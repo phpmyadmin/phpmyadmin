@@ -68,9 +68,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // 2. Display mode is not "false for all elements" -> updates the
         // display mode
         if ($the_disp_mode != 'nnnn00000') {
-            // 2.1 Statement is a "SELECT COUNT",
-            //     "CHECK/ANALYZE/REPAIR/OPTIMIZE" or an "EXPLAIN"
-            if ($GLOBALS['is_count'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
+            // 2.1 Statement is a "SELECT COUNT", a
+            //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
+            //     contains a "PROC ANALYSE" part
+            if ($GLOBALS['is_count'] || $GLOBALS['is_analyse'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
                 $do_display['edit_lnk']  = 'nn'; // no edit link
                 $do_display['del_lnk']   = 'nn'; // no delete link
                 $do_display['sort_lnk']  = (string) '0';

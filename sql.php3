@@ -210,6 +210,7 @@ else {
     if ($is_select) { // see line 76
         $is_count    = (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
         $is_export   = (eregi('[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+', $sql_query));
+        $is_analyse  = (eregi('[[:space:]]+PROCEDURE[[:space:]]+ANALYSE\(', $sql_query));
     } else if (eregi('^EXPLAIN[[:space:]]+', $sql_query)) {
         $is_explain  = TRUE;
     } else if (eregi('^DELETE[[:space:]]+', $sql_query)) {
