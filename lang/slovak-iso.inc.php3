@@ -43,7 +43,7 @@ $strAnyDatabase = 'Akákoµvek databáza';
 $strAnyHost = 'Akýkoµvek hostiteµ';
 $strAnyTable = 'Akákoµvek tabuµka';
 $strAnyUser = 'Akykoµvek pou¾ívateµ';
-$strAPrimaryKey = 'Bol pridaný primárny pre %s';
+$strAPrimaryKey = 'Bol pridaný primárny kµúè pre %s';
 $strAscending = 'Vzostupne';
 $strAtBeginningOfTable = 'Na zaèiatku tabuµky';
 $strAtEndOfTable = 'Na konci tabuµky';
@@ -226,7 +226,7 @@ $strPasswordEmpty = 'Heslo je prázdne!';
 $strPasswordNotSame = 'Heslá sa nezhodujú!';
 $strPHPVersion = 'Verzia PHP';
 $strPmaDocumentation = 'phpMyAdmin Dokumentácia';
-$strPmaUriError = 'Diretíva <tt>$cfgPmaAbsoluteUri</tt> MUSÍ by» nastavená v konfiguraènom súbore!';
+$strPmaUriError = 'Direktíva <tt>$cfgPmaAbsoluteUri</tt> v konfiguraènom súbore MUSÍ by» nastavená!';
 $strPos1 = 'Zaèiatok';
 $strPrevious = 'Predchádzajúci';
 $strPrimary = 'Primárny';
@@ -244,6 +244,7 @@ $strQBEIns = 'Vlo¾i»';
 $strQueryOnDb = ' SQL dotaz v databáze <b>%s</b>:';
 
 $strRecords = 'Záznamov';
+$strReferentialIntegrity = 'Skontrolova» referenènú integritu:';
 $strReloadFailed = 'Znovu-naèítanie MySQL bolo neúspe¹né.';
 $strReloadMySQL = 'Znovu-naèíta» MySQL';
 $strRememberReload = 'Nezabudnite znovu-naèíta» MySQL server.';
@@ -350,5 +351,4 @@ $strZip = '"zo zipované"';
 
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
