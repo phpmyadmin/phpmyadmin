@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/indonesian.inc.php3: Updates, thanks to Rachim Tamsjadi.
+
 2002-05-31 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Small corrections.
     * sql.php3, header_printview.inc.php3, libraries/display_tbl.inc.php3,
