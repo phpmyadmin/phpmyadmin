@@ -212,11 +212,11 @@
 <p><b>Quick Install:</b></p>
 <ol>
     <li> Untar or unzip the distribution (be sure to unzip the subdirectories):
-         <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's 
+         <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
          document root.</li>
     <li> Open the file config.inc.php3 in your favourite editor and change
-         the values for host, user, password and authentication mode
-         to fit your environment.
+         the values for host, user, password and authentication mode to fit
+         your environment.
          Also insert the correct value for <tt>$cfgPmaAbsoluteUri</tt>.
          Have a look at
          <a class="navigation" href="#config">Configuration section</a> for an
@@ -548,18 +548,18 @@
     <dt><b>$cfgServerDefault</b> integer</dt>
     <dd>
         If you have more than one server configured, you can set
-        $cfgServerDefault to any one of them to autoconnect to that server when
-        phpMyAdmin is started, or set it to 0 to be given a list of servers
-        without logging in.<br />
+        <tt>$cfgServerDefault</tt> to any one of them to autoconnect to that
+        server when phpMyAdmin is started, or set it to 0 to be given a list of
+        servers without logging in.<br />
         If you have only one server configured, <tt>$cfgServerDefault</tt> MUST
         be set to that server.
         <br /><br />
     </dd>
 
-    <dt><b>$cfgLeftFrameLight </b>boolean</dt>
+    <dt><b>$cfgLeftFrameLight</b> boolean</dt>
     <dd>
-        Defines whether to use select-based menu and display only the
-        current tables in the left frame (smaller page).
+        Defines whether to use select-based menu and display only the current
+        tables in the left frame (smaller page).
         <br /><br />
     </dd>
 
@@ -990,22 +990,21 @@
 </p>
 
 <p>
-    <b>I get an 'open_basedir restriction' while uploading a file from the  
-       query box.</b> 
+    <b>I get an 'open_basedir restriction' while uploading a file from the
+       query box.</b>
     <br />
     Since version 2.2.4, phpMyAdmin supports servers with open_basedir
-    restrictions. Assuming that the restriction allows you to open files
-    in the current directory ('.'), all you have to do is create a 'tmp'
-    directory under the phpMyAdmin install directory, with permissions 777
-    and the same owner as the owner of your phpMyAdmin directory. The
-    uploaded files will be moved there, and after execution of your SQL
-    commands, removed.
+    restrictions. Assuming that the restriction allows you to open files in the
+    current directory ('.'), all you have to do is create a 'tmp' directory
+    under the phpMyAdmin install directory, with permissions 777 and the same
+    owner as the owner of your phpMyAdmin directory. The  uploaded files will
+    be moved there, and after execution of your SQL commands, removed.
 </p>
 
 <p>
-    <b>I have lost my MySQL root password, what can I do?</b> 
+    <b>I have lost my MySQL root password, what can I do?</b>
     <br />
-    The MySql manual explains how to 
+    The MySql manual explains how to
     <a href="http://www.mysql.com/doc/R/e/Resetting_permissions.html">
     reset the permissions</a>.
 </p>
@@ -1203,17 +1202,17 @@
 </p>
 
 <p>
-    <b>In Internet Explorer 5.0, I get Javascript errors when browsing
-    my rows.</b>
+    <b>In Internet Explorer 5.0, I get Javascript errors when browsing my
+       rows.</b>
     <br />
     Upgrade to at least Internet Explorer 5.5SP2.<br />
 </p>
 
 <p>
-    <b>In Internet Explorer 5.0, 5.5 or 6.0, I cannot modify a row in a 
-    table with many fields.</b>
+    <b>In Internet Explorer 5.0, 5.5 or 6.0, I cannot modify a row in a table
+       with many fields.</b>
     <br />
-    Your table does not have a primary key, so we must use a long URL to 
+    Your table does not have a primary key, so we must use a long URL to
     identify this row. There is a limit on the lenght of the URL in those
     browsers, and this not happen in Netscape, for example. The workaround
     is to create a primary key, or use another browser.<br />
@@ -1227,8 +1226,8 @@
 </p>
 
 <p>
-    <b>With Mozilla 0.9.7 I have problems sending a query modified in
-    the query box.</b>
+    <b>With Mozilla 0.9.7 I have problems sending a query modified in the query
+       box.</b>
     <br />
     Looks like a Mozilla bug: 0.9.6 was ok. We will keep an eye on future
     Mozilla versions.<br />
@@ -1253,7 +1252,7 @@
 </p>
 <p>
     <b>When I create a table, I click the Index checkbox for 2 fields and
-    phpMyAdmin generates only one index with those 2 fields.</b>
+       phpMyAdmin generates only one index with those 2 fields.</b>
     <br />
     In phpMyAdmin 2.2.0 and 2.2.1, this is the way to create a multi-fields
     index. If you want two indexes, create the first one when creating the
@@ -1265,8 +1264,8 @@
     <b>How can I insert a null value into my table?</b>
     <br />
     Since version 2.2.3, you have a checkbox for each field that can be null.
-    Before 2.2.3, you had to enter &quot;null&quot;, without the quotes, 
-    as the field's value. 
+    Before 2.2.3, you had to enter &quot;null&quot;, without the quotes, as the
+    field's value. 
 </p>
 
 <h3>[phpMyAdmin project]</h3>
