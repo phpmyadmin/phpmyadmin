@@ -282,6 +282,21 @@ else {
     $checked   = (!empty($checkall) ? ' checked="checked"' : '');
     $num_columns = ($cfg['PropertiesNumColumns'] > 1 ? (ceil($num_tables / $cfg['PropertiesNumColumns']) + 1) : 0);
     $row_count = 0;
+
+    if ($cfg['NaturalOrder']) {
+        $tables_temp = $tables;
+        foreach (array_keys($tables_temp) as $each) {
+            $tables_sort[$each] = $tables_temp[$each]['Name'];
+        }
+        natsort($tables_sort);
+        $sort_i = 0;
+        foreach (array_keys($tables_sort) as $each) {
+            $tables_temp[$sort_i] = $tables[$each];
+            $sort_i++;
+        }
+        $tables = $tables_temp;
+    }
+
     foreach($tables AS $keyname => $sts_data) {
         $table         = $sts_data['Name'];
         $table_encoded = urlencode($table);
