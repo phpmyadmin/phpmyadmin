@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-17 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * translators.html: Garvin is now the official German translator,
+      temporarily.
+
 2003-08-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
 
