@@ -14,6 +14,8 @@ $Source$
       that the correct font families are used.
 
 2003-03-10 Garvin Hicking <me@supergarv.de>
+    * libraries/common.lib.php3: Fixed getElementbyId-Bug #687548,
+      thanks to Csaba Gabor!
     * sql.php3: Fixed another occurence of addslashes() where it no longer
       belongs.
     * tbl_addfield.php3, tbl_alter.php3, tbl_create.php3,
