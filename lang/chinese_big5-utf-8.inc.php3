@@ -30,6 +30,7 @@ $strAbsolutePathToDocSqlDir = '請輸入 docSQL 目錄於網頁伺服器的絕�
 $strAccessDenied = '拒絕存取';
 $strAccessDeniedExplanation = 'phpMyAdmin 嘗試連線到 MySQL 伺服器, 但伺服器拒絕了連線. 您應於 config.inc.php 內檢查主機名稱, 登入名稱及密碼及確保這些資料是與系統管理人員所提供的 MySQL 伺服器資料相同';
 $strAction = '執行';
+$strAddAutoIncrement = "新增 AUTO_INCREMENT 數值";
 $strAddDeleteColumn = '新增/減少 選擇欄';
 $strAddDeleteRow = '新增/減少 篩選列';
 $strAddDropDatabase = '加入 \'刪除資料表\' 語法';
@@ -658,7 +659,5 @@ $strYes = ' 是 ';
 
 $strZeroRemovesTheLimit = '註: 設定這些選項為 0 (零) 可解除限制.';
 $strZip = '"zipped"';
-
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 
 ?>
