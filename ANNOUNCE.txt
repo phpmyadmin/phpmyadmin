@@ -44,7 +44,6 @@ Highlights
         - support for user resource limits
         - privileges may now be edited without reloading the user tables
         - copy user profiles
-        - show blob size
      * Export
         - export to LaTeX format
         - better handling of charset conversion
@@ -63,6 +62,7 @@ Highlights
      * new documentation layout
      * (for phpMyAdmin developers) interface to DBG extension for
        debugging/profiling
+     * show blob size
 
   Some fixes:
 
