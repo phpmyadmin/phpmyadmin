@@ -237,8 +237,8 @@ echo "\n";
 if ($num_tables > 0) {
     ?>
     <!-- Printable view of a table -->
-    <li style="margin-bottom: 10px">
-        <a href="db_printview.php3<?php echo $query; ?>"><?php echo $strPrintView; ?></a>
+    <li>
+        <div style="margin-bottom: 10px"><a href="db_printview.php3<?php echo $query; ?>"><?php echo $strPrintView; ?></a></div>
     </li>
     <?php
 }
@@ -254,17 +254,22 @@ if ($num_tables > 0) {
             <input type="hidden" name="goto" value="db_details.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <?php echo $strRunSQLQuery . $db . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
-<textarea name="sql_query" cols="40" rows="3" wrap="virtual" style="width: <?php echo $cfgMaxInputsize; ?>; margin-bottom: 5px">
+            <div style="margin-bottom: 5px">
+<textarea name="sql_query" cols="40" rows="3" wrap="virtual" style="width: <?php echo $cfgMaxInputsize; ?>">
 <?php echo (isset($sql_query) ? $sql_query : '');?>
 </textarea><br />
+            </div>
             <?php echo "<i>$strOr</i> $strLocationTextfile"; ?>&nbsp;:<br />
-            <input type="file" name="sql_file" style="margin-bottom: 5px" /><br />
+            <div style="margin-bottom: 5px">
+            <input type="file" name="sql_file" /><br />
+            </div>
 <?php
 // Bookmark Support
 if ($cfgBookmark['db'] && $cfgBookmark['table']) {
     if (($bookmark_list = list_bookmarks($db, $cfgBookmark)) && count($bookmark_list) > 0) {
         echo "            <i>$strOr</i> $strBookmarkQuery&nbsp;:<br />\n";
-        echo '            <select name="id_bookmark" style="margin-bottom: 5px">' . "\n";
+        echo '            <div style="margin-bottom: 5px">' . "\n";
+        echo '            <select name="id_bookmark">' . "\n";
         echo '                <option value=""></option>' . "\n";
         while (list($key, $value) = each($bookmark_list)) {
             echo '                <option value="' . htmlentities($value) . '">' . htmlentities($key) . '</option>' . "\n";
@@ -274,6 +279,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table']) {
         echo '            &nbsp;<input type="radio" name="action_bookmark" value="1" style="vertical-align: middle" />' . $strBookmarkView . "\n";
         echo '            &nbsp;<input type="radio" name="action_bookmark" value="2" style="vertical-align: middle" />' . $strDelete . "\n";
         echo '            <br />' . "\n";
+        echo '            </div>' . "\n";
     }
 }
 ?>
@@ -290,8 +296,8 @@ if ($cfgBookmark['db'] && $cfgBookmark['table']) {
 if ($num_tables > 0) {
     ?>
     <!-- Query by an example -->
-    <li style="margin-bottom: 10px">
-        <a href="tbl_qbe.php3<?php echo $query;?>"><?php echo $strQBE; ?></a>
+    <li>
+        <div style="margin-bottom: 10px"><a href="tbl_qbe.php3<?php echo $query;?>"><?php echo $strQBE; ?></a></div>
     </li>
     
     <!-- Dump of a database -->
@@ -414,7 +420,3 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 require('./footer.inc.php3');
 echo "\n";
 ?>
-
-</body>
-
-</html>

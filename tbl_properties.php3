@@ -410,8 +410,8 @@ echo "\n";
 <ul>
 
     <!-- Printable view of the table -->
-    <li style="margin-bottom: 10px">
-        <a href="tbl_printview.php3<?php echo $query; ?>"><?php echo $strPrintView; ?></a>
+    <li>
+        <div style="margin-bottom: 10px"><a href="tbl_printview.php3<?php echo $query; ?>"><?php echo $strPrintView; ?></a></div>
     </li>
 
     <!-- Query box and bookmark support -->
@@ -424,15 +424,18 @@ echo "\n";
             <input type="hidden" name="goto" value="db_details.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <?php echo $strRunSQLQuery . $db . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
-<textarea name="sql_query" cols="40" rows="3" wrap="virtual" style="width: <?php echo $cfgMaxInputsize; ?>; margin-bottom: 5px">
+            <div style="margin-bottom: 5px">
+<textarea name="sql_query" cols="40" rows="3" wrap="virtual" style="width: <?php echo $cfgMaxInputsize; ?>">
 SELECT * FROM <?php echo $table; ?> WHERE 1
 </textarea><br />
+            </div>
 <?php
 // Bookmark Support
 if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
     if (($bookmark_list = list_bookmarks($db, $cfgBookmark)) && count($bookmark_list) > 0) {
         echo "            <i>$strOr</i> $strBookmarkQuery&nbsp;:<br />\n";
-        echo '            <select name="id_bookmark" style="vertical-align: middle; margin-bottom: 5px">' . "\n";
+        echo '            <div style="margin-bottom: 5px">' . "\n";
+        echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
         echo '                <option value=""></option>' . "\n";
         while (list($key, $value) = each($bookmark_list)) {
             echo '                <option value="' . htmlentities($value) . '">' . htmlentities($key) . '</option>' . "\n";
@@ -442,6 +445,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
         echo '            &nbsp;<input type="radio" name="action_bookmark" value="1" style="vertical-align: middle" />' . $strBookmarkView . "\n";
         echo '            &nbsp;<input type="radio" name="action_bookmark" value="2" style="vertical-align: middle" />' . $strDelete . "\n";
         echo '            <br />' . "\n";
+        echo '            </div>' . "\n";
     }
 }
 ?>
@@ -450,7 +454,8 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
     </li>
 
     <!-- Display, select and insert -->
-    <li style="margin-bottom: 10px">
+    <li>
+        <div style="margin-bottom: 10px">
         <a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&<?php echo $query; ?>">
             <b><?php echo $strBrowse; ?></b></a>&nbsp;-&nbsp;
         <a href="tbl_select.php3?<?php echo $query; ?>">
@@ -458,6 +463,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
         <a href="tbl_change.php3?<?php echo $query; ?>">
             <b><?php echo $strInsert; ?></b></a>
         <br />
+        </div>
     </li>
 
     <!-- Add some new fields -->
@@ -513,8 +519,8 @@ echo "\n";
 ?>
 
     <!-- Insert a text file -->
-    <li style="margin-bottom: 10px">
-        <a href="ldi_table.php3?<?php echo $query; ?>"><?php echo $strInsertTextfiles; ?></a>
+    <li>
+        <div style="margin-bottom: 10px"><a href="ldi_table.php3?<?php echo $query; ?>"><?php echo $strInsertTextfiles; ?></a></div>
     </li>
 
     <!-- Dump of a database -->
@@ -586,7 +592,8 @@ echo "\n";
     </li>
 
     <!-- Change table name and copy table -->
-    <li style="vertical-align: top; margin-bottom: 10px">
+    <li style="vertical-align: top">
+        <div style="margin-bottom: 10px">
         <table border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td valign="top">
@@ -650,6 +657,7 @@ echo "\n";
         </td>
     </tr>
     </table>
+    </div>
     </li>
 
 <?php
@@ -657,7 +665,8 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
     if ($tbl_type == 'MYISAM' or $tbl_type == 'BDB') {
         ?>
     <!-- Table maintenance -->
-    <li style="vertical-align: top; margin-bottom: 10px">
+    <li style="vertical-align: top">
+        <div style="margin-bottom: 10px">
         <table border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td><?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;</td>
@@ -714,6 +723,7 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
         ?>
         </tr>
         </table><br />
+        </div>
     </li>
         <?php
     } // end MYISAM or BDB case
@@ -816,7 +826,3 @@ else { // MySQL < 3.23
 require('./footer.inc.php3');
 echo "\n";
 ?>
-
-</body>
-
-</html>
