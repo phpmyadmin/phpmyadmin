@@ -635,7 +635,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_field` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_table` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pdf_page_number` int(11) NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_table`,`master_field`),<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY pdf_page_number (`pdf_page_number`)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Relation table';<br />
@@ -653,12 +652,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         If you created a relation table before release 2.3.0, you can upgrade
         it with those commands, assuming your table name is &quot;PMA_relation&quot;:<br />
         <tt>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE src_table master_table VARCHAR(64) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE src_column master_field VARCHAR(64) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_table foreign_table VARCHAR(64) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_column foreign_field VARCHAR(64) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` ADD `pdf_page_number` int(11) NOT NULL;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` ADD INDEX(`pdf_page_number`);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE src_table master_table VARCHAR(64) NOT NULL;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE src_column master_field VARCHAR(64) NOT NULL;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_table foreign_table VARCHAR(64) NOT NULL;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_column foreign_field VARCHAR(64) NOT NULL;<br />
         </tt><br />
     </dd>
 
@@ -712,7 +709,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         table.
         <br /><br />
         PDF output is supported under PHP4, and you must be using also the
-        'relation' feature. Also, we used the fpdf library which currently
+        'relation' feature and have a table of PDF Pages (see $cfg['Servers'][$i]['pdf_pages']).
+        Also, we used the fpdf library which currently
         only supports iso-8859 (Latin1) character sets in PDF.
         <br /><br />
         To use this functionality you have to:
@@ -734,9 +732,41 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 put the table name in
                 <tt>$cfg['Servers'][$i]['table_coords']</tt>
             </li>
+        </ul><br />
+        Usage tips: <a class="navigation" href="#faqpdf">PDF output</a>.
+        <br /><br />
+    </dd>
+    <dt>
+        <b>$cfg['Servers'][$i]['pdf_pages']</b> string
+    </dt>
+    <dd>
+        Since release 2.3.0 you can describe, in a special 'pdf_pages'
+        table, which pages you want to be able to create as PDF.
+        <br />
+        This configuration variable will hold the name of this special
+        table.
+        <br /><br />
+        PDF output is supported under PHP4, and you must be using also the
+        'relation' feature and have a table of PDF Pages (see $cfg['Servers'][$i]['pdf_pages']).
+        Also, we used the fpdf library which currently
+        only supports iso-8859 (Latin1) character sets in PDF.
+        <br /><br />
+        To use this functionality you have to:
+        <ul>
             <li>
-                then manually fill this table with information about the table
-                positions on the PDF schema.
+                create in the same database a table (for example
+                'PMA_pdf_pages') following this scheme:<br />
+                <tt>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE PMA_pdf_pages (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_nr int(10) unsigned NOT NULL auto_increment,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_descr varchar(50) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  PRIMARY KEY  (page_nr)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='PDF Relationpages for PMA';<br />
+                </tt>
+            </li>
+            <li>
+                put the table name in
+                <tt>$cfg['Servers'][$i]['pdf_pages']</tt>
             </li>
         </ul><br />
         Usage tips: <a class="navigation" href="#faqpdf">PDF output</a>.
@@ -1856,24 +1886,33 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <p>
     <b>How can I produce a PDF schema of my database?</b>
     <br />
-    First you have to fill the 'relation' and 'table_coords'
+    First you have to fill the 'relation', 'table_coords' and 'pdf_pages'
     configuration variables.
     <br /><br />
     Then, think about your schema layout: which tables will go on which pages.
-    You have to fill in the 'relation' table the page number for each
-    master-foreign link.
-    <br /><br />
-    A table may be displayed on more that one page, depending on how many
-    links it has to other tables.
-    <br /><br />
-    Then manually fill the table_coords table with the page number and
-    the coordinates, x being the width and y the height, and (0,0) at the upper
-    left corner.
-    For example, x=100 and y=200 means that the table will be at 200 mm down
-    and 100 mm right from the upper left corner.
-    <br /><br />
-    To generate the output, click on your database name, then choose
-    'Structure' and 'Display PDF schema', and enter the page number.
+    <ul>
+        <li>Click on your db name in the left frame</li>
+        <li>Choose &quot;Structure&quot; in the navigation on top</li>
+        <li>Choose &quot;Edit PDF Pages&quot; which should be somewhere at the bottom of the page</li>
+        <li>Enter the name for a first pdf page and submit</li>
+        <li>Choose this page to edit</li>
+        <li>Now add a table you want to show on this page and it's coordinates and submit<br />
+            First you will have to guess this coordinates of course, so just
+            expect to have an area of about 297 * 210 and put the tables coordinates somewhere
+            in there, you will be able to have a look at what happened and change them later.<br />
+            For example, x=100 and y=200 means that the table will be at 200 mm down
+            and 100 mm right from the upper left corner.</li>
+        <li>After every table you submitted you will have the possibility to submit more tables</li>
+        <li>When you have entered enough tables Click on your db name in the left frame again</li>
+        <li>Now, again at the bottom of the page you should be able to choose &quot;Display PDF schema&quot;<br />
+            For testing it might be useful to show the Grid as well, so you can see the coordinates used<br />
+            maybe also choose Color and submit.</li>
+        <li>Save the file he will offer you to something like Schema.pdf (Internet Explorer has some Bug there
+        which might make it offer it without an extension. Under Windows it is important to have the Extension
+        .pdf, in under OS you should be fine just saving the file under the name it offers)</li>
+
+         in the navigation on top</li>
+    </ul>
 </p>
 
 <a name="faqproject"></a>
