@@ -116,12 +116,23 @@ var day;
 var month;
 var year;
 
+/**
+ * Opens calendar window.
+ *
+ * @param   string      calendar.php parameters
+ * @param   string      form name
+ * @param   string      field name
+ * @param   string      edit type - date/timestamp
+ */
 function openCalendar(params, form, field, type) {
 	window.open("./calendar.php?" + params, "calendar", "width=400,height=200,status=yes");
 	dateField = eval("document." + form + "." + field);
     dateType = type;
 }
 
+/**
+ * Initializes calendar window.
+ */
 function initCalendar() {
 	if (!year && !month && !day) {
         /* Called for first time */
@@ -206,6 +217,11 @@ function initCalendar() {
 	cnt.innerHTML = str;
 }
 
+/**
+ * Returns date from calendar.
+ *
+ * @param   string     date text
+ */
 function returnDate(d) {
 	window.opener.dateField.value = d;
 	window.close();
