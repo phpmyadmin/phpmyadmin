@@ -5,7 +5,6 @@
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
-
 /**
  * Rename database
  */
@@ -56,6 +55,21 @@ if (isset($db) &&
     }
 }
 /**
+ * Settings for relations stuff
+ */
+
+require_once('./libraries/relation.lib.php');
+$cfgRelation = PMA_getRelationsParam();
+
+/**
+ * Check if comments were updated
+ * (must be done before displaying the menu tabs)
+ */
+if ($cfgRelation['commwork'] && isset($db_comment) && $db_comment == 'true') {
+    PMA_SetComment($db, '', '(db_comment)', $comment);
+}
+
+/**
  * Prepares the tables list if the user where not redirected to this script
  * because there is no table in the database ($is_info is TRUE)
  */
@@ -104,19 +118,6 @@ echo '     <td align="right">';
 echo '             ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 echo '     </td> </tr>';
 echo '        </form>';
-
-/**
- * Settings for relations stuff
- */
-require_once('./libraries/relation.lib.php');
-$cfgRelation = PMA_getRelationsParam();
-
-/**
- * Check if comments were updated
- */
-if ($cfgRelation['commwork'] && isset($db_comment) && $db_comment == 'true') {
-    PMA_SetComment($db, '', '(db_comment)', $comment);
-}
 
 echo '<table border="0" cellpadding="2" cellspacing="0">';
 if ($cfgRelation['commwork']) {
