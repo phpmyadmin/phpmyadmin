@@ -46,7 +46,7 @@ romanian-iso-8859-1
 russian-koi8-r
 serbian-windows-1250
 slovak-iso-8859-2
-spanish
+spanish-iso-8859-1
 swedish
 thai
 turkish
