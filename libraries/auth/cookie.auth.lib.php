@@ -580,6 +580,8 @@ function PMA_auth_set_user()
         }
 
         // loic1: workaround against a IIS 5.0 bug
+        // lem9: here, PMA_sendHeaderLocation() has not yet been defined,
+        //       so use the workaround
         if (empty($GLOBALS['SERVER_SOFTWARE'])) {
             if (isset($_SERVER) && !empty($_SERVER['SERVER_SOFTWARE'])) {
                 $GLOBALS['SERVER_SOFTWARE'] = $_SERVER['SERVER_SOFTWARE'];
