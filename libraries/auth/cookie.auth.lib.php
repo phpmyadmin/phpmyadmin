@@ -545,7 +545,24 @@ function PMA_auth_set_user()
     $cfg['Server']['user']     = $PHP_AUTH_USER;
     $cfg['Server']['password'] = $PHP_AUTH_PW;
 
-    // Set cookies if required (once per session) and, in this case, force
+    // Name and password cookies needs to be refreshed each time
+    // Duration = one month for username
+    setcookie('pma_cookie_username',
+        PMA_blowfish_encrypt($cfg['Server']['user'] . ':' . $GLOBALS['current_time'], 
+            $GLOBALS['cfg']['blowfish_secret']),
+        time() + (60 * 60 * 24 * 30),
+        $GLOBALS['cookie_path'], '',
+        $GLOBALS['is_https']);
+        
+    // Duration = till the browser is closed for password (we don't want this to be saved)
+    setcookie('pma_cookie_password',
+        PMA_blowfish_encrypt(!empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
+            $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']),
+        0,
+        $GLOBALS['cookie_path'], '',
+        $GLOBALS['is_https']);
+
+    // Set server cookies if required (once per session) and, in this case, force
     // reload to ensure the client accepts cookies
     if (!$from_cookie) {
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
@@ -561,21 +578,7 @@ function PMA_auth_set_user()
                 setcookie('pma_cookie_servername', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
             }
         }
-        // Duration = one month for username
-        setcookie('pma_cookie_username',
-            PMA_blowfish_encrypt($cfg['Server']['user'] . ':' . $GLOBALS['current_time'], 
-                $GLOBALS['cfg']['blowfish_secret']),
-            time() + (60 * 60 * 24 * 30),
-            $GLOBALS['cookie_path'], '',
-            $GLOBALS['is_https']);
 
-        // Duration = till the browser is closed for password
-        setcookie('pma_cookie_password',
-            PMA_blowfish_encrypt(!empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
-                $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']),
-            0,
-            $GLOBALS['cookie_path'], '',
-            $GLOBALS['is_https']);
         // loic1: workaround against a IIS 5.0 bug
         if (empty($GLOBALS['SERVER_SOFTWARE'])) {
             if (isset($_SERVER) && !empty($_SERVER['SERVER_SOFTWARE'])) {
