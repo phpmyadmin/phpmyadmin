@@ -97,22 +97,6 @@ if (!defined('PMA_MYSQL_WRAPPERS_LIB_INCLUDED')){
         return PMA_convert_display_charset(mysql_field_type($result, $field_index));
     }
 
-    function PMA_mysql_list_fields($database_name, $table_name, $link_identifier = FALSE) {
-        if ($link_identifier != FALSE) {
-            return mysql_list_fields(PMA_convert_charset($database_name), PMA_convert_charset($table_name), $link_identifier);
-        } else {
-            return mysql_list_fields(PMA_convert_charset($database_name), PMA_convert_charset($table_name));
-        }
-    }
-
-    function PMA_mysql_list_tables($database_name, $link_identifier = FALSE) {
-        if ($link_identifier != FALSE) {
-            return mysql_list_tables(PMA_convert_charset($database_name), $link_identifier);
-        } else {
-            return mysql_list_tables(PMA_convert_charset($database_name));
-        }
-    }
-
     function PMA_mysql_query($query, $link_identifier = FALSE, $result_mode = FALSE) {
         if ($link_identifier != FALSE) {
             if ($result_mode != FALSE) {
@@ -122,6 +106,50 @@ if (!defined('PMA_MYSQL_WRAPPERS_LIB_INCLUDED')){
             }
         } else {
             return mysql_query(PMA_convert_charset($query));
+        }
+    }
+
+// mysql_list_tables() is deprecated, also we got report about weird results
+// under some circumstances
+
+    function PMA_mysql_list_tables($database_name, $link_identifier = FALSE) {
+        if ($link_identifier != FALSE) {
+            return PMA_mysql_query('SHOW TABLES FROM ' . PMA_backquote(PMA_convert_charset($database_name)), $link_identifier);
+        } else {
+            return PMA_mysql_query('SHOW TABLES FROM ' . PMA_backquote(PMA_convert_charset($database_name)));
+        }
+    }
+
+// mysql_list_fields() is deprecated, also we got report about weird results
+// under some circumstances
+//
+// using SELECT * FROM db.table 
+// lets us use functions like mysql_field_name() on the result set
+
+    function PMA_mysql_list_fields_alternate($database_name, $table_name, $link_identifier = FALSE) {
+        if ($link_identifier != FALSE) {
+            $result = PMA_mysql_query('SHOW FIELDS FROM '
+             . PMA_backquote(PMA_convert_charset($database_name)) . '.'
+             . PMA_backquote(PMA_convert_charset($table_name)), $link_identifier);
+        } else {
+            $result = PMA_mysql_query('SHOW FIELDS FROM '
+             . PMA_backquote(PMA_convert_charset($database_name)) . '.'
+             . PMA_backquote(PMA_convert_charset($table_name)));
+        }
+        
+        $fields = array();
+        while ($row = PMA_mysql_fetch_array($result)) {
+            $fields[] = $row;
+        }
+        
+        return $fields;
+    }
+
+    function PMA_mysql_list_fields($database_name, $table_name, $link_identifier = FALSE) {
+        if ($link_identifier != FALSE) {
+            return mysql_list_fields(PMA_convert_charset($database_name), PMA_convert_charset($table_name), $link_identifier);
+        } else {
+            return mysql_list_fields(PMA_convert_charset($database_name), PMA_convert_charset($table_name));
         }
     }
 

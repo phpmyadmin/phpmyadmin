@@ -36,20 +36,20 @@
 
 case "$1" in
     --iconv)
-    	echo Using iconv on user request
+        echo Using iconv on user request
         CONVERTOR=iconv
         # the space on following is REQUIRED
         CONVERTOR_PARAMS=" -f %s -t %s"
         shift
         ;;
     --recode)
-    	echo Using recode on user request
+        echo Using recode on user request
         CONVERTOR=recode
         CONVERTOR_PARAMS=" -f %s..%s"
         shift
         ;;
     *)
-    	echo Using recode as default, force with --iconv/--recode
+        echo Using recode as default, force with --iconv/--recode
         CONVERTOR=recode
         CONVERTOR_PARAMS=" -f %s..%s"
         ;;
@@ -74,6 +74,7 @@ afrikaans-iso-8859-1
 albanian-iso-8859-1
 arabic-windows-1256
 azerbaijani-iso-8859-9
+bosnian-windows-1250
 brazilian_portuguese-iso-8859-1
 bulgarian-windows-1251
 catalan-iso-8859-1
@@ -100,6 +101,7 @@ latvian-windows-1257
 lithuanian-windows-1257
 malay-iso-8859-1
 norwegian-iso-8859-1
+persian-windows-1256
 polish-iso-8859-2
 portuguese-iso-8859-1
 romanian-iso-8859-1
@@ -180,7 +182,7 @@ for base in $BASE_TRANSLATIONS ; do
     # at first update existing translations
     for file in $create_files ; do
         # charset of destination file
-        
+
         # grepping from file causes problems when it is empty...
         charset=$(grep '\$charset' $file | sed "s%^[^'\"]*['\"]\\([^'\"]*\\)['\"][^'\"]*$%\\1%")
         if [ -z "$charset" ] ; then
@@ -195,7 +197,7 @@ for base in $BASE_TRANSLATIONS ; do
             echo " $file is not needed to update"
             continue
         fi
-            
+
         echo -n " to $charset..."
         if [ $charset = 'utf-8' ] ; then
             # if we convert to utf-8, we should add allow_recoding
@@ -221,7 +223,7 @@ $allow_recoding = TRUE;' > $TEMPFILE
             fi
         else
             # just convert
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed "s/$src_charset/$charset/" > $TEMPFILE 
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed "s/$src_charset/$charset/" > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file
                 echo done
@@ -231,7 +233,7 @@ $allow_recoding = TRUE;' > $TEMPFILE
             fi
         fi
     done
-  
+
     # now check whether we found utf-8 translation
     if [ $is_utf = no ] ; then
         if ( echo $IGNORE_UTF | grep -q $base ) ; then

@@ -640,11 +640,14 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             echo '<input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" id="field_' . $i . '_3" />';
         }
 
-        if ($cfg['UploadDir'] != '') {
+        if (!empty($cfg['UploadDir'])) {
+            if (substr($cfg['UploadDir'], -1) != '/') {
+                $cfg['UploadDir'] .= '/';
+            }
             if ($handle = @opendir($cfg['UploadDir'])) {
                 $is_first = 0;
                 while ($file = @readdir($handle)) {
-                    if (is_file($cfg['UploadDir'] . $file) && substr($file, -4) != '.sql') {
+                    if (is_file($cfg['UploadDir'] . $file) && !PMA_checkFileExtensions($file, '.sql')) {
                         if ($is_first == 0) {
                             echo "<br />\n";
                             echo '    <i>' . $strOr . '</i>' . ' ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";

@@ -36,12 +36,14 @@ $err_url  = $goto
 $view_bookmark = 0;
 $sql_bookmark  = isset($sql_bookmark) ? $sql_bookmark : '';
 $sql_query     = isset($sql_query)    ? $sql_query    : '';
-if (!empty($sql_localfile) && $cfg['UploadDir'] != '') {
+if (!empty($sql_localfile) && !empty($cfg['UploadDir'])) {
+    if (substr($cfg['UploadDir'], -1) != '/') {
+        $cfg['UploadDir'] .= '/';
+    }
     $sql_file  = $cfg['UploadDir'] . $sql_localfile;
 } else if (empty($sql_file)) {
     $sql_file  = 'none';
 }
-
 
 /**
  * Bookmark Support: get a query back from bookmark if required
@@ -52,7 +54,7 @@ if (!empty($id_bookmark)) {
         case 0: // bookmarked query that have to be run
             $sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
             if (isset($bookmark_variable) && !empty($bookmark_variable)) {
-            	if (PMA_PHP_INT_VERSION >= 40300) {
+                if (PMA_PHP_INT_VERSION >= 40300) {
                     $sql_query = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $sql_query);
                 } else {
                     $sql_query = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '\1 ' . PMA_sqlAddslashes($bookmark_variable) . '\2', $sql_query);
@@ -102,8 +104,7 @@ if ($sql_file != 'none') {
             if (!is_writeable($tmp_subdir)) {
                 $sql_query = PMA_readFile($sql_file, $sql_file_compression);
                 if ($sql_query == FALSE) {
-                    echo $strFileCouldNotBeRead;
-                    exit();
+                    $message = $strFileCouldNotBeRead;
                 }
             }
             else {
@@ -120,6 +121,9 @@ if ($sql_file != 'none') {
         else {
             // read from the normal upload dir
             $sql_query = PMA_readFile($sql_file, $sql_file_compression);
+            if ($sql_query == FALSE) {
+                $message = $strFileCouldNotBeRead;
+            }
         }
 
         // Convert the file's charset if necessary
@@ -164,6 +168,21 @@ if (!$cfg['AllowUserDropDatabase']
 define('PMA_CHK_DROP', 1);
 
 /**
+ * Store a query as a bookmark before executing it?
+ */
+if (isset($SQLbookmark) && $sql_query != '') {
+    include('./libraries/bookmark.lib.php3');
+    $bfields = array(
+                 'dbase' => $db,
+                 'user'  => $cfg['Bookmark']['user'],
+                 'query' => $sql_query,
+                 'label' => $bkm_label
+    );
+    
+    PMA_addBookmarks($bfields, $cfg['Bookmark'], (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
+}
+
+/**
  * Executes the query
  */
 if ($sql_query != '') {
@@ -186,20 +205,24 @@ if ($sql_query != '') {
         // Here be the values if the Verbose-Mode (see config.inc.php3) is NOT activated
         $max_nofile_length = 500;
         $max_nofile_pieces = 0;
-        $max_file_length   = 0;
+        // Nijel: Here must be some limit, as extended inserts can be really
+        //        huge and parsing them eats megabytes of memory
+        $max_file_length   = 10000;
         $max_file_pieces   = 10;
     } else {
         // Values for verbose-mode
         $max_nofile_length = 0;
         $max_nofile_pieces = 50;
-        $max_file_length   = 0;
+        // Nijel: Here must be some limit, as extended inserts can be really
+        //        huge and parsing them eats megabytes of memory
+        $max_file_length   = 50000;
         $max_file_pieces   = 50;
     }
     
     if ($sql_file != 'none' &&
-          ($max_file_length == 0 && ($pieces_count > $max_file_pieces))
+          (($max_file_pieces != 0 && ($pieces_count > $max_file_pieces))
             ||
-          ($max_file_pieces == 0 && (strlen($sql_query) > $max_file_length))) {
+          ($max_file_length != 0 && (strlen($sql_query) > $max_file_length)))) {
           // Be nice with bandwidth...
         $sql_query_cpy = $sql_query = '';
         $save_bandwidth = TRUE;
@@ -210,8 +233,8 @@ if ($sql_query != '') {
         $sql_query_cpy = implode(";\n", $pieces) . ';';
          // Be nice with bandwidth... for now, an arbitrary limit of 500,
          // could be made configurable but probably not necessary
-        if (($max_nofile_pieces == 0 && (strlen($sql_query_cpy) > $max_nofile_length))
-              || ($max_nofile_length == 0 && $pieces_count > $max_nofile_pieces)) {
+        if (($max_nofile_length != 0 && (strlen($sql_query_cpy) > $max_nofile_length))
+              || ($max_nofile_pieces != 0 && $pieces_count > $max_nofile_pieces)) {
             $sql_query_cpy = $sql_query = '';
             $save_bandwidth = TRUE;
             $save_bandwidth_length = $max_nofile_length;
@@ -291,7 +314,7 @@ if ($sql_query != '') {
             
             if ($cfg['VerboseMultiSubmit'] && strlen($info_msg) > 0 &&
                   ((!isset($save_bandwidth) || $save_bandwidth == FALSE) ||
-                  ($save_bandwidth_pieces == 0 && strlen($sql_query) < $save_bandwidth_length) ||
+                  ($save_bandwidth_pieces == 0 && strlen($info_msg) < $save_bandwidth_length) ||
                   ($save_bandwidth_length == 0 && $info_count < $save_bandwidth_pieces))) {
                 $sql_query = $info_msg;
             }
@@ -361,7 +384,9 @@ if ($goto == 'db_details.php3') {
 if (!empty($id_bookmark) && $action_bookmark == 2) {
     $message   = $strBookmarkDeleted;
 } else if (!isset($sql_query_cpy)) {
-    $message   = $strNoQuery;
+    if (empty($message)) {
+        $message   = $strNoQuery;
+    }
 } else if ($sql_query_cpy == '') {
     $message   = "$strSuccess&nbsp;:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
 } else {

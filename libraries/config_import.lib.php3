@@ -285,6 +285,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['VerboseMultiSubmit'] = TRUE;
     }
 
+    if (!isset($cfg['AllowArbitraryServer'])) {
+        $cfg['AllowArbitraryServer'] = FALSE;
+    }
+
     if (!isset($cfg['LeftFrameLight'])) {
         if (isset($cfgLeftFrameLight)) {
             $cfg['LeftFrameLight'] = $cfgLeftFrameLight;
@@ -477,6 +481,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         } else {
             $cfg['BZipDump'] = TRUE;
         }
+    }
+    if (!isset($cfg['CompressOnFly'])) {
+        $cfg['CompressOnFly']         = TRUE;
     }
 
     if (!isset($cfg['DefaultTabServer'])) {
@@ -808,6 +815,14 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
 
     if (!isset($cfg['UploadDir'])) {
         $cfg['UploadDir'] = '';
+    }
+    
+    if (!isset($cfg['SaveDir'])) {
+        $cfg['SaveDir'] = '';
+    }
+    
+    if (!isset($cfg['docSQLDir'])) {
+        $cfg['docSQLDir'] = '';
     }
 
     if (!isset($cfg['SQLValidator']['use'])) {

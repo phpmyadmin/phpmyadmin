@@ -366,9 +366,9 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             if (isset($row['Show_db_priv'])) {
                 $privTable[2][] = array('Show_db', 'SHOW&nbsp;DATABASES', $GLOBALS['strPrivDescShowDb']);
             }
-            if (isset($row['Lock_tables_priv'])) {
-                $privTable[2][] = array('Lock_tables', 'LOCK&nbsp;TABLES', $GLOBALS['strPrivDescLockTables']);
-            }
+        }
+        if (isset($row['Lock_tables_priv'])) {
+            $privTable[2][] = array('Lock_tables', 'LOCK&nbsp;TABLES', $GLOBALS['strPrivDescLockTables']);
         }
         $privTable[2][] = array('References', 'REFERENCES', $GLOBALS['strPrivDescReferences']);
         if ($db == '*') {
@@ -614,8 +614,8 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
                 $sql_query = $real_sql_query . ' IDENTIFIED BY "' . $pma_pw_hidden . '"';
                 $real_sql_query .= ' IDENTIFIED BY "' . $pma_pw . '"';
             } else {
-                if ($pred_password == 'keep' && !empty($Password)) {
-                    $real_sql_query .= ' IDENTIFIED BY PASSWORD "' . $Password . '"';
+                if ($pred_password == 'keep' && !empty($password)) {
+                    $real_sql_query .= ' IDENTIFIED BY PASSWORD "' . $password . '"';
                 }
                 $sql_query = $real_sql_query;
             }
@@ -857,7 +857,10 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
                     $this_table = substr($row[0], (strpos($row[0], 'ON') + 3), (strpos($row[0], ' TO ') - strpos($row[0], 'ON') - 3));
                     if ($this_table != '*.*') {
                         $queries[] = 'REVOKE ALL PRIVILEGES ON ' . $this_table . ' FROM "' . PMA_sqlAddslashes($this_user) . '"@"' . $this_host . '";';
-                        $queries[] = 'REVOKE GRANT OPTION ON ' . $this_table . ' FROM "' . PMA_sqlAddslashes($this_user) . '"@"' . $this_host . '";';
+
+                        if (strpos($row[0], 'WITH GRANT OPTION')) {
+                            $queries[] = 'REVOKE GRANT OPTION ON ' . $this_table . ' FROM "' . PMA_sqlAddslashes($this_user) . '"@"' . $this_host . '";';
+                        }
                     }
                     unset($this_table);
                 }

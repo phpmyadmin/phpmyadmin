@@ -6,7 +6,7 @@
    Transformations  -  FAQ  -  Developers  -  Credits  -  Translators
    ______________________________________________________________________
 
-                      phpMyAdmin 2.5.3-rc2 Documentation
+                      phpMyAdmin 2.5.4-dev Documentation
 
      * SourceForge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ] 
@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.490 2003/08/15
-       08:01:34 nijel Exp $
+     * Documentation version: $Id: Documentation.html,v 1.501 2003/09/17
+       15:41:16 nijel Exp $
 
 Requirements
 
@@ -25,8 +25,7 @@ Requirements
        PHP also needs to be compiled with MySQL support;
        If you want to display inline thumbnails of JPEGs with the
        original aspect ratio, you also need GD2 support in PHP.
-     * MySQL (tested with 3.21.x, 3.22.x, 3.23.x, 4.0.x and 4.1.x);
-       Note: The implemented MySQL 4.1.x support is experimental!
+     * MySQL 3.21 or newer (details);
      * a web-browser (doh!).
 
 Introduction
@@ -48,7 +47,7 @@ Introduction
      * export (*) data to CSV, XML and Latex formats
      * administer multiple servers
      * manage MySQL users and privileges
-     * check referential integrity
+     * check referential integrity in MyISAM tables
      * using Query-by-example (QBE), create complex queries automatically
        connecting required tables
      * create PDF graphics of your Database layout
@@ -56,7 +55,8 @@ Introduction
      * transform stored data into any format using a set of predefined
        functions, like displaying BLOB-data as image or download-link or
        ...
-     * communicate in 42 different languages
+     * support InnoDB tables and foreign keys (see FAQ 3.6)
+     * communicate in 44 different languages
 
    (*)  phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats)
    dumps and CSV exports if you use PHP4 >= 4.0.4 with Zlib support
@@ -211,6 +211,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost';
      * Obviously, the user must enable cookies in the browser.
      * With this mode, the use can truly logout of phpMyAdmin and login
        back with the same username.
+     * If you want to login to arbitrary server see
+       $cfg['AllowArbitraryServer'] directive.
 
    'config' authentication mode:
      * This mode is the less secure one because it requires you to fill
@@ -354,9 +356,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             old way: username and password are stored in config.inc.php3.
           + 'cookie' authentication mode ($auth_type = 'cookie') as
             introduced in 2.2.3 allows you to log in as any valid MySQL
-            user with the help of... cookies. Log name and password are
+            user with the help of cookies. Log name and password are
             stored in cookies during the session and password is deleted
-            when it ends.
+            when it ends. This can also allow you to login in arbitrary
+            server if $cfg['AllowArbitraryServer'] enabled.
           + 'http' authentication (was called 'advanced' in older
             versions) ($auth_type = 'http') as introduced in 1.3.0 allows
             you to log in as any valid MySQL user via HTTP-Auth.
@@ -734,6 +737,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           of a multi-query statement embedded into the SQL output as
           inline comments. Defaults to TRUE.
 
+   $cfg['AllowArbitraryServer'] boolean
+          If enabled allows you to login to arbitrary server using cookie
+          auth.
+          NOTE: Please use this carefully, as this may allow to access
+          MySQL servers behind firewall where your http server is placed.
+
    $cfg['LeftFrameLight'] boolean
           Defines whether to use select-based menu and display only the
           current tables in the left frame (smaller page). Only in
@@ -847,6 +856,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           $cfg['BZipDump'] boolean
           Defines whether to allow the use of zip/GZip/BZip2 compression
           when creating a dump file or not.
+
+   $cfg['CompressOnFly'] boolean
+          Defines whether to allow ont the fly compression for GZip/BZip2
+          compressed exports. This doesn't affect smaller dumps and
+          allows to create larger dumps, that won't fit otherwise in
+          memory due to php memory limit. Produced files contain more
+          GZip/BZip2 headers, but all normal programs handles this
+          correctly.
 
    $cfg['LightTabs'] string
           If set to True, do use less graphically intense tabs on the top
@@ -1061,20 +1078,28 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           as a tool-tip for that field.
 
    $cfg['UploadDir'] string
-          The name of the directory, ending with a slash, where SQL files
-          have been uploaded by other means than phpMyAdmin (for example,
-          ftp). Those files are available under a drop-down box when you
-          click the database name, then the SQL tab.
-          Please note that the file names must have the suffix ".sql".
+          The name of the directory, where SQL files have been uploaded
+          by other means than phpMyAdmin (for example, ftp). Those files
+          are available under a drop-down box when you click the database
+          name, then the SQL tab.
+          Please note that the file names must have the suffix ".sql" (or
+          ".sql.bz2" or ".sql.gz" if support for compressed formats is
+          enabled).
           This feature is useful when your file is too big to be uploaded
           via HTTP, or when file uploads are disabled in PHP.
           Please note that if PHP is running in safe mode, this directory
           must be owned by the same user as the owner of the phpMyAdmin
           scripts.
 
+   $cfg['docSQLDir'] string
+          The name of the directory, where docSQL files can be uploaded
+          for import into phpMyAdmin.
+          Please note that if PHP is running in safe mode, this directory
+          must be owned by the same user as the owner of the phpMyAdmin
+          scripts.
+
    $cfg['SaveDir'] string
-          The name of the directory, ending with a slash, where dumps can
-          be saved.
+          The name of the directory, where dumps can be saved.
           Please note that the directory has to be writable for user
           running webserver.
           Please note that if PHP is running in safe mode, this directory
@@ -1178,7 +1203,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
    $cfg['SQP']['fmtType'] string [html|none]
           The main use of the new SQL Parser is to pretty-print SQL
           queries. By default we use HTML to format the query, but you
-          can disable this by setting this variable to 'none'
+          can disable this by setting this variable to 'none'.
 
    $cfg['SQP']['fmtInd'] float
           $cfg['SQP']['fmtIndUnit'] string [em|px|pt|ex]
@@ -1602,15 +1627,24 @@ FAQ - Frequently Asked Questions
    and memory_limit need to be larger than upload_max_filesize.
    If you get a timeout problem, look at the $cfg['UploadDir'] feature.
 
-    [1.17] Does phpMyAdmin support MySQL 4.1 and 5.0?
+    [1.17] Which MySQL versions does phpMyAdmin support?
 
-   phpMyAdmin provides limited support for MySQL 4.1. That means that you
-   can neither assign character sets to a table or field on create nor
-   change the (automatically) assigned character set.
-   When compiling php, we strongly recommend that you manually link it to
-   a MySQL 4.1 client library since the one that is currently bundled
-   with php is rather old and might cause problems.
-   MySQL 5 is not yet supported.
+   All MySQL versions from 3.21 till 4.0 are fully supported. Please note
+   that the older your MySQL version is, the more limitations you will
+   have to face.
+   phpMyAdmin provides experimental support for MySQL 4.1. That means
+   that although you can assign character sets to a table or field,
+   phpMyAdmin will not recode the data when inserting or extracting it.
+   Instead, it will still use the character set you specified for the
+   MySQL connection.
+   When compiling php, we strongly recommend that you manually link the
+   MySQL extension to a MySQL client library of at least the same version
+   since the one that is bundled with php 4.x is rather old and might
+   cause problems.
+   Also, we do not yet support the imporoved MySQL extension (mysqli)
+   that comes with php 5. For the moment, the old MySQL extension should
+   also work fine here, if compiled correctly.
+   MySQL 5.0 and 5.1 are not yet supported.
 
     [1.18] I'm running MySQL <= 4.0.1 having lower_case_table_names set to 1.
     If I create a new table with a capital letter in its name it is changed to
@@ -1631,10 +1665,10 @@ FAQ - Frequently Asked Questions
     Configuration".
 
    To connect to a MySQL server, PHP needs a set of MySQL functions
-   called "MySQL extension". This extension may be part of the PHP server
-   (compiled-in), otherwise it needs to be loaded dynamically. Its name
-   is probably mysql.so or mysql.dll. phpMyAdmin tried to load the
-   extension but failed.
+   called "MySQL extension". This extension may be part of the PHP
+   distribution (compiled-in), otherwise it needs to be loaded
+   dynamically. Its name is probably mysql.so or php_mysql.dll.
+   phpMyAdmin tried to load the extension but failed.
    Usually, the problem is solved by installing a software package called
    "PHP-MySQL" or something similar.
 
@@ -1685,7 +1719,7 @@ FAQ - Frequently Asked Questions
    should work.
 
     [1.27] I get empty page when I want to view huge page (eg.
-    db_details_structure.php3 with plenty of databases).
+    db_details_structure.php3 with plenty of tables).
 
    This is a PHP bug that occur when GZIP output buffering enabled. If
    you turn off it (by $cfg['OBGzip'] = FALSE in config.inc.php3), it
@@ -1812,17 +1846,16 @@ FAQ - Frequently Asked Questions
     [3.2] When dumping a large table in compressed mode, I get a memory limit
     error or a time limit error.
 
-   As of version 2.2.4, we build the compressed dump in memory, so large
-   tables dumps may hang. The only alternative we can think about (using
-   system calls to mysqldump then gzip or bzip2) would not be applicable
-   in environments where PHP is in safe mode: access to system programs
-   is is limited by the system administrator, and time limit is enforced.
+   Compressed dumps are built in memory and because of this are limited
+   to php's memory limit. For GZip/BZip2 exports this can be overcome
+   since 2.5.4 using $cfg['CompressOnFly'] (enabled by default). Zip
+   exports can not be handled this way, so if you need Zip files for
+   larger dump, you have to use another way.
 
     [3.3] With InnoDB tables, I lose foreign key relationships when I rename or
     alter a table.
 
-   This seems to be a InnoDB bug (fixed in MySQL 3.23.50?). However, keep
-   in mind that phpMyAdmin as of version 2.3.0 does not support InnoDB.
+   This seems to be a InnoDB bug (fixed in MySQL 3.23.50?).
 
     [3.4] I am unable to import dumps I created with the mysqldump tool bundled
     with the MySQL server distribution.
@@ -1843,13 +1876,20 @@ FAQ - Frequently Asked Questions
    or
    #---------------------------------------------------------
 
-    [3.3] When using nested folders ($cfg['LeftFrameTableSeparator']) there are
+    [3.5] When using nested folders ($cfg['LeftFrameTableSeparator']) there are
     some multiple hierarchies displayed in a wrong manner?!
 
    Please note that you should not use the seperating string multiple
    times without any characters between them, or at the beginning/end of
    your table name. If you have to, think about using another
    TableSeparator or disabling that feature
+
+    [3.6] What is currently not supported in phpMyAdmin about InnoDB?
+
+   In Relation view, being able to choose a table in another database, or
+   having more than one index field in the foreign key.
+   In Query-by-example (Query), automatic generation of the query LEFT
+   JOIN from the foreign table.
 
   [4. ISPs, multi-user installations ]
 
@@ -2298,6 +2338,8 @@ FAQ - Frequently Asked Questions
    Your initial query which is going to be stored as a bookmark has to
    yield at least one result row so you can store the bookmark. You may
    have that to work around using well positioned "/**/" comments.
+   Variable expansion with PHP-Versions prior to 4.0.3 may not work as
+   expected due to a necessary extra-space after any [VARIABLE] usage
 
     [6.19] How can I create simple LaTeX document to include exported table?
 
@@ -2316,10 +2358,12 @@ FAQ - Frequently Asked Questions
     [6.20] In MySQL 4, I see a lot of databases which are not mine, and cannot
     access them.
 
-   Upgrading to MySQL 4 usually gives users a global privilege: CREATE
-   TEMPORARY TABLES. This privilege also enables users to see all the
-   database names. See this bug report.
-   So if your users do not need this privilege, you can remove it and
+   Upgrading to MySQL 4 usually gives users those global privileges:
+   CREATE TEMPORARY TABLES, SHOW DATABASES, LOCK TABLES. Those privileges
+   also enables users to see all the database names, until you upgrade
+   the grant tables as described in the MySQL manual, section 2.5.6. See
+   this bug report.
+   So if your users do not need those privileges, you can remove them and
    their databases list will shorten.
 
     [6.21] In edit/insert mode, how can I see a list of possible values for a

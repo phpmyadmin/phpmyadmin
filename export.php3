@@ -39,6 +39,7 @@ if ($export_type == 'server') {
 
 // Start with empty buffer
 $dump_buffer = '';
+$dump_buffer_len = 0;
 
 // We send fake headers to avoid browser timeout when buffering
 $time_start = time();
@@ -54,7 +55,7 @@ $time_start = time();
  */
 function PMA_exportOutputHandler($line)
 {
-    global $time_start;
+    global $time_start, $dump_buffer, $dump_buffer_len;
 
     // Kanji encoding convert feature
     if (function_exists('PMA_kanji_str_conv')) {
@@ -62,13 +63,44 @@ function PMA_exportOutputHandler($line)
     }
     // If we have to buffer data, we will perform everything at once at the end
     if ($GLOBALS['buffer_needed']) {
-        $GLOBALS['dump_buffer'] .= $line;
 
-        $time_now = time();
-        if ($time_start >= $time_now + 30) {
-            $time_start = $time_now;
-            header('X-pmaPing: Pong');
-        } // end if
+        $dump_buffer .= $line;
+        if ($GLOBALS['onfly_compression']) {
+
+            $dump_buffer_len += strlen($dump_buffer);
+            
+            if ($dump_buffer_len > $GLOBALS['memory_limit']) {
+                // as bzipped
+                if ($GLOBALS['output_charset_conversion']) {
+                    $dump_buffer = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $dump_buffer);
+                }
+                if ($GLOBALS['compression'] == 'bzip'  && @function_exists('bzcompress')) {
+                    $dump_buffer = bzcompress($dump_buffer);
+                }
+                // as a gzipped file
+                else if ($GLOBALS['compression'] == 'gzip' && @function_exists('gzencode')) {
+                    // without the optional parameter level because it bug
+                    $dump_buffer = gzencode($dump_buffer);
+                }
+                if ($GLOBALS['save_on_server']) {
+                    $write_result = @fwrite($GLOBALS['file_handle'], $dump_buffer);
+                    if (!$write_result || ($write_result != strlen($line))) {
+                        $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));
+                        return FALSE;
+                    }
+                } else {
+                    echo $dump_buffer;
+                }
+                $dump_buffer = '';
+                $dump_buffer_len = 0;
+            }
+        } else {
+            $time_now = time();
+            if ($time_start >= $time_now + 30) {
+                $time_start = $time_now;
+                header('X-pmaPing: Pong');
+            } // end if
+        }
     } else {
         if ($GLOBALS['asfile']) {
             if ($GLOBALS['save_on_server']) {
@@ -123,6 +155,27 @@ $output_charset_conversion = $asfile &&
 
 // Set whether we will need buffering
 $buffer_needed = isset($compression) && ($compression == 'zip' | $compression == 'gzip' | $compression == 'bzip');
+
+// Use on fly compression?
+$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && PMA_PHP_INT_VERSION >= 40004 && isset($compression) && ($compression == 'gzip' | $compression == 'bzip');
+if ($onfly_compression) {
+    $memory_limit = trim(@ini_get('memory_limit'));
+    // 2 MB as default
+    if (empty($memory_limit)) $memory_limit = 2 * 1024 * 1024;
+
+    if (strtolower(substr($memory_limit, -1)) == 'm') $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
+    elseif (strtolower(substr($memory_limit, -1)) == 'k') $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
+    elseif (strtolower(substr($memory_limit, -1)) == 'g') $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
+    else $memory_limit = (int)$memory_limit;
+
+    // Some of memory is needed for other thins and as treshold.
+    // Nijel: During export I had allocated (see memory_get_usage function)
+    //        approx 1.2MB so this comes from that.
+    if ($memory_limit > 1500000) $memory_limit -= 1500000;
+
+    // Some memory is needed for compression, assume 1/3
+    $memory_limit *= 2/3;
+}
 
 // Generate filename and mime type if needed
 if ($asfile) {
@@ -192,6 +245,9 @@ if ($asfile) {
 
 // Open file on server if needed
 if ($save_on_server) {
+    if (substr($cfg['SaveDir'], -1) != '/') {
+        $cfg['SaveDir'] .= '/';
+    }
     $save_filename = $cfg['SaveDir'] . ereg_replace('[/\\]','_',$filename);
     unset($message);
     if (file_exists($save_filename) && empty($onserverover)) {

@@ -454,6 +454,124 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         if ($analyzed_sql == '') {
             $analyzed_sql = array();
         }
+
+        // can be result sorted?
+        if ($is_display['sort_lnk'] == '1') {
+            // Defines the url used to append/modify a sorting order
+            // Nijel: This was originally done inside loop below, but I see
+            //        no reason to do this for each column.
+            if (eregi('(.*)([[:space:]]ORDER[[:space:]]*BY[[:space:]](.*))', $sql_query, $regs1)) {
+                if (eregi('((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)', $regs1[2], $regs2)) {
+                    $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
+                    $sql_order          = trim($regs2[1]);
+                    eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
+                    $sort_expression = trim($after_order[2]);
+                }
+                else if (eregi('((.*))[[:space:]]+(LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)', $regs1[2], $regs3)) {
+                    $unsorted_sql_query = trim($regs1[1] . ' ' . $regs3[3]);
+                    $sql_order          = trim($regs3[1]) . ' ASC';
+                    eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
+                    $sort_expression = trim($after_order[2]);
+                } else {
+                    $unsorted_sql_query = trim($regs1[1]);
+                    $sql_order          = trim($regs1[2]) . ' ASC';
+                    eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
+                    $sort_expression = trim($after_order[2]);
+                }
+            } else {
+                $unsorted_sql_query     = $sql_query;
+            }
+
+            // sorting by indexes
+
+            // grab indexes data:
+            $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
+            $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+            $idx_cnt     = mysql_num_rows($result);
+
+            $prev_index = '';
+            for ($i = 0; $i < $idx_cnt; $i++) {
+                $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_mysql_fetch_array($result));
+
+                if ($row['Key_name'] != $prev_index ){
+                    $indexes[]  = $row['Key_name'];
+                    $prev_index = $row['Key_name'];
+                }
+                $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
+                $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
+                if (isset($row['Cardinality'])) {
+                    $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
+                }
+            //    I don't know what does following column mean....
+            //    $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
+                $indexes_info[$row['Key_name']]['Comment']         = (isset($row['Comment']))
+                                                                   ? $row['Comment']
+                                                                   : '';
+                $indexes_info[$row['Key_name']]['Index_type']      = (isset($row['Index_type']))
+                                                                   ? $row['Index_type']
+                                                                   : '';
+
+                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
+                if (isset($row['Sub_part'])) {
+                    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
+                }
+            } // end while
+
+            // do we have any index?
+            if (isset($indexes_data)) {
+
+                if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
+                    $span = $fields_cnt;
+                } else {
+                    $span = $num_rows + floor($num_rows/$repeat_cells) + 1;
+                }
+                if ($is_display['edit_lnk'] != 'nn') $span++;
+                if ($is_display['del_lnk'] != 'nn') $span++;
+                    
+                ?>
+<tr>
+    <td colspan="<?php echo $span; ?>" align="center">
+                <?php
+            echo '<form action="sql.php3" method="POST">' . "\n";
+            echo PMA_generate_common_hidden_inputs($db, $table, 5);
+            echo '<input type="hidden" name="pos" value="' . $pos .  '" />' . "\n";
+            echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
+            echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
+            echo '<input type="hidden" name="repeat_cells" value="' . $repeat_cells . '" />' . "\n";
+            echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
+            echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">&nbsp;';
+            $used_index = false;
+            $local_order = str_replace('  ', ' ', $sql_order);
+            while (list($key, $val) = each($indexes_data)) {
+                $asc_sort = 'ORDER BY ';
+                $desc_sort = 'ORDER BY ';
+                while (list($key2, $val2) = each($val)) {
+                    $asc_sort .= PMA_backquote($val2['Column_name']) . ' ASC , ';
+                    $desc_sort .= PMA_backquote($val2['Column_name']) . ' DESC , ';
+                }
+                $asc_sort = substr($asc_sort, 0, -3);
+                $desc_sort = substr($desc_sort, 0, -3);
+                $used_index = $used_index || $local_order == $asc_sort || $local_order == $desc_sort;
+                echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $asc_sort) . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strAscending'] . ')</option>';
+                echo "\n";
+                echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $desc_sort) . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strDescending'] . ')</option>';
+                echo "\n";
+            }
+            echo '<option value="' . htmlspecialchars($unsorted_sql_query) . '"' . ($used_index ? '' : ' selected="selected"' ) . '>' . $GLOBALS['strNone'] . '</option>';
+            echo "\n";
+            echo '</select>&nbsp;';
+            echo "\n";
+            echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+            echo "\n";
+            echo '</form>';
+            echo "\n";
+            ?>
+    </td>
+</tr>
+            <?php
+            }
+        }
+
         
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             ?>
@@ -467,10 +585,16 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         $vertical_display['emptyafter'] = 0;
         $vertical_display['textbtn']    = '';
 
+
+        // Start of form for multi-rows delete
+
+        echo '<form method="post" action="tbl_row_delete.php3" name="rowsDeleteForm">' . "\n";
+        echo PMA_generate_common_hidden_inputs($db, $table, 1); 
+
         // 1. Displays the full/partial text button (part 1)...
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             $colspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
-                      ? ' colspan="2"'
+                      ? ' colspan="3"'
                       : '';
         } else {
             $rowspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
@@ -589,7 +713,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 $highlight_columns[$wci] = 'true';
             }
         }
-
         for ($i = 0; $i < $fields_cnt; $i++) {
             // garvin: See if this column should get highlight because it's used in the
             //  where-query.
@@ -610,31 +733,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     
             // 2.1 Results can be sorted
             if ($is_display['sort_lnk'] == '1') {
-                // Defines the url used to append/modify a sorting order
-                // 2.1.1 Checks if an hard coded 'order by' clause exists
-                if (eregi('(.*)([[:space:]]ORDER[[:space:]]*BY[[:space:]](.*))', $sql_query, $regs1)) {
-                    if (eregi('((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)', $regs1[2], $regs2)) {
-                        $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
-                        $sql_order          = trim($regs2[1]);
-                        eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
-                        $sort_expression = trim($after_order[2]);
-                    }
-                    else if (eregi('((.*))[[:space:]]+(LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)', $regs1[2], $regs3)) {
-                        $unsorted_sql_query = trim($regs1[1] . ' ' . $regs3[3]);
-                        $sql_order          = trim($regs3[1]) . ' ASC';
-                        eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
-                        $sort_expression = trim($after_order[2]);
-                    } else {
-                        $unsorted_sql_query = trim($regs1[1]);
-                        $sql_order          = trim($regs1[2]) . ' ASC';
-                        eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
-                        $sort_expression = trim($after_order[2]);
-                    }
-                } else {
-                    $unsorted_sql_query     = $sql_query;
-                }
 
-                // 2.1.2 Checks if the current column is used to sort the
+                // 2.1.1 Checks if the current column is used to sort the
                 //       results
                 if (empty($sql_order)) {
                     $is_in_sort = FALSE;
@@ -653,7 +753,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     // on id or on count(id) )
                       $is_in_sort = (PMA_backquote($fields_meta[$i]->name) == $sort_expression ? TRUE : FALSE);
                 }
-                // 2.1.3 Checks if the table name is required (it's the case
+                // 2.1.2 Checks if the table name is required (it's the case
                 //       for a query with a "JOIN" statement and if the column
                 //       isn't aliased)
                 if ($is_join
@@ -662,7 +762,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 } else {
                     $sort_tbl = '';
                 }
-                // 2.1.4 Check the field name for backquotes.
+                // 2.1.3 Check the field name for backquotes.
                 //       If it contains some, it's probably a function column
                 //       like 'COUNT(`field`)'
                 if (strpos(' ' . $fields_meta[$i]->name, '`') > 0) {
@@ -670,7 +770,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 } else {
                     $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ';
                 }
-                // 2.1.5 Do define the sorting url
+                // 2.1.4 Do define the sorting url
                 if (!$is_in_sort) {
                     // loic1: patch #455484 ("Smart" order)
                     $cfg['Order']  = strtoupper($GLOBALS['cfg']['Order']);
@@ -707,8 +807,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     ?>
     <th <?php echo $column_style; ?> <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>>
         <?php echo $comments_table_wrap_pre; ?>
-        <a href="sql.php3?<?php echo $url_query; ?>" <?php echo (($disp_direction == 'horizontalflipped' AND $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style="direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
-            <?php echo ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)); ?></a><?php echo $order_img . "\n"; ?>
+        <a href="sql.php3?<?php echo $url_query; ?>" <?php echo (($disp_direction == 'horizontalflipped' AND $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style="direction: ltr; writing-mode: tb-rl;"' : '') . ' title="' . $GLOBALS['strSort'] . '"'; ?>>
+            <?php echo ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)); ?> </a><?php echo $order_img . "\n"; ?>
         <?php echo $comments_table_wrap_post; ?>
     </th>
                     <?php
@@ -982,7 +1082,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $uva_condition = $uva_nonprimary_condition;
                     }
                     
-                    $uva_condition     = urlencode(preg_replace('|[[:space:]]?AND$|', '', $uva_condition));
+                    $uva_condition     = urlencode(preg_replace('|\s?AND$|', '', $uva_condition));
                 } // end if (1.1)
 
                 // 1.2 Defines the urls for the modify/delete link(s)
@@ -1044,9 +1144,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                               . '&sql_query=' . urlencode($sql_query)
                               . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                               . '&goto=' . (empty($goto) ? 'tbl_properties.php3' : $goto);
+                    $del_query = urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . ((PMA_MYSQL_INT_VERSION >= 32207) ? urlencode(' LIMIT 1') : '');
                     $del_url  = 'sql.php3'
                               . '?' . $url_query
-                              . '&amp;sql_query=' . urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . ((PMA_MYSQL_INT_VERSION >= 32207) ? urlencode(' LIMIT 1') : '')
+                              . '&amp;sql_query=' . $del_query 
                               . '&amp;zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                               . '&amp;goto=' . urlencode($lnk_goto);
                     $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
@@ -1083,17 +1184,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 // 1.3 Displays the links at left if required
                 if ($GLOBALS['cfg']['ModifyDeleteAtLeft']
                     && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
-                    if (!empty($edit_url)) {
-                        echo '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
-                        echo PMA_linkOrButton($edit_url, $edit_str, '');
-                        echo $bookmark_go;
-                        echo '    </td>' . "\n";
-                    }
-                    if (!empty($del_url)) {
-                        echo '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
-                        echo PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''));
-                        echo '    </td>' . "\n";
-                    }
+                    include('./libraries/display_tbl_links.lib.php3');
                 } // end if (1.3)
                 echo (($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') ? "\n" : '');
             } // end if (1)
@@ -1348,17 +1439,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             // 3. Displays the modify/delete links on the right if required
             if ($GLOBALS['cfg']['ModifyDeleteAtRight']
                 && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
-                if (!empty($edit_url)) {
-                    echo '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
-                    echo PMA_linkOrButton($edit_url, $edit_str, '');
-                    echo $bookmark_go;
-                    echo '    </td>' . "\n";
-                }
-                if (!empty($del_url)) {
-                    echo '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n";
-                    echo PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''));
-                    echo '    </td>' . "\n";
-                }
+                    include('./libraries/display_tbl_links.lib.php3');
             } // end if (3)
 
             if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
@@ -1391,6 +1472,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             echo (($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') ? "\n" : '');
             $row_no++;
         } // end while
+        $GLOBALS['url_query'] = $url_query;
 
         return TRUE;
     } // end of the 'PMA_displayTableBody()' function
@@ -1678,8 +1760,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         }
         echo '>' . "\n";
         PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $analyzed_sql);
+        $url_query='';
         PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);
-        // lem9: vertical output case
+        // vertical output case
         if ($disp_direction == 'vertical') {
             PMA_displayVerticalTable();
         } // end if
@@ -1690,7 +1773,34 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         echo "\n";
 
-        // 4. ----- Displays the navigation bar at the bottom if required -----
+        // 4. ----- Displays the link for multi-fields delete
+
+        $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
+
+//        echo '&nbsp;&nbsp;&nbsp;<img src="./images/arrow_' . $GLOBALS['text_dir'] . '.gif" border="0" width="38" height="22" alt="' . $GLOBALS['strWithChecked'] . '" />';
+          echo '&nbsp;&nbsp;<i>' . $GLOBALS['strWithChecked'] . '</i>'. "\n";
+
+        if ($cfg['PropertiesIconic']) {
+            /* Opera has trouble with <input type="image"> */
+            /* IE has trouble with <button> */
+            if (PMA_USR_BROWSER_AGENT != 'IE') {
+                echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '">' . "\n"
+                   . '<img src="./images/button_drop.png" title="' . $GLOBALS['strDelete'] . '" alt="' . $GLOBALS['strDelete'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : '') . "\n"
+                   . '</button>';
+            } else {
+                echo '                    <input type="image" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : ''); 
+            }
+            echo "\n";
+        } else {
+            echo '                    <input type="submit" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" />' . "\n";
+        }
+        echo '<input type="hidden" name="sql_query" value="' . $sql_query . '" />' . "\n";
+        echo '<input type="hidden" name="pos" value="' . $pos . '" />' . "\n";
+        echo '<input type="hidden" name="url_query" value="' . $GLOBALS['url_query'] . '" />' . "\n";
+        echo '<br />' . "\n";
+        echo '</form>' . "\n";
+
+        // 5. ----- Displays the navigation bar at the bottom if required -----
 
         if ($is_display['nav_bar'] == '1') {
             echo '<br />' . "\n";

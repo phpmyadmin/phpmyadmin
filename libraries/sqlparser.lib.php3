@@ -1749,8 +1749,17 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $after         .= $html_line_break;
                         break;
                     case 'punct':
-                        $after         .= ' ';
-                        $before        .= ' ';
+                        $before         .= ' ';
+                        // workaround for
+                        // select * from mytable limit 0,-1
+                        // (a side effect of this workaround is that
+                        // select 20 - 9
+                        // becomes
+                        // select 20 -9
+                        // )
+                        if ($typearr[3] != 'digit_integer') {
+                           $after        .= ' '; 
+                        }
                         break;
                     case 'punct_bracket_close_round':
                         $bracketlevel--;
@@ -1779,6 +1788,14 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             $before .= ' ';
                         }
                         if (($typearr[3] == 'alpha_columnAttrib') || ($typearr[3] == 'quote_single') || ($typearr[3] == 'digit_integer')) {
+                            $after     .= ' ';
+                        }
+                        // workaround for
+                        // select * from mysql.user where binary user="root"
+                        // binary is marked as alpha_columnAttrib
+                        // but should be marked as a reserved word
+                        if (strtoupper($arr[$i]['data']) == 'BINARY'
+                          && $typearr[3] == 'alpha_identifier') {
                             $after     .= ' ';
                         }
                         break;

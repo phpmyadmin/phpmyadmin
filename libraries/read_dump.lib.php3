@@ -160,20 +160,29 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
         }
         switch ($mime) {
             case '':
-                $file = fopen($path, 'rb');
+                $file = @fopen($path, 'rb');
+                if (!$file) {
+                    return FALSE;
+                }
                 $test = fread($file, 3);
                 fclose($file);
                 if ($test[0] == chr(31) && $test[1] == chr(139)) return PMA_readFile($path, 'application/x-gzip');
                 if ($test == 'BZh') return PMA_readFile($path, 'application/x-bzip');
                 return PMA_readFile($path, 'text/plain');
             case 'text/plain':
-                $file = fopen($path, 'rb');
+                $file = @fopen($path, 'rb');
+                if (!$file) {
+                    return FALSE;
+                }
                 $content = fread($file, filesize($path));
                 fclose($file);
                 break;
             case 'application/x-gzip':
                 if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-                    $file = gzopen($path, 'rb');
+                    $file = @gzopen($path, 'rb');
+                    if (!$file) {
+                        return FALSE;
+                    }
                     $content = '';
                     while (!gzeof($file)) {
                         $content .= gzgetc($file);
@@ -185,7 +194,10 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
                break;
             case 'application/x-bzip':
                 if ($cfg['BZipDump'] && @function_exists('bzdecompress')) {
-                    $file = fopen($path, 'rb');
+                    $file = @fopen($path, 'rb');
+                    if (!$file) {
+                        return FALSE;
+                    }
                     $content = fread($file, filesize($path));
                     fclose($file);
                     $content = bzdecompress($content);

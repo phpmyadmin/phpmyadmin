@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-
+error_reporting(E_ALL);
 /**
  * Set of functions used to build SQL dumps of tables
  */
@@ -111,6 +111,7 @@ function PMA_exportDBHeader($db) {
  * @access  public
  */
 function PMA_exportDBFooter($db) {
+    if (isset($GLOBALS['sql_constraints'])) return PMA_exportOutputHandler($GLOBALS['sql_constraints']);
     return TRUE;
 }
 
@@ -138,6 +139,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
     global $drop;
     global $use_backquotes;
     global $cfgRelation;
+    global $sql_constraints;
 
     $schema_create = '';
     $auto_increment = '';
@@ -145,28 +147,30 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
 
     if (PMA_MYSQL_INT_VERSION >= 32321) {
         $result = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
-        if ($result != FALSE && mysql_num_rows($result) > 0) {
-            $tmpres        = PMA_mysql_fetch_array($result);
-            if (isset($GLOBALS['auto_increment']) && !empty($tmpres['Auto_increment'])) {
-                $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
-            }
+        if ($result != FALSE) {
+            if (mysql_num_rows($result) > 0) {
+                $tmpres        = PMA_mysql_fetch_array($result);
+                if (isset($GLOBALS['auto_increment']) && !empty($tmpres['Auto_increment'])) {
+                    $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
+                }
 
-            if ($do_comments && isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
-                $schema_create .= '# ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
-                $new_crlf = '#' . $crlf . $crlf;
-            }
+                if ($do_comments && isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
+                    $schema_create .= '# ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
+                    $new_crlf = '#' . $crlf . $crlf;
+                }
 
-            if ($do_comments && isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
-                $schema_create .= '# ' . $GLOBALS['strStatUpdateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])) . $crlf;
-                $new_crlf = '#' . $crlf . $crlf;
-            }
+                if ($do_comments && isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
+                    $schema_create .= '# ' . $GLOBALS['strStatUpdateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])) . $crlf;
+                    $new_crlf = '#' . $crlf . $crlf;
+                }
 
-            if ($do_comments && isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
-                $schema_create .= '# ' . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
-                $new_crlf = '#' . $crlf . $crlf;
+                if ($do_comments && isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
+                    $schema_create .= '# ' . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
+                    $new_crlf = '#' . $crlf . $crlf;
+                }
+            mysql_free_result($result);
             }
         }
-        mysql_free_result($result);
     }
 
     $schema_create .= $new_crlf;
@@ -233,7 +237,20 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
             $tmpres[1]     = substr($tmpres[1], 0, 13)
                            . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
                            . substr($tmpres[1], $pos);
-            $schema_create .= str_replace("\n", $crlf, $tmpres[1]);
+            $tmpres[1]     = str_replace("\n", $crlf, $tmpres[1]);
+            if (preg_match_all('((,\n[\s]*CONSTRAINT[^\n,]+)+)', $tmpres[1], $regs)) {
+                if (!isset($sql_constraints)) {
+                    $sql_constraints = $crlf . '#' . $crlf
+                                        . '# ' . $GLOBALS['strConstraintsForDumped'] . $crlf
+                                        . '#' . $crlf;
+                }
+                $sql_constraints .= $crlf .'#' . $crlf .'# ' . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . '#' . $crlf;
+                $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf
+                                . str_replace('CONSTRAINT', 'ADD CONSTRAINT', substr($regs[0][0], 2))
+                                . ";\n";
+                $tmpres[1]     = preg_replace('((,\n[\s]*CONSTRAINT[^\n,]+)+)', '', $tmpres[1]);
+            }
+            $schema_create .= $tmpres[1];
         }
 
         $schema_create .= $auto_increment;
@@ -418,9 +435,17 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
         // the key of the array is the backquoted field name
         $field_types = PMA_fieldTypes($db,$table,$use_backquotes);
 
+        // analyze the query to get the true column names, not the aliases
+        // (this fixes an undefined index, also if Complete inserts 
+        //  are used, we did not get the true column name in case of aliases)
+        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($sql_query));
+
         // Checks whether the field is an integer or not
         for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_set[$j] = PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes);
+
+            //$field_set[$j] = PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes);
+            $field_set[$j] = PMA_backquote($analyzed_sql[0]['select_expr'][$j]['column'], $use_backquotes);
+
             $type          = $field_types[$field_set[$j]];
 
             if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||

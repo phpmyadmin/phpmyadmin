@@ -8,7 +8,11 @@
  */
 if (!empty($submit_mult)
     && ($submit_mult != $strWithChecked)
-    && (!empty($selected_db) || !empty($selected_tbl) || !empty($selected_fld))) {
+    && (  !empty($selected_db) 
+       || !empty($selected_tbl)
+       || !empty($selected_fld)
+       || !empty($rows_to_delete)
+         )) {
 
     if (!empty($selected_db)) {
         $selected     = $selected_db;
@@ -51,7 +55,7 @@ if (!empty($submit_mult)
                    break;
            } // end switch
         }
-    } else {
+    } else if (!empty($selected_fld)) {
         $selected     = $selected_fld;
         if ($submit_mult == $strDrop) {
             $what     = 'drop_fld';
@@ -59,6 +63,9 @@ if (!empty($submit_mult)
             include('./tbl_alter.php3');
             exit();
         }
+    } else {
+        $what = 'row_delete';
+        $selected = $rows_to_delete;
     }
 } // end if
 
@@ -83,6 +90,10 @@ if (!empty($submit_mult) && !empty($what)) {
     $selected_cnt   = count($selected);
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($what) {
+            case 'row_delete':
+                $full_query .= htmlspecialchars(urldecode($selected[$i]))
+                            . ';<br />';
+                break;
             case 'drop_db':
                 $full_query .= 'DROP DATABASE '
                             . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
@@ -133,7 +144,8 @@ if (!empty($submit_mult) && !empty($what)) {
     echo "\n";
     if (strpos(' ' . $action, 'db_details') == 1) {
         echo PMA_generate_common_hidden_inputs($db);
-    } else if (strpos(' ' . $action, 'tbl_properties') == 1) {
+    } else if (strpos(' ' . $action, 'tbl_properties') == 1 
+              || $what == 'row_delete') {
         echo PMA_generate_common_hidden_inputs($db,$table);
     } else  {
         echo PMA_generate_common_hidden_inputs();
@@ -143,6 +155,13 @@ if (!empty($submit_mult) && !empty($what)) {
     }
     ?>
     <input type="hidden" name="query_type" value="<?php echo $what; ?>" />
+    <?php
+    if ($what == 'row_delete') {
+        echo '<input type="hidden" name="original_sql_query" value="' . $original_sql_query . '" />' . "\n";
+        echo '<input type="hidden" name="original_pos" value="' . $original_pos . '" />' . "\n";
+        echo '<input type="hidden" name="original_url_query" value="' . $original_url_query . '" />' . "\n";
+    }
+    ?>
     <input type="submit" name="mult_btn" value="<?php echo $strYes; ?>" />
     <input type="submit" name="mult_btn" value="<?php echo $strNo; ?>" />
 </form>
@@ -167,6 +186,10 @@ else if ($mult_btn == $strYes) {
     $selected_cnt   = count($selected);
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
+            case 'row_delete':
+                $a_query = urldecode($selected[$i]);
+                break;
+
             case 'drop_db':
                 PMA_relationsCleanupDatabase($selected[$i]);
                 $a_query   = 'DROP DATABASE '

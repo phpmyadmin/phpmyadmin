@@ -51,6 +51,9 @@ if (isset($btnLDI) && isset($local_textfile) && $local_textfile != '') {
         }
     } // end if
 
+    if (substr($cfg['UploadDir'], -1) != '/') {
+        $cfg['UploadDir'] .= '/';
+    }
     $textfile = $DOCUMENT_ROOT . dirname($PHP_SELF) . '/' . eregi_replace('^./', '', $cfg['UploadDir']) . eregi_replace('\.\.*', '.', $local_textfile);
     if (file_exists($textfile)) {
         $open_basedir     = '';

@@ -15,6 +15,19 @@ require('./libraries/grab_globals.lib.php3');
 $js_to_run = 'functions.js';
 require('./server_common.inc.php3');
 
+?>
+<script type="text/javascript" language="javascript1.2">
+<!--
+function reload_window(db) {
+    if (typeof(window.parent) != 'undefined'
+        && typeof(window.parent.frames['nav']) != 'undefined') {
+        window.parent.frames['nav'].location.replace('./left.php3?db=' + db + '&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
+    }
+}
+//-->
+</script>
+
+<?php
 
 /**
  * Sorts the databases array according to the user's choice
@@ -224,7 +237,7 @@ if (count($statistics) > 0) {
                . '            </td>' . "\n";
         }
         echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-           . '                <a href="' . $cfg['DefaultTabDatabase'] . '?' . $url_query . '&amp;db=' . urlencode($current['db_name']) . '" title="' . sprintf($strJumpToDB, htmlspecialchars($current['db_name'])) . '">' . "\n"
+           . '                <a onclick="reload_window(\'' . urlencode($current['db_name']) . '\'); return true;" href="' . $cfg['DefaultTabDatabase'] . '?' . $url_query . '&amp;db=' . urlencode($current['db_name']) . '" title="' . sprintf($strJumpToDB, htmlspecialchars($current['db_name'])) . '">' . "\n"
            . '                    ' . htmlspecialchars($current['db_name']) . "\n"
            . '                </a>' . "\n"
            . '            </td>' . "\n";
@@ -257,7 +270,7 @@ if (count($statistics) > 0) {
         }
         if ($is_superuser) {
             echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '                <a href="./server_privileges.php3?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
+               . '                <a onclick="reload_window(\'' . urlencode($current['db_name']) . '\'); return true;" href="./server_privileges.php3?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
                . '                    ' . $strCheckPrivs . "\n"
                . '                </a>' . "\n"
                . '            </td>' . "\n";

@@ -699,22 +699,28 @@ $strYes = ' 是 ';
 $strZeroRemovesTheLimit = '註: 設定這些選項為 0 (零) 可解除限制.';
 $strZip = '"zipped"';
 
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
+$strBrowseForeignValues = '瀏覽外來值';
 
-$strUseThisValue = 'Use this value';  //to translate
+$strUseThisValue = '使用此值';
 
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
+$strWindowNotFound = '目地的視窗無法更新. 可能你已關閉此視窗或你的瀏覽器於安全設定內啟動了無法跨視窗更新';
 
-$strInternalRelations = 'Internal relations';  //to translate
-$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
-$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
-$strLatexStructure = 'Structure of table __TABLE__';//to translate
-$strLatexContinued = '(continued)';//to translate
-$strLatexContent = 'Content of table __TABLE__';//to translate
-$strLatexIncludeCaption = 'Include table caption';//to translate
-$strLatexCaption = 'Table caption';//to translate
-$strLatexLabel = 'Label key';//to translate
-$strLatexContinuedCaption = 'Continued table caption';//to translate
+$strInternalRelations = '內部關聯';
+$strInternalNotNecessary = '* 當內部關聯在 InnoDB 已存在時是無需要的.';
+$strUpgradeMySQL = '您應該更新到 MySQL %s 或之後.';
+$strLatexStructure = '資料表 __TABLE__ 結構';
+$strLatexContinued = '(連續)';
+$strLatexContent = '資料表 __TABLE__ 內容';
+$strLatexIncludeCaption = '包括資料表標題';
+$strLatexCaption = '資料表標題';
+$strLatexLabel = '標記鍵名';
+$strLatexContinuedCaption = '連續資料表標題';
 
-$strPrintViewFull = 'Print view (with full texts)';  //to translate
+$strPrintViewFull = '列印檢視 (顯示完整文字)';
+$strLogServer = '伺服器';
+$strSortByKey = '依鍵名排序';
+$strBookmarkAllUsers = '所有用者可讀取此書籤';
+$strConstraintsForDumped = '備份資料表限制';
+$strConstraintsForTable = '資料表限制';
+$strBookmarkOptions = '書籤選項';
 ?>

@@ -53,9 +53,9 @@ $cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
 $cfg['PmaNoRelation_DisableWarning']  = FALSE;
 
 /**
- * The 'cookie' auth_type uses blowfish algorithm to encrypt the password.
- * If at least one server configuration uses 'cookie' auth_type,
- * enter here a passphrase that will be used by blowfish.
+ * The 'cookie' auth_type uses blowfish algorithm to encrypt the password. If
+ * at least one server configuration uses 'cookie' auth_type, enter here a
+ * passphrase that will be used by blowfish.
  */
 $cfg['blowfish_secret'] = '';
 
@@ -204,6 +204,7 @@ $cfg['IgnoreMultiSubmitErrors'] = FALSE;  // if set to true, PMA continues compu
 $cfg['VerboseMultiSubmit']      = TRUE;   // if set to true, PMA will show the affected rows of EACH statement on
                                           // multiple-statement queries. See the read_dump.php3 file for hardcoded
                                           // defaults on how many queries a statement may contain!
+$cfg['AllowArbitraryServer']    = FALSE;  // allow login to any user entered server in cookie based auth
 
 // Left frame setup
 $cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the
@@ -257,6 +258,11 @@ $cfg['CharEditing']           = 'input';
 $cfg['ZipDump']               = TRUE;   // Allow the use of zip/gzip/bzip
 $cfg['GZipDump']              = TRUE;   // compression for
 $cfg['BZipDump']              = TRUE;   // dump files
+$cfg['CompressOnFly']         = TRUE;   // Will compress gzip/bzip2 exports on
+                                        // fly without need for much memory.
+                                        // If you encounter problems with
+                                        // created gzip/bzip2 files disable
+                                        // this feature.
 
 // Tabs display settings
 $cfg['LightTabs']             = FALSE;  // use graphically less intense menu tabs
@@ -505,14 +511,17 @@ $cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLVa
 
 
 /**
- * web-server upload directory
+ * Webserver upload/save/import directories
  */
-$cfg['UploadDir']             = '';         // for example, './upload/'; you must end it with
-                                            // a slash, and you leave it empty for no upload
-                                            // directory
-$cfg['SaveDir']               = '';         // for example, './save/'; you must end it with
-                                            // a slash, and you leave it empty for no save
-                                            // directory
+$cfg['UploadDir']             = '';         // Directory for uploaded files that can be executed by
+                                            // phpMyAdmin. For example './upload'. Leave empty for
+                                            // no upload directory support
+$cfg['SaveDir']               = '';         // Directory where phpMyAdmin can save exported data on
+                                            // server. For example './save'. Leave empty for no save
+                                            // directory support.
+$cfg['docSQLDir']             = '';         // Directory for docSQL imports, phpMyAdmin can import
+                                            // docSQL files from that directory. For example
+                                            // './docSQL'. Leave empty for no docSQL import support.
 
 
 /**

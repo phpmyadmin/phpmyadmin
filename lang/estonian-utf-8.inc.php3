@@ -706,4 +706,10 @@ $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate 
 $strZip = '"zipitud"';
 // To translate
 
+$strLogServer = 'Server';  //to translate
+$strSortByKey = 'Sort by key';  //to translate
+$strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
+$strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
+$strConstraintsForTable = 'Constraints for table';  //to translate
+$strBookmarkOptions = 'Bookmark options';  //to translate
 ?>

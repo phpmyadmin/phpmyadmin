@@ -105,15 +105,16 @@
     <li>export (*) data to CSV, XML and Latex formats</li>
     <li>administer multiple servers</li>
     <li>manage MySQL users and privileges</li>
-    <li>check referential integrity</li>
+    <li>check referential integrity in MyISAM tables</li>
     <li>using Query-by-example (QBE), create complex queries automatically connecting required tables</li>
     <li>create PDF graphics of your Database layout</li>
     <li>search globally in a database or a subset of it</li>
     <li>transform stored data into any format using a set of predefined functions,
         like displaying BLOB-data as image or download-link or ...</li>
+    <li>support InnoDB tables and foreign keys (see FAQ 3.6)</li>
     <li>
         communicate in
-        <a href="./translators.html">42 different languages</a>
+        <a href="./translators.html">44 different languages</a>
     </li>
 </ul>
 
@@ -226,18 +227,18 @@
     <li>
         For 'HTTP' and 'cookie' modes, phpMyAdmin needs a controluser that has
         <b>only</b> the <tt>SELECT</tt> privilege on the <i>mysql.user (all
-        columns except &quot;Password&quot;)</i>, <i>mysql.db (all columns)</i>
-        &amp; <i>mysql.tables_priv (all columns except &quot;Grantor&quot;
-        &amp; &quot;Timestamp&quot;) </i>tables.<br />
-        You must specify the details for the controluser in the
+        columns except &quot;Password&quot;)</i>, <i>mysql.db (all
+        columns)</i> &amp; <i>mysql.tables_priv (all columns except
+        &quot;Grantor&quot; &amp; &quot;Timestamp&quot;) </i>tables.<br /> You
+        must specify the details for the controluser in the
         <i>config.inc.php3</i> file under the
         <tt>$cfg['Servers'][$i]['controluser']</tt>&amp;
-        <tt>$cfg['Servers'][$i]['controlpass']</tt> settings.<br />
-        The following example assumes you want to use <tt>pma</tt> as the
+        <tt>$cfg['Servers'][$i]['controlpass']</tt> settings.<br /> The
+        following example assumes you want to use <tt>pma</tt> as the
         controluser and <tt>pmapass</tt> as the controlpass, but <b>this is
-        only an example: use something else in your file!</b><br />
-        Of course you have to replace <tt>localhost</tt> by the webserver's host
-        if it's not the same as the MySQL server's one.
+        only an example: use something else in your file!</b><br /> Of course
+        you have to replace <tt>localhost</tt> by the webserver's host if it's
+        not the same as the MySQL server's one.
         <pre>
 
 GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
@@ -286,8 +287,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <br />
         What the user may now do is controlled entirely by the MySQL user
         management system.<br />
-        With HTTP or cookie authentication mode, you don't need to fill the user/password
-        fields inside the <tt>$cfg['Servers']</tt> array.<br />
+        With HTTP or cookie authentication mode, you don't need to fill the
+        user/password fields inside the <tt>$cfg['Servers']</tt> array.<br />
     </li>
 </ul>
 
@@ -308,6 +309,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <li>Obviously, the user must enable cookies in the browser.</li>
     <li>With this mode, the use can truly logout of phpMyAdmin and login back
         with the same username.</li>
+    <li>If you want to login to arbitrary server see
+    <tt>$cfg['AllowArbitraryServer']</tt> directive.</li>
 </ul>
 
 <p><b>'config' authentication mode:</b></p>
@@ -405,8 +408,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Starting with version 2.5.2, the 'cookie' auth_type uses blowfish
         algorithm to encrypt the password.
         <br />
-        If at least one server configuration uses 'cookie' auth_type,
-        enter here a passphrase that will be used by blowfish.
+        If at least one server configuration uses 'cookie' auth_type, enter
+        here a passphrase that will be used by blowfish.
      </dd>
 
     <dt><b>$cfg['Servers']</b> array</dt>
@@ -478,9 +481,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <i>mysql.db (all columns)</i> &amp; <i>mysql.tables_priv (all columns
         except &quot;Grantor&quot; &amp; &quot;Timestamp&quot;) </i>tables.
         This account is used to check what databases the user will see at
-        login.<br />
-        Please see the <a href="#setup">install section</a>
-        on &quot;Using HTTP authentication&quot; for more information.
+        login.
+        <br />
+        Please see the <a href="#setup">install section</a> on
+        &quot;Using HTTP authentication&quot; for more information.
         <br /><br />
         Note that if you try login to phpMyAdmin with this
         &quot;controluser&quot;, you could get some errors, depending the exact
@@ -492,7 +496,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['auth_type']</b> string <tt>['http'|'cookie'|'config']</tt></dt>
+    <dt><b>$cfg['Servers'][$i]['auth_type']</b> string
+    <tt>['http'|'cookie'|'config']</tt></dt>
     <dd>
         Whether config or cookie or http authentication should be used for this
         server.
@@ -508,9 +513,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 'cookie' authentication mode
                 (<tt>$auth_type&nbsp;=&nbsp;'cookie'</tt>) as introduced in
                 2.2.3 allows you to log in as any valid MySQL user with the
-                help of... cookies. Log name and password are stored in
+                help of cookies. Log name and password are stored in
                 cookies during the session and password is deleted when it
-                ends.
+                ends. This can also allow you to login in arbitrary server if
+                <tt>$cfg['AllowArbitraryServer']</tt> enabled.
             </li>
             <li>
                 'http' authentication (was called 'advanced' in older versions)
@@ -530,8 +536,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     </dt>
     <dd>
         The user/password-pair which phpMyAdmin will use to connect to this
-        MySQL-server. This user/password pair is not needed when HTTP or cookie
-        authentication is used, and should be empty.<br /><br />
+        MySQL-server. This user/password pair is not needed when HTTP or
+        cookie authentication is used, and should be empty.<br /><br />
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['only_db']</b> string or array</dt>
@@ -1070,15 +1076,25 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['IgnoreMultiSubmitErrors'] </b>boolean</dt>
     <dd>
-        Define whether phpMyAdmin will continue executing a multi-query statement if one of the
-        queries fails. Default is to abort execution.
+        Define whether phpMyAdmin will continue executing a multi-query
+        statement if one of the queries fails. Default is to abort execution.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['VerboseMultiSubmit'] </b>boolean</dt>
     <dd>
-        Define whether phpMyAdmin will output the results of each query of a multi-query statement
-        embedded into the SQL output as inline comments. Defaults to TRUE.
+        Define whether phpMyAdmin will output the results of each query of a
+        multi-query statement embedded into the SQL output as inline comments.
+        Defaults to TRUE.
+        <br /><br />
+    </dd>
+    
+    <dt><b>$cfg['AllowArbitraryServer'] </b>boolean</dt>
+    <dd>
+        If enabled allows you to login to arbitrary server using cookie auth.
+        <br /><br />
+        <b>NOTE:</b> Please use this carefully, as this may allow to access
+        MySQL servers behind firewall where your http server is placed.
         <br /><br />
     </dd>
 
@@ -1093,12 +1109,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['LeftFrameTableSeparator']</b> string</dt>
     <dd>
-        Defines a string to be used to nest table spaces. Defaults to '__'. This
-        means if you have tables like 'first__second__third' this will be
+        Defines a string to be used to nest table spaces. Defaults to '__'.
+        This means if you have tables like 'first__second__third' this will be
         shown as a three-level hierarchie like: first &gt; second &gt; third.
-        If set to FALSE or empty, the feature is disabled.
-        NOTE: You shall not use this Separator in a table name at the beginning or
-        end of a table name, or multiple times after another without any other
+        If set to FALSE or empty, the feature is disabled.  NOTE: You shall
+        not use this Separator in a table name at the beginning or end of a
+        table name, or multiple times after another without any other
         characters in between.
         <br /><br />
     </dd>
@@ -1119,10 +1135,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['ShowTooltipAliasDB'] </b>boolean</dt>
     <dd>
-        If tool-tips are enabled and a DB comment is set, this will flip the comment
-        and the real name. That means, if you have a table called 'user0001' and add
-        the comment 'MyName' on it, you will see the name 'MyName' used consequently
-        in the left frame and the tool-tip shows the real name of the DB.
+        If tool-tips are enabled and a DB comment is set, this will flip the
+        comment and the real name. That means, if you have a table called
+        'user0001' and add the comment 'MyName' on it, you will see the name
+        'MyName' used consequently in the left frame and the tool-tip shows
+        the real name of the DB.
         <br /><br />
     </dd>
 
@@ -1151,8 +1168,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Defines whether to display the &quot;MySQL runtime information&quot;,
         &quot;MySQL system variables&quot;, &quot;PHP information&quot; and
         &quot;Change password &quot; links or not for simple users at the
-        starting main (right) frame. This setting does not check MySQL commands
-        entered directly.
+        starting main (right) frame. This setting does not check MySQL
+        commands entered directly.
         <br /><br />
 
         Please note that to block the usage of phpinfo() in scripts, you
@@ -1161,9 +1178,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
 
         Also note that enabling the &quot;Change password &quot; link has no
-        effect with &quot;config&quot; authentication mode: because of the hard
-        coded password value in the configuration file, end users can't be
-        allowed to change their passwords.
+        effect with &quot;config&quot; authentication mode: because of the
+        hard coded password value in the configuration file, end users can't
+        be allowed to change their passwords.
         <br /><br />
     </dd>
 
@@ -1259,15 +1276,29 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt>
+        <b>$cfg['CompressOnFly'] </b>boolean<br />
+    </dt>
+    <dd>
+        Defines whether to allow ont the fly compression for GZip/BZip2
+        compressed exports. This doesn't affect smaller dumps and allows to
+        create larger dumps, that won't fit otherwise in memory due to php
+        memory limit. Produced files contain more GZip/BZip2 headers, but all
+        normal programs handles this correctly.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['LightTabs'] </b>string</dt>
     <dd>
-        If set to True, do use less graphically intense tabs on the top of the mainframe.
+        If set to True, do use less graphically intense tabs on the top of the
+        mainframe.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['PropertiesIconic'] </b>string</dt>
     <dd>
-        If set to True, will display icons instead of text for db and table properties links (like 'Browse', 'Select', 'Insert', ...).<br />
+        If set to True, will display icons instead of text for db and table
+        properties links (like 'Browse', 'Select', 'Insert', ...).<br />
         Can be set to 'both' if you want icons AND text.<br />
         When set to False, will only show text.
         <br /><br />
@@ -1275,9 +1306,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['PropertiesNumColumns'] </b>integer</dt>
     <dd>
-        How many columns will be utilized to display the tables on the database property view?
-        Default is 1 column. When setting this to a value larger than 1, the type of the database will be
-        omitted for more display space.
+        How many columns will be utilized to display the tables on the
+        database property view?  Default is 1 column. When setting this to a
+        value larger than 1, the type of the database will be omitted for more
+        display space.
         <br /><br />
     </dd>
 
@@ -1287,8 +1319,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Defines the tab displayed by default on server view. Possible
         values: &quot;main.php3&quot; (recommended for multi-user setups),
         &quot;server_databases.php3&quot;, &quot;server_status.php3&quot;,
-        &quot;server_variables.php3&quot;, &quot;server_privileges.php3&quot; or
-        &quot;server_processlist.php3&quot;.
+        &quot;server_variables.php3&quot;, &quot;server_privileges.php3&quot;
+        or &quot;server_processlist.php3&quot;.
         <br /><br />
     </dd>
 
@@ -1388,8 +1420,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['IconvExtraParams'] </b>string</dt>
     <dd>
         Specify some parameters for iconv used in charset conversion. See
-        <a
-        href="http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html">iconv
+        <a href="http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html">iconv
         documentation</a> for details.
         <br /><br />
     </dd>
@@ -1555,23 +1586,27 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['HeaderFlipType'] </b>string
     </dt>
     <dd>
-        There are 3 display modes: horizontal, horizontalflipped and vertical. Define
-        which one is displayed by default. The first mode displays each row on a
-        horizontal line, the second rotates the headers by 90 degrees, so you can use
-        descriptive headers even though fields only contain small values and still
-        print them out. The vertical mode sorts each row on a vertical lineup.<br /><br />
-        The HeaderFlipType can be set to 'css' or 'faked'. When using 'css' the rotation
-        of the header for horizontalflipped is done via CSS. If set to 'faked' PGP
-        does the transformation for you, but of course this does not look as good as CSS.
+        There are 3 display modes: horizontal, horizontalflipped and vertical.
+        Define which one is displayed by default. The first mode displays each
+        row on a horizontal line, the second rotates the headers by 90
+        degrees, so you can use descriptive headers even though fields only
+        contain small values and still print them out. The vertical mode sorts
+        each row on a vertical lineup.
+        <br /><br />
+        The HeaderFlipType can be set to 'css' or 'faked'. When using 'css'
+        the rotation of the header for horizontalflipped is done via CSS. If
+        set to 'faked' PGP does the transformation for you, but of course this
+        does not look as good as CSS.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['DefaultPropDisplay'] </b>string</dt>
     <dd>
-        When editing/creating new columns in a table all fields normally get lined up
-        one field a line. (default: 'horizontal'). If you set this to 'vertical' you
-        can have each field lined up vertically beneath each other. You can save up
-        a lot of place on the horizontal direction and no longer have to scroll.
+        When editing/creating new columns in a table all fields normally get
+        lined up one field a line. (default: 'horizontal'). If you set this to
+        'vertical' you can have each field lined up vertically beneath each
+        other. You can save up a lot of place on the horizontal direction and
+        no longer have to scroll.
         <br /><br />
     </dd>
 
@@ -1579,22 +1614,24 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['ShowPropertyComments'] </b>boolean<br />
     </dt>
     <dd>
-        By setting the corresponding variable to TRUE you can enable the display of
-        column comments in Browse or Property display. In browse mode, the comments
-        are show inside the header. In property mode, comments are displayed using
-        a CSS-formatted dashed-line below the name of the field. The comment is shown
-        as a tool-tip for that field.
+        By setting the corresponding variable to TRUE you can enable the
+        display of column comments in Browse or Property display. In browse
+        mode, the comments are show inside the header. In property mode,
+        comments are displayed using a CSS-formatted dashed-line below the
+        name of the field. The comment is shown as a tool-tip for that field.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['UploadDir'] </b>string</dt>
     <dd>
-        The name of the directory, ending with a slash, where SQL files have
-        been uploaded by other means than phpMyAdmin (for example, ftp).
-        Those files are available under a drop-down box when you click the
-        database name, then the SQL tab.
+        The name of the directory, where SQL files have been uploaded by other
+        means than phpMyAdmin (for example, ftp).  Those files are available
+        under a drop-down box when you click the database name, then the SQL
+        tab.
         <br /><br />
-        Please note that the file names must have the suffix &quot;.sql&quot;.
+        Please note that the file names must have the suffix &quot;.sql&quot;
+        (or &quot;.sql.bz2&quot; or &quot;.sql.gz&quot; if support for
+        compressed formats is enabled).
         <br /><br />
         This feature is useful when your file is too big to be uploaded via
         HTTP, or when file uploads are disabled in PHP.
@@ -1604,10 +1641,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['docSQLDir'] </b>string</dt>
+    <dd>
+        The name of the directory, where docSQL files can be uploaded for
+        import into phpMyAdmin.
+        <br /><br />
+        Please note that if PHP is running in safe mode, this directory must
+        be owned by the same user as the owner of the phpMyAdmin scripts.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['SaveDir'] </b>string</dt>
     <dd>
-        The name of the directory, ending with a slash, where dumps can
-        be saved.
+        The name of the directory, where dumps can be saved.
         <br /><br />
         Please note that the directory has to be writable for user running
         webserver.
@@ -1641,39 +1687,52 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['QueryHistoryMax'] </b>integer
     </dt>
     <dd>
-        All those variables affect the new query frame/window. When $cfg['QueryFrame']
-        is set to true a new frame is embedded on the left with a small area. Clicking
-        on that results in opening a direct interface to enter SQL queries.<br /><br />
-        When $cfg['QueryFrameJS'] is set to true, clicking on that link opens a new
-        custom sized browser window ($cfg['QueryWindowWidth'], $cfg['QueryWindowWidth'] -
-        both integers for the size in pixels). If set to false, clicking on the link
-        only opens the SQL input in the mainframe.<br /><br />
-        The usage of the JavaScript query window is recommended if you have a JavaScript
-        enabled browser. Basic functions are used to exchange quite a few variables, so
-        most 4th generation browsers should be capable to use that feature. It currently
-        is only tested with Internet Explorer 6 and Mozilla 1.x.<br /><br />
-        If $cfg['QueryHistoryDB'] is set to TRUE, all your Queries are logged to a table,
-        which has to be created by you (see <a href="#history">$cfg['Servers'][$i]['history']</a>).
-        If set to FALSE, all your queries will be appended to the form, but only as long
-        as your window is opened they remain saved.<br /><br />
-        When using the JavaScript based query window, it will always get updated when you
-        click on a new table/db to browse and will focus if you click on "Edit SQL" after
-        using a query. You can suppress updating the query window by checking the box
-        "Do not overwrite this query from outside the window" below the query textarea. Then
-        you can browse tables/databases in the background without losing the contents of the
-        textarea, so this is especially useful when composing a query with tables you first
-        have to look in. The checkbox will get automatically checked whenever you change the
-        contents of the textarea. Please uncheck the button whenever you definitely want the
-        query window to get updated even though you have made alterations.<br /><br />
-        If $cfg['QueryHistoryDB'] is set to TRUE you can specify the amount of saved
-        history items using $cfg['QueryHistoryMax'].<br /><br />
-        The query window also has a custom tabbed look to group the features. Using the
-        variable $cfg['QueryWindowDefTab'] you can specify the default tab to be used
-        when opening the query window. It can be set to either 'sql', 'files', 'history'
-        or 'full'.<br /><br />
-        The variable $cfg['QueryFrameDebug'] can be used by developers for easier future
-        feature integration.
-    <br /><br />
+        All those variables affect the new query frame/window. When
+        $cfg['QueryFrame'] is set to true a new frame is embedded on the left
+        with a small area. Clicking on that results in opening a direct
+        interface to enter SQL queries.
+        <br /><br />
+        When $cfg['QueryFrameJS'] is set to true, clicking on that link opens
+        a new custom sized browser window ($cfg['QueryWindowWidth'],
+        $cfg['QueryWindowWidth'] - both integers for the size in pixels). If
+        set to false, clicking on the link only opens the SQL input in the
+        mainframe.
+        <br /><br />
+        The usage of the JavaScript query window is recommended if you have a
+        JavaScript enabled browser. Basic functions are used to exchange quite
+        a few variables, so most 4th generation browsers should be capable to
+        use that feature. It currently is only tested with Internet Explorer 6
+        and Mozilla 1.x.
+        <br /><br />
+        If $cfg['QueryHistoryDB'] is set to TRUE, all your Queries are logged
+        to a table, which has to be created by you (see <a
+        href="#history">$cfg['Servers'][$i]['history']</a>).  If set to FALSE,
+        all your queries will be appended to the form, but only as long as
+        your window is opened they remain saved.
+        <br /><br />
+        When using the JavaScript based query window, it will always get
+        updated when you click on a new table/db to browse and will focus if
+        you click on "Edit SQL" after using a query. You can suppress updating
+        the query window by checking the box "Do not overwrite this query from
+        outside the window" below the query textarea. Then you can browse
+        tables/databases in the background without losing the contents of the
+        textarea, so this is especially useful when composing a query with
+        tables you first have to look in. The checkbox will get automatically
+        checked whenever you change the contents of the textarea. Please
+        uncheck the button whenever you definitely want the query window to
+        get updated even though you have made alterations.
+        <br /><br />
+        If $cfg['QueryHistoryDB'] is set to TRUE you can specify the amount of
+        saved history items using $cfg['QueryHistoryMax'].
+        <br /><br />
+        The query window also has a custom tabbed look to group the features.
+        Using the variable $cfg['QueryWindowDefTab'] you can specify the
+        default tab to be used when opening the query window. It can be set to
+        either 'sql', 'files', 'history' or 'full'.
+        <br /><br />
+        The variable $cfg['QueryFrameDebug'] can be used by developers for
+        easier future feature integration.
+        <br /><br />
     </dd>
 
     <dt><b>$cfg['BrowseMIME'] </b>boolean</dt>
@@ -1694,35 +1753,41 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <a name="wysiwyg"></a>
     <dt><b>$cfg['WYSIWYG-PDF'] </b>boolean</dt>
     <dd>
-        Utilizes a WYSIWYG editing control to easily place elements of a PDF page.
-        By clicking on the button 'toggle scratchboard' on the page where you
-        edit x/y coordinates of those elements you can activate a scratchboard where
-        all your elements are placed. By clicking on an element, you can move them
-        around in the pre-defined area and the x/y coordinates will get updated
-        dynamically. Likewise, when entering a new position directly into the
-        input field, the new position in the scratchboard changes after your
-        cursors leaves the input field.<br />
-        You have to click on the 'OK'-button below the tables to save the new positions.
-        If you want to place a new element, first add it to the table of elements and
-        then you can drag the new element around.<br />
-        By changing the paper size and the orientation you can change the size of the
-        scratchboard as well. You can do so by just changing the dropdown field below,
-        and the scratchboard will resize automatically, without interfering with the
-        current placement of the elements.<br />
-        If ever an element gets out of range you can either enlarge the paper size
-        or click on the 'reset' button to place all elements below each other.<br />
-        <b>NOTE:</b> You have to use a recent browser like IE6 or Mozilla to get this control
-        to work. The basic Drag&amp;Drop script functionality was kindly borrowed from www.youngpup.net and
-        is underlying so specific license.
-    <br /><br />
+        Utilizes a WYSIWYG editing control to easily place elements of a PDF
+        page.  By clicking on the button 'toggle scratchboard' on the page
+        where you edit x/y coordinates of those elements you can activate a
+        scratchboard where all your elements are placed. By clicking on an
+        element, you can move them around in the pre-defined area and the x/y
+        coordinates will get updated dynamically. Likewise, when entering a
+        new position directly into the input field, the new position in the
+        scratchboard changes after your cursors leaves the input field.
+        <br />
+        You have to click on the 'OK'-button below the tables to save the new
+        positions.  If you want to place a new element, first add it to the
+        table of elements and then you can drag the new element around.
+        <br />
+        By changing the paper size and the orientation you can change the size
+        of the scratchboard as well. You can do so by just changing the
+        dropdown field below, and the scratchboard will resize automatically,
+        without interfering with the current placement of the elements.
+        <br />
+        If ever an element gets out of range you can either enlarge the paper
+        size or click on the 'reset' button to place all elements below each
+        other.
+        <br />
+        <b>NOTE:</b> You have to use a recent browser like IE6 or Mozilla to
+        get this control to work. The basic Drag&amp;Drop script functionality
+        was kindly borrowed from www.youngpup.net and is underlying so
+        specific license.
+        <br /><br />
     </dd>
 
     <dt><b>$cfg['SQP']['fmtType']</b> string [<tt>html</tt>|<tt>none</tt>]</dt>
     <dd>
-    The main use of the new SQL Parser is to pretty-print SQL queries. By
-    default we use HTML to format the query, but you can disable this by
-    setting this variable to <tt>'none'</tt>
-    <br /><br />
+        The main use of the new SQL Parser is to pretty-print SQL queries. By
+        default we use HTML to format the query, but you can disable this by
+        setting this variable to <tt>'none'</tt>.
+        <br /><br />
     </dd>
 
     <dt><b>$cfg['SQP']['fmtInd']</b> float<br />
@@ -2454,8 +2519,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     AddType application/x-httpd-php .php
     </tt>
     <br /><br />
-    In the case we saw, one set of directives was in <tt>httpd.conf</tt>, while
-    the other set was in <tt>php.conf</tt>.<br />
+    In the case we saw, one set of directives was in 
+    <tt>/etc/httpd/conf/httpd.conf</tt>, while
+    the other set was in <tt>/etc/httpd/conf/addon-modules/php.conf</tt>.<br />
     The recommended way is with <tt>AddType</tt>, so just comment out
     the first set of lines and restart Apache:
     <br /><br />
@@ -2602,11 +2668,11 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     limit error or a time limit error.
 </h4>
 <p>
-    As of version 2.2.4, we build the compressed dump in memory, so large
-    tables dumps may hang. The only alternative we can think about (using
-    system calls to mysqldump then gzip or bzip2) would not be applicable in
-    environments where PHP is in safe mode: access to system programs is
-    is limited by the system administrator, and time limit is enforced.
+    Compressed dumps are built in memory and because of this are limited to
+    php's memory limit. For GZip/BZip2 exports this can be overcome since
+    2.5.4 using <tt>$cfg['CompressOnFly']</tt> (enabled by default). Zip
+    exports can not be handled this way, so if you need Zip files for larger
+    dump, you have to use another way.
 </p>
 
 <h4>
@@ -2614,8 +2680,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     or alter a table.
 </h4>
 <p>
-    This seems to be a InnoDB bug (fixed in MySQL 3.23.50?). However, keep in
-    mind that phpMyAdmin as of version 2.3.0 does not support InnoDB.
+    This seems to be a InnoDB bug (fixed in MySQL 3.23.50?).
 </p>
 
 <h4>
@@ -2648,7 +2713,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 
 <h4>
-    [3.3] When using nested folders ($cfg['LeftFrameTableSeparator']) there
+    [3.5] When using nested folders ($cfg['LeftFrameTableSeparator']) there
      are some multiple hierarchies displayed in a wrong manner?!
 </h4>
 <p>
@@ -2656,6 +2721,16 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     without any characters between them, or at the beginning/end of your table
     name. If you have to, think about using another TableSeparator or disabling
     that feature
+</p>
+
+<h4>
+    [3.6] What is currently not supported in phpMyAdmin about InnoDB?
+</h4>
+<p>
+    In Relation view, being able to choose a table in another database,
+    or having more than one index field in the foreign key.<br /><br/>
+    In Query-by-example (Query), automatic generation of the query
+    LEFT JOIN from the foreign table.
 </p>
 
 <a name="faqmultiuser"></a><br />
@@ -3283,7 +3358,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     using the variable expansion inside of a &quot;LIKE ''&quot; expression.<br />
     Your initial query which is going to be stored as a bookmark has to yield at least one result row so
     you can store the bookmark. You may have that to work around using well positioned &quot;/**/&quot;
-    comments.
+    comments.<br />
+    <b>Variable expansion with PHP-Versions prior to 4.0.3 may not work as expected due to a necessary extra-space after any [VARIABLE] usage</b>
 </p>
 
 <h4>
@@ -3312,10 +3388,12 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     access them.
 </h4>
 <p>
-    Upgrading to MySQL 4 usually gives users a global privilege: CREATE
-    TEMPORARY TABLES. This privilege also enables users to see all the
-    database names. See this <a href="http://bugs.mysql.com/179">bug report</a>.    <br /><br />
-    So if your users do not need this privilege, you can remove it and their
+    Upgrading to MySQL 4 usually gives users those global privileges: CREATE
+    TEMPORARY TABLES, SHOW DATABASES, LOCK TABLES. Those privileges also 
+    enables users to see all the database names, until you upgrade the grant
+    tables as described in the MySQL manual, section 2.5.6.
+    See this <a href="http://bugs.mysql.com/179">bug report</a>.    <br /><br />
+    So if your users do not need those privileges, you can remove them and their
     databases list will shorten.
 </p>
 <h4>

@@ -710,4 +710,10 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
+$strLogServer = 'Server';  //to translate
+$strSortByKey = 'Sort by key';  //to translate
+$strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
+$strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
+$strConstraintsForTable = 'Constraints for table';  //to translate
+$strBookmarkOptions = 'Bookmark options';  //to translate
 ?>

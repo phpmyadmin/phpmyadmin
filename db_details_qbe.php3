@@ -129,8 +129,8 @@ if (!empty($TableList)) {
 // The tables list gets from MySQL
 while ($i < $tbl_result_cnt) {
     $tbl             = PMA_mysql_tablename($tbl_result, $i);
-    $fld_results     = @PMA_mysql_list_fields($db, $tbl) or PMA_mysqlDie(PMA_mysql_error(), 'PMA_mysql_list_fields(' . $db . ', ' . $tbl . ')', FALSE, $err_url);
-    $fld_results_cnt = ($fld_results) ? mysql_num_fields($fld_results) : 0;
+    $fld_results     = @PMA_mysql_list_fields_alternate($db, $tbl) or PMA_mysqlDie(PMA_mysql_error(), 'PMA_mysql_list_fields_alternate(' . $db . ', ' . $tbl . ')', FALSE, $err_url);
+    $fld_results_cnt = ($fld_results) ? count($fld_results) : 0;
     $j               = 0;
 
     if (empty($tbl_names[$tbl]) && !empty($TableList)) {
@@ -143,7 +143,7 @@ while ($i < $tbl_result_cnt) {
     if ($tbl_names[$tbl] == ' selected="selected"') {
         $fld[$k++]   =  PMA_backquote($tbl) . '.*';
         while ($j < $fld_results_cnt) {
-            $fld[$k] = PMA_mysql_field_name($fld_results, $j);
+            $fld[$k] = PMA_convert_display_charset($fld_results[$j]['Field']);
             $fld[$k] = PMA_backquote($tbl) . '.' . PMA_backquote($fld[$k]);
 
             // increase the width if necessary
@@ -155,9 +155,6 @@ while ($i < $tbl_result_cnt) {
             $j++;
         } // end while
     } // end if
-    if ($fld_results) {
-        mysql_free_result($fld_results);
-    }
 
     $i++;
 } // end if

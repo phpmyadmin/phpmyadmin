@@ -59,6 +59,9 @@ if (isset(${"fields_upload_" . $encoded_key}) && ${"fields_upload_" . $encoded_k
         }
 
     } elseif (!empty(${'fields_uploadlocal_' . $encoded_key})) {
+        if (substr($cfg['UploadDir'], -1) != '/') {
+            $cfg['UploadDir'] .= '/';
+        }
         $file_to_upload = $cfg['UploadDir'] . eregi_replace('\.\.*', '.', ${'fields_uploadlocal_' . $encoded_key});
 
         // A local file will be uploaded.

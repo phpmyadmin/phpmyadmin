@@ -625,7 +625,7 @@ class PMA_RT_Table
      *
      * @param   boolean   Whether to display table position or not
      * @param   integer   The font size
-     * @param   boolean   Whether all tables should have the same width or not
+     * @param   boolean   Whether to display color 
      * @param   integer   The max. with among tables
      *
      * @global  object    The current PDF document
@@ -634,20 +634,22 @@ class PMA_RT_Table
      *
      * @see     PMA_PDF
      */
-    function PMA_RT_Table_draw($show_info, $ff)
+    function PMA_RT_Table_draw($show_info, $ff, $setcolor=0)
     {
         global $pdf, $with_doc;
 
         $pdf->PMA_PDF_setXyScale($this->x, $this->y);
         $pdf->SetFont($ff, 'B');
-        $pdf->SetTextColor(200);
-        $pdf->SetFillColor(0, 0, 128);
+        if ($setcolor) {
+            $pdf->SetTextColor(200);
+            $pdf->SetFillColor(0, 0, 128);
+        }
         if ($with_doc) $pdf->SetLink($pdf->PMA_links['RT'][$this->table_name]['-'],-1);
         else $pdf->PMA_links['doc'][$this->table_name]['-'] = '';
         if ($show_info){
-            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->height) . ' ' . $this->table_name, 1, 1, 'C', 1,$pdf->PMA_links['doc'][$this->table_name]['-']);
+            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->height) . ' ' . $this->table_name, 1, 1, 'C', $setcolor, $pdf->PMA_links['doc'][$this->table_name]['-']);
         } else {
-            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, $this->table_name, 1, 1, 'C', 1,$pdf->PMA_links['doc'][$this->table_name]['-']);
+            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, $this->table_name, 1, 1, 'C', $setcolor, $pdf->PMA_links['doc'][$this->table_name]['-']);
         }
         $pdf->PMA_PDF_setXScale($this->x);
         $pdf->SetFont($ff, '');
@@ -658,17 +660,19 @@ class PMA_RT_Table
         while (list(, $field) = each($this->fields)) {
             // loic1 : PHP3 fix
             // if (in_array($field, $this->primary)) {
-            if (PMA_isInto($field, $this->primary) != -1) {
-                $pdf->SetFillColor(215, 121, 123);
-            }
-            if ($field == $this->displayfield) {
-                $pdf->SetFillColor(142, 159, 224);
+            if ($setcolor) {
+                if (PMA_isInto($field, $this->primary) != -1) {
+            	    $pdf->SetFillColor(215, 121, 123);
+            	}
+            	if ($field == $this->displayfield) {
+            	    $pdf->SetFillColor(142, 159, 224);
+            	}
             }
             if ($with_doc) $pdf->SetLink($pdf->PMA_links['RT'][$this->table_name][$field],-1);
             else $pdf->PMA_links['doc'][$this->table_name][$field] = '';
 
 
-            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, ' ' . $field, 1, 1, 'L', 1,$pdf->PMA_links['doc'][$this->table_name][$field]);
+            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, ' ' . $field, 1, 1, 'L', $setcolor,$pdf->PMA_links['doc'][$this->table_name][$field]);
             $pdf->PMA_PDF_setXScale($this->x);
             $pdf->SetFillColor(255);
         } // end while
@@ -1032,11 +1036,11 @@ class PMA_RT
      *
      * @see     PMA_RT_Table::PMA_RT_Table_draw()
      */
-    function PMA_RT_drawTables($show_info)
+    function PMA_RT_drawTables($show_info,$draw_color=0)
     {
         reset($this->tables);
         while (list(, $table) = each($this->tables)) {
-            $table->PMA_RT_Table_draw($show_info, $this->ff);
+            $table->PMA_RT_Table_draw($show_info, $this->ff,$draw_color);
         }
     } // end of the "PMA_RT_drawTables()" method
 
@@ -1084,7 +1088,9 @@ class PMA_RT
      * @param   integer  The page number to draw (from the
      *                   $cfg['Servers'][$i]['table_coords'] table)
      * @param   boolean  Whether to display table position or not
-     * @param   boolean  Whether to use one color per relation or not
+     * @param   boolean  Was originally whether to use one color per 
+     *                   relation or not, now enables/disables color 
+     *                   everywhere, due to some problems printing with color
      * @param   boolean  Whether to draw grids or not
      * @param   boolean  Whether all tables should have the same width or not
      *
@@ -1235,7 +1241,7 @@ class PMA_RT
             $this->PMA_RT_drawRelations($change_color);
         }
 
-        $this->PMA_RT_drawTables($show_info);
+        $this->PMA_RT_drawTables($show_info,$change_color);
 
         $this->PMA_RT_showRt();
     } // end of the "PMA_RT()" method

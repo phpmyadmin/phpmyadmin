@@ -11,7 +11,9 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')) {
     include('./libraries/bookmark.lib.php3');
 }
 
-PMA_checkParameters(array('db','table','url_query'));
+if (!($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full'))) {
+    PMA_checkParameters(array('db','table','url_query'));
+}
 
 /**
  * Defines the query to be displayed in the query textarea
@@ -225,9 +227,12 @@ echo "\n";
 
 // web-server upload directory
 $is_upload_dir = false;
-if ($cfg['UploadDir'] != '' && !isset($is_inside_querywindow) ||
-    ($cfg['UploadDir'] != '' && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) {
+if (!empty($cfg['UploadDir']) && !isset($is_inside_querywindow) ||
+    (!empty($cfg['UploadDir']) && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) {
 
+    if (substr($cfg['UploadDir'], -1) != '/') {
+        $cfg['UploadDir'] .= '/';
+    }
     if ($handle = @opendir($cfg['UploadDir'])) {
         if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
         ?>
@@ -237,7 +242,7 @@ if ($cfg['UploadDir'] != '' && !isset($is_inside_querywindow) ||
 
         $is_first = 0;
         while ($file = @readdir($handle)) {
-            if (is_file($cfg['UploadDir'] . $file) && substr($file, -4) == '.sql') {
+            if (is_file($cfg['UploadDir'] . $file) && PMA_checkFileExtensions($file, '.sql')) {
                 if ($is_first == 0) {
                     $is_upload_dir = true;
                     echo "\n";
@@ -277,7 +282,7 @@ if (($is_upload || $is_upload_dir) &&
          (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) 
         && isset($db) && $db != ''){
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-    	$form_items++;
+        $form_items++;
         echo '    <div style="margin-bottom: 5px">' . "\n";
         $temp_charset = reset($cfg['AvailableCharsets']);
         echo $strCharsetOfFile . "\n"
@@ -333,9 +338,32 @@ if (!isset($is_inside_querywindow) ||
 }
 
 if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && (($querydisplay_tab == 'files') || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go)))) {
-	if ($form_items > 0) {
+    if ($form_items > 0) {
 ?>
-            <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
+            <table border="0">
+                <tr>
+                    <td valign="top">
+                        <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
+                    </td>
+<?php
+        if (!isset($is_inside_querywindow) || isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab != 'history') {
+?>
+                    <td valign="top">
+                        <input type="submit" name="SQLbookmark" value="<?php echo $strGo . ' &amp; ' . $strBookmarkThis; ?>" />
+                    </td>
+                    
+                    <td>
+                        <fieldset>
+                            <legend><?php echo $strBookmarkOptions; ?></legend>
+                                <?php echo $strBookmarkLabel; ?>: <input type="text" name="bkm_label" value="" /><br />
+                                <input type="checkbox" name="bkm_all_users" id="id_bkm_all_users" value="true" /><label for="id_bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label>
+                        </fieldset>
+                    </td>
+<?php
+        }
+?>
+                </tr>
+            </table>
 <?php
         } else {
             // TODO: Add a more complete warning that no items (like for file import) where found.

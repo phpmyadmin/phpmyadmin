@@ -34,8 +34,10 @@ require('./tbl_properties_table_info.php3');
         <td><?php echo $strLocationTextfile; ?></td>
         <td colspan="2"><input type="file" name="textfile" />
         <?php
-if ($cfg['UploadDir'] != '') {
-
+if (!empty($cfg['UploadDir'])) {
+    if (substr($cfg['UploadDir'], -1) != '/') {
+        $cfg['UploadDir'] .= '/';
+    }
     if ($handle = @opendir($cfg['UploadDir'])) {
         $is_first = 0;
         while ($file = @readdir($handle)) {

@@ -717,4 +717,10 @@ $strLatexLabel = 'Label key';//to translate
 $strLatexContinuedCaption = 'Continued table caption';//to translate
 
 $strPrintViewFull = 'Print view (with full texts)';  //to translate
+$strLogServer = 'Server';  //to translate
+$strSortByKey = 'Sort by key';  //to translate
+$strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
+$strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
+$strConstraintsForTable = 'Constraints for table';  //to translate
+$strBookmarkOptions = 'Bookmark options';  //to translate
 ?>

@@ -5,10 +5,185 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-09-29 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech: Updated.
+    * config.inc.php3, db_details_importdocsql.php3,
+      db_details_structure.php3, libraries/config_import.lib.php3: You now
+      need to explicitely enable docSQL support ($cfg['docSQLDir']), RFE
+      #812033.
+    * Documentation: Documented above and support for compressed dumps.
+    * db_details.php3, export.php3, ldi_check.php3, ldi_table.php3,
+      read_dump.php3, tbl_change.php3, tbl_query_box.php3,
+      tbl_replace_fields.php3: $cfg['*Dir'] don't have to end with slash.
+
+2003-09-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/albanian: Updated, thanks to Laurent Dhima (laurenti).
+    * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
+    * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
+    * new lang: bosnian, thanks to Samir Kobiljak
+
+2003-09-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_row_delete.php3, mult_submits.inc.php3, 
+      libraries/display_tbl.lib.php3, /display_tbl_links.lib.php3:
+      RFE 810270: multi-row delete in browse mode
+    * lang/catalan: Updated, thanks to Xavier Navarro (xavin).
+    * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
+   
+2003-09-26 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * tbl_indexes.php3: RFE #812993 (Icons for index table).
+    * lang/persian-*.inc.php3, lang/sync_lang.sh,
+      libraries/select_lang.lib.php3, translators.html:
+      New Persian language files, thanks to Parham Ghaffarian.
+    * libraries/select_lang.lib.php3: Removed a dublicate entry.
+    * translators.html: I'm back. :-)
+    * lang/english.inc.php3: Resorted strings.
+
+2003-09-26 Garvin Hicking <me@supergarv.de>
+    * left.php3: bug #812481: Fixed display of '__protected__' subgroup in
+      non-light left frame mode, when $cfg['LeftFrameTableSeperator'] is empty.
+
+2003-09-24 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/function.js: Fixed bug #811499 (Opera 7.20 messes up row
+      markers), thanks to Michael Johnson (redbeardc).
+    * server_privileges.php3: Fixed bug #811792 (Password not kept when
+      modifying user).
+
+2003-09-23 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-*.inc.php3: Fixed some typos, thanks to Sebastian Mendel.
+
+2003-09-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/export/sql.php3: bug 811222: we need to analyze the query
+      to get the true column name in case of aliases
+    * libraries/common.lib.php3: bug 810617, final 1.0 version of Safari
+      does not need reduced font size
+
+2003-09-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_schema.php3: bug 805227: the "Show color" only removed
+      color on arrows, now removes all the color because of printing problems
+      on black&white printers, thanks to Kelley Lingerfelt (rebelkell)
+
+2003-09-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php3: bug 784961, could not delete a user
+
+2003-09-19 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: Fixed deleting AND from end of condition
+      with older php (bug #802060).
+
+2003-09-18 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/auth/cookie.auth.lib.php3: Improved functionality when more
+      than one cookie auth is being used.
+
+2003-09-18 Garvin Hicking <me@supergarv.de>
+    * tbl_query_box.php3, read_dump.php3, sql.php3, lang/*: RFE #477472 -
+      Add bookmark option to query window/tab to bookmark any statement.
+
+2003-09-17 Garvin Hicking <me@supergarv.de>
+    * querywindow.php3: RFE #807282 - Display 'edit' button to alter entries from SQL query
+      history, not execute them immediately.
+    * footer.inc.php3: Bug #805568 - Save SQL history even if 'LockFromUpdate' is selected.
+    * server_databases.php3: Bug #805545 - Refresh left frame when selecting a DB of
+      server_databases.php3
+
+2003-09-17 Michal Cihar  <nijel@users.sourceforge.net>
+    * read_dump.php3, libraries/read_dump.lib.php3: Error message when file
+      can not be read.
+    * tbl_query_box.php3: Do not require any variables in query window.
+    * lang/*, libraries/export/sql.php3: Export separately constraints, so
+      they don't cause troubles on import (bug #807615).
+    * Documentation, config.inc.php3, left.php3, main.php3, lang/*,
+      libraries/common.lib.php3, libraries/config_import.lib.php3,
+      libraries/auth/cookie.auth.lib.php3,
+      libraries/auth/arbitrary.auth.lib.php3(deleted): Merged arbitrary auth
+      into cookie auth, new config variable for enabling this
+      $cfg['AllowArbitraryServer'].
+    * db_details.php3, tbl_change.php3, tbl_query_box.php3,
+      libraries/common.lib.php3: Execute uploaded gzip/bzip'd SQL-files (RFE
+      #752886).
+    * Documentation, config.inc.php3, export.php3, libraries/common.lib.php3,
+      libraries/config_import.lib.php3: Allow compressing large SQL dumps -
+      they are compressed by smaller chunks and send to browser (RFE #795849).
+    * tbl_properties_operations.php3: Remove '; InnoDB free:' part from
+      comment including references.
+
+2003-09-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3: bug 790849 (js disabled and user removes the row limit
+      from the Show [30] rows)
+
+2003-09-16 Garvin Hicking <me@supergarv.de>
+    * db_details_qbe.php, libraries/mysql_wrappers.lib.php3: Finetune the new
+    PMA_mysql_fetch_fields() function and renamed it to PMA_mysql_fetch_fields_alternate:
+    It now uses 'SHOW FIELDS FROM...'. Modified all calls to the old function to fit the new
+    one. Keep old function for any future use.
+
+2003-09-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_links.php3, db_details_structure.php3: in Table view,
+      "Select" becomes "Search" to denote more clearly was this sub-page
+      is about
+
+2003-09-15 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/export/sql.php3: Avoid freeing failed result.
+
+2003-09-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: clarify FAQ 6.20 about which privileges are
+      assigned to users after an upgrade to MySQL 4, and their effect
+      on seeing all the databases.
+
+2003-09-12 Garvin Hicking <me@supergarv.de>
+    * lang/*, sql.php3, libraries/bookmark.lib.php3: RFE #804896
+      (Bookmarks for all users)
+    * lang/german*: Update
+    * Documentation.html: Added note to FAQ 6.18 about bookmark-variable expansion
+      not working on PHP < 4.0.3
+
+2003-09-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/turkish update, thanks to Bora Alioglu
+    * libraries/display_tbl.lib.php3: bug 804592 (undefined $prev_index)
+      and add "Sort" tooltip to each column header
+
+2003-09-11 Michal Cihar  <nijel@users.sourceforge.net>
+    * read_dump.php3: Add also limit to size, not only to pieces, because of
+      extended inserts (bug #803372).
+
+2003-09-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: clarify about InnoDB support
+    * libraries/sqlparser.lib.php3: bug 790903: BINARY as an operator;
+      bug 792511: SELECT * FROM mytable LIMIT 0,-1
+    * libraries/mysql_wrappers.lib.php3: bug 795443: wrong results coming
+      from mysql_list_fields, so modify PMA_mysql_list_fields to use
+      SELECT * FROM db.table LIMIT 1
+      (Thanks to Peter Beckman (ooglek))
+
+2003-09-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/mysql_wrappers.lib.php3: bug 795443: wrong results coming
+      from mysql_list_tables, so modify PMA_mysql_list_tables to use
+      SHOW TABLES FROM
+
+2003-09-09 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_relation.php3: Avoid message about not array variable when no InnoDB
+      relations used.
+    * libraries/display_tbl.lib.php3, lang/*: Allow user to select sorting by
+      indexes (RFE #528503).
+    * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
+    * lang/dutch: Updated, thanks to nobody :-).
+
+2003-09-08 Michal Cihar  <nijel@users.sourceforge.net>
+    * left.php3, main.php3, lang/*, libraries/common.lib.php3, Documentation,
+      config.inc.php3, libraries/auth/arbitrary.auth.lib.php3,
+      libraries/auth/cookie.auth.lib.php3: Support for login to arbitrary
+      server (RFE #684097).
+
+2003-09-08 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: Fixed bug #802611 (No 'LOCK TABLES' in DB-specific
+      privileges).
+
+2003-09-07 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.5.3 released
+
 2003-09-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: NO ACTION was not correctly treated
     * tbl_relation.php3: InnoDB support
- 
+
 2003-09-03 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/italian: Updated, thanks to Pietro Danesi (danone).
 

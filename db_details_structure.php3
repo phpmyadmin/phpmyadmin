@@ -111,9 +111,9 @@ if ($cfg['PropertiesIconic'] == true) {
     }
 
     $titles['Browse']     = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-    $titles['Select']     = $iconic_spacer . '<img hspace="7" width="14" height="13" src="images/button_select.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
+    $titles['Search']     = $iconic_spacer . '<img hspace="7" width="14" height="13" src="images/button_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
     $titles['NoBrowse']   = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_nobrowse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-    $titles['NoSelect']   = $iconic_spacer . '<img hspace="7" width="14" height="13" src="images/button_noselect.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
+    $titles['NoSearch']   = $iconic_spacer . '<img hspace="7" width="14" height="13" src="images/button_noselect.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
     $titles['Insert']     = $iconic_spacer . '<img hspace="7" width="13" height="13" src="images/button_insert.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
     $titles['Properties'] = $iconic_spacer . '<img hspace="7" width="18" height="13" src="images/button_properties.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
     $titles['Drop']       = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
@@ -122,9 +122,9 @@ if ($cfg['PropertiesIconic'] == true) {
 
     if ($propicon == 'both') {
         $titles['Browse']     .= '&nbsp;' . $strBrowse . '</nobr>';
-        $titles['Select']     .= '&nbsp;' . $strSelect . '</nobr>';
+        $titles['Search']     .= '&nbsp;' . $strSearch . '</nobr>';
         $titles['NoBrowse']   .= '&nbsp;' . $strBrowse . '</nobr>';
-        $titles['NoSelect']   .= '&nbsp;' . $strSelect . '</nobr>';
+        $titles['NoSearch']   .= '&nbsp;' . $strSearch . '</nobr>';
         $titles['Insert']     .= '&nbsp;' . $strInsert . '</nobr>';
         $titles['Properties'] .= '&nbsp;' . $strProperties . '</nobr>';
         $titles['Drop']       .= '&nbsp;' . $strDrop . '</nobr>';
@@ -133,9 +133,9 @@ if ($cfg['PropertiesIconic'] == true) {
     }
 } else {
     $titles['Browse']     = $strBrowse;
-    $titles['Select']     = $strSelect;
+    $titles['Search']     = $strSearch;
     $titles['NoBrowse']   = $strBrowse;
-    $titles['NoSelect']   = $strSelect;
+    $titles['NoSearch']   = $strSearch;
     $titles['Insert']     = $strInsert;
     $titles['Properties'] = $strProperties;
     $titles['Drop']       = $strDrop;
@@ -264,9 +264,9 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         <?php
         if (!empty($sts_data['Rows'])) {
             echo '<a href="tbl_select.php3?' . $tbl_url_query . '">'
-                 . $titles['Select'] . '</a>';
+                 . $titles['Search'] . '</a>';
         } else {
-            echo $titles['NoSelect'];
+            echo $titles['NoSearch'];
         }
         ?>
                 </td>
@@ -574,7 +574,7 @@ else {
                     <a href="sql.php3?<?php echo $tbl_url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0"><?php echo $strBrowse; ?></a>
                 </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="tbl_select.php3?<?php echo $tbl_url_query; ?>"><?php echo $titles['Select']; ?></a>
+                    <a href="tbl_select.php3?<?php echo $tbl_url_query; ?>"><?php echo $titles['Search']; ?></a>
                 </td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
                     <a href="tbl_change.php3?<?php echo $tbl_url_query; ?>"><?php echo $titles['Insert']; ?></a>
@@ -778,7 +778,9 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
 } // end if
 
 if ($num_tables > 0
-    && $cfgRelation['relwork'] && $cfgRelation['commwork']) {
+    && $cfgRelation['relwork'] && $cfgRelation['commwork']
+    && isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])
+    ) {
     ?>
     <!-- import docSQL files -->
     <li>

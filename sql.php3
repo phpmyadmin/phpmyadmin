@@ -72,7 +72,7 @@ if (!defined('PMA_CHK_DROP')
  */
 if (isset($store_bkm)) {
     include('./libraries/bookmark.lib.php3');
-    PMA_addBookmarks($fields, $cfg['Bookmark']);
+    PMA_addBookmarks($fields, $cfg['Bookmark'], (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
     header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto);
 } // end if
 
@@ -224,7 +224,7 @@ else {
         $reload           = 1;
     }
     // Gets the number of rows per page
-    if (!isset($session_max_rows)) {
+    if (empty($session_max_rows)) {
         $session_max_rows = $cfg['MaxRows'];
     } else if ($session_max_rows != 'all') {
         $cfg['MaxRows']   = $session_max_rows;
@@ -372,13 +372,13 @@ else {
 
                 //    c o u n t    q u e r y
 
-                // If we are "just browsing", there is only one table, 
+                // If we are "just browsing", there is only one table,
                 // and no where clause (or just 'WHERE 1 '),
                 // so we do a quick count (which uses MaxExactCount)
                 // because SQL_CALC_FOUND_ROWS
                 // is not quick on large InnoDB tables
 
-                if (!$is_group 
+                if (!$is_group
                  && !isset($analyzed_sql[0]['queryflags']['union'])
                  && !isset($analyzed_sql[0]['table_ref'][1]['table_name'])
                  && (empty($analyzed_sql[0]['where_clause'])
@@ -390,13 +390,13 @@ else {
                 } else { // n o t   " j u s t   b r o w s i n g "
 
                     if (PMA_MYSQL_INT_VERSION < 40000) {
-                        // TODO: detect DISTINCT in the parser 
+                        // TODO: detect DISTINCT in the parser
                         if (eregi('DISTINCT(.*)', $sql_query)) {
                             $count_what = 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
                         } else {
                             $count_what = '*';
                         }
- 
+
                         $count_query = 'SELECT COUNT(' . $count_what . ') AS count';
                     }
 
@@ -415,7 +415,7 @@ else {
 //                            $count_query .= 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
 //                        } else {
                             //$count_query .= $analyzed_sql[0]['select_expr_clause'];
-      
+
                             // for UNION, just adding SQL_CALC_FOUND_ROWS
                             // after the first SELECT works.
 
@@ -508,7 +508,7 @@ else {
                 // garvin: VOID. No DB/Table gets deleted.
             } // end if relation-stuff
          } // end if ($purge)
-         
+
         // garvin: If a column gets dropped, do relation magic.
         if (isset($cpurge) && $cpurge == '1' && isset($purgekey)
             && isset($db) && isset($table)
@@ -518,7 +518,7 @@ else {
 
         } // end if column PMA_* purge
     } // end else "didn't ask to see php code"
-        
+
 
     // No rows returned -> move back to the calling page
     if ($num_rows < 1 || $is_affected) {
@@ -696,12 +696,12 @@ else {
                            . '&amp;printview=1'
                            . '&amp;sql_query=' . urlencode($sql_query);
                 echo '    <!-- Print view -->' . "\n"
-                   . '    <a href="sql.php3' . $url_query 
+                   . '    <a href="sql.php3' . $url_query
                    . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
                    . '" target="print_view">' . $strPrintView . '</a>' . "\n";
                 if (!$dontlimitchars) {
                    echo   '    <br />' . "\n"
-                        . '    <a href="sql.php3' . $url_query 
+                        . '    <a href="sql.php3' . $url_query
                         . '&amp;dontlimitchars=1'
                         . '" target="print_view">' . $strPrintViewFull . '</a>' . "\n";
                 }
@@ -719,8 +719,8 @@ else {
                 $single_table   = '';
             }
             echo '    <!-- Export -->' . "\n"
-                   . '    <a href="tbl_properties_export.php3' . $url_query  
-                   . '&amp;unlim_num_rows=' . $unlim_num_rows 
+                   . '    <a href="tbl_properties_export.php3' . $url_query
+                   . '&amp;unlim_num_rows=' . $unlim_num_rows
                    . $single_table
                    . '">' . $strExport . '</a>' . "\n";
         }
@@ -750,13 +750,14 @@ else {
             }
             ?>
     <br /><br />
-    <?php echo $strBookmarkLabel; ?>&nbsp;:
+    <?php echo $strBookmarkLabel; ?>:
     <?php echo PMA_generate_common_hidden_inputs(); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
     <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
     <input type="text" name="fields[label]" value="" />
+    <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" /><label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label>
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
 </form>
             <?php

@@ -445,6 +445,10 @@ else if (!defined('PMA_IDX_INCLUDED')
                  . '                ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . '&nbsp;' . "\n"
                  . '            </td>' . "\n";
 
+            echo $index_td
+                 . '                <a href="tbl_indexes.php3?' . $url_query . '&amp;index=' . urlencode($index_name) . '">' . ($cfg['PropertiesIconic'] ? '<img src="./images/button_edit.png" width="12" height="13" hspace="7" border="0" title="' . $strEdit . '" alt="' . $strEdit . '">' : $strEdit) . '</a>' . "\n"
+                 . '            </td>' . "\n";
+
             if ($index_name == 'PRIMARY') {
                 $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY');
                 $js_msg    = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP PRIMARY KEY';
@@ -455,11 +459,7 @@ else if (!defined('PMA_IDX_INCLUDED')
                 $zero_rows = urlencode(sprintf($strIndexHasBeenDropped, htmlspecialchars($index_name)));
             }
             echo $index_td
-                 . '                <a href="sql.php3?' . $url_query . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $strDrop . '</a>' . "\n"
-                 . '            </td>' . "\n";
-
-            echo $index_td
-                 . '                <a href="tbl_indexes.php3?' . $url_query . '&amp;index=' . urlencode($index_name) . '">' . $strEdit . '</a>' . "\n"
+                 . '                <a href="sql.php3?' . $url_query . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . ($cfg['PropertiesIconic'] ? '<img src="./images/button_drop.png" width="11" height="12" hspace="7" border="0" title="' . $strDrop . '" alt="' . $strDrop . '">' : $strDrop) . '</a>' . "\n"
                  . '            </td>' . "\n";
 
             while (list($row_no, $seq_index) = each($indexes_info[$index_name]['Sequences'])) {

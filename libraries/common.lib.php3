@@ -135,7 +135,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php3 revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 199) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 203) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -587,8 +587,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         }
         // Some mac browsers need also smaller default fonts size (OmniWeb &
         // Opera)...
+        // and a beta version of Safari did also, but not the final 1.0 version
+        // so I remove   || PMA_USR_BROWSER_AGENT == 'SAFARI'
         else if (PMA_USR_OS == 'Mac'
-                    && (PMA_USR_BROWSER_AGENT == 'OMNIWEB' || PMA_USR_BROWSER_AGENT == 'OPERA' || PMA_USR_BROWSER_AGENT == 'SAFARI')) {
+                    && (PMA_USR_BROWSER_AGENT == 'OMNIWEB' || PMA_USR_BROWSER_AGENT == 'OPERA')) {
             $font_size     = 'x-small';
             $font_biggest  = 'large';
             $font_bigger   = 'medium';
@@ -712,7 +714,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         reset($cfg['Servers']);
         while (list($key, $val) = each($cfg['Servers'])) {
             // Don't use servers with no hostname
-            if ( ($val['connect_type'] == 'tcp') && empty($val['host']) ) {
+            if ( ($val['connect_type'] == 'tcp') && empty($val['host'])) {
                 unset($cfg['Servers'][$key]);
             }
 
@@ -1956,6 +1958,28 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 return (ereg_replace('/+', '/', $tmp_file) == $filename);
             } // end of the 'is_uploaded_file()' emulated function
         } // end if
+        
+        /**
+         * Function to check valid extension of file. It accepts entered
+         * extensions and bz2 and gz if supported.
+         *
+         * @param   string  File name to be tested.
+         * @param   string  Extension that is valid.
+         *
+         * @access  public
+         * @author  Michal Cihar (nijel@users.sourceforge.net)
+         */
+        function PMA_checkFileExtensions($file, $extension) {
+            if (substr($file, -1 * strlen($extension)) == $extension) return TRUE;
+            if ($GLOBALS['cfg']['GZipDump'] && @function_exists('gzopen')) {
+                if (substr($file, -3 - strlen($extension)) == $extension . '.gz') return TRUE;
+            }
+            if ($GLOBALS['cfg']['BZipDump'] && @function_exists('bzdecompress')) {
+                if (substr($file, -4 - strlen($extension)) == $extension . '.bz2') return TRUE;
+            }
+            return FALSE;
+        } // end function
+
     } // end if: minimal common.lib needed?
 } // $__PMA_COMMON_LIB__
 ?>

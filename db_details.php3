@@ -103,11 +103,14 @@ echo "\n";
 // web-server upload directory
 
 $is_upload_dir = false;
-if ($cfg['UploadDir'] != '') {
+if (!empty($cfg['UploadDir'])) {
+    if (substr($cfg['UploadDir'], -1) != '/') {
+        $cfg['UploadDir'] .= '/';
+    }
     if ($handle = @opendir($cfg['UploadDir'])) {
         $is_first = 0;
         while ($file = @readdir($handle)) {
-            if (is_file($cfg['UploadDir'] . $file) && substr($file, -4) == '.sql') {
+            if (is_file($cfg['UploadDir'] . $file) && PMA_checkFileExtensions($file, '.sql')) {
                 if ($is_first == 0) {
                     $is_upload_dir = true;
                     echo "\n";

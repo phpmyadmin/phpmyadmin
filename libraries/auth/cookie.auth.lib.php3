@@ -153,13 +153,14 @@ function PMA_blowfish_decrypt($data, $secret) {
         global $right_font_family, $font_size, $font_bigger;
         global $cfg, $available_languages;
         global $lang, $server, $convcharset;
-	global $conn_error;
+        global $conn_error;
         global $HTTP_COOKIE_VARS;
 
         // Tries to get the username from cookie whatever are the values of the
         // 'register_globals' and the 'variables_order' directives if last login
         // should be recalled, else skip the IE autocomplete feature.
         if ($cfg['LoginCookieRecall']) {
+            // username
             if (!empty($GLOBALS['pma_cookie_username'])) {
                 $default_user = $GLOBALS['pma_cookie_username'];
             }
@@ -172,6 +173,21 @@ function PMA_blowfish_decrypt($data, $secret) {
             if (isset($default_user) && get_magic_quotes_gpc()) {
                 $default_user = stripslashes($default_user);
             }
+            
+            // server name
+            if (!empty($GLOBALS['pma_cookie_servername'])) {
+                $default_server = $GLOBALS['pma_cookie_servername'];
+            }
+            else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername'])) {
+                $default_server = $_COOKIE['pma_cookie_servername'];
+            }
+            else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_servername'])) {
+                $default_server = $HTTP_COOKIE_VARS['pma_cookie_servername'];
+            }
+            if (isset($default_server) && get_magic_quotes_gpc()) {
+                $default_server = stripslashes($default_server);
+            }
+
             $autocomplete     = '';
         }
         else {
@@ -264,6 +280,14 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 <!-- Login form -->
 <form method="post" action="index.php3" name="login_form"<?php echo $autocomplete; ?>>
     <table cellpadding="5">
+<?php if ($GLOBALS['cfg']['AllowArbitraryServer']) { ?>
+    <tr>
+        <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strLogServer']; ?>&nbsp;</b></td>
+        <td align="<?php echo $cell_align; ?>">
+            <input type="text" name="pma_servername" value="<?php echo (isset($default_server) ? $default_server : ''); ?>" size="24" class="textfield" onfocus="this.select()" />
+        </td>
+    </tr>
+<?php } ?>
     <tr>
         <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strLogUsername']; ?>&nbsp;</b></td>
         <td align="<?php echo $cell_align; ?>">
@@ -283,13 +307,19 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
     <tr>
         <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strServerChoice']; ?>&nbsp;:&nbsp;</b></td>
         <td align="<?php echo $cell_align; ?>">
-            <select name="server">
+            <select name="server"
+            <?php
+            if ($GLOBALS['cfg']['AllowArbitraryServer']) {
+                echo ' onchange="document.forms[\'login_form\'].elements[\'pma_servername\'].value = \'\'" ';
+            }
+            ?>
+            >
             <?php
             echo "\n";
             // Displays the MySQL servers choice
             reset($cfg['Servers']);
             while (list($key, $val) = each($cfg['Servers'])) {
-                if (!empty($val['host'])) {
+                if (!empty($val['host']) || $val['auth_type'] == 'arbitrary') {
                     echo '                <option value="' . $key . '"';
                     if (!empty($server) && ($server == $key)) {
                         echo ' selected="selected"';
@@ -297,6 +327,8 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
                     echo '>';
                     if ($val['verbose'] != '') {
                         echo $val['verbose'];
+                    } elseif ($val['auth_type'] == 'arbitrary') {
+                        echo $GLOBALS['strArbitrary'];
                     } else {
                         echo $val['host'];
                         if (!empty($val['port'])) {
@@ -353,6 +385,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 </center>
 
 <script type="text/javascript" language="javascript">
+<!--
 var uname = document.forms['login_form'].elements['pma_username'];
 var pword = document.forms['login_form'].elements['pma_password'];
 if (uname.value == '') {
@@ -360,6 +393,7 @@ if (uname.value == '') {
 } else {
     pword.focus();
 }
+//-->
 </script>
 </body>
 
@@ -378,6 +412,7 @@ if (uname.value == '') {
      * @global  string    the password if register_globals is on
      * @global  array     the array of cookie variables if register_globals is
      *                    off
+     * @global  string    the servername sent by the login form
      * @global  string    the username sent by the login form
      * @global  string    the password sent by the login form
      * @global  string    the username of the user who logs out
@@ -390,9 +425,9 @@ if (uname.value == '') {
      */
     function PMA_auth_check()
     {
-        global $PHP_AUTH_USER, $PHP_AUTH_PW;
+        global $PHP_AUTH_USER, $PHP_AUTH_PW, $pma_auth_server;
         global $HTTP_COOKIE_VARS;
-        global $pma_username, $pma_password, $old_usr;
+        global $pma_servername, $pma_username, $pma_password, $old_usr;
         global $from_cookie;
 
         // Initialization
@@ -402,13 +437,16 @@ if (uname.value == '') {
 
         // The user wants to be logged out -> delete password cookie
         if (!empty($old_usr)) {
-            setcookie('pma_cookie_password', base64_encode(''), 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+            setcookie('pma_cookie_password', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
         }
 
         // The user just logged in
         else if (!empty($pma_username)) {
             $PHP_AUTH_USER = $pma_username;
             $PHP_AUTH_PW   = (empty($pma_password)) ? '' : $pma_password;
+            if ($GLOBALS['cfg']['AllowArbitraryServer']) {
+                $pma_auth_server = $pma_servername;
+            }
             $from_form     = TRUE;
         }
 
@@ -416,6 +454,22 @@ if (uname.value == '') {
         // from cookies whatever are the values of the 'register_globals' and
         // the 'variables_order' directives
         else {
+            if ($GLOBALS['cfg']['AllowArbitraryServer']) {
+                // servername
+                if (!empty($pma_cookie_servername)) {
+                    $pma_auth_server = $pma_cookie_servername;
+                    $from_cookie   = TRUE;
+                }
+                else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername'])) {
+                    $pma_auth_server = $_COOKIE['pma_cookie_servername'];
+                    $from_cookie   = TRUE;
+                }
+                else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_servername'])) {
+                    $pma_auth_server = $HTTP_COOKIE_VARS['pma_cookie_servername'];
+                    $from_cookie   = TRUE;
+                }
+            }
+            // username
             if (!empty($pma_cookie_username)) {
                 $PHP_AUTH_USER = $pma_cookie_username;
                 $from_cookie   = TRUE;
@@ -428,6 +482,7 @@ if (uname.value == '') {
                 $PHP_AUTH_USER = $HTTP_COOKIE_VARS['pma_cookie_username'];
                 $from_cookie   = TRUE;
             }
+            // password
             if (!empty($pma_cookie_password)) {
                 $PHP_AUTH_PW   = $pma_cookie_password;
             }
@@ -482,7 +537,7 @@ if (uname.value == '') {
     function PMA_auth_set_user()
     {
         global $cfg, $server;
-        global $PHP_AUTH_USER, $PHP_AUTH_PW;
+        global $PHP_AUTH_USER, $PHP_AUTH_PW, $pma_auth_server;
         global $from_cookie;
 
         // Ensures valid authentication mode, 'only_db', bookmark database and
@@ -498,13 +553,34 @@ if (uname.value == '') {
                 }
             } // end for
         } // end if
-
+        
+        $pma_server_changed = FALSE;
+        if ($GLOBALS['cfg']['AllowArbitraryServer'] 
+                && isset($pma_auth_server) && !empty($pma_auth_server)
+                && ($cfg['Server']['host'] != $pma_auth_server)
+                ) {
+            $cfg['Server']['host'] = $pma_auth_server;
+            $pma_server_changed = TRUE;
+        }
         $cfg['Server']['user']     = $PHP_AUTH_USER;
         $cfg['Server']['password'] = $PHP_AUTH_PW;
 
         // Set cookies if required (once per session) and, in this case, force
         // reload to ensure the client accepts cookies
         if (!$from_cookie) {
+            if ($GLOBALS['cfg']['AllowArbitraryServer']) {
+                if (isset($pma_auth_server) && !empty($pma_auth_server) && $pma_server_changed) {
+                    // Duration = one month for serverrname
+                    setcookie('pma_cookie_servername',
+                        $cfg['Server']['host'],
+                        time() + (60 * 60 * 24 * 30),
+                        $GLOBALS['cookie_path'], '',
+                        $GLOBALS['is_https']);
+                } else {
+                    // Delete servername cookie
+                    setcookie('pma_cookie_servername', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+                }
+            }
             // Duration = one month for username
             setcookie('pma_cookie_username',
                 $cfg['Server']['user'],

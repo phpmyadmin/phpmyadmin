@@ -496,12 +496,12 @@ if ($num_dbs > 1) {
                         $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . str_replace('\'', '\\\'', $list_item) . '\';';
                         eval($eval_string);
                     } else {
-                        $tablestack['__protected__']['pma_name'][] = $table;
-                        $tablestack['__protected__']['pma_list_item'][] = $list_item;
+                        $tablestack['']['pma_name'][] = $table;
+                        $tablestack['']['pma_list_item'][] = $list_item;
                     }
                 } else {
-                    $tablestack['__protected__']['pma_name'][] = $table;
-                    $tablestack['__protected__']['pma_list_item'][] = $list_item;
+                    $tablestack['']['pma_name'][] = $table;
+                    $tablestack['']['pma_list_item'][] = $list_item;
                 }
             } // end for $t (tables list)
             
@@ -725,12 +725,12 @@ else if ($num_dbs == 1) {
                     $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . $list_item . '\';';
                     eval($eval_string);
                 } else {
-                    $tablestack['__protected__']['pma_name'][] = $table;
-                    $tablestack['__protected__']['pma_list_item'][] = $list_item;
+                    $tablestack['']['pma_name'][] = $table;
+                    $tablestack['']['pma_list_item'][] = $list_item;
                 }
             } else {
-                $tablestack['__protected__']['pma_name'][] = $table;
-                $tablestack['__protected__']['pma_list_item'][] = $list_item;
+                $tablestack['']['pma_name'][] = $table;
+                $tablestack['']['pma_list_item'][] = $list_item;
             }
         }
     } // end for $j (tables list)
