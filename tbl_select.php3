@@ -83,7 +83,7 @@ else {
   }
   $sql_query .= " from $table";
   if ($where != "") {
-    $sql_query .= " where $where";
+    $sql_query .= ' where ' . ((get_magic_quotes_gpc()) ? stripslashes($where) : $where);
   }
   else {
     $sql_query .= " where 1";
@@ -93,14 +93,20 @@ else {
         if ($types[$i]=="string"||$types[$i]=="blob") {
           $quot="\"";
           $cmp="like";
+          if (!get_magic_quotes_gpc()) $fields[$i] = str_replace('"', '\\"', $fields[$i]);
         }
-        elseif($types[$i]=="date"||$types[$i]=="time") {
+        else if ($types[$i]=="date"||$types[$i]=="time") {
           $quot="\"";
           $cmp="=";
         }
         else {
-          $cmp="=";
-          $quot="";
+          if (strstr($fields[$i], '%')) {
+            $cmp='LIKE';
+            $quot='"';
+          } else {
+            $cmp='=';
+            $quot='';
+          }
           if (substr($fields[$i],0,1)=="<" || substr($fields[$i],0,1)==">") $cmp="";
         }
         $sql_query .= " and $names[$i] $cmp $quot$fields[$i]$quot";
