@@ -13,6 +13,7 @@ $Source$
     * lang/chinese_gb: Updated, thanks to Wang (fundawang).
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
+    * lang/romanian: Updated, thanks to Valics Lehel.
       
 2003-07-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Send headers before exiting because of missing
