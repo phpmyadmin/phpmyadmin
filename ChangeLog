@@ -8,6 +8,8 @@ $Source$
 2003-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: new faq 6.20 about CREATE TEMPORARY TABLES
     * libraries/sqlparser.lib.php3: bug 716679, parsing of negation operator
+    * tbl_properties_links.php3, tbl_properties_operations.php3: merge
+      the Options tab into Operations
 
 2003-06-05 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_export.lib.php3, libraries/functions.js: Some

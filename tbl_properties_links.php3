@@ -73,9 +73,6 @@ echo PMA_printTab($strSelect, $lnk4, $arg4);
 echo PMA_printTab($strInsert, 'tbl_change.php3', $url_query);
 echo PMA_printTab($strExport, 'tbl_properties_export.php3', $url_query);
 echo PMA_printTab($strOperations, 'tbl_properties_operations.php3', $url_query);
-if (PMA_MYSQL_INT_VERSION >= 32322) {
-    echo PMA_printTab($strOptions, 'tbl_properties_options.php3', $url_query);
-}
 echo PMA_printTab($strEmpty, $lnk6, $arg6, $att6);
 echo PMA_printTab($strDrop, 'sql.php3', $arg7, $att7);
 echo "\n";
