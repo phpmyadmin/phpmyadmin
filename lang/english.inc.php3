@@ -65,6 +65,7 @@ $strCreate = 'Create';
 $strCreateNewDatabase = 'Create new database';
 $strCreateNewTable = 'Create new table on database ';
 $strCriteria = 'Criteria';
+$strCuttedStrings = 'Cutted Strings';
 
 $strData = 'Data';
 $strDatabase = 'Database ';
@@ -113,6 +114,7 @@ $strFieldsEmpty = ' The field count is empty! ';
 $strFixed = 'fixed';
 $strFormat = 'Format';
 $strFormEmpty = 'Missing value in the form !';
+$strFullStrings = 'Full Strings';
 $strFunction = 'Function';
 
 $strGenTime = 'Generation Time';
@@ -298,6 +300,4 @@ $strWelcome = 'Welcome to ';
 $strWrongUser = 'Wrong username/password. Access denied.';
 
 $strYes = 'Yes';
-$strFullStrings = 'Full Strings';//to translate
-$strCuttedStrings = 'Cutted Strings';//to translate
 ?>

@@ -65,6 +65,7 @@ $strCreate = 'Créer';
 $strCreateNewDatabase = 'Créer une base de données';
 $strCreateNewTable = 'Créer une nouvelle table sur la base ';
 $strCriteria = 'Critère';
+$strCuttedStrings = 'Textes coupés';
 
 $strData = 'Données';
 $strDatabase = 'Base de données';
@@ -113,6 +114,7 @@ $strFieldsEmpty = 'Il faut indiquer le nombre de champs';
 $strFixed = 'fixe'; 
 $strFormat = 'format'; 
 $strFormEmpty = 'Formulaire incomplet !';
+$strFullStrings = 'Textes entiers';
 $strFunction = 'Fonction';
 
 $strGenTime = 'Généré le ';
@@ -298,6 +300,4 @@ $strWelcome = 'Bienvenue à';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
 $strYes = 'Oui';
-$strFullStrings = 'Full Strings';//to translate
-$strCuttedStrings = 'Cutted Strings';//to translate
 ?>
