@@ -1,20 +1,20 @@
 
-                      phpMyAdmin 2.2.4-dev Documentation
+                      phpMyAdmin 2.2.4-rc1 Documentation
                                        
-     * [1]Official phpMyAdmin project homepage    [
+     * Official phpMyAdmin project homepage    [
        http://www.phpwizard.net/projects/phpMyAdmin/ ]
-     * [2]Sourceforge phpMyAdmin download page    [
+     * Sourceforge phpMyAdmin download page    [
        http://phpmyadmin.sourceforge.net/ ]
      * Local documents:
-          + Version history: [3]ChangeLog
-          + General notes: [4]README
-          + License: [5]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.145 2002/02/10
-       09:24:47 loic1 Exp $
+          + Version history: ChangeLog
+          + General notes: README
+          + License: LICENSE
+     * Documentation version: $Id: Documentation.html,v 1.146 2002/02/12
+       21:34:57 lem9 Exp $
    ______________________________________________________________________
    
-   [6]Top  -  [7]Requirements  -  [8]Introduction  -  [9]Installation  -
-   [10]Configuration  -  [11]FAQ  -  [12]Developers  -  [13]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Requirements
@@ -27,8 +27,8 @@ Requirements
      * a web-browser (doh!).
    ______________________________________________________________________
    
-   [14]Top  -  [15]Requirements  -  [16]Introduction  -  [17]Installation
-    -  [18]Configuration  -  [19]FAQ  -  [20]Developers  -  [21]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Introduction
@@ -54,8 +54,8 @@ Introduction
    (--with-zlib) and/or Bzip2 support (--with-bz2).
    ______________________________________________________________________
    
-   [22]Top  -  [23]Requirements  -  [24]Introduction  -  [25]Installation
-    -  [26]Configuration  -  [27]FAQ  -  [28]Developers  -  [29]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Installation
@@ -76,12 +76,12 @@ Installation
     2. Open the file config.inc.php3 in your favourite editor and change
        the values for host, user, password and authentication mode to fit
        your environment. Also insert the correct value for
-       $cfgPmaAbsoluteUri. Have a look at [30]Configuration section for
-       an explanation of all values.
+       $cfgPmaAbsoluteUri. Have a look at Configuration section for an
+       explanation of all values.
     3. It is recommended that you protect the directory in which you
        installed phpMyAdmin (unless it's on a closed intranet, or you
        wish to use http or cookie authentication), for example with
-       HTTP-AUTH (in a .htaccess file). See the [31]FAQ section for
+       HTTP-AUTH (in a .htaccess file). See the FAQ section for
        additional information.
     4. Open the file <www.your-host.com>/<your-install-dir>/index.php3 in
        your browser. phpMyAdmin should now display a welcome screen and
@@ -160,8 +160,8 @@ Installation
        protect your configuration file.
    ______________________________________________________________________
    
-   [32]Top  -  [33]Requirements  -  [34]Introduction  -  [35]Installation
-    -  [36]Configuration  -  [37]FAQ  -  [38]Developers  -  [39]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Configuration
@@ -214,8 +214,8 @@ Configuration
           columns) & mysql.tables_priv (all columns except "Grantor" &
           "Timestamp") tables. This account is used to check what
           databases the user will see at login.
-          Please see the [40]install section on "Using http
-          authentication" for more information.
+          Please see the install section on "Using http authentication"
+          for more information.
           Note that if you try login to phpMyAdmin with this "stduser",
           you could get some errors, depending the exact privileges you
           gave to the "stduser". phpMyAdmin does not support a direct
@@ -507,8 +507,8 @@ Configuration
           need to edit this.
    ______________________________________________________________________
    
-   [41]Top  -  [42]Requirements  -  [43]Introduction  -  [44]Installation
-    -  [45]Configuration  -  [46]FAQ  -  [47]Developers  -  [48]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 FAQ - Frequently Asked Questions
@@ -534,15 +534,15 @@ FAQ - Frequently Asked Questions
    specified CGI application misbehaved by not returning a complete set
    of HTTP headers...."
    You just forgot to read the install.txt file from the php
-   distribution. Have a look at the last message in this [49]bug report
-   from the official php bug database.
+   distribution. Have a look at the last message in this bug report from
+   the official php bug database.
    
    Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages
    with the http or advanced authentication mode.
    This is a known problem with the php ISAPI filter: it's not so stable.
    For some more information and complete testings see the messages
-   posted by André B. aka "djdeluxe76" in [50]this thread from the
-   phpWizard forum.
+   posted by André B. aka "djdeluxe76" in this thread from the phpWizard
+   forum.
    Please use instead the cookie authentication mode.
    
    I can't use phpMyAdmin on PWS: nothing is displayed!
@@ -578,11 +578,11 @@ FAQ - Frequently Asked Questions
    7.0 and you updated your php rpm to php-4.0.4pl1-3.i386.rpm, didn't
    you?
    So the problem is that this package has a serious bug that was
-   corrected ages ago in php (2001-01-28: see [51]php's bug tracking
-   system for more details). The problem is that the bugged package is
-   still available though it was corrected (see [52]redhat's bugzilla for
-   more details).
-   So please download [53]the fixed package (4.0.4pl1-9) and the problem
+   corrected ages ago in php (2001-01-28: see php's bug tracking system
+   for more details). The problem is that the bugged package is still
+   available though it was corrected (see redhat's bugzilla for more
+   details).
+   So please download the fixed package (4.0.4pl1-9) and the problem
    should go away.
    And that fixes the \r\n problem with file uploads!
    
@@ -605,7 +605,7 @@ FAQ - Frequently Asked Questions
    commands, removed.
    
    I have lost my MySQL root password, what can I do?
-   The MySql manual explains how to [54]reset the permissions.
+   The MySql manual explains how to reset the permissions.
    
    I get an error 'No SQL query' when trying to execute a bookmark.
    If PHP does not have read/write access to its upload_tmp_dir, it
@@ -628,7 +628,7 @@ FAQ - Frequently Asked Questions
    The error message "Warning: MySQL Connection Failed: Can't connect to
    local MySQL server through socket '/tmp/mysql.sock' (111)...") is
    displayed. What can I do?
-   Here is a fix suggested by Brad Ummer in the [55]phpwizard forum:
+   Here is a fix suggested by Brad Ummer in the phpwizard forum:
      * First, you need to determine what socket is being used by MySQL.
        To do this, telnet to your server and go to the MySQL bin
        directory. In this directory there should be a file named
@@ -642,7 +642,7 @@ FAQ - Frequently Asked Questions
        config.inc.php3.
        For example: $cfgServers[n]['socket'] = '/tmp/mysql.sock';
        
-   Have also a look at the [56]corresponding section of the MySQL
+   Have also a look at the corresponding section of the MySQL
    documentation.
    
    Nothing is displayed by my browser when I try to run phpMyAdmin, what
@@ -790,11 +790,10 @@ FAQ - Frequently Asked Questions
   
    I have found a bug. How do I inform developers?
    Our Bug Tracker is located at
-   [57]http://sourceforge.net/projects/phpmyadmin/ under the Bugs
-   section.
+   http://sourceforge.net/projects/phpmyadmin/ under the Bugs section.
    But please first discuss your bug with other users:
-   [58]http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
-   [59]http://www.phpwizard.net/projects/phpMyAdmin/ (and choose Support
+   http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
+   http://www.phpwizard.net/projects/phpMyAdmin/ (and choose Support
    Forum)
    
    I want to translate the messages to a new language or upgrade an
@@ -821,15 +820,15 @@ FAQ - Frequently Asked Questions
        [This will create a new sub-directory named phpMyAdmin]
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
-       tracker of the [60]phpMyAdmin SourceForge account.
+       tracker of the phpMyAdmin SourceForge account.
        
    Write access to the CVS tree is granted only to experienced developers
    who have already contributed something useful to phpMyAdmin.
-   Also, have a look at the [61]Developers section.
+   Also, have a look at the Developers section.
    ______________________________________________________________________
    
-   [62]Top  -  [63]Requirements  -  [64]Introduction  -  [65]Installation
-    -  [66]Configuration  -  [67]FAQ  -  [68]Developers  -  [69]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Developers Information
@@ -851,7 +850,7 @@ Developers Information
        please try to keep your code as simple as possible: beginners are
        using phpMyAdmin as an example application.
        By the way, we're currently updating all the scripts so they will
-       be XHTML1.0 and CSS2 compliant on one hand, they will fit [70]PEAR
+       be XHTML1.0 and CSS2 compliant on one hand, they will fit PEAR
        coding standards on the other hand. Please pay attention to this.
      * Please try to keep up the file-naming conventions. Table-related
        stuff goes to tbl_*.php3, db-related code to db_*.php3 and so on.
@@ -874,7 +873,7 @@ Developers Information
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
        tracker of the phpMyAdmin SourceForge account
-       ([71]http://sourceforge.net/projects/phpmyadmin/)
+       (http://sourceforge.net/projects/phpmyadmin/)
        
    Write access to the CVS tree is granted only to developers who have
    already contributed something useful to phpMyAdmin. If you're
@@ -882,8 +881,8 @@ Developers Information
    mailing list.
    ______________________________________________________________________
    
-   [72]Top  -  [73]Requirements  -  [74]Introduction  -  [75]Installation
-    -  [76]Configuration  -  [77]FAQ  -  [78]Developers  -  [79]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
 Credits
@@ -1013,100 +1012,8 @@ Original Credits of Version 2.1.0
     and or just some feedback.
    ______________________________________________________________________
    
-   [80]Top  -  [81]Requirements  -  [82]Introduction  -  [83]Installation
-    -  [84]Configuration  -  [85]FAQ  -  [86]Developers  -  [87]Credits
+   Top  -  Requirements  -  Introduction  -  Installation  -
+   Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
    
-                                [88]Valid XHTML 1.0!      [89]Valid CSS! 
-
-References
-
-   1. http://www.phpwizard.net/projects/phpMyAdmin/
-   2. http://phpmyadmin.sourceforge.net/
-   3. http://localhost/phpMyAdmin-devel/ChangeLog
-   4. http://localhost/phpMyAdmin-devel/README
-   5. http://localhost/phpMyAdmin-devel/LICENSE
-   6. http://localhost/phpMyAdmin-devel/Documentation.html#top
-   7. http://localhost/phpMyAdmin-devel/Documentation.html#require
-   8. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-   9. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  10. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  11. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  12. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  13. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  14. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  15. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  16. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  17. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  18. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  19. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  20. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  21. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  22. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  23. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  24. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  25. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  26. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  27. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  28. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  29. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  30. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  31. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  32. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  33. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  34. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  35. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  36. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  37. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  38. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  39. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  40. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  41. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  42. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  43. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  44. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  45. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  46. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  47. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  48. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  49. http://bugs.php.net/bug.php?id=12061
-  50. http://www.phpwizard.net/phorum/read.php?f=1&i=6624&t=6300
-  51. http://www.php.net/bugs.php?id=8966
-  52. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
-  53. http://www.redhat.com/swr/i386/php-4.0.4pl1-9.i386.html
-  54. http://www.mysql.com/doc/R/e/Resetting_permissions.html
-  55. http://www.phpwizard.net/phorum/list.php?f=1
-  56. http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html
-  57. http://sourceforge.net/projects/phpmyadmin/
-  58. http://sourceforge.net/projects/phpmyadmin/
-  59. http://www.phpwizard.net/projects/phpMyAdmin/
-  60. https://sourceforge.net/projects/phpmyadmin/
-  61. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  62. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  63. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  64. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  65. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  66. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  67. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  68. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  69. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  70. http://pear.php.net/
-  71. http://sourceforge.net/projects/phpmyadmin/
-  72. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  73. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  74. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  75. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  76. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  77. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  78. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  79. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  80. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  81. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  82. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  83. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  84. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  85. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  86. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  87. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  88. http://validator.w3.org/check/referer
-  89. http://jigsaw.w3.org/css-validator/
+                                        Valid XHTML 1.0!      Valid CSS! 
