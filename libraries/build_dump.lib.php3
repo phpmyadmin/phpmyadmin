@@ -13,22 +13,6 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
     define('PMA_BUILD_DUMP_LIB_INCLUDED', 1);
 
     /**
-     * Uses the 'htmlspecialchars()' php function on databases, tables and fields
-     * name if the dump has to be displayed on screen.
-     *
-     * @param   string   the string to format
-     *
-     * @return  string   the formatted string
-     *
-     * @access  private
-     */
-    function PMA_htmlFormat($a_string = '')
-    {
-        return (empty($GLOBALS['asfile']) ? htmlspecialchars($a_string) : $a_string);
-    } // end of the 'PMA_htmlFormat()' function
-
-
-    /**
      * Returns $table's CREATE definition
      *
      * @param   string   the database name
@@ -42,8 +26,6 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      * @global  boolean  whether to add 'drop' statements or not
      * @global  boolean  whether to use backquotes to allow the use of special
      *                   characters in database, table and fields names or not
-     *
-     * @see     PMA_htmlFormat()
      *
      * @access  public
      */
@@ -85,7 +67,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $schema_create .= $new_crlf;
         
         if (!empty($drop)) {
-            $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes) . ';' . $crlf;
+            $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table, $use_backquotes) . ';' . $crlf;
         }
 
         if ($comments) {
@@ -128,7 +110,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 $tmpres[1]     = substr($tmpres[1], 0, 13)
                                . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
                                . substr($tmpres[1], $pos);
-                $schema_create .= str_replace("\n", $crlf, PMA_htmlFormat($tmpres[1]));
+                $schema_create .= str_replace("\n", $crlf, $tmpres[1]);
             }
             
             $schema_create .= $auto_increment;
@@ -149,14 +131,14 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         } // end if MySQL >= 3.23.21
 
         // For MySQL < 3.23.20
-        $schema_create .= 'CREATE TABLE ' . PMA_htmlFormat(PMA_backquote($table), $use_backquotes) . ' (' . $crlf;
+        $schema_create .= 'CREATE TABLE ' . PMA_backquote($table, $use_backquotes) . ' (' . $crlf;
 
         $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
         $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         while ($row = PMA_mysql_fetch_array($result)) {
-            $schema_create     .= '   ' . PMA_htmlFormat(PMA_backquote($row['Field'], $use_backquotes)) . ' ' . $row['Type'];
+            $schema_create     .= '   ' . PMA_backquote($row['Field'], $use_backquotes) . ' ' . $row['Type'];
             if (isset($row['Default']) && $row['Default'] != '') {
-                $schema_create .= ' DEFAULT \'' . PMA_htmlFormat(PMA_sqlAddslashes($row['Default'])) . '\'';
+                $schema_create .= ' DEFAULT \'' . PMA_sqlAddslashes($row['Default']) . '\'';
             }
             if ($row['Null'] != 'YES') {
                 $schema_create .= ' NOT NULL';
@@ -193,9 +175,9 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 $index[$kname] = array();
             }
             if ($sub_part > 1) {
-                $index[$kname][] = PMA_htmlFormat(PMA_backquote($row['Column_name'], $use_backquotes)) . '(' . $sub_part . ')';
+                $index[$kname][] = PMA_backquote($row['Column_name'], $use_backquotes) . '(' . $sub_part . ')';
             } else {
-                $index[$kname][] = PMA_htmlFormat(PMA_backquote($row['Column_name'], $use_backquotes));
+                $index[$kname][] = PMA_backquote($row['Column_name'], $use_backquotes);
             }
         } // end while
         mysql_free_result($result);
@@ -282,10 +264,10 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             // Sets the scheme
             if (isset($GLOBALS['showcolumns'])) {
                 $fields        = implode(', ', $field_set);
-                $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
-                               . ' (' . PMA_htmlFormat($fields) . ') VALUES (';
+                $schema_insert = 'INSERT INTO ' . PMA_backquote($table, $use_backquotes)
+                               . ' (' . $fields . ') VALUES (';
             } else {
-                $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
+                $schema_insert = 'INSERT INTO ' . PMA_backquote($table, $use_backquotes)
                                . ' VALUES (';
             }
 
@@ -422,10 +404,10 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 $schema_insert = '(';
             } else {
                 if (isset($GLOBALS['showcolumns'])) {
-                    $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
-                                   . ' ' . PMA_htmlFormat($table_list) . ' VALUES (';
+                    $schema_insert = 'INSERT INTO ' . PMA_backquote($table, $use_backquotes)
+                                   . ' ' . $table_list . ' VALUES (';
                 } else {
-                    $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
+                    $schema_insert = 'INSERT INTO ' . PMA_backquote($table, $use_backquotes)
                                    . ' VALUES (';
                 }
                 $is_first_row      = FALSE;
