@@ -522,7 +522,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     //          work anyway, but display a big warning on the main.php3
     //          page.
     if (empty($cfg['PmaAbsoluteUri'])) {
-	$port_in_HTTP_HOST = strpos($HTTP_SERVER_VARS['HTTP_HOST'],':') !== FALSE;
+    $port_in_HTTP_HOST = strpos($HTTP_SERVER_VARS['HTTP_HOST'], ':') > 0;
         $cfg['PmaAbsoluteUri']          = (!empty($HTTP_SERVER_VARS['HTTPS']) ? 'https' : 'http') . '://'
                                         . $HTTP_SERVER_VARS['HTTP_HOST']
                                         . ((!empty($HTTP_SERVER_VARS['SERVER_PORT']) && !$port_in_HTTP_HOST) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '')
