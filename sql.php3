@@ -139,7 +139,7 @@ else {
         include("./header.inc.php3");
         // Define the display mode if it wasn't passed by url
         if (!isset($display)) {
-        	$display = eregi('^((SHOW (VARIABLES|PROCESSLIST|STATUS))|((CHECK|ANALYZE|REPAIR|OPTIMIZE) TABLE ))', $sql_query, $which);
+        	$display = eregi('^((SHOW (VARIABLES|PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS))|((CHECK|ANALYZE|REPAIR|OPTIMIZE) TABLE ))', $sql_query, $which);
             if (!empty($which[2]) && !empty($which[3])) {
                 $display = 'simple';
             } else if (!empty($which[4]) && !empty($which[5])) {

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-23  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3: correct small display bugs
+	* sql.php3: complement list of 'show' options to
+	  suppress 'insert new row'
+
 2001-07-22  Olivier Müller  <om@omnis.ch>
 	* releasing 2.2.0rc3
 
