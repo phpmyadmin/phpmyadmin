@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-22  Olivier Müller  <om@omnis.ch>
+	* releasing 2.2.0rc3
+
 2001-07-21  Steve Alberty  <alberty@neptunlabs.de>
 	* config.inc.php3,index.php3: add $cfgLeftWidth to configure
 	  individual left frame width

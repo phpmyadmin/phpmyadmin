@@ -21,17 +21,17 @@
 
 // The $cfgServers array starts with $cfgServers[1].  Do not use $cfgServers[0].
 // You can disable a server config entry by setting host to ''.
-$cfgServers[1]['host'] = 'localhost';           // MySQL hostname
+$cfgServers[1]['host'] = 'mysql';           // MySQL hostname
 $cfgServers[1]['port'] = '';                    // MySQL port - leave blank for default port
 $cfgServers[1]['adv_auth'] = false;             // Use advanced authentication?
 $cfgServers[1]['stduser'] = '';                 // MySQL standard user (only needed with advanced auth)
 $cfgServers[1]['stdpass'] = '';                 // MySQL standard password (only needed with advanced auth)
-$cfgServers[1]['user'] = 'root';                // MySQL user (only needed with basic auth)
-$cfgServers[1]['password'] = '';                // MySQL password (only needed with basic auth)
-$cfgServers[1]['only_db'] = '';                 // If set to a db-name, only this db is accessible
+$cfgServers[1]['user'] = 'odns';                // MySQL user (only needed with basic auth)
+$cfgServers[1]['password'] = 'test';                // MySQL password (only needed with basic auth)
+$cfgServers[1]['only_db'] = 'odns';                 // If set to a db-name, only this db is accessible
 $cfgServers[1]['verbose'] = '';                 // Verbose name for this host - leave blank to show the hostname
-$cfgServers[1]['bookmarkdb'] = '';              // Bookmark db - leave blank for no bookmark support
-$cfgServers[1]['bookmarktable'] = '';           // Bookmark table - leave blank for no bookmark support
+$cfgServers[1]['bookmarkdb'] = 'odns';              // Bookmark db - leave blank for no bookmark support
+$cfgServers[1]['bookmarktable'] = 'bookmark';           // Bookmark table - leave blank for no bookmark support
 
 $cfgServers[2]['host'] = '';
 $cfgServers[2]['port'] = '';
