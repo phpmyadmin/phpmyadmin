@@ -247,18 +247,28 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * @param   string   the string to slash
      * @param   boolean  whether the string will be used in a 'LIKE' clause
      *                   (it then requires two more escaped sequences) or not
+     * @param   boolean  whether to treat cr/lfs as escape-worthy entities
+                         (converts \n to \\n, \r to \\r)
+
      *
      * @return  string   the slashed string
      *
      * @access  public
      */
-    function PMA_sqlAddslashes($a_string = '', $is_like = FALSE)
+    function PMA_sqlAddslashes($a_string = '', $is_like = FALSE, $crlf = FALSE)
     {
         if ($is_like) {
             $a_string = str_replace('\\', '\\\\\\\\', $a_string);
         } else {
             $a_string = str_replace('\\', '\\\\', $a_string);
         }
+        
+        if ($crlf) {
+            $a_string = str_replace("\n", '\n', $a_string);
+            $a_string = str_replace("\r", '\r', $a_string);
+            $a_string = str_replace("\t", '\t', $a_string);
+        }
+        
         $a_string = str_replace('\'', '\\\'', $a_string);
 
         return $a_string;

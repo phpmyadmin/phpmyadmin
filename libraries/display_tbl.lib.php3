@@ -894,7 +894,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $condition .= 'IS NULL AND';
                         } else {
-                            $condition .= '= \'' . PMA_sqlAddslashes($row[$pointer]) . '\' AND';
+                            $condition .= '= \'' . PMA_sqlAddslashes($row[$pointer], FALSE, TRUE) . '\' AND';
                         }
                         if ($meta->primary_key > 0) {
                             $primary_key .= $condition;
@@ -914,6 +914,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     } else {
                         $uva_condition = $uva_nonprimary_condition;
                     }
+                    
                     $uva_condition     = urlencode(ereg_replace('[[:space:]]?AND$', '', $uva_condition));
                 } // end if (1.1)
 

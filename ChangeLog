@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-06 Garvin Hicking <me@supergarv.de>
+    * libraries/common.lib.php3, libraries/display_tbl.lib.php3:
+      Fix bug #658668, special escaping of \n, \r and \t characters.
+      Please test, works fine for me now (both magic_quotes on/off).
+      
 2003-03-05 Robin Johnson  <robbat2@users.sourceforge.net>
     * Documentation.html, Documentation.txt: Long-withstanding spelling fixes!
     * updatedocs.sh: Script to make conversion easier
