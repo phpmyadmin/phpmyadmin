@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-05 Garvin Hicking <weihnachtsgarv@supergarv.de>
+    * libraries/transformations/text_plain__dateformat.inc.php:
+      Use <dfn>-Tag to display original data to not waste display
+      clarity by using hyperlinks. Original implementation also
+      failed when using customized options.
+
 2003-12-04 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian: Updated, thanks to Alvar Soome (finsoft).
     * libraries/transformations/text_plain__dateformat.inc.php:

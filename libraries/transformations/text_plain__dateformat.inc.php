@@ -12,9 +12,8 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
     }
 
     if (!isset($options[1]) || $options[1] == '') {
-        //$options[1] = $GLOBALS['datefmt'];
-        $buffer_message = "'" . $buffer . "'";
-        $options[1] = '<a href="javascript:alert(' . $buffer_message . ')" title=' . $buffer_message . '>' . $GLOBALS['datefmt'] .  '</a>';
+        $options[1] = $GLOBALS['datefmt'];
+
     }
 
     $timestamp = -1;
@@ -52,7 +51,8 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
     // Reformat a valid timestamp
     if ($timestamp >= 0) {
         $timestamp -= $options[0] * 60 * 60;
-        $buffer = PMA_localisedDate($timestamp, $options[1]);
+        $source = $buffer;
+        $buffer = '<dfn onclick="alert(\'' . $source . '\');" title="' . $source . '">' . PMA_localisedDate($timestamp, $options[1]) . '</dfn>';
     }
 
     return $buffer;
