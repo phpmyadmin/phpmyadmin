@@ -138,36 +138,29 @@ if (!isset($param) || $param[0] == '') {
                     </select>
                 </td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
-                    <?php
-    // <markus@noga.de>
-    $field=$fields_list[$i];
+            <?php
+            // <markus@noga.de>
+            $field = $fields_list[$i];
 
-    require('./libraries/get_foreign.lib.php3');
+            include('./libraries/get_foreign.lib.php3');
 
-    if($foreigners && isset($foreigners[$field]) &&
-       isset($disp) && $disp) {
-         ?>
-<select name="fields[]">
-                    <option value=""></option>
-        <?php
-
-        while ($relrow = @PMA_mysql_fetch_array($disp)) {
-            $key   = $relrow[$foreign_field];
-            $value = (($foreign_display != FALSE) ? '-' . htmlspecialchars($relrow[$foreign_display]) : '');
-            echo '                  <option value="' . urlencode($key) . '">'.
-                 htmlspecialchars($key) . $value . '</option>' . "\n";
-        } // end while
-        ?>
-                    </select>
-        <?php
-    } else {
-                    ?>
- <input type="text" name="fields[]" size="40" class="textfield" />
-                    <?php
-    }
-                    ?>
- <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
-                     <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
+            echo "\n";
+            if ($foreigners && isset($foreigners[$field]) && isset($disp) && $disp) {
+                echo '                    <select name="fields[]">' . "\n";
+                echo '                        <option value=""></option>' . "\n";
+                while ($relrow = @PMA_mysql_fetch_array($disp)) {
+                    $key   = $relrow[$foreign_field];
+                    $value = (($foreign_display != FALSE) ? '-' . htmlspecialchars($relrow[$foreign_display]) : '');
+                    echo '                        <option value="' . urlencode($key) . '">'
+                         . htmlspecialchars($key) . $value . '</option>' . "\n";
+                } // end while
+                echo '                    </select>' . "\n";
+            } else {
+                echo '                    <input type="text" name="fields[]" size="40" class="textfield" />' . "\n";
+            }
+            ?>
+                    <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
+                    <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
                 </td>
             </tr>
             <?php

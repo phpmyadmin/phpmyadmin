@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-03 Loïc Chapeaux  <lolo@phpheaven.net>
+    * tbl_select.php3, tbl_change.php3: require musn't be used inside
+      conditional statements.
+
 2002-10-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3, tbl_change.php3,
       new libraries/get_foreign.lib.php3: drop-down of foreign keys

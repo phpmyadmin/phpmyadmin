@@ -392,7 +392,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // The value column (depends on type)
     // ----------------
 
-    require('./libraries/get_foreign.lib.php3');
+    include('./libraries/get_foreign.lib.php3');
 
     if (isset($disp) && $disp) {
         ?>
