@@ -118,13 +118,13 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
                 $revoke_url = 'sql.php3'
                             . '?' . $url_query
                             . '&amp;sql_query=' . urlencode('REVOKE ' . $priv . ' ON ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' FROM \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'')
-                            . '&amp;zero_rows=' . urlencode(sprintf($GLOBALS['strRevokeMessage'], ' <span style="color: #002E80">' . $row['User'] . '@' . $row['Host'] . '</span>'). '<br />' . $GLOBALS['strRememberReload'])
+                            . '&amp;zero_rows=' . urlencode(sprintf($GLOBALS['strRevokeMessage'], ' <span style="color: #002E80">' . $row['User'] . '@' . $row['Host'] . '</span>') . '<br />' . $GLOBALS['strRememberReload'])
                             . '&amp;goto=user_details.php3';
                 if ($grantopt) {
                     $revoke_grant_url = 'sql.php3'
                                       . '?' . $url_query
                                       . '&amp;sql_query=' . urlencode('REVOKE GRANT OPTION ON ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' FROM \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'')
-                                      . '&amp;zero_rows=' . urlencode(sprintf($GLOBALS['strRevokeGrantMessage'], ' <span style="color: #002E80">' . $row['User'] . '@' . $row['Host'] . '</span>'). '<br />' . $GLOBALS['strRememberReload'])
+                                      . '&amp;zero_rows=' . urlencode(sprintf($GLOBALS['strRevokeGrantMessage'], ' <span style="color: #002E80">' . $row['User'] . '@' . $row['Host'] . '</span>') . '<br />' . $GLOBALS['strRememberReload'])
                                       . '&amp;goto=user_details.php3';
                 }
                 ?>
@@ -335,7 +335,7 @@ function PMA_normalOperations()
         <div style="margin-bottom: 10px">
         <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;mode=reload">
             <?php echo $GLOBALS['strReloadMySQL']; ?></a>&nbsp;
-        <?php print PMA_showDocuShort('F/L/FLUSH.html'); ?>
+        <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
         </div>
     </li>
 
