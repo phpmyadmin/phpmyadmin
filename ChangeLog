@@ -7,6 +7,7 @@ $Source$
 
 2002-03-11 Marc Delisle  <lem9@users.sourceforge.net>
 	* various lang updates
+	* 2.2.5-rc1 released
 
 2002-03-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3, lines 127-130; Documentation.html, lines 677-701;
