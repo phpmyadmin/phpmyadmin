@@ -83,5 +83,5 @@ else {
 /**
  * Back to the calling script
  */
-require('./db_details.php3');
+require('./tbl_properties.php3');
 ?>
