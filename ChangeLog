@@ -15,6 +15,10 @@ $Source$
 	  fields and #457260 - update (LIMIT 1).
 	* lang/italian.inc.php3: updated thanks to
 	  Pietro Danesi <danone at aruba.it>.
+	* tbl_alter.php3, lines 9-11: fixed a js error.
+	* header.inc.php3: merged an improved version of the patch #446292 - show
+	  current db/table info in the title (except for NN4).
+	* lang/french.inc.php3: fixed a typo.
 
 2001-09-03  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/czech-iso.inc.php3 & czech-win1250.inc.php3: updated thanks to
