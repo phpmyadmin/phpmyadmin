@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * New italian doc (partial) in pma_localized_docs
+    * lang/estonian: Updated, thanks to Alvar Soome (finsoft).
+
 2003-11-06 Garvin Hicking <me@supergarv.de>
     * sql.php3, libraries/display_tbl.lib.php3:
       RFE #835491: Display linked values in printview. Display relation-
