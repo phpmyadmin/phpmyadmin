@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-09-02 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html:
+      - rewrote FAQ 1.17;
+      - corrected some other FAQs;
+      - tidied up "Requirements" section about MySQL.
+
 2003-09-02 Marc Delisle  <lem9@users.sourceforge.net>
     * translators.html: azerbaijani, and change of address for
       swedish translator

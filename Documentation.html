@@ -73,10 +73,7 @@
         aspect ratio, you also need GD2 support in PHP.
     </li>
     <li>
-        MySQL (tested with 3.21.x, 3.22.x, 3.23.x, 4.0.x and 4.1.x);<br />
-        <span class="important">
-            Note: The implemented MySQL&nbsp;4.1.x support is experimental!
-        </span>
+        MySQL 3.21 or newer (<a href="#faqmysqlversions">details</a>);<br />
     </li>
     <li>
         a web-browser (doh!).
@@ -2280,17 +2277,28 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     feature.
 </p>
 
+<a name="faqmysqlversions"></a>
 <h4>
-    [1.17] Does phpMyAdmin support MySQL&nbsp;4.1 and 5.0?
+    [1.17] Which MySQL versions does phpMyAdmin support?
 </h4>
 <p>
-    phpMyAdmin provides limited support for MySQL&nbsp;4.1. That means that you
-    can neither assign character sets to a table or field on create nor change
-    the (automatically) assigned character set.<br />
-    When compiling php, we strongly recommend that you manually link it to a
-    MySQL&nbsp;4.1 client library since the one that is currently bundled with
-    php is rather old and might cause problems.<br />
-    MySQL 5 is not yet supported.
+    All MySQL versions from 3.21 till 4.0 are fully supported. Please note
+    that the older your MySQL version is, the more limitations you will have to
+    face.
+    <br />
+    phpMyAdmin provides experimental support for MySQL&nbsp;4.1. That means that
+    although you can assign character sets to a table or field, phpMyAdmin will
+    not recode the data when inserting or extracting it. Instead, it will still
+    use the character set you specified for the MySQL connection.<br />
+    When compiling php, we strongly recommend that you manually link the MySQL
+    extension to a MySQL client library of at least the same version since the
+    one that is bundled with php 4.x is rather old and might cause problems.
+    <br />
+    Also, we do not yet support the imporoved MySQL extension (mysqli) that
+    comes with php&nbsp;5. For the moment, the old MySQL extension should also
+    work fine here, if compiled correctly.
+    <br />
+    MySQL 5.0 and 5.1 are not yet supported.
 </p>
 
 <h4>
@@ -2326,9 +2334,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     To connect to a MySQL server, PHP needs a set of MySQL functions called
     &quot;MySQL extension&quot;.
-    This extension may be part of the PHP server (compiled-in), otherwise it
-    needs to be loaded dynamically. Its name is probably <i>mysql.so</i> or
-    <i>mysql.dll</i>. phpMyAdmin tried to load the extension but failed.
+    This extension may be part of the PHP distribution (compiled-in), otherwise
+    it needs to be loaded dynamically. Its name is probably <i>mysql.so</i> or
+    <i>php_mysql.dll</i>. phpMyAdmin tried to load the extension but failed.
     <br /><br />
     Usually, the problem is solved by installing a software package called
     &quot;PHP-MySQL&quot; or something similar.
@@ -2403,7 +2411,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <h4>
     [1.27] I get empty page when I want to view huge page (eg.
-    db_details_structure.php3 with plenty of databases).
+    db_details_structure.php3 with plenty of tables).
 </h4>
 <p>
     This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
