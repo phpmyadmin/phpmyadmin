@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
+    * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
+    * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
+
 2004-09-24 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: following the fix for bug #978930, the added LIMIT was
       not displayed anymore
