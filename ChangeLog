@@ -7,6 +7,7 @@ $Source$
 
 2004-05-05 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
+    * tbl_properties_operations.php: Fixed documentation link.
 
 2004-05-09 Alexander M. Turek  <me@derrabus.de>
     * db_datadict.php: Patch #950726 (minor CSS fixes) thanks to
