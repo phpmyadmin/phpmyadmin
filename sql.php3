@@ -283,7 +283,6 @@ else {
 
     // Executes the query
     $result   = @PMA_mysql_query($full_sql_query);
-
     // Displays an error message if required and stop parsing the script
     if (PMA_mysql_error()) {
         $error        = PMA_mysql_error();
@@ -428,8 +427,14 @@ else {
         } else {
             $js_to_run = 'functions.js';
             unset($message);
-            include('./tbl_properties_common.php3');
-            include('./tbl_properties_table_info.php3');
+            if (isset($table) && !empty($table)) {
+                include('./tbl_properties_common.php3');
+                include('./tbl_properties_table_info.php3');
+            }
+            else {
+                include('./db_details_common.php3');
+                include('./db_details_db_info.php3');
+            }
             include('./libraries/relation.lib.php3');
             $cfgRelation = PMA_getRelationsParam();
         }
