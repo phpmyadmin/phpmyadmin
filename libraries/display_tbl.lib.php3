@@ -1451,6 +1451,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             // find tables
             $pattern = '`?[[:space:]]+(((ON|on)[[:space:]]+[^,]+)?,|((NATURAL|natural)[[:space:]]+)?(INNER|inner|LEFT|left|RIGHT|right)([[:space:]]+(OUTER|outer))?[[:space:]]+(JOIN|join))[[:space:]]*`?';
             $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
+            $target = eregi_replace('`?[[:space:]]ORDER BY[[:space:]](.*)','',$target);
             $tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
 
             $local_query = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
