@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-23 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3: fixed bug #547605 using Loïc's patch.
+
 2002-04-22 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/slovak-win1250.inc.php3: completed, thanks to Peter Svec.
 
