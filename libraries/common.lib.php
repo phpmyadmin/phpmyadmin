@@ -1732,15 +1732,18 @@ if (typeof(document.getElementById) != 'undefined'
         global $PHP_SELF, $cfg;
         global $db_details_links_count_tabs;
 
-        if (!empty($class)) $class = ' class="' . $class . '"';
+        if (!empty($class)) {
+            $class = ' class="' . $class . '"';
+            $addclass = ' ' . $class;
+        } else {
+            $addclass = '';
+        }
 
         if (((!isset($GLOBALS['active_page']) && basename($PHP_SELF) == $link) ||
                 $active ||
                 (isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $link)
             ) && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
-            $addclass = ' activetab';
-        } else {
-            $addclass = '';
+            $addclass .= ' activetab';
         }
 
         $db_details_links_count_tabs++;

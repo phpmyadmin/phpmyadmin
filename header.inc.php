@@ -147,10 +147,13 @@ if (empty($GLOBALS['is_header_sent'])) {
     if (!defined('PMA_DISPLAY_HEADING')) {
         define('PMA_DISPLAY_HEADING', 1);
     }
-    /* replaced 2004-05-05 by mkkeck
+
+    /**
+     * Display heading if needed. Design can be set in css file.
+     */
     if (PMA_DISPLAY_HEADING) {
+        echo "<h1>\n\n";
         $header_url_qry = '?' . PMA_generate_common_url();
-        echo '<h1>' . "\n";
         $server_info = (!empty($cfg['Server']['verbose'])
                         ? $cfg['Server']['verbose']
                         : $server_info = $cfg['Server']['host'] . (empty($cfg['Server']['port'])
@@ -158,87 +161,27 @@ if (empty($GLOBALS['is_header_sent'])) {
                                                                    : ':' . $cfg['Server']['port']
                                                                   )
                        );
-        if (isset($GLOBALS['db'])) {
-            echo '    ' . $GLOBALS['strDatabase'] . ' <i><a class="h1" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '">' . htmlspecialchars($GLOBALS['db']) . '</a></i>' . "\n";
+        echo '<div class="server">' . sprintf($GLOBALS['strServer'],'') . "\n"
+            . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . '?' . PMA_generate_common_url() . '">' 
+            . htmlspecialchars($server_info) . '</a>' . "\n"
+            . '</div>' . "\n\n";
+
+        if (!empty($GLOBALS['db'])) {
+            echo '<div class="database">' . $GLOBALS['strDatabase'] . "\n"
+                . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($GLOBALS['db']) . '">'
+                . htmlspecialchars($GLOBALS['db']) . '</a>' . "\n"
+                . '</div>' . "\n\n";
+               
             if (!empty($GLOBALS['table'])) {
-                echo '    - ' . $GLOBALS['strTable'] . ' <i><a class="h1" href="' . $GLOBALS['cfg']['DefaultTabTable'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '">' . htmlspecialchars($GLOBALS['table']) . '</a></i>' . "\n";
+                echo '<div class="table">' . $GLOBALS['strTable'] . "\n"
+                    . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">' 
+                    . htmlspecialchars($GLOBALS['table']) . '</a>' . "\n"
+                    . '</div>' . "\n\n";
             }
-            echo '    ' . sprintf($GLOBALS['strRunning'], '<i><a class="h1" href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">' . htmlspecialchars($server_info) . '</a></i>');
-        } else {
-            echo '    ' . sprintf($GLOBALS['strServer'], '<i><a class="h1" href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">' . htmlspecialchars($server_info) . '</a></i>');
         }
-        echo "\n" . '</h1>' . "\n";
+        echo '</h1>';
     }
-    /**/
-    /* the new one with Icons
-     * 2004-05-05 by Michael Keck (mkkeck)
-    */
-    if (PMA_DISPLAY_HEADING) {
-        $header_url_qry = '?' . PMA_generate_common_url();
-        echo '<table border="0" cellpadding="0" cellspacing="0"><tr>';
-        $server_info = (!empty($cfg['Server']['verbose'])
-                        ? $cfg['Server']['verbose']
-                        : $server_info = $cfg['Server']['host'] . (empty($cfg['Server']['port'])
-                                                                   ? ''
-                                                                   : ':' . $cfg['Server']['port']
-                                                                  )
-                       );
-        if (isset($GLOBALS['db'])) {
-            if ($cfg['PropertiesIconic']){
-                $host_icon_img='<img src="./images/s_host.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
-            } else {
-                $host_icon_img = '';
-            }
-            echo '<td nowrap="nowrap">' . sprintf($GLOBALS['strServer'],'') . ':&nbsp;</td>'
-               . '<td nowrap="nowrap"><b>'
-               . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">' . $host_icon_img . htmlspecialchars($server_info) . '</a>'
-               . '</b></td>';
-            if ($cfg['PropertiesIconic']){
-              $db_icon_img='<img src="./images/s_db.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
-            } else {
-              $db_icon_img = '';
-            }
-            echo '<td nowrap="nowrap">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</td>';
-            echo '<td nowrap="nowrap">' . $GLOBALS['strDatabase'] . ':&nbsp;</td>'
-               . '<td nowrap="nowrap"><b>'
-               . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
-               . $db_icon_img . htmlspecialchars($GLOBALS['db']) . '</a>'
-               . '</b></td>';
-            if (!empty($GLOBALS['table'])) {
-              if ($cfg['PropertiesIconic']){
-                $tbl_icon_img='<img src="./images/s_tbl.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
-              } else {
-                $tbl_icon_img = '';
-              }
-              echo '<td nowrap="nowrap">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</td>';
-              echo '<td nowrap="nowrap">' . $GLOBALS['strTable'] . ':&nbsp;</td>'
-                 . '<td nowrap="nowrap"><b><a href="'
-                 . $GLOBALS['cfg']['DefaultTabTable'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '">'
-                 . $tbl_icon_img . htmlspecialchars($GLOBALS['table'])
-                 . '</a></b></td>';
-            }
-
-        } else {
-           if ($cfg['PropertiesIconic']){
-             $host_icon_img='<img src="./images/s_host.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
-            } else {
-                $host_icon_img = '';
-            }
-            echo '<tr><td nowrap="nowrap">Server:&nbsp;</td>'
-               . '<td nowrap="nowrap"><b><a href="' . $GLOBALS['cfg']['DefaultTabServer'] . $header_url_qry . '">'
-               . $host_icon_img
-               . htmlspecialchars($server_info)
-               . '</a></b>&nbsp;</td>';
-        }
-        echo '</tr></table><br />';
-    }
-    /* end of replacement
-     *
-    */
-
-
     echo "\n";
-
 
     /**
      * Sets a variable to remember headers have been sent

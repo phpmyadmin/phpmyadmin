@@ -177,6 +177,11 @@ td.tab          {
     border-radius: 2px;
     -moz-border-radius: 2px;
 }
+
+div.tabs {
+    clear: both;
+}
+
 table.tabs      {
     border-top: none;
     border-right: none;
@@ -474,4 +479,48 @@ textarea {
 .nospace {
     margin: 0px;
     padding: 0px;
+}
+
+/* Heading */
+
+h1 div {
+    display: block;
+    float: left;
+    padding: 2px 2px 5px 2px;
+    margin: 0px;
+    font-family: <?php echo $right_font_family; ?>;
+    font-size: <?php echo $font_size; ?>;
+    font-weight: normal;
+}
+
+h1 div a {
+<?php if ($cfg['ErrorIconic']) { ?>
+    background-repeat: no-repeat;
+    background-position: 2px 50%;
+    padding-left: 20px;
+<?php } ?>
+}
+
+h1 div a {
+    font-weight: bolder;
+}
+
+<?php if ($cfg['ErrorIconic']) { ?>
+h1 div.server a {
+    background-image: url(../images/s_host.png);
+}
+
+h1 div.database a {
+    background-image: url(../images/s_db.png);
+}
+
+h1 div.table a {
+    background-image: url(../images/s_tbl.png);
+}
+<?php } ?>
+
+div.database:before , div.table:before {
+    content: '>';
+    padding-left: 5px;
+    padding-right: 5px;
 }

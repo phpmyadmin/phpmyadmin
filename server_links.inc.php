@@ -41,11 +41,15 @@ if (!empty($message)) {
 /**
  * Displays tab links
  */
-?>
-<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
-    <tr>
-        <td width="8">&nbsp;</td>
-<?php
+echo '<div class="tabs">';
+if ($cfg['LightTabs']) {
+    echo '&nbsp;';
+} else {
+    echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">' . "\n"
+       . '    <tr>' . "\n"
+       . '        <td width="8">&nbsp;</td>';
+}
+
 echo PMA_printTab($strDatabases, 'server_databases.php', $url_query);
 if ($cfg['ShowMysqlInfo']) {
     echo PMA_printTab($strStatus, 'server_status.php', $url_query);
@@ -61,7 +65,11 @@ if ($is_superuser) {
 }
 echo PMA_printTab($strServerTabProcesslist, 'server_processlist.php', $url_query);
 echo PMA_printTab($strExport, 'server_export.php', $url_query);
+
+if (!$cfg['LightTabs']) {
+    echo '</tr></table>';
+} else {
+    echo '<br />';
+}
+echo '</div>';
 ?>
-    </tr>
-</table>
-<br />

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-03 Michal Čihař  <michal@cihar.com>
+    * db_details_links.php, header.inc.php, server_links.inc.php,
+      tbl_properties_links.php, css/phpmyadmin.css.php: Use classes for
+      heading (RFE #965542).
+    * libraries/common.lib.php: Add drop class also to td (RFE #946540).
+
 2004-06-02 Alexander M. Turek  <happybirthdaytome@derrabus.de>
     * db_details_db_info.php, tbl_properties_tbl_info.php: Table type is called
       "Engine" in MySQL 4.1.2 (bug #964011).

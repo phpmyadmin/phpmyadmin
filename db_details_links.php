@@ -59,6 +59,7 @@ else {
  * Displays tab links
  */
 
+echo '<div class="tabs">';
 if ($cfg['LightTabs']) {
     echo '&nbsp;';
 } else {
@@ -84,5 +85,6 @@ if (!$cfg['LightTabs']) {
 } else {
     echo '<br />';
 }
+echo '</div>';
 ?>
 <br />
