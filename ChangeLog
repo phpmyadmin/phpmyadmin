@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * config.inc.php, themes/.../colors.inc.php: remove color-related
+      parameters from config.inc.php, and non-color-related from colors.inc.php
+
 2004-06-22 Michal Čihař  <michal@cihar.com>
     * libraries/relation.lib.php: Fix possible error on non existant pma db.
     
