@@ -289,4 +289,5 @@ $strSetEnumVal = 'If field type is "enum" or "set", please enter the values usin
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strTables = '%s table(s)';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
+$strInstructions = 'Instructions';//to translate
 ?>
