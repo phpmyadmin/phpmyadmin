@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2001-08-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* config.inc.php3, db_details.php3, Documentation.html,
+	  tbl_properties.php3: added two directives to disable the use of
+	  compression for dump files.
 	* Documentation.html: fixed some typos thanks to Larry Meaney.
 	* lang/chinese_big5.inc.php3: updated thanks to
 	  Taiyen Hung ¬x®õ¤¸<yen789@pchome.com.tw>.

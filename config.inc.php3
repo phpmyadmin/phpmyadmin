@@ -88,6 +88,8 @@ $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
 $cfgMaxRows               = 30;
 $cfgOrder                 = 'ASC';
 $cfgOBGzip 		          = TRUE;   // GZIP output buffering
+$cfgGZipDump              = TRUE;   // Allow the use of gzip/bzip compression
+$cfgBZipDump              = TRUE;   // for dump files
 
 
 /**
