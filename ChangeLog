@@ -21,6 +21,8 @@ $Source$
     * header.inc.php3: Don't allow including this file twice.
     * db_details.php3, db_details_importdocsql.php3, export.php3,
       tbl_move_copy.php3, tbl_rename.php3: Added some html quoting.
+    * libraries/tbl_change.js: When ENUM field has just one value, it could
+      not be set to NULL (bug #783533).
 
 2003-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 779453, wrong count
