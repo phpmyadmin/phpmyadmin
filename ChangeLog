@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-08 Korakot Chaovavanich  <korakot@iname.com>
+	* In edit page, replace dropdown with radio if short enough
+
 2001-05-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_readdump.php3, line 14 and sql.php3, line 112: two warnings were
 	  displayed with the phpMyBookmark path if the error reporting level
