@@ -82,13 +82,7 @@ if ($sql_file != 'none') {
 //        || file_exists($cfg['UploadDir'] . $sql_localfile)) {
     if (file_exists($sql_file)
         && ((isset($sql_localfile) && $sql_file == $cfg['UploadDir'] . $sql_localfile) || is_uploaded_file($sql_file))) {
-        $open_basedir     = '';
-        if (PMA_PHP_INT_VERSION >= 40000) {
-            $open_basedir = @ini_get('open_basedir');
-        }
-        if (empty($open_basedir)) {
-            $open_basedir = @get_cfg_var('open_basedir');
-        }
+        $open_basedir = @ini_get('open_basedir');
 
         if (!isset($sql_file_compression)) $sql_file_compression = '';
 
@@ -109,12 +103,11 @@ if ($sql_file != 'none') {
             }
             else {
                 $sql_file_new = $tmp_subdir . basename($sql_file);
-                if (PMA_PHP_INT_VERSION < 40003) {
-                    copy($sql_file, $sql_file_new);
-                } else {
-                    move_uploaded_file($sql_file, $sql_file_new);
-                }
+                move_uploaded_file($sql_file, $sql_file_new);
                 $sql_query = PMA_readFile($sql_file_new, $sql_file_compression);
+                if ($sql_query == FALSE) {
+                    $message = $strFileCouldNotBeRead;
+                }
                 unlink($sql_file_new);
             }
         }
