@@ -418,10 +418,13 @@ $strUsers = 'Utenti';
 $strUseTables = 'Utilizza tabelle';
 
 $strValidateSQL = 'Valida SQL';
+$strValidatorError = 'L\' SQL validator non può essere inizializzato. Prego controllare di avere installato le estensioni php necessarie come descritto nella %sdocumentazione%s.';
 $strValue = 'Valore';
 $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
 
+$strWebServerUploadDirectory = 'directory di upload del web-server';
+$strWebServerUploadDirectoryError = 'La directory impostata per l\'upload non può essere trovata';
 $strWelcome = 'Benvenuto in %s';
 $strWithChecked = 'Se selezionati:';
 $strWrongUser = 'Nome utente o password errati. Accesso negato.';
@@ -431,7 +434,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
-$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
-$strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
 ?>
+
