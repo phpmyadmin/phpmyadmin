@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/get_foreign.lib.php3, there are no functions
+      in this file that need to be protected from being defined
+      twice.  The added code introduced a bug
+
 2002-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * ### 2.3.2 released ###
 

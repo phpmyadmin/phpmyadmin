@@ -7,9 +7,9 @@
  * Thanks to <markus@noga.de>
  */
 
-
-if (!defined('PMA_GET_FOREIGN_LIB_INCLUDED')) {
-    define('PMA_GET_FOREIGN_LIB_INCLUDED', 1);
+// lem9
+//if (!defined('PMA_GET_FOREIGN_LIB_INCLUDED')) {
+//    define('PMA_GET_FOREIGN_LIB_INCLUDED', 1);
 
     // lem9: we always show the foreign field in the drop-down; if a display
     // field is defined, we show it besides the foreign field
@@ -42,5 +42,5 @@ if (!defined('PMA_GET_FOREIGN_LIB_INCLUDED')) {
         }
     } // end if $foreigners
 
-} // $__PMA_GET_FOREIGN_LIB_INCLUDED__
+//} // $__PMA_GET_FOREIGN_LIB_INCLUDED__
 ?>
