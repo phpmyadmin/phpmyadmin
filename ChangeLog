@@ -7,7 +7,7 @@ $Source$
 
 2002-01-19  Loïc Chapeaux  <lolo@phpheaven.net>
         * lang/*; libraries/common.lib.php3; Documentation.html: removed
-          trailing whitespaces.
+          trailing whitespaces and ensured compatibility with old releases.
         * tbl_change.php3:
           - beautify javascript code;
           - line 363: fixed a js bug.
