@@ -59,11 +59,13 @@ if ($cfgRelation['pdfwork']) {
                               .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                               .   ' AND   pdf_page_number = ' . $chpage;
                     PMA_query_as_cu($ch_query);
-                
+
                     $ch_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
                               .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                               .   ' AND   page_nr = ' . $chpage;
                     PMA_query_as_cu($ch_query);
+
+                    unset($chpage);
                 }
                 break;
             case 'createpage':
@@ -225,7 +227,7 @@ if ($cfgRelation['pdfwork']) {
     $alltab_qry     = 'SHOW TABLES FROM ' . PMA_backquote($db);
     $alltab_rs      = @PMA_mysql_query($alltab_qry) or PMA_mysqlDie('', $alltab_qry, '', $err_url_0);
     while ($val = @PMA_mysql_fetch_array($alltab_rs)) {
-        $selectboxall[] = $table[0];
+        $selectboxall[] = $val[0];
     }
 
 
@@ -235,7 +237,7 @@ if ($cfgRelation['pdfwork']) {
     $page_rs    = PMA_query_as_cu($page_query);
     if ($page_rs && mysql_num_rows($page_rs) > 0) {
         ?>
-<form method="post" action="pdf_pages.php3" name="selpage">
+<form method="get" action="pdf_pages.php3" name="selpage">
     <?php echo $strChoosePage . "\n"; ?>
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="choosepage" />
@@ -360,10 +362,10 @@ if ($cfgRelation['pdfwork']) {
              . "\n" . '            <input type="checkbox" name="c_table_' . $i . '[delete]" value="y" />' . $strDelete;
         echo "\n" . '        </td>';
         echo "\n" . '        <td>'
-             . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . $sh_page['x'] . '" />';
+             . "\n" . '            <input type="text" name="c_table_' . $i . '[x]" value="' . (isset($sh_page['x'])?$sh_page['x']:'') . '" />';
         echo "\n" . '        </td>';
         echo "\n" . '        <td>'
-             . "\n" . '            <input type="text" name="c_table_' . $i . '[y]" value="' . $sh_page['y'] . '" />';
+             . "\n" . '            <input type="text" name="c_table_' . $i . '[y]" value="' . (isset($sh_page['y'])?$sh_page['y']:'') . '" />';
         echo "\n" . '        </td>';
         echo "\n" . '    </tr>';
         echo "\n" . '    </table>' . "\n";
@@ -406,7 +408,7 @@ if ($cfgRelation['pdfwork']) {
 
     if (isset($do) 
     && ($do == 'edcoord' 
-       || $do == 'choosepage' 
+       || ($do == 'choosepage' && isset($chpage))
        || ($do == 'createpage' && isset($chpage)))) {
         ?>
 <form method="post" action="pdf_schema.php3">
