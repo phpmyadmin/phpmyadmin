@@ -66,7 +66,7 @@ $Source$
     * libraries/select_lang.lib.php3: Disable UTF-8 if
       $cfg['AllowAnywhereRecoding'] has been set to FALSE.
 
-2002-07-16 Mike Beck <mikebeck@users.sourceforge.net>
+2002-07-17 Mike Beck <mikebeck@users.sourceforge.net>
     * pdf_pages.php3: if a page is edit it can also be shown
     * pdf_schema.php3: now it is possible to have all tables
       displayed with the same (maximum) width
