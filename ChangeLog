@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
+    * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
+    * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/greek: update, thanks to Kyriakos Xagoraris (theremon)
+
 2003-08-21 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relation.php3: improve variables, remove some code
 
