@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-17 Michal Cihar  <nijel@users.sourceforge.net>
+    * config.inc.php3: Fixed typo (s/'PMA_pdf_page'/'PMA_pdf_pages'/).
+
 2003-06-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/polish-*.inc.php3: Updates, thanks to Jakub Wilk (ubanus).
 
