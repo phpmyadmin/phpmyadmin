@@ -10,6 +10,8 @@ $Source$
 
 2003-03-20 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/indonesian: Updated, thanks again to Rachim Tamsjadi.
+    * libraries/mysql_wrappers.lib.php3: Fix for bug #705531 - check for field
+      type when doing charset conversion.
 
 2003-03-19 Garvin Hicking <me@supergarv.de>
     * tbl_change.php3, tbl_query_box.php3, tbl_replace_fields.php3:
