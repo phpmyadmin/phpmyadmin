@@ -67,6 +67,7 @@ $available_languages = array(
     'se'         => array('se|swedish', 'swedish', 'se'),
     'sk'         => array('sk|slovak', 'slovak-iso', 'sk'),
     'th'         => array('th|thai', 'thai', 'th'),
+    'tr'         => array('tr|turkish', 'turkish', 'tr'),
     'zh-tw'      => array('zh[-_]tw|chinese traditional', 'chinese_big5', 'zh-TW'),
     'zh'         => array('zh|chinese simplified', 'chinese_gb', 'zh')
 );

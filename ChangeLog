@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-20  Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/select_lang.lib.php3, lang/turkish.inc.php3:
+	  new turkish language, thanks to bora at risc01.ktu.edu.tr
+	  (will add the full name when possible)
+
 2001-10-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/user_details.JS, lines 126-130: url has to changed whatever is
 	  the control that called the "change" function.
