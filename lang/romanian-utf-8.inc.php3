@@ -628,4 +628,5 @@ $strZip = '"arhivat"';
 
 $strSwitchToTable = 'Switch to copied table';  //to translate
 
+$strCharset = 'Charset';  //to translate
 ?>

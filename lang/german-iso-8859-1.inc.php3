@@ -99,6 +99,7 @@ $strChangeCopyModeRevoke = ' ... entziehe dem alten alle Rechte und lösche ihn a
 $strChangeCopyUser = 'Logininformation ändern / Benutzer kopieren';
 $strChangeDisplay = 'Anzuzeigende Spalte bestimmen';
 $strChangePassword = 'Kennwort ändern';
+$strCharset = 'Zeichensatz';
 $strCharsetOfFile = 'Zeichencodierung der Datei:';
 $strCheckAll = 'Alle auswählen';
 $strCheckDbPriv = 'Rechte einer Datenbank prüfen';
@@ -547,6 +548,7 @@ $strStructure = 'Struktur';
 $strSubmit = 'Abschicken';
 $strSuccess = 'Ihr SQL-Befehl wurde erfolgreich ausgeführt.';
 $strSum = 'Gesamt';
+$strSwitchToTable = 'Zur kopierten Tabelle wechseln';
 
 $strTable = 'Tabelle';
 $strTableComments = 'Tabellen-Kommentar';
@@ -571,12 +573,23 @@ $strTime = 'Dauer';
 $strTotal = 'insgesamt';
 $strTotalUC = 'Insgesamt';
 $strTraffic = 'Traffic';
+$strTransformation_image_jpeg__inline = 'Ein klickbares Vorschaubild anzeigen. Optionen: Breite, Höhe in Pixeln (berücksichtigt Seitenverhältnis)';
+$strTransformation_image_jpeg__link = 'Einen Link zum Bild anzeigen, z.B. zum Download von BLOB-Daten.';
+$strTransformation_image_png__inline = 'Siehe image/jpeg: inline';
+$strTransformation_text_plain__dateformat = 'Wandelt ein TIME, TIMESTAMP oder DATETIME-Feld und formatiert es unter Berücksichtigung des lokalen Zeitformats. Erste Option: Differenz (in Stunden) zur Addition/Subtraktion der aktuellen Zeit (Standard: 0). Zweite Option: Zeitformat anstelle des lokalen, Variablen siehe PHPs strftime().';
+$strTransformation_text_plain__external = 'Nur für LINUX: Startet ein externes Programm und verwendet die Daten des Feldes für die Standardeingabe. Stellt innerhalb von PHPMyAdmin die Standardausgabe des externen Programmes dar. Die Voreinstellung wurde für Tidy optimiert, um HTML code optisch zu formatieren. Aus Sicherheitsgründen müssen Sie die Datei libraries/transformations/text_plain__external.inc.php von Hand bearbeiten um weitere Programme hinzuzufügen. Die erste Option ist die Nummer des dort hinterlegten Programmes und die zweite Option legt die Parameter für das externe Programm fest. Die dritte Option bestimmt, falls auf 1 gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird (Standard: 1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein NOWRAP-Parameter der Tabellenzelle hinzugefügt wird um einen automatischen Umbruch der Standardausgabe zu verhindern (Standard: 1)';
+$strTransformation_text_plain__formatted = 'Behält Ursprungsformatierung des Feldes bei. Kein Escaping oder Umlautwandlung wird durchgeführt.';
+$strTransformation_text_plain__imagelink = 'Benutzt den Inhalt eines Feldes um ein Bild und einen Link dazu darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen Feldinhalt wie "http://www.domain.com". Zweite Option ist die Breite des Bildes, die dritte Option die Höhe des Bildes in Pixeln.';
+$strTransformation_text_plain__link = 'Benutzt den Inhalt eines Feldes um einen Link darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen Feldinhalt wie "http://www.domain.com". Zweite Option ist der darzustellende Titel des Links';
+$strTransformation_text_plain__substr = 'Stellt nur einen Teil des Feldinhaltes dar. Die erste Option definiert die Position des Textes ab dem die Ausgabe startet (Standard: 0), die zweite Option gibt an wieviel Zeichen ab dort dargestellt werden sollen. Falls diese Option leer ist, wird der gesamte verbleibende Text dargestellt. Die dritte Option kann einen Text enthalten, der bei partieller Ausgabe des Textes angehängt wird, um eine Abschneidung kenntlich zu machen (Standard: ...).';
+$strTransformation_text_plain__unformatted = 'Wandelt Sonderzeichen nach HTML-Regeln um, um HTML-formatierungen innerhalb des Feldinhaltes unwirksam zu machen.';
 $strTruncateQueries = 'Zeige die SQL-Abfragen verkürzt an';
 $strType = 'Typ';
 
 $strUncheckAll = 'Auswahl entfernen';
 $strUnique = 'Unique';
 $strUnselectAll = 'Auswahl entfernen';
+$strUpdComTab = 'Bitte lesen Sie in der Dokumentation nach, wie Sie die Struktur Ihrer Spaltenkommentartabelle aktualisieren können';
 $strUpdatePrivMessage = 'Die Rechte für %s wurden geändert.';
 $strUpdateProfile = 'Benutzer ändern:';
 $strUpdateProfileMessage = 'Benutzer wurde geändert.';
@@ -618,20 +631,6 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
+//To translate
 
-$strTransformation_image_jpeg__inline = 'Ein klickbares Vorschaubild anzeigen. Optionen: Breite, Höhe in Pixeln (berücksichtigt Seitenverhältnis)';
-$strTransformation_image_jpeg__link = 'Einen Link zum Bild anzeigen, z.B. zum Download von BLOB-Daten.';
-$strTransformation_image_png__inline = 'Siehe image/jpeg: inline';
-$strTransformation_text_plain__dateformat = 'Wandelt ein TIME, TIMESTAMP oder DATETIME-Feld und formatiert es unter Berücksichtigung des lokalen Zeitformats. Erste Option: Differenz (in Stunden) zur Addition/Subtraktion der aktuellen Zeit (Standard: 0). Zweite Option: Zeitformat anstelle des lokalen, Variablen siehe PHPs strftime().';
-$strTransformation_text_plain__external = 'Nur für LINUX: Startet ein externes Programm und verwendet die Daten des Feldes für die Standardeingabe. Stellt innerhalb von PHPMyAdmin die Standardausgabe des externen Programmes dar. Die Voreinstellung wurde für Tidy optimiert, um HTML code optisch zu formatieren. Aus Sicherheitsgründen müssen Sie die Datei libraries/transformations/text_plain__external.inc.php von Hand bearbeiten um weitere Programme hinzuzufügen. Die erste Option ist die Nummer des dort hinterlegten Programmes und die zweite Option legt die Parameter für das externe Programm fest. Die dritte Option bestimmt, falls auf 1 gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird (Standard: 1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein NOWRAP-Parameter der Tabellenzelle hinzugefügt wird um einen automatischen Umbruch der Standardausgabe zu verhindern (Standard: 1)';
-$strTransformation_text_plain__formatted = 'Behält Ursprungsformatierung des Feldes bei. Kein Escaping oder Umlautwandlung wird durchgeführt.';
-$strTransformation_text_plain__imagelink = 'Benutzt den Inhalt eines Feldes um ein Bild und einen Link dazu darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen Feldinhalt wie "http://www.domain.com". Zweite Option ist die Breite des Bildes, die dritte Option die Höhe des Bildes in Pixeln.';
-$strTransformation_text_plain__link = 'Benutzt den Inhalt eines Feldes um einen Link darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen Feldinhalt wie "http://www.domain.com". Zweite Option ist der darzustellende Titel des Links';
-$strTransformation_text_plain__substr = 'Stellt nur einen Teil des Feldinhaltes dar. Die erste Option definiert die Position des Textes ab dem die Ausgabe startet (Standard: 0), die zweite Option gibt an wieviel Zeichen ab dort dargestellt werden sollen. Falls diese Option leer ist, wird der gesamte verbleibende Text dargestellt. Die dritte Option kann einen Text enthalten, der bei partieller Ausgabe des Textes angehängt wird, um eine Abschneidung kenntlich zu machen (Standard: ...).';
-$strTransformation_text_plain__unformatted = 'Wandelt Sonderzeichen nach HTML-Regeln um, um HTML-formatierungen innerhalb des Feldinhaltes unwirksam zu machen.';
-
-$strSwitchToTable = 'Zur kopierten Tabelle wechseln';
-
-// To translate
-$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 ?>

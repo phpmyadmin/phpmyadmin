@@ -630,4 +630,5 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
+$strCharset = 'Charset';  //to translate
 ?>

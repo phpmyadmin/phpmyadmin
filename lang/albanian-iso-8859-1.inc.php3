@@ -629,4 +629,5 @@ $strZeroRemovesTheLimit = 'Shënim: Vendosja e këtyre opcioneve në 0 (zero) sinji
 $strZip = '"kompresuar me zip"';
 // To translate
 
+$strCharset = 'Charset';  //to translate
 ?>

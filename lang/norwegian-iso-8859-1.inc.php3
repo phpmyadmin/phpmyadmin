@@ -628,4 +628,5 @@ $strZip = 'Komprimert (zip)';
 
 $strUpdComTab = 'Les i dokumentasjonen hvordan du oppdaterer din Column_comments tabell';
 
+$strCharset = 'Charset';  //to translate
 ?>

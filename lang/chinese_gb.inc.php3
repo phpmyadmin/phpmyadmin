@@ -629,4 +629,5 @@ $strYes = '是';
 $strZeroRemovesTheLimit = '注意：将这些选项设为 0 (零)将删除限制。';
 $strZip = '"zipped"';
 
+$strCharset = 'Charset';  //to translate
 ?>

@@ -625,4 +625,5 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) t
 $strZip = '"zippad"';
 // To translate
 
+$strCharset = 'Charset';  //to translate
 ?>

@@ -6,6 +6,7 @@
  */
 
 $charset = 'utf-8';
+$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $left_font_family = 'simsun, 宋体';
 $right_font_family = 'sans-serif';
@@ -629,4 +630,5 @@ $strYes = '是';
 $strZeroRemovesTheLimit = '注意：将这些选项设为 0 (零)将删除限制。';
 $strZip = '"zipped"';
 
+$strCharset = 'Charset';  //to translate
 ?>

@@ -646,4 +646,5 @@ $strUseHostTable = 'Use Host Table';  //to translate
 $strShowFullQueries = 'Show Full Queries';  //to translate
 $strTruncateQueries = 'Truncate Shown Queries';  //to translate
 $strSwitchToTable = 'Switch to copied table';  //to translate
+$strCharset = 'Charset';  //to translate
 ?>

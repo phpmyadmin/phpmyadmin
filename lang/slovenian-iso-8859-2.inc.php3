@@ -630,4 +630,5 @@ $strTruncateQueries = 'Truncate Shown Queries';  //to translate
 
 $strUseHostTable = 'Use Host Table';  //to translate
 
+$strCharset = 'Charset';  //to translate
 ?>
