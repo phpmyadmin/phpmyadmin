@@ -23,6 +23,7 @@ $strAbsolutePathToDocSqlDir = 'Proszê podaæ bezwzglêdn± ¶cie¿kê na serwerze www 
 $strAccessDenied = 'Brak dostêpu';
 $strAccessDeniedExplanation = 'phpMyAdmin próbowa³ po³±czyæ siê z serwerem MySQL, a serwer odrzuci³ po³±czenie. Powiniene¶ sprawdziæ nazwê hosta, nazwê u¿ytkownika i has³o w pliku config.inc.php i upewniæ siê, ¿e odpowiadaj± one informacjom danym przez administratora serwera MySQL.';
 $strAction = 'Dzia³anie';
+$strAddAutoIncrement = 'Dodanie warto¶ci AUTO_INCREMENT';
 $strAddDeleteColumn = 'Dodanie/usuniêcie pól';
 $strAddDeleteRow = 'Dodanie/usuniêcie wierszy kryteriów';
 $strAddDropDatabase = 'Dodanie DROP DATABASE';
@@ -652,7 +653,5 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie.';
 $strZip = '".zip"';
 // To translate
-
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 
 ?>

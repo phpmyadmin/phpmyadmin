@@ -24,6 +24,7 @@ $strAbsolutePathToDocSqlDir = 'Proszę podać bezwzględną ścieżkę na serwer
 $strAccessDenied = 'Brak dostępu';
 $strAccessDeniedExplanation = 'phpMyAdmin próbował połączyć się z serwerem MySQL, a serwer odrzucił połączenie. Powinieneś sprawdzić nazwę hosta, nazwę użytkownika i hasło w pliku config.inc.php i upewnić się, że odpowiadają one informacjom danym przez administratora serwera MySQL.';
 $strAction = 'Działanie';
+$strAddAutoIncrement = 'Dodanie wartości AUTO_INCREMENT';
 $strAddDeleteColumn = 'Dodanie/usunięcie pól';
 $strAddDeleteRow = 'Dodanie/usunięcie wierszy kryteriów';
 $strAddDropDatabase = 'Dodanie DROP DATABASE';
@@ -653,7 +654,5 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie.';
 $strZip = '".zip"';
 // To translate
-
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 
 ?>
