@@ -40,6 +40,11 @@ if (!empty($submit_mult)
                    $query_type = 'repair_tbl';
                    $mult_btn   = $strYes;
                    break;
+               case $strAnalyzeTable:
+                   unset($submit_mult);
+                   $query_type = 'analyze_tbl';
+                   $mult_btn   = $strYes;
+                   break;
            } // end switch
         }
     } else {
@@ -175,6 +180,11 @@ else if ($mult_btn == $strYes) {
                            . PMA_backquote(urldecode($selected[$i]));
                 break;
 
+            case 'analyze_tbl':
+                $sql_query .= (empty($sql_query) ? 'ANALYZE TABLE ' : ', ')
+                           . PMA_backquote(urldecode($selected[$i]));
+                break;
+
             case 'repair_tbl':
                 $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]));
@@ -197,6 +207,7 @@ else if ($mult_btn == $strYes) {
         if ($query_type != 'drop_tbl'
             && $query_type != 'drop_fld'
             && $query_type != 'repair_tbl'
+            && $query_type != 'analyze_tbl'
             && $query_type != 'optimize_tbl'
             && $query_type != 'check_tbl') {
             $sql_query .= $a_query . ';' . "\n";
@@ -213,6 +224,7 @@ else if ($mult_btn == $strYes) {
         PMA_mysql_select_db($db);
         $result = @PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
     } elseif ($query_type == 'repair_tbl'
+        || $query_type == 'analyze_tbl'
         || $query_type == 'check_tbl'
         || $query_type == 'optimize_tbl') {
         include('./sql.php3');

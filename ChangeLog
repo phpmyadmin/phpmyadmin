@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-07 Michal Cihar  <nijel@users.sourceforge.net>
+    * db_details_structure.php3, mult_submits.inc.php3: Added ANALYZE TABLE to
+      multi submit actions.
+
 2003-04-06 Garvin Hicking <me@supergarv.de>
     * tbl_query_box.php, libraries/functions.js: Patch #705899 included.
       Now multiple fields can be inserted at cursor position (Mozilla/IE)
