@@ -362,7 +362,7 @@ if ($num_dbs > 1) {
             document.writeln('<form method="post" action="left.php3" name="left" target="nav">');
         </script>
         <noscript>
-            <form method="post" action="index.php3" name="left" target="_parent">
+            <form method="post" action="left.php3" name="left" target="nav">
         </noscript>
         <?php
         echo PMA_generate_common_hidden_inputs();

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-24 Garvin Hicking <me@supergarv.de>
+    * left.php3: Fix bug #742632, thanks to Kai Butchkau!
+
 2003-05-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 653964: wrong alias set by
       the analyzer, bug analyzed thanks to Michal!
