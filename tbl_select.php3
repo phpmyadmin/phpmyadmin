@@ -14,8 +14,10 @@ require('./libraries/relation.lib.php3'); // foreign keys
 /**
  * Defines arrays of functions (should possibly be in config.inc.php3
  * so it can also be used in tbl_qbe.php3)
+ *
+ * LIKE works also on integers and dates so I added it in numfunctions
  */
-$numfunctions  = array('=', '>', '>=', '<', '<=', '!=');
+$numfunctions  = array('=', '>', '>=', '<', '<=', '!=', 'LIKE');
 $textfunctions = array('LIKE', '=', '!=');
 
 

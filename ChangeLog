@@ -8,6 +8,7 @@ $Source$
 2003-07-24 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3 /relation.lib.php3 /get_foreign.lib.php3:
       bug 772765, InnoDB and multi-columns foreign key
+    * tbl_select.php3: LIKE in Select sub-page for non-text fields
 
 2003-07-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/mysql_charsets.lib.php3:
