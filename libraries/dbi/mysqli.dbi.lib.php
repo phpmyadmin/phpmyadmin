@@ -189,7 +189,7 @@ function PMA_DBI_getError($link = NULL) {
     if (mysqli_connect_errno()) {
         $error = mysqli_connect_errno();
         $error_message = mysqli_connect_error();
-    } elseif (mysqli_errno($link)) {
+    } elseif ( !empty($link) && mysqli_errno($link)) {
         $error = mysqli_errno($link);
         $error_message = mysqli_error($link);
     } 
