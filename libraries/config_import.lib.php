@@ -466,6 +466,10 @@ if (!isset($cfg['CharEditing'])) {
     $cfg['CharEditing'] = 'input';
 }
 
+if (!isset($cfg['InsertRows'])) {
+    $cfg['InsertRows'] = 2;
+}
+
 if (!isset($cfg['ZipDump'])) {
     if (isset($cfgZipDump)) {
         $cfg['ZipDump'] = $cfgZipDump;

@@ -199,7 +199,12 @@ $fields_cnt     = PMA_DBI_num_rows($table_def);
 // Set a flag here because the 'if' would not be valid in the loop
 // if we set a value in some field
 $insert_mode = (!isset($row) ? TRUE : FALSE);
-$loop_array  = (isset($row) ? $row : array(0 => FALSE));
+if ($insert_mode) {
+    $loop_array  = array();
+    for ($i = 0; $i < $cfg['InsertRows']; $i++) $loop_array[] = FALSE;
+} else {
+    $loop_array  = $row;
+}
 
 while ($trow = PMA_DBI_fetch_assoc($table_def)) {
     $trow_table_def[] = $trow;
@@ -215,7 +220,19 @@ foreach($loop_array AS $vrowcount => $vrow) {
         unset($vrow);
     }
 
+    if ($insert_mode) {
+        $vkey = '[multi_edit][' . $vrowcount . ']';
+        $browse_foreigners_uri = '';
+    } else {
+        $vkey = '[multi_edit][' . urlencode($primary_keys[$vrowcount]) . ']';
+        $browse_foreigners_uri = '&amp;pk=' . urlencode($primary_keys[$vrowcount]);
+    }
+
     $vresult = (isset($result) && is_array($result) && isset($result[$vrowcount]) ? $result[$vrowcount] : $result);
+    if ($insert_mode && $vrowcount > 0) {
+        echo '<input type="checkbox" checked="checked" name="insert_ignore_' . $vrowcount . '" id="insert_ignore_check_' . $vrowcount . '">';
+        echo '<label for="insert_ignore_check_' . $vrowcount . '">' . $strIgnore . '</label><br />' . "\n";
+    }
 ?>
     <table border="<?php echo $cfg['Border']; ?>">
         <tr>
@@ -230,14 +247,6 @@ foreach($loop_array AS $vrowcount => $vrow) {
             <th><?php echo $strValue; ?></th>
         </tr>
 <?php
-
-    if ($insert_mode) {
-        $vkey = '';
-        $browse_foreigners_uri = '';
-    } else {
-        $vkey = '[multi_edit][' . urlencode($primary_keys[$vrowcount]) . ']';
-        $browse_foreigners_uri = '&amp;pk=' . urlencode($primary_keys[$vrowcount]);
-    }
 
     // garvin: For looping on multiple rows, we need to reset any variable used inside the loop to indicate sth.
     $timestamp_seen = 0;

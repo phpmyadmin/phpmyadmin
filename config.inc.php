@@ -260,6 +260,7 @@ $cfg['CharEditing']           = 'input';
                                         // Which editor should be used for CHAR/VARCHAR fields:
                                         //  input - allows limiting of input length
                                         //  textarea - allows newlines in fields
+$cfg['InsertRows']            = 2;      // How many rows can be inserted at one time                                       
 
 // For the export features...
 $cfg['ZipDump']               = TRUE;   // Allow the use of zip/gzip/bzip

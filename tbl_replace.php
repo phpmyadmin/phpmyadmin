@@ -163,25 +163,22 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
  */
 else {
     $loop_array = (isset($primary_key) && is_array($primary_key) ? $primary_key : array(0 => (isset($primary_key) ? $primary_key : null)));
-    $query = array();
     $message = '';
     PMA_DBI_select_db($db);
 
-    foreach($loop_array AS $primary_key_index => $enc_primary_key) {
+    for ($i = 0; $i < $cfg['InsertRows']; $i++) {
+        if (!isset($fields['multi_edit'][$i])) break;
+        if (isset($GLOBALS['insert_ignore_' . $i])) continue;
+
+        $enc_primary_key = $i;
         $fieldlist = '';
         $valuelist = '';
 
-        $me_fields      = (isset($fields['multi_edit'])      && isset($fields['multi_edit'][$enc_primary_key])      ? $fields['multi_edit'][$enc_primary_key]      : (isset($fields)      ? $fields      : null));
-        $me_fields_prev = (isset($fields_prev['multi_edit']) && isset($fields_prev['multi_edit'][$enc_primary_key]) ? $fields_prev['multi_edit'][$enc_primary_key] : (isset($fields_prev) ? $fields_prev : null));
-        $me_funcs       = (isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$enc_primary_key])       ? $funcs['multi_edit'][$enc_primary_key]       : (isset($funcs)       ? $funcs       : null));
-        $me_fields_type = (isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : (isset($fields_type) ? $fields_type : null));
-        $me_fields_null = (isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : (isset($fields_null) ? $fields_null : null));
-
-        // garvin: Get, if sent, any protected fields to insert them here:
-        if (isset($me_fields_type) && is_array($me_fields_type) && isset($enc_primary_key)) {
-            $prot_result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . urldecode($enc_primary_key) . ';');
-            $prot_row         = PMA_DBI_fetch_assoc($prot_result);
-        }
+        $me_fields      = (isset($fields['multi_edit'])      && isset($fields['multi_edit'][$i])      ? $fields['multi_edit'][$i]      : (isset($fields)      ? $fields      : null));
+        $me_fields_prev = (isset($fields_prev['multi_edit']) && isset($fields_prev['multi_edit'][$i]) ? $fields_prev['multi_edit'][$i] : (isset($fields_prev) ? $fields_prev : null));
+        $me_funcs       = (isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$i])       ? $funcs['multi_edit'][$i]       : (isset($funcs)       ? $funcs       : null));
+        $me_fields_type = (isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$i]) ? $fields_type['multi_edit'][$i] : (isset($fields_type) ? $fields_type : null));
+        $me_fields_null = (isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$i]) ? $fields_null['multi_edit'][$i] : (isset($fields_null) ? $fields_null : null));
 
         foreach($me_fields AS $key => $val) {
             $encoded_key = $key;
@@ -202,11 +199,15 @@ else {
         } // end while
 
         // Builds the sql insert query
-        $fieldlist = preg_replace('@, $@', '', $fieldlist);
+        if (!isset($query)) {
+            $fieldlist = preg_replace('@, $@', '', $fieldlist);
+            $query = array('INSERT INTO ' . PMA_backquote($table) . ' (' . $fieldlist . ') VALUES ');
+        }
         $valuelist = preg_replace('@, $@', '', $valuelist);
-        $query[]   = 'INSERT INTO ' . PMA_backquote($table) . ' (' . $fieldlist . ') VALUES (' . $valuelist . ')';
+        $query[0]  .= '(' . $valuelist . '), ';
         $message   = $strInsertedRows . '&nbsp;';
     }
+    $query[0] = preg_replace('@, $@', '', $query[0]);
 } // end row insertion
 
 
