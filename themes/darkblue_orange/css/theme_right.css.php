@@ -525,4 +525,18 @@ img, input, select, button {
    font-size:   11px;
 }
 <?php } ?>
+#TooltipContainer {
+    position:   absolute;
+    z-index:    99;
+    width:      250px;
+    height:     50px;
+    overflow:   auto;
+    visibility: hidden;
+    background-color: #ffffcc;
+    color:            #006600;
+    border:           1px solid #000000;
+    padding:          5px;
+    font-family:      Verdana, Arial, Helvetica, sans-serif;
+    font-size:        10px;
+}
 /* end of some new styles added 20047-05-05 by Michael Keck (mkkeck) */

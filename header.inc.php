@@ -148,6 +148,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     }
     ?>
     <body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor'] . '"' . $bkg_img; ?>>
+    <div id="TooltipContainer" name="TooltipContainer" onmouseover="holdTooltip();" onmouseout="swapTooltip('default');"></div>
     <?php
     include('./config.header.inc.php');
 

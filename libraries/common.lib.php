@@ -556,7 +556,8 @@ if ($is_minimum_common == FALSE) {
      */
      function PMA_showHint($hint_message)
      {
-         return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" onclick="alert(\'' . PMA_jsFormat($hint_message, FALSE) . '\');" />';
+         //return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="' . $hint_message . '" title="' . $hint_message . '" align="middle" onclick="alert(\'' . PMA_jsFormat($hint_message, FALSE) . '\');" />';
+         return '<img class="lightbulb" src="' . $GLOBALS['pmaThemeImage'] . 'b_tipp.png" width="16" height="16" border="0" alt="Tip" title="Tip" align="middle" onmouseover="pmaTooltip(\'' .  PMA_jsFormat($hint_message, FALSE) . '\'); return false;" onmouseout="swapTooltip(\'default\'); return false;" />';
      }
 
     /**

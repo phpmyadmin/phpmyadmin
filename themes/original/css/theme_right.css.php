@@ -282,3 +282,17 @@ img, input, select, button {
     font-size:   12px;
 }
 <?php } // end of isDom ?>
+#TooltipContainer {
+    position:   absolute;
+    z-index:    99;
+    width:      250px;
+    height:     50px;
+    overflow:   auto;
+    visibility: hidden;
+    background-color: #ffffcc;
+    color:            #006600;
+    border:           1px solid #000000;
+    padding:          5px;
+    font-family:      <?php echo $right_font_family; ?>;
+    font-size:        <?php echo $font_size; ?>;
+}
