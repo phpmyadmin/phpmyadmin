@@ -7,8 +7,8 @@
           + Version history: [2]ChangeLog
           + General notes: [3]README
           + License: [4]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.243 2002/06/01
-       15:16:27 loic1 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.244 2002/06/02
+       19:37:54 loic1 Exp $
    ______________________________________________________________________
    
    [5]Top  -  [6]Requirements  -  [7]Introduction  -  [8]Installation  -
@@ -46,15 +46,15 @@ Introduction
      * export (*) and import data to CSV values
      * administer multiple servers and single databases
      * check referential integrity
-     * communicate in more than 38 different languages
+     * communicate in more than [21]38 different languages
        
    (*)  phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats)
    dumps and CSV exports if you use PHP4 >= 4.0.4 with Zlib support
    (--with-zlib) and/or Bzip2 support (--with-bz2).
    ______________________________________________________________________
    
-   [21]Top  -  [22]Requirements  -  [23]Introduction  -  [24]Installation
-    -  [25]Configuration  -  [26]FAQ  -  [27]Developers  -  [28]Credits
+   [22]Top  -  [23]Requirements  -  [24]Introduction  -  [25]Installation
+    -  [26]Configuration  -  [27]FAQ  -  [28]Developers  -  [29]Credits
    ______________________________________________________________________
    
 Installation
@@ -82,12 +82,12 @@ Installation
     3. Open the file config.inc.php3 in your favourite editor and change
        the values for host, user, password and authentication mode to fit
        your environment. Also insert the correct value for
-       $cfg['PmaAbsoluteUri']. Have a look at [29]Configuration section
+       $cfg['PmaAbsoluteUri']. Have a look at [30]Configuration section
        for an explanation of all values.
     4. It is recommended that you protect the directory in which you
        installed phpMyAdmin (unless it's on a closed intranet, or you
        wish to use http or cookie authentication), for example with
-       HTTP-AUTH (in a .htaccess file). See the [30]FAQ section for
+       HTTP-AUTH (in a .htaccess file). See the [31]FAQ section for
        additional information.
     5. Open the file <www.your-host.com>/<your-install-dir>/index.php3 in
        your browser. phpMyAdmin should now display a welcome screen and
@@ -174,8 +174,8 @@ Installation
        directives.
    ______________________________________________________________________
    
-   [31]Top  -  [32]Requirements  -  [33]Introduction  -  [34]Installation
-    -  [35]Configuration  -  [36]FAQ  -  [37]Developers  -  [38]Credits
+   [32]Top  -  [33]Requirements  -  [34]Introduction  -  [35]Installation
+    -  [36]Configuration  -  [37]FAQ  -  [38]Developers  -  [39]Credits
    ______________________________________________________________________
    
 Configuration
@@ -254,7 +254,7 @@ CRIPT_NAME'], '/')+1);
           columns) & mysql.tables_priv (all columns except "Grantor" &
           "Timestamp") tables. This account is used to check what
           databases the user will see at login.
-          Please see the [39]install section on "Using http
+          Please see the [40]install section on "Using http
           authentication" for more information.
           Note that if you try login to phpMyAdmin with this
           "controluser", you could get some errors, depending the exact
@@ -407,7 +407,7 @@ CRIPT_NAME'], '/')+1);
             "Structure/Relation view/Choose field to display" to choose
             the field.
             
-          Usage tip: [40]Display field.
+          Usage tip: [41]Display field.
           
    $cfg['Servers'][$i]['table_coords'] string
           Since release 2.3.0 you can describe, in a special
@@ -435,7 +435,7 @@ CRIPT_NAME'], '/')+1);
           + then manually fill this table with information about the
             table positions on the PDF schema.
             
-          Usage tips: [41]PDF output.
+          Usage tips: [42]PDF output.
           
    $cfg['Servers'][$i]['AllowDeny']['order'] string
           If your rule order is empty, then IP authentication is
@@ -690,14 +690,14 @@ CRIPT_NAME'], '/')+1);
           need to edit this.
    ______________________________________________________________________
    
-   [42]Top  -  [43]Requirements  -  [44]Introduction  -  [45]Installation
-    -  [46]Configuration  -  [47]FAQ  -  [48]Developers  -  [49]Credits
+   [43]Top  -  [44]Requirements  -  [45]Introduction  -  [46]Installation
+    -  [47]Configuration  -  [48]FAQ  -  [49]Developers  -  [50]Credits
    ______________________________________________________________________
    
 FAQ - Frequently Asked Questions
 
-   [50]Server  -  [51]Configuration  -  [52]Limitations  -
-   [53]Multi-user  -  [54]Browsers  -  [55]Usage tips  -  [56]Project
+   [51]Server  -  [52]Configuration  -  [53]Limitations  -
+   [54]Multi-user  -  [55]Browsers  -  [56]Usage tips  -  [57]Project
    
   [Server]
   
@@ -723,7 +723,7 @@ FAQ - Frequently Asked Questions
    I'm running phpMyAdmin with "cookie" authentication mode under PHP
    4.2.0 or 4.2.1 loaded as an Apache 2+ module but can't enter the
    script: I'm always displayed the login screen.
-   This is a kown PHP bug (see this [57]bug report) from the official php
+   This is a kown PHP bug (see this [58]bug report) from the official php
    bug database. It means there is and won't be any phpMyAdmin fix
    against it because there is no way to code a fix.
    
@@ -731,14 +731,14 @@ FAQ - Frequently Asked Questions
    specified CGI application misbehaved by not returning a complete set
    of HTTP headers...."
    You just forgot to read the install.txt file from the php
-   distribution. Have a look at the last message in this [58]bug report
+   distribution. Have a look at the last message in this [59]bug report
    from the official php bug database.
    
    Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages
    with the http or advanced authentication mode.
    This is a known problem with the php ISAPI filter: it's not so stable.
    For some more information and complete testings see the messages
-   posted by André B. aka "djdeluxe76" in [59]this thread from the
+   posted by André B. aka "djdeluxe76" in [60]this thread from the
    phpWizard forum.
    Please use instead the cookie authentication mode.
    
@@ -778,11 +778,11 @@ FAQ - Frequently Asked Questions
    7.0 and you updated your php rpm to php-4.0.4pl1-3.i386.rpm, didn't
    you?
    So the problem is that this package has a serious bug that was
-   corrected ages ago in php (2001-01-28: see [60]php's bug tracking
+   corrected ages ago in php (2001-01-28: see [61]php's bug tracking
    system for more details). The problem is that the bugged package is
-   still available though it was corrected (see [61]redhat's bugzilla for
+   still available though it was corrected (see [62]redhat's bugzilla for
    more details).
-   So please download [62]the fixed package (4.0.4pl1-9) and the problem
+   So please download [63]the fixed package (4.0.4pl1-9) and the problem
    should go away.
    And that fixes the \r\n problem with file uploads!
    
@@ -805,7 +805,7 @@ FAQ - Frequently Asked Questions
    commands, removed.
    
    I have lost my MySQL root password, what can I do?
-   The MySql manual explains how to [63]reset the permissions.
+   The MySql manual explains how to [64]reset the permissions.
    
    I get an error 'No SQL query' when trying to execute a bookmark.
    If PHP does not have read/write access to its upload_tmp_dir, it
@@ -847,13 +847,13 @@ FAQ - Frequently Asked Questions
    on other systems, too.
    If you encounter this bug together with another OS and/or MySQL
    version or you know how to work around it, please post a message into
-   [64]our bug tracker at SourceForge.
+   [65]our bug tracker at SourceForge.
    
    I can't run the "display relations" feature because the script seems
    not to know the font face I'm using!
    The "FPDF" library we're using for this feature requires some special
    files to use font faces.
-   Please refers to the [65]FPDF manual to build these files.
+   Please refers to the [66]FPDF manual to build these files.
    
   [Configuration]
   
@@ -879,7 +879,7 @@ FAQ - Frequently Asked Questions
    change it to
        mysql.default_socket = /var/lib/mysql/mysql.sock
    Then restart apache and it will work.
-   Here is a fix suggested by Brad Ummer in the [66]phpwizard forum:
+   Here is a fix suggested by Brad Ummer in the [67]phpwizard forum:
      * First, you need to determine what socket is being used by MySQL.
        To do this, telnet to your server and go to the MySQL bin
        directory. In this directory there should be a file named
@@ -893,7 +893,7 @@ FAQ - Frequently Asked Questions
        config.inc.php3.
        For example: $cfg['Servers'][$i]['socket'] = '/tmp/mysql.sock';
        
-   Have also a look at the [67]corresponding section of the MySQL
+   Have also a look at the [68]corresponding section of the MySQL
    documentation.
    
    Nothing is displayed by my browser when I try to run phpMyAdmin, what
@@ -1050,7 +1050,7 @@ FAQ - Frequently Asked Questions
    
    With Mozilla 0.9.? to 1.0-RC3 and Netscape 7.0-PR1 I can't type a
    whitespace in the SQL-Query edit area: the page scrolls down.
-   This is a Mozilla bug (see bug #26882 at [68]Bugzilla).
+   This is a Mozilla bug (see bug #26882 at [69]Bugzilla).
    
   [Using phpMyAdmin]
   
@@ -1162,10 +1162,10 @@ FAQ - Frequently Asked Questions
   
    I have found a bug. How do I inform developers?
    Our Bug Tracker is located at
-   [69]http://sourceforge.net/projects/phpmyadmin/ under the Bugs
+   [70]http://sourceforge.net/projects/phpmyadmin/ under the Bugs
    section.
    But please first discuss your bug with other users:
-   [70]http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
+   [71]http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
    
    I want to translate the messages to a new language or upgrade an
    existing language, where do I start?
@@ -1192,15 +1192,15 @@ FAQ - Frequently Asked Questions
        [This will create a new sub-directory named phpMyAdmin]
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
-       tracker of the [71]phpMyAdmin SourceForge account.
+       tracker of the [72]phpMyAdmin SourceForge account.
        
    Write access to the CVS tree is granted only to experienced developers
    who have already contributed something useful to phpMyAdmin.
-   Also, have a look at the [72]Developers section.
+   Also, have a look at the [73]Developers section.
    ______________________________________________________________________
    
-   [73]Top  -  [74]Requirements  -  [75]Introduction  -  [76]Installation
-    -  [77]Configuration  -  [78]FAQ  -  [79]Developers  -  [80]Credits
+   [74]Top  -  [75]Requirements  -  [76]Introduction  -  [77]Installation
+    -  [78]Configuration  -  [79]FAQ  -  [80]Developers  -  [81]Credits
    ______________________________________________________________________
    
 Developers Information
@@ -1222,7 +1222,7 @@ Developers Information
        please try to keep your code as simple as possible: beginners are
        using phpMyAdmin as an example application.
        As far as possible, we want the scripts to be XHTML1.0 and CSS2
-       compliant on one hand, they fit [81]PEAR coding standards on the
+       compliant on one hand, they fit [82]PEAR coding standards on the
        other hand. Please pay attention to this.
      * Please try to keep up the file-naming conventions. Table-related
        stuff goes to tbl_*.php3, db-related code to db_*.php3 and so on.
@@ -1245,7 +1245,7 @@ Developers Information
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
        tracker of the phpMyAdmin SourceForge account
-       ([82]http://sourceforge.net/projects/phpmyadmin/)
+       ([83]http://sourceforge.net/projects/phpmyadmin/)
        
    Write access to the CVS tree is granted only to developers who have
    already contributed something useful to phpMyAdmin. If you're
@@ -1253,8 +1253,8 @@ Developers Information
    mailing list.
    ______________________________________________________________________
    
-   [83]Top  -  [84]Requirements  -  [85]Introduction  -  [86]Installation
-    -  [87]Configuration  -  [88]FAQ  -  [89]Developers  -  [90]Credits
+   [84]Top  -  [85]Requirements  -  [86]Introduction  -  [87]Installation
+    -  [88]Configuration  -  [89]FAQ  -  [90]Developers  -  [91]Credits
    ______________________________________________________________________
    
 Credits
@@ -1399,11 +1399,11 @@ Original Credits of Version 2.1.0
     and or just some feedback.
    ______________________________________________________________________
    
-   [91]Top  -  [92]Requirements  -  [93]Introduction  -  [94]Installation
-    -  [95]Configuration  -  [96]FAQ  -  [97]Developers  -  [98]Credits
+   [92]Top  -  [93]Requirements  -  [94]Introduction  -  [95]Installation
+    -  [96]Configuration  -  [97]FAQ  -  [98]Developers  -  [99]Credits
    ______________________________________________________________________
    
-                               [99]Valid XHTML 1.0!      [100]Valid CSS! 
+                              [100]Valid XHTML 1.0!      [101]Valid CSS! 
 
 References
 
@@ -1411,99 +1411,100 @@ References
    2. file://localhost/c:/tmp/ChangeLog
    3. file://localhost/c:/tmp/README
    4. file://localhost/c:/tmp/LICENSE
-   5. file://localhost/c:/tmp/Documentation.html#top
-   6. file://localhost/c:/tmp/Documentation.html#require
-   7. file://localhost/c:/tmp/Documentation.html#intro
-   8. file://localhost/c:/tmp/Documentation.html#setup
-   9. file://localhost/c:/tmp/Documentation.html#config
-  10. file://localhost/c:/tmp/Documentation.html#faq
-  11. file://localhost/c:/tmp/Documentation.html#developers
-  12. file://localhost/c:/tmp/Documentation.html#credits
-  13. file://localhost/c:/tmp/Documentation.html#top
-  14. file://localhost/c:/tmp/Documentation.html#require
-  15. file://localhost/c:/tmp/Documentation.html#intro
-  16. file://localhost/c:/tmp/Documentation.html#setup
-  17. file://localhost/c:/tmp/Documentation.html#config
-  18. file://localhost/c:/tmp/Documentation.html#faq
-  19. file://localhost/c:/tmp/Documentation.html#developers
-  20. file://localhost/c:/tmp/Documentation.html#credits
-  21. file://localhost/c:/tmp/Documentation.html#top
-  22. file://localhost/c:/tmp/Documentation.html#require
-  23. file://localhost/c:/tmp/Documentation.html#intro
-  24. file://localhost/c:/tmp/Documentation.html#setup
-  25. file://localhost/c:/tmp/Documentation.html#config
-  26. file://localhost/c:/tmp/Documentation.html#faq
-  27. file://localhost/c:/tmp/Documentation.html#developers
-  28. file://localhost/c:/tmp/Documentation.html#credits
-  29. file://localhost/c:/tmp/Documentation.html#config
-  30. file://localhost/c:/tmp/Documentation.html#faq
-  31. file://localhost/c:/tmp/Documentation.html#top
-  32. file://localhost/c:/tmp/Documentation.html#require
-  33. file://localhost/c:/tmp/Documentation.html#intro
-  34. file://localhost/c:/tmp/Documentation.html#setup
-  35. file://localhost/c:/tmp/Documentation.html#config
-  36. file://localhost/c:/tmp/Documentation.html#faq
-  37. file://localhost/c:/tmp/Documentation.html#developers
-  38. file://localhost/c:/tmp/Documentation.html#credits
-  39. file://localhost/c:/tmp/Documentation.html#setup
-  40. file://localhost/c:/tmp/Documentation.html#faqdisplay
-  41. file://localhost/c:/tmp/Documentation.html#faqpdf
-  42. file://localhost/c:/tmp/Documentation.html#top
-  43. file://localhost/c:/tmp/Documentation.html#require
-  44. file://localhost/c:/tmp/Documentation.html#intro
-  45. file://localhost/c:/tmp/Documentation.html#setup
-  46. file://localhost/c:/tmp/Documentation.html#config
-  47. file://localhost/c:/tmp/Documentation.html#faq
-  48. file://localhost/c:/tmp/Documentation.html#developers
-  49. file://localhost/c:/tmp/Documentation.html#credits
-  50. file://localhost/c:/tmp/Documentation.html#faqserver
-  51. file://localhost/c:/tmp/Documentation.html#faqconfig
-  52. file://localhost/c:/tmp/Documentation.html#faqlimitations
-  53. file://localhost/c:/tmp/Documentation.html#faqmultiuser
-  54. file://localhost/c:/tmp/Documentation.html#faqbrowsers
-  55. file://localhost/c:/tmp/Documentation.html#faqusing
-  56. file://localhost/c:/tmp/Documentation.html#faqproject
-  57. http://bugs.php.net/bug.php?id=16626
-  58. http://bugs.php.net/bug.php?id=12061
-  59. http://www.phpwizard.net/phorum/read.php?f=1&i=6624&t=6300
-  60. http://www.php.net/bugs.php?id=8966
-  61. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
-  62. http://www.redhat.com/swr/i386/php-4.0.4pl1-9.i386.html
-  63. http://www.mysql.com/doc/R/e/Resetting_permissions.html
-  64. http://sourceforge.net/tracker/index.php?func=detail&aid=540671&group_id=23067&atid=377408
-  65. http://www.fpdf.org/
-  66. http://www.phpwizard.net/phorum/list.php?f=1
-  67. http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html
-  68. http://bugzilla.mozilla.org/
-  69. http://sourceforge.net/projects/phpmyadmin/
+   5. file://localhost/c:/tmp/documentation.html#top
+   6. file://localhost/c:/tmp/documentation.html#require
+   7. file://localhost/c:/tmp/documentation.html#intro
+   8. file://localhost/c:/tmp/documentation.html#setup
+   9. file://localhost/c:/tmp/documentation.html#config
+  10. file://localhost/c:/tmp/documentation.html#faq
+  11. file://localhost/c:/tmp/documentation.html#developers
+  12. file://localhost/c:/tmp/documentation.html#credits
+  13. file://localhost/c:/tmp/documentation.html#top
+  14. file://localhost/c:/tmp/documentation.html#require
+  15. file://localhost/c:/tmp/documentation.html#intro
+  16. file://localhost/c:/tmp/documentation.html#setup
+  17. file://localhost/c:/tmp/documentation.html#config
+  18. file://localhost/c:/tmp/documentation.html#faq
+  19. file://localhost/c:/tmp/documentation.html#developers
+  20. file://localhost/c:/tmp/documentation.html#credits
+  21. file://localhost/c:/tmp/translators.html
+  22. file://localhost/c:/tmp/documentation.html#top
+  23. file://localhost/c:/tmp/documentation.html#require
+  24. file://localhost/c:/tmp/documentation.html#intro
+  25. file://localhost/c:/tmp/documentation.html#setup
+  26. file://localhost/c:/tmp/documentation.html#config
+  27. file://localhost/c:/tmp/documentation.html#faq
+  28. file://localhost/c:/tmp/documentation.html#developers
+  29. file://localhost/c:/tmp/documentation.html#credits
+  30. file://localhost/c:/tmp/documentation.html#config
+  31. file://localhost/c:/tmp/documentation.html#faq
+  32. file://localhost/c:/tmp/documentation.html#top
+  33. file://localhost/c:/tmp/documentation.html#require
+  34. file://localhost/c:/tmp/documentation.html#intro
+  35. file://localhost/c:/tmp/documentation.html#setup
+  36. file://localhost/c:/tmp/documentation.html#config
+  37. file://localhost/c:/tmp/documentation.html#faq
+  38. file://localhost/c:/tmp/documentation.html#developers
+  39. file://localhost/c:/tmp/documentation.html#credits
+  40. file://localhost/c:/tmp/documentation.html#setup
+  41. file://localhost/c:/tmp/documentation.html#faqdisplay
+  42. file://localhost/c:/tmp/documentation.html#faqpdf
+  43. file://localhost/c:/tmp/documentation.html#top
+  44. file://localhost/c:/tmp/documentation.html#require
+  45. file://localhost/c:/tmp/documentation.html#intro
+  46. file://localhost/c:/tmp/documentation.html#setup
+  47. file://localhost/c:/tmp/documentation.html#config
+  48. file://localhost/c:/tmp/documentation.html#faq
+  49. file://localhost/c:/tmp/documentation.html#developers
+  50. file://localhost/c:/tmp/documentation.html#credits
+  51. file://localhost/c:/tmp/documentation.html#faqserver
+  52. file://localhost/c:/tmp/documentation.html#faqconfig
+  53. file://localhost/c:/tmp/documentation.html#faqlimitations
+  54. file://localhost/c:/tmp/documentation.html#faqmultiuser
+  55. file://localhost/c:/tmp/documentation.html#faqbrowsers
+  56. file://localhost/c:/tmp/documentation.html#faqusing
+  57. file://localhost/c:/tmp/documentation.html#faqproject
+  58. http://bugs.php.net/bug.php?id=16626
+  59. http://bugs.php.net/bug.php?id=12061
+  60. http://www.phpwizard.net/phorum/read.php?f=1&i=6624&t=6300
+  61. http://www.php.net/bugs.php?id=8966
+  62. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
+  63. http://www.redhat.com/swr/i386/php-4.0.4pl1-9.i386.html
+  64. http://www.mysql.com/doc/R/e/Resetting_permissions.html
+  65. http://sourceforge.net/tracker/index.php?func=detail&aid=540671&group_id=23067&atid=377408
+  66. http://www.fpdf.org/
+  67. http://www.phpwizard.net/phorum/list.php?f=1
+  68. http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html
+  69. http://bugzilla.mozilla.org/
   70. http://sourceforge.net/projects/phpmyadmin/
   71. http://sourceforge.net/projects/phpmyadmin/
-  72. file://localhost/c:/tmp/Documentation.html#developers
-  73. file://localhost/c:/tmp/Documentation.html#top
-  74. file://localhost/c:/tmp/Documentation.html#require
-  75. file://localhost/c:/tmp/Documentation.html#intro
-  76. file://localhost/c:/tmp/Documentation.html#setup
-  77. file://localhost/c:/tmp/Documentation.html#config
-  78. file://localhost/c:/tmp/Documentation.html#faq
-  79. file://localhost/c:/tmp/Documentation.html#developers
-  80. file://localhost/c:/tmp/Documentation.html#credits
-  81. http://pear.php.net/
-  82. http://sourceforge.net/projects/phpmyadmin/
-  83. file://localhost/c:/tmp/Documentation.html#top
-  84. file://localhost/c:/tmp/Documentation.html#require
-  85. file://localhost/c:/tmp/Documentation.html#intro
-  86. file://localhost/c:/tmp/Documentation.html#setup
-  87. file://localhost/c:/tmp/Documentation.html#config
-  88. file://localhost/c:/tmp/Documentation.html#faq
-  89. file://localhost/c:/tmp/Documentation.html#developers
-  90. file://localhost/c:/tmp/Documentation.html#credits
-  91. file://localhost/c:/tmp/Documentation.html#top
-  92. file://localhost/c:/tmp/Documentation.html#require
-  93. file://localhost/c:/tmp/Documentation.html#intro
-  94. file://localhost/c:/tmp/Documentation.html#setup
-  95. file://localhost/c:/tmp/Documentation.html#config
-  96. file://localhost/c:/tmp/Documentation.html#faq
-  97. file://localhost/c:/tmp/Documentation.html#developers
-  98. file://localhost/c:/tmp/Documentation.html#credits
-  99. http://validator.w3.org/check/referer
- 100. http://jigsaw.w3.org/css-validator/
+  72. http://sourceforge.net/projects/phpmyadmin/
+  73. file://localhost/c:/tmp/documentation.html#developers
+  74. file://localhost/c:/tmp/documentation.html#top
+  75. file://localhost/c:/tmp/documentation.html#require
+  76. file://localhost/c:/tmp/documentation.html#intro
+  77. file://localhost/c:/tmp/documentation.html#setup
+  78. file://localhost/c:/tmp/documentation.html#config
+  79. file://localhost/c:/tmp/documentation.html#faq
+  80. file://localhost/c:/tmp/documentation.html#developers
+  81. file://localhost/c:/tmp/documentation.html#credits
+  82. http://pear.php.net/
+  83. http://sourceforge.net/projects/phpmyadmin/
+  84. file://localhost/c:/tmp/documentation.html#top
+  85. file://localhost/c:/tmp/documentation.html#require
+  86. file://localhost/c:/tmp/documentation.html#intro
+  87. file://localhost/c:/tmp/documentation.html#setup
+  88. file://localhost/c:/tmp/documentation.html#config
+  89. file://localhost/c:/tmp/documentation.html#faq
+  90. file://localhost/c:/tmp/documentation.html#developers
+  91. file://localhost/c:/tmp/documentation.html#credits
+  92. file://localhost/c:/tmp/documentation.html#top
+  93. file://localhost/c:/tmp/documentation.html#require
+  94. file://localhost/c:/tmp/documentation.html#intro
+  95. file://localhost/c:/tmp/documentation.html#setup
+  96. file://localhost/c:/tmp/documentation.html#config
+  97. file://localhost/c:/tmp/documentation.html#faq
+  98. file://localhost/c:/tmp/documentation.html#developers
+  99. file://localhost/c:/tmp/documentation.html#credits
+ 100. http://validator.w3.org/check/referer
+ 101. http://jigsaw.w3.org/css-validator/
