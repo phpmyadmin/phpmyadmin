@@ -2038,7 +2038,7 @@ if (typeof(document.getElementById) != 'undefined'
 
         foreach ($params AS $param) {
             if (!isset($GLOBALS[$param])) {
-                $error_message .= $reported_script_name . ': Missing ' . $param . '<br />';
+                $error_message .= $reported_script_name . ': Missing parameter: ' . $param . '<br />';
                 $found_error = TRUE;
             }
         }
