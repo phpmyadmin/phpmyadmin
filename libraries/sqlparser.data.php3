@@ -245,6 +245,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'DESCRIBE',
         'DISTINCT',
         'DISTINCTROW',
+        'DIV',
         'DO',
         'DROP',
         'DUMPFILE',
@@ -447,7 +448,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'YEAR_MONTH'
     );
     //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-    $PMA_SQPdata_reserved_word_cnt = 249;
+    $PMA_SQPdata_reserved_word_cnt = 250;
 
     $PMA_SQPdata_column_type = array (
         'BIGINT',
