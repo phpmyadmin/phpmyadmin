@@ -17,7 +17,7 @@ if (!isset($submit_mult)) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_properties.php3'
+$err_url = 'tbl_properties_structure.php3'
          . '?lang=' . $lang
          . '&amp;server=' . $server
          . '&amp;db=' . urlencode($db)
@@ -92,7 +92,7 @@ if (isset($submit)) {
     $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
     $btnDrop   = 'Fake';
-    include('./tbl_properties.php3');
+    include('./tbl_properties_structure.php3');
     exit();
 }
 

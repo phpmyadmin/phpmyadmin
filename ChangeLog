@@ -9,6 +9,7 @@ $Source$
     * lang/*.php3, libraries/common.lib.php3: new features EXPLAIN
       and "Create PHP Code", thanks to Mike Beck
     * sql.php3: $is_analyse was sometimes undefined
+    * tbl_alter.php3: go back to structure sub-page
 
 2002-05-24 Loïc Chapeaux  <lolo@phpheaven.net>
     * config.inc.php3; db_details_links.php3; db_search.php3;
