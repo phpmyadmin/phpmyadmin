@@ -7,6 +7,9 @@ $Source$
 
 2004-03-01 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.6 released from branch MAINT_2_5
+    * libraries/common.lib.php: change Revision number to trigger execution
+      of compatibility module config_import.lib.php, because cookie
+      login does not work if LoginCookieValidity is not defined
 
 2004-02-29 Alexander M. Turek  <howcanisleepwithyourvoiceinmyhead@derrabus.de>
     * tbl_select.php: Fixed bug #887505 (PMA does not add MySQL charsets to
