@@ -105,8 +105,8 @@
     <li>search globally in a database or a subset of it</li>
     <li>transform stored data into any format using a set of predefined functions,
         like displaying BLOB-data as image or download-link or ...</li>
-    <li>support InnoDB tables and foreign keys (see FAQ 3.6)</li>
-    <li>support mysqli, the improved MySQL extension (see FAQ 1.17) </li>
+    <li>support InnoDB tables and foreign keys <a href="#faq3_6">(see FAQ 3.6)</a></li>
+    <li>support mysqli, the improved MySQL extension <a href="#faqmysqlversions">(see FAQ 1.17)</a></li>
     <li>
         communicate in
         <a href="./translators.html">47 different languages</a>
@@ -159,7 +159,7 @@
          use HTTP or cookie authentication), for example with HTTP-AUTH (in a
          <i>.htaccess</i> file). See the
          <a href="#faqmultiuser">multi-user sub-section of the FAQ</a>
-         for additional information, especially FAQ 4.4.</li>
+         for additional information, especially <a href="#faq4_4">FAQ 4.4</a>.</li>
     <li> Open the file
          <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php</i>
          in your browser. phpMyAdmin should now display a welcome screen
@@ -168,18 +168,18 @@
     <li> For a whole set of new features (bookmarks, comments, SQL-history, PDF-generation, field contents transformation, etc.)
          you need to create a set of tables in your database. Please look at your scripts/
          directory, where you should find a file called <i>create_tables.sql</i>.
-         (If you are using a Windows server, pay special attention to FAQ 1.23).
+         (If you are using a Windows server, pay special attention to <a href="#faq1_23">FAQ 1.23</a>).
          You can already use your phpMyAdmin to create the tables for you. Please be
          aware that you may have to have special (administrator) privileges to create
          the database and tables. After having imported the <i>create_tables.sql</i> file,
-         you should specify the table names in your config.inc.php file. The directives
+         you should specify the table names in your <i>config.inc.php</i> file. The directives
          used for that can be found in the <a href="#config">Configuration section</a>.</li>
 
 </ol>
 
 <p><b>Upgrading from an older version:</b></p>
 <ul>
-    <li>Please do not copy your older config.inc.php over the new one: it may
+    <li>Please do not copy your older <i>config.inc.php</i> over the new one: it may
         offer new configuration variables, and the new version may depend on
         these for normal behavior.  It is suggested instead to insert your site
         values in the new one.</li>
@@ -285,7 +285,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         allows you to login as any valid MySQL user.</li>
     <li>Is only supported with PHP running as an Apache module, not with
         CGI.</li>
-    <li>See also FAQ 4.4 about not using the <i>.htaccess</i> mechanism along
+    <li>See also <a href="#faq4_4">FAQ 4.4</a> about not using the <i>.htaccess</i> mechanism along
         with 'http' authentication mode.</li>
 </ul>
 
@@ -298,21 +298,21 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <li>With this mode, the user can truly logout of phpMyAdmin and login back
         with the same username.</li>
     <li>If you want to login to arbitrary server see
-    <tt>$cfg['AllowArbitraryServer']</tt> directive.</li>
+    <tt><a href="#AllowArbitraryServer">$cfg['AllowArbitraryServer']</a></tt> directive.</li>
 </ul>
 
 <p><b>'config' authentication mode:</b></p>
 <ul>
     <li>This mode is the less secure one because it requires you to fill the
-        <tt>$cfg['Servers'][$i]['user']</tt> and
-        <tt>$cfg['Servers'][$i]['password']</tt> fields.<br />
+        <tt><a href="#servers_user">$cfg['Servers'][$i]['user']</a></tt> and
+        <tt><a href="#servers_user">$cfg['Servers'][$i]['password']</a></tt> fields.<br />
         But you don't need to setup a &quot;controluser&quot; here:
-        using the <tt>$cfg['Servers'][$i]['only_db']</tt> might be enough.</li>
-    <li>In the ISP FAQ section, there is an entry explaining how to protect
+        using the <tt><a href="#servers_only_db">$cfg['Servers'][$i]['only_db']</a></tt> might be enough.</li>
+    <li>In the <a href="#faqmultiuser">ISP FAQ</a> section, there is an entry explaining how to protect
         your configuration file.<br /></li>
     <li>For additional security in this mode, you may wish to consider the
-        Host authentication <tt>$cfg['Servers'][$i]['AllowDeny']['order']</tt>
-        and <tt>$cfg['Servers'][$i]['AllowDeny']['rules']</tt> configuration
+        Host authentication <tt><a href="#servers_allowdeny_order">$cfg['Servers'][$i]['AllowDeny']['order']</a></tt>
+        and <tt><a href="#servers_allowdeny_rules">$cfg['Servers'][$i]['AllowDeny']['rules']</a></tt> configuration
         directives.</li>
 </ul>
 
@@ -527,7 +527,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 help of cookies. Log name and password are stored in
                 cookies during the session and password is deleted when it
                 ends. This can also allow you to login in arbitrary server if
-                <tt>$cfg['AllowArbitraryServer']</tt> enabled.
+                <tt><a href="#AllowArbitraryServer">$cfg['AllowArbitraryServer']</a></tt> enabled.
             </li>
             <li>
                 'http' authentication (was called 'advanced' in older versions)
@@ -536,12 +536,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             </li>
         </ul><br />
 
-        Please see the install section on &quot;Using authentication modes&quot;
+        Please see the <a href="#setup">install section</a> on &quot;Using authentication modes&quot;
         for more information.
         <br /><br />
     </dd>
-
     <dt>
+<a name="servers_user"></a><br />
         <b>$cfg['Servers'][$i]['user']</b> string<br />
         <b>$cfg['Servers'][$i]['password']</b> string
     </dt>
@@ -550,10 +550,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         MySQL-server. This user/password pair is not needed when HTTP or
         cookie authentication is used, and should be empty.<br /><br />
     </dd>
-
-    <dt><b>$cfg['Servers'][$i]['only_db']</b> string or array</dt>
+    <dt>
+<a name="servers_only_db"></a><br />
+<b>$cfg['Servers'][$i]['only_db']</b> string or array</dt>
     <dd>
-        If set to a(an array of) database name(s), only this(these) database(s)
+        If set to a (an array of) database name(s), only this (these) database(s)
         will be shown to the user. Since phpMyAdmin 2.2.1, this/these
         database(s) name(s) may contain MySQL wildcards characters
         (&quot;_&quot; and &quot;%&quot;): if you want to use literal instances
@@ -597,9 +598,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         the bookmark feature you need special tables with a
         predefined structure, which we explain below.
         <br /><br />
-        See the Quick Install section in this document for a quick way
+        See the <a href="#setup">Quick Install section</a> in this document for a quick way
         of creating those tables. Also, if you are using a Windows server,
-        read FAQ 1.23.
+        read <a href="#faq1_23">FAQ 1.23</a>.
         <br /><br />
         If you are the only user of this phpMyAdmin installation, you can
         use your current database to store those special tables; in this
@@ -677,20 +678,20 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
               display in an optional tool-tip the &quot;display field&quot;
               when browsing the master table, if you move the mouse to a column
               containing a foreign key (use also the 'table_info' table);<br />
-              (see FAQ 6.7)
+              (see <a href="#faqdisplay">FAQ 6.7</a>)
            </li>
            <li>
               in edit/insert mode, display a drop-down list of possible
               foreign keys (key value and &quot;display field&quot; are
               shown)<br />
-              (see FAQ 6.21)
+              (see <a href="#faq6_21">FAQ 6.21</a>)
            </li>
            <li>
               display links on the table properties page, to check referential
               integrity (display missing foreign keys) for each described key;
            </li>
            <li>
-              in query-by-example, create automatic joins (see FAQ 6.6)
+              in query-by-example, create automatic joins (see <a href="#faq6_6">FAQ 6.6</a>)
            </li>
            <li>
               enable you to get a PDF schema of your database (also uses the
@@ -774,7 +775,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Usage tip: <a href="#faqdisplay">Display field</a>.
         <br /><br />
     </dd>
-
     <dt>
         <a name="table_coords"></a><br />
         <b>$cfg['Servers'][$i]['table_coords']</b> string<br />
@@ -788,7 +788,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         table will be placed on a PDF schema output).
         <br /><br />
         You must be using the &quot;relation&quot; feature and have a table of
-        PDF pages (see <tt>$cfg['Servers'][$i]['pdf_pages']</tt>) to create PDF
+        PDF pages (see <tt><a href="#table_coords">$cfg['Servers'][$i]['pdf_pages']</a></tt>) to create PDF
         output.
         <br /><br />
         To allow the usage of this functionality the superuser has to:
@@ -883,8 +883,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `transformation` VARCHAR( 255 ) NOT NULL ,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `transformation_options` VARCHAR( 255 ) NOT NULL ;<br />
                 </tt>
-                and remember that the Variable in config.inc.php has been renamed
-                from <br />$cfg['Servers'][$i]['column_comments'] to $cfg['Servers'][$i]['column_info']
+                and remember that the Variable in <i>config.inc.php</i> has been renamed
+                from <br /><tt>$cfg['Servers'][$i]['column_comments']</tt> to <tt>$cfg['Servers'][$i]['column_info']</tt>
             </li>
         </ul><br />
     </dd>
@@ -948,8 +948,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Recommended to set to FALSE, when you are sure, your table structure is up to date.
         <br /><br />
     </dd>
-
     <dt>
+<a name="servers_allowdeny_order"></a><br />
         <b>$cfg['Servers'][$i]['AllowDeny']['order']</b> string
     </dt>
     <dd>
@@ -975,8 +975,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         setting any order.
         <br /><br />
     </dd>
-
     <dt>
+<a name="servers_allowdeny_rules"></a><br />
         <b>$cfg['Servers'][$i]['AllowDeny']['rules']</b> array of strings
     </dt>
     <dd>
@@ -1076,8 +1076,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['Confirm'] </b>boolean</dt>
     <dd>
-        Whether a warning (&quot;Are your really sure..&quot;) should be
-        displayed when you're about to loose data.
+        Whether a warning (&quot;Are your really sure...&quot;) should be
+        displayed when you're about to lose data.
         <br /><br />
     </dd>
 
@@ -1108,8 +1108,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Defaults to TRUE.
         <br /><br />
     </dd>
-
-    <dt><b>$cfg['AllowArbitraryServer'] </b>boolean</dt>
+    <dt>
+<a name="AllowArbitraryServer"></a><br />
+<b>$cfg['AllowArbitraryServer'] </b>boolean</dt>
     <dd>
         If enabled allows you to login to arbitrary server using cookie auth.
         <br /><br />
@@ -1193,7 +1194,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
 
         Please note that to block the usage of phpinfo() in scripts, you
-        have to put this in your php.ini:<br />
+        have to put this in your <i>php.ini</i>:<br />
         &nbsp;&nbsp;&nbsp;&nbsp;<tt>disable_functions = phpinfo()</tt>
         <br /><br />
 
@@ -1300,11 +1301,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['CompressOnFly'] </b>boolean<br />
     </dt>
     <dd>
-        Defines whether to allow ont the fly compression for GZip/BZip2
+        Defines whether to allow on the fly compression for GZip/BZip2
         compressed exports. This doesn't affect smaller dumps and allows to
         create larger dumps, that won't fit otherwise in memory due to php
         memory limit. Produced files contain more GZip/BZip2 headers, but all
-        normal programs handles this correctly.
+        normal programs handle this correctly.
         <br /><br />
     </dd>
 
@@ -1377,7 +1378,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
          Type of MySQL documentation:
          <ul>
-            <li>old - old style used in phpMyAdmin 2.3.0 and sooner</li>
+            <li>old - old style used in phpMyAdmin 2.3.0 and earlier</li>
             <li>searchable - &quot;Searchable, with user comments&quot;</li>
             <li>chapters - &quot;HTML, one page per chapter&quot;</li>
             <li>big - &quot;HTML, all on one page&quot;</li>
@@ -1462,11 +1463,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <ul>
             <li>
                 auto   - automatically detect, this is a bit expensive
-                operation for php &lt; 4.3.0 so it is preffered to change this
+                operation for php &lt; 4.3.0 so it is preferred to change this
                 according to your server real possibilities
             </li>
             <li>yes - GD 2 functions can be used</li>
-            <li>no - GD 2 function can not be used</li>
+            <li>no - GD 2 function cannot be used</li>
         </ul>
         Default is auto.
         <br /><br />
@@ -1572,8 +1573,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         click.
         <br /><br />
     </dd>
-
     <dt>
+<a name="CtrlArrowsMoving"></a><br />
         <b>$cfg['CtrlArrowsMoving'] </b>boolean<br />
     </dt>
     <dd>
@@ -1619,8 +1620,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         does not look as good as CSS.
         <br /><br />
     </dd>
+    <dt>
 
-    <dt><b>$cfg['DefaultPropDisplay'] </b>string</dt>
+<a name="DefaultPropDisplay"></a><br />
+<b>$cfg['DefaultPropDisplay'] </b>string</dt>
     <dd>
         When editing/creating new columns in a table all fields normally get
         lined up one field a line. (default: 'horizontal'). If you set this to
@@ -1686,7 +1689,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['Export'] </b>array</dt>
     <dd>
         In this array are defined default parameters for export, names of
-        items are simmilar to texts seen on export page, so you can easily
+        items are similar to texts seen on export page, so you can easily
         identify what they mean.
         <br /><br />
     </dd>
@@ -1780,7 +1783,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         element, you can move them around in the pre-defined area and the x/y
         coordinates will get updated dynamically. Likewise, when entering a
         new position directly into the input field, the new position in the
-        scratchboard changes after your cursors leaves the input field.
+        scratchboard changes after your cursor leaves the input field.
         <br />
         You have to click on the 'OK'-button below the tables to save the new
         positions.  If you want to place a new element, first add it to the
@@ -1891,7 +1894,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <b>$cfg['SQLValidator']['password']</b> string</dt>
     <dd>
     The SOAP service allows you to login with <tt>anonymous</tt>
-    and any password, so we use those by default.. Instead, if
+    and any password, so we use those by default. Instead, if
     you have an account with them, you can put your login details
     here, and it will be used in place of the anonymous login.
     <br /><br />
@@ -1913,7 +1916,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     Enable profiling support for phpMyAdmin. This will append a chunk of data
     to the end of every page displayed in the main window with profiling
     statistics for that page.<br />
-    You may need need to increase the maximum execution time for this to
+    You may need to increase the maximum execution time for this to
     complete successfully.
     </dd>
 
@@ -1950,14 +1953,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['RestrictColumnTypes'] </b>array</dt>
     <dd>
-        Mapping of column types to meta types used for prefering displayed
+        Mapping of column types to meta types used for preferring displayed
         functions. In most cases you don't need to edit this.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['RestrictFunctions'] </b>array</dt>
     <dd>
-        Functions prefered for column meta types as defined in
+        Functions preferred for column meta types as defined in
         <code>$cfg['RestrictColumnTypes']</code>. In most cases you don't need
         to edit this.
         <br /><br />
@@ -2012,7 +2015,7 @@ installation.</p>
 <a name="transformationshowto"></a><br />
 <h3>[2. Usage]</h3>
 
-<p>Go to your tbl_properties.inc.php page (i.e. reached through clicking on the
+<p>Go to your <i>tbl_properties.inc.php</i> page (i.e. reached through clicking on the
 'properties' link for a table). There click on &quot;Change&quot; (or change
 icon) and there you will see three new fields at the end of the line. They are
 called 'MIME-type', 'Browser transformation' and 'Transformation options'.</p>
@@ -2074,7 +2077,7 @@ for many mimetypes. You can also use transforms on a different mimetype they whe
 for, but pay attention to option usage as well as what the transformation does to your
 field.</p><br />
 
-<p>There is a basic file called 'global.inc.php'. This function can be included by
+<p>There is a basic file called '<i>global.inc.php</i>'. This function can be included by
 any other transform function and provides some basic functions.</p><br />
 
 <p>There are 5 possible file names:</p>
@@ -2311,7 +2314,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
    <li>give ownership to the Apache server's user.group:
            <tt>chown apache.apache /tmp/php</tt></li>
    <li>give proper permission: <tt>chmod 600 /tmp/php</tt></li>
-   <li>put <tt>upload_tmp_dir = /tmp/php</tt> in php.ini</li>
+   <li>put <tt>upload_tmp_dir = /tmp/php</tt> in <i>php.ini</i></li>
    <li>restart Apache</li>
 </ul>
 
@@ -2511,7 +2514,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     This is most likely because in <i>php.ini</i>, your <tt>file_uploads</tt>
     parameter is not set to &quot;on&quot;.
 </p>
-
+<a name="faq1_23"></a><br />
 <h4>
     [1.23] I'm running MySQL on a Win32 machine. Each time I create a new
     table the table and field names are changed to lowercase!
@@ -2568,8 +2571,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
-    GZIP output buffering enabled. If you turn off it (by <code>$cfg['OBGzip']
-    = FALSE</code> in config.inc.php), it should work. This bug will be fixed
+    GZIP output buffering is enabled. If you turn off it (by <code>$cfg['OBGzip']
+    = FALSE</code> in <i>config.inc.php</i>), it should work. This bug will be fixed
     in PHP 5.0.0.
 </p>
 
@@ -2658,7 +2661,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     For RedHat users, Harald Legner suggests this on the mailing list:
     <br /><br />
     On my RedHat-Box the socket of MySQL is <i>/var/lib/mysql/mysql.sock</i>.
-    In your php.ini you will find a line
+    In your <i>php.ini</i> you will find a line
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;<tt>mysql.default_socket = /tmp/mysql.sock</tt>
     <br />
@@ -2684,7 +2687,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         Then, you need to tell PHP to use this socket.<br />Assuming you are
         using PHP 3.0.10 or better, you can specify the socket to use when you
         open the connection. To do this in phpMyAdmin, you need to complete the
-        socket information in the config.inc.php.<br />
+        socket information in the <i>config.inc.php</i>.<br />
         For example:
         <tt>$cfg['Servers'][$i]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt><br /><br />
         Please also make sure that the permissions of this file allow to be readable
@@ -2790,7 +2793,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     The invalid part of the code is the horizontal line made of dashes that
     appears once in every dump created with mysqldump. If you want to run your
     dump you have to turn it into valid MySQL. This means, you have to add a
-    whitespace after the first to dashes of the line or add a # before it:
+    whitespace after the first two dashes of the line or add a # before it:
     <br />
     <code>
         -- -------------------------------------------------------<br />
@@ -2806,12 +2809,12 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
      are some multiple hierarchies displayed in a wrong manner?!
 </h4>
 <p>
-    Please note that you should not use the seperating string multiple times
+    Please note that you should not use the separating string multiple times
     without any characters between them, or at the beginning/end of your table
     name. If you have to, think about using another TableSeparator or disabling
     that feature
 </p>
-
+<a name="faq3_6"></a><br />
 <h4>
     [3.6] What is currently not supported in phpMyAdmin about InnoDB?
 </h4>
@@ -2920,6 +2923,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt>open_basedir</tt>, if used, must contain &quot;.&quot; and
     &quot;./lang&quot; to allow normal operation of phpMyAdmin.
 </p>
+<a name="faq4_4"></a><br />
 <h4>
     [4.4] phpMyAdmin always gives &quot;Access denied&quot; when using HTTP
     authentication.
@@ -3211,7 +3215,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     For additional help on this subject, look for the word &quot;upload&quot;
     in this document.
 </p>
-
+<a name="faq6_6"></a><br />
 <h4>
     [6.6] How can I use the relation table in Query-by-example?
 </h4>
@@ -3289,7 +3293,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     in the configuration section, then browse your persons table,
     and move the mouse over a town code or country code.
     <br /><br />
-    See also FAQ 6.21 for an additionnal feature that &quot;display field&quot;
+    See also <a href="#faq6_21">FAQ 6.21</a> for an additionnal feature that &quot;display field&quot;
     enables: drop-down list of possible values.
 </p>
 
@@ -3433,9 +3437,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     You can use Ctrl+arrows for moving on most pages with plenty editing
-    fields (table structure changes, row editing, etc.) (must be anabled in
-    configuration - see. $cfg['CtrlArrowsMoving']). You can also have a look
-    at the directive $cfg['DefaultPropDisplay'] ('vertical') and see if this
+    fields (table structure changes, row editing, etc.) (must be enabled in
+    configuration - see. <a href="#CtrlArrowsMoving">$cfg['CtrlArrowsMoving']</a>). You can also have a look
+    at the directive <a href="#DefaultPropDisplay">$cfg['DefaultPropDisplay']</a> ('vertical') and see if this
     eases up editing for you.
     <br />
 </p>
@@ -3525,14 +3529,15 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     So if your users do not need those privileges, you can remove them and their
     databases list will shorten.
 </p>
+<a name="faq6_21"></a><br />
 <h4>
     [6.21] In edit/insert mode, how can I see a list of possible values for
     a field, based on some foreign table?
 </h4>
 <p>
     You have to setup appropriate links between the tables, and also
-    setup the &quot;display field&quot; in the foreign table. See FAQ
-    6.6 for an example. Then, if there are 200 values or less in the
+    setup the &quot;display field&quot; in the foreign table. See <a href="#faq6_6">FAQ
+    6.6</a> for an example. Then, if there are 200 values or less in the
     foreign table, a drop-down list of values will be available.
     You will see two lists of values, the first list containing the key
     and the display field, the second list containing the display field
@@ -3779,7 +3784,7 @@ CREDITS, in chronological order
     * many bugfixes and improvements
 
 - Robin Johnson &lt;robbat2_at_users.sourceforge.net&gt;
-    * database maintence controls
+    * database maintenance controls
     * table type code
     * Host authentication IP Allow/Deny
     * DB-based configuration (Not completed)
@@ -3845,7 +3850,7 @@ CREDITS, in chronological order
     * PDF-scratchboard for WYSIWYG-distribution of PDF relations
     * new icon sets
     * vertical display of column properties page
-    * some bugfixes, features, support, german language additions
+    * some bugfixes, features, support, German language additions
 
 - Yukihiro Kawada &lt;kawada_at_den.fujifilm.co.jp&gt;
     * japanese kanji encoding conversion feature
