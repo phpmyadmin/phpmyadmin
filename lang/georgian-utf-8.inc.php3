@@ -10,11 +10,18 @@
  */
 
 $charset = "utf-8";
+$text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = "Sylfaen";
 $right_font_family = "Sylfaen";
 $number_thousands_separator = " ";
 $number_decimal_separator = ",";
 $byteUnits = array("ბაიტი", "KB", "MB", "GB");
+
+$day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+$month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+// See http://www.php.net/manual/en/function.strftime.php to define the
+// variable below
+$datefmt = '%B %d, %Y at %I:%M %p';
 
 $strAPrimaryKey = 'პირველადი გასაღები დამატებულია ველზე %s';
 $strAccessDenied = 'აკრძალულია';
