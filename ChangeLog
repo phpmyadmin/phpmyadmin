@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-04 Michal Čihař  <michal@cihar.com>
+    * tbl_query_box.php: Reenabled %f substitution.
+
 2004-10-02 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_alter.php: field structure changes not applied (CVS version only)
     * export.php: bug #1038804, insufficient space to save

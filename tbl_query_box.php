@@ -158,7 +158,11 @@ if (!isset($is_inside_querywindow) ||
     if (!empty($query_to_display)) {
         echo htmlspecialchars($query_to_display);
     } elseif (isset($table)) {
-        echo htmlspecialchars(str_replace('%d', PMA_backquote($db), str_replace('%t', PMA_backquote($table), $cfg['DefaultQueryTable'])));
+        echo htmlspecialchars(
+            str_replace('%d', PMA_backquote($db), 
+                str_replace('%t', PMA_backquote($table), 
+                    str_replace('%f', implode(', ', PMA_backquote($fields_list)),
+                        $cfg['DefaultQueryTable']))));
     } else {
         echo htmlspecialchars(str_replace('%d', PMA_backquote($db), $cfg['DefaultQueryDatabase']));
     }
