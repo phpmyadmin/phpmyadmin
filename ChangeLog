@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 2005-01-20 Michael Keck  <mkkeck@users.sourceforge.net>
+    * themes/.../theme_right.css.php: new class for disabled (not available)
+      text / values / messages
+    * libraries/tooltip.js: removed wrong typos (sorry)
+
+2005-01-20 Michael Keck  <mkkeck@users.sourceforge.net>
     * new js-library: tooltip.js for tooltips (hints)
     * libraries/common.lib.php: img tag modified for mouseover / mouseout
       (show/hide tooltip)

@@ -2,7 +2,7 @@
 
 
 /**
-  * Displays the Tooltips / tooltips, if we have some
+  * Displays the Tooltips (hints), if we have some
   * 2005-01-20 added by Michael Keck (mkkeck)
   */
 
@@ -10,12 +10,12 @@
 var ttXpos = 0, ttYpos = 0;
 var ttXadd = 10, ttYadd = -10;
 var ttDisplay = 0, ttHoldIt = 0;
-// Check if browser does support divContaiber / Tooltips
+// Check if browser does support dynamic content and dhtml
 var ttNS4 = (document.layers) ? 1 : 0;           // the old Netscape 4
 var ttIE4 = (document.all) ? 1 : 0;              // browser wich uses document.all
 var ttDOM = (document.getElementById) ? 1 : 0;   // DOM-compatible browsers
-if (ttDOM) {   // if DOM-compatible, the the others to false
-    ttNS4	=	0;
+if (ttDOM) { // if DOM-compatible, set the others to false
+    ttNS4 = 0;
     ttIE4 = 0;
 }
 
@@ -36,14 +36,13 @@ if ( (ttDOM) || (ttIE4) || (ttNS4) ) {
 }
 
 /**
-  * init the Tooltip and write the text into it
+  * init the tooltip and write the text into it
   */
 function textTooltip(theText) {
-    //show(myTooltipContainer);
-    if	(ttDOM || ttIE4) { // document.getEelementById || document.all
-        myTooltipContainer.innerHTML = ""; // we should empty it first
+    if	(ttDOM || ttIE4) {                   // document.getEelementById || document.all
+        myTooltipContainer.innerHTML = "";  // we should empty it first
         myTooltipContainer.innerHTML = theText;
-    } else if (ttNS4) { // document.layers
+    } else if (ttNS4) {                     // document.layers
         var layerNS4 = myTooltipContainer.document;
         layerNS4.write(theText);
         layerNS4.close();
@@ -95,7 +94,7 @@ function showTooltip(stat) {
     }
 }
 /**
-  * show / hide the Tooltip
+  * hold it, if we create or move the mouse over the tooltip
   */
 function holdTooltip() {
     ttHoldIt = 1;
@@ -104,7 +103,7 @@ function holdTooltip() {
 }
 
 /**
-  * move the Tooltip to mouse position
+  * move the tooltip to mouse position
   */
 function moveTooltip(posX, posY) {
     if (ttDOM || ttIE4) {
@@ -117,7 +116,7 @@ function moveTooltip(posX, posY) {
 }
 
 /**
-  * build the Tooltip
+  * build the tooltip
   */
 function pmaTooltip(theText) {
     textTooltip(theText);
@@ -158,5 +157,4 @@ function mouseMove(e) {
         ttXpos = ttXpos - (divWidth + (ttXadd * 2));
     if ((ttYpos + divHeight) > docY)
         ttYpos = ttYpos - (divHeight + (ttYadd * 2));
-
 }
