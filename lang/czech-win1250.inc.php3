@@ -172,8 +172,8 @@ $strLines = 'Øádek';
 $strLinesTerminatedBy = 'Øádky ukonèené';
 $strLocationTextfile = 'Umístìní textového souboru';
 $strLogin = 'Pøihlášení';
-$strLogPassword = 'Heslo:';
 $strLogout = 'Odhlásit se';
+$strLogPassword = 'Heslo:';
 $strLogUsername = 'Jméno:';
 
 $strModifications = 'Zmìny byly uloženy';
@@ -259,9 +259,9 @@ $strRowLength = 'Délka øádku';
 $strRows = 'Øádkù'; 
 $strRowsFrom = 'øádkù zaèínající od';
 $strRowSize = ' Velikost øádku '; 
-$strRowsModeVertical='svislém'; 
+$strRowsModeVertical='svislém';  
 $strRowsModeHorizontal='vodorovném';  
-$strRowsModeOptions=' ve %s režimu a opakovat hlavièky po %s øádcích.'; 
+$strRowsModeOptions='ve %s režimu a opakovat hlavièky po %s øádcích.'; 
 $strRowsStatistic = 'Statistika øádkù'; 
 $strRunning = 'bìžící na %s';
 $strRunQuery = 'Provést dotaz';
@@ -269,6 +269,8 @@ $strRunSQLQuery = 'Spustit SQL dotaz(y) na databázi %s';
 
 $strSave = 'Ulož';
 $strSelect = 'Vybrat';
+$strSelectADb = 'Prosím vyberte databázi';
+$strSelectAll = 'Vybrat vše';
 $strSelectFields = 'Zvol pole (alespoò jedno):';
 $strSelectNumRows = 'v dotazu';
 $strSend = 'Pošli';
@@ -318,6 +320,7 @@ $strType = 'Typ';
 
 $strUncheckAll = 'Odškrtnout vše';
 $strUnique = 'Unikátní';
+$strUnselectAll = 'Odznaèit vše';
 $strUpdatePrivMessage = 'Byla aktualizovana oprávnìní pro %s.';
 $strUpdateProfile = 'Zmìny profilu:';
 $strUpdateProfileMessage = 'Profil byl zmìnìn.';
@@ -341,9 +344,4 @@ $strWrongUser = 'Špatné uživatelské jméno/heslo. Pøístup odepøen.';
 $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
-
-// To translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>

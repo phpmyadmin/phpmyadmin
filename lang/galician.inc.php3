@@ -269,6 +269,8 @@ $strRunSQLQuery = 'Efectuar unha procura SQL na base de datos %s';
 
 $strSave = 'Gardar';
 $strSelect = 'Procurar';
+$strSelectADb = 'Seleccione unha base de dados';
+$strSelectAll = 'Seleccionar todo';  
 $strSelectFields = 'Seleccione os campos (mínimo 1)';
 $strSelectNumRows = 'a procurar';
 $strSend = 'Enviar <I>(gravar nun ficheiro)</I><br>';
@@ -318,6 +320,7 @@ $strType = 'Tipo';
 
 $strUncheckAll = 'Quitar-lles as marcas a todos';
 $strUnique = 'Único';
+$strUnselectAll = 'Non seleccionar nada';
 $strUpdatePrivMessage = 'Acaba de actualizar os privilexios de %s.';
 $strUpdateProfile = 'Actualizar o perfil:';
 $strUpdateProfileMessage = 'Actualizouse o perfil.';
@@ -347,7 +350,4 @@ $strCardinality = 'Cardinality';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>
