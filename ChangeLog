@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-06 Garvin Hicking <me@supergarv.de>
+    * libraries/display_tbl.lib.php, libraries/functions.js,
+      css/phpmyadmin.css.php: Further fixing of broken vertical
+      column highlighting; empty repeated header cells are now <th>, not
+      <td>. Adjusted CSS to not change visual display of those.
+    * (same files): Optimized unneccessary preg_replace.
+
 2004-06-04 Michal Čihař  <michal@cihar.com>
     * libraries/read_dump.lib.php: Do not strip comments here.
     * libraries/sqlparser.lib.php: Handle correctly all MySQL comments (-- can

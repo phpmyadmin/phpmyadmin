@@ -629,10 +629,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 3 : 0;
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             ?>
-<td colspan="<?php echo $fields_cnt; ?>" align="center">
+<th class="td" colspan="<?php echo $fields_cnt; ?>" align="center">
     <a href="<?php echo $text_url; ?>">
         <img src="./images/s_<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
-</td>
+</th>
 </tr>
 
 <tr>
@@ -642,10 +642,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             echo "\n";
             ?>
 <tr>
-<td colspan="<?php echo $num_rows + floor($num_rows/$repeat_cells) + 1; ?>" align="center">
+<th class="td" colspan="<?php echo $num_rows + floor($num_rows/$repeat_cells) + 1; ?>" align="center">
     <a href="<?php echo $text_url; ?>">
         <img src="./images/s_<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
-</td>
+</th>
 </tr>
             <?php
         } // end vertical mode
@@ -658,17 +658,17 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             echo "\n";
             ?>
-<td<?php echo $colspan; ?> align="center">
+<th class="td" <?php echo $colspan; ?> align="center">
     <a href="<?php echo $text_url; ?>">
         <img src="./images/s_<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
-</td>
+</th>
             <?php
         } // end horizontal/horizontalflipped mode
         else {
-            $vertical_display['textbtn'] = '    <td' . $rowspan . ' align="center" valign="middle">' . "\n"
+            $vertical_display['textbtn'] = '    <th class="td" ' . $rowspan . ' align="center" valign="middle">' . "\n"
                                          . '        <a href="' . $text_url . '">' . "\n"
                                          . '            <img src="./images/s_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" title="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
-                                         . '    </td>' . "\n";
+                                         . '    </th>' . "\n";
         } // end vertical mode
     }
 
@@ -876,17 +876,17 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             echo "\n";
             ?>
-<td<?php echo $colspan; ?> align="center">
+<th class="td" <?php echo $colspan; ?> align="center">
     <a href="<?php echo $text_url; ?>">
         <img src="./images/s_<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
-</td>
+</th>
             <?php
         } // end horizontal/horizontalflipped mode
         else {
-            $vertical_display['textbtn'] = '    <td' . $rowspan . ' align="center" valign="middle">' . "\n"
+            $vertical_display['textbtn'] = '    <th class="td" ' . $rowspan . ' align="center" valign="middle">' . "\n"
                                          . '        <a href="' . $text_url . '">' . "\n"
                                          . '            <img src="./images/s_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" title="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
-                                         . '    </td>' . "\n";
+                                         . '    </th>' . "\n";
         } // end vertical mode
     }
 
@@ -1022,7 +1022,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             echo '<tr>' . "\n";
 
             for ($foo_i = 0; $foo_i < $vertical_display['emptypre']; $foo_i++) {
-                echo '    <td>&nbsp;</td>' . "\n";
+                echo '    <th class="td">&nbsp;</th>' . "\n";
             }
 
             foreach ($vertical_display['desc'] AS $key => $val) {
@@ -1030,7 +1030,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             }
 
             for ($foo_i = 0; $foo_i < $vertical_display['emptyafter']; $foo_i++) {
-                echo '    <td>&nbsp;</td>' . "\n";
+                echo '    <th class="td">&nbsp;</th>' . "\n";
             }
 
             echo '</tr>' . "\n";
@@ -1477,10 +1477,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
             $vertical_display['row_delete'][$row_no] .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
-//                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '%s" name="rows_to_delete[' . $uva_condition . ']" value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
-                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '%s" name="rows_to_delete[' . $uva_condition . ']"'
-																																																					.  ' onclick="copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'%s\');"'
-																																																					.  ' value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
+                                                     .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[' . $uva_condition . ']"'
+                                                     .  ' onclick="copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'[%_PMA_CHECKBOX_DIR_%]\');"'
+                                                     .  ' value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
 
                                                      .  '    </td>' . "\n";
         } else {
@@ -1540,11 +1539,10 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['row_delete'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                echo '<td>&nbsp;</td>' . "\n";
+                echo '<th class="td">&nbsp;</th>' . "\n";
             }
 
-            // echo $val; //
-												echo preg_replace("/%s/","",$val);
+            echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '', $val);
             $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
@@ -1559,7 +1557,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['edit'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                echo '    <td>&nbsp;</td>' . "\n";
+                echo '    <th class="td">&nbsp;</th>' . "\n";
             }
 
             echo $val;
@@ -1577,7 +1575,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['delete'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                echo '<td>&nbsp;</td>' . "\n";
+                echo '<th class="td">&nbsp;</th>' . "\n";
             }
 
             echo $val;
@@ -1620,11 +1618,10 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['row_delete'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                echo '<td>&nbsp;</td>' . "\n";
+                echo '<th class="td">&nbsp;</th>' . "\n";
             }
 
-            // echo $val; //
-												echo preg_replace("/%s/","r",$val);
+            echo str_replace('[%_PMA_CHECKBOX_DIR_%]', 'r', $val);
             $foo_counter++;
         } // end while
         echo '</tr>' . "\n";
@@ -1639,7 +1636,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['edit'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                echo '<td>&nbsp;</td>' . "\n";
+                echo '<th class="td">&nbsp;</th>' . "\n";
             }
 
             echo $val;
@@ -1657,7 +1654,7 @@ function PMA_displayVerticalTable()
         $foo_counter = 0;
         foreach ($vertical_display['delete'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                echo '<td>&nbsp;</td>' . "\n";
+                echo '<th class="td">&nbsp;</th>' . "\n";
             }
 
             echo $val;

@@ -601,6 +601,7 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultColor1, theD
     } // end 4
 
     // 5 ... with DOM compatible browsers except Opera
+
     for (c = 0; c < rowCnt; c++) {
         if (tagSwitch == 'tag') {
             Cells = theRows[c].getElementsByTagName('td');
@@ -608,11 +609,7 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultColor1, theD
             Cells = theRows[c].cells;
         }
 
-        if (c == 0) {
-            Cell  = Cells[theColNum + 1];
-        } else {
-            Cell  = Cells[theColNum];
-        }
+        Cell  = Cells[theColNum];
 
         // 5.1 Sets the new color...
         if (newColor) {

@@ -112,6 +112,7 @@ h1    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $fo
 table {border-width:1px; border-color:#000000; border-style:solid; border-collapse:collapse; border-spacing:0}
 th    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: #ffffff; border-width:1px; border-color:#000000; border-style:solid; padding:2px}
 td    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #ffffff; border-width:1px; border-color:#000000; border-style:solid; padding:2px}
+th.td {font-weight: normal;}
     <?php
 } else {
 /************************************************************************************
@@ -138,6 +139,7 @@ body {
 
 pre, tt         {font-size: <?php echo $font_size; ?>}
 th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>}
+th.td           {font-weight: normal; color: inherit; background-color: inherit; ?>}
 td              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 form            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 input           {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
@@ -392,7 +394,7 @@ hr{ color: #666699; background-color: #6666cc; border: 0; height: 1px; }
 
 /* Calendar */
 table.calendar {
-	width: 100%;
+    width: 100%;
 }
 
 table.calendar td {
