@@ -10,9 +10,8 @@
 // Rewritten and put in a libray 2nd May 2001 by Loïc Chapeaux
 
 // Test passed with:
-// - Mozilla 0.8.1, 0.9.0, 0.9.1, 0.9.2 for Windows (js enabled
-//    & disabled)
-// - IE5, 5.01, 5.5 for Windows
+// - Mozilla 0.8.1-0.9.6 for Windows (js enabled & disabled)
+// - IE5, 5.01, 5.5, 6.0 for Windows
 // - Netscape 4.75 for Windows
 
 // Test failed (crappy DOM implementations) with:
