@@ -188,7 +188,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!
 	if (!empty($strSpaceUsage)) echo $strSpaceUsage.":\n";
 	echo "<a name=showusage><a><table border=$cfgBorder>\n";
 	echo "<th>$strType</th>";
-	echo "<th colspan=2 align=right>";
+	echo '<th colspan=2 align="center">';
 	if (!empty($strUsage)) echo $strUsage;
 	echo "</th>";
 
@@ -196,34 +196,34 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!
 	echo "<tr bgcolor=$cfgBgcolorTwo>\n";
 	list($size,$unit)=format_byte_down($showtable["Data_length"]);
 	echo "<td style=\"padding-right:10px;\">";
-	if (!empty($strData)) echo $strData;
+	if (!empty($strData)) echo UCFirst($strData);
 	echo "</td><td align=right>".$size."</td><td>".$unit."</td>";
 	echo "</tr>\n";
 	// Index
 	echo "<tr bgcolor=$cfgBgcolorTwo>\n";
 	list($size,$unit)=format_byte_down($showtable["Index_length"]);
-	echo "<td style=\"padding-right:10px;\">$strIndex</td><td align=right>".$size."</td><td>".$unit."</td>";
+	echo '<td style="padding-right:10px;">' . UCFirst($strIndex) . '</td><td align="right">' . $size . '</td><td>' . $unit . '</td>';
 	echo "</tr>\n";
 	// Overhead
 	if (isset($showtable["Data_free"]) && $showtable["Data_free"]!=0){
 		echo "<tr bgcolor=$cfgBgcolorTwo style=\"color:#bb0000;\">\n";
 		list($size,$unit)=format_byte_down($showtable["Data_free"]);
 		echo "<td style=\"padding-right:10px;\">";
-		if (!empty($strOverhead)) echo $strOverhead;
-		echo "</td><td align=right>".$size."</td><td>".$unit."</td>";
+		if (!empty($strOverhead)) echo UCFirst($strOverhead);
+		echo '</td><td align="right">' . $size . '</td><td>' . $unit . '</td>';
 		echo "</tr>\n";
 		// Effective
 		echo "<tr bgcolor=$cfgBgcolorOne>\n";
 		list($size,$unit)=format_byte_down($showtable["Data_length"]+$showtable["Index_length"]-$showtable["Data_free"]);
 		echo "<td style=\"padding-right:10px;\">";
-		if (!empty($strOverhead)) echo $strEffective;
-		echo "</td><td align=right>".$size."</td><td>".$unit."</td>";
+		if (!empty($strOverhead)) echo UCFirst($strEffective);
+		echo '</td><td align="right">' . $size . '</td><td>' . $unit . '</td>';
 		echo "</tr>\n";
 	}
 	// Total
 	echo "<tr bgcolor=$cfgBgcolorOne>\n";
 	list($size,$unit)=format_byte_down($showtable["Data_length"]+$showtable["Index_length"]);
-	echo "<td style=\"padding-right:10px;\">$strTotal</td><td align=right>".$size."</td><td>".$unit."</td>";
+	echo '<td style="padding-right:10px;">' . UCFirst($strTotal) . '</td><td align="right">' . $size . '</td><td>' . $unit . '</td>';
 	echo "</tr>\n";
 
 	if (!empty($showtable["Data_free"])){
@@ -246,14 +246,14 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!
 	echo "<th>";
 	if (!empty($strStatement)) echo $strStatement;
 	echo "</th>";
-	echo "<th align=right>";
+	echo '<th align="center">';
 	if (!empty($strValue)) echo $strValue;
 	echo "</th>\n";
 
 	$i=0;
 	if (isset($showtable["Row_format"])){
 		echo (++$i%2)?"<tr bgcolor=$cfgBgcolorTwo><td>":"<tr bgcolor=$cfgBgcolorOne><td>\n";
-		if (!empty($strFormat)) echo $strFormat;
+		if (!empty($strFormat)) echo UCFirst($strFormat);
 		echo "</td><td>";
 		if ($showtable["Row_format"]=="Fixed" && !empty($strFixed)) echo $strFixed;
 		else if ($showtable["Row_format"]=="Dynamic" && !empty($strDynamic)) echo $strDynamic;
@@ -262,19 +262,19 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!
 	}
 	if (isset($showtable["Rows"])){
 		echo (++$i%2)?"<tr bgcolor=$cfgBgcolorTwo><td>":"<tr bgcolor=$cfgBgcolorOne><td>\n";
-		if (!empty($strRows)) echo $strRows;
-		echo "</td><td>".$showtable["Rows"]."</td></tr>\n";
+		if (!empty($strRows)) echo UCFirst($strRows);
+		echo '</td><td align="right">' . $showtable['Rows'] . '</td></tr>' . "\n";
 	}
 	if (isset($showtable["Avg_row_length"])){
 		echo (++$i%2)?"<tr bgcolor=$cfgBgcolorTwo><td>":"<tr bgcolor=$cfgBgcolorOne><td>\n";
-		if (!empty($strRowLength)) echo $strRowLength;
+		if (!empty($strRowLength)) echo UCFirst($strRowLength);
 		echo "&nbsp;&oslash;";
-		echo "</td><td>".$showtable["Avg_row_length"]."</td></tr>\n";
+		echo '</td><td align="right">' . $showtable['Avg_row_length'] . '</td></tr>' . "\n";
 	}
 	if (isset($showtable["Auto_increment"])){
 		echo (++$i%2)?"<tr bgcolor=$cfgBgcolorTwo><td>":"<tr bgcolor=$cfgBgcolorOne><td>\n";
-		echo "$strNext Autoindex";
-		echo "</td><td>".$showtable["Auto_increment"]."</td></tr>\n";
+		echo UCFirst($strNext) . ' Autoindex';
+		echo '</td><td align="right">' . $showtable['Auto_increment'] . '</td></tr>' . "\n";
 	}
 
 	echo "</table>\n";
