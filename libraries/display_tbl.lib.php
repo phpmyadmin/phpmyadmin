@@ -521,11 +521,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
                 if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                     $span = $fields_cnt;
+                    if ($is_display['edit_lnk'] != 'nn') $span++;
+                    if ($is_display['del_lnk'] != 'nn') $span++;
+                    if ($is_display['del_lnk'] != 'kp' && $is_display['del_lnk'] != 'nn') $span++;
                 } else {
                     $span = $num_rows + floor($num_rows/$repeat_cells) + 1;
                 }
-                if ($is_display['edit_lnk'] != 'nn') $span++;
-                if ($is_display['del_lnk'] != 'nn') $span++;
 
                 ?>
 <tr>

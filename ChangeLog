@@ -10,6 +10,8 @@ $Source$
       calendar.
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * libraries/display_tbl.lib.php: Bug #942362 - Colspan of results
+      table off by one.
     * db_datadict.php: Bug #942359 - Data dictionary had wrong <div>-
       count. Replace h1 with h2 for consitency
     * libraries/display_tbl.lib.php, tbl_row_delete: Bug #942356,
