@@ -137,6 +137,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
  * Sends http headers
  */
 // Don't use cache (required for Opera)
+
 if (!isset($noheader)) {
 $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
 header('Expires: ' . $GLOBALS['now']); // rfc2616 - Section 14.21
@@ -151,18 +152,14 @@ header($content_type);
 if (!isset($resize)) {
     echo $row[urldecode($transform_key)];
 } else {
-    // if image_jpeg__inline.inc.php3 finds that we can resize,
-    // it sets $resize to 1 
-   
+    // if image_*__inline.inc.php3 finds that we can resize,
+    // it sets $resize to jpeg or png
     $srcImage = imagecreatefromstring($row[urldecode($transform_key)]);
-    //$newWidth = $suggested_size;
-    //$newHeight = $suggested_size;
     $srcWidth = ImageSX( $srcImage );
     $srcHeight = ImageSY( $srcImage );
 
-    // the following portion of code checks to see if
-    // the width > height or if width < height
-    // if so it adjusts accordingly to make sure the image
+    // Check to see if the width > height or if width < height
+    // if so adjust accordingly to make sure the image
     // stays smaller then the $newWidth and $newHeight
 
     $ratioWidth = $srcWidth/$newWidth;
@@ -176,10 +173,20 @@ if (!isset($resize)) {
         $destHeight = $srcHeight/$ratioWidth;
     }
 
-    $destImage = ImageCreateTrueColor( $destWidth, $destHeight);
-    ImageCopyResized( $destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight );
+    if ($resize) {
+        $destImage = ImageCreateTrueColor( $destWidth, $destHeight);
+    }
 
-    ImageJPEG( $destImage,"",75 );
+//    ImageCopyResized( $destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight );
+// better quality but slower:
+    ImageCopyResampled( $destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight );
+
+    if ($resize == "jpeg") {
+        ImageJPEG( $destImage,"",75 );
+    }
+    if ($resize == "png") {
+        ImagePNG( $destImage);
+    }
     ImageDestroy( $srcImage );
     ImageDestroy( $destImage );
 

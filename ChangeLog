@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * transformation_wrapper.php3, lang/*,
+      libraries/transformations/image_png__inline.inc.php3:
+      new transformation for png (inline)
+      (still issues with PNG's transparency in PHP 4.3.0)
+
 2003-03-09 Garvin Hicking <me@supergarv.de>
     * db_printview.php3: Added print button (#700205)
 

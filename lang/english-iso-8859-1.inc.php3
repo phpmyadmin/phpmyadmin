@@ -553,6 +553,7 @@ $strTraffic = 'Traffic';
 $strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';
 $strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';
 $strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';
+$strTransformation_image_png__inline = 'See image/jpeg: inline';
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';
 $strType = 'Type';
