@@ -84,6 +84,8 @@ if ($sql_file != 'none') {
             $open_basedir = @get_cfg_var('open_basedir');
         }
 
+        if (!isset($sql_file_compression)) $sql_file_compression = '';
+
         // If we are on a server with open_basedir, we must move the file
         // before opening it. The doc explains how to create the "./tmp"
         // directory

@@ -17,6 +17,7 @@ $Source$
     * libraries/config_import.lib.php3, lang/*, config.inc.php3,
       db_details_structure.php3, pdf_pages.php3, pdf_schema.php3: User can
       select paper size for pdf (RFE #631551).
+    * read_dump.php3: Fixed undefined variable warning (bug #750070).
 
 2003-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: new faq 6.20 about CREATE TEMPORARY TABLES
