@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-14 Loïc Chapeaux  <lolo@phpheaven.net>
+    * Documentation.html, lines 2251-2252: fixed an XHTML error.
+    * main.php3: removed some extra space characters.
+    * scripts/create_release.sh: add a reminder about checking language files
+      validity.
+
 2002-08-13 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech-*.inc.php3: Updates.
     * lang/sync_lang.sh: Allow running only on specified translations.

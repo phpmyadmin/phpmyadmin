@@ -47,6 +47,8 @@ Please ensure you have:
   3. synchronized the language files:
        cd lang
        ./sync_lang.sh
+     and checked all language files are valid (use
+     the "./scripts/check_lang.php3" script to do it).
 
 Continue (y/n)?
 END
@@ -59,7 +61,7 @@ then
 fi
 
 
-if [ -e cvs ]; 
+if [ -e cvs ];
 then
     mv cvs cvs-`date +%s`
 fi
