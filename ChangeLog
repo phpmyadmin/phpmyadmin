@@ -14,6 +14,7 @@ $Source$
     * libraries/sqlparser.data.php3: bug 779453, wrong count
     * lang/turkish update, thanks to Bora Alioglu
     * lang/romanian: Updated, thanks to Valics Lehel.
+    * lang/ukrainian: update, thanks to Markijan Baran
 
 2003-08-04 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
