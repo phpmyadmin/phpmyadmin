@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php3, mult_submits.inc.php3: Patch 582904:
+      add REPAIR TABLE choice in drop-down of db view, thanks to
+      Cal Henderson (iamcal)
+
 2002-09-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/auth/cookie.auth.lib.php3: bug 601721 (cookie and IIS)
 

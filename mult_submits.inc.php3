@@ -32,6 +32,11 @@ if (!empty($submit_mult)
                    $query_type = 'optimize_tbl';
                    $mult_btn   = (get_magic_quotes_gpc() ? addslashes($strYes) : $strYes);
                    break;
+               case $strRepairTable:
+                   unset($submit_mult);
+                   $query_type = 'repair_tbl';
+                   $mult_btn   = (get_magic_quotes_gpc() ? addslashes($strYes) : $strYes);
+                   break;
            } // end switch
         }
     } else {
@@ -157,6 +162,12 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btn) == $strYes)
                            . (($i == $selected_cnt-1) ? ';' : '');
                 break;
 
+            case 'repair_tbl':
+                $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
+                           . PMA_backquote(urldecode($selected[$i]))
+                           . (($i == $selected_cnt-1) ? ';' : '');
+                break;
+
             case 'empty_tbl':
                 $a_query   = 'DELETE FROM '
                            . PMA_backquote(urldecode($selected[$i]));
@@ -169,10 +180,11 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btn) == $strYes)
                 break;
         } // end switch
 
-        // All "DROP TABLE","DROP FIELD" and "OPTIMIZE TABLE" statements will
-        // be run at once below
+        // All "DROP TABLE","DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
+        // statements will be run at once below
         if ($query_type != 'drop_tbl'
             && $query_type != 'drop_fld'
+            && $query_type != 'repair_tbl'
             && $query_type != 'optimize_tbl') {
             $sql_query .= $a_query . ';' . "\n";
 
@@ -185,6 +197,7 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btn) == $strYes)
 
     if ($query_type == 'drop_tbl'
         || $query_type == 'drop_fld'
+        || $query_type == 'repair_tbl'
         || $query_type == 'optimize_tbl') {
         PMA_mysql_select_db($db);
         $result = @PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);

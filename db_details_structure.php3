@@ -290,6 +290,8 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
          . $strPrintView . '</option>' . "\n";
     echo '            <option value="' . $strOptimizeTable . '" >'
          . $strOptimizeTable . '</option>' . "\n";
+    echo '            <option value="' . $strRepairTable . '" >'
+         . $strRepairTable . '</option>' . "\n";
     ?>
         </select>
         <script type="text/javascript" language="javascript">
