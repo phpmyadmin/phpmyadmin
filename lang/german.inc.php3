@@ -403,5 +403,5 @@ $strYes = 'Ja';
 $strZip = 'Zip komprimiert';
 
 // To translate
-$strFunc = 'Funktion';  //to translate
+$strNotSet = '<b>%s</b> table not found or not set in config.inc.php(3)';  //to translate
 ?>

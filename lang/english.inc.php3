@@ -394,5 +394,5 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
-$strFunc = 'Function';  //to translate
+$strNotSet = '<b>%s</b> table not found or not set in config.inc.php(3)';  //to translate
 ?>

@@ -224,6 +224,7 @@ $strNoQuery = 'Aucune requête SQL !';
 $strNoRights = 'Vous n\'êtes pas autorisé à accéder à cette page';
 $strNoTablesFound = 'Aucune table n\'a été trouvée dans cette base.';
 $strNotNumber = 'Ce n\'est pas un nombre !';
+$strNotSet = 'La table <b>%s</b> est absente ou non définie dans config.inc.php(3)';
 $strNotValidNumber = ' n\'est pas un nombre valide !';
 $strNoUsersFound = 'Il n\'y a aucun utilisateur';
 $strNull = 'Null';
@@ -394,5 +395,4 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-$strFunc = 'Function';  //to translate
 ?>
