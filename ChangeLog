@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-08 Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/bulgarian-*; lang/japanese.inc.php3: updated thanks to
+	  Georgi Georgiev.
+	* lang/japanese.inc.php3 : fixes by "Luc" <luc at ceres.dti.ne.jp>.
+
 2002-02-05 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3, bug 463683 state tracking problem
 	* db_details.php3, drop-down for Check All actions

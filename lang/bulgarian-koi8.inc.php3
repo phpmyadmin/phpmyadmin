@@ -71,6 +71,7 @@ $strColumn = 'Колона';
 $strColumnNames = 'Име на колона';
 $strCompleteInserts = 'Пълни INSERT-и';
 $strConfirm = 'Действително ли желаете да го направите?';
+$strCookiesRequired = 'Оттук нататък са необходими "Cookies".';
 $strCopyTable = 'Копиране на таблица (база от данни<b>.</b>таблица):';
 $strCopyTableOK = 'Таблица %s беше копирана в %s.';
 $strCreate = 'Създай';
@@ -259,6 +260,7 @@ $strRows = 'Редове';
 $strRowsFrom = 'реда започвайки от';
 $strRowSize = ' Размер на ред ';
 $strRowsModeHorizontal = 'хоризонтален';
+$strRowsModeOptions = 'в %s вид и повтаряй имената на колоните през всеки %s<br />';
 $strRowsModeVertical = 'вертикален';
 $strRowsStatistic = 'Статистика за редовете';
 $strRunning = 'работи на %s';
@@ -344,6 +346,4 @@ $strYes = 'да';
 $strZip = '"zip-нато"';
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strRowsModeOptions = 'in %s mode and repeat headers after %s cells';  //to translate
 ?>
