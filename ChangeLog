@@ -5,8 +5,18 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-17  Loïc Chapeaux  <lolo@phpheaven.net>
+	* From Michal Cihar <cihar at email.cz>:
+      - header.inc.php3, left.php3, all translations: added sending of charset
+	    in header
+      - updated czech translation
+	  - added czech translation in iso-8859-2
+	* main.php3: put the localization links at the top of the page
+	* left.js: optimized again the code for NS4+
+
+
 2001-06-15  Marc Delisle  <lem9@users.sourceforge.net>
-        * bug 433388, patch from Alain Brissaud (hal0802)
+	* bug 433388, patch from Alain Brissaud (hal0802)
 	* feature 429767, ignore empty fields on table create (tbl_create.php3)
 
 2001-06-14  Steve Alberty  <alberty@neptunlabs.de>
@@ -14,12 +24,12 @@ $Source$
 	* add summary on db_details.php3
 
 2001-06-12  Marc Delisle  <lem9@users.sourceforge.net>
-        * bug 432091: missing column in show processes
-        * add $strKill
+	* bug 432091: missing column in show processes
+	* add $strKill
 
 2001-06-11  Marc Delisle  <lem9@users.sourceforge.net>
-        * italian translation update by Alessandro Astarita
-        * german translation update by Kristof Hamann (korelstar)
+	* italian translation update by Alessandro Astarita
+	* german translation update by Kristof Hamann (korelstar)
 	* user_details.php3: missing $strPrivileges
 
 2001-06-11  Steve Alberty   <alberty@neptunlabs.de>
