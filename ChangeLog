@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/sync_lang.sh: new script thanks to Michal Cihar
+
 2002-06-15 Mike Beck <mikebeck@users.sourceforge.net>
     more changes because of new centralized db for pma
     * db_details_structure.php3
