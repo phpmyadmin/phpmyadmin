@@ -5,6 +5,15 @@
 // note: grab_globals has extracted the fields from _FILES
 //       or HTTP_POST_FILES
 
+// Check parameters
+
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
+    include('./libraries/common.lib.php3');
+}
+
+PMA_checkParameters(array('db','encoded_key'));
+
+
 // f i e l d    u p l o a d e d    f r o m    a    f i l e
 
 // garvin: original if-clause checked, whether input was stored in a possible fields_upload_XX var.

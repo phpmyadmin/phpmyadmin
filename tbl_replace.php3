@@ -9,6 +9,8 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
+// Check parameters
+PMA_checkParameters(array('db','table','goto'));
 
 /**
  * Initializes some variables
