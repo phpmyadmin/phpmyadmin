@@ -11,6 +11,7 @@ $Source$
 	* left.php3: added display of # of tables, for a better overview.
 	* config.php3, lib.inc.php3, docs: feature request #451137: limiting size
 	  of data printed in browse view (new cfg: $cfgLimitChars).
+	* tbl_properties.php3: added select/insert/empty to the top of the page
 
 2001-08-15  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* Bug #450374 - (RC4) + becomes space - patched in tbl_replace.php3

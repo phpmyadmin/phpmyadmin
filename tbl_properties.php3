@@ -33,8 +33,14 @@ $url_query = 'lang=' . $lang
 
 <!-- first browse link -->
 <p> 
-    <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
-        <b><?php echo $strBrowse; ?></b></a>
+   [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
+        <b><?php echo $strBrowse; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+   [ <a href="tbl_select.php3?<?php echo $url_query; ?>">
+            <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+   [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
+            <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+   [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>">
+            <b><?php echo $strEmpty; ?></b></a> ]
 </p>
 <?php
 
