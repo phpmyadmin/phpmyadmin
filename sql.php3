@@ -443,7 +443,7 @@ else {
                     }
                 } // end if... else...
             }
-            if (strpos(' ' . $goto, 'db_details.php3') == 1) {
+            if (strpos(' ' . $goto, 'db_details') == 1) {
                 if (isset($table)) {
                     unset($table);
                 }
