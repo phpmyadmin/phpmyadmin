@@ -6,15 +6,21 @@ $Id$
 $Source$
 
 2001-08-19  Loïc Chapeaux  <lolo@phpheaven.net>
-	* tbl_change.php3: do not modify blob/binaries if $cfgProtectBlob is true.
-	* db_details.php3; main.php3: move back to the welcome page if the current
-	  database has been dropped.
+	* tbl_change.php3: do not modify blob/binaries if $cfgProtectBlob is true
+	  and merged a little optimization (lines 69-71).
+	* main.php3; db_details.php3; tbl_properties.php3; db_readdump.php3;
+	  lib.inc.php3: once a query has been executed phpMyAdmin now moves back
+	  to the calling script (rather than db_details.php3 everytime) as soon as
+      the current database/table exists, else it moves  back to a "parent"
+	  script (the welcome page/'db_details.php3' if the current
+	  database/table has has been dropped.
 
 2001-08-18  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* lib.inc.php3 (788, 790) : tweak size for lower resolution screens.
-	* above change undone
-	* fixed up some spacing in the code for neatness
-	* lib.inc.php3 (694) : preg_replace changed to eregi_replace as per support #447076
+	* above change undone.
+	* fixed up some spacing in the code for neatness.
+	* lib.inc.php3 (694) : preg_replace changed to eregi_replace as per support
+	  #447076.
 
 2001-08-18  Olivier Müller  <om@omnis.ch>
 	* db_details.php3: added a few <b>.
