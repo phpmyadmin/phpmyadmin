@@ -271,13 +271,16 @@
 
 <p><b>Using authentication modes:</b></p>
 <ul>
-    <li>Http and cookie authentication modes are recommended in a multi-user
-        environment where you want to give users access to their own database
-        and don't want them to play around with others.
+    <li>Http and cookie authentication modes are recommended in a <b>multi-user
+        environment</b> where you want to give users access to their own 
+        database and don't want them to play around with others.
         <br />
         Nevertheless be aware that MS Internet Explorer seems to be really
         buggy about cookies, at least till version 6. And php 4.1.1 is also a
-        bit buggy in this area!<br /><br /></li>
+        bit buggy in this area!<br />
+        Even in a <b>single-user environment</b>, you might prefer to use 
+        http or cookie mode so that your user/password pair are not in clear
+        in the configuration file.<br /><br /></li>
 
     <li>Http and cookie authentication modes are more secure: the MySQL
         password does not need to be set in the phpMyAdmin configuration file
