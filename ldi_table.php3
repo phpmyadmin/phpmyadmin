@@ -61,7 +61,7 @@ require('./header.inc.php3');
 // 2002/2/22 appended by Y.Kawada: Kanji encoding convert controls
 if (function_exists('PMA_set_enc_form')) {
     echo '    <tr>' . "\n"
-         . '        <td>Kanji encoding convert</td>' . "\n"
+         . '        <td>' . $strKanjiEncodConvert . '</td>' . "\n"
          . '        <td colspan=2>' . "\n"
          . PMA_set_enc_form('            ')
          . '        </td>' . "\n"

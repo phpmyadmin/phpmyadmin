@@ -345,8 +345,9 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 
 // japanese only
-$strXkana = '全角カナへ変換する'; // convert to X208-kana
 $strEncto = 'エンコーディングへ変換する'; // encoding convert
+$strKanjiEncodConvert = 'Kanji encoding convert'; // To translate
+$strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
 ?>
