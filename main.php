@@ -504,7 +504,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create, &$is_re
             ?>
     <tr>
 <?php
-            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="index.php?'.$common_url_query.'&amp;old_usr='.urlencode($PHP_AUTH_USER).'">','s_loggoff.png',$strChangePassword,'</a>') : $str_normal_list);
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="index.php?'.$common_url_query.'&amp;old_usr='.urlencode($PHP_AUTH_USER).'">','s_loggoff.png',$strLogout,'</a>') : $str_normal_list);
 ?>
         <td>
 

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: bug #1154307, wrong text for alt,
+      thanks to Isaac Bennetch - ibennetch
+
 2005-03-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug #1153684, wrong doc for PDF pages generation, 
       thanks to Ryan Schmidt
