@@ -443,8 +443,11 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
         // Checks whether the field is an integer or not
         for ($j = 0; $j < $fields_cnt; $j++) {
 
-            //$field_set[$j] = PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes);
-            $field_set[$j] = PMA_backquote($analyzed_sql[0]['select_expr'][$j]['column'], $use_backquotes);
+            if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
+                $field_set[$j] = PMA_backquote($analyzed_sql[0]['select_expr'][$j]['column'], $use_backquotes);
+            } else {
+                $field_set[$j] = PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes);
+            }
 
             $type          = $field_types[$field_set[$j]];
 
