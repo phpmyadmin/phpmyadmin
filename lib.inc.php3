@@ -259,6 +259,13 @@ if (!defined('__LIB_INC__')){
                 else if (@getenv('REMOTE_USER')) {
                     $PHP_AUTH_USER = getenv('REMOTE_USER');
                 }
+                // Fix from Matthias Fichtner for WebSite Professional - Part 1
+                else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['AUTH_USER'])) {
+                    $PHP_AUTH_USER = $HTTP_ENV_VARS['AUTH_USER'];
+                }
+                else if (@getenv('AUTH_USER')) {
+                    $PHP_AUTH_USER = getenv('AUTH_USER');
+                }
             }
             // Grabs the $PHP_AUTH_PW variable whatever are the values of the
             // 'register_globals' and the 'variables_order' directives
@@ -274,6 +281,13 @@ if (!defined('__LIB_INC__')){
                 }
                 else if (@getenv('REMOTE_PASSWORD')) {
                     $PHP_AUTH_PW = getenv('REMOTE_PASSWORD');
+                }
+                // Fix from Matthias Fichtner for WebSite Professional - Part 2
+                else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['AUTH_PASSWORD'])) {
+                    $PHP_AUTH_USER = $HTTP_ENV_VARS['AUTH_PASSWORD'];
+                }
+                else if (@getenv('AUTH_PASSWORD')) {
+                    $PHP_AUTH_USER = getenv('AUTH_PASSWORD');
                 }
             }
             // Grabs the $old_usr variable whatever are the values of the

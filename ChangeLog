@@ -10,8 +10,11 @@ $Source$
 	  Michal Cihar <nijel at users.sourceforge.net>.
 	* lang/brazilian_portuguese.inc.php3: updated thanks to
 	  Renato Lins <TheBest at Information4u.com>.
-	* lib.inc.php3: fixed bug #458009 - Database list with advanced auth.,
-	  thanks to an anonymous contributor.
+	* lib.inc.php3:
+	  - fixed bug #458009 - Database list with advanced auth., thanks to
+	    an anonymous contributor;
+	  - fixed bug #458160 - Advanced auth fails on WebSite Pro, thanks to
+	    Matthias Fichtner <mfichtner at users.sourceforge.net>.
 	* db_readdump.php3, lines 101-104: removed non alphabetic characters from
 	  the beginning of the sql query submitted.
 
