@@ -102,7 +102,7 @@ function normal_operations()
     <div align=left>
     <ul>
 
-    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user&mode=reload"; ?>"><?php echo $strReloadMySQL; ?></a> <?php print show_docu("manual_Reference.html#Flush"); ?></li>
+    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user&mode=reload"; ?>"><?php echo $strReloadMySQL; ?></a> <?php print show_docu("manual_Reference.html#FLUSH"); ?></li>
 
     <li><form name=userForm method="POST" action="<?php echo $self; ?>"><?php echo $strCheckDbPriv; ?>
     <table with="100%"><tr>

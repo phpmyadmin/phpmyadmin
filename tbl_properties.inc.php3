@@ -243,4 +243,4 @@ echo $strTableType.":"; ?>
 <input type="submit" name="submit" value="<?php echo $strSave;?>">
 </p>
 </form>
-<center><?php print show_docu("manual_Reference.html#Create_table");?></center>
+<center><?php print show_docu("manual_Reference.html#CREATE_TABLE");?></center>

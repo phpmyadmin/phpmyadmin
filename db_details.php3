@@ -167,7 +167,7 @@ $query = "?server=$server&lang=$lang&db=$db&goto=db_details.php3";
 <input type="hidden" name="db" value="<?php echo $db;?>">
 <input type="hidden" name="goto" value="db_details.php3">
 <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>">
-<?php echo $strRunSQLQuery.$db." ".show_docu("manual_Reference.html#Select");?>:<br>
+<?php echo $strRunSQLQuery.$db." ".show_docu("manual_Reference.html#SELECT");?>:<br>
 <textarea name="sql_query" cols="40" rows="3" wrap="VIRTUAL" style="width: <?php
 echo $cfgMaxInputsize;?>"><?php echo (isset($sql_query) ? $sql_query : '');?></textarea><br>
 <?php echo "<i>$strOr</i> $strLocationTextfile";?>:<br>
@@ -270,7 +270,7 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
 </form>
 
 <li>
-<a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=<?php echo $db;?>&sql_query=<?php echo urlencode("DROP DATABASE $db");?>&zero_rows=<?php echo urlencode($strDatabase." ".$db." ".$strHasBeenDropped);?>&goto=main.php3&reload=true"><?php echo $strDropDB." ".$db;?></a> <?php print show_docu("manual_Reference.html#Drop_database");?>
+<a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=<?php echo $db;?>&sql_query=<?php echo urlencode("DROP DATABASE $db");?>&zero_rows=<?php echo urlencode($strDatabase." ".$db." ".$strHasBeenDropped);?>&goto=main.php3&reload=true"><?php echo $strDropDB." ".$db;?></a> <?php print show_docu("manual_Reference.html#DROP_DATABASE");?>
 </ul>
 </div>
 <?php
