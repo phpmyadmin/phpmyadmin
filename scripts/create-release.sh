@@ -27,11 +27,13 @@ date > phpMyAdmin/RELEASE-DATE-$1
 mv phpMyAdmin phpMyAdmin-$1
 zip -9 -r phpMyAdmin-$1-php3.zip phpMyAdmin-$1
 tar cvzf phpMyAdmin-$1-php3.tar.gz phpMyAdmin-$1
+tar cvIf phpMyAdmin-$1-php3.tar.bz2 phpMyAdmin-$1
 cd phpMyAdmin-$1
 ./scripts/extchg.sh php3 php
 cd ..
 zip -9 -r phpMyAdmin-$1-php.zip phpMyAdmin-$1
 tar cvzf phpMyAdmin-$1-php.tar.gz phpMyAdmin-$1
+tar cvIf phpMyAdmin-$1-php.tar.bz2 phpMyAdmin-$1
 
 echo ""
 echo ""
