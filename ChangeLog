@@ -7,6 +7,8 @@ $Source$
 
 2002-04-24 Alexander M. Turek  <rabus@bugfixes.info>
     * libraries/*: $cfg system changes.
+    * libraries/common.lib.php3, libraries/select_lang.php3,
+      libraries/config_import.lib.php3: Config file backwards compatibility.
 
 2002-04-24 Robin Johnson <robbat2@users.sourceforge.net>
 	* *.php3 NOT tbl_*.php, Documentation.*: $cfg system changes.

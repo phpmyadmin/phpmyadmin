@@ -72,14 +72,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
     // For compatibility with old config.inc.php3
     if (!isset($cfg)) {
-        if (empty($GLOBALS['is_header_sent'])) {
-            include('./header.inc.php3');
-        }
-        echo '<p class="warning">Your config file version is not supported any longer!</p>' . "\n";
-        include('./footer.inc.php3');
-        exit();
+        include('config_import.inc.php3');
     }
-    // rabus: The new backwards compatibility code will follow soon...
 
     /**
      * Gets constants that defines the PHP, MySQL... releases.
