@@ -71,6 +71,7 @@ $strColumn = 'Sütun';
 $strColumnNames = 'Sütun adlarý';
 $strCompleteInserts = 'Tamamlanmýþ eklemeler';
 $strConfirm = 'Aþaðýdaki komutu uygulamak istediðinizden emin misiniz?';
+$strCookiesRequired = 'Cookieler aç&#305;k olmal&#305;d&#305;r.';
 $strCopyTable = 'Tabloyu (veritabaný<b>.</b>tablo) kopyala:';
 $strCopyTableOK = '%s tablosu %s üzerine kopyalandý.';
 $strCreate = 'Git';
@@ -170,7 +171,10 @@ $strLineFeed = 'Satýr: \\n';
 $strLines = 'Satýrlar';
 $strLinesTerminatedBy = 'Satýr sonu';
 $strLocationTextfile = 'Dosyadan yükle';
+$strLogin = 'Login';
 $strLogout = 'Çýkýþ';
+$strLogPassword = '&#350;ifre:';
+$strLogUsername = 'Kullan&#305;c&#305; Ad&#305;:';
 
 $strModifications = 'Deðiþiklikler kaydedildi';
 $strModify = 'Deðiþtir';
@@ -255,6 +259,9 @@ $strRowLength = 'Satýr boyu';
 $strRows = 'Satýr Sayýsý';
 $strRowsFrom = '(kayýt)baþlayacaðý kayýt :';
 $strRowSize = ' Satýr boyutu ';
+$strRowsModeHorizontal= 'yatay';
+$strRowsModeOptions= '%s modunda ve %s hücre sonra ba&#351;l&#305;&#287;&#305; tekrarla';
+$strRowsModeVertical= 'dikey';
 $strRowsStatistic = 'Satýr istatistiði';
 $strRunning = '-- çalýþtýðý ortam --) %s';
 $strRunQuery = 'Sorguyu çalýþtýr';
@@ -262,6 +269,8 @@ $strRunSQLQuery = '%s veritabaný üzerinde sorgu/sorgular çalýþtýr';
 
 $strSave = 'Kaydet';
 $strSelect = 'Seç';
+$strSelectADb = 'Lütfen bir veritaban&#305; seçiniz';
+$strSelectAll = 'Tümünü seç';  
 $strSelectFields = 'Alan seç (en az bir):';
 $strSelectNumRows = 'sorgu içerisinde';
 $strSend = 'Dosya olarak kaydet';
@@ -311,6 +320,7 @@ $strType = 'Tip';
 
 $strUncheckAll = 'Hiçbirisini Seçme';
 $strUnique = 'Unique';
+$strUnselectAll = 'Hiçbirisini seçme';
 $strUpdatePrivMessage = '%s için olan ayrýcalýklarý güncellediniz.';
 $strUpdateProfile = 'Profil güncelle:';
 $strUpdateProfileMessage = 'Profil güncellendi.';
@@ -336,14 +346,4 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogin = 'Login';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
-$strRowsModeHorizontal = 'horizontal';  //to translate
-$strRowsModeOptions = 'in %s mode and repeat headers after %s cells';  //to translate
-$strRowsModeVertical = 'vertical';  //to translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>

@@ -273,6 +273,7 @@ $strRunSQLQuery = 'Suorita SQL-lauseita tietokannassa %s';
 
 $strSave = 'Tallenna';
 $strSelect = 'Hae';
+$strSelectADb = 'Valitse tietokanta';
 $strSelectAll = 'Valitse kaikki';
 $strSelectFields = 'Valitse sarakkeet (vähintään yksi):';
 $strSelectNumRows = 'lauseessa';
@@ -349,6 +350,4 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
-$strSelectADb = 'Please select a database';
-
 ?>

@@ -269,6 +269,8 @@ $strRunSQLQuery = 'Run SQL query/queries pe baza de date %s';
 
 $strSave = 'Salveaza';
 $strSelect = 'Selecteaza';
+$strSelectADb = 'Selectati baza de date';
+$strSelectAll = 'Selecteaza tot';  
 $strSelectFields = 'Selecteaza campurile (cel putin unul):';
 $strSelectNumRows = 'in comanda (in query)';
 $strSend = 'Trimite';
@@ -318,6 +320,7 @@ $strType = 'Tip';
 
 $strUncheckAll = 'Deselecteaza toate';
 $strUnique = 'Unic';
+$strUnselectAll = 'Deselecteaza tot';
 $strUpdatePrivMessage = 'Ati actualizat privilegiile pentru %s.';
 $strUpdateProfile = 'Actualizarea profilului:';
 $strUpdateProfileMessage = 'Profilul a fost actualizat.';
@@ -343,7 +346,4 @@ $strYes = 'Da';
 $strZip = '"zipped"';
 
 // To translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>
