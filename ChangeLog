@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2003-07-18 Garvin Hicking <me@supergarv.de>
+    * read_dump.php3: When PHP3 < 4.3.0 is detected, try an alternative
+      way of rewriting bookmark variables.
+    * Documentation.html: Bookmark variable expansion only works with PHP 
+      4.3.0 and above
     * tbl_query_box.php3: For the querywindow - if no items are available 
       for the 'file import' tab, hide the 'Go' button and instead display 
       a warning message. Can happen if you don't have $cfg['UploadDir']
