@@ -10,6 +10,8 @@ $Source$
       to it.
     * libraries/transformations.lib.php: Strip slashes to behave like
       documentation says.
+    * libraries/transformations/text_plain__external.inc.php: Escape special
+      shell chars to avoid their interpretation (bug #1044864).
 
 2004-10-11 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: typos and XHTML validity, thanks to Cedric Corazza

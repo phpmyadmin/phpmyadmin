@@ -2,9 +2,42 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-function PMA_EscapeShellArg($string, $prepend = '\'') {
-    return $prepend . ereg_replace("'", "'\\''", $string) . $prepend;
+function PMA_EscapeShellArg($string) {
+    return '\'' . str_replace('\'', '\\\'', $string) . '\'';
 }
+
+function PMA_SecureShellArgs($s) {
+    $len = strlen($s);
+    $inside_single = FALSE;
+    $inside_double = FALSE;
+    for($i = 0; $i < $len; $i++) {
+        if (!$inside_double && $s[$i] == '\'' && ($i == 0 || $s[$i -1] != '\\')) {
+           $inside_single = ! $inside_single;
+           continue;
+        }
+        if (!$inside_single && $s[$i] == '"' && ($i == 0 || $s[$i -1] != '\\')) {
+           $inside_double = ! $inside_double;
+           continue;
+        }
+        // escape shell special chars in we're not inside quotes
+        if (!$inside_single && !$inside_double && ($i == 0 || $s[$i -1] != '\\')) {
+            if (strstr('><$`|;&', $s[$i])) {
+                $s = substr($s, 0, $i) . '\\' . substr($s, $i);
+                $i++;
+                continue;
+            }
+        }
+        // in double quotes we need to escape more
+        if ($inside_double) {
+            if (strstr('$`', $s[$i])) {
+                $s = substr($s, 0, $i) . '\\' . substr($s, $i);
+                $i++;
+            }
+        }
+    }
+    return $s;
+}
+
 
 function PMA_transformation_text_plain__external_nowrap($options = array()) {
     if (!isset($options[3]) || $options[3] == '') {
@@ -28,7 +61,7 @@ function PMA_transformation_text_plain__external($buffer, $options = array(), $m
     $allowed_programs[0] = '/usr/local/bin/tidy';
     $allowed_programs[1] = '/usr/local/bin/validate';
 
-    if (!isset($options[0]) ||  $options[0] == '') {
+    if (!isset($options[0]) ||  $options[0] == '' || !isset($allowed_programs[$options[0]])) {
         $program = $allowed_programs[0];
     } else {
         $program = $allowed_programs[$options[0]];
@@ -48,7 +81,7 @@ function PMA_transformation_text_plain__external($buffer, $options = array(), $m
         $options[3] = 1;
     }
 
-    $cmdline = 'echo ' . PMA_EscapeShellArg($buffer) . ' | ' . $program . ' ' . PMA_EscapeShellArg($poptions, '');
+    $cmdline = 'echo ' . PMA_EscapeShellArg($buffer) . ' | ' . $program . ' ' . PMA_SecureShellArgs($poptions);
     $newstring = `$cmdline`;
 
     if ($options[2] == 1 || $options[2] == '2') {
