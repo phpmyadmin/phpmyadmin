@@ -12,6 +12,7 @@ $Source$
 2002-06-26 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: update the persons/towns/countries example
     * sql.php3, tbl_properties_table_info.php3: sub-page links on browse
+    * lang/japanese* updates, thanks to Yukihiro Kawada
 
 2002-06-26 Olivier L. Müller  <om@omnis.ch>
     * tbl_change.php3: display the submit button every 15 lines:
