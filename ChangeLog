@@ -8,6 +8,7 @@ $Source$
 2002-04-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_dump.php3, lines 347, 348: Fixed a bug concerning the
       file extensions of XML files in ZIP archives.
+    * lang/german.inc.php3: Translated $strOptions.
 
 2002-04-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_qbe.php3: corrections from Mike Beck for better joints

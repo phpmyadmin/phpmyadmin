@@ -219,6 +219,7 @@ $strOperations = 'Operationen';
 $strOptimizeTable = 'Optimiere Tabelle';
 $strOptionalControls = 'Optional. Bestimmt, wie Sonderzeichen kenntlich gemacht werden.';
 $strOptionally = 'optional';
+$strOptions = 'Optionen';
 $strOr = 'Oder';
 $strOverhead = 'Überhang';
 
@@ -352,5 +353,4 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strOptions = 'Options';  //to translate
 ?>
