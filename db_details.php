@@ -68,7 +68,7 @@ if (!empty($query_to_display)) {
 } else {
     echo htmlspecialchars(str_replace('%d', PMA_backquote($db), $cfg['DefaultQueryDatabase']));
 }
-?> </textarea><br />
+?></textarea><br />
         <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />&nbsp;
         <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label><br />
     </div>

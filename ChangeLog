@@ -9,7 +9,8 @@ $Source$
     * header_printview.inc.php: RFE #856503, show number of rows in printview
     * tbl_replace.php, tbl_replace_fields.php: Fixed #857445, #857684
       where non-existant fields caused PHP notices.
-  
+    * db_details.php: Removed unneccessary whitespace
+   
 2003-12-10 Garvin Hicking <me@supergarv.de>
     * db_datadict.php: Bug 857186: Real fix for the problem. The '@'
       delimiter slipped to the replacement's end instead of the expression's
