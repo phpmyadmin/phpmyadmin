@@ -7,7 +7,8 @@ $left_font_family = 'verdana, "arial ce", arial, helvetica, geneva, sans-serif';
 $right_font_family = '"arial ce", arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = '.';
 $number_decimal_separator = ',';
-$byteUnits = array('bajtów', 'KB', 'MB', 'GB');
+// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
+$byteUnits = array('bajtów', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('Nie', 'Pon', 'Wto', '¦ro', 'Czw', 'Pi±', 'Sob');
 $month = array('Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Pa¼', 'Lis', 'Gru');

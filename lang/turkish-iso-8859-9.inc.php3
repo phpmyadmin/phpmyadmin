@@ -7,7 +7,8 @@ $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
-$byteUnits = array('Byte', 'KB', 'MB', 'GB');
+// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
+$byteUnits = array('Byte', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 //veritabanlarý terminolojisinde tercümeye pek müsait olmayan index ve unique sözcükleri aynen kullanýldý: uniqe=eþsiz,tek
 $day_of_week = array('Pazar', 'Pazartesi', 'Salý', 'Çarþamba', 'Perþembe', 'Cuma', 'Cumartesi');
 $month = array('Ocak', 'Þubat', 'Mart', 'Nisan', 'Mayýs', 'Haziran', 'Temmuz', 'Aðustos', 'Eylül', 'Ekim', 'Kasým', 'Aralýk');

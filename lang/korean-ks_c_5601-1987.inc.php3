@@ -8,7 +8,8 @@ $left_font_family = '"굴림", sans-serif';
 $right_font_family = '"굴림", sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
-$byteUnits = array('바이트', 'KB', 'MB', 'GB');
+// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
+$byteUnits = array('바이트', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('일', '월', '화', '수', '목', '금', '토');
 $month = array('해오름달', '시샘달', '물오름달', '잎새달', '푸른달', '누리달', '견우직녀달', '타오름달', '열매달', '하늘연달', '미틈달', '매듭달');

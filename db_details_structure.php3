@@ -69,7 +69,8 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     ?>
 </tr>
     <?php
-    $i = $sum_entries = $sum_size = 0;
+    $i = $sum_entries = 0;
+    (double) $sum_size = 0;
     $checked   = (!empty($checkall) ? ' checked="checked"' : '');
     while (list($keyname, $sts_data) = each($tables)) {
         $table         = $sts_data['Name'];
@@ -154,7 +155,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
             // is accurate.
             if (isset($sts_data['Type']) && ereg('^(MyISAM|ISAM|HEAP)$', $sts_data['Type'])) {
                 if ($cfg['ShowStats']) {
-                    $tblsize                    =  $sts_data['Data_length'] + $sts_data['Index_length'];
+                    $tblsize                    =  doubleval($sts_data['Data_length']) + doubleval($sts_data['Index_length']);
                     $sum_size                   += $tblsize;
                     list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
                 }

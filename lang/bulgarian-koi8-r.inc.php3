@@ -11,7 +11,8 @@ $left_font_family = 'sans-serif';
 $right_font_family = 'sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
-$byteUnits = array('байта', 'KB', 'MB', 'GB');
+// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
+$byteUnits = array('байта', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('нед', 'пон', 'вт', 'ср', 'чет', 'пет', 'съб');
 $month = array('януари', 'февруари', 'март', 'април', 'май', 'юни', 'юли', 'август', 'септември', 'окомври', 'ноември', 'декември');

@@ -12,7 +12,8 @@ $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
-$byteUnits = array('バイト', 'KB', 'MB', 'GB');
+// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
+$byteUnits = array('バイト', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('日', '月', '火', '水', '木', '金', '土');
 $month = array('1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月');

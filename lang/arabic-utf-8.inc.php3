@@ -14,6 +14,7 @@ $left_font_family = 'Tahoma, verdana, arial, helvetica, sans-serif';
 $right_font_family = '"Windows UI", Tahoma, verdana, arial, helvetica, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
+// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
 $byteUnits = array('بايت', 'كيلوبايت', 'ميجابايت', 'غيغابايت');
 
 $day_of_week = array('الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت');

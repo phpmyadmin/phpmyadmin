@@ -12,6 +12,7 @@ $left_font_family = 'sans-serif';
 $right_font_family = 'sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
+// shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
 $byteUnits = array('âÁÊÔ', 'Ëâ', 'íâ', 'çâ');
 
 $day_of_week = array('÷Ó', 'ğÎ', '÷Ô', 'óÒ', 'şÔ', 'ğÔ', 'óÂ');

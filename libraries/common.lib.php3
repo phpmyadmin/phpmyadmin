@@ -1290,7 +1290,7 @@ if (typeof(document.getElementById) != 'undefined'
      * @access  public
      *
      * @author   staybyte
-     * @version  1.1 - 07 July 2001
+     * @version  1.2 - 18 July 2002
      */
     function PMA_formatByteDown($value, $limes = 6, $comma = 0)
     {
@@ -1299,18 +1299,14 @@ if (typeof(document.getElementById) != 'undefined'
         $return_value = $value;
         $unit         = $GLOBALS['byteUnits'][0];
 
-        if ($value >= $li*1000000) {
-            $value = round($value/(1073741824/$dh))/$dh;
-            $unit  = $GLOBALS['byteUnits'][3];
-        }
-        else if ($value >= $li*1000) {
-            $value = round($value/(1048576/$dh))/$dh;
-            $unit  = $GLOBALS['byteUnits'][2];
-        }
-        else if ($value >= $li) {
-            $value = round($value/(1024/$dh))/$dh;
-            $unit  = $GLOBALS['byteUnits'][1];
-        }
+        for ( $d = 6, $ex = 15; $d >= 1; $d--, $ex-=3 ) {
+            if (isset($GLOBALS['byteUnits'][$d]) && $value >= $li * pow(10, $ex)) {
+                $value = round($value / ( pow(1024, $d) / $dh) ) /$dh;
+                $unit = $GLOBALS['byteUnits'][$d];
+                break 1;
+            } // end if
+        } // end for
+
         if ($unit != $GLOBALS['byteUnits'][0]) {
             $return_value = number_format($value, $comma, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
         } else {

@@ -10,6 +10,7 @@ $Source$
       for some browsers
 
 2002-07-18 Steve Alberty  <staybyte@users.sourceforge.net>
+    * It is now possible to print stats for more than 2 GB (up to exa byte)
     * db_details_structure.php3: correct wrong link from table size to stats
 
 2002-07-17 Marc Delisle  <lem9@users.sourceforge.net>
