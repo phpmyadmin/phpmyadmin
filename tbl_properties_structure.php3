@@ -77,6 +77,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
     <td></td>
     <th>&nbsp;<?php echo $strField; ?>&nbsp;</th>
     <th><?php echo $strType; ?></th>
+<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <th>' . $strCharset . '</th>' . "\n" : ''; ?>
     <th><?php echo $strAttr; ?></th>
     <th><?php echo $strNull; ?></th>
     <th><?php echo $strDefault; ?></th>
@@ -93,11 +94,11 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
     require('./libraries/transformations.lib.php3');
 
     $cfgRelation = PMA_getRelationsParam();
-    
-    
+
+
     if ($cfgRelation['commwork']) {
         $comments_map = PMA_getComments($db, $table);
-    
+
         if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
             $mime_map = PMA_getMIME($db, $table, true);
         }
@@ -136,6 +137,11 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
         $binary       = eregi('BINARY', $row['Type'], $test);
         $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
         $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
+    }
+
+    // rabus: Devide charset from the rest of the type definition (MySQL >= 4.1)
+    if (strpos($type, ' character set ')) {
+        list($type, $field_charset) = explode(' character set ', $type);
     }
 
     // garvin: Display basic mimetype [MIME]
@@ -185,6 +191,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
+<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '">' . (empty($field_charset) ? '---' : $field_charset) . '</td>' . "\n" : '' ?>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
@@ -284,7 +291,7 @@ $checkall_url = 'tbl_properties_structure.php3?' . PMA_generate_common_url($db,$
 ?>
 
 <tr>
-    <td colspan="<?php echo((PMA_MYSQL_INT_VERSION >= 32323) ? '13' : '12'); ?>">
+    <td colspan="<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '14' : (PMA_MYSQL_INT_VERSION >= 32323 ? '13' : '12'); ?>">
         <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('fieldsForm', true); return false;">
             <?php echo $strCheckAll; ?></a>
