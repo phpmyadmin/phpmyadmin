@@ -26,6 +26,7 @@ $strAPrimaryKey = 'Una chiave primaria è stata aggiunta in %s';
 $strAbortedClients = 'Fallito';
 $strAbsolutePathToDocSqlDir = 'Prego, immettere il path assoluto sul webserver alla directory di docSQL';
 $strAccessDenied = 'Accesso negato';
+$strAccessDeniedExplanation = 'phpMyAdmin ha provato a connettersi al server MySQL, e il server ha rifiutato la connessione. Si dovrebbe controllare il nome dell\'host, l\'username e la password nel file config.inc.php ed assicurarsi che corrispondano alle informazioni fornite dall\'amministratore del server MySQL.';
 $strAction = 'Azione';
 $strAddDeleteColumn = 'Aggiungi/Cancella campo';
 $strAddDeleteRow = 'Aggiungi/Cancella criterio';
@@ -657,5 +658,4 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
 ?>

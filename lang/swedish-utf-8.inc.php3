@@ -22,6 +22,7 @@ $strAPrimaryKey = 'En primär nyckel har lagts till för %s';
 $strAbortedClients = 'Avbrutna';
 $strAbsolutePathToDocSqlDir = 'Ange absolut sökväg på webbservern till docSQL-katalog';
 $strAccessDenied = 'Åtkomst nekad';
+$strAccessDeniedExplanation = 'phpMyAdmin försökte skapa en förbindelse till MySQL-servern, men servern nekade uppkopplingen. Kontrollera värd, användarnamn och lösenord i config.inc.php och förvissa dig om att de stämmer överens med informationen från administratören av MySQL-servern.';
 $strAction = 'Åtgärd';
 $strAddDeleteColumn = 'Lägg till/ta bort fältkolumner';
 $strAddDeleteRow = 'Lägg till/ta bort villkorsrader';
@@ -652,7 +653,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 // To translate
-
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
 
 ?>
