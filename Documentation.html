@@ -700,13 +700,13 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <dd>
         If your rule order is empty, then IP authentication is disabled.
         <br /><br />
-        If your rule order is set to <tt>'deny,allow'</tt>. Then the system
+        If your rule order is set to <tt>'deny,allow'</tt> then the system
         applies all deny rules followed by allow rules. 
         Access is allowed by default. Any client which does not match a Deny
         command or does match an Allow command will be allowed access to the
         server.
         <br /><br />
-        If your rule order is set to <tt>'allow,deny'</tt>. Then the system
+        If your rule order is set to <tt>'allow,deny'</tt> then the system
         applies all allow rules followed by deny rules. Access is denied by
         default.  Any client which does not match an Allow directive or does
         match a Deny directive will be denied access to the server.
