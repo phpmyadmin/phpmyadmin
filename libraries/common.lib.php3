@@ -429,7 +429,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                 $local_query    = $connect_func . '('
                                 . $cfg['Server']['host'] . $server_port . $server_socket . ', '
                                 . $cfg['Server']['controluser'] . ', '
-                                . $cfg['Server']['stdpass'] . ')';
+                                . $cfg['Server']['controlpass'] . ')';
                 PMA_mysqlDie($conn_error, $local_query, FALSE);
             } // end if
         } // end if
