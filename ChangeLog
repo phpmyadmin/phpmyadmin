@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-29 Alexander M. Turek  <me@derrabus.de>
+    * land/japanese-utf-8.inc.php: bug #1111855 ("Undefined index" when using
+      the Janapese language file under MySQL 4.1.
+
 2005-01-28 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: bug #1111706, call to undefined
       function PMA_reloadNavigation(). A failed connection was not properly
