@@ -86,6 +86,8 @@ $strChangePassword = 'Schimbare parola';
 $strCharsetOfFile = 'Setul de caractere a fisierului:';
 $strCheckAll = 'Marcheaza toate';
 $strCheckDbPriv = 'Marcheaza drepturile de acces la baza de date';
+$strCheckPrivs = 'Verifica privilegiile';
+$strCheckPrivsLong = 'Verifica privilegiile pentru baza de date &quot;%s&quot;.';
 $strCheckTable = 'Verificare tabel';
 $strChoosePage = 'Selecteaza o pagina pentru a fi editata';
 $strColComFeat = 'Arata comentariile coloanei';
@@ -129,7 +131,11 @@ $strDatabase = 'Baza de date ';
 $strDatabaseHasBeenDropped = 'Baza de date %s a fost aruncat.';
 $strDatabaseWildcard = 'Baza de date (permis caractere inlocuitoare):';
 $strDatabases = 'Baze de date';
+$strDatabasesDropped = '%s baza(ele) de data(e) au fost aruncate.';
 $strDatabasesStats = 'Statisticile bazelor de date';
+$strDatabasesStatsHeavyTraffic = 'Nota: Activarea statisticilor pentru baza de date, poate cauza cresterea traficului intre MySQL si serverul de web.';
+$strDatabasesStatsDisable = 'Dezactiveaza statisticile';
+$strDatabasesStatsEnable = 'Activeaza statisticile';
 $strDbPrivileges = 'Drepturi specifice de baza de date';
 $strDefault = 'Setare de baza';
 $strDelete = 'Sterge';
@@ -151,6 +157,7 @@ $strDoYouReally = 'Sunteti sigur ca doriti sa ';
 $strDocu = 'Documentatie';
 $strDrop = 'Arunca';
 $strDropDB = 'Arunca baza de date %s';
+$strDropSelectedDatabases = 'Arunca baza(ele) de date selectata(e)';
 $strDropTable = 'Arunca tabelul';
 $strDropUsersDb = 'Arunca baza de date care are acelasi nume ca un utilizator.';
 $strDumpXRows = 'Arunca %s randuri incepand de la randul %s.';
@@ -234,6 +241,7 @@ $strInsertedRows = 'Randuri inserate:';
 $strInstructions = 'Instructiuni';
 $strInvalidName = '"%s" este un cuvant rezervat, nu o poti folosi ca o baza de date/tabela/nume de camp.';
 
+$strJumpToDB = 'Sari la baza de date &quot;%s&quot;.';
 $strJustDelete = 'Sterge utilizatorii din tabelele de drepturi.';
 $strJustDeleteDescr = 'Utilizatorii &quot;stersi&quot; vor avea acces la server la fel ca pana acum pana ce drepturile sunt reincarcate.';
 
@@ -278,6 +286,7 @@ $strName = 'Nume';
 $strNext = 'Urmatorul';
 $strNo = 'Nu';
 $strNoDatabases = 'Nu sunt baze de date';
+$strNoDatabasesSelected = 'Nu este selectat nici o baza de date.';
 $strNoDescription = 'Nu exista descriere';
 $strNoDropDatabases = 'Comenzile "DROP DATABASE" sunt dezactivate.';
 $strNoExplain = 'Sari peste explicarea SQL';
@@ -555,13 +564,5 @@ $strZip = '"arhivat"';
 // To translate
 
 $strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
-$strCheckPrivs = 'Check Privileges';  //to translate
-$strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
-$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
-$strDatabasesStatsDisable = 'Disable Statistics';  //to translate
-$strDatabasesStatsEnable = 'Enable Statistics';  //to translate
-$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
-$strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
-$strNoDatabasesSelected = 'No databases selected.';  //to translate
-$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
+
 ?>
