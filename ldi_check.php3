@@ -61,6 +61,8 @@ if (isset($btnLDI) && ($textfile != "none"))
 
     if(get_magic_quotes_gpc()) {
         $sql_query = addslashes($query);
+    } else {
+        $sql_query = $query;
     }
     include("./sql.php3");
 }
