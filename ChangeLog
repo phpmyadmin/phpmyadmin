@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-19 Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/charset_conversion.lib.php3, 
+      libraries/common.lib.php3,
+      main.php3
+        - added isset() before some configuration variables
+
 2002-06-18 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/chinese* updates, thanks to Siu Sun
     * lang/lithuanian updates, thanks to Vilius Zigmantas

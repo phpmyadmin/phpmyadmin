@@ -13,10 +13,12 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
     /**
      * Loads the recode or iconv extensions if any of it is not loaded yet
      */
-    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding && 
-        ((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
+    if ( isset($cfg['AllowAnywhereRecoding']) 
+         && $cfg['AllowAnywhereRecoding'] 
+         && $allow_recoding 
+         && ((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
          || (PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
-        && @function_exists('dl')) {
+         && @function_exists('dl')) {
         if (!(@extension_loaded('recode')||@extension_loaded('iconv'))) {
             if (PMA_IS_WINDOWS) {
                 $suffix = '.dll';
@@ -48,7 +50,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
      */
      function PMA_convert_display_charset($what) {
          global $cfg, $allow_recoding, $charset, $convcharset;
-         if (!($cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
+         if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
              return $what;
          } else {
              if (is_array($what)) {
@@ -112,7 +114,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
      */
      function PMA_convert_charset($what) {
          global $cfg, $allow_recoding, $charset, $convcharset;
-         if (!($cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
+         if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
             return $what;
          } else {
              if (@function_exists('iconv')) {

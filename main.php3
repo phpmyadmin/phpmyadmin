@@ -487,7 +487,7 @@ if (empty($cfg['Lang'])) {
 echo "\n";
 ?>
 <?php
-if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding) {
 ?>
         <!-- Charset Selection -->
         <tr>
