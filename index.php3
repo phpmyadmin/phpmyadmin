@@ -63,45 +63,45 @@ $phpmain_hash_js = time();
 <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php3?lang=<?php echo $lang; ?>&amp;js_frame=right" />
 </head>
 
-<frameset cols="<?php echo $cfg['LeftWidth']; ?>,*" rows="*">
-<?php if ($cfg['QueryFrame']) { ?>
-    <frameset rows="*, 50" framespacing="0" frameborder="0" border="0">
 <?php
-    if ($cfg['QueryFrameJS']) {?>
-        <script type="text/javascript">
-        <!--
-        document.writeln('<frame src="left.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash . $phpmain_hash_js; ?>" name="nav" frameborder="0" />');
-        document.writeln('<frame src="queryframe.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash . $phpmain_hash_js; ?>" name="queryframe" frameborder="0" />');
-        //-->
-        </script>
+if ($cfg['QueryFrame']) {
 
-        <noscript>
-<?php } ?>
-        <frame src="left.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash; ?>" name="nav" frameborder="0" />
-        <frame src="queryframe.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash; ?>" name="queryframe" frameborder="0" />
-<?php if ($cfg['QueryFrameJS']) { ?>
-        </noscript>
-<?php } ?>
-    </frameset>
-<?php
+    if ($cfg['QueryFrameJS']) {
+        echo '<script type="text/javascript">' . "\n";
+        echo '<!--' . "\n";
+        echo '    document.writeln(\'<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" framespacing="0" frameborder="0" border="0">\');' . "\n";
+        echo '    document.writeln(\'    <frameset rows="*, 50" framespacing="0" frameborder="0" border="0">\');' . "\n";
+        echo '    document.writeln(\'        <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="nav" frameborder="0" />\');' . "\n";
+        echo '    document.writeln(\'        <frame src="queryframe.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="queryframe" frameborder="0" />\');' . "\n";
+        echo '    document.writeln(\'    </frameset>\');' . "\n";
+        echo '    document.writeln(\'    <frame src="' . (empty($db) ? 'main.php3' : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . $phpmain_hash_js . '" border="0" frameborder="0" />\');' . "\n";
+        echo '    document.writeln(\'    <noframes>\');' . "\n";
+        echo '    document.writeln(\'        <body bgcolor="#FFFFFF">\');' . "\n";
+        echo '    document.writeln(\'            <p>' . str_replace("'", "\'", $strNoFrames) . '</p>\');' . "\n";
+        echo '    document.writeln(\'        </body>\');' . "\n";
+        echo '    document.writeln(\'    </noframes>\');' . "\n";
+        echo '    document.writeln(\'</frameset>\');' . "\n";
+        echo '//-->' . "\n";
+        echo '</script>' . "\n";
+        echo "\n";
+        echo '<noscript>' . "\n";
+    }
+
+    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*">' . "\n";
+    echo '    <frameset rows="*, 50" framespacing="0" frameborder="0" border="0">' . "\n";
+    echo '        <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />' . "\n";
+    echo '        <frame src="queryframe.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="queryframe" frameborder="0" />' . "\n";
+    echo '    </frameset>' . "\n";
+    echo '    <frame src="' . (empty($db) ? 'main.php3' : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="0" />' . "\n";
+
 } else {
-?>
-    <frame src="left.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash; ?>" name="nav" frameborder="0" />
-<?php
+    
+    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*">' . "\n";
+    echo '    <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />' . "\n";
+    echo '    <frame src="' . (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase'] . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="1" />' . "\n";
+
 }
-if ($cfg['QueryFrameJS']) {
 ?>
-    <script type="text/javascript">
-    <!--
-    document.writeln('<frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain<?php echo $phpmain_hash . $phpmain_hash_js; ?>" frameborder="0" />');
-    //-->
-    </script>
-    <noscript>
-<?php } ?>
-        <frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain<?php echo $phpmain_hash; ?>" frameborder="1" />
-<?php if ($cfg['QueryFrameJS']) { ?>
-    </noscript>
-<?php } ?>
 
     <noframes>
         <body bgcolor="#FFFFFF">
@@ -109,5 +109,10 @@ if ($cfg['QueryFrameJS']) {
         </body>
     </noframes>
 </frameset>
+<?php
+if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+    echo '</noscript>' . "\n";
+}
+?>
 
 </html>

@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-20 Garvin Hicking <me@supergarv.de>
+    * index.php3: New rewrite of how the frameset is created
+      (Patch item #738226 plus some <noframes> corrections).
+      This fixes compatibility problems, even though it's not
+      valid XHTML 1.0, because the <script>/<noscript> tags are
+      not allowed in there.
+
 2003-05-20 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/korean update, thanks to WooSuhan
     * lang/estonian update, thanks to finsoft@sourceforge.net.
