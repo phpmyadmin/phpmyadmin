@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-10 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_dump.php3: Fix exporting of structure and data to file, fix and make
+      cleaner charset conversion for export.
+
 2002-12-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/galician: update, thanks to Xosé Calvo
     * libraries/sqlparser.lib.php3: bug 649665 undefined vars with UNION,

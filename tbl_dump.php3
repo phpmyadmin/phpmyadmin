@@ -20,13 +20,6 @@ function PMA_myHandler($sql_insert)
         $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : '');
     }
 
-    // Convert the charset if required.
-    if ($GLOBALS['cfg']['AllowAnywhereRecoding'] && $GLOBALS['allow_recoding']
-        && isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] != $GLOBALS['charset']
-        && (!empty($GLOBALS['asfile']))) {
-        $sql_insert = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $sql_insert);
-    }
-
     // Defines the end of line delimiter to use
     $eol_dlm = (isset($GLOBALS['extended_ins']) && ($GLOBALS['current_row'] < $GLOBALS['rows_cnt']))
              ? ','
@@ -37,7 +30,7 @@ function PMA_myHandler($sql_insert)
     }
     // Result has to be saved in a text file
     else if (!isset($GLOBALS['zip']) && !isset($GLOBALS['bzip']) && !isset($GLOBALS['gzip'])) {
-        echo $sql_insert . $eol_dlm . $GLOBALS['crlf'];
+        $tmp_buffer .= $sql_insert . $eol_dlm . $GLOBALS['crlf'];
     }
     // Result will be saved in a *zipped file
     else {
@@ -67,12 +60,6 @@ function PMA_myCsvHandler($sql_insert)
     // Kanji encoding convert feature appended by Y.Kawada (2001/2/21)
     if (function_exists('PMA_kanji_str_conv')) {
         $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : '');
-    }
-    // Convert the charset if required.
-    if ($GLOBALS['cfg']['AllowAnywhereRecoding'] && $GLOBALS['allow_recoding']
-        && isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] != $GLOBALS['charset']
-        && (!empty($GLOBALS['asfile']))) {
-        $sql_insert = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $sql_insert);
     }
     // Result has to be displayed on screen
     if (empty($GLOBALS['asfile'])) {
@@ -262,12 +249,6 @@ else {
                 if (function_exists('PMA_kanji_str_conv')) { // Y.Kawada
                     $dump_buffer = PMA_kanji_str_conv($dump_buffer, $knjenc, isset($xkana) ? $xkana : '');
                 }
-                // Convert the charset if required.
-                if ($GLOBALS['cfg']['AllowAnywhereRecoding'] && $GLOBALS['allow_recoding']
-                    && isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] != $GLOBALS['charset']
-                    && (!empty($GLOBALS['asfile']))) {
-                    $dump_buffer = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $dump_buffer);
-                }
                 // At least data
                 if (($what == 'data') || ($what == 'dataonly')) {
                     $tcmt = $crlf . '#' . $crlf
@@ -275,23 +256,12 @@ else {
                                  .  '#' . $crlf .$crlf;
                     if (function_exists('PMA_kanji_str_conv')) { // Y.Kawada
                         $dump_buffer .= PMA_kanji_str_conv($tcmt, $knjenc, isset($xkana) ? $xkana : '');
-                    }
-                    // Converts the charset if required.
-                    else if ($GLOBALS['cfg']['AllowAnywhereRecoding'] && $GLOBALS['allow_recoding']
-                        && isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] != $GLOBALS['charset']
-                        && (!empty($GLOBALS['asfile']))) {
-                        $dump_buffer .= PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $tcmt);
                     } else {
                         $dump_buffer .= $tcmt;
                     }
                     $tmp_buffer  = '';
                     if (!isset($limit_from) || !isset($limit_to)) {
                         $limit_from = $limit_to = 0;
-                    }
-                    // loic1: display data if they aren't bufferized
-                    if (!isset($zip) && !isset($bzip) && !isset($gzip)) {
-                        echo $dump_buffer;
-                        $dump_buffer = '';
                     }
                     PMA_getTableContent($db, $table, $limit_from, $limit_to, 'PMA_myHandler', $err_url);
 
@@ -375,6 +345,15 @@ else {
 } // end building the dump
 
 
+if (!empty($asfile)) {
+    // Convert the charset if required.
+    if ($GLOBALS['cfg']['AllowAnywhereRecoding'] && $GLOBALS['allow_recoding']
+        && isset($GLOBALS['charset_of_file']) && $GLOBALS['charset_of_file'] != $GLOBALS['charset']
+        && (!empty($GLOBALS['asfile']))) {
+        $dump_buffer = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $dump_buffer);
+    }
+}
+
 /**
  * "Displays" the dump...
  */
@@ -414,14 +393,6 @@ else if (isset($gzip) && $gzip == 'gzip') {
 }
 // 4. as a text file
 else if (!empty($asfile)) {
-    echo $dump_buffer;
-}
-// 5. on display
-else {
-    echo htmlspecialchars($dump_buffer);
-}
-
-if (!empty($asfile)) {
     // finally send the headers and the file
     header('Content-Type: ' . $mime_type);
     header('Expires: ' . $now);
@@ -436,11 +407,12 @@ if (!empty($asfile)) {
     }
     echo $dump_buffer;
 }
-
-/**
- * Close the html tags and add the footers in dump is displayed on screen
- */
+// 5. on display
 else {
+    echo htmlspecialchars($dump_buffer);
+    /**
+     * Close the html tags and add the footers in dump is displayed on screen
+     */
     echo '    </pre>' . "\n";
     echo '</div>' . "\n";
     echo "\n";
