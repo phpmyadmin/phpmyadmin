@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 	
+2001-07-16  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_changes.php3: make it possible to edit empty binary fields
+	* tbl_properties.php3: disable nowrap on enum and set <td>'s
+	* lib.inc.php3: print '0' instead of '' if result count < SelectNumRows
+
 2001-07-15  Marc Delisle  <lem9@users.sourceforge.net>
 	* small patch from vinay and girish @sanisoft.com:
 	  db_details.php3: new checkbox for optional re-display of query

@@ -67,7 +67,7 @@ function show_table_navigation($pos_next, $pos_prev, $dt_result) {
               >
               <input type="text" name="sessionMaxRows" size="3" value="<?php echo $sessionMaxRows ; ?>">
               <?php echo $strRowsFrom ?> <input name="pos" type="text" size="3"
-                      value="<?php echo ( $pos_next >= $SelectNumRows ? '' : $pos_next )  ; ?>">
+                      value="<?php echo ( $pos_next >= $SelectNumRows ? '0' : $pos_next )  ; ?>">
           </form>
         </td></tr></table>
     </td>
