@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
+    * lang/lithuanian: Updated, thanks to Vilius Zigmantas.
+    * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
+    * lang/english, french: typos about $strDBGMaxTimeMs
+
 2003-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/serbian update, thanks to Mihailo Stefanovic
     * lang/romanian: Updated, thanks to Valics Lehel.
