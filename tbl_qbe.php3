@@ -799,7 +799,7 @@ if (isset($Field) && count($Field) > 0) {
             reset($wheretabs);
         } // end while
 
-        if ($master != '') {
+        if (isset ($master) && $master != '') {
             $qry_from = PMA_backquote($master);
 
             // now we want one Array that has all tablenames but master
@@ -809,16 +809,16 @@ if (isset($Field) && count($Field) > 0) {
                     $rel[$value]['mcon'] = 0;
                 }
             } // end while
-
+    
             //  now we only use everything but the first table
             $incrit_s = '(\'' . implode('\', \'', $reltabs) . '\')';
-
+    
             $rel_query = 'SELECT * FROM ' . PMA_backquote($cfg['Server']['relation'])
                        . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit_s
                        . ' ORDER BY foreign_table, master_table';
-
+    
             $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-
+    
             while ($row = mysql_fetch_array($rel_id)) {
                 $foreign_table = $row['foreign_table'];
                 if ($rel[$foreign_table]['mcon'] == 0) {
@@ -839,9 +839,9 @@ if (isset($Field) && count($Field) > 0) {
                 $found[]  = $master;
                 $qry_from = PMA_backquote($master);
             } // end if
-
+    
             while (list($key, $varr) = each($rel)) {
-                if ($varr['link'] == '') {
+                if (!isset($varr['link']) || $varr['link'] == '') {
                     $rest[]  = $key;
                 } else {
                     $found[] = $key;
@@ -850,12 +850,12 @@ if (isset($Field) && count($Field) > 0) {
             if (count($rest) > 0) {
                 $incrit_d  = '(\'' . implode('\', \'', $found) . '\')';
                 $incrit_s  = '(\'' . implode('\', \'', $rest) . '\')';
-
+    
                 $rel_query = 'SELECT * FROM ' . $cfg['Server']['relation']
                            . ' WHERE master_table IN ' . $incrit_s . ' AND foreign_table IN ' . $incrit_d
                            . ' ORDER BY master_table, foreign_table';
                 $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-
+    
                 while ($row = mysql_fetch_array($rel_id)) {
                     $found_table = $row['master_table'];
                     if ($rel[$found_table]['mcon'] == 0) {
@@ -864,7 +864,7 @@ if (isset($Field) && count($Field) > 0) {
                         $rel[$found_table]['link'] = ' LEFT JOIN ' . $found_table
                                                    . ' ON ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field'])
                                                    . ' = ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field']);
-
+    
                         // in extreme cases we hadn't found a master yet, so
                         // let's use the one we found now
                         if ($master == '') {
@@ -876,7 +876,7 @@ if (isset($Field) && count($Field) > 0) {
                     }
                 } // end while
             } // end if
-
+    
             // now let's see what we found - every table that doesn't have a
             // link gets added directly to the FROM the links go to a second
             // variable $lj which is added afterwards
@@ -897,14 +897,12 @@ if (isset($Field) && count($Field) > 0) {
                     $ljm          .= $varr['link'];
                 }
             } // end while
-
+    
             // on one occasion i had qry_from at this point end with a , as I
             // can't find why this happened i check this now:
             $qry_from = ereg_replace(', $', '', $qry_from);
             $qry_from .= $ljm . $lj;
-
         } // end if ($master != '')
-
     } // end rel work and $alltabs > 0
 
     if (empty($qry_from) && count($alltabs)) {
