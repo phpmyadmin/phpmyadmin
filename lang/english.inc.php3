@@ -242,6 +242,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'SQL-query on database <b>%s</b>:';
 
 $strRecords = 'Records';
+$strRelationalIntegrity = 'Check relational integrity:';
 $strReloadFailed = 'MySQL reload failed.';
 $strReloadMySQL = 'Reload MySQL';
 $strRememberReload = 'Remember reload the server.';
@@ -346,5 +347,4 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
-$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>
