@@ -181,32 +181,31 @@ if (!defined('PMA_IDX_INCLUDED')
     }
 
 
-    // $sql_query is the one displayed in the query box, don't use it when you
-    // need to generate a query in this script
-    $local_query         = 'ALTER TABLE ' . PMA_backquote($table);
+    // $sql_query is the one displayed in the query box
+    $sql_query         = 'ALTER TABLE ' . PMA_backquote($table);
 
     // Drops the old index
     if (!empty($old_index)) {
         if ($old_index == 'PRIMARY') {
-            $local_query .= ' DROP PRIMARY KEY,';
+            $sql_query .= ' DROP PRIMARY KEY,';
         } else {
-            $local_query .= ' DROP INDEX ' . PMA_backquote($old_index) .',';
+            $sql_query .= ' DROP INDEX ' . PMA_backquote($old_index) .',';
         }
     } // end if
 
     // Builds the new one
     switch ($index_type) {
         case 'PRIMARY':
-            $local_query .= ' ADD PRIMARY KEY (';
+            $sql_query .= ' ADD PRIMARY KEY (';
             break;
         case 'FULLTEXT':
-            $local_query .= ' ADD FULLTEXT ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
+            $sql_query .= ' ADD FULLTEXT ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
             break;
         case 'UNIQUE':
-            $local_query .= ' ADD UNIQUE ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
+            $sql_query .= ' ADD UNIQUE ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
             break;
         case 'INDEX':
-            $local_query .= ' ADD INDEX ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
+            $sql_query .= ' ADD INDEX ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
             break;
     } // end switch
     $index_fields         = '';
@@ -220,13 +219,11 @@ if (!defined('PMA_IDX_INCLUDED')
     if (empty($index_fields)){
         PMA_mysqlDie($strNoIndexPartsDefined, '', FALSE, $err_url);
     } else {
-        $local_query .= $index_fields . ')';
+        $sql_query .= $index_fields . ')';
     }
 
-    $result    = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
+    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, FALSE, $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
-    // To show the query:
-    $sql_query = $local_query;
 
     include('./tbl_properties_structure.php3');
     exit();

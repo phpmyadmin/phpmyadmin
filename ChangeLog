@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-01 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_indexes.php3: Cleaner solution for showing query after changing
+      index.
+
 2003-03-01 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/xpath/XPath.class.php, libraries/xpath/: 
     - Removed (was part of the early DB config prototype)
