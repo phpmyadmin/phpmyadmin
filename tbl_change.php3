@@ -202,7 +202,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 $first_timestamp = 1;
             }
             $type         = $row_table_def['Type'];
+            $type_nowrap  = ' nowrap="nowrap"';
             break;
+
         default:
             $type         = $row_table_def['Type'];
             $type_nowrap  = ' nowrap="nowrap"';
