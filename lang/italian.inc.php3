@@ -225,6 +225,7 @@ $strOperations = 'Operazioni';
 $strOptimizeTable = 'Ottimizza tabella';
 $strOptionalControls = 'Opzionale. Questo carattere controlla come scrivere o leggere i caratteri speciali.';
 $strOptionally = 'OPZIONALE';
+$strOptions = 'Opzioni';
 $strOr = 'Oppure';
 $strOverhead = 'In eccesso';
 
