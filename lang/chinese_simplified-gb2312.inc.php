@@ -3,7 +3,7 @@
 
 /**
  * Last translation by: Funda Wang <fundawang@en2china.com>
- * Improve by Simon <simon@venustech.com.cn>
+ * update by Simon <simon@venustech.com.cn>
  */
 
 $charset = 'gb2312';
@@ -87,15 +87,15 @@ $strBrowse = '浏览';
 $strBrowseForeignValues = '浏览不相关的值';
 $strBulgarian = '保加利亚语';
 $strBzError = 'phpMyAdmin 无法压缩转存，原因是此版本 php 中的 Bz2 模块损坏。强烈将 phpMyAdmin 配置文件中的 <code>$cfg[\'BZipDump\']</code> 设置为 <code>FALSE</code>。如果您想使用 Bz2 压缩功能，请更新 php 的版本。详情请参看 php 错误报告 %s。';
-$strBzip = '"bzip 压缩"';
+$strBzip = 'bzip 压缩';
 
 $strCSVOptions = 'CSV 选项';
 $strCalendar = '日历';
 $strCannotLogin = '无法登入 MySQL 服务器';
-$strCantLoad = '无法装入 %s 扩展，<br />请检查 PHP 配置';
-$strCantLoadRecodeIconv = '无法装入 iconv 或者进行字符集转换所需的重编码扩展程序，请配置 php 允许使用这些扩展或者在 phpMyAdmin 中禁用字符集转换功能。';
+$strCantLoad = '无法载入 %s 扩展，<br />请检查 PHP 配置';
+$strCantLoadRecodeIconv = '无法载入 iconv 或者进行字符集转换所需的重编码扩展程序，请配置 php 允许使用这些扩展或者在 phpMyAdmin 中禁用字符集转换功能。';
 $strCantRenameIdxToPrimary = '无法将索引更名为 PRIMARY!';
-$strCantUseRecodeIconv = '装入扩展报告时 iconv, libiconv 和 recode_string 都无法使用。请检查您的 php 配置。';
+$strCantUseRecodeIconv = '载入扩展报告时 iconv, libiconv 和 recode_string 都无法使用。请检查您的 php 配置。';
 $strCardinality = '基数';
 $strCarriage = '回车: \\r';
 $strCaseInsensitive = '不区分大小写';
@@ -104,7 +104,7 @@ $strCentralEuropean = '中欧';
 $strChange = '更改';
 $strChangeCopyMode = '创建带有相同权限的新用户并 ...';
 $strChangeCopyModeCopy = '... 保留旧用户。';
-$strChangeCopyModeDeleteAndReload = ' ... 从用户表中删除旧用户，然后重新装入权限。';
+$strChangeCopyModeDeleteAndReload = ' ... 从用户表中删除旧用户，然后重新载入权限。';
 $strChangeCopyModeJustDelete = ' ... 从用户表中删除旧用户。';
 $strChangeCopyModeRevoke = ' ... 收回旧用户的所有激活权限，然后删除旧用户。';
 $strChangeCopyUser = '更改登录信息/复制用户';
@@ -250,7 +250,7 @@ $strFileNameTemplateHelp = '使用 __DB__ 代表数据库名，__TABLE__ 代表表名，使用%s
 $strFileNameTemplateRemember = '记住模板';
 $strFixed = '固定';
 $strFlushPrivilegesNote = '注意：phpMyAdmin 直接由 MySQL 权限表取得用户权限。如果用户手动更改表，表内容将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权限%s。';
-$strFlushTable = '强迫更新资料表("FLUSH")';
+$strFlushTable = '强制更新资料表("FLUSH")';
 $strFormEmpty = '表单内缺少值!';
 $strFormat = '格式';
 $strFullText = '完整文字';
@@ -267,7 +267,7 @@ $strGlobalValue = '全局值';
 $strGo = '执行';
 $strGrantOption = '授权';
 $strGreek = '希腊语';
-$strGzip = '"gzip 压缩"';
+$strGzip = 'gzip 压缩';
 
 $strHasBeenAltered = '已经被修改。';
 $strHasBeenCreated = '已经建立。';
@@ -283,7 +283,7 @@ $strHungarian = '匈牙利语';
 $strIcelandic = '冰岛语';
 $strId = 'ID'; // use eng
 $strIdxFulltext = '全文搜索';
-$strIfYouWish = '如果您仅仅要装入表中的几列，请给出用逗号分隔的字段列表。';
+$strIfYouWish = '如果您仅仅要载入表中的几列，请给出用逗号分隔的字段列表。';
 $strIgnore = '忽略';
 $strIgnoreInserts = '忽略插入';
 $strIgnoringFile = '忽略文件 %s';
@@ -463,7 +463,7 @@ $strPrivDescDropDb = '允许删除数据库和表。';
 $strPrivDescDropTbl = '允许删除表。';
 $strPrivDescExecute = '允许运行存储过程；在此版本的 MySQL 中无效。';
 $strPrivDescFile = '允许从文件中导入数据以及将数据导出至文件。';
-$strPrivDescGrant = '允许添加用户和权限，而不允许重新装入权限表。';
+$strPrivDescGrant = '允许添加用户和权限，而不允许重新载入权限表。';
 $strPrivDescIndex = '允许创建和删除索引。';
 $strPrivDescInsert = '允许插入和替换数据。';
 $strPrivDescLockTables = '允许锁住当前线索的表。';
@@ -473,17 +473,17 @@ $strPrivDescMaxUpdates = '限制用户每小时可执行的将会更改任何表或数据库的命令数。
 $strPrivDescProcess3 = '允许杀死其它用户的进程。';
 $strPrivDescProcess4 = '允许查看进程列表中的完整查询。';
 $strPrivDescReferences = '在此版本的 MySQL 中无效。';
-$strPrivDescReload = '允许重新装入服务器设置并倒空服务器的缓存。';
-$strPrivDescReplClient = '用户有权询问仆人/主人在哪里。';
-$strPrivDescReplSlave = '回复仆人所需。';
+$strPrivDescReload = '允许重新载入服务器设置并刷新服务器的缓存。';
+$strPrivDescReplClient = '用户有权询问附属者/控制者在哪里。';
+$strPrivDescReplSlave = '回复附属者所需。';
 $strPrivDescSelect = '允许读取数据。';
 $strPrivDescShowDb = '允许访问完整的数据库列表。';
 $strPrivDescShutdown = '允许关闭服务器。';
-$strPrivDescSuper = '允许在达到最大允许数目时仍进行连接；大多数像设置全局变量或杀死其它用户线程这样的管理操作必需。';
+$strPrivDescSuper = '允许在达到最大允许数目时仍进行连接；对于大多数像设置全局变量或杀死其它用户线程这样的管理操作是必需的。';
 $strPrivDescUpdate = '允许更改数据。';
 $strPrivDescUsage = '无权限。';
 $strPrivileges = '权限';
-$strPrivilegesReloaded = '权限已经成功装入。';
+$strPrivilegesReloaded = '权限已经成功载入。';
 $strProcesslist = '进程列表';
 $strProperties = '属性';
 $strPutColNames = '将字段名称放在首行';
@@ -511,7 +511,7 @@ $strRelations = '关系';
 $strRelationsForTable = '表的关联';
 $strReloadFailed = 'MySQL 重启失败。';
 $strReloadMySQL = '重启 MySQL';
-$strReloadingThePrivileges = '重新装入权限';
+$strReloadingThePrivileges = '重新载入权限';
 $strRemoveSelectedUsers = '删除选中用户';
 $strRenameDatabaseOK = '数据库 %s 已经被重命名为 %s';
 $strRenameTable = '将表改名为';
@@ -564,7 +564,7 @@ $strSearchOption3 = '精确短语';
 $strSearchOption4 = '按正规表达式';
 $strSearchResultsFor = '“<i>%s</i>”的搜索结果 %s:';
 $strSearchType = '查找:';
-$strSecretRequired = '配置文件现在需要绝密的密码字(blowfish_secret)。';
+$strSecretRequired = '配置文件现在需要绝密的短语密码(blowfish_secret)。';
 $strSelectADb = '请选择数据库';
 $strSelectAll = '全选';
 $strSelectFields = '至少选择一个字段:';
@@ -629,7 +629,7 @@ $strTableComments = '表注释';
 $strTableEmpty = '表名称是空的!';
 $strTableHasBeenDropped = '表 %s 已被删除';
 $strTableHasBeenEmptied = '表 %s 已被清空';
-$strTableHasBeenFlushed = '表 %s 已被强迫更新';
+$strTableHasBeenFlushed = '表 %s 已被强制更新';
 $strTableMaintenance = '表维护';
 $strTableOfContents = '目录';
 $strTableOptions = '表选项';
@@ -717,13 +717,13 @@ $strXML = 'XML'; //USE ENG
 
 $strYes = '是';
 
-$strZeroRemovesTheLimit = '注意：将这些选项设为 0 (零)将删除限制。';
-$strZip = '"zip 压缩"';
+$strZeroRemovesTheLimit = '注意：将这些选项设为 0(零) 将删除限制。';
+$strZip = 'zip 压缩';
 
 // To translate:
 
-$strCheckOverhead = 'Check overheaded';  //to translate
+$strCheckOverhead = '彻底检查';
 
-$strTakeIt = 'take it';  //to translate
+$strTakeIt = '断定';
 
 ?>
