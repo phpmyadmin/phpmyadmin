@@ -12,7 +12,9 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
     }
 
     if (!isset($options[1]) || $options[1] == '') {
-        $options[1] = $GLOBALS['datefmt'];
+        //$options[1] = $GLOBALS['datefmt'];
+        $buffer_message = "'" . $buffer . "'";
+        $options[1] = '<a href="javascript:alert(' . $buffer_message . ')" title=' . $buffer_message . '>' . $GLOBALS['datefmt'] .  '</a>';
     }
 
     $timestamp = -1;
