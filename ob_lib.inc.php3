@@ -1,4 +1,5 @@
 <?php
+/* $Id$ */
 
   if(!defined("__OB_LIB_INC__"))
     define("__OB_LIB_INC__", 1);
@@ -44,8 +45,12 @@
         $retval = TRUE;
         break;
 
-      default:
       case 0:
+        $retval = FALSE;
+        break;
+
+      // loic1: php3 fix
+      default:
         $retval = FALSE;
         break;
     }
@@ -64,8 +69,11 @@
         $retval = TRUE;
         break;
 
-      default:
       case 0:
+        $retval = FALSE;
+
+      // loic1: php3 fix
+      default:
         $retval = FALSE;
     }
     return $retval;

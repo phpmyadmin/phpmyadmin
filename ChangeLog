@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-21  Loïc Chapeaux  <lolo@phpheaven.net>
+	* ob.lib.inc.php3, lines 50-54 & 73-76: fixed a bug with php3.
+
 2001-07-20  Marc Delisle  <lem9@users.sourceforge.net>
 	* HTTP compression patch thanks to Jeremy Brand <jeremy@nirvani.net> 
 	header.inc.php3, footer.inc.php3, ob_lib.inc.php3
