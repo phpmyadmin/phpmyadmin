@@ -102,7 +102,7 @@ if ($cfg['PropertiesIconic'] == true) {
     $titles['NoBrowse']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
     $titles['NoSearch']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
     $titles['Insert']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_insrow.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
-    $titles['Properties'] = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_props.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
+    $titles['Structure']  = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_props.png" alt="' . $strStructure . '" title="' . $strStructure . '" border="0" />';
     $titles['Drop']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
     $titles['Empty']      = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
     $titles['NoEmpty']    = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
@@ -113,7 +113,7 @@ if ($cfg['PropertiesIconic'] == true) {
         $titles['NoBrowse']   .= '&nbsp;' . $strBrowse . '</div>';
         $titles['NoSearch']   .= '&nbsp;' . $strSearch . '</div>';
         $titles['Insert']     .= '&nbsp;' . $strInsert . '</div>';
-        $titles['Properties'] .= '&nbsp;' . $strProperties . '</div>';
+        $titles['Structure']  .= '&nbsp;' . $strStructure . '</div>';
         $titles['Drop']       .= '&nbsp;' . $strDrop . '</div>';
         $titles['Empty']      .= '&nbsp;' . $strEmpty . '</div>';
         $titles['NoEmpty']    .= '&nbsp;' . $strEmpty . '</div>';
@@ -124,7 +124,7 @@ if ($cfg['PropertiesIconic'] == true) {
     $titles['NoBrowse']   = $strBrowse;
     $titles['NoSearch']   = $strSearch;
     $titles['Insert']     = $strInsert;
-    $titles['Properties'] = $strProperties;
+    $titles['Structure']  = $strStructure;
     $titles['Drop']       = $strDrop;
     $titles['Empty']      = $strEmpty;
     $titles['NoEmpty']    = $strEmpty;
@@ -269,7 +269,7 @@ else {
                             </td>
                             <td align="center" bgcolor="<?php echo $bgcolor; ?>">
                     <a href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>">
-                        <?php echo $titles['Properties']; ?></a>
+                        <?php echo $titles['Structure']; ?></a>
                             </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
