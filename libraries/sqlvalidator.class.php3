@@ -18,7 +18,8 @@
 *
 * If you got this file from somewhere other than phpMyAdmin
 * please be aware that the latest copy will always be in the 
-* phpMyAdmin CVS tree as $Source$.
+* phpMyAdmin CVS tree as 
+* $Source$
 *
 * @access   public
 *
