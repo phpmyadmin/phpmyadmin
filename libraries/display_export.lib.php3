@@ -224,7 +224,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                 <input type="text" name="filename_template"
                 <?php 
                     echo ' value="';
-                    if (isset($multi_tables) && $multi_tables != '') {
+                    if ((isset($multi_tables) && $multi_tables != '') || (!isset($table))) {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
                             echo $_COOKIE['pma_db_filename_template'];
                         } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_db_filename_template'])) {
