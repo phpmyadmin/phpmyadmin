@@ -94,6 +94,9 @@ if ($sql_query != '') {
         if (get_magic_quotes_gpc() == 1) {
             $sql_query = addslashes($sql_query);
         }
+        if (eregi('^(DROP|CREATE) +(TABLE|DATABASE) +(.+)', $sql_query)) {
+            $reload = 'true';
+        }
         include('./sql.php3');
         exit();
     }
@@ -109,7 +112,7 @@ if ($sql_query != '') {
                     break;
                 }
             }
-            if (!isset($reload) && eregi('^(DROP|CREATE) +(TABLE|DATABASE) (.+)', $a_sql_query)) {
+            if (!isset($reload) && eregi('^(DROP|CREATE) +(TABLE|DATABASE) +(.+)', $a_sql_query)) {
                 $reload = 'true';
             }
         } // end for
