@@ -32,6 +32,7 @@ $strAddConstraints = 'Legg til begrensninger';
 $strAddDeleteColumn = 'Legg til/Slett kolonne';
 $strAddDeleteRow = 'Legg til/Slett kriterierad';
 $strAddDropDatabase = 'Legg til DROP DATABASE';
+$strAddFields = 'Legg til %s felt(er)';  //to translate
 $strAddHeaderComment = 'Legg til egen kommentar i hodet (\\n lager linjeskift)';
 $strAddIfNotExists = 'Legg til IF NOT EXISTS';
 $strAddIntoComments = 'Legg til i kommentarer';
@@ -299,6 +300,7 @@ $strInnodbStat = 'InnoDB status';
 $strInsecureMySQL = 'Din konfigurasjonsfil inneholder innstillinger (root uten passord) som korrensponderer med MySQLs standard priviligerte brukerkonto. Din MySQL-tjener kjører med denne standardinnstillingen, er åpen for misbruk, og du burde fikse dette sikkerhetshullet snarest.';
 $strInsert = 'Sett inn';
 $strInsertAsNewRow = 'Sett inn som ny rad';
+$strInsertBookmarkTitle = 'Skriv inn bokmerketittel';
 $strInsertNewRow = 'Sett inn ny rad';
 $strInsertTextfiles = 'Les tekstfil inn i tabell';
 $strInsertedRowId = 'Satt inn rad id:';
@@ -399,6 +401,7 @@ $strNoRights = 'Du har ikke nok rettigheter til å være her nå!';
 $strNoRowsSelected = 'Ingen rader valgt';
 $strNoSpace = 'Ikke nok plass til å lagre fila %s.';
 $strNoTablesFound = 'Ingen tabeller i databasen.';
+$strNoThemeSupport = 'Ikke støtte for maler, kontroller konfigureringen og/eller dine maler i katalogen %s.';
 $strNoUsersFound = 'Ingen bruker(e) funnet.';
 $strNoValidateSQL = 'Ikke teste SQL';
 $strNone = 'Ingen';
@@ -721,8 +724,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensningen.';
 $strZip = 'Komprimert (zip)';
 
-
-$strAddFields = 'Add %s field(s)';  //to translate
-$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
-$strNoThemeSupport = 'No themes support, please check your configuration and/or your themes in directory %s.';  //to translate
 ?>
