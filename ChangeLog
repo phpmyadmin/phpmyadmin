@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2001-07-21  Steve Alberty  <alberty@neptunlabs.de>
+	* config.inc.php3,index.php3: add $cfgLeftWidth to configure
+	  individual left frame width
 	* db_details.php3,tbl_properties.php3: fix incorrect size
 	  calculation with merge tables BUG: #442948
 
