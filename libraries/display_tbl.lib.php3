@@ -771,7 +771,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                         echo '    <td align="center" valign="top">[BLOB]</td>' . "\n";
                     } else {
                         if (!isset($row[$primary->name])) {
-                            echo '    <td><i>NULL</i></td>' . "\n";
+                            echo '    <td valign="top"><i>NULL</i></td>' . "\n";
                         } else if ($row[$primary->name] != '') {
                             if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
                                 $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
