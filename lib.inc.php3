@@ -691,10 +691,11 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
             }
             // ... and now in form "departments d"
             if ($data_count >= 2) {
-                $sql = preg_replace(
-			'/\W'.$data[1].'\./i',
-			' '.$data[0].'.',
-			 $sql);
+		$sql = eregi_replace(
+			'([^a-zA-Z0-9])'.$data[1].'\.',
+			'\1 '.$data[0].'.',
+			$sql);
+
                 if (!isset($match)) {
                     $match = $data[0].' '.$data[1];
                 }
@@ -790,9 +791,9 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
             <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="submit" name="navig" value="<?php echo $GLOBALS['strShow']; ?>&nbsp;:" />
-            <input type="text" name="sessionMaxRows" size="1" value="<?php echo $sessionMaxRows; ?>" />
+            <input type="text" name="sessionMaxRows" size="3" value="<?php echo $sessionMaxRows; ?>" />
             <?php echo $GLOBALS['strRowsFrom'] . "\n"; ?>
-            <input type="text" name="pos" size="1" value="<?php echo (($pos_next >= $SelectNumRows) ? 0 : $pos_next); ?>" />
+            <input type="text" name="pos" size="3" value="<?php echo (($pos_next >= $SelectNumRows) ? 0 : $pos_next); ?>" />
         </form>
     </td>
     <td>

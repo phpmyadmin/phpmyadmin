@@ -12,6 +12,9 @@ $Source$
 
 2001-08-18  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* lib.inc.php3 (788, 790) : tweak size for lower resolution screens.
+	* above change undone
+	* fixed up some spacing in the code for neatness
+	* lib.inc.php3 (694) : preg_replace changed to eregi_replace as per support #447076
 
 2001-08-18  Olivier Müller  <om@omnis.ch>
 	* db_details.php3: added a few <b>.
