@@ -267,6 +267,7 @@ $PMA_SQPdata_reserved_word = array (
     'FIXED',
     'FLUSH',
     'FOR',
+    'FORCE',
     'FOREIGN',
     'FROM',
     'FULL',
@@ -450,7 +451,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 255;
+$PMA_SQPdata_reserved_word_cnt = 256;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',
