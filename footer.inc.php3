@@ -41,7 +41,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             <?php
             if (!isset($error_message) || $error_message == '') {
             ?>
-            if (parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate && !parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate.checked) {
+            if (!parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate || !parent.frames.queryframe.querywindow.document.sqlform.LockFromUpdate.checked) {
                 parent.frames.queryframe.querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
                 parent.frames.queryframe.querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
                 parent.frames.queryframe.querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
