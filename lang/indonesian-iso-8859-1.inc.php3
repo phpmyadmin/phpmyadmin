@@ -23,6 +23,7 @@ $strAbsolutePathToDocSqlDir = 'Silakan isi Absolute Path di webserver yang menun
 $strAccessDenied = 'Akses ditolak';
 $strAccessDeniedExplanation = 'phpMyAdmin telah coba untuk membuka koneksi ke server MySQL tetapi koneksi ditolak oleh server. Perlu diperiksa ulang nama host, nama pengguna dan kata sandi pada file config.inc.php untuk memastikan kecocokannya dengan informasi yang telah diberi oleh administrator dari server MySQL.';
 $strAction = 'Aksi';
+$strAddAutoIncrement = 'Tambahkan nilai AUTO_INCREMENT';
 $strAddDeleteColumn = 'Tambah/Hapus kolom';
 $strAddDeleteRow = 'Tambah/Hapus baris';
 $strAddDropDatabase = 'Tambahkan DROP DATABASE';
@@ -653,5 +654,4 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>
