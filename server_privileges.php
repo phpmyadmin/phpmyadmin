@@ -1172,7 +1172,7 @@ if (empty($adduser) && empty($checkprivs)) {
                 $res = PMA_DBI_query('SHOW DATABASES;');
                 $pred_db_array = array();
                 while ($row = PMA_DBI_fetch_row($res)) {
-                    if (!isset($found_rows) || !in_array($row[0], $found_rows)) {
+                    if (!isset($found_rows) || !in_array(str_replace('_', '\\_', $row[0]), $found_rows)) {
                         $pred_db_array[] = $row[0];
                     }
                 }
@@ -1183,7 +1183,7 @@ if (empty($adduser) && empty($checkprivs)) {
                     echo '                        <select name="pred_dbname" onchange="this.form.submit();">' . "\n"
                        . '                            <option value="" selected="selected">' . $strUseTextField . ':</option>' . "\n";
                     foreach ($pred_db_array as $current_db) {
-                        echo '                            <option value="' . htmlspecialchars($current_db) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
+                        echo '                            <option value="' . htmlspecialchars(str_replace('_', '\\_', $current_db)) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
                     }
                     echo '                        </select>' . "\n";
                 }
