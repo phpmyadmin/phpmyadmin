@@ -1,5 +1,5 @@
 
-                        phpMyAdmin 2.3.3 Documentation
+                       phpMyAdmin 2.3.3pl1 Documentation
                                        
      * Sourceforge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ]
@@ -7,8 +7,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.364 2002/12/02
-       11:16:47 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.366 2002/12/04
+       18:22:31 lem9 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -

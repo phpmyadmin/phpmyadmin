@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-04 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.3.3pl1 released
+
 2002-12-04 Alexander M. Turek  <rabus@users.sourceforge.net>
     * sql.php3: Back to previous version.
 
