@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/turkish update, thanks to Bora Alioglu
+    * lang/slovak update, thanks to Lubos Klokner
+
 2003-07-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_create.php3:
       - Display CREATE DATABASE query;
