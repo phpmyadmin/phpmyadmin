@@ -8,7 +8,7 @@ $Source$
 2003-02-24 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/bulgarian-*.inc.php3, lang/czech-*.inc.php3, lang/dutch-*.inc.php3,
       lang/swedish-*.inc.php3, lang/thai-*.inc.php3: Removed problematic %e from
-      $datefmt.
+      $datefmt (translations #692065).
     * lang/japanese-*.inc.php3: Fixed some inconsistences.
 
 2003-02-25 Garvin Hicking <me@supergarv.de>
