@@ -62,7 +62,7 @@
 
 <ul>
     <li>
-        php 4.1.0 or later<br />
+        php 4.1.0 or later (<a href="#faqphp5">*</a>)<br />
         If you want to display inline thumbnails of JPEGs with the original
         aspect ratio, you also need GD2 support in PHP.
     </li>
@@ -2617,8 +2617,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     This is a <a href="http://bugs.php.net/21079">PHP bug</a> that occur when
     GZIP output buffering is enabled. If you turn off it (by <code>$cfg['OBGzip']
-    = FALSE</code> in <i>config.inc.php</i>), it should work. This bug will be fixed
-    in PHP 5.0.0.
+    = FALSE</code> in <i>config.inc.php</i>), it should work. This bug will be
+    fixed in PHP 5.0.0.
 </p>
 
 <h4>
@@ -2666,6 +2666,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     #SetInputFilter PHP<br /></b>
     </tt>
 </p>
+
 <h4>
     [1.30] I get the error &quot;left.php: Missing hash&quot;.
 </h4>
@@ -2673,6 +2674,22 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     This problem is known to happen when the server is running Turck MMCache
     but upgrading MMCache to version 2.3.21 solves the problem.
 </p>
+
+<a name="faqphp5"></a>
+<h4>
+    [1.31] Does phpMyAdmin support php5?
+</h4>
+<p>
+    Yes.
+    <br />
+    However, phpMyAdmin needs to be backwards compatible to php4. This is why
+    you won't be able to run phpMyAdmin having enabled E_STRICT in your
+    error_reporting settings.
+    <br />
+    In addition to this, we recommend to enable the zend1 compatibility mode
+    although there no known issues caused by this setting.
+</p>
+
 <a name="faqconfig"></a><br />
 <h3>[2. Configuration]</h3>
 

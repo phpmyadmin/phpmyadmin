@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-20 Alexander M. Turek  <ichkannchloggen@derrabus.de>
+    * Documentation.html: added note about php5.
+
 2004-07-18 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: doc link for connection collation
 
