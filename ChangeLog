@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-10: Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/common.lib.php3, main.php3:
+         - Final solution to bug #582890
+    * lang/*:
+         - String for localization used in auto-generation of names
+
 2002-09-10 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Added an FAQ entry about lower_case_table_names on
       Windows machines.
