@@ -8,6 +8,8 @@ $Source$
 2002-04-28 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.php3, new tbl_properties_common.php3:
       start the split
+    * tbl_properties.php3, new tbl_properties_export.php3, 
+      tbl_properties_links.php3, lang/*.php3: export is splitted
 
 2002-04-28 Alexander M. Turek  <rabus@users.sourceforge.net>
 	* header.inc.php3, lines 162-170: Improved patch #548696.

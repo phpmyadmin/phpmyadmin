@@ -348,4 +348,5 @@ $strYes = 'Ya';
 $strZip = '"Dikompress dengan Zip"';
 
 $strLinksTo = 'Links to';  //to translate
+$strExport = 'Export';  //to translate
 ?>

@@ -349,4 +349,5 @@ $strZip = '"zipitud"';
 
 // To translate
 $strLinksTo = 'Links to';  //to translate
+$strExport = 'Export';  //to translate
 ?>

@@ -348,4 +348,5 @@ $strYes = 'Ja';
 $strZip = '"zipped"';
 
 $strLinksTo = 'Links to';  //to translate
+$strExport = 'Export';  //to translate
 ?>

@@ -349,4 +349,5 @@ $strYes = 'λο';
 $strZip = '"Zipped"';
 
 $strLinksTo = 'Links to';  //to translate
+$strExport = 'Export';  //to translate
 ?>

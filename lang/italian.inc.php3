@@ -356,4 +356,5 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
+$strExport = 'Export';  //to translate
 ?>

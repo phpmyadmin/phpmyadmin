@@ -355,4 +355,5 @@ $strZip = '"zipped" "ãÖÛæØ"';
 // To translate
 $strCardinality = 'Cardinality';
 $strLinksTo = 'Links to';  //to translate
+$strExport = 'Export';  //to translate
 ?>

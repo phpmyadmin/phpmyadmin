@@ -349,4 +349,5 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
+$strExport = 'Export';  //to translate
 ?>

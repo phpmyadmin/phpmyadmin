@@ -355,4 +355,5 @@ $strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
 $strReferentialIntegrity = 'Check referential integrity:';  //to translate
 $strLinksTo = 'Links to';  //to translate
+$strExport = 'Export';  //to translate
 ?>
