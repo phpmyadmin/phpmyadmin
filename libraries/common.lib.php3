@@ -701,7 +701,7 @@ if (!defined('__LIB_COMMON__')){
                     $true_dblist[] = $dblist[$i];
                 } // end if
             } // end for
-            unset($dblist);
+            $dblist      = array();
             $dblist      = $true_dblist;
             unset($true_dblist);
             $num_dbs     = count($dblist);
