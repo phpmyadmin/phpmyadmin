@@ -8,6 +8,8 @@ $Source$
 2003-01-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3, user_details.php3, libraries/user_details.js: Removed the old
       user management.
+    * server_processlist.php3: Fixed a bug the denied the access to the
+      process list for normal users.
 
 2003-01-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3: drop-down for enums, thanks to Joerg Klein (j0erch)

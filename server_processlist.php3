@@ -37,16 +37,6 @@ echo '<h2>' . "\n"
 
 
 /**
- * Checks if the user is allowed to do what he tries to...
- */
-if (!$is_superuser && !$cfg['ShowMysqlVars']) {
-    echo $strNoPrivileges;
-    include('./footer.inc.php3');
-    exit;
-}
-
-
-/**
  * Sends the query and buffers the result
  */
 $serverProcesses = array();
