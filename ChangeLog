@@ -8,6 +8,9 @@ $Source$
 2001-08-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_replace.php3, lines 76, 78, 86, 88, 137, 139, 147, 149: fixed some
 	  others slashes bugs.
+	* defines.inc.php3, lines 41 & 43: merged patch #449548 (fix for mysql
+	  error on no default server) thanks to
+	  Kendrick Vargas <drama@users.sourceforge.net>.
 
 2001-08-09  Olivier Müller  <om@omnis.ch>
 	* releasing 2.2.0rc4
