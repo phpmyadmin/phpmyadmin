@@ -520,6 +520,7 @@ $strShowAll = 'Zobrazit v¹e';
 $strShowColor = 'Barevné ¹ipky';
 $strShowCols = 'Zobrazit sloupce';
 $strShowDatadictAs = 'Formát datového slovníku';
+$strShowFullQueries = 'Zobrazit celé dotazy';
 $strShowGrid = 'Zobrazit møí¾ku';
 $strShowPHPInfo = 'Zobrazit informace o&nbsp;PHP';
 $strShowTableDimension = 'Rozmìry tabulek';
@@ -574,7 +575,13 @@ $strTransformation_image_jpeg__inline = 'Zobrazí náhled obrázku s&nbsp;odkazem n
 $strTransformation_image_jpeg__link = 'Zobrazí odkaz na obrázek (napøíklad stáhnutí pole blob).';
 $strTransformation_image_png__inline = 'Viz image/jpeg: inline';
 $strTransformation_text_plain__dateformat = 'Zobrazí datum nebo èas (TIME, TIMESTAMP a DATETIME) podle místního nastavení. První parametr je posun (v&nbsp;hodinách), který bude pøidán k&nbsp;èasu (výchozí je 0). Druhý parametr je formátovací øetìzec pro funkci strftime().';
+$strTransformation_text_plain__external = 'JEN PRO LINUX: Spustí externí program, na jeho standardní vstup po¹le obsah pole a zobrazí výstup programu. Výchozí je program Tidy, který pìknì zformátuje HTML. Z&nbsp;bezpeènostních dùvodù musíte jména povolených programù zapsat do souboru libraries/transformations/text_plain__external.inc.php. První parametr je èíslo programu, který má být spu¹tìn a druhý parametr udává parametry tohoto programu. Tøetí parametr urèuje, zda mají být ve výstupu nahrazeny HTML entity (napø. pro zobrazení zdrojového kódu HTML) (výchozí je 1, tedy pøevádìt na entity), ètvrtý (pøi nastavení na 1) zajistí pøidání parametru NOWRAP k&nbsp;vypisovanému textu, èím¾ se zachová formátování (výchozí je 1).';
 $strTransformation_text_plain__formatted = 'Zachová pùvodní formátování sloupce, tak jak je ulo¾en v&nbsp;databázi.';
+$strTransformation_text_plain__imagelink = 'Zobrazí obrázek a odkaz z&nbsp;pole obsahujícího odkaz na obrázek. První parametr je prefix URL (napøíklad "http://mojedomena.cz/", druhý a tøetí ¹íøku a vý¹ku obrázku.';
+$strTransformation_text_plain__link = 'Zobrazí odkaz z&nbsp;pole obsahující odkaz. První parametr je prefix URL (napøíklad "http://mojedomena.cz/", druhý text odkazu.';
+$strTransformation_text_plain__substr = 'Zobrazí jen èást textu. První parametr je posun od zaèátku (výchozí je 0) a druhý urèuje délku textu, který se má zobrazit, pokud není uveden, bude zobrazen zbytek textu. Tøetí parametr uøuje jaký text má být pøidán za zkrácený text (výchozí je ...).';
+$strTransformation_text_plain__unformatted = 'Zobrazí text pomocí HTML entit, pøípadný HTML se zobrazí v&nbsp;pùvodním tvaru.';
+$strTruncateQueries = 'Zobrazit zkrácené dotazy';
 $strType = 'Typ';
 
 $strUncheckAll = 'Od¹krtnout v¹e';
@@ -586,6 +593,7 @@ $strUpdateProfileMessage = 'Pøístup byl zmìnìn.';
 $strUpdateQuery = 'Aktualizovat dotaz';
 $strUsage = 'Pou¾ívá';
 $strUseBackquotes = 'Pou¾ít zpìtné uvozovky u&nbsp;jmen tabulek a sloupcù';
+$strUseHostTable = 'Pou¾ít tabulku s&nbsp;poèítaèi';
 $strUseTables = 'Pou¾ít tabulky';
 $strUseTextField = 'Pou¾ít textové pole';
 $strUser = 'U¾ivatel';
@@ -622,13 +630,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
-$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
-$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
-$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
-
-$strUseHostTable = 'Use Host Table';  //to translate
-$strShowFullQueries = 'Show Full Queries';  //to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
 ?>
