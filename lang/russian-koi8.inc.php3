@@ -136,4 +136,6 @@ $strAnalyzeTable	= "Analyze table";  //to translate
 $strRepairTable	= "Repair table";  //to translate
 $strOptimizeTable	= "Optimize table"; //to translate
 $strTableType	= "Table type"; //to translate
+$strHomepageOfficial=" Official phpMyAdmin Homepage ";  //to translate
+$strHomepageSourceforge=" new (but still unofficial) phpMyAdmin Homepage ";  //to translate
 ?>
