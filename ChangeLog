@@ -12,6 +12,7 @@ $Source$
     * main.php3, lines 11-13: new fix against bug #571409 (it doesn't work
       properly with Zend Accelerator).
     * libraries/relation.lib.php3, lines 70 & 79: PHP3 fix.
+    * libraries/display_tbl.lib.php3: fixed warnings.
 
 2002-09-12 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 601809: when two fields have the

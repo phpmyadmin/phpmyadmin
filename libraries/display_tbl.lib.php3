@@ -474,7 +474,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                   . '&amp;disp_direction=' . $disp_direction
                   . '&amp;repeat_cells=' . $repeat_cells
                   . '&amp;goto=' . $goto
-                  . '&amp;dontlimitchars=' . (($dontlimitchars) ? 0 : 1);
+                  . '&amp;dontlimitchars=' . (empty($dontlimitchars) ? 0 : 1);
 
         //     ... before the result table
         if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
@@ -618,7 +618,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                            . '&amp;session_max_rows=' . $session_max_rows
                            . '&amp;disp_direction=' . $disp_direction
                            . '&amp;repeat_cells=' . $repeat_cells
-                           . '&amp;dontlimitchars=' . $dontlimitchars
+                           . '&amp;dontlimitchars=' . (empty($dontlimitchars) ? 0 : 1)
                            . '&amp;sql_query=' . urlencode($sorted_sql_query);
 
                 // 2.1.5 Displays the sorting url
@@ -924,7 +924,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             . '&amp;session_max_rows=' . $session_max_rows
                             . '&amp;disp_direction=' . $disp_direction
                             . '&amp;repeat_cells=' . $repeat_cells
-                            . '&amp;dontlimitchars=' . $dontlimitchars;
+                            . '&amp;dontlimitchars=' . (empty($dontlimitchars) ? 0 : 1);
 
                 // 1.2.1 Modify link(s)
                 if ($is_display['edit_lnk'] == 'ur') { // update row case
@@ -1011,7 +1011,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 //       the default second parameter of
                 //       mysql_fetch_array() is MYSQL_BOTH, so we always get
                 //       associative and numeric indices?
- 
+
                     //if (!isset($row[$meta->name])
                     if (!isset($row[$pointer])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
