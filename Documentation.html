@@ -759,7 +759,7 @@
 </p>
 
 <p>
-    <b>I try to upload a file and I get: <br /> 
+    <b>I try to insert a text file in a table, and I get: <br /> 
     Error MySQL said: The file '/tmp/phpkvpp60' must be in the database
     directory or be readable by all</b>
     <br />
@@ -770,7 +770,9 @@
     running on the same machine) cannot open the file (except if running as
     root, which is not recommended).
     <br />
-    The system administrator can do a "<tt>chmod 777 /tmp</tt>" to enable uploads.
+    The system administrator can do a "<tt>chmod 777 /tmp</tt>": then the MySQL
+    server will accept to read it.  Also, the user must have File privilege.
+     
 </p>
 
 
