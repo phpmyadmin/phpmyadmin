@@ -10,27 +10,6 @@ require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db', 'table'));
 
 /**
- * Insert data from one table to another one
- *
- * @param   string  the original insert statement
- *
- * @global  string  the database name
- * @global  string  the original table name
- * @global  string  the target database and table names
- * @global  string  the sql query used to copy the data
- */
-function PMA_myHandler($sql_insert = '')
-{
-    global $db, $table, $target;
-    global $sql_insert_data;
-
-    $sql_insert = preg_replace('~INSERT INTO (`?)' . $table . '(`?)~i', 'INSERT INTO ' . $target, $sql_insert);
-    $result     = PMA_DBI_query($sql_insert);
-
-    $sql_insert_data .= $sql_insert . ';' . "\n";
-} // end of the 'PMA_myHandler()' function
-
-/**
  * Inserts existing entries in a PMA_* table by reading a value from an old entry
  *
  * @param   string  The array index, which Relation feature to check
