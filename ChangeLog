@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-15 Garvin Hicking <me@supergarv.de>
+    * pdf_schema.php3: Fixed typo.
+
 2003-03-14 Garvin Hicking <me@supergarv.de>
     * libraries/display_tbl.lib.php3, db_details_importdocsql.php3: Fixed
     '../' safety issues, display transformations only if file exists 

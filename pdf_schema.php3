@@ -1269,9 +1269,9 @@ function PMA_RT_DOC($alltables ){
              $showtable    = PMA_mysql_fetch_array($result);
              $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
              $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
-             $create_time  = (isset($showtable['Create_time']) ? PMA_localisedDate(strtotime($showtable['Comment'])) : '');
-             $update_time  = (isset($showtable['Update_time']) ? PMA_localisedDate(strtotime($showtable['Comment'])) : '');
-             $check_time   = (isset($showtable['Check_time']) ? PMA_localisedDate(strtotime($showtable['Comment'])) : '');
+             $create_time  = (isset($showtable['Create_time']) ? PMA_localisedDate(strtotime($showtable['Create_time'])) : '');
+             $update_time  = (isset($showtable['Update_time']) ? PMA_localisedDate(strtotime($showtable['Update_time'])) : '');
+             $check_time   = (isset($showtable['Check_time']) ? PMA_localisedDate(strtotime($showtable['Check_time'])) : '');
         } else {
              $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
              $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
