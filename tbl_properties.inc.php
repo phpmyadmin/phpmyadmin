@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-
+error_reporting(E_ALL);
 // Check parameters
 require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db','table','action','num_fields'));
@@ -318,13 +318,12 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $attribute = $submit_attribute;
     }
 
-
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
-    if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
+    if (isset($row['Field']) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
         $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
     }
-    if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp'])) {
+    if (isset($row['Field']) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp'])) {
         $default_current_timestamp = TRUE; 
     } else {
         $default_current_timestamp = FALSE; 

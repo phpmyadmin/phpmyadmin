@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties.inc.php: bug #1170255, undefined index: Field
+
 2005-03-25 Alexander M. Turek  <me@derrabus.de>
     * db_details_structure.php: Let's prefer separate icons over CSS 3 hacks
       for marking a functionality as unavailable.
