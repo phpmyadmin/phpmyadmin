@@ -11,6 +11,9 @@ $Source$
 	* libraries/build_dump.php3, lines 70-75: fixed bug #551682 - PMA ignores
       case of table names under winwin, thanks to
       Pawe³ Szczepañski <pauluz at users.sourceforge.net>.
+	* libraries/display_tbl.lib.php3, line 1006: if a binary record contains
+      some html tags, display was broken. Thanks to
+      SailorMax <max at elcor.lv>.
 
 2002-05-16 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3; Documentation.html: coding standards.
