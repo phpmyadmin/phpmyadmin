@@ -320,6 +320,7 @@ if ($sql_query != '') {
     $pieces       = array();
     PMA_splitSqlFile($pieces, $sql_query, PMA_MYSQL_INT_VERSION);
     $pieces_count = count($pieces);
+    if($pieces_count>1){$is_multiple  = TRUE;}
 
     // Copy of the cleaned sql statement for display purpose only (see near the
     // beginning of "db_details.php3" & "tbl_properties.php3")
@@ -349,6 +350,7 @@ if ($sql_query != '') {
 
         // Runs multiple queries
         else if (mysql_select_db($db)) {
+            $mult = TRUE;
             for ($i = 0; $i < $pieces_count; $i++) {
                 $a_sql_query = $pieces[$i];
                 $result = mysql_query($a_sql_query);

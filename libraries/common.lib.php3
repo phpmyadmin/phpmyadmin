@@ -204,7 +204,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * @author  Mike Beck<mikebeck@users.sourceforge.net>
      */
     function PMA_format_sql ($sql) {
-        global $cfg;
+        global $cfg, $mult;
 
         $_sfuncs   = '^' . implode('$|^', $cfg['Functions']) . '$';
         $_skeyw    = '^' . implode('$|^', $cfg['keywords']) . '$';
@@ -218,6 +218,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         $sql  = str_replace(',', ', ', $sql);
         $sql  = str_replace(')', ' ) ', $sql);
         $sql  = str_replace('(', ' ( ', $sql);
+        $sql  = str_replace(';', '  ; ', $sql);        
         //  now split everything by the blanks
         $_sql_parts=explode(' ',$sql);
         //  start a loop over the parts check each word and put them back into $sql
@@ -251,7 +252,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $_word = '<font color="' . $cfg['colorFunctions'].'">' . $_word . '</font>';
                 } else {
                     if(eregi($_skeyw,  $_word)) {
-                        $_word = "\n".'<font color="' . $cfg['colorKeywords'].'">' . $_word . '</font>';
+                        $_word = '<font color="' . $cfg['colorKeywords'].'">' . $_word . '</font>';
+                        if(isset($mult) && $mult == TRUE){
+                        } else {
+                            $_word = "\n" . $_word;
+                        }
+                        
                     } else {
                         if(eregi($_scoltype, $_word)) {
                             $_word = '<font color="' . $cfg['colorColType'].'">' . $_word . '</font>';
@@ -267,6 +273,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                             unset($_brack_o[count($_brack_o)-1]);
                                         } else {
                                             $_brack_c[]=$s_nr;
+                                        }
+                                    } else {
+                                        if($_word==';') {
+                                            $_word = ";\n";
                                         }
                                     }
                                 }
@@ -293,7 +303,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             }
         }
         $sql = implode(' ',$_sql_p);
-        return $sql;
+        return nl2br($sql);
     }   // End of PMA_format_sql function
 
     /**
@@ -338,9 +348,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                      . ']' . "\n";
             } // end if
             if($cfg['UseSyntaxColoring']){
-                echo '<pre>' . "\n" . PMA_format_sql($query_base) . "\n" . '</pre>' . "\n";
+                echo '<p>' . "\n" . PMA_format_sql($query_base) . "\n" . '</p>' . "\n";
             } else {
-                echo '<pre>' . "\n" . $query_base . "\n" . '</pre>' . "\n";
+                echo '<p>' . "\n" . $query_base . "\n" . '</p>' . "\n";
             }
             echo '</p>' . "\n";
         } // end if
