@@ -74,7 +74,7 @@ afrikaans-iso-8859-1
 albanian-iso-8859-1
 arabic-windows-1256
 brazilian_portuguese-iso-8859-1
-bulgarian-koi8-r
+bulgarian-windows-1251
 catalan-iso-8859-1
 chinese_big5
 chinese_gb
