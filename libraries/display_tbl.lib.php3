@@ -923,11 +923,28 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     } else if ($row[$pointer] != '') {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">';
                         if (isset($map[$meta->name])) {
+                        // Field to display from the foreign table?
+                            if (!empty($map[$meta->name][2])) {
+                                $dispsql = 'SELECT ' . $map[$meta->name][2] 
+                                         . ' FROM ' . PMA_backquote($map[$meta->name][0]) 
+                                         . ' WHERE ' . $map[$meta->name][1] 
+                                         . ' = ' . $row[$pointer]; 
+                                $dispresult = mysql_query($dispsql); 
+                                if (mysql_num_rows($dispresult) > 0) { 
+                                    $disprow = mysql_fetch_row($dispresult); 
+                                    $dispval = $disprow[0]; 
+                                } 
+                                else { 
+                                    $dispval = $GLOBALS['strLinkNotFound']; 
+                                }  
+                            }
+                            $title = (!empty($dispval))? ' title="' . $dispval . '"': '';
+
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
                                                                    .  'lang=' . $lang . '&amp;server=' . $server
                                                                    .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = ' . $row[$pointer]) . '">'
+                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = ' . $row[$pointer]) . '"' . $title . '>'
                                                                    .  $row[$pointer] . '</a>';
                         } else {
                             $vertical_display['data'][$row_no][$i] .= $row[$pointer];
@@ -994,11 +1011,32 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         }
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">';
                         if (isset($map[$meta->name])) {
+
+                        // Field to display from the foreign table?
+                            if (!empty($map[$meta->name][2])) {
+                                $dispsql = 'SELECT ' . $map[$meta->name][2] 
+                                         . ' FROM ' . PMA_backquote($map[$meta->name][0]) 
+                                         . ' WHERE ' . $map[$meta->name][1] 
+                                         . ' = \'' . $row[$pointer] . '\''; 
+                                $dispresult = @mysql_query($dispsql); 
+                                if (mysql_num_rows($dispresult) > 0) { 
+                                    $disprow = mysql_fetch_row($dispresult); 
+                                    $dispval = $disprow[0]; 
+                                } 
+                                else { 
+                                    $dispval = $GLOBALS['strLinkNotFound']; 
+                                }  
+                            }
+                            else {
+                                $dispval = '';
+                            }
+                            $title = (!empty($dispval))? ' title="' . $dispval . '"': '';
+
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
                                                                    .  'lang=' . $lang . '&amp;server=' . $server
                                                                    .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '">'
+                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
                                                                    .  $row[$pointer] . '</a>';
                         } else {
                             $vertical_display['data'][$row_no][$i] .= $row[$pointer];
@@ -1321,13 +1359,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
             $tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
 
-            $local_query = 'SELECT master_field, foreign_table, foreign_field'
+            $local_query = 'SELECT master_field, foreign_table, foreign_field,'
+                         . 'foreign_display_field'
                          . ' FROM ' . $cfg['Server']['relation']
                          . ' WHERE master_table IN ' . $tabs;
             $result      = @mysql_query($local_query);
             if ($result) {
                 while ($rel = mysql_fetch_row($result)) {
-                    $map[$rel[0]] = array($rel[1], $rel[2]);
+                    $map[$rel[0]] = array($rel[1], $rel[2], $rel[3]);
                 }
             }
         } // end 2b
