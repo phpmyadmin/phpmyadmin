@@ -5,8 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-08-15  Steve Alberty  <alberty@neptunlabs.de>
-	* lib.inc.php3: prevent to use dl() if dl not exists (PHP5)
+2001-08-15  Steve Alberty  <alberty@neptunlabs.de> 
+	* lib.inc.php3: prevent to use dl() if dl not exists (PHP5).
+
+2001-08-15  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3, lines 70-71: Fixed a slashes bug if the query is displayed on
+	  screen to be confirmed.
+	* ldi_check.php3, lines 34-44: Fixed a slashes bug thanks to
+	  Dan Allen <bigredlinux@yahoo.com>.
 
 2001-08-14  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3; db_readdump.php3, lines 85-88: Fixed some coding style
