@@ -5,9 +5,9 @@
 require('./tbl_properties_common.php3');
 require('./tbl_properties_table_info.php3');
 
+echo "<ul>\n";
 if (PMA_MYSQL_INT_VERSION >= 32322) {
 ?>
-<ul>
     <!-- Table comments -->
     <li>
         <form method="post" action="tbl_properties.php3">
@@ -82,6 +82,32 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
     <?php
     echo "\n";
 } // end MySQL >= 3.23.22
+
+if (PMA_MYSQL_INT_VERSION >= 32322) {
+?>
+    <!-- Table options -->
+    <li>
+        <form method="post" action="tbl_properties.php3">
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+
+            <input type="checkbox" name="pack_keys" 
+               <?php echo (isset($pack_keys) && $pack_keys==1) ? ' checked="checked"': ''; ?> />pack_keys <br />
+
+            <input type="checkbox" name="checksum" 
+               <?php echo (isset($checksum) && $checksum==1) ? ' checked="checked"': ''; ?> />checksum <br />
+
+            <input type="checkbox" name="delay_key_write" 
+               <?php echo (isset($delay_key_write) && $delay_key_write==1) ? ' checked="checked"': ''; ?> />delay_key_write 
+            <input type="submit" name="submitoptions" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
+        </form>
+    </li>
+<?php
+}
+
+echo "</ul>\n";
 
 /**
  * Displays the footer

@@ -55,6 +55,18 @@ if (isset($submitorderby) && !empty($order_field)) {
     $local_query = 'ALTER TABLE ' . PMA_backquote($table) . 'ORDER BY ' . $order_field;
     $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
 }
+/**
+ * Update table options
+ */
+if (isset($submitoptions)) {
+    $local_query = 'ALTER TABLE ' . PMA_backquote($table)
+                 . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
+                 . (isset($checksum) ? ' checksum=1': ' checksum=0')
+                 . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0');
+    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+}
+
+
 
 // 1. Get table information
 require('./tbl_properties_table_info.php3');
