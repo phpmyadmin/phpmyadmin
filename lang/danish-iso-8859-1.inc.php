@@ -25,6 +25,7 @@ $strAccessDenied = 'Adgang Nægtet';
 $strAccessDeniedExplanation = 'phpMyAdmin forsøgte at forbinde til MySQL-serveren, og serveren afviste forbindelsen. Du bør tjekke host, brugernavn og kodeord i config.inc.php og sikre dig at de svarer til den information du har fået af administratoren af MySQL-serveren.';
 $strAction = 'Handling';
 $strAddAutoIncrement = 'Tilføj AUTO_INCREMENT værdi';
+$strAddConstraints = 'Tilføj begrænsninger';
 $strAddDeleteColumn = 'Tilføj/Slet felt kolonne';
 $strAddDeleteRow = 'Tilføj/Slet kriterie række';
 $strAddDropDatabase = 'Tilføj DROP DATABASE';
@@ -112,6 +113,7 @@ $strCharsets = 'Karaktersæt';
 $strCharsetsAndCollations = 'Karaktersæt og kollationer (Collations)';
 $strCheckAll = 'Afmærk alt';
 $strCheckDbPriv = 'Tjek database privilegier';
+$strCheckOverhead = 'Markér tabeller med overhead';
 $strCheckPrivs = 'Check Privilegier';
 $strCheckPrivsLong = 'Check privilegier for database &quot;%s&quot;.';
 $strCheckTable = 'Tjek tabel';
@@ -143,6 +145,7 @@ $strCreateNewDatabase = 'Opret ny database';
 $strCreateNewTable = 'Opret ny tabel i database %s';
 $strCreatePage = 'Opret en ny side';
 $strCreatePdfFeat = 'Oprettelse af PDFer';
+$strCreationDates = 'Oprettet/Opdateret/Check datoer';
 $strCriteria = 'Kriterier';
 $strCroatian = 'Kroatisk';
 $strCyrillic = 'Kyrillisk';
@@ -178,6 +181,7 @@ $strDbSpecific = 'database-specifik';
 $strDefault = 'Standardværdi';
 $strDefaultValueHelp = 'For standardværdier, indtast venligst kun en enkelt værdi, uden backslash escaping eller quotes, ud fra følgende format: a';
 $strDelOld = 'Nuværende side har referencer til tabeller der ikke længere eksisterer. Vil du slette disse referencer?';
+$strDelayedInserts = 'Brug forsinkede indsættelser';
 $strDelete = 'Slet';
 $strDeleteAndFlush = 'Slet brugerne og genindlæs privilegier bagefter.';
 $strDeleteAndFlushDescr = 'Dette er den sikreste metode, men genindlæsning af privilegierne kan tage noget tid.';
@@ -222,6 +226,7 @@ $strEnglish = 'Engelsk';
 $strEnglishPrivileges = ' NB: Navne på MySQL privilegier er på engelsk ';
 $strError = 'Fejl';
 $strEstonian = 'Estisk';
+$strExcelEdition = 'Excel-udgave';
 $strExcelOptions = 'Excel-indstillinger';
 $strExecuteBookmarked = 'Udfør forespørgsel iflg. bogmærke';
 $strExplain = 'Forklar SQL';
@@ -349,9 +354,9 @@ $strMIME_description = 'Beskrivelse';
 $strMIME_file = 'Filnavn';
 $strMIME_nodescription = 'Der er ingen beskrivelse af denne transformation.<br />Spørg venligst forfatteren, hvad %s gør.';
 $strMIME_transformation = 'Browser transformation';
-$strMIME_transformation_note = 'For en liste over mulige transformationsindstillinger og deres MIME-type transformationer, klik på %stransformationsbeskrivelser%s';
 $strMIME_transformation_options = 'Transformationsindstillinger';
 $strMIME_transformation_options_note = 'Indtast værdier for transformationsindstillinger ud fra følgende format: \'a\',\'b\',\'c\'...<br />Skulle du få brug for at indsætte en backslash ("\") eller en apostrof ("\'") i værdierne, backslash det (for eksempel \'\\\\xyz\' eller \'a\\\'b\').';
+$strMIME_transformation_note = 'For en liste over mulige transformationsindstillinger og deres MIME-type transformationer, klik på %stransformationsbeskrivelser%s';
 $strMIME_without = 'MIME-typer skrevet med kursiv har ikke en separat transformationsfunktion';
 $strMissingBracket = 'Manglende Bracket';
 $strModifications = 'Rettelserne er gemt!';
@@ -538,6 +543,7 @@ $strRunning = 'kører på %s';
 $strRussian = 'Russisk';
 
 $strSQL = 'SQL';
+$strSQLExportType = 'Eksporttype';
 $strSQLOptions = 'SQL indstillinger';
 $strSQLParserBugMessage = 'Det er muligt at du har fundet en fejl i SQL-parseren. Undersøg venligst din forespørgsel nøje, og check at anførselstegn er rigtige og ikke giver konflikter. Andre fejlårsager kan være at du uploader en fil med binær udenfor et lukket tekstområde. Du kan også prøve din forespørgsel i MySQL kommandolinie-interfacet. MySQL-serverens fejlmelding der følger herunder, hvis der er nogen, kan også hjælpe dig med at finde problemet. HVis du stadig har probemer eller hvis parseren fejler hvor kommandolinieinterfacet lykkes, reducer din SQL-forespørgselsinput til den ene forespørgsel der forårsager problemet, og indsend en fejlrapport med datablokken i KLIP sektionen herunder:';
 $strSQLParserUserError = 'Der ser ud til at være en fejl i din SQL-forespørgsel. MySQL-serverens fejlmelding der følger herunder, hvis der er nogen, kan også hjælpe dig med at finde problemet.';
@@ -638,20 +644,21 @@ $strThisHost = 'Denne Host';
 $strThisNotDirectory = 'Dette var ikke en mappe';
 $strThreadSuccessfullyKilled = 'Tråd %s blev stoppet.';
 $strTime = 'Tid';
+$strToggleScratchboard = 'tegnebræt til/fra';
 $strTotal = 'total';
 $strTotalUC = 'Total';
 $strTraditionalChinese = 'Traditionelt Kinesisk';
 $strTraffic = 'Trafik';
-$strTransformation_image_jpeg__inline = 'Viser et klikbart minibilled; indstillinger: bredde,højde i pixel (bevarer det originale perspektiv)';
+$strTransformation_text_plain__formatted = 'Bevarer original formattering af feltet. Der laves ikke nogen Escaping.';
+$strTransformation_text_plain__unformatted = 'Viser HTML-kode som HTML-enheder. Der vises ingen HTML-formattering.';
 $strTransformation_image_jpeg__link = 'Viser et link til dette billede (f.eks. direkte blob download).';
+$strTransformation_image_jpeg__inline = 'Viser et klikbart minibilled; indstillinger: bredde,højde i pixel (bevarer det originale perspektiv)';
 $strTransformation_image_png__inline = 'Se image/jpeg: inline';
 $strTransformation_text_plain__dateformat = 'Tager et TIME, TIMESTAMP eller DATETIME-felt og formatterer det til dit lokale datoformat. Første parameter er offset (i timer) som lægges til tidsstemplet (Default: 0). Andte parameter er et andet datoformat ud fra PHPs strftime() definition.';
+$strTransformation_text_plain__substr = 'Viser kun en del af en streng. Første parameter er en offset for at definere hvor outputtet af din tekst starter (Default 0). Andet parameter er en offset for hvor meget tekst der returneres. Hvis tom returneres den tilbageværende tekst. Det tredie parameter definerer hvilke karakterer der skal føjes til outputtet når en substring (understreng) returneres (Default: ...) .';
 $strTransformation_text_plain__external = 'KUN LINUX: Starter en ekstern applikation og føder feltdata via standard input. Returnerer standardoutputtet for applikationen. Default er Tidy, for korrekt printet HTML-kode. Af sikkerhedsårsager er du nødt til manuelt at redigere filen libraries/transformations/text_plain__external.inc.php og indsætte de værktøjer du vil tillade kørsel af. Første indstilling er så nummeret på det program du vil bruge og den anden indstilling er parametrene for det program. Tredie parameter, hvis sat til 1 vil konvertere outputtet vha. htmlspecialchars() (Default er 1). Et fjerde parameter, hvis sat til 1 vil sætte et NOWRAP om cellens indhold så hele outputtet bliver vist uden omformattering (Default 1)';
-$strTransformation_text_plain__formatted = 'Bevarer original formattering af feltet. Der laves ikke nogen Escaping.';
 $strTransformation_text_plain__imagelink = 'Viser et billed og et link, feltet indeholder filnavnet; første indstilling er et præfiks som "http://domain.com/", anden indstilling er bredde i pixel, tredie er højden.';
 $strTransformation_text_plain__link = 'Viser et link, feltet indeholder filnavnet; første indstilling er et præfiks som "http://domain.com/", anden indstilling er en titel på linket.';
-$strTransformation_text_plain__substr = 'Viser kun en del af en streng. Første parameter er en offset for at definere hvor outputtet af din tekst starter (Default 0). Andet parameter er en offset for hvor meget tekst der returneres. Hvis tom returneres den tilbageværende tekst. Det tredie parameter definerer hvilke karakterer der skal føjes til outputtet når en substring (understreng) returneres (Default: ...) .';
-$strTransformation_text_plain__unformatted = 'Viser HTML-kode som HTML-enheder. Der vises ingen HTML-formattering.';
 $strTruncateQueries = 'Trunkér viste forespørgsler';
 $strTurkish = 'Tyrkisk';
 $strType = 'Datatype';                
@@ -667,7 +674,7 @@ $strUpdatePrivMessage = 'Du har opdateret privilegierne for %s.';
 $strUpdateProfile = 'Opdater profil:';
 $strUpdateProfileMessage = 'Profilen er blevet opdateret.';
 $strUpdateQuery = 'Opdater forespørgsel';
-$strUpgradeMySQL = 'Du burde opdatere til MySQL %s eller senere.';
+$strUpgrade = 'Du burde opdatere til %s %s eller senere.';
 $strUsage = 'Benyttelse';
 $strUseBackquotes = 'Brug \'backquotes\' på tabellers og felters navne';
 $strUseHostTable = 'Brug Host Tabel';
@@ -709,19 +716,5 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zipped"';
-
-// To translate:
-$strAddConstraints = 'Add constraints';  //to translate
-
-$strCheckOverhead = 'Check overheaded';  //to translate
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
-
-$strDelayedInserts = 'Use delayed inserts';  //to translate
-
-$strExcelEdition = 'Excel edition';  //to translate
-
-$strSQLExportType = 'Export type';  //to translate
-
-$strToggleScratchboard = 'toggle scratchboard';  //to translate
 
 ?>
