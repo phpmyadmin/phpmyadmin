@@ -96,7 +96,7 @@ if (!isset($param) || $param[0] == '') {
             <tr>
                 <th><?php echo $strField; ?></th>
                 <th><?php echo $strType; ?></th>
-                <th><?php echo $strFunc; ?></th>
+                <th><?php echo $strFunction; ?></th>
                 <th><?php echo $strValue; ?></th>
             </tr>
         <?php
