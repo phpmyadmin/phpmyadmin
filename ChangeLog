@@ -16,6 +16,9 @@ $Source$
 	  to be taken right to the edit box after clicking on a "Modify" link.
 	* main.php3: the link to the logout problem with http authentication mode
 	  was also displayed with cookie authentication mode.
+	* libraries/common.lib.php3; libraries/defines.lib.php3: improved OmniWeb
+	  support (default font sizes) thanks to
+	  Christian Schaffner <schaffner at eeh.ee.ethz.ch>.
 
 2001-12-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* read_dump.php3; libraries/build_dump.lib.php3: sending the "fake" header
