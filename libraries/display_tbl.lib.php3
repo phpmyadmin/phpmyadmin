@@ -382,7 +382,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      * @param   array    which elements to display
      * @param   array    the list of fields properties
      * @param   integer  the total number of fields returned by the sql query
-     * @param   string   the url-encoded sql query
      *
      * @return  boolean  always true
      *
@@ -406,7 +405,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *
      * @see     PMA_displayTable()
      */
-    function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $encoded_query = '')
+    function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0)
     {
         global $lang, $server, $db, $table;
         global $goto;
@@ -434,7 +433,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                   . '&amp;server=' . $server
                   . '&amp;db=' . urlencode($db)
                   . '&amp;table=' . urlencode($table)
-                  . '&amp;sql_query=' . $encoded_query
+                  . '&amp;sql_query=' . urlencode($sql_query)
                   . '&amp;pos=' . $pos
                   . '&amp;session_max_rows=' . $session_max_rows
                   . '&amp;pos=' . $pos
@@ -1218,7 +1217,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 <table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
         <?php
         echo "\n";
-        PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $encoded_sql_query);
+        PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt);
         PMA_displayTableBody($dt_result, $is_display);
         // lem9: vertical output case
         if ($disp_direction == 'vertical') {
