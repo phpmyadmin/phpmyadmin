@@ -602,7 +602,7 @@ function PMA_grantOperations($grants)
             <tr>
                 <td colspan="5">
                     <?php echo $GLOBALS['strNewDb'] . "\n"; ?>&nbsp;
-                    <input type="text" name="newdb" value="" onchange="change(this)" />
+                    <input type="text" name="newdb" value="<?php echo (!empty($pma_user)? $pma_user . '%':''); ?>" onchange="change(this)" />
                 </td>
             <tr>
             </table>
