@@ -7,8 +7,9 @@ require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db','table','action','num_fields'));
 
 
-// Get available character sets
+// Get available character sets and storage engines
 require_once('./libraries/mysql_charsets.lib.php');
+require_once('./libraries/storage_engines.lib.php');
 
 ?>
 <?php if ($cfg['CtrlArrowsMoving']) { ?>
@@ -597,16 +598,7 @@ if ($action == 'tbl_create.php') {
         ?>
         <td width="25">&nbsp;</td>
         <td>
-            <select name="tbl_type">
-                <option <?php echo (isset($tbl_type) && $tbl_type == 'Default' ? 'selected="checked"' : ''); ?> value="Default"><?php echo $strDefault; ?></option>
-                <option <?php echo (isset($tbl_type) && $tbl_type == 'MYISAM' ? 'selected="checked"' : ''); ?> value="MYISAM">MyISAM</option>
-                <option <?php echo (isset($tbl_type) && $tbl_type == 'HEAP' ? 'selected="checked"' : ''); ?> value="HEAP">Heap</option>
-                <option <?php echo (isset($tbl_type) && $tbl_type == 'MERGE' ? 'selected="checked"' : ''); ?> value="MERGE">Merge</option>
-                <?php if (isset($tbl_bdb)) { ?><option <?php echo (isset($tbl_type) && $tbl_type == 'BDB' ? 'selected="checked"' : ''); ?> value="BDB">Berkeley DB</option><?php } ?>
-                <?php if (isset($tbl_gemini)) { ?><option <?php echo (isset($tbl_type) && $tbl_type == 'GEMINI' ? 'selected="checked"' : ''); ?> value="GEMINI">Gemini</option><?php } ?>
-                <?php if (isset($tbl_innodb)) { ?><option <?php echo (isset($tbl_type) && $tbl_type == 'INNO DB' ? 'selected="checked"' : ''); ?> value="InnoDB">INNO DB</option><?php } ?>
-                <?php if (isset($tbl_isam)) { ?><option <?php echo (isset($tbl_type) && $tbl_type == 'ISAM' ? 'selected="checked"' : ''); ?> value="ISAM">ISAM</option><?php } ?>
-            </select>
+<?php echo PMA_generateEnginesDropdown('tbl_type', NULL, (isset($tbl_type) ? $tbl_type : NULL), FALSE, 3); ?>
         </td>
         <?php
         if (PMA_MYSQL_INT_VERSION >= 40100) {
