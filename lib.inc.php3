@@ -739,7 +739,7 @@ function show_docu($link) {
   global $cfgManualBase, $strDocu;
 
   if(!empty($cfgManualBase))
-    return("[<a href=\"$cfgManualBase/$link\">$strDocu</a>]");
+    return("[<a href=\"$cfgManualBase/$link\" target=\"mysql_doc\">$strDocu</a>]");
 }
 
 function show_message($message) {
