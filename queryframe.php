@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Gets the variables sent to this script, retains the db name that may have
  * been defined as startup option and include a core library
@@ -36,6 +35,13 @@ require_once('./libraries/header_http.inc.php');
  */
 // Gets the font sizes to use
 PMA_setFontSizes();
+
+/**
+ * Relations
+ */
+require_once('./libraries/relation.lib.php');
+$cfgRelation = PMA_getRelationsParam();
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -198,7 +204,6 @@ if ($server > 0) {
 //    or $cfg['Servers']['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
 if ($num_dbs > 1) {
-
     // Light mode -> beginning of the select combo for databases
     // Note: When javascript is active, the frameset will be changed from
     // within left.php. With no JS (<noscript>) the whole frameset will

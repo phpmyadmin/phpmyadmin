@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * queryframe.php: undefined $cfgRelation, thanks to Michael Keck (mkkeck)
+
 2004-06-15 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
     * config.inc.php, libraries/config_import.lib.php,
