@@ -33,7 +33,8 @@ $Source$
     * libraries/common.lib.php3:
       - Removed check for default tab values: They are already checked in
         config_import.lib.php3;
-      - Corrected config file revison.
+      - Corrected config file revison;
+      - XHTML fixes.
 
 2003-05-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.

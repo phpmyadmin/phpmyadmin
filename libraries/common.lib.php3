@@ -1701,8 +1701,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if ($cfg['LightTabs']) {
                 $out = '';
                 if (strlen($link) > 0) {
-                    $out .= '<a href="' . $link . $sep . $args . '"' . $attr . '>'
-                         .  '<nobr><b>' . $text . '</b></a></nobr>';
+                    $out .= '<nobr><a href="' . $link . $sep . $args . '"' . $attr . '>'
+                         .  '<b>' . $text . '</b></a></nobr>';
                 } else {
                     $out .= '<nobr><b>' . $text . '</b></nobr>';
                 }
@@ -1712,8 +1712,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                          . '<td bgcolor="' . $bgcolor . '" align="center" width="64" nowrap="nowrap" class="tab">'
                          . "\n" . '            ';
                 if (strlen($link) > 0) {
-                    $out .= '<a href="' . $link . $sep . $args . '"' . $attr . '>'
-                         .  '<nobr><b>' . $text . '</b></a></nobr>';
+                    $out .= '<nobr><a href="' . $link . $sep . $args . '"' . $attr . '>'
+                         .  '<b>' . $text . '</b></a></nobr>';
                 } else {
                     $out .= '<nobr><b>' . $text . '</b></nobr>';
                 }
