@@ -141,7 +141,7 @@ $strHostEmpty = 'Il nome di host è vuoto!';
 $strIdxFulltext = 'Testo completo';
 $strIfYouWish = 'Per caricare i dati solo per alcune colonne della tabella, specificare la lista dei campi (separati da virgole).';
 $strIndex = 'Indice';
-$strIndexHasBeenDropped = 'L'indice %s è stato eliminato';
+$strIndexHasBeenDropped = 'L\'indice %s è stato eliminato';
 $strIndexes = 'Indici';
 $strInsert = 'Inserisci';
 $strInsertAsNewRow = 'Inserisci come nuova riga';
@@ -184,6 +184,7 @@ $strNoDropDatabases = 'I comandi "DROP DATABASE" sono disabilitati.';
 $strNoModification = 'Nessun cambiamento';
 $strNoPassword = 'Nessuna Password';
 $strNoPrivileges = 'Nessun Privilegio';
+$strNoQuery = 'Nessuna query SQL!';
 $strNoRights = 'Non hai i permessi per effettuare questa operazione!';
 $strNoTablesFound = 'Non ci sono tabelle nel database.';
 $strNotNumber = 'Questo non è un numero!';
@@ -324,5 +325,7 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strNoQuery = 'No SQL query!';  //to translate
+$strCopyTable = 'Copy table to (database<b>.</b>table):';
+$strMoveTable = 'Move table to (database<b>.</b>table):';
+$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>
