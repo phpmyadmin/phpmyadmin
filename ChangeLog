@@ -9,11 +9,12 @@ $Source$
     * lang/dutch-*.inc.php3: Updates, Thanks again to Ivo Teel.
     * lang/catalan-*.inc.php3:
       - Updates and ortographical corrections, thanks again to
-        Xavier Navarro (xavin).
+        Xavier Navarro (xavin);
       - Removed HTML entities.
     * lang/polish-*.inc.php3: Updates, thanks again to Jakub Wilk (ubanus).
-    * lang/albanian-*.inc.php3: Updates, thanks again to
-      Laurent Dhima (laurenti).
+    * lang/albanian-*.inc.php3:
+      - Updates, thanks again to Laurent Dhima (laurenti);
+      - Removed new line at end of file.
 
 2002-11-05 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/{czech,italian,lithuanian,slovenian,swedish}*.php3: updated
