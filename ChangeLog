@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/korean update, thanks to WooSuhan
+    * lang/estonian update, thanks to finsoft@sourceforge.net.
+    * lang/norwegian: Updated, thanks to Sven-Erik Andersen (sven-erik).
+    * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
+    * lang/slovak update, thanks to Lubos Klokner
+
 2003-05-20 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_change.php3: Fixed table layout when LongtextDoubleTextarea is
       false.
