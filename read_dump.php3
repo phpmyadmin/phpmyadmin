@@ -276,13 +276,52 @@ if ($sql_query != '') {
 
 
 /**
- * Go back to the calling script
+ * MySQL error
  */
-$js_to_run = 'functions.js';
-require('./header.inc.php3');
 if (isset($my_die)) {
+    $js_to_run = 'functions.js';
+    include('./header.inc.php3');
     mysql_die('', $my_die, '', $err_url);
 }
+
+
+/**
+ * Go back to the calling script
+ */
+// Checks for a valid target script
+if (isset($table) && $table == '') {
+    unset($table);
+}
+if (isset($db) && $db == '') {
+    unset($db);
+}
+$is_db = $is_table = FALSE;
+if ($goto == 'tbl_properties.php3') {
+    if (!isset($table)) {
+        $goto     = 'db_details.php3';
+    } else {
+        $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
+        if (!@mysql_numrows($is_table)) {
+            $goto = 'db_details.php3';
+            unset($table);
+        }
+    } // end if... else...
+}
+if ($goto == 'db_details.php3') {
+    if (isset($table)) {
+        unset($table);
+    }
+    if (!isset($db)) {
+        $goto     = 'main.php3';
+    } else {
+        $is_db    = @mysql_select_db($db);
+        if (!$is_db) {
+            $goto = 'main.php3';
+            unset($db);
+        }
+    } // end if... else...
+}
+// Defines the message to be displayed
 if (!empty($id_bookmark) && $action_bookmark == 2) {
     $message   = $strBookmarkDeleted;
 } else if (!isset($sql_query_cpy)) {
@@ -291,6 +330,13 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
     $message   = "$strSuccess&nbsp:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
 } else {
     $message   = $strSuccess;
+}
+// Loads to target script
+if ($goto == 'db_details.php3' || $goto == 'tbl_properties.php3') {
+    $js_to_run = 'functions.js';
+}
+if ($goto != 'main.php3') {
+    include('./header.inc.php3');
 }
 require('./' . $goto);
 ?>

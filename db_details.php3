@@ -26,14 +26,17 @@ $err_url   = 'db_details.php3'
  * Ensures the database exists (else move to the "parent" script) and diplays
  * headers
  */
-// Not a valid db name -> back to the welcome page
-if (!empty($db)) {
-    $is_db = @mysql_select_db($db);
-}
-if (empty($db) || !$is_db) {
-    header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
-    exit();
-}
+if (!isset($is_db) || !$is_db) {
+    // Not a valid db name -> back to the welcome page
+    if (!empty($db)) {
+        $is_db = @mysql_select_db($db);
+    }
+    if (empty($db) || !$is_db) {
+        header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        exit();
+    }
+} // end if (ensures db exists)
+
 // Displays headers
 if (!isset($message)) {
     $js_to_run = 'functions.js';

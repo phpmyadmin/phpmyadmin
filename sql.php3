@@ -263,17 +263,6 @@ else {
 
     // No rows returned -> move back to the calling page
     if ($num_rows < 1 || $is_affected) {
-        if (isset($strYes)) {
-            if (isset($table)
-                && (eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?TABLE[[:space:]]+`?' . $table . '`?[[:space:]]*$', $sql_query))) {
-                unset($table);
-            }
-            if (isset($db)
-                && (eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE[[:space:]]+`?' . $db . '`?[[:space:]]*$', $sql_query))) {
-                unset($db);
-            }
-        }
-
         if ($is_delete) {
             $message = $strDeletedRows . '&nbsp;' . $num_rows;
         } else if ($is_insert) {
@@ -288,9 +277,40 @@ else {
 
         if (file_exists('./' . $goto)) {
             $goto = ereg_replace('\.\.*', '.', $goto);
-            if ($goto == 'db_details.php3' && !empty($table)) {
+            // Checks for a valid target script
+            if (isset($table) && $table == '') {
                 unset($table);
             }
+            if (isset($db) && $db == '') {
+                unset($db);
+            }
+            $is_db = $is_table = FALSE;
+            if ($goto == 'tbl_properties.php3') {
+                if (!isset($table)) {
+                    $goto     = 'db_details.php3';
+                } else {
+                    $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
+                    if (!@mysql_numrows($is_table)) {
+                        $goto = 'db_details.php3';
+                        unset($table);
+                    }
+                } // end if... else...
+            }
+            if ($goto == 'db_details.php3') {
+                if (isset($table)) {
+                    unset($table);
+                }
+                if (!isset($db)) {
+                    $goto     = 'main.php3';
+                } else {
+                    $is_db    = @mysql_select_db($db);
+                    if (!$is_db) {
+                        $goto = 'main.php3';
+                        unset($db);
+                    }
+                } // end if... else...
+            }
+            // Loads to target script
             if ($goto == 'db_details.php3' || $goto == 'tbl_properties.php3') {
                 $js_to_run = 'functions.js';
             }
