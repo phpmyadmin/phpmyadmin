@@ -59,6 +59,9 @@ if ($text_dir == 'ltr') {
     <b><?php echo $strGenTime; ?>:</b> <?php echo PMA_localisedDate(); ?><br />
     <b><?php echo $strGenBy; ?>:</b> phpMyAdmin <?php echo PMA_VERSION; ?><br />
     <b><?php echo $strSQLQuery; ?>:</b> <?php echo htmlspecialchars($full_sql_query); ?>;
+    <?php if (isset($num_rows)) { ?><br />
+    <b><?php echo $strRows; ?>:</b> <?php echo $num_rows; ?>
+    <?php } ?>
 </p>
 
 

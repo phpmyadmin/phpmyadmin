@@ -6,6 +6,7 @@ $Id$
 $Source$
 
 2003-12-11 Garvin Hicking <me@supergarv.de>
+    * header_printview.inc.php: RFE #856503, show number of rows in printview
     * tbl_replace.php, tbl_replace_fields.php: Fixed #857445, #857684
       where non-existant fields caused PHP notices.
   
