@@ -1909,6 +1909,34 @@ Defaults to FALSE (drop-down). <br />
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['NumOperators'] </b>array</dt>
+    <dd>
+        Operators available for search operations on numeric and date fields.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['TextOperators'] </b>array</dt>
+    <dd>
+        Operators available for search operations on character fields.
+        Note that we put <code>LIKE</code> by default instead of 
+        <code>LIKE %...%</code>, to avoid unintended performance problems
+        in case of huge tables.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['EnumOperators'] </b>array</dt>
+    <dd>
+        Operators available for search operations on enum fields.
+        <br /><br />
+    </dd>
+ 
+    <dt><b>$cfg['NullOperators'] </b>array</dt>
+    <dd>
+        Additionnal operators available for search operations when the
+        field can be null.
+        <br /><br />
+    </dd>
+ 
 </dl>
 
 <!-- TRANSFORMATIONS -->
