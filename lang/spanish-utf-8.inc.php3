@@ -270,6 +270,7 @@ $strNoModification = 'Sin cambios';
 $strNoPassword = 'Sin contraseña';
 $strNoPhp = 'Sin código PHP';
 $strNoPrivileges = 'Sin privilegios';
+$strNoQuery = '¡No existe la consulta SQL!';
 $strNoRights = '¡Usted no tiene suficientes privilegios para estar aquí ahora!';
 $strNoTablesFound = 'No se han encontrado tablas en la base de datos.';
 $strNoUsersFound = 'Usuario(s) no encontrado(s).';
@@ -532,8 +533,8 @@ $strZeroRemovesTheLimit = 'Nota: cambiando los parámetros de estas opciones a 0
 $strZip = '"comprimido con zip"';
 // To translate
 
-$strNoQuery = 'No SQL query!'; //to translate
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
 
 $strNoUsersSelected = 'No users selected.'; //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
+
 ?>
