@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-15  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_properties.php3, line 966: the current name of the table is now
+	  displayed in the text box of the "rename table" feature. Thanks to
+	  Cal Henderson for this suggestion.
+	* tbl_change.php3, lines 148-151: displays default values while creating
+	  a new record. Thanks to "pdobrigkeit" for this suggestion.
+
 2001-10-14  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/build_dump.lib.php3, lines 202-203: improved the fix against
 	  the bug #469416 (Dumps with binary data dont work mysql).
