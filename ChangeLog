@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php3: "empty drop-downs" bug, and avoid displaying a
+      drop-down if more than 200 rows in the foreign table
+
 2002-09-11 Loïc Chapeaux  <lolo@phpheaven.net>  and Marc
     * tbl_change.php3: bug 605342, edit fills current time in datetime field
 
