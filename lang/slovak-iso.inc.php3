@@ -1,5 +1,5 @@
 <?php
-/* $Id: slovak-iso.inc.php,v 1.0 2001/07/23 10:20:00 lubos klokner <erkac@vault-tec.sk> */
+/* $Id: slovak-iso.inc.php,v 1.1 2001/07/24 17:15:00 lubos klokner <erkac@vault-tec.sk> */
 
 $charset = "iso-8859-2";
 $left_font_family = "verdana CE, Arial CE, verdana, helvetica, arial, geneva, sans-serif";
@@ -11,8 +11,8 @@ $byteUnits = array("Bajtov", "KB", "MB", "GB");
 
 $strAccessDenied = "Prístup zamietnutý";
 $strAction = "Akcia";
-$strAddDeleteColumn = "Add/Delete Field Columns"; //to translate (tbl_qbe.php3)
-$strAddDeleteRow = "Add/Delete Criteria Row"; //to translate (tbl_qbe.php3)
+$strAddDeleteColumn = "Prida»/Odobra» polia ståpcov";
+$strAddDeleteRow = "Prida»/Odobra» kritéria riadku";
 $strAddNewField = "Prida» nové pole";
 $strAddPriv = "Prida» nové privilégium";
 $strAddPrivMessage = "Privilégium bolo pridané.";
@@ -23,7 +23,7 @@ $strAfter = "Po";
 $strAll = "V¹etko";
 $strAlterOrderBy = "Zmeni» poradie tabuµky podµa";
 $strAnalyzeTable = "Analyzova» tabuµku";
-$strAnd = "And"; //to translate (tbl_qbe.php3)
+$strAnd = "a";
 $strAnIndex = "Bol pridaný index na ";
 $strAny = "Akýkoµvek";
 $strAnyColumn = "Akýkoµvek ståpec";
@@ -32,7 +32,7 @@ $strAnyHost = "Akýkoµvek hostiteµ";
 $strAnyTable = "Akákoµvek tabuµka";
 $strAnyUser = "Akykoµvek pou¾ívateµ";
 $strAPrimaryKey = "Bol pridaný primárny kµúè na ";
-$strAscending = "Ascending"; //to translate (tbl_qbe.php3)
+$strAscending = "Vzostupne"; 
 $strAtBeginningOfTable = "Na zaèiatku tabuµky";
 $strAtEndOfTable = "Na konci tabuµky";
 $strAttr = "Atribúty";
@@ -48,7 +48,7 @@ $strBrowse = "Prechádza»";
 $strBzip = "\"bzipped\"";
 
 $strCantLoadMySQL = "nieje mo¾né nahra» roz¹írenie pre MySQL,<br>prosím skontrolujte konfiguráciu PHP.";
-$strCarriage = "Návrat vozíka (Carriage return): \\r";
+$strCarriage = "Návrat vozíku (Carriage return): \\r";
 $strChange = "Zmeni»";
 $strCheckAll = "Oznaèi» v¹etko";
 $strCheckDbPriv = "Skontrolova» privilégia databázy";
@@ -63,7 +63,7 @@ $strCopyTableOK = "Tabuµka \$table bola skorírovaná do \$new_name.";
 $strCreate = "Vytvori»";
 $strCreateNewDatabase = "Vytvori» novú databázu";
 $strCreateNewTable = "Vytvori» novú tabuµku v databáze ";
-$strCriteria = "Criteria"; //to translate (tbl_qbe.php3)
+$strCriteria = "Kritéria";
 
 $strData = "Dáta";
 $strDatabase = "Databáza ";
@@ -77,7 +77,7 @@ $strDeleteFailed = "Mazanie bolo neúspe¹né!";
 $strDeletePassword = "Zmaza» heslo";
 $strDeleteUserMessage = "Bol zmazaný pou¾ívateµ";
 $strDelPassMessage = "Bolo zmazané heslo pre";
-$strDescending = "Desending"; //to translate (tbl_qbe.php3)
+$strDescending = "Zostupne";
 $strDisableMagicQuotes = "<b>Varovanie:</b> Máte zapnuté magic_quotes_gpc vo Va¹ej konfigurácii PHP. Táto verzia PhpMyAdmin-a nemô¾e funguva» správane s týmto nastavením. Prosím pozrite sa do manuálu konfigurácie PHP ako toto nastavenie zmeni».";
 $strDisplay = "Zobrazi»";
 $strDoAQuery = "Vykona» \"dotaz podµa príkladu\" (wildcard: \"%\")";
@@ -110,7 +110,7 @@ $strFunction = "Funkcia";
 $strGenTime = "Vygenerované:";
 $strGo = "Vykonaj";
 $strGrants = "Privilégia";
-$strGzip = "\"gzipped\"";
+$strGzip = "\"gzip-ované\"";
 
 $strHasBeenAltered = "bola zmenená.";
 $strHasBeenCreated = "bola vytvorená.";
@@ -145,7 +145,7 @@ $strLogin = ""; //to translate, but its not in use ...
 $strLogout = "Odhlási» sa";
 
 $strModifications = "Zmeny boli ulo¾ené";
-$strModify = "Modify"; //to translate (tbl_qbe.php3)
+$strModify = "Zmeni»";
 $strMySQLReloaded = "MySQL znovu-naèítaná.";
 $strMySQLSaid = "MySQL hlási: ";
 $strMySQLShowProcess = "Zobrazi» procesy";
@@ -189,8 +189,8 @@ $strProducedAnError = "vytvoril chybu.";
 $strProperties = "Vlastnosti";
 
 $strQBE = "Dotaz podµa príkladu";
-$strQBEDel = "Del"; //to translate
-$strQBEIns = "Ins"; //to translate
+$strQBEDel = "Zmaza»";
+$strQBEIns = "Vlo¾i»";
 
 $strReadTheDocs = "Èíta» dokumentáciu";
 $strRecords = "Záznamov";
@@ -215,7 +215,7 @@ $strRowsFrom = "riadky zaèínajú od";
 $strRowSize = " Veµkos» riadku ";
 $strRowsStatistic = "©tatistika riadku";
 $strRunning = "be¾i na ";
-$strRunQuery = "Submit Query"; //to translate (tbl_qbe.php3)
+$strRunQuery = "Odo¹li dotaz";
 $strRunSQLQuery = "Spusti» SQL dotaz(y) v databáze ";
 
 $strSave = "Ulo¾i»";
@@ -229,12 +229,12 @@ $strShow = "Ukáza»";
 $strShowingRecords = "Ukáza» záznamy ";
 $strSingly = "(po jednom)";
 $strSize = "Veµkos»";
-$strSort = "Sort"; //to translate (tbl_qbe.php3)
+$strSort = "Triedi»";
 $strSpaceUsage = "Zabrané miesto";
 $strSQLQuery = "SQL dotaz";
 $strStatement = "Údaj";
 $strStrucCSV = "CSV dáta";
-$strStrucData = "¦truktúru a dáta";
+$strStrucData = "©truktúru a dáta";
 $strStrucDrop = "Pridaj 'vyma¾ tabuµku'";
 $strStrucOnly = "Iba ¹truktúru";
 $strSubmit = "Odo¹li";
@@ -245,7 +245,7 @@ $strTable = "tabuµka ";
 $strTableComments = "Komentár k tabuµke";
 $strTableEmpty = "Tabuµka je prázdna!";
 $strTableMaintenance = "Údr¾ba tabuµky";
-$strTableStructure = "¦truktúra tabuµky pre tabuµku";
+$strTableStructure = "©truktúra tabuµky pre tabuµku";
 $strTableType = "Typ tabuµky";
 $strTerminatedBy = "ukonèené";
 $strTextAreaLength = " Toto mo¾no nepojde upravi»,<br> kôli svojej då¾ke ";
@@ -260,13 +260,13 @@ $strUnique = "Unikátny";
 $strUpdatePassMessage = "Bolo zmenené heslo pre pou¾ívateµa";
 $strUpdatePassword = "Zmeni» heslo";
 $strUpdatePrivMessage = "Boli zmenené privilégia pre pou¾ívateµa";
-$strUpdateQuery = "Update Query"; //to translate (tbl_qbe.php3)
+$strUpdateQuery = "Aktualizova» dotaz";
 $strUsage = "Vyu¾itie";
 $strUser = "Pou¾ívateµ";
 $strUserEmpty = "Meno pou¾ívateµa je prázdne!";
 $strUserName = "Meno pou¾ívateµa";
 $strUsers = "Pou¾ívatelia";
-$strUseTables = "Use Tables"; //to translate (tbl_qbe.php3)
+$strUseTables = "Pou¾i» tabuµky";
 
 $strValue = "Hodnota";
 $strViewDump = "Zobrazi» dump (schému) tabuµky";
