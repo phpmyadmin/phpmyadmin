@@ -7,7 +7,8 @@ $Source$
 
 2002-01-20  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3:
-	  - optimized the code a bit;
+	  - optimized the code a bit (build tooltips only if required in light
+	    mode, ...);
 	  - selecting a database in light mode launches the database properties
 	    page at the main frame (both frames changes).
 	* left.js, lines 291-300: fixed CSS problems under NS4 and left frame

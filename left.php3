@@ -217,7 +217,8 @@ if ($num_dbs > 1) {
 
         // Get additional infomation about tables for tooltip
         if ($cfgShowTooltip && PMA_MYSQL_INT_VERSION >= 32303
-            && $num_tables) {
+            && $num_tables
+            && (!$cfgLeftFrameLight || $selected_db == $j)) {
             $tooltip = array();
             $result  = mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
             while ($tmp = mysql_fetch_array($result)) {
@@ -257,8 +258,8 @@ if ($num_dbs > 1) {
 
             <?php
             // Displays the list of tables from the current database
-            for ($j = 0; $j < $num_tables; $j++) {
-                $table = mysql_tablename($tables, $j);
+            for ($t = 0; $t < $num_tables; $t++) {
+                $table = mysql_tablename($tables, $t);
                 echo "\n";
                 ?>
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
@@ -267,7 +268,7 @@ if ($num_dbs > 1) {
         <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[$table]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
                 <?php
-            } // end for $j (tables list)
+            } // end for $t (tables list)
             echo "\n";
             ?>
     </div>
@@ -284,8 +285,8 @@ if ($num_dbs > 1) {
             // Builds the databases' names list
             if (!empty($db_start) && $db == $db_start) {
                 // Gets the list of tables from the current database
-                for ($j = 0; $j < $num_tables; $j++) {
-                    $table      = mysql_tablename($tables, $j);
+                for ($t = 0; $t < $num_tables; $t++) {
+                    $table      = mysql_tablename($tables, $t);
                     $table_list .= '    <nobr><a target="phpmain" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table)) . '&amp;pos=0&amp;goto=tbl_properties.php3">' . "\n";
                     $table_list .= '              <img src="images/browse.gif" border="0" alt="' . $strBrowse . ': ' . $table . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                     if (PMA_USR_BROWSER_AGENT == 'IE') {
@@ -293,7 +294,7 @@ if ($num_dbs > 1) {
                     } else {
                         $table_list .= '          <a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
                     }
-                } // end for $j (tables list)
+                } // end for $t (tables list)
 
                 if (!$table_list) { 
                     $table_list = '    ' . $strNoTablesFound . "\n";
