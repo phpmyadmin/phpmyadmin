@@ -1,8 +1,7 @@
 <?php
 /* $Id$ */
 
-
-$charset = 'iso-8859-2';
+$charset = "iso-8859-2";
 
 $strAccessDenied = "Pøístup odepøen";
 $strAction = "Akce";
@@ -17,7 +16,7 @@ $strAddUserMessage = "U¾ivatel byl pøidán.";
 $strAfter = "Po";
 $strAll = "V¹echno";
 $strAlter = "Zmìnit";
-$strAnalyzeTable = "Analyzovat tabulku"; 
+$strAnalyzeTable = "Analyzovat tabulku";
 $strAnd = ""; //to translate, but its not in use ...
 $strAnIndex = "Byl pøidán index na ";
 $strAny = "Jakýkoliv";
@@ -43,7 +42,7 @@ $strCarriage = "Návrat vozíku (Carriage return): \\r";
 $strChange = "Zmìnit";
 $strCheckAll = "Za¹krtnout v¹e";
 $strCheckDbPriv = "Zkontrolovat privilegia databáze";
-$strCheckTable = "Zkontrolovat tabulku"; 
+$strCheckTable = "Zkontrolovat tabulku";
 $strColumn = "Sloupec";
 $strColumnEmpty = "Jména sloupcù jsou prázdná!";
 $strColumnNames = "Názvy sloupcù";
@@ -59,7 +58,7 @@ $strCriteria = ""; //to translate, but its not in use ...
 $strData = "Data"; //to translate
 $strDatabase = "Databáze ";
 $strDatabases = "databáze";
-$strDataOnly = " Jen data "; 
+$strDataOnly = " Jen data ";
 $strDbEmpty = "Jméno databáze je prázdné!";
 $strDefault = "Vychozí";
 $strDelete = "Smazat";
@@ -69,7 +68,7 @@ $strDeletePassword = "Smazat heslo";
 $strDeleteUserMessage = "Byl smazán u¾ivatel";
 $strDelPassMessage = "Bylo smazáno heslo pro";
 $strDescending = ""; //to translate, but its not in use ...
-$strDisableMagicQuotes = ""; //to translate, but its not in use ...
+$strDisableMagicQuotes = "<b>Warning:</b> You have enabled magic_quotes_gpc in your PHP configuration. This version of PhpMyAdmin cannot work properly with it. Please have a look at the configuration section of the PHP manual for information on how to disable it."; //to translate
 $strDisplay = "Zobraz";
 $strDoAQuery = "Do a \"query by example\" (wildcard: \"%\")"; //to translate
 $strDocu = "Dokumentace";
@@ -98,6 +97,7 @@ $strFixed = "fixed"; //to translate
 $strFormat = "Format"; //to translate
 $strFunction = "Funkce";
 
+$strGenTime = "Generation Time"; //to translate
 $strGo = "Proveï";
 $strGrant = "Pøidìlit práva";
 $strGrantOption = "Pøidìlit práva";
@@ -108,8 +108,8 @@ $strHasBeenCreated = "byla vytvoøena.";
 $strHasBeenDropped = "byla odstranìna.";
 $strHasBeenEmptied = "byla vyprázdnìna.";
 $strHome = "Domu";
-$strHomepageOfficial = " Oficiální stránka phpMyAdmina "; 
-$strHomepageSourceforge = " nová (ale neoficiální) stránka phpMyAdmina "; 
+$strHomepageOfficial = " Oficiální stránka phpMyAdmina ";
+$strHomepageSourceforge = " nová (ale neoficiální) stránka phpMyAdmina ";
 $strHost = "Hostitel";
 $strHostEmpty = "Jméno hostitele je prázdné!";
 
@@ -117,7 +117,7 @@ $strIfYouWish = "Pokud si pøeje¹ natáhnout jenom urèité sloupce z tabulky, speci
 $strIndex = "Index"; //to translate
 $strIndexes = "Indexes"; //to translate
 $strInsert = "Vlo¾it";
-$strInsertAsNewRow = " Vlo¾it jako nový øádek "; 
+$strInsertAsNewRow = " Vlo¾it jako nový øádek ";
 $strInsertIntoTable = "Vlo¾it do tabulky";
 $strInsertNewRow = "Vlo¾it nový øádek";
 $strInsertTextfiles = "Vlo¾it textové soubory do tabulky";
@@ -155,7 +155,7 @@ $strNull = "Nulový";
 $strNumberIndexes = " Number of advanced indexes "; //to translate
 
 $strOftenQuotation = "Èasto uvozující znaky. OPTIONALLY znamená, ¾e pouze pole typu CHAR a VARCHAR jsou uzavøeny do \"uzavíracích \" znakù.";
-$strOptimizeTable = "Optimalizovat tabulku"; 
+$strOptimizeTable = "Optimalizovat tabulku";
 $strOptionalControls = "Volitelné. Urèuje jak zapisovat nebo èíst speciální znaky.";
 $strOptionally = "Volitelnì";
 $strOr = "nebo";
@@ -186,7 +186,7 @@ $strReloadMySQL = "Znovunaètení MySQL";
 $strRememberReload = "Nezapomeòte reloadovat server.";
 $strRenameTable = "Pøejmenovat tabulku na";
 $strRenameTableOK = "Tabulka \$table byla pøejmenována na \$new_name";
-$strRepairTable = "Opravit tabulku"; 
+$strRepairTable = "Opravit tabulku";
 $strReplace = "Pøepsat";
 $strReplaceTable = "Pøepsat data tabulky souborem";
 $strReset = "P§vodní (reset)";
@@ -210,6 +210,7 @@ $strSelectFields = "Zvol pole (alespoò jedno):";
 $strSelectNumRows = "v dotazu";
 $strSend = "Po¹li";
 $strSequence = "Seq."; //to translate
+$strServerVersion = "Server version"; //to translate
 $strShow = "Zobraz";
 $strShowingRecords = "Ukazuji záznamy ";
 $strShutdown = "Ukonèit";
@@ -229,11 +230,11 @@ $strSum = "Sum"; //to translate
 $strTable = "Tabulka ";
 $strTableComments = "Komentáøe k tabulce";
 $strTableEmpty = "Jméno tabulky je prázdné!";
-$strTableMaintenance = " Údr¾ba tabulky "; 
+$strTableMaintenance = " Údr¾ba tabulky ";
 $strTableStructure = "Struktura tabulky pro tabulku";
-$strTableType = "Typ tabulky"; 
+$strTableType = "Typ tabulky";
 $strTerminatedBy = "ukonèen";
-$strTextAreaLength = " Toto pole mo¾ná nepùjde <br>(kvùli délce) upravit "; 
+$strTextAreaLength = " Toto pole mo¾ná nepùjde <br>(kvùli délce) upravit ";
 $strTheContent = "Obsah tvého souboru byl vlo¾en";
 $strTheContents = "Obsah souboru pøepí¹e obsah zvolené tabulky v tìch øádcích, kde je identický primární nebo unikátní klíè.";
 $strTheTerminator = "Ukonèení polí.";
@@ -261,5 +262,8 @@ $strViewDumpDB = "Uka¾ dump (schema) databáze";
 $strWelcome = "Vítej v ";
 $strWrongUser = "©patné u¾ivatelské jméno/heslo. Pøístup odepøen.";
 
-$strYes = "Ano"; 
+$strYes = "Ano";
+
+// automatic generated by langxlorer.php (June 22, 2001, 2:38 pm)
+// V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 ?>

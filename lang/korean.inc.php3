@@ -1,41 +1,73 @@
 <?php
 /* $Id$ */
-/* Translation by SAKAMOTO <info@boreal-net.com> */
 
-
-$charset = 'ks_c_5601-1987';
+$charset = "ks_c_5601-1987";
 
 $strAccessDenied = "접근이 거부되었습니다.";
 $strAction = "실행";
+$strAddDeleteColumn = ""; //to translate, but its not in use ...
+$strAddDeleteRow = ""; //to translate, but its not in use ...
 $strAddNewField = "필드 추가하기";
+$strAddPriv = "Add a new Privilege"; //to translate
+$strAddPrivMessage = "You have added a new privilege."; //to translate
 $strAddSearchConditions = "검색 조건 문법을 추가하십시요. (\"where\" 쿼리문):";
+$strAddUser = "Add a new User"; //to translate
+$strAddUserMessage = "You have added a new user."; //to translate
 $strAfter = "다음에-->";
+$strAll = "All"; //to translate
+$strAlter = "Alter"; //to translate
 $strAnalyzeTable = "테이블 분석";
+$strAnd = ""; //to translate, but its not in use ...
 $strAnIndex = "인덱스를 추가하였습니다. ";
+$strAny = "Any"; //to translate
+$strAnyColumn = "Any Column"; //to translate
+$strAnyDatabase = "Any database"; //to translate
+$strAnyHost = "Any host"; //to translate
+$strAnyTable = "Any table"; //to translate
+$strAnyUser = "Any user"; //to translate
 $strAPrimaryKey = "primary key를 추가 하였습니다 ";
+$strAscending = ""; //to translate, but its not in use ...
 $strAtBeginningOfTable = "테이블의 처음";
 $strAtEndOfTable = "테이블의 마지막";
 $strAttr = "보기";
 
 $strBack = "뒤로";
+$strBookmarkLabel = "Label"; //to translate
+$strBookmarkQuery = "Bookmarked SQL-query"; //to translate
+$strBookmarkThis = "Bookmark this SQL-query"; //to translate
+$strBookmarkView = "View only"; //to translate
 $strBrowse = "보기";
 
 $strCarriage = "캐리지 리턴: \\r";
 $strChange = "변경";
+$strCheckAll = "Check All"; //to translate
+$strCheckDbPriv = "Check Database Privileges"; //to translate
 $strCheckTable = "테이블 체크";
+$strColumn = "Column"; //to translate
+$strColumnEmpty = "The columns names are empty!"; //to translate
 $strColumnNames = "칼럼(列) 이름";
 $strCompleteInserts = "완전한 INSERT문 작성";
+$strConfirm = "Do you really want to do it?"; //to translate
 $strCopyTable = "테이블을 다음에 복사합니다. -->";
 $strCopyTableOK = "\$table 테이블이 \$new_name 으로 복사되었습니다.";
 $strCreate = " 만들기 ";
 $strCreateNewDatabase = "새로운 데이터 베이스를 만듭니다";
 $strCreateNewTable = "현재의 데이터 베이스에 새로운 테이블을 만듭니다. -->";
+$strCriteria = ""; //to translate, but its not in use ...
 
+$strData = "Data"; //to translate
 $strDatabase = "데이터 베이스 ";
 $strDatabases = "데이터 베이스 ";
+$strDataOnly = "Data only"; //to translate
+$strDbEmpty = "The database name is empty!"; //to translate
 $strDefault = "기본값";
 $strDelete = "삭제";
 $strDeleted = "선택한 열을 삭제 하였습니다.";
+$strDeleteFailed = "Deleted Failed!"; //to translate
+$strDeletePassword = "Delete Password"; //to translate
+$strDeleteUserMessage = "You have deleted the user"; //to translate
+$strDelPassMessage = "You have deleted the password for"; //to translate
+$strDescending = ""; //to translate, but its not in use ...
 $strDisableMagicQuotes = "<b>Warning:</b> PHP 'magic_quotes_gpc'가 Enable로 설정되어 있습니다만, 이 버전의 phpMyAdmin에서는 작동하지 않습니다. PHP 매뉴얼을 참조하여 disable로 설정해 주십시요.";
 $strDisplay = "보기";
 $strDoAQuery = "\"QUERY 예(例)\"를 실행 (wildcard: \"%\")";
@@ -44,8 +76,11 @@ $strDoYouReally = "정말로 다음을 실행하시겠습니까? --> ";
 $strDrop = "삭제";
 $strDropDB = "데이터 베이스 삭제 -->";
 $strDumpingData = "테이블의 덤프 데이터";
+$strDynamic = "dynamic"; //to translate
 
 $strEdit = "수정";
+$strEditPrivileges = "Edit Privileges"; //to translate
+$strEffective = "Effective"; //to translate
 $strEmpty = "비우기";
 $strEmptyResultSet = "MySQL 이 빈값을 리턴하였습니다.";
 $strEnableMagicQuotes = "<b>Warning:</b> PHP 'magic_quotes_gpc'이 Enable로 설정되어 있스지 않습니다. phpMyAdmin은 Enable상태에서 정상 작동합니다. PHP 매뉴얼을 참조하여 Enable로 설정해 주십시요.";
@@ -57,9 +92,16 @@ $strExtra = "추가";
 
 $strField = "필드";
 $strFields = "필드";
+$strFile = "File"; //to translate
+$strFixed = "fixed"; //to translate
+$strFormat = "Format"; //to translate
 $strFunction = "함수";
 
+$strGenTime = "Generation Time"; //to translate
 $strGo = "실행";
+$strGrant = "Grant"; //to translate
+$strGrantOption = "Grant Option"; //to translate
+$strGrants = "Grants"; //to translate
 
 $strHasBeenAltered = "을(를) 변경하였습니다.";
 $strHasBeenCreated = "을(를) 작성하였습니다.";
@@ -67,49 +109,69 @@ $strHasBeenDropped = "을(를) 삭제하였습니다.";
 $strHasBeenEmptied = "을(를) 비웠습니다.";
 $strHome = "MainPage";
 $strHomepageOfficial = "phpMyAdmin 홈 페이지";
-$strHomepageSourceforge = "new (but still unofficial) phpMyAdmin Homepage"; // To translate
+$strHomepageSourceforge = "new (but still unofficial) phpMyAdmin Homepage";
 $strHost = "호스트";
+$strHostEmpty = "The host name is empty!"; //to translate
 
 $strIfYouWish = "테이블 열(콜럼)에 데이터를 추가할 때는 필드 리스트를 콤마로 구분해 주십시요. ";
 $strIndex = "인덱스";
+$strIndexes = "Indexes"; //to translate
 $strInsert = "추가";
+$strInsertAsNewRow = "Insert as new row"; //to translate
 $strInsertIntoTable = "테이블에 추가";
 $strInsertNewRow = "새 열에 추가";
 $strInsertTextfiles = "테이블에 텍스트 파일 추가";
+$strInUse = "in use"; //to translate
 
 $strKeyname = "키 이름";
+$strKill = "Kill"; //to translate
 
+$strLength = "Length"; //to translate
 $strLengthSet = "길이/세트";
 $strLimitNumRows = "페이지의 레코드 수";
 $strLineFeed = "개행 문자: \\n";
 $strLines = "줄(行)";
 $strLocationTextfile = "SQL 덤프 데이터 텍스트 파일";
+$strLogin = ""; //to translate, but its not in use ...
 $strLogout = "로그 아웃";
 
 $strModifications = "을 바르게 수정하였습니다.";
+$strModify = ""; //to translate, but its not in use ...
 $strMySQLReloaded = "MySQL을 새로 읽어 들였습니다.";
 $strMySQLSaid = "MySQL 메세지: ";
 $strMySQLShowProcess = "MySQL 프로세스 보기";
 $strMySQLShowStatus = "MySQL 런타임 정보 보기";
 $strMySQLShowVars = "MySQL 시스템 변수 보기";
+
 $strName = "이름";
 $strNext = "다음으로";
 $strNo = " 아니오 ";
+$strNoPassword = "No Password"; //to translate
+$strNoPrivileges = "No Privileges"; //to translate
+$strNoRights = "You don't have enough rights to be here right now!"; //to translate
 $strNoTablesFound = "현재의 DB에는 테이블이 없습니다.";
+$strNoUsersFound = "No user(s) found."; //to translate
 $strNull = "Null";
+$strNumberIndexes = " Number of advanced indexes "; //to translate
 
 $strOftenQuotation = "인용 기호입니다. 옵션은, char 혹은 varchar 필드만이 \" \"로 감싸여진 것을 의미합니다.";
 $strOptimizeTable = "테이블 최적화";
 $strOptionalControls = "특수문자 읽기/쓰기 옵션";
 $strOptionally = "옵션입니다.";
 $strOr = "혹은";
+$strOverhead = "Overhead"; //to translate
 
+$strPassword = "Password"; //to translate
+$strPasswordEmpty = "The password is empty!"; //to translate
+$strPasswordNotSame = "The passwords aren't the same!"; //to translate
 $strPos1 = "처음";
 $strPrevious = "이전으로";
 $strPrimary = "Primary";
 $strPrimaryKey = "Primary 키";
 $strPrinterFriendly = "위 테이블 인쇄용 보기";
 $strPrintView = "인쇄용 보기";
+$strPrivileges = "Privileges"; //to translate
+$strProcess = "Process"; //to translate
 $strProducedAnError = "에러가 발생하였습니다";
 $strProperties = "프로파티";
 
@@ -117,16 +179,29 @@ $strQBE = "예(例)에서 쿼리 실행";
 
 $strReadTheDocs = "문서 읽어 들이기";
 $strRecords = "기록수";
+$strReferences = "References"; //to translate
+$strReload = "Reload"; //to translate
 $strReloadFailed = "MySQL이 읽어 들이기에 실패하였습니다.";
 $strReloadMySQL = "MySQL 다시 읽어 들이기";
+$strRememberReload = "Remember reload the server."; //to translate
 $strRenameTable = "테이블 이름 변경하기";
 $strRenameTableOK = "\$table을(를) \$new_name(으)로 변경하였습니다.";
 $strRepairTable = "테이블 복구";
 $strReplace = "대치(代置)하기";
 $strReplaceTable = "파일로 테이블 대치하기";
 $strReset = "리세트";
+$strReType = "Re-type"; //to translate
+$strRevoke = "Revoke"; //to translate
+$strRevokeGrant = "Revoke Grant"; //to translate
+$strRevokeGrantMessage = "You have revoked the Grant privilege for"; //to translate
+$strRevokeMessage = "You have revoked the privileges for"; //to translate
+$strRevokePriv = "Revoke Privileges"; //to translate
+$strRowLength = "Row length"; //to translate
+$strRows = "Rows"; //to translate
 $strRowsFrom = "개시행";
+$strRowsStatistic = "Row Statistic"; //to translate
 $strRunning = "가 실행중입니다. ";
+$strRunQuery = ""; //to translate, but its not in use ...
 $strRunSQLQuery = "현재의 데이터 베이스에 SQL 쿼리를 실행합니다. -->";
 
 $strSave = "보존";
@@ -134,28 +209,51 @@ $strSelect = "선택";
 $strSelectFields = "필드 선택 (하나 이상):";
 $strSelectNumRows = "쿼리";
 $strSend = "송신";
+$strSequence = "Seq."; //to translate
+$strServerVersion = "Server version"; //to translate
 $strShow = "보기";
 $strShowingRecords = "기록 보기";
+$strShutdown = "Shutdown"; //to translate
+$strSize = "Size"; //to translate
+$strSort = ""; //to translate, but its not in use ...
+$strSpaceUsage = "Space usage"; //to translate
 $strSQLQuery = "실행된 SQL쿼리";
+$strStatement = "Statements"; //to translate
 $strStrucCSV = "CSV 데이터";
 $strStrucData = "구조와 데이터";
 $strStrucDrop = "'drop table' 추가";
 $strStrucOnly = "구조만";
 $strSubmit = "실행";
 $strSuccess = "SQL-query가 바르게 실행되었습니다.";
+$strSum = "Sum"; //to translate
 
 $strTable = "테이블 ";
 $strTableComments = "테이블 설명";
+$strTableEmpty = "The table name is empty!"; //to translate
+$strTableMaintenance = "Table maintenance"; //to translate
 $strTableStructure = "테이블 구조";
 $strTableType = "테이블 타입";
 $strTerminatedBy = "종료 기호";
+$strTextAreaLength = " Because of its length,<br> this field might not be editable "; //to translate
 $strTheContent = "파일의 데이터를 삽입하였습니다.";
 $strTheContents = "파일의 데이터로 선택한 테이블의 primary 혹은 unique 키와 일치하는 열을 대치(代置)시키겠습니다.";
 $strTheTerminator = "필드의 종료 기호 입니다.";
 $strTotal = "합계";
 $strType = "필드 타이프";
 
+$strUncheckAll = "Uncheck All"; //to translate
 $strUnique = "유니크 타이프";
+$strUpdate = "Update"; //to translate
+$strUpdatePassMessage = "You have updated the password for"; //to translate
+$strUpdatePassword = "Update Password"; //to translate
+$strUpdatePrivMessage = "You have updated the privileges for"; //to translate
+$strUpdateQuery = ""; //to translate, but its not in use ...
+$strUsage = "Usage"; //to translate
+$strUser = "User"; //to translate
+$strUserEmpty = "The user name is empty!"; //to translate
+$strUserName = "User name"; //to translate
+$strUsers = "Users"; //to translate
+$strUseTables = ""; //to translate, but its not in use ...
 
 $strValue = "값";
 $strViewDump = "테이블의 덤프(스키마) 데이터 보기";
@@ -166,121 +264,6 @@ $strWrongUser = "유저명 혹은 패스워드가 바르지 않습니다. <br> 접근이 거부되었습�
 
 $strYes = " 예 ";
 
-
-// To translate
-$strAddDeleteColumn = ""; //to translate, but its not in use ...
-$strAddDeleteRow = ""; //to translate, but its not in use ...
-$strAddPriv = "Add a new Privilege";
-$strAddPrivMessage = "You have added a new privilege.";
-$strAddUser = "Add a new User";
-$strAddUserMessage = "You have added a new user.";
-$strAll = "All";
-$strAlter = "Alter";
-$strAnd = ""; //to translate, but its not in use ...
-$strAny = "Any";
-$strAnyColumn = "Any Column";
-$strAnyDatabase = "Any database";
-$strAnyHost = "Any host";
-$strAnyTable = "Any table";
-$strAnyUser = "Any user";
-$strAscending = ""; //to translate, but its not in use ...
-
-$strBookmarkLabel = "Label";
-$strBookmarkQuery = "Bookmarked SQL-query";
-$strBookmarkThis = "Bookmark this SQL-query";
-$strBookmarkView = "View only";
-
-$strCheckAll = "Check All";
-$strCheckDbPriv = "Check Database Privileges";
-$strColumn = "Column";
-$strColumnEmpty = "The columns names are empty!";
-$strConfirm = "Do you really want to do it?";
-$strCriteria = ""; //to translate, but its not in use ...
-
-$strData = "Data";
-$strDataOnly = "Data only"; 
-$strDbEmpty = "The database name is empty!";
-$strDeleteFailed = "Deleted Failed!";
-$strDeletePassword = "Delete Password";
-$strDeleteUserMessage = "You have deleted the user";
-$strDelPassMessage = "You have deleted the password for";
-$strDescending = ""; //to translate, but its not in use ...
-$strDynamic = "dynamic";
-
-$strEditPrivileges = "Edit Privileges";
-$strEffective = "Effective";
-
-$strFile = "File";
-$strFixed = "fixed";
-$strFormat = "Format";
-
-$strGrant = "Grant";
-$strGrantOption = "Grant Option";
-$strGrants = "Grants";
-
-$strHostEmpty = "The host name is empty!";
-
-$strIndexes = "Indexes";
-$strInsertAsNewRow = "Insert as new row"; 
-$strInUse = "in use";
-
-$strKill = "Kill";
-
-$strLogin = ""; //to translate, but its not in use ...
-$strLength = "Length";
-
-$strModify = ""; //to translate, but its not in use ...
-
-$strNoPassword = "No Password";
-$strNoPrivileges = "No Privileges";
-$strNoRights = "You don't have enough rights to be here right now!";
-$strNoUsersFound = "No user(s) found.";
-$strNumberIndexes = " Number of advanced indexes ";
-
-$strOverhead = "Overhead";
-
-$strPassword = "Password";
-$strPasswordEmpty = "The password is empty!";
-$strPasswordNotSame = "The passwords aren't the same!";
-$strPrivileges = "Privileges";
-$strProcess = "Process";
-
-$strReferences = "References";
-$strReload = "Reload";
-$strRememberReload = "Remember reload the server.";
-$strReType = "Re-type";
-$strRevoke = "Revoke";
-$strRevokeGrant = "Revoke Grant";
-$strRevokeGrantMessage = "You have revoked the Grant privilege for";
-$strRevokeMessage = "You have revoked the privileges for";
-$strRevokePriv = "Revoke Privileges";
-$strRowLength = "Row length";
-$strRows = "Rows";
-$strRowsStatistic = "Row Statistic";
-$strRunQuery = ""; //to translate, but its not in use ...
-
-$strSequence = "Seq.";
-$strSize = "Size";
-$strSort = ""; //to translate, but its not in use ...
-$strSpaceUsage = "Space usage";
-$strShutdown = "Shutdown";
-$strStatement = "Statements";
-$strSum = "Sum";
-
-$strTableEmpty = "The table name is empty!";
-$strTableMaintenance = " Table maintenance "; 
-$strTextAreaLength = " Because of its length,<br> this field might not be editable "; 
-
-$strUncheckAll = "Uncheck All";
-$strUpdate = "Update";
-$strUpdatePassMessage = "You have updated the password for";
-$strUpdatePassword = "Update Password";
-$strUpdatePrivMessage = "You have updated the privileges for";
-$strUpdateQuery = ""; //to translate, but its not in use ...
-$strUsage = "Usage";
-$strUser = "User";
-$strUserEmpty = "The user name is empty!";
-$strUserName = "User name";
-$strUsers = "Users";
-$strUseTables = ""; //to translate, but its not in use ...
+// automatic generated by langxlorer.php (June 22, 2001, 2:38 pm)
+// V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 ?>
