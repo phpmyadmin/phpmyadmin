@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-30  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/norwegian.inc.php3 updates, thanks to Sven-Erik Andersen 
+
 2001-08-30  Olivier Müller  <om@omnis.ch>
 	* lib.inc.php3: now calls show_table_navigation() even if
 	  $SelectNumRows is = 1.
