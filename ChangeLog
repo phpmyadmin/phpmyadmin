@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-23  Olivier Müller  <om@omnis.ch>
+	* lib.inc.php3: don't add a "/" to $cfgPmaAbsoluteUri if it's empty!	
+
 2001-08-22  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* config.inc.php3: $cfgServers[1]['connect_type'] preferred connection type
 	* lib.inc.php3 - line 285: $cfgServer['connect_type'] implemented

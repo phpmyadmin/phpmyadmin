@@ -95,7 +95,7 @@ if (!defined('__LIB_INC__')){
     }
     // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
     // exist
-    if (substr($cfgPmaAbsoluteUri, -1) != '/') {
+    if ($cfgPmaAbsoluteUri != '' && substr($cfgPmaAbsoluteUri, -1) != '/') {
         $cfgPmaAbsoluteUri .= '/';
     }
     include('./defines.inc.php3');
