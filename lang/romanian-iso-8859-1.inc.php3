@@ -62,6 +62,7 @@ $strBookmarkView = 'Numai vizualizare';
 $strBrowse = 'Navigare';
 $strBzip = '"bzipped"';
 
+$strCannotLogin = 'Nu pot face conexiunea catre serverul MySQL';
 $strCantLoadMySQL = 'extensia MySQL nu se incarca,<br />va rugam verificati configuratia PHP.';
 $strCantLoadRecodeIconv = 'Nu pot incarca extensia iconv sau recode necesar pentru conversia de caractere, configureaza PHP pentru a permite folosirea acestor extensii sau dezactiveaza conversia de caractere din phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Nu poti redenumi index-ul la un nume PRIMARY!';
@@ -253,6 +254,7 @@ $strNotValidNumber = 'Nu este un numar valid de linie!';
 $strNull = 'Nul';
 $strNumSearchResultsInTable = '%s rezultat(e) in interiorul tabelei <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> rezultat(e)';
+$strNumTables = 'Tabele';
 
 $strOK = 'E bine';
 $strOftenQuotation = 'Adesea ghilimele. OPTIONAL inseamna ca numai campurile char si varchar sunt incluse intre caracterele "incadrat intre".';
@@ -301,6 +303,7 @@ $strRecords = 'Inregistrari';
 $strReferentialIntegrity = 'Verificarea integritatii referentiei:';
 $strRelationNotWorking = 'Optiunile aditionale pentru folosirea tabelelor intercalate (legate intre ele) au fost dezactivate. Pentru a afla de ce ...  %shere%s.';
 $strRelationView = 'Vizualizare relationala';
+$strRelationalSchema = 'Schema relationala';
 $strReloadFailed = 'Reincarcare MySQL nereusita.';
 $strReloadMySQL = 'Reincarcare MySQL';
 $strRememberReload = 'Nu uitati sa reincarcati serverul.';
@@ -392,6 +395,7 @@ $strTableHasBeenDropped = 'Tabelul %s a fost aruncat';
 $strTableHasBeenEmptied = 'Tabelul %s a fost golit';
 $strTableHasBeenFlushed = 'Tabelul %s a fost curatat';
 $strTableMaintenance = 'Administrare tabel';
+$strTableOfContents = 'Sumar';
 $strTableStructure = 'Structura de tabel pentru tabelul';
 $strTableType = 'Tipul tabelului';
 $strTables = '%s tabele';
@@ -400,6 +404,7 @@ $strTheContent = 'Continutul fisierului dumneavoastra a fost inserat.';
 $strTheContents = 'Continutul acestui fisier inlocuieste continutul tabelului selectat pentru liniile cu cheie primara identica.';
 $strTheTerminator = 'Terminatorul campurilor.';
 $strTotal = 'total';
+$strTotalUC = 'Total';
 $strType = 'Tip';
 
 $strUncheckAll = 'Deselecteaza toate';
@@ -432,11 +437,6 @@ $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
 $strYes = 'Da';
 
 $strZip = '"arhivat"';
-
 // To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
+
 ?>

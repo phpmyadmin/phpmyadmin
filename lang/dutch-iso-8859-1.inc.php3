@@ -66,6 +66,7 @@ $strBookmarkView = 'Alleen bekijken';
 $strBrowse = 'Verkennen';
 $strBzip = '"ge-bzipt"';
 
+$strCannotLogin = 'Kan niet inloggen op de MySQL server';
 $strCantLoadMySQL = 'kan de MySQL extensie niet laden,<br />controleer de PHP configuratie.';
 $strCantLoadRecodeIconv = 'Kan iconv of recode extenties niet laden die nodig zijn voor de Karakterset conversie, configureer php om deze extensies toe te laten of schakel Karakterset conversie uit in phpMyAdmin';
 $strCantRenameIdxToPrimary = 'Kan index niet naar PRIMARY hernoemen';
@@ -306,6 +307,7 @@ $strRecords = 'Records';
 $strReferentialIntegrity = 'Controleer referentiële integriteit';
 $strRelationNotWorking = 'Extra opties om met tabellen te werken die gelinked zijn, zijn uitgeschakeld. Om te weten te komen waarom klik %shier%s.';
 $strRelationView = 'Relatie overzicht';
+$strRelationalSchema = 'Relationeel schema';
 $strReloadFailed = 'Opnieuw laden van MySQL mislukt.';
 $strReloadMySQL = 'MySQL opnieuw laden.';
 $strRememberReload = 'Vergeet niet de server opnieuw te starten.';
@@ -397,6 +399,7 @@ $strTableHasBeenDropped = 'Tabel %s is vervallen';
 $strTableHasBeenEmptied = 'Tabel %s is leeg gemaakt';
 $strTableHasBeenFlushed = 'Tabel %s is geschoond';
 $strTableMaintenance = 'Tabel onderhoud';
+$strTableOfContents = 'Inhoudsopgave'; 
 $strTableStructure = 'Tabel structuur voor tabel';
 $strTableType = 'Tabel type';
 $strTables = '%s tabel(len)';
@@ -440,7 +443,4 @@ $strYes = 'Ja';
 $strZip = '"Gezipt"';
 // To translate
 
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
 ?>
