@@ -430,7 +430,7 @@ if (empty($cfgLang)) {
     echo "\n";
 
     /**
-     * Compares values of keys and sorts them
+     * Sorts available languages by their true names
      *
      * @param	array	the array to be sorted
      * @param	mixed	a required parameter
