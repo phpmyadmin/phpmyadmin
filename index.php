@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Gets core libraries and defines some variables
  */
@@ -12,6 +11,20 @@ require_once('./libraries/common.lib.php');
  * Includes the ThemeManager if it hasn't been included yet
  */
 require_once('./libraries/select_theme.lib.php');
+
+/**
+ * Saves collation_connection (coming from main.php) in a cookie
+ */
+
+// (from grab_globals)
+if (isset($collation_connection)) {
+    if (!isset($pma_uri_parts)) {
+        $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
+        $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
+        $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
+    }
+    setcookie('pma_collation_connection', $collation_connection, time() + 60*60*24*30, $cookie_path, '', $is_https);
+}
 // Gets the default font sizes
 PMA_setFontSizes();
 

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * index.php, libraries/common.lib.php: bug 1006011: now we save
+      the chosen connection collation into a cookie
+
 2004-08-25 Michal Čihař  <michal@cihar.com>
     * main.php: Don't show port after verbose name (bug #1013401).
 

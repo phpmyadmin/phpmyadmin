@@ -347,6 +347,15 @@ if (!is_dir($pmaThemeImage)) {
 }
 // end theme manager
 
+/**
+ * collation_connection
+ */
+ // (could be improved by executing it after the MySQL connection only if
+ //  PMA_MYSQL_INT_VERSION >= 40100 )
+if (isset($_COOKIE) && !empty($_COOKIE['pma_collation_connection']) && empty($_POST['collation_connection'])) {
+    $collation_connection = $_COOKIE['pma_collation_connection'];
+}
+
 
 if ($is_minimum_common == FALSE) {
     /**
