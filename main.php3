@@ -205,7 +205,7 @@ if ($server > 0
                     break;
                 }
             }
-            mysql_free_result($tables);
+            mysql_free_result($rs_usr);
         }
         // The user is allowed to create a db
         if ($create) {

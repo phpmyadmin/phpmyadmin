@@ -453,7 +453,7 @@ if ($index_count > 0) {
     echo "\n";
     ?>
         </table>
-        <?php echo show_docu('manual_Performance.html#MySQL_indexes') . "\n"; ?>
+        <?php echo show_docu('manual_MySQL_Optimization#MySQL_indexes') . "\n"; ?>
     </td>
     <?php
 }
