@@ -2520,7 +2520,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <p>
     The following method is preferred for new developers:
 </p>
-<ul>
+<ol>
     <li>
         fetch the current CVS tree over anonymous CVS:<br />
         <tt>cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login</tt><br />
@@ -2536,7 +2536,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         the
         <a href="http://sourceforge.net/projects/phpmyadmin/" target="_blank">phpMyAdmin SourceForge account</a>.
     </li>
-</ul>
+</ol>
 <p>
     Write access to the CVS tree is granted only to experienced developers who
     have already contributed something useful to phpMyAdmin.<br />
@@ -2595,34 +2595,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         If you want to be really helpful, write an entry for the ChangeLog.
     </li>
 </ul>
-
-<p>
-    IMPORTANT: With 1.4.1, development has switched to CVS. The following
-    method is preferred for new developers:
-</p>
-<ul>
-    <li>
-        fetch the current CVS tree over anonymous CVS:<br />
-        <tt>cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login</tt><br />
-        [Password: simply press the Enter key]<br />
-        <tt>cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin checkout phpMyAdmin</tt><br />
-        [This will create a new sub-directory named phpMyAdmin]
-    </li>
-    <li>
-        add your stuff
-    </li>
-    <li>
-        put the modified files (tar'ed and gzip'ed) inside the patch tracker
-        of the phpMyAdmin SourceForge account
-        (<a href="http://sourceforge.net/projects/phpmyadmin/" target="_blank">http://sourceforge.net/projects/phpmyadmin/</a>)
-    </li>
-</ul>
-<p>
-    Write access to the CVS tree is granted only to developers who have already
-    contributed something useful to phpMyAdmin.  If you're interested in that,
-    please contact us using the phpmyadmin-devel mailing list.
-</p>
-
 
 <!-- CREDITS -->
 <a name="credits"></a><br />

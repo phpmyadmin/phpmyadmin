@@ -5,8 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-01 Robin Johnson  <robbat2@users.sourceforge.net>
+    * R.I.P.: --- On Feb. 1, 2003, the Space Shuttle Columbia (STS-107) was lost during its
+    re-entry into Earth's atmosphere. In memory of the brave men and women who
+    gave their lives for the people of Earth. ---
+    * Documentation.html: Removed a bit of duplication in [7.4] and the
+    Developers section
+
 2003-02-01 Michal Cihar  <nijel@users.sourceforge.net>
-    * Documentation.*, translators.html, docs.css: New documentation layout.
+    * Documentati-on.*, translators.html, docs.css: New documentation layout.
     * scripts/create-release.sh: Added --dont_wrap_pre to lynx parameters.
 
 2003-02-01 Marc Delisle  <lem9@users.sourceforge.net>
