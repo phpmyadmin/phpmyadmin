@@ -60,7 +60,7 @@ var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '
 </script>
 <script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
     <?php
-} else if (isset($js_to_run) && $js_to_run == 'user_details.js') {
+} else if (isset($js_to_run) && $js_to_run == 'user_password.js') {
     echo "\n";
     ?>
 // js form validation stuff
@@ -70,7 +70,7 @@ var jsPasswordEmpty   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPassw
 var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordNotSame']); ?>';
 //-->
 </script>
-<script src="libraries/user_details.js" type="text/javascript" language="javascript"></script>
+<script src="libraries/user_password.js" type="text/javascript" language="javascript"></script>
     <?php
 } else if (isset($js_to_run) && $js_to_run == 'server_privileges.js') {
     echo "\n";

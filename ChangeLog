@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * user_password.php3, header.inc.php3, libraries/user_password.js:
+      put back js functions for user password change (= old user_details.js)
+
 2003-03-15 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3: Automatic layout of tables on the schema
 
