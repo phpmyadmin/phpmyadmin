@@ -73,6 +73,7 @@ $strChoosePage = 'Selecteaza o pagina pentru a fi editata';
 $strColumn = 'Coloana';
 $strColumnNames = 'Numele coloanelor';
 $strCompleteInserts = 'Rezolva inserarea';
+$strConfigFileError = 'phpMyAdmin nu poate citi corect fisierul de configuratie!  <br />Acesta se poate intampla in cazul in care PHP nu poate gasi fisierul sau nu o poate parsa corect.  <br />Vezi configuratia fisierului apasand pe linkul de mai jos si citeste cu atentie erorile aparute ...  In cele mai multe cazuri lipsesc apostroful sau ghilimele.<br />Daca primesti o pagina goala, totul pare sa fie bine.';
 $strConfigureTableCoord = 'Configureaza coordonatelepentru tabela %s';
 $strConfirm = 'Sunteti sigur ca doriti sa continuati?';
 $strCookiesRequired = 'Trebuie sa aveti activat "cookies".';
@@ -221,6 +222,7 @@ $strNoQuery = 'Nu exista cerere SQL!';
 $strNoRights = 'Nu detineti drepturi de acces pentru a va afla aici!';
 $strNoTablesFound = 'Nu s-a gasit nici un tabel in baza de date.';
 $strNotNumber = 'Acesta nu este un numar!';
+$strNotSet = '<b>%s</b> tabela nu a fost gasita sau nu este setat in %s';
 $strNotValidNumber = 'Nu este un numar valid de linie!';
 $strNoUsersFound = 'Nu s-a gasit nici un utilizator.';
 $strNull = 'Nul';
@@ -391,9 +393,7 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 
 // To translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
 
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 $strMissingBracket = 'Missing Bracket';  //to translate
 $strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
