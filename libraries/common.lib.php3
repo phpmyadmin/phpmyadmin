@@ -136,7 +136,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     include('./libraries/defines.lib.php3');
 
     // For compatibility with old config.inc.php3
-    if (!isset($cfg['FileRevision']) || (int)substr($cfg['FileRevision'],13,3) < 113) {
+    if (!isset($cfg['FileRevision']) || (int)substr($cfg['FileRevision'],13,3) < 116) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -504,7 +504,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
          // We display the warning by default, but not if it is disabled thru
          // via the $cfg['PmaAbsoluteUri_DisableWarning'] variable.
-         // This is intended for sysadmins that actually want the default behaviour 
+         // This is intended for sysadmins that actually want the default behaviour
          // of auto-detection due to their setup.
          // See the mailing list message:
          // http://sourceforge.net/mailarchive/forum.php?thread_id=859093&forum_id=2141

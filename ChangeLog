@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
+      compatibility for $cfg['PmaAbsoluteUri_DisableWarning'].
+
 2002-07-04 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3, libraries/common.lib.php3:
       Code for $cfg['PmaAbsoluteUri_DisableWarning']
