@@ -40,6 +40,7 @@ if (isset($sql_query)) {
     
     function hide_them_all() {
         gE("csv_options").style.display = 'none';
+        gE("excel_options").style.display = 'none';
         gE("latex_options").style.display = 'none';
         gE("sql_options").style.display = 'none';
         gE("none_options").style.display = 'none';
@@ -72,7 +73,7 @@ if (isset($sql_query)) {
             <br /><br />
 
             <!-- Excel CSV -->
-            <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if(this.checked) { hide_them_all(); gE('none_options').style.display = 'block'; }; return true" />
+            <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if(this.checked) { hide_them_all(); gE('excel_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_excel"><?php echo $strStrucExcelCSV; ?></label>
             <br /><br />
             <!-- General CSV -->
@@ -185,9 +186,19 @@ echo "\n";
                      </legend>
                      <input type="checkbox" name="ltx_showcolumns" value="yes" id="ch_ltx_showcolumns" checked="checked" />
                      <label for="ch_ltx_showcolumns"><?php echo $strColumnNames; ?></label><br />
+                    <table border="0" cellspacing="1" cellpadding="0">
+                        <tr>
+                            <td>
+                                <?php echo $strReplaceNULLBy; ?>&nbsp;
+                            </td>
+                            <td>
+                                <input type="text" name="ltx_replace_null" size="20" value="\textit{NULL}" class="textfield" />
+                            </td>
+                        </tr>
+                    </table>
                  </fieldset>
              </fieldset>
-             
+            
              <!-- CSV options -->
             <fieldset id="csv_options">
                 <legend><?php echo $strCSVOptions; ?></legend>
@@ -224,9 +235,32 @@ echo "\n";
                             <input type="text" name="add_character" size="2" value="<?php echo ((PMA_whichCrlf() == "\n") ? '\n' : '\r\n'); ?>" class="textfield" />
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <?php echo $strReplaceNULLBy; ?>&nbsp;
+                        </td>
+                        <td>
+                            <input type="text" name="csv_replace_null" size="20" value="NULL" class="textfield" />
+                        </td>
+                    </tr>
                 </table>
                 <input type="checkbox" name="showcsvnames" value="yes" id="checkbox_dump_showcsvnames" />
                 <label for="checkbox_dump_showcsvnames"><?php echo $strPutColNames; ?></label>
+            </fieldset>
+            
+            <!-- Excel options -->
+            <fieldset id="excel_options">
+                <legend><?php echo $strExcelOptions; ?></legend>
+                <table border="0" cellspacing="1" cellpadding="0">
+                    <tr>
+                        <td>
+                            <?php echo $strReplaceNULLBy; ?>&nbsp;
+                        </td>
+                        <td>
+                            <input type="text" name="excel_replace_null" size="20" value="NULL" class="textfield" />
+                        </td>
+                    </tr>
+                </table>
             </fieldset>
             
             <fieldset id="none_options">
@@ -235,16 +269,15 @@ echo "\n";
 
             <script type="text/javascript">
             <!--
-                gE('csv_options').style.display = 'none';
-                gE('latex_options').style.display = 'none';
-                gE('sql_options').style.display = 'none';
-                gE('none_options').style.display = 'none';
+                hide_them_all();
                 if (document.getElementById('radio_dump_sql').checked) {
                     gE('sql_options').style.display = 'block';
                 } else if (document.getElementById('radio_dump_latex').checked) {
                     gE('latex_options').style.display = 'block';
                 } else if (document.getElementById('radio_dump_csv').checked) {
                     gE('csv_options').style.display = 'block';
+                } else if (document.getElementById('radio_dump_excel').checked) {
+                    gE('excel_options').style.display = 'block';
                 } else {
                     gE('none_options').style.display = 'block';
                 }

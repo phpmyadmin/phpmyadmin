@@ -14,6 +14,9 @@ $Source$
     * scripts/create-release.sh: Better checking for input, exit when cvs
       doesn't work, don't include CVS and .cvsignore in tarballs, don't chmod
       everything to 775.
+    * libraries/build_dump.lib.php3, libraries/display_export.lib.php3,
+      tbl_dump.php3, lang/*: Allow to replace "NULL" with alternative string
+      (RFE #747343).
 
 2003-06-02 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.1 released

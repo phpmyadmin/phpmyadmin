@@ -577,7 +577,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @access  public
      */
-    function PMA_getTableCsv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $esc_by, $handler, $error_url, $sql_query)
+    function PMA_getTableCsv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $esc_by, $null_replace, $handler, $error_url, $sql_query)
     {
         global $what;
 
@@ -647,7 +647,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $schema_insert = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {
-                    $schema_insert .= 'NULL';
+                    $schema_insert .= $null_replace;
                 }
                 else if ($row[$j] == '0' || $row[$j] != '') {
                     // loic1 : always enclose fields
@@ -766,7 +766,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @access  public
      */
-   function PMA_getTableLaTeX($db, $table, $limit_from, $limit_to, $crlf, $do_columns, $error_url, $sql_query) {
+   function PMA_getTableLaTeX($db, $table, $limit_from, $limit_to, $crlf, $null_replace, $do_columns, $error_url, $sql_query) {
 
         $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
@@ -823,13 +823,15 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                     for($k=0;$k<count($tex_escape);$k++) {
                         $column_value = str_replace($tex_escape[$k], '\\' . $tex_escape[$k], $column_value);
                     }
+                } else {
+                    $column_value = $null_replace;
+                }
 
-                    // last column ... no need for & character
-                    if($i == ($columns_cnt - 1)) {
-                        $buffer .= $column_value;
-                    } else {
-                        $buffer .= $column_value . " & ";
-                    }
+                // last column ... no need for & character
+                if($i == ($columns_cnt - 1)) {
+                    $buffer .= $column_value;
+                } else {
+                    $buffer .= $column_value . " & ";
                 }
             }
             $buffer .= ' \\\\ \\hline ' . $crlf;

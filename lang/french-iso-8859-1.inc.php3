@@ -641,4 +641,6 @@ $strZip = '"zippé"';
 // To translate
 
 $strExecuteBookmarked = 'Execute bookmarked query';  //to translate
+$strExcelOptions = 'Excel options';  //to translate
+$strReplaceNULLBy = 'Replace NULL by';  //to translate
 ?>

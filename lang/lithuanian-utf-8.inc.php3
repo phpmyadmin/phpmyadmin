@@ -642,4 +642,6 @@ $strLoadExplanation = 'The best method is checked by default, but you can change
 $strLoadMethod = 'LOAD method'; //to translate
 
 $strExecuteBookmarked = 'Execute bookmarked query';  //to translate
+$strExcelOptions = 'Excel options';  //to translate
+$strReplaceNULLBy = 'Replace NULL by';  //to translate
 ?>

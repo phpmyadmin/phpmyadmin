@@ -183,7 +183,7 @@ else {
         $use_comments_work = false;
     }
 
-    if ($what != 'csv' &&  $what != 'excel' && $what != 'xml' && $what != 'latex') {
+    if ($what == 'sql') {
         $dump_buffer       .= '# phpMyAdmin MySQL-Dump' . $crlf
                            .  '# version ' . PMA_VERSION . $crlf
                            .  '# http://www.phpmyadmin.net/ (download page)' . $crlf
@@ -339,7 +339,7 @@ else {
                        );
                 }
                 if (isset($ltx_data) && $sql_data == 'data') {
-                    $dump_buffer .= PMA_getTableLaTeX($db, $table, $limit_from, $limit_to, $crlf, isset($ltx_showcolumns) && $ltx_showcolumns == 'yes', $err_url, (isset($sql_query)?urldecode($sql_query):''));
+                    $dump_buffer .= PMA_getTableLaTeX($db, $table, $limit_from, $limit_to, $crlf, $ltx_replace_null, isset($ltx_showcolumns) && $ltx_showcolumns == 'yes', $err_url, (isset($sql_query)?urldecode($sql_query):''));
                 }
             }
             $i++;
@@ -377,7 +377,7 @@ else {
             if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
                 || (!isset($tmp_select) && !empty($table))) {
                 $tmp_buffer = '';
-                $dump_buffer .= PMA_getTableCsv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'PMA_myCsvHandler', $err_url, (isset($sql_query)?urldecode($sql_query):''));
+                $dump_buffer .= PMA_getTableCsv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, $what == 'excel' ? $excel_replace_null : $csv_replace_null, 'PMA_myCsvHandler', $err_url, (isset($sql_query)?urldecode($sql_query):''));
                 $dump_buffer .= $tmp_buffer;
             }
             $i++;
