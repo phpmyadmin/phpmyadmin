@@ -88,19 +88,22 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
     while (false !== ($PMA_Theme = readdir($handleThemes))) {  // get screens
         if ($PMA_Theme != "." && $PMA_Theme != "..") {
             $screen_directory = $path_to_themes . $PMA_Theme;
-            
+
             // check for theme requires/name
-            unset($theme_name, $theme_version);
+            unset($theme_name, $theme_generation, $theme_version);
             @include($path_to_themes . $PMA_Theme . '/info.inc.php');
-            
+
             // did it set correctly?
-            if (!isset($theme_name, $theme_version))
+            if (!isset($theme_name, $theme_generation, $theme_version))
                 continue; // invalid theme
-                
+
+            if ($theme_generation != PMA_THEME_GENERATION)
+                continue; // different generation
+
             if ($theme_version < PMA_THEME_VERSION)
                 continue; // too old version
-            
-                
+
+
             if (is_dir($screen_directory) && @file_exists($screen_directory.'/screen.png')) { // if screen exists then output
         ?>
         <tr>
@@ -116,7 +119,7 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
                 <!--
                     document.write('<a href="#top" onclick="takeThis(\'<?php echo $PMA_Theme; ?>\'); return false;">');
                     document.write('<img src="<?php echo $screen_directory; ?>/screen.png" border="1" ');
-                    if (document.getElementById) { 
+                    if (document.getElementById) {
                         document.write('style="border: 1px solid #000000;" ');
                     }
                     document.write('alt="<?php echo htmlspecialchars(addslashes($theme_name)); ?> - Theme" ');
@@ -137,11 +140,11 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
         <tr>
             <td><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td>
         </tr>
-<?php   
+<?php
             } // end 'screen output'
         } // end 'check theme'
     } // end 'get screens'
-    closedir($handleThemes); 
+    closedir($handleThemes);
 } // end 'open themes'
 ?>
     </table>

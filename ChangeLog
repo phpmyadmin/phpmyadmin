@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-14 Michal Čihař  <michal@cihar.com>
+    * themes.php, libraries/common.lib.php, libraries/defines.lib.php,
+      libraries/select_theme.lib.php, themes/darkblue_orange/info.inc.php,
+	  themes/original/info.inc.php: Better theme version check (bug #1023029).
+
 2004-09-13 Garvin Hicking <me@supergarv.de>
     * browse_foreigners.php: bug #1027204 - paging did not
       work in foreigner browsing window.
@@ -28,7 +33,7 @@ $Source$
       on Insert tab from the Insert textfile sub-page
 
 2004-09-07 Marc Delisle  <lem9@users.sourceforge.net>
-    * main.php: bug #992211, wrong parameters to 
+    * main.php: bug #992211, wrong parameters to
       PMA_generate_common_hidden_inputs(), thanks to Ryan Schmidt
 
 2004-09-07 Michal Čihař  <michal@cihar.com>

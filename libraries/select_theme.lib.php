@@ -27,7 +27,7 @@
  *     PMA and they must have the same size in pixels.
  *     You can only use own images, if you've edit own css files.
  */
-	
+
 /**
  * We need some elements of the superglobal $_SERVER array.
  */
@@ -55,23 +55,26 @@ if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
             if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme != 'CVS') { // file check
                 if (@is_dir($cfg['ThemePath'].'/'.$PMA_Theme)) { // check the theme
                     // check for theme requires/name
-                    unset($theme_name, $theme_version);
+                    unset($theme_name, $theme_generation, $theme_version);
                     @include($cfg['ThemePath'] . '/' . $PMA_Theme . '/info.inc.php');
-                    
+
                     // did it set correctly?
-                    if (!isset($theme_name, $theme_version))
+                    if (!isset($theme_name, $theme_version, $theme_generation))
                         continue; // invalid theme
-                        
+
+                    if ($theme_generation != PMA_THEME_GENERATION)
+                        continue; // different generation
+
                     if ($theme_version < PMA_THEME_VERSION)
                         continue; // too old version
 
                     $available_themes_choices[]=$PMA_Theme;
-                    $available_themes_choices_names[$PMA_Theme] = $theme_name; 
+                    $available_themes_choices_names[$PMA_Theme] = $theme_name;
                 } // end check the theme
             } // end file check
         } // end get themes
     } // end check for themes directory
-    closedir($handleThemes); 
+    closedir($handleThemes);
 } // end themeManger
 
 if (!isset($pma_uri_parts)) { // cookie-setup if needed
@@ -84,7 +87,7 @@ if (isset($set_theme)) { // if user submit a theme
     setcookie('pma_theme', $set_theme, time() + 60*60*24*30, $cookie_path, '', $is_https);
 } else { // else check if user have a theme cookie
     if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])) {
-        if ($PMA_ThemeDefault == TRUE) { 
+        if ($PMA_ThemeDefault == TRUE) {
             if (basename($PHP_SELF) == 'index.php') {
                 setcookie('pma_theme', $cfg['ThemeDefault'], time() + 60*60*24*30, $cookie_path, '', $is_https);
             }

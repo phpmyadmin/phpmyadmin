@@ -7,10 +7,11 @@
  * Overview:
  *    PMA_VERSION              (string) - phpMyAdmin version string
  *    PMA_THEME_VERSION        (int)    - phpMyAdmin theme version integer
+ *    PMA_THEME_GENERATION     (int)    - phpMyAdmin theme generation integer
  *    PMA_PHP_INT_VERSION      (int)    - eg: 30017 instead of 3.0.17 or
  *                                        40006 instead of 4.0.6RC3
  *    PMA_IS_WINDOWS           (bool)   - mark if phpMyAdmin running on windows
- *    PMA_IS_IIS               (bool)   - true is phpMyAdmin is running 
+ *    PMA_IS_IIS               (bool)   - true is phpMyAdmin is running
  *                                        on Microsoft IIS server
  *    PMA_IS_GD2               (bool)   - true if GD2 is present
  *    PMA_USR_OS               (string) - the plateform (os) of the user
@@ -24,6 +25,10 @@ if (!defined('PMA_VERSION')) {
 
 if (!defined('PMA_THEME_VERSION')) {
     define('PMA_THEME_VERSION', 1);
+}
+
+if (!defined('PMA_THEME_GENERATION')) {
+    define('PMA_THEME_GENERATION', 1);
 }
 
 // php version
@@ -55,9 +60,9 @@ if (!defined('PMA_IS_WINDOWS')) {
     }
 }
 
-// Whether the Web server php is running on is IIS 
+// Whether the Web server php is running on is IIS
 if (!defined('PMA_IS_IIS')) {
-    if (isset($_SERVER['SERVER_SOFTWARE']) 
+    if (isset($_SERVER['SERVER_SOFTWARE'])
     && stristr($_SERVER['SERVER_SOFTWARE'], 'Microsoft/IIS')) {
         define('PMA_IS_IIS', 1);
     } else {

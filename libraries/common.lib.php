@@ -264,7 +264,7 @@ if ($is_minimum_common == FALSE) {
  * @param    string  The path to check
  *
  * @return   string  The secured path
- *                  
+ *
  * @access  public
  * @author  Marc Delisle (lem9@users.sourceforge.net)
  */
@@ -273,7 +273,7 @@ function PMA_securePath($path) {
     // change .. to .
     $path = preg_replace('@\.\.*@','.',$path);
 
-    return $path; 
+    return $path;
 } // end function
 
 // If zlib output compression is set in the php configuration file, no
@@ -311,13 +311,13 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
             }
         }
     }
-    if ($ThemeDefaultOk == TRUE){ 
+    if ($ThemeDefaultOk == TRUE){
         $GLOBALS['theme'] = $cfg['ThemeDefault'];
     } else {
         $GLOBALS['theme'] = 'original';
     }
 } else {
-    // if we just changed theme, we must take the new one so that 
+    // if we just changed theme, we must take the new one so that
     // index.php takes the correct one for height computing
     if (isset($_POST['set_theme'])) {
         $GLOBALS['theme'] = PMA_securePath($_POST['set_theme']);
@@ -327,13 +327,16 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
 }
 
 // check for theme requires/name
-unset($theme_name, $theme_version);
+unset($theme_name, $theme_generation, $theme_version);
 @include($cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/info.inc.php');
 
 // did it set correctly?
-if (!isset($theme_name, $theme_version))
+if (!isset($theme_name, $theme_generation, $theme_version))
     $GLOBALS['theme'] = 'original'; // invalid theme
-    
+
+if ($theme_generation != PMA_THEME_GENERATION)
+    $GLOBALS['theme'] = 'original'; // different generation
+
 if ($theme_version < PMA_THEME_VERSION)
     $GLOBALS['theme'] = 'original'; // too old version
 
@@ -612,7 +615,7 @@ if ($is_minimum_common == FALSE) {
                     $doedit_goto = '<a href="db_details.php?' . PMA_generate_common_url($db) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
                 }
                 if ($GLOBALS['cfg']['PropertiesIconic']) {
-                    echo $doedit_goto 
+                    echo $doedit_goto
                        . '<img src=" '. $GLOBALS['pmaThemeImage'] . 'b_edit.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $GLOBALS['strEdit'] .'" />'
                        . '</a>';
                 } else {
@@ -691,7 +694,7 @@ if ($is_minimum_common == FALSE) {
 
 
     /**
-     * Returns a string formatted with CONVERT ... USING 
+     * Returns a string formatted with CONVERT ... USING
      * if MySQL supports it
      *
      * @param   string  the string itself
@@ -1908,7 +1911,7 @@ if (typeof(document.getElementById) != 'undefined'
             ) && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
             $addclass = 'Active';
         }
-        if ($text == $GLOBALS['strEmpty'] && $text == $GLOBALS['strDrop']) $addclass = 'Drop'; 
+        if ($text == $GLOBALS['strEmpty'] && $text == $GLOBALS['strDrop']) $addclass = 'Drop';
         if (empty($class)){
             if (empty($addclass)) { $addclass = 'Normal'; }
         } else { $addclass = $class; }
