@@ -274,6 +274,7 @@ $strHasBeenAltered = 'byla zmìnìna.';
 $strHasBeenCreated = 'byla vytvoøena.';
 $strHaveToShow = 'Musíte volit alespoò jeden sloupec, který chcete zobrazit.';
 $strHebrew = 'Hebrejsky';
+$strHexForBinary = 'Binarní pole vypisovat šestnáctkovì';
 $strHome = 'Hlavní strana';
 $strHomepageOfficial = 'Oficiální stránka phpMyAdmina';
 $strHost = 'Poèítaè';
@@ -694,6 +695,7 @@ $strVar = 'Promìnná';
 $strViewDump = 'Export tabulky';
 $strViewDumpDB = 'Export databáze';
 $strViewDumpDatabases = 'Export databází';
+
 $strWebServerUploadDirectory = 'soubor z&nbsp;adresáøe pro upload';
 $strWebServerUploadDirectoryError = 'Adresáø urèený pro upload souborù nemohl být otevøen';
 $strWelcome = 'Vítejte v&nbsp;%s';
@@ -712,5 +714,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>

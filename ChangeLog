@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-01 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Updated.
+
 2004-07-01 Marc Delisle  <lem9@users.sourceforge.net>
     * queryframe.php: improve XHTML
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
