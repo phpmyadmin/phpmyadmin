@@ -176,6 +176,7 @@ $strHostEmpty = '¡¡El nombre del servidor está vacío!!';
 $strIdxFulltext = 'Texto completo';
 $strIfYouWish = 'Si desea cargar solamente una de las columnas de la tabla, especifíquelo, separando los campos con una coma.';
 $strIgnore = 'Ignorar';
+$strImportDocSQL = 'Importar archivos docSQL';
 $strInUse = 'en uso';
 $strIndex = 'índice';
 $strIndexHasBeenDropped = 'El índice %s ha sido eliminado';
@@ -426,6 +427,4 @@ $strWrongUser = 'Usuario/contraseña equivocado. Acceso denegado.';
 $strYes = 'Sí';
 
 $strZip = '"comprimido con zip"';
-
-$strImportDocSQL = 'Importar archivos docSQL';
 ?>
