@@ -253,9 +253,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     //       stored or retrieved" so it does not mean that the contents is
     //       binary
     if ($cfgShowFunctionFields) {
-        if ((($cfgProtectBinary && $is_blob)
-             || ($cfgProtectBinary == 'all' && $is_binary))
-            && !empty($data)) {
+        if (($cfgProtectBinary && $is_blob)
+            || ($cfgProtectBinary == 'all' && $is_binary)) {
             echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
         } else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
             echo '        <td align="center" bgcolor="'. $bgcolor . '">--</td>' . "\n";
@@ -288,7 +287,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // The null column
     // ---------------
     echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
-    if ($row_table_def['Null'] == 'YES') {
+    if (!(($cfgProtectBinary && $is_blob) || ($cfgProtectBinary == 'all' && $is_binary))
+        && $row_table_def['Null'] == 'YES') {
         echo '            <input type="checkbox" tabindex=' . ($i+3*$fields_cnt) . '"'
              . ' name="fields_null[' . urlencode($field) . ']"';
         if ($data == 'NULL' && !$first_timestamp) {

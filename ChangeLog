@@ -10,8 +10,9 @@ $Source$
 	  ("server" is always the first one).
 	* tbl_properties.php3, lines 1212-1249: fixed bad dislays with Opera and
       removed trailing whitespaces.
-	* Documentaion.html: removed trailing whitespaces.
+	* Documentation.html: removed trailing whitespaces.
 	* libraries/display_tbl.lib.php3: very very light optimizations.
+	* tbl_change.php3: fixed bug #535984 - JS Error in tbl_change.php3.
 
 2002-03-28 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3, bug #535648: bookmarks can't be saved on the second server.
