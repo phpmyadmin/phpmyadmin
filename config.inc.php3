@@ -283,14 +283,32 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
-// Syntax coloring (Note: this feature will be implemented after 2.3.0)
-$cfg['UseSyntaxColoring']   = TRUE;         // use syntaxcoloring on output of SQL, might be a little slower
-$cfg['colorFunctions']      = '#FF0000';    // Colors used for Syntaxcoloring of SQL Statements
-$cfg['colorKeywords']       = '#990099';
-$cfg['colorStrings']        = '#008000';
-$cfg['colorColType']        = '#FF9900';
-$cfg['colorAdd']            = '#0000FF';
-
+/**
+ * SQL Parser Settings
+ */
+$cfg['SQP']['enable']       = TRUE;         // Totally turn off the SQL Parser (not recommended)
+$cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, none)
+$cfg['SQP']['fmtInd']       = '1';          // Amount to indent each level (floats ok)
+$cfg['SQP']['fmtIndUnit']   = 'em';         // Units for indenting each level (CSS Types - {em,px,pt})
+$cfg['SQP']['fmtColor']     = array(        // Syntax colouring data 
+    'comment' => '#808000',
+    'digit' => 'inherit',
+    'digit_hex' => 'teal',
+    'digit_integer' => 'teal',
+    'digit_float' => 'aqua',
+    'punct' => 'fuchsia',
+    'alpha' => 'inherit',
+    'alpha_columnType' => '#FF9900',
+    'alpha_columnAttrib' => '#0000FF',
+    'alpha_reservedWord' => '#990099',
+    'alpha_functionName' => '#FF0000',
+    'alpha_identifier' => 'black',
+    'alpha_variable' => '#800000',
+    'quote' => '#008000',
+    'quote_double' => 'inherit',
+    'quote_single' => 'inherit',
+    'quote_backtick' => 'inherit'
+    );
 
 /**
  * Available charsets for MySQL conversion. currently contains all which could
@@ -403,63 +421,6 @@ if ($cfg['ShowFunctionFields']) {
        'CONCAT'
     );
 } // end if
-
-// Keywords for syntax coloring
-if ($cfg['UseSyntaxColoring']) {
-    $cfg['keywords'] = array(
-        'SELECT',
-        'INSERT',
-        'LEFT',
-        'INNER',
-        'UPDATE',
-        'REPLACE',
-        'EXPLAIN',
-        'FROM',
-        'WHERE',
-        'LIMIT',
-        'INTO',
-        'ALTER',
-        'ADD',
-        'DROP',
-        'GROUP',
-        'ORDER',
-        'CHANGE',
-        'CREATE',
-        'DELETE',
-        'VALUES'
-    );
-} // end if
-
-// Other reserved words for syntax coloring
-if ($cfg['UseSyntaxColoring']) {
-    $cfg['additional'] = array(
-        'TABLE',
-        'DEFAULT',
-        'NULL',
-        'NOT',
-        'INDEX',
-        'PRIMARY',
-        'KEY',
-        'UNIQUE',
-        'BINARY',
-        'UNSIGNED',
-        'ZEROFILL',
-        'AUTO_INCREMENT',
-        'AND',
-        'OR',
-        'DISTINCT',
-        'DISTINCTROW',
-        'BY',
-        'ON',
-        'JOIN',
-        'BETWEEN',
-        'IN',
-        'IF',
-        'ELSE',
-        'SET'
-    );
-}
-
 
 /**
  * Unset magic_quotes_runtime - do not change!

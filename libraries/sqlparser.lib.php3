@@ -506,14 +506,15 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
     function PMA_SQP_FormatHTML($arr)
     {	
-        $str = '';
+        $str = '<span class="syntax">';
         $indent = 0;
         $bracketlevel = 0;
         $functionlevel = 0;
         $infunction = FALSE;
         $space_punct_listsep = ' ';
         $space_punct_listsep_functionName = ' ';
-        $space_alpha_reservedWord = '<br />'."\n";
+        // $space_alpha_reservedWord = '<br />'."\n";
+        $space_alpha_reservedWord = ' ';
         $keywordsWithBrackets = array(
             'INDEX',
             'INTO',
@@ -522,16 +523,19 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'REFERENCES',
             'UNIQUE'
         );
-        $keywordsWithBrackets_size = count($keywordsWithBrackets);
+        //$keywordsWithBrackets_size = count($keywordsWithBrackets);
+        $keywordsWithBrackets_size = 6; 
+        $keywordsForMath = array(
+            'AND',
+            'NOT',
+            'NULL',
+            'OR'
+        );
+        $keywordsForMath_size = 4;
+        
         $arraysize = $arr['len'];
         $typearr = array();
         if ($arraysize >= 0) {
-            /*	array_push($typearr,NULL);
-            array_push($typearr,NULL);
-            array_push($typearr,NULL);
-            array_push($typearr,$arr[0]['type']);
-            array_push($typearr,$arr[1]['type']); */
-
             $typearr[0] = NULL;
             $typearr[1] = NULL;
             $typearr[2] = NULL;
@@ -563,7 +567,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
             switch($typearr[2]) {
                 case 'white_newline':
-                    $after = '<br />';
+//                    $after = '<br />';
                     $before = '';
                     break;
                 case 'punct_bracket_open_round':
@@ -576,10 +580,21 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $after .= ' ';
                     } else {	
                         $indent++;
-                        $after .= '<div class="syntax_indent'.$indent.'">'."\n";
+                        $after .= '<div class="syntax_indent'.$indent.'">';
                     }
                     break;
-                case 'punct_qualifier': 
+                case 'alpha_identifier':
+                    if(($typearr[1] == 'punct_qualifier') || ($typearr[3] == 'punct_qualifier')) {
+                        $after = '';
+                        $before = '';
+                    }
+                    if($typearr[3] == 'alpha_columnType') {
+                        $after .= ' ';
+                    }
+                    break; 
+                case 'punct_qualifier':
+                    $before = '';
+                    $after = '';
                     break;
                 case 'punct_listsep':
                     if ($infunction == TRUE) {
@@ -589,11 +604,21 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     }
                     break;
                 case 'punct_queryend':
-                    if (($typearr[3] != 'white_newline') && ($typearr[3] != 'comment_mysql')&& ($typearr[3] != 'comment_ansi') ) {
-                        $after .= '<br />'."\n";
+                    if ( ($typearr[3] != 'comment_mysql')&& ($typearr[3] != 'comment_ansi') ) {
+                        $after .= '<br />';
+                        $after .= '<br />';
                     }
+                    $space_punct_listsep = ' ';
+                    $space_punct_listsep_functionName = ' ';
+                    $space_alpha_reservedWord = ' ';
                     break;
-                case 'comment':
+                case 'comment_mysql':
+                case 'comment_ansi':
+                    $after .= '<br />';
+                    break;
+                case 'punct':
+                    $after .= ' ';
+                    $before .= ' ';
                     break;
                 case 'punct_bracket_close_round':
                     $bracketlevel--;
@@ -606,32 +631,48 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     }
                     $infunction = ($functionlevel > 0) ? TRUE : FALSE;
                     break;
-
+                case 'alpha_columnType':
+                    if ($typearr[3] == 'alpha_columnAttrib') {
+                        $after .= ' ';
+                    }
+                    break;
                 case 'alpha_reservedWord':
-                    if ( ($typearr[1] != 'alpha_reservedWord') && ($typearr[1] != 'punct_level_plus')  && ($typearr[1] != 'white_newline')) {
+                    $upper = $arr[$i]['data'];
+                    if ( ($typearr[1] != 'alpha_reservedWord') && ($typearr[1] != 'punct_level_plus')  && (!PMA_STR_BinarySearchInArr($upper,$keywordsForMath,$keywordsForMath_size))) {
                         $before .= $space_alpha_reservedWord;
+                    } else {
+                        $before .= ' ';
                     }
 
-                    switch(strtoupper($arr[$i]['data'])) {
+                    switch($upper) {
                         case 'CREATE':
-                            $space_punct_listsep = '<br />'."\n";
+                            $space_punct_listsep = '<br />';
                             $space_alpha_reservedWord = ' ';
                             break;
+                        case 'EXPLAIN':
+                        case 'DESCRIBE':
+                        case 'SET':
+                        case 'ALTER':
+                        case 'DELETE':
+                        case 'SHOW':
+                        case 'DROP':
                         case 'UPDATE':
-                            $space_punct_listsep = '<br />'."\n";
+                        case 'TRUNCATE':
+                            $space_punct_listsep = '<br />';
                             $space_alpha_reservedWord = ' ';
                             break;
                         case 'INSERT':
-                            $space_punct_listsep = '<br />'."\n";
-                            $space_alpha_reservedWord = '<br />'."\n";
+                        case 'REPLACE':
+                            $space_punct_listsep = '<br />';
+                            $space_alpha_reservedWord = '<br />';
                             break;
                         case 'VALUES':
                             $space_punct_listsep = ' ';
-                            $space_alpha_reservedWord = '<br />'."\n";
+                            $space_alpha_reservedWord = '<br />';
                             break;
                         case 'SELECT':
                             $space_punct_listsep = ' ';
-                            $space_alpha_reservedWord = '<br />'."\n";
+                            $space_alpha_reservedWord = '<br />';
                             break;
                         default:
                             break;
@@ -639,17 +680,68 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
                     $after .= " ";
                     break;
-
+                case 'digit_integer':
+                case 'digit_float':
+                case 'digit_hex':
+                    if($infunction && $typearr[3] == 'punct_bracket_close_round') {
+                        $after .= ' ';
+                    }
+                    break;
+                case 'quote_double':
+                case 'quote_single':
+                    $before .= ' ';
+                    if($infunction && $typearr[3] == 'punct_bracket_close_round') {
+                        $after .= ' ';
+                    }
+                    break;
                 default:
                     break;
             }
 
-            if ($typearr[3] != 'punct_qualifier') {
+/*            if ($typearr[3] != 'punct_qualifier') {
                 $after .= ' ';
-            }
+            } */
+            //$after .= "\n";
             $str .= $before.PMA_SQP_FormatHTML_colorize($arr[$i]).$after;
         }
+        $str .= '</span>';
         return $str;
+    }
+
+    function PMA_SQP_BuildCssRule($classname,$property,$value)
+    {
+        return '.'.$classname.' { '.$property.': '.$value.'; } '."\n";
+    }
+
+    function PMA_SQP_BuildCssData()
+    {   
+        global $cfg;
+        $css_string = <<<EOD
+.syntax { font-family: sans-serif; font-size: small; }
+.syntax_comment { }
+.syntax_digit { }
+.syntax_digit_hex {	}
+.syntax_digit_integer {	}
+.syntax_digit_float { }
+.syntax_punct {	}
+.syntax_alpha {	text-transform: lowercase; }
+.syntax_alpha_columnType { text-transform: uppercase; }
+.syntax_alpha_columnAttrib { text-transform: uppercase; }
+.syntax_alpha_reservedWord { text-transform: uppercase; font-weight: bold; }
+.syntax_alpha_functionName { text-transform: uppercase; }
+.syntax_alpha_identifier { } 
+.syntax_alpha_variable { }
+.syntax_quote {	}
+.syntax_quote_backtick { }
+EOD;
+        foreach($cfg['SQP']['fmt']['color'] as $key => $col) {
+            $css_string .= PMA_SQP_BuildCssRule('syntax_'.$key, 'color', $col);
+        }
+        for($i = 0; $i < 8; $i++) {
+            $css_string .= PMA_SQP_BuildCssRule('syntax_indent'.$i, 'margin-left', ($i * $cfg['SQP']['fmt']['indent']).$cfg['SQP']['fmt']['indentunits']);
+        }
+        return $css_string;
+
     }
 
 } // $__PMA_SQP_LIB__

@@ -14,7 +14,11 @@ $Source$
         - Spacing around if statements
         - Added require statements for parser
         - Moved to global constants for size of keyword arrays
+        - Added CSS creation rules
     * libraries/sqlparser.data.php3: Merged
+    * config.inc.php3: 
+        - Added SQL Parser variables
+        - Remove old SQL Parser variables
     
 2002-07-24 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/string.lib.php3: Function documentation
