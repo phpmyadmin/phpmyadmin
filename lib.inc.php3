@@ -159,7 +159,7 @@ if (!defined('__LIB_INC__')){
         echo '</p>' . "\n";
         echo '<a href="javascript:window.history.go(' . $hist . ')">' . $GLOBALS['strBack'] . '</a>';
 
-        echo "\n" . '</body>' . "\n";
+        echo "\n";
 
         include('./footer.inc.php3');
         exit();

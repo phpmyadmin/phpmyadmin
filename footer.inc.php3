@@ -6,6 +6,8 @@
 // the footer for phpMyAdmin pages.
 ?>
 
+</body>
+
 </html>
 <?php
 
