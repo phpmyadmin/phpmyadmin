@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/tbl_change.js: was always returning current day
+
 2004-04-20 Michal Cihar  <michal@cihar.com>
     * libraries/tbl_change.js, css/phpmyadmin.css.php: Added time editing to
       calendar.

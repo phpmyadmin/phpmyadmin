@@ -254,9 +254,11 @@ function initCalendar() {
         dispmonth = 1 + month;
         
         if (window.opener.dateType == 'datetime' || window.opener.dateType == 'date') {
-		    actVal = formatNum4(year) + "-" + formatNum2(dispmonth) + "-" + formatNum2(day);
+//		    actVal = formatNum4(year) + "-" + formatNum2(dispmonth) + "-" + formatNum2(day);
+		    actVal = formatNum4(year) + "-" + formatNum2(dispmonth) + "-" + formatNum2(i);
         } else {
-		    actVal = "" + formatNum4(year) + formatNum2(dispmonth) + formatNum2(day);
+//		    actVal = "" + formatNum4(year) + formatNum2(dispmonth) + formatNum2(day);
+		    actVal = "" + formatNum4(year) + formatNum2(dispmonth) + formatNum2(i);
         }
         if (i == day) {
             style = ' class="selected"';
