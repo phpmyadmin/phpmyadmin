@@ -11,6 +11,7 @@ $Source$
 2002-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: removed control M
     * tbl_relation.php3, bug 619100, relation and non-primary key
+    * libraries/display_tbl.lib.ph3, bug 619097, order by sum(var)
 
 2002-10-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html, spanish-*.inc.php3: Updates, thanks again to

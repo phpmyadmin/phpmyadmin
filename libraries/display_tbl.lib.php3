@@ -575,7 +575,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 if (empty($sql_order)) {
                     $is_in_sort = FALSE;
                 } else {
-                    $is_in_sort = eregi('[[:space:]](`?)' . str_replace('\\', '\\\\', $fields_meta[$i]->name) . '(`?)[ ,$]', $sql_order);
+                    //$is_in_sort = eregi('[[:space:]](`?)' . str_replace('\\', '\\\\', $fields_meta[$i]->name) . '(`?)[ ,$]', $sql_order);
+                    $pattern = str_replace('\\', '\\\\', $fields_meta[$i]->name);
+                    $pattern = str_replace('(','\(', $pattern);
+                    $pattern = str_replace(')','\)', $pattern);
+                    $is_in_sort = eregi('[[:space:]](`?)' . $pattern . '(`?)[ ,$]', $sql_order);
+           
                 }
                 // 2.1.3 Checks if the table name is required (it's the case
                 //       for a query with a "JOIN" statement and if the column
