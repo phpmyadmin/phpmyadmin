@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3, tbl_replace.php3: display UPDATE statement after row edit
+
 2003-01-27 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/slovenian update: thanks to Kositer Uros (urosh)
     * lang/albanian: update, thanks to Laurent Dhima

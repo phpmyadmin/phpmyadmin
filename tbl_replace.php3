@@ -296,8 +296,10 @@ if (!$result) {
         include('./header.inc.php3');
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
-        $add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&message=' . urlencode($message) . $add_query);
+        // I don't understand this one:
+        //$add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');
+        $add_query = '&disp_query=' . urlencode($sql_query);
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . $add_query);
     }
     exit();
 } // end if

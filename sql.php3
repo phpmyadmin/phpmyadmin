@@ -498,6 +498,18 @@ else {
             }
             $fields_cnt        = count($fields_meta);
         }
+
+        // Display previous update query (from tbl_replace)
+        if (isset($disp_query) && $cfg['ShowSQL'] == TRUE) {
+            $tmp_sql_query = $GLOBALS['sql_query'];
+            $tmp_sql_limit_to_append = $GLOBALS['sql_limit_to_append'];
+            $GLOBALS['sql_query'] = stripslashes($disp_query);
+            $GLOBALS['sql_limit_to_append'] = '';
+            PMA_showMessage($disp_message);
+            $GLOBALS['sql_query'] = $tmp_sql_query;
+            $GLOBALS['sql_limit_to_append'] = $tmp_sql_limit_to_append;
+        }
+
         // Displays the results in a table
         include('./libraries/display_tbl.lib.php3');
         if (empty($disp_mode)) {
