@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-09 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/norwegian-*.inc.php3: Updates, thanks again to
+      Sven-Erik Andersen (sven-erik).
+
 2002-12-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html, header.inc.php3, header_printview.inc.php3, main.php3,
       server_common.inc.php3, server_links.inc.php3, server_status.php3,
