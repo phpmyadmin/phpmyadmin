@@ -772,12 +772,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Since release 2.3.0 you can store comments to describe each column
         for each table. These will then be shown on the &quot;printview&quot;.
         <br /><br />
-        Starting with release 2.5.0, comments are consequently used on the table property
+        Starting with release 2.4.1, comments are consequently used on the table property
         pages and table browse view, showing up as tooltips above the column name (properties page)
         or embedded withing the header of table in browse view. They can also be shown
         in a table dump. Please see the relevant configuration directives later on.
         <br /><br />
-        Also new in release 2.5.0 is a mime-transformation system which is also based on
+        Also new in release 2.4.1 is a mime-transformation system which is also based on
         the following table structure. See <a href="#transformations">Transformations</a>
         for further information. To use the mime-transformation system, your column_info
         table has to have the three new fields 'mimetype', 'transformation', 'transformation_options'.
@@ -815,7 +815,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['Servers'][$i]['history']</b> string
     </dt>
     <dd>
-        Since release 2.5.0 you can store your SQL history, which means all querys you
+        Since release 2.4.1 you can store your SQL history, which means all querys you
         entered manually into the phpMyAdmin interface. If you don't want to use a table-
         based history, you can use the JavaScript-based history. Using that, all your
         history items are deleted when closing the window.<br /><br />
@@ -859,7 +859,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['Servers'][$i]['verbose_check']</b> string
     </dt>
     <dd>
-        Because release 2.5.0 introduced the new MIME-transformation support, the
+        Because release 2.4.1 introduced the new MIME-transformation support, the
         column_info table got enhanced with thre new fields. If the above variable is
         set to TRUE (default) phpMyAdmin will check if you have the latest table structure
         available. If not, it will emit a warning to the superuser.<br /><br />
