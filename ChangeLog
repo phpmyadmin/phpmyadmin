@@ -5,7 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2004-09-20 Michal Čihař  <michal@cihar.com>
+2004-09-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_query_box.php, read_dump.php: bug #1032066: when no db was
+      selected from the left panel, the query window's Import Files had
+      no submit button; also, read_dump always tried a PMA_select_db($db)
+      even if $db was empty
+
+2004-09-22 Michal Čihař  <michal@cihar.com>
     * lang/czech: Update.
     * lang/sync_lang.sh: Default to iconv, as it doesn't break some
       translations as recode does.

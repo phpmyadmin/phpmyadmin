@@ -346,11 +346,14 @@ if (function_exists('PMA_set_enc_form')) {
     $form_items++;
 }
 
-// Charset conversion options
+// Charset conversion options and submit button
 if (($is_upload || $is_upload_dir) &&
         (!isset($is_inside_querywindow) ||
          (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')))
-        && isset($db) && $db != ''){
+        // It's possible that $db is empty: no db was selected on the left
+        // panel and the user wants to execute a .sql file to create one)
+        // && isset($db) && $db != ''){
+        ){
 /*
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
         $form_items++;

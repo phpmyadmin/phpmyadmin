@@ -254,7 +254,9 @@ if ($sql_query != '') {
         }
 
         // Runs multiple queries
-        else if (PMA_DBI_select_db($db)) {
+        // (Possibly to create a db, so no db was selected in the
+        //  left frame and $db is empty)
+        else if (empty($db) || PMA_DBI_select_db($db)) {
             $mult = TRUE;
             $info_msg = '';
             $info_count = 0;
