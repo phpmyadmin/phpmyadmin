@@ -11,8 +11,8 @@
 /**
  * Gets some core libraries
  */
-require('./grab_globals.inc.php3');
-require('./lib.inc.php3');
+require('./libraries/grab_globals.lib.php3');
+require('./libraries/common.lib.php3');
 
 
 /**
@@ -28,6 +28,7 @@ $sql_file      = !empty($sql_file)    ? $sql_file     : 'none';
  * Bookmark Support: get a query back from bookmark if required
  */
 if (!empty($id_bookmark)) {
+    include('./libraries/bookmark.lib.php3');
     switch($action_bookmark) {
         case 0: // bookmarked query that have to be run
             $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
@@ -92,6 +93,8 @@ $sql_query_cpy = $sql_query;
  * Executes the query
  */
 if ($sql_query != '') {
+    include('./libraries/read_dump.lib.php3');
+
     $sql_query    = remove_remarks($sql_query);
     $pieces       = split_sql_file($sql_query, ';');
     $pieces_count = count($pieces);
