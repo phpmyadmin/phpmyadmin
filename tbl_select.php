@@ -278,7 +278,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
 else {
     // Builds the query
 
-    $sql_query = 'SELECT ' . (($distinct == 'DISTINCT') ? 'DISTINCT ' : '');
+    $sql_query = 'SELECT ' . (isset($distinct) ? 'DISTINCT ' : '');
 
     // if all fields were selected to display, we do a SELECT *
     // (more efficient and this helps prevent a problem in IE
