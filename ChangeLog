@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-28  Steve Alberty  <alberty@neptunlabs.de>
+	* fixed bug with dl and PHP 3
+
 2001-06-27  Marc Delisle  <lem9@users.sourceforge.net>
 	* add function tbl_name() to protect table names like 00001_Files
 	* bug 434608: support db names with special characters (MySQL >= 3.23.6)
