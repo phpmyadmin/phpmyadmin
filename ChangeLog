@@ -8,6 +8,7 @@ $Source$
 2003-04-14 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3: Fixed SHOW TABLE STATUS LIKE ... FROM ...
       usage. (Bug #720846)
+    * footer.inc.php3: Needed \n for some cases.
 
 2003-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french: update
