@@ -464,11 +464,11 @@ $cfg['LeftPointerEnable']   = TRUE;         // enable the left panel pointer
                                             // see also LeftPointerColor
                                             // in colors.inc.php
 
-$cfg['BrowsePointerEnable'] = FALSE;        // enable the browse pointer
+$cfg['BrowsePointerEnable'] = TRUE;        // enable the browse pointer
                                             // see also BrowsePointerColor
                                             // in colors.inc.php
 
-$cfg['BrowseMarkerEnable'] = FALSE;         // enable the browse marker
+$cfg['BrowseMarkerEnable'] = TRUE;         // enable the browse marker
                                             // see also BrowseMarkerColor
                                             // in colors.inc.php
 
