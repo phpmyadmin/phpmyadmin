@@ -287,4 +287,5 @@ $strYes = 'Áno';
 
 // To translate
 $strShowPHPInfo = 'Show PHP information';  // To translate
+$strTables=" tables ";  //to translate
 ?>

@@ -284,4 +284,5 @@ $strWelcome = 'Bienvenue à';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
 $strYes = 'Oui';
+$strTables=" tables ";  //to translate
 ?>

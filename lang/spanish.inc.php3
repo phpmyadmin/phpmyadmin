@@ -288,4 +288,5 @@ $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strOffSet = 'offset';
 $strShowPHPInfo = 'Show PHP information';  // To translate
+$strTables=" tables ";  //to translate
 ?>

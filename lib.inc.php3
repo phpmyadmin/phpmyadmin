@@ -856,7 +856,7 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
     {
         global $lang, $server, $db, $table;
         global $sql_query, $goto, $pos;
-        global $SelectNumRows;
+        global $SelectNumRows, $cfgLimitChars;
 
         // Gets the number of rows per page
         if (isset($GLOBALS['sessionMaxRows'])) {
@@ -1131,6 +1131,9 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     if (eregi('BLOB', $true_field_type['Type'])) {
                         echo '    <td align="right">&nbsp;[BLOB]&nbsp;</td>' . "\n";
                     } else {
+                        if (strlen($row[$i]) > $cfgLimitChars){
+                            $row[$i] = substr($row[$i],0,$cfgLimitChars) . "...";
+                        }
                         echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
                     }
                 } else {

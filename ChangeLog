@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-15  Olivier Müller  <om@omnis.ch>
+	* db_details.php3: feature request #451138: display # of tables,
+	  added $strTables variable to all lang files.
+	* left.php3: added display of # of tables, for a better overview
+	* config.php3, lib.inc.php3, docs: feature request #451137:
+	  limiting size of data printed in browse view (new cfg: $cfgLimitChars) 
+
 2001-08-15  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* Bug #450374 - (RC4) + becomes space - patched in tbl_replace.php3
 

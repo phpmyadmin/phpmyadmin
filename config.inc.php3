@@ -118,6 +118,7 @@ $cfgThBgcolor           = '#D3DCE3';
 $cfgBgcolorOne          = '#CCCCCC';
 $cfgBgcolorTwo          = '#DDDDDD';
 $cfgTextareaCols        = 40;
+$cfgLimitChars		= 50;	    // max field data length in browse mode
 $cfgTextareaRows        = 7;
 $cfgModifyDeleteAtLeft  = TRUE;
 $cfgModifyDeleteAtRight = FALSE;

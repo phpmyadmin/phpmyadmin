@@ -286,4 +286,5 @@ $strQueryOnDb = 'SQL-query on database ';
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strShowThisQuery = ' Show this query here again ';
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
+$strTables=" tables ";  //to translate
 ?>
