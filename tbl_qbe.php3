@@ -729,7 +729,7 @@ if (isset($Field) && count($Field) > 0) {
             $wtable = explode('.', $curField[$x]);
             $ctable = str_replace('`', '', $wtable[0]);
             if (!empty($curField[$x]) && !empty($curCriteria[$x])) {
-                if ($where[$ctable] != '=') {
+                if (isset($where[$ctable]) && $where[$ctable] != '=') {
                     $where[$ctable] = substr($curCriteria[$x], 0, 1);
                 }
             }
