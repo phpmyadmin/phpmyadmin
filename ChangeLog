@@ -6,13 +6,16 @@ $Id$
 $Source$
 
 2001-09-21  Marc Delisle  <lem9@users.sourceforge.net>
-	* lang/slovak-iso.inc.php3 updates, thanks to Lubos Klokner
-	* lang/italian.inc.php3 updates, thanks to Pietro Danesi
-	* lang/*, db_details.php3: $strDatabaseHasBeenDropped
+	* lang/slovak-iso.inc.php3 updates, thanks to Lubos Klokner.
+	* lang/italian.inc.php3 updates, thanks to Pietro Danesi.
+	* lang/*, db_details.php3: $strDatabaseHasBeenDropped.
 
 2001-09-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_detail.php3; libraries/user_details.js; lang/*: changing the whole
 	  profile of an user is now possible.
+	* libraries/common.lib.php3; libraries/select_lang.lib.php3; index.php3;
+	  left.php3; header.inc.php3: improved xhtml1.0 compliance.
+	* libraries/ob.lib.php3: applied coding standards.
 
 2001-09-20  Geert Lund <glund@silversoft.dk>
 	* security issue fix: added checking for valid user and password to the
