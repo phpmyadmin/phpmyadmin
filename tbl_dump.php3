@@ -20,10 +20,10 @@ else
 	include("./lib.inc.php3");
 	$ext = "sql";
 	if($what == "csv") $ext = "csv";
-	header("Content-disposition: filename=$filename.$ext");
-	header("Content-type: application/octetstream");
-	header("Pragma: no-cache");
-	header("Expires: 0");
+	header('Content-Type: application/octetstream');
+	header('Content-Disposition: filename="' . $filename . '.' . $ext . '"');
+	header('Pragma: no-cache');
+	header('Expires: 0');
 
 	// doing some DOS-CRLF magic...
     
@@ -75,7 +75,7 @@ else{
 }
 if($num_tables == 0)
 {
-	echo $strNoTablesFound;
+	echo "# $strNoTablesFound";
 }
 else
 {

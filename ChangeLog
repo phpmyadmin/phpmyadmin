@@ -19,6 +19,8 @@ $Source$
 	  tag.
 	* lib.inc.php3, lines 946-950; db_details.php3, lines 96 & 118; language
 	  files: thousands and decimal separators are now language dependant.
+	* tbl_dump.php3, lines 78: Added a '#' before 'No tables found' so the
+	  generated dump file may be imported later even if there is no table.
 
 2001-07-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_details.php3: fixed many little scripting bugs.
