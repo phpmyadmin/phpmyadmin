@@ -1289,7 +1289,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             }
             $last_shown_rec = ($GLOBALS['session_max_rows'] == 'all' || $pos_next > $total)
                             ? $total
-                            : $pos_next;
+                            : $pos_next-1;
             PMA_showMessage($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec ($total " . $GLOBALS['strTotal'] . $selectstring . ')');
         } else {
             PMA_showMessage($GLOBALS['strSQLQuery']);
