@@ -796,4 +796,7 @@ $strMyISAMMaxExtraSortFileSize = 'Maximum size for temporary files on index crea
 $strMyISAMMaxExtraSortFileSizeDesc = 'If the temporary file used for fast MyISAM index creation would be larger than using the key cache by the amount specified here, prefer the key cache method.';  //to translate
 $strLongOperation = 'This operation could be long. Proceed anyway?';  //to translate
 $strVersionInformation = 'Version information';  //to translate
+$strInnoDBDataHomeDir = 'Data home directory';  //to translate
+$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
+$strInnoDBDataFilePath = 'Data files';  //to translate
 ?>

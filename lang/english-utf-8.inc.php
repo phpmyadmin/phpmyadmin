@@ -315,6 +315,9 @@ $strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for col
 $strIndexWarningTable = 'Problems with indexes of table `%s`';
 $strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';
 $strIndexes = 'Indexes';
+$strInnoDBDataFilePath = 'Data files';
+$strInnoDBDataHomeDir = 'Data home directory';
+$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';
 $strInnodbStat = 'InnoDB Status';
 $strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';
 $strInsert = 'Insert';
@@ -744,6 +747,7 @@ $strValidateSQL = 'Validate SQL';
 $strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.';
 $strValue = 'Value';
 $strVar = 'Variable';
+$strVersionInformation = 'Version information';
 $strView = 'View';
 $strViewDump = 'View dump (schema) of table';
 $strViewDumpDB = 'View dump (schema) of database';
@@ -768,5 +772,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strVersionInformation = 'Version information';  //to translate
 ?>

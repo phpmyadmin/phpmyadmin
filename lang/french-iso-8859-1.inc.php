@@ -770,4 +770,7 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strInnoDBDataHomeDir = 'Data home directory';  //to translate
+$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
+$strInnoDBDataFilePath = 'Data files';  //to translate
 ?>

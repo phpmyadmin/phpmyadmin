@@ -97,4 +97,157 @@ function PMA_generateEnginesDropdown($name = 'engine', $id = NULL, $offerUnavail
     return $output;
 }
 
+/**
+ * Abstract Storage Engine Class
+ */
+define('PMA_ENGINE_SUPPORT_NO', 0);
+define('PMA_ENGINE_SUPPORT_DISABLED', 1);
+define('PMA_ENGINE_SUPPORT_YES', 2);
+define('PMA_ENGINE_SUPPORT_DEFAULT', 3);
+class PMA_StorageEngine {
+    var $engine  = 'dummy';
+    var $title   = 'PMA Dummy Engine Class';
+    var $comment = 'If you read this text inside phpMyAdmin, something went wrong...';
+    var $support = PMA_ENGINE_SUPPORT_NO;
+
+    /**
+     * public static final PMA_StorageEngine getEngine ()
+     *
+     * Loads the corresponding engine plugin, if available.
+     *
+     * @param   String    The engine ID
+     *
+     * @return  Object    The engine plugin
+     */
+    function getEngine ($engine) {
+        $engine = str_replace('/', '', str_replace('.', '', $engine));
+        if (file_exists('./libraries/engines/' . $engine . '.lib.php') && include_once('./libraries/engines/' . $engine . '.lib.php')) {
+            $class_name = 'PMA_StorageEngine_' . $engine;
+            $engine_object = new $class_name($engine);
+        } else {
+            $engine_object = new PMA_StorageEngine($engine);
+        }
+        return $engine_object;
+    }
+
+    /**
+     * Constructor
+     *
+     * @param    String    The engine ID
+     */
+    function PMA_StorageEngine ($engine) {
+        global $mysql_storage_engines;
+
+        if (!empty($mysql_storage_engines[$engine])) {
+            $this->engine  = $engine;
+            $this->title   = $mysql_storage_engines[$engine]['Engine'];
+            $this->comment = $mysql_storage_engines[$engine]['Comment'];
+            switch ($mysql_storage_engines[$engine]['Support']) {
+                case 'DEFAULT':
+                    $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
+                    break;
+                case 'YES':
+                    $this->support = PMA_ENGINE_SUPPORT_YES;
+                    break;
+                case 'DISABLED':
+                    $this->support = PMA_ENGINE_SUPPORT_DISABLED;
+                    break;
+                case 'NO':
+                default:
+                    $this->support = PMA_ENGINE_SUPPORT_NO;
+            }
+        }
+    }
+
+    /**
+     * public String getTitle ()
+     *
+     * Reveals the engine's title
+     *
+     * @return   String   The title
+     */
+    function getTitle () {
+        return $this->title;
+    }
+
+    /**
+     * public String getComment ()
+     *
+     * Fetches the server's comment about this engine
+     *
+     * @return   String   The comment
+     */
+    function getComment () {
+        return $this->comment;
+    }
+
+    /**
+     * public String getSupportInformationMessage ()
+     *
+     * @return   String   The localized message.
+     */
+    function getSupportInformationMessage () {
+        switch ($this->support) {
+            case PMA_ENGINE_SUPPORT_DEFAULT:
+                $message = $GLOBALS['strDefaultEngine'];
+                break;
+            case PMA_ENGINE_SUPPORT_YES:
+                $message = $GLOBALS['strEngineAvailable'];
+                break;
+            case PMA_ENGINE_SUPPORT_DISABLED:
+                $message = $GLOBALS['strEngineUnsupported'];
+                break;
+            case PMA_ENGINE_SUPPORT_NO:
+            default:
+                $message = $GLOBALS['strEngineUnavailable'];
+        }
+        return sprintf($message, htmlspecialchars($this->title));
+    }
+
+    /**
+     * public String[][] getVariables ()
+     *
+     * Generates a list of MySQL variables that provide information about this
+     * engine. This function should be overridden when extending this class
+     * for a particular engine.
+     *
+     * @return   Array   The list of variables.
+     */
+    function getVariables () {
+        return array();
+    }
+
+    /**
+     * public String getVariablesLikePattern ()
+     */
+    function getVariablesLikePattern () {
+        return FALSE;
+    }
+
+    /**
+     * public String[] getInfoPages ()
+     *
+     * Returns a list of available information pages with labels
+     *
+     * @return   Array    The list
+     */
+    function getInfoPages () {
+        return array();
+    }
+
+    /**
+     * public String getPage ()
+     *
+     * Generates the requested information page
+     *
+     * @param    String    The page ID
+     *
+     * @return   String    The page
+     *           boolean   or FALSE on error.
+     */
+    function getPage($id) {
+        return FALSE;
+    }
+}
+
 ?>

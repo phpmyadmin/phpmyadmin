@@ -32,10 +32,8 @@ require('./server_links.inc.php');
 define('PMA_ENGINE_DETAILS_TYPE_PLAINTEXT', 0);
 define('PMA_ENGINE_DETAILS_TYPE_SIZE',      1);
 define('PMA_ENGINE_DETAILS_TYPE_NUMERIC',   2); //Has no effect yet...
-function PMA_generateEngineDetails($variables, $life = NULL, $indent = 0) {
+function PMA_generateEngineDetails($variables, $like = NULL, $indent = 0) {
     global $cfg;
-
-    if (empty($variables)) return '';
 
     $spaces = '';
     for ($i = 0; $i < $indent; $i++) {
@@ -45,20 +43,24 @@ function PMA_generateEngineDetails($variables, $life = NULL, $indent = 0) {
     /**
      * Get the variables!
      */
-    $sql_query = 'SHOW '
-               . (PMA_MYSQL_INT_VERSION >= 40102 ? 'GLOBAL ' : '')
-	       . 'VARIABLES'
-	       . (empty($like) ? '' : ' LIKE \'' . $like . '\'')
-	       . ';';
-    $res = PMA_DBI_query($sql_query);
-    $mysql_vars = array();
-    while ($row = PMA_DBI_fetch_row($res)) {
-        if (isset($variables[$row[0]])) $mysql_vars[$row[0]] = $row[1];
+    if (!empty($variables)) {
+        $sql_query = 'SHOW '
+                   . (PMA_MYSQL_INT_VERSION >= 40102 ? 'GLOBAL ' : '')
+                   . 'VARIABLES'
+                   . (empty($like) ? '' : ' LIKE \'' . $like . '\'')
+                   . ';';
+        $res = PMA_DBI_query($sql_query);
+        $mysql_vars = array();
+        while ($row = PMA_DBI_fetch_row($res)) {
+            if (isset($variables[$row[0]])) $mysql_vars[$row[0]] = $row[1];
+        }
+        PMA_DBI_free_result($res);
+        unset($res, $row, $sql_query);
     }
-    PMA_DBI_free_result($res);
-    unset($res, $row, $sql_query);
 
-    if (empty($mysql_vars)) return '';
+    if (empty($mysql_vars)) return $spaces . '<p>' . "\n"
+                                 . $spaces . '    ' . $GLOBALS['strNoDetailsForEngine'] . "\n"
+                                 . $spaces . '</p>' . "\n";
 
     $dt_table          = $spaces . '<table>' . "\n";
     $useBgcolorOne     = TRUE;
@@ -168,106 +170,53 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
      * Displays details about a given Storage Engine
      */
 
+    $engine_plugin = PMA_StorageEngine::getEngine($engine);
     echo '<h2>' . "\n"
        . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 'b_engine.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
-       . '    ' . htmlspecialchars($mysql_storage_engines[$engine]['Engine']) . "\n"
-       . '</h2>' . "\n\n"
-       . '<p>' . "\n"
-       . '    <i>' . "\n"
-       . '        ' . htmlspecialchars($mysql_storage_engines[$engine]['Comment']) . "\n"
-       . '    </i>' . "\n"
-       . '</p>' . "\n";
-    switch ($mysql_storage_engines[$engine]['Support']) {
-        case 'DEFAULT':
-	    echo '<p>'
-	       . '    ' . sprintf($strDefaultEngine, htmlspecialchars($mysql_storage_engines[$engine]['Engine'])) . "\n"
-	       . '</p>' . "\n";
-	break;
-	case 'YES':
-	    echo '<p>' . "\n"
-	       . '    ' . sprintf($strEngineAvailable, htmlspecialchars($mysql_storage_engines[$engine]['Engine'])) . "\n"
-	       . '</p>' . "\n";
-	break;
-	case 'NO':
-	    echo '<p>' . "\n"
-	       . '    ' . sprintf($strEngineUnsupported, htmlspecialchars($mysql_storage_engines[$engine]['Engine'])) . "\n"
-	       . '</p>' . "\n";
-	break;
-	case 'DISABLED':
-	    echo '<p>' . "\n"
-	       . '    ' . sprintf($strEngineDisabled, htmlspecialchars($mysql_storage_engines[$engine]['Engine'])) . "\n"
-	       . '</p>' . "\n";
-	break;
+       . '    ' . htmlspecialchars($engine_plugin->getTitle()) . "\n"
+       . '</h2>' . "\n\n";
+    if (PMA_MYSQL_INT_VERSION >= 40102) {
+        echo '<p>' . "\n"
+           . '    <i>' . "\n"
+           . '        ' . htmlspecialchars($engine_plugin->getComment()) . "\n"
+           . '    </i>' . "\n"
+           . '</p>' . "\n\n";
     }
-
-    switch ($engine) {
-        case 'bdb':
-	case 'berkeleydb':
-	    $variables = array(
-	        'version_bdb' => array(
-		    'title' => $strVersionInformation
-		)
-	    );
-	    echo PMA_generateEngineDetails($variables, 'version_bdb');
-	break;
-
-	case 'innodb':
-	case 'innobase':
-	    echo '<h3>' . "\n"
-	       . '    ' . $strInnodbStat . "\n"
-	       . '</h3>' . "\n\n";
-            $res = PMA_DBI_query('SHOW INNODB STATUS;');
-            $row = PMA_DBI_fetch_row($res);
-	    echo '<pre>' . "\n"
-	        . htmlspecialchars($row[0]) . "\n"
-	        . '</pre>' . "\n";
-	    PMA_DBI_free_result($res);
-	    unset($res, $row);
-	break;
-
-	case 'myisam':
-	    $variables = array(
-		'myisam_data_pointer_size' => array(
-		    'title' => $strMyISAMDataPointerSize,
-		    'desc'  => $strMyISAMDataPointerSizeDesc,
-		    'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
-		),
-		'myisam_recover_options' => array(
-		    'title' => $strMyISAMRecoverOptions,
-		    'desc'  => $strMyISAMRecoverOptionsDesc
-		),
-		'myisam_max_sort_file_size' => array(
-		    'title' => $strMyISAMMaxSortFileSize,
-		    'desc'  => $strMyISAMMaxSortFileSizeDesc,
-		    'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
-		),
-		'myisam_max_extra_sort_file_size' => array(
-		    'title' => $strMyISAMMaxExtraSortFileSize,
-		    'desc'  => $strMyISAMMaxExtraSortFileSizeDesc,
-		    'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
-		),
-		'myisam_repair_threads' => array(
-		    'title' => $strMyISAMRepairThreads,
-		    'desc'  => $strMyISAMRepairThreadsDesc,
-		    'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC
-		),
-	        'myisam_sort_buffer_size' => array(
-		    'title' => $strMyISAMSortBufferSize,
-		    'desc'  => $strMyISAMSortBufferSizeDesc,
-		    'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
-                )
-            );
-	    echo PMA_generateEngineDetails($variables, 'myisam\\_%');
-	break;
-
-        default:
-	    echo '<p>' . "\n"
-	       . '    ' . $strNoDetailsForEngine . "\n"
-	       . '</p>' . "\n";
-        break;
+    $infoPages = $engine_plugin->getInfoPages();
+    if (!empty($infoPages) && is_array($infoPages)) {
+        $common_url = './server_engines.php?' . PMA_generate_common_url() . '&amp;engine=' . urlencode($engine);
+        echo '<p>' . "\n"
+           . '    <b>[</b>' . "\n";
+        if (empty($page)) {
+            echo '    <b>' . $strServerTabVariables . '</b>' . "\n";
+        } else {
+            echo '    <a href="' . $common_url . '">' . $strServerTabVariables . '</a>' . "\n";
+        }
+        foreach ($infoPages as $current => $label) {
+            echo '    <b>|</b>' . "\n";
+            if (isset($page) && $page == $current) {
+                echo '    <b>' . $label . '</b>' . "\n";
+            } else {
+                echo '    <a href="' . $common_url . '&amp;page=' . urlencode($current) . '">' . $label . '</a>' . "\n";
+            }
+        }
+        unset($current, $label);
+        echo '    <b>]</b>' . "\n"
+           . '</p>' . "\n\n";
+    }
+    unset($infoPages, $page_output);
+	if (!empty($page)) {
+        $page_output = $engine_plugin->getPage($page);
+    }
+    if (!empty($page_output)) {
+        echo $page_output;
+    } else {
+        echo '<p>' . "\n"
+           . '    ' . $engine_plugin->getSupportInformationMessage() . "\n"
+           . '</p>' . "\n"
+           . PMA_generateEngineDetails($engine_plugin->getVariables(), $engine_plugin->getVariablesLikePattern());
     }
 }
-
 
 /**
  * Sends the footer

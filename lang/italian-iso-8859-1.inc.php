@@ -776,4 +776,7 @@ $strLongOperation = 'This operation could be long. Proceed anyway?';  //to trans
 
 $strVersionInformation = 'Version information';  //to translate
 
+$strInnoDBDataHomeDir = 'Data home directory';  //to translate
+$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
+$strInnoDBDataFilePath = 'Data files';  //to translate
 ?>

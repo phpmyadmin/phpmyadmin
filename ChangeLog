@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-05 Alexander M. Turek  <me@derrabus.de>
+    * server_engines.php, lang/*.inc.php, libraries/storage_engines.lib.php
+      libraries/engines/berkeleydb.lib.php, libraries/engines/bdb.lib.php,
+      libraries/engines/innobase.lib.php, libraries/innodb.lib.php,
+      libraries/engines/myisam.lib.php:
+      - Moved engine-specific settings into plugins;
+      - Added a few InnoDB variables. To be continued. :-)
+
 2005-03-04 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, libraries/common.lib.php: new FAQ 2.8 about
       Missing parameters, and when the error happens, show a link to FAQ
