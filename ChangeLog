@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/ukrainian: update, thanks to Markijan Baran
+
 2003-03-11 Garvin Hicking <me@supergarv.de>
     * docSQL/*, read_dump.php3, db_details_importdocsql.php3, 
       libraries/grab_globals.lib.php3, libraries/read_dump.lib.php3:
