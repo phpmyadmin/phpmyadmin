@@ -19,6 +19,8 @@ $Source$
 	  to try to get rid of a warning (cause: too many tables?)
 	* bug 439709, tbl_properties.php3: show table maintenance options
 	  based on table type
+	* bug 439565, lib.inc.php3, db_readdump.php3, could not do:
+	  DELETE FROM inscrit WHERE pseudo='test&#039;ap'; 
 
 2001-07-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, line 742: Documentation is now loaded in its own window.

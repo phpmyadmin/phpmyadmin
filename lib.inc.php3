@@ -426,7 +426,7 @@ function display_table ($dt_result, $is_simple = false) {
 				}
 				else
 				{
-					$condition = " $primary->name = '".addslashes($row[$i])."' AND";
+					$condition = " $primary->name = '".addslashes(htmlspecialchars($row[$i]))."' AND";
 				}
             if($primary->numeric == 1) {
 	      if($sql_query == "SHOW PROCESSLIST")

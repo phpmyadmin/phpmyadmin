@@ -59,7 +59,7 @@ if($sql_query != "") {
 
 // sql.php3 will stripslash the query if get_magic_quotes_gpc
     if (get_magic_quotes_gpc() == 1) $sql_query = addslashes($sql_query);
-
+    $sql_query=htmlspecialchars($sql_query);
     include("./sql.php3");
     exit;
   }
