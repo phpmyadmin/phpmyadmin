@@ -260,7 +260,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
         // (wanted to use an <a href="#bottom"> and <a name> instead,
         // but it didn't worked because of the <base href>)
 
-        if ((($i % 15) == 0) && ($i != 0)) {
+        if ((($o_rows * $fields_cnt + $i) % 15 == 0) && ($i + $o_rows != 0)) {
             ?>
         <tr>
             <th colspan="5" align="right">
