@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-11 Michal Cihar  <imreallyaway@cihar.com>
+    * libraries/export/sql.php: Fix moving foreign key definition on Windows
+      (bug #851950).
+
 2003-12-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_replace.php: missing number of rows for Affected rows
       and Inserted rows; wrong message for insert ids
