@@ -19,7 +19,7 @@ if ($what == 'excel') {
 }
 
 // Get the functions specific to the export type
-require('./libraries/export/' . preg_replace('@\.\.*@','.',$type) . '.php');
+require('./libraries/export/' . PMA_securePath($type) . '.php');
 
 // Generate error url
 if ($export_type == 'server') {
