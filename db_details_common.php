@@ -38,7 +38,7 @@ if (!isset($is_db) || !$is_db) {
  */
 if (isset($submitcollation) && !empty($db_collation) && PMA_MYSQL_INT_VERSION >= 40101) {
     list($db_charset) = explode('_', $db_collation);
-    $sql_query        = 'ALTER DATABASE ' . PMA_backquote($db) . ' DEFAULT CHARACTER SET ' . $db_charset . ($db_charset == $db_collation ? '' : ' COLLATE ' . $db_collation);
+    $sql_query        = 'ALTER DATABASE ' . PMA_backquote($db) . ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
     $result           = PMA_DBI_query($sql_query);
     $message          = $strSuccess;
     unset($db_charset, $db_collation);

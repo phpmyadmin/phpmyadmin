@@ -305,7 +305,7 @@ if ($server > 0) {
                . '                    <input type="text" name="db" value="' . $db_to_create . '" maxlength="64" class="textfield" />' . "\n";
             if (PMA_MYSQL_INT_VERSION >= 40101) {
                 require_once('./libraries/mysql_charsets.lib.php');
-                PMA_printCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', NULL, NULL, TRUE, 5);
+                echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', NULL, NULL, TRUE, 5);
             }
             echo '                    <input type="submit" value="' . $strCreate . '" />' . "\n"
                . '                </form>' . "\n"

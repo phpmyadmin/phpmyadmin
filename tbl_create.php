@@ -61,8 +61,8 @@ if (isset($submit)) {
         }
         if ($field_attribute[$i] != '') {
             $query .= ' ' . $field_attribute[$i];
-        } else if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($field_charset[$i])) {
-            $query .= ' CHARACTER SET ' . $field_charset[$i];
+        } else if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($field_collation[$i])) {
+            $query .= PMA_generateCharsetQueryPart($field_collation[$i]);
         }
         if ($field_default[$i] != '') {
             if (strtoupper($field_default[$i]) == 'NULL') {
@@ -163,9 +163,9 @@ if (isset($submit)) {
         $sql_query .= ' TYPE = ' . $tbl_type;
         $query_cpy .= "\n" . 'TYPE = ' . $tbl_type;
     }
-    if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($tbl_charset)) {
-        $sql_query .= ' CHARACTER SET = ' . $tbl_charset;
-        $query_cpy .= "\n" . 'CHARACTER SET = ' . $tbl_charset;
+    if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($tbl_collation)) {
+        $sql_query .= PMA_generateCharsetQueryPart($tbl_collation);
+        $query_cpy .= "\n" . PMA_generateCharsetQueryPart($tbl_collation);
     }
 
     if (!empty($comment)) {

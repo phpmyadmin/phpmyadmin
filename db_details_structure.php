@@ -705,9 +705,9 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
        . '    <li>' . "\n"
        . '        <form method="post" action="./db_details_structure.php">' . "\n"
        . PMA_generate_common_hidden_inputs($db, $table, 3)
-       . '            <label for="select_db_collation">' . $strCollation . '</label>&nbsp;:&nbsp;' . "\n";
-    PMA_printCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', 'select_db_collation', $db_collation, FALSE, 3);
-    echo '            <input type="submit" name="submitcollation" value="' . $strGo . '" style="vertical-align: middle" />&nbsp;' . "\n"
+       . '            <label for="select_db_collation">' . $strCollation . '</label>&nbsp;:&nbsp;' . "\n"
+       . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', 'select_db_collation', $db_collation, FALSE, 3)
+       . '            <input type="submit" name="submitcollation" value="' . $strGo . '" style="vertical-align: middle" />&nbsp;' . "\n"
        . '        </form>' . "\n"
        . '    </li>' . "\n\n";
 }

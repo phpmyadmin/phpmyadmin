@@ -85,7 +85,7 @@ $header_cells[] = $strField;
 $header_cells[] = $strType . '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('Reference', 'Column_types') . '</span>';
 $header_cells[] = $strLengthSet;
 if (PMA_MYSQL_INT_VERSION >= 40100) {
-    $header_cells[] = $strCharset;
+    $header_cells[] = $strCollation;
 }
 $header_cells[] = $strAttr;
 $header_cells[] = $strNull;
@@ -230,7 +230,8 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     } // end if else
 
     // some types, for example longtext, are reported as
-    // "longtext character set latin7" when not latin1
+    // "longtext character set latin7" when their charset and / or collation
+    // differs from the ones of the corresponding database.
     if (PMA_MYSQL_INT_VERSION >= 40100) {
         $tmp = strpos($type, 'character set');
         if ($tmp) {
@@ -274,28 +275,9 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
 
     if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $content_cells[$i][$ci] = '<select name="field_charset[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">' . "\n"
-                                . '    <option value=""></option>' . "\n";
-        if (!empty($row['Collation']) && (
-            strtolower(substr($type, 0, 4)) == 'char'
-            || strtolower(substr($type, 0, 7)) == 'varchar'
-            || strtolower(substr($type, 0, 4)) == 'text'
-            || strtolower(substr($type, 0, 8)) == 'tinytext'
-            || strtolower(substr($type, 0, 10)) == 'mediumtext'
-            || strtolower(substr($type, 0, 8)) == 'longtext'
-            || strtolower(substr($type, 0, 3)) == 'set'
-            || strtolower(substr($type, 0, 4)) == 'enum'
-            ) && !$binary) {
-            $real_charset = strpos($row['Collation'], '_') ? substr($row['Collation'], 0, strpos($row['Collation'], '_')) : $row['Collation'];
-        } else {
-            $real_charset = '';
-        }
-        for ($j = 0; isset($mysql_charsets[$j]); $j++) {
-            $content_cells[$i][$ci] .= '    <option value="' . $mysql_charsets[$j] . '"' . ($mysql_charsets[$j] == $real_charset ? ' selected="selected"' : '') . '>' . $mysql_charsets[$j] . '</option>' . "\n";
-        }
-        unset($j);
-        unset($real_charset);
-        $content_cells[$i][$ci] .= '</select>' . "\n";
+        $tmp_collation          = empty($row['Collation']) ? NULL : $row['Collation'];
+        $content_cells[$i][$ci] = PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'field_collation[]', 'field_' . $i . '_' . ($ci - $ci_offset), $tmp_collation, FALSE);
+        unset($tmp_collation);
         $ci++;
     }
 
@@ -543,7 +525,7 @@ if ($action == 'tbl_create.php') {
         <?php
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             echo '        <td width="25">&nbsp;</td>' . "\n"
-               . '        <td>' . $strCharset . '&nbsp;:</td>' . "\n";
+               . '        <td>' . $strCollation . '&nbsp;:</td>' . "\n";
         }
     }
     echo "\n";
@@ -608,12 +590,7 @@ if ($action == 'tbl_create.php') {
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             echo '        <td width="25">&nbsp;</td>' . "\n"
                . '        <td>' . "\n"
-               . '            <select name="tbl_charset">' . "\n";
-            for ($i = 0; isset($mysql_charsets[$i]); $i++) {
-                echo '                <option value="' . $mysql_charsets[$i] . '"' . ($mysql_charsets[$i] == 'latin1' ? ' selected="selected"' : '') . '>' . $mysql_charsets[$i] . '</option>' . "\n";
-            }
-            unset($i);
-            echo '            </select>' . "\n"
+               . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'tbl_collation', NULL, NULL, FALSE, 3)
                . '        </td>' . "\n";
         }
     }
