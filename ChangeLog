@@ -8,6 +8,10 @@ $Source$
 2001-11-29  Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, lines 76-83: displays verbose server description
 	  rather than hostname as window title.
+	* left.php3, line 82: fixed a js error.
+	* libraries/left.js: extended the list of browsers that works with DOM
+	  version.
+
 2001-11-26  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_indexes.php3: fulltext indexes is available since MySQL 3.23.23
 	  only.
