@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-25 Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/japanese-*: updated thanks to Yukihiro Kawada aka "luc"
+	  <kawada at den.fujifilm.co.jp>.
+
 2002-02-24 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/german.inc.php3: updated thanks to Alexander M. Turek.
 	* tbl_change.php3: restored default value to "NOW()" with timestamp fields

@@ -100,7 +100,7 @@ $strDoAQuery = '"例のQUERY"を実行 (wildcard: "%")';
 $strDocu = 'ヘルプ';
 $strDoYouReally = '本当に実行しても良いですか？ --> ';
 $strDrop = '削除';
-$strDropDB = 'データベース削除 %s';
+$strDropDB = 'データベース%sの削除 ';
 $strDropTable = 'テーブルの削除';
 $strDumpingData = 'テーブルのダンプデータ';
 $strDynamic = 'ダイナミック';
@@ -111,7 +111,7 @@ $strEffective = '事実上';
 $strEmpty = '空にする';
 $strEmptyResultSet = 'MySQLが空の値を返しました。(i.e. zero rows).';
 $strEnd = '最後';
-$strEnglishPrivileges = ' 注意: MySQLの特権の名前は英語で発表している。';
+$strEnglishPrivileges = ' 注意: MySQLの特権の名前は英語で発表しています。';
 $strError = 'エラー';
 $strExtendedInserts = '長いINSERT文の作成';
 $strExtra = '追加';
@@ -158,7 +158,7 @@ $strInsertNewRow = '新しい行の追加';
 $strInsertTextfiles = 'テーブルにテキストファイルの追加';
 $strInstructions = '教示';
 $strInUse = '使用中';
-$strInvalidName = '"%s"は予約された名前ですから「データベース／テーブル／フィールド」名には使えません。';
+$strInvalidName = '"%s"は予約語ですから「データベース／テーブル／フィールド」名には使えません。';
 
 $strKeepPass = 'パスワードを変更しない';
 $strKeyname = 'キー名';
@@ -194,7 +194,7 @@ $strNext = '次へ';
 $strNo = 'いいえ';
 $strNoDatabases = 'データベース数';
 $strNoDropDatabases = '"DROP DATABASE"ステートメントは禁止される。';
-$strNoFrames = '<b>フレーム</b>可能なブラウザーだとphpMyAdminの方は使いやすいです。';
+$strNoFrames = '<b>フレーム</b>可能なブラウザーの方がphpMyAdminは使いやすいです。';
 $strNoIndex = 'インデックスは設定されていません。';
 $strNoIndexPartsDefined = 'インデックスの部分は設定されていません。';
 $strNoModification = '変更無';
@@ -346,7 +346,7 @@ $strZip = '"zipされる"';
 
 // japanese only
 $strEncto = 'エンコーディングへ変換する'; // encoding convert
-$strKanjiEncodConvert = 'Kanji encoding convert'; // To translate
+$strKanjiEncodConvert = '漢字コード変換'; // kanji code convert
 $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
