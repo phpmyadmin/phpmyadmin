@@ -18,7 +18,9 @@
  */
 function PMA_splitSqlFile(&$ret, $sql, $release)
 {
-    $sql          = trim($sql);
+    // do not trim, see bug #1030644
+    //$sql          = trim($sql);
+    $sql          = rtrim($sql, "\n\r");
     $sql_len      = strlen($sql);
     $char         = '';
     $string_start = '';

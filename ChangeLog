@@ -5,8 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * read_dump.php, libraries/read_dump.lib.php: bug #1030644,
+      error importing when last table exported was empty
+
 2004-09-20 Michal Čihař  <michal@cihar.com>
-	* Documentation.html: Add info about theme generations.
+    * Documentation.html: Add info about theme generations.
 
 2004-09-19 Alexander M. Turek  <me@derrabus.de>
     * Documentation.html: Clarification.

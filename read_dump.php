@@ -130,13 +130,16 @@ if ($sql_file != 'none') {
 
 // Kanji convert SQL textfile 2002/1/4 by Y.Kawada
 if (@function_exists('PMA_kanji_str_conv')) {
-    $sql_tmp   = trim($sql_query);
+    // do not trim here: see bug #1030644
+    //$sql_tmp   = trim($sql_query);
+    $sql_tmp   = $sql_query;
     PMA_change_enc_order();
     $sql_query = PMA_kanji_str_conv($sql_tmp, $knjenc, isset($xkana) ? $xkana : '');
     PMA_change_enc_order();
-} else {
-    $sql_query = trim($sql_query);
-}
+} //else {
+    // do not trim here: see bug #1030644
+    //$sql_query = trim($sql_query);
+//}
 
 // $sql_query come from the query textarea, if it's a reposted query gets its
 // 'true' value
