@@ -8,6 +8,8 @@ $Source$
 2002-08-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/defines_php.lib.php3, Documentation.*, translators.html:
       corrected version number.
+    * libraries/grab_globals.lib.php3: disallow accessing serious server files
+      via "?goto=".
 
 2002-08-11 Robin Johnson  <robbat2@users.sourceforge.net>
     ### 2.3.0 is released ###

@@ -40,5 +40,10 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
         $PHP_SELF = $HTTP_SERVER_VARS['PHP_SELF'];
     } // end if
 
+    // Securety fix: disallow accessing serious server files via "?goto="
+    if (isset($goto) && strpos(' ' . $goto, '/') > 0 && substr($goto, 0, 2) != './') {
+        unset($goto);
+    } // end if
+
 } // $__PMA_GRAB_GLOBALS_LIB__
 ?>
