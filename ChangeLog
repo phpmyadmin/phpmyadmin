@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2001-10-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/czech-*.inc.php3: fixed an other typo, thanks to Michal Cihar.
+
+2001-10-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html, lines 2-4; header.inc.php3, lines 39-41;
 	  index.php3, lines 36-38; left.php3, lines 49-51;
 	  libraries/common.lib.php3, lines 75-78: fixed bug #472353 - Doc can't be
