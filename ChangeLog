@@ -13,6 +13,7 @@ $Source$
 	* sql.php3, lines 65: fixed a warning
 	* tbl_select.php3: fixed a bug if number of registrations to display is not
 	  specified (bug #424278 and patch from Alain Brissaud)
+	* updated the documentation files for the "unofficial" phpMyAdmin homepage
 
 2001-05-15  Marc Delisle  <lem9@users.sourceforge.net>
 	* support key length in table copy/dump
