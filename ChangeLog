@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2002-07-31 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/thai update, thanks to Arthit Suriyawongkul
+    * lang/thai: update, thanks to Arthit Suriyawongkul
 
 2002-07-30 Robin Johnson  <robbat2@users.sourceforge.net>
     * scripts/decode_bug.php3: Parser BUG decoder merged
