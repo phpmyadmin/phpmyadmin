@@ -5,12 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-25 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3, libraries/config_import.lib.php3:
+      - Backwards compatibility;
+      - Removed some unnecessary code;
+      - Added a small HOWTO.
+
 2003-02-27 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3, tbl_properties_links.php3, db_details_links.php3,
       querywindow.php3: Integrated Manuzhais patch for Lightweight Tabs.
     * querywindow.php3, tbl_query_box.php3, config.inc.php3, header.inc.php3, index.php3,
       libraries/config_import.lib.php3: Added (optional) DB-based SQL-history with
-      purging on login, made querywindow tabbed, improved Querywindow-compatibility. 
+      purging on login, made querywindow tabbed, improved Querywindow-compatibility.
 
 2003-02-26 Garvin Hicking <me@supergarv.de>
     * lang/german-*: better grammar. ;)
@@ -22,7 +28,7 @@ $Source$
       transformation_wrapper.php3, libraries/config_import.lib.php3,
       libraries/display_tbl.lib.php3, libraries/relation.lib.php3,
       scripts/create_tables.sql:
-       Test if MIME-feature are really available. Preparation for PMA_db-based 
+       Test if MIME-feature are really available. Preparation for PMA_db-based
        SQL-History.
        Removed a dupe for inserting comments, fixed integrity check when
        moving/renaming tables and keeping comments.
@@ -30,7 +36,7 @@ $Source$
        the frameset is initialized when querying for an active window. Without
        this, when starting phpMyAdmin for the first time, IE6 may complain
        depending on the order it loads the framesets.
-    
+
 2003-02-25 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php3: undefined variable $comment
     * tbl_move_copy.php3: 'column_info'

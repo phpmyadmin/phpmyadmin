@@ -7,6 +7,43 @@
  * This file provides support for older config files.
  */
 
+/**
+ * U S A G E
+ *
+ * After having added a new directive to the config.inc.php3 file, you need to
+ * put some backwards compatibility code into this file.
+ *
+ * This usually looks like this:
+ *
+ * if (!isset($myNewDirective)) {
+ *     $myNewDirective = 'my default value';
+ * }
+ *
+ * If the new directive is meant as a replacement for an old one, please use the
+ * following layout:
+ *
+ * if (!isset($myNewDirective)) {
+ *     if (isset($myOldDirective)) {
+ *         $myNewDirective = $myOldDirective;
+ *         unset($myOldDirective);
+ *     } else {
+ *         $myNewDirective = '';
+ *     }
+ * }
+ *
+ * In order to make this file readable for other developers, please try to use
+ * the same order of directives here as you do in config.inc.php3.
+ *
+ * After having done all this, search libraries/common.lib.php3 for the
+ * following paragraph (x is an integer):
+ *
+ * if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < x) {
+ *     include('./libraries/config_import.lib.php3');
+ * }
+ *
+ * Finally, set x to the _new_ revision number of config.inc.php3
+ * (without '1.': 234 instead of 1.234) and you're done!
+ */
 
 if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     define('PMA_CONFIG_IMPORT_LIB_INCLUDED', 1);
@@ -228,14 +265,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
             $cfg['LeftFrameLight'] = TRUE;
         }
     }
-    
+
     if (!isset($cfg['LightTabs'])) {
-        if (isset($cfgLightTabs)) {
-            $cfg['LightTabs'] = $cfgLightTabs;
-            unset($cfgLightTabs);
-        } else {
-            $cfg['LightTabs'] = FALSE;
-        }
+        $cfg['LightTabs'] = FALSE;
     }
 
     if (!isset($cfg['ShowTooltip'])) {
@@ -636,129 +668,59 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     }
 
     if (!isset($cfg['HeaderFlipType'])) {
-        if (isset($cfgHeaderFlipType)) {
-            $cfg['HeaderFlipType'] = $cfgHeaderFlipType;
-            unset($cfgHeaderFlipType);
-        } else {
-            $cfg['HeaderFlipType'] = 'css';
-        }
+        $cfg['HeaderFlipType'] = 'css';
     }
 
     if (!isset($cfg['ShowBrowseComments'])) {
-        if (isset($cfgShowBrowseComments)) {
-            $cfg['ShowBrowseComments'] = $cfgShowBrowseComments;
-            unset($cfgShowBrowseComments);
-        } else {
-            $cfg['ShowBrowseComments'] = TRUE;
-        }
+        $cfg['ShowBrowseComments'] = TRUE;
     }
 
     if (!isset($cfg['ShowPropertyComments'])) {
-        if (isset($cfgShowPropertyComments)) {
-            $cfg['ShowPropertyComments'] = $cfgShowPropertyComments;
-            unset($cfgShowPropertyComments);
-        } else {
-            $cfg['ShowPropertyComments'] = TRUE;
-        }
+        $cfg['ShowPropertyComments'] = TRUE;
     }
 
     if (!isset($cfg['QueryFrame'])) {
-        if (isset($cfgQueryFrame)) {
-            $cfg['QueryFrame'] = $cfgQueryFrame;
-            unset($cfgQueryFrame);
-        } else {
-            $cfg['QueryFrame'] = TRUE;
-        }
+        $cfg['QueryFrame'] = TRUE;
     }
 
     if (!isset($cfg['QueryFrameJS'])) {
-        if (isset($cfgQueryFrameJS)) {
-            $cfg['QueryFrameJS'] = $cfgQueryFrameJS;
-            unset($cfgQueryFrameJS);
-        } else {
-            $cfg['QueryFrameJS'] = TRUE;
-        }
+        $cfg['QueryFrameJS'] = TRUE;
     }
 
     if (!isset($cfg['QueryFrameDebug'])) {
-        if (isset($cfgQueryFrameDebug)) {
-            $cfg['QueryFrameDebug'] = $cfgQueryFrameDebug;
-            unset($cfgQueryFrameDebug);
-        } else {
-            $cfg['QueryFrameDebug'] = FALSE;
-        }
+        $cfg['QueryFrameDebug'] = FALSE;
     }
 
     if (!isset($cfg['QueryWindowWidth'])) {
-        if (isset($cfgQueryWindowWidth)) {
-            $cfg['QueryWindowWidth'] = $cfgQueryWindowWidth;
-            unset($cfgQueryWindowWidth);
-        } else {
-            $cfg['QueryWindowWidth'] = 750;
-        }
+        $cfg['QueryWindowWidth'] = 750;
     }
 
     if (!isset($cfg['QueryWindowHeight'])) {
-        if (isset($cfgQueryWindowHeight)) {
-            $cfg['QueryWindowHeight'] = $cfgQueryWindowHeight;
-            unset($cfgQueryWindowHeight);
-        } else {
-            $cfg['QueryWindowHeight'] = 300;
-        }
+        $cfg['QueryWindowHeight'] = 300;
     }
 
     if (!isset($cfg['QueryHistoryMax'])) {
-        if (isset($cfgQueryHistoryMax)) {
-            $cfg['QueryHistoryMax'] = $cfgQueryHistoryMax;
-            unset($cfgQueryHistoryMax);
-        } else {
-            $cfg['QueryHistoryMax'] = 25;
-        }
+        $cfg['QueryHistoryMax'] = 25;
     }
 
     if (!isset($cfg['QueryHistoryDB'])) {
-        if (isset($cfgQueryHistoryDB)) {
-            $cfg['QueryHistoryDB'] = $cfgQueryHistoryDB;
-            unset($cfgQueryHistoryDB);
-        } else {
-            $cfg['QueryHistoryDB'] = FALSE;
-        }
+        $cfg['QueryHistoryDB'] = FALSE;
     }
 
     if (!isset($cfg['QueryWindowDefTab'])) {
-        if (isset($cfgQueryWindowDefTab)) {
-            $cfg['QueryWindowDefTab'] = $cfgQueryWindowDefTab;
-            unset($cfgQueryWindowDefTab);
-        } else {
-            $cfg['QueryWindowDefTab'] = 'sql';
-        }
+        $cfg['QueryWindowDefTab'] = 'sql';
     }
 
     if (!isset($cfg['BrowseMIME'])) {
-        if (isset($cfgBrowseMIME)) {
-            $cfg['BrowseMIME'] = $cfgBrowseMIME;
-            unset($cfgBrowseMIME);
-        } else {
-            $cfg['BrowseMIME'] = TRUE;
-        }
+        $cfg['BrowseMIME'] = TRUE;
     }
 
     if (!isset($cfg['ShowTooltipAliasDB'])) {
-        if (isset($cfgShowTooltipAliasDB)) {
-            $cfg['ShowTooltipAliasDB'] = $cfgShowTooltipAliasDB;
-            unset($cfgShowTooltipAliasDB);
-        } else {
-            $cfg['ShowTooltipAliasDB'] = FALSE;
-        }
+        $cfg['ShowTooltipAliasDB'] = FALSE;
     }
 
     if (!isset($cfg['ShowTooltipAliasTB'])) {
-        if (isset($cfgShowTooltipAliasTB)) {
-            $cfg['ShowTooltipAliasTB'] = $cfgShowTooltipAliasTB;
-            unset($cfgShowTooltipAliasTB);
-        } else {
-            $cfg['ShowTooltipAliasTB'] = FALSE;
-        }
+        $cfg['ShowTooltipAliasTB'] = FALSE;
     }
 
     if (!isset($cfg['SQLQuery']['Edit'])) {
