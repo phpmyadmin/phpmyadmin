@@ -52,6 +52,7 @@ $cfgServers[1]['only_db']       = '';          // If set to a db-name, only this
 $cfgServers[1]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 $cfgServers[1]['bookmarkdb']    = '';          // Bookmark db - leave blank for no bookmark support
 $cfgServers[1]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
+$cfgServers[1]['relation']      = '';          // table to describe the relation between links (see doc) - leave blank for no relation-links support
 
 $cfgServers[2]['host']          = '';
 $cfgServers[2]['port']          = '';
@@ -66,6 +67,7 @@ $cfgServers[2]['only_db']       = '';
 $cfgServers[2]['verbose']       = '';
 $cfgServers[2]['bookmarkdb']    = '';
 $cfgServers[2]['bookmarktable'] = '';
+$cfgServers[2]['relation']      = '';          
 
 $cfgServers[3]['host']          = '';
 $cfgServers[3]['port']          = '';
@@ -80,6 +82,7 @@ $cfgServers[3]['only_db']       = '';
 $cfgServers[3]['verbose']       = '';
 $cfgServers[3]['bookmarkdb']    = '';
 $cfgServers[3]['bookmarktable'] = '';
+$cfgServers[3]['relation']      = '';          
 
 // If you have more than one server configured, you can set $cfgServerDefault
 // to any one of them to autoconnect to that server when phpMyAdmin is started,
