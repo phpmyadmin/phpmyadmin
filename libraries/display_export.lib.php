@@ -541,8 +541,10 @@ if (!$hide_structure) { ?>
 if (isset($table) && !empty($table) && !isset($num_tables)) {
 ?>
     <tr>
-        <td colspan="3" bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="center">
+        <td colspan="3" align="center">
+          <div style="background-color: <?php echo $cfg['BgcolorOne']; ?>; padding: 3px; margin: 1px;">
            <b><?php echo sprintf($strDumpXRows , '<input type="text" name="limit_to" size="5" value="' . (isset($unlim_num_rows)?$unlim_num_rows: PMA_countRecords($db, $table, TRUE)) . '" class="textfield" style="vertical-align: middle" onfocus="this.select()" style="vertical-align: middle; text-align: center;" />' , '<input type="text" name="limit_from" value="0" size="5" class="textfield" style="vertical-align: middle" onfocus="this.select()" style="vertical-align: middle; text-align: center;" />') . "\n"; ?></b>
+          </div>
         </td>
     </tr>
 <?php

@@ -750,7 +750,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
        . PMA_generate_common_hidden_inputs($db, $table, 3)
        . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', 'select_db_collation', $db_collation, FALSE, 3)
        . '    </td><td align="right">'
-       . '            <input type="submit" name="submitcollation" value="' . $strGo . '" style="vertical-align: middle" />&nbsp;' . "\n"
+       . '            <input type="submit" name="submitcollation" value="' . $strGo . '" style="vertical-align: middle" />' . "\n"
        . '    </td></tr>' . "\n"
        . '        </form>' . "\n"
        . '         ' . "\n\n";
@@ -758,7 +758,8 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 
 if ($num_tables > 0
     && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
-    echo '<tr><th colspan="3" class="tblHeadError"><div class="errorhead">' . $strError . '</div></th></tr>'
+    echo '<tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>'
+        . '<tr><th colspan="3" class="tblHeadError"><div class="errorhead">' . $strError . '</div></th></tr>'
         . '<tr><td colspan="3" class="tblError">'
         . sprintf(wordwrap($strRelationNotWorking,65,'<br />'), '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',  '</a>')
         . '</td></tr>';

@@ -312,7 +312,7 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
             include($tmp_color_file);
         }
     } else {
-        $pmaThemeImage = './images/';
+        $pmaThemeImage = './' . $cfg['ThemePath'] . '/original/img/';
     }
 } else {
     $GLOBALS['theme'] = $_COOKIE['pma_theme'];
@@ -323,7 +323,7 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
     }
 }
 if (!is_dir($pmaThemeImage)) {
-    $pmaThemeImage = './images/';
+    $pmaThemeImage = './' . $cfg['ThemePath'] . '/original/img/';
 }
 // end theme manager
 
@@ -811,9 +811,9 @@ function PMA_setFontSizes()
 {
     global $font_size, $font_biggest, $font_bigger, $font_smaller, $font_smallest;
 
-    // IE (<6)/Opera (<7) for win case: needs smaller fonts than anyone else
+    // IE (<7)/Opera (<7) for win case: needs smaller fonts than anyone else
     if (PMA_USR_OS == 'Win'
-        && ((PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 6)
+        && ((PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 7)
         || (PMA_USR_BROWSER_AGENT == 'OPERA' && PMA_USR_BROWSER_VER < 7))) {
         $font_size     = 'x-small';
         $font_biggest  = 'large';

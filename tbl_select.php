@@ -122,29 +122,105 @@ function PMA_tbl_select_operator(f, index, multiple) {
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="tbl_select.php" />
-    <p style="margin-left: 30px;">
-    <?php echo $strSelectFields; ?><br />
-    <select name="param[]" size="<?php echo min($fields_cnt, 10); ?>" multiple="multiple">
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top">
+                <table border="0" cellpadding="3" cellspacing="0">
+                    <tr>
+                        <th align="left" colspan="2">
+                            <?php echo $strSelectFields; ?>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+                            <select name="param[]" size="<?php echo min($fields_cnt, 10); ?>" multiple="multiple" align="left">
     <?php
     echo "\n";
     // Displays the list of the fields
     for ($i = 0 ; $i < $fields_cnt; $i++) {
-        echo '        <option value="' . htmlspecialchars($fields_list[$i]) . '" selected="selected">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+        echo '                            '
+            . '<option value="' . htmlspecialchars($fields_list[$i]) . '" selected="selected">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
     }
     ?>
-    </select><br />
-    <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" /> <label for="oDistinct">DISTINCT</label></p>
-    <ul>
-        <li>
-            <?php echo $strLimitNumRows . "\n"; ?>
-            <input type="text" size="4" name="session_max_rows" value="<?php echo $cfg['MaxRows']; ?>" class="textfield" />
-        </li>
-        <li>
-        <?php echo $strAddSearchConditions; ?><br />
-            <input type="text" name="where" class="textfield" />&nbsp;
-            <?php echo PMA_showMySQLDocu('Reference', 'Functions') . "\n"; ?>
-            <br /><br />
-            <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
+                            </select>
+                        </td>
+                        <td valign="bottom" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+                            <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" /> <label for="oDistinct">DISTINCT</label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td nowrap="nowrap" width="50">&nbsp;</td>
+            <td valign="top">
+                <table border="0" cellpadding="3" cellspacing="0">
+                    <tr>
+                        <th align="left">
+                            <?php echo $strLimitNumRows . "\n"; ?>:
+                        </th>
+                    </tr>
+                    <tr>
+                        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+                            <input type="text" size="4" name="session_max_rows" value="<?php echo $cfg['MaxRows']; ?>" class="textfield" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <th align="left">
+                            <?php echo $strDisplayOrder; ?>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+                            <select name="orderField" style="vertical-align: middle">
+                                <option value="--nil--"></option>
+            <?php
+    echo "\n";
+    for ($i = 0; $i < $fields_cnt; $i++) {
+        echo '                                ';
+        echo '<option value="' . htmlspecialchars($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+    } // end for
+    ?>
+                            </select><br />
+                            <input type="radio" name="order" value="ASC" checked="checked" id="sortASC" />
+                            <label for="sortASC"><?php echo $strAscending; ?></label><br />
+                            <input type="radio" name="order" value="DESC" id="sortDESC" />
+                            <label for="sortDESC"><?php echo $strDescending; ?></label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <th align="left" class="tblHeaders" colspan="2">
+                <?php echo $strAddSearchConditions; ?>
+                <?php echo PMA_showMySQLDocu('Reference', 'Functions') . "\n"; ?>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="where" class="textfield" size="64" />
+            </td>
+            <td align="right">
+                <input type="submit" name="submit" value="<?php echo $strGo; ?>" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <th align="left" class="tblHeaders" colspan="2">
+                <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?>
+            </th>
+        </tr>
+        <tr>
+            <td colspan="2">
             <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
             <tr>
                 <th><?php echo $strField; ?></th>
@@ -159,7 +235,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
         $bgcolor   = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         ?>
             <tr>
-                <td bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($fields_list[$i]); ?></td>
+                <td bgcolor="<?php echo $bgcolor; ?>"><b><?php echo htmlspecialchars($fields_list[$i]); ?></b></td>
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $fields_type[$i]; ?></td>
                 <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '<td bgcolor="' . $bgcolor . '">' . $fields_collation[$i] . '</td>' . "\n" : ''; ?>
                  <td bgcolor="<?php echo $bgcolor; ?>">
@@ -245,29 +321,15 @@ function PMA_tbl_select_operator(f, index, multiple) {
     echo "\n";
     ?>
             </table>
-        </li>
-        <li>
-            <?php echo $strDisplayOrder; ?><br />
-            <select name="orderField" style="vertical-align: middle">
-            <option value="--nil--"></option>
-            <?php
-    echo "\n";
-    for ($i = 0; $i < $fields_cnt; $i++) {
-        echo '                ';
-        echo '<option value="' . htmlspecialchars($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
-    } // end for
-    ?>
-            </select>
-            <input type="radio" name="order" value="ASC" checked="checked" />
-            <?php echo $strAscending; ?>&nbsp;
-            <input type="radio" name="order" value="DESC" />
-            <?php echo $strDescending; ?>
-        </li>
-    </ul>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="hidden" name="max_number_of_fields" value="<?php echo $fields_cnt; ?>" />
-    <input type="submit" name="submit" value="<?php echo $strGo; ?>" />
+            </td>
+        </tr>
+        <tr>
+            <td nowrap="nowrap" colspan="2" align="right">
+                <input type="hidden" name="max_number_of_fields" value="<?php echo $fields_cnt; ?>" />
+                <input type="submit" name="submit" value="<?php echo $strGo; ?>" />
+            </td>
+        </tr>
+    </table>
 </form>
     <?php
     require_once('./footer.inc.php');

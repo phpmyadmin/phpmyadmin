@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * themes/original/img/item*.png, themes/original/css/theme_right.css.php,
+      libraries/common.lib.php, libraries/display_export.lib.php,
+      db_details_structure.php, tbl_select.php:
+      fix IE font size problem, redesign search and export pages,
+      thanks to Michael Keck (mkkeck)
+
 2004-06-17 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysql.dbi.php: Removed debug code.
     * libraries/dbi/mysqli.dbi.php: If connecting fails, we don't know the
