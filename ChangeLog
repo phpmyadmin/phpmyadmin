@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-10  Armel Fauveau <armel.fauveau@globalis-ms.com>
+	* Added a "view only" option in the phpMyBookmark patch (Feature #422425)
+
 2001-05-09  Marc Delisle <lem9@users.sourceforge.net>
 	* new messages in /lang
         * browse table bug (#421879)
@@ -14,7 +17,7 @@ $Source$
 
 2001-05-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_readdump.php3, line 14 and sql.php3, line 112: two warnings were
-	  displayed with the phpMyBookmark path if the error reporting level
+	  displayed with the phpMyBookmark patch if the error reporting level
 	  is set to E_ALL
 	* import the "Insert new row to edit page" feature put by Korakot in
 	  the stable CVS tree
