@@ -9,6 +9,13 @@ require("grab_globals.inc.php3");
 
 include("lib.inc.php3");
 
+// Bookmark Support
+
+if($sql_bookmark != "")
+    $sql_query = $sql_bookmark;
+
+//
+
 if(!empty($sql_file) && $sql_file != "none" && ereg("^php[0-9A-Za-z_.-]+$", basename($sql_file))) {
   $sql_query = fread(fopen($sql_file, "r"), filesize($sql_file));
 }

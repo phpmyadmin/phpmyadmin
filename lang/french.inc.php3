@@ -168,4 +168,8 @@ $strAnalyzeTable	= "Analyze table";  //to translate
 $strRepairTable	= "Repair table";  //to translate
 $strOptimizeTable	= "Optimize table"; //to translate
 $strTableType	= "Table type"; //to translate
+
+$strBookmarkQuery	= "Requêtes bookmarkées";
+$strBookmarkThis	= "Bookmarker cette requête";
+$strBookmarkLabel	= "Label";
 ?>

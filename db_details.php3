@@ -1,10 +1,7 @@
 <?php
 /* $Id$ */
 
-
 require("grab_globals.inc.php3");
- 
-
 
 if(!isset($message))
 {
@@ -73,6 +70,24 @@ $query = "?server=$server&lang=$lang&db=$db&goto=db_details.php3";
 echo $cfgMaxInputsize;?>"></textarea><br>
 <?php echo "<i>$strOr</i> $strLocationTextfile";?>:<br>
 <input type="file" name="sql_file"><br>
+<?php
+// Bookmark Support
+
+if($cfgBookmark['db'] && $cfgBookmark['table'])
+{
+    if(($bookmark_list=list_bookmarks($db, $cfgBookmark)) && count($bookmark_list)>0)
+    {
+        echo "<i>$strOr</i> $strBookmarkQuery:<br>\n";
+        echo "<select name=\"sql_bookmark\">\n";
+        echo "<option value=\"\"></option>\n";
+        while(list($key,$value)=each($bookmark_list)) {
+            echo "<option value=\"".htmlentities($value)."\">".htmlentities($key)."</option>\n";
+        }
+        echo "</select>\n";
+        echo "<br>\n";
+    }
+}
+?>
 <input type="submit" name="SQL" value="<?php echo $strGo; ?>">
 </form>
 <li><a href="tbl_qbe.php3<?php echo $query;?>"><?php echo $strQBE;?></a>

@@ -6,17 +6,32 @@
  *  All directives are explained in Documentation.html
  */
 
+/* 
+ * Bookmark Table Structure
+ *
+ * CREATE TABLE bookmark (
+ *  id int(11) DEFAULT '0' NOT NULL auto_increment,
+ *  dbase varchar(255) NOT NULL,
+ *  label varchar(255) NOT NULL,
+ *  query text NOT NULL,
+ *  PRIMARY KEY (id)
+ * );
+ *
+ */
+
 // The $cfgServers array starts with $cfgServers[1].  Do not use $cfgServers[0].
 // You can disable a server config entry by setting host to ''.
 $cfgServers[1]['host'] = 'localhost';           // MySQL hostname
 $cfgServers[1]['port'] = '';                    // MySQL port - leave blank for default port
 $cfgServers[1]['adv_auth'] = false;             // Use advanced authentication?
-$cfgServers[1]['stduser'] = '';             // MySQL standard user (only needed with advanced auth)
+$cfgServers[1]['stduser'] = '';                 // MySQL standard user (only needed with advanced auth)
 $cfgServers[1]['stdpass'] = '';                 // MySQL standard password (only needed with advanced auth)
-$cfgServers[1]['user'] = 'phpMyAdmin';                // MySQL user (only needed with basic auth)
-$cfgServers[1]['password'] = 'test99';                // MySQL password (only needed with basic auth)
-$cfgServers[1]['only_db'] = 'phpMyAdmin';                 // If set to a db-name, only this db is accessible
+$cfgServers[1]['user'] = 'phpMyAdmin';          // MySQL user (only needed with basic auth)
+$cfgServers[1]['password'] = 'test99';          // MySQL password (only needed with basic auth)
+$cfgServers[1]['only_db'] = 'phpMyAdmin';       // If set to a db-name, only this db is accessible
 $cfgServers[1]['verbose'] = '';                 // Verbose name for this host - leave blank to show the hostname
+$cfgServers[1]['bookmarkdb'] = '';              // Bookmark db - leave blank for no bookmark support
+$cfgServers[1]['bookmarktable'] = '';           // Bookmark table - leave blank for no bookmark support
 
 $cfgServers[2]['host'] = '';
 $cfgServers[2]['port'] = '';
@@ -27,6 +42,8 @@ $cfgServers[2]['user'] = 'root';
 $cfgServers[2]['password'] = '';
 $cfgServers[2]['only_db'] = '';
 $cfgServers[2]['verbose'] = '';
+$cfgServers[2]['bookmarkdb'] = '';              // Bookmark db - leave blank for no bookmark support
+$cfgServers[2]['bookmarktable'] = '';           // Bookmark table - leave blank for no bookmark support
 
 $cfgServers[3]['host'] = '';
 $cfgServers[3]['port'] = '';
@@ -37,6 +54,8 @@ $cfgServers[3]['user'] = 'root';
 $cfgServers[3]['password'] = '';
 $cfgServers[3]['only_db'] = '';
 $cfgServers[3]['verbose'] = '';
+$cfgServers[3]['bookmarkdb'] = '';              // Bookmark db - leave blank for no bookmark support
+$cfgServers[3]['bookmarktable'] = '';           // Bookmark table - leave blank for no bookmark support
 
 // If you have more than one server configured, you can set $cfgServerDefault
 // to any one of them to autoconnect to that server when phpMyAdmin is started,
@@ -63,10 +82,8 @@ $cfgOrder        = "ASC";
 $cfgShowBlob     = true;
 $cfgShowSQL      = true;
 
-
 $cfgModifyDeleteAtLeft  = true;
 $cfgModifyDeleteAtRight = false;
-
 
 $cfgDefaultLang = "en";  		// default language to use, if not browser-defined or user-defined
 // $cfgLang = "en";  			// force: always use this language - must be defined in select_lang.inc.php3

@@ -104,7 +104,34 @@ else {
         include("header.inc.php3");
         display_table($result);
         if(!eregi("SHOW VARIABLES|SHOW PROCESSLIST|SHOW STATUS", $sql_query))
+        {
             echo "<p><a href=\"tbl_change.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&goto=$goto&sql_query=".urlencode($sql_query)."\"> $strInsertNewRow</a></p>";
+
+            // Bookmark Support
+
+            if($cfgBookmark['db'] && $cfgBookmark['table'] && $db!=$cfgBookmark['db'] && !$sql_bookmark)
+            {
+                echo "<form method=\"post\" action=\"tbl_replace.php3\">\n";
+                echo "<i>$strOr</i><br><br>\n";
+                echo $strBookmarkLabel.":\n";
+                $goto="sql.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&sql_bookmark=1&sql_query=".urlencode($sql_query);
+            ?>
+            <input type="hidden" name="server" value="<?php echo $server;?>">
+            <input type="hidden" name="lang" value="<?php echo $lang;?>">
+            <input type="hidden" name="db" value="<?php echo $cfgBookmark['db'];?>">
+            <input type="hidden" name="table" value="<?php echo $cfgBookmark['table'] ;?>">
+            <input type="hidden" name="goto" value="<?php echo $goto;?>">
+            <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0;?>">
+            <input type="hidden" name="funcs[id]" value="NULL"?>
+            <input type="hidden" name="fields[dbase]" value="<?php echo $db;?>">
+            <input type="hidden" name="fields[query]" value="<?php echo isset($sql_query) ? $sql_query : "";?>">
+            <input type="text" name="fields[label]" value="">
+            <input type="submit" value="<?php echo $strBookmarkThis; ?>">
+            </form>
+            <?php
+			}
+            echo "</p>";
+        }
     }
 } //ne drop query
 require ("footer.inc.php3");

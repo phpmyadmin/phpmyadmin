@@ -149,4 +149,8 @@ $strCheckTable          = "Check table";
 $strAnalyzeTable        = "Analyze table";
 $strRepairTable         = "Repair table";
 $strOptimizeTable       = "Optimize table";
+
+$strBookmarkQuery	= "Bookmarked SQL-query";
+$strBookmarkThis	= "Bookmark this SQL-query";
+$strBookmarkLabel	= "Label";
 ?>

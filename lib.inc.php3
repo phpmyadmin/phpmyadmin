@@ -682,6 +682,56 @@ function split_string($sql, $delimiter) {
   return($ret);
 }
 
+// Bookmark Support
+
+function get_bookmarks_param() {
+    global $cfgServers;
+    global $cfgServer;
+    global $server;
+
+    $i=1;
+    while($i<=sizeof($cfgServers)) {
+        if($cfgServer['adv_auth']) {
+            if(($cfgServers[$i]['host']==$cfgServer['host'] || $cfgServers[$i]['host']=='') && $cfgServers[$i]['adv_auth']==true && $cfgServers[$i]['stduser']==$cfgServer['user'] && $cfgServers[$i]['stdpass']==$cfgServer['password']) {
+
+                $cfgBookmark['db']=$cfgServers[$i]['bookmarkdb'];
+                $cfgBookmark['table']=$cfgServers[$i]['bookmarktable'];
+                break;
+            }
+        }
+        else {
+            if(($cfgServers[$i]['host']==$cfgServer['host'] || $cfgServers[$i]['host']=='') && $cfgServers[$i]['adv_auth']==false && $cfgServers[$i]['user']==$cfgServer['user'] && $cfgServers[$i]['password']==$cfgServer['password']) {
+
+                $cfgBookmark['db']=$cfgServers[$i]['bookmarkdb'];
+                $cfgBookmark['table']=$cfgServers[$i]['bookmarktable'];
+                break;
+            }
+        }
+    $i++;
+    }
+    return $cfgBookmark;
+}
+
+function list_bookmarks($db, $cfgBookmark) {
+    $query="SELECT label, query FROM ".$cfgBookmark['db'].".".$cfgBookmark['table']." WHERE dbase='$db'";
+    $result=mysql_db_query($cfgBookmark['db'], $query);
+
+    if($result>0 && mysql_num_rows($result)>0)
+    {
+        $flag = 1;
+        while($row = mysql_fetch_row($result))
+        {
+            $bookmark_list["$flag - ".$row[0]] = $row[1];
+            $flag++;
+        }
+        return	$bookmark_list;
+    }
+    else
+        return false;
+}
+
+$cfgBookmark=get_bookmarks_param();
+
 } // $__LIB_INC__
 // -----------------------------------------------------------------
 ?>
