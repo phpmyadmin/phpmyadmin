@@ -50,6 +50,7 @@ $strAttr = 'Attributi';
 $strBack = 'Indietro';
 $strBinary = 'Binario';
 $strBinaryDoNotEdit = 'Tipo di dato Binario - non modificare';
+$strBookmarkDeleted = 'Il bookmark è stato cancellato.';
 $strBookmarkLabel = 'Etichetta';
 $strBookmarkQuery = 'Query SQL aggiunte ai preferiti';
 $strBookmarkThis = 'Aggiungi ai preferiti questa query SQL';
@@ -323,5 +324,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strBookmarkDeleted = 'The bookmark has been deleted.';
+
 ?>
