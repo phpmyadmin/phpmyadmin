@@ -70,7 +70,7 @@ if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
 /**
  * Get the list of the fields of the current table
  */
-mysql_select_db($db);
+PMA_mysql_select_db($db);
 $table_def = PMA_mysql_query('SHOW FIELDS FROM ' . PMA_backquote($table));
 if (isset($primary_key)) {
     $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key;

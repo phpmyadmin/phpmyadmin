@@ -33,7 +33,7 @@ if (isset($table)) {
 /**
  * Selects the database
  */
-mysql_select_db($db);
+PMA_mysql_select_db($db);
 
 
 /**

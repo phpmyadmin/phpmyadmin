@@ -45,7 +45,7 @@ $err_url = 'tbl_properties.php3'
 /**
  * Selects the database to work with
  */
-mysql_select_db($db);
+PMA_mysql_select_db($db);
 
 
 /**

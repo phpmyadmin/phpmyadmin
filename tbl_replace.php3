@@ -242,7 +242,7 @@ else {
  * Executes the sql query and get the result, then move back to the calling
  * page
  */
-mysql_select_db($db);
+PMA_mysql_select_db($db);
 $sql_query = $query . ';';
 $result    = PMA_mysql_query($query);
 

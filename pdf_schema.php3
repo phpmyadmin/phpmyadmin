@@ -860,7 +860,7 @@ $show_grid            = (isset($show_grid) && $show_grid == 'on') ? 1 : 0;
 $show_color           = (isset($show_color) && $show_color == 'on') ? 1 : 0;
 $show_table_dimension = (isset($show_table_dimension) && $show_table_dimension == 'on') ? 1 : 0;
 
-mysql_select_db($db);
+PMA_mysql_select_db($db);
 
 $rt  = new PMA_RT('auto', $pdf_page_number, $show_table_dimension, $show_color, $show_grid);
 ?>
