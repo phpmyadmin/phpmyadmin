@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 
-2002-10-21 Alexander M. Turek  <rabus@users.sourceforge.net>
+2002-10-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/dutch.inc.php3: Fixed a bug in the Dutch language files
       (see Translations #629818).
 
