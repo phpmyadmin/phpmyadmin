@@ -5,22 +5,22 @@
 /**
  * Removes comment lines and splits up large sql files into individual queries
  *
- * Last revision: September 11, 2001 - loic1
+ * Last revision: September 23, 2001 - gandon
  *
+ * @param   array    the splitted sql commands
  * @param   string   the sql commands
  * @param   integer  the MySQL release number (because certains php3 versions
  *                   can't get the value of a constant from within a function)
  *
- * @return  array    the splitted sql commands
+ * @return  boolean  always true
  *
- * @access	public
+ * @access  public
  */
-function split_sql_file($sql, $release)
+function split_sql_file(&$ret, $sql, $release)
 {
     $sql               = trim($sql);
     $sql_len           = strlen($sql);
     $char              = '';
-    $ret               = array();
     $string_start      = '';
     $in_string         = FALSE;
 
@@ -28,7 +28,7 @@ function split_sql_file($sql, $release)
         $char = $sql[$i];
 
         // We are in a string, check for not escaped end of strings except for
-        // backquotes than cannot be escaped
+        // backquotes that can't be escaped
         if ($in_string) {
             for (;;) {
                 $i         = strpos($sql, $string_start, $i);
@@ -36,16 +36,16 @@ function split_sql_file($sql, $release)
                 // returned array
                 if (!$i) {
                     $ret[] = $sql;
-                    return $ret;
+                    return TRUE;
                 }
-                // Backquotes or no backslashes before (double) quote(s): it's
-                // trully the end of the string -> exit the loop
+                // Backquotes or no backslashes before quotes: it's indeed the
+                // end of the string -> exit the loop
                 else if ($string_start == '`' || $sql[$i-1] != '\\') {
                     $string_start      = '';
                     $in_string         = FALSE;
                     break;
                 }
-                // Backslashes before (double) quote(s) end of string...
+                // one or more Backslashes before the presumed end of string...
                 else {
                     // ... first checks for escaped backslashes
                     $j                     = 2;
@@ -54,7 +54,7 @@ function split_sql_file($sql, $release)
                         $escaped_backslash = !$escaped_backslash;
                         $j++;
                     }
-                    // ... if escaped backslashes: it's trully the end of the
+                    // ... if escaped backslashes: it's really the end of the
                     // string -> exit the loop
                     if ($escaped_backslash) {
                         $string_start  = '';
@@ -71,16 +71,15 @@ function split_sql_file($sql, $release)
 
         // We are not in a string, first check for delimiter...
         else if ($char == ';') {
-            // if delimiter found, add the parsed part to the
-            // returned array
+            // if delimiter found, add the parsed part to the returned array
             $ret[]      = substr($sql, 0, $i);
             $sql        = ltrim(substr($sql, min($i + 1, $sql_len)));
             $sql_len    = strlen($sql);
             if ($sql_len) {
                 $i      = -1;
             } else {
-               // The submited statement(s) end(s) here
-               return $ret;
+                // The submited statement(s) end(s) here
+                return TRUE;
             }
         } // end else if (is delimiter)
 
@@ -90,7 +89,7 @@ function split_sql_file($sql, $release)
             $string_start = $char;
         } // end else if (is start of string)
 
-        // ... for start of a comment (and remove this comment if found)... 
+        // ... for start of a comment (and remove this comment if found)...
         else if ($char == '#'
                  || ($char == ' ' && $i > 1 && $sql[$i-2] . $sql[$i-1] == '--')) {
             // starting position of the comment depends on the comment type
@@ -101,9 +100,10 @@ function split_sql_file($sql, $release)
                               ? strpos(' ' . $sql, "\012", $i+2)
                               : strpos(' ' . $sql, "\015", $i+2);
             if (!$end_of_comment) {
-                // no eol found after '#', so we are at end of dump -> stop
-                // parsing
-                return $ret;
+                // no eol found after '#', add the parsed part to the returned
+                // array and exit
+                $ret[]   = trim(substr($sql, 0, $i-1));
+                return TRUE;
             } else {
                 $sql     = substr($sql, 0, $start_of_comment)
                          . ltrim(substr($sql, $end_of_comment));
@@ -123,7 +123,8 @@ function split_sql_file($sql, $release)
     if (!empty($sql) && ereg('[^[:space:]]+', $sql)) {
         $ret[] = $sql;
     }
-    return $ret;
+
+    return TRUE;
 } // end of the 'split_sql_file()' function
 
 
@@ -197,7 +198,7 @@ if ($sql_file != 'none') {
     }
 }
 else if (empty($id_bookmark) && get_magic_quotes_gpc() == 1) {
-	$sql_query = stripslashes($sql_query);
+    $sql_query = stripslashes($sql_query);
 }
 $sql_query = trim($sql_query);
 // $sql_query come from the query textarea, if it's a reposted query gets its
@@ -228,12 +229,14 @@ define('PMA_CHK_DROP', 1);
  * Executes the query
  */
 if ($sql_query != '') {
-    $pieces       = split_sql_file($sql_query, MYSQL_INT_VERSION);
+    $pieces       = array();
+    split_sql_file($pieces, $sql_query, MYSQL_INT_VERSION);
     $pieces_count = count($pieces);
 
     // Copy of the cleaned sql statement for display purpose only (see near the
     // beginning of "db_details.php3" & "tbl_properties.php3")
     if ($sql_file != 'none' && $pieces_count > 10) {
+         // Be nice with bandwidth...
         $sql_query_cpy = $sql_query = '';
     } else {
         $sql_query_cpy = implode(";\n", $pieces) . ';';
@@ -280,13 +283,12 @@ require('./header.inc.php3');
 if (isset($my_die)) {
     mysql_die('', $my_die, '', $err_url);
 }
-// Be nice with bandwidth...
-if (!empty($sql_query_cpy)) {
-    $message   = "$strSuccess&nbsp:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
-} else if (!empty($sql_query_cpy)) {
-    $message   = $strSuccess;
-} else {
+if (!isset($sql_query_cpy)) {
     $message   = $strNoQuery;
+} else if ($sql_query_cpy == '') {
+    $message   = "$strSuccess&nbsp:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
+} else {
+    $message   = $strSuccess;
 }
 require('./' . $goto);
 ?>
