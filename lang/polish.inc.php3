@@ -345,4 +345,5 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 ?>

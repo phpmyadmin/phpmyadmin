@@ -345,4 +345,5 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 ?>

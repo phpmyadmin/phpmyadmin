@@ -306,6 +306,7 @@ $strLogUsername = 'Username:';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
 $strMySQLServerProcess = 'MySQL %pma_s1% running on %pma_s2% as %pma_s3%';
+$strNewDb = 'New database:';  //to translate
 $strNoDropDatabases = '"DROP DATABASE" statements zijn niet mogelijk.'; //to translate
 $strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strNoQuery = 'No SQL query!';  //to translate

@@ -350,4 +350,5 @@ $strKanjiEncodConvert = '漢字コード変換'; // kanji code convert
 $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 ?>

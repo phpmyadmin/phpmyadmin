@@ -349,4 +349,5 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 ?>

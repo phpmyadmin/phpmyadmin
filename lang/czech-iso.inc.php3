@@ -343,4 +343,7 @@ $strWrongUser = '©patné u¾ivatelské jméno/heslo. Pøístup odepøen.';
 $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
+// To translate
+$strNewDb = 'New database:';  //to translate
+
 ?>

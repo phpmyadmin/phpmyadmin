@@ -345,4 +345,5 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 ?>

@@ -348,4 +348,5 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 ?>

@@ -340,6 +340,7 @@ $strZip = '"zipped"'; //to translate
 $strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)';
 $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
 $strCreateIndex = 'Create an index on&nbsp;%s&nbsp;columns';
+$strNewDb = 'New database:';  //to translate
 $strNoIndexPartsDefined = 'No index parts defined!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
 $strSelectADb = 'Please select a database';

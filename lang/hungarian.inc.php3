@@ -345,4 +345,6 @@ $strYes = 'Igen';
 
 $strZip = '"zippel tömörítve"';
 
+// To translate
+$strNewDb = 'New database:';  //to translate
 ?>

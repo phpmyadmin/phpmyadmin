@@ -344,4 +344,6 @@ $strYes = 'Так';
 
 $strZip = 'запакувати в "zip"';
 
+// To translate
+$strNewDb = 'New database:';  //to translate
 ?>

@@ -190,6 +190,7 @@ $strMySQLShowVars = 'Show MySQL system variables';
 
 $strName = 'Name';
 $strNbRecords = 'Number of rows';
+$strNewDb = 'New database:';
 $strNext = 'Next';
 $strNo = 'No';
 $strNoDatabases = 'No databases';

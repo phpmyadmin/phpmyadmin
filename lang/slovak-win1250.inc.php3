@@ -345,5 +345,6 @@ $strZip = '"zozipované"';
 
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 
 ?>

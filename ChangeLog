@@ -12,6 +12,8 @@ $Source$
 	* Documentation.html, line 557: extended the "relation" feature to PHP3.
 	* libraries/common.lib.php3: tried to fix bug #520282 - mysql
 	  safe_show_database=on support. Must be fully tested now.
+	* user_details.php3; libraries/user_details.js; lang/*: feature request
+	  #522450 - Wildcard db privileges.
 
 2002-03-01  Olivier Müller  <om@omnis.ch>
 	* created the phpmyadmin-cvs mailing list, following the instructions

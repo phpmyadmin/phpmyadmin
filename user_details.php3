@@ -462,7 +462,7 @@ function PMA_normalOperations()
 function PMA_grantOperations($grants)
 {
     global $lang, $server, $host, $pma_user;
-    global $dbgrant, $tablegrant;
+    global $dbgrant, $tablegrant, $newdb;
     ?>
 
 <ul>
@@ -594,6 +594,17 @@ function PMA_grantOperations($grants)
                 </td>
                 <td></td>
             </tr>
+            <tr>
+                <td colspan="5">
+                    <i><?php echo $GLOBALS['strOr']; ?></i>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <?php echo $GLOBALS['strNewDb'] . "\n"; ?>&nbsp;
+                    <input type="text" name="newdb" value="" onchange="change(this)" />
+                </td>
+            <tr>
             </table>
 
             <table>
@@ -1264,7 +1275,7 @@ else if (isset($grants) && $grants) {
         $sql_query = '';
         $col_list  = '';
 
-        if (isset($colgrant) && !$anycolumn) {
+        if (isset($colgrant) && !$anycolumn && !$newdb) {
             $colgrant_cnt = count($colgrant);
             for ($i = 0; $i < $colgrant_cnt; $i++) {
                 if (get_magic_quotes_gpc()) {
@@ -1292,22 +1303,30 @@ else if (isset($grants) && $grants) {
         $priv_grant = (isset($$priv_grant) ? ' WITH GRANT OPTION' : '');
 
         if (get_magic_quotes_gpc()) {
-            if (isset($dbgrant) && !$anydb) {
-                $dbgrant    = stripslashes($dbgrant);
-            }
-            if (isset($tablegrant) && !$anytable) {
-                $tablegrant = stripslashes($tablegrant);
+            if ($newdb) {
+                $newdb          = stripslashes($newdb);
+            } else {
+                if (isset($dbgrant) && !$anydb && !$newdb) {
+                    $dbgrant    = stripslashes($dbgrant);
+                }
+                if (isset($tablegrant) && !$anytable && !$newdb) {
+                    $tablegrant = stripslashes($tablegrant);
+                }
             }
         } // end if
-        $sql_query .= ' ON '
-                   . (($anydb || $dbgrant == '') ? '*' : PMA_backquote($dbgrant))
-                   . '.'
-                   . (($anytable || $tablegrant == '') ? '*' : PMA_backquote($tablegrant));
+        if (!$newdb) {
+            $sql_query .= ' ON '
+                       . (($anydb || $dbgrant == '') ? '*' : PMA_backquote($dbgrant))
+                       . '.'
+                       . (($anytable || $tablegrant == '') ? '*' : PMA_backquote($tablegrant));
+        } else {
+            $sql_query .= ' ON ' . PMA_backquote($newdb) . '.*';
+        }
 
-        $sql_query .= ' TO ' . '\'' . PMA_sqlAddslashes($pma_user) . '\'' . '@' . '\'' . PMA_sqlAddslashes($host) . '\'';
+        $sql_query     .= ' TO ' . '\'' . PMA_sqlAddslashes($pma_user) . '\'' . '@' . '\'' . PMA_sqlAddslashes($host) . '\'';
 
-        $sql_query  = 'GRANT ' . $sql_query . $priv_grant;
-        $result     = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;grants=1');
+        $sql_query     = 'GRANT ' . $sql_query . $priv_grant;
+        $result        = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;grants=1');
         PMA_showMessage($strAddPrivMessage . '.<br />' . $strRememberReload);
     } // end if
 }

@@ -349,4 +349,5 @@ $strCardinality = 'Cardinality';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
+$strNewDb = 'New database:';  //to translate
 ?>

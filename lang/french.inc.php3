@@ -190,6 +190,7 @@ $strMySQLShowVars = 'Afficher les variables du serveur MySQL';
 
 $strName = 'Nom';
 $strNbRecords = 'nb. d\'enregistrements';
+$strNewDb = 'Nouvelle base de données :';
 $strNext = 'Suivant';
 $strNo = 'Non';
 $strNoDropDatabases = 'La commande "DROP DATABASE" est désactivée.';

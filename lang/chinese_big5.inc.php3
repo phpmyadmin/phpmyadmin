@@ -347,4 +347,5 @@ $strYes = ' ¬O ';
 $strZip = '"zipped"';
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 ?>

@@ -344,4 +344,5 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 ?>

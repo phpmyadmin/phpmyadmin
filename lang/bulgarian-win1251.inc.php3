@@ -346,4 +346,5 @@ $strYes = 'да';
 $strZip = '"zip-нато"';
 
 // To translate
+$strNewDb = 'New database:';  //to translate
 ?>
