@@ -209,7 +209,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
     <tr>
         <th colspan="5" align="right">
-            <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo $fields_cnt+6; ?>" />&nbsp;
+            <input type="submit" value="<?php echo $strGo; ?>" />&nbsp;
         </th>
     </tr>
         <?php
@@ -335,7 +335,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } else {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="funcs[<?php echo urlencode($field); ?>]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i+2*$fields_cnt); ?>" >
+            <select name="funcs[<?php echo urlencode($field); ?>]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($fields_cnt + $i + 1); ?>">
                 <option></option>
             <?php
             echo "\n";
@@ -363,7 +363,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
     if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary))
         && $row_table_def['Null'] == 'YES') {
-        echo '            <input type="checkbox" tabindex="' . ($i+3*$fields_cnt) . '"'
+        echo '            <input type="checkbox" tabindex="' . ((2 * $fields_cnt) + $i + 1) . '"'
              . ' name="fields_null[' . urlencode($field) . ']"';
         if ($data == 'NULL' && !$first_timestamp) {
             echo ' checked="checked"';
@@ -430,8 +430,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
         <?php echo $backup_field . "\n"; ?>
-        <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$foreign$" tabindex="<?php echo $i+1; ?>" />
-        <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>">
+        <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$foreign$" />
+        <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>">
             <option value=""></option>
         <?php
         echo "\n";
@@ -453,7 +453,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"
-                <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i; ?>"><?php echo $special_chars; ?></textarea>
+                <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>"><?php echo $special_chars; ?></textarea>
         </td>
         <?php
         echo "\n";
@@ -468,7 +468,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $enum_cnt    = count($enum);
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" tabindex="<?php echo $i+1; ?>" />
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" />
         <?php
         echo "\n" . '            ' . $backup_field;
 
@@ -476,7 +476,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if (strlen($row_table_def['Type']) > 20) {
             echo "\n";
             ?>
-            <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>">
+            <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>">
                 <option value=""></option>
             <?php
             echo "\n";
@@ -510,7 +510,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                     echo ' checked="checked"';
                 }
-                echo 'tabindex="' . $i . '" />' . "\n";
+                echo 'tabindex="' . ($i + 1) . '" />' . "\n";
                 echo '            <label for="radio_field_' . $j . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
             } // end for
 
@@ -537,7 +537,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
-            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" >
+            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" >
         <?php
         echo "\n";
         $countset = count($set);
@@ -574,7 +574,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"
-                <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" ><?php echo $special_chars; ?></textarea>
+                <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" ><?php echo $special_chars; ?></textarea>
         </td>
             <?php
         } else {
@@ -588,7 +588,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" />
         </td>
             <?php
         } // end if...elseif...else
@@ -614,12 +614,12 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             echo "\n";
             ?>
             <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"
-                <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" ><?php echo $special_chars; ?></textarea>
+                <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" ><?php echo $special_chars; ?></textarea>
             <?php
         } else {
             echo "\n";
             ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" />
             <?php
         }
         echo "\n";
@@ -643,14 +643,14 @@ echo "\n";
 <?php
 if (isset($primary_key)) {
     ?>
-            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" id="radio_submit_type_save" checked="checked" tabindex="<?php echo $fields_cnt+1; ?>" /><label for="radio_submit_type_save"><?php echo $strSave; ?></label><br />
+            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" id="radio_submit_type_save" checked="checked" tabindex="<?php echo ((3 * $fields_cnt) + 1); ?>" /><label for="radio_submit_type_save"><?php echo $strSave; ?></label><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" id="radio_submit_type_insert_as_new_row" tabindex="<?php echo $fields_cnt+2; ?>" /><label for="radio_submit_type_insert_as_new_row"><?php echo $strInsertAsNewRow; ?></label>
+            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" id="radio_submit_type_insert_as_new_row" tabindex="<?php echo ((3 * $fields_cnt) + 2); ?>" /><label for="radio_submit_type_insert_as_new_row"><?php echo $strInsertAsNewRow; ?></label>
     <?php
 } else {
     echo "\n";
     ?>
-            <input type="hidden" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" tabindex="<?php echo $fields_cnt+3; ?>" />
+            <input type="hidden" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" />
     <?php
     echo '            ' . $strInsertAsNewRow . "\n";
 }
@@ -665,15 +665,15 @@ $checked = (!empty($message)) ? ' checked="checked"' : '';
             &nbsp;&nbsp;&nbsp;<b>-- <?php echo $strAnd; ?> --</b>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
-            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" checked="checked" tabindex="<?php echo $fields_cnt+4; ?>" /><label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
+            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" checked="checked" tabindex="<?php echo ((3 * $fields_cnt) + 3); ?>" /><label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked; ?> tabindex="<?php echo $fields_cnt+5; ?>" /><label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label>
+            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked; ?> tabindex="<?php echo ((3 * $fields_cnt) + 4); ?>" /><label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label>
         </td>
     </tr>
 
     <tr>
         <td colspan="3" align="center" valign="middle">
-            <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo $fields_cnt+6; ?>" />
+            <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo ((3 * $fields_cnt) + 5); ?>" />
         </td>
     </tr>
     </table>

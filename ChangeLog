@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-02 Loïc Chapeaux  <lolo@phpheaven.net>
+    * tbl_change.php3, bug 617029: tabindex for linked fields
+
+2002-10-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/thai: update, thanks to Arthit Suriyawongkul
+    
 2002-10-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, typo about GRANT: patch 616772,
       thanks to Vince LaMonica (vjl323)
