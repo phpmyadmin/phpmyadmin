@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-08-02  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_qbe.php3: workaround a PHP3 problem
+
 2001-08-02  Benjamin Gandon <gandon@isia.cma.fr>
 	* Documentation.html: added a FAQ entry about the buggy php
 	                      package still available for RedHat 7.0

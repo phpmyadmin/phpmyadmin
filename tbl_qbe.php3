@@ -51,7 +51,7 @@ if (!isset($DelCol)) {
 if (!isset($prev_Criteria)) {
     $prev_Criteria = '';
 }
-// test for a PHP3 problem, to be confirmed:
+// workaround for a PHP3 problem
 if (!isset($Criteria)) {
     //$Criteria = '';
     $Criteria = array();
@@ -60,16 +60,32 @@ if (!isset($Criteria)) {
     }
 }
 if (!isset($InsRow)) {
-    $InsRow   = '';
+//    $InsRow   = '';
+    $InsRow = array();
+    for ($i=0; $i<$Columns; $i++) {
+	$InsRow[$i]='';
+    }
 }
 if (!isset($DelRow)) {
-    $DelRow   = '';
+//    $DelRow   = '';
+    $DelRow = array();
+    for ($i=0; $i<$Columns; $i++) {
+	$DelRow[$i]='';
+    }
 }
 if (!isset($AndOrRow)) {
-    $AndOrRow = '';
+//    $AndOrRow = '';
+    $AndOrRow = array();
+    for ($i=0; $i<$Columns; $i++) {
+	$AndOrRow[$i]='';
+    }
 }
 if (!isset($AndOrCol)) {
-    $AndOrCol = '';
+//    $AndOrCol = '';
+    $AndOrCol = array();
+    for ($i=0; $i<$Columns; $i++) {
+	$AndOrCol[$i]='';
+    }
 }
 $wid          = 12;
 $widem        = $wid . 'em';
