@@ -252,7 +252,7 @@ if (top != self) {
     if (@file_exists($logo_image)) {
         echo '<img src="' . $logo_image . '" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />';
     } else {
-        echo '<img name="imLogo" id="imLogo" src="images/pma_logo.png" '
+        echo '<img name="imLogo" id="imLogo" src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo.png' . '" '
            . 'border="0" width="88" height="31" alt="phpMyAdmin" />';
     }
 ?></a>
