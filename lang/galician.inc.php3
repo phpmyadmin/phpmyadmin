@@ -64,7 +64,9 @@ $strBrowse = 'Visualizar';
 $strBzip = 'comprimido no formato "bzipped"';
 
 $strCantLoadMySQL = 'Non foi posible carregar a extensión do MySQL;<br>comprobe, por favor, a configuración do PHP.';
+$strCantLoadRecodeIconv = 'Non se puido carregar iconv ou precísase da extensión recode para a conversión do charset. Configure o php para que se poidan usar estas extensións ou indique que non se use a conversión de charset en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Non se pode facer que este índice sexa PRIMARIO!';
+$strCantUseRecodeIconv = 'Non se puido usar nen iconv nen libiconv nen a función recode_stringf mentres haxa extensións por carregar. Comprobe a súa configuración do php.';
 $strCardinality = 'Cardinalidade';
 $strCarriage = 'Carácter de retorno: \\r';
 $strChange = 'Mudar';
@@ -74,6 +76,7 @@ $strCheckDbPriv = 'Verificar os privilexios do banco de datos';
 $strCheckTable = 'Verificar a tabela';
 $strColumn = 'Columna';
 $strColumnNames = 'Nomes das Columnas';
+$strComments = 'Comentarios';
 $strCompleteInserts = 'Insercións completas';
 $strConfirm = 'Está seguro/a?';
 $strCookiesRequired = 'A partir de aqui debe permitir cookies.';
@@ -143,6 +146,7 @@ $strGzip = 'comprimido no formato "gzipped"';
 
 $strHasBeenAltered = 'foi alterado.';
 $strHasBeenCreated = 'foi creado.';
+$strHaveToShow = 'Ten que escoller polo menos unha columna para mostrar';
 $strHome = 'Comezo ("Home")';
 $strHomepageOfficial = 'Páxina Oficial do phpMyAdmin';
 $strHomepageSourceforge = 'Páxina do phpMyAdmin en Sourceforge';
@@ -182,11 +186,13 @@ $strLogout = 'Sair';
 $strLogPassword = 'Contrasinal:';
 $strLogUsername = 'Nome de usuario:';
 
+$strMissingBracket = 'Falta un paréntese';
 $strModifications = 'As modificacións foron gardadas';
 $strModify = 'Modificar';
 $strModifyIndexTopic = 'Modificar un índice';
 $strMoveTable = 'Mover a tabela a (base_de_datos<b>.</b>tabela):';
 $strMoveTableOK = 'Moveuse a tabela %s para %s.';
+$strMySQLCharset = 'Código de caracteres (Charset) MySQL';
 $strMySQLReloaded = 'MySQL reiniciado.';
 $strMySQLSaid = 'Mensaxes do MySQL: ';
 $strMySQLShowProcess = 'Mostrar os procesos';
@@ -397,10 +403,5 @@ $strCreatePage = 'Create a new Page';  //to translate
 $strSelectTables = 'Select Tables';  //to translate
 $strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
 $strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
+
 ?>
