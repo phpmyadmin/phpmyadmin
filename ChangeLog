@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2001-08-03  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/*: updated so they are xhtml1.0 valid and fits PEAR codding
+	  standards.
+	* todo; functions.js; license; left.js: executed remove_control_m.sh.
 	* config.inc.php3: removed the error_reporting statement (usefull for
 	  debugging but not so nice for a release) and fixed some coding
 	  inconcistencies.
