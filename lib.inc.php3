@@ -1152,11 +1152,20 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                         echo '    <td align="center">[BLOB]</td>' . "\n";
                     } else {
                         if (strlen($row[$i]) > $GLOBALS['cfgLimitChars']) {
-                            $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
+                            // loic1: added a link to display the whole text
+                            //        field in a js alert box
+                            $alert   = '';
+                            $tmp     = explode("\n", str_replace("\r", ' ', $row[$i]));
+                            for ($j = 0; $j < count($tmp); $j++) {
+                                $alert .= addslashes(str_replace('"', '&quot;', trim($tmp[$j]))) . '\n';
+                            }
+                            unset($tmp);
+                            $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
+                            $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars'])
+                                     . '...&nbsp;'
+                                     . '[<a href="#" onclick="alert(\''. $alert . '\'); return false">+</a>]';
                         }
-                        // loic1 : displays <cr>/<lf>
                         if ($row[$i] != '') {
-                            $row[$i]     = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
                             echo '    <td>' . $row[$i] . '</td>' . "\n";
                         } else {
                             echo '    <td>&nbsp;</td>' . "\n";
