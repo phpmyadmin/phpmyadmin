@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_replace.php3, tbl_replace_fields.php3: do not display the
+      UPDATE query if there was some binary upload in it, otherwise
+      display it
+
 2003-02-04 Alexander M. Turek  <rabus@users.sourceforge.net>
     * common.lib.php3:
       - Patch #669255 (Initial DB list for MySQL > 4.0.2), thanks to Charles

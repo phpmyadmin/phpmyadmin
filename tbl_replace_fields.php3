@@ -15,6 +15,7 @@
                 // into MySQL and it also allow not to care about charset
                 // conversion that would otherwise corrupt the data.
                 $val = '0x' . bin2hex($val);
+                $seen_binary = TRUE;
             } else {
                 // must always add slashes for an uploaded file:
                 //  - do not use PMA_sqlAddslashes()

@@ -69,7 +69,7 @@ if (isset($funcs)) {
 if (get_magic_quotes_gpc()) {
     $submit_type = stripslashes($submit_type);
 }
-
+$seen_binary = FALSE;
 
 /**
  * Prepares the update of a row
@@ -187,11 +187,10 @@ if (!$result) {
         // I don't understand this one:
         //$add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');
 
-        // if the sql_query was too long (for example because of an upload)
-        // we do not append the query to the Location
-        // why 100? well, tell me a better value... - lem9
-
-        $add_query = (strlen($sql_query) < 100 ? '&disp_query=' . urlencode($sql_query) : '');
+        // if we have seen binary,
+        // we do not append the query to the Location so it won't be displayed
+        // on the resulting page
+        $add_query = (!$seen_binary ? '&disp_query=' . urlencode($sql_query) : '');
         header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . $add_query);
     }
     exit();
