@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Formats the INSERT statements depending on the target (screen/file) of the
  * sql dump
@@ -114,13 +115,18 @@ else {
         $mime_type = 'text/x-csv';
     } else {
         $ext       = 'sql';
-        $mime_type = 'application/octetstream';
+        // loic1: 'application/octet-stream' is the registered IANA type but
+        //        MSIE and Opera seems to prefer 'application/octetstream'
+        $mime_type = (USR_BROWSER_AGENT == 'IE' || USR_BROWSER_AGENT == 'OPERA')
+                   ? 'application/octetstream'
+                   : 'application/octet-stream';
     }
 
     // Send headers
-    // we need "inline" instead of "attachment" for IE 5.5
     header('Content-Type: ' . $mime_type);
-    header('Content-Disposition: inline; filename="' . $filename . '.' . $ext . '"');
+    // lem9: we need "inline" instead of "attachment" for IE 5.5
+    $content_disp = (USR_BROWSER_AGENT == 'IE') ? 'inline' : 'attachment';
+    header('Content-Disposition:  ' . $content_disp . '; filename="' . $filename . '.' . $ext . '"');
     header('Pragma: no-cache');
     header('Expires: 0');
 } // end download

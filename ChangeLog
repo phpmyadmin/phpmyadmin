@@ -13,6 +13,7 @@ $Source$
 	* lang/galician.inc.php3: updated thanks to
 	  Xosé Calvo <xosecalvo at terra.es>.
 	* lib.inc.php3: fixed a bug with the browse table headers sorting feature.
+	* tbl_dump.php3: improved the patch Marc commited.
 
 2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:
