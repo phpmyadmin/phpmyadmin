@@ -518,7 +518,7 @@ if (!isset($cfg['MySQLManualBase'])) {
         $cfg['MySQLManualType'] = 'old';
         unset($cfg['ManualBaseShort']);
     } else {
-        $cfg['MySQLManualBase'] = 'http://www.mysql.com/doc/en';
+        $cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/mysql/en';
         $cfg['MySQLManualType'] = 'searchable';
     }
 }

@@ -351,10 +351,10 @@ $cfg['Export']['sql_header_comment']        = ''; // \n is replaced by new line
 /**
  * Link to the official MySQL documentation.
  * Be sure to include no trailing slash on the path.
- * See http://www.mysql.com/documentation/index.html for more information
+ * See http://dev.mysql.com/doc/ for more information
  * about MySQL manuals and their types.
  */
-$cfg['MySQLManualBase'] = 'http://www.mysql.com/doc/en';
+$cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/mysql/en';
 
 /**
  * Type of MySQL documentation:
