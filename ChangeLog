@@ -10,6 +10,7 @@ $Source$
 	* removed anything about "unofficial" from the pages
 	* updated links, and labels in all lang files
 	* General cleanups and updates in the docs and README files
+	* Started Documentation.html redesign
 
 2001-07-03  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3: patch from Chee Wai for illegal index
