@@ -33,6 +33,8 @@ $Source$
           in the SQL query box
     * libraries/sqlvalidator.php3, libraries/sqlvalidator.class.php3:
         - Function documentation and cleanup
+    * config.inc.php3:
+        - Comments for SQL Validator options
 
 2002-08-02 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/defines*:

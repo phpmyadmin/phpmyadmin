@@ -295,6 +295,14 @@ $cfg['SQLQuery']['Explain']   = TRUE;       // EXPLAIN on SELECT queries
 $cfg['SQLQuery']['ShowAsPHP'] = TRUE;       // Wrap a query in PHP
 $cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLValidator'] as well)
 
+
+/**
+ * If you wish to use the SQL Validator service, you shoule be
+ * aware of the following:
+ * All SQL statements are stored anonymously for statistical purposes.
+ * Mimer SQL Validator, Copyright 2002 Upright Database Technology.
+ * All rights reserved.
+ */
 $cfg['SQLValidator']['use']              = FALSE;   // Make the SQL Validator available
 $cfg['SQLValidator']['username']         = '';      // If you have a custom username, specify it here (defaults to anonymous)
 $cfg['SQLValidator']['password']         = '';      // Password for username
