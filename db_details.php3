@@ -353,6 +353,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
          . $strOptimizeTable . '</option>' . "\n";
     ?>
         </select>
+        <input type="submit" value="<?php echo $strGo; ?>" />
     </td>
 </tr>
 </table>
