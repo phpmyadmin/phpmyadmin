@@ -845,6 +845,26 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     } // end of the 'check_reserved_words' function
 
 
+    /**
+     * Writes localised date
+     *
+     * @param   timestamp   time
+     */
+    function localised_date($timestamp = -1)
+    {
+        global $datefmt, $month, $day_of_week;
+
+        if ($timestamp == -1) {
+            $timestamp = time();
+        }
+
+        $date = ereg_replace('%[aA]', $day_of_week[(int)strftime('%w',$timestamp)], $datefmt);
+        $date = ereg_replace('%[bB]', $month[(int)strftime('%m',$timestamp)], $date);
+
+        return strftime($date, $timestamp);
+    } // end of the 'localised_date()' function
+
+
 
     /* ----- Functions used to display records returned by a sql query ----- */
 

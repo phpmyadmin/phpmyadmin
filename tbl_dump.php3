@@ -159,7 +159,7 @@ else {
                            ? backquote($db)
                            : '\'' . $db . '\'';
         $dump_buffer       .= $crlf
-                           .  '# ' . $strGenTime . ': ' . date('F j, Y, g:i a') . $crlf
+                           .  '# ' . $strGenTime . ': ' . localised_date() . $crlf
                            .  '# ' . $strServerVersion . ': ' . substr(MYSQL_INT_VERSION, 0, 1) . '.' . substr(MYSQL_INT_VERSION, 1, 2) . '.' . substr(MYSQL_INT_VERSION, 3) . $crlf
                            .  '# ' . $strPHPVersion . ': ' . phpversion() . $crlf
                            .  '# ' . $strDatabase . ': ' . $formatted_db_name . $crlf;

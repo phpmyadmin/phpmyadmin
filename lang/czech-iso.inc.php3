@@ -8,6 +8,12 @@ $number_thousands_separator = ' ';
 $number_decimal_separator = '.';
 $byteUnits = array('Bajtù', 'KB', 'MB', 'GB');
 
+$day_of_week = array('Nedìle', 'Pondìlí', 'Úterý', 'Støeda', 'Ètvrtek', 'Pátek', 'Sobota');
+$month = array('ledna', 'února', 'bøezna', 'dubna', 'kvìtna', 'èervna', 'èervence', 'srpna', 'záøí', 'øíjna', 'listopadu', 'prosince');
+// See http://www.php.net/manual/en/function.strftime.php to define the
+// variable below
+$datefmt = '%a %e. %b %Y, %H:%M';
+
 
 $strAccessDenied = 'Pøístup odepøen';
 $strAction = 'Akce';

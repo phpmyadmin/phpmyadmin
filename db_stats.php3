@@ -111,7 +111,7 @@ if ($server > 0) {
 </tr>
 <tr>
     <th align="left"><big><?php echo $strGenTime . ' :'; ?></big></th>
-    <th align="left"><big><?php echo date('F j, Y, H:i'); ?></big></th>
+    <th align="left"><big><?php echo localised_date(); ?></big></th>
 </tr>
 </table>
 <br /><br />

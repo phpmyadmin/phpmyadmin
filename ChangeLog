@@ -27,6 +27,9 @@ $Source$
 	  - fixed bug #458557 (Navigation bar);
 	  - optimized a bit.
 	* ldi_check.php3: removed some unnecessary "str_replace".
+	* lib.inc.php3, lines 848-865; db_stats.php3, line 114; tbl_dump, line 162;
+	  lang/*: Merged patch #457984 (Localised dates in dump and db stats)
+	  thanks to Michal Cihar <nijelat users.sourceforge.net>.
 
 2001-09-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:

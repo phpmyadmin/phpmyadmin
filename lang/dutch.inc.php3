@@ -8,6 +8,12 @@ $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
+$day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+$month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+// See http://www.php.net/manual/en/function.strftime.php to define the
+// variable below
+$datefmt = '%B %d, %Y at %I:%M %p';
+
 
 $strAccessDenied = 'Toegang geweigerd ';
 $strAction = 'Actie';
