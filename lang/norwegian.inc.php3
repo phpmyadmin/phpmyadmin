@@ -324,4 +324,5 @@ $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:';	//to translate
+$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
 ?>

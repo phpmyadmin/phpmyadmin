@@ -74,6 +74,7 @@ $strCriteria = 'Criteria';
 
 $strData = 'Data';
 $strDatabase = 'Database ';
+$strDatabaseHasBeenDropped ="Database %s has been dropped";
 $strDatabases = 'databases';
 $strDatabasesStats = 'Databases statistics';
 $strDataOnly = 'Data only';

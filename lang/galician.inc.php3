@@ -325,4 +325,5 @@ $strShowTables = 'Show tables';
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:';
+$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
 ?>

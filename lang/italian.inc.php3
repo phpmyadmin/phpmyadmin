@@ -326,4 +326,5 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
+$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
 ?>

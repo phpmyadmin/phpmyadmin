@@ -8,6 +8,7 @@ $Source$
 2001-09-21  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/slovak-iso.inc.php3 updates, thanks to Lubos Klokner
 	* lang/italian.inc.php3 updates, thanks to Pietro Danesi
+	* lang/*, db_details.php3: $strDatabaseHasBeenDropped
 
 2001-09-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_detail.php3; libraries/user_details.js; lang/*: changing the whole

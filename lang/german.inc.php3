@@ -325,4 +325,5 @@ $strTableHasBeenDropped = 'Table %s has been dropped';//to translate
 $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
+$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
 ?>

@@ -646,7 +646,7 @@ if ($cfgAllowUserDropDatabase || $is_superuser) {
     ?>
     <!-- Drop database -->
     <li>
-        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo urlencode($db); ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=1"
+        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo urlencode($db); ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(backquote($db)))); ?>&goto=main.php3&back=db_details.php3&reload=1"
             onclick="return confirmLink(this, 'DROP DATABASE <?php echo js_format($db); ?>')">
             <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>
         <?php echo show_docu('manual_Reference.html#DROP_DATABASE') . "\n"; ?>

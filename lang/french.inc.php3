@@ -74,6 +74,7 @@ $strCriteria = 'Critère';
 
 $strData = 'Données';
 $strDatabase = 'Base de données';
+$strDatabaseHasBeenDropped="La base de données %s a été effacée";  
 $strDatabases = 'bases de données';
 $strDatabasesStats = 'Statistiques sur les bases de données';
 $strDataOnly = 'Données seulement';
