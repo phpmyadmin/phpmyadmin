@@ -347,3 +347,25 @@ function setCheckboxes(the_form, do_check)
     return true;
 } // end of the 'setCheckboxes()' function
 
+
+/**
+  * Checks/unchecks all options of a <select> element
+  *
+  * @param   string   the form name
+  * @param   string   the element name
+  * @param   boolean  whether to check or to uncheck the element   
+  *
+  * @return  boolean  always true
+  */
+function setSelectOptions(the_form, the_select, do_check)
+{
+    var selectObject = document.forms[the_form].elements[the_select];
+    var selectCount  = selectObject.length; 
+  
+    for (var i = 0; i < selectCount; i++) {
+        selectObject.options[i].selected = do_check;
+    } // end for
+
+    return true;
+} // end of the 'setSelectOptions()' function
+
