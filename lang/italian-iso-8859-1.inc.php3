@@ -642,11 +642,16 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
-$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
-$strExcelOptions = 'Excel options';  //to translate
-$strReplaceNULLBy = 'Replace NULL by';  //to translate
-$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
-$strPaperSize = 'Paper size';  //to translate
+$strExcelOptions = 'Opzioni di Excel';  //to translate
+$strExecuteBookmarked = 'Esegue la query dalle preferite';  //to translate
+
+$strLoadExplanation = 'Il metodo migliore è selezionato di default, ma lo potete cambiare se fallisce.';  //to translate
+$strLoadMethod = 'Metodo di CARICAMENTO';  //to translate
+
+$strPaperSize = 'Dimensioni carta';  //to translate
+
+$strQueryWindowLock = 'Non sovrascrivere questa query da fuori della finestra';  //to translate
+
+$strReplaceNULLBy = 'Sostituisci NULL con';  //to translate
+
 ?>
