@@ -3026,6 +3026,14 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt>$cfg['MaxExactCount']</tt> for a way to modify those results, but
     this could have a serious impact on performance.
 </p>
+<h4>
+    [3.12] What are the phpMyAdmin limitations for MySQL 3?
+</h4>
+<p>
+    The number of records in queries containing COUNT and GROUP BY is
+    not correctly calculated. Also, sorting results of a query like
+    &quot;SELECT * from table GROUP BY&quot; ... is problematic.
+</p>
 
 <a name="faqmultiuser"></a><br />
 <h3>[4. ISPs, multi-user installations ]</h3>
