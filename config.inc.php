@@ -455,23 +455,10 @@ $cfg['AvailableCharsets'] = array(
 
 /**
  * Customization & design
+ *
+ * The graphical settings are now located in themes/themename/colors.inc.php
  */
-$cfg['LeftWidth']           = 200;          // left frame width
-$cfg['LeftBgColor']         = '#D0DCE0';    // background color for the left frame
-$cfg['RightBgColor']        = '#F5F5F5';    // background color for the right frame
-$cfg['RightBgImage']        = '';           // path to a background image for the right frame
-                                            // (leave blank for no background image)
-$cfg['LeftPointerColor']    = '#CCFFCC';    // color of the pointer in left frame
-                                            // (blank for no pointer)
-$cfg['Border']              = 0;            // border width on tables
-$cfg['ThBgcolor']           = '#CCCCFF';    // table header row colour
-$cfg['BgcolorOne']          = '#E5E5E5';    // table data row colour
-$cfg['BgcolorTwo']          = '#D5D5D5';    // table data row colour, alternate
-$cfg['BrowsePointerColor']  = '#CCFFCC';    // color of the pointer in browse mode
-                                            // (blank for no pointer)
-$cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
-                                            // by clicking on it) in browse mode
-                                            // (blank for no marker)
+
 $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit mode
                                             // (this value will be emphasized (*2) for sql
                                             // query textareas and (*1.25) for query window)
@@ -597,30 +584,7 @@ $cfg['GD2Available']          = 'auto';     // Is GD >= 2 available? Set to yes/
 $cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, text, none)
 $cfg['SQP']['fmtInd']       = '1';          // Amount to indent each level (floats ok)
 $cfg['SQP']['fmtIndUnit']   = 'em';         // Units for indenting each level (CSS Types - {em,px,pt})
-$cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
-    'comment'            => '#808000',
-    'comment_mysql'      => '',
-    'comment_ansi'       => '',
-    'comment_c'          => '',
-    'digit'              => '',
-    'digit_hex'          => 'teal',
-    'digit_integer'      => 'teal',
-    'digit_float'        => 'aqua',
-    'punct'              => 'fuchsia',
-    'alpha'              => '',
-    'alpha_columnType'   => '#FF9900',
-    'alpha_columnAttrib' => '#0000FF',
-    'alpha_reservedWord' => '#990099',
-    'alpha_functionName' => '#FF0000',
-    'alpha_identifier'   => 'black',
-    'alpha_charset'      => '#6495ed',
-    'alpha_variable'     => '#800000',
-    'quote'              => '#008000',
-    'quote_double'       => '',
-    'quote_single'       => '',
-    'quote_backtick'     => ''
-);
-
+// The graphical settings are now located in themes/themename/colors.inc.php
 
 /**
  * If you wish to use the SQL Validator service, you should be
