@@ -6,12 +6,46 @@
  * been defined as startup option and include a core library
  */
 require('./grab_globals.inc.php3');
-if (!empty($db)) {
-    $db_start = $db;
-}
-// loic1: lib.inc.php3 will be loaded by header.inc.php3
-//require('./lib.inc.php3');
 require('./header.inc.php3');
+
+
+/**
+ * Sorts the databases array according to the user's choice
+ *
+ * @param   array    a record associated to a database
+ * @param   array    a record associated to a database
+ *
+ * @return  integer  a value representing whether $a should be before $b in the
+ *                   sorted array or not
+ *
+ * @global  mixed    the array to sort
+ * @global  mixed    'key' if the table has to be sorted by key, the column
+ *                   number to use to sort the array else
+ *
+ * @access  private
+ */
+function pmaDbCmp($a, $b)
+{
+    global $dbs_array;
+    global $col;
+
+    $is_asc = ($GLOBALS['sort_order'] == 'asc');
+
+    // Sort by key (the db names) if required
+    if (!is_int($col) && $col == 'key') {
+        return (($is_asc) ? strcasecmp($a, $b) : -strcasecmp($a, $b));
+    }
+    // Sort by key (the db names) in ascending order if the columns' values are
+    // the same
+    else if ($dbs_array[$a][$col] == $dbs_array[$b][$col]) {
+        return strcasecmp($a, $b);
+    }
+    // Other cases
+    else {
+        $tmp = (($dbs_array[$a][$col] < $dbs_array[$b][$col]) ? -1 : 1);
+        return (($is_asc) ? $tmp : -$tmp);
+    }
+} // end of the 'pmaDbCmp()' function
 
 
 /**
@@ -54,185 +88,186 @@ if ($server > 0) {
 
 
 /**
- * Send http headers
+ * Displays the page
  */
-// Don't use cache (required for Opera)
-$now = gmdate('D, d M Y H:i:s') . ' GMT';
-header('Expires: ' . $now);
-header('Last-Modified: ' . $now);
-header('Cache-Control: no-store, no-cache, must-revalidate'); // HTTP/1.1
-header('Cache-Control: pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
-header('Pragma: no-cache'); // HTTP/1.0
-// Define the charset to be used
-header('Content-Type: text/html; charset=' . $charset);
+?>
+<h1 align="center">
+    <?php echo ucfirst($strDatabasesStats); ?>
+</h1>
+<table align="center" border="<?php echo $cfgBorder; ?>" cellpadding="5">
+<tr>
+    <th align="left"><big><?php echo $strHost . ' :'; ?></big></th>
+    <th align="left"><big><?php echo $cfgServer['host']; ?></big></th>
+</tr>
+<tr>
+    <th align="left"><big><?php echo $strGenTime . ' :'; ?></big></th>
+    <th align="left"><big><?php echo date('F j, Y, H:i'); ?></big></th>
+</tr>
+</table>
+<br /><br />
+
+
+<?php
+/**
+ * At least one db -> do the work
+ */
+if ($num_dbs > 0) {
+    // Defines the urls used to sort the table
+    $common_url     = 'db_stats.php3?lang=' . $lang . '&server=' . $server;
+    if (empty($sort_order)) {
+        $sort_order = ((empty($sort_by) || $sort_by == 'db_name') ? 'asc' : 'desc');
+    }
+    $img_tag        = '&nbsp;' . "\n"
+                    . '            '
+                    . '<img src="./images/' . $sort_order . '_order.gif" border="0" width="7" height="7" alt="' . $sort_order . '" />';
+    // Default order is ascending for db name, descending for sizes
+    for ($i = 0; $i < 5; $i++) {
+        $url_sort[$i]['order']   = (($i == 0) ? 'asc' : 'desc');
+        $url_sort[$i]['img_tag'] = '';
+    }
+    if (empty($sort_by) || $sort_by == 'db_name') {
+        $url_sort[0]['order']    = (($sort_order == 'asc') ? 'desc' : 'asc');
+        $url_sort[0]['img_tag']  = $img_tag;
+        $col                     = 'key'; // used in 'pmaDbCmp()'
+    } else if ($sort_by == 'tbl_cnt') {
+        $url_sort[1]['order']    = (($sort_order == 'asc') ? 'desc' : 'asc');
+        $url_sort[1]['img_tag']  = $img_tag;
+        $col                     = 0;
+    } else if ($sort_by == 'data_sz') {
+        $url_sort[2]['order']    = (($sort_order == 'asc') ? 'desc' : 'asc');
+        $url_sort[2]['img_tag']  = $img_tag;
+        $col                     = 1;
+    } else if ($sort_by == 'idx_sz') {
+        $url_sort[3]['order']    = (($sort_order == 'asc') ? 'desc' : 'asc');
+        $url_sort[3]['img_tag']  = $img_tag;
+        $col                     = 2;
+    } else {
+        $url_sort[4]['order']    = (($sort_order == 'asc') ? 'desc' : 'asc');
+        $url_sort[4]['img_tag']  = $img_tag;
+        $col                     = 3;
+    }
+    ?>
+<table align="center" border="<?php echo $cfgBorder; ?>">
+<tr>
+    <th>&nbsp;</th>
+    <th>
+        &nbsp;
+        <a href="<?php echo $common_url . '&sort_by=db_name&sort_order=' . $url_sort[0]['order']; ?>">
+            <?php echo ucfirst($strDatabase) . $url_sort[0]['img_tag']; ?></a>&nbsp;
+    </th>
+    <th>
+        &nbsp;
+        <a href="<?php echo $common_url . '&sort_by=tbl_cnt&sort_order=' . $url_sort[1]['order']; ?>">
+            <?php echo ucfirst(trim(sprintf($strTables, ''))) . $url_sort[1]['img_tag']; ?></a>&nbsp;
+    </th>
+    <th>
+        &nbsp;
+        <a href="<?php echo $common_url . '&sort_by=data_sz&sort_order=' . $url_sort[2]['order']; ?>">
+            <?php echo ucfirst($strData) . $url_sort[2]['img_tag']; ?></a>&nbsp;
+    </th>
+    <th>
+        &nbsp;
+        <a href="<?php echo $common_url . '&sort_by=idx_sz&sort_order=' . $url_sort[3]['order']; ?>">
+            <?php echo ucfirst($strIndexes) . $url_sort[3]['img_tag']; ?></a>&nbsp;
+    </th>
+    <th>
+        &nbsp;
+        <a href="<?php echo $common_url . '&sort_by=tot_sz&sort_order=' . $url_sort[4]['order']; ?>">
+            <?php echo ucfirst($strTotal) . $url_sort[4]['img_tag']; ?></a>&nbsp;
+    </th>
+</tr>
+    <?php
+    unset($url_sort);
+    echo "\n";
+    
+    $total_array[0] = 0;        // number of tables
+    $total_array[1] = 0;        // total data size
+    $total_array[2] = 0;        // total index size
+    $total_array[3] = 0;        // big total size
+
+    // Gets the tables stats per database
+    for ($i = 0; $i < $num_dbs; $i++) {
+        $db         = $dblist[$i];
+        $tables     = @mysql_list_tables($db);
+
+        // Number of tables
+        $dbs_array[$db][0] = @mysql_numrows($tables);
+        $total_array[0]    += $dbs_array[$db][0];
+
+        // Size of data and indexes
+        $dbs_array[$db][1] = 0; // data size column
+        $dbs_array[$db][2] = 0; // index size column
+        $dbs_array[$db][3] = 0; // full size column
+    
+        $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db);
+        $result      = @mysql_query($local_query);
+        // needs the "@" below otherwise, warnings in case of special DB names
+        if (@mysql_num_rows($result)) {
+            while ($row = mysql_fetch_array($result)) {
+                $dbs_array[$db][1] += $row['Data_length'];
+                $dbs_array[$db][2] += $row['Index_length'];
+            } 
+            $dbs_array[$db][3]     = $dbs_array[$db][1] + $dbs_array[$db][2];
+            $total_array[1]        += $dbs_array[$db][1];
+            $total_array[2]        += $dbs_array[$db][2];
+            $total_array[3]        += $dbs_array[$db][3];
+        }
+    } // end for
+
+    // Sorts the dbs arrays (already sorted if 'db_name' ascending order)
+    if (!empty($sort_by)
+        && !($sort_by == 'db_name' && $sort_order == 'asc')) {
+        uksort($dbs_array, 'pmaDbCmp');
+        reset($dbs_array);
+    }    
+
+    // Displays the tables stats per database
+    $i = 0;
+    while (list($db_name, $db_prop) = each($dbs_array)) {
+        $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+
+        list($data_size, $data_unit) = format_byte_down($dbs_array[$db_name][1], 3, 1);
+        list($idx_size, $idx_unit)   = format_byte_down($dbs_array[$db_name][2], 3, 1);
+        list($tot_size, $tot_unit)   = format_byte_down($dbs_array[$db_name][3], 3, 1);
+
+        echo '<tr bgcolor="'. $bgcolor . '">' . "\n";
+        echo '    <td align="right">&nbsp;' . ($i + 1) . '&nbsp;</td>' . "\n";
+        echo '    <td>&nbsp;<a href="index.php3?db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
+        echo '    <td align="right">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
+        echo '    <td align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</td>' . "\n";
+        echo '    <td align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</td>' . "\n";
+        echo '    <td align="right">&nbsp;<b>' . $tot_size . ' ' . $tot_unit . '</b>&nbsp;</td>' . "\n";
+        echo '</tr>' . "\n";
+
+        $i++;
+    } // end while
+    unset($dbs_array);
+
+    // Displays the server stats
+    list($data_size, $data_unit) = format_byte_down($total_array[1], 3, 1);
+    list($idx_size, $idx_unit)   = format_byte_down($total_array[2], 3, 1);
+    list($tot_size, $tot_unit)   = format_byte_down($total_array[3], 3, 1);
+
+    echo '<tr>' . "\n";
+    echo '    <th>&nbsp;</th>' . "\n";
+    echo '    <th>&nbsp;' . $strSum . ':&nbsp;' . $num_dbs . '</th>' . "\n";
+    echo '    <th align="right">&nbsp;' . $total_array[0] . '&nbsp;</th>' . "\n";
+    echo '    <th align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</th>' . "\n";
+    echo '    <th align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</th>' . "\n";
+    echo '    <th align="right">&nbsp;<b>' . $tot_size . ' ' . $tot_unit . '</b>&nbsp;</th>' . "\n";
+    echo '</tr>' . "\n";
+    echo '</table>' . "\n";
+
+    unset($total_array);
+} // end if ($num_dbs > 0)
 
 
 /**
- * Displays the frame
+ * No database case
  */
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
-<html>
-
-<head>
-    <title>phpMyAdmin</title>
-    <base target="phpmain" />
-</head>
-
-<body bgcolor="#D0DCE0">
-
-<h1>
-    <?php echo ucfirst($strDatabasesStats); ?> - 
-    <?php echo $strHost . ': ' . $cfgServer['host'] . "\n"; ?>
-</h1>   
-<h2><?php echo $strGenTime . ': ' . date('F j, Y, H:i'); ?></h2>
-
-
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-    <td valign="top" align="left">
-
-    <!-- Databases list -->
-
-    <table border="<?php echo $cfgBorder; ?>">
-    <tr>
-        <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;
-            <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" /></th>
-        <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strData); ?>&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strIndexes); ?>&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;</th>
-    </tr>
-
-<?php
-if ($num_dbs > 1) {
-    $selected_db   = 0;
-    $tot_tables    = 0;
-    $big_tot_all   = 0;
-    $big_tot_idx   = 0;
-    $big_tot_data  = 0;
-    $results_array = array();
-
-    // Gets and displays the tables stats per database
-    for ($i = 0; $i < $num_dbs; $i++) {
-        $db      = $dblist[$i];
-        $j       = $i + 2;
-        $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
-
-        if (!empty($db_start) && $db == $db_start) {
-            $selected_db  = $j;
-        }
-        $tables           = @mysql_list_tables($db);
-        $num_tables       = @mysql_numrows($tables);
-        $tot_tables       += $num_tables;
-        $common_url_query = 'lang=' . $lang
-                          . '&server=' . $server
-                          . '&db=' . urlencode($db);
-
-        // Gets size of data and indexes
-
-        $db_clean    = backquote($db);
-        $tot_data    = 0;
-        $tot_idx     = 0;
-        $tot_all     = 0;
-        $local_query = 'SHOW TABLE STATUS FROM ' . $db_clean;
-        $result      = @mysql_query($local_query);
-        if (@mysql_num_rows($result)) {
-             // needs the "@": otherwise, warnings in case of special DB names:
-             // Warning: Supplied argument is not a valid MySQL result resource in db_stats.php3 on line 140
-             while ($row = mysql_fetch_array($result)) {
-                $tot_data += $row['Data_length'];
-                $tot_idx  += $row['Index_length'];
-            } 
-           $tot_all            = $tot_data + $tot_idx;
-           $big_tot_all        += $tot_all;
-           $big_tot_idx        += $tot_idx;
-           $big_tot_data       += $tot_data;
-           $results_array[$db] = $tot_all;
-        }
-
-        list($tot_data_format,$unit_data) = format_byte_down($tot_data,3,1);
-        list($tot_idx_format,$unit_idx)   = format_byte_down($tot_idx,3,1);
-        list($tot_all_format,$unit_all)   = format_byte_down($tot_all,3,1);
-
-        echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
-        echo '        <td>&nbsp;' . htmlentities($db) . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;' . $num_tables . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;<b>' . $tot_all_format . ' ' . $unit_all . '<b>&nbsp;</td>' . "\n";
-        echo '    </tr>' . "\n";
-    } // end for
-
-    // Gets and displays the server stats
-    list($tot_data_format,$unit_data) = format_byte_down($big_tot_data,3,1);
-    list($tot_idx_format,$unit_idx)   = format_byte_down($big_tot_idx,3,1);
-    list($tot_all_format,$unit_all)   = format_byte_down($big_tot_all,3,1);
-
-    echo '    <tr>' . "\n";
-    echo '        <th>&nbsp;' . $strSum . ':&nbsp;' . $num_dbs . '</th>' . "\n";
-    echo '        <th align="right">&nbsp;' . $tot_tables . '&nbsp;</th>' . "\n";
-    echo '        <th align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</th>' . "\n";
-    echo '        <th align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</th>' . "\n";
-    echo '        <th align="right">&nbsp;<b>' . $tot_all_format . ' ' . $unit_all . '<b>&nbsp;</th>' . "\n";
-    echo '    </tr>' . "\n";
-
-    echo '    </table>' . "\n";
-
-    // Displays 20 biggest db's
-    ?>
-    </td>
-
-    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
-    <td valign="top">
-    <table border="<?php echo $cfgBorder; ?>">
-    <tr>
-        <th>&nbsp;&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;</th>
-        <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;
-            <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />&nbsp;</th>
-    </tr> 
-    <?php
-    echo "\n";
-    arsort($results_array);
-    $display_max     = 20;
-    $j               = 0;
-    if (count($results_array) < $display_max) {
-        $display_max = count($results_array);
-    }
-
-    reset ($results_array);
-    while ((list($key, $val) = each($results_array)) && ($j < $display_max)) {
-        $j++;
-
-        $bgcolor               = ($j % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
-        list($disp_val, $unit) = format_byte_down($val, 3, 1);
-        echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
-        echo '        <td align="right">&nbsp;' . $j . '&nbsp;</td>' . "\n";
-        echo '        <td>&nbsp;' . urlencode($key) . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;<b>' . $disp_val . ' ' . $unit . '<b>&nbsp;</td>' . "\n";
-        echo '    </tr>' . "\n";
-    }
-    ?>
-    </table>
-    </td>
-
-</tr>
-</table>
-    <?php
-} // end if ($num_dbs == 1)
-
 else {
-    echo "\n";
     ?>
-    </table>
-    </td>
-
-</tr>
-</table>
-
-<p>&nbsp;&nbsp;<?php echo $strNoDatabases; ?></p>
+<p align="center"><big>&nbsp;&nbsp;<?php echo $strNoDatabases; ?></big></p>
     <?php
 } // end if ($num_dbs == 0)
 echo "\n";

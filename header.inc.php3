@@ -76,6 +76,7 @@ echo "\n";
 ?>
 </head>
 
+
 <body bgcolor="#F5F5F5" text="#000000" background="images/bkg.gif">
 <?php
 if (isset($db)) {
