@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Index nemù¾ete pøejmenovat na "PRIMARY"!';
 $strCardinality = 'Mohutnost';
 $strCarriage = 'Návrat vozíku (CR): \\r';
 $strChange = 'Zmìnit';
+$strChangePassword = 'Zmìnit heslo';
 $strCheckAll = 'Za¹krtnout v¹e';
 $strCheckDbPriv = 'Zkontrolovat oprávnìní pro databázi';
 $strCheckTable = 'Zkontrolovat tabulku';
@@ -345,7 +346,5 @@ $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
 
-
 // To translate
-$strChangePassword = 'Change password';
 ?>
