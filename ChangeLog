@@ -6,7 +6,9 @@ $Id$
 $Source$
 
 2002-05-19 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * lang/german.inc.php3: Updated serveral untranslated strings.
+    * lang/german.inc.php3:
+      - Updated serveral untranslated strings.
+      - Better translation.
     * lang/albanian.inc.php3, libraries/select_lang.lib.php3:
       New translation, thanks to Laurent Dhima <laurenti@users.sourceforge.net>.
 

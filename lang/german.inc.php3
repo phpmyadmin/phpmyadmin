@@ -107,7 +107,7 @@ $strDrop = 'Löschen';
 $strDropDB = 'Datenbank %s löschen';
 $strDropTable = 'Tabelle löschen:';
 $strDumpingData = 'Daten für Tabelle';
-$strDumpXRows = 'Exportiere %s Datensätze ab dem %s. Datensatz.';
+$strDumpXRows = 'Exportiere %s Datensätze ab Zeile %s.';
 $strDynamic = 'dynamisch';
 
 $strEdit = 'Ändern';
@@ -192,7 +192,7 @@ $strMoveTable = 'Verschiebe Tabelle nach (Datenbank<b>.</b>Tabellenname):';
 $strMoveTableOK = 'Tabelle %s wurde nach %s verschoben.';
 $strMySQLReloaded = 'MySQL wurde neu gestartet.';
 $strMySQLSaid = 'MySQL meldet: ';
-$strMySQLServerProcess = 'MySQL %pma_s1% auf %pma_s2% als %pma_s3%';
+$strMySQLServerProcess = 'Verbunden mit MySQL %pma_s1% auf %pma_s2% als %pma_s3%';
 $strMySQLShowProcess = 'Prozesse anzeigen';
 $strMySQLShowStatus = 'MySQL-Laufzeit-Informationen anzeigen';
 $strMySQLShowVars = 'MySQL-System-Variablen anzeigen';
