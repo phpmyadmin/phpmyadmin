@@ -224,6 +224,7 @@ $strPasswordEmpty = 'Þifre alaný doldurulmadý!';
 $strPasswordNotSame = 'Girilen þifreler ayný deðil!';
 $strPHPVersion = 'PHP Sürümü';
 $strPmaDocumentation = 'phpMyAdmin dökümantasyonu';
+$strPmaUriError = '<tt>$cfgPmaAbsoluteUri</tt>\' nin deðeri  konfigurasyon dosyasýnýn içinde verilmelidir!';
 $strPos1 = 'Baþlangýç';
 $strPrevious = 'Önceki';
 $strPrimary = 'Birincil';
@@ -346,5 +347,4 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>
