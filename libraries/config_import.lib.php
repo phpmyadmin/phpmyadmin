@@ -819,6 +819,10 @@ if (!isset($cfg['ErrorIconic'])) {
     $cfg['ErrorIconic'] = TRUE;
 }
 
+if (!isset($cfg['MainPageIconic'])) {
+    $cfg['MainPageIconic'] = TRUE;
+}
+
 if (!isset($cfg['ReplaceHelpImg'])) {
     $cfg['ReplaceHelpImg'] = TRUE;
 }

@@ -518,14 +518,17 @@ $cfg['NaturalOrder']        = TRUE;         // Sort table and database in natura
 //-----------------------------------------------------------------------------
 // custom-setup by mkkeck: 2004-05-04
 //    some specials for new icons and scrollings
+// FIXME:
 // 2004-05-08 rabus: We need to rearrange these variables.
+// 2004-06-03 nijel: We also need to add these to Documentation.html
 
 $cfg['ShowHttpHostTitle']    = FALSE;   // show HTTP host in browsers window title (true|false)?
 $cfg['SetHttpHostTitle']     = '';      // if ShowHttpHostTitle=true, please set your host (server)
                                         // or an other string, wich should be shown in browsers window title.
                                         // If not set (or empty), the PMA will get your real host address.
 
-$cfg['ErrorIconic']          = TRUE;    // show some icons for warnings, errors and informations? (true|false)?
+$cfg['ErrorIconic']          = TRUE;    // show some icons for warnings, errors and informations (true|false)?
+$cfg['MainPageIconic']       = TRUE;    // show icons in list on main page (true|false)?
 $cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocumentation (true|false)?
 
 //-----------------------------------------------------------------------------

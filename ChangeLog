@@ -17,6 +17,8 @@ $Source$
       strDatabase (needed for above fix).
     * libraries/config_import.lib.php: Do not override
       $cfg['ShowHttpHostTitle'].
+    * config.inc.php, css/phpmyadmin.css.php, libraries/config_import.lib.php:
+      Can disable main page icons (bug #965550).
 
 2004-06-02 Alexander M. Turek  <happybirthdaytome@derrabus.de>
     * db_details_db_info.php, tbl_properties_tbl_info.php: Table type is called

@@ -307,6 +307,9 @@ ul.mainLeft li {
     padding-top: 0.1em;
     padding-bottom: 0.1em;
 }
+
+
+<?php if ($cfg['MainPageIconic']) { ?>
 .lstPhpInfo {
   list-style: url(../images/php_sym.png);
 }
@@ -339,7 +342,8 @@ ul.mainLeft li {
 }
 .lstCollations {
   list-style: url(../images/s_asci.png);
-}.lstReload {
+}
+.lstReload {
   list-style: url(../images/s_reload.png);
 }
 .lstDatabases {
@@ -354,6 +358,7 @@ ul.mainLeft li {
 .lstPasswd {
   list-style: url(../images/s_passwd.png);
 }
+<?php } ?>
 
 hr{ color: #666699; background-color: #6666cc; border: 0; height: 1px; }
 
