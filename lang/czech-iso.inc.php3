@@ -3,7 +3,7 @@
 
 /**
  * Czech language file by
- *   Michal Cihaø <nijel at users.sourceforge.net>
+ *   Michal Èihaø <nijel at users.sourceforge.net>
  */
 
 $charset = 'iso-8859-2';
@@ -65,7 +65,9 @@ $strBrowse = 'Projít';
 $strBzip = '"zabzipováno"';
 
 $strCantLoadMySQL = 'nelze nahrát roz¹íøení pro MySQL,<br />prosím zkontrolujte nastavení PHP.';
+$strCantLoadRecodeIconv = 'Nelze nahrát roz¹íøení iconv ani recode potøebná pro pøevod znakových sad. Upravte nastavení php tak aby umo¾òovalo pou¾ít tyto roz¹íøení nebo vypnìte pøevod znakových sad v phpMyAdminu.';
 $strCantRenameIdxToPrimary = 'Index nemù¾ete pøejmenovat na "PRIMARY"!';
+$strCantUseRecodeIconv = 'Nelze pou¾ít funkce iconv ani libiconv ani recode_string, pøesto¾e roz¹íøení jsou nahrána. Zkontrolujte nastavení php.';
 $strCardinality = 'Mohutnost';
 $strCarriage = 'Návrat vozíku (CR): \\r';
 $strChange = 'Zmìnit';
@@ -78,6 +80,7 @@ $strChoosePage = 'Zvolte stránku, kterou chcete zmìnit';
 $strColumn = 'Sloupec';
 $strColumnNames = 'Názvy sloupcù';
 $strCompleteInserts = 'Uplné inserty';
+$strConfigFileError = 'phpMyAdmin nemohl naèíst konfiguraèní soubor!<br />Tato chyba mù¾e nastat pokud v&nbsp;nìm php najde chybu nebo nemù¾e tento soubor najít.<br />Po kliknutí na následující odkaz se konfigurace spustí a budou zobrazeny informace o&nbsp;chybì, ke které do¹lo. Pak opravte tuto chybu (nejèastìji se jedná o chybìjící støedník).<br />Pokud získáte prázdnou stránku, v¹echno je v poøádku.';
 $strConfigureTableCoord = 'Prosím nastavte souøadnice pro tabulku %s';
 $strConfirm = 'Opravdu chcete toto provést?';
 $strCookiesRequired = 'Bìhem tohoto kroku musíte mít povoleny cookies.';
@@ -155,6 +158,7 @@ $strGzip = '"zagzipováno"';
 
 $strHasBeenAltered = 'byla zmìnìna.';
 $strHasBeenCreated = 'byla vytvoøena.';
+$strHaveToShow = 'Musíte volit alespoò jeden sloupec, který chcete zobrazit.';
 $strHome = 'Hlavní strana';
 $strHomepageOfficial = 'Oficiální stránka phpMyAdmina';
 $strHomepageSourceforge = 'Nová stránka phpMyAdmina';
@@ -196,11 +200,13 @@ $strLogout = 'Odhlásit se';
 $strLogPassword = 'Heslo:';
 $strLogUsername = 'Jméno:';
 
+$strMissingBracket = 'Chybí závorka';
 $strModifications = 'Zmìny byly ulo¾eny';
 $strModify = 'Úpravy';
 $strModifyIndexTopic = 'Upravit index';
 $strMoveTable = 'Pøesunout tabulku do (databáze<b>.</b>tabulka):';
 $strMoveTableOK = 'Tabulka %s byla pøesunuta do %s.';
+$strMySQLCharset = 'Znaková sada v MySQL';
 $strMySQLReloaded = 'MySQL znovu naèteno.';
 $strMySQLSaid = 'MySQL hlásí: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% spu¹tìné na %pma_s2%, pøihlá¹en %pma_s3%';
@@ -226,6 +232,7 @@ $strNoQuery = '®ádný SQL dotaz!';
 $strNoRights = 'Nemáte dostateèná práva na provedení této akce!';
 $strNoTablesFound = 'V&nbsp;databázi nebyla nalezena ani jedna tabulka.';
 $strNotNumber = 'Toto není èíslo!';
+$strNotSet = '<b>%s</b> tabulka nenalezena nebo není nastavena v&nbsp;%s';
 $strNotValidNumber = ' není platné èíslo øádku!';
 $strNoUsersFound = '®ádný u¾ivatel nenalezen.';
 $strNull = 'Nulový';
@@ -396,11 +403,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
 ?>
