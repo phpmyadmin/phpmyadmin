@@ -312,6 +312,8 @@ $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 
 $strYes = 'Si';
 
+$strZip = 'comprimido no formato "zipped"';
+
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate

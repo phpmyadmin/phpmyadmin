@@ -320,4 +320,5 @@ $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
+$strZip = '"zipped"';  //to translate
 ?>

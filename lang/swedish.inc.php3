@@ -295,6 +295,8 @@ $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 
 $strYes = 'Ja';
 
+$strZip = '"zippad"';
+
 // To translate
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
 $strAnIndex = 'An index has been added on %s';//to translate

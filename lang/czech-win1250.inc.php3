@@ -295,6 +295,8 @@ $strWrongUser = 'Špatné uživatelské jméno/heslo. Pøístup odepøen.';
 
 $strYes = 'Ano';
 
+$strZip = '"zazipováno"';
+
 // To translate
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
 $strAnIndex = 'An index has been added on %s';//to translate

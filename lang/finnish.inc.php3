@@ -317,6 +317,8 @@ $strWrongUser = 'V‰‰r‰ k‰ytt‰j‰tunnus tai salasana. P‰‰sy kielletty.';
 
 $strYes = 'Kyll‰';
 
+$strZip = '"zip-pakattu"';
+
 // To translate
 $strOverhead = 'Overhead'; //to translate
 $strRunningAs = 'as';

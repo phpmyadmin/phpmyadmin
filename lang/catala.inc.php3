@@ -270,6 +270,8 @@ $strWrongUser = 'Usuari i/o clau erronis. Access denegat.';
 
 $strYes = 'Si';
 
+$strZip = '"comprimit amb zip"';
+
 // To translate
 $strAffectedRows = 'Affected rows:';
 $strDatabasesStats = 'Databases statistics';//to translate

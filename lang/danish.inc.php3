@@ -49,7 +49,7 @@ $strBookmarkQuery = 'Bookmarked SQL-query'; //to translate
 $strBookmarkThis = 'Bookmark this SQL-query'; //to translate
 $strBookmarkView = 'View only'; //to translate
 $strBrowse = 'Vis';
-$strBzip = '"bzipped"';
+$strBzip = '"bzipped"'; //to translate
 
 $strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.'; //to translate
 $strCarriage = 'Carriage return: \\r';
@@ -320,4 +320,5 @@ $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
+$strZip = '"zipped"'; //to translate
 ?>

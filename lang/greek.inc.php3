@@ -296,6 +296,8 @@ $strWrongUser = 'Λανθασμένος χρήστης/κωδικός πρόσβασης. ¶ρνηση πρόσβασης.';
 
 $strYes = 'Ναι';
 
+$strZip = 'συμπίεση «zip»';
+
 // To translate
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
 $strAnIndex = 'An index has been added on %s';//to translate

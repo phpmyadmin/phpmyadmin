@@ -299,6 +299,8 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
 
+$strZip = '"Zip komprimiert"';
+
 // To translate
 $strRunningAs = 'as';
 $strShowCols = 'Show columns';
