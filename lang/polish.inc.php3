@@ -278,4 +278,5 @@ $strWrongUser = "B³êdne pola u¿ytkownik/has³o. Brak dostêpu.";
 $strYes = "Tak";
 $strUseBackquotes=" Use backquotes with tables and fields names ";  //to translate
 $strQueryOnDb=" SQL-query on database ";  //to translate
+$strFieldsEmpty=" The field count is empty! ";  //to translate
 ?>

@@ -278,4 +278,5 @@ $strYes = "Oui";
 $strShowThisQuery="Réafficher la requête après exécution";
 $strUseBackquotes = "Protéger les noms des tables et des champs par des&nbsp;\"`\"";
 $strQueryOnDb="Requête SQL sur la base ";
+$strFieldsEmpty=" The field count is empty! ";  //to translate
 ?>

@@ -280,7 +280,8 @@ $strGzip = "\"GZip komprimiert\"";
 $strOffSet = "Offset";
 $strNbRecords = "Datens&auml;tze";
 $strRowSize = "Zeilengr&ouml;&szlig;e";
-$strShowThisQuery = "SQL Befehl hier wieder anzeigen";  //to translate
-$strUseBackquotes=" Use backquotes with tables and fields names ";  //to translate
+$strShowThisQuery = "SQL Befehl hier wieder anzeigen";
+$strUseBackquotes=" Tabellen- und Feldnamen in einfachen Anführungszeichen  ";  //to translate
 $strQueryOnDb=" SQL-query on database ";  //to translate
+$strFieldsEmpty=" Sie müssen angeben wieviele Felder die Tabelle haben soll! ";
 ?>

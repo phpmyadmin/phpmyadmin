@@ -280,4 +280,5 @@ $strRowSize = " Tamaño de la fila ";
 $strShowThisQuery=" Mostrar esta consulta otra vez ";
 $strUseBackquotes=" Usar backquotes con tablas y nombres de campo ";
 $strQueryOnDb=" SQL-query en la Base de datos "; 
+$strFieldsEmpty=" The field count is empty! ";  //to translate
 ?>
