@@ -601,7 +601,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
            </li>
            <li>
               in query-by-example, create automatic joints (see an example
-              in the FAQ, section &quot;Using phpMyAdmin&quot;).
+              in the FAQ, section &quot;Using phpMyAdmin&quot;);
+           </li>
+           <li>
+              enable you to get a PDF schema of your database.
            </li>
         </ul>
         <br />
@@ -621,8 +624,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_table` varchar(32) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_field` varchar(32) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_display_field` varchar(32) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_table`,`master_field`)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table Relation';<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pdf_page_number` int(11) NOT NULL default '0',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_table`,`master_field`),<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY pdf_page_number (`pdf_page_number`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Relation table';<br />
                 </tt>
             </li>
             <li>
@@ -642,7 +647,47 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE dest_table foreign_table VARCHAR(32) NOT NULL<br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE dest_column foreign_field VARCHAR(32) NOT NULL<br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD `foreign_display_field` VARCHAR(32) NOT NULL;<br /> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD `pdf_page_number` int(11) NOT NULL;<br /> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD INDEX(`pdf_page_number`);<br />
         </tt><br />
+    </dd>
+
+    <dt>
+        <b>$cfg['Servers'][$i]['pdf_table_position']</b> string
+    </dt>
+    <dd>
+        Since release 2.3.0 you can describe, in a special 'pdf_table_position'
+        table, the coordinates where each table will be placed on a PDF schema
+        output. This configuration variable will hold the name of this special
+        table.     
+        <br /><br />   
+        This feature is supported under PHP4, and you must be using also
+        the 'relation' feature.
+        <br /><br />   
+        To use this functionality you have to:
+        <ul>
+            <li>
+                create in the same database a table (for example 'pdf_table_position')
+                following this scheme:<br />
+                <tt>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pdf_table_position` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(50) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`x` float unsigned NOT NULL default '0',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0'<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`table_name`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table positions for PDF schema';<br />
+                </tt>
+            </li>
+            <li>
+                put the table name in
+                <tt>$cfg['Servers'][$i]['pdf_table_position']</tt>
+            </li>
+            <li>
+                then manually fill this table with information about
+                the table positions on the PDF schema.
+            </li>
+        </ul><br />
+    See also this <a class="navigation" href="#faqpdf">usage tip.</a><br /><br />
     </dd>
 
     <dt><b>$cfg['ServerDefault']</b> integer</dt>
@@ -1593,11 +1638,13 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_table varchar(32) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_field varchar(32) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_display_field varchar(32) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (master_table,master_field)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pdf_page_number int(11) NOT NULL default '0',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (master_table,master_field),<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY pdf_page_number (`pdf_page_number`)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'town_code', 'towns', 'town_code','description');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'country_code', 'countries', 'country_code','description');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'town_code', 'towns', 'town_code','description', 1);<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'country_code', 'countries', 'country_code','description', 1);<br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE towns (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) NOT NULL default '0',<br />
@@ -1625,6 +1672,26 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <li>Click &quot;Submit query&quot;</li>
 </ul>
 <br />
+<a name="faqpdf"></a>
+<p>
+    <b>How can I produce a PDF schema of my database?</b>
+    <br />
+    First you have to fill the 'relation' and 'pdf_table_position' 
+    configuration variables.
+    <br /><br />
+    Then, think about your schema layout: which tables will go on which
+    pages.  You have to fill in the 'relation' table the page number for 
+    each master-foreign link.
+    <br /><br />
+    Then manually fill the pdf_table_position table with the coordinates, 
+    x being the width and y the height, and (0,0) at the upper left corner.
+    For example, x=100 and y=200 means that the table will be at 200 mm
+    down and 100 mm right from the upper left corner.
+    <br /><br />
+    To produce the output, click on your database name, then choose 'Structure'
+    and 'Display PDF schema', and enter the page number.
+</p>
+
 
 <a name="faqproject"></a>
 <h3>[phpMyAdmin project]</h3>
@@ -1866,7 +1933,7 @@ code since version 2.1.0:
 - Christophe Gesché from the "MySQL Form Generator for PHPMyAdmin"
   (http://sourceforge.net/projects/phpmysqlformgen/) who suggested the patch
   for multiple table printviews.
-- Garvin Hicking &lt;hicking at faktor-e.de&gt; who builds the patch for
+- Garvin Hicking &lt;hicking at faktor-e.de&gt; who built the patch for
   vertical display of table rows.
 - Yukihiro Kawada &lt;kawada at den.fujifilm.co.jp&gt; for the japanese kanji
   encoding conversion feature.
@@ -1876,6 +1943,8 @@ code since version 2.1.0:
   relation-links feature.
 - Mike Beck &lt;mike.beck at ibmiller.de&gt; for his work on the Relation table
   feature: automatic joint in QBE, links column in printview, Relation view.
+- Maxime Delorme &lt;delorme.maxime at free.fr&gt; for the PDF schema output; 
+  thanks also to Olivier Plathey for the fpdf library (www.fpdf.org).
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version 2.1.0:
