@@ -371,7 +371,7 @@ if ($server > 0) {
             echo "\n";
             ?>
     <tr><?php
-            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_collations.php.php?'.$common_url_query.'">','s_asci.png',$strCharsetsAndCollations,'</a>') : $str_normal_list); 
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_collations.php?'.$common_url_query.'">','s_asci.png',$strCharsetsAndCollations,'</a>') : $str_normal_list); 
 ?>
         <td>
                 <a href="./server_collations.php?<?php echo $common_url_query; ?>">

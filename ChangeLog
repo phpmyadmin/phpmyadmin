@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-07
+    * main.php: Typo.
+
 2004-09-06 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.6.0-rc2 released
 
