@@ -88,7 +88,7 @@ function open_querywindow(url) {
   *                  - sets a new frameset.rows - definition for the
   *                    frameset 'leftFrameset' in 'index.php' dynamic.
   * this script was tested on
-  *   IE 6, Opear 7.53, Netsacpe 7.1 and Firefox 0.9
+  *   IE 6, Opera 7.53, Netsacpe 7.1 and Firefox 0.9
   *   and should work on all other DOM-Browsers and old IE-Browsers.
   *   It will never work on Netscape smaller Version 6 and IE smaller Version 4.
   * Please give me feedback if any browser doesn't work with this script
@@ -119,6 +119,23 @@ function resizeRowsLeft() {
     }
 }
 
+// added 2004-09-16 by Michael Keck (mkkeck)
+//                  bug: #1027321
+//                       drop-down databases list keep focus on database change
+var focus_removed = false;
+function remove_focus_select() {
+    focus_removed = false;
+    set_focus_to_nav();
+}
+function set_focus_to_nav() {
+    if (typeof(parent.frames.nav)!='undefined' && focus_removed!=true) {
+        parent.frames.nav.focus();
+        focus_removed=true;
+    } else {
+        focus_removed=false;
+        setTimeout("set_focus_to_nav();",500);
+    }
+}
 //-->
 </script>
 <?php
@@ -274,7 +291,7 @@ if ($num_dbs > 1) {
         echo PMA_generate_common_hidden_inputs();
         echo '        <input type="hidden" name="hash" value="' . $hash . '" />' . "\n";
         ?>
-        <select name="lightm_db" onchange="this.form.submit();">
+        <select name="lightm_db" onchange="remove_focus_select();this.form.submit();">
         <?php
         echo '            <option value="">(' . $strDatabases . ') ...</option>' . "\n";
         $table_list = '';

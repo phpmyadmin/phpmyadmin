@@ -7,6 +7,8 @@ $Source$
 
 2004-09-16 Marc Delisle  <lem9@users.sourceforge.net>
     * config.inc.php, Documentation.html: clarifications about QueryFrame
+    * queryframe.php: bug #1027321, drop-down databases list keeps focus,
+      thanks to Michael Keck
 
 2004-09-16 Garvin Hicking <me@supergarv.de>
     * libraries/display_export.lib.php: Bug #1010752 - Remove space
