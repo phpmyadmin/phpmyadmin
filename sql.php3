@@ -55,7 +55,7 @@ PMA_checkParameters(array('sql_query', 'db'));
  */
 if (!defined('PMA_CHK_DROP')
     && !$cfg['AllowUserDropDatabase']
-    && eregi('DROP[[:space:]]+DATABASE[[:space]]+', $sql_query)) {
+    && eregi('DROP[[:space:]]+DATABASE[[:space:]]+', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
