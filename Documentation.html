@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <!-- $Id$ -->
@@ -644,11 +645,25 @@
 <h2>FAQ - Frequently Asked Questions</h2>
 
 <p>
+    <b>I'm running php 4+ and my server is crashing each time a specific action
+    is required or phpMyAdmin send a blank page to my browser, what can I
+    do?</b>
+    <br />
+    There is some known php bugs with output buffering and compression.<br />
+    Try to set the <tt>$cfgOBGzip</tt> directive to <tt>FALSE</tt> in your
+    <i>config.inc.php or .php3</i> file and the
+    <tt>zlib.output_compression</tt> directive to <tt>Off</tt> in your php
+    configuration file.
+</p>
+
+<p>
     <b>The error message "Warning: Cannot add header information - headers
     already sent by ..." is displayed, what's the problem?</b>
     <br />
-    Look at the end of your <i>config.inc.php or .php3</i> file, there must be
-    no blank lines or spaces after the <tt>?></tt>.
+    Edit your <i>config.inc.php or .php3</i> file and ensure there is nothing
+    (ie no blank lines, no spaces, no characters...) neither before the
+    <tt>&lt;?php</tt> tag at the beginning, neither after the <tt>?&gt;</tt>
+    tag at the end.
 </p>
 
 <p>
@@ -935,16 +950,16 @@
 <p>
     <b>I have found a bug. How do I inform developpers?</b>
     <br />
-    Our Bug Tracker is located at <a href="http://sourceforge.net/projects/phpmyadmin">
-        http://sourceforge.net/projects/phpmyadmin</a> under the Bugs section.
+    Our Bug Tracker is located at <a href="http://sourceforge.net/projects/phpmyadmin/">
+        http://sourceforge.net/projects/phpmyadmin/</a> under the Bugs section.
     <br /><br />
     But please first discuss your bug with other users:
     <br />
-    <a href="http://sourceforge.net/projects/phpmyadmin">
-        http://sourceforge.net/projects/phpmyadmin</a> (and choose Forums)
+    <a href="http://sourceforge.net/projects/phpmyadmin/">
+        http://sourceforge.net/projects/phpmyadmin/</a> (and choose Forums)
     <br />
-    <a href="http://www.phpwizard.net/projects/phpMyAdmin">
-        http://www.phpwizard.net/projects/phpMyAdmin</a> (and choose Support
+    <a href="http://www.phpwizard.net/projects/phpMyAdmin/">
+        http://www.phpwizard.net/projects/phpMyAdmin/</a> (and choose Support
     Forum)
 </p>
 

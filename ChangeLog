@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-22  Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html:
+	  - added a faq entry about server crashes and output compression problems;
+	  - changed the faq entry about "headers already sent by..." because users
+	    should also ensure the beginning of the config file is the php starting
+	    tag;
+	  - misc typos.
+
 2001-09-21  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/slovak-iso.inc.php3 updates, thanks to Lubos Klokner.
 	* lang/italian.inc.php3 updates, thanks to Pietro Danesi.
