@@ -8,6 +8,7 @@ $Source$
 2002-06-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: JS fixes, thanks to
       Richard Hornsby <rhornsby at users.sourceforge.net>.
+    * Documentation.html: Fixed a typo.
 
 2002-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3, lang/*, Documentation.html: new message with doc

@@ -398,7 +398,7 @@
 $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                        . $_SERVER['HTTP_HOST']
                        . (!empty($_SERVER['SERVER_PORT']) ? ':' . $_SERVER['SERVER_PORT'] : '')
-                       . substr($_SERVER['PHP_SELF'], 0, strrpos($['PHP_SELF'], '/')+1);
+                       . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')+1);
 
     or
 
