@@ -14,11 +14,15 @@ $Source$
 	  - the 'location' header must be above any output!
 	  - line 456: fixed an invalid link to the official MySQL documentation;
 	  - added background color for indexes;
-	  - removed the Browse/Select/Insert/Empty links at the middle of the page.
+	  - removed the Browse/Select/Insert/Empty links at the middle of the page
+	    and added the same link below the table properties than the one at the
+	    top of the page if there are more than 20 fields.
 	* lib.inc.php3:
 	  - adjusted font sizes depending on IE versions;
 	  - line 2337: fixed an illegal index warning with php3;
 	  - line 1762: invalid number of parameters in the function call.
+	* db_printview.php3; tbl_printview.php3: extended so the generated pages
+	  contains the same informations that the one in the calling page.
 	* db_details.php3; db_readdump.php3; sql.php3; lib.inc.php3; main.php3;
 	  tbl_copy.php3; tbl_properties.inc.php3; tbl_properties.php3;
 	  tbl_rename.php3; mult_submits.inc.php3: $reload has now true boolean
@@ -29,6 +33,8 @@ $Source$
 	  Panayotis Katsaloulis <teras@noc.uoa.gr>.
 	* lang/french.inc.php3: little improvement
 	  ("Textes entiers" -> "Textes complets").
+	* lang/italian.inc.php3: updated thanks to
+	  Pietro Danesi <danone at aruba.it>.
 
 2001-09-07  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3, bug 459449: $row had old data from header.inc
