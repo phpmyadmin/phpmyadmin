@@ -264,7 +264,6 @@ $strPrimaryKeyName = 'Die naam van die primere sleutel moet PRIMARY wees!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>moet</b> die naam wees van die primere sleutel, en <b>slegs</b> van die primere sleutel!)';
 $strPrintView = 'Drukker mooi (print view)';
 $strPrivileges = 'Regte';
-$strProperties = 'Eienskappe';
 
 $strQBE = 'Navraag dmv Voorbeeld';
 $strQBEDel = 'Del';

@@ -499,7 +499,6 @@ $strPrivDescUsage = 'İmtiyaz yok.';
 $strPrivileges = 'İmtiyazlar';
 $strPrivilegesReloaded = 'Ayrıcalıklar başarıyla yüklendi.';
 $strProcesslist = 'İşlem listesi';
-$strProperties = 'Özellikler';
 $strPutColNames = 'İlk satırda alan isimlerini koy';
 
 $strQBE = ' Sorgula';

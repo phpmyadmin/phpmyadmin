@@ -401,7 +401,6 @@ $strPrivDescUsage = 'Selahiyyet te\'yin edilmedi.';
 $strPrivileges = 'Selahiyyetler';
 $strPrivilegesReloaded = 'The privileges were reloaded successfully.';
 $strProcesslist = 'Proses siyahýsý';
-$strProperties = 'Xüsusiyyetler';
 $strPutColNames = 'Put fields names at first row';
 
 $strQBE = 'Sorðu';

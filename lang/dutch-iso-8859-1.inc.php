@@ -485,7 +485,6 @@ $strPrivDescUsage = 'Geen privileges.';
 $strPrivileges = 'Rechten';
 $strPrivilegesReloaded = 'De privileges zijn met succes vernieuwd';
 $strProcesslist = 'Process lijst';
-$strProperties = 'Eigenschappen';
 $strPutColNames = 'Plaats veldnamen in de eerste rij';
 
 $strQBEDel = 'Verwijder';

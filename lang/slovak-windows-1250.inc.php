@@ -482,7 +482,6 @@ $strPrivDescUsage = 'iadne práva.';
 $strPrivileges = 'Oprávnenia';
 $strPrivilegesReloaded = 'Práva boli úspešne znovunaèítané.';
 $strProcesslist = 'Zoznam procesov';
-$strProperties = 'Vlastnosti';
 $strPutColNames = 'Prida názvy polí na prvı riadok';
 
 $strQBE = 'Dotaz pod¾a príkladu';

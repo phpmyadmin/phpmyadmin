@@ -487,7 +487,6 @@ $strPrivDescUsage = 'Pas de privilèges';
 $strPrivileges = 'Privilèges';
 $strPrivilegesReloaded = 'Les privilèges ont été rechargés.';
 $strProcesslist = 'Liste des processus';
-$strProperties = 'Propriétés';
 $strPutColNames = 'Afficher les noms de champ en première ligne';
 
 $strQBE = 'Requête';

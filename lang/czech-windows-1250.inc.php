@@ -500,7 +500,6 @@ $strPrivDescUsage = 'Žádná oprávnìní.';
 $strPrivileges = 'Oprávnìní';
 $strPrivilegesReloaded = 'Oprávnìní byla znovunaètena úspìšnì.';
 $strProcesslist = 'Seznam procesù';
-$strProperties = 'Vlastnosti';
 $strPutColNames = 'Pøidat jména sloupcù na první øádek';
 
 $strQBEDel = 'smazat';

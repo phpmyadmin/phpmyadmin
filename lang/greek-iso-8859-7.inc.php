@@ -435,7 +435,6 @@ $strPrivDescUsage = 'Χωρίς προνόμια.';
 $strPrivileges = 'Προνόμια';
 $strPrivilegesReloaded = 'Τα προνόμια επαναφορτώθηκαν επιτυχώς.'; 
 $strProcesslist = 'Λίστα διεργασιών'; 
-$strProperties = 'Ιδιότητες';
 $strPutColNames = 'Εμφάνιση ονομάτων πεδίων στην πρώτη γραμμή';  
 
 $strQBE = 'Επερώτημα κατά παράδειγμα';

@@ -482,7 +482,6 @@ $strPrivDescUsage = 'Няма привилегии.';
 $strPrivileges = 'Привилегии';
 $strPrivilegesReloaded = 'Привилегиите бяха презаредени успешно.';
 $strProcesslist = 'Списък на процесите';
-$strProperties = 'Свойства';
 $strPutColNames = 'Постави имената на полетата на първия ред';
 
 $strQBE = 'Запитване по пример';

@@ -464,7 +464,6 @@ $strPrivDescUsage = 'لا صلاحيات.';
 $strPrivileges = 'الإمتيازات';
 $strPrivilegesReloaded = 'تم إعادة قراءة الصلاحيات بنجاح.';
 $strProcesslist = 'سرد العمليّات';
-$strProperties = 'خصائص';
 $strPutColNames = 'ضع أسماء الحقول في السطر الأول';
 
 $strQBE = 'إستعلام بواسطة مثال';

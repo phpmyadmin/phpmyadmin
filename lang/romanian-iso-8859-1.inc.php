@@ -470,7 +470,6 @@ $strPrivDescUsage = 'Fara drepturi.';
 $strPrivileges = 'Drepturi de acces';
 $strPrivilegesReloaded = 'Drepturile au fost reincarcate cu succes.';
 $strProcesslist = 'Lista procese';
-$strProperties = 'Atribute';
 $strPutColNames = 'Pune numele filed-ului in primul rand';
 
 $strQBE = 'Comanda prin exemplu (Query by Example)';

@@ -472,7 +472,6 @@ $strPrivDescUsage = '特権がありません。';
 $strPrivileges = '特権';
 $strPrivilegesReloaded = '特権はリロードされました。';
 $strProcesslist = 'プロセスリスト';
-$strProperties = 'プロパティ';
 $strPutColNames = '最初の 1 行目にフィールド名を追加';
 
 $strQBE = 'クエリー';

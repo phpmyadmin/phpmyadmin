@@ -246,7 +246,6 @@ $strPrimary = '«’·Ì';
 $strPrintView = '‰„«Ì ç«Å';
 $strPrint = 'ç«Å';
 $strPrivileges = '«„ Ì«“« ';
-$strProperties = 'Œ’Ê’Ì« ';
 $strPutColNames = 'ﬁ—«—œ«œ‰ ‰«„ ” Ê‰Â« œ— «Ê·Ì‰ ”ÿ—';
 
 $strQBEDel = 'Del';

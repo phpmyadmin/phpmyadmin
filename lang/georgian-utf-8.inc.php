@@ -247,7 +247,6 @@ $strPrimaryKeyName = 'პირველი გასაღების სა�
 $strPrimaryKeyWarning = '("PRIMARY" <b>უნდა იყოს მხოლოდ</b> პირველი გასაღების სახელი!)';
 $strPrintView = 'ბეჭდვისთვის';
 $strPrivileges = 'პრივილეგიები';
-$strProperties = 'თვისებები';
 
 $strQBE = 'ამორჩევა მაგალითის მიხედვით';
 $strQBEDel = 'წაშლა';

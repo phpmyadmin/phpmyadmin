@@ -492,7 +492,6 @@ $strPrivDescUsage = 'Keine Rechte.';
 $strPrivileges = 'Rechte';
 $strPrivilegesReloaded = 'Die Benutzerprofile wurden neu geladen.';
 $strProcesslist = 'Prozesse';
-$strProperties = 'Eigenschaften';
 $strPutColNames = 'Feldnamen in die erste Zeile setzen';
 
 $strQBE = 'Abfrageeditor';

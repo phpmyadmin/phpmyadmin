@@ -482,7 +482,6 @@ $strPrivDescUsage = 'Sense permissos.';
 $strPrivileges = 'Permissos';
 $strPrivilegesReloaded = 'Els permissos s\'han recarregat correctament.';
 $strProcesslist = 'Llista de processos';
-$strProperties = 'Propietats';
 $strPutColNames = 'Posa els noms de camp a la primera fila';
 
 $strQBE = 'Consulta segons exemple';

@@ -463,7 +463,6 @@ $strPrivDescUsage = 'áÇ ÕáÇÍíÇÊ.';
 $strPrivileges = 'ÇáÅãÊíÇÒÇÊ';
 $strPrivilegesReloaded = 'Êã ÅÚÇÏÉ ŞÑÇÁÉ ÇáÕáÇÍíÇÊ ÈäÌÇÍ.';
 $strProcesslist = 'ÓÑÏ ÇáÚãáíøÇÊ';
-$strProperties = 'ÎÕÇÆÕ';
 $strPutColNames = 'ÖÚ ÃÓãÇÁ ÇáÍŞæá İí ÇáÓØÑ ÇáÃæá';
 
 $strQBE = 'ÅÓÊÚáÇã ÈæÇÓØÉ ãËÇá';

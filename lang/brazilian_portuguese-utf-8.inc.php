@@ -217,7 +217,6 @@ $strPrimaryKeyName = 'O nome da chave primária deve ser... "PRIMARY"!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>precisa</b> ser o nome de e <b>apenas da</b> chave primária!)';
 $strPrintView = 'Visualização para Impressão';
 $strPrivileges = 'Privilégios';
-$strProperties = 'Propriedades';
 
 $strQBE = 'Procura por Exemplo';
 $strQueryOnDb = 'Procura SQL na base de dados <b>%s</b>:';

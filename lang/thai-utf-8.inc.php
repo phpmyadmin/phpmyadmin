@@ -433,7 +433,6 @@ $strPrivDescUsage = 'ไม่มีสิทธิใดๆ.';
 $strPrivileges = 'สิทธิ';
 $strPrivilegesReloaded = 'สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว';
 $strProcesslist = 'รายการโพรเซส';
-$strProperties = 'คุณสมบัติ';
 $strPutColNames = 'ใส่ชื่อฟิลด์ที่แถวแรก';
 
 $strQBE = 'คำค้นจากตัวอย่าง';

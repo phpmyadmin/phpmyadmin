@@ -300,7 +300,6 @@ $strPrint = 'Cetak';
 $strPrintView = 'Paparan Cetak';
 $strPrivileges = 'Privilej';
 $strProcesslist = 'Senarai Proses';
-$strProperties = 'Ciri-ciri';
 $strPutColNames = 'Letakkan medan di baris pertama';
 
 $strQBE = 'Kueri';

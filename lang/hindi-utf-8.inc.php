@@ -190,7 +190,6 @@ $strPrivDescMaxConnections = 'Limits the number of new connections the user may 
 $strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
 $strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
 $strPrivileges = ' प्रिविलेज'; 
-$strProperties = ' विशेषता';
 
 $strQBE = 'क्वरी';
 $strQueryFrame = 'क्वरी पेज';

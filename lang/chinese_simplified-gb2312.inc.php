@@ -487,7 +487,6 @@ $strPrivDescUsage = '无权限。';
 $strPrivileges = '权限';
 $strPrivilegesReloaded = '权限已经成功载入。';
 $strProcesslist = '进程列表';
-$strProperties = '属性';
 $strPutColNames = '将字段名称放在首行';
 
 $strQBE = '查询';

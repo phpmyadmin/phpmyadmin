@@ -470,7 +470,6 @@ $strPrivDescUsage = 'Be teisių.';
 $strPrivileges = 'Privilegijos';
 $strPrivilegesReloaded = 'Teisės sėkmingai perkrautos.';
 $strProcesslist = 'Procesų sąrašas';
-$strProperties = 'Nustatymai';
 $strPutColNames = 'Stulpelių pavadinimus įrašyti pirmoje eilutėje';
 
 $strQBE = 'SQL&nbsp;užklausa';

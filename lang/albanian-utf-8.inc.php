@@ -486,7 +486,6 @@ $strPrivDescUsage = 'Asnjë të drejtë.';
 $strPrivileges = 'Të drejtat';
 $strPrivilegesReloaded = 'Të drejtat u përditësuan me sukses.';
 $strProcesslist = 'Lista e Proçeseve';
-$strProperties = 'Pronësi';
 $strPutColNames = 'Vendos emrat e kollonave tek rreshti i parë';
 
 $strQBE = 'Query nga shembull';

@@ -435,7 +435,6 @@ $strPrivDescUsage = 'Немає прав.';
 $strPrivileges = 'Привілеї';
 $strPrivilegesReloaded = 'Права успішно перезавантажено.';
 $strProcesslist = 'Список процесів';
-$strProperties = 'Властивості';
 $strPutColNames = 'Дати назви полів у першому рядку';
 
 $strQBE = 'Запит згідно прикладу';

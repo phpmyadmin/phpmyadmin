@@ -469,7 +469,6 @@ $strPrivDescUsage = 'Be teisiø.';
 $strPrivileges = 'Privilegijos';
 $strPrivilegesReloaded = 'Teisës sëkmingai perkrautos.';
 $strProcesslist = 'Procesø sàraðas';
-$strProperties = 'Nustatymai';
 $strPutColNames = 'Stulpeliø pavadinimus áraðyti pirmoje eilutëje';
 
 $strQBE = 'SQL&nbsp;uþklausa';

@@ -482,7 +482,6 @@ $strPrivDescUsage = 'Tanpa Hak Istimewa (Privileges).';
 $strPrivileges = 'Hak Akses (Privilege)';
 $strPrivilegesReloaded = 'Sukses reload Hak Istimewa (Privileges).';
 $strProcesslist = 'Daftar proses';
-$strProperties = 'Properties';
 $strPutColNames = 'Letakkan nama Fields pada baris pertama';
 
 $strQBE = 'Cari berdasarkan data contoh';

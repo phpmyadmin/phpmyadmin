@@ -474,7 +474,6 @@ $strPrivDescUsage = 'Brez privilegijev.';
 $strPrivileges = 'Privilegiji';
 $strPrivilegesReloaded = 'Uspešno sem osvežil privilegije.';
 $strProcesslist = 'Seznam procesov';
-$strProperties = 'Lastnosti';
 $strPutColNames = 'Postavi imena polj v prvo vrstico';
 
 $strQBE = 'Poizvedba';

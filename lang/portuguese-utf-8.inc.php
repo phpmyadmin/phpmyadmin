@@ -445,7 +445,6 @@ $strPrivDescUsage = 'Sem privilégios.';
 $strPrivileges = 'Privilégios';
 $strPrivilegesReloaded = 'O privilégios foram recarregados com sucesso.';
 $strProcesslist = 'Lista de Processos';
-$strProperties = 'Propriedades';
 $strPutColNames = 'Coloca os nomes dos compos na primeira linha';
 
 $strQBE = 'Pesquisa por formulário';

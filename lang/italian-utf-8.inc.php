@@ -490,7 +490,6 @@ $strPrivDescUsage = 'Nessun privilegio.';
 $strPrivileges = 'Privilegi';
 $strPrivilegesReloaded = 'I privilegi sono stati ricaricati con successo.';
 $strProcesslist = 'Lista Processi';
-$strProperties = 'Proprietà';
 $strPutColNames = 'Mette i nomi delle colonne alla prima riga';
 
 $strQBE = 'Query da esempio';

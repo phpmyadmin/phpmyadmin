@@ -481,7 +481,6 @@ $strPrivDescUsage = 'Brak uprawnieñ.';
 $strPrivileges = 'Uprawnienia';
 $strPrivilegesReloaded = 'Uprawnienia zosta³y pomy¶lnie prze³adowane.';
 $strProcesslist = 'Lista procesów';
-$strProperties = 'W³a¶ciwo¶ci';
 $strPutColNames = 'Umie¶æ nazwy pól w pierwszym rekordzie';
 
 $strQBE = 'Zapytanie przez przyk³ad';

@@ -484,7 +484,6 @@ $strPrivDescUsage = 'Nincsenek privilégiumok.';
 $strPrivileges = 'Privilégiumok';
 $strPrivilegesReloaded = 'A privilégiumok újratöltése sikeres volt.'; 
 $strProcesslist = 'Folyamatlista'; 
-$strProperties = 'Tulajdonságok';
 $strPutColNames = 'Tegye a mez"oneveket az els"o sorhoz';  
 
 $strQBE = 'Lekérdezés';

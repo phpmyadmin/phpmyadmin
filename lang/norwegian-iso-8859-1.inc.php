@@ -488,7 +488,6 @@ $strPrivDescUsage = 'Ingen privilegier.';
 $strPrivileges = 'Privilegier';
 $strPrivilegesReloaded = 'Oppfriskingen av privilegiene lyktes.';
 $strProcesslist = 'Prosess liste';
-$strProperties = 'Egenskaper';
 $strPutColNames = 'Sett inn feltnavn i første rad';
 
 $strQBE = 'Spørring ved eksempel (Query by Example)';

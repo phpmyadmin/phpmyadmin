@@ -481,7 +481,6 @@ $strPrivDescUsage = 'Ingen privilegier.';
 $strPrivileges = 'Privilegier';
 $strPrivilegesReloaded = 'Privilegierne blev korrekt genindlæst.';
 $strProcesslist = 'Procesliste';
-$strProperties = 'Egenskaber';
 $strPutColNames = 'Indsæt feltnavne i første række';
 
 $strQBE = 'Foresp. via eks.';

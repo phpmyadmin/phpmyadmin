@@ -485,7 +485,6 @@ $strPrivDescUsage = 'Mitte ühtegi privileegi.';
 $strPrivileges = 'Privileegid';
 $strPrivilegesReloaded = 'Privileegid taaslaeti edukalt.';
 $strProcesslist = 'Protsessinimekiri';
-$strProperties = 'Seaded';
 $strPutColNames = 'Pange väljade nimed esimesse ritta';
 
 $strQBE = 'Päring näite järgi';

@@ -482,7 +482,6 @@ $strPrivDescUsage = 'Sin privilegios.';
 $strPrivileges = 'Privilegios';
 $strPrivilegesReloaded = 'Los privilegios fueron cargados nuevamente de manera exitosa.';
 $strProcesslist = 'Lista de procesos';
-$strProperties = 'Propiedades';
 $strPutColNames = 'Ponga los nombres de campo en la primera hilera';
 
 $strQBE = 'Generar una consulta';

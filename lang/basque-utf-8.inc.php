@@ -451,7 +451,6 @@ $strPrivDescUsage = 'Pribilegiorik ez.';
 $strPrivileges = 'Probilegioak';
 $strPrivilegesReloaded = 'Pribilegioak arrakastaz berkargatu dira.';
 $strProcesslist = 'Prozesuen zerrenda';
-$strProperties = 'Ezaugarriak';
 $strPutColNames = 'Eremuen izenak lehenengo errenkadan jarri';
 
 $strQBE = 'Kontsulta';

@@ -494,7 +494,6 @@ $strPrivDescUsage = 'No privileges.';
 $strPrivileges = 'Privileges';
 $strPrivilegesReloaded = 'The privileges were reloaded successfully.';
 $strProcesslist = 'Process list';
-$strProperties = 'Properties';
 $strPutColNames = 'Put fields names at first row';
 
 $strQBEDel = 'Del';

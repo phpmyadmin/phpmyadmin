@@ -218,7 +218,6 @@ $strPrimaryKeyName = 'Ime primarnog ključa mora biti... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>mora</b> biti ime i <b>samo</b> ime primarnog ključa!)';
 $strPrintView = 'Sažetak';
 $strPrivileges = 'Privilegije';
-$strProperties = 'Svojstva';
 
 $strQBE = 'Upit po primjeru';
 $strQBEDel = 'Del';

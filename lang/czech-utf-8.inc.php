@@ -501,7 +501,6 @@ $strPrivDescUsage = 'Žádná oprávnění.';
 $strPrivileges = 'Oprávnění';
 $strPrivilegesReloaded = 'Oprávnění byla znovunačtena úspěšně.';
 $strProcesslist = 'Seznam procesů';
-$strProperties = 'Vlastnosti';
 $strPutColNames = 'Přidat jména sloupců na první řádek';
 
 $strQBEDel = 'smazat';

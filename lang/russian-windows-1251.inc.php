@@ -488,7 +488,6 @@ $strPrivDescUsage = 'Нет привилегий.';
 $strPrivileges = 'Привилегии';
 $strPrivilegesReloaded = 'Привилегии были успешно перезагружены.';
 $strProcesslist = 'Список процессов';
-$strProperties = 'Свойства';
 $strPutColNames = 'Укажите наименования полей в первой строке';
 
 $strQBE = 'Запрос&nbsp;по&nbsp;примеру';

@@ -490,7 +490,6 @@ $strPrivDescUsage = 'Sen privilexios.';
 $strPrivileges = 'Privilexios';
 $strPrivilegesReloaded = 'Non houbo problemas ao recarregar os privilexios.';
 $strProcesslist = 'Listaxe dos procesos';
-$strProperties = 'Propiedades';
 $strPutColNames = 'Pór os nomes dos campos na primeira fileira';
 
 $strQBE = 'Procurar pondo un exemplo ("QBE")';

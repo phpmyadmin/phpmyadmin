@@ -482,7 +482,6 @@ $strPrivDescUsage = 'Inga privilegier.';
 $strPrivileges = 'Privilegier';
 $strPrivilegesReloaded = 'Privilegierna har laddats om.';
 $strProcesslist = 'Processlista';
-$strProperties = 'Inställningar';
 $strPutColNames = 'Ange fältnamn på första raden';
 
 $strQBE = 'Skapa fråga';

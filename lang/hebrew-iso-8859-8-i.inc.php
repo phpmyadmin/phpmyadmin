@@ -291,7 +291,6 @@ $strPrivDescUsage = 'אין הרשות.';
 $strPrivileges = 'הרשאות';
 $strPrivilegesReloaded = 'ההרשאות נטענו שנית בהצלחה.';
 $strProcesslist = 'רשימת תהליכים';
-$strProperties = 'מאפיינים';
 
 $strQBE = 'שאילתה לדוגמה';
 $strQBEDel = 'Del';

@@ -491,7 +491,6 @@ $strPrivDescUsage = '沒有權限.';
 $strPrivilegesReloaded = '權限已成功重新讀取.';
 $strPrivileges = '權限';
 $strProcesslist = '系統執行清單';
-$strProperties = '屬性';
 $strPutColNames = '將欄位名稱放在首行';
 
 $strQBEDel = '移除';

@@ -247,7 +247,6 @@ $strPrimary = 'اصلي';
 $strPrintView = 'نماي چاپ';
 $strPrint = 'چاپ';
 $strPrivileges = 'امتيازات';
-$strProperties = 'خصوصيات';
 $strPutColNames = 'قراردادن نام ستونها در اولين سطر';
 
 $strQBEDel = 'Del';

@@ -301,7 +301,6 @@ $strPrivDescUsage = '권한 없음.';
 $strPrivileges = '사용권한';
 $strPrivilegesReloaded = '권한을 다시 로딩했습니다.';
 $strProcesslist = '프로세스 목록';
-$strProperties = '속성';
 $strPutColNames = '맨처음에 필드 이름을 출력';
 
 $strQBE = '질의 마법사';

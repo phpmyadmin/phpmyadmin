@@ -487,7 +487,6 @@ $strPrivDescUsage = 'Nav privilēģiju.';
 $strPrivileges = 'Privilēģijas';
 $strPrivilegesReloaded = 'Privilēģijas tika veiksmīgi pārlādētas.';
 $strProcesslist = 'Procesu saraksts';
-$strProperties = 'Īpašības';
 $strPutColNames = 'Likt kolonnu nosaukumus pirmajā rindā';
 
 $strQBE = 'Vaicājums pēc parauga';
