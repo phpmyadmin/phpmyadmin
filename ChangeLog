@@ -5,8 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-12-13 Michal Cihar  <nijel@users.sourceforge.net>
+2002-12-16 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/{sort_lang.sh,sync_lang.sh}: Make it work with POSIX sh.
+    * lang/czech: fixed typos, thanks to Vojta Beran <xmamut at email dot cz>
 
 2002-12-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian: update, thanks to Nicolay Zakharov
