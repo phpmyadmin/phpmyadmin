@@ -76,6 +76,7 @@ $strCriteria = 'Kritéria';
 
 $strData = 'Dáta';
 $strDatabase = 'Databáza ';
+$strDatabaseHasBeenDropped = 'Databáza %s bola zmazaná.';
 $strDatabases = 'databáz(y)';
 $strDatabasesStats = '©tatistiky databázy';
 $strDataOnly = 'Iba dáta';
@@ -85,6 +86,7 @@ $strDelete = 'Zmaza»';
 $strDeleted = 'Riadok bol zmazaný';
 $strDeletedRows = 'Zmazané riadky:';
 $strDeleteFailed = 'Mazanie bolo neúspe¹né!';
+$strDeleteUserMessage = 'Pou¾ívateµ %s bol zmazaný.';
 $strDescending = 'Zostupne';
 $strDisplay = 'Zobrazi»';
 $strDisplayOrder = 'Zobrazi» zoradené:';
@@ -151,6 +153,7 @@ $strInstructions = 'In¹trukcie';
 $strInUse = 'práve sa pou¾íva';
 $strInvalidName = '"%s" je rezervované slovo, nemô¾e by» pou¾ité ako názov databázy/tabuµky/poµa.';
 
+$strKeepPass = 'Nezmeni» heslo';
 $strKeyname = 'Kµúèový názov';
 $strKill = 'Zabi»';
 
@@ -296,6 +299,9 @@ $strType = 'Typ';
 
 $strUncheckAll = 'Odznaèi» v¹etko';
 $strUnique = 'Unikátny';
+$strUpdatePrivMessage = 'Boli aktualizované privilégia pre %s.';
+$strUpdateProfile = 'Aktualizova» profil:';
+$strUpdateProfileMessage = 'Profil bol aktualizovaný.';
 $strUpdateQuery = 'Aktualizova» dotaz';
 $strUsage = 'Vyu¾itie';
 $strUseBackquotes = ' Pou¾i» opaèný apostrof pri názvoch tabuliek a polí ';
@@ -316,14 +322,8 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 $strYes = 'Áno';
 
 // To translate
-$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
-$strDeleteUserMessage = 'You have deleted the user %s.';//to translate
-$strKeepPass = 'Do not change the password';//to translate
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate
-$strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
-$strUpdateProfile = 'Update profile:';//to translate
-$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strZip = '"zipped"';  //to translate
 ?>
