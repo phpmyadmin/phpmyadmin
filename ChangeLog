@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_addfield.php: TIMESTAMP options support
+
 2005-03-31 Alexander M. Turek  <me@derrabus.de>
     * left.php: Undefined offset (Bug #1174045).
 
@@ -15,7 +18,6 @@ $Source$
     * tbl_properties.inc.php: TIMESTAMP default CURRENT_TIMESTAMP checkbox
       made dynamic, depending on the field's type
     * tbl_create.php, libraries/relation.lib.php: TIMESTAMP options support
-      TODO: (work in progress) support those options in tbl_addfield
 
 2005-03-30 Alexander M. Turek  <me@derrabus.de>
     * server_databases.php: Bug #1172782 (Don't allow to drop
@@ -31,8 +33,7 @@ $Source$
       where still untranslated
     * tbl_properties.inc.php: bug #1163595 (problem #5): after an error
       modifying TIMESTAMP options, the table structure editing form
-      was shown without the new options. Still having an issue with
-      a default value for a TIMESTAMP not generated in the ALTER TABLE.
+      was shown without the new options.
 
 2005-03-29 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: XSS vulnerability on convcharset

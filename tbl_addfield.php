@@ -50,8 +50,13 @@ if (isset($submit_num_fields)) {
         } // end if
     } // end for
     // Builds the field creation statement and alters the table
+
+    // TODO: check to see if this logic is exactly the same
+    //       as in tbl_create.php, and move to an include file
+
     for ($i = 0; $i < $field_cnt; ++$i) {
-        if (empty($field_name[$i])) {
+        // '0' is also empty for php :-(
+        if (empty($field_name[$i]) && $field_name[$i] != '0') {
             continue;
         }
 
@@ -67,7 +72,10 @@ if (isset($submit_num_fields)) {
             $query .= ' CHARACTER SET ' . $tmp_charset . ' COLLATE ' . $field_collation[$i];
             unset($tmp_charset);
         }
-        if ($field_default[$i] != '') {
+
+        if (isset($field_default_current_timestamp[$i]) && $field_default_current_timestamp[$i]) {
+            $query .= ' DEFAULT CURRENT_TIMESTAMP';
+        } elseif ($field_default[$i] != '') {
             if (strtoupper($field_default[$i]) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else {
