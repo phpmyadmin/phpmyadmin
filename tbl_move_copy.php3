@@ -146,6 +146,27 @@ if (isset($new_name) && trim($new_name) != '') {
 
     // do not create the table if dataonly
     if ($what != 'dataonly') {
+        // If table exists, and 'add drop table' is selected: Drop it!
+        $drop_query = '';
+        if (isset($drop_if_exists) && $drop_if_exists == 'true') {
+            $drop_query = 'DROP TABLE IF EXISTS ' . PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
+            $result        = @PMA_mysql_query($drop_query);
+            if (PMA_mysql_error()) {
+                include('./header.inc.php3');
+                PMA_mysqlDie('', $sql_structure, '', $err_url);
+            }
+            
+            if (isset($sql_query)) {
+                $sql_query .= "\n" . $drop_query . ';';
+            } else {
+                $sql_query = $drop_query . ';';
+            }
+
+            // garvin: If an existing table gets deleted, maintain any entries
+            // for the PMA_* tables
+            $maintain_relations = true;
+        }
+        
         $result        = @PMA_mysql_query($sql_structure);
         if (PMA_mysql_error()) {
             include('./header.inc.php3');
@@ -280,7 +301,7 @@ if (isset($new_name) && trim($new_name) != '') {
         $table          = $new_name;
     } else {
         // garvin: Create new entries as duplicates from old PMA DBs
-        if ($what != 'dataonly') {
+        if ($what != 'dataonly' && !isset($maintain_relations)) {
             if ($cfgRelation['commwork']) {
                 // Get all comments and MIME-Types for current table
                 $comments_copy_query = 'SELECT

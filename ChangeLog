@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
+    * tbl_move_copy.php3, tbl_properties_operations.php3: RFE #571838 :
+      Add 'DROP TABLE IF EXISTS' checkbox. Will maintain any existing PMA_* entries
+      for that table.
     * tbl_properties_export.php3, db_details_export.php3, 
       libraries/display_export.lib.php3: Reworked DB/Table export, so that DB
       export now is a perfect look-alike except for a multi-tables dropdown.
