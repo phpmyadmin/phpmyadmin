@@ -647,7 +647,6 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             } else {
                 $queries[] = $sql_query;
             }
-            unset($sql_query);
             unset($real_sql_query);
         } else {
             $privileges = PMA_extractPrivInfo();

@@ -6,8 +6,9 @@ $Id$
 $Source$
 
 2003-03-27 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * server_privileges.php3, lang/*.inc.php3: Fixed bug #708292 (Support for
-      host-based privileges).
+    * server_privileges.php3, lang/*.inc.php3:
+      - Fixed bug #708292 (Support for host-based privileges).
+      - Show SQL query when adding a user.
     * server_processlist.php3, lang/*.inc.php3: Feature #707495
       (SHOW FULL PROCESSLIST).
     * lang/german-*.inc.php3: Updates.
