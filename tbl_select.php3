@@ -24,18 +24,34 @@ $err_url = $goto
  */
 if (!isset($param) || $param[0] == '') {
     include('./header.inc.php3');
-    $result = @mysql_list_fields($db, $table);
+
+    // Gets the list and number of fields
+    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+    $result      = @mysql_query($local_query);
     if (!$result) {
-        PMA_mysqlDie('', 'mysql_list_fields(' . $db . ', ' . $table . ')', '', $err_url);
+        PMA_mysqlDie('', $local_query, '', $err_url);
     }
     else {
-        // Gets the list and number of fields
-        $fields_count = mysql_num_fields($result);
-        for ($i = 0; $i < $fields_count; $i++) {
-            $fields_list[] = mysql_field_name($result, $i);
-            $fields_type[] = mysql_field_type($result, $i);
-            $fields_len[]  = mysql_field_len($result, $i);
-        }
+        $fields_cnt        = mysql_num_rows($result);
+        while ($row = mysql_fetch_array($result)) {
+            $fields_list[] = $row['Field'];
+            $type          = $row['Type'];
+            // reformat mysql query output - staybyte - 9. June 2001
+            $shorttype     = substr($type, 0, 3);
+            if ($shorttype == 'set' || $shorttype == 'enu') {
+                $type      = eregi_replace(',', ', ', $type);
+                // Removes automatic MySQL escape format
+                $type      = str_replace('\'\'', '\\\'', $type);
+            }
+            $type          = eregi_replace('BINARY', '', $type);
+            $type          = eregi_replace('ZEROFILL', '', $type);
+            $type          = eregi_replace('UNSIGNED', '', $type);
+            if (empty($type)) {
+                $type      = '&nbsp;';
+            }
+            $fields_type[] = $type;
+        } // end while
+        mysql_free_result($result);
         ?>
 <form method="post" action="tbl_select.php3">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
@@ -50,7 +66,7 @@ if (!isset($param) || $param[0] == '') {
         <?php
         echo "\n";
         // Displays the list of the fields
-        for ($i = 0 ; $i < $fields_count; $i++) {
+        for ($i = 0 ; $i < $fields_cnt; $i++) {
             echo '        <option value="' . urlencode($fields_list[$i]) . '" selected="selected">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
         }
         ?>
@@ -75,17 +91,15 @@ if (!isset($param) || $param[0] == '') {
                 <th><?php echo $strValue; ?></th>
             </tr>
         <?php
-        for ($i = 0; $i < $fields_count; $i++) {
+        for ($i = 0; $i < $fields_cnt; $i++) {
             echo "\n";
             $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
-            $fieldsize = (($fields_len[$i] > 40) ? 40 : $fields_len[$i]);
-            $maxlength = (($fields_len[$i] < 8)  ? 8  : $fields_len[$i]);
             ?>
-            <tr bgcolor="<?php echo $bgcolor; ?>">
-                <td><?php echo htmlspecialchars($fields_list[$i]); ?></td>
-                <td><?php echo $fields_type[$i]; ?></td>
-                <td>
-                    <input type="text" name="fields[]" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" />
+            <tr>
+                <td bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($fields_list[$i]); ?></td>
+                <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $fields_type[$i]; ?></td>
+                <td bgcolor="<?php echo $bgcolor; ?>">
+                    <input type="text" name="fields[]" size="40" />
                     <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
                     <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
                 </td>
@@ -102,7 +116,7 @@ if (!isset($param) || $param[0] == '') {
                 <option value="--nil--"></option>
         <?php
         echo "\n";
-        for ($i = 0; $i < $fields_count; $i++) {
+        for ($i = 0; $i < $fields_cnt; $i++) {
             echo '                ';
             echo '<option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
         } // end for
