@@ -1,4 +1,9 @@
 #!/bin/sh
+#
+# $Id$
+#
+# Script to remove ^M from files for DOS <-> UNIX conversions
+#
 
 if [ $# != 1 ]
 then

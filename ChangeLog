@@ -10,6 +10,9 @@ $Source$
 
 2002-04-24 Robin Johnson <robbat2@users.sourceforge.net>
 	* *.php3 NOT tbl_*.php, Documentation.*: $cfg system changes.
+	* scripts/extchg.sh: Updated URL
+	* scripts/convertcfg.pl: Conversion between old config files and new ones.
+	* scripts/*: Updated comments somewhat
 
 2002-04-23 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_printview.php3, lang/*.php3: Relation links in printview,
