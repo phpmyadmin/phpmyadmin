@@ -85,6 +85,7 @@ if($server > 0)
     if (isNS4) {
       firstEl  = 'el1Parent';
       firstInd = nsGetIndex(firstEl);
+      nsShowAll();
       nsArrangeList();
     }
     //-->

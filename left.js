@@ -114,6 +114,20 @@ function nsArrangeList() {
 
 
 /**
+ * Expand databases at startup
+ *
+ * @access  public
+ */
+function nsShowAll() {
+  var layersCnt = document.layers.length;
+  for (i = firstInd; i < layersCnt; i++) {
+    whichEl = document.layers[i];
+    whichEl.visibility = 'show';
+  }
+} // end of the 'nsShowAll()' function
+
+
+/**
  * Collapses databases at startup
  *
  * @access  public
@@ -238,8 +252,8 @@ if (capable) {
         write('DIV { color:black; }');
       }
       else {
-        write('.parent {font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000; text-decoration:none; position:absolute; visibility:show; color: black;}');
-        write('.child {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt;color: #000000; position:absolute; visibility:show}');
+        write('.parent {font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000; text-decoration:none; position:absolute; visibility:hidden; color: black;}');
+        write('.child {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt;color: #000000; position:absolute; visibility:hidden}');
         write('.item { color: darkblue; text-decoration:none;}');
         write('.regular {font-family: Arial,Helvetica,sans-serif; position:absolute; visibility:hidden}');
         write('DIV { color:black; }');

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-30  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.js, left.php3 : beautify the way database list is displayed with NS4
+
 2001-05-30  Pete Kelly  <webmaster@trafficg.com>
 	* db_readdump.php3, line 57: fixed the bug #427796
 
