@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-21 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * main.php3: Restarted work on patch #538740 (get users priv. with
+      SHOW GRANTS).
+
 2002-04-21 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/auth/http.auth.lib.php3: tried a fix to allow the use of http
 	  authentication mode with IIS.

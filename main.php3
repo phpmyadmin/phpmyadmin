@@ -60,13 +60,15 @@ if ($server > 0) {
     // if (!empty($cfgServer['socket']) && PMA_PHP_INT_VERSION >= 30010) {
     //     $server_info .= ':' . $cfgServer['socket'];
     // }
-    $local_query     = 'SELECT VERSION() as version, USER() as user';
-    $res             = mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
-    $mysql_cur_user  = mysql_result($res, 0, 'user');
+    $local_query             = 'SELECT VERSION() as version, USER() as user';
+    $res                     = mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
+    $mysql_cur_user_and_host = mysql_result($res, 0, 'user');
+    $mysql_cur_user          = substr($mysql_cur_user_and_host, 0, strpos($mysql_cur_user_and_host, '@'));
+
 
     $full_string     = str_replace('%pma_s1%', mysql_result($res, 0, 'version'), $strMySQLServerProcess);
     $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
-    $full_string     = str_replace('%pma_s3%', $mysql_cur_user, $full_string);
+    $full_string     = str_replace('%pma_s3%', $mysql_cur_user_and_host, $full_string);
 
     echo '<p><b>' . $full_string . '</b></p><br />' . "\n";
 } // end if
@@ -161,7 +163,6 @@ $is_superuser        = FALSE;
 if ($server > 0) {
     // Get user's global privileges ($dbh and $userlink are links to MySQL
     // defined in the "common.lib.php3" library)
-    $mysql_cur_user  = substr($mysql_cur_user, 0, strpos($mysql_cur_user, '@'));
     $is_create_priv  = FALSE;
     $is_process_priv = FALSE;
     $is_reload_priv  = FALSE;
@@ -205,6 +206,41 @@ if ($server > 0) {
             } // end while
             mysql_free_result($rs_usr);
         } // end if
+        elseif (PMA_MYSQL_INT_VERSION>=32304) {
+            // Finally, let's try to get the user's privileges by using SHOW GRANTS...
+            // Maybe we'll find a little CREATE priv there :)
+            $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user_and_host;
+            $rs_usr      = mysql_query($local_query, $dbh);
+            if (!$rs_usr) {
+                // OK, now we'd have to guess the user's hostname,
+                // but we only try out the 'username'@'%' case.
+                $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user;
+                $rs_usr      = mysql_query($local_query, $dbh);
+            }
+            if ($rs_usr) {
+                $re      = '(^|(\\\\\\\\)+|[^\])';
+                while ($row = mysql_fetch_row($rs_usr)) {
+                    $show_grants_dbname = substr($row[0],strpos($row[0],' ON ')+4,(strpos($row[0],'.',strpos($row[0],' ON '))-strpos($row[0],' ON ')-4));
+                    $show_grants_str = substr($row[0],6,(strpos($row[0],' ON ')-6));
+                    if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str,'CREATE')) {
+                        if ($show_grants_dbname == '*') {
+                            $is_create_priv = TRUE;
+                            $db_to_create = '';
+                            break;
+                        } // end if
+                        elseif (ereg($re . '%|_', $show_grants_dbname) || !mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
+                            $show_grants_dbname = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $show_grants_dbname));
+                            $db_to_create       = $show_grants_dbname;
+                            $is_create_priv     = TRUE;
+                            break;
+                        } // end elseif
+                    } // end if
+                } // end while
+                unset($show_grants_dbname);
+                unset($show_grants_str);
+                mysql_free_result($rs_usr);
+            } // end if
+        } // end elseif
     } // end if
     else {
         $db_to_create = '';
