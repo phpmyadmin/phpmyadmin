@@ -9,7 +9,7 @@ $right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 // shortcuts for Byte, Kilo, Mega, Tera, Peta, Exa
-$byteUnits = array('bytes', 'kB', 'MB', 'GB');
+$byteUnits = array('bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('Sön', 'Mån', 'Tis', 'Ons', 'Tors', 'Fre', 'Lör');
 $month = array('januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december');
@@ -133,6 +133,7 @@ $strEnabled = 'Aktiverat';
 $strEnd = 'Slutet';
 $strEnglishPrivileges = ' Obs! MySQL-privilegiumnamn anges på engelska ';
 $strError = 'Fel';
+$strExplain = 'Förklara SQL-kod';
 $strExport = 'Exportera';
 $strExportToXML = 'Exportera till XML-format';
 $strExtendedInserts = 'Utökade infogningar';
@@ -223,6 +224,7 @@ $strNo = 'Nej';
 $strNoDatabases = 'Inga databaser';
 $strNoDescription = 'Ingen beskrivning';
 $strNoDropDatabases = '"DROP DATABASE"-instruktioner är avstängda.';
+$strNoExplain = 'Utan förklaring';
 $strNoFrames = 'phpMyAdmin fungerar tyvärr endast med webbläsare som hanterar ramar.';
 $strNoIndex = 'Inga index är definierade!';
 $strNoIndexPartsDefined = 'Inga delar av index är definierade!';
@@ -239,6 +241,7 @@ $strNone = 'Inget';
 $strNotNumber = 'Det är inte ett nummer!';
 $strNotSet = '<b>%s</b>-tabellen ej funnen eller ej angiven i %s';
 $strNotValidNumber = ' är inte ett giltigt radnummer!';
+$strNoValidateSQL = 'Utan validering';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s träff(ar) i tabell <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totalt:</b> <i>%s</i> träff(ar)';
@@ -398,6 +401,7 @@ $strUserEmpty = 'Användarnamnet är tomt!';
 $strUserName = 'Användarnamn';
 $strUsers = 'Användare';
 
+$strValidateSQL = 'Validera SQL-kod';
 $strValue = 'Värde';
 $strViewDump = 'Visa SQL-satser för tabellen';
 $strViewDumpDB = 'Visa SQL-satser för databasen';
@@ -411,10 +415,5 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
 $strCharsetOfFile = 'Character set of the file:'; //to translate
 ?>

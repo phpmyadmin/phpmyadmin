@@ -18,6 +18,7 @@ $Source$
     * db_details.php3, read_dump.php3, tbl_query_box.php3, lang/*.inc.php3:
       Fixed bug #590863 (Importing an SQL dump fails when using UTF-8) by
       allowing the user to specify the charset of an uploaded SQL file.
+    * lang/swedish-*.inc.php3: Updates, thanks again to Björn T. Hallberg (bth).
 
 2002-08-05 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_indexes.php3, ldi_check.php3, libraries/sqlparser.lib.php3:
