@@ -548,20 +548,20 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         } else {
             $SERVER_ARRAY = 'GLOBALS';
         } // end if
-        if (isset($$SERVER_ARRAY['HTTP_HOST'])) {
-            $HTTP_HOST = $$SERVER_ARRAY['HTTP_HOST'];
+        if (isset(${$SERVER_ARRAY}['HTTP_HOST'])) {
+            $HTTP_HOST = ${$SERVER_ARRAY}['HTTP_HOST'];
         }
-        if (isset($$SERVER_ARRAY['HTTPS'])) {
-            $HTTPS = $$SERVER_ARRAY['HTTPS'];
+        if (isset(${$SERVER_ARRAY}['HTTPS'])) {
+            $HTTPS = ${$SERVER_ARRAY}['HTTPS'];
         }
-        if (isset($$SERVER_ARRAY['SERVER_PORT'])) {
-            $SERVER_PORT = $$SERVER_ARRAY['SERVER_PORT'];
+        if (isset(${$SERVER_ARRAY}['SERVER_PORT'])) {
+            $SERVER_PORT = ${$SERVER_ARRAY}['SERVER_PORT'];
         }
-        if (isset($$SERVER_ARRAY['REQUEST_URI'])) {
-            $REQUEST_URI = $$SERVER_ARRAY['REQUEST_URI'];
+        if (isset(${$SERVER_ARRAY}['REQUEST_URI'])) {
+            $REQUEST_URI = ${$SERVER_ARRAY}['REQUEST_URI'];
         }
-        if (isset($$SERVER_ARRAY['PATH_INFO'])) {
-            $PATH_INFO = $$SERVER_ARRAY['PATH_INFO'];
+        if (isset(${$SERVER_ARRAY}['PATH_INFO'])) {
+            $PATH_INFO = ${$SERVER_ARRAY}['PATH_INFO'];
         }
         $port_in_HTTP_HOST              = (strpos($HTTP_HOST, ':') > 0);
         $cfg['PmaAbsoluteUri']          = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . '://'
