@@ -18,6 +18,8 @@ $Source$
     * lang/turkish update, thanks to Bora Alioglu
     * lang/romanian: Updated, thanks to Valics Lehel.
     * lang/ukrainian: update, thanks to Markijan Baran
+    * sql.php3: bug 782828, do not go into confirm dialog if we are coming
+      from "Create PHP Code" or "Without PHP Code"
 
 2003-08-04 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.

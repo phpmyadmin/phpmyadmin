@@ -171,7 +171,12 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
 if (!$cfg['Confirm']
     || (isset($is_js_confirmed) && $is_js_confirmed)
     || isset($btnDrop)
-    || !empty($GLOBALS['show_as_php'])
+
+    // if we are coming from a "Create PHP code" or a "Without PHP Code"
+    // dialog, we won't execute the query anyway, so don't confirm
+    //|| !empty($GLOBALS['show_as_php'])
+    || isset($GLOBALS['show_as_php'])
+
     || !empty($GLOBALS['validatequery'])) {
     $do_confirm = FALSE;
 } else {
