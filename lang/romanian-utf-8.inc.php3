@@ -134,6 +134,7 @@ $strEnabled = 'Activat';
 $strEnd = 'Sfarsit';
 $strEnglishPrivileges = ' Important: numele drepturilor de acces MySQL apar in engleza ';
 $strError = 'Eroare';
+$strExplain = 'Explica SQL';
 $strExport = 'Export';
 $strExportToXML = 'Export in format XML';
 $strExtendedInserts = 'Inserari extinse';
@@ -224,6 +225,7 @@ $strNo = 'Nu';
 $strNoDropDatabases = 'Comenzile "DROP DATABASE" sunt dezactivate.';
 $strNoDatabases = 'Nu sunt baze de date';
 $strNoDescription = 'Nu exista descriere';
+$strNoExplain = 'Sari peste explicarea SQL';
 $strNoFrames = 'phpMyAdmin are o interfata mai prietenoasa cu navigator care lucreaza cu <b>frame-uri</b>.';
 $strNoIndex = 'Index nu este definit!';
 $strNoIndexPartsDefined = 'Nu sunt definite parti din index!';
@@ -240,6 +242,7 @@ $strNotOK = 'Nu este bine';
 $strNotSet = '<b>%s</b> tabela nu a fost gasita sau nu este setat in %s';
 $strNotValidNumber = 'Nu este un numar valid de linie!';
 $strNoUsersFound = 'Nu s-a gasit nici un utilizator.';
+$strNoValidateSQL = 'Sari peste validarea SQL';
 $strNull = 'Nul';
 $strNumSearchResultsInTable = '%s rezultat(e) in interiorul tabelei <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> rezultat(e)';
@@ -398,6 +401,7 @@ $strUserName = 'Nume de utilizator';
 $strUsers = 'Utilizatori';
 $strUseTables = 'Utilizare tabele';
 
+$strValidateSQL = 'Valideaza SQL'; 
 $strValue = 'Valoare';
 $strViewDump = 'Vizualizarea schemei tabelului';
 $strViewDumpDB = 'Vizualizarea schemei bazei de date';
@@ -411,10 +415,7 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 
 // To translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
+
 $strCharsetOfFile = 'Character set of the file:'; //to translate
 $strBeginCut = 'BEGIN CUT';  //to translate
 $strEndCut = 'END CUT';  //to translate
