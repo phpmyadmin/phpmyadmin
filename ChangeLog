@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-23 Alexander M. Turek  <innocenteyes@derrabus.de>
+    * header_printview.inc.php:
+      - Don't bypass $cfg['Server']['verbose'] settings;
+      - Include MySQL version in SQL printview headers.
+    * header.inc.php: Avoid sending headers twice.
+
 2004-01-22 Alexander M. Turek  <innocenteyes@derrabus.de>
     * libraries/dbi/mysqli.dbi.lib.php: Experimental new MySQLi library.
     * browse_foreigners.php, db_create.php, db_datadict.php,
@@ -33,6 +39,10 @@ $Source$
         PMA_DBI_get_fields_meta();
       - Bypassing charset conversion code for MySQL >= 4.1 experimentally.
     * Documentation.html: Changed my email address.
+    * header_printview.inc.php:
+      - Don't bypass $cfg['Server']['verbose'] settings;
+      - Include MySQL version in SQL printview headers.
+    * header.inc.php: Avoid sending headers twice.
 
 2004-01-21 Michal Cihar  <thesiswritten@cihar.com>
     * lang/czech: Fixed unclear message.
