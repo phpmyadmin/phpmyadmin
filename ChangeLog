@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * ldi_table.php: allow longer field terminator (was 2 now 4);
+      for example, to load a file where each line represents one field
+      and the end of line is \r\n
+
 2004-04-15 Michal Cihar  <michal@cihar.com>
     * tbl_properties_export.php, tbl_row_delete.php,
       libraries/display_tbl.lib.php: Support for exporting selected rows (RFE

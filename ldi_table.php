@@ -105,7 +105,7 @@ echo "\n";
     </tr>
     <tr>
         <td><?php echo $strFieldsTerminatedBy; ?></td>
-        <td><input type="text" name="field_terminater" size="2" maxlength="2" value=";" /></td>
+        <td><input type="text" name="field_terminater" size="4" maxlength="4" value=";" /></td>
         <td><?php echo $strTheTerminator; ?></td>
     </tr>
     <tr>
