@@ -9,6 +9,7 @@ $Source$
     * lang/slovak update, thanks to Lubos Klokner
     * lang/estonian: update, thanks to Alvar Soome
     * Documentation.html, faq 1.24 about the PHP 4.2.3 bug
+    * ### 2.3.1 released ###
 
 2002-09-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * read_dump.php3: Fixed an "undefined variable" error.

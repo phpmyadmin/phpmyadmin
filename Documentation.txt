@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.3.1-rc1 Documentation
+                        phpMyAdmin 2.3.1 Documentation
                                        
      * Sourceforge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ]
@@ -7,8 +7,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.342 2002/09/15
-       23:43:48 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.347 2002/09/30
+       00:37:42 lem9 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -664,6 +664,17 @@ CRIPT_NAME'], '/')+1);
           Defines whether MySQL functions fields should be displayed or
           not in edit/insert mode.
           
+   $cfg['CharEditing'] string
+          Defines which type of editing controls should be used for CHAR
+          and VARCHAR fields. Possible values are:
+          
+          + input - this allows to limit size of text to size of field in
+            MySQL, but has problems with newlines in fields
+          + textarea - no problems with newlines in fields, but also no
+            length limitations
+            
+          Default is old behavior so input.
+          
    $cfg['ZipDump'] boolean
           $cfg['GZipDump'] boolean
           $cfg['BZipDump'] boolean
@@ -778,8 +789,12 @@ CRIPT_NAME'], '/')+1);
           
    $cfg['TextareaCols'] integer
           $cfg['TextareaRows'] integer
+          $cfg['CharTextareaCols'] integer
+          $cfg['CharTextareaRows'] integer
           Number of columns and rows for the textareas.
           This value will be emphasized (*2) for sql query textareas.
+          The Char* values are used for CHAR and VARCHAR editing (if
+          configured via $cfg['CharEditing']).
           
    $cfg['TextareaAutoSelect'] boolean
           Defines if the whole textarea of the query box will be selected
@@ -935,9 +950,9 @@ FAQ - Frequently Asked Questions
    [1.3] I'm running phpMyAdmin with "cookie" authentication mode under
    PHP 4.2.0 or 4.2.1 loaded as an Apache 2+ module but can't enter the
    script: I'm always displayed the login screen.
-   This is a kown PHP bug (see this bug report) from the official php bug
-   database. It means there is and won't be any phpMyAdmin fix against it
-   because there is no way to code a fix.
+   This is a known PHP bug (see this bug report) from the official php
+   bug database. It means there is and won't be any phpMyAdmin fix
+   against it because there is no way to code a fix.
    
    [1.4] Using phpMyAdmin on IIS, I'm displayed the error message: "The
    specified CGI application misbehaved by not returning a complete set
@@ -1098,6 +1113,10 @@ FAQ - Frequently Asked Questions
    Next, save the file and restart the MySQL service. You can always
    check the value of this directive using the query
    SHOW VARIABLES LIKE 'lower_case_table_names';
+   
+   [1.24] Some characters are being truncated in my queries, or I get
+   characters randomly added. I am running PHP 4.2.3.
+   This is a PHP 4.2.3 bug.
    
   [2. Configuration]
   
@@ -1311,9 +1330,9 @@ FAQ - Frequently Asked Questions
    
   [6. Using phpMyAdmin]
   
-   [6.1] I can't insert new rows into a table - MySQL brings up a
-   SQL-error.
-   Examine the SQL error with care. I've found that many programmers
+   [6.1] I can't insert new rows into a table / I can't create a table -
+   MySQL brings up a SQL-error.
+   Examine the SQL error with care. Often the problem is caused by
    specifying a wrong field-type.
    Common errors include:
      * Using VARCHAR without a size argument
