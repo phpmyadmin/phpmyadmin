@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-24 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/lithuanian.inc.php3: Removed line feed at EoF.
+
 2002-06-23 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/portuguese.inc.php3 updates, thanks to Lopo Pizarro
 
