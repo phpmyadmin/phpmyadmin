@@ -146,7 +146,10 @@
          <tt>tar -xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
          document root. If you don't have direct access to your document root,
          put the files in a directory on your local machine, and, after step 3,
-         transfer the directory on your web server using, for example, ftp.</li>
+         transfer the directory on your web server using, for example, ftp.</li>    <li> Ensure that all the scripts have the appropriate owner (if PHP is 
+         running in safe mode, having some scripts with an owner different
+         from the owner of other scripts will be a
+         problem). See <a href="#faq4_2">FAQ 4.2</a> for suggestions.</li> 
     <li> Open the file config.inc.php in your favorite editor and change
          the values for host, user, password and authentication mode to fit
          your environment. Here, &quot;host&quot; means the MySQL server.
@@ -2960,6 +2963,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     &quot;Using HTTP authentication&quot;.
 </p>
 
+<a name="faq4_2"></a><br />
 <h4>
     [4.2] What's the preferred way of making phpMyAdmin secure against evil
     access.
@@ -2979,7 +2983,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         Your <i>config.inc.php</i> file should be <tt>chmod 660</tt>.
     </li>
     <li>
-        All your phpMyAdmin files should be chown phpmy.apache, where phpmy
+        All your phpMyAdmin files should be chown -R phpmy.apache, where phpmy
         is a user whose password is only known to you, and apache is the
         group under which Apache runs.
     </li>
