@@ -804,19 +804,24 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // ... first checks whether the "safe_show_database" is on or not
             //     (if MYSQL supports this)
             if (PMA_MYSQL_INT_VERSION >= 32330) {
-                $local_query      = 'SHOW VARIABLES LIKE \'safe_show_database\'';
-                $rs               = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                $is_safe_show_dbs = ($rs) ? @PMA_mysql_result($rs, 0, 'Value') : FALSE;
-
-                // ... and if on, try to get the available dbs list
+                $is_safe_show_dbs = FALSE;
+                if (PMA_MYSQL_INT_VERSION >= 40002) {
+                    $is_safe_show_dbs = 'ON';
+                }
+                else {
+                    $local_query      = 'SHOW VARIABLES LIKE \'safe\\_show\\_database\'';
+                    $rs               = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                    $is_safe_show_dbs = ($rs) ? @PMA_mysql_result($rs, 0, 'Value') : FALSE;
+                    mysql_free_result($rs);
+                }
+                      // ... and if on, try to get the available dbs list
                 if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
                     $uva_alldbs   = mysql_list_dbs($userlink);
                     while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
-                        $dblist[] = $uva_row[0];
+                          $dblist[] = $uva_row[0];
                     } // end while
                     $dblist_cnt   = count($dblist);
                     unset($uva_alldbs);
-                    mysql_free_result($rs);
                 } // end if ($is_safe_show_dbs)
             } //end if (PMA_MYSQL_INT_VERSION)
 
@@ -969,7 +974,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // 2. Allowed database list is empty -> gets the list of all databases
         //    on the server
         else {
-            $dbs          = mysql_list_dbs() or PMA_mysqlDie('', 'mysql_list_dbs()', FALSE, $error_url);
+            $dbs          = mysql_list_dbs() or PMA_mysqlDie('', 'SHOW DATABASES;', FALSE, $error_url);
             $num_dbs      = ($dbs) ? @mysql_num_rows($dbs) : 0;
             $real_num_dbs = 0;
             for ($i = 0; $i < $num_dbs; $i++) {
