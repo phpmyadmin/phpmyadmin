@@ -657,7 +657,7 @@ $strAddIntoComments = 'In Kommentarbereich einbeziehen';
 $strDatabaseExportOptions = 'Export-Optionen der Datenbank';
 $strAddDropDatabase = 'DROP DATABASE hinzufügen';
 $strToggleScratchboard = 'Klemmbrett anzeigen';
-$strTableOptions = 'Table options';  //to translate
-$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
+$strTableOptions = 'Tabellenoptionen';
+$strSecretRequired = 'Ab sofort muss ein geheimes Passwort zur Verschlüsselung in der Konfigurationsdatei gesetzt werden (blowfish_secret).';
+$strAccessDeniedExplanation = 'phpMyAdmin hat versucht eine Verbindung zum MySQL-Server aufzubauen, jedoch hat dieser die Verbindung zurückgewiesen. Sie sollten Ihre Einstellungen für Host, Benutzername und Kennwort in Ihrer config.inc.php überprüfen und sich vergewissern, dass diese den Informationen, welche sie vom Administrator erhalten haben, entsprechen.';
 ?>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-06 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-*.inc.php3: Updates.
+
 2003-07-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/config.auth.lib.php3, lang/*.php3:
       $strAccessDeniedExplanation
@@ -13,11 +16,11 @@ $Source$
 
 2003-07-05 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
-    
+
 2003-07-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php3: PHP3 compatibility
-    * user_password.php3, libraries/auth/cookie.auth.lib.php3: 
-      sometimes, binary contents in cookies is not retrieved properly, 
+    * user_password.php3, libraries/auth/cookie.auth.lib.php3:
+      sometimes, binary contents in cookies is not retrieved properly,
       so protect it with base64_encode()
     * lang/ukrainian: update, thanks to Markijan Baran
 
@@ -49,7 +52,7 @@ $Source$
 2003-06-27 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_tbl.lib.php3, libraries/relation.lib.php3: Added some
       checks to avoid trying to use relations when no table (bug #761835).
-    
+
 2003-06-27 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 760648: incorrect result count on MySQL 3
 
