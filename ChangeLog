@@ -24,6 +24,8 @@ $Source$
         - Added CVS tags to scripts
     * lang/*.inc.php3:
         - All languages neatened by lang/sort_lang.sh script.
+    * libraries/string.lib.php3:
+        - Added function to match accented characters
 
 2002-08-08 Robin Johnson  <robbat2@users.sourceforge.net>
     * Documentation.html:

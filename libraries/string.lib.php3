@@ -224,6 +224,28 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
                 || PMA_STR_numberInRangeInclusive($ord_c, $ord_tab, $ord_CR));
     } // end of the "PMA_STR_isSpace()" function
 
+    /**
+     * Checks if a character is an accented character
+     *
+     * @param   string   character to check for
+     *
+     * @return  boolean  whether the character is an upper alphabetic one or
+     *                   not
+     *
+     * @see     PMA_STR_numberInRangeInclusive()
+     */
+    function PMA_STR_isAccented($c)
+    {
+        $ord_min1 = 128; //ord('A');
+        $ord_max1 = 154; //ord('Z');
+        $ord_min2 = 128; //ord('A');
+        $ord_max2 = 154; //ord('Z');
+        $ord_c    = ord($c);
+
+        return PMA_STR_numberInRangeInclusive($ord_c, $ord_min1, $ord_max1)
+        || PMA_STR_numberInRangeInclusive($ord_c, $ord_min2, $ord_max2);
+    } // end of the "PMA_STR_isAccented()" function
+
 
     /**
      * Checks if a character is an SQL identifier
@@ -238,6 +260,7 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
     function PMA_STR_isSqlIdentifier($c, $dot_is_valid = FALSE)
     {
         return (PMA_STR_isAlnum($c)
+                || PMA_STR_isAccented($c)
                 || ($c == '_') || ($c == '$')
                 || (($dot_is_valid != FALSE) && ($c == '.')));
     } // end of the "PMA_STR_isSqlIdentifier()" function
