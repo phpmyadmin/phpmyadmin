@@ -141,6 +141,10 @@ if (MYSQL_INT_VERSION >= 32303) {
         $show_comment = '';
     }
 }
+// MySQL < 3.23.03
+else {
+   $showtable = array();
+}
 
 // 2. Get table keys and retains them
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
@@ -340,7 +344,7 @@ if ($index_count > 0) {
 <?php
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
 $nonisam     = FALSE;
-if (!eregi('ISAM|HEAP', $showtable['Type'])) {
+if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
     $nonisam = TRUE;
 }
 if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE && isset($showtable)) {
@@ -983,11 +987,13 @@ else { // MySQL < 3.23
     // BDB
     ?>
     <!-- Table maintenance -->
-    <li>
+    <li style="vertical-align: top">
+        <div style="margin-bottom: 10px">
         <?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;
         <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple">
             <?php echo $strOptimizeTable; ?></a>&nbsp;
         <?php echo show_docu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
+        </div>
     </li>
     <?php
     echo "\n";
