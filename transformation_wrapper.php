@@ -121,9 +121,9 @@ if (!isset($resize)) {
  * Close MySql non-persistent connections
  */
 if (isset($GLOBALS['dbh']) && $GLOBALS['dbh']) {
-    @mysql_close($GLOBALS['dbh']);
+    @PMA_DBI_close($GLOBALS['dbh']);
 }
 if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
-    @mysql_close($GLOBALS['userlink']);
+    @PMA_DBI_close($GLOBALS['userlink']);
 }
 ?>

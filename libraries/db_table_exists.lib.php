@@ -25,7 +25,7 @@ if (!isset($is_table) || !$is_table) {
         $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
     if (empty($table)
-        || !($is_table && @mysql_numrows($is_table))) {
+        || !($is_table && @PMA_DBI_num_rows($is_table))) {
         if (!isset($is_transformation_wrapper)) {
             header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         }

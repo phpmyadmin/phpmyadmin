@@ -296,7 +296,7 @@ else {
         $cnt_all_result = @PMA_mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
         if ($cnt_all_result) {
             $num_rows   = PMA_mysql_result($cnt_all_result, 0, 'count');
-            mysql_free_result($cnt_all_result);
+            PMA_DBI_free_result($cnt_all_result);
         } else {
             $num_rows   = 0;
         }
@@ -349,7 +349,7 @@ else {
             $db     = $row['db'];
             $reload = 1;
         }
-        @mysql_free_result($res);
+        @PMA_DBI_free_result($res);
         unset($res);
         unset($row);
 
@@ -463,7 +463,7 @@ else {
                             } else {
                                 $unlim_num_rows = PMA_mysql_result($cnt_all_result, 0, 'count');
                             }
-                            mysql_free_result($cnt_all_result);
+                            PMA_DBI_free_result($cnt_all_result);
                         } else {
                             if (mysql_error()) {
 
@@ -652,7 +652,7 @@ else {
         }
 
         PMA_displayTable($result, $disp_mode, $analyzed_sql);
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
 
         if ($disp_mode[6] == '1' || $disp_mode[9] == '1') {
             echo "\n";

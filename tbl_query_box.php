@@ -43,7 +43,7 @@ if (isset($db) && isset($table) && $table != '' && $db != '') {
         while ($row = PMA_mysql_fetch_array($result)) {
             $fields_list[] = $row['Field'];
         } // end while
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
     }
 }
 

@@ -40,18 +40,18 @@ if (PMA_MYSQL_INT_VERSION >= 40003) {
     while ($row = PMA_mysql_fetch_row($res)) {
         $serverVars[$row[0]] = $row[1];
     }
-    @mysql_free_result($res);
+    @PMA_DBI_free_result($res);
     $res = @PMA_mysql_query('SHOW GLOBAL VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW GLOBAL VARIABLES;');
     while ($row = PMA_mysql_fetch_row($res)) {
         $serverVarsGlobal[$row[0]] = $row[1];
     }
-    @mysql_free_result($res);
+    @PMA_DBI_free_result($res);
 } else {
     $res = @PMA_mysql_query('SHOW VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW VARIABLES;');
     while ($row = PMA_mysql_fetch_row($res)) {
         $serverVars[$row[0]] = $row[1];
     }
-    @mysql_free_result($res);
+    @PMA_DBI_free_result($res);
 }
 unset($res);
 unset($row);

@@ -59,7 +59,7 @@ while ($row = PMA_mysql_fetch_array($result)) {
         $pk_array[$row['Column_name']] = 1;
     }
 } // end while
-mysql_free_result($result);
+PMA_DBI_free_result($result);
 
 // 3. Get fields
 $local_query = 'SHOW FULL FIELDS FROM ' . PMA_backquote($table);

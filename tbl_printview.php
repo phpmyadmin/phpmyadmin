@@ -85,7 +85,7 @@ foreach($the_tables AS $key => $table) {
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
     if ($result) {
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
     }
 
 
@@ -128,7 +128,7 @@ foreach($the_tables AS $key => $table) {
 
     } // end while
     if ($result) {
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
     }
 
 
@@ -286,7 +286,7 @@ foreach($the_tables AS $key => $table) {
 </tr>
         <?php
     } // end while
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
 
     echo "\n";
     ?>

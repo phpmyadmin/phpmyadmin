@@ -84,7 +84,7 @@ $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '
 for ($i = 0; $row = PMA_mysql_fetch_array($result); $i++) {
         $columns[$i] = $row['Field'];
 }
-mysql_free_result($result);
+PMA_DBI_free_result($result);
 
 
 /**
@@ -400,7 +400,7 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
         } // end while
     } // end if $result
 
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
     echo "\n";
     ?>
     <li>

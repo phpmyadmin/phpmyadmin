@@ -44,7 +44,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit;
     } else if (isset($is_table)) {
-        mysql_free_result($is_table);
+        PMA_DBI_free_result($is_table);
     }
 
     // Displays headers (if needed)
@@ -104,7 +104,7 @@ for ($i = 0; $i < $idx_cnt; $i++) {
 if (defined('PMA_IDX_INCLUDED')) {
     unset($ret_keys);
 } else if ($result) {
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
 }
 
 // Get fields and stores their name/type
@@ -131,7 +131,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
 } // end while
 
 if ($fields_rs) {
-    mysql_free_result($fields_rs);
+    PMA_DBI_free_result($fields_rs);
 }
 
 

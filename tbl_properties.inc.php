@@ -588,7 +588,7 @@ if ($action == 'tbl_create.php') {
                 } // end if
             } // end while
         } // end if
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
 
         echo "\n";
         ?>

@@ -33,7 +33,7 @@ for ($i = 0; $i < $tmp_cnt; $i++) {
     }
 } // end for
 unset($tmp1, $tmp);
-mysql_free_result($table_info_result);
+PMA_DBI_free_result($table_info_result);
 
 
 /**

@@ -160,7 +160,7 @@ if (PMA_MYSQL_INT_VERSION > 40003) {
             $local_option_selected = TRUE;
         }
     }
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
 }
 
 ?>

@@ -330,7 +330,7 @@ foreach($array_sh_page AS $key => $temp_sh_page) {
         echo "<br>".htmlspecialchars($row['Field'])."\n";
     }
     echo '</div>' . "\n";
-    mysql_free_result($fields_rs);
+    PMA_DBI_free_result($fields_rs);
 
     $i++;
 }

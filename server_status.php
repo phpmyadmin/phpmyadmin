@@ -28,7 +28,7 @@ if (!empty($innodbstatus)) {
     echo '<pre>' . "\n"
        . htmlspecialchars($row[0]) . "\n"
        . '</pre>' . "\n";
-    mysql_free_result($res);
+    PMA_DBI_free_result($res);
     require_once('./footer.inc.php');
 }
 
@@ -56,7 +56,7 @@ $res = @PMA_mysql_query('SHOW STATUS;', $userlink) or PMA_mysqlDie(PMA_mysql_err
 while ($row = PMA_mysql_fetch_row($res)) {
     $serverStatus[$row[0]] = $row[1];
 }
-@mysql_free_result($res);
+@PMA_DBI_free_result($res);
 unset($res);
 unset($row);
 
@@ -68,7 +68,7 @@ unset($row);
 $res = @PMA_mysql_query('SELECT UNIX_TIMESTAMP() - ' . $serverStatus['Uptime'] . ';');
 $row = PMA_mysql_fetch_row($res);
 echo sprintf($strServerStatusUptime, PMA_timespanFormat($serverStatus['Uptime']), PMA_localisedDate($row[0])) . "\n";
-mysql_free_result($res);
+PMA_DBI_free_result($res);
 unset($res);
 unset($row);
 //Get query statistics

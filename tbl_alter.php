@@ -178,7 +178,7 @@ if ($abort == FALSE) {
         $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . " LIKE '$field'";
         $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
         $fields_meta[] = PMA_mysql_fetch_array($result);
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
     }
 
     $num_fields  = count($fields_meta);

@@ -45,7 +45,7 @@ $res = @PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($
 while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
     $serverProcesses[] = $row;
 }
-@mysql_free_result($res);
+@PMA_DBI_free_result($res);
 unset($res);
 unset($row);
 

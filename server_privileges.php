@@ -77,7 +77,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
         unset($sql_query);
         $row1 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
-        mysql_free_result($res);
+        PMA_DBI_free_result($res);
         $av_grants = explode ('\',\'' , substr($row1['Type'], 5, strlen($row1['Type']) - 7));
         unset($row1);
         $users_grants = explode(',', $row['Table_priv']);
@@ -164,7 +164,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         if ($res) {
             $row = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
         }
-        @mysql_free_result($res);
+        @PMA_DBI_free_result($res);
     }
     if (empty($row)) {
         if ($table == '*') {
@@ -182,7 +182,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
                     $row[$row1[0]] = 'N';
                 }
             }
-            mysql_free_result($res);
+            PMA_DBI_free_result($res);
         } else {
             $row = array('Table_priv' => '');
         }
@@ -192,7 +192,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
         unset($sql_query);
         $row1 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
-        mysql_free_result($res);
+        PMA_DBI_free_result($res);
         $av_grants = explode ('\',\'' , substr($row1['Type'], strpos($row1['Type'], '(') + 2, strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3));
         unset($row1);
         $users_grants = explode(',', $row['Table_priv']);
@@ -213,7 +213,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
                     'References' => FALSE
                 );
             }
-            mysql_free_result($res);
+            PMA_DBI_free_result($res);
             unset($res);
             unset($row1);
         }
@@ -227,7 +227,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
                 $columns[$row1[0]][$current] = TRUE;
             }
         }
-        mysql_free_result($res);
+        PMA_DBI_free_result($res);
         unset($res);
         unset($row1);
         unset($current);
@@ -489,7 +489,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
        . $spaces . '        <select name="pred_hostname" id="select_pred_hostname" title="' . $GLOBALS['strHost'] . '"' . "\n";
     $res = PMA_mysql_query('SELECT USER();', $userlink);
     $row = @PMA_mysql_fetch_row($res);
-    @mysql_free_result($res);
+    @PMA_DBI_free_result($res);
     unset($res);
     if (!empty($row[0])) {
         $thishost = str_replace("'", '', substr($row[0], (strrpos($row[0], '@') + 1)));
@@ -559,7 +559,7 @@ if (!empty($change_copy)) {
     } else {
         $row = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
         extract($row, EXTR_OVERWRITE);
-        mysql_free_result($res);
+        PMA_DBI_free_result($res);
         $queries = array();
     }
 }
@@ -587,7 +587,7 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
         case 'thishost':
             $res = PMA_mysql_query('SELECT USER();', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SELECT USER();');
             $row = PMA_mysql_fetch_row($res);
-            mysql_free_result($res);
+            PMA_DBI_free_result($res);
             unset($res);
             $hostname = substr($row[0], (strrpos($row[0], '@') + 1));
             unset($row);
@@ -645,7 +645,7 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             $queries[] = $sql_query;
         }
         unset($real_sql_query);
-        mysql_free_result($res);
+        PMA_DBI_free_result($res);
         unset($res);
     }
 }
@@ -660,7 +660,7 @@ if (!empty($change_copy)) {
     while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
         $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row)) . ' ON `' . $row['Db'] . '`.* TO "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '"' . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION' : '') . ';';
     }
-    mysql_free_result($res);
+    PMA_DBI_free_result($res);
     $local_query = 'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv` WHERE `User` = "' . PMA_sqlAddslashes($old_username) . '" AND `Host` = "' . $old_hostname . '";';
     $res = PMA_mysql_query($local_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $local_query);
     while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
@@ -819,7 +819,7 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
                     }
                     unset($this_table);
                 }
-                mysql_free_result($res);
+                PMA_DBI_free_result($res);
             }
             unset($res);
         }
@@ -919,7 +919,7 @@ if (empty($adduser) && empty($checkprivs)) {
         }
         if (!$res) {
             echo '<i>' . $strNoPrivileges . '</i>' . "\n";
-            @mysql_free_result($res);
+            @PMA_DBI_free_result($res);
             unset($res);
         } else {
             if ($oldPrivTables) {
@@ -958,7 +958,7 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '        </tr>' . "\n";
                 $useBgcolorOne = !$useBgcolorOne;
             }
-            @mysql_free_result($res);
+            @PMA_DBI_free_result($res);
             unset($res);
             unset ($row);
             echo '        <tr>' . "\n"
@@ -1022,7 +1022,7 @@ if (empty($adduser) && empty($checkprivs)) {
             echo $strUserNotFound;
             require_once('./footer.inc.php');
         }
-        mysql_free_result($res);
+        PMA_DBI_free_result($res);
         unset($res);
         echo '<ul>' . "\n"
            . '    <li>' . "\n"
@@ -1130,12 +1130,12 @@ if (empty($adduser) && empty($checkprivs)) {
                     $useBgcolorOne = !$useBgcolorOne;
                 } // end while
                 if (empty($dbname)) {
-                    mysql_free_result($res2);
+                    PMA_DBI_free_result($res2);
                     unset($res2);
                     unset($row2);
                 }
             }
-            mysql_free_result($res);
+            PMA_DBI_free_result($res);
             unset($res);
             unset($row);
             echo '            <tr>' . "\n"
@@ -1153,7 +1153,7 @@ if (empty($adduser) && empty($checkprivs)) {
                         $pred_db_array[] = $row[0];
                     }
                 }
-                mysql_free_result($res);
+                PMA_DBI_free_result($res);
                 unset($res);
                 unset($row);
                 if (!empty($pred_db_array)) {
@@ -1175,7 +1175,7 @@ if (empty($adduser) && empty($checkprivs)) {
                             $pred_tbl_array[] = $row[0];
                         }
                     }
-                    mysql_free_result($res);
+                    PMA_DBI_free_result($res);
                     unset($res);
                     unset($row);
                     if (!empty($pred_tbl_array)) {

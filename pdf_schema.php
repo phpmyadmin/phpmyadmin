@@ -1283,7 +1283,7 @@ function PMA_RT_DOC($alltables ){
         $check_time   = (isset($showtable['Check_time']) ? PMA_localisedDate(strtotime($showtable['Check_time'])) : '');
 
         if ($result) {
-             mysql_free_result($result);
+             PMA_DBI_free_result($result);
         }
 
 
@@ -1326,7 +1326,7 @@ function PMA_RT_DOC($alltables ){
 
         } // end while
         if ($result) {
-            mysql_free_result($result);
+            PMA_DBI_free_result($result);
         }
 
 
@@ -1498,7 +1498,7 @@ function PMA_RT_DOC($alltables ){
             } */
         } // end while
         $pdf->SetFont('', '',14);
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
     }//end each
 
 

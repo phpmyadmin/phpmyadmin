@@ -79,7 +79,7 @@ if (!isset($param) || $param[0] == '') {
             }
             $fields_type[] = $type;
         } // end while
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
 
         // <markus@noga.de>
         // retrieve keys into foreign fields, if any
