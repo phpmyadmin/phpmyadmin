@@ -13,6 +13,8 @@ $Source$
     * db_details_structure.php: If JS is enabled, take away <label> link
       functionality because of onmousedown-handler duplicating this
       effect.
+    * tbl_properties_structure.php: RFE #947467 - coloured mousecursor
+      for column overview.
 
 2004-05-05 Michal Cihar  <michal@cihar.com>
     * config.inc.php, tbl_change.php, tbl_replace.php,

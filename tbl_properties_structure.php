@@ -120,6 +120,16 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     $bgcolor          = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     $aryFields[]      = $row['Field'];
 
+    if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+        $on_mouse = ' onmouseover="setPointer(this, ' . $i . ', \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
+                  . ' onmouseout="setPointer(this, ' . $i . ', \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+    }
+    if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
+        $on_mouse .= ' onmousedown="setPointer(this, ' . $i . ', \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+    }
+
+    $click_mouse = ' onmousedown="document.getElementById(\'checkbox_row_' . $i . '\').checked = (document.getElementById(\'checkbox_row_' . $i . '\').checked ? false : true);" ';
+
     $type             = $row['Type'];
     // reformat mysql query output - staybyte - 9. June 2001
     // loic1: set or enum types: slashes single quotes inside options
@@ -261,17 +271,17 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     }
 
     ?>
-<tr>
+<tr <?php echo $on_mouse; ?>>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <input type="checkbox" name="selected_fld[]" value="<?php echo $field_encoded; ?>" id="checkbox_row_<?php echo $i; ?>" <?php echo $checked; ?> />
     </td>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
-    <td bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
-<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '">' . (empty($field_charset) ? '&nbsp;' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
-    <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
+    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label onclick="(document.getElementById('checkbox_row_<?php echo $i; ?>') ? return false : return true)" for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
+    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
+<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '" ' . $click_mouse . '>' . (empty($field_charset) ? '&nbsp;' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
+    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
+    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
+    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
+    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_alter.php?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
             <?php echo $titles['Change']; ?></a>
