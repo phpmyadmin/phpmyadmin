@@ -615,7 +615,11 @@ if ($is_minimum_common == FALSE) {
                 echo PMA_showMySQLDocu('Reference', 'SELECT');
             }
             if ($is_modify_link && isset($db)) {
-                $doedit_goto = '<a href="db_details.php?' . PMA_generate_common_url($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
+                if (isset($table)) {
+                    $doedit_goto = '<a href="tbl_properties.php?' . PMA_generate_common_url($db, $table) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
+                } else {
+                    $doedit_goto = '<a href="db_details.php?' . PMA_generate_common_url($db) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
+                }
                 if ($GLOBALS['cfg']['PropertiesIconic']) {
                     echo $doedit_goto 
                        . '<img src=" '. $GLOBALS['pmaThemeImage'] . 'b_edit.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="' . $GLOBALS['strEdit'] .'" />'
