@@ -30,7 +30,11 @@ function PMA_exportFooter() {
     global $workbook;
     global $tmp_filename;
 
-    $workbook->close();
+    $res = $workbook->close();
+    if (PEAR::isError($res)) {
+        echo $res->getMessage();
+        return FALSE;
+    }
     if (!PMA_exportOutputHandler(file_get_contents($tmp_filename))) return FALSE;
     unlink($tmp_filename);
 
@@ -49,8 +53,7 @@ function PMA_exportHeader() {
     global $tmp_filename;
 
     if (empty($GLOBALS['cfg']['TempDir'])) return FALSE;
-
-    $tmp_filename = tempnam($GLOBALS['cfg']['TempDir'], 'pma_xls_');
+    $tmp_filename = tempnam(realpath($GLOBALS['cfg']['TempDir']), 'pma_xls_');
     $workbook = new Spreadsheet_Excel_Writer($tmp_filename);
 
     return TRUE;
@@ -113,6 +116,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $workbook;
 
     $worksheet =& $workbook->addWorksheet($table);
+    $workbook->setTempDir(realpath($GLOBALS['cfg']['TempDir']));
 
     // Gets the data from the database
     $result      = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_UNBUFFERED);
