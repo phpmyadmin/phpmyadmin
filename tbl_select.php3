@@ -114,11 +114,11 @@ if (!isset($param) || $param[0] == '') {
                             reset($textfunctions);
                             if (eregi('char|blob|text|set|enum', $fields_type[$i])){
                                 while (list($k,$fc) = each($textfunctions)){
-                                    echo '<option name="'.$fc.'">'.htmlentities($fc).'</option>\n';
+                                    echo '<option name="'.$fc.'">'.htmlentities($fc).'</option>' . "\n";
                                 }
                             }else{
                                 while (list($k,$fc) = each($numfunctions)){
-                                    echo '<option name="'.$fc.'">'.htmlentities($fc).'</option>\n';
+                                    echo '<option name="'.$fc.'">'.htmlentities($fc).'</option>' . "\n";
                                 }
                             }
                         ?>
