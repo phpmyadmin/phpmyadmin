@@ -33,7 +33,7 @@ german-iso-8859-1
 greek-iso-8859-7
 hebrew-iso-8859-8-i
 hungarian-iso-8859-2
-indonesian
+indonesian-iso-8859-1
 italian
 japanese-euc
 korean
