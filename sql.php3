@@ -78,7 +78,7 @@ else {
     $sql_limit = (isset($pos) && eregi("^SELECT", $sql_query) && !eregi("LIMIT[ 0-9,]+$", $sql_query)) ? " LIMIT $pos, $cfgMaxRows" : '';
     mysql_select_db($db);
 
-    $result = mysql_query($sql_query.$sql_order.$sql_limit);
+    $result = @mysql_query($sql_query.$sql_order.$sql_limit);
 
     // Count the total number of rows for the same 'SELECT' query without the
     // 'LIMIT' clause that may have been programatically added
