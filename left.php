@@ -226,7 +226,7 @@ require_once('./libraries/header_http.inc.php');
  */
 // Gets the font sizes to use
 PMA_setFontSizes();
-echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">"; // remove vertical scroll bar bug in ie
+echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">"; // remove vertical scroll bar bug in ie
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

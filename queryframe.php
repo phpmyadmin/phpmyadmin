@@ -42,7 +42,7 @@ PMA_setFontSizes();
  */
 require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
-
+echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">"; // remove vertical scroll bar bug in ie
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
