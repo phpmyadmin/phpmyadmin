@@ -9,6 +9,8 @@ $Source$
     * libraries/common.lib.php, libraries/display*, lang/*: 
       bug 887933: avoid generating a nested form, and show a warning
       when user should define a primary key to get the Edit and Delete links
+    * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
+    * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
 
 2004-03-09 Michal Cihar  <backtowork@cihar.com>
     * libraries/dbi/mysql.dbi.lib.php: Remove possible double charset
