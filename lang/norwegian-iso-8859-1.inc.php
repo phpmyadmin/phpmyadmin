@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Translated by Sven-Erik Andersen <sven_erik at andersen.as>
+ * Translated by Sven-Erik Andersen <sven-erik.andersen at pkf107.no>
  */
 
 $charset = 'iso-8859-1';
@@ -21,6 +21,7 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 $datefmt = '%d. %B, %Y klokka %H:%M %p';
 $timespanfmt = '%s dager, %s timer, %s minutter og %s sekunder';
 
+
 $strAPrimaryKey = 'En primærnøkkel har blitt lagt til %s';
 $strAbortedClients = 'Avbrutt';
 $strAbsolutePathToDocSqlDir = 'Vennligst skriv inn den absolutte stien på webtjeneren til docSQL katalogen';
@@ -32,6 +33,8 @@ $strAddConstraints = 'Legg til begrensninger';
 $strAddDeleteColumn = 'Legg til/Slett kolonne';
 $strAddDeleteRow = 'Legg til/Slett kriterierad';
 $strAddDropDatabase = 'Legg til DROP DATABASE';
+$strAddHeaderComment = 'Legg til egen kommentar i hodet (\\n lager linjeskift)';
+$strAddIfNotExists = 'Legg til IF NOT EXISTS';
 $strAddIntoComments = 'Legg til i kommentarer';
 $strAddNewField = 'Legg til felt';
 $strAddPriv = 'Legg til nytt privilegium';
@@ -49,6 +52,7 @@ $strAffectedRows = 'Berørte rader:';
 $strAfter = 'Etter %s';
 $strAfterInsertBack = 'Returner';
 $strAfterInsertNewInsert = 'Sett inn en ny post';
+$strAfterInsertSame = 'Tilbake til denne siden';
 $strAll = 'Alle';
 $strAllTableSameWidth = 'vis alle tabeller med samme bredde?';
 $strAlterOrderBy = 'Endre tabellrekkefølge ved';
@@ -127,6 +131,7 @@ $strColumnNames = 'Kolonnenavn';
 $strColumnPrivileges = 'Kolonne-spesifikke privilegier';
 $strCommand = 'Kommando';
 $strComments = 'Kommentarer';
+$strCommentsForTable = 'TABELLKOMMENTARER';
 $strCompleteInserts = 'Komplette innlegg';
 $strCompression = 'Kompresjon';
 $strConfigFileError = 'phpMyAdmin kunne ikke lese din konfigurasjonsfil!<br />Dette kan skje hvis PHP finner en syntaksfeil eller ikke kan finne filen.<br />Vennligst kall opp konfigurasjonsfilen direkte via linken under og les PHP feilmeldingen(e) som du vil få. I de fleste tilfeller så mangler det et anførselstegn eller et semikolon et sted.<br />Hvis du får en blank side så er alt ok.';
@@ -165,11 +170,13 @@ $strDBGMinTimeMs = 'Min tid, ms';
 $strDBGModule = 'Modul';
 $strDBGTimePerHitMs = 'Tid/Treff, ms';
 $strDBGTotalTimeMs = 'Total tid, ms';
+$strDBRename = 'Endre databasens navn til';
 $strDanish = 'dansk';
 $strData = 'Data';
 $strDataDict = 'Dataordbok';
 $strDataOnly = 'Bare data';
 $strDatabase = 'Database ';
+$strDatabaseEmpty = 'Databasens navn er tomt!';
 $strDatabaseExportOptions = 'Database eksportinnstillinger';
 $strDatabaseHasBeenDropped = 'Databasen %s har blitt slettet';
 $strDatabaseNoTable = 'Denne databasen har ingen tabeller!';
@@ -290,6 +297,7 @@ $strId = 'ID';
 $strIdxFulltext = 'Fulltekst';
 $strIfYouWish = 'Hvis du kun ønsker å lese inn enkelte av tabellens kolonner, angi en kommaseparert feltliste.';
 $strIgnore = 'Ignorer';
+$strIgnoreInserts = 'Bruk ignore inserts';
 $strIgnoringFile = 'Ignorerer fil %s';
 $strImportDocSQL = 'Importer docSQL-filer';
 $strImportFiles = 'Importer filer';
@@ -364,6 +372,7 @@ $strMIME_transformation_note = 'For en liste over tilgjengelige transformasjonsv
 $strMIME_transformation_options = 'Transformasjonsvalg';
 $strMIME_transformation_options_note = 'Skriv inn verdiene for transformasjon med dette formatet: \'a\',\'b\',\'c\'...<br />Hvis du trenger å bruke en skråstrek ("\") eller en enkel apostrof ("\'") blant disse verdiene så sett en skråstrek foran (eks. \'\\\\xyz\' eller \'a\\\'b\').';
 $strMIME_without = 'MIME-typer skrevet i kursiv har ikke en separat transformasjonsfunksjon';
+$strMIMETypesForTable = 'MIME TYPER FOR TABELLEN';
 $strMaximumSize = 'Maksimum størelse: %s%s';
 $strMissingBracket = 'Manglende parantes';
 $strModifications = 'Endringene er lagret';
@@ -384,6 +393,7 @@ $strMySQLShowStatus = 'Vis MySQL driftsstatus';
 $strMySQLShowVars = 'Vis MySQL systemvariabler';
 
 $strName = 'Navn';
+$strNeedPrimaryKey = 'Du burde definere en primærnøkkel for denne tabellen.';
 $strNext = 'Neste';
 $strNo = 'Nei';
 $strNoDatabases = 'Ingen databaser';
@@ -515,11 +525,13 @@ $strRelationNotWorking = 'Tilleggsfunksjonene for å kunne jobbe med koblede tabe
 $strRelationView = 'Relasjonsvisning';
 $strRelationalSchema = 'Relasjonsskjema';
 $strRelations = 'Relasjoner';
+$strRelationsForTable = 'RELASJONER FOR TABELLEN';
 $strReloadFailed = 'Omstart av MySQL feilet.';
 $strReloadMySQL = 'Omstart av MySQL';
 $strReloadingThePrivileges = 'Oppfrisker privilegiene';
 $strRememberReload = 'Husk å restarte tjeneren.';
 $strRemoveSelectedUsers = 'Fjern valgte brukere';
+$strRenameDatabaseOK = 'Databasen %s har endret navn til %s';
 $strRenameTable = 'Endre tabellens navn';
 $strRenameTableOK = 'Tabellen %s har fått nytt navn %s';
 $strRepairTable = 'Reparer tabell';
@@ -726,17 +738,5 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrensn
 $strZip = 'Komprimert (zip)';
 
 // To translate:
-$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 
-$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
-
-$strIgnoreInserts = 'Use ignore inserts';  //to translate
-$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
-$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
-$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
-$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
-$strAfterInsertSame = 'Go back to this page';  //to translate
-$strRenameDatabaseOK = 'Database %s has been renamed to %s';  //to translate
-$strDatabaseEmpty = 'The database name is empty!';  //to translate
-$strDBRename = 'Rename database to';  //to translate
 ?>

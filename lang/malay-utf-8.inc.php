@@ -32,9 +32,7 @@ $number_decimal_separator = '.';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 $timespanfmt = '%s hari, %s jam, %s minit dan %s saat';
 
-// Does the malay week only have 6 days??? Please re-translate!
-//$day_of_week = array('Aha', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum');
-$day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+$day_of_week = array('Aha', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum', 'Sab');
 $month = array('Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogos', 'Sept', 'Okt', 'Nov', 'Dis');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
