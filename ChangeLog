@@ -9,8 +9,10 @@ $Source$
 2002-08-07 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/slovak-iso-8859-2.inc.php3:
         - Updates, thanks to Lubos Klokner (erkac)
-    * indonesian-iso-8859-1.inc.php3:
+    * lang/indonesian-iso-8859-1.inc.php3:
         - Updates, thanks to Rachim Tamsjadi (tamsy)
+    * lang/estonian-iso-8859-1.inc.php3:
+        - Updates, thanks to Alvar Soome (finsoft)
 
 2002-08-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.php3, libraries/sqlvalidator.lib.php3:
