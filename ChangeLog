@@ -5,29 +5,34 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.php3:
+	  - improved the js object detection system;
+	  - fixed some bugs with the patch from Korakot.
+	* Documentation.html, lines 469-475: added the $cfgShowTooltip entry.
+
 2001-10-04  Korakot Chaovavanich  <korakot@iname.com>
-	* table comment(description) as tooltip (request #464084)
+	* table comment(description) as tooltip (request #464084).
 
 2001-10-03  Marc Delisle  <lem9@users.sourceforge.net>
 	* release 2.2.1-rc1
 
 2001-10-03  Geert Lund  <glund@silversoft.dk>
 	* libraries/common.lib.php3: fixed localised_date() function:
-	  - get correct month name (and not month+1)
+	  - get correct month name (and not month+1).
 
 2001-10-02  Marc Delisle  <lem9@users.sourceforge.net>
-	* lang/bulgarian-win1251.inc.php3 updates, 
-	  thanks to Peter Petrov (boncev@yahoo.com) and Loïc 
+	* lang/bulgarian-win1251.inc.php3 updates, thanks to Peter Petrov.
 
 2001-10-01  Marc Delisle  <lem9@users.sourceforge.net>
-	* lang/czech* updates, thanks to Michal Cihar
+	* lang/czech* updates, thanks to Michal Cihar.
 
 2001-10-01  Steve Alberty  <alberty@neptunlabs.se>
-	* db_details.php3: Fixed problems with cfgSkipLockedTables
+	* db_details.php3: Fixed problems with cfgSkipLockedTables.
 
 2001-10-01  Geert Lund  <glund@silversoft.dk>
 	* db_stats.php3, line 261: fixed error where server and language setting
-	  wasen't in link, thanx to Joshua Nye <josh at boxcarmedia.com>
+	  wasen't in link, thanx to Joshua Nye <josh at boxcarmedia.com>.
 
 2001-09-30  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3, lines 489-493: fixed "backslashed backslash"

@@ -2,7 +2,7 @@
 /* $Id$ */
 
 
-/** 
+/**
  * Gets the variables sent to this script, retains the db name that may have
  * been defined as startup option and include a core library
  */
@@ -61,14 +61,22 @@ if ($num_dbs > 1) {
     <!-- Collapsible tables list scripts -->
     <script type="text/javascript" language="javascript">
     <!--
-    var isDOM      = (typeof(document.getElementsByTagName) != 'undefined') ? 1 : 0;
-    var isIE4      = ((typeof(document.all) != 'undefined') && (parseInt(navigator.appVersion) >= 4)) ? 1 : 0;
-    var isNS4      = (typeof(document.layers) != 'undefined') ? 1 : 0;
-    var capable    = (isDOM || isIE4 || isNS4) ? 1 : 0;
-    // Uggly fix for Konqueror and Opera that are not fully DOM compliant
+    var isDOM      = (typeof(document.getElementsByTagName) != 'undefined'
+                      && typeof(document.createElement) != 'undefined'
+                      && typeof(document.appendChild) != 'undefined')
+                   ? 1 : 0;
+    var isIE4      = (typeof(document.all) != 'undefined'
+                      && parseInt(navigator.appVersion) >= 4
+                      && !typeof(window.opera))
+                   ? 1 : 0;
+    var isNS4      = (typeof(document.layers) != 'undefined')
+                   ? 1 : 0;
+    var capable    = (isDOM || isIE4 || isNS4)
+                   ? 1 : 0;
+    // Uggly fix for Konqueror 2.2 that is half DOM compliant
     if (capable && typeof(navigator.userAgent) != 'undefined') {
         var browserName = ' ' + navigator.userAgent.toLowerCase();
-        if (browserName.indexOf('opera') > 0 || browserName.indexOf('konqueror') > 0) {
+        if (browserName.indexOf('konqueror') > 0) {
             capable = 0;
         }
     }
@@ -85,6 +93,7 @@ if ($num_dbs > 1) {
         <!--
         div {color: #000000}
         .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
+        .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
         .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
         .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
         .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
@@ -109,10 +118,10 @@ else if ($num_dbs == 1) {
     body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
     div {color: #000000}
     .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
+    .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
     .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-    .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
+    .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
     .tblItem:hover {color: #FF0000; text-decoration: underline}
     //-->
     </style>
@@ -127,7 +136,8 @@ else {
     body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
     div {color: #000000}
     .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
+    .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
+    .item, .item:active, .item:hover {color: #333399; text-decoration: none}
     //-->
     </style>
     <?php
@@ -177,13 +187,15 @@ if ($num_dbs > 1) {
         }
 
         // Get additional infomation about tables for tooltip
-        if ($cfgShowTooltip && MYSQL_INT_VERSION >= 32303) {
+        if ($cfgShowTooltip && MYSQL_INT_VERSION >= 32303
+            && $num_tables) {
             $tooltip = array();
-            $result = mysql_query("SHOW TABLE STATUS FROM $db");
+            $result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
             while ($tmp = mysql_fetch_array($result)) {
-                $tooltip[$tmp['Name']] = $tmp['Comment'] . ' (' . $tmp['Rows'] . ' rows)';
-            }
-        }
+                // loic1: use md5 to ensure the key use valid characters only
+                $tooltip[md5($tmp['Name'])] = rtrim($tmp['Comment'] . ' (' . $tmp['Rows'] . ' ' . $strRows . ')');
+            } // end while
+        } // end if
 
         // Displays the database name
         echo "\n";
@@ -204,7 +216,7 @@ if ($num_dbs > 1) {
         echo "\n";
         ?>
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', false)}">
-            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
+            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
     </div>
 
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
@@ -218,7 +230,7 @@ if ($num_dbs > 1) {
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
         <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0&goto=tbl_properties.php3">
             <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-        <a class="tblItem" title="<?php echo addslashes($tooltip[$table]);?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
+        <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[md5($table)]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
             <?php
         } // end for $j (tables list)
@@ -261,20 +273,22 @@ else if ($num_dbs == 1) {
     }
 
     // Get additional infomation about tables for tooltip
-    if ($cfgShowTooltip && MYSQL_INT_VERSION >= 32303) {
+    if ($cfgShowTooltip && MYSQL_INT_VERSION >= 32303
+        && $num_tables) {
         $tooltip = array();
-        $result = mysql_query("SHOW TABLE STATUS FROM $db");
+        $result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
         while ($tmp = mysql_fetch_array($result)) {
-            $tooltip[$tmp['Name']] = $tmp['Comment'] . ' (' . $tmp['Rows'] . ' rows)';
-        }
-    }
-	
+            // loic1: use md5 to ensure the key use valid characters only
+            $tooltip[md5($tmp['Name'])] = rtrim($tmp['Comment'] . ' (' . $tmp['Rows'] . ' ' . $strRows . ')');
+        } // end while
+    } // end if
+
     // Displays the database name
     echo "\n";
     ?>
     <div id="el2Parent" class="parent">
         <nobr><a class="item" href="db_details.php3?<?php echo $common_url_query; ?>">
-            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
+            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
     </div>
     <div id="el2Child" class="child" style="margin-bottom: 5px">
     <?php
@@ -285,7 +299,7 @@ else if ($num_dbs == 1) {
         ?>
         <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0&goto=tbl_properties.php3">
                   <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-              <a class="tblItem" title="<?php echo addslashes($tooltip[$table]);?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
+              <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[md5($table)]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
                   <?php echo $table; ?></a></nobr><br />
         <?php
     } // end for $j (tables list)
