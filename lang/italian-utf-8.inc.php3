@@ -38,6 +38,7 @@ $strAfter = 'Dopo %s';
 $strAfterInsertBack = 'Indietro';
 $strAfterInsertNewInsert = 'Inserisci un nuovo record';
 $strAll = 'Tutti';
+$strAllTableSameWidth = 'mostra tutte le Tabelle con la stessa larghezza?';
 $strAlterOrderBy = 'Altera tabella ordinata per';
 $strAnalyzeTable = 'Analizza tabella';
 $strAnd = 'E';
@@ -69,7 +70,7 @@ $strCantLoadMySQL = 'impossibile caricare l\'estensione MySQL,<br />controlla la
 $strCantLoadRecodeIconv = 'Impossibile caricare l\'estensione iconv o recode necessaria per la conversione del set di caratteri, configurare il PHP per permettere di utilizzare queste estenzioni o disabilitare la conversione dei set di caratteri in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Impossibile rinominare l\'indice a PRIMARIO!';
 $strCantUseRecodeIconv = 'Impossibile utilizzare le funzioni iconv o libiconv o recode_string in quanto l\'estensione deve essere caricata. Controllare la configurazione del PHP.';
-$strCardinality = 'Cardinalit√†';
+$strCardinality = 'Cardinalit√ ';
 $strCarriage = 'Ritorno carrello: \\r';
 $strChange = 'Modifica';
 $strChangeDisplay = 'Scegli il campo da mostrare';
@@ -272,7 +273,7 @@ $strPrimaryKeyName = 'Il nome della chiave primaria deve essere... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>deve</b> essere il nome di, e <b>solo di</b>, una chiave primaria!)';
 $strPrintView = 'Visualizza per stampa';
 $strPrivileges = 'Privilegi';
-$strProperties = 'Propriet√†';
+$strProperties = 'Propriet√ ';
 
 $strQBE = 'Query da esempio';
 $strQBEDel = 'Cancella';
@@ -280,8 +281,9 @@ $strQBEIns = 'Aggiungi';
 $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 
 $strRecords = 'Record';
-$strReferentialIntegrity = 'Controlla l\'integrit√† delle referenze:';
-$strRelationView = 'Vedi relazione';
+$strReferentialIntegrity = 'Controlla l\'integrit&agrave;  delle referenze:';
+$strRelationNotWorking = 'Le caratteristiche aggiuntive sono state disattivate per funzionare con le tabelle linkate. Per scoprire perchË clicca %squi%s.';
+$strRelationView = 'Vedi relazioni';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
 $strReloadMySQL = 'Riavvia MySQL';
 $strRememberReload = 'Ricorda di riavviare MySQL.';
@@ -302,7 +304,7 @@ $strRows = 'Righe';
 $strRowsFrom = 'righe a partire da';
 $strRowSize = 'Dimensione riga';
 $strRowsModeHorizontal = ' orizzontale ';
-$strRowsModeOptions = ' in modalit√† %s e ripeti gli headers dopo %s celle ';
+$strRowsModeOptions = ' in modalit√  %s e ripeti gli headers dopo %s celle ';
 $strRowsModeVertical = ' verticale ';
 $strRowsStatistic = 'Statistiche righe';
 $strRunning = 'in esecuzione su %s';
@@ -406,7 +408,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

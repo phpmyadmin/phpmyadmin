@@ -36,6 +36,7 @@ $strAfter = 'Mbas %s';
 $strAfterInsertBack = 'Mbrapa';
 $strAfterInsertNewInsert = 'Shto një record të ri';
 $strAll = 'Të gjithë';
+$strAllTableSameWidth = 'vizualizon të gjitha Tabelat me të njëjtën gjërësi?';
 $strAlterOrderBy = 'Transformo tabelën e renditur sipas';
 $strAnalyzeTable = 'Analizo tabelën';
 $strAnd = 'Dhe';
@@ -78,6 +79,7 @@ $strCheckTable = 'Kontrollo tabelën';
 $strChoosePage = 'Ju lutem zgjidhni faqen që dëshironi të modifikoni';
 $strColumn = 'Kollona';
 $strColumnNames = 'Emrat e kollonave';
+$strComments = 'Komente';
 $strCompleteInserts = 'Të shtuarat komplet';
 $strConfigFileError = 'phpMyAdmin nuk arrin të lexojë file e konfigurimit!<br />Kjo mund të ndodhë kur php gjen një parse error në të apo kur php nuk arrin t\'a gjejë këtë file.<br />Ju lutem ngarkoheni direkt file e konfigurimit duke përdorur link-un e mëposhtëm dhe lexoni mesazhin(et) e gabimeve php që merrni. Në shumicën e rasteve mund t\'ju mungojë një apostrofë apo një presje.<br />Nëse faqja që do t\'ju hapet është bosh (e bardhë), atëhere gjithçka është në rregull.';
 $strConfigureTableCoord = 'Ju lutem, konfiguroni koordinatat për tabelën %s';
@@ -278,6 +280,7 @@ $strQueryOnDb = 'SQL-query tek database <b>%s</b>:';
 
 $strRecords = 'Record';
 $strReferentialIntegrity = 'Kontrollo integritetin e informacioneve:';
+$strRelationNotWorking = 'Karakteristikat shtesë janë disaktivuar për sa i takon funksionimit me Tabelat e link-uara. Për të zbuluar përse, klikoni %skëtu%s.';
 $strRelationView = 'Shiko relacionin';
 $strReloadFailed = 'Rinisja e MySQL dështoi.';
 $strReloadMySQL = 'Rifillo MySQL';
@@ -403,7 +406,4 @@ $strYes = ' Po ';
 $strZip = '"kompresuar me zip"';
 
 // To translate
-$strComments = 'Comments';  //to translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>
