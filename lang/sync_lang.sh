@@ -147,7 +147,7 @@ cleanup() {
     rm -f $TEMPFILE
 }
 
-trap cleanup SIGINT SIGABRT SIGTERM
+trap cleanup INT ABRT TERM
 
 FAILED=""
 
