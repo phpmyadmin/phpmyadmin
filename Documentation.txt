@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.509 2003/10/13
-       00:53:11 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.510 2003/10/16
+       15:22:11 nijel Exp $
 
 Requirements
 
@@ -1299,6 +1299,21 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
    $cfg['Functions'] array
           A list of functions MySQL supports. In most cases you don't
           need to edit this.
+
+   $cfg['RestrictColumnTypes'] array
+          Mapping of column types to meta types used for prefering
+          displayed functions. In most cases you don't need to edit this.
+
+   $cfg['RestrictFunctions'] array
+          Functions prefered for column meta types as defined in
+          $cfg['RestrictColumnTypes']. In most cases you don't need to
+          edit this.
+
+   $cfg['DefaultFunctions'] array
+          Functions selected by default when insering/changing row,
+          Functions are defined for meta types from
+          $cfg['RestrictColumnTypes'] and for first_timestamp, which is
+          used for first timestamp column in table.
 
 Transformations
 

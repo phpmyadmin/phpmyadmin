@@ -360,7 +360,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             // or something similar. Then directly look up the entry in the RestrictFunctions array,
             // which will then reveal the available dropdown options
             if (isset($cfg['RestrictFunctions']) && isset($cfg['RestrictColumnTypes']) && isset($cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]) && isset($cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]])) {
-                $dropdown = $cfg['RestrictFunctions'][$cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])]];
+                $current_func_type  = $cfg['RestrictColumnTypes'][strtoupper($row_table_def['True_Type'])];
+                $dropdown           = $cfg['RestrictFunctions'][$current_func_type];
+                $default_function   = $cfg['DefaultFunctions'][$current_func_type];
             } else {
                 $dropdown = array();
             }
@@ -370,9 +372,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
             // garvin: loop on the dropdown array and print all available options for that field.
             for ($j = 0; $j < count($dropdown); $j++) {
-                // for default function = NOW() on first timestamp field
-                // -- swix/18jul01
-                $selected = ($first_timestamp && $dropdown[$j] == 'NOW')
+                // Is current function defined as default?
+                $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp']) 
+                            || (!$first_timestamp && $dropdown[$j] == $default_function)
                           ? ' selected="selected"'
                           : '';
                 echo '                ';
@@ -386,9 +388,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             // yet.
             for ($j = 0; $j < count($cfg['Functions']); $j++) {
                 if (!isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'TRUE') {
-                    // for default function = NOW() on first timestamp field
-                    // -- swix/18jul01
-                    $selected = ($first_timestamp && $cfg['Functions'][$j] == 'NOW')
+                    // Is current function defined as default?
+                    $selected = ($first_timestamp && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp']) 
+                                || (!$first_timestamp && $cfg['Functions'][$j] == $default_function)
                               ? ' selected="selected"'
                               : '';
                     if ($op_spacing_needed == TRUE) {

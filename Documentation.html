@@ -1912,6 +1912,31 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['RestrictColumnTypes'] </b>array</dt>
+    <dd>
+        Mapping of column types to meta types used for prefering displayed
+        functions. In most cases you don't need to edit this.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['RestrictFunctions'] </b>array</dt>
+    <dd>
+        Functions prefered for column meta types as defined in
+        <code>$cfg['RestrictColumnTypes']</code>. In most cases you don't need
+        to edit this.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['DefaultFunctions'] </b>array</dt>
+    <dd>
+        Functions selected by default when insering/changing row, Functions
+        are defined for meta types from
+        <code>$cfg['RestrictColumnTypes']</code> and for
+        <code>first_timestamp</code>, which is used for first timestamp column
+        in table.
+        <br /><br />
+    </dd>
+
 </dl>
 
 <!-- TRANSFORMATIONS -->

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-20 Michal Cihar  <nijel@users.sourceforge.net>
+    * Documentation, config.inc.php3, tbl_change.php3,
+      libraries/common.lib.php3, libraries/config_import.lib.php3: Make
+      default functions configurable (RFE #821271).
+    
 2003-10-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3: bug 821512, Safari 1.0 v85.5 and fonts
     * libraries/functions.js: bug 825665, scratchboard and paper size

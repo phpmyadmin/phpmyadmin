@@ -724,6 +724,15 @@ if ($cfg['ShowFunctionFields']) {
         )
     );
     
+    // Default functions for above defined groups
+    $cfg['DefaultFunctions'] = array(
+        'FUNC_CHAR'         => '',
+        'FUNC_DATE'         => '',
+        'FUNC_NUMBER'       => '',
+        'first_timestamp'   => 'NOW'
+    );
+
+    
 } // end if
 
 
