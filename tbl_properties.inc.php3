@@ -230,6 +230,15 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         }
     } // end if else
 
+    // some types, for example longtext, are reported as
+    // "longtext character set latin7" when not latin1
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
+        $tmp = strpos($type, 'character set');
+        if ($tmp) {
+            $type = substr($type,0,$tmp-1);
+        }
+    }
+
     if (isset($submit_length) && $submit_length != FALSE) {
         $length = $submit_length;
     }
