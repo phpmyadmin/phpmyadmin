@@ -9,9 +9,20 @@ $Source$
 	* lang/norwegian.inc.php3 other updates, thanks to Sven-Erik Andersen.
 
 2001-08-31  Loïc Chapeaux  <lolo@phpheaven.net>
-	* lib.inc.php3, lines 1202-1210: fixed bug #455411 -Table Aliases- and
-	  first part of bug #456119 -Aliases bugs-.
-	* lang/norwegian.inc.php3, eof:  removed a ^M character that causes a bug.
+	* lib.inc.php3:
+	  - lines 1202-1210: fixed bug #455411 -Table Aliases- and first part of
+	    bug #456119 -Aliases bugs-;
+	  - line 175: now validates xhtml1.0.
+	* lang/norwegian.inc.php3, eof: removed a ^M character that causes a bug.
+	* db_details.php3; functions.js; tbl_properties.php3: added some js stuff
+	  to checks for "DROP/DELETE/ALTER" statements. This allows to widely cut
+	  down server charge because the confirmation page no long need to be load
+	  and the later don't need to reload the calling script in case the query
+	  isn't confirmed by the user.
+	* db_details.php3; header.inc.php3; lib.inc.php3; sql.php3;
+	  tbl_properties.php3: all js libraries are now loaded in the header part
+	  of the xhtml generated pages.
+	* db_readdump.php3, line 24: fixed a bug if $sql_file = ''.
 
 2001-08-31  Olivier Müller  <om@omnis.ch>
 	* releasing phpMyAdmin 2.2.0-final
