@@ -48,15 +48,15 @@ if (!empty($cfg['Server']['pdf_pages'])){
     //  exist
     //
     if(!isset($relex)){
-        echo sprintf($strNotSet,'relation') . '<br /><a href="Documentation.html#relation" target="documentation">' . $strDocu . '</a>';
+        echo sprintf($strNotSet,'relation','config.inc.php3') . '<br /><a href="Documentation.html#relation" target="documentation">' . $strDocu . '</a>';
         die();
     }
     if(!isset($info))  {
-        echo sprintf($strNotSet,'table_info') . '<br /><a href="Documentation.html#table_info" target="documentation">' . $strDocu . '</a>';
+        echo sprintf($strNotSet,'table_info','config.inc.php3') . '<br /><a href="Documentation.html#table_info" target="documentation">' . $strDocu . '</a>';
         die();
     }
     if(!isset($coords)){
-        echo sprintf($strNotSet,'table_coords') . '<br /><a href="Documentation.html#table_coords" target="documentation">' . $strDocu . '</a>';
+        echo sprintf($strNotSet,'table_coords','config.inc.php3') . '<br /><a href="Documentation.html#table_coords" target="documentation">' . $strDocu . '</a>';
         die();
     }
 
