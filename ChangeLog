@@ -7,6 +7,7 @@ $Source$
 
 2002-06-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/dutch.inc.php3: Updates, thanks to "CaliMonk" <calimonk at gmx.net>.
+    * lang/thai.inc.php3: Updates, thanks again to Arthit Suriyawongkul.
 
 2002-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/polish.inc.php3 updates, thanks to Jakub Wilk
@@ -15,7 +16,7 @@ $Source$
     * lang/romanian.inc.php3 updates, thanks to Valics Lehel
     * lang/indonesian.inc.php3 updates, thanks to Rachim Tamsjadi
 
-2002-06-03 Mike Beck     <mike.beck@ibmiller.de>
+2002-06-03 Mike Beck  <mike.beck@ibmiller.de>
     * pdf_pages.php3
     - new page to add and edit pdf pages
     * db_details_structure.php3 lines 452-482
