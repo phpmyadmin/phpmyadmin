@@ -923,31 +923,30 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     } else if ($row[$pointer] != '') {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">';
                         if (isset($map[$meta->name])) {
-                        // Field to display from the foreign table?
+                            // Field to display from the foreign table?
                             if (!empty($map[$meta->name][2])) {
-                                $dispsql = 'SELECT ' . $map[$meta->name][2] 
-                                         . ' FROM ' . PMA_backquote($map[$meta->name][0]) 
-                                         . ' WHERE ' . $map[$meta->name][1] 
-                                         . ' = ' . $row[$pointer]; 
-                                $dispresult = mysql_query($dispsql); 
-                                if (mysql_num_rows($dispresult) > 0) { 
-                                    $disprow = mysql_fetch_row($dispresult); 
-                                    $dispval = $disprow[0]; 
-                                } 
-                                else { 
-                                    $dispval = $GLOBALS['strLinkNotFound']; 
-                                }  
+                                $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
+                                             . ' FROM ' . PMA_backquote($map[$meta->name][0])
+                                             . ' WHERE ' . PMA_backquote($map[$meta->name][1])
+                                             . ' = ' . $row[$pointer];
+                                $dispresult  = mysql_query($dispsql);
+                                if ($dispresult && mysql_num_rows($dispresult) > 0) {
+                                    $dispval = mysql_result($dispresult, 0);
+                                }
+                                else {
+                                    $dispval = $GLOBALS['strLinkNotFound'];
+                                }
                             }
                             else {
-                                $dispval = '';
-                            }
-                            $title = (!empty($dispval))? ' title="' . $dispval . '"': '';
+                                $dispval     = '';
+                            } // end if... else...
+                            $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
                                                                    .  'lang=' . $lang . '&amp;server=' . $server
                                                                    .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = ' . $row[$pointer]) . '"' . $title . '>'
+                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$pointer]) . '"' . $title . '>'
                                                                    .  $row[$pointer] . '</a>';
                         } else {
                             $vertical_display['data'][$row_no][$i] .= $row[$pointer];
@@ -1013,33 +1012,32 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
                         }
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">';
-                        if (isset($map[$meta->name])) {
 
-                        // Field to display from the foreign table?
+                        if (isset($map[$meta->name])) {
+                            // Field to display from the foreign table?
                             if (!empty($map[$meta->name][2])) {
-                                $dispsql = 'SELECT ' . $map[$meta->name][2] 
-                                         . ' FROM ' . PMA_backquote($map[$meta->name][0]) 
-                                         . ' WHERE ' . $map[$meta->name][1] 
-                                         . ' = \'' . $row[$pointer] . '\''; 
-                                $dispresult = @mysql_query($dispsql); 
-                                if (mysql_num_rows($dispresult) > 0) { 
-                                    $disprow = mysql_fetch_row($dispresult); 
-                                    $dispval = $disprow[0]; 
-                                } 
-                                else { 
-                                    $dispval = $GLOBALS['strLinkNotFound']; 
-                                }  
+                                $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
+                                             . ' FROM ' . PMA_backquote($map[$meta->name][0])
+                                             . ' WHERE ' . PMA_backquote($map[$meta->name][1])
+                                             . ' = \'' . PMA_sqlAddslashes($row[$pointer]) . '\'';
+                                $dispresult  = @mysql_query($dispsql);
+                                if ($dispresult && mysql_num_rows($dispresult) > 0) {
+                                    $dispval = mysql_result($dispresult, 0);
+                                }
+                                else {
+                                    $dispval = $GLOBALS['strLinkNotFound'];
+                                }
                             }
                             else {
                                 $dispval = '';
                             }
-                            $title = (!empty($dispval))? ' title="' . $dispval . '"': '';
+                            $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
                                                                    .  'lang=' . $lang . '&amp;server=' . $server
                                                                    .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
+                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
                                                                    .  $row[$pointer] . '</a>';
                         } else {
                             $vertical_display['data'][$row_no][$i] .= $row[$pointer];
@@ -1356,15 +1354,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
         if (!empty($cfg['Server']['relation'])) {
             // find tables
-//            $tabs = '(\'' . join('\',\'', spliti('`? *((on [^,]+)?,|(NATURAL )?(inner|left|right)( outer)? join) *`?',
-//                    eregi_replace('^.*FROM +`?|`? *(on [^,]+)?(WHERE.*)?$', '', $sql_query))) . '\')';
             $pattern = '`?[[:space:]]+(((ON|on)[[:space:]]+[^,]+)?,|((NATURAL|natural)[[:space:]]+)?(INNER|inner|LEFT|left|RIGHT|right)([[:space:]]+(OUTER|outer))?[[:space:]]+(JOIN|join))[[:space:]]*`?';
             $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
             $tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
 
-            $local_query = 'SELECT master_field, foreign_table, foreign_field,'
-                         . 'foreign_display_field'
-                         . ' FROM ' . $cfg['Server']['relation']
+            $local_query = 'SELECT master_field, foreign_table, foreign_field, foreign_display_field'
+                         . ' FROM ' . PMA_backquote($cfg['Server']['relation'])
                          . ' WHERE master_table IN ' . $tabs;
             $result      = @mysql_query($local_query);
             if ($result) {

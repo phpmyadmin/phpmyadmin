@@ -17,7 +17,7 @@ require('./tbl_properties_table_info.php3');
 if (!empty($cfg['Server']['relation'])
     && isset($submit_rel) && $submit_rel == 'true') {
     //  first check if there is a entry allready
-    $upd_query  = 'SELECT master_field, foreign_table, foreign_field FROM ' . $cfg['Server']['relation']
+    $upd_query  = 'SELECT master_field, foreign_table, foreign_field FROM ' . PMA_backquote($cfg['Server']['relation'])
                 . ' WHERE master_table = \'' . PMA_sqlAddslashes($table) . '\'';
     $upd_rs     = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
 
@@ -29,7 +29,7 @@ if (!empty($cfg['Server']['relation'])
         if ($value != 'nix') {
             if (!isset($existrel[$key])) {
                 $for        = explode('.', $destination[$key]);
-                $upd_query  = 'INSERT INTO ' . $cfg['Server']['relation'] 
+                $upd_query  = 'INSERT INTO ' . PMA_backquote($cfg['Server']['relation']) 
                             . '(master_table, master_field, foreign_table, foreign_field)'
                             . ' values('
                             . '\'' . PMA_sqlAddslashes($table) . '\', '
@@ -39,14 +39,14 @@ if (!empty($cfg['Server']['relation'])
                 $upd_rs     = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
             } else if ($existrel[$key] != $value) {
                 $for        = explode('.', $destination[$key]);
-                $upd_query  = 'UPDATE ' . $cfg['Server']['relation'] . ' SET'
+                $upd_query  = 'UPDATE ' . PMA_backquote($cfg['Server']['relation']) . ' SET'
                             . ' foreign_table = \'' . PMA_sqlAddslashes($for[0]) . '\', foreign_field = \'' . PMA_sqlAddslashes($for[1]) . '\' '
                             . ' WHERE master_table = \'' . PMA_sqlAddslashes($table) . '\' AND master_field = \'' . PMA_sqlAddslashes($key) . '\'';
                 $upd_rs     = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
             } // end if... else....
         } else if (isset($existrel[$key])) {
             $for            = explode('.', $destination[$key]);
-            $upd_query      = 'DELETE FROM ' . $cfg['Server']['relation']
+            $upd_query      = 'DELETE FROM ' . PMA_backquote($cfg['Server']['relation'])
                             . ' WHERE master_table = \'' . PMA_sqlAddslashes($table) . '\' AND master_field = \'' . PMA_sqlAddslashes($key) . '\'';
             $upd_rs         = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
         } // end if... else....
@@ -93,7 +93,7 @@ if ($cfg['Server']['relation']) {
     //  create Array of Relations (Mike Beck)
     if ($rel_work) {
         $rel_query = 'SELECT master_field, concat(foreign_table, \'.\', foreign_field) AS rel'
-                   . ' FROM ' . $cfg['Server']['relation']
+                   . ' FROM ' . PMA_backquote($cfg['Server']['relation'])
                    . ' WHERE master_table = \'' . PMA_sqlAddslashes($table) . '\'';
         $relations = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
 
