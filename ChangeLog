@@ -7,6 +7,8 @@ $Source$
 
 2003-01-16 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
+    * libraries/tbl_change.js, tbl_change.php3: Improved Ctrl+arrows moving in
+      field editing.
 
 2003-01-15 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/sort_lang.sh: Fix status output bug '\n'

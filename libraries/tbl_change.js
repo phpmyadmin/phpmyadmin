@@ -90,6 +90,10 @@ function onKeyDownArrowsHandler(e) {
 
         var id = "field_" + y + "_" + x;
         var nO = document.getElementById(id);
+        if (!nO) {
+            var id = "field_" + y + "_" + x + "_0";
+            var nO = document.getElementById(id);
+        }
         if (nO) break;
     }
     
