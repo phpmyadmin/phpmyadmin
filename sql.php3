@@ -88,6 +88,7 @@ function PMA_sqlFormat($sql_str) {
  */
 if (!defined('PMA_CHK_DROP')
     && !$cfg['AllowUserDropDatabase']
+
     && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE[[:space:]]', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
@@ -326,7 +327,10 @@ else {
     }
 
     // Executes the query
-    $result   = @PMA_mysql_query($full_sql_query);
+    //  only if we didn't ask to see the php code (mikebeck)
+    if (empty($GLOBALS['show_as_php'])){
+        $result   = @PMA_mysql_query($full_sql_query);
+    }
     // Displays an error message if required and stop parsing the script
     if (PMA_mysql_error()) {
         $error        = PMA_mysql_error();

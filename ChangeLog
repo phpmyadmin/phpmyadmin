@@ -4,7 +4,8 @@ phpMyAdmin - Changelog
 
 $Id$
 $Source$
-
+2002-07-12 Mike Beck    <mikebeck@users.sourceforge.net>
+    * sql.php3: only run query if we didn't ask for phpcode of sql
 2002-07-12 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/select_lang.lib.php3: add -utf-8 choices
     * lang/indonesian updates, thanks to Rachim Tamsjadi
@@ -12,11 +13,11 @@ $Source$
       thanks to Jurgen Schwietering (jurgen at schwietering.com)
 
 2002-07-11 Loïc Chapeaux  <lolo@phpheaven.net>
-	* pdf_schema.php3; tbl_printview.php3; tbl_properties_links.php3;
-	  tbl_properties_operations.php3; tbl_relation.php3;
-	  libraries/charset_conversion.lib.php3; libraries/display_tbl.lib.php3;
-	  libraries/relation.lib.php3: coding standards.
-	* libraries/common.lib.php3: coding standards and a little display bug.
+        * pdf_schema.php3; tbl_printview.php3; tbl_properties_links.php3;
+          tbl_properties_operations.php3; tbl_relation.php3;
+          libraries/charset_conversion.lib.php3; libraries/display_tbl.lib.php3;
+          libraries/relation.lib.php3: coding standards.
+        * libraries/common.lib.php3: coding standards and a little display bug.
 
 2002-07-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: PHP3 compatibility.
