@@ -1532,21 +1532,24 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * @param   string   the current database name
      * @param   string   the current table name
      * @param   boolean  whether to retain or to displays the result
+     * @param   boolean  whether to force an exact count 
      *
      * @return  mixed    the number of records if retain is required, true else
      *
      * @access  public
      */
-    function PMA_countRecords($db, $table, $ret = FALSE)
+    function PMA_countRecords($db, $table, $ret = FALSE, $force_exact = FALSE)
     {
         global $err_url, $cfg;
-        $result       = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
-        $showtable    = PMA_DBI_fetch_assoc($result);
-        $num     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
-        if ($num < $cfg['MaxExactCount']) {
-            unset($num);
+        if (!$force_exact) {
+            $result       = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
+            $showtable    = PMA_DBI_fetch_assoc($result);
+            $num     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+            if ($num < $cfg['MaxExactCount']) {
+                unset($num);
+            }
+            PMA_DBI_free_result($result);
         }
-        PMA_DBI_free_result($result);
 
         if (!isset($num)) {
             $result    = PMA_DBI_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));

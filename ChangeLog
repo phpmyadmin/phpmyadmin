@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php, libraries/common.lib.php, /display_tbl.lib.php, /functions.js,
+      lang/*.php: bug #1084820: ask a confirmation when a user wants to 
+      reach the End of rows, and count the exact number of rows to 
+      go to the real end
+      TODO: page number selector
+
 2005-01-18 Alexander M. Turek  <me@derrabus.de>
     * server_engines.php, server_links.php libraries/storage_engines.lib.php:
       Emulation for < MySQL 4.1.2.

@@ -24,10 +24,10 @@ function confirmLinkDropDB(theLink, theSqlQuery)
     }
 
     return is_confirmed;
-} // end of the 'confirmLink()' function
+} // end of the 'confirmLinkDropDB()' function
 
 /**
- * Displays an confirmation box beforme to submit a "DROP/DELETE/ALTER" query.
+ * Displays an confirmation box before to submit a "DROP/DELETE/ALTER" query.
  * This function is called while clicking links
  *
  * @param   object   the link
@@ -50,6 +50,27 @@ function confirmLink(theLink, theSqlQuery)
 
     return is_confirmed;
 } // end of the 'confirmLink()' function
+
+
+/**
+ * Displays an confirmation box before doing some action 
+ *
+ * @param   object   the message to display 
+ *
+ * @return  boolean  whether to run the query or not
+ */
+function confirmAction(theMessage)
+{
+    // TODO: Confirmation is not required in the configuration file
+    // or browser is Opera (crappy js implementation)
+    if (typeof(window.opera) != 'undefined') {
+        return true;
+    }
+
+    var is_confirmed = confirm(theMessage);
+
+    return is_confirmed;
+} // end of the 'confirmAction()' function
 
 
 /**
@@ -97,9 +118,6 @@ function confirmQuery(theForm1, sqlQuery1)
         // For now, I just added a ^ to check for the statement at
         // beginning of expression
 
-        //var do_confirm_re_0 = new RegExp('DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)\\s', 'i');
-        //var do_confirm_re_1 = new RegExp('ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
-        //var do_confirm_re_2 = new RegExp('DELETE\\s+FROM\\s', 'i');
         var do_confirm_re_0 = new RegExp('^DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)\\s', 'i');
         var do_confirm_re_1 = new RegExp('^ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
         var do_confirm_re_2 = new RegExp('^DELETE\\s+FROM\\s', 'i');

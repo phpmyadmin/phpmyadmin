@@ -329,12 +329,19 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
         <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
         <input type="hidden" name="pos" value="<?php echo @((ceil($unlim_num_rows / $session_max_rows)- 1) * $session_max_rows); ?>" />
+        <?php
+        if ($unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
+            echo '<input type="hidden" name="find_real_end" value="1" />' . "\n";
+            // no backquote around this message
+            $onclick = ' onclick="return confirmAction(\'' . PMA_jsFormat($GLOBALS['strLongOperation'], FALSE) . '\')"';
+        }
+        ?>
         <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
         <input type="hidden" name="disp_direction" value="<?php echo $disp_direction; ?>" />
         <input type="hidden" name="repeat_cells" value="<?php echo $repeat_cells; ?>" />
         <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
         <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
-        <input type="submit" name="navig" value="<?php echo $caption4; ?>"<?php echo $title4; ?> />
+        <input type="submit" name="navig" value="<?php echo $caption4; ?>"<?php echo $title4; ?> <?php echo (empty($onclick) ? '' : $onclick); ?>/>
     </form>
 </td>
         <?php

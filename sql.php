@@ -69,6 +69,15 @@ if (!defined('PMA_CHK_DROP')
 
 
 /**
+ * Need to find the real end of rows?
+ */
+
+if (isset($find_real_end) && $find_real_end) {
+    $unlim_num_rows = PMA_countRecords($db, $table, TRUE, TRUE);
+    $pos = @((ceil($unlim_num_rows / $session_max_rows) - 1) * $session_max_rows);
+}
+
+/**
  * Bookmark add
  */
 if (isset($store_bkm)) {
@@ -429,11 +438,16 @@ else {
                 // because SQL_CALC_FOUND_ROWS
                 // is not quick on large InnoDB tables
 
+                // but do not count again if we did it previously
+                // due to $find_real_end == TRUE
+
                 if (!$is_group
                  && !isset($analyzed_sql[0]['queryflags']['union'])
                  && !isset($analyzed_sql[0]['table_ref'][1]['table_name'])
                  && (empty($analyzed_sql[0]['where_clause'])
-                   || $analyzed_sql[0]['where_clause'] == '1 ')) {
+                   || $analyzed_sql[0]['where_clause'] == '1 ')
+                 && !isset($find_real_end)
+                 ) {
 
                     // "j u s t   b r o w s i n g"
                     $unlim_num_rows = PMA_countRecords($db, $table, TRUE);
