@@ -136,7 +136,7 @@ if (isset($cfg['FileRevision'])) {
 } else {
     $cfg['FileRevision'] = array(1, 1);
 }
-if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 19)) {
+if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 24)) {
     require_once('./libraries/config_import.lib.php');
 }
 
@@ -1556,7 +1556,7 @@ if (typeof(document.getElementById) != 'undefined'
             if (isset($cfg['SQLQuery']['Refresh'])
                 && $cfg['SQLQuery']['Refresh']
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $local_query)) {
-                
+
                 $refresh_link = '&nbsp;[<a href="sql.php'
                           . $url_qpart
                           . '&amp;show_query=1'
