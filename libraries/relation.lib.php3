@@ -81,10 +81,12 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         $cfgRelation['commwork']    = FALSE;
 
         // No server selected -> no bookmark table
+        // we return the array with the FALSEs in it,
+        // to avoid some 'Unitialized string offset' errors later
         if ($server == 0
            || empty($cfg['Server'])
            || empty($cfg['Server']['pmadb'])) {
-            return '';
+            return $cfgRelation;
         }
 
         $cfgRelation['user']  = $cfg['Server']['user'];
