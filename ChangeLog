@@ -13,6 +13,7 @@ $Source$
     * server_*.php3, lang/*.inc.php3, main.php3:
       - Added 'SHOW PROCESSLIST' interface;
       - Small bugfixes.
+      - XHTML fixes.
     * lang/spanish-*.inc.php3: Updates, thanks again to
       Dr. med. Daniel Hinostroza C.
     * tbl_dump.php3, lang/*.inc.php3: Warning for bug #651414.
