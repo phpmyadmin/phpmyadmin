@@ -58,8 +58,12 @@ function unNullify(urlField, multi_edit)
 {
     var rowForm = document.forms['insertForm'];
 
-    if (typeof(rowForm.elements['fields_null' + multi_edit + '[' + urlField + ']']) != 'undefined') {
-        rowForm.elements['fields_null' + multi_edit + '[' + urlField + ']'].checked = false
+    if (typeof(rowForm.elements['fields_null[multi_edit][' + multi_edit + '][' + urlField + ']']) != 'undefined') {
+        rowForm.elements['fields_null[multi_edit][' + multi_edit + '][' + urlField + ']'].checked = false
+    } // end if
+    
+    if (typeof(rowForm.elements['insert_ignore_' + multi_edit]) != 'undefined') {
+        rowForm.elements['insert_ignore_' + multi_edit].checked = false
     } // end if
 
     return true;
