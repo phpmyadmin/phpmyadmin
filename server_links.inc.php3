@@ -50,3 +50,4 @@ echo PMA_printTab($strServerTabProcesslist, 'server_processlist.php3', $url_quer
     </tr>
 </table>
 <br />
+

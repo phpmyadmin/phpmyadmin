@@ -95,6 +95,10 @@ a.h1:link       {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font
 a.h1:active     {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_biggest']; ?>; font-weight: bold; color: #000000}
 a.h1:visited    {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_biggest']; ?>; font-weight: bold; color: #000000}
 a.h1:hover      {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_biggest']; ?>; font-weight: bold; color: #FF0000}
+a.h2:link       {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_bigger']; ?>; font-weight: bold; color: #000000}
+a.h2:active     {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_bigger']; ?>; font-weight: bold; color: #000000}
+a.h2:visited    {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_bigger']; ?>; font-weight: bold; color: #000000}
+a.h2:hover      {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_bigger']; ?>; font-weight: bold; color: #FF0000}
 a.drop:link     {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #ff0000}
 a.drop:visited  {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #ff0000}
 a.drop:hover    {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #ffffff; background-color:#ff0000; text-decoration: none}
@@ -189,6 +193,18 @@ var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPassw
 //-->
 </script>
 <script src="libraries/user_details.js" type="text/javascript" language="javascript"></script>
+    <?php
+} else if (isset($js_to_run) && $js_to_run == 'server_privileges.js') {
+    echo "\n";
+    ?>
+// js form validation stuff
+var jsHostEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strHostEmpty']); ?>';
+var jsUserEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strUserEmpty']); ?>';
+var jsPasswordEmpty   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordEmpty']); ?>';
+var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordNotSame']); ?>';
+//-->
+</script>
+<script src="libraries/server_privileges.js" type="text/javascript" language="javascript"></script>
     <?php
 } else if (isset($js_to_run) && $js_to_run == 'indexes.js') {
     echo "\n";

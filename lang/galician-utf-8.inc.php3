@@ -121,7 +121,7 @@ $strDatabases = 'Bancos de Datos';
 $strDatabasesStats = 'Estatísticas dos bancos de datos';
 $strDefault = 'Padrón';
 $strDelete = 'Eliminar';
-$strDeleteAndFlush = 'Eliminar os usuarios e recarregar os privilexios a continuación.'; 
+$strDeleteAndFlush = 'Eliminar os usuarios e recarregar os privilexios a continuación.';
 $strDeleteAndFlushDescr = 'Este é o modo máis limpo, mais pode que recarregar os privilexios leve un pouco de tempo.';
 $strDeleteFailed = 'Non foi posible eliminar!';
 $strDeleteUserMessage = 'Acaba de eliminar o usuario %s.';
@@ -292,7 +292,7 @@ $strOptionalControls = 'Opcional. Controla como se han de ler e escreber os cara
 $strOptionally = 'OPCIONAL';
 $strOptions = 'Opcións';
 $strOr = 'ou';
-$strOriginalInterface = 'interface orixinal'; 
+$strOriginalInterface = 'interface orixinal';
 $strOverhead = 'De máis (Overhead)';
 
 $strPHP40203 = 'Está a usar PHP 4.2.3, que contén un erro importante relacionado coas cadeas multi-byte (mbstring). Consulte o informe de erros número 19404. Non se recomenda usar esta versión do PHP co phpMyAdmin.';
@@ -334,7 +334,7 @@ $strPrivDescFile = 'Permite importar e exportar datos desde e para ficheiros.';
 $strPrivDescGrant = 'Permite acrescentar usuarios e privilexios sen recarregar as tabelas de privilexios.';
 $strPrivDescIndex = 'Permite crear e eliminar índices.';
 $strPrivDescInsert = 'Permite inserir e substituir datos.';
-$strPrivDescLockTables = 'Permite bloquear tabelas do fío en uso'; 
+$strPrivDescLockTables = 'Permite bloquear tabelas do fío en uso';
 $strPrivDescMaxConnections = 'Limita o número de conexións novas por hora que pode abrir un usuario.';
 $strPrivDescMaxQuestions = 'Limita o número de procuras por hora que pode enviar un usuario.';
 $strPrivDescMaxUpdates = 'Limita o número de comandos que modifiquen unha tabela ou database por hora que pode executar un usuario.';
@@ -526,5 +526,17 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) elimina-se o limite.';
 $strZip = 'comprimido no formato "zipped"';
 // To translate
+
+$strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
+$strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
+$strColumnPrivileges = 'Column-specific privileges'; //to translate
+$strDbPrivileges = 'Database-specific privileges'; //to translate
+$strLocalhost = 'Local';
+$strLoginInformation = 'Login Information'; //to translate
+$strTblPrivileges = 'Table-specific privileges'; //to translate
+$strThisHost = 'This Host'; //to translate
+$strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
+$strUserAlreadyExists = 'The user %s already exists!'; //to translate
+$strUseTextField = 'Use text field'; //to translate
 
 ?>

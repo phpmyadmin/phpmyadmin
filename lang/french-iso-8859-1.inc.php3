@@ -166,7 +166,7 @@ $strFieldsEnclosedBy = 'Champs entourés par';
 $strFieldsEscapedBy = 'Caractère spécial';
 $strFieldsTerminatedBy = 'Champs terminés par';
 $strFixed = 'fixe';
-$strFlushPrivilegesNote = 'Note: phpMyAdmin obtient la liste des privilèges directement à partir des tables MySQL. Le contenu de ces tables peut être différent des privilèges effectifs, si des changements manuels ont été apportés. Dans ce cas, vous devriez %srecharger les privilèges%s avant de continuer.'; 
+$strFlushPrivilegesNote = 'Note: phpMyAdmin obtient la liste des privilèges directement à partir des tables MySQL. Le contenu de ces tables peut être différent des privilèges effectifs, si des changements manuels ont été apportés. Dans ce cas, vous devriez %srecharger les privilèges%s avant de continuer.';
 $strFlushTable = 'Recharger la table ("FLUSH")';
 $strFormEmpty = 'Formulaire incomplet !';
 $strFormat = 'format';
@@ -521,5 +521,17 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
+
+$strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
+$strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
+$strColumnPrivileges = 'Column-specific privileges'; //to translate
+$strDbPrivileges = 'Database-specific privileges'; //to translate
+$strLocalhost = 'Local';
+$strLoginInformation = 'Login Information'; //to translate
+$strTblPrivileges = 'Table-specific privileges'; //to translate
+$strThisHost = 'This Host'; //to translate
+$strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
+$strUserAlreadyExists = 'The user %s already exists!'; //to translate
+$strUseTextField = 'Use text field'; //to translate
 
 ?>

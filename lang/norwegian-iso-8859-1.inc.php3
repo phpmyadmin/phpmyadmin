@@ -531,4 +531,16 @@ $strShowDatadictAs = 'Data Dictionary Format';  //to translate
 
 $strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
 
+$strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
+$strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
+$strColumnPrivileges = 'Column-specific privileges'; //to translate
+$strDbPrivileges = 'Database-specific privileges'; //to translate
+$strLocalhost = 'Local';
+$strLoginInformation = 'Login Information'; //to translate
+$strTblPrivileges = 'Table-specific privileges'; //to translate
+$strThisHost = 'This Host'; //to translate
+$strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
+$strUserAlreadyExists = 'The user %s already exists!'; //to translate
+$strUseTextField = 'Use text field'; //to translate
+
 ?>

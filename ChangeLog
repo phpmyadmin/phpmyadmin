@@ -5,6 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-06 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3:
+      - Interface cosmetic;
+      - Smaller bugfixes;
+      - Added a db / table privileges editor.
+    * server_privileges.php3, server_links.inc.php3: XHTML fixes.
+    * server_privileges.php3, libraries/server_privileges.js:
+      - Optimized some JS functions for the new interface;
+      - Added ability to create new MySQL users via GRANT (feature #502465).
+    * Documentation.html, translators.html, libraries/defines_php.lib.php3:
+      Incremented version number to 2.4.0-dev.
+
 2003-01-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Added a note about "bug" #662602 (FAQ 3.4).
 
