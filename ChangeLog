@@ -10,6 +10,7 @@ $Source$
 
 2002-10-02 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/thai: update, thanks to Arthit Suriyawongkul
+    * lang/german: remove control Ms from the utf-8 file
     
 2002-10-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, typo about GRANT: patch 616772,
