@@ -115,7 +115,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         } // end switch
 
         // No change for this column -> next column
-        if (isset($fields_prev) && isset($fields_prev[urlencode($key)]) && !empty($funcs[$key]) 
+        if (isset($fields_prev) && isset($fields_prev[urlencode($key)]) && empty($funcs[$key]) 
             && ("'" . sql_addslashes(urldecode($fields_prev[urlencode($key)])) . "'" == $val)) {
             continue;
         }
