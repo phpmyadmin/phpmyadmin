@@ -5,6 +5,16 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-08-03  Olivier Müller  <om@omnis.ch>
+	* Generated Documentation.txt based on Documentation.html
+	  (not everybody is having a webbrowser on their servers... :)
+	  But please do continue to work *ONLY* on Documentation.html.
+	  And then just run a "lynx Documentation.html --dump > Documentation.txt"
+	  to update the .txt file. If you don't have lynx, don't worry,
+	  I'll update this file myself anyway on every release.
+	* removed contents of INSTALL (now points to the Documentation)
+	  and updated README
+
 2001-08-02  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_qbe.php3: workaround a PHP3 problem
 	* tbl_change.php3: bug 446830 (enums), adapted patch

@@ -5,8 +5,8 @@ phpMyAdmin - Readme
 
   A set of PHP-scripts to adminstrate MySQL over the WWW.
 
-  Version 2.2.0 - xx/07/2001
-  --------------------------
+  Version 2.2.0 - August 2001
+  ---------------------------
   http://phpwizard.net/projects/phpMyAdmin/
   http://phpmyadmin.sourceforge.net/
 
@@ -14,7 +14,7 @@ phpMyAdmin - Readme
     Copyright (C) 2001-     Olivier Müller <om@omnis.ch>
                             Loïc Chapeaux <lolo@phpHeaven.net>
 			    Marc Delisle <DelislMa@CollegeSherbrooke.qc.ca>
-			    [check CREDITS file for more details]
+			    [check Documentation.txt/.html file for more details]
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -53,23 +53,22 @@ phpMyAdmin - Readme
     You can get the newest version at http://phpmyadmin.sourceforge.net/.
 
   Credits:
-    Please see the CREDITS file.
+    Please see the Documentation.txt/.html file.
    
   Installation:
-    Please see the INSTALL file.
-    For info on configuration have a look Documentation.html
+    Please see the Documentation.txt/.html file.
   
   ChangeLog:
     Now in ChangeLog
   
   Documentation:
-    Basic documentation available in Documentation.html
+    Basic documentation available in Documentation.txt/.html
 
   Support:
     There is a support forum under http://phpwizard.net/phorum/list.php?f=1 
 
 
-    Enjoy,
+    Enjoy!
         The phpMyAdmin Devel team
 
 
