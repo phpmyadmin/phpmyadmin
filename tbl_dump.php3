@@ -15,12 +15,18 @@ function PMA_myHandler($sql_insert)
     global $tmp_buffer;
 
     // Defines the end of line delimiter to use
-    $eol_dlm = (isset($GLOBALS['extended_ins'])) ? ',' : ';';
-    // Result will be displays on screen
+    $eol_dlm = (isset($GLOBALS['extended_ins']) && ($GLOBALS['current_row'] < $GLOBALS['rows_cnt']))
+             ? ','
+             : ';';
+    // Result has to be displayed on screen
     if (empty($GLOBALS['asfile'])) {
-        $tmp_buffer .= htmlspecialchars($sql_insert . $eol_dlm . $GLOBALS['crlf']);
+        echo htmlspecialchars($sql_insert . $eol_dlm . $GLOBALS['crlf']);
     }
-    // Result will be save in a file
+    // Result has to be saved in a text file
+    else if (!isset($GLOBALS['zip']) && !isset($GLOBALS['bzip']) && !isset($GLOBALS['gzip'])) {
+        echo $sql_insert . $eol_dlm . $GLOBALS['crlf'];
+    }
+    // Result will be saved in a *zipped file
     else {
         $tmp_buffer .= $sql_insert . $eol_dlm . $GLOBALS['crlf'];
     }
@@ -45,11 +51,15 @@ function PMA_myCsvHandler($sql_insert)
     global $add_character;
     global $tmp_buffer;
 
-    // Result will be displays on screen
+    // Result has to be displayed on screen
     if (empty($GLOBALS['asfile'])) {
-        $tmp_buffer .= htmlspecialchars($sql_insert) . $add_character;
+        echo htmlspecialchars($sql_insert) . $add_character;
     }
-    // Result will be save in a file
+    // Result has to be saved in a text file
+    else if (!isset($GLOBALS['zip']) && !isset($GLOBALS['bzip']) && !isset($GLOBALS['gzip'])) {
+        echo $sql_insert . $add_character;
+    }
+    // Result will be saved in a *zipped file
     else {
         $tmp_buffer .= $sql_insert . $add_character;
     }
@@ -223,6 +233,11 @@ else {
                     if (!isset($limit_from) || !isset($limit_to)) {
                         $limit_from = $limit_to = 0;
                     }
+                    // loic1: display data if they aren't bufferized
+                    if (!isset($zip) && !isset($bzip) && !isset($gzip)) {
+                        echo $dump_buffer;
+                        $dump_buffer = '';
+                    }
                     PMA_getTableContent($db, $table, $limit_from, $limit_to, 'PMA_myHandler', $err_url);
                     $dump_buffer .= $tmp_buffer;
                 } // end if
@@ -230,7 +245,8 @@ else {
             } // end if-else
         } // end while
 
-        // Don't remove, it makes easier to select & copy frombrowser - staybyte
+        // staybyte: don't remove, it makes easier to select & copy from
+        // browser
         $dump_buffer .= $crlf;
     } // end 'no csv' case
 
@@ -286,7 +302,7 @@ else if (isset($gzip) && $gzip == 'gzip') {
         echo gzencode($dump_buffer);
     }
 }
-// 4. on screen
+// 4. on screen or as a text file
 else {
     echo $dump_buffer;
 }

@@ -13,6 +13,9 @@ $Source$
 	* footer.inc.php3, lines 11-16: tried to fix bug #493200 - Problems with
 	  PHP 4.1.0. Actually the fix is to skip db connection closing if the
 	  script use persistent connections.
+	* tbl_dump.php3; libraries/build_dump.php3: data are no long bufferized by
+	  the script if the user wants it to be displayed on screen or saved as a
+	  text file. This may be helpfull for bug #448223 - Dump hangs.
 
 2001-12-14  Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3: check/uncheck all links weren't working with js

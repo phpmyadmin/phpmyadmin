@@ -161,6 +161,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @global  boolean  whether to use backquotes to allow the use of special
      *                   characters in database, table and fields names or not
+     * @global  integer  the number of records
+     * @global  integer  the current record position
      *
      * @access  private
      *
@@ -171,11 +173,14 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
     function PMA_getTableContentFast($db, $table, $add_query = '', $handler, $error_url)
     {
         global $use_backquotes;
+        global $rows_cnt;
+        global $current_row;
 
         $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
         $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         if ($result != FALSE) {
             $fields_cnt = mysql_num_fields($result);
+            $rows_cnt   = mysql_num_rows($result);
 
             // Checks whether the field is an integer or not
             for ($j = 0; $j < $fields_cnt; $j++) {
@@ -201,11 +206,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         
             $search       = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
             $replace      = array('\0', '\n', '\r', '\Z');
-            $is_first_row = TRUE;
+            $current_row  = 0;
 
             @set_time_limit($GLOBALS['cfgExecTimeLimit']);
 
             while ($row = mysql_fetch_row($result)) {
+            	$current_row++;
                 for ($j = 0; $j < $fields_cnt; $j++) {
                     if (!isset($row[$j])) {
                         $values[]     = 'NULL';
@@ -225,30 +231,28 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
                 // Extended inserts case
                 if (isset($GLOBALS['extended_ins'])) {
-                    if ($is_first_row) {
+                    if ($current_row == 1) {
                         $insert_line  = $schema_insert . implode(', ', $values) . ')';
-                        $is_first_row = FALSE;
                     } else {
-                        $insert_line = '(' . implode(', ', $values) . ')';
+                        $insert_line  = '(' . implode(', ', $values) . ')';
                     }
                 }
                 // Other inserts case
                 else { 
-                   $insert_line = $schema_insert . implode(', ', $values) . ')';
+                    $insert_line      = $schema_insert . implode(', ', $values) . ')';
                 }
                 unset($values);
 
                 // Call the handler
                 $handler($insert_line);
 
-                // loic1: send a fake header to bypass browser timeout
-                header('Expires: 0');
+                // loic1: send a fake header to bypass browser timeout if data
+                //        are bufferized
+                if (!empty($GLOBALS['ob_mode'])
+                    || (isset($GLOBALS['zip']) || isset($GLOBALS['bzip']) || isset($GLOBALS['gzip']))) {
+                    header('Expires: 0');
+                }
             } // end while
-            
-            // Replace last comma by a semi-column in extended inserts case
-            if (isset($GLOBALS['extended_ins'])) {
-              $GLOBALS['tmp_buffer'] = ereg_replace(',([^,]*)$', ';\\1', $GLOBALS['tmp_buffer']);
-            }
         } // end if ($result != FALSE)
         mysql_free_result($result);
     
@@ -276,6 +280,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @global  boolean  whether to use backquotes to allow the use of special
      *                   characters in database, table and fields names or not
+     * @global  integer  the number of records
+     * @global  integer  the current record position
      *
      * @access  private
      *
@@ -284,16 +290,19 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
     function PMA_getTableContentOld($db, $table, $add_query = '', $handler, $error_url)
     {
         global $use_backquotes;
+        global $rows_cnt;
+        global $current_row;
 
         $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
         $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-        $i            = 0;
-        $is_first_row = TRUE;
+        $current_row  = 0;
         $fields_cnt   = mysql_num_fields($result);
+        $rows_cnt     = mysql_num_rows($result);
 
         @set_time_limit($GLOBALS['cfgExecTimeLimit']); // HaRa
 
         while ($row = mysql_fetch_row($result)) {
+            $current_row++;
             $table_list     = '(';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 $table_list .= PMA_backquote(mysql_field_name($result, $j), $use_backquotes) . ', ';
@@ -301,7 +310,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $table_list     = substr($table_list, 0, -2);
             $table_list     .= ')';
 
-            if (isset($GLOBALS['extended_ins']) && !$is_first_row) {
+            if (isset($GLOBALS['extended_ins']) && $current_row > 1) {
                 $schema_insert = '(';
             } else {
                 if (isset($GLOBALS['showcolumns'])) {
@@ -350,17 +359,15 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $schema_insert = ereg_replace(', $', '', $schema_insert);
             $schema_insert .= ')';
             $handler(trim($schema_insert));
-            ++$i;
 
-            // loic1: send a fake header to bypass browser timeout
-            header('Expires: 0');
+            // loic1: send a fake header to bypass browser timeout if data are
+            //        bufferized
+            if (!empty($GLOBALS['ob_mode'])
+                && (isset($GLOBALS['zip']) || isset($GLOBALS['bzip']) || isset($GLOBALS['gzip']))) {
+                header('Expires: 0');
+            }
         } // end while
         mysql_free_result($result);
-
-        // Replace last comma by a semi-column in extended inserts case
-        if ($i > 0 && isset($GLOBALS['extended_ins'])) {
-            $GLOBALS['tmp_buffer'] = ereg_replace(',([^,]*)$', ';\\1', $GLOBALS['tmp_buffer']);
-        }
 
         return TRUE;
     } // end of the 'PMA_getTableContentOld()' function
@@ -511,6 +518,13 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             } // end for
             $handler(trim($schema_insert));
             ++$i;
+
+            // loic1: send a fake header to bypass browser timeout if data are
+            //        bufferized
+            if (!empty($GLOBALS['ob_mode'])
+                && (isset($GLOBALS['zip']) || isset($GLOBALS['bzip']) || isset($GLOBALS['gzip']))) {
+                header('Expires: 0');
+            }
         } // end while
         mysql_free_result($result);
 
