@@ -196,8 +196,11 @@ if ($is_upload && (!isset($is_inside_querywindow) ||
     echo '            ' . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? '<i>' . $strOr . '</i>' : '') . ' ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
     ?>
             <div style="margin-bottom: 5px">
-            <input type="file" name="sql_file" class="textfield" /><br />
+            <input type="file" name="sql_file" class="textfield" />&nbsp;<?php echo PMA_displayMaximumUploadSize($max_upload_size);?><br />
     <?php
+    // some browsers should respect this :)
+    echo '        ' . PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+
     if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
     ?>
             <input type="hidden" name="focus_querywindow" value="true" />

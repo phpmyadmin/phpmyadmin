@@ -30,8 +30,12 @@ require('./tbl_properties_table_info.php');
     <table cellpadding="5" border="2">
     <tr>
         <td><?php echo $strLocationTextfile; ?></td>
-        <td colspan="2"><input type="file" name="textfile" />
+        <td colspan="2"><input type="file" name="textfile" />&nbsp;
         <?php
+echo PMA_displayMaximumUploadSize($max_upload_size);
+// some browsers should respect this :)
+echo '    ' . PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+
 if (!empty($cfg['UploadDir'])) {
     if (substr($cfg['UploadDir'], -1) != '/') {
         $cfg['UploadDir'] .= '/';
