@@ -478,5 +478,41 @@ $strYes = ' Si ';
 
 $strZip = '"compresso con zip"';
 // To translate
-
+$strAdministration = 'Administration'; //to translate
+$strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
+$strGlobalPrivileges = 'Global privileges'; //to translate
+$strGrantOption = 'Grant'; //to translate
+$strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
+$strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
+$strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
+$strPrivDescCreateTbl = 'Allows creating new tables.'; //to translate
+$strPrivDescCreateTmpTable = 'Allows creating temporary tables.'; //to translate
+$strPrivDescDelete = 'Allows deleting data.'; //to translate
+$strPrivDescDropDb = 'Allows dropping databases and tables.'; //to translate
+$strPrivDescDropTbl = 'Allows dropping tables.'; //to translate
+$strPrivDescExecute = 'Allows running stored procedures; Has no effect in this MySQL version.'; //to translate
+$strPrivDescFile = 'Allows importing data from and exporting data into files.'; //to translate
+$strPrivDescGrant = 'Allows adding users and privileges without reloading the privilege tables.'; //to translate
+$strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
+$strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
+$strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
+$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
+$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
+$strPrivDescMaxUpdates = 'Limits the number of commands that that change any table or database the user may execute per hour.';
+$strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
+$strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
+$strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
+$strPrivDescReplClient = 'Gives the right tp the user to ask where the slaves / masters are.'; //to translate
+$strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
+$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
+$strPrivDescSelect = 'Allows reading data.'; //to translate
+$strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
+$strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
+$strPrivDescSuper = 'Allows connectiong, even if maximum number of connections is reached; Required for most administrative operations like setting global variables or killing threads of other users.'; //to translate
+$strPrivDescUpdate = 'Allows changing data.'; //to translate
+$strPrivDescUsage = 'No privileges.'; //to translate
+$strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
+$strResourceLimits = 'Resource limits'; //to translate
+$strUserOverview = 'User overview'; //to translate
+$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 ?>

@@ -5,6 +5,17 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-18 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * main.php3, header.inc.php3, server_privileges.php3, server_links.php3,
+      lang/*.inc.php3: Started rewriting the user administration; changes:
+      - Use GRANT / REVOKE for privilege changes (feature #502465);
+      - Support for the new privilege system introduced with MySQL 4.0.2-beta;
+      - Support for user resource limits;
+      - Improved user friendliness.
+      Currently, it can only display and edit global privileges.
+    * libraries/common.lib.php3: Undefined index.
+    * lang/slovenian-*.inc.php3: Updates, thanks again to Kositer Uros (urosh).
+
 2002-12-18 Michal Cihar  <nijel@users.sourceforge.net>
     * main.php3: Since every user has access to his processlist, set
       is_process_priv to TRUE as default (fixes undefined variable warning).

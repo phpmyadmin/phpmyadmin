@@ -42,6 +42,9 @@ if ($cfg['ShowMysqlInfo']) {
 if ($cfg['ShowMysqlVars']) {
     echo PMA_printTab($strServerTabVariables, 'server_variables.php3', $url_query);
 }
+if ($is_superuser) {
+    echo PMA_printTab($strPrivileges, 'server_privileges.php3', $url_query);
+}
 echo PMA_printTab($strServerTabProcesslist, 'server_processlist.php3', $url_query);
 ?>
     </tr>

@@ -61,8 +61,8 @@ if (!empty($GLOBALS['cfg']['PmaAbsoluteUri'])) {
 <style type="text/css">
 <!--
 body {
-    font-family: <?php echo $right_font_family; ?>;
-    font-size: <?php echo $font_size; ?>;
+    font-family: <?php echo $GLOBALS['right_font_family']; ?>;
+    font-size: <?php echo $GLOBALS['font_size']; ?>;
     color: #000000;
 <?php
 if ($GLOBALS['cfg']['RightBgImage'] == '') {
@@ -74,31 +74,34 @@ if ($GLOBALS['cfg']['RightBgImage'] == '') {
 ?>
     background-color: <?php echo $GLOBALS['cfg']['RightBgColor'] . "\n"; ?>
 }
-pre, tt         {font-size: <?php echo $font_size; ?>}
-th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>}
-td              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
-form            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
-input           {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
-input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
-select          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
-textarea        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
-h1              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold}
-h2              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
-a:link          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
-a:visited       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
-a:hover         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: underline; color: #FF0000}
-a.nav:link      {font-family: <?php echo $right_font_family; ?>; color: #000000}
-a.nav:visited   {font-family: <?php echo $right_font_family; ?>; color: #000000}
-a.nav:hover     {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
-a.h1:link       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
-a.h1:active     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
-a.h1:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
-a.h1:hover      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #FF0000}
-a.drop:link     {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
-a.drop:visited  {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
-a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #ffffff; background-color:#ff0000; text-decoration: none}
-.nav            {font-family: <?php echo $right_font_family; ?>; color: #000000}
-.warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
+pre, tt         {font-size: <?php echo $GLOBALS['font_size']; ?>}
+th              {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>; font-weight: bold; color: #000000; background-color: <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>}
+td              {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>}
+form            {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>}
+input           {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>}
+input.textfield {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>; color: #000000; background-color: #FFFFFF}
+select          {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>; color: #000000; background-color: #FFFFFF}
+textarea        {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>; color: #000000; background-color: #FFFFFF}
+h1              {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_biggest']; ?>; font-weight: bold}
+h2              {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_bigger']; ?>; font-weight: bold}
+h3              {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>; font-weight: bold}
+a:link          {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>; text-decoration: none; color: #0000FF}
+a:visited       {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>; text-decoration: none; color: #0000FF}
+a:hover         {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>; text-decoration: underline; color: #FF0000}
+a.nav:link      {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #000000}
+a.nav:visited   {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #000000}
+a.nav:hover     {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #FF0000}
+a.h1:link       {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_biggest']; ?>; font-weight: bold; color: #000000}
+a.h1:active     {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_biggest']; ?>; font-weight: bold; color: #000000}
+a.h1:visited    {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_biggest']; ?>; font-weight: bold; color: #000000}
+a.h1:hover      {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_biggest']; ?>; font-weight: bold; color: #FF0000}
+a.drop:link     {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #ff0000}
+a.drop:visited  {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #ff0000}
+a.drop:hover    {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #ffffff; background-color:#ff0000; text-decoration: none}
+dfn             {font-style: normal}
+dfn:hover       {font-style: normal; cursor: help}
+.nav            {font-family: <?php echo $GLOBALS['right_font_family']; ?>; color: #000000}
+.warning        {font-family: <?php echo $GLOBALS['right_font_family']; ?>; font-size: <?php echo $GLOBALS['font_size']; ?>; font-weight: bold; color: #FF0000}
 td.topline      {font-size: 1px}
 td.tab          {
     border-top: 1px solid #999;

@@ -331,7 +331,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if (!empty($the_query) && !strstr($the_query, 'connect')) {
             echo '<p>' . "\n";
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
-            if ($is_modify_link) {
+            if ($is_modify_link && isset($db)) {
                 echo '    ['
                      . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;convcharset=' . $GLOBALS['convcharset'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">' . $GLOBALS['strEdit'] . '</a>'
                      . ']' . "\n";
