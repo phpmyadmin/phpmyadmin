@@ -749,7 +749,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
      * analyzed and ['foreign_keys'] is an array filled with 
      * the constraint name, the index list,
-     * the REFERENCES table name and REFERENCES index list.
+     * the REFERENCES table name and REFERENCES index list,
+     * and ON UPDATE | ON DELETE clauses
      *
      * lem9: position_of_first_select
      *       ------------------------
@@ -1382,6 +1383,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $foreign_key_number = -1;
 
             for ($i = 0; $i < $size; $i++) {
+            // DEBUG echo $arr[$i]['data'] . " " . $arr[$i]['type'] . "<br>";
                 if ($arr[$i]['type'] == 'alpha_reservedWord') {
                    $upper_data = strtoupper($arr[$i]['data']);
 
@@ -1401,6 +1403,40 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                        $seen_references = TRUE;
                        $seen_constraint = FALSE;
                    }
+
+
+                  // [ON DELETE {CASCADE | SET NULL | NO ACTION | RESTRICT}]
+                  // [ON UPDATE {CASCADE | SET NULL | NO ACTION | RESTRICT}]
+
+                  // but we set ['on_delete'] or ['on_cascade'] to
+                  // CASCADE | SET_NULL | NO_ACTION | RESTRICT
+
+                   if ($upper_data == 'ON') {
+                       unset($clause);
+                       if ($arr[$i+1]['type'] == 'alpha_reservedWord') {
+                           $second_upper_data = strtoupper($arr[$i+1]['data']);
+                           if ($second_upper_data == 'DELETE') {
+                                $clause = 'on_delete';
+                           }                         
+                           if ($second_upper_data == 'UPDATE') {
+                                $clause = 'on_update';
+                           }                         
+                           if (isset($clause) && $arr[$i+2]['type'] == 'alpha_reservedWord') {
+                              $third_upper_data = strtoupper($arr[$i+2]['data']);
+                              if ($third_upper_data == 'CASCADE' 
+                               || $third_upper_data == 'RESTRICT') {
+                                  $value = $third_upper_data;
+                              } elseif ($third_upper_data == 'SET'
+                                     || $third_upper_data == 'NO') {
+                                  if ($arr[$i+3]['type'] == 'alpha_reservedWord') {
+                                      $value = $third_upper_data . '_' . strtoupper($arr[$i+3]['data']);
+                                  }
+                              }
+                              $foreign[$foreign_key_number][$clause] = $value;
+                           }
+                       }
+                   }
+
                 }
 
                 if ($arr[$i]['type'] == 'punct_bracket_open_round') {
