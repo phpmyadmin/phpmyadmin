@@ -40,6 +40,5 @@ require('./header.inc.php3');
 /**
  * Checks for superuser privileges
  */
-$is_superuser = @PMA_mysql_query('USE mysql', $userlink);
-
+$is_superuser = @PMA_mysql_query('SELECT COUNT(*) FROM mysql.user', $userlink);
 ?>
