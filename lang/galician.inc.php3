@@ -351,4 +351,5 @@ $strCardinality = 'Cardinality';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

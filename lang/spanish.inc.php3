@@ -345,4 +345,5 @@ $strZip = '"comprimido con zip"';
 
 // To translate
 $strFlushTable = 'Flush the table ("FLUSH")';//to translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

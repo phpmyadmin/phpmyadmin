@@ -352,4 +352,5 @@ $strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';  //to translate
 $strUnselectAll = 'Unselect All';  //to translate
 $strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

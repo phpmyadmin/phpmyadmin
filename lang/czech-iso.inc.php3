@@ -348,4 +348,5 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

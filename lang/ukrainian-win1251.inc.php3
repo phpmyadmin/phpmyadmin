@@ -347,3 +347,5 @@ $strYes = 'Так';
 $strZip = 'запакувати в "zip"';
 
 // To translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
+?>

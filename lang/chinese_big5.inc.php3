@@ -350,4 +350,5 @@ $strYes = ' ¬O ';
 $strZip = '"zipped"';
 
 // To translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

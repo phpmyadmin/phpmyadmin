@@ -351,4 +351,5 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

@@ -347,4 +347,5 @@ $strBzip = '"bzipped"';  //to translate
 $strGzip = '"gzipped"';  //to translate
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate
 $strZip = '"zipped"';  //to translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

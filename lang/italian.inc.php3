@@ -351,4 +351,5 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

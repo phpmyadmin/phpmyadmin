@@ -1208,7 +1208,37 @@ else if (PMA_MYSQL_INT_VERSION >= 32306
     <?php
     echo "\n";
 } // end 3.23.06 < MySQL < 3.23.22
+
+// Relational integrity check
+if (!empty($cfgServer['relation'])) {
+
+    $local_query = 'SELECT src_column, dest_table, dest_column'
+                         . ' FROM ' . $cfgServer['relation']
+                         . ' WHERE src_table =\'' . $table . '\';';
+    mysql_select_db($db);
+    $result      = @mysql_query($local_query);
+
+    if ($result != FALSE && mysql_num_rows($result) > 0) {
+        echo "    <!-- Relational integrity check -->\n";
+        echo "    <li>" . $strRelationalIntegrity . "<br />\n";
+        while ($rel = mysql_fetch_row($result)) {
+            echo '        <a href="sql.php3?' . $url_query .'&amp;sql_query='
+	       . urlencode('SELECT ' . PMA_backquote($table) . '.* FROM '
+               . PMA_backquote($table) . ' LEFT JOIN '
+               . PMA_backquote($rel[1]) . ' ON '
+               . PMA_backquote($table) . '.' . PMA_backquote($rel[0])
+               . ' = ' . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2])
+               . ' WHERE '  
+               . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2]) 
+               . ' IS NULL') . '">' . $rel[0] . '-> ' . $rel[1] . '.'
+               . $rel[2] . '</a><br />' . "\n";
+        } // end while
+        echo "    </li><br />\n"; 
+    } // end if ($result)
+
+} // end  if (!empty($cfgServer['relation']))
 ?>
+
 
     <!-- Flushes the table -->
     <li>

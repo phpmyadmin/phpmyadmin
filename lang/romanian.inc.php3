@@ -348,4 +348,5 @@ $strZip = '"zipped"';
 
 // To translate
 $strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

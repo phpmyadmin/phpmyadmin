@@ -347,4 +347,5 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>

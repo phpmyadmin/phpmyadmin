@@ -348,4 +348,5 @@ $strYes = 'Igen';
 $strZip = '"zippel tömörítve"';
 
 // To translate
+$strRelationalIntegrity = 'Check relational integrity:';  //to translate
 ?>
