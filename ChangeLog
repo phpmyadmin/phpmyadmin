@@ -12,6 +12,7 @@ $Source$
 	  opened in IE5/Mac (because of an invalid DTD).
 	* lang/czech-*.inc.php3: fixed some "typos", thanks to Michal Cihar.
 	* lang/slovak.inc.php3: put font faces between double quotes.
+	* images/bkg.gif: re-set the transparent color.
 
 2001-10-18  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/finnish.inc.php3 updates, thanks to Visa Kopu.
