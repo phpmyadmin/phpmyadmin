@@ -149,7 +149,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
 
     // For compatibility with old config.inc.php3
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 116) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 120) {
         include('./libraries/config_import.lib.php3');
     }
 

@@ -4,12 +4,19 @@ phpMyAdmin - Changelog
 
 $Id$
 $Source$
+
+2002-07-17 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3, libraries/config_import.lib.php3: Added
+      $cfg['PmaNoRelation_DisableWarning'] to the backwards compatibility code.
+    * config.inc.php3, Documentation.html: Remerged the changes that were
+      removed in the previous revision, thanks to Björn T. Hallberg (bth).
+
 2002-07-16 Mike Beck <mikebeck@users.sourceforge.net>
     * pdf_pages.php3: if a page is edit it can also be shown
     * pdf_schema.php3: now it is possible to have all tables
       displayed with the same (maximum) width
       (feature request 576537)
-      
+
 2002-07-16 Mike Beck <mikebeck@users.sourceforge.net>
     * libraries/relation.lib.php3: verbose mode
     * db_details_structure.php3: show message if relation doesn't work

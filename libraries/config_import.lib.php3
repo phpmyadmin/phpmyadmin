@@ -715,6 +715,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
     if (!isset($cfg['PmaAbsoluteUri_DisableWarning'])) {
         $cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
     }
+    if (!isset($cfg['PmaNoRelation_DisableWarning'])) {
+        $cfg['PmaNoRelation_DisableWarning'] = FALSE;
+    }
 } // $__PMA_CONFIG_IMPORT_LIB__
 
 ?>
