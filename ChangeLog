@@ -8,6 +8,10 @@ $Source$
 2003-04-08 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/galician: update, thanks to Xosé Calvo
     * lang/lithuanian: Updated, thanks to Vilius Zigmantas.
+    * lang/italian: Updated, thanks to Pietro Danesi.
+    * lang/chinese_gb: update, thanks to (fundawang)
+    * lang/swedish: update, thanks to Björn T. Hallberg
+    * lang/norwegian: update, thanks to Sven-Erik Andersen
 
 2003-04-07 Michal Cihar  <nijel@users.sourceforge.net>
     * db_details_structure.php3, mult_submits.inc.php3: Added ANALYZE TABLE to
