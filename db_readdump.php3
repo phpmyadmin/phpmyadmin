@@ -72,6 +72,7 @@ if($sql_query != "") {
 }
 
 // copy the original query back for display purposes
+include("./header.inc.php3");
 $sql_query = $sql_query_cpy;
 $message = $strSuccess;
 require("./db_details.php3");
