@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* main.php3: merged patch #462787 (Home page for unpriviliged user) thanks
+	  to Piotr Roszatycki <d3xter at users.sourceforge.net>.
+	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
+
 2001-09-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_create.php3; tbl_addfield.php3: fixed a bug with "auto_increment"
 	  fields (since indexes were defined in their own statement, auto-increment
