@@ -9,11 +9,11 @@ $number_thousands_separator = '.';
 $number_decimal_separator = ',';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
-$day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-$month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+$day_of_week = array('Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'); //italian days
+$month = array('Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'); //italian months
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%B %d, %Y at %I:%M %p';
+$datefmt = '%d %B, %Y at %I:%M %p'; //italian time
 
 
 $strAccessDenied = 'Accesso negato';
@@ -195,7 +195,7 @@ $strOptimizeTable = 'Ottimizza tabella';
 $strOptionalControls = 'Opzionale. Questo carattere controlla come scrivere o leggere i caratteri speciali.';
 $strOptionally = 'OPZIONALE';
 $strOr = 'O';
-$strOverhead = 'Overhead'; // To translate
+$strOverhead = 'Overhead'; // To translate (I must understand the context to translate this)
 
 $strPartialText = 'Testi parziali';
 $strPassword = 'Password';
