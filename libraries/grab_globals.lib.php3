@@ -65,9 +65,9 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
         }
     } else if (!empty($HTTP_SERVER_VARS)) {
         if (isset($HTTP_SERVER_VARS['PHP_SELF'])) {
-            $PHP_SELF = $HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'];
+            $PHP_SELF = $HTTP_SERVER_VARS['PHP_SELF'];
         }
-        if (isset($HTTP_SERVER_VARS['PHP_SELF'])) {
+        if (isset($HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'])) {
             $HTTP_ACCEPT_LANGUAGE = $HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'];
         }
     } // end if
