@@ -66,6 +66,7 @@ $strCantRenameIdxToPrimary = '無法將索引更名為 PRIMARY!';
 $strCardinality = '組別';
 $strCarriage = '歸位: \\r';
 $strChange = '修改';
+$strChangePassword = '更改密碼';
 $strCheckAll = '全選';
 $strCheckDbPriv = '檢查資料庫權限';
 $strCheckTable = '檢查資料表';
@@ -88,6 +89,7 @@ $strDatabase = '資料庫';
 $strDatabaseHasBeenDropped = '資料庫 %s 已被刪除';
 $strDatabases = '資料庫';
 $strDatabasesStats = '資料庫統計';
+$strDatabaseWildcard = '資料庫 (允許使用萬用字元):';
 $strDataOnly = '只有資料';
 $strDefault = '預設值';
 $strDelete = '刪除';
@@ -347,6 +349,4 @@ $strYes = ' 是 ';
 $strZip = '"zipped"';
 
 // To translate
-$strChangePassword = 'Change password';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>
