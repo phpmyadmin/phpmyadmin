@@ -588,8 +588,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         // Start of form for multi-rows delete
 
-        echo '<form method="post" action="tbl_row_delete.php3" name="rowsDeleteForm">' . "\n";
-        echo PMA_generate_common_hidden_inputs($db, $table, 1); 
+        if ($is_display['del_lnk'] == 'dr') {
+            echo '<form method="post" action="tbl_row_delete.php3" name="rowsDeleteForm">' . "\n";
+            echo PMA_generate_common_hidden_inputs($db, $table, 1); 
+        }
 
         // 1. Displays the full/partial text button (part 1)...
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
@@ -1775,30 +1777,33 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         // 4. ----- Displays the link for multi-fields delete
 
-        $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
+        if ($is_display['del_lnk'] == 'dr') {
+
+            $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
 
 //        echo '&nbsp;&nbsp;&nbsp;<img src="./images/arrow_' . $GLOBALS['text_dir'] . '.gif" border="0" width="38" height="22" alt="' . $GLOBALS['strWithChecked'] . '" />';
-          echo '&nbsp;&nbsp;<i>' . $GLOBALS['strWithChecked'] . '</i>'. "\n";
+              echo '&nbsp;&nbsp;<i>' . $GLOBALS['strWithChecked'] . '</i>'. "\n";
 
-        if ($cfg['PropertiesIconic']) {
-            /* Opera has trouble with <input type="image"> */
-            /* IE has trouble with <button> */
-            if (PMA_USR_BROWSER_AGENT != 'IE') {
-                echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '">' . "\n"
-                   . '<img src="./images/button_drop.png" title="' . $GLOBALS['strDelete'] . '" alt="' . $GLOBALS['strDelete'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : '') . "\n"
-                   . '</button>';
+            if ($cfg['PropertiesIconic']) {
+                /* Opera has trouble with <input type="image"> */
+                /* IE has trouble with <button> */
+                if (PMA_USR_BROWSER_AGENT != 'IE') {
+                    echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '">' . "\n"
+                       . '<img src="./images/button_drop.png" title="' . $GLOBALS['strDelete'] . '" alt="' . $GLOBALS['strDelete'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : '') . "\n"
+                       . '</button>';
+                } else {
+                    echo '                    <input type="image" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : ''); 
+                }
+                echo "\n";
             } else {
-                echo '                    <input type="image" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : ''); 
+                echo '                    <input type="submit" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" />' . "\n";
             }
-            echo "\n";
-        } else {
-            echo '                    <input type="submit" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" />' . "\n";
+            echo '<input type="hidden" name="sql_query" value="' . $sql_query . '" />' . "\n";
+            echo '<input type="hidden" name="pos" value="' . $pos . '" />' . "\n";
+            echo '<input type="hidden" name="url_query" value="' . $GLOBALS['url_query'] . '" />' . "\n";
+            echo '<br />' . "\n";
+            echo '</form>' . "\n";
         }
-        echo '<input type="hidden" name="sql_query" value="' . $sql_query . '" />' . "\n";
-        echo '<input type="hidden" name="pos" value="' . $pos . '" />' . "\n";
-        echo '<input type="hidden" name="url_query" value="' . $GLOBALS['url_query'] . '" />' . "\n";
-        echo '<br />' . "\n";
-        echo '</form>' . "\n";
 
         // 5. ----- Displays the navigation bar at the bottom if required -----
 
