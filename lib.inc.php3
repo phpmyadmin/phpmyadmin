@@ -449,9 +449,13 @@ function get_table_def($db, $table, $crlf)
     $result = mysql_db_query($db, "SHOW KEYS FROM $table") or mysql_die();
     while($row = mysql_fetch_array($result))
     {
-        $kname=$row['Key_name'];
+	$kname=$row['Key_name'];
+        $comment=$row['Comment'];
         if(($kname != "PRIMARY") && ($row['Non_unique'] == 0))
             $kname="UNIQUE|$kname";
+
+        if($comment=="FULLTEXT")
+            $kname="FULLTEXT|$kname";
          if(!isset($index[$kname]))
              $index[$kname] = array();
          $index[$kname][] = $row['Column_name'];
@@ -461,11 +465,15 @@ function get_table_def($db, $table, $crlf)
     {
          $schema_create .= ",$crlf";
          if($x == "PRIMARY")
-             $schema_create .= "   PRIMARY KEY (" . implode($columns, ", ") . ")";
+            $schema_create .= "   PRIMARY KEY (";
          elseif (substr($x,0,6) == "UNIQUE")
-            $schema_create .= "   UNIQUE ".substr($x,7)." (" . implode($columns, ", ") . ")";
+            $schema_create .= "   UNIQUE " .substr($x,7)." (";
+         elseif (substr($x,0,8) == "FULLTEXT")
+            $schema_create .= "   FULLTEXT ".substr($x,9)." (";
          else
-            $schema_create .= "   KEY $x (" . implode($columns, ", ") . ")";
+            $schema_create .= "   KEY $x (";
+
+        $schema_create .= implode($columns,", ") . ")";
     }
 
     $schema_create .= "$crlf)";
