@@ -1652,7 +1652,6 @@ if ($is_minimum_common == FALSE) {
 
         // These reserved words do NOT get a newline placed near them.
         $keywords_no_newline               = array(
-            'AND',
             'AS',
             'ASC',
             'DESC',
@@ -1660,10 +1659,11 @@ if ($is_minimum_common == FALSE) {
             'HOUR',
             'INTERVAL',
             'IS',
+            'LIKE',
             'NOT',
             'NULL',
             'ON',
-            'OR'
+            'REGEXP'
         );
         $keywords_no_newline_cnt           = 12;
 
