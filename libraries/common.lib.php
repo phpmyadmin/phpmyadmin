@@ -273,7 +273,8 @@ if (strtolower($cfg['OBGzip']) == 'auto') {
  *            If not, it will use default images
 */
 // Theme Manager
-if (!isset($_COOKIE['theme']) || empty($_COOKIE['theme'])){
+if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
+    $GLOBALS['theme'] = $cfg['ThemeDefault'];
     $ThemeDefaultOk = FALSE;
     if ($cfg['ThemePath']!='' && $cfg['ThemePath'] != FALSE) {
         $tmp_theme_mainpath = './' . $cfg['ThemePath'];
@@ -294,9 +295,10 @@ if (!isset($_COOKIE['theme']) || empty($_COOKIE['theme'])){
         $pmaThemeImage = './images/';
     }
 } else {
-    if ($_COOKIE['theme']!='original') {
-        $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $_COOKIE['theme'] . '/img/';
-        $tmp_color_file = './' . $cfg['ThemePath'] . '/' . $_COOKIE['theme'] . '/colors.inc.php';
+    $GLOBALS['theme'] = $_COOKIE['pma_theme'];
+    if ($_COOKIE['pma_theme'] != 'original') {
+        $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $_COOKIE['pma_theme'] . '/img/';
+        $tmp_color_file = './' . $cfg['ThemePath'] . '/' . $_COOKIE['pma_theme'] . '/colors.inc.php';
         if (@file_exists($tmp_color_file)) {
             include($tmp_color_file);
         }

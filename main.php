@@ -321,7 +321,7 @@ if ($server > 0) {
 <!-- MySQL server related links -->
 <table cellpadding="3" cellspacing="0">
     <tr>
-        <th<?php if(isset($theme) && $theme!='original'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;MySQL</th>
+        <th<?php if($theme!='original'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;MySQL</th>
     </tr>
     <tr><?php
         echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','b_newdb.png',$strCreateNewDatabase,'') : $str_normal_list); 
@@ -515,7 +515,7 @@ echo "\n";
 <td valign="top">
 <table border="0" cellpadding="3" cellspacing="0">
     <tr>
-        <th<?php if(isset($theme) && $theme!='none'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;phpMyAdmin</th>
+        <th<?php if($theme!='none'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;phpMyAdmin</th>
     </tr>
 <?php
 // Displays language selection combo
@@ -585,7 +585,6 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
             <form method="post" action="index.php" target="_parent">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="set_theme" value="<?php echo $theme; ?>" />
                 <?php echo $strMySQLCharset;?>:
                 <select name="convcharset" dir="ltr" onChange="this.form.submit();" style="vertical-align: middle">
     <?php
@@ -637,26 +636,20 @@ if (count($available_themes_choices)>1) {
 ?>
         <td>
             <form name="setTheme" method="post" action="index.php" target="_parent">
-                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                <?php
+                <?php 
+                echo PMA_generate_common_hidden_inputs(5);
                 echo $theme_preview_href
                    . (isset($strTheme) ? $strTheme : 'Theme (Style)')
                    . '</a>:' . "\n";
                 ?> 
                 <select name="set_theme" dir="ltr" onChange="this.form.submit();" style="vertical-align: middle">
                 <?php
-                    for($i=0;$i<count($available_themes_choices);$i++){
-                        echo '<option value="' . $available_themes_choices[$i] . '"';
-                        if (isset($theme) && $available_themes_choices[$i] == $theme) {
+                    foreach ($available_themes_choices AS $i => $cur_theme) {
+                        echo '<option value="' . $cur_theme . '"';
+                        if ($cur_theme == $theme) {
                             echo ' selected="selected"';
-                            $theme_selected = TRUE;
                         }
-                        echo '>' . $available_themes_choices[$i] . '</option>';
-                    }
-                    if ($theme_selected != TRUE) {
-                        echo '<option value="" selected="selected">' . (isset($strSelectTheme) ? $strSelectTheme : 'please select ...') . '</option>';
+                        echo '>' . $cur_theme . '</option>';
                     }
                 ?>
                 </select>

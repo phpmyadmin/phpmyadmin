@@ -594,7 +594,6 @@ $strSelectAll = 'Select All';
 $strSelectFields = 'Select fields (at least one):';
 $strSelectNumRows = 'in query';
 $strSelectTables = 'Select Tables';
-$strSelectTheme = 'please select...';
 $strSend = 'Save as file';
 $strSent = 'Sent';
 $strServer = 'Server';

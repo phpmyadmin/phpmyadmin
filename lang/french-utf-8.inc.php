@@ -596,7 +596,6 @@ $strSelectAll = 'Tout sélectionner';
 $strSelectFields = 'Choisir les champs à afficher (au moins un)';
 $strSelectNumRows = 'dans la requête';
 $strSelectTables = 'Choisissez les tables';
-$strSelectTheme = 'veuillez choisir...';
 $strSend = 'Transmettre';
 $strSent = 'Envoyé';
 $strServer = 'Serveur';

@@ -7,12 +7,14 @@ $Source$
 
 2004-06-15 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
-    * config.inc.php, libraries/common.lib.php,
-      libraries/config_import.lib.php: Support for SHA1 function (RFE
-      #971703).
-    * main.php: Possible undefined variable.
+    * config.inc.php, libraries/config_import.lib.php,
+      libraries/common.lib.php: Support for SHA1 function (RFE #971703).
     * queryframe.php: Do not show <hr /> when no logo is shown.
-    * main.php: Don't reset theme on language change.
+    * main.php: Generate hidden inputs nicely.
+    * main.php, libraries/common.lib.php, libraries/select_theme.lib.php: Use
+      pma_theme as cookie name, default theme to some reasonable value to
+      avoid undefined variables all around the code.
+    * main.php, lang/*: strSelectTheme is IMHO not needed.
 
 2004-06-09 Alexander M. Turek  <me@derrabus.de>
     * libraries/config_import.lib.php: The default settings should be merged.

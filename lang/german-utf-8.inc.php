@@ -752,7 +752,6 @@ $strZip = 'Zip-komprimiert';
 $strStrucNativeExcel = 'Native MS Excel data';  //to translate
 $strDisableForeignChecks = 'Disable foreign key checks';  //to translate
 $strServerNotResponding = 'The server is not responding';  //to translate
-$strSelectTheme = 'please select...';  //to translate
 $strTheme = 'Theme / Style';  //to translate
 $strTakeIt = 'take it';  //to translate
 ?>

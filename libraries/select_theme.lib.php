@@ -78,24 +78,24 @@ if (!isset($pma_uri_parts)) { // cookie-setup if needed
 } // end cookie setup
 
 if (isset($set_theme)) { // if user submit a theme
-    setcookie('theme', $set_theme, time() + 60*60*24*30, $cookie_path, '', $is_https);
+    setcookie('pma_theme', $set_theme, time() + 60*60*24*30, $cookie_path, '', $is_https);
 } else { // else check if user have a theme cookie
-    if (!isset($_COOKIE['theme']) || empty($_COOKIE['theme'])) {
+    if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])) {
         if ($PMA_ThemeDefault == TRUE) { 
             if (basename($PHP_SELF) == 'index.php') {
-                setcookie('theme', $cfg['ThemeDefault'], time() + 60*60*24*30, $cookie_path, '', $is_https);
+                setcookie('pma_theme', $cfg['ThemeDefault'], time() + 60*60*24*30, $cookie_path, '', $is_https);
             }
             $pmaTheme=$cfg['ThemeDefault'];
         }else{
             if (basename($PHP_SELF) == 'index.php') {
-                setcookie('theme', 'original', time() + 60*60*24*30, $cookie_path, '', $is_https);
+                setcookie('pma_theme', 'original', time() + 60*60*24*30, $cookie_path, '', $is_https);
             }
             $pmaTheme='original';
         }
     } else {
-        $pmaTheme=$_COOKIE['theme'];
+        $pmaTheme=$_COOKIE['pma_theme'];
         if (basename($PHP_SELF) == 'index.php') {
-            setcookie('theme', $pmaTheme, time() + 60*60*24*30, $cookie_path, '', $is_https);
+            setcookie('pma_theme', $pmaTheme, time() + 60*60*24*30, $cookie_path, '', $is_https);
         }
     }
 } // end if

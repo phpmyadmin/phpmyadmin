@@ -600,7 +600,6 @@ $strSelectAll = 'Vybrat v¹e';
 $strSelectFields = 'Zvolte sloupec (alespoò jeden):';
 $strSelectNumRows = 'v&nbsp;dotazu';
 $strSelectTables = 'Vybrat tabulky';
-$strSelectTheme = 'prosím vyberte si...';
 $strSend = 'Do souboru';
 $strSent = 'Odesláno';
 $strServer = 'Server';
