@@ -239,8 +239,8 @@ GRANT SELECT ON mysql.host TO 'pma'@'localhost';
 GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
     ON mysql.tables_priv TO 'pma'@'localhost';
         </pre>
-        If you are using an old MySQL version (below 4.0.2), please use this
-        query instead of the second one:
+        If you are using an old MySQL version (below 4.0.2), please replace
+        the first GRANT SELECT query by this one:
         <pre>
 
 GRANT SELECT (
@@ -294,7 +294,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         authentication (for example, if you're running IIS).
     </li>
     <li>Obviously, the user must enable cookies in the browser.</li>
-    <li>With this mode, the use can truly logout of phpMyAdmin and login back
+    <li>With this mode, the user can truly logout of phpMyAdmin and login back
         with the same username.</li>
     <li>If you want to login to arbitrary server see
     <tt>$cfg['AllowArbitraryServer']</tt> directive.</li>
@@ -494,7 +494,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         login.
         <br />
         Please see the <a href="#setup">install section</a> on
-        &quot;Using HTTP authentication&quot; for more information.
+        &quot;Using authentication modes&quot; for more information.
         <br /><br />
         Note that if you try login to phpMyAdmin with this
         &quot;controluser&quot;, you could get some errors, depending the exact
@@ -558,7 +558,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         (&quot;_&quot; and &quot;%&quot;): if you want to use literal instances
         of these characters, escape them (I.E. use <tt>'my\_db'</tt> and not
         <tt>'my_db'</tt>).<br />
-        This setting is an efficient way to lower the server charge since the
+        This setting is an efficient way to lower the server load since the
         latter does not need to send MySQL requests to build the available
         database list. But <span class="important">it does not replace the
         privileges rules of the MySQL database server</span>. If set, it just
@@ -570,7 +570,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
         As of phpMyAdmin 2.5.5 the order inside the array is used for sorting the
         databases in the left frame, so that you can individually arrange your databases.<br />
-        If you want to have certain tables at the top, but don't care about the others, you do not
+        If you want to have certain databases at the top, but don't care about the others, you do not
         need to specify all other databases. Use:
         <tt>$cfg['Servers'][$i]['only_db'] = array('db3', 'db4', '*');</tt>
         instead to tell phpMyAdmin that it should display db3 and db4 on top, and the rest in alphabetic
@@ -730,7 +730,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 &quot;Structure/Relation view/&quot; and choose foreign fields.
             </li>
         </ul><br />
-        Please note that in the current (2.3.0) version, <tt>master_db</tt>
+        Please note that in the current version, <tt>master_db</tt>
         must be the same as <tt>foreign_db</tt>.  Those fields have been put in
         future development of the cross-db relations.<br /><br />
     </dd>
