@@ -56,7 +56,7 @@ norwegian-iso-8859-1
 polish-iso-8859-2
 portuguese-iso-8859-1
 romanian-iso-8859-1
-russian-koi8-r
+russian-windows-1251
 serbian-windows-1250
 slovak-iso-8859-2
 spanish-iso-8859-1
