@@ -63,7 +63,32 @@ function checkAddUser()
     }
 
     return checkPassword(the_form);
-} // end of the 'addUser()' function
+} // end of the 'checkAddUser()' function
+
+
+/**
+ * Validates the "update a profile" form
+ *
+ * @return  boolean  whether the form is validated or not
+ */
+function checkUpdProfile()
+{
+    var the_form = document.forms['updUserForm'];
+
+    if (the_form.elements['anyhost'][1].checked && the_form.elements['new_server'].value == '') {
+        alert(jsHostEmpty);
+        the_form.elements['new_server'].focus();
+        return false;
+    }
+
+    if (the_form.elements['anyuser'][1].checked && the_form.elements['new_user'].value == '') {
+        alert(jsUserEmpty);
+        the_form.elements['new_user'].focus();
+        return false;
+    }
+
+    return checkPassword(the_form);
+} // end of the 'checkUpdProfile()' function
 
 
 /**

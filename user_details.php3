@@ -605,7 +605,7 @@ function edit_operations($host, $user)
     </li>
 
     <li>
-        <form action="user_details.php3" method="post" name="updUserForm" onsubmit="return checkPassword(this)">
+        <form action="user_details.php3" method="post" name="updUserForm" onsubmit="return checkUpdProfile()">
             <?php echo $GLOBALS['strUpdateProfile'] . "\n"; ?>
             <table>
             <tr>
@@ -984,17 +984,28 @@ else if (($server > 0) && isset($mode) && ($mode == 'reload')) {
 else if (isset($delete) && $delete
          && isset($btnConfirm) && $btnConfirm == $strYes) {
     if (get_magic_quotes_gpc()) {
-        $delete_host  = stripslashes($delete_host);
-        $delete_user  = stripslashes($delete_user);
+        $delete_host = stripslashes($delete_host);
+        $delete_user = stripslashes($delete_user);
     }
-    $common_where     = ' WHERE host = \'' . sql_addslashes($delete_host) . '\' AND user = \'' . sql_addslashes($delete_user) . '\'';
+    $common_where    = ' WHERE host = \'' . sql_addslashes($delete_host) . '\' AND user = \'' . sql_addslashes($delete_user) . '\'';
 
     // Delete Grants First!
-    mysql_query('DELETE FROM mysql.columns_priv' . $common_where);
-    mysql_query('DELETE FROM mysql.db' . $common_where);
-    mysql_query('DELETE FROM mysql.tables_priv' . $common_where);
+    $sql_query       = 'DELETE FROM mysql.db' . $common_where;
+    $sql_query_cpy   = $sql_query;
+    mysql_query($sql_query);
+    $sql_query       = 'DELETE FROM mysql.tables_priv' . $common_where;
+    $sql_query_cpy   .= ";\n" . $sql_query;
+    mysql_query($sql_query);
+    $sql_query       = 'DELETE FROM mysql.columns_priv' . $common_where;
+    $sql_query_cpy   .= ";\n" . $sql_query;
+    mysql_query($sql_query);
 
-    $result = mysql_query('DELETE FROM mysql.user' . $common_where);
+    $sql_query       = 'DELETE FROM mysql.user' . $common_where;
+    $sql_query_cpy   .= ";\n" . $sql_query;
+    $result          = mysql_query($sql_query);
+
+    $sql_query       = $sql_query_cpy;
+    unset($sql_query_cpy);
     if ($result) {
         show_message(sprintf($strDeleteUserMessage, '<span style="color: #002E80">' . $delete_user . '@' . $delete_host . '</span>') . '<br />' . $strRememberReload);
     } else {
@@ -1062,7 +1073,7 @@ else if (isset($submit_updProfile)) {
     }
 
     // Builds the sql query
-    $sql_query      = '';
+    $common_upd     = '';
 
     if (isset($anyhost) && $anyhost) {
         $new_server = '%';
@@ -1070,25 +1081,25 @@ else if (isset($submit_updProfile)) {
         $new_server = stripslashes($new_server);
     }
     if (!empty($new_server) && $new_server != $host) {
-        $sql_query .= 'host = \'' . sql_addslashes($new_server) . '\'';
+        $common_upd .= 'host = \'' . sql_addslashes($new_server) . '\'';
     } else if (isset($new_server)) {
         unset($new_server);
     }
 
     if (isset($anyuser) && $anyuser) {
-        $new_user  = '%';
+        $new_user   = '%';
     } else if (!empty($new_user) && get_magic_quotes_gpc()) {
-        $new_user  = stripslashes($new_user);
+        $new_user   = stripslashes($new_user);
     }
     if (!empty($new_user) && $new_user != $pma_user) {
-        $sql_query .= (empty($sql_query) ? '' : ', ')
-                   . 'user = \'' . sql_addslashes($new_user) . '\'';
+        $common_upd .= (empty($common_upd) ? '' : ', ')
+                    . 'user = \'' . sql_addslashes($new_user) . '\'';
     } else if (isset($new_user)) {
         unset($new_user);
     }
 
     if (isset($nopass) && $nopass == -1) {
-        // void()
+        $sql_query = $common_upd;
     }
     else if ((!isset($nopass) || $nopass == 0) && empty($new_pw)) {
         echo '<h1>' . "\n";
@@ -1104,16 +1115,35 @@ else if (isset($submit_updProfile)) {
         echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordNotSame . '</b></p>' . "\n";
     }
     else {
-        $sql_query .= (empty($sql_query) ? '' : ', ')
+        $sql_query = (empty($common_upd) ? '' : $common_upd . ', ')
                    . 'password = ' . (empty($new_pw) ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($new_pw) . '\')');
     }
     
     if (!empty($sql_query)) {
-        $sql_query    = 'UPDATE user '
-                      . 'SET ' . $sql_query . ' '
-                      . 'WHERE user = \'' . sql_addslashes($pma_user) . '\' AND host = \'' . sql_addslashes($host) . '\'';
-        $result       = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+        $common_where       = ' WHERE host = \'' . sql_addslashes($host) . '\' AND user = \'' . sql_addslashes($pma_user) . '\'';
+        $sql_query_cpy      = '';
 
+        // Updates profile
+        $sql_query          = 'UPDATE user SET ' . $sql_query . $common_where;
+        $sql_query_cpy      = $sql_query;
+        $result             = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+
+        // Updates grants
+        if (isset($new_server) || isset($new_user)) {
+            $sql_query      = 'UPDATE mysql.db SET ' . $common_upd . $common_where;
+            $sql_query_cpy  .= ";\n" . $sql_query;
+            mysql_query($sql_query);
+            $sql_query      = 'UPDATE mysql.tables_priv SET ' . $common_upd . $common_where;
+            $sql_query_cpy  .= ";\n" . $sql_query;
+            mysql_query($sql_query);
+            $sql_query      = 'UPDATE mysql.columns_priv SET ' . $common_upd . $common_where;
+            $sql_query_cpy  .= ";\n" . $sql_query;
+            mysql_query($sql_query);
+            unset($common_upd);
+        }
+
+        $sql_query = $sql_query_cpy;
+        unset($sql_query_cpy);
         if (isset($new_server)) {
             $host     = $new_server;
         }
