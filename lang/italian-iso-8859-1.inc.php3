@@ -298,6 +298,8 @@ $strInsertTextfiles = 'Inserisci un file di testo nella tabella';
 $strInsertedRowId = 'Inserito id riga:';
 $strInsertedRows = 'Righe inserite:';
 $strInstructions = 'Istruzioni';
+$strInternalNotNecessary = '* Non è necessaria una relazione interna quando già esiste in InnoDB.';
+$strInternalRelations = 'Relazioni interne';
 $strInvalidName = '"%s" è una parola riservata; non è possibile utilizzarla come nome di database/tabella/campo.';
 
 $strJapanese = 'Giapponese';
@@ -313,6 +315,13 @@ $strKorean = 'Coreano';
 $strLaTeX = 'LaTeX';
 $strLaTeXOptions = 'opzioni LaTeX';
 $strLandscape = 'Orizzontale';
+$strLatexCaption = 'Sottotitolo della tabella';
+$strLatexContent = 'Contenuto della tabella __TABLE__';
+$strLatexContinued = '(continua)';
+$strLatexContinuedCaption = 'Sottotitolo della tabella continuato';
+$strLatexIncludeCaption = 'Includi sottotitolo della tabella';
+$strLatexLabel = 'Chiave etichetta';
+$strLatexStructure = 'Struttura della tabella __TABLE__';
 $strLength = 'Lunghezza';
 $strLengthSet = 'Lunghezza/Set*';
 $strLimitNumRows = 'record per pagina';
@@ -436,6 +445,7 @@ $strPrimaryKeyName = 'Il nome della chiave primaria deve essere... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>deve</b> essere il nome di, e <b>solo di</b>, una chiave primaria!)';
 $strPrint = 'Stampa';
 $strPrintView = 'Visualizza per stampa';
+$strPrintViewFull = 'Vista stampa (con full text)';
 $strPrivDescAllPrivileges = 'Comprende tutti i privilegi tranne GRANT.';
 $strPrivDescAlter = 'Permette di alterare la struttura di tabelle esistenti.';
 $strPrivDescCreateDb = 'Permette di creare nuove tabelle e nuovi databases.';
@@ -656,6 +666,7 @@ $strUpdatePrivMessage = 'Hai aggiornato i permessi per %s.';
 $strUpdateProfile = 'Aggiorna profilo:';
 $strUpdateProfileMessage = 'Il profilo è stato aggiornato.';
 $strUpdateQuery = 'Aggiorna Query';
+$strUpgradeMySQL = 'Si dovrebbe aggiornare MySQL alla versione %s o successiva.';
 $strUsage = 'Utilizzo';
 $strUseBackquotes = 'Usa i backquotes con i nomi delle tabelle e dei campi';
 $strUseHostTable = 'Utilizza la Tabella dell\'Host';
@@ -699,16 +710,4 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strInternalRelations = 'Internal relations';  //to translate
-$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
-$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
-$strLatexStructure = 'Structure of table __TABLE__';//to translate
-$strLatexContinued = '(continued)';//to translate
-$strLatexContent = 'Content of table __TABLE__';//to translate
-$strLatexIncludeCaption = 'Include table caption';//to translate
-$strLatexCaption = 'Table caption';//to translate
-$strLatexLabel = 'Label key';//to translate
-$strLatexContinuedCaption = 'Continued table caption';//to translate
-
-$strPrintViewFull = 'Print view (with full texts)';  //to translate
 ?>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-09-03 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/italian: Updated, thanks to Pietro Danesi (danone).
+
 2003-09-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html:
       - rewrote FAQ 1.17;
