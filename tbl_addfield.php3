@@ -10,6 +10,9 @@ require('./libraries/grab_globals.lib.php3');
 $js_to_run = 'functions.js';
 require('./header.inc.php3');
 
+// Check parameters
+PMA_checkParameters(array('db', 'table'));
+
 
 /**
  * Defines the url to return to in case of error in a sql statement
