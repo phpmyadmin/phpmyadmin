@@ -115,11 +115,6 @@ if ($sql_query != '') {
 /**
  * Go back to db_details.php3
  */
-// Copy the original query back for display purposes (we add slashes because
-// stripslashes is used in db_details.php3, line 294)
-$sql_query = (get_magic_quotes_gpc())
-           ? addslashes($sql_query_cpy)
-           : $sql_query_cpy;
 include('./header.inc.php3');
 if (isset($my_die)) {
     mysql_die('', $my_die);
