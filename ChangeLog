@@ -5,6 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-03 Garvin Hicking <me@supergarv.de>
+    * Documentation.html, tbl_row_delete.php3, 
+      libraries/display_tbl.lib.php3:
+      Bug #828290: Fixed "Execute stored bookmark". Also made some minor
+      tweaks to make PHP-Transformations with forms working again. Added
+      a limitation notice on that to FAQ 3.8. Added an image to this action.
+    * libraries/display_tbl.lib.php3: Made multi-row delete working for
+      vertical browse mode. When executing a multi-row delete, keep the
+      last used display mode and other options.
+    * Documentation.html: Adjusted link to the link-section of our homepage.
+      Fixed typo.
+
 2003-11-03 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     * libraries/common.lib.php3: URI detection works with www-Sharp.Runtime

@@ -530,7 +530,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     }
                     if ($is_display['edit_lnk'] != 'nn') $span++;
                     if ($is_display['del_lnk'] != 'nn') $span++;
-                        
+
                     ?>
 <tr>
     <td colspan="<?php echo $span; ?>" align="center">
@@ -576,7 +576,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             }
         }
 
-        
+
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             ?>
 <!-- Results table headers -->
@@ -594,7 +594,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         if ($is_display['del_lnk'] == 'dr') {
             echo '<form method="post" action="tbl_row_delete.php3" name="rowsDeleteForm">' . "\n";
-            echo PMA_generate_common_hidden_inputs($db, $table, 1); 
+            echo PMA_generate_common_hidden_inputs($db, $table, 1);
+            echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
+            echo '<input type="hidden" name="repeat_cells"   value="' . $repeat_cells   . '" />' . "\n";
+            echo '<input type="hidden" name="goto"           value="' . $goto           . '" />' . "\n";
+            echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
         }
 
         // 1. Displays the full/partial text button (part 1)...
@@ -604,7 +608,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                       : '';
         } else {
             $rowspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
-                      ? ' rowspan="2"'
+                      ? ' rowspan="3"'
                       : '';
         }
         $text_url = 'sql.php3?'
@@ -712,7 +716,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         $highlight_columns = array();
         if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
             isset($analyzed_sql[0]['where_clause_identifiers'])) {
-            
+
             $wi = 0;
             @reset($analyzed_sql[0]['where_clause_identifiers']);
             while(list($wci_nr, $wci) = each($analyzed_sql[0]['where_clause_identifiers'])) {
@@ -736,7 +740,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 $comments_table_wrap_pre = '';
                 $comments_table_wrap_post = '';
             }
-    
+
             // 2.1 Results can be sorted
             if ($is_display['sort_lnk'] == '1') {
 
@@ -949,10 +953,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         <?php
         echo "\n";
 
-        $row_no                     = 0;
-        $vertical_display['edit']   = array();
-        $vertical_display['delete'] = array();
-        $vertical_display['data']   = array();
+        $row_no                         = 0;
+        $vertical_display['edit']       = array();
+        $vertical_display['delete']     = array();
+        $vertical_display['data']       = array();
+        $vertical_display['row_delete'] = array();
 
         // Correction uva 19991216 in the while below
         // Previous code assumed that all tables have keys, specifically that
@@ -1087,7 +1092,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     } else {
                         $uva_condition = $uva_nonprimary_condition;
                     }
-                    
+
                     $uva_condition     = urlencode(preg_replace('|\s?AND$|', '', $uva_condition));
                 } // end if (1.1)
 
@@ -1133,13 +1138,24 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 } // end if (1.2.1)
 
                 if ($table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db']) {
-                    $bookmark_go = '<form method="post" action="read_dump.php3">'
-                                    . PMA_generate_common_hidden_inputs($row['dbase'], '')
-                                    . '<input type="hidden" name="id_bookmark" value="' . $row['id'] . '" />'
-                                    . '<input type="hidden" name="action_bookmark" value="0" />'
-                                    . '<input type="submit" name="SQL" value="' . $GLOBALS['strExecuteBookmarked'] . '" />'
-                                    . '</form>';
-                } else { 
+                    $bookmark_go = '<a href="read_dump.php3?'
+                                    . PMA_generate_common_url($row['dbase'], '')
+                                    . '&amp;id_bookmark=' . $row['id']
+                                    . '&amp;action_bookmark=0'
+                                    . '&amp;SQL=' . $GLOBALS['strExecuteBookmarked']
+                                    .' " title="' . $GLOBALS['strExecuteBookmarked'] . '">';
+
+                    if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
+                        $bookmark_go .= $GLOBALS['strExecuteBookmarked'];
+                    } else {
+                        $bookmark_go .= $iconic_spacer . '<img width="12" height="13" src="images/button_bookmark.png" alt="' . $GLOBALS['strExecuteBookmarked'] . '" title="' . $GLOBALS['strExecuteBookmarked'] . '" border="0" />';
+                        if ($propicon == 'both') {
+                            $bookmark_go .= '&nbsp;' . $GLOBALS['strExecuteBookmarked'] . '</nobr>';
+                        }
+                    }
+
+                    $bookmark_go .= '</a>';
+                } else {
                     $bookmark_go = '';
                 }
 
@@ -1153,7 +1169,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     $del_query = urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . ((PMA_MYSQL_INT_VERSION >= 32207) ? urlencode(' LIMIT 1') : '');
                     $del_url  = 'sql.php3'
                               . '?' . $url_query
-                              . '&amp;sql_query=' . $del_query 
+                              . '&amp;sql_query=' . $del_query
                               . '&amp;zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                               . '&amp;goto=' . urlencode($lnk_goto);
                     $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
@@ -1202,7 +1218,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 //        depend on whether the "is_null" php4 function is
                 //        available or not
                 $pointer = (function_exists('is_null') ? $i : $meta->name);
-                
+
                 // garvin: See if this column should get highlight because it's used in the
                 //  where-query.
                 if (isset($highlight_columns) && (isset($highlight_columns[$meta->name]) || isset($highlight_columns[PMA_backquote($meta->name)]))) {
@@ -1224,9 +1240,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                         if (file_exists('./libraries/transformations/' . $include_file)) {
                             $transformfunction_name = str_replace('.inc.php3', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
-    
+
                             include('./libraries/transformations/' . $include_file);
-    
+
                             if (defined('PMA_TRANSFORMATION_' . strtoupper($transformfunction_name)) && function_exists('PMA_transformation_' . $transformfunction_name)) {
                                 $transform_function = 'PMA_transformation_' . $transformfunction_name;
                                 $transform_options = PMA_transformation_getOptions((isset($GLOBALS['mime_map'][$meta->name]['transformation_options']) ? $GLOBALS['mime_map'][$meta->name]['transformation_options'] : ''));
@@ -1245,7 +1261,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                 // n u m e r i c
                 if ($meta->numeric == 1) {
-                    
+
 
                 // lem9: if two fields have the same name (this is possible
                 //       with self-join queries, for example), using $meta->name
@@ -1380,7 +1396,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         // garvin: transform functions may enable nowrapping:
                         $function_nowrap = $transform_function . '_nowrap';
                         $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
-                        
+
                         // loic1: do not wrap if date field type
                         $nowrap = ((eregi('DATE|TIME', $meta->type) || $bool_nowrap) ? ' nowrap="nowrap"' : '');
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"' . $nowrap . '>';
@@ -1458,8 +1474,16 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             // 4. Gather links of del_urls and edit_urls in an array for later
             //    output
             if (!isset($vertical_display['edit'][$row_no])) {
-                $vertical_display['edit'][$row_no]   = '';
-                $vertical_display['delete'][$row_no] = '';
+                $vertical_display['edit'][$row_no]       = '';
+                $vertical_display['delete'][$row_no]     = '';
+                $vertical_display['row_delete'][$row_no] = '';
+            }
+
+
+            if (!empty($del_url)) {
+                $vertical_display['row_delete'][$row_no] .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
+                                                         .  '        <input type="checkbox" name="rows_to_delete[]" value="' . $del_query . '" />' . "\n"
+                                                         .  '    </td>' . "\n";
             }
 
             if (isset($edit_url)) {
@@ -1506,10 +1530,29 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         reset($vertical_display);
 
+        // Displays "multi row delete" link at top if required
+        if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['row_delete'])) {
+            echo '<tr>' . "\n";
+            echo $vertical_display['textbtn'];
+            reset($vertical_display['row_delete']);
+            $foo_counter = 0;
+            while (list($key, $val) = each($vertical_display['row_delete'])) {
+                if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
+                    echo '<td>&nbsp;</td>' . "\n";
+                }
+
+                echo $val;
+                $foo_counter++;
+            } // end while
+            echo '</tr>' . "\n";
+        } // end if
+
         // Displays "edit" link at top if required
         if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['edit'])) {
             echo '<tr>' . "\n";
-            echo $vertical_display['textbtn'];
+            if (!is_array($vertical_display['row_delete'])) {
+                echo $vertical_display['textbtn'];
+            }
             reset($vertical_display['edit']);
             $foo_counter = 0;
             while (list($key, $val) = each($vertical_display['edit'])) {
@@ -1526,7 +1569,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         // Displays "delete" link at top if required
         if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['delete'])) {
             echo '<tr>' . "\n";
-            if (!is_array($vertical_display['edit'])) {
+            if (!is_array($vertical_display['edit']) && !is_array($vertical_display['row_delete'])) {
                 echo $vertical_display['textbtn'];
             }
             reset($vertical_display['delete']);
@@ -1581,10 +1624,29 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             echo '</tr>' . "\n";
         } // end while
 
+        // Displays "multi row delete" link at bottom if required
+        if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['row_delete'])) {
+            echo '<tr>' . "\n";
+            echo $vertical_display['textbtn'];
+            reset($vertical_display['row_delete']);
+            $foo_counter = 0;
+            while (list($key, $val) = each($vertical_display['row_delete'])) {
+                if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
+                    echo '<td>&nbsp;</td>' . "\n";
+                }
+
+                echo $val;
+                $foo_counter++;
+            } // end while
+            echo '</tr>' . "\n";
+        } // end if
+
         // Displays "edit" link at bottom if required
         if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['edit'])) {
             echo '<tr>' . "\n";
-            echo $vertical_display['textbtn'];
+            if (!is_array($vertical_display['row_delete'])) {
+                echo $vertical_display['textbtn'];
+            }
             reset($vertical_display['edit']);
             $foo_counter = 0;
             while (list($key, $val) = each($vertical_display['edit'])) {
@@ -1601,7 +1663,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         // Displays "delete" link at bottom if required
         if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['delete'])) {
             echo '<tr>' . "\n";
-            if (!is_array($vertical_display['edit'])) {
+            if (!is_array($vertical_display['edit']) && !is_array($vertical_display['row_delete'])) {
                 echo $vertical_display['textbtn'];
             }
             reset($vertical_display['delete']);
@@ -1799,7 +1861,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                        . '<img src="./images/button_drop.png" title="' . $GLOBALS['strDelete'] . '" alt="' . $GLOBALS['strDelete'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : '') . "\n"
                        . '</button>';
                 } else {
-                    echo '                    <input type="image" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : ''); 
+                    echo '                    <input type="image" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strDelete'] : '');
                 }
                 echo "\n";
             } else {
@@ -1826,7 +1888,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         $buffer = htmlspecialchars($buffer);
         $buffer = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $buffer));
         $buffer = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $buffer);
-        
+
         return $buffer;
     }
 } // $__PMA_DISPLAY_TBL_LIB__

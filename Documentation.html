@@ -1595,7 +1595,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
         The HeaderFlipType can be set to 'css' or 'faked'. When using 'css'
         the rotation of the header for horizontalflipped is done via CSS. If
-        set to 'faked' PGP does the transformation for you, but of course this
+        set to 'faked' PHP does the transformation for you, but of course this
         does not look as good as CSS.
         <br /><br />
     </dd>
@@ -1971,7 +1971,7 @@ want the output stored in.</p><br />
 consult your <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/libraries/transformations/overview.php3</i>
 installation.</p>
 
-<p><br />For a tutorial on how to effectively use transformations, see our <a href="http://www.phpmyadmin.net/#links">Link section</a> on the official phpMyAdmin-homepage.</p>
+<p><br />For a tutorial on how to effectively use transformations, see our <a href="http://www.phpmyadmin.net/home_page/docs.php">Link section</a> on the official phpMyAdmin-homepage.</p>
 
 <a name="transformationshowto"></a><br />
 <h3>[2. Usage]</h3>
@@ -2150,7 +2150,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 
 <p><br />
-   Please have a look at our <a href="http://www.phpmyadmin.net/#links">Link section</a> on the official phpMyAdmin homepage for in-depth coverage of phpMyAdmin's features and/or interface.
+   Please have a look at our <a href="http://www.phpmyadmin.net/home_page/docs.php">Link section</a> on the official phpMyAdmin homepage for in-depth coverage of phpMyAdmin's features and/or interface.
 </p>
 
 <a name="faqserver"></a><br />
@@ -2715,6 +2715,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     The problem is that mysqldump creates invalid comments like this:
 </p>
+
 <pre>
 -- MySQL dump 8.22
 --
@@ -2760,7 +2761,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <h4>
     [3.7] I have table with many (100+) fields and when I try to browse table
-    I get series of errors like &quot;Warning: unable to parse url&quot;. How 
+    I get series of errors like &quot;Warning: unable to parse url&quot;. How
     can this be fixed?
 </h4>
 <p>
@@ -2770,6 +2771,18 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br />
 </p>
 
+<h4>
+    [3.8] I cannot use (clickable) HTML-forms in fields where I put a <a href="#transformations">MIME-Transformation</a> onto!
+</h4>
+<p>
+    Due to a surrounding form-container (for multi-row delete checkboxes), no nested forms can be put inside the table where
+    phpMyAdmin displays the results. You can, however, use any form inside of a table if keep the parent form-container with
+    the target to tbl_row_delete.php3 and just put your own input-elements inside. If you use a custom submit input field, the
+    form will submit itself to the displaying page again, where you can validate the $HTTP_POST_VARS in a transformation.
+
+    For a tutorial on how to effectively use transformations, see our <a href="http://www.phpmyadmin.net/home_page/docs.php">Link section</a>
+    on the official phpMyAdmin-homepage.
+</p>
 
 <a name="faqmultiuser"></a><br />
 <h3>[4. ISPs, multi-user installations ]</h3>

@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-
 if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
     include('./libraries/grab_globals.lib.php3');
 }
@@ -23,7 +22,7 @@ if (isset($submit_mult_x)) {
     $submit_mult = 'row_delete';
 }
 
-if ((!empty($submit_mult) && isset($rows_to_delete))
+if ((!empty($submit_mult) && isset($rows_to_delete) && is_array($rows_to_delete))
     || isset($mult_btn)) {
     $action = 'tbl_row_delete.php3';
     $err_url = 'tbl_row_delete.php3?' . PMA_generate_common_url($db, $table);
@@ -46,9 +45,18 @@ if ((!empty($submit_mult) && isset($rows_to_delete))
     PMA_showMessage($strSuccess);
 }
 
-$sql_query = $original_sql_query;
-$url_query = $original_url_query;
-$pos       = $original_pos;
+if (isset($original_sql_query)) {
+    $sql_query = $original_sql_query;
+}
+
+if (isset($original_url_query)) {
+    $url_query = $original_url_query;
+}
+
+if (isset($original_pos)) {
+    $pos       = $original_pos;
+}
+
 include('./sql.php3');
 
 /**
