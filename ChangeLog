@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-02-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * export.php: bug 899610, undefined variable $save_filename
+
 2004-02-15 Alexander M. Turek  <onehotminute@derrabus.de>
     * libraries/select_lang.lib.php: Deactivated the code part that disables
       the UTF-8 language files if $cfg['AllowAnywhereRecoding'] is set to FALSE

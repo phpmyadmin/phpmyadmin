@@ -18,9 +18,7 @@ if ($what == 'excel') {
     $type = $what;
 }
 
-/**
- * Defines the url to return to in case of error in a sql statement
- */
+// Get the functions specific to the export type
 require('./libraries/export/' . preg_replace('@\.\.*@','.',$type) . '.php');
 
 // Generate error url
@@ -55,7 +53,7 @@ $time_start = time();
  */
 function PMA_exportOutputHandler($line)
 {
-    global $time_start, $dump_buffer, $dump_buffer_len;
+    global $time_start, $dump_buffer, $dump_buffer_len, $save_filename;
 
     // Kanji encoding convert feature
     if (function_exists('PMA_kanji_str_conv')) {
