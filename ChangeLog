@@ -7,6 +7,7 @@ $Source$
 
 2003-09-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: NO ACTION was not correctly treated
+    * tbl_relation.php3: InnoDB support
  
 2003-09-03 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/italian: Updated, thanks to Pietro Danesi (danone).

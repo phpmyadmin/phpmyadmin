@@ -17,6 +17,38 @@ $avoid_show_comment = TRUE;
 require('./tbl_properties_table_info.php3');
 require('./libraries/relation.lib.php3');
 
+$options_array = array('CASCADE' => 'CASCADE', 'SET_NULL' => 'SET NULL', 'NO_ACTION' => 'NO ACTION', 'RESTRICT' => 'RESTRICT');
+
+         /**
+         * Generate dropdown choices 
+         *
+         * @param   string   Message to display 
+         * @param   string   Name of the <select> field
+         * @param   array    Choices for dropdown
+         * @return  string   The existing value (for selected)
+         *
+         * @access  public
+         */
+function PMA_generate_dropdown($dropdown_question,$radio_name,$choices,$selected_value) {
+    global $font_smallest;
+
+    echo $dropdown_question . '&nbsp;&nbsp;';
+
+    echo '<select name="' . $radio_name . '" style="font-size: ' . $font_smallest . '">' . "\n";
+    echo '<option value="nix" style="font-size: ' . $font_smallest . '" >--</option>' . "\n";
+
+    while (list($one_value, $one_label) = each($choices)) {
+        echo '<option value="' . $one_value . '"';
+        if ($selected_value == $one_value) {
+            echo ' selected="selected" ';
+        }
+        echo ' style="font-size: ' . $font_smallest . '">' . $one_label . '</option>' . "\n";
+    }
+    echo '</select>' . "\n";
+    echo "\n";
+}
+
+
 /**
  * Gets the relation settings
  */
@@ -77,20 +109,38 @@ if ($cfgRelation['relwork']
 
 
     // u p d a t e s   f o r   I n n o D B 
-
     // ( for now, same db only, and one index name)
-
     while (list($master_field, $foreign_string) = each($destination_innodb)) {
         if ($foreign_string != 'nix') {
             list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
             if (!isset($existrel_innodb[$master_field])) {
+                // no key defined for this field
+
+                // The next few lines are repeated below, so they
+                // could be put in an include file
                 $upd_query  = 'ALTER TABLE ' . $table 
                             . ' ADD FOREIGN KEY ('
                             . PMA_sqlAddslashes($master_field) . ')'
                             . ' REFERENCES '
                             . PMA_sqlAddslashes($foreign_table) . '('
                             . PMA_sqlAddslashes($foreign_field) . ')'; 
-            } else if ($existrel_innodb[$master_field]['foreign_db'] . '.' .$existrel_innodb[$master_field]['foreign_table'] . '.' . $existrel_innodb[$master_field]['foreign_field'] != $foreign_string) {
+
+                if (${$master_field . '_on_delete'} != 'nix') {
+                    $upd_query   .= ' ON DELETE ' . $options_array[${$master_field . '_on_delete'}];
+                }
+                if (${$master_field . '_on_update'} != 'nix') {
+                    $upd_query   .= ' ON UPDATE ' . $options_array[${$master_field . '_on_update'}];
+                }
+
+                // end repeated code
+
+            } else if (($existrel_innodb[$master_field]['foreign_db'] . '.' .$existrel_innodb[$master_field]['foreign_table'] . '.' . $existrel_innodb[$master_field]['foreign_field'] != $foreign_string) 
+              || ( ${$master_field . '_on_delete'} != (!empty($existrel_innodb[$master_field]['on_delete']) ? $existrel_innodb[$master_field]['on_delete'] : '')) 
+              || ( ${$master_field . '_on_update'} != (!empty($existrel_innodb[$master_field]['on_update']) ? $existrel_innodb[$master_field]['on_update'] : '')) 
+                   ) {
+                // another foreign key is already defined for this field
+                // or 
+                // an option has been changed for ON DELETE or ON UPDATE
 
                 // remove existing key
                 if (PMA_MYSQL_INT_VERSION >= 40013) {
@@ -109,6 +159,14 @@ if ($cfgRelation['relwork']
                             . ' REFERENCES '
                             . PMA_sqlAddslashes($foreign_table) . '('
                             . PMA_sqlAddslashes($foreign_field) . ')'; 
+
+                if (${$master_field . '_on_delete'} != 'nix') {
+                    $upd_query   .= ' ON DELETE ' . $options_array[${$master_field . '_on_delete'}];
+                }
+                if (${$master_field . '_on_update'} != 'nix') {
+                    $upd_query   .= ' ON UPDATE ' . $options_array[${$master_field . '_on_update'}];
+                }
+
             } // end if... else....
         } else if (isset($existrel_innodb[$master_field])) {
                 if (PMA_MYSQL_INT_VERSION >= 40013) {
@@ -278,7 +336,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 
     <table>
     <tr>
-        <th colspan="3" align="center"><b><?php echo $strLinksTo; ?></b></th>
+        <th colspan="4" align="center"><b><?php echo $strLinksTo; ?></b></th>
     </tr>
     <tr>
         <th></th><th><b><?php echo $strInternalRelations;
@@ -288,7 +346,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         ?></b></th>
         <?php
         if ($tbl_type=='INNODB') {
-            echo '<th>InnoDB';
+            echo '<th colspan="2">InnoDB';
             if (PMA_MYSQL_INT_VERSION < 40013) {
                 echo '&nbsp;(**)';
             }
@@ -366,9 +424,23 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         ?>
                 </select>
         </td>
+        <td>
         <?php 
+              PMA_generate_dropdown('ON DELETE',
+                  htmlspecialchars($save_row[$i]['Field']) . '_on_delete',
+                  $options_array,
+                  (isset($existrel_innodb[$myfield]['on_delete']) ? $existrel_innodb[$myfield]['on_delete']: '') ); 
+
+              echo '&nbsp;&nbsp;&nbsp;';
+
+              PMA_generate_dropdown('ON UPDATE',
+                  htmlspecialchars($save_row[$i]['Field']) . '_on_update',
+                  $options_array,
+                  (isset($existrel_innodb[$myfield]['on_update']) ? $existrel_innodb[$myfield]['on_update']: '') ); 
+
         }
         ?>
+        </td>
     </tr>
         <?php
     } // end for
@@ -377,7 +449,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     ?>
     <tr>
         <td colspan="2" align="center">
-            <input type="submit" value="<?php echo $strGo; ?>" />
+            <input type="submit" value="<?php echo '  ' . $strGo . '  '; ?>" />
         </td>
     </tr>
     </table>
