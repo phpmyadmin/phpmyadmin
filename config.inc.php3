@@ -2,13 +2,14 @@
 /* $Id$ */
 
 
-/*
- *  phpMyAdmin Configuration File
- *  All directives are explained in Documentation.html
+/**
+ * phpMyAdmin Configuration File
+ *
+ * All directives are explained in Documentation.html
  */
 
 
-/* 
+/**
  * Bookmark Table Structure
  *
  * CREATE TABLE bookmark (
@@ -80,13 +81,14 @@ unset($cfgServers[0]);
 $cfgConfirm               = TRUE;
 $cfgPersistentConnections = FALSE;
 $cfgShowBlob              = FALSE;
-$cfgProtectBlob		  = FALSE;
+$cfgProtectBlob		      = FALSE;
 $cfgShowSQL               = TRUE;
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
 $cfgMaxRows               = 30;
 $cfgOrder                 = 'ASC';
-$cfgOBGzip 		  = true;   // GZIP output buffering
+$cfgOBGzip 		          = TRUE;   // GZIP output buffering
+
 
 /**
  * Link to the offcial MySQL documentation
@@ -118,6 +120,7 @@ $cfgTextareaRows        = 7;
 $cfgModifyDeleteAtLeft  = TRUE;
 $cfgModifyDeleteAtRight = FALSE;
 $cfgLeftWidth           = 150;          // left frame width
+
 
 /**
  * MySQL settings
@@ -193,5 +196,4 @@ $cfgFunctions = array(
  * Unset magic_quotes_runtime - do not change!
  */
 set_magic_quotes_runtime(0);
-error_reporting(63);
 ?>
