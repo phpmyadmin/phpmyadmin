@@ -1784,7 +1784,7 @@ Defaults to FALSE (drop-down). <br />
 
     <dt><b>$cfg['ThemeManager'] </b>boolean</dt>
     <dd>
-        Enables user-selectable themes.
+        Enables user-selectable themes. See <a href="#faqthemes">FAQ 2.7</a>.
     <br /><br />
     </dd>
 
@@ -2753,7 +2753,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <h4>
     [2.6] I get an &quot;Access denied for user: 'root@localhost' (Using
     password: YES)&quot;-error when trying to access a MySQL-Server on a
-    host which is port-forwarded for my localhost
+    host which is port-forwarded for my localhost.
 </h4>
 <p>
     When you are using a port on your localhost, which you redirect via
@@ -2767,7 +2767,42 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     TCP connection.
 </p>
 
-
+<a name="faqthemes"></a><br />
+<h4>
+    [2.7] Using and creating themes 
+</h4>
+<p>
+    Themes are configured with <tt>$cfg['ThemePath']</tt>,
+    <tt>$cfg['ThemeManager']</tt> and <tt>$cfg['ThemeDefault']</tt>.<br />
+    <br />
+    Under <tt>$cfg['ThemePath']</tt>, you should not delete the directory 
+    &quot;original&quot; or its underlying structure, because this is
+    the system theme used by phpMyAdmin. &quot;original&quot; contains all 
+    images and styles, for backwards compatibility and for all themes that
+    would not include images or css-files.<br />
+    <br />
+    If <tt>$cfg['ThemeManager']</tt> is enabled, you can select your 
+    favorite theme on the main page. Your selected theme will be stored 
+    in a cookie.<br />
+    <br />
+    </p>
+    <p>
+    To create a theme:
+    <ul>
+        <li>make a new subdirectory (for example &quot;your_theme_name&quot;) under <tt>$cfg['ThemePath']</tt> (by default <tt>themes</tt>)</li>
+        <li>copy the files and directories from &quot;original&quot; to &quot;your_theme_name&quot;</li>
+        <li>edit the css-files in &quot;your_theme_name/css&quot;</li>
+        <li>put your new images in &quot;your_theme_name/img&quot;</li>
+        <li>edit <tt>layout.inc.php</tt> in &quot;your_theme_name&quot;</li>
+        <li>make a new screenshot of your theme and save it under &quot;your_theme_name/screen.png&quot;</li>
+    </ul>
+    <br />
+    </p>
+    <p>
+    If you do not want to use your own symbols and buttons, remove the 
+    directory &quot;img&quot; in &quot;your_theme_name&quot;. phpMyAdmin will
+    use the default icons and buttons (from the system-theme &quot;original&quot;).
+    </p>
 <a name="faqlimitations"></a><br />
 <h3>[3. Known limitations]</h3>
 <a name="login_bug"></a><br />

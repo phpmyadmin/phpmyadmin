@@ -9,6 +9,8 @@ $Source$
     * sql.php: bug #899430: left frame problem when lower_case_table_names==2
     * libraries/database_interface.lib.php: bug #1009791: now remove non-UTF-8
       choices from the drop-down (in main) for MySQL 4.1.x
+    * Documentation.html: added some missing variables and new FAQ 2.7
+      about using and creating themes
 
 2004-09-03 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, server_privileges.php, libraries/common.lib.php:
