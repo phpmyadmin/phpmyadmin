@@ -143,42 +143,45 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         }
 
         if ($verbose == TRUE) {
-            $shit = '<font color="red">not OK</font> [ <a href="Documentation.html#%s">' . $GLOBALS['strDocu'] . '</a> ]';
-            $hit  = '<font color="green">OK</font>';
+            $shit     = '<font color="red"><b>' . $GLOBALS['strNotOK'] . '</b></font> [ <a href="Documentation.html#%s">' . $GLOBALS['strDocu'] . '</a> ]';
+            $hit      = '<font color="green"><b>' . $GLOBALS['strOK'] . '</b></font>';
+            $enabled  = '<font color="green">' . $GLOBALS['strEnabled'] . '</font>';
+            $disabled = '<font color="red">'   . $GLOBALS['strDisabled'] . '</font>';
 
-            echo '<p>' . "\n";
-            echo '    checking PMA Database ... '
+            echo '<table>' . "\n";
+            echo '<tr><th align="left">PMA Database ... </th><td align="right">'
                  . (($cfg['Server']['pmadb'] == FALSE) ? sprintf($shit, 'pmadb') : $hit)
-                 . '<br />' . "\n";
-            echo '    checking relation Table ... '
+                 . '</td></tr>' . "\n";
+            echo '<tr><th align="left">relation Table ... </th><td align="right">'
                  . ((isset($cfgRelation['relation'])) ? $hit : sprintf($shit, 'relation'))
-                 . '<br />' . "\n";
-            echo '    <b>' . (($cfgRelation['relwork'] == TRUE) ? 'General relation features enabled' : 'General relation features disabled') . '</b>' . "\n";
-            echo '</p>' . "\n";
+                 . '</td></tr>' . "\n";
+            echo '<tr><td colspan=2 align="center">'. $GLOBALS['strGeneralRelationFeat'] . ':'
+                 . (($cfgRelation['relwork'] == TRUE) ? $enabled :  $disabled)
+                 . '</td></tr>' . "\n";
 
-            echo '<p>' . "\n";
-            echo '    checking table_info   ... '
+            echo '<tr><th align="left">table_info   ... </th><td align="right">'
                  . (($cfgRelation['displaywork'] == FALSE) ? sprintf($shit, 'table_info') : $hit)
-                 . '<br />' . "\n";
-            echo '    <b>' . (($cfgRelation['displaywork'] == TRUE) ? 'Display features enabled' : 'Display features disabled') . '</b>' . "\n";
-            echo '</p>' . "\n";
+                 . '</td></tr>' . "\n";
+            echo '<tr><td colspan=2 align="center">' . $GLOBALS['strDisplayFeat'] . ':'
+                 . (($cfgRelation['displaywork'] == TRUE) ? $enabled : $disabled)
+                 . '</td></tr>' . "\n";
 
-            echo '<p>' . "\n";
-            echo '    checking table_coords ... '
+            echo '<tr><th align="left">table_coords ... </th><td align="right">'
                  . ((isset($cfgRelation['table_coords'])) ? $hit : sprintf($shit, 'table_coords'))
-                 . '<br />' . "\n";
-            echo '    checking pdf_pages ... '
+                 . '</td></tr>' . "\n";
+            echo '<tr><th align="left">pdf_pages ... </th><td align="right">'
                  . ((isset($cfgRelation['pdf_pages'])) ? $hit : sprintf($shit, 'table_coords'))
-                 . '<br />' . "\n";
-            echo '    <b>' . (($cfgRelation['pdfwork'] == TRUE) ? 'Creation of PDFs enabled' : 'Creation of PDFs disabled') . '</b>' . "\n";
-            echo '</p>' . "\n";
-
-            echo '<p>' . "\n";
-            echo '    checking column_comments ... '
+                 . '</td></tr>' . "\n";
+            echo '<tr><td colspan=2 align="center">' . $GLOBALS['strCreatePdfFeat'] . ':'
+                 . (($cfgRelation['pdfwork'] == TRUE) ? $enabled : $disabled)
+                 . '</td></tr>' . "\n";
+            echo '<tr><th align="left">column_comments ... </th><td align="right">'
                  . ((isset($cfgRelation['column_comments'])) ? $hit : sprintf($shit, 'col_com'))
-                 . '<br />' . "\n";
-            echo '    <b>' . (($cfgRelation['commwork'] == TRUE) ? 'Displaying column comments enabled' : 'Displaying column comments disabled') . '</b>' . "\n";
-            echo '</p>' . "\n";
+                 . '</td></tr>' . "\n";
+            echo '<tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ':'
+                 . (($cfgRelation['commwork'] == TRUE) ? $enabled : $disabled)
+                 . '</td></tr>' . "\n";
+            echo '</table>' . "\n";
         } // end if ($verbose == TRUE) {
 
         return $cfgRelation;

@@ -402,4 +402,10 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
+$strGeneralRelationFeat = 'Genereal Relation Features';
+$strDisplayFeat = 'Display Features';
+$strCreatePdfFeat = 'Creation of PDFs';
+$strColComFeat = 'Displaying Column Comments';
+$strDisabled = 'Disabled';
+$strEnabled = 'Enabled';
 ?>
