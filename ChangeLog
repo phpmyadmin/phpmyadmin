@@ -11,6 +11,7 @@ $Source$
     * tbl_create.php: Use default tab.
     * tbl_properties.inc.php: Don't offer the BINARY field attribute in
       MySQL 4.1.
+    * main.php: Check the privileges of the anonymous user, too.
 
 2004-09-05 Michal Čihař  <michal@cihar.com>
     * Documentation.html: Add information about theme versions and names.
