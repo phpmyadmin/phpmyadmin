@@ -90,6 +90,7 @@ if (isset($btnDrop) || isset($navig)) {
  * Reformat the query
  */
 
+$GLOBALS['unparsed_sql'] = $sql_query;
 $parsed_sql = PMA_SQP_parse($sql_query);
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 // Bug #641765 - Robbat2 - 12 January 2003, 10:49PM
@@ -760,7 +761,6 @@ if (typeof(window.print) != 'undefined') {
 
 } // end executes the query
 echo "\n\n";
-
 
 /**
  * Displays the footer

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-28 Garvin Hicking <me@supergarv.de>
+    * sql.php3, libraries/common.lib.php3 - when $cfg['SQP']['fmtType']
+      is set to 'none', positively retain any user formatting for query
+      output. (RFE #769219)
+    
 2003-07-28 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 778899, could not create a bookmark
     * ldi_table.php3: Users with register_global=off received some

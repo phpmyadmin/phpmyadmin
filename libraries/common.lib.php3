@@ -345,10 +345,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
          *
          * @author  Robin Johnson <robbat2@users.sourceforge.net>
          */
-        function PMA_formatSql($parsed_sql)
+        function PMA_formatSql($parsed_sql, $unparsed_sql = '')
         {
             global $cfg;
-
+            
             // Check that we actually have a valid set of parsed data
             // well, not quite
             // first check for the SQL parser having hit an error
@@ -360,7 +360,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 // We don't so just return the input directly
                 // This is intended to be used for when the SQL Parser is turned off
                 $formatted_sql = '<pre>' . "\n"
-                                . $parsed_sql . "\n"
+                                . (($cfg['SQP']['fmtType'] == 'none' && $unparsed_sql != '') ? $unparsed_sql : $parsed_sql) . "\n"
                                 . '</pre>';
                 return $formatted_sql;
             }
@@ -369,7 +369,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
             switch ($cfg['SQP']['fmtType']) {
                 case 'none':
-                    $formatted_sql = PMA_SQP_formatNone($parsed_sql);
+                    if ($unparsed_sql != '') {
+                        $formatted_sql = "<pre>\n" . PMA_SQP_formatNone(array('raw' => $unparsed_sql)) . "\n</pre>";
+                    } else {
+                        $formatted_sql = PMA_SQP_formatNone($parsed_sql);
+                    }
                     break;
                 case 'html':
                     $formatted_sql = PMA_SQP_formatHtml($parsed_sql,'color');
@@ -447,7 +451,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 } // end if
                 echo '</p>' . "\n"
                         . '<p>' . "\n"
-                        . '    ' . PMA_formatSql($parsed_sql) . "\n"
+                        . '    ' . PMA_formatSql($parsed_sql, $the_query) . "\n"
                         . '</p>' . "\n";
             } // end if
             if (!empty($error_message)) {
@@ -1317,7 +1321,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         </tr>
             <?php
             if ($cfg['ShowSQL'] == TRUE && (!empty($GLOBALS['sql_query']) || !empty($GLOBALS['display_query']))) {
-                $local_query = !empty($GLOBALS['display_query']) ? $GLOBALS['display_query'] : $GLOBALS['sql_query'];
+                $local_query = !empty($GLOBALS['display_query']) ? $GLOBALS['display_query'] : (($cfg['SQP']['fmtType'] == 'none' && $GLOBALS['unparsed_sql'] != '') ? $GLOBALS['unparsed_sql'] : $GLOBALS['sql_query']);
                 // Basic url query part
                 $url_qpart = '?' . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
                 echo "\n";
@@ -1349,7 +1353,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $query_base = PMA_validateSQL($query_base);
                 } else {
                     $parsed_sql = PMA_SQP_parse($query_base);
-                    $query_base = PMA_formatSql($parsed_sql);
+                    $query_base = PMA_formatSql($parsed_sql, $query_base);
                 }
 
                 // Prepares links that may be displayed to edit/explain the query
@@ -1479,7 +1483,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     } else if (!empty($GLOBALS['validatequery'])) {
                         // skip the extra bit here
                     } else {
-                        echo '&nbsp;' . PMA_formatSql(PMA_SQP_parse($GLOBALS['sql_limit_to_append']));
+                        echo '&nbsp;' . PMA_formatSql(PMA_SQP_parse($GLOBALS['sql_limit_to_append'], $GLOBALS['sql_limit_to_append']));
                     }
                 }
 
