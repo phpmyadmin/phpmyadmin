@@ -8,11 +8,11 @@ $number_thousands_separator = '.';
 $number_decimal_separator = ',';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
-$day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-$month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+$day_of_week = array('So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa');
+$month = array('Jan', 'Feb', 'März', 'April', 'Mai', 'Juni', 'Juli', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%B %d, %Y at %I:%M %p';
+$datefmt = '%d. %B %Y um %H:%M';
 
 
 $strAccessDenied = 'Zugriff verweigert.';
@@ -253,6 +253,7 @@ $strServerChoice = 'Server Auswählen';
 $strServerVersion = 'Server Version';
 $strSetEnumVal = 'Wenn das Feld vom Type \'ENUM\' oder \'SET\' ist, benutzen Sie das Format: \'a\',\'b\',\'c\',....<br />Wann immer Sie ein Backslash ("\") oder ein einfaches Anführungszeichen ("\'") verwenden,<br \>setzen Sie bitte ein Backslash vor das Zeichen.  (z.B.: \'\\\\xyz\' or \'a\\\'b\').';
 $strShow = 'Zeige';
+$strShowAll = 'Alles anzeigen';
 $strShowingRecords = 'Zeige Datensätze ';
 $strShowPHPInfo = 'PHP Informationen anzeigen';
 $strShowThisQuery = 'SQL Befehl hier wieder anzeigen';
@@ -311,5 +312,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strShowAll = 'Show all'; // to translate
 ?>
