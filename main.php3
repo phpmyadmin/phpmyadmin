@@ -292,7 +292,9 @@ if ($server > 0
     </li>
     <li>
         <a href="http://phpmyadmin.sourceforge.net/" target="_new">
-        <?php echo $strHomepageSourceforge; ?></a>&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_new">ChangeLog</a>]
+        <?php echo $strHomepageSourceforge; ?></a>&nbsp;&nbsp;&nbsp;
+        [<a href="ChangeLog" target="_new">ChangeLog</a>]&nbsp;
+        [<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_new">CVS</a>]
     </li>
 </ul>
 
