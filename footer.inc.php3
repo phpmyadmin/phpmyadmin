@@ -9,10 +9,10 @@
  * Close MySql connections
  */
 if (isset($dbh) && $dbh) {
-    mysql_close($dbh);
+    @mysql_close($dbh);
 }
 if (isset($userlink) && $userlink) {
-    mysql_close($userlink);
+    @mysql_close($userlink);
 }
 ?>
 
