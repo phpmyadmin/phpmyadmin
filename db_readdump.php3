@@ -42,9 +42,8 @@ if($sql_file != "none") {
     if (get_magic_quotes_runtime() == 1) $sql_query = stripslashes($sql_query);
   }
 }
-else {
-  if(get_magic_quotes_gpc() != 0 && get_magic_quotes_runtime() != 0) $sql_query = stripslashes($sql_query);
-  if(get_magic_quotes_gpc() == 1 && get_magic_quotes_runtime() == 0) $sql_query = stripslashes($sql_query);
+else if (get_magic_quotes_gpc() == 1) {
+	$sql_query = stripslashes($sql_query);
 }
 
 $sql_query = trim($sql_query);
