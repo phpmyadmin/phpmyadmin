@@ -1502,7 +1502,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
         if (isset($edit_url)) {
             $vertical_display['edit'][$row_no]   .= '    <td width="10" align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
-                                                 . PMA_linkOrButton($edit_url, $edit_str, '')
+                                                 . PMA_linkOrButton($edit_url, $edit_str, '', FALSE)
                                                  . $bookmark_go
                                                  .  '    </td>' . "\n";
         } else {
@@ -1511,7 +1511,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
         if (isset($del_url)) {
             $vertical_display['delete'][$row_no] .= '    <td width="10" align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
-                                                 . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''))
+                                                 . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''), FALSE)
                                                  .  '    </td>' . "\n";
         } else {
             unset($vertical_display['delete'][$row_no]);

@@ -1705,17 +1705,19 @@ if (typeof(document.getElementById) != 'undefined'
      * @param  string  the URL
      * @param  string  the link message
      * @param  string  js confirmation
+     * @param  boolean we set this to FALSE when we are already in a form,
+     *                 to avoid generating nested forms
      *
      * @return string  the results to be echoed or saved in an array
      */
-    function PMA_linkOrButton($url, $message, $js_conf)
+    function PMA_linkOrButton($url, $message, $js_conf, $allow_button = TRUE)
     {
         if (strlen($url) <= 2047) {
             $onclick_url        = (empty($js_conf) ? '' : ' onclick="return confirmLink(this, \'' . $js_conf . '\')"');
             $link_or_button     = '        <a href="' . $url . '"' . $onclick_url . '>' . "\n"
                                 . '           ' . $message . '</a>' . "\n";
         }
-        else {
+        elseif ($allow_button) {
             $edit_url_parts     = parse_url($url);
             $query_parts        = explode('&', $edit_url_parts['query']);
             $link_or_button     = '        <form action="'
@@ -1733,9 +1735,11 @@ if (typeof(document.getElementById) != 'undefined'
                 $link_or_button     .= '            <input type="submit" value="'
                                     . htmlspecialchars($message) . '" />' . "\n" . '</form>' . "\n";
             }
+        } else {
+            $link_or_button = ' <dfn title="' . $GLOBALS['strNeedPrimaryKey'] . '">?</dfn> ';
         } // end if... else...
 
-        return $link_or_button;
+            return $link_or_button;
     } // end of the 'PMA_linkOrButton()' function
 
 

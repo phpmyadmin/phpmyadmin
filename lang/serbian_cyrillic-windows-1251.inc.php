@@ -729,4 +729,5 @@ $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања о
 $strZip = '"зиповано"';
 
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
+$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
 ?>

@@ -729,4 +729,5 @@ $strZip = 'Komprimert (zip)';
 
 $strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
+$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
 ?>

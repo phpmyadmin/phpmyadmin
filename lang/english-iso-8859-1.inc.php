@@ -719,7 +719,8 @@ $strZip = '"zipped"';
 
 $strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
 $strMaximumSize = 'Max: %s%s';
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
+$strConnectionError = 'Cannot connect: invalid settings.';
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';
-$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';
+$strNeedPrimaryKey = 'You should define a primary key for this table.';
 ?>

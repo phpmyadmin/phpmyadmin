@@ -9,13 +9,13 @@ if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
 }
 if (!empty($edit_url)) {
     echo '    <td width="10" align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
-       . PMA_linkOrButton($edit_url, $edit_str, '')
+       . PMA_linkOrButton($edit_url, $edit_str, '', FALSE)
        . $bookmark_go
        . '    </td>' . "\n";
 }
 if (!empty($del_url)) {
     echo '    <td width="10" align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
-       . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''))
+       . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''), FALSE)
        . '    </td>' . "\n";
 }
 ?>

@@ -722,4 +722,5 @@ $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el l
 $strZip = '"comprimit amb zip"';
 
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
+$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
 ?>

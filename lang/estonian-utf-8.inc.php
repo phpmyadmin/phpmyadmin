@@ -723,4 +723,5 @@ $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate 
 $strZip = '"zipitud"';
 
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
+$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
 ?>
