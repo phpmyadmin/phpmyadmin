@@ -140,7 +140,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
             $message = $strNoModification;
             include('./' . ereg_replace('\.\.*', '.', $goto));
         } else {
-            header('Location: ' . $goto);
+            header('Location: ' . $cfgPmaAbsoluteUri . $goto);
         }
         exit();
     }
@@ -249,7 +249,7 @@ if (!$result) {
         $message = $strModifications;
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
-        header('Location: ' . $goto);
+        header('Location: ' . $cfgPmaAbsoluteUri . $goto);
     }
     exit();
 } // end if

@@ -34,7 +34,7 @@ $tables     = mysql_list_tables($db);
 $num_tables = @mysql_numrows($tables);
 // Not a valid db name -> back to the welcome page
 if (mysql_error() != '') {
-    header('Location: main.php3?lang=' . $lang . '&server=' . $server . '&reload=true');
+    header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . '&reload=true');
     exit();
 }
 

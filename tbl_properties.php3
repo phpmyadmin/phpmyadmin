@@ -42,13 +42,13 @@ unset($sql_query);
 $is_db = @mysql_select_db($db);
 // Not a valid db name -> back to the welcome page
 if (!$is_db) {
-    header('Location: main.php3?lang=' . $lang . '&server=' . $server . '&reload=true');
+    header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . '&reload=true');
     exit();
 }
 $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
 // Not a valid table name -> back to the db_details.php3
 if (!@mysql_numrows($is_table)) {
-    header('Location: db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . '&reload=true');
+    header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . '&reload=true');
     exit();
 }
 

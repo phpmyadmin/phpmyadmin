@@ -144,7 +144,7 @@ if (!defined('__LIB_INC__')){
         echo '<p>' . "\n";
         echo '    ' . $GLOBALS['strMySQLSaid'] . '&nbsp;' . htmlspecialchars($error_message) . "\n";
         echo '</p>' . "\n";
-        echo '<a href="javascript:history.go(' . $hist . ')">' . $GLOBALS['strBack'] . '</a>';
+        echo '<a href="javascript:window.history.go(' . $hist . ')">' . $GLOBALS['strBack'] . '</a>';
 
         include('./footer.inc.php3');
         exit();

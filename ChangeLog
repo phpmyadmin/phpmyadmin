@@ -20,8 +20,14 @@ $Source$
 	  #444767 (Other cases for display=simple).
 	* user_details.php3: fixed some javascript bugs.
 	* tbl_change.php3, lines 26 & 31: added some mysql_die() calls.
-	* lib.inc.php3, lines 135 & 147: go back to the previous calling script
-	  that is not a confirmation form.
+	* lib.inc.php3, lines 135 & 147: in case of error in a query, go back to the
+	  previous calling script that is not a confirmation form.
+	  Fixed also a js bug line 147.
+	* config.inc.php3, lines 27-33; Documentation.html, lines 238-246;
+	  db_details.php3, line 37; sql.php3, lines 20, 53 & 184;
+	  tbl_properties.php3, lines 45 & 51; tbl_replace, line 143 & 252;
+	  tbl_select.php3, line 181: according to rfc 2816, the location http
+	  header requires an absolute URI.
 
 2001-08-19  Olivier Müller  <om@omnis.ch>
 	* db_readdump.php3: if file contains mutiple queries, only show this line:

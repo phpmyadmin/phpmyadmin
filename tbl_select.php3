@@ -178,7 +178,7 @@ else {
                . '&pos=0'
                . '&sessionMaxRows=' . $sessionMaxRows
                . '&goto=db_details.php3';
-    header('Location: sql.php3?' . $url_query);
+    header('Location: ' . $cfgPmaAbsoluteUri . 'sql.php3?' . $url_query);
 }
 
 ?>

@@ -17,7 +17,7 @@ if (isset($store_bkm)) {
         $fields['label'] = stripslashes($fields['label']);
     }
     add_bookmarks($fields, $cfgBookmark);
-    header('Location: ' . $goto);
+    header('Location: ' . $cfgPmaAbsoluteUri . $goto);
 }
 
 
@@ -50,7 +50,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
     if (file_exists('./' . $goto)) {
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
-        header('Location: ' . $goto);
+        header('Location: ' . $cfgPmaAbsoluteUri . $goto);
     }
     exit();
 } // end if
@@ -181,7 +181,7 @@ else {
         } // end if file_exist
         else {
             $message = $zero_rows;
-            header('Location: ' . $goto);
+            header('Location: ' . $cfgPmaAbsoluteUri . $goto);
         } // end else
         exit();
     } // end no rows returned
