@@ -23,7 +23,7 @@ chinese_gb
 croatian-iso8859-2
 czech-iso-8859-2
 danish-iso-8859-1
-dutch
+dutch-iso-8859-1
 english
 estonian
 finnish
