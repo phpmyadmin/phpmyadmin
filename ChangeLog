@@ -12,6 +12,8 @@ $Source$
       libraries/transformations.lib.php: new function PMA_securePATH()
     * main.php, tbl_properties_structure.php: theme "none" should be "original",
       thanks to Michael Keck (mkkeck)
+    * left.php, tbl_properties.inc.php, librairies/common.lib.php: 
+      missing title tags
 
 2004-06-15 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
