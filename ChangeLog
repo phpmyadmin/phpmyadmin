@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-03 Garvin Hicking <me@supergarv.de>
+    * pdf_schema.php3, libraries/dbg/profiling.php3, 
+    libraries/xpath/XPath.class.php: Backwards compatibility (foreach loops)
+
 2003-02-03 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.4.0-rc1 released
     and after the release:
