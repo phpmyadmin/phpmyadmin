@@ -8,6 +8,9 @@ $Source$
 2001-06-11  Steve Alberty   <alberty@neptunlabs.de>
 	* tbl_properties.php3: suppress Table Maintenance, Comment and Type
 	  for MySQL Version < 3.23
+	* tbl_properties.inc.php3,tbl_properties.php3:
+	  regards capability of mysql installation to view different table
+	  types
 
 2001-06-10  Steve Alberty   <alberty@neptunlabs.de>
 	* tbl_select.php3,tbl_change.php3,lib.inc.php3: fixed warnings
