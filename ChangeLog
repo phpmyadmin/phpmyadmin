@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2002-12-13 Michal Cihar  <nijel@users.sourceforge.net>
-    * lang/sort_lang.sh: Make it work with POSIX sh.
+    * lang/{sort_lang.sh,sync_lang.sh}: Make it work with POSIX sh.
 
 2002-12-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian: update, thanks to Nicolay Zakharov

@@ -28,11 +28,13 @@
 # CONVERTOR_PARAMS is used for printf and it also receives two params: source
 # and target charset
 #
+
 case "$1" in
     --iconv)
     	echo Using iconv on user request
         CONVERTOR=iconv
-        CONVERTOR_PARAMS="-f %s -t %s"
+        # the space on following is REQUIRED
+        CONVERTOR_PARAMS=" -f %s -t %s"
         shift
         ;;
     --recode)
@@ -159,16 +161,16 @@ for base in $BASE_TRANSLATIONS ; do
         if [ $charset = 'utf-8' ] ; then
             # if we convert to utf-8, we should add allow_recoding
             is_utf=yes
-            $CONVERTOR $(printf -- "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
 $allow_recoding = TRUE;' > $file
             echo done
         elif [ $src_charset = 'utf-8' ] ; then
             # if we convert from utf-8, we should remove allow_recoding
-            $CONVERTOR $(printf -- "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| grep -v allow_recoding > $file
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| grep -v allow_recoding > $file
             echo done
         else
             # just convert
-            $CONVERTOR $(printf -- "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed "s/$src_charset/$charset/" > $file 
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed "s/$src_charset/$charset/" > $file 
             echo done
         fi
     done
