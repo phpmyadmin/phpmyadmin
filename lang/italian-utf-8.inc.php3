@@ -295,6 +295,7 @@ $strPHPVersion = 'Versione PHP';
 $strPageNumber = 'Numero pagina:';
 $strPartialText = 'Testo parziale';
 $strPassword = 'Password';
+$strPasswordChanged = 'La password per l\'utente %s è cambiata con successo.';
 $strPasswordEmpty = 'La password è vuota!';
 $strPasswordNotSame = 'La password non coincide!';
 $strPdfDbSchema = 'Schema del database "%s" - Pagina %s';
@@ -517,5 +518,4 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 ?>
