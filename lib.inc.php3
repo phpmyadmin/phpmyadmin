@@ -980,7 +980,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         $is_show_processlist = eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$", $sql_query);
         ?>
 
-<table border="<?php echo $GLOBALS['cfgBorder']; ?>">
+<table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding ="5">
 <tr>
         <?php
         echo "\n";
@@ -1173,7 +1173,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 }
                 $primary = mysql_fetch_field($dt_result, $i);
                 if ($primary->numeric == 1) {
-                    echo '    <td align="right">&nbsp;' . $row[$i] . '&nbsp;</td>' . "\n";
+                    echo '    <td align="right">' . $row[$i] . '</td>' . "\n";
                 } else if ($GLOBALS['cfgShowBlob'] == FALSE && eregi('BLOB', $primary->type)) {
                     // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
                     // fields type, however TEXT fields must be displayed even
@@ -1182,21 +1182,21 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     $result_type     = mysql_query('SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($primary->table) . ' LIKE \'' . sql_addslashes($primary->name, TRUE) . '\'') or mysql_die();
                     $true_field_type = mysql_fetch_array($result_type);
                     if (eregi('BLOB', $true_field_type['Type'])) {
-                        echo '    <td align="right">&nbsp;[BLOB]&nbsp;</td>' . "\n";
+                        echo '    <td>[BLOB]</td>' . "\n";
                     } else {
                         if (strlen($row[$i]) > $GLOBALS['cfgLimitChars']) {
                             $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
                         }
                         // loic1 : displays <cr>/<lf>
-                        //  echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
+                        //  echo '    <td>' . htmlspecialchars($row[$i]) . '</td>' . "\n";
                         $row[$i]     = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
-                        echo '    <td>&nbsp;' . $row[$i] . '&nbsp;</td>' . "\n";
+                        echo '    <td>' . $row[$i] . '</td>' . "\n";
                     }
                 } else {
                     // loic1 : displays <cr>/<lf>
-                    // echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
+                    // echo '    <td>' . htmlspecialchars($row[$i]) . '</td>' . "\n";
                     $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
-                    echo '    <td>&nbsp;' . $row[$i] . '&nbsp;</td>' . "\n";
+                    echo '    <td>' . $row[$i] . '</td>' . "\n";
                 }
             } // end for
             // Possibility to have the modify/delete button on the left added
