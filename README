@@ -32,8 +32,6 @@ phpMyAdmin - Readme
   Requirements:
     php 4.1.0 or later
     MySQL 3.23.32 or later
-        Note: The implemented support for MySQL 4.1.x and 5.0.x is experimental!
-              For more details, see Documentation.txt / .html
     a web-browser (doh!)
 
   Summary:
@@ -74,7 +72,7 @@ phpMyAdmin - Readme
 
 
   PS: Please, don't send us emails with question like "How do I compile
-      PHP3 with MySQL-support". We just don't have the time to be your 
+      PHP with MySQL-support". We just don't have the time to be your 
       free helpdesk.
       Please send your questions to the appropriate mailinglists / forums.
       Before contacting us, please read the Documentation.html (esp. the

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-20 Alexander M. Turek  <me@derrabus.de>
+    * Documentation.html, README:
+      - The MySQL 4.1 support is not experimental anymore;
+      - Updated credits.
+
 2004-04-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/tbl_change.js: was always returning current day
 

@@ -2437,19 +2437,22 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [1.17] Which MySQL versions does phpMyAdmin support?
 </h4>
 <p>
-    All MySQL versions from 3.23.32 till 4.0 are fully supported. Please note
+    All MySQL versions from 3.23.32 till 5.0 are fully supported. Please note
     that the older your MySQL version is, the more limitations you will have to
     face.
     <br />
-    phpMyAdmin provides experimental support for MySQL&nbsp;4.1 and 5.0. That
-    means that although you can assign character sets to a table or field,
-    phpMyAdmin will not recode the data when inserting or extracting it.
-    Instead, it will still use the character set you specified for the MySQL
-    connection. Also the new improved MySQL extension (mysqli) that comes with php 5.0 is experimentally supported. <br />
+    phpMyAdmin may connect to your MySQL server using php's classic
+    <a href="http://php.net/mysql">MySQL extension</a> as well as the
+    <a href="http://php.net/mysqli">improved MySQL extension (MySQLi)</a> that
+    is available in php 5.0.
+    <br />
+    Either way, the developers of both extensions recommend to use the classic
+    extension for MySQL 4.0 and below and MySQLi for MySQL 4.1 and newer.
+    <br />
     When compiling php, we strongly recommend that you manually link the MySQL
-    extension to a MySQL client library of at least the same minor version
-    since the one that is bundled with current php distributions is rather old
-    and might cause problems (see also FAQ 1.17a).<br />
+    extension of your choice to a MySQL client library of at least the same
+    minor version since the one that is bundled with some php distributions is
+    rather old and might cause problems (see also FAQ 1.17a).<br />
     MySQL&nbsp;5.1 is not yet supported.
 </p>
 
@@ -3774,7 +3777,7 @@ phpMyAdmin - Credits
 CREDITS, in chronological order
 -------------------------------
 
-- Tobias Ratschiller &lt;tobias.ratschiller_at_maguma.com&gt;
+- Tobias Ratschiller &lt;tobias_at_ratschiller.com&gt;
     * creator of the phpmyadmin project
     * maintainer from 1998 to summer 2000
 
@@ -3834,8 +3837,10 @@ CREDITS, in chronological order
     * bugfixes
 
 - Alexander M. Turek &lt;me_at_derrabus.de&gt;
+    * MySQL 4.0 / 4.1 / 5.0 compatibility
+    * database interface (DBI) and MySQLi support
+    * privileges administration
     * XML exports
-    * MySQL 4 related features
     * various features and fixes
     * German language file updates
 
