@@ -64,7 +64,7 @@ CREATE TABLE `PMA_pdf_pages` (
     KEY (db_name)
     ) TYPE=MyISAM COMMENT='PDF Relationpages for PMA';
 
-CREATE TABLE `PMA_column_comments` (
+CREATE TABLE `PMA_column_info` (
     id int(5) unsigned NOT NULL auto_increment,
     db_name varchar(64) NOT NULL default '',
     table_name varchar(64) NOT NULL default '',
@@ -86,5 +86,5 @@ CREATE TABLE `PMA_history` (
     `timevalue` TIMESTAMP NOT NULL ,
     `sqlquery` TEXT NOT NULL ,
     PRIMARY KEY ( `id` ) ,
-    INDEX ( `username` , `db` , `table` , `timevalue` ) 
+    INDEX ( `username` , `db` , `table` , `timevalue` )
     ) TYPE=MyISAM COMMENT='SQL history';
