@@ -75,7 +75,10 @@ $cfg['Servers'][$i]['compress']      = FALSE;       // Use compressed protocol f
 $cfg['Servers'][$i]['controluser']   = '';          // MySQL control user settings
                                                     // (this user must have read-only
 $cfg['Servers'][$i]['controlpass']   = '';          // access to the "mysql/user"
-                                                    // and "mysql/db" tables)
+                                                    // and "mysql/db" tables).
+                                                    // The controluser is also
+                                                    // used for all relational
+                                                    // features (pmadb)
 $cfg['Servers'][$i]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
 $cfg['Servers'][$i]['user']          = 'root';      // MySQL user
 $cfg['Servers'][$i]['password']      = '';          // MySQL password (only needed

@@ -461,6 +461,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <b>$cfg['Servers'][$i]['controlpass']</b> string
     </dt>
     <dd>
+        This special account is used for 2 distinct purposes: to make possible
+        a multi-user installation (http or cookie authentication mode) and
+        also for all relational features (see
+        <a href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>).
+        <br /><br />
         When using HTTP or cookie authentication modes (or 'config'
         authentication mode since phpMyAdmin 2.2.1), you need to supply the
         details of a MySQL account that has <tt>SELECT</tt> privilege on the
