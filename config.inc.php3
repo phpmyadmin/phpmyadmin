@@ -332,6 +332,7 @@ $cfg['Export']['sql_dates']                 = FALSE;
 $cfg['Export']['sql_relation']              = FALSE;
 $cfg['Export']['sql_columns']               = FALSE;
 $cfg['Export']['sql_delayed']               = FALSE;
+$cfg['Export']['sql_type']                  = 'insert'; // insert/update/replace
 $cfg['Export']['sql_extended']              = FALSE;
 $cfg['Export']['sql_comments']              = FALSE;
 $cfg['Export']['sql_mime']                  = FALSE;

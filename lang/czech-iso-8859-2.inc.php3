@@ -547,6 +547,7 @@ $strRunning = 'na %s';
 $strRussian = 'Ru¹tina';
 
 $strSQL = 'SQL';
+$strSQLExportType = 'Typ vytvoøených dotazù';
 $strSQLOptions = 'Nastavení SQL exportu';
 $strSQLParserBugMessage = 'Je mo¾né, ¾e jste na¹li chybu v&nbsp;SQL parseru. Prosím prozkoumejte podrobnì SQL dotaz, pøedev¹ím jestli jsou správnì uvozovky a jestli nejsou proházené. Dal¹í mo¾nost selhání je pokud nahráváte soubor s&nbsp;binárními daty nezapsanými v&nbsp;uvozovkách. Mù¾ete také vyzkou¹et pøíkazovou øádku MySQL. Ní¾e uvedený výstup z&nbsp;MySQL serveru (pokud je nìjaký) Vám také mù¾e pomoci pøi zkoumání problému. Pokud stále máte problémy nebo pokud SQL parser ohlásí chybu u dotazu, který na pøíkazové øádce funguje, prosím pokuste se zredukovat dotaz na co nejmen¹í, ve kterém se problém je¹tì vyskytne, a ohla¹te chybu na stránkách phpMyAdmina spolu se sekcí VÝPIS uvedenou ní¾e:';
 $strSQLParserUserError = 'Pravdìpodobnì máte v&nbsp;SQL dotazu chybu. Ní¾e uvedený výstup MySQL serveru (pokud je nìjaký) Vám také mù¾e pomoci pøi zkoumání problému';

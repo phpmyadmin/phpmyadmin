@@ -10,6 +10,11 @@ $Source$
     * libraries/export/sql.php3, libraries/config_import.lib.php3,
       libraries/common.lib.php3, libraries/display_export.lib.php3, lang/*,
       config.inc.php3: Allow delayed inserts (RFE #841298).
+    * libraries/export/sql.php3, libraries/common.lib.php3,
+      libraries/config_import.lib.php3, libraries/display_export.lib.php3,
+      lang/*, config.inc.php3: Support for creating UPDATE and REPLACE
+      statements in export (RFE #838828).
+    * lang/remove_message.sh: Checks for parameter count.
 
 2003-11-12 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/latex.php3: Fixed LaTeX output (patch #840082).

@@ -218,6 +218,15 @@ if ($cfgRelation['mimework']) {
                     <label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label><br />
                     <input type="checkbox" name="delayed" value="yes" id="checkbox_dump_delayed" <?php PMA_exportCheckboxCheck('sql_delayed'); ?> />
                     <label for="checkbox_dump_delayed"><?php echo $strDelayedInserts; ?></label><br />
+
+                    <label for="select_sql_type">
+                        <?php echo $strSQLExportType; ?>:&nbsp;
+                    </label>
+                    <select name="sql_type" id="select_sql_type" />
+                        <option value="insert"<?php echo $cfg['Export']['sql_type'] == 'insert' ? ' selected="selected"' : ''; ?>>INSERT</option>
+                        <option value="update"<?php echo $cfg['Export']['sql_type'] == 'update' ? ' selected="selected"' : ''; ?>>UPDATE</option>
+                        <option value="replace"<?php echo $cfg['Export']['sql_type'] == 'replace' ? ' selected="selected"' : ''; ?>>REPLACE</option>
+                    </select>
                 </fieldset>
             </fieldset>
 <?php } ?>

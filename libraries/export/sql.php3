@@ -485,21 +485,34 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
             }
         } // end for
 
-        // delayed inserts?
-        if (isset($GLOBALS['delayed'])) {
-            $insert_delayed = ' DELAYED';
+        if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'update') {
+            // update
+            $schema_insert  = 'UPDATE ' . PMA_backquote($table, $use_backquotes) . ' SET ';
+            $fields_no      = count($field_set);
         } else {
-            $insert_delayed = '';
-        }
+            // insert or replace
+            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'replace') {
+                $sql_command    = 'REPLACE';
+            } else {
+                $sql_command    = 'INSERT';
+            }
             
-        // Sets the scheme
-        if (isset($GLOBALS['showcolumns'])) {
-            $fields        = implode(', ', $field_set);
-            $schema_insert = 'INSERT' . $insert_delayed .' INTO ' . PMA_backquote($table, $use_backquotes)
-                           . ' (' . $fields . ') VALUES (';
-        } else {
-            $schema_insert = 'INSERT' . $insert_delayed .' INTO ' . PMA_backquote($table, $use_backquotes)
-                           . ' VALUES (';
+            // delayed inserts?
+            if (isset($GLOBALS['delayed'])) {
+                $insert_delayed = ' DELAYED';
+            } else {
+                $insert_delayed = '';
+            }
+                
+            // Sets the scheme
+            if (isset($GLOBALS['showcolumns'])) {
+                $fields        = implode(', ', $field_set);
+                $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $use_backquotes)
+                               . ' (' . $fields . ') VALUES (';
+            } else {
+                $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $use_backquotes)
+                               . ' VALUES (';
+            }
         }
 
         $search       = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
@@ -527,17 +540,31 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
                 } // end if
             } // end for
 
-            // Extended inserts case
-            if (isset($GLOBALS['extended_ins'])) {
-                if ($current_row == 1) {
-                    $insert_line  = $schema_insert . implode(', ', $values) . ')';
-                } else {
-                    $insert_line  = '(' . implode(', ', $values) . ')';
+            // should we make update?
+            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'update') {
+                
+                $insert_line = $schema_insert;
+                for ($i = 0; $i < $fields_no; $i++) {
+                    if ($i > 0) {
+                        $insert_line .= ', ';
+                    }
+                    $insert_line .= $field_set[$i] . ' = ' . $values[$i]; 
                 }
-            }
-            // Other inserts case
-            else {
-                $insert_line      = $schema_insert . implode(', ', $values) . ')';
+
+            } else {
+
+                // Extended inserts case
+                if (isset($GLOBALS['extended_ins'])) {
+                    if ($current_row == 1) {
+                        $insert_line  = $schema_insert . implode(', ', $values) . ')';
+                    } else {
+                        $insert_line  = '(' . implode(', ', $values) . ')';
+                    }
+                }
+                // Other inserts case
+                else {
+                    $insert_line      = $schema_insert . implode(', ', $values) . ')';
+                }
             }
             unset($values);
 
