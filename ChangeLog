@@ -19,6 +19,8 @@ $Source$
 	* tbl_change.php3: fixed some inconcistancies if an update is required but
 	  the record can't be found and, in this case, ensured a message is
 	  displayed.
+	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
+	* lang/swedish.inc.php3: updated thanks to Björn T. Hallberg.
 
 2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/*: cleanup thanks to Björn T. Hallberg - Removed unused strings

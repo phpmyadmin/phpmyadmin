@@ -116,6 +116,7 @@ $strFieldsEnclosedBy = 'Campo composto da';
 $strFieldsEscapedBy = 'Campo impedito da';
 $strFieldsTerminatedBy = 'Campo terminato da';
 $strFixed = 'fisso';
+$strFlushTable = 'Inizializza la tabella ("FLUSH")';
 $strFormat = 'Formato';
 $strFormEmpty = 'Valore mancante nel form!';
 $strFullText = 'Testo completo';
@@ -178,6 +179,7 @@ $strNext = 'Prossimo';
 $strNo = ' No ';
 $strNoDatabases = 'Nessun database';
 $strNoDropDatabases = 'I comandi "DROP DATABASE" sono disabilitati.';
+$strNoFrames = 'phpMyAdmin è più amichevole con un browser che supporta i frames';
 $strNoModification = 'Nessun cambiamento';
 $strNoPassword = 'Nessuna Password';
 $strNoPrivileges = 'Nessun Privilegio';
@@ -280,6 +282,7 @@ $strTableComments = 'Commenti sulla tabella';
 $strTableEmpty = 'Il nome della tabella è vuoto!';
 $strTableHasBeenDropped = 'La tabella %s è stata eliminata';
 $strTableHasBeenEmptied = 'La tabella %s è stata svuotata';
+$strTableHasBeenFlushed = 'La tabella %s è stata inizializzata';
 $strTableMaintenance = 'Amministrazione tabella';
 $strTables = '%s tabella(e)';
 $strTableStructure = 'Struttura della tabella';
@@ -318,7 +321,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strFlushTable = 'Flush the table ("FLUSH")';
-$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
-$strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>
