@@ -1580,9 +1580,9 @@ if (typeof(window.parent) != 'undefined'
      * Sanitizes $message, taking into account our special codes
      * for formatting
      *
-     * @param   string   the message 
+     * @param   string   the message
      *
-     * @return  string   the sanitized message 
+     * @return  string   the sanitized message
      *
      * @access  public
      */
@@ -1597,7 +1597,7 @@ if (typeof(window.parent) != 'undefined'
             '[br]'  => '<br />',
             '[/b]'  => '</b>',
         );
-        return strtr($message, $replace_pairs); 
+        return strtr($message, $replace_pairs);
     }
 
     /**
@@ -1614,8 +1614,8 @@ if (typeof(window.parent) != 'undefined'
         global $cfg;
 
         // Sanitizes $message
-        $message = PMA_sanitize($message); 
-        
+        $message = PMA_sanitize($message);
+
         // Corrects the tooltip text via JS if required
         if (!empty($GLOBALS['table']) && $cfg['ShowTooltip']) {
             $result = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
@@ -2333,7 +2333,8 @@ if (typeof(document.getElementById) != 'undefined'
             if (!isset($row[$i]) || is_null($row[$i])) {
                 $condition .= 'IS NULL AND';
             } else {
-                if ($meta->numeric) {
+                // timestamp is numeric on some MySQL 4.1
+                if ($meta->numeric && $meta->type != 'timestamp') {
                     $condition .= '= ' . $row[$i] . ' AND';
                 } elseif ($meta->type == 'blob'
                     // hexify only if this is a true not empty BLOB

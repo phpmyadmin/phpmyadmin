@@ -11,6 +11,8 @@ $Source$
       libraries/keyhandler.js: Use Option key for Safari for moving (bug
       #1094137), move key handler function to separate file so we have only
       one, make movement work correctly in vertical display of properties.
+    * libraries/common.lib.php: Fix timestamp in uva condition with MySQL 4.1
+      (bug #1097593).
 
 2005-01-06 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: removed old PHP3-workaround that caused problems
