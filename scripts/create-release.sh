@@ -1,6 +1,9 @@
 #!/bin/sh
 #
-# $Id$ 
+# $Id$
+#
+# 2002-10-03, rabus@users.sourceforge.net:
+# - more detailed instructions
 #
 # 2002-09-08, robbat2@users.sourceforge.net:
 # - Tweaked final instruction list
@@ -43,10 +46,11 @@ Please ensure you have:
      - in libraries/defines_php.lib.php3 the line
           " define('PMA_VERSION', '$1'); "
      - in Documentation.html the 2 lines
+          " <title>phpMyAdmin $1 - Documentation</title> "
           " <h1>phpMyAdmin $1 Documentation</h1> "
      - in translators.html
   2. built the new "Documentation.txt" version using:
-       lynx --nolist --dump Documentation.html > Documentation.txt 
+       lynx --nolist --dump Documentation.html > Documentation.txt
   3. synchronized the language files:
        cd lang
        ./sync_lang.sh
@@ -107,19 +111,21 @@ Todo now:
  2. upload the files to SF:
         ftp upload.sourceforge.net
         cd incoming
+        binary
         mput cvs/*.gz *.zip *.bz2
  3. add files to SF files page (cut and paste changelog since last release)
  4. add SF news item to phpMyAdmin project
  5. update the download page: /home/groups/p/ph/phpmyadmin/htdocs
  6. announce release on freshmeat (http://freshmeat.net/projects/phpmyadmin/)
- 7. send a short mail (with list of major changes) to 
+ 7. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
         phpmyadmin-users@lists.sourceforge.net
  8. increment rc count or version in CVS :
         - in libraries/defines_php.lib.php3 the line
               " define('PHPMYADMIN_VERSION', '2.2.2-rc1'); "
-        - in Documentation.html the line
+        - in Documentation.html the 2 lines
+              " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
         - in translators.html
  9. the end :-)
