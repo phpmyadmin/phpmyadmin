@@ -140,11 +140,10 @@ if (isset($sql_query)) {
 <?php if ($xls) { ?>
             <!-- Native Excel -->
                 <tr><td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                    <input type="radio" name="what" value="xls" id="radio_dump_xls"  onclick="if (this.checked) { hide_them_all(); getElement('xls_options').style.display = 'block'; getElement('checkbox_dump_asfile').checked = true;};  return true" <?php PMA_exportIsActive('format', 'xls'); ?> />
-                    <label for="radio_dump_xls"><?php echo $strStrucNativeExcel; ?></label>
+                    <input type="radio" name="what" value="xls" id="radio_dump_xls"  onclick="if (this.checked) { hide_them_all(); getElement('xls_options').style.display = 'block'; getElement('checkbox_dump_asfile').checked = true;};  return true" <?php PMA_exportIsActive('format', 'xls'); ?> /><label for="radio_dump_xls"><?php echo $strStrucNativeExcel; ?></label>
                </td></tr>
 <?php } ?>
-            
+
             <!-- Excel CSV -->
                 <tr><td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                     <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if (this.checked) { hide_them_all(); getElement('excel_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'excel'); ?> style="vertical-align: middle" /><label for="radio_dump_excel"><?php echo $strStrucExcelCSV; ?>&nbsp;</label>
@@ -203,7 +202,7 @@ if ($export_type == 'server') {
                         <b><?php echo $strDatabaseExportOptions; ?>:</b><br />
                         <input type="checkbox" name="drop_database" value="yes" id="checkbox_drop_database" <?php PMA_exportCheckboxCheck('sql_drop_database'); ?> style="vertical-align: middle" />
                         <label for="checkbox_drop_database"><?php echo $strAddDropDatabase; ?></label>
-                    </td> 
+                    </td>
                 </tr>
 
 <?php
@@ -214,21 +213,21 @@ if (!$hide_structure) { ?>
                     <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                         <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" <?php PMA_exportCheckboxCheck('sql_structure'); ?> onclick="if (!this.checked &amp;&amp; !getElement('checkbox_sql_data').checked) return false; else return true;" />
                         <label for="checkbox_sql_structure"><b><?php echo $strStructure; ?>:</b></label><br />
-                    
+
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="drop" value="1" id="checkbox_dump_drop" <?php PMA_exportCheckboxCheck('sql_drop_table'); ?> style="vertical-align: middle" />
                         <label for="checkbox_dump_drop"><?php echo $strStrucDrop; ?></label><br />
-                    
+
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="if_not_exists" value="1" id="checkbox_dump_if_not_exists" <?php PMA_exportCheckboxCheck('sql_if_not_exists'); ?> style="vertical-align: middle" />
                         <label for="checkbox_dump_if_not_exists"><?php echo $strAddIfNotExists; ?></label><br />
-                    
+
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" <?php PMA_exportCheckboxCheck('sql_auto_increment'); ?> style="vertical-align: middle" />
                         <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
-                    
+
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="use_backquotes" value="1" id="checkbox_dump_use_backquotes" <?php PMA_exportCheckboxCheck('sql_backquotes'); ?> style="vertical-align: middle" />
                         <label for="checkbox_dump_use_backquotes"><?php echo $strUseBackquotes; ?></label><br />
-                   
+
                         &nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strAddIntoComments; ?></b><br />
-                   
+
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_dates" value="yes" id="checkbox_sql_dates" <?php PMA_exportCheckboxCheck('sql_dates'); ?> style="vertical-align: middle" />
                         <label for="checkbox_sql_dates"><?php echo $strCreationDates; ?></label><br />
 <?php
@@ -268,7 +267,7 @@ if (!$hide_structure) { ?>
 
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="extended_ins" value="yes" id="checkbox_dump_extended_ins" <?php PMA_exportCheckboxCheck('sql_extended'); ?> style="vertical-align: middle" />
                         <label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label><br />
-                    
+
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="delayed" value="yes" id="checkbox_dump_delayed" <?php PMA_exportCheckboxCheck('sql_delayed'); ?> style="vertical-align: middle" />
                         <label for="checkbox_dump_delayed"><?php echo $strDelayedInserts; ?></label><br />
 

@@ -5,8 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-16 Garvin Hicking <me@supergarv.de>
+    * libraries/display_export.lib.php: Bug #1010752 - Remove space
+      before <label> to be consistent throughout the panel.
+
 2004-09-15 Garvin Hicking <me@supergarv.de>
-    * Fixed foreign key browser window to also work from within
+    * browse_foreigners.php, libraries/functions.js, tbl_select.php:
+      Fixed foreign key browser window to also work from within
       Search-subpanel.
 
 2004-09-14 Marc Delisle  <lem9@users.sourceforge.net>
