@@ -6,7 +6,7 @@ require("./grab_globals.inc.php3");
  
 require("./lib.inc.php3");
 
-
+$sql_query=urldecode($sql_query);
 if($goto == "sql.php3")
 {
     $goto = "sql.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&sql_query=".urlencode($sql_query);
