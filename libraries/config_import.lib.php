@@ -1272,6 +1272,9 @@ if (!isset($cfg['Export']['sql_columns'])) {
 if (!isset($cfg['Export']['sql_delayed'])) {
     $cfg['Export']['sql_delayed'] = FALSE;
 }
+if (!isset($cfg['Export']['sql_ignore'])) {
+    $cfg['Export']['sql_ignore'] = FALSE;
+}
 if (!isset($cfg['Export']['sql_type'])) {
     $cfg['Export']['sql_type'] = 'insert';
 }

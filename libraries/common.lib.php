@@ -136,7 +136,7 @@ if (isset($cfg['FileRevision'])) {
 } else {
     $cfg['FileRevision'] = array(1, 1);
 }
-if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 9)) {
+if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 10)) {
     require_once('./libraries/config_import.lib.php');
 }
 

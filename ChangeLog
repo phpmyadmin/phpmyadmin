@@ -11,8 +11,10 @@ $Source$
       libraries/dbi/mysqli.dbi.lib.php: Support for unbuffered queries - 
       PMA_DBI_QUERY_UNBUFFERED and fix support of PMA_DBI_QUERY_STORE.
     * libraries/export/*.php: Use unbuffered queries (patch #890075).
-    * libraries/export/sql.php, libraries/display_export.lib.php, lang/*:
-      Add support for INSERT IGNORE and UPDATE IGNORE.
+    * libraries/export/sql.php, libraries/display_export.lib.php, lang/*,
+      config.inc.php, libraries/common.lib.php,
+      libraries/config_import.lib.php: Add support for INSERT IGNORE and
+      UPDATE IGNORE.
 
 2004-03-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, libraries/display*, lang/*: 
