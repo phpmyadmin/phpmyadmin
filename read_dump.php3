@@ -142,7 +142,7 @@ if (!function_exists('is_uploaded_file')) {
     /**
      * Emulates the 'is_uploaded_file()' function for old php versions.
      * Grabbed at the php manual:
-     *     http://www.php3.net/manual/en/features.file-upload.php3
+     *     http://www.php.net/manual/en/features.file-upload.php
      *
      * @param   string    the name of the file to check
      *
