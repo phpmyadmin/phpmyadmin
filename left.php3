@@ -71,6 +71,8 @@ header('Content-Type: text/html; charset=' . $charset);
 /**
  * Displays the frame
  */
+// Gets the font sizes to use
+set_font_sizes();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html>
@@ -99,6 +101,9 @@ if ($num_dbs > 1) {
         }
     }
     var fontFamily = '<?php echo $left_font_family; ?>';
+    var fontSize   = '<?php echo $font_size; ?>';
+    var fontBig    = '<?php echo $font_bigger; ?>';
+    var fontSmall  = '<?php echo $font_smaller; ?>';
     var isServer   = <?php echo ($server > 0) ? 'true' : 'false'; ?>;
     //-->
     </script>
@@ -107,9 +112,9 @@ if ($num_dbs > 1) {
         <style type="text/css">
         <!--
         div {color: #000000}
-        .heada {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+        .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
         .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
-        .child {font-family: <?php echo $left_font_family; ?>; font-size: 8pt; color: #333399; text-decoration: none}
+        .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
         .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
         .tblItem:hover {color: #FF0000; text-decoration: underline}
         //-->
@@ -131,10 +136,10 @@ else if ($num_dbs == 1) {
     <!--
     body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
     div {color: #000000}
-    .heada {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
-    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: 8pt}
+    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
+    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
-    .child {font-family: <?php echo $left_font_family; ?>; font-size: 8pt; color: #333399; text-decoration: none}
+    .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
     .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
     .tblItem:hover {color: #FF0000; text-decoration: underline}
     //-->
@@ -147,10 +152,10 @@ else {
     ?>
     <style type="text/css">
     <!--
-    body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+    body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
     div {color: #000000}
-    .heada {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
-    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: 8pt}
+    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
+    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>}
     //-->
     </style>
     <?php

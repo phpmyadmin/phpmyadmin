@@ -11,6 +11,9 @@
  *    PMA_WINDOWS          (bool)   - mark if phpMyAdmin running on windows
  *                                    server
  *    MYSQL_INT_VERSION    (int)    - eg: 32339 instead of 3.23.39
+ *    USR_OS               (string) - the plateform (os) of the user
+ *    USR_BROWSER_AGENT    (string) - the browser of the user
+ *    USR_BROWSER_VER      (double) - the version of this browser
  */
 // phpMyAdmin release
 if (!defined('PHPMYADMIN_VERSION')) {
@@ -73,5 +76,41 @@ if (!defined('MYSQL_MAJOR_VERSION') && isset($link)) {
 
     define('MYSQL_INT_VERSION', (int)sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2])));
     unset($match);
+}
+
+
+// Determines platform (OS), browser and version of the user
+// Based on a phpBuilder article:
+//   see http://www.phpbuilder.net/columns/tim20000821.php3
+if (!defined('USR_OS')) {
+    if (!empty($HTTP_SERVER_VARS['HTTP_USER_AGENT'])) {
+        $HTTP_USER_AGENT = $HTTP_SERVER_VARS['HTTP_USER_AGENT'];
+    }
+    // 1. Platform
+    if (strstr($HTTP_USER_AGENT, 'Win')) {
+        define('USR_OS', 'Win');
+    } else if (strstr($HTTP_USER_AGENT, 'Mac')) {
+        define('USR_OS', 'Mac');
+    } else if (strstr($HTTP_USER_AGENT, 'Linux')) {
+        define('USR_OS', 'Linux');
+    } else if (strstr($HTTP_USER_AGENT, 'Unix')) {
+        define('USR_OS', 'Unix');
+    } else {
+        define('USR_OS', 'Other');
+    }
+    // 2. browser and version
+    if (ereg('MSIE ([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
+        define('USR_BROWSER_VER', $log_version[1]);
+        define('USR_BROWSER_AGENT', 'IE');
+    } else if (ereg('Opera(/| )([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
+        define('USR_BROWSER_VER', $log_version[2]);
+        define('USR_BROWSER_AGENT', 'OPERA');
+    } else if (ereg('Mozilla/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
+        define('USR_BROWSER_VER', $log_version[1]);
+        define('USR_BROWSER_AGENT', 'MOZILLA');
+    } else {
+        define('USR_BROWSER_VER', 0);
+        define('USR_BROWSER_AGENT', 'OTHER');
+    }
 }
 ?>

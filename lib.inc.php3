@@ -484,6 +484,64 @@ if (!defined('__LIB_INC__')){
     /* ----------------------- Set of misc functions ----------------------- */
 
     /**
+     * Determines the font sizes to use depending on the os and browser of the
+     * user.
+     *
+     * This function is based on an article from phpBuilder (see
+     * http://www.phpbuilder.net/columns/tim20000821.php3).
+     *
+     * @return  boolean    always true
+     *
+     * @global  string     the standard font size
+     * @global  string     the font size for titles
+     * @global  string     the small font size
+     * @global  string     the smallest font size
+     *
+     * @version 1.0
+     *
+     * @access  public
+     */
+    function set_font_sizes()
+    {
+        global $font_size, $font_bigger, $font_smaller, $font_smallest;
+
+        // IE for win case: needs smaller fonts than anyone else
+        if (USR_OS == 'Win'
+            && (USR_BROWSER_AGENT == 'IE' || USR_BROWSER_AGENT == 'OPERA')) {
+            $font_size     = 'x-small';
+            $font_bigger   = 'large ';
+            // Unreadable
+            // $font_smaller  = 'xx-small';
+            $font_smaller  = '90%';
+            $font_smallest = '7pt';
+        }
+        // Other browsers for win case
+        else if (USR_OS == 'Win') {
+            $font_size     = 'small';
+            $font_bigger   = 'large ';
+            $font_smaller  = 'x-small';
+            $font_smallest = 'x-small';
+        }
+        // Mac browsers: need bigger fonts
+        else if (USR_OS == 'Mac') {
+            $font_size     = 'medium';
+            $font_bigger   = 'x-large ';
+            $font_smaller  = 'small';
+            $font_smallest = 'x-small';
+        }
+        // Other cases
+        else {
+            $font_size     = 'small';
+            $font_bigger   = 'large ';
+            $font_smaller  = 'x-small';
+            $font_smallest = 'x-small';
+        }
+
+        return true;
+    } // end of the 'set_font_sizes()' function
+
+
+    /**
      * Adds backquotes on both sides of a database, table or field name.
      * Since MySQL 3.23.6 this allows to use non-alphanumeric characters in
      * these names.
