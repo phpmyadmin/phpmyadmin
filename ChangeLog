@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-07 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Updated.
+
 2004-06-07 Alexander M. Turek  <me@derrabus.de>
     * css/phpmyadmin.css.php: beautifications.
     * server_databases.php, server_privileges.php, css/phpmyadmin.css.php:

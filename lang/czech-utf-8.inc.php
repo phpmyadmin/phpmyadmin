@@ -529,7 +529,7 @@ $strReceived = 'Přijato';
 $strRecords = 'Záznamů';
 $strReferentialIntegrity = 'Zkontrolovat integritu odkazů:';
 $strRefresh = 'Obnovit';
-$strRelationNotWorking = 'Některé funkce pro práci s&nbsp;propojenými tabulkami byly vypnuty. %sZde%s zjistíte proč.';
+$strRelationNotWorking = 'Některé z&nbsp;rozšířených funkcí phpMyAdmina nelze používat. %sZde%s zjistíte proč.';
 $strRelationView = 'Zobrazit relace';
 $strRelationalSchema = 'Relační schéma';
 $strRelations = 'Relace';
@@ -631,6 +631,7 @@ $strSize = 'Velikost';
 $strSort = 'Řadit';
 $strSortByKey = 'Setřídit podle klíče';
 $strSpaceUsage = 'Využití místa';
+$strSpanish = 'Španělsky;
 $strSplitWordsWithSpace = 'Slova jsou oddělena mezerou (" ").';
 $strStatCheckTime = 'Poslední kontrola';
 $strStatCreateTime = 'Vytvoření';
@@ -746,5 +747,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strSpanish = 'Spanish';  //to translate
 ?>
