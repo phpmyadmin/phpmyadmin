@@ -998,7 +998,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                                                                 .  'lang=' . $lang . '&amp;server=' . $server
                                                                 .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                 .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . addslashes($relation_id) . '\'') . '">'
+                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '">'
                                                                 .  $row[$pointer] . '</a>';
                         } else {
                             $vertical_display['data'][$foo][$i] .= $row[$pointer];
