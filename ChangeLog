@@ -19,7 +19,7 @@ $Source$
     * lang/indonesian: Updted, thanks to Rachim Tamsjadi (tamsy).
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/italian: Updated, thanks to Pietro Danesi (danone).
-    * lang/catala: Updated, thanks to Xavier Navarro.
+    * lang/catalan: Updated, thanks to Xavier Navarro.
     * footer.inc.php3: Fixed for quotes, HTML entities and other weird
       characters in db/table name.
 
