@@ -7,6 +7,7 @@ $Source$
 
 2001-06-05  Marc Delisle  <lem9@users.sourceforge.net>
         * tbl_properties, tbl_printview: quote Comment field
+	* bug 430288: bad parsing of from | FROM
 
 2001-06-04  Marc Delisle  <lem9@users.sourceforge.net>
         * tbl_change, tbl_replace: SaveAsNewRow
