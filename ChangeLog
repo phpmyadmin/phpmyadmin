@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-22 Alexander M. Turek  <me@derrabus.de>
+    * config.inc.php, libraries/config_import.lib.php: Added "./" to the
+      default value of $cfg['ThemePath']. Thanks to Donny Simonton for
+      pointing this out.
+
 2004-09-22 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_query_box.php, read_dump.php: bug #1032066: when no db was
       selected from the left panel, the query window's Import Files had

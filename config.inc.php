@@ -536,7 +536,7 @@ $cfg['MainPageIconic']       = TRUE;    // show icons in list on main page, on r
 $cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocumentation (true|false)?
 
 // theme manager
-$cfg['ThemePath']           = 'themes';      // using themes manager please set up here the path to 'themes'
+$cfg['ThemePath']           = './themes';    // using themes manager please set up here the path to 'themes'
                                              // else leave empty
 $cfg['ThemeManager']        = TRUE;          // if you want to use selectable themes and if ThemesPath not empty
                                              // set it to true, else set it to false (default is false);

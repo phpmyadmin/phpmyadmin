@@ -741,7 +741,7 @@ if (!isset($cfg['ReplaceHelpImg'])) {
 }
 
 if (!isset($cfg['ThemePath'])) {
-    $cfg['ThemePath'] = 'themes';
+    $cfg['ThemePath'] = './themes';
     $cfg['ThemeDefault'] = 'original';
     $cfg['ThemeManager'] = TRUE;
 } else {
