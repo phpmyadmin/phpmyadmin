@@ -154,41 +154,51 @@ if ($server > 0)
     
     $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
 
-    // Get user's rights ($dbh and $userlink are links to MySQL defined in the
-    // "common.lib.php3" library
-    $create               = FALSE;
+    // Get user's global privileges ($dbh and $userlink are links to MySQL
+    // defined in the "common.lib.php3" library)
+    $is_create_priv  = FALSE;
+    $is_process_priv = FALSE;
+    $is_reload_priv  = FALSE;
+    $is_superuser    = @mysql_query('USE mysql', $userlink);
     if ($dbh) {
-        // Does user have global Create priv?
-        $local_query      = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-        $rs_usr           = mysql_query($local_query, $dbh);
+        $local_query = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
+        $rs_usr      = mysql_query($local_query, $dbh); // Debug: or mysql_die('', $local_query, FALSE);
         if ($rs_usr) {
-            $result_usr   = mysql_fetch_array($rs_usr);
-            $create       = ($result_usr['Create_priv'] == 'Y');
-            $db_to_create = '';
-        }
-
-        // Does user have Create priv on a inexistant db?
-        // if yes, show him in the dialog the first inexistant db name that we
-        // find, in most cases it's probably the one he just dropped :)
-        // (Note: we only get here after a browser reload, I don't know why)
-        if (!$create) {
-            $local_query = 'SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-            $rs_usr      = mysql_query($local_query, $dbh);
-            if ($rs_usr) {
-                while ($row = mysql_fetch_array($rs_usr)) {
-                    if (!mysql_select_db($row['Db'], $userlink)) {
-                        $db_to_create = $row['Db'];
-                        $create       = TRUE;
-                        break;
-                    } // end if
-                } // end while
-                mysql_free_result($rs_usr);
-            } // end if
+            $result_usr      = mysql_fetch_array($rs_usr);
+            $is_create_priv  = ($result_usr['Create_priv'] == 'Y');
+            $is_process_priv = ($result_usr['Process_priv'] == 'Y');
+            $is_reload_priv  = ($result_usr['Reload_priv'] == 'Y');
+            mysql_free_result($rs_usr);
         } // end if
-    } // end get user privileges
+    } // end if
+
+    // If the user has Create priv on a inexistant db, show him in the dialog
+    // the first inexistant db name that we find, in most cases it's probably
+    // the one he just dropped :)
+    // (Note: we only get here after a browser reload, I don't know why)
+    if (!$is_create_priv) {
+        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND (User = \'' . sql_addslashes($cfgServer['user']) . '\' OR User = \'\')';
+        $rs_usr      = mysql_query($local_query, $dbh); // Debug: or mysql_die('', $local_query, FALSE);
+        if (@mysql_numrows($rs_usr) > 0) {
+            while ($row = mysql_fetch_array($rs_usr)) {
+                if (!mysql_select_db($row['Db'], $dbh)) {
+                    $re              = '(^|(\\\\\\\\)+|[^\])';
+                    $row['Db']       = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $row['Db']));
+                    $db_to_create    = $row['Db'];
+                    $is_create_priv  = TRUE;
+                    break;
+                } // end if
+            } // end while
+            mysql_free_result($rs_usr);
+        } // end if
+    } // end if
+    else {
+        $db_to_create = '';
+    } // end else
+
 
     // The user is allowed to create a db
-    if ($create) {
+    if ($is_create_priv) {
         echo "\n";
         ?>
         <!-- db creation form -->
@@ -206,8 +216,8 @@ if ($server > 0)
             </td>
         </tr>
         <?php
-        echo "\n";
     } // end create db form
+    echo "\n";
 
     // Server related links
     ?>
@@ -231,7 +241,7 @@ if ($server > 0)
     <?php
     echo "\n";
 
-    if (isset($result_usr) && $result_usr['Process_priv'] == 'Y') {
+    if ($is_process_priv) {
         ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -242,10 +252,10 @@ if ($server > 0)
             </td>
         </tr>
         <?php
-        echo "\n";
     }
+    echo "\n";
 
-    if (isset($result_usr) && $result_usr['Reload_priv'] == 'Y') {
+    if ($is_reload_priv) {
         ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -256,11 +266,10 @@ if ($server > 0)
             </td>
         </tr>
         <?php
-        echo "\n";
     }
+    echo "\n";
 
-    $result = @mysql_query('USE mysql', $userlink);
-    if (!mysql_error()) {
+    if ($is_superuser) {
         ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -286,7 +295,7 @@ if ($server > 0)
     }
     echo "\n";
 
-    // With advanced authentication -> logout
+    // Logout for advanced authentication
     if ($cfgServer['adv_auth'])
     {
         ?>
@@ -299,16 +308,16 @@ if ($server > 0)
             </td>
         </tr>
         <?php
-        echo "\n";
     } // end if
+    echo "\n";
     ?>
         </table>
     </td>
     
     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <?php
-    echo "\n";
 } // end of if ($server > 0)
+echo "\n";
 
 
 /**

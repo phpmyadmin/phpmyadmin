@@ -5,9 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-24  Loïc Chapeaux  <lolo@phpheaven.net>
+	* main.php3:
+	  - taken into account wildcards in the databases names get from the
+	    "mysql.db" table;
+	  - get all privilege at the begenning of the script.
+
 2001-10-24  Marc Delisle  <lem9@users.sourceforge.net>
-	* main.php3 (for Loïc): a non-empty only_db was removing the
-	  MySQL links on the main page
+	* main.php3 (for Loïc): a non-empty only_db was removing the MySQL links on
+	  the main page.
 
 2001-10-23  Robin Johnson  <robbat2@users.sourceforge.net>
 	* Documentation.html: Redid documentation of advanced authentication mode.
