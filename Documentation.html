@@ -1169,7 +1169,16 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Same as $cfg['ShowTooltipAliasDB'], except this works for table names.
         <br /><br />
     </dd>
-
+    <dt><b>$cfg['LeftDisplayLogo'] </b>boolean</dt>
+    <dd>Defines whether to display the phpMyAdmin logo at the top of the left frame or not.
+Defaults to TRUE. <br />
+    <br />
+    </dd>
+    <dt><b>$cfg['LeftDisplayServers'] </b>boolean</dt>
+    <dd>Defines whether to display a server choice at the top of the left frame or not.
+Defaults to FALSE. <br />
+    <br />
+    </dd>
     <dt><b>$cfg['ShowStats'] </b>boolean</dt>
     <dd>
         Defines whether to display space usage and statistics about databases
