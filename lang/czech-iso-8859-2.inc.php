@@ -228,6 +228,7 @@ $strEndRaw = 'KONEC VÝPISU';
 $strEnglish = 'Anglicky';
 $strEnglishPrivileges = 'Poznámka: názvy oprávnìní v&nbsp;MySQL jsou uvádìny anglicky';
 $strError = 'Chyba';
+$strEscapeWildcards = 'Zástupné znaky _ a % by mìly být eshould be escapovány pomocí \, pokud je chcete pou¾ít jako znak';
 $strEstonian = 'Eston¹tina';
 $strExcelEdition = 'Verze Excelu';
 $strExcelOptions = 'Nastavení exportu do Excelu';
@@ -688,6 +689,7 @@ $strUpgrade = 'Mìli byste aktualizovat %s na verzi %s nebo vy¹¹í.';
 $strUsage = 'Pou¾ívá';
 $strUseBackquotes = 'Pou¾ít zpìtné uvozovky u&nbsp;jmen tabulek a sloupcù';
 $strUseHostTable = 'Pou¾ít tabulku s&nbsp;poèítaèi';
+$strUseTabKey = 'Pou¾ijte klávesu TAB pro pohyb mezi hodnotami nebo CTRL+¹ipky po pohyb v¹emi smìry.';
 $strUseTables = 'Pou¾ít tabulky';
 $strUseTextField = 'Pou¾ít textové pole';
 $strUseThisValue = 'Pou¾ít tuto hodnotu';
@@ -726,6 +728,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
-$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
 ?>
