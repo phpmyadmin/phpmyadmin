@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php3: undefined variable dblist_full when
+      renaming a table
+
 2003-11-13 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/sql.php3: Fix export of foreign keys (patch #834474).
     * libraries/export/sql.php3, libraries/config_import.lib.php3,

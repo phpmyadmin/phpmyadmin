@@ -1186,7 +1186,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $only_db_check = FALSE;
             } // end if (!$dblist_cnt)
 
-            if (!count($dblist_full)) {
+            if (isset($dblist_full) && !count($dblist_full)) {
                 $dblist = PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cfg, $dblist);
             }
 
