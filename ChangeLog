@@ -12,6 +12,7 @@ $Source$
       compatibility for config file revisions before 1.131.
     * config.inc.php3: Display syntax errors when the user calls the config file
       directly even if "display_errors" has been switched off in php.ini.
+    * lang/german-*.inc.php3: Updates.
 
 2002-08-03 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: remove unneeded GRANT
