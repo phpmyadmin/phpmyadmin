@@ -1,11 +1,13 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Gets some core libraries
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
+
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -32,6 +34,49 @@ if (!isset($err_url)) {
              . (isset($db) ? '&amp;db=' . urlencode($db) : '')
              . ((strpos(' ' . $goto, 'db_details') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
 } // end if
+
+
+/**
+ * SK -- Patch
+ *
+ * Does some preliminary formatting of the $sql_query to avoid problems with
+ * eregi and split:
+ *   1) separates reserved words in $sql_str from the next backquoted or
+ *      parenthesized expression with a space;
+ *   2) capitalizes reserved words
+ *   3) removes repeated spaces
+ *
+ * @param   string  original query
+ *
+ * @return  string  formatted query
+ */
+function PMA_sqlFormat($sql_str) {
+    // Defines reserved words to deal with
+    $res_words_arr = array('DROP', 'SELECT', 'DELETE', 'UPDATE', 'INSERT', 'LOAD', 'EXPLAIN', 'SHOW', 'FROM', 'INTO', 'OUTFILE', 'DATA', 'REPLACE', 'CHECK', 'ANALYZE', 'REPAIR', 'OPTIMIZE', 'TABLE', 'ORDER', 'HAVING', 'LIMIT', 'GROUP', 'DISTINCT');
+
+    while (list(, $w) = each($res_words_arr)) {
+        // Separates a backquoted expression with spaces
+        $pattern = '[[:space:]]' . $w . '`([^`]*)`(.*)';
+        $replace = ' ' . $w . ' `\\1` \\2';
+        $sql_str = substr(eregi_replace($pattern, $replace, ' ' . $sql_str), 1);
+
+        // Separates a parenthesized expression with spaces
+        $pattern = '[[:space:]]' . $w . '\(([^)]*)\)(.*)';
+        $replace = ' ' . $w . ' (\\1) \\2';
+        $sql_str = substr(eregi_replace($pattern, $replace, ' ' . $sql_str), 1);
+
+        // Converts reservered words to upper case if not yet done
+        $sql_str = substr(eregi_replace('[[:space:]]' . $w . '[[:space:]]', ' ' . $w  . ' ', ' ' . $sql_str), 1);
+    } // end while
+
+    // Removes repeated spaces
+    $sql_str = ereg_replace('[[:space:]]+', ' ', $sql_str);
+
+    // GROUP or ORDER: "BY" to uppercase too
+    $sql_str = eregi_replace('(GROUP|ORDER) BY', '\\1 BY', $sql_str);
+
+    return $sql_str;
+} // end of the "PMA_sqlFormat()" function
 
 
 /**
@@ -77,10 +122,8 @@ if (isset($btnDrop) || isset($navig)) {
     $sql_query = urldecode($sql_query);
 }
 
-/**
- * SK -- Patch : Reformat query - add spaces when omitted and remove
- *               extra spaces; convert reserved words to uppercase
- */
+// SK -- Patch : Reformats query - adds spaces when omitted and removes extra
+//               spaces; converts reserved words to uppercase
 $sql_query = PMA_sqlFormat($sql_query);
 
 
@@ -109,6 +152,7 @@ if ($is_select) {
         $table   = str_replace('`', '', $tmp[2]);
     }
 } // end if
+
 
 /**
  * Sets or modifies the $goto variable if required
@@ -218,15 +262,15 @@ else {
         $repeat_cells     = $cfg['RepeatCells'];
     }
 
-/**
- * SK -- Patch : $is_group added for use in calculation of TOTAL NUMBER OF ROWS
- *               $is_count is changed for more correct "LIMIT" clause appending
- *               in queries like SELECT COUNT(...) FROM ... GROUP BY ...
- */
+    // SK -- Patch: $is_group added for use in calculation of total number of
+    //              rows.
+    //              $is_count is changed for more correct "LIMIT" clause
+    //              appending in queries like
+    //                "SELECT COUNT(...) FROM ... GROUP BY ..."
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = FALSE;
-    if ($is_select) { // see line 76
-        $is_func =  !$is_group && (eregi("( SUM\s*\(| AVG\s*\(| STD\s*\(| STDDEV\s*\(| MIN\s*\(| MAX\s*\(| BIT_OR\s*\(| BIT_AND\s*\()", $sql_query));
-        $is_group = eregi("( GROUP BY | HAVING | SELECT DISTINCT )", $sql_query);
+    if ($is_select) { // see line 141
+        $is_func =  !$is_group && (eregi('[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(', $sql_query));
+        $is_group = eregi('[[:space:]]+(GROUP BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+', $sql_query);
         $is_count = !$is_group && (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
         $is_export   = (eregi('[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+', $sql_query));
         $is_analyse  = (eregi('[[:space:]]+PROCEDURE[[:space:]]+ANALYSE\(', $sql_query));
@@ -263,7 +307,6 @@ else {
     } else {
         $full_sql_query      = $sql_query;
     } // end if...else
-
 
     PMA_mysql_select_db($db);
 
@@ -313,42 +356,41 @@ else {
         $unlim_num_rows         = $num_rows;
     }
     else if ($is_select) {
-/**
- *  SK -- Patch : correct calculations for GROUP BY, HAVING, DISTINCT
- */
-        // reads only the from-part of the query...
-        // NOTE: here the presence of LIMIT is impossible,
-        // HAVING and GROUP BY are necessary for correct
-        // calculation, and extra spaces and lowercase reserved
-        // words are removed, so we have a simple split pattern:
+        // SK -- Patch : correct calculations for GROUP BY, HAVING, DISTINCT
 
-        $array = split('( FROM | ORDER BY )', $sql_query);
+        // Reads only the from-part of the query...
+        // NOTE: here the presence of LIMIT is impossible, HAVING and GROUP BY
+        // are necessary for correct calculation, and extra spaces and
+        // lowercase reserved words are removed, so we have a simple split
+        // pattern:
 
-        // if $array[1] is empty here, there is an error in
-        // the query: "... FROM [ORDER BY ...]", but the query
-        // is already executed with success so this check is redundant???
+        $array = split('[[:space:]]+(FROM|ORDER BY)[[:space:]]+', $sql_query);
+
+        // if $array[1] is empty here, there is an error in the query:
+        // "... FROM [ORDER BY ...]", but the query is already executed with
+        // success so this check is redundant???
 
         if (!empty($array[1])) {
             // ... and makes a count(*) to count the entries
             // Special case: SELECT DISTINCT ... FROM ...
             // the count of resulting rows can be found as:
             // SELECT COUNT(DISTINCT ...) FROM ...
-            if (eregi("SELECT DISTINCT(.*)", $array[0], $array_dist)) {
-                $count_what = "DISTINCT $array_dist[1]";
+            if (eregi('^SELECT DISTINCT(.*)', $array[0], $array_dist)) {
+                $count_what = 'DISTINCT ' . $array_dist[1];
             } else {
-                $count_what = "*";
+                $count_what = '*';
             }
-            $count_query = "SELECT COUNT($count_what) AS count FROM " . $array[1];
+            $count_query = 'SELECT COUNT(' . $count_what . ') AS count FROM ' . $array[1];
             if ($cnt_all_result = mysql_query($count_query)) {
                 if ($is_group) {
                     $unlim_num_rows = @mysql_num_rows($cnt_all_result);
                 } else {
                     $unlim_num_rows = mysql_result($cnt_all_result, 0, 'count');
                 }
+                mysql_free_result($cnt_all_result);
             }
-            @mysql_free_result($cna_all_result);
         } else {
-            $unlim_num_rows     = 0;
+            $unlim_num_rows         = 0;
         }
     } // end rows total count
 
@@ -428,7 +470,7 @@ else {
         } else {
             $js_to_run = 'functions.js';
             unset($message);
-            if (isset($table) && !empty($table)) {
+            if (!empty($table)) {
                 include('./tbl_properties_common.php3');
                 include('./tbl_properties_table_info.php3');
             }
@@ -579,46 +621,5 @@ echo "\n\n";
  */
 require('./footer.inc.php3');
 
-    /**
-     * SK -- Patch
-     *
-     * Do some preliminary formatting of the $sql_query
-     * to avoid problems with eregi and split:
-     *  1) separate reserved words in $sql_str from the next
-     *     bacquoted or parenthesized expression with a space
-     *  2) CAPITALIZE reserved words
-     *  3) remove repeated spaces
-     *
-     * @param   string  original query
-     *
-     * @return  string  formatted query
-     */
-    function PMA_sqlFormat($sql_str) {
-        // Define reserved words to deal with
-         $res_words_arr = array("DROP", "SELECT", "DELETE", "UPDATE", "INSERT", "LOAD", "EXPLAIN", "SHOW", "FROM", "INTO", "OUTFILE", "DATA", "REPLACE", "CHECK", "ANALYZE", "REPAIR", "OPTIMIZE", "TABLE", "ORDER", "HAVING", "LIMIT", "GROUP" , "DISTINCT");
-
-        foreach ($res_words_arr as $w) {
-            // separate a backquoted expression with spaces
-            $pattern = " $w`([^`]*)`(.*)";
-            $replace = " $w `\\1` \\2";
-            $sql_str = substr(eregi_replace($pattern, $replace, ' ' . $sql_str), 1);
-
-            // separate a parenthesized expression with spaces
-            $pattern = " $w\(([^)]*)\)(.*)";
-            $replace = " $w (\\1) \\2";
-            $sql_str = substr(eregi_replace($pattern, $replace, ' ' . $sql_str), 1);
-
-            // convert reservered words to upper case if not yet done
-            $sql_str = substr(eregi_replace(" $w ", " $w ", ' ' . $sql_str), 1);
-        }; // end foreach
-
-         // remove repeated spaces
-         $sql_str = ereg_replace("[[:space:]]+", " ", $sql_str);
-
-         // GROUP or ORDER: "BY" to uppercase too
-         $sql_str = eregi_replace("(GROUP|ORDER) BY", "\\1 BY", $sql_str);
-
-         return $sql_str;
-     }; // end of the 'PMA_sqlFormat' function
 
 ?>
