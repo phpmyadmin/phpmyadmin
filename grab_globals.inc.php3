@@ -11,19 +11,15 @@ if (!defined('__LIB_GRAB_GLOBALS__')) {
     define('__LIB_GRAB_GLOBALS__', 1);
 
     if (!empty($HTTP_GET_VARS)) {
-        while(list($name, $value) = each($HTTP_GET_VARS)) {
-            $$name = $value;
-        }
+        extract($HTTP_GET_VARS);
     } // end if
 
     if (!empty($HTTP_POST_VARS)) {
-        while(list($name, $value) = each($HTTP_POST_VARS)) {
-            $$name = $value;
-        }
+        extract($HTTP_POST_VARS);
     } // end if
 
     if (!empty($HTTP_POST_FILES)) {
-        while(list($name, $value) = each($HTTP_POST_FILES)) {
+        while (list($name, $value) = each($HTTP_POST_FILES)) {
             $$name = $value['tmp_name'];
         }
     } // end if
