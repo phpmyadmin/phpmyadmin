@@ -8,6 +8,9 @@ $Source$
 2002-05-17 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3, lines 446-458;
       tbl_properties_options.php3, lines 119-143: beautified generated code.
+	* libraries/build_dump.php3, lines 70-75: fixed bug #551682 - PMA ignores
+      case of table names under winwin, thanks to
+      Pawe³ Szczepañski <pauluz at users.sourceforge.net>.
 
 2002-05-16 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3; Documentation.html: coding standards.

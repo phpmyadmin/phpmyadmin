@@ -30,8 +30,6 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
     /**
      * Returns $table's CREATE definition
      *
-     * Uses the 'PMA_htmlFormat()' function defined in 'tbl_dump.php3'
-     *
      * @param   string   the database name
      * @param   string   the table name
      * @param   string   the end of line sequence
@@ -69,6 +67,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $result = mysql_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
             if ($result != FALSE && mysql_num_rows($result) > 0) {
                 $tmpres        = mysql_fetch_array($result);
+                // Fix for case problems with winwin, thanks to
+                // Pawe³ Szczepañski <pauluz at users.sourceforge.net>
+                $pos           = strpos($tmpres[1], ' (');
+                $tmpres[1]     = substr($tmpres[1], 0, 13)
+                               . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
+                               . substr($tmpres[1], $pos);
                 $schema_create .= str_replace("\n", $crlf, PMA_htmlFormat($tmpres[1]));
             }
             mysql_free_result($result);
