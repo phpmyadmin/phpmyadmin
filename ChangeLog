@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-29 Michal Čihař  <michal@cihar.com>
+    * tbl_addfield.php, tbl_create.php, tbl_properties.inc.php, lang/*: Better
+      wording when adding fields (bug #991096).
+
 2004-09-28 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysql.dbi.lib.php: Compatibility fix for php < 4.3
       (bug #1033360), thanks to Claude Theroux.

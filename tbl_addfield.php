@@ -31,6 +31,7 @@ if (isset($submit_num_fields)) {
     if (isset($orig_field_where)) {
         $field_where = $orig_field_where;
     }
+    $num_fields = $orig_num_fields + $added_fields;
     $regenerate = TRUE;
 } else if (isset($submit)) {
     $query = '';

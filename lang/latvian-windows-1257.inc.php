@@ -723,4 +723,5 @@ $strZeroRemovesTheLimit = 'Piezîme: Ðo opciju uzstâdîðana uz 0 (nulli) atceï ier
 $strZip = 'Arhivçts ar zip';
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

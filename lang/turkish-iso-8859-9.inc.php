@@ -731,4 +731,5 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanmasý sýnýrý kaldýrýr..';
 $strZip = '"ziplenmiþ"';
 
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

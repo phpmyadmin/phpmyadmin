@@ -739,4 +739,5 @@ $strUpdComTab = 'Please see Documentation on how to update your Column_comments 
 $strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

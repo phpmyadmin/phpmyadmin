@@ -717,4 +717,5 @@ $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate li
 $strZip = '"zipitud"';
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

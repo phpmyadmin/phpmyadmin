@@ -722,4 +722,5 @@ $strZeroRemovesTheLimit = 'Shënim: Vendosja e këtyre opcioneve në 0 (zero) do të
 $strZip = '"kompresuar me zip"';
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

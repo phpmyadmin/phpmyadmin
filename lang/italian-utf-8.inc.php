@@ -723,4 +723,5 @@ $strYes = ' Si ';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

@@ -724,4 +724,5 @@ $strZeroRemovesTheLimit = 'Piezīme: Šo opciju uzstādīšana uz 0 (nulli) atce
 $strZip = 'Arhivēts ar zip';
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

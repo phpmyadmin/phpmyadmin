@@ -34,6 +34,7 @@ PMA_DBI_select_db($db);
 $abort = FALSE;
 if (isset($submit_num_fields)) {
     $regenerate = TRUE;
+    $num_fields = $orig_num_fields + $added_fields;
 } else if (isset($submit)) {
     $sql_query = $query_cpy = '';
 

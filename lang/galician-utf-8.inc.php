@@ -723,4 +723,5 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) e
 $strZip = 'comprimido no formato "zip"';
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

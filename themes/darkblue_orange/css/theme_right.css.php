@@ -328,7 +328,6 @@ div.tblWarn {
     background-repeat:   repeat-x;
     background-position: top;
     <?php } ?>
-    height:              18px;
 }
 .tblHeaders a:hover, tblFooters a:hover{
     text-decoration: none;

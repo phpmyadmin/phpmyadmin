@@ -726,4 +726,5 @@ $strZeroRemovesTheLimit = 'Замечание: Установка этих оп�
 $strZip = 'архивировать в zip';
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

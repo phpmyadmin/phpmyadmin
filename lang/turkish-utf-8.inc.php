@@ -15,6 +15,7 @@
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
+$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -732,4 +733,5 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanması sınırı kaldırır..';
 $strZip = '"ziplenmiş"';
 
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

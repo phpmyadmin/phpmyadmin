@@ -719,4 +719,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavenie týchto parametrov na 0 (nulu) od
 $strZip = '"zo zipované"';
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

@@ -717,4 +717,5 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie.';
 $strZip = '".zip"';
 
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

@@ -746,4 +746,5 @@ $strTraditionalSpanish = 'Traditional Spanish';  //to translate
 $strSlovak = 'Slovak';  //to translate
 $strMySQLConnectionCollation = 'MySQL connection collation';  //to translate
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

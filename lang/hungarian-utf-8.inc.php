@@ -725,4 +725,5 @@ $strZip = '"zippel tömörítve"';
 $strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

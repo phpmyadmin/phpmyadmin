@@ -732,4 +732,5 @@ $strTakeIt = 'take it';  //to translate
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
 $strPersian = 'Persian';  //to translate
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

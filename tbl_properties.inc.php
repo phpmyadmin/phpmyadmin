@@ -625,14 +625,17 @@ echo "\n";
 // END - Table Type - 2 May 2001 - Robbat2
 ?>
 
-<input type="submit" name="submit" value="<?php echo $strSave; ?>" />
 <?php
 if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') {
-    echo '        &nbsp;&nbsp;<em>' . $strOr . '</em>&nbsp;&nbsp;' . $strFields . ':' . "\n";
-    echo '        ' . '<input type="text" name="num_fields" size="2" class="textfield" value="' . $num_fields . '" />' . "\n";
-    echo '        ' . '&nbsp;<input type="submit" name="submit_num_fields" value="' . $strGo . '" />' . "\n";
+    echo '    ' . sprintf($strAddFields,  '<input type="text" name="added_fields" size="2" value="1" onfocus="this.select()" style="vertical-align: middle;" />') . "\n";
+    echo '    &nbsp;<input type="submit" name="submit_num_fields" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'added_fields\', 1)" style="vertical-align: middle;" />' . "\n<br />\n<br />\n";
 }
 ?>
+
+<div class="tblFooters" style="width: 80%; text-align: center; padding: 3px;">
+    <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" />
+</div>
+
 </form>
 
 <table>

@@ -8,6 +8,7 @@
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
+$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'helvetica, sans-serif';
@@ -724,4 +725,5 @@ $strYes = ' 是 ';
 $strZeroRemovesTheLimit = '註: 設定這些選項為 0 (零) 可解除限制.';
 $strZip = '"zipped"';
 
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

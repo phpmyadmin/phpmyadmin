@@ -724,4 +724,5 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања ограничења.';
 $strZip = '"зиповано"';
 
+$strAddFields = 'Add %s field(s)';  //to translate
 ?>

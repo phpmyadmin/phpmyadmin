@@ -28,6 +28,7 @@ $strAddConstraints = 'Add constraints';
 $strAddDeleteColumn = 'Add/Delete Field Columns';
 $strAddDeleteRow = 'Add/Delete Criteria Row';
 $strAddDropDatabase = 'Add DROP DATABASE';
+$strAddFields = 'Add %s field(s)';
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';
 $strAddIfNotExists = 'Add IF NOT EXISTS';
 $strAddIntoComments = 'Add into comments';
@@ -433,6 +434,7 @@ $strPdfNoTables = 'No tables';
 $strPerHour = 'per hour';
 $strPerMinute = 'per minute';
 $strPerSecond = 'per second';
+$strPersian = 'Persian';
 $strPhoneBook = 'phone book';
 $strPhp = 'Create PHP Code';
 $strPmaDocumentation = 'phpMyAdmin documentation';
@@ -716,5 +718,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strPersian = 'Persian';  //to translate
 ?>
