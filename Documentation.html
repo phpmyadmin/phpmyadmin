@@ -2514,6 +2514,22 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br />
 </p>
 
+<a name="binary_upload"></a><br />
+<h4>
+    [6.17] Why is there checkbox called &quot;Binary&quot; when uplaoding file
+    into database?
+</h4>
+<p>
+    It defines how data will be inserted into MySQL. When not checked, the
+    data from file will be treated as text, if charset conversion is enabled
+    (you are using utf-8 translation) charset of the text will be converted
+    according to it and could possibly be displayed as part of update SQL
+    after upload. When checked data will be inserted as hexadecimal value and
+    so will be in database exactly as in file. In most cases you should keep
+    it checked.
+    <br />
+</p>
+
 <a name="faqproject"></a><br />
 <h3>[7. phpMyAdmin project]</h3>
 

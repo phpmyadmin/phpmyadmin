@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-04 Michal Cihar  <nijel@users.sourceforge.net>
+    * Documentation.*: Added information about binary checbox when uploading
+      files.
+
 2003-02-04 Garvin Hicking  <me@supergarv.de>
     * common.lib.php3: Fixed a possible 'undefined index' error.
 

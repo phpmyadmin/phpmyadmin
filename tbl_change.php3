@@ -566,9 +566,10 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         // TODO: check if uploads are allowed by PHP
 
         if ($is_upload) {
-            echo '<td><input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" />';
-            echo '<input type="checkbox" checked="checked" name="fields_upload_binary_' . urlencode($field) . '" />';
+            echo '<td><input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" id="field_' . $i . '_3" />';
+            echo '<input type="checkbox" checked="checked" name="fields_upload_binary_' . urlencode($field) . '" id="field_' .  $i . '_4" />';
             echo '<label for="fields_upload_binary_' . urlencode($field) . '">' . $strBinary . '</label>';
+            echo '<a href="Documentation.html#binary_upload" target="documentation">(' . $strDocu . ')</a>';
             echo '</td>';
         }
  
