@@ -4,6 +4,16 @@
 
 // In this file you may add PHP or HTML statements that will be used to define
 // the footer for phpMyAdmin pages.
+
+/**
+ * Close MySql connections
+ */
+if (isset($dbh) && $dbh) {
+    mysql_close($dbh);
+}
+if (isset($userlink) && $userlink) {
+    mysql_close($userlink);
+}
 ?>
 
 </body>
