@@ -391,19 +391,20 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
 <dl>
     <dt><b>$cfg['PmaAbsoluteUri']</b> string</dt>
     <dd>
-        Sets here the complete URL (with full path) to your phpMyAdmin version.
+        Sets here the complete URL (with full path) to your phpMyAdmin 
+        installation's directory.
         E.g. <tt>http://www.your_web.net/path_to_your_phpMyAdmin_directory/</tt>.
         <br /><br />
-        phpMyAdmin needs this setting, because of requirements of the HTTP
-        protocol, explained in RFC2616, section 14.30.
+        Starting with version 2.3.0, it is advisable to try leaving this 
+        blank. In most cases phpMyAdmin automatically detects the proper 
+        setting. Additional details are in the configuration file. If you 
+        leave it blank, see the notes for 
+        <tt>$cfg['PmaAbsoluteUri_DisableWarning']</tt>; you probably want 
+        to change that to <tt>TRUE</tt>.
         <br /><br />
         Don't forget the slash at the end of your URL. The URL must contain
         characters that are valid for a URL, and on some servers, the path
         is case-sensitive.
-        <br /><br />
-        Starting with version 2.3.0, you can try to leave this parameter
-        empty, because the program tries to auto-detect its proper value.
-        Additional details are in the configuration file.
         <br /><br />
     </dd>
     <dt><b>$cfg['PmaAbsoluteUri_DisableWarning']</b> boolean</dt>
@@ -859,7 +860,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dd>
         Because release 2.5.0 introduced the new MIME-transformation support, the
         column_info table got enhanced with three new fields. If the above variable is
-        set to TRUE (default) phpMyAdmin will check if you have the latest table structure
+        set to <tt>TRUE</tt> (default) phpMyAdmin will check if you have the latest table structure
         available. If not, it will emit a warning to the superuser.<br /><br />
 
         You can disable this checking behavior by setting the variable to false, which
@@ -1032,7 +1033,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <dd>
         Define whether phpMyAdmin will output the results of each query of a
         multi-query statement embedded into the SQL output as inline comments.
-        Defaults to TRUE.
+        Defaults to <tt>TRUE</tt>.
         <br /><br />
     </dd>
     <dt>
@@ -1103,7 +1104,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
     <dt><b>$cfg['LeftDisplayLogo'] </b>boolean</dt>
     <dd>Defines whether to display the phpMyAdmin logo at the top of the left frame or not.
-Defaults to TRUE. <br />
+Defaults to <tt>TRUE</tt>. <br />
     <br />
     </dd>
     <dt><b>$cfg['LeftDisplayServers'] </b>boolean</dt>
@@ -1452,7 +1453,7 @@ Defaults to FALSE (drop-down). <br />
 
     <dt><b>$cfg['LeftPointerEnable'] </b>boolean</dt>
     <dd>
-        A value of TRUE activates the left pointer (when LeftFrameLight is FALSE).
+        A value of <tt>TRUE</tt> activates the left pointer (when LeftFrameLight is <tt>FALSE</tt>).
         <br /><br />
     </dd>
 
@@ -1601,7 +1602,7 @@ Defaults to FALSE (drop-down). <br />
         <b>$cfg['ShowPropertyComments'] </b>boolean<br />
     </dt>
     <dd>
-        By setting the corresponding variable to TRUE you can enable the
+        By setting the corresponding variable to <tt>TRUE</tt> you can enable the
         display of column comments in Browse or Property display. In browse
         mode, the comments are show inside the header. In property mode,
         comments are displayed using a CSS-formatted dashed-line below the
@@ -1702,7 +1703,7 @@ Defaults to FALSE (drop-down). <br />
         use that feature. It currently is only tested with Internet Explorer 6
         and Mozilla 1.x.
         <br /><br />
-        If $cfg['QueryHistoryDB'] is set to TRUE, all your Queries are logged
+        If $cfg['QueryHistoryDB'] is set to <tt>TRUE</tt>, all your Queries are logged
         to a table, which has to be created by you (see <a
         href="#history">$cfg['Servers'][$i]['history']</a>).  If set to FALSE,
         all your queries will be appended to the form, but only as long as
@@ -1720,7 +1721,7 @@ Defaults to FALSE (drop-down). <br />
         uncheck the button whenever you definitely want the query window to
         get updated even though you have made alterations.
         <br /><br />
-        If $cfg['QueryHistoryDB'] is set to TRUE you can specify the amount of
+        If $cfg['QueryHistoryDB'] is set to <tt>TRUE</tt> you can specify the amount of
         saved history items using $cfg['QueryHistoryMax'].
         <br /><br />
         The query window also has a custom tabbed look to group the features.
@@ -1794,7 +1795,7 @@ Defaults to FALSE (drop-down). <br />
 
     <dt><b>$cfg['SetHttpHostTitle'] </b>string</dt>
     <dd>
-        If <tt>$cfg['ShowHttpHostTitle']</tt> is TRUE, it shows the real
+        If <tt>$cfg['ShowHttpHostTitle']</tt> is <tt>TRUE</tt>, it shows the real
         HTTP host name, unless an alternate name is set here.
     <br /><br />
     </dd>
@@ -3305,7 +3306,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     happens after that, only a blank screen.
 </h4>
 <p>
-    Having $cfg['QueryFrameJS'] set to TRUE, this leads to a bug in Opera6, because it
+    Having $cfg['QueryFrameJS'] set to <tt>TRUE</tt>, this leads to a bug in Opera6, because it
     is not able to interpret frameset definitiions written by JavaScript. Please upgrade
     to Opera7 at least.
 </p>
@@ -3966,7 +3967,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     </li>
     <li>
     In config.inc.php, <tt>$cfg['LeftFrameLight']</tt> is set to FALSE
-    (the default value of this parameter is TRUE).
+    (the default value of this parameter is <tt>TRUE</tt>).
     </li>
     <li>
     There is no firewall blocking requests from the Web server to the
