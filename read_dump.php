@@ -164,7 +164,7 @@ if (isset($SQLbookmark) && $sql_query != '') {
     $bfields = array(
                  'dbase' => $db,
                  'user'  => $cfg['Bookmark']['user'],
-                 'query' => $sql_query,
+                 'query' => urlencode($sql_query),
                  'label' => $bkm_label
     );
 

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * read_dump.php: bug 859062: Go & Bookmark problem when the
+      query has a character like "+" in it
+
 2003-12-13 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_query_box.php, ldi_table.php: maximum upload size
     * tbl_change.php: max BLOB upload size
