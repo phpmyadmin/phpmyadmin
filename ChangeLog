@@ -5,8 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-27  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/left.js, line 81: fixed bug #496491 - JS error with NS 4.73 on
+	  W2000.
+
 2001-12-25  Marc Delisle  <lem9@users.sourceforge.net>
-        * lang/polish.inc.php3 updates thanks to Jakub Wilk
+	* lang/polish.inc.php3 updates thanks to Jakub Wilk
 
 2001-12-24  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/auth/cookie.auth.lib.php3: servers choice box was displayed

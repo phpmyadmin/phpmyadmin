@@ -78,7 +78,7 @@ function nsGetIndex(el) {
  * @access  public
  */
 function nsArrangeList() {
-  if (firstInd != null) {
+  if (typeof(firstInd) != 'undefined' && firstInd != null) {
     var theLayers = document.layers;
     var layersCnt = theLayers.length;
     var nextY     = theLayers[firstInd].pageY + theLayers[firstInd].document.height;
