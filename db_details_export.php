@@ -24,8 +24,11 @@ if ($num_tables > 1) {
     $multi_values = '<div align="center"><select name="table_select[]" size="6" multiple="multiple">';
     $multi_values .= "\n";
 
-    $i = 0;
-    while ($i < $num_tables) {
+    for ($i = 0; $i < $num_tables; $i++) {
+        if (PMA_MYSQL_INT_VERSION >= 50000 && is_null($tables[$i]['Engine'])) {
+            // Don't offer to export views yet.
+            continue;
+        }
         $table   = $tables[$i]['Name'];
         if (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))) {
             $is_selected = ' selected="selected"';
@@ -34,8 +37,7 @@ if ($num_tables > 1) {
         }
         $table   = htmlspecialchars($table);
         $multi_values .= '                <option value="' . $table . '"' . $is_selected . '>' . $table . '</option>' . "\n";
-        $i++;
-    } // end while
+    } // end for
     $multi_values .= "\n";
     $multi_values .= '</select></div>';
 

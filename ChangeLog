@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-16 Alexander M. Turek  <me@derrabus.de>
+    * db_details_export.php: Views are not exportable yet.
+
 2005-02-14 Michal Čihař  <michal@cihar.com>
     * tbl_printview.php, libraries/tbl_indexes.lib.php: Fix displaying
       indexes for print view, use same function as for normal view (bug
