@@ -106,6 +106,7 @@
     <li>transform stored data into any format using a set of predefined functions,
         like displaying BLOB-data as image or download-link or ...</li>
     <li>support InnoDB tables and foreign keys (see FAQ 3.6)</li>
+    <li>support mysqli, the improved MySQL extension (see FAQ 1.17) </li>
     <li>
         communicate in
         <a href="./translators.html">47 different languages</a>
@@ -397,7 +398,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br />
         If at least one server configuration uses 'cookie' auth_type, enter
         here a passphrase of your choice that will be used by blowfish.
-     </dd>
+  </dd>
 
     <dt><b>$cfg['Servers']</b> array</dt>
     <dd>
@@ -1071,7 +1072,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         mydatabase&quot; will be rejected. Quite practical for ISP's with many
         customers.
         <br /><br />
-     </dd>
+  </dd>
 
     <dt><b>$cfg['Confirm'] </b>boolean</dt>
     <dd>
@@ -2426,16 +2427,11 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     means that although you can assign character sets to a table or field,
     phpMyAdmin will not recode the data when inserting or extracting it.
     Instead, it will still use the character set you specified for the MySQL
-    onnection.<br />
+    connection. Also the new improved MySQL extension (mysqli) that comes with php 5.0 is experimentally supported. <br />
     When compiling php, we strongly recommend that you manually link the MySQL
     extension to a MySQL client library of at least the same minor version
     since the one that is bundled with current php distributions is rather old
-    and might cause problems (see also FAQ 1.17a).
-    <br />
-    Also, we do not yet support the improved MySQL extension (mysqli) that
-    comes with php&nbsp;5. For the moment, the old MySQL extension should also
-    work fine here, if compiled correctly.
-    <br />
+    and might cause problems (see also FAQ 1.17a).<br />
     MySQL&nbsp;5.1 is not yet supported.
 </p>
 
@@ -3873,7 +3869,7 @@ CREDITS, in chronological order
 - Mike Cochrane &lt;mike_at_graftonhall.co.nz&gt;
     * blowfish library from the Horde project
 
-- Marcel Tschopp <marcel.tschopp_at_gmx.net>
+- Marcel Tschopp &lt;ne0x_at_users.sourceforge.net&gt;
     * mysqli support
     * many bugfixes and improvements
 
