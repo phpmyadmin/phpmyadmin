@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: auto-detect
+    * lang/turkish update, thanks to Bora Alioglu
+    
 2002-07-29 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/galician*: Merged update from #588154 
     * lang/estonian*: Merged update from Alvar Soome

@@ -74,6 +74,7 @@ $strCheckAll = 'Tümünü seç';
 $strCheckDbPriv = 'Veritabaný önceliklerini kontrol et';
 $strCheckTable = 'Tabloyu kontrol et';
 $strChoosePage = 'Lütfen düzenlemek istediðiniz sayfayý seçin';
+$strColComFeat = 'Sütun yorumlarý gösteriliyor';
 $strColumn = 'Sütun';
 $strColumnNames = 'Sütun adlarý';
 $strComments = 'Yorumlar'; 
@@ -90,6 +91,7 @@ $strCreateIndexTopic = 'Yeni bir index olu&#351;tur';
 $strCreateNewDatabase = 'Yeni veritabaný oluþtur';
 $strCreateNewTable = '%s veritabaný üzerinde yeni bir tablo oluþtur';
 $strCreatePage = 'Yeni sayfa oluþtur';
+$strCreatePdfFeat = 'PDFlerin oluþturulmasý';
 $strCriteria = 'Kriter';
 
 $strData = 'Veri';
@@ -106,7 +108,9 @@ $strDeletedRows = 'Silinen satýrlar:';
 $strDeleteFailed = 'Silme sýrasýnda hata oluþtu!';
 $strDeleteUserMessage = '%s kullanýcýsýný sildiniz.';
 $strDescending = 'Azalan';
+$strDisabled = 'Kapalý';
 $strDisplay = 'Görüntüle';
+$strDisplayFeat = 'Özellikleri Göster';
 $strDisplayOrder = 'Görünüm düzeni:';
 $strDisplayPDF = 'PDF þemasýný göster';
 $strDoAQuery = '"Örnekle sorgu" yap (joker: "%")';
@@ -125,6 +129,7 @@ $strEditPrivileges = 'Öncelikleri Düzenle';
 $strEffective = 'Efektif';
 $strEmpty = 'Boþalt';
 $strEmptyResultSet = 'MySQL boþ bir sonuc kümesi döndürdü ( sýfýr satýr).';
+$strEnabled = 'Açýk';
 $strEnd = 'Son';
 $strEnglishPrivileges = ' Not: mySQL  öncelik adlarý Ýngilizce olarak belirtilmiþtir ';
 $strError = 'Hata';
@@ -149,6 +154,7 @@ $strFullText = 'Tüm metinler';
 $strFunction = 'Fonksiyon';
 
 $strGenBy = 'Oluþturuldu->:';
+$strGeneralRelationFeat = 'Genel iliþki özellikleri';
 $strGenTime = 'Çýktý Tarihi';
 $strGo = 'Git';
 $strGrants = 'Haklar';
@@ -230,6 +236,7 @@ $strNoQuery = 'SQL sorgusu yok!';
 $strNoRights = 'Burada bulunmak için yeterli haklara sahip deðilsiniz!';
 $strNoTablesFound = 'Veritabaný\'nda tablo bulunamadý.';
 $strNotNumber = 'Bu bir sayý deðil!';
+$strNotOK = 'Tamam deðil';
 $strNotSet = '<b>%s</b> tablosu bulunamadý veya %s içinde tanýmlanmadý';
 $strNotValidNumber = ' geçerli bir satýr sayýsý deðil!';
 $strNoUsersFound = 'Kullanýcý(lar) bulunamadý.';
@@ -238,6 +245,7 @@ $strNumSearchResultsInTable = '%s eþleþim : %s tablosu içinde';
 $strNumSearchResultsTotal = 'Toplam: %s eþleþim';
 
 $strOftenQuotation = 'Sýk kullanýlan aktarma iþaretleri.SEÇÝME BAÐLI,sadece char ve varchar alanlarýnýn "enclosed-by" karakteri ile çevreneleceði anlamýna gelir..';
+$strOK = 'Tamam';
 $strOperations = 'Ýþlemler';
 $strOptimizeTable = 'Tabloyu optimize et';
 $strOptionalControls = 'Özel karakterleri yazmak ve okumak için kontroller.Opsiyonel';
@@ -403,12 +411,5 @@ $strZip = '"ziplenmiþ"';
 
 // To translate
 $strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
+
 ?>
