@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-04-03 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.6.2-rc1 released
+
 2005-04-01 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: TIMESTAMP options support
     * libraries/common.lib.php: DEFAULT CURRENT_TIMESTAMP is only 
