@@ -2322,7 +2322,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <b>[6.14] How do I set up the SQL validator?</b>
     <br />
     To use it, you need a very recent version of PHP, built with
-    XML and PEAR support.  On your system command line, run
+    Overload, XML and PEAR support.  On your system command line, run
     <tt>"pear install Mail_Mime Net_DIME SOAP"</tt> to get the nessecary
     PEAR modules for usage.
     <br />
@@ -2331,6 +2331,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     strings, numbers replaced with generic values). The Mimer SQL
     Validator itself, is &copy; 2001 Upright Database Technology.
     We utilize it as free XML-SOAP service.
+    <br />
+    The overload module is crucial to the functionality of the validator 
+    service.
 </p>
 
 <p>
