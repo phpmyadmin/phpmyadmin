@@ -639,15 +639,20 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
            <li>
               display in an optional tool-tip the &quot;display field&quot;
               when browsing the master table, if you move the mouse to a column
-              containing a foreign key (use also the 'table_info' table);
+              containing a foreign key (use also the 'table_info' table);<br />
+              (see FAQ 6.7)
            </li>
+           <li>
+              in edit/insert mode, display a drop-down list of possible 
+              foreign keys (key value and &quot;display field&quot; are 
+              shown)<br />
+              (see FAQ 6.21)
            <li>
               display links on the table properties page, to check referential
               integrity (display missing foreign keys) for each described key;
            </li>
            <li>
-              in query-by-example, create automatic joins (see an example in
-              the FAQ, section &quot;Using phpMyAdmin&quot;);
+              in query-by-example, create automatic joins (see FAQ 6.6)
            </li>
            <li>
               enable you to get a PDF schema of your database (also uses the
@@ -2967,6 +2972,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Starting from the previous example, create the PMA_table_info as explained
     in the configuration section, then browse your persons table,
     and move the mouse over a town code or country code.
+    <br /><br />
+    See also FAQ 6.21 for an additionnal feature that &quot;display field&quot;
+    enables: drop-down list of possible values.
 </p>
 
 <a name="faqpdf"></a><br />
@@ -3196,7 +3204,16 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     So if your users do not need this privilege, you can remove it and their
     databases list will shorten.
 </p>
-
+<h4>
+    [6.21] In edit/insert mode, how can I see a list of possible values for
+    a field, based on some foreign table?
+</h4>
+<p>
+    You have to setup appropriate links between the tables, and also
+    setup the &quot;display field&quot; in the foreign table. See FAQ
+    6.6 for an example. Then, if there are 200 values or less in the
+    foreign table, a drop-down list of values will be available. 
+</p>
 <a name="faqproject"></a><br />
 <h3>[7. phpMyAdmin project]</h3>
 
