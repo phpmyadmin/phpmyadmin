@@ -26,6 +26,10 @@ $Source$
       tbl_properties_operations.php3, tbl_query_box.php3, tbl_select.php3,
       user_details.php3, libraries/build_dump.lib.php3,
       libraries/display_tbl.lib.php3: Improved MySQL 3.21 compatibility.
+    * libraries/sqlparser.lib.php3:
+        - Coding standard improvements (Merged by Robin)
+    * scripts/decode_bug.php3:
+        - Coding standard improvements (Merged by Robin)
 
 2002-08-07 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/slovak-iso-8859-2.inc.php3:
