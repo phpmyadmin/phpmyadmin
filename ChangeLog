@@ -7,6 +7,7 @@ $Source$
 
 2002-11-25 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php3: wrong back link in case of errors
+    * sql.php3: undefined variable $sql_query when adding a bookmark
 
 2002-11-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: clicking on a COUNT() column to sort

@@ -34,6 +34,11 @@ if (!isset($err_url)) {
              . ((strpos(' ' . $goto, 'db_details') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
 } // end if
 
+// Coming from a bookmark dialog
+if (isset($fields['query'])) {
+    $sql_query = $fields['query'];
+}
+
 /**
  * Check rights in case of DROP DATABASE
  *
