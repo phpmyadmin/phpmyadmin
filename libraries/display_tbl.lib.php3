@@ -1303,7 +1303,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 //            $tabs = '(\'' . join('\',\'', spliti('`? *((on [^,]+)?,|(NATURAL )?(inner|left|right)( outer)? join) *`?',
 //                    eregi_replace('^.*FROM +`?|`? *(on [^,]+)?(WHERE.*)?$', '', $sql_query))) . '\')';
             $pattern = '`?[[:space:]]+(((ON|on)[[:space:]]+[^,]+)?,|((NATURAL|natural)[[:space:]]+)?(INNER|inner|LEFT|left|RIGHT|right)([[:space:]]+(OUTER|outer))?[[:space:]]+(JOIN|join))[[:space:]]*`?';
-            $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]+(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
+            $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
             $tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
 
             $local_query = 'SELECT src_column, dest_table, dest_column'

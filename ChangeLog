@@ -5,9 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-03 Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/display_tbl.lib.php3, line 1306: fixed a bug reported by Marc
+	  Delisle with the relation feature.
+
 2002-03-04 Marc Delisle  <lem9@users.sourceforge.net>
-	* user_details.php3: default value for wildcard db name
-	* lang/*.php3, $strDatabaseWildcard
+	* user_details.php3: default value for wildcard db name.
+	* lang/*.php3, $strDatabaseWildcard.
 
 2002-03-03 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3:
