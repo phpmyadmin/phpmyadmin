@@ -663,7 +663,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 'where_clause_identifiers'   => array(),
                 'queryflags'     => array(),
                 'select_expr'    => array(),
-                'table_ref'      => array()
+                'table_ref'      => array(),
+                'foreign_keys'   => array()
             );
             $subresult_empty = $subresult;
             $seek_queryend         = FALSE;
@@ -724,6 +725,12 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      *
      * and the identifiers of the where clause are put into the array
      * ['where_clause_identifier']
+     *
+     * lem9:   foreign keys
+     *         ------------
+     * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
+     * analyzed and ['foreign_keys'] is an array filled with the index list,
+     * the REFERENCES table name and REFERENCES index list.
      */
 
             // must be sorted
@@ -1150,8 +1157,6 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             // loop #2: for queryflags
             //          ,querytype (for queries != 'SELECT')
             //
-            // This is not in the loop 1 to keep logic simple
-
             // we will also need this queryflag in loop 2
             // so set it here
             if (isset($current_table_ref) && $current_table_ref > -1) {
@@ -1326,6 +1331,66 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                $upper_data='';
 
             } // end for $i (loop #2)
+
+            // -----------------------------------------------------
+            // loop #3: foreign keys
+            // (for now, check only the first query)
+            // (for now, identifiers must be backquoted)
+
+            $seen_foreign = FALSE;
+            $seen_references = FALSE;
+            $in_bracket = FALSE;
+            $foreign_key_number = -1;
+
+            for ($i = 0; $i < $size; $i++) {
+                if ($arr[$i]['type'] == 'alpha_reservedWord') {
+                   $upper_data = strtoupper($arr[$i]['data']);
+                   if ($upper_data == 'FOREIGN') {
+                       $seen_foreign = TRUE;
+                       $seen_references = FALSE;
+                   }
+                   if ($upper_data == 'REFERENCES') {
+                       $seen_foreign = FALSE;
+                       $seen_references = TRUE;
+                   }
+                }
+
+                if ($arr[$i]['type'] == 'punct_bracket_open_round') {
+                    $in_bracket = TRUE;
+                }
+
+                if ($arr[$i]['type'] == 'punct_bracket_close_round') {
+                    $in_bracket = FALSE;
+                    if ($seen_references) {
+                        $seen_references = FALSE;
+                    }
+                }
+
+                if (($arr[$i]['type'] == 'quote_backtick')) {
+
+                    if ($seen_foreign && $in_bracket) {
+                        // remove backquotes
+                        $identifier = str_replace('`','',$arr[$i]['data']);
+                        // new foreign key
+                        $foreign_key_number++;
+                        $foreign[$foreign_key_number]['index_list'][] = $identifier;
+                    }
+
+                    if ($seen_references) {
+                        $identifier = str_replace('`','',$arr[$i]['data']);
+                        if ($in_bracket) {
+                            $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
+                        } else {
+                            $foreign[$foreign_key_number]['ref_table_name'] = $identifier;
+                        }
+                    }
+                }
+            } // end for $i (loop #3)
+
+            if (isset($foreign)) {
+                $subresult['foreign_keys'] = $foreign;     
+            }
+            //DEBUG print_r($foreign);
 
             if (isset($select_expr_clause)) {
                 $subresult['select_expr_clause'] = $select_expr_clause;

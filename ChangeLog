@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3: analyzer for FOREIGN KEYS
+
 2003-06-17 Michal Cihar  <nijel@users.sourceforge.net>
     * config.inc.php3: Fixed typo (s/'PMA_pdf_page'/'PMA_pdf_pages'/).
 
