@@ -129,6 +129,7 @@ $strCompression = 'Compressió';
 $strConfigFileError = 'phpMyAdmin és incapaç de llegir el fitxer de configuració!<br />Això pot succeir si php troba un error sintàctic en ell o bé php no pot trobar el fitxer.<br />Intenta obrir el fitxer de configuració directament fent servir l\'enllaç següent i comprova el(s) missatge(s) d\'error que reps. En moltes ocasions una coma o punt i coma falta en algun lloc.<br />Si reps una plana en blanc, tot està bé.';
 $strConfigureTableCoord = 'Configura les coordinades per la taula %s';
 $strConfirm = 'Ho vols fer realment?';
+$strConnectionError = 'No puc connectar: paràmetres incorrectes.';
 $strConnections = 'Connexions';
 $strConstraintsForDumped = 'Restriccions per taules volcades';
 $strConstraintsForTable = 'Restriccions per la taula';
@@ -203,6 +204,7 @@ $strDoYouReally = 'Realment vols fer?';
 $strDocu = 'Documentació';
 $strDrop = 'Eliminar';
 $strDropDB = 'Eliminar base de dades %s';
+$strDropDatabaseStrongWarning = 'Ets a punt d\' ELIMINAR completament una base de dades!';
 $strDropSelectedDatabases = 'Esborra les Bases de dades sel.lecionades';
 $strDropTable = 'Esborrar taula';
 $strDropUsersDb = 'Esborra les bases de dades que tenen els mateixos noms que els usuaris.';
@@ -720,9 +722,4 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el limit.';
 $strZip = '"comprimit amb zip"';
 
-// To translate:
-
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
-
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>
