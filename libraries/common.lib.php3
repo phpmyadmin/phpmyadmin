@@ -1138,7 +1138,7 @@ if (typeof(document.getElementById) != 'undefined'
             // Prepares links that may be displayed to edit/explain the query
 
             if (!isset($GLOBALS['goto'])) {
-                $edit_target = (isset($GLOBALS['table'])) ? 'tbl_properties.php3' : 'db_details.php3';
+                $edit_target = (isset($GLOBALS['table'])) ? $cfg['DefaultTabTable'] : $cfg['DefaultTabDatabase'];
             } else if ($GLOBALS['goto'] != 'main.php3') {
                 $edit_target = $GLOBALS['goto'];
             } else {
