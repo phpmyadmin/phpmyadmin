@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /** Specialized String Functions for phpMyAdmin
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
@@ -17,7 +16,13 @@
  
 $GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen') && substr($GLOBALS['charset'], 0, 8) != 'windows-';
 if ($GLOBALS['PMA_allow_mbstr']) {
-    mb_internal_encoding($GLOBALS['charset']);
+    // the hebrew lang file uses iso-8859-8-i, encoded RTL,
+    // but mb_internal_encoding only supports iso-8859-8
+    if ($GLOBALS['charset'] == 'iso-8859-8-i'){
+        mb_internal_encoding('iso-8859-8');
+    } else {
+        mb_internal_encoding($GLOBALS['charset']);
+    }
 }
 
 // This is for handling input better

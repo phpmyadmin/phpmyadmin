@@ -11,6 +11,8 @@ $Source$
       db_details_structure.php, tbl_select.php:
       fix IE font size problem, redesign search and export pages,
       thanks to Michael Keck (mkkeck)
+    * libraries/string.lib.php: bug #975290, wrong internal encoding
+      for hebrew, thanks to Moshe Bergman (moshe_be)
 
 2004-06-17 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysql.dbi.php: Removed debug code.
