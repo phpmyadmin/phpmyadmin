@@ -3,16 +3,37 @@
 
 @set_time_limit(10000);
 
-
 require("grab_globals.inc.php3");
 
 require("lib.inc.php3");
 
 
 // set up default values
+$view_bookmark = 0;
+$sql_bookmark  = isset($sql_bookmark) ? $sql_bookmark : "";
 $sql_query     = isset($sql_query)    ? $sql_query    : "";
 $sql_file      = isset($sql_file)     ? $sql_file     : "none";
- 
+
+
+// Bookmark Support
+if(!empty($id_bookmark)) {
+  switch($action_bookmark) {
+    case 0:
+      $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
+      break;
+   
+    case 1:
+      $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
+      $view_bookmark = 1;
+      break;
+  
+    case 2:
+      $sql_query = delete_bookmarks($db, $cfgBookmark, $id_bookmark);
+      break;
+  }
+}
+
+
 
 if($sql_file != "none") {
   // do file upload
