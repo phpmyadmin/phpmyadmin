@@ -60,6 +60,8 @@ $strBrowse = 'Perþiûrëti';
 $strBzip = '"bzip"';
 
 $strCantLoadMySQL = 'negali uþkrauti MySQL proceso,<br />patikrinkite PHP nustatymus.';
+$strCantLoadRecodeIconv = 'Nepavyko uþkrauti <em>iconv</em> arba <em>recode</em> plëtiniø, reikalingø koduotës kovertavimui. Suteikite PHP teises naudotis ðiais iðplëtimais arba iðjunkite phpMyAdmin koduotës konvertavimà. ';
+$strCantUseRecodeIconv = 'Kraunant plëtiniø praneðimus, nepavyko pasinaudoti <em>iconv</em> arba <em>libiconv</em> arba <em>recode_string</em> funkcijomis. Pasitkrinkite PHP konfigûracijà. ';
 $strCantRenameIdxToPrimary = 'Indeksà pervadinti PIRMINIU nepavyko!';
 $strCardinality = 'Elementø skaièius';
 $strCarriage = 'Gráþimo á eilutës pradþià simbolis(CR): \\r';
@@ -151,6 +153,7 @@ $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'iðplësta.';
 $strHasBeenCreated = 'sukurta.';
+$strHaveToShow = 'Pasirinkite bent vienà stulpelá iðvedimui';
 $strHome = 'Pirmas puslapis';
 $strHomepageOfficial = 'Oficialus phpMyAdmin tinklapis';
 $strHomepageSourceforge = 'Parsisiøsti phpMyAdmin ið Sourceforge tinklapio';
@@ -192,11 +195,13 @@ $strLogout = 'Iðsiregistruoti';
 $strLogPassword = 'Slaptaþodis:';
 $strLogUsername = 'Vartotojo vardas:';
 
+$strMissingBracket = 'Trûksta skliausto(ø)';
 $strModifications = 'Pakeitimai iðsaugoti';
 $strModify = 'Keisti';
 $strModifyIndexTopic = 'Keisti indeksà';
 $strMoveTable = 'Perkelti lentelë á (duomenø bazë<b>.</b>lentelë):';
 $strMoveTableOK = 'Lentelë %s perkelta á %s.';
+$strMySQLCharset = 'MySQL koduotë';
 $strMySQLReloaded = 'MySQL procesas perkrautas.';
 $strMySQLSaid = 'MySQL atsakymas: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% procesas serveryje %pma_s2%. Áregistruotas vartotojas %pma_s3%';
@@ -222,6 +227,7 @@ $strNoQuery = 'Nëra SQL uþklausos!';
 $strNoRights = 'Neturite pakankamai teisiø';
 $strNoTablesFound = 'Duomenø bazëje nerasta lenteliø.';
 $strNotNumber = 'Áveskite skaièiø!';
+$strNotSet = 'Lentelë <b>%s</b> nerasta arba nenurodyta %s byloje';
 $strNotValidNumber = ' netinkamas eilutës numeris!';
 $strNoUsersFound = 'Nerasta vartotojo(ø).';
 $strNull = 'Null';
@@ -266,6 +272,7 @@ $strQBEIns = 'Áterpiant';
 $strQueryOnDb = 'SQL-uþklausa duomenø bazëje <b>%s</b>:';
 
 $strRecords = 'Viso áraðø:';
+$strReferentialIntegrity = 'Patikrinti sàryðiø vientisumà:';
 $strRelationView = 'Perþiûrëti sàryðius';
 $strReloadFailed = 'MySQL procesà perkrauti nepavyko.';
 $strReloadMySQL = 'Perkrauti MySQL procesà';
@@ -391,12 +398,4 @@ $strYes = 'Taip';
 $strZip = '"zip"';
 
 //to translate:
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strReferentialIntegrity = 'Check referential integrity:';
-
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
 ?>
