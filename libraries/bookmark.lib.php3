@@ -81,24 +81,25 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')) {
      *
      * @param   string   the current database name
      * @param   array    the bookmark parameters for the current user
-     * @param   integer  the id of the bookmark to get
+     * @param   mixed    the id of the bookmark to get
+     * @param   string   which field to look up the $id
      *
      * @return  string   the sql query
      *
      * @access  public
      */
-    function PMA_queryBookmarks($db, $cfgBookmark, $id)
+    function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id')
     {
         $query          = 'SELECT query FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
                         . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
                         . ' AND user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
-                        . ' AND id = ' . $id;
+                        . ' AND ' . PMA_backquote($id_field) . ' = ' . $id;
         if (isset($GLOBALS['dbh'])) {
             $result = PMA_mysql_query($query, $GLOBALS['dbh']);
         } else {
             $result = PMA_mysql_query($query);
         }
-        $bookmark_query = PMA_mysql_result($result, 0, 'query');
+        $bookmark_query = @PMA_mysql_result($result, 0, 'query') OR FALSE;
 
         return $bookmark_query;
     } // end of the 'PMA_queryBookmarks()' function

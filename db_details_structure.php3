@@ -129,9 +129,12 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
+        include('./libraries/bookmark.lib.php3');
+        $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
+        
         if (!empty($sts_data['Rows'])) {
             echo '<a href="sql.php3?' . $tbl_url_query . '&amp;sql_query='
-                 . urlencode('SELECT * FROM ' . PMA_backquote($table))
+                 . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table)))
                  . '&amp;pos=0">' . $strBrowse . '</a>';
         } else {
             echo $strBrowse;

@@ -18,10 +18,13 @@ $db_details_links_count_tabs = 0;
 /**
  * Prepares links
  */
+include('./libraries/bookmark.lib.php3');
+$book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
+
 if ($table_info_num_rows > 0) {
     $lnk2    = 'sql.php3';
     $arg2    = $url_query
-             . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table))
+             . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table)))
              . '&amp;pos=0';
     $lnk4    = 'tbl_select.php3';
     $arg4    = $url_query;

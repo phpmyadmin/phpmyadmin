@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
+    * db_details_structure.php, left.php3, tbl_properties_links.php3, libraries/bookmark.lib.php3:
+      RFE #550552: Change default initial query for browse mode, if a bookmark with the same
+      label as the tablename is found.
     * tbl_properties_options.php3, tbl_properties_table_info.php3: Support changing
       auto_increment value. (RFE #639655)
     * db_printview.php3, tbl_printview.php3, db_datadict.php3, pdf_schema.php3:
