@@ -16,12 +16,11 @@ $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 $byteUnits = array('Bajtova', 'KB', 'MB', 'GB');
 
-$day_of_week = array('Ned', 'Pon', 'Uto', 'Sre', 'Cet', 'Pet', 'Sub');
+$day_of_week = array('Ned', 'Pon', 'Uto', 'Sre', 'Èet', 'Pet', 'Sub');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d. %B %Y. u %H:%M';
-
 
 $strAccessDenied = 'Pristup odbijen';
 $strAction = 'Akcija';
@@ -239,7 +238,7 @@ $strPrimaryKey = 'Primarni kljuè';
 $strPrimaryKeyHasBeenDropped = 'Primarni kljuè je izbrisan';
 $strPrimaryKeyName = 'Ime za primarni kljuè mora da bude... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>može i mora</b> da bude ime i <b>samo</b> ime primarnog kljuèa!)';
-$strPrintView = 'Za stampu';
+$strPrintView = 'Za štampu';
 $strPrivileges = 'Privilegije';
 $strProperties = 'Informacije';
 
@@ -354,4 +353,5 @@ $strYes = 'Da';
 
 $strZip = '"zip-ovano"';
 
+// To translate
 ?>
