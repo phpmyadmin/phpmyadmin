@@ -5,22 +5,34 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-08-27  Marc Delisle  <lem9@users.sourceforge.net>
-	* lang/dutch.inc.php3 updates, thanks to Arjen Roodselaar
+2001-08-27  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3: fixed some coding style inconcistencies.
+	* lib.inc.php3, lines -; config.inc.php3, lines 106-110;
+	  Documentation.html, lines 475-482: merged patch #455484 ("Smart" order)
+	  thanks to Jakub Wilk.
+	* lang/swedish.inc.php3 & spanish.inc.php3: updated thanks to
+	  Patrik Grip-Jansson <kap42 at users.sourceforge.net> &
+	  Martin Marconcini <megadeth at millic.com.ar>.
+	* lang/romanian.inc.php3: put all the string to translate at the end and
+	  added a missing one.
+	* lang/dutch.inc.php3: sorted the strings.
+
+2001-08-27  Marc Delisle  <lem9@users.sourceforge.net> 
+	* lang/dutch.inc.php3 updates, thanks to Arjen Roodselaar.
 	* tbl_copy.php3, eregi_replace instead of ereg_replace because
 	  MySQL 3.23.20 returns sql keywords in lowercase, thanks to
-	  Jan Paul Schmidt
-	* lang/romanian.inc.php3, select_lang.inc.php3: new romanian lang.
-	  thanks to Valics Lehel (lvalics@users.sourceforge.net)
+	  Jan Paul Schmidt.
+	* lang/romanian.inc.php3, select_lang.inc.php3: new romanian lang thanks to
+	  thanks to Valics Lehel (lvalics@users.sourceforge.net).
 
 2001-08-25  Marc Delisle  <lem9@users.sourceforge.net>
-	* lib.inc.php3, bug 455088, avoid to reveal username/password
-	  from config file when they are wrong or MySQL server does not answer
-	* Documentation.html, FAQ about how to send bug reports
+	* lib.inc.php3, bug 455088, avoid to reveal username/password from config
+	  file when they are wrong or MySQL server does not answer.
+	* Documentation.html, FAQ about how to send bug reports.
 
 2001-08-23  Marc Delisle  <lem9@users.sourceforge.net>
-	* lib.inc.php3, bug 454477, added LIMIT 1 to delete only one instance
-          when records are the same
+	* lib.inc.php3, bug 454477, added LIMIT 1 to delete only one instance when
+	  records are the same.
 
 2001-08-23  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, display_table(): displays a space character if a field is
