@@ -371,4 +371,17 @@ $strShowColor = 'Show color';  //to translate
 $strShowGrid = 'Show grid';  //to translate
 $strShowTableDimension = 'Show dimension of tables';  //to translate
 $strChangeDisplay = 'Choose Field to display';  //to translate
+$strNumSearchResultsInTable = '%s match(es) inside table <i>%s</i>';//to translate
+$strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> match(es)';//to translate
+$strSearch = 'Search';//to translate
+$strSearchFormTitle = 'Search in database';//to translate
+$strSearchInTables = 'Inside table(s):';//to translate
+$strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';//to translate
+$strSearchOption1 = 'at least one of the words';//to translate
+$strSearchOption2 = 'all words';//to translate
+$strSearchOption3 = 'the exact phrase';//to translate
+$strSearchOption4 = 'as regular expression';//to translate
+$strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
+$strSearchType = 'Find:';//to translate
+$strSplitWordsWithSpace = 'Words are splitted by a space character (" ").';//to translate
 ?>
