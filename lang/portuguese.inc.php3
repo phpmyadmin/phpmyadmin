@@ -63,6 +63,7 @@ $strCantRenameIdxToPrimary = 'Impossível renomear índice para PRIMARY!';
 $strCardinality = 'Quantidade';
 $strCarriage = 'Fim de linha: \\r';
 $strChange = 'Muda';
+$strChangePassword = 'Alterar a senha';
 $strCheckAll = 'Todos';
 $strCheckDbPriv = 'Visualiza os Privilégios da Base de Dados';
 $strCheckTable = 'Verificar tabela';
@@ -220,6 +221,7 @@ $strPassword = 'Senha';
 $strPasswordEmpty = 'Indique a Password!';
 $strPasswordNotSame = 'As passwords são diferentes!\nLembre-se de confirmar a password!';
 $strPmaDocumentation = 'Documentação do phpMyAdmin';
+$strPmaUriError = 'A directiva <tt>$cfgPmaAbsoluteUri</tt> TEM que ser definida no ficheiro de configuração!';
 $strPos1 = 'Inicio';
 $strPrevious = 'Anterior';
 $strPrimary = 'Primária';
@@ -343,9 +345,7 @@ $strYes = 'Sim';
 
 // To translate
 $strBzip = '"bzipped"';  //to translate
-$strChangePassword = 'Change password';
 $strGzip = '"gzipped"';  //to translate
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 $strZip = '"zipped"';  //to translate
 ?>
