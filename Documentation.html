@@ -1551,8 +1551,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br />
     This seems to be a PWS bug. Filippo Simoncini found a workaroud (at this
     time there is no better fix): remove or comment the <tt>DOCTYPE</tt>
-    declarations (3 lines) from the scripts <i>header.inc.php3</i>,
-    <i>index.php3</i>, <i>left.php3</i> and <i>libraries/common.lib.php3</i>.
+    declarations (2 lines) from the scripts <i>header.inc.php3</i>,
+    <i>header_printview.inc.php3</i>, <i>index.php3</i>, <i>left.php3</i> and
+    <i>libraries/common.lib.php3</i>.
 </p>
 
 <p>
