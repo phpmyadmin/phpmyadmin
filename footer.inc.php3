@@ -8,11 +8,11 @@
 /**
  * Close MySql non-persistent connections
  */
-if (isset($dbh) && $dbh) {
-    @mysql_close($dbh);
+if (isset($GLOBALS['dbh']) && $GLOBALS['dbh']) {
+    @mysql_close($GLOBALS['dbh']);
 }
-if (isset($userlink) && $userlink) {
-    @mysql_close($userlink);
+if (isset($GLOBALS['userlink']) && $GLOBALS['userlink']) {
+    @mysql_close($GLOBALS['userlink']);
 }
 ?>
 
@@ -24,8 +24,8 @@ if (isset($userlink) && $userlink) {
 /**
  * Sends bufferized data
  */
-if (isset($cfg['OBGzip']) && $cfg['OBGzip']
-    && isset($ob_mode) && $ob_mode) {
-     PMA_outBufferPost($ob_mode);
+if (isset($GLOBALS['cfg']['OBGzip']) && $GLOBALS['cfg']['OBGzip']
+    && isset($GLOBALS['ob_mode']) && $GLOBALS['ob_mode']) {
+     PMA_outBufferPost($GLOBALS['ob_mode']);
 }
 ?>
