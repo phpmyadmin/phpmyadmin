@@ -216,7 +216,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $propicon = (string)$cfg['PropertiesIconic'];
 
         if ($propicon == 'both') {
-            $iconic_spacer = '<nobr>';
+            $iconic_spacer = '<div class="nowrap">';
         } else {
             $iconic_spacer = '';
         }
@@ -234,7 +234,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $titles['NoIdxFulltext'] = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_nofulltext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
 
         if ($propicon == 'both') {
-            $titles['Change']        .= '&nbsp;' . $strChange . '</nobr>';
+            $titles['Change']        .= '&nbsp;' . $strChange . '</div>';
             $titles['Drop']          .= '&nbsp;' . $strDrop . '</nobr>';
             $titles['NoDrop']        .= '&nbsp;' . $strDrop . '</nobr>';
             $titles['Primary']       .= '&nbsp;' . $strPrimary . '</nobr>';

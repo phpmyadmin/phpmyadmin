@@ -90,6 +90,7 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] && !$db || ($cfg['QueryFrameJS'
 
 $form_items = 0;
 
+echo "<li>\n";
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow) {
 ?>
         <script type="text/javascript">
@@ -144,7 +145,7 @@ if (!empty($query_to_display)) {
                     </td>
                         <?php if (isset($table) && $fields_cnt > 0) { ?>
                     <td align="center" valign="top"><?php echo (isset($is_inside_querywindow) ? '<br />' : '') . $strFields; ?>:<br />
-                            <select name="dummy" size="4" multiple>
+                            <select name="dummy" size="4" multiple="multiple">
                        <?php
                            echo "\n";
                            for ($i = 0 ; $i < $fields_cnt; $i++) {
@@ -174,7 +175,6 @@ if (!empty($query_to_display)) {
 
             $form_items++;
             ?>
-            </div>
 <?php
 } else {
 ?>
@@ -381,6 +381,7 @@ if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_insi
 }
 ?>
 </form>
+</li>
 <?php
 if (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')) && isset($db) && $db != '') {
@@ -391,14 +392,15 @@ if (!isset($is_inside_querywindow) ||
     if ($is_upload && isset($db) && isset($table)) {
         ?>
         <!-- Insert a text file -->
-        <br /><br />
-        <li>
+        <li style="margin-bottom: 10px">
             <?php
             if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             ?>
 
             <script type="text/javascript">
-                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.parent.frames.phpmain\' + opener.parent.frames.queryframe.document.hashform.hash.value + \'.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
+                <!--
+                document.writeln('<a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.parent.frames.phpmain\' + opener.parent.frames.queryframe.document.hashform.hash.value + \'.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a>');
+                //-->
             </script>
 
             <?php
@@ -406,7 +408,9 @@ if (!isset($is_inside_querywindow) ||
             ?>
 
             <script type="text/javascript">
-                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.parent.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
+                <!--
+                document.writeln('<a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.parent.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a>');
+                //-->
             </script>
 
             <?php
@@ -414,7 +418,7 @@ if (!isset($is_inside_querywindow) ||
             ?>
 
             <noscript>
-               <div style="margin-bottom: 10px"><a href="<?php echo $ldi_target; ?>"><?php echo $strInsertTextfiles; ?></a></div>
+               <a href="<?php echo $ldi_target; ?>"><?php echo $strInsertTextfiles; ?></a>
             </noscript>
         </li>
         <?php

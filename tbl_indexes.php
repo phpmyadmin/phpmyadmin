@@ -404,16 +404,16 @@ else if (!defined('PMA_IDX_INCLUDED')
     $propicon = (string)$cfg['PropertiesIconic'];
     
     if ($cfg['PropertiesIconic'] === true || $propicon == 'both') {
-        $edit_link_text = '<img src="./images/button_edit.png" width="12" height="13" hspace="7" border="0" title="' . $strEdit . '" alt="' . $strEdit . '">';
-        $drop_link_text = '<img src="./images/button_drop.png" width="11" height="12" hspace="7" border="0" title="' . $strDrop . '" alt="' . $strDrop . '">';
+        $edit_link_text = '<img src="./images/button_edit.png" width="12" height="13" hspace="7" border="0" title="' . $strEdit . '" alt="' . $strEdit . '" />';
+        $drop_link_text = '<img src="./images/button_drop.png" width="11" height="12" hspace="7" border="0" title="' . $strDrop . '" alt="' . $strDrop . '" />';
     }
     if ($cfg['PropertiesIconic'] === false || $propicon == 'both') {
         $edit_link_text .= $strEdit;
         $drop_link_text .= $strDrop;
     }
     if ($propicon == 'both') {
-        $edit_link_text = '<nobr>' . $edit_link_text . '</nobr>';
-        $drop_link_text = '<nobr>' . $drop_link_text . '</nobr>';
+        $edit_link_text = '<div class="nowrap">' . $edit_link_text . '</div>';
+        $drop_link_text = '<div class="nowrap">' . $drop_link_text . '</div>';
     }
 
     if ($idx_cnt > 0) {

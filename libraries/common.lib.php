@@ -1663,9 +1663,11 @@ if (typeof(document.getElementById) != 'undefined'
      *
      * @access  public
      */
-    function PMA_printTab($text, $link, $args = '', $attr = '', $sep = '?', $active = false) {
+    function PMA_printTab($text, $link, $args = '', $attr = '', $class = '', $sep = '?', $active = false) {
         global $PHP_SELF, $cfg;
         global $db_details_links_count_tabs;
+
+        if ($class != '') $class .= ' ';
 
         if (((!isset($GLOBALS['active_page']) && basename($PHP_SELF) == $link) ||
                 $active ||
@@ -1694,21 +1696,21 @@ if (typeof(document.getElementById) != 'undefined'
         if ($cfg['LightTabs']) {
             $out = '';
             if (strlen($link) > 0) {
-                $out .= '<nobr><a href="' . $link . $sep . $args . '"' . $attr . '>'
-                     .  '<b>' . $text . '</b></a></nobr>';
+                $out .= '<a href="' . $link . $sep . $args . '"' . $attr . ' class="' . $class . 'nowrap">'
+                     .  '<b>' . $text . '</b></a>';
             } else {
-                $out .= '<nobr><b>' . $text . '</b></nobr>';
+                $out .= '<b class="nowrap">' . $text . '</b>';
             }
             $out = '[ ' . $out . ' ]&nbsp;&nbsp;&nbsp;';
         } else {
             $out     = "\n" . '        '
-                     . '<td bgcolor="' . $bgcolor . '" align="center" width="64" nowrap="nowrap" class="tab">'
+                     . '<td bgcolor="' . $bgcolor . '" align="center" width="64" class="tab nowrap">'
                      . "\n" . '            ';
             if (strlen($link) > 0) {
-                $out .= '<nobr><a href="' . $link . $sep . $args . '"' . $attr . '>'
-                     .  '<b>' . $text . '</b></a></nobr>';
+                $out .= '<a href="' . $link . $sep . $args . '"' . $attr . ' class="' . $class . 'nowrap">'
+                     .  '<b>' . $text . '</b></a>';
             } else {
-                $out .= '<nobr><b>' . $text . '</b></nobr>';
+                $out .= '<b class="nowrap">' . $text . '</b>';
             }
             $out     .= "\n" . '        '
                      .  '</td>'

@@ -43,7 +43,8 @@ if ($table_info_num_rows > 0) {
              . urlencode($ln6_stt . PMA_backquote($table))
              .  '&amp;zero_rows='
              .  urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)));
-    $att6    = 'class="drop" onclick="return confirmLink(this, \'' . $ln6_stt . PMA_jsFormat($table) . '\')"';
+    $att6    = 'onclick="return confirmLink(this, \'' . $ln6_stt . PMA_jsFormat($table) . '\')"';
+    $class6  = 'drop';
 } else {
     $lnk2    = '';
     $arg2    = '';
@@ -52,10 +53,12 @@ if ($table_info_num_rows > 0) {
     $lnk6    = '';
     $arg6    = '';
     $att6    = '';
+    $class6  = '';
 }
 
 $arg7 = $url_query . '&amp;reload=1&amp;purge=1&amp;sql_query=' . urlencode('DROP TABLE ' . PMA_backquote($table) ) . '&amp;zero_rows=' . urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table)));
-$att7 = 'class="drop" onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsFormat($table) . '\')"';
+$att7 = 'onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsFormat($table) . '\')"';
+$class7 = 'drop';
 
 
 /**
@@ -77,8 +80,8 @@ echo PMA_printTab($strStructure, 'tbl_properties_structure.php', $url_query)
    . PMA_printTab($strInsert, 'tbl_change.php', $url_query)
    . PMA_printTab($strExport, 'tbl_properties_export.php', $url_query . '&amp;single_table=true')
    . PMA_printTab($strOperations, 'tbl_properties_operations.php', $url_query)
-   . PMA_printTab($strEmpty, $lnk6, $arg6, $att6)
-   . PMA_printTab($strDrop, 'sql.php', $arg7, $att7)
+   . PMA_printTab($strEmpty, $lnk6, $arg6, $att6, $class6)
+   . PMA_printTab($strDrop, 'sql.php', $arg7, $att7, $class7)
    . "\n";
 
 if (!$cfg['LightTabs']) {

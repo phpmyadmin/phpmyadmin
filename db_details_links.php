@@ -47,8 +47,8 @@ if ($cfg['AllowUserDropDatabase']) {
           . '&amp;zero_rows='
           . urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(PMA_backquote($db))))
           . '&amp;goto=main.php&amp;back=db_details' . $sub_part . '.php&amp;reload=1&amp;purge=1';
-    $att5 = 'class="drop" '
-          . 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
+    $att5 = 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
+    $class5 = 'drop';
 }
 else {
     $lnk5 = '';
@@ -75,7 +75,7 @@ echo PMA_printTab($strQBE, ($num_tables > 0) ? 'db_details_qbe.php' : '', $url_q
 
 // Displays drop link
 if ($lnk5) {
-   echo PMA_printTab($strDrop, $lnk5, $arg5, $att5);
+   echo PMA_printTab($strDrop, $lnk5, $arg5, $att5, $class5);
 } // end if
 echo "\n";
 

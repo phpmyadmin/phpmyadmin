@@ -277,3 +277,7 @@ img.calendar {
 form.clock {
     text-align: center;
 }
+
+.nowrap {
+    white-space: nowrap;
+}

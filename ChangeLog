@@ -8,6 +8,11 @@ $Source$
 2004-04-27 Michal Cihar  <michal@cihar.com>
     * calendar.php, libraries/tbl_change.js: Don't reset clock when moving in
       calendar.
+    * db_details_links.php, db_details_structure.php, left.php,
+      querywindow.php, tbl_change.php, tbl_indexes.php,
+      tbl_properties_links.php, tbl_properties_structure.php,
+      tbl_query_box.php, tbl_select.php, css/phpmyadmin.css.php,
+      libraries/common.lib.php, libraries/display_tbl.lib.php: Be valid XHTML.
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
     * libraries/display_tbl.lib.php: RFE #867284 - Click on result row

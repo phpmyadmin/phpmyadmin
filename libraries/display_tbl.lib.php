@@ -261,7 +261,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
 </td>
 <td align="center">
     <form action="sql.php" method="post"
-        onsubmit="return (checkFormElementInRange(this, 'session_max_rows', 1) && checkFormElementInRange(this, 'pos', 0, <?php echo $unlim_num_rows - 1; ?>))">
+        onsubmit="return (checkFormElementInRange(this, 'session_max_rows', 1) &amp;&amp; checkFormElementInRange(this, 'pos', 0, <?php echo $unlim_num_rows - 1; ?>))">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
         <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
         <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -528,59 +528,43 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                     $span = $num_rows + floor($num_rows/$repeat_cells) + 1;
                 }
 
-                ?>
-<tr>
-<td colspan="<?php echo $span; ?>" align="center">
-                <?php
-            echo '<form action="sql.php" method="POST">' . "\n";
-            echo PMA_generate_common_hidden_inputs($db, $table, 5);
-            echo '<input type="hidden" name="pos" value="' . $pos .  '" />' . "\n";
-            echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
-            echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
-            echo '<input type="hidden" name="repeat_cells" value="' . $repeat_cells . '" />' . "\n";
-            echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
-            echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">&nbsp;';
-            $used_index = false;
-            $local_order = (isset($sql_order) ? str_replace('  ', ' ', $sql_order) : '');
-            foreach($indexes_data AS $key => $val) {
-                $asc_sort = 'ORDER BY ';
-                $desc_sort = 'ORDER BY ';
-                foreach($val AS $key2 => $val2) {
-                    $asc_sort .= PMA_backquote($val2['Column_name']) . ' ASC , ';
-                    $desc_sort .= PMA_backquote($val2['Column_name']) . ' DESC , ';
+                echo '<form action="sql.php" method="post">' . "\n";
+                echo PMA_generate_common_hidden_inputs($db, $table, 5);
+                echo '<input type="hidden" name="pos" value="' . $pos .  '" />' . "\n";
+                echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
+                echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
+                echo '<input type="hidden" name="repeat_cells" value="' . $repeat_cells . '" />' . "\n";
+                echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
+                echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">';
+                $used_index = false;
+                $local_order = (isset($sql_order) ? str_replace('  ', ' ', $sql_order) : '');
+                foreach($indexes_data AS $key => $val) {
+                    $asc_sort = 'ORDER BY ';
+                    $desc_sort = 'ORDER BY ';
+                    foreach($val AS $key2 => $val2) {
+                        $asc_sort .= PMA_backquote($val2['Column_name']) . ' ASC , ';
+                        $desc_sort .= PMA_backquote($val2['Column_name']) . ' DESC , ';
+                    }
+                    $asc_sort = substr($asc_sort, 0, -3);
+                    $desc_sort = substr($desc_sort, 0, -3);
+                    $used_index = $used_index || $local_order == $asc_sort || $local_order == $desc_sort;
+                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $asc_sort) . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strAscending'] . ')</option>';
+                    echo "\n";
+                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $desc_sort) . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strDescending'] . ')</option>';
+                    echo "\n";
                 }
-                $asc_sort = substr($asc_sort, 0, -3);
-                $desc_sort = substr($desc_sort, 0, -3);
-                $used_index = $used_index || $local_order == $asc_sort || $local_order == $desc_sort;
-                echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $asc_sort) . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strAscending'] . ')</option>';
+                echo '<option value="' . htmlspecialchars($unsorted_sql_query) . '"' . ($used_index ? '' : ' selected="selected"' ) . '>' . $GLOBALS['strNone'] . '</option>';
                 echo "\n";
-                echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $desc_sort) . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strDescending'] . ')</option>';
+                echo '</select>&nbsp;';
                 echo "\n";
-            }
-            echo '<option value="' . htmlspecialchars($unsorted_sql_query) . '"' . ($used_index ? '' : ' selected="selected"' ) . '>' . $GLOBALS['strNone'] . '</option>';
-            echo "\n";
-            echo '</select>&nbsp;';
-            echo "\n";
-            echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
-            echo "\n";
-            echo '</form>';
-            echo "\n";
-            ?>
-</td>
-</tr>
-            <?php
+                echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+                echo "\n";
+                echo '</form>';
+                echo "\n";
             }
         }
     }
 
-
-    if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
-        ?>
-<!-- Results table headers -->
-<tr>
-        <?php
-        echo "\n";
-    }
 
     $vertical_display['emptypre']   = 0;
     $vertical_display['emptyafter'] = 0;
@@ -596,6 +580,22 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         echo '<input type="hidden" name="repeat_cells"   value="' . $repeat_cells   . '" />' . "\n";
         echo '<input type="hidden" name="goto"           value="' . $goto           . '" />' . "\n";
         echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
+    }
+
+    echo '<!-- Results table -->' . "\n"
+       . '<table ';
+    if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
+        echo 'border="1" cellpadding="2" cellspacing="0"';
+    } else {
+        echo 'border="' . $GLOBALS['cfg']['Border'] . '" cellpadding="5"';
+    }
+    echo '>' . "\n";
+    if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
+        ?>
+<!-- Results table headers -->
+<tr>
+        <?php
+        echo "\n";
     }
 
     // 1. Displays the full/partial text button (part 1)...
@@ -816,17 +816,32 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo "\n";
                 ?>
 <th <?php echo $column_style; ?> <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>>
-    <?php echo $comments_table_wrap_pre; ?>
-    <a href="sql.php?<?php echo $url_query; ?>" <?php echo (($disp_direction == 'horizontalflipped' AND $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style="direction: ltr; writing-mode: tb-rl;"' : '') . ' title="' . $GLOBALS['strSort'] . '"'; ?>>
-        <?php echo ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name)), "<br />\n") : htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name))); ?> </a><?php echo $order_img . "\n"; ?>
-    <?php echo $comments_table_wrap_post; ?>
+    <?php 
+    echo $comments_table_wrap_pre;
+    
+    echo '<a href="sql.php?' . $url_query . '" ';
+    if ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css') {
+        echo 'style="direction: ltr; writing-mode: tb-rl;"';
+    }
+    echo ' title="' . $GLOBALS['strSort'] . '">';
+
+    if ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake') {
+        echo PMA_flipstring(htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name)), "<br />\n");
+    } else {
+        echo htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name));
+    }
+
+    echo '</a>';
+    echo $order_img . "\n";
+    echo $comments_table_wrap_post; 
+    ?>
 </th>
                 <?php
             }
             $vertical_display['desc'][] = '    <th ' . $column_style . '>' . "\n"
                                         . $comments_table_wrap_pre
-                                        . '        <a href="sql.php?' . $url_query . '">' . "\n"
-                                        . '            ' . htmlspecialchars($fields_meta[$i]->name) . '</a>' . $order_img . "\n"
+                                        . '        <a href="sql.php?' . $url_query . '">'
+                                        . htmlspecialchars($fields_meta[$i]->name) . '</a>' . $order_img . "\n"
                                         . $comments_table_wrap_post
                                         . '    </th>' . "\n";
         } // end if (2.1)
@@ -1045,7 +1060,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
 
             if ($propicon == 'both') {
-                $iconic_spacer = '<nobr>';
+                $iconic_spacer = '<div class="nowrap">';
             } else {
                 $iconic_spacer = '';
             }
@@ -1069,7 +1084,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 } else {
                     $edit_str = $iconic_spacer . '<img width="12" height="13" src="images/button_edit.png" alt="' . $GLOBALS['strEdit'] . '" title="' . $GLOBALS['strEdit'] . '" border="0" />';
                     if ($propicon == 'both') {
-                        $edit_str .= '&nbsp;' . $GLOBALS['strEdit'] . '</nobr>';
+                        $edit_str .= '&nbsp;' . $GLOBALS['strEdit'] . '</div>';
                     }
                 }
             } // end if (1.2.1)
@@ -1088,7 +1103,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 } else {
                     $bookmark_go .= $iconic_spacer . '<img width="12" height="13" src="images/button_bookmark.png" alt="' . $GLOBALS['strExecuteBookmarked'] . '" title="' . $GLOBALS['strExecuteBookmarked'] . '" border="0" />';
                     if ($propicon == 'both') {
-                        $bookmark_go .= '&nbsp;' . $GLOBALS['strExecuteBookmarked'] . '</nobr>';
+                        $bookmark_go .= '&nbsp;' . $GLOBALS['strExecuteBookmarked'] . '</div>';
                     }
                 }
 
@@ -1118,7 +1133,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 } else {
                     $del_str = $iconic_spacer . '<img width="12" height="13" src="images/button_drop.png" alt="' . $GLOBALS['strDelete'] . '" title="' . $GLOBALS['strDelete'] . '" border="0" />';
                     if ($propicon == 'both') {
-                        $del_str .= '&nbsp;' . $GLOBALS['strDelete'] . '</nobr>';
+                        $del_str .= '&nbsp;' . $GLOBALS['strDelete'] . '</div>';
                     }
                 }
             } else if ($is_display['del_lnk'] == 'kp') { // kill process case
@@ -1137,7 +1152,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 } else {
                     $del_str = $iconic_spacer . '<img width="12" height="13" src="images/button_drop.png" alt="' . $GLOBALS['strKill'] . '" title="' . $GLOBALS['strKill'] . '" border="0" />';
                     if ($propicon == 'both') {
-                        $del_str .= '&nbsp;' . $GLOBALS['strKill'] . '</nobr>';
+                        $del_str .= '&nbsp;' . $GLOBALS['strKill'] . '</div>';
                     }
                 }
             } // end if (1.2.2)
@@ -1217,7 +1232,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                 } else if ($row[$i] != '') {
-                    $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '" nowrap="nowrap">';
+                    $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '" class="nowrap">';
 
                     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
                         foreach($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
@@ -1267,7 +1282,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     }
                     $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                 } else {
-                    $vertical_display['data'][$row_no][$i]     = '    <td align="right" ' . $column_style . ' valign="top" bgcolor="' . $bgcolor . '" nowrap="nowrap">&nbsp;</td>' . "\n";
+                    $vertical_display['data'][$row_no][$i]     = '    <td align="right" ' . $column_style . ' valign="top" bgcolor="' . $bgcolor . '" class="nowrap">&nbsp;</td>' . "\n";
                 }
 
             //  b l o b
@@ -1764,14 +1779,6 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     // end 2b
 
     // 3. ----- Displays the results table -----
-    echo '<!-- Results table -->' . "\n"
-       . '<table ';
-    if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
-        echo 'border="1" cellpadding="2" cellspacing="0"';
-    } else {
-        echo 'border="' . $GLOBALS['cfg']['Border'] . '" cellpadding="5"';
-    }
-    echo '>' . "\n";
     PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $analyzed_sql);
     $url_query='';
     PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);

@@ -178,7 +178,7 @@ if ($cfg['PropertiesIconic'] == true) {
     $propicon = (string)$cfg['PropertiesIconic'];
 
     if ($propicon == 'both') {
-        $iconic_spacer = '<nobr>';
+        $iconic_spacer = '<div class="nowrap">';
     } else {
         $iconic_spacer = '';
     }
@@ -186,7 +186,7 @@ if ($cfg['PropertiesIconic'] == true) {
     $titles['Browse']     = $iconic_spacer . '<img width="12" height="13" src="images/button_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
 
     if ($propicon == 'both') {
-        $titles['Browse']        .= '&nbsp;' . $strBrowseForeignValues . '</nobr>';
+        $titles['Browse']        .= '&nbsp;' . $strBrowseForeignValues . '</div>';
     }
 } else {
     $titles['Browse']        = $strBrowseForeignValues;

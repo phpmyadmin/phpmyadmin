@@ -103,12 +103,12 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
             <td width="8">&nbsp;</td>';
     }
     echo "\n";
-    echo PMA_printTab($strSQL, '#', '', 'onClick="javascript:query_tab_commit(\'sql\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
-    echo PMA_printTab($strImportFiles, '#', '', 'onClick="javascript:query_tab_commit(\'files\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
-    echo PMA_printTab($strQuerySQLHistory, '#', '', 'onClick="javascript:query_tab_commit(\'history\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'history' ? TRUE : FALSE));
+    echo PMA_printTab($strSQL, '#', '', 'onClick="javascript:query_tab_commit(\'sql\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
+    echo PMA_printTab($strImportFiles, '#', '', 'onClick="javascript:query_tab_commit(\'files\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
+    echo PMA_printTab($strQuerySQLHistory, '#', '', 'onClick="javascript:query_tab_commit(\'history\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'history' ? TRUE : FALSE));
 
     if ($cfg['QueryWindowDefTab'] == 'full') {
-        echo PMA_printTab($strAll, '#', '', 'onClick="javascript:query_tab_commit(\'full\');return false;"', '', (isset($querydisplay_tab) && $querydisplay_tab == 'full' ? TRUE : FALSE));
+        echo PMA_printTab($strAll, '#', '', 'onClick="javascript:query_tab_commit(\'full\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'full' ? TRUE : FALSE));
     }
 
     if (!$cfg['LightTabs']) {
@@ -129,7 +129,7 @@ if ($cfg['PropertiesIconic'] == true) {
     $propicon = (string)$cfg['PropertiesIconic'];
 
     if ($propicon == 'both') {
-        $iconic_spacer = '<nobr>';
+        $iconic_spacer = '<div class="nowrap">';
     } else {
         $iconic_spacer = '';
     }
@@ -137,7 +137,7 @@ if ($cfg['PropertiesIconic'] == true) {
     $titles['Change']        = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
 
     if ($propicon == 'both') {
-        $titles['Change']        .= '&nbsp;' . $strChange . '&nbsp;</nobr>';
+        $titles['Change']        .= '&nbsp;' . $strChange . '&nbsp;</div>';
     }
 } else {
     $titles['Change']        = $strChange;

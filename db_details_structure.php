@@ -176,7 +176,7 @@ if ($cfg['PropertiesIconic'] == true) {
     $propicon = (string)$cfg['PropertiesIconic'];
 
     if ($propicon == 'both') {
-        $iconic_spacer = '<nobr>';
+        $iconic_spacer = '<div class="nowrap">';
     } else {
         $iconic_spacer = '';
     }
@@ -192,15 +192,15 @@ if ($cfg['PropertiesIconic'] == true) {
     $titles['NoEmpty']    = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_noempty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
 
     if ($propicon == 'both') {
-        $titles['Browse']     .= '&nbsp;' . $strBrowse . '</nobr>';
-        $titles['Search']     .= '&nbsp;' . $strSearch . '</nobr>';
-        $titles['NoBrowse']   .= '&nbsp;' . $strBrowse . '</nobr>';
-        $titles['NoSearch']   .= '&nbsp;' . $strSearch . '</nobr>';
-        $titles['Insert']     .= '&nbsp;' . $strInsert . '</nobr>';
-        $titles['Properties'] .= '&nbsp;' . $strProperties . '</nobr>';
-        $titles['Drop']       .= '&nbsp;' . $strDrop . '</nobr>';
-        $titles['Empty']      .= '&nbsp;' . $strEmpty . '</nobr>';
-        $titles['NoEmpty']    .= '&nbsp;' . $strEmpty . '</nobr>';
+        $titles['Browse']     .= '&nbsp;' . $strBrowse . '</div>';
+        $titles['Search']     .= '&nbsp;' . $strSearch . '</div>';
+        $titles['NoBrowse']   .= '&nbsp;' . $strBrowse . '</div>';
+        $titles['NoSearch']   .= '&nbsp;' . $strSearch . '</div>';
+        $titles['Insert']     .= '&nbsp;' . $strInsert . '</div>';
+        $titles['Properties'] .= '&nbsp;' . $strProperties . '</div>';
+        $titles['Drop']       .= '&nbsp;' . $strDrop . '</div>';
+        $titles['Empty']      .= '&nbsp;' . $strEmpty . '</div>';
+        $titles['NoEmpty']    .= '&nbsp;' . $strEmpty . '</div>';
     }
 } else {
     $titles['Browse']     = $strBrowse;
