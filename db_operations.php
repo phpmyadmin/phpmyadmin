@@ -72,7 +72,38 @@ if (empty($is_info)) {
 if (PMA_MYSQL_INT_VERSION >= 40101) {
     $db_collation = PMA_getDbCollation($db);
 }
+?>
 
+<table border="0" cellpadding="2" cellspacing="0">
+    <!-- Create a new table -->
+        <form method="post" action="tbl_create.php" onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', 1))">
+     <tr>
+     <td class="tblHeaders" colspan="3" nowrap="nowrap"><?php
+        echo PMA_generate_common_hidden_inputs($db);
+        if($cfg['PropertiesIconic']){ echo '<img src="' . $pmaThemeImage . 'b_newtbl.png" border="0" width="16" height="16" hspace="2" align="middle" />'; }
+        // if you want navigation:
+        $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url() . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
+                   . htmlspecialchars($GLOBALS['db']) . '</a>';
+        // else use
+        // $strDBLink = htmlspecialchars($db);
+echo '             ' . sprintf($strCreateNewTable, $strDBLink) . ':&nbsp;' . "\n";
+echo '     </td></tr>';
+echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
+echo '             ' . $strName . ':&nbsp;' . "\n";
+echo '     </td>';
+echo '     <td nowrap="nowrap">';
+echo '             ' . '<input type="text" name="table" maxlength="64" size="30" class="textfield" />';
+echo '     </td><td>&nbsp;</td></tr>';
+echo '     <tr bgcolor="'.$cfg['BgcolorOne'].'"><td nowrap="nowrap">';
+echo '             ' . $strFields . ':&nbsp;' . "\n";
+echo '     </td>';
+echo '     <td nowrap="nowrap">';
+echo '             ' . '<input type="text" name="num_fields" size="2" class="textfield" />' . "\n";
+echo '     </td>';
+echo '     <td align="right">';
+echo '             ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
+echo '     </td> </tr>';
+echo '        </form>';
 
 /**
  * Settings for relations stuff
