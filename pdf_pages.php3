@@ -305,8 +305,8 @@ if ($cfg['WYSIWYG-PDF']) {
 ?>
 <script type="text/javascript" src="./libraries/dom-drag.js"></script>
 <form method="post" action="pdf_pages.php3" name="dragdrop">
-<input type="button" name="dragdrop" value="toggle Drag and Drop area" onclick="ToggleDragDrop('pdflayout');" />
- <input type="button" name="dragdropreset" value="reset" onclick="resetDrag();" />
+<input type="button" name="dragdrop" value="<?php echo $strToggleScratchboard; ?>" onclick="ToggleDragDrop('pdflayout');" />
+ <input type="button" name="dragdropreset" value="<?php echo $strReset; ?>" onclick="resetDrag();" />
 </form>
 <div id="pdflayout" class="pdflayout" style="visibility: hidden;">
 <?php
