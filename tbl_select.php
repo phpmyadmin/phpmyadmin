@@ -156,11 +156,13 @@ if (!isset($param) || $param[0] == '') {
             // <markus@noga.de>
             $field = $fields_list[$i];
 
-            require_once('./libraries/get_foreign.lib.php');
+            // do not use require_once here
+            require('./libraries/get_foreign.lib.php');
 
             echo "\n";
             // we got a bug report: in some cases, even if $disp is true,
             // there are no rows, so we add a fetch_array
+
             if ($foreigners && isset($foreigners[$field]) && isset($disp) && $disp && @PMA_mysql_fetch_array($disp)) {
                 // f o r e i g n    k e y s
                 echo '                    <select name="fields[]">' . "\n";

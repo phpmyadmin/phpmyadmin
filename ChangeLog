@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_select.php: bug 867320, dropdowns in search page
+
 2003-12-29 Alexander M. Turek  <crazysexycool@derrabus.de>
     * db_details_structure.php, libraries/mysql_charsets.lib.php:
       - display database collation (MySQL >= 4.1.1);
