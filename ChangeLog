@@ -11,6 +11,8 @@ $Source$
 	  against bug #547384 (Marker Color can't equal Pointer Color).
 	* libraries/auth/config.auth.lib.php3, line 111: fixed a header problem.
 	* scripts/create-release.sh: improved so a CVS branch tag may be used.
+	* Documentation.html: added a faq entry about bug #547064 (JS error with
+	  texareas under Mozilla).
 	* Compressed ChangeLog till the 2.2.6 release.
 
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>
