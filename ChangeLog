@@ -11,6 +11,7 @@ $Source$
 	  SSL -> cookies are unsecure.
 	* libraries/common.lib.php3, lines 146-164: if $cfgPmaAbsoluteUri is empty
 	  the script now tries to guess it.
+	* left.php3: fixed some php warnings.
 
 2002-02-25 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/japanese-*: updated thanks to Yukihiro Kawada aka "luc"
