@@ -11,6 +11,9 @@ $Source$
       - Fixed the missing "LOCK TABLES" option in the privilege editor.
       - Fixed a bug that caused the script not to use GRANT ALL PRIVILEGES even
         if all privileges have been selected.
+    * libraries/sqlparser.data.php3:
+      - Fixed bug #655817 (New privileges are not detected correctly).
+      - Updated function list.
 
 2002-12-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
