@@ -8,6 +8,8 @@ $Source$
 2003-02-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_replace_fields.php3: sometimes we receive "none" as the file
       name when there is no field upload for some field
+    * sql.php3: bug 684712, undefined variable $table (js disabled
+      and confirmation for drop database)
 
 2003-02-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_databases.php3: Wrong link title.
