@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-20 Robin Johnson  <robbat2@users.sourceforge.net>
+    * tbl_qbe.php3: Using * for tables fields disables 
+      sorting for that field (Fix for bug #570698)
+
 2002-06-20 Marc Delisle  <lem9@users.sourceforge.net>
     * ChangeLog_till_2.2.6.gz removed from the distribution and copied
       to home page

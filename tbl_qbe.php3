@@ -258,6 +258,14 @@ for ($x = 0; $x < $col; $x++) {
                 <option value=""></option>
     <?php
     echo "\n";
+
+    // if they have chosen all fields using the * selector,
+    // then sorting is not available
+    // Robbat2 - Fix for Bug #570698
+    if (isset($Sort[$x]) && isset($Field[$x]) && (substr(urldecode($Field[$x]),-2) == '.*')) {
+        $Sort[$x] = '';
+    } //end if
+
     if (isset($Sort[$x]) && $Sort[$x] == 'ASC') {
         $curSort[$z] = $Sort[$x];
         $sel         = ' selected="selected"';
@@ -1014,8 +1022,13 @@ for ($x = 0; $x < $col; $x++) {
         $qry_orderby  .=  ', ';
     }
     if (!empty($curField[$x]) && !empty($curSort[$x])) {
-        $qry_orderby  .=  $curField[$x] . ' ' . $curSort[$x];
-        $last_orderby = 1;
+        // if they have chosen all fields using the * selector,
+        // then sorting is not available
+        // Robbat2 - Fix for Bug #570698
+        if(substr($curField[$x],-2) != '.*')
+        {   $qry_orderby  .=  $curField[$x] . ' ' . $curSort[$x];
+            $last_orderby = 1;
+            }
     }
 } // end for
 if (!empty($qry_orderby)) {
