@@ -29,7 +29,9 @@ if (!empty($cfg['Server']['relation'])
         if ($value != 'nix') {
             if (!isset($existrel[$key])) {
                 $for        = explode('.', $destination[$key]);
-                $upd_query  = 'INSERT INTO ' . $cfg['Server']['relation'] . ' values('
+                $upd_query  = 'INSERT INTO ' . $cfg['Server']['relation'] 
+                            . '(master_table, master_field, foreign_table, foreign_field)'
+                            . ' values('
                             . '\'' . PMA_sqlAddslashes($table) . '\', '
                             . '\'' . PMA_sqlAddslashes($key)  . '\', '
                             . '\'' . PMA_sqlAddslashes($for[0]) . '\', '
