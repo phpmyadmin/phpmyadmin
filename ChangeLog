@@ -5,6 +5,20 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-03 Marc Delisle  <lem9@users.sourceforge.net>
+    (Patches from Michael Keck)
+    * libraries/display_tbl.lib.php: bug 993694, clicking on last record
+      button reaches a page where the current page number is not the last one
+    * main.php: - removed bug with hashform.hash
+                - removed id for input field 'new_database', because it may be
+                  too large for the one lined create db form
+                - bug #980232 'Javascript error on index page'
+    * db_details_common.php: removed bug with hashform.hash
+    * index.php: - given names and ids for framesets, please see below 'queryframe.php'
+    * queryframe.php - javascript function for dynamic resizing the rows
+                       in the left frameset 'leftFrameset'.
+                       (bugs: #993648, #989581, #988897)
+
 2004-08-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php, /select_lang.lib.php:
       bug 968174: now, in MySQL 4.1.0+ we auto-switch the language to
