@@ -258,7 +258,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
         PMA_auth();
 
         return TRUE;
-    } // end of the 'PMA_auth()' function
+    } // end of the 'PMA_auth_fails()' function
 
 } // $__PMA_HTTP_AUTH_LIB__
 ?>

@@ -558,7 +558,7 @@ if (uname.value == '') {
         PMA_auth();
 
         return TRUE;
-    } // end of the 'PMA_auth()' function
+    } // end of the 'PMA_auth_fails()' function
 
 } // $__PMA_COOKIE_AUTH_LIB__
 ?>
