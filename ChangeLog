@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/french: update
+    * lang/spanish: Updates, thanks to Dr. med. Daniel Hinostroza C.
+    * lang/polish: update, thanks to Jakub Wilk
+    ### 2.5.0-rc1 released
+
 2003-04-13 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/bulgarian-windows-1251.inc.php3, lang/croatian-windows-1250.inc.php3,
       lang/czech-windows-1250.inc.php3, lang/russian-koi8-r.inc.php3:
@@ -13,11 +19,6 @@ $Source$
 2003-04-13 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/{slovenian,russian,croatian,bulgarian}: We don't
       want empty translations...
-
-2003-04-13 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/french: update
-    * lang/spanish: Updates, thanks to Dr. med. Daniel Hinostroza C.
-    * lang/polish: update, thanks to Jakub Wilk
 
 2003-04-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Better fix against possible "wrong parameter
