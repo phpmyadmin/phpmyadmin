@@ -105,7 +105,7 @@ $strDrop = 'Löschen';
 $strDropDB = 'Datenbank %s löschen';
 $strDropTable = 'Tabelle löschen:';
 $strDumpingData = 'Daten für Tabelle';
-$strDumpXRows = 'Sichere %s Datensätze ab Datensatz %s.';
+$strDumpXRows = 'Exportiere %s Datensätze ab dem %s. Datensatz.';
 $strDynamic = 'dynamisch';
 
 $strEdit = 'Ändern';

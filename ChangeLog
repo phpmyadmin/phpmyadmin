@@ -10,6 +10,7 @@ $Source$
       Use "SQL" instead of "home" as link name.
     * tbl_properties_export.php3: Added XML export option (todo: limit feature).
     * tbl_dump.php3: Beautified XML output.
+    * lang/german.inc.php3: Better translation for $strDumpXRows.
 
 2002-05-04 Loïc Chapeaux  <lolo@phpheaven.net>
     * user_details.php3, line 984: do not use "mysql_result" if the query
