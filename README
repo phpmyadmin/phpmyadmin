@@ -1,4 +1,4 @@
-$Id$ 
+$Id$
 
 phpMyAdmin - Readme
 ===================
@@ -12,8 +12,8 @@ phpMyAdmin - Readme
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias@phpwizard.net>
     Copyright (C) 2001-     Olivier Müller <om@omnis.ch>
                             Loïc Chapeaux <lolo@phpHeaven.net>
-			    Marc Delisle <DelislMa@CollegeSherbrooke.qc.ca>
-			    [check Documentation.txt/.html file for more details]
+                Marc Delisle <DelislMa@CollegeSherbrooke.qc.ca>
+                [check Documentation.txt/.html file for more details]
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,11 +29,11 @@ phpMyAdmin - Readme
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-  Requirements: 
+  Requirements:
     PHP3 (>= 3.0.8) or PHP4
-    MySQL (tested with 3.21.x, 3.22.x and 3.23.x)
+    MySQL (tested with 3.21.x, 3.22.x, 3.23.x and 4.0.x)
     a web-browser (doh!)
-                
+
   Summary:
     phpMyAdmin is intended to handle the adminstration of MySQL over the WWW.
     Currently it can:
@@ -53,13 +53,13 @@ phpMyAdmin - Readme
 
   Credits:
     Please see the Documentation.txt/.html file.
-   
+
   Installation:
     Please see the Documentation.txt/.html file.
-  
+
   ChangeLog:
     Now in ChangeLog
-  
+
   Documentation:
     Basic documentation available in Documentation.txt/.html
 
@@ -72,9 +72,9 @@ phpMyAdmin - Readme
 
 
   PS: Please, don't send us emails with question like "How do I compile
-      PHP3 with MySQL-support". We do answer all emails regarding 
+      PHP3 with MySQL-support". We do answer all emails regarding
       phpMyAdmin, but we just don't have the time to be your free helpdesk.
       Please send your questions to the appropiate mailinglists.
-      Before contacting us, please read the Documentation.html (esp. the 
+      Before contacting us, please read the Documentation.html (esp. the
       FAQ part).
 
