@@ -68,7 +68,7 @@ $phpmain_hash_js = time();
     if ($cfg['QueryFrameJS']) {?>
         <script type="text/javascript">
         document.writeln('<frame src="left.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash . $phpmain_hash_js; ?>" name="nav" frameborder="0" />');
-        documkent.writeln('<frame src="queryframe.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash . $phpmain_hash_js; ?>" name="queryframe" frameborder="0" />');
+        document.writeln('<frame src="queryframe.php3?<?php echo $url_query; ?>&amp;hash=<?php echo $phpmain_hash . $phpmain_hash_js; ?>" name="queryframe" frameborder="0" />');
         </script>
 
         <noscript>
