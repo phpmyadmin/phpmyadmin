@@ -1,4 +1,9 @@
 <?php
+/*
+ * Code for displaying server selection written by nijel
+ * $Id$
+ */
+
 if (count($cfg['Servers']) > 1) {
     if (!$cfg['DisplayServersList']) { 
     ?>
@@ -37,11 +42,6 @@ if (count($cfg['Servers']) > 1) {
                 if (!empty($val['port'])) {
                     $label .= ':' . $val['port'];
                 }
-                // loic1: skip this because it's not a so good idea to display
-                //        sockets used to everybody
-                // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-                //     $label .= ':' . $val['socket'];
-                // }
             }
             // loic1: if 'only_db' is an array and there is more than one
             //        value, displaying such informations may not be a so good
