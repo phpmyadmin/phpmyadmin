@@ -8,8 +8,6 @@
  *    PMA_VERSION              (string) - phpMyAdmin version string
  *    PMA_PHP_INT_VERSION      (int)    - eg: 30017 instead of 3.0.17 or
  *                                        40006 instead of 4.0.6RC3
- *    PMA_MYSQL_CLIENT_API     (int)    - the version number of the MySQL client
- *                                        API which php is built against.
  *    PMA_IS_WINDOWS           (bool)   - mark if phpMyAdmin running on windows
  *                                        server
  *    PMA_IS_GD2               (bool)   - true if GD2 is present
