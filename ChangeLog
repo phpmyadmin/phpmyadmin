@@ -10,6 +10,8 @@ $Source$
     * tbl_qbe.php3, adjust drop-down width, thanks to Mike Beck
 
 2002-05-17 Loïc Chapeaux  <lolo@phpheaven.net>
+    * db_details_structure.php3, lines 442: does not display the "data scheme"
+      form if there is no table in the database.
     * db_details_structure.php3, lines 446-458;
       tbl_properties_options.php3, lines 119-143: beautified generated code.
     * libraries/build_dump.php3, lines 70-75: fixed bug #551682 - PMA ignores

@@ -438,7 +438,8 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 <?php
 // is this OK to check for 'class' support?
 if (PMA_PHP_INT_VERSION >= 40000
-    && (!empty($cfg['Server']['pdf_table_position']))) {
+    && (!empty($cfg['Server']['pdf_table_position']))
+    && $num_tables > 0) {
     ?>
     <!-- PDF schema -->
     <li>
