@@ -1,6 +1,14 @@
 <?php
 /* $Id$ */
 
+/**
+ * For suggestions concerning this file please contact
+ *     Alexander M. Turek <rabus at users.sourceforge.net>.
+ *
+ * Bei Verbesserungsvorschlägen diese Datei betreffend wenden Sie sich bitte an
+ *     Alexander M. Turek <rabus at users.sourceforge.net>.
+ */
+
 $charset = 'iso-8859-1';
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
@@ -69,12 +77,14 @@ $strChangePassword = 'Kennwort ändern';
 $strCheckAll = 'Alle auswählen';
 $strCheckDbPriv = 'Rechte einer Datenbank prüfen';
 $strCheckTable = 'Überprüfe Tabelle';
+$strChoosePage = 'Bitte wählen Sie die zu bearbeitende Seite.';
 $strColumn = 'Spalte';
 $strColumnNames = 'Spaltennamen';
 $strCompleteInserts = 'Vollständige \'INSERT\'s';
 $strConfigureTableCoord = 'Bitte konfigurieren Sie die Koordinaten für die Tabelle %s';
 $strConfirm = 'Bist du dir wirklich sicher?';
 $strCookiesRequired = 'Ab diesem Punkt müssen Cookies aktiviert sein.';
+$strCoordsNotSet = 'Die Tabelle &quot;table_coords&quot; wurde entweder nicht gefunden oder in der Kofigurationsdatei &quot;config.inc.php3&quot; nicht gesetzt.';
 $strCopyTable = 'Kopiere Tabelle nach (Datenbank<b>.</b>Tabellenname):';
 $strCopyTableOK = 'Tabelle %s wurde nach %s kopiert.';
 $strCreate = 'Anlegen';
@@ -82,6 +92,7 @@ $strCreateIndex = 'Index über&nbsp;%s&nbsp;Spalten anlegen';
 $strCreateIndexTopic = 'Neuen Index anlegen';
 $strCreateNewDatabase = 'Neue Datenbank anlegen';
 $strCreateNewTable = 'Neue Tabelle in Datenbank %s erstellen';
+$strCreatePage = 'Neue Seite erstellen';
 $strCriteria = 'Kriterium';
 
 $strData = 'Daten';
@@ -112,6 +123,7 @@ $strDumpXRows = 'Exportiere %s Datensätze ab Zeile %s.';
 $strDynamic = 'dynamisch';
 
 $strEdit = 'Ändern';
+$strEditPDFPages = 'PDF-Seiten bearbeiten';
 $strEditPrivileges = 'Rechte ändern';
 $strEffective = 'Effektiv';
 $strEmpty = 'Leeren';
@@ -160,6 +172,7 @@ $strIndexHasBeenDropped = 'Index %s wurde entfernt.';
 $strIndexName = 'Index Name&nbsp;:';
 $strIndexType = 'Index Typ&nbsp;:';
 $strIndexes = 'Indizes';
+$strInfoNotSet = 'Die Tabelle &quot;table_info&quot; wurde entweder nicht gefunden oder in der Kofigurationsdatei &quot;config.inc.php3&quot; nicht gesetzt.';
 $strIgnore = 'Ignorieren';
 $strInsert = 'Einfügen';
 $strInsertAsNewRow = ' Als neuen Datensatz speichern ';
@@ -204,6 +217,7 @@ $strName = 'Name';
 $strNext = 'Nächste';
 $strNo = 'Nein';
 $strNoDatabases = 'Keine Datenbanken';
+$strNoDescription = 'keine Beschreibung';
 $strNoDropDatabases = 'Die Anweisung "DROP DATABASE" wurde deaktiviert.';
 $strNoFrames = 'phpMyAdmin arbeitet besser mit einem <b>Frame</b>-fähigen Browser.';
 $strNoIndex = 'Kein Index definiert!';
@@ -262,6 +276,7 @@ $strQueryOnDb = ' SQL-Befehl in der Datenbank <b>%s</b>:';
 
 $strRecords = 'Einträge';
 $strReferentialIntegrity = 'Prüfe referentielle Integrität:';
+$strRelationNotSet = 'Die Beziehungstabelle wurde entweder nicht gefunden oder in der Kofigurationsdatei &quot;config.inc.php3&quot; nicht gesetzt.';
 $strRelationView = 'Beziehungsübersicht';
 $strReloadFailed = 'MySQL Neuladen fehlgeschlagen.';
 $strReloadMySQL = 'MySQL neu starten';
@@ -307,6 +322,7 @@ $strSelectAll = 'Alle auswählen';
 $strSelectADb = 'Bitte Datenbank auswählen';
 $strSelectFields = 'Felder auswählen (mind. eines):';
 $strSelectNumRows = 'in der Abfrage';
+$strSelectTables = 'Tabellenauswahl';
 $strSend = 'Senden';
 $strServerChoice = 'Server Auswählen';
 $strServerVersion = 'Server Version';
@@ -386,12 +402,4 @@ $strYes = 'Ja';
 $strZip = 'Zip komprimiert';
 
 // To translate
-$strEditPDFPages = 'Edit PDF Pages';  //to translate
-$strNoDescription = 'no Description';  //to translate
-$strRelationNotSet = 'Relationtable not found or not set in config.inc.php3';  //to translate
-$strInfoNotSet = 'table_info table not found or not set in config.inc.php3';  //to translate
-$strCoordsNotSet = 'table_coords table not found or not set in config.inc.php3';  //to translate
-$strChoosePage = 'Please choose a Page to edit';  //to translate
-$strCreatePage = 'Create a new Page';  //to translate
-$strSelectTables = 'Select Tables';  //to translate
 ?>
