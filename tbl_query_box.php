@@ -48,7 +48,7 @@ if (isset($db) && isset($table) && $table != '' && $db != '') {
 // ($is_upload now defined in common.lib.php)
 
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full')) {
-    $locking   = 'onKeyPress="document.sqlform.elements[\'LockFromUpdate\'].checked = true;"';
+    $locking   = 'onkeypress="document.sqlform.elements[\'LockFromUpdate\'].checked = true;"';
 } else {
     $locking   = '';
 }

@@ -8,6 +8,7 @@ $Source$
 2004-05-03 Michal Cihar  <michal@cihar.com>
     * querywindow.php: Fix javascript error (bug #946823).
     * tbl_query_box.php: Stray <li> (bug #946530).
+    * querywindow.php, tbl_query_box.php: A bit more XHTML validity.
 
 2004-05-03 Garvin Hicking <pma@supergarv.de>
     * left.php: Bug #946501 - Nested table now also work with aliased
