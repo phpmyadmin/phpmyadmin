@@ -9,8 +9,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.160 2002/03/07
-       13:33:03 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.164 2002/03/09
+       12:36:30 loic1 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -227,7 +227,7 @@ Configuration
           "controluser", you could get some errors, depending the exact
           privileges you gave to the "controluser". phpMyAdmin does not
           support a direct login with the "controluser".
-          In versions before 2.2.5, those were called stduser/stdpass.
+          In versions before 2.2.5, those were called "stduser/stdpass".
           
    $cfgServers[n]['auth_type'] string ['http'|'cookie'|'config']
           Whether config or cookie or http authentication should be used
@@ -372,13 +372,19 @@ Configuration
    $cfgShowMysqlInfo boolean
           $cfgShowMysqlVars boolean
           $cfgShowPhpInfo boolean
+          $cfgShowChgPassword boolean
           Defines whether to display the "MySQL runtime information",
-          "MySQL system variables" and "PHP information" links or not for
-          simple users at the starting main (right) frame. This setting
-          does not check MySQL commands entered directly.
+          "MySQL system variables", "PHP information" and "Change
+          password " links or not for simple users at the starting main
+          (right) frame. This setting does not check MySQL commands
+          entered directly.
           Please note that to block the usage of phpinfo() in scripts,
           you have to put this in your php.ini:
-          disable_functions = phpinfo()
+              disable_functions = phpinfo()
+          Also note that enabling the "Change password " link has no
+          effect with "config" authentication mode: because of the hard
+          coded password value in the configuration file, end users can't
+          be allowed to change their passwords.
           
    $cfgLoginCookieRecall boolean
           Define whether the previous login should be recalled or not in
@@ -640,6 +646,13 @@ FAQ - Frequently Asked Questions
    The error message "Warning: MySQL Connection Failed: Can't connect to
    local MySQL server through socket '/tmp/mysql.sock' (111)...") is
    displayed. What can I do?
+   For RedHat users, Harald Legner suggests this on the mailing list:
+   On my RedHat-Box the socket of mysql is /var/lib/mysql/mysql.sock. In
+   your php.ini you will find a line
+       mysql.default_socket = /tmp/mysql.sock
+   change it to
+       mysql.default_socket = /var/lib/mysql/mysql.sock
+   Then restart apache and it will work.
    Here is a fix suggested by Brad Ummer in the phpwizard forum:
      * First, you need to determine what socket is being used by MySQL.
        To do this, telnet to your server and go to the MySQL bin
@@ -731,12 +744,10 @@ FAQ - Frequently Asked Questions
        with phpMyAdmin's authentication, so remove it.
        
    Is it possible to let users create their own databases?
-   Yes, but currently (phpMyAdmin 2.2.4) there is no visual way to do
-   this in our user management page. For example, let's say users should
-   be able to create databases with a name starting like their username,
-   type this in a query box:
-        GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER
-   ON `username%`.* TO 'username'@localhost;
+   Starting with 2.2.5, in the user management page, you can enter a
+   wildcard database name for a user, and put the privileges you want.
+   For example, adding SELECT, INSERT, UPDATE, DELETE, CREATE, DROP,
+   INDEX, ALTER would let a user create/manage his/her database(s).
    
   [Browsers or client OS]
   
@@ -989,7 +1000,7 @@ Péter Bakondy, Borges Botelho, Olivier Bussier, Neil Darlow,
 Kristof Hamann, Thomas Kläger, Lubos Klokner, Martin Marconcini,
 Girish Nair, David Nordenberg, Bernard M. Piller, Laurent Haas,
 "Sakamoto", Yuval Sarna, www.securereality.com.au,
-Peter Svec, Michael Tacelosky, Daniel Villanueva, Vinay,
+Peter Svec, Michael Tacelosky, Luís V., Daniel Villanueva, Vinay,
 Ignacio Vazquez-Abrams, Chee Wai, Jakub Wilk, Thomas Michael Winningham.
 
 
