@@ -54,7 +54,7 @@ function checkFormElementInRange(theForm, theFieldName, min, max)
  */
 function checkIndexName()
 {
-	if (typeof(document.forms['index_frm']) == 'undefined') {
+    if (typeof(document.forms['index_frm']) == 'undefined') {
         return false;
     }
 

@@ -240,7 +240,7 @@ function checkFormElementInRange(theForm, theFieldName, min, max)
  */
 function checkTransmitDump(theForm, theAction)
 {
-	var formElts = theForm.elements;
+    var formElts = theForm.elements;
 
     // 'zipped' option has been checked
     if (theAction == 'zip' && formElts['zip'].checked) {
