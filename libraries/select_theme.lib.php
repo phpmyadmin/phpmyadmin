@@ -61,7 +61,7 @@ if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
     }
     if ($handleThemes = opendir($cfg['ThemePath'])) { // check for themes directory
         while (false !== ($PMA_Theme = readdir($handleThemes))) { // get themes
-            if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme!='original' && $PMA_Theme!=$cfg['ThemeDefault']) { // file check
+            if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme!='original' && $PMA_Theme!=$cfg['ThemeDefault'] && $PMA_Theme != 'CVS') { // file check
                 if (@is_dir($cfg['ThemePath'].'/'.$PMA_Theme)) { // check the theme
                     $themesCount++;
                     $available_themes_choices[]=$PMA_Theme;
