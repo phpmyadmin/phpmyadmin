@@ -267,7 +267,7 @@ if ($index_count > 0) {
 <?php
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
 $nonisam=false;
-if (!eregi("ISAM", $showtable['Type'])) $nonisam=true;
+if (!eregi("ISAM|HEAP", $showtable['Type'])) $nonisam=true;
 if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $nonisam==false && isset($showtable)) {
     // Gets some sizes
     $mergetable=false;

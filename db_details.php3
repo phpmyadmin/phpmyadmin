@@ -133,7 +133,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
   $nonisam=false;
 	if (isset($sts_data['Type'])) {
 		if ($sts_data['Type']=="MRG_MyISAM") $mergetable=true;
-		else if (!eregi("ISAM", $sts_data['Type'])) $nonisam=true;
+		else if (!eregi("ISAM|HEAP", $sts_data['Type'])) $nonisam=true;
 	}
 	
   if (isset($sts_data['Rows'])) 
