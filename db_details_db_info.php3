@@ -1,0 +1,73 @@
+<?php
+/* $Id$ */
+
+
+/**
+ * Gets the list of the table in the current db and informations about these
+ * tables if possible
+ */
+// staybyte: speedup view on locked tables - 11 June 2001
+if (PMA_MYSQL_INT_VERSION >= 32303) {
+    // Special speedup for newer MySQL Versions (in 4.0 format changed)
+    if ($cfg['SkipLockedTables'] == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {
+        $local_query  = 'SHOW OPEN TABLES FROM ' . PMA_backquote($db);
+        $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+        // Blending out tables in use
+        if ($result != FALSE && mysql_num_rows($result) > 0) {
+            while ($tmp = mysql_fetch_row($result)) {
+                // if in use memorize tablename
+                if (eregi('in_use=[1-9]+', $tmp[1])) {
+                    $sot_cache[$tmp[0]] = TRUE;
+                }
+            }
+            mysql_free_result($result);
+
+            if (isset($sot_cache)) {
+                $local_query = 'SHOW TABLES FROM ' . PMA_backquote($db);
+                $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+                if ($result != FALSE && mysql_num_rows($result) > 0) {
+                    while ($tmp = mysql_fetch_row($result)) {
+                        if (!isset($sot_cache[$tmp[0]])) {
+                            $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'';
+                            $sts_result  = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+                            $sts_tmp     = mysql_fetch_array($sts_result);
+                            $tables[]    = $sts_tmp;
+                        } else { // table in use
+                            $tables[]    = array('Name' => $tmp[0]);
+                        }
+                    }
+                    mysql_free_result($result);
+                    $sot_ready = TRUE;
+                }
+            }
+        }
+    }
+    if (!isset($sot_ready)) {
+        $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+        if ($result != FALSE && mysql_num_rows($result) > 0) {
+            while ($sts_tmp = mysql_fetch_array($result)) {
+                $tables[] = $sts_tmp;
+            }
+            mysql_free_result($result);
+        }
+    }
+    $num_tables = (isset($tables) ? count($tables) : 0);
+} // end if (PMA_MYSQL_INT_VERSION >= 32303)
+else {
+    $result     = mysql_list_tables($db);
+    $num_tables = ($result) ? @mysql_numrows($result) : 0;
+    for ($i = 0; $i < $num_tables; $i++) {
+        $tables[] = mysql_tablename($result, $i);
+    }
+    mysql_free_result($result);
+}
+
+
+/**
+ * Displays top menu links
+ */
+echo '<!-- Top menu links -->' . "\n";
+require('./db_details_links.php3');
+
+?>

@@ -27,11 +27,11 @@ if (empty($goto)) {
     $is_gotofile  = TRUE;
 }
 if (!isset($err_url)) {
-    $err_url = $goto
+    $err_url = (!empty($back) ? $back : $goto)
              . '?lang=' . $lang
              . '&amp;server=' . $server
              . (isset($db) ? '&amp;db=' . urlencode($db) : '')
-             . (($goto != 'db_details.php3' && isset($table)) ? '&amp;table=' . urlencode($table) : '');
+             . ((strpos(' ' . $goto, 'db_details') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
 }
 
 
@@ -122,7 +122,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         $goto = $back;
     }
     if ($is_gotofile) {
-        if ($goto == 'db_details.php3' && !empty($table)) {
+        if (strpos(' ' . $goto, 'db_details') == 1 && !empty($table)) {
             unset($table);
         }
         include('./' . ereg_replace('\.\.*', '.', $goto));
@@ -340,7 +340,7 @@ else {
                 unset($db);
             }
             $is_db = $is_table = FALSE;
-            if ($goto == 'tbl_properties.php3') {
+            if (strpos(' ' . $goto, 'tbl_properties') == 1) {
                 if (!isset($table)) {
                     $goto     = 'db_details.php3';
                 } else {
@@ -351,7 +351,7 @@ else {
                     }
                 } // end if... else...
             }
-            if ($goto == 'db_details.php3') {
+            if (strpos(' ' . $goto, 'db_details.php3') == 1) {
                 if (isset($table)) {
                     unset($table);
                 }
@@ -366,7 +366,8 @@ else {
                 } // end if... else...
             }
             // Loads to target script
-            if ($goto == 'db_details.php3' || $goto == 'tbl_properties.php3') {
+            if (strpos(' ' . $goto, 'db_details') == 1
+                || strpos(' ' . $goto, 'tbl_properties') == 1) {
                 $js_to_run = 'functions.js';
             }
             if ($goto != 'main.php3') {

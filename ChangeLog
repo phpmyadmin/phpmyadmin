@@ -22,6 +22,8 @@ $Source$
       Kris Wood <kris at navi.net>.
     * mosts scripts: optimization - do not call "mysql_numrows",
       "mysql_results" and "mysql_fetch_array" on invalid queries.
+    * db_details*.php3; mult_submits.inc.php3; sql.php3: splitted the large
+      "database details" page in parts.
 
 2002-04-30 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/italian.inc.php3: updated thanks to Pietro Danesi.

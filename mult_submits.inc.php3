@@ -67,13 +67,6 @@ if (!empty($submit_mult) && !empty($what)) {
                             . (($i == $selected_cnt - 1) ? ';<br />' : '');
                 break;
 
-// loic1: removed confirmation stage for "OPTIMIZE" statements
-//            case 'optimize_tbl':
-//                $full_query .= (empty($full_query) ? 'OPTIMIZE TABLE ' : ', ')
-//                            . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
-//                            . (($i == $selected_cnt - 1) ? ';<br />' : '');
-//                break;
-
             case 'empty_tbl':
                 if (PMA_MYSQL_INT_VERSION >= 40000) {
                     $full_query .= 'TRUNCATE ';
@@ -112,9 +105,9 @@ if (!empty($submit_mult) && !empty($what)) {
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <?php
     echo "\n";
-    if ($action == 'db_details.php3') {
+    if (strpos(' ' . $action, 'db_details') == 1) {
         echo '    <input type="hidden" name="db" value="' . $db . '" />' . "\n";
-    } else if ($action == 'tbl_properties.php3') {
+    } else if (strpos(' ' . $action, 'tbl_properties') == 1) {
         echo '    <input type="hidden" name="db" value="' . $db . '" />' . "\n";
         echo '    <input type="hidden" name="table" value="' . $table . '" />' . "\n";
     }
