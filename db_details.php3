@@ -159,7 +159,8 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         while (list($key, $value) = each($bookmark_list)) {
             echo '            <option value="' . $value . '">' . htmlentities($key) . '</option>' . "\n";
         }
-        echo '        </select>' . "\n";
+        echo '        </select>' . "<br />\n";
+        echo '            ' . $strVar . ' (<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>): <input type="text" name="bookmark_variable" class="textfield" size="10" />' . "\n";
         echo '        <input type="radio" name="action_bookmark" value="0" id="radio_bookmark0" checked="checked" style="vertical-align: middle" /><label for="radio_bookmark0">' . $strSubmit . '</label>' . "\n";
         echo '        &nbsp;<input type="radio" name="action_bookmark" value="1" id="radio_bookmark1" style="vertical-align: middle" /><label for="radio_bookmark1">' . $strBookmarkView . '</label>' . "\n";
         echo '        &nbsp;<input type="radio" name="action_bookmark" value="2" id="radio_bookmark2" style="vertical-align: middle" /><label for="radio_bookmark2">' . $strDelete . '</label>' . "\n";

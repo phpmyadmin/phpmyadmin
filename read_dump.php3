@@ -49,6 +49,9 @@ if (!empty($id_bookmark)) {
     switch ($action_bookmark) {
         case 0: // bookmarked query that have to be run
             $sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
+            if (isset($bookmark_variable) && !empty($bookmark_variable)) {
+                $sql_query = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $sql_query);
+            }
             break;
         case 1: // bookmarked query that have to be displayed
             $sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);

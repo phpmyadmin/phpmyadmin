@@ -6,6 +6,12 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
+    * Documentation.html, db_details.php3, read_dump.php3, tbl_query_box.php3:
+      RFE #470000 - Use parameters for bookmarked queries. This is a bit tricky
+      to do, so please see Documentation.html. I thought it too hard to move the
+      bookmark-box around where you can store the bookmarks, because there are a couples
+      of redirections involved. So the major problem is that your to-be-stored bookmark
+      HAS to yield at least a single result row for you to be able to store that.
     * tbl_move_copy.php3, tbl_properties_operations.php3: RFE #571838 :
       Add 'DROP TABLE IF EXISTS' checkbox. Will maintain any existing PMA_* entries
       for that table.
