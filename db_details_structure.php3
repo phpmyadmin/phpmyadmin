@@ -571,7 +571,10 @@ if ($num_tables > 0
 } // end if
 
 // is this OK to check for 'class' support?
-$takeaway = $url_query . '&amp;table=' . urlencode($table);
+if ($num_tables > 0) {
+    $takeaway = $url_query . '&amp;table=' . urlencode($table);
+}
+
 if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     ?>
     <!-- Work on PDF Pages -->
