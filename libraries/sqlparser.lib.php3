@@ -90,7 +90,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
              . '</pre>' . "\n";
 
         flush();
-        if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
+        if (PMA_PHP_INT_VERSION >= 40200 && @function_exists('ob_flush')) {
             ob_flush();
         }
     } // end of the "PMA_SQP_throwError()" function
@@ -127,7 +127,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
              . '----' . $GLOBALS['strEndCut'] . '----' . '<br />' . "\n";
 
         flush();
-        if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
+        if (PMA_PHP_INT_VERSION >= 40200 && @function_exists('ob_flush')) {
             ob_flush();
         }
 
@@ -138,7 +138,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
              . '----' . $GLOBALS['strEndRaw'] . '----<br />' . "\n";
 
         flush();
-        if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
+        if (PMA_PHP_INT_VERSION >= 40200 && @function_exists('ob_flush')) {
             ob_flush();
         }
     } // end of the "PMA_SQP_bug()" function
