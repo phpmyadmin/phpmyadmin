@@ -319,7 +319,7 @@ if ($server > 0) {
                 <b><?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
                 <?php 
                       echo '<span class="noPrivileges">' 
-                         . ($cfg['ErrorIconic'] ? '<img src="' . $pmaThemeImage . 's_error2.png" width="11" height="11" hspace="2" border="0" align="absmiddle" />' : '')
+                         . ($cfg['ErrorIconic'] ? '<img src="' . $pmaThemeImage . 's_error2.png" width="11" height="11" hspace="2" border="0" align="middle" />' : '')
                          . '' . $strNoPrivileges .'</span>';
         } // end create db form or message
         ?>
@@ -451,7 +451,7 @@ if ($server > 0) {
             $http_logout = ($cfg['Server']['auth_type'] == 'http')
                          ? "\n" 
 . '                <a href="./Documentation.html#login_bug" target="documentation">'
-                         . ($cfg['ReplaceHelpImg'] ? '<img src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" border="0" alt="Info" align="absmiddle" />' : '(*)') . '</a>'
+                         . ($cfg['ReplaceHelpImg'] ? '<img src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" border="0" alt="Info" align="middle" />' : '(*)') . '</a>'
                          : '';
             echo "\n";
             ?>
@@ -498,7 +498,7 @@ if (empty($cfg['Lang'])) {
                 if ($cfg['ReplaceHelpImg']){
                     echo '<img src="' . $pmaThemeImage . 'b_info.png" border="0" width="11" height="11" alt="Info" hspace="1" vspace="1" />';
                 }else{ echo '(*)'; }
-?></a>: <select name="lang" dir="ltr" onChange="this.form.submit();" style="vertical-align: middle">
+?></a>: <select name="lang" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
     <?php
     echo "\n";
 
@@ -551,7 +551,7 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <?php echo $strMySQLCharset;?>:
-                <select name="convcharset" dir="ltr" onChange="this.form.submit();" style="vertical-align: middle">
+                <select name="convcharset" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
     <?php
     echo "\n";
     foreach ($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
@@ -624,7 +624,7 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
                    . (isset($strTheme) ? $strTheme : 'Theme (Style)')
                    . '</a>:' . "\n";
                 ?> 
-                <select name="set_theme" dir="ltr" onChange="this.form.submit();" style="vertical-align: middle">
+                <select name="set_theme" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
                 <?php
                     foreach ($available_themes_choices AS $i => $cur_theme) {
                         echo '<option value="' . $cur_theme . '"';

@@ -20,7 +20,7 @@ require('./server_links.inc.php');
  */
 if (!empty($innodbstatus)) {
     echo '<h2>' . "\n"
-       . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '' )
+       . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
        . '    ' . $strInnodbStat . "\n"
        . '</h2>' . "\n";
     $res = PMA_DBI_query('SHOW INNODB STATUS;');
@@ -36,7 +36,7 @@ if (!empty($innodbstatus)) {
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '' )
+   . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
    . '    ' . $strServerStatus . "\n"
    . '</h2>' . "\n";
 

@@ -350,7 +350,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
         <?php //<form> for keep the form alignment of button < and << ?>
         <form>
         <?php echo $GLOBALS['strPageNumber']; ?>
-            <select name="goToPage" onChange="goToUrl(this, '<?php echo "sql.php?sql_query=".$encoded_query."&amp;session_max_rows=".$session_max_rows."&amp;disp_direction=".$disp_direction."&amp;repeat_cells=".$repeat_cells."&amp;goto=".$goto."&amp;dontlimitchars=".$dontlimitchars."&amp;".PMA_generate_common_url($db, $table)."&amp;"; ?>')">
+            <select name="goToPage" onchange="goToUrl(this, '<?php echo "sql.php?sql_query=".$encoded_query."&amp;session_max_rows=".$session_max_rows."&amp;disp_direction=".$disp_direction."&amp;repeat_cells=".$repeat_cells."&amp;goto=".$goto."&amp;dontlimitchars=".$dontlimitchars."&amp;".PMA_generate_common_url($db, $table)."&amp;"; ?>')">
 
        <?php
         if ($nbTotalPage < 200) {
@@ -1872,15 +1872,15 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             /* IE has trouble with <button> */
             if (PMA_USR_BROWSER_AGENT != 'IE') {
                 echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_edit" title="' . $GLOBALS['strEdit'] . '">' . "\n"
-                   . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_edit.png" title="' . $GLOBALS['strEdit'] . '" alt="' . $GLOBALS['strEdit'] . '" width="16" height="16" align="absmiddle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '') . "\n"
+                   . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_edit.png" title="' . $GLOBALS['strEdit'] . '" alt="' . $GLOBALS['strEdit'] . '" width="16" height="16" align="middle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '') . "\n"
                    . '</button>';
 
                 echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '">' . "\n"
-                   . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="16" height="16" align="absmiddle" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
+                   . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="16" height="16" align="middle" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
                    . '</button>';
                 if ($analyzed_sql[0]['querytype'] == 'SELECT') {
                     echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_export" title="' . $GLOBALS['strExport'] . '">' . "\n"
-                       . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="16" height="16" align="absmiddle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
+                       . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="16" height="16" align="middle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
                        . '</button>';
                 }
 

@@ -19,7 +19,7 @@ require('./server_links.inc.php');
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="'. $GLOBALS['pmaThemeImage'] . 's_asci.png" border="0" hspace="2" align="absmiddle" />' : '') 
+   . '    ' . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="'. $GLOBALS['pmaThemeImage'] . 's_asci.png" border="0" hspace="2" align="middle" />' : '') 
    . '' . $strCharsetsAndCollations . "\n"
    . '</h2>' . "\n";
 

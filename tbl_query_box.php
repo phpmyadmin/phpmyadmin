@@ -117,7 +117,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) 
        . '        </noscript>';
 } else {
 ?>    
-        <form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onSubmit="return checkSqlQuery(this)" name="sqlform">
+        <form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
 <?php
 }
 ?>
@@ -170,7 +170,7 @@ if (!isset($is_inside_querywindow) ||
                 <td valign="middle">
                     <?php
         if ($cfg['PropertiesIconic']) {
-            echo '<input type="button" name="insert" value="<<" onclick="insertValueQuery()" title="' . $strInsert. '" />';
+            echo '<input type="button" name="insert" value="&lt;&lt;" onclick="insertValueQuery()" title="' . $strInsert. '" />';
         } else {
             echo '<input type="button" name="insert" value="' . $strInsert . '" onclick="insertValueQuery()" />';
         }
@@ -423,7 +423,7 @@ if (!isset($is_inside_querywindow) ||
             }
             echo '            </select>' . "&nbsp;&nbsp;&nbsp;\n";
             echo '            ' . $strVar; 
-            echo '            ' . $cfg['ReplaceHelpImg'] ? '<a href="./Documentation.html#faqbookmark" target="documentation"><img src="' . $pmaThemeImage . 'b_help.png" width="11" height="11" align="absmiddle" alt="' . $strDocu . '" hspace="2" border="0" /></a>' : '(<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>)';
+            echo '            ' . $cfg['ReplaceHelpImg'] ? '<a href="./Documentation.html#faqbookmark" target="documentation"><img src="' . $pmaThemeImage . 'b_help.png" width="11" height="11" align="middle" alt="' . $strDocu . '" hspace="2" border="0" /></a>' : '(<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>)';
             echo ': <input type="text" name="bookmark_variable" class="textfield" size="10" style="vertical-align: middle" /><br />' . "\n";
             echo '            <input type="radio" name="action_bookmark" value="0" id="radio_bookmark0" checked="checked" style="vertical-align: middle" /><label for="radio_bookmark0">' . $strSubmit . '</label>' . "\n";
             echo '            &nbsp;<input type="radio" name="action_bookmark" value="1" id="radio_bookmark1" style="vertical-align: middle" /><label for="radio_bookmark1">' . $strBookmarkView . '</label>' . "\n";
@@ -440,14 +440,6 @@ if (!isset($is_inside_querywindow) ||
 
 if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && (($querydisplay_tab == 'files') || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go)))) {
     if ($form_items > 0) {
-?><!-- not needed 
-            <table border="0">
-                <tr>
-                    <td valign="top">
-                        <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
-                    </td>
-//-->
-<?php
         if ( $cfg['Bookmark']['db']
           && $cfg['Bookmark']['table']
           && (!isset($is_inside_querywindow)
@@ -457,13 +449,11 @@ if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_insi
                //&& $querydisplay_tab != 'history'))) {
                && $querydisplay_tab == 'sql'))) {
 ?>
-                <tr><td<?php echo $queryframe_thcolspan; ?>><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" border="0" width="1" height="1" /></td></tr>
-                <tr><th<?php echo $queryframe_thcolspan; ?> align="left"><?php echo $strBookmarkThis; ?>:</th>
+                <tr><td<?php echo $queryframe_thcolspan; ?>><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" border="0" width="1" height="1" alt="" /></td></tr>
+                <tr><th<?php echo $queryframe_thcolspan; ?> align="left"><?php echo $strBookmarkThis; ?>:</th></tr>
                 <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
                     <td<?php echo $queryframe_thcolspan; ?>>
                         <b><?php echo $strBookmarkOptions; ?>:</b>
-                    </td></tr>
-
                     </td>
                 </tr>
                 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
@@ -474,17 +464,11 @@ if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_insi
                 </tr>
                 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                     <td align="right"<?php echo $queryframe_thcolspan; ?>>
-                        <input type="submit" name="SQLbookmark" value="<?php echo $strGo . ' &amp; ' . $strBookmarkThis; ?>" onClick="if(document.forms['sqlform'].elements['bkm_label'].value==''){ alert('Please insert a Bookmark-Titel     ');forms['sqlform'].elements['bkm_label'].focus();return false; }"/>
+                        <input type="submit" name="SQLbookmark" value="<?php echo $strGo . ' &amp; ' . $strBookmarkThis; ?>" onclick="if(document.forms['sqlform'].elements['bkm_label'].value==''){ alert('Please insert a Bookmark-Titel     ');forms['sqlform'].elements['bkm_label'].focus();return false; }"/>
                     </td>
                 </tr>
 <?php
         }
-?>
-<!-- not needed
-                </tr>
-            </table>
-//-->
-<?php
       } else {
             echo '                <tr><td' . $queryframe_thcolspan . '>' . "\n";
             // TODO: Add a more complete warning that no items (like for file import) where found.
@@ -515,7 +499,7 @@ if (!isset($is_inside_querywindow) ||
         //if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "<li>\n";
         if ($cfg['PropertiesIconic']) {
             $imgInsertTextfiles = '<img src="' . $pmaThemeImage. 'b_tblimport.png" '
-                                . 'width="16" height="16" hspace="2" border="0" align="absmiddle" alt="' . $strInsertTextfiles. '" />';
+                                . 'width="16" height="16" hspace="2" border="0" align="middle" alt="' . $strInsertTextfiles. '" />';
         }else{
             $imgInsertTextfiles = '';
         }

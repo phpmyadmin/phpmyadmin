@@ -89,8 +89,8 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
        . '                <td class="navSpacer"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  .'" width="1" height="1" border="0" alt="" /></td>';
     }
     echo "\n";
-    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strSQL.'" />' : '') . $strSQL, '#', '', 'onclick="javascript:query_tab_commit(\'sql\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
-    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_import.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strImportFiles.'" />' : '') . $strImportFiles, '#', '', 'onclick="javascript:query_tab_commit(\'files\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
+    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strSQL.'" />' : '') . $strSQL, '#', '', 'onclick="javascript:query_tab_commit(\'sql\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
+    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_import.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strImportFiles.'" />' : '') . $strImportFiles, '#', '', 'onclick="javascript:query_tab_commit(\'files\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
     echo PMA_printTab($strQuerySQLHistory, '#', '', 'onclick="javascript:query_tab_commit(\'history\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'history' ? TRUE : FALSE));
 
     if ($cfg['QueryWindowDefTab'] == 'full') {

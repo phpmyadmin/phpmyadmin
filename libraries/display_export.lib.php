@@ -179,7 +179,7 @@ if (isset($sql_query)) {
                     $goto_documentation = '<a href="./Documentation.html#faqexport" target="documentation">';
                     echo ($cfg['ReplaceHelpImg'] ? '' : '(')
                        . $goto_documentation
-                       . ($cfg['ReplaceHelpImg'] ? '<img src="' . $pmaThemeImage . 'b_help.png" border="0" alt="' .$strDocu . '" width="11" height="11" hspace="2" align="absmiddle" />' : $strDocu)
+                       . ($cfg['ReplaceHelpImg'] ? '<img src="' . $pmaThemeImage . 'b_help.png" border="0" alt="' .$strDocu . '" width="11" height="11" hspace="2" align="middle" />' : $strDocu)
                        . '</a>' . ($cfg['ReplaceHelpImg'] ? '' : ')');
                     ?>
                     </th>

@@ -103,7 +103,7 @@ $nbTotalPage = @ceil($the_total / $session_max_rows);
 
 if ($the_total > $per_page) {
     $gotopage = '<br />' . $GLOBALS['strPageNumber']
-              . '<select name="goToPage" onChange="goToUrl(this, \'browse_foreigners.php?field=' . urlencode($field) . '&amp;' . PMA_generate_common_url($db, $table) . $pk_uri . '\');">';
+              . '<select name="goToPage" onchange="goToUrl(this, \'browse_foreigners.php?field=' . urlencode($field) . '&amp;' . PMA_generate_common_url($db, $table) . $pk_uri . '\');">';
     if ($nbTotalPage < 200) {
         $firstPage = 1;
         $lastPage  = $nbTotalPage;

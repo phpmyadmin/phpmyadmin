@@ -8,6 +8,11 @@ $Source$
 2004-08-12 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Inconsistency of drop/empty links (bug
       #989705).
+    * tbl_addfield.php, tbl_properties.inc.php, tbl_properties_structure.php:
+      Change look of adding fields into table (bug #991095).
+    * many files: I again did some XHTML validation, so removed few of most
+      obvious errors, but there are still many, mostly missing alt attributtes
+      for images and wrongly nested tags.
 
 2004-08-11 Michal Čihař  <michal@cihar.com>
     * tbl_replace.php: Do not empty protected values (bug #1006812).

@@ -643,14 +643,14 @@ if ($num_tables > 0) {
                 <tr><td nowrap="nowrap" colspan="3"><?php
     echo '<a href="db_printview.php?' . $url_query . '">';
     if ($cfg['PropertiesIconic']) {
-         echo '<img src="' . $pmaThemeImage . 'b_print.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+         echo '<img src="' . $pmaThemeImage . 'b_print.png" border="0" width="16" height="16" hspace="2" align="middle" />';
      }
       echo $strPrintView . '</a>';
     ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      <?php
       echo '<a href="./db_datadict.php?' . $url_query . '">';
       if($cfg['PropertiesIconic']){
-          echo '<img src="' . $pmaThemeImage . 'b_tblanalyse.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+          echo '<img src="' . $pmaThemeImage . 'b_tblanalyse.png" border="0" width="16" height="16" hspace="2" align="middle" />';
       }
       echo $strDataDict . '</a>';
 ?></td></tr>
@@ -664,7 +664,7 @@ if ($num_tables > 0) {
      <tr>
      <td class="tblHeaders" colspan="3" nowrap="nowrap"><?php
         echo PMA_generate_common_hidden_inputs($db);
-        if($cfg['PropertiesIconic']){ echo '<img src="' . $pmaThemeImage . 'b_newtbl.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />'; }
+        if($cfg['PropertiesIconic']){ echo '<img src="' . $pmaThemeImage . 'b_newtbl.png" border="0" width="16" height="16" hspace="2" align="middle" />'; }
         // if you want navigation:
         $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url() . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
                    . htmlspecialchars($GLOBALS['db']) . '</a>';
@@ -701,7 +701,7 @@ if ($cfgRelation['commwork']) {
         <tr>
         <td colspan="3" class="tblHeaders"><?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_comment.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+        echo '<img src="' . $pmaThemeImage . 'b_comment.png" border="0" width="16" height="16" hspace="2" align="middle" />';
     }
     echo $strDBComment;
         ?></td></tr>
@@ -721,7 +721,7 @@ if ($cfgRelation['commwork']) {
         <tr><td colspan="3"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td></tr>
         <tr><td colspan="3" class="tblHeaders"><?php
           if ($cfg['PropertiesIconic']) {
-              echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+              echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="middle" />';
           }
           echo $strDBRename.':&nbsp;';
           ?></td></tr>
@@ -743,7 +743,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
        . '    <tr><td colspan="3"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
        . '    <tr><td colspan="3" class="tblHeaders">';
     if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 's_asci.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+        echo '<img src="' . $pmaThemeImage . 's_asci.png" border="0" width="16" height="16" hspace="2" align="middle" />';
     }
     echo '      <label for="select_db_collation">' . $strCollation . '</label>:&nbsp;' . "\n"
        . '    </td></tr>' . "\n"
@@ -786,13 +786,13 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
       <tr><td colspan="3" class="tblHeaders">
       <?php
     if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_pdfdoc.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+        echo '<img src="' . $pmaThemeImage . 'b_pdfdoc.png" border="0" width="16" height="16" hspace="2" align="middle" />';
     }
 ?>PDF</td></tr><tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
         <td colspan="3"><?php
     echo '<a href="pdf_pages.php?' . $takeaway . '">';
     if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+        echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="middle" />';
     }
     echo ''. $strEditPDFPages . '</a>';
      ?></td></tr>
@@ -812,7 +812,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
 <?php
          echo PMA_generate_common_hidden_inputs($db);
          if ($cfg['PropertiesIconic']) {
-             echo '<img src="' . $pmaThemeImage . 'b_view.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+             echo '<img src="' . $pmaThemeImage . 'b_view.png" border="0" width="16" height="16" hspace="2" align="middle" />';
          }
          echo $strDisplayPDF;
 ?>:&nbsp;</td></tr>
@@ -891,7 +891,7 @@ if ($num_tables > 0
     <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="3"><?php
     echo '<a href="db_details_importdocsql.php?' . $takeaway . '">';
     if ($cfg['PropertiesIconic']) {
-        echo '<img src="' . $pmaThemeImage . 'b_docsql.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+        echo '<img src="' . $pmaThemeImage . 'b_docsql.png" border="0" width="16" height="16" hspace="2" align="middle" />';
     }
     echo $strImportDocSQL . '</a>';
     ?>

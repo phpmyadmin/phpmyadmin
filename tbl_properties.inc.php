@@ -31,6 +31,7 @@ if ($action == 'tbl_create.php') {
 else if ($action == 'tbl_addfield.php') {
     echo "\n";
     ?>
+    <input type="hidden" name="field_where" value="<?php echo $field_where; ?>" />
     <input type="hidden" name="after_field" value="<?php echo $after_field; ?>" />
     <?php
 }
@@ -39,6 +40,12 @@ echo "\n";
 if (isset($num_fields)) {
     ?>
     <input type="hidden" name="orig_num_fields" value="<?php echo $num_fields; ?>" />
+    <?php
+}
+
+if (isset($field_where)) {
+    ?>
+    <input type="hidden" name="orig_field_where" value="<?php echo $field_where; ?>" />
     <?php
 }
 

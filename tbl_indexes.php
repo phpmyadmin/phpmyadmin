@@ -271,9 +271,9 @@ else if (!defined('PMA_IDX_INCLUDED')
     ?>
 
 <!-- Build index form -->
-<table border="0" cellpadding="2" cellspacing="1">
 <form action="./tbl_indexes.php" method="post" name="index_frm"
     onsubmit="if (typeof(this.elements['index'].disabled) != 'undefined') {this.elements['index'].disabled = false}">
+<table border="0" cellpadding="2" cellspacing="1">
     <tr><td class="tblHeaders" colspan="2">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <?php
@@ -290,7 +290,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     <tr>
         <td align="right"><b><?php echo $strIndexName; ?></b>&nbsp;</th>
         <td>
-            <input type="text" name="index" value="<?php echo htmlspecialchars($index); ?>" size="25" onFocus="this.select()" />
+            <input type="text" name="index" value="<?php echo htmlspecialchars($index); ?>" size="25" onfocus="this.select()" />
         </td>
     </tr>
     <tr><td align="right"><?php
@@ -301,7 +301,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     <tr>
         <td align="right"><b><?php echo $strIndexType; ?></b>&nbsp;</td>
         <td>
-            <select name="index_type" onChange="return checkIndexName()">
+            <select name="index_type" onchange="return checkIndexName()">
     <?php
     echo "\n";
     for ($i = 0; $i < $index_types_cnt; $i++) {
@@ -360,7 +360,7 @@ else if (!defined('PMA_IDX_INCLUDED')
             </select>
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <input type="text" size="5" name="sub_part[]"<?php echo $sub_part; ?> onFocus="this.select()" />
+            <input type="text" size="5" name="sub_part[]"<?php echo $sub_part; ?> onfocus="this.select()" />
         </td>
     </tr>
         <?php
@@ -384,16 +384,17 @@ else if (!defined('PMA_IDX_INCLUDED')
     </table></td></tr>
 <tr><td colspan="2" class="tblFooters" align="center">
     <input type="submit" name="do_save_data" value="<?php echo $strSave; ?>" /></td></tr>
+</table>
 </form>
-</table><?php
+<?php
 } else {
     /**
      * Display indexes
      */
     ?>
     <!-- Indexes form -->
-    <table border="0" cellpadding="2" cellspacing="1">
     <form action="./tbl_indexes.php" method="post">
+    <table border="0" cellpadding="2" cellspacing="1">
     <tr><td class="tblHeaders" colspan="7">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <?php
@@ -408,8 +409,8 @@ else if (!defined('PMA_IDX_INCLUDED')
     $propicon = (string)$cfg['PropertiesIconic'];
     
     if ($cfg['PropertiesIconic'] === true || $propicon == 'both') {
-        $edit_link_text = '<img src="' . $pmaThemeImage . 'b_edit.png" width="16" height="16" hspace="2" border="0" title="' . $strEdit . '" alt="' . $strEdit . '">';
-        $drop_link_text = '<img src="' . $pmaThemeImage . 'b_drop.png" width="16" height="16" hspace="2" border="0" title="' . $strDrop . '" alt="' . $strDrop . '">';
+        $edit_link_text = '<img src="' . $pmaThemeImage . 'b_edit.png" width="16" height="16" hspace="2" border="0" title="' . $strEdit . '" alt="' . $strEdit . '" />';
+        $drop_link_text = '<img src="' . $pmaThemeImage . 'b_drop.png" width="16" height="16" hspace="2" border="0" title="' . $strDrop . '" alt="' . $strDrop . '" />';
     }
     //print_r($cfg['PropertiesIconic']);
     if ($cfg['PropertiesIconic'] === false || $propicon == 'both') {
@@ -505,7 +506,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         // none indexes
         echo "\n" . '        <tr><td colspan=7" align="center">' . "\n";
         if ($cfg['ErrorIconic']) {
-            echo '<img src="' . $pmaThemeImage . 's_warn.png" width="16" height="16" border="0" alt="Warning" hspace="2" align="absmiddle" />';
+            echo '<img src="' . $pmaThemeImage . 's_warn.png" width="16" height="16" border="0" alt="Warning" hspace="2" align="middle" />';
         }
         echo '        <b>' . $strNoIndex . '</b></td></tr>' . "\n\n";
     }
@@ -515,7 +516,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     echo '        &nbsp;<input type="submit" name="create_index" value="' . $strGo . '" onclick="return checkFormElementInRange(this.form, \'idx_num_fields\', 1)" style="vertical-align: middle;" />' . "\n";
     echo '</td></tr>    ';
 ?>
-</form></table>
+</table></form>
 <?php
 } // end display indexes
 

@@ -93,7 +93,7 @@ require('./server_links.inc.php');
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_db.png" border="0" hsape="2" align="absmiddle" width="16" height="16" />' : '')
+   . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_db.png" border="0" hsape="2" align="middle" width="16" height="16" />' : '')
    . '    ' . (empty($dbstats) ? $strDatabases : $strDatabasesStats) . "\n"
    . '</h2>' . "\n";
 
@@ -358,7 +358,7 @@ if (count($statistics) > 0) {
         echo '        ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<tr><td colspan="2">' : '<li>') . "\n"
            . '            <b>' . "\n"
            . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1" title="' . $strDatabasesStatsEnable . '">' . "\n"
-           . '                    ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' .$pmaThemeImage . 'b_dbstatistics.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '') . "\n"
+           . '                    ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' .$pmaThemeImage . 'b_dbstatistics.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '') . "\n"
            . '                    ' . $strDatabasesStatsEnable . "\n"
            . '                </a>' . "\n"
            . '            </b>' . "\n"
@@ -369,7 +369,7 @@ if (count($statistics) > 0) {
         echo '        ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<tr><td colspan="2">' : '<li>') . "\n"
            . '            <b>' . "\n"
            . '                <a href="./server_databases.php?' . $url_query . '" title="' . $strDatabasesStatsDisable . '">' . "\n"
-           . '                    ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' .$pmaThemeImage . 'b_dbstatistics.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '') . "\n"
+           . '                    ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' .$pmaThemeImage . 'b_dbstatistics.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '') . "\n"
            . '                    ' . $strDatabasesStatsDisable . "\n"
            . '                </a>' . "\n"
            . '            </b>' . "\n"
@@ -378,7 +378,7 @@ if (count($statistics) > 0) {
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         echo '        ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<tr><td colspan="2">' : '<li>') . "\n"
            . '            <b>' . "\n"
-           . '                ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' .$pmaThemeImage . 'b_deltbl.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '') . "\n"
+           . '                ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' .$pmaThemeImage . 'b_deltbl.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '') . "\n"
            . '                ' . $strDropSelectedDatabases . "\n"
            . '            </b>' . "\n"
            . '           ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '</td></tr><tr><td width="20" nowrap="nowrap">&nbsp;</td><td nowrap="nowrap" align="left" width="400">' : '<br />') . "\n"

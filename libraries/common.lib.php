@@ -478,18 +478,18 @@ if ($is_minimum_common == FALSE) {
                     switch ($GLOBALS['cfg']['MySQLManualType']) {
                         case 'old':
                             if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle" /></a>';
+                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
                             }else{
                                 return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
                            }
                         case 'chapters':
                             if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle" /></a>';
+                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
                            } else {
                                return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
                         case 'big':
                             if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle" /></a>';
+                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
                             } else {
                                 return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
                             }
@@ -498,7 +498,7 @@ if ($is_minimum_common == FALSE) {
                         case 'searchable':
                         default:
                             if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle" /></a>';
+                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
                             } else {
                                 return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
                             }
@@ -506,7 +506,7 @@ if ($is_minimum_common == FALSE) {
                 } else {
                     // no Type defined, show the old one
                     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                        return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle" /></a>';
+                        return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
                     } else {
                         return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
                     }
@@ -516,7 +516,7 @@ if ($is_minimum_common == FALSE) {
                 if (!empty($GLOBALS['cfg']['ManualBaseShort'])) {
                     // the old configuration
                     if ($GLOBALS['cfg']['ReplaceHelpImg']) {
-                        return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle" /></a>';
+                        return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" title="' . $GLOBALS['strDocu'] . '" hspace="2" align="middle" /></a>';
                     } else {
                         return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
                    }
@@ -596,7 +596,7 @@ if ($is_minimum_common == FALSE) {
                 }
                 if ($GLOBALS['cfg']['PropertiesIconic']) {
                     echo $doedit_goto 
-                       . '<img src=" '. $GLOBALS['pmaThemeImage'] . 'b_edit.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="' . $GLOBALS['strEdit'] .'" />'
+                       . '<img src=" '. $GLOBALS['pmaThemeImage'] . 'b_edit.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $GLOBALS['strEdit'] .'" />'
                        . '</a>';
                 } else {
                     echo '    ['

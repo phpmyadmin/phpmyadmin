@@ -142,7 +142,7 @@ if (!empty($submit_mult) && !empty($what)) {
     <tr>
         <th class="tblHeadError" align="left">
             <?php
-    echo ($GLOBALS['cfg']['ErrorIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_really.png" border="0" hspace="2" width="11" height="11" valign="absmiddle" />' : '');
+    echo ($GLOBALS['cfg']['ErrorIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_really.png" border="0" hspace="2" width="11" height="11" valign="middle" />' : '');
     echo $strDoYouReally . ':&nbsp;' . "\n";
             ?>
         </th>

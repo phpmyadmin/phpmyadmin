@@ -163,7 +163,7 @@ if ($cfg['MainPageIconic']) {
     echo '<a class="item" href="main.php?' . PMA_generate_common_url() . '" target="phpmain' . $hash . '">'
        . ($cfg['MainPageIconic']
             ? '<img src="' . $pmaThemeImage . 'b_home.png" width="16" height="16" border="0" hspace="2" alt="' . $strHome . '" title="' . $strHome . '"'
-                    .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="absmiddle" />'
+                    .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
             : '<b>' . $strHome . '</b>')
         . '</a>';
     // Logout for advanced authentication
@@ -172,7 +172,7 @@ if ($cfg['MainPageIconic']) {
         echo '<a class="item" href="index.php?' . PMA_generate_common_url() . '&amp;old_usr=' . urlencode($PHP_AUTH_USER) . '" target="_parent">'
            . ($cfg['MainPageIconic']
                 ? '<img src="' . $pmaThemeImage . 's_loggoff.png" width="16" height="16" border="0" hspace="2" alt="' . $strLogout . '" title="' . $strLogout . '"'
-                        .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="absmiddle" />'
+                        .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
                 : '<b>' . $strLogout . '</b>')
            . '</a>';
     } // end if
@@ -189,7 +189,7 @@ if ($cfg['QueryFrameJS']) {
 }
 if ($cfg['MainPageIconic']) {
     $query_frame_link_text = '<img src="' . $pmaThemeImage . 'b_selboard.png" border="0" hspace="1" width="16" height="16" alt="' . $strQueryFrame . '" title="' . $strQueryFrame . '"'
-                           .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="absmiddle" />';
+                           .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />';
 } else {
     echo ($str_spacer_links != '' ? '<br />' : '');
     $query_frame_link_text = '<b>' . $strQueryFrame . '</b>';
@@ -209,12 +209,12 @@ if ($cfg['MainPageIconic']) {
     echo '<img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  .'" width="2" height="1" border="0" alt="" />'
        . '<a href="Documentation.html" target="documentation" class="item">'
        . '<img src="' . $pmaThemeImage . 'b_docs.png" border="0" hspace="1" width="16" height="16" alt="' . $strPmaDocumentation . '" title="' . $strPmaDocumentation . '"'
-       . ' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="absmiddle" />'
+       . ' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
        . '</a>';
     echo ''
        . '<a href="' . $cfg['MySQLManualBase'] . '" target="documentation" class="item">'
        . '<img src="' . $pmaThemeImage . 'b_sqlhelp.png" border="0" hspace="1" width="16" height="16" alt="MySQL - ' . $strDocu . '" title="MySQL - ' . $strDocu . '"'
-       .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="absmiddle" />'
+       .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
        . '</a>';
 }
 

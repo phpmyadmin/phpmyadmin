@@ -28,6 +28,9 @@ if (isset($submit_num_fields)) {
     if (isset($orig_after_field)) {
         $after_field = $orig_after_field;
     }
+    if (isset($orig_field_where)) {
+        $field_where = $orig_field_where;
+    }
     $regenerate = TRUE;
 } else if (isset($submit)) {
     $query = '';
@@ -88,10 +91,10 @@ if (isset($submit_num_fields)) {
             } // end if (auto_increment)
         }
 
-        if ($after_field != '--end--') {
-            // Only the first field can be added somewhere else than at the end
+        if ($field_where != 'last') {
+            // Only the first field can be added somewhere other than at the end
             if ($i == 0) {
-                if ($after_field == '--first--') {
+                if ($field_where == 'first') {
                     $query .= ' FIRST';
                 } else {
                     $query .= ' AFTER ' . PMA_backquote(urldecode($after_field));
@@ -220,6 +223,9 @@ if (isset($submit_num_fields)) {
         $num_fields = $orig_num_fields;
         if (isset($orig_after_field)) {
             $after_field = $orig_after_field;
+        }
+        if (isset($orig_field_where)) {
+            $field_where = $orig_field_where;
         }
         $regenerate = true;
     }

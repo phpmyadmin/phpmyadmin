@@ -225,7 +225,7 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         echo '            ' . $strVar . ' ';
         if ($cfg['ReplaceHelpImg']){
             echo '<a href="./Documentation.html#faqbookmark" target="documentation">'
-             . '<img src="' .$pmaThemeImage . 'b_help.png" border="0" width="11" height="11" align="absmiddle" alt="' . $strDocu . '" /></a>';
+             . '<img src="' .$pmaThemeImage . 'b_help.png" border="0" width="11" height="11" align="middle" alt="' . $strDocu . '" /></a>';
         }else{
             echo '(<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>):&nbsp;';
         }

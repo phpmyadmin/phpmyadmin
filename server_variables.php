@@ -19,7 +19,7 @@ require('./server_links.inc.php');
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_vars.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '' )
+   . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_vars.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
    . '' . $strServerVars . "\n"
    . '</h2>' . "\n";
 
