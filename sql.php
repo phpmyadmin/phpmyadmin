@@ -139,7 +139,10 @@ if ($is_select) {
     else {
         $db = $prev_db;
     }
-    $reload  = ($db == $prev_db) ? 0 : 1;
+    // Nijel don't change reload, if we already decided to reload in read_dump
+    if (!isset($reload) || $reload == 0) {
+        $reload  = ($db == $prev_db) ? 0 : 1;
+    }
 }
 
 /**

@@ -8,6 +8,8 @@ $Source$
 2005-01-01 Michal Čihař  <michal@cihar.com>
     * tbl_alter.php: Don't try to set collation for non text fields (bug
       #1094109).
+    * sql.php: Do not forget reloading when launching multiple queries (bug
+      #1090818).
 
 2004-12-30 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
