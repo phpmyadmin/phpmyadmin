@@ -160,6 +160,11 @@ if($server == 0) {
         $PHP_AUTH_PW = getenv('REMOTE_PASSWORD');
       }
     }
+    // Grab the $old_usr variable whatever are the values of the
+    // 'register_globals' and the 'variables_order' directives
+    if (empty($old_usr) && !empty($HTTP_GET_VARS) && isset($HTTP_GET_VARS['old_usr'])) {
+        $old_usr = $HTTP_GET_VARS['old_usr'];
+    }
 
     if(!isset($old_usr)) {
       if(empty($PHP_AUTH_USER)) {
