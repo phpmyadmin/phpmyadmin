@@ -17,6 +17,8 @@ $Source$
     * libraries/build_dump.lib.php3, libraries/display_export.lib.php3,
       tbl_dump.php3, lang/*: Allow to replace "NULL" with alternative string
       (RFE #747343).
+    * Documentation.*: Add simple LaTeX document, to show how to use LaTeX
+      export.
 
 2003-06-02 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.1 released

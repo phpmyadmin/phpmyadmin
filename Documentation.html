@@ -1961,7 +1961,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <a href="#faqmultiuser">Multi-user</a> &nbsp;-&nbsp;
 <a href="#faqbrowsers">Browsers</a> &nbsp;-&nbsp;
 <a href="#faqusing">Usage tips</a> &nbsp;-&nbsp;
-<a href="#faqproject">Project</a> &nbsp;-&nbsp;
+<a href="#faqproject">Project</a>
 </p>
 
 <a name="faqserver"></a><br />
@@ -3120,7 +3120,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <a name="faqbookmark"></a>
 <h4>
-    [6.17] Bookmarks: Where can I store bookmarks? Why can't I see any bookmarks below the query box?
+    [6.18] Bookmarks: Where can I store bookmarks? Why can't I see any bookmarks below the query box?
      What is this variable for?
 </h4>
 <p>
@@ -3157,6 +3157,30 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     you can store the bookmark. You may have that to work around using well positioned &quot;/**/&quot;
     comments.
 </p>
+
+<h4>
+    [6.19] How can I create simple LaTeX document to include exported table?
+</h4>
+<p>
+    
+    You can simply include table in your LaTeX documents, minimal sample
+    document should look like following one (assuming you have table
+    exported in file <code>table.tex</code>):
+    <br />
+    <br />
+<pre>
+<font color="#a52a2a"><b>\documentclass</b></font><font color="#6a5acd">{</font><font color="#a020f0">article</font><font color="#6a5acd">}</font>
+<font color="#a52a2a"><b>\usepackage</b></font><font color="#6a5acd">{</font><font color="#6a5acd">longtable</font><font color="#6a5acd">}</font>
+
+<font color="#a52a2a"><b>\begin</b></font><font color="#6a5acd">{</font><font color="#a020f0">document</font><font color="#6a5acd">}</font>
+
+<font color="#a52a2a"><b>\include</b></font><font color="#6a5acd">{</font><font color="#6a5acd">table</font><font color="#6a5acd">}</font>
+
+<font color="#a52a2a"><b>\end</b></font><font color="#6a5acd">{</font><font color="#a020f0">document</font><font color="#6a5acd">}</font>
+</pre>
+</p>
+
+
 
 <a name="faqproject"></a><br />
 <h3>[7. phpMyAdmin project]</h3>
