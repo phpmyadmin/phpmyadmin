@@ -80,6 +80,7 @@ else
 	if($what != "csv") 
 	{
 		echo "# phpMyAdmin MySQL-Dump$crlf";
+		echo "# ".PHPMYADMIN_VERSION."$crlf";
 		echo "# http://phpwizard.net/phpMyAdmin/$crlf";
 		echo "# http://phpmyadmin.sourceforge.net/ (unofficial)$crlf";
 		echo "#$crlf";
