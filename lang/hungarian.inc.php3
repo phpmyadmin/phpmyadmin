@@ -65,6 +65,7 @@ $strCantRenameIdxToPrimary = 'Nem tudom átnevezni az indexet PRIMARY-vá!';
 $strCardinality = 'Számosság';
 $strCarriage = 'Kocsivissza: \\r';
 $strChange = 'Változtat';
+$strChangePassword = 'Jelszo megvaltoztatasa';
 $strCheckAll = 'Összeset kijelöli';
 $strCheckDbPriv = 'Adatbázis Privilégiumok Ellenõrzése';
 $strCheckTable = 'Tábla ellenõrzés';
@@ -347,5 +348,4 @@ $strYes = 'Igen';
 $strZip = '"zippel tömörítve"';
 
 // To translate
-$strChangePassword = 'Change password';
 ?>

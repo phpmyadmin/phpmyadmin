@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Kan ikke endre indeks til PRIMARY!';
 $strCardinality = 'Kardinalitet';
 $strCarriage = 'Linjeskift (Mac): \\r';
 $strChange = 'Endre';
+$strChangePassword = 'Endre passord';
 $strCheckAll = 'Kontroller alle';
 $strCheckDbPriv = 'Kontroller database privilegier';
 $strCheckTable = 'Kontroller tabell';
@@ -345,5 +346,4 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
-$strChangePassword = 'Change password';
 ?>
