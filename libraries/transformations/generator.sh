@@ -23,9 +23,9 @@ cat $1 | sed "s/\[ENTER_FILENAME_HERE\]/$functionupper/" | sed "s/\[enter_filena
 if [ "$3" ]
 then
     echo ""
-    echo "DEBUG/TODO: Call"
-    echo "../../lang/add_message.sh '\$strTransformation_${functionlower}' '$3'"
-    echo "later!"
+    echo "To do later:"
+    echo "cd ../../lang"
+    echo "./add_message.sh '\$strTransformation_${functionlower}' '$3'"
     echo ""
 fi
 
