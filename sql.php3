@@ -63,6 +63,9 @@ else {
   	if (!isset($sql_query)) $sql_query = '';
   	if (!isset($sql_order)) $sql_order = '';
   }
+    // loic1: A table have to be created -> left frme should be reloaded
+    if (!empty($reload) && eregi("^CREATE TABLE (.*)", $sql_query))
+        $reload = true;
     if(isset($sessionMaxRows))
         $cfgMaxRows = $sessionMaxRows;
     $sql_limit = (isset($pos) && eregi("^SELECT", $sql_query) && !eregi("LIMIT[ 0-9,]+$", $sql_query)) ? " LIMIT $pos, $cfgMaxRows" : '';
@@ -92,12 +95,16 @@ else {
     {
         if(file_exists("./$goto"))
         {
-            include("./header.inc.php3");
             if(isset($zero_rows) && !empty($zero_rows))
                 $message = $zero_rows;
             else
                 $message = $strEmptyResultSet;
-            include('./' . preg_replace('/\.\.*/', '.', $goto));
+            $goto = preg_replace('/\.\.*/', '.', $goto);
+ 			if ($goto != "main.php3")
+ 			{
+ 				include("./header.inc.php3");
+ 			}
+ 			include('./' . $goto);
         }
         else
         {

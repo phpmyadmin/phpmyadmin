@@ -6,6 +6,16 @@ $Id$
 $Source$
 
 2001-06-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3, lines 67-68: The left frame is now reloaded when a table is
+      created.
+	* lib.inc.php3, line 668: When the left frame is reloaded after a create or
+	  a delete statement, the current database is 'opened'
+
+2001-06-20  Alain Brissaud  <alain@brissaud.com>
+	* sql.php3, lines 98-107: Fixed a warning when a table is dropped
+	 (bug #434416).
+
+2001-06-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* The 'bkg.gif' was somewhat corrupted (it caused some annoying problems
 	  with NS4+). Fixed thanks to Laurent Hass.
 	* Added Japanese and Korean translation from Sakamoto <info@boreal-net.com>
