@@ -404,7 +404,10 @@
     <dt><b>$cfgServers[n]['only_db']</b> string or array</dt>
     <dd>
         If set to a(an array of) database name(s), only this(these) database(s)
-        will be shown to the user.
+        will be shown to the user. Since phpMyAdmin 2.2.1, this/these
+        database(s) name(s) may contain(s) MySQL wilcards characters
+        (&quot;_&quot; &amp; &quot;%&quot;): if you want to really use these
+        characters, escape them.<br />
         This setting is an efficient way to lower the server load since the
         latter does not need a to send requests to MySQL to build the database
         list.<br />
@@ -539,6 +542,12 @@
     <dd>
         Defines whether <tt>BLOB</tt> fields are shown when browsing a table's
         content or not.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfgNavigationBarIconic </b>boolean</dt>
+    <dd>
+        Defines whether navigation bar buttons contain text or symbols only.
         <br /><br />
     </dd>
 
