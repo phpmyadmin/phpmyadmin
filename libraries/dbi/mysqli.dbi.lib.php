@@ -57,16 +57,18 @@ function PMA_DBI_connect($user, $password) {
         $cfg['Server']['socket'] = '';
     }
 
+    // NULL enables connection to the default socket
     $server_socket = (empty($cfg['Server']['socket']))
-                   ? FALSE
+                   ? NULL 
                    : $cfg['Server']['socket'];
 
-    if ($server_socket) {
-        $link = @mysqli_connect($cfg['Server']['host'], $user, $password, FALSE, $server_port, $server_socket);
-    } else {
-        // Omit the last parameter to enable connection to the default socket
-        $link = @mysqli_connect($cfg['Server']['host'], $user, $password, FALSE, $server_port);
-    }
+    $link = mysqli_init();
+
+    mysqli_options($link, MYSQLI_OPT_LOCAL_INFILE, TRUE);
+
+    $client_flags = $cfg['Server']['compress'] && defined('MYSQLI_CLIENT_COMPRESS') ? MYSQLI_CLIENT_COMPRESS : 0;
+
+    @mysqli_real_connect($link, $cfg['Server']['host'], $user, $password, FALSE, $server_port, $server_socket, $client_flags);
 
     if (empty($link)) {
         PMA_auth_fails();
