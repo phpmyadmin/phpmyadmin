@@ -134,14 +134,22 @@ if (isset($new_name) && trim($new_name) != '') {
     }
 
     $source = PMA_backquote($db) . '.' . PMA_backquote($table);
+    if (empty($target_db)) $target_db = $db;
     $target = PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
 
     include('./libraries/build_dump.lib.php3');
 
     $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
     $parsed_sql =  PMA_SQP_parse($sql_structure);
-    // no need to PMA_backquote()
-    $parsed_sql[9]['data'] = $target;
+
+    /* nijel: Find table name in query and replace it */
+    $i = 0;
+    while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
+    
+    /* no need to PMA_backquote() */
+    $parsed_sql[$i]['data'] = $target;
+
+    /* Generate query back */
     $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
     // do not create the table if dataonly
@@ -297,8 +305,6 @@ if (isset($new_name) && trim($new_name) != '') {
         */
 
         $sql_query      .= "\n\n" . $sql_drop_table . ';';
-        $db             = $target_db;
-        $table          = $new_name;
     } else {
         // garvin: Create new entries as duplicates from old PMA DBs
         if ($what != 'dataonly' && !isset($maintain_relations)) {
@@ -314,7 +320,7 @@ if (isset($new_name) && trim($new_name) != '') {
     
                 // Write every comment as new copied entry. [MIME]
                 while ($comments_copy_row = @PMA_mysql_fetch_array($comments_copy_rs)) {
-                    $new_comment_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
+                    $new_comment_query = 'REPLACE INTO ' . PMA_backquote($cfgRelation['column_info'])
                                 . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                 . ' VALUES('
                                 . '\'' . PMA_sqlAddslashes($target_db) . '\','
@@ -375,6 +381,9 @@ if (isset($new_name) && trim($new_name) != '') {
     $message   = sprintf($message, $source, $target);
     $reload    = 1;
     $js_to_run = 'functions.js';
+    /* Work on new table */
+    $db        = $target_db;
+    $table     = $new_name;
     include('./header.inc.php3');
 } // end is target table name
 
@@ -391,5 +400,6 @@ else {
 /**
  * Back to the calling script
  */
+
 require('./tbl_properties.php3');
 ?>
