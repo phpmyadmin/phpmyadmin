@@ -23,7 +23,7 @@ Announcement
    the Web, and is now one of the most popular PHP script used
    worldwide: more than 3.1 million download in the past year!
 
-   SourceForge gave phpMyAdmin the "Project of the Month" award in 
+   SourceForge gave phpMyAdmin the "Project of the Month" award in
    December: look at the article http://sourceforge.net/pom_1202.php
    to learn more about the project's history.
 
@@ -145,10 +145,11 @@ Support and Documentation
 Known bugs
 ----------
 
-  * Querying UNION SELECTs may result in php errors about undefined variables.
-    Furthermore, the total number of rows may be not calculated correctly, here.
-  * Some users reported problems on machines with Zend Accelerator (TM).
+  * The total number of rows of UNION SELECT is not calculated correctly.
+  * Some users reported problems on machines running Zend Accelerator (TM).
   * The MySQL 4.1.x and php 5.0.x branches are not yet supported by phpMyAdmin.
+  * Displaying large exports may crash Microsoft Internet Explorer.
+  * When renaming tables or fields the relations set in phpMyAdmin are lost.
 
   To be informed about new releases fixing these problems, please
   subscribe to the news mailing list under

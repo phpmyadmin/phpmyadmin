@@ -1379,14 +1379,19 @@ if (empty($adduser) && empty($checkprivs)) {
        . '        </th>' . "\n"
        . '    </tr>' . "\n";
     $useBgcolorOne = TRUE;
+    unset($row);
+    unset($row1);
+    unset($row2);
     // now, we build the table...
     if (PMA_MYSQL_INT_VERSION >= 40000) {
         // Starting with MySQL 4.0.0, we may use UNION SELECTs and this makes
         // the job much easier here!
         $sql_query = '(SELECT `User`, `Host`, `Db`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `db` WHERE "' . $checkprivs . '" LIKE `Db` AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) UNION (SELECT `User`, `Host`, "*" AS "Db", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `user` WHERE NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) ORDER BY `User` ASC, `Host` ASC, `Db` ASC;';
         $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
-        $row1 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
-        $row2 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
+        $row = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
+        if ($row) {
+            $found = TRUE;
+        }
     } else {
         // With MySQL 3, we need 2 seperate queries here.
         $sql_query = 'SELECT * FROM `user` WHERE NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" ' . (PMA_MYSQL_INT_VERSION >= 32211 ? 'AND `Grant_priv` = "N" ' : '') . 'AND `References_priv` = "N") ORDER BY `User` ASC, `Host` ASC;';
@@ -1394,112 +1399,96 @@ if (empty($adduser) && empty($checkprivs)) {
         $row1 = PMA_mysql_fetch_array($res1, MYSQL_ASSOC);
         $sql_query = 'SELECT * FROM `db` WHERE "' . $checkprivs . '" LIKE `Db` AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" ' . (PMA_MYSQL_INT_VERSION >= 32211 ? 'AND `Grant_priv` = "N" ' : '') . 'AND `References_priv` = "N") ORDER BY `User` ASC, `Host` ASC;';
         $res2 = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
-        $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
+        $row2 = PMA_mysql_fetch_array($res1, MYSQL_ASSOC);
+        if ($row1 || $row2) {
+            $found = TRUE;
+        }
     } // end if (PMA_MYSQL_INT_VERSION >= 40000) ... else ...
-    while (!empty($row1) || !empty($row2)) {
-        echo '    <tr>' . "\n";
-        if (!empty($row1) && !empty($row2) && $row1['User'] == $row2['User'] && $row1['Host'] == $row2['Host']) {
-            $useRow1 = $useRow2 = TRUE;
-            echo '        <td rowspan="2" bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ' . (empty($row1['User']) ? '<span style="color: #FF0000">' . $strAny . '</span>' : htmlspecialchars($row1['User'])) . "\n"
-               . '        </td>' . "\n"
-               . '        <td rowspan="2" bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ' . htmlspecialchars($row1['Host']) . "\n"
-               . '        </td>' . "\n";
-        } else if (PMA_MYSQL_INT_VERSION >= 40000 || empty($row2) || $row1['User'] < $row2['User'] || ($row1['User'] == $row2['User'] && $row1['Host'] < $row2['Host'])) {
-            $useRow1 = TRUE;
-            $useRow2 = FALSE;
-            echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ' . (empty($row1['User']) ? '<span style="color: #FF0000">' . $strAny . '</span>' : htmlspecialchars($row1['User'])) . "\n"
-               . '        </td>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ' . htmlspecialchars($row1['Host']) . "\n"
-               . '        </td>' . "\n";
-        } else {
-            $useRow1 = FALSE;
-            $useRow2 = TRUE;
-            echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ' . (empty($row2['User']) ? '<span style="color: #FF0000">' . $strAny . '</span>' : htmlspecialchars($row2['User'])) . "\n"
-               . '        </td>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ' . htmlspecialchars($row2['Host']) . "\n"
-               . '        </td>' . "\n";
-        }
-        if ($useRow1) {
-            echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ';
-            if (!isset($row1['Db']) || $row1['Db'] == '*') {
-                echo $strGlobal;
-            } else if ($row1['Db'] == $checkprivs) {
-                echo $strDbSpecific;
+    if ($found) {
+        while (TRUE) {
+            // prepare the current user
+            if (PMA_MYSQL_INT_VERSION >= 40000) {
+                $current_privileges = array();
+                $current_user = $row['User'];
+                $current_host = $row['Host'];
+                while ($row && $current_user == $row['User'] && $current_host == $row['Host']) {
+                    $current_privileges[] = $row;
+                    $row = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
+                }
             } else {
-                echo $strWildcard, ': <tt>' . htmlspecialchars($row1['Db']) . '</tt>';
+                $current_privileges = array();
+                if ($row1 && (!$row2 || ($row1['User'] < $row2['User'] || ($row1['User'] == $row2['User'] && $row1['Host'] <= $row2['Host'])))) {
+                    $current_user = $row1['User'];
+                    $current_host = $row1['Host'];
+                    $current_privileges = array($row1);
+                    $row1 = PMA_mysql_fetch_array($res1, MYSQL_ASSOC);
+                } else {
+                    $current_user = $row2['User'];
+                    $current_host = $row2['Host'];
+                    $current_privileges = array();
+                }
+                while ($row2 && $current_user == $row2['User'] && $current_host == $row2['Host']) {
+                    $current_privileges[] = $row2;
+                    $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
+                }
             }
-            echo "\n"
+            echo '    <tr>' . "\n"
+               . '        <td';
+            if (count($current_privileges) > 1) {
+                echo ' rowspan="' . count($current_privileges) . '"';
+            }
+            echo ' bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+               . '            ' . (empty($current_user) ? '<span style="color: #FF0000">' . $strAny . '</span>' : htmlspecialchars($current_user)) . "\n"
                . '        </td>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            <tt>' . "\n"
-               . '                ' . join(',' . "\n" . '            ', PMA_extractPrivInfo($row1, TRUE)) . "\n"
-               . '            <tt>' . "\n"
+               . '        <td';
+            if (count($current_privileges) > 1) {
+                echo ' rowspan="' . count($current_privileges) . '"';
+            }
+            echo ' bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+               . '            ' . htmlspecialchars($current_host) . "\n"
                . '        </td>' . "\n";
-            if (PMA_MYSQL_INT_VERSION >= 32211) {
+            while (list(, $current) = each($current_privileges)) {
                 echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-                   . '            ' . ($row1['Grant_priv'] == 'Y' ? $strYes : $strNo) . "\n"
+                   . '            ';
+                if (!isset($current['Db']) || $current['Db'] == '*') {
+                    echo $strGlobal;
+                } else if ($current['Db'] == $checkprivs) {
+                    echo $strDbSpecific;
+                } else {
+                    echo $strWildcard, ': <tt>' . htmlspecialchars($current['Db']) . '</tt>';
+                }
+                echo "\n"
+                   . '        </td>' . "\n"
+                   . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+                   . '            <tt>' . "\n"
+                   . '                ' . join(',' . "\n" . '                ', PMA_extractPrivInfo($current, TRUE)) . "\n"
+                   . '            <tt>' . "\n"
                    . '        </td>' . "\n";
-            }
-            echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            <a href="./server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row1['User']) . ($row1['Host'] == '%' ? '' : '&amp;hostname=' . urlencode($row1['Host'])) . (!isset($row1['Db']) || $row1['Db'] == '*' ? '' : '&amp;dbname=' . urlencode($row1['Db'])) . '">' . "\n"
-               . '                ' . $strEdit . "\n"
-               . '            </a>' . "\n"
-               . '        </td>' . "\n"
-               . '    </tr>' . "\n";
-            if (PMA_MYSQL_INT_VERSION < 40000) {
-                $row1 = PMA_mysql_fetch_array($res1, MYSQL_ASSOC);
-            }
-        }
-        if ($useRow2) {
-            if ($useRow1) {
-                echo '    <tr>' . "\n";
-            }
-            echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ';
-            if (!isset($row2['Db']) || $row2['Db'] == '*') {
-                echo $strGlobal;
-            } else if ($row2['Db'] == $checkprivs) {
-                echo $strDbSpecific;
-            } else {
-                echo $strWildcard, ': <tt>' . htmlspecialchars($row2['Db']) . '</tt>';
-            }
-            echo "\n"
-               . '        </td>' . "\n"
-               . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            <tt>' . "\n"
-               . '                ' . join(',' . "\n" . '            ', PMA_extractPrivInfo($row2, TRUE)) . "\n"
-               . '            </tt>' . "\n"
-               . '        </td>' . "\n";
-            if (PMA_MYSQL_INT_VERSION >= 32211) {
+                if (PMA_MYSQL_INT_VERSION >= 32211) {
+                    echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+                       . '            ' . ($current['Grant_priv'] == 'Y' ? $strYes : $strNo) . "\n"
+                       . '        </td>' . "\n";
+                }
                 echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-                   . '            ' . ($row2['Grant_priv'] == 'Y' ? $strYes : $strNo) . "\n"
-                   . '        </td>' . "\n";
+                   . '            <a href="./server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($current_user) . ($current_host == '%' ? '' : '&amp;hostname=' . urlencode($current_host)) . (!isset($current['Db']) || $current['Db'] == '*' ? '' : '&amp;dbname=' . urlencode($current['Db'])) . '">' . "\n"
+                   . '                ' . $strEdit . "\n"
+                   . '            </a>' . "\n"
+                   . '        </td>' . "\n"
+                   . '    </tr>' . "\n";
             }
-            echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            <a href="./server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row2['User']) . ($row2['Host'] == '%' ? '' : '&amp;hostname=' . urlencode($row2['Host'])) . (!isset($row2['Db']) || $row2['Db'] == '*' ? '' : '&amp;dbname=' . urlencode($row2['Db'])) . '">' . "\n"
-               . '                ' . $strEdit . "\n"
-               . '            </a>' . "\n"
-               . '        </td>' . "\n"
-               . '    </tr>' . "\n";
-            if (PMA_MYSQL_INT_VERSION < 40000) {
-                $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
-            } else {
-                $row1 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
-                $row2 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
+            if (empty($row) && empty($row1) && empty($row2)) {
+                break;
             }
-        } else if (PMA_MYSQL_INT_VERSION >= 40000) {
-            $row1 = $row2;
-            $row2 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
+            $useBgcolorOne = !$useBgcolorOne;
         }
-        $useBgcolorOne = !$useBgcolorOne;
+    } else {
+        echo '    <tr>' . "\n"
+           . '        <td colspan="' . (PMA_MYSQL_INT_VERSION >= 32211 ? '5' : '6') . '" bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+           . '            ' . $strNoUsersFound . "\n"
+           . '        </td>' . "\n"
+           . '    </tr>' . "\n";
     }
+    echo '</table>' . "\n";
 } // end if (empty($adduser) && empty($checkprivs)) ... else if ... else ...
 
 
