@@ -344,7 +344,7 @@ function PMA_normalOperations()
         <div style="margin-bottom: 10px">
         <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;mode=reload">
             <?php echo $GLOBALS['strReloadMySQL']; ?></a>&nbsp;
-        <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
+        <?php echo PMA_showMySQLDocu('MySQL_Database_Administration.', 'FLUSH') . "\n"; ?>
         </div>
     </li>
 

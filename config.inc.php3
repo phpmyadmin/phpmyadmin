@@ -225,10 +225,22 @@ $cfg['DefaultTabTable']       = 'tbl_properties_structure.php3';
 
 
 /**
- * Link to the official MySQL documentation
- * Be sure to include no trailing slash on the path
+ * Link to the official MySQL documentation.
+ * Be sure to include no trailing slash on the path.
+ * See http://www.mysql.com/documentation/index.html for more information
+ * about MySQL manuals and their types.
  */
-$cfg['ManualBaseShort'] = 'http://www.mysql.com/doc';
+$cfg['MySQLManualBase'] = 'http://www.mysql.com/doc/en';
+
+/**
+ * Type of MySQL documentation:
+ *   old - old style used in phpMyAdmin 2.3.0 and sooner
+ *   searchable - "Searchable, with user comments"
+ *   chapters - "HTML, one page per chapter"
+ *   big - "HTML, all on one page"
+ *   none - do not show documentation links
+ */
+$cfg['MySQLManualType'] = 'searchable';
 
 
 /**

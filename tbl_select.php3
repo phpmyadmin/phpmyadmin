@@ -93,7 +93,7 @@ if (!isset($param) || $param[0] == '') {
         <li>
             <?php echo $strAddSearchConditions; ?><br />
             <input type="text" name="where" class="textfield" />&nbsp;
-            <?php echo PMA_showDocuShort('F/u/Functions.html') . "\n"; ?>
+            <?php echo PMA_showMySQLDocu('Reference', 'Functions') . "\n"; ?>
             <br /><br />
             <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
             <table border="<?php echo $cfg['Border']; ?>">

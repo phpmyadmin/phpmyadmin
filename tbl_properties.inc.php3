@@ -28,7 +28,7 @@ $is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
     <table border="<?php echo $cfg['Border']; ?>">
     <tr>
         <th><?php echo $strField; ?></th>
-        <th><?php echo $strType . '<br /><span style="font-weight: normal">' . PMA_showDocuShort('C/o/Column_types.html'); ?></span></th>
+        <th><?php echo $strType . '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('Reference', 'Column_types'); ?></span></th>
         <th><?php echo $strLengthSet; ?></th>
         <th><?php echo $strAttr; ?></th>
         <th><?php echo $strNull; ?></th>
@@ -374,4 +374,4 @@ echo "\n";
 </table>
 <br />
 
-<center><?php echo PMA_showDocuShort('C/R/CREATE_TABLE.html'); ?></center>
+<center><?php echo PMA_showMySQLDocu('Reference', 'CREATE_TABLE'); ?></center>

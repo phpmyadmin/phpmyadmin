@@ -1283,7 +1283,7 @@ if (typeof(document.getElementById) != 'undefined'
 
 
     /**
-     * Displays a link to the official MySQL documentation (short)
+     * Displays a link to the official MySQL documentation
      *
      * @param   string  an anchor to move to
      *
@@ -1291,10 +1291,35 @@ if (typeof(document.getElementById) != 'undefined'
      *
      * @access  public
      */
-    function PMA_showDocuShort($link)
+    function PMA_showMySQLDocu($chapter, $link)
     {
-        if (!empty($GLOBALS['cfg']['ManualBaseShort'])) {
-            return '[<a href="' . $GLOBALS['cfg']['ManualBaseShort'] . '/' . $link .'" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+        if (!empty($GLOBALS['cfg']['MySQLManualBase'])) {
+            if (!empty($GLOBALS['cfg']['MySQLManualType'])) {
+                switch ($GLOBALS['cfg']['MySQLManualType']) {
+                    case 'old':
+                        return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+                    case 'chapters':
+                        return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+                    case 'big':
+                        return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+                    case 'none':
+                        return '';
+                    case 'searchable':
+                    default:
+                        return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+                }
+            } else {
+                // no Type defined, show the old one
+                return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+            }
+        } else {
+            // no URL defined
+            if (!empty($GLOBALS['cfg']['ManualBaseShort'])) {
+                // the old configuration
+                return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+            } else {
+                return '';
+            }
         }
     } // end of the 'PMA_showDocuShort()' function
 

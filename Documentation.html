@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ more information about MySQL manuals and their types.<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <!-- $Id$ -->
@@ -1138,10 +1138,27 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['ManualBaseShort']</b> string</dt>
+    <dt><b>$cfg['MySQLManualBase']</b> string</dt>
     <dd>
-        If set to an URL which points to the MySQL documentation (on short
-        pages), appropriate help links are generated.
+        If set to an URL which points to the MySQL documentation (type depends
+        on $cfg['MySQLManualType']), appropriate help links are generated.
+        <br />
+        See <a href="http://www.mysql.com/documentation/index.html">MySQL
+        Documentation page</a> for more information about MySQL manuals and
+        their types.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['MySQLManualType']</b> string</dt>
+    <dd>
+         Type of MySQL documentation:
+         <ul>
+            <li>old - old style used in phpMyAdmin 2.3.0 and sooner</li>
+            <li>searchable - "Searchable, with user comments"</li>
+            <li>chapters - "HTML, one page per chapter"</li>
+            <li>big - "HTML, all on one page"</li>
+            <li>none - do not show documentation links</li>
+        </ul>
         <br /><br />
     </dd>
 

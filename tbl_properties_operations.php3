@@ -219,7 +219,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <td>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('CHECK TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strCheckTable; ?></a>&nbsp;
-                <?php echo PMA_showDocuShort('C/H/CHECK_TABLE.html') . "\n"; ?>
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'CHECK_TABLE') . "\n"; ?>
             </td>
             <td>&nbsp;-&nbsp;</td>
             <?php
@@ -230,7 +230,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <td>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ANALYZE TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strAnalyzeTable; ?></a>&nbsp;
-                <?php echo PMA_showDocuShort('A/N/ANALYZE_TABLE.html') . "\n";?>
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'ANALYZE_TABLE') . "\n";?>
             </td>
             <?php
         }
@@ -246,7 +246,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <td>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('REPAIR TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strRepairTable; ?></a>&nbsp;
-                <?php echo PMA_showDocuShort('R/E/REPAIR_TABLE.html') . "\n"; ?>
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'REPAIR_TABLE') . "\n"; ?>
             </td>
             <td>&nbsp;-&nbsp;</td>
             <?php
@@ -257,7 +257,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <td>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strOptimizeTable; ?></a>&nbsp;
-                <?php echo PMA_showDocuShort('O/P/OPTIMIZE_TABLE.html') . "\n"; ?>
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'OPTIMIZE_TABLE') . "\n"; ?>
             </td>
             <?php
         }
@@ -283,7 +283,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32306
         <?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>">
             <?php echo $strOptimizeTable; ?></a>&nbsp;
-        <?php echo PMA_showDocuShort('O/P/OPTIMIZE_TABLE.html') . "\n"; ?>
+        <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'OPTIMIZE_TABLE') . "\n"; ?>
         </div>
     </li>
     <?php
@@ -336,7 +336,7 @@ if ($cfgRelation['relwork']) {
     <li>
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfg['ShowTooltip']) echo '&amp;reload=1'; ?>">
             <?php echo $strFlushTable; ?></a>&nbsp;
-            <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
+            <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH') . "\n"; ?>
         <br /><br />
     </li>
 

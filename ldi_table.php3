@@ -97,7 +97,7 @@ if (function_exists('PMA_set_enc_form')) {
 } // end if
 ?>
     <tr>
-        <td colspan="3" align="center"><?php print PMA_showDocuShort('L/O/LOAD_DATA.html'); ?></td>
+        <td colspan="3" align="center"><?php print PMA_showMySQLDocu('Reference', 'LOAD_DATA'); ?></td>
     </tr>
     <tr>
         <td colspan="3" align="center">

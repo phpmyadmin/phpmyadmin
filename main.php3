@@ -285,7 +285,7 @@ if ($server > 0) {
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
             <form method="post" action="db_create.php3">
-                <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showDocuShort('C/R/CREATE_DATABASE.html'); ?><br />
+                <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
@@ -311,7 +311,7 @@ if ($server > 0) {
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW STATUS'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowStatus; ?></a>&nbsp;
-                <?php echo PMA_showDocuShort('S/H/SHOW_STATUS.html') . "\n"; ?>
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_STATUS') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -324,7 +324,7 @@ if ($server > 0) {
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&amp;goto=main.php3">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
-                <?php echo PMA_showDocuShort('S/H/SHOW_VARIABLES.html') . "\n"; ?>
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_VARIABLES') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -338,7 +338,7 @@ if ($server > 0) {
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
-                <?php echo PMA_showDocuShort('S/H/SHOW_PROCESSLIST.html') . "\n"; ?>
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_PROCESSLIST') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -352,7 +352,7 @@ if ($server > 0) {
             <td>
                 <a href="main.php3?<?php echo $common_url_query; ?>&amp;mode=reload">
                     <?php echo $strReloadMySQL; ?></a>&nbsp;
-                <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -366,7 +366,7 @@ if ($server > 0) {
             <td>
                 <a href="user_details.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;table=user">
                     <?php echo $strUsers; ?></a>&nbsp;
-                <?php echo PMA_showDocuShort('P/r/Privilege_system.html') . "\n"; ?>
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'Privilege_system') . "\n"; ?>
             </td>
         </tr>
             <?php

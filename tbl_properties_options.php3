@@ -145,7 +145,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
                 <option value="MERGE"<?php if ($tbl_type == 'MRG_MYISAM') echo ' selected="selected"'; ?>>Merge</option>
             </select>&nbsp;
             <input type="submit" name="submittype" value="<?php echo $strGo; ?>" style="vertical-align: middle" />&nbsp;
-            <?php echo PMA_showDocuShort('T/a/Table_types.html') . "\n"; ?>
+            <?php echo PMA_showMySQLDocu('Table_types', 'Table_types') . "\n"; ?>
         </form>
     </li>
 

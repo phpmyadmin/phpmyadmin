@@ -339,7 +339,7 @@ if (empty($search_option)) {
             <input type="radio" id="search_option_3" name="search_option" value="3"<?php if ($search_option == 3) echo ' checked="checked"'; ?> />
             <label for="search_option_3"><?php echo $strSearchOption3; ?></label><br />
             <input type="radio" id="search_option_4" name="search_option" value="4"<?php if ($search_option == 4) echo ' checked="checked"'; ?> />
-            <label for="search_option_4"><?php echo $strSearchOption4 . '</label> ' . PMA_showDocuShort('R/e/Regexp.html'); ?><br />
+            <label for="search_option_4"><?php echo $strSearchOption4 . '</label> ' . PMA_showMySQLDocu('Regexp', 'Regexp'); ?><br />
             <br />
             *&nbsp;<?php echo $strSplitWordsWithSpace . "\n"; ?>
         </td>

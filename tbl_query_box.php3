@@ -68,7 +68,7 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
-            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocuShort('S/E/SELECT.html') . '&nbsp;&nbsp;&nbsp;' . $strFields . ':' . "\n"; ?>
+            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showMySQLDocu('Reference', 'SELECT') . '&nbsp;&nbsp;&nbsp;' . $strFields . ':' . "\n"; ?>
             <select name="dummy" size="1">
 <?php
 echo "\n";
