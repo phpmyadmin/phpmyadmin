@@ -577,11 +577,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     $is_in_sort = FALSE;
                 } else {
                     //$is_in_sort = eregi('[[:space:]](`?)' . str_replace('\\', '\\\\', $fields_meta[$i]->name) . '(`?)[ ,$]', $sql_order);
-                    $pattern = str_replace('\\', '\\\\', $fields_meta[$i]->name);
-                    $pattern = str_replace('(','\(', $pattern);
-                    $pattern = str_replace(')','\)', $pattern);
+                    $pattern    = str_replace('\\', '\\\\', $fields_meta[$i]->name);
+                    $pattern    = str_replace('(', '\(', $pattern);
+                    $pattern    = str_replace(')', '\)', $pattern);
                     $is_in_sort = eregi('[[:space:]](`?)' . $pattern . '(`?)[ ,$]', $sql_order);
-           
                 }
                 // 2.1.3 Checks if the table name is required (it's the case
                 //       for a query with a "JOIN" statement and if the column
@@ -608,15 +607,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $cfg['Order'] = (eregi('time|date', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
                     }
                     $sort_order .= $cfg['Order'];
-                    $order_img   = '';
+                    $order_img  = '';
                 }
                 else if (eregi('[[:space:]]ASC$', $sql_order)) {
                     $sort_order .= ' DESC';
-                    $order_img   = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
+                    $order_img  = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
                 }
                 else if (eregi('[[:space:]]DESC$', $sql_order)) {
                     $sort_order .= ' ASC';
-                    $order_img   = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
+                    $order_img  = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
                 }
                 if (eregi('(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))', $unsorted_sql_query, $regs3)) {
                     $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];

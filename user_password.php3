@@ -107,13 +107,13 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 // Displays the form
 ?>
 <form method="post" action="./user_password.php3" name="chgPassword" onsubmit="return checkPassword(this)">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <table border="0">
     <tr>
         <td colspan="2">
             <input type="radio" name="nopass" value="1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
             <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" /> 
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
         </td>
     </tr>
     <tr>

@@ -490,45 +490,45 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
 
         if ($arraysize > 0) {
-          $t_next     = $sql_array[0]['type'];
-          $t_prev     = '';
-          $t_cur      = '';
+            $t_next     = $sql_array[0]['type'];
+            $t_prev     = '';
+            $t_cur      = '';
         }
 
         for ($i = 0; $i < $arraysize; $i++) {
-          $t_prev     = $t_cur;
-          $t_cur      = $t_next;
-          if (($i + 1) < $arraysize) {
-            $t_next = $sql_array[$i + 1]['type'];
-          } else {
-            $t_next = '';
-          }
-          if ($t_cur == 'alpha') {
-            $t_suffix     = '_identifier';
-            $d_cur_upper  = strtoupper($sql_array[$i]['data']);
-            if (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
-              $t_suffix = '_identifier';
-            } else if (($t_next == 'punct_bracket_open_round')
-            && PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_function_name, $PMA_SQPdata_function_name_cnt)) {
-              $t_suffix = '_functionName';
-            } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt))  {
-              $t_suffix = '_columnType';
-              //temporary fix for BUG #621357
-              //TODO FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
-              if($d_cur_upper == 'SET' && $t_next != 'punct_bracket_open_round') {
-                $t_suffix = '_reservedWord';
-              }
-              //END OF TEMPORARY FIX
-            } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_reserved_word, $PMA_SQPdata_reserved_word_cnt)) {
-              $t_suffix = '_reservedWord';
-            } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_attrib, $PMA_SQPdata_column_attrib_cnt)) {
-              $t_suffix = '_columnAttrib';
+            $t_prev     = $t_cur;
+            $t_cur      = $t_next;
+            if (($i + 1) < $arraysize) {
+                $t_next = $sql_array[$i + 1]['type'];
             } else {
-              // Do nothing
+                $t_next = '';
             }
-            $sql_array[$i]['type'] .= $t_suffix;
-          }
-        }
+            if ($t_cur == 'alpha') {
+                $t_suffix     = '_identifier';
+                $d_cur_upper  = strtoupper($sql_array[$i]['data']);
+                if (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
+                    $t_suffix = '_identifier';
+                } else if (($t_next == 'punct_bracket_open_round')
+                           && PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_function_name, $PMA_SQPdata_function_name_cnt)) {
+                    $t_suffix = '_functionName';
+                } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt))  {
+                    $t_suffix = '_columnType';
+                    // Temporary fix for BUG #621357
+                    // TODO FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
+                    if ($d_cur_upper == 'SET' && $t_next != 'punct_bracket_open_round') {
+                        $t_suffix = '_reservedWord';
+                    }
+                    // END OF TEMPORARY FIX
+                } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_reserved_word, $PMA_SQPdata_reserved_word_cnt)) {
+                    $t_suffix = '_reservedWord';
+                } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_attrib, $PMA_SQPdata_column_attrib_cnt)) {
+                    $t_suffix = '_columnAttrib';
+                } else {
+                    // Do nothing
+                }
+                $sql_array[$i]['type'] .= $t_suffix;
+            }
+        } // end for
 
         // Stores the size of the array inside the array, as count() is a slow
         // operation.

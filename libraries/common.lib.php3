@@ -1497,7 +1497,7 @@ if (typeof(document.getElementById) != 'undefined'
         && strpos(' ' . $lang, 'ja-')
         && file_exists('./libraries/kanji-encoding.lib.php3')) {
         include('./libraries/kanji-encoding.lib.php3');
-        define('PMA_MULTIBYTE_ENCODING',1);
+        define('PMA_MULTIBYTE_ENCODING', 1);
     } // end if
 
 } // $__PMA_COMMON_LIB__

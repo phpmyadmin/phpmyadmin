@@ -149,6 +149,5 @@ if (!defined('PMA_ENCODING_LIB_INCLUDED')) {
 
     PMA_internal_enc_check();
 
-
 } // $__PMA_ENCODING_LIB_INCLUDED
 ?>
