@@ -15,6 +15,7 @@ $Source$
     * db_stats.php3: Removed, the file is replaced by server_databases.php3.
     * lang/german-*.inc.php3: Updates.
     * config.inc.php3: Added a note about another possible setting.
+    * lang/galician-*.inc.php3: Updates, thanks to Xosé Calvo.
 
 2003-02-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * config.inc.php3, lang/add_message.sh: Typos.
