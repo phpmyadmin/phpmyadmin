@@ -24,23 +24,118 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
         && ((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
         || (PMA_PHP_INT_VERSION < 40000 && PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
         && @function_exists('dl')) {
-        if (!(@extension_loaded('recode') || @extension_loaded('iconv'))) {
-            if (PMA_IS_WINDOWS) {
-                $suffix = '.dll';
-            } else {
-                $suffix = '.so';
+
+        if (PMA_IS_WINDOWS) {
+            $suffix = '.dll';
+        } else {
+            $suffix = '.so';
+        }
+
+        // Initialize configuration for default, if not set:
+        if (!isset($cfg['RecodingEngine'])) $cfg['RecodingEngine'] = 'auto';
+        
+        if ($cfg['RecodingEngine'] == 'recode') {
+            if (! @extension_loaded('recode')) {
+                dl('recode' . $suffix);
+                if (!@extension_loaded('recode')) {
+                    echo $strCantLoadRecodeIconv;
+                    exit();
+                }
             }
-            dl('recode' . $suffix);
-            if (!@extension_loaded('recode')) {
+            $PMA_recoding_engine = 'recode';
+        } elseif ($cfg['RecodingEngine'] == 'iconv') {
+            if (! @extension_loaded('iconv')) {
                 dl('iconv' . $suffix);
                 if (!@extension_loaded('iconv')) {
                     echo $strCantLoadRecodeIconv;
                     exit();
                 }
             }
+            $PMA_recoding_engine = 'iconv';
+        } else {
+            if (@extension_loaded('iconv')) {
+                $PMA_recoding_engine = 'iconv';
+            } elseif (@extension_loaded('recode')) {
+                $PMA_recoding_engine = 'recode';
+            } else {
+                dl('iconv' . $suffix);
+                if (!@extension_loaded('iconv')) {
+                    dl('recode' . $suffix);
+                    if (!@extension_loaded('recode')) {
+                        echo $strCantLoadRecodeIconv;
+                        exit();
+                    } else {
+                        $PMA_recoding_engine = 'recode';
+                    }
+                } else {
+                    $PMA_recoding_engine = 'iconv';
+                }
+            }
         }
-    } // end load mysql extension
+    } // end load recode/iconv extension
+    
+    define('PMA_CHARSET_NONE', 0);
+    define('PMA_CHARSET_ICONV', 1);
+    define('PMA_CHARSET_LIBICONV', 2);
+    define('PMA_CHARSET_RECODE', 3);
 
+    // finally detect which function will we use:
+    if (isset($cfg['AllowAnywhereRecoding'])
+        && $cfg['AllowAnywhereRecoding']
+        && $allow_recoding) {
+        
+        if (!isset($PMA_recoding_engine)) $PMA_recoding_engine = $cfg['RecodingEngine'];
+        if ($PMA_recoding_engine == 'iconv') {
+            if (@function_exists('iconv')) {
+                $PMA_recoding_engine = PMA_CHARSET_ICONV; 
+            } else if (@function_exists('libiconv')) {
+                $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
+            } else {
+                $PMA_recoding_engine = PMA_CHARSET_NONE;
+                
+                if (!isset($GLOBALS['is_header_sent'])) {
+                    include('./header.inc.php3');
+                }
+                echo $strCantUseRecodeIconv;
+                include('./footer.inc.php3');
+                exit();
+            }
+        } elseif ($PMA_recoding_engine == 'recode') {
+            if (@function_exists('recode_string')) {
+                $PMA_recoding_engine = PMA_CHARSET_RECODE; 
+            } else {
+                $PMA_recoding_engine = PMA_CHARSET_NONE;
+             
+
+                if (!isset($GLOBALS['is_header_sent'])) {
+                    include('./header.inc.php3');
+                }
+                echo $strCantUseRecodeIconv;
+                include('./footer.inc.php3');
+                exit();
+            }
+        } else {
+            if (@function_exists('iconv')) {
+                $PMA_recoding_engine = PMA_CHARSET_ICONV; 
+            } else if (@function_exists('libiconv')) {
+                $PMA_recoding_engine = PMA_CHARSET_LIBICONV;
+            } elseif (@function_exists('recode_string')) {
+                $PMA_recoding_engine = PMA_CHARSET_RECODE; 
+            } else {
+                $PMA_recoding_engine = PMA_CHARSET_NONE;
+               
+
+                if (!isset($GLOBALS['is_header_sent'])) {
+                    include('./header.inc.php3');
+                }
+                echo $strCantUseRecodeIconv;
+                include('./footer.inc.php3');
+                exit();
+            }
+        }
+    } else {
+        $PMA_recoding_engine = PMA_CHARSET_NONE;
+    }
 
     /**
      * Converts encoding according to current settings.
@@ -68,8 +163,6 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             $result = array();
             reset($what);
             while(list($key, $val) = each($what)) {
-//Debug: echo '['.$key.'] = ' . $val . '<br />';
-
                 if (is_string($val) || is_array($val)) {
                     if (is_string($key)) {
                         $result[PMA_convert_display_charset($key)] = PMA_convert_display_charset($val);
@@ -83,16 +176,18 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             return $result;
         }
         else if (is_string($what)) {
-            if (@function_exists('iconv')) {
-//Debug: echo 'PMA_convert_display_charset: ' . $what . '->' . iconv($convcharset, $charset, $what) . "\n<br />";
-                return iconv($convcharset, $charset, $what);
-            } else if (@function_exists('libiconv')) {
-                return libiconv($convcharset, $charset, $what);
-            } else if (@function_exists('recode_string')) {
-                return recode_string($convcharset . '..'  . $charset, $what);
-            } else {
-                echo $GLOBALS['strCantUseRecodeIconv'];
-                return $what;
+            switch ($GLOBALS['PMA_recoding_engine']) {
+                case PMA_CHARSET_RECODE:
+                    return recode_string($convcharset . '..'  . $charset, $what);
+                    break;
+                case PMA_CHARSET_ICONV:
+                    return iconv($convcharset, $charset, $what);
+                    break;
+                case PMA_CHARSET_LIBICONV:
+                    return libiconv($convcharset, $charset, $what);
+                    break;
+                default:
+                    return $what;
             }
         }
         else if (is_object($what)) {
@@ -136,25 +231,99 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
 
         if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
             return $what;
-        }
-        else {
-            if (@function_exists('iconv')) {
-//Debug: echo 'PMA_convert_charset: ' . $what . '->' . iconv($charset, $convcharset, $what) . "\n<br />";
-                return iconv($charset, $convcharset, $what);
-            } else if (@function_exists('libiconv')) {
-                return libiconv($charset, $convcharset, $what);
-            } else if (@function_exists('recode_string')) {
-                return recode_string($charset . '..'  . $convcharset, $what);
-            } else {
-                if (!isset($GLOBALS['is_header_sent'])) {
-                    include('./header.inc.php3');
-                }
-                echo $GLOBALS['strCantUseRecodeIconv'];
-                include('./footer.inc.php3');
-                exit();
+        } else {
+            switch ($GLOBALS['PMA_recoding_engine']) {
+                case PMA_CHARSET_RECODE:
+                    return recode_string($charset . '..'  . $convcharset, $what);
+                    break;
+                case PMA_CHARSET_ICONV:
+                    return iconv($charset, $convcharset, $what);
+                    break;
+                case PMA_CHARSET_LIBICONV:
+                    return libiconv($charset, $convcharset, $what);
+                    break;
+                default:
+                    return $what;
             }
         }
     } //  end of the "PMA_convert_charset()" function
+
+    /**
+     * Converts encoding of text according to pametres with detected
+     * conversion function.
+     *
+     * @param   string   source charset
+     * @param   string   target charset
+     * @param   string   what to convert
+     *
+     * @return  string   converted text
+     *
+     * @access  public
+     *
+     * @author  nijel
+     */
+    function PMA_convert_string($src_charset, $dest_charset, $what) {
+        switch ($GLOBALS['PMA_recoding_engine']) {
+            case PMA_CHARSET_RECODE:
+                return recode_string($src_charset . '..'  . $dest_charset, $what);
+                break;
+            case PMA_CHARSET_ICONV:
+                return iconv($src_charset, $dest_charset, $what);
+                break;
+            case PMA_CHARSET_LIBICONV:
+                return libiconv($src_charset, $dest_charset, $what);
+                break;
+            default:
+                return $what;
+        }
+    } //  end of the "PMA_convert_string()" function
+
+    /**
+     * Converts encoding of file according to pametres with detected
+     * conversion function. The old file will be unlinked and new created and
+     * its file name is returned.
+     *
+     * @param   string   source charset
+     * @param   string   target charset
+     * @param   string   file to convert
+     *
+     * @return  string   new temporay file
+     *
+     * @access  public
+     *
+     * @author  nijel
+     */
+    function PMA_convert_file($src_charset, $dest_charset, $file) {
+        switch ($GLOBALS['PMA_recoding_engine']) {
+            case PMA_CHARSET_RECODE:
+            case PMA_CHARSET_ICONV:
+            case PMA_CHARSET_LIBICONV:
+                $tmpfname = tempnam('', 'PMA_convert_file');
+                $fin      = fopen($file, 'r');
+                $fout     = fopen($tmpfname, 'w');
+                if ($GLOBALS['PMA_recoding_engine'] == PMA_CHARSET_RECODE) {
+                    recode_file($src_charset . '..'  . $dest_charset, $fin, $fout);
+                } else {
+                    while (!feof($fin)) {
+                        $line = fgets($fin, 4096);
+                        if ($GLOBALS['PMA_recoding_engine'] == PMA_CHARSET_ICONV) {
+                            $dist = iconv($src_charset, $dest_charset, $line);
+                        } else {
+                            $dist = libiconv($src_charset, $dest_charset, $line);
+                        }
+                        fputs($fout, $dist);
+                    } // end while
+                }
+                fclose($fin);
+                fclose($fout);
+                unlink($file);
+
+                return $tmpfname;
+                break;
+            default:
+                return $file;
+        }
+    } //  end of the "PMA_convert_file()" function
 
 } // $__PMA_CHARSET_CONVERSION_LIB__
 ?>

@@ -5,6 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-14 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/charset_conversion.lib.php3, config.inc.php3, Documentation.*:
+      Improved detection of used recoding function, now can be configured
+      which function should be preffered ($cfg['RecodingEngine']).
+    * libraries/charset_conversion.lib.php3, read_dump.php3:
+      read_dump.php3 uses new fuction PMA_convert_string instead of hardcoded
+      iconv.
+    * libraries/charset_conversion.lib.php3, ldi_check.php3, ldi_table.php3:
+      Support for converting charset of loaded files, used new function
+      PMA_convert_file.
+    * tbl_dump.php3, db_details_export.php3, tbl_properties_export.php3:
+      Support for exporting in custom charset.
+
 2002-08-14 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/japanese update: thanks to Yukihiro Kawada
 

@@ -36,6 +36,13 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     if (function_exists('PMA_kanji_file_conv')) {
         $textfile         = PMA_kanji_file_conv($textfile, $knjenc, isset($xkana) ? $xkana : '');
     }
+    
+    // Convert the file's charset if necessary
+    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
+        && isset($charset_of_file) && $charset_of_file != $charset) {
+        $textfile         = PMA_convert_file($charset_of_file, $convcharset, $textfile);
+    }
+
     // Formats the data posted to this script
     $textfile             = PMA_sqlAddslashes($textfile);
     if (get_magic_quotes_gpc()) {

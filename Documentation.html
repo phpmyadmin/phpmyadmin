@@ -1181,6 +1181,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['RecodingEngine'] </b>string</dt>
+    <dd>
+        You can select here which functions will be used for charset conversion.
+        Possible values are:<br />
+        <ul>
+            <li>auto   - automatically use available one (first is tested
+                iconv, then recode)</li>
+            <li>iconv  - use iconv or libiconv functions</li>
+            <li>recode - use recode_string function</li>
+        </ul>
+        Default is auto.
+    </dd>
+
     <dt><b>$cfg['AvailableCharsets'] </b>array</dt>
     <dd>
         Available charsets for MySQL conversion. You can add your own (any of

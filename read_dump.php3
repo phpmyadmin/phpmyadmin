@@ -277,7 +277,7 @@ if ($sql_file != 'none') {
         // Convert the file's charset if necessary
         if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
             && isset($charset_of_file) && $charset_of_file != $charset) {
-            $sql_query = iconv($charset_of_file, $charset, $sql_query);
+            $sql_query = PMA_convert_string($charset_of_file, $charset, $sql_query);
         }
     } // end uploaded file stuff
 }

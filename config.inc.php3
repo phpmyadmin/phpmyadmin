@@ -253,6 +253,14 @@ $cfg['DefaultCharset'] = 'iso-8859-1';
 // extension and where dl() is not supported
 $cfg['AllowAnywhereRecoding'] = FALSE;
 
+// You can select here which functions will be used for charset conversion.
+// Possible values are:
+//      auto   - automatically use available one (first is tested iconv, then
+//               recode)
+//      iconv  - use iconv or libiconv functions
+//      recode - use recode_string function
+$cfg['RecodingEngine'] = 'auto';
+
 // Available charsets for MySQL conversion. currently contains all which could
 // be found in lang/* files and few more.
 // Charsets will be shown in same order as here listed, so if you frequently
