@@ -2,6 +2,9 @@
 /* $Id$ */
 
 
+/**
+ * Runs common work
+ */
 require('./tbl_properties_common.php3');
 
 
@@ -9,12 +12,16 @@ require('./tbl_properties_common.php3');
  * Reordering the table has been requested by the user
  */
 if (isset($submitorderby) && !empty($order_field)) {
-    $order_field = PMA_backquote(urldecode($order_field));
-    $local_query = 'ALTER TABLE ' . PMA_backquote($table) . 'ORDER BY ' . $order_field;
-    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $sql_query   = 'ALTER TABLE ' . PMA_backquote($table)
+                 . ' ORDER BY ' . PMA_backquote(urldecode($order_field));
+    $result      = mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    PMA_showMessage((get_magic_quotes_gpc()) ? addslashes($strSuccess) : $strSuccess);
 } // end if
 
 
+/**
+ * Gets tables informations and displays top links
+ */
 require('./tbl_properties_table_info.php3');
 
 
@@ -316,7 +323,7 @@ if (!empty($cfg['Server']['relation'])) {
 
     <!-- Flushes the table -->
     <li>
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfg['ShowTooltip']) echo '&amp;reload=1'; ?>">
+        <a href="sql.php3?<?php echo str_replace('&amp;goto=tbl_properties.php3', '&amp;goto=tbl_properties_operations.php3', $url_query); ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfg['ShowTooltip']) echo '&amp;reload=1'; ?>">
             <?php echo $strFlushTable; ?></a>&nbsp;
             <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
         <br /><br />
