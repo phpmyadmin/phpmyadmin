@@ -322,7 +322,7 @@ if ($num_dbs > 1) {
     // the current database
     if ($cfgLeftFrameLight) {
         echo '        </select>' . "\n";
-        echo '        <noscript><input type="submit" name="Go" value="Go" /></noscript>' . "\n";
+        echo '        <noscript><input type="submit" name="Go" value="' . $strGo . '" /></noscript>' . "\n";
         echo '    </form>' . "\n";
 
         if (!$table_list) {

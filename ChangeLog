@@ -8,6 +8,8 @@ $Source$
 2002-02-13 Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3: restore old color changing behavior by default
 	 ($cfgBrowseMarkRow = 0)
+	* left.php3, patch 515855 (use $strGo), 
+	  thanks to Alexander M. Turek (rabus)
 
 2002-02-12 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_printview.php3, missing urldecode, layout improvement, 
