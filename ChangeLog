@@ -13,6 +13,7 @@ $Source$
     * tbl_properties_links.php3: beautified code.
 	* db_details.php3, tbl_change.php3, tbl_properties.php3, user_details.php3:
 	  xhtml fixes.
+	* lang/slovak-win1250.inc.php3: updated thanks to Peter Svec.
 
 2002-04-27 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.php3, new tbl_properties_links.php3:
