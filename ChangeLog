@@ -24,6 +24,7 @@ $Source$
       via "?goto=".
     * lang/hindi-utf-8.inc.php3: File was corrupted.
     * lang/chinese_gb-utf-8.inc.php3: Back to previous version.
+    * lang/czech-*.inc.php3: Small fixes, thanks again to Michal Cihar (nijel).
 
 2002-08-11 Robin Johnson  <robbat2@users.sourceforge.net>
     ### 2.3.0 is released ###

@@ -277,7 +277,7 @@ $strPdfNoTables = '¾ádné tabulky';
 $strPhp = 'Zobrazit PHP kód';
 $strPHPVersion = 'Verze PHP';
 $strPmaDocumentation = 'Dokumentace phpMyAdmina';
-$strPmaUriError = 'Parametr <tt>$cfg[\'PmaAbsoluteUri\']</tt> MUSÍ být nastaveno v&nbsp;konfiguraèním souboru!';
+$strPmaUriError = 'Parametr <tt>$cfg[\'PmaAbsoluteUri\']</tt> MUSÍ být nastaven v&nbsp;konfiguraèním souboru!';
 $strPos1 = 'Zaèátek';
 $strPrevious = 'Pøedchozí';
 $strPrimary = 'Primární';
@@ -363,7 +363,7 @@ $strSort = 'Øadit';
 $strSpaceUsage = 'Vyu¾ití místa';
 $strSplitWordsWithSpace = 'Slova jsou oddìlena mezerou (" ").';
 $strSQL = 'SQL';
-$strSQLParserBugMessage = 'Je mo¾né, ¾e jste na¹li chybu v SQL parseru. Prosím prozkoumejte podrobnì SQL dotaz, pøedev¹ím jestli jsou správnì uvozovky a jestli nejsou proházené. Dal¹í mo¾nost selhání je pokud nahráváte soubor s binárními daty nezapsanými v uvozovkách. Mùé¾ete také vyzkou¹et pøíkazovou øádku MySQL. Ní¾e uvedený výstup z MySQL serveru (pokud je nìjaký) Vám také mù¾e pomoci pøi zkoumání problému. Pokud stále máte problémy nebo pokud SQL parser ohlásí chybu u dotazu, který na pøíkazové øádce funguje, prosím pokuste se zredukovat dotaz na co nejmen¹í, ve kterém se problém je¹tì vyskytne, a ohla¹te chybu na stránkách phpMyAdmina spolu se sekcí VÝPIS uvedenou ní¾e:'; 
+$strSQLParserBugMessage = 'Je mo¾né, ¾e jste na¹li chybu v SQL parseru. Prosím prozkoumejte podrobnì SQL dotaz, pøedev¹ím jestli jsou správnì uvozovky a jestli nejsou proházené. Dal¹í mo¾nost selhání je pokud nahráváte soubor s binárními daty nezapsanými v uvozovkách. Mùé¾ete také vyzkou¹et pøíkazovou øádku MySQL. Ní¾e uvedený výstup z MySQL serveru (pokud je nìjaký) Vám také mù¾e pomoci pøi zkoumání problému. Pokud stále máte problémy nebo pokud SQL parser ohlásí chybu u dotazu, který na pøíkazové øádce funguje, prosím pokuste se zredukovat dotaz na co nejmen¹í, ve kterém se problém je¹tì vyskytne, a ohla¹te chybu na stránkách phpMyAdmina spolu se sekcí VÝPIS uvedenou ní¾e:';
 $strSQLParserUserError = 'Pravdìpodobnì máte v&nbsp;SQL dotazu chybu. Ní¾e uvedený výstup MySQL serveru (pokud je nìjaký) Vám také mù¾e pomoci pøi zkoumání problému';
 $strSQLQuery = 'SQL-dotaz';
 $strSQLResult = 'Výsledek SQL dotazu';
@@ -426,6 +426,6 @@ $strWrongUser = '©patné u¾ivatelské jméno/heslo. Pøístup odepøen.';
 $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
-// To translate
 
+// To translate
 ?>
