@@ -131,7 +131,7 @@ if (!isset($is_inside_querywindow) ||
 
 // loic1: displays import dump feature only if file upload available
 if ($is_upload && (!isset($is_inside_querywindow) ||
-    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')))) {
+    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) && isset($db) && $db != '') {
     echo '            ' . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? '<i>' . $strOr . '</i>' : '') . ' ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
     ?>
             <div style="margin-bottom: 5px">
@@ -180,10 +180,16 @@ if ($is_upload && (!isset($is_inside_querywindow) ||
 } // end if
 echo "\n";
 
+if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'files' && (!isset($db) || $db == '')) {
+?>
+            <b><?php echo $strNoDatabasesSelected; ?></b>
+<?php
+}
+
 // web-server upload directory
 // (TODO: display the charset selection, even if is_upload == FALSE)
 if ($cfg['UploadDir'] != '' && !isset($is_inside_querywindow) ||
-    ($cfg['UploadDir'] != '' && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) {
+    ($cfg['UploadDir'] != '' && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')) && isset($db) && $db != '') {
 
     if ($handle = @opendir($cfg['UploadDir'])) {
         $is_first = 0;
@@ -245,14 +251,14 @@ if (!isset($is_inside_querywindow) ||
     }
 }
 
-if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go)))) {
+if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go))) && isset($db) && $db != '') {
 ?>
             <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
 <?php
 }
 
 if (!isset($is_inside_querywindow) ||
-    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) {
+    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')) && isset($db) && $db != '') {
 
     // loic1: displays import dump feature only if file upload available
     $ldi_target = 'ldi_table.php3?' . $url_query;

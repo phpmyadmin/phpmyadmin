@@ -26,6 +26,7 @@ $Source$
     * libraries/common.lib.php3: Fixed SHOW TABLE STATUS LIKE ... FROM ...
       usage. (Bug #720846)
     * footer.inc.php3: Needed \n for some cases.
+    * tbl_query_box.php3: Only display file import when a DB is selected.
 
 2003-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french: update
