@@ -107,7 +107,7 @@ $message = '';
 foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
     // skip fields to be ignored
     if (!$using_key && isset($GLOBALS['insert_ignore_' . $enc_primary_key])) continue;
-    
+
     // Restore the "primary key" to a convenient format
     $primary_key = urldecode($enc_primary_key);
 
@@ -121,10 +121,10 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
     $me_funcs       = isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$enc_primary_key])       ? $funcs['multi_edit'][$enc_primary_key]       : null;
     $me_fields_type = isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : null;
     $me_fields_null = isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : null;
-  	   
-    if ($using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($primary_key)) { 	 
-        $prot_result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';'); 	 
-        $prot_row         = PMA_DBI_fetch_assoc($prot_result); 	 
+
+    if ($using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($primary_key)) {
+        $prot_result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';');
+        $prot_row         = PMA_DBI_fetch_assoc($prot_result);
         PMA_DBI_free_result($prot_result);
         unset($prot_result);
     }
@@ -137,13 +137,15 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
 
         if (empty($me_funcs[$encoded_key])) {
             $cur_value = $val . ', ';
+        } else if (preg_match('@^(UNIX_TIMESTAMP)$@', $me_funcs[$encoded_key]) && $val != '\'\'') {
+            $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
         } else if (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key])) {
             $cur_value = $me_funcs[$encoded_key] . '(), ';
         } else {
             $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
         }
-        
-        if ($is_insert) { 
+
+        if ($is_insert) {
             // insert, no need to add column
             $valuelist .= $cur_value;
         } else if (empty($me_funcs[$encoded_key])
@@ -159,7 +161,7 @@ foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
 
     // get rid of last ,
     $valuelist    = preg_replace('@, $@', '', $valuelist);
-    
+
     // Builds the sql query
     if ($is_insert) {
         if (empty($query)) {

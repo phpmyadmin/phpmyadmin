@@ -24,6 +24,8 @@ $Source$
       Fix left frame reloading after dropping table (bug #1034531).
     * config.inc.php, libraries/config_import.lib.php: Offer UNIX_TIMESTAMP
       also for numeric fields.
+    * tbl_replace.php: UNIX_TIMESTAMP can take optional parameter (bug
+      #1039193).
 
 2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to boralioglu.
