@@ -58,13 +58,11 @@ if (get_magic_quotes_gpc()) {
 if (!isset($goto)) {
     $goto    = 'db_details.php3';
 }
-//if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
 if (!ereg('^(db_details|tbl_properties|tbl_select)', $goto)) {
-    $err_url = $goto;
+    $err_url = $goto . "?" . PMA_generate_common_url($db) . "&amp;sql_query=" . urlencode($sql_query);
 } else {
     $err_url = $goto . '?'
              . PMA_generate_common_url($db)
-             //. (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
              . ((ereg('^(tbl_properties|tbl_select)', $goto)) ? '&amp;table=' . urlencode($table) : '');
 }
 
