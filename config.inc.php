@@ -525,7 +525,6 @@ $cfg['NaturalOrder']        = TRUE;         // Sort table and database in natura
 //    some specials for new icons and scrollings
 // FIXME:
 // 2004-05-08 rabus: We need to rearrange these variables.
-// 2004-06-03 nijel: We also need to add these to Documentation.html
 
 $cfg['ShowHttpHostTitle']   = TRUE;            // show HttpHost in browsers window title (true|false)?
 $cfg['SetHttpHostTitle']    = '';              // if ShowHttpHostTitle=true, please set your host (server)
