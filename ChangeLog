@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-09 Marc Delisle  <lem9@users.sourceforge.net>
+	* main.php3, libraries/auth/cookie.auth.lib.php3, Patch 
+	  495360 (cookie with domain), experimental, thanks to
+	  Piotr Roszatycki (d3xter) and Christoph (certelt)
+
 2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/functions.js: improved the "mark row" feature (it wasn't
 	  working with Mozilla, for example).
