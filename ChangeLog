@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-28 Garvin Hicking <freakyfriday@supergarv.de>
+    * main.php: Fixed one remaining preg_match
+
 2003-11-27 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: bug 816666: sort order and aliases
 
