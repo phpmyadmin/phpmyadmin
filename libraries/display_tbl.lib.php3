@@ -1043,14 +1043,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $vertical_display['delete'][$foo] = '';
             }
             if (isset($edit_url)) {
-                $vertical_display['edit'][$foo]       .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+                $vertical_display['edit'][$foo]   .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
                                                   .  '        <a href="' . $edit_url . '">' . "\n"
                                                   .  '            ' . $edit_str . '</a>' . "\n"
                                                   .  '    </td>' . "\n";
             }
 
             if (isset($del_url)) {
-                $vertical_display['delete'][$foo]     .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+                $vertical_display['delete'][$foo] .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
                                                   .  '        <a href="' . $del_url . '"';
             }
             if (isset($js_conf)) {
