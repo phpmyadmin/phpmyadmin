@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-27 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * browse_foreigners.php3: undefined variable.
+
 2003-08-26 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Backwards compatibility.
     * tbl_change.php3: bug #795171 (foreign field empty when editing record).

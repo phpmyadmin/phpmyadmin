@@ -104,7 +104,7 @@ if ($the_total > $per_page) {
         $firstPage = ($pageNow - $range < 1 ? 1 : $pageNow - $range);
         $lastPage  = ($pageNow + $range > $nbTotalPage ? $nbTotalPage : $pageNow + $range);
     }
-    
+
     for ($i=$firstPage; $i<=$lastPage; $i++){
         if ($i == $pageNow) {
             $selected = 'selected="selected"';
@@ -144,20 +144,22 @@ if (isset($disp) && $disp) {
             $vtitle = htmlspecialchars($relrow[$foreign_display]);
             $value  = (($foreign_display != FALSE) ? htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
         }
-        
+
         if ($count > $cfg['RepeatCells']) {
             echo $header;
             $count = -1;
         }
+        $key_equals_data = isset($data) && $key == $data;
 ?>
     <tr>
-        <td nowrap="nowrap" bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key == $data ? '<b>' : '') . '<a href="#" title="' . $strUseThisValue . ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . htmlspecialchars($key) . '</a>' . ($key == $data ? '</b>' : ''); ?></td>
-        <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key == $data ? '<b>' : '') .                 '<a href="#" title="' . $strUseThisValue . ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . $value . '</a>' . ($key == $data ? '</b>' : ''); ?></td>
+        <td nowrap="nowrap" bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') . '<a href="#" title="' . $strUseThisValue . ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . htmlspecialchars($key) . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
+        <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') .                 '<a href="#" title="' . $strUseThisValue . ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . $value . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
         <td width="20%"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-        <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key == $data ? '<b>' : '') .                 '<a href="#" title="' . $strUseThisValue .  ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . $value . '</a>' . ($key == $data ? '</b>' : ''); ?></td>
-        <td nowrap="nowrap" bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key == $data ? '<b>' : '') . '<a href="#" title="' . $strUseThisValue .  ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . htmlspecialchars($key) . '</a>' . ($key == $data ? '</b>' : ''); ?></td>
+        <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') .                 '<a href="#" title="' . $strUseThisValue .  ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . $value . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
+        <td nowrap="nowrap" bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') . '<a href="#" title="' . $strUseThisValue .  ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . htmlspecialchars($key) . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
     </tr>
 <?php
+        unset($key_equals_data);
     } // end while
 }
 
