@@ -138,7 +138,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     if (isset($cfg['FileRevision'])) {
         // converting revision string into an array
         //     e.g. "Revision: 2.0" becomes array(2, 0).
-        $cfg['FileRevision'] = str_replace('$Revision$cfg['FileRevision']);
+        $cfg['FileRevision'] = str_replace('$' . 'Revision: ', '', $cfg['FileRevision']);
         $cfg['FileRevision'] = str_replace(' $', '', $cfg['FileRevision']);
         $cfg['FileRevision'] = explode('.', $cfg['FileRevision']);
     } else {
