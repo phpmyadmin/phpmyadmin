@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-02-14 Alexander M. Turek  <thewall@derrabus.de>
+    * libraries/database_interface.lib.php, libraries/dbi/*.dbi.lib.php:
+      Introduced options parameter for query functions.
+    * libraries/mysql_charsets.lib.php: Fixed a "MySQL out of sync" error.
+
 2004-02-13 Alexander M. Turek  <resist@derrabus.de>
     * libraries/common.lib.php: Fixed bug #890186 (PMA chokes on undefined
       parser functions if one of the very first queries fails.

@@ -2,15 +2,22 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+/**
+ * Common Option Constants For DBI Functions
+ */
+define('PMA_DBI_QUERY_STORE', 1);  // Force STORE_RESULT method, ignored by classic MySQL.
+
+/**
+ * Including The DBI Plugin
+ */
 require_once('./libraries/dbi/' . $cfg['Server']['extension'] . '.dbi.lib.php');
 
-function PMA_DBI_query($query, $dbh = '') {
-    if (empty($dbh)) {
-        $dbh = $GLOBALS['userlink'];
-    }
-
-    $res = PMA_DBI_try_query($query, $dbh)
-        or PMA_mysqlDie(PMA_DBI_getError($dbh), $query);
+/**
+ * Common Functions
+ */
+function PMA_DBI_query($query, $link = NULL, $options = 0) {
+    $res = PMA_DBI_try_query($query, $link, $options)
+        or PMA_mysqlDie(PMA_DBI_getError(), $query);
 
     return $res;
 }

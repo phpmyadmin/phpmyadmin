@@ -76,7 +76,7 @@ function PMA_DBI_connect($user, $password) {
     return $link;
 }
 
-function PMA_DBI_select_db($dbname, $link = '') {
+function PMA_DBI_select_db($dbname, $link = NULL) {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -90,7 +90,13 @@ function PMA_DBI_select_db($dbname, $link = '') {
     return mysqli_select_db($link, $dbname);
 }
 
-function PMA_DBI_try_query($query, $link = '') {
+function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
+    if ($options == $options | PMA_DBI_QUERY_STORE) {
+        $method = MYSQLI_STORE_RESULT;
+    } else {
+        $method = MYSQLI_USE_RESULT;
+    }
+
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -101,7 +107,7 @@ function PMA_DBI_try_query($query, $link = '') {
     if (PMA_MYSQL_INT_VERSION < 40100) {
         $query = PMA_convert_charset($query);
     }
-    return mysqli_query($link, $query, MYSQLI_USE_RESULT);
+    return mysqli_query($link, $query, $method);
 }
 
 // The following function is meant for internal use only.
@@ -155,7 +161,7 @@ function PMA_DBI_free_result($result) {
     return @mysqli_free_result($result);
 }
 
-function PMA_DBI_getError($link = '') {
+function PMA_DBI_getError($link = NULL) {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -172,7 +178,7 @@ function PMA_DBI_getError($link = '') {
     return $error;
 }
 
-function PMA_DBI_close($link = '') {
+function PMA_DBI_close($link = NULL) {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];

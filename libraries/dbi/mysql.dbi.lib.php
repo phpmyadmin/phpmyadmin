@@ -89,7 +89,7 @@ function PMA_DBI_connect($user, $password) {
     return $link;
 }
 
-function PMA_DBI_select_db($dbname, $link = '') {
+function PMA_DBI_select_db($dbname, $link = NULL) {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -103,7 +103,7 @@ function PMA_DBI_select_db($dbname, $link = '') {
     return mysql_select_db($dbname, $link);
 }
 
-function PMA_DBI_try_query($query, $link = '') {
+function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -169,7 +169,7 @@ function PMA_DBI_free_result($result) {
     return @mysql_free_result($result);
 }
 
-function PMA_DBI_getError($link = '') {
+function PMA_DBI_getError($link = NULL) {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -186,7 +186,7 @@ function PMA_DBI_getError($link = '') {
     return $error;
 }
 
-function PMA_DBI_close($link = '') {
+function PMA_DBI_close($link = NULL) {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -201,7 +201,7 @@ function PMA_DBI_num_rows($result) {
     return mysql_num_rows($result);
 }
 
-function PMA_DBI_insert_id($link = '') {
+function PMA_DBI_insert_id($link = NULL) {
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
