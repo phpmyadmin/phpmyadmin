@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_move_copy.php3: wrong Missing message
+
 2003-07-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: Implemented some version checks to avoid bugs like
       #777785.
