@@ -231,7 +231,7 @@ $cfg['ManualBaseShort'] = 'http://www.mysql.com/doc';
  * Language and charset conversion settings
  */
 // Default language to use, if not browser-defined or user-defined
-$cfg['DefaultLang'] = 'en';
+$cfg['DefaultLang'] = 'en-iso-8859-1';
 
 // Default charset to use for recoding of MySQL queries, does not take
 // any effect when charsets recoding is switched off by

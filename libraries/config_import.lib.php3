@@ -387,7 +387,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
             $cfg['DefaultLang'] = $cfgDefaultLang;
             unset($cfgDefaultLang);
         } else {
-            $cfg['DefaultLang'] = 'en';
+            $cfg['DefaultLang'] = 'en-iso-8859-1';
         }
     }
 
