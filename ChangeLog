@@ -28,16 +28,21 @@ $Source$
 	  tbl_properties.php3: choosing not to execute a drop statement leads now
 	  to the calling script (and not the target one used only if this statement
 	  is executed).
-	* db_readdump.php3: Olivier's improvement for mutiple queries (see before)
-	  was invalid. Fixed it.
+	* db_readdump.php3: improved Olivier's improvement for mutiple queries (see
+      before).
 	* lib.inc.php3, line 524: beautify a bit the way the query is displayed.
 	* lang/english.inc.php3; lang/french.inc.php3: put $strInstructions at its
 	  right place.
 	* lib.inc.php3, lines 196-200; config.inc.php3, line 40;
 	  Documentation.html, lines 352-357: merged patch #452877
 	  ($cfgServer['only_db'] - array) from Jakub Wilk.
-	* functions.js: fixed bug #450255 (new javascript error with netscape3)
-	  thanks to François <outils@altern.org>.
+	* functions.js; left.js : fixed bug #450255 (new javascript error with
+	  netscape3) and an other one with netscape 3 thanks to
+	  François <outils@altern.org>.
+	* left.php3; lang/*: checks if databases from $cfgServers[1]['only_db']
+	  exits before displaying them at the left frame and take into account
+	  the case where there is no usable databases.
+	* Documentation.html: various updates.
 
 2001-08-18  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* lib.inc.php3 (788, 790) : tweak size for lower resolution screens.
