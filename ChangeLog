@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/latvian: Updated, thanks to Sandis Jerics (saaa2002).
+
 2004-09-18 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian updated, thanks to "nobody"
     * lang/albanian: Updated, thanks to Laurent Dhima (laurenti).
