@@ -30,6 +30,9 @@ header('Content-Type: text/html; charset=' . $charset);
 /**
  * Displays the frame
  */
+$font_family = ($charset == 'iso-8859-1')
+             ? 'verdana, helvetica, arial, geneva, sans-serif'
+             : 'sans-serif';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html>
@@ -44,10 +47,29 @@ header('Content-Type: text/html; charset=' . $charset);
     var isIE4      = ((typeof(document.all) != 'undefined') && (parseInt(navigator.appVersion) >= 4)) ? 1 : 0;
     var isNS4      = (typeof(document.layers) != 'undefined') ? 1 : 0;
     var capable    = (isDOM || isIE4 || isNS4) ? 1 : 0;
-    var fontFamily = '<?php echo (($charset == 'iso-8859-1') ? 'verdana, helvetica, arial, geneva, sans-serif' : 'sans-serif'); ?>';
+    // Uggly fix for Konqueror and Opera that are not fully DOM compliant
+    if (capable && typeof(navigator.userAgent) != 'undefined') {
+        var browserName = ' ' + navigator.userAgent.toLowerCase();
+        if (browserName.indexOf('opera') > 0 || browserName.indexOf('konqueror') > 0) {
+            capable = 0;
+        }
+    }
+    var fontFamily = '<?php echo $font_family; ?>';
     //-->
     </script>
     <script src="left.js" type="text/javascript" language="javascript1.2"></script>
+    <noscript>
+        <style type="text/css">
+        <!--
+        div {color: #000000;}
+        .heada {font: 12px/13px; Times}
+        .parent {font-family: <?php echo $font_family; ?>; color: #000000; text-decoration: none;}
+        .child {font-family: <?php echo $font_family; ?>; font-size: 8pt; color: #333399; text-decoration: none;}
+        .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none;}
+        .tblItem:hover {color: #FF0000; text-decoration: underline;}
+        //-->
+        </style>
+    </noscript>
     <style type="text/css">
     <!--
 <?php
@@ -130,7 +152,7 @@ if ($server > 0) {
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
         <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&goto=tbl_properties.php3">
             <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-        <a class="item" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
+        <a class="tblItem" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
             <?php
         } // end for $j (tables list)
