@@ -26,20 +26,11 @@ if (isset($message)) {
 else if (isset($reload) && $reload) {
     // Reloads the navigation frame via JavaScript if required
 
-    // Select the file to be displayed
-          
-    if ($cfgLeftFrameLight) {
-        $leftFrame = "leftlight.php3";
-    } else {
-        $leftFrame = "left.php3";
-    }
-
     echo "\n";
     ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./<?php echo $leftFrame; ?>?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>');
-//-->
+window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>'); //-->
 </script>
     <?php
 }

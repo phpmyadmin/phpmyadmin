@@ -24,6 +24,16 @@ if ($cfgOBGzip) {
     }
 }
 
+/** 
+ * Findout if we want to display the standard left.php or the light version
+ */
+
+if (isset($cfgLeftFrameLight) && $cfgLeftFrameLight) {
+    $lightMode = 1;
+} else {
+    $lightMode = 0;
+}
+
 
 /**
  * Get the list and number of available databases.
@@ -182,6 +192,16 @@ echo "\n";
 //    or $cfgServers['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
 if ($num_dbs > 1) {
+
+    if ($lightMode) {
+        echo '<form action="leftlight.php3" method="get" name="left" target="nav">';
+        echo '<input type="hidden" name="lang" value="' . $lang . '">';
+        echo '<input type="hidden" name="server" value="' . $server . '">';
+        echo '<select name="db" onchange="this.form.submit();">';
+        $table_list = "";
+        $db_name = "";
+    }
+
     $selected_db = 0;
 
     // Gets the tables list per database
@@ -213,8 +233,11 @@ if ($num_dbs > 1) {
             } // end while
         } // end if
 
+if ($lightMode == 0) {
+
         // Displays the database name
         $on_mouse = (($cfgLeftPointerColor == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftPointerColor . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftBgColor . '\')}"');
+
         echo "\n";
         echo '    <div id="el' . $j . 'Parent" class="parent"' . $on_mouse . '>';
 
@@ -256,9 +279,63 @@ if ($num_dbs > 1) {
     </div>
         <?php
         echo "\n";
-    } // end for $t (db list)
-    ?>
 
+} else {  // lightMode == 1
+
+        // Displays the database name
+        echo "\n";        
+
+        if (!empty($db_start) && $db == $db_start) {
+                // Displays the list of tables from the current database
+                for ($j = 0; $j < $num_tables; $j++) {
+                    $table = mysql_tablename($tables, $j);
+                    $table_list .= '<nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />';
+                    $table_list .= '<a target="phpmain" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table)) . '&amp;pos=0&amp;goto=tbl_properties.php3">';
+                    $table_list .= '<img src="images/browse.gif" border="0" alt="' . $strBrowse . ': ' . $table . '" /></a>';
+                    $table_list .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>';
+                    $table_list .= '<nobr><a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
+
+                } // end for $j (tables list)
+
+                if (!$table_list) { 
+                    $table_list = "no tables in this db";
+                }
+            $selected = ' SELECTED';
+
+            $db_name = '<a class="item" href="db_details.php3?' . $common_url_query .'">';
+            $db_name .= '<span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span>';
+            $db_name .= '<span class="headaCnt">(' . $num_tables_disp . ')</span></a></nobr>';
+      
+        } else {
+            $selected = '';
+        }
+
+        if (!empty($num_tables)) {
+            echo "<option value=\"" . urlencode($db) . "\"$selected>$db ($num_tables)</option>";
+        } else {
+            echo "<option value=\"" . urlencode($db) . "\"$selected>$db (-)</option>";
+        }
+
+} // if lightMode
+
+    } // end for $t (db list)
+
+
+if ($lightMode) {
+
+    echo '</select>';
+    echo '<noscript><input type="submit" name="Go" value="Go"></noscript>';
+    echo '</form>';
+
+    if (!$table_list) { 
+        $table_list = "please select a db";
+    } 
+
+    echo "$db_name<hr noshade>$table_list<hr noshade>";
+
+} else {  // lightmode == 0
+
+    ?>
 
     <!-- Arrange collapsible/expandable db list at startup -->
     <script type="text/javascript" language="javascript1.2">
@@ -273,6 +350,11 @@ if ($num_dbs > 1) {
     //-->
     </script>
     <?php
+
+} // lightmode
+
+
+
 } // end if ($server > 1)
 
 // Case where only one database has to be displayed

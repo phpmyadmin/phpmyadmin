@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-18  Olivier Müller  <om@omnis.ch>
+	* left.php3 db_details.php3, index.php3, main.php3, libraries/common.lib.php3:
+	  removed the leftlight.php3 file, and put all the code in left.php3: it
+	  should be cleaner and "nicer" this way. 
+
 2002-01-15  Marc Delisle  <lem9@users.sourceforge.net>
         * read_dump.php3, Documentation.html: support for open_basedir, 
           thanks to Alessandro Ranellucci for the idea
