@@ -266,9 +266,10 @@ if (!defined('__LIB_INC__')){
                 $server_port   = (empty($cfgServer['port']))
                                ? ''
                                : ':' . $cfgServer['port'];
-                $server_socket = (empty($cfgServer['socket']) || PMA_INT_VERSION < 30010)
+                $server_socket = (empty($cfgServer['socket']) || PMA_INT_VERSION >= 30010)
                                ? ''
                                : ':' . $cfgServer['socket'];
+
                 $dbh           = @$connect_func(
                                      $cfgServer['host'] . $server_port . $server_socket,
                                      $cfgServer['stduser'],
@@ -359,11 +360,20 @@ if (!defined('__LIB_INC__')){
         } // end Advanced authentication
 
         // Do connect to the user's database
-        if (empty($cfgServer['port'])) {
-            $link = $connect_func($cfgServer['host'], $cfgServer['user'], $cfgServer['password']) or mysql_die();
-        } else {
-            $link = $connect_func($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['user'], $cfgServer['password']) or mysql_die();
-        }
+
+        $server_port   = (empty($cfgServer['port']))
+                       ? ''
+                       : ':' . $cfgServer['port'];
+        $server_socket = (empty($cfgServer['socket']) || PMA_INT_VERSION >= 30010)
+                       ? ''
+                       : ':' . $cfgServer['socket'];
+
+        $dbh           = $connect_func(
+                             $cfgServer['host'] . $server_port . $server_socket,
+                             $cfgServer['user'],
+                             $cfgServer['password']
+                         ) or mysql_die();
+
     } // end server connecting
 
     /**
