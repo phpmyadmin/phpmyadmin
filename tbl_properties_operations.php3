@@ -6,6 +6,8 @@
  * Runs common work
  */
 require('./tbl_properties_common.php3');
+$err_url   = 'tbl_properties_operations.php3' . $err_url;
+$url_query .= '&amp;back=tbl_properties_operations.php3';
 
 
 /**
@@ -299,7 +301,9 @@ if (!empty($cfg['Server']['relation'])) {
         <?php
         echo "\n";
         while ($rel = mysql_fetch_row($result)) {
-            echo '        <a href="sql.php3?' . $url_query .'&amp;sql_query='
+            echo '        '
+                 . '<a href="sql.php3?' . $url_query
+                 . '&amp;sql_query='
                  . urlencode('SELECT ' . PMA_backquote($table) . '.* FROM '
                              . PMA_backquote($table) . ' LEFT JOIN '
                              . PMA_backquote($rel[1]) . ' ON '
@@ -323,7 +327,7 @@ if (!empty($cfg['Server']['relation'])) {
 
     <!-- Flushes the table -->
     <li>
-        <a href="sql.php3?<?php echo str_replace('&amp;goto=tbl_properties.php3', '&amp;goto=tbl_properties_operations.php3', $url_query); ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfg['ShowTooltip']) echo '&amp;reload=1'; ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfg['ShowTooltip']) echo '&amp;reload=1'; ?>">
             <?php echo $strFlushTable; ?></a>&nbsp;
             <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
         <br /><br />

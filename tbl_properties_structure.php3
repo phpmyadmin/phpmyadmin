@@ -2,7 +2,13 @@
 /* $Id$ */
 
 
+/**
+ * Runs common work
+ */
 require('./tbl_properties_common.php3');
+$err_url   = 'tbl_properties_structure.php3' . $err_url;
+$url_query .= '&amp;back=tbl_properties_structure.php3';
+
 
 /**
  * Drop multiple fields if required

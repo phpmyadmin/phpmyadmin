@@ -7,9 +7,12 @@ $Source$
 
 2002-05-03 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/italian.inc.php3: updated, thanks to Pietro Danesi.
-    * tbl_properties_operations.php3; tbl_properties_options.php3: messages are
-      now displayed if a query had been submitted to change some options or to
-      sort the table.
+    * tbl_properties.php3; tbl_properties_export.php3;
+      tbl_properties_operations.php3; tbl_properties_options.php3;
+      tbl_properties_strucuture.php3:
+      - messages are now displayed if a query had been submitted to change some
+        options or to sort the table;
+      - pursuit the "stay on the sub-pages as long as needed" work.
 
 2002-05-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/*.inc.php3: cleanup.

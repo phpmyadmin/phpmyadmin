@@ -2,9 +2,11 @@
 /* $Id$ */
 
 
+/**
+ * Gets tables informations and displays top links
+ */
 require('./tbl_properties_common.php3');
 require('./tbl_properties_table_info.php3');
-
 ?>
     <!-- Dump of a database -->
         <form method="post" action="tbl_dump.php3" name="tbl_dump">
