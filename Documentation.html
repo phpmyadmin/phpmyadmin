@@ -118,7 +118,7 @@
         PHP also needs to be <font color="#bb0000">compiled with MySQL support</font>;
     </li>
     <li>
-        MySQL (tested with 3.21.x, 3.22.x and 3.23.x);
+        MySQL (tested with 3.21.x, 3.22.x, 3.23.x and 4.0.x);
     </li>
     <li>
         a web-browser (doh!).
@@ -1140,6 +1140,34 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <br />
     All of these three settings limit the maximum size of data that can be
     submitted and handled by php.
+</p>
+
+<p>
+    <b>Does phpMyAdmin support MySQL&nbsp;4?</b>
+    <br />
+    MySQL&nbsp;4 is not yet fully supported by phpMyAdmin.<br />
+    Because of MySQL&nbsp;4's backwards compatibility you can use phpMyAdmin
+    for administering MySQL&nbsp;4 servers, but phpMyAdmin does not yet
+    support its new features. Please notice that in this case it is recommended
+    to use php&nbsp;&gt;=&nbsp;4.1 since older versions of php are not
+    compatible to MySQL&nbsp;4.<br />
+    Furthermore, several users reported problems with phpMyAdmin related to
+    bugs in MySQL&nbsp;4. <font color="#bb0000">MySQL&nbsp;4 is still an alpha
+    release and should be used for test purposes only!</font>
+</p>
+
+<p>
+    <b>I'm running MySQL&nbsp;4.0.1 on a Windows&nbsp;NT machine. Each time I
+       create a table the table name is changed to lowercase.</b>
+    <br />
+    This seems to be a bug of MySQL&nbsp;4.0.1 because it also appears when
+    using the MySQL commandline. Currently we only know about its appearance on
+    Windows&nbsp;NT systems, but it is possible that it appears on other
+    systems, too.<br />
+    If you encounter this bug together with another OS and/or MySQL version or
+    you know how to work around it, please post a message into
+    <a href="https://sourceforge.net/tracker/index.php?func=detail&aid=540671&group_id=23067&atid=377408"
+    target="_blank">our bug tracker</a> at SourceForge.
 </p>
 
 

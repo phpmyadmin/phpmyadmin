@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-14 Alexander M. Turek  <rabus@users.sourceforge.net>
+	* Documentation.html: Added some notes about MySQL 4.
+
 2002-04-13 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/korean.inc.php3: fixed some inconcistencies.
 	* main.php3, lines 200-201; user_details.php3, line 82 & 1339-1344: fixed
