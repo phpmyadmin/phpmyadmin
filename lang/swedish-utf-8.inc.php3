@@ -20,6 +20,7 @@ $timespanfmt = '%s dagar, %s timmar, %s minuter och %s sekunder';
 
 $strAPrimaryKey = 'En primär nyckel har lagts till för %s';
 $strAbortedClients = 'Avbrutna';
+$strAbsolutePathToDocSqlDir = 'Ange absolut sökväg på webbservern till docSQL-katalog';
 $strAccessDenied = 'Åtkomst nekad';
 $strAction = 'Åtgärd';
 $strAddDeleteColumn = 'Lägg till/ta bort fältkolumner';
@@ -27,10 +28,14 @@ $strAddDeleteRow = 'Lägg till/ta bort villkorsrader';
 $strAddNewField = 'Lägg till fält';
 $strAddPriv = 'Lägg till ett nytt privilegium';
 $strAddPrivMessage = 'Du har lagt till ett nytt privilegium.';
+$strAddPrivilegesOnDb = 'Lägg till privilegier till följande databas';
+$strAddPrivilegesOnTbl = 'Lägg till privilegier till följande tabell';
 $strAddSearchConditions = 'Lägg till sökvillkor (uttryck i "where"-sats):';
 $strAddToIndex = 'Lägg till&nbsp;%s&nbsp;kolumn(er) till index';
 $strAddUser = 'Lägg till ny användare';
 $strAddUserMessage = 'Du har lagt till en ny användare.';
+$strAddedColumnComment = 'La till kommentar för kolumn';
+$strAddedColumnRelation = 'La till relation för kolumn';
 $strAdministration = 'Administration';
 $strAffectedRows = 'Påverkade rader:';
 $strAfter = 'Efter %s';
@@ -85,6 +90,7 @@ $strChoosePage = 'Välj en sida att redigera';
 $strColComFeat = 'Visning av kolumnkommentarer';
 $strColumn = 'Kolumn';
 $strColumnNames = 'Kolumn-namn';
+$strColumnPrivileges = 'Kolumnspecifika privilegier';
 $strCommand = 'Kommando';
 $strComments = 'Kommentarer';
 $strCompleteInserts = 'Kompletta infogningar';
@@ -114,6 +120,7 @@ $strDatabaseHasBeenDropped = 'Databasen %s har tagits bort.';
 $strDatabaseWildcard = 'Databas (jokertecken tillåtna):';
 $strDatabases = 'databaser';
 $strDatabasesStats = 'Databas-statistik';
+$strDbPrivileges = 'Databasspecifika privilegier';
 $strDefault = 'Standard';
 $strDelete = 'Radera';
 $strDeleteAndFlush = 'Ta bort användarna och ladda om privilegierna efteråt.';
@@ -135,6 +142,7 @@ $strDocu = 'Dokumentation';
 $strDrop = 'Radera';
 $strDropDB = 'Radera databas %s';
 $strDropTable = 'Radera tabell';
+$strDropUsersDb = 'Ta bort databaserna med samma namn som användarna.';
 $strDumpXRows = 'Visa %s rader med början på rad %s.';
 $strDumpingData = 'Data i tabell';
 $strDynamic = 'dynamisk';
@@ -165,6 +173,7 @@ $strFieldsEmpty = ' Antalet fält är noll! ';
 $strFieldsEnclosedBy = 'Fälten omges av';
 $strFieldsEscapedBy = 'Specialtecken i fält föregås av';
 $strFieldsTerminatedBy = 'Fälten avslutas med';
+$strFileCouldNotBeRead = 'Filen kunde inte läsas';
 $strFixed = 'fast';
 $strFlushPrivilegesNote = 'Anm: phpMyAdmin hämtar användarnas privilegier direkt från MySQL:s privilegiumtabeller. Innehållet i dessa tabeller kan skilja sig från privilegierna som servern använder ifall manuella ändringar har gjorts. I detta fall bör du %sladda om privilegierna%s innan du fortsätter.';
 $strFlushTable = 'Rensa tabellen ("FLUSH TABLE")';
@@ -196,7 +205,10 @@ $strId = 'ID';
 $strIdxFulltext = 'Heltext';
 $strIfYouWish = 'Om du vill ladda enbart några av tabellens kolumner, ange en kommaseparerad fältlista.';
 $strIgnore = 'Ignorera';
+$strIgnoringFile = 'Ignorerar fil %s';
 $strImportDocSQL = 'Importera docSQL-filer';
+$strImportFiles = 'Importera filer';
+$strImportFinished = 'Importen avslutad';
 $strInUse = 'används';
 $strIndex = 'Index';
 $strIndexHasBeenDropped = 'Index %s har tagits bort';
@@ -229,11 +241,12 @@ $strLines = 'Rader';
 $strLinesTerminatedBy = 'Raderna avslutas med';
 $strLinkNotFound = 'Länk ej funnen';
 $strLinksTo = 'Länkar till';
-$strLocalhost = 'Local';
+$strLocalhost = 'Lokal';
 $strLocationTextfile = 'Textfilens plats';
 $strLogPassword = 'Lösenord:';
 $strLogUsername = 'Användarnamn:';
 $strLogin = 'Logga in';
+$strLoginInformation = 'Inloggningsinformation';
 $strLogout = 'Logga ut';
 
 $strMissingBracket = 'Parantes saknas';
@@ -269,6 +282,7 @@ $strNoQuery = 'Ingen SQL-fråga!';
 $strNoRights = 'Du har inte tillräcklig behörighet för att vara här!';
 $strNoTablesFound = 'Inga tabeller funna i databasen.';
 $strNoUsersFound = 'Hittade ingen användare.';
+$strNoUsersSelected = 'Inga användare markerade.';
 $strNoValidateSQL = 'Utan validering';
 $strNone = 'Inget';
 $strNotNumber = 'Det är inte ett nummer!';
@@ -476,10 +490,13 @@ $strTableOfContents = 'Innehållsförteckning';
 $strTableStructure = 'Struktur för tabell';
 $strTableType = 'Tabelltyp';
 $strTables = '%s tabell(er)';
+$strTblPrivileges = 'Tabellspecifika privilegier';
 $strTextAreaLength = ' På grund av dess längd,<br /> kanske detta fält inte kan redigeras ';
 $strTheContent = 'Filens innehåll har importerats.';
 $strTheContents = 'Filens innehåll ersätter den valda tabellens rader som har identiska primära eller unika nycklar.';
 $strTheTerminator = 'Fältavslutare.';
+$strThisHost = 'Denna värd';
+$strThisNotDirectory = 'Detta var inte en katalog';
 $strThreadSuccessfullyKilled = 'Tråd %s dödades med framgång.';
 $strTime = 'Tid';
 $strTotal = 'totalt';
@@ -497,9 +514,12 @@ $strUpdateQuery = 'Uppdatera fråga';
 $strUsage = 'Användning';
 $strUseBackquotes = 'Använd bakåtcitat runt tabell- och fältnamn';
 $strUseTables = 'Använd tabeller';
+$strUseTextField = 'Använd textfältet';
 $strUser = 'Användare';
+$strUserAlreadyExists = 'Användaren %s finns redan!';
 $strUserEmpty = 'Användarnamnet är tomt!';
 $strUserName = 'Användarnamn';
+$strUserNotFound = 'Den markerade användaren kunde inte hittas i privilegiumtabellen.';
 $strUserOverview = 'Användaröversikt';
 $strUsers = 'Användare';
 $strUsersDeleted = 'De markerade användarna har tagits bort.';
@@ -515,6 +535,8 @@ $strWebServerUploadDirectory = 'Uppladdningskatalog på webbserver';
 $strWebServerUploadDirectoryError = 'Katalogen som du konfigurerat för uppladdning kan inte nås';
 $strWelcome = 'Välkommen till %s';
 $strWithChecked = 'Med markerade:';
+$strWritingCommentNotPossible = 'Skrivning av kommentar inte möjlig';
+$strWritingRelationNotPossible = 'Skrivning av relation inte möjlig';
 $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 
 $strYes = 'Ja';
@@ -522,37 +544,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 // To translate
-
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
-$strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-
-$strColumnPrivileges = 'Column-specific privileges'; //to translate
-
-$strDbPrivileges = 'Database-specific privileges'; //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
-
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strImportFiles = 'Import files';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-
-$strLoginInformation = 'Login Information'; //to translate
-
-$strNoUsersSelected = 'No users selected.'; //to translate
-
-$strTblPrivileges = 'Table-specific privileges'; //to translate
-$strThisHost = 'This Host'; //to translate
-$strThisNotDirectory = 'This was not a directory';  //to translate
-
-$strUseTextField = 'Use text field'; //to translate
-$strUserAlreadyExists = 'The user %s already exists!'; //to translate
-$strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
-
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
 
 ?>
