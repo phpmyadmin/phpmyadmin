@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html, typo about GRANT: patch 616772,
+      thanks to Vince LaMonica (vjl323)
+
 2002-10-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Fixed some typos,
       thanks to Kai Michael Poppe (sdcepoppe).

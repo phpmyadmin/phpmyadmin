@@ -617,12 +617,13 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 create a new database for phpmyadmin:<br />
                 <tt>&nbsp;&nbsp;CREATE DATABASE phpmyadmin;</tt><br />
                 Note that &quot;controluser&quot; must have
-                <tt>SELECT, INSERT</tt> and <tt>DELETE</tt> privileges on this
-                database. Here is a query to set up those privileges
-                (using &quot;phpmyadmin&quot; as the database name, and
-                &quot;pma&quot; as the controluser):<br />
+                <tt>SELECT, INSERT, UPDATE</tt> and <tt>DELETE</tt> 
+                privileges on this database. Here is a query to set up 
+                those privileges (using &quot;phpmyadmin&quot; 
+                as the database name, and &quot;pma&quot; as the 
+                controluser):<br />
                 <tt>
-                &nbsp;&nbsp;GRANT SELECT,INSERT,DELETE ON phpmyadmin.* to 'pma'@localhost;
+                &nbsp;&nbsp;GRANT SELECT,INSERT,UPDATE,DELETE ON phpmyadmin.* to 'pma'@'localhost';
                 </tt><br />
                 do <b>not</b> give any other user rights on this database.
             </li>
