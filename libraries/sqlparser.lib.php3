@@ -875,8 +875,12 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                              
                     if ($subresult['querytype'] == 'SELECT') {
                         if (!$seen_from) {
-                            if ($previous_was_identifier) {
+                            if ($previous_was_identifier && isset($chain)) {
                                 // found alias for this select_expr, save it
+                                // but only if we got something in $chain
+                                // (for example, SELECT COUNT(*) AS cnt
+                                // puts nothing in $chain, so we avoid
+                                // setting the alias)
                                 $alias_for_select_expr = $identifier;
                             } else {
                                 $chain[] = $identifier;
