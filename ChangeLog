@@ -11,6 +11,8 @@ $Source$
     * tbl_properties_export.php3: bug 692143: now we remove the 
       LIMIT clause from the original query to use the limits entered
       on the export form
+    * pdf_schema.php3: better header/footer for long pages,
+      thanks to Maxime Delorme
 
 2003-03-01 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_indexes.php3: Cleaner solution for showing query after changing

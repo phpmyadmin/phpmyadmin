@@ -335,7 +335,7 @@ class PMA_PDF extends FPDF
                     . ' AND page_nr = \'' . $pdf_page_number . '\'';
         $test_rs    = PMA_query_as_cu($test_query);
         $pages = @PMA_mysql_fetch_array($test_rs);
-        $this->SetFont('', 'B');
+        $this->SetFont('', 'B', 14);
         $this->Cell(0,6, ucfirst($pages['page_descr']),'B',1,'C');
         $this->SetFont('', '');
         $this->Ln();
@@ -346,6 +346,7 @@ class PMA_PDF extends FPDF
         global $with_doc;
         if ($with_doc){
             $this->SetY(-15);
+            $this->SetFont('', '',14); 
             $this->Cell(0,6, $GLOBALS['strPageNumber'] .' '.$this->PageNo() .'/{nb}','T',0,'C');
             $this->Cell(0,6, PMA_localisedDate(),0,1,'R');
             $this->SetY(20);
