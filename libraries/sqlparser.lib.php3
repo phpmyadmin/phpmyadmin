@@ -673,7 +673,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'ON',
             'USING'
         );
-        $keywords_with_brackets_1before_cnt        = 3;
+        $keywords_with_brackets_1before_cnt        = 4;
 
         $keywords_with_brackets_2before            = array(
             'IGNORE',
@@ -816,6 +816,14 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $before    .= ' ';
                     }
                     break;
+		case 'alpha_columnAttrib':
+                    if ($typearr[3] == 'alpha_columnAttrib') {
+                        $after     .= ' ';
+                    }
+                    if ($typearr[3] == 'quote_single') {
+                        $after     .= ' ';
+                    }
+		    break;
                 case 'alpha_reservedWord':
                     $upper         = $arr[$i]['data'];
                     if ((($typearr[1] != 'alpha_reservedWord')
