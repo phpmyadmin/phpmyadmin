@@ -38,23 +38,15 @@ if (isset($sql_query)) {
     if (!empty($analyzed_sql[0]['from_clause'])) {
         $sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
     }
-    if (!empty($analyzed_sql[0]['where_clause'])) {
-        $sql_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
-    }
     if (isset($primary_key)) {
-        if (empty($analyzed_sql[0]['where_clause'])) {
-            $sql_query .= ' WHERE ';
-        } else {
-            $sql_query .= ' AND ( ';
-        }
+        $sql_query .= ' WHERE ';
         $conj = '';
         foreach($primary_key AS $i => $key) {
             $sql_query .= $conj . '( ' . $key . ' ) ';
             $conj = 'OR ';
         }
-        if (!empty($analyzed_sql[0]['where_clause'])) {
-            $sql_query .= ' ) ';
-        }
+    } else {
+        $sql_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
     }
     if (!empty($analyzed_sql[0]['group_by_clause'])) {
         $sql_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
