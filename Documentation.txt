@@ -7,30 +7,28 @@
        http://phpmyadmin.sourceforge.net/ ]
      * Local documents:
           + Version history: [3]ChangeLog
-          + Installation instructions: [4]INSTALL
-          + General notes: [5]README
-          + Credits information: [6]CREDITS
-          + License: [7]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.41 2001/08/09
-       08:09:19 swix Exp $
+          + General notes: [4]README
+          + License: [5]LICENSE
+     * Documentation version: $Id: Documentation.html,v 1.45 2001/08/19
+       20:06:21 swix Exp $
    ______________________________________________________________________
    
-   [8]Top  -  [9]Requirements  -  [10]Introduction  -  [11]Installation
-   -  [12]Configuration  -  [13]FAQ  -  [14]Developers  -  [15]Credits
+   [6]Top  -  [7]Requirements  -  [8]Introduction  -  [9]Installation  -
+   [10]Configuration  -  [11]FAQ  -  [12]Developers  -  [13]Credits
    ______________________________________________________________________
    
 Requirements
 
-     * phpMyAdmin widely uses the 'str_replace()' php function that was
-       added in PHP 3.0.6, but was buggy up until PHP 3.0.8. Then you
-       should not run this script with PHP3 < 3.0.8.
+     * PHP3 or PHP4: phpMyAdmin widely uses the 'str_replace()' php
+       function that was added in PHP 3.0.6, but was buggy up until
+       PHP 3.0.8. Then you should not run this script with PHP3 < 3.0.8.
        PHP also needs to be compiled with mysql and PRCE support;
      * MySQL (tested with 3.21.x, 3.22.x and 3.23.x);
      * a web-browser (doh!).
    ______________________________________________________________________
    
-   [16]Top  -  [17]Requirements  -  [18]Introduction  -  [19]Installation
-    -  [20]Configuration  -  [21]FAQ  -  [22]Developers  -  [23]Credits
+   [14]Top  -  [15]Requirements  -  [16]Introduction  -  [17]Installation
+    -  [18]Configuration  -  [19]FAQ  -  [20]Developers  -  [21]Credits
    ______________________________________________________________________
    
 Introduction
@@ -56,14 +54,14 @@ Introduction
    (--with-zlib) and/or Bzip2 support (--with-bz2).
    ______________________________________________________________________
    
-   [24]Top  -  [25]Requirements  -  [26]Introduction  -  [27]Installation
-    -  [28]Configuration  -  [29]FAQ  -  [30]Developers  -  [31]Credits
+   [22]Top  -  [23]Requirements  -  [24]Introduction  -  [25]Installation
+    -  [26]Configuration  -  [27]FAQ  -  [28]Developers  -  [29]Credits
    ______________________________________________________________________
    
 Installation
 
    Quick Install:
-    1. Untar or unzip the distribution (be sure to untar the
+    1. Untar or unzip the distribution (be sure to unzip the
        subdirectories): tar xzvf phpMyAdmin_x.x.x.tar.gz
     2. Open the file config.inc.php3 in your favourite editor and change
        the values for host, user and password to fit your environment.
@@ -78,22 +76,6 @@ Installation
        your databases, or a login dialog if using advanced
        authentication.
        
-   Installation notes:
-     * Be sure to protect the phpMyAdmin-directory. By default, it is not
-       protected in any way! It shouldn't be readable by anyone and
-       especially not by search-engines. Although I've added a "nofollow"
-       directive on every page, there may be search-engines that don't
-       care about that and still follow the links on the page. Think of
-       AltaVista following a link named "Drop Database". You can get an
-       overview of Apache's authentification methods at:
-                 [32]http://www.apacheweek.com/features/userauth
-     * If you don't use the extension ".php3" for your scripts, you can
-       use the bundled script scripts/extchg.sh to modify phpMyAdmin (or
-       any other script) to work with a different extension. Beware
-       though, that currently changing the extension from .html to
-       something other won't work (it'd change all
-       "string".htmlspecialchars() constructs).
-       
    Upgrading from an older version:
      * Please do not copy your older config.inc.php3 over the new one: it
        may offer new configuration variables, and the new version may
@@ -101,8 +83,8 @@ Installation
        insert your site values in the new one.
    ______________________________________________________________________
    
-   [33]Top  -  [34]Requirements  -  [35]Introduction  -  [36]Installation
-    -  [37]Configuration  -  [38]FAQ  -  [39]Developers  -  [40]Credits
+   [30]Top  -  [31]Requirements  -  [32]Introduction  -  [33]Installation
+    -  [34]Configuration  -  [35]FAQ  -  [36]Developers  -  [37]Credits
    ______________________________________________________________________
    
 Configuration
@@ -164,9 +146,9 @@ Configuration
           this MySQL-server when using basic authentification.
           Not needed when using advanced authentification.
           
-   $cfgServers[n]['only_db'] string
-          If set to a database name, only this database will be shown to
-          the user.
+   $cfgServers[n]['only_db'] string or array
+          If set to a(an array of) database name(s), only this(these)
+          database(s) will be shown to the user.
           
    $cfgServers[n]['verbose'] string
           Only useful when using phpMyAdmin with multiple server entries.
@@ -279,6 +261,9 @@ Configuration
           $cfgTextareaRows integer
           Number of columns and rows for the textareas.
           
+   $cfgLimitChars integer
+          Maximal number of Chars showed in a field on browse view.
+          
    $cfgModifyDeleteAtLeft boolean
           $cfgModifyDeleteAtRight boolean
           Defines the place where modify and delete links would be put
@@ -301,8 +286,8 @@ Configuration
           need to edit this.
    ______________________________________________________________________
    
-   [41]Top  -  [42]Requirements  -  [43]Introduction  -  [44]Installation
-    -  [45]Configuration  -  [46]FAQ  -  [47]Developers  -  [48]Credits
+   [38]Top  -  [39]Requirements  -  [40]Introduction  -  [41]Installation
+    -  [42]Configuration  -  [43]FAQ  -  [44]Developers  -  [45]Credits
    ______________________________________________________________________
    
 FAQ - Frequently Asked Questions
@@ -331,7 +316,7 @@ FAQ - Frequently Asked Questions
    The error message "Warning: MySQL Connection Failed: Can't connect to
    local MySQL server through socket '/tmp/mysql.sock' (111)...") is
    displayed. What can I do?
-   Here is a fix suggested by Brad Ummer in the [49]phpwizard forum:
+   Here is a fix suggested by Brad Ummer in the [46]phpwizard forum:
      * First, you need to determine what socket is being used by MySQL.
        To do this, telnet to your server and go to the MySQL bin
        directory. In this directory there should be a file named
@@ -367,19 +352,14 @@ FAQ - Frequently Asked Questions
        cvs -z3
        -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmy
        admin checkout phpMyAdmin
-          or
-       cvs -z3
-       -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmy
-       admin checkout phpMyAdmin-devel
-       [This will create a new sub-directory named phpMyAdmin or
-       phpMyAdmin-devel]
+       [This will create a new sub-directory named phpMyAdmin]
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
-       tracker of the [50]phpMyAdmin SourceForge account.
+       tracker of the [47]phpMyAdmin SourceForge account.
        
    Write access to the CVS tree is granted only to experienced developers
    who have already contributed something useful to phpMyAdmin.
-   Also, have a look at the [51]Developers section.
+   Also, have a look at the [48]Developers section.
    
    What's the preferred way of making phpMyAdmin secure against evil
    access?
@@ -459,17 +439,17 @@ FAQ - Frequently Asked Questions
    7.0 and you updated your php rpm to php-4.0.4pl1-3.i386.rpm, didn't
    you?
    So the problem is that this package has a serious bug that was
-   corrected ages ago in php (2001-01-28: see [52]php's bug tracking
+   corrected ages ago in php (2001-01-28: see [49]php's bug tracking
    system for more details). The problem is that the bugged package is
-   still available though it was corrected (see [53]redhat's bugzilla for
+   still available though it was corrected (see [50]redhat's bugzilla for
    more details).
-   So please download [54]the fixed package and the problem should go
+   So please download [51]the fixed package and the problem should go
    away.
    And that fixes the \r\n problem with file uploads!
    ______________________________________________________________________
    
-   [55]Top  -  [56]Requirements  -  [57]Introduction  -  [58]Installation
-    -  [59]Configuration  -  [60]FAQ  -  [61]Developers  -  [62]Credits
+   [52]Top  -  [53]Requirements  -  [54]Introduction  -  [55]Installation
+    -  [56]Configuration  -  [57]FAQ  -  [58]Developers  -  [59]Credits
    ______________________________________________________________________
    
 Developers Information
@@ -489,7 +469,7 @@ Developers Information
        please try to keep your code as simple as possible: beginners are
        using phpMyAdmin as an example application.
        By the way, we're currently updating all the scripts so they will
-       be XHTML1.0 and CSS2 compliant on one hand, they will fit [63]PEAR
+       be XHTML1.0 and CSS2 compliant on one hand, they will fit [60]PEAR
        coding standards on the other hand. Please pay attention to this.
      * Please try to keep up the file-naming conventions. Table-related
        stuff goes to tbl_*.php3, db-related code to db_*.php3 and so on.
@@ -508,16 +488,11 @@ Developers Information
        cvs -z3
        -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmy
        admin checkout phpMyAdmin
-           or
-       cvs -z3
-       -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmy
-       admin checkout phpMyAdmin-devel
-       [This will create a new sub-directory named phpMyAdmin or
-       phpMyAdmin-devel]
+       [This will create a new sub-directory named phpMyAdmin]
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
        tracker of the phpMyAdmin SourceForge account
-       ([64]http://sourceforge.net/projects/phpmyadmin/)
+       ([61]http://sourceforge.net/projects/phpmyadmin/)
        
    Write access to the CVS tree is granted only to developers who have
    already contributed something useful to phpMyAdmin. If you're
@@ -525,56 +500,68 @@ Developers Information
    mailing list.
    ______________________________________________________________________
    
-   [65]Top  -  [66]Requirements  -  [67]Introduction  -  [68]Installation
-    -  [69]Configuration  -  [70]FAQ  -  [71]Developers  -  [72]Credits
+   [62]Top  -  [63]Requirements  -  [64]Introduction  -  [65]Installation
+    -  [66]Configuration  -  [67]FAQ  -  [68]Developers  -  [69]Credits
    ______________________________________________________________________
    
 Credits
 
+
+phpMyAdmin - Credits
+====================
+
 CREDITS, in chronological order
 -------------------------------
 
-[tr] - Tobias Ratschiller <tobias@phpwizard.net>
+[tr] - Tobias Ratschiller <tobias_at_phpwizard.net>
         * creator of the phpmyadmin project
         * maintainer from 1998 to summer 2000
 
-[md] - Marc Delisle <DelislMa@CollegeSherbrooke.qc.ca>
+[md] - Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
         * multi-language version
-        * various fixes
+        * various fixes and improvements
 
-[om] - Olivier Müller <om@omnis.ch>
-        * started sourceforge phpMyAdmin project
+[om] - Olivier Müller <om_at_omnis.ch>
+        * started SourceForge phpMyAdmin project in March 2001
         * sync'ed different existing CVS trees with new features and bugfixes
+        * multi-language improvements, dynamic language selection
         * current project maintainer, with Marc and Loic
 
-[lc] - Loïc Chapeaux <lolo@phpHeaven.net>
+[lc] - Loïc Chapeaux <lolo_at_phpHeaven.net>
         * rewrote and optimized javascript, DHTML and DOM stuff
         * started to rewrite the scripts so they fit the PEAR coding standards
           and generate XHTML1.0 and CSS2 compliant codes
         * improved the language detection system
+        * many bugfixes and improvements
+
+[rj] - Robin Johnson <robbat2_at_users.sourceforge.net>
+        * database maintence controls
+        * table type code
+
+[af] - Armel Fauveau <armel.fauveau_at_globalis-ms.com>
+        * bookmarks feature
+        * multiple dump feature
+        * gzip dump feature
+
+[gl] - Geert Lund <glund_at_silversoft.dk>
+        * various fixes
+        * moderator of the phpMyAdmin users forum at phpwizard.net
+
+[kc] - Korakot Chaovavanich <korakot_at_iname.com>
+        * "insert as new row" feature
+
+[pk] - Pete Kelly <webmaster_at_trafficg.com>
         * bugfixes
 
-[mg] - Mirko Giese <mgiese@users.sourceforge.net>
-
-[rj] - Robin Johnson <robbat2@users.sourceforge.net>
-        * Database maintence controls
-        * Table type code
-
-[af] - Armel Fauveau <armel.fauveau@globalis-ms.com>
-        * Bookmarks feature
-        * Multiple dump feature
-        * Gzip dump feature
-
-[gl] - Geert Lund <glund@silversoft.dk>
-[kc] - Korakot Chaovavanich <korakot@iname.com>
-[pk] - Pete Kelly <webmaster@trafficg.com>
-
-[sa] - Steve Alberty <alberty@neptunlabs.de>
+[sa] - Steve Alberty <alberty_at_neptunlabs.de>
         * rewrote dump code for PHP4
-        * MySQL Table Statistics
+        * mySQL table statistics
+        * bugfixes
 
-[bg] - Benjamin Gandon <gandon@isia.cma.fr>
+[bg] - Benjamin Gandon <gandon_at_isia.cma.fr>
         * main author of the version 2.1.0.1
+        * bugfixes
+
 
 The following people have contributed minor changes, enhancements, bugfixes or
 or support for a new language since version 2.1.0:
@@ -582,7 +569,7 @@ Ricardo ?, Sven-Erik Andersen, Alessandro Astarita, Borges Botelho,
 Olivier Bussier, Michal Cihar, Neil Darlow, Kristof Hamann, Thomas Kläger,
 Lubos Klokner, Martin Marconcini, Girish Nair, David Nordenberg,
 Bernard M. Piller, Laurent Haas, "Sakamoto", www.securereality.com.au,
-Michael Tacelosky, Daniel Villanueva, Vinay, Chee Wai,
+Michael Tacelosky, Daniel Villanueva, Vinay, Chee Wai, Jakub Wilk,
 Thomas Michael Winningham.
 
 
@@ -592,29 +579,33 @@ Original Credits of Version 2.1.0
     This work is based on Peter Kuppelwieser's MySQL-Webadmin. It was his idea
     to create a web-based interface to MySQL using PHP3. Although I have not
     used any of his source-code, there are some concepts I've borrowed from
-    him. phpMyAdmin was created because Peter told me he wasn't going to
-    further develop his (great) tool.
+    him. phpMyAdmin was created because Peter told me he wasn't going to furthe
+r
+    develop his (great) tool.
     Thanks go to
-    - Amalesh Kempf <ak-lsml@living-source.com> who contributed the code
-      for the check when dropping a table or database. He also suggested that
-      you should be able to specify the primary key on tbl_create.php3. To
-      version 1.1.1 he contributed the ldi_*.php3-set (Import text-files) as
-      well as a bug-report. Plus many smaller improvements.
-    - Jan Legenhausen <jan@nrw.net>: He made many of the changes that
-      were introduced in 1.3.0 (including quite significant ones like the
+    - Amalesh Kempf <ak-lsml_at_living-source.com> who contributed the code for
+
+      the check when dropping a table or database. He also suggested that you
+      should be able to specify the primary key on tbl_create.php3. To version
+      1.1.1 he contributed the ldi_*.php3-set (Import text-files) as well as
+      a bug-report. Plus many smaller improvements.
+    - Jan Legenhausen <jan_at_nrw.net>: He made many of the changes that were
+      introduced in 1.3.0 (including quite significant ones like the
       authentification). For 1.4.1 he enhanced the table-dump feature. Plus
       bug-fixes and help.
-    - Marc Delisle <DelislMa@CollegeSherbrooke.qc.ca> made phpMyAdmin
-      language-independent by outsourcing the strings to a separate file. He
-      also contributed the French translation.
-    - Alexandr Bravo <abravo@hq.admiral.ru> who contributed
-      tbl_select.php3, a feature to display only some fields from a table.
-    - Chris Jackson <chrisj@ctel.net> added support for MySQL functions
-      in tbl_change.php3. He also added the "Query by Example" feature in 2.0.
-    - Dave Walton <walton@nordicdms.com> added support for multiple
-      servers and is a regular contributor for bug-fixes.
-    - Gabriel Ash <ga244@is8.nyu.edu> contributed the random access
-      features for 2.0.6.
+    - Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca> made phpMyAdmin langua
+ge-
+      independent by outsourcing the strings to a separate file. He also
+      contributed the French translation.
+    - Alexandr Bravo <abravo_at_hq.admiral.ru> who contributed tbl_select.php3,
+      a feature to display only some fields from a table.
+    - Chris Jackson <chrisj_at_ctel.net> added support for MySQL functions in
+      tbl_change.php3. He also added the "Query by Example" feature in 2.0.
+    - Dave Walton <walton_at_nordicdms.com> added support for multiple servers
+and
+      is a regular contributor for bug-fixes.
+    - Gabriel Ash <ga244_at_is8.nyu.edu> contributed the random access features
+      for 2.0.6.
     The following people have contributed minor changes, enhancements, bugfixes
     or support for a new language:
     Jim Kraai, Jordi Bruguera, Miquel Obrador, Geert Lund, Thomas Kleemann,
@@ -627,23 +618,22 @@ Original Credits of Version 2.1.0
     or just some feedback.
    ______________________________________________________________________
    
-   [73]Top  -  [74]Requirements  -  [75]Introduction  -  [76]Installation
-    -  [77]Configuration  -  [78]FAQ  -  [79]Developers  -  [80]Credits
+   [70]Top  -  [71]Requirements  -  [72]Introduction  -  [73]Installation
+    -  [74]Configuration  -  [75]FAQ  -  [76]Developers  -  [77]Credits
    ______________________________________________________________________
    
-                                [81]Valid XHTML 1.0!      [82]Valid CSS! 
+                                [78]Valid XHTML 1.0!      [79]Valid CSS! 
 
 References
 
    1. http://www.phpwizard.net/projects/phpMyAdmin/
    2. http://phpmyadmin.sourceforge.net/
-  32. http://www.apacheweek.com/features/userauth
-  49. http://www.phpwizard.net/phorum/list.php?f=1
-  50. https://sourceforge.net/projects/phpmyadmin/
-  52. http://www.php.net/bugs.php?id=8966
-  53. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
-  54. http://people.redhat.com/nalin/test/php-4.0.4pl1-7.i386.rpm
-  63. http://pear.php.net/
-  64. http://sourceforge.net/projects/phpmyadmin/
-  81. http://validator.w3.org/check/referer
-  82. http://jigsaw.w3.org/css-validator/
+  46. http://www.phpwizard.net/phorum/list.php?f=1
+  47. https://sourceforge.net/projects/phpmyadmin/
+  49. http://www.php.net/bugs.php?id=8966
+  50. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
+  51. http://people.redhat.com/nalin/test/php-4.0.4pl1-7.i386.rpm
+  60. http://pear.php.net/
+  61. http://sourceforge.net/projects/phpmyadmin/
+  78. http://validator.w3.org/check/referer
+  79. http://jigsaw.w3.org/css-validator/
