@@ -230,10 +230,10 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
 <input type="submit" name="SQL" value="<?php echo $strGo; ?>">
 </form>
 <li><a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table");?>&pos=0&<?php echo $query;?>"><?php echo $strBrowse; ?></a></li>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table");?>&pos=0&<?php echo $query;?>"><?php echo $strCheckTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#CHECK_TABLE"); ?></li>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("ANALYZE TABLE $table");?>&pos=0&<?php echo $query;?>"><?php echo $strAnalyzeTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#ANALYZE_TABLE"); ?></li>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("REPAIR TABLE $table");?>&pos=0&<?php echo $query;?>"><?php echo $strRepairTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#REPAIR_TABLE"); ?></li>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&pos=0&<?php echo $query;?>"><?php echo $strOptimizeTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE"); ?></li>
+<li><a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table");?>&display=bkmOnly&<?php echo $query;?>"><?php echo $strCheckTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#CHECK_TABLE"); ?></li>
+<li><a href="sql.php3?sql_query=<?php echo urlencode("ANALYZE TABLE $table");?>&display=bkmOnly&<?php echo $query;?>"><?php echo $strAnalyzeTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#ANALYZE_TABLE"); ?></li>
+<li><a href="sql.php3?sql_query=<?php echo urlencode("REPAIR TABLE $table");?>&display=bkmOnly&<?php echo $query;?>"><?php echo $strRepairTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#REPAIR_TABLE"); ?></li>
+<li><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&display=bkmOnly&<?php echo $query;?>"><?php echo $strOptimizeTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE"); ?></li>
 <li><a href="tbl_select.php3?<?php echo $query;?>"><?php echo $strSelect; ?></a></li>
 <li><a href="tbl_change.php3?<?php echo $query;?>"><?php echo $strInsert; ?></a></li>
 <li><form method="post" action="tbl_addfield.php3"> <input type="hidden" name="server" value="<?php echo $server;?>">

@@ -2,7 +2,9 @@
 /* $Id$ */
 
 require("./config.inc.php3");
-mysql_select_db($db);
+if (isset($db)) {
+  mysql_select_db($db);
+}
 
 if(!defined("__LIB_INC__")) {
   define("__LIB_INC__", 1);
@@ -285,7 +287,7 @@ if($server == 0) {
 
 // -----------------------------------------------------------------
 
-function display_table ($dt_result) {
+function display_table ($dt_result, $is_simple = false) {
   global $cfgBorder, $cfgBgcolorOne, $cfgBgcolorTwo, $cfgMaxRows, $pos;
   global $server, $lang, $db, $table, $sql_query, $sql_order, $cfgOrder, $cfgShowBlob;
   global $goto, $strShowingRecords, $strSelectNumRows, $SelectNumRows;
@@ -299,20 +301,22 @@ function display_table ($dt_result) {
   load_javascript();
 
   $primary = false;
-  if(!empty($table) && !empty($db)) {
+  if(!$is_simple && !empty($table) && !empty($db)) {
     $result = mysql_query("SELECT COUNT(*) as total FROM $db.$table") or mysql_die();
     $row = mysql_fetch_array($result);
     $total = $row["total"];
   }
 
-  if(!isset($pos))
-    $pos = 0;
-  $pos_next = $pos + $cfgMaxRows;
-  $pos_prev = $pos - $cfgMaxRows;
-
-   if ($pos_prev < 0) {
-       $pos_prev = 0;
-   }
+  if (!$is_simple) {
+    if(!isset($pos)) {
+      $pos = 0;
+    }
+    $pos_next = $pos + $cfgMaxRows;
+    $pos_prev = $pos - $cfgMaxRows;
+    if ($pos_prev < 0) {
+      $pos_prev = 0;
+    }
+  }
 
   if(isset($total) && $total>1) {
     if(isset($SelectNumRows) && $SelectNumRows!=$total)
@@ -332,26 +336,28 @@ function display_table ($dt_result) {
     $field = mysql_fetch_field($dt_result);
     $table = $field->table;
     mysql_field_seek($dt_result, 0);
-    show_table_navigation($pos_next, $pos_prev, $dt_result);
+    if (!$is_simple) {
+	  show_table_navigation($pos_next, $pos_prev, $dt_result);
+	} else {
+	  echo '<p></p><p></p>';
+	}
     ?>
 
     <table border="<?php echo $cfgBorder;?>">
 
     <tr>
     <?php
-    if($cfgModifyDeleteAtLeft) {
+    if($cfgModifyDeleteAtLeft && !$is_simple) {
       echo "<td></td><td></td>\n";
     }
     while($field = mysql_fetch_field($dt_result))
     {
-        if(@mysql_num_rows($dt_result)>1)
+        if(@mysql_num_rows($dt_result)>1 && !$is_simple)
         {
             $sort_order=urlencode(" order by $field->name $cfgOrder");
             echo "<th>";
-            if(!eregi("SHOW VARIABLES|SHOW PROCESSLIST|SHOW STATUS", $sql_query))
                 echo "<A HREF=\"sql.php3?server=$server&lang=$lang&db=$db&pos=$pos&sql_query=".urlencode($sql_query)."&sql_order=$sort_order&table=$table\">";
-            echo $field->name;
-            if(!eregi("SHOW VARIABLES|SHOW PROCESSLIST|SHOW STATUS", $sql_query))
+                echo $field->name;
                 echo "</a>";
             echo "</th>\n";
         }
@@ -423,7 +429,7 @@ function display_table ($dt_result) {
 	$delete_url .= "?sql_query=".urlencode("DELETE FROM $table WHERE ").$uva_condition;
 	$delete_url .= "&$query";
 	$delete_url .= "&goto=sql.php3".urlencode("?$query&goto=tbl_properties.php3&sql_query=".urlencode($sql_query)."&zero_rows=".urlencode($strDeleted));
-	if($cfgModifyDeleteAtLeft) {
+	if($cfgModifyDeleteAtLeft && !$is_simple) {
 	  echo "<td><a href=\"$edit_url\">".$strEdit."</a></td>";
 	  echo "<td><a href=\"$delete_url\">".$strDelete."</a></td>";
 	}
@@ -447,7 +453,7 @@ function display_table ($dt_result) {
                 echo "<td>&nbsp;".htmlspecialchars($row[$i])."&nbsp;</td>\n";
             }
         }
-	if($cfgModifyDeleteAtRight) {
+	if($cfgModifyDeleteAtRight && !$is_simple) {
 	  echo "<td><a href=\"$edit_url\">".$strEdit."</a></td>";
 	  echo "<td><a href=\"$delete_url\">".$strDelete."</a></td>";
 	}
@@ -457,7 +463,9 @@ function display_table ($dt_result) {
     }
     echo "</table>\n";
 
-    show_table_navigation($pos_next, $pos_prev, $dt_result);
+    if (!$is_simple) {
+	    show_table_navigation($pos_next, $pos_prev, $dt_result);
+	}
 }//display_table
 
 // Return $table's CREATE definition

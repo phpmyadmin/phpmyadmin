@@ -107,17 +107,32 @@ else {
     else
     {
         include("./header.inc.php3");
-        display_table($result);
-        if(!eregi("SHOW VARIABLES|SHOW PROCESSLIST|SHOW STATUS", $sql_query))
+        // Define the display mode if it wasn't passed by url
+        if (!isset($display)) {
+        	$display = eregi('^((SHOW (VARIABLES|PROCESSLIST|STATUS))|((CHECK|ANALYZE|REPAIR|OPTIMIZE) TABLE ))', $sql_query, $which);
+            if (!empty($which[2]) && !empty($which[3])) {
+                $display = 'simple';
+            } else if (!empty($which[4]) && !empty($which[5])) {
+                $display = 'bkmOnly';
+            }
+        }
+
+        display_table($result, ($display == 'simple' || $display == 'bkmOnly'));
+        if ($display != 'simple')
         {
-            echo "<p><a href=\"tbl_change.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&goto=$goto&sql_query=".urlencode($sql_query)."\"> $strInsertNewRow</a></p>";
+        	if ($display != 'bkmOnly') {
+	            echo "<p><a href=\"tbl_change.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&goto=$goto&sql_query=".urlencode($sql_query)."\"> $strInsertNewRow</a></p>";
+	        }
 
             // Bookmark Support
 
             if($cfgBookmark['db'] && $cfgBookmark['table'] && $db!=$cfgBookmark['db'] && empty($id_bookmark))
             {
                 echo "<form method=\"post\" action=\"tbl_replace.php3\">\n";
-                echo "<i>$strOr</i><br><br>\n";
+               	if ($display != 'bkmOnly') {
+                    echo "<i>$strOr</i>";
+                }
+                echo "<br><br>\n";
                 echo $strBookmarkLabel.":\n";
                 $goto="sql.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&id_bookmark=1&sql_query=".urlencode($sql_query);
             ?>

@@ -5,8 +5,13 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-28  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, line 5: fixed a warning
+	* lib.inc.php3, main.php3, sql.php3, tbl_properties: options displayed with
+	  the results of a query depends now on its type (bug #425888)
+
 2001-05-27  Marc Delisle  <lem9@users.sourceforge.net>
-        * bug #426357: mysql_db_query deprecated
+	* bug #426357: mysql_db_query deprecated
 
 2001-05-24  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, line 131+: fixed the authentification failure with advanced

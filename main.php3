@@ -112,16 +112,16 @@ if($server > 0) {
 
 	if($result_usr['References_priv']=='Y') {
 		?>
-                <li><a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=mysql&sql_query=<?php echo urlencode("SHOW STATUS");?>">
+                <li><a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=mysql&sql_query=<?php echo urlencode("SHOW STATUS");?>&display=simple">
                 <?php echo $strMySQLShowStatus;?></a> <?php print show_docu("manual_Reference.html#Show");?>
 
-                <li><a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=mysql&sql_query=<?php echo urlencode("SHOW VARIABLES");?>">
+                <li><a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=mysql&sql_query=<?php echo urlencode("SHOW VARIABLES");?>&display=simple">
                 <?php echo $strMySQLShowVars;?></a> <?php print show_docu("manual_Performance.html#Performance");
             }
 
 	if($result_usr['Process_priv']=='Y') {
                 ?>
-                <li><a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=mysql&sql_query=<?php echo urlencode("SHOW PROCESSLIST");?>">
+                <li><a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=mysql&sql_query=<?php echo urlencode("SHOW PROCESSLIST");?>&display=simple">
                 <?php echo $strMySQLShowProcess;?></a> <?php print show_docu("manual_Reference.html#Show");
 	}
 
