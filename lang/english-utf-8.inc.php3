@@ -104,7 +104,7 @@ $strCommand = 'Command';
 $strComments = 'Comments';
 $strCompleteInserts = 'Complete inserts';
 $strCompression = 'Compression';
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.';
+$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you receive. In most cases a quote or a semicolon is missing somewhere.<br />If you receive a blank page, everything is fine.';
 $strConfigureTableCoord = 'Please configure the coordinates for table %s';
 $strConfirm = 'Do you really want to do it?';
 $strConnections = 'Connections';
@@ -597,5 +597,5 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strInnodbStat = 'InnoDB Status';  //to translate
+$strInnodbStat = 'InnoDB Status';
 ?>
