@@ -26,6 +26,10 @@ if ($submit_mult == 'row_edit') {
     $js_to_run = 'tbl_change.js';
 }
 
+if ($submit_mult == 'row_delete') {
+    $js_to_run = 'functions.js';
+}
+
 require_once('./header.inc.php');
 
 if (!empty($submit_mult)) {
