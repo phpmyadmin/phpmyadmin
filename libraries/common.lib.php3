@@ -1144,7 +1144,7 @@ if (typeof(document.getElementById) != 'undefined'
         <?php
         if ($cfg['ShowSQL'] == TRUE && !empty($GLOBALS['sql_query'])) {
             // Basic url query part
-            $url_qpart = '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
+            $url_qpart = '?' . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
             echo "\n";
             ?>
     <tr>
