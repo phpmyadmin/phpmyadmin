@@ -6,10 +6,12 @@ $Id$
 $Source$
 
 2001-08-20  Loïc Chapeaux  <lolo@phpheaven.net>
-	* tbl_properties.php3; tbl_dump.php3; lib.inc.php3; lang/*: fixed some bugs
-	  with CSV exportations and added a Ms Excel CSV specific choice (because
-	  we know Excel does not support <cr> in data). Thanks to
-	  François <outils@altern.org>.
+	* db_details.php3; tbl_properties.php3; tbl_dump.php3; lib.inc.php3;
+	  lang/*:
+	  - fixed some bugs with CSV exportations and added a Ms Excel CSV specific
+	    choice (because we know Excel does not support <cr> in data). Thanks to
+	    François <outils@altern.org>.
+	  - added an extended inserts option for dumps of data.
 
 2001-08-19  Olivier Müller  <om@omnis.ch>
 	* db_readdump.php3: if file contains mutiple queries, only show this line:

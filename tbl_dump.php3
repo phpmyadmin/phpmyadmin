@@ -14,13 +14,15 @@ function my_handler($sql_insert)
 {
     global $tmp_buffer;
 
+    // Defines the end of line delimiter to use
+    $eol_dlm = (isset($GLOBALS['extended_ins'])) ? ',' : ';';
     // Result will be displays on screen
     if (empty($GLOBALS['asfile'])) {
-        $tmp_buffer .= htmlspecialchars($sql_insert . ';' . $GLOBALS['crlf']);
+        $tmp_buffer .= htmlspecialchars($sql_insert . $eol_dlm . $GLOBALS['crlf']);
     }
     // Result will be save in a file
     else {
-        $tmp_buffer .= $sql_insert . ';' . $GLOBALS['crlf'];
+        $tmp_buffer .= $sql_insert . $eol_dlm . $GLOBALS['crlf'];
     }
 } // end of the 'my_handler()' function
 

@@ -1347,9 +1347,10 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
 
         $result = mysql_query('SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query) or mysql_die();
         if ($result != FALSE) {
+            $fields_cnt = mysql_num_fields($result);
 
             // Checks whether the field is an integer or not
-            for ($j = 0; $j < mysql_num_fields($result); $j++) {
+            for ($j = 0; $j < $fields_cnt; $j++) {
                 $field_set[$j] = backquote(mysql_field_name($result, $j), $use_backquotes);
                 $type          = mysql_field_type($result, $j);
                 if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
@@ -1370,15 +1371,14 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                                . ' VALUES (';
             }
         
-            $field_count = mysql_num_fields($result);
-
-            $search  = array("\x0a","\x0d","\x1a"); //\x08\\x09, not required
-            $replace = array("\\n","\\r","\Z");
+            $search     = array("\x0a","\x0d","\x1a"); //\x08\\x09, not required
+            $replace    = array("\\n","\\r","\Z");
+            $isFirstRow = TRUE;
 
             @set_time_limit(1200); // 20 Minutes
 
             while ($row = mysql_fetch_row($result)) {
-                for ($j = 0; $j < $field_count; $j++) {
+                for ($j = 0; $j < $fields_cnt; $j++) {
                     if (!isset($row[$j])) {
                         $values[]     = 'NULL';
                     } else if (!empty($row[$j])) {
@@ -1395,12 +1395,29 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     } // end if
                 } // end for
 
-                $insert_line = $schema_insert . implode(',', $values) . ')';
+                // Extended inserts case
+                if (isset($GLOBALS['extended_ins'])) {
+                    if ($isFirstRow) {
+                        $insert_line = $schema_insert . implode(',', $values) . ')';
+                        $isFirstRow  = FALSE;
+                    } else {
+                        $insert_line = '(' . implode(',', $values) . ')';
+                    }
+                }
+                // Other inserts case
+                else { 
+                   $insert_line = $schema_insert . implode(',', $values) . ')';
+                }
                 unset($values);
 
                 // Call the handler
                 $handler($insert_line);
             } // end while
+            
+            // Replace last comma by a semi-column in extended inserts case
+            if (isset($GLOBALS['extended_ins'])) {
+              $GLOBALS['tmp_buffer'] = ereg_replace(',([^,]*)$', ';\\1', $GLOBALS['tmp_buffer']);
+            }
         } // end if ($result != FALSE)
     
         return TRUE;
@@ -1433,8 +1450,10 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     {
         global $use_backquotes;
 
-        $result = mysql_query('SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query) or mysql_die();
-        $i      = 0;
+        $result     = mysql_query('SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query) or mysql_die();
+        $i          = 0;
+        $isFirstRow = TRUE;
+
         while ($row = mysql_fetch_row($result)) {
             @set_time_limit(60); // HaRa
             $table_list     = '(';
@@ -1446,12 +1465,17 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             $table_list     = substr($table_list, 0, -2);
             $table_list     .= ')';
 
-            if (isset($GLOBALS['showcolumns'])) {
-                $schema_insert = 'INSERT INTO ' . backquote(html_format($table), $use_backquotes)
-                               . ' ' . html_format($table_list) . ' VALUES (';
+            if (isset($GLOBALS['extended_ins']) && !$isFirstRow) {
+                $schema_insert = '(';
             } else {
-                $schema_insert = 'INSERT INTO ' . backquote(html_format($table), $use_backquotes)
-                               . ' VALUES (';
+                if (isset($GLOBALS['showcolumns'])) {
+                    $schema_insert = 'INSERT INTO ' . backquote(html_format($table), $use_backquotes)
+                                   . ' ' . html_format($table_list) . ' VALUES (';
+                } else {
+                    $schema_insert = 'INSERT INTO ' . backquote(html_format($table), $use_backquotes)
+                                   . ' VALUES (';
+                }
+                $isFirstRow        = FALSE;
             }
 
             for ($j = 0; $j < mysql_num_fields($result); $j++) {
@@ -1483,6 +1507,11 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             $handler(trim($schema_insert));
             ++$i;
         } // end while
+
+        // Replace last comma by a semi-column in extended inserts case
+        if ($i > 0 && isset($GLOBALS['extended_ins'])) {
+            $GLOBALS['tmp_buffer'] = ereg_replace(',([^,]*)$', ';\\1', $GLOBALS['tmp_buffer']);
+        }
 
         return TRUE;
     } // end of the 'get_table_content_old()' function
@@ -1690,6 +1719,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         }
         return $ret;
     } // end of the 'split_sql_file()' function
+
 
 
     /* ------------------------ The bookmark feature ----------------------- */

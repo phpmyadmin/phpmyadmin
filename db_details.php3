@@ -458,6 +458,12 @@ if ($num_tables > 0) {
                 <?php echo $strCompleteInserts . "\n"; ?>
             </td>
         </tr>
+        <tr>
+            <td<?php echo $colspan; ?>>
+                <input type="checkbox" name="extended_ins" value="yes" />
+                <?php echo $strExtendedInserts . "\n"; ?>
+            </td>
+        </tr>
     <?php
     // Add backquotes checkbox
     if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 6) {
@@ -537,7 +543,7 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
         </form>
     </li>
 
-    <!-- Drop table -->
+    <!-- Drop database -->
     <li>
         <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo $db; ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=true">
             <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>

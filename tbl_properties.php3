@@ -691,6 +691,8 @@ echo "\n";
                     <?php echo $strStrucDrop; ?><br />
                     <input type="checkbox" name="showcolumns" value="yes" />
                     <?php echo $strCompleteInserts; ?><br />
+                    <input type="checkbox" name="extended_ins" value="yes" />
+                    <?php echo $strExtendedInserts; ?><br />
 <?php
 // Add backquotes checkbox
 if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 6) {
