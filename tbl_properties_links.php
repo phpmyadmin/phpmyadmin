@@ -72,8 +72,8 @@ if ($cfg['LightTabs']) {
        . '    <tr>' . "\n"
        . '        <td class="nav" align="left" nowrap="nowrap" valign="bottom">'
        . '            <table border="0" cellpadding="0" cellspacing="0"><tr>'
-       . '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
-       . '                <td class="navSpacer"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td>';
+       . '                <td nowrap="nowrap"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="2" height="1" border="0" alt="" /></td>'
+       . '                <td class="navSpacer"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td>';
 }
 
 echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_props.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strStructure.'" />' : '') . $strStructure, 'tbl_properties_structure.php', $url_query)
@@ -88,7 +88,7 @@ echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['
    . "\n";
 
 if (!$cfg['LightTabs']) {
-    echo '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
+    echo '                <td nowrap="nowrap"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="2" height="1" border="0" alt="" /></td>'
        . '            </tr></table>' . "\n"
        . '        </td>' . "\n"
        . '    </tr>' . "\n"
