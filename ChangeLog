@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-02-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+    * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
+    * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
+    * lang/dutch update, thanks to Ivo Teel
+
 2004-02-05 Alexander M. Turek  <chaos@derrabus.de>
     * Documentation.html: Added FAQ 1.17a about error message, "Client does not
       support authentication protocol".
