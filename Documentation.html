@@ -628,6 +628,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
                 the keys.
             </li>
         </ul><br />
+        If you created a relation table before release 2.3.0, you can upgrade
+        it with those commands, assuming your table name is &quot;relation&quot;:<br />
+        <tt>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE src_table master_table VARCHAR(32) NOT NULL<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE src_column master_field VARCHAR(32) NOT NULL<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE dest_table foreign_table VARCHAR(32) NOT NULL<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE dest_column foreign_field VARCHAR(32) NOT NULL<br />
+        </tt><br />
     </dd>
 
     <dt><b>$cfg['ServerDefault']</b> integer</dt>
