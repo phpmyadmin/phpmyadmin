@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/romanian update, thanks to Valics Lehel
+    * lang/polish update, thanks to Jakub Wilk
+    
 2002-07-27 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian update, thanks to Pietro Danesi
     * lang/*, fix a typo
