@@ -284,7 +284,7 @@ $Source$
     * libraries/relation.lib.php3:83
         - Fixed $cfg['Servers']['Server'] -> $cfg['Server']
     * libraries/relation.lib.php3:144,190
-        - Cleaned up is_array() to isset(0 && is_array()
+        - Cleaned up is_array() to isset() && is_array()
     * tbl_change.php3:204
         - $type_nowrap added to case 'timestamp'
     * lang/estonian.inc.php3 updates, thanks to Alvar Soome (#570330)
@@ -657,7 +657,7 @@ $Source$
 
 2002-05-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3, line 1006: if a binary record contains
-      some html special characters, display was not xhtml compliant.
+      some html special characters, display was not xhtml compilant.
 
 2002-05-18 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/common.lib.php3; libraries/ip_allow_deny.lib.php3:
@@ -936,7 +936,7 @@ $Source$
 
 2002-04-24 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/*, lang/*: $cfg system changes.
-    * libraries/common.lib.php3, libraries/select_lang.php3,
+    * libraries/common.lib.php3, libraries/select_lang.lib.php3,
       libraries/config_import.lib.php3: Config file backwards compatibility.
 
 2002-04-24 Robin Johnson <robbat2@users.sourceforge.net>
