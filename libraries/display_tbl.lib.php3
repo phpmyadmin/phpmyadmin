@@ -411,7 +411,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $lang, $server, $db, $table;
         global $goto;
         global $sql_query, $num_rows, $pos, $session_max_rows;
-		global $verticaldisplay, $disp_direction, $repeat_cells;
+		global $vertical_display, $disp_direction, $repeat_cells;
         global $dontlimitchars;
 
         if ($disp_direction == 'horizontal') {
@@ -422,8 +422,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         }
         echo "\n";
 
-        $verticaldisplay['emptypre']   = 0;
-        $verticaldisplay['emptyafter'] = 0;
+        $vertical_display['emptypre']   = 0;
+        $vertical_display['emptyafter'] = 0;
 
         // 1. Displays the full/partial text button (part 1)...
         $colspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
@@ -446,7 +446,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         //     ... before the result table
         if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
             && $is_display['text_btn'] == '1') {
-            $verticaldisplay['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+            $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+            if ($disp_direction == 'verticalal') {
+
+                ?>
             if ($disp_direction == 'horizontal') {
                 ?>
     <td colspan="<?php echo $fields_cnt; ?>" align="center">
@@ -463,7 +466,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         //     and required
         else if ($GLOBALS['cfgModifyDeleteAtLeft'] && $is_display['text_btn'] == '1') {
             echo "\n";
-            $verticaldisplay['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+            $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
             if ($disp_direction == 'horizontal') {
                 ?>
     <td<?php echo $colspan; ?>" align="center">
@@ -477,7 +480,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         else if ($GLOBALS['cfgModifyDeleteAtLeft']
                  && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')) {
             echo "\n";
-            $verticaldisplay['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+            $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
             if ($disp_direction == 'horizontal') {
                 ?>
     <td<?php echo $colspan; ?>></td>
@@ -574,10 +577,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
     </th>
                     <?php
                 }
-                $verticaldisplay['desc'][] = '    <th>' . "\n"
-                                           . '        <a href="sql.php3?' . $url_query . '">' . "\n"
-                                           . '            ' . htmlspecialchars($fields_meta[$i]->name) . '</a>' . $order_img . "\n"
-                                           . '    </th>' . "\n";
+                $vertical_display['desc'][] = '    <th>' . "\n"
+                                            . '        <a href="sql.php3?' . $url_query . '">' . "\n"
+                                            . '            ' . htmlspecialchars($fields_meta[$i]->name) . '</a>' . $order_img . "\n"
+                                            . '    </th>' . "\n";
             } // end if (2.1)
 
             // 2.2 Results can't be sorted
@@ -590,9 +593,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
     </th>
                     <?php
                 }
-                $verticaldisplay['desc'][] = '    <th>' . "\n"
-                                           . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
-                                           . '    </th>';
+                $vertical_display['desc'][] = '    <th>' . "\n"
+                                            . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
+                                            . '    </th>';
             } // end else (2.2)
             echo "\n";
         } // end for
@@ -603,7 +606,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
             && $is_display['text_btn'] == '1') {
             echo "\n";
-            $verticaldisplay['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+            $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
             if ($disp_direction == 'horizontal') {
                 ?>
     <td<?php echo $colspan; ?>" align="center">
@@ -617,7 +620,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         else if ($GLOBALS['cfgModifyDeleteAtRight']
                  && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')) {
             echo "\n" . '    <td' . $colspan . '></td>';
-            $verticaldisplay['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
+            $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
         }
         echo "\n";
 
@@ -669,7 +672,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $lang, $server, $db, $table;
         global $goto;
         global $sql_query, $pos, $session_max_rows, $fields_meta, $fields_cnt;
-		global $verticaldisplay, $disp_direction, $repeat_cells;
+		global $vertical_display, $disp_direction, $repeat_cells;
         global $dontlimitchars;
 
         ?>
@@ -677,10 +680,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         <?php
         echo "\n";
 
-        $foo                       = 0;
-        $verticaldisplay['edit']   = array();
-        $verticaldisplay['delete'] = array();
-        $verticaldisplay['data']   = array();
+        $foo                        = 0;
+        $vertical_display['edit']   = array();
+        $vertical_display['delete'] = array();
+        $vertical_display['data']   = array();
 
         // Correction uva 19991216 in the while below
         // Previous code assumed that all tables have keys, specifically that
@@ -703,16 +706,16 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             if (($foo != 0) && ($repeat_cells != 0) && !($foo % $repeat_cells) && $disp_direction == 'horizontal') {
                 echo '<tr>' . "\n";
 
-                for ($foo_i = 0; $foo_i < $verticaldisplay['emptypre']; $foo_i++) {
+                for ($foo_i = 0; $foo_i < $vertical_display['emptypre']; $foo_i++) {
                     echo '    <td>&nbsp;</td>' . "\n";
                 }
 
-                reset($verticaldisplay["desc"]);
-                while (list($key, $val) = each($verticaldisplay['desc'])) {
+                reset($vertical_display['desc']);
+                while (list($key, $val) = each($vertical_display['desc'])) {
                     echo '    ' . $val;
                 }
 
-                for ($foo_i = 0; $foo_i < $verticaldisplay['emptyafter']; $foo_i++) {
+                for ($foo_i = 0; $foo_i < $vertical_display['emptyafter']; $foo_i++) {
                     echo '    <td>&nbsp;</td>' . "\n";
                 }
 
@@ -731,7 +734,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 <tr<?php echo $on_mouse; ?>>
                 <?php
             }
-            echo "\n";
+            echo (($disp_direction == 'horizontal') ? "\n" : '');
 
             // 1. Prepares the row (gets primary keys to use)
             if ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn') {
@@ -852,7 +855,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         <?php
                     }
                 } // end if (1.3)
-                echo "\n";
+                echo (($disp_direction == 'horizontal') ? "\n" : '');
             } // end if (1)
 
             // 2. Displays the rows' values
@@ -861,11 +864,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 if ($primary->numeric == 1) {
                     if (!isset($row[$primary->name])
                         || (function_exists('is_null') && is_null($row[$primary->name]))) {
-                        $verticaldisplay['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$i] != '') {
-                        $verticaldisplay['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
-                        $verticaldisplay['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 } else if ($GLOBALS['cfgShowBlob'] == FALSE && eregi('BLOB', $primary->type)) {
                     // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
@@ -874,11 +877,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     // fields.
                     $field_flags = mysql_field_flags($dt_result, $i);
                     if (eregi('BINARY', $field_flags)) {
-                        $verticaldisplay['data'][$foo][$i]     = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
                     } else {
                         if (!isset($row[$primary->name])
                             || (function_exists('is_null') && is_null($row[$primary->name]))) {
-                            $verticaldisplay['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                            $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                         } else if ($row[$primary->name] != '') {
                             if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
                                 $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
@@ -888,15 +891,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$primary->name] = htmlspecialchars($row[$primary->name]);
                             $row[$primary->name] = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$primary->name]));
                             $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$primary->name]);
-                            $verticaldisplay['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
+                            $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                         } else {
-                            $verticaldisplay['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                            $vertical_display['data'][$foo][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                         }
                     }
                 } else {
                     if (!isset($row[$primary->name])
                         || (function_exists('is_null') && is_null($row[$primary->name]))) {
-                        $verticaldisplay['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$primary->name] != '') {
                         // loic1: Cut text/blob fields even if $cfgShowBlob is true
                         if (eregi('BLOB', $primary->type)) {
@@ -920,21 +923,21 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $row[$primary->name] = str_replace("\011", '&nbsp;&nbsp;&nbsp;&nbsp;', str_replace(' ', '&nbsp;', $row[$primary->name]));
                             $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$primary->name]);
                         }
-                        $verticaldisplay['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
-                        $verticaldisplay['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                        $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 }
 
                 // lem9: output stored cell
                 if ($disp_direction == 'horizontal') {
-                    echo $verticaldisplay['data'][$foo][$i];
+                    echo $vertical_display['data'][$foo][$i];
                 }
 
-                if (isset($verticaldisplay['rowdata'][$i][$foo])) {
-				    $verticaldisplay['rowdata'][$i][$foo] .= $verticaldisplay['data'][$foo][$i];
+                if (isset($vertical_display['rowdata'][$i][$foo])) {
+				    $vertical_display['rowdata'][$i][$foo] .= $vertical_display['data'][$foo][$i];
                 } else {
-				    $verticaldisplay['rowdata'][$i][$foo] = $verticaldisplay['data'][$foo][$i];
+				    $vertical_display['rowdata'][$i][$foo] = $vertical_display['data'][$foo][$i];
                 }
             } // end for (2)
 
@@ -970,30 +973,139 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             // 4. Gather links of del_urls and edit_urls in an array for later
             //    output
-            if (!isset($verticaldisplay['edit'][$foo])) {
-                $verticaldisplay['edit'][$foo]   = '';
-                $verticaldisplay['delete'][$foo]   = '';
+            if (!isset($vertical_display['edit'][$foo])) {
+                $vertical_display['edit'][$foo]   = '';
+                $vertical_display['delete'][$foo] = '';
             }
-            $verticaldisplay['edit'][$foo]       .= '    <td bgcolor="' . $bgcolor . '">' . "\n";
-            $verticaldisplay['edit'][$foo]       .= '        <a href="' . $edit_url . '">' . "\n";
-            $verticaldisplay['edit'][$foo]       .= '            ' . $edit_str . '</a>' . "\n";
-            $verticaldisplay['edit'][$foo]       .= '    </td>' . "\n";
+            $vertical_display['edit'][$foo]       .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+                                                  .  '        <a href="' . $edit_url . '">' . "\n"
+                                                  .  '            ' . $edit_str . '</a>' . "\n"
+                                                  .  '    </td>' . "\n";
 
-            $verticaldisplay['delete'][$foo]     .= '    <td bgcolor="' . $bgcolor . '">' . "\n";
-            $verticaldisplay['delete'][$foo]     .= '        <a href="' . $del_url . '"';
+            $vertical_display['delete'][$foo]     .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+                                                  .  '        <a href="' . $del_url . '"';
             if (isset($js_conf)) {
-                $verticaldisplay['delete'][$foo] .= 'onclick="return confirmLink(this, \'' . $js_conf . '\')"';
+                $vertical_display['delete'][$foo] .= 'onclick="return confirmLink(this, \'' . $js_conf . '\')"';
             }
-            $verticaldisplay['delete'][$foo]     .= '>' . "\n";
-            $verticaldisplay['delete'][$foo]     .= '            ' . $del_str . '</a>' . "\n";
-            $verticaldisplay['delete'][$foo]     .= '    </td>' . "\n";
+            $vertical_display['delete'][$foo]     .= '>' . "\n"
+                                                  .  '            ' . $del_str . '</a>' . "\n"
+                                                  .  '    </td>' . "\n";
 
-            echo "\n";
+            echo (($disp_direction == 'horizontal') ? "\n" : '');
             $foo++;
         } // end while
 
         return TRUE;
     } // end of the 'PMA_displayTableBody()' function
+
+
+    /**
+     * Do display the result table with the vertical direction mode
+     *
+     * @return  boolean  always true
+     *
+     * @global  array    the information to display
+     * @global  integer  the number of row to display between two table headers
+     *
+     * @access  private
+     *
+     * @see     PMA_displayTable()
+     */
+    function PMA_displayVerticalTable()
+    {
+        global $vertical_display, $repeat_cells;
+
+        reset($vertical_display);
+
+        // Displays "edit" link at top if required
+        if ($GLOBALS['cfgModifyDeleteAtLeft'] && is_array($vertical_display['edit'])) {
+            echo '<tr>' . "\n";
+            echo '    <td>&nbsp;</td>' . "\n";
+            reset($vertical_display['edit']);
+            $foo_counter = 0;
+            while (list($key, $val) = each($vertical_display['edit'])) {
+                if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
+                    echo '    <td>&nbsp;</td>' . "\n";
+                }
+
+                echo $val;
+                $foo_counter++;
+            } // end while
+            echo '</tr>' . "\n";
+        } // end if
+
+        // Displays "delete" link at top if required
+        if ($GLOBALS['cfgModifyDeleteAtLeft'] && is_array($vertical_display['delete'])) {
+            echo '<tr>' . "\n";
+            echo '<td>&nbsp;</td>' . "\n";
+            reset($vertical_display['delete']);
+            $foo_counter = 0;
+            while (list($key, $val) = each($vertical_display['delete'])) {
+                if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
+                    echo '<td>&nbsp;</td>' . "\n";
+                }
+
+                echo $val;
+                $foo_counter++;
+            } // end while
+            echo '</tr>' . "\n";
+        } // end if
+
+        // Displays data
+        reset($vertical_display['desc']);
+        while (list($key, $val) = each($vertical_display['desc'])) {
+            echo '<tr>' . "\n";
+            echo $val;
+
+            $foo_counter = 0;
+            while (list($subkey, $subval) = each($vertical_display['rowdata'][$key])) {
+                if (($foo_counter != 0) && ($repeat_cells != 0) and !($foo_counter % $repeat_cells)) {
+                    echo $val;
+                }
+
+                echo $subval;
+                $foo_counter++;
+            } // end while
+
+            echo '</tr>' . "\n";
+        } // end while
+
+        // Displays "edit" link at bottom if required
+        if ($GLOBALS['cfgModifyDeleteAtRight'] && is_array($vertical_display['edit'])) {
+            echo '<tr>' . "\n";
+            echo '    <td>&nbsp;</td>' . "\n";
+            reset($vertical_display['edit']);
+            $foo_counter = 0;
+            while (list($key, $val) = each($vertical_display['edit'])) {
+                if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
+                    echo '<td>&nbsp;</td>' . "\n";
+                }
+
+                echo $val;
+                $foo_counter++;
+            } // end while
+            echo '</tr>' . "\n";
+        } // end if
+
+        // Displays "delete" link at bottom if required
+        if ($GLOBALS['cfgModifyDeleteAtRight'] && is_array($vertical_display['delete'])) {
+            echo '<tr>' . "\n";
+            echo '<td>&nbsp;</td>' . "\n";
+            reset($vertical_display['delete']);
+            $foo_counter = 0;
+            while (list($key, $val) = each($vertical_display['delete'])) {
+                if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
+                    echo '<td>&nbsp;</td>' . "\n";
+                }
+
+                echo $val;
+                $foo_counter++;
+            } // end while
+            echo '</tr>' . "\n";
+        }
+
+        return TRUE;
+    } // end of the 'PMA_displayVerticalTable' function
 
 
     /**
@@ -1035,7 +1147,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $lang, $server, $db, $table;
         global $goto;
         global $sql_query, $num_rows, $unlim_num_rows, $pos, $fields_meta, $fields_cnt;
-        global $verticaldisplay, $disp_direction, $repeat_cells;
+        global $vertical_display, $disp_direction, $repeat_cells;
         global $dontlimitchars;
 
         // 1. ----- Prepares the work -----
@@ -1103,117 +1215,22 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         }
 
         // 3. ----- Displays the results table -----
-        // lem9: horizontal output?
-        if ($disp_direction == 'horizontal') {
-            ?>
+        ?>
 <!-- Results table -->
 <table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
-            <?php
-            echo "\n";
-            PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $encoded_sql_query);
-            PMA_displayTableBody($dt_result, $is_display);
-            ?>
+        <?php
+        echo "\n";
+        PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $encoded_sql_query);
+        PMA_displayTableBody($dt_result, $is_display);
+        // lem9: vertical output case
+        if ($disp_direction == 'vertical') {
+            PMA_displayVerticalTable();
+        } // end if
+        unset($vertical_display);
+        ?>
 </table>
 <br />
-            <?php
-        }
-        else {
-            echo "\n";
-		    ?>
-<!-- Results table -->
-<table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
-            <?php
-            echo "\n";
-            PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $encoded_sql_query);
-            PMA_displayTableBody($dt_result, $is_display);
-            reset($verticaldisplay);
-
-            if ($GLOBALS['cfgModifyDeleteAtLeft'] && is_array($verticaldisplay['edit'])) {
-                echo '<tr>' . "\n";
-                echo '    <td>&nbsp;</td>' . "\n";
-                reset($verticaldisplay['edit']);
-                $foo_counter = 0;
-                while (list($key, $val) = each($verticaldisplay['edit'])) {
-                    if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                        echo '    <td>&nbsp;</td>' . "\n";
-                    }
-
-                    echo $val;
-                    $foo_counter++;
-                } // end while
-                echo '</tr>' . "\n";
-            } // end if
-
-            if ($GLOBALS['cfgModifyDeleteAtLeft'] && is_array($verticaldisplay['delete'])) {
-                echo '<tr>' . "\n";
-                echo '<td>&nbsp;</td>' . "\n";
-                reset($verticaldisplay['delete']);
-                $foo_counter = 0;
-                while (list($key, $val) = each($verticaldisplay['delete'])) {
-                    if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                        echo '<td>&nbsp;</td>' . "\n";
-                    }
-
-                    echo $val;
-                    $foo_counter++;
-                } // end while
-                echo '</tr>' . "\n";
-            } // end if
-
-            reset($verticaldisplay['desc']);
-            while (list($key, $val) = each($verticaldisplay['desc'])) {
-                echo '<tr>' . "\n";
-                echo $val;
-
-                $foo_counter = 0;
-                while (list($subkey, $subval) = each($verticaldisplay['rowdata'][$key])) {
-                    if (($foo_counter != 0) && ($repeat_cells != 0) and !($foo_counter % $repeat_cells)) {
-                        echo $val;
-                    }
-
-                    echo $subval;
-                    $foo_counter++;
-                } // end while
-
-                echo '</tr>' . "\n";
-            } // end while
-
-            if ($GLOBALS['cfgModifyDeleteAtRight'] && is_array($verticaldisplay['edit'])) {
-                echo '<tr>' . "\n";
-                echo '    <td>&nbsp;</td>' . "\n";
-                reset($verticaldisplay['edit']);
-                $foo_counter = 0;
-                while (list($key, $val) = each($verticaldisplay['edit'])) {
-                    if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                        echo '<td>&nbsp;</td>' . "\n";
-                    }
-
-                    echo $val;
-                    $foo_counter++;
-                } // end while
-                echo '</tr>' . "\n";
-            } // end if
-
-            if ($GLOBALS['cfgModifyDeleteAtRight'] && is_array($verticaldisplay['delete'])) {
-                echo '<tr>' . "\n";
-                echo '<td>&nbsp;</td>' . "\n";
-                reset($verticaldisplay['delete']);
-                $foo_counter = 0;
-                while (list($key, $val) = each($verticaldisplay['delete'])) {
-                    if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
-                        echo '<td>&nbsp;</td>' . "\n";
-                    }
-
-                    echo $val;
-                    $foo_counter++;
-                } // end while
-                echo '</tr>' . "\n";
-            }
-            ?>
-</table>
-<br />
-            <?php
-        } // end if (check $disp_direction)
+        <?php
 
         echo "\n";
 
