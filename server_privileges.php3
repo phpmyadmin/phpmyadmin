@@ -1201,7 +1201,7 @@ if (empty($adduser) && empty($checkprivs)) {
                     echo '                        <select name="pred_dbname" onchange="this.form.submit();">' . "\n"
                        . '                            <option value="" selected="selected">' . $strUseTextField . ':</option>' . "\n";
                     while (list(, $current_db) = each($pred_db_array)) {
-                        echo '                            <option value="' . htmlspecialchars(PMA_escape_mysql_wildcards($current_db)) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
+                        echo '                            <option value="' . htmlspecialchars($current_db) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
                     }
                     echo '                        </select>' . "\n";
                 }
@@ -1223,7 +1223,7 @@ if (empty($adduser) && empty($checkprivs)) {
                         echo '                        <select name="pred_tablename" onchange="this.form.submit();">' . "\n"
                            . '                            <option value="" selected="selected">' . $strUseTextField . ':</option>' . "\n";
                         while (list(, $current_table) = each($pred_tbl_array)) {
-                            echo '                            <option value="' . htmlspecialchars(PMA_escape_mysql_wildcards($current_table)) . '">' . htmlspecialchars($current_table) . '</option>' . "\n";
+                            echo '                            <option value="' . htmlspecialchars($current_table) . '">' . htmlspecialchars($current_table) . '</option>' . "\n";
                         }
                         echo '                        </select>' . "\n";
                     }

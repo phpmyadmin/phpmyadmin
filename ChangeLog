@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-29 Michal Cihar  <nijel@users.sourceforge.net>
+    * server_privileges.php3: No need to escape wild characters here.
+
 2003-04-29 Garvin Hicking <me@supergarv.de>
     * tbl_move_copy.php3: Bug #729416
     * tbl_query_box.php3, queryframe.php3: Bug #729446, maybe #728571
