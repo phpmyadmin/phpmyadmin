@@ -2,7 +2,10 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
+/**
+ * Don't display the page heading
+ */
+define('PMA_DISPLAY_HEADING', 0);
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -333,9 +336,9 @@ if ($server > 0) {
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW STATUS'); ?>&amp;goto=main.php3">
-                    <?php echo $strMySQLShowStatus; ?></a>&nbsp;
-                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_STATUS') . "\n"; ?>
+                <a href="./server_status.php3?<?php echo $common_url_query; ?>">
+                    <?php echo $strMySQLShowStatus . "\n"; ?>
+                </a>
             </td>
         </tr>
             <?php
@@ -346,7 +349,7 @@ if ($server > 0) {
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&amp;goto=main.php3">
+                <a href="./server_variables.php3?<?php echo $common_url_query; ?>">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_VARIABLES') . "\n"; ?>
             </td>
@@ -360,7 +363,7 @@ if ($server > 0) {
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&amp;goto=main.php3">
+                <a href="./server_processlist.php3?<?php echo $common_url_query; ?>">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_PROCESSLIST') . "\n"; ?>
             </td>

@@ -443,4 +443,27 @@ $strCannotLogin = 'Cannot login to MySQL server';  //to translate
 $strShowDatadictAs = 'Data Dictionary Format';  //to translate
 $strLandscape = 'Landscape';  //to translate
 $strPortrait = 'Portrait';  //to translate
+
+$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
+
+$strAbortedClients = 'Aborted'; //to translate
+$strConnections = 'Connections'; //to translate
+$strFailedAttempts = 'Failed attempts'; //to translate
+$strGlobalValue = 'Global value'; //to translate
+$strMoreStatusVars = 'More status variables'; //to translate
+$strPerHour = 'per hour'; //to translate
+$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
+$strQueryType = 'Query type'; //to translate
+$strReceived = 'Received'; //to translate
+$strSent = 'Sent'; //to translate
+$strServerStatus = 'Runtime Information'; //to translate
+$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
+$strServerTabStatus = 'Status'; //to translate
+$strServerTabVariables = 'Variables'; //to translate
+$strServerTabProcesslist = 'Processes'; //to translate
+$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
+$strServerVars = 'Server variables and settings'; //to translate
+$strSessionValue = 'Session value'; //to translate
+$strTraffic = 'Traffic'; //to translate
+$strVar = 'Variable'; //to translate
 ?>

@@ -405,20 +405,22 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      */
     function PMA_setFontSizes()
     {
-        global $font_size, $font_bigger, $font_smaller, $font_smallest;
+        global $font_size, $font_biggest, $font_bigger, $font_smaller, $font_smallest;
 
         // IE (<6)/Opera for win case: needs smaller fonts than anyone else
         if (PMA_USR_OS == 'Win'
             && ((PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 6) || PMA_USR_BROWSER_AGENT == 'OPERA')) {
             $font_size     = 'x-small';
-            $font_bigger   = 'large';
+            $font_biggest  = 'large';
+            $font_bigger   = 'medium';
             $font_smaller  = '90%';
             $font_smallest = '7pt';
         }
         // IE6 and other browsers for win case
         else if (PMA_USR_OS == 'Win') {
             $font_size     = 'small';
-            $font_bigger   = 'large';
+            $font_biggest  = 'large';
+            $font_bigger   = 'medium';
             $font_smaller  = (PMA_USR_BROWSER_AGENT == 'IE')
                            ? '90%'
                            : 'x-small';
@@ -429,7 +431,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         else if (PMA_USR_OS == 'Mac'
                  && (PMA_USR_BROWSER_AGENT == 'OMNIWEB' || PMA_USR_BROWSER_AGENT == 'OPERA')) {
             $font_size     = 'x-small';
-            $font_bigger   = 'large';
+            $font_biggest  = 'large';
+            $font_bigger   = 'medium';
             $font_smaller  = '90%';
             $font_smallest = '7pt';
         }
@@ -438,7 +441,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                  && ((PMA_USR_BROWSER_AGENT != 'IE' && PMA_USR_BROWSER_AGENT != 'MOZILLA')
                      || PMA_USR_BROWSER_VER < 5)) {
             $font_size     = 'medium';
-            $font_bigger   = 'x-large';
+            $font_biggest  = 'x-large';
+            $font_bigger   = 'large';
             $font_smaller  = 'small';
             $font_smallest = 'x-small';
         }
@@ -446,13 +450,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         else if (PMA_USR_OS == 'OS/2'
                  && PMA_USR_BROWSER_AGENT == 'OPERA') {
             $font_size     = 'small';
+            $font_biggest  = 'medium';
             $font_bigger   = 'medium';
             $font_smaller  = 'x-small';
             $font_smallest = 'x-small';
         }
         else {
             $font_size     = 'small';
-            $font_bigger   = 'large';
+            $font_biggest  = 'large';
+            $font_bigger   = 'medium';
             $font_smaller  = 'x-small';
             $font_smallest = 'x-small';
         }
@@ -1528,6 +1534,32 @@ if (typeof(document.getElementById) != 'undefined'
 
         return $link_or_button;
     } // end of the 'PMA_linkOrButton()' function
+
+
+    /**
+     * Returns a given timespan value in a readable format.
+     *
+     * @param  int     the timespan
+     *
+     * @return string  the formatted value
+     */
+    function PMA_timespanFormat($seconds)
+    {
+        $return_string = '';
+        $days = floor($seconds / 86400);
+        if ($days > 0) {
+            $seconds -= $days * 86400;
+        }
+        $hours = floor($seconds / 3600);
+        if ($days > 0 || $hours > 0) {
+            $seconds -= $hours * 3600;
+        }
+        $minutes = floor($seconds / 60);
+        if ($days > 0 || $hours > 0 || $minutes > 0) {
+            $seconds -= $minutes * 60;
+        }
+        return sprintf($GLOBALS['timespanfmt'], (string)$days, (string)$hours, (string)$minutes, (string)$seconds);
+    }
 
 
     // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)

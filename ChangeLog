@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-08 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html, header.inc.php3, header_printview.inc.php3, main.php3,
+      server_common.inc.php3, server_links.inc.php3, server_status.php3,
+      server_variables.php3, lang/*.inc.php3, libraries/common.lib.php3:
+      Started working on a new interface to server related pages.
+    * lang/thai-*.inc.php3: Updates, thanks to Arthit Suriyawongkul (bacteria).
+
 2002-12-07 Marc Delisle  <lem9@users.sourceforge.net>
     * db_search.php3, libraries/display_tbl.lib.php3, libraries/common.lib.php3
       bug 633422, use a button if search result would generate a too big URL

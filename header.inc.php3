@@ -82,16 +82,18 @@ input           {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
 select          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
 textarea        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
-h1              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
+h1              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold}
+h2              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
 a:link          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
 a:visited       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
 a:hover         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: underline; color: #FF0000}
 a.nav:link      {font-family: <?php echo $right_font_family; ?>; color: #000000}
 a.nav:visited   {font-family: <?php echo $right_font_family; ?>; color: #000000}
 a.nav:hover     {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
-a.h1:link       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #000000}
-a.h1:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #000000}
-a.h1:hover      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #FF0000}
+a.h1:link       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
+a.h1:active     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
+a.h1:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #000000}
+a.h1:hover      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold; color: #FF0000}
 a.drop:link     {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
 a.drop:visited  {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
 a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #ffffff; background-color:#ff0000; text-decoration: none}
@@ -224,17 +226,31 @@ if ($GLOBALS['cfg']['RightBgImage'] != '') {
 ?>
 <body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor'] . '"' . $bkg_img; ?>>
 <?php
-if (isset($GLOBALS['db'])) {
+if (!defined('PMA_DISPLAY_HEADING')) {
+    define('PMA_DISPLAY_HEADING', 1);
+}
+if (PMA_DISPLAY_HEADING) {
     $header_url_qry = '?lang=' . urlencode($GLOBALS['lang'])
                     . '&amp;convcharset=' . $GLOBALS['convcharset']
                     . '&amp;server=' . $GLOBALS['server'];
     echo '<h1>' . "\n";
-    echo '    ' . $GLOBALS['strDatabase'] . ' <i><a class="h1" href="db_details.php3' . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '">' . htmlspecialchars($GLOBALS['db']) . '</a></i>' . "\n";
-    if (!empty($GLOBALS['table'])) {
-        echo '    - ' . $GLOBALS['strTable'] . ' <i><a class="h1" href="tbl_properties.php3' . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '">' . htmlspecialchars($GLOBALS['table']) . '</a></i>' . "\n";
+    $server_info = (!empty($cfg['Server']['verbose'])
+                    ? $cfg['Server']['verbose']
+                    : $server_info = $cfg['Server']['host'] . (empty($cfg['Server']['port'])
+                                                               ? ''
+                                                               : ':' . $cfg['Server']['port']
+                                                              )
+                   );
+    if (isset($GLOBALS['db'])) {
+        echo '    ' . $GLOBALS['strDatabase'] . ' <i><a class="h1" href="db_details.php3' . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '">' . htmlspecialchars($GLOBALS['db']) . '</a></i>' . "\n";
+        if (!empty($GLOBALS['table'])) {
+            echo '    - ' . $GLOBALS['strTable'] . ' <i><a class="h1" href="tbl_properties.php3' . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '">' . htmlspecialchars($GLOBALS['table']) . '</a></i>' . "\n";
+        }
+        echo '    ' . sprintf($GLOBALS['strRunning'], '<i>' . htmlspecialchars($server_info) . '</i>');
+    } else {
+        echo '    ' . sprintf($GLOBALS['strServer'], '<i>' . htmlspecialchars($server_info) . '</i>');
     }
-    echo '    ' . sprintf($GLOBALS['strRunning'], ' <i>' . (($GLOBALS['cfg']['Server']['verbose']) ? htmlspecialchars($GLOBALS['cfg']['Server']['verbose']) : $GLOBALS['cfg']['Server']['host']) . '</i>') . "\n";
-    echo '</h1>' . "\n";
+    echo "\n" . '</h1>' . "\n";
 }
 echo "\n";
 
