@@ -248,7 +248,10 @@ else if (!defined('PMA_IDX_INCLUDED')
     } else {
         $edited_index_info                    = $indexes_info[$old_index];
         $edited_index_data                    = $indexes_data[$old_index];
-        if ($edited_index_info['Comment'] == 'FULLTEXT') {
+
+
+        if ((PMA_MYSQL_INT_VERSION >= 32323 && PMA_MYSQL_INT_VERSION < 40002 && $edited_index_info['Comment'] == 'FULLTEXT')
+                || (PMA_MYSQL_INT_VERSION >= 40002 && $edited_index_info['Index_type'] == 'FULLTEXT')) {
             $index_type                       = 'FULLTEXT';
         } else if ($index == 'PRIMARY') {
             $index_type                       = 'PRIMARY';

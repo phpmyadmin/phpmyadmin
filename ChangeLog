@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_indexes.php3: bug 725711: FULLTEXT index type not shown
+      in the drop-down box
+
 2003-04-20 Garvin Hicking <me@supergarv.de>
     * libraries/display_tbl.lib.php3, index.php3, left.php3,
       tbl_query_box.php3, queryframe.php3, querywindow.php3:
