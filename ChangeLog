@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-14 Steve Alberty  <alberty@neptunelabs.de>
+	* main.php3: fix warning with undefined $cfgPmaAbsoluteUri
+
 2002-03-14 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/common.lib.php3, PMA_MYSQL_INT_VERSION is not yet defined
 	  before the connection
