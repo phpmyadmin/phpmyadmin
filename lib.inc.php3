@@ -905,7 +905,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 echo "\n";
                 ?>
     <th>
-        <?php echo htmlspecialchars($field->name); ?>
+        <?php echo htmlspecialchars($field->name) . "\n"; ?>
     </th>
                 <?php
             } // end else
