@@ -81,7 +81,7 @@ echo "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?".">";
             <th class="tblHeaders"><b>phpMyAdmin - <?php echo ($strTheme ? $strTheme : 'Theme / Style'); ?></b></th>
         </tr>
         <tr>
-            <td><img src="./images/spacer.gif" width="1" height="1" border="0" /></td>
+            <td><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" /></td>
         </tr>
         <?php
 if ($handleThemes = opendir($path_to_themes)) { // open themes
@@ -121,7 +121,8 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
                 </noscript>
             </td>
         </tr>
-        <tr><td><img src="./images/spacer.gif" width="1" height="1" border="0" /></td></tr>
+        <tr>
+            <td><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" /></td>
         </tr>
 <?php   
             } // end 'screen output'
