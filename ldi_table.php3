@@ -40,7 +40,8 @@ require('./tbl_properties_table_info.php3');
         <td><?php echo $strFieldsEnclosedBy; ?></td>
         <td>
             <input type="text" name="enclosed" size="1" maxlength="1" value="&quot;" />
-            <input type="checkbox" name="enclose_option" value="OPTIONALLY" id="checkbox_enclose_option" /><label for="checkbox_enclose_option"><?php echo $strOptionally . "\n"; ?></label>
+            <input type="checkbox" name="enclose_option" value="OPTIONALLY" id="checkbox_enclose_option" />
+            <label for="checkbox_enclose_option"><?php echo $strOptionally; ?></label>
         </td>
         <td><?php echo $strOftenQuotation; ?></td>
     </tr>

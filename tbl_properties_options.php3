@@ -150,9 +150,9 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
 
     <!-- Table options -->
     <li style="vertical-align: top">
-        <table border="0" cellspacing="0" cellpadding="0">
+        <table border="0" cellspacing="0" cellpadding="0" style="vertical-align: top">
         <tr>
-            <td>
+            <td valign="top">
                 <form method="post" action="tbl_properties_options.php3">
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-21 Loïc Chapeaux  <lolo@phpheaven.net>
+    * ldi_table.php3, line 44: beautified generated html.
+    * tbl_properties_options.php3: fixed display errors with IE5.
+
 2002-05-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/chinese*: updated thanks to Siu Sun
 
