@@ -134,6 +134,7 @@ $strInsertAsNewRow = ' Als neuen Datensatz speichern ';
 $strInsertIntoTable = 'In Tabelle einfügen';
 $strInsertNewRow = 'Neue Zeile einfügen';
 $strInsertTextfiles = 'Textdatei in Tabelle einfügen';
+$strInstructions = 'Befehle';
 $strInUse = 'in Benutzung';
 
 $strKeyname = 'Name';
@@ -160,6 +161,7 @@ $strName = 'Name';
 $strNbRecords = 'Datensätze';
 $strNext = 'Nächste';
 $strNo = 'Nein';
+$strNoDatabases = 'Keine Datenbanken';
 $strNoModification = 'Keine Änderung';
 $strNoPassword = 'Kein Password';
 $strNoPrivileges = 'Keine Rechte';
@@ -231,6 +233,7 @@ $strSelectNumRows = 'in der Abfrage';
 $strSend = 'Senden';
 $strSequence = ' Sequenz ';
 $strServerVersion = 'Server Version';
+$strSetEnumVal = 'Wenn das Feld vom Type \'ENUM\' oder \'SET\' ist, benutzen Sie das Format: \'a\',\'b\',\'c\',....<br />Wann immer Sie ein Backslash ("\") oder ein einfaches Anführungszeichen ("\'") verwenden,<br \>setzen Sie bitte ein Backslash vor das Zeichen.  (z.B.: \'\\\\xyz\' or \'a\\\'b\').';
 $strShow = 'Zeige';
 $strShowingRecords = 'Zeige Datensätze ';
 $strShowPHPInfo = 'PHP Informationen anzeigen';
@@ -288,7 +291,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strNoDatabases = 'No databases';
-$strInstructions = 'Befehle'; //to translate
-$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 ?>
