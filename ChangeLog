@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-31 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german.inc.php3: Small corrections.
+
 2002-05-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/albanian.inc.php3: Updates, thanks again to
       Laurent Dhima <laurenti@users.sourceforge.net>.
