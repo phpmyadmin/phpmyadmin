@@ -186,6 +186,9 @@ if (isset($sql_query)) {
                         <?php echo $strAddHeaderComment; ?>: <input type="text" name="header_comment" value="<?php echo $cfg['Export']['sql_header_comment']; ?>" class="textfield" size="30" style="vertical-align: middle" /><br />
                         <input type="checkbox" name="use_transaction" value="yes" id="checkbox_use_transaction" <?php PMA_exportCheckboxCheck('sql_use_transaction'); ?> style="vertical-align: middle" />
                         <label for="checkbox_use_transaction"><?php echo $strEncloseInTransaction; ?></label><br />
+
+                        <input type="checkbox" name="disable_fk" value="yes" id="checkbox_disable_fk" <?php PMA_exportCheckboxCheck('sql_disable_fk'); ?> />
+  	                    <label for="checkbox_disable_fk"><?php echo $strDisableForeignChecks; ?></label><br />
                     </td>
                 </tr>
 <?php

@@ -8,6 +8,7 @@ $Source$
 2004-06-25 Michal Čihař  <michal@cihar.com>
     * main.php, libraries/select_lang.lib.php: Remember selected charset in
       cookie.
+    * libraries/display_export.lib.php: Add back key checking disabling.
 
 2004-06-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * queryframe.php: Undefined index errors.
