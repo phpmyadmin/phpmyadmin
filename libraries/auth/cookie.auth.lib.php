@@ -151,8 +151,8 @@ function PMA_auth()
         if (!empty($GLOBALS['pma_cookie_username'])) {
             $default_user = $GLOBALS['pma_cookie_username'];
         }
-        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username'])) {
-            $default_user = $_COOKIE['pma_cookie_username'];
+        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username-' . $server])) {
+            $default_user = $_COOKIE['pma_cookie_username-' . $server];
         }
         $decrypted_user = isset($default_user) ? PMA_blowfish_decrypt($default_user, $GLOBALS['cfg']['blowfish_secret']) : '';
         $pos = strrpos($decrypted_user, ':');
@@ -162,8 +162,8 @@ function PMA_auth()
         if (!empty($GLOBALS['pma_cookie_servername'])) {
             $default_server = $GLOBALS['pma_cookie_servername'];
         }
-        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername'])) {
-            $default_server = $_COOKIE['pma_cookie_servername'];
+        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername-' . $server])) {
+            $default_server = $_COOKIE['pma_cookie_servername-' . $server];
         }
         if (isset($default_server) && get_magic_quotes_gpc()) {
             $default_server = stripslashes($default_server);
@@ -410,7 +410,7 @@ if (uname.value == '') {
 function PMA_auth_check()
 {
     global $PHP_AUTH_USER, $PHP_AUTH_PW, $pma_auth_server;
-    global $pma_servername, $pma_username, $pma_password, $old_usr;
+    global $pma_servername, $pma_username, $pma_password, $old_usr, $server;
     global $from_cookie;
 
     // Initialization
@@ -420,7 +420,7 @@ function PMA_auth_check()
 
     // The user wants to be logged out -> delete password cookie
     if (!empty($old_usr)) {
-        setcookie('pma_cookie_password', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+        setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
     }
 
     // The user just logged in
@@ -443,8 +443,8 @@ function PMA_auth_check()
                 $pma_auth_server = $pma_cookie_servername;
                 $from_cookie   = TRUE;
             }
-            else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername'])) {
-                $pma_auth_server = $_COOKIE['pma_cookie_servername'];
+            else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_servername-' . $server])) {
+                $pma_auth_server = $_COOKIE['pma_cookie_servername-' . $server];
                 $from_cookie   = TRUE;
             }
         }
@@ -454,8 +454,8 @@ function PMA_auth_check()
             $PHP_AUTH_USER = $pma_cookie_username;
             $from_cookie   = TRUE;
         }
-        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username'])) {
-            $PHP_AUTH_USER = $_COOKIE['pma_cookie_username'];
+        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username-' . $server])) {
+            $PHP_AUTH_USER = $_COOKIE['pma_cookie_username-' . $server];
             $from_cookie   = TRUE;
         }
         $decrypted_user = PMA_blowfish_decrypt($PHP_AUTH_USER, $GLOBALS['cfg']['blowfish_secret']);
@@ -474,8 +474,8 @@ function PMA_auth_check()
         if (!empty($pma_cookie_password)) {
             $PHP_AUTH_PW   = $pma_cookie_password;
         }
-        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_password'])) {
-            $PHP_AUTH_PW   = $_COOKIE['pma_cookie_password'];
+        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_password-' . $server])) {
+            $PHP_AUTH_PW   = $_COOKIE['pma_cookie_password-' . $server];
         }
         else {
             $from_cookie   = FALSE;
@@ -547,7 +547,7 @@ function PMA_auth_set_user()
 
     // Name and password cookies needs to be refreshed each time
     // Duration = one month for username
-    setcookie('pma_cookie_username',
+    setcookie('pma_cookie_username-' . $server,
         PMA_blowfish_encrypt($cfg['Server']['user'] . ':' . $GLOBALS['current_time'], 
             $GLOBALS['cfg']['blowfish_secret']),
         time() + (60 * 60 * 24 * 30),
@@ -555,7 +555,7 @@ function PMA_auth_set_user()
         $GLOBALS['is_https']);
         
     // Duration = till the browser is closed for password (we don't want this to be saved)
-    setcookie('pma_cookie_password',
+    setcookie('pma_cookie_password-' . $server,
         PMA_blowfish_encrypt(!empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
             $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']),
         0,
@@ -568,14 +568,14 @@ function PMA_auth_set_user()
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             if (isset($pma_auth_server) && !empty($pma_auth_server) && $pma_server_changed) {
                 // Duration = one month for serverrname
-                setcookie('pma_cookie_servername',
+                setcookie('pma_cookie_servername-' . $server,
                     $cfg['Server']['host'],
                     time() + (60 * 60 * 24 * 30),
                     $GLOBALS['cookie_path'], '',
                     $GLOBALS['is_https']);
             } else {
                 // Delete servername cookie
-                setcookie('pma_cookie_servername', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+                setcookie('pma_cookie_servername-' . $server, '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
             }
         }
 
@@ -609,10 +609,10 @@ function PMA_auth_set_user()
  */
 function PMA_auth_fails()
 {
-global $conn_error;
+global $conn_error, $server;
 
     // Deletes password cookie and displays the login form
-    setcookie('pma_cookie_password', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+    setcookie('pma_cookie_password-' . $server, '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
 
     if (PMA_DBI_getError()) {
         $conn_error = PMA_DBI_getError();

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-14 Michal Čihař  <michal@cihar.com>
+    * libraries/auth/cookie.auth.lib.php: Use one cookie set for each server,
+      not just one global (patch #952917, bug #687009).
+
 2004-05-13 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Minor optimalisations.
     * sql.php, tbl_replace.php, libraries/display_tbl.lib.php: Use same code
