@@ -118,14 +118,14 @@ if ($the_total > $per_page) {
 }
 
 $header = '    <tr>
-    <th align="left" nowrap="nowrap">' . $strKey . '</th>
+    <th align="left" nowrap="nowrap">' . $strKeyname . '</th>
     <th>' . $strDescription . '</th>
     <td align="center" width="20%" valign="top">
         ' . $showall . '
         ' . $gotopage . '
     </td>
     <th>' . $strDescription . '</th>
-    <th align="left" nowrap="nowrap">' . $strKey . '</th>
+    <th align="left" nowrap="nowrap">' . $strKeyname . '</th>
 </tr>';
 
 echo $header;
