@@ -83,10 +83,11 @@ else
 		echo "# http://phpwizard.net/phpMyAdmin/$crlf";
 		echo "# http://phpmyadmin.sourceforge.net/ (unofficial)$crlf";
 		echo "#$crlf";
-		echo "# $strHost: ".$cfgServer['host']."$crlf";
+		echo "# $strHost: ".$cfgServer['host'];
+		if(!empty($cfgServer['port'])) echo ":" . $cfgServer['port'];
+		echo $crlf;
 		echo "# $strGenTime: ".date("F j, Y, g:i a")."$crlf";
 		echo "# $strServerVersion: ".MYSQL_MAJOR_VERSION.".".MYSQL_MINOR_VERSION."$crlf";
-		if(!empty($cfgServer['port'])) echo ":" . $cfgServer['port'];
 		echo "# $strDatabase: $db$crlf";
 
 		$i = 0;
