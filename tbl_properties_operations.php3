@@ -125,7 +125,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
 ?>
                         </select>
                         &nbsp;<b>.</b>&nbsp;
-                        <input type="text" size="20" name="new_name" value="<?php echo $table; ?>" class="textfield" onfocus="this.select()" />
+                        <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" class="textfield" onfocus="this.select()" />
                     </td>
                 </tr>
                 <tr>
