@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php: bug 877359, no CONSTRAINT in 
+      SHOW CREATE TABLE on older MySQL versions
+
 2004-03-10 Michal Cihar  <michal@cihar.com>
     * export.php: Correctly report error when export fails.
     * libraries/database_interface.lib.php, libraries/dbi/mysql.dbi.lib.php,

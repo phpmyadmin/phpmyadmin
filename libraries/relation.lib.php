@@ -310,7 +310,16 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
         // and in 'innodb', we won't get it twice if $source='both'
         // because we use $field as key
 
-                $foreign[$field]['constraint'] = $one_key['constraint'];
+                // The parser looks for a CONSTRAINT clause just before
+                // the FOREIGN KEY clause. It finds it (as output from
+                // SHOW CREATE TABLE) in MySQL 4.0.13, but not in older
+                // versions like 3.23.58. 
+                // In those cases, the FOREIGN KEY parsing will put numbers
+                // like -1, 0, 1... instead of the constraint number.
+
+                if (isset($one_key['constraint'])) {
+                    $foreign[$field]['constraint'] = $one_key['constraint'];
+                }
 
                 if (isset($one_key['ref_db_name'])) {
                     $foreign[$field]['foreign_db']    = $one_key['ref_db_name'];
