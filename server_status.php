@@ -243,7 +243,7 @@ if (!empty($serverStatus)) {
 <?php
     $useBgcolorOne = TRUE;
     $countRows = 0;
-    foreach($serverStatus AS $name => $value)= {
+    foreach($serverStatus AS $name => $value) {
 ?>
                         <tr>
                             <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?>&nbsp;</td>
