@@ -118,7 +118,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
             include('./header.inc.php3');
             include('./' . ereg_replace('\.\.*', '.', $goto));
         } else {
-            header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&message=' . urlencode($message));
+            header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
         }
         exit();
     }
