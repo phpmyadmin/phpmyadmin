@@ -87,7 +87,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             } else if (@function_exists('recode_string')) {
                 return recode_string($convcharset . '..'  . $charset, $what);
             } else {
-                echo $strCantUseRecodeIconv;
+                echo $GLOBALS['strCantUseRecodeIconv'];
                 return $what;
             }
         }
@@ -142,7 +142,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             } else if (@function_exists('recode_string')) {
                 return recode_string($charset . '..'  . $convcharset, $what);
             } else {
-                echo $strCantUseRecodeIconv;
+                echo $GLOBALS['strCantUseRecodeIconv'];
                 return $what;
             }
         }
