@@ -81,6 +81,7 @@ $strColumn = 'Kolumna';
 $strColumnNames = 'Nazwy kolumn';
 $strComments = 'Komentarze';
 $strCompleteInserts = 'Pe³ne dodania';
+$strCompression = 'Kompresja';
 $strConfigFileError = 'phpMyAdmin nie zdo³a³ odczytaæ twojego pliku konfiguracj!<br />Mo¿e siê to zdarzyæ, je¶li php znajdzie w nim b³±d sk³adniowy lub nie mo¿e znale¼æ tego pliku.<br />Proszê wywo³aæ bezpo¶rednio plik konfiguracyjny u¿ywaj±c poni¿szego linku i odczytaæ otrzymane komunikat(y) o b³êdach. W wiêkszo¶ci przypadków brakuje gdzie¶ cudzys³owu lub ¶rednika.<br />Je¿eli otrzymasz pust± stronê, wszystko jest w porz±dku.';
 $strConfigureTableCoord = 'Proszê skonfigurowaæ wspó³rzêdnie dla tabeli %s';
 $strConfirm = 'Czy na pewno to zrobiæ?';
@@ -97,13 +98,13 @@ $strCreatePdfFeat = 'Tworzenie PDF-ów';
 $strCriteria = 'Kryteria';
 
 $strData = 'Dane';
+$strDataDict = 'S³ownik danych';
+$strDataOnly = 'Tylko dane';
 $strDatabase = 'Baza danych ';
 $strDatabaseHasBeenDropped = 'Baza danych %s zosta³a usuniêta.';
 $strDatabaseWildcard = 'Baza danych (dozwolone maski):';
 $strDatabases = 'bazy danych';
 $strDatabasesStats = 'Statystyki baz danych';
-$strDataDict = 'S³ownik danych';
-$strDataOnly = 'Tylko dane';
 $strDefault = 'Domy¶lnie';
 $strDelete = 'Skasowanie';
 $strDeleteFailed = 'Kasowanie nie powiod³o sie!';
@@ -263,6 +264,8 @@ $strOptions = 'Opcje';
 $strOr = 'Lub';
 $strOverhead = 'Nadmiar';
 
+$strPHP40203 = 'U¿ywasz PHP w wersji 4.2.3, która ma powa¿ny b³±d w obs³udze napisów wielobajtowych (mbstring). Zobacz raport na temat b³êdów PHP nr 19404. Nie zaleca siê u¿ywania tej wersji PHP z phpMyAdminem.';
+$strPHPVersion = 'Wersja PHP';
 $strPageNumber = 'Numer strony:';
 $strPartialText = 'Skrócony tekst';
 $strPassword = 'Has³o';
@@ -273,8 +276,6 @@ $strPdfInvalidPageNum = 'Niezdefiniowany numer strony PDF!';
 $strPdfInvalidTblName = 'Tabela "%s" nie istnieje!';
 $strPdfNoTables = 'Brak tabel';
 $strPhp = 'Utwórz kod PHP';
-$strPHP40203 = 'U¿ywasz PHP w wersji 4.2.3, która ma powa¿ny b³±d w obs³udze napisów wielobajtowych (mbstring). Zobacz raport na temat b³êdów PHP nr 19404. Nie zaleca siê u¿ywania tej wersji PHP z phpMyAdminem.';
-$strPHPVersion = 'Wersja PHP';
 $strPmaDocumentation = 'Dokumentacja phpMyAdmina';
 $strPmaUriError = 'Dyrektywa <tt>$cfg[\'PmaAbsoluteUri\']</tt> musi byæ ustawiona w pliku konfiguracyjnym!';
 $strPos1 = 'Pocz±tek';
@@ -431,7 +432,6 @@ $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 $strYes = 'Tak';
 
 $strZip = '".zip"';
-
 // To translate
-$strCompression = 'Compression'; //to translate
+
 ?>

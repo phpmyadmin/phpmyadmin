@@ -82,6 +82,7 @@ $strColumn = 'Kolumna';
 $strColumnNames = 'Nazwy kolumn';
 $strComments = 'Komentarze';
 $strCompleteInserts = 'Pełne dodania';
+$strCompression = 'Kompresja';
 $strConfigFileError = 'phpMyAdmin nie zdołał odczytać twojego pliku konfiguracj!<br />Może się to zdarzyć, jeśli php znajdzie w nim błąd składniowy lub nie może znaleźć tego pliku.<br />Proszę wywołać bezpośrednio plik konfiguracyjny używając poniższego linku i odczytać otrzymane komunikat(y) o błędach. W większości przypadków brakuje gdzieś cudzysłowu lub średnika.<br />Jeżeli otrzymasz pustą stronę, wszystko jest w porządku.';
 $strConfigureTableCoord = 'Proszę skonfigurować współrzędnie dla tabeli %s';
 $strConfirm = 'Czy na pewno to zrobić?';
@@ -98,13 +99,13 @@ $strCreatePdfFeat = 'Tworzenie PDF-ów';
 $strCriteria = 'Kryteria';
 
 $strData = 'Dane';
+$strDataDict = 'Słownik danych';
+$strDataOnly = 'Tylko dane';
 $strDatabase = 'Baza danych ';
 $strDatabaseHasBeenDropped = 'Baza danych %s została usunięta.';
 $strDatabaseWildcard = 'Baza danych (dozwolone maski):';
 $strDatabases = 'bazy danych';
 $strDatabasesStats = 'Statystyki baz danych';
-$strDataDict = 'Słownik danych';
-$strDataOnly = 'Tylko dane';
 $strDefault = 'Domyślnie';
 $strDelete = 'Skasowanie';
 $strDeleteFailed = 'Kasowanie nie powiodło sie!';
@@ -264,6 +265,8 @@ $strOptions = 'Opcje';
 $strOr = 'Lub';
 $strOverhead = 'Nadmiar';
 
+$strPHP40203 = 'Używasz PHP w wersji 4.2.3, która ma poważny błąd w obsłudze napisów wielobajtowych (mbstring). Zobacz raport na temat błędów PHP nr 19404. Nie zaleca się używania tej wersji PHP z phpMyAdminem.';
+$strPHPVersion = 'Wersja PHP';
 $strPageNumber = 'Numer strony:';
 $strPartialText = 'Skrócony tekst';
 $strPassword = 'Hasło';
@@ -274,8 +277,6 @@ $strPdfInvalidPageNum = 'Niezdefiniowany numer strony PDF!';
 $strPdfInvalidTblName = 'Tabela "%s" nie istnieje!';
 $strPdfNoTables = 'Brak tabel';
 $strPhp = 'Utwórz kod PHP';
-$strPHP40203 = 'Używasz PHP w wersji 4.2.3, która ma poważny błąd w obsłudze napisów wielobajtowych (mbstring). Zobacz raport na temat błędów PHP nr 19404. Nie zaleca się używania tej wersji PHP z phpMyAdminem.';
-$strPHPVersion = 'Wersja PHP';
 $strPmaDocumentation = 'Dokumentacja phpMyAdmina';
 $strPmaUriError = 'Dyrektywa <tt>$cfg[\'PmaAbsoluteUri\']</tt> musi być ustawiona w pliku konfiguracyjnym!';
 $strPos1 = 'Początek';
@@ -432,7 +433,6 @@ $strWrongUser = 'Błędne pola użytkownik/hasło. Brak dostępu.';
 $strYes = 'Tak';
 
 $strZip = '".zip"';
-
 // To translate
-$strCompression = 'Compression'; //to translate
+
 ?>
