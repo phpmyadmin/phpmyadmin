@@ -569,18 +569,20 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
         <b>$cfgServers[n]['relation']</b> string
     </dt>
     <dd>
-        Since release 2.2.4 you can describe, in a special 'relation' table, which field
-        is a key in another table (a foreign key). phpMyAdmin currently uses 
-        this to 
+        Since release 2.2.4 you can describe, in a special 'relation' table,
+        which field is a key in another table (a foreign key). phpMyAdmin
+        currently uses this to 
         <ul>
            <li>
               make clickable, when you browse the src table, the data values
-              that point to the dest table </li>
+              that point to the dest table;
+           </li>
            <li>
-              display links on the table properties page, to check referential 
-              integrity (display missing foreign keys) for each described key</li>
+              display links on the table properties page, to check referential
+              integrity (display missing foreign keys) for each described key.
+           </li>
         </ul>
-        <br /><br />
+        <br />
 
         The keys can be numeric or character.
         <br /><br />
