@@ -5,10 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * config.inc.php3, libraries/config_import.lib.php3: let UploadDir
+      empty because this means to not use the feature, thanks to Loïc
+
 2002-09-25 Marc Delisle  <lem9@users.sourceforge.net>
     * read_dump.php3: bug 611970, do not display the imported query
       if larger than 500 (I don't think it's necessary to add another
-      config variable), thanks to  Loïc
+      config variable), thanks to Loïc
 
 2002-09-24 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: could not go to next page when browsing a query containing

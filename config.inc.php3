@@ -365,7 +365,7 @@ $cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLVa
 /**
  * web-server upload directory
  */
-$cfg['UploadDir']             = './upload/';  // end with a slash
+$cfg['UploadDir']             = '';         // for example, './upload/'; you must end it with a slash, and you leave it empty for no upload directory
 
 /**
  * SQL Parser Settings
@@ -487,7 +487,6 @@ if ($cfg['ShowFunctionFields']) {
  * Unset magic_quotes_runtime - do not change!
  */
 set_magic_quotes_runtime(0);
-
 
 /**
  * File Revision - do not change either!
