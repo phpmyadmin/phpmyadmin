@@ -279,5 +279,6 @@ $strYes = "Yes";
 $strShowThisQuery=" Show this query here again ";  
 $strUseBackquotes=" Use backquotes with tables and fields names ";  
 $strQueryOnDb=" SQL-query on database ";  
-$strFieldsEmpty=" The field count is empty! ";  //to translate
+$strFieldsEmpty=" The field count is empty! ";  
+$strAffectedRows=" Rows affected: ";  
 ?>

@@ -284,4 +284,5 @@ $strShowThisQuery = "SQL Befehl hier wieder anzeigen";
 $strUseBackquotes=" Tabellen- und Feldnamen in einfachen Anführungszeichen  ";  //to translate
 $strQueryOnDb=" SQL-query on database ";  //to translate
 $strFieldsEmpty=" Sie müssen angeben wieviele Felder die Tabelle haben soll! ";
+$strAffectedRows=" Rows affected: ";  //to translate
 ?>

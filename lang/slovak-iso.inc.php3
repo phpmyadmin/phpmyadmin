@@ -280,4 +280,5 @@ $strShowThisQuery=" Zobrazi» tento dotaz znovu ";
 $strUseBackquotes=" Use backquotes with tables and fields names ";  //to translate
 $strQueryOnDb=" SQL-query on database ";  //to translate
 $strFieldsEmpty=" The field count is empty! ";  //to translate
+$strAffectedRows=" Rows affected: ";  //to translate
 ?>

@@ -279,4 +279,5 @@ $strShowThisQuery="Réafficher la requête après exécution";
 $strUseBackquotes = "Protéger les noms des tables et des champs par des&nbsp;\"`\"";
 $strQueryOnDb="Requête SQL sur la base ";
 $strFieldsEmpty="Il faut indiquer le nombre de champs";  
+$strAffectedRows="Enregistrements affectés:";             
 ?>
