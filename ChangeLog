@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-29 Michal Cihar  <michal@cihar.com>
+    * libraries/display_tbl.lib.php, libraries/sqlparser.lib.php,
+      libraries/string.lib.php, libraries/dbi/mysql.dbi.lib.php: SQL parser
+      now correctly works with multibyte strings (bug #936161).
+
 2004-04-28 Michal Cihar  <michal@cihar.com>
     * css/phpmyadmin.css.php: Force <button> to be displayed inline.
     * libraries/common.lib.php: When only_db matches no database, do not show

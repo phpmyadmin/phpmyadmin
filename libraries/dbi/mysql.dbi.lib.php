@@ -245,7 +245,7 @@ function PMA_DBI_get_fields_meta($result) {
     $fields       = array();
     $num_fields   = mysql_num_fields($result);
     for ($i = 0; $i < $num_fields; $i++) {
-        $fields[] = mysql_fetch_field($result, $i);
+        $fields[] = PMA_convert_display_charset(mysql_fetch_field($result, $i));
     }
     return $fields;
 }

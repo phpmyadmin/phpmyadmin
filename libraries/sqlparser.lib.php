@@ -246,7 +246,7 @@ if ($is_minimum_common == FALSE) {
         $arraysize               = 0;
 
         while ($count2 < $len) {
-            $c      = $sql[$count2];
+            $c      = PMA_substr($sql, $count2, 1);
             $count1 = $count2;
 
             if (($c == "\n")) {
@@ -266,9 +266,9 @@ if ($is_minimum_common == FALSE) {
             // C style /* */
             // ANSI style --
             if (($c == '#')
-                || (($count2 + 1 < $len) && ($c == '/') && ($sql[$count2 + 1] == '*'))
-                || (($count2 + 2 == $len) && ($c == '-') && ($sql[$count2 + 1] == '-'))
-                || (($count2 + 2 < $len) && ($c == '-') && ($sql[$count2 + 1] == '-') && (($sql[$count2 + 2] == ' ') || ($sql[$count2 + 2] == "\n")))) {
+                || (($count2 + 1 < $len) && ($c == '/') && (PMA_substr($sql, $count2 + 1, 1) == '*'))
+                || (($count2 + 2 == $len) && ($c == '-') && (PMA_substr($sql, $count2 + 1, 1) == '-'))
+                || (($count2 + 2 < $len) && ($c == '-') && (PMA_substr($sql, $count2 + 1, 1) == '-') && ((PMA_substr($sql, $count2 + 2, 1) == ' ') || (PMA_substr($sql, $count2 + 2, 1) == "\n")))) {
                 $count2++;
                 $pos  = 0;
                 $type = 'bad';
@@ -324,7 +324,7 @@ if ($is_minimum_common == FALSE) {
                     if (($pos < $len) && PMA_STR_charIsEscaped($sql, $pos)) {
                         $pos ++;
                         continue;
-                    } else if (($pos + 1 < $len) && ($sql[$pos] == $quotetype) && ($sql[$pos + 1] == $quotetype)) {
+                    } else if (($pos + 1 < $len) && (PMA_substr($sql, $pos, 1) == $quotetype) && (PMA_substr($sql, $pos + 1, 1) == $quotetype)) {
                         $pos = $pos + 2;
                         continue;
                     } else {
@@ -380,7 +380,7 @@ if ($is_minimum_common == FALSE) {
 
             // Checks for punct
             if (PMA_STR_strInStr($c, $allpunct_list)) {
-                while (($count2 < $len) && PMA_STR_strInStr($sql[$count2], $allpunct_list)) {
+                while (($count2 < $len) && PMA_STR_strInStr(PMA_substr($sql, $count2, 1), $allpunct_list)) {
                     $count2++;
                 }
                 $l = $count2 - $count1;
@@ -455,7 +455,7 @@ if ($is_minimum_common == FALSE) {
 
                 $is_sql_variable         = ($c == '@');
                 $is_digit                = (!$is_sql_variable) && PMA_STR_isDigit($c);
-                $is_hex_digit            = ($is_digit) && ($c == '0') && ($count2 < $len) && ($sql[$count2] == 'x');
+                $is_hex_digit            = ($is_digit) && ($c == '0') && ($count2 < $len) && (PMA_substr($sql, $count2, 1) == 'x');
                 $is_float_digit          = FALSE;
                 $is_float_digit_exponent = FALSE;
 
@@ -463,8 +463,8 @@ if ($is_minimum_common == FALSE) {
                     $count2++;
                 }
 
-                while (($count2 < $len) && PMA_STR_isSqlIdentifier($sql[$count2], ($is_sql_variable || $is_digit))) {
-                    $c2 = $sql[$count2];
+                while (($count2 < $len) && PMA_STR_isSqlIdentifier(PMA_substr($sql, $count2, 1), ($is_sql_variable || $is_digit))) {
+                    $c2 = PMA_substr($sql, $count2, 1);
                     if ($is_sql_variable && ($c2 == '.')) {
                         $count2++;
                         continue;

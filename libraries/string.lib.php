@@ -14,17 +14,20 @@
  *
  * The SQL Parser code relies heavily on these functions.
  */
+ 
+$GLOBALS['PMA_allow_mbstr'] = @function_exists('mb_strlen') && substr($GLOBALS['charset'], 0, 8) != 'windows-';
+if ($GLOBALS['PMA_allow_mbstr']) {
+    mb_internal_encoding($GLOBALS['charset']);
+}
 
 // This is for handling input better
-if (defined('PMA_MULTIBYTE_ENCODING')) {
+if (defined('PMA_MULTIBYTE_ENCODING') || $GLOBALS['PMA_allow_mbstr']) {
     $GLOBALS['PMA_strpos']  = 'mb_strpos';
     $GLOBALS['PMA_strrpos'] = 'mb_strrpos';
 } else {
     $GLOBALS['PMA_strpos']  = 'strpos';
     $GLOBALS['PMA_strrpos'] = 'strrpos';
 }
-
-$GLOBALS['PMA_has_mbstr'] = @function_exists('mb_strlen');
 
 /**
  * Returns length of string depending on current charset.
@@ -39,11 +42,9 @@ $GLOBALS['PMA_has_mbstr'] = @function_exists('mb_strlen');
  */
 function PMA_strlen($string)
 {
-    if (defined('PMA_MULTIBYTE_ENCODING')) {
-        return mb_strlen($string);
     // windows-* charsets are not multibyte and not supported by mb_*
-    } elseif($GLOBALS['PMA_has_mbstr'] && substr($GLOBALS['charset'],0,8) != 'windows-') {
-        return mb_strlen($string, $GLOBALS['charset']);
+    if (defined('PMA_MULTIBYTE_ENCODING') || $GLOBALS['PMA_allow_mbstr']) {
+        return mb_strlen($string);
     } else {
         return strlen($string);
     }
@@ -56,7 +57,7 @@ function PMA_strlen($string)
  * @param   int      start of substring
  * @param   int      length of substring
  *
- * @return  int      string length
+ * @return  int      substring
  *
  * @access  public
  *
@@ -64,10 +65,8 @@ function PMA_strlen($string)
  */
 function PMA_substr($string, $start, $length = 2147483647)
 {
-    if (defined('PMA_MULTIBYTE_ENCODING')) {
+    if (defined('PMA_MULTIBYTE_ENCODING') || $GLOBALS['PMA_allow_mbstr']) {
         return mb_substr($string, $start, $length);
-    } elseif($GLOBALS['PMA_has_mbstr'] && substr($GLOBALS['charset'],0,8) != 'windows-') {
-        return mb_substr($string, $start, $length, $GLOBALS['charset']);
     } else {
         return substr($string, $start, $length);
     }
