@@ -764,7 +764,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $after      = '';
                         $before     = '';
                     }
-                    if ($typearr[3] == 'alpha_columnType') {
+                    if (($typearr[3] == 'alpha_columnType') || ($typearr[3] == 'alpha_identifier')){
                         $after      .= ' ';
                     }
                     break;
