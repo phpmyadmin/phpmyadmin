@@ -167,12 +167,13 @@ else {
         $cfgMaxRows       = $sessionMaxRows;
     }
 
-    $is_explain = $is_select = $is_count = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
+    $is_explain = $is_select = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
     if (eregi('^EXPLAIN[[:space:]]+', $sql_query)) {
         $is_explain  = TRUE;
     } else if (eregi('^SELECT[[:space:]]+', $sql_query)) {
         $is_select   = TRUE;
         $is_count    = (eregi('^SELECT COUNT\((.*\.+)?.*\)', $sql_query));
+        $is_export   = (eregi(' INTO OUTFILE ', $sql_query));
     } else if (eregi('^DELETE[[:space:]]+', $sql_query)) {
         $is_delete   = TRUE;
         $is_affected = TRUE;
@@ -190,7 +191,7 @@ else {
     // Do append a "LIMIT" clause?
     if (isset($pos)
         && (!$cfgShowAll || $sessionMaxRows != 'all')
-        && ($is_select && !$is_count && eregi(' FROM ', $sql_query))
+        && ($is_select && !($is_count || $is_export) && eregi(' FROM ', $sql_query))
         && !eregi(' LIMIT[ 0-9,]+$', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";
         if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)$', $sql_query, $regs)) {
