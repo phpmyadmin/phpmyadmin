@@ -7,6 +7,7 @@ $Source$
 
 2003-08-26 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Backwards compatibility.
+    * tbl_change.php3: bug #795171 (foreign field empty when editing record).
 
 2003-08-26 Michal Cihar  <nijel@users.sourceforge.net>
     * config.inc.php3, lang/*, libraries/config_import.lib.php3,

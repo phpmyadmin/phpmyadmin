@@ -453,7 +453,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <?php echo $backup_field . "\n"; ?>
         <input type="hidden" name="fields_type[<?php echo urlencode($field); ?>]" value="foreign" />
         <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="" id="field_<?php echo $i; ?>_1" />
-        <input type="text"   name="field_<?php echo md5($field); ?>[]" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_3" />
+        <input type="text"   name="field_<?php echo md5($field); ?>[]" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_3" value="<?php echo htmlspecialchars($data); ?>" />
         <script type="text/javascript" language="javascript">
             document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php3?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field); ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
         </script>
