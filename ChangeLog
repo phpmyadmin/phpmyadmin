@@ -26,6 +26,8 @@ $Source$
       not be set to NULL (bug #783533).
     * tbl_move_copy.php3: Use database we're working on to avoid some problems
       with replicated databases (bug #780439).
+    * read_dump.php3, sql.php3: Bookmark all SQL queries and not only the last
+      one (bug #780569).
 
 2003-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 779453, wrong count

@@ -241,6 +241,7 @@ if ($sql_query != '') {
                 $a_sql_query = $pieces[$i];
                 if ($i == $pieces_count - 1 && eregi('^SELECT', $a_sql_query)) {
                     $complete_query = $sql_query;
+                    $display_query = $sql_query;
                     $sql_query = $a_sql_query;
                     include('./sql.php3');
                     exit();

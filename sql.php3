@@ -745,7 +745,7 @@ else {
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
-    <input type="hidden" name="fields[query]" value="<?php echo urlencode($sql_query); ?>" />
+    <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
     <input type="text" name="fields[label]" value="" />
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
 </form>
