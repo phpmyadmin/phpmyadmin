@@ -20,6 +20,7 @@ $timespanfmt = '%s днів, %s годин, %s хвилин і %s секунд';
 
 $strAPrimaryKey = 'Було додано первинний ключ до %s';
 $strAbortedClients = 'Перервано';
+$strAbsolutePathToDocSqlDir = 'Прошу задати абсолютний шлях на веб-сервері до каталогу docSQL';
 $strAccessDenied = 'Доступ заборонено';
 $strAction = 'Дія';
 $strAddDeleteColumn = 'Додати/забрати колонку критерію';
@@ -33,6 +34,8 @@ $strAddSearchConditions = 'Додати умови пошуку (тіло для умови "where"):';
 $strAddToIndex = 'Додати до індексу&nbsp;%s&nbsp;колоноку(и)';
 $strAddUser = 'Додати нового користувача';
 $strAddUserMessage = 'Було додано нового користувача.';
+$strAddedColumnComment = 'Додано коментар до колонки';
+$strAddedColumnRelation = 'Додано зв\'язок для колонки';
 $strAdministration = 'Адміністратор';
 $strAffectedRows = 'Задіяні рядки:';
 $strAfter = 'Після %s';
@@ -104,6 +107,7 @@ $strColumnPrivileges = 'Права, які стосуються колонок таблиці';
 $strCommand = 'Команда';
 $strComments = 'Коментарі';
 $strCompleteInserts = 'Повна вставка';
+$strCompression = 'Стискання';
 $strConfigFileError = 'phpMyAdmin не може прочитати конфігураційний файл <br />Це може статися у тому випадку, коли php натрапить на синтаксичну помилку (parse error) у ньому, або не може знайти самого файлу.<br />Завантажте конфігураційний файл безпосередньо за допомогою посилання поданого нижче і прочитайте отримані повідомлення про помилки (php error messages). Найчастіше десь у файлі просто бракує лапок чи двокрапки.  <br />Якщо Ви отримаєте порожню сторінку, - значить все в порядку.';
 $strConfigureTableCoord = 'Прошу сконфіґурувати координати таблиці %s';
 $strConfirm = 'Ви насправді хочете це зробити?';
@@ -169,6 +173,7 @@ $strDrop = 'Знищити';
 $strDropDB = 'Знищити БД %s';
 $strDropSelectedDatabases = 'Знищити вибрані бази даних';
 $strDropTable = 'Видалити таблицю';
+$strDropUsersDb = 'Усунути бази даних, які мають такі ж назви як імена користувачів.';
 $strDumpComments = 'Коментарі колонок подати як внутрішні SQL-коментарі';
 $strDumpXRows = 'Зґенерувати дамп %s рядків починаючи з %s -го.';
 $strDumpingData = 'Дамп даних таблиці';
@@ -200,6 +205,7 @@ $strFieldsEmpty = ' Порожній перелік полів! ';
 $strFieldsEnclosedBy = 'Поля взято в';
 $strFieldsEscapedBy = 'Поля екрануються';
 $strFieldsTerminatedBy = 'Поля розділені';
+$strFileCouldNotBeRead = 'Неможливо прочитати файл';
 $strFileNameTemplate = 'Шаблон назви файлу'; 
 $strFileNameTemplateHelp = 'Використати __DB__ як назву бази даних, __TABLE__ як назву таблиці і %sдовільні strftime%s опції для визначення часової мітки, розширення будуть додані автоматично. Будь-який інший текст буде збережено.';
 $strFileNameTemplateRemember = 'запам\'ятати шаблон'; 
@@ -235,7 +241,10 @@ $strId = 'ID';
 $strIdxFulltext = 'ПовнТекст';
 $strIfYouWish = 'Якщо Ви бажаєте завантажити лише деякі колонки таблиці, задайте розділений комами список полів.';
 $strIgnore = 'Ігноруровати';
+$strIgnoringFile = 'Проіґноровано файл %s';
 $strImportDocSQL = 'Імпортувати docSQL файли';
+$strImportFiles = 'Імпорт файлів';
+$strImportFinished = 'Імпорт завершено';
 $strInUse = 'використовується';
 $strIndex = 'Індекс';
 $strIndexHasBeenDropped = 'Індекс %s було знищено';
@@ -324,6 +333,7 @@ $strNoQuery = 'Не задано SQL-запит!';
 $strNoRights = 'Ви для цього маєте недостатньо прав!';
 $strNoTablesFound = 'В БД не виявлено таблиць.';
 $strNoUsersFound = 'Не знайдено користувача.';
+$strNoUsersSelected = 'Не вибрано користувачів.';
 $strNoValidateSQL = 'Не перевіряти SQL';
 $strNone = 'Немає';
 $strNotNumber = 'Це не число!';
@@ -550,6 +560,7 @@ $strTheContent = 'Вміст файлу було імпортовано.';
 $strTheContents = 'Вміст файлу заміняє вміст таблиці для рядків з ідентичними первинним або унікальними ключами.';
 $strTheTerminator = 'Символ закінчення полів.';
 $strThisHost = 'Цей хост';
+$strThisNotDirectory = 'Це не каталог';
 $strThreadSuccessfullyKilled = 'Процес %s припинено.';
 $strTime = 'Час';
 $strTotal = 'всього';
@@ -603,6 +614,8 @@ $strWebServerUploadDirectoryError = 'Встановлений Вами каталог для завантаження 
 $strWelcome = 'Ласкаво просимо до %s';
 $strWildcard = 'шаблон';
 $strWithChecked = 'З відміченими:';
+$strWritingCommentNotPossible = 'Неможливо додати коментар';
+$strWritingRelationNotPossible = 'Неможливо додати зв\'язок';
 $strWrongUser = 'Невірний логін/пароль. Доступ не дозволено.';
 
 $strXML = 'XML';
@@ -612,26 +625,5 @@ $strYes = 'Так';
 $strZeroRemovesTheLimit = 'Примітка: Встановлення цієї опції у 0 (нуль) знімає обмеження.';
 $strZip = 'запакувати в "zip"';
 // To translate
-
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-
-$strCompression = 'Compression'; //to translate
-
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
-
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strImportFiles = 'Import files';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-
-$strNoUsersSelected = 'No users selected.'; //to translate
-
-$strThisNotDirectory = 'This was not a directory';  //to translate
-
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
 
 ?>
