@@ -101,7 +101,7 @@ function PMA_exportOutputHandler($line)
         }
     } else {
         if ($GLOBALS['asfile']) {
-            if ($GLOBALS['save_on_server']) {
+            if ($GLOBALS['save_on_server'] && strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 if (!$write_result || ($write_result != strlen($line))) {
                     $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));

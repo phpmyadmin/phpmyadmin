@@ -7,6 +7,7 @@ $Source$
 
 2004-10-02 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_alter.php: field structure changes not applied (CVS version only)
+    * export.php: bug #1038804, insufficient space to save
 
 2004-09-30 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: bug #1037744 (CVS version only): cannot add a field 
