@@ -81,7 +81,10 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         $tmp_query  = "SHOW VARIABLES LIKE 'local\_infile'";
         $result = PMA_mysql_query($tmp_query);
         if ($result != FALSE && mysql_num_rows($result) > 0) {
-            $query     .= ' LOCAL';
+            $tmp = PMA_mysql_fetch_row($result);
+            if ($tmp[1] == 'ON') {  
+                $query     .= ' LOCAL';
+            }
         }
         mysql_free_result($result);
     }
