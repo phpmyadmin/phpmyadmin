@@ -76,6 +76,7 @@ $strChoosePage = 'Vennligst velg en side for redigering';
 $strColumn = 'Kolonne';
 $strColumnNames = 'Kolonnenavn';
 $strCompleteInserts = 'Komplette innlegg';
+$strConfigFileError = 'phpMyAdmin kunne ikke lese din konfigurasjonsfil!<br />Dette kan skje hvis PHP finner en syntaksfeil eller ikke kan finne filen.<br />Vennligst kall opp konfigurasjonsfilen direkte via linken under og les PHP feilmeldingen(e) som du vil få. I de fleste tilfeller så mangler det et anførselstegn eller et semikolon et sted.<br />Hvis du får en blank side så er alt ok.';
 $strConfigureTableCoord = 'Vennligst konfigurer koordinatene for tabell %s';
 $strConfirm = 'Ønsker du virkelig å gjøre det?';
 $strCookiesRequired = 'Cookies må være slått på forbi dette punkt.';
@@ -224,6 +225,7 @@ $strNoQuery = 'Ingen SQL spxrring!';
 $strNoRights = 'Du har ikke nok rettigheter til å være her nå!';
 $strNoTablesFound = 'Ingen tabeller i databasen.';
 $strNotNumber = 'Dette er ikke ett tall!';
+$strNotSet = '<b>%s</b> tabellen ble ikke funnet eller ikke konfigurert i %s';
 $strNotValidNumber = ' er ikke et gyldig rad nummer!';
 $strNoUsersFound = 'Ingen bruker(e) funnet.';
 $strNull = 'Null';
@@ -394,8 +396,6 @@ $strYes = 'Ja';
 $strZip = 'Komprimert (zip)';
 
 // To translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 $strMissingBracket = 'Missing Bracket';  //to translate
 $strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
