@@ -5,13 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-06 Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/sqlvalidator.php3, libraries/sqlvalidator.lib.php3:
+        - Renamed libraries/sqlvalidator.php3 to libraries/sqlvalidator.lib.php3
+
 2002-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php3: bug 590867: avoid undefined variable
       and add comments in the code for a future correction
 
 2002-08-06 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.lib.php3, line 1412: do not die if relation table
-      is broken in browse mode.
+      is broken in browse mode
+    * libraries/sqlvalidator.lib.php3, libraries/sqlvalidator.class.php3:
+        - Coding style fixes, documentation.
 
 2002-08-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/english-*.inc.php3: Typo.
