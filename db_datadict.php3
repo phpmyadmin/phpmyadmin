@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 /**
@@ -35,7 +34,7 @@ if (isset($table)) {
  * Selects the database
  */
 PMA_mysql_select_db($db);
-$sql="show tables from $db"; 
+$sql="show tables from $db";
 $rowset=mysql_query($sql);
 $count=0;
 while ($row=mysql_fetch_array($rowset)) {
@@ -50,12 +49,12 @@ while ($row=mysql_fetch_array($rowset)) {
     if ($cfgRelation['commwork']) {
         $comments = PMA_getComments($db, $table);
     }
-      
-    if ($count!=0){ 
+
+    if ($count!=0){
         echo "<p style='page-break-before:always'>";
     }
     echo '<h1>' . $table . '</h1>' . "\n";
-      		
+
           /**
            * Gets table informations
            */
@@ -76,8 +75,8 @@ while ($row=mysql_fetch_array($rowset)) {
     if ($result) {
          mysql_free_result($result);
     }
-      
-      
+
+
           /**
            * Gets table keys and retains them
            */
@@ -109,31 +108,31 @@ while ($row=mysql_fetch_array($rowset)) {
       //      I don't know what does following column mean....
       //      $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
         $indexes_info[$row['Key_name']]['Comment']         = $row['Comment'];
-      
+
         $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
         if (isset($row['Sub_part'])) {
             $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
         }
-      
+
     } // end while
     if ($result) {
         mysql_free_result($result);
     }
-      
-      
+
+
           /**
            * Gets fields properties
            */
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
     $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $fields_cnt  = mysql_num_rows($result);
-      
+
           // Check if we can use Relations (Mike Beck)
     if (!empty($cfgRelation['relation'])) {
               // Find which tables are related with the current one and write it in
               // an array
         $res_rel = PMA_getForeigners($db, $table);
-      
+
         if (count($res_rel) > 0) {
             $have_rel = TRUE;
         } else {
@@ -143,20 +142,20 @@ while ($row=mysql_fetch_array($rowset)) {
     else {
         $have_rel = FALSE;
     } // end if
-      
-      
+
+
           /**
            * Displays the comments of the table if MySQL >= 3.23
            */
     if (!empty($show_comment)) {
         echo $strTableComments . '&nbsp;:&nbsp;' . $show_comment . '<br /><br />';
     }
-      		
+
           /**
            * Displays the table structure
            */
           ?>
-      
+
       <!-- TABLE INFORMATIONS -->
       <table width=100% bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
       <tr>
@@ -176,13 +175,13 @@ while ($row=mysql_fetch_array($rowset)) {
           }
           ?>
       </tr>
-      
+
           <?php
           $i = 0;
           while ($row = PMA_mysql_fetch_array($result)) {
               $bgcolor = ($i % 2) ?$cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
               $i++;
-      
+
               $type             = $row['Type'];
               // reformat mysql query output - staybyte - 9. June 2001
               // loic1: set or enum types: slashes single quotes inside options
@@ -199,7 +198,7 @@ while ($row=mysql_fetch_array($rowset)) {
               if (empty($type)) {
                   $type         = '&nbsp;';
               }
-      
+
               $binary           = eregi('BINARY', $row['Type'], $test);
               $unsigned         = eregi('UNSIGNED', $row['Type'], $test);
               $zerofill         = eregi('ZEROFILL', $row['Type'], $test);
@@ -242,7 +241,7 @@ while ($row=mysql_fetch_array($rowset)) {
           echo "\n";
           if ($have_rel) {
               echo '    <td width=50 class="print" >';
-      				if (isset($res_rel[$field_name])) {
+                      if (isset($res_rel[$field_name])) {
                   echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] );
               }
               echo '&nbsp;</td>' . "\n";
@@ -259,13 +258,13 @@ while ($row=mysql_fetch_array($rowset)) {
               <?php
           } // end while
           mysql_free_result($result);
-      
+
           echo "\n";
           ?>
       </table>
       <?echo '</div>' . "\n";
-      
-      
+
+
       $count++;
 }//ends main while
 /**
@@ -276,14 +275,15 @@ echo '<br><br>&nbsp;<input type="button" style="visibility:;width:100px;height:2
 require('./footer.inc.php3');
 ?>
 <script type="text/javascript" language="javascript1.2">
+<!--
 function printPage()
 {
-document.all.print.style.visibility='hidden';
-<!--
-// Do print the page
-if (typeof(window.print) != 'undefined') {
-    window.print();
+    document.all.print.style.visibility='hidden';
+    // Do print the page
+    if (typeof(window.print) != 'undefined') {
+        window.print();
+    }
+    document.all.print.style.visibility='';
 }
-document.all.print.style.visibility='';
 //-->
 </script>
