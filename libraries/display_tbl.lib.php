@@ -582,7 +582,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         echo PMA_generate_common_hidden_inputs($db, $table, 1);
         echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
         echo '<input type="hidden" name="repeat_cells"   value="' . $repeat_cells   . '" />' . "\n";
-        echo '<input type="hidden" name="goto"           value="' . $goto           . '" />' . "\n";
+        echo '<input type="hidden" name="goto"           value="sql.php" />' . "\n";
         echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
     }
 
