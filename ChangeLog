@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-04-20 ALexander M. Turek  <rabus@users.sourceforge.net>
+2002-04-20 Alexander M. Turek  <rabus@users.sourceforge.net>
 	* lang/german.inc.php3: removed comments
 
 2002-04-20 Loïc Chapeaux  <lolo@phpheaven.net>
