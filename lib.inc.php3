@@ -951,7 +951,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         } // end if
 
         // Displays a messages with position informations
-        if (isset($total) && $total > 1) {
+        if (isset($total) && $total > 1 && isset($pos_next)) {
             if (isset($SelectNumRows) && $SelectNumRows != $total) {
                 $selectstring = ', ' . $SelectNumRows . ' ' . $GLOBALS['strSelectNumRows'];
             } else {
@@ -980,7 +980,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         $is_show_processlist = eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$", $sql_query);
         ?>
 
-<table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding ="5">
+<table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
 <tr>
         <?php
         echo "\n";
@@ -1182,7 +1182,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     $result_type     = mysql_query('SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($primary->table) . ' LIKE \'' . sql_addslashes($primary->name, TRUE) . '\'') or mysql_die();
                     $true_field_type = mysql_fetch_array($result_type);
                     if (eregi('BLOB', $true_field_type['Type'])) {
-                        echo '    <td>[BLOB]</td>' . "\n";
+                        echo '    <td align="center">[BLOB]</td>' . "\n";
                     } else {
                         if (strlen($row[$i]) > $GLOBALS['cfgLimitChars']) {
                             $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
