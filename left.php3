@@ -271,7 +271,7 @@ if ($num_dbs > 1) {
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
         <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>">
             <img src="images/browse.gif" width="8" height="8" border="0" alt="<?php echo "$strBrowse: $table"; ?>" title="<?php echo "$strBrowse: $table"; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
-        <a class="tblItem" id="<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
+        <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
                 <?php
             } // end for $t (tables list)
@@ -299,9 +299,9 @@ if ($num_dbs > 1) {
                     $table_list .= '    <nobr><a target="phpmain" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table)) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '">' . "\n";
                     $table_list .= '              <img src="images/browse.gif" width="8" height="8" border="0" alt="' . $strBrowse . ': ' . $table . '" title="' . $strBrowse . ': ' . $table . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                     if (PMA_USR_BROWSER_AGENT == 'IE') {
-                        $table_list .= '          <span class="tblItem"><a class="tblItem" id="' . md5($table) . '" title="' . $url_title . '" target="phpmain" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></span></nobr><br />' . "\n";
+                        $table_list .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></span></nobr><br />' . "\n";
                     } else {
-                        $table_list .= '          <a class="tblItem" id="' . md5($table) . '" title="' . $url_title . '" target="phpmain" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
+                        $table_list .= '          <a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
                     }
                 } // end for $t (tables list)
 
@@ -415,7 +415,7 @@ else if ($num_dbs == 1) {
         ?>
         <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>">
                   <img src="images/browse.gif" width="8" height="8" border="0" alt="<?php echo "$strBrowse: $table"; ?>" title="<?php echo "$strBrowse: $table"; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
-              <a class="tblItem" id="<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
+              <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
                   <?php echo $table; ?></a></nobr><br />
         <?php
     } // end for $j (tables list)

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-08 Loïc Chapeaux  <lolo@phpheaven.net>
+    * left.php3: xhtml fixes (id name must start with a letter).
+    * scripts/decode_bug.php3: xhtml fixes.
+
 2002-08-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/spanish-*.inc.php3:
       - Updates, thanks again to Daniel Hinostroza;

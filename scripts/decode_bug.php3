@@ -68,8 +68,7 @@
  */
 function PMA_printDecodedBug($textdata)
 {
-    return 'Decoded:<br />' . "\n"
-           . '<pre>' . $textdata . '</pre><br />' . "\n";
+    return '<pre>' . $textdata . '</pre><br />';
 } // end of the "PMA_printDecodedBug()" function
 
 
@@ -98,7 +97,8 @@ if (!empty($bug_encoded)) {
         $result  = PMA_printDecodedBug($bug_decoded);
     } // end if... else...
 
-    echo '<p>' . "\n" . $result . '</p>' . "\n";
+    echo '<p>Decoded:</p>' . "\n"
+         . $result . "\n";
 } // end if
 ?>
 </body>
