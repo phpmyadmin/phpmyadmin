@@ -50,10 +50,6 @@ $auto_sel  = ($cfg['TextareaAutoSelect']
            : '';
 
 
-// added by mkkeck
-$strErrorUploadDir = '';
-// is needed to check if an error in $cfg['UploadDir'] (or this dir not exist)
-
 // for better administration
 $strHiddenFields = '        <input type="hidden" name="is_js_confirmed" value="0" />'  ."\n"
                  . '        ' .PMA_generate_common_hidden_inputs($db) . "\n"
@@ -175,21 +171,11 @@ if (!empty($cfg['UploadDir'])) {
                . '    </tr>' . "\n\n";
         } // end if (isfirst > 0)
         @closedir($handle);
-        $strErrorUploadDir=''; // please see 'else {' below ;)
     }
     else {
-        // modified by mkkeck 2004-05-08
-        //   showing UploadDir Error at the end of all option for SQL-Queries
-        $strErrorUploadDir = '    <tr><td colspan="2"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
-        $strErrorUploadDir.= '    <tr><td colspan="2" class="tblHeadError">';
-        if ($cfg['PropertiesIconic']){
-           $strErrorUploadDir.= '<img src="./images/s_error.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-        }
-        $strErrorUploadDir.= '    ' . $strError . '' . "\n";
-        $strErrorUploadDir.= '</td><tr>';
-        $strErrorUploadDir.= '<td colspan="2" class="tblError">';
-        $strErrorUploadDir.= '        &nbsp;' . wordwrap($strWebServerUploadDirectoryError,80,'<br />&nbsp;') . "\n";
-        $strErrorUploadDir.= '    </td></tr>' . "\n";
+        $upload_dir_error = '<tr><td colspan="2"><div class="error"><div class="head">' . $strError . '</div>'
+                            . '<div class="text">' . $strWebServerUploadDirectoryError
+                            . '</div></div></td></tr>';
     }
 } // end if (web-server upload directory)
 // Charset conversion options
@@ -257,8 +243,8 @@ if (function_exists('PMA_set_enc_form')) {
 }
 // modified by mkkeck 2004-05-08
 //   showing UploadDir Error at the end of all option for SQL-Queries
-if ($strErrorUploadDir!='') {
-    echo "\n\n" . '<!-- UploadDir not found -->' . "\n" . $strErrorUploadDir . "\n\n";
+if (isset($upload_dir_error)) {
+    echo $upload_dir_error;
 }
 ?>
 </form>

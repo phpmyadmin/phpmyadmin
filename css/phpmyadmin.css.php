@@ -239,14 +239,33 @@ div.warning {
     width: 90%;
 }
 
+div.error {
+    width: 100%;
+    border: 1px solid #cc0000;
+    background-color: #ffffcc;
+    padding: 0px;
+}
+
+div.error  div.text {
+    padding: 5px;
+}
+
+div.error div.head {
+    background-color: #cc0000;
+    font-weight: bold;
+    color: #ffffff;
+<?php if ($cfg['ErrorIconic']) { ?>
+    background-image: url(../images/s_error.png);
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    padding: 2px 2px 2px 30px;
+<?php } ?>
+    margin: 0px;
+}
+
 /* some new styles added 20047-05-05 by Michael Keck (mkkeck) */
 
 /* tables */
-.tblError {
-  border:           1px solid #cc0000;
-  background-color: #ffffcc;
-		width: 100%;
-}
 .tblHeaders {
   background-color: #9999CC;
   font-weight:      bold;
@@ -255,16 +274,6 @@ div.warning {
 .tblFooters {
   background-color: #9999CC;
   font-weight:      normal;
-  color:            #000000;
-}
-.tblHeadError {
-  background-color: #cc0000;
-  font-weight:      bold;
-  color:            #ffffff;
-}
-.tblHeadWarn {
-  background-color: #ffcc00;
-  font-weight:      bold;
   color:            #000000;
 }
 /* forbidden, no privilegs */
@@ -505,7 +514,7 @@ h1 div a {
     font-weight: bolder;
 }
 
-<?php if ($cfg['ErrorIconic']) { ?>
+<?php if ($cfg['PropertiesIconic']) { ?>
 h1 div.server a {
     background-image: url(../images/s_host.png);
 }

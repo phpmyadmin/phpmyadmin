@@ -758,17 +758,9 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 
 if ($num_tables > 0
     && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
-    echo '    <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
-       . '    <tr><td colspan="3" class="tblHeadError">';
-       if ($cfg['PropertiesIconic']){
-         echo '<img src="./images/s_error.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-       }
-    echo '    ' . $strError . '' . "\n";
-    echo '</td><tr>';
-    echo '<td colspan="3" class="tblError">';
-    $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">';
-    echo '        ' . sprintf(wordwrap($strRelationNotWorking,60,'<br />'), $url_to_goto, '</a>') . "\n";
-    echo '    </td></tr>' . "\n";
+    echo '<tr><td colspan="3"><div class="error"><div class="head">' . $strError . '</div>'
+        . '<div class="text">' . sprintf($strRelationNotWorking, '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',  '</a>')
+        . '</div></div></td></tr>';
 } // end if
 ?>
 </table>
