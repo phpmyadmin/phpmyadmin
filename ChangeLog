@@ -7,6 +7,7 @@ $Source$
 
 2001-12-05  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/norwegian.inc.php3 updates thanks to Sven-Erik Andersen
+	* Documentation.html: faq entry about safe mode and uploads
 
 2001-12-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3; Documentation.html; left.php3;
