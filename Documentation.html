@@ -218,7 +218,8 @@
         For 'HTTP' and 'cookie' modes, phpMyAdmin needs a controluser that has
         <b>only</b> the <tt>SELECT</tt> privilege on the <i>mysql.user (all
         columns except &quot;Password&quot;)</i>, <i>mysql.db (all
-        columns)</i> &amp; <i>mysql.tables_priv (all columns except
+        columns)</i>, <i>mysql.host (all columns)</i> and
+        <i>mysql.tables_priv (all columns except
         &quot;Grantor&quot; &amp; &quot;Timestamp&quot;) </i>tables.<br /> You
         must specify the details for the controluser in the
         <i>config.inc.php</i> file under the
