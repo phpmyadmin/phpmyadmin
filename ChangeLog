@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2001-10-27  Loïc Chapeaux  <lolo@phpheaven.net>
+	* read_dump.php3, lines 286-288; lang/*: "there is no query" were displayed
+	  when deleting a bookmark.
+
 2001-10-27  Olivier Müller  <om@omnis.ch>
 	* config.inc.php3: put the ENCRYPT function back to the config file.
 

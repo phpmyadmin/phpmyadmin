@@ -283,7 +283,9 @@ require('./header.inc.php3');
 if (isset($my_die)) {
     mysql_die('', $my_die, '', $err_url);
 }
-if (!isset($sql_query_cpy)) {
+if (!empty($id_bookmark) && $action_bookmark == 2) {
+    $message   = $strBookmarkDeleted;
+} else if (!isset($sql_query_cpy)) {
     $message   = $strNoQuery;
 } else if ($sql_query_cpy == '') {
     $message   = "$strSuccess&nbsp:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
