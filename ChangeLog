@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-05  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_dump.php3, bug 458074, "transmit not working in IE 5.5":
+	  needed "Content-Disposition: inline"	  
+
 2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/galician.inc.php3: updated thanks to
 	  Xosé Calvo <xosecalvo at terra.es>.

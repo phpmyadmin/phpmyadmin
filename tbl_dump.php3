@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 
-
 /**
  * Formats the INSERT statements depending on the target (screen/file) of the
  * sql dump
@@ -119,8 +118,9 @@ else {
     }
 
     // Send headers
+    // we need "inline" instead of "attachment" for IE 5.5
     header('Content-Type: ' . $mime_type);
-    header('Content-Disposition: attachment; filename="' . $filename . '.' . $ext . '"');
+    header('Content-Disposition: inline; filename="' . $filename . '.' . $ext . '"');
     header('Pragma: no-cache');
     header('Expires: 0');
 } // end download
