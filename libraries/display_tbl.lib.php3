@@ -1409,7 +1409,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                          . ' FROM ' . PMA_backquote($cfgRelation['relation'])
                          . ' WHERE master_db = \'' . PMA_sqlAddslashes($db) . '\''
                          . ' AND master_table IN ' . $tabs;
-            $result      = @PMA_query_as_cu($local_query);
+            $result      = @PMA_query_as_cu($local_query, FALSE);
             if ($result) {
                 while ($rel = PMA_mysql_fetch_row($result)) {
                     // check for display field?
