@@ -69,6 +69,7 @@ function pma_TableHeader($alternate = FALSE) {
                 <?php
                 if ($GLOBALS['cfg']['ShowStats']) {
                     echo '<th>' . $GLOBALS['strSize'] . '</th>';
+                    echo '<th>' . $GLOBALS['strOverhead'] . '</th>';
                 }
                 echo "\n";
                 ?>
@@ -205,6 +206,8 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
 
     $i = $sum_entries = 0;
     (double) $sum_size = 0;
+    (double) $overhead_size = 0;
+    $overhead_check = '';
     $checked   = (!empty($checkall) ? ' checked="checked"' : '');
     $num_columns = ($cfg['PropertiesNumColumns'] > 1 ? (ceil($num_tables / $cfg['PropertiesNumColumns']) + 1) : 0);
     $row_count = 0;
@@ -318,6 +321,10 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                     $tblsize                    =  doubleval($sts_data['Data_length']) + doubleval($sts_data['Index_length']);
                     $sum_size                   += $tblsize;
                     list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+                    if (isset($sts_data['Data_free']) && $sts_data['Data_free'] > 0) {
+                        list($formated_overhead, $overhead_unit)     = PMA_formatByteDown($sts_data['Data_free']);      
+                        $overhead_size           += $sts_data['Data_free'];
+                    }
                 }
                 $sum_entries                    += $sts_data['Rows'];
                 $display_rows                   =  number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator);
@@ -354,6 +361,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                     $formated_size              =  '&nbsp;-&nbsp;';
                     $unit                       =  '';
                 }
+                print_r($sts_data);
                 $sum_entries                    += $sts_data['Rows'];
                 $display_rows                   =  number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator);
             }
@@ -388,6 +396,18 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                     &nbsp;&nbsp;
                     <a href="tbl_properties_structure.php3?<?php echo $tbl_url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
                 </td>
+                <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+                    &nbsp;&nbsp;
+                    <?php 
+                    if (isset($formated_overhead)) {
+                        echo '<a href="tbl_properties_structure.php3?' . $tbl_url_query . '#showusage">' . $formated_overhead . ' ' . $overhead_unit . '</a>' . "\n";
+                        unset($formated_overhead);
+                        $overhead_check .= "document.getElementById('checkbox_tbl_$i').checked = true;";
+                    } else {
+                        echo "&nbsp;-&nbsp;\n";
+                    }
+                    ?>
+                </td>
                 <?php
                 echo "\n";
             } // end if
@@ -406,6 +426,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     // Show Summary
     if ($cfg['ShowStats']) {
         list($sum_formated, $unit) = PMA_formatByteDown($sum_size, 3, 1);
+        list($overhead_formated, $overhead_unit) = PMA_formatByteDown($overhead_size, 3, 1);
     }
     echo "\n";
     ?>
@@ -436,6 +457,10 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                     &nbsp;
                     <b><?php echo $sum_formated . ' ' . $unit; ?></b>
                 </th>
+                <th align="right" nowrap="nowrap">
+                    &nbsp;
+                    <b><?php echo $overhead_formated . ' ' . $overhead_unit; ?></b>
+                </th>
         <?php
     }
     echo "\n";
@@ -455,6 +480,11 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                     &nbsp;/&nbsp;
                     <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
                         <?php echo $strUncheckAll; ?></a>
+                    <?php if ($overhead_check != '') { ?>
+                    &nbsp;/&nbsp;
+                    <a href="#" onclick="setCheckboxes('tablesForm', false); <?php echo $overhead_check; ?> return false;">
+                        <?php echo $strCheckOverhead; ?></a>
+                    <? } ?>
                     &nbsp;&nbsp;&nbsp;
                     <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
                     <select name="submit_mult" dir="ltr" onchange="this.form.submit();">

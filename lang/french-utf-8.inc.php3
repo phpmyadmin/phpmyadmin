@@ -714,4 +714,5 @@ $strZip = '"zippé"';
 // To translate
 
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strCheckOverhead = 'Check overheaded';  //to translate
 ?>

@@ -112,6 +112,7 @@ $strCharsets = 'Charsets';
 $strCharsetsAndCollations = 'Character Sets and Collations';
 $strCheckAll = 'Check All';
 $strCheckDbPriv = 'Check Database Privileges';
+$strCheckOverhead = 'Check overheaded';
 $strCheckPrivs = 'Check Privileges';
 $strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';
 $strCheckTable = 'Check table';

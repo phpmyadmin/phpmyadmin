@@ -20,4 +20,5 @@ $byteUnits = array('bajtova', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('Ned', 'Pon', 'Uto', 'Sre', '
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strCheckOverhead = 'Check overheaded';  //to translate
 ?>

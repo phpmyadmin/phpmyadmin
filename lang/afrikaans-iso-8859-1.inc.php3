@@ -726,4 +726,5 @@ $strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
 $strConstraintsForTable = 'Constraints for table';  //to translate
 $strBookmarkOptions = 'Bookmark options';  //to translate
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strCheckOverhead = 'Check overheaded';  //to translate
 ?>

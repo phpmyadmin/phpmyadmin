@@ -721,4 +721,5 @@ $strConstraintsForDumped = 'Constraints der exportierten Tabellen';
 $strConstraintsForTable = 'Constraints der Tabelle';
 $strBookmarkOptions = 'Optionen zur Speicherung der SQL-Abfrage';
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strCheckOverhead = 'Check overheaded';  //to translate
 ?>

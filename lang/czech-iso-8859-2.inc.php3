@@ -117,6 +117,7 @@ $strCharsets = 'Znakové sady';
 $strCharsetsAndCollations = 'Znakové sady a porovnávání';
 $strCheckAll = 'Za¹krtnout v¹e';
 $strCheckDbPriv = 'Zkontrolovat oprávnìní pro databázi';
+$strCheckOverhead = 'Za¹krtnout neoptimální';
 $strCheckPrivs = 'Zkontrolovat oprávnìní';
 $strCheckPrivsLong = 'Zkontrolovat oprávnìní pro databázi &quot;%s&quot;.';
 $strCheckTable = 'Zkontrolovat tabulku';

@@ -117,6 +117,7 @@ $strCharsets = 'Znakové sady';
 $strCharsetsAndCollations = 'Znakové sady a porovnávání';
 $strCheckAll = 'Zaškrtnout vše';
 $strCheckDbPriv = 'Zkontrolovat oprávnìní pro databázi';
+$strCheckOverhead = 'Zaškrtnout neoptimální';
 $strCheckPrivs = 'Zkontrolovat oprávnìní';
 $strCheckPrivsLong = 'Zkontrolovat oprávnìní pro databázi &quot;%s&quot;.';
 $strCheckTable = 'Zkontrolovat tabulku';

@@ -718,4 +718,5 @@ $strZip = '"compresso con zip"';
 // To translate
 
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strCheckOverhead = 'Check overheaded';  //to translate
 ?>

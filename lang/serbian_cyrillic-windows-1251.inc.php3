@@ -718,4 +718,5 @@ $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања л
 $strZip = '"зиповано"';
 
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strCheckOverhead = 'Check overheaded';  //to translate
 ?>

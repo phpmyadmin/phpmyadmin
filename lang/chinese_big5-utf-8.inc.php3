@@ -724,4 +724,5 @@ $strConstraintsForDumped = '備份資料表限制';
 $strConstraintsForTable = '資料表限制';
 $strBookmarkOptions = '書籤選項';
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strCheckOverhead = 'Check overheaded';  //to translate
 ?>

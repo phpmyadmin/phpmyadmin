@@ -713,4 +713,5 @@ $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0
 $strZip = '"comprimido con zip"';
 
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strCheckOverhead = 'Check overheaded';  //to translate
 ?>

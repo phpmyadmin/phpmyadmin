@@ -725,4 +725,5 @@ $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanması sınırı kal
 $strZip = '"ziplenmiş"';
 
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strCheckOverhead = 'Check overheaded';  //to translate
 ?>
