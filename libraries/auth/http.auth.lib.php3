@@ -25,7 +25,7 @@ if (!defined('PMA_HTTP_AUTH_INCLUDED')) {
     {
         global $right_font_family, $font_size, $font_bigger;
 
-        header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfgServer']['verbose']) ? str_replace('\'', '\\\'',$GLOBALS['cfgServer']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfgServer']['verbose']))) .  '"');
+        header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfg']['Server']['verbose']) ? str_replace('\'', '\\\'',$GLOBALS['cfg']['Server']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['verbose']))) .  '"');
         header('HTTP/1.0 401 Unauthorized');
         header('status: 401 Unauthorized');
 
@@ -46,7 +46,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 </style>
 </head>
 
-<body bgcolor="<?php echo $GLOBALS['cfgRightBgColor']; ?>">
+<body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor']; ?>">
 <br /><br />
 <center>
     <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>
@@ -220,24 +220,24 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
      */
     function PMA_auth_set_user()
     {
-        global $cfgServers, $server, $cfgServer;
+        global $cfg, $server;
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
         // Ensures the valid 'only_db' setting is used
-        if ($cfgServer['user'] != $PHP_AUTH_USER) {
-            $servers_cnt = count($cfgServers);
+        if ($cfg['Server']['user'] != $PHP_AUTH_USER) {
+            $servers_cnt = count($cfg['Servers']);
             for ($i = 1; $i <= $servers_cnt; $i++) {
-                if (isset($cfgServers[$i])
-                    && ($cfgServers[$i]['host'] == $cfgServer['host'] && $cfgServers[$i]['user'] == $PHP_AUTH_USER)) {
+                if (isset($cfg['Servers'][$i])
+                    && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host'] && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)) {
                     $server    = $i;
-                    $cfgServer = $cfgServers[$i];
+                    $cfg['Server'] = $cfg['Servers'][$i];
                     break;
                 }
             } // end for
         } // end if
 
-        $cfgServer['user']     = $PHP_AUTH_USER;
-        $cfgServer['password'] = $PHP_AUTH_PW;
+        $cfg['Server']['user']     = $PHP_AUTH_USER;
+        $cfg['Server']['password'] = $PHP_AUTH_PW;
 
         return TRUE;
     } // end of the 'PMA_auth_set_user()' function

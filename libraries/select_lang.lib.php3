@@ -164,8 +164,8 @@ if (!isset($lang)) {
  * Do the work!
  */
 // Lang forced
-if (!empty($cfgLang)) {
-    $lang = $cfgLang;
+if (!empty($cfg['Lang'])) {
+    $lang = $cfg['Lang'];
 }
 
 // If '$lang' is defined, ensure this is a valid translation
@@ -191,7 +191,7 @@ if (empty($lang) && !empty($HTTP_USER_AGENT)) {
 
 // 3. Didn't catch any valid lang : we use the default settings
 if (empty($lang)) {
-    $lang = $cfgDefaultLang;
+    $lang = $cfg['DefaultLang'];
 }
 
 // 4. Defines the associated filename and load the translation

@@ -68,7 +68,7 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
     function PMA_auth_fails()
     {
         global $php_errormsg;
-        global $connect_func, $server_port, $server_socket, $cfgServer;
+        global $connect_func, $server_port, $server_socket, $cfg;
         global $right_font_family, $font_size, $font_bigger;
 
         if (mysql_error()) {
@@ -79,9 +79,9 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
             $conn_error = 'Cannot connect: invalid settings.';
         }
         $local_query    = $connect_func . '('
-                        . $cfgServer['host'] . $server_port . $server_socket . ', '
-                        . $cfgServer['user'] . ', '
-                        . $cfgServer['password'] . ')';
+                        . $cfg['Server']['host'] . $server_port . $server_socket . ', '
+                        . $cfg['Server']['user'] . ', '
+                        . $cfg['Server']['password'] . ')';
 
         // Defines the charset to be used
         header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
@@ -100,7 +100,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 </style>
 </head>
 
-<body bgcolor="<?php echo $GLOBALS['cfgRightBgColor']; ?>">
+<body bgcolor="<?php echo $cfg['RightBgColor']; ?>">
 <br /><br />
 <center>
     <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>

@@ -5,7 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2004-04-24 Robin Johnson <robbat2@users.sourceforge.net>
+2002-04-24 Alexander M. Turek  <rabus@bugfixes.info>
+    * libraries/*: $cfg system changes.
+
+2002-04-24 Robin Johnson <robbat2@users.sourceforge.net>
 	* *.php3 NOT tbl_*.php, Documentation.*: $cfg system changes.
 
 2002-04-23 Marc Delisle  <lem9@users.sourceforge.net>

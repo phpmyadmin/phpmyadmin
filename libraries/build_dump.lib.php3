@@ -208,7 +208,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $replace      = array('\0', '\n', '\r', '\Z');
             $current_row  = 0;
 
-            @set_time_limit($GLOBALS['cfgExecTimeLimit']);
+            @set_time_limit($GLOBALS['cfg']['ExecTimeLimit']);
 
             // loic1: send a fake header to bypass browser timeout if data
             //        are bufferized - part 1
@@ -309,7 +309,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $fields_cnt   = mysql_num_fields($result);
         $rows_cnt     = mysql_num_rows($result);
 
-        @set_time_limit($GLOBALS['cfgExecTimeLimit']); // HaRa
+        @set_time_limit($GLOBALS['cfg']['ExecTimeLimit']); // HaRa
 
         // loic1: send a fake header to bypass browser timeout if data
         //        are bufferized - part 1
@@ -510,7 +510,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $fields_cnt  = mysql_num_fields($result);
 
-        @set_time_limit($GLOBALS['cfgExecTimeLimit']);
+        @set_time_limit($GLOBALS['cfg']['ExecTimeLimit']);
 
         // Format the data
         $i = 0;

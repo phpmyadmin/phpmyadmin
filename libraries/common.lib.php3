@@ -71,79 +71,15 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     include('./config.inc.php3');
 
     // For compatibility with old config.inc.php3
-    if (!isset($cfgExecTimeLimit)) {
-        $cfgExecTimeLimit       = 300; // 5 minutes
-    }
-    if (!isset($cfgShowStats)) {
-        $cfgShowStats           = TRUE;
-    }
-    if (!isset($cfgLoginCookieRecall)) {
-        $cfgLoginCookieRecall   = TRUE;
-    }
-    if (!isset($cfgShowTooltip)) {
-        $cfgShowTooltip         = TRUE;
-    }
-    if (!isset($cfgShowMysqlInfo)) {
-        $cfgShowMysqlInfo       = FALSE;
-    }
-    if (!isset($cfgShowMysqlVars)) {
-        $cfgShowMysqlVars       = FALSE;
-    }
-    if (!isset($cfgShowPhpInfo)) {
-        $cfgShowPhpInfo         = FALSE;
-    }
-    if (!isset($cfgShowAll)) {
-        $cfgShowAll             = FALSE;
-    }
-    if (!isset($cfgNavigationBarIconic)) {
-        $cfgNavigationBarIconic = TRUE;
-    }
-    if (!isset($cfgProtectBinary)) {
-        if (isset($cfgProtectBlob)) {
-            $cfgProtectBinary   = ($cfgProtectBlob ? 'blob' : FALSE);
-            unset($cfgProtectBlob);
-        } else {
-            $cfgProtectBinary   = 'blob';
+    if (!isset($cfg)) {
+        if (empty($GLOBALS['is_header_sent'])) {
+            include('./header.inc.php3');
         }
+        echo '<p class="warning">Your config file version is not supported any longer!</p>' . "\n";
+        include('./footer.inc.php3');
+        exit();
     }
-    if (!isset($cfgShowFunctionFields)) {
-        $cfgShowFunctionFields  = TRUE;
-    }
-    if (!isset($cfgZipDump)) {
-        $cfgZipDump             = (isset($cfgGZipDump) ? $cfgGZipDump : TRUE);
-    }
-    if (!isset($cfgLeftBgColor)) {
-        $cfgLeftBgColor         = '#D0DCE0';
-    }
-    if (!isset($cfgLeftPointerColor)) {
-        $cfgLeftPointerColor  = '';
-    }
-    if (!isset($cfgRightBgColor)) {
-        $cfgRightBgColor        = '#F5F5F5';
-    }
-    if (!isset($cfgBrowsePointerColor)) {
-        $cfgBrowsePointerColor  = '';
-    }
-    if (!isset($cfgBrowseMarkerColor)) {
-        $cfgBrowseMarkerColor  = (!empty($cfgBrowsePointerColor) && !empty($cfgBrowseMarkRow))
-                                  ? '#FFCC99'
-                                  : '';
-    }
-    if (!isset($cfgTextareaCols)) {
-        $cfgTextareaCols        = 40;
-    }
-    if (!isset($cfgTextareaRows)) {
-        $cfgTextareaRows        = 7;
-    }
-    if (!isset($cfgDefaultDisplay)) {
-        $cfgDefaultDisplay      = 'horizontal';
-    }
-    if (!isset($cfgRepeatCells)) {
-        $cfgRepeatCells         = 100;
-    }
-    if (!isset($cfgLeftFrameLight)) {
-        $cfgLeftFrameLight      = TRUE;
-    }
+    // rabus: The new backwards compatibility code will follow soon...
 
     /**
      * Gets constants that defines the PHP, MySQL... releases.
@@ -373,11 +309,11 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
 
     /**
-     * $cfgPmaAbsoluteUri is a required directive else cookies won't be set
-     * properly and, depending on browsers, inserting or updating a record
+     * $cfg['PmaAbsoluteUri'] is a required directive else cookies won't be
+     * set properly and, depending on browsers, inserting or updating a
      * record might fail
      */
-    if (empty($cfgPmaAbsoluteUri)) {
+    if (empty($cfg['PmaAbsoluteUri'])) {
         if (empty($GLOBALS['is_header_sent'])) {
             include('./header.inc.php3');
         }
@@ -387,78 +323,78 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     }
     // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
     // exist
-    else if (substr($cfgPmaAbsoluteUri, -1) != '/') {
-        $cfgPmaAbsoluteUri .= '/';
+    else if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
+        $cfg['PmaAbsoluteUri'] .= '/';
     }
 
 
     /**
      * Use mysql_connect() or mysql_pconnect()?
      */
-    $connect_func = ($cfgPersistentConnections) ? 'mysql_pconnect' : 'mysql_connect';
+    $connect_func = ($cfg['PersistentConnections']) ? 'mysql_pconnect' : 'mysql_connect';
     $dblist       = array();
 
 
     /**
      * Gets the valid servers list and parameters
      */
-    reset($cfgServers);
-    while (list($key, $val) = each($cfgServers)) {
+    reset($cfg['Servers']);
+    while (list($key, $val) = each($cfg['Servers'])) {
         // Don't use servers with no hostname
         if (empty($val['host'])) {
-            unset($cfgServers[$key]);
+            unset($cfg['Servers'][$key]);
         }
     }
 
-    if (empty($server) || !isset($cfgServers[$server]) || !is_array($cfgServers[$server])) {
-        $server = $cfgServerDefault;
+    if (empty($server) || !isset($cfg['Servers'][$server]) || !is_array($cfg['Servers'][$server])) {
+        $server = $cfg['ServerDefault'];
     }
 
 
     /**
-     * If no server is selected, make sure that $cfgServer is empty (so that
-     * nothing will work), and skip server authentication.
+     * If no server is selected, make sure that $cfg['Server'] is empty (so
+     * that nothing will work), and skip server authentication.
      * We do NOT exit here, but continue on without logging into any server.
      * This way, the welcome page will still come up (with no server info) and
      * present a choice of servers in the case that there are multiple servers
-     * and '$cfgServerDefault = 0' is set.
+     * and '$cfg['ServerDefault'] = 0' is set.
      */
     if ($server == 0) {
-        $cfgServer = array();
+        $cfg['Server'] = array();
     }
 
     /**
-     * Otherwise, set up $cfgServer and do the usual login stuff.
+     * Otherwise, set up $cfg['Server'] and do the usual login stuff.
      */
-    else if (isset($cfgServers[$server])) {
-        $cfgServer = $cfgServers[$server];
+    else if (isset($cfg['Servers'][$server])) {
+        $cfgServer = $cfg['Servers'][$server];
 
         // Check how the config says to connect to the server
-        $server_port   = (empty($cfgServer['port']))
+        $server_port   = (empty($cfg['Server']['port']))
                        ? ''
-                       : ':' . $cfgServer['port'];
-        if (strtolower($cfgServer['connect_type']) == 'tcp') {
-            $cfgServer['socket'] = '';
+                       : ':' . $cfg['Server']['port'];
+        if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
+            $cfg['Server']['socket'] = '';
         }
-        $server_socket = (empty($cfgServer['socket']) || PMA_PHP_INT_VERSION < 30010)
+        $server_socket = (empty($cfg['Server']['socket']) || PMA_PHP_INT_VERSION < 30010)
                        ? ''
-                       : ':' . $cfgServer['socket'];
+                       : ':' . $cfg['Server']['socket'];
 
         // Ensures compatibility with old config files
-        if (!isset($cfgServer['auth_type'])) {
-            $cfgServer['auth_type'] = (isset($cfgServer['adv_auth']) && $cfgServer['adv_auth'])
+        if (!isset($cfg['Server']['auth_type'])) {
+            $cfg['Server']['auth_type'] = (isset($cfg['Server']['adv_auth']) && $cfg['Server']['adv_auth'])
                                     ? 'http'
                                     : 'config';
         }
 
-        if (isset($cfgServer['stduser'])) {
-           $cfgServer['controluser'] = $cfgServer['stduser'];
-           $cfgServer['controlpass'] = $cfgServer['stdpass'];
+        if (isset($cfg['Server']['stduser'])) {
+           $cfg['Server']['controluser'] = $cfg['Server']['stduser'];
+           $cfg['Server']['controlpass'] = $cfg['Server']['stdpass'];
         }
 
-        // Gets the authentication library that fits the cfgServer settings
+        // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
-        include('./libraries/auth/' . $cfgServer['auth_type'] . '.auth.lib.php3');
+        include('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php3');
         if (!PMA_auth_check()) {
             PMA_auth();
         } else {
@@ -466,11 +402,11 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         }
 
         // The user can work with only some databases
-        if (isset($cfgServer['only_db']) && $cfgServer['only_db'] != '') {
-            if (is_array($cfgServer['only_db'])) {
-                $dblist   = $cfgServer['only_db'];
+        if (isset($cfg['Server']['only_db']) && $cfg['Server']['only_db'] != '') {
+            if (is_array($cfg['Server']['only_db'])) {
+                $dblist   = $cfg['Server']['only_db'];
             } else {
-                $dblist[] = $cfgServer['only_db'];
+                $dblist[] = $cfg['Server']['only_db'];
             }
         } // end if
 
@@ -482,11 +418,11 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         // get the privileges list for the current user but the true user link
         // must be open after this one so it would be default one for all the
         // scripts)
-        if ($cfgServer['controluser'] != '') {
+        if ($cfg['Server']['controluser'] != '') {
             $dbh           = @$connect_func(
-                                 $cfgServer['host'] . $server_port . $server_socket,
-                                 $cfgServer['controluser'],
-                                 $cfgServer['controlpass']
+                                 $cfg['Server']['host'] . $server_port . $server_socket,
+                                 $cfg['Server']['controluser'],
+                                 $cfg['Server']['controlpass']
                              );
             if ($dbh == FALSE) {
                 if (mysql_error()) {
@@ -497,18 +433,18 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                     $conn_error = 'Cannot connect: invalid settings.';
                 }
                 $local_query    = $connect_func . '('
-                                . $cfgServer['host'] . $server_port . $server_socket . ', '
-                                . $cfgServer['controluser'] . ', '
-                                . $cfgServer['stdpass'] . ')';
+                                . $cfg['Server']['host'] . $server_port . $server_socket . ', '
+                                . $cfg['Server']['controluser'] . ', '
+                                . $cfg['Server']['stdpass'] . ')';
                 PMA_mysqlDie($conn_error, $local_query, FALSE);
             } // end if
         } // end if
 
         // Connects to the server (validates user's login)
         $userlink      = @$connect_func(
-                             $cfgServer['host'] . $server_port . $server_socket,
-                             $cfgServer['user'],
-                             $cfgServer['password']
+                             $cfg['Server']['host'] . $server_port . $server_socket,
+                             $cfg['Server']['user'],
+                             $cfg['Server']['password']
                          );
         if ($userlink == FALSE) {
             PMA_auth_fails();
@@ -520,7 +456,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
         // If controluser isn't defined, use the current user settings to get
         // his rights
-        if ($cfgServer['controluser'] == '') {
+        if ($cfg['Server']['controluser'] == '') {
             $dbh = $userlink;
         }
 
@@ -587,7 +523,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             if (!$dblist_cnt) {
                 $auth_query   = 'SELECT User, Select_priv '
                               . 'FROM mysql.user '
-                              . 'WHERE User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\'';
+                              . 'WHERE User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
                 $rs           = mysql_query($auth_query, $dbh); // Debug: or PMA_mysqlDie('', $auth_query, FALSE);
             } // end
         } // end if (!$dblist_cnt)
@@ -611,7 +547,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
                 // 1. get allowed dbs from the "mysql.db" table
                 // lem9: User can be blank (anonymous user)
-                $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\' OR User = \'\')';
+                $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
                 $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
                 if (@mysql_numrows($rs)) {
                     // Will use as associative array of the following 2 code
@@ -672,7 +608,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                 } // end if
 
                 // 2. get allowed dbs from the "mysql.tables_priv" table
-                $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\'';
+                $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
                 $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
                 if (@mysql_numrows($rs)) {
                     while ($row = mysql_fetch_array($rs)) {
@@ -891,18 +827,18 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         echo "\n";
         ?>
 <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
-    <table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
+    <table border="<?php echo $GLOBALS['cfg']['Border']; ?>" cellpadding="5">
     <tr>
-        <td bgcolor="<?php echo $GLOBALS['cfgThBgcolor']; ?>">
+        <td bgcolor="<?php echo $GLOBALS['cfg']['ThBgcolor']; ?>">
             <b><?php echo (get_magic_quotes_gpc()) ? stripslashes($message) : $message; ?></b><br />
         </td>
     </tr>
         <?php
-        if ($GLOBALS['cfgShowSQL'] == TRUE && !empty($GLOBALS['sql_query'])) {
+        if ($GLOBALS['cfg']['ShowSQL'] == TRUE && !empty($GLOBALS['sql_query'])) {
             echo "\n";
             ?>
     <tr>
-        <td bgcolor="<?php echo $GLOBALS['cfgBgcolorOne']; ?>">
+        <td bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
             <?php
             echo "\n";
             // The nl2br function isn't used because its result isn't a valid
@@ -960,8 +896,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      */
     function PMA_showDocuShort($link)
     {
-        if (!empty($GLOBALS['cfgManualBaseShort'])) {
-            return '[<a href="' . $GLOBALS['cfgManualBaseShort'] . '/' . $link .'" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+        if (!empty($GLOBALS['cfg']['ManualBaseShort'])) {
+            return '[<a href="' . $GLOBALS['cfg']['ManualBaseShort'] . '/' . $link .'" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
         }
     } // end of the 'PMA_showDocuShort()' function
 

@@ -14,7 +14,7 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     // Gets the default font sizes
     PMA_setFontSizes();
     // Defines the cookie path and whether the server is using https or not
-    $pma_uri_parts = parse_url($cfgPmaAbsoluteUri);
+    $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
     $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
     $is_https      = ($pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 
@@ -55,14 +55,14 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     function PMA_auth()
     {
         global $right_font_family, $font_size, $font_bigger;
-        global $cfgServers, $available_languages;
+        global $cfg, $available_languages;
         global $lang, $server;
         global $HTTP_COOKIE_VARS;
 
         // Tries to get the username from cookie whatever are the values of the
         // 'register_globals' and the 'variables_order' directives if last login
         // should be recalled, else skip the IE autocomplete feature.
-        if ($GLOBALS['cfgLoginCookieRecall']) {
+        if ($cfg['LoginCookieRecall']) {
             if (!empty($GLOBALS['pma_cookie_username'])) {
                 $default_user = $GLOBALS['pma_cookie_username'];
             }
@@ -104,14 +104,14 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 </style>
 </head>
 
-<body bgcolor="<?php echo $GLOBALS['cfgRightBgColor']; ?>">
+<body bgcolor="<?php echo $cfg['RightBgColor']; ?>">
 <center>
 <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION . ' - ' . $GLOBALS['strLogin']); ?></h1>
 <br />
 
         <?php
         // Displays the languages form
-        if (empty($cfgLang)) {
+        if (empty($cfg['Lang'])) {
             echo "\n";
             ?>
 <!-- Language selection -->
@@ -165,7 +165,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
         </td>
     </tr>
         <?php
-        if (count($cfgServers) > 1) {
+        if (count($cfg['Servers']) > 1) {
             echo "\n";
             ?>
     <tr>
@@ -175,8 +175,8 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
             <?php
             echo "\n";
             // Displays the MySQL servers choice
-            reset($cfgServers);
-            while (list($key, $val) = each($cfgServers)) {
+            reset($cfg['Servers']);
+            while (list($key, $val) = each($cfg['Servers'])) {
                 if (!empty($val['host'])) {
                     echo '                <option value="' . $key . '"';
                     if (!empty($server) && ($server == $key)) {
@@ -219,7 +219,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
     <tr>
         <td colspan="2" align="center">
         <?php
-        if (count($cfgServers) == 1) {
+        if (count($cfg['Servers']) == 1) {
             echo '    <input type="hidden" name="server" value="' . $server . '" />';
         }
         echo "\n";
@@ -347,37 +347,37 @@ if (uname.value == '') {
      */
     function PMA_auth_set_user()
     {
-        global $cfgServers, $server, $cfgServer;
+        global $cfg, $server;
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
         global $from_cookie;
 
         // Ensures the valid 'only_db' setting is used
-        if ($cfgServer['user'] != $PHP_AUTH_USER) {
-            $servers_cnt = count($cfgServers);
+        if ($cfg['Server']['user'] != $PHP_AUTH_USER) {
+            $servers_cnt = count($cfg['Servers']);
             for ($i = 1; $i <= $servers_cnt; $i++) {
-                if (isset($cfgServers[$i])
-                    && ($cfgServers[$i]['host'] == $cfgServer['host'] && $cfgServers[$i]['user'] == $PHP_AUTH_USER)) {
+                if (isset($cfg['Servers'][$i])
+                    && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host'] && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)) {
                     $server    = $i;
-                    $cfgServer = $cfgServers[$i];
+                    $cfg['Server'] = $cfg['Servers'][$i];
                     break;
                 }
             } // end for
         } // end if
 
-        $cfgServer['user']     = $PHP_AUTH_USER;
-        $cfgServer['password'] = $PHP_AUTH_PW;
+        $cfg['Server']['user']     = $PHP_AUTH_USER;
+        $cfg['Server']['password'] = $PHP_AUTH_PW;
 
         // Set cookies if required (once per session)
         if (!$from_cookie) {
             // Duration = one month for username
             setcookie('pma_cookie_username',
-                $cfgServer['user'],
+                $cfg['Server']['user'],
                 time() + (60 * 60 * 24 * 30),
                 $GLOBALS['cookie_path'], '' ,
                 $GLOBALS['is_https']);
             // Duration = till the browser is closed for password
             setcookie('pma_cookie_password',
-                $cfgServer['password'],
+                $cfg['Server']['password'],
                 0,
                 $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);

@@ -23,7 +23,6 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
      */
     function PMA_getBookmarksParam()
     {
-        global $cfgServer;
         global $server;
 
         $cfgBookmark = '';
@@ -33,9 +32,9 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
             return '';
         }
 
-        $cfgBookmark['user']  = $cfgServer['user'];
-        $cfgBookmark['db']    = $cfgServer['bookmarkdb'];
-        $cfgBookmark['table'] = $cfgServer['bookmarktable'];
+        $cfgBookmark['user']  = $GLOBALS['cfg']['Server']['user'];
+        $cfgBookmark['db']    = $GLOBALS['cfg']['Server']['bookmarkdb'];
+        $cfgBookmark['table'] = $GLOBALS['cfg']['Server']['bookmarktable'];
 
         return $cfgBookmark;
     } // end of the 'PMA_getBookmarksParam()' function
@@ -151,7 +150,7 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
     /**
      * Bookmark Support
      */
-    $cfgBookmark = PMA_getBookmarksParam();
+    $cfg['Bookmark'] = PMA_getBookmarksParam();
 
 
 } // $__PMA_BOOKMARK_LIB__
