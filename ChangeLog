@@ -18,7 +18,8 @@ $Source$
     * themes/index.php: new calling
     My changes:
     * libraries/common.lib.php: proper revision check
-    * libraries/select_theme.lib.php: remove unneeded counter
+    * libraries/select_theme.lib.php: remove unneeded counter, and fix
+      undefined $PHP_SELF
 
 2004-06-13 Marc Delisle  <lem9@users.sourceforge.net>
     * many files: redesign part 3, thanks to Michael Keck (mkkeck).
