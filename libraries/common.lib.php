@@ -238,6 +238,25 @@ if ($is_minimum_common == FALSE) {
      function PMA_generateHiddenMaxFileSize($max_size){
          return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />';
      }
+    /**
+     * Removes insecure parts in a path; used before include() or
+     * require() when a part of the path comes from an insecure source
+     * like a cookie or form.
+     *
+     * @param    string  The path to check
+     *
+     * @return   string  The secured path
+     *                  
+     * @access  public
+     * @author  Marc Delisle (lem9@users.sourceforge.net)
+     */
+    function PMA_securePath($path) {
+
+        // change .. to .
+        $path = preg_replace('@\.\.*@','.',$path);
+
+        return $path; 
+    } // end function
 
     /**
      * Charset conversion.
@@ -298,6 +317,7 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
     $GLOBALS['theme'] = $_COOKIE['pma_theme'];
     if ($_COOKIE['pma_theme'] != 'original') {
         $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $_COOKIE['pma_theme'] . '/img/';
+        //$tmp_color_file = './' . $cfg['ThemePath'] . '/' . PMA_securePath($_COOKIE['pma_theme']) . '/colors.inc.php';
         $tmp_color_file = './' . $cfg['ThemePath'] . '/' . $_COOKIE['pma_theme'] . '/colors.inc.php';
         if (@file_exists($tmp_color_file)) {
             include($tmp_color_file);
@@ -2059,26 +2079,6 @@ if (typeof(document.getElementById) != 'undefined'
                 exit();
             }
         }
-    } // end function
-
-    /**
-     * Removes insecure parts in a path; used before include() or
-     * require() when a part of the path comes from an insecure source
-     * like a cookie or form.
-     *
-     * @param    string  The path to check
-     *
-     * @return   string  The secured path
-     *                  
-     * @access  public
-     * @author  Marc Delisle (lem9@users.sourceforge.net)
-     */
-    function PMA_securePath($path) {
-
-        // change .. to .
-        $path = preg_replace('@\.\.*@','.',$path);
-
-        return $path; 
     } // end function
 
     // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
