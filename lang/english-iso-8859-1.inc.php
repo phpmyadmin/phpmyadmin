@@ -365,6 +365,7 @@ $strLogUsername = 'Username:';
 $strLogin = 'Login';
 $strLoginInformation = 'Login Information';
 $strLogout = 'Log out';
+$strLongOperation = 'This operation could be long. Proceed anyway?';
 
 $strMIMETypesForTable = 'MIME TYPES FOR TABLE';
 $strMIME_MIMEtype = 'MIME-type';

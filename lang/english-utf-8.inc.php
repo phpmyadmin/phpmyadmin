@@ -366,6 +366,7 @@ $strLogUsername = 'Username:';
 $strLogin = 'Login';
 $strLoginInformation = 'Login Information';
 $strLogout = 'Log out';
+$strLongOperation = 'This operation could be long. Proceed anyway?';
 
 $strMIMETypesForTable = 'MIME TYPES FOR TABLE';
 $strMIME_MIMEtype = 'MIME-type';
@@ -400,7 +401,7 @@ $strMyISAMRecoverOptions = 'Automatic recovery mode';
 $strMyISAMRecoverOptionsDesc = 'The mode for automatic recovery of crashed MyISAM tables, as set via the --myisam-recover server startup option.';
 $strMyISAMRepairThreads = 'Repair threads';
 $strMyISAMRepairThreadsDesc = 'If this value is greater than 1, MyISAM table indexes are created in parallel (each index in its own thread) during the Repair by sorting process.';
-$strMyISAMSortBufferSize = 'Sort buffer size'; 
+$strMyISAMSortBufferSize = 'Sort buffer size';
 $strMyISAMSortBufferSizeDesc = 'The buffer that is allocated when sorting MyISAM indexes during a REPAIR TABLE or when creating indexes with CREATE INDEX or ALTER TABLE.';
 $strMySQLCharset = 'MySQL charset';
 $strMySQLConnectionCollation = 'MySQL connection collation';
