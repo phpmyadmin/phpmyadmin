@@ -13,6 +13,7 @@ $Source$
 
 2002-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/polish.inc.php3 updates, thanks to Jakub Wilk
+    * lang/ukrainian.inc.php3 updates, thanks to Markijan Baran
 
 2002-06-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian.inc.php3 updates, thanks to Valics Lehel
