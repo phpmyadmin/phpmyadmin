@@ -57,7 +57,7 @@ require('./tbl_properties_links.php3');
 /**
  * Displays table comment
  */
-if (!empty($show_comment)) {
+if (!empty($show_comment) && !isset($avoid_show_comment)) {
     ?>
 <!-- Table comment -->
 <p><i>
