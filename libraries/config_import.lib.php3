@@ -37,7 +37,7 @@ unset($cfgConfirm);
 
 if (!isset($cfgLoginCookieRecall)) {
     $cfg['LoginCookieRecall']   = TRUE;
-} else
+} else {
     $cfg['LoginCookieRecall']   = $cfgLoginCookieRecall;
     unset($cfgLoginCookieRecall);
 }
