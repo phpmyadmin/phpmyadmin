@@ -5,8 +5,15 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-23  Loïc Chapeaux  <lolo@phpheaven.net>
+	* main.php3: Rewrote this script so it fits PEAR codding standards and
+	  produces an xhtml compliant output. 
+	* main.php3, user_details.php3, db_details.php3, tbl_properties.inc.php3:
+	  fixed bad anchors case in links to the documentation thanks to
+	  Laurent HAAS <mci@free.fr>.
+
 2001-06-22  Marc Delisle  <lem9@users.sourceforge.net>
-        * sql.php3: bug 434405: percent bug in delete queries
+	* sql.php3: bug 434405: percent bug in delete queries
 
 2001-06-22  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_dump.php3: add timecode in dump, add linefeed at end of file
