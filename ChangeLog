@@ -7,6 +7,7 @@ $Source$
 
 2004-04-21 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.6.0-alpha1 released
+    * (after the release) user_password.php: undefined offset in blowfish.php
 
 2004-04-20 Alexander M. Turek  <me@derrabus.de>
     * Documentation.html, README:

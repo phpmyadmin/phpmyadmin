@@ -53,8 +53,16 @@ if (isset($nopass)) {
         $result           = @PMA_DBI_try_query($local_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, FALSE, $err_url);
 
         // Changes password cookie if required
+        // Duration = till the browser is closed for password (we don't want this to be saved)
         if ($cfg['Server']['auth_type'] == 'cookie') {
-            setcookie('pma_cookie_password', base64_encode(PMA_blowfish_encrypt($pma_pw,$GLOBALS['cfg']['blowfish_secret'])), 0, $cookie_path, '', $is_https);
+
+            setcookie('pma_cookie_password',
+               PMA_blowfish_encrypt($pma_pw,
+               $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']),
+               0,
+               $GLOBALS['cookie_path'], '',
+               $GLOBALS['is_https']);
+
         } // end if
         // For http auth. mode, the "back" link will also enforce new
         // authentication
