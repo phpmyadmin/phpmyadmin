@@ -646,7 +646,7 @@ $strSwedish = 'suédois';
 $strSwitchToTable = 'Se rendre à la table copiée';
 
 $strTable = 'Table';
-$strTableComments = '<b>Commentaires</b> sur la table';
+$strTableComments = 'Commentaires sur la table';
 $strTableEmpty = 'Le nom de la table est vide';
 $strTableHasBeenDropped = 'La table %s a été effacée';
 $strTableHasBeenEmptied = 'La table %s a été vidée';
