@@ -79,6 +79,7 @@ $strBookmarkQuery = 'Comanda SQL salvata (Bookmarked SQL-query)';
 $strBookmarkThis = 'Salveaza aceasta comanda SQL';
 $strBookmarkView = 'Numai vizualizare';
 $strBrowse = 'Navigare';
+$strBrowseForeignValues = 'Cauta printre valori necunoscute';
 $strBulgarian = 'Bulgar';
 $strBzError = 'phpMyAdmin nu a reusit sa compreseze acest dump din cauza unei extensii Bz2 invalide in aceasta versiune php. Va recomandam sa setati directiva <code>$cfg[\'BZipDump\']</code> in in fisierul de configurare phpMyAdmin la <code>FALSE</code>. Daca doriti sa utilizati caracteristicile de compresie Bz2 va trebui sa upgradati la o versiune mai noua de php.  Pentru detalii revedeti raportul de erori php %s.';
 $strBzip = '"bzipped"';
@@ -657,6 +658,7 @@ $strUseBackquotes = 'Utilizati apostroful pentru numele tabelelor si a campurilo
 $strUseHostTable = 'Utilizare tabel host';
 $strUseTables = 'Utilizare tabele';
 $strUseTextField = 'Utilizare camp text';
+$strUseThisValue = 'Foloseste aceasta valoare';
 $strUser = 'Utilizator';
 $strUserAlreadyExists = 'Acest utilizator %s exista deja!';
 $strUserEmpty = 'Numele de utilizator este gol!';
@@ -680,6 +682,7 @@ $strWebServerUploadDirectoryError = 'Directorul setat pentru upload nu poate fi 
 $strWelcome = 'Bine ai venit la %s';
 $strWestEuropean = 'European de vest';
 $strWildcard = 'wildcard';
+$strWindowNotFound = 'Fereastra de navigare nu a putut fi reincarcat.  Poate aceasta nu a fost inchis, sau fereastra parinte blocheaza ferestrele din cauza securitatii sistemului.';
 $strWithChecked = 'Verificat cu:';
 $strWritingCommentNotPossible = 'Scrierea unui comentariu nu este posibil';
 $strWritingRelationNotPossible = 'Scrierea unei relatii nu este posibil';
@@ -693,7 +696,4 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>
