@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-15 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_query_box.php3: Only display charset selection when a DB is
+      selected.
+
 2003-04-15 Garvin Hicking <me@supergarv.de>
     * footer.inc.php3, queryframe.php3: Changed anchor target
       and window name of queryframe as suggested by Armel

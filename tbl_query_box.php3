@@ -209,7 +209,10 @@ if (function_exists('PMA_set_enc_form')) {
 }
 
 // Charset conversion options
-if ($is_upload || $is_upload_dir) {
+if (($is_upload || $is_upload_dir) && 
+        (!isset($is_inside_querywindow) ||
+         (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) 
+        && isset($db) && $db != ''){
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
         echo '    <div style="margin-bottom: 5px">' . "\n";
         $temp_charset = reset($cfg['AvailableCharsets']);
