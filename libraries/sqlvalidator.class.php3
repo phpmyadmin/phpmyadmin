@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
 * PHP interface to MimerSQL Validator
 *
@@ -16,245 +17,378 @@
 *
 *
 * @access   public
+*
 * @author   Robin Johnson <robbat2@users.sourceforge.net>
-* @version  $Id$ 
+*
+* @version  $Id$
 */
+
 
 if (!defined('PMA_SQL_VALIDATOR_CLASS_INCLUDED')) {
     define('PMA_SQL_VALIDATOR_CLASS_INCLUDED', 1);
 
-    @include("SOAP/Client.php");
-    if(!class_exists('SOAP_Client')) {
+    @include('SOAP/Client.php');
+
+    if (!function_exists('class_exists') || !class_exists('SOAP_Client')) {
         $GLOBALS['sqlvalidator_error'] = TRUE;
-    } else {
+    }
+    else {
 
         // Ok, so we have SOAP Support, so let's use it!
 
-        class SQLValidator {
+        class PMA_SQLValidator {
 
             var $url;
-            var $serviceName; 
+            var $service_name;
             var $wsdl;
-            var $outputType; 
+            var $output_type;
 
             var $username;
             var $password;
-            var $callingProgram;
-            var $callingProgramVersion;
-            var $targetDbms;
-            var $targetDbmsVersion;
+            var $calling_program;
+            var $calling_program_version;
+            var $target_dbms;
+            var $target_dbms_version;
             var $connectionTechnology;
-            var $connectionTechnologyVersion;
+            var $connection_technology_version;
             var $interactive;
 
-            var $serviceLink = NULL;
-            var $sessionData = NULL;
+            var $service_link = NULL;
+            var $session_data = NULL;
 
-            function dataInit()
+
+            /**
+             * Private functions - You don't need to mess with these
+             */
+
+            /**
+             * Service opening
+             *
+             * @param  string  URL of Mimer SQL Validator WSDL file
+             *
+             * @return object  Object to use
+             *
+             * @access private
+             */
+            function _openService($url)
             {
-                $this->url = "http://sqlvalidator.mimer.com/v1/services";
-                $this->serviceName = 'SQL99Validator';
-                $this->wsdl = '?wsdl';
+                $obj = new SOAP_Client($url, TRUE);
+                return $obj;
+            } // end of the "openService()" function
 
-                $this->outputType = 'html';
 
-                $this->username = 'anonymous';
-                $this->password = '';
-                $this->callingProgram = 'PHP_SQLValidator';
-                $this->callingProgramVersion = '$Revision$';
-                $this->targetDbms = 'N/A';
-                $this->targetDbmsVersion = 'N/A';
-                $this->connectionTechnology = 'PHP';
-                $this->connectionTechnologyVersion = phpversion();
+            /**
+             * Service initializer to connect to server
+             *
+             * @param  object   Service object
+             * @param  string   Username
+             * @param  string   Password
+             * @param  string   Name of calling program
+             * @param  string   Version of calling program
+             * @param  string   Target DBMS
+             * @param  string   Version of target DBMS
+             * @param  string   Connection Technology
+             * @param  string   version of Connection Technology
+             * @param  integer  boolean of 1/0 to specify if we are an interactive system
+             *
+             * @return object   stdClass return object with data
+             *
+             * @access private
+             */
+            function _openSession($obj, $username, $password,
+                                          $calling_program, $calling_program_version,
+                                          $target_dbms, $target_dbms_version,
+                                          $connection_technology, $connection_technology_version,
+                                          $interactive)
+            {
+                $ret = $obj->openSession($username, $password,
+                                         $calling_program, $calling_program_version,
+                                         $target_dbms, $target_dbms_version,
+                                         $connection_technology, $connection_technology_version,
+                                         $interactive);
+
+                return $ret;
+            } // end of the "_openSession()" function
+
+
+            /**
+             * Validator sytem call
+             *
+             * @param  object  Service object
+             * @param  object  Session object
+             * @param  string  SQL Query to validate
+             * @param  string  Data return type
+             *
+             * @return object  stClass return with data
+             *
+             * @access private
+             */
+            function _validateSQL($obj, $session, $sql, $method)
+            {
+                $res = $obj->validateSQL($session->sessionId, $session->sessionKey, $sql, $this->output_type);
+                return $res;
+            } // end of the "validateSQL()" function
+
+
+            /**
+             * Validator sytem call
+             *
+             * @param  string  SQL Query to validate
+             *
+             * @return object  stdClass return with data
+             *
+             * @access private
+             *
+             * @see    validateSQL()
+             */
+            function _validate($sql)
+            {
+                $ret = $this->_validateSQL($this->service_link, $this->session_data,
+                                                   $sql, $this->output_type);
+                return $ret;
+            } // end of the "validate()" function
+
+
+            /**
+             * Public functions
+             */
+
+            /**
+             * Constructor
+             *
+             * @access public
+             */
+            function PMA_SQLValidator()
+            {
+                $this->url                           = 'http://sqlvalidator.mimer.com/v1/services';
+                $this->service_name                  = 'SQL99Validator';
+                $this->wsdl                          = '?wsdl';
+
+                $this->output_type                   = 'html';
+
+                $this->username                      = 'anonymous';
+                $this->password                      = '';
+                $this->calling_program               = 'PHP_SQLValidator';
+                $this->calling_program_version       = '$Revision$';
+                $this->target_dbms                   = 'N/A';
+                $this->target_dbms_version           = 'N/A';
+                $this->connection_technology         = 'PHP';
+                $this->connection_technology_version = phpversion();
                 $this->interactive = 1;
 
-                $this->serviceLink = NULL;
-                $this->sessionData = NULL;
-            }
+                $this->service_link = NULL;
+                $this->session_data = NULL;
+            } // end of the "PMA_SQLValidator()" function
 
-            function SQLValidator()
-            {   
-                $this->dataInit();
-            }
 
-            function setCredentials($username,$password)
-            {   
-                $this->username = $username; 
-                $this->password = $password; 
-            }
-
-            function setCallingProgram($callingProgram,$callingProgramVersion)
+            /**
+             * Sets credentials
+             *
+             * @param  string  the username
+             * @param  string  the password
+             *
+             * @access public
+             */
+            function setCredentials($username, $password)
             {
-                $this->callingProgram = $callingProgram;
-                $this->callingProgramVersion = $callingProgramVersion;
-            }
+                $this->username = $username;
+                $this->password = $password;
+            } // end of the "setCredentials()" function
 
-            function appendCallingProgram($callingProgram,$callingProgramVersion)
+
+            /**
+             * Sets the calling program
+             *
+             * @param  string  the calling program name
+             * @param  string  the calling program revision
+             *
+             * @access public
+             */
+            function setCallingProgram($calling_program, $calling_program_version)
             {
-                $this->callingProgram .= ' - ' . $callingProgram;
-                $this->callingProgramVersion .= ' - ' . $callingProgramVersion;
-            }
+                $this->calling_program         = $calling_program;
+                $this->calling_program_version = $calling_program_version;
+            } // end of the "setCallingProgram()" function
 
-            function setTargetDbms($targetDbms,$targetDbmsVersion)
+
+            /**
+             * Appends the calling program
+             *
+             * @param  string  the calling program name
+             * @param  string  the calling program revision
+             *
+             * @access public
+             */
+            function appendCallingProgram($calling_program, $calling_program_version)
             {
-                $this->targetDbms = $targetDbms;
-                $this->targetDbmsVersion = $targetDbmsVersion;
-            }
+                $this->calling_program         .= ' - ' . $calling_program;
+                $this->calling_program_version .= ' - ' . $calling_program_version;
+            } // end of the "appendCallingProgram()" function
 
-            function appendTargetDbms($targetDbms,$targetDbmsVersion)
+
+            /**
+             * Sets the target DBMS
+             *
+             * @param  string  the target DBMS name
+             * @param  string  the target DBMS revision
+             *
+             * @access public
+             */
+            function setTargetDbms($target_dbms, $target_dbms_version)
             {
-                $this->targetDbms .= ' - ' . $targetDbms;
-                $this->targetDbmsVersion .= ' - ' . $targetDbmsVersion;
-            }
+                $this->target_dbms         = $target_dbms;
+                $this->target_dbms_version = $target_dbms_version;
+            } // end of the "setTargetDbms()" function
 
-            function setConnectionTechnology($connectionTechnology,$connectionTechnologyVersion)
+
+            /**
+             * Appends the target DBMS
+             *
+             * @param  string  the target DBMS name
+             * @param  string  the target DBMS revision
+             *
+             * @access public
+             */
+            function appendTargetDbms($target_dbms, $target_dbms_version)
             {
-                $this->connectionTechnology = $connectionTechnology;
-                $this->connectionTechnologyVersion = $connectionTechnologyVersion;
-            }
+                $this->target_dbms         .= ' - ' . $target_dbms;
+                $this->target_dbms_version .= ' - ' . $target_dbms_version;
+            } // end of the "appendTargetDbms()" function
 
-            function appendConnectionTechnology($connectionTechnology,$connectionTechnologyVersion)
+
+            /**
+             * Sets the connection technology used
+             *
+             * @param  string  the connection technology name
+             * @param  string  the connection technology revision
+             *
+             * @access public
+             */
+            function setConnectionTechnology($connection_technology, $connection_technology_version)
             {
-                $this->connectionTechnology .= ' - ' . $connectionTechnology;
-                $this->connectionTechnologyVersion .= ' - ' . $connectionTechnologyVersion;
-            }
+                $this->connection_technology         = $connection_technology;
+                $this->connection_technology_version = $connection_technology_version;
+            } // end of the "setConnectionTechnology()" function
 
+
+            /**
+             * Appends the connection technology used
+             *
+             * @param  string  the connection technology name
+             * @param  string  the connection technology revision
+             *
+             * @access public
+             */
+            function appendConnectionTechnology($connection_technology, $connection_technology_version)
+            {
+                $this->connection_technology         .= ' - ' . $connection_technology;
+                $this->connection_technology_version .= ' - ' . $connection_technology_version;
+            } // end of the "appendConnectionTechnology()" function
+
+
+            /**
+             * Sets whether interactive mode should be used or not
+             *
+             * @param  integer  whether interactive mode should be used or not
+             *
+             * @access public
+             */
             function setInteractive($interactive)
             {
                 $this->interactive = $interactive;
-            }
+            } // end of the "setInteractive()" function
 
-            function setOutputType($outputtype)
-            {
-                $this->OutputType = $outputtype;
-            }
-
-            function start()
-            {   
-                $this->startService();
-                $this->startSession();
-            }
-
-            function startService()
-            {
-                $this->serviceLink = $this->_openService($this->url.'/'.$this->serviceName.$this->wsdl);
-            }
-
-            function startSession()
-            {
-                $this->sessionData = $this->_openSession($this->serviceLink, $this->username, $this->password, $this->callingProgram, $this->callingProgramVersion, $this->targetDbms, $this->targetDbmsVersion, $this->connectionTechnology, $this->connectionTechnologyVersion, $this->interactive);
-
-                if( isset($this->sessionData) &&
-                ($this->sessionData != NULL) &&
-                ($this->sessionData->target != $this->url))
-                {   
-                    // Reopen the service on the new URL that was provided 
-                    $url = $this->sessionData->target;
-                    $this->startService();
-                }
-            }
 
             /**
-            *  Call to determine just if a query is valid or not.
-            *
-            * @param  string SQL statement to validate
-            * 
-            * @return string Validator string from Mimer
-            * 
-            * @see _validate
-            */
+             * Sets the output type to use
+             *
+             * @param  string  the output type to use
+             *
+             * @access public
+             */
+            function setOutputType($output_type)
+            {
+                $this->output_type = $output_type;
+            } // end of the "setOutputType()" function
+
+
+            /**
+             * Starts service
+             *
+             * @access public
+             */
+            function startService()
+            {
+                $this->service_link = $this->_openService($this->url . '/' . $this->service_name . $this->wsdl);
+            } // end of the "startService()" function
+
+
+            /**
+             * Starts session
+             *
+             * @access public
+             */
+            function startSession()
+            {
+                $this->session_data = $this->_openSession($this->service_link, $this->username, $this->password,
+                                                                  $this->calling_program, $this->calling_program_version,
+                                                                  $this->target_dbms, $this->target_dbms_version,
+                                                                  $this->connection_technology, $this->connection_technology_version,
+                                                                  $this->interactive);
+
+                if (isset($this->session_data) && ($this->session_data != NULL)
+                    && ($this->session_data->target != $this->url)) {
+                    // Reopens the service on the new URL that was provided
+                    $url = $this->session_data->target;
+                    $this->startService();
+                }
+            } // end of the "startSession()" function
+
+
+            /**
+             * Do start service and session
+             *
+             * @access public
+             */
+            function start()
+            {
+                $this->startService();
+                $this->startSession();
+            } // end of the "start()" function
+
+
+            /**
+             * Call to determine just if a query is valid or not.
+             *
+             * @param  string SQL statement to validate
+             *
+             * @return string Validator string from Mimer
+             *
+             * @see _validate
+             */
             function isValid($sql)
             {
                 $res = $this->_validate($sql);
                 return $res->standard;
-            }
+            } // end of the "isValid()" function
+
 
             /**
-            * Call for complete validator response
-            *
-            * @param  string SQL statement to validate
-            *
-            * @return string Validator string from Mimer
-            * 
-            * @see _validate
-            */
-            function ValidationString($sql)
+             * Call for complete validator response
+             *
+             * @param  string SQL statement to validate
+             *
+             * @return string Validator string from Mimer
+             *
+             * @see _validate
+             */
+            function validationString($sql)
             {
                 $res = $this->_validate($sql);
                 return $res->data;
-            }
-
-            /** Private functions beyond here
-            * You don't need to mess with these
-            */
-
-            /**
-            * Service opening
-            *
-            * @param  string  URL of Mimer SQL Validator WSDL file
-            *
-            * @return object  Object to use
-            */
-            function _openService($url)
-            {   
-                $obj = new SOAP_Client($url,TRUE);
-                return $obj;
-            }
-
-            /**
-            * Service initializer to connect to server
-            *
-            * @param  object  Service object
-            * @param  string  Username
-            * @param  string  Password 
-            * @param  string  Name of calling program
-            * @param  string  Version of calling program
-            * @param  string  Target DBMS
-            * @param  string  Version of target DBMS
-            * @param  string  Connection Technology
-            * @param  string  version of Connection Technology
-            * @param  number  boolean of 1/0 to specify if we are an interactive system 
-            *
-            * @return object stdClass return object with data
-            */
-            function _openSession($obj, $username, $password, $callingProgram, $callingProgramVersion, $targetDbms, $targetDbmsVersion, $connectionTechnology, $connectionTechnologyVersion, $interactive)
-            {	
-
-                $ret = $obj->openSession($username, $password, $callingProgram, $callingProgramVersion, $targetDbms, $targetDbmsVersion, $connectionTechnology, $connectionTechnologyVersion, $interactive);
-
-                return $ret;
-            }
-
-            /**
-            * Validator sytem call
-            *
-            * @param  object  Service object
-            * @param  object  Session object
-            * @param  string  SQL Query to validate
-            * @param  string  Data return type 
-            *
-            * @return object  stClass return with data
-            */
-            function _validateSQL($obj,$session,$sql,$method)
-            {	
-                $res = $obj->validateSQL($session->sessionId, $session->sessionKey, $sql, $this->outputType);
-                return $res;
-            }
-
-            /**
-            * Validator sytem call
-            *
-            * @param  string  SQL Query to validate
-            *
-            * @return object  stClass return with data
-            */
-            function _validate($sql)
-            {   
-                $ret = $this->_validateSQL($this->serviceLink, $this->sessionData, $sql, $this->outputType); 
-                return $ret;
-            }
-        }
-    }
+            } // end of the "validationString()" function
+        } // end class PMA_SQLValidator
+    } // end else
 
 }  // $__PMA_SQL_VALIDATOR_CLASS__
 
