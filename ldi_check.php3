@@ -71,8 +71,9 @@ if (isset($btnLDI) && isset($local_textfile) && $local_textfile != '') {
 
             // function is_writeable() is valid on PHP3 and 4
             if (!is_writeable($tmp_subdir)) {
-                // if we cannot move the file, let PHP report the error
-                error_reporting(E_ALL);
+                echo $strWebServerUploadDirectoryError . ': ' . $tmp_subdir
+                 . '<br />';
+                exit();
             } else {
                 $textfile_new = $tmp_subdir . basename($textfile);
                 if (PMA_PHP_INT_VERSION < 40003) {
@@ -100,8 +101,11 @@ if (isset($btnLDI) && empty($textfile)) {
         $replace = '';
     }
 
-    error_reporting(E_ALL);
-    chmod($textfile, 0644);
+    // the error message does not correspond exactly to the error...
+    if (!@chmod($textfile, 0644)) {
+       echo $strFileCouldNotBeRead . ' ' . $textfile . '<br />';
+       exit();
+    }
 
     // Kanji encoding convert appended by Y.Kawada
     if (function_exists('PMA_kanji_file_conv')) {

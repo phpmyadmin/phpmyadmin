@@ -174,9 +174,11 @@ if (isset($do) && $do == 'import') {
     
                 // function is_writeable() is valid on PHP3 and 4
                 if (!is_writeable($tmp_subdir)) {
-                    // if we cannot move the file, let PHP report the error
-                    error_reporting(E_ALL);
                     $docsql_text = PMA_readFile($sql_file, $sql_file_compression);
+                    if ($docsql_text == FALSE) {
+                        echo $strFileCouldNotBeRead;
+                        exit();
+                    }
                 }
                 else {
                     $sql_file_new = $tmp_subdir . basename($sql_file);

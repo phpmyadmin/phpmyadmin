@@ -100,9 +100,11 @@ if ($sql_file != 'none') {
 
             // function is_writeable() is valid on PHP3 and 4
             if (!is_writeable($tmp_subdir)) {
-                // if we cannot move the file, let PHP report the error
-                error_reporting(E_ALL);
                 $sql_query = PMA_readFile($sql_file, $sql_file_compression);
+                if ($sql_query == FALSE) {
+                    echo $strFileCouldNotBeRead;
+                    exit();
+                }
             }
             else {
                 $sql_file_new = $tmp_subdir . basename($sql_file);
