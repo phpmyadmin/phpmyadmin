@@ -383,7 +383,7 @@ function PMA_normalOperations()
                     <?php echo $GLOBALS['strHost']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
-                    <input type="text" name="host" size="10" onchange="this.form.anyhost[1].checked = true" />
+                    <input type="text" name="host" size="10" <?php echo $GLOBALS['chg_evt_handler']; ?>="this.form.anyhost[1].checked = true" />
                 </td>
             </tr>
             <tr>
@@ -397,12 +397,12 @@ function PMA_normalOperations()
                     <?php echo $GLOBALS['strUserName']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
-                    <input type="text" name="pma_user" size="10" onchange="this.form.anyuser[1].checked = true" />
+                    <input type="text" name="pma_user" size="10" <?php echo $GLOBALS['chg_evt_handler']; ?>="this.form.anyuser[1].checked = true" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="nopass" value="1" onclick="pma_pw.value = ''; pma_pw2.value = ''" />
+                    <input type="radio" name="nopass" value="1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
                     <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
                 </td>
                 <td>&nbsp;</td>
@@ -411,10 +411,10 @@ function PMA_normalOperations()
                     <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
-                    <input type="password" name="pma_pw" size="10" onchange="nopass[1].checked = true" />
+                    <input type="password" name="pma_pw" size="10" <?php echo $GLOBALS['chg_evt_handler']; ?>="nopass[1].checked = true" />
                     &nbsp;&nbsp;
                     <?php echo $GLOBALS['strReType']; ?>&nbsp;:&nbsp;
-                    <input type="password" name="pma_pw2" size="10" onchange="nopass[1].checked = true" />
+                    <input type="password" name="pma_pw2" size="10" <?php echo $GLOBALS['chg_evt_handler']; ?>="nopass[1].checked = true" />
                 </td>
             </tr>
             <tr>
@@ -606,7 +606,7 @@ function PMA_grantOperations($grants)
             <tr>
                 <td colspan="5">
                     <?php echo $GLOBALS['strDatabaseWildcard'] . "\n"; ?>&nbsp;
-                    <input type="text" name="newdb" value="<?php echo ((!$is_selected_db && !empty($pma_user)) ? $pma_user . '%' : ''); ?>" onchange="change(this)" />
+                    <input type="text" name="newdb" value="<?php echo ((!$is_selected_db && !empty($pma_user)) ? $pma_user . '%' : ''); ?>" <?php echo $GLOBALS['chg_evt_handler']; ?>="change(this)" />
                 </td>
             <tr>
             </table>
@@ -688,7 +688,7 @@ function PMA_editOperations($host, $user)
                     <?php echo $GLOBALS['strHost']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
-                    <input type="text" name="new_server" size="10" value="<?php echo str_replace('"', '&quot;', $host); ?>" onchange="this.form.anyhost[1].checked = true" />
+                    <input type="text" name="new_server" size="10" value="<?php echo str_replace('"', '&quot;', $host); ?>" <?php echo $GLOBALS['chg_evt_handler']; ?>="this.form.anyhost[1].checked = true" />
                 </td>
             </tr>
             <tr>
@@ -702,12 +702,12 @@ function PMA_editOperations($host, $user)
                     <?php echo $GLOBALS['strUserName']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
-                    <input type="text" name="new_user" size="10" value="<?php echo str_replace('"', '&quot;', $user); ?>" onchange="this.form.anyuser[1].checked = true" />
+                    <input type="text" name="new_user" size="10" value="<?php echo str_replace('"', '&quot;', $user); ?>" <?php echo $GLOBALS['chg_evt_handler']; ?>="this.form.anyuser[1].checked = true" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="nopass" value="-1" checked="checked" onclick="new_pw.value = ''; new_pw2.value = ''" />
+                    <input type="radio" name="nopass" value="-1" checked="checked" onclick="new_pw.value = ''; new_pw2.value = ''; this.checked = true" />
                     <?php echo $GLOBALS['strKeepPass'] . "\n"; ?>
                 </td>
                 <td colspan="3">&nbsp;</td>
@@ -717,7 +717,7 @@ function PMA_editOperations($host, $user)
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="nopass" value="1" onclick="new_pw.value = ''; new_pw2.value = ''" />
+                    <input type="radio" name="nopass" value="1" onclick="new_pw.value = ''; new_pw2.value = ''; this.checked = true" />
                     <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
                 </td>
                 <td>&nbsp;</td>
@@ -726,10 +726,10 @@ function PMA_editOperations($host, $user)
                     <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
-                    <input type="password" name="new_pw" size="10" onchange="nopass[2].checked = true" />
+                    <input type="password" name="new_pw" size="10" <?php echo $GLOBALS['chg_evt_handler']; ?>="nopass[2].checked = true" />
                     &nbsp;&nbsp;
                     <?php echo $GLOBALS['strReType']; ?>&nbsp;:&nbsp;
-                    <input type="password" name="new_pw2" size="10" onchange="nopass[2].checked = true" />
+                    <input type="password" name="new_pw2" size="10" <?php echo $GLOBALS['chg_evt_handler']; ?>="nopass[2].checked = true" />
                 </td>
             </tr>
             </table>
@@ -987,6 +987,15 @@ if (mysql_error()) {
 }
 $result         = @mysql_query('SELECT COUNT(Password) FROM mysql.user');
 $password_field = (mysql_result($result, 0) ? 'Password' : 'password');
+
+
+/**
+ * Autocomplete feature of IE kills the "onchange" event handler and it must be
+ * replaced by the "onpropertychange" one in this case
+ */
+$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
+                 ? 'onpropertychange'
+                 : 'onchange';
 
 
 /**

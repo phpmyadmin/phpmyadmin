@@ -91,13 +91,19 @@ if (!empty($error_msg)) {
     echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $error_msg . '</b></p>' . "\n";
 }
 
+// loic1: autocomplete feature of IE kills the "onchange" event handler and it
+//        must be replaced by the "onpropertychange" one in this case
+$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
+                 ? 'onpropertychange'
+                 : 'onchange';
+
 // Displays the form
 ?>
 <form method="post" action="./user_password.php3" name="chgPassword" onsubmit="return checkPassword(this)">
     <table border="0">
     <tr>
         <td colspan="2">
-            <input type="radio" name="nopass" value="1" onclick="pma_pw.value = ''; pma_pw2.value = ''" />
+            <input type="radio" name="nopass" value="1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
             <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
         </td>
     </tr>
@@ -107,10 +113,10 @@ if (!empty($error_msg)) {
             <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
         </td>
         <td>
-            <input type="password" name="pma_pw" size="10" onchange="nopass[1].checked = true" />
+            <input type="password" name="pma_pw" size="10" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
             &nbsp;&nbsp;
             <?php echo $GLOBALS['strReType']; ?>&nbsp;:&nbsp;
-            <input type="password" name="pma_pw2" size="10" onchange="nopass[1].checked = true" />
+            <input type="password" name="pma_pw2" size="10" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
         </td>
     </tr>
     <tr>

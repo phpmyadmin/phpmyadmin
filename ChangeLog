@@ -23,6 +23,8 @@ $Source$
 	* header.inc.php3, lines 138-143; tbl_change.php3; libraries/tbl_change.js:
 	  improved js controls for null/not null fields and fixed js bugs with the
 	  MSIE autocomplete feature.
+	* user_details.php3; user_password.php3: fixed the js bugs with the MSIE
+	  autocomplete feature.
 
 2002-03-20 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/*, removed $strSequence
