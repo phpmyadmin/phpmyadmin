@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/galician: update, thanks to Xosé Calvo
+
 2002-12-10 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech*.php3: Updated translation.
     * tbl_dump.php3: Fix Alexanders fix for bug #651414.
