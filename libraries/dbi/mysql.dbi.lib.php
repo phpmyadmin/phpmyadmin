@@ -182,18 +182,40 @@ function PMA_DBI_free_result($result) {
 }
 
 function PMA_DBI_getError($link = NULL) {
+    unset($GLOBALS['errno']); 
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
-        } else {
-            return FALSE;
-        }
+
+// Do not stop now. On the initial connection, we don't have a $link,
+// we don't have a $GLOBALS['userlink'], but we can catch the error code
+//        } else {
+//            return FALSE;
+       }
     }
-    $error = mysql_errno($link);
-    if ($error && PMA_MYSQL_INT_VERSION >= 40100) {
-        $error = '#' . ((string) $error) . ' - ' . mysql_error($link);
+
+    if (mysql_errno()) {
+        $error = mysql_errno();
+        $error_message = mysql_error();
+    } else {
+        $error = mysql_errno($link);
+        $error_message = mysql_error($link);
+    }
+
+    // keep the error number for further check after the call to PMA_DBI_getError() 
+    if ($error) {
+        $GLOBALS['errno'] = $error;
+    } else {
+        return FALSE;
+    }
+
+// Some errors messages cannot be obtained by mysql_error()
+    if ($error && $error == 2003) {
+        $error = '#' . ((string) $error) . ' - ' . $GLOBALS['strServerNotResponding'];
+    } elseif ($error && PMA_MYSQL_INT_VERSION >= 40100) {
+        $error = '#' . ((string) $error) . ' - ' . $error_message;
     } elseif ($error) {
-        $error = '#' . ((string) $error) . ' - ' . PMA_convert_display_charset(mysql_error($link));
+        $error = '#' . ((string) $error) . ' - ' . PMA_convert_display_charset($error_message);
     }
     return $error;
 }
