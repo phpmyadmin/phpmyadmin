@@ -64,7 +64,9 @@ $strBrowse = '表示';
 $strBzip = '"bzipされる"';
 
 $strCantLoadMySQL = 'MySQLを実行できません。<br />PHPの設定を確認して下さい。';
+$strCantLoadRecodeIconv = '文字セット変換を行うためには組み込まれていない iconv または GNU recode の拡張が必要です。php に、この拡張設定を行っておくか、phpMyAdminでは文字セット変換をしない設定にして下さい。';
 $strCantRenameIdxToPrimary = 'インデックスの名前をPRIMARYに変更できません。';
+$strCantUseRecodeIconv = 'iconv、libiconv、recode_stringのどの関数も使用出来ません。php の設定をチェックしてください。';
 $strCardinality = 'カーディナリティ';
 $strCarriage = 'キャリッジリターン: \\r';
 $strChange = '変更';
@@ -76,6 +78,7 @@ $strCheckTable = 'テーブルをチェックします。';
 $strChoosePage = '編集するページを選択して下さい';
 $strColumn = '列';
 $strColumnNames = '列(コラム)名';
+$strComments = 'コメント';
 $strCompleteInserts = '完全なINSERT文の作成';
 $strConfigFileError = 'phpMyAdminがコンフィグレーションファイルを読み込むことが出来ません！<br />文法エラーが起きたか、ファイルが見つかりません。<br />下のリンクからコンフィグレーションファイルを直接読み込んで、phpのエラーメッセージを確認して下さい。 大抵の場合、区切り文字やセミコロンを忘れています。<br />もし空白のページが現れたら全てうまく行っています。';
 $strConfigureTableCoord = '%s テーブルのカーディナリティを設定して下さい';
@@ -155,6 +158,7 @@ $strGzip = '"gzipされる"';
 
 $strHasBeenAltered = 'を変更しました。';
 $strHasBeenCreated = 'を作成しました。';
+$strHaveToShow = '表示するために、少なくてもひとつのカラムを選択しなければなりません。';
 $strHome = 'メーンページへ';
 $strHomepageOfficial = 'phpMyAdminホーム';
 $strHomepageSourceforge = 'SourceforgeのphpMyAdminダウンロードページ';
@@ -196,11 +200,13 @@ $strLogout = 'ログアウト';
 $strLogPassword = 'パスワード:';
 $strLogUsername = 'ユーザー名:';
 
+$strMissingBracket = '括弧がありません';
 $strModifications = 'を正しく修正しました。';
 $strModify = '修正';
 $strModifyIndexTopic = 'インデックスの変更';
 $strMoveTable = 'テーブルを(database<b>.</b>table)に移動:';
 $strMoveTableOK = 'テーブル%sが%s移動されました。';
+$strMySQLCharset = 'MySQLの文字セット';
 $strMySQLReloaded = 'MySQLを新しく読み込みました。';
 $strMySQLSaid = 'MySQLのメッセージ --> ';
 $strMySQLServerProcess = 'MySQL %pma_s1%は%pma_s2%上%pma_s3%として実行しています。';
@@ -226,6 +232,7 @@ $strNoQuery = 'SQLクエリー無し';
 $strNoRights = '現在特権を持ってないのでここに入れません。';
 $strNoTablesFound = '現在のDBにテーブルはありません。';
 $strNotNumber = 'これは番号ではありません。';
+$strNotSet = '<b>%s</b> テーブルが見つからないか、%s がありません。';
 $strNotValidNumber = ' は行の正しい番号ではありません ';
 $strNoUsersFound = 'ユーザーは見つかりませんでした。';
 $strNull = '空の値(Null)';
@@ -401,11 +408,4 @@ $strKanjiEncodConvert = '漢字コード変換'; // kanji code convert
 $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
 ?>
