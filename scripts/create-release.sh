@@ -51,7 +51,7 @@ Todo now:
 1. upload the files to SF:
         ftp upload.sourceforge.net
         cd incoming
-        mput cvs/*.gz *.zip
+        mput cvs/*.bz2 *.gz *.zip
 2. add files to SF files page (cut and paste changelog since last release)
 3. add SF news item to phpMyAdmin project
 4. update the download page: /home/groups/p/ph/phpmyadmin/htdocs
