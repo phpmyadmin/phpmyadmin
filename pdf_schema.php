@@ -41,8 +41,8 @@ if (!$cfgRelation['pdfwork']) {
 /**
  * Gets the "fpdf" libraries and defines the pdf font path
  */
+define('FPDF_FONTPATH','./libraries/fpdf/font/');
 require_once('./libraries/fpdf/fpdf.php');
-$FPDF_font_path = './libraries/fpdf/font/';
 
 
 /**

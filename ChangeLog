@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_schema.php: first change needed to work with new fpdf library
+      (still testing...)
+
 2004-10-13 Michal Čihař  <michal@cihar.com>
     * libraries/fpdf/fpdf.php: Updated to 1.52.
 
