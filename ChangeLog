@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
-2001-07-04  Olivier Müller  <om@omnis.ch>
+2001-07-04  Olivier Müller  <om@omnis.ch>   [uid23515]
 	* set version to 2.2.0rc1
 	* removed anything about "unofficial" from the pages
 	* updated links, and labels in all lang files
