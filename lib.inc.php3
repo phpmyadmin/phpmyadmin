@@ -301,17 +301,30 @@ if (!defined('__LIB_INC__')){
             if ($do_auth) {
                 auth();
             } else {
+                $bkp_track_err   = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
                 $dbh             = @$connect_func(
                                      $cfgServer['host'] . $server_port . $server_socket,
                                      $cfgServer['stduser'],
                                      $cfgServer['stdpass']
                                  );
                 if ($dbh == FALSE) {
-                    $local_query = $connect_func . '('
-                                 . $cfgServer['host'] . $server_port . $server_socket . ', '
-                                 . $cfgServer['stduser'] . ', '
-                                 . $cfgServer['stdpass'] . ')';
-                    mysql_die('', $local_query, FALSE, FALSE);
+                    if (mysql_error()) {
+                        $conn_error = mysql_error();
+                    } else if (isset($php_errormsg)) {
+                        $conn_error = $php_errormsg;
+                    } else {
+                        $conn_error = 'Cannot connect: invalid settings.';
+                    }
+                    if (PHP_INT_VERSION >= 40000) {
+                        @ini_set('track_errors', $bkp_track_err);
+                    }
+                    $local_query    = $connect_func . '('
+                                    . $cfgServer['host'] . $server_port . $server_socket . ', '
+                                    . $cfgServer['stduser'] . ', '
+                                    . $cfgServer['stdpass'] . ')';
+                    mysql_die($conn_error, $local_query, FALSE, FALSE);
+                } else if (PHP_INT_VERSION >= 40000) {
+                    @ini_set('track_errors', $bkp_track_err);
                 }
 
                 $PHP_AUTH_USER = str_replace('\'', '\\\'', $PHP_AUTH_USER);
@@ -400,19 +413,31 @@ if (!defined('__LIB_INC__')){
         } // end Advanced authentication
 
         // Do connect to the user's database
+        $bkp_track_err   = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
         $link            = @$connect_func(
                              $cfgServer['host'] . $server_port . $server_socket,
                              $cfgServer['user'],
                              $cfgServer['password']
                          );
         if ($link == FALSE) {
-            $local_query = $connect_func . '('
-                         . $cfgServer['host'] . $server_port . $server_socket . ', '
-                         . $cfgServer['user'] . ', '
-                         . $cfgServer['password'] . ')';
-            mysql_die('', $local_query, FALSE, FALSE);
+            if (mysql_error()) {
+                $conn_error = mysql_error();
+            } else if (isset($php_errormsg)) {
+                $conn_error = $php_errormsg;
+            } else {
+                $conn_error = 'Cannot connect: invalid settings.';
+            }
+            if (PHP_INT_VERSION >= 40000) {
+                @ini_set('track_errors', $bkp_track_err);
+            }
+            $local_query    = $connect_func . '('
+                            . $cfgServer['host'] . $server_port . $server_socket . ', '
+                            . $cfgServer['user'] . ', '
+                            . $cfgServer['password'] . ')';
+            mysql_die($conn_error, $local_query, FALSE, FALSE);
+        } else if (PHP_INT_VERSION >= 40000) {
+            @ini_set('track_errors', $bkp_track_err);
         }
-
     } // end server connecting
 
     /**
@@ -1202,7 +1227,11 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 }
                 $primary = mysql_fetch_field($dt_result, $i);
                 if ($primary->numeric == 1) {
-                    echo '    <td align="right">' . $row[$i] . '</td>' . "\n";
+                    if (empty($row[$i])) {
+                        echo '    <td align="right">&nbsp;</td>' . "\n";
+                    } else {
+                        echo '    <td align="right">' . $row[$i] . '</td>' . "\n";
+                    }
                 } else if ($GLOBALS['cfgShowBlob'] == FALSE && eregi('BLOB', $primary->type)) {
                     // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
                     // fields type, however TEXT fields must be displayed even
@@ -1218,15 +1247,21 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                             $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
                         }
                         // loic1 : displays <cr>/<lf>
-                        //  echo '    <td>' . htmlspecialchars($row[$i]) . '</td>' . "\n";
-                        $row[$i]     = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
-                        echo '    <td>' . $row[$i] . '</td>' . "\n";
+                        if (!empty($row[$i])) {
+                            $row[$i]     = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
+                            echo '    <td>' . $row[$i] . '</td>' . "\n";
+                        } else {
+                            echo '    <td>&nbsp;</td>' . "\n";
+                        }
                     }
                 } else {
                     // loic1 : displays <cr>/<lf>
-                    // echo '    <td>' . htmlspecialchars($row[$i]) . '</td>' . "\n";
-                    $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
-                    echo '    <td>' . $row[$i] . '</td>' . "\n";
+                    if (!empty($row[$i])) {
+                        $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
+                        echo '    <td>' . $row[$i] . '</td>' . "\n";
+                    } else {
+                        echo '    <td>&nbsp;</td>' . "\n";
+                    }
                 }
             } // end for
             // Possibility to have the modify/delete button on the left added

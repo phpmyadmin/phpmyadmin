@@ -5,8 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-23  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, display_table(): displays a space character if a field is
+	  empty to ensure the cell format is used with NS.
+
 2001-08-23  Olivier Müller  <om@omnis.ch>
-	* lib.inc.php3: don't add a "/" to $cfgPmaAbsoluteUri if it's empty!	
+	* lib.inc.php3: don't add a "/" to $cfgPmaAbsoluteUri if it's empty!
 
 2001-08-22  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* config.inc.php3: $cfgServers[1]['connect_type'] preferred connection type
@@ -35,8 +39,6 @@ $Source$
 	    with a backslash.
 	  - lines 96-100: added a magic feature to append a slash at the end of
 	    $cfgPmaAbsoluteUri if required.
-	  - display_table(): displays a space character if a field is empty to
-	    ensure the cell format is used with NS.
 	  - defines $server_port & $server_socket only once.
 	* main.php3: XHTML1.0 fixes.
 	* footer.inc.php3, lines 9-10; lib.inc.php3, line 162: the "</body>" html
