@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-14 Garvin Hicking <me@supergarv.de>
+    * Documentation.html: Link to phpMyAdmin homepage for a 'link section'
+
 2003-07-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/sqlparser.data.php3: SHOW BINLOG EVENTS.
 
