@@ -218,6 +218,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'CASE',
         'CHANGE',
         'CHANGED',
+        'CHARSET',
         'CHECK',
         'CHECKSUM',
         'CLIENT',
