@@ -109,10 +109,11 @@ function confirmQuery(theForm1, sqlQuery1)
 function checkSqlQuery(theForm)
 {
     var sqlQuery = theForm.elements['sql_query'];
+    var isEmpty  = 1;
 
     // The replace function (js1.2) isn't supported -> basic tests
     if (typeof(sqlQuery.value.replace) == 'undefined') {
-        var isEmpty  = (sqlQuery.value == '') ? 1 : 0;
+        isEmpty      = (sqlQuery.value == '') ? 1 : 0;
         if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
             isEmpty  = (theForm.elements['sql_file'].value == '') ? 1 : 0;
         }
@@ -123,7 +124,7 @@ function checkSqlQuery(theForm)
     // js1.2+ -> validation with regular expressions 
     else {
         var space_re = new RegExp('\\s+');
-        var isEmpty  = (sqlQuery.value.replace(space_re, '') == '') ? 1 : 0;
+        isEmpty      = (sqlQuery.value.replace(space_re, '') == '') ? 1 : 0;
         // Checks for "DROP/DELETE/ALTER" statements
         if (!isEmpty && !confirmQuery(theForm, sqlQuery)) {
             return false;
@@ -162,15 +163,16 @@ function checkSqlQuery(theForm)
  */
 function emptyFormElements(theForm, theFieldName)
 {
+    var isEmpty  = 1;
     var theField = theForm.elements[theFieldName];
     // Whether the replace function (js1.2) is supported or not
     var isRegExp = (typeof(theField.value.replace) != 'undefined');
 
     if (!isRegExp) {
-        var isEmpty  = (theField.value == '') ? 1 : 0;
+        isEmpty      = (theField.value == '') ? 1 : 0;
     } else {
         var space_re = new RegExp('\\s+');
-        var isEmpty  = (theField.value.replace(space_re, '') == '') ? 1 : 0;
+        isEmpty      = (theField.value.replace(space_re, '') == '') ? 1 : 0;
     }
     if (isEmpty) {
         theForm.reset();
@@ -305,14 +307,16 @@ function checkTransmitDump(theForm, theAction)
  */
 function setPointer(theRow, thePointerColor)
 {
+    var theCells = null;
+
     if (thePointerColor == '' || typeof(theRow.style) == 'undefined') {
         return false;
     }
     if (typeof(document.getElementsByTagName) != 'undefined') {
-        var theCells = theRow.getElementsByTagName('td');
+        theCells = theRow.getElementsByTagName('td');
     }
     else if (typeof(theRow.cells) != 'undefined') {
-        var theCells = theRow.cells;
+        theCells = theRow.cells;
     }
     else {
         return false;
@@ -361,7 +365,7 @@ function setSelectOptions(the_form, the_select, do_check)
 {
     var selectObject = document.forms[the_form].elements[the_select];
     var selectCount  = selectObject.length; 
-  
+
     for (var i = 0; i < selectCount; i++) {
         selectObject.options[i].selected = do_check;
     } // end for

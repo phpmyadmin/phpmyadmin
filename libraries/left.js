@@ -113,13 +113,17 @@ function nsShowAll() {
  */
 function initIt()
 {
-  if (!capable || !isServer)
+  if (!capable || !isServer || typeof(expandedDb) == 'undefined')
     return;
 
+  var tempColl    = null;
+  var tempCollCnt = null;
+  var i           = 0;
+
   if (isDOM) {
-    var tempColl    = document.getElementsByTagName('DIV');
-    var tempCollCnt = tempColl.length;
-    for (var i = 0; i < tempCollCnt; i++) {
+    tempColl    = document.getElementsByTagName('DIV');
+    tempCollCnt = tempColl.length;
+    for (i = 0; i < tempCollCnt; i++) {
       if (tempColl[i].id == expandedDb)
         tempColl[i].style.display = 'block';
       else if (tempColl[i].className == 'child')
@@ -127,9 +131,9 @@ function initIt()
     }
   } // end of the DOM case
   else if (isIE4) {
-    tempColl        = document.all.tags('DIV');
-    var tempCollCnt = tempColl.length;
-    for (var i = 0; i < tempCollCnt; i++) {
+    tempColl    = document.all.tags('DIV');
+    tempCollCnt = tempColl.length;
+    for (i = 0; i < tempCollCnt; i++) {
       if (tempColl(i).id == expandedDb)
         tempColl(i).style.display = 'block';
       else if (tempColl(i).className == 'child')
@@ -139,7 +143,7 @@ function initIt()
   else if (isNS4) {
     var theLayers  = document.layers;
     var layersCnt  = theLayers.length;
-    for (var i = 0; i < layersCnt; i++) {
+    for (i = 0; i < layersCnt; i++) {
       if (theLayers[i].id == expandedDb)
         theLayers[i].visibility   = 'show';
       else if (theLayers[i].id.indexOf('Child') != -1)
@@ -165,9 +169,12 @@ function expandBase(el, unexpand)
   if (!capable)
     return;
 
+  var whichEl = null;
+  var whichIm = null;
+
   if (isDOM) {
-    var whichEl = document.getElementById(el + 'Child');
-    var whichIm = document.getElementById(el + 'Img');
+    whichEl = document.getElementById(el + 'Child');
+    whichIm = document.getElementById(el + 'Img');
     if (whichEl.style.display == 'none' && whichIm) {
       whichEl.style.display  = 'block';
       whichIm.src            = imgOpened.src;
@@ -178,8 +185,8 @@ function expandBase(el, unexpand)
     }
   } // end of the DOM case
   else if (isIE4) {
-    var whichEl = document.all(el + 'Child');
-    var whichIm = document.images.item(el + 'Img');
+    whichEl = document.all(el + 'Child');
+    whichIm = document.images.item(el + 'Img');
     if (whichEl.style.display == 'none') {
       whichEl.style.display  = 'block';
       whichIm.src            = imgOpened.src;
@@ -190,8 +197,8 @@ function expandBase(el, unexpand)
     }
   } // end of the IE4 case
   else if (isNS4) {
-    var whichEl = document.layers[el + 'Child'];
-    var whichIm = document.layers[el + 'Parent'].document.images['imEx'];
+    whichEl = document.layers[el + 'Child'];
+    whichIm = document.layers[el + 'Parent'].document.images['imEx'];
     if (whichEl.visibility == 'hide') {
       whichEl.visibility  = 'show';
       whichIm.src         = imgOpened.src;
@@ -216,20 +223,23 @@ function expandBase(el, unexpand)
 function hilightBase(el, theColor)
 {
   if (!isDOM && !isIE4) {
-    return;
+    return null;
   }
 
+  var whichDb     = null;
+  var whichTables = null;
+
   if (isDOM) {
-    var whichDb     = document.getElementById(el + 'Parent');
-    var whichTables = document.getElementById(el + 'Child');
+    whichDb       = document.getElementById(el + 'Parent');
+    whichTables   = document.getElementById(el + 'Child');
   }
   else if (isIE4) {
-    var whichDb     = document.all(el + 'Parent');
-    var whichTables = document.all(el + 'Child');
+    whichDb       = document.all(el + 'Parent');
+    whichTables   = document.all(el + 'Child');
   }
 
   if (typeof(whichDb.style) == 'undefined') {
-    return;
+    return null;
   }
   else if (whichTables) {
     whichDb.style.backgroundColor     = theColor;
@@ -247,7 +257,6 @@ function hilightBase(el, theColor)
  * Add styles for positioned layers
  */
 if (capable) {
-  with (document) {
     // Brian Birtles : This is not the ideal method of doing this
     // but under the 7th June '00 Mozilla build (and many before
     // it) Mozilla did not treat text between <style> tags as
@@ -265,45 +274,42 @@ if (capable) {
                  + '.tblItem:hover {color: #FF0000; text-decoration: underline}'
                  + '\/\/-->'
                  + '<\/style>';
-      write(lstyle);
+      document.write(lstyle);
     }
     else {
-      writeln('<style type="text\/css">');
-      writeln('<!--');
-      writeln('div {color: #000000}');
-      writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
-      writeln('.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
+      document.writeln('<style type="text\/css">');
+      document.writeln('<!--');
+      document.writeln('div {color: #000000}');
+      document.writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
+      document.writeln('.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
       if (isIE4) {
-        writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; display: block}');
-        writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none; display: none}');
-        writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
-        writeln('.tblItem:hover {color: #FF0000; text-decoration: underline}');
+        document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; display: block}');
+        document.writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none; display: none}');
+        document.writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
+        document.writeln('.tblItem:hover {color: #FF0000; text-decoration: underline}');
       }
       else {
-        writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden}');
-        writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; position: absolute; visibility: hidden}');
-        writeln('.item, .tblItem {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
+        document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden}');
+        document.writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; position: absolute; visibility: hidden}');
+        document.writeln('.item, .tblItem {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
       }
-      writeln('\/\/-->');
-      writeln('<\/style>');
+      document.writeln('\/\/-->');
+      document.writeln('<\/style>');
     }
-  }
 }
 else {
-  with (document) {
-    writeln('<style type="text\/css">');
-    writeln('<!--');
-    writeln('div {color: #000000}');
-    writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
-    writeln('.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
-    writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none}');
-    writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
-    writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
-    writeln('.tblItem:hover {color: #FF0000; text-decoration: underline}');
-    writeln('\/\/-->');
-    writeln('<\/style>');
-  }
+    document.writeln('<style type="text\/css">');
+    document.writeln('<!--');
+    document.writeln('div {color: #000000}');
+    document.writeln('.heada {font-family: ' + fontFamily + '; font-size: ' + fontSize + '; color: #000000}');
+    document.writeln('.headaCnt {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #000000}');
+    document.writeln('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none}');
+    document.writeln('.child {font-family: ' + fontFamily + '; font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
+    document.writeln('.item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: ' + fontSmall + '; color: #333399; text-decoration: none}');
+    document.writeln('.tblItem:hover {color: #FF0000; text-decoration: underline}');
+    document.writeln('\/\/-->');
+    document.writeln('<\/style>');
 } // end of adding styles
 
 
-onload = initIt;
+window.onload = initIt;

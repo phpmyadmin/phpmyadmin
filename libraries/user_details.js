@@ -16,9 +16,9 @@ function checkPassword(the_form)
         var pswd1_name = 'pma_pw';
         var pswd2_name = 'pma_pw2';
     } else {
-        var pswd_index = 2;
-        var pswd1_name = 'new_pw';
-        var pswd2_name = 'new_pw2';
+        pswd_index     = 2;
+        pswd1_name     = 'new_pw';
+        pswd2_name     = 'new_pw2';
     }
 
     // Validates
@@ -135,7 +135,7 @@ function change(the_field) {
         if (sel_idx > 0) {
             l        += '&dbgrant=' + escape(the_form['dbgrant'].options[sel_idx].text);
         }
-        var sel_idx  = the_form['tablegrant'].selectedIndex;
+        sel_idx      = the_form['tablegrant'].selectedIndex;
         if (sel_idx > 0) {
             l        += '&tablegrant=' + escape(the_form['tablegrant'].options[sel_idx].text);
         }
