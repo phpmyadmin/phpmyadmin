@@ -86,6 +86,7 @@ $strColumn = '欄位';
 $strColumnNames = '欄位名稱';
 $strComments = '註解';
 $strCompleteInserts = '使用完整新增指令';
+$strCompression = '壓縮';
 $strConfigFileError = 'phpMyAdmin 未能讀取您的設定檔! 這可能是因為 php 找到語法上的錯誤或 php 未能找到檔案而成.<br />請嘗試直接按下下方的連結開啟並查看 php 的錯誤信息. 通常的錯誤都來自某處漏了引號或分別.<br />如果按下連結後出現空白頁, 即代表沒有任何問題.';
 $strConfigureTableCoord = '請設定表格 %s 內的坐標';
 $strConfirm = '您確定要這樣做？';
@@ -438,7 +439,6 @@ $strYes = ' 是 ';
 $strZip = '"zipped"';
 
 // To translate
-$strCompression = 'Compression'; //to translate
 $strNumTables = 'Tables'; //to translate
 $strTotalUC = 'Total'; //to translate
 ?>

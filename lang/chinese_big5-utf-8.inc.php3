@@ -87,6 +87,7 @@ $strColumn = '欄位';
 $strColumnNames = '欄位名稱';
 $strComments = '註解';
 $strCompleteInserts = '使用完整新增指令';
+$strCompression = '壓縮';
 $strConfigFileError = 'phpMyAdmin 未能讀取您的設定檔! 這可能是因為 php 找到語法上的錯誤或 php 未能找到檔案而成.<br />請嘗試直接按下下方的連結開啟並查看 php 的錯誤信息. 通常的錯誤都來自某處漏了引號或分別.<br />如果按下連結後出現空白頁, 即代表沒有任何問題.';
 $strConfigureTableCoord = '請設定表格 %s 內的坐標';
 $strConfirm = '您確定要這樣做？';
@@ -277,9 +278,9 @@ $strPdfDbSchema = '"%s" 資料庫概要 - 第 %s 頁';
 $strPdfInvalidPageNum = 'PDF 頁碼沒有設定!';
 $strPdfInvalidTblName = '資料表 "%s" 不存在!';
 $strPdfNoTables = '沒有資料表';
-$strPHPVersion = 'PHP 版本';
 $strPhp = '建立 PHP 程式碼';
 $strPHP40203 = '您正使用 PHP 版本 4.2.3, 這版本有一個雙字節字元的嚴重錯誤(mbstring). 請參閱 PHP 臭蟲報告編號 19404. phpMyAdmin 並不建議使用這個版本的 PHP .';
+$strPHPVersion = 'PHP 版本';
 $strPmaDocumentation = 'phpMyAdmin 說明文件';
 $strPmaUriError = ' 必須設定 <tt>$cfg[\'PmaAbsoluteUri\']</tt> 在設定檔內!';
 $strPos1 = '第一頁';
@@ -439,7 +440,6 @@ $strYes = ' 是 ';
 $strZip = '"zipped"';
 
 // To translate
-$strCompression = 'Compression'; //to translate
 $strNumTables = 'Tables'; //to translate
 $strTotalUC = 'Total'; //to translate
 ?>
