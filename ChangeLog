@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-11 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: JS fixes, thanks to
+      Richard Hornsby <rhornsby at users.sourceforge.net>.
+
 2002-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3, lang/*, Documentation.html: new message with doc
 
@@ -14,6 +18,7 @@ $Source$
 2002-06-10 Mike Beck <mikebeck@users.sourceforge.net>
     * tbl_select.php3: lines 12-16,111-123,194-199
       - now you can use >= etc.
+
 2002-06-09 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french.inc.php3 updates
 
