@@ -259,6 +259,9 @@ $strRowLength = 'Lungime linie';
 $strRows = 'Linie';
 $strRowsFrom = 'linii incepand cu';
 $strRowSize = ' Marime linie ';
+$strRowsModeVertical= 'vertical';
+$strRowsModeHorizontal= 'orizontal';
+$strRowsModeOptions= 'in mod %s si repetare antet dupa %s celule';
 $strRowsStatistic = 'Statisticile randului';
 $strRunning = 'ruland pe %s';
 $strRunQuery = 'Trimite comanda';
@@ -341,7 +344,4 @@ $strZip = '"zipped"';
 
 // To translate
 
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
 ?>
