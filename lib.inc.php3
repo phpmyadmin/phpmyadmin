@@ -699,12 +699,11 @@ function get_table_content_old($db, $table, $handler)
     return (true);
 }
 
-function count_records ($db,$table)
+function count_records($db, $table)
 {
-    $result = mysql_query("select count(*) as num from ".db_name($db)."." .
-	tbl_name($table));
-    $num = mysql_result($result,0,"num");
-    echo $num;
+    $result = mysql_query('select count(*) as num from ' . db_name($db) . '.' . tbl_name($table));
+    $num    = mysql_result($result,0,"num");
+    echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
 }
 
 // Get the content of $table as a CSV output.
