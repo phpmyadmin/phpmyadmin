@@ -99,11 +99,11 @@ $header_cells[] = $strExtra;
 // key fields, as tbl_addfield does.
 
 if (!$is_backup) {
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_primary.png" width="16" height="16" alt="' . $strPrimary . '" />' : $strPrimary;
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_index.png" width="16" height="16" alt="' . $strIndex . '" />' : $strIndex;
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_unique.png" width="16" height="16" alt="' . $strUnique . '" />' : $strUnique;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_primary.png" width="16" height="16" alt="' . $strPrimary . '" title="' . $strPrimary . '" />' : $strPrimary;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_index.png" width="16" height="16" alt="' . $strIndex . '" title="' . $strIndex . '" />' : $strIndex;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_unique.png" width="16" height="16" alt="' . $strUnique . '" title="' . $strUnique . '" />' : $strUnique;
     $header_cells[] = '---';
-    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_ftext.png" width="16" height="16" alt="' . $strIdxFulltext . '" />' : $strIdxFulltext;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_ftext.png" width="16" height="16" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" />' : $strIdxFulltext;
 }
 
 
