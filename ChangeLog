@@ -8,6 +8,8 @@ $Source$
 2002-03-17 Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3; user_password.php3: no long displays the true password
 	  on screen.
+	* tbl_change.php3: patch from Thomas Bähr <baehr at glaswald.de> - tabindex
+	  order.
 
 2002-03-16 Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, line 76; main.php3, lines 13-24; lang/*;

@@ -257,7 +257,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } else {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="funcs[<?php echo urlencode($field); ?>]">
+            <select name="funcs[<?php echo urlencode($field); ?>]" tabindex="<?php echo ($i+2*$fields_cnt); ?>" >
                 <option></option>
             <?php
             echo "\n";
@@ -284,7 +284,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // ---------------
     echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
     if ($row_table_def['Null'] == 'YES') {
-        echo '            <input type="checkbox"'
+        echo '            <input type="checkbox" tabindex=' . ($i+3*$fields_cnt) . '"'
              . ' name="fields_null[' . urlencode($field) . ']"';
         if ($data == 'NULL') {
             echo ' checked="checked"';
@@ -311,7 +311,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}"><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i; ?>"><?php echo $special_chars; ?></textarea>
         </td>
         <?php
         echo "\n";
@@ -326,7 +326,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $enum_cnt    = count($enum);
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" />
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" tabindex="<?php echo $i+1; ?>" />
         <?php
         echo "\n" . '            ' . $backup_field;
 
@@ -334,7 +334,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if (strlen($row_table_def['Type']) > 20) {
             echo "\n";
             ?>
-            <select name="field_<?php echo md5($field); ?>[]" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}">
+            <select name="field_<?php echo md5($field); ?>[]" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>">
                 <option value=""></option>
             <?php
             echo "\n";
@@ -368,7 +368,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                     echo ' checked="checked"';
                 }
-                echo ' />' . "\n";
+                echo 'tabindex="' . $i . '" />' . "\n";
                 echo '            ' . htmlspecialchars($enum_atom) . "\n";
             } // end for
 
@@ -395,7 +395,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
-            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}">
+            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>" >
         <?php
         echo "\n";
         $countset = count($set);
@@ -431,7 +431,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}"><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>" ><?php echo $special_chars; ?></textarea>
         </td>
             <?php
         } else {
@@ -445,7 +445,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>" />
         </td>
             <?php
         } // end if...elseif...else
@@ -461,7 +461,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>" />
         </td>
         <?php
     }
@@ -481,14 +481,14 @@ echo "\n";
 <?php
 if (isset($primary_key)) {
     ?>
-            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" checked="checked" /><?php echo $strSave; ?><br />
+            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" checked="checked" tabindex="<?php echo $fields_cnt+1; ?>" /><?php echo $strSave; ?><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" /><?php echo $strInsertAsNewRow. "\n"; ?>
+            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" tabindex="<?php echo $fields_cnt+2; ?>" /><?php echo $strInsertAsNewRow. "\n"; ?>
     <?php
 } else {
     echo "\n";
     ?>
-            <input type="hidden" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" />
+            <input type="hidden" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" tabindex="<?php echo $fields_cnt+3; ?>" />
     <?php
     echo '            ' . $strInsertAsNewRow . "\n";
 }
@@ -499,15 +499,15 @@ echo "\n"
             &nbsp;&nbsp;&nbsp;<b>-- <?php echo $strAnd; ?> --</b>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
-            <input type="radio" name="after_insert" value="back" checked="checked" /><?php echo $strAfterInsertBack; ?><br />
+            <input type="radio" name="after_insert" value="back" checked="checked" tabindex="<?php echo $fields_cnt+4; ?>" /><?php echo $strAfterInsertBack; ?><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="after_insert" value="new_insert" /><?php echo $strAfterInsertNewInsert . "\n"; ?>
+            <input type="radio" name="after_insert" value="new_insert" tabindex="<?php echo $fields_cnt+5; ?>" /><?php echo $strAfterInsertNewInsert . "\n"; ?>
         </td>
     </tr>
 
     <tr>
         <td colspan="3" align="center" valign="middle">
-            <input type="submit" value="<?php echo $strGo; ?>" />
+            <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo $fields_cnt+6; ?>" />
         </td>
     </tr>
     </table>
