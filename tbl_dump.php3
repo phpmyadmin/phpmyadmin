@@ -211,7 +211,6 @@ else {
     if ($what != 'csv' &&  $what != 'excel' && $what != 'xml') {
         $dump_buffer       .= '# phpMyAdmin MySQL-Dump' . $crlf
                            .  '# version ' . PMA_VERSION . $crlf
-                           .  '# http://phpwizard.net/phpMyAdmin/' . $crlf
                            .  '# http://www.phpmyadmin.net/ (download page)' . $crlf
                            .  '#' . $crlf
                            .  '# ' . $strHost . ': ' . $cfg['Server']['host'];
@@ -305,7 +304,6 @@ else {
                              .  '-' . $crlf
                              .  '- phpMyAdmin XML-Dump' . $crlf
                              .  '- version ' . PMA_VERSION . $crlf
-                             .  '- http://phpwizard.net/phpMyAdmin/' . $crlf
                              .  '- http://www.phpmyadmin.net/ (download page)' . $crlf
                              .  '-' . $crlf
                              .  '- ' . $strHost . ': ' . $cfg['Server']['host'];

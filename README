@@ -5,14 +5,14 @@ phpMyAdmin - Readme
 
   A set of PHP-scripts to administrate MySQL over the WWW.
 
-  Version 2.3.0 - July 2002
-  -------------------------
+  Version 2.3.0 - August 2002
+  ---------------------------
   http://www.phpmyadmin.net/
 
-    Copyright (C) 1998-2000 Tobias Ratschiller <tobias@phpwizard.net>
-    Copyright (C) 2001-     Olivier Müller <om@omnis.ch>
-                            Loïc Chapeaux <lolo@phpHeaven.net>
-                Marc Delisle <DelislMa@CollegeSherbrooke.qc.ca>
+    Copyright (C) 1998-2000 Tobias Ratschiller <tobias.ratschiller_at_maguma.com>
+    Copyright (C) 2001-     Olivier Müller <om_at_omnis.ch>
+                            Loïc Chapeaux <lolo_at_phpHeaven.net>
+                Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
                 [check Documentation.txt/.html file for more details]
 
     This program is free software; you can redistribute it and/or modify

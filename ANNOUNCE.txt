@@ -136,7 +136,7 @@ phpMyAdmin is intended to handle the administration of MySQL over the WWW.
 Author & Copyright
 ------------------
 
-    Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_phpwizard.net>
+    Copyright (C) 1998-2000 Tobias Ratschiller <tobias.ratschiller_at_maguma.com>
     Copyright (C) 2001-     Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
                             Olivier Müller <om_at_omnis.ch>
                             Loïc Chapeaux <lolo_at_phpHeaven.net>
