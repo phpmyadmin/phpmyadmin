@@ -12,6 +12,8 @@ $Source$
     * lang/italian: update, thanks to Pietro Danesi
     * lang/norwegian update, thanks to Sven-Erik Andersen
     * lang/thai: update, thanks to Arthit Suriyawongkul
+    * lang/romanian: update, thanks to Valics Lehel
+    * lang/japanese update, thanks to Yukihiro Kawada
 
 2002-09-05 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, display values in drop-down even if no
