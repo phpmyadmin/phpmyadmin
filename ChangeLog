@@ -11,6 +11,7 @@ $Source$
     * lang/slovenian-*.inc.php3: Updates, thanks again to Kositer Uros (urosh).
     * lang/norwegian-*.inc.php3: Updates, thanks again to
       Sven-Erik Andersen (sven-erik).
+    * lang/german-*.inc.php3: Small grammar fix.
 
 2002-12-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
