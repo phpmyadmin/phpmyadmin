@@ -728,8 +728,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     function show_table_navigation($pos_next, $pos_prev, $dt_result)
     {
         global $lang, $server, $db, $table;
-        global $sql_query, $pos, $goto;
-        global $sessionMaxRows, $SelectNumRows;
+        global $sql_query, $pos, $goto, $dontlimitchars;
+        global $sessionMaxRows, $SelectNumRows, $cfgLimitChars;
         
         // $sql_query will be stripslashed in 'sql.php3' if the
         // 'magic_quotes_gpc' directive is set to 'on'
@@ -757,6 +757,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <input type="hidden" name="pos" value="0" />
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $GLOBALS['strPos1'] . ' &lt;&lt;'; ?>" />
         </form>
     </td>
@@ -770,6 +771,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <input type="hidden" name="pos" value="<?php echo $pos_prev; ?>" />
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $GLOBALS['strPrevious'] . ' &lt;'; ?>" />
         </form>
     </td>
@@ -789,6 +791,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $GLOBALS['strShow']; ?>&nbsp;:" />
             <input type="text" name="sessionMaxRows" size="3" value="<?php echo $sessionMaxRows; ?>" />
             <?php echo $GLOBALS['strRowsFrom'] . "\n"; ?>
@@ -812,6 +815,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <input type="hidden" name="pos" value="<?php echo $pos_next; ?>" />
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo '&gt; ' . $GLOBALS['strNext']; ?>" />
         </form>
     </td>
@@ -826,12 +830,60 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <input type="hidden" name="pos" value="<?php echo $SelectNumRows - $sessionMaxRows; ?>" />
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo '&gt;&gt; ' . $GLOBALS['strEnd']; ?>" />
         </form>
     </td>
             <?php
         } // end move toward
         echo "\n";
+
+
+        // cfgLimitChars stuff
+
+
+        if (!$dontlimitchars) {
+            ?>
+    <td>
+        &nbsp;&nbsp;&nbsp;
+    </td>
+    <td>
+        <form action="sql.php3" method="post">
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
+            <input type="hidden" name="pos" value="<?php echo ($pos); ?>" />
+            <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
+            <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="hidden" name="dontlimitchars" value="1" />
+            <input type="submit" name="navig" value="<?php echo $GLOBALS['str1']; ?> all chars" />
+        </form>
+    </td>
+            <?php
+        } else {
+            ?>
+    <td>
+        &nbsp;&nbsp;&nbsp;
+    </td>
+    <td>
+        <form action="sql.php3" method="post">
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
+            <input type="hidden" name="pos" value="<?php echo ($pos); ?>" />
+            <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
+            <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="hidden" name="dontlimitchars" value="0" />
+            <input type="submit" name="navig" value="<?php echo $GLOBALS['str2'] . " " . $cfgLimitChars; ?> chars" />
+        </form>
+    </td>
+            <?php
+        }
+
         ?>
 </tr>
 </table>
@@ -861,7 +913,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     {
         global $lang, $server, $db, $table;
         global $sql_query, $goto, $pos;
-        global $SelectNumRows;
+        global $SelectNumRows, $dontlimitchars;
 
         // Gets the number of rows per page
         if (isset($GLOBALS['sessionMaxRows'])) {
@@ -1151,7 +1203,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     if (eregi('BLOB', $true_field_type['Type'])) {
                         echo '    <td align="center">[BLOB]</td>' . "\n";
                     } else {
-                        if (strlen($row[$i]) > $GLOBALS['cfgLimitChars']) {
+                        if (strlen($row[$i]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
                             $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
                         }
                         // loic1 : displays <cr>/<lf>
