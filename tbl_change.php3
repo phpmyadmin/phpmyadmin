@@ -417,8 +417,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } // end while
         echo '            </select>' . "\n";
         echo '        </td>' . "\n";
-        // is now unset in get_foreign.lib:
-        //unset($disp);
+        unset($disp);
     }
     else if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
