@@ -1192,7 +1192,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                         . '&goto=tbl_properties.php3';
             $delete_url = 'sql.php3'
                         . '?' . $url_query
-                        . '&sql_query=' . urlencode('DELETE FROM ' . backquote($table) . ' WHERE') . $uva_condition
+                        . '&sql_query=' . urlencode('DELETE FROM ' . backquote($table) . ' WHERE') . $uva_condition . urlencode(' LIMIT 1')
                         . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                         . '&goto=' . urlencode($goto);
 

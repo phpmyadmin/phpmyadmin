@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-23  Marc Delisle  <lem9@users.sourceforge.net>
+	* lib.inc.php3, bug 454477, added LIMIT 1 to delete only one instance
+          when records are the same
+
 2001-08-23  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, display_table(): displays a space character if a field is
 	  empty to ensure the cell format is used with NS.
