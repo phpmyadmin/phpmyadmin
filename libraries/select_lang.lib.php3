@@ -166,7 +166,7 @@ if (!isset($lang)) {
 
 // compatibility with config.inc.php3 <= v1.80
 if (isset($cfgLang)) {
-    $cfg['Lang'] = $cfgLang;
+    $cfg['Lang']        = $cfgLang;
     unset($cfgLang);
 }
 if (isset($cfgDefaultLang)) {
