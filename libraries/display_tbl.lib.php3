@@ -973,19 +973,25 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $vertical_display['edit'][$foo]   = '';
                 $vertical_display['delete'][$foo] = '';
             }
-            $vertical_display['edit'][$foo]       .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+            if (isset($edit_url)) {
+                $vertical_display['edit'][$foo]       .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
                                                   .  '        <a href="' . $edit_url . '">' . "\n"
                                                   .  '            ' . $edit_str . '</a>' . "\n"
                                                   .  '    </td>' . "\n";
+            }
 
-            $vertical_display['delete'][$foo]     .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
+            if (isset($del_url)) {
+                $vertical_display['delete'][$foo]     .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
                                                   .  '        <a href="' . $del_url . '"';
+            }
             if (isset($js_conf)) {
                 $vertical_display['delete'][$foo] .= 'onclick="return confirmLink(this, \'' . $js_conf . '\')"';
             }
-            $vertical_display['delete'][$foo]     .= '>' . "\n"
+            if (isset($del_str)) {
+                $vertical_display['delete'][$foo]     .= '>' . "\n"
                                                   .  '            ' . $del_str . '</a>' . "\n"
                                                   .  '    </td>' . "\n";
+            }
 
             echo (($disp_direction == 'horizontal') ? "\n" : '');
             $foo++;

@@ -15,6 +15,7 @@ $Source$
 2002-01-07  Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/select_lang.lib.php3, standard code for swedish, 
 	  thanks to Christian Rose.
+        * libraries/display_tbl.lib.php3: bug 500462
 
 2002-01-07  Olivier Müller  <om@omnis.ch>
 	* db_details.php3, libraries/functions.js: added possibility to
