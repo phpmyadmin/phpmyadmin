@@ -263,6 +263,8 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
+                                            // Note: this feature will be
+                                            // implemented after 2.3.0
 $cfg['UseSyntaxColoring']   = TRUE;         // use syntaxcoloring on output of SQL, might be a little slower
 $cfg['colorFunctions']      = '#FF0000';    // Colors used for Syntaxcoloring of SQL Statements
 $cfg['colorKeywords']       = '#990099';
