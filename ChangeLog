@@ -5,6 +5,20 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-30  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, line 27: fixed a bug with PHP3 thanks to
+	  Laurent Haas <mci@free.fr>.
+	* tbl_printview.php3, line 20: moved mysql_select_db else the script can't
+	  run with a mysql version < 3.23, thanks to Laurent Haas <mci@free.fr>.
+	* tbl_select.php3, lines 86, 96, 103-109: applied patch #437514 (Bug +
+	  Improvement in tbl_select) suggested by Laurent Haas and fixed some
+	  double quotes bugs.
+	* lib.inc.php3, lines 364-372: applied patch #437127 (Toggle Column Sorting
+	  ASC/DESC) suggested by Thomas Michael Winningham.
+	* lib.inc.php3, lines 341-343, 385-387: applied patch #437129 (Table Edit
+	  Inheritence) suggested by Thomas Michael Winningham.
+  
+
 2001-06-29  Marc Delisle  <lem9@users.sourceforge.net>
 	* user_details.php3, js code to protect db and table names
 
