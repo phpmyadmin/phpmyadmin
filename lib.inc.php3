@@ -1152,20 +1152,11 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                         echo '    <td align="center">[BLOB]</td>' . "\n";
                     } else {
                         if (strlen($row[$i]) > $GLOBALS['cfgLimitChars']) {
-                            // loic1: added a link to display the whole text
-                            //        field in a js alert box
-                            $alert   = '';
-                            $tmp     = explode("\n", str_replace("\r", ' ', $row[$i]));
-                            for ($j = 0; $j < count($tmp); $j++) {
-                                $alert .= addslashes(str_replace('"', '&quot;', trim($tmp[$j]))) . '\n';
-                            }
-                            unset($tmp);
-                            $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
-                            $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars'])
-                                     . '...&nbsp;'
-                                     . '[<a href="#" onclick="alert(\''. $alert . '\'); return false">+</a>]';
+                            $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
                         }
+                        // loic1 : displays <cr>/<lf>
                         if ($row[$i] != '') {
+                            $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
                             echo '    <td>' . $row[$i] . '</td>' . "\n";
                         } else {
                             echo '    <td>&nbsp;</td>' . "\n";
@@ -1607,7 +1598,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      *
      * @return  boolean always true
      */
-    function get_table_csv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $handler)
+    function get_table_csv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $esc_by, $handler)
     {
         global $what;
 
@@ -1629,6 +1620,15 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 $enc_by = stripslashes($enc_by);
             }
             $enc_by     = str_replace('&quot;', '"', $enc_by);
+        }
+        if (empty($esc_by) || $what == 'excel') {
+            // double the "enclosed by" character
+            $esc_by     = $enc_by;
+        }
+        else {
+            if (get_magic_quotes_gpc()) {
+                $esc_by = stripslashes($esc_by);
+            }
         }
 
         // Defines the offsets to use
@@ -1663,7 +1663,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                         $row[$j]   = ereg_replace("\015(\012)?", "\012", $row[$j]);
                     }
                     $schema_insert .= $enc_by
-                                   . str_replace($enc_by, $enc_by . $enc_by, $row[$j])
+                                   . str_replace($enc_by, $esc_by . $enc_by, $row[$j])
                                    . $enc_by;
                 }
                 else {

@@ -224,7 +224,7 @@ else {
         } // end if
 
         $tmp_buffer = '';
-        get_table_csv($db, $table, $limit_from, $limit_to, $separator, $enclosed, 'my_csvhandler');
+        get_table_csv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'my_csvhandler');
         $dump_buffer .= $tmp_buffer;
     } // end 'csv case
 } // end building the dump
