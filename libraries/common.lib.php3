@@ -288,7 +288,7 @@ if (!defined('__LIB_COMMON__')){
      * @return  integer  the rank of the $toFind string in the array or '-1' if
      *                   it hasn't been found
      *
-     * @access	public
+     * @access  public
      */
     function pmaIsInto($toFind = '', &$in)
     {
@@ -465,12 +465,15 @@ if (!defined('__LIB_COMMON__')){
             }
         } // end if
 
+        if (PHP_INT_VERSION >= 40000) {
+            $bkp_track_err = @ini_set('track_errors', 1);
+        }
+
         // Try to connect MySQL with the standard user profile (will be used to
         // get the privileges list for the current user but the true user link
         // must be open after this one so it would be default one for all the
         // scripts)
         if ($cfgServer['stduser'] != '') {
-            $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
             $dbh           = @$connect_func(
                                  $cfgServer['host'] . $server_port . $server_socket,
                                  $cfgServer['stduser'],
@@ -484,21 +487,15 @@ if (!defined('__LIB_COMMON__')){
                 } else {
                     $conn_error = 'Cannot connect: invalid settings.';
                 }
-                if (PHP_INT_VERSION >= 40000) {
-                    @ini_set('track_errors', $bkp_track_err);
-                }
                 $local_query    = $connect_func . '('
                                 . $cfgServer['host'] . $server_port . $server_socket . ', '
                                 . $cfgServer['stduser'] . ', '
                                 . $cfgServer['stdpass'] . ')';
                 mysql_die($conn_error, $local_query, FALSE);
-            } else if (PHP_INT_VERSION >= 40000) {
-                @ini_set('track_errors', $bkp_track_err);
-            }
-        }
+            } // end if
+        } // end if
 
         // Connects to the server (validates user's login)
-        $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
         $userlink      = @$connect_func(
                              $cfgServer['host'] . $server_port . $server_socket,
                              $cfgServer['user'],
@@ -517,15 +514,14 @@ if (!defined('__LIB_COMMON__')){
             } else {
                 $conn_error = 'Cannot connect: invalid settings.';
             }
-            if (PHP_INT_VERSION >= 40000) {
-                @ini_set('track_errors', $bkp_track_err);
-            }
             $local_query    = $connect_func . '('
                             . $cfgServer['host'] . $server_port . $server_socket . ', '
                             . $cfgServer['user'] . ', '
                             . $cfgServer['password'] . ')';
             mysql_die($conn_error, $local_query, FALSE);
-        } else if (PHP_INT_VERSION >= 40000) {
+        } // end if
+
+        if (PHP_INT_VERSION >= 40000) {
             @ini_set('track_errors', $bkp_track_err);
         }
 
@@ -774,7 +770,7 @@ if (!defined('__LIB_COMMON__')){
         // IE6 and other browsers for win case
         else if (USR_OS == 'Win') {
             $font_size     = 'small';
-            $font_bigger   = 'large ';
+            $font_bigger   = 'large';
             $font_smaller  = (USR_BROWSER_AGENT == 'IE')
                            ? '90%'
                            : 'x-small';
@@ -785,14 +781,14 @@ if (!defined('__LIB_COMMON__')){
                  && ((USR_BROWSER_AGENT != 'IE' && USR_BROWSER_AGENT != 'MOZILLA')
                      || USR_BROWSER_VER < 5)) {
             $font_size     = 'medium';
-            $font_bigger   = 'x-large ';
+            $font_bigger   = 'x-large';
             $font_smaller  = 'small';
             $font_smallest = 'x-small';
         }
         // Other cases
         else {
             $font_size     = 'small';
-            $font_bigger   = 'large ';
+            $font_bigger   = 'large';
             $font_smaller  = 'x-small';
             $font_smallest = 'x-small';
         }
