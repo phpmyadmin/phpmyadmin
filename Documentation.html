@@ -1202,6 +1202,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
 </p>
 
 <p>
+    <b>I'm running phpMyAdmin with "cookie" authentication mode under PHP 4.2.0
+       or 4.2.1 loaded as an Apache 2+ module but can't enter the script: I'm
+       always displayed the login screen.</b>
+    <br />
+    This is a kown PHP bug (see this
+    <a href="http://bugs.php.net/bug.php?id=16626">bug report</a>) from the
+    official php bug database. It means there is and won't be any phpMyAdmin
+    fix against it because there is no way to code a fix.
+</p>
+
+<p>
     <b>Using phpMyAdmin on IIS, I'm displayed the error message: &quot;The
        specified CGI application misbehaved by not returning a complete set of
        HTTP headers....&quot;</b>
