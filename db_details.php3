@@ -340,24 +340,20 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
     <td colspan="5">
         <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
         <select name="submit_mult" dir="ltr" onchange="this.form.submit();"> 
-        <?php echo "\n";
-        echo '         <option value="' . $strWithChecked . '" selected="selected">' 
-           . $strWithChecked . '</option>';
-        echo "\n";
-        echo '         <option value="' . $strDrop . '" >' 
-           . $strDrop . '</option>';
-        echo "\n";
-        echo '         <option value="' . $strEmpty . '" >' 
-           . $strEmpty . '</option>';
-        echo "\n";
-        echo '         <option value="' . $strPrintView . '" >' 
-           . $strPrintView . '</option>';
-        echo "\n";
-        echo '         <option value="' . $strOptimizeTable . '" >' 
-           . $strOptimizeTable . '</option>';
-        echo "\n";
-        echo '       </select>';
-        echo "\n"; ?>
+    <?php
+    echo "\n";
+    echo '            <option value="' . $strWithChecked . '" selected="selected">'
+         . $strWithChecked . '</option>' . "\n";
+    echo '            <option value="' . $strDrop . '" >'
+         . $strDrop . '</option>' . "\n";
+    echo '            <option value="' . $strEmpty . '" >'
+         . $strEmpty . '</option>' . "\n";
+    echo '            <option value="' . $strPrintView . '" >'
+         . $strPrintView . '</option>' . "\n";
+    echo '            <option value="' . $strOptimizeTable . '" >'
+         . $strOptimizeTable . '</option>' . "\n";
+    ?>
+        </select>
     </td>
 </tr>
 </table>
@@ -505,7 +501,7 @@ if ($num_tables > 0) {
 
     <!-- Query box, sql file loader and bookmark support -->
     <li>
-	<a name="querybox"></a>
+        <a name="querybox"></a>
         <form method="post" action="read_dump.php3" enctype="multipart/form-data"
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />
@@ -518,7 +514,7 @@ if ($num_tables > 0) {
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
             <?php echo sprintf($strRunSQLQuery, $db) . ' ' . PMA_showDocuShort('S/E/SELECT.html'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
-<textarea name="sql_query" cols="<?php echo $cfgTextareaCols; ?>" rows="<?php echo $cfgTextareaRows; ?>" onfocus="this.select()">
+<textarea name="sql_query" cols="<?php echo $cfgTextareaCols; ?>" rows="<?php echo $cfgTextareaRows; ?>" wrap="virtual" onfocus="this.select()">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>
 </textarea><br />
             <input type="checkbox" name="show_query" value="y" checked="checked" />&nbsp;
