@@ -75,7 +75,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
      * Gets table informations
      */
     // The 'show table' statement works correct since 3.23.03
-    $result       = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
+    $result       = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'', NULL, PMA_DBI_QUERY_STORE);
     $showtable    = PMA_DBI_fetch_assoc($result);
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
@@ -128,7 +128,7 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     /**
      * Gets fields properties
      */
-    $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
+    $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
     $fields_cnt  = PMA_DBI_num_rows($result);
     // Check if we can use Relations (Mike Beck)
     if (!empty($cfgRelation['relation'])) {
