@@ -8,6 +8,8 @@ $Source$
 2001-12-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/japanese.inc.php3; lang/bulgarian-*.inc.php3: completed thanks to
 	  Georgi Georgiev <chutz at chubaka.homeip.net>.
+	* left.php3, line 79: fixed bug #489350 - Opera 6.0 is still half DOM
+	  compliant :[
 
 2001-12-05  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/norwegian.inc.php3 updates thanks to Sven-Erik Andersen
