@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-22  Marc Delisle  <lem9@users.sourceforge.net>
+        * sql.php3: bug 434405: percent bug in delete queries
+
 2001-06-22  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_copy.php3: fixes serious problem with copy table and new
 	  structure definition

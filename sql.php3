@@ -36,10 +36,10 @@ if($is_drop_sql_query && !isset($btnDrop)) {
     $stripped_sql_query = $sql_query;
   }
     include("./header.inc.php3");
-    echo $strDoYouReally.urldecode($stripped_sql_query)."?<br>";
+    echo $strDoYouReally.$stripped_sql_query."?<br>";
     ?>
     <form action="sql.php3" method="post" enctype="application/x-www-form-urlencoded">
-    <input type="hidden" name="sql_query" value="<?php echo urldecode($stripped_sql_query); ?>">
+    <input type="hidden" name="sql_query" value="<?php echo $stripped_sql_query; ?>">
     <input type="hidden" name="server" value="<?php echo $server ?>">
     <input type="hidden" name="lang" value="<?php echo $lang;?>">
     <input type="hidden" name="db" value="<?php echo $db ?>">
