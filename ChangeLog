@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-19 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * translators.html, spanish-*.inc.php3: Updates, thanks again to
+      Dr. med. Daniel Hinostroza C.
+
 2002-10-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Added some notes about the MySQL 4.1 branch. See bug
       report #623665 for more details.

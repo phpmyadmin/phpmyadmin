@@ -116,7 +116,7 @@ $strDisplay = 'Mostrar';
 $strDisplayFeat = 'Mostrar los componentes';  //Features = ¿componentes?
 $strDisplayOrder = 'Mostrar en este orden:';
 $strDisplayPDF = 'Mostrar esquema PDF';
-$strDoAQuery = 'Hacer una "consulta de ejemplo" (comodín: "%")';
+$strDoAQuery = 'Hacer una consulta (comodín: "%")';
 $strDoYouReally = 'Realmente desea ';
 $strDocu = 'Documentación';
 $strDrop = 'Eliminar';
@@ -286,13 +286,13 @@ $strPrivileges = 'Privilegios';
 $strProperties = 'Propiedades';
 $strPutColNames = 'Ponga los nombres de campo en la primera hilera';
 
-$strQBE = 'Consulta de ejemplo';
+$strQBE = 'Generar una consulta';
 $strQBEDel = 'Borrar';
 $strQBEIns = 'Insertar';
-$strQueryOnDb = 'Consulta en la base de datos <b>%s</b>:';
+$strQueryOnDb = 'Consulta a la base de datos <b>%s</b>:';
 
 $strReType = 'Re-escriba';
-$strRecords = 'Campos';
+$strRecords = 'Registros';
 $strReferentialIntegrity = 'Compruebe la integridad referencial:';
 $strRelationNotWorking = 'Los componentes adicionales para trabajar con tablas vinculadas fueron desactivados. Para saber porqué, dé clic %saquí%s.';  //Features = ¿componentes?
 $strRelationView = 'Vista de relaciones';
@@ -348,8 +348,8 @@ $strSelectAll = 'Seleccione todo';
 $strSelectFields = 'Seleccionar campos (al menos uno):';
 $strSelectNumRows = 'en la consulta';
 $strSelectTables = 'Seleccionar tablas';
-$strSend = 'enviar';
-$strServer = 'Servidor %s';  
+$strSend = 'Enviar';
+$strServer = 'Servidor %s';
 $strServerChoice = 'Elección del servidor';
 $strServerVersion = 'Versión del servidor';
 $strSetEnumVal = 'Si el tipo de campo es "enum" o "set", por favor ingrese los valores usando este formato: \'a\',\'b\',\'c\'...<br />Si alguna vez necesita poner una barra invertida("\") o una comilla simple ("\'") entre esos valores, siempre ponga una barra invertida. (Por ejemplo \'\\\\xyz\' o \'a\\\'b\').';
@@ -362,7 +362,7 @@ $strShowPHPInfo = 'Mostrar información de PHP';
 $strShowTableDimension = 'Mostrar la dimensión de las tablas';
 $strShowTables = 'Mostrar las tablas';
 $strShowThisQuery = ' Mostrar esta consulta otra vez ';
-$strShowingRecords = 'Mostrando campos ';
+$strShowingRecords = 'Mostrando registros ';
 $strSingly = '(solo)';
 $strSize = 'Tamaño';
 $strSort = 'Ordenar';
@@ -399,7 +399,7 @@ $strType = 'Tipo';
 
 $strUncheckAll = 'Desmarcar todos';
 $strUnique = 'Único';
-$strUnselectAll = 'Deselecciona todo';
+$strUnselectAll = 'Deseleccione todo';
 $strUpdatePrivMessage = 'Ud. ha actualizado los privilegios para %s.';
 $strUpdateProfile = 'Actualiza el perfil:';
 $strUpdateProfileMessage = 'Se ha actualizado el perfil.';
@@ -419,7 +419,7 @@ $strViewDump = 'Mostrar el volcado esquema de la tabla';
 $strViewDumpDB = 'Ver el volcado esquema de la base de datos';
 
 $strWebServerUploadDirectory = 'directorio en el servidor web para subir los archivos';
-$strWebServerUploadDirectoryError = 'No está disponible el directorio que usted habilitó para subir las tareas';  
+$strWebServerUploadDirectoryError = 'No está disponible el directorio que usted habilitó para subir las tareas';
 $strWelcome = 'Bienvenido a %s';
 $strWithChecked = 'Con marca:';
 $strWrongUser = 'Usuario/contraseña equivocado. Acceso denegado.';
@@ -428,5 +428,5 @@ $strYes = 'Sí';
 
 $strZip = '"comprimido con zip"';
 
-$strImportDocSQL = 'Import docSQL Files';  //to translate
+$strImportDocSQL = 'Importar archivos docSQL';
 ?>
