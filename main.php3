@@ -186,14 +186,16 @@ if ($server > 0
             <?php
             echo "\n";
         } // end create db form
-
         ?>
+
     <li>
         <a href="index.php3?<?php echo$common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_top">
-        <b><?php echo $strLogout; ?></b></a>
+            <b><?php echo $strLogout; ?></b></a>
+        <br /><br />
     </li>
-        <?php
 
+        <?php
+        echo "\n";
         // Server related links
         if ($result_usr['References_priv'] == 'Y') {
             ?>
@@ -240,16 +242,11 @@ if ($server > 0
     </li>
     <li>
         <a href="db_stats.php3?<?php echo $common_url_query; ?>">
-        <?php echo $strDatabasesStats; ?></a>
+            <?php echo $strDatabasesStats; ?></a>
+        <br /><br />
     </li>
-    <br /><br />
-
             <?php
-            echo "\n";
         }
-        ?>
-    <br /><br />
-        <?php
         echo "\n";
     } // end of 2.1 (AdvAuth case)
 
@@ -299,12 +296,12 @@ if ($server > 0
     <li> 
         <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
             <?php echo $strUsers; ?></a>&nbsp;<?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
-    </li> 
+    </li>
     <li>
         <a href="db_stats.php3?<?php echo $common_url_query; ?>">
-        <?php echo $strDatabasesStats; ?></a>
+            <?php echo $strDatabasesStats; ?></a>
+        <br /><br />
     </li>
-    <br /><br />
             <?php
             echo "\n";
         }
@@ -322,6 +319,7 @@ if ($server > 0
         <a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
     </li>
 
+    <!-- phpMyAdmin related urls -->
     <li>
         <a href="http://phpwizard.net/projects/phpMyAdmin/" target="_new"><?php echo $strHomepageOfficial; ?></a>
     </li>
