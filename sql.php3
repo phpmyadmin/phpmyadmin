@@ -666,11 +666,17 @@ else {
 
         // Export link, if only one table
         // (the url_query has extra parameters that won't be used to export)
-        if (!isset($printview)
-           && isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])
-           && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
-                echo '    <!-- Export -->' . "\n"
-                   . '    <a href="tbl_properties_export.php3' . $url_query  . '&amp;unlim_num_rows=' . $unlim_num_rows . '">' . $strExport . '</a>' . "\n";
+        if (!isset($printview)) {
+            if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name']) && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
+                $single_table   = '&amp;single_table=true';
+            } else {
+                $single_table   = '';
+            }
+            echo '    <!-- Export -->' . "\n"
+                   . '    <a href="tbl_properties_export.php3' . $url_query  
+                   . '&amp;unlim_num_rows=' . $unlim_num_rows 
+                   . $single_table
+                   . '">' . $strExport . '</a>' . "\n";
         }
 
         // Bookmark Support if required
