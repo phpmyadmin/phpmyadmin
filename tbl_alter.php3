@@ -44,15 +44,15 @@ if (isset($submit)) {
         // Some fields have been urlencoded or double quotes have been translated
         // to "&quot;" in tbl_properties.php3
         $field_orig[$i]     = urldecode($field_orig[$i]);
-        if (str_replace('"', '&quot;', $field_orig[$i]) == $field_name[$i]) {
+        if (strcmp(str_replace('"', '&quot;', $field_orig[$i]), $field_name[$i]) == 0) {
             $field_name[$i] = $field_orig[$i];
         }
         $field_default_orig[$i] = urldecode($field_default_orig[$i]);
-        if (str_replace('"', '&quot;', $field_default_orig[$i]) == $field_default[$i]) {
+        if (strcmp(str_replace('"', '&quot;', $field_default_orig[$i]), $field_default[$i])) {
             $field_default[$i]  = $field_default_orig[$i];
         }
         $field_length_orig[$i] = urldecode($field_length_orig[$i]);
-        if (str_replace('"', '&quot;', $field_length_orig[$i]) == $field_length[$i]) {
+        if (strcmp(str_replace('"', '&quot;', $field_length_orig[$i]), $field_length[$i])) {
             $field_length[$i] = $field_length_orig[$i];
         }
         if (!isset($query)) {

@@ -11,6 +11,7 @@ $Source$
     * libraries/config_import.lib.php3:
       - Fixed an inconsitence;
       - Fixed an "undefined index" error.
+    * tbl_alter.php3: Fixed bug #615888 (error in column naming).
 
 2002-09-27 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_qbe.php3: PHP3 fixes & coding standards.
