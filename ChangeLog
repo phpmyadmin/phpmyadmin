@@ -7,6 +7,7 @@ $Source$
 
 2002-04-28 Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_properties.php3, line 395: replaced a "require" by an include.
+	* tbl_properties_links.php3: beautified code.
 
 2002-04-27 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_properties.php3, new tbl_properties_links.php3:
