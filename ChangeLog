@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+
+2002-04-12 Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/display_tbl.lib.php3, lines 957-991: expended cosmetic changes
+	  to allow word wrapping.
+
 2002-04-11 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, line 957: cosmetic change to allow word
 	  wrapping thanks to Adam Burley <kidburla2002 at users.sourceforge.net>.
