@@ -690,9 +690,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     // 2.0.1 Prepare Display column comments if enabled ($cfg['ShowBrowseComments']).
     //       Do not show comments, if using horizontalflipped mode, because of space usage
     if ($GLOBALS['cfg']['ShowBrowseComments'] && $GLOBALS['cfgRelation']['commwork'] && $disp_direction != 'horizontalflipped') {
-        $comments_map = PMA_getComments($db, $table);
-    } else {
         $comments_map = array();
+        foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
+            
+            $tb = $tbl['table_true_name'];
+            
+            $comments_map[$tb] = PMA_getComments($db, $tb);
+        }
     }
 
     if ($GLOBALS['cfgRelation']['commwork'] && $GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
@@ -732,11 +736,13 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         }
 
         // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
-        if (isset($comments_map[$fields_meta[$i]->name])) {
+        if (isset($comments_map) && 
+                isset($comments_map[$fields_meta[$i]->table]) &&
+                isset($comments_map[$fields_meta[$i]->table][$fields_meta[$i]->name])) {
             /*$comments_table_wrap_pre = '<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><th>';
             $comments_table_wrap_post = '</th></tr><tr><th style="font-size: 8pt; font-weight: normal">' . htmlspecialchars($comments_map[$fields_meta[$i]->name]) . '</td></tr></table>';*/
             $comments_table_wrap_pre = '';
-            $comments_table_wrap_post = '<span class="tblcomment">' . htmlspecialchars($comments_map[$fields_meta[$i]->name]) . '</span>';
+            $comments_table_wrap_post = '<span class="tblcomment">' . htmlspecialchars($comments_map[$fields_meta[$i]->table][$fields_meta[$i]->name]) . '</span>';
         } else {
             $comments_table_wrap_pre = '';
             $comments_table_wrap_post = '';
