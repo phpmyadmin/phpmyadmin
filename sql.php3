@@ -59,9 +59,11 @@ else {
     $sql_query = isset($sql_query) ? stripslashes($sql_query) : '';
     $sql_order = isset($sql_order) ? stripslashes($sql_order) : '';
   }
-    if(isset($sessionMaxRows) )
+    if(isset($sessionMaxRows))
         $cfgMaxRows = $sessionMaxRows;
     $sql_limit = (isset($pos) && eregi("^SELECT", $sql_query) && !eregi("LIMIT[ 0-9,]+$", $sql_query)) ? " LIMIT $pos, $cfgMaxRows" : '';
+    if (!isset($sql_order))
+    	$sql_order = '';
     $result = mysql_db_query($db, $sql_query.$sql_order.$sql_limit);
     // the same SELECT without LIMIT
     if(eregi("^SELECT", $sql_query))
