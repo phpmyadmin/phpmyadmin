@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 
-
 /**
  * Get the variables sent or posted to this script and displays the header
  */
@@ -182,6 +181,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // The type column
     $is_binary                  = eregi(' binary', $row_table_def['Type']);
     $is_blob                    = eregi('blob', $row_table_def['Type']);
+    $is_char                    = eregi('char', $row_table_def['Type']);
     $row_table_def['True_Type'] = ereg_replace('\\(.*', '', $row_table_def['Type']);
     switch ($row_table_def['True_Type']) {
         case 'set':
@@ -459,12 +459,18 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } // end if...elseif...else
     } // end else if
     else {
-        if ($len < 4) {
-            $fieldsize = $maxlength = 4;
-        } else {
-            $fieldsize = (($len > 40) ? 40 : $len);
-            $maxlength = $len;
-        }
+
+// for char or varchar, respect the maximum length (M);
+// for other types (int or float), the length is not a limit on the values
+// that can be entered, so let's be generous (20)
+// (we could also use the real limits for each numeric type)
+         if ($is_char) {
+             $fieldsize = (($len > 40) ? 40 : $len);
+             $maxlength = $len;
+         }
+         else {
+             $fieldsize = $maxlength = 20;
+         } // end if 
         echo "\n";
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
