@@ -16,8 +16,8 @@ require('./libraries/common.lib.php3');
 /**
  * Gets the "fpdf" libraries and defines the pdf font path
  */
-require('./fpdf/fpdf.php3');
-define('FPDF_FONTPATH', './fpdf/font/');
+require('./libraries/fpdf/fpdf.php3');
+define('FPDF_FONTPATH', './libraries/fpdf/font/');
 
 
 /**

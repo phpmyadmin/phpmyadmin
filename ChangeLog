@@ -16,6 +16,8 @@ $Source$
       - fixed an error when $cfg['Server']['table_info'] is not valid;
       - optimized a bit;
       - removed an "onchange" js handler to lower server charge.
+    * pdf_schema.php3; fpdf/*; libraries/fpdf/*: moved the "fpdf" directory in
+      the "libraries" one.
 
 2002-05-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/italian.inc.php3: Updates, thanks again to
