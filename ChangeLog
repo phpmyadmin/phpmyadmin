@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: bug 821144: FAQ 6.21 needed clarification
+
 2003-10-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/grab_globals.lib.php3: bug 807047, better fix
     * tbl_select.php3: bug 821350: escape single quotes in table

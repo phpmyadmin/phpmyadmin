@@ -3417,7 +3417,15 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     You have to setup appropriate links between the tables, and also
     setup the &quot;display field&quot; in the foreign table. See FAQ
     6.6 for an example. Then, if there are 200 values or less in the
-    foreign table, a drop-down list of values will be available.
+    foreign table, a drop-down list of values will be available.  For 200
+    values or more, a distinct window will appear, to browse foreign
+    key values and choose one.
+    <br /><br />
+    You will see two lists of values, the first list containing the key
+    and the display field, the second list containing the display field
+    and the key. The reason for this is to be able to type the first
+    letter of either the key or the display field.
+
 </p>
 <a name="faqproject"></a><br />
 <h3>[7. phpMyAdmin project]</h3>
