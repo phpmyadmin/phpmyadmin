@@ -6,6 +6,7 @@ $Id$
 $Source$
 
 2001-12-03  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_select.php3: fixed bugs with text and time type fields.
 	* libraries/common.lib.php3, lines 583-585: fixed bug #488317 - 'only_db'
 	  problem with the 2.2.x.
 	* header.inc.php3; main.php3; lang/*: modified the way server informations

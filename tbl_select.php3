@@ -166,7 +166,8 @@ else {
                     $quot = '';
                     $cmp  = 'IS';
                 }
-                else if ($types[$i] == 'string' || $types[$i] == 'blob') {
+                else if (eregi('char|blob|text', $types[$i])
+                         || eregi('(set|enum)[(]', $types[$i])) {
                     $quot = '\'';
                     $cmp  = 'LIKE';
                     if (get_magic_quotes_gpc()) {
@@ -174,7 +175,7 @@ else {
                     }
                     $fields[$i]     = PMA_sqlAddslashes($fields[$i], TRUE);
                 }
-                else if ($types[$i] == 'date' || $types[$i] == 'time') {
+                else if (eregi('date|time|year', $types[$i])) {
                     $quot = '\'';
                     $cmp  = '=';
                 }
