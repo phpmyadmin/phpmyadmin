@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.2.6-rc2 Documentation
+                      phpMyAdmin 2.2.6-rc3 Documentation
                                        
      * [1]Sourceforge phpMyAdmin project page   [
        http://www.phpmyadmin.net/ ]
@@ -7,7 +7,7 @@
           + Version history: [2]ChangeLog
           + General notes: [3]README
           + License: [4]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.193 2002/04/13
+     * Documentation version: $Id: Documentation.html,v 1.194 2002/04/13
        19:38:13 loic1 Exp $
    ______________________________________________________________________
    
