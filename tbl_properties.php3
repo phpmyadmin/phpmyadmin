@@ -145,10 +145,7 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
 }
 mysql_free_result($result);
 
-echo "\n";
-    ?>
-<!-- first browse links -->
-<?php 
+echo '<!-- first browse links -->' . "\n";
 require('./tbl_properties_links.php3');
 
 if (!empty($show_comment)) {
@@ -391,10 +388,11 @@ echo "\n";
  * links again
  */
 if ($fields_cnt > 20) {
-        ?>
+    ?>
 <!-- Browse links -->
-<?php
-    require('./tbl_properties_links.php3');
+    <?php
+    echo "\n";
+    include('./tbl_properties_links.php3');
 } // end if ($fields_cnt > 20)
 echo "\n\n";
 

@@ -5,18 +5,21 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-28 Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_properties.php3, line 395: replaced a "require" by an include.
+
 2002-04-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_properties.php3, new tbl_properties_links.php3:
-      remove duplicate links code
+	* tbl_properties.php3, new tbl_properties_links.php3:
+	  remove duplicate links code.
  
 2002-04-27 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * Recompressed old ChangeLog without saving its path in the archive.
-    * header.inc.php3:
-      - Patch #548696 (DB/Table titles should be links), thanks to
-        Ray Black <allah03@users.sourceforge.net>.
-      - lines: 161-164: Undefined variable
-    * common.lib.php3, lines 162, 163, 435-437: Fixed bug #549570
-      (Strange error if controluser is invalid)
+	* Recompressed old ChangeLog without saving its path in the archive.
+	* header.inc.php3:
+	  - Patch #548696 (DB/Table titles should be links), thanks to
+	    Ray Black <allah03@users.sourceforge.net>.
+	  - lines: 161-164: Undefined variable.
+	* common.lib.php3, lines 162, 163, 435-437: Fixed bug #549570
+	  (Strange error if controluser is invalid).
 
 2002-04-27 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html:
