@@ -327,6 +327,8 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
         <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
         &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
+        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strPrintView; ?>" />
     </td>
 </tr>
 </table>
@@ -450,27 +452,6 @@ if ($num_tables > 0) {
     <!-- Printable view of a table -->
     <li>
         <div style="margin-bottom: 10px"><a href="db_printview.php3?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a></div>
-
-<?php // Add by Moosh 
-?> 
-    <FORM method="post" action="tbl_printview.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=<?php echo $db; ?>&goto=db_details.php3" > 
-     <select name="tables[]" size="5" multiple="multiple"> 
-     <?php 
-         $i = 0; 
-         echo "\n"; 
-         while ($i < $num_tables) { 
-             $table = ((PMA_MYSQL_INT_VERSION >= 32300) ? 
-		$tables[$i]['Name'] : $tables[$i]); 
-             echo ' <option value="' . $table . '">' . $table . '</option>' . "\n"; 
-             $i++; 
-         } 
-     echo "</select>";
-     echo "<input type=\"submit\" value=\"" . $GLOBALS['strGo'] . "\" />";
-     echo "</FORM>"; 
-
-// end of Add by Moosh 
-
-   ?> 
     </li>
     <?php
 }
@@ -506,6 +487,7 @@ if ($is_upload) {
     ?>
             <div style="margin-bottom: 5px">
             <input type="file" name="sql_file" /><br />
+            </div>
     <?php
 } // end if
 echo "\n";

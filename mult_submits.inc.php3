@@ -3,24 +3,29 @@
 
 
 /**
- * Confirmation form
+ * Confirmation form if required or include of other scripts
  */
 if (!empty($submit_mult)
     && (!empty($selected_db) || !empty($selected_tbl) || !empty($selected_fld))) {
 
     if (get_magic_quotes_gpc()) {
-        $submit_mult = stripslashes($submit_mult);
+        $submit_mult  = stripslashes($submit_mult);
     }
     if (!empty($selected_db)) {
-        $selected = $selected_db;
-        $what     = 'drop_db';
+        $selected     = $selected_db;
+        $what         = 'drop_db';
     } else if (!empty($selected_tbl)) {
-        $selected = $selected_tbl;
-        $what     = (($submit_mult == $strDrop) ? 'drop_tbl' : 'empty_tbl');
+    	if ($submit_mult == $strPrintView) {
+            include('./tbl_printview.php3');
+            exit();
+        } else {    
+            $selected = $selected_tbl;
+            $what     = (($submit_mult == $strDrop) ? 'drop_tbl' : 'empty_tbl');
+        }
     } else {
-        $selected = $selected_fld;
+        $selected     = $selected_fld;
         if ($submit_mult == $strDrop) {
-            $what = 'drop_fld';
+            $what     = 'drop_fld';
         } else {
             include('./tbl_alter.php3');
             exit();
