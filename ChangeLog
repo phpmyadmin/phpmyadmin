@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/galician.inc.php3: updated thanks to
+	  Xosé Calvo <xosecalvo at terra.es>.
+
+2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:
 	  - splitted the function "display_table" in 3 little functions with
 	    specific targets (top of the page/headers of the table/body of the
