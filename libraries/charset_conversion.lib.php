@@ -144,7 +144,7 @@ function PMA_convert_display_charset($what) {
     }
     else if (is_array($what)) {
         $result = array();
-        foreach($what AS $key => $val) {
+        foreach ($what AS $key => $val) {
             if (is_string($val) || is_array($val)) {
                 if (is_string($key)) {
                     $result[PMA_convert_display_charset($key)] = PMA_convert_display_charset($val);

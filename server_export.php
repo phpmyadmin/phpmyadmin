@@ -39,7 +39,7 @@ if ($server > 0 && empty($dblist)) {
 $multi_values = '<div align="center"><select name="db_select[]" size="6" multiple="multiple">';
 $multi_values .= "\n";
 
-foreach($dblist AS $current_db) {
+foreach ($dblist AS $current_db) {
     if (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {
         $is_selected = ' selected="selected"';
     } else {

@@ -54,7 +54,7 @@ $multi_tables     = (count($the_tables) > 1);
 
 if ($multi_tables) {
     $tbl_list     = '';
-    foreach($the_tables AS $key => $table) {
+    foreach ($the_tables AS $key => $table) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_backquote(urldecode($table));
     }
@@ -65,7 +65,7 @@ if ($multi_tables) {
 $tables_cnt = count($the_tables);
 $counter    = 0;
 
-foreach($the_tables AS $key => $table) {
+foreach ($the_tables AS $key => $table) {
     $table = urldecode($table);
     if ($counter + 1 >= $tables_cnt) {
         $breakstyle = '';
@@ -311,7 +311,7 @@ foreach($the_tables AS $key => $table) {
     </tr>
         <?php
         echo "\n";
-        foreach($indexes AS $index_no => $index_name) {
+        foreach ($indexes AS $index_no => $index_name) {
             $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
             $index_td = '        <td class="print" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
             echo '    <tr>' . "\n";
@@ -336,7 +336,7 @@ foreach($the_tables AS $key => $table) {
                  . '            ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . "\n"
                  . '        </td>' . "\n";
 
-            foreach($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
+            foreach ($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
                 if ($row_no > 0) {
                     echo '    <tr>' . "\n";
                 }

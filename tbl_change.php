@@ -88,7 +88,7 @@ if (isset($primary_key)) {
 
     $row = array();
     $result = array();
-    foreach($primary_key_array AS $rowcount => $primary_key) {
+    foreach ($primary_key_array AS $rowcount => $primary_key) {
         $local_query             = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
         $result[$rowcount]       = PMA_DBI_query($local_query, NULL, PMA_DBI_QUERY_STORE);
         $row[$rowcount]          = PMA_DBI_fetch_assoc($result[$rowcount]);
@@ -165,7 +165,7 @@ document.onkeydown = onKeyDownArrowsHandler;
     <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode($sql_query) : ''; ?>" />
 <?php
 if (isset($primary_key_array)) {
-    foreach($primary_key_array AS $primary_key) {
+    foreach ($primary_key_array AS $primary_key) {
         ?>
     <input type="hidden" name="primary_key[]" value="<?php echo urlencode($primary_key); ?>" />
 <?php
@@ -215,7 +215,7 @@ $tab1     = +2;
 $tab2     = +1;
 $tab3     = 0;
 $o_rows   = 0;
-foreach($loop_array AS $vrowcount => $vrow) {
+foreach ($loop_array AS $vrowcount => $vrow) {
     if ($vrow === FALSE) {
         unset($vrow);
     }

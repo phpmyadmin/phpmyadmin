@@ -119,7 +119,7 @@ else {
 </tr>
     <?php
     $i = $sum_entries = $sum_size = 0;
-    foreach($tables AS $keyname => $sts_data) {
+    foreach ($tables AS $keyname => $sts_data) {
         $table     = $sts_data['Name'];
         $bgcolor   = ($i++ % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         echo "\n";

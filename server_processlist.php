@@ -66,7 +66,7 @@ unset($row);
     </tr>
 <?php
 $useBgcolorOne = TRUE;
-foreach($serverProcesses AS $name => $value) {
+foreach ($serverProcesses AS $name => $value) {
 ?>
     <tr>
         <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<a href="./server_processlist.php?<?php echo $url_query . '&amp;kill=' . $value['Id']; ?>"><?php echo $strKill; ?></a>&nbsp;</td>

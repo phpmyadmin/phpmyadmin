@@ -106,7 +106,7 @@ if (PMA_MYSQL_INT_VERSION >= 32334) {
             <select name="order_field" style="vertical-align: middle">
     <?php
     echo "\n";
-    foreach($columns AS $junk => $fieldname) {
+    foreach ($columns AS $junk => $fieldname) {
         echo '                <option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
     }
     unset($columns);
@@ -323,7 +323,7 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
                 <?php echo $strReferentialIntegrity; ?><br />
                 <?php
                 echo "\n";
-                foreach($foreign AS $master => $arr) {
+                foreach ($foreign AS $master => $arr) {
                     $join_query  = 'SELECT ' . PMA_backquote($table) . '.* FROM '
                                  . PMA_backquote($table) . ' LEFT JOIN '
                                  . PMA_backquote($arr['foreign_table']);

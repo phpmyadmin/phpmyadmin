@@ -90,14 +90,14 @@ if (isset($submit)) {
 
         // garvin: Update comment table, if a comment was set.
         if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
-            foreach($field_comments AS $fieldindex => $fieldcomment) {
+            foreach ($field_comments AS $fieldindex => $fieldcomment) {
                 PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex]);
             }
         }
 
         // garvin: Rename relations&display fields, if altered.
         if (($cfgRelation['displaywork'] || $cfgRelation['relwork']) && isset($field_orig) && is_array($field_orig)) {
-            foreach($field_orig AS $fieldindex => $fieldcontent) {
+            foreach ($field_orig AS $fieldindex => $fieldcontent) {
                 if ($field_name[$fieldindex] != $fieldcontent) {
                     if ($cfgRelation['displaywork']) {
                         $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
@@ -135,7 +135,7 @@ if (isset($submit)) {
 
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
-            foreach($field_mimetype AS $fieldindex => $mimetype) {
+            foreach ($field_mimetype AS $fieldindex => $mimetype) {
                 PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
             }
         }

@@ -22,14 +22,14 @@
  */
 function obj2xml($v, $indent = '') {
     $attr = '';
-    foreach($v AS $key => $val) {
+    foreach ($v AS $key => $val) {
         if (is_string($key) && ($key == '__attr')) {
             continue;
         }
 
         // Check for __attr
         if (is_object($val->__attr)) {
-            foreach($val->__attr AS $key2 => $val2) {
+            foreach ($val->__attr AS $key2 => $val2) {
                 $attr .= " $key2=\"$val2\"";
             }
         } else {

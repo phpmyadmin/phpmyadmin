@@ -34,7 +34,7 @@ if (isset($GLOBALS['DBG']) && $GLOBALS['DBG']
             '<td>' . $GLOBALS['strDBGContext'] . '</td>' . "\n" .
             '</tr></thead>' . "\n" .
             '<tbody style="vertical-align: top">' . "\n";
-        foreach($dbg_prof_results['line_no'] AS $idx => $line_no) {
+        foreach ($dbg_prof_results['line_no'] AS $idx => $line_no) {
             $mod_no = $dbg_prof_results['mod_no'][$idx];
             dbg_get_module_name($mod_no, &$mod_name);
 
@@ -64,7 +64,7 @@ if (isset($GLOBALS['DBG']) && $GLOBALS['DBG']
             if (($idx & 1) == 0)
                 $bk = "#e0e0e0";
 
-            if($time_avg_hit > $GLOBALS['cfg']['DBG']['profile']['threshold'] ) {
+            if ($time_avg_hit > $GLOBALS['cfg']['DBG']['profile']['threshold'] ) {
                 echo '<tr style="background:' . $bk . '">' .
                     '<td>' . $mod_name . '</td>' .
                     '<td>' . $line_no . '</td>' .

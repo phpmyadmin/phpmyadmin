@@ -436,28 +436,28 @@ if ($is_minimum_common == FALSE) {
                 if (!empty($GLOBALS['cfg']['MySQLManualType'])) {
                     switch ($GLOBALS['cfg']['MySQLManualType']) {
                         case 'old':
-                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
                               return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
                             return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
                         case 'chapters':
-                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
                               return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
                             return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
                         case 'big':
-                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
                               return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
                             return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
                         case 'none':
                             return '';
                         case 'searchable':
                         default:
-                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
                               return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
                             return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
                     }
                 } else {
                     // no Type defined, show the old one
-                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
                               return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
                     return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
                 }
@@ -465,7 +465,7 @@ if ($is_minimum_common == FALSE) {
                 // no URL defined
                 if (!empty($GLOBALS['cfg']['ManualBaseShort'])) {
                     // the old configuration
-                            if($GLOBALS['cfg']['ReplaceHelpImg']){
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
                               return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
                     return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
                 } else {
@@ -685,7 +685,7 @@ function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cf
                             $dblist[]           = $uva_db;
                             $uva_mydbs[$uva_db] = 0;
                         } else if (!isset($dblist[$uva_db])) {
-                            foreach($uva_mydbs AS $uva_matchpattern => $uva_value) {
+                            foreach ($uva_mydbs AS $uva_matchpattern => $uva_value) {
                                 // loic1: fixed bad regexp
                                 // TODO: db names may contain characters
                                 //       that are regexp instructions
@@ -912,7 +912,7 @@ if ($is_minimum_common == FALSE) {
     /**
      * Gets the valid servers list and parameters
      */
-    foreach($cfg['Servers'] AS $key => $val) {
+    foreach ($cfg['Servers'] AS $key => $val) {
         // Don't use servers with no hostname
         if ( ($val['connect_type'] == 'tcp') && empty($val['host'])) {
             unset($cfg['Servers'][$key]);
@@ -1070,7 +1070,7 @@ if ($is_minimum_common == FALSE) {
                 if ($dblist[$i] == '*' && $dblist_asterisk_bool == FALSE) {
                     $dblist_asterisk_bool = TRUE;
                     $dblist_full = PMA_safe_db_list(FALSE, $dbh, FALSE, $rs, $userlink, $cfg, $dblist);
-                    foreach($dblist_full AS $dbl_key => $dbl_val) {
+                    foreach ($dblist_full AS $dbl_key => $dbl_val) {
                         if (!in_array($dbl_val, $dblist)) {
                             $true_dblist[] = $dbl_val;
                         }
@@ -1228,7 +1228,7 @@ if ($is_minimum_common == FALSE) {
 
             if (is_array($a_name)) {
                  $result = array();
-                 foreach($a_name AS $key => $val) {
+                 foreach ($a_name AS $key => $val) {
                      $result[$key] = '`' . $val . '`';
                  }
                  return $result;
@@ -1516,7 +1516,7 @@ if (typeof(document.getElementById) != 'undefined'
                 } else {
                     $explain_link = '';
                 }
-                if(!empty($explain_link)) {
+                if (!empty($explain_link)) {
                     $explain_link .= '</a>]';
                 }
             } else {
@@ -1800,7 +1800,7 @@ if (typeof(document.getElementById) != 'undefined'
             $link_or_button     = '        <form action="'
                                 . $edit_url_parts['path']
                                 . '" method="post">' . "\n";
-            foreach($query_parts AS $query_pair) {
+            foreach ($query_parts AS $query_pair) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
                 $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />' . "\n";
             } // end while
@@ -1910,7 +1910,7 @@ if (typeof(document.getElementById) != 'undefined'
         $found_error = FALSE;
         $error_message = '';
 
-        foreach($params AS $param) {
+        foreach ($params AS $param) {
             if (!isset($GLOBALS[$param])) {
                 $error_message .= $reported_script_name . ': Missing ' . $param . '<br />';
                 $found_error = TRUE;
@@ -1986,7 +1986,7 @@ if (typeof(document.getElementById) != 'undefined'
             // do not use an alias in a condition
             $column_for_condition = $meta->name;
             if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                foreach($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
+                foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
                     $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
                     if (!empty($alias)) {
                         $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];

@@ -444,7 +444,7 @@ if ($cfg['PropertiesIconic']) {
     <tr><td>
     <!-- Printable view of the table -->
         <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-            if($cfg['PropertiesIconic']){
+            if ($cfg['PropertiesIconic']){
                 echo '<img src="./images/b_print.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
             }
             echo $strPrintView; 
@@ -455,7 +455,7 @@ if ($cfg['Server']['relation']) {
     ?>
     <!-- Work on Relations -->
         <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-            if($cfg['PropertiesIconic']){
+            if ($cfg['PropertiesIconic']){
                 echo '<img src="./images/b_relations.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
             }
             echo $strRelationView;
@@ -465,7 +465,7 @@ if ($cfg['Server']['relation']) {
 ?>
     <!-- Let MySQL propose the optimal structure -->
         <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-            if($cfg['PropertiesIconic']){
+            if ($cfg['PropertiesIconic']){
                 echo '<img src="./images/b_tblanalyse.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
             }
             echo $strStructPropose;
@@ -490,7 +490,7 @@ if ($cfg['Server']['relation']) {
                 <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
                   <optgroup label="<?php printf($strAfter, ''); ?>" title="<?php printf($strAfter, ''); ?>">
 <?php
-foreach($aryFields AS $junk => $fieldname) {
+foreach ($aryFields AS $junk => $fieldname) {
     echo '                <option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
 }
 unset($aryFields);

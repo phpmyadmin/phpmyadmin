@@ -47,7 +47,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     $mime_map = PMA_getMime($db, $table);
     $mime_options = PMA_transformation_getOptions((isset($mime_map[urldecode($transform_key)]['transformation_options']) ? $mime_map[urldecode($transform_key)]['transformation_options'] : ''));
 
-    foreach($mime_options AS $key => $option) {
+    foreach ($mime_options AS $key => $option) {
         if (substr($option, 0, 10) == '; charset=') {
             $mime_options['charset'] = $option;
         }
@@ -89,7 +89,7 @@ if (!isset($resize)) {
     $ratioWidth = $srcWidth/$newWidth;
     $ratioHeight = $srcHeight/$newHeight;
 
-    if( $ratioWidth < $ratioHeight){
+    if ($ratioWidth < $ratioHeight){
         $destWidth = $srcWidth/$ratioHeight;
         $destHeight = $newHeight;
     }else{

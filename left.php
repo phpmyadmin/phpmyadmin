@@ -114,7 +114,7 @@ function PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, $indent, $indent
         $indent++;
     }
 
-    foreach($tablestack AS $key => $val) {
+    foreach ($tablestack AS $key => $val) {
         if ($key != 'pma_name' && $key != 'pma_list_item') {
             if ($headerOut) {
                 PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_level, $val);
@@ -164,11 +164,11 @@ function PMA_nestedSet($baseid, $tablestack, $key = '__protected__', $keyhistory
         $on_mouse = (($GLOBALS['cfg']['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
 
         $loops = 0;
-        foreach($tablestack['pma_name'] AS $tkey => $tval) {
+        foreach ($tablestack['pma_name'] AS $tkey => $tval) {
 
             echo PMA_indent($indent * 5) . '<img src="images/spacer.gif" border="0" width="' . (($indent+$extra_indent) * $indent_level) . '" height="9" alt="" />';
             $items = explode("\n", $tablestack['pma_list_item'][$tkey]);
-            foreach($items AS $ikey => $ival) {
+            foreach ($items AS $ikey => $ival) {
                 echo "\n";
                 echo PMA_indent(($indent * 5)) . $ival;
             }
@@ -345,7 +345,7 @@ if ($cfg['LeftDisplayServers']) {
     <?php
     }
 
-    foreach($cfg['Servers'] AS $key => $val) {
+    foreach ($cfg['Servers'] AS $key => $val) {
         if (!empty($val['host'])) {
 
             $selected = 0;
@@ -548,7 +548,7 @@ if ($num_dbs > 1) {
                 natcasesort($table_array);
             }
 
-            foreach($table_array as $table => $table_sortkey) {
+            foreach ($table_array as $table => $table_sortkey) {
                 $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
                            ? htmlspecialchars($tooltip_name[$table])
                            : '';
@@ -574,7 +574,7 @@ if ($num_dbs > 1) {
                 if (!empty($cfg['LeftFrameTableSeparator'])) {
                     $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'', $tablename));
                     if (is_array($_table)) {
-                        foreach($_table AS $key => $val) {
+                        foreach ($_table AS $key => $val) {
                             if ($val == '') {
                                 $_table[$key] = '__protected__';
                             }
@@ -644,7 +644,7 @@ if ($num_dbs > 1) {
                         natsort($table_title);
                     }
 
-                    foreach($table_title as $each_key => $each_val) {
+                    foreach ($table_title as $each_key => $each_val) {
                         $table_list .= ' ' . $table_array[$each_key];
                     }
                 } else {
@@ -801,7 +801,7 @@ else if ($num_dbs == 1) {
         natcasesort($table_array);
     }
 
-    foreach($table_array as $table => $table_sortkey) {
+    foreach ($table_array as $table => $table_sortkey) {
         $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
                    ? htmlspecialchars($tooltip_name[$table])
                    : '';
@@ -836,7 +836,7 @@ else if ($num_dbs == 1) {
             if (!empty($cfg['LeftFrameTableSeparator'])) {
                 $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'', $tablename));
                 if (is_array($_table)) {
-                    foreach($_table AS $key => $val) {
+                    foreach ($_table AS $key => $val) {
                         if ($val == '') {
                             $_table[$key] = '__protected__';
                         }

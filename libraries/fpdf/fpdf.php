@@ -310,7 +310,7 @@ class FPDF
     {
         $nf = $this->n;
 
-        foreach($this->diffs AS $diff) {
+        foreach ($this->diffs AS $diff) {
             // Encodings
             $this->_newobj();
             $this->_out('<</Type /Encoding /BaseEncoding /WinAnsiEncoding /Differences [' . $diff . ']>>');
@@ -320,7 +320,7 @@ class FPDF
         $mqr = get_magic_quotes_runtime();
         set_magic_quotes_runtime(0);
 
-        foreach($this->FontFiles AS $file => $info) {
+        foreach ($this->FontFiles AS $file => $info) {
             // Font file embedding
             $this->_newobj();
             $this->FontFiles[$file]['n'] = $this->n;
@@ -347,7 +347,7 @@ class FPDF
         } // end while
         set_magic_quotes_runtime($mqr);
 
-        foreach($this->fonts AS $k => $font) {
+        foreach ($this->fonts AS $k => $font) {
             // Font objects
             $this->_newobj();
             $this->fonts[$k]['n'] = $this->n;
@@ -390,7 +390,7 @@ class FPDF
                 // Descriptor
                 $this->_newobj();
                 $s     = '<</Type /FontDescriptor /FontName /' . $name;
-                foreach($font['desc'] AS $k => $v) {
+                foreach ($font['desc'] AS $k => $v) {
                     $s .= ' /' . $k . ' ' . $v;
                 }
                 $file = $font['file'];
@@ -413,7 +413,7 @@ class FPDF
     {
         $filter = ($this->compress) ? '/Filter /FlateDecode ' : '';
 
-        foreach($this->images AS $file => $info) {
+        foreach ($this->images AS $file => $info) {
             $this->_newobj();
             $this->images[$file]['n'] = $this->n;
             $this->_out('<</Type /XObject');
@@ -472,13 +472,13 @@ class FPDF
         $this->_out('2 0 obj');
         $this->_out('<</ProcSet [/PDF /Text /ImageB /ImageC /ImageI]');
         $this->_out('/Font <<');
-        foreach($this->fonts AS $font) {
+        foreach ($this->fonts AS $font) {
             $this->_out('/F' . $font['i'] . ' ' . $font['n'] . ' 0 R');
         }
         $this->_out('>>');
         if (count($this->images)) {
             $this->_out('/XObject <<');
-            foreach($this->images AS $image) {
+            foreach ($this->images AS $image) {
                 $this->_out('/I' . $image['i'] . ' ' . $image['n'] . ' 0 R');
             }
             $this->_out('>>');
@@ -702,7 +702,7 @@ class FPDF
         if (!isset($a['channels']) || $a['channels'] == 3) {
             $colspace = 'DeviceRGB';
         }
-        else if($a['channels'] == 4) {
+        else if ($a['channels'] == 4) {
             $colspace = 'DeviceCMYK';
         }
         else {
@@ -847,7 +847,7 @@ class FPDF
             else {
                 fread($f, $n + 4);
             } // end if... else if... else
-        } while($n); // end do
+        } while ($n); // end do
 
         if ($colspace == 'Indexed' && empty($pal)) {
             $this->Error('Missing palette in ' . $file);
@@ -2206,7 +2206,7 @@ class FPDF
             if ($l > $wmax) {
                 // Automatic line break
                 if ($sep == -1) {
-                    if($this->x > $this->lMargin)  {
+                    if ($this->x > $this->lMargin)  {
                         // Move to next line
                         $this->x =$this->lMargin;
                         $this->y +=$h;

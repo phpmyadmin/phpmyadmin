@@ -105,9 +105,9 @@ if ($cfgRelation['pdfwork']) {
                         // one table, and might be a master itself)
 
                         $foreign_tables = array();
-                        foreach($all_tables AS $master_table) {
+                        foreach ($all_tables AS $master_table) {
                             $foreigners = PMA_getForeigners($db, $master_table);
-                            foreach($foreigners AS $foreigner) {
+                            foreach ($foreigners AS $foreigner) {
                                 if (!in_array($foreigner['foreign_table'], $foreign_tables)) {
                                     $foreign_tables[] = $foreigner['foreign_table'];
                                 }
@@ -115,7 +115,7 @@ if ($cfgRelation['pdfwork']) {
                         }
 
                         // then merge the arrays
-                        foreach($foreign_tables AS $foreign_table) {
+                        foreach ($foreign_tables AS $foreign_table) {
                             if (!in_array($foreign_table, $all_tables)) {
                                 $all_tables[] = $foreign_table;
                             }
@@ -129,7 +129,7 @@ if ($cfgRelation['pdfwork']) {
                         $delta = 50;
                         $delta_mult = 1.34;
                         $direction = "right";
-                        foreach($all_tables AS $current_table) {
+                        foreach ($all_tables AS $current_table) {
 
                             // save current table's coordinates
                             $insert_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['table_coords']) . ' '
@@ -208,7 +208,7 @@ if ($cfgRelation['pdfwork']) {
                 } // end for
                 break;
             case 'deleteCrap':
-                foreach($delrow AS $current_row) {
+                foreach ($delrow AS $current_row) {
                     $d_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_coords']) . ' ' . "\n"
                              .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'' . "\n"
                              .   ' AND   table_name = \'' . PMA_sqlAddslashes($current_row) . '\'' . "\n"
@@ -305,7 +305,7 @@ if ($cfg['WYSIWYG-PDF']) {
 </form>
 <div id="pdflayout" class="pdflayout" style="visibility: hidden;">
 <?php
-foreach($array_sh_page AS $key => $temp_sh_page) {
+foreach ($array_sh_page AS $key => $temp_sh_page) {
     $drag_x = $temp_sh_page['x'];
     $drag_y = $temp_sh_page['y'];
 
@@ -372,7 +372,7 @@ function resetDrag() {
 
 
         $i = 0;
-        foreach($array_sh_page AS $dummy_sh_page => $sh_page) {
+        foreach ($array_sh_page AS $dummy_sh_page => $sh_page) {
             $_mtab       = $sh_page['table_name'];
             $tabExist[$_mtab] = FALSE;
             echo "\n" . '    <tr ';
@@ -384,7 +384,7 @@ function resetDrag() {
             echo '>';
             echo "\n" . '        <td>'
                  . "\n" . '            <select name="c_table_' . $i . '[name]">';
-            foreach($selectboxall AS $key => $value) {
+            foreach ($selectboxall AS $key => $value) {
                 echo "\n" . '                <option value="' . $value . '"';
                 if ($value == $sh_page['table_name']) {
                     echo ' selected="selected"';
@@ -416,7 +416,7 @@ function resetDrag() {
         echo '>';
         echo "\n" . '        <td>'
              . "\n" . '            <select name="c_table_' . $i . '[name]">';
-        foreach($selectboxall AS $key => $value) {
+        foreach ($selectboxall AS $key => $value) {
             echo "\n" . '                <option value="' . $value . '">' . $value . '</option>';
         }
         echo "\n" . '            </select>'
@@ -445,7 +445,7 @@ function resetDrag() {
     $_strname   = '';
     $shoot      = FALSE;
     if (!empty($tabExist) && is_array($tabExist)) {
-        foreach($tabExist AS $key => $value) {
+        foreach ($tabExist AS $key => $value) {
             if (!$value) {
                 $_strtrans  .= '<input type="hidden" name="delrow[]" value="' . $key . '">' . "\n";
                 $_strname   .= '<li>' . $key . '</li>' . "\n";
@@ -497,7 +497,7 @@ function resetDrag() {
     <?php echo $strPaperSize; ?>
     <select name="paper" <?php echo ($cfg['WYSIWYG-PDF'] ? 'onchange="refreshDragOption(\'pdflayout\');"' : ''); ?>>
 <?php
-    foreach($cfg['PDFPageSizes'] AS $key => $val) {
+    foreach ($cfg['PDFPageSizes'] AS $key => $val) {
         echo '<option value="' . $val . '"';
         if ($val == $cfg['PDFDefaultPageSize']) {
             echo ' selected="selected"';

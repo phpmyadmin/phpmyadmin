@@ -628,7 +628,7 @@ for ($x = 0; $x < $col; $x++) {
                     <br />
                     <select name="TableList[]" size="7" multiple="multiple">
 <?php
-foreach($tbl_names AS $key => $val) {
+foreach ($tbl_names AS $key => $val) {
     echo '                        ';
     echo '<option value="' . htmlspecialchars($key) . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
 }
@@ -729,7 +729,7 @@ if (isset($Field) && count($Field) > 0) {
     $fromclause = '';
 
     // We only start this if we have fields, otherwise it would be dumb
-    foreach($Field AS $value) {
+    foreach ($Field AS $value) {
         $parts             = explode('.', $value);
         if (!empty($parts[0]) && !empty($parts[1])) {
             $tab_raw       = urldecode($parts[0]);
@@ -781,7 +781,7 @@ if (isset($Field) && count($Field) > 0) {
             // the last db selected is not always the one where we need to work)
             PMA_DBI_select_db($db);
 
-            foreach($tab_all AS $tab) {
+            foreach ($tab_all AS $tab) {
                 $ind_rs   = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($tab) . ';');
                 while ($ind = PMA_DBI_fetch_assoc($ind_rs)) {
                     $col1 = $tab . '.' . $ind['Column_name'];
@@ -822,7 +822,7 @@ if (isset($Field) && count($Field) > 0) {
             // (that would mean that they were also found in the whereclauses
             // which would be great). if yes, we take only those
             if ($needsort == 1) {
-                foreach($col_cand AS $col => $is_where) {
+                foreach ($col_cand AS $col => $is_where) {
                     $tab           = explode('.', $col);
                     $tab           = $tab[0];
                     if ($is_where == 'Y') {
@@ -848,7 +848,7 @@ if (isset($Field) && count($Field) > 0) {
             if (count($col_cand) > 1) {
                 // Of course we only want to check each table once
                 $checked_tables = $col_cand;
-                foreach($col_cand AS $tab) {
+                foreach ($col_cand AS $tab) {
                     if ($checked_tables[$tab] != 1 ) {
                         $rows_qry = 'SELECT COUNT(1) AS anz '
                                   . 'FROM ' . PMA_backquote($tab);
@@ -883,7 +883,7 @@ if (isset($Field) && count($Field) > 0) {
          */
         function PMA_arrayShort($array, $key)
         {
-            foreach($array AS $k => $v) {
+            foreach ($array AS $k => $v) {
                 if ($k != $key) {
                     $reta[$k] = $v;
                 }
@@ -964,7 +964,7 @@ if (isset($Field) && count($Field) > 0) {
             $run++;
             if ($run > 5) {
 
-                foreach($tab_left AS $tab) {
+                foreach ($tab_left AS $tab) {
                     $emerg    .= ', ' . $tab;
                     $tab_left = PMA_arrayShort($tab_left, $tab);
                 }

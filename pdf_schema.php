@@ -96,11 +96,11 @@ class PMA_PDF extends FPDF
     }
     function _putpages()
     {
-        if(count($this->Alias) > 0)
+        if (count($this->Alias) > 0)
         {
             $nb=$this->page;
-            foreach($this->Alias AS $alias => $value) {
-                for($n=1;$n<=$nb;$n++)
+            foreach ($this->Alias AS $alias => $value) {
+                for ($n=1;$n<=$nb;$n++)
                 $this->pages[$n]=str_replace($alias,$value,$this->pages[$n]);
             }
         }
@@ -336,14 +336,14 @@ class PMA_PDF extends FPDF
    $this->Outlines[0][]=$level;
    $this->Outlines[1][]=$txt;
    $this->Outlines[2][]=$this->page;
-   if($y==-1)
+   if ($y==-1)
       $y=$this->GetY();
    $this->Outlines[3][]=round($this->hPt-$y*$this->k,2);
 }
 
 function _putbookmarks()
 {
-   if(count($this->Outlines)>0)
+   if (count($this->Outlines)>0)
    {
       //Save object number
       $memo_n = $this->n;
@@ -352,29 +352,29 @@ function _putbookmarks()
       $first_level=array();
       $parent=array();
       $parent[0]=1;
-      for( $i=0; $i<$nb_outlines; $i++)
+      for ($i=0; $i<$nb_outlines; $i++)
       {
          $level=$this->Outlines[0][$i];
          $kids=0;
          $last=-1;
          $prev=-1;
          $next=-1;
-         if( $i>0 )
+         if ($i>0 )
          {
             $cursor=$i-1;
             //Take the previous outline in the same level
-            while( $this->Outlines[0][$cursor] > $level && $cursor > 0)
+            while ($this->Outlines[0][$cursor] > $level && $cursor > 0)
                $cursor--;
-            if( $this->Outlines[0][$cursor] == $level)
+            if ($this->Outlines[0][$cursor] == $level)
                $prev=$cursor;
          }
-         if( $i<$nb_outlines-1)
+         if ($i<$nb_outlines-1)
          {
             $cursor=$i+1;
-            while( isset($this->Outlines[0][$cursor]) && $this->Outlines[0][$cursor] > $level)
+            while (isset($this->Outlines[0][$cursor]) && $this->Outlines[0][$cursor] > $level)
             {
                //Take the immediate kid in level + 1
-               if( $this->Outlines[0][$cursor] == $level+1)
+               if ($this->Outlines[0][$cursor] == $level+1)
                {
                   $kids++;
                   $last=$cursor;
@@ -383,24 +383,24 @@ function _putbookmarks()
             }
             $cursor=$i+1;
             //Take the next outline in the same level
-            while( $this->Outlines[0][$cursor] > $level && ($cursor+1 < sizeof($this->Outlines[0])))
+            while ($this->Outlines[0][$cursor] > $level && ($cursor+1 < sizeof($this->Outlines[0])))
                $cursor++;
-            if( $this->Outlines[0][$cursor] == $level)
+            if ($this->Outlines[0][$cursor] == $level)
                $next=$cursor;
          }
          $this->_newobj();
          $parent[$level+1]=$this->n;
-         if( $level == 0)
+         if ($level == 0)
             $first_level[]=$this->n;
          $this->_out('<<');
          $this->_out('/Title ('.$this->Outlines[1][$i].')');
          $this->_out('/Parent '.$parent[$level].' 0 R');
-         if( $prev != -1)
+         if ($prev != -1)
             $this->_out('/Prev '.($memo_n+$prev+1).' 0 R');
-         if( $next != -1)
+         if ($next != -1)
             $this->_out('/Next '.($this->n+$next-$i).' 0 R');
          $this->_out('/Dest ['.(1+(2*$this->Outlines[2][$i])).' 0 R /XYZ null '.$this->Outlines[3][$i].' null]');
-         if( $kids > 0)
+         if ($kids > 0)
          {
             $this->_out('/First '.($this->n+1).' 0 R');
             $this->_out('/Last '.($this->n+$last-$i).' 0 R');
@@ -432,7 +432,7 @@ function _putresources()
 function _putcatalog()
 {
    parent::_putcatalog();
-   if(count($this->Outlines)>0)
+   if (count($this->Outlines)>0)
    {
       $this->_out('/Outlines '.$this->def_outlines.' 0 R');
       $this->_out('/PageMode /UseOutlines');
@@ -449,7 +449,7 @@ function Row($data,$links)
    // line height
    $nb=0;
    $data_cnt = count($data);
-   for($i=0;$i<$data_cnt;$i++)
+   for ($i=0;$i<$data_cnt;$i++)
       $nb=max($nb,$this->NbLines($this->widths[$i],$data[$i]));
    $il = $this->FontSize;
    $h=($il+1)*$nb;
@@ -457,7 +457,7 @@ function Row($data,$links)
    $this->CheckPageBreak($h);
    // draw the cells
    $data_cnt = count($data);
-   for($i=0;$i<$data_cnt;$i++)
+   for ($i=0;$i<$data_cnt;$i++)
    {
       $w=$this->widths[$i];
       // save current position
@@ -479,7 +479,7 @@ function Row($data,$links)
 function CheckPageBreak($h)
 {
    // if height h overflows, manual page break
-   if($this->GetY()+$h>$this->PageBreakTrigger)
+   if ($this->GetY()+$h>$this->PageBreakTrigger)
       $this->AddPage($this->CurOrientation);
 }
 
@@ -487,22 +487,22 @@ function NbLines($w,$txt)
 {
    // compute number of lines used by a multicell of width w
    $cw=&$this->CurrentFont['cw'];
-   if($w==0)
+   if ($w==0)
       $w=$this->w-$this->rMargin-$this->x;
    $wmax=($w-2*$this->cMargin)*1000/$this->FontSize;
    $s=str_replace("\r",'',$txt);
    $nb=strlen($s);
-   if($nb>0 and $s[$nb-1]=="\n")
+   if ($nb>0 and $s[$nb-1]=="\n")
       $nb--;
    $sep=-1;
    $i=0;
    $j=0;
    $l=0;
    $nl=1;
-   while($i<$nb)
+   while ($i<$nb)
    {
       $c=$s[$i];
-      if($c=="\n")
+      if ($c=="\n")
       {
          $i++;
          $sep=-1;
@@ -511,14 +511,14 @@ function NbLines($w,$txt)
          $nl++;
          continue;
       }
-      if($c==' ')
+      if ($c==' ')
          $sep=$i;
       $l+=$cw[$c];
-      if($l>$wmax)
+      if ($l>$wmax)
       {
-         if($sep==-1)
+         if ($sep==-1)
          {
-            if($i==$j)
+            if ($i==$j)
                $i++;
          }
          else
@@ -576,7 +576,7 @@ class PMA_RT_Table
         //  there are fields that require wider cells than the name of the table?
         global $pdf;
 
-        foreach($this->fields AS $field) {
+        foreach ($this->fields AS $field) {
             $this->width = max($this->width, $pdf->GetStringWidth($field));
         }
         $this->width += $pdf->GetStringWidth('  ');
@@ -633,7 +633,7 @@ class PMA_RT_Table
         $pdf->SetTextColor(0);
         $pdf->SetFillColor(255);
 
-        foreach($this->fields AS $field) {
+        foreach ($this->fields AS $field) {
             // loic1 : PHP3 fix
             // if (in_array($field, $this->primary)) {
             if ($setcolor) {
@@ -994,7 +994,7 @@ class PMA_RT
     function PMA_RT_drawRelations($change_color)
     {
         $i = 0;
-        foreach($this->relations AS $relation) {
+        foreach ($this->relations AS $relation) {
             $relation->PMA_RT_Relation_draw($change_color, $i);
             $i++;
         } // end while
@@ -1012,7 +1012,7 @@ class PMA_RT
      */
     function PMA_RT_drawTables($show_info,$draw_color=0)
     {
-        foreach($this->tables AS $table) {
+        foreach ($this->tables AS $table) {
             $table->PMA_RT_Table_draw($show_info, $this->ff,$draw_color);
         }
     } // end of the "PMA_RT_drawTables()" method
@@ -1138,12 +1138,12 @@ class PMA_RT
 
                                 /* snip */
 
-        foreach($alltables AS $table) {
+        foreach ($alltables AS $table) {
             if (!isset($this->tables[$table])) {
                 $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->tablewidth);
             }
 
-            if($this->same_wide){
+            if ($this->same_wide){
                 $this->tables[$table]->width = $this->tablewidth;
             }
             $this->PMA_RT_setMinMax($this->tables[$table]);
@@ -1176,12 +1176,12 @@ class PMA_RT
 // and finding its foreigns is OK (then we can support innodb)
 
         $seen_a_relation = FALSE;
-        foreach($alltables AS $one_table) {
+        foreach ($alltables AS $one_table) {
 
             $exist_rel = PMA_getForeigners($db, $one_table, '', 'both');
             if ($exist_rel) {
                 $seen_a_relation = TRUE;
-                foreach($exist_rel AS $master_field => $rel) {
+                foreach ($exist_rel AS $master_field => $rel) {
                     // put the foreign table on the schema only if selected
                     // by the user
                     // (do not use array_search() because we would have to
@@ -1223,7 +1223,7 @@ function PMA_RT_DOC($alltables ){
     $pdf->Cell(0,9, $GLOBALS['strTableOfContents'],1,0,'C');
     $pdf->Ln(15);
     $i = 1;
-    foreach($alltables AS $table) {
+    foreach ($alltables AS $table) {
         $pdf->PMA_links['doc'][$table]['-'] = $pdf->AddLink();
         $pdf->SetX(10);
         //$pdf->Ln(1);
@@ -1248,7 +1248,7 @@ function PMA_RT_DOC($alltables ){
     $pdf->SetX(10);
     $pdf->Cell(0,6,$i.' '. $GLOBALS['strRelationalSchema'],0,1,'L',0,$pdf->PMA_links['RT']['-']);
     $z = 0;
-    foreach($alltables AS $table) {
+    foreach ($alltables AS $table) {
         $z++;
         $pdf->addpage($GLOBALS['orientation']);
         $pdf->Bookmark($table);

@@ -101,22 +101,22 @@ if (isset($sql_query)) {
 
 <?php if (!$hide_sql) { ?>
             <!-- SQL -->
-            <input type="radio" name="what" value="sql" id="radio_dump_sql" onclick="if(this.checked) { hide_them_all(); getElement('sql_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'sql'); ?> />
+            <input type="radio" name="what" value="sql" id="radio_dump_sql" onclick="if (this.checked) { hide_them_all(); getElement('sql_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'sql'); ?> />
             <label for="radio_dump_sql"><?php echo $strSQL; ?></label>
             <br /><br />
 <?php } ?>
 
             <!-- LaTeX table -->
-            <input type="radio" name="what" value="latex" id="radio_dump_latex"  onclick="if(this.checked) { hide_them_all(); getElement('latex_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'latex'); ?> />
+            <input type="radio" name="what" value="latex" id="radio_dump_latex"  onclick="if (this.checked) { hide_them_all(); getElement('latex_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'latex'); ?> />
             <label for="radio_dump_latex"><?php echo $strLaTeX; ?></label>
             <br /><br />
 
             <!-- Excel CSV -->
-            <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if(this.checked) { hide_them_all(); getElement('excel_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'excel'); ?> />
+            <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if (this.checked) { hide_them_all(); getElement('excel_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'excel'); ?> />
             <label for="radio_dump_excel"><?php echo $strStrucExcelCSV; ?></label>
             <br /><br />
             <!-- General CSV -->
-            <input type="radio" name="what" value="csv" id="radio_dump_csv"  onclick="if(this.checked) { hide_them_all(); getElement('csv_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'csv'); ?> />
+            <input type="radio" name="what" value="csv" id="radio_dump_csv"  onclick="if (this.checked) { hide_them_all(); getElement('csv_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'csv'); ?> />
             <label for="radio_dump_csv"><?php echo $strStrucCSV;?></label>
 
 
@@ -124,7 +124,7 @@ if (isset($sql_query)) {
             <br /><br />
 
             <!-- XML -->
-            <input type="radio" name="what" value="xml" id="radio_dump_xml" onclick="if(this.checked) { hide_them_all(); getElement('none_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'xml'); ?> />
+            <input type="radio" name="what" value="xml" id="radio_dump_xml" onclick="if (this.checked) { hide_them_all(); getElement('none_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'xml'); ?> />
             <label for="radio_dump_xml"><?php echo $strXML; ?></label>&nbsp;&nbsp;
 <?php } ?>
             </fieldset>
@@ -159,7 +159,7 @@ if ($export_type == 'server') {
                 <!-- For structure -->
                 <fieldset>
                     <legend>
-                        <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" <?php PMA_exportCheckboxCheck('sql_structure'); ?> onclick="if(!this.checked &amp;&amp; !getElement('checkbox_sql_data').checked) return false; else return true;" />
+                        <input type="checkbox" name="sql_structure" value="structure" id="checkbox_sql_structure" <?php PMA_exportCheckboxCheck('sql_structure'); ?> onclick="if (!this.checked &amp;&amp; !getElement('checkbox_sql_data').checked) return false; else return true;" />
                         <label for="checkbox_sql_structure"><?php echo $strStructure; ?></label><br />
                     </legend>
 
@@ -207,7 +207,7 @@ if ($cfgRelation['mimework']) {
                 <!-- For data -->
                 <fieldset>
                     <legend>
-                        <input type="checkbox" name="sql_data" value="data" id="checkbox_sql_data" <?php PMA_exportCheckboxCheck('sql_data'); ?> onclick="if(!this.checked &amp;&amp; (!getElement('checkbox_sql_structure') || !getElement('checkbox_sql_structure').checked)) return false; else return true;" />
+                        <input type="checkbox" name="sql_data" value="data" id="checkbox_sql_data" <?php PMA_exportCheckboxCheck('sql_data'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_sql_structure') || !getElement('checkbox_sql_structure').checked)) return false; else return true;" />
                         <label for="checkbox_sql_data"><?php echo $strData; ?></label><br />
                     </legend>
                     <input type="checkbox" name="showcolumns" value="yes" id="checkbox_dump_showcolumns" <?php PMA_exportCheckboxCheck('sql_columns'); ?> />
@@ -245,7 +245,7 @@ if ($cfgRelation['mimework']) {
                  <!-- For structure -->
                  <fieldset>
                      <legend>
-                         <input type="checkbox" name="latex_structure" value="structure" id="checkbox_latex_structure" <?php PMA_exportCheckboxCheck('latex_structure'); ?> onclick="if(!this.checked &amp;&amp; !getElement('checkbox_latex_data').checked) return false; else return true;" />
+                         <input type="checkbox" name="latex_structure" value="structure" id="checkbox_latex_structure" <?php PMA_exportCheckboxCheck('latex_structure'); ?> onclick="if (!this.checked &amp;&amp; !getElement('checkbox_latex_data').checked) return false; else return true;" />
                          <label for="checkbox_latex_structure"><?php echo $strStructure; ?></label><br />
                      </legend>
                     <table border="0" cellspacing="1" cellpadding="0">
@@ -302,7 +302,7 @@ if ($cfgRelation['mimework']) {
                  <!-- For data -->
                  <fieldset>
                      <legend>
-                         <input type="checkbox" name="latex_data" value="data" id="checkbox_latex_data" <?php PMA_exportCheckboxCheck('latex_data'); ?> onclick="if(!this.checked &amp;&amp; (!getElement('checkbox_latex_structure') || !getElement('checkbox_latex_structure').checked)) return false; else return true;" />
+                         <input type="checkbox" name="latex_data" value="data" id="checkbox_latex_data" <?php PMA_exportCheckboxCheck('latex_data'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_latex_structure') || !getElement('checkbox_latex_structure').checked)) return false; else return true;" />
                          <label for="checkbox_latex_data"><?php echo $strData; ?></label><br />
                      </legend>
                      <input type="checkbox" name="latex_showcolumns" value="yes" id="ch_latex_showcolumns" <?php PMA_exportCheckboxCheck('latex_columns'); ?> />

@@ -252,7 +252,7 @@ function PMA_allowDeny($type)
         'localhost' => '127.0.0.1/8'
     );
 
-    foreach($rules AS $rule) {
+    foreach ($rules AS $rule) {
         // extract rule data
         $rule_data = explode(' ', $rule);
 

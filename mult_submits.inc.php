@@ -87,7 +87,7 @@ if (!empty($submit_mult) && !empty($what)) {
     $full_query     = '';
     $selected_cnt   = count($selected);
     $i = 0;
-    foreach($selected AS $idx => $sval) {
+    foreach ($selected AS $idx => $sval) {
         switch ($what) {
             case 'row_delete':
                 $full_query .= htmlspecialchars(urldecode($sval))
@@ -150,7 +150,7 @@ if (!empty($submit_mult) && !empty($what)) {
     } else  {
         echo PMA_generate_common_hidden_inputs();
     }
-    foreach($selected AS $idx => $sval) {
+    foreach ($selected AS $idx => $sval) {
         echo '    <input type="hidden" name="selected[]" value="' . htmlspecialchars($sval) . '" />' . "\n";
     }
     ?>

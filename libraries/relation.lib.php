@@ -300,11 +300,11 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
 
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
-        foreach($analyzed_sql[0]['foreign_keys'] AS $one_key) {
+        foreach ($analyzed_sql[0]['foreign_keys'] AS $one_key) {
 
         // the analyzer may return more than one column name in the
         // index list or the ref_index_list
-            foreach($one_key['index_list'] AS $i => $field) {
+            foreach ($one_key['index_list'] AS $i => $field) {
 
         // If a foreign key is defined in the 'internal' source (pmadb)
         // and in 'innodb', we won't get it twice if $source='both'
@@ -614,7 +614,7 @@ function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $ma
 
     $reloptions = array('content-id' => array(), 'id-content' => array());
     
-    foreach($disp AS $disp_key => $relrow) {
+    foreach ($disp AS $disp_key => $relrow) {
         $key   = $relrow[$foreign_field];
         if (PMA_strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
             $value  = (($foreign_display != FALSE) ? htmlspecialchars($relrow[$foreign_display]) : '');

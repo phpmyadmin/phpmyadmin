@@ -366,7 +366,7 @@ if ($export_type == 'server') {
         $tmp_select = '|' . $tmp_select . '|';
     }
     // Walk over databases
-    foreach($dblist AS $current_db) {
+    foreach ($dblist AS $current_db) {
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
             || !isset($tmp_select)) {
             if (!PMA_exportDBHeader($current_db)) 

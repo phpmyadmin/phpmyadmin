@@ -18,7 +18,7 @@
 function PMA_texEscape($string) {
    $escape = array('$', '%', '{', '}',  '&',  '#', '_', '^');
    $cnt_escape = count($escape);
-   for($k=0; $k < $cnt_escape; $k++) {
+   for ($k=0; $k < $cnt_escape; $k++) {
       $string = str_replace($escape[$k], '\\' . $escape[$k], $string);
    }
    return $string;
@@ -140,7 +140,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strData'] . ': ' . $table . $crlf . '%' . $crlf
                  . ' \\begin{longtable}{|';
 
-    for($index=0;$index<$columns_cnt;$index++) {
+    for ($index=0;$index<$columns_cnt;$index++) {
        $buffer .= 'l|';
     }
     $buffer .= '} ' . $crlf ;
@@ -174,7 +174,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
         $buffer = '';
         // print each row
-        for($i = 0; $i < $columns_cnt; $i++) {
+        for ($i = 0; $i < $columns_cnt; $i++) {
             if ( isset($record[$columns[$i]]) && (!function_exists('is_null') || !is_null($record[$columns[$i]]))) {
                 $column_value = PMA_texEscape(stripslashes($record[$columns[$i]]));
             } else {
@@ -182,7 +182,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
             }
 
             // last column ... no need for & character
-            if($i == ($columns_cnt - 1)) {
+            if ($i == ($columns_cnt - 1)) {
                 $buffer .= $column_value;
             } else {
                 $buffer .= $column_value . " & ";
@@ -226,7 +226,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     $keys_query     = 'SHOW KEYS FROM ' . PMA_backquote($table) . ' FROM '. PMA_backquote($db);
     $keys_result    = PMA_DBI_query($keys_query);
     $unique_keys    = array();
-    while($key = PMA_DBI_fetch_assoc($keys_result)) {
+    while ($key = PMA_DBI_fetch_assoc($keys_result)) {
         if ($key['Non_unique'] == 0) $unique_keys[] = $key['Column_name'];
     }
     PMA_DBI_free_result($keys_result);

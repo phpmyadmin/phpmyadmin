@@ -60,7 +60,7 @@ echo "\n";
 if ($server > 0) {
     // robbat2: Use the verbose name of the server instead of the hostname
     //          if a value is set
-    if(!empty($cfg['Server']['verbose'])) {
+    if (!empty($cfg['Server']['verbose'])) {
         $server_info = $cfg['Server']['verbose'];
     } else {
         $server_info = $cfg['Server']['host'];
@@ -118,7 +118,7 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
             <select name="server">
     <?php
     echo "\n";
-    foreach($cfg['Servers'] AS $key => $val) {
+    foreach ($cfg['Servers'] AS $key => $val) {
         if (!empty($val['host'])) {
             echo '                <option value="' . $key . '"';
             if (!empty($server) && ($server == $key)) {
@@ -452,7 +452,7 @@ if (empty($cfg['Lang'])) {
                 <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 Language <a href="./translators.html" target="documentation"><?php
-                    if($cfg['ReplaceHelpImg']){
+                    if ($cfg['ReplaceHelpImg']){
                       echo '<img src="./images/b_info.png" border="0" width="11" height="11" alt="Info" hspace="1" vspace="1" />';
                     }else{ echo '(*)'; }
 ?></a>:
@@ -476,7 +476,7 @@ if (empty($cfg['Lang'])) {
     } // end of the 'PMA_cmp()' function
 
     uasort($available_languages, 'PMA_cmp');
-    foreach($available_languages AS $id => $tmplang) {
+    foreach ($available_languages AS $id => $tmplang) {
         $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
         if ($lang == $id) {
             $selected = ' selected="selected"';
@@ -507,7 +507,7 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
                 <select name="convcharset" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
-    foreach($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
+    foreach ($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
         if ($convcharset == $tmpcharset) {
             $selected = ' selected="selected"';
         } else {

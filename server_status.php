@@ -71,7 +71,7 @@ unset($res, $row);
 //Get query statistics
 $queryStats = array();
 $tmp_array = $serverStatus;
-foreach($tmp_array AS $name => $value) {
+foreach ($tmp_array AS $name => $value) {
     if (substr($name, 0, 4) == 'Com_') {
         $queryStats[str_replace('_', ' ', substr($name, 4))] = $value;
         unset($serverStatus[$name]);
@@ -236,7 +236,7 @@ if (!empty($serverStatus)) {
 <?php
     $useBgcolorOne = TRUE;
     $countRows = 0;
-    foreach($serverStatus AS $name => $value) {
+    foreach ($serverStatus AS $name => $value) {
 ?>
                         <tr>
                             <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?>&nbsp;</td>

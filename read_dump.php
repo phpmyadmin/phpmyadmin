@@ -329,7 +329,7 @@ if (isset($my_die)) {
     $js_to_run = 'functions.js';
     require_once('./header.inc.php');
     if (is_array($my_die)) {
-        foreach($my_die AS $key => $die_string) {
+        foreach ($my_die AS $key => $die_string) {
             PMA_mysqlDie('', $die_string, '', $err_url, FALSE);
             echo '<hr />';
         }

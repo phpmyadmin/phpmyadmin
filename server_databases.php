@@ -110,7 +110,7 @@ if (!empty($dbstats) && !$is_superuser) {
  * Prepares the statistics
  */
 $statistics = array();
-foreach($dblist AS $current_db) {
+foreach ($dblist AS $current_db) {
     $tmp_array = array(
         'db_name' => $current_db,
         'tbl_cnt' => 0,

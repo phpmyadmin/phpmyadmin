@@ -272,7 +272,7 @@ else {
         $tables = $tables_temp;
     }
 
-    foreach($tables AS $keyname => $sts_data) {
+    foreach ($tables AS $keyname => $sts_data) {
         $table         = $sts_data['Name'];
         $table_encoded = urlencode($table);
         $table_name    = htmlspecialchars($table);
@@ -300,7 +300,7 @@ else {
         $click_mouse = ' onmousedown="document.getElementById(\'checkbox_tbl_' . $i . '\').checked = (document.getElementById(\'checkbox_tbl_' . $i . '\').checked ? false : true);" ';
 
         $row_count++;
-        if($num_columns > 0 && $num_tables > $num_columns && (($row_count % ($num_columns)) == 0)) {
+        if ($num_columns > 0 && $num_tables > $num_columns && (($row_count % ($num_columns)) == 0)) {
             $bgcolor       = $cfg['BgcolorTwo'];
             $row_count = 1;
         ?>
@@ -640,14 +640,14 @@ if ($num_tables > 0) {
 <table border="0" cellpadding="2" cellspacing="0">
                 <tr><td nowrap="nowrap" colspan="3"><?php
                   echo '<a href="db_printview.php?' . $url_query . '">';
-      if($cfg['PropertiesIconic']){
+      if ($cfg['PropertiesIconic']){
                           echo '<img src="./images/b_print.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
                         }
       echo $strPrintView . '</a>';
     ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <?php
                   echo '<a href="./db_datadict.php?' . $url_query . '">';
-                        if($cfg['PropertiesIconic']){
+                        if ($cfg['PropertiesIconic']){
                           echo '<img src="./images/b_tblanalyse.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
       }
       echo $strDataDict . '</a>';
@@ -662,7 +662,7 @@ if ($num_tables > 0) {
      <tr>
      <td class="tblHeaders" colspan="3" nowrap="nowrap"><?php
         echo PMA_generate_common_hidden_inputs($db);
-        if($cfg['PropertiesIconic']){ echo '<img src="images/b_newtbl.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />'; }
+        if ($cfg['PropertiesIconic']){ echo '<img src="images/b_newtbl.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />'; }
         // if you want navigation:
         $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url() . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
                    . htmlspecialchars($GLOBALS['db']) . '</a>';
@@ -698,7 +698,7 @@ if ($cfgRelation['commwork']) {
 
         <tr>
         <td colspan="3" class="tblHeaders"><?php
-          if($cfg['PropertiesIconic']){
+          if ($cfg['PropertiesIconic']){
                                           echo '<img src="images/b_comment.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
                                         }
           echo $strDBComment;
@@ -718,7 +718,7 @@ if ($cfgRelation['commwork']) {
     <!-- Rename database -->
         <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>
         <tr><td colspan="3" class="tblHeaders"><?php
-          if($cfg['PropertiesIconic']){
+          if ($cfg['PropertiesIconic']){
                                           echo '<img src="images/b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
                                         }
           echo $strDBRename.':&nbsp;';
@@ -740,7 +740,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
     echo '    <!-- Change database charset -->' . "\n"
        . '    <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
        . '    <tr><td colspan="3" class="tblHeaders">';
-       if($cfg['PropertiesIconic']){
+       if ($cfg['PropertiesIconic']){
          echo '<img src="./images/s_asci.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
        }
     echo '      <label for="select_db_collation">' . $strCollation . '</label>:&nbsp;' . "\n"
@@ -760,7 +760,7 @@ if ($num_tables > 0
     && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
     echo '    <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
        . '    <tr><td colspan="3" class="tblHeadError">';
-       if($cfg['PropertiesIconic']){
+       if ($cfg['PropertiesIconic']){
          echo '<img src="./images/s_error.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
        }
     echo '    ' . $strError . '' . "\n";
@@ -789,13 +789,13 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     <!-- Work on PDF Pages -->
       <tr><td colspan="3" class="tblHeaders">
       <?php
-        if($cfg['PropertiesIconic']){
+        if ($cfg['PropertiesIconic']){
         echo '<img src="./images/b_pdfdoc.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
         }
 ?>PDF</td></tr><tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
         <td colspan="3"><?php
         echo '<a href="pdf_pages.php?' . $takeaway . '">';
-        if($cfg['PropertiesIconic']){
+        if ($cfg['PropertiesIconic']){
         echo '<img src="./images/b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
         }
         echo ''. $strEditPDFPages . '</a>';
@@ -815,7 +815,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
          <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><td colspan="3">
             <?php
                   echo PMA_generate_common_hidden_inputs($db);
-                  if($cfg['PropertiesIconic']){
+                  if ($cfg['PropertiesIconic']){
                    echo '<img src="./images/b_view.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
                   }
             ?>
@@ -865,7 +865,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
             <?php echo $strPaperSize; ?>
             <select name="paper">
             <?php
-                foreach($cfg['PDFPageSizes'] AS $key => $val) {
+                foreach ($cfg['PDFPageSizes'] AS $key => $val) {
                     echo '<option value="' . $val . '"';
                     if ($val == $cfg['PDFDefaultPageSize']) {
                         echo ' selected="selected"';
@@ -894,7 +894,7 @@ if ($num_tables > 0
     <!-- import docSQL files -->
     <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="3"><?php
                    echo '<a href="db_details_importdocsql.php?' . $takeaway . '">';
-       if($cfg['PropertiesIconic']){
+       if ($cfg['PropertiesIconic']){
          echo '<img src="./images/b_docsql.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
        }
        echo $strImportDocSQL . '</a>';

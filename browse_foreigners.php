@@ -153,7 +153,7 @@ if (isset($disp_row) && is_array($disp_row)) {
     $mysql_key_relrow = array();
     $mysql_val_relrow = array();
     $count = 0;
-    foreach($disp_row AS $disp_row_key => $relrow) {
+    foreach ($disp_row AS $disp_row_key => $relrow) {
         if ($foreign_display != FALSE) {
             $val = $relrow[$foreign_display];
         } else {

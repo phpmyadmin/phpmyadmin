@@ -56,19 +56,19 @@ global $cfgRelation;
     if ($cfgRelation[$work]) {
         $select_parts = array();
         $row_fields = array();
-        foreach($get_fields AS $nr => $get_field) {
+        foreach ($get_fields AS $nr => $get_field) {
             $select_parts[] = PMA_backquote($get_field);
             $row_fields[$get_field] = 'cc';
         }
 
         $where_parts = array();
-        foreach($where_fields AS $_where => $_value) {
+        foreach ($where_fields AS $_where => $_value) {
             $where_parts[] = PMA_backquote($_where) . ' = \'' . PMA_sqlAddslashes($_value) . '\'';
         }
 
         $new_parts = array();
         $new_value_parts = array();
-        foreach($new_fields AS $_where => $_value) {
+        foreach ($new_fields AS $_where => $_value) {
             $new_parts[] = PMA_backquote($_where);
             $new_value_parts[] = PMA_sqlAddslashes($_value);
         }
@@ -80,7 +80,7 @@ global $cfgRelation;
 
         while ($table_copy_row = @PMA_DBI_fetch_assoc($table_copy_rs)) {
             $value_parts = array();
-            foreach($table_copy_row AS $_key => $_val) {
+            foreach ($table_copy_row AS $_key => $_val) {
                 if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
                     $value_parts[] = PMA_sqlAddslashes($_val);
                 }

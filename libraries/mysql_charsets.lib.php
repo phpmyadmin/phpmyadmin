@@ -36,7 +36,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
 
     $mysql_collations_count = count($mysql_collations_flat);
     sort($mysql_collations_flat, SORT_STRING);
-    foreach($mysql_collations AS $key => $value) {
+    foreach ($mysql_collations AS $key => $value) {
         sort($mysql_collations[$key], SORT_STRING);
         reset($mysql_collations[$key]);
     }

@@ -49,7 +49,7 @@ if (isset($after_field)) {
 }
 
 if (isset($selected) && is_array($selected)) {
-    foreach($selected AS $o_fld_nr => $o_fld_val) {
+    foreach ($selected AS $o_fld_nr => $o_fld_val) {
     ?>
     <input type="hidden" name="selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
     <?php
@@ -62,7 +62,7 @@ if (isset($selected) && is_array($selected)) {
     }
 
     if (isset($true_selected) && is_array($true_selected)) {
-        foreach($true_selected AS $o_fld_nr => $o_fld_val) {
+        foreach ($true_selected AS $o_fld_nr => $o_fld_val) {
         ?>
         <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
         <?php
@@ -131,7 +131,7 @@ if (!$is_backup) {
 //         the index as a value, not a key. Inserted here for easier maintaineance
 //         and less code to change in existing files.
 if (isset($field_fulltext) && is_array($field_fulltext)) {
-    foreach($field_fulltext AS $fulltext_nr => $fulltext_indexkey) {
+    foreach ($field_fulltext AS $fulltext_nr => $fulltext_indexkey) {
         $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
     }
 }
@@ -341,7 +341,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     $content_cells[$i][$ci] = '<select name="field_extra[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
 
-    if(!isset($row) || empty($row['Extra'])) {
+    if (!isset($row) || empty($row['Extra'])) {
         $content_cells[$i][$ci] .= "\n";
         $content_cells[$i][$ci] .= '<option value=""></option>' . "\n";
         $content_cells[$i][$ci] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
@@ -367,7 +367,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] .= '    <option value="auto">auto-detect</option>' . "\n";
 
         if (is_array($available_mime['mimetype'])) {
-            foreach($available_mime['mimetype'] AS $mimekey => $mimetype) {
+            foreach ($available_mime['mimetype'] AS $mimekey => $mimetype) {
                 $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['mimetype']) && ($mime_map[$row['Field']]['mimetype'] == str_replace('/', '_', $mimetype)) ? 'selected ' : '');
                 $content_cells[$i][$ci] .= '    <option value="' . str_replace('/', '_', $mimetype) . '" ' . $checked . '>' . htmlspecialchars($mimetype) . '</option>';
             }
@@ -379,7 +379,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] = '<select id="field_' . $i . '_' . ($ci - $ci_offset) . '" size="1" name="field_transformation[]">' . "\n";
         $content_cells[$i][$ci] .= '    <option value="" title="' . $strNone . '"></option>' . "\n";
         if (is_array($available_mime['transformation'])) {
-            foreach($available_mime['transformation'] AS $mimekey => $transform) {
+            foreach ($available_mime['transformation'] AS $mimekey => $transform) {
                 $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && (preg_match('@' . preg_quote($available_mime['transformation_file'][$mimekey]) . '3?@i', $mime_map[$row['Field']]['transformation'])) ? 'selected ' : '');
                 $tooltip = 'strTransformation_' . strtolower(preg_replace('@(\.inc\.php3?)$@', '', $available_mime['transformation_file'][$mimekey]));
                 $tooltip = isset($$tooltip) ? $$tooltip : sprintf(str_replace('<br />', ' ', $strMIME_nodescription), 'PMA_transformation_' . $tooltip . '()');
@@ -447,7 +447,7 @@ if ($cfg['DefaultPropDisplay'] == 'horizontal') {
     <tr>
 <?php
     if (is_array($header_cells)) {
-        foreach($header_cells AS $header_nr => $header_val) {
+        foreach ($header_cells AS $header_nr => $header_val) {
 ?>
         <th><?php echo $header_val; ?></th>
 <?php
@@ -458,14 +458,14 @@ if ($cfg['DefaultPropDisplay'] == 'horizontal') {
 <?php
     if (is_array($content_cells)) {
         $i = 0;
-        foreach($content_cells AS $content_nr => $content_row) {
+        foreach ($content_cells AS $content_nr => $content_row) {
             $i++;
             echo "\n" . '<tr>' . "\n";
 
             $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
 
             if (is_array($content_row)) {
-                foreach($content_row AS $content_row_nr => $content_row_val) {
+                foreach ($content_row AS $content_row_nr => $content_row_val) {
 ?>
         <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $content_row_val; ?></td>
 <?php
@@ -485,7 +485,7 @@ if ($cfg['DefaultPropDisplay'] == 'horizontal') {
 <?php
     if (is_array($header_cells)) {
         $i = 0;
-        foreach($header_cells AS $header_nr => $header_val) {
+        foreach ($header_cells AS $header_nr => $header_val) {
             echo "\n" . '<tr>' . "\n";
 ?>
         <th align="right"><?php echo $header_val; ?></th>

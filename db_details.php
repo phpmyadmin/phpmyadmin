@@ -183,7 +183,7 @@ if (!empty($cfg['UploadDir'])) {
         //   showing UploadDir Error at the end of all option for SQL-Queries
         $strErrorUploadDir = '    <tr><td colspan="2"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
         $strErrorUploadDir.= '    <tr><td colspan="2" class="tblHeadError">';
-        if($cfg['PropertiesIconic']){ 
+        if ($cfg['PropertiesIconic']){ 
            $strErrorUploadDir.= '<img src="./images/s_error.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
         }
         $strErrorUploadDir.= '    ' . $strError . '' . "\n";
@@ -229,13 +229,13 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         echo '        <b>' . $strBookmarkQuery . ':</b>&nbsp;' . "\n";
         echo '        <select name="id_bookmark">' . "\n";
         echo '            <option value=""></option>' . "\n";
-        foreach($bookmark_list AS $key => $value) {
+        foreach ($bookmark_list AS $key => $value) {
             echo '            <option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($key) . '</option>' . "\n";
         }
         echo '        </select>' . "\n";
         echo '    </td></tr><tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2">';
         echo '            ' . $strVar . ' ';
-        if($cfg['ReplaceHelpImg']){
+        if ($cfg['ReplaceHelpImg']){
           echo '<a href="./Documentation.html#faqbookmark" target="documentation">'
              . '<img src="./images/b_help.png" border="0" width="11" height="11" align="absmiddle" alt="' . $strDocu . '" /></a>';
 								}else{

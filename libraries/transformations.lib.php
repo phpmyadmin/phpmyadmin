@@ -43,7 +43,7 @@ function PMA_getAvailableMIMEtypes() {
 
     if (is_array($filestack)) {
         @ksort($filestack);
-        foreach($filestack AS $key => $file) {
+        foreach ($filestack AS $key => $file) {
 
             if (preg_match('|^.*__.*\.inc\.php(3?)$|', trim($file), $match)) {
                 // File contains transformation functions.

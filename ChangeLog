@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-20 Michal Čihař  <michal@cihar.com>
+    * many files: Little code reorganistaion (RFE #957308), removed some
+      remaining php3 compatibility code in SQL parser.
+
 2004-05-20 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php: set contents page (first page)'s orientation
       to the same asked for the data dictionary

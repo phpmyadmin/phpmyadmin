@@ -173,7 +173,7 @@ function PMA_langDetect($str = '', $envType = '')
     global $available_languages;
     global $lang;
 
-    foreach($available_languages AS $key => $value) {
+    foreach ($available_languages AS $key => $value) {
         // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
         //             2 for the 'HTTP_USER_AGENT' one
         if (($envType == 1 && eregi('^(' . $value[0] . ')(;q=[0-9]\\.[0-9])?$', $str))
@@ -221,7 +221,7 @@ if (!isset($cfg['DefaultLang']) && isset($cfgDefaultLang)) {
 if (!isset($cfg['AllowAnywhereRecoding']) || !$cfg['AllowAnywhereRecoding']) {
     $available_language_files               = $available_languages;
     $available_languages                    = array();
-    foreach($available_language_files AS $tmp_lang => $tmp_lang_data) {
+    foreach ($available_language_files AS $tmp_lang => $tmp_lang_data) {
         if (substr($tmp_lang, -5) != 'utf-8') {
             $available_languages[$tmp_lang] = $tmp_lang_data;
         }

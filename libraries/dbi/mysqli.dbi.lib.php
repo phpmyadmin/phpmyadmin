@@ -135,7 +135,7 @@ function PMA_mysqli_fetch_array($result, $type = FALSE) {
         $num    = mysqli_num_fields($result);
         $fields = mysqli_fetch_fields($result);
         $i = 0;
-        for($i = 0; $i < $num; $i++) {
+        for ($i = 0; $i < $num; $i++) {
             if (!$meta) {
                 /* No meta information available -> we guess that it should be converted */
                 if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
@@ -255,7 +255,7 @@ function PMA_DBI_get_fields_meta($result) {
     $typeAr[MYSQLI_TYPE_GEOMETRY]    = 'unknown';
 
     $fields = mysqli_fetch_fields($result);
-    foreach($fields as $k => $field) {
+    foreach ($fields as $k => $field) {
         $fields[$k]->type = $typeAr[$fields[$k]->type];
         $fields[$k]->flags = PMA_DBI_field_flags($result, $k);
         

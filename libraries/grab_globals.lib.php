@@ -17,7 +17,7 @@ function PMA_gpc_extract($array, &$target) {
         return FALSE;
     }
     $is_magic_quotes = get_magic_quotes_gpc();
-    foreach($array AS $key => $value) {
+    foreach ($array AS $key => $value) {
         if (is_array($value)) {
             // there could be a variable coming from a cookie of
             // another application, with the same name as this array
@@ -42,7 +42,7 @@ if (!empty($_POST)) {
 } // end if
 
 if (!empty($_FILES)) {
-    foreach($_FILES AS $name => $value) {
+    foreach ($_FILES AS $name => $value) {
         $$name = $value['tmp_name'];
         ${$name . '_name'} = $value['name'];
     }

@@ -669,12 +669,10 @@ if ($is_minimum_common == FALSE) {
     function PMA_SQP_typeCheck($toCheck, $whatWeWant)
     {
         $typeSeperator = '_';
-        if(strcmp($whatWeWant, $toCheck) == 0) {
+        if (strcmp($whatWeWant, $toCheck) == 0) {
             return TRUE;
         } else {
-            //if(strpos($whatWeWant, $typeSeperator) === FALSE) {
-            // PHP3 compatible (works unless there is a real ff character)
-            if(!strpos("\xff" . $whatWeWant, $typeSeperator)) {
+            if (strpos($whatWeWant, $typeSeperator) === FALSE) {
                 return strncmp($whatWeWant, $toCheck , strpos($toCheck, $typeSeperator)) == 0;
             } else {
                 return FALSE;
@@ -2015,7 +2013,7 @@ function PMA_SQP_buildCssData()
     global $cfg;
 
     $css_string     = '';
-    foreach($cfg['SQP']['fmtColor'] AS $key => $col) {
+    foreach ($cfg['SQP']['fmtColor'] AS $key => $col) {
         $css_string .= PMA_SQP_buildCssRule('syntax_' . $key, 'color', $col);
     }
 

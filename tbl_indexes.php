@@ -120,7 +120,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
 
 $fields_names           = array();
 $fields_types           = array();
-foreach($save_row AS $saved_row_key => $row) {
+foreach ($save_row AS $saved_row_key => $row) {
     $fields_names[]     = $row['Field'];
     // loic1: set or enum types: slashes single quotes inside options
     if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
@@ -189,7 +189,7 @@ if (!defined('PMA_IDX_INCLUDED')
             break;
     } // end switch
     $index_fields         = '';
-    foreach($column AS $i => $name) {
+    foreach ($column AS $i => $name) {
         if ($name != '--ignore--') {
             $index_fields .= (empty($index_fields) ? '' : ',')
                           . PMA_backquote($name)
@@ -266,7 +266,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         } // end for
 
         // Restore entered values
-        foreach($column AS $i => $name) {
+        foreach ($column AS $i => $name) {
             if ($name != '--ignore--'){
                 $edited_index_data[$i+1]['Column_name'] = $name;
                 $edited_index_data[$i+1]['Sub_part']    = $sub_part[$i];
@@ -300,7 +300,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         </td>
     </tr>
 				<tr><td align="right"><?php
-				  if($cfg['ErrorIconic']){
+				  if ($cfg['ErrorIconic']){
         echo '<img src="./images/s_warn.png" width="16" height="16" border="0" alt="Attention" />';
       }
 ?></td><td><?php echo $strPrimaryKeyWarning . "\n"; ?></td></tr>
@@ -336,7 +336,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         <th><?php echo $strSize; ?></th>
     </tr>
     <?php
-    foreach($edited_index_info['Sequences'] AS $row_no => $seq_index) {
+    foreach ($edited_index_info['Sequences'] AS $row_no => $seq_index) {
         $add_type     = (is_array($fields_types) && count($fields_types) == count($fields_names));
         $selected     = $edited_index_data[$seq_index]['Column_name'];
         if (!empty($edited_index_data[$seq_index]['Sub_part'])) {
@@ -353,7 +353,7 @@ else if (!defined('PMA_IDX_INCLUDED')
                 <option value="--ignore--"<?php if ('--ignore--' == $selected) echo ' selected="selected"'; ?>>
                     -- <?php echo $strIgnore; ?> --</option>
         <?php
-        foreach($fields_names AS $key => $val) {
+        foreach ($fields_names AS $key => $val) {
             if ($index_type != 'FULLTEXT'
                 || preg_match('@^(varchar|text|tinytext|mediumtext|longtext)@i', $fields_types[$key])) {
                 echo "\n" . '                '
@@ -439,7 +439,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         </tr>
         <?php
         echo "\n";
-        foreach($indexes AS $index_no => $index_name) {
+        foreach ($indexes AS $index_no => $index_name) {
             $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
             $index_td = '            <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
             echo '        <tr>' . "\n";
@@ -482,7 +482,7 @@ else if (!defined('PMA_IDX_INCLUDED')
                  . '                <a href="sql.php?' . $url_query . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $drop_link_text  . '</a>' . "\n"
                  . '            </td>' . "\n";
 
-            foreach($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
+            foreach ($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
                 if ($row_no > 0) {
                     echo '        <tr>' . "\n";
                 }
@@ -510,7 +510,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     else {
         // none indexes
         echo "\n" . '        <tr><td colspan=7" align="center">' . "\n";
-        if($cfg['ErrorIconic']){
+        if ($cfg['ErrorIconic']){
           echo '<img src="./images/s_warn.png" width="16" height="16" border="0" alt="Warning" hspace="2" align="absmiddle" />';
         }
         echo '        <b>' . $strNoIndex . '</b></td></tr>' . "\n\n";

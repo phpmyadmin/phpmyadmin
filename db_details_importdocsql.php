@@ -64,7 +64,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
             }
 
             if (isset($lines) && is_array($lines) && count($lines) > 0) {
-                foreach($lines AS $lkey => $line) {
+                foreach ($lines AS $lkey => $line) {
                     //echo '<p>' . $line . '</p>';
                     $inf     = explode('|',$line);
                     if (!empty($inf[1]) && strlen(trim($inf[1])) > 0) {

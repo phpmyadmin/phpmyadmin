@@ -37,7 +37,7 @@ function PMA_generate_dropdown($dropdown_question,$radio_name,$choices,$selected
     echo '<select name="' . $radio_name . '" style="font-size: ' . $font_smallest . '">' . "\n";
     echo '<option value="nix" style="font-size: ' . $font_smallest . '" >--</option>' . "\n";
 
-    foreach($choices AS $one_value => $one_label) {
+    foreach ($choices AS $one_value => $one_label) {
         echo '<option value="' . $one_value . '"';
         if ($selected_value == $one_value) {
             echo ' selected="selected" ';
@@ -73,7 +73,7 @@ if ($cfgRelation['relwork']
 
     // u p d a t e s   f o r   I n t e r n a l    r e l a t i o n s
 
-    foreach($destination AS $master_field => $foreign_string) {
+    foreach ($destination AS $master_field => $foreign_string) {
         if ($foreign_string != 'nix') {
             list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
             if (!isset($existrel[$master_field])) {
@@ -112,7 +112,7 @@ if ($cfgRelation['relwork']
     // ( for now, one index name; we keep the definitions if the
     // foreign db is not the same)
     if (isset($destination_innodb)) {
-        foreach($destination_innodb AS $master_field => $foreign_string) {
+        foreach ($destination_innodb AS $master_field => $foreign_string) {
             if ($foreign_string != 'nix') {
                 list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
                 if (!isset($existrel_innodb[$master_field])) {
@@ -229,7 +229,7 @@ if ($cfgRelation['displaywork']
 
 if ($cfgRelation['commwork']
     && isset($submit_comm) && $submit_comm == 'true') {
-    foreach($comment AS $key => $value) {
+    foreach ($comment AS $key => $value) {
         // garvin: I exported the snippet here to a function (relation.lib.php) , so it can be used multiple times throughout other pages where you can set comments.
         PMA_setComment($db, $table, $key, $value);
     }  // end while (transferred data)
@@ -391,7 +391,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             $foreign_field    = FALSE;
         }
         $seen_key = FALSE;
-        foreach($selectboxall AS $key => $value) {
+        foreach ($selectboxall AS $key => $value) {
             echo '                '
                  . '<option value="' . htmlspecialchars($key) . '"';
             if ($foreign_field && $key == $foreign_field) {
@@ -428,7 +428,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             }
 
             $found_foreign_field = FALSE;
-            foreach($selectboxall_innodb AS $key => $value) {
+            foreach ($selectboxall_innodb AS $key => $value) {
                 echo '                '
                      . '<option value="' . htmlspecialchars($key) . '"';
                 if ($foreign_field && $key == $foreign_field) {
@@ -505,7 +505,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         <option value="">---</option>
         <?php
         echo "\n";
-        foreach($save_row AS $row) {
+        foreach ($save_row AS $row) {
             echo '        <option value="' . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {
                 echo ' selected="selected"';

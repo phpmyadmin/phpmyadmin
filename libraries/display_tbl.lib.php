@@ -548,10 +548,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">' . "\n";
                 $used_index = false;
                 $local_order = (isset($sort_expression) ? $sort_expression : '');
-                foreach($indexes_data AS $key => $val) {
+                foreach ($indexes_data AS $key => $val) {
                     $asc_sort = '';
                     $desc_sort = '';
-                    foreach($val AS $key2 => $val2) {
+                    foreach ($val AS $key2 => $val2) {
                         $asc_sort .= PMA_backquote($val2['Column_name']) . ' ASC , ';
                         $desc_sort .= PMA_backquote($val2['Column_name']) . ' DESC , ';
                     }
@@ -725,7 +725,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
         $wi = 0;
         if (isset($analyzed_sql[0]['where_clause_identifiers']) && is_array($analyzed_sql[0]['where_clause_identifiers'])) {
-            foreach($analyzed_sql[0]['where_clause_identifiers'] AS $wci_nr => $wci) {
+            foreach ($analyzed_sql[0]['where_clause_identifiers'] AS $wci_nr => $wci) {
                 $highlight_columns[$wci] = 'true';
             }
         }
@@ -1029,7 +1029,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 echo '    <td>&nbsp;</td>' . "\n";
             }
 
-            foreach($vertical_display['desc'] AS $key => $val) {
+            foreach ($vertical_display['desc'] AS $key => $val) {
                 echo $val;
             }
 
@@ -1261,7 +1261,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '" class="nowrap">';
 
                     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                        foreach($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
+                        foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
                             $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
                             if (!empty($alias)) {
                                 $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
@@ -1387,7 +1387,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     $vertical_display['data'][$row_no][$i]     = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"' . $nowrap . '>';
 
                     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                        foreach($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
+                        foreach ($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
                             $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
                             if (!empty($alias)) {
                                 $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
@@ -1531,7 +1531,7 @@ function PMA_displayVerticalTable()
         echo '<tr>' . "\n";
         echo $vertical_display['textbtn'];
         $foo_counter = 0;
-        foreach($vertical_display['row_delete'] AS $key => $val) {
+        foreach ($vertical_display['row_delete'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                 echo '<td>&nbsp;</td>' . "\n";
             }
@@ -1550,7 +1550,7 @@ function PMA_displayVerticalTable()
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
-        foreach($vertical_display['edit'] AS $key => $val) {
+        foreach ($vertical_display['edit'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                 echo '    <td>&nbsp;</td>' . "\n";
             }
@@ -1568,7 +1568,7 @@ function PMA_displayVerticalTable()
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
-        foreach($vertical_display['delete'] AS $key => $val) {
+        foreach ($vertical_display['delete'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                 echo '<td>&nbsp;</td>' . "\n";
             }
@@ -1581,7 +1581,7 @@ function PMA_displayVerticalTable()
 
     // Displays data
     $row_no = 0;
-    foreach($vertical_display['desc'] AS $key => $val) {
+    foreach ($vertical_display['desc'] AS $key => $val) {
         $row_no++;
 
         if (isset($GLOBALS['printview']) && ($GLOBALS['printview'] == '1')) {
@@ -1605,7 +1605,7 @@ function PMA_displayVerticalTable()
         echo $val;
 
         $foo_counter = 0;
-        foreach($vertical_display['rowdata'][$key] AS $subkey => $subval) {
+        foreach ($vertical_display['rowdata'][$key] AS $subkey => $subval) {
             if (($foo_counter != 0) && ($repeat_cells != 0) and !($foo_counter % $repeat_cells)) {
                 echo $val;
             }
@@ -1622,7 +1622,7 @@ function PMA_displayVerticalTable()
         echo '<tr>' . "\n";
         echo $vertical_display['textbtn'];
         $foo_counter = 0;
-        foreach($vertical_display['row_delete'] AS $key => $val) {
+        foreach ($vertical_display['row_delete'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                 echo '<td>&nbsp;</td>' . "\n";
             }
@@ -1641,7 +1641,7 @@ function PMA_displayVerticalTable()
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
-        foreach($vertical_display['edit'] AS $key => $val) {
+        foreach ($vertical_display['edit'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                 echo '<td>&nbsp;</td>' . "\n";
             }
@@ -1659,7 +1659,7 @@ function PMA_displayVerticalTable()
             echo $vertical_display['textbtn'];
         }
         $foo_counter = 0;
-        foreach($vertical_display['delete'] AS $key => $val) {
+        foreach ($vertical_display['delete'] AS $key => $val) {
             if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                 echo '<td>&nbsp;</td>' . "\n";
             }
@@ -1789,7 +1789,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     $target=array();
     if (isset($analyzed_sql[0]['table_ref']) && is_array($analyzed_sql[0]['table_ref'])) {
-        foreach($analyzed_sql[0]['table_ref'] AS $table_ref_position => $table_ref) {
+        foreach ($analyzed_sql[0]['table_ref'] AS $table_ref_position => $table_ref) {
            $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name'];
         }
     }
@@ -1801,7 +1801,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         } else {
             $exist_rel = PMA_getForeigners($db, $table, '', 'both');
             if ($exist_rel) {
-                foreach($exist_rel AS $master_field => $rel) {
+                foreach ($exist_rel AS $master_field => $rel) {
                     $display_field = PMA_getDisplayField($rel['foreign_db'],$rel['foreign_table']);
                     $map[$master_field] = array($rel['foreign_table'],
                                           $rel['foreign_field'],

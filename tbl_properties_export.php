@@ -41,7 +41,7 @@ if (isset($sql_query)) {
     if (isset($primary_key)) {
         $sql_query .= ' WHERE ';
         $conj = '';
-        foreach($primary_key AS $i => $key) {
+        foreach ($primary_key AS $i => $key) {
             $sql_query .= $conj . '( ' . $key . ' ) ';
             $conj = 'OR ';
         }

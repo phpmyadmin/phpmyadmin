@@ -224,7 +224,7 @@ button.mult_submit {
 
 div.warning {
     border: 1px solid red;
-<?php if($cfg['ErrorIconic']) { ?>
+<?php if ($cfg['ErrorIconic']) { ?>
     background-image: url(../images/s_warn.png);
     background-repeat: no-repeat;
     background-position: 10px 50%;

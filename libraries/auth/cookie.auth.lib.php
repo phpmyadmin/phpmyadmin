@@ -234,7 +234,7 @@ if (top != self) {
         echo "\n";
 
         uasort($available_languages, 'PMA_cookie_cmp');
-        foreach($available_languages AS $id => $tmplang) {
+        foreach ($available_languages AS $id => $tmplang) {
             $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
             if ($lang == $id) {
                 $selected = ' selected="selected"';
@@ -311,7 +311,7 @@ if (top != self) {
         <?php
         echo "\n";
         // Displays the MySQL servers choice
-        foreach($cfg['Servers'] AS $key => $val) {
+        foreach ($cfg['Servers'] AS $key => $val) {
             if (!empty($val['host']) || $val['auth_type'] == 'arbitrary') {
                 echo '                <option value="' . $key . '"';
                 if (!empty($server) && ($server == $key)) {

@@ -44,7 +44,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&dontlimitchars=' . $dontlimitchars
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
     if (isset($primary_key)) {
-        foreach($primary_key AS $pk) {
+        foreach ($primary_key AS $pk) {
             $goto .= '&primary_key[]=' . $pk;
         }
     }
@@ -104,7 +104,7 @@ PMA_DBI_select_db($db);
 $query = array();
 $message = '';
 
-foreach($loop_array AS $primary_key_index => $enc_primary_key) {
+foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
     // skip fields to be ignored
     if (!$using_key && isset($GLOBALS['insert_ignore_' . $enc_primary_key])) continue;
     
@@ -122,7 +122,7 @@ foreach($loop_array AS $primary_key_index => $enc_primary_key) {
     $me_fields_type = isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : null;
     $me_fields_null = isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : null;
 
-    foreach($me_fields AS $encoded_key => $val) {
+    foreach ($me_fields AS $encoded_key => $val) {
         $key         = urldecode($encoded_key);
         $fieldlist   .= PMA_backquote($key) . ', ';
 
@@ -199,7 +199,7 @@ $sql_query = implode(';', $query) . ';';
 $total_affected_rows = 0;
 $last_message = '';
 
-foreach($query AS $query_index => $single_query) {
+foreach ($query AS $query_index => $single_query) {
     if ($cfg['IgnoreMultiSubmitErrors']) {
         $result = PMA_DBI_try_query($single_query);
     } else {
