@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 /**
@@ -56,6 +55,8 @@ $strAtEndOfTable = 'Në fund të tabelës';
 $strAttr = 'Pronësi';
 
 $strBack = 'Mbrapa';
+$strBeginCut = 'FILLIMI I CUT';
+$strBeginRaw = 'FILLIMI I RAW';
 $strBinary = 'Binar';
 $strBinaryDoNotEdit = 'Të dhëna të tipit Binar - mos modifiko';
 $strBookmarkDeleted = 'Bookmark u fshi.';
@@ -75,6 +76,7 @@ $strCarriage = 'Kthimi në fillim: \\r';
 $strChangeDisplay = 'Zgjidh fushën që dëshiron të shohësh';
 $strChange = 'Modifiko';
 $strChangePassword = 'Ndrysho password';
+$strCharsetOfFile = 'Set karakteresh të file:';
 $strCheckAll = 'Seleksionoi të gjithë';
 $strCheckDbPriv = 'Kontrollo të drejtat e database';
 $strCheckTable = 'Kontrollo tabelën';
@@ -136,9 +138,12 @@ $strEffective = 'Efektiv';
 $strEmptyResultSet = 'MySQL ka kthyer një të përbashkët boshe (p.sh. zero rrjeshta).';
 $strEmpty = 'Zbraz';
 $strEnabled = 'Aktivuar';
+$strEndCut = 'FUNDI I CUT';
 $strEnd = 'Fund';
+$strEndRaw = 'FUNDI I RAW';
 $strEnglishPrivileges = 'Shënim: emrat e privilegjeve të MySQL janë në Anglisht';
 $strError = 'Gabim';
+$strExplain = 'Shpjego SQL';
 $strExport = 'Eksporto';
 $strExportToXML = 'Eksporto në formatin XML';
 $strExtendedInserts = 'Të shtuara të zgjeruara';
@@ -228,6 +233,7 @@ $strNext = 'Në vazhdim';
 $strNoDatabases = 'Asnjë database';
 $strNoDescription = 'asnjë Përshkrim';
 $strNoDropDatabases = 'Komandat "DROP DATABASE" janë disaktivuar.';
+$strNoExplain = 'Mos Shpjego SQL';
 $strNoFrames = 'phpMyAdmin funksionon më mirë me browser që suportojnë frames';
 $strNoIndex = 'Asnjë tregues i përcaktuar!';
 $strNoIndexPartsDefined = 'Asnjë pjesë e treguesit është përcaktuar!';
@@ -245,6 +251,7 @@ $strNotOK = 'jo OK';
 $strNotSet = '<b>%s</b> tabela nuk u gjet ose nuk është përcaktuar tek %s';
 $strNotValidNumber = ' nuk është një rrjesht i vlefshëm!';
 $strNoUsersFound = 'Nuk u gjet asnjë përdorues.';
+$strNoValidateSQL = 'Mos Vleftëso SQL';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s korrispondon(jnë) tek tabela <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Gjithsej:</b> <i>%s</i> korrispondues(ë)';
@@ -354,11 +361,16 @@ $strShowThisQuery = 'Tregoje përsëri këtë query';
 $strSingly = '(një nga një)';
 $strSize = 'Dimensioni';
 $strSort = 'Rrjeshtimi';
-$strSpaceUsage = 'Hapsira e përdorur';
+$strSpaceUsage = 'Hapësira e përdorur';
 $strSplitWordsWithSpace = 'Fjalët janë të ndara nga një hapsirë (" ").';
+$strSQLParserBugMessage = 'Ka mundësi që ka një bug tek parser SQL. Ju lutem, kontrolloni query tuaj me kujdes, dhe kontrolloni që presjet të jenë ku duhet dhe jo të gabuara. Një shkak tjetër i mundshëm i gabimit mund të jetë që po mundoheni të uploadoni një file binar jashtë një zone teksti të kufizuar me presje. Mund edhe të provoni query tuaj MySQL nga interfaqja e shkruar e komandave. Gabimi i mëposhtëm i kthyer nga server-i MySQL, nëse ekziston një i tillë, mund t\'ju ndihmojë në diagnostikimin e problemit. Nëse ka akoma probleme, apo n.q.s. parser-i SQL i phpMyAdmin gabon kur përkundrazi nga interfaqja e komandave të thjeshta nuk rezultojnë probleme, ju lutem zvogëloni query tuaj SQL në hyrje në query e vetme që shkakton probleme, dhe dërgoni një bug raportim me të dhënat rezultuese nga seksioni CUT i mëposhtëm:';
+$strSQLParserUserError = 'Mesa duket ekziston një gabim tek query juaj SQL e futur. Gabimi i server-it MySQL i treguar më poshtë, nëse ekziston, mund t\'ju ndihmojë në diagnostikimin e problemit';
 $strSQLQuery = 'query SQL';
 $strSQLResult = 'Rezultati SQL';
 $strSQL = 'SQL';
+$strSQPBugInvalidIdentifer = 'Identifikues i pavlefshëm';
+$strSQPBugUnclosedQuote = 'Thonjëza të Pambyllura';
+$strSQPBugUnknownPunctuation = 'Stringë Punctuation e Panjohur';
 $strStatement = 'Instruksione';
 $strStrucCSV = 'të dhëna CSV';
 $strStrucData = 'Struktura dhe të dhëna';
@@ -403,6 +415,7 @@ $strUser = 'Përdorues';
 $strUsers = 'Përdorues';
 $strUseTables = 'Përdor tabelat';
 
+$strValidateSQL = 'Vleftëso SQL';
 $strValue = 'Vlera';
 $strViewDumpDB = 'Vizualizo dump (skema) e database';
 $strViewDump = 'Vizualizo dump (skema) e tabelës';
@@ -414,27 +427,6 @@ $strWrongUser = 'Emri i përdoruesit apo password i gabuar. Ndalohet hyrja.';
 $strYes = ' Po ';
 
 $strZip = '"kompresuar me zip"';
+
 // To translate
-
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-
-$strValidateSQL = 'Validate SQL';  //to translate
-
 ?>
