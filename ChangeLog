@@ -15,6 +15,7 @@ $Source$
     * server_privileges.php3: Remove column privileges.
     * config.inc.php3: Added $cfg['DefaultTabServer'].
     * header.inc.php3: Link the default tabs.
+    * libraries/common.lib.php3: PHP3 compatibility.
 
 2003-02-02 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.

@@ -1624,6 +1624,27 @@ if (typeof(document.getElementById) != 'undefined'
     }
 
 
+    if (!function_exists('in_array')) {
+        /**
+         * Searches $haystack for $needle and returns TRUE if it is found in
+         * the array, FALSE otherwise.
+         *
+         * @param  mixed    the 'needle'
+         * @param  array    the 'haystack'
+         *
+         * @return boolean  has $needle been found or not?
+         */
+        function in_array($needle, $haystack) {
+            while (list(, $value) = each($haystack)) {
+                if ($value == $haystack) {
+                    return TRUE;
+                }
+            }
+            return FALSE;
+        }
+    }
+
+
     // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
     if (PMA_PHP_INT_VERSION >= 40006
         && @function_exists('mb_convert_encoding')
