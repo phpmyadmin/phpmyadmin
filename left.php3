@@ -52,6 +52,7 @@ header('Content-Type: text/html; charset=' . $charset);
         }
     }
     var fontFamily = '<?php echo $left_font_family; ?>';
+    var isServer   = <?php echo ($server > 0) ? 'true' : 'false'; ?>;
     //-->
     </script>
     <script src="left.js" type="text/javascript" language="javascript1.2"></script>

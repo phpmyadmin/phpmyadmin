@@ -113,7 +113,7 @@ function nsShowAll() {
  */
 function initIt()
 {
-  if (!capable)
+  if (!capable || !isServer)
     return;
 
   if (isDOM) {

@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, lines 865-867; main.php3, line 78; left.php3, line 55;
+	  left.js, line 116: fixed some bugs (including #439553) when
+	  $cfgServerDefault is set to 0 in the config file.
+
+2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, lines 273-275: vertically center bookmarks options.
 	* tbl_properties.php3: rewritten the script so it fits XHTML1.0 and PEAR
 	  standards, limit the number of "options" displayed if the is no table

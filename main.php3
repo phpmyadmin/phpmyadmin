@@ -75,8 +75,7 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
 <ul>
 <?php
 // 1. The servers choice form 
-if (count($cfgServers) > 1)
-{
+if ($server == 0 || count($cfgServers) > 1) {
     ?>
     <li>
         <form action="index.php3" target="_top">
@@ -100,7 +99,7 @@ if (count($cfgServers) > 1)
             if (!empty($val['only_db'])) {
                 echo ' - ' . $val['only_db'];
             }
-            echo '</option>' . "\n";
+            echo '&nbsp;</option>' . "\n";
         } // end if (!empty($val['host']))
     } // end while
     ?>
@@ -287,6 +286,3 @@ if ($server > 0
  */
 require('./footer.inc.php3');
 ?>
-
-</body>
-</html>

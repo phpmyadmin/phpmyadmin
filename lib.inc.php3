@@ -119,10 +119,10 @@ $dblist = array();
 
 reset($cfgServers);
 while(list($key, $val) = each($cfgServers)) {
-  // Don't use servers with no hostname
-  if (empty($val['host'])) {
-    unset($cfgServers[$key]);
-  }
+    // Don't use servers with no hostname
+    if (empty($val['host'])) {
+      unset($cfgServers[$key]);
+    }
 }
  
 if(empty($server) || !isset($cfgServers[$server]) || !is_array($cfgServers[$server]))
@@ -862,11 +862,14 @@ function get_bookmarks_param() {
     $cfgBookmark=false;
     $cfgBookmark="";
 
+    if ($server == 0) {
+        return '';
+    }
+    
     $i=1;
     while($i<=sizeof($cfgServers)) {
         if($cfgServer['adv_auth']) {
             if(($cfgServers[$i]['host']==$cfgServer['host'] || $cfgServers[$i]['host']=='') && $cfgServers[$i]['adv_auth']==true && $cfgServers[$i]['stduser']==$cfgServer['user'] && $cfgServers[$i]['stdpass']==$cfgServer['password']) {
-
                 $cfgBookmark['db']=$cfgServers[$i]['bookmarkdb'];
                 $cfgBookmark['table']=$cfgServers[$i]['bookmarktable'];
                 break;
@@ -874,7 +877,6 @@ function get_bookmarks_param() {
         }
         else {
             if(($cfgServers[$i]['host']==$cfgServer['host'] || $cfgServers[$i]['host']=='') && $cfgServers[$i]['adv_auth']==false && $cfgServers[$i]['user']==$cfgServer['user'] && $cfgServers[$i]['password']==$cfgServer['password']) {
-
                 $cfgBookmark['db']=$cfgServers[$i]['bookmarkdb'];
                 $cfgBookmark['table']=$cfgServers[$i]['bookmarktable'];
                 break;
