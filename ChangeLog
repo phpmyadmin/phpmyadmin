@@ -24,6 +24,7 @@ $Source$
     * fpdf/*: removed ^M.
     * fpdf/fpdf.php3, lines 1205+: ensure user agent is detected whatever are
       the PHP version and the "register globals" value.
+    * pdf_schema.php3; lang/*: coding standards and PDF error handling.
 
 2002-05-17 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3, libraries/common.lib.php3: IP-based Allow/Deny code
