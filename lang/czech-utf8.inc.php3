@@ -273,7 +273,7 @@ $strPrintView = 'Náhled k vytištění';
 $strPrivileges = 'Oprávnění';
 $strProperties = 'Vlastnosti';
 
-$strQBE = 'Dotaz podle příkladu';
+$strQBE = 'Dotaz';
 $strQBEDel = 'smazat';
 $strQBEIns = 'přidat';
 $strQueryOnDb = 'SQL dotaz na databázi <b>%s</b>:';
