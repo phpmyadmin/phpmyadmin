@@ -318,7 +318,9 @@ if ($cfgRelation['relwork']) {
                              . ' = ' . PMA_backquote($arr['foreign_table']) . '.' . PMA_backquote($arr['foreign_field'])
                              . ' WHERE '
                              . PMA_backquote($arr['foreign_table']) . '.' . PMA_backquote($arr['foreign_field'])
-                             . ' IS NULL')
+                             . ' IS NULL AND '
+                             . PMA_backquote($table) . '.' . PMA_backquote($master)
+                             . ' IS NOT NULL')
                  . '">' . $master . '&nbsp;->&nbsp;' . $arr['foreign_table'] . '.' . $arr['foreign_field']
                  . '</a><br />' . "\n";
         } //  end while
