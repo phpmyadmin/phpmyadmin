@@ -2533,7 +2533,7 @@ if (typeof(document.getElementById) != 'undefined'
             $query .= PMA_generateCharsetQueryPart($collation);
         }
 
-        if ($default_current_timestamp) {
+        if ($default_current_timestamp && strtoupper($full_field_type) == 'TIMESTAMP') {
             $query .= ' DEFAULT CURRENT_TIMESTAMP';
         } elseif (!empty($default)) {
             if (strtoupper($default) == 'NULL') {
