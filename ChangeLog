@@ -5,10 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-25 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/italian.inc.php3: updated, thanks again to Pietro Danesi.
+
 2002-04-24 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_*.php3: $cfg system changes
 
-2002-04-24 Alexander M. Turek  <rabus@bugfixes.info>
+2002-04-24 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/*, lang/*: $cfg system changes.
     * libraries/common.lib.php3, libraries/select_lang.php3,
       libraries/config_import.lib.php3: Config file backwards compatibility.
@@ -18,7 +21,7 @@ $Source$
 	* scripts/extchg.sh: Updated URL
 	* scripts/convertcfg.pl: Conversion between old config files and new ones.
 	* scripts/*: Updated comments somewhat
-	* tbl_dump.php3:121: renamed $cfgServer_backup to $backup_cfgServer	
+	* tbl_dump.php3:121: renamed $cfgServer_backup to $backup_cfgServer
 	* user_details.php3: forgot to change $GLOBALS['cfgXYZ'] to $GLOBALS['cfg']['XYZ']
 	* libraries/common.lib.php3: a single $cfgServer instance was forgotten
 

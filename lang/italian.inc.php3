@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Translated by: Pietro Danesi <danone@aruba.it>  2002-03-29
+ * Translated by: Pietro Danesi <danone at users.sourceforge.net>  2002-03-29
  * Revised by:    "DPhantom" <dphantom at users.sourceforge.net>  2002-04-16
  */
 
@@ -178,6 +178,7 @@ $strLimitNumRows = 'record per pagina';
 $strLineFeed = 'Fine riga: \\n';
 $strLines = 'Record';
 $strLinesTerminatedBy = 'Linee terminate da';
+$strLinksTo = 'Collegamenti a';
 $strLocationTextfile = 'Percorso del file';
 $strLogin = 'Connetti';
 $strLogout = 'Disconnetti';
@@ -355,5 +356,4 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-$strLinksTo = 'Links to';  //to translate
 ?>
