@@ -371,4 +371,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strChangeDisplay = 'Choose Field to display';  //to translate
 ?>

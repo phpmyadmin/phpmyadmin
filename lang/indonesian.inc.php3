@@ -366,4 +366,5 @@ $strYes = 'Ya';
 
 $strZip = '"Dikompress dengan Zip"';
 
+$strChangeDisplay = 'Choose Field to display';  //to translate
 ?>

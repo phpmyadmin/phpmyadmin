@@ -370,4 +370,5 @@ $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one p
 $strShowColor = 'Show color';  //to translate
 $strShowGrid = 'Show grid';  //to translate
 $strShowTableDimension = 'Show dimension of tables';  //to translate
+$strChangeDisplay = 'Choose Field to display';  //to translate
 ?>

@@ -371,4 +371,5 @@ $strZip = '"zipped"';
 // To translate
 $strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
 $strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
+$strChangeDisplay = 'Choose Field to display';  //to translate
 ?>

@@ -374,4 +374,5 @@ $strShowColor = 'Show color';  //to translate
 $strShowTableDimension = 'Show dimension of tables';  //to translate
 $strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
 $strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
+$strChangeDisplay = 'Choose Field to display';  //to translate
 ?>

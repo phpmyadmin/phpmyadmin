@@ -364,4 +364,5 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
+$strChangeDisplay = 'Choose Field to display';  //to translate
 ?>

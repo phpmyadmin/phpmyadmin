@@ -365,4 +365,6 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
+$strChangeDisplay = 'Anzuzeigende Spalte bestimmen';
+
 ?>

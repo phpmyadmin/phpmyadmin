@@ -365,4 +365,5 @@ $strYes = 'Oui';
 $strZip = '"zippé"';
 
 // To translate
+$strChangeDisplay = 'Champ à afficher';
 ?>
