@@ -11,6 +11,8 @@ $Source$
 	  privileges when applied to database name containing an escaped wilcard
 	  character (then used a litteral charcter). Thanks to
 	  Mike Eheler <meheler @ users.sourceforge.net>.
+	* tbl_alter.php3, lines 109-112: fixed bug #543365 - Can't change field
+	  properties when name contains localized characters.
 
 2002-04-12 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, lines 957-991: expended cosmetic changes

@@ -100,15 +100,19 @@ else {
     if (!isset($selected)) {
         $selected[]   = $field;
         $selected_cnt = 1;
-    } else {
+    } else { // from a multiple submit
         $selected_cnt = count($selected);
     }
 
     // TODO: optimize in case of multiple fields to modify
     for ($i = 0; $i < $selected_cnt; $i++) {
-        if (get_magic_quotes_gpc()) {
+        if (!empty($submit_mult)) {
+            $field = PMA_sqlAddslashes(urldecode($selected[$i]), TRUE);
+        }
+        else if (get_magic_quotes_gpc()) {
             $field = PMA_sqlAddslashes(stripslashes($selected[$i]), TRUE);
-        } else {
+        }
+        else {
             $field = PMA_sqlAddslashes($selected[$i], TRUE);
         }
         $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . " LIKE '$field'";
