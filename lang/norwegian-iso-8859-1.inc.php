@@ -28,6 +28,7 @@ $strAccessDenied = 'Ingen tilgang';
 $strAccessDeniedExplanation = 'phpMyAdmin forsøkte å koble til MySQL-serveren, og serveren avviste tilkoblingen. Du må kontrollere vert (host), brukernavn (username) og passord (password) i config.inc.php og sjekke at de tilsvarer den informasjonen du fikk fra MySQL-server administratoren.';
 $strAction = 'Handling';
 $strAddAutoIncrement = 'Legg til AUTO_INCREMENT verdi';
+$strAddConstraints = 'Legg til begrensninger';
 $strAddDeleteColumn = 'Legg til/Slett kolonne';
 $strAddDeleteRow = 'Legg til/Slett kriterierad';
 $strAddDropDatabase = 'Legg til DROP DATABASE';
@@ -718,7 +719,7 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrensningen.';
 $strZip = 'Komprimert (zip)';
+
 // To translate
 
-$strAddConstraints = 'Add constraints';  //to translate
 ?>

@@ -7,7 +7,7 @@
  *     Mihailo Stefanovic <mst@mikis.org>, Branislav Jovanovic <fangorn@eunet.yu>
  */
 
-$charset = 'utf-8';
+$charset = 'windows-1250';
 $allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
@@ -31,6 +31,7 @@ $strAccessDenied = 'Pristup odbijen';
 $strAccessDeniedExplanation = 'phpMyAdmin je pokušao da se poveže na MySQL server, ali je server odbio povezivanje. Proverite naziv domaæina, korisnièko ime i lozinku u config.inc.php i uverite se da odgovaraju podacima koje ste dobili od administratora MySQL servera.';
 $strAction = 'Akcija';
 $strAddAutoIncrement = 'Dodaj AUTO_INCREMENT vrednost';
+$strAddConstraints = 'Dodaj ogranièenja';
 $strAddDeleteColumn = 'Dodaj/obriši kolonu';
 $strAddDeleteRow = 'Dodaj/obriši polje za kriterijum';
 $strAddDropDatabase = 'Dodaj DROP DATABASE';
@@ -118,6 +119,7 @@ $strCharsets = 'Kodne strane';
 $strCharsetsAndCollations = 'Karakter setovi i sortiranje';
 $strCheckAll = 'Oznaèi sve';
 $strCheckDbPriv = 'Proveri privilegije baze podataka';
+$strCheckOverhead = 'Proveri prekoraèenja';
 $strCheckPrivs = 'Proveri privilegije';
 $strCheckPrivsLong = 'Proveri privilegije za bazu &quot;%s&quot;.';
 $strCheckTable = 'Proveri tabelu';
@@ -149,6 +151,7 @@ $strCreateNewDatabase = 'Napravi novu bazu podataka';
 $strCreateNewTable = 'Napravi novu tabelu u bazi %s';
 $strCreatePage = 'Napravi novu stranu';
 $strCreatePdfFeat = 'Pravljenje PDF-ova';
+$strCreationDates = 'Datumi kreiranja/ažuriranja/provere';
 $strCriteria = 'Kriterijum';
 $strCroatian = 'Hrvatski';
 $strCyrillic = 'Æirilièni';
@@ -184,6 +187,7 @@ $strDbSpecific = 'Specifièno za bazu';
 $strDefault = 'Podrazumevano';
 $strDefaultValueHelp = 'Za podrazumevanu vrednost, unesite samo jednu vrednost, bez kosih crta ili navodnika u ovom obliku: a';
 $strDelOld = 'Trenutna strana ima reference na tabele koje više ne postoje. Želite li da obrišete te reference?';
+$strDelayedInserts = 'Koristi odložena umetanja';
 $strDelete = 'Obriši';
 $strDeleteAndFlush = 'Obriši korisnike i ponovo uèitaj privilegije.';
 $strDeleteAndFlushDescr = 'Ovo je najèistiji naèin, ali ponovno uèitavanje privilegina može da potraje.';
@@ -228,6 +232,7 @@ $strEnglish = 'Engleski';
 $strEnglishPrivileges = ' Napomena: MySQL imena privilegija moraju da budu na engleskom ';
 $strError = 'Greška';
 $strEstonian = 'Estonski';
+$strExcelEdition = 'Excel izdanje';
 $strExcelOptions = 'Excel opcije';
 $strExecuteBookmarked = 'Izvrši upamæen upit';
 $strExplain = 'Objasni SQL';
@@ -544,6 +549,7 @@ $strRunning = 'na serveru %s';
 $strRussian = 'Ruski';
 
 $strSQL = 'SQL';
+$strSQLExportType = 'Tip izvoza';
 $strSQLOptions = 'SQL opcije';
 $strSQLParserBugMessage = 'Postoji moguænost da ste pronašli bag u SQL parseru. Molimo ispitajte svoj upit pažljivo, i proverite da su navodnici ispravni i da ne nedostaju. Ostali moguæi razlozi greške mogu biti da ste poslali binarnu datoteku van oblasti za obièan tekst. Možete probati svoj upit u MySQL suèelju komandne linije. Donja poruka o grešci MySQL servera, ako je ima, može vam pomoæi u otkrivanju problema. Ako i dalje imate probleme ili ako parser ne uspeva tamo gde uspeva suèelje komandne linije, svedite svoj SQL upit na jedan jedini upit koji stvara probleme i pošaljite nam izveštaj o grešci sa delom koda u donjoj REZ sekciji:';
 $strSQLParserUserError = 'Izgleda da postoji greška u vašem SQL upitu. Ovde je poruka o greški MySQL servera, koja vam može pomoæi u otkrivanju problema';
@@ -717,10 +723,4 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
-$strCheckOverhead = 'Check overheaded';  //to translate
-$strExcelEdition = 'Excel edition';  //to translate
-$strDelayedInserts = 'Use delayed inserts';  //to translate
-$strSQLExportType = 'Export type';  //to translate
-$strAddConstraints = 'Add constraints';  //to translate
 ?>

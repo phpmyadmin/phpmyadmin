@@ -7,7 +7,7 @@
  *     Mihailo Stefanovic <mst@mikis.org>, Branislav Jovanovic <fangorn@eunet.yu>
  */
 
-$charset = 'utf-8';
+$charset = 'windows-1251';
 $allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
@@ -31,6 +31,7 @@ $strAccessDenied = 'Приступ одбијен';
 $strAccessDeniedExplanation = 'phpMyAdmin је покушао да се повеже на MySQL сервер, али је сервер одбио повезивање. Проверите назив домаћина, корисничко име и лозинку у config.inc.php и уверите се да одговарају подацима које сте добили од администратора MySQL сервера.';
 $strAction = 'Акција';
 $strAddAutoIncrement = 'Додај AUTO_INCREMENT вредност';
+$strAddConstraints = 'Додај ограничења';
 $strAddDeleteColumn = 'Додај/обриши колону';
 $strAddDeleteRow = 'Додај/обриши поље за критеријум';
 $strAddDropDatabase = 'Додај DROP DATABASE';
@@ -118,6 +119,7 @@ $strCharsets = 'Кодне стране';
 $strCharsetsAndCollations = 'Карактер сетови и сортирање';
 $strCheckAll = 'Означи све';
 $strCheckDbPriv = 'Провери привилегије базе података';
+$strCheckOverhead = 'Провери прекорачења';
 $strCheckPrivs = 'Провери привилегије';
 $strCheckPrivsLong = 'Провери привилегије за базу &quot;%s&quot;.';
 $strCheckTable = 'Провери табелу';
@@ -149,6 +151,7 @@ $strCreateNewDatabase = 'Направи нову базу података';
 $strCreateNewTable = 'Направи нову табелу у бази %s';
 $strCreatePage = 'Направи нову страну';
 $strCreatePdfFeat = 'Прављење PDF-ova';
+$strCreationDates = 'Датуми креирања/ажурирања/провере';
 $strCriteria = 'Критеријум';
 $strCroatian = 'Хрватски';
 $strCyrillic = 'Ћирилични';
@@ -184,6 +187,7 @@ $strDbSpecific = 'Специфично за базу';
 $strDefault = 'Подразумевано';
 $strDefaultValueHelp = 'За подразумевану вредност, унесите само једну вредност, без косих црта или наводника у овом облику: а';
 $strDelOld = 'Тренутна страна има референце на табеле које више не постоје. Желите ли да обришете те референце?';
+$strDelayedInserts = 'Користи одложена уметања';
 $strDelete = 'Обриши';
 $strDeleteAndFlush = 'Обриши кориснике и поново учитај привилегије.';
 $strDeleteAndFlushDescr = 'Ово је најчистији начин, али поновно учитавање привилегина може да потраје.';
@@ -228,6 +232,7 @@ $strEnglish = 'Енглески';
 $strEnglishPrivileges = ' Напомена: MySQL имена привилегија морају да буду на енглеском ';
 $strError = 'Грешка';
 $strEstonian = 'Естонски';
+$strExcelEdition = 'Excel издање';
 $strExcelOptions = 'Excel опције';
 $strExecuteBookmarked = 'Изврши упамћен упит';
 $strExplain = 'Објасни SQL';
@@ -544,6 +549,7 @@ $strRunning = 'на серверу %s';
 $strRussian = 'Руски';
 
 $strSQL = 'SQL';
+$strSQLExportType = 'Тип извоза';
 $strSQLOptions = 'SQL опције';
 $strSQLParserBugMessage = 'Постоји могућност да сте пронашли баг у SQL парсеру. Молимо испитајте свој упит пажљиво, и проверите да су наводници исправни и да не недостају. Остали могући разлози грешке могу бити да сте послали бинарну датотеку ван области за обичан текст. Можете пробати свој упит у MySQL сучељу командне линије. Доња порука о грешци MySQL сервера, ако је има, може вам помоћи у откривању проблема. Ако и даље имате проблеме или ако парсер не успева тамо где успева сучеље командне линије, сведите свој SQL упит на један једини упит који ствара проблеме и пошаљите нам извештај о грешци са делом кода у доњој РЕЗ секцији:';
 $strSQLParserUserError = 'Изгледа да постоји грешка у вашем SQL упиту. Овде је порука о грешки MySQL сервера, која вам може помоћи у откривању проблема';
@@ -717,10 +723,4 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања лимите.';
 $strZip = '"зиповано"';
 
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
-$strCheckOverhead = 'Check overheaded';  //to translate
-$strExcelEdition = 'Excel edition';  //to translate
-$strDelayedInserts = 'Use delayed inserts';  //to translate
-$strSQLExportType = 'Export type';  //to translate
-$strAddConstraints = 'Add constraints';  //to translate
 ?>
