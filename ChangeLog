@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * all themes/colors.inc.php, libraries/common.lib.php,
+      config.inc.php, Documentation.html: rename colors.inc.php to
+      layout.inc.php, thanks to Garvin for the suggestion
+
 2004-07-10 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan update, thanks to Xavier Navarro (xavin).
     * lang/galician: Updated, thanks to Xosé Calvo.

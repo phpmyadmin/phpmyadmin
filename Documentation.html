@@ -338,7 +338,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <span class="important">Configuration note:</span>
     Almost all configurable data is placed in <i>config.inc.php</i>. The
     parameters which relate to design (like colors) are placed in
-    <tt>themes/themename/colors.inc.php</tt>. You
+    <tt>themes/themename/layout.inc.php</tt>. You
     might also want to modify <i>config.footer.inc.php</i> and
     <i>config.header.inc.php</i> files to add your site specific code to be
     included on start and end of each page.
@@ -1508,7 +1508,7 @@ Defaults to FALSE (drop-down). <br />
 
     <dt><b>$cfg['LeftWidth'] </b>integer</dt>
     <dd>
-        Left frame width in pixel. See <tt>themes/themename/colors.inc.php</tt>.
+        Left frame width in pixel. See <tt>themes/themename/layout.inc.php</tt>.
         <br /><br />
     </dd>
 
@@ -1518,7 +1518,7 @@ Defaults to FALSE (drop-down). <br />
     </dt>
     <dd>
         The background colors (HTML) used for both the frames.
-        See <tt>themes/themename/colors.inc.php</tt>.
+        See <tt>themes/themename/layout.inc.php</tt>.
         <br /><br />
     </dd>
 
@@ -1527,13 +1527,13 @@ Defaults to FALSE (drop-down). <br />
     </dt>
     <dd>
         The URI of the background image used for the right frame. It must be
-        an absolute URI. See <tt>themes/themename/colors.inc.php</tt>.
+        an absolute URI. See <tt>themes/themename/layout.inc.php</tt>.
     </dd>
 
     <dt><b>$cfg['LeftPointerColor'] </b>string [HTML color]</dt>
     <dd>
         The color (HTML) used for the pointer in the left frame (does not work
-        with Netscape 4). See <tt>themes/themename/colors.inc.php</tt>.
+        with Netscape 4). See <tt>themes/themename/layout.inc.php</tt>.
         <br /><br />
     </dd>
 
@@ -1545,25 +1545,25 @@ Defaults to FALSE (drop-down). <br />
 
     <dt><b>$cfg['Border'] </b>integer</dt>
     <dd>
-        The size of a table's border. See <tt>themes/themename/colors.inc.php</tt>.
+        The size of a table's border. See <tt>themes/themename/layout.inc.php</tt>.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['ThBgcolor'] </b>string [HTML color]</dt>
     <dd>
-        The color (HTML) used for table headers. See <tt>themes/themename/colors.inc.php</tt>.
+        The color (HTML) used for table headers. See <tt>themes/themename/layout.inc.php</tt>.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['BgcolorOne'] </b>string [HTML color]</dt>
     <dd>
-        The color (HTML) #1 for table rows. See <tt>themes/themename/colors.inc.php</tt>.
+        The color (HTML) #1 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['BgcolorTwo'] </b>string [HTML color]</dt>
     <dd>
-        The color (HTML) #2 for table rows. See <tt>themes/themename/colors.inc.php</tt>.
+        The color (HTML) #2 for table rows. See <tt>themes/themename/layout.inc.php</tt>.
         <br /><br />
     </dd>
 
@@ -1577,7 +1577,7 @@ Defaults to FALSE (drop-down). <br />
         The former feature highlights the row over which your mouse is passing
         and the latter lets you visually mark/unmark rows by clicking on
         them.<br />
-        See <tt>themes/themename/colors.inc.php</tt>.
+        See <tt>themes/themename/layout.inc.php</tt>.
         <br /><br />
     </dd>
 

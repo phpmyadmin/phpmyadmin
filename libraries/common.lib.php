@@ -313,9 +313,9 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
     }
     if ($ThemeDefaultOk == TRUE){ 
         $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $cfg['ThemeDefault'] . '/img/';
-        $tmp_color_file = './' . $cfg['ThemePath'] . '/' . $cfg['ThemeDefault'] . '/colors.inc.php';
-        if (@file_exists($tmp_color_file)) {
-            include($tmp_color_file);
+        $tmp_layout_file = './' . $cfg['ThemePath'] . '/' . $cfg['ThemeDefault'] . '/layout.inc.php';
+        if (@file_exists($tmp_layout_file)) {
+            include($tmp_layout_file);
         }
     } else {
         $pmaThemeImage = './' . $cfg['ThemePath'] . '/original/img/';
@@ -323,9 +323,9 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
 } else {
     $GLOBALS['theme'] = $_COOKIE['pma_theme'];
     $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $_COOKIE['pma_theme'] . '/img/';
-    $tmp_color_file = './' . $cfg['ThemePath'] . '/' . PMA_securePath($_COOKIE['pma_theme']) . '/colors.inc.php';
-    if (@file_exists($tmp_color_file)) {
-        include($tmp_color_file);
+    $tmp_layout_file = './' . $cfg['ThemePath'] . '/' . PMA_securePath($_COOKIE['pma_theme']) . '/layout.inc.php';
+    if (@file_exists($tmp_layout_file)) {
+        include($tmp_layout_file);
     }
 }
 if (!is_dir($pmaThemeImage)) {

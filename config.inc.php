@@ -457,21 +457,21 @@ $cfg['AvailableCharsets'] = array(
 /**
  * Customization & design
  *
- * The graphical settings are now located in themes/themename/colors.inc.php
+ * The graphical settings are now located in themes/themename/layout.inc.php
  */
 
 $cfg['LeftPointerEnable']   = TRUE;         // enable the left panel pointer
                                             // (used when LeftFrameLight is FALSE)
                                             // see also LeftPointerColor
-                                            // in colors.inc.php
+                                            // in layout.inc.php
 
 $cfg['BrowsePointerEnable'] = TRUE;        // enable the browse pointer
                                             // see also BrowsePointerColor
-                                            // in colors.inc.php
+                                            // in layout.inc.php
 
 $cfg['BrowseMarkerEnable'] = TRUE;         // enable the browse marker
                                             // see also BrowseMarkerColor
-                                            // in colors.inc.php
+                                            // in layout.inc.php
 
 $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit mode
                                             // (this value will be emphasized (*2) for sql
@@ -599,7 +599,7 @@ $cfg['GD2Available']          = 'auto';     // Is GD >= 2 available? Set to yes/
 $cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, text, none)
 $cfg['SQP']['fmtInd']       = '1';          // Amount to indent each level (floats ok)
 $cfg['SQP']['fmtIndUnit']   = 'em';         // Units for indenting each level (CSS Types - {em,px,pt})
-// The graphical settings are now located in themes/themename/colors.inc.php
+// The graphical settings are now located in themes/themename/layout.inc.php
 
 /**
  * If you wish to use the SQL Validator service, you should be
