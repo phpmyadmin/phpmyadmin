@@ -129,42 +129,43 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     </td>
         <?php
         echo "\n";
-  $mergetable=false;
-  $nonisam=false;
-	if (isset($sts_data['Type'])) {
-		if ($sts_data['Type']=="MRG_MyISAM") $mergetable=true;
-		else if (!eregi("ISAM|HEAP", $sts_data['Type'])) $nonisam=true;
-	}
-	
-  if (isset($sts_data['Rows'])) 
-	{
-	  if ($mergetable == false){
-	    if ($nonisam == false){
-        $tblsize                      =  $sts_data['Data_length'] + $sts_data['Index_length'];
-        $sum_size                    +=  $tblsize;
-        if ($tblsize > 0) {
-          list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
-        } else {
-          list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
+        $mergetable         = FALSE;
+        $nonisam            = FALSE;
+        if (isset($sts_data['Type'])) {
+            if ($sts_data['Type'] == 'MRG_MyISAM') {
+                $mergetable = TRUE;
+            } else if (!eregi('ISAM|HEAP', $sts_data['Type'])) {
+                $nonisam    = TRUE;
+            }
         }
-	    }
-	    else {
-        $formated_size="&nbsp;-&nbsp;";
-        $unit="";
-	    }
-      if (isset($sts_data['Rows'])) $sum_entries += $sts_data['Rows'];
-    }
-    // MyISAM MERGE Table
-    else if ($mergetable == true)
-    {
-      $formated_size="&nbsp;-&nbsp;";
-      $unit="";
-    }
-    else
-    {
-      $formated_size="unknown";
-      $unit="";
-    }
+
+        if (isset($sts_data['Rows'])) {
+            if ($mergetable == FALSE) {
+                if ($nonisam == FALSE) {
+                    $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
+                    $sum_size                       += $tblsize;
+                    if ($tblsize > 0) {
+                        list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
+                    } else {
+                        list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
+                    }
+                } else {
+                    $formated_size                  = '&nbsp;-&nbsp;';
+                    $unit                           = '';
+                }
+                if (isset($sts_data['Rows'])) {
+                    $sum_entries                    += $sts_data['Rows'];
+                }
+            }
+            // MyISAM MERGE Table
+            else if ($mergetable == TRUE) {
+                $formated_size = '&nbsp;-&nbsp;';
+                $unit          = '';
+            }
+            else {
+                $formated_size = 'unknown';
+                $unit          = '';
+            }
             ?>
     <td align="right">
             <?php
@@ -288,9 +289,10 @@ $url_query = 'lang=' . $lang
            . '&db=' . urlencode($db)
            . '&goto=db_details.php3';
 if (isset($show_query)) {
-    if (get_magic_quotes_gpc()) {
-        $sql_query = stripslashes($sql_query);
-    }
+    // loic1: Not required since already done in db_readdump.php3 (see lines 72 & 117)
+    // if (get_magic_quotes_gpc()) {
+    //     $sql_query = stripslashes($sql_query);
+    // }
     $query_to_display = (($show_query == 'y') ? $sql_query : '');
 }
 ?>
