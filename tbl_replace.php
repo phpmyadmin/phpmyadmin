@@ -219,7 +219,7 @@ foreach($query AS $query_index => $single_query) {
             $total_affected_rows += @mysql_affected_rows();
         }
 
-        $insert_id = mysql_insert_id();
+        $insert_id = PMA_DBI_insert_id();
         if ($insert_id != 0) {
             $last_message .= '<br />'.$strInsertedRowId . '&nbsp;' . $insert_id;
         }

@@ -92,7 +92,7 @@ global $cfgRelation;
                             . ' (\'' . implode('\', \'', $value_parts) . '\', \'' . implode('\', \'', $new_value_parts) . '\')';
 
             $new_table_rs    = PMA_query_as_cu($new_table_query);
-            $last_id = (@function_exists('mysql_insert_id') ? @mysql_insert_id() : -1);
+            $last_id = (@function_exists('mysql_insert_id') ? @PMA_DBI_insert_id() : -1);
         } // end while
 
         return $last_id;

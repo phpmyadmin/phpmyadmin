@@ -171,7 +171,11 @@ function PMA_DBI_close($link = '') {
 
 function PMA_DBI_get_dblist($link = '') {
     if (empty($link)) {
-        $link = $GLOBALS['userlink'];
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return FALSE;
+        }
     }
     $res = PMA_DBI_try_query('SHOW DATABASES;', $link);
     $dbs_array = array();
@@ -196,6 +200,17 @@ function PMA_DBI_get_dblist($link = '') {
 
 function PMA_DBI_num_rows($result) {
     return mysql_num_rows($result);
+}
+
+function PMA_DBI_insert_id($link) {
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return FALSE;
+        }
+    }
+    return mysql_insert_id($link);
 }
 
 ?>

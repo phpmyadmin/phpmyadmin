@@ -526,7 +526,7 @@ else {
             $message = $strDeletedRows . '&nbsp;' . $num_rows;
         } else if ($is_insert) {
             $message = $strInsertedRows . '&nbsp;' . $num_rows;
-            $insert_id = mysql_insert_id();
+            $insert_id = PMA_DBI_insert_id();
             if ($insert_id != 0) {
                 $message .= '<br />'.$strInsertedRowId . '&nbsp;' . $insert_id;
             }
