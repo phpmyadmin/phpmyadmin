@@ -181,9 +181,10 @@
          in your browser. phpMyAdmin should now display a welcome screen
          and your databases, or a login dialog if using HTTP or cookie
          authentication mode.</li>
-    <li> For a whole set of new features (bookmarks, comments, SQL-history, PDP-generation)
+    <li> For a whole set of new features (bookmarks, comments, SQL-history, PDF-generation, field contents transformation, etc.)
          you need to create a set of tables in your database. Please look at your scripts/
          directory, where you should find a file called <i>create_tables.sql</i>.
+         (If you are using a Windows server, pay special attention to FAQ 1.23).
          You can already use your phpMyAdmin to create the tables for you. Please be
          aware that you may have to have special (administrator) privileges to create
          the database and tables. After having imported the <i>create_tables.sql</i> file,
@@ -572,7 +573,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Starting with version 2.3.0 phpMyAdmin offers a lot of features
         to work with master / foreign - tables. To use those as well as
         the bookmark feature you need special tables with a
-        predefined structure, which we explain below.<br />
+        predefined structure, which we explain below.
+        <br /><br />
+        See the Quick Install section in this document for a quick way
+        of creating those tables. Also, if you are using a Windows server,
+        read FAQ 1.23.
+        <br /><br />
         If you are the only user of this phpMyAdmin installation, you can
         use your current database to store those special tables; in this
         case, just put your current database name in
