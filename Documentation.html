@@ -2323,6 +2323,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     We utilize it as free XML-SOAP service.
 </p>
 
+<p>
+    <b>[6.15] I want to add a BLOB field and put an index on it, but MySQL
+    says &quot;BLOB column '...' used in key specification without a key 
+    length&quot;.</b>
+    <br />
+    The right way to do this, is to create the field without any indexes,
+    then display the table structure and use the &quot;Create an index&quot;
+    dialog. On this page, you will be able to choose your BLOB field, and
+    set a size to the index, which is the condition to create an index on
+    a BLOB field.
+    <br />
+</p> 
+
 <a name="faqproject"></a>
 <h3>[7. phpMyAdmin project]</h3>
 <p>
