@@ -202,6 +202,7 @@ if ($num_dbs > 1) {
     while ((list($key, $val) = each($results_array)) && ($j < $display_max)) {
         $j++;
 
+        $bgcolor = ($j % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
         list($disp_val, $unit) = format_byte_down($val, 3, 1);
         echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
         echo '        <td align="right">&nbsp;' . $j . '&nbsp;</td>' . "\n";
