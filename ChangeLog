@@ -12,6 +12,7 @@ $Source$
     * libraries/relation.lib.php: use natural order sort according to config
     * db_details_structure.php, pdf_pages.php, pdf_schema.php: make it work
       with mysqli extension
+    ### 2.6.0-rc1 released
 
 2004-08-08 Michal Čihař  <michal@cihar.com>
     * calendar.php: Include correct stylesheet (bug #1005421).
