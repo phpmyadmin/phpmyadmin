@@ -3,14 +3,25 @@
 
 
 /**
- * Gets the variables sent to this script and displays headers
+ * Gets some core libraries, ensures the database exists (else move to the
+ * "parent" script) and diplays headers
  */
 require('./grab_globals.inc.php3');
+require('./lib.inc.php3');
+// Not a valid db name -> back to the welcome page
+if (!empty($db)) {
+    $is_db = @mysql_select_db($db);
+}
+if (empty($db) || !$is_db) {
+    header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+    exit();
+}
+// Displays headers
 if (!isset($message)) {
     $js_to_run = 'functions.js';
     include('./header.inc.php3');
     // Reloads the navigation frame via JavaScript if required
-    if (!empty($reload) && $reload == 'true') {
+    if (isset($reload) && $reload) {
         echo "\n";
         ?>
 <script type="text/javascript" language="javascript1.2">
@@ -37,20 +48,11 @@ if ((!empty($submit_mult) && isset($selected_tbl))
 
 
 /**
- * Displays an html table with all the tables contained into the current
- * database
+ * Gets the list of the table in the current db and informations about these
+ * tables if possible
  */
-// 1. Gets the list of the tables
-$tables     = mysql_list_tables($db);
-$num_tables = @mysql_numrows($tables);
-// Not a valid db name -> back to the welcome page
-if (mysql_error() != '') {
-    header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . '&reload=true');
-    exit();
-}
-
-// speedup view on locked tables - staybyte - 11 June 2001
-if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
+// staybyte: speedup view on locked tables - 11 June 2001
+if (MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfgSkipLockedTables == TRUE && MYSQL_INT_VERSION >= 32330) {
         $local_query  = 'SHOW OPEN TABLES FROM ' . backquote($db);
@@ -73,10 +75,10 @@ if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
                         if (!isset($sot_cache[$tmp[0]])) {
                             $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'';
                             $sts_result  = mysql_query($local_query) or mysql_die('', $local_query);
-                            $sts_tmp     = mysql_fetch_array($sts_result) or mysql_die('', $local_query);
-                            $tbl_cache[] = $sts_tmp;
+                            $sts_tmp     = mysql_fetch_array($sts_result);
+                            $tables[]    = $sts_tmp;
                         } else { // table in use
-                            $tbl_cache[] = array('Name' => $tmp[0]);
+                            $tables[]    = array('Name' => $tmp[0]);
                         }
                     }
                     mysql_free_result($result);
@@ -90,25 +92,40 @@ if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
         $result      = mysql_query($local_query) or mysql_die('', $local_query);
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($sts_tmp = mysql_fetch_array($result)) {
-                $tbl_cache[] = $sts_tmp;
+                $tables[] = $sts_tmp;
             }
             mysql_free_result($result);
         }
     }
+    $num_tables = (isset($tables) ? count($tables) : 0);
+} // end if (MYSQL_INT_VERSION >= 32303)
+else {
+    $result     = mysql_list_tables($db);
+    $num_tables = @mysql_numrows($result);
+    for ($i = 0; $i < $num_tables; $i++) {
+        $tables[] = mysql_tablename($result, $i);
+    }
+    mysql_free_result($result);
 }
 
-// 2. Displays tables
-if ($num_tables == 0) {
-    echo $strNoTablesFound . "\n";
-}
-// show table size on mysql >= 3.23 - staybyte - 11 June 2001
-else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
-    ?>
 
-
+/**
+ * Displays an html table with all the tables contained into the current
+ * database
+ */
+?>
 
 <!-- TABLE LIST -->
 
+<?php
+// 1. No tables
+if ($num_tables == 0) {
+    echo $strNoTablesFound . "\n";
+}
+
+// 2. Shows table informations on mysql >= 3.23 - staybyte - 11 June 2001
+else if (MYSQL_INT_VERSION >= 32300) {
+    ?>
 <form action="db_details.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
@@ -125,7 +142,7 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
 </tr>
     <?php
     $i = $sum_entries = $sum_size = 0;
-    while (list($keyname, $sts_data) = each($tbl_cache)) {
+    while (list($keyname, $sts_data) = each($tables)) {
         $table     = $sts_data['Name'];
         // Sets parameters for links
         $url_query = 'lang=' . $lang
@@ -160,7 +177,7 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
             <?php echo $strProperties; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+        <a href="sql.php3?<?php echo $url_query; ?>&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
             onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
             <?php echo $strDrop; ?></a>
     </td>
@@ -277,15 +294,11 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
     <?php
 } // end case mysql >= 3.23
 
+// 3. Shows tables list mysql < 3.23
 else {
     $i = 0;
     echo "\n";
     ?>
-
-
-
-<!-- TABLE LIST -->
-
 <form action="db_details.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
@@ -300,25 +313,24 @@ else {
 </tr>
     <?php
     while ($i < $num_tables) {
-        $table     = mysql_tablename($tables, $i);
         // Sets parameters for links
         $url_query = 'lang=' . $lang
                    . '&server=' . $server
                    . '&db=' . urlencode($db)
-                   . '&table=' . urlencode($table)
+                   . '&table=' . urlencode($tables[$i])
                    . '&goto=db_details.php3';
         $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
         echo "\n";
         ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
     <td align="center">
-        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($table); ?>" />
+        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($tables[$i]); ?>" />
     </td>
     <td class="data">
-        <b>&nbsp;<?php echo $table; ?>&nbsp;</b>
+        <b>&nbsp;<?php echo $tables[$i]; ?>&nbsp;</b>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0"><?php echo $strBrowse; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($tables[$i])); ?>&pos=0"><?php echo $strBrowse; ?></a>
     </td>
     <td>
         <a href="tbl_select.php3?<?php echo $url_query; ?>"><?php echo $strSelect; ?></a>
@@ -330,13 +342,13 @@ else {
         <a href="tbl_properties.php3?<?php echo $url_query; ?>"><?php echo $strProperties; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"><?php echo $strDrop; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($tables[$i])); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($tables[$i]) . ' ' . $strHasBeenDropped); ?>"><?php echo $strDrop; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>"><?php echo $strEmpty; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($tables[$i])); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($tables[$i]) . ' ' . $strHasBeenEmptied); ?>"><?php echo $strEmpty; ?></a>
     </td>
     <td align="right">
-        <?php count_records($db, $table); echo "\n"; ?>
+        <?php count_records($db, $tables[$i]); echo "\n"; ?>
     </td>
 </tr>
         <?php
@@ -484,7 +496,7 @@ if ($num_tables > 0) {
         $i = 0;
         echo "\n";
         while ($i < $num_tables) {
-            $table = mysql_tablename($tables, $i);
+            $table = ((MYSQL_INT_VERSION >= 32300) ? $tables[$i]['Name'] : $tables[$i]);
             echo '                    <option value="' . $table . '">' . $table . '</option>' . "\n";
             $i++;
         }
@@ -493,7 +505,6 @@ if ($num_tables > 0) {
             </td>
         <?php
     } // end if
-    mysql_free_result($tables);
 
     echo "\n";
     ?>
@@ -615,7 +626,7 @@ if ($cfgAllowUserDropDatabase || $is_superuser) {
     ?>
     <!-- Drop database -->
     <li>
-        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo urlencode($db); ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=true"
+        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo urlencode($db); ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=1"
             onclick="return confirmLink(this, 'DROP DATABASE <?php echo js_format($db); ?>')">
             <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>
         <?php echo show_docu('manual_Reference.html#DROP_DATABASE') . "\n"; ?>
