@@ -16,7 +16,7 @@ $lang_path = 'lang/';
 
 /**
  * All the supported languages have to be listed in the array below.
- * 1. The key key must be the "official" ISO language code and, if required,
+ * 1. The key must be the "official" ISO language code and, if required,
  *    the dialect code. It can also contains some informations about the
  *    charset (see the Russian case).
  *    These code are displayed at the starting page of phpMyAdmin.
@@ -55,6 +55,7 @@ $available_languages = array(
     'pl'         => array('pl|polish', 'polish'),
     'pt-br'      => array('pt[-_]br|brazilian portuguese', 'brazilian_portuguese'),
     'pt'         => array('pt([-_][[:alpha:]]{2})?|portuguese', 'portuguese'),
+    'ro'         => array('ro|romanian', 'romanian'),
     'ru-koi8r'   => array('ru|russian', 'russian-koi8'),
     'ru-win1251' => array('ru|russian', 'russian-win1251'),
     'se'         => array('se|swedish', 'swedish'),
