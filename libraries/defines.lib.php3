@@ -99,6 +99,8 @@ if (!defined('PMA_USR_OS')) {
         define('PMA_USR_OS', 'Linux');
     } else if (strstr($HTTP_USER_AGENT, 'Unix')) {
         define('PMA_USR_OS', 'Unix');
+    } else if (strstr($HTTP_USER_AGENT, 'OS/2')) {
+        define('PMA_USR_OS', 'OS/2');
     } else {
         define('PMA_USR_OS', 'Other');
     }

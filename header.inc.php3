@@ -57,6 +57,9 @@ pre, tt       {font-size: <?php echo $font_size; ?>}
 th            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; background-color: <?php echo $cfgThBgcolor;?>}
 td            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 form          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
+input         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
+select        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
+textarea      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
 h1            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
 A:link        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000ff}
 A:visited     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000ff}

@@ -669,6 +669,14 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             $font_smaller  = 'small';
             $font_smallest = 'x-small';
         }
+        // OS/2 browser
+        else if (PMA_USR_OS == 'OS/2'
+                 && PMA_USR_BROWSER_AGENT == 'OPERA') {
+            $font_size     = 'small';
+            $font_bigger   = 'medium';
+            $font_smaller  = 'x-small';
+            $font_smallest = 'x-small';
+        }
         else {
             $font_size     = 'small';
             $font_bigger   = 'large';

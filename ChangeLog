@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-29  Loïc Chapeaux  <lolo@phpheaven.net>
+	* header.inc.php3, lines 60-62; libraries/defines.lib.php3, lines 102-103;
+	  libraries/common.lib.php3, lines 672-678: patch #497632 - Support for
+	  OS/2 browsers thanks to Yuri Dario <ydario at users.sourceforge.net>.
+
 2001-12-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/spanish.inc.php3: updated thanks to
 	  Gabriel Ginard <gginard at navegalia.com>.
