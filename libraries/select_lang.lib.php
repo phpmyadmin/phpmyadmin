@@ -150,10 +150,10 @@ $available_languages = array(
     'tr-iso-8859-9'     => array('tr|turkish', 'turkish-iso-8859-9', 'tr'),
     'uk-utf-8'          => array('uk|ukrainian', 'ukrainian-utf-8', 'uk'),
     'uk-win1251'        => array('uk|ukrainian', 'ukrainian-windows-1251', 'uk'),
-    'zh-tw-utf-8'       => array('zh[-_]tw|chinese traditional', 'chinese_big5-utf-8', 'zh-TW'),
-    'zh-tw'             => array('zh[-_]tw|chinese traditional', 'chinese_big5', 'zh-TW'),
-    'zh-utf-8'          => array('zh|chinese simplified', 'chinese_gb-utf-8', 'zh'),
-    'zh'                => array('zh|chinese simplified', 'chinese_gb', 'zh')
+    'zh-tw-utf-8'       => array('zh[-_]tw|chinese traditional', 'chinese_traditional-utf-8', 'zh-TW'),
+    'zh-tw-big5'        => array('zh[-_]tw|chinese traditional', 'chinese_traditional-big5', 'zh-TW'),
+    'zh-utf-8'          => array('zh|chinese simplified', 'chinese_simplified-utf-8', 'zh'),
+    'zh-gb2312'         => array('zh|chinese simplified', 'chinese_simplified-gb2312', 'zh')
 );
 
 

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-30 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/chinese_*.inc.php, libraries/select_lang.lib.php: More consistant
+      naming for the chinese language files.
+
 2004-07-30 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/hungarian: updates, thanks to Peter Bakondy
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
