@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Trnalsted by: Peter Svec <petko at unitra.sk>
+ * Translated by: Peter Svec <petko at unitra.sk>
  */
 
 $charset = 'windows-1250';
