@@ -77,6 +77,7 @@ $strBookmarkQuery = 'Zapamiêtane zapytanie SQL';
 $strBookmarkThis = 'Zapamiêtanie zapytania SQL';
 $strBookmarkView = 'Tylko do pokazania';
 $strBrowse = 'Przegl±danie';
+$strBrowseForeignValues = 'Przegl±danie zewnêtrznych warto¶ci';
 $strBulgarian = 'Bu³garski';
 $strBzError = 'phpMyAdminowi nie uda³o siê skompresowaæ zrzutu z powodu zepsutego rozszerzenia Bz2 w tej wersji php. Jest bardzo zalecane by ustawiæ dyrektywê <code>$cfg[\'BZipDump\']</code> w pliku konfiguracyjnym phpMyAdmina na <code>FALSE</code>. Je¶li chcesz u¿yæ funkcji kompresji Bz2, php powinien zostaæ zaktualizowany do najnowszej wersji. Szczegó³y mo¿na zobaczyæ w raporcie na temat b³êdów php %s.';
 $strBzip = '".bz2"';
@@ -655,6 +656,7 @@ $strUseBackquotes = 'U¿ycie cudzys³owów z nazwami tabel i pól';
 $strUseHostTable = 'U¿ycie tabeli hostów';
 $strUseTables = 'U¿ycie tabel';
 $strUseTextField = 'U¿ycie pola tekstowego';
+$strUseThisValue = 'U¿ycie tej warto¶ci';
 $strUser = 'U¿ytkownik';
 $strUserAlreadyExists = 'U¿ytkownik %s ju¿ istnieje!';
 $strUserEmpty = 'Brak nazwy u¿ytkownika!';
@@ -678,6 +680,7 @@ $strWebServerUploadDirectoryError = 'Katalog ustalony dla uploadu jest nieosi±ga
 $strWelcome = 'Witamy w %s';
 $strWestEuropean = 'Zachodnioeuropejski';
 $strWildcard = 'znak wieloznaczny';
+$strWindowNotFound = 'Docelowe okno przegl±darki nie mog³o byæ zaktualizowane. Byæ mo¿e okno-rodzic zosta³o zamkniête lub przegl±darka, uwzglêdniaj±c ustawienia bezpieczeñstwa, blokuje aktualizacje pomiêdzy oknami';
 $strWithChecked = 'Zaznaczone:';
 $strWritingCommentNotPossible = 'Zapisanie komentarza nie jest mo¿liwe';
 $strWritingRelationNotPossible = 'Zapisanie relacji nie jest mo¿liwe';
@@ -691,7 +694,4 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 // To translate
 
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>
