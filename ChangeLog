@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+	
+2001-07-15  Olivier Müller  <om@omnis.ch>
+	* releasing 2.2.0rc2
+
 2001-07-15  Marc Delisle  <lem9@users.sourceforge.net>
 	* new script remove_control_m.sh 
 	* all php3 files which had control M
