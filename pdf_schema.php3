@@ -1363,8 +1363,8 @@ function PMA_RT_DOC($alltables ){
             $pdf->Cell(20,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
             $pdf->Cell(25,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
             $pdf->Cell(45,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
-            $pdf->Cell(100,8,ucfirst($GLOBALS['strComments']),1,1,'C');
-            $pdf->SetWidths(array(25,20,20,10,20,25,45,100));
+            $pdf->Cell(112,8,ucfirst($GLOBALS['strComments']),1,1,'C');
+            $pdf->SetWidths(array(25,20,20,10,20,25,45,112));
         } else {
             $pdf->Cell(20,8,ucfirst($GLOBALS['strField']),1,0,'C');
             $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');
