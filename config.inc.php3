@@ -225,7 +225,7 @@ $cfg['DefaultTabTable']       = 'tbl_properties_structure.php3';
                                    // Possible values:
                                    // 'tbl_properties_structure.php3' = fields list
                                    // 'tbl_properties.php3' = sql form
-                                   // 'tbl_select.php3 = select page (buggy!)
+                                   // 'tbl_select.php3 = select page
                                    // 'tbl_change.php3 = insert row page
 
 

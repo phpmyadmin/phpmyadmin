@@ -10,6 +10,7 @@ $Source$
       user management.
     * server_processlist.php3: Fixed a bug the denied the access to the
       process list for normal users.
+    * config.inc.php3; Removed note about buggy setting.
 
 2003-01-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3: drop-down for enums, thanks to Joerg Klein (j0erch)
