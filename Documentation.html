@@ -593,6 +593,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
               display links on the table properties page, to check referential
               integrity (display missing foreign keys) for each described key.
            </li>
+           <li>
+              in query-by-example, create automatic joints (see an example
+              in the FAQ, section &quot;Using phpMyAdmin&quot;).
+           </li>
         </ul>
         <br />
 
@@ -1531,6 +1535,68 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <br /><br />
     For additional help on this subject, look for the word &quot;upload&quot; in
     this document.
+</p>
+
+<p>
+    <b>How can I use the relation table in Query-by-example?</b>
+    <br />
+    Here is an example with the tables persons, towns and countries. Start
+    by creating this: <br /><br />
+    <tt>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE countries (<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;country_code char(1) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description varchar(10) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (country_code)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO countries VALUES ('C', 'Canada');<br />
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE persons (<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id tinyint(4) NOT NULL auto_increment,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person_name varchar(32) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) default '0',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;country_code char(1) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (id)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO persons VALUES (11, 'Marc', 'S', '');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO persons VALUES (15, 'Paul', 'S', 'C');<br />
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE relation (<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;src_table varchar(32) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;src_column varchar(32) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dest_table varchar(32) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dest_column varchar(32) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (src_table,src_column)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'town_code', 'towns', 'town_code');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'country_code', 'countries', 'country_code');<br />
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE towns (<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) NOT NULL default '0',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description varchar(30) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (town_code)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('S', 'Sherbrooke');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('M', 'Montréal');<br />
+    </tt>
+    <br />
+    Then test like this:
+    <ul>
+       <li>Click on your db name in the left frame</li>
+       <li>Choose &quot;Query by example&quot;</li>
+       <li>Use tables: persons, towns, countries</li>
+       <li>Click &quot;Update query&quot;</li>
+       <li>In the fields row, choose persons.person_name and click the 
+           &quot;Show&quot; tickbox </li>
+       <li>Do the same for towns.description and countries.descriptions in 
+           the other 2 columns</li>
+       <li>Click &quot;Update query&quot; and you will see in the query box
+           that the correct joints have been generated</li>
+       <li>Click &quot;Submit query&quot;</li>
+    </ul>
 </p>
 
 <a name="faqproject"></a>
