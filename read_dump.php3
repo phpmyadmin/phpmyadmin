@@ -344,6 +344,11 @@ if ($sql_query != '') {
         $sql_query_cpy = $sql_query = '';
     } else {
         $sql_query_cpy = implode(";\n", $pieces) . ';';
+         // Be nice with bandwidth... for now, an arbitrary limit of 500,
+         // could be made configurable but probably not necessary
+        if (strlen($sql_query_cpy) > 500) {
+            $sql_query_cpy = $sql_query = '';
+        }
     }
 
     // really run the query?
