@@ -56,4 +56,5 @@ if (!empty($show_comment)) {
     <?php
 } // end if
 
+echo "\n\n";
 ?>
