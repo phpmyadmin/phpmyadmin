@@ -27,7 +27,7 @@ function PMA_gpc_extract($array, &$target) {
          * Currently, the following variable names are rejected when found in
          * $_GET or $_POST: cfg and str*
          *
-         * Warning: this is also affects array keys:
+         * Warning: this also affects array keys:
          * Variables like $_GET['harmless']['cfg'] will also be rejected!
          */
         if ($key == 'cfg' || substr($key, 0, 3) == 'str') {
