@@ -200,6 +200,7 @@ $strKeepPass = 'Conserver le mot de passe';
 $strKeyname = 'Nom de la clé';
 $strKill = 'Supprimer';
 
+$strLandscape = 'Paysage';
 $strLength = 'Long.';
 $strLengthSet = 'Taille/Valeurs*';
 $strLimitNumRows = 'Nombre d\'enregistrements par page';
@@ -281,6 +282,7 @@ $strPdfNoTables = 'Pas de table !';
 $strPhp = 'Créer source PHP';
 $strPmaDocumentation = 'Documentation de phpMyAdmin';
 $strPmaUriError = 'Le paramètre <tt>$cfg[\'PmaAbsoluteUri\']</tt> DOIT être renseigné dans votre fichier de configuration !';
+$strPortrait = 'Portrait';
 $strPos1 = 'Début';
 $strPrevious = 'Précédent';
 $strPrimary = 'Primaire';
@@ -366,6 +368,7 @@ $strShow = 'Afficher';
 $strShowAll = 'Tout afficher';
 $strShowColor = 'Couleurs';
 $strShowCols = 'Afficher les colonnes';
+$strShowDatadictAs = 'Orientation du dictionnaire:';
 $strShowGrid = 'Grille';
 $strShowPHPInfo = 'Afficher les informations relatives à PHP';
 $strShowTableDimension = 'Dimension des tables';
@@ -439,7 +442,4 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strLandscape = 'Landscape';  //to translate
-$strPortrait = 'Portrait';  //to translate
 ?>
