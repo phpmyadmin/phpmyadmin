@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * in main directory: checks for paths disclosure
+      (TODO: subdirectories)
+
 2003-07-18 Garvin Hicking <me@supergarv.de>
     * read_dump.php3: When PHP3 < 4.3.0 is detected, try an alternative
       way of rewriting bookmark variables.
