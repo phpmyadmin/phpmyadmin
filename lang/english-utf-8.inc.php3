@@ -34,6 +34,7 @@ $strAfter = 'After %s';
 $strAfterInsertBack = 'Go back to previous page';
 $strAfterInsertNewInsert = 'Insert another new row';
 $strAll = 'All';
+$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 $strAlterOrderBy = 'Alter table order by';
 $strAnalyzeTable = 'Analyze table';
 $strAnd = 'And';
@@ -76,6 +77,7 @@ $strCheckTable = 'Check table';
 $strChoosePage = 'Please choose a Page to edit';
 $strColumn = 'Column';
 $strColumnNames = 'Column names';
+$strComments = 'Comments';  //to translate
 $strCompleteInserts = 'Complete inserts';
 $strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.';
 $strConfigureTableCoord = 'Please configure the coordinates for table %s';
@@ -275,6 +277,7 @@ $strQueryOnDb = 'SQL-query on database <b>%s</b>:';
 
 $strRecords = 'Records';
 $strReferentialIntegrity = 'Check referential integrity:';
+$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
 $strRelationView = 'Relation view';
 $strReloadFailed = 'MySQL reload failed.';
 $strReloadMySQL = 'Reload MySQL';
@@ -398,7 +401,4 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-$strComments = 'Comments';  //to translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>
