@@ -12,6 +12,8 @@ $Source$
 	  Renato Lins <TheBest at Information4u.com>.
 	* lib.inc.php3: fixed bug #458009 - Database list with advanced auth.,
 	  thanks to an anonymous contributor.
+	* db_readdump.php3, lines 101-104: removed non alphabetic characters from
+	  the beginning of the sql query submitted.
 
 2001-09-03  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/swedish.inc.php3 updates, thanks to Björn T. Hallberg

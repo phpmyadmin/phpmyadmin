@@ -98,7 +98,10 @@ if ($sql_query != '') {
 
     // Only one query to run
     if ($pieces_count == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
-        $sql_query = trim($pieces[0]);
+        // loic1: remove non alphabetic characters from the beginning of the
+        // query
+        // $sql_query = trim($pieces[0]);
+        $sql_query = eregi_replace('^[^a-aA-Z]', '', $pieces[0]);
         // sql.php3 will stripslash the query if get_magic_quotes_gpc
         if (get_magic_quotes_gpc() == 1) {
             $sql_query = addslashes($sql_query);
