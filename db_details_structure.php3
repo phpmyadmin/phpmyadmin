@@ -460,8 +460,9 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
 	<!-- PDF schema -->
     <?php
     // We only show this if we find something in the new pdf_pages table
+    // Note: there are no backquotes surrounding this field in the table
     $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
-                . ' WHERE db_name = \'' . PMA_backquote($db) . '\'';
+                . ' WHERE db_name = \''  . $db . '\'';
     $test_rs    = PMA_query_as_cu($test_query);
     if ($test_rs && mysql_num_rows($test_rs) > 0) {
         echo "\n";
