@@ -10,6 +10,7 @@ $Source$
       to home page
     * lang/georgian-utf-8, thanks to Kakha Mchedlidze <kakha at qartuli.com>
     * lang/polish updates, thanks to Jakub Wilk
+    * lang/galician updates, thanks to Xosé Calvo
 
 2002-06-20 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, *_links.php3, libraries/common.lib.php3: Implemented
