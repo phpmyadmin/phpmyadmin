@@ -324,6 +324,7 @@ while (list($key, $table) = each($the_tables)) {
                 list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free']);
                 list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
             } else {
+                unset($free_size, $free_unit);
                 list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
             }
             list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
