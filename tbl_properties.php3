@@ -499,7 +499,7 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE && isset($showtable)) {
         ?>
         <tr>
             <td colspan="3" align="center">
-                [<a href="sql.php3?<?php echo $url_query; ?>&pos=0&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>"><?php echo $strOptimizeTable; ?></a>]
+                [<a href="sql.php3?<?php echo $url_query; ?>&pos=0&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple"><?php echo $strOptimizeTable; ?></a>]
             </td>
         <tr>
         <?php
@@ -927,7 +927,7 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('CHECK TABLE ' . backquote($table)); ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('CHECK TABLE ' . backquote($table)); ?>&display=simple">
                     <?php echo $strCheckTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#CHECK_TABLE') . "\n"; ?>
             </td>
@@ -938,7 +938,7 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ANALYZE TABLE ' . backquote($table)); ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ANALYZE TABLE ' . backquote($table)); ?>&display=simple">
                     <?php echo $strAnalyzeTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#ANALYZE_TABLE') . "\n";?>
             </td>
@@ -954,7 +954,7 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('REPAIR TABLE ' . backquote($table)); ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('REPAIR TABLE ' . backquote($table)); ?>&display=simple">
                     <?php echo $strRepairTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#REPAIR_TABLE') . "\n"; ?>
             </td>
@@ -965,7 +965,7 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple">
                     <?php echo $strOptimizeTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
             </td>
@@ -1063,7 +1063,7 @@ else { // MySQL < 3.23
     <li style="vertical-align: top">
         <div style="margin-bottom: 10px">
         <?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple">
             <?php echo $strOptimizeTable; ?></a>&nbsp;
         <?php echo show_docu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
         </div>
