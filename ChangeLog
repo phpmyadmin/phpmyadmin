@@ -13,6 +13,10 @@ $Source$
           - line 363: fixed a js bug.
         * read_dump.php3: coding standards (ident. = 4 space characters).
         * main.php3, line 33; db_details.php3, line 50: added a <cr>.
+        * left.php3; libraries/function.js, left.js, user_details.js: patch
+          #501282 - JavaScript strict warnings.
+        * left.php3; lang/*: fixed a js error and ensured localized strings are
+          used.
 
 2002-01-18  Marc Delisle  <lem9@users.sourceforge.net>
         * Documentation.html, new download location for the RedHat PHP package,
