@@ -271,4 +271,7 @@ $strYes = "Sim";
 // V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 $strNotNumber = "This is not a number!";  //to translate
 $strNotValidNumber = " is not a valid row number!";  //to translate
+
+// export Zip (July 07, 2001, 19:48am)
+$strGzip = "Gzip";  //to translate
 ?>

@@ -271,4 +271,7 @@ $strBinaryDoNotEdit=" Binary - do not edit ";  //to translate
 $strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";  //to translate
 $strNotNumber = "This is not a number!";  //to translate
 $strNotValidNumber = " is not a valid row number!";  //to translate
+
+// export Zip (July 07, 2001, 19:48am)
+$strGzip = "Gzip";  //to translate
 ?>
