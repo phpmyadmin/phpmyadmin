@@ -30,11 +30,11 @@ $strAddToIndex = '·s¼W &nbsp;%s&nbsp; ²Õ¯Á¤ÞÄæ';
 $strAddUser = '·s¼W¨Ï¥ÎªÌ';
 $strAddUserMessage = '±z¤w·s¼W¤F¤@­Ó·s¨Ï¥ÎªÌ.';
 $strAffectedRows = '¼vÅT¦C¼Æ: ';
-$strAfter = 'After %s'; //should expressed in English
+$strAfter = '¦b %s ¤§«á';
 $strAfterInsertBack = 'ªð¦^';
 $strAfterInsertNewInsert = '·s¼W¤@µ§°O¿ý';
 $strAll = '¥þ³¡';
-$strAlterOrderBy = 'Alter table order by';
+$strAlterOrderBy = '®Ú¾ÚÄæ¦ì¤º®e±Æ§Ç°O¿ý¡G';
 $strAnalyzeTable = '¤ÀªR¸ê®Æªí';
 $strAnd = '»P';
 $strAnIndex = '¯Á¤Þ¤w¸g·s¼W¨ì %s';
@@ -147,6 +147,7 @@ $strHostEmpty = '½Ð¿é¤J¥D¾÷¦WºÙ!';
 
 $strIdxFulltext = '¥þ¤åÀË¯Á';
 $strIfYouWish = '¦pªG±z­n«ü©w¸ê®Æ¶×¤JªºÄæ¦ì¡A½Ð¿é¤J¥Î³r¸¹¹j¶}ªºÄæ¦ì¦WºÙ';
+$strIgnore = '©¿²¤';
 $strIndex = '¯Á¤Þ';
 $strIndexes = '¯Á¤Þ';
 $strIndexHasBeenDropped = '¯Á¤Þ %s ¤w³Q§R°£';
@@ -163,7 +164,7 @@ $strInvalidName = '"%s" ¬O¤@­Ó«O¯d¦r,±z¤£¯à±N«O¯d¦r¨Ï¥Î¬° ¸ê®Æ®w/¸ê®Æªí/Äæ¦ì ¦Wº
 
 $strKeepPass = '½Ð¤£­n§ó§ï±K½X';
 $strKeyname = 'Áä¦W';
-$strKill = 'Kill'; //¨t²Î«ü¥O¤£Â½
+$strKill = 'Kill'; //should expressed in English
 
 $strLength = 'ªø«×';
 $strLengthSet = 'ªø«×/¶°¦X*';
@@ -285,7 +286,7 @@ $strShowingRecords = 'Åã¥Ü°O¿ý';
 $strShowPHPInfo = 'Åã¥Ü PHP ¸ê°T';
 $strShowTables = 'Åã¥Ü¸ê®Æªí';
 $strShowThisQuery = '¦b³o¸Ì­«·sÅã¥Ü»yªk ';
-$strSingly = '(singly)';
+$strSingly = '(¥u·|±Æ§Ç²{®Éªº°O¿ý)';
 $strSize = '¤j¤p';
 $strSort = '±Æ§Ç';
 $strSpaceUsage = '¤w¨Ï¥ÎªÅ¶¡';
@@ -346,5 +347,4 @@ $strYes = ' ¬O ';
 $strZip = '"zipped"';
 
 // To translate
-$strIgnore = 'Ignore';
 ?>
