@@ -60,7 +60,9 @@ $strBrowse = 'Browse';
 $strBzip = '"bzipped"';
 
 $strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.';
+$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
+$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';
 $strCardinality = 'Cardinality';
 $strCarriage = 'Carriage return: \\r';
 $strChange = 'Change';
@@ -151,6 +153,7 @@ $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'has been altered.';
 $strHasBeenCreated = 'has been created.';
+$strHaveToShow = 'You have to choose at least one Column to display';
 $strHome = 'Home';
 $strHomepageOfficial = 'Official phpMyAdmin Homepage';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page';
@@ -198,6 +201,7 @@ $strModify = 'Modify';
 $strModifyIndexTopic = 'Modify an index';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
+$strMySQLCharset = 'MySQL Charset';
 $strMySQLReloaded = 'MySQL reloaded.';
 $strMySQLSaid = 'MySQL said: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% running on %pma_s2% as %pma_s3%';
@@ -392,8 +396,4 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
 ?>
