@@ -102,7 +102,7 @@ if (!isset($is_inside_querywindow) ||
         echo "\n";
         for ($i = 0 ; $i < $fields_cnt; $i++) {
             echo '                '
-                 . '<option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+                 . '<option value="' . htmlspecialchars($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
         }
     ?>
             </select>
