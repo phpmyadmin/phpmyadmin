@@ -47,9 +47,11 @@ if (isset($nopass)) {
         $common_url_query = PMA_generate_common_url();
 
         $err_url          = 'user_password.php?' . $common_url_query;
+	$hashing_function = (PMA_MYSQL_INT_VERSION >= 40102 && !empty($pw_hash) && $pw_hash == 'old' ? 'OLD_' : '')
+	                  . 'PASSWORD';
 
-        $sql_query        = 'SET password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
-        $local_query      = 'SET password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
+        $sql_query        = 'SET password = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
+        $local_query      = 'SET password = ' . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
         $result           = @PMA_DBI_try_query($local_query) or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, FALSE, $err_url);
 
         // Changes password cookie if required
@@ -127,6 +129,34 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
             <input type="password" name="pma_pw2" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
         </td>
     </tr>
+    <?php
+
+if (PMA_MYSQL_INT_VERSION >= 40102) {
+    ?>
+    <tr>
+        <td>
+	    <?php echo $strPasswordHashing; ?>:
+	</td>
+	<td>
+	    <input type="radio" name="pw_hash" id="radio_pw_hash_new" value="new" checked="checked" />
+	    <label for="radio_pw_hash_new">
+	        MySQL&nbsp;4.1
+	    </label>
+	</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+	<td>
+	    <input type="radio" name="pw_hash" id="radio_pw_hash_old" value="old" />
+	    <label for="radio_pw_hash_old">
+	        <?php echo $strCompatibleHashing; ?>
+	    </label>
+	</td>
+    </tr>
+    <?php
+}
+
+    ?>
     <tr>
         <td colspan="2">&nbsp;</td>
     </tr>

@@ -738,4 +738,6 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
+$strPasswordHashing = 'Password Hashing';  //to translate
+$strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';  //to translate
 ?>

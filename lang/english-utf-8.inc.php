@@ -733,4 +733,6 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strPasswordHashing = 'Password Hashing';  //to translate
+$strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';  //to translate
 ?>

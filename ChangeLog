@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2004-10-28 Alexander M. Turek  <me@derrabus.de>
+    * user_password.php, lang/*.inc.php: Allow usage of old password hashing
+      function.
+
 2004-10-27 Alexander M. Turek  <me@derrabus.de>
     * config.inc.php, libraries/config_import.lib.php,
       libraries/sqlparser.data.php: Added function OLD_PASSWORD().

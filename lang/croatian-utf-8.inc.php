@@ -761,4 +761,6 @@ $strSelectBinaryLog = 'Select binary log to view';  //to translate
 $strDBCopy = 'Copy database to';  //to translate
 $strCopyDatabaseOK = 'Database %s has been copied to %s';  //to translate
 $strSwitchToDatabase = 'Switch to copied database';  //to translate
+$strPasswordHashing = 'Password Hashing';  //to translate
+$strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';  //to translate
 ?>
