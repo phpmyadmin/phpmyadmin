@@ -435,8 +435,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Starting with version 2.5.2, the 'cookie' auth_type uses blowfish
         algorithm to encrypt the password.
         <br />
-        If at least one server configuration uses 'cookie' auth_type, enter
-        here a passphrase of your choice that will be used by blowfish.
+        If you are using the 'cookie' auth_type, enter here a random 
+        passphrase of your choice. It will be used internally by the blowfish
+        algorithm: you won't be prompted for this passphrase.
   </dd>
 
     <dt><b>$cfg['Servers']</b> array</dt>
