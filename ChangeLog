@@ -22,7 +22,9 @@ $Source$
       otherwise unmatched quotes cause problems (bug #978113).
     * libraries/common.lib.php: Use read_dump.php instead of sql.php for
       links, otherwise we'll fail on commas.
-    
+    * read_dump.php, libraries/read_dump.lib.php: Show last SELECT result also
+      when there are comments behind last query.
+
 2004-06-23 Marc Delisle  <lem9@users.sourceforge.net>
     * many files: remove references to older /images, and
       erase /images contents

@@ -23,6 +23,7 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
     $char         = '';
     $string_start = '';
     $in_string    = FALSE;
+    $nothing      = TRUE;
     $time0        = time();
 
     for ($i = 0; $i < $sql_len; ++$i) {
@@ -83,7 +84,8 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
         // We are not in a string, first check for delimiter...
         else if ($char == ';') {
             // if delimiter found, add the parsed part to the returned array
-            $ret[]      = substr($sql, 0, $i);
+            $ret[]      = array('query' => substr($sql, 0, $i), 'empty' => $nothing);
+            $nothing    = TRUE;
             $sql        = ltrim(substr($sql, min($i + 1, $sql_len)));
             $sql_len    = strlen($sql);
             if ($sql_len) {
@@ -97,8 +99,13 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
         // ... then check for start of a string,...
         else if (($char == '"') || ($char == '\'') || ($char == '`')) {
             $in_string    = TRUE;
+            $nothing      = FALSE;
             $string_start = $char;
         } // end else if (is start of string)
+
+        elseif ($nothing) {
+            $nothing = FALSE;
+        }
 
         // loic1: send a fake header each 30 sec. to bypass browser timeout
         $time1     = time();
@@ -110,7 +117,7 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
 
     // add any rest to the returned array
     if (!empty($sql) && preg_match('@[^[:space:]]+@', $sql)) {
-        $ret[] = $sql;
+        $ret[] = array('query' => $sql, 'empty' => $nothing);
     }
 
     return TRUE;

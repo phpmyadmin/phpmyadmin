@@ -223,7 +223,7 @@ if ($sql_query != '') {
         $save_bandwidth_pieces = $max_file_pieces;
     } else {
 
-        $sql_query_cpy = implode(";\n", $pieces) . ';';
+        $sql_query_cpy = $sql_query;
          // Be nice with bandwidth... for now, an arbitrary limit of 500,
          // could be made configurable but probably not necessary
         if (($max_nofile_length != 0 && (strlen($sql_query_cpy) > $max_nofile_length))
@@ -252,9 +252,14 @@ if ($sql_query != '') {
             $info_msg = '';
             $info_count = 0;
 
-            for ($i = 0; $i < $pieces_count; $i++) {
-                $a_sql_query = $pieces[$i];
-                if ($i == $pieces_count - 1 && preg_match('@^(SELECT|SHOW)@i', $a_sql_query)) {
+            // just skip last empty query (can contain just comments at the end)
+            $count = $pieces_count;
+            if ($pieces[$count - 1]['empty']) $count--;
+
+            for ($i = 0; $i < $count; $i++) {
+                $a_sql_query = $pieces[$i]['query'];
+
+                if ($i == $count - 1 && preg_match('@^(SELECT|SHOW)@i', $a_sql_query)) {
                     $complete_query = $sql_query;
                     $display_query = $sql_query;
                     $sql_query = $a_sql_query;
