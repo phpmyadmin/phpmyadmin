@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/portuguese update, thanks to Lopo Pizarro
+
 2002-08-01 Robin Johnson  <robbat2@users.sourceforge.net>
     * scripts/decode_bug.php3:
         - Improvements and PHP3 fixes thanks to Loic
