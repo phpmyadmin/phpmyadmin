@@ -39,6 +39,7 @@ if (!$is_backup) {
         echo "        <th>$strPrimary</th>\n";
         echo "        <th>$strIndex</th>\n";
         echo "        <th>$strUnique</th>\n";
+        echo "        <th>$strIdxFulltext</th>\n";
     } else {
         for ($i = 0; $i < $num_indexes; $i++) {
             echo "        <th>$strSequence</th>\n";
@@ -214,14 +215,20 @@ for ($i = 0 ; $i < $num_fields; $i++) {
                 $checked_primary = '';
             }
             if (isset($row) && isset($row['Key']) && $row['Key'] == 'MUL') {
-                $checked_index = ' checked="checked"';
+                $checked_index   = ' checked="checked"';
             } else {
-                $checked_index = '';
+                $checked_index   = '';
             }
             if (isset($row) && isset($row['Key']) && $row['Key'] == 'UNI') {
-                $checked_unique = ' checked="checked"';
+                $checked_unique   = ' checked="checked"';
             } else {
-                $checked_unique = '';
+                $checked_unique   = '';
+            }
+            if (MYSQL_INT_VERSION >= 32323
+                &&(isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
+                $checked_fulltext = ' checked="checked"';
+            } else {
+                $checked_fulltext = '';
             }
             echo "\n";
             ?>
@@ -235,6 +242,15 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             <input type="checkbox" name="field_unique[]" value="<?php echo $i; ?>"<?php echo $checked_unique; ?> />
         </td>
             <?php
+            if (MYSQL_INT_VERSION >= 32323) {
+                echo "\n";
+                ?>
+        <td nowrap="nowrap">
+            <input type="checkbox" name="field_fulltext[]" value="<?php echo $i; ?>"<?php echo $checked_fulltext; ?> />
+        </td>
+                <?php
+            } // end if (MYSQL_INT_VERSION >= 32323)
+            echo "\n";
         } // end if (empty($num_indexes))
     } // end if ($action ==...)
     echo "\n";
@@ -304,7 +320,7 @@ if ($action == 'tbl_create.php3' && MYSQL_INT_VERSION >= 32300) {
                 } // end if
             } // end while
         } // end if
-        mysql_free_result($tables);
+        mysql_free_result($result);
 
         echo "\n";
         ?>

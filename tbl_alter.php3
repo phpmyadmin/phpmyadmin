@@ -77,6 +77,7 @@ if (isset($submit)) {
     $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' CHANGE ' . $query;
     $result    = mysql_query($sql_query) or mysql_die();
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
+    $btnDrop   = 'Fake';
     include('./tbl_properties.php3');
     exit();
 }

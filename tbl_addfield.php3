@@ -124,6 +124,21 @@ if (isset($submit)) {
         }
     } // end if
      
+
+    // Builds the fulltext statements and updates the table
+    $fulltext = '';
+    if (MYSQL_INT_VERSION >= 32323 && isset($field_fulltext)) {
+        for ($i = 0; $i < count($field_fulltext); $i++) {
+            $j        = $field_fulltext[$i];
+            $fulltext .= backquote($field_name[$j]) . ', ';
+        } // end for
+        $fulltext = ereg_replace(', $', '', $fulltext);
+        if (!empty($fulltext)) {
+            $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
+            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $fulltext . ')') or mysql_die();
+        }
+    } // end if
+
     // Go back to table properties
     $message = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
     include('./tbl_properties.php3');

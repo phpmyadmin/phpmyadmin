@@ -130,7 +130,29 @@ if (isset($submit)) {
     if (!empty($unique)) {
         $unique = ', UNIQUE (' . $unique . ')';
     }
-    $query_keys = $primary . $index . $unique;
+
+    // Builds the fulltextes statements
+    if (!isset($fulltext)) {
+        $fulltext = '';
+    }
+    if (!isset($field_fulltext) || MYSQL_INT_VERSION < 32323) {
+        $field_fulltext = array();
+    }
+    for ($i = 0; $i < count($field_fulltext); $i++) {
+        $j = $field_fulltext[$i];
+        if (!empty($field_name[$j])) {
+            if (get_magic_quotes_gpc()) {
+                $field_name[$j] = stripslashes($field_name[$j]);
+            }
+           $fulltext .= backquote($field_name[$j]) . ', ';
+        }
+    } // end for
+    $fulltext = ereg_replace(', $', '', $fulltext);
+    if (!empty($fulltext)) {
+        $fulltext = ', FULLTEXT (' . $fulltext . ')';
+    }
+
+    $query_keys = $primary . $index . $unique . $fulltext;
     $query_keys = ereg_replace(', $', '', $query_keys);
 
     // Builds the 'create table' statement
