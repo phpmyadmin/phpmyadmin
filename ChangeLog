@@ -5,11 +5,16 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/estonian: Update thanks to Alvar Soome - finsoft.
+
 2005-03-18 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Updates.
 
 2005-03-17 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug #1165148, typo in Documentation.html
+    * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
+    * lang/galician: Updated, thanks to Xosé Calvo.
 
 2005-03-16 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php, tbl_alter.php, tbl_properties.inc.php,
