@@ -179,6 +179,10 @@ $cfg['UseDbSearch']           = TRUE;   // whether to enable the "database searc
 $cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the
                                         // current tables in the left frame.
 $cfg['ShowTooltip']           = TRUE;   // display table comment as tooltip in left frame
+$cfg['ShowTooltipAliasDB']    = FALSE;  // if ShowToolTip is enabled, this defines that table/db comments 
+$cfg['ShowTooltipAliasTB']    = FALSE;  // are shown (in the left menu and db_details_structure) instead of 
+                                        // table/db names
+
 $cfg['LeftDisplayLogo']       = TRUE;   // display logo at top of left frame
 
 // In the main frame, at startup...
@@ -362,9 +366,21 @@ $cfg['ModifyDeleteAtLeft']  = TRUE;         // show edit/delete links on left si
                                             // (or at the top with vertical browse)
 $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right side of browse
                                             // (or at the bottom with vertical browse)
-$cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
+$cfg['DefaultDisplay']      = 'horizontal'; // default display direction 
+                                            // (horizontal|vertical|horizontalflipped)
+$cfg['HeaderFlipType']		= 'css';        // table-header rotation via faking or css? (css|fake)
+$cfg['ShowBrowseComments']	= TRUE;         // shows stored relation-comments in 'browse' mode.
+$cfg['ShowPropertyComments']= TRUE;         // shows stored relation-comments in 'table property' mode.
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
+$cfg['QueryFrame']          = TRUE;         // displays a new frame where a link to a querybox is always displayed.
+$cfg['QueryFrameJS']        = TRUE;         // whether to use JavaScript functions for opening a new window for SQL commands.
+                                            // if set to 'false', the target of the querybox is always the right frame.
+$cfg['QueryFrameDebug']     = FALSE;        // display JS debugging link (DEVELOPERS only)
+$cfg['QueryFrameWidth']     = 750;          // Width of Query window
+$cfg['QueryFrameHeight']    = 300;          // Height of Query window
+ 
++$cfg['BrowseMIME']          = TRUE;         // Use MIME-Types (stored in column comments table) for
 
 /**
  * SQL Query box settings
