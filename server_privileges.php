@@ -913,7 +913,15 @@ if (empty($adduser) && empty($checkprivs)) {
            . '</h2>' . "\n";
         $oldPrivTables = FALSE;
         if (PMA_MYSQL_INT_VERSION >= 40002) {
-            $res = PMA_DBI_try_query('SELECT `User`, `Host`, IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\', `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv`, `Grant_priv`, `References_priv`, `Index_priv`, `Alter_priv`, `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv` FROM `user` ORDER BY `User` ASC, `Host` ASC;');
+            $sql_query = 'SELECT `User`, `Host`, IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\', `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv`, `Grant_priv`, `References_priv`, `Index_priv`, `Alter_priv`, `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv` FROM `user` ';
+ 
+            if (isset($initial)) {
+                $sql_query .= " WHERE `User` LIKE '" . $initial . "%'";
+            }
+
+            $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
+            $res = PMA_DBI_try_query($sql_query);
+
             if (!$res) {
                 // the query failed! This may have two reasons:
                 // - the user has not enough privileges
@@ -922,7 +930,15 @@ if (empty($adduser) && empty($checkprivs)) {
             }
         }
         if (empty($res) || PMA_MYSQL_INT_VERSION < 40002) {
-            $res = PMA_DBI_try_query('SELECT `User`, `Host`, IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\', `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Index_priv`, `Alter_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv` FROM `user`  ORDER BY `User` ASC, `Host` ASC;');
+            $sql_query = 'SELECT `User`, `Host`, IF(`Password` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . '\'\', \'N\', \'Y\') AS \'Password\', `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Index_priv`, `Alter_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv` FROM `user`';
+
+            if (isset($initial)) {
+                $sql_query .= " WHERE `User` LIKE '" . $initial . "%'";
+            }
+
+            $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
+            $res = PMA_DBI_try_query($sql_query);
+
             if (!$res) {
                 // the query failed! This may have two reasons:
                 // - the user has not enough privileges
@@ -943,95 +959,141 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '    Please run the script <tt>mysql_fix_privilege_tables</tt> that should be included in your MySQL server distribution to solve this problem!' . "\n"
                    . '</div><br />' . "\n";
             }
-            echo '<form name="usersForm" action="server_privileges.php" method="post">' . "\n"
-               . PMA_generate_common_hidden_inputs('', '', 1)
-               . '    <table border="0" cellpadding="2" cellspacing="1">' . "\n"
-               . '        <tr>' . "\n"
-               . '            <td></td>' . "\n"
-               . '            <th>&nbsp;' . $strUser . '&nbsp;</th>' . "\n"
-               . '            <th>&nbsp;' . $strHost . '&nbsp;</th>' . "\n"
-               . '            <th>&nbsp;' . $strPassword . '&nbsp;</th>' . "\n"
-               . '            <th>&nbsp;' . $strGlobalPrivileges . '&nbsp;</th>' . "\n"
-               . '            <th>&nbsp;' . $strGrantOption . '&nbsp;</th>' . "\n"
-               . '            ' . ($cfg['PropertiesIconic'] ? '<td>&nbsp;</td>' : '<th>' . $strAction . '</th>') . "\n";
-            echo '        </tr>' . "\n";
-            $useBgcolorOne = TRUE;
-            for ($i = 0; $row = PMA_DBI_fetch_assoc($res); $i++) {
-                echo '        <tr>' . "\n"
-                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $i . '" value="' . htmlspecialchars($row['User'] . $user_host_separator . $row['Host']) . '"' . (empty($checkall) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
-                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><label for="checkbox_sel_users_' . $i . '">' . (empty($row['User']) ? '<span style="color: #FF0000">' . $strAny . '</span>' : htmlspecialchars($row['User'])) . '</label></td>' . "\n"
-                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars($row['Host']) . '</td>' . "\n";
-                $privs = PMA_extractPrivInfo($row, TRUE);
-                echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Password'] == 'Y' ? $strYes : '<span style="color: #FF0000">' . $strNo . '</span>') . '</td>' . "\n"
-                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><tt>' . "\n"
-                   . '                ' . join(',' . "\n" . '            ', $privs) . "\n"
-                   . '            </tt></td>' . "\n"
-                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Grant_priv'] == 'Y' ? $strYes : $strNo) . '</td>' . "\n"
-                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '" align="center"><a href="server_privileges.php?' . $url_query . '&amp;username=' . urlencode($row['User']) . '&amp;hostname=' . urlencode($row['Host']) . '">';
-                if ($GLOBALS['cfg']['PropertiesIconic']) {
-                    echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_usredit.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strEditPrivileges . '" title="' . $strEditPrivileges . '" />';
-                } else {
-                    echo $strEditPrivileges;
-                }
-                echo '</a></td>' . "\n"
-                   . '        </tr>' . "\n";
-                $useBgcolorOne = !$useBgcolorOne;
+
+            /**
+            * Displays the initials
+            */
+
+            // for all initials, even non A-Z
+            $array_initials = array();
+
+            // initialize to FALSE the letters A-Z
+            for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
+                $array_initials[chr($letter_counter + 64)] = FALSE;
             }
-            @PMA_DBI_free_result($res);
-            unset($res);
-            unset ($row);
-            echo '        <tr>' . "\n"
-               . '            <td></td>' . "\n"
-               . '            <td colspan="5">' . "\n"
-               . '                &nbsp;<i>' . $strEnglishPrivileges . '</i>&nbsp;' . "\n"
-               . '            </td>' . "\n"
-               . '        </tr>' . "\n"
-               . '        <tr>' . "\n"
-               . '            <td colspan="6" valign="bottom">' . "\n"
-               . '                <img src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
-               . '                <a href="./server_privileges.php?' . $url_query .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', \'selected_usr\', true); return false;">' . $strCheckAll . '</a>' . "\n"
-               . '                &nbsp;/&nbsp;' . "\n"
-               . '                <a href="server_privileges.php?' . $url_query .  '" onclick="setCheckboxes(\'usersForm\', \'selected_usr\', false); return false;">' . $strUncheckAll . '</a>' . "\n"
-               . '            </td>' . "\n"
-               . '        </tr>' . "\n"
-               . '    </table>' . "\n"
-               . '    <br /><table border="0" cellpading="3" cellspacing="0">' . "\n"
-               . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td '
-               . ($cfg['PropertiesIconic'] ? 'colspan="3"><b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1"><img src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" hspace="2" border="0" align="middle" />' : 'width="20" nowrap="nowrap" align="center" valign="top"><b>&#8226;</b></td><td><b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1">' ). "\n"
-               . '            ' . $strAddUser . '</a></b>' . "\n"
-               . '            ' . "\n"
-               . '        </td></tr>' . "\n" . '        <tr><td colspan="2"></td></tr>'
-               . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td '
-               . ($cfg['PropertiesIconic'] ? 'colspan="3"><b><img src="' . $pmaThemeImage . 'b_usrdrop.png" width="16" height="16" hspace="2" border="0" align="middle" />' : 'width="20" nowrap="nowrap" align="center" valign="top"><b>&#8226;</b></td><td><b>' ). "\n"
-               . '            <b>' . $strRemoveSelectedUsers . '</b>' . "\n"
-               . '        </td></tr>' . "\n"
-               . '            <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td width="16" class="nowrap">&nbsp;</td><td valign="top"><input type="radio" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '" name="mode" id="radio_mode_1" value="1" checked="checked" /></td>' . "\n"
-               . '            <td><label for="radio_mode_1" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '">' . "\n"
-               . '                ' . $strJustDelete . "\n"
-               . '            </label></td></tr>' . "\n"
-               . '            <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td width="16" class="nowrap">&nbsp;</td><td valign="top"><input type="radio" title="' . $strRevokeAndDelete . ' ' . $strRevokeAndDeleteDescr . '" name="mode" id="radio_mode_2" value="2" /></td>' . "\n"
-               . '            <td><label for="radio_mode_2" title="' . $strRevokeAndDelete . ' ' . $strRevokeAndDeleteDescr . '">' . "\n"
-               . '                ' . wordwrap($strRevokeAndDelete,75,'<br />') . "\n"
-               . '            </label></td></tr>' . "\n"
-               . '            <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td width="16" class="nowrap">&nbsp;</td><td valign="top"><input type="radio" title="' . $strDeleteAndFlush . ' ' . $strDeleteAndFlushDescr . '" name="mode" id="radio_mode_3" value="3" /></td>' . "\n"
-               . '            <td><label for="radio_mode_3" title="' . $strDeleteAndFlush . ' ' . $strDeleteAndFlushDescr . '">' . "\n"
-               . '                ' . $strDeleteAndFlush . "\n"
-               . '            </label></td></tr>' . "\n"
-               . '            <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td width="16" class="nowrap">&nbsp;</td><td valign="top"><input type="checkbox" title="' . $strDropUsersDb . '" name="drop_users_db" id="checkbox_drop_users_db" /></td>' . "\n"
-               . '            <td><label for="checkbox_drop_users_db" title="' . $strDropUsersDb . '">' . "\n"
-               . '                ' . $strDropUsersDb . "\n"
-               . '            </label>' . "\n"
-               . '        </td></tr>' . "\n" . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="3" align="right">'
-               . '            <input type="submit" name="delete" value="' . $strGo . '" id="buttonGo" />' . "\n"
-               . '        </td></tr>' . "\n"
-               . '    </table>' . "\n"
-               . '</form>' . "\n"
-               . '<div class="tblWarn">' . "\n"
-               . '    ' . sprintf($strFlushPrivilegesNote, '<a href="server_privileges.php?' . $url_query . '&amp;flush_privileges=1">', '</a>') . "\n"
-               . '</div>' . "\n";
+
+            $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC');
+            while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
+                $array_initials[$tmp_initial] = TRUE;
+            }
+
+            // Display the initials, which can be any characters, not 
+            // just letters. For letters A-Z, we add the non-used letters
+            // as greyed out.
+
+            uksort($array_initials, "strnatcasecmp");
+            reset($array_initials);
+
+            echo '<table cellspacing="5" ><tr>';
+            foreach ($array_initials as $tmp_initial => $initial_was_found) {
+
+                if ($initial_was_found) {
+                    echo '<td><a href="' . $PHP_SELF . '?' . $url_query . '&amp;initial=' . urlencode($tmp_initial) . '" style="font-size:' . $font_bigger . '">' . $tmp_initial . '</a></td>' . "\n";
+                } else {
+                    echo '<td style="font-size:' . $font_bigger . '">' . $tmp_initial . '</td>';
+                }
+            }
+            echo '<td><a href="' . $PHP_SELF . '?' . $url_query . '&amp;showall=1" style="font-size:' . $font_bigger . '">[' . $strShowAll . ']</a></td>' . "\n";
+            echo '</tr></table>';
+
+            /**
+            * Displays the user overview 
+            */
+
+            if (isset($initial) || isset($showall) || PMA_DBI_num_rows($res) < 50) {
+
+                echo '<form name="usersForm" action="server_privileges.php" method="post">' . "\n"
+                   . PMA_generate_common_hidden_inputs('', '', 1)
+                   . '    <table border="0" cellpadding="2" cellspacing="1">' . "\n"
+                   . '        <tr>' . "\n"
+                   . '            <td></td>' . "\n"
+                   . '            <th>&nbsp;' . $strUser . '&nbsp;</th>' . "\n"
+                   . '            <th>&nbsp;' . $strHost . '&nbsp;</th>' . "\n"
+                   . '            <th>&nbsp;' . $strPassword . '&nbsp;</th>' . "\n"
+                   . '            <th>&nbsp;' . $strGlobalPrivileges . '&nbsp;</th>' . "\n"
+                   . '            <th>&nbsp;' . $strGrantOption . '&nbsp;</th>' . "\n"
+                   . '            ' . ($cfg['PropertiesIconic'] ? '<td>&nbsp;</td>' : '<th>' . $strAction . '</th>') . "\n";
+                echo '        </tr>' . "\n";
+                $useBgcolorOne = TRUE;
+                for ($i = 0; $row = PMA_DBI_fetch_assoc($res); $i++) {
+                    echo '        <tr>' . "\n"
+                       . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_' . $i . '" value="' . htmlspecialchars($row['User'] . $user_host_separator . $row['Host']) . '"' . (empty($checkall) ?  '' : ' checked="checked"') . ' /></td>' . "\n"
+                       . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><label for="checkbox_sel_users_' . $i . '">' . (empty($row['User']) ? '<span style="color: #FF0000">' . $strAny . '</span>' : htmlspecialchars($row['User'])) . '</label></td>' . "\n"
+                       . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars($row['Host']) . '</td>' . "\n";
+                    $privs = PMA_extractPrivInfo($row, TRUE);
+                    echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Password'] == 'Y' ? $strYes : '<span style="color: #FF0000">' . $strNo . '</span>') . '</td>' . "\n"
+                       . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><tt>' . "\n"
+                       . '                ' . join(',' . "\n" . '            ', $privs) . "\n"
+                       . '            </tt></td>' . "\n"
+                       . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Grant_priv'] == 'Y' ? $strYes : $strNo) . '</td>' . "\n"
+                       . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '" align="center"><a href="server_privileges.php?' . $url_query . '&amp;username=' . urlencode($row['User']) . '&amp;hostname=' . urlencode($row['Host']) . '">';
+                    if ($GLOBALS['cfg']['PropertiesIconic']) {
+                        echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_usredit.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strEditPrivileges . '" title="' . $strEditPrivileges . '" />';
+                    } else {
+                        echo $strEditPrivileges;
+                    }
+                    echo '</a></td>' . "\n"
+                       . '        </tr>' . "\n";
+                    $useBgcolorOne = !$useBgcolorOne;
+                }
+                @PMA_DBI_free_result($res);
+                unset($res);
+                unset ($row);
+                echo '        <tr>' . "\n"
+                   . '            <td></td>' . "\n"
+                   . '            <td colspan="5">' . "\n"
+                   . '                &nbsp;<i>' . $strEnglishPrivileges . '</i>&nbsp;' . "\n"
+                   . '            </td>' . "\n"
+                   . '        </tr>' . "\n"
+                   . '        <tr>' . "\n"
+                   . '            <td colspan="6" valign="bottom">' . "\n"
+                   . '                <img src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
+                   . '                <a href="./server_privileges.php?' . $url_query .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', \'selected_usr\', true); return false;">' . $strCheckAll . '</a>' . "\n"
+                   . '                &nbsp;/&nbsp;' . "\n"
+                   . '                <a href="server_privileges.php?' . $url_query .  '" onclick="setCheckboxes(\'usersForm\', \'selected_usr\', false); return false;">' . $strUncheckAll . '</a>' . "\n"
+                   . '            </td>' . "\n"
+                   . '        </tr>' . "\n"
+                   . '    </table>' . "\n"
+                   . '    <br /><table border="0" cellpading="3" cellspacing="0">' . "\n"
+                   . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td '
+                   . ($cfg['PropertiesIconic'] ? 'colspan="3"><b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1"><img src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" hspace="2" border="0" align="middle" />' : 'width="20" nowrap="nowrap" align="center" valign="top"><b>&#8226;</b></td><td><b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1">' ). "\n"
+                   . '            ' . $strAddUser . '</a></b>' . "\n"
+                   . '            ' . "\n"
+                   . '        </td></tr>' . "\n" . '        <tr><td colspan="2"></td></tr>'
+                   . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td '
+                   . ($cfg['PropertiesIconic'] ? 'colspan="3"><b><img src="' . $pmaThemeImage . 'b_usrdrop.png" width="16" height="16" hspace="2" border="0" align="middle" />' : 'width="20" nowrap="nowrap" align="center" valign="top"><b>&#8226;</b></td><td><b>' ). "\n"
+                   . '            <b>' . $strRemoveSelectedUsers . '</b>' . "\n"
+                   . '        </td></tr>' . "\n"
+                   . '            <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td width="16" class="nowrap">&nbsp;</td><td valign="top"><input type="radio" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '" name="mode" id="radio_mode_1" value="1" checked="checked" /></td>' . "\n"
+                   . '            <td><label for="radio_mode_1" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '">' . "\n"
+                   . '                ' . $strJustDelete . "\n"
+                   . '            </label></td></tr>' . "\n"
+                   . '            <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td width="16" class="nowrap">&nbsp;</td><td valign="top"><input type="radio" title="' . $strRevokeAndDelete . ' ' . $strRevokeAndDeleteDescr . '" name="mode" id="radio_mode_2" value="2" /></td>' . "\n"
+                   . '            <td><label for="radio_mode_2" title="' . $strRevokeAndDelete . ' ' . $strRevokeAndDeleteDescr . '">' . "\n"
+                   . '                ' . wordwrap($strRevokeAndDelete,75,'<br />') . "\n"
+                   . '            </label></td></tr>' . "\n"
+                   . '            <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td width="16" class="nowrap">&nbsp;</td><td valign="top"><input type="radio" title="' . $strDeleteAndFlush . ' ' . $strDeleteAndFlushDescr . '" name="mode" id="radio_mode_3" value="3" /></td>' . "\n"
+                   . '            <td><label for="radio_mode_3" title="' . $strDeleteAndFlush . ' ' . $strDeleteAndFlushDescr . '">' . "\n"
+                   . '                ' . $strDeleteAndFlush . "\n"
+                   . '            </label></td></tr>' . "\n"
+                   . '            <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td width="16" class="nowrap">&nbsp;</td><td valign="top"><input type="checkbox" title="' . $strDropUsersDb . '" name="drop_users_db" id="checkbox_drop_users_db" /></td>' . "\n"
+                   . '            <td><label for="checkbox_drop_users_db" title="' . $strDropUsersDb . '">' . "\n"
+                   . '                ' . $strDropUsersDb . "\n"
+                   . '            </label>' . "\n"
+                   . '        </td></tr>' . "\n" . '        <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="3" align="right">'
+                   . '            <input type="submit" name="delete" value="' . $strGo . '" id="buttonGo" />' . "\n"
+                   . '        </td></tr>' . "\n"
+                   . '    </table>' . "\n"
+                   . '</form>' . "\n"
+                   . '<div class="tblWarn">' . "\n"
+                   . '    ' . sprintf($strFlushPrivilegesNote, '<a href="server_privileges.php?' . $url_query . '&amp;flush_privileges=1">', '</a>') . "\n"
+                   . '</div>' . "\n";
+                } // end if (display overview)
         }
     } else {
+
         // A user was selected -> display the user's properties
+
         echo '<h2>' . "\n"
            . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_usredit.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
            . '    ' . $strUser . ' <i><a class="h2" href="server_privileges.php?' . $url_query . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '">\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</a></i>' . "\n";

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: top index for user initials
+
 2004-10-22 Alexander M. Turek
     * lang/english-*.inc.php: Grammar fix.
 
