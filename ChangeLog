@@ -21,6 +21,7 @@ $Source$
       possibly display server links also in right frame, show server links in
       query frame when possible.
     * libraries/display_export.lib.php: Fix broken choice switching.
+    * tbl_change.php: Fix wrong path to image.
 
 2004-06-15 Alexander M. Turek  <me@derrabus.de>
     * libraries/config_import.lib.php: The default settings should be merged.
