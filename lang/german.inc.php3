@@ -136,6 +136,7 @@ $strHomepageSourceforge = ' Sourceforge phpMyAdmin Download Homepage ';
 $strHost = 'Host';
 $strHostEmpty = 'Es wurde kein Host angegeben!';
 
+$strIdxFulltext = 'Volltext';
 $strIfYouWish = 'Wenn Sie nur bestimmte Spalten importieren möchten, geben Sie diese bitte hier an.';
 $strIndex = 'Index';
 $strIndexes = 'Indizes';
@@ -301,14 +302,13 @@ $strViewDump = 'Dump (Schema) der Tabelle anzeigen';
 $strViewDumpDB = 'Dump (Schema) der Datenbank anzeigen';
 
 $strWelcome = 'Willkommen bei ';
+$strWithChecked = 'markierte:';
 $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
 
 // To translate
-$strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strFullText = 'Full Texts';//to translate
-$strPartialText = 'Partial Texts';//to translate
-$strWithChecked = 'With checked:';
+$strPartialText = 'Partial Texts';
 ?>
