@@ -572,8 +572,13 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'table_ref'      => array()
         );
         $subresult_empty = $subresult;
-        $seek_queryend   = FALSE;
+        $seek_queryend         = FALSE;
         $seen_end_of_table_ref = FALSE;
+
+        // for SELECT EXTRACT(YEAR_MONTH FROM CURDATE())
+        // we must not use CURDATE as a table_ref
+        // so we track wether we are in the EXTRACT()
+        $in_extract          = FALSE;
 
 /* Description of analyzer results
  *
@@ -663,7 +668,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         // loop #1 for each token: select_expr, table_ref for SELECT
 
         for ($i = 0; $i < $size; $i++) {
-//echo "trace 1<b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
+//echo "trace <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
 
             // High speed seek for locating the end of the current query
             if ($seek_queryend == TRUE) {
@@ -682,6 +687,31 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 continue;
             } // end if (type == punct_queryend)
 
+// ==============================================================
+            if ($arr[$i]['type'] == 'punct_bracket_open_round') {
+                if ($in_extract) {
+                    $number_of_brackets_in_extract++;
+                }
+            }
+// ==============================================================
+            if ($arr[$i]['type'] == 'punct_bracket_close_round') {
+                if ($in_extract) {
+                    $number_of_brackets_in_extract--;
+                    if ($number_of_brackets_in_extract == 0) {
+                       $in_extract = FALSE;
+                    }
+                }
+            }
+// ==============================================================
+            if ($arr[$i]['type'] == 'alpha_functionName') {
+                $upper_data = strtoupper($arr[$i]['data']);
+                if ($upper_data =='EXTRACT') {
+                    $in_extract = TRUE;
+                    $number_of_brackets_in_extract = 0;
+                }
+            }
+
+// ==============================================================
             if ($arr[$i]['type'] == 'alpha_reservedWord') {
                 // We don't know what type of query yet, so run this
                 if ($subresult['querytype'] == '') {
@@ -704,10 +734,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     $previous_was_identifier = FALSE;
                     $current_select_expr = -1;
                     $seen_end_of_table_ref = FALSE;
-                    //$save_table_ref = TRUE;
                 } // end if ( data == SELECT)
 
-                if ($upper_data =='FROM') {
+                if ($upper_data =='FROM' && !$in_extract) {
                     $current_table_ref = -1;
                     $seen_from = TRUE;
                     $previous_was_identifier = FALSE;
@@ -966,6 +995,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         // This is a big hunk of debugging code by Marc for this.
         // -------------------------------------------------------
         /* 
+          if (isset($current_select_expr)) { 
            for ($trace=0; $trace<=$current_select_expr; $trace++) {
 
            echo "<br>";
@@ -973,6 +1003,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
            while (list ($key, $val) = each ($subresult['select_expr'][$trace])) 
            echo "sel expr $trace $key => $val<br />\n";
            }
+          }
+
+          if (isset($current_table_ref)) { 
            for ($trace=0; $trace<=$current_table_ref; $trace++) {
 
            echo "<br>";
@@ -980,6 +1013,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
            while (list ($key, $val) = each ($subresult['table_ref'][$trace])) 
            echo "table ref $trace $key => $val<br />\n";
            }
+          }
         */ 
         // -------------------------------------------------------
 
@@ -1020,22 +1054,19 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                    if ($first_reserved_word=='DROP' 
                        || $first_reserved_word == 'DELETE') {
                       $subresult['queryflags']['need_confirm'] = 1;
-                      break; 
                    }
                } else {
                    if ($upper_data=='DROP' && $first_reserved_word=='ALTER') {
                       $subresult['queryflags']['need_confirm'] = 1;
-                      break;
-                   } 
-                   if ($upper_data=='FROM' && $first_reserved_word=='SELECT') {
-                      $subresult['queryflags']['select_from'] = 1;
-                      break;
                    } 
                }
            }
 
         } // end for $i (loop #2)
 
+        if (isset($current_table_ref) && $current_table_ref > -1) { 
+            $subresult['queryflags']['select_from'] = 1;
+        }
 
         // They are naughty and didn't have a trailing semi-colon,
         // then still handle it properly

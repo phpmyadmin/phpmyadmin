@@ -94,27 +94,40 @@ $is_select = eregi('^SELECT[[:space:]]+', $sql_query);
 // $db and $table, to have correct page headers, links and left frame.
 // db and table name may be enclosed with backquotes, db is optionnal,
 // query may contain aliases.
-// (todo: check for embedded comments...)
 
-// (todo: if there are more than one table name in the Select:
+// (TODO: if there are more than one table name in the Select:
 // - do not extract the first table name
 // - do not show a table name in the page header
 // - do not display the sub-pages links)
 
-if ($is_select) {
-    eregi('^SELECT[[:space:]]+(.*)[[:space:]]+FROM[[:space:]]+(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
+//if ($is_select) {
+//    eregi('^SELECT[[:space:]]+(.*)[[:space:]]+FROM[[:space:]]+(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
+//
+//    if ($tmp[3] == '.') {
+//        $prev_db = $db;
+//        $db      = str_replace('`', '', $tmp[2]);
+//        $reload  = ($db == $prev_db) ? 0 : 1;
+//        $table   = str_replace('`', '', $tmp[4]);
+//    }
+//    else {
+//        $table   = str_replace('`', '', $tmp[2]);
+//    }
+//} // end if
 
-    if ($tmp[3] == '.') {
-        $prev_db = $db;
-        $db      = str_replace('`', '', $tmp[2]);
-        $reload  = ($db == $prev_db) ? 0 : 1;
-        $table   = str_replace('`', '', $tmp[4]);
+if ($is_select) {
+    $prev_db = $db;
+    if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name'])) {
+        $table = $analyzed_sql[0]['table_ref'][0]['table_true_name'];
+    }
+    if (isset($analyzed_sql[0]['table_ref'][0]['db']) 
+       && !empty($analyzed_sql[0]['table_ref'][0]['db'])) {
+        $db    = $analyzed_sql[0]['table_ref'][0]['db'];
     }
     else {
-        $table   = str_replace('`', '', $tmp[2]);
-    }
-} // end if
-
+        $db = $prev_db;
+    } 
+    $reload  = ($db == $prev_db) ? 0 : 1;
+}
 
 /**
  * Sets or modifies the $goto variable if required
@@ -381,6 +394,7 @@ else {
             }
         } // end rows total count
     } // end else "didn't ask to see php code"
+
 
     // No rows returned -> move back to the calling page
     if ($num_rows < 1 || $is_affected) {

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3, libraries/sqlparser.lib.php3: bug 664951, add
+      support for the EXTRACT ... FROM syntax which is not a real
+      SELECT ... FROM
+
 2003-01-09 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3, lang/*.inc.php3:
       - Forgot to implement "This host";
