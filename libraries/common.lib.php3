@@ -1267,7 +1267,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     <!--
     if (typeof(window.parent) != 'undefined'
         && typeof(window.parent.frames['nav']) != 'undefined') {
-        window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>' + window.parent.frames['nav'].document.hashform.hash.value);
+        window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>&hash=' + window.parent.frames['nav'].document.hashform.hash.value);
     }
     //-->
     </script>

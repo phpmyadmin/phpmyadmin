@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-22 Garvin Hicking <me@supergarv.de>
+    * libraries/common.lib.php3, main.php3, db_details_common.php3:
+      When reloading the frame, propagate hash value (for querywindow)
+
 2003-04-22 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_indexes.php3: bug 725711: FULLTEXT index type not shown
       in the drop-down box
