@@ -38,7 +38,7 @@ if (!defined('PMA_MYSQL_INT_VERSION') && isset($userlink)) {
     }
 
     if(!isset($row)) {
-        $row = '3.21.0';
+        $row['version'] = '3.21.0';
     }
 
     define('PMA_MYSQL_INT_VERSION', (int)sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2])));

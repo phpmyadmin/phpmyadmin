@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-22 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/defines.lib.php3: Small bugfix.
+    * libraries/defines_php.lib.php3: New constant: PMA_MYSQL_CLIENT_API.
+
 2003-03-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/transformations/text_plain__imagelink: display the
     * libraries/transformations/text_plain__link: the link was not
@@ -91,7 +95,7 @@ $Source$
     * pdf_pages.php3  will now check if the pdf_pages table has entries
       that reference tables that no longer exist. if it does user is prompted
       to delete them.
-      
+
 2003-03-17 Marc Delisle  <lem9@users.sourceforge.net>
     * user_password.php3, header.inc.php3, libraries/user_password.js:
       put back js functions for user password change (= old user_details.js)
@@ -106,7 +110,7 @@ $Source$
 
 2003-03-14 Garvin Hicking <me@supergarv.de>
     * libraries/display_tbl.lib.php3, db_details_importdocsql.php3: Fixed
-    '../' safety issues, display transformations only if file exists 
+    '../' safety issues, display transformations only if file exists
     (Bug #703555)
 
 2003-03-14 Robin Johnson  <robbat2@users.sourceforge.net>
@@ -114,7 +118,7 @@ $Source$
         - Typo fixes:
         s/RestricColumnTypes/RestrictColumnTypes/
         s/RestricFunctions/RestrictFunctions/
-    * scripts/create_tables.sql: 
+    * scripts/create_tables.sql:
         -  Neaten up SQL, add DROP TABLE/DATABASE cleanness
 
 2003-03-13 Alexander M. Turek  <rabus@users.sourceforge.net>

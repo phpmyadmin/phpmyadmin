@@ -8,6 +8,8 @@
  *    PMA_VERSION              (string) - phpMyAdmin version string
  *    PMA_PHP_INT_VERSION      (int)    - eg: 30017 instead of 3.0.17 or
  *                                        40006 instead of 4.0.6RC3
+ *    PMA_MYSQL_CLIENT_API     (int)    - the version number of the MySQL client
+ *                                          API which php is built against.
  *    PMA_IS_WINDOWS           (bool)   - mark if phpMyAdmin running on windows
  *                                        server
  *    PMA_IS_GD2               (bool)   - true is GD2 is present
@@ -35,6 +37,20 @@ if (!defined('PMA_PHP_INT_VERSION')) {
         define('PMA_PHP_INT_VERSION', 0);
     }
     define('PMA_PHP_STR_VERSION', phpversion());
+}
+
+// MySQL client API
+if (!defined('PMA_MYSQL_CLIENT_API')) {
+    if (function_exists('mysql_get_client_info')) {
+        $client_api = mysql_get_client_info();
+    } else {
+        // for compatibility with php <= 4.0.5
+        // expect the worst!
+        $client_api = '3.21.0';
+    }
+    $client_api = explode('.', $client_api);
+    define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
+    unset($client_api);
 }
 
 // Whether the os php is running on is windows or not
