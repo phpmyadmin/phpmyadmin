@@ -63,7 +63,9 @@ $strBrowse = 'Se på';
 $strBzip = 'Komprimert (bz2)';
 
 $strCantLoadMySQL = 'kan ikke starte MySQL modulen,<br />vennligst kontroller PHP konfigureringen.';
+$strCantLoadRecodeIconv = 'Kan ikke laste iconv eller recode modulen som trengs for tegnsett konvertering, konfigurer php slik at disse kan lastes eller slå av tegnsett konvertering i phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kan ikke endre indeks til PRIMARY!';
+$strCantUseRecodeIconv = 'Kan ikke bruke hverken iconv, libiconv og recode_string funktsjonene selv om modulene sier de er lastet. Sjekk din php konfigurasjon.';
 $strCardinality = 'Kardinalitet';
 $strCarriage = 'Linjeskift (Mac): \\r';
 $strChange = 'Endre';
@@ -75,6 +77,7 @@ $strCheckTable = 'Kontroller tabell';
 $strChoosePage = 'Vennligst velg en side for redigering';
 $strColumn = 'Kolonne';
 $strColumnNames = 'Kolonnenavn';
+$strComments = 'Kommentarer'; 
 $strCompleteInserts = 'Komplette innlegg';
 $strConfigFileError = 'phpMyAdmin kunne ikke lese din konfigurasjonsfil!<br />Dette kan skje hvis PHP finner en syntaksfeil eller ikke kan finne filen.<br />Vennligst kall opp konfigurasjonsfilen direkte via linken under og les PHP feilmeldingen(e) som du vil få. I de fleste tilfeller så mangler det et anførselstegn eller et semikolon et sted.<br />Hvis du får en blank side så er alt ok.';
 $strConfigureTableCoord = 'Vennligst konfigurer koordinatene for tabell %s';
@@ -154,6 +157,7 @@ $strGzip = 'Komprimert (gz)';
 
 $strHasBeenAltered = 'er endret.';
 $strHasBeenCreated = 'er opprettet.';
+$strHaveToShow = 'Du må velge minst en kolonne for visning';
 $strHome = 'Hjem';
 $strHomepageOfficial = 'Offisiell phpMyAdmin Hjemmeside';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin nedlastingsside';
@@ -195,11 +199,13 @@ $strLogout = 'Logg ut';
 $strLogPassword = 'Passord:';
 $strLogUsername = 'Brukernavn:';
 
+$strMissingBracket = 'Manglende parantes';
 $strModifications = 'Endringene er lagret';
 $strModify = 'Endre';
 $strModifyIndexTopic = 'Endre en indeks';
 $strMoveTable = 'Flytt tabell til (database<b>.</b>tabell):';
 $strMoveTableOK = 'Tabellen %s har blitt flyttet til %s.';
+$strMySQLCharset = 'MySQL tegnsett';
 $strMySQLReloaded = 'MySQL omstartet.';
 $strMySQLSaid = 'MySQL sa: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% som kjører på %pma_s2% som %pma_s3%';
@@ -396,10 +402,5 @@ $strYes = 'Ja';
 $strZip = 'Komprimert (zip)';
 
 // To translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
+
 ?>
