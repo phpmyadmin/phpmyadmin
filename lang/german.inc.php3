@@ -85,7 +85,7 @@ $strCreateNewTable = 'Neue Tabelle in Datenbank %s erstellen';
 $strCriteria = 'Kriterium';
 
 $strData = 'Daten';
-$strDatabase = 'Datenbank ';
+$strDatabase = 'Datenbank';
 $strDatabaseHasBeenDropped = 'Datenbank %s wurde gelöscht.';
 $strDatabases = 'Datenbanken';
 $strDatabasesStats = 'Statistiken über alle Datenbanken';
@@ -140,6 +140,7 @@ $strFullText = 'vollständige Textfelder';
 $strFunction = 'Funktion';
 
 $strGenTime = 'Erstellungszeit';
+$strGenBy = 'Erstellt von';
 $strGo = 'OK';
 $strGrants = 'Rechte';
 $strGzip = '"GZip komprimiert"';
@@ -327,6 +328,7 @@ $strSpaceUsage = 'Speicherplatzverbrauch';
 $strSplitWordsWithSpace = 'Die Wörter werden durch Leerzeichen (" ") getrennt.';
 $strSQL = 'SQL';
 $strSQLQuery = 'SQL-Befehl';
+$strSQLResult = 'SQL-Abfrageergebnis';
 $strStatement = 'Angaben';
 $strStrucCSV = 'CSV-Daten';
 $strStrucData = 'Struktur und Daten';

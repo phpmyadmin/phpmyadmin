@@ -64,14 +64,26 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         $do_display['ins_row']   = (string) $the_disp_mode[6];
         $do_display['bkm_form']  = (string) $the_disp_mode[7];
         $do_display['text_btn']  = (string) $the_disp_mode[8];
+        $do_display['pview_lnk'] = (string) $the_disp_mode[9];
 
         // 2. Display mode is not "false for all elements" -> updates the
         // display mode
-        if ($the_disp_mode != 'nnnn00000') {
+        if ($the_disp_mode != 'nnnn000000') {
+            // 2.0 Print view -> set all elements to FALSE!
+            if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
+                $do_display['edit_lnk']  = 'nn'; // no edit link
+                $do_display['del_lnk']   = 'nn'; // no delete link
+                $do_display['sort_lnk']  = (string) '0';
+                $do_display['nav_bar']   = (string) '0';
+                $do_display['ins_row']   = (string) '0';
+                $do_display['bkm_form']  = (string) '0';
+                $do_display['text_btn']  = (string) '0';
+                $do_display['pview_lnk'] = (string) '0';
+            }
             // 2.1 Statement is a "SELECT COUNT", a
             //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
             //     contains a "PROC ANALYSE" part
-            if ($GLOBALS['is_count'] || $GLOBALS['is_analyse'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
+            else if ($GLOBALS['is_count'] || $GLOBALS['is_analyse'] || $GLOBALS['is_maint'] || $GLOBALS['is_explain']) {
                 $do_display['edit_lnk']  = 'nn'; // no edit link
                 $do_display['del_lnk']   = 'nn'; // no delete link
                 $do_display['sort_lnk']  = (string) '0';
@@ -79,6 +91,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $do_display['ins_row']   = (string) '0';
                 $do_display['bkm_form']  = (string) '1';
                 $do_display['text_btn']  = (string) '0';
+                $do_display['pview_lnk'] = (string) '1';
             }
             // 2.2 Statement is a "SHOW..."
             else if ($GLOBALS['is_show']) {
@@ -99,6 +112,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $do_display['ins_row']   = (string) '0';
                 $do_display['bkm_form']  = (string) '1';
                 $do_display['text_btn']  = (string) '0';
+                $do_display['pview_lnk'] = (string) '1';
             }
             // 2.3 Other statements (ie "SELECT" ones) -> updates
             //     $do_display['edit_lnk'], $do_display['del_lnk'] and
@@ -130,6 +144,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             break;
                         }
                     } // end if (2.3.2)
+                    // 2.3.3 Always display print view link
+                    $do_display['pview_lnk'] = (string) '1';
                     $prev_table = $fields_meta[$i]->table;
                 } // end for
             } // end if..elseif...else (2.1 -> 2.3)
@@ -765,17 +781,23 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 echo '</tr>' . "\n";
             } // end if
 
-            $bgcolor = ($row_no % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
+            if (isset($GLOBALS['printview']) && ($GLOBALS['printview'] == '1')) {
+                $bgcolor = '#ffffff';
+            } else {
+                $bgcolor = ($row_no % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
+            }
 
             if ($disp_direction == 'horizontal') {
                 // loic1: pointer code part
                 $on_mouse     = '';
-                if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
-                    $on_mouse = ' onmouseover="setPointer(this, ' . $row_no . ', \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"'
-                              . ' onmouseout="setPointer(this, ' . $row_no . ', \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"';
-                }
-                if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
-                    $on_mouse .= ' onmousedown="setPointer(this, ' . $row_no . ', \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"';
+                if (!isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1')) {
+                    if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+                        $on_mouse = ' onmouseover="setPointer(this, ' . $row_no . ', \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"'
+                                  . ' onmouseout="setPointer(this, ' . $row_no . ', \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"';
+                    }
+                    if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
+                        $on_mouse .= ' onmousedown="setPointer(this, ' . $row_no . ', \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"';
+                    }
                 }
                 ?>
 <tr<?php echo $on_mouse; ?>>
@@ -1322,7 +1344,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // 2. ----- Displays the top of the page -----
 
         // 2.1 Displays a messages with position informations
-        if ($is_display['nav_bar'] == '1' && isset($pos_next)) {
+        if ($is_display['nav_bar'] == '1' && isset($pos_next) && (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1')) {
             if (isset($unlim_num_rows) && $unlim_num_rows != $total) {
                 $selectstring = ', ' . $unlim_num_rows . ' ' . $GLOBALS['strSelectNumRows'];
             } else {
@@ -1332,7 +1354,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             ? $total - 1
                             : $pos_next - 1;
             PMA_showMessage($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec ($total " . $GLOBALS['strTotal'] . $selectstring . ')');
-        } else {
+        } else if (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
             PMA_showMessage($GLOBALS['strSQLQuery']);
         }
 
@@ -1343,7 +1365,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         if ($is_display['nav_bar'] == '1') {
             PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_sql_query);
             echo "\n";
-        } else {
+        } else if (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
             echo "\n" . '<br /><br />' . "\n";
         }
 
@@ -1398,7 +1420,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         unset($vertical_display);
         ?>
 </table>
-<br />
         <?php
 
         echo "\n";
@@ -1406,9 +1427,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // 4. ----- Displays the navigation bar at the bottom if required -----
 
         if ($is_display['nav_bar'] == '1') {
+            echo '<br />' . "\n";
             PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_sql_query);
-        } else {
-            echo "\n" . '<br />' . "\n";
+        } else if (!isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
+            echo "\n" . '<br /><br />' . "\n";
         }
     } // end of the 'PMA_displayTable()' function
 

@@ -140,6 +140,7 @@ $strFullText = 'Textes complets';
 $strFunction = 'Fonction';
 
 $strGenTime = 'Généré le ';
+$strGenBy = 'Généré par';
 $strGo = 'Exécuter';
 $strGrants = 'Autres privilèges';
 $strGzip = '"gzippé"';
@@ -327,6 +328,7 @@ $strSpaceUsage = 'Espace utilisé';
 $strSplitWordsWithSpace = 'Séparer les mots par un espace (" ").';
 $strSQL = 'SQL';
 $strSQLQuery = 'requête SQL';
+$strSQLResult = 'Resultat de la requête SQL';
 $strStatement = 'Information';
 $strStrucCSV = 'Données CSV';
 $strStrucData = 'Structure et données';

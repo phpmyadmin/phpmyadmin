@@ -388,9 +388,13 @@ else {
         if (isset($show_query)) {
             unset($show_query);
         }
-        $js_to_run = 'functions.js';
-        include('./header.inc.php3');
-        include('./libraries/bookmark.lib.php3');
+        if (isset($printview) && $printview == '1') {
+            include('./header_printview.inc.php3');
+        } else {
+            $js_to_run = 'functions.js';
+            include('./header.inc.php3');
+            include('./libraries/bookmark.lib.php3');
+        }
 
         // Gets the list of fields properties
         while ($field = mysql_fetch_field($result)) {
@@ -403,40 +407,64 @@ else {
         if (empty($disp_mode)) {
             // see the "PMA_setDisplayMode()" function in
             // libraries/display_tbl.lib.php3
-            $disp_mode = 'urdr11110';
+            $disp_mode = 'urdr111101';
         }
         PMA_displayTable($result, $disp_mode);
         mysql_free_result($result);
 
-        // Displays "Insert a new row" link if required
-        if ($disp_mode[6] == '1') {
-            $lnk_goto  = 'sql.php3'
-                       . '?lang=' . $lang
-                       . '&amp;server=' . $server
-                       . '&amp;db=' . urlencode($db)
-                       . '&amp;table=' . urlencode($table)
-                       . '&amp;pos=' . $pos
-                       . '&amp;session_max_rows=' . $session_max_rows
-                       . '&amp;disp_direction=' . $disp_direction
-                       . '&amp;repeat_cells=' . $repeat_cells
-                       . '&amp;sql_query=' . urlencode($sql_query);
-            $url_query = 'lang=' . $lang
-                       . '&amp;server=' . $server
-                       . '&amp;db=' . urlencode($db)
-                       . '&amp;table=' . urlencode($table)
-                       . '&amp;pos=' . $pos
-                       . '&amp;session_max_rows=' . $session_max_rows
-                       . '&amp;disp_direction=' . $disp_direction
-                       . '&amp;repeat_cells=' . $repeat_cells
-                       . '&amp;sql_query=' . urlencode($sql_query)
-                       . '&amp;goto=' . urlencode($lnk_goto);
-
-            echo "\n\n";
-            echo '<!-- Insert a new row -->' . "\n";
+        if ($disp_mode[6] == '1' || $disp_mode[9] =='1') {
             echo '<p>' . "\n";
-            echo '    <a href="tbl_change.php3?' . $url_query . '">' . $strInsertNewRow . '</a>' . "\n";
+
+            // Displays "Insert a new row" link if required
+            if ($disp_mode[6] == '1') {
+                $lnk_goto  = 'sql.php3'
+                           . '?lang=' . $lang
+                           . '&amp;server=' . $server
+                           . '&amp;db=' . urlencode($db)
+                           . '&amp;table=' . urlencode($table)
+                           . '&amp;pos=' . $pos
+                           . '&amp;session_max_rows=' . $session_max_rows
+                           . '&amp;disp_direction=' . $disp_direction
+                           . '&amp;repeat_cells=' . $repeat_cells
+                           . '&amp;sql_query=' . urlencode($sql_query);
+                $url_query = '?lang=' . $lang
+                           . '&amp;server=' . $server
+                           . '&amp;db=' . urlencode($db)
+                           . '&amp;table=' . urlencode($table)
+                           . '&amp;pos=' . $pos
+                           . '&amp;session_max_rows=' . $session_max_rows
+                           . '&amp;disp_direction=' . $disp_direction
+                           . '&amp;repeat_cells=' . $repeat_cells
+                           . '&amp;sql_query=' . urlencode($sql_query)
+                           . '&amp;goto=' . urlencode($lnk_goto);
+
+                echo '    <!-- Insert a new row -->' . "\n"
+                   . '    <a href="tbl_change.php3' . $url_query . '">' . $strInsertNewRow . '</a>';
+                if ($disp_mode[9] == '1') {
+                    echo '<br />';
+                }
+                echo "\n";
+            } // end insert new row
+
+            // Displays "print view" link if required
+            if ($disp_mode[9] == '1') {
+                $url_query = '?lang=' . $lang
+                           . '&amp;server=' . $server
+                           . '&amp;db=' . urlencode($db)
+                           . '&amp;table=' . urlencode($table)
+                           . '&amp;pos=' . $pos
+                           . '&amp;session_max_rows=' . $session_max_rows
+                           . '&amp;disp_direction=' . $disp_direction
+                           . '&amp;repeat_cells=' . $repeat_cells
+                           . '&amp;printview=1'
+                           . (($dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
+                           . '&amp;sql_query=' . urlencode($sql_query);
+                echo '    <!-- Print view -->' . "\n"
+                   . '    <a href="sql.php3' . $url_query . '" target="_blank">' . $strPrintView . '</a>' . "\n";
+            }
+
             echo '</p>' . "\n";
-        } // end insert new row
+        }
 
         // Bookmark Support if required
         if ($disp_mode[7] == '1'
