@@ -180,30 +180,33 @@ if (!defined('PMA_IDX_INCLUDED')
          PMA_mysqlDie($strCantRenameIdxToPrimary, '', FALSE, $err_url);
     }
 
-    $sql_query         = 'ALTER TABLE ' . PMA_backquote($table);
+// $sql_query is the one displayed in the query box, don't use it when 
+// you need to generate a query in this script
+
+    $local_query         = 'ALTER TABLE ' . PMA_backquote($table);
 
     // Drops the old index
     if (!empty($old_index)) {
         if ($old_index == 'PRIMARY') {
-            $sql_query .= ' DROP PRIMARY KEY,';
+            $local_query .= ' DROP PRIMARY KEY,';
         } else {
-             $sql_query .= ' DROP INDEX ' . PMA_backquote($old_index) .',';
+             $local_query .= ' DROP INDEX ' . PMA_backquote($old_index) .',';
         }
     } // end if
 
     // Builds the new one
     switch ($index_type) {
         case 'PRIMARY':
-            $sql_query .= ' ADD PRIMARY KEY (';
+            $local_query .= ' ADD PRIMARY KEY (';
             break;
         case 'FULLTEXT':
-            $sql_query .= ' ADD FULLTEXT ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
+            $local_query .= ' ADD FULLTEXT ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
             break;
         case 'UNIQUE':
-            $sql_query .= ' ADD UNIQUE ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
+            $local_query .= ' ADD UNIQUE ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
             break;
         case 'INDEX':
-            $sql_query .= ' ADD INDEX ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
+            $local_query .= ' ADD INDEX ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
             break;
     } // end switch
     $index_fields         = '';
@@ -217,10 +220,10 @@ if (!defined('PMA_IDX_INCLUDED')
     if (empty($index_fields)){
         PMA_mysqlDie($strNoIndexPartsDefined, '', FALSE, $err_url);
     } else {
-        $sql_query .= $index_fields . ')';
+        $local_query .= $index_fields . ')';
     }
 
-    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+    $result    = PMA_mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
 
     include('./tbl_properties.php3');
@@ -460,16 +463,16 @@ else if (!defined('PMA_IDX_INCLUDED')
                  . '            </td>' . "\n";
 
             if ($index_name == 'PRIMARY') {
-                $sql_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY');
+                $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY');
                 $js_msg    = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP PRIMARY KEY';
                 $zero_rows = urlencode($strPrimaryKeyHasBeenDropped);
             } else {
-                $sql_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP INDEX ' . PMA_backquote($index_name));
+                $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP INDEX ' . PMA_backquote($index_name));
                 $js_msg    = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP INDEX ' . PMA_jsFormat($index_name);
                 $zero_rows = urlencode(sprintf($strIndexHasBeenDropped, htmlspecialchars($index_name)));
             }
             echo $index_td
-                 . '                <a href="sql.php3?' . $url_query . '&amp;sql_query=' . $sql_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $strDrop . '</a>' . "\n"
+                 . '                <a href="sql.php3?' . $url_query . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $strDrop . '</a>' . "\n"
                  . '            </td>' . "\n";
 
             echo $index_td
