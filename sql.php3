@@ -8,6 +8,13 @@
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
 
+/**
+ * Bookmark Add
+ */
+if(isset($bookmarkthis)) {
+	add_bookmarks($fields, $cfgBookmark);
+	Header("Location: $goto");
+}
 
 /**
  * Gets the true sql query
@@ -203,12 +210,13 @@ else {
             if ($cfgBookmark['db'] && $cfgBookmark['table'] && empty($id_bookmark)) {
                 echo "\n";
                 echo '<!-- Bookmark the query -->' . "\n";
-                echo '<form method="post" action="tbl_replace.php3">' . "\n";
+                echo '<form method="post" action="sql.php3">' . "\n";
                 if ($display != 'bkmOnly') {
                     echo '    <i>' . $strOr . '</i>' . "\n";
                 }
                 echo '    <br /><br />' . "\n";
                 echo '    ' . $strBookmarkLabel . '&nbsp;:' . "\n";
+               
                 $goto = 'sql.php3'
                       . '?lang=' . $lang
                       . '&server=' . urlencode($server)
@@ -218,17 +226,12 @@ else {
                       . '&sql_query=' . urlencode($full_sql_query)
                       . '&id_bookmark=1';
                 ?>
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="db" value="<?php echo $cfgBookmark['db']; ?>" />
-    <input type="hidden" name="table" value="<?php echo $cfgBookmark['table']; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-    <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
-    <input type="hidden" name="funcs[id]" value="NULL" />
-    <input type="hidden" name="fields[dbase]" value="<?php echo $db; ?>" />
-    <input type="hidden" name="fields[query]" value="<?php echo isset($sql_query) ? urlencode($full_sql_query) : ''; ?>" />
-    <input type="text" name="fields[label]" value="" />
-    <input type="hidden" name="sql_query" value="" />
+    <input type="hidden" name="bookmarkthis" value="true" />
+    <input type="hidden" name="fields[dbase]" value="<?php echo $db;?>" />
+    <input type="hidden" name="fields[user]" value="<?php echo $cfgBookmark['user'];?>" />
+    <input type="hidden" name="fields[query]" value="<?php echo isset($sql_query) ? $sql_query : "";?>" />
+    <input type="text"   name="fields[label]" value="">
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
 </form>
                 <?php

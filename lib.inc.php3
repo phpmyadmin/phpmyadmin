@@ -1539,52 +1539,28 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     /**
      * Defines the bookmark parameters for the current user
      *
-     * @return  array    the bookmark parameters for the current user
-     *
-     * @global  array    the list of servers settings defined in the
-     *                   configuration file
      * @global  array    the list of settings for the current server
      * @global  integer  the id of the current server
+     *
+     * @return  array    the bookmark parameters for the current user
      */
     function get_bookmarks_param()
     {
-        global $cfgServers;
-        global $cfgServer;
+     	global $cfgServer;
         global $server;
+    	
+        $cfgBookmark=false;
+        $cfgBookmark="";
+    
+    	// No server selected -> no bookmark table
 
-        $cfgBookmark = FALSE;
-        $cfgBookmark = '';
-
-        // No server selected -> no bookmark table
         if ($server == 0) {
             return '';
-        }
-    
-        // Defines the hostname, database and table to use for bookmarks 
-        $i = 1;
-        while ($i <= sizeof($cfgServers)) {
-            // Advanced authentification mode
-            if ($cfgServer['adv_auth']) {
-                if (($cfgServers[$i]['host'] == $cfgServer['host'] || $cfgServers[$i]['host'] == '')
-                    && $cfgServers[$i]['adv_auth'] == TRUE && $cfgServers[$i]['stduser'] == $cfgServer['user'] && $cfgServers[$i]['stdpass'] == $cfgServer['password']) {
-                    $cfgBookmark['db']    = $cfgServers[$i]['bookmarkdb'];
-                    $cfgBookmark['table'] = $cfgServers[$i]['bookmarktable'];
-                    break;
-                }
-            } // end advanced authentification
-
-            // No authentification
-            else {
-                if (($cfgServers[$i]['host'] == $cfgServer['host'] || $cfgServers[$i]['host'] == '')
-                    && $cfgServers[$i]['adv_auth'] == FALSE && $cfgServers[$i]['user'] == $cfgServer['user'] && $cfgServers[$i]['password'] == $cfgServer['password']) {
-                    $cfgBookmark['db']    = $cfgServers[$i]['bookmarkdb'];
-                    $cfgBookmark['table'] = $cfgServers[$i]['bookmarktable'];
-                    break;
-                }
-            } // end no authentification
-
-            $i++;
-        } // end while
+    	}
+        
+    	$cfgBookmark['user']=$cfgServer['user'];
+        $cfgBookmark['db']=$cfgServer['bookmarkdb'];
+    	$cfgBookmark['table']=$cfgServer['bookmarktable'];
 
         return $cfgBookmark;
     } // end of the 'get_bookmarks_param()' function
@@ -1595,27 +1571,37 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      *
      * @param   string   the current database name
      * @param   array    the bookmark parameters for the current user
+     * @global	link     a MySQL link identifier
      *
      * @return  array    the bookmarks list
      */
     function list_bookmarks($db, $cfgBookmark)
     {
-        $query  = 'SELECT label, id FROM '. backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
-                . ' WHERE dbase = \'' . str_replace('\'', '\\\'', $db) . '\'';
-        $result = mysql_query($query);
-
+    	global $dbh;
+    	
+        $query ='SELECT label, id FROM '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
+               .' WHERE dbase=\'' . str_replace('\'', '\\\'', $db) . '\''.' AND user=\''.backquote($cfgBookmark['user']).'\'';
+                       
+        if(isset($dbh))
+            $result=mysql_query($query,$dbh);
+        else
+            $result=mysql_query($query);
+        
         // There is some bookmarks -> store them
-        if ($result > 0 && mysql_num_rows($result) > 0) {
+        if($result>0 && mysql_num_rows($result)>0)
+        {
             $flag = 1;
-            while ($row = mysql_fetch_row($result)) {
-                $bookmark_list[$flag . ' - ' . $row[0]] = $row[1];
+            while($row = mysql_fetch_row($result))
+            {
+                $bookmark_list["$flag - ".$row[0]] = $row[1];
                 $flag++;
-            } // end while
-            return $bookmark_list;
+            }
+            
+            return	$bookmark_list;
         }
         // No bookmarks for the current database
         else {
-            return FALSE;
+        	return false;
         }
     } // end of the 'list_bookmarks()' function
 
@@ -1626,19 +1612,47 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      * @param   string   the current database name
      * @param   array    the bookmark parameters for the current user
      * @param   integer  the id of the bookmark to get
+     * @global	link     a MySQL link identifier
      *
      * @return  string   the sql query
      */
     function query_bookmarks($db, $cfgBookmark, $id)
     {
-        $query          = 'SELECT query FROM ' . backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
-                        . ' WHERE dbase = \'' . str_replace('\'', '\\\'', $db) . '\' AND id = ' . $id;
-        $result         = mysql_query($query);
-        $bookmark_query = mysql_result($result, 0, 'query');
+        global $dbh;
+        
+        $query ='SELECT query FROM '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
+	       .' WHERE dbase=\'' . str_replace('\'', '\\\'', $db) . '\''.' AND id = ' . $id .' AND user=\''.backquote($cfgBookmark['user']).'\'';
 
-        return $bookmark_query;
+        if(isset($dbh))
+	    	$result=mysql_query($query,$dbh);
+	else
+	        $result=mysql_query($query);
+	$bookmark_query=mysql_result($result,0,"query");
+    	return $bookmark_query;
     } // end of the 'query_bookmarks()' function
+    
+    /**
+     * Add a bookmark
+     *
+     * @param   string   the current database name
+     * @param   array    the bookmark parameters for the current user
+     * @param   integer  the id of the bookmark to get
+     * @global	link     a MySQL link identifier
+     *
+     * @return  string   the sql query
+     */
+    function add_bookmarks($fields, $cfgBookmark)
+    {
+     	global $dbh;
+     	
+     	$query ='INSERT INTO '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
+	       .' (id, dbase, user, query, label) VALUES (\'\',\''.backquote($fields['dbase']).'\',\''.backquote($fields['user']).'\',\''.backquote($fields['query']).'\',\''.backquote($fields['label']).'\')';
 
+       	if(isset($dbh))
+    		$result=mysql_query($query,$dbh);
+    	else
+    		$result=mysql_query($query);
+    } // end of the 'add_bookmarks()' function    
 
     /**
      * Deletes a bookmark
@@ -1646,14 +1660,21 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      * @param   string   the current database name
      * @param   array    the bookmark parameters for the current user
      * @param   integer  the id of the bookmark to get
+     * @global	link     a MySQL link identifier
      *
      * @return  string   the sql query
      */
     function delete_bookmarks($db, $cfgBookmark, $id)
     {
-        $query  = 'DELETE FROM ' . backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
-                . ' WHERE id = ' . $id;
-        $result = mysql_query($query);
+    	global $dbh;
+    	
+    	$query ='DELETE FROM '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
+    	       .' WHERE id = ' . $id .' AND user=\''.backquote($cfgBookmark['user']).'\'';
+
+        if(isset($dbh))
+        	$result=mysql_query($query,$dbh);
+        else
+        	$result=mysql_query($query);
     } // end of the 'delete_bookmarks()' function
 
 
@@ -1665,7 +1686,6 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      * Bookmark Support
      */
     $cfgBookmark = get_bookmarks_param();
-
 
 } // $__LIB_INC__
 

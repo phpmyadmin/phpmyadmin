@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-31  Armel Fauveau <armel.fauveau@globalis-ms.com>
+	* bookmark support now advanced auth
+
 2001-07-31  Marc Delisle  <lem9@users.sourceforge.net>
         * tbl_change.php3: extra characters were being inserted into blobs
 	* db_details.php3: bad link, thanks Steve!
