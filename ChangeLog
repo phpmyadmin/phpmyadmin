@@ -8,6 +8,7 @@ $Source$
 2002-06-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.inc.php3, line 1413: xhtml fix.
     * libraries/fpdf/fpdf.php3: light optimizations and fixes.
+    * sql.php3, lines 509-522: do print the page in "printview" mode.
 
 2002-06-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3, lines 440-441; Documentation.html;

@@ -505,6 +505,21 @@ else {
 </form>
             <?php
         } // end bookmark support
+
+        // Do print the page if required
+        if (isset($printview) && $printview == '1') {
+        	echo "\n";
+            ?>
+<script type="text/javascript" language="javascript1.2">
+<!--
+// Do print the page
+if (typeof(window.print) != 'undefined') {
+    window.print();
+}
+//-->
+</script>
+            <?php
+        } // end print case
     } // end rows returned
 
 } // end executes the query
