@@ -1558,7 +1558,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
        PHP 4.2.0 or 4.2.1 loaded as an Apache 2+ module but can't enter the
        script: I'm always displayed the login screen.</b>
     <br />
-    This is a kown PHP bug (see this
+    This is a known PHP bug (see this
     <a href="http://bugs.php.net/bug.php?id=16626">bug report</a>) from the
     official php bug database. It means there is and won't be any phpMyAdmin
     fix against it because there is no way to code a fix.
@@ -1801,6 +1801,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     Next, save the file and restart the MySQL service. You can always check the
     value of this directive using the query<br />
     <tt>SHOW VARIABLES LIKE 'lower_case_table_names';</tt>
+</p>
+
+<p>
+    <b>[1.24] Some characters are being truncated in my queries, or I get
+       characters randomly added.  I am running PHP 4.2.3.</b>
+    <br />
+    This is a
+    <a href="http://bugs.php.net/bug.php?id=19404">PHP 4.2.3 bug</a>.
 </p>
 
 <a name="faqconfig"></a>
