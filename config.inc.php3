@@ -211,6 +211,7 @@ $cfgFunctions = array(
    'PERIOD_ADD',
    'PERIOD_DIFF',
    'TO_DAYS',
+   'UNIX_TIMESTAMP',
    'USER',
    'WEEKDAY'
 );
