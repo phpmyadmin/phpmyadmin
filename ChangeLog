@@ -18,6 +18,8 @@ $Source$
     * chk_rel.php3, db_details_structure.php3, Documentation.html,
       pdf_pages.php3, pdf_shema.php3, libraries/select_lang.lib.php3:
       commits for Loic
+    * tbl_properties.php3, tbl_properties_structure.php3, 
+      new tbl_query_box.php3: query box at the bottom of the structure page 
 
 2002-07-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3: Added
