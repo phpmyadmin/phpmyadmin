@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
+
 2003-12-18 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relation.php: bug 860258: do not destroy foreign key references
       to another db (still cannot enter via phpMyAdmin this kind of
