@@ -178,8 +178,13 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         break;
                     }
 
-                    if (PMA_STR_charIsEscaped($sql, $pos)) {
+                    // Check for MySQL escaping using a \
+                    // And check for ANSI escaping using the $quotetype character
+                    if (PMA_STR_charIsEscaped($sql, $pos) ) {
                         $pos ++;
+                        continue;
+                    } else if (($sql[$pos] == $quotetype) && ($sql[$pos+1] == $quotetype)) {
+                        $pos = $pos + 2;
                         continue;
                     } else {
                         break;
@@ -533,33 +538,50 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
     function PMA_SQP_formatHtml($arr)
     {
-        $str                               = '<span class="syntax">';
-        $indent                            = 0;
-        $bracketlevel                      = 0;
-        $functionlevel                     = 0;
-        $infunction                        = FALSE;
-        $space_punct_listsep               = ' ';
-        $space_punct_listsep_function_name = ' ';
+        $str                                        = '<span class="syntax">';
+        $indent                                     = 0;
+        $bracketlevel                               = 0;
+        $functionlevel                              = 0;
+        $infunction                                 = FALSE;
+        $space_punct_listsep                        = ' ';
+        $space_punct_listsep_function_name          = ' ';
         // $space_alpha_reserved_word = '<br />'."\n";
-        $space_alpha_reserved_word         = ' ';
-        $keywords_with_brackets            = array(
+        $space_alpha_reserved_word                  = ' ';
+
+        $keywords_with_brackets_1before            = array(
+            'INDEX',
+            'ON',
+            'USING'
+        );
+        $keywords_with_brackets_1before_cnt        = 3;
+            
+        $keywords_with_brackets_2before            = array(
+            'IGNORE',
             'INDEX',
             'INTO',
             'KEY',
             'PRIMARY',
             'PROCEDURE',
             'REFERENCES',
-            'UNIQUE'
+            'UNIQUE',
+            'USE',
         );
-        // $keywords_with_brackets_cnt = count($keywords_with_brackets);
-        $keywords_with_brackets_cnt        = 6;
-        $keywords_for_math                 = array(
+        // $keywords_with_brackets_2before_cnt = count($keywords_with_brackets_2before);
+        $keywords_with_brackets_2before_cnt        = 9;
+
+        // These reserved words do NOT get a newline placed near them.
+        $keywords_no_newline               = array(
             'AND',
+            'AS',
+            'ASC',
+            'DESC',
+            'IS',
             'NOT',
             'NULL',
+            'ON',
             'OR'
         );
-        $keywords_for_math_cnt             = 4;
+        $keywords_no_newline_cnt           = 9;
 
         $arraysize = $arr['len'];
         $typearr   = array();
@@ -604,7 +626,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     // Make sure this array is sorted!
                     if (($typearr[1] == 'alpha_functionName') || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct')
                         || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex') || ($typearr[3] == 'digit_float')
-                        || (($typearr[0] == 'alpha_reservedWord') && ( PMA_STR_binarySearchInArr(strtoupper($arr[$i - 2]['data']), $keywords_with_brackets, $keywords_with_brackets_cnt)))) {
+                        || (($typearr[0] == 'alpha_reservedWord') 
+                            && PMA_STR_binarySearchInArr(strtoupper($arr[$i - 2]['data']), $keywords_with_brackets_2before, $keywords_with_brackets_2before_cnt))
+                        || (($typearr[1] == 'alpha_reservedWord') 
+                            && PMA_STR_binarySearchInArr(strtoupper($arr[$i - 1]['data']), $keywords_with_brackets_1before, $keywords_with_brackets_1before_cnt))
+                        ) {
                         $functionlevel++;
                         $infunction = TRUE;
                         $after      .= ' ';
@@ -655,6 +681,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     if ($infunction == TRUE) {
                         $functionlevel--;
                         $after     .= ' ';
+                        $before .= ' ';
                     } else {
                         $indent--;
                         $before    .= '</div>';
@@ -665,10 +692,17 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     if ($typearr[3] == 'alpha_columnAttrib') {
                         $after     .= ' ';
                     }
+                    if ($typearr[1] == 'alpha_columnType') {
+                        $before .= ' ';
+                    }
                     break;
                 case 'alpha_reservedWord':
                     $upper         = $arr[$i]['data'];
-                    if (($typearr[1] != 'alpha_reservedWord') && ($typearr[1] != 'punct_level_plus')  && (!PMA_STR_binarySearchInArr($upper, $keywords_for_math, $keywords_for_math_cnt))) {
+                    if ((($typearr[1] != 'alpha_reservedWord') 
+                        || (($typearr[1] == 'alpha_reservedWord') 
+                            && PMA_STR_binarySearchInArr(strtoupper($arr[$i-1]['data']), $keywords_no_newline, $keywords_no_newline_cnt)))
+                        && ($typearr[1] != 'punct_level_plus')  
+                        && (!PMA_STR_binarySearchInArr($upper, $keywords_no_newline, $keywords_no_newline_cnt))) {
                         $before    .= $space_alpha_reserved_word;
                     } else {
                         $before    .= ' ';

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-26 Robin Johnson  <robbat2@users.sourceforge.net> 
+    * libraries/sqlparser.lib.php3:
+        - Fixed ANSI type string escaping
+        - Fixed formatting wrt. whitespace in FormatHTML
+    
 2002-07-26 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: numbers for faq entries
 
@@ -16,7 +21,7 @@ $Source$
     * header.inc.php3, lines 155-156: better "fix" against bug
       #585094 (Runtime Error on Line 62).
 
-2002-07-24 Robin Johnson  <robbat2@users.sourceforge.net>
+2002-07-25 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3:
         - Fix code to work around CSS bug in Mozilla/Konqueror with 'inherit'
           value.
