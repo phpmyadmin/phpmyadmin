@@ -266,16 +266,21 @@ if ($index_count > 0) {
 ?>
 <?php
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
-if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type != 'INNODB' && isset($showtable)) {
+$nonisam=false;
+if (!eregi("ISAM", $showtable['Type'])) $nonisam=true;
+if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $nonisam==false && isset($showtable)) {
     // Gets some sizes
-    $mergetable     = FALSE;
-    if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
-        $mergetable = TRUE;
+    $mergetable=false;
+    if (isset($showtable['Type']) && $showtable['Type']=="MRG_MyISAM") {
+        $mergetable=true;
     }
-    list($data_size, $data_unit)       = format_byte_down($showtable['Data_length']);
-    if ($mergetable == FALSE) {
+
+    list($data_size, $data_unit)      = format_byte_down($showtable['Data_length']);
+
+    if ($mergetable==false) {
         list($index_size, $index_unit) = format_byte_down($showtable['Index_length']);
     }
+
     if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
         list($free_size, $free_unit)   = format_byte_down($showtable['Data_free']);
     }

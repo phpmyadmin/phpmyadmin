@@ -129,30 +129,42 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     </td>
         <?php
         echo "\n";
-        $mergetable     = FALSE;
-        if (isset($sts_data['Type']) && $sts_data['Type'] == 'MRG_MyISAM') {
-            $mergetable = TRUE;
+  $mergetable=false;
+  $nonisam=false;
+	if (isset($sts_data['Type'])) {
+		if ($sts_data['Type']=="MRG_MyISAM") $mergetable=true;
+		else if (!eregi("ISAM", $sts_data['Type'])) $nonisam=true;
+	}
+	
+  if (isset($sts_data['Rows'])) 
+	{
+	  if ($mergetable == false){
+	    if ($nonisam == false){
+        $tblsize                      =  $sts_data['Data_length'] + $sts_data['Index_length'];
+        $sum_size                    +=  $tblsize;
+        if ($tblsize > 0) {
+          list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
+        } else {
+          list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
         }
-        if (isset($sts_data['Rows'])) {
-            if ($mergetable == FALSE) {
-                $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
-                $sum_size                       += $tblsize;
-                $sum_entries                    += $sts_data['Rows'];
-                if ($tblsize > 0) {
-                    list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
-                } else {
-                    list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
-                }
-            }
-            // MyISAM MERGE Table
-            else if ($mergetable == TRUE) {
-                $formated_size = '&nbsp;-&nbsp;';
-                $unit          = '';
-            }
-            else {
-                $formated_size = 'unknown';
-                $unit          = '';
-            }
+	    }
+	    else {
+        $formated_size="&nbsp;-&nbsp;";
+        $unit="";
+	    }
+      if (isset($sts_data['Rows'])) $sum_entries += $sts_data['Rows'];
+    }
+    // MyISAM MERGE Table
+    else if ($mergetable == true)
+    {
+      $formated_size="&nbsp;-&nbsp;";
+      $unit="";
+    }
+    else
+    {
+      $formated_size="unknown";
+      $unit="";
+    }
             ?>
     <td align="right">
             <?php
