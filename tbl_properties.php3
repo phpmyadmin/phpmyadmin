@@ -766,7 +766,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table']) {
 <?php
 reset($aryFields);
 while (list($junk, $fieldname) = each($aryFields)) {
-    echo '                <option value="' . urlencode($fieldname) . '">' . $strAfter . ' ' . htmlspecialchars($fieldname) . '</option>' . "\n";
+    echo '                <option value="' . urlencode($fieldname) . '">' . sprintf($strAfter, htmlspecialchars($fieldname)) . '</option>' . "\n";
 }
 ?>
             </select>
