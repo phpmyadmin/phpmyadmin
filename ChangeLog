@@ -13,6 +13,7 @@ $Source$
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
     * lang/chinese_gb: Updated, thanks to Wang (fundawang).
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * Documentation.html: bug 782597: FAQ 1.30 about Turck MMCache
 
 2003-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 782925: fix "Showing rows..." message when user has
