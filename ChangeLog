@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-25 Olivier L. Müller  <om@omnis.ch>
+    * lang/german.inc.php3: Du -> Sie
+
 2002-06-24 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/lithuanian.inc.php3: Removed line feed at EoF.
 
