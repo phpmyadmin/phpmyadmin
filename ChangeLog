@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: bug #1103201, wrong treatment of MySQL error
+      #1060 in the logic for error #1062
+
 2005-01-15 Alexander M. Turek  <me@derrabus.de>
     * server_links.inc.php, server_engines.php, lang/*.inc.php,
       libraries/storage_engines.php: Detailed storage engines status

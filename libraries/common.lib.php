@@ -672,7 +672,10 @@ if ($is_minimum_common == FALSE) {
         // feature request #1036254:
         // Add a link by MySQL-Error #1062 - Duplicate entry
         // 2004-10-20 by mk.keck
-        if (strstr($tmp_mysql_error,"duplicate")) {
+        if (substr($error_message, 1, 4) == '1062') {
+        // TODO: do not assume that the error message is in English
+        // and do not use mysql_result()
+
             // explode the entry and the column
             $arr_mysql_val_key = explode('entry \'',$tmp_mysql_error);
             $arr_mysql_val_key = explode('\' for key',$arr_mysql_val_key[1]);
