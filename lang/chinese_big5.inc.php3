@@ -263,6 +263,8 @@ $strYes = ' ¬O ';
 
 // To translate
 $strAffectedRows = ' Rows affected: ';  //to translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 $strAnIndex = 'An index has been added on %s';//to translate
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';

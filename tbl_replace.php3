@@ -16,7 +16,17 @@ require('./libraries/common.lib.php3');
 if (isset($sql_query)) {
     $sql_query = urldecode($sql_query);
 }
-if ($goto == 'sql.php3') {
+if (isset($after_insert) && $after_insert == 'new_insert') {
+    $goto = 'tbl_change.php3'
+          . '?lang=' . $lang
+          . '&server=' . $server
+          . '&db=' . urlencode($db)
+          . '&table=' . urlencode($table)
+          . '&goto=' . urlencode($goto)
+          . (empty($primary_key) ? '' : '&primary_key=' . $primary_key)
+          . '&pos=' . $pos
+          . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
+} else if ($goto == 'sql.php3') {
     $goto  = 'sql.php3?'
            . 'lang=' . $lang
            . '&server=' . $server
@@ -116,13 +126,13 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     }
     // No change -> move back to the calling script
     else {
+        $message = $strNoModification;
         if (file_exists('./' . $goto)) {
             $js_to_run = 'functions.js';
             include('./header.inc.php3');
-            $message = $strNoModification;
             include('./' . ereg_replace('\.\.*', '.', $goto));
         } else {
-            header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . $strNoModification);
+            header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . urlencode($message));
         }
         exit();
     }
@@ -182,7 +192,7 @@ else {
                    && (ereg('^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$', $funcs[$encoded_key]))) {
             $valuelist .= $funcs[$encoded_key] . '(), ';
         } else {
-            $valuelist .= $funcs[$encoded_key] . "($val), ";
+            $valuelist .= $funcs[$encoded_key] . '(' . $val . '), ';
         }
     } // end while
 
@@ -220,7 +230,8 @@ if (!$result) {
         include('./header.inc.php3');
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
-        header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . $message);
+        $add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');
+        header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . urlencode($message) . $add_query);
     }
     exit();
 } // end if

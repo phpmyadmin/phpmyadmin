@@ -319,4 +319,6 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 ?>

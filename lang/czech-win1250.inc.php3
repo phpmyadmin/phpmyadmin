@@ -319,4 +319,8 @@ $strWrongUser = 'Špatné uživatelské jméno/heslo. Pøístup odepøen.';
 $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
+
+// To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 ?>

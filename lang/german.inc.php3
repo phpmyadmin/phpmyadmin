@@ -311,6 +311,8 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strIndexHasBeenDropped = 'Index %s has been dropped';//to translate

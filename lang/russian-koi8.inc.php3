@@ -317,4 +317,8 @@ $strWrongUser = 'Ошибочный логин/пароль. В доступе отказано.';
 $strYes = 'Да';
 
 $strZip = 'упаковать в "zip"';
+
+// To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 ?>

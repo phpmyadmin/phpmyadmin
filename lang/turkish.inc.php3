@@ -177,7 +177,7 @@ $strNext = 'Sonraki';
 $strNo = 'Hayýr';
 $strNoDatabases = 'Veritabaný yok';
 $strNoDropDatabases = '"DROP DATABASE" cümlesi burada kullanýlamaz.';
-$strNoFrames = 'phpMyAdmin frame destekli bir taray&#305;c&#305; ile daha iyi çal&#305;&#351;maktad&#305;r...'; 
+$strNoFrames = 'phpMyAdmin frame destekli bir taray&#305;c&#305; ile daha iyi çal&#305;&#351;maktad&#305;r...';
 $strNoModification = 'Deðiþiklik yok';
 $strNoPassword = 'Þifre yok';
 $strNoPrivileges = 'Ayrýcalýk yok';
@@ -317,4 +317,8 @@ $strWrongUser = 'Hatalý kullanýcý/parola. Eriþim engellendi.';
 $strYes = 'Evet';
 
 $strZip = '"ziplenmiþ"';
+
+// To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 ?>

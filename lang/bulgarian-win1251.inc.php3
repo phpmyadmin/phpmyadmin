@@ -309,6 +309,8 @@ $strYes = 'Да';
 $strZip = '"формат zip"';
 
 // To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 $strExtendedInserts = 'Extended inserts';
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strFullText = 'Full Texts';//to translate

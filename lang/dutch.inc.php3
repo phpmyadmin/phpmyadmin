@@ -280,6 +280,8 @@ $strYes = 'Ja';
 
 // To translate
 $strAffectedRows = 'Affected rows:'; //to translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 $strAnIndex = 'An index has been added on %s';//to translate
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
 $strBzip = '"bzipped"'; //to translate

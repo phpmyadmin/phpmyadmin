@@ -321,5 +321,7 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 $strOverhead = 'Overhead';
 ?>

@@ -282,6 +282,8 @@ $strYes = 'Si';
 
 // To translate
 $strAnIndex = 'An index has been added on %s';//to translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
 $strBzip = '"bzipped"';  //to translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';

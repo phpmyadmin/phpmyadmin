@@ -321,4 +321,6 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 ?>

@@ -12,6 +12,9 @@ $Source$
 	* config.inc.php3, line 159; Documentation.html, lines 646-652;
 	  libraries/display_tbl.lib.php3, line 607: merged patch #472575 (indicator
 	  in table rows) thanks to Darklord <darklord at chello.at>.
+	* tbl_change.php3; tbl_replace.php3; lang/*: merged patch #470575
+	  (Inserting rows in loop) thanks to
+	  Tomas Polak <loskutak at users.sourceforge.net>.
 	* libraries/defines.inc.php3, line 20: starting 2.2.2-dev. version.
 
 2001-10-24  Robin Johnson  <robbat2@users.sourceforge.net>

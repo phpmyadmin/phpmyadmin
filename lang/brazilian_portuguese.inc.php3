@@ -298,6 +298,8 @@ $strWrongUser = 'Usuário ou Senha errado. Acesso Negado.';
 $strYes = 'Sim';
 
 // To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strFlushTable = 'Flush the table ("FLUSH")';

@@ -319,4 +319,6 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 ?>

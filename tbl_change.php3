@@ -6,7 +6,39 @@
  * Get the variables sent or posted to this script and displays the header
  */
 require('./libraries/grab_globals.lib.php3');
-require('./header.inc.php3');
+include('./header.inc.php3');
+// Displays the query submitted and its result
+if (!empty($message)) {
+    if (isset($goto)) {
+        $goto_cpy      = $goto;
+        $goto          = 'tbl_properties.php3'
+                       . '?lang=' . $lang
+                       . '&amp;server=' . $server
+                       . '&amp;db=' . urlencode($db)
+                       . '&amp;table=' . urlencode($table)
+                       . '&amp;$show_query=y'
+                       . '&amp;sql_query=' . urlencode($disp_query);
+        unset($goto);
+    } else {
+        $show_query = 'y';
+    }
+    if (isset($sql_query)) {
+        $sql_query_cpy = $sql_query;
+        unset($sql_query);
+    }
+    if (isset($disp_query)) {
+        $sql_query     = (get_magic_quotes_gpc() ? stripslashes($disp_query) : $disp_query);
+    }
+    show_message($message);
+    if (isset($goto_cpy)) {
+        $goto         = $goto_cpy;
+        unset($goto_cpy);
+    }
+    if (isset($sql_query_cpy)) {
+        $sql_query    = $sql_query_cpy;
+        unset($sql_query_cpy);
+    }
+}
 if (get_magic_quotes_gpc()) {
     if (!empty($sql_query)) {
         $sql_query   = stripslashes($sql_query);
@@ -14,7 +46,7 @@ if (get_magic_quotes_gpc()) {
     if (!empty($primary_key)) {
         $primary_key = stripslashes($primary_key);
     }
-}
+} // end if
 
 
 /**
@@ -62,10 +94,10 @@ if (isset($primary_key)) {
         }
         $sql_query         = $local_query;
         show_message($strEmptyResultSet);
-            $goto          = $goto_cpy;
+        $goto              = $goto_cpy;
         unset($goto_cpy);
         if (isset($sql_query_cpy)) {
-            $sql_query     = $sql_query_cpy;
+            $sql_query    = $sql_query_cpy;
             unset($sql_query_cpy);
         }
     } // end if (no record returned)
@@ -411,17 +443,45 @@ echo "\n";
 } // end for
 ?>
     </table>
-    <br /><br />
+    <br />
 
-    <input type="submit" name="submit_type" value="<?php echo $strSave; ?>" />
+    <table cellpadding="5">
+    <tr>
+        <td valign="middle" nowrap="nowrap">
 <?php
 if (isset($primary_key)) {
     ?>
-    <input type="submit" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" />
+            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" checked="checked" /><?php echo $strSave; ?><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
+            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" /><?php echo $strInsertAsNewRow. "\n"; ?>
     <?php
+} else {
+    echo "\n";
+    ?>
+            <input type="hidden" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" />
+    <?php
+    echo '            ' . $strInsertAsNewRow . "\n";
 }
-echo "\n";
+echo "\n"
 ?>
+        </td>
+        <td valign="middle">
+            &nbsp;&nbsp;&nbsp;<b>-- <?php echo $strAnd; ?> --</b>&nbsp;&nbsp;&nbsp;
+        </td>
+        <td valign="middle" nowrap="nowrap">
+            <input type="radio" name="after_insert" value="back" checked="checked" /><?php echo $strAfterInsertBack; ?><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
+            <input type="radio" name="after_insert" value="new_insert" /><?php echo $strAfterInsertNewInsert . "\n"; ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="3" align="center" valign="middle">
+            <input type="submit" value="<?php echo $strGo; ?>" />
+        </td>
+    </tr>
+    </table>
+
 </form>
 
 

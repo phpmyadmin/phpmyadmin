@@ -314,6 +314,8 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Insert a new record';
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
