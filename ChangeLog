@@ -9,6 +9,7 @@ $Source$
     * lang/norwegian-*.inc.php3:
       - Corrections, thanks to Tore Longva <longva at stud.ntnu.no>.
       - Updates, thanks again to Sven-Erik Andersen (sven-erik).
+    * lang/malay-*.inc.php3: Updates, thanks again to Shafique (sicksand).
 
 2002-12-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3, header.inc.php3, server_privileges.php3, server_links.php3,
