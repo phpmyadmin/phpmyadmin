@@ -40,6 +40,9 @@ if (isset($submit)) {
     } // end for
     // Builds the field creation statement and alters the table
     for ($i = 0; $i < $field_cnt; ++$i) {
+        if (empty($field_name[$i])) {
+            continue;
+        }
         if (get_magic_quotes_gpc()) {
             $field_name[$i] = stripslashes($field_name[$i]);
         }
@@ -124,7 +127,9 @@ if (isset($submit)) {
         $primary_cnt = count($field_primary);
         for ($i = 0; $i < $primary_cnt; $i++) {
             $j       = $field_primary[$i];
-            $primary .= PMA_backquote($field_name[$j]) . ', ';
+            if (!empty($field_name[$j])) {
+                $primary .= PMA_backquote($field_name[$j]) . ', ';
+            }
         } // end for
         $primary     = ereg_replace(', $', '', $primary);
         if (!empty($primary)) {
@@ -140,7 +145,9 @@ if (isset($submit)) {
         $index_cnt = count($field_index);
         for ($i = 0; $i < $index_cnt; $i++) {
             $j     = $field_index[$i];
-            $index .= PMA_backquote($field_name[$j]) . ', ';
+            if (!empty($field_name[$j])) {
+                $index .= PMA_backquote($field_name[$j]) . ', ';
+            }
         } // end for
         $index     = ereg_replace(', $', '', $index);
         if (!empty($index)) {
@@ -156,7 +163,9 @@ if (isset($submit)) {
         $unique_cnt = count($field_unique);
         for ($i = 0; $i < $unique_cnt; $i++) {
             $j      = $field_unique[$i];
-            $unique .= PMA_backquote($field_name[$j]) . ', ';
+            if (!empty($field_name[$j])) {
+                $unique .= PMA_backquote($field_name[$j]) . ', ';
+            }
         } // end for
         $unique = ereg_replace(', $', '', $unique);
         if (!empty($unique)) {

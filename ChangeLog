@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-02 Olivier L. Müller  <om@omnis.ch>
+    * tbl_addfield.php3: ignore empty fields on alter table
+
 2003-02-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libiraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
       compatibility.
