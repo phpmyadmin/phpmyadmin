@@ -32,7 +32,9 @@ $number_decimal_separator = '.';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 $timespanfmt = '%s hari, %s jam, %s minit dan %s saat';
 
-$day_of_week = array('Aha', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum');
+// Does the malay week only have 6 days??? Please re-translate!
+//$day_of_week = array('Aha', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum');
+$day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 $month = array('Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogos', 'Sept', 'Okt', 'Nov', 'Dis');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
@@ -634,8 +636,8 @@ $strPerMinute = 'per minute';//to translate
 $strPerSecond = 'per second';//to translate
 $strAutomaticLayout = 'Automatic layout';  //to translate
 $strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateRemember = 'remember template';//to translate 
+$strFileNameTemplate = 'File name template';//to translate
+$strFileNameTemplateRemember = 'remember template';//to translate
 $strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
 $strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate

@@ -5,15 +5,22 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-23 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/arabic-*.inc.php3, lang/czech-*.inc.php3, lang/finnish-*.inc.php3,
+      lang/french-*.inc.php3, lang/georgian-utf-8.inc.php3,
+      lang/lithuanian-*.inc.php3, lang/malay-*.inc.php3,
+      lang/russian-*.inc.php3, lang/ukrainian-*.inc.php3: Checked all language
+      files for incomplete arrays ($byteUnits, $day_of_week and $month).
+
 2003-06-22 Robin Johnson <robbat2@users.sourceforge.net>
-    * scripts/updatedocs.sh: 
-        - Cleanup scripts/updatedocs.sh (I use it elsewhere as well).
+    * scripts/updatedocs.sh:
+      - Cleanup scripts/updatedocs.sh (I use it elsewhere as well).
     * scripts/create-release.sh:
-        - Moved to using updatedocs.sh for updating documentation.
-        - Make tarring faster by re-arranging ops.
+      - Moved to using updatedocs.sh for updating documentation.
+      - Make tarring faster by re-arranging ops.
 
 2003-06-21 Marc Delisle  <lem9@users.sourceforge.net>
-    * sql.php3: typo in call to cleanup columns 
+    * sql.php3: typo in call to cleanup columns
 
 2003-06-20 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3: use PMA_getForeigners()

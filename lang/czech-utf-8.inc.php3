@@ -14,7 +14,7 @@ $right_font_family = 'tahoma, arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
-$byteUnits = array('bajtů', 'kB', 'MB', 'GB');
+$byteUnits = array('bajtů', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota');
 $month = array('ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'září', 'října', 'listopadu', 'prosince');
