@@ -95,7 +95,9 @@ Todo now:
         - in Documentation.html the line
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
 10. update the demo subdirectory:
-	- in htdocs, cvs update phpMyAdmin 
+        - in htdocs, cvs update phpMyAdmin
+        - and don't forget to give write rights for the updated scripts to the
+          whole group
 11. the end :-)
 
 END
