@@ -40,7 +40,6 @@ current_timestamp
 data
 database
 databases
-date
 datetime
 day
 day_hour

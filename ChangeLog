@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-03 Marc Delisle  <lem9@users.sourceforge.net>
+    * badwords.txt: bug 692874: "date" is not a reserved word
+
 2003-03-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_details.php3, db_details_qbe.php3, db_search.php3, ldi_check.php3,
       mult_submits.inc.php3, read_dump.php3, sql.php3, tbl_addfield.php3,
