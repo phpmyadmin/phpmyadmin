@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Non se pode facer que este índice sexa PRIMARIO!';
 $strCardinality = 'Cardinalidade';
 $strCarriage = 'Carácter de retorno: \\r';
 $strChange = 'Mudar';
+$strChangePassword = 'Trocar o contrasinal';
 $strCheckAll = 'Marcá-los todos';
 $strCheckDbPriv = 'Verificar os privilexios do banco de datos';
 $strCheckTable = 'Verificar a tabela';
@@ -347,7 +348,6 @@ $strZip = 'comprimido no formato "zipped"';
 
 // To translate
 $strCardinality = 'Cardinality';
-$strChangePassword = 'Change password';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
