@@ -1662,7 +1662,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         if ($typearr[1] == 'alpha_identifier') {
                             $before .= ' ';
                         }
-                        if (($typearr[3] == 'alpha_columnAttrib') || ($typearr[3] == 'quote_single')) {
+                        if (($typearr[3] == 'alpha_columnAttrib') || ($typearr[3] == 'quote_single') || ($typearr[3] == 'digit_integer')) {
                             $after     .= ' ';
                         }
                         break;
