@@ -17,6 +17,8 @@ $Source$
       string.
     * config.inc.php3, left.php3: Optional dropdown for server list in left
       frame (RFE #555978).
+    * tbl_query_box.php3: Possibility to upload SQL file with no database
+      selected (RFE #641760).
 
 2003-06-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 592692, pretty printer

@@ -171,7 +171,7 @@ if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
 
 // loic1: displays import dump feature only if file upload available
 if ($is_upload && (!isset($is_inside_querywindow) ||
-    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) && isset($db) && $db != '') {
+    (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')))) {
     echo '            ' . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? '<i>' . $strOr . '</i>' : '') . ' ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
     ?>
             <div style="margin-bottom: 5px">
@@ -208,16 +208,10 @@ if ($is_upload && (!isset($is_inside_querywindow) ||
 } // end if
 echo "\n";
 
-if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'files' && (!isset($db) || $db == '')) {
-?>
-            <b><?php echo $strNoDatabasesSelected; ?></b>
-<?php
-}
-
 // web-server upload directory
 $is_upload_dir = false;
 if ($cfg['UploadDir'] != '' && !isset($is_inside_querywindow) ||
-    ($cfg['UploadDir'] != '' && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')) && isset($db) && $db != '') {
+    ($cfg['UploadDir'] != '' && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) {
 
     if ($handle = @opendir($cfg['UploadDir'])) {
         if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
@@ -319,7 +313,7 @@ if (!isset($is_inside_querywindow) ||
     }
 }
 
-if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && (($querydisplay_tab == 'files' && isset($db) && $db != '') || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go)))) {
+if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && (($querydisplay_tab == 'files') || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go)))) {
 ?>
             <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
 <?php
