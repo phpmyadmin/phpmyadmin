@@ -207,7 +207,7 @@ if ($is_upload || $is_upload_dir) {
     } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
         echo '    <tr bgcolor="' .$cfg['BgcolorTwo'] . '"><td>' . "\n"
            . $strCharsetOfFile . "\n";
-        echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', NULL, FALSE);
+        echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', NULL, 'utf8', FALSE);
         echo '    </td>' . "\n";
         echo '    <td align="right"><input type="submit" name="SQL" value="' . $strGo . '" /></td>' . "\n";
         echo '    </tr>' . "\n";
