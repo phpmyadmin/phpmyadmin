@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-01 Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/select_lang.lib.php3, lang/indonesian.inc.php3,
+	  Documentation.html:
+	  new lang, thanks to Rachim Tamsjadi (tamsjadi at icqmail.com)
+	* ukrainian, turkish, polish, galician updates
+
 2002-03-30 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_properties.php3, comments about why we need a mysql_select_db().
 
