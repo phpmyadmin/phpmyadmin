@@ -11,6 +11,7 @@ $Source$
     * lang/polish: update, thanks to Jakub Wilk
     * lang/swedish: update, thanks to Björn T. Hallberg
     * lang/slovak: remove duplicates
+    * lang/*, tbl_properties.inc.php3: new $strDefaultValueHelp
 
 2003-02-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/arabic*: Updates thanks to Ossama Khayat <ossamak at nht.com.kw>

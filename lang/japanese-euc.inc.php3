@@ -563,4 +563,5 @@ $strYes = 'はい';
 $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定すると制限がなくなります。';
 $strZip = '"zipされる"';
 
+$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>

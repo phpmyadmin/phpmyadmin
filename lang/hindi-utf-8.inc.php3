@@ -591,4 +591,5 @@ $strDBGMaxTimeMs = 'Max time, ms';  //to translate
 $strDBGContextID = 'Context ID';  //to translate
 $strDBGContext = 'Context';  //to translate
 $strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
+$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>

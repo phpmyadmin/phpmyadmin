@@ -36,7 +36,7 @@ $is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
         <th><?php echo $strLengthSet; ?></th>
         <th><?php echo $strAttr; ?></th>
         <th><?php echo $strNull; ?></th>
-        <th><?php echo $strDefault; ?></th>
+        <th><?php echo $strDefault; ?>**</th>
         <th><?php echo $strExtra; ?></th>
 <?php
 // lem9: We could remove this 'if' and let the key information be shown and
@@ -380,6 +380,12 @@ echo "\n";
     <td valign="top">*&nbsp;</td>
     <td>
         <?php echo $strSetEnumVal . "\n"; ?>
+    </td>
+</tr>
+<tr>
+    <td valign="top">**&nbsp;</td>
+    <td>
+        <?php echo $strDefaultValueHelp . "\n"; ?>
     </td>
 </tr>
 </table>

@@ -556,4 +556,5 @@ $strDBGModule = 'Module';  //to translate
 $strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
 $strDBGTotalTimeMs = 'Total time, ms';  //to translate
 
+$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>

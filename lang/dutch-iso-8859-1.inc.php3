@@ -558,4 +558,5 @@ $strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) 
 $strZip = '"Gezipt"';
 // To translate
 
+$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>

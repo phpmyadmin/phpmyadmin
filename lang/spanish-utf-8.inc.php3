@@ -553,4 +553,5 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: cambiando los parámetros de estas opciones a 0 (cero) remueven el límite.';
 $strZip = '"comprimido con zip"';
 
+$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>

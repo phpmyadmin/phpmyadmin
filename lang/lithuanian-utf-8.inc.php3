@@ -554,4 +554,5 @@ $strZeroRemovesTheLimit = 'Pastaba: Nėra jokių apribojimų jeigu reikšmė nur
 $strZip = '"zip"';
 // To translate
 
+$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>

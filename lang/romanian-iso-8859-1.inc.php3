@@ -554,4 +554,5 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
+$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>

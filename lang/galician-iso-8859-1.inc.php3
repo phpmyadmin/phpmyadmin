@@ -563,4 +563,5 @@ $strThisNotDirectory = 'This was not a directory';  //to translate
 $strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
 $strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
 
+$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>

@@ -582,4 +582,5 @@ $strDBGMaxTimeMs = 'أقصى وقت، مث';
 $strDBGContextID = 'رقم السياق';  
 $strDBGContext = 'السياق';  
 $strCantLoad = 'لا يمكن قراءة الامتداد %s،<br />رجاء تأكد من إعدادات PHP.';  
+$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>
