@@ -18,7 +18,6 @@ if (!empty($message)) {
                        . '&amp;table=' . urlencode($table)
                        . '&amp;$show_query=y'
                        . '&amp;sql_query=' . urlencode($disp_query);
-        unset($goto);
     } else {
         $show_query = 'y';
     }
@@ -87,7 +86,6 @@ if (isset($primary_key)) {
                            . '&amp;table=' . urlencode($table)
                            . '&amp;$show_query=y'
                            . '&amp;sql_query=' . urlencode($local_query);
-        unset($goto);
         if (isset($sql_query)) {
             $sql_query_cpy = $sql_query;
             unset($sql_query);
