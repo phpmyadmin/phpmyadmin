@@ -15,6 +15,10 @@ $Source$
 	* config.lib.php3, lines 100-104; libraries/common.lib.php3, lines 55-56;
 	  Documentation.html, lines 446-451; tbl_change.php3: improved binay fields
       protection.
+	* sql.php3, lines 257-284: message associated to the query wasn't displayed
+	  if the location header is used.
+	* libraries/display_tbl.lib.php3; tbl_change.php3: split between NULL value
+	  and empty field.
 
 2001-09-07  Loïc Chapeaux  <lolo@phpheaven.net>
     * main.php3, line 208: fixed an invalid link id.
