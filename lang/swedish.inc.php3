@@ -10,12 +10,11 @@ $number_decimal_separator = ',';
 $byteUnits = array('bytes', 'kB', 'MB', 'GB');
 
 $day_of_week = array('Sön', 'Mån', 'Tis', 'Ons', 'Tors', 'Fre', 'Lör');
-$month = array('Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec');
+$month = array('januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%e %B %Y kl %H:%M';
 
-$strAPrimaryKey = 'En primär myckel har lagts till på %s';
 $strAccessDenied = 'Åtkomst nekad';
 $strAction = 'Åtgärd';
 $strAddDeleteColumn = 'Lägg till/ta bort fältkolumner';
@@ -36,12 +35,13 @@ $strAlterOrderBy = 'Sortera om tabellen efter';
 $strAnIndex = 'Ett index har lagts till för %s';
 $strAnalyzeTable = 'Analysera tabell';
 $strAnd = 'Och';
-$strAny = 'Någon';
-$strAnyColumn = 'Någon kolumn';
-$strAnyDatabase = 'Någon databas';
-$strAnyHost = 'Någon värd';
-$strAnyTable = 'Någon tabell';
-$strAnyUser = 'Någon användare';
+$strAny = 'Vem som helst';
+$strAnyColumn = 'Vilken kolumn som helst';
+$strAnyDatabase = 'Vilken databas som helst';
+$strAnyHost = 'Vilken värd som helst';
+$strAnyTable = 'Vilken tabell som helst';
+$strAnyUser = 'Vilken användare som helst';
+$strAPrimaryKey = 'En primär nyckel har lagts till för %s';
 $strAscending = 'Stigande';
 $strAtBeginningOfTable = 'I början av tabellen';
 $strAtEndOfTable = 'I slutet av tabellen';
@@ -59,7 +59,9 @@ $strBrowse = 'Visa';
 $strBzip = '"bzippad"';
 
 $strCantLoadMySQL = 'kan inte ladda MySQL-tillägg,<br />var god och kontrollera PHP-konfigurationen.';
+$strCantLoadRecodeIconv = 'Kan inte ladda utökningarna iconv eller recode som behövs för teckenuppsättningsomvandling. Konfigurera php för att tillåta dessa utökningar eller stäng av teckenuppsättningsomvandling i phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kan inte byta namn på index till "PRIMARY"!';
+$strCantUseRecodeIconv = 'Kan inte använda funktionerna iconv, libiconv eller recode_string när utökade rapporter ska laddas. Kontrollera din php-konfiguration.';
 $strCardinality = 'Kardinalitet';
 $strCarriage = 'Vagnretur: \\r';
 $strChange = 'Ändra';
@@ -71,6 +73,7 @@ $strCheckTable = 'Kontrollera tabell';
 $strChoosePage = 'Välj en sida att redigera';
 $strColumn = 'Kolumn';
 $strColumnNames = 'Kolumn-namn';
+$strComments = 'Kommentarer';
 $strCompleteInserts = 'Kompletta infogningar';
 $strConfigFileError = 'phpMyAdmin kunde inte läsa din konfigurationsfil!<br />Detta kan inträffa om php hittar ett fel i den eller om php inte hittar filen.<br />Anropa konfigurationsfilen direkt mha länken nedan och läs php:s felmeddelande(n) som du erhåller. I de flesta fall saknas ett citationstecken eller ett semikolon någonstans.<br />Om du erhåller en tom sida är allt bra.';
 $strConfigureTableCoord = 'Var god ange koordinaterna för tabellen %s';
@@ -119,8 +122,8 @@ $strEditPrivileges = 'Ändra privilegier';
 $strEffective = 'Effektivt';
 $strEmpty = 'Töm';
 $strEmptyResultSet = 'MySQL skickade tillbaka ett tomt resultat (dvs inga rader).';
-$strEnd = 'Slut';
-$strEnglishPrivileges = ' Viktigt: MySQL-privilegiumnamn anges på engelska ';
+$strEnd = 'Slutet';
+$strEnglishPrivileges = ' Obs! MySQL-privilegiumnamn anges på engelska ';
 $strError = 'Fel';
 $strExplain = 'Förklara SQL-kod';
 $strExport = 'Exportera';
@@ -139,7 +142,7 @@ $strFixed = 'fast';
 $strFlushTable = 'Rensa tabellen ("FLUSH TABLE")';
 $strFormEmpty = 'Värde saknas i formuläret!';
 $strFormat = 'Format';
-$strFullText = 'Fullständig text';
+$strFullText = 'Fullständiga texter';
 $strFunction = 'Funktion';
 
 $strGenBy = 'Genererad av';
@@ -150,11 +153,12 @@ $strGzip = '"gzippad"';
 
 $strHasBeenAltered = 'har ändrats.';
 $strHasBeenCreated = 'har skapats.';
+$strHaveToShow = 'Du måste välja minst en kolumn som ska visas';
 $strHome = 'Hem';
 $strHomepageOfficial = 'phpMyAdmin:s officiella hemsida';
 $strHomepageSourceforge = 'phpMyAdmin Sourceforge-nedladdningssida';
 $strHost = 'Värd';
-$strHostEmpty = 'Värdnamnet är ej satt!';
+$strHostEmpty = 'Värdnamnet är tomt!';
 
 $strIdxFulltext = 'Heltext';
 $strIfYouWish = 'Om du vill ladda enbart några av tabellens kolumner, ange en kommaseparerad fältlista.';
@@ -179,7 +183,7 @@ $strKill = 'Döda';
 
 $strLength = 'Längd';
 $strLengthSet = 'Längd/Värden*';
-$strLimitNumRows = 'rader per sida';
+$strLimitNumRows = 'Rader per sida';
 $strLineFeed = 'Radframmatning: \\n';
 $strLines = 'Rader';
 $strLinesTerminatedBy = 'Raderna avslutas med';
@@ -191,11 +195,13 @@ $strLogUsername = 'Användarnamn:';
 $strLogin = 'Logga in';
 $strLogout = 'Logga ut';
 
+$strMissingBracket = 'Parantes saknas';
 $strModifications = 'Ändringarna har sparats';
 $strModify = 'Ändra';
 $strModifyIndexTopic = 'Ändra ett index';
 $strMoveTable = 'Flytta tabellen till (databas<b>.</b>tabell):';
 $strMoveTableOK = 'Tabellen %s har flyttats till %s.';
+$strMySQLCharset = 'MySQL teckenuppsättning';
 $strMySQLReloaded = 'MySQL har startats om.';
 $strMySQLSaid = 'MySQL sa: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% körs på %pma_s2% som %pma_s3%';
@@ -269,18 +275,19 @@ $strReType = 'Skriv om';
 $strRecords = 'Rader';
 $strReferentialIntegrity = 'Kontrollera referensintegritet:';
 $strRelationView = 'Visa relationer';
-$strReloadFailed = 'Omstart av MySQL misslyckades.';
-$strReloadMySQL = 'Starta om MySQL';
-$strRememberReload = 'Kom ihåg att starta om servern.';
+$strReloadFailed = 'Omladdning av MySQL misslyckades.';
+$strReloadMySQL = 'Ladda om MySQL';
+$strRememberReload = 'Kom ihåg att ladda om MySQL.';
 $strRenameTable = 'Döp om tabellen till';
 $strRenameTableOK = 'Tabell %s har döpts om till %s';
 $strRepairTable = 'Reparera tabell';
 $strReplace = 'Ersätt';
 $strReplaceTable = 'Ersätt tabelldata med fil';
 $strReset = 'Nollställ';
+$strReType = 'Bekräfta';
 $strRevoke = 'Upphäv';
-$strRevokeGrant = 'Upphäv befogenhet';
-$strRevokeGrantMessage = 'Du har upphävt privilegiet \'tilldela befogenheter\' för %s';
+$strRevokeGrant = 'Upphäv Grant';
+$strRevokeGrantMessage = 'Du har upphävt Grant-privilegiet för %s';
 $strRevokeMessage = 'Du har upphävt privilegierna för %s';
 $strRevokePriv = 'Upphäv privilegier';
 $strRowLength = 'Radlängd';
@@ -392,10 +399,5 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
+
 ?>
