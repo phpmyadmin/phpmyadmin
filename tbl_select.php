@@ -36,8 +36,13 @@ if ($cfg['PropertiesIconic'] == true) {
  *
  * LIKE works also on integers and dates so I added it in numfunctions
  */
-$numfunctions  = array('=', '>', '>=', '<', '<=', '!=', 'LIKE');
-$textfunctions = array('LIKE', '=', '!=');
+$numfunctions   = array('=', '>', '>=', '<', '<=', '!=', 'LIKE', 'NOT LIKE');
+$textfunctions  = array('LIKE', 'NOT LIKE', '=', '!=');
+$enumfunctions  = array('=', '!=');
+$nullfunctions  = array('IS NULL', 'IS NOT NULL');
+$unaryfunctions = array(
+    'IS NULL'     => 1,
+    'IS NOT NULL' => 1);
 
 /**
  * Not selection yet required -> displays the selection form
@@ -62,17 +67,16 @@ if (!isset($param) || $param[0] == '') {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
         // reformat mysql query output - staybyte - 9. June 2001
-        $shorttype     = substr($type, 0, 3);
-        if ($shorttype == 'set' || $shorttype == 'enu') {
+        if (strncasecmp($type, 'set', 3) == 0 
+            || strncasecmp($type, 'enum', 4) == 0) {
             $type      = str_replace(',', ', ', $type);
         } else {
-            $type          = preg_replace('@BINARY@i', '', $type);
-            $type          = preg_replace('@ZEROFILL@i', '', $type);
-            $type          = preg_replace('@UNSIGNED@i', '', $type);
+            $type      = str_replace(array('binary', 'zerofill', 'unsigned'), '', strtolower($type));
         }
         if (empty($type)) {
             $type      = '&nbsp;';
         }
+        $fields_null[] = $row['Null'];
         $fields_type[] = $type;
         if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($row['Collation']) && $row['Collation'] != 'NULL') {
             $fields_collation[] = $row['Collation'];
@@ -94,14 +98,33 @@ if (!isset($param) || $param[0] == '') {
     //$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
     $foreigners  = PMA_getForeigners($db, $table);
     ?>
+<script language="JavaScript" type="text/javascript">
+<!--
+function PMA_tbl_select_operator(f, index, multiple) {
+    switch (f.elements["func[" + index + "]"].options[f.elements["func[" + index + "]"].selectedIndex].value) {
+<?php 
+        reset($unaryfunctions);
+        while (list($operator) = each($unaryfunctions)) {
+            echo '        case "' . $operator . "\":\r\n";
+        }
+?>
+            bDisabled = true;
+            break;
+
+        default:
+            bDisabled = false;
+    }
+    f.elements["fields[" + index + "]" + ((multiple) ? "[]": "")].disabled = bDisabled;
+}
+// -->
+</script>
 <form method="post" action="tbl_select.php" name="insertForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="tbl_select.php" />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <?php echo $strSelectFields; ?>&nbsp;:<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select name="param[]" size="<?php echo ($fields_cnt < 10) ? $fields_cnt : 10; ?>" multiple="multiple">
+    <p style="margin-left: 30px;">
+    <?php echo $strSelectFields; ?><br />
+    <select name="param[]" size="<?php echo min($fields_cnt, 10); ?>" multiple="multiple">
     <?php
     echo "\n";
     // Displays the list of the fields
@@ -110,6 +133,7 @@ if (!isset($param) || $param[0] == '') {
     }
     ?>
     </select><br />
+    <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" /> <label for="oDistinct">DISTINCT</label></p>
     <ul>
         <li>
             <div style="margin-bottom: 10px">
@@ -128,7 +152,7 @@ if (!isset($param) || $param[0] == '') {
                 <th><?php echo $strField; ?></th>
                 <th><?php echo $strType; ?></th>
                 <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '<th>' . $strCollation . '</th>' . "\n" : ''; ?>
-                <th><?php echo $strFunction; ?></th>
+                <th><?php echo $strOperator; ?></th>
                 <th><?php echo $strValue; ?></th>
             </tr>
     <?php
@@ -143,17 +167,28 @@ if (!isset($param) || $param[0] == '') {
                 <td bgcolor="<?php echo $bgcolor; ?>">
                     <select name="func[]">
         <?php
-        if (preg_match('@char|blob|text|set|enum@i', $fields_type[$i])) {
-            foreach($textfunctions AS $k => $fc) {
+        if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
+            foreach ($enumfunctions as $k => $fc) {
                 echo "\n" . '                        '
                      . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
-            } // end while
+            }
+        } elseif (preg_match('@char|blob|text|set@i', $fields_type[$i])) {
+            foreach ($textfunctions as $k => $fc) {
+                echo "\n" . '                        '
+                     . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
+            }
         } else {
-            foreach($numfunctions AS $k => $fc) {
+            foreach ($numfunctions as $k => $fc) {
                 echo "\n" . '                        '
                      . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
-            } // end while
+            }
         } // end if... else...
+        if ($fields_null[$i]) {
+            foreach ($nullfunctions as $k => $fc) {
+                echo "\n" . '                        '
+                     . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
+            }
+        }
         echo "\n";
         ?>
                     </select>
@@ -172,36 +207,35 @@ if (!isset($param) || $param[0] == '') {
 
         if ($foreigners && isset($foreigners[$field]) && isset($disp_row) && is_array($disp_row)) {
             // f o r e i g n    k e y s
-            echo '                    <select name="fields[]">' . "\n";
+            echo '                    <select name="fields[' . $i . ']">' . "\n";
             // go back to first row
             echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data, 100);
             echo '                    </select>' . "\n";
         } else if (isset($foreign_link) && $foreign_link == true) {
         ?>
-            <input type="text"   name="fields[]" id="field_<?php echo md5($field); ?>[]" class="textfield" />
+            <input type="text"   name="fields[<?php echo $i; ?>]" id="field_<?php echo md5($field); ?>[<?php echo $i; ?>]" class="textfield" />
             <script type="text/javascript" language="javascript">
                 document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field); ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
             </script>
         <?php
-        } else if (substr($fields_type[$i], 0, 3)=='enu'){
+        } else if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
             // e n u m s
             $enum_value=explode(', ', str_replace("'", '', substr($fields_type[$i], 5, -1)));
-            echo '                    <select name="fields[]">' . "\n";
-            echo '                        <option value=""></option>' . "\n";
             $cnt_enum_value = count($enum_value);
-            for ($j=0; $j<$cnt_enum_value;$j++){
+            echo '                    <select name="fields[' . $i . '][]" multiple="multiple" size="' . min(3, $cnt_enum_value) . '">' . "\n";
+            for ($j = 0; $j < $cnt_enum_value; $j++) {
                 echo '                        <option value="' . $enum_value[$j] . '">' . $enum_value[$j] . '</option>';
             } // end for
             echo '                    </select>' . "\n";
         } else {
             // o t h e r   c a s e s
-            echo '                    <input type="text" name="fields[]" size="40" class="textfield" />' .  "\n";
+            echo '                    <input type="text" name="fields[' . $i . ']" size="40" class="textfield" />' .  "\n";
         }
 
         ?>
-                    <input type="hidden" name="names[]" value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />
-                    <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
-                    <input type="hidden" name="charsets[]" value="<?php echo $fields_charset[$i]; ?>" />
+                    <input type="hidden" name="names[<?php echo $i; ?>]" value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />
+                    <input type="hidden" name="types[<?php echo $i; ?>]" value="<?php echo $fields_type[$i]; ?>" />
+                    <input type="hidden" name="charsets[<?php echo $i; ?>]" value="<?php echo $fields_charset[$i]; ?>" />
                 </td>
             </tr>
         <?php
@@ -244,7 +278,7 @@ if (!isset($param) || $param[0] == '') {
 else {
     // Builds the query
 
-    $sql_query = 'SELECT ';
+    $sql_query = 'SELECT ' . (($distinct == 'DISTINCT') ? 'DISTINCT ' : '');
 
     // if all fields were selected to display, we do a SELECT *
     // (more efficient and this helps prevent a problem in IE
@@ -255,42 +289,68 @@ else {
     } else {
 
         $sql_query .= PMA_backquote(urldecode($param[0]));
-        $i         = 0;
         $c         = count($param);
-        while ($i < $c) {
-            if ($i > 0) {
-                $sql_query .= ',' . PMA_backquote(urldecode($param[$i]));
-            }
-            $i++;
+        for ($i = 1; $i < $c; $i++) {
+            $sql_query .= ',' . PMA_backquote(urldecode($param[$i]));
         }
     } // end if
 
     $sql_query .= ' FROM ' . PMA_backquote($table);
-    // The where clause
-    if ($where != '') {
-        $sql_query .= ' WHERE ' . $where;
-    }
-    else {
-        $sql_query .= ' WHERE 1';
-        $cnt_fields = count($fields);
-        for ($i = 0; $i < $cnt_fields; $i++) {
-            if (!empty($fields) && $fields[$i] != '') {
-                if (preg_match('@char|blob|text|set|enum|date|time|year@i', $types[$i])) {
-                    $quot     = '\'';
-                } else {
-                    $quot     = '';
-                }
-                if (strtoupper($fields[$i]) == 'NULL' || strtoupper($fields[$i]) == 'NOT NULL') {
-                    $quot     = '';
-                    $func[$i] = 'IS';
-                }
-                $field_charset = empty($charsets[$i]) ? '' : ' _' . $charsets[$i];
-                //$sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $func[$i] $quot$fields[$i]$quot";
 
-                $sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . ' ' . $func[$i] . $field_charset . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
+    // The where clause
+    if (trim($where) != '') {
+        $sql_query .= ' WHERE ' . $where;
+    } else {
+        $w = array();
+        $cnt_func = count($func);
+        reset($func);
+        while (list($i, $func_type) = each($func)) {
+            if (@$unaryfunctions[$func_type] == 1) {
+                $fields[$i] = '';
+                $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type;
+
+            } elseif (strncasecmp($types[$i], 'enum', 4) == 0) {
+                if (!empty($fields[$i])) {
+                    if (!is_array($fields[$i])) {
+                        $fields[$i] = explode(',', $fields[$i]);
+                    }
+                    $enum_selected_count = count($fields[$i]);
+                    if ($func_type == '=' && $enum_selected_count > 1) {
+                        $func_type    = $func[$i] = 'IN';
+                        $parens_open  = '(';
+                        $parens_close = ')';
+                        
+                    } elseif ($func_type == '!=' && $enum_selected_count > 1) {
+                        $func_type    = $func[$i] = 'NOT IN';
+                        $parens_open  = '(';
+                        $parens_close = ')';
+                        
+                    } else {
+                        $parens_open  = '';
+                        $parens_close = '';
+                    }
+                    $enum_where = '\'' . PMA_sqlAddslashes($fields[$i][0]) . '\'';
+                    for ($e = 1; $e < $enum_selected_count; $e++) {
+                        $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$i][$e]) . '\'';
+                    }
+
+                    $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
+                }
+
+            } elseif ($fields[$i] != '') {
+                if (preg_match('@char|blob|text|set|date|time|year@i', $types[$i])) {
+                    $quot = '\'';
+                } else {
+                    $quot = '';
+                }
+                $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
 
             } // end if
         } // end for
+        
+        if ($w) {
+            $sql_query .= ' WHERE ' . implode(' AND ', $w);
+        }
     } // end if
 
     if ($orderField != '--nil--') {
