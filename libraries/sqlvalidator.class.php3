@@ -16,6 +16,9 @@
 * Make sure you have a really recent PHP with PEAR support
 * run this: "pear install Mail_Mime Net_DIME SOAP"
 *
+* If you got this file from somewhere other than phpMyAdmin
+* please be aware that the latest copy will always be in the 
+* phpMyAdmin CVS tree as $File$.
 *
 * @access   public
 *
