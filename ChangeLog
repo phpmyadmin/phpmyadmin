@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-22 Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/catala.inc.php3 updates, thanks to Xavier Navarro
+	  (xnavarro at hidrogen.com)
+
 2002-02-22 Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html, lines 1597-1600: beautify generated page.
 	* libraries/select_lang.lib.php3, lines 61-62: charset is neither defined
