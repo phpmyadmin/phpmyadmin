@@ -3,7 +3,7 @@
 
 
 /**
- * Confirmation form if required or include of other scripts
+ * Prepares the work and runs some other scripts if required
  */
 if (!empty($submit_mult)
     && (!empty($selected_db) || !empty($selected_tbl) || !empty($selected_fld))) {
@@ -28,7 +28,9 @@ if (!empty($submit_mult)
                    $what = 'empty_tbl';
                    break;
                case $strOptimizeTable:
-                   $what = 'optimize_tbl';
+                   unset($submit_mult);
+                   $query_type = 'optimize_tbl';
+                   $mult_btn   = (get_magic_quotes_gpc() ? addslashes($strYes) : $strYes);
                    break;
            } // end switch
         }
@@ -41,7 +43,13 @@ if (!empty($submit_mult)
             exit();
         }
     }
+} // end if
 
+
+/**
+ * Displays the confirmation form if required
+ */
+if (!empty($submit_mult) && !empty($what)) {
     // Builds the query
     $full_query     = '';
     $selected_cnt   = count($selected);
@@ -59,11 +67,12 @@ if (!empty($submit_mult)
                             . (($i == $selected_cnt - 1) ? ';<br />' : '');
                 break;
 
-            case 'optimize_tbl':
-                $full_query .= (empty($full_query) ? 'OPTIMIZE TABLE ' : ', ')
-                            . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
-                            . (($i == $selected_cnt - 1) ? ';<br />' : '');
-                break;
+// loic1: removed confirmation stage for "OPTIMIZE" statements
+//            case 'optimize_tbl':
+//                $full_query .= (empty($full_query) ? 'OPTIMIZE TABLE ' : ', ')
+//                            . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
+//                            . (($i == $selected_cnt - 1) ? ';<br />' : '');
+//                break;
 
             case 'empty_tbl':
                 $full_query .= 'DELETE FROM '
@@ -118,7 +127,8 @@ if (!empty($submit_mult)
 
     include('./footer.inc.php3');
     exit();
-}
+} // end if
+
 
 /**
  * Executes the query
