@@ -58,7 +58,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     while (list($key, $val) = each($fields)) {
         if ($is_encoded) {
             $key = urldecode($key);
-            $val = urldecode($val);
+            $val = rawurldecode($val);
         }
 
         switch (strtolower($val)) {
@@ -114,7 +114,7 @@ else {
     while (list($key, $val) = each($fields)) {
         if ($is_encoded) {
             $key = urldecode($key);
-            $val = urldecode($val);
+            $val = rawurldecode($val);
         }
         // the 'query' row is urlencoded in sql.php3
         else if ($key == 'query') {

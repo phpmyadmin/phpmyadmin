@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-15  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* Bug #450374 - (RC4) + becomes space - patched in tbl_replace.php3
+
 2001-08-15  Steve Alberty  <alberty@neptunlabs.de> 
 	* lib.inc.php3: prevent to use dl() if dl not exists (PHP5).
 
