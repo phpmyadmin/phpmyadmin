@@ -256,7 +256,11 @@
 <ul>
     <li>Http and cookie authentication modes are recommended in a multi-user
         environment where you want to give users access to their own database
-        and don't want them to play around with others.<br /><br /></li>
+        and don't want them to play around with others.
+        <br />
+        Nevetheless be aware that MS Internet Explorer seems to be really
+        buggy about cookies, at least till version 6. And php 4.1.1 is also a
+        bit buggy in this area!<br /><br /></li>
 
     <li>Http and cookie authentication modes are secure: the MySQL password
         does not need to be set in the phpMyAdmin configuration file. (except
@@ -1351,6 +1355,18 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     Konqueror, or else they disappear. Gzip dumps give an error message.<br />
 
     Testing needs to be done for Konqueror 2.2.2.<br />
+</p>
+
+<p>
+    <b>I can't use the cookie authentication mode because Internet Explorer
+       never stores the cookies.</b>
+    <br />
+    MS Internet Explorer seems to be really buggy about cookies, at least till
+    version 6. And thanks to Andrew Zivolup we've traced also a php 4.1.1 bug
+    in this area!
+    <br />
+    Then, If you're running php 4.1.1, try to upgrade or downgrade... it may
+    works!
 </p>
 
 <p>

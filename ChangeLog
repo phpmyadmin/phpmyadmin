@@ -10,7 +10,8 @@ $Source$
 	  ("server" is always the first one).
 	* tbl_properties.php3, lines 1212-1249: fixed bad dislays with Opera and
       removed trailing whitespaces.
-	* Documentation.html: removed trailing whitespaces.
+	* Documentation.html: added some words and a faq entry about IE and php
+	  cookie bugs.
 	* libraries/display_tbl.lib.php3: very very light optimizations.
 	* tbl_change.php3: fixed bug #535984 - JS Error in tbl_change.php3.
 	* tbl_replace.php3: fixed bug #536707 - undefined variables.
