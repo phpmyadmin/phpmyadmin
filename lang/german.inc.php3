@@ -381,4 +381,8 @@ $strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
 $strSearchType = 'Find:';//to translate
 $strSplitWordsWithSpace = 'Words are splitted by a space character (" ").';//to translate
 $strStructPropose = 'Propose table structure';  //to translate
+$strExplain = 'SQL erklären';
+$strPhp     = 'PHP Code erzeugen';
+$strNoPhp   = 'ohne PHP Code';
+
 ?>

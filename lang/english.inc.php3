@@ -379,4 +379,7 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
+$strExplain = 'Explain SQL Code';  //to translate
+$strPhp = 'Create PHP Code';  //to translate
+$strNoPhp = 'without PHP Code';  //to translate
 ?>

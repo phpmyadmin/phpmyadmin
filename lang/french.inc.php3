@@ -380,4 +380,7 @@ $strYes = 'Oui';
 $strZip = '"zippé"';
 
 // To translate
+$strExplain = 'Expliquer SQL';
+$strPhp = 'Créer source PHP';
+$strNoPhp = 'Sans source PHP';
 ?>
