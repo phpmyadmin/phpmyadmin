@@ -53,6 +53,35 @@ if (isset($sql_query)) {
 <?php } ?>
         getElement("none_options").style.display = 'none';
     }
+
+    function show_checked_option() {
+        hide_them_all();
+        if (getElement('radio_dump_latex').checked) {
+            getElement('latex_options').style.display = 'block';
+<?php if (!$hide_sql) { ?>
+        } else if (getElement('radio_dump_sql').checked) {
+            getElement('sql_options').style.display = 'block';
+<?php } ?>
+<?php if (!$hide_xml) { ?>
+        } else if (getElement('radio_dump_xml').checked) {
+            getElement('none_options').style.display = 'block';
+<?php } ?>
+        } else if (getElement('radio_dump_csv').checked) {
+            getElement('csv_options').style.display = 'block';
+        } else if (getElement('radio_dump_excel').checked) {
+            getElement('excel_options').style.display = 'block';
+        } else {
+            if (getElement('radio_dump_sql')) {
+                getElement('radio_dump_sql').checked = true;
+                getElement('sql_options').style.display = 'block';
+            } else if (getElement('radio_dump_csv')) {
+                getElement('radio_dump_csv').checked = true;
+                getElement('csv_options').style.display = 'block';
+            } else {
+                getElement('none_options').style.display = 'block';
+            }
+        }
+    }
     //-->
     </script>
 
@@ -60,7 +89,7 @@ if (isset($sql_query)) {
     <tr>
 
         <!-- Formats to export to -->
-        <td nowrap="nowrap" valign="top">
+        <td nowrap="nowrap" valign="top" onclick="if (typeof(window.opera) != 'undefined')setTimeout('show_checked_option()', 1); return true">
             <fieldset <?php echo ((!isset($multi_values) || isset($multi_values) && $multi_values == '') ? 'style="height: 220px;"' : ''); ?>>
             <legend><?php echo $strExport; ?></legend>
             <br>
@@ -376,32 +405,7 @@ if ($cfgRelation['mimework']) {
 
             <script type="text/javascript">
             <!--
-                hide_them_all();
-                if (getElement('radio_dump_latex').checked) {
-                    getElement('latex_options').style.display = 'block';
-<?php if (!$hide_sql) { ?>
-                } else if (getElement('radio_dump_sql').checked) {
-                    getElement('sql_options').style.display = 'block';
-<?php } ?>
-<?php if (!$hide_xml) { ?>
-                } else if (getElement('radio_dump_xml').checked) {
-                    getElement('none_options').style.display = 'block';
-<?php } ?>
-                } else if (getElement('radio_dump_csv').checked) {
-                    getElement('csv_options').style.display = 'block';
-                } else if (getElement('radio_dump_excel').checked) {
-                    getElement('excel_options').style.display = 'block';
-                } else {
-                    if (getElement('radio_dump_sql')) {
-                        getElement('radio_dump_sql').checked = true;
-                        getElement('sql_options').style.display = 'block';
-                    } else if (getElement('radio_dump_csv')) {
-                        getElement('radio_dump_csv').checked = true;
-                        getElement('csv_options').style.display = 'block';
-                    } else {
-                        getElement('none_options').style.display = 'block';
-                    }
-                }
+                show_checked_option();
             //-->
             </script>
         </td>

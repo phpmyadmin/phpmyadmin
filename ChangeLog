@@ -13,6 +13,8 @@ $Source$
       libraries/common.lib.php3, libraries/config_import.lib.php3: Allow to
       supress dates in SQL dump separately.
     * lang/add_message.sh: Fail if no message specified.
+    * libraries/display_export.lib.php3: Added ugly hack to allow switching
+      export options in Opera (bug #828712).
 
 2003-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3: Patch 825672: show fields in Edit PDF scratchboard,
