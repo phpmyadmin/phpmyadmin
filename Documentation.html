@@ -2224,10 +2224,11 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     and the fields are duplicated.
 </h4>
 <p>
-    The default configuration of Apache of some Linux distributions,
-    for example Redhat 8, has a wrong way of interpreting .php files.
+    It is possible to configure Apache in such a way that PHP has problems
+    interpreting .php files.
     <br /><br />
-    It uses two different (and conflicting) set of directives:
+    The problems arises when two different (and conflicting) set of directives
+    are used:
     <br /><br />
     <tt>
     SetOutputFilter PHP<br />
