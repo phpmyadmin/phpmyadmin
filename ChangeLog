@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties.php3, new tbl_properties_links.php3:
+      remove duplicate links code
+ 
 2002-04-27 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Recompressed old ChangeLog without saving its path in the archive.
     * header.inc.php3:

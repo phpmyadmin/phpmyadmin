@@ -144,64 +144,12 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     $show_comment = '';
 }
 mysql_free_result($result);
-?>
 
-<?php
-if ($num_rows > 0) {
-    echo "\n";
-    ?>
-<!-- first browse links -->
-<p>
-    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0">
-        <b><?php echo $strBrowse; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="tbl_select.php3?<?php echo $url_query; ?>">
-        <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
-        <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <?php
-    echo '<a href="sql.php3?' . $url_query . '&amp;sql_query=';
-    if (PMA_MYSQL_INT_VERSION >= 40000) {
-        echo urlencode('TRUNCATE ' . PMA_backquote($table))
-             . '&amp;zero_rows='
-             . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
-             . '"' . "\n"
-             . '         onclick="return confirmLink(this, \'TRUNCATE ';
-    } // end if
-    else {
-        echo urlencode('DELETE FROM ' . PMA_backquote($table))
-             . '&amp;zero_rows='
-             . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
-             . '"'
-             . "\n"
-             . '         onclick="return confirmLink(this, \'DELETE FROM ';
-    } // end else
-    echo PMA_jsFormat($table)
-         . '\')">'
-         . "\n";
-    ?>
-         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
-         <b><?php echo $strDrop; ?></b></a> ]
-</p>
-    <?php
-} else {
-    echo "\n";
-    ?>
-<!-- first browse links -->
-<p>
-    [ <b><?php echo $strBrowse; ?></b> ]&nbsp;&nbsp;&nbsp;
-    [ <b><?php echo $strSelect; ?></b> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
-        <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
-         <b><?php echo $strDrop; ?></b></a> ]
-</p>
-    <?php
-}
 echo "\n";
+    ?>
+<!-- first browse links -->
+<?php 
+require('./tbl_properties_links.php3');
 
 if (!empty($show_comment)) {
     ?>
@@ -443,40 +391,10 @@ echo "\n";
  * links again
  */
 if ($fields_cnt > 20) {
-    if ($num_rows > 0) {
         ?>
 <!-- Browse links -->
-<p>
-    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0">
-        <b><?php echo $strBrowse; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="tbl_select.php3?<?php echo $url_query; ?>">
-        <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
-        <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DELETE FROM <?php echo PMA_jsFormat($table); ?>')">
-         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
-         <b><?php echo $strDrop; ?></b></a> ]
-</p>
-        <?php
-    } else {
-        echo "\n";
-        ?>
-<!-- first browse links -->
-<p>
-    [ <b><?php echo $strBrowse; ?></b> ]&nbsp;&nbsp;&nbsp;
-    [ <b><?php echo $strSelect; ?></b> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
-        <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
-         <b><?php echo $strDrop; ?></b></a> ]
-</p>
-        <?php
-    } // end if...else
+<?php
+    require('./tbl_properties_links.php3');
 } // end if ($fields_cnt > 20)
 echo "\n\n";
 
