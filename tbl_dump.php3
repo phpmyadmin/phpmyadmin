@@ -23,7 +23,7 @@ else
 	include("./lib.inc.php3");
     if (isset($bzip) && $bzip == 'bzip') {
         $ext = 'bz2';
-    } else if (isset($gzip) && $gzip == 'bzip') {
+    } else if (isset($gzip) && $gzip == 'gzip') {
         $ext = 'gz';
     } else if ($what == 'csv') {
         $ext = 'csv';
