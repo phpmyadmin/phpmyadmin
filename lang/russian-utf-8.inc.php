@@ -755,4 +755,12 @@ $strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem 
 $strAfterInsertNext = 'Edit next row';  //to translate
 $strView = 'View';  //to translate
 $strViewHasBeenDropped = 'View %s has been dropped';  //to translate
+$strEngines = 'Engines';  //to translate
+$strStorageEngines = 'Storage Engines';  //to translate
+$strStorageEngine = 'Storage Engine';  //to translate
+$strNoDetailsForEngine = 'There is no detailed status information available for this storage engine.';  //to translate
+$strDefaultEngine = '%s is the default storage engine on this MySQL server.';  //to translate
+$strEngineAvailable = '%s is available on this MySQL server.';  //to translate
+$strEngineUnsupported = 'This MySQL server does not support the %s storage engine.';  //to translate
+$strEngineDisabled = '%s has been disabled for this MySQL server.';  //to translate
 ?>
