@@ -938,6 +938,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                                     $dispval = $GLOBALS['strLinkNotFound']; 
                                 }  
                             }
+                            else {
+                                $dispval = '';
+                            }
                             $title = (!empty($dispval))? ' title="' . $dispval . '"': '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
