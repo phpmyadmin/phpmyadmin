@@ -341,9 +341,9 @@ $strRowLength = 'Lungime linie';
 $strRowSize = ' Marime linie ';
 $strRows = 'Linie';
 $strRowsFrom = 'linii incepand cu';
-$strRowsModeHorizontal= 'orizontal';
-$strRowsModeOptions= 'in mod %s si repetare antet dupa %s celule';
-$strRowsModeVertical= 'vertical';
+$strRowsModeHorizontal = 'orizontal';
+$strRowsModeOptions = 'in mod %s si repetare antet dupa %s celule';
+$strRowsModeVertical = 'vertical';
 $strRowsStatistic = 'Statisticile randului';
 $strRunQuery = 'Trimite comanda';
 $strRunSQLQuery = 'Run SQL query/queries pe baza de date %s';
@@ -474,11 +474,21 @@ $strZip = '"arhivat"';
 
 $strAdministration = 'Administration'; //to translate
 
+$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
+$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
+$strDeleting = 'Deleting %s'; //to translate
+
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
 
 $strGlobalPrivileges = 'Global privileges'; //to translate
 $strGrantOption = 'Grant'; //to translate
 
+$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
+$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
+
+$strOriginalInterface = 'original interface';  //to translate
+
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 $strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
 $strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
 $strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
@@ -510,23 +520,14 @@ $strPrivDescUpdate = 'Allows changing data.'; //to translate
 $strPrivDescUsage = 'No privileges.'; //to translate
 $strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
 
-$strResourceLimits = 'Resource limits'; //to translate
-
-$strUserOverview = 'User overview'; //to translate
-
-$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
-
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
-
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
 $strReloadingThePrivileges = 'Reloading the privileges'; //to translate
 $strRemoveSelectedUsers = 'Remove selected users'; //to translate
+$strResourceLimits = 'Resource limits'; //to translate
 $strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
 $strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
+
+$strUserOverview = 'User overview'; //to translate
 $strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-$strOriginalInterface = 'original interface';  //to translate
+
+$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 ?>

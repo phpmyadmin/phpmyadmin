@@ -60,7 +60,7 @@ $strBack = 'Voltar';
 $strBeginCut = 'COMEZA O RECORTE';
 $strBeginRaw = 'COMEZA O TEXTO SIMPLE ("RAW")';
 $strBinary = ' Binario ';
-$strBinaryDoNotEdit= ' Binario - non editar ';
+$strBinaryDoNotEdit = ' Binario - non editar ';
 $strBookmarkDeleted = 'Eliminouse o marcador.';
 $strBookmarkLabel = 'Nome';
 $strBookmarkQuery = 'A procura de SQL foi gardada';
@@ -269,6 +269,7 @@ $strNotValidNumber = ' non é un número válido para unha fila!';
 $strNull = 'Nulo';
 $strNumSearchResultsInTable = '%s ocorrencias(s) dentro da tabela <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> ocorrencia(s)';
+$strNumTables = 'Tables';
 
 $strOK = 'Conforme';
 $strOftenQuotation = 'Xeralmente son aspas. OPCIONAL significa que só os campos de caracteres son delimitados por caracteres "delimitadores"';
@@ -315,7 +316,6 @@ $strQBEDel = 'Eliminar';
 $strQBEIns = 'Inserir';
 $strQueryOnDb = 'Procura tipo SQL no banco de datos <b>%s</b>:';
 $strQueryStatistics = '<b>Estatística das procuras</b>: Desde que se iniciou, enviáronselle ao servidor %s procuras.';
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
 $strQueryType = 'Tipo de procura';
 
 $strReType = 'Reescreber';
@@ -324,6 +324,7 @@ $strRecords = 'Rexistros';
 $strReferentialIntegrity = 'Comprobar a integridade das referencias:';
 $strRelationNotWorking = 'Desactivouse a funcionalidade adicional para o traballo con tabelas vinculadas. Para saber o por que, faga click%saqu&iacute;%s.';
 $strRelationView = 'Vista das relacións';
+$strRelationalSchema = 'Relational schema';
 $strReloadFailed = 'A reinicialización do MySQL fallou.';
 $strReloadMySQL = 'Reinicializar o MySQL';
 $strRememberReload = 'Lembre-se recarregar o servidor.';
@@ -339,12 +340,12 @@ $strRevokeGrantMessage = 'Retirou-lle o privilexio de Permitir a %s';
 $strRevokeMessage = 'Retirou-lle os privilexios a %s';
 $strRevokePriv = 'Revogar privilexios';
 $strRowLength = 'Lonxitude da fila';
-$strRowSize= ' Tamaño da fila ';
+$strRowSize = ' Tamaño da fila ';
 $strRows = 'Filas';
 $strRowsFrom = 'filas, a comezar da';
-$strRowsModeHorizontal= 'horizontal';
-$strRowsModeOptions= 'en modo %s e repetir os cabezallos de cada %s celas';
-$strRowsModeVertical= 'vertical';
+$strRowsModeHorizontal = 'horizontal';
+$strRowsModeOptions = 'en modo %s e repetir os cabezallos de cada %s celas';
+$strRowsModeVertical = 'vertical';
 $strRowsStatistic = 'Estatistícas da Fila';
 $strRunQuery = 'Enviar esta procura';
 $strRunSQLQuery = 'Efectuar unha procura SQL na base de datos %s';
@@ -383,8 +384,6 @@ $strServerChoice = 'Escolla de Servidor';
 $strServerStatus = 'Información sobre o runtime';
 $strServerStatusUptime = 'Este servidor de MySQL leva funcionando %s. Iniciouse às %s.';
 $strServerTabProcesslist = 'Procesos';
-$strServerTabVariables = 'Variables';
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
 $strServerTrafficNotes = '<b>Tráfico do servidor</b>: Estas tabelas mostran as estatísticas do tráfico da rede neste servidor de MySQL desde que se iniciou.';
 $strServerVars = 'Variables e configuración do servidor';
 $strServerVersion = 'Versión do servidor';
@@ -426,6 +425,7 @@ $strTableHasBeenDropped = 'Eliminouse a tabela %s';
 $strTableHasBeenEmptied = 'Vaciouse a tabela %s';
 $strTableHasBeenFlushed = 'Fechouse a tabela %s';
 $strTableMaintenance = 'Tabela de manutención';
+$strTableOfContents = 'Table of contents';
 $strTableStructure = 'Estructura da tabela';
 $strTableType = 'Tipo da tabela';
 $strTables = '%s tabela(s)';
@@ -436,6 +436,7 @@ $strTheTerminator = 'O carácter que separa os campos.';
 $strThreadSuccessfullyKilled = 'Finalizouse o fío %s.';
 $strTime = 'Tempo';
 $strTotal = 'total';
+$strTotalUC = 'Total';
 $strTraffic = 'Tráfico';
 $strType = 'Tipo';
 
@@ -471,10 +472,28 @@ $strYes = 'Si';
 
 $strZip = 'comprimido no formato "zipped"';
 // To translate
+
 $strAdministration = 'Administration'; //to translate
+
+$strCannotLogin = 'Cannot login to MySQL server'; //to translate
+
+$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
+$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
+$strDeleting = 'Deleting %s'; //to translate
+
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
+
 $strGlobalPrivileges = 'Global privileges'; //to translate
 $strGrantOption = 'Grant'; //to translate
+
+$strImportDocSQL = 'Import docSQL Files'; //to translate
+
+$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
+$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
+
+$strOriginalInterface = 'original interface';  //to translate
+
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 $strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
 $strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
 $strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
@@ -489,15 +508,15 @@ $strPrivDescGrant = 'Allows adding users and privileges without reloading the pr
 $strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
 $strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
 $strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
-$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
+$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.'; //to translate
+$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.'; //to translate
+$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.'; //to translate
 $strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
 $strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
 $strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
+$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
 $strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescSelect = 'Allows reading data.'; //to translate
 $strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
 $strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
@@ -505,21 +524,17 @@ $strPrivDescSuper = 'Allows connectiong, even if maximum number of connections i
 $strPrivDescUpdate = 'Allows changing data.'; //to translate
 $strPrivDescUsage = 'No privileges.'; //to translate
 $strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
-$strResourceLimits = 'Resource limits'; //to translate
-$strUserOverview = 'User overview'; //to translate
-$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
-
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
 $strReloadingThePrivileges = 'Reloading the privileges'; //to translate
 $strRemoveSelectedUsers = 'Remove selected users'; //to translate
+$strResourceLimits = 'Resource limits'; //to translate
 $strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
 $strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
+
+$strServerTabVariables = 'Variables'; //to translate
+
+$strUserOverview = 'User overview'; //to translate
 $strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-$strOriginalInterface = 'original interface';  //to translate
+
+$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 ?>

@@ -120,7 +120,6 @@ $strDatabaseWildcard = 'Database (wildcards permesse):';
 $strDatabases = 'database';
 $strDatabasesStats = 'Statistiche dei databases';
 $strDefault = 'Predefinito';
-$strDelPassMessage = 'Hai cancellato la password per';
 $strDelete = 'Cancella';
 $strDeleteAndFlush = 'Cancella gli utenti e dopo ricarica i privilegi.';
 $strDeleteAndFlushDescr = 'Questa è la vita più giusta, ma il caricamento dei privilegi può durare qualche secondo.';

@@ -210,9 +210,8 @@ $strKeepPass = 'Ne spreminjaj gesla';
 $strKeyname = 'Ime kljuèa';
 $strKill = 'Ubij proces';
 
-$strLandscape = 'Le¾eèe';
-$strLanguage = 'Jezik';
 $strLaTeX = 'LaTeX';
+$strLandscape = 'Le¾eèe';
 $strLength = 'Dol¾ina';
 $strLengthSet = 'Dol¾ina/Vrednosti*';
 $strLimitNumRows = '©tevilo vrstic na stran';
@@ -297,7 +296,6 @@ $strPhp = 'Ustvari PHP kodo';
 $strPmaDocumentation = 'phpMyAdmin dokumentacija';
 $strPmaUriError = 'Ukaz <tt>$cfg[\'PmaAbsoluteUri\']</tt> mora biti definiran v konfiguracijski datoteki!';
 $strPortrait = 'Pokonèno';
-$strProcesslist = 'Seznam procesov';
 $strPos1 = 'Zaèetek';
 $strPrevious = 'Prej¹nji';
 $strPrimary = 'Primarni';
@@ -307,7 +305,11 @@ $strPrimaryKeyName = 'Ime primarnega kljuèa mora biti... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>mora</b> biti ime <b>samo</b> primarnega kljuèa!)';
 $strPrint = 'Natisni';
 $strPrintView = 'Pogled postavitve tiskanja';
+$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
+$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
+$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
 $strPrivileges = 'Privilegiji';
+$strProcesslist = 'Seznam procesov';
 $strProperties = 'Lastnosti';
 $strPutColNames = 'Postavi imena polj v prvo vrstico';
 
@@ -322,9 +324,9 @@ $strReType = 'Ponovno vnesi';
 $strReceived = 'Prejeto';
 $strRecords = 'Zapisi';
 $strReferentialIntegrity = 'Preveri referenèno integriteto:';
-$strRelationalSchema = 'Relacijska shema';
 $strRelationNotWorking = 'Dodatne funkcije za delo s povezanimi tabelami so bile izkjuèene. Èe ¾elite izvedeti zakaj, kliknite %stukaj%s.';
 $strRelationView = 'Pogled relacij';
+$strRelationalSchema = 'Relacijska shema';
 $strReloadFailed = 'Ponovno nalaganje MySQL ni uspelo.';
 $strReloadMySQL = 'Ponovno nalo¾i MySQL';
 $strRememberReload = 'Ne pozabite ponovno nalo¾iti stre¾nika.';
@@ -358,7 +360,7 @@ $strSQLQuery = 'SQL-poizvedba';
 $strSQLResult = 'Rezultat SQL';
 $strSQPBugInvalidIdentifer = 'Neveljavni identifikator';
 $strSQPBugUnclosedQuote = 'Odprt citat';
-$strSQPBugUnknownPunctation = 'Neznan niz loèil';
+$strSQPBugUnknownPunctuation = 'Neznan niz loèil';
 $strSave = 'Shrani';
 $strScaleFactorSmall = 'Faktor poveèava je premajhen, da bi spravili shemo na eno stran';
 $strSearch = 'Iskanje';
@@ -383,8 +385,8 @@ $strServer = 'Stre¾nik %s';
 $strServerChoice = 'Izbira stre¾nika';
 $strServerStatus = 'Podatki o izvajanju';
 $strServerStatusUptime = 'MySQL stre¾nik deluje ¾e %s. Zagnal se je %s.';
-$strServerTabVariables = 'Spremenljivke';
 $strServerTabProcesslist = 'Procesi';
+$strServerTabVariables = 'Spremenljivke';
 $strServerTrafficNotes = '<b>Promet na stre¾niku</b>: V teh tabelah je prikazana statistika obremenitve omre¾ja za ta MySQL stre¾nik, odkar je bil zagnan.';
 $strServerVars = 'Spremenljivke in nastavitve stre¾nika';
 $strServerVersion = 'Razlièica stre¾nika';
@@ -472,12 +474,25 @@ $strWrongUser = 'Napaèno uporabni¹ko ime/geslo. Dostop zavrnjen.';
 $strYes = 'Da';
 
 $strZip = '"zipano"';
-
 // To translate
+
 $strAdministration = 'Administration'; //to translate
+
+$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
+$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
+$strDeleting = 'Deleting %s'; //to translate
+
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
+
 $strGlobalPrivileges = 'Global privileges'; //to translate
 $strGrantOption = 'Grant'; //to translate
+
+$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
+$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
+
+$strOriginalInterface = 'original interface';  //to translate
+
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 $strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
 $strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
 $strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
@@ -492,15 +507,12 @@ $strPrivDescGrant = 'Allows adding users and privileges without reloading the pr
 $strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
 $strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
 $strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
-$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
 $strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
 $strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
 $strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
+$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
 $strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescSelect = 'Allows reading data.'; //to translate
 $strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
 $strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
@@ -508,21 +520,15 @@ $strPrivDescSuper = 'Allows connectiong, even if maximum number of connections i
 $strPrivDescUpdate = 'Allows changing data.'; //to translate
 $strPrivDescUsage = 'No privileges.'; //to translate
 $strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
-$strResourceLimits = 'Resource limits'; //to translate
-$strUserOverview = 'User overview'; //to translate
-$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
-
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
 $strReloadingThePrivileges = 'Reloading the privileges'; //to translate
 $strRemoveSelectedUsers = 'Remove selected users'; //to translate
+$strResourceLimits = 'Resource limits'; //to translate
 $strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
 $strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
+
+$strUserOverview = 'User overview'; //to translate
 $strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-$strOriginalInterface = 'original interface';  //to translate
+
+$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 ?>

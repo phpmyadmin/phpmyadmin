@@ -216,7 +216,6 @@ $strMySQLShowStatus = 'MySQL მონაცემთა ბაზის მდ�
 $strMySQLShowVars = 'MySQL მონაცემთა ბაზის სისტემური ცვლადები';
 
 $strName = 'სახელი';
-$strNbRecords = 'სტრიქონების რაოდენობა';
 $strNext = 'შემდეგი';
 $strNo = 'არა';
 $strNoDatabases = 'ცარიელია';
@@ -348,7 +347,6 @@ $strSplitWordsWithSpace = 'სიტყვები არის დაშლი
 $strSQL = 'SQL-ი';
 $strSQLQuery = 'SQL-ის ამორჩევა';
 $strSQLResult = 'SQL შედეგი';
-$strStartingRecord = 'სტრიქონის ჩაწერის დაწყება';
 $strStatement = 'აღწერა';
 $strStrucCSV = 'CSV მონაცემები';
 $strStrucData = 'სტრუქტურა და მონაცემები';
@@ -546,4 +544,6 @@ $strRevokeAndDelete = 'Revoke all active privileges from the users and delete th
 $strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
 $strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
 $strOriginalInterface = 'original interface';  //to translate
+$strDumpXRows = 'Dump %s row(s) starting at record # %s.';  //to translate
+$strExportToXML = 'Export to XML format';  //to translate
 ?>
