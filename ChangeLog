@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-11 Michal Čihař  <michal@cihar.com>
+    * tbl_replace.php: Do not empty protected values (bug #1006812).
+
 2004-08-10 Michal Čihař  <michal@cihar.com>
     * libraries/tbl_change.js: Forcibily use 10 as base for parsed numbers,
       otherwise accidentally octal numbers are expected (part of bug
