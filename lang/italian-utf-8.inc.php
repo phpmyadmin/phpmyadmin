@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Translated by: Pietro Danesi <danone at users.sourceforge.net>  2002-03-29
+ * translated by: Pietro Danesi <danone at users.sourceforge.net>  2002-03-29
  * Revised by:    "DPhantom" <dphantom at users.sourceforge.net>  2002-04-16
  */
 
@@ -196,6 +196,7 @@ $strDatabasesStatsHeavyTraffic = 'N.B.: Abilitare qui le statistiche del Databas
 $strDbPrivileges = 'Privilegi specifici al database';
 $strDbSpecific = 'specifico del database';
 $strDefault = 'Predefinito';
+$strDefaultEngine = '%s è il motore di memorizzazione predefinito su questo server MySQL.';
 $strDefaultValueHelp = 'Per i valori predefiniti, prego inserire un singolo valore, senza backslashes escaping o virgolette, utilizzando questo formato: a';
 $strDefragment = 'Deframmenta la tabella';
 $strDelOld = 'La Pagina corrente contiene Riferimenti a Tabelle che non esistono più. Volete cancellare questi Riferimenti?';
@@ -237,6 +238,10 @@ $strEncloseInTransaction = 'Includi export in una transazione';
 $strEnd = 'Fine';
 $strEndCut = 'FINE CUT';
 $strEndRaw = 'FINE RAW';
+$strEngineAvailable = '%s è disponibile su questo server MySQL.';
+$strEngineDisabled = '%s è stato disabilitato su questo server MySQL.';
+$strEngineUnsupported = 'Questo server MySQL non supporta il motore di memorizzazione %s.';
+$strEngines = 'Motori';
 $strEnglish = 'Inglese';
 $strEnglishPrivileges = 'Nota: i nomi dei privilegi di MySQL sono in Inglese';
 $strError = 'Errore';
@@ -390,6 +395,18 @@ $strMoveTableOK = 'La tabella %s è stata spostata in %s.';
 $strMoveTableSameNames = 'Impossibile spostare la tabella su se stessa!';
 $strMultilingual = 'multilingua';
 $strMustSelectFile = 'Si dovrebbe selezionare il file che si vuole inserire.';
+$strMyISAMDataPointerSize = 'Domensione del puntatore dati';
+$strMyISAMDataPointerSizeDesc = 'Dimensione del puntatore predefinito in Bytes, che deve essere usata da CREATE TABLE per le tabelle MyISAM quando non è stata specificata l\'opzione MAX_ROWS.';
+$strMyISAMMaxExtraSortFileSize = 'Dimensione massima per i files temporanei nella creazione di un indice';
+$strMyISAMMaxExtraSortFileSizeDesc = 'Se il file temporaneo è usato per la creazione veloce di un indice MyISAM, occuperebbe più spazio dell\'utilizzo del metodo key cache con la quantità ivi specificata: perciò si deve prediligere il metodo key cache.';
+$strMyISAMMaxSortFileSize = 'Dimensione massima dei file temporanei di ordinamento';
+$strMyISAMMaxSortFileSizeDesc = 'La dimensione massima dei file temporanei MySQL può essere utilizzata nella rigenerazione di un indice MyISAM (durante un REPAIR TABLE, ALTER TABLE, o LOAD DATA INFILE).';
+$strMyISAMRecoverOptions = 'Modalità di ripristino automatico';
+$strMyISAMRecoverOptionsDesc = 'La modalità di irppristino automatico di tabelle MyISAM corrotte, come impostato tramite l\'opzione di lan cio del server --myisam-recover.';
+$strMyISAMRepairThreads = 'Thread di riparazione';
+$strMyISAMRepairThreadsDesc = 'Se questo valore è maggiore di 1, gli indici della tabella MyISAM vengono creati in parallelo (ogni indice nel suo thread) durante il processo di ordinamento Repair by.';
+$strMyISAMSortBufferSize = 'Ordina la dimensione del buffer';
+$strMyISAMSortBufferSizeDesc = 'Il buffer che viene allocato nell\'ordinamento degli indici MyISAM durante un REPAIR TABLE o nella creazione degli indici con CREATE INDEX o ALTER TABLE.';
 $strMySQLCharset = 'Set di caratteri MySQL';
 $strMySQLConnectionCollation = 'collazione della connessione di MySQL';
 $strMySQLReloaded = 'MySQL riavviato.';
@@ -407,6 +424,7 @@ $strNoActivity = 'Nessuna attività da %s secondi o più, si prega di autenticar
 $strNoDatabases = 'Nessun database';
 $strNoDatabasesSelected = 'Nessun database selezionato.';
 $strNoDescription = 'nessuna Description';
+$strNoDetailsForEngine = 'Non è disponibile nessuna informazione dettagliata sullo stato di questo motore di memorizzazione.';
 $strNoDropDatabases = 'I comandi "DROP DATABASE" sono disabilitati.';
 $strNoExplain = 'Non Spiegare SQL';
 $strNoFrames = 'phpMyAdmin funziona meglio con browser che supportano frames';
@@ -519,7 +537,6 @@ $strQBEIns = 'Aggiungi';
 $strQueryFrame = 'Finestra della Query';
 $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 $strQuerySQLHistory = 'Storico dell\'SQL';
-$strQueryStatistics = '<b>Statistiche delle Query</b>: Dal suo avvio, sono state inviate al server %s queries.';
 $strQueryTime = 'La query ha impiegato %01.4f sec';
 $strQueryType = 'Tipo di Query';
 $strQueryWindowLock = 'Non sovrascrivere questa query da fuori della finestra';
@@ -637,6 +654,8 @@ $strStatCreateTime = 'Creazione';
 $strStatUpdateTime = 'Ultimo cambiamento';
 $strStatement = 'Istruzioni';
 $strStatus = 'Stato';
+$strStorageEngine = 'Motore di Memorizzazione';
+$strStorageEngines = 'Motori di Memorizzazione';
 $strStrucCSV = 'dati CSV';
 $strStrucData = 'Struttura e dati';
 $strStrucDrop = 'Aggiungi DROP TABLE';
@@ -728,9 +747,11 @@ $strValidateSQL = 'Valida SQL';
 $strValidatorError = 'L\' SQL validator non può essere inizializzato. Prego controllare di avere installato le estensioni php necessarie come descritto nella %sdocumentazione%s.';
 $strValue = 'Valore';
 $strVar = 'Variabile';
+$strView = 'Vista';
 $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
 $strViewDumpDatabases = 'Visualizza il dump (schema) dei databases';
+$strViewHasBeenDropped = 'La vista %s è stata eliminata';
 
 $strWebServerUploadDirectory = 'directory di upload del web-server';
 $strWebServerUploadDirectoryError = 'La directory impostata per l\'upload non può essere trovata';
@@ -750,28 +771,10 @@ $strYes = ' Si ';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
-$strView = 'View';  //to translate
-$strViewHasBeenDropped = 'View %s has been dropped';  //to translate
-$strEngines = 'Engines';  //to translate
-$strStorageEngines = 'Storage Engines';  //to translate
-$strStorageEngine = 'Storage Engine';  //to translate
-$strNoDetailsForEngine = 'There is no detailed status information available for this storage engine.';  //to translate
-$strDefaultEngine = '%s is the default storage engine on this MySQL server.';  //to translate
-$strEngineAvailable = '%s is available on this MySQL server.';  //to translate
-$strEngineUnsupported = 'This MySQL server does not support the %s storage engine.';  //to translate
-$strEngineDisabled = '%s has been disabled for this MySQL server.';  //to translate
-$strMyISAMSortBufferSize = 'Sort buffer size';  //to translate
-$strMyISAMSortBufferSizeDesc = 'The buffer that is allocated when sorting MyISAM indexes during a REPAIR TABLE or when creating indexes with CREATE INDEX or ALTER TABLE.';  //to translate
-$strMyISAMDataPointerSize = 'Data pointer size';  //to translate
-$strMyISAMDataPointerSizeDesc = 'The default pointer size in bytes, to be used by CREATE TABLE for MyISAM tables when no MAX_ROWS option is specified.';  //to translate
-$strMyISAMRecoverOptions = 'Automatic recovery mode';  //to translate
-$strMyISAMRecoverOptionsDesc = 'The mode for automatic recovery of crashed MyISAM tables, as set via the --myisam-recover server startup option.';  //to translate
-$strMyISAMRepairThreads = 'Repair threads';  //to translate
-$strMyISAMRepairThreadsDesc = 'If this value is greater than 1, MyISAM table indexes are created in parallel (each index in its own thread) during the Repair by sorting process.';  //to translate
-$strMyISAMMaxSortFileSize = 'Maximum size for temporary sort files';  //to translate
-$strMyISAMMaxSortFileSizeDesc = 'The maximum size of the temporary file MySQL is allowed to use while re-creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE).';  //to translate
-$strMyISAMMaxExtraSortFileSize = 'Maximum size for temporary files on index creation';  //to translate
-$strMyISAMMaxExtraSortFileSizeDesc = 'If the temporary file used for fast MyISAM index creation would be larger than using the key cache by the amount specified here, prefer the key cache method.';  //to translate
+// To translate:
+
 $strLongOperation = 'This operation could be long. Proceed anyway?';  //to translate
+
 $strVersionInformation = 'Version information';  //to translate
+
 ?>

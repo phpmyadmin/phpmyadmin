@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-09 Alexander M. Turek  <me@derrabus.de>
+    * lang/italian-*.inc.php: Updates, thanks to Pietro Danesi.
+
 2005-02-08 Michal Čihař  <michal@cihar.com>
     * export.php: Fix export of SQL for Safari (bug #1113015).
 
