@@ -194,7 +194,7 @@ if (isset($disp_row) && is_array($disp_row)) {
     <tr>
         <td nowrap="nowrap" bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') . '<a href="#" title="' . $strUseThisValue . ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . htmlspecialchars($key) . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
         <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($key_equals_data ? '<b>' : '') .                 '<a href="#" title="' . $strUseThisValue . ($vtitle != '' ? ': ' . $vtitle : '') . '" onclick="formupdate(\'' . md5($field) . '\', \'' . htmlspecialchars($key) . '\'); return false;">' . $value . '</a>' . ($key_equals_data ? '</b>' : ''); ?></td>
-        <td width="20%"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+        <td width="20%"><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" alt="" width="1" height="1"></td>
 <?php
         $key   = key($mysql_key_relrow[$i]);
         $val   = $mysql_key_relrow[$i][$key];
