@@ -254,6 +254,7 @@ $PMA_SQPdata_reserved_word = array (
     'ELSE',
     'ENCLOSED',
     'END',
+    'ENGINE',
     'ESCAPE',
     'ESCAPED',
     'EVENTS',
@@ -454,7 +455,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 259;
+$PMA_SQPdata_reserved_word_cnt = 260;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-04 Michal Cihar  <michal@cihar.com>
+    * libraries/sqlparser.data.php: Add ENGINE to reserved words (used instead
+      of TYPE in MySQL 4.1.1).
+
 2004-05-04 Garvin Hicking <pma@supergarv.de>
     * Documentation.html, config.inc.php, left.php: Use NaturalOrder
       for Non-Light left frame. Introduce new option 'nested' for
