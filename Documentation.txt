@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.2.2-rc1 Documentation
+                        phpMyAdmin 2.2.2 Documentation
                                        
      * [1]Official phpMyAdmin project homepage    [
        http://www.phpwizard.net/projects/phpMyAdmin/ ]
@@ -9,8 +9,8 @@
           + Version history: [3]ChangeLog
           + General notes: [4]README
           + License: [5]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.102 2001/11/23
-       19:19:12 loic1 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.105 2001/12/02
+       17:21:26 loic1 Exp $
    ______________________________________________________________________
    
    [6]Top  -  [7]Requirements  -  [8]Introduction  -  [9]Installation  -
@@ -461,7 +461,8 @@ FAQ - Frequently Asked Questions
    with the advanced authentication mode.
    This is a known problem with the php ISAPI filter: it's not so stable.
    For some more information and complete testings see the messages
-   posted by "djdeluxe76" in [50]this thread from the phpWizard forum.
+   posted by André B. aka "djdeluxe76" in [50]this thread from the
+   phpWizard forum.
    
    I can't use phpMyAdmin on PWS: nothing is displayed!
    This seems to be a PWS bug. Filippo Simoncini found a workaroud (at
@@ -543,6 +544,14 @@ FAQ - Frequently Asked Questions
        
    Have also a look at the [55]corresponding section of the MySQL
    documentation.
+   
+   Nothing is displayed by my browser when I try to run phpMyAdmin, what
+   can I do?
+   Try to set the $cfgOBGZip directive to FALSE in the phpMyAdmin
+   configuration file. It helps sometime.
+   Also have a look at your php version number: if it contains "4.0b..."
+   it means you're running a beta version of PHP. That's not a so good
+   idea, please upgrade to a plain revision.
    
    Each time I want to insert or change a record or drop a database or a
    table, an error 404 (page not found) is displayed or, with advanced
@@ -801,7 +810,8 @@ CREDITS, in chronological order
 
 The following people have contributed minor changes, enhancements, bugfixes or
 or support for a new language since version 2.1.0:
-Bora Alioglu, Ricardo ?, Sven-Erik Andersen, Alessandro Astarita, Borges Botelho,
+Bora Alioglu, Ricardo ?, Sven-Erik Andersen, Alessandro Astarita, Borges Botelh
+o,
 Olivier Bussier, Michal Cihar, Neil Darlow, Kristof Hamann, Thomas Kläger,
 Lubos Klokner, Martin Marconcini, Girish Nair, David Nordenberg,
 Bernard M. Piller, Laurent Haas, "Sakamoto", www.securereality.com.au,
