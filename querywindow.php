@@ -85,8 +85,8 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
        . '    <tr>' . "\n"
        . '        <td class="nav" align="left" nowrap="nowrap" valign="bottom">'
        . '            <table border="0" cellpadding="0" cellspacing="0"><tr>'
-       . '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
-       . '                <td class="navSpacer"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td>';
+       . '                <td nowrap="nowrap"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="2" height="1" border="0" alt="" /></td>'
+       . '                <td class="navSpacer"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  .'" width="1" height="1" border="0" alt="" /></td>';
     }
     echo "\n";
     echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strSQL.'" />' : '') . $strSQL, '#', '', 'onclick="javascript:query_tab_commit(\'sql\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
@@ -98,7 +98,7 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
     }
 
     if (!$cfg['LightTabs']) {
-    echo '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
+    echo '                <td nowrap="nowrap"><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="2" height="1" border="0" alt="" /></td>'
        . '            </tr></table>' . "\n"
        . '        </td>' . "\n"
        . '    </tr>' . "\n"
