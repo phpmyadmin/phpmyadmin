@@ -439,6 +439,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'WITH',
         'WORK',
         'WRITE',
+        'XOR',
         'YEAR_MONTH'
     );
     //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
