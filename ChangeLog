@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-25 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/italian.inc.php3: Updates, thanks again to
+      Pietro Danesi <danone@users.sourceforge.net>.
+
 2002-05-24 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, images/bkg.gif: Tried to "fix" bug (?) #558155.
     * Documentation.*: The Mozilla textarea bug also appears in Mozilla 1.0-RC3.
