@@ -296,7 +296,16 @@ else {
         $num_rows = 0;
     }
     else {
+        // garvin: Measure query time. TODO-Item http://sourceforge.net/tracker/index.php?func=detail&aid=571934&group_id=23067&atid=377411
+        list($usec, $sec) = explode(' ',microtime()); 
+        $querytime_before = ((float)$usec + (float)$sec); 
+
         $result   = @PMA_mysql_query($full_sql_query);
+
+        list($usec, $sec) = explode(' ',microtime()); 
+        $querytime_after = ((float)$usec + (float)$sec);
+        
+        $GLOBALS['querytime'] = $querytime_after - $querytime_before;
 
         // Displays an error message if required and stop parsing the script
         if (PMA_mysql_error()) {
@@ -448,6 +457,8 @@ else {
         } else {
             $message = $strEmptyResultSet;
         }
+
+        $message .= " (" . sprintf($strQueryTime, $GLOBALS['querytime']) . ")";
 
         if ($is_gotofile) {
             $goto = ereg_replace('\.\.*', '.', $goto);
