@@ -601,7 +601,8 @@ else {
             $message = $strInsertedRows . '&nbsp;' . $num_rows;
             $insert_id = PMA_DBI_insert_id();
             if ($insert_id != 0) {
-                $message .= '[br]'.$strInsertedRowId . '&nbsp;' . $insert_id;
+                // insert_id is id of FIRST record inserted in one insert, so if we inserted multiple rows, we had to increment this
+                $message .= '[br]'.$strInsertedRowId . '&nbsp;' . ($insert_id + $num_rows - 1);
             }
         } else if ($is_affected) {
             $message = $strAffectedRows . '&nbsp;' . $num_rows;
