@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Confirmation form if required or include of other scripts
  */
@@ -14,10 +15,10 @@ if (!empty($submit_mult)
         $selected     = $selected_db;
         $what         = 'drop_db';
     } else if (!empty($selected_tbl)) {
-    	if ($submit_mult == $strPrintView) {
+        if ($submit_mult == $strPrintView) {
             include('./tbl_printview.php3');
             exit();
-        } else {    
+        } else {
            $selected = $selected_tbl;
            switch ($submit_mult) {
                case $strDrop:
@@ -160,11 +161,11 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btn) == $strYes)
                 break;
         } // end switch
 
-        // All "DROP TABLE","DROP FIELD" and "OPTIMIZE TABLE" statements 
-        // will be run at once below
-        if ($query_type != 'drop_tbl' 
-         && $query_type != 'drop_fld'
-         && $query_type != 'optimize_tbl') {
+        // All "DROP TABLE","DROP FIELD" and "OPTIMIZE TABLE" statements will
+        // be run at once below
+        if ($query_type != 'drop_tbl'
+            && $query_type != 'drop_fld'
+            && $query_type != 'optimize_tbl') {
             $sql_query .= $a_query . ';' . "\n";
 
             if ($query_type != 'drop_db') {
@@ -174,9 +175,9 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btn) == $strYes)
         } // end if
     } // end for
 
-    if ($query_type == 'drop_tbl' 
-     || $query_type == 'drop_fld'
-     || $query_type == 'optimize_tbl') {
+    if ($query_type == 'drop_tbl'
+        || $query_type == 'drop_fld'
+        || $query_type == 'optimize_tbl') {
         mysql_select_db($db);
         $result = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
     }

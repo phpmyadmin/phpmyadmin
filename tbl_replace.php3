@@ -7,6 +7,8 @@
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
+
+
 /**
  * Initializes some variables
  */
@@ -27,8 +29,8 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&disp_direction=' . $disp_direction
           . '&repeat_cells=' . $repeat_cells
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
-} else  if ($goto == 'sql.php3' 
-           or ($goto == 'tbl_properties.php3' and !empty($sql_query)))  {
+} else if ($goto == 'sql.php3'
+           || ($goto == 'tbl_properties.php3' && !empty($sql_query))) {
     $goto = 'sql.php3?'
           . 'lang=' . $lang
           . '&server=' . $server

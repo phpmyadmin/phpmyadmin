@@ -691,9 +691,8 @@ echo "\n";
     </li>
 
     <!-- Query box and bookmark support -->
-   
     <li>
- <a name="querybox"></a>
+        <a name="querybox"></a>
         <form method="post" action="read_dump.php3" enctype="multipart/form-data"
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />

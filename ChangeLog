@@ -6,12 +6,20 @@ $Id$
 $Source$
 
 2002-02-08 Marc Delisle  <lem9@users.sourceforge.net>
-	* ukrainian updates thanks to Markijan Baran
- 
+	* ukrainian updates thanks to Markijan Baran.
+
 2002-02-08 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/bulgarian-*; lang/japanese.inc.php3: updated thanks to
 	  Georgi Georgiev.
-	* lang/japanese.inc.php3 : fixes by "Luc" <luc at ceres.dti.ne.jp>.
+	* lang/japanese.inc.php3: fixes by "Luc" <luc at ceres.dti.ne.jp>.
+	* left.php3: beautified the alignement of the generated xhtml code (it's
+	  easier to find error this way ;)).
+	* sql.php3, line 76: replaced space characters by the "[[:space:]]" POSIX
+	  expression.
+	* Documentation.html; tbl_properties.inc.php3: xhtml fix.
+	* user_details.php3; mult_submits.inc.php3; tbl_replace.php3;
+	  tbl_properties.php3:
+	  removed tabs and/or trailing spaces.
 
 2002-02-05 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3, bug 463683 state tracking problem
