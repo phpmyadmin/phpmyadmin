@@ -512,6 +512,7 @@ $strSearchOption3 = 'the exact phrase';
 $strSearchOption4 = 'as regular expression';
 $strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';
 $strSearchType = 'Find:';
+$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';
 $strSelect = 'Select';
 $strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';
@@ -573,6 +574,7 @@ $strTableHasBeenEmptied = 'Table %s has been emptied';
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 $strTableMaintenance = 'Table maintenance';
 $strTableOfContents = 'Table of contents';
+$strTableOptions = 'Table options';
 $strTableStructure = 'Table structure for table';
 $strTableType = 'Table type';
 $strTables = '%s table(s)';
@@ -649,6 +651,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strTableOptions = 'Table options';
-$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
 ?>
