@@ -104,7 +104,7 @@ function normal_operations()
 
     <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user&mode=reload"; ?>"><?php echo $strReloadMySQL; ?></a> <?php print show_docu("manual_Reference.html#FLUSH"); ?></li>
 
-    <li><form name=userForm method="POST" action="<?php echo $self; ?>"><?php echo $strCheckDbPriv; ?>
+    <li><form name=userForm1 method="POST" action="<?php echo $self; ?>"><?php echo $strCheckDbPriv; ?>
     <table with="100%"><tr>
     <td><?php echo $strDatabase; ?>:&nbsp;<select name="db">
 <?php
@@ -122,7 +122,7 @@ function normal_operations()
     </form>
     </li>
 
-    <li><form name=userForm onsubmit ="return false"><?php echo $strAddUser; ?>
+    <li><form name=userForm2 onsubmit ="return false"><?php echo $strAddUser; ?>
     <table>
     <tr>
     <td><input type="radio" name="anyhost">
@@ -146,8 +146,8 @@ function normal_operations()
     <td><input type="radio" name="nopass"><?php echo $strNoPassword; ?></td></tr>
     <tr><td><br><?php echo $strPrivileges; ?>:<br></td></tr>
     </table>
-    <?php table_privileges("userForm") ?>
-    <input type="button" value="<?php echo $strGo; ?>" onclick="addUser(document.userForm)"></p>
+    <?php table_privileges("userForm2") ?>
+    <input type="button" value="<?php echo $strGo; ?>" onclick="addUser(document.userForm2)"></p>
     </form>
     </li>
     </ul>
@@ -266,12 +266,12 @@ function grant_operations()
 
     <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><?php echo $strBack; ?></a></li>
 
-    <li><form name=userForm onsubmit ="return false"><?php echo $strAddPriv; ?>
+    <li><form name=userForm3 onsubmit ="return false"><?php echo $strAddPriv; ?>
     <table with="100%"><tr>
     <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? "": " checked"; ?>><?php echo $strAnyDatabase; ?></td>
     <td>&nbsp;</td>
     <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? " checked":""; ?>><?php echo $strDatabase; ?>:&nbsp;
-    <select name="database" onchange="javascript:change(userForm.database, 'dbgrant')">
+    <select name="database" onchange="javascript:change(userForm3.database, 'dbgrant')">
 <?php
     if (!isset($dbgrant)) echo "<option selected></option>";
     $result = mysql_query("SHOW DATABASES");
@@ -288,7 +288,7 @@ function grant_operations()
     <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? "":" checked"; ?>><?php echo $strAnyTable; ?></td>
     <td>&nbsp;</td>
     <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? " checked":""; ?>><?php echo $strTable; ?>:&nbsp;
-    <select name="table" onchange="javascript:change(userForm.table, 'tablegrant')"
+    <select name="table" onchange="javascript:change(userForm3.table, 'tablegrant')"
     >
 <?php
     if (isset($dbgrant)) {
@@ -325,8 +325,8 @@ function grant_operations()
     </tr></table>
 
     <table><tr><td><br><?php echo $strPrivileges; ?>:<br></td></tr></table>
-    <?php table_privileges("userForm") ?>
-    <input type="button" value="<?php echo $strGo; ?>" onclick="addGrant(userForm)"></p>
+    <?php table_privileges("userForm3") ?>
+    <input type="button" value="<?php echo $strGo; ?>" onclick="addGrant(userForm3)"></p>
     </form>
     </li>
     </ul>

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-04  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug #438319 (IE 5.5 and "Add a new user"): user_details.php3, 
+	  thanks to Loïc Chapeaux  <lolo@phpheaven.net>
+
 2001-07-04  Olivier Müller  <om@omnis.ch>   [uid23515]
 	* set version to 2.2.0rc1
 	* removed anything about "unofficial" from the pages
