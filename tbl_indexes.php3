@@ -38,13 +38,13 @@ if (!defined('PMA_IDX_INCLUDED')) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&convcharset=' . $convcharset . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     }
-    // Not a valid table name -> back to the db_details.php3
+    // Not a valid table name -> back to the default db_details sub-page
     if (!empty($table)) {
         $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
     if (empty($table)
         || !($is_table && @mysql_numrows($is_table))) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php3?lang=' . $lang . '&convcharset=' . $convcharset . '&server=' . $server .'&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . $cfg['DefaultTabDatabase'] . '?lang=' . $lang . '&convcharset=' . $convcharset . '&server=' . $server .'&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     } else if (isset($is_table)) {
         mysql_free_result($is_table);

@@ -14,6 +14,7 @@ $Source$
     * lang/chinese_*.inc.php3: Updates, thanks again to Siu Sun (siusun).
     * lang/german-*.inc.php3: Updates.
     * tbl_properties_links.php3: Use "TRUNCATE TABLE" instead of "TRUNCATE".
+    * tbl_indexes.php3: Default page for databases.
 
 2002-08-10 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/string.lib.php3:
