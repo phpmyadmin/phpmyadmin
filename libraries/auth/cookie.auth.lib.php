@@ -422,6 +422,11 @@ if (top != self) {
     ?>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
+    <?php
+    if (isset($GLOBALS['db'])) {
+        echo '            <input type="hidden" name="db" value="' . htmlspecialchars($GLOBALS['db']) . '" />' . "\n";
+    }
+    ?>
             <input type="submit" value="<?php echo $GLOBALS['strLogin']; ?>" id="buttonYes" />
         </td>
     </tr>
@@ -529,7 +534,7 @@ function PMA_auth_check()
         if ($decrypted_time < $GLOBALS['current_time'] - $GLOBALS['cfg']['LoginCookieValidity']) {
             return FALSE;
         }
-        
+
         // password
         if (!empty($pma_cookie_password)) {
             $PHP_AUTH_PW   = $pma_cookie_password;
@@ -608,12 +613,12 @@ function PMA_auth_set_user()
     // Name and password cookies needs to be refreshed each time
     // Duration = one month for username
     setcookie('pma_cookie_username-' . $server,
-        PMA_blowfish_encrypt($cfg['Server']['user'] . ':' . $GLOBALS['current_time'], 
+        PMA_blowfish_encrypt($cfg['Server']['user'] . ':' . $GLOBALS['current_time'],
             $GLOBALS['cfg']['blowfish_secret']),
         time() + (60 * 60 * 24 * 30),
         $GLOBALS['cookie_path'], '',
         $GLOBALS['is_https']);
-        
+
     // Duration = till the browser is closed for password (we don't want this to be saved)
     setcookie('pma_cookie_password-' . $server,
         PMA_blowfish_encrypt(!empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",

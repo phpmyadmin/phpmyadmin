@@ -9,6 +9,8 @@ $Source$
     * themes.php, libraries/common.lib.php, libraries/defines.lib.php,
       libraries/select_theme.lib.php, themes/darkblue_orange/info.inc.php,
 	  themes/original/info.inc.php: Better theme version check (bug #1023029).
+    * libraries/auth/cookie.auth.lib.php: Remember database when using cookie
+      login (bug #1027873).
 
 2004-09-13 Garvin Hicking <me@supergarv.de>
     * browse_foreigners.php: bug #1027204 - paging did not
