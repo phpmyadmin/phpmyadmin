@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-24 Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/german.inc.php3: updated thanks to Alexander M. Turek.
+
 2002-02-23 Marc Delisle  <lem9@users.sourceforge.net>
 	* swedish updates thanks to Björn T. Hallberg
 	* tbl_printview.php3, comments were not displayed, thanks to
