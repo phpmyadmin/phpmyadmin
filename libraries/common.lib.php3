@@ -1261,13 +1261,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // Reloads the navigation frame via JavaScript if required
             if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
                 echo "\n";
-                $reload_url = './left.php3?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&');
+                $reload_url = './left.php3?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&')
                 ?>
     <script type="text/javascript" language="javascript1.2">
     <!--
     if (typeof(window.parent) != 'undefined'
         && typeof(window.parent.frames['nav']) != 'undefined') {
-        window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
+        window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>' + window.parent.frames['nav'].document.hashform.hash.value);
     }
     //-->
     </script>
