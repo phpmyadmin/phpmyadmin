@@ -324,7 +324,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
         onsubmit="return <?php echo (($pos + $session_max_rows < $unlim_num_rows && $num_rows >= $session_max_rows) ? 'true' : 'false'); ?>">
         <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
         <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
-        <input type="hidden" name="pos" value="<?php echo $unlim_num_rows - $session_max_rows; ?>" />
+        <input type="hidden" name="pos" value="<?php echo @((ceil($unlim_num_rows / $session_max_rows)- 1) * $session_max_rows); ?>" />
         <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
         <input type="hidden" name="disp_direction" value="<?php echo $disp_direction; ?>" />
         <input type="hidden" name="repeat_cells" value="<?php echo $repeat_cells; ?>" />
