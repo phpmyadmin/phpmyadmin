@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * pdf_schema.php3, bug 729517, better comment output,
+      thanks to Maxime Delorme
+
 2003-04-30 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_move_copy.php3: Better fix for #729416 (use INSERT IGNORE).
 

@@ -474,8 +474,8 @@ function Row($data,$links)
    $nb=0;
    for($i=0;$i<count($data);$i++)
       $nb=max($nb,$this->NbLines($this->widths[$i],$data[$i]));
-   $il = 2.7;
-   $h=$il*$nb+2;
+   $il = $this->FontSize;
+   $h=($il+1)*$nb; 
    // page break if necessary
    $this->CheckPageBreak($h);
    // draw the cells
