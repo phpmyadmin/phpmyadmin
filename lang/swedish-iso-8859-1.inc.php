@@ -775,4 +775,14 @@ $strVersionInformation = 'Version information';  //to translate
 $strInnoDBDataHomeDir = 'Data home directory';  //to translate
 $strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
 $strInnoDBDataFilePath = 'Data files';  //to translate
+$strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
+$strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
+$strBufferPool = 'Buffer Pool';  //to translate
+$strBufferPoolUsage = 'Buffer Pool Usage';  //to translate
+$strDataPages = 'Pages containing data';  //to translate
+$strFreePages = 'Free pages';  //to translate
+$strBusyPages = 'Busy pages';  //to translate
+$strDirtyPages = 'Dirty pages';  //to translate
+$strPagesToBeFlushed = 'Pages to be flushed';  //to translate
+$strLatchedPages = 'Latched pages';  //to translate
 ?>
