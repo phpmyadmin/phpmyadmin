@@ -131,8 +131,8 @@ if (!empty($TableList)) {
 // The tables list gets from MySQL
 while ($i < $tbl_result_cnt) {
     $tbl             = PMA_mysql_tablename($tbl_result, $i);
-    $fld_results     = PMA_mysql_list_fields($db, $tbl);
-    $fld_results_cnt = mysql_num_fields($fld_results);
+    $fld_results     = @PMA_mysql_list_fields($db, $tbl) or PMA_mysqlDie(PMA_mysql_error(), 'PMA_mysql_list_fields(' . $db . ', ' . $tbl . ')', FALSE, $err_url_0);
+    $fld_results_cnt = ($fld_results) ? mysql_num_fields($fld_results) : 0;
     $j               = 0;
 
     if (empty($tbl_names[$tbl]) && !empty($TableList)) {
@@ -839,7 +839,7 @@ if (isset($Field) && count($Field) > 0) {
 
             if (isset($dbh)) {
                 PMA_mysql_select_db($cfgRelation['db'], $dbh);
-                $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(mysql_error($dbh), $rel_query, '', $err_url_0);
+                $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(PMA_mysql_error($dbh), $rel_query, '', $err_url_0);
                 PMA_mysql_select_db($db, $dbh);
             } else {
                 PMA_mysql_select_db($cfgRelation['db']);
@@ -891,7 +891,7 @@ if (isset($Field) && count($Field) > 0) {
                 $rel_query     .= ' ORDER BY master_table, foreign_table';
                 if (isset($dbh)) {
                     PMA_mysql_select_db($cfgRelation['db'], $dbh);
-                    $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(mysql_error($dbh), $rel_query, '', $err_url_0);
+                    $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(PMA_mysql_error($dbh), $rel_query, '', $err_url_0);
                     PMA_mysql_select_db($db, $dbh);
                 } else {
                     PMA_mysql_select_db($cfgRelation['db']);
