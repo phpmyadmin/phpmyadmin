@@ -257,6 +257,7 @@ $strNoValidateSQL = 'Ikke teste SQL';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s treff i tabell <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totalt:</b> <i>%s</i> treff';
+$strNumTables = 'Tabeller';
 
 $strOftenQuotation = 'Ofte anførselstegn. Valgfritt innebærer at kun tekstfelter ("char" og "varchar") felter er omfattet av tegnet.';
 $strOK = 'OK';
@@ -404,6 +405,7 @@ $strTheContent = 'Innholdet av filen er lagt inn.';
 $strTheContents = 'Innholdet av filen erstatter valgt tabell for rader med lik identifikator eller unikt felt';
 $strTheTerminator = 'Tegn som angir slutt på felter.';
 $strTotal = 'totalt';
+$strTotalUC = 'Totalt';
 $strType = 'Type';
 
 $strUncheckAll = 'Fjern merking';
@@ -438,8 +440,6 @@ $strYes = 'Ja';
 $strZip = 'Komprimert (zip)';
 
 // To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
 $strRelationalSchema = 'Relational schema';  //to translate
 $strTableOfContents = 'Table of contents';  //to translate
 $strCannotLogin = 'Cannot login to MySQL server';  //to translate

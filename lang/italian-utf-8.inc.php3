@@ -68,6 +68,7 @@ $strBookmarkView = 'Visualizza solo';
 $strBrowse = 'Mostra';
 $strBzip = '"compresso con bzip2"';
 
+$strCannotLogin = 'Impossibile eseguire il login nel server MySQL';
 $strCantLoadMySQL = 'impossibile caricare l\'estensione MySQL,<br />controlla la configurazione di PHP.';
 $strCantLoadRecodeIconv = 'Impossibile caricare l\'estensione iconv o recode necessaria per la conversione del set di caratteri, configurare il PHP per permettere di utilizzare queste estenzioni o disabilitare la conversione dei set di caratteri in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Impossibile rinominare l\'indice a PRIMARIO!';
@@ -307,8 +308,9 @@ $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 $strReType = 'Reinserisci';
 $strRecords = 'Record';
 $strReferentialIntegrity = 'Controlla l\'integrità delle referenze:';
+$strRelationalSchema = 'Schema relazionale';
 $strRelationNotWorking = 'Le caratteristiche aggiuntive sono state disattivate per funzionare con le tabelle linkate. Per scoprire perchè clicca %squi%s.';
-$strRelationView = 'Vedi relazioni';
+$strRelationalSchema = 'Schema relazionale';$strRelationView = 'Vedi relazioni';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
 $strReloadMySQL = 'Riavvia MySQL';
 $strRememberReload = 'Ricorda di riavviare MySQL.';
@@ -400,6 +402,7 @@ $strTableHasBeenDropped = 'La tabella %s è stata eliminata';
 $strTableHasBeenEmptied = 'La tabella %s è stata svuotata';
 $strTableHasBeenFlushed = 'La tabella %s è stata inizializzata';
 $strTableMaintenance = 'Amministrazione tabella';
+$strTableOfContents = 'Tabella dei contenuti';
 $strTableStructure = 'Struttura della tabella';
 $strTableType = 'Tipo tabella';
 $strTables = '%s tabella(e)';
@@ -442,9 +445,7 @@ $strYes = ' Si ';
 
 $strZip = '"compresso con zip"';
 
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
+// To translate
 $strShowDatadictAs = 'Data Dictionary Format';  //to translate
 $strLandscape = 'Landscape';  //to translate
 $strPortrait = 'Portrait';  //to translate

@@ -18,6 +18,12 @@ $Source$
     * main.php3: Fixed bug #649641 (usernames containing '@' character).
     * libaraies/ob.lib.php3: Merged patch #647148 (Fix for Output Handler
       warning / php >= 4.3.0) by Mats Engstrom (matseng).
+    * lang/thai-*.inc.php3: Updates, thanks to Arthit Suriyawongkul (bacteria).
+    * lang/norvegian-*.inc.php3: Updates, thanks to Sven-Erik Andersen
+      (sven-erik).
+    * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas (viliusz).
+    * lang/estonian-*.inc.php3: Updates, thanks to Alvar Soome (finsoft).
+    * lang/italian-*.inc.php3: Updates, thanks to Pietro Danesi (danone).
 
 2002-12-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*.php3, pdf_schema.php3, pdf_pages.php3, db_details_structure.php3:

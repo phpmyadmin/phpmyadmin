@@ -62,6 +62,7 @@ $strBookmarkView = 'Perþiûra';
 $strBrowse = 'Perþiûrëti';
 $strBzip = '"bzip"';
 
+$strCannotLogin = 'Neprisijungia prie MySQL serverio';
 $strCantLoadMySQL = 'negali uþkrauti MySQL proceso,<br />patikrinkite PHP nustatymus.';
 $strCantLoadRecodeIconv = 'Nepavyko uþkrauti <em>iconv</em> arba <em>recode</em> plëtiniø, reikalingø koduotës kovertavimui. Suteikite PHP teises naudotis ðiais iðplëtimais arba iðjunkite phpMyAdmin koduotës konvertavimà. ';
 $strCantRenameIdxToPrimary = 'Indeksà pervadinti PIRMINIU nepavyko!';
@@ -253,6 +254,7 @@ $strNotValidNumber = ' netinkamas eilutës numeris!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s atitikmuo(enys) lentelëje <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Viso:</b> <i>%s</i> atitikmuo(enys)';
+$strNumTables = 'Lentelës';
 
 $strOK = 'Gerai';
 $strOftenQuotation = 'Daþnai kartojasi kabutës. Pasirinktinai reiðkia, kad tik  char ir varchar laukai yra uþdaryti kabutëmis.';
@@ -299,6 +301,7 @@ $strQueryOnDb = 'SQL-uþklausa duomenø bazëje <b>%s</b>:';
 $strReType = 'Áveskite dar kartà';
 $strRecords = 'Viso áraðø:';
 $strReferentialIntegrity = 'Patikrinti sàryðiø vientisumà:';
+$strRelationalSchema = 'Ryðiø schema';
 $strRelationNotWorking = 'Atsisakyta papildomø nustatymø, leidþianèiø dirbti su jungtinëmis lentelëmis. %sPaaiðkinimas%s.';
 $strRelationView = 'Perþiûrëti sàryðius';
 $strReloadFailed = 'MySQL procesà perkrauti nepavyko.';
@@ -392,6 +395,7 @@ $strTableHasBeenDropped = 'Lentelë %s panaikinta';
 $strTableHasBeenEmptied = 'Lentelës reikðmës %s iðtuðtintos';
 $strTableHasBeenFlushed = 'Lentelës buferis  %s iðvalytas';
 $strTableMaintenance = 'Lentelës diagnostika';
+$strTableOfContents = 'Turinys';
 $strTableStructure = 'Sukurta duomenø struktûra lentelei';
 $strTableType = 'Lentelës tipas';
 $strTables = '%s lentelë(s)';
@@ -400,6 +404,7 @@ $strTheContent = 'Jûsø failo turinys áterptas.';
 $strTheContents = 'Failo turinys áterpus panaikina iðrinktos lentelës ar stulpelio turiná, bet iðlieka unikalûs ir pirminiai indeksai.';
 $strTheTerminator = 'Laukø pabaigos þymë.';
 $strTotal = ' ið viso ';
+$strTotalUC = 'Viso';
 $strType = 'Tipas';
 
 $strUncheckAll = 'Nepaþymëti visus(as)';
@@ -434,11 +439,6 @@ $strYes = 'Taip';
 $strZip = '"zip"';
 
 //To translate:
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
 $strShowDatadictAs = 'Data Dictionary Format';  //to translate
 $strLandscape = 'Landscape';  //to translate
 $strPortrait = 'Portrait';  //to translate

@@ -63,6 +63,7 @@ $strBookmarkView = 'Peržiūra';
 $strBrowse = 'Peržiūrėti';
 $strBzip = '"bzip"';
 
+$strCannotLogin = 'Neprisijungia prie MySQL serverio';
 $strCantLoadMySQL = 'negali užkrauti MySQL proceso,<br />patikrinkite PHP nustatymus.';
 $strCantLoadRecodeIconv = 'Nepavyko užkrauti <em>iconv</em> arba <em>recode</em> plėtinių, reikalingų koduotės kovertavimui. Suteikite PHP teises naudotis šiais išplėtimais arba išjunkite phpMyAdmin koduotės konvertavimą. ';
 $strCantRenameIdxToPrimary = 'Indeksą pervadinti PIRMINIU nepavyko!';
@@ -254,6 +255,7 @@ $strNotValidNumber = ' netinkamas eilutės numeris!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s atitikmuo(enys) lentelėje <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Viso:</b> <i>%s</i> atitikmuo(enys)';
+$strNumTables = 'Lentelės';
 
 $strOK = 'Gerai';
 $strOftenQuotation = 'Dažnai kartojasi kabutės. Pasirinktinai reiškia, kad tik  char ir varchar laukai yra uždaryti kabutėmis.';
@@ -300,6 +302,7 @@ $strQueryOnDb = 'SQL-užklausa duomenų bazėje <b>%s</b>:';
 $strReType = 'Įveskite dar kartą';
 $strRecords = 'Viso įrašų:';
 $strReferentialIntegrity = 'Patikrinti sąryšių vientisumą:';
+$strRelationalSchema = 'Ryšių schema';
 $strRelationNotWorking = 'Atsisakyta papildomų nustatymų, leidžiančių dirbti su jungtinėmis lentelėmis. %sPaaiškinimas%s.';
 $strRelationView = 'Peržiūrėti sąryšius';
 $strReloadFailed = 'MySQL procesą perkrauti nepavyko.';
@@ -393,6 +396,7 @@ $strTableHasBeenDropped = 'Lentelė %s panaikinta';
 $strTableHasBeenEmptied = 'Lentelės reikšmės %s ištuštintos';
 $strTableHasBeenFlushed = 'Lentelės buferis  %s išvalytas';
 $strTableMaintenance = 'Lentelės diagnostika';
+$strTableOfContents = 'Turinys';
 $strTableStructure = 'Sukurta duomenų struktūra lentelei';
 $strTableType = 'Lentelės tipas';
 $strTables = '%s lentelė(s)';
@@ -401,6 +405,7 @@ $strTheContent = 'Jūsų failo turinys įterptas.';
 $strTheContents = 'Failo turinys įterpus panaikina išrinktos lentelės ar stulpelio turinį, bet išlieka unikalūs ir pirminiai indeksai.';
 $strTheTerminator = 'Laukų pabaigos žymė.';
 $strTotal = ' iš viso ';
+$strTotalUC = 'Viso';
 $strType = 'Tipas';
 
 $strUncheckAll = 'Nepažymėti visus(as)';
@@ -435,11 +440,6 @@ $strYes = 'Taip';
 $strZip = '"zip"';
 
 //To translate:
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
 $strShowDatadictAs = 'Data Dictionary Format';  //to translate
 $strLandscape = 'Landscape';  //to translate
 $strPortrait = 'Portrait';  //to translate

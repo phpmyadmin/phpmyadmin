@@ -62,6 +62,7 @@ $strBookmarkView = 'Vaata ainult';
 $strBrowse = 'Vaata';
 $strBzip = '"bzipitud"';
 
+$strCannotLogin = 'Eei suuda MySQL serverisse logida';
 $strCantLoadMySQL = 'ei suutnud lugeda MySql laiendit,<br />palun kontrollige PHP konfiguratsiooni.';
 $strCantLoadRecodeIconv = 'Ei suuda lugeda iconv või recode moodulit mida on vaja tähetabeli konvertimiseks, konfigureeriga php-d nii, et see sisaldaks antud mooduleid või keelake tähetabeli konvertimine phpMyAdminis.';
 $strCantRenameIdxToPrimary = 'Ei suuda muuta indeksit PRIMAARSEKS!';
@@ -300,6 +301,7 @@ $strQueryOnDb = 'SQL-päring andmebaasist <b>%s</b>:';
 $strReType = 'Sisesta uuesti';
 $strRecords = 'Kirjeid';
 $strReferentialIntegrity = 'Kontrolli pärinevust:';
+$strRelationalSchema = 'Seoseskeem';
 $strRelationNotWorking = 'Lisavõimalused töötamiseks lingitud tabelitega on deaktiveeritud. Et lugeda miks see nii on, vajutage %ssiia%s.';
 $strRelationView = 'Pärinevuse vaade';
 $strReloadFailed = 'MySQL taaslaadimine ebaõnnestus.';
@@ -393,6 +395,7 @@ $strTableHasBeenDropped = 'Tabel %s kustutatud';
 $strTableHasBeenEmptied = 'Tabel %s tühjendatud';
 $strTableHasBeenFlushed = 'Tabel %s ühtlustatud';
 $strTableMaintenance = 'Tabeli hooldus';
+$strTableOfContents = 'Sisukord';
 $strTableStructure = 'Struktuur tabelile';
 $strTableType = 'Tabeli tüüp';
 $strTables = '%s tabel(it)';
@@ -434,9 +437,8 @@ $strWrongUser = 'Vale kasutajanimi/parool. Ligipääd keelatud.';
 $strYes = 'Jah';
 
 $strZip = '"zipitud"';
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
+
+// To translate
 $strShowDatadictAs = 'Data Dictionary Format';  //to translate
 $strLandscape = 'Landscape';  //to translate
 $strPortrait = 'Portrait';  //to translate

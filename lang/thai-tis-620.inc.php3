@@ -2,7 +2,7 @@
 /* $Id$ */
 
 // first created 2002/04/29 Arthit Suriyawongkul & Warit Wanasathian
-// last modified 2002/11/18 Arthit Suriyawongkul
+// last modified 2002/12/06 Arthit Suriyawongkul
 
 $charset = 'tis-620';
 $text_dir = 'ltr';
@@ -157,7 +157,7 @@ $strFieldsEnclosedBy = 'คร่อมฟิลด์ด้วย';
 $strFieldsEscapedBy = 'เครื่องหมายสำหรับ escape char';
 $strFieldsTerminatedBy = 'จบฟิลด์ด้วย';
 $strFixed = 'คงที่';
-$strFlushTable = 'ล้างตาราง ("FLUSH")';
+$strFlushTable = 'ล้างตาราง (flush)';
 $strFormEmpty = 'ค่าในแบบฟอร์มหายไป !';
 $strFormat = 'รูปแบบ';
 $strFullText = 'ทั้งข้อความ';
@@ -179,7 +179,7 @@ $strHomepageSourceforge = 'หน้าดาวน์โหลด phpMyAdmin ที่ Sourceforge';
 $strHost = 'โฮสต์';
 $strHostEmpty = 'ชื่อโฮสต์ยังว่างอยู่!';
 
-$strIdxFulltext = 'Fulltext';
+$strIdxFulltext = 'ข้อความเต็ม (fulltext)';
 $strIfYouWish = 'ถ้าต้องการเรียกดู เฉพาะบางคอลัมน์ ให้ระบุรายชื่อฟิลด์มาด้วย (คั่นแต่ละชื่อด้วยเครื่องหมายลูกน้ำ)';
 $strIgnore = 'ไม่สนใจ';
 $strImportDocSQL = 'นำเข้าไฟล์ docSQL';
@@ -189,7 +189,7 @@ $strIndexHasBeenDropped = 'โยนดัชนี %s ทิ้งไปเรียบร้อยแล้ว';
 $strIndexName = 'ชื่อดัชนี :';
 $strIndexType = 'ชนิดของดัชนี :';
 $strIndexes = 'ดัชนี';
-$strInsecureMySQL = 'ไฟล์เก็บค่ากำหนดของคุณ ได้กำหนดค่า (root with no password) เอาไว้ ซึ่งมันจะถูกใช้เป็น ชื่อปริยาย สำหรับชื่อที่มีสิทธิพิเศษของ MySQL.  เซิร์ฟเวอร์ MySQL ที่ทำงานด้วยค่ากำหนดนี้ จะเปิดโอกาสให้ถูกบุกรุกได้ คุณควรจะแก้ไขรูรั่วอันนี้ทันที เพื่อความปลอดภัย';
+$strInsecureMySQL = 'จากไฟล์เก็บค่ากำหนดของคุณ คุณไม่ได้ตั้งรหัสผ่านสำหรับ root ซึ่งจะถูกใช้เป็นชื่อปริยายซึ่งมีสิทธิพิเศษ.  เซิร์ฟเวอร์ MySQL ที่ทำงานด้วยค่าปริยายนี้ อาจถูกบุกรุกได้ คุณควรจะแก้ไขรูรั่วอันนี้ทันที เพื่อความปลอดภัย';
 $strInsert = 'แทรก';
 $strInsertAsNewRow = 'แทรกเป็นแถวใหม่';
 $strInsertNewRow = 'แทรกแถวใหม่';
@@ -257,6 +257,7 @@ $strNotValidNumber = ' ไม่ใช่หมายเลขแถวที่ถูกต้อง!';
 $strNull = 'ว่างเปล่า (null)';
 $strNumSearchResultsInTable = 'พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>';
 $strNumSearchResultsTotal = '<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง';
+$strNumTables = 'ตาราง';
 
 $strOK = 'ตกลง';
 $strOftenQuotation = 'โดยปกติจะเป็นเครื่องหมายอัญประกาศ (เครื่องหมายคำพูด)<br />"เท่าที่จำเป็น" หมายถึง ให้ใส่เครื่องหมายคร่อม เฉพาะกับฟิลด์ชนิด char และ varchar เท่านั้น';
@@ -378,7 +379,7 @@ $strSort = 'เรียง';
 $strSpaceUsage = 'เนื้อที่ที่ใช้';
 $strSplitWordsWithSpace = 'คำถูกแบ่งด้วยช่องว่าง (" ").';
 $strStatement = 'คำสั่ง';
-$strStrucCSV = 'ข้อมูล CSV';
+$strStrucCSV = 'ข้อมูล CSV (คั่นด้วยเครื่องหมายลูกน้ำ ",")';
 $strStrucData = 'ทั้งโครงสร้างและข้อมูล';
 $strStrucDrop = 'เพิ่มคำสั่ง \'drop table\'';
 $strStrucExcelCSV = 'ข้อมูล CSV สำหรับไมโครซอฟต์เอ็กเซล';
@@ -404,6 +405,7 @@ $strTheContent = 'ได้แทรกข้อมูล จากไฟล์ของคุณเรียบร้อยแล้ว';
 $strTheContents = 'สำหรับแถวที่มีไพรมารีคีย์ หรือ unique key เหมือนกัน เนื้อหาจากไฟล์ จะแทนที่เนื้อหาเดิมในตาราง';
 $strTheTerminator = 'จุดสิ้นสุดของฟิลด์';
 $strTotal = 'ทั้งหมด';
+$strTotalUC = 'รวม';
 $strType = 'ชนิด';
 
 $strUncheckAll = 'ไม่เลือกเลย';
@@ -438,8 +440,6 @@ $strYes = 'ใช่';
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
 // To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
 $strRelationalSchema = 'Relational schema';  //to translate
 $strTableOfContents = 'Table of contents';  //to translate
 $strCannotLogin = 'Cannot login to MySQL server';  //to translate
