@@ -493,12 +493,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     $DisplayPmaAbsoluteUriWarning = 0;
 
     if (empty($cfg['PmaAbsoluteUri'])) {
-        // if (empty($GLOBALS['is_header_sent'])) {
-        //     include('./header.inc.php3');
-        // }
-        // echo '<p class="warning">'. $strPmaUriError . '</p>' . "\n";
-        // include('./footer.inc.php3');
-        // exit();
 
         $DisplayPmaAbsoluteUriWarning = 1;
         
@@ -515,6 +509,20 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     // exist
     else if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
         $cfg['PmaAbsoluteUri'] .= '/';
+    }
+
+
+    /**
+     * Make sure $cfg['DefaultTabDatabase'] and $cfg['DefaultTabTable'] are set. 
+     * Todo: check if it is set to a *valid* value.
+     */
+
+    if (empty($cfg['DefaultTabDatabase'])) {
+        $cfg['DefaultTabDatabase'] = 'db_details_structure.php3';
+    }
+
+    if (empty($cfg['DefaultTabTable'])) {
+        $cfg['DefaultTabTable'] = 'tbl_properties_structure.php3';
     }
 
 

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-29 Olivier L. Müller  <om@omnis.ch>
+    * Documentation.html: docs about $cfg['DefaultTabDatabase']
+      and $cfg['DefaultTabTable']
+    * config.inc.php3, index.php3, left.php3, libraries/common.lib.php3:
+      default tab selection is now customizable from config.inc.php3. 
+
 2002-06-28 Olivier L. Müller  <om@omnis.ch>
     * ANNOUNCE.txt: preparing 2.3.0 announcement... Feel free
       to improve and check

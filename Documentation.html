@@ -1058,6 +1058,22 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['DefaultTabDatabase'] </b>string</dt>
+    <dd>
+        Defines the Tab displayed by default on database view. Possible
+        values: 'db_details_structure.php3', 'db_details.php3', or
+        'db_search.php3'.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['DefaultTabTable'] </b>string</dt>
+    <dd>
+        Defines the Tab displayed by default on table view. Possible
+        values: 'tbl_properties_structure.php3', 'tbl_properties.php3',
+        'tbl_select.php3', 'tbl_change.php3'.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['ManualBaseShort']</b> string</dt>
     <dd>
         If set to an URL which points to the MySQL documentation (on short

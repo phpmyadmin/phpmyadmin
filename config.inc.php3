@@ -184,11 +184,20 @@ $cfg['GZipDump']              = TRUE;   // compression for
 $cfg['BZipDump']              = TRUE;   // dump files
 
 
-// Default Tabs settings
+// Default Tabs display settings
 
-$cfg['DefaultTabTable']       = 'Structure';  // not active yet
-$cfg['DefaultTabDatabase']    = 'Structure';  // not active yet
+//$cfg['DefaultTabDatabase']    = 'db_details_structure.php3';
+                                   // Possible values:
+                                   // 'db_details_structure.php3' = tables list
+                                   // 'db_details.php3' = sql form
+                                   // 'db_search.php3' = search query			
 
+//$cfg['DefaultTabTable']       = 'tbl_properties_structure.php3';
+                                   // Possible values:
+                                   // 'tbl_properties_structure.php3' = fields list  
+                                   // 'tbl_properties.php3' = sql form
+                                   // 'tbl_select.php3 = select page
+                                   // 'tbl_change.php3 = insert row page
 
 /**
  * Link to the official MySQL documentation
