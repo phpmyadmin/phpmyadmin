@@ -702,7 +702,7 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
     <!-- Query box and bookmark support -->
     <li>
         <a name="querybox"></a>
-        <form method="post" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>
+        <form method="post" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -1216,9 +1216,9 @@ if (!empty($cfgServer['relation'])) {
                  . ' FROM ' . $cfgServer['relation']
                  . ' WHERE src_table =\'' . $table . '\';';
 
-// we need this mysql_select_db if the user has access to more than one db
-// and $db is not the last of the list, because
-// PMA_availableDatabases() has made a mysql_select_db() on the last one
+    // we need this mysql_select_db if the user has access to more than one db
+    // and $db is not the last of the list, because PMA_availableDatabases()
+    // has made a mysql_select_db() on the last one
     mysql_select_db($db);
 
     $result      = @mysql_query($local_query);
