@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-12  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3: remove display "Avg_row_length" if zero
+
 2001-07-11  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_properties.php3, db_details.php3: fixed some bugs with php3
 	  (0 != empty).

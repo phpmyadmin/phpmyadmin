@@ -369,7 +369,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         </tr>
         <?php
     }
-    if (isset($showtable['Avg_row_length'])) {
+    if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length']>0) {
         echo (++$i%2)
              ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
              : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
