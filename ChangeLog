@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-16 Garvin Hicking <me@supergarv.de>
+    * tbl_query_box.php3: Only hide 'go' SQL button, when in files mode
+      with no $db set
+
 2003-04-16 Marc Delisle  <lem9@users.sourceforge.net>
     * badwords.txt: "status" is not a reserved word
 
