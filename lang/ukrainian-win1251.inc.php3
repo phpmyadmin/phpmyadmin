@@ -60,7 +60,9 @@ $strBrowse = 'Переглянути';
 $strBzip = 'запакувати в "bzip"';
 
 $strCantLoadMySQL = 'розширення MySQL не завантажено,<br />перевірте конфігурацію PHP.';
+$strCantLoadRecodeIconv = 'Не можу завантажити iconv чи recode extension необхідні для зміни charset-у, сконфігуруйте php так, щоб можна було використовувати ці extensions, або забороніть зміну charset-у у phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Неможливо перейменувати індекс в PRIMARY!';
+$strCantUseRecodeIconv = 'Не можу  використати ні/або iconv, ні/або libiconv, ні/або функцію recode_string поки буде завантажено extension reports. Перевірте Вашу php конфігурацію.';
 $strCarriage = 'Повернення каретки: \\r';
 $strCardinality = 'Кількість елементів';
 $strChange = 'Змінити';
@@ -72,6 +74,7 @@ $strCheckTable = 'Перевірити таблицю';
 $strChoosePage = 'Прошу вибрати сторінку для редагування';
 $strColumn = 'Колонка';
 $strColumnNames = 'Назви колонок';
+$strComments = 'Коментарі';
 $strCompleteInserts = 'Повна вставка';
 $strConfigFileError = 'phpMyAdmin не може прочитати конфігураційний файл <br />Це може статися у тому випадку, коли php натрапить на синтаксичну помилку (parse error) у ньому, або не може знайти самого файлу.<br />Завантажте конфігураційний файл безпосередньо за допомогою посилання поданого нижче і прочитайте отримані повідомлення про помилки (php error messages). Найчастіше десь у файлі просто бракує лапок чи двокрапки.  <br />Якщо Ви отримаєте порожню сторінку, - значить все в порядку.';
 $strConfigureTableCoord = 'Прошу сконфіґурувати координати таблиці %s';
@@ -151,6 +154,7 @@ $strGzip = 'запакувати в "gzip"';
 
 $strHasBeenAltered = 'була змінена.';
 $strHasBeenCreated = 'була створена.';
+$strHaveToShow = 'Необхідно вибрати принаймі один Стовпчик для показу';
 $strHome = 'На початок';
 $strHomepageOfficial = 'Офіційна сторінка phpMyAdmin';
 $strHomepageSourceforge = 'Завантаження phpMyAdmin з Sourceforge';
@@ -192,6 +196,7 @@ $strLogout = 'Вийти з системи';
 $strLogPassword = 'Пароль:';
 $strLogUsername = 'Ім\'я користувача:';
 
+$strMissingBracket = 'бракує дужки';
 $strModifications = 'Модифікації було збережено';
 $strModify = 'Змінити';
 $strModifyIndexTopic = 'Змінити індекс';
@@ -393,10 +398,6 @@ $strYes = 'Так';
 $strZip = 'запакувати в "zip"';
 
 // To translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
+
+$strMySQLCharset = 'MySQL Charset';
 ?>
