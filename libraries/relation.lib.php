@@ -561,6 +561,26 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
     // native mode is only for column comments so we need a table name
     if ($mode == 'native' && !empty($table)) {
         $fields = PMA_DBI_get_fields($db, $table);
+
+
+    // Get more complete field information
+    // For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
+    // but later, if the analyser returns more information, it
+    // could be executed for any MySQL version and replace
+    // the info given by SHOW FULL FIELDS FROM.
+    // TODO: put this code into a require()
+    // or maybe make it part of PMA_DBI_get_fields();
+
+    if (PMA_MYSQL_INT_VERSION >= 40102) {
+        $show_create_table_query = 'SHOW CREATE TABLE '
+            . PMA_backquote($db) . '.' . PMA_backquote($table);
+        $show_create_table_res = PMA_DBI_query($show_create_table_query);
+        list(,$show_create_table) = PMA_DBI_fetch_row($show_create_table_res);
+        PMA_DBI_free_result($show_create_table_res);
+        unset($show_create_table_res, $show_create_table_query);
+        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+    }
+
         // TODO: get directly the information of $col
         foreach($fields as $key=>$field) {
             $tmp_col = $field['Field'];
@@ -569,6 +589,17 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
             $nulls[$tmp_col] = $field['Null'];
             $defaults[$tmp_col] = $field['Default'];
             $extras[$tmp_col] = $field['Extra'];
+
+            if (PMA_MYSQL_INT_VERSION >= 40102 && isset($analyzed_sql[0]['create_table_fields'][$tmp_col]['on_update_current_timestamp'])) {
+                $extras[$tmp_col] = 'ON UPDATE CURRENT_TIMESTAMP';
+            }
+
+            if (PMA_MYSQL_INT_VERSION >= 40102 && isset($analyzed_sql[0]['create_table_fields'][$tmp_col]['default_current_timestamp'])) {
+                $default_current_timestamps[$tmp_col] = TRUE; 
+            } else {
+                $default_current_timestamps[$tmp_col] = FALSE; 
+            }
+
             if ($tmp_col == $col) {
                 break;
             }
@@ -580,7 +611,7 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
         }
 
         $query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE '
-            . PMA_generateAlterTable($col, $col, $types[$col], $collations[$col], $nulls[$col], $defaults[$col], $extras[$col], $comment);
+            . PMA_generateAlterTable($col, $col, $types[$col], $collations[$col], $nulls[$col], $defaults[$col], $default_current_timestamps[$col], $extras[$col], $comment);
 
         PMA_DBI_try_query($query, NULL, PMA_DBI_QUERY_STORE);
         return TRUE;

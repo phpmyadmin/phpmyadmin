@@ -10,9 +10,9 @@ $Source$
       Firefox when the Tabbrowser Extensions plugin is installed
     * tbl_properties.inc.php: TIMESTAMP options improved looks, thanks to Garvin
     * tbl_properties.inc.php: TIMESTAMP default CURRENT_TIMESTAMP checkbox
-      made dynamic, depending on the field's type.
-      TODO: (work in progress) support those options in tbl_create and
-      tbl_addfield
+      made dynamic, depending on the field's type
+    * tbl_create.php, libraries/relation.lib.php: TIMESTAMP options support
+      TODO: (work in progress) support those options in tbl_addfield
 
 2005-03-30 Alexander M. Turek  <me@derrabus.de>
     * server_databases.php: Bug #1172782 (Don't allow to drop

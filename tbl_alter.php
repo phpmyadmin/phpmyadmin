@@ -187,6 +187,7 @@ if ($abort == FALSE) {
     // could be executed for any MySQL version and replace
     // the info given by SHOW FULL FIELDS FROM.
     // TODO: put this code into a require()
+    // or maybe make it part of PMA_DBI_get_fields();
 
     if (PMA_MYSQL_INT_VERSION >= 40102) {
         $show_create_table_query = 'SHOW CREATE TABLE '

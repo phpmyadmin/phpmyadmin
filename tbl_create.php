@@ -58,6 +58,9 @@ if (isset($submit_num_fields)) {
         if (empty($field_name[$i]) && $field_name[$i] != '0') {
             continue;
         }
+        // TODO: maybe move this logic and the one of PMA_generateAlterTable()
+        // to a central place
+
         $query = PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != ''
             && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $field_type[$i])) {
@@ -68,7 +71,9 @@ if (isset($submit_num_fields)) {
         } else if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($field_collation[$i])) {
             $query .= PMA_generateCharsetQueryPart($field_collation[$i]);
         }
-        if ($field_default[$i] != '') {
+        if (isset($field_default_current_timestamp[$i]) && $field_default_current_timestamp[$i]) {
+            $query .= ' DEFAULT CURRENT_TIMESTAMP';
+        } elseif ($field_default[$i] != '') {
             if (strtoupper($field_default[$i]) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else {
