@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-26  Steve Alberty  <alberty@neptunlabs.de>
+	* lib.inc.php3: add 3 new Constants:
+	  PHPMYADMIN_VERSION, PHP_WINDOWS, PHP_INT_VERSION
+	* add support for dynamic mysql extension
+
 2001-06-23  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_dump.php3: merge with db_dump.php3, db_dump is now obsolete
 	* db_details.php3: change from db_dump.php3 to tbl_dump.php3
