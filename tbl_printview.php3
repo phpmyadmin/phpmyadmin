@@ -1,6 +1,6 @@
 <?php
+
 /* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
 
 
 /**
@@ -17,7 +17,6 @@ if (!isset($selected_tbl)) {
  */
 require('./libraries/relation.lib.php3');
 $cfgRelation  = PMA_getRelationsParam();
-
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -77,9 +76,9 @@ while (list($key, $table) = each($the_tables)) {
         $breakstyle = ' style="page-break-after: always;"';
     }
     $counter++;
-    echo '<div' . $breakstyle . '>' . "\n";
+		echo '<div' . $breakstyle . '>' . "\n";
     echo '<h1>' . $table . '</h1>' . "\n";
-
+		
     /**
      * Gets table informations
      */
@@ -166,7 +165,8 @@ while (list($key, $table) = each($the_tables)) {
     }
     else {
            $have_rel = FALSE;
-    } // end if
+    }
+     // end if
 
 
     /**
@@ -175,28 +175,28 @@ while (list($key, $table) = each($the_tables)) {
     if (!empty($show_comment)) {
         echo $strTableComments . '&nbsp;:&nbsp;' . $show_comment . '<br /><br />';
     }
-
+		
     /**
      * Displays the table structure
      */
     ?>
 
 <!-- TABLE INFORMATIONS -->
-<table border="<?php echo $cfg['Border']; ?>">
+<table width=100% bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
 <tr>
-    <th><?php echo ucfirst($strField); ?></th>
-    <th><?php echo ucfirst($strType); ?></th>
-    <th><?php echo ucfirst($strAttr); ?></th>
-    <th><?php echo ucfirst($strNull); ?></th>
-    <th><?php echo ucfirst($strDefault); ?></th>
-    <th><?php echo ucfirst($strExtra); ?></th>
+    <th width=50><?php echo ucfirst($strField); ?></th>
+    <th width=50><?php echo ucfirst($strType); ?></th>
+    <!--<th width=50><?php echo ucfirst($strAttr); ?></th>-->
+    <th width=50><?php echo ucfirst($strNull); ?></th>
+    <th width=50><?php echo ucfirst($strDefault); ?></th>
+    <!--<th width=50><?php echo ucfirst($strExtra); ?></th>-->
     <?php
     echo "\n";
     if ($have_rel) {
-        echo '    <th>' . ucfirst($strLinksTo) . '</th>' . "\n";
+        echo '    <th width=50>' . ucfirst($strLinksTo) . '</th>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '    <th>' . ucfirst($strComments) . '</th>' . "\n";
+        echo '    <th width=400>' . ucfirst($strComments) . '</th>' . "\n";
     }
     ?>
 </tr>
@@ -248,7 +248,7 @@ while (list($key, $table) = each($the_tables)) {
         echo "\n";
         ?>
 <tr>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+    <td width=50 class='print' nowrap="nowrap">
     <?php
     if (isset($pk_array[$row['Field']])) {
         echo '    <u>' . $field_name . '</u>&nbsp;' . "\n";
@@ -257,22 +257,22 @@ while (list($key, $table) = each($the_tables)) {
     }
     ?>
     </td>
-    <td bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
-    <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
+    <td width=50 class='print' <?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
+    <!--<td width=50 bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>-->
+    <td width=50 class='print'><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
+    <td width=50 class='print' nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
+    <!--<td width=50 bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>-->
     <?php
     echo "\n";
     if ($have_rel) {
-        echo '    <td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
+        echo '    <td width=50 class="print" >';
         if (isset($res_rel[$field_name])) {
-            echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . '->' . $res_rel[$field_name]['foreign_field'] );
+            echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] );
         }
         echo '&nbsp;</td>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '    <td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
+        echo '    <td width=400 class="print" >';
         $comments = PMA_getComments($db, $table);
         if (isset($comments[$field_name])) {
             echo htmlspecialchars($comments[$field_name]);
@@ -304,7 +304,7 @@ while (list($key, $table) = each($the_tables)) {
 
 <!-- Indexes -->
 &nbsp;<big><?php echo $strIndexes . '&nbsp;:'; ?></big>
-<table border="<?php echo $cfg['Border']; ?>">
+<table bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
     <tr>
         <th><?php echo $strKeyname; ?></th>
         <th><?php echo $strType; ?></th>
@@ -315,7 +315,7 @@ while (list($key, $table) = each($the_tables)) {
         echo "\n";
         while (list($index_no, $index_name) = each($indexes)) {
             $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
-            $index_td = '        <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
+            $index_td = '        <td class="print" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
             echo '    <tr>' . "\n";
             echo $index_td
                  . '            ' . htmlspecialchars($index_name) . "\n"
@@ -343,15 +343,15 @@ while (list($key, $table) = each($the_tables)) {
                     echo '    <tr>' . "\n";
                 }
                 if (!empty($indexes_data[$index_name][$seq_index]['Sub_part'])) {
-                    echo '        <td bgcolor="' . $cell_bgd . '">' . "\n"
+                    echo '        <td class="print">' . "\n"
                          . '            ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
                          . '        </td>' . "\n";
-                    echo '        <td align="right" bgcolor="' . $cell_bgd . '">' . "\n"
+                    echo '        <td align="right" class="print">' . "\n"
                          . '            ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"
                          . '        </td>' . "\n";
                     echo '    </tr>' . "\n";
                 } else {
-                    echo '        <td bgcolor="' . $cell_bgd . '" colspan="2">' . "\n"
+                    echo '        <td class="print" colspan="2">' . "\n"
                          . '            ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
                          . '        </td>' . "\n";
                     echo '    </tr>' . "\n";
@@ -407,26 +407,26 @@ while (list($key, $table) = each($the_tables)) {
 <tr>
 
     <!-- Space usage -->
-    <td valign="top">
+    <td class="print" valign="top">
         &nbsp;<big><?php echo $strSpaceUsage . '&nbsp;:'; ?></big>
-        <table border="<?php echo $cfg['Border']; ?>">
+        <table width=100% bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
         <tr>
             <th><?php echo $strType; ?></th>
             <th colspan="2" align="center"><?php echo $strUsage; ?></th>
         </tr>
         <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
-            <td align="right" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" nowrap="nowrap"><?php echo $data_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $data_unit; ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
+            <td align="right" class="print" nowrap="nowrap"><?php echo $data_size; ?></td>
+            <td class="print"><?php echo $data_unit; ?></td>
         </tr>
             <?php
             if (isset($index_size)) {
                 echo "\n";
                 ?>
         <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
-            <td align="right" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" nowrap="nowrap"><?php echo $index_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $index_unit; ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
+            <td align="right" class="print" nowrap="nowrap"><?php echo $index_size; ?></td>
+            <td class="print"><?php echo $index_unit; ?></td>
         </tr>
                 <?php
             }
@@ -434,14 +434,14 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr style="color: #bb0000">
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
-            <td align="right" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" nowrap="nowrap"><?php echo $free_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $free_unit; ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
+            <td align="right" class="print" nowrap="nowrap"><?php echo $free_size; ?></td>
+            <td class="print"><?php echo $free_unit; ?></td>
         </tr>
         <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
-            <td align="right" bgcolor="<?php echo $cfg['BgcolorOne']; ?>" nowrap="nowrap"><?php echo $effect_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $effect_unit; ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
+            <td align="right" class="print" nowrap="nowrap"><?php echo $effect_size; ?></td>
+            <td class="print"><?php echo $effect_unit; ?></td>
         </tr>
                 <?php
             }
@@ -449,9 +449,9 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
-            <td align="right" bgcolor="<?php echo $cfg['BgcolorOne']; ?>" nowrap="nowrap"><?php echo $tot_size; ?></td>
-            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $tot_unit; ?></td>
+            <td class="print" style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
+            <td align="right" class="print" nowrap="nowrap"><?php echo $tot_size; ?></td>
+            <td class="print"><?php echo $tot_unit; ?></td>
         </tr>
                 <?php
             }
@@ -460,12 +460,12 @@ while (list($key, $table) = each($the_tables)) {
         </table>
     </td>
 
-    <td width="20">&nbsp;</td>
+    <td width="20" class="print">&nbsp;</td>
 
     <!-- Rows Statistic -->
     <td valign="top">
         &nbsp;<big><?php echo $strRowsStatistic . '&nbsp;:'; ?></big>
-        <table border="<?php echo $cfg['Border']; ?>">
+        <table width=100% bordercolorlight=black border style='border-collapse:collapse;background-color:white'>
         <tr>
             <th><?php echo $strStatement; ?></th>
             <th align="center"><?php echo $strValue; ?></th>
@@ -477,8 +477,8 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strFormat); ?></td>
-            <td align="<?php echo $cell_align_left; ?>" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td class="print"><?php echo ucfirst($strFormat); ?></td>
+            <td align="<?php echo $cell_align_left; ?>" class="print" nowrap="nowrap">
                 <?php
                 echo '                ';
                 if ($showtable['Row_format'] == 'Fixed') {
@@ -499,8 +499,8 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
             ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strRows); ?></td>
-            <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td class="print"><?php echo ucfirst($strRows); ?></td>
+            <td align="right" class="print" nowrap="nowrap">
                 <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
@@ -511,8 +511,8 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
-            <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td class="print"><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
+            <td class="print" nowrap="nowrap">
                 <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
@@ -523,8 +523,8 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
-            <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td class="print"><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
+            <td align="right" class="print" nowrap="nowrap">
                 <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
             </td>
         </tr>
@@ -535,8 +535,8 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
-            <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td class="print"><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
+            <td align="right" class="print" nowrap="nowrap">
                 <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
@@ -570,5 +570,13 @@ while (list($key, $table) = each($the_tables)) {
  * Displays the footer
  */
 echo "\n";
+echo "<br><br>&nbsp;<input type=button style='visibility:;width:100px;height:25px' name='print' value='Print' onclick='printPage()'>";
 require('./footer.inc.php3');
-?>
+?><script>
+function printPage()
+{
+document.all.print.style.visibility='hidden';
+window.print();
+document.all.print.style.visibility='';
+}
+</script>
