@@ -9,6 +9,10 @@ $Source$
     (Patches from Michael Keck)
     * index.php: names and ids for framesets in the noscript section
     * updated themes screenshots
+    (me)
+    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000) 
 
 2004-08-03 Marc Delisle  <lem9@users.sourceforge.net>
     (Patches from Michael Keck)
