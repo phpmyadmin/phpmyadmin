@@ -15,6 +15,8 @@ $Source$
       libraries/display_tbl.lib.php: New function PMA_buttonOrImage to display
       button or image to submit form and not to duplicate code on all places.
     * tbl_addfield.php: Display tabs.
+    * mult_submits.inc.php, tbl_properties_structure.php: Allow index creating
+      on multiple fields (RFE #990136).
 
 2004-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: there was already a tip icon in our collection,

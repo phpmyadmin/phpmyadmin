@@ -56,10 +56,50 @@ if (!empty($submit_mult)
         }
     } else if (!empty($selected_fld)) {
         $selected     = $selected_fld;
-        if ($submit_mult == $strDrop) {
-            $what     = 'drop_fld';
-        } else {
-            require('./tbl_alter.php');
+        switch ($submit_mult) {
+            case $strDrop:
+                $what     = 'drop_fld';
+                break;
+            case $strPrimary:
+                // Gets table primary key
+                PMA_DBI_select_db($db);
+                $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
+                $primary     = '';
+                while ($row = PMA_DBI_fetch_assoc($result)) {
+                    // Backups the list of primary keys
+                    if ($row['Key_name'] == 'PRIMARY') {
+                        $primary .= $row['Column_name'] . ', ';
+                    }
+                } // end while
+                PMA_DBI_free_result($result);
+                if (empty($primary)) {
+                    // no primary key, so we can safely create new
+                    unset($submit_mult);
+                    $query_type = 'primary_fld';
+                    $mult_btn   = $strYes;
+                } else {
+                    // primary key exists, so lets as user
+                    $what = 'primary_fld';
+                }
+                break;
+            case $strIndex:
+                unset($submit_mult);
+                $query_type = 'index_fld';
+                $mult_btn   = $strYes;
+                break;
+            case $strUnique:
+                unset($submit_mult);
+                $query_type = 'unique_fld';
+                $mult_btn   = $strYes;
+                break;
+            case $strIdxFulltext:
+                unset($submit_mult);
+                $query_type = 'fulltext_fld';
+                $mult_btn   = $strYes;
+                break;
+            case $strChange:
+                require('./tbl_alter.php');
+                break;
         }
     } else {
         $what = 'row_delete';
@@ -115,6 +155,25 @@ if (!empty($submit_mult) && !empty($what)) {
                             . ';<br />';
                 break;
 
+            case 'primary_fld':
+                if ($full_query == '') {
+                    $full_query .= 'ALTER TABLE '
+                                . PMA_backquote(htmlspecialchars($table))
+                                . '<br />&nbsp;&nbsp;DROP PRIMARY KEY,'
+                                . '<br />&nbsp;&nbsp; ADD PRIMARY KEY('
+                                . '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
+                                . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                                . ',';
+                } else {
+                    $full_query .= '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
+                                . PMA_backquote(htmlspecialchars(urldecode($sval)))
+                                . ',';
+                }
+                if ($i == $selected_cnt-1) {
+                    $full_query = preg_replace('@,$@', ');<br />', $full_query);
+                }
+                break;
+                
             case 'drop_fld':
                 if ($full_query == '') {
                     $full_query .= 'ALTER TABLE '
@@ -203,10 +262,28 @@ else if ($mult_btn == $strYes) {
 
     $sql_query      = '';
     $selected_cnt   = count($selected);
+    $run_parts      = FALSE; // whether to run query after each pass
+    $use_sql        = FALSE; // whether to include sql.php at the end (to display results)
+
+    if ($query_type == 'primary_fld') {
+        // Gets table primary key
+        PMA_DBI_select_db($db);
+        $result      = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
+        $primary     = '';
+        while ($row = PMA_DBI_fetch_assoc($result)) {
+            // Backups the list of primary keys
+            if ($row['Key_name'] == 'PRIMARY') {
+                $primary .= $row['Column_name'] . ', ';
+            }
+        } // end while
+        PMA_DBI_free_result($result);
+    }
+    
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
             case 'row_delete':
                 $a_query = urldecode($selected[$i]);
+                $run_parts = TRUE;
                 break;
 
             case 'drop_db':
@@ -214,6 +291,7 @@ else if ($mult_btn == $strYes) {
                 $a_query   = 'DROP DATABASE '
                            . PMA_backquote(urldecode($selected[$i]));
                 $reload    = 1;
+                $run_parts = TRUE;
                 break;
 
             case 'drop_tbl':
@@ -227,21 +305,25 @@ else if ($mult_btn == $strYes) {
             case 'check_tbl':
                 $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]));
+                $use_sql    = TRUE;
                 break;
 
             case 'optimize_tbl':
                 $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]));
+                $use_sql    = TRUE;
                 break;
 
             case 'analyze_tbl':
                 $sql_query .= (empty($sql_query) ? 'ANALYZE TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]));
+                $use_sql    = TRUE;
                 break;
 
             case 'repair_tbl':
                 $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]));
+                $use_sql    = TRUE;
                 break;
 
             case 'empty_tbl':
@@ -251,6 +333,7 @@ else if ($mult_btn == $strYes) {
                     $a_query = 'DELETE FROM ';
                 }
                 $a_query .= PMA_backquote(htmlspecialchars(urldecode($selected[$i])));
+                $run_parts = TRUE;
                 break;
 
             case 'drop_fld':
@@ -259,17 +342,35 @@ else if ($mult_btn == $strYes) {
                            . ' DROP ' . PMA_backquote(urldecode($selected[$i]))
                            . (($i == $selected_cnt-1) ? ';' : '');
                 break;
+
+            case 'primary_fld':
+                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ( empty($primary) ? '' : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( ' : ', ')
+                           . PMA_backquote(urldecode($selected[$i]))
+                           . (($i == $selected_cnt-1) ? ');' : '');
+                break;
+
+            case 'index_fld':
+                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX( ' : ', ')
+                           . PMA_backquote(urldecode($selected[$i]))
+                           . (($i == $selected_cnt-1) ? ');' : '');
+                break;
+
+            case 'unique_fld':
+                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE( ' : ', ')
+                           . PMA_backquote(urldecode($selected[$i]))
+                           . (($i == $selected_cnt-1) ? ');' : '');
+                break;
+
+            case 'fulltext_fld':
+                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT( ' : ', ')
+                           . PMA_backquote(urldecode($selected[$i]))
+                           . (($i == $selected_cnt-1) ? ');' : '');
+                break;
         } // end switch
 
         // All "DROP TABLE","DROP FIELD", "OPTIMIZE TABLE" and "REPAIR TABLE"
         // statements will be run at once below
-        if ($query_type != 'drop_tbl'
-            && $query_type != 'drop_fld'
-            && $query_type != 'repair_tbl'
-            && $query_type != 'analyze_tbl'
-            && $query_type != 'optimize_tbl'
-            && $query_type != 'check_tbl') {
-
+        if ($run_parts) { 
             $sql_query .= $a_query . ';' . "\n";
 
             if ($query_type != 'drop_db') {
@@ -279,15 +380,11 @@ else if ($mult_btn == $strYes) {
         } // end if
     } // end for
 
-    if ($query_type == 'drop_tbl'
-        || $query_type == 'drop_fld') {
+    if ($use_sql) {
+        require('./sql.php');
+    } else {
         PMA_DBI_select_db($db);
         $result = PMA_DBI_query($sql_query);
-    } elseif ($query_type == 'repair_tbl'
-        || $query_type == 'analyze_tbl'
-        || $query_type == 'check_tbl'
-        || $query_type == 'optimize_tbl') {
-        require('./sql.php');
     }
 
 }
