@@ -78,6 +78,7 @@ $strChoosePage = 'Prego scegliere una Page da modificare';
 $strColumn = 'Colonna';
 $strColumnNames = 'Nomi delle colonne';
 $strCompleteInserts = 'Inserimenti completi';
+$strConfigFileError = 'phpMyAdmin non riesce a leggere il file di configurazione!<br />Questo può accadere se il php trova un parse error in esso oppure il php non trova il file.<br />Richiamate il file di configurazione direttamente utilizzando il link sotto e leggete il/i messaggio/i di errore del php che ricevete. Nella maggior parte dei casi ci sono un apostrofo o una virgoletta mancanti.<br />Se ricevete una pagina bianca, allora &egrave; tutto a posto.';
 $strConfigureTableCoord = 'Prego, configurare le coordinate per la tabella %s';
 $strConfirm = 'Sicuro di volerlo fare?';
 $strCookiesRequired = 'Da questo punto in poi, i cookies devono essere abilitati.';
@@ -397,7 +398,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-
 $strNotSet = '<b>%s</b> table not found or not set in config.inc.php(3)';  //to translate
 ?>
