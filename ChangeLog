@@ -22,6 +22,7 @@ $Source$
     * libraries: charset_conversion.lib.php3, common.lib.php3: bug 581577:
       a better if, because sometimes the test for PHP3 succeeds even
       for PHP4, thanks to Neil Darlow
+    * libraries/relation.lib.php3: undefined variable
 
 2002-07-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3:
