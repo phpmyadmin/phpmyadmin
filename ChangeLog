@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-15 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/config_import.lib.php3:
+      - Removed a comment and
+      - Changed the default value for $cfg['AllowAnywhereRecoding'] into FALSE.
+
 2002-07-15 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_export.php3, db_details_links.php3, Documentation.html,
       sql.php3, tbl_properties_export.php3, libraries/common.lib.php3,
@@ -16,7 +21,6 @@ $Source$
       because multithreaded servers don't support dl(), and we want
       to see the error message, thanks to /Leblanc
     * header.inc.php3: js error with OmniWeb, thanks to Loic
-
 
 2002-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, db_details_exports.php3, tbl_properties_export.php3:

@@ -16,7 +16,6 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
             unset($cfgPmaAbsoluteUri);
         } else {
             $cfg['PmaAbsoluteUri'] = '';
-            // Shall we exit here?
         }
     }
 
@@ -397,7 +396,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
     }
 
     if (!isset($cfg['AllowAnywhereRecoding'])) {
-        $cfg['AllowAnywhereRecoding'] = TRUE;
+        $cfg['AllowAnywhereRecoding'] = FALSE;
     }
 
     if (!isset($cfg['Lang']) &&isset($cfgLang)) {
