@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-26  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_indexes.php3: fulltext indexes is available since MySQL 3.23.23
+	  only.
+	* tbl_properties.php3:
+	  - fixed bug #485529 - index on text/blob;
+	  - displays only the accurate index links depending of variable types;
+	  - the "OPTIMIZE" statement is available only since MySQL 3.23.06.
+
 2001-11-25  Loïc Chapeaux  <lolo@phpheaven.net>
 	* index.php3; libraries/common.lib.php3; libraries/defines.lib.php3;
 	  libraries/grab_globals.lib.php3; libraries/select_lang.lib.php3:
