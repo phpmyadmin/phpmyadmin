@@ -596,7 +596,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
            <li>
               display in an optional tooltip the &quot;display field&quot;
               when browsing the master table, if you move the mouse to a column
-              containing a foreign key;
+              containing a foreign key (use also the 'table_info' table);
            </li>
            <li>
               display links on the table properties page, to check referential
@@ -626,7 +626,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_field` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_table` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_display_field` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pdf_page_number` int(11) NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_table`,`master_field`),<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY pdf_page_number (`pdf_page_number`)<br />
@@ -649,7 +648,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE src_column master_field VARCHAR(64) NOT NULL<br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_table foreign_table VARCHAR(64) NOT NULL<br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_column foreign_field VARCHAR(64) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` ADD `foreign_display_field` VARCHAR(64) NOT NULL;<br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` ADD `pdf_page_number` int(11) NOT NULL;<br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` ADD INDEX(`pdf_page_number`);<br />
         </tt><br />
@@ -660,11 +658,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     </dt>
     <dd>
         Since release 2.3.0 you can describe, in a special 'table_info'
-        table, the coordinates where each table will be placed on a PDF schema
-        output. This configuration variable will hold the name of this special
+        table
+        <ul>
+           <li>the coordinates where each table will be placed on a PDF schema
+        output</li>
+           <li>which field is to be displayed as a tooltip when moving the
+               cursor over the corresponding key</li>
+        </ul>
+        This configuration variable will hold the name of this special
         table.
         <br /><br />
-        This feature is supported under PHP4, and you must be using also the
+        PDF output is supported under PHP4, and you must be using also the
         'relation' feature. Also, we used the fpdf library which currently
         only supports iso-8859 (Latin1) character sets in PDF.
         <br /><br />
@@ -678,6 +682,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`x` float unsigned NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`display_field` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`table_name`)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';<br />
                 </tt>
@@ -688,7 +693,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
             </li>
             <li>
                 then manually fill this table with information about the table
-                positions on the PDF schema.
+                positions on the PDF schema, and/or the display field.
             </li>
         </ul><br />
         See also this <a class="navigation" href="#faqpdf">usage tip.</a>
@@ -1732,14 +1737,13 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_field varchar(64) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_table varchar(64) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_field varchar(64) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_display_field varchar(64) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pdf_page_number int(11) NOT NULL default '0',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (master_table,master_field),<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY pdf_page_number (`pdf_page_number`)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'town_code', 'towns', 'town_code','description', 1);<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'country_code', 'countries', 'country_code','description', 1);<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'town_code', 'towns', 'town_code', 1);<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'country_code', 'countries', 'country_code', 1);<br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE towns (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) NOT NULL default '0',<br />

@@ -1359,13 +1359,27 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
             $tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
 
-            $local_query = 'SELECT master_field, foreign_table, foreign_field, foreign_display_field'
+            $local_query = 'SELECT master_field, foreign_table, foreign_field'
                          . ' FROM ' . PMA_backquote($cfg['Server']['relation'])
                          . ' WHERE master_table IN ' . $tabs;
             $result      = @mysql_query($local_query);
             if ($result) {
                 while ($rel = mysql_fetch_row($result)) {
-                    $map[$rel[0]] = array($rel[1], $rel[2], $rel[3]);
+
+                // check for display field?
+                    if (!empty($cfg['Server']['table_info'])) {
+                        $ti_query = 'SELECT display_field'
+                                  . ' FROM ' . $cfg['Server']['table_info']
+                                  . ' WHERE table_name = \'' . $rel[1] . '\'';
+                        $result_ti        = @mysql_query($ti_query);
+                        if ($result_ti) {
+                           list($display_field) = mysql_fetch_row($result_ti);
+                        }
+                        else {
+                           $display_field = '';
+                        }
+                    }
+                    $map[$rel[0]] = array($rel[1], $rel[2], $display_field);
                 }
             }
         } // end 2b
