@@ -123,10 +123,13 @@ $strDatabasesStats = 'Statistiche dei databases';
 $strDefault = 'Predefinito';
 $strDelPassMessage = 'Hai cancellato la password per';
 $strDelete = 'Cancella';
+$strDeleteAndFlush = 'Cancella gli utenti e dopo ricarica i privilegi.';
+$strDeleteAndFlushDescr = 'Questa è la vita più giusta, ma il caricamento dei privilegi può durare qualche secondo.';
 $strDeleteFailed = 'Cancellazione fallita!';
 $strDeleteUserMessage = 'Hai cancellato l\'utente %s.';
 $strDeleted = 'La riga è stata cancellata';
 $strDeletedRows = 'Righe cancellate:';
+$strDeleting = 'Cancellazione in corso di %s';
 $strDescending = 'Decrescente';
 $strDisabled = 'Disabilitata';
 $strDisplay = 'Visualizza';
@@ -215,6 +218,9 @@ $strInsertTextfiles = 'Inserisci un file di testo nella tabella';
 $strInsertedRows = 'Righe inserite:';
 $strInstructions = 'Istruzioni';
 $strInvalidName = '"%s" è una parola riservata; non è possibile utilizzarla come nome di database/tabella/campo.';
+
+$strJustDelete = 'Cancella soltanto gli utenti dalle tabelle dei privilegi.';
+$strJustDeleteDescr = 'Gli utenti &quot;cancellati&quot; saranno ancora in grado di accedere al servercome al solito finchè i privilegi non verraanno ricaricati.';
 
 $strKeepPass = 'Non cambiare la password';
 $strKeyname = 'Nome chiave';
@@ -321,7 +327,7 @@ $strPrivDescAlter = 'Permette di alterare la struttura di tabelle esistenti.';
 $strPrivDescCreateDb = 'Permette di creare nuove tabelle e nuovi databases.';
 $strPrivDescCreateTbl = 'Permette di creare nuove tabelle.';
 $strPrivDescCreateTmpTable = 'Permette di creare tabelle temporanee.';
-$strPrivDescDelete = 'Permette di cancellare dati.'; //to translate
+$strPrivDescDelete = 'Permette di cancellare dati.';
 $strPrivDescDropDb = 'Permette di eliminare databases e tabelle.';
 $strPrivDescDropTbl = 'Permette di eliminare tabelle.';
 $strPrivDescExecute = 'Permette di eseguire procedure memorizzate; Non ha effetto in questa versione di MySQL.';
@@ -366,8 +372,10 @@ $strRelationNotWorking = 'Le caratteristiche aggiuntive sono state disattivate p
 $strRelationalSchema = 'Schema relazionale';
 $strRelationView = 'Vedi relazioni';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
+$strReloadingThePrivileges = 'Caricamento dei privilegi in corso';
 $strReloadMySQL = 'Riavvia MySQL';
 $strRememberReload = 'Ricorda di riavviare MySQL.';
+$strRemoveSelectedUsers = 'Rimuove gli utenti selezionati';
 $strRenameTable = 'Rinomina la tabella in';
 $strRenameTableOK = 'La tabella %s è stata rinominata %s';
 $strRepairTable = 'Ripara tabella';
@@ -377,6 +385,8 @@ $strReset = 'Riavvia';
 $strResourceLimits = 'Limiti di risorse';
 $strReType = 'Reinserisci';
 $strRevoke = 'Revoca';
+$strRevokeAndDelete = 'Revoca tutti i privilegi attivi agli utenti e dopo li cancella.';
+$strRevokeAndDeleteDescr = 'Gli utenti UTILIZZERANNO comunque il privilegio finchè i privilegi non saranno ricaricati.';
 $strRevokeGrant = 'Revoca permessi';
 $strRevokeGrantMessage = 'Hai revocato i privilegi di permesso per %s';
 $strRevokeMessage = 'Hai revocato i privilegi per %s';
@@ -498,6 +508,7 @@ $strUserEmpty = 'Il nome utente è vuoto!';
 $strUserName = 'Nome utente';
 $strUserOverview = 'Vista d\'insieme dell\'utente';
 $strUsers = 'Utenti';
+$strUsersDeleted = 'Gli utenti selezionati sono stati cancellati con successo.';
 
 $strValidateSQL = 'Valida SQL';
 $strValidatorError = 'L\' SQL validator non può essere inizializzato. Prego controllare di avere installato le estensioni php necessarie come descritto nella %sdocumentazione%s.';
@@ -516,17 +527,7 @@ $strYes = ' Si ';
 
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
-// To translate
 
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
-$strReloadingThePrivileges = 'Reloading the privileges'; //to translate
-$strRemoveSelectedUsers = 'Remove selected users'; //to translate
-$strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
-$strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
-$strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
+// To translate
 
 ?>
