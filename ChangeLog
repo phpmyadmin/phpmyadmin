@@ -8,6 +8,7 @@ $Source$
 2002-08-01 Marc Delisle  <lem9@users.sourceforge.net>
     * new lang/afrikaans, thanks to Andreas Pauley
       (pauley at buitegroep.org.za)
+    * lang/spanish: remove control m
 
 2002-07-31 Robin Johnson  <robbat2@users.sourceforge.net>
     * tbl_properties_structure.php3 +40: Fix for a warning notice 
