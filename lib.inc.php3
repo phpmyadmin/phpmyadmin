@@ -931,7 +931,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 
 
     /**
-     * Displays a table of results returned by a sql query
+     * Displays a table of results returned by a sql query.
+     * This function is called by the "sql.php3" script.
      *
      * @param   array   the result table to display
      * @param   mixed   whether to display navigation bar and bookmarks links
@@ -1032,7 +1033,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         // 3.2 Displays the fields' name
         for ($i = 0; $i < $fields_cnt; $i++) {
             // Result is more than one row long
-            if (@mysql_num_rows($dt_result) > 1 && !$is_simple) {
+            if ((isset($GLOBALS['num_rows']) && $GLOBALS['num_rows'] > 1)
+                && !$is_simple) {
                 // Defines the url used to append/modify a sorting order
                 // 3.2.1 Checks if an hard coded 'order by' clause exists
                 if (eregi('(.*)( ORDER BY (.*))', $sql_query, $regs1)) {
