@@ -1,4 +1,8 @@
+/* $Id$ */
+
+
 var isFormElementInRange;
+
 
 /**
  * Ensures a value submitted in a form is numeric and is in a range
@@ -10,7 +14,7 @@ var isFormElementInRange;
  *
  * @return  boolean  whether a valid number has been submitted or not
  */
-function checkFormElementInRange(theForm, theFieldName, min, max )
+function checkFormElementInRange(theForm, theFieldName, min, max)
 {
     isFormElementInRange = true;
     var theField         = theForm.elements[theFieldName];
@@ -25,7 +29,7 @@ function checkFormElementInRange(theForm, theFieldName, min, max )
         return false;
     }
     // It's a number but it is not between min and max
-    else if (val < min || val > max)  {
+    else if (val < min || val > max) {
         alert(val + errorMsg2);
         isFormElementInRange = false;
         theField.select();
@@ -36,5 +40,37 @@ function checkFormElementInRange(theForm, theFieldName, min, max )
     else {
         theField.value = val;
     }
+
     return true;
 } // end of the 'checkFormElementInRange()' function
+
+
+/**
+ * Ensures the choice between 'transmit' and 'gzipped' checkboxes is consistant
+ *
+ * @param   object   the form
+ * @param   string   a code for the action that causes this function to be run
+ *
+ * @return  boolean  always true
+ */
+function checkTransmitDump(theForm, theAction)
+{
+	var formElts = theForm.elements;
+
+    // 'gzipped' option has been checked/unchecked
+    if (theAction == 'gzip') {
+        if (formElts['gzip'].checked && !formElts['asfile'].checked) {
+            theForm.elements['asfile'].checked = true;
+        }
+    }
+    // 'transmit' option has been checked/unchecked
+    else if (theAction == 'transmit') {
+        if (!formElts['asfile'].checked
+            && (typeof(formElts['gzip']) != 'undefined' && formElts['gzip'].checked)) {
+            theForm.elements['gzip'].checked = false;
+        }
+    }
+
+    return true;
+} // end of the 'checkTransmitDump()' function
+

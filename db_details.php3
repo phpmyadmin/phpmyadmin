@@ -232,6 +232,8 @@ echo "\n";
  */
 ?>
 <!-- DATABASE WORK -->
+<script src="functions.js" type="text/javascript" language="javascript"></script>
+
 <ul>
 <?php
 if ($num_tables > 0) {
@@ -356,14 +358,14 @@ if ($num_tables > 0) {
                 <?php echo $strDataOnly; ?>&nbsp;&nbsp;
             </td>
             <td>
-                <input type="checkbox" name="asfile" value="sendit"<?php if (function_exists('gzencode')) { ?>onclick="if (!document.forms['db_dump'].elements['asfile'].checked) document.forms['db_dump'].elements['gzip'].checked = false<?php }; ?>" />
+                <input type="checkbox" name="asfile" value="sendit" onclick="return checkTransmitDump(this.form, 'transmit')" />
                 <?php echo $strSend . "\n"; ?>
     <?php
     // gzip encode feature
     if (function_exists('gzencode')) {
         echo "\n";
         ?>
-                (<input type="checkbox" name="gzip" value="gzip" onclick="document.forms['db_dump'].elements['asfile'].checked = true" /><?php echo $strGzip; ?>)
+                (<input type="checkbox" name="gzip" value="gzip" onclick="return checkTransmitDump(this.form, 'gzip')" /><?php echo $strGzip; ?>)
         <?php
     }
     echo "\n";

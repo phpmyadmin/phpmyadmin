@@ -12,23 +12,26 @@ if (!isset($message)) {
 }
 unset($sql_query);
 
-/*
+
+/**
  * Selects the db that will be used during this script execution
  */
 mysql_select_db($db);
 
-/*
+
+/**
  * Set parameters for links
  */
-$query="server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
-
+$query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
 ?>
- <!-- first browse link -->
+
+<!-- first browse link -->
 <p> 
-<a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&<?php echo $query; ?>">
-            <b><?php echo $strBrowse; ?></b></a>
+    <a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&<?php echo $query; ?>">
+        <b><?php echo $strBrowse; ?></b></a>
 </p>
 <?php
+
 
 /**
  * Gets table informations
@@ -55,7 +58,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) >= 3) {
         $show_comment = $showtable['Comment'];
         ?>
 
- <!-- Table comment -->
+<!-- Table comment -->
 <p><i>
     <?php echo $show_comment . "\n"; ?>
 </i></p>
@@ -87,7 +90,6 @@ $result = mysql_query("SHOW FIELDS FROM $table") or mysql_die();
 
 
 <!-- TABLE INFORMATIONS -->
-
 <table border="<?php echo $cfgBorder; ?>">
 <tr>
     <th><?php echo ucfirst($strField); ?></th>
@@ -109,8 +111,7 @@ echo "\n";
 <?php
 $i         = 0;
 $aryFields = array();
-
-$query            = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
+$query     = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
 
 while ($row = mysql_fetch_array($result)) {
     $i++;
@@ -144,7 +145,7 @@ while ($row = mysql_fetch_array($result)) {
         $strAttribute = 'UNSIGNED';
     if ($zerofill)
         $strAttribute = 'UNSIGNED ZEROFILL';
-
+    echo "\n";
     ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
     <td><?php echo $row['Field']; ?>&nbsp;</td>
@@ -178,8 +179,8 @@ while ($row = mysql_fetch_array($result)) {
     ?>
 </tr>
     <?php
-} // (end while)
-    echo "\n";
+} // end while
+echo "\n";
 ?>
 </table>
 <br />
@@ -190,7 +191,7 @@ while ($row = mysql_fetch_array($result)) {
  * Displays indexes
  */
 ?>
-<!-- Indexes -->
+<!-- Indexes, space usage and row statistics -->
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <?php
@@ -199,6 +200,8 @@ $index_count = (isset($ret_keys))
              : 0;
 if ($index_count > 0) {
     ?>
+
+    <!-- Indexes -->
     <td valign="top" align="left">
         <?php echo $strIndexes . '&nbsp;:' . "\n"; ?>
         <table border="<?php echo $cfgBorder; ?>">
@@ -221,15 +224,9 @@ if ($index_count > 0) {
         echo "\n";
         ?>
         <tr>
-            <td>
-                <?php echo $row['Key_name'] . "\n"; ?>
-            </td>
-            <td>
-                <?php echo (($row['Non_unique'] == '0') ? $strYes : $strNo) . "\n"; ?>
-            </td>
-            <td>
-                <?php echo $row['Column_name'] . "\n"; ?>
-            </td>
+            <td><?php echo $row['Key_name'] . "\n"; ?></td>
+            <td><?php echo (($row['Non_unique'] == '0') ? $strYes : $strNo) . "\n"; ?></td>
+            <td><?php echo $row['Column_name'] . "\n"; ?></td>
             <td>
                 <?php echo "<a href=\"sql.php3?$query&sql_query=$sql_query&zero_rows=$zero_rows\">$strDrop</a>\n"; ?>
             </td>
@@ -249,7 +246,6 @@ if ($index_count > 0) {
  * Displays Space usage and row statistics
  */
 ?>
-<!-- Space usage and row statistics -->
 <?php
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
 if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type != "INNODB" && isset($showtable)) {
@@ -261,12 +257,14 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
     }
     list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
     list($tot_size, $tot_unit)       = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
+    list($avg_size, $avg_unit)       = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows']);
 
     // Displays them
     if ($index_count > 0) {
         echo '    <td width="20">&nbsp;</td>' . "\n";
     }
     ?>
+
     <!-- Space usage -->
     <td valign="top">
         <?php echo $strSpaceUsage . '&nbsp;:' . "\n"; ?>
@@ -276,13 +274,11 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
             <th><?php echo $strType; ?></th>
             <th colspan="2" align="center"><?php echo $strUsage; ?></th>
         </tr>
-        <!-- Data -->
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
             <td style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
             <td align="right"><?php echo $data_size; ?></td>
             <td><?php echo $data_unit; ?></td>
         </tr>
-        <!-- Index -->
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
         <td style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
             <td align="right"><?php echo $index_size; ?></td>
@@ -292,13 +288,11 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
     if (!empty($showtable['Data_free'])) {
         echo "\n";
         ?>
-        <!-- Overhead -->
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="color: #bb0000">
         <td style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
             <td align="right"><?php echo $free_size; ?></td>
             <td><?php echo $free_unit; ?></td>
         </tr>
-        <!-- Effective -->
         <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
         <td style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
             <td align="right"><?php echo $effect_size; ?></td>
@@ -308,18 +302,17 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
     }
     echo "\n";
     ?>
-        <!-- Total -->
         <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
         <td style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
             <td align="right"><?php echo $tot_size; ?></td>
             <td><?php echo $tot_unit; ?></td>
         </tr>
     <?php
+    // Optimize link if overhead
     if (!empty($showtable['Data_free']) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
         echo "\n";
         $query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
         ?>
-        <!-- Optimize link -->
         <tr>
             <td colspan="3" align="center">
                 <a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table"); ?>&pos=0&<?php echo $query; ?>">[<?php echo $strOptimizeTable; ?>]</a>
@@ -387,7 +380,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         </tr>
         <?php
     }
-    if (isset($showtable['Data_length']) && $showtable['Rows']>0) {
+    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0) {
         echo (++$i%2)
              ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
              : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
@@ -395,10 +388,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         ?>
             <td><?php echo ucfirst($strRowSize) . '&nbsp;&oslash;'; ?></td>
             <td align="right">
-                <?php
-                	list($avg_size, $avg_unit) =format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows']);
-                	echo "$avg_size $avg_unit\n";
-                ?>
+                <?php echo "$avg_size $avg_unit\n"; ?>
             </td>
         </tr>
         <?php
@@ -437,6 +427,8 @@ echo "\n";
  */
 ?>
 <!-- TABLE WORK -->
+<script src="functions.js" type="text/javascript" language="javascript"></script>
+
 <ul>
 
     <!-- Printable view of the table -->
@@ -588,14 +580,14 @@ echo "\n";
                     <?php echo $strDataOnly; ?>&nbsp;&nbsp;
                 </td>
                 <td>
-                    <input type="checkbox" name="asfile" value="sendit"<?php if (function_exists('gzencode')) { ?>onclick="if (!document.forms['tbl_dump'].elements['asfile'].checked) document.forms['tbl_dump'].elements['gzip'].checked = false<?php }; ?>" />
+                    <input type="checkbox" name="asfile" value="sendit" onclick="return checkTransmitDump(this.form, 'transmit')" />
                     <?php echo $strSend . "\n"; ?>
 <?php
 // gzip encode feature
 if (function_exists('gzencode')) {
     echo "\n";
     ?>
-                    (<input type="checkbox" name="gzip" value="gzip" onclick="document.forms['tbl_dump'].elements['asfile'].checked = true" /><?php echo $strGzip; ?>)
+                    (<input type="checkbox" name="gzip" value="gzip" onclick="return checkTransmitDump(this.form, 'gzip')" /><?php echo $strGzip; ?>)
     <?php
 }
 echo "\n";

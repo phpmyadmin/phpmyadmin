@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
+	* header.inc.php3: cosmetic changes.
+	* tbl_properties.php3, db_details.php3, functions.js: export the js work
+	  from the formers to the later.
+	* Updated the Spanish translation thanks to
+	  Martin Marconcini <megadeth@millic.com.ar>.
+
 2001-07-10  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_properties.php3: add avg row size
 
