@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/export/xls.php: enable user to specify './tmp' as the
+      TempDir (use realpath() to find the complete path. Add error trap
+      in case OLE cannot write to directory. Add setTempDir() to enable OLE
+      write in this directory.
+    * Documentation.html: document the TempDir creation
+ 
 2004-07-05 Marc Delisle  <lem9@users.sourceforge.net>
     * footer.inc.php, index.php, queryframe.php: bug 981939, database
       selection in left frame under Opera, and problems with dropdown

@@ -3627,7 +3627,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     You can either export as CSV suitable for MS Excel, what works out of the
     box or you can try native <b>experimental</b> MS Excel exporter. For
     enabling this you need to set $cfg['TempDir'] to place where web server
-    user can write and install PEAR module Spreadsheet_Excel_Writer into php
+    user can write (for example <tt>'./tmp'</tt>)
+    and install PEAR module Spreadsheet_Excel_Writer into php
     include path. The installation can be done by following command:
 </p>
 <pre>
@@ -3638,7 +3639,14 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     (no stable version available yet) and then we tell pear we want to satisfy
     dependencies.
 </p>
-
+<p>
+    To create the temporary directory on a UNIX-based system, you can do:
+</p>
+<pre>
+    cd phpMyAdmin
+    mkdir tmp
+    chmod o+rwx tmp 
+</pre>
 <a name="faqproject"></a><br />
 <h3>[7. phpMyAdmin project]</h3>
 
