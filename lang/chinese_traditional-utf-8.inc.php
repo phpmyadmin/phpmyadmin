@@ -730,4 +730,5 @@ $strZip = '"zipped"';
 $strAddFields = 'Add %s field(s)';  //to translate
 $strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
 $strNoThemeSupport = 'No themes support, please check your configuration and/or your themes in directory %s.';  //to translate
+$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
 ?>

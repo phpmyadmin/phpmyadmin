@@ -682,6 +682,7 @@ $strUpgrade = 'You should upgrade to %s %s or later.';
 $strUsage = 'Usage';
 $strUseBackquotes = 'Enclose table and field names with backquotes';
 $strUseHostTable = 'Use Host Table';
+$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';
 $strUseTables = 'Use Tables';
 $strUseTextField = 'Use text field';
 $strUseThisValue = 'Use this value';

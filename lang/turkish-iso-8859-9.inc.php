@@ -734,4 +734,5 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanmasý sýnýrý kaldýrýr..';
 $strZip = '"ziplenmiþ"';
 
+$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
 ?>
