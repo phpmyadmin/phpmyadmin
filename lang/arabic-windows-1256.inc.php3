@@ -728,4 +728,5 @@ $strSortByKey = 'Sort by key';  //to translate
 $strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
 
 $strExcelEdition = 'Excel edition';  //to translate
+$strDelayedInserts = 'Use delayed inserts';  //to translate
 ?>

@@ -213,7 +213,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                            . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
                            . substr($tmpres[1], $pos);
             $tmpres[1]     = str_replace("\n", $crlf, $tmpres[1]);
-            if (preg_match_all('((,\n[\s]*CONSTRAINT[^\n,]+)+)', $tmpres[1], $regs)) {
+            if (preg_match_all('((,\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\n,]+)+)', $tmpres[1], $regs)) {
                 if (!isset($sql_constraints)) {
                     $sql_constraints = $crlf . '#' . $crlf
                                         . '# ' . $GLOBALS['strConstraintsForDumped'] . $crlf
@@ -221,9 +221,9 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                 }
                 $sql_constraints .= $crlf .'#' . $crlf .'# ' . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . '#' . $crlf;
                 $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf
-                                . str_replace('CONSTRAINT', 'ADD CONSTRAINT', substr($regs[0][0], 2))
+                                 . preg_replace('/(,\n|^)([\s]*)(CONSTRAINT|FOREIGN[\s]*KEY)/', '\1\2ADD \3', substr($regs[0][0], 2))
                                 . ";\n";
-                $tmpres[1]     = preg_replace('((,\n[\s]*CONSTRAINT[^\n,]+)+)', '', $tmpres[1]);
+                $tmpres[1]     = preg_replace('((,\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\n,]+)+)', '', $tmpres[1]);
             }
             $schema_create .= $tmpres[1];
         }
@@ -485,13 +485,20 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
             }
         } // end for
 
+        // delayed inserts?
+        if (isset($GLOBALS['delayed'])) {
+            $insert_delayed = ' DELAYED';
+        } else {
+            $insert_delayed = '';
+        }
+            
         // Sets the scheme
         if (isset($GLOBALS['showcolumns'])) {
             $fields        = implode(', ', $field_set);
-            $schema_insert = 'INSERT INTO ' . PMA_backquote($table, $use_backquotes)
+            $schema_insert = 'INSERT' . $insert_delayed .' INTO ' . PMA_backquote($table, $use_backquotes)
                            . ' (' . $fields . ') VALUES (';
         } else {
-            $schema_insert = 'INSERT INTO ' . PMA_backquote($table, $use_backquotes)
+            $schema_insert = 'INSERT' . $insert_delayed .' INTO ' . PMA_backquote($table, $use_backquotes)
                            . ' VALUES (';
         }
 

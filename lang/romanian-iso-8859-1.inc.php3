@@ -715,4 +715,5 @@ $strZip = '"arhivat"';
 // To translate
 
 $strExcelEdition = 'Excel edition';  //to translate
+$strDelayedInserts = 'Use delayed inserts';  //to translate
 ?>

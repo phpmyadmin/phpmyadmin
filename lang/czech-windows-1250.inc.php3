@@ -185,6 +185,7 @@ $strDbSpecific = 'závislé na databázi';
 $strDefault = 'Výchozí';
 $strDefaultValueHelp = 'Výchozí hodnotu zadejte jen jednu hodnotu bez uvozovek a escapování znakù, napøíklad: a';
 $strDelOld = 'Aktuální stránka se odkazuje na tabulky, které již neexistují. Chcete odstranit tyto odkazy?';
+$strDelayedInserts = 'Používat zpoždìné inserty';
 $strDelete = 'Smazat';
 $strDeleteAndFlush = 'Odstranit uživatele a znovunaèíst oprávnìní.';
 $strDeleteAndFlushDescr = 'Toto je nejèistèí øešení, ale naèítání oprávnìní mùže trvat dlouho.';

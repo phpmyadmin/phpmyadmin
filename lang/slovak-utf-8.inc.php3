@@ -716,4 +716,5 @@ $strZip = '"zo zipované"';
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
 $strCheckOverhead = 'Check overheaded';  //to translate
 $strExcelEdition = 'Excel edition';  //to translate
+$strDelayedInserts = 'Use delayed inserts';  //to translate
 ?>

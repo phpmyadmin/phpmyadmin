@@ -1246,6 +1246,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['Export']['sql_columns'])) {
         $cfg['Export']['sql_columns'] = FALSE;
     }
+    if (!isset($cfg['Export']['sql_delayed'])) {
+        $cfg['Export']['sql_delayed'] = FALSE;
+    }
     if (!isset($cfg['Export']['sql_extended'])) {
         $cfg['Export']['sql_extended'] = FALSE;
     }

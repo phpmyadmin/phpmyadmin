@@ -715,4 +715,5 @@ $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate 
 $strZip = '"zipitud"';
 // To translate
 
+$strDelayedInserts = 'Use delayed inserts';  //to translate
 ?>

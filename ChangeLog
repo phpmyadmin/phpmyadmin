@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-13 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/export/sql.php3: Fix export of foreign keys (patch #834474).
+    * libraries/export/sql.php3, libraries/config_import.lib.php3,
+      libraries/common.lib.php3, libraries/display_export.lib.php3, lang/*,
+      config.inc.php3: Allow delayed inserts (RFE #841298).
+
 2003-11-12 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/latex.php3: Fixed LaTeX output (patch #840082).
     * libraries/export/latex.php3: Unique fields are bold (patch #840089).

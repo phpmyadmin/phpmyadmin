@@ -179,6 +179,7 @@ $strDbSpecific = 'database-specific';
 $strDefault = 'Default';
 $strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';
 $strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';
+$strDelayedInserts = 'Use delayed inserts';
 $strDelete = 'Delete';
 $strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.';
 $strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.';
@@ -223,6 +224,7 @@ $strEnglish = 'English';
 $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English ';
 $strError = 'Error';
 $strEstonian = 'Estonian';
+$strExcelEdition = 'Excel edition';
 $strExcelOptions = 'Excel options';
 $strExecuteBookmarked = 'Execute bookmarked query';
 $strExplain = 'Explain SQL';
@@ -712,5 +714,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strExcelEdition = 'Excel edition';  //to translate
 ?>
