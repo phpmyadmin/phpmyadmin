@@ -98,7 +98,7 @@ function auth() {
   //$PHP_AUTH_USER = ""; // No need to do this since err 401 allready clears that var
   Header("status: 401 Unauthorized");
   Header("HTTP/1.0 401 Unauthorized");
-  Header("WWW-authenticate: basic realm=\"phpMySQLAdmin on ".$cfgServer['host']."\"");
+  Header("WWW-authenticate: basic realm=\"phpMyAdmin on ".$cfgServer['host']."\"");
   echo "<HTML><HEAD><TITLE>".$strAccessDenied."</TITLE></HEAD>\n";
   echo "<BODY BGCOLOR=#FFFFFF><BR><BR><CENTER><H1>".$strWrongUser."</H1>\n";
   echo "</CENTER></BODY></HTML>";
