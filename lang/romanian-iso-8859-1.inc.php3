@@ -284,6 +284,8 @@ $strLines = 'Linii';
 $strLinesTerminatedBy = 'Linii terminate de';
 $strLinkNotFound = 'Legatura invalida';
 $strLinksTo = 'Trimitere la';
+$strLoadExplanation = 'Metoda cea mai buna este cea implicit selectata, dar se poate schimba.';
+$strLoadMethod = 'methoda LOAD';
 $strLocalhost = 'Local';
 $strLocationTextfile = 'Locatia fisierului text';
 $strLogPassword = 'Parola:';
@@ -638,6 +640,4 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>
