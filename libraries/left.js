@@ -231,9 +231,12 @@ function hilightBase(el, theColor)
   if (typeof(whichDb.style) == 'undefined') {
     return;
   }
-  else {
+  else if (whichTables) {
     whichDb.style.backgroundColor     = theColor;
     whichTables.style.backgroundColor = theColor;
+  }
+  else {
+    whichDb.style.backgroundColor     = theColor;
   }
 
   return true;
