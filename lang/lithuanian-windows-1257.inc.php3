@@ -97,6 +97,7 @@ $strCreatePdfFeat = 'PDF bylos generavimas';
 $strCriteria = 'Kriterijai';
 
 $strData = 'Duomenys';
+$strDataDict = 'Duomenø þodynas';
 $strDataOnly = 'Tik duomenys';
 $strDatabase = 'Duomenø bazë ';
 $strDatabaseHasBeenDropped = 'Duomenø bazë %s iðtrinta.';
@@ -176,6 +177,7 @@ $strHostEmpty = 'Tuðèias prisijungimo adresas!';
 $strIdxFulltext = '"Fulltext" indeksas';
 $strIfYouWish = 'Jei pageidaujate pakrauti keletà lentelës stulpeliø, sudarykite laukø sàraðà atskirtà kabliataðkiais.';
 $strIgnore = 'Ignoruoti';
+$strImportDocSQL = 'Importuoti docSQL bylas';
 $strInUse = 'ðiuo metu naudojama';
 $strIndex = 'Indeksas';
 $strIndexHasBeenDropped = 'Indeksas %s panaikintas';
@@ -261,6 +263,7 @@ $strOptions = 'Parinktys';
 $strOr = 'Arba';
 $strOverhead = 'Perteklinis';
 
+$strPHP40203 = 'Jûs naudojate PHP 4.2.3 versijà, kurioje yra rimta klaida, susiijusi su daugiabaièiais stringais (mbstring). Daugiau informacijos rasite PHP klaidø praneðime Nr.19404. <strong>NEREKOMENDUOJAME naudoti ðios PHP versijos su phpMyAdmin</strong>.';
 $strPHPVersion = 'PHP versija';
 $strPageNumber = 'Puslapis:';
 $strPartialText = 'Daliniai tekstai';
@@ -281,6 +284,7 @@ $strPrimaryKey = 'Pirminis raktas';
 $strPrimaryKeyHasBeenDropped = 'Panaikintas pirminis raktas';
 $strPrimaryKeyName = 'Pirminio rakto pavadinimas turi bûti "PRIMARY"!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>yra vienintelis</b> pirminio rakto tipas!)';
+$strPrint = 'Spausdinti';
 $strPrintView = 'Atspausdinti struktûra';
 $strPrivileges = 'Privilegijos';
 $strProperties = 'Nustatymai';
@@ -429,8 +433,4 @@ $strYes = 'Taip';
 $strZip = '"zip"';
 //to translate:
 
-$strImportDocSQL = 'Import docSQL Files';  //to translate
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>

@@ -13,8 +13,9 @@ $Source$
       - Removed HTML entities.
 
 2002-11-05 Michal Cihar  <nijel@users.sourceforge.net>
-    * lang/{czech,italian,slovenian,swedish}*.php3: updated translations,
-      thanks to me ;), Pietro Danesi, Kositer Uros and Björn T. Hallberg
+    * lang/{czech,italian,lithuanian,slovenian,swedish}*.php3: updated
+      translations, thanks to me ;), Pietro Danesi, Vilius Zigmantas. Kositer
+      Uros and Björn T. Hallberg
 
 2002-11-05 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php3: when the user does not have required privs to create
