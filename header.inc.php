@@ -64,7 +64,7 @@ if (empty($GLOBALS['is_header_sent'])) {
 
     document.write('<style type="text/css">');
     document.write('img.lightbulb { cursor: pointer; }');
-    document.write('</style>');
+    document.write('<\/style>');
     
     <?php
     // Add some javascript instructions if required

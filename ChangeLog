@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * header.inc.php, queryframe.php: HTML improvement, 
+      thanks to Armel Fauveau
+
 2005-02-16 Alexander M. Turek  <me@derrabus.de>
     * db_details_export.php: Views are not exportable yet.
 	* themes/*/css/theme_right.css.php: Allow to mark a whole row as disabled.
