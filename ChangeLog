@@ -14,6 +14,7 @@ $Source$
 	  "DPhantom" <dphantom at users.sourceforge.net>.
 	* lang/portuguese.inc.php3: updated thanks to António Raposo.
 	* lang/bulgarian-*: completed by Georgi Georgiev.
+	* lang/galician.inc.php3: completed by Xosé Calvo.
 	* Documentation.html: added a second example for the
 	  "$cfgPmaAbsoluteUri" directive.
 

@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
 
+/**
+ * Translated by Xosé Calvo <xosecalvo at terra.es>
+ */
+
 $charset = 'iso-8859-1';
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
@@ -348,8 +352,4 @@ $strYes = 'Si';
 $strZip = 'comprimido no formato "zipped"';
 
 // To translate
-$strCardinality = 'Cardinality';
-$strLogin = 'Login';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
 ?>
