@@ -236,7 +236,9 @@ $cfg['DefaultCharset'] = 'iso-8859-1';
 
 // Allow charset recoding of MySQL queries, must be also enabled in language
 // file to make harder using other language files than unicode.
-$cfg['AllowAnywhereRecoding'] = TRUE;
+// Default value is FALSE to avoid problems on servers without the iconv
+// extension and where dl() is not supported
+$cfg['AllowAnywhereRecoding'] = FALSE;
 
 // Force: always use this language - must be defined in
 //        libraries/select_lang.lib.php3
