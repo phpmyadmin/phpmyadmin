@@ -40,7 +40,7 @@ if (defined('PHP_OS') && eregi('win', PHP_OS)) {
 // MySQL Version 
 
 if (!empty($server)){
-    $result = mysql_query('SELECT VERSION() AS version');
+    $result = @mysql_query('SELECT VERSION() AS version');
     if ($result != FALSE && @mysql_num_rows($result) > 0) {
         $result = mysql_query('SELECT VERSION() AS version') or mysql_die();
         $row    = mysql_fetch_array($result);
