@@ -11,7 +11,8 @@ require('./header.inc.php3');
 /**
  * Drop databases if required
  */
-if (!empty($submit_mult) || isset($btnDrop)) {
+if ((!empty($submit_mult) && isset($selected_db))
+    || isset($btnDrop)) {
     $action     = 'db_stats.php3';
     $show_query = 'y';
     include('./mult_submits.inc.php3');

@@ -27,6 +27,12 @@ $Source$
 	  tbl_qbe.php3; tbl_select.php3; : optimized a bit (mainly added some
 	  'mysql_free_result').
 	* left.php3; left.js: cleaned a bit.
+	* db_details.php3; db_stats.php3; mult_submits.inc.php3 (in place of
+	  mult_drops.inc.php3); tbl_alter.php3; tbl_properties.php3;
+	  tbl_properties.inc.php3: merged patch #458014 (Multiple index generation,
+	  multi column editing and fulltext) except the multiple index part that
+	  will be done in a dedicated page. Thanks to
+	  Michal Cihar <nijel at users.sourceforge.net>.
 
 2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:

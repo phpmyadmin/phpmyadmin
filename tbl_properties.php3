@@ -18,7 +18,8 @@ if (!isset($message)) {
 /**
  * Drop/delete mutliple tables if required
  */
-if (!empty($submit_mult) || isset($btnDrop)) {
+if ((!empty($submit_mult) && isset($selected_fld))
+    || isset($btnDrop)) {
     $action = 'tbl_properties.php3';
     include('./mult_submits.inc.php3');
 }
@@ -229,7 +230,7 @@ $fields_cnt  = mysql_num_rows($result);
     <th><?php echo ucfirst($strNull); ?></th>
     <th><?php echo ucfirst($strDefault); ?></th>
     <th><?php echo ucfirst($strExtra); ?></th>
-    <th colspan="5"><?php echo ucfirst($strAction); ?></th>
+    <th colspan="<?php echo((MYSQL_INT_VERSION >= 32323) ? 6 : 5); ?>"><?php echo ucfirst($strAction); ?></th>
 </tr>
 
 <?php
@@ -328,6 +329,18 @@ while ($row = mysql_fetch_array($result)) {
         <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD UNIQUE(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . ' ' . htmlspecialchars($row['Field'])); ?>">
             <?php echo $strUnique; ?></a>
     </td>
+     <?php
+    if (MYSQL_INT_VERSION >= 32323) {
+        echo "\n";
+        ?>
+    <td nowrap="nowrap">
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD FULLTEXT(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . ' ' . htmlspecialchars($row['Field'])); ?>">
+            <?php echo $strIdxFulltext; ?></a>
+    </td>
+        <?php
+    }
+    echo "\n"
+    ?>
 </tr>
     <?php
 } // end while
@@ -337,7 +350,7 @@ echo "\n";
 ?>
 
 <tr>
-    <td colspan="12">
+    <td colspan="<?php echo((MYSQL_INT_VERSION >= 32323) ? 13 : 12); ?>">
         <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strChange; ?>" />
@@ -381,6 +394,15 @@ if ($index_count > 0) {
         <tr>
             <th><?php echo $strKeyname; ?></th>
             <th><?php echo $strUnique; ?></th>
+    <?php
+    if (MYSQL_INT_VERSION >= 32323) {
+        echo "\n";
+        ?>
+            <th><?php echo $strIdxFulltext; ?></th>
+        <?php
+    }
+    echo "\n";
+    ?>
             <th colspan="2"><?php echo $strField; ?></th>
             <th><?php echo $strAction; ?></th>
         </tr>
@@ -409,6 +431,15 @@ if ($index_count > 0) {
         <tr>
             <td><?php echo $key_name; ?></td>
             <td><?php echo (($row['Non_unique'] == '0') ? $strYes : $strNo); ?></td>
+        <?php
+        if (MYSQL_INT_VERSION >= 32323) {
+            echo "\n";
+            ?>
+            <td><?php echo (($row['Comment'] == 'FULLTEXT') ? $strYes : $strNo); ?></td>
+            <?php
+         }
+         echo "\n";
+         ?>
             <td><?php echo htmlspecialchars($row['Column_name']); ?></td>
             <td align="right">&nbsp;<?php echo $row['Sub_part']; ?></td>
             <td>
