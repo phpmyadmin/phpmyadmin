@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-27  Olivier Müller  <om@omnis.ch>
+	* tbl_replace.php3: fixed the fact that the function were
+	  ignored if the data remained unchanged.
+
 2001-08-27  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3: fixed some coding style inconcistencies.
 	* lib.inc.php3, lines -; config.inc.php3, lines 106-110;
