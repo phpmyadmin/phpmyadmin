@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-03  Olivier Müller  <om@omnis.ch>
+	* started devel-branch : "phpMyAdmin-devel". To be used for experimental 
+	  stuff and new features.
+
 2001-05-02  Robin Johnson  <robbat2@users.sourceforge.net>
 	* additional constant MYSQL_MINOR_VERSION in 'lib.inc.php3'
 	  contains all of version string after the '3.23.' part.
