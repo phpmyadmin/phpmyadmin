@@ -16,7 +16,7 @@
  *                   of the field name
  *
  * @access  public
- * 
+ *
  * This function exists because mysql_field_type() returns 'blob'
  * even for 'text' fields.
  */
@@ -50,7 +50,7 @@ function PMA_exportComment($text) {
 function PMA_exportHeader() {
     global $crlf;
     global $cfg;
-    
+
     $head  =  '# phpMyAdmin SQL Dump' . $crlf
            .  '# version ' . PMA_VERSION . $crlf
            .  '# http://www.phpmyadmin.net' . $crlf
@@ -150,7 +150,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
             if (!empty($tmpres['Auto_increment'])) {
                 $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
             }
-            
+
             if (isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
                 $schema_create .= '# ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
                 $new_crlf = '#' . $crlf . $crlf;
@@ -170,7 +170,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
     }
 
     $schema_create .= $new_crlf;
-    
+
     if (!empty($drop)) {
         $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table, $use_backquotes) . ';' . $crlf;
     }
@@ -178,7 +178,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
     if ($do_comments && $cfgRelation['commwork']) {
         if (!($comments_map = PMA_getComments($db, $table))) unset($comments_map);
     }
-    
+
     // Check if we can use Relations (Mike Beck)
     if ($do_relation && !empty($cfgRelation['relation'])) {
         // Find which tables are related with the current one and write it in
@@ -194,7 +194,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
     else {
            $have_rel = FALSE;
     } // end if
-    
+
     if ($do_mime && $cfgRelation['mimework']) {
         if (!($mime_map = PMA_getMIME($db, $table, true))) unset($mime_map);
     }
@@ -235,7 +235,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
                            . substr($tmpres[1], $pos);
             $schema_create .= str_replace("\n", $crlf, $tmpres[1]);
         }
-        
+
         $schema_create .= $auto_increment;
 
 
@@ -370,7 +370,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
           .  '# ' . $GLOBALS['strTableStructure'] . ' ' . $formatted_table_name . $crlf
           .  '#' . $crlf
           .  PMA_getTableDef($db, $table, $crlf, $error_url,  $relation, $comments, $mime) . ';' . $crlf;
-          
+
     return PMA_exportOutputHandler($dump);
 }
 
@@ -427,7 +427,7 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
             $type          = $field_types[$field_set[$j]];
 
             if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
-                $type == 'bigint'  ||$type == 'timestamp') {
+                $type == 'bigint'  || (PMA_MYSQL_INT_VERSION < 40100 && $type == 'timestamp')) {
                 $field_num[$j] = TRUE;
             } else {
                 $field_num[$j] = FALSE;
@@ -578,7 +578,7 @@ function PMA_getTableContentOld($db, $table, $crlf, $error_url, $sql_query)
 
                 // a number
                 if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
-                    $type == 'bigint'  ||$type == 'timestamp') {
+                    $type == 'bigint'  || (PMA_MYSQL_INT_VERSION < 40100 && $type == 'timestamp')) {
                     $schema_insert .= $row[$j] . ', ';
                 // blob
                 } else if (($type == 'blob' || $type == 'mediumblob' || $type == 'longblob' || $type == 'tinyblob') && !empty($row[$j])) {
@@ -608,7 +608,7 @@ function PMA_getTableContentOld($db, $table, $crlf, $error_url, $sql_query)
         } // end for
         $schema_insert = trim(ereg_replace(', $', '', $schema_insert));
         $schema_insert .= ')';
-        
+
         if (!PMA_exportOutputHandler($schema_insert . $eol_dlm . $crlf)) return FALSE;
     } // end while
     mysql_free_result($result);
@@ -642,11 +642,11 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $formatted_table_name = (isset($GLOBALS['use_backquotes']))
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
-    $head = $crlf 
+    $head = $crlf
           . '#' . $crlf
           . '# ' . $GLOBALS['strDumpingData'] . ' ' . $formatted_table_name . $crlf
           . '#' . $crlf .$crlf;
-          
+
     if (!PMA_exportOutputHandler($head)) return FALSE;
     // Call the working function depending on the php version
     if (PMA_PHP_INT_VERSION >= 40005) {

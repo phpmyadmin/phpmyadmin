@@ -11,6 +11,7 @@ $Source$
 
 2003-07-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
+    * libraries/export/sql.php3: Fixed bug #761956 (timestamp export fails).
 
 2003-07-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/config.auth.lib.php3, lang/*.php3:
