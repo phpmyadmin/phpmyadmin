@@ -91,6 +91,7 @@ $strBzError = 'phpMyAdmin n\'a pu compresser le fichier exporté en raison d\'un
 $strBzip = '"bzippé"';
 
 $strCSVOptions = 'Options CSV';
+$strCalendar = 'Calendrier';
 $strCannotLogin = 'Connexion au serveur MySQL non permise';
 $strCantLoad = 'PHP ne peut charger l\'extension %s,<br />veuillez vérifier votre configuration de PHP';
 $strCantLoadRecodeIconv = 'Erreur lors du chargement de l\'extension iconv ou recode, utilisée pour convertir le jeu de caractères; veuillez activer l\'une de ces extensions dans PHP, ou désactiver la conversion des jeux de caractères dans phpMyAdmin';
@@ -736,5 +737,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strCalendar = 'Calendar';  //to translate
 ?>
