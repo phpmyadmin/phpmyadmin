@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-17  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* config.inc.php3
+		- Added comments about what many of the configuration variables do
+		- Replaced multiple spaces with tabs for alignment
+
 2001-08-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/polish.inc.php3: updated thanks to
 	  Jakub Wilk <ubanus@users.sourceforge.net>.
