@@ -108,13 +108,13 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
             }
 
             if (!isset($cfg['Servers'][$i]['column_info'])) {
-                $cfg['Servers'][$i]['column_info'] = '';
+                if (isset($cfg['Servers'][$i]['column_comments'])) {
+                    $cfg['Servers'][$i]['column_info'] = $cfg['Servers'][$i]['column_comments'];
+                    unset($cfg['Servers'][$i]['column_comments']);
+                } else {
+                    $cfg['Servers'][$i]['column_info'] = '';
+                }
             }
-            
-            if ($cfg['Servers'][$i]['column_info'] == '' && isset($cfg['Servers'][$i]['column_comments']) && $cfg['Servers'][$i]['column_comments'] != '') {
-                $cfg['Servers'][$i]['column_info'] = $cfg['Servers'][$i]['column_comments'];
-            }
-
 
             if (!isset($cfg['Servers'][$i]['pdf_pages'])) {
                 $cfg['Servers'][$i]['pdf_pages'] = '';
