@@ -16,7 +16,7 @@ if (!@function_exists('mysqli_connect')) {
 // check whether mysql is available
 if (!@function_exists('mysqli_connect')) {
     require_once('./libraries/header_http.inc.php');
-    echo $strCantLoadMySQL . '<br />' . "\n" // TODO: Replace by a MySQLi related message
+    echo sprintf($strCantLoad, 'mysqli') . '<br />' . "\n"
          . '<a href="./Documentation.html#faqmysql" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
     exit;
 }
