@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php3: bug 620624
+
 2002-10-11 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_indexes.php3: fixed bug #621295 (Incorrect URL)
     * db_details_structure.php3: removed trailing whitespaces.

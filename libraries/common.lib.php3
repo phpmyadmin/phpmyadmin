@@ -652,7 +652,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 if (empty($GLOBALS['is_header_sent'])) {
                     include('./header.inc.php3');
                 }
-                PMA_mysqlDie($conn_error, $local_query, FALSE);
+                //PMA_mysqlDie($conn_error, $local_query, FALSE);
+                PMA_mysqlDie($conn_error, '', FALSE);
             } // end if
         } // end if
 
