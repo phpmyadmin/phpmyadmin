@@ -82,6 +82,7 @@ $strCheckTable = 'Überprüfe Tabelle';
 $strChoosePage = 'Bitte wählen Sie die zu bearbeitende Seite.';
 $strColumn = 'Spalte';
 $strColumnNames = 'Spaltennamen';
+$strComments = 'Kommentare';
 $strCompleteInserts = 'Vollständige \'INSERT\'s';
 $strConfigFileError = 'phpMyAdmin konnte Ihre Konfigurationsdatei nicht verarbeiten!<br />Dies kann passieren, wenn php Syntaxfehler in ihr findet oder sie nicht existiert.<br />Bitte rufen Sie die Konfigurationsdatei üben den unteren Link direkt auf und lesen Sie die PHP-Fehlermeldungen, die Sie erhalten. Meistens fehlt bloß irgendwo ein Anführungszeichen oder Semikolon.<br />Wenn Sie eine leere Seite erhalten, ist Ihre Konfigurationsdatei in Ordnung.'; //to translate
 $strConfigureTableCoord = 'Bitte konfigurieren Sie die Koordinaten für die Tabelle %s';
@@ -404,5 +405,6 @@ $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 $strZip = 'Zip komprimiert';
-$strComments = 'Comments';  //to translate
+
+// To translate
 ?>

@@ -37,6 +37,7 @@ $Source$
 2002-06-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/thai.inc.php3: Updates, thanks again to Arthit Suriyawongkul.
     * lang/albanian.inc.php3: Updates, thanks again to Laurent Dhima.
+    * lang/german*.inc.php3: Translated $strComments.
     * config.inc.php3: Changed default values of some directives.
 
 2002-06-15 Mike Beck <mikebeck@users.sourceforge.net>
