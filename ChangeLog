@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-16 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech: Updated.
+
 2003-01-15 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/sort_lang.sh: Fix status output bug '\n'
     * db_details_importdocsql.php3: Move hardcoded strings to language files 
