@@ -9,6 +9,8 @@ require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 require('./libraries/zip.lib.php3');
 
+PMA_checkParameters(array('what'));
+
 // What type of export are we doing?
 if ($what == 'excel') {
     $type = 'csv';
