@@ -25,10 +25,10 @@ if (isset($new_name) && trim($new_name) != '') {
 
     include('./header.inc.php3');
     mysql_select_db($db);
-    $local_query = 'ALTER TABLE ' . backquote($old_name) . ' RENAME ' . backquote($new_name);
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
-    $message     = sprintf($strRenameTableOK, $old_name, $table);
-    $reload      = 'true';
+    $sql_query = 'ALTER TABLE ' . backquote($old_name) . ' RENAME ' . backquote($new_name);
+    $result    = mysql_query($sql_query) or mysql_die();
+    $message   = sprintf($strRenameTableOK, $old_name, $table);
+    $reload    = 1;
 } 
 
 
