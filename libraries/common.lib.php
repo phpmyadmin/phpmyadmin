@@ -1579,6 +1579,19 @@ if (typeof(document.getElementById) != 'undefined'
             } else {
                 $query_base = $local_query;
             }
+
+            // Here we append the LIMIT added for navigation, to
+            // enable its display. Adding it higher in the code
+            // to $local_query would create a problem when
+            // using the Refresh or Edit links
+
+            // FIXME: what would be the best to do when someone
+            // hits Refresh: use the current LIMITs ?
+
+            if (isset($GLOBALS['sql_limit_to_append'])) {
+                $query_base .= $GLOBALS['sql_limit_to_append'];
+            }
+
             if (!empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = \'' . $query_base;
             } else if (!empty($GLOBALS['validatequery'])) {

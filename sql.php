@@ -326,8 +326,6 @@ else {
             } else {
                 $display_query  = $display_query . $sql_limit_to_append;
             }
-        } else {
-            $display_query = $full_sql_query;
         }
     } else {
         $full_sql_query      = $sql_query;
@@ -468,7 +466,6 @@ else {
                             // (SELECT
                             $count_query = PMA_SQP_formatHtml($parsed_sql, 'query_only', 0, $analyzed_sql[0]['position_of_first_select'] + 1);
                             $count_query .= ' SQL_CALC_FOUND_ROWS ';
-
                             // add everything that was after the first SELECT
                             $count_query .= PMA_SQP_formatHtml($parsed_sql, 'query_only', $analyzed_sql[0]['position_of_first_select']+1);
                     } else { // PMA_MYSQL_INT_VERSION < 40000
