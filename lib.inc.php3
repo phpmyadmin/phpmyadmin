@@ -1244,6 +1244,13 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         echo "\n";
 
         // 2. Displays the fields' name
+        // 2.0 If sorting links should be used, checks if the query is a "JOIN"
+        //     statement (see 2.1.3)
+        if ($is_display['sort_lnk'] == '1') {
+            $is_join = eregi('(.*)[[:space:]]+FROM[[:space:]]+.*[[:space:]]+JOIN', $sql_query, $select_stt);
+        } else {
+            $is_join    = FALSE;
+        }
         for ($i = 0; $i < $fields_cnt; $i++) {
 
             // 2.1 Results can be sorted
@@ -1272,22 +1279,31 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 } else {
                     $is_in_sort = eregi(' (`?)' . str_replace('\\', '\\\\', $fields_meta[$i]->name) . '(`?)[ ,$]', $sql_order);
                 }
-                // 2.1.3 Do define the sorting url
+                // 2.1.3 Checks if the table name is required (it's the case
+                //       for a query with a "JOIN" statement and if the column
+                //       isn't aliased)
+                if ($is_join
+                    && !eregi('([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name, $select_stt[1], $parts)) {
+                    $sort_tbl = backquote($fields_meta[$i]->table) . '.';
+                } else {
+                    $sort_tbl = '';
+                }
+                // 2.1.4 Do define the sorting url
                 if (!$is_in_sort) {
                     // loic1: patch #455484 ("Smart" order)
                     $cfgOrder     = strtoupper($GLOBALS['cfgOrder']);
                     if ($cfgOrder == 'SMART') {
                         $cfgOrder = (eregi('time|date', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
                     }
-                    $sort_order = ' ORDER BY ' . backquote($fields_meta[$i]->name) . ' ' . $cfgOrder;
+                    $sort_order = ' ORDER BY ' . $sort_tbl . backquote($fields_meta[$i]->name) . ' ' . $cfgOrder;
                     $order_img  = '';
                 }
                 else if (substr($sql_order, -3) == 'ASC' && $is_in_sort) {
-                    $sort_order = ' ORDER BY ' . backquote($fields_meta[$i]->name) . ' DESC';
+                    $sort_order = ' ORDER BY ' . $sort_tbl . backquote($fields_meta[$i]->name) . ' DESC';
                     $order_img  = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />';
                 }
                 else if (substr($sql_order, -4) == 'DESC' && $is_in_sort) {
-                    $sort_order = ' ORDER BY ' . backquote($fields_meta[$i]->name) . ' ASC';
+                    $sort_order = ' ORDER BY ' . $sort_tbl . backquote($fields_meta[$i]->name) . ' ASC';
                     $order_img  = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="DESC" />';
                 }
                 if (eregi('(.*)( LIMIT (.*)| PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)', $unsorted_sql_query, $regs3)) {
@@ -1303,7 +1319,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                            . '&sessionMaxRows=' . $sessionMaxRows
                            . '&dontlimitchars' . $dontlimitchars
                            . '&sql_query=' . urlencode($sorted_sql_query);
-                // 2.1.4 Displays the sorting url
+                // 2.1.5 Displays the sorting url
                 ?>
     <th>
         <a href="sql.php3?<?php echo $url_query; ?>">
