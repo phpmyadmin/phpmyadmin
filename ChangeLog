@@ -6,16 +6,22 @@ $Id$
 $Source$
 
 2001-08-18  Olivier Müller  <om@omnis.ch>
-	* db_details.php3: added a few <b>
-	* left.php3: one more space between table name and num_dbs
-	* tbl_properties.php3: activate select/browser/empty links
-	  only if there is at least one row in the table 
-	  (other way would be to remove the inactivated links)
+	* db_details.php3: added a few <b>.
+	* left.php3: one more space between table name and num_dbs.
+	* tbl_properties.php3: activate select/browser/empty links only if there is
+	  at least one row in the table (other way would be to remove the
+	  inactivated links).
 
 2001-08-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3; lang/*: modified the way the tables' number is
 	  displayed.
 	* user_details.php3: merged temporary javascript fixes.
+	* lib.inc.php3: fixed a bug with a global variable line 1135, ensures the
+	  number of rows is displayed with select statements submitted from the
+	  query box (lines 883-885) and fixed some coding inconcistencies.
+	* tbl_replace.php3, line 98: fixed a coding bug.
+	* tbl_properties.inc.php3, lines 306-314; lang/*: added some words about
+	  enums and set fields.
 
 2001-08-17  Robin Johnson  <robbat2@orbis-terrarum.net> 
 	* config.inc.php3 
