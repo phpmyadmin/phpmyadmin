@@ -9,7 +9,7 @@ if(!defined("__LIB_INC__")){
 // load the mysql extensions or not - staybyte - 26. June 2001
 	if (defined("PHP_OS") && eregi("win", PHP_OS)) $suffix=".dll";
 	else $suffix=".so";
-	if (!extension_loaded("mysql")) @dl("mysql".$suffix);
+	if (!extension_loaded("mysql") && !get_cfg_var("safe_mode")) @dl("mysql".$suffix);
 	if (!extension_loaded("mysql")){
 		echo $strCantLoadMySQL;
 		exit;
