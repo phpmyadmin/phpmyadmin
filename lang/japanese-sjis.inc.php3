@@ -7,8 +7,8 @@
 
 $charset = 'SHIFT_JIS';
 $text_dir = 'ltr';
-$left_font_family = 'sans-serif';
-$right_font_family = 'sans-serif';
+$left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
+$right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 $byteUnits = array('バイト', 'KB', 'MB', 'GB');
@@ -17,7 +17,7 @@ $day_of_week = array('日', '月', '火', '水', '木', '金', '土');
 $month = array('1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%Y年%B%e日 %H:%M';
+$datefmt = '%Y年%B%d日 %H:%M';
 
 
 $strAccessDenied = 'アクセスは拒否されました。';
