@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-02  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/romanian.inc.php3 updates, thanks to Valics Lehel
+
 2001-09-02  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/dutch.inc.php3: other updates thanks to Paul Koster.
 	* tbl_addfield.php3, lines 9-11; tbl_copy, line 31; tbl_rename, line 9:

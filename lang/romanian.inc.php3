@@ -8,7 +8,6 @@ $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
-
 $strAccessDenied = 'Acces interzis';
 $strAction = 'Actiune';
 $strAddDeleteColumn = 'Adauga/Sterge coloane';
@@ -53,13 +52,13 @@ $strCarriage = 'Enter: \\r';
 $strChange = 'Schimbare';
 $strCheckAll = 'Marcheaza toate';
 $strCheckDbPriv = 'Marcheaza drepturile de acces la baza de date';
-$strCheckTable = 'Marcheaza tabel';
+$strCheckTable = 'Verificare tabel';
 $strColumn = 'Coloana';
 $strColumnEmpty = 'Numele coloanelor sunt goale!';
 $strColumnNames = 'Numele coloanelor';
 $strCompleteInserts = 'Rezolva inserarea';
 $strConfirm = 'Sunteti sigur ca doriti sa continuati?';
-$strCopyTable = 'Copiaza tabel la';
+$strCopyTable = 'Copiaza tabel la:';
 $strCopyTableOK = 'Tabelul %s a fost copiat la %s.';
 $strCreate = 'Creaza';
 $strCreateNewDatabase = 'Creaza baza de date noua';
@@ -87,10 +86,10 @@ $strDisplayOrder = 'Ordine de afisare:';
 $strDoAQuery = 'Executa un "query by example" (wildcard: "%")';
 $strDocu = 'Documentatie';
 $strDoYouReally = 'Sunteti sigur ca doriti sa ';
-$strDrop = 'Salveaza (Drop)';
-$strDropDB = 'Salveaza baza de date  (Drop database)';
-$strDropTable = 'Salveaza tabelul (Drop table)';
-$strDumpingData = 'Stergerea datelor din tabel';
+$strDrop = 'Arunca';
+$strDropDB = 'Arunca baza de date';
+$strDropTable = 'Arunca tabelul';
+$strDumpingData = 'Salvarea datelor din tabel';
 $strDynamic = 'dinamic';
 
 $strEdit = 'Editare';
@@ -113,6 +112,7 @@ $strFieldsEmpty = ' Rezultat gol ';
 $strFixed = 'fixat';
 $strFormat = 'Format';
 $strFormEmpty = 'Valoarea lipseste in formular !';
+$strFullText = 'Texte intregi';
 $strFunction = 'Functie';
 
 $strGenTime = 'Timp de generare';
@@ -122,13 +122,13 @@ $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'a fost alterat.';
 $strHasBeenCreated = 'a fost creat.';
-$strHasBeenDropped = 'a fost salvat (dropped).';
+$strHasBeenDropped = 'a fost aruncat.';
 $strHasBeenEmptied = 'a fost golit.';
 $strHome = 'Pagina de start';
 $strHomepageOfficial = 'Pagina oficiala phpMyAdmin';
 $strHomepageSourceforge = 'Pagina de descarcare Sourceforge phpMyAdmin';
 $strHost = 'Gazda (Host)';
-$strHostEmpty = 'Numele de gazda (host) este gol!';
+$strHostEmpty = 'Numele de gazda este gol!';
 
 $strIfYouWish = 'In cazul in care doriti sa incarcati numai o parte a coloanelor tabelului, specificati o lista separata prin virgula.';
 $strIndex = 'Index';
@@ -141,6 +141,7 @@ $strInsertNewRow = 'Insereaza o noua linie';
 $strInsertTextfiles = 'Insereaza fisiere de text in tabel';
 $strInstructions = 'Instructiuni';
 $strInUse = 'in folosinta';
+$strInvalidName = '"%s" este un cuvant rezervat, nu o poti folosi ca o baza de date/tabela/nume de camp.';
 
 $strKeyname = 'Nume cheie';
 $strKill = 'Opreste';
@@ -151,7 +152,7 @@ $strLimitNumRows = 'inregistrari pe pagina';
 $strLineFeed = 'Dezvoltare linie: \\n';
 $strLines = 'Linii';
 $strLocationTextfile = 'Locatia fisierului text';
-$strLogin = ''; //pemtru translatare, insa nu se utilizeaza ...
+$strLogin = '';
 $strLogout = 'Deconectare';
 
 $strModifications = 'Modificarile au fost salvate';
@@ -184,9 +185,10 @@ $strOftenQuotation = 'Adesea ghilimele. OPTIONAL inseamna ca numai campurile cha
 $strOptimizeTable = 'Optimizare tabel';
 $strOptionalControls = 'Optional. Controleaza modul in care se citeste sau se scrie un caracter special.';
 $strOptionally = 'OPTIONAL';
-$strOr = 'Sau (Or)';
-$strOverhead = 'Asupra (Overhead)';
+$strOr = 'Sau';
+$strOverhead = 'Asupra';
 
+$strPartialText = 'Texte partiale';
 $strPassword = 'Parola';
 $strPasswordEmpty = 'Parola este goala!';
 $strPasswordNotSame = 'Parolele nu corespund!';
@@ -230,7 +232,7 @@ $strRowsFrom = 'linii incepand cu';
 $strRowSize = ' Marime linie ';
 $strRowsStatistic = 'Statisticile randului';
 $strRunning = 'ruland pe ';
-$strRunQuery = 'Trimite comanda (Submit Query)';
+$strRunQuery = 'Trimite comanda';
 $strRunSQLQuery = 'Executa comanda/comenzile SQL pe baza de date ';
 
 $strSave = 'Salveaza';
@@ -247,7 +249,7 @@ $strShowingRecords = 'Afiseaza inregistrari';
 $strShowPHPInfo = 'Arata informatia PHP';
 $strShowThisQuery = ' Afiseaza aceasta comanda din nou aici ';
 $strSingly = '(singly)';
-$strSize = 'Marime (Size)';
+$strSize = 'Marime';
 $strSort = 'Sortare';
 $strSpaceUsage = 'Utilizare spatiu';
 $strSQLQuery = 'Comansa SQL';
@@ -296,12 +298,7 @@ $strViewDumpDB = 'Vizualizarea schemei bazei de date';
 
 $strWelcome = 'Bun venit la ';
 $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
+$strWithChecked = 'Verificat cu:';
 
 $strYes = 'Da';
-
-// To translate
-$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
-$strFullText = 'Full Texts';//to translate
-$strPartialText = 'Partial Texts';//to translate
-$strWithChecked = 'With checked:';
 ?>
