@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 2001-10-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html; header.inc.php3; index.php3; left.php3;
+	  libraries/common.lib.php3: removed the xml declaration because even if
+	  recommended by the w3c, lots of browsers (even IE6.0!) seems not to like
+	  it so much.
+	* Documentation.txt: updated.
 	* lang/czech-*.inc.php3: fixed an other typo, thanks to Michal Cihar.
 
 2001-10-18  Loïc Chapeaux  <lolo@phpheaven.net>
