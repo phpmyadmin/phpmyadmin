@@ -315,7 +315,7 @@ if ($cfg['ShowStats']) {
             list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
         }
         list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
-        if ($num_rows > 0) {
+        if ($table_info_num_rows > 0) {
             list($avg_size, $avg_unit)       = PMA_formatByteDown(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
         }
 
