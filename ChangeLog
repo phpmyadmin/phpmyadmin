@@ -35,6 +35,8 @@ $Source$
 	* lib.inc.php3, lines 196-200; config.inc.php3, line 40;
 	  Documentation.html, lines 352-357: merged patch #452877
 	  ($cfgServer['only_db'] - array) from Jakub Wilk.
+	* functions.js: fixed bug #450255 (new javascript error with netscape3)
+	  thanks to François <outils@altern.org>.
 
 2001-08-18  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* lib.inc.php3 (788, 790) : tweak size for lower resolution screens.

@@ -16,22 +16,23 @@ function emptySqlQuery(theForm)
 
     // The replace function (js1.2) isn't supported -> basic tests
     if (!isRegExp) {
-        var isEmpty          = (sqlQuery1.value == '') ? 1 : 0;
+        var isEmpty  = (sqlQuery1.value == '') ? 1 : 0;
         if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
-            isEmpty          = (theForm.elements['sql_file'].value == '') ? 1 : 0;
+            isEmpty  = (theForm.elements['sql_file'].value == '') ? 1 : 0;
         }
         if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined') {
-            isEmpty          = (theForm.elements['id_bookmark'].value == '') ? 1 : 0;
+            isEmpty  = (theForm.elements['id_bookmark'].value == '') ? 1 : 0;
         }
     }
     // js1.2+ -> validation with regular expressions 
     else {
-        var isEmpty          = (sqlQuery1.value.replace(/\s/g, '') == '') ? 1 : 0;
+        var space_re = new RegExp('\\s+');
+        var isEmpty  = (sqlQuery1.value.replace(space_re, '') == '') ? 1 : 0;
         if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
-            isEmpty          = (theForm.elements['sql_file'].value.replace(/\s/g, '') == '') ? 1 : 0;
+            isEmpty  = (theForm.elements['sql_file'].value.replace(space_re, '') == '') ? 1 : 0;
         }
         if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined') {
-            isEmpty          = (theForm.elements['id_bookmark'].value == '') ? 1 : 0;
+            isEmpty  = (theForm.elements['id_bookmark'].value == '') ? 1 : 0;
         }
         if (isEmpty) {
             theForm.reset();
@@ -65,9 +66,10 @@ function emptyFormElements(theForm, theFieldName)
     var isRegExp = (typeof(theField.value.replace) != 'undefined');
 
     if (!isRegExp) {
-        var isEmpty = (theField.value == '') ? 1 : 0;
+        var isEmpty  = (theField.value == '') ? 1 : 0;
     } else {
-        var isEmpty = (theField.value.replace(/\s/g, '') == '') ? 1 : 0;
+        var space_re = new RegExp('\\s+');
+        var isEmpty  = (theField.value.replace(space_re, '') == '') ? 1 : 0;
     }
     if (isEmpty) {
         theForm.reset();
