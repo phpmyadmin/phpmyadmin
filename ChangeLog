@@ -9,6 +9,8 @@ $Source$
     * libraries/export/sql.php: Minor optimalisations.
     * sql.php, tbl_replace.php, libraries/display_tbl.lib.php: Use same code
       for generating INSERT and UPDATE queries (also fixes bug #953250).
+    * tbl_replace_fields.php: When field is not set, it is not set :-) (bug
+      #953295).
 
 2004-05-12 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: bug #951143, undefined $header_url_qry

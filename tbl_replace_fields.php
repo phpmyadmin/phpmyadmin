@@ -120,11 +120,11 @@ if (!$check_stop) {
     
     $f = 'field_' . md5($key);
     $t_fval = (isset($$f) ? $$f : null);
-    
+  
     if (isset($t_fval['multi_edit']) && isset($t_fval['multi_edit'][$enc_primary_key])) {
         $fval = &$t_fval['multi_edit'][$enc_primary_key];
     } else {
-        $fval = &$t_fval;
+        $fval = null;
     }
     
     switch (strtolower($val)) {
