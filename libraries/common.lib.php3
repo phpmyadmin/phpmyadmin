@@ -1380,7 +1380,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                  /* SQL-Parser-Analyzer */
                 $sqlnr = 1;
                 if (!empty($GLOBALS['show_as_php'])) {
-                    $new_line = '\'<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. \'';
+                    $new_line = '\'<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. \' ';
                 }
                 if (isset($new_line)) {
                      /* SQL-Parser-Analyzer */

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-09-02 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/common.lib.php3: Fix displaying PHP code (bug #798804).
+
 2003-09-01 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/mysql_charsets.lib.php3: Name of column is sometimes Default
       (bug #798426).
