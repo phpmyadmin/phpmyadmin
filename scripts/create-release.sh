@@ -59,7 +59,10 @@ then
 fi
 
 
-(mv cvs cvs-`date +%s`)
+if [ -e cvs ]; 
+then
+    mv cvs cvs-`date +%s`
+fi
 mkdir cvs
 cd cvs
 echo "Press [ENTER]!"
