@@ -8,6 +8,7 @@ $Source$
 2003-11-20 Michal Cihar  <nijel@users.sourceforge.net>
     * read_dump.php: Show message about failing upload in all cases, removed
       some PHP compatibility code.
+    * libraries/export/sql.php: More older PHP cleanup.
 
 2003-11-20 Garvin Hicking <me@supergarv.de>
     * libraries/auth/*, libraries/dbg/*, libraries/export/*

@@ -211,11 +211,17 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
         $tmpres[1]     = str_replace("\n", $crlf, $tmpres[1]);
         if (preg_match_all('((,\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\n,]+)+)', $tmpres[1], $regs)) {
             if (!isset($sql_constraints)) {
-                $sql_constraints = $crlf . '#' . $crlf
-                                    . '# ' . $GLOBALS['strConstraintsForDumped'] . $crlf
-                                    . '#' . $crlf;
+                if (isset($GLOBALS['no_constraints_comments'])) {
+                    $sql_constraints = '';
+                } else {
+                    $sql_constraints = $crlf . '#' . $crlf
+                                        . '# ' . $GLOBALS['strConstraintsForDumped'] . $crlf
+                                        . '#' . $crlf;
+                }
             }
-            $sql_constraints .= $crlf .'#' . $crlf .'# ' . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . '#' . $crlf;
+            if (!isset($GLOBALS['no_constraints_comments'])) {
+                $sql_constraints .= $crlf .'#' . $crlf .'# ' . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . '#' . $crlf;
+            }
             $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf
                              . preg_replace('/(,\n|^)([\s]*)(CONSTRAINT|FOREIGN[\s]*KEY)/', '\1\2ADD \3', substr($regs[0][0], 2))
                             . ";\n";
@@ -305,7 +311,7 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
 
     return $schema_create;
 
-} // end of the 'PMA_getTableDef()' function
+} // end of the 'PMA_getTableComments()' function
 
 /**
  * Outputs table's structure
@@ -338,38 +344,44 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
     return PMA_exportOutputHandler($dump);
 }
 
-
 /**
- * php >= 4.0.5 only : get the content of $table as a series of INSERT
- * statements.
+ * Dispatches between the versions of 'getTableContent' to use depending
+ * on the php version
  *
- * Last revision 13 July 2001: Patch for limiting dump size from
- * vinay@sanisoft.com & girish@sanisoft.com
+ * @param   string      the database name
+ * @param   string      the table name
+ * @param   string      the end of line sequence
+ * @param   string      the url to go back in case of error
+ * @param   string      SQL query for obtaining data
  *
- * @param   string   the current database name
- * @param   string   the current table name
- * @param   string   the end of line sequence
- * @param   string   the url to go back in case of error
- * @param   string   the sql query
- *
- * @return  boolean  whether it suceeded
+ * @return  bool        Whether it suceeded
  *
  * @global  boolean  whether to use backquotes to allow the use of special
  *                   characters in database, table and fields names or not
  * @global  integer  the number of records
  * @global  integer  the current record position
  *
- * @access  private
+ * @access  public
  *
- * @see     PMA_getTableContent()
+ * @see     PMA_getTableContentFast(), PMA_getTableContentOld()
  *
  * @author  staybyte
  */
-function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
+function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 {
     global $use_backquotes;
     global $rows_cnt;
     global $current_row;
+
+    $formatted_table_name = (isset($GLOBALS['use_backquotes']))
+                          ? PMA_backquote($table)
+                          : '\'' . $table . '\'';
+    $head = $crlf
+          . '#' . $crlf
+          . '# ' . $GLOBALS['strDumpingData'] . ' ' . $formatted_table_name . $crlf
+          . '#' . $crlf .$crlf;
+
+    if (!PMA_exportOutputHandler($head)) return FALSE;
 
     $buffer = '';
 
@@ -502,40 +514,5 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
     mysql_free_result($result);
 
     return TRUE;
-} // end of the 'PMA_getTableContentFast()' function
-
-
-/**
- * Dispatches between the versions of 'getTableContent' to use depending
- * on the php version
- *
- * @param   string      the database name
- * @param   string      the table name
- * @param   string      the end of line sequence
- * @param   string      the url to go back in case of error
- * @param   string      SQL query for obtaining data
- *
- * @return  bool        Whether it suceeded
- *
- * @access  public
- *
- * @see     PMA_getTableContentFast(), PMA_getTableContentOld()
- *
- * @author  staybyte
- */
-function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
-{
-    global $crlf;
-
-    $formatted_table_name = (isset($GLOBALS['use_backquotes']))
-                          ? PMA_backquote($table)
-                          : '\'' . $table . '\'';
-    $head = $crlf
-          . '#' . $crlf
-          . '# ' . $GLOBALS['strDumpingData'] . ' ' . $formatted_table_name . $crlf
-          . '#' . $crlf .$crlf;
-
-    if (!PMA_exportOutputHandler($head)) return FALSE;
-    return PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query);
 } // end of the 'PMA_exportData()' function
 ?>
