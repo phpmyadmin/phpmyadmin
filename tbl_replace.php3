@@ -258,6 +258,9 @@ if (!$result) {
     mysql_die($error);
 } else {
     if (file_exists('./' . $goto)) {
+        if ($goto == 'db_details.php3' && !empty($table)) {
+            unset($table);
+        }
         include('./header.inc.php3');
         $message = $strModifications;
         include('./' . ereg_replace('\.\.*', '.', $goto));

@@ -65,6 +65,9 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         $goto = $back;
     }
     if (file_exists('./' . $goto)) {
+        if ($goto == 'db_details.php3' && !empty($table)) {
+            unset($table);
+        }
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
         header('Location: ' . $cfgPmaAbsoluteUri . $goto);
@@ -232,6 +235,9 @@ else {
             $goto = ereg_replace('\.\.*', '.', $goto);
             if ($goto != 'main.php3') {
                 include('./header.inc.php3');
+            }
+            if ($goto == 'db_details.php3' && !empty($table)) {
+                unset($table);
             }
             include('./' . $goto);
         } // end if file_exist
