@@ -27,13 +27,8 @@ $cfgRelation = PMA_getRelationsParam();
  * This page is absolutely useless if you didn't set up your tables
  * correctly, so it is a good place to see which tables we can and
  * complain ;-)
- *
- * lem9: but only complain if relation (relwork),
- *       pdf_pages or table_coords (pdfwork)
- *       are missing
  */
-//if (!$cfgRelation['allworks']) {
-if (!$cfgRelation['relwork'] || !$cfgRelation['pdfwork']) {
+if (!$cfgRelation['allworks']) {
     echo '<font color="red">' . $strError . '</font><br />' . "\n";
     $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php3?' . $url_query . '">';
     echo sprintf($strRelationNotWorking, $url_to_goto, '</a>') . "\n";
@@ -377,20 +372,20 @@ class PMA_RT_Table
      * @param   boolean   Whether to display table position or not
      * @param   integer   The font size
      * @param   boolean   Whether all tables should have the same width or not
+     * @param   integer   The max. with among tables
      *
      * @global  object    The current PDF document
-     * @global  object    The current relation table object
      *
      * @access  private
      *
      * @see     PMA_PDF
      */
-    function PMA_RT_Table_draw($show_info, $ff, $same_wide = 0)
+    function PMA_RT_Table_draw($show_info, $ff, $same_wide = 0, $same_wide_width = 0)
     {
-        global $pdf, $rt;
+        global $pdf;
 
-        if (isset($rt->tablewidth) && $rt->tablewidth > 0 && $same_wide == 1){
-            $this->width = $rt->tablewidth;
+        if ($same_wide == 1 && $same_wide_width > 0) {
+            $this->width = $same_wide_width;
         }
 
         $pdf->PMA_PDF_setXyScale($this->x, $this->y);
@@ -409,7 +404,9 @@ class PMA_RT_Table
 
         reset($this->fields);
         while (list(, $field) = each($this->fields)) {
-            if (in_array($field, $this->primary)) {
+            // loic1 : PHP3 fix
+            // if (in_array($field, $this->primary)) {
+            if (PMA_isInto($field, $this->primary) != -1) {
                 $pdf->SetFillColor(215, 121, 123);
             }
             if ($field == $this->displayfield) {
@@ -431,9 +428,9 @@ class PMA_RT_Table
      *
      * @param   string    The table name
      * @param   integer   The font size
+     * @param   integer   The max. with among tables
      *
      * @global  object    The current PDF document
-     * @global  object    The current relation table object
      * @global  integer   The current page number (from the
      *                    $cfg['Servers'][$i]['table_coords'] table)
      * @global  array     The relations settings
@@ -444,9 +441,9 @@ class PMA_RT_Table
      * @see     PMA_PDF, PMA_RT_Table::PMA_RT_Table_setWidth,
      *          PMA_RT_Table::PMA_RT_Table_setHeight
      */
-    function PMA_RT_Table($table_name, $ff)
+    function PMA_RT_Table($table_name, $ff, &$same_wide_width)
     {
-        global $pdf, $rt, $pdf_page_number, $cfgRelation, $db;
+        global $pdf, $pdf_page_number, $cfgRelation, $db;
 
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
@@ -462,8 +459,8 @@ class PMA_RT_Table
         //height and width
         $this->PMA_RT_Table_setWidth($ff);
         $this->PMA_RT_Table_setHeight();
-        if ($rt->tablewidth < $this->width) {
-            $rt->tablewidth = $this->width;
+        if ($same_wide_width < $this->width) {
+            $same_wide_width = $this->width;
         }
 
         //x and y
@@ -586,7 +583,7 @@ class PMA_RT_Relation
         $pdf->PMA_PDF_lineScale($this->x_dest + $this->dest_dir * $this->w_tick / 2, $this->y_dest, $this->x_dest + $this->dest_dir * (0.5 + 1 / $root2) * $this->w_tick, $this->y_dest + $this->w_tick / $root2);
         $pdf->PMA_PDF_lineScale($this->x_dest + $this->dest_dir * $this->w_tick / 2, $this->y_dest, $this->x_dest + $this->dest_dir * (0.5 + 1 / $root2) * $this->w_tick, $this->y_dest - $this->w_tick / $root2);
         $pdf->SetDrawColor(0);
-    } // end of the "PMA_RT_Table_draw()" method
+    } // end of the "PMA_RT_Relation_draw()" method
 
 
     /**
@@ -703,11 +700,11 @@ class PMA_RT
     function PMA_RT_addRelation($master_table , $master_field,  $foreign_table, $foreign_field)
     {
         if (!isset($this->tables[$master_table])) {
-            $this->tables[$master_table] = new PMA_RT_Table($master_table, $this->ff);
+            $this->tables[$master_table] = new PMA_RT_Table($master_table, $this->ff, $this->tablewidth);
             $this->PMA_RT_setMinMax($this->tables[$master_table]);
         }
         if (!isset($this->tables[$foreign_table])) {
-            $this->tables[$foreign_table] = new PMA_RT_Table($foreign_table, $this->ff);
+            $this->tables[$foreign_table] = new PMA_RT_Table($foreign_table, $this->ff, $this->tablewidth);
             $this->PMA_RT_setMinMax($this->tables[$foreign_table]);
         }
         $this->relations[] = new PMA_RT_Relation($this->tables[$master_table], $master_field, $this->tables[$foreign_table], $foreign_field);
@@ -784,7 +781,7 @@ class PMA_RT
     {
         reset($this->tables);
         while (list(, $table) = each($this->tables)) {
-            $table->PMA_RT_Table_draw($show_info, $this->ff, $this->same_wide);
+            $table->PMA_RT_Table_draw($show_info, $this->ff, $this->same_wide, $this->tablewidth);
         }
     } // end of the "PMA_RT_drawTables()" method
 
@@ -883,7 +880,7 @@ class PMA_RT
         } else {
             reset ($alltables);
             while (list(, $table) = each ($alltables)) {
-                $this->tables[$table] = new PMA_RT_Table($table, $this->ff);
+                $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->tablewidth);
                 $this->PMA_RT_setMinMax($this->tables[$table]);
             }
             $norelations = TRUE;
@@ -931,5 +928,5 @@ $all_tab_same_wide    = (isset($all_tab_same_wide) && $all_tab_same_wide == 'on'
 
 PMA_mysql_select_db($db);
 
-$rt  = new PMA_RT('auto', $pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide);
+$rt = new PMA_RT('auto', $pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide);
 ?>

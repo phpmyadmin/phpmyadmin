@@ -10,9 +10,8 @@ $Source$
       are missing
 
 2002-07-19 Loïc Chapeaux  <lolo@phpheaven.net>
-    * pdf_page.php3; libraries/common.lib.php3: PHP3 fixes.
+    * pdf_schema.php3; pdf_page.php3; libraries/common.lib.php3: PHP3 fixes.
     * tbl_properties_structure.php3: coding standards.
-    * sql.php3, line 302: fixed bug 583236 (LIMIT error)
 
 2002-07-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/select_lang.lib.php3: Don't include
@@ -640,6 +639,7 @@ $Source$
     - added a new servervariable $cfg['Servers'][$i]['table_coords']
     * Documentation.html line 593-770,1884-1920
     - added and changed Doku for Creating PDFs
+
 
 2002-06-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.inc.php3, line 1413: xhtml fix.
