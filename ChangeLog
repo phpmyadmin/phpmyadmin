@@ -12,7 +12,10 @@ $Source$
 	* grab_globals.inc.php3, tbl_printview.php3: removed the '^M' at the end of
 	  some lines.
 	* Documentation.html: rewritten to validates xhtml1.0 & css2, added some
-	  words about a common socket error and updated credits.
+	  words about a common socket error, removed link to deepthought.texsci.edu
+	  (no long exists) and updated credits.
+	* install.txt, lines 46-47: removed link to deepthought.texsci.edu (no long
+	  exists).
 	* french translation updated thanks to Laurent Haas.
 
 2001-07-11  Steve Alberty  <alberty@neptunlabs.de>
