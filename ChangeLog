@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-21 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/catalan-*.inc.php3: Updates, thanks to Xavier Navarro (xavin).
+
 2003-01-21 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, tbl_properties_export.php3, libraries/build_dump.lib.php3:
       row limiting for exported results

@@ -19,10 +19,13 @@ $month = array('Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'O
 $datefmt = '%d-%m-%Y a les %H:%M:%S';
 
 $strAbortedClients = 'Avortat';
+$strAbsolutePathToDocSqlDir = 'S\'ha d\'entrar el camí absolut en el webserver per el directori de docSQL';
 $strAccessDenied = 'Accés denegat';
 $strAction = 'Acció';
 $strAddDeleteColumn = 'Afegir/esborrar Camps de Columna';
 $strAddDeleteRow = 'Afegir/esborrar fila de criteri';
+$strAddedColumnComment = 'Afegit comentari per la columna';
+$strAddedColumnRelation = 'Afegida relació per la columna';
 $strAddNewField = 'Afegir un camp nou';
 $strAddPriv = 'Afegir un privilegi nou';
 $strAddPrivMessage = 'Has afegit un privilegi nou.';
@@ -170,6 +173,7 @@ $strFieldsEmpty = ' El comptador de camps és buit! ';
 $strFieldsEnclosedBy = 'Camps englobats per';
 $strFieldsEscapedBy = 'Camps amb marca d\'escapada';
 $strFieldsTerminatedBy = 'Camps acabats per';
+$strFileCouldNotBeRead = 'No es pot llegir el fitxer';
 $strFixed = 'fixa';
 $strFlushPrivilegesNote = 'Nota: phpMyAdmin obté els permissos de l\'usuari directament de les taules de permissos de l\' MySQL. El contingut d\'aquestes taules pot diferir dels permissos que utilitza el servidor si s\'han fet canvis manualment. En aquest cas, es necessari %srecarregar els permissos%s abans de continuar.';
 $strFlushTable = 'Buidar el caché de la taula ("FLUSH")';
@@ -201,7 +205,10 @@ $strId = 'ID';
 $strIdxFulltext = 'Text sencer';
 $strIfYouWish = 'Si només vols carregar algunes columnes de la taula, especifica-ho amb una llista separada per comes.';
 $strIgnore = 'Ignora';
+$strIgnoringFile = 'Ignorant fitxer %s';
 $strImportDocSQL = 'Importa Arxius docSQL';
+$strImportFiles = 'Importar fitxers';
+$strImportFinished = 'Importació finalitzada';
 $strInUse = 'en ús';
 $strIndex = 'Índex';
 $strIndexHasBeenDropped = 'S\'ha esborrat l\'índex %s';
@@ -489,6 +496,7 @@ $strTheContent = 'El contingut del fitxer especificat ha estat inserit.';
 $strTheContents = 'El contingut del fitxer substituirà els continguts de les taules seleccionades a les files que contenen la mateixa clau única o primària';
 $strTheTerminator = 'El separador de camps.';
 $strThisHost = 'Aquest Host';
+$strThisNotDirectory = 'Aixó no és un directori';
 $strThreadSuccessfullyKilled = 'Fil %s cancel.lat correctament.';
 $strTime = 'Temps';
 $strTotalUC = 'Total';
@@ -527,6 +535,8 @@ $strWebServerUploadDirectory = 'Directori de pujada d\'arxius del servidor web';
 $strWebServerUploadDirectoryError = 'No està disponible el directori indicat per pujar arxius';
 $strWelcome = 'Benvingut a %s';
 $strWithChecked = 'Amb marca:';
+$strWritingCommentNotPossible = 'No es pot gravar aquest comentari';
+$strWritingRelationNotPossible = 'No es pot gravar aquesta relació';
 $strWrongUser = 'Usuari i/o clau erronis. Accés denegat.';
 
 $strYes = 'Si';
@@ -535,15 +545,4 @@ $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el l
 $strZip = '"comprimit amb zip"';
 
 // To translate
-
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strThisNotDirectory = 'This was not a directory';  //to translate
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strImportFiles = 'Import files';  //to translate
 ?>
