@@ -36,6 +36,7 @@ $Source$
       - Corrected config file revison;
       - XHTML fixes.
     * server_databases.php3: Small interface fixes.
+    * translators.html: Removed a dublicate message.
 
 2003-05-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
