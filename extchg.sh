@@ -21,7 +21,7 @@ fi
 for i in `find . -name "*.$1"`
 	 do 
 	 echo $i
-	 sed -e 's/'$1'/'$2'/g' $i > `ls $i|sed -e 's/'$1'/'$2'/g'`
+	 sed -e 's/\.'$1'/\.'$2'/g' $i > `ls $i|sed -e 's/'$1'/'$2'/g'`
 	 rm $i
 	done;
 

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-08-01  Armel Fauveau <armel.fauveau@globalis-ms.com>
+	* extchg.sh : \r\n to \n and patch request #444789
+ 
 2001-07-31  Armel Fauveau <armel.fauveau@globalis-ms.com>
 	* bookmark support now advanced auth
 
