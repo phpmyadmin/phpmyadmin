@@ -99,6 +99,7 @@ $strCreatePdfFeat = 'Ustvarjanje PDF datotek';
 $strCriteria = 'Kriteriji';
 
 $strData = 'Podatki';
+$strDataDict = 'Podatkovni slovar';
 $strDataOnly = 'Samo podatki';
 $strDatabase = 'Podatkovna baza ';
 $strDatabaseHasBeenDropped = 'Podatkovna baza %s je zavržena.';
@@ -178,6 +179,7 @@ $strHostEmpty = 'Ime gostitelja je prazno!';
 $strIdxFulltext = 'Polno besedilo';
 $strIfYouWish = 'Èe bi radi naložili samo nekatere stolpce tabele, jih navedite v seznamu, kjer jih loèite z vejico.';
 $strIgnore = 'Prezri';
+$strImportDocSQL = 'Uvozi docSQL datoteke';
 $strInUse = 'v uporabi';
 $strIndex = 'Indeks';
 $strIndexHasBeenDropped = 'Indeks %s je zavržen';
@@ -264,6 +266,7 @@ $strOptions = 'Možnosti';
 $strOr = 'Ali';
 $strOverhead = 'Presežek';
 
+$strPHP40203 = 'Uporabljate PHP 4.2.3, ki ima resne težave z veèbitnimi stavki (mbstring). Glej PHP poroèilo o hrošèu 19404. Ta verzija PHP ni priporoèljiva za uporabo s phpMyAdmin.';
 $strPHPVersion = 'Razlièica PHP';
 $strPageNumber = 'Številka strani:';
 $strPartialText = 'Delna besedila';
@@ -284,6 +287,7 @@ $strPrimaryKey = 'Primarni kljuè';
 $strPrimaryKeyHasBeenDropped = 'Primarni kljuè je zavržen';
 $strPrimaryKeyName = 'Ime primarnega kljuèa mora biti... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>mora</b> biti ime <b>samo</b> primarnega kljuèa!)';
+$strPrint = 'Natisni';
 $strPrintView = 'Pogled postavitve tiskanja';
 $strPrivileges = 'Privilegiji';
 $strProperties = 'Lastnosti';
@@ -432,8 +436,4 @@ $strYes = 'Da';
 $strZip = '"zipano"';
 // To translate
 
-$strImportDocSQL = 'Import docSQL Files';  //to translate
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>
