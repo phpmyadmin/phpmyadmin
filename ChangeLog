@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php: fix "original" theme colors
+    * db_details_structure.php: cosmetic fix in error message
+
 2004-06-16 Marc Delisle  <lem9@users.sourceforge.net>
     Changes, thanks to Michael Keck (mkkeck):
     * libraries/auth/config.auth.lib.php +  http.auth.lib.php:
@@ -13,8 +17,7 @@ $Source$
       css/phpmyadmin.css.php, themes/original/img + css:
       put original theme under the same structure as darkblue_orange
  
-      TODO:  - fix some table header colors
-             - modify (common.lib.php) to get rid of /images ?
+      TODO: - modify (common.lib.php) to get rid of /images ?
 
 2004-06-16 Michal Čihař  <michal@cihar.com>
     * header.inc.php: Use rather _SERVER than GLOBALS, should fix bug #973602.
