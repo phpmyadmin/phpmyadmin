@@ -2,7 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
+error_reporting(E_ALL);
 /**
  * Misc stuff and functions used by almost all the scripts.
  * Among other things, it contains the advanced authentification work.
@@ -1174,14 +1174,18 @@ if (typeof(document.getElementById) != 'undefined'
             }
 
             // Prepares links that may be displayed to edit/explain the query
+            // (don't go to default pages, we must go to the page
+            // where the query box is available)
+            // (also, I don't see why we should check the goto variable)
 
-            if (!isset($GLOBALS['goto'])) {
-                $edit_target = (isset($GLOBALS['table'])) ? $cfg['DefaultTabTable'] : $cfg['DefaultTabDatabase'];
-            } else if ($GLOBALS['goto'] != 'main.php3') {
-                $edit_target = $GLOBALS['goto'];
-            } else {
-                $edit_target = '';
-            }
+            //if (!isset($GLOBALS['goto'])) {
+                //$edit_target = (isset($GLOBALS['table'])) ? $cfg['DefaultTabTable'] : $cfg['DefaultTabDatabase'];
+            $edit_target = (isset($GLOBALS['table'])) ? 'tbl_properties.php3' : 'db_details.php3';
+            //} else if ($GLOBALS['goto'] != 'main.php3') {
+            //    $edit_target = $GLOBALS['goto'];
+            //} else {
+            //    $edit_target = '';
+            //}
 
             if (isset($cfg['SQLQuery']['Edit'])
                 && ($cfg['SQLQuery']['Edit'] == TRUE )

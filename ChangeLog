@@ -7,6 +7,7 @@ $Source$
 
 2002-12-18 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3, bug 648263
+    * libraries/common.lib.php3, bug 653764
 
 2002-12-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian: update, thanks to Nicolay Zakharov
