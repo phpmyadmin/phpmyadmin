@@ -12,12 +12,6 @@ define('PMA_DISPLAY_HEADING', 0);
  */
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
-// Puts the language to use in a cookie that will expire in 30 days
-if (!isset($pma_uri_parts)) {
-    $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
-    $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
-    $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
-}
 setcookie('pma_lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
 if (isset($convcharset)) {
     setcookie('pma_charset', $convcharset, time() + 60*60*24*30, $cookie_path, '', $is_https);

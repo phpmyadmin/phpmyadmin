@@ -22,6 +22,10 @@ $Source$
       libraries/display_export.lib.php, libraries/export/htmlword.php: Word
       export now can contain table structure and better handles more
       tables/databases export.
+    * db_operations.php, export.php, main.php, tbl_move_copy.php,
+      libraries/common.lib.php, libraries/select_theme.lib.php,
+      libraries/auth/cookie.auth.lib.php: Unified cookie path handling, added
+      / to end of path (bug #1155373).
 
 2005-03-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php, /display_export.lib.php,

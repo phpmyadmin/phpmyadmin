@@ -1126,6 +1126,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         }
     }
 
+    // some variables used mostly for cookies:
+    $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
+    $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')) . '/';
+    $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
+
     $dblist       = array();
 
     /**
@@ -1536,7 +1541,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * @param   string   the current database name
      * @param   string   the current table name
      * @param   boolean  whether to retain or to displays the result
-     * @param   boolean  whether to force an exact count 
+     * @param   boolean  whether to force an exact count
      *
      * @return  mixed    the number of records if retain is required, true else
      *
@@ -2518,7 +2523,7 @@ if (typeof(document.getElementById) != 'undefined'
             . $full_field_type;
         if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR)$@i', $full_field_type)) {
             $query .= PMA_generateCharsetQueryPart($collation);
-        } 
+        }
         if (!empty($default)) {
             if (strtoupper($default) == 'NULL') {
                 $query .= ' DEFAULT NULL';

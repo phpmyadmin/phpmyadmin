@@ -77,31 +77,25 @@ if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
     closedir($handleThemes);
 } // end themeManger
 
-if (!isset($pma_uri_parts)) { // cookie-setup if needed
-    $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
-    $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
-    $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
-} // end cookie setup
-
 if (isset($set_theme)) { // if user submit a theme
-    setcookie('pma_theme', $set_theme, time() + 60*60*24*30, $cookie_path, '', $is_https);
+    setcookie('pma_theme', $set_theme, time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
 } else { // else check if user have a theme cookie
     if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])) {
         if ($PMA_ThemeDefault == TRUE) {
             if (basename($PHP_SELF) == 'index.php') {
-                setcookie('pma_theme', $cfg['ThemeDefault'], time() + 60*60*24*30, $cookie_path, '', $is_https);
+                setcookie('pma_theme', $cfg['ThemeDefault'], time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
             }
             $pmaTheme=$cfg['ThemeDefault'];
         }else{
             if (basename($PHP_SELF) == 'index.php') {
-                setcookie('pma_theme', 'original', time() + 60*60*24*30, $cookie_path, '', $is_https);
+                setcookie('pma_theme', 'original', time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
             }
             $pmaTheme='original';
         }
     } else {
         $pmaTheme=$_COOKIE['pma_theme'];
         if (basename($PHP_SELF) == 'index.php') {
-            setcookie('pma_theme', $pmaTheme, time() + 60*60*24*30, $cookie_path, '', $is_https);
+            setcookie('pma_theme', $pmaTheme, time() + 60*60*24*30, $GLOBALS['cookie_path'], '', $GLOBALS['is_https']);
         }
     }
 } // end if

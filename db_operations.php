@@ -47,10 +47,10 @@ if (isset($db) &&
         } else {
             $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
             if (isset($switch_to_new) && $switch_to_new == 'true') {
-                setcookie('pma_switch_to_new', 'true', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
+                setcookie('pma_switch_to_new', 'true', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
                 $db         = $newname;
             } else {
-                setcookie('pma_switch_to_new', '', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
+                setcookie('pma_switch_to_new', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
             }
         }
     }
