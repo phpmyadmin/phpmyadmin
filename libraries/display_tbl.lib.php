@@ -1882,8 +1882,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 /* Opera has trouble with <input type="image"> */
                 /* IE has trouble with <button> */
                 if (PMA_USR_BROWSER_AGENT != 'IE') {
-                    echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $GLOBALS['strDelete'] . '">' . "\n"
-                       . '<img src="./images/button_drop.png" title="' . $delete_text . '" alt="' . $GLOBALS['strDelete'] . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
+                    echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '">' . "\n"
+                       . '<img src="./images/button_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
                        . '</button>';
                 } else {
                     echo '                    <input type="image" name="submit_mult" value="row_delete" title="' . $delete_text . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '');
