@@ -9,6 +9,7 @@ $Source$
     * mult_submits.inc.php3: Missing ;.
     * libraries/relation_cleanup.lib.php3, mult_submits.inc.php3, sql.php3:
       Cleanup phpMyAdmin tables also after multi submit actions (RFE #749989).
+    * tbl_query_box.php3: Don't add target if not in query window.
 
 2003-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: new faq 6.20 about CREATE TEMPORARY TABLES

@@ -86,7 +86,7 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] && !$db || ($cfg['QueryFrameJS'
     $queryframe_db_list = '';
 }
 
-if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow) {
 ?>
         <script type="text/javascript">
         <!--
@@ -99,7 +99,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 <?php
 } else {
 ?>
-        <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
+        <form method="post" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
 <?php
 }
 ?>
