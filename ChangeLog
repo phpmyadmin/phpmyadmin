@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/arabic: update, thanks to Ossama Khayat (okhayat)
+    
 2003-11-25 Alexander M. Turek  <jaggedlittlepill@derrabus.de>
     * translators.html: Changed email of Hindi translator, again.
     * badwords.txt: File is obsolete.
