@@ -432,6 +432,7 @@ $strNumTables = 'Tabulek';
 $strOK = 'OK';
 $strOftenQuotation = 'Často uvozující znaky. Volitelně znamená, že pouze položky u kterých je to nutné (obvykle typu CHAR a VARCHAR) jsou uzavřeny do uzavíracích znaků.';
 $strOperations = 'Úpravy';
+$strOperator = 'Operátor';
 $strOptimizeTable = 'Optimalizovat tabulku';
 $strOptionalControls = 'Volitelné. Určuje jak zapisovat nebo číst speciální znaky.';
 $strOptionally = 'Volitelně';
@@ -739,5 +740,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strOperator = 'Operator';  //to translate
 ?>

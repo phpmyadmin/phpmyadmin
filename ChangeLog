@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-25 Michal Cihar  <michal@cihar.com>
+    * lang/czech: Updated.
+    
 2004-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: bug 930445 when PMA_table_info not defined,
       thanks to Philippe Jausions (jausions)
