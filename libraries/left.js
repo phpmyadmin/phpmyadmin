@@ -155,7 +155,7 @@ function initIt()
 /**
  * Collapses/expands a database when the user require this to be done
  *
- * @param  string  the  name of the room to act on
+ * @param  string  the name of the database to act on
  * @param  boolean whether to expand or to collapse the database content
  *
  * @access  public
@@ -203,6 +203,41 @@ function expandBase(el, unexpand)
     nsArrangeList();
   } // end of the NS4 case
 } // end of the 'expandBase()' function
+
+
+/**
+ * Hilight/un-hilight a database when the mouse pass over/out it
+ *
+ * @param  string  the name of the database to act on
+ * @param  boolean the color to be used
+ *
+ * @access  public
+ */
+function hilightBase(el, theColor)
+{
+  if (!isDOM && !isIE4) {
+    return;
+  }
+
+  if (isDOM) {
+    var whichDb     = document.getElementById(el + 'Parent');
+    var whichTables = document.getElementById(el + 'Child');
+  }
+  else if (isIE4) {
+    var whichDb     = document.all(el + 'Parent');
+    var whichTables = document.all(el + 'Child');
+  }
+
+  if (typeof(whichDb.style) == 'undefined') {
+    return;
+  }
+  else {
+    whichDb.style.backgroundColor     = theColor;
+    whichTables.style.backgroundColor = theColor;
+  }
+
+  return true;
+} // end of the 'hilightBase()' function
 
 
 /**

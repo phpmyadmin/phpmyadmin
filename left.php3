@@ -211,7 +211,7 @@ if ($num_dbs > 1) {
         } // end if
 
         // Displays the database name
-        $on_mouse = (($cfgLeftPointerColor == '') ? '' : 'onmouseover="if (typeof(this.style) != \'undefined\') {this.style.backgroundColor=\'' . $cfgLeftPointerColor . '\'}" onmouseout="if (typeof(this.style) != \'undefined\') {this.style.backgroundColor=\'' . $cfgLeftBgColor . '\'}"');
+        $on_mouse = (($cfgLeftPointerColor == '') ? '' : ' onmouseover="if (capable) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftPointerColor . '\')}" onmouseout="if (capable) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftBgColor . '\')}"');
         echo "\n";
         echo '    <div id="el' . $j . 'Parent" class="parent"' . $on_mouse . '>';
 
@@ -233,7 +233,7 @@ if ($num_dbs > 1) {
             <span class="heada"><?php echo $db; ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
     </div>
 
-    <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
+    <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px"<?php echo $on_mouse; ?>>
 
         <?php
         // Displays the list of tables from the current database
