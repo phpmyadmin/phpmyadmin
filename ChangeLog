@@ -7,6 +7,7 @@ $Source$
 
 
 2004-11-09 Garvin Hicking
+    * read_dump.php: RFE #1053039, show filename of uploaded SQL file
     * sql.php, tbl_indexes.php, libraries/tbl_indexes.lib.php,
       lang/*: Added checks for common problems with table indices.
       Serves as a stub for future checks, currently implemented are
