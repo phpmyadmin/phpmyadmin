@@ -749,4 +749,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
+$strServerNotResponding = 'The server is not responding';  //to translate
 ?>

@@ -600,6 +600,7 @@ $strSend = 'Transmettre';
 $strSent = 'Envoyé';
 $strServer = 'Serveur';
 $strServerChoice = 'Choix du serveur';
+$strServerNotResponding = 'Le serveur ne répond pas.';
 $strServerStatus = 'Informations sur le serveur';
 $strServerStatusUptime = 'Ce serveur MySQL fonctionne depuis %s. Il a démarré le %s.';
 $strServerTabProcesslist = 'Processus';

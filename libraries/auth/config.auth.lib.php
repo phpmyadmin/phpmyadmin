@@ -104,7 +104,16 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
     <?php
     echo "\n";
     $GLOBALS['is_header_sent'] = TRUE;
-    echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
+
+    // if we display the "Server not responding" error, do not confuse users
+    // by telling them they have a settings problem 
+    // (note: it's true that they could have a badly typed host name, but
+    //  anyway the current $strAccessDeniedExplanation tells that the server
+    //  rejected the connection, which is not really what happened)
+
+    if (!isset($GLOBALS['errno']) || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2003)) {
+        echo '<p>' . $GLOBALS['strAccessDeniedExplanation'] . '</p>' . "\n";
+    }
     PMA_mysqlDie($conn_error, '');
 
     return TRUE;

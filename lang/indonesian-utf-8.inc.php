@@ -743,4 +743,5 @@ $strZip = '"Dikompress dengan Zip"';
 $strSpanish = 'Spanish';  //to translate
 $strStrucNativeExcel = 'Native MS Excel data';  //to translate
 $strDisableForeignChecks = 'Disable foreign key checks';  //to translate
+$strServerNotResponding = 'The server is not responding';  //to translate
 ?>
