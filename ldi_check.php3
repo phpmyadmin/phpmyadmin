@@ -14,7 +14,7 @@ LOAD DATA INFILE 'file_name.txt' [REPLACE | IGNORE] INTO TABLE table_name
 
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
 
 if (isset($btnLDI) && ($textfile != "none"))
@@ -62,9 +62,10 @@ if (isset($btnLDI) && ($textfile != "none"))
     if(get_magic_quotes_gpc()) {
         $sql_query = addslashes($query);
     }
-    require("sql.php3");
+    include("./sql.php3");
 }
 else
-{    require("ldi_table.php3");
+{
+    include("./ldi_table.php3");
 }
 ?>

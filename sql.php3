@@ -2,9 +2,9 @@
 /* $Id$ */;
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
-require("lib.inc.php3");
+require("./lib.inc.php3");
 
 if(isset($goto) && $goto == "sql.php3")
 {
@@ -16,7 +16,7 @@ if(isset($goto) && $goto == "sql.php3")
 
 if(isset($btnDrop) && $btnDrop == $strNo) {
   if(file_exists("./$goto")) {
-    include(preg_replace('/\.\.*/', '.', $goto));
+    include('./' . preg_replace('/\.\.*/', '.', $goto));
   } else {
     Header("Location: $goto");
   }
@@ -35,7 +35,7 @@ if($is_drop_sql_query && !isset($btnDrop)) {
   } else {
     $stripped_sql_query = $sql_query;
   }
-    include("header.inc.php3");
+    include("./header.inc.php3");
     echo $strDoYouReally.urldecode($stripped_sql_query)."?<br>";
     ?>
     <form action="sql.php3" method="post" enctype="application/x-www-form-urlencoded">
@@ -79,7 +79,7 @@ else {
     if(!$result)
     {
         $error = mysql_error();
-        include("header.inc.php3");
+        include("./header.inc.php3");
         mysql_die($error);
     }
 
@@ -89,12 +89,12 @@ else {
     {
         if(file_exists("./$goto"))
         {
-            include("header.inc.php3");
+            include("./header.inc.php3");
             if(isset($zero_rows) && !empty($zero_rows))
                 $message = $zero_rows;
             else
                 $message = $strEmptyResultSet;
-            include(preg_replace('/\.\.*/', '.', $goto));
+            include('./' . preg_replace('/\.\.*/', '.', $goto));
         }
         else
         {
@@ -105,7 +105,7 @@ else {
     }
     else
     {
-        include("header.inc.php3");
+        include("./header.inc.php3");
         display_table($result);
         if(!eregi("SHOW VARIABLES|SHOW PROCESSLIST|SHOW STATUS", $sql_query))
         {
@@ -138,5 +138,5 @@ else {
         }
     }
 } //ne drop query
-require ("footer.inc.php3");
+require("./footer.inc.php3");
 ?>

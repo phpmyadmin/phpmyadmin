@@ -2,11 +2,11 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
 
 if(!isset($param) || $param[0] == "") {
-  include("header.inc.php3");
+  include("./header.inc.php3");
   $result = mysql_list_fields($db, $table);
   if (!$result) {
     mysql_die();
@@ -71,7 +71,7 @@ if(!isset($param) || $param[0] == "") {
 
     <?php
   }
-  include("footer.inc.php3");
+  include("./footer.inc.php3");
 }
 else {
   $sql_query="SELECT $param[0]";
@@ -108,7 +108,7 @@ else {
     }
   }
   if (empty($sessionMaxRows)) {
-    include("config.inc.php3");
+    include("./config.inc.php3");
     $sessionMaxRows = $cfgMaxRows;
   }
   Header("Location:sql.php3?sql_query=".urlencode($sql_query)."&goto=db_details.php3&server=$server&lang=$lang&db=$db&table=$table&pos=0&sessionMaxRows=$sessionMaxRows");

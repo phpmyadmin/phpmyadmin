@@ -5,9 +5,9 @@
 // This file inserts a textfile into a table
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
-require("header.inc.php3");
+require("./header.inc.php3");
 
 $tables = mysql_list_tables($db);
 $num_tables = @mysql_numrows($tables);
@@ -72,5 +72,5 @@ $num_tables = @mysql_numrows($tables);
 
 <?php
 
-require ("footer.inc.php3");
+require("./footer.inc.php3");
 ?>

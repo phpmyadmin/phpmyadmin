@@ -2,9 +2,9 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
-require("header.inc.php3");
+require("./header.inc.php3");
 
 $table_def = mysql_db_query($db, "SHOW FIELDS FROM $table");
 
@@ -155,5 +155,5 @@ echo "</table>";
   </form>
 
 <?php
-require ("footer.inc.php3");
+require("./footer.inc.php3");
 ?>

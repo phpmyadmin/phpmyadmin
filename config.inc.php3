@@ -87,7 +87,7 @@ $cfgModifyDeleteAtRight = false;
 
 $cfgDefaultLang = "en";  		// default language to use, if not browser-defined or user-defined
 // $cfgLang = "en";  			// force: always use this language - must be defined in select_lang.inc.php3
-require("select_lang.inc.php3");	// load language file
+require("./select_lang.inc.php3");	// load language file
 
 
 $cfgColumnTypes = array(

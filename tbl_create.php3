@@ -2,9 +2,9 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
-require("header.inc.php3");
+require("./header.inc.php3");
 
 if(isset($submit))
 {
@@ -87,14 +87,14 @@ if(isset($submit))
         $sql_query .= " comment = '$comment'";
     $result = mysql_db_query($db, $sql_query) or mysql_die();
     $message = "$strTable $table $strHasBeenCreated";
-    include("tbl_properties.php3");
+    include("./tbl_properties.php3");
     exit;
 }
 else
 {
     $action = "tbl_create.php3";
-    include("tbl_properties.inc.php3");
+    include("./tbl_properties.inc.php3");
 }
 
-require ("footer.inc.php3");
+require("./footer.inc.php3");
 ?>

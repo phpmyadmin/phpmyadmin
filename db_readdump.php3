@@ -3,9 +3,9 @@
 
 @set_time_limit(10000);
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
 
-require("lib.inc.php3");
+require("./lib.inc.php3");
 
 
 // set up default values
@@ -57,11 +57,11 @@ if($sql_query != "") {
   if (count($pieces) == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
     $sql_query = addslashes(trim($pieces[0]));
     if (eregi('^CREATE TABLE (.+)', $sql_query))  $reload = "true";
-    include ("sql.php3");
+    include("./sql.php3");
     exit;
   }
  
-  include("header.inc.php3");
+  include("./header.inc.php3");
   if(mysql_select_db($db)) {
     // run multiple queries
     for ($i=0; $i<count($pieces); $i++) {
@@ -75,5 +75,5 @@ if($sql_query != "") {
 // copy the original query back for display purposes
 $sql_query = $sql_query_cpy;
 $message = $strSuccess;
-require("db_details.php3");
+require("./db_details.php3");
 ?>

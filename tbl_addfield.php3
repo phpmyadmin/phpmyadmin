@@ -2,9 +2,9 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
-require("header.inc.php3");
+require("./header.inc.php3");
 
 if(isset($submit))
 {
@@ -132,14 +132,14 @@ if(isset($submit))
     $query_keys = ereg_replace(", $", "", $query_keys);
 
     $message = "$strTable $table $strHasBeenAltered";
-    include("tbl_properties.php3");
+    include("./tbl_properties.php3");
     exit;
 }
 else
 {
     $action = "tbl_addfield.php3";
-    include("tbl_properties.inc.php3");
+    include("./tbl_properties.inc.php3");
 }
 
-require ("footer.inc.php3");
+require("./footer.inc.php3");
 ?>

@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-20  Loïc Chapeaux  <lolo@phpheaven.net>
+	* replaced all require("somefile.php3") and include("somefile.php3")
+	  instructions by require("./somefile.php3") and include("./somefile.php3")
+	  to avoid conflicts with the 'include_path' directive.
+	  Also ensured that require and include are conveniently used (no require
+	  inside conditionnal structure...)
+
 2001-05-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.js, lines 241-242: fixed the scrollbar bug with NS4
 

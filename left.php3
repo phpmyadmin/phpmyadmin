@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
  
-require("lib.inc.php3");
+require("./lib.inc.php3");
 ?>
 
 <html>

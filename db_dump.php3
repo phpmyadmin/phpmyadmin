@@ -2,20 +2,20 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
 
 @set_time_limit(600);
 $crlf="\n";
 if(empty($asfile))
 {
-    include("header.inc.php3");
+    include("./header.inc.php3");
     echo "<div align=left><pre>\n";
 
 } 
 else 
 {
-    include("lib.inc.php3");
+    include("./lib.inc.php3");
     header("Content-disposition: filename=$db.sql");
     header("Content-type: application/octetstream");
     header("Pragma: no-cache");
@@ -107,6 +107,6 @@ else
 if(empty($asfile))
 {
     print "</pre></div>\n";
-    include ("footer.inc.php3");
+    include("./footer.inc.php3");
 }
 ?>

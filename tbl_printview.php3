@@ -2,16 +2,18 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
 
 if(!isset($message))
 {
-    include("header.inc.php3");
+    include("./header.inc.php3");
 }
 else
+{
     show_message($message);
-    
+}
+   
 unset($sql_query);
 if(MYSQL_MAJOR_VERSION == "3.23")
     {   
@@ -135,5 +137,5 @@ if(mysql_num_rows($result)>0)
     print "</table>\n";
 }
 
-require ("footer.inc.php3");
+require("./footer.inc.php3");
 ?>

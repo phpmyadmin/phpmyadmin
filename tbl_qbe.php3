@@ -2,10 +2,10 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
 
-require( "header.inc.php3");
+require("./header.inc.php3");
 
 if(empty($Columns))
     $Columns = 3;  # initial number of columns
@@ -517,5 +517,5 @@ echo  "</textarea></form></td></tr></table>";
 ?>
 
 <?php
-require ( "footer.inc.php3");
+require("./footer.inc.php3");
 ?>

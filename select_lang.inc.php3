@@ -149,5 +149,5 @@ if (empty($lang)) {
 
 // Define the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php3';
-require($lang_file);
+require('./' . $lang_file);
 ?>

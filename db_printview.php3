@@ -2,12 +2,12 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
 
 if(!isset($message))
 {
-    include("header.inc.php3");
+    include("./header.inc.php3");
 }
 else
 {
@@ -47,5 +47,5 @@ else
     echo "</table>\n";
 }
 
-require ("footer.inc.php3");
+require("./footer.inc.php3");
 ?>

@@ -2,14 +2,14 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
 
 if (!isset($message)) {
-  include("header.inc.php3");
+  include("./header.inc.php3");
 } else {
-  include("header.inc.php3");
-  include("lib.inc.php3");
+  include("./header.inc.php3");
+  include("./lib.inc.php3");
   show_message($message);
 }
 ?>
@@ -185,5 +185,5 @@ if (empty($cfgLang)) {
 </div>
 
 <?php
-require ("footer.inc.php3");
+require("./footer.inc.php3");
 ?>

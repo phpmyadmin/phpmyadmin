@@ -1,6 +1,6 @@
 <?php
   // Process config file to determine default server (if any)
-  require('lib.inc.php3');
+  require('./lib.inc.php3');
 ?>
 
 <html>

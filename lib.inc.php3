@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 
-require("config.inc.php3");
+require("./config.inc.php3");
 
 if(!defined("__LIB_INC__")) {
   define("__LIB_INC__", 1);
@@ -80,7 +80,7 @@ function mysql_die($error = "") {
     else
         echo "$strMySQLSaid ".htmlspecialchars($error);
     echo "\n<br><a href=\"javascript:history.go(-1)\">$strBack</a>";
-    include("footer.inc.php3");
+    include("./footer.inc.php3");
     exit;
 }
 
@@ -643,7 +643,7 @@ function mysql_die2($sql) {
     echo "$strMySQLSaid ".htmlspecialchars($error);
   echo "\n<br><a href=\"javascript:history.go(-1)\">$strBack</a>";
 
-  include("footer.inc.php3");
+  include("./footer.inc.php3");
   exit;
 }
 

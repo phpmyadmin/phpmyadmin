@@ -2,9 +2,9 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
-require("lib.inc.php3");
+require("./lib.inc.php3");
 
 
 if($goto == "sql.php3")
@@ -93,13 +93,13 @@ $result = mysql_db_query($db, $query);
 
 if(!$result) {
   $error = mysql_error();
-  include("header.inc.php3");
+  include("./header.inc.php3");
   mysql_die($error);
 } else {
   if(file_exists("./$goto")) {
-    include("header.inc.php3");
+    include("./header.inc.php3");
     $message = $strModifications;
-    include(preg_replace('/\.\.*/', '.', $goto));
+    include('./' . preg_replace('/\.\.*/', '.', $goto));
   } else {
     Header("Location: $goto");
   }

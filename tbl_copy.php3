@@ -2,9 +2,9 @@
 /* $Id$ */
 
 
-require("grab_globals.inc.php3");
+require("./grab_globals.inc.php3");
  
-require("header.inc.php3");
+require("./header.inc.php3");
 
 function my_handler($sql_insert)
 {
@@ -32,5 +32,5 @@ if($what == "data")
     get_table_content($db, $table, "my_handler");
 
 eval("\$message = \"$strCopyTableOK\";");
-include("db_details.php3");
+require("./db_details.php3");
 ?>
