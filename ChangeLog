@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php: bug 909752, floating point digit
+
 2004-03-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, tbl_replace_fields.php: bug 907510, invalid
       escaping of + in ENUM

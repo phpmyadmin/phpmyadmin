@@ -1903,6 +1903,9 @@ if ($is_minimum_common == FALSE) {
                     if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
                         $after     .= ' ';
                     }
+                    if ($typearr[1] == 'alpha_columnAttrib') {
+                        $before .= ' ';
+                    }
                     break;
                 case 'alpha_variable':
                     $after      = ' ';
