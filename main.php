@@ -518,7 +518,7 @@ if (empty($cfg['Lang'])) {
 
     uasort($available_languages, 'PMA_cmp');
     foreach ($available_languages AS $id => $tmplang) {
-        $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
+        $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
         if ($lang == $id) {
             $selected = ' selected="selected"';
         } else {
