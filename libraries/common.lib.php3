@@ -182,7 +182,7 @@ if (!defined('__LIB_COMMON__')){
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
             if ($is_modify_link) {
                 echo '    ['
-                     . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($the_query) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>'
+                     . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>'
                      . ']' . "\n";
             } // end if
             echo '<pre>' . "\n" . $query_base . "\n" . '</pre>' . "\n";
@@ -337,10 +337,10 @@ if (!defined('__LIB_COMMON__')){
                     $PHP_AUTH_PW = $AUTH_PASSWORD;
                 }
                 else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['AUTH_PASSWORD'])) {
-                    $PHP_AUTH_USER = $HTTP_ENV_VARS['AUTH_PASSWORD'];
+                    $PHP_AUTH_PW = $HTTP_ENV_VARS['AUTH_PASSWORD'];
                 }
                 else if (@getenv('AUTH_PASSWORD')) {
-                    $PHP_AUTH_USER = getenv('AUTH_PASSWORD');
+                    $PHP_AUTH_PW = getenv('AUTH_PASSWORD');
                 }
             }
             // Grabs the $old_usr variable whatever are the values of the
@@ -859,9 +859,9 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                     $edit_target = '';
                 }
                 if ($edit_target == 'tbl_properties.php3') {
-                    $edit_link = '<a href="tbl_properties.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&table=' . urlencode($GLOBALS['table']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+                    $edit_link = '<a href="tbl_properties.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>';
                 } else if ($edit_target != '') {
-                    $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+                    $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>';
                 }
             }
             if (!empty($edit_target)) {
