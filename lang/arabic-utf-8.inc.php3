@@ -664,4 +664,5 @@ $strFileAlreadyExists = 'File %s already exists on server, change filename or ch
 $strDumpSaved = 'Dump has been saved to file %s.';  //to translate
 $strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
 $strNoSpace = 'Insufficient space to save the file %s.';  //to translate
+$strInsertedRowId = 'Inserted row id:';  //to translate
 ?>

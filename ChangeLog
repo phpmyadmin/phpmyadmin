@@ -15,6 +15,8 @@ $Source$
       file.
     * libraries/common.lib.php3, tbl_dump.php3, sql.php3: Better way for
       highliting tabs when including files (set $active_page for highliting).
+    * sql.php3, tbl_replace.php3, lang/*: Show insert_id after INSERT (RFE
+      #737660).
 
 2003-05-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/defines_php.lib.php3: bug 736111: better GD2 detection

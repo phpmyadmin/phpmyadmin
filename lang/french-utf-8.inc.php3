@@ -639,4 +639,5 @@ $strZip = '"zippé"';
 
 $strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
 $strNoSpace = 'Insufficient space to save the file %s.';  //to translate
+$strInsertedRowId = 'Inserted row id:';  //to translate
 ?>

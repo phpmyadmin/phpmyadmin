@@ -183,11 +183,16 @@ if (!$result) {
     } else {
         $message = $strModifications;
     }
+    $insert_id = mysql_insert_id();
+    if ($insert_id != 0) {
+        $message .= '<br />'.$strInsertedRowId . '&nbsp;' . $insert_id;
+    }
     if ($is_gotofile) {
         if ($goto == 'db_details.php3' && !empty($table)) {
             unset($table);
         }
         $js_to_run = 'functions.js';
+        $active_page = $goto;
         include('./header.inc.php3');
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
