@@ -410,4 +410,5 @@ $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
 $strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
+$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

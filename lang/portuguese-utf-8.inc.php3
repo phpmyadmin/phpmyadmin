@@ -408,4 +408,5 @@ $strCantUseRecodeIconv = 'Não é possível usar <i>iconv</i> nem <i>libiconv</i
 $strCantLoadRecodeIconv = 'Não é possível carregar <i>iconv</i> ou recodificar a extensão necessária para a conversão do Mapa de Caracteres, configure o php de modo a permitir utilizar estas extensões ou desligue a conversão do mapa de caracteres no phpmyadmin.';
 
 $strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
+$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

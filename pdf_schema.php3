@@ -28,27 +28,10 @@ $cfgRelation = PMA_getRelationsParam();
  * correctly, so it is a good place to see which tables we can and
  * complain ;-)
  */
-if (!$cfgRelation['relwork']) {
-    echo sprintf($strNotSet, 'relation', 'config.inc.php3') . '<br />' . "\n"
-         . '<a href="./Documentation.html#relation" target="documentation">' . $strDocu . '</a>' . "\n";
-    exit();
-}
-
-if (!$cfgRelation['displaywork']) {
-    echo sprintf($strNotSet, 'table_info', 'config.inc.php3') . '<br />' . "\n"
-         . '<a href="./Documentation.html#table_info" target="documentation">' . $strDocu . '</a>' . "\n";
-    exit();
-}
-
-if (!isset($cfgRelation['table_coords'])){
-    echo sprintf($strNotSet, 'table_coords', 'config.inc.php3') . '<br />' . "\n"
-         . '<a href="./Documentation.html#table_coords" target="documentation">' . $strDocu . '</a>' . "\n";
-    exit();
-}
-if (!isset($cfgRelation['pdf_pages'])) {
-    echo sprintf($strNotSet, 'pdf_page', 'config.inc.php3') . '<br />' . "\n"
-         . '<a href="./Documentation.html#pdf_pages" target="documentation">' . $strDocu . '</a>' . "\n";
-    exit();
+if (!$cfgRelation['allworks']) {
+    echo '<font color="red">' . $strError . '</font><br />';
+    $urltogoto = '<a href="'.$cfg['PmaAbsoluteUri'].'chk_rel.php3?'.$url_query.'">';
+    echo sprintf($strRelationNotWorking,$urltogoto,'</a>');
 }
 
 
@@ -357,6 +340,8 @@ class PMA_RT_Table
      */
     function PMA_RT_Table_setWidth($ff)
     {
+        //  this looks buggy to me... does it really work if
+        //  there are fields that require wider cells than the name of the table?
         global $pdf;
 
         reset($this->fields);
@@ -393,10 +378,13 @@ class PMA_RT_Table
      *
      * @see     PMA_PDF
      */
-    function PMA_RT_Table_draw($show_info, $ff)
+    function PMA_RT_Table_draw($show_info, $ff, $same_wide=0)
     {
-        global $pdf;
+        global $pdf, $rt;
 
+        if(isset($rt->tablewidth)&& $rt->tablewidth>0 && $same_wide==1){
+            $this->width=$rt->tablewidth;
+        }
         $pdf->PMA_PDF_setXyScale($this->x, $this->y);
         $pdf->SetFont($ff, 'B');
         $pdf->SetTextColor(200);
@@ -449,7 +437,7 @@ class PMA_RT_Table
      */
     function PMA_RT_Table($table_name, $ff)
     {
-        global $pdf, $pdf_page_number, $cfgRelation, $db;
+        global $rt, $pdf, $pdf_page_number, $cfgRelation, $db;
 
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
@@ -465,7 +453,9 @@ class PMA_RT_Table
         //height and width
         $this->PMA_RT_Table_setWidth($ff);
         $this->PMA_RT_Table_setHeight();
-
+        if($rt->tablewidth<$this->width){
+            $rt->tablewidth=$this->width;
+        }
         //x and y
         $sql    = 'SELECT x, y FROM '
                 . PMA_backquote($cfgRelation['table_coords'])
@@ -669,7 +659,8 @@ class PMA_RT
     var $b_marg    = 10;
     var $l_marg    = 10;
     var $r_marg    = 10;
-
+    var $tablewidth;
+    var $same_wide = 0;
 
     /**
      * Sets X and Y minimum and maximum for a table cell
@@ -783,7 +774,7 @@ class PMA_RT
     {
         reset($this->tables);
         while (list(, $table) = each($this->tables)) {
-            $table->PMA_RT_Table_draw($show_info, $this->ff);
+            $table->PMA_RT_Table_draw($show_info, $this->ff,$this->same_wide);
         }
     } // end of the "PMA_RT_drawTables()" method
 
@@ -828,14 +819,14 @@ class PMA_RT
      *
      * @see     PMA_PDF
      */
-    function PMA_RT($scale, $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0)
+    function PMA_RT($scale, $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0, $all_tab_same_wide = 0)
     {
         global $pdf, $db, $cfgRelation;;
 
         // Font face depends on the current language
         $this->ff     = str_replace('"', '', substr($GLOBALS['right_font_family'], 0, strpos($GLOBALS['right_font_family'], ',')));
-
-        // Initializes a new document
+        $this->same_wide = $all_tab_same_wide;
+         // Initializes a new document
         $pdf          = new PMA_PDF('L');
         $pdf->title   = sprintf($GLOBALS['strPdfDbSchema'], $GLOBALS['db'], $which_rel);
         $pdf->cMargin = 0;
@@ -881,7 +872,8 @@ class PMA_RT
             reset ($alltables);
             while (list(, $table) = each ($alltables)) {
                     $this->tables[$table] = new PMA_RT_Table($table, $this->ff);
-                    $this->PMA_RT_setMinMax($this->tables[$table]);
+                    $curr_table_obj =&$this->tables[$table];
+                    $this->PMA_RT_setMinMax($curr_table_obj);
             }
             $norelations = TRUE;
         } // end if... else...
@@ -924,8 +916,9 @@ if (!isset($pdf_page_number)) {
 $show_grid            = (isset($show_grid) && $show_grid == 'on') ? 1 : 0;
 $show_color           = (isset($show_color) && $show_color == 'on') ? 1 : 0;
 $show_table_dimension = (isset($show_table_dimension) && $show_table_dimension == 'on') ? 1 : 0;
+$all_tab_same_wide    = (isset($all_tab_same_wide) && $all_tab_same_wide == 'on') ? 1 : 0;
 
 PMA_mysql_select_db($db);
 
-$rt  = new PMA_RT('auto', $pdf_page_number, $show_table_dimension, $show_color, $show_grid);
+$rt  = new PMA_RT('auto', $pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide);
 ?>

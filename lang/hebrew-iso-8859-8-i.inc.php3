@@ -400,4 +400,5 @@ $strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';//to tra
 $strShowGrid = 'Show grid'; //to translate
 $strShowTableDimension = 'Show dimension of tables';  //to translate
 $strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
+$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

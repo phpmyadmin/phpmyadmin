@@ -140,7 +140,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $cfg['Server']['pmadb'] = FALSE;
         }
         if($verbose==TRUE){
-                $shit='<font color="red">not OK</font> [ <a href="Documentation.html#%s">Help</a> ]';
+                $shit='<font color="red">not OK</font> [ <a href="Documentation.html#%s">' . $strDocu . '</a> ]';
                 $hit ='<font color="green">OK</font>';
                 echo 'checking PMA Database ...',$cfg['Server']['pmadb'] == FALSE?sprintf($shit,'pmadb'):$hit,'<br />';
                 echo 'checking relation Table ...',isset($cfgRelation['relation'])?$hit:sprintf($shit,'relation'),'<br />';
