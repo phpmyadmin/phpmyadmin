@@ -29,6 +29,7 @@ $strAbsolutePathToDocSqlDir = 'Introduza a rota absoluta completa ao directorio 
 $strAccessDenied = 'Acceso Negado';
 $strAccessDeniedExplanation = 'O phpMyAdmin tentouse conectar ao servidor de MySQL, mais o servidor rexeitou a conexión. Deberá comprobar o nome do servidor, o nome de usuario e o contrasinal no ficheiro config.inc.php e asegurarse de que corresponden coa información proporcionada polo administrador do servidor do MySQL.';
 $strAction = 'Acción';
+$strAddAutoIncrement = 'Engadir o valor incremental (AUTO_INCREMENT)';
 $strAddDeleteColumn = 'Adicionar/Eliminar columnas de campo';
 $strAddDeleteRow = 'Adicionar/Eliminar filas de criterios';
 $strAddNewField = 'Adicionar un novo campo';
@@ -670,5 +671,4 @@ $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
 $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>

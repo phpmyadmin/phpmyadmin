@@ -14,6 +14,7 @@ $Source$
       (bug #768351).
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
+    * lang/galician: Updated, thanks to Xosé Calvo.
   
 2003-07-09 Garvin Hicking <me@supergarv.de>
     * Documentation.html, config.inc.php3, libraries/common.lib.php3,
