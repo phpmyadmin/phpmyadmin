@@ -137,41 +137,41 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         if (isset($cfgRelation['relation'])) {
             $cfgRelation['relwork']         = TRUE;
             if (isset($cfgRelation['table_info'])) {
-                $cfgRelation['displaywork'] = TRUE;
+                    $cfgRelation['displaywork'] = TRUE;
             }
-            if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
-                $cfgRelation['pdfwork']     = TRUE;
-            }
-            if (isset($cfgRelation['column_info'])) {
-                $cfgRelation['commwork']    = TRUE;
-                
-                if ($cfg['Server']['verbose_check']) {
-                    $mime_query  = 'SHOW FIELDS FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']);
-                    $mime_rs     = PMA_query_as_cu($mime_query, FALSE);
+        }
+        if (isset($cfgRelation['table_coords']) && isset($cfgRelation['pdf_pages'])) {
+            $cfgRelation['pdfwork']     = TRUE;
+        }
+        if (isset($cfgRelation['column_info'])) {
+            $cfgRelation['commwork']    = TRUE;
+               
+            if ($cfg['Server']['verbose_check']) {
+                $mime_query  = 'SHOW FIELDS FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']);
+                $mime_rs     = PMA_query_as_cu($mime_query, FALSE);
                     
-                    $mime_field_mimetype                = FALSE;
-                    $mime_field_transformation          = FALSE;
-                    $mime_field_transformation_options  = FALSE;
-                    while ($curr_mime_field = @PMA_mysql_fetch_array($mime_rs)) {
-                        if ($curr_mime_field[0] == 'mimetype') {
-                            $mime_field_mimetype               = TRUE;
-                        } else if ($curr_mime_field[0] == 'transformation') {
-                            $mime_field_transformation         = TRUE; 
-                        } else if ($curr_mime_field[0] == 'transformation_options') {
-                            $mime_field_transformation_options = TRUE; 
-                        }
+                $mime_field_mimetype                = FALSE;
+                $mime_field_transformation          = FALSE;
+                $mime_field_transformation_options  = FALSE;
+                while ($curr_mime_field = @PMA_mysql_fetch_array($mime_rs)) {
+                    if ($curr_mime_field[0] == 'mimetype') {
+                        $mime_field_mimetype               = TRUE;
+                    } else if ($curr_mime_field[0] == 'transformation') {
+                        $mime_field_transformation         = TRUE; 
+                    } else if ($curr_mime_field[0] == 'transformation_options') {
+                        $mime_field_transformation_options = TRUE; 
                     }
-                    
-                    if ($mime_field_mimetype == TRUE
-                        && $mime_field_transformation == TRUE
-                        && $mime_field_transformation_options == TRUE) {
-                        $cfgRelation['mimework'] = TRUE;
-                    }
-                } else {
+                }
+                   
+                if ($mime_field_mimetype == TRUE
+                    && $mime_field_transformation == TRUE
+                    && $mime_field_transformation_options == TRUE) {
                     $cfgRelation['mimework'] = TRUE;
                 }
+            } else {
+                $cfgRelation['mimework'] = TRUE;
             }
-        } // end if
+        }
         
         if (isset($cfgRelation['history'])) {
             $cfgRelation['historywork']     = TRUE;

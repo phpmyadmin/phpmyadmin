@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php3: bug 751787: should not disable all
+      the features, when the relation feature is broken
+
 2003-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php3: undefined scheme
     * main.php3: undefined scheme
