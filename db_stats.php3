@@ -80,56 +80,60 @@ header('Content-Type: text/html; charset=' . $charset);
 
 <body bgcolor="#D0DCE0">
 
-<h1><?php echo ucfirst($strDatabasesStats); ?> - 
-<?php echo ($strHost . ': ' . $cfgServer['host']); ?>
+<h1>
+    <?php echo ucfirst($strDatabasesStats); ?> - 
+    <?php echo $strHost . ': ' . $cfgServer['host'] . "\n"; ?>
 </h1>   
-<h2><?php echo ($strGenTime . ': ' . date('F j, Y, g:i a')); ?></h2>
+<h2><?php echo $strGenTime . ': ' . date('F j, Y, g:i a'); ?></h2>
 
-    <!-- Databases and tables list -->
+
+<!-- Databases and tables list -->
 
 <table border="<?php echo $cfgBorder; ?>">
 <tr>
-<th><?php echo ucfirst($strDatabase); ?></th>
-<th><?php echo ucfirst($strTable); ?></th>
-<th><?php echo ucfirst($strData); ?></th>
-<th><?php echo ucfirst($strIndexes); ?></th>
-<th><?php echo ucfirst($strTotal); ?></th>
+    <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;</th>
+    <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
+    <th>&nbsp;<?php echo ucfirst($strData); ?>&nbsp;</th>
+    <th>&nbsp;<?php echo ucfirst($strIndexes); ?>&nbsp;</th>
+    <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;</th>
 </tr>
 
 <?php
 if ($num_dbs > 1) {
-    $selected_db = 0;
-    $tot_tables = 0;
-    $big_tot_all = 0;
-    $big_tot_idx = 0;
+    $selected_db  = 0;
+    $tot_tables   = 0;
+    $big_tot_all  = 0;
+    $big_tot_idx  = 0;
     $big_tot_data = 0;
 
-    // Gets the tables list per database
+    // Gets and displays the tables stats per database
     for ($i = 0; $i < $num_dbs; $i++) {
-        $db = $dblist[$i];
-        $j  = $i + 2;
-	$bgcolor          = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+        $db      = $dblist[$i];
+        $j       = $i + 2;
+        $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
 
         if (!empty($db_start) && $db == $db_start) {
-            $selected_db = $j;
+            $selected_db  = $j;
         }
-        $tables              = @mysql_list_tables($db);
-        $num_tables          = @mysql_numrows($tables);
-        $tot_tables += $num_tables;
-        $common_url_query    = 'lang=' . $lang
-                             . '&server=' . urlencode($server)
-                             . '&db=' . urlencode($db);
+        $tables           = @mysql_list_tables($db);
+        $num_tables       = @mysql_numrows($tables);
+        $tot_tables       += $num_tables;
+        $common_url_query = 'lang=' . $lang
+                          . '&server=' . urlencode($server)
+                          . '&db=' . urlencode($db);
 
-	// get size of data and indexes
+        // Gets size of data and indexes
 
-	$db_clean = backquote($db);
-        $tot_data = 0; $tot_idx = 0; $tot_all = 0;
-        $result = mysql_query("SHOW TABLE STATUS FROM $db_clean") or mysql_die();
-	if (mysql_num_rows($result)) {
-           while ($row = mysql_fetch_array($result)) {
-               $tot_data += $row['Data_length'];
-               $tot_idx += $row['Index_length'];
-           } 
+        $db_clean = backquote($db);
+        $tot_data = 0;
+        $tot_idx  = 0;
+        $tot_all  = 0;
+        $result   = mysql_query('SHOW TABLE STATUS FROM ' . $db_clean) or mysql_die();
+        if (mysql_num_rows($result)) {
+            while ($row = mysql_fetch_array($result)) {
+                $tot_data += $row['Data_length'];
+                $tot_idx  += $row['Index_length'];
+            } 
            $tot_all = $tot_data + $tot_idx;
            $big_tot_all += $tot_all;
            $big_tot_idx += $tot_idx;
@@ -137,36 +141,37 @@ if ($num_dbs > 1) {
         }
 
         list($tot_data_format,$unit_data) = format_byte_down($tot_data,3,1);
-        list($tot_idx_format,$unit_idx) = format_byte_down($tot_idx,3,1);
-        list($tot_all_format,$unit_all) = format_byte_down($tot_all,3,1);
+        list($tot_idx_format,$unit_idx)   = format_byte_down($tot_idx,3,1);
+        list($tot_all_format,$unit_all)   = format_byte_down($tot_all,3,1);
 
-        echo "<tr bgcolor=\"$bgcolor\"><td>" . urlencode($db) . " </td>";
-        echo "<td>$num_tables </td>";
-        echo "<td>$tot_data_format $unit_data </td>";
-        echo "<td>$tot_idx_format $unit_idx </td>";
-        echo "<td><b>$tot_all_format $unit_all<b> </td>";
-        echo "</tr>";
+        echo '<tr bgcolor="'. $bgcolor . '">' . "\n";
+        echo '    <td>&nbsp;' . urlencode($db) . '&nbsp;</td>' . "\n";
+        echo '    <td align="right">&nbsp;' . $num_tables . '&nbsp;</td>' . "\n";
+        echo '    <td align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</td>' . "\n";
+        echo '    <td align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</td>' . "\n";
+        echo '    <td align="right">&nbsp;<b>' . $tot_all_format . ' ' . $unit_all . '<b>&nbsp;</td>' . "\n";
+        echo '</tr>' . "\n";
+    } // end for
 
-    }
-
-
+    // Gets and displays the server stats
     list($tot_data_format,$unit_data) = format_byte_down($big_tot_data,3,1);
-    list($tot_idx_format,$unit_idx) = format_byte_down($big_tot_idx,3,1);
-    list($tot_all_format,$unit_all) = format_byte_down($big_tot_all,3,1);
+    list($tot_idx_format,$unit_idx)   = format_byte_down($big_tot_idx,3,1);
+    list($tot_all_format,$unit_all)   = format_byte_down($big_tot_all,3,1);
 
-    echo "<tr><th>" . $strSum . " </th>";
-    echo "<th>$tot_tables </th>";
-    echo "<th>$tot_data_format $unit_data </th>";
-    echo "<th>$tot_idx_format $unit_idx </th>";
-    echo "<th><b>$tot_all_format $unit_all<b> </th>";
-    echo "</tr>";
+    echo '<tr>' . "\n";
+    echo '    <th>&nbsp;' . $strSum . '&nbsp;</th>' . "\n";
+    echo '    <th align="right">&nbsp;' . $tot_tables . '&nbsp;</th>' . "\n";
+    echo '    <th align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</th>' . "\n";
+    echo '    <th align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</th>' . "\n";
+    echo '    <th align="right">&nbsp;<b>' . $tot_all_format . ' ' . $unit_all . '<b>&nbsp;</th>' . "\n";
+    echo '</tr>' . "\n";
 
-    echo "</table>";
-
+    echo '</table>' . "\n";
 } // end if ($num_dbs == 1)
+
 else {
-    echo "\n";
-    echo '<p>' . $strNoDatabases . '</p>';
+    echo "\n" . '</table>' . "\n";
+    echo '<p>&nbsp;&nbsp;' . $strNoDatabases . '</p>';
 } // end if ($num_dbs == 0)
 echo "\n";
 ?>
