@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-05-10 Alexander M. Turek  <rabus@users.sourceforge.net>
+2002-05-09 Alexander M. Turek  <rabus@users.sourceforge.net>
     * left.php3, libraries/common.lib.php3:
       Fixed bug #546011 (Navigation tooltips).
 
