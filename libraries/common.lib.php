@@ -1504,6 +1504,20 @@ if (typeof(document.getElementById) != 'undefined'
                 $php_link = '';
             } //show as php
 
+            // Refresh query
+            if (TRUE || (isset($cfg['SQLQuery']['Refresh'])
+                && $cfg['SQLQuery']['Refresh'])) {
+                $refresh_link = '&nbsp;[<a href="sql.php'
+                          . $url_qpart
+                          . '&amp;show_query=1'
+                          . '&amp;sql_query=' . urlencode($local_query)
+                          . '">';
+                $refresh_link .= $GLOBALS['strRefresh'];
+                $refresh_link .= '</a>]';
+            } else {
+                $refresh_link = '';
+            } //show as php
+
             if (isset($cfg['SQLValidator']['use'])
                 && $cfg['SQLValidator']['use'] == TRUE
                 && isset($cfg['SQLQuery']['Validate'])
@@ -1526,7 +1540,7 @@ if (typeof(document.getElementById) != 'undefined'
             // Displays the message
             echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:';
             if (!empty($edit_target)) {
-                echo $edit_link . $explain_link . $php_link . $validate_link;
+                echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
             }
             echo '<br />' . "\n";
             echo '            ' . $query_base;

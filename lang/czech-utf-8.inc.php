@@ -526,6 +526,7 @@ $strReType = 'Heslo znovu';
 $strReceived = 'Přijato';
 $strRecords = 'Záznamů';
 $strReferentialIntegrity = 'Zkontrolovat integritu odkazů:';
+$strRefresh = 'Obnovit';
 $strRelationNotWorking = 'Některé funkce pro práci s&nbsp;propojenými tabulkami byly vypnuty. %sZde%s zjistíte proč.';
 $strRelationView = 'Zobrazit relace';
 $strRelationalSchema = 'Relační schéma';

@@ -519,6 +519,7 @@ $strReType = 'Re-type';
 $strReceived = 'Received';
 $strRecords = 'Records';
 $strReferentialIntegrity = 'Check referential integrity:';
+$strRefresh = 'Refresh';
 $strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';
 $strRelationView = 'Relation view';
 $strRelationalSchema = 'Relational schema';

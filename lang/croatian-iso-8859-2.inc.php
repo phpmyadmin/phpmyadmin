@@ -763,4 +763,5 @@ $strDBRename = 'Rename database to';  //to translate
 $strOperator = 'Operator';  //to translate
 $strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 $strCalendar = 'Calendar';  //to translate
+$strRefresh = 'Refresh';  //to translate
 ?>

@@ -738,4 +738,5 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Obvestilo: Če postavite vrednost na 0 (nič), boste odstranili omejitev.';
 $strZip = '"zipano"';
 
+$strRefresh = 'Refresh';  //to translate
 ?>

@@ -739,4 +739,5 @@ $strCalendar = 'Calendar';  //to translate
 
 $strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 
+$strRefresh = 'Refresh';  //to translate
 ?>

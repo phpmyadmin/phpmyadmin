@@ -743,4 +743,5 @@ $strZip = 'Komprimert (zip)';
 
 // To translate:
 
+$strRefresh = 'Refresh';  //to translate
 ?>

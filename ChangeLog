@@ -14,6 +14,7 @@ $Source$
     * db_details.php, tbl_change.php, tbl_query_box.php,
       css/phpmyadmin.css.php: Get rid of wrap="virtual" to achieve more XHTML
       validity.
+    * libraries/common.lib.php, lang/*: Add Refresh link (RFE #942110).
 
 2004-05-03 Garvin Hicking <pma@supergarv.de>
     * left.php: Bug #946501 - Nested table now also work with aliased

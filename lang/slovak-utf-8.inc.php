@@ -738,4 +738,5 @@ $strYes = 'Áno';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavenie týchto parametrov na 0 (nulu) odstráni obmedzenia.';
 $strZip = '"zo zipované"';
 
+$strRefresh = 'Refresh';  //to translate
 ?>
