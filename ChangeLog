@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
+
 2004-05-10 Michal Čihař  <michal@cihar.com>
     * libraries/dbi/mysql.dbi.lib.php: Fix PMA_DBI_field_name, fixes also bug
       #951226.
