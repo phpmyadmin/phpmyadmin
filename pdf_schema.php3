@@ -393,7 +393,7 @@ class PMA_RT_Table
         $pdf->SetTextColor(200);
         $pdf->SetFillColor(0, 0, 128);
         if ($show_info){
-            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, $pdf->_FPDF_round($this->width) . 'x' . $pdf->_FPDF_round($this->height) . ' ' . $this->table_name, 1, 1, 'C', 1);
+            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->height) . ' ' . $this->table_name, 1, 1, 'C', 1);
         } else {
             $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, $this->table_name, 1, 1, 'C', 1);
         }
@@ -733,7 +733,7 @@ class PMA_RT
             // Avoid duplicates
             if ($l > 0) {
                 $pdf->SetXY(0, $l * 10);
-                $label = (string) $pdf->_FPDF_round(($l * 10 - $this->t_marg) * $this->scale + $this->y_min);
+                $label = (string) sprintf('%.0f', ($l * 10 - $this->t_marg) * $this->scale + $this->y_min);
                 $pdf->Cell(5, 5, ' ' . $label);
             } // end if
         } // end for
@@ -742,7 +742,7 @@ class PMA_RT
         for ($j = 0; $j < 30 ;$j++) {
             $pdf->line($j * 10, 0, $j * 10, 210);
             $pdf->SetXY($j * 10, 0);
-            $label = (string) $pdf->_FPDF_round(($j * 10 - $this->l_marg) * $this->scale + $this->x_min);
+            $label = (string) sprintf('%.0f', ($j * 10 - $this->l_marg) * $this->scale + $this->x_min);
             $pdf->Cell(5, 7, $label);
         } // end for
     } // end of the "PMA_RT_strokeGrid()" method

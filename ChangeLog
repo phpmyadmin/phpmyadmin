@@ -8,6 +8,8 @@ $Source$
 2002-10-03 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_select.php3, tbl_change.php3: require musn't be used inside
       conditional statements.
+    * pdf_schema.php3; libraries/fpdf/fpdf.php3: upgraded to the 1.51 release
+      of the FPDF library.
 
 2002-10-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3, tbl_change.php3,
