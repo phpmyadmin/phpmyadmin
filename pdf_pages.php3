@@ -252,6 +252,25 @@ if ($cfgRelation['pdfwork']) {
         echo "\n" . '    <input type="submit" value="' . $strGo . '" />';
         echo "\n" . '</form>' . "\n\n";
     } // end if
+    if($do=="edcoord" || $do == "choosepage"){
+        ?>
+        <form method="post" action="pdf_schema.php3">
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
+            <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <input type="hidden" name="pdf_page_number" value="<?php echo $chpage; ?>" />
+            <?php echo $strDisplayPDF; ?>&nbsp;:<br />
+            <input type="checkbox" name="show_grid" id="show_grid_opt" />
+            <label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
+            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
+            <label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
+            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
+            <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label>
+            &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
+        </form>
+        <?php
+    }
 } // end if ($cfgRelation['pdfwork'])
 
 

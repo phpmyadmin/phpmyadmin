@@ -4,6 +4,13 @@ phpMyAdmin - Changelog
 
 $Id$
 $Source$
+2002-07-16 Mike Beck <mikebeck@users.sourceforge.net>
+    * pdf_pages.php3: if a page is edit it can also be shown
+    
+2002-07-16 Mike Beck <mikebeck@users.sourceforge.net>
+    * libraries/relation.lib.php3: verbose mode
+    * db_details_structure.php3: show message if relation doesn't work
+    * chk_rel.php3: new file to show what is wrong with relation
 
 2002-07-16 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3: Use include() instead of require().
