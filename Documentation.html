@@ -1333,9 +1333,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <a class="navigation" href="#faqproject">Project</a>
 
 <a name="faqserver"></a>
-<h3>[Server]</h3>
+<h3>[1. Server]</h3>
 <p>
-    <b>I'm running php 4+ and my server is crashing each time a specific action
+    <b>[1.1] I'm running php 4+ and my server is crashing each time a specific action
     is required or phpMyAdmin sends a blank page or a page full of cryptic
     characters to my browser, what can I do?</b>
     <br />
@@ -1350,7 +1350,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>My Apache server crashes when using phpMyAdmin.</b>
+    <b>[1.2] My Apache server crashes when using phpMyAdmin.</b>
     <br />
     You should first try the latest versions of Apache (and possibly MySQL).
     <br />
@@ -1361,7 +1361,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I'm running phpMyAdmin with "cookie" authentication mode under PHP 4.2.0
+    <b>[1.3] I'm running phpMyAdmin with "cookie" authentication mode under PHP 4.2.0
        or 4.2.1 loaded as an Apache 2+ module but can't enter the script: I'm
        always displayed the login screen.</b>
     <br />
@@ -1372,7 +1372,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>Using phpMyAdmin on IIS, I'm displayed the error message: &quot;The
+    <b>[1.4] Using phpMyAdmin on IIS, I'm displayed the error message: &quot;The
        specified CGI application misbehaved by not returning a complete set of
        HTTP headers....&quot;</b>
     <br />
@@ -1383,7 +1383,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages
+    <b>[1.5] Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages
        with the http or advanced authentication mode.</b>
     <br />
     This is a known problem with the php ISAPI filter: it's not so stable. For
@@ -1395,7 +1395,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I can't use phpMyAdmin on PWS: nothing is displayed!</b>
+    <b>[1.6] I can't use phpMyAdmin on PWS: nothing is displayed!</b>
     <br />
     This seems to be a PWS bug. Filippo Simoncini found a workaroud (at this
     time there is no better fix): remove or comment the <tt>DOCTYPE</tt>
@@ -1404,7 +1404,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>How can I GZip or Bzip a dump or a CSV export. It seems to not work?</b>
+    <b>[1.7] How can I GZip or Bzip a dump or a CSV export. It seems to not work?</b>
     <br />
     These features are based on the <tt>gzencode()</tt> and
     <tt>bzcompress()</tt> php functions to be more independent of the platform
@@ -1417,7 +1417,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I cannot insert a text file in a table, and I get an error about safe
+    <b>[1.8] I cannot insert a text file in a table, and I get an error about safe
        mode being in effect.</b>
     <br />
     Your uploaded file is saved by PHP in the &quot;upload dir&quot;, as
@@ -1438,7 +1438,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </ul>
 
 <p>
-    <b>I'm having troubles when uploading files. In general file uploads don't
+    <b>[1.9] I'm having troubles when uploading files. In general file uploads don't
     work on my system and uploaded files have a <tt>Content-Type:</tt> header
     in the first line.</b>
     <br />
@@ -1461,7 +1461,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I'm having troubles when uploading files with phpMyAdmin running on a
+    <b>[1.10] I'm having troubles when uploading files with phpMyAdmin running on a
        secure server. My browser is Internet Explorer and I'm using the Apache
        server.</b>
     <br />
@@ -1472,7 +1472,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I get an 'open_basedir restriction' while uploading a file from the
+    <b>[1.11] I get an 'open_basedir restriction' while uploading a file from the
        query box.</b>
     <br />
     Since version 2.2.4, phpMyAdmin supports servers with open_basedir
@@ -1484,7 +1484,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I have lost my MySQL root password, what can I do?</b>
+    <b>[1.12] I have lost my MySQL root password, what can I do?</b>
     <br />
     The MySql manual explains how to
     <a href="http://www.mysql.com/doc/R/e/Resetting_permissions.html">
@@ -1492,14 +1492,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I get an error 'No SQL query' when trying to execute a bookmark.</b>
+    <b>[1.13] I get an error 'No SQL query' when trying to execute a bookmark.</b>
     <br />
     If PHP does not have read/write access to its <tt>upload_tmp_dir</tt>, it
     cannot access the uploaded query.
 </p>
 
 <p>
-    <b>I get an error 'No SQL query' when trying to submit a query from the
+    <b>[1.14] I get an error 'No SQL query' when trying to submit a query from the
        convenient text area.</b>
     <br />
     Check the <tt>post_max_size</tt> directive from your php configuration file
@@ -1507,14 +1507,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I have problems with <i>mysql.user</i> field names.</b>
+    <b>[1.15] I have problems with <i>mysql.user</i> field names.</b>
     <br />
     In older MySQL versions, the <tt>User</tt> and <tt>Password</tt> fields
     were named <tt>user</tt> and <tt>password</tt>. Please modify your field
     names to align with current standards.
 </p>
 <p>
-    <b>I cannot upload big dump files.</b>
+    <b>[1.16] I cannot upload big dump files.</b>
     <br />
     The first things to check (or ask your host provider to check) are the
     values of <tt>upload_max_filesize</tt>, <tt>memory_limit</tt> and
@@ -1526,7 +1526,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>Does phpMyAdmin support MySQL&nbsp;4?</b>
+    <b>[1.17] Does phpMyAdmin support MySQL&nbsp;4?</b>
     <br />
     MySQL&nbsp;4 is not yet fully supported by phpMyAdmin.<br />
     Because of MySQL&nbsp;4's backwards compatibility you can use phpMyAdmin
@@ -1540,7 +1540,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I'm running MySQL&nbsp;&lt;=&nbsp;4.0.1 having
+    <b>[1.18] I'm running MySQL&nbsp;&lt;=&nbsp;4.0.1 having
        <tt>lower_case_table_names</tt> set to 1. If I create a new table with a
        capital letter in its name it is changed to lowercase as it should. But
        if I try to DROP this table MySQL is unable to find the corresponding
@@ -1552,7 +1552,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I can't run the &quot;display relations&quot; feature because the script
+    <b>[1.19] I can't run the &quot;display relations&quot; feature because the script
        seems not to know the font face I'm using!</b>
     <br />
     The &quot;FPDF&quot; library we're using for this feature requires some
@@ -1564,7 +1564,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
 <a name="faqmysql"></a>
 <p>
-    <b>I receive the error &quot;cannot load MySQL extension, please check
+    <b>[1.20] I receive the error &quot;cannot load MySQL extension, please check
        PHP Configuration&quot;.</b>
     <br />
     To connect to a MySQL server, PHP needs a set of MySQL functions called
@@ -1578,10 +1578,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <a name="faqconfig"></a>
-<h3>[Configuration]</h3>
+<h3>[2. Configuration]</h3>
 
 <p>
-    <b>The error message &quot;Warning: Cannot add header information - headers
+    <b>[2.1] The error message &quot;Warning: Cannot add header information - headers
     already sent by ...&quot; is displayed, what's the problem?</b>
     <br />
     Edit your <i>config.inc.php or .php3</i> file and ensure there is nothing
@@ -1591,7 +1591,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>phpMyAdmin can't connect to MySQL. What's wrong?</b>
+    <b>[2.2] phpMyAdmin can't connect to MySQL. What's wrong?</b>
     <br />
     Either there is an error with your PHP setup or your username/password is
     wrong. Try to make a small script which uses mysql_connect and see if it
@@ -1600,7 +1600,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>The error message &quot;Warning: MySQL Connection Failed: Can't connect
+    <b>[2.3] The error message &quot;Warning: MySQL Connection Failed: Can't connect
     to local MySQL server through socket '/tmp/mysql.sock' (111)...&quot;) is
     displayed. What can I do?</b>
     <br /><br />
@@ -1647,7 +1647,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>Nothing is displayed by my browser when I try to run phpMyAdmin, what
+    <b>[2.4] Nothing is displayed by my browser when I try to run phpMyAdmin, what
        can I do?</b>
     <br />
     Try to set the <tt>$cfg['OBGZip']</tt> directive to <tt>FALSE</tt> in the
@@ -1658,7 +1658,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>Each time I want to insert or change a record or drop a database or a
+    <b>[2.5] Each time I want to insert or change a record or drop a database or a
        table, an error 404 (page not found) is displayed or, with http or
        cookie authentication, I'm asked to login again. What's wrong?</b>
     <br />
@@ -1667,10 +1667,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <a name="faqlimitations"></a>
-<h3>[Known limitations]</h3>
+<h3>[3. Known limitations]</h3>
 <a name="login_bug"></a>
 <p>
-    <b>When using http authentication, an user who logged out can not relog
+    <b>[3.1] When using http authentication, an user who logged out can not relog
        in with the same nick.</b>
     <br />
     This is related to the authentication mechanism (protocol) used by
@@ -1681,7 +1681,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>When dumping a large table in compressed mode, I get a memory limit
+    <b>[3.2] When dumping a large table in compressed mode, I get a memory limit
        error or a time limit error.</b>
     <br />
     As of version 2.2.4, we build the compressed dump in memory, so large
@@ -1692,7 +1692,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>With InnoDB tables, I lose foreign key relationships when I rename 
+    <b>[3.3] With InnoDB tables, I lose foreign key relationships when I rename 
        or alter a table.</b>
     <br />
     This seems to be a InnoDB bug (fixed in MySQL 3.23.50?).  However, keep 
@@ -1701,9 +1701,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
 
 <a name="faqmultiuser"></a>
-<h3>[ISPs, multi-user installations ]</h3>
+<h3>[4. ISPs, multi-user installations ]</h3>
 <p>
-    <b>I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
+    <b>[4.1] I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
     install it for each customer?</b>
     <br />
     Since version 2.0.3, you can setup a central copy of phpMyAdmin for all
@@ -1715,7 +1715,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>What's the preferred way of making phpMyAdmin secure against evil
+    <b>[4.2] What's the preferred way of making phpMyAdmin secure against evil
     access?</b>
     <br />
     This depends on your system.<br />
@@ -1743,7 +1743,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </ul>
 
 <p>
-    <b>I get errors about not being able to include a file in <i>/lang</i>
+    <b>[4.3] I get errors about not being able to include a file in <i>/lang</i>
        or in <i>/libraries</i>.</b>
     <br />
     Check <i>php.ini</i>, or ask your sysadmin to check it. The
@@ -1752,7 +1752,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     &quot;./lang&quot; to allow normal operation of phpMyAdmin.
 </p>
 <p>
-    <b>phpMyAdmin always gives &quot;Access denied&quot; when using http
+    <b>[4.4] phpMyAdmin always gives &quot;Access denied&quot; when using http
     authentication.</b><br />
     This could happen for several reasons:
 </p>
@@ -1772,7 +1772,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </ul>
 
 <p>
-    <b>Is it possible to let users create their own databases?</b>
+    <b>[4.5] Is it possible to let users create their own databases?</b>
     <br />
     Starting with 2.2.5, in the user management page, you can enter a wildcard
     database name for a user, and put the privileges you want.  For example,
@@ -1781,7 +1781,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>How can I use the Host-based authentication additions?</b>
+    <b>[4.6] How can I use the Host-based authentication additions?</b>
     <br />
     If you have existing rules from an old .htaccess file, you can take them
     and add a username between the <tt>'deny'</tt>/<tt>'allow'</tt> and
@@ -1808,7 +1808,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <a name="faqbrowsers"></a>
-<h3>[Browsers or client OS]</h3>
+<h3>[5. Browsers or client OS]</h3>
 <p>
     <b>I get an out of memory error, and my controls are non-functional, when
     trying to create a table with more than 14 fields.</b>
