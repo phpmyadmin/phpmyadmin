@@ -103,6 +103,7 @@ $strCreatePdfFeat = 'PDF作成機' . "\x94\x5c";
 $strCriteria = '絞込み基準';
 
 $strData = 'データ';
+$strDataDict = 'データ辞書';
 $strDataOnly = 'データのみ';
 $strDatabase = 'データベース';
 $strDatabaseHasBeenDropped = 'データベース%sを正常に削除しました。';
@@ -270,6 +271,7 @@ $strOptions = 'オプション';
 $strOr = 'OR';
 $strOverhead = 'オーバーヘッド';
 
+$strPHP40203 = 'あなたはマルチバイト文字(mbstring)の扱いに重大なバグのあるPHP 4.2.3を使っています。PHPのバグレポート19404です。phpMyAdminを使うなら、このバージョンのPHPはお奨めしません...と言うかpatchをあてないと動きません。';
 $strPHPVersion = 'PHP バージョン';
 $strPageNumber = 'ページ番号:';
 $strPartialText = '部分的な文書';
@@ -290,6 +292,7 @@ $strPrimaryKey = '主キー';
 $strPrimaryKeyHasBeenDropped = '主キーを削除しました。';
 $strPrimaryKeyName = '主キーの名前は... PRIMARYではなければいけません。';
 $strPrimaryKeyWarning = '("PRIMARY"はちょうど主キーの名前ではなければいけません。';
+$strPrint = '印刷';
 $strPrintView = '印刷用表示';
 $strPrivileges = '特権';
 $strProperties = 'プロパティ';
@@ -439,7 +442,4 @@ $strYes = 'はい';
 
 $strZip = '"zipされる"';
 
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>
