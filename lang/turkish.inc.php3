@@ -73,6 +73,7 @@ $strChoosePage = 'Lütfen düzenlemek istediðiniz sayfayý seçin';
 $strColumn = 'Sütun';
 $strColumnNames = 'Sütun adlarý';
 $strCompleteInserts = 'Tamamlanmýþ eklemeler';
+$strConfigFileError ='phpMyAdmin konfigurasyon dosyanýzý okuyamadý....<br /> Bu php yorumlama hatasý bulduðu zaman veya dosyayý bulamadýðý zaman meydana gelebilir..<br /> Lütfen aþaðýdaki linki kullanarak dosyayý direkt olarak çaðýrýn ve aldýðýnýz php hata mesajlarýný okuyunuz.Çoðu durumda herhangi bir yerde týrnak veya noktalý virgül eksiktir<br /> Boþ bir sayfayla karþýlaþýrsanýz ,herþey yolunda demektir.'; 
 $strConfigureTableCoord = ' Lütfen %s tablosu için koordinatlarý yapýlandýrýnýz';
 $strConfirm = 'Aþaðýdaki komutu uygulamak istediðinizden emin misiniz?';
 $strCookiesRequired = 'Cookieler aç&#305;k olmal&#305;d&#305;r.';
@@ -341,6 +342,7 @@ $strStrucData = 'Yapý ve Veri';
 $strStrucDrop = '\'Drop table\' ekle';
 $strStrucExcelCSV = 'MS Excel verisi için CSV';
 $strStrucOnly = 'Sadece yapý';
+$strStructPropose = 'Tablo yapýsýný ayarla(mysql,tablo yapýsýný optimize eder)'; 
 $strStructure = 'Yapý';
 $strSubmit = 'Onayla';
 $strSuccess = 'SQL sorgunuz baþarýyla çalýþtýrýlmýþtýr';
@@ -391,8 +393,6 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
-$strStructPropose = 'Propose table structure'; // just no translation for
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
 $strMissingBracket = 'Missing Bracket';  //to translate
 $strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
