@@ -9,6 +9,10 @@ $Source$
 	* header.inc.php3, lines 64-66; left.php3, lines 135-136 & 154-155: fixed
 	  "bug" #539756 - Bad CSS Styles for textarea have chosen thanks to Rabus.
 	* Documentation.html: code is now XHTML1.0 and CSS2 compliant!
+	* db_details.php3, lines 558; tbl_properties.php3, lines 719: fixed the
+	  second problem reported with bug #536623: space characters typed into the
+	  sql query textarea put the focus at the end of the page with NS6+ and
+	  Moz 0.9.?.
 
 2002-04-05 Marc Delisle  <lem9@users.sourceforge.net>
 	* release 2.2.6-rc1
