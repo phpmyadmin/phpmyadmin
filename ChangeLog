@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-10 Michal Čihař  <michal@cihar.com>
+     * lang/czech: Fix typo (translation #1099459).
+
 2005-01-10 Olivier Mueller <om@omnis.ch>
     * README: copyright, we're in 2005
 
@@ -17,7 +20,7 @@ $Source$
     * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     ### 2.6.1-rc2 released
-    
+
 2005-01-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: bug #1082680, undefined $field_charset when adding
       a FLOAT field in MySQL 4.1.x
