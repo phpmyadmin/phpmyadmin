@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_search.php3: undefined variable
+
 2002-11-18 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech*.php3: Updated translation.
 
