@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-17 Garvin Hicking <me@supergarv.de>
+    * tbl_query_box.php3: Removed onsubmit() attribute of the noscript area. 
+      Thanks to andreas_e ;)
+      
 2003-07-16 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/galician: Updated, thanks to Xosé Calvo.
 
