@@ -55,7 +55,7 @@ if (isset($nopass)) {
 
         // Changes password cookie if required
         if ($cfg['Server']['auth_type'] == 'cookie') {
-            setcookie('pma_cookie_password', base64_encode(PMA_blowfish_encrypt($pma_pw,$GLOBALS['cfg']['Server']['blowfish_secret'])), 0, $cookie_path, '', $is_https);
+            setcookie('pma_cookie_password', base64_encode(PMA_blowfish_encrypt($pma_pw,$GLOBALS['cfg']['blowfish_secret'])), 0, $cookie_path, '', $is_https);
         } // end if
         // For http auth. mode, the "back" link will also enforce new
         // authentication

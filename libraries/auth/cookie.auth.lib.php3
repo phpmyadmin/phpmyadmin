@@ -242,7 +242,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 
         // Displays the warning message and the login form
 
-        if ($GLOBALS['cfg']['Server']['blowfish_secret']=='') {
+        if ($GLOBALS['cfg']['blowfish_secret']=='') {
         ?>
 <p class="warning"><?php echo $GLOBALS['strSecretRequired']; ?></p>
 </body>
@@ -435,7 +435,7 @@ if (uname.value == '') {
                 $from_cookie   = FALSE;
             }
             $PHP_AUTH_PW = base64_decode($PHP_AUTH_PW);
-            $PHP_AUTH_PW = PMA_blowfish_decrypt($PHP_AUTH_PW,$GLOBALS['cfg']['Server']['blowfish_secret']);
+            $PHP_AUTH_PW = PMA_blowfish_decrypt($PHP_AUTH_PW,$GLOBALS['cfg']['blowfish_secret']);
 
             if ($PHP_AUTH_PW == "\xff(blank)") {
                 $PHP_AUTH_PW   = '';
@@ -507,7 +507,7 @@ if (uname.value == '') {
             // Some binary contents are now retrieved properly when stored
             // as a cookie, so we base64_encode()
             setcookie('pma_cookie_password',
-                base64_encode(PMA_blowfish_encrypt(((!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)"), $GLOBALS['cfg']['Server']['blowfish_secret'])),
+                base64_encode(PMA_blowfish_encrypt(((!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)"), $GLOBALS['cfg']['blowfish_secret'])),
                 0,
                 $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);

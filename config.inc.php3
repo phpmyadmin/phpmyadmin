@@ -52,6 +52,12 @@ $cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
  */
 $cfg['PmaNoRelation_DisableWarning']  = FALSE;
 
+/**
+ * The 'cookie' auth_type uses blowfish algorithm to encrypt the password.
+ * If at least one server configuration uses 'cookie' auth_type,
+ * enter here a passphrase that will be used by blowfish.
+ */
+$cfg['blowfish_secret'] = '';
 
 /**
  * Server(s) configuration
@@ -71,9 +77,6 @@ $cfg['Servers'][$i]['controluser']   = '';          // MySQL control user settin
 $cfg['Servers'][$i]['controlpass']   = '';          // access to the "mysql/user"
                                                     // and "mysql/db" tables)
 $cfg['Servers'][$i]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
-$cfg['Servers'][$i]['blowfish_secret'] = '';        // Secret key used by
-                                                    // blowfish encryption
-                                                    // (if auth_type='cookie')
 $cfg['Servers'][$i]['user']          = 'root';      // MySQL user
 $cfg['Servers'][$i]['password']      = '';          // MySQL password (only needed
                                                     // with 'config' auth_type)
@@ -127,7 +130,6 @@ $cfg['Servers'][$i]['compress']        = FALSE;
 $cfg['Servers'][$i]['controluser']     = '';
 $cfg['Servers'][$i]['controlpass']     = '';
 $cfg['Servers'][$i]['auth_type']       = 'config';
-$cfg['Servers'][$i]['blowfish_secret'] = '';
 $cfg['Servers'][$i]['user']            = 'root';
 $cfg['Servers'][$i]['password']        = '';
 $cfg['Servers'][$i]['only_db']         = '';
@@ -155,7 +157,6 @@ $cfg['Servers'][$i]['compress']        = FALSE;
 $cfg['Servers'][$i]['controluser']     = '';
 $cfg['Servers'][$i]['controlpass']     = '';
 $cfg['Servers'][$i]['auth_type']       = 'config';
-$cfg['Servers'][$i]['blowfish_secret'] = '';
 $cfg['Servers'][$i]['user']            = 'root';
 $cfg['Servers'][$i]['password']        = '';
 $cfg['Servers'][$i]['only_db']         = '';

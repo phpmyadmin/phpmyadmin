@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/auth/cookie.auth.lib.php3, config.inc.php3, user_password.php3,
+      Documentation.html: only one blowfish secret is necessary for 
+      all servers, thanks to Alexander M. Turek
+
 2003-07-06 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     * css/phpmyadmin.css.php3: url() should not contain quotes.

@@ -402,6 +402,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['blowfish_secret']</b> string</dt>
+    <dd>
+        Starting with version 2.5.2, the 'cookie' auth_type uses blowfish 
+        algorithm to encrypt the password.
+        <br />
+        If at least one server configuration uses 'cookie' auth_type,
+        enter here a passphrase that will be used by blowfish.
+     </dd>
+
     <dt><b>$cfg['Servers']</b> array</dt>
     <dd>
         Since version 1.4.2, phpMyAdmin supports the administration of multiple
@@ -517,14 +526,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt>
-        <b>$cfg['Servers'][$i]['blowfish_secret']</b> string<br />
-    </dt>
-    <dd>
-        If your are using &quot;cookie&quot; auth_type, enter here
-        a secret passphrase which will be used by the blowfish encryption
-        mecanism to protect the password stored in the temporary cookie.
-    </dd>
     <dt>
         <b>$cfg['Servers'][$i]['user']</b> string<br />
         <b>$cfg['Servers'][$i]['password']</b> string
