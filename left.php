@@ -224,8 +224,6 @@ PMA_setFontSizes();
             targetframe = self;
         }
 
-        alert('Changing location...');
-
         if (targetframe) {
 <?php if (PMA_USR_BROWSER_AGENT != 'SAFARI') { ?>
             targetframe.location.replace(targeturl);
