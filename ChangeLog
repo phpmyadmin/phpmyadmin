@@ -7,7 +7,9 @@ $Source$
 
 
 2001-10-28  Loïc Chapeaux  <lolo@phpheaven.net>
-	* main.php3, line 342: cosmetic change.
+	* main.php3:
+	  - lines 107-111: removed the socket used from the settings displayed;
+	  - line 342: cosmetic change.
 	* lang/bulgarian.inc.php3, line 304: a ';' was missig at EOL.
 
 2001-10-27  Loïc Chapeaux  <lolo@phpheaven.net>

@@ -104,9 +104,11 @@ if ($server == 0 || count($cfgServers) > 1) {
                 echo ':' . $val['port'];
             }
             // loic1: connection with socket is only available since php 3.0.10
-            if (!empty($val['socket']) && PHP_INT_VERSION >= 30010) {
-                echo ':' . $val['socket'];
-            }
+            // loic1: skip this because it's not a so good idea to display
+            //        sockets used to everybody
+            // if (!empty($val['socket']) && PHP_INT_VERSION >= 30010) {
+            //     echo ':' . $val['socket'];
+            // }
             // loic1: if 'only_db' is an array and there is more than one
             //        value, displaying such informations may not be a so good
             //        idea
