@@ -642,8 +642,7 @@ if (!defined('__LIB_COMMON__')){
 
 
     /**
-     * Defines the <CR><LF> value depending on the user OS that may be grabbed
-     * from the 'HTTP_USER_AGENT' variable.
+     * Defines the <CR><LF> value depending on the user OS.
      *
      * @return  string   the <CR><LF> value to use
      *
@@ -653,16 +652,19 @@ if (!defined('__LIB_COMMON__')){
     {
         $the_crlf = "\n";
 
-        // The 'HTTP_USER_AGENT' variable has already been grabbed in
-        // "./libraries/defines.lib.php3"
-
-        // Searches for the word 'win'
-        if (!empty($GLOBALS['HTTP_USER_AGENT'])
-            && ereg('[^(]*\((.*)\)[^)]*', $GLOBALS['HTTP_USER_AGENT'], $regs)) {
-            if (eregi('Win', $regs[1])) {
-                $the_crlf = "\r\n";
-            }
-        } // end if
+        // The 'USR_OS' constant is defined in "./libraries/defines.lib.php3"
+        // Win case
+        if (USR_OS == 'Win') {
+            $the_crlf = "\r\n";
+        }
+        // Mac case
+        else if (USR_OS == 'Mac') {
+            $the_crlf = "\r";
+        }
+        // Others
+        else {
+            $the_crlf = "\n";
+        }
 
         return $the_crlf;
     } // end of the 'which_crlf()' function
