@@ -348,6 +348,40 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             <?php
         } // end move toward
 
+
+        //page redirection
+        $pageNow = @floor($pos / $session_max_rows) + 1;
+        $nbTotalPage = @ceil($unlim_num_rows / $session_max_rows);
+
+        if ($nbTotalPage > 1){ //if1
+           ?>
+       <td>
+           &nbsp;&nbsp;&nbsp;
+       </td>
+       <td>
+            <?php //<form> for keep the form alignment of button < and << ?>
+<form>
+            <?php echo $GLOBALS['strPageNumber']; ?>
+<SELECT NAME="goToPage" onChange="goToUrl(this, '<?php echo "sql.php3?sql_query=".$encoded_query."&amp;session_max_rows=".$session_max_rows."&amp;disp_direction=".$disp_direction."&amp;repeat_cells=".$repeat_cells."&amp;goto=".$goto."&amp;dontlimitchars=".$dontlimitchars."&amp;".PMA_generate_common_url($db, $table)."&amp;"; ?>')">
+
+           <?php
+            for ($i=1; $i<=$nbTotalPage; $i++){
+                if ($i == $pageNow) {
+                    $selected = 'selected="selected"';
+                } else {
+                    $selected = "";
+                }
+                echo "                <option ".$selected." value=\"".(($i - 1) * $session_max_rows)."\">".$i."</option>\n";
+            }
+           ?>
+		
+         </SELECT>
+            </form>
+        </td>
+            <?php
+        } //_if1
+
+
         // Show all the records if allowed
         if ($GLOBALS['cfg']['ShowAll'] && ($num_rows < $unlim_num_rows)) {
             echo "\n";
