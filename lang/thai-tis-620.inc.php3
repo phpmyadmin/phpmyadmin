@@ -2,7 +2,7 @@
 /* $Id$ */
 
 // first created 2002/04/29 Arthit Suriyawongkul & Warit Wanasathian
-// last modified 2003/03/12 Arthit Suriyawongkul
+// last modified 2003/04/11 Arthit Suriyawongkul
 
 $charset = 'tis-620';
 $text_dir = 'ltr';
@@ -36,6 +36,8 @@ $strAddSearchConditions = 'เพิ่มเงื่อนไขในการค้นหา:';
 $strAddToIndex = 'เพิ่มดัชนีคอลัมน์ %s';
 $strAddUser = 'เพิ่มผู้ใช้ใหม่';
 $strAddUserMessage = 'เพิ่มผู้ใช้ใหม่เรียบร้อยแล้ว';
+$strAddedColumnComment = 'เพิ่ม หมายเหตุ สำหรับคอลัมน์';
+$strAddedColumnRelation = 'เพิ่ม รีเลชัน สำหรับคอลัมน์';
 $strAdministration = 'การดูแลระบบ';
 $strAffectedRows = 'แถวที่มีผล:';
 $strAfter = 'หลัง %s';
@@ -57,6 +59,8 @@ $strAscending = 'น้อยไปมาก';
 $strAtBeginningOfTable = 'ที่จุดเริ่มต้นของตาราง';
 $strAtEndOfTable = 'ที่จุดสุดท้ายของตาราง';
 $strAttr = 'แอตทริบิวต์';
+$strAutodetect = 'ตรวจหาอัตโนมัติ';
+$strAutomaticLayout = 'จัดตำแหน่งอัตโนมัติ';
 
 $strBack = 'ย้อนกลับ';
 $strBeginCut = 'เริ่มจุดตัด';
@@ -196,6 +200,9 @@ $strFieldsEnclosedBy = 'คร่อมฟิลด์ด้วย';
 $strFieldsEscapedBy = 'เครื่องหมายสำหรับ escape char';
 $strFieldsTerminatedBy = 'จบฟิลด์ด้วย';
 $strFileCouldNotBeRead = 'อ่านไฟล์ไม่ได้';
+$strFileNameTemplate = 'รูปแบบของชื่อไฟล์';
+$strFileNameTemplateHelp = 'ใช้ __DB__ สำหรับชื่อฐานข้อมูล, __TABLE__ สำหรับชื่อตาราง และ ตัวเลือก %s strftime%s ใดๆ สำหรับการระบุเวลา, ส่วนขยายของไฟล์ (นามสกุล)จะถูกเติมโดยอัตโนมัติ. ข้อความอื่นๆ จะถูกคงไว้ดังเดิม.';
+$strFileNameTemplateRemember = 'จำรูปแบบ';
 $strFixed = 'คงที่';
 $strFlushTable = 'ล้างตาราง (flush)';
 $strFormEmpty = 'ค่าในแบบฟอร์มหายไป !';
@@ -237,6 +244,7 @@ $strIndexHasBeenDropped = 'โยนดัชนี %s ทิ้งไปเรียบร้อยแล้ว';
 $strIndexName = 'ชื่อดัชนี :';
 $strIndexType = 'ชนิดของดัชนี :';
 $strIndexes = 'ดัชนี';
+$strInnodbStat = 'สถานะของ InnoDB';
 $strInsecureMySQL = 'จากไฟล์เก็บค่ากำหนดของคุณ คุณไม่ได้ตั้งรหัสผ่านสำหรับ root ซึ่งจะถูกใช้เป็นชื่อปริยายซึ่งมีสิทธิพิเศษ.  เซิร์ฟเวอร์ MySQL ที่ทำงานด้วยค่าปริยายนี้ อาจถูกบุกรุกได้ คุณควรจะแก้ไขรูรั่วอันนี้ทันที เพื่อความปลอดภัย';
 $strInsert = 'แทรก';
 $strInsertAsNewRow = 'แทรกเป็นแถวใหม่';
@@ -347,6 +355,8 @@ $strPdfInvalidPageNum = 'ยังไม่ได้กำหนดเลขหน้าของ PDF!';
 $strPdfInvalidTblName = 'ไม่มีตาราง "%s"!';
 $strPdfNoTables = 'ไม่มีตาราง';
 $strPerHour = 'ต่อชั่วโมง';
+$strPerMinute = 'ต่อนาที';
+$strPerSecond = 'ต่อวินาที';
 $strPhp = 'สร้างโค้ด PHP';
 $strPmaDocumentation = 'เอกสารการใช้ phpMyAdmin';
 $strPmaUriError = '<b>ต้อง</b>กำหนดค่า <tt>$cfg[\'PmaAbsoluteUri\']</tt> ในไฟล์คอนฟิกูเรชั่นเสียก่อน';
@@ -381,6 +391,7 @@ $strPrivDescProcess3 = 'อนุญาตให้ทำลายโพรเซสของผู้ใช้อื่น';
 $strPrivDescProcess4 = 'อนุญาตให้ดูคำค้นทั้งหมดในรายการโพรเซส';
 $strPrivDescReferences = 'ไม่มีผลใน MySQL รุ่นนี้';
 $strPrivDescReload = 'อนุญาตให้เรียกใช้ค่ากำหนดของเซิร์ฟเวอร์ใหม่ และล้างแคชของเซิร์ฟเวอร์';
+$strPrivDescReplClient = 'มอบสิทธิให้ผู้ใช้ ในการถามว่า slaves หรือ masters อยู่ที่ไหน.';
 $strPrivDescSelect = 'อนุญาตให้อ่่านข้อมูลได้.';
 $strPrivDescShowDb = 'สามารถเรียกดูรายการฐานข้อมูลทั้งหมดได้';
 $strPrivDescShutdown = 'อนุญาตให้ปิดเซิร์ฟเวอร์ได้';
@@ -423,6 +434,8 @@ $strReplaceTable = 'เขียนทับด้วยข้อมูลจากไฟล์';
 $strReset = 'เริ่มใหม่';
 $strResourceLimits = 'ขีดจำกัดของทรัพยากร';
 $strRevoke = 'เพิกถอน';
+$strRevokeAndDelete = 'เพิกถอน active privileges ทั้งหมดจากผู้ใช้ และลบผู้ใช้ทิ้งหลังจากนั้น.';
+$strRevokeAndDeleteDescr = 'ผู้ใช้ต่างๆ ยังคงมีสิทธิ USAGE จนกว่า ข้อมูลสิทธิ จะถูกเรียกใช้ใหม่อีกที.';
 $strRevokeGrant = 'เพิกถอนการอนุญาต';
 $strRevokeGrantMessage = 'คุณได้เพิกถอนการอนุญาตของ %s';
 $strRevokeMessage = 'คุณได้เพิกถอนสิทธิของ %s';
@@ -475,7 +488,7 @@ $strServerStatus = 'ข้อมูลรันไทม์';
 $strServerStatusUptime = 'เซิร์ฟเวอร์ MySQL นี้รันมาเป็นเวลา %s. เริ่มตอน %s.';
 $strServerTabProcesslist = 'โพรเซส';
 $strServerTabVariables = 'ตัวแปร';
-$strServerTrafficNotes = '<b>การจราจรของเซิร์ฟเวอร์</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
+$strServerTrafficNotes = '<b>การจราจรของเซิร์ฟเวอร์</b>: ตารางนี้แสดงสถิติของการจราจรบนเครือข่าย สำหรับเซิร์ฟเวอร์ MySQL นี้ ตั้งแต่มันเริ่มทำงาน.';
 $strServerVars = 'ตัวแปร และค่ากำหนด ของเซิร์ฟเวอร์';
 $strServerVersion = 'รุ่นของเซิร์ฟเวอร์';
 $strSessionValue = 'ค่าเซสชั่น';
@@ -485,6 +498,7 @@ $strShowAll = 'แสดงทั้งหมด';
 $strShowColor = 'แสดงสี';
 $strShowCols = 'แสดงคอลัมน์';
 $strShowDatadictAs = 'รูปแบบพจนานุกรมข้อมูล';
+$strShowFullQueries = 'แสดงคำค้นแบบเต็ม';
 $strShowGrid = 'แสดงกริด';
 $strShowPHPInfo = 'แสดงข้อมูลของ PHP';
 $strShowTableDimension = 'แสดงมิติของตาราง';
@@ -496,6 +510,9 @@ $strSize = 'ขนาด';
 $strSort = 'เรียง';
 $strSpaceUsage = 'เนื้อที่ที่ใช้';
 $strSplitWordsWithSpace = 'คำถูกแบ่งด้วยช่องว่าง (" ").';
+$strStatCheckTime = 'ตรวจสอบครั้งสุดท้ายเมื่อ';
+$strStatCreateTime = 'สร้างเมื่อ';
+$strStatUpdateTime = 'ปรับปรุงครั้งสุดท้ายเมื่อ';
 $strStatement = 'คำสั่ง';
 $strStatus = 'สถานะ';
 $strStrucCSV = 'ข้อมูล CSV (คั่นด้วยเครื่องหมายลูกน้ำ ",")';
@@ -508,6 +525,7 @@ $strStructure = 'โครงสร้าง';
 $strSubmit = 'ส่ง';
 $strSuccess = 'ทำคำค้นเสร็จเรียบร้อยแล้ว';
 $strSum = 'ผลรวม';
+$strSwitchToTable = 'สลับไปที่ตารางที่ถูกทำสำเนาไว้';
 
 $strTable = 'ตาราง ';
 $strTableComments = 'หมายเหตุของตาราง';
@@ -532,11 +550,17 @@ $strTime = 'เวลา';
 $strTotal = 'ทั้งหมด';
 $strTotalUC = 'รวม';
 $strTraffic = 'การจราจร';
+$strTransformation_image_jpeg__inline = 'แสดงรูปขนาดเล็กที่กดเข้าไปดูภาพใหญ่ได้; ตัวเลือก: ความกว้าง, ความสูง หน่วยเป็นพิกเซล (คงสัดส่วนเดิม)';
+$strTransformation_image_jpeg__link = 'แสดงลิงก์ไปยังรูป (ดาวน์โหลดข้อมูลไบนารีโดยตรง/blob).';
+$strTransformation_image_png__inline = 'ดูรูปชนิด image/jpeg ทันที';
+$strTransformation_text_plain__unformatted = 'แสดงโค้ด HTML เป็น HTML entities. การจัดรูปแบบแบบ HTML จะไม่ถูกแสดง';
+$strTruncateQueries = 'ตัดทอนคำค้นที่แสดง';
 $strType = 'ชนิด';
 
 $strUncheckAll = 'ไม่เลือกเลย';
 $strUnique = 'เอกลักษณ์';
 $strUnselectAll = 'ไม่เลือกเลย';
+$strUpdComTab = 'โปรดอ่านเอกสารเกี่ยวกับ วิธีการปรับปรุงตาราง Column_comments (เก็บหมายเหตุของคอลัมน์) ของคุณ';
 $strUpdatePrivMessage = 'คุณได้ปรับปรุงสิทธิสำหรับ %s แล้ว';
 $strUpdateProfile = 'ปรับปรุงโพรไฟล์:';
 $strUpdateProfileMessage = 'ปรับปรุงโพรไฟล์เรียบร้อยแล้ว';
@@ -577,12 +601,8 @@ $strYes = 'ใช่';
 
 $strZeroRemovesTheLimit = 'โปรดทราบ: ถ้าเปลี่ยนค่าเหล่านี้เป็น 0 (ศูนย์) จะหมายถึง ไม่มีขีดจำกัด.';
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
-$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strAutomaticLayout = 'Automatic layout';  //to translate
 
 $strChangeCopyModeDeleteAndReload = ' ... delete the old one from the user tables and reload the privileges afterwards.';  //to translate
 $strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one and delete it afterwards.';  //to translate
@@ -593,12 +613,7 @@ $strDefaultValueHelp = 'For default values, please enter just a single value, wi
 $strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
 $strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
 
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
-$strFileNameTemplateRemember = 'remember template';//to translate 
 $strFlushPrivilegesNote = 'โปรดทราบ: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
-
-$strInnodbStat = 'InnoDB Status';  //to translate
 
 $strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
 
@@ -608,35 +623,18 @@ $strMIME_transformation_options = 'Transformation options';//to translate
 $strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
 $strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
 
-$strPerMinute = 'per minute';//to translate
-$strPerSecond = 'per second';//to translate
-$strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
 $strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
 $strPrivDescSuper = 'อนุญาตให้เชื่อมต่อ, แม้ว่าจำนวนการเชื่อมต่อจะถึงระดับสูงสุดแล้ว; Required for most administrative operations like setting global variables or killing threads of other users.'; //to translate
 
 $strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nCurrent variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nOpener location: %s\nFrameset location: %s.';//to translate
 
-$strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
-$strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
-
-$strStatCheckTime = 'Last check';//to translate
-$strStatCreateTime = 'Creation';//to translate
-$strStatUpdateTime = 'Last update';//to translate
-
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
 $strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
-$strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
+$strTransformation_text_plain__external = 'สำหรับ ลีนุกซ์ เท่านั้น: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
-$strTransformation_text_plain__unformatted = 'แสดงโค้ด HTML เป็น HTML entities. No HTML formatting is shown.';//to translate
-
-$strAutodetect = 'Autodetect';  //to translate
 $strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
 $strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
+$strTransformation_text_plain__substr = 'แสดงข้อความบางส่วนเท่านั้น. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
+
 $strUseHostTable = 'Use Host Table';  //to translate
-$strShowFullQueries = 'Show Full Queries';  //to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
-$strSwitchToTable = 'Switch to copied table';  //to translate
+
 ?>
