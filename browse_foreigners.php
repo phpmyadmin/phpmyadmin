@@ -85,7 +85,7 @@ if (isset($pk)) {
 <input type="hidden" name="pk" value="<?php echo $pk; ?>" />
 <?php
 } else {
-    $pk_uri = '';
+    $pk_uri = '&amp;';
 }
 ?>
 
