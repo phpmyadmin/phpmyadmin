@@ -458,7 +458,12 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     if ($result != FALSE) {
         $fields_cnt     = PMA_DBI_num_fields($result);
 
+        // Get field information
         $fields_meta    = PMA_DBI_get_fields_meta($result);
+        $field_flags    = array();
+        for ($j = 0; $j < $fields_cnt; $j++) {
+            $field_flags[$j] = PMA_DBI_field_flags($result, $j);
+        }
 
         for ($j = 0; $j < $fields_cnt; $j++) {
             if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
@@ -488,12 +493,13 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             } else {
                 $insert_delayed = '';
             }
-            
+        
+            // insert ignore?
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'insert' && isset($GLOBALS['sql_ignore'])) {
                 $insert_delayed .= ' IGNORE';
             }
 
-            // Sets the scheme
+            // scheme for inserting fields
             if (isset($GLOBALS['showcolumns'])) {
                 $fields        = implode(', ', $field_set);
                 $schema_insert = $sql_command . $insert_delayed .' INTO ' . PMA_backquote($table, $use_backquotes)
@@ -512,25 +518,21 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
         while ($row = PMA_DBI_fetch_row($result)) {
             $current_row++;
             for ($j = 0; $j < $fields_cnt; $j++) {
-                $field_flags = PMA_DBI_field_flags($result, $j);
+                // NULL
                 if (!isset($row[$j]) || is_null($row[$j])) {
                     $values[]     = 'NULL';
-                } else if ($row[$j] == '0' || $row[$j] != '') {
-                    // a number
-                    if ($fields_meta[$j]->numeric) {
-                        $values[] = $row[$j];
-                    // a blob
-                    } else if ($fields_meta[$j]->blob 
-                            // hexify only if this is a true not empty BLOB
-                            && stristr($field_flags, 'BINARY')
-                            && !empty($row[$j])) {
-                        $values[] = '0x' . bin2hex($row[$j]);
-                    // a string
-                    } else {
-                        $values[] = '\'' . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . '\'';
-                    }
-                } else {
+                // a number
+                } elseif ($fields_meta[$j]->numeric) {
+                    $values[] = $row[$j];
+                // empty string
+                } elseif (empty($row[$j])) {
                     $values[]     = '\'\'';
+                // a binary field
+                } else if (stristr($field_flags[$j], 'BINARY')) {
+                    $values[] = '0x' . bin2hex($row[$j]);
+                // something else -> treat as a string
+                } else {
+                    $values[] = '\'' . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . '\'';
                 } // end if
             } // end for
 
