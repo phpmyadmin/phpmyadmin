@@ -210,6 +210,13 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
             @set_time_limit($GLOBALS['cfgExecTimeLimit']);
 
+            // loic1: send a fake header to bypass browser timeout if data
+            //        are bufferized - part 1
+            if (!empty($GLOBALS['ob_mode'])
+                || (isset($GLOBALS['zip']) || isset($GLOBALS['bzip']) || isset($GLOBALS['gzip']))) {
+                $time0    = time();
+            }
+
             while ($row = mysql_fetch_row($result)) {
                 $current_row++;
                 for ($j = 0; $j < $fields_cnt; $j++) {
@@ -247,11 +254,14 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 $handler($insert_line);
 
                 // loic1: send a fake header to bypass browser timeout if data
-                //        are bufferized
-                if (!empty($GLOBALS['ob_mode'])
-                    || (isset($GLOBALS['zip']) || isset($GLOBALS['bzip']) || isset($GLOBALS['gzip']))) {
-                    header('Expires: 0');
-                }
+                //        are bufferized - part 2
+                if (isset($time0)) {
+                    $time1 = time();
+                    if ($time1 >= $time0 + 30) {
+                        $time0 = $time1;
+                        header('X-pmaPing: Pong');
+                    }
+                } // end if
             } // end while
         } // end if ($result != FALSE)
         mysql_free_result($result);
@@ -300,6 +310,13 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $rows_cnt     = mysql_num_rows($result);
 
         @set_time_limit($GLOBALS['cfgExecTimeLimit']); // HaRa
+
+        // loic1: send a fake header to bypass browser timeout if data
+        //        are bufferized - part 1
+        if (!empty($GLOBALS['ob_mode'])
+            || (isset($GLOBALS['zip']) || isset($GLOBALS['bzip']) || isset($GLOBALS['gzip']))) {
+            $time0    = time();
+        }
 
         while ($row = mysql_fetch_row($result)) {
             $current_row++;
@@ -360,12 +377,15 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $schema_insert .= ')';
             $handler(trim($schema_insert));
 
-            // loic1: send a fake header to bypass browser timeout if data are
-            //        bufferized
-            if (!empty($GLOBALS['ob_mode'])
-                && (isset($GLOBALS['zip']) || isset($GLOBALS['bzip']) || isset($GLOBALS['gzip']))) {
-                header('Expires: 0');
-            }
+            // loic1: send a fake header to bypass browser timeout if data
+            //        are bufferized - part 2
+            if (isset($time0)) {
+                $time1 = time();
+                if ($time1 >= $time0 + 30) {
+                    $time0 = $time1;
+                    header('X-pmaPing: Pong');
+                }
+            } // end if
         } // end while
         mysql_free_result($result);
 

@@ -5,11 +5,16 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-17 Loïc Chapeaux  <lolo@phpheaven.net>
+	* read_dump.php3; libraries/build_dump.lib.php3: tried a fix for
+	  bug #508746 - PMA_splitSqlFile() crashes server. Thanks to
+	  Matthias Fichtner (mfichtner) for the suggestions he did.
+
 2002-02-16 Marc Delisle  <lem9@users.sourceforge.net>
 	* db_details.php3, no links if no data, 
 	  thanks to Alexander M. Turek (rabus)
 
-2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
+2002-02-15 Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html: line sizes.
 	* sql.php3: optimized a bit.
 	* libraries/select_lang.php3: sorted the languages array.

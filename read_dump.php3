@@ -23,6 +23,7 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
     $char         = '';
     $string_start = '';
     $in_string    = FALSE;
+    $time0        = time();
 
     for ($i = 0; $i < $sql_len; ++$i) {
         $char = $sql[$i];
@@ -120,8 +121,12 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
             $sql[$i] = ' ';
         } // end else if
 
-        // loic1: send a fake header to bypass browser timeout
-        header('Expires: 0');
+        // loic1: send a fake header each 30 sec. to bypass browser timeout
+        $time1     = time();
+        if ($time1 >= $time0 + 30) {
+            $time0 = $time1;
+            header('X-pmaPing: Pong');
+        } // end if
     } // end for
 
     // add any rest to the returned array
