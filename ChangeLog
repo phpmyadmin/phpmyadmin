@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-14 Michal Čihař  <michal@cihar.com>
+    * libraries/auth/cookie.auth.lib.php: Show login form in top frame.
+
 2004-05-16 Alexander M. Turek  <me@derrabus.de>
     * db_details.php, db_details_structure.php, sql.php, tbl_indexes.php,
       tbl_properties_structure.php, tbl_query_box.php,

@@ -201,6 +201,14 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 .warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
 //-->
 </style>
+<script language="javascript" type="text/javascript">
+<!--
+// show login form in top frame
+if (top != self) {
+    window.top.location.href=location;
+}
+//-->
+</script>
 </head>
 
 <body bgcolor="<?php echo $cfg['RightBgColor']; ?>">
