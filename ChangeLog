@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-06  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug #438749 Database lockout: main.php3, we now show "Create
+	  database" if user has Create priv on an inexistant db
+
 2001-07-06  Olivier Müller  <om@omnis.ch>   [uid23515]
 	* releasing 2.2.0rc1 and cleaned up old cvs tree
 

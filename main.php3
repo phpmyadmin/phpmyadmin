@@ -4,7 +4,7 @@
 
 
 /**
- * Gets some core libraries and diplays a top message if required
+ * Gets some core libraries and displays a top message if required
  * TODO: The included script aren't yet xhtml1.0 compliant
  */
 require('./grab_globals.inc.php3');
@@ -126,10 +126,28 @@ if ($server > 0
         } else {
             $dbh    = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']);
         }
+	// Does user have global Create priv?
         $rs_usr     = mysql_query('select * from mysql.user where User="' . $cfgServer['user'] . '"', $dbh);
         $result_usr = mysql_fetch_array($rs_usr);
         $create     = ($result_usr['Create_priv'] == 'Y');
+	$db_to_create = "";
 
+	// Does user have Create priv on a inexistant db?
+	// if yes, show him in the dialog the first inexistant db name
+	// that we find, in most cases it's probably the one he just dropped :)
+	// (Note: we only get here after a browser reload, I don't know why)
+
+	if (!$create) {
+		$rs_usr	    = mysql_query('select Db from mysql.db where User="'
+			 . $cfgServer['user'] . '"', $dbh); 
+		while ($row = mysql_fetch_array($rs_usr)) {
+	   		if (!mysql_select_db($row['Db'])) {
+			   $db_to_create = $row['Db'];
+			   $create=true;
+			   break;
+	   		}
+		}
+	}
         // The user is allowed the create a db
         if ($create) {
             echo "\n";
@@ -141,7 +159,7 @@ if ($server > 0
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="reload" value="true" />
-            <input type="text" name="db" />
+            <input type="text" name="db" value="<?php echo $db_to_create; ?>"/>
             <input type="submit" value="<?php echo $strCreate; ?>" />
         </form>
     </li>
@@ -213,7 +231,7 @@ if ($server > 0
 	<!-- db creation form -->
     <li>
         <form method="post" action="db_create.php3">
-            <?php echo $strCreateNewDatabase . '&nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
+            <?php echo $strCreateNewDatabase . ' &nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="reload" value="true" />
