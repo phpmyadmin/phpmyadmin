@@ -6,7 +6,9 @@ $Id$
 $Source$
 
 2002-07-25 Loïc Chapeaux  <lolo@phpheaven.net>
-    * libraries/sqlparser.lib.php3: PHP3 parse errors fixed,
+    * libraries/sqlparser.lib.php3: PHP3 parse errors fixed.
+    * header.inc.php3, lines 155-156: better "fix" against bug
+      #585094 (Runtime Error on Line 62).
 
 2002-07-24 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3:
