@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * scripts/create-release.sh: typo, bzip should be bzip2
+
 2003-06-25 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: Fixed XSS problem.
     * tbl_properties.inc.php3, libraries/functions.js: Alert user when not

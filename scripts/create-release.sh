@@ -110,7 +110,7 @@ mv phpMyAdmin phpMyAdmin-$1
 # Roll up '.php3' release
 zip -9 -r phpMyAdmin-$1-php3.zip phpMyAdmin-$1
 tar cvf phpMyAdmin-$1-php3.tar phpMyAdmin-$1
-bzip -9kv phpMyAdmin-$1-php3.tar
+bzip2 -9kv phpMyAdmin-$1-php3.tar
 gzip -9v phpMyAdmin-$1-php3.tar
 
 # Setup for '.php' release
@@ -120,7 +120,7 @@ cd ..
 # Roll up '.php' release
 zip -9 -r phpMyAdmin-$1-php.zip phpMyAdmin-$1
 tar cvf phpMyAdmin-$1-php.tar phpMyAdmin-$1
-bzip -9kv phpMyAdmin-$1-php.tar
+bzip2 -9kv phpMyAdmin-$1-php.tar
 gzip -9v phpMyAdmin-$1-php.tar
 
 echo ""
