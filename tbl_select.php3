@@ -59,7 +59,7 @@ if (!isset($param) || $param[0] == '') {
         <li>
             <div style="margin-bottom: 10px">
             <?php echo $strLimitNumRows . "\n"; ?>
-            <input type="text" size="4" name="sessionMaxRows" value="<?php echo $cfgMaxRows; ?>" />
+            <input type="text" size="4" name="session_max_rows" value="<?php echo $cfgMaxRows; ?>" />
             </div>
         </li>
         <li>
@@ -190,7 +190,7 @@ else {
                . '&table=' . urlencode($table)
                . '&sql_query=' . urlencode($sql_query)  
                . '&pos=0'
-               . '&sessionMaxRows=' . $sessionMaxRows
+               . '&session_max_rows=' . $session_max_rows
                . '&goto='. $goto;
     header('Location: ' . $cfgPmaAbsoluteUri . 'sql.php3?' . $url_query);
 }

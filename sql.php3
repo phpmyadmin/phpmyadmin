@@ -161,10 +161,10 @@ else {
         $reload           = 1;
     }
     // Gets the number of rows per page
-    if (!isset($sessionMaxRows)){
-        $sessionMaxRows   = $cfgMaxRows;
-    } else if ($sessionMaxRows != 'all') {
-        $cfgMaxRows       = $sessionMaxRows;
+    if (!isset($session_max_rows)){
+        $session_max_rows = $cfgMaxRows;
+    } else if ($session_max_rows != 'all') {
+        $cfgMaxRows       = $session_max_rows;
     }
 
     $is_explain = $is_select = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
@@ -190,7 +190,7 @@ else {
 
     // Do append a "LIMIT" clause?
     if (isset($pos)
-        && (!$cfgShowAll || $sessionMaxRows != 'all')
+        && (!$cfgShowAll || $session_max_rows != 'all')
         && ($is_select && !($is_count || $is_export) && eregi(' FROM ', $sql_query))
         && !eregi(' LIMIT[ 0-9,]+$', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";

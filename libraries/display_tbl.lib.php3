@@ -192,7 +192,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     {
         global $lang, $server, $db, $table;
         global $goto;
-        global $num_rows, $unlim_num_rows, $pos, $sessionMaxRows;
+        global $num_rows, $unlim_num_rows, $pos, $session_max_rows;
         global $dontlimitchars;
         ?>
 
@@ -201,7 +201,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
 <tr>
         <?php
         // Move to the beginning or to the previous page
-        if ($pos > 0 && $sessionMaxRows != 'all') {
+        if ($pos > 0 && $session_max_rows != 'all') {
             // loic1: patch #474210 from Gosha Sakovich - part 1
             if ($GLOBALS['cfgNavigationBarIconic']) {
                 $caption1 = '&lt;&lt;';
@@ -223,7 +223,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="pos" value="0" />
-            <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
+            <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $caption1; ?>"<?php echo $title1; ?> />
@@ -237,7 +237,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="pos" value="<?php echo $pos_prev; ?>" />
-            <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
+            <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $caption2; ?>"<?php echo $title2; ?> />
@@ -252,7 +252,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     </td>
     <td>
         <form action="sql.php3" method="post"
-            onsubmit="return (checkFormElementInRange(this, 'sessionMaxRows', 1) && checkFormElementInRange(this, 'pos', 0, <?php echo $unlim_num_rows - 1; ?>))">
+            onsubmit="return (checkFormElementInRange(this, 'session_max_rows', 1) && checkFormElementInRange(this, 'pos', 0, <?php echo $unlim_num_rows - 1; ?>))">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -261,7 +261,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $GLOBALS['strShow']; ?>&nbsp;:" />
-            <input type="text" name="sessionMaxRows" size="3" value="<?php echo (($sessionMaxRows != 'all') ? $sessionMaxRows : $GLOBALS['cfgMaxRows']); ?>" />
+            <input type="text" name="session_max_rows" size="3" value="<?php echo (($session_max_rows != 'all') ? $session_max_rows : $GLOBALS['cfgMaxRows']); ?>" />
             <?php echo $GLOBALS['strRowsFrom'] . "\n"; ?>
             <input type="text" name="pos" size="3" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" />
         </form>
@@ -271,8 +271,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     </td>
         <?php
         // Move to the next page or to the last one
-        if (($pos + $sessionMaxRows < $unlim_num_rows) && $num_rows >= $sessionMaxRows
-            && $sessionMaxRows != 'all') {
+        if (($pos + $session_max_rows < $unlim_num_rows) && $num_rows >= $session_max_rows
+            && $session_max_rows != 'all') {
             // loic1: patch #474210 from Gosha Sakovich - part 2
             if ($GLOBALS['cfgNavigationBarIconic']) {
                 $caption3 = '&nbsp;&gt;&nbsp;';
@@ -295,7 +295,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="pos" value="<?php echo $pos_next; ?>" />
-            <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
+            <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $caption3; ?>"<?php echo $title3; ?> />
@@ -303,14 +303,14 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     </td>
     <td>
         <form action="sql.php3" method="post"
-            onsubmit="return <?php echo (($pos + $sessionMaxRows < $unlim_num_rows && $num_rows >= $sessionMaxRows) ? 'true' : 'false'); ?>">
+            onsubmit="return <?php echo (($pos + $session_max_rows < $unlim_num_rows && $num_rows >= $session_max_rows) ? 'true' : 'false'); ?>">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
-            <input type="hidden" name="pos" value="<?php echo $unlim_num_rows - $sessionMaxRows; ?>" />
-            <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
+            <input type="hidden" name="pos" value="<?php echo $unlim_num_rows - $session_max_rows; ?>" />
+            <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $caption4; ?>"<?php echo $title4; ?> />
@@ -334,7 +334,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="pos" value="0" />
-            <input type="hidden" name="sessionMaxRows" value="all" />
+            <input type="hidden" name="session_max_rows" value="all" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $GLOBALS['strShowAll']; ?>" />
@@ -382,7 +382,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     {
         global $lang, $server, $db, $table;
         global $goto;
-        global $sql_query, $num_rows, $pos, $sessionMaxRows;
+        global $sql_query, $num_rows, $pos, $session_max_rows;
         global $dontlimitchars;
 
         ?>
@@ -402,7 +402,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                   . '&amp;table=' . urlencode($table)
                   . '&amp;sql_query=' . $encoded_query
                   . '&amp;pos=' . $pos
-                  . '&amp;sessionMaxRows=' . $sessionMaxRows
+                  . '&amp;session_max_rows=' . $session_max_rows
                   . '&amp;pos=' . $pos
                   . '&amp;goto=' . $goto
                   . '&amp;dontlimitchars=' . (($dontlimitchars) ? 0 : 1);
@@ -514,7 +514,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                            . '&amp;db=' . urlencode($db)
                            . '&amp;table=' . urlencode($table)
                            . '&amp;pos=' . $pos
-                           . '&amp;sessionMaxRows=' . $sessionMaxRows
+                           . '&amp;session_max_rows=' . $session_max_rows
                            . '&amp;dontlimitchars' . $dontlimitchars
                            . '&amp;sql_query=' . urlencode($sorted_sql_query);
                 // 2.1.5 Displays the sorting url
@@ -901,7 +901,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             if (!isset($pos)) {
                 $pos          = 0;
             }
-            if ($GLOBALS['sessionMaxRows'] == 'all') {
+            if ($GLOBALS['session_max_rows'] == 'all') {
                 $pos_next     = 0;
                 $pos_prev     = 0;
             } else {
@@ -931,7 +931,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             } else {
                 $selectstring = '';
             }
-            $last_shown_rec = ($GLOBALS['sessionMaxRows'] == 'all' || $pos_next > $total)
+            $last_shown_rec = ($GLOBALS['session_max_rows'] == 'all' || $pos_next > $total)
                             ? $total
                             : $pos_next;
             show_message($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec ($total " . $GLOBALS['strTotal'] . $selectstring . ')');
