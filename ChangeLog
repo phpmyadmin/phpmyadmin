@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-14 Garvin Hicking <me@supergarv.de>
+    * lang/german*: Translations.
+
 2003-05-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 736793, new reserved
       word 'DIV' in MySQL 4.1.0 (note: it is classified as a function but
