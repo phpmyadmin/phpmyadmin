@@ -14,6 +14,8 @@ $Source$
           value.
         - Fix strpos on line 168/169 to work with PHP3
         - Fixed analyze code to remove print_r()
+    * lang/estonian-iso-8859-1.inc.php:
+        - Updated translation (thanks to Alvar Soome)
 
 2002-07-25 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, clarify about mysql extensions

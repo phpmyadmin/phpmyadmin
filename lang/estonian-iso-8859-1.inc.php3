@@ -399,7 +399,8 @@ $strYes = 'Jah';
 
 $strZip = '"zipitud"';
 
+$strRelationNotWorking = 'Lisavõimalused töötamiseks lingitud tabelitega on deaktiveeritud. Et lugeda miks see nii on, vajutage %ssiia%s.';  
+$strAllTableSameWidth = 'kuva kõik tabelid sama laiusega?';  
+
 // To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>
