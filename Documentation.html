@@ -1131,6 +1131,13 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     were named <tt>user</tt> and <tt>password</tt>. Please modify your field
     names to align with current standards.
 </p>
+<p>
+    <b>I cannot upload big dump files.</b>
+    <br />
+    The first thing to check (or ask your host provider to check) is the
+    value of <tt>upload_max_filesize</tt> in php.ini.
+</p>
+
 
 <h3>[Configuration]</h3>
 
