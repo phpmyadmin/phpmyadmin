@@ -561,10 +561,11 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             <?php
         } // end if...elseif...else
 
-        // Upload choice
+        // Upload choice (only for BLOBs because the binary
+        // attribute does not imply binary contents)
         // (displayed whatever value the ProtectBinary has)
 
-        if ($is_upload) {
+        if ($is_upload && $is_blob) {
             echo '<td><input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" id="field_' . $i . '_3" />';
             echo '<input type="checkbox" checked="checked" name="fields_upload_binary_' . urlencode($field) . '" id="field_' .  $i . '_4" />';
             echo '<label for="fields_upload_binary_' . urlencode($field) . '">' . $strBinary . '</label>';
