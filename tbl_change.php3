@@ -31,6 +31,7 @@ else
 {
     $local_query = 'SELECT * FROM ' . backquote($table) . ' LIMIT 1';
     $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    unset($row);
 }
 
 

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-07  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3, bug 459449: $row had old data from header.inc
+
 2001-09-05  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_dump.php3, bug 458074, "transmit not working in IE 5.5": needed
 	  "Content-Disposition: inline".
