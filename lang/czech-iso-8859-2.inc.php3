@@ -434,4 +434,5 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
+$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

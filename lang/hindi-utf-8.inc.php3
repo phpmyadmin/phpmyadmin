@@ -458,4 +458,5 @@ $strWebServerUploadDirectoryError = 'The directory you set for upload work canno
 $strZip = '"zipped"' ;  //to translate
 $strServer = 'Server %s';  //to translate
 $strPutColNames = 'Put fields names at first row';  //to translate
+$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

@@ -438,4 +438,5 @@ $strYes = 'はい';
 
 $strZip = '"zipされる"';
 
+$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

@@ -509,6 +509,10 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
             &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
         </form>
     </li>
+    <!-- import docSQL files -->
+        <li>
+        <div style="margin-bottom: 10px"><a href="db_details_importdocsql.php3?<?php echo $takeaway; ?>"><?php echo $strImportDocSQL;?></a></div>
+    </li>
         <?php
     }   // end if
 } // end if

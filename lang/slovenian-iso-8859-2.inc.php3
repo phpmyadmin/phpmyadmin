@@ -432,4 +432,5 @@ $strYes = 'Da';
 $strZip = '"zipano"';
 // To translate
 
+$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

@@ -438,4 +438,5 @@ $strYes = '‚Í‚¢';
 
 $strZip = '"zip‚³‚ê‚é"';
 
+$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

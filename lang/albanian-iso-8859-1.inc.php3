@@ -435,4 +435,5 @@ $strZip = '"kompresuar me zip"';
 
 // To translate
 
+$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

@@ -427,4 +427,5 @@ $strYes = 'Sí';
 
 $strZip = '"comprimido con zip"';
 
+$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

@@ -433,4 +433,5 @@ $strYes = 'Kyllä';
 
 $strZip = '"zip-pakattu"';
 
+$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>

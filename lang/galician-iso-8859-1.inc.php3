@@ -436,4 +436,5 @@ $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
 $strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
 
+$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>
