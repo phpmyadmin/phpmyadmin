@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 
+2004-11-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: for MySQL 4.1.2+ a non-privileged user can do 
+      a simple SHOW GRANTS to fetch current privileges, so we no longer
+      need the control user for this check
+
 2004-11-01 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Comparsion is == and not = (bug #1054758).
 
