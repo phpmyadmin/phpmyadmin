@@ -169,6 +169,7 @@
          you need to create a set of tables in your database. Please look at your scripts/
          directory, where you should find a file called <i>create_tables.sql</i>.
          (If you are using a Windows server, pay special attention to <a href="#faq1_23">FAQ 1.23</a>).
+         If your MySQL server's version is 4.1.2 or later, please use <i>create_tables_mysql_4_1_2+.sql</i> instead.
          You can already use your phpMyAdmin to create the tables for you. Please be
          aware that you may have to have special (administrator) privileges to create
          the database and tables. After having imported the <i>create_tables.sql</i> file,
@@ -360,22 +361,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Starting with version 2.3.0, you can try to leave this parameter
         empty, because the program tries to auto-detect its proper value.
         Additional details are in the configuration file.
-        <br /><br />
-        Alternatively, this setting can be dynamically completed. For example,
-        you can try to use such a kind of code:
-        <pre>
-$cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
-                       . $_SERVER['HTTP_HOST']
-                       . (!empty($_SERVER['SERVER_PORT']) ? ':' . $_SERVER['SERVER_PORT'] : '')
-                       . substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/')+1);
-
-    or
-
-$cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
-                       . $_SERVER['SERVER_NAME']
-                       . (!empty($_SERVER['SERVER_PORT']) ? ':' . $_SERVER['SERVER_PORT'] : '')
-                       . substr($_SERVER['SCRIPT_NAME'], 0, strrpos($_SERVER['SCRIPT_NAME'], '/')+1);
-        </pre>
         <br /><br />
     </dd>
     <dt><b>$cfg['PmaAbsoluteUri_DisableWarning']</b> boolean</dt>
@@ -626,6 +611,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             <li>
                 create a new database for phpMyAdmin:<br />
                 <tt>&nbsp;&nbsp;CREATE DATABASE phpmyadmin;</tt><br />
+                If using MySQL 4.1.2 or later, use instead:<br />
+                <tt>&nbsp;&nbsp;CREATE DATABASE phpmyadmin DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;</tt><br />
                 Note that &quot;controluser&quot; must have
                 <tt>SELECT, INSERT, UPDATE</tt> and <tt>DELETE</tt>
                 privileges on this database. Here is a query to set up
@@ -856,9 +843,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         or embedded within the header of table in browse view. They can also be shown
         in a table dump. Please see the relevant configuration directives later on.
         <br /><br />
-        Also new in release 2.5.0 is a mime-transformation system which is also based on
+        Also new in release 2.5.0 is a MIME-transformation system which is also based on
         the following table structure. See <a href="#transformations">Transformations</a>
-        for further information. To use the mime-transformation system, your column_info
+        for further information. To use the MIME-transformation system, your column_info
         table has to have the three new fields 'mimetype', 'transformation', 'transformation_options'.
         <br /><br />
         To allow the usage of this functionality the superuser has to:
@@ -2079,7 +2066,7 @@ called 'MIME-type', 'Browser transformation' and 'Transformation options'.</p>
 <ul>
 <li>The field 'MIME-type' is a dropdown field. You have the options to leave that field
 empty or to use 'auto' [this feature is not yet available]. Please note that
-transformations are inactive as long as no mime-type is selected.</li>
+transformations are inactive as long as no MIME-type is selected.</li>
 
 <li>The field 'Browser transformation' is a drop-down field. You can choose from a
 hopefully growing amount of pre-defined transformations. See below for information on
