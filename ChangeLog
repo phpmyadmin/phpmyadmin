@@ -7,6 +7,8 @@ $Source$
 
 2003-04-15 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/sqlparser.data.php3: Added AUTO_INCREMET to reserved words.
+    * tbl_properties_common.php3: Avoid displaying message twice in some cases
+      (fixes bug #722378).
 
 2003-04-15 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_query_box.php3: Only display charset selection when a DB is

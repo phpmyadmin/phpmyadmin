@@ -38,6 +38,7 @@ if (!isset($message)) {
     include('./header.inc.php3');
 } else {
     PMA_showMessage($message);
+    unset($message);
 }
 
 
