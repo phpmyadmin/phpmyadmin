@@ -339,7 +339,7 @@ if (empty($cfgLang)) {
         <!-- Language Selection -->
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
-            <td>
+            <td nowrap="nowrap">
                 <form method="post" action="index.php3" target="_parent">
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     Language:
