@@ -2,7 +2,7 @@
 #
 # Shell script that adds a message to all message files (Lem9)
 #
-# Example:  add_message '$strNewMessage' 'new message contents'
+# Example:  add_message.sh '$strNewMessage' 'new message contents'
 #
 for file in *.inc.php3
 do
