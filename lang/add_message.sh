@@ -14,4 +14,4 @@ do
         mv ${file}.new $file
 done
 echo " "
-echo "This script also added the new message to english.inc.php3"
+echo "Message added to add message files (including english)"
