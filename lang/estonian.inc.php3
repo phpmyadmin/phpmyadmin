@@ -203,7 +203,7 @@ $strNoModification = 'Ei muudetud';
 $strNone = 'Ühtegi';
 $strNoPassword = 'Ühtegi parooli';
 $strNoPrivileges = 'Ühtegi privileegi';
-$strNoQuery = 'Ühtegi SQL päringut!';  //to translate
+$strNoQuery = 'Ühtegi SQL päringut!';
 $strNoRights = 'Teil pole piisavalt õigusi, et hetkel siin olla!';
 $strNoTablesFound = 'Andmebaasist ei leitud tabeleid.';
 $strNotNumber = 'See pole number!';
@@ -346,4 +346,6 @@ $strYes = 'Jah';
 
 $strZip = '"zipitud"';
 
+// To translate
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

@@ -347,4 +347,5 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

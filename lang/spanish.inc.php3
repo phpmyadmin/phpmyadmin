@@ -345,5 +345,5 @@ $strZip = '"comprimido con zip"';
 
 // To translate
 $strFlushTable = 'Flush the table ("FLUSH")';//to translate
-
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

@@ -10,18 +10,8 @@ require('./libraries/common.lib.php3');
 // Puts the language to use in a cookie that will expire in 30 days
 if (!isset($pma_uri_parts)) {
     $pma_uri_parts = parse_url($cfgPmaAbsoluteUri);
-    if (isset($pma_uri_parts['path'])) {
-        $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
-    }
-    else {
-        $cookie_path   = '';
-    }
-    if (isset($pma_uri_parts['scheme'])) {
-        $is_https      = ($pma_uri_parts['scheme'] == 'https') ? 1 : 0;
-    }
-    else {
-        $is_https      = 0;
-    }
+    $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
+    $is_https      = ($pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 }
 setcookie('lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
 // Defines the "item" image depending on text direction

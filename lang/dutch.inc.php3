@@ -310,6 +310,7 @@ $strMySQLServerProcess = 'MySQL %pma_s1% running on %pma_s2% as %pma_s3%';
 $strNoDropDatabases = '"DROP DATABASE" statements zijn niet mogelijk.'; //to translate
 $strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strNoQuery = 'No SQL query!';  //to translate
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 $strPrimaryKeyHasBeenDropped = 'The primary key has been dropped';//to translate
 $strRowsModeHorizontal = 'horizontal';  //to translate
 $strRowsModeOptions = 'in %s mode and repeat headers after %s cells';  //to translate

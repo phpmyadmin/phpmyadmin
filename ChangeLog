@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-16 Loïc Chapeaux  <lolo@phpheaven.net>
+	* header.inc.php3, line 76; main.php3, lines 13-24; lang/*;
+	  libraries/common.lib.php3, lines 146-150 & 367-387: the
+	  "$cfgPmaAbsoluteUri" is now required.
+
 2002-03-14 Steve Alberty  <alberty@neptunelabs.de>
 	* main.php3: fix warning with undefined $cfgPmaAbsoluteUri
 

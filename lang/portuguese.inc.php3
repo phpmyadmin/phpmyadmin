@@ -346,5 +346,6 @@ $strBzip = '"bzipped"';  //to translate
 $strChangePassword = 'Change password';
 $strGzip = '"gzipped"';  //to translate
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 $strZip = '"zipped"';  //to translate
 ?>

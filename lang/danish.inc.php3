@@ -341,10 +341,11 @@ $strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)';
 $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
 $strChangePassword = 'Change password';
 $strCreateIndex = 'Create an index on&nbsp;%s&nbsp;columns';
+$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 $strNoIndexPartsDefined = 'No index parts defined!';
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
 $strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';  //to translate
 $strUnselectAll = 'Unselect All';  //to translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

@@ -308,6 +308,7 @@ $strNoModification = 'No change';
 $strNoQuery = 'No SQL query!';  //to translate
 $strPartialText = 'Partial Texts';//to translate
 $strPmaDocumentation = 'phpMyAdmin Documentation';//to translate
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 $strPrimaryKeyHasBeenDropped = 'The primary key has been dropped';//to translate
 $strQueryOnDb = 'SQL-query on database <b>%s</b>:';
 $strRowSize = ' Row size ';  //to translate

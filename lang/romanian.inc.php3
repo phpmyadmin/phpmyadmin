@@ -348,4 +348,5 @@ $strZip = '"zipped"';
 
 // To translate
 $strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

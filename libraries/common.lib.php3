@@ -143,12 +143,6 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         $cfgLeftFrameLight      = TRUE;
     }
 
-    // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
-    // exist
-    if ($cfgPmaAbsoluteUri != '' && substr($cfgPmaAbsoluteUri, -1) != '/') {
-        $cfgPmaAbsoluteUri .= '/';
-    }
-
     // Gets some constants
     include('./libraries/defines.lib.php3');
 
@@ -368,6 +362,26 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
         return true;
     } // end of the 'PMA_setFontSizes()' function
+
+
+    /**
+     * $cfgPmaAbsoluteUri is a required directive else cookies won't be set
+     * properly and, depending on browsers, inserting or updating a record
+     * record might fail
+     */
+    if (empty($cfgPmaAbsoluteUri)) {
+        if (empty($GLOBALS['is_header_sent'])) {
+            include('./header.inc.php3');
+        }
+        echo '<p class="warning">'. $strPmaUriError . '</p>' . "\n";
+        include('./footer.inc.php3');
+        exit();
+    }
+    // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
+    // exist
+    else if (substr($cfgPmaAbsoluteUri, -1) != '/') {
+        $cfgPmaAbsoluteUri .= '/';
+    }
 
 
     /**

@@ -351,4 +351,5 @@ $strCardinality = 'Cardinality';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 ?>

@@ -345,6 +345,7 @@ $strCookiesRequired = 'Cookies must be enabled past this point.';
 $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
+$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
 $strRowsModeVertical = 'vertical';  //to translate
 $strRowsModeHorizontal = 'horizontal';  //to translate
 $strRowsModeOptions = ' in %s mode and repeat headers after %s cells';  //to translate

@@ -224,6 +224,7 @@ $strPasswordEmpty = 'Le mot de passe est vide';
 $strPasswordNotSame = 'Les mots de passe doivent être identiques';
 $strPHPVersion = 'Version de PHP';
 $strPmaDocumentation = 'Documentation de phpMyAdmin';
+$strPmaUriError = 'Le paramètre <tt>$cfgPmaAbsoluteUri</tt> DOIT être renseigné dans votre fichier de configuration !';
 $strPos1 = 'Début';
 $strPrevious = 'Précédent';
 $strPrimary = 'Primaire';
