@@ -433,4 +433,5 @@ $strSQLParserBugMessage = 'There is a chance that you may have found a bug in th
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
 $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
 
+$strServer = 'Server %s';  //to translate
 ?>

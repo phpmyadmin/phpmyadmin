@@ -431,4 +431,5 @@ $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
 
+$strServer = 'Server %s';  //to translate
 ?>

@@ -456,4 +456,5 @@ $strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 
 $strZip = '"zipped"' ;  //to translate
+$strServer = 'Server %s';  //to translate
 ?>

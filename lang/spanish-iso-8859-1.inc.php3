@@ -428,4 +428,5 @@ $strValidatorError = 'The SQL validator could not be initialized. Please check i
 $strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 
+$strServer = 'Server %s';  //to translate
 ?>

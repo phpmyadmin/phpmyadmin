@@ -436,4 +436,5 @@ $strXkana = '全角カナへ変換する'; // convert to X208-kana
 $strYes = 'はい';
 
 $strZip = '"zipされる"';
+$strServer = 'Server %s';  //to translate
 ?>

@@ -428,4 +428,5 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 // To translate
 
+$strServer = 'Server %s';  //to translate
 ?>

@@ -427,4 +427,5 @@ $strYes = 'Jah';
 $strZip = '"zipitud"';
 // To translate
 
+$strServer = 'Server %s';  //to translate
 ?>

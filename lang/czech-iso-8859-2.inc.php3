@@ -432,4 +432,5 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
+$strServer = 'Server %s';  //to translate
 ?>

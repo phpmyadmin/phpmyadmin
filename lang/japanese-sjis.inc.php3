@@ -435,4 +435,5 @@ $strXkana = '‘SŠpƒJƒi‚Ö•ÏŠ·‚·‚é'; // convert to X208-kana
 $strYes = '‚Í‚¢';
 
 $strZip = '"zip‚³‚ê‚é"';
+$strServer = 'Server %s';  //to translate
 ?>

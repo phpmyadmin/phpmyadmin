@@ -53,8 +53,14 @@ echo "\n";
 // loic1: modified in order to have a valid words order whatever is the
 //        language used
 if ($server > 0) {
-    $server_info     = $cfg['Server']['host']
-                     . (empty($cfg['Server']['port']) ? '' : ':' . $cfg['Server']['port']);
+    // robbat2: Use the verbose name of the server instead of the hostname
+    //          if a value is set
+    if(!empty($cfg['Server']['verbose'])) {
+        $server_info = $cfg['Server']['verbose'];
+    } else {
+        $server_info = $cfg['Server']['host'];
+    }
+    $server_info            .= (empty($cfg['Server']['port']) ? '' : ':' . $cfg['Server']['port']);
     // loic1: skip this because it's not a so good idea to display sockets
     //        used to everybody
     // if (!empty($cfg['Server']['socket']) && PMA_PHP_INT_VERSION >= 30010) {
@@ -112,7 +118,7 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
                 echo ' selected="selected"';
             }
             echo '>';
-            if ($val['verbose'] != '') {
+            if (!empty($val['verbose'])) {
                 echo $val['verbose'];
             } else {
                 echo $val['host'];
