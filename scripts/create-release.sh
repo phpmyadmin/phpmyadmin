@@ -44,6 +44,9 @@ Please ensure you have:
      - in translators.html
   2. built the new "Documentation.txt" version using:
        lynx --nolist --dump Documentation.html > Documentation.txt 
+  3. synchronized the language files:
+       cd lang
+       ./sync_lang.sh
 
 Continue (y/n)?
 END
