@@ -362,7 +362,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             <?php //<form> for keep the form alignment of button < and << ?>
 <form>
             <?php echo $GLOBALS['strPageNumber']; ?>
-<SELECT NAME="goToPage" onChange="goToUrl(this, '<?php echo "sql.php3?sql_query=".$encoded_query."&amp;session_max_rows=".$session_max_rows."&amp;disp_direction=".$disp_direction."&amp;repeat_cells=".$repeat_cells."&amp;goto=".$goto."&amp;dontlimitchars=".$dontlimitchars."&amp;".PMA_generate_common_url($db, $table)."&amp;"; ?>')">
+<select name="goToPage" onChange="goToUrl(this, '<?php echo "sql.php3?sql_query=".$encoded_query."&amp;session_max_rows=".$session_max_rows."&amp;disp_direction=".$disp_direction."&amp;repeat_cells=".$repeat_cells."&amp;goto=".$goto."&amp;dontlimitchars=".$dontlimitchars."&amp;".PMA_generate_common_url($db, $table)."&amp;"; ?>')">
 
            <?php
             for ($i=1; $i<=$nbTotalPage; $i++){
@@ -375,7 +375,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             }
            ?>
 		
-         </SELECT>
+         </select>
             </form>
         </td>
             <?php
