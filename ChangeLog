@@ -9,7 +9,10 @@ $Source$
 	* left.php3:
 	  - improved the js object detection system;
 	  - fixed some bugs with the patch from Korakot.
-	* Documentation.html, lines 469-475: added the $cfgShowTooltip entry.
+	* Documentation.html:
+	  - lines 238-244: added  warning for Mac users thanks to
+	    "g-doggie" <penumbradesign at hotmail.com>;
+	  - lines 476-482: added the $cfgShowTooltip entry.
 
 2001-10-04  Korakot Chaovavanich  <korakot@iname.com>
 	* table comment(description) as tooltip (request #464084).
