@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/chinese_big5: Updated, thanks to Siu Sun
+    ### 2.5.1-rc1 released
+    
 2003-05-26 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation, config.inc.php3, tbl_change.php3,
       tbl_properties.inc.php3, libraries/config_import.lib.php3: Possibility
