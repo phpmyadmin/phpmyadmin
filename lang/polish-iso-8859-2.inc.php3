@@ -97,12 +97,13 @@ $strCreatePdfFeat = 'Tworzenie PDF-ów';
 $strCriteria = 'Kryteria';
 
 $strData = 'Dane';
-$strDataOnly = 'Tylko dane';
 $strDatabase = 'Baza danych ';
 $strDatabaseHasBeenDropped = 'Baza danych %s zosta³a usuniêta.';
 $strDatabaseWildcard = 'Baza danych (dozwolone maski):';
 $strDatabases = 'bazy danych';
 $strDatabasesStats = 'Statystyki baz danych';
+$strDataDict = 'S³ownik danych';
+$strDataOnly = 'Tylko dane';
 $strDefault = 'Domy¶lnie';
 $strDelete = 'Skasowanie';
 $strDeleteFailed = 'Kasowanie nie powiod³o sie!';
@@ -176,6 +177,7 @@ $strHostEmpty = 'Brak nazwy hosta!';
 $strIdxFulltext = 'Pe³ny tekst';
 $strIfYouWish = 'Prosze podaæ listê kolumn rozdzielon± przecinkami aby za³adowaæ tylko wybrane kolumny.';
 $strIgnore = 'Ignoruj';
+$strImportDocSQL = 'Import plików docSQL';
 $strInUse = 'w u¿yciu';
 $strIndex = 'Indeks';
 $strIndexHasBeenDropped = 'Klucz %s zosta³ usuniêty';
@@ -261,7 +263,6 @@ $strOptions = 'Opcje';
 $strOr = 'Lub';
 $strOverhead = 'Nadmiar';
 
-$strPHPVersion = 'Wersja PHP';
 $strPageNumber = 'Numer strony:';
 $strPartialText = 'Skrócony tekst';
 $strPassword = 'Has³o';
@@ -272,6 +273,8 @@ $strPdfInvalidPageNum = 'Niezdefiniowany numer strony PDF!';
 $strPdfInvalidTblName = 'Tabela "%s" nie istnieje!';
 $strPdfNoTables = 'Brak tabel';
 $strPhp = 'Utwórz kod PHP';
+$strPHP40203 = 'U¿ywasz PHP w wersji 4.2.3, która ma powa¿ny b³±d w obs³udze napisów wielobajtowych (mbstring). Zobacz raport na temat b³êdów PHP nr 19404. Nie zaleca siê u¿ywania tej wersji PHP z phpMyAdminem.';
+$strPHPVersion = 'Wersja PHP';
 $strPmaDocumentation = 'Dokumentacja phpMyAdmina';
 $strPmaUriError = 'Dyrektywa <tt>$cfg[\'PmaAbsoluteUri\']</tt> musi byæ ustawiona w pliku konfiguracyjnym!';
 $strPos1 = 'Pocz±tek';
@@ -281,6 +284,7 @@ $strPrimaryKey = 'Podstawowy klucz';
 $strPrimaryKeyHasBeenDropped = 'Klucz podstawowy zosta³ usuniêty';
 $strPrimaryKeyName = 'Nazw± podstawowego klucza musi byæ... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>musi</b> byæ nazw± <b>jedynie</b> klucza podstawowego!)';
+$strPrint = 'Drukowanie';
 $strPrintView = 'Widok do wydruku';
 $strPrivileges = 'Uprawnienia';
 $strProperties = 'W³asciwo¶ci';
@@ -429,8 +433,4 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 // To translate
 
-$strImportDocSQL = 'Import docSQL Files';  //to translate
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>
