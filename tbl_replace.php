@@ -217,6 +217,8 @@ foreach ($query AS $query_index => $single_query) {
             $last_message .= '<br />'.$strInsertedRowId . '&nbsp;' . $insert_id;
         }
     } // end if
+    PMA_DBI_free_result($result);
+    unset($result);
 }
 
 if ($total_affected_rows != 0) {

@@ -6,8 +6,9 @@ $Id$
 $Source$
 
 2004-07-31 Alexander M. Turek  <me@derrabus.de>
-    * tbl_change.php, libraries/relation.lib.php: Small optimizations, freed
-      some results.
+    * tbl_change.php, tbl_replace.php, libraries/relation.lib.php: Small
+      optimizations, freed some results (thanks to Marc for the one in
+      tbl_replace.php).
     * lang/sync_lang.sh: Updated sync script for the new names of the chinese
       language files.
 
