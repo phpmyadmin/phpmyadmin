@@ -89,7 +89,10 @@ if (!defined('PMA_USR_OS')) {
         $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
     } else if (!empty($HTTP_SERVER_VARS['HTTP_USER_AGENT'])) {
         $HTTP_USER_AGENT = $HTTP_SERVER_VARS['HTTP_USER_AGENT'];
+    } else if (!isset($HTTP_USER_AGENT)) {
+        $HTTP_USER_AGENT = '';
     }
+
     // 1. Platform
     if (strstr($HTTP_USER_AGENT, 'Win')) {
         define('PMA_USR_OS', 'Win');
@@ -104,6 +107,7 @@ if (!defined('PMA_USR_OS')) {
     } else {
         define('PMA_USR_OS', 'Other');
     }
+
     // 2. browser and version
     if (ereg('MSIE ([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
         define('PMA_USR_BROWSER_VER', $log_version[1]);
