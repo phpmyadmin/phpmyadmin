@@ -21,6 +21,11 @@ CREDITS, in chronological order
 	* current project maintainer, with Marc and Loic
 
 [lc] - Loïc Chapeaux <lolo@phpHeaven.net>
+	* rewrote and optimized javascript, DHTML and DOM stuff
+	* started to rewrite the scripts so they are XHTML1.0, CSS2 compliant
+	  and fit the PEAR coding standards
+	* improved the language detection system
+	* bugfixes
 
 [mg] - Mirko Giese <mgiese@users.sourceforge.net>
 
@@ -35,6 +40,15 @@ CREDITS, in chronological order
 
 [kc] - Korakot Chaovavanich <korakot@iname.com>
 [pk] - Pete Kelly <webmaster@trafficg.com>
+
+
+The following people have contributed minor changes, enhancements, bugfixes or
+or support for a new language since version 2.1.0:
+Ricardo ?, Sven-Erik Andersen, Alessandro Astarita, Borges Botelho,
+Olivier Bussier, Michal Cihar, Neil Darlow, Kristof Hamann, Thomas Kläger,
+Martin Marconcini, David Nordenberg, Bernard M. Piller,Laurent Haas,
+"Sakamoto", www.securereality.com.au, Michael Tacelosky, Daniel Villanueva,
+Chee Wai, Thomas Michael Winningham,
 
 
 
@@ -69,9 +83,10 @@ Original Credits of Version 2.1.0
       for 2.0.6.
     The following people have contributed minor changes, enhancements, bugfixes
     or support for a new language:
-    Jim Kraai, Jordi Bruguera, Miquel Obrador, Geert Lund, Thomas Kleemann, Alexander Leidinger,
-    Kiko Albiol, Daniel C. Chao, Pavel Piankov, Sascha Kettler, Joe Pruett,
-    Renato Lins, Mark Kronsbein, Jannis Hermanns, G. Wieggers.
+    Jim Kraai, Jordi Bruguera, Miquel Obrador, Geert Lund, Thomas Kleemann,
+    Alexander Leidinger, Kiko Albiol, Daniel C. Chao, Pavel Piankov,
+    Sascha Kettler, Joe Pruett, Renato Lins, Mark Kronsbein, Jannis Hermanns,
+    G. Wieggers.
 
     And thanks to everyone else who sent me email with suggestions, bug-reports and
     or just some feedback.

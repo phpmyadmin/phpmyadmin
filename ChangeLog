@@ -5,6 +5,16 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-11  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_properties.php3, db_details.php3: fixed some bugs with php3
+	  (0 != empty).
+	* lib.inc.php3, lines 14-15: fixed bug #440430 with php3.
+	* grab_globals.inc.php3, tbl_printview.php3: removed the '^M' at the end of
+	  some lines.
+	* Documentation.html: rewritten to validates xhtml1.0 & css2, added some
+	  words about a common socket error and updated credits.
+	* french translation updated thanks to Laurent Haas.
+
 2001-07-11  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_properties.php3: fix division by zero error
 	* tbl_change.php3: enlarge binary protection to (var)char binary
