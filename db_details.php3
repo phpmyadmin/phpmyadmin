@@ -102,7 +102,11 @@ else if (MYSQL_MAJOR_VERSION>=3.23 && isset($tbl_cache)){
 			echo "<a href=\"tbl_properties.php3$query#showusage\">";
 			echo "$formated_size $unit</a></td>\n";
 		}
-		else echo "<td colspan=3 align=center>in use</td>\n";
+		else{
+			echo "<td colspan=3 align=center>";
+			if (!empty($strInUse)) echo $strInUse;
+			echo "</td>\n";
+		}
 		echo "</tr>\n";
 	}
 	// Show Summary
