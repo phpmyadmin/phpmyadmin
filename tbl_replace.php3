@@ -204,7 +204,8 @@ if (!$result) {
         // if we have seen binary,
         // we do not append the query to the Location so it won't be displayed
         // on the resulting page
-        $add_query = (!$seen_binary ? '&disp_query=' . urlencode($sql_query) : '');
+        // Nijel: we also need to limit size of url...
+        $add_query = (!$seen_binary && strlen($sql_query) < 1024 ? '&disp_query=' . urlencode($sql_query) : '');
         header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . $add_query);
     }
     exit();
