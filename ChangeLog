@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-01 Robin Johnson  <robbat2@users.sourceforge.net>
+    * lang/arabic*: Updates thanks to Ossama Khayat <ossamak at nht.com.kw>
+    * translators.html: Added Ossama Khayat <ossamak at nht.com.kw>
+
 2003-02-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: PHP3 parse error
     * Documentation.html, db_details_importdocsql.php3, tbl_relation.php3,
