@@ -10,6 +10,7 @@ $Source$
 	* libraries/select_lang.lib.php3, lines 61-62: charset is neither defined
 	  in HTTP_ACCEPT_LANGUAGE nor in HTTP_USER_AGENT variables.
 	* libraries/common.lib.php3, line 848: coding standard.
+	* lang/*: cleanup and font fixes thanks to Oliver Heinisch.
 
 2002-02-19 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/common.lib.php3: get_magic_quotes fix  thanks to

@@ -3,15 +3,15 @@
 
 $charset = 'iso-8859-9';
 $text_dir = 'ltr';
-$left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
-$right_font_family = 'helvetica, arial, geneva, sans-serif';
+$left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
+$right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 $byteUnits = array('Byte', 'KB', 'MB', 'GB');
 //veritabanlarý terminolojisinde tercümeye pek müsait olmayan index ve unique sözcükleri aynen kullanýldý: uniqe=eþsiz,tek
 $day_of_week = array('Pazar', 'Pazartesi', 'Salý', 'Çarþamba', 'Perþembe', 'Cuma', 'Cumartesi');
 $month = array('Ocak', 'Þubat', 'Mart', 'Nisan', 'Mayýs', 'Haziran', 'Temmuz', 'Aðustos', 'Eylül', 'Ekim', 'Kasým', 'Aralýk');
-// See http://www.php3.net/manual/en/function.strftime.php3 to define the
+// See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%B %d, %Y at %I:%M %p';
 

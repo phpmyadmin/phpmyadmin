@@ -4,8 +4,8 @@
 
 $charset = 'iso-8859-2';
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
-$left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
-$right_font_family = 'helvetica, arial, geneva, sans-serif';
+$left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
+$right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = '.';
 $byteUnits = array('Bájt', 'KB', 'MB', 'GB');
@@ -13,7 +13,7 @@ $byteUnits = array('Bájt', 'KB', 'MB', 'GB');
 $day_of_week = array('V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo');
 $month = array('Jan', 'Feb', 'Márc', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Szept', 'Okt', 'Nov', 'Dec');
 // Leírás a $datefmt változó definiálásához:
-// http://www.php3.net/manual/en/function.strftime.php3
+// http://www.php.net/manual/en/function.strftime.php
 $datefmt = '%Y. %B %d. %H:%M';
 
 

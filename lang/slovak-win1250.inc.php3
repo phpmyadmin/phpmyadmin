@@ -4,15 +4,15 @@
 
 $charset = 'windows-1250';
 $text_dir = 'ltr';
-$left_font_family = '"verdana CE", "Arial CE", verdana, helvetica, arial, geneva, sans-serif';
-$right_font_family = '"verdana CE", "Arial CE", helvetica, arial, geneva, sans-serif';
+$left_font_family = '"verdana ce", "arial ce", verdana, arial, helvetica, geneva, sans-serif';
+$right_font_family = '"verdana ce", "arial ce", arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 $byteUnits = array('Bajtov', 'KB', 'MB', 'GB');
 
 $day_of_week = array('Ne', 'Po', 'Út', 'St', '©t', 'Pi', 'So');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Máj', 'Jún', 'Júl', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec');
-// See http://www.php3.net/manual/en/function.strftime.php3 to define the
+// See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d.%B, %Y - %H:%M';
 
@@ -210,7 +210,6 @@ $strNotNumber = 'Toto nie je èíslo!';
 $strNotValidNumber = ' nie je platné èíslo riadku!';
 $strNoUsersFound = 'Nebol nájdenı iadny pouívate¾.';
 $strNull = 'Nulovı';
-$strNumberIndexes = ' Poèet rozšírenıch indexov ';
 
 $strOftenQuotation = 'Èasto uvodzujúce znaky. VOLITE¼NE znamená, e iba polia typu char a varchar sú uzatvorené do "uzatváracích" znakov.';
 $strOptimizeTable = 'Optimalizova tabu¾ku';

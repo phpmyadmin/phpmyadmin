@@ -8,15 +8,15 @@
 
 $charset = 'windows-1256';
 $text_dir = 'rtl'; // ('ltr' for left to right, 'rtl' for right to left)
-$left_font_family = 'Tahoma, verdana, helvetica, arial, sans-serif';
-$right_font_family = '"Windows UI", helvetica, arial, sans-serif';
+$left_font_family = 'Tahoma, verdana, arial, helvetica, sans-serif';
+$right_font_family = '"Windows UI", arial, helvetica, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 $byteUnits = array('»«Ì ', 'ﬂÌ·Ê»«Ì ', '„ÌÃ«»«Ì ', '€Ì€«»«Ì ');
 
 $day_of_week = array('«·√Õœ', '«·≈À‰Ì‰', '«·À·«À«¡', '«·√—»⁄«¡', '«·Œ„Ì”', '«·Ã„⁄Â', '«·”» ');
 $month = array('Ì‰«Ì—', '›»—«Ì—', '„«—”', '√»—Ì·', '„«ÌÊ', 'ÌÊ‰ÌÊ', 'ÌÊ·ÌÊ', '√€”ÿ”', '”» „»—', '√ﬂ Ê»—', '‰Ê›„»—', 'œÌ”„»—');
-// See http://www.php3.net/manual/en/function.strftime.php3 to define the
+// See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%B %d, %Y at %I:%M %p';
 

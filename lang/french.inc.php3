@@ -3,15 +3,15 @@
 
 $charset = 'iso-8859-1';
 $text_dir = 'ltr';
-$left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
-$right_font_family = 'helvetica, arial, geneva, sans-serif';
+$left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
+$right_font_family = 'arial, helvetica, geneva, sans-serif';
 $number_thousands_separator = ' ';
 $number_decimal_separator = ',';
 $byteUnits = array('Octets', 'Ko', 'Mo', 'Go');
 
 $day_of_week = array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
 $month = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
-// Voir http://www.php3.net/manual/en/function.strftime.php3 pour la variable
+// Voir http://www.php.net/manual/en/function.strftime.php pour la variable
 // ci-dessous
 $datefmt = '%A %d %B %Y à %H:%M';
 

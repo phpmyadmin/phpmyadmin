@@ -11,7 +11,7 @@ $byteUnits = array('バイト', 'KB', 'MB', 'GB');
 
 $day_of_week = array('日', '月', '火', '水', '木', '金', '土');
 $month = array('1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月');
-// See http://www.php3.net/manual/en/function.strftime.php3 to define the
+// See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%Y年%B%e日 %H:%M';
 
