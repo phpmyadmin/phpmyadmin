@@ -38,6 +38,7 @@ $strAfter = 'Po %s';
 $strAfterInsertBack = 'Zpět';
 $strAfterInsertNewInsert = 'Vložit další řádek';
 $strAll = 'Všechno';
+$strAllTableSameWidth = 'zobrazit všechny tabulky stejnou šířkou?';
 $strAlterOrderBy = 'Změnit pořadí tabulky podle';
 $strAnalyzeTable = 'Analyzovat tabulku';
 $strAnd = 'a';
@@ -280,6 +281,7 @@ $strQueryOnDb = 'SQL dotaz na databázi <b>%s</b>:';
 
 $strRecords = 'Záznamů';
 $strReferentialIntegrity = 'Zkontrolovat integritu odkazů:';
+$strRelationNotWorking = 'Některé funkce pro práci s&nbsp;propojenými tabulkami byly vypnuty. %sZde%s zjistíte proč.';
 $strRelationView = 'Zobrazit relace';  //to translate better ;-)
 $strReloadFailed = 'Znovunačtení MySQL selhalo.';
 $strReloadMySQL = 'Znovunačtení MySQL';
@@ -405,6 +407,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

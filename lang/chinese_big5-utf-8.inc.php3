@@ -38,6 +38,7 @@ $strAfter = '在 %s 之後';
 $strAfterInsertBack = '返回';
 $strAfterInsertNewInsert = '新增一筆記錄';
 $strAll = '全部';
+$strAllTableSameWidth = '以相同寬度顯示所有資料表?';
 $strAlterOrderBy = '根據欄位內容排序記錄';
 $strAnalyzeTable = '分析資料表';
 $strAnd = '與';
@@ -280,6 +281,7 @@ $strQueryOnDb = '在資料庫 <b>%s</b> 執行 SQL 語法:';
 
 $strRecords = '記錄';
 $strReferentialIntegrity = '檢查指示完整性:';
+$strRelationNotWorking = '關聯資料表的附加功能未能啟動, %s請按此%s 查出問題原因.';
 $strRelationView = '關聯檢視';
 $strReloadFailed = '重新載入MySQL失敗';
 $strReloadMySQL = '重新載入 MySQL';
@@ -406,6 +408,4 @@ $strYes = ' 是 ';
 $strZip = '"zipped"';
 
 // To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

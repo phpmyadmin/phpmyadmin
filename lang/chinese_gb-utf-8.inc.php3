@@ -37,6 +37,7 @@ $strAfter = '在 %s 之后';
 $strAfterInsertBack = '返回';
 $strAfterInsertNewInsert = '添加一笔记录';
 $strAll = '全部';
+$strAllTableSameWidth = '以相同宽度显示所有数据表?';
 $strAlterOrderBy = '根据栏位内容排序记录';
 $strAnIndex = '索引已经添加到 %s';
 $strAnalyzeTable = '分析数据表';
@@ -282,6 +283,7 @@ $strQueryOnDb = '在资料库 <b>%s</b> 执行 SQL 语句:';
 $strReType = '重新输入';
 $strRecords = '记录';
 $strReferentialIntegrity = '检查指示完整性:';
+$strRelationNotWorking = '联系数据表的附加功能未能启动, %s请按此%s 查出问题原因.';
 $strRelationView = '联系检视';
 $strReloadFailed = 'MySQL 重起失败。';
 $strReloadMySQL = '重起 MySQL';
@@ -406,6 +408,4 @@ $strYes = '是';
 $strZip = '"zipped"';
 
 // To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>
