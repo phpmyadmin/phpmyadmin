@@ -15,6 +15,7 @@ $Source$
       for images and wrongly nested tags.
     * left.php, queryframe.php: Replace htmlentities with htmlspecialchars
       (bug #1008002).
+    * libraries/config_import.lib.php: Remove compatibility code for colors.
 
 2004-08-11 Michal Čihař  <michal@cihar.com>
     * tbl_replace.php: Do not empty protected values (bug #1006812).

@@ -569,129 +569,17 @@ if (!isset($cfg['Lang']) &&isset($cfgLang)) {
     unset($cfgLang);
 }
 
-if (!isset($cfg['LeftWidth'])) {
-    if (isset($cfgLeftWidth)) {
-        $cfg['LeftWidth'] = $cfgLeftWidth;
-        unset($cfgLeftWidth);
-    } else {
-        $cfg['LeftWidth'] = 200;
-    }
-}
-
-if (!isset($cfg['LeftBgColor'])) {
-    if (isset($cfgLeftBgColor)) {
-        $cfg['LeftBgColor'] = $cfgLeftBgColor;
-        unset($cfgLeftBgColor);
-    } else {
-        $cfg['LeftBgColor'] = '#D0DCE0';
-    }
-}
-
-if (!isset($cfg['LeftPointerColor'])) {
-    if (isset($cfgLeftPointerColor)) {
-        $cfg['LeftPointerColor'] = $cfgLeftPointerColor;
-        unset($cfgLeftPointerColor);
-    } else {
-        $cfg['LeftPointerColor'] = '#CCFFCC';
-    }
-// no longer accept an empty value to mean "disable the pointer"
-} elseif ($cfg['LeftPointerColor'] == '') {
-    $cfg['LeftPointerColor'] = '#CCFFCC';
-}
-
 if (!isset($cfg['LeftPointerEnable'])) {
     $cfg['LeftPointerEnable'] = TRUE;
-}
-
-if (!isset($cfg['RightBgColor'])) {
-    if (isset($cfgRightBgColor)) {
-        $cfg['RightBgColor'] = $cfgRightBgColor;
-        unset($cfgRightBgColor);
-    } else {
-        $cfg['RightBgColor'] = '#F5F5F5';
-    }
-}
-
-if (!isset($cfg['RightBgImage'])) {
-    $cfg['RightBgImage'] = '';
-}
-
-if (!isset($cfg['Border'])) {
-    if (isset($cfgBorder)) {
-        $cfg['Border'] = $cfgBorder;
-        unset($cfgBorder);
-    } else {
-        $cfg['Border'] = 0;
-    }
-}
-
-if (!isset($cfg['ThBgcolor'])) {
-    if (isset($cfgThBgcolor)) {
-        $cfg['ThBgcolor'] = $cfgThBgcolor;
-        unset($cfgThBgcolor);
-    } else {
-        $cfg['ThBgcolor'] = '#CCCCFF';
-    }
-}
-
-if (!isset($cfg['BgcolorOne'])) {
-    if (isset($cfgBgcolorOne)) {
-        $cfg['BgcolorOne'] = $cfgBgcolorOne;
-        unset($cfgBgcolorOne);
-    } else {
-        $cfg['BgcolorOne'] = '#E5E5E5';
-    }
-}
-
-if (!isset($cfg['BgcolorTwo'])) {
-    if (isset($cfgBgcolorTwo)) {
-        $cfg['BgcolorTwo'] = $cfgBgcolorTwo;
-        unset($cfgBgcolorTwo);
-    } else {
-        $cfg['BgcolorTwo'] = '#D5D5D5';
-    }
 }
 
 if (!isset($cfg['BrowsePointerEnable'])) {
     $cfg['BrowsePointerEnable'] = TRUE;
 }
 
-if (!isset($cfg['BrowsePointerColor'])) {
-    if (isset($cfgBrowsePointerColor)) {
-        $cfg['BrowsePointerColor'] = $cfgBrowsePointerColor;
-        unset($cfgBrowsePointerColor);
-    } else {
-        $cfg['BrowsePointerColor'] = '#CCFFCC';
-    }
-// no longer accept an empty value to mean "disable the pointer"
-} elseif ($cfg['BrowsePointerColor'] == '') {
-    $cfg['BrowsePointerColor'] = '#CCFFCC';
-}
 
 if (!isset($cfg['BrowseMarkerEnable'])) {
     $cfg['BrowseMarkerEnable'] = TRUE;
-}
-
-if (!isset($cfg['BrowseMarkerColor'])) {
-    if (isset($cfgBrowseMarkerColor)) {
-        $cfg['BrowseMarkerColor'] = $cfgBrowseMarkerColor;
-        unset($cfgBrowseMarkerColor);
-    } else if (isset($cfg['BrowseMarkRow'])) {
-        $cfg['BrowseMarkerColor']   = (!empty($cfg['BrowsePointerColor']) && !empty($cfg['BrowseMarkRow']))
-                                      ? '#FFCC99'
-                                      : '';
-        unset($cfg['BrowseMarkRow']);
-    } else if (isset($cfgBrowseMarkRow)) {
-        $cfg['BrowseMarkerColor']   = (!empty($cfg['BrowsePointerColor']) && !empty($cfgBrowseMarkRow))
-                                      ? '#FFCC99'
-                                      : '';
-        unset($cfgBrowseMarkRow);
-    } else {
-        $cfg['BrowseMarkerColor'] = '#FFCC99';
-    }
-// no longer accept an empty value to mean "disable the marker"
-} elseif ($cfg['BrowseMarkerColor'] == '') {
-    $cfg['BrowseMarkerColor'] = '#FFCC99';
 }
 
 if (!isset($cfg['TextareaCols'])) {
@@ -952,78 +840,6 @@ if (!isset($cfg['SQP']['fmtInd'])) {
 
 if (!isset($cfg['SQP']['fmtIndUnit'])) {
     $cfg['SQP']['fmtIndUnit'] = 'em';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['comment'])) {
-    $cfg['SQP']['fmtColor']['comment'] = '#808000';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['digit'])) {
-    $cfg['SQP']['fmtColor']['digit'] = '';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['digit_hex'])) {
-    $cfg['SQP']['fmtColor']['digit_hex'] = 'teal';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['digit_integer'])) {
-    $cfg['SQP']['fmtColor']['digit_integer'] = 'teal';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['digit_float'])) {
-    $cfg['SQP']['fmtColor']['digit_float'] = 'aqua';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['punct'])) {
-    $cfg['SQP']['fmtColor']['punct'] = 'fuchsia';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['alpha'])) {
-    $cfg['SQP']['fmtColor']['alpha'] = '';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['alpha_columnType'])) {
-    $cfg['SQP']['fmtColor']['alpha_columnType'] = '#FF9900';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['alpha_columnAttrib'])) {
-    $cfg['SQP']['fmtColor']['alpha_columnAttrib'] = '#0000FF';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['alpha_reservedWord'])) {
-    $cfg['SQP']['fmtColor']['alpha_reservedWord'] = '#990099';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['alpha_functionName'])) {
-    $cfg['SQP']['fmtColor']['alpha_functionName'] = '#FF0000';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['alpha_identifier'])) {
-    $cfg['SQP']['fmtColor']['alpha_identifier'] = 'black';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['alpha_charset'])) {
-    $cfg['SQP']['fmtColor']['alpha_charset'] = '#6495ed';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['alpha_variable'])) {
-    $cfg['SQP']['fmtColor']['alpha_variable'] = '#800000';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['quote'])) {
-    $cfg['SQP']['fmtColor']['quote'] = '#008000';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['quote_double'])) {
-    $cfg['SQP']['fmtColor']['quote_double'] = '';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['quote_single'])) {
-    $cfg['SQP']['fmtColor']['quote_single'] = '';
-}
-
-if (!isset($cfg['SQP']['fmtColor']['quote_backtick'])) {
-    $cfg['SQP']['fmtColor']['quote_backtick'] = '';
 }
 
 if (!isset($cfg['AvailableCharsets'])) {
