@@ -128,22 +128,22 @@ function normal_operations()
     <table>
     <tr>
     <td><input type="radio" name="anyhost">
-    <?php echo $strHost; ?>: <input type="text" name="host" size=10 onchange="javascript:anyhost[0].checked = true"></td>
+    <?php echo $strHost; ?>: <input type="text" name="host" size=10 onchange="anyhost[0].checked = true"></td>
     <td>&nbsp;</td><td><input type="radio" name="anyhost" checked><?php echo $strAnyHost; ?></td>
     </tr>
     </table>
     <table>
     <tr>
     <td><input type="radio" name="anyuser" checked>
-    <?php echo $strUserName; ?>: <input type="text" name="user" size=10 onchange="javascript:anyuser[0].checked = true"></td>
+    <?php echo $strUserName; ?>: <input type="text" name="user" size=10 onchange="anyuser[0].checked = true"></td>
     <td>&nbsp;</td><td><input type="radio" name="anyuser"><?php echo $strAnyUser; ?></td>
     </tr>
     </table>
     <table>
     <tr>
     <td><input type="radio" name="nopass" checked>
-    <?php echo $strPassword; ?>: <input type="password" name="pw" size=10 onchange="javascript:nopass[0].checked = true"></td>
-    <td><?php echo $strReType; ?>: <input type="password" name="pw2" size=10 onchange="javascript:nopass[0].checked = true"></td>
+    <?php echo $strPassword; ?>: <input type="password" name="pw" size=10 onchange="nopass[0].checked = true"></td>
+    <td><?php echo $strReType; ?>: <input type="password" name="pw2" size=10 onchange="nopass[0].checked = true"></td>
     <td>&nbsp;</td>
     <td><input type="radio" name="nopass"><?php echo $strNoPassword; ?></td></tr>
     <tr><td><br><?php echo $strPrivileges; ?>:<br></td></tr>
@@ -275,7 +275,7 @@ function grant_operations()
     <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? "": " checked"; ?>><?php echo $strAnyDatabase; ?></td>
     <td>&nbsp;</td>
     <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? " checked":""; ?>><?php echo $strDatabase; ?>:&nbsp;
-    <select name="database" onchange="javascript:change(userForm3.database, 'dbgrant')">
+    <select name="database" onchange="change(userForm3.database, 'dbgrant')">
 <?php
     if (!isset($dbgrant)) echo "<option selected></option>";
     $result = mysql_query("SHOW DATABASES");
@@ -292,7 +292,7 @@ function grant_operations()
     <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? "":" checked"; ?>><?php echo $strAnyTable; ?></td>
     <td>&nbsp;</td>
     <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? " checked":""; ?>><?php echo $strTable; ?>:&nbsp;
-    <select name="table" onchange="javascript:change(userForm3.table, 'tablegrant')"
+    <select name="table" onchange="change(userForm3.table, 'tablegrant')"
     >
 <?php
     if (isset($dbgrant)) {
@@ -313,7 +313,7 @@ function grant_operations()
     <td>&nbsp;</td>
     <td VALIGN=TOP><input type="radio" name="anycolumn"><?php echo $strColumn; ?>:</td>
     <td>
-    <select name="column" onchange="javascript:anycolumn[1].checked = true" multiple>
+    <select name="column" onchange="anycolumn[1].checked = true" multiple>
 <?php
 
     if (isset($dbgrant) && isset($tablegrant)) {
@@ -806,9 +806,9 @@ function confirm() {
 
     <?php echo $strConfirm; ?>
 
-    <form action="javascript:return false;">
-    <input type="button" name="btnDrop" value="<?php echo $strYes; ?>" onclick="javascript:clickYes();">
-    <input type="button" name="btnDrop" value="<?php echo $strNo; ?>" onclick="javascript:clickNo();">
+    <form action="users_details.php3" onsubmit="return false">
+    <input type="button" name="btnDrop" value="<?php echo $strYes; ?>" onclick="clickYes();">
+    <input type="button" name="btnDrop" value="<?php echo $strNo; ?>" onclick="clickNo();">
     </form>
 
 <?php

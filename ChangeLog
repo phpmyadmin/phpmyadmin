@@ -18,6 +18,7 @@ $Source$
 	  - added an extended inserts option for dumps of data.
 	* lib.inc.php3; sql.php3: optimized a bit and started to work on feature
 	  #444767 (Other cases for display=simple).
+	* user_details.php3: fixed some javascript bugs.
 
 2001-08-19  Olivier Müller  <om@omnis.ch>
 	* db_readdump.php3: if file contains mutiple queries, only show this line:
