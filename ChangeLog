@@ -9,6 +9,7 @@ $Source$
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
     * libraries/relation.lib.php: bug #1170549, adding fields NOT NULL
       under MySQL 4.1
+    ### 2.6.2-beta1 released
 
 2005-03-27 Alexander M. Turek  <me@derrabus.de>
     * libraries/defines.lib.php, themes/*/info.inc.php: Marked 2.6.0 / 2.6.1
