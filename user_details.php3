@@ -79,7 +79,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
         if ($grants_cnt) {
             $i = 0;
             while ($usr_row = mysql_fetch_row($result)) {
-                if (eregi('GRANT (.*) ON ([^\.]+).([^\.]+) TO .*$', $usr_row[0], $parts)) {
+                if (eregi('GRANT (.*) ON ([^.]+).([^.]+) TO .*$', $usr_row[0], $parts)) {
                     // loic1: bug #487673 - revoke 'reference'
                     if ($parts[1] == 'USAGE') {
                         $priv = '';
