@@ -227,7 +227,7 @@ function PMA_DBI_affected_rows($link) {
 }
 
 function PMA_DBI_get_fields_meta($result) {
-
+    // Build an associative array for a type look up
     $typeAr[MYSQLI_TYPE_DECIMAL] = 'real';
     $typeAr[MYSQLI_TYPE_TINY] = 'int';
     $typeAr[MYSQLI_TYPE_SHORT] = 'int';
@@ -257,93 +257,7 @@ function PMA_DBI_get_fields_meta($result) {
     $fields = mysqli_fetch_fields($result);
     foreach($fields as $k => $field) {
         $fields[$k]->type = $typeAr[$field->type];
-        $f = $field->flags;
-        $flags = '';
-        while ($f > 0) { 
-            if (floor($f / 65536)) {
-                $flags .= 'unique ';
-                $f -= 65536;
-                continue; 
-            }
-            if (floor($f / 32768)) {
-                $flags .= 'num ';
-                $fields[$k]->numeric = 1;
-                $f -= 32768;
-                continue;
-            }
-            if (floor($f / 16384)) {
-                $flags .= 'part_key ';
-                $f -= 16384;
-                continue;
-            }
-            if (floor($f / 2048)) {
-                $flags .= 'set ';
-                $f -= 2048;
-                continue;
-            }
-            if (floor($f / 1024)) {
-                $flags .= 'timestamp ';
-                $f -= 1024;
-                continue;
-            }if (floor($f / 512)) {
-                $flags .= 'auto_increment ';
-                $f -= 512;
-                continue;
-            }
-            if (floor($f / 256)) {
-                $flags .= 'enum ';
-                $f -= 256;
-                continue;
-            }
-            if (floor($f / 128)) {
-                $flags .= 'binary ';
-               $f -= 128;
-                continue;
-            }
-            if (floor($f / 64)) {
-                $flags .= 'zerofill ';
-                $fields[$k]->zerofill = 1;
-                $f -= 64;
-                continue;
-            }
-            if (floor($f / 32)) {
-                $flags .= 'unsigned ';
-                $fields[$k]->unsigned = 1;
-                $f -= 32;
-                continue;
-            }
-            if (floor($f / 16)) {
-                $flags .= 'blob ';
-                $fields[$k]->blob = 1;
-                $f -= 16;
-                continue;
-            }
-            if (floor($f / 8)) {
-                $flags .= 'multiple_key ';
-                $fields[$k]->multiple_key = 1;
-                $f -= 8;
-                continue;
-            }
-            if (floor($f / 4)) {
-                $flags .= 'unique_key ';
-                $fields[$k]->unique_key = 1;
-                $f -= 4;
-                continue;
-            }
-            if (floor($f / 2)) {
-                $flags .= 'primary_key ';
-                $fields[$k]->primary_key = 1;
-                $f -= 2;
-                continue;
-            }
-            if (floor($f / 1)) {
-                $flags .= 'not_null ';
-                $fields[$k]->not_null = 1;
-                $f -= 1;
-                continue;
-            }
-        }
-        $fields[$k]->flags = trim($flags);
+        $fields[$k]->flags = PMA_DBI_field_flags($result, $k);
     }
     return $fields;
 }
@@ -371,72 +285,59 @@ function PMA_DBI_field_flags($result, $i) {
             $flags .= 'unique ';
             $f -= 65536;
             continue;
-        }
-        if (floor($f / 32768)) {
+        } elseif (floor($f / 32768)) {
             $flags .= 'num ';
             $f -= 32768;
             continue;
-        }
-        if (floor($f / 16384)) {
+        } elseif (floor($f / 16384)) {
             $flags .= 'part_key ';
             $f -= 16384;
             continue;
-        }
-        if (floor($f / 2048)) {
+        } elseif (floor($f / 2048)) {
             $flags .= 'set ';
             $f -= 2048;
             continue;
-        }
-        if (floor($f / 1024)) {
+        } elseif (floor($f / 1024)) {
             $flags .= 'timestamp ';
             $f -= 1024;
             continue;
-        }if (floor($f / 512)) {
+        } elseif (floor($f / 512)) {
             $flags .= 'auto_increment ';
             $f -= 512;
             continue;
-        }
-        if (floor($f / 256)) {
+        } elseif (floor($f / 256)) {
             $flags .= 'enum ';
             $f -= 256;
             continue;
-        }
-        if (floor($f / 128)) {
+        } elseif (floor($f / 128)) {
             $flags .= 'binary ';
             $f -= 128;
             continue;
-        }
-        if (floor($f / 64)) {
+        } elseif (floor($f / 64)) {
             $flags .= 'zerofill ';
             $f -= 64;
             continue;
-        }
-        if (floor($f / 32)) {
+        } elseif (floor($f / 32)) {
             $flags .= 'unsigned ';
             $f -= 32;
             continue;
-        }
-        if (floor($f / 16)) {
+        } elseif (floor($f / 16)) {
             $flags .= 'blob ';
             $f -= 16;
             continue;
-        }
-        if (floor($f / 8)) {
+        } elseif (floor($f / 8)) {
             $flags .= 'multiple_key ';
             $f -= 8;
             continue;
-        }
-        if (floor($f / 4)) {
+        } elseif (floor($f / 4)) {
             $flags .= 'unique_key ';
             $f -= 4;
             continue;
-        }
-        if (floor($f / 2)) {
+        } elseif (floor($f / 2)) {
             $flags .= 'primary_key ';
             $f -= 2;
             continue;
-        }
-        if (floor($f / 1)) {
+        } elseif (floor($f / 1)) {
             $flags .= 'not_null ';
             $f -= 1;
             continue;
