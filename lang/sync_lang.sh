@@ -20,7 +20,7 @@ bulgarian-koi8-r
 catalan-iso-8859-1
 chinese_big5
 chinese_gb
-croatian-iso8859-2
+croatian-iso-8859-2
 czech-iso-8859-2
 danish-iso-8859-1
 dutch-iso-8859-1
