@@ -794,7 +794,7 @@ if (isset($Field) && count($Field) > 0) {
         if (!empty($column)) {
             $rel_query .= ' AND master_field = \'' . $column . '\'';
         }
-        $rel_query     .= ' GROUP BY master_table ORDER BY hits DESC'
+        $rel_query     .= ' GROUP BY master_table ORDER BY hits DESC';
 
         $relations =  PMA_query_as_cu($rel_query);
         while ($row = PMA_mysql_fetch_array($relations)) {
