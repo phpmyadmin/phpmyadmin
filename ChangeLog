@@ -16,6 +16,8 @@ $Source$
 2002-12-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Updates.
     * main.php3: Fixed bug #649641 (usernames containing '@' character).
+    * libaraies/ob.lib.php3: Merged patch #647148 (Fix for Output Handler
+      warning / php >= 4.3.0) by Mats Engstrom (matseng).
 
 2002-12-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*.php3, pdf_schema.php3, pdf_pages.php3, db_details_structure.php3:

@@ -46,6 +46,17 @@ if (!defined('PMA_OB_LIB_INCLUDED')) {
         }
         // End patch
 
+        // If output buffering is enabled in php.ini it's not possible to
+        // add the ob_gzhandler without a warning message from php 4.3.0. 
+        // Being better safe than sorry, check for any existing output handler
+        // instead of just checking the 'output_buffering' setting.
+        //
+        if (PMA_PHP_INT_VERSION >= 40300 && @function_exists('ob_get_level')) {
+            if (ob_get_level() > 0) {
+                $mode = 0;
+            }
+        }
+
         // Zero (0) is no mode or in other words output buffering is OFF.
         // Follow 2^0, 2^1, 2^2, 2^3 type values for the modes.
         // Usefull if we ever decide to combine modes.  Then a bitmask field of
