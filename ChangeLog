@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-31  Marc Delisle  <lem9@users.sourceforge.net>
+        * tbl_change.php3: extra characters were being inserted into blobs
+
 2001-07-31  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_create.php3: add warning if table name empty
 

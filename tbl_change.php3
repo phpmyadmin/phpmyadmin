@@ -277,8 +277,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
             else {
         ?>
                <td>
-               <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>">
-               <?php if (!empty($special_chars)) echo $special_chars . "\n"; ?>
+               <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars . "\n"; ?>
                </textarea>
 
         <?php
