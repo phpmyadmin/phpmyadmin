@@ -329,6 +329,7 @@ $strStrucData = 'Structure et données';
 $strStrucDrop = 'Ajouter des énoncés "drop table"';
 $strStrucExcelCSV = 'Données CSV pour Ms Excel';
 $strStrucOnly = 'Structure seule';
+$strStructPropose = 'Suggérer des optimisations quant à la structure de la table';
 $strStructure = 'Structure';
 $strSubmit = 'Exécuter';
 $strSuccess = 'Votre requête SQL a été exécutée avec succès';

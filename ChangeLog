@@ -11,6 +11,8 @@ $Source$
       - Search into database, thanks to Thomas Chaumeny <chaume92 at aol.com>.
     * libraries/functions.js, lines 15-17: fixed bug #559815 - Javascript
       problem with Opera.
+    * tbl_properties_structure.php3, lines 541-549; lang/*: patch #559618 -
+      procedure analyse(), thanks to Mike Beck.
 
 2002-05-23 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, config.inc.php3, db_details_structure.php3,

@@ -329,6 +329,7 @@ $strStrucData = 'Structure and data';
 $strStrucDrop = 'Add \'drop table\'';
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strStrucOnly = 'Structure only';
+$strStructPropose = 'Propose table structure';
 $strStructure = 'Structure';
 $strSubmit = 'Submit';
 $strSuccess = 'Your SQL-query has been executed successfully';

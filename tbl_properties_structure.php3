@@ -538,7 +538,17 @@ if ($cfg['Server']['relation']) {
 }
 echo "\n";
 ?>
+
+    <!-- Let MySQL propose the optimal structure -->
+    <li>
+        <div style="margin-bottom: 10px">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE analyse()'); ?>">
+            <?php echo $strStructPropose; ?></a>
+        </div>
+    </li>
+
 </ul>
+
 
 <?php
 /**
