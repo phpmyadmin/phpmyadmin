@@ -184,7 +184,7 @@ $strNoDropDatabases = 'Mo¾nos» "DROP DATABASE" vypnutá.';
 $strNoModification = '®iadna zmena';
 $strNoPassword = '®iadne heslo';
 $strNoPrivileges = '®iadne privilégia';
-$strNoQuery = '®iadny SQL dotaz!'; 
+$strNoQuery = '®iadny SQL dotaz!';
 $strNoRights = 'Nemáte dostatoèné práva na vykonanie tejto akcie!';
 $strNoTablesFound = 'Neboli nájdené ¾iadne tabuµky v tejto datábaze.';
 $strNotNumber = 'Toto nieje èíslo!';
@@ -321,7 +321,7 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 
 $strYes = 'Áno';
 
-$strZip = '"zo zipované"';  
+$strZip = '"zo zipované"';
 
 // To translate
 ?>
