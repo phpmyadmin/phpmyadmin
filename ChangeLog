@@ -5,19 +5,22 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2003-08-25 Michal Cihar  <nijel@users.sourceforge.net>
+2003-08-26 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3: Backwards compatibility.
+
+2003-08-26 Michal Cihar  <nijel@users.sourceforge.net>
     * config.inc.php3, lang/*, libraries/config_import.lib.php3,
       libraries/display_export.lib.php3, libraries/export/latex.php3: Improved
       LaTeX export (patch #777451).
 
 2003-08-25 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
-    
+
 2003-08-25 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relations.php3, tbl_properties_table_info.php3, /lang:
       InnoDB relations (for now, same db, only one index column, and
       no ON DELETE or ON UPDATE clauses)
- 
+
 2003-08-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_rename.php3: After renaming a table, move back to
       tbl_properties_operations.php3 instead of tbl_properties.php3.

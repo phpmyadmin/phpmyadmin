@@ -135,7 +135,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php3 revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 197) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 199) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -348,7 +348,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_formatSql($parsed_sql, $unparsed_sql = '')
         {
             global $cfg;
-            
+
             // Check that we actually have a valid set of parsed data
             // well, not quite
             // first check for the SQL parser having hit an error
@@ -508,7 +508,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     . '</pre>' . "\n";
 
             echo PMA_showMySQLDocu('Error-returns', 'Error-returns');
-            
+
             if (!empty($back_url) && $exit) {
                 echo '&nbsp;&middot;&nbsp;[<a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a>]';
             }
@@ -1586,8 +1586,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
             return array($return_value, $unit);
         } // end of the 'PMA_formatByteDown' function
-        
-        
+
+
         /**
          * Extracts ENUM / SET options from a type definition string
          *
@@ -1779,7 +1779,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     list($eachvar, $eachval) = explode('=', $query_pair);
                     $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />' . "\n";
                 } // end while
-                
+
                 if (stristr($message, '<img')) {
                     $link_or_button     .= '            <input type="image" src="' . eregi_replace('^.*src="(.*)".*$', '\1', $message) . '" value="'
                                         . htmlspecialchars(eregi_replace('^.*alt="(.*)".*$', '\1', $message)) . '" />' . "\n" . '</form>' . "\n";
@@ -1888,7 +1888,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         /**
          * Function added to avoid path disclosures.
          * Called by each script that needs parameters, it displays
-         * an error message and, by defaults, stops the execution. 
+         * an error message and, by defaults, stops the execution.
          *
          * @param   array   The names of the parameters needed by the calling
          *                  script.
