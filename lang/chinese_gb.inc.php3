@@ -77,6 +77,7 @@ $strCheckTable = '检查数据表';
 $strChoosePage = '请选择需要编辑的页码';
 $strColumn = '栏位';
 $strColumnNames = '栏位名';
+$strComments = '注解';
 $strCompleteInserts = '使用完整添增指令';
 $strConfigFileError = 'phpMyAdmin 未能读取您的设定档! 这可能是因为 php 找到语法上的错误或 php 未能找到档案而成.<br />请尝试直接按下下方的连结开启并查看 php 的错误信息. 通常的错误都来自某处漏了引号或分别.<br />如果按下连结後出现空白页, 即代表没有任何问题.';
 $strConfigureTableCoord = '请设定数据表 %s 内的坐标';
@@ -403,5 +404,5 @@ $strYes = '是';
 
 $strZip = '"zipped"';
 
-$strComments = '注解';
+// To translate
 ?>
