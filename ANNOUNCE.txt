@@ -3,11 +3,11 @@
 | '_ \| '_ \| '_ \| |\/| | | | | / _ \ / _` | '_ ` _ \| | '_ \
 | |_) | | | | |_) | |  | | |_| |/ ___ \ (_| | | | | | | | | | |
 | .__/|_| |_| .__/|_|  |_|\__, /_/   \_\__,_|_| |_| |_|_|_| |_|
-|_|         |_|           |___/                                  2.3.0
+|_|         |_|           |___/                                  2.4.0
                                  http://phpmyadmin.net
 
-phpMyAdmin 2.3.0 - 11. August 2002
-================================
+phpMyAdmin 2.4.0 - March 2nd, 2003
+==================================
 
   A set of PHP-scripts to administrate MySQL over the WWW.
   -----------------------------------------
@@ -15,15 +15,15 @@ phpMyAdmin 2.3.0 - 11. August 2002
 Announcement
 ------------
 
-   After 12 months of work and 4 release candidate versions,
+   After 7 months of work and 2 release candidate versions,
    the phpMyAdmin developers are pleased to announce the availability
-   of phpMyAdmin 2.3.0.
+   of phpMyAdmin 2.4.0.
 
    phpMyAdmin is intended to handle the administration of MySQL over
    the Web, and is now one of the most popular PHP script used
-   worldwide: more than 1.2 million download in the past year!
+   worldwide: more than 3.1 million download in the past year!
 
-   phpMyAdmin 2.3.0 includes the following highlights:
+   phpMyAdmin 2.4.0 includes the following highlights:
 
 
 Highlights
@@ -31,33 +31,60 @@ Highlights
 
   Some improvements:
 
-     * new page layout for table and db properties
-     * centralized db for support tables
-     * can specify a different charset for MySQL and HTML
-     * utf-8 charset support
-     * schema output in PDF
-     * operators in field selection
-     * translation feedback page
-     * print view for SQL results
-     * EXPLAIN support
-     * generate PHP code from a query
-     * full database search
-     * IP-based Allow/Deny
-     * foreign table display field
-     * support for some MyISAM table options
-     * XML export
-     * query-by-example: automatic joins
-     * faster table delete under MySQL 4
+     * PDF pages
+        - new data dictionary
+        - support for deleting a PDF page definition
+        - better browser support
+     * cookie login: login error message
+     * new server/user management interface with sub-pages
+        - more intuitive interface
+        - interface to most MySQL status variables
+        - server traffic & query statistics
+        - support new MySQL 4 privileges
+        - support for user resource limits
+        - privileges may now be edited without reloading the user tables
+     * Export
+        - export to LaTeX format
+        - better handling of charset conversion
+        - better output order of inserts/creates
+        - export results of any single-table SELECT
+     * option to only copy data (append) to a table
+     * better handling of confirmation requests (bookmarks) and LIMIT
+     * support EXTRACT ... FROM
+     * check/uncheck all for field selection
+     * moving cursor with ctrl/arrows in table creation and row editing
+     * images in PNG format where possible
+     * display UPDATE SQL statement after a row edit
+     * in Select sub-page, drop-down for ENUMs
+     * support for compressed connections to the MySQL server
+     * upload of binary file into a field
+     * new documentation layout
+     * (for phpMyAdmin developers) interface to DBG extension for
+       debugging/profiling
 
   Some fixes:
 
-     * CURDATE did not work in the function list
-     * javascript error with Mozilla and Opera
-     * a mysql error when dropping fields
-     * alter table was not working on a replicate
-     * bookmark error when the table no longer exists
-     * bad limit of the number of characters for numeric fields
-     * problem with headers in Apache 2
+     * output handler warning for PHP >=4.3.0
+     * usernames with "@" character
+     * links or submit buttons for db search results
+     * warning for bzip problem of PHP 4.2.1
+     * wrong "Back" links
+     * UNION processing generated undefined variables
+     * handling of "LOCAL" in recent MySQL versions for LOAD DATA INFILE
+     * wrong drop-down for foreign keys in Select sub-page
+     * wrong charset information in XML exports
+     * parsing error for the single quote case
+     * problem with SQL validator interface
+     * wrong parsing of INTERVAL and AUTO_INCREMENT
+     * no longer allow invalid options like UNSIGNED in SET/ENUM
+     * problem entering comments in Relation view
+     * fix for kanji encoding problem
+     * empty field names on add fields page caused problems
+     * the quicklinks on top of each page are now pointing to the default tabs
+     * problem with recieving the database list with MySQL >= 4.0.2-alpha
+     * adjusted font sizes for Opera 7 for Windows
+     * problems with editing the contents of the SQL query boxes with Opera 7
+       for Windows
 
   Detailed list of changes since version 2.2.0 is available under
   http://www.phpmyadmin.net/ChangeLog.txt
@@ -108,7 +135,10 @@ Support and Documentation
 Known bugs
 ----------
 
-  * ...
+  * Querying UNION SELECTs may result in php errors about undefined variables.
+    Furthermore, the total number of rows may be not calculated correctly, here.
+  * Some users reported problems on machines with Zend Accelerator (TM).
+  * The MySQL 4.1.x and php 5.0.x branches are not yet supported by phpMyAdmin.
 
   To be informed about new releases fixing these problems, please
   subscribe to the news mailing list under
@@ -130,26 +160,27 @@ phpMyAdmin is intended to handle the administration of MySQL over the WWW.
       - create and read dumps of tables
       - export and import CSV data
       - support single- and multi-user configuration
-      - communicate in more than 41 different languages
+      - add, delete and edit MySQL users
+      - communicate in more than 42 different languages
 
 
 Author & Copyright
 ------------------
 
-    Copyright (C) 1998-2000 Tobias Ratschiller <tobias.ratschiller_at_maguma.com>
+    Copyright (C) 1998-2000 Tobias Ratschiller
+                                <tobias.ratschiller_at_maguma.com>
     Copyright (C) 2001-     Marc Delisle <DelislMa_at_CollegeSherbrooke.qc.ca>
                             Olivier Müller <om_at_omnis.ch>
                             Loïc Chapeaux <lolo_at_phpHeaven.net>
                             Robin Johnson <robbat2_at_users.sourceforge.net>
                             Armel Fauveau <armel.fauveau_at_globalis-ms.com>
-                            Geert Lund <glund_at_silversoft.dk>
-                            Korakot Chaovavanich <korakot_at_iname.com>
-                            Pete Kelly <webmaster_at_trafficg.com>
                             Steve Alberty <alberty_at_neptunlabs.de>
-                            Benjamin Gandon <gandon_at_isia.cma.fr>
                             Alexander M. Turek <rabus_at_users.sourceforge.net>
                             Mike Beck <mikebeck_at_users.sourceforge.net>
-                            + many other people (check the CREDITS file)
+                            Michal Cihar <nijel_at_users.sourceforge.net>
+                            Garvin Hicking <hicking_at_faktor-e.de>
+                            + many other people
+                              (check the CREDITS section of our documentation)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -167,5 +198,5 @@ Author & Copyright
 
 
 
-EOF -- Olivier Müller / 2002.08.11
+EOF -- Alexander M. Turek / 2003.03.02
 
