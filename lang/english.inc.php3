@@ -134,6 +134,7 @@ $strInsertAsNewRow = 'Insert as new row';
 $strInsertIntoTable = 'Insert into table';
 $strInsertNewRow = 'Insert new row';
 $strInsertTextfiles = 'Insert textfiles into table';
+$strInstructions = 'Instructions';
 $strInUse = 'in use';
 
 $strKeyname = 'Keyname';
@@ -287,5 +288,4 @@ $strWelcome = 'Welcome to ';
 $strWrongUser = 'Wrong username/password. Access denied.';
 
 $strYes = 'Yes';
-$strInstructions = 'Instructions';//to translate
 ?>

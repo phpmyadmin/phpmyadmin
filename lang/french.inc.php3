@@ -134,6 +134,7 @@ $strInsertAsNewRow = 'Insérer ce nouvel enregistrement';
 $strInsertIntoTable = 'Insérer dans la table';
 $strInsertNewRow = 'Insérer un nouvel enregistrement';
 $strInsertTextfiles = 'Insérer un fichier texte dans la table';
+$strInstructions = 'Instructions';
 $strInUse = 'utilisé';
 
 $strKeyname = 'Nom de la clé';
@@ -287,5 +288,4 @@ $strWelcome = 'Bienvenue à';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
 $strYes = 'Oui';
-$strInstructions = 'Instructions';//to translate
 ?>
