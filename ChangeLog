@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-30 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/albanian.inc.php3: Updates, thanks again to
+      Laurent Dhima <laurenti@users.sourceforge.net>.
+
 2002-05-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Translated $strPdfDbSchema.
     * lang/italian.inc.php3: Updates, thanks again to

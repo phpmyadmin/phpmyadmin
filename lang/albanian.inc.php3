@@ -13,7 +13,7 @@ $number_thousands_separator = '.';
 $number_decimal_separator = ',';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
-$day_of_week = array('Djl', 'Hën', 'Mar', 'Mër', 'Enjo', 'Pre', 'Sht'); //albanian days
+$day_of_week = array('Djl', 'Hën', 'Mar', 'Mër', 'Enj', 'Pre', 'Sht'); //albanian days
 $month = array('Jan', 'Shk', 'Mar', 'Pri', 'Maj', 'Qer', 'Kor', 'Gsh', 'Sht', 'Tet', 'Nën', 'Dhj'); //albanian months
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
@@ -28,7 +28,7 @@ $strAddNewField = 'Shto një fushë të re';
 $strAddPriv = 'Shto një privilegj të ri';
 $strAddPrivMessage = 'Ke shtuar një privilegj të ri.';
 $strAddSearchConditions = 'Shto kushte kërkimi (trupi i specifikimit "where"):';
-$strAddToIndex = 'Shto tek treguesi i &nbsp;%s&nbsp;kolonës/ave';
+$strAddToIndex = 'Shto tek treguesi i &nbsp;%s&nbsp;kolonës(ave)';
 $strAddUser = 'Shto një përdorues të ri';
 $strAddUserMessage = 'Ke shtuar një përdorues të ri.';
 $strAffectedRows = 'Rrjeshtat e prekur:';
@@ -136,7 +136,7 @@ $strFieldsTerminatedBy = 'Fushë e mbaruar nga';
 $strFixed = 'fiks';
 $strFlushTable = 'Rifillo ("FLUSH") tabelën';
 $strFormat = 'Formati';
-$strFormEmpty = 'Vlerë e mangët në form!';
+$strFormEmpty = 'Mungon një vlerë në form!';
 $strFullText = 'Tekst komplet';
 $strFunction = 'Funksion';
 
@@ -220,7 +220,7 @@ $strNotValidNumber = ' nuk është një rrjesht i vlefshëm!';
 $strNoUsersFound = 'Nuk u gjet asnjë përdorues.';
 $strNull = 'Null';
 
-$strOftenQuotation = 'Zakonisht nga dopjo thonjza. ME DëSHIRë tregon që vetëm fushat <I>char</I> dhe <I>varchar</I> duhet të delimitohen nga karakteri i treguar.';
+$strOftenQuotation = 'Zakonisht nga dopjo thonjza. ME DËSHIRË tregon që vetëm fushat <I>char</I> dhe <I>varchar</I> duhet të delimitohen nga karakteri i treguar.';
 $strOperations = 'Operacione';
 $strOptimizeTable = 'Optimizo tabelën';
 $strOptionalControls = 'Me dëshirë. Ky karakter kontrollon si të shkruash apo lexosh karakteret specialë.';
@@ -360,33 +360,36 @@ $strYes = ' Po ';
 
 $strZip = '"kompresuar me zip"';
 
+//
+
+$strConfigureTableCoord = 'Ju lutem, konfiguroni koordinatat për tabelën %s';
+$strDisplayPDF = 'Shfaq skemën e PDF';
+$strPageNumber = 'Numri i faqes:';
+$strPdfInvalidPageNum = 'Numri i faqes së PDF i papërcaktuar!';
+$strPdfInvalidTblName = 'Tabela "%s" nuk ekziston!';
+$strScaleFactorSmall = 'Faktori i shkallës është shumë i vogël për të plotësuar skemën në faqe';
+$strShowColor = 'Shfaq ngjyrën';
+$strShowGrid = 'Shfaq rrjetën';
+$strShowTableDimension = 'Trego dimensionin e tabelave';
+$strChangeDisplay = 'Zgjidh fushën që dëshiron të shohësh';
+$strNumSearchResultsInTable = '%s korrispondon(jnë) tek tabela <i>%s</i>';
+$strNumSearchResultsTotal = '<b>Gjithsej:</b> <i>%s</i> korrispondues(ë)';
+$strSearch = 'Kërko';
+$strSearchFormTitle = 'Kërko në database';
+$strSearchInTables = 'Tek tabela(at):';
+$strSearchNeedle = 'Fjala(ë) apo vlera(at) për t\'u kërkuar (karakteri Jolly: "%"):';
+$strSearchOption1 = 'të paktën njërën nga fjalët';
+$strSearchOption2 = 'të gjitha fjalët';
+$strSearchOption3 = 'fraza precize';
+$strSearchOption4 = 'si ekspresion i rregullt';
+$strSearchResultsFor = 'Kërko rezultatet për "<i>%s</i>" %s:';
+$strSearchType = 'Gjej:';
+$strSplitWordsWithSpace = 'Fjalët janë të ndara nga një hapsirë (" ").';
+$strStructPropose = 'Propozo strukturën e tabelës';
+$strExplain = 'Shpjego kodin SQL';
+$strPhp = 'Krijo kodin PHP';
+$strNoPhp = 'pa kod PHP';
+$strPdfDbSchema = 'Skema e database "%s" - Faqja %s';
+
 // To translate
-$strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
-$strDisplayPDF = 'Display PDF schema';
-$strPageNumber = 'Page number:';  //to translate
-$strPdfInvalidPageNum = 'Undefined PDF page number!'; //to translate
-$strPdfInvalidTblName = 'The "%s" table doesn\'t exist!'; //to translate
-$strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
-$strShowColor = 'Show color';  //to translate
-$strShowGrid = 'Show grid';  //to translate
-$strShowTableDimension = 'Show dimension of tables';  //to translate
-$strChangeDisplay = 'Choose Field to display';  //to translate
-$strNumSearchResultsInTable = '%s match(es) inside table <i>%s</i>';//to translate
-$strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> match(es)';//to translate
-$strSearch = 'Search';//to translate
-$strSearchFormTitle = 'Search in database';//to translate
-$strSearchInTables = 'Inside table(s):';//to translate
-$strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';//to translate
-$strSearchOption1 = 'at least one of the words';//to translate
-$strSearchOption2 = 'all words';//to translate
-$strSearchOption3 = 'the exact phrase';//to translate
-$strSearchOption4 = 'as regular expression';//to translate
-$strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
-$strSearchType = 'Find:';//to translate
-$strSplitWordsWithSpace = 'Words are splitted by a space character (" ").';//to translate
-$strStructPropose = 'Propose table structure';  //to translate
-$strExplain = 'Explain SQL Code';  //to translate
-$strPhp = 'Create PHP Code';  //to translate
-$strNoPhp = 'without PHP Code';  //to translate
-$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
 ?>
