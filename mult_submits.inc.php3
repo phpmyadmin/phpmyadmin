@@ -168,19 +168,16 @@ else if ($mult_btn == $strYes) {
             case 'check_tbl':
                 $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]));
-//                           . (($i == $selected_cnt-1) ? ';' : '');
                 break;
 
             case 'optimize_tbl':
                 $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]));
-//                           . (($i == $selected_cnt-1) ? ';' : '');
                 break;
 
             case 'repair_tbl':
                 $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]));
-//                           . (($i == $selected_cnt-1) ? ';' : '');
                 break;
 
             case 'empty_tbl':
