@@ -398,7 +398,7 @@ echo "\n";
 
 <tr>
     <td colspan="<?php echo((PMA_MYSQL_INT_VERSION >= 32323) ? '13' : '12'); ?>">
-        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" title="<?php echo $strWithChecked; ?>" />
+        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strChange; ?>" />
 <?php
