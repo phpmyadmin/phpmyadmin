@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_qbe.php3, try to make it work again
+
 2002-04-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Clarification ($strFlushTable).
 

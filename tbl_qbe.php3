@@ -708,8 +708,8 @@ if (isset($Field) && count($Field) > 0) {
     $rest      = array();
     $found     = array();
     $rel_work  = FALSE;
-    $ex        = 0;
-    $hit       = 0;
+    //$ex        = 0;
+//    $hit       = 0;
     
     //  we only start this if we have fields, otherwise it would be dumb
     while (list(, $value) = each($Field)) {
@@ -729,7 +729,8 @@ if (isset($Field) && count($Field) > 0) {
             $wtable = explode('.', urldecode($Field[$x]));
             $ctable = str_replace('`', '', $wtable[0]);
             if (!empty($Field[$x]) && !empty($Criteria[$x])) {
-                if (isset($where[$ctable]) && $where[$ctable] != '=') {
+//                if (isset($where[$ctable]) && $where[$ctable] != '=') {
+                  if (empty($where[$ctable]) || $where[$ctable] != '=') {
                     $where[$ctable] = substr($Criteria[$x], 0, 1);
                 }
             }
@@ -786,26 +787,20 @@ if (isset($Field) && count($Field) > 0) {
             } else {
                 // remember that we found more than one because this means we
                 // need to refine more
-                $hit    = 2;
+                //$hit    = 2;
             } // end if.. else...
             while (list($key, $value) = each($wheretabs)) {
                 if ($row['wer'] == $key) {
                     $master = $row['wer'];
-                    $ex     = 1;
+                    //$ex     = 1;
                     break;
                 }
             } // end while
             reset($wheretabs);
         } // end while
 
-        if ($ex == 1 || $hit != 2) {
-            // if $ex is not 1 then obviously none of the tables that are used
-            // in the whereclause could be found - that means that using left
-            // joins doesn't make much sense anyway
-
-            if ($master != '') {
-                $qry_from = PMA_backquote($master);
-            }
+        if ($master != '') {
+            $qry_from = PMA_backquote($master);
 
             // now we want one Array that has all tablenames but master
             while (list(, $value) = each($alltabs)) {
@@ -908,7 +903,7 @@ if (isset($Field) && count($Field) > 0) {
             $qry_from = ereg_replace(', $', '', $qry_from);
             $qry_from .= $ljm . $lj;
 
-        } // end $ex == 1 (testing if it is worth the pain)
+        } // end if ($master != '')
 
     } // end rel work and $alltabs > 0
 
