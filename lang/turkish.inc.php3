@@ -1,0 +1,323 @@
+<?php
+/* $Id$ */
+
+$charset = 'iso-8859-9';
+$left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
+$right_font_family = 'helvetica, arial, geneva, sans-serif';
+$number_thousands_separator = ',';
+$number_decimal_separator = '.';
+$byteUnits = array('Byte', 'KB', 'MB', 'GB');
+//veritabanlarý terminolojisinde tercümeye pek müsait olmayan index ve unique sözcükleri aynen kullanýldý: uniqe=eþsiz,tek
+$day_of_week = array('Pazar', 'Pazartesi', 'Salý', 'Çarþamba', 'Perþembe', 'Cuma', 'Cumartesi');
+$month = array('Ocak', 'Þubat', 'Mart', 'Nisan', 'Mayýs', 'Haziran', 'Temmuz', 'Aðustos', 'Eylül', 'Ekim', 'Kasým', 'Aralýk');
+// See http://www.php.net/manual/en/function.strftime.php to define the
+// variable below
+$datefmt = '%B %d, %Y at %I:%M %p';
+
+
+$strAccessDenied = 'Eriþim engellendi';
+$strAction = 'Eylem';
+$strAddDeleteColumn = 'Sütun alaný Ekle/Sil';
+$strAddDeleteRow = 'Kriter satýrý Ekle/Sil';
+$strAddNewField = 'Yeni alan ekle';
+$strAddPriv = 'Yeni ayrýcalýk ekle';
+$strAddPrivMessage = 'Yeni ayrýcalýk eklediniz..';
+$strAddSearchConditions = 'Arama durumu ekle ("where" cümleciði için):';
+$strAddUser = 'Yeni kullanýcý ekle';
+$strAddUserMessage = 'Yeni bir kullanýcý eklediniz.';
+$strAffectedRows = 'Etkilenen satýrlar:';
+$strAfter = 'Sonuna:';
+$strAll = 'Tümü';
+$strAlterOrderBy = 'Tabloyu deðiþtir ve þuna göre sýrala:';
+$strAnalyzeTable = 'Tabloyu analiz et';
+$strAnd = 'Ve';
+$strAnIndex = '%s üzerinde yeni bir index eklendi';
+$strAny = 'Herhangi';
+$strAnyColumn = 'Herhangi sütun';
+$strAnyDatabase = 'Herhangi veritabaný';
+$strAnyHost = 'Herhangi sunucu';
+$strAnyTable = 'Herhangi tablo';
+$strAnyUser = 'Herhangi kullanýcý';
+$strAPrimaryKey = '%s üzerinde birincil index eklendi';
+$strAscending = 'Artan';
+$strAtBeginningOfTable = 'Tablonun baþýnda';
+$strAtEndOfTable = 'Tablonun sonunda';
+$strAttr = 'Özellikler';
+
+$strBack = 'Geri';
+$strBinary = 'Binari';
+$strBinaryDoNotEdit = 'Binari - düzenlemeyiniz';
+$strBookmarkLabel = 'Etiket';
+$strBookmarkQuery = ' SQL-sorgusu';
+$strBookmarkThis = 'Bu SQL-sorgusunu iþaretle';
+$strBookmarkView = 'Sadece gözat';
+$strBrowse = 'Tara';
+$strBzip = '"bzipped"';
+
+$strCantLoadMySQL = 'mySQL uzantýsýný yükleyemiyor,<br />lütfen PHP ayarlarýný kontrol ediniz.';
+$strCarriage = 'Enter Karakteri: \\r';
+$strChange = 'Deðiþtir';
+$strCheckAll = 'Tümünü seç';
+$strCheckDbPriv = 'Veritabaný önceliklerini kontrol et';
+$strCheckTable = 'Tabloyu kontrol et';
+$strColumn = 'Sütun';
+$strColumnEmpty = 'Sütun adlarý boþ!';
+$strColumnNames = 'Sütun adlarý';
+$strCompleteInserts = 'Tamamlanmýþ eklemeler';
+$strConfirm = 'Aþaðýdaki komutu uygulamak istediðinizden emin misiniz?';
+$strCopyTable = 'Tabloyu (veritabaný<b>.</b>tablo) kopyala:';
+$strCopyTableOK = '%s tablosu %s üzerine kopyalandý.';
+$strCreate = 'Git';
+$strCreateNewDatabase = 'Yeni veritabaný oluþtur';
+$strCreateNewTable = 'Veritabaný üzerinde yeni bir tablo oluþtur ';
+$strCriteria = 'Kriter';
+
+$strData = 'Veri';
+$strDatabase = 'Veritabaný ';
+$strDatabaseHasBeenDropped = '%s veritabaný kaldýrýldý.';
+$strDatabases = 'veritabanlarý';
+$strDatabasesStats = 'Veritabaný istatistikleri';
+$strDataOnly = 'Sadece veri';
+$strDbEmpty = 'Veri tabaný ismi boþ!';
+$strDefault = 'Varsayýlan';
+$strDelete = 'Sil';
+$strDeleted = 'Satýr silindi.';
+$strDeletedRows = 'Silinen satýrlar:';
+$strDeleteFailed = 'Silme sýrasýnda hata oluþtu!';
+$strDeleteUserMessage = '%s kullanýcýsýný sildiniz.';
+$strDescending = 'Azalan';
+$strDisplay = 'Görüntüle';
+$strDisplayOrder = 'Görünüm düzeni:';
+$strDoAQuery = '"Örnekle sorgu" yap (joker: "%")';
+$strDocu = 'Dökümantasyon';
+$strDoYouReally = 'Aþaðýdaki komutu uygulamak istediðinizden emin misiniz? ';
+$strDrop = 'Kaldýr';
+$strDropDB = 'Veritabaný\'ný kaldýr: ';
+$strDropTable = 'Tablo\'yu kaldýr:';
+$strDumpingData = 'Tablo döküm verisi';
+$strDynamic = 'dinamik';
+
+$strEdit = 'Düzenle';
+$strEditPrivileges = 'Öncelikleri Düzenle';
+$strEffective = 'Efektif';
+$strEmpty = 'Boþalt';
+$strEmptyResultSet = 'MySQL boþ bir sonuc kümesi döndürdü ( sýfýr satýr).';
+$strEnd = 'Son';
+$strEnglishPrivileges = ' Not: mySQL  öncelik adlarý Ýngilizce olarak belirtilmiþtir ';
+$strError = 'Hata';
+$strExtendedInserts = 'Geniþletilmiþ eklemeler';
+$strExtra = 'Ayrýca';
+
+$strField = 'Alan';
+$strFieldHasBeenDropped = '%s alaný kaldýrýlmýþtýr';
+$strFields = 'Alanlar';
+$strFieldsEmpty = ' Alan sayýsý boþ! ';
+$strFieldsEnclosedBy = 'Alan ayýrýcý iþaret';//it does not seem well but just works
+$strFieldsEscapedBy = 'Kaçýþ simgesi(özel iþaretler için)';//it does not seem well but just works
+$strFieldsTerminatedBy = 'Alan bitirici iþaret';//it does not stand seem but just works
+$strFixed = 'sabit';
+$strFormat = 'Biçim';
+$strFormEmpty = 'Form\'da eksik deðer !';
+$strFullText = 'Tüm metinler';
+$strFunction = 'Fonksiyon';
+
+$strGenTime = 'Çýktý Tarihi';
+$strGo = 'Git';
+$strGrants = 'Haklar';
+$strGzip = '"gziplenmiþ"';
+
+$strHasBeenAltered = 'düzenlendi.';
+$strHasBeenCreated = 'yaratýldý.';
+$strHome = 'Ana Sayfa';
+$strHomepageOfficial = 'Resmi phpMyAdmin Web Sayfasý';
+$strHomepageSourceforge = 'Sourceforge phpMyAdmin Yükleme Sayfasý';
+$strHost = 'Sunucu:';
+$strHostEmpty = 'Sunucu ismi alaný doldurulmadý!';
+
+$strIdxFulltext = 'Tüm metinler';
+$strIfYouWish = 'Eðer bir tablo\'nun sadece bazý sütunlarýný yüklemek istiyorsanýz,virgüllerle ayrýlmýþ bir alan listesi belirtiniz.';
+$strIndex = 'Index';
+$strIndexHasBeenDropped = '%s index\'i silindi.';
+$strIndexes = 'Index\'ler';
+$strInsert = 'Ekle';
+$strInsertAsNewRow = 'Yeni bir satýr olarak ekle';
+$strInsertedRows = 'Eklenen satýrlar:';
+$strInsertIntoTable = 'Tablo içerisine ekle';
+$strInsertNewRow = 'Yeni satýr ekle';
+$strInsertTextfiles = 'Tablo içine metin dosyasý ekle';
+$strInstructions = 'Talimatlar';
+$strInUse = 'kullanýmda';
+$strInvalidName = '"%s" sözcüðü kullanýlamayan sözcük.Veritabaný/tablo/alan ismi olarak kullanamassýnýz, you can\'t use it as a database/table/field name.';
+
+$strKeepPass = 'Þifreyi deðiþtirme';
+$strKeyname = 'Anahtar ismi';
+$strKill = 'Kapat';
+
+$strLength = 'Boyut';
+$strLengthSet = 'Boyut/Deðerler*';
+$strLimitNumRows = '(sayfa baþýna gösterilecek kayýt)';
+$strLineFeed = 'Satýr: \\n';
+$strLines = 'Satýrlar';
+$strLinesTerminatedBy = 'Satýr sonu';
+$strLocationTextfile = 'Dosyadan yükle';
+$strLogin = ''; //to translate, but its not in use ... (so why here  :P )
+$strLogout = 'Çýkýþ';
+
+$strModifications = 'Deðiþiklikler kaydedildi';
+$strModify = 'Deðiþtir';
+$strMoveTable = 'Tabloyu (veritabaný<b>.</b>tablo) taþý:';
+$strMoveTableOK = '%s tablosu %s üzerine taþýndý.';
+$strMySQLReloaded = 'MySQL yeniden yüklendi.';
+$strMySQLSaid = 'MySQL çýktýsý: ';
+$strMySQLShowProcess = 'Ýþlemleri göster';
+$strMySQLShowStatus = 'MySQL çalýþma zamaný bilgisini göster';
+$strMySQLShowVars = 'MySQL sistem deðiþkenlerini göster';
+
+$strName = 'Ýsim';
+$strNbRecords = 'Kayýt sayýsý';
+$strNext = 'Sonraki';
+$strNo = 'Hayýr';
+$strNoDatabases = 'Veritabaný yok';
+$strNoDropDatabases = '"DROP DATABASE" cümlesi burada kullanýlamaz.';
+$strNoModification = 'Deðiþiklik yok';
+$strNoPassword = 'Þifre yok';
+$strNoPrivileges = 'Ayrýcalýk yok';
+$strNoQuery = 'SQL sorgusu yok!';  //to translate
+$strNoRights = 'Burada bulunmak için yeterli haklara sahip deðilsiniz!';
+$strNoTablesFound = 'Veritabaný\'nda tablo bulunamadý.';
+$strNotNumber = 'Bu bir sayý deðil!';
+$strNotValidNumber = ' geçerli bir satýr sayýsý deðil!';
+$strNoUsersFound = 'Kullanýcý(lar) bulunamadý.';
+$strNull = 'Boþ';
+$strNumberIndexes = ' Geliþmiþ index sayýsý ';
+
+$strOftenQuotation = 'Sýk kullanýlan aktarma iþaretleri.SEÇÝME BAÐLI,sadece char ve varchar alanlarýnýn "enclosed-by" karakteri ile çevreneleceði anlamýna gelir..';
+$strOptimizeTable = 'Tabloyu optimize et';
+$strOptionalControls = 'Özel karakterleri yazmak ve okumak için kontroller.Opsiyonel';
+$strOptionally = 'Seçime Baðlý';
+$strOr = 'veya';
+$strOverhead = 'Üstü';
+
+$strPartialText = 'Bölümsel Metinler';
+$strPassword = 'Þifre';
+$strPasswordEmpty = 'Þifre alaný doldurulmadý!';
+$strPasswordNotSame = 'Girilen þifreler ayný deðil!';
+$strPHPVersion = 'PHP Sürümü';
+$strPmaDocumentation = 'phpMyAdmin dökümantasyonu';
+$strPos1 = 'Baþlangýç';
+$strPrevious = 'Önceki';
+$strPrimary = 'Birincil';
+$strPrimaryKey = 'Birincil anahtar';
+$strPrimaryKeyHasBeenDropped = 'Birincil anahtar silindi';
+$strPrinterFriendly = 'Yukarýdaki tablonun yazýcý çýktýsý';
+$strPrintView = 'Yazýcý görüntüsü';
+$strPrivileges = 'Öncelikler';
+$strProducedAnError = 'hata oluþturdu.';
+$strProperties = 'Özellikler';
+
+$strQBE = 'Örnekle sorgula';
+$strQBEDel = 'Del';
+$strQBEIns = 'Ins';
+$strQueryOnDb = 'Veritabaný üzerinde SQL-sorgusu&nbsp';
+
+$strReadTheDocs = 'Belgeleri oku';
+$strRecords = 'Kayýtlar';
+$strReloadFailed = 'MySQL yeniden yüklenmesi gerçekleþtirilemedi.';
+$strReloadMySQL = 'MySQL\'i yeniden yükle';
+$strRememberReload = 'Server\'ý yeniden yüklemeyi unutmayýnýz.';
+$strRenameTable = 'Tablonun ismini þuna deðiþtir';
+$strRenameTableOK = '%s tablosu %s olarak yeniden adlandýrýldý';
+$strRepairTable = 'Tablo\'yu onar';
+$strReplace = 'Yerdeðiþtir';
+$strReplaceTable = 'Tablo verisini bir dosyadaki ile deðiþtir';
+$strReset = 'Sýfýrla';
+$strReType = 'Yeniden gir';
+$strRevoke = 'Geçersiz kýl';
+$strRevokeGrant = 'Hak geçersiz kýl';
+$strRevokeGrantMessage = 'Ayrýcalýk haklarý geçersiz kýlýnan:';
+$strRevokeMessage = 'Ayrýcalýklarý geçersiz kýlýnan:';
+$strRevokePriv = 'Ayrýcalýklarý geçersiz kýl';
+$strRowLength = 'Satýr boyu';
+$strRows = 'Satýr Sayýsý';
+$strRowsFrom = '(kayýt)baþlayacaðý kayýt :';
+$strRowSize = ' Satýr boyutu ';
+$strRowsStatistic = 'Satýr istatistiði';
+$strRunning = '-- çalýþtýðý ortam --)';
+$strRunningAs = 'çalýþtýðý sistem --';
+$strRunQuery = 'Sorguyu çalýþtýr';
+$strRunSQLQuery = '%s veritabaný üzerinde sorgu/sorgular çalýþtýr';
+
+$strSave = 'Kaydet';
+$strSelect = 'Seç';
+$strSelectFields = 'Alan seç (en az bir):';
+$strSelectNumRows = 'sorgu içerisinde';
+$strSend = 'Dosya olarak kaydet';
+$strSequence = 'Seq.';
+$strServerChoice = 'Server seçimi';
+$strServerVersion = 'Server sürümü';
+$strSetEnumVal = 'Eðer alan tipi "enum" veya  "set" ise , lütfen verileri þu formata göre giriniz: \'a\',\'b\',\'c\'...<br>Eðer bu deðerler arasýna backslash ("\") veya tek týrnak koymanýz gerekirse ("\'"),bunun için backslash kullanýn (mesela \'\\\\xyz\' veya \'a\\\'b\').';
+$strShow = 'Göster:';
+$strShowAll = 'Tümünü göster';
+$strShowCols = 'Bütün sütunlarý göster';
+$strShowingRecords = 'Kayýtlarý gösteriyor';
+$strShowPHPInfo = 'PHP bilgisini göster';
+$strShowTables = 'Tablolarý göster';
+$strShowThisQuery = ' Bu sorguyu burda yine göster ';
+$strSingly = '(birer birer)';
+$strSize = 'Boyut';
+$strSort = 'Sýrala';
+$strSpaceUsage = 'Kullanýlan alan';
+$strSQLQuery = 'SQL-sorgusu';
+$strStartingRecord = 'Kayýt baþlangýcý';
+$strStatement = 'Ýfadeler';
+$strStrucCSV = 'CSV verisi';
+$strStrucData = 'Yapý ve Veri';
+$strStrucDrop = '\'Drop table\' ekle';
+$strStrucExcelCSV = 'MS Excel verisi için CSV';
+$strStrucOnly = 'Sadece yapý';
+$strSubmit = 'Onayla';
+$strSuccess = 'SQL sorgunuz baþarýyla çalýþtýrýlmýþtýr';
+$strSum = 'toplam';
+
+$strTable = 'tablo ';
+$strTableComments = 'Tablo yorumlarý';
+$strTableEmpty = 'Tablo ismi boþ!';
+$strTableHasBeenDropped = '%s tablosu kaldýrýlmýþtýr';
+$strTableHasBeenEmptied = '%s tablosu boþaltýlmýþtýr';
+$strTableMaintenance = 'Tablo bakýmý';
+$strTables = '%s tablo';
+$strTableStructure = 'Tablo için tablo yapýsý';
+$strTableType = 'Tablo tipi';
+$strTextAreaLength = 'Boyutu nedeniyle,<br /> bu alan düzenlenmeyebilir ';
+$strTheContent = 'Dosyanýzýn içeriði eklendi.';
+$strTheContents = 'Dosyanýn içeriði tablonun içeriðini ayný birincil veya unique anahtar deðerli sütunlar için yer deðiþtirir..';
+$strTheTerminator = 'Alan bitimini belirten iþaret.';
+$strTotal = 'toplam';
+$strType = 'Tip';
+
+$strUncheckAll = 'Hiçbirisini Seçme';
+$strUnique = 'Unique';
+$strUpdatePrivMessage = '%s için olan ayrýcalýklarý güncellediniz.';
+$strUpdateProfile = 'Profil güncelle:';
+$strUpdateProfileMessage = 'Profil güncellendi.';
+$strUpdateQuery = 'Sorguyu güncelle';
+$strUsage = 'Kullaným';
+$strUseBackquotes = 'Tablo ve alan isimleri için ters týrnak " ` " iþaretini kullan';
+$strUser = 'Kullanýcý:';
+$strUserEmpty = 'Kullanýcý ismi alaný doldurulmadý!';
+$strUserName = 'Kullanýcý ismi';
+$strUsers = 'Kullanýcýlar';
+$strUseTables = 'Tablolarý kullan';
+
+$strValue = 'Deðer';
+$strViewDump = 'Tablo\'nun döküm(þema)\'ünü göster';
+$strViewDumpDB = 'Veritabaný\'nýn döküm(þema)\'ünü göster';
+
+$strWelcome = 'HOÞGELDÝNÝZ: ';
+$strWithChecked = 'seçilileri:';
+$strWrongUser = 'Hatalý kullanýcý/parola. Eriþim engellendi.';
+
+$strYes = 'Evet';
+
+$strZip = '"ziplenmiþ"';
+?>
