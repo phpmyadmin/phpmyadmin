@@ -179,8 +179,14 @@
      Please look at your scripts/
          directory, where you should find a file called <i>create_tables.sql</i>.
          (If you are using a Windows server, pay special attention to <a href="#faq1_23">FAQ 1.23</a>).
-         If your MySQL server's version is 4.1.2 or later, please use <i>create_tables_mysql_4_1_2+.sql</i> instead.
-         You can already use your phpMyAdmin to create the tables for you. Please be
+     <br /> <br />
+         If your MySQL server's version is 4.1.2 or later, please use 
+         <i>create_tables_mysql_4_1_2+.sql</i> instead, for a new installation.
+     <br /> <br />
+         If you already had this infrastructure and upgraded to MySQL 4.1.2
+         or later, please use <i>upgrade_tables_mysql_4_1_2+.sql</i>.
+     <br /> <br />
+         You can use your phpMyAdmin to create the tables for you. Please be
          aware that you may need special (administrator) privileges to create
          the database and tables, and that the script may need some tuning,
          depending on the database name.
