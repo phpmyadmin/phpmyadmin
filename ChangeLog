@@ -21,6 +21,7 @@ $Source$
     * libraries/display_tbl.lib.php3, line 1006: if a binary record contains
       some html tags, display was broken. Thanks to
       SailorMax <max at elcor.lv>.
+    * lang/italian.inc.php3: updated, thanks to Pietro Danesi.
 
 2002-05-16 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3; Documentation.html: coding standards.

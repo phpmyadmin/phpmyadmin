@@ -76,6 +76,7 @@ $strCheckTable = 'Controlla tabella';
 $strColumn = 'Colonna';
 $strColumnNames = 'Nomi delle colonne';
 $strCompleteInserts = 'Inserimenti completi';
+$strConfigureTableCoord = 'Prego, configurare le coordinate per la tabella %s';
 $strConfirm = 'Sicuro di volerlo fare?';
 $strCookiesRequired = 'Da questo punto in poi, i cookies devono essere abilitati.';
 $strCopyTable = 'Copia la tabella nel (database<b>.</b>tabella):';
@@ -104,6 +105,7 @@ $strDelPassMessage = 'Hai cancellato la password per';
 $strDescending = 'Decrescente';
 $strDisplay = 'Visualizza';
 $strDisplayOrder = 'Ordine di visualizzazione:';
+$strDisplayPDF = 'Mostra lo schema del PDF';
 $strDoAQuery = 'Esegui "query da esempio" (carattere jolly: "%")';
 $strDocu = 'Documentazione';
 $strDoYouReally = 'Confermi: ';
@@ -230,6 +232,7 @@ $strOptions = 'Opzioni';
 $strOr = 'Oppure';
 $strOverhead = 'In eccesso';
 
+$strPageNumber = 'Numero pagina:';
 $strPartialText = 'Testo parziale';
 $strPassword = 'Password';
 $strPasswordEmpty = 'La password è vuota!';
@@ -284,6 +287,7 @@ $strRunQuery = 'Invia Query';
 $strRunSQLQuery = 'Esegui la/e query SQL sul database %s';
 
 $strSave = 'Salva';
+$strScaleFactorSmall = 'Il fattore di scala &egrave; troppo piccolo per riempire lo schema nella pagina';
 $strSelect = 'Seleziona';
 $strSelectADb = 'Prego, selezionare un database';
 $strSelectAll = 'Seleziona Tutto';
@@ -295,9 +299,12 @@ $strServerVersion = 'Versione MySQL';
 $strSetEnumVal = 'Se il tipo di campo è "enum" o "set", immettere i valori usando il formato: \'a\',\'b\',\'c\'...<br />Se comunque dovete mettere dei backslashes ("\") o dei single quote ("\'") davanti a questi valori, backslashateli (per esempio \'\\\\xyz\' o \'a\\\'b\').';
 $strShow = 'Mostra';
 $strShowAll = 'Mostra tutti';
+$strShowColor = 'Mostra il colore';
 $strShowCols = 'Mostra le colonne';
+$strShowGrid = 'Mostra la griglia';
 $strShowingRecords = 'Visualizzazione record ';
 $strShowPHPInfo = 'Mostra le info sul PHP';
+$strShowTableDimension = 'Mostra la dimensione delle tabelle';
 $strShowTables = 'Mostra le tabelle';
 $strShowThisQuery = 'Mostra questa query di nuovo';
 $strSingly = '(singolarmente)';
@@ -362,11 +369,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
-$strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
-$strDisplayPDF = 'Display PDF schema';  //to translate
-$strPageNumber = 'Page number:';  //to translate
-$strShowGrid = 'Show grid';  //to translate
-$strShowColor = 'Show color';  //to translate
-$strShowTableDimension = 'Show dimension of tables';  //to translate
 ?>
