@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-22 Alexander M. Turek  <me@derrabus.de>
+    * lang/turkish-*.inc.php: Update, thanks to boralioglu.
+    * lang/sync_lang.sh: Switched turkish base charset to UTF-8.
+
 2004-09-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysql.dbi.lib.php: typo, thanks to Matthias Pigulla 
     ### 2.6.0-rc3 released
@@ -53,7 +57,7 @@ $Source$
 2004-09-14 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: stay on the form when passwords don't match
       (after the js alert)
-    * left.php, bug #1006514, top left frame does not load in Safari 1.2.3,
+    * left.php: bug #1006514, top left frame does not load in Safari 1.2.3,
       workaround thanks to Ryan Schmidt
 
 2004-09-14 Michal Čihař  <michal@cihar.com>
