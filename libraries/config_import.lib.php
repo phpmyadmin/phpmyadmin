@@ -536,6 +536,10 @@ if (!isset($cfg['AllowAnywhereRecoding'])) {
     $cfg['AllowAnywhereRecoding'] = FALSE;
 }
 
+if (!isset($cfg['RecodingEngine'])) {
+    $cfg['RecodingEngine'] = 'auto';
+}
+
 if (!isset($cfg['IconvExtraParams'])) {
     $cfg['IconvExtraParams'] = '';
 }

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-04 Alexander M. Turek  <beggaronabeachofgold@derrabus.de>
+    * libraries/config_import.lib.php: Added missing compatibility code for
+      $cfg['RecodingEngine'].
+
 2004-01-02 Alexander M. Turek  <wecantdance@derrabus.de>
     * libraries/mysql_charsets.lib.php, libraries/sqlparser.lib.php:
       MySQL collations are now parsed and highlighted.
