@@ -47,10 +47,7 @@ if ($table_info_num_rows > 0) {
     $att6    = '';
 }
 
-// The 'back' is supposed to be set to the current sub-page. This is necessary
-// when you have js deactivated, you click on Drop, then click cancel, and want
-// to get back to the same sub-page.
-$arg7 = ereg_replace('tbl_properties[^.]*.php3$', 'db_details.php3', $url_query) . '&amp;reload=1&amp;purge=1&amp;sql_query=' . urlencode('DROP TABLE ' . PMA_backquote($table) ) . '&amp;zero_rows=' . urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table)));
+$arg7 = $url_query . '&amp;reload=1&amp;purge=1&amp;sql_query=' . urlencode('DROP TABLE ' . PMA_backquote($table) ) . '&amp;zero_rows=' . urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table)));
 $att7 = 'class="drop" onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsFormat($table) . '\')"';
 
 

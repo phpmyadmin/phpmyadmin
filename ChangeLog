@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-26 Michal Cihar  <nijel@users.sourceforge.net>
+    * sql.php3, tbl_properties_links.php3, tbl_properties_structure.php3: Go
+      back to tbl_properties_structure.php3 when not dropping table.
+
 2003-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: typo, bzip should be bzip2
     * libraries/sqlparser.lib.php3, tbl_properties_export.php3:

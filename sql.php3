@@ -139,6 +139,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         if (strpos(' ' . $goto, 'db_details') == 1 && !empty($table)) {
             unset($table);
         }
+        $active_page = $goto;
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
