@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-03 Alexander M. Turek  <me@derrabus.de>
+    * header.inc.php: Undefined variable.
+
 2004-06-03 Michal Čihař  <michal@cihar.com>
     * db_details_links.php, header.inc.php, server_links.inc.php,
       tbl_properties_links.php, css/phpmyadmin.css.php: Use classes for

@@ -41,7 +41,7 @@ if (empty($GLOBALS['is_header_sent'])) {
      */
     $title     = '';
     if ($cfg['ShowHttpHostTitle']) {
-        $title .= (empty($cfg['SetHttpHostTitle']) ? $HTTP_HOST : $cfg['SetHttpHostTitle']) . ' >> ';
+        $title .= (empty($cfg['SetHttpHostTitle']) ? $GLOBALS['HTTP_HOST'] : $cfg['SetHttpHostTitle']) . ' >> ';
     }
     if (!empty($GLOBALS['cfg']['Server']) && isset($GLOBALS['cfg']['Server']['host'])) {
         $title.=str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['host']);
@@ -162,7 +162,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                                                                   )
                        );
         echo '<div class="server">' . $GLOBALS['strServer'] . ":\n"
-            . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . '?' . PMA_generate_common_url() . '">' 
+            . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . '?' . PMA_generate_common_url() . '">'
             . htmlspecialchars($server_info) . '</a>' . "\n"
             . '</div>' . "\n\n";
 
@@ -171,10 +171,10 @@ if (empty($GLOBALS['is_header_sent'])) {
                 . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($GLOBALS['db']) . '">'
                 . htmlspecialchars($GLOBALS['db']) . '</a>' . "\n"
                 . '</div>' . "\n\n";
-               
+
             if (!empty($GLOBALS['table'])) {
                 echo '<div class="table">' . $GLOBALS['strTable'] . ":\n"
-                    . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">' 
+                    . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">'
                     . htmlspecialchars($GLOBALS['table']) . '</a>' . "\n"
                     . '</div>' . "\n\n";
             }
