@@ -5,7 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-03-03 Loïc Chapeaux  <lolo@phpheaven.net>
+2002-03-04 Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/display_tbl.lib.php3, undefined variable
+
+2002-03-04 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, line 1306: fixed a bug reported by Marc
 	  Delisle with the relation feature.
 
