@@ -166,6 +166,9 @@ function PMA_blowfish_decrypt($data, $secret) {
             else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_username'])) {
                 $default_user = $HTTP_COOKIE_VARS['pma_cookie_username'];
             }
+            if (isset($default_user) && get_magic_quotes_gpc()) {
+                $default_user = stripslashes($default_user);
+            }
             $autocomplete     = '';
         }
         else {
