@@ -7,6 +7,8 @@ $Source$
 
 2002-04-20 Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3; left.php3; libraries/left.js: CSS fixes.
+	* lang/italian.inc.php3: updated thanks to
+	  "DPhantom" <dphantom at users.sourceforge.net>.
 
 2002-04-19 Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html "how can I make a backup?",

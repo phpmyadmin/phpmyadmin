@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
-/* Pietro Danesi <danone@aruba.it>  07.09.2001 */
+
+/**
+ * Translated by: Pietro Danesi <danone@aruba.it>  2002-03-29
+ * Revised by:    "DPhantom" <dphantom at users.sourceforge.net>  2002-04-16
+ */
 
 $charset = 'iso-8859-1';
 $text_dir = 'ltr';
@@ -166,7 +170,7 @@ $strInvalidName = '"%s" &egrave; una parola riservata; non &egrave; possibile ut
 
 $strKeepPass = 'Non cambiare la password';
 $strKeyname = 'Nome chiave';
-$strKill = 'Uccidi';
+$strKill = 'Rimuovi';
 
 $strLength = 'Lunghezza';
 $strLengthSet = 'Lunghezza/Set*';
@@ -198,7 +202,7 @@ $strNext = 'Prossimo';
 $strNo = ' No ';
 $strNoDatabases = 'Nessun database';
 $strNoDropDatabases = 'I comandi "DROP DATABASE" sono disabilitati.';
-$strNoFrames = 'phpMyAdmin è più amichevole con un browser che supporta i frames';
+$strNoFrames = 'phpMyAdmin funziona meglio con browser che supportano frames';
 $strNoIndex = 'Nessun indice definito!';
 $strNoIndexPartsDefined = 'Nessuna parte di indice definita!';
 $strNoModification = 'Nessun cambiamento';
@@ -217,7 +221,7 @@ $strOftenQuotation = 'In genere da doppi apici (virgolette). OPZIONALE indica ch
 $strOptimizeTable = 'Ottimizza tabella';
 $strOptionalControls = 'Opzionale. Questo carattere controlla come scrivere o leggere i caratteri speciali.';
 $strOptionally = 'OPZIONALE';
-$strOr = 'O';
+$strOr = 'Oppure';
 $strOverhead = 'In eccesso';
 
 $strPartialText = 'Testo parziale';
@@ -232,8 +236,8 @@ $strPrevious = 'Precedente';
 $strPrimary = 'Primaria';
 $strPrimaryKey = 'Chiave primaria';
 $strPrimaryKeyHasBeenDropped = 'La chiave primaria è stata eliminata';
-$strPrimaryKeyName = 'Il nome della chiave primaria deve essere... PRIMARIO!';
-$strPrimaryKeyWarning = '("PRIMARIO" <b>deve</b> essere il nome di, e <b>solo di</b>, una chiave primaria!)';
+$strPrimaryKeyName = 'Il nome della chiave primaria deve essere... PRIMARY!';
+$strPrimaryKeyWarning = '("PRIMARY" <b>deve</b> essere il nome di, e <b>solo di</b>, una chiave primaria!)';
 $strPrintView = 'Visualizza per stampa';
 $strPrivileges = 'Privilegi';
 $strProperties = 'Proprietà';
