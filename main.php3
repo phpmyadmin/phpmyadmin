@@ -146,7 +146,7 @@ if ($server > 0
     <td valign="top" align="left">
         <table>
         <tr>
-            <th colspan="2">MySQL</th>
+            <th colspan="2">&nbsp;&nbsp;MySQL</th>
         </tr>
     <?php
     echo "\n";
@@ -459,7 +459,7 @@ if ($server > 0
     <td valign="top" align="left">
         <table>
         <tr>
-            <th colspan="2">phpMyAdmin</th>
+            <th colspan="2">&nbsp;&nbsp;phpMyAdmin</th>
         </tr>
 
 <?php
