@@ -568,8 +568,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         // table being displayed has one or more keys; but to display
         // delete/edit options correctly for tables without keys.
 
-        while ($row = mysql_fetch_row($dt_result)) {
-            $bgcolor                  = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
+        // loic1: use 'mysql_fetch_array' rather than 'mysql_fetch_row' to get
+        //        the NULL values
+
+        while ($row = mysql_fetch_array($dt_result)) {
+            $bgcolor = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
 
             ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
@@ -587,11 +590,10 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                     for ($i = 0; $i < $fields_cnt; ++$i) {
                         $primary   = $fields_meta[$i];
                         $condition = ' ' . backquote($primary->name) . ' ';
-                        if (!isset($row[$i])) {
-                            $row[$i]   = '';
+                        if (!isset($row[$primary->name])) {
                             $condition .= 'IS NULL AND';
                         } else {
-                            $condition .= '= \'' . sql_addslashes($row[$i]) . '\' AND';
+                            $condition .= '= \'' . sql_addslashes($row[$primary->name]) . '\' AND';
                         }
                         if ($primary->primary_key > 0) {
                             $primary_key .= $condition;
@@ -609,12 +611,6 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                     }
                     $uva_condition     = urlencode(ereg_replace(' ?AND$', '', $uva_condition));
                 } // end if (1.1)
-
-                // 1.2 Results from a "SHOW PROCESSLIST" statement -> gets the
-                //     process id
-                else if ($is_display['del_lnk'] == 'kp') {
-                    $pma_pid = $row[0];
-                }
 
                 // 1.2 Defines the urls for the modify/delete link(s)
                 $url_query  = 'lang=' . $lang
@@ -662,13 +658,13 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                               . '?lang=' . $lang
                               . '&server=' . $server
                               . '&db=mysql'
-                              . '&sql_query=' . urlencode('KILL ' . $pma_pid)
+                              . '&sql_query=' . urlencode('KILL ' . $row['Id'])
                               . '&goto=main.php3';
-                    $js_conf  = 'KILL ' . $pma_pid;
+                    $js_conf  = 'KILL ' . $row['Id'];
                     $del_str  = $GLOBALS['strKill'];
-                } // end if (1.2.1)
+                } // end if (1.2.2)
 
-                // 1.2.3 Displays the links at left if required
+                // 1.3 Displays the links at left if required
                 if ($GLOBALS['cfgModifyDeleteAtLeft']) {
                     if (!empty($edit_url)) {
                         ?>
@@ -688,19 +684,18 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     </td>
                         <?php
                     }
-                } // end if (1.2.3)
+                } // end if (1.3)
                 echo "\n";
             } // end if (1)
 
             // 2. Displays the rows' values
             for ($i = 0; $i < $fields_cnt; ++$i) {
-                if (!isset($row[$i])) {
-                    $row[$i] = '';
-                }
                 $primary = $fields_meta[$i];
                 if ($primary->numeric == 1) {
-                    if ($row[$i] != '') {
-                        echo '    <td align="right">' . $row[$i] . '</td>' . "\n";
+                    if (!isset($row[$primary->name])) {
+                        echo '    <td align="right"><i>NULL</i></td>' . "\n";
+                    } else if ($row[$i] != '') {
+                        echo '    <td align="right">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
                         echo '    <td align="right">&nbsp;</td>' . "\n";
                     }
@@ -713,28 +708,32 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                     if (eregi('BINARY', $field_flags)) {
                         echo '    <td align="center">[BLOB]</td>' . "\n";
                     } else {
-                        if (strlen($row[$i]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
-                            $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
-                        }
-                        // loic1 : displays <cr>/<lf>
-                        if ($row[$i] != '') {
-                            $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
-                            echo '    <td>' . $row[$i] . '</td>' . "\n";
+                        if (!isset($row[$primary->name])) {
+                            echo '    <td><i>NULL</i></td>' . "\n";
+                        } else if ($row[$primary->name] != '') {
+                            if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
+                                $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
+                            }
+                            // loic1 : displays <cr>/<lf>
+                            $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
+                            echo '    <td>' . $row[$primary->name] . '</td>' . "\n";
                         } else {
                             echo '    <td>&nbsp;</td>' . "\n";
                         }
                     }
                 } else {
-                    // loic1 : displays <cr>/<lf>
-                    if ($row[$i] != '') {
+                    if (!isset($row[$primary->name])) {
+                        echo '    <td><i>NULL</i></td>' . "\n";
+                    } else if ($row[$primary->name] != '') {
                         // loic1: Cut text/blob fields even if $cfgShowBlob is true
                         if (eregi('BLOB', $primary->type)) {
-                            if (strlen($row[$i]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
-                                $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
+                            if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
+                                $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
                             }
                         }
-                        $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
-                        echo '    <td>' . $row[$i] . '</td>' . "\n";
+                        // loic1 : displays <cr>/<lf>
+                        $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
+                        echo '    <td>' . $row[$primary->name] . '</td>' . "\n";
                     } else {
                         echo '    <td>&nbsp;</td>' . "\n";
                     }

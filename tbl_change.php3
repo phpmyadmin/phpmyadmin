@@ -122,8 +122,14 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $special_chars = htmlspecialchars($row[$field]);
         $data          = $row[$field];
         $backup_field  = '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($data) . '" />';
+    } else if (isset($primary_key)) {
+        $special_chars = 'NULL';
+        $data          = '';
+        $backup_field  = '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="NULL" />';
     } else {
-        $data = $special_chars = $backup_field = '';
+        $special_chars = '';
+        $data          = '';
+        $backup_field  = '';
     }
 
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
@@ -173,7 +179,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td>
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php echo $special_chars; ?></textarea>
         </td>
         <?php
         echo "\n";
@@ -319,7 +325,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td>
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php echo $special_chars; ?></textarea>
         </td>
             <?php
         } else {
