@@ -135,7 +135,8 @@ echo "</table>";
 
 ?>
   <p>
-  <input type="submit" value="<?php echo $strSave; ?>">
+  <input type="submit" name="submit_type" value="<?php echo $strSave; ?>">
+  <input type="submit" name="submit_type" value="<?php echo $strInsertNewRow; ?>">
   </form>
 
 <?php
