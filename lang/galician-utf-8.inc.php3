@@ -72,6 +72,7 @@ $strBrowse = 'Visualizar';
 $strBzError = 'phpMyAdmin foi incapaz de comprimir os resultados debido a que esta versión do php ten unha extensión de Bz2 con erros.  Recoméndase que configure a directiva <code>$cfg[\'BZipDump\']</code> do seu ficheiro de configuración do phpMyAdmin para que sexa <code>FALSE</code>. Se quer usar a funcionalidade de compresión Bz2, actualice a unha versión posterior do php. Consulte o informe de erros %s para máis detalles.';
 $strBzip = 'comprimido no formato "bzipped"';
 
+$strCannotLogin = 'Non podo conectar co servidor de MySQL';
 $strCantLoadMySQL = 'Non foi posible carregar a extensión do MySQL;<br>comprobe, por favor, a configuración do PHP.';
 $strCantLoadRecodeIconv = 'Non se puido carregar iconv ou precísase da extensión recode para a conversión do charset. Configure o php para que se poidan usar estas extensións ou indique que non se use a conversión de charset en phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Non se pode facer que este índice sexa PRIMARIO!';
@@ -200,6 +201,7 @@ $strId = 'ID';
 $strIdxFulltext = 'Texto completo';
 $strIfYouWish = 'Para carregar só algunhas columnas da tabela, faga unha lista separada por vírgulas.';
 $strIgnore = 'Ignorar';
+$strImportDocSQL = 'Importar ficheiros de docSQL';
 $strInUse = 'en uso';
 $strIndex = 'Índice';
 $strIndexHasBeenDropped = 'Eliminouse o índice %s';
@@ -432,6 +434,7 @@ $strServerChoice = 'Escolla de Servidor';
 $strServerStatus = 'Información sobre o runtime';
 $strServerStatusUptime = 'Este servidor de MySQL leva funcionando %s. Iniciouse às %s.';
 $strServerTabProcesslist = 'Procesos';
+$strServerTabVariables = 'Variábeis';
 $strServerTrafficNotes = '<b>Tráfico do servidor</b>: Estas tabelas mostran as estatísticas do tráfico da rede neste servidor de MySQL desde que se iniciou.';
 $strServerVars = 'Variables e configuración do servidor';
 $strServerVersion = 'Versión do servidor';
@@ -523,11 +526,5 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) elimina-se o limite.';
 $strZip = 'comprimido no formato "zipped"';
 // To translate
-
-$strCannotLogin = 'Cannot login to MySQL server'; //to translate
-
-$strImportDocSQL = 'Import docSQL Files'; //to translate
-
-$strServerTabVariables = 'Variables'; //to translate
 
 ?>
