@@ -1217,7 +1217,7 @@ class PMA_RT
 } // end of the "PMA_RT" class
 
 function PMA_RT_DOC($alltables ){
-    global  $db, $pdf, $orientation;
+    global  $db, $pdf, $orientation, $paper;
     //TOC
     $pdf->addpage($GLOBALS['orientation']);
     $pdf->Cell(0,9, $GLOBALS['strTableOfContents'],1,0,'C');
@@ -1390,9 +1390,17 @@ function PMA_RT_DOC($alltables ){
             $pdf->Cell(20,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
             $pdf->Cell(25,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
             $pdf->Cell(45,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
-            $pdf->Cell(67,8,ucfirst($GLOBALS['strComments']),1,0,'C');
+
+            if ($paper == 'A4') {
+                $comments_width = 67;
+            } else {
+                // this is really intended for 'letter'
+                // TODO: find optimal width for all formats
+                $comments_width = 50;
+            }
+            $pdf->Cell($comments_width,8,ucfirst($GLOBALS['strComments']),1,0,'C');
             $pdf->Cell(45,8,'MIME',1,1,'C');
-            $pdf->SetWidths(array(25,20,20,10,20,25,45,67,45));
+            $pdf->SetWidths(array(25,20,20,10,20,25,45,$comments_width,45));
         } else {
             $pdf->Cell(20,8,ucfirst($GLOBALS['strField']),1,0,'C');
             $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');

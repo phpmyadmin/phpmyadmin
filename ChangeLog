@@ -9,6 +9,7 @@ $Source$
     * header.inc.php: bug #963414, when PropertiesIconic was false,
       the code did not define the icon variables. Also, remove hardcoded
       'Server' string
+    * pdf_schema.php: bug #915735, dictionary cropped in landscape letter
 
 2004-05-30 Michal Čihař  <michal@cihar.com>
     * libraries/display_tbl.lib.php: Return back to browsing after editing
