@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-02-23 Alexander M. Turek  <me@derrabus.de>
+2005-02-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/grab_globals.lib.php: Fixed the fix, thanks to Marc. :-)
 
 2005-02-23 Marc Delisle  <lem9@users.sourceforge.net>
