@@ -301,6 +301,7 @@ $strViewDump = 'Покажи дъмп (схема) на таблицата';
 $strViewDumpDB = 'Покажи дъмп (схема) на БД';
 
 $strWelcome = 'Добре дошли в ';
+$strWithChecked = 'Когато има отметка:'
 $strWrongUser = 'Грешно име/парола. Отказан достъп.';
 
 $strYes = 'Да';
@@ -319,5 +320,4 @@ $strShowAll = 'Show all'; // to translate
 $strStartingRecord = 'Starting record';//to translate
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
-$strWithChecked = 'With checked:';
 ?>
