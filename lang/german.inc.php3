@@ -230,6 +230,7 @@ $strNoQuery = 'Kein SQL-Befehl!';
 $strNoRights = 'Sie haben nicht genug Rechte um fortzufahren!';
 $strNoTablesFound = 'Es wurden keine Tabellen in der Datenbank gefunden.';
 $strNotNumber = 'Das ist keine Zahl!';
+$strNotSet = 'Die Tabelle <b>%s</b> wurde entweder nicht gefunden oder in der Kofigurationsdatei &quot;config.inc.php(3)&quot; nicht gesetzt.';
 $strNotValidNumber = ' ist keine gültige Zeilennummer!';
 $strNoUsersFound = 'Es wurden keine Benutzer gefunden.';
 $strNull = 'Null';
@@ -400,5 +401,4 @@ $strYes = 'Ja';
 $strZip = 'Zip komprimiert';
 
 // To translate
-$strNotSet = '<b>%s</b> table not found or not set in config.inc.php(3)';  //to translate
 ?>
