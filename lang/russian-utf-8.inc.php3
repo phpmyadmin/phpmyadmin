@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 
-﻿
 
 /**
  * Translated by Gosha Sakovich <gt2 at users.sourceforge.net>
