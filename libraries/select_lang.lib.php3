@@ -85,7 +85,7 @@ $available_languages = array(
     'sv-iso-8859-1'=> array('sv|swedish', 'swedish-iso-8859-1', 'sv'),
     'th-tis-620'   => array('th|thai', 'thai-tis-620', 'th'),
     'tr-iso-8859-9'=> array('tr|turkish', 'turkish-iso-8859-9', 'tr'),
-    'uk-win1251'   => array('uk|ukrainian', 'ukrainian-win1251', 'uk'),
+    'uk-win1251'   => array('uk|ukrainian', 'ukrainian-windows-1251', 'uk'),
     'zh-tw'        => array('zh[-_]tw|chinese traditional', 'chinese_big5', 'zh-TW'),
     'zh'           => array('zh|chinese simplified', 'chinese_gb', 'zh')
 );
