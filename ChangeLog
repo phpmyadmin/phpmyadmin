@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-13 Garvin Hicking <me@supergarv.de>
+    * browse_foreigners.php: bug #1027204 - paging did not
+      work in foreigner browsing window.
+
 2004-09-12 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: bug #988723, sql error when ordering by count( * )
 
