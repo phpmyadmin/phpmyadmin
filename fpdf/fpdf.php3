@@ -1202,11 +1202,22 @@ function _out($s)
 //End of class
 }
 
+// loic1: get the user agent whatever are the PHP version and the
+//        "register globals" value
+if (!empty($_SERVER) && isset($_SERVER['HTTP_USER_AGENT'])) {
+    $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
+}
+else if (!empty($_ENV) && isset($_ENV['HTTP_USER_AGENT'])) {
+    $HTTP_USER_AGENT = $__ENV['HTTP_USER_AGENT'];
+}
+else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_USER_AGENT'])) {
+    $HTTP_USER_AGENT = $HTTP_ENV_VARS['HTTP_USER_AGENT'];
+}
+
 //Handle silly IE contype request
-if(isset($HTTP_ENV_VARS['HTTP_USER_AGENT']) and $HTTP_ENV_VARS['HTTP_USER_AGENT']=='contype')
-{
-	Header('Content-Type: application/pdf');
-	exit;
+if (isset($HTTP_USER_AGENT) and $HTTP_USER_AGENT == 'contype') {
+	header('Content-Type: application/pdf');
+	exit();
 }
 
 ?>
