@@ -9,6 +9,9 @@ $Source$
     * server_databases.php, server_processlist.php, server_status.php,
       server_variables.php: Removed some php 3 / MySQL 3.21 compatibility code.
     * README: Updated requirements.
+    * scripts/create-release.sh: Create Documentation.txt when building the
+      distribution kits.
+    * Documentation.txt, scripts/updatedocs.sh: Romoved.
 
 2003-11-20 Michal Cihar  <nijel@users.sourceforge.net>
     * read_dump.php: Show message about failing upload in all cases, removed

@@ -71,9 +71,7 @@ Please ensure you have:
           " <h1>phpMyAdmin $1 Documentation</h1> "
      - in translators.html
      - in README
-  2. built the new "Documentation.txt" version using:
-       "./scripts/updatedocs.sh"
-  3. synchronized the language files:
+  2. synchronized the language files:
        cd lang
        ./sync_lang.sh
      and checked all language files are valid (use
@@ -110,13 +108,18 @@ fi
 
 # Cleanup release dir
 LC_ALL=C date -u > phpMyAdmin/RELEASE-DATE-$1
-find phpMyAdmin \( -name .cvsignore -o -name CVS \) -print0 | xargs -0 rm -rf 
+find phpMyAdmin \( -name .cvsignore -o -name CVS \) -print0 | xargs -0 rm -rf
 find phpMyAdmin -type d -print0 | xargs -0 chmod 755
 find phpMyAdmin -type f -print0 | xargs -0 chmod 644
 find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
+
+# Building Documentation.txt
+lynx --dont_wrap_pre --nolist --dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
+
+# Renaming directory
 mv phpMyAdmin phpMyAdmin-$1
 
-# Roll up '.php' release
+# Building distribution kits
 zip -9 -r phpMyAdmin-$1.zip phpMyAdmin-$1
 tar cvf phpMyAdmin-$1.tar phpMyAdmin-$1
 bzip2 -9kv phpMyAdmin-$1.tar
@@ -165,7 +168,7 @@ Todo now:
         mput cvs/*.gz *.zip *.bz2
  3. add files to SF files page (cut and paste changelog since last release)
  4. add SF news item to phpMyAdmin project
- 5. update the download page: /home/groups/p/ph/phpmyadmin/htdocs
+ 5. update the download page: /home/groups/p/ph/phpmyadmin/htdocs/home_page/downloads.php
  6. announce release on freshmeat (http://freshmeat.net/projects/phpmyadmin/)
  7. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
