@@ -2,6 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+
 /** SQL Parser Functions for phpMyAdmin
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
@@ -1076,6 +1077,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         }
 
         for ($i = 0; $i < $arraysize; $i++) {
+            //echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
             $indent = 0;

@@ -274,6 +274,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'INSERT',
         'INSERT_ID',
         'INSERT_METHOD',
+        'INTERVAL',
         'INTO',
         'IS',
         'ISOLATION',
@@ -420,7 +421,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'YEAR_MONTH'
     );
     //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-    $PMA_SQPdata_reserved_word_cnt = 240;
+    $PMA_SQPdata_reserved_word_cnt = 241;
 
     $PMA_SQPdata_column_type = array (
         'BIGINT',
