@@ -30,6 +30,7 @@ $strAddDeleteColumn = 'Ajouter/effacer x colonne(s)';
 $strAddDeleteRow = 'Ajouter/effacer x ligne(s)';
 $strAddDropDatabase = 'Ajouter DROP DATABASE';
 $strAddHeaderComment = 'Commentaires mis en en-tête (\\n sépare les lignes)';
+$strAddIfNotExists = 'Ajouter "IF NOT EXISTS"';
 $strAddIntoComments = 'Inclure sous forme de commentaires';
 $strAddNewField = 'Ajouter un champ';
 $strAddPriv = 'Ajouter un privilège';
@@ -226,6 +227,7 @@ $strEffective = 'effectif';
 $strEmpty = 'Vider';
 $strEmptyResultSet = 'MySQL n\'a retourné aucun enregistrement.';
 $strEnabled = 'activé';
+$strEncloseInTransaction = 'Utiliser le mode transactionnel';
 $strEnd = 'Fin';
 $strEndCut = 'Fin de la section à couper';
 $strEndRaw = 'Fin des informations sur l\'anomalie';
@@ -292,6 +294,7 @@ $strId = 'ID';
 $strIdxFulltext = 'Texte entier';
 $strIfYouWish = 'Si vous désirez ne charger que certaines colonnes, indiquez leurs noms, séparés par des virgules.';
 $strIgnore = 'Ignorer';
+$strIgnoreInserts = 'Ignorer les erreurs de doublons (INSERT IGNORE)';
 $strIgnoringFile = 'Fichier %s ignoré';
 $strImportDocSQL = 'Importer des fichiers docSQL';
 $strImportFiles = 'Importe les fichiers';
@@ -387,6 +390,7 @@ $strMySQLShowStatus = 'Afficher l\'état du serveur MySQL';
 $strMySQLShowVars = 'Afficher les variables du serveur MySQL';
 
 $strName = 'Nom';
+$strNeedPrimaryKey = 'Vous devriez définir une clé primaire pour cette table.';
 $strNext = 'Suivant';
 $strNo = 'Non';
 $strNoDatabases = 'Aucune base de données';
@@ -731,5 +735,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 ?>
