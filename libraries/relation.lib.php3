@@ -155,12 +155,12 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                         if ($curr_mime_field[0] == 'mimetype') {
                             $mime_field_mimetype               = TRUE;
                         } else if ($curr_mime_field[0] == 'transformation') {
-                            $mime_field_transformation         = TRUE;
+                            $mime_field_transformation         = TRUE; 
                         } else if ($curr_mime_field[0] == 'transformation_options') {
                             $mime_field_transformation_options = TRUE; 
                         }
                     }
-
+                    
                     if ($mime_field_mimetype == TRUE
                         && $mime_field_transformation == TRUE
                         && $mime_field_transformation_options == TRUE) {
@@ -232,12 +232,10 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ': '
                  . (($cfgRelation['commwork'] == TRUE) ? $enabled : $disabled)
                  . '</td></tr>' . "\n";
-            echo '    <tr><th align="left">MIME ...</th><td align="right">'
-                 . (($cfgRelation['mimework'] == TRUE) ? $hit : sprintf($shit, 'col_com'))
+            echo '    <tr><td colspan=2 align="center">MIME: '
+                 . (($cfgRelation['mimework'] == TRUE) ? $enabled : $disabled)
                  . '</td></tr>' . "\n";
-            if (($cfgRelation['commwork'] == TRUE) && ($cfgRelation['mimework'] != TRUE)) {
-                echo '<tr><td colspan=2 align="left">' . $GLOBALS['updComTab'] . '</td></tr>' . "\n";
-            }
+
 //                 . '<br />(MIME: ' . (($cfgRelation['mimework'] == TRUE) ? $enabled : $disabled) . ')'
 
             echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'history\'] ... </th><td align="right">'
@@ -366,7 +364,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $col           = ($table != '' ? $row['column_name'] : $i);
             
             if (strlen($row['comment']) > 0) {
-            $comment[$col] = $row['comment'];
+                $comment[$col] = $row['comment'];
             }
 
         } // end while
@@ -397,8 +395,8 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
     * @param   string   the name of the db
     * @param   string   the name of the table
     * @param   string   the name of the column
-    * @param    string   the value of the column
-    * @param    string   (optional) if a column is renamed, this is the name of the former key which will get deleted
+    * @param   string   the value of the column
+    * @param   string   (optional) if a column is renamed, this is the name of the former key which will get deleted
     *
     * @return  boolean  true, if comment-query was made.
     *
@@ -457,5 +455,90 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             return false;
         }
     } // end of 'PMA_setComment()' function
+
+/**
+    * Set a SQL history entry
+    *
+    * @param   string   the name of the db
+    * @param   string   the name of the table
+    * @param   string   the username
+    * @param   string   the sql query
+    *
+    * @return  boolean  true
+    *
+    * @access  public
+    */
+    function PMA_setHistory($db, $table, $username, $sqlquery) {
+        global $cfgRelation;
+        
+        $hist_rs    = PMA_query_as_cu('INSERT INTO ' . PMA_backquote($cfgRelation['history']) . ' ('
+                    . PMA_backquote('username') . ','
+                    . PMA_backquote('db') . ','
+                    . PMA_backquote('table') . ','
+                    . PMA_backquote('timevalue') . ','
+                    . PMA_backquote('sqlquery')
+                    . ') VALUES ('
+                    . '\'' . PMA_sqlAddslashes($username) . '\','
+                    . '\'' . PMA_sqlAddslashes($db) . '\','
+                    . '\'' . PMA_sqlAddslashes($table) . '\','
+                    . 'NOW(),'
+                    . '\'' . PMA_handleSlashes($sqlquery) . '\')');
+        return true;
+    } // end of 'PMA_setHistory()' function
+
+/**
+    * Gets a SQL history entry
+    *
+    * @param   string   the username
+    *
+    * @return  array    list of history items
+    *
+    * @access  public
+    */
+    function PMA_getHistory($username) {
+        global $cfgRelation;
+        
+        $hist_rs    = PMA_query_as_cu('SELECT '
+                        . PMA_backquote('db') . ','
+                        . PMA_backquote('table') . ','
+                        . PMA_backquote('sqlquery')
+                        . ' FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_handleSlashes($username) . '\' ORDER BY timevalue DESC');
+        
+        $history = array();
+        
+        while ($row = @PMA_mysql_fetch_array($hist_rs)) {
+            $history[] = $row;
+        }
+
+        return $history;
+        
+    } // end of 'PMA_getHistory()' function
+
+/**
+    * Set a SQL history entry
+    *
+    * @param   string   the name of the db
+    * @param   string   the name of the table
+    * @param   string   the username
+    * @param   string   the sql query
+    *
+    * @return  boolean  true
+    *
+    * @access  public
+    */
+    function PMA_purgeHistory($username) {
+        global $cfgRelation, $cfg;
+
+        $purge_rs = PMA_query_as_cu('SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_handleSlashes($username) . '\' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1');
+        $i = 0;
+        $row = @PMA_mysql_fetch_array($purge_rs);
+        
+        if (is_array($row) && $row[0] > 0) {
+            $maxtime = $row[0];
+            $remove_rs = PMA_query_as_cu('DELETE FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE timevalue <= ' . $maxtime);
+        }
+
+        return true;
+    } // end of 'PMA_purgeHistory()' function
 } // $__PMA_RELATION_LIB__
 ?>
