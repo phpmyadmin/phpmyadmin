@@ -16,9 +16,9 @@ then
   exit
 fi
 
-(mv tmp tmp-`date +%s`)
-mkdir tmp
-cd tmp
+(mv cvs cvs-`date +%s`)
+mkdir cvs
+cd cvs
 echo "Press [ENTER]!"
 cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login
 cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin co phpMyAdmin
@@ -51,7 +51,7 @@ Todo now:
 1. upload the files to SF:
         ftp upload.sourceforge.net
         cd incoming
-        mput tmp/*.gz *.zip
+        mput cvs/*.gz *.zip
 2. add files to SF files page (cut and paste changelog since last release)
 3. add SF news item to phpMyAdmin project
 4. update the download page: /home/groups/p/ph/phpmyadmin/htdocs
