@@ -75,7 +75,7 @@ if ($query_frame_height == 0) {
 }
 // increase the height to take into account font size differences in 
 // theme 'original'? (TODO: improve with a parameter in layout.inc.php)
-$query_frame_height += ((!isset($GLOBALS['theme']) || $GLOBALS['theme']=='original') ? 15 : 0);
+$query_frame_height += ((!isset($GLOBALS['theme']) || $GLOBALS['theme']=='original') ? 20 : 10);
 
 if ($cfg['LeftDisplayServers'] && !$cfg['DisplayServersList']) {
     $query_frame_height += 40;

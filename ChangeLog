@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * index.php: left frame display problems under IE
+
 2004-07-16 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Remove code for old MySQL version, do not
       store query, better handle various end of lines (probably bug #979635).
