@@ -26,6 +26,8 @@ $strAccessDenied = 'Доступ заборонено';
 $strAction = 'Дія';
 $strAddDeleteColumn = 'Додати/забрати колонку критерію';
 $strAddDeleteRow = 'Додати/забрати рядок критерію';
+$strAddDropDatabase = 'Додати DROP DATABASE';
+$strAddIntoComments = 'Додати коментар';
 $strAddNewField = 'Додати нове поле';
 $strAddPriv = 'Додати нові привілеї';
 $strAddPrivMessage = 'Було додано новий привілей';
@@ -141,7 +143,9 @@ $strData = 'Дані';
 $strDataDict = 'Словник даних';
 $strDataOnly = 'Лише дані';
 $strDatabase = 'БД ';
+$strDatabaseExportOptions = 'Налаштування експорту бази даних';
 $strDatabaseHasBeenDropped = 'Базу даних %s знищено.';
+$strDatabaseNoTable = 'Ця база даних не містить таблиць!';
 $strDatabaseWildcard = 'База даних (дозволено використання шаблонів):';
 $strDatabases = 'Бази Даних';
 $strDatabasesDropped = '%s баз(а\и) даних успішно знищено.';
@@ -194,6 +198,8 @@ $strEndCut = 'END CUT';
 $strEndRaw = 'END RAW';
 $strEnglishPrivileges = ' Зауваження: привілеї MySQL задаються по-англійськи ';
 $strError = 'Помилка';
+$strExcelOptions = 'налаштування Excel';
+$strExecuteBookmarked = 'Виконати збережений запит';
 $strExplain = 'Тлумачити SQL';
 $strExport = 'Експорт';
 $strExportToXML = 'Експортувати у XML формат';
@@ -371,6 +377,7 @@ $strOverwriteExisting = 'Заміняти існуючі файли';
 $strPHP40203 = 'Ви використовуєте версію PHP 4.2.3, яка має серйозну помилку при роботі з multi-byte strings (mbstring). Див PHP bug report 19404. Цю версію PHP не рекомендується використовувати з phpMyAdmin.';
 $strPHPVersion = 'Версія PHP';
 $strPageNumber = 'Номер сторінки:';
+$strPaperSize = 'Формат паперу';
 $strPartialText = 'Часткові тексти';
 $strPassword = 'Пароль';
 $strPasswordChanged = 'Пароль для %s успішно змінено.';
@@ -442,6 +449,7 @@ $strQuerySQLHistory = 'SQL-history';
 $strQueryStatistics = '<b>Статистика запитів</b>: З моменту запуску, до сервера було надіслано %s запитів.';
 $strQueryTime = 'Запит виконувався %01.4f сек';
 $strQueryType = 'Тип запиту';
+$strQueryWindowLock = 'Не перекривати цей запит в інших вікнах';
 
 $strReType = 'Підтвердження';
 $strReceived = 'Отримано';
@@ -460,6 +468,7 @@ $strRenameTable = 'Перейменувати таблицю в';
 $strRenameTableOK = 'Таблицю %s було перейменовано в %s';
 $strRepairTable = 'Ремонтувати таблицю';
 $strReplace = 'Замінити';
+$strReplaceNULLBy = 'Замінити NULL на';
 $strReplaceTable = 'Замінити дані таблиці даними з файлу';
 $strReset = 'Перевстановити';
 $strResourceLimits = 'Обмеження ресурсів';
@@ -505,6 +514,7 @@ $strSearchOption3 = 'точну фразу';
 $strSearchOption4 = 'регулярний вираз';
 $strSearchResultsFor = 'Результати пошуку "<i>%s</i>" %s:';
 $strSearchType = 'Знайти:';
+$strSecretRequired = 'Конфігураційний файл потребує секретну фразу (пароль).';
 $strSelect = 'Вибрати';
 $strSelectADb = 'Прошу вибрати БД';
 $strSelectAll = 'Відмітити все';
@@ -566,6 +576,7 @@ $strTableHasBeenEmptied = 'Таблицю %s було очищено';
 $strTableHasBeenFlushed = 'Було очищено кеш таблиці %s';
 $strTableMaintenance = 'Обслговування таблиці';
 $strTableOfContents = 'Зміст';
+$strTableOptions = 'Налаштування таблиці';
 $strTableStructure = 'Структура таблиці';
 $strTableType = 'Тип таблиці';
 $strTables = '%s таблиц(і)';
@@ -578,6 +589,7 @@ $strThisHost = 'Цей хост';
 $strThisNotDirectory = 'Це не каталог';
 $strThreadSuccessfullyKilled = 'Процес %s припинено.';
 $strTime = 'Час';
+$strToggleScratchboard = 'ввімкнути чорновик (scratchboard)';
 $strTotal = 'всього';
 $strTotalUC = 'Разом';
 $strTraffic = 'Трафік';
@@ -623,6 +635,7 @@ $strValue = 'Значення';
 $strVar = 'Змінна';
 $strViewDump = 'Переглянути дамп (схему) таблиці';
 $strViewDumpDB = 'Переглянути дамп (схему) БД';
+$strViewDumpDatabases = 'Переглянути dump (схему) баз даних';
 
 $strWebServerUploadDirectory = 'каталог веб-сервера для завантаження файлів (upload directory)';
 $strWebServerUploadDirectoryError = 'Встановлений Вами каталог для завантаження файлів недоступний';
@@ -641,25 +654,4 @@ $strZeroRemovesTheLimit = 'Примітка: Встановлення цієї опції у 0 (нуль) знімає о
 $strZip = 'запакувати в "zip"';
 // To translate
 
-$strAddDropDatabase = 'Add DROP DATABASE';//to translate
-$strAddIntoComments = 'Add into comments';//to translate
-
-$strDatabaseExportOptions = 'Database export options';//to translate
-$strDatabaseNoTable = 'This database contains no table!';//to translate
-
-$strExcelOptions = 'Excel options';  //to translate
-$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
-
-$strPaperSize = 'Paper size';  //to translate
-
-$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
-
-$strReplaceNULLBy = 'Replace NULL by';  //to translate
-
-$strToggleScratchboard = 'toggle scratchboard';  //to translate
-
-$strViewDumpDatabases = 'View dump (schema) of databases';//to translate
-
-$strTableOptions = 'Table options';  //to translate
-$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
 ?>
