@@ -16,6 +16,7 @@ $Source$
 
 2002-08-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3: Undefined variable.
+    * lang/german-*.inc.php3: Fixed a typo, thanks to Steve Alberty (staybyte).
 
 2002-08-14 Olivier L. Müller  <om@omnis.ch>
     * Documentation.html, README, ANNOUNCE.txt, tbl_dump.php3:

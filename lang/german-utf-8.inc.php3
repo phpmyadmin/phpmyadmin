@@ -167,7 +167,7 @@ $strFullText = 'vollständige Textfelder';
 $strFunction = 'Funktion';
 
 $strGenBy = 'Erstellt von';
-$strGeneralRelationFeat = 'Allgemine Verknüpfungsfunktionen';
+$strGeneralRelationFeat = 'Allgemeine Verknüpfungsfunktionen';
 $strGenTime = 'Erstellungszeit';
 $strGo = 'OK';
 $strGrants = 'Rechte';
