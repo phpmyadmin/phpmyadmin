@@ -241,23 +241,38 @@
         <pre>
 
 GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
-GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv,
-    Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv,
-    Grant_priv, References_priv, Index_priv, Alter_priv)
-    ON mysql.user TO 'pma'@'localhost';
+GRANT SELECT (
+    Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
+    Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
+    File_priv, Grant_priv, References_priv, Index_priv, Alter_priv,
+    Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv,
+    Execute_priv, Repl_slave_priv, Repl_client_priv
+    ) ON mysql.user TO 'pma'@'localhost';
 GRANT SELECT ON mysql.db TO 'pma'@'localhost';
+GRANT SELECT ON mysql.host TO 'pma'@'localhost';
 GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
     ON mysql.tables_priv TO 'pma'@'localhost';
+        </pre>
+        If you are using an old MySQL version (below 4.0.2), please use this
+        query instead of the second one:
+        <pre>
 
-</pre>
+GRANT SELECT (
+    Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
+    Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
+    File_priv, Grant_priv, References_priv, Index_priv, Alter_priv
+    ) ON mysql.user TO 'pma'@'localhost';
+        </pre>
         ... and if you want to use the many new relation and bookmark
         features:
         <pre>
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt; TO 'pma'@'localhost';
         </pre>
-(this of course requires you to have a special DB for
-phpMyAdmin, the contents will be explained later)
+        (this of course requires you to have a special DB for phpMyAdmin, the
+        contents will be explained later)<br />
+        Of course, the above queries only work if your MySQL version supports
+        the GRANT command. This is the case since 3.22.11.
     </li>
     <li>
         Then each of the <i>true</i> users should be granted a set of
@@ -2223,8 +2238,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt>
     SetOutputFilter PHP<br />
     SetInputFilter PHP<br />
-    </tt>  
-    &amp; 
+    </tt>
+    &amp;
     <br />
     <tt>
     AddType application/x-httpd-php .php
@@ -2238,8 +2253,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <tt><b>
     #SetOutputFilter PHP<br />
     #SetInputFilter PHP<br /></b>
-    </tt>  
-</p> 
+    </tt>
+</p>
 
 <a name="faqconfig"></a><br />
 <h3>[2. Configuration]</h3>
@@ -2334,20 +2349,20 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 
 <h4>
-    [2.6] I get an &quot;Access denied for user: 'root@localhost' (Using 
+    [2.6] I get an &quot;Access denied for user: 'root@localhost' (Using
     password: YES)&quot;-error when trying to access a MySQL-Server on a
     host which is port-forwarded for my localhost
 </h4>
 <p>
-    When you are using a port on your localhost, which you redirect via 
+    When you are using a port on your localhost, which you redirect via
     port-forwarding to another host, MySQL is not resolving the localhost
     as expected.<br />
-    Erik Wasser explains: The solution is: if your host is &quot;localhost&quot; 
-    MySQL (the commandline tool 'mysql' as well) always tries to use the socket 
-    connection for speeding up things. And that doesn't work in this configuration 
+    Erik Wasser explains: The solution is: if your host is &quot;localhost&quot;
+    MySQL (the commandline tool 'mysql' as well) always tries to use the socket
+    connection for speeding up things. And that doesn't work in this configuration
     with port forwarding.<br />
-    If you enter "127.0.0.1" as hostname, everything is right and MySQL uses the 
-    TCP connection. 
+    If you enter "127.0.0.1" as hostname, everything is right and MySQL uses the
+    TCP connection.
 </p>
 
 
@@ -2989,15 +3004,15 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br />
     Since phpMyAdmin 2.5.0 you are also able to store variables for the bookmarks. Just use the string
     <b>/*[VARIABLE]*/</b> anywhere in your query. Everything which is put into the <i>value</i> input
-    box on the query box page will replace the string &quot;/*[VARIABLE]*/&quot; in your stored query. 
-    Just be aware of that you HAVE to create a valid query, otherwise your query won't be even able to be 
+    box on the query box page will replace the string &quot;/*[VARIABLE]*/&quot; in your stored query.
+    Just be aware of that you HAVE to create a valid query, otherwise your query won't be even able to be
     stored in the database.<br />
     Also remember, that everything else inside the <b>/*[VARIABLE]*/</b> string for your query will remain
     the way it is, but will be stripped of the /**/ chars. So you can use:<br /><br />
     <code>/*, [VARIABLE] AS myname */</code><br /><br />
     which will be expanded to<br /><br />
     <code>, VARIABLE as myname</code><br /><br />
-    in your query, where VARIABLE is the string you entered in the input box. If an empty string is 
+    in your query, where VARIABLE is the string you entered in the input box. If an empty string is
     provided, no replacements are made.<br />
     <br />
     A more complex example. Say you have stored this query:<br /><br />
@@ -3011,8 +3026,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <b>NOTE THE ABSENCE OF SPACES</b> inside the &quot;/**/&quot; construct. Any spaces inserted there
     will be later also inserted as spaces in your query and may lead to unexpected results especially when
     using the variable expansion inside of a &quot;LIKE ''&quot; expression.<br />
-    Your initial query which is going to be stored as a bookmark has to yield at least one result row so 
-    you can store the bookmark. You may have that to work around using well positioned &quot;/**/&quot; 
+    Your initial query which is going to be stored as a bookmark has to yield at least one result row so
+    you can store the bookmark. You may have that to work around using well positioned &quot;/**/&quot;
     comments.
 </p>
 
@@ -3276,7 +3291,7 @@ Mats Engstrom, Ian Davidson, Laurent Dhima, Kristof Hamann, Thomas Kl&auml;ger,
 Lubos Klokner, Martin Marconcini, Girish Nair, David Nordenberg, Andreas Pauley,
 Bernard M. Piller, Laurent Haas, &quot;Sakamoto&quot;, Yuval Sarna,
 www.securereality.com.au, Alexis Soulard, Alvar Soome, Siu Sun, Peter Svec,
-Michael Tacelosky, Rachim Tamsjadi, Kositer Uros, 
+Michael Tacelosky, Rachim Tamsjadi, Kositer Uros,
 Luís V., Martijn W. van der Lee,
 Algis Vainauskas, Daniel Villanueva, Vinay, Ignacio Vazquez-Abrams, Chee Wai,
 Jakub Wilk, Thomas Michael Winningham, Vilius Zigmantas, &quot;Manuzhai&quot;.

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-25 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html: Fixed GRANT queries for the controluser.
+
 2003-03-25 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php3: replace the 'USE mysql' test, as users with a global
       priv like CREATE TEMPORARY TABLES can do a 'USE mysql'
@@ -33,7 +36,7 @@ $Source$
 
 2003-03-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3, libraries/config_import.lib.php3,
-      config.inc.php3, Documentation.html: disabling of the parser no 
+      config.inc.php3, Documentation.html: disabling of the parser no
       longer possible
 
 2003-03-22 Alexander M. Turek  <rabus@users.sourceforge.net>
