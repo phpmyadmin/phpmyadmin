@@ -12,6 +12,8 @@ $Source$
 	  used as soon as we improved the authentication system).
 	* lang/swedish.inc.php3: updated thanks to
 	  Björn T. Hallberg <bth at users.sourceforge.net>.
+	* lang/russian-*.inc.php3: updated thanks to
+	  Gosha Sakovich <gt2 at users.sourceforge.net>.
 	* user_details.php3: cosmetic changes.
 
 2001-10-15  Loïc Chapeaux  <lolo@phpheaven.net>
