@@ -296,6 +296,13 @@ if (isset($show_query)) {
 }
 ?>
 <!-- DATABASE WORK -->
+<script type="text/javascript" language="javascript">
+<!--
+var errorMsg0 = '<?php echo(str_replace('\'', '\\\'', $strFormEmpty)); ?>';
+var errorMsg1 = '<?php echo(str_replace('\'', '\\\'', $strNotNumber)); ?>';
+var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $strNotValidNumber)); ?>';
+//-->
+</script>
 <script src="functions.js" type="text/javascript" language="javascript"></script>
 
 <ul>
@@ -312,7 +319,8 @@ if ($num_tables > 0) {
 
     <!-- Query box, sql file loader and bookmark support -->
     <li>
-        <form method="post" action="db_readdump.php3" enctype="multipart/form-data">
+        <form method="post" action="db_readdump.php3" enctype="multipart/form-data"
+            onsubmit="return emptySqlQuery(this)">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="pos" value="0" />
@@ -481,7 +489,8 @@ if ($num_tables > 0) {
 
     <!-- Create a new table --> 
     <li>
-        <form method="post" action="tbl_create.php3">
+        <form method="post" action="tbl_create.php3"
+            onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', 1, 1000))">
         <input type="hidden" name="server" value="<?php echo $server; ?>" />
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="db" value="<?php echo $db; ?>" />

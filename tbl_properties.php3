@@ -469,6 +469,13 @@ echo "\n";
  */
 ?>
 <!-- TABLE WORK -->
+<script type="text/javascript" language="javascript">
+<!--
+var errorMsg0 = '<?php echo(str_replace('\'', '\\\'', $strFormEmpty)); ?>';
+var errorMsg1 = '<?php echo(str_replace('\'', '\\\'', $strNotNumber)); ?>';
+var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $strNotValidNumber)); ?>';
+//-->
+</script>
 <script src="functions.js" type="text/javascript" language="javascript"></script>
 
 <ul>
@@ -480,7 +487,8 @@ echo "\n";
 
     <!-- Query box and bookmark support -->
     <li>
-        <form method="post" action="db_readdump.php3">
+        <form method="post" action="db_readdump.php3"
+            onsubmit="return emptySqlQuery(this)">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="pos" value="0" />
@@ -534,7 +542,8 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
 
     <!-- Add some new fields -->
     <li>
-        <form method="post" action="tbl_addfield.php3">
+        <form method="post" action="tbl_addfield.php3"
+            onsubmit="return checkFormElementInRange(this, 'num_fields', 1, 99)">
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -634,10 +643,8 @@ echo "\n";
 <?php
 // gzip and bzip2 encode features
 if (PMA_INT_VERSION >= 40004) {
-    $is_gzip = (isset($cfgGZipDump) 
-		&& $cfgGZipDump && @function_exists('gzencode'));
-    $is_bzip = (isset($cfgBZipDump)
-		&& $cfgBZipDump && @function_exists('bzcompress'));
+    $is_gzip = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzencode'));
+    $is_bzip = (isset($cfgBZipDump) && $cfgBZipDump && @function_exists('bzcompress'));
     if ($is_gzip || $is_bzip) {
         echo "\n" . '                    (' . "\n";
         if ($is_gzip) {
@@ -681,7 +688,8 @@ echo "\n";
         <table border="0" cellspacing="0" cellpadding="0" style="vertical-align: top">
         <tr>
             <td valign="top">
-            <form method="post" action="tbl_rename.php3">
+            <form method="post" action="tbl_rename.php3"
+                onsubmit="return emptyFormElements(this, 'new_name')">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -708,7 +716,8 @@ echo "\n";
             </td>
             <td width="25">&nbsp;</td>
             <td valign="top">
-            <form method="post" action="tbl_copy.php3">
+            <form method="post" action="tbl_copy.php3"
+                onsubmit="return emptyFormElements(this, 'new_name')">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -902,6 +911,7 @@ else { // MySQL < 3.23
 } // end MySQL < 3.23
 ?>
 
+    <!-- Deletes the table -->
     <li>
         <a href="sql.php3?<?php echo $url_query; ?>&goto=db_details.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>">
             <?php echo $strDrop . ' ' . htmlspecialchars($table); ?></a> 
