@@ -286,7 +286,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
     function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
         global $cfgRelation, $err_url_0;
 
-        if ($source == 'both' || $source == 'internal') {
+        if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
             $rel_query     = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
                            . ' FROM ' . PMA_backquote($cfgRelation['relation'])
                            . ' WHERE master_db =  \'' . PMA_sqlAddslashes($db) . '\' '
