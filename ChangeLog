@@ -13,7 +13,9 @@ $Source$
 	* Documentation.txt: updated.
 	* common.lib.php3, lines 675 & 687-689: changed font size for IE6 (because
 	  the xml declaration has been cleaned up).
-	* main.php3, lines 149 & 462: cosmetic changes. 
+	* main.php3, lines 149 & 462: cosmetic changes.
+	* libraries/build_dump.lib.php, line 317: fixed bug #472858 - Dump error,
+	  thanks to Thomas Baehr.
 	* lang/czech-*.inc.php3: fixed an other typo, thanks to Michal Cihar.
 
 2001-10-18  Loïc Chapeaux  <lolo@phpheaven.net>

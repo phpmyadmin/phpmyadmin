@@ -314,7 +314,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
 
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {
-                    $schema_insert .= ' NULL,';
+                    $schema_insert .= ' NULL, ';
                 } else if ($row[$j] != '') {
                     $type          = mysql_field_type($result, $j);
                     // a number
