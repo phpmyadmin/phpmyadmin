@@ -744,12 +744,12 @@ if (!empty($update_privs)) {
             $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table . ' FROM "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '";';
         }
         $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON ' . $db_and_table . ' TO "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '"';
-        if ((isset($Grant_priv) && $Grant_priv == 'Y') || (empty($dbname) && PMA_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates)))) {
+        if ((isset($Grant_priv) && $Grant_priv == 'Y') || (empty($dbname) && PMA_MYSQL_INT_VERSION >= 40002 && (isset($max_questions) || isset($max_connections) || isset($max_updates)))) {
             $sql_query2 .= 'WITH';
             if (isset($Grant_priv) && $Grant_priv == 'Y') {
                 $sql_query2 .= ' GRANT OPTION';
             }
-            if (PMA_INT_VERSION >= 40002) {
+            if (PMA_MYSQL_INT_VERSION >= 40002) {
                 if (isset($max_questions)) {
                     $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
                 }

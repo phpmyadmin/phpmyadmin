@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-20 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: Fixed some typos.
+
 2003-08-18 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian: Updated, thanks to Valics Lehel.
     * lang/turkish update, thanks to Bora Alioglu
@@ -17,7 +20,7 @@ $Source$
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
 
 2003-08-17 Marc Delisle  <lem9@users.sourceforge.net>
-    * browse_foreigners.php3, tbl_change.php3, tbl_select.php3, 
+    * browse_foreigners.php3, tbl_change.php3, tbl_select.php3,
       libraries/display_tbl.lib.php3, /relation.lib.php3, /get_foreign.lib.php3:
       Patch 789367: Browse foreign values, thanks to Garvin
     ### 2.5.3-rc2 released
