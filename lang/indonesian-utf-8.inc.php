@@ -47,6 +47,7 @@ $strAffectedRows = 'Baris yang terlibat:';
 $strAfter = 'sisipkan setelah %s';
 $strAfterInsertBack = 'kembali';
 $strAfterInsertNewInsert = 'sisipkan baris baru berikutnya';
+$strAfterInsertNext = 'Edit baris berikut';
 $strAfterInsertSame = 'Kembali ke halaman ini';
 $strAll = 'Semua';
 $strAllTableSameWidth = 'Tampilkan seluruh tabel dengan lebar yang sama?';
@@ -373,6 +374,8 @@ $strMIME_transformation_options = 'Pilihan transformasi';
 $strMIME_transformation_options_note = 'Mohon masukkan nilai untuk pilihan transformasi dengan menggunakan format sbb.: \'a\',\'b\',\'c\'...<br />Bila sebuah Backslash ("\") atau Single Quote ("\'") diperlukan di antara nilai tersebut, mohon gunakan tanda Backslash (contoh: \'\\\\xyz\' atau \'a\\\'b\').';
 $strMIME_without = 'Jenis MIME yang dicetak dalam huruf miring tidak memiliki fungsi transformasi';
 $strMaximumSize = 'Batas ukuran: %s%s';
+$strMbExtensionMissing = 'Ekstensi PHP mbstring tidak ditemukan dan rupanya Anda menggunakan Charset Multibyte. Tanpa ekstensi mbstring phpMyAdmin tidak sanggup untuk membagikan baris-baris dengan cara yang benar. Hal ini mampu mengakibatkan hasil yang tidak diinginkan.';
+$strMbOverloadWarning = 'Fungsi mbstring.func_overload aktif pada konfigurasi PHP Anda. Pilihan ini tidak cocok dengan phpMyAdmin dan mampu merusak sebagian data!';
 $strModifications = 'Modifikasi telah disimpan';
 $strModify = 'Ubah';
 $strModifyIndexTopic = 'Ubah indeks';
@@ -559,6 +562,7 @@ $strRunning = 'dijalankan pada %s';
 $strRussian = 'Bahasa Rusia';
 
 $strSQL = 'SQL';
+$strSQLExportCompatibility = 'Kompatibilitas terhadap pengeksporan SQL';
 $strSQLExportType = 'Jenis Ekspor';
 $strSQLOptions = 'Pilihan SQL';
 $strSQLParserBugMessage = 'Mungkin Anda telah temukan sebuah Bug dalam parser SQL. Mohon periksa ulang pencarian SQL dengan teliti dan perhatikan apakah seluruh tanda kutip benar dan seimbang. Penyebab kegagalan bisa terjadi bila Anda meng-upload sebuah file binari diluar teks kutipan. Silakan menjalankan ulang pencarian tersebut dengan menggunakan command line interface. Hasil dari MySQL server error, jika tertampil, akan menolong Anda untuk mengetahui penyebab dari masalah ini. Bila masalah ini tetap muncul atau Parser dari kami masih juga gagal meskipun pencarian melalui command line interface berhasil mohon kurangi input pada SQL query sampai pencarian yang menyebabkan masalah ini ditemukan. Mohon kirimkan sebuah Bug Report dengan cara menyisipkan data di bagian bawah ini kepada kami:';
@@ -689,7 +693,7 @@ $strTurkish = 'Bahasa Turki';
 $strType = 'Jenis';
 
 $strUkrainian = 'Bahasa Ukrainia';
-$strUncheckAll = 'Hapus pilihan';
+$strUncheckAll = 'Balik pilihan';
 $strUnicode = 'Unikode';
 $strUnique = 'Unik';
 $strUnknown = 'tidak diketahui';
@@ -741,8 +745,4 @@ $strYes = 'Ya';
 $strZeroRemovesTheLimit = 'Perhatian: Perubahan pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = 'Dikompress dengan Zip';
 
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
-$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
-$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
-$strAfterInsertNext = 'Edit next row';  //to translate
 ?>
