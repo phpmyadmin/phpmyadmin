@@ -7,7 +7,7 @@
 # August 9, 2002
 ##
 
-function sortlang()
+sortlang()
 {
     f=$1
     targetdir=tmp-$f
