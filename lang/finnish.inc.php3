@@ -263,6 +263,9 @@ $strRowLength = 'Rivin pituus';
 $strRows = 'riviä';
 $strRowsFrom = 'riviä alkaen rivistä';
 $strRowSize = ' Rivin koko ';
+$strRowsModeVertical= 'pystysuora';
+$strRowsModeHorizontal= 'vaakasuora';
+$strRowsModeOptions= '%ssti, otsikoita toistetaan %s:n rivin välein';
 $strRowsStatistic = 'Rivistatistiikka';
 $strRunning = 'palvelimella %s';
 $strRunQuery = 'Suorita';
@@ -345,7 +348,4 @@ $strZip = '"zip-pakattu"';
 
 // To translate
 
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
 ?>
