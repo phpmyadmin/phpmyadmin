@@ -8,6 +8,7 @@ $Source$
 2002-05-24 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*.php3, libraries/common.lib.php3: new features EXPLAIN
       and "Create PHP Code", thanks to Mike Beck
+    * sql.php3: $is_analyse was sometimes undefined
 
 2002-05-24 Loïc Chapeaux  <lolo@phpheaven.net>
     * config.inc.php3; db_details_links.php3; db_search.php3;

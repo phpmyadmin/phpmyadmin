@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 
-
 /**
  * Gets some core libraries
  */
@@ -206,7 +205,7 @@ else {
         $repeat_cells     = $cfg['RepeatCells'];
     }
 
-    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
+    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = FALSE;
     if ($is_select) { // see line 76
         $is_count    = (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
         $is_export   = (eregi('[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+', $sql_query));
