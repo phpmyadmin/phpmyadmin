@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-01 Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_properties.inc.php3, add a link to doc for column types
+
 2002-01-30  Olivier Müller  <om@omnis.ch>
 	* left.php3: display database name as well in lightmode, with link to 
 	  db properties page
