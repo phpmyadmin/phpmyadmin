@@ -9,6 +9,7 @@ $Source$
 2002-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/afrikaans update, thanks to Andreas Pauley
     * lang/turkish: update, thanks to Bora Alioglu
+    * lang/polish: update, thanks to Jakub Wilk
 
 2002-08-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/turkish-*.inc.php3: Updates, thanks again to
