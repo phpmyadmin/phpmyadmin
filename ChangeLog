@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-26 Alexander M. Turek  <me@derrabus.de>
+    * translators.html: Linked to Indonesian translator's SF page instead of
+      his email address.
+
 2004-05-25 Michal Čihař  <michal@cihar.com>
     * main.php, libraries/select_lang.lib.php: Use pma_lang cookie instead of
       just lang.
