@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2002-11-03 Loïc Chapeaux  <lolo@phpheaven.net>
+    * tbl_create.php3: bug 629630 auto-increment key does not have to
+      be the primary key
+
 2002-11-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: correct detection of PHP 4.2.x
     * main.php3, lang/*.php3: PHP 4.2.3 warning
