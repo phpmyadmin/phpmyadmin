@@ -62,9 +62,19 @@ if ($multi_tables) {
 } // end if
 reset($the_tables);
 
+$tablecount = count($the_tables);
+reset($the_tables);
+$counter = 0;
+
 while (list($key, $table) = each($the_tables)) {
     $table = urldecode($table);
-    echo '<div style="page-break-after: always;">' . "\n";
+    if($counter+1>=$tablecount) {
+        $breakstyle = '';
+    } else {
+        $breakstyle = ' style="page-break-after: always;"';
+    }
+    $counter++;
+    echo '<div' . $breakstyle . '>' . "\n";
     echo '<h1>' . $table . '</h1>' . "\n";
 
     /**
@@ -541,8 +551,8 @@ while (list($key, $table) = each($the_tables)) {
         unset($ret_keys);
         unset($num_rows);
         unset($show_comment);
-        echo '</div>' . "\n";
         echo '<hr />' . "\n";
+        echo '</div>' . "\n";
     } // end if
 
 } // end while

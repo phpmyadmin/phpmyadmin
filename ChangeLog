@@ -9,6 +9,10 @@ $Source$
 2002-06-22 Robin Johnson  <robbat2@users.sourceforge.net>
     * sql.php3:
         - Fix warning and error from mysql_free_result($cna_all_result);
+    * tbl_printview.php3:
+        - Fixed style="PAGE-BREAK-AFTER: always" from appearing on the 
+          last <div>, to stop a blank page being printed
+        - Moved <hr /> to just inside </div> - gets line on the same page
 
 2002-06-21 Olivier L. Müller  <om@omnis.ch>
     * libraries/common.lib.php3, main.php3: be more tolerant with lazy 
