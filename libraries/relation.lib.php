@@ -349,37 +349,23 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
      */
     if (PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema'
         && ($source == 'internal' || $source == 'both')) {
-        $foreign = array();
-        switch ($table) {
-            case 'COLLATION_CHARACTER_SET_APPLICABILITY':
-                if ((empty($column) || $column == 'CHARACTER_SET_NAME') && !isset($foreign['CHARACTER_SET_NAME'])) {
-                    $foreign['CHARACTER_SET_NAME'] = array(
-                        'foreign_db'    => 'information_schema',
-                        'foreign_table' => 'CHARACTER_SETS',
-                        'foreign_field' => 'CHARACTER_SET_NAME'
-                    );
+
+        require_once('./libraries/information_schema_relations.lib.php');
+
+        if (!isset($foreign)) {
+            $foreign = array();
+        }
+
+        if (isset($GLOBALS['information_schema_relations'][$table])) {
+            foreach ($GLOBALS['information_schema_relations'][$table] as $field => $relations) {
+                if ((empty($column) || $column == $field) && empty($foreign[$field])) {
+                    $foreign[$field] = $relations;
                 }
-                if ((empty($column) || $column == 'COLLATION_NAME') && !isset($foreign['COLLATION_NAME'])) {
-                    $foreign['COLLATION_NAME'] = array(
-                        'foreign_db'    => 'information_schema',
-                        'foreign_table' => 'COLLATIONS',
-                        'foreign_field' => 'COLLATION_NAME'
-                    );
-                }
-                break;
-            case 'SCHEMATA':
-                if ((empty($column) || $column == 'DEFAULT_CHARACTER_SET_NAME') && !isset($foreign['DEFAULT_CHARACTER_SET_NAME'])) {
-                    $foreign['DEFAULT_CHARACTER_SET_NAME'] = array(
-                        'foreign_db'    => 'information_schema',
-                        'foreign_table' => 'CHARACTER_SETS',
-                        'foreign_field' => 'CHARACTER_SET_NAME'
-                    );
-                }
-                break;
+            }
         }
     }
 
-    if (isset($foreign) && is_array($foreign)) {
+    if (!empty($foreign) && is_array($foreign)) {
        return $foreign;
     } else {
         return FALSE;

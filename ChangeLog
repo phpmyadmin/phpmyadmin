@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-28 Alexander M. Turek  <me@derrabus.de>
+    * libraries/information_schema_relations.lib.php,
+      libraries/relation.lib.php: information_schema relations.
+
 2005-03-27 Alexander M. Turek  <me@derrabus.de>
     * libraries/defines.lib.php, themes/*/info.inc.php: Marked 2.6.0 / 2.6.1
       themes as imcompatible because of recent changes.
