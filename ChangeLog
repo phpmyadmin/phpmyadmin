@@ -16,6 +16,9 @@ $Source$
 	  name or not at the top of the page.
 	* tbl_select.php3: the script to returns to was hard coded, now it's the
 	  one that calls tbl_select.php3.
+	* tbl_copy.php3; tbl_properties.php3: re-enabled the ability to copy a
+	  table to another database (bug #456434). Need to be tested with
+	  MySQL < 3.23 releases.
 
 2001-08-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/galician.inc.php3, select_lang.inc.php3: new Galician lang thanks to

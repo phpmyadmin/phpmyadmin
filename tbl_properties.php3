@@ -808,12 +808,14 @@ echo "\n";
                 <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td colspan="2">
-                        <?php echo $strCopyTable; ?>&nbsp;:
+                        <?php echo $strCopyTable . ' (' . $strDatabase . '<b>.</b>' . trim($strTable) . ')'; ?>&nbsp;:
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="text" style="width: 100%" name="new_name" />
+                        <input type="text" size="10" name="target_db" value="<?php echo $db; ?>" />
+                        &nbsp;<b>.</b>&nbsp;
+                        <input type="text" size="25" name="new_name" />
                     </td>
                 </tr>
                 <tr>

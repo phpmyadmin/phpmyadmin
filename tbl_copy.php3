@@ -9,15 +9,15 @@
  *
  * @global  string  the database name
  * @global  string  the original table name
- * @global  string  the target table name
+ * @global  string  the target database and table names
  * @global  string  the sql query used to copy the data
  */
 function my_handler($sql_insert = '')
 {
-    global $db, $table, $new_name;
+    global $db, $table, $target;
     global $sql_insert_data;
 
-    $sql_insert = eregi_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . backquote($new_name), $sql_insert);
+    $sql_insert = eregi_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . $target, $sql_insert);
     $result     = mysql_query($sql_insert) or mysql_die('', $sql_insert);
     
     $sql_insert_data .= $sql_insert . ';' . "\n";
@@ -44,8 +44,19 @@ if (isset($new_name) && trim($new_name) != '') {
     $use_backquotes = 1;
     $asfile         = 1;
 
+    if (get_magic_quotes_gpc()) {
+        if (!empty($target_db)) {
+            $target_db = stripslashes($target_db);
+        } else {
+            $target_db = stripslashes($db);
+        }
+        $new_name      = stripslashes($new_name);
+    }
+    $source = backquote($db) . '.' . backquote($table);
+    $target = backquote($target_db) . '.' . backquote($new_name);
+
     $sql_structure = get_table_def($db, $table, "\n");
-    $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . backquote($new_name), $sql_structure);
+    $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . $target, $sql_structure);
     $result        = mysql_query($sql_structure) or mysql_die('', $sql_structure);
     if (isset($sql_query)) {
         $sql_query .= "\n" . $sql_structure . ';';
@@ -57,7 +68,7 @@ if (isset($new_name) && trim($new_name) != '') {
     if ($result != FALSE && $what == 'data') {
         // speedup copy table - staybyte - 22. Juni 2001
         if (MYSQL_INT_VERSION >= 32300) {
-            $sql_insert_data = 'INSERT INTO ' . backquote($new_name) . ' SELECT * FROM ' . backquote($table);
+            $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . backquote($table);
             $result          = mysql_query($sql_insert_data) or mysql_die('', $sql_insert_data);
         } // end MySQL >= 3.23
         else {
@@ -67,7 +78,7 @@ if (isset($new_name) && trim($new_name) != '') {
         $sql_query .= "\n\n" . $sql_insert_data;
     }
 
-    $message  = sprintf($strCopyTableOK, $table, $new_name);
+    $message  = sprintf($strCopyTableOK, $source, $target);
     $reload   = 'true';
 } // end is target table name
 
