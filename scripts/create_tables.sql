@@ -3,7 +3,7 @@
 --  SQL Commands to set up the pmadb as described in      #
 --  Documentation.txt.                                    #
 --                                                        #
---  This script expects the user pma to allready be       #
+--  This script expects the user pma to already be        #
 --  existing. (if we would put a line here to create him  #
 --  too many users might just use this script and end     #
 --  up with having the same password for the controluser) #
@@ -21,7 +21,8 @@
 DROP DATABASE IF EXISTS `phpmyadmin`;
 CREATE DATABASE IF NOT EXISTS `phpmyadmin`;
 
-USE `phpmyadmin`;
+-- (backquotes are not supported in USE)
+USE phpmyadmin;
 
 GRANT SELECT, INSERT, DELETE, UPDATE ON `phpmyadmin`.* TO
     'pma'@localhost;
