@@ -9,6 +9,7 @@ $Source$
     * lang/turkish.inc.php3: Updates, thanks again to
       Bora Alioglu <bora@risc01.ktu.edu.tr>.
     * lang/german.inc.php3: Translated $strMissingBracket.
+    * lang/english.inc.php3: Reordered strings.
 
 2002-06-12 Mike Beck <mikebeck@users.sourceforge.net>
     Syntaxcoloring for SQL - Statements

@@ -192,6 +192,7 @@ $strLogout = 'Log out';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
 
+$strMissingBracket = 'Missing Bracket';
 $strModifications = 'Modifications have been saved';
 $strModify = 'Modify';
 $strModifyIndexTopic = 'Modify an index';
@@ -391,6 +392,4 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-
-$strMissingBracket = 'Missing Bracket';  //to translate
 ?>
