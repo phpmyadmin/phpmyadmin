@@ -135,6 +135,7 @@ $strCompression = 'Komprese';
 $strConfigFileError = 'phpMyAdmin nemohl naèíst konfiguraèní soubor!<br />Tato chyba mù¾e nastat pokud v&nbsp;nìm php najde chybu nebo nemù¾e tento soubor najít.<br />Po kliknutí na následující odkaz se konfigurace spustí a budou zobrazeny informace o&nbsp;chybì, ke které do¹lo. Pak opravte tuto chybu (nejèastìji se jedná o&nbsp;chybìjící støedník).<br />Pokud získáte prázdnou stránku, v¹echno je v&nbsp;poøádku.';
 $strConfigureTableCoord = 'Prosím, nastavte souøadnice pro tabulku %s';
 $strConfirm = 'Opravdu chcete toto provést?';
+$strConnectionError = 'Nepodaøilo se pøipojit: chybné nastavení.';
 $strConnections = 'Pøipojení';
 $strConstraintsForDumped = 'Omezení pro exportované tabulky';
 $strConstraintsForTable = 'Omezení pro tabulku';
@@ -726,5 +727,4 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 ?>
