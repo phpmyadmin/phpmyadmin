@@ -140,7 +140,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     } else {
         ?>
         <td>
-            <select name="funcs[<?php echo $field; ?>]">
+            <select name="funcs[<?php echo urlencode($field); ?>]">
                 <option></option>
         <?php
         echo "\n";

@@ -57,7 +57,10 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     $valuelist = '';
     while (list($key, $val) = each($fields)) {
         if ($is_encoded) {
-            $key = urldecode($key);
+            $encoded_key = $key;
+            $key         = urldecode($key);
+        } else {
+            $encoded_key = urlencode($key);
         }
 
         switch (strtolower($val)) {
@@ -114,16 +117,20 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 break;
         } // end switch
 
-        // No change for this column -> next column
-        if (isset($fields_prev) && isset($fields_prev[urlencode($key)]) && empty($funcs[$key]) 
-            && ("'" . sql_addslashes(urldecode($fields_prev[urlencode($key)])) . "'" == $val)) {
+        // No change for this column and no MySQL function is used -> next column
+        if (empty($funcs[$encoded_key])
+            && isset($fields_prev) && isset($fields_prev[$encoded_key])
+            && ("'" . sql_addslashes(urldecode($fields_prev[$encoded_key])) . "'" == $val)) {
             continue;
         }
         else if (!empty($val)) {
-            if (empty($funcs[$key])) {
+            if (empty($funcs[$encoded_key])) {
                 $valuelist .= backquote($key) . ' = ' . $val . ', ';
+            } else if ($val == '\'\''
+                       && (ereg('^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$', $funcs[$encoded_key]))) {
+                $valuelist .= backquote($key) . ' = ' . $funcs[$encoded_key] . '(), ';
             } else {
-                $valuelist .= backquote($key) . " = $funcs[$key]($val), ";
+                $valuelist .= backquote($key) . ' = ' . $funcs[$encoded_key] . "($val), ";
             }
         }
     } // end while
@@ -155,11 +162,14 @@ else {
     $valuelist = '';
     while (list($key, $val) = each($fields)) {
         if ($is_encoded) {
-            $key = urldecode($key);
-        }
-        // the 'query' row is urlencoded in sql.php3
-        else if ($key == 'query') {
-            $val = urldecode($val);
+            $encoded_key = $key;
+            $key         = urldecode($key);
+        } else {
+            $encoded_key = urlencode($key);
+            // the 'query' row is urlencoded in sql.php3
+            if ($key == 'query') {
+                $val     = urldecode($val);
+            }
         }
         $fieldlist .= backquote($key) . ', ';
 
@@ -217,10 +227,13 @@ else {
                 break;
         } // end switch
 
-        if (empty($funcs[$key])) {
+        if (empty($funcs[$encoded_key])) {
             $valuelist .= $val . ', ';
+        } else if ($val == '\'\''
+                   && (ereg('^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$', $funcs[$encoded_key]))) {
+            $valuelist .= $funcs[$encoded_key] . '(), ';
         } else {
-            $valuelist .= "$funcs[$key]($val), ";
+            $valuelist .= $funcs[$encoded_key] . "($val), ";
         }
     } // end while
 
