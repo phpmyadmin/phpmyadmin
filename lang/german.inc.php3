@@ -297,6 +297,7 @@ $strSingly = '(einmalig)';
 $strSize = 'Größe';
 $strSort = 'Sortierung';
 $strSpaceUsage = 'Speicherplatzverbrauch';
+$strSQL = 'SQL';
 $strSQLQuery = 'SQL-Befehl';
 $strStatement = 'Angaben';
 $strStrucCSV = 'CSV-Daten';

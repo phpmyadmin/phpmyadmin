@@ -248,6 +248,7 @@ $strQueryOnDb = 'SQL-query on database <b>%s</b>:';
 
 $strRecords = 'Records';
 $strReferentialIntegrity = 'Check referential integrity:';
+$strRelationView = 'Relation view';
 $strReloadFailed = 'MySQL reload failed.';
 $strReloadMySQL = 'Reload MySQL';
 $strRememberReload = 'Remember reload the server.';
@@ -296,6 +297,7 @@ $strSingly = '(singly)';
 $strSize = 'Size';
 $strSort = 'Sort';
 $strSpaceUsage = 'Space usage';
+$strSQL = 'SQL';
 $strSQLQuery = 'SQL-query';
 $strStatement = 'Statements';
 $strStrucCSV = 'CSV data';
@@ -303,6 +305,7 @@ $strStrucData = 'Structure and data';
 $strStrucDrop = 'Add \'drop table\'';
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strStrucOnly = 'Structure only';
+$strStructure = 'Structure';
 $strSubmit = 'Submit';
 $strSuccess = 'Your SQL-query has been executed successfully';
 $strSum = 'Sum';
@@ -350,8 +353,4 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-
-$strStructure = 'Structure';
-
-$strRelationView = 'Relation view';
 ?>

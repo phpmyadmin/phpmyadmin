@@ -359,6 +359,6 @@ $strYes = ' Si ';
 
 $strZip = '"compresso con zip"';
 
-
 // To translate
+$strSQL = 'SQL'; //to translate
 ?>

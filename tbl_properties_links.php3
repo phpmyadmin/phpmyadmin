@@ -33,7 +33,7 @@ if ($num_rows > 0) {
 <p>
     [&nbsp;
     <a href="tbl_properties.php3?<?php echo $url_query; ?>">
-        <b><?php echo $strHome; ?></b></a>&nbsp;|
+        <b><?php echo $strSQL; ?></b></a>&nbsp;|
     <?php echo $lnk2 . "\n"; ?>
         <b><?php echo $strBrowse; ?></b><?php if ($lnk2) echo '</a>'; ?>&nbsp;|
     <a href="tbl_properties_structure.php3?<?php echo $url_query; ?>">

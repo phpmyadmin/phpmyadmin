@@ -357,4 +357,5 @@ $strYes = 'ÊÇ';
 $strZip = '"zipped"';
 
 // To translate
+$strSQL = 'SQL'; //to translate
 ?>

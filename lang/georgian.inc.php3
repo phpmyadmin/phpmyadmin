@@ -340,6 +340,13 @@ $strUserName = 'User name';
 $strUseTables = 'Use Tables';
 $strWithChecked = 'With selected:';
 $strZip = '"zipped"';
+$strLinksTo = 'Links to';  //to translate
+$strExport = 'Export';  //to translate
+$strOperations = 'Operations';  //to translate
+$strOptions = 'Options';  //to translate
+$strStructure = 'Structure';  //to translate
+$strRelationView = 'Relation view';  //to translate
+$strSQL = 'SQL'; //to translate
 
 // For indexes
 $strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)';
@@ -357,10 +364,4 @@ $strNoIndexPartsDefined = 'No index parts defined!';
 $strPrimaryKeyHasBeenDropped = 'The primary key has been dropped';
 $strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
-$strLinksTo = 'Links to';  //to translate
-$strExport = 'Export';  //to translate
-$strOperations = 'Operations';  //to translate
-$strOptions = 'Options';  //to translate
-$strStructure = 'Structure';  //to translate
-$strRelationView = 'Relation view';  //to translate
 ?>

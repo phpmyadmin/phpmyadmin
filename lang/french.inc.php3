@@ -297,6 +297,7 @@ $strSingly = '(à refaire après insertions/destructions)';
 $strSize = 'Taille';
 $strSort = 'Tri';
 $strSpaceUsage = 'Espace utilisé';
+$strSQL = 'SQL';
 $strSQLQuery = 'requête SQL';
 $strStatement = 'Information';
 $strStrucCSV = 'Données CSV';
