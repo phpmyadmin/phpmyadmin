@@ -728,4 +728,5 @@ $strZip = 'Komprimert (zip)';
 // To translate
 
 $strConnectionError = 'Cannot connect: invalid settings.';  //to translate
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 ?>

@@ -721,4 +721,5 @@ $strYes = 'Jah';
 $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate limiidi.';
 $strZip = '"zipitud"';
 
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 ?>

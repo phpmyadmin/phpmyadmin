@@ -136,6 +136,7 @@ if (isset($sql_query)) {
             <!-- SQL options -->
             <fieldset id="sql_options">
                 <legend><?php echo $strSQLOptions; ?> (<a href="./Documentation.html#faqexport" target="documentation"><?php echo $strDocu; ?></a>)</legend>
+                <?php echo $strAddHeaderComment; ?>: <input type="text" name="header_comment" value="<?php echo $cfg['Export']['sql_header_comment']; ?>" class="textfield" size="30" /><br />
 <?php
 if ($export_type == 'server') {
 ?>

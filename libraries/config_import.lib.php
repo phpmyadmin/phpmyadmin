@@ -1284,5 +1284,8 @@ if (!isset($cfg['Export']['sql_comments'])) {
 if (!isset($cfg['Export']['sql_mime'])) {
     $cfg['Export']['sql_mime'] = FALSE;
 }
+if (!isset($cfg['Export']['sql_header_comment'])) {
+    $cfg['Export']['sql_header_comment'] = '';
+}
 
 ?>

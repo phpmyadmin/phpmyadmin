@@ -728,4 +728,5 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања ограничења.';
 $strZip = '"зиповано"';
 
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 ?>

@@ -17,6 +17,9 @@ $Source$
       substr and strlen functions (bugs #854755 and #910575).
     * export.php: Fix buffer length counting, fix error detection.
     * libraries/export/latex.php: Fix undefined variable warning.
+    * libraries/config_import.lib.php, libraries/common.lib.php,
+      libraries/display_export.lib.php, libraries/export/sql.php, lang/*: Can
+      add custom text to SQL export headers (RFE #874361).
 
 2004-03-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug 909752, floating point digit

@@ -727,4 +727,5 @@ $strZip = '"zo zipované"';
 
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 ?>

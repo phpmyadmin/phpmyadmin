@@ -35,6 +35,7 @@ $strAddConstraints = 'Přidat omezení';
 $strAddDeleteColumn = 'Přidat/Smazat sloupec';
 $strAddDeleteRow = 'Přidat/Smazat řádek s&nbsp;podmínkou';
 $strAddDropDatabase = 'Přidat DROP DATABASE';
+$strAddHeaderComment = 'Přidat vlastní komentář do hlavičky (\\n odděluje řádky)';
 $strAddIntoComments = 'Přidat do komentářů';
 $strAddNewField = 'Přidat nový sloupec';
 $strAddPriv = 'Přidat nové privilegium';

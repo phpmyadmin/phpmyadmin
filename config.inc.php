@@ -343,6 +343,7 @@ $cfg['Export']['sql_type']                  = 'insert'; // insert/update/replace
 $cfg['Export']['sql_extended']              = FALSE;
 $cfg['Export']['sql_comments']              = FALSE;
 $cfg['Export']['sql_mime']                  = FALSE;
+$cfg['Export']['sql_header_comment']        = ''; // \n is replaced by new line
 
 /**
  * Link to the official MySQL documentation.

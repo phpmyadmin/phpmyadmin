@@ -63,6 +63,13 @@ function PMA_exportHeader() {
            .  '# ' . $GLOBALS['strGenTime'] . ': ' . PMA_localisedDate() . $crlf
            .  '# ' . $GLOBALS['strServerVersion'] . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
            .  '# ' . $GLOBALS['strPHPVersion'] . ': ' . phpversion() . $crlf;
+           
+    if (isset($GLOBALS['header_comment']) && !empty($GLOBALS['header_comment'])) {
+        $lines = explode('\n', $GLOBALS['header_comment']);
+        $head .= '# ' . $crlf
+               . '# ' . implode($crlf . '# ', $lines) . $crlf
+               . '# ' . $crlf;
+    }
     return PMA_exportOutputHandler($head);
 }
 

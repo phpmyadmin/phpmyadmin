@@ -751,4 +751,5 @@ $strTransformation_application_octetstream__download = 'Display a link to downlo
 $strMaximumSize = 'Maximum size: %s%s';  //to translate
 $strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 ?>

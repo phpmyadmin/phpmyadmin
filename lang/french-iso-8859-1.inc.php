@@ -726,4 +726,5 @@ $strZip = '"zippé"';
 $strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
 
 $strDropDatabaseStrongWarning = 'Vous êtes sur le point de DÉTRUIRE une base de données!';
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 ?>

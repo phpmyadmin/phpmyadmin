@@ -728,4 +728,5 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 ?>

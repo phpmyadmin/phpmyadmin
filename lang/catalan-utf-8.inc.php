@@ -722,4 +722,5 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el limit.';
 $strZip = '"comprimit amb zip"';
 
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 ?>

@@ -34,6 +34,7 @@ $strAddConstraints = 'Pøidat omezení';
 $strAddDeleteColumn = 'Pøidat/Smazat sloupec';
 $strAddDeleteRow = 'Pøidat/Smazat øádek s&nbsp;podmínkou';
 $strAddDropDatabase = 'Pøidat DROP DATABASE';
+$strAddHeaderComment = 'Pøidat vlastní komentáø do hlavièky (\\n oddìluje øádky)';
 $strAddIntoComments = 'Pøidat do komentáøù';
 $strAddNewField = 'Pøidat nový sloupec';
 $strAddPriv = 'Pøidat nové privilegium';

@@ -726,4 +726,5 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
+$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 ?>
