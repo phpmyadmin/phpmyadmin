@@ -433,4 +433,6 @@ $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
 
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

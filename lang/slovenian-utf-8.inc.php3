@@ -434,4 +434,6 @@ $strZip = '"zipano"';
 // To translate
 
 $strImportDocSQL = 'Import docSQL Files';  //to translate
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

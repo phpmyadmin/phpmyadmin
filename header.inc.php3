@@ -113,6 +113,8 @@ table.tabs      {
     border-bottom: 1px solid #666;
 }
 
+.print{font-family:arial;font-size:8pt;}
+
 .syntax {font-family: sans-serif; font-size: <?php echo $font_smaller; ?>;}
 .syntax_comment            {}
 .syntax_digit              {}

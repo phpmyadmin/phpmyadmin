@@ -437,4 +437,6 @@ $strZip = 'Komprimert (zip)';
 
 
 $strImportDocSQL = 'Import docSQL Files';  //to translate
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

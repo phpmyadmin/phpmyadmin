@@ -438,4 +438,6 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

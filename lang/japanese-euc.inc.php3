@@ -439,4 +439,6 @@ $strYes = 'はい';
 
 $strZip = '"zipされる"';
 
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

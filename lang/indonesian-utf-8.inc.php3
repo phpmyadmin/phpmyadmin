@@ -433,4 +433,6 @@ $strYes = 'Ya';
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

@@ -433,4 +433,6 @@ $strYes = 'Áno';
 $strZip = '"zo zipované"';
 // To translate
 
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

@@ -459,4 +459,6 @@ $strZip = '"zipped"' ;  //to translate
 $strServer = 'Server %s';  //to translate
 $strPutColNames = 'Put fields names at first row';  //to translate
 $strImportDocSQL = 'Import docSQL Files';  //to translate
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

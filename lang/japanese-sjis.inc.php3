@@ -439,4 +439,6 @@ $strYes = '‚Í‚¢';
 
 $strZip = '"zip‚³‚ê‚é"';
 
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

@@ -97,6 +97,7 @@ $strCreatePdfFeat = 'Génération de schémas en PDF';
 $strCriteria = 'Critère';
 
 $strData = 'Données';
+$strDataDict = 'Dictionnaire de données';
 $strDataOnly = 'Données seulement';
 $strDatabase = 'Base de données';
 $strDatabaseHasBeenDropped = 'La base de données %s a été effacée.';
@@ -282,6 +283,7 @@ $strPrimaryKey = 'Clé primaire';
 $strPrimaryKeyHasBeenDropped = 'La clé primaire a été effacée';
 $strPrimaryKeyName = 'Le nom d\'une clef primaire doit être PRIMARY&nbsp;!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>doit et ne peut être</b> que le nom d\'une clef primaire&nbsp;!)';
+$strPrint = 'Imprimer';
 $strPrintView = 'Version imprimable';
 $strPrivileges = 'Privilèges';
 $strProperties = 'Propriétés';

@@ -437,6 +437,9 @@ if ($num_tables > 0) {
     <li>
         <div style="margin-bottom: 10px"><a href="db_printview.php3?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a></div>
     </li>
+    <li>
+         <div style="margin-bottom: 10px"><a href="./db_datadict.php3?<?php echo $url_query; ?>"><?php echo $strDataDict; ?></a></div>
+    </li>
     <?php
 } // end if
 ?>

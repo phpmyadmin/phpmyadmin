@@ -437,4 +437,6 @@ $strYes = ' Po ';
 $strZip = '"kompresuar me zip"';
 // To translate
 
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

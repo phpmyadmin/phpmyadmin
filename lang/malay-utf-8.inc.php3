@@ -451,4 +451,6 @@ $strValidatorError = 'Pengesahan SQL tidak dapat disahkan. Sila semak sama ada a
 $strServer = 'Pelayan %s'; 
 $strPutColNames = 'Letakkan medan di baris pertama';
 $strImportDocSQL = 'Import docSQL Files';  //to translate
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>

@@ -428,4 +428,6 @@ $strWrongUser = 'Usuario/contraseña equivocado. Acceso denegado.';
 $strYes = 'Sí';
 
 $strZip = '"comprimido con zip"';
+$strDataDict = 'Data Dictionary';  //to translate
+$strPrint = 'Print';  //to translate
 ?>
