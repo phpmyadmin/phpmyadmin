@@ -91,16 +91,52 @@
 </ul>
 
 
+<!-- REQUIREMENTS -->
+<a name="require"></a><br />
+<hr noshade="noshade" width="100%" />
+<font size="+1">
+    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#require">Requirements</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#credits">Credits</a>
+</font>
+<hr noshade="noshade" width="100%" />
+
+<h2>Requirements</h2>
+
+<ul>
+    <li>
+        phpMyAdmin widely uses the 'str_replace()' php function that was added
+        in PHP&nbsp;3.0.6, but was buggy up until PHP&nbsp;3.0.8.
+        Then <font color="#bb0000">you should not run this script with
+        PHP3&nbsp;&lt;&nbsp;3.0.8</font>.<br />
+        PHP also needs to be <font color="#bb0000">compiled with mysql
+        and PRCE support</font>;
+    </li>
+    <li>
+        MySQL (tested with 3.21.x, 3.22.x and 3.23.x);
+    </li>
+    <li>
+        a web-browser (doh!).
+    </li>
+</ul>
+
+
 <!-- INTRODUCTION -->
 <a name="intro"></a><br />
 <hr noshade="noshade" width="100%" />
 <font size="+1">
-    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;    
-    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;   
-    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;   
+    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#require">Requirements</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;
     <a class="navigation2" href="#credits">Credits</a>
 </font>
 <hr noshade="noshade" width="100%" />
@@ -133,7 +169,7 @@
     <td valign="top">(*)&nbsp;</td>
     <td>
         phpMyAdmin can compress (GZip format - RFC 1952) dumps and CSV exports
-        if you use PHP4>=4.0.4 with Zlib support (--with-zlib)
+        if you use PHP>=4.0.4 with Zlib support (--with-zlib)
     </td>
 </tr>
 </table>
@@ -143,12 +179,13 @@
 <a name="setup"></a><br />
 <hr noshade="noshade" width="100%" />
 <font size="+1">
-    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;    
-    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;   
-    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;   
+    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#require">Requirements</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;
     <a class="navigation2" href="#credits">Credits</a>
 </font>
 <hr noshade="noshade" width="100%" />
@@ -165,7 +202,8 @@
          values.</li>
     <li> It is recommended that you protect the directory in which
          you installed phpMyAdmin (unless it's on a closed intranet), 
-         for example with HTTP-AUTH (in a <i>.htaccess</i> file).</li>
+         for example with HTTP-AUTH (in a <i>.htaccess</i> file). See the
+         FAQ section for additional information.</li>
     <li> Open the file
          <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php3</i>
          in your browser. phpMyAdmin should now display a welcome screen 
@@ -174,7 +212,8 @@
 
 <p>Installation notes:</p>
 <ul>
-    <li> Be sure to protect the phpMyAdmin-directory. By default, it is not 
+    <li>
+         Be sure to protect the phpMyAdmin-directory. By default, it is not 
          protected in any way! It shouldn't be readable by anyone and 
          especially not by search-engines. Although I've added a "nofollow" 
          directive on every page, there may be search-engines that don't 
@@ -183,11 +222,14 @@
          You can get an overview of Apache's authentification methods at:<br />
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          <a class="navigation" href="http://www.apacheweek.com/features/userauth">http://www.apacheweek.com/features/userauth</a><br />
-    <li> If you don't use the extension ".php3" for your scripts, you can use
+    </li>
+    <li>
+         If you don't use the extension ".php3" for your scripts, you can use
          the bundled script <i>extchg.sh</i> to modify phpMyAdmin (or any other
          script) to work with a different extension. Beware though, that
          currently changing the extension from .html to something other won't
-         work (it'd change all "string".htmlspecialchars() constructs). </li>
+         work (it'd change all "string".htmlspecialchars() constructs).
+    </li>
 </ul>
 
 <p>Upgrading from an older version:</p>
@@ -200,12 +242,13 @@
 <a name="config"></a><br />
 <hr noshade="noshade" width="100%" />
 <font size="+1">
-    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;    
-    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;   
-    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#Developers">Developers</a> &nbsp;-&nbsp;   
+    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#require">Requirements</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;
     <a class="navigation2" href="#credits">Credits</a>
 </font>
 <hr noshade="noshade" width="100%" />
@@ -216,12 +259,12 @@
 <dl>
     <dt><b>$cfgServers</b> array</dt>
     <dd>
-        Since version 1.4.2, phpMyAdmin supports the adminstration of multiple
+        Since version 1.4.2, phpMyAdmin supports the administration of multiple
         MySQL-server. 
         Therefore, a $cfgServers-array has been added which contains the login
-        information for the different servers. $cfgServers[1]['host'] contains
-        the hostname of the first server, $cfgServers[2]['host'] the hostname
-        of the second server, etc.
+        information for the different servers. <tt>$cfgServers[1]['host']</tt>
+        contains the hostname of the first server,
+        <tt>$cfgServers[2]['host']</tt> the hostname of the second server, etc.
         If you have only one server to administer, simply leave free the
         hostname of the other $cfgServer-entries.
         <br /><br />
@@ -244,10 +287,12 @@
     <dd>
         Whether basic or advanced authentication should be used for this
         server.<br />
-        Basic authentication ($adv_auth = false) is the plain old way:
-        username and password are stored in config.inc.php3.
-        Advanced authentication $adv_auth = true) as  introduced in 1.3.0
-        allows you to log in as any valid MySQL user via HTTP-Auth.<br />
+        Basic authentication (<tt>$adv_auth&nbsp;=&nbsp;false</tt>) is the
+        plain old way: username and password are stored in
+        <i>config.inc.php3</i>.
+        Advanced authentication (<tt>$adv_auth&nbsp;=&nbsp;true</tt>) as
+        introduced in 1.3.0 allows you to log in as any valid MySQL user via
+        HTTP-Auth.<br />
         Please note that this authentication mode is
         <font color="#bb0000">only supported with PHP running as an Apache
         module</font>, and not with cgi.<br /><br />
@@ -273,7 +318,10 @@
 
         All you have to provide in config.inc is a standard user which can
         connect to MySQL and read the mysql user/db table
-        (see $cfgServers[n]['stduser']).
+        (see <tt>$cfgServers[n]['stduser']</tt>).
+        <br /><br />
+
+        See also the FAQ section for more information about security.
         <br /><br />
     </dd>
 
@@ -339,17 +387,17 @@
                 </tt>
             </li>
             <li>
-                then complete the two variables $cfgServers[n]['bookmarkdb']
-                and $cfgServers[n]['bookmarktable'] so phpMyAdmin will be able
-                to find the bookmark table.
+                then complete the two variables
+                <tt>$cfgServers[n]['bookmarkdb']</tt> and
+                <tt>$cfgServers[n]['bookmarktable']</tt> so phpMyAdmin will be
+                able to find the bookmark table.
             </li>
-        </ul>
-        <br />
-	For reasons of security, if you want to use bookmark feature and
-	advenced authentification, you must configure a different cfgServers
-	section for each user.
-	<br />
-	<br />
+        </ul><br />
+
+        For security reasons, if you want to use the bookmark feature with
+        advanced authentification, you must configure a different
+        <tt>$cfgServers</tt> section for each user. 
+        <br /><br />
     </dd>
 
     <dt><b>$cfgServerDefault</b> integer</dt>
@@ -358,8 +406,8 @@
         $cfgServerDefault to any one of them to autoconnect to that server when
         phpMyAdmin is started, or set it to 0 to be given a list of servers
         without logging in.<br />
-        If you have only one server configured, $cfgServerDefault MUST be set
-        to that server.
+        If you have only one server configured, <tt>$cfgServerDefault</tt> MUST
+        be set to that server.
         <br /><br />
     </dd>
 
@@ -421,17 +469,18 @@
         <br /><br />
     </dd>
 
-    <dt><b>$cfgOrder </b>string ["DESC"|"ASC"]</dt>
+    <dt><b>$cfgOrder </b>string [<tt>"DESC"</tt>|<tt>"ASC"</tt>]</dt>
     <dd>
-        Defines whether fields are displayed in ascending ("ASC") order or in
-        descending ("DESC") order when you click on the field-name.
+        Defines whether fields are displayed in ascending (<tt>"ASC"</tt>)
+        order or in descending (<tt>"DESC"</tt>) order when you click on the
+        field-name.
         <br /><br />
     </dd>
 
     <dt><b>$cfgShowBlob </b>boolean</dt>
     <dd>
-        Defines whether BLOB fields are shown when browsing a table's content
-        or not.
+        Defines whether <tt>BLOB</tt> fields are shown when browsing a table's
+        content or not.
         <br /><br />
     </dd>
 
@@ -495,12 +544,13 @@
 <a name="faq"></a><br />
 <hr noshade="noshade" width="100%" />
 <font size="+1">
-    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;    
-    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;   
-    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#Developers">Developers</a> &nbsp;-&nbsp;   
+    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#require">Requirements</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;
     <a class="navigation2" href="#credits">Credits</a>
 </font>
 <hr noshade="noshade" width="100%" />
@@ -515,8 +565,8 @@
     Common errors include:
 </p>
 <ul>
-    <li>Using VARCHAR without a size argument</li>
-    <li>Using TEXT or BLOB with a size argument</li>
+    <li>Using <tt>VARCHAR</tt> without a size argument</li>
+    <li>Using <tt>TEXT or</tt> BLOB with a size argument</li>
 </ul>
 <p>
     Also, look at the syntax chapter in the MySQL manual to confirm that your
@@ -558,17 +608,9 @@
         host information in the config.inc.php file using the format
         'host_name:socket_name'.<br />
         For example:
-        <tt>$cfgServers[n]['host'] = 'localhost:/tmp/mysql.sock';</tt>
+        <tt>$cfgServers[n]['host']&nbsp;=&nbsp;'localhost:/tmp/mysql.sock';</tt>
     </li>
 </ul>
-
-<p>
-    <b>I cannot edit the content of a table, even if the README says this is a
-    feature of phpMyAdmin.</b>
-    <br />
-    phpMyAdmin allows only editing of a table's content if the table contains
-    a primary or unique key.
-</p>
 
 <p>
     <b>phpMyAdmin always gives "Access denied" when using advanced
@@ -578,8 +620,8 @@
 </p>
 <ul>
     <li>
-        $stduser/$stdpassword is wrong. Try to turn off $adv_auth and use this
-        username and password to connect to MySQL.
+        <tt>$stduser/$stdpassword</tt> is wrong. Try to turn off $adv_auth and
+        use this username and password to connect to MySQL.
     </li>
     <li>
         The username/password your specify in the login-dialog is wrong. Try
@@ -631,10 +673,25 @@
     If you're running a server which cannot be accessed by other people, it's
     sufficient to use the directory protection bundled with your webserver
     (with Apache you can use <i>.htaccess</i> files, for example).<br />
-    If other people have telnet access to your server, it's not a good idea to
-    store the MySQL password in clear text in your <i>config.inc.php3</i> file.
-    You should use phpMyAdmin's advanced authentification feature in this case.
+    If other people have telnet access to your server,
+    you should use phpMyAdmin's advanced authentification feature.
+    <br /><br />
+    Suggestions:
 </p>
+<ul>
+    <li>
+        Your <i>config.inc.php3</i> file should be <tt>chmod 660</tt>.
+    </li>
+    <li>
+        All your phpMyAdmin files should be chown phpmy.apache, where phpmy
+        is a user whose password is only known to you, and apache is the
+        group under which Apache runs.
+    </li>
+    <li>
+        You should use PHP safe mode, to protect from other users that try
+        to include your <i>config.inc.php3</i> in their scripts.
+    </li>
+</ul>
 
 <p>
     <b>How can I insert a null value into my table?</b>
@@ -657,20 +714,21 @@
 </p>
 <ol>
     <li>
-        Select all entries from the mysql.user table where the
+        Select all entries from the <i>mysql.user</i> table where the
         username/password matches the challenging user. If no rows are
         returned, the authentication has failed. Otherwise, phpMyAdmin
         continues with step 2.
     </li>
     <li>
-        If the user's global Select_Priv is &quot;N&quot; (ie the user is not
-        allowed to access <i>all</i> databases), phpMyAdmin searches the
-        mysql.db table for entries with Select_Priv = &quot;Y&quot; belonging
-        to the user. If no entries are found, the authentication has failed.
-        Otherwise, phpMyAdmin shows all databases the user is allowed to view.
+        If the user's global <tt>Select_Priv</tt> is &quot;N&quot; (ie the user
+        is not allowed to access <b>all</b> databases), phpMyAdmin searches the
+        <i>mysql.db</i> table for entries with
+        <tt>Select_Priv&nbsp;=&nbsp;&quot;Y&quot;</tt> belonging to the user.
+        If no entries are found, the authentication has failed. Otherwise,
+        phpMyAdmin shows all databases the user is allowed to view.
         <br />
-        If the user's global Select_Priv is &quot;Y&quot;, all databases in the
-        system are shown.
+        If the user's global <tt>Select_Priv</tt> is <tt>&quot;Y&quot;</tt>,
+        all databases in the system are shown.
     </li>
 </ol>
 <p>
@@ -694,7 +752,7 @@
     <br />
     This feature is based on gzencode() to be more independent of the platform
     (Unix/Windows, Safe Mode or not, and so on).
-    So, you must have PHP4 >= 4.0.4 and Zlib support (--with-zlib).
+    So, you must have PHP4&nbsp;>=&nbsp;4.0.4 and Zlib support (<tt>--with-zlib</tt>).
 </p>
 
 <p>
@@ -718,12 +776,13 @@
 <a name="Developers"></a><br />
 <hr noshade="noshade" width="100%" />
 <font size="+1">
-    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;    
-    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;   
-    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#Developers">Developers</a> &nbsp;-&nbsp;   
+    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#require">Requirements</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;
     <a class="navigation2" href="#credits">Credits</a>
 </font>
 <hr noshade="noshade" width="100%" />
@@ -807,12 +866,13 @@
 <a name="credits"></a><br />
 <hr noshade="noshade" width="100%" />
 <font size="+1">
-    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;    
-    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;   
-    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#Developers">Developers</a> &nbsp;-&nbsp;   
+    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#require">Requirements</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;
     <a class="navigation2" href="#credits">Credits</a>
 </font>
 <hr noshade="noshade" width="100%" />
@@ -838,8 +898,8 @@ CREDITS, in chronological order
 
 [lc] - Loïc Chapeaux &lt;lolo@phpHeaven.net&gt;
         * rewrote and optimized javascript, DHTML and DOM stuff
-        * started to rewrite the scripts so they are XHTML1.0, CSS2 compliant
-          and fit the PEAR coding standards
+        * started to rewrite the scripts so they fit the PEAR coding standards
+          and generate XHTML1.0 and CSS2 compliant codes
         * improved the language detection system
         * bugfixes
 
@@ -915,12 +975,13 @@ Original Credits of Version 2.1.0
 <a name="bottom"></a><br />
 <hr noshade="noshade" width="100%" />
 <font size="+1">
-    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;    
-    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;   
-    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;  
-    <a class="navigation2" href="#Developers">Developers</a> &nbsp;-&nbsp;   
+    <a class="navigation2" href="#top">Top</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#require">Requirements</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#intro">Introduction</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#setup">Installation</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#config">Configuration</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#faq">FAQ</a> &nbsp;-&nbsp;
+    <a class="navigation2" href="#developers">Developers</a> &nbsp;-&nbsp;
     <a class="navigation2" href="#credits">Credits</a>
 </font>
 <hr noshade="noshade" width="100%" />
