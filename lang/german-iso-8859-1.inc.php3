@@ -207,6 +207,7 @@ $strKeepPass = 'Kennwort nicht verändert';
 $strKeyname = 'Name';
 $strKill = 'Beenden';
 
+$strLandscape = 'Querformat';
 $strLength = ' Länge ';
 $strLengthSet = 'Länge/Set*';
 $strLimitNumRows = 'Einträge pro Seite';
@@ -288,6 +289,7 @@ $strPHP40203 = 'Sie verwenden die PHP-Version 4.2.3, welche leider fehlerhaft im
 $strPHPVersion = 'PHP-Version';
 $strPmaDocumentation = 'phpMyAdmin-Dokumentation';
 $strPmaUriError = 'Das <tt>$cfg[\'PmaAbsoluteUri\']</tt>-Verzeichnis MUSS in Ihrer Konfigurationsdatei angegeben werden!';
+$strPortrait = 'Hochformat';
 $strPos1 = 'Anfang';
 $strPrevious = 'Vorherige';
 $strPrimary = 'Primärschlüssel';
@@ -365,6 +367,7 @@ $strShow = 'Zeige';
 $strShowAll = 'Alles anzeigen';
 $strShowColor = 'mehrfarbig';
 $strShowCols = 'Reihen anzeigen';
+$strShowDatadictAs = 'Format des Strukturverzeichnisses';
 $strShowGrid = 'Gitterlinien anzeigen';
 $strShowingRecords = 'Zeige Datensätze ';
 $strShowPHPInfo = 'PHP-Informationen anzeigen';
@@ -445,7 +448,4 @@ $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 $strZip = 'Zip-komprimiert';
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strLandscape = 'Landscape';  //to translate
-$strPortrait = 'Portrait';  //to translate
 ?>
