@@ -395,9 +395,6 @@ $strZip = '"zipped"';
 
 $strEditPDFPages = 'Edit PDF Pages';
 $strNoDescription = 'no Description';
-$strRelationNotSet = 'Relationtable not found or not set in config.inc.php3';
-$strInfoNotSet = 'table_info table not found or not set in config.inc.php3';
-$strCoordsNotSet = 'table_coords table not found or not set in config.inc.php3';
 $strChoosePage = 'Please choose a Page to edit';
 $strCreatePage = 'Create a new Page';
 $strSelectTables = 'Select Tables';
