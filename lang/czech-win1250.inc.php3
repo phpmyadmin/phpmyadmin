@@ -1,12 +1,12 @@
-1;2c1;2c1;2c<?php
+<?php
 /* $Id$ */
 
 $charset = "windows-1250";
-$left_font_family = "sans-serif";
-$right_font_family = "sans-serif";
-$number_thousands_separator = ",";
+$left_font_family = "verdana CE, Arial CE, verdana, helvetica, arial, geneva, sans-serif";
+$right_font_family = "verdana CE, Arial CE, helvetica, arial, geneva, sans-serif";
+$number_thousands_separator = " ";
 $number_decimal_separator = ".";
-$byteUnits = array("Bytes", "KB", "MB", "GB");
+$byteUnits = array("Bajtù", "KB", "MB", "GB");
 
 $strAccessDenied = "Pøístup odepøen";
 $strAction = "Akce";
@@ -20,7 +20,7 @@ $strAddUser = "Pøidat nového uživatele";
 $strAddUserMessage = "Uživatel byl pøidán.";
 $strAfter = "Po";
 $strAll = "Všechno";
-$strAlterOrderBy = "Alter table order by"; //to translate
+$strAlterOrderBy = "Zmìnit poøadí tabulky podle";
 $strAnalyzeTable = "Analyzovat tabulku";
 $strAnd = ""; //to translate, but its not in use ...
 $strAnIndex = "Byl pøidán index na ";
@@ -28,7 +28,7 @@ $strAny = "Jakýkoliv";
 $strAnyColumn = "Jakýkoliv sloupec";
 $strAnyDatabase = "Jakákoliv databáze";
 $strAnyHost = "Jakýkoliv hostitel";
-$strAnyTable = "Any table"; //to translate
+$strAnyTable = "Any table";
 $strAnyUser = "Jakýkoliv uživatel";
 $strAPrimaryKey = "Byl pøidán primární klíè na ";
 $strAscending = ""; //to translate, but its not in use ...
@@ -37,13 +37,15 @@ $strAtEndOfTable = "Na konci tabulky";
 $strAttr = "Atributy";
 
 $strBack = "Zpìt";
-$strBookmarkLabel = "Label"; //to translate
-$strBookmarkQuery = "Bookmarked SQL-query"; //to translate
-$strBookmarkThis = "Bookmark this SQL-query"; //to translate
-$strBookmarkView = "View only"; //to translate
+$strBinary = " Binární ";  
+$strBinaryDoNotEdit = " Binární - neupravujte ";  
+$strBookmarkLabel = "Název"; 
+$strBookmarkQuery = "Oblíbený SQL dotaz";
+$strBookmarkThis = "Pøidat tento SQL dotaz do oblíbených";
+$strBookmarkView = "Jen prohlédnout";
 $strBrowse = "Projít";
 
-$strCantLoadMySQL = "cannot load MySQL extension,<br>please check PHP Configuration."; //to translate
+$strCantLoadMySQL = "nelze nahrát rozšíøení pro MySQL,<br>prosím zkontrolujte nastavení PHP.";
 $strCarriage = "Návrat vozíku (Carriage return): \\r";
 $strChange = "Zmìnit";
 $strCheckAll = "Zaškrtnout vše";
@@ -61,12 +63,12 @@ $strCreateNewDatabase = "Vytvoøit novou databázi";
 $strCreateNewTable = "Vytvoøit novou tabulku v databázi ";
 $strCriteria = ""; //to translate, but its not in use ...
 
-$strData = "Data"; //to translate
+$strData = "Data"; 
 $strDatabase = "Databáze ";
 $strDatabases = "databáze";
 $strDataOnly = " Jen data ";
 $strDbEmpty = "Jméno databáze je prázdné!";
-$strDefault = "Vychozí";
+$strDefault = "Výchozí";
 $strDelete = "Smazat";
 $strDeleted = "Øádek byl smazán";
 $strDeleteFailed = "Smazání selhalo!";
@@ -74,37 +76,38 @@ $strDeletePassword = "Smazat heslo";
 $strDeleteUserMessage = "Byl smazán uživatel";
 $strDelPassMessage = "Bylo smazáno heslo pro";
 $strDescending = ""; //to translate, but its not in use ...
-$strDisableMagicQuotes = "<b>Warning:</b> You have enabled magic_quotes_gpc in your PHP configuration. This version of PhpMyAdmin cannot work properly with it. Please have a look at the configuration section of the PHP manual for information on how to disable it."; //to translate
+$strDisableMagicQuotes = "<b>Varování:</b> Zapnul jste magic_quotes_gpc v nastavení PHP. Tato verze PhpMyAdmina nemùže s tímto nastavením korektnì pracovat. Prosím podívejte se do manuálu PHP (kapitola nastavení) jak toto nastavení zmìnit.";
 $strDisplay = "Zobraz";
-$strDoAQuery = "Do a \"query by example\" (wildcard: \"%\")"; //to translate
+$strDoAQuery = "ProvéstDo a \"dotaz podle pøíkladu\" (žolík: \"%\")";
 $strDocu = "Dokumentace";
 $strDoYouReally = "Opravdu si pøeješ vykonat pøíkaz ";
 $strDrop = "Odstranit";
 $strDropDB = "Odstranit databázi ";
 $strDumpingData = "Dumpuji data pro tabulku";
-$strDynamic = "dynamic"; //to translate
+$strDynamic = "dynamic";
 
 $strEdit = "Editovat";
 $strEditPrivileges = "Upravit práva";
-$strEffective = "Effective"; //to translate
+$strEffective = "Efektivní";
 $strEmpty = "Vyprázdnit";
 $strEmptyResultSet = "MySQL vrátil prázdný výsledek (tj. nulový poèet øádkù).";
 $strEnableMagicQuotes = "<b>POZOR:</b> Nepovolil jsi 'magic_quotes_gpc' v tvé konfiguraci PHP enginu. PhpMyAdmin toto potøebuje pro svoji korektní praci. Prosím, zkontroluj konfiguraci popø. v manuálu pro PHP vyhledej informaci jak toto povolit.";
 $strEnclosedBy = "uzavøen do";
 $strEnd = "Konec";
+$strEnglishPrivileges = " Poznámka: názvy MySQL privilegií jsou uvádìna v angliètinì ";
 $strError = "Chyba";
 $strEscapedBy = "uvozeno pomocí";
-$strExtra = "Extra"; //to translate
+$strExtra = "Extra"; 
 
 $strField = "Pole";
 $strFields = "Poèet polí";
-$strFixed = "fixed"; //to translate
-$strFormat = "Format"; //to translate
+$strFixed = "pevný"; 
+$strFormat = "Formát"; 
 $strFunction = "Funkce";
 
-$strGenTime = "Generation Time"; //to translate
+$strGenTime = "Vygenerováno:"; 
 $strGo = "Proveï";
-$strGrants = "Povolení";
+$strGrants = "Privilegia";
 
 $strHasBeenAltered = "byla zmìnìna.";
 $strHasBeenCreated = "byla vytvoøena.";
@@ -112,24 +115,24 @@ $strHasBeenDropped = "byla odstranìna.";
 $strHasBeenEmptied = "byla vyprázdnìna.";
 $strHome = "Domu";
 $strHomepageOfficial = " Oficiální stránka phpMyAdmina ";
-$strHomepage1;2cSourceforge = " nová stránka phpMyAdmina ";
+$strHomepageSourceforge = " nová stránka phpMyAdmina ";
 $strHost = "Hostitel";
 $strHostEmpty = "Jméno hostitele je prázdné!";
 
 $strIfYouWish = "Pokud si pøeješ natáhnout jenom urèité sloupce z tabulky, specifikuj je jako seznam polí oddìlených èárkou.";
 $strIndex = "Index";
-$strIndexes = "Indexes"; //to translate
+$strIndexes = "Indexy"; 
 $strInsert = "Vložit";
 $strInsertAsNewRow = " Vložit jako nový øádek ";
 $strInsertIntoTable = "Vložit do tabulky";
 $strInsertNewRow = "Vložit nový øádek";
 $strInsertTextfiles = "Vložit textové soubory do tabulky";
-$strInUse = "in use"; //to translate
+$strInUse = "právì se používá"; 
 
 $strKeyname = "Klíèovy název";
 $strKill = " Zabít ";
 
-$strLength = "Length"; //to translate
+$strLength = "Délka";
 $strLengthSet = "Délka/Set";
 $strLimitNumRows = "záznamu na stránku";
 $strLineFeed = "Ukonèení øádku (Linefeed): \\n";
@@ -150,24 +153,26 @@ $strName = "Název";
 $strNext = "Další";
 $strNo = "Ne";
 $strNoPassword = "Žádné heslo";
-$strNoPrivileges = "Žádná práva";
+$strNoPrivileges = "Žádná privilegia";
 $strNoRights = "Nemáte dostateèná práva na provedení této akce!";
 $strNoTablesFound = "V databázi nebyla nalezena ani jedna tabulka.";
+$strNotNumber = "Toto není èíslo!";  
+$strNotValidNumber = " není platné èíslo øádku!"; 
 $strNoUsersFound = "Žádný uživatel nenalezen.";
 $strNull = "Nulový";
-$strNumberIndexes = " Number of advanced indexes "; //to translate
+$strNumberIndexes = " Poèet rozšíøených indexù ";
 
 $strOftenQuotation = "Èasto uvozující znaky. OPTIONALLY znamená, že pouze pole typu CHAR a VARCHAR jsou uzavøeny do \"uzavíracích \" znakù.";
 $strOptimizeTable = "Optimalizovat tabulku";
 $strOptionalControls = "Volitelné. Urèuje jak zapisovat nebo èíst speciální znaky.";
 $strOptionally = "Volitelnì";
 $strOr = "nebo";
-$strOverhead = "Overhead"; //to translate
+$strOverhead = "Navíc"; 
 
 $strPassword = "Heslo";
 $strPasswordEmpty = "Heslo je prázdné!";
 $strPasswordNotSame = "Hesla nejsou stejná!";
-$strPHPVersion = "PHP Version"; //to translate
+$strPHPVersion = "Verze PHP Version"; 
 $strPos1 = "Zaèátek";
 $strPrevious = "Pøedchozí";
 $strPrimary = "Primární";
@@ -197,10 +202,10 @@ $strRevokeGrant = "Zrušit povolení pøidìlovat práva";
 $strRevokeGrantMessage = "Bylo zrušeno privilegium pøidìlovat práva pro";
 $strRevokeMessage = "Byla zrušena práva pro";
 $strRevokePriv = "Zrušit práva";
-$strRowLength = "Row length"; //to translate
-$strRows = "Rows"; //to translate
-$strRowsFrom = "øadky zaèínající od";
-$strRowsStatistic = "Row Statistic"; //to translate
+$strRowLength = "Délka øádku"; 
+$strRows = "Øádkù"; 
+$strRowsFrom = "øádky zaèínající od";
+$strRowsStatistic = "Statistika øádkù"; 
 $strRunning = "bìžící na ";
 $strRunQuery = ""; //to translate, but its not in use ...
 $strRunSQLQuery = "Spus SQL dotaz(y) na databázi ";
@@ -210,23 +215,23 @@ $strSelect = "Vybrat";
 $strSelectFields = "Zvol pole (alespoò jedno):";
 $strSelectNumRows = "v dotazu";
 $strSend = "Pošli";
-$strSequence = "Seq."; //to translate
-$strServerVersion = "Server version"; //to translate
+$strSequence = "Sekv.";
+$strServerVersion = "Verze serveru"; 
 $strShow = "Zobraz";
 $strShowingRecords = "Ukazuji záznamy ";
-$strSingly = "(singly)"; //to translate
-$strSize = "Size"; //to translate
+$strSingly = "(po jednom)";
+$strSize = "Velikost"; 
 $strSort = ""; //to translate, but its not in use ...
-$strSpaceUsage = "Space usage"; //to translate
+$strSpaceUsage = "Využití místa"; 
 $strSQLQuery = "SQL-dotaz";
-$strStatement = "Statements"; //to translate
+$strStatement = "Údaj"; 
 $strStrucCSV = "CSV data";
 $strStrucData = "Strukturu a data";
 $strStrucDrop = "Pøidej 'Vymaž tabulku'";
 $strStrucOnly = "Pouze strukturu";
 $strSubmit = "Odešli";
 $strSuccess = "Tvùj SQL-dotaz byl úspìšnì vykonán";
-$strSum = "Sum"; //to translate
+$strSum = "Celkem"; 
 
 $strTable = "Tabulka ";
 $strTableComments = "Komentáøe k tabulce";
@@ -248,7 +253,7 @@ $strUpdatePassMessage = "Bylo zmìnìno heslo pro";
 $strUpdatePassword = "Zmìnit heslo";
 $strUpdatePrivMessage = "Byla zmìnìna privilegia pro";
 $strUpdateQuery = ""; //to translate, but its not in use ...
-$strUsage = "Usage"; //to translate
+$strUsage = "Používá"; 
 $strUser = "Uživatel";
 $strUserEmpty = "Jméno uživatele je prázdné!";
 $strUserName = "Jméno uživatele";
@@ -264,14 +269,6 @@ $strWrongUser = "Špatné uživatelské jméno/heslo. Pøístup odepøen.";
 
 $strYes = "Ano";
 
-// automatic generated by langxlorer.php (June 27, 2001, 6:53 pm)
-// V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
-$strBinary=" Binary ";  //to translate
-$strBinaryDoNotEdit=" Binary - do not edit ";  //to translate
-$strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";  //to translate
-$strNotNumber = "This is not a number!";  //to translate
-$strNotValidNumber = " is not a valid row number!";  //to translate
-
 // export Zip (July 07, 2001, 19:48am)
-$strGzip = "Gzip";  //to translate
+$strGzip = "\"gzipped\"";  //to translate
 ?>
