@@ -55,7 +55,7 @@ function PMA_listBookmarks($db, $cfgBookmark)
             . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
             . ' AND (user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
             . '      OR user = \'\')';
-    $result = PMA_DBI_query($query, $dbh);
+    $result = PMA_DBI_query($query, $dbh, PMA_DBI_QUERY_STORE);
 
     // There is some bookmarks -> store them
     if ($result > 0 && PMA_DBI_num_rows($result) > 0) {
