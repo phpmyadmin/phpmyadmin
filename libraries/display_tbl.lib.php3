@@ -7,7 +7,6 @@
  */
 
 
-
 if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     define('PMA_DISPLAY_TBL_LIB_INCLUDED', 1);
 
@@ -883,16 +882,28 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     for ($i = 0; $i < $fields_cnt; ++$i) {
                         $meta      = $fields_meta[$i];
 
+                        // do not use an alias in a condition
+                        $column_for_condition = $meta->name;
+                        reset($analyzed_sql[0]['select_expr']);
+                        while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
+                            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
+                            if (!empty($alias)) {
+                                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
+                                if ($alias == $meta->name) {
+                                    $column_for_condition = $true_column;
+                                } // end if
+                            } // end if
+                        } // end while
+
                         // to fix the bug where float fields (primary or not)
                         // can't be matched because of the imprecision of
                         // floating comparison, use CONCAT
                         // (also, the syntax "CONCAT(field) IS NULL"
                         // that we need on the next "if" will work)
-
                         if ($meta->type == 'real') {
-                            $condition = ' CONCAT(' . PMA_backquote($meta->name) . ') ';
+                            $condition = ' CONCAT(' . PMA_backquote($column_for_condition) . ') ';
                         } else {
-                            $condition = ' ' . PMA_backquote($meta->name) . ' ';
+                            $condition = ' ' . PMA_backquote($column_for_condition) . ' ';
                         } // end if... else...
 
                         // loic1: To fix bug #474943 under php4, the row
@@ -1139,9 +1150,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                                 $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
                                 if ($alias == $meta->name) {
                                     $meta->name = $true_column;
-                                }
-                            }
-                        }
+                                } // end if
+                            } // end if
+                        } // end while
+
                         if (isset($map[$meta->name])) {
                             // Field to display from the foreign table?
                             if (!empty($map[$meta->name][2])) {

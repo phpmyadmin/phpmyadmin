@@ -7,6 +7,8 @@ $Source$
 
 2002-11-14 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: stripslashes issues (with LOAD DATA)
+    * libraries/display_tbl.lib.php3: could not Edit or Delete when only
+      an alias is displayed
 
 2002-11-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 636575 (unquoted identifiers)
