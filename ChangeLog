@@ -11,6 +11,8 @@ $Source$
 	* left.php3: nicer codding for Opera exception.
 	* read_dump.php3; libraries/build_dump.lib.php3: send fake headers to
 	  bypass browser timeout.
+	* main.php3: fixed an other bug with db creation privilege thanks to
+	  James Wigdahl <jwigdahl at mac.com>.
 
 2001-12-07  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/polish.inc.php3: fixed typos thanks to Tomasz Regdos & Jakub Wilk.
