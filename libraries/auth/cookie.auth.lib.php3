@@ -13,6 +13,18 @@
 if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     define('PMA_COOKIE_AUTH_INCLUDED', 1);
 
+    // emulate array_values() for PHP 3
+    if (PMA_PHP_INT_VERSION < 40000) {
+
+        function array_values ($arr) {
+            $t = array();
+            while (list($k, $v) = each ($arr)) {
+                $t[] = $v;
+            }
+        return $t;
+        } // end function
+    } // end if
+
     include('./libraries/blowfish.php3');
 
     // Gets the default font sizes

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/auth/cookie.auth.lib.php3: PHP3 compatibility
+
 2003-07-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian update, thanks to Valics Lehel
     * lang/turkish update, thanks to Bora Alioglu
