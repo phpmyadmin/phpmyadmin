@@ -12,29 +12,29 @@
  * the headers
  */
 require('./libraries/grab_globals.lib.php3');
-require('./libraries/common.lib.php3');
-require('./libraries/relation.lib.php3');
+require('./header.inc.php3');
 
 
 /**
- * Gets the relation settings
+ * Executes import if required
  */
-$cfgRelation = PMA_getRelationsParam();
-
 if (isset($do) && $do == 'import') {
     // echo '<h1>Starting Import</h1>';
     if (substr($docpath, strlen($docpath) - 2, 1) != '/') {
         $docpath = $docpath . '/';
     }
     if (is_dir($docpath)) {
-        $handle = opendir($docpath);
-        while ($file = @readdir ($handle)) {
-            $_filename = basename($file);
-            // echo '<p>Working on file ' . $filename . '</p>';
+        // Get relation settings
+        include('./libraries/relation.lib.php3');
+        $cfgRelation = PMA_getRelationsParam();
 
-            if (strpos($_filename,"_field_comment.txt")!=false)
-            {
-                 $_tab = substr($_filename,0,strlen($_filename)-strlen("_field_comment.txt"));
+        // Do the work
+        $handle = opendir($docpath);
+        while ($file = @readdir($handle)) {
+            $filename = basename($file);
+            // echo '<p>Working on file ' . $filename . '</p>';
+            if (strpos(' ' . $filename, '_field_comment.txt')) {
+                 $tab = substr($filename, 0, strlen($filename) - strlen('_field_comment.txt'));
                 //echo '<h1>Working on Table ' . $_tab . '</h1>';
                 $fd  = fopen($docpath . $file, 'r');
                 if ($fd) {
@@ -47,11 +47,11 @@ if (isset($do) && $do == 'import') {
                                  . ' (db_name, table_name, column_name, comment) '
                                  . ' VALUES('
                                  . '\'' . PMA_sqlAddslashes($db) . '\','
-                                 . '\'' . PMA_sqlAddslashes(trim($_tab)) . '\','
+                                 . '\'' . PMA_sqlAddslashes(trim($tab)) . '\','
                                  . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\','
                                  . '\'' . PMA_sqlAddslashes(trim($inf[1])) . '\')';
                             if (PMA_query_as_cu($qry)) {
-                                echo '<p>Added comment for column ' . htmlspecialchars($_tab) . '.' . htmlspecialchars($inf[0]) . '</p>';
+                                echo '<p>Added comment for column ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . '</p>';
                             } else {
                                 echo '<p>Writing of comment not possible</p>';
                             }
@@ -63,13 +63,13 @@ if (isset($do) && $do == 'import') {
                                    . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
                                    . ' VALUES('
                                    . '\'' . PMA_sqlAddslashes($db) . '\', '
-                                   . '\'' . PMA_sqlAddslashes(trim($_tab)) . '\', '
+                                   . '\'' . PMA_sqlAddslashes(trim($tab)) . '\', '
                                    . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\', '
                                    . '\'' . PMA_sqlAddslashes($db) . '\', '
                                    . '\'' . PMA_sqlAddslashes(trim($for[0])) . '\','
                                    . '\'' . PMA_sqlAddslashes(trim($for[1])) . '\')';
                             if (PMA_query_as_cu($qry)) {
-                                echo '<p>Added relation for column ' . htmlspecialchars($_tab) . '.' . htmlspecialchars($inf[0]) . ' to ' . htmlspecialchars($for) . '</p>';
+                                echo '<p>Added relation for column ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . ' to ' . htmlspecialchars($for) . '</p>';
                             } else {
                                 echo "<p>writing of Relation not possible</p>";
                             }
@@ -88,6 +88,37 @@ if (isset($do) && $do == 'import') {
         echo 'This was not a Directory' . "\n";
     }
 }
+
+
+/**
+ * Try to get the "$DOCUMENT_ROOT" variable whatever is the register_globals
+ * value
+ */
+if (empty($DOCUMENT_ROOT)) {
+    if (!empty($_SERVER) && isset($_SERVER['DOCUMENT_ROOT'])) {
+        $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
+    }
+    else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['DOCUMENT_ROOT'])) {
+        $DOCUMENT_ROOT = $HTTP_SERVER_VARS['DOCUMENT_ROOT'];
+    }
+    else if (!empty($_ENV) && isset($_ENV['DOCUMENT_ROOT'])) {
+        $DOCUMENT_ROOT = $_ENV['DOCUMENT_ROOT'];
+    }
+    else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['DOCUMENT_ROOT'])) {
+        $DOCUMENT_ROOT = $HTTP_ENV_VARS['DOCUMENT_ROOT'];
+    }
+    else if (@getenv('DOCUMENT_ROOT')) {
+        $DOCUMENT_ROOT = getenv('DOCUMENT_ROOT');
+    }
+    else {
+        $DOCUMENT_ROOT = '';
+    }
+} // end if
+
+
+/**
+ * Displays the form
+ */
 ?>
 
 <form method="post" action="db_details_importdocsql.php3">
@@ -96,12 +127,16 @@ if (isset($do) && $do == 'import') {
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="submit_show" value="true" />
     <input type="hidden" name="do" value="import" />
-    <table>
-        <tr><th colspan="2">Used Database: <?php echo htmlspecialchars($db); ?></th></tr>
-        <tr>
-            <th>Please enter absolute path on webserver to docSQL Directory:</th>
-            <td><input type="text" name="docpath" size="50" value="<?php if(isset($DOCUMENT_ROOT)) {echo $DOCUMENT_ROOT;} ?>" /></td>
-        </tr>
-        <tr><th colspan="2"><input type="submit" value="Import files" /></th></tr>
-    </table>
+    <b>Please enter absolute path on webserver to docSQL Directory:</b>
+    <br /><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="docpath" size="50" value="<?php echo htmlspecialchars($DOCUMENT_ROOT); ?>" />
+    &nbsp;<input type="submit" value="Import files" />
 </form>
+
+<?php
+/**
+ * Displays the footer
+ */
+echo "\n";
+require('./footer.inc.php3');
+?>

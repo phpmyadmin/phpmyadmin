@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-27 Loïc Chapeaux  <lolo@phpheaven.net>
+    * db_details_qbe.php3: PHP3 fixes & coding standards.
+    * db_details_importdocsql.php3: optimization, xhtml fixes & coding
+      standards.
+
 2002-09-26 Marc Delisle  <lem9@users.sourceforge.net>
     * config.inc.php3, libraries/config_import.lib.php3: let UploadDir
       empty because this means to not use the feature, thanks to Loïc

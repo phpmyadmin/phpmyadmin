@@ -759,32 +759,35 @@ if (isset($Field) && count($Field) > 0) {
          }
     } // end while
 
-// echo "check whereclauses\n";
+// echo "check where clauses\n";
     if ($cfgRelation['relwork'] && count($tab_all) > 0) {
-        // Now we need all tables that we have in the whereclause
-        for ($x = 0; $x < count($Criteria); $x++) {
-            $_currtab     = explode('.', urldecode($Field[$x]));
-            if (!empty($_currtab[0]) && !empty($_currtab[1])) {
-                $tab_raw  = urldecode($_currtab[0]);
+        // Now we need all tables that we have in the where clause
+        $crit_cnt         = count($Criteria);
+        for ($x = 0; $x < $crit_cnt; $x++) {
+            $curr_tab     = explode('.', urldecode($Field[$x]));
+            if (!empty($curr_tab[0]) && !empty($curr_tab[1])) {
+                $tab_raw  = urldecode($curr_tab[0]);
                 $tab      = str_replace('`', '', $tab_raw);
 
-                $col_raw  = urldecode($_currtab[1]);
-                $_col      = str_replace('`', '', $col_raw);
-                $_col      = $tab . '.' . $_col;
+                $col_raw  = urldecode($curr_tab[1]);
+                $col1     = str_replace('`', '', $col_raw);
+                $col1     = $tab . '.' . $col1;
                 // Now we know that our array has the same numbers as $Criteria
-                // we can check which of our columns has a whereclause
+                // we can check which of our columns has a where clause
                 if (!empty($Criteria[$x])) {
-                    if (substr($Criteria[$x],0,1) == '=' || eregi('is', $Criteria[$x])) {
-                        $col_where[$col] = $_col;
-                        $tab_wher[$tab] = $tab;
-// echo 'new Whereclause: ' . $tab_wher[$tab] . "||\n";
+                    if (substr($Criteria[$x], 0, 1) == '=' || eregi('is', $Criteria[$x])) {
+                        $col_where[$col] = $col1;
+                        $tab_wher[$tab]  = $tab;
+// echo 'new where clause: ' . $tab_wher[$tab] . "||\n";
                     }
-                }
-            }
+                } // end if
+            } // end if
         } // end for
 
         // Cleans temp vars w/o further use
-        unset($tab_raw, $col_raw);
+        unset($tab_raw);
+        unset($col_raw);
+        unset($col1);
 
         if (count($tab_wher) == 1) {
             // If there is exactly one column that has a decent where-clause
@@ -798,20 +801,20 @@ if (isset($Field) && count($Field) > 0) {
                 $ind_qry  = 'SHOW INDEX FROM ' . PMA_backquote($tab);
                 $ind_rs   = PMA_mysql_query($ind_qry);
                 while ($ind = PMA_mysql_fetch_array($ind_rs)) {
-                    $_col = $tab . '.' . $ind['Column_name'];
-                    if (isset($col_all[$_col])) {
+                    $col1 = $tab . '.' . $ind['Column_name'];
+                    if (isset($col_all[$col1])) {
                         if ($ind['non_unique'] == 0) {
-                            if (isset($col_where[$_col])) {
-                                $col_unique[$_col] = 'Y';
+                            if (isset($col_where[$col1])) {
+                                $col_unique[$col1] = 'Y';
                             } else {
-                                $col_unique[$_col] = 'N';
+                                $col_unique[$col1] = 'N';
                             }
 //echo 'neuen unique index gefunden: ' . $col . "\n";
                         } else {
-                            if (isset($col_where[$_col])) {
-                                $col_index[$_col] = 'Y';
+                            if (isset($col_where[$col1])) {
+                                $col_index[$col1] = 'Y';
                             } else {
-                                $col_index[$_col] = 'N';
+                                $col_index[$col1] = 'N';
                             }
 //echo 'neuen index gefunden: ' . $col . "\n";
                         }
@@ -914,7 +917,7 @@ if (isset($Field) && count($Field) > 0) {
                     $reta[$k] = $v;
                 }
             }
-            if (!isset($reta)){
+            if (!isset($reta)) {
                 $reta = array();
             }
 
@@ -1029,7 +1032,7 @@ for ($x = 0; $x < $col; $x++) {
 if ($criteria_cnt > 1) {
     $qry_where      = '(' . $qry_where . ')';
 }
-// OR rows ${"cur".$or}[$x]
+// OR rows ${'cur' . $or}[$x]
 if (!isset($curAndOrRow)) {
     $curAndOrRow          = array();
 }
