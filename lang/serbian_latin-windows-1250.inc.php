@@ -4,7 +4,7 @@
 /**
  * Translated by:
  *     Igor Mladenovic <mligor@zimco.com>, David Trajkovic <tdavid@ptt.yu>
- *     Mihailo Stefanovic <mst@mikis.org>, Branislav Jovanovic <fangorn@eunet.yu>
+ *     Mihailo Stefanovic <mikis@users.sourceforge.net>, Branislav Jovanovic <fangorn@eunet.yu>
  */
 
 $charset = 'windows-1250';
@@ -135,6 +135,7 @@ $strCompression = 'Kompresija';
 $strConfigFileError = 'phpMyAdmin nije mogao da proèita vašu konfiguracionu datoteku!<br />Ovo se može desiti ako PHP naðe grešku u procesiranju ili ne može da pronaðe datoteku.<br />Pozovite konfiguracionu datoteku direktno koristeæi donji link i proèitajte poruke o grešci koje dobijate. U veæini sluèajeve negde nedostaje navodnik ili taèka-zarez.<br />Ako dobijete praznu stranu, sve je u redu.';
 $strConfigureTableCoord = 'Podesite koordinate za tabelu %s';
 $strConfirm = 'Da li stvarno želite da to uradite?';
+$strConnectionError = 'Ne mogu da se povežem: neispravna podešavanja.';
 $strConnections = 'Konekcije';
 $strConstraintsForDumped = 'Ogranièenja za izvezene tabele';
 $strConstraintsForTable = 'Ogranièenja za tabele';
@@ -155,6 +156,7 @@ $strCriteria = 'Kriterijum';
 $strCroatian = 'Hrvatski';
 $strCyrillic = 'Æirilièni';
 $strCzech = 'Èeški';
+$strCzechSlovak = 'Èeško-slovaèki';
 
 $strDBComment = 'Komentar baze:';
 $strDBGContext = 'Kontekst';
@@ -208,6 +210,7 @@ $strDoYouReally = 'Da li stvarno hoæete da ';
 $strDocu = 'Dokumentacija';
 $strDrop = 'Odbaci';
 $strDropDB = 'Odbaci bazu %s';
+$strDropDatabaseStrongWarning = 'Ovim æete UNIŠTITI kompletnu bazu podataka!';
 $strDropSelectedDatabases = 'Odbaci izabrane baze';
 $strDropTable = 'Odbaci tabelu';
 $strDropUsersDb = 'Odbaci baze koje se zovu isto kao korisnici.';
@@ -264,6 +267,7 @@ $strFunction = 'Funkcija';
 $strGenBy = 'Generisao';
 $strGenTime = 'Vreme kreiranja';
 $strGeneralRelationFeat = 'Opšte osobine relacija';
+$strGeorgian = 'Gruzijski';
 $strGerman = 'Nemaèki';
 $strGlobal = 'globalno';
 $strGlobalPrivileges = 'Globalne privilegije';
@@ -363,6 +367,7 @@ $strMIME_transformation_note = 'Za listu dostupnih opcija transformacije i njiho
 $strMIME_transformation_options = 'Opcije transformacije';
 $strMIME_transformation_options_note = 'Molimo unesite vrednosti za opcije transformacije koristeæi ovaj oblik: \'a\',\'b\',\'c\'...<br />Ako treba da unesete obrnutu kosu crtu ("\\") ili apostrof ("\'") u te vrednosti, stavite obrnutu kosu crtu ispred njih (na primer \'\\\\xyz\' ili \'a\\\'b\').';
 $strMIME_without = 'MIME-tipovi prikazani u kurzivu nemaju odvojene funkcije transformacije.';
+$strMaximumSize = 'Maksimalna veèièina: %s%s';
 $strMissingBracket = 'Nedostaje zagrada';
 $strModifications = 'Izmene su saèuvane';
 $strModify = 'Promeni';
@@ -654,6 +659,7 @@ $strTotal = 'ukupno';
 $strTotalUC = 'Ukupno';
 $strTraditionalChinese = 'Tradicionalni kineski';
 $strTraffic = 'Saobraæaj';
+$strTransformation_application_octetstream__download = 'Prikazuje vezu za preuzimanje binarnih podataka za polje. Prva opcija je naziv binarne datoteke. Druga opcija je moguæe ime polja reda tabele koji sadrži ime datoteke. Ako zadate drugu opciju, prva mora biti postavljena na prazan string.';
 $strTransformation_image_jpeg__inline = 'Prikazuje umanjenu sliku na koju je moguæe kliknuti; opcije: širina, visina u pikselima (èuva originalni odnos)';
 $strTransformation_image_jpeg__link = 'Prikazuje link ka ovoj slici (npr. direktno preuzimanje iz BLOB-a).';
 $strTransformation_image_png__inline = 'Prikaži JPEG slike na strani';
@@ -722,10 +728,4 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
-$strGeorgian = 'Georgian';  //to translate
-$strCzechSlovak = 'Czech-Slovak';  //to translate
-$strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strMaximumSize = 'Maximum size: %s%s';  //to translate
- = 'Cannot connect: invalid settings.';  //to translate
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>

@@ -4,7 +4,7 @@
 /**
  * Translated by:
  *     Igor Mladenovic <mligor@zimco.com>, David Trajkovic <tdavid@ptt.yu>
- *     Mihailo Stefanovic <mst@mikis.org>, Branislav Jovanovic <fangorn@eunet.yu>
+ *     Mihailo Stefanovic <mikis@users.sourceforge.net>, Branislav Jovanovic <fangorn@eunet.yu>
  */
 
 $charset = 'windows-1251';
@@ -89,7 +89,7 @@ $strBookmarkView = 'Види само';
 $strBrowse = 'Преглед';
 $strBrowseForeignValues = 'Прегледај стране вредности';
 $strBulgarian = 'Бугарски';
-$strBzError = 'phpMyAdmin није могао да компресује садржај базе због неисправне BZ2 екстензије у овој верзији PHP-а. Препоручује се да подесите <code>$cfg[\'BZipDump\']</code> директиву у вашoj phpMyAdmin конфигурационоj datoteci на <code>FALSE</code>. Ако желите да користите могућности BZ2 компресије, требало би да пређете на новију верзију PHP-а. Видите PHP извештај о грешкама %s за детаље.';
+$strBzError = 'phpMyAdmin није могао да компресује садржај базе због неисправне BZ2 екстензије у овој верзији PHP-а. Препоручује се да подесите <code>$cfg[\'BZipDump\']</code> директиву у вашoj phpMyAdmin конфигурационоj датотеци на <code>FALSE</code>. Ако желите да користите могућности BZ2 компресије, требало би да пређете на новију верзију PHP-а. Видите PHP извештај о грешкама %s за детаље.';
 $strBzip = '"бзип-овано"';
 
 $strCSVOptions = 'CSV опције';
@@ -135,6 +135,7 @@ $strCompression = 'Компресија';
 $strConfigFileError = 'phpMyAdmin није могао да прочита вашу конфигурациону датотеку!<br />Ово се може десити ако PHP нађе грешку у процесирању или не може да пронађе датотеку.<br />Позовите конфигурациону датотеку директно користећи доњи линк и прочитајте поруке о грешци које добијате. У већини случајеве негде недостаје наводник или тачка-зарез.<br />Ако добијете празну страну, све је у реду.';
 $strConfigureTableCoord = 'Подесите координате за табелу %s';
 $strConfirm = 'Да ли стварно желите да то урадите?';
+$strConnectionError = 'Не могу да се повежем: неисправна подешавања.';
 $strConnections = 'Конекције';
 $strConstraintsForDumped = 'Ограничења за извезене табеле';
 $strConstraintsForTable = 'Ограничења за табеле';
@@ -155,6 +156,7 @@ $strCriteria = 'Критеријум';
 $strCroatian = 'Хрватски';
 $strCyrillic = 'Ћирилични';
 $strCzech = 'Чешки';
+$strCzechSlovak = 'Чешко-словачки';
 
 $strDBComment = 'Коментар базе:';
 $strDBGContext = 'Контекст';
@@ -208,6 +210,7 @@ $strDoYouReally = 'Да ли стварно хоћете да ';
 $strDocu = 'Документација';
 $strDrop = 'Одбаци';
 $strDropDB = 'Одбаци базу %s';
+$strDropDatabaseStrongWarning = 'Овим ћете УНИШТИТИ комплетну базу података!';
 $strDropSelectedDatabases = 'Одбаци изабране базе';
 $strDropTable = 'Одбаци табелу';
 $strDropUsersDb = 'Одбаци базе које се зову исто као корисници.';
@@ -264,6 +267,7 @@ $strFunction = 'Функција';
 $strGenBy = 'Генерисао';
 $strGenTime = 'Време креирања';
 $strGeneralRelationFeat = 'Опште особине релација';
+$strGeorgian = 'Грузијски';
 $strGerman = 'Немачки';
 $strGlobal = 'глобално';
 $strGlobalPrivileges = 'Глобалне привилегије';
@@ -363,6 +367,7 @@ $strMIME_transformation_note = 'За листу доступних опција трансформације и њихов
 $strMIME_transformation_options = 'Опције трансформације';
 $strMIME_transformation_options_note = 'Молимо унесите вредности за опције трансформације користећи овај облик: \'a\',\'b\',\'c\'...<br />Ако треба да унесете обрнуту косу црту ("\\") или апостроф ("\'") у те вредности, ставите обрнуту косу црту испред њих (на пример \'\\\\xyz\' или \'a\\\'b\').';
 $strMIME_without = 'MIME-типови приказани у курзиву немају одвојене функције трансформације.';
+$strMaximumSize = 'Максимална величина: %s%s';
 $strMissingBracket = 'Недостаје заграда';
 $strModifications = 'Измене су сачуване';
 $strModify = 'Промени';
@@ -654,11 +659,12 @@ $strTotal = 'укупно';
 $strTotalUC = 'Укупно';
 $strTraditionalChinese = 'Традиционални кинески';
 $strTraffic = 'Саобраћај';
+$strTransformation_application_octetstream__download = 'Приказује везу за преузимање бинарних података за поље. Прва опција је име бинарне датотеке. Друга опција је могуће име поља реда табеле који садржи име датотеке. Ако дате другу опцију, прва мора бити постављена на празан стринг';
 $strTransformation_image_jpeg__inline = 'Приказује умањену слику на коју је могуће кликнути; опције: ширина, висина у пикселима (чува оригинални однос)';
 $strTransformation_image_jpeg__link = 'Приказује линк ка овој снимци (нпр. директно преузимање из BLOB-а).';
 $strTransformation_image_png__inline = 'Прикажи JPEG слике на страни';
 $strTransformation_text_plain__dateformat = 'Узима TIME, TIMESTAMP или DATETIME поље и форматира га користећи локални облик приказивања датума. Прва опција је офсет (у сатима) који се додаје временској ознаци (подразумевано: 0). Друга опција је различит формат датума према параметрима који су доступни за PHP-ov strftime().';
-$strTransformation_text_plain__external = 'SAMO LINUX: Покреће екстерну апликацију и попуњава податке у пољима преко стандардног улаза. Враћа стандардни излаз апликације. Подразумевано је Tidy, за лепши приказ HTML кода. Због сигурносних разлога, морате ручно изменити датотеку libraries/transformations/text_plain__external.inc.php и додати алате које желите да користите. Прва опција је број програма које желите да користите, а друга су параметри програма. Ако се трећи параметар постави на 1 излаз ће бити конвертован користећи htmlspecialchars() (подразумевано је 1). Ако је четврти параметар постављен на 1, NOWRAP ће бити додато ћелији са садржајем тако да ће излаз бити приказан без измена. (подразумевано 1)';
+$strTransformation_text_plain__external = 'САМО LINUX: Покреће екстерну апликацију и попуњава податке у пољима преко стандардног улаза. Враћа стандардни излаз апликације. Подразумевано је Tidy, за лепши приказ HTML кода. Због сигурносних разлога, морате ручно изменити датотеку libraries/transformations/text_plain__external.inc.php и додати алате које желите да користите. Прва опција је број програма које желите да користите, а друга су параметри програма. Ако се трећи параметар постави на 1 излаз ће бити конвертован користећи htmlspecialchars() (подразумевано је 1). Ако је четврти параметар постављен на 1, NOWRAP ће бити додато ћелији са садржајем тако да ће излаз бити приказан без измена. (подразумевано 1)';
 $strTransformation_text_plain__formatted = 'Чува оригинално форматирање поља. Escaping се не врши.';
 $strTransformation_text_plain__imagelink = 'Приказује слику и линк, поље садржи назив датотеке; прва опција је префикс као "http://domain.com/", друга опција је ширина у пикселима, трећа је висина.';
 $strTransformation_text_plain__link = 'Приказује линк, поље садржи назив датотеке; прва опција је префикс као "http://domain.com/", друга опција је наслов за линк.';
@@ -719,13 +725,7 @@ $strXML = 'XML';
 
 $strYes = 'Да';
 
-$strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања лимите.';
+$strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања ограничења.';
 $strZip = '"зиповано"';
 
-$strGeorgian = 'Georgian';  //to translate
-$strCzechSlovak = 'Czech-Slovak';  //to translate
-$strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strMaximumSize = 'Maximum size: %s%s';  //to translate
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 ?>
