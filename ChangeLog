@@ -14,6 +14,7 @@ $Source$
       is deprecated and no longer works on sourceforge, use j
     * lang/french.inc.php3 updates
     * user_password.php3 parse error as reported by Olivier
+    * libraries/relation.lib.php3: pmadb can be left blank
 
 2002-06-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/sync_lang.sh: new script thanks to Michal Cihar

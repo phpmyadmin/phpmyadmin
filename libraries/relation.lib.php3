@@ -60,7 +60,9 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         $cfgRelation['commwork']    = FALSE;
 
         // No server selected -> no bookmark table
-        if ($server == 0) {
+        if ($server == 0 
+           || !isset($GLOBALS['cfg']['Server']['pmadb'])
+           || empty($GLOBALS['cfg']['Server']['pmadb'])) {
             return '';
         }
 
