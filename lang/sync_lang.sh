@@ -215,8 +215,9 @@ $allow_recoding = TRUE;' > $TEMPFILE
                 echo FAILED
             fi
         elif [ $src_charset = 'utf-8' ] ; then
+            is_utf=yes
             # if we convert from utf-8, we should remove allow_recoding
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| grep -v allow_recoding > $TEMPFILE
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php| grep -v allow_recoding | sed "s/$src_charset/$charset/" > $TEMPFILE
             if [ -s $TEMPFILE ] ; then
                 cat $TEMPFILE > $file
                 echo done
