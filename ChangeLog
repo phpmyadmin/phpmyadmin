@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/select_lang.lib.php3: add -utf-8 choices
+
 2002-07-11 Loïc Chapeaux  <lolo@phpheaven.net>
 	* pdf_schema.php3; tbl_printview.php3; tbl_properties_links.php3;
 	  tbl_properties_operations.php3; tbl_relation.php3;
