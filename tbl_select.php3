@@ -8,6 +8,12 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
+/*
+*   Defines an array of functions (should possibly be in config.inc.
+*   so i can also use it in tbl_qbe
+*/
+$numfunctions  = array('=','>','>=','<','<=','!=');
+$textfunctions = array('LIKE','=','!=');
 
 /**
  * Not selection yet required -> displays the selection form
@@ -90,6 +96,7 @@ if (!isset($param) || $param[0] == '') {
             <tr>
                 <th><?php echo $strField; ?></th>
                 <th><?php echo $strType; ?></th>
+                <th><?php echo $strFunc; ?></th>
                 <th><?php echo $strValue; ?></th>
             </tr>
         <?php
@@ -100,6 +107,22 @@ if (!isset($param) || $param[0] == '') {
             <tr>
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($fields_list[$i]); ?></td>
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $fields_type[$i]; ?></td>
+                <td bgcolor="<?php echo $bgcolor; ?>">
+                    <select name="func[]">
+                        <?php
+                            reset($numfunctions);
+                            reset($textfunctions);
+                            if (eregi('char|blob|text|set|enum', $fields_type[$i])){
+                                while (list($k,$fc) = each($textfunctions)){
+                                    echo '<option name="'.$fc.'">'.htmlentities($fc).'</option>\n';
+                                }
+                            }else{
+                                while (list($k,$fc) = each($numfunctions)){
+                                    echo '<option name="'.$fc.'">'.htmlentities($fc).'</option>\n';
+                                }
+                            }
+                        ?>
+                    </select></td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
                     <input type="text" name="fields[]" size="40" class="textfield" />
                     <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
@@ -166,34 +189,14 @@ else {
             if (!empty($fields) && $fields[$i] != '') {
                 if (strtoupper($fields[$i]) == 'NULL' || strtoupper($fields[$i]) == 'NOT NULL') {
                     $quot = '';
-                    $cmp  = 'IS';
+                    $func[$i]  = 'IS';
                 }
-                else if (eregi('char|blob|text', $types[$i])
-                         || eregi('(set|enum)[(]', $types[$i])) {
+                if (eregi('char|blob|text|set|enum|date|time|year', $types[$i])){
                     $quot = '\'';
-                    $cmp  = 'LIKE';
-                    if (get_magic_quotes_gpc()) {
-                        $fields[$i] = stripslashes($fields[$i]);
-                    }
-                    $fields[$i]     = PMA_sqlAddslashes($fields[$i], TRUE);
-                }
-                else if (eregi('date|time|year', $types[$i])) {
-                    $quot = '\'';
-                    $cmp  = '=';
-                }
-                else if (strstr($fields[$i], '%')) {
-                    $quot = '\'';
-                    $cmp  = 'LIKE';
-                }
-                else if (substr($fields[$i], 0, 1) == '<' || substr($fields[$i], 0, 1) == '>') {
+                }else{
                     $quot = '';
-                    $cmp  = '';
                 }
-                else {
-                    $quot = '';
-                    $cmp  = '=';
-                } // end if
-                $sql_query .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $cmp $quot$fields[$i]$quot";
+                $sql_query .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $func[$i] $quot$fields[$i]$quot";
             } // end if
         } // end for
     } // end if

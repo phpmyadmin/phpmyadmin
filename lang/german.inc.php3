@@ -403,4 +403,5 @@ $strYes = 'Ja';
 $strZip = 'Zip komprimiert';
 
 // To translate
+$strFunc = 'Funktion';  //to translate
 ?>

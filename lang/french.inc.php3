@@ -394,4 +394,5 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
+$strFunc = 'Function';  //to translate
 ?>

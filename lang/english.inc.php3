@@ -394,4 +394,5 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
+$strFunc = 'Function';  //to translate
 ?>
