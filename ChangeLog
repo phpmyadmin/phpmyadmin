@@ -16,6 +16,7 @@ $Source$
 	* libraries/common.lib.php3; libraries/select_lang.lib.php3; index.php3;
 	  left.php3; header.inc.php3: improved xhtml1.0 compliance.
 	* libraries/ob.lib.php3: applied coding standards.
+	* main.php3: use the mysql connection function defined in the config. file.
 
 2001-09-20  Geert Lund <glund@silversoft.dk>
 	* security issue fix: added checking for valid user and password to the

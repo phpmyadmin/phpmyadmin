@@ -157,17 +157,30 @@ if ($server > 0
         $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
                        ? ''
                        : ':' . $cfgServer['socket'];
-        $stdlink       = @mysql_connect(
+        $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
+        $stdlink       = @$connect_func(
                              $cfgServer['host'] . $server_port . $server_socket,
                              $cfgServer['stduser'],
                              $cfgServer['stdpass']
                          );
         if ($stdlink == FALSE) {
+            if (mysql_error()) {
+                $conn_error = mysql_error();
+            } else if (isset($php_errormsg)) {
+                $conn_error = $php_errormsg;
+            } else {
+                $conn_error = 'Cannot connect: invalid settings.';
+            }
+            if (PHP_INT_VERSION >= 40000) {
+                @ini_set('track_errors', $bkp_track_err);
+            }
             $local_query = $connect_func . '('
                          . $cfgServer['host'] . $server_port . $server_socket . ', '
                          . $cfgServer['stduser'] . ', '
                          . $cfgServer['stdpass'] . ')';
-            mysql_die('', $local_query, FALSE, FALSE);
+            mysql_die($conn_error, $local_query, FALSE, FALSE);
+        } else if (PHP_INT_VERSION >= 40000) {
+            @ini_set('track_errors', $bkp_track_err);
         }
 
         // Does user have global Create priv?
@@ -184,17 +197,30 @@ if ($server > 0
         // find, in most cases it's probably the one he just dropped :)
         // (Note: we only get here after a browser reload, I don't know why)
         if (!$create) {
-            $userlink      = @mysql_connect(
+            $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
+            $userlink      = @$connect_func(
                                  $cfgServer['host'] . $server_port . $server_socket,
                                  $cfgServer['user'],
                                  $cfgServer['password']
                              );
             if ($userlink == FALSE) {
-                $local_query = 'mysql_connect('
+                if (mysql_error()) {
+                    $conn_error = mysql_error();
+                } else if (isset($php_errormsg)) {
+                    $conn_error = $php_errormsg;
+                } else {
+                    $conn_error = 'Cannot connect: invalid settings.';
+                }
+                if (PHP_INT_VERSION >= 40000) {
+                    @ini_set('track_errors', $bkp_track_err);
+                }
+                $local_query = $connect_func . '('
                              . $cfgServer['host'] . $server_port . $server_socket . ', '
                              . $cfgServer['user'] . ', '
                              . $cfgServer['password'] . ')';
-                mysql_die('', $local_query, FALSE, FALSE);
+                mysql_die($conn_error, $local_query, FALSE, FALSE);
+            } else if (PHP_INT_VERSION >= 40000) {
+                @ini_set('track_errors', $bkp_track_err);
             }
 
             $local_query = 'SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
