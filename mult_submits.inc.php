@@ -234,7 +234,7 @@ else if ($mult_btn == $strYes) {
                 break;
 
             case 'drop_fld':
-                PMA_relationsCleanupTable($db, $table, $selected[$i]);
+                PMA_relationsCleanupColumn($db, $table, $selected[$i]);
                 $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) : ',')
                            . ' DROP ' . PMA_backquote(urldecode($selected[$i]))
                            . (($i == $selected_cnt-1) ? ';' : '');

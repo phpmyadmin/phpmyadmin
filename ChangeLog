@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * mult_submits.inc.php: bug 876805, dropping a field with the
+      multi-submit mechanism removes all internal relations of a table,
+      patch thanks to Joosep-Georg Järvemaa (j-georg)
+
 2004-01-13 Robin Johnson <robbat2@users.sourceforge.net>
     * Documentation.html: Slight update to what I've done
 
