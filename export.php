@@ -238,10 +238,14 @@ if ($asfile) {
     $content_encoding = '';
     if (isset($compression) && $compression == 'bzip') {
         $filename  .= '.bz2';
-        $content_encoding = 'x-bzip2';
+        // browsers don't like this:
+        //$content_encoding = 'x-bzip2';
+        $mime_type = 'application/x-bzip2';
     } else if (isset($compression) && $compression == 'gzip') {
         $filename  .= '.gz';
+        // needed to avoid recompression by server modules like mod_gzip:
         $content_encoding = 'x-gzip';
+        $mime_type = 'application/x-gzip';
     } else if (isset($compression) && $compression == 'zip') {
         $filename  .= '.zip';
         $mime_type = 'application/zip';

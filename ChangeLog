@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-24 Michal Čihař  <michal@cihar.com>
+    * export.php: Back to Content-Type application/x-bzip2 on bzip2 export
+      (bug #1106652).
+
 2005-01-23 Alexander M. Turek  <me@derrabus.de>
     * libraries/sqlparser.data.php: Added some keywords.
 
@@ -35,13 +39,13 @@ $Source$
 
 2005-01-18 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, libraries/common.lib.php, /display_tbl.lib.php, /functions.js,
-      lang/*.php: bug #1084820: ask a confirmation when a user wants to 
-      reach the End of rows, and count the exact number of rows to 
+      lang/*.php: bug #1084820: ask a confirmation when a user wants to
+      reach the End of rows, and count the exact number of rows to
       go to the real end
       TODO: page number selector
     * common.lib.php: PMA_showHint(): now the lightbulb is clickable,
       to reveal the full message for browsers who truncate it,
-      thanks to Alexander for the suggestion 
+      thanks to Alexander for the suggestion
 
 2005-01-18 Alexander M. Turek  <me@derrabus.de>
     * server_engines.php, server_links.php libraries/storage_engines.lib.php:
