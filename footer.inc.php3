@@ -32,6 +32,9 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
         if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
             <?php echo ($cfg['QueryFrameDebug'] ? 'document.writeln("<a href=\'#\' onClick=\'top.frames.queryframe.querywindow.focus(); return false;\'>Query Window</a> can be updated.<br>");' : ''); ?>
     
+            <?php
+            if (!isset($error_message) || $error_message == '') {
+            ?>
             top.frames.queryframe.querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
             top.frames.queryframe.querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
             top.frames.queryframe.querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
@@ -40,7 +43,14 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             <?php echo (isset($sql_query) ? 'top.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : '// no sql query update') . "\n"; ?>
     
             <?php echo ($cfg['QueryFrameDebug'] ? 'alert(\'Querywindow submits. Last chance to check variables.\');' : '') . "\n"; ?>
-            <?php echo ((!isset($error_message) || $error_message == '') ? 'top.frames.queryframe.querywindow.document.querywindow.submit();' : '// no submit, query was invalid') . "\n"; ?>
+            top.frames.queryframe.querywindow.document.querywindow.submit();
+            <?php
+            } else {
+            ?>
+            // no submit, query was invalid
+            <?php
+            }
+            ?>
         }
     }
 

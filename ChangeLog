@@ -8,6 +8,8 @@ $Source$
 2003-05-12 Garvin Hicking <me@supergarv.de>
     * queryframe.php3: Remove left/bottom margin to better fit the link title
       in the small frame.
+    * footer.inc.php3: Only update db/table variables if the query was correct.
+      Fixes #735970.
 
 2003-05-12 Michal Cihar  <nijel@users.sourceforge.net>
     * index.php3: Better fix for #736003.
