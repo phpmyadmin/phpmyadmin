@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3: bug 592692, pretty printer
+      and GRANT or REVOKE
+
 2003-06-04 Michal Cihar  <nijel@users.sourceforge.net>
     * mult_submits.inc.php3: Use TRUNCATE when using MySQL 4 (bug #748792).
 

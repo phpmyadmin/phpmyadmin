@@ -1469,6 +1469,13 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             );
             $keywords_no_newline_cnt           = 9;
 
+            // These reserved words introduce a privilege list
+            $keywords_priv_list                = array(
+                'GRANT',
+                'REVOKE'
+            );
+            $keywords_priv_list_cnt            = 2;
+
             $arraysize = $arr['len'];
             $typearr   = array();
             if ($arraysize >= 0) {
@@ -1478,8 +1485,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $typearr[3] = $arr[0]['type'];
             }
 
+            $in_priv_list = FALSE;
             for ($i = 0; $i < $arraysize; $i++) {
-                // DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
+                //DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
                 $before = '';
                 $after  = '';
                 $indent = 0;
@@ -1554,6 +1562,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $space_punct_listsep               = ' ';
                         $space_punct_listsep_function_name = ' ';
                         $space_alpha_reserved_word         = ' ';
+                        $in_priv_list                      = FALSE;
                         break;
                     case 'comment_mysql':
                     case 'comment_ansi':
@@ -1594,7 +1603,6 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         }
                         break;
                     case 'alpha_reservedWord':
-                        //$upper         = $arr[$i]['data'];
                         $arr[$i]['data'] = strtoupper($arr[$i]['data']);
                         if ((($typearr[1] != 'alpha_reservedWord')
                             || (($typearr[1] == 'alpha_reservedWord')
@@ -1604,8 +1612,19 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             // do not put a space before the first token, because
                             // we use a lot of eregi() checking for the first
                             // reserved word at beginning of query
+                            // so do not put a newline before
+                            //
+                            // also we must not be inside a privilege list
                             if ($i > 0) {
-                                $before    .= $space_alpha_reserved_word;
+                                if (!$in_priv_list) {
+                                    $before    .= $space_alpha_reserved_word;
+                                }
+                            } else {
+                            // on first keyword, check if it introduces a
+                            // privilege list
+                                if (PMA_STR_binarySearchInArr($arr[$i]['data'], $keywords_priv_list, $keywords_priv_list_cnt)) {
+                                    $in_priv_list = TRUE;
+                                } 
                             }
                         } else {
                             $before    .= ' ';
@@ -1613,8 +1632,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
                         switch ($arr[$i]['data']) {
                             case 'CREATE':
-                                $space_punct_listsep       = $html_line_break;
-                                $space_alpha_reserved_word = ' ';
+                                if (!$in_priv_list) {
+                                    $space_punct_listsep       = $html_line_break;
+                                    $space_alpha_reserved_word = ' ';
+                                }
                                 break;
                             case 'EXPLAIN':
                             case 'DESCRIBE':
@@ -1627,13 +1648,17 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             case 'TRUNCATE':
                             case 'ANALYZE':
                             case 'ANALYSE':
-                                $space_punct_listsep       = $html_line_break;
-                                $space_alpha_reserved_word = ' ';
+                                if (!$in_priv_list) {
+                                    $space_punct_listsep       = $html_line_break;
+                                    $space_alpha_reserved_word = ' ';
+                                }
                                 break;
                             case 'INSERT':
                             case 'REPLACE':
-                                $space_punct_listsep       = $html_line_break;
-                                $space_alpha_reserved_word = $html_line_break;
+                                if (!$in_priv_list) {
+                                    $space_punct_listsep       = $html_line_break;
+                                    $space_alpha_reserved_word = $html_line_break;
+                                }
                                 break;
                             case 'VALUES':
                                 $space_punct_listsep       = ' ';
