@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/french update
+
 2005-03-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: db comments broken
     * libraries/dbi/*.php, lang/*: new $strSocketProblem message
