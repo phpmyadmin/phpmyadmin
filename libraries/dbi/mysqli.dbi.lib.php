@@ -281,7 +281,9 @@ function PMA_DBI_num_fields($result) {
 
 function PMA_DBI_field_len($result, $i) {
     $info = mysqli_fetch_field_direct($result, $i);
-    return $info->length;
+    // stdClass::$length will be integrated in 
+    // mysqli-ext when mysql4.1 has been released.
+    return @$info->length;
 }
 
 function PMA_DBI_field_name($result, $i) {
