@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-13 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/charset_conversion.lib.php3, libraries/common.lib.php3,
+      libraries/defines_php.lib.php3, libraries/dbg/setup.php3: Use new PMA_dl
+      function, that checks true dl availability (fixes #747717). All checks
+      are based on php 4.3.1 source, so if this gets changed, we will need to
+      change checks also.
+    
 2003-06-12 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php3: bug 751787: should not disable all
       the features, when the relation feature is broken

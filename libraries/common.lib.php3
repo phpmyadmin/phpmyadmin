@@ -250,30 +250,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
         /**
          * Loads the mysql extensions if it is not loaded yet
-         * staybyte - 26. June 2001
          */
-        if (((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
-            || (PMA_PHP_INT_VERSION < 40000 && PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
-            && @function_exists('dl')) {
+        if (!@function_exists('mysql_connect')) {
             if (PMA_PHP_INT_VERSION < 40000) {
                 $extension = 'MySQL';
             } else {
                 $extension = 'mysql';
             }
-            if (PMA_IS_WINDOWS) {
-                $suffix = '.dll';
-            } else {
-                $suffix = '.so';
-            }
-            if (!@extension_loaded($extension)) {
-                @dl($extension . $suffix);
-            }
-            if (!@extension_loaded($extension)) {
-                echo $strCantLoadMySQL . '<br />' . "\n"
-                     . '<a href="./Documentation.html#faqmysql" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
-                exit();
-            }
-        } // end load mysql extension
+            PMA_dl($extension . $suffix);
+        }
 
         // check whether mysql is available
         if (!@function_exists('mysql_connect')) {
