@@ -306,6 +306,8 @@ $strUpdatePassMessage = 'Hai aggiornato la password per';
 $strUpdatePassword = 'Aggiorna Password';
 $strUpdatePrivMessage = 'Hai aggiornato i permessi per';
 $strUpdateQuery = 'Aggiorna Query';
+$strUpdateServer = 'Aggiorna il server';
+$strUpdateServMessage = 'Hai aggiornato il server per %s';
 $strUsage = 'Utilizzo';
 $strUseBackquotes = 'Usa i backquotes con i nomi delle tabelle e dei campi';
 $strUser = 'Utente';
@@ -325,6 +327,4 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
-$strUpdateServer = 'Update server';//to translate
-$strUpdateServMessage = 'You have updated the server for %s';//to translate
 ?>
