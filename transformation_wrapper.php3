@@ -28,7 +28,7 @@ $cfgRelation = PMA_getRelationsParam();
 if (!empty($message)) {
     if (isset($goto)) {
         $goto_cpy      = $goto;
-        $goto          = 'tbl_properties.php3?'
+        $goto          = 'tbl_properties.php3?' 
                        . PMA_generate_common_url($db, $table)
                        . '&amp;$show_query=1'
                        . '&amp;sql_query=' . urlencode($disp_query);
@@ -52,7 +52,6 @@ if (!empty($message)) {
         unset($sql_query_cpy);
     }
 }
-
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -138,6 +137,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
  * Sends http headers
  */
 // Don't use cache (required for Opera)
+if (!isset($noheader)) {
 $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
 header('Expires: ' . $GLOBALS['now']); // rfc2616 - Section 14.21
 header('Last-Modified: ' . $GLOBALS['now']);
@@ -146,8 +146,44 @@ header('Pragma: no-cache'); // HTTP/1.0
 // [MIME]
 $content_type = 'Content-Type: ' . (isset($mime_map[urldecode($transform_key)]['mimetype']) ? str_replace("_", "/", $mime_map[urldecode($transform_key)]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 header($content_type);
+}
 
-echo $row[urldecode($transform_key)];
+if (!isset($resize)) {
+    echo $row[urldecode($transform_key)];
+} else {
+    // if image_jpeg__inline.inc.php3 finds that we can resize,
+    // it sets $resize to 1 
+   
+    $srcImage = imagecreatefromstring($row[urldecode($transform_key)]);
+    $newWidth = $suggested_size;
+    $newHeight = $suggested_size;
+    $srcWidth = ImageSX( $srcImage );
+    $srcHeight = ImageSY( $srcImage );
+
+    // the following portion of code checks to see if
+    // the width > height or if width < height
+    // if so it adjusts accordingly to make sure the image
+    // stays smaller then the $newWidth and $newHeight
+
+    $ratioWidth = $srcWidth/$newWidth;
+    $ratioHeight = $srcHeight/$newHeight;
+
+    if( $ratioWidth < $ratioHeight){
+        $destWidth = $srcWidth/$ratioHeight;
+        $destHeight = $newHeight;
+    }else{
+        $destWidth = $newWidth;
+        $destHeight = $srcHeight/$ratioWidth;
+    }
+
+    $destImage = ImageCreateTrueColor( $destWidth, $destHeight);
+    ImageCopyResized( $destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight );
+
+    ImageJPEG( $destImage,"",75 );
+    ImageDestroy( $srcImage );
+    ImageDestroy( $destImage );
+
+}
 
 /**
  * Close MySql non-persistent connections

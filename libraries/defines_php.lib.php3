@@ -10,6 +10,7 @@
  *                                        40006 instead of 4.0.6RC3
  *    PMA_IS_WINDOWS           (bool)   - mark if phpMyAdmin running on windows
  *                                        server
+ *    PMA_IS_GD2               (bool)   - true is GD2 is present
  */
 // phpMyAdmin release
 if (!defined('PMA_VERSION')) {
@@ -45,5 +46,19 @@ if (!defined('PMA_IS_WINDOWS')) {
     }
 }
 
+// Whether GD2 is present
+if (!defined('PMA_IS_GD2')) {
+    if (function_exists("get_extension_funcs")) {
+        $testGD = @get_extension_funcs("gd");
+        if ($testGD && in_array("imagegd2",$testGD)) {
+            define('PMA_IS_GD2', 1);
+        } else {
+            define('PMA_IS_GD2', 0);
+        }
+        unset($testGD);
+    } else {
+        define('PMA_IS_GD2', 0);
+    }
+}
 // $__PMA_DEFINES_PHP_LIB__
 ?>

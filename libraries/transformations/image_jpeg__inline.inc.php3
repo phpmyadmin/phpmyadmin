@@ -4,11 +4,16 @@
 
 if (!defined('PMA_TRANSFORMATION_IMAGE_JPEG__INLINE')){
     define('PMA_TRANSFORMATION_IMAGE_JPEG__INLINE', 1);
-    
+
     function PMA_transformation_image_jpeg__inline($buffer, $options = array()) {
         include('./libraries/transformations/global.inc.php3');
         
-        $transform_options = array ('string' => '<img src="transformation_wrapper.php3' . $options['wrapper_link'] . '" alt="[__BUFFER__]" width="320" height="240">');
+        if (PMA_IS_GD2) {
+            //$transform_options = array ('string' => '<img src="transformation_wrapper.php3' . $options['wrapper_link'] . '&resize=1&suggested_size=' . (isset($options[0]) ? $options[0] : '100') . '" alt="[__BUFFER__]">');
+            $transform_options = array ('string' => '<a href="transformation_wrapper.php3' . $options['wrapper_link'] . '" target="_blank"><img src="transformation_wrapper.php3' . $options['wrapper_link'] . '&resize=1&suggested_size=' . (isset($options[0]) ? $options[0] : '100') . '" alt="[__BUFFER__]" border="0"></a>');
+        } else {
+            $transform_options = array ('string' => '<img src="transformation_wrapper.php3' . $options['wrapper_link'] . '" alt="[__BUFFER__]" width="320" height="240">');
+        }
         $buffer = PMA_transformation_global_html_replace($buffer, $transform_options);
         
         return $buffer;
