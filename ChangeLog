@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-27 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/dbi/mysql.dbi.lib.php: bug #980594.
+
 2004-06-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/hungarian: updates, thanks to Peter Bakondy
 

@@ -119,11 +119,11 @@ function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
         $query = PMA_convert_charset($query);
     }
     if ($options == ($options | PMA_DBI_QUERY_STORE)) {
-        return mysql_query($query, $link);
+        return @mysql_query($query, $link);
     } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
-        return mysql_unbuffered_query($query, $link);
+        return @mysql_unbuffered_query($query, $link);
     } else {
-        return mysql_query($query, $link);
+        return @mysql_query($query, $link);
     }
 }
 
