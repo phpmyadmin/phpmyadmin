@@ -626,9 +626,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
         while ($row = mysql_fetch_array($dt_result)) {
             $bgcolor = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
+            // loic1: pointer code part
+            $on_mouse = ($GLOBALS['cfgBrowsePointerColor'] == '')
+                      ? ''
+                      : ' onmouseover="setPointer(this, \'' . $GLOBALS['cfgBrowsePointerColor'] . '\')" onmouseout="setPointer(this, \'' . $bgcolor . '\')"';
 
             ?>
-<tr onmouseover="setPointer(this, '<?php echo $GLOBALS['cfgBrowsePointerColor']; ?>')" onmouseout="setPointer(this, '<?php echo $bgcolor; ?>')">
+<tr<?php echo $on_mouse; ?>>
             <?php
             echo "\n";
 
