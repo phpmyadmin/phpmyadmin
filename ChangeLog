@@ -7,7 +7,8 @@ $Source$
 
 2003-03-22 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/transformations/text_plain__imagelink: display the
-      image, with width and height options
+    * libraries/transformations/text_plain__link: the link was not
+      functional at my site; also, document this transform in lang.
 
 2003-03-21 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php3: typo
