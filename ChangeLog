@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+
 2004-06-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/config.auth.lib.php, libraries/dbi/mysql.dbi.lib.php,
       libraries/dbi/mysql.dbi.lib.php,
