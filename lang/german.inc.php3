@@ -302,11 +302,9 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strRunningAs = 'as';
-$strShowCols = 'Show columns';
-$strShowTables = 'Show tables';
 $strAPrimaryKey = 'A primary key has been added on %s';//to translate
 $strAnIndex = 'An index has been added on %s';//to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate
 $strFieldsEnclosedBy = 'Fields enclosed by';//to translate
 $strFieldsEscapedBy = 'Fields escaped by';//to translate
@@ -314,12 +312,15 @@ $strFieldsTerminatedBy = 'Fields terminated by';//to translate
 $strIndexHasBeenDropped = 'Index %s has been dropped';//to translate
 $strKeepPass = 'Do not change the password';//to translate
 $strLinesTerminatedBy = 'Lines terminated by';//to translate
+$strNoQuery = 'No SQL query!';  //to translate
 $strPrimaryKeyHasBeenDropped = 'The primary key has been dropped';//to translate
+$strRunningAs = 'as';
 $strRunSQLQuery = 'Run SQL query/queries on database %s';//to translate
+$strShowCols = 'Show columns';
+$strShowTables = 'Show tables';
 $strStartingRecord = 'Starting record';//to translate
 $strTableHasBeenDropped = 'Table %s has been dropped';//to translate
 $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

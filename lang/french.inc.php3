@@ -10,7 +10,7 @@ $byteUnits = array('Octets', 'Ko', 'Mo', 'Go');
 
 $day_of_week = array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
 $month = array('Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
-// Voir http://www.php3.net/manual/en/function.strftime.php3 pour la variable
+// Voir http://www.php.net/manual/en/function.strftime.php pour la variable
 // ci-dessous
 $datefmt = '%A %d %B %Y à %H:%M';
 
@@ -182,6 +182,7 @@ $strNoDatabases = 'Aucune base de données';
 $strNoModification = 'Pas de modifications';
 $strNoPassword = 'aucun mot de passe';
 $strNoPrivileges = 'aucun privilège';
+$strNoQuery = 'Aucune requête SQL !';
 $strNoRights = 'Vous n\'êtes pas autorisé à accéder à cette page';
 $strNoTablesFound = 'Aucune table n\'a été trouvée dans cette base.';
 $strNotNumber = 'Ce n\'est pas un nombre !';

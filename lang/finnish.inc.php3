@@ -320,6 +320,7 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
+$strNoQuery = 'No SQL query!';  //to translate
 $strOverhead = 'Overhead'; //to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate

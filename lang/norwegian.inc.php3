@@ -305,9 +305,11 @@ $strYes = 'Ja';
 
 // To translate
 $strCarriage = 'Carriage return: \\r';	//to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strGrants = 'Grants';	//to translate
 $strKeepPass = 'Do not change the password';//to translate
+$strNoQuery = 'No SQL query!';  //to translate
 $strPartialText = 'Partial Texts';	//to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
@@ -318,6 +320,5 @@ $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:';	//to translate
-$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strZip = '"zipped"';  //to translate
 ?>

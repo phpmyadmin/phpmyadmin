@@ -324,4 +324,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strNoQuery = 'No SQL query!';  //to translate
 ?>

@@ -322,4 +322,5 @@ $strKeepPass = 'Do not change the password';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
+$strNoQuery = 'No SQL query!';  //to translate
 ?>

@@ -317,6 +317,7 @@ $strZip = 'comprimido no formato "zipped"';
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
+$strNoQuery = 'No SQL query!';  //to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';

@@ -316,6 +316,7 @@ $strYes = 'Da';
 
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
+$strNoQuery = 'No SQL query!';  //to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';

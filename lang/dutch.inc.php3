@@ -321,4 +321,5 @@ $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strZip = '"zipped"';  //to translate
+$strNoQuery = 'No SQL query!';  //to translate
 ?>

@@ -308,9 +308,11 @@ $strWrongUser = 'Usuário ou Senha errado. Acesso Negado.';
 $strYes = 'Sim';
 
 // To translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
 $strKeepPass = 'Do not change the password';//to translate
+$strNoQuery = 'No SQL query!';  //to translate
 $strRunningAs = 'as';
 $strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').'; //to translate
 $strShowAll = 'Show all'; // to translate
@@ -319,6 +321,5 @@ $strShowTables = 'Show tables';
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:'; //to translate
-$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strZip = '"zipped"';  //to translate
 ?>

@@ -315,11 +315,12 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 $strYes = 'Áno';
 
 // To translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strKeepPass = 'Do not change the password';//to translate
+$strNoQuery = 'No SQL query!';  //to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 $strZip = '"zipped"';  //to translate
 ?>

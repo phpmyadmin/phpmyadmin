@@ -10,7 +10,7 @@ $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
 $day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-// See http://www.php3.net/manual/en/function.strftime.php3 to define the
+// See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%B %d, %Y at %I:%M %p';
 
@@ -182,6 +182,7 @@ $strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
 $strNoModification = 'No change';
 $strNoPassword = 'No Password';
 $strNoPrivileges = 'No Privileges';
+$strNoQuery = 'No SQL query!';  //to translate
 $strNoRights = 'You don\'t have enough rights to be here right now!';
 $strNoTablesFound = 'No tables found in database.';
 $strNotNumber = 'This is not a number!';
