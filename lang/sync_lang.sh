@@ -37,7 +37,7 @@ indonesian-iso-8859-1
 italian-iso-8859-1
 japanese-euc
 korean-ks_c_5601-1987
-latvian
+latvian-windows-1257
 lithuanian
 norwegian
 polish
