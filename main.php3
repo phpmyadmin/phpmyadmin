@@ -394,7 +394,7 @@ if ($server > 0) {
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
             $http_logout = ($cfg['Server']['auth_type'] == 'http')
-                         ? "\n" . '                <a href="' . $cfg['PmaAbsoluteUri'] . 'Documentation.html#login_bug" target="documentation">(*)</a>'
+                         ? "\n" . '                <a href="./Documentation.html#login_bug" target="documentation">(*)</a>'
                          : '';
             echo "\n";
             ?>
@@ -441,7 +441,7 @@ if (empty($cfg['Lang'])) {
             <td nowrap="nowrap">
                 <form method="post" action="index.php3" target="_parent">
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                    Language:
+                    Language <a href="./translators.html" target="documentation">(*)</a>:
                     <select name="lang" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
