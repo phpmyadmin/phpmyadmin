@@ -72,6 +72,7 @@ $strBzError = 'phpMyAdmin kunde inte komprimera SQL-satserna på grund av en tras
 $strBzip = '"bzippad"';
 
 $strCannotLogin = 'Kan ej logga in på MySQL-server';
+$strCantLoad = 'kan inte ladda %s-tillägg,<br />var god kontrollera PHP-konfigurationen.';
 $strCantLoadMySQL = 'kan inte ladda MySQL-tillägg,<br />var god och kontrollera PHP-konfigurationen.';
 $strCantLoadRecodeIconv = 'Kan inte ladda utökningarna iconv eller recode som behövs för teckenuppsättningsomvandling. Konfigurera php för att tillåta dessa utökningar eller stäng av teckenuppsättningsomvandling i phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Kan inte byta namn på index till "PRIMARY"!';
@@ -111,6 +112,15 @@ $strCreatePage = 'Skapa en ny sida';
 $strCreatePdfFeat = 'Skapande av PDF-sidor';
 $strCriteria = 'Villkor';
 
+$strDBGContext = 'Innehåll';
+$strDBGContextID = 'Innehålls-ID';
+$strDBGHits = 'Träffar';
+$strDBGLine = 'Rad';
+$strDBGMaxTimeMs = 'Max tid, ms';
+$strDBGMinTimeMs = 'Min tid, ms';
+$strDBGModule = 'Modul';
+$strDBGTimePerHitMs = 'Tid/träff, ms';
+$strDBGTotalTimeMs = 'Total tid, ms';
 $strData = 'Data';
 $strDataDict = 'Datalexikon';
 $strDataOnly = 'Enbart data';
@@ -543,14 +553,4 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) t
 $strZip = '"zippad"';
 // To translate
 
-$strDBGModule = 'Module';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGMaxTimeMs = 'Max time, ms';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGContext = 'Context';  //to translate
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
 ?>

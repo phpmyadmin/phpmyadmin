@@ -68,10 +68,11 @@ $strBookmarkQuery = 'Zapamiêtane zapytanie SQL';
 $strBookmarkThis = 'Zapamiêtanie zapytania SQL';
 $strBookmarkView = 'Tylko do pokazania';
 $strBrowse = 'Przegl±danie';
-$strBzError = 'phpMyAdminoni nie uda³o siê skompresowaæ zrzutu z powodu zepsutego rozszerzenia Bz2 w tej wersji php. Jest bardzo zalecane by ustawiæ dyrektywê <code>$cfg[\'BZipDump\']</code> w pliku konfiguracyjnym phpMyAdmina na <code>FALSE</code>. Je¶li chcesz u¿yæ funkcji kompresji Bz2, php powinien zostaæ zakutalizowany do najnowszej wersji. Szczegó³y mo¿na zobaczyæ w raporcie na temat b³êdów php %s.';
+$strBzError = 'phpMyAdminowi nie uda³o siê skompresowaæ zrzutu z powodu zepsutego rozszerzenia Bz2 w tej wersji php. Jest bardzo zalecane by ustawiæ dyrektywê <code>$cfg[\'BZipDump\']</code> w pliku konfiguracyjnym phpMyAdmina na <code>FALSE</code>. Je¶li chcesz u¿yæ funkcji kompresji Bz2, php powinien zostaæ zakutalizowany do najnowszej wersji. Szczegó³y mo¿na zobaczyæ w raporcie na temat b³êdów php %s.';
 $strBzip = '".bz2"';
 
 $strCannotLogin = 'Nie uda³o siê zalogowaæ na serwer MySQL';
+$strCantLoad = 'nie uda³o siê za³adowaæ modu³u %s,<br />proszê sprawdziæ konfiguracjê PHP';
 $strCantLoadMySQL = 'nie mo¿na za³adowac modu³u MySQL,<br />proszê sprawdziæ konfiguracjê PHP.';
 $strCantLoadRecodeIconv = 'Nie uda³o siê za³adowaæ rozszerzeñ iconv lub recode, które s± niezbêdne do konwersji kodowania znaków, skonfiguruj php tak, by móg³ u¿ywaæ tych rozszerzeñ albo zablokuj konwersjê kodowania znaków w phpMyAdminie.';
 $strCantRenameIdxToPrimary = 'Nie mo¿na zmieniæ nazwy indeksu na PRIMARY!';
@@ -111,6 +112,15 @@ $strCreatePage = 'Utworzenie nowej strony';
 $strCreatePdfFeat = 'Tworzenie PDF-ów';
 $strCriteria = 'Kryteria';
 
+$strDBGContext = 'Kontekst';
+$strDBGContextID = 'ID kontekstu';
+$strDBGHits = 'Trafienia';
+$strDBGLine = 'Linia';
+$strDBGMaxTimeMs = 'Maksymalny czas, ms';
+$strDBGMinTimeMs = 'Minimalny czas, ms';
+$strDBGModule = 'Modu³';
+$strDBGTimePerHitMs = 'Czas/trafienie, ms';
+$strDBGTotalTimeMs = 'Ca³kowity czas, ms';
 $strData = 'Dane';
 $strDataDict = 'S³ownik danych';
 $strDataOnly = 'Tylko dane';
@@ -435,7 +445,7 @@ $strSelectAll = 'Zaznaczenie wszystkich';
 $strSelectFields = 'Wybór pól (co najmniej jedno):';
 $strSelectNumRows = 'w zapytaniu';
 $strSelectTables = 'Wybierz tabele';
-$strSend = 'wys³anie';
+$strSend = 'Zapisz jako plik';
 $strSent = 'Wys³ane';
 $strServer = 'Serwer %s';
 $strServerChoice = 'Wybór serwera';
@@ -543,14 +553,4 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 // To translate
 
-$strDBGModule = 'Module';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGMaxTimeMs = 'Max time, ms';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGContext = 'Context';  //to translate
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
 ?>

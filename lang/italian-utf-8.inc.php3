@@ -78,6 +78,7 @@ $strBzError = 'phpMyAdmin non è capace di comprimere il dump a causa dell\'este
 $strBzip = '"compresso con bzip2"';
 
 $strCannotLogin = 'Impossibile eseguire il login nel server MySQL';
+$strCantLoad = 'Impossibile caricare l\'estensione %s,<br />prego controllare la configurazione di PHP';
 $strCantLoadMySQL = 'impossibile caricare l\'estensione MySQL,<br />controlla la configurazione di PHP.';
 $strCantLoadRecodeIconv = 'Impossibile caricare l\'estensione iconv o recode necessaria per la conversione del set di caratteri, configurare il PHP per permettere di utilizzare queste estenzioni o disabilitare la conversione dei set di caratteri in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Impossibile rinominare l\'indice a PRIMARIO!';
@@ -117,6 +118,15 @@ $strCreatePage = 'Crea una nuova Page';
 $strCreatePdfFeat = 'Creazione di PDF';
 $strCriteria = 'Criterio';
 
+$strDBGContext = 'Contesto';
+$strDBGContextID = 'ID del Contesto';
+$strDBGHits = 'Hits';
+$strDBGLine = 'Linea';
+$strDBGMaxTimeMs = 'Tempo massimo, ms';
+$strDBGMinTimeMs = 'Tempo minimo, ms';
+$strDBGModule = 'Modulo';
+$strDBGTimePerHitMs = 'Tempo/Hit, ms';
+$strDBGTotalTimeMs = 'Tempo totale, ms';
 $strData = 'Dati';
 $strDataDict = 'Data Dictionary';
 $strDataOnly = 'Solo dati';
@@ -549,14 +559,4 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strDBGModule = 'Module';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGMaxTimeMs = 'Max time, ms';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGContext = 'Context';  //to translate
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
 ?>
