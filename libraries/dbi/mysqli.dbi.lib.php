@@ -113,6 +113,11 @@ function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
         $query = PMA_convert_charset($query);
     }
     return mysqli_query($link, $query, $method);
+    // From the PHP manual:
+    // "note: returns TRUE on success or FALSE on failure. For SELECT,
+    // SHOW, DESCRIBE or EXPLAIN, mysqli_query() will return a result object"
+    // so, do not use the return value to feed mysqli_num_rows() if it's
+    // a boolean
 }
 
 // The following function is meant for internal use only.
@@ -224,7 +229,12 @@ function PMA_DBI_close($link = NULL) {
 }
 
 function PMA_DBI_num_rows($result) {
-    return @mysqli_num_rows($result);
+    // see the note for PMA_DBI_try_query();
+    if (!is_bool($result)) {
+        return @mysqli_num_rows($result);
+    } else {
+        return 0;
+    }
 }
 
 function PMA_DBI_insert_id($link = '') {

@@ -214,7 +214,11 @@ function PMA_DBI_close($link = NULL) {
 }
 
 function PMA_DBI_num_rows($result) {
-    return mysql_num_rows($result);
+    if (!is_bool($result)) {
+        return mysql_num_rows($result);
+    } else {
+        return 0;
+    }
 }
 
 function PMA_DBI_insert_id($link = NULL) {
