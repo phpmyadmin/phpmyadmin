@@ -65,6 +65,7 @@ require('./libraries/common.lib.php3');
 require('./libraries/build_dump.lib.php3');
 require('./libraries/zip.lib.php3');
 
+
 /**
  * Increase time limit for script execution and initializes some variables
  */
@@ -78,7 +79,7 @@ $crlf        = which_crlf();
  * Ensure zipped formats are associated with the download feature
  */
 if (empty($asfile)
-    && (!empty($gzip) || !empty($bzip) || !empty($zip))) {
+    && (!empty($zip) || !empty($gzip) || !empty($bzip))) {
     $asfile = 1;
 }
 
@@ -243,29 +244,30 @@ else {
 /**
  * "Displays" the dump...
  */
-// 1. as a bzipped file
-if (isset($bzip) && $bzip == 'bzip') {
+// 1. as a gzipped file
+if (isset($zip) && $zip == 'zip') {
+    if (PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
+        if ($what == 'csv' || $what == 'excel') {
+            $extbis = '.csv';
+        } else {
+            $extbis = '.sql';
+        }
+        $zipfile = new zipfile();
+        $zipfile -> add_file($dump_buffer, $filename . $extbis);
+        echo $zipfile -> file();
+    }
+}
+// 2. as a bzipped file
+else if (isset($bzip) && $bzip == 'bzip') {
     if (PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
         echo bzcompress($dump_buffer);
     } 
 }
-// 2. as a gzipped file
+// 3. as a gzipped file
 else if (isset($gzip) && $gzip == 'gzip') {
     if (PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
         // without the optional parameter level because it bug
         echo gzencode($dump_buffer);
-    }
-}
-// 3. as a gzipped file
-else if (isset($zip) && $zip == 'zip') {
-    if (PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
-        if ($what == 'csv' || $what == 'excel')
-            $extbis='.csv';
-        else
-            $extbis='.sql';
-        $zipfile = new zipfile();
-        $zipfile -> add_file($dump_buffer, $filename . $extbis);
-        echo $zipfile -> file();
     }
 }
 // 4. on screen

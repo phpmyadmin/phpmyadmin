@@ -230,8 +230,8 @@ function checkFormElementInRange(theForm, theFieldName, min, max)
 
 
 /**
- * Ensures the choice between 'transmit', 'gzipped' and 'bzipped' checkboxes is
- * consistant
+ * Ensures the choice between 'transmit', 'zipped', 'gzipped' and 'bzipped'
+ * checkboxes is consistant
  *
  * @param   object   the form
  * @param   string   a code for the action that causes this function to be run
@@ -242,10 +242,25 @@ function checkTransmitDump(theForm, theAction)
 {
 	var formElts = theForm.elements;
 
-    // 'gzipped' option has been checked
-    if (theAction == 'gzip' && formElts['gzip'].checked) {
+    // 'zipped' option has been checked
+    if (theAction == 'zip' && formElts['zip'].checked) {
         if (!formElts['asfile'].checked) {
             theForm.elements['asfile'].checked = true;
+        }
+        if (typeof(formElts['gzip']) != 'undefined' && formElts['gzip'].checked) {
+            theForm.elements['gzip'].checked = false;
+        }
+        if (typeof(formElts['bzip']) != 'undefined' && formElts['bzip'].checked) {
+            theForm.elements['bzip'].checked = false;
+        }
+    }
+    // 'gzipped' option has been checked
+    else if (theAction == 'gzip' && formElts['gzip'].checked) {
+        if (!formElts['asfile'].checked) {
+            theForm.elements['asfile'].checked = true;
+        }
+        if (typeof(formElts['zip']) != 'undefined' && formElts['zip'].checked) {
+            theForm.elements['zip'].checked = false;
         }
         if (typeof(formElts['bzip']) != 'undefined' && formElts['bzip'].checked) {
             theForm.elements['bzip'].checked = false;
@@ -256,12 +271,18 @@ function checkTransmitDump(theForm, theAction)
         if (!formElts['asfile'].checked) {
             theForm.elements['asfile'].checked = true;
         }
+        if (typeof(formElts['zip']) != 'undefined' && formElts['zip'].checked) {
+            theForm.elements['zip'].checked = false;
+        }
         if (typeof(formElts['gzip']) != 'undefined' && formElts['gzip'].checked) {
             theForm.elements['gzip'].checked = false;
         }
     }
     // 'transmit' option has been unchecked
     else if (theAction == 'transmit' && !formElts['asfile'].checked) {
+        if (typeof(formElts['zip']) != 'undefined' && formElts['zip'].checked) {
+            theForm.elements['zip'].checked = false;
+        }
         if ((typeof(formElts['gzip']) != 'undefined' && formElts['gzip'].checked)) {
             theForm.elements['gzip'].checked = false;
         }

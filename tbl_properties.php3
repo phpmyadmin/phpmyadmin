@@ -885,14 +885,20 @@ echo "\n";
                     <input type="checkbox" name="asfile" value="sendit" onclick="return checkTransmitDump(this.form, 'transmit')" />
                     <?php echo $strSend . "\n"; ?>
 <?php
-// gzip and bzip2 encode features
+// zip, gzip and bzip2 encode features
 if (PHP_INT_VERSION >= 40004) {
+    $is_zip  = (isset($cfgZipDump) && $cfgZipDump && @function_exists('gzcompress'));
     $is_gzip = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzencode'));
     $is_bzip = (isset($cfgBZipDump) && $cfgBZipDump && @function_exists('bzcompress'));
-    $is_zip  = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzcompress'));
-    if ($is_gzip || $is_bzip) {
+    if ($is_zip || $is_gzip || $is_bzip) {
         echo "\n" . '                    (' . "\n";
+        if ($is_zip) {
+            ?>
+                    <input type="checkbox" name="zip" value="zip" onclick="return checkTransmitDump(this.form, 'zip')" /><?php echo $strZip . (($is_gzip || $is_bzip) ? '&nbsp;' : '') . "\n"; ?>
+            <?php
+        }
         if ($is_gzip) {
+            echo "\n"
             ?>
                     <input type="checkbox" name="gzip" value="gzip" onclick="return checkTransmitDump(this.form, 'gzip')" /><?php echo $strGzip . (($is_bzip) ? '&nbsp;' : '') . "\n"; ?>
             <?php
@@ -901,12 +907,6 @@ if (PHP_INT_VERSION >= 40004) {
             echo "\n"
             ?>
                     <input type="checkbox" name="bzip" value="bzip" onclick="return checkTransmitDump(this.form, 'bzip')" /><?php echo $strBzip . "\n"; ?>
-            <?php
-        }
-        if ($is_zip) {
-            echo "\n"
-            ?>
-                    <input type="checkbox" name="zip" value="zip" onclick="return checkTransmitDump(this.form, 'zip')" /><?php echo $strZip . "\n"; ?>
             <?php
         }
         echo "\n" . '                    )';

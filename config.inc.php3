@@ -121,8 +121,9 @@ $cfgProtectBinary         = 'blob'; // disallow editing of binary fields in edit
                                     //   'blob' allow editing except for BLOB fields
                                     //   'all'  disallow editing
 
-$cfgGZipDump              = TRUE;   // Allow the use of gzip/bzip compression
-$cfgBZipDump              = TRUE;   // for dump files
+$cfgZipDump               = TRUE;   // Allow the use of zip/gzip/bzip
+$cfgGZipDump              = TRUE;   // compression for
+$cfgBZipDump              = TRUE;   // dump files
 
 
 /**

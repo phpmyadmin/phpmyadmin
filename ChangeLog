@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-23  Loïc Chapeaux  <lolo@phpheaven.net>
+	* config.inc.php3; Documentation.html; db_details.php3; tbl_dump.php3;
+	  tbl_properties.php3; libraries/functions.php3; libraries/zip.lib.php3:
+	  improved the zip dump feature.
+	* lang/*: added $strZip where it was missing.
+
 2001-09-23  Armel Fauveau  <armel.fauveau@globalis-ms.com>
     * add zip dump feature
 
