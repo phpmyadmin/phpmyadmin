@@ -5,9 +5,11 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
-2001-07-14  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-07-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, tbl_properties.php3, functions.js, tbl_dump.php3,
 	  documentation.html, translations: added bzip support for dump files.
+	* ldi_check.php3, lines 64-66: $sql_query wasn't defined if
+	  'magic_quotes_gpc' was off.
 
 2001-07-14  Armel Fauveau <armel.fauveau@globalis-ms.com>
 	* Added a warning concerning bookmark feature and advanced auth
