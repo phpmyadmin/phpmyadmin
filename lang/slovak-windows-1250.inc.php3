@@ -134,6 +134,7 @@ $strEnabled = 'Zapnuté';
 $strEnd = 'Koniec';
 $strEnglishPrivileges = ' Poznámka: názvy MySQL privilégií sú uvádzané v angliètine. ';
 $strError = 'Chyba';
+$strExplain = 'Vysvetli SQL';
 $strExport = 'Exportova';
 $strExport = 'Exportova';
 $strExportToXML = 'Exportova do formátu XML';
@@ -225,6 +226,7 @@ $strNo = 'Nie';
 $strNoDatabases = 'iadne databázy';
 $strNoDescription = 'bez Popisu';
 $strNoDropDatabases = 'Monos "DROP DATABASE" vypnutá.';
+$strNoExplain = 'Preskoci vysvetlenie SQL';
 $strNoFrames = 'phpMyAdmin funguje lepšie s prehliadaèmi podporujúcimi <b>rámy</b>.';
 $strNoIndex = 'Nebol definovanı iadny index!';
 $strNoIndexPartsDefined = 'Èasti indexu neboli definované!';
@@ -241,6 +243,7 @@ $strNotOK = 'chyba';
 $strNotSet = 'Tabu¾ka <b>%s</b> nebola nájdená alebo nieje nastavená v %s';
 $strNotValidNumber = ' nieje platné èíslo riadku!';
 $strNoUsersFound = 'Nebol nájdenı iadny pouívate¾.';
+$strNoValidateSQL = 'Preskoèi potvrdenie platnosti SQL';
 $strNull = 'Nulovı';
 $strNumSearchResultsInTable = '%s vıskyt(ov)v tabu¾ke <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Celkovo:</b> <i>%s</i> vıskyt(ov)';
@@ -400,6 +403,7 @@ $strUserName = 'Meno pouívate¾a';
 $strUsers = 'Pouívatelia';
 $strUseTables = 'Poui tabu¾ky';
 
+$strValidateSQL = 'Potvrdi platnos SQL';
 $strValue = 'Hodnota';
 $strViewDump = 'Zobrazi dump (schému) tabu¾ky';
 $strViewDumpDB = 'Zobrazi dump (schému) databázy';
@@ -412,13 +416,8 @@ $strYes = 'Áno';
 
 $strZip = '"zo zipované"';
 
-
 // To translate
 
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
 $strCharsetOfFile = 'Character set of the file:'; //to translate
 $strBeginCut = 'BEGIN CUT';  //to translate
 $strEndCut = 'END CUT';  //to translate
@@ -430,3 +429,4 @@ $strEndRaw = 'END RAW';  //to translate
 $strSQLParserBugMessage = 'There is a change that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if my parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
 $strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
 ?>
+
