@@ -9,6 +9,7 @@ $Source$
     * libraries/common.lib.php3: bug 821512, Safari 1.0 v85.5 and fonts
     * libraries/functions.js: bug 825665, scratchboard and paper size
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    ### 2.5.4 released
 
 2003-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * browse_foreigners.php3: bug 825473: PMA_jsFormat() needed on alert()
