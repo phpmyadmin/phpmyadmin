@@ -232,7 +232,7 @@ $cfg['colorFunctions']      = 'red';
 $cfg['colorKeywords']       = 'blue';
 $cfg['colorStrings']        = 'green';
 $cfg['colorColType']        = '#FF9900';
-$cfg['colorAdd']            = '#9999CC';
+$cfg['colorAdd']            = 'blue';
 
 
 /**
@@ -312,6 +312,7 @@ if($cfg['UseSyntaxColoring']) {
         'SELECT',
         'INSERT',
         'LEFT',
+        'INNER',
         'UPDATE',
         'REPLACE',
         'EXPLAIN',
@@ -326,7 +327,8 @@ if($cfg['UseSyntaxColoring']) {
         'ORDER',
         'CHANGE',
         'CREATE',
-        'DELETE'
+        'DELETE',
+        'VALUES'
     );
 } // end if
 if($cfg['UseSyntaxColoring']) {

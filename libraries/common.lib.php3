@@ -210,35 +210,41 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         $_skeyw    = '^' . implode('$|^', $cfg['keywords']) . '$';
         $_scoltype = '^' . implode('$|^', $cfg['ColumnTypes']) . '$';
         $_add      = '^' . implode('$|^', $cfg['additional']) . '$';
-        //  first of all lets remove all newlines - we'll add our own later
 
+        //  first of all lets remove all newlines - we'll add our own later
         $sql  = str_replace("\n", ' ', $sql);
         //  there should always be blanks around = and after , ()
         $sql  = str_replace('=', ' = ', $sql);
         $sql  = str_replace(',', ', ', $sql);
         $sql  = str_replace(')', ' ) ', $sql);
         $sql  = str_replace('(', ' ( ', $sql);
-        $sql  = str_replace(';', '  ; ', $sql);        
+        $sql  = str_replace(';', '  ; ', $sql);
         //  now split everything by the blanks
         $_sql_parts=explode(' ',$sql);
         //  start a loop over the parts check each word and put them back into $sql
         unset($sql);
         $s_nr=0;
-        
+
         while (list($_num,$_word) = each($_sql_parts)) {
             //  we might have added to many blanks when checking for = and ,
             // which might lead to empty members in the array
             if(strlen($_word)==0){continue;}
+            $_is_string = FALSE;
             //  Anything inside quots might be more than one word
             //  so as we splitted by the blanks we have to try to get those parts back
             //  together
-            if (substr($_word, 0, 1) == '\'' || substr($_word, 0, 1) == '"') {
+            if (
+                (substr($_word, 0, 1) == '\'' || substr($_word, 0, 1) == '"') &&
+                (!isset($_temp) || strlen($_temp)==0)
+                ) {
                 //  start of a string
                 $_temp = $_word;
-            } else {
+                $_is_string = TRUE;
+             } else {
                 if(isset($_temp) && strlen($_temp)>0){
                     //  we are continuing a string
                     $_temp .= $_word;
+                    $_is_string = TRUE;
                 }
             }
             if(substr($_word, strlen($_word)-1, 1) == '\''
@@ -246,7 +252,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 //  End of a String
                 $_word = '<font color="' . $cfg['colorStrings'] . '">' . $_temp . '</font>';
                 $_temp = '';
-            } else {
+                $_is_string = FALSE;
+            }
+            if(!isset($_is_string) || $_is_string == FALSE) {
                 // no String
                 if(eregi($_sfuncs,  $_word)) {
                     $_word = '<font color="' . $cfg['colorFunctions'].'">' . $_word . '</font>';
@@ -257,7 +265,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                         } else {
                             $_word = "\n" . $_word;
                         }
-                        
+
                     } else {
                         if(eregi($_scoltype, $_word)) {
                             $_word = '<font color="' . $cfg['colorColType'].'">' . $_word . '</font>';
@@ -271,6 +279,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                     if($_word==')') {
                                         if(isset($_brack_o)){
                                             unset($_brack_o[count($_brack_o)-1]);
+                                            if(count($_brack_o)==0){ unset($_brack_o);}
                                         } else {
                                             $_brack_c[]=$s_nr;
                                         }
@@ -299,11 +308,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if(isset($_brack_c)) {
             while (list($_num,$elem) = each($_brack_c)) {
                 $_sql_p[$elem] = '<font color="red">' . $_sql_p[$elem] . '</font>';
-                echo '<br /><font color="red">' . $GLOBALS['strMissingBracket'] . '</font><br />';                
+                echo '<br /><font color="red">' . $GLOBALS['strMissingBracket'] . '</font><br />';
             }
         }
         $sql = implode(' ',$_sql_p);
-        return nl2br($sql);
+        $sql = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', $sql);
+        return $sql;
     }   // End of PMA_format_sql function
 
     /**
@@ -1097,7 +1107,7 @@ if (typeof(document.getElementById) != 'undefined'
             if (!empty($GLOBALS['show_as_php'])) {
                 $new_line = '&quot;;<br />' . "\n" . '            $sql .= &quot;';
             }else{
-                $new_line = "\n";
+                $new_line = "<br />\n";
             }
             $query_base     = htmlspecialchars($GLOBALS['sql_query']);
             $query_base     = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
