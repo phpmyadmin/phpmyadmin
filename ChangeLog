@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+    * lang/portuguese: Updated, thanks to Lopo Pizarro (lopopizarro).
+
 2004-01-09 Alexander M. Turek  <singwhenyourewinning@derrabus.de>
     * libraries/sqlparser.lib.php: Support for _charset syntax.
 
