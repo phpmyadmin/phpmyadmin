@@ -27,7 +27,7 @@ if (!isset($goto) || !eregi('^(db_details|tbl_properties)(_[a-z]*)?\.php3$', $go
 }
 $err_url  = $goto
           . '?' . PMA_generate_common_url($db)
-          . (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
+          . (eregi('^tbl_properties(_[a-z]*)?\.php3$', $goto) ? '&amp;table=' . urlencode($table) : '');
 
 
 /**
@@ -225,7 +225,7 @@ if ($sql_query != '') {
 if (isset($my_die)) {
     $js_to_run = 'functions.js';
     include('./header.inc.php3');
-    PMA_mysqlDie('', $my_die, '', $err_url);
+    PMA_mysqlDie('', $my_die, '', $err_url . '&TEST');
 }
 
 

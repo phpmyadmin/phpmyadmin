@@ -12,6 +12,9 @@ $Source$
     
 2003-05-24 Garvin Hicking <me@supergarv.de>
     * left.php3: Fix bug #742632, thanks to Kai Butchkau!
+    * read_dump.php3: Bug #741256
+    * footer.inc.php, tbl_query_box.php3: Only focus the mainframe
+      when a query was submitted from the query window
 
 2003-05-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 653964: wrong alias set by

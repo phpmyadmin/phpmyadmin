@@ -80,7 +80,16 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     }
 
     reload_querywindow();
-    self.focus();
+<?php
+if (isset($focus_querywindow) && $focus_querywindow == "true") {
+?>
+    if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
+        self.focus();
+    }
+<?php
+}
+?>
+
 //-->
 </script>
 <?php

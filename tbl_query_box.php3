@@ -107,6 +107,13 @@ if (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full'))) {
 ?>
     <!-- Query box and bookmark support -->
+<?php
+if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
+?>
+    <input type="hidden" name="focus_querywindow" value="true" />
+<?php
+}
+?>
     <a name="querybox"></a>
             <table cellpadding="1" cellspacing="1">
                 <tr>
@@ -153,6 +160,12 @@ if ($is_upload && (!isset($is_inside_querywindow) ||
             <div style="margin-bottom: 5px">
             <input type="file" name="sql_file" class="textfield" /><br />
     <?php
+    if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
+    ?>
+            <input type="hidden" name="focus_querywindow" value="true" />
+    <?php
+    }
+
     $is_gzip = ($cfg['GZipDump'] && @function_exists('gzopen'));
     $is_bzip = ($cfg['BZipDump'] && @function_exists('bzdecompress'));
     if ($is_bzip || $is_gzip) {
@@ -190,6 +203,12 @@ if ($cfg['UploadDir'] != '' && !isset($is_inside_querywindow) ||
     ($cfg['UploadDir'] != '' && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')) && isset($db) && $db != '') {
 
     if ($handle = @opendir($cfg['UploadDir'])) {
+        if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
+        ?>
+            <input type="hidden" name="focus_querywindow" value="true" />
+        <?php
+        }
+
         $is_first = 0;
         while ($file = @readdir($handle)) {
             if (is_file($cfg['UploadDir'] . $file) && substr($file, -4) == '.sql') {
@@ -259,6 +278,12 @@ if (!isset($is_inside_querywindow) ||
         if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
             echo "            " . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? "<i>$strOr</i>" : '') . " $strBookmarkQuery&nbsp;:<br />\n";
 
+            if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
+            ?>
+                <input type="hidden" name="focus_querywindow" value="true" />
+            <?php
+            }
+
             echo '            <div style="margin-bottom: 5px">' . "\n";
             echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
             echo '                <option value=""></option>' . "\n";
@@ -287,7 +312,7 @@ if (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')) && isset($db) && $db != '') {
 
     // loic1: displays import dump feature only if file upload available
-    $ldi_target = 'ldi_table.php3?' . $url_query;
+    $ldi_target = 'ldi_table.php3?' . $url_query . (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '&amp;focus_querywindow=true' : '');
 
     if ($is_upload && isset($db) && isset($table)) {
         ?>
