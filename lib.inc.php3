@@ -1451,46 +1451,60 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     /**
      * Splits up large sql files into individual queries
      *
-     * Last revision: 16th July 2001 - loic1
+     * Last revision: 2nd August 2001 - Benjamin Gandon
      *
      * @param   string   the sql commands
-     * @param   string   the end of command line delimiter 
+     * @param   char     the end of command line delimiter 
      *
      * @return  array    the splitted sql commands
      */
     function split_sql_file($sql, $delimiter)
     {
-        $sql       = trim($sql);
-        $char      = '';
-        $last_char = '';
-        $ret       = array();
-        $in_string = TRUE;
+        $sql               = trim($sql);
+        $char              = '';
+        $last_char         = '';
+        $ret               = array();
+        $string_start      = '';
+        $in_string         = FALSE;
+        $escaped_backslash = FALSE;
 
-        for ($i = 0; $i < strlen($sql); $i++) {
+        for ($i = 0; $i < strlen($sql); ++$i) {
             $char = $sql[$i];
 
             // if delimiter found, add the parsed part to the returned array
-            if ($char == $delimiter && !$in_string) {
+            if (($char == $delimiter) && !$in_string) {
                 $ret[]     = substr($sql, 0, $i);
                 $sql       = substr($sql, $i + 1);
                 $i         = 0;
                 $last_char = '';
             }
 
-            if ($last_char == $in_string && $char == ')') {
-                $in_string = FALSE;
-            }
-            if ($char == $in_string && $last_char != '\\') {
-                $in_string = FALSE;
-            }
-            else if (!$in_string
-                     && ($char == '"' || $char == '\'' || $char == '`')
-                     && ($last_char != '\\')) {
-                $in_string = $char;
+            if ($in_string) {
+                // we are in a string, first check for escaped backslashes
+                if ($char == '\\') {
+                    if ($last_char != '\\') {
+                        $escaped_backslash = FALSE;
+                    } else {
+                        $escaped_backslash = !$escaped_backslash;
+                    }
+                }
+                // then check for not escaped end of strings
+                if (($char == $string_start)
+                    && !(($last_char == '\\') && !$escaped_backslash)) {
+                    $in_string    = FALSE;
+                    $string_start = '';
+                }
+            } else {
+                // we are not in a string, check for start of strings
+                if (($char == '"') || ($char == '\'') || ($char == '`')) {
+                    $in_string    = TRUE;
+                    $string_start = $char;
+                }
             }
             $last_char = $char;
         } // end for
 
+        // add any rest to the returned array
         if (!empty($sql)) {
             $ret[] = $sql;
         }

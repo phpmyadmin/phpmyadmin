@@ -9,6 +9,12 @@ $Source$
 	* sql.php3: fix confirm bug with the new backquotes
 	* db_readdump.php3: mysql_die2 to mysql_die
 
+2001-08-02  Benjamin Gandon <gandon@isia.cma.fr>
+	* lib.inc.php3: corrected the original bug of split_sql() (present
+			much before 2.1.0). Removed the quick hack to
+			handle queries containing "('\\')". The alorithm
+			is ok now.
+	
 2001-08-01  Marc Delisle  <lem9@users.sourceforge.net>
 	* executed remove_control_m.sh on *.php3
 
