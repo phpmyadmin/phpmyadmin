@@ -1178,7 +1178,7 @@ if (empty($adduser) && empty($checkprivs)) {
             } else {
                 echo '                        <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
                    . '                        <label for="text_tablename">' . $strAddPrivilegesOnTbl . ':</label>' . "\n";
-                if ($res = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($dbname) . ';', NULL, PMA_DBI_QUERY_STORE)) {
+                if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($dbname) . ';', NULL, PMA_DBI_QUERY_STORE)) {
                     $pred_tbl_array = array();
                     while ($row = PMA_DBI_fetch_row($res)) {
                         if (!isset($found_rows) || !in_array($row[0], $found_rows)) {

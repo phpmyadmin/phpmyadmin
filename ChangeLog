@@ -11,6 +11,8 @@ $Source$
       any (bug #943626).
     * css/phpmyadmin.css.php: Not .nowrap, but div.nowrap should have zero
       margin/padding.
+    * server_privileges.php: No ugly message when editing privileges for
+      non-existant database (bug #942357).
 
 2004-04-28 Garvin Hicking <pma@supergarv.de>
     * left.php, main.php, server_databases.php, common.lib.php,
