@@ -43,7 +43,7 @@ set_font_sizes();
 <style type="text/css">
 <!--
 body          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
-pre           {font-size: <?php echo $font_size; ?>}
+pre, tt       {font-size: <?php echo $font_size; ?>}
 th            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; background-color: <?php echo $cfgThBgcolor;?>}
 td            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 form          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
