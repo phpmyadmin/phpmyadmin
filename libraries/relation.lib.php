@@ -279,7 +279,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
     if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
         $rel_query          = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
                             . ' FROM ' . PMA_backquote($cfgRelation['relation']);
-        if (PMA_MYSQL_INT_VERSION >= 40000) {
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
             list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
             $rel_query     .= ' WHERE CONVERT(master_db USING ' . $conn_charset . ') =  \'' . PMA_sqlAddslashes($db) . '\' '
                             . ' AND   CONVERT(master_table USING ' . $conn_charset . ') = \'' . PMA_sqlAddslashes($table) . '\' ';
