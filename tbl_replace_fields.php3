@@ -165,7 +165,7 @@ if (!$check_stop) {
                     if (isset($fieldlist)) {
                         if (isset($prot_row) && isset($prot_row[$key]) && $prot_row[$key] != '') {
                             $val = '0x' . bin2hex($prot_row[$key]);
-                            $see_binary = true;
+                            $seen_binary = TRUE;
                         } else {
                             $val = "''";
                         }

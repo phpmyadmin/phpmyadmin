@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-17 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_replace_fields.php3: Fix typo.
+
 2003-04-17 Garvin Hicking <me@supergarv.de>
     * tbl_replace_fields.php3: Use $encoded_key instead of $key to
       detect changes in BLOB fields with a special name.
