@@ -25,6 +25,9 @@ if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=3)
 	if(isset($submittype)){
 		$result = mysql_query("ALTER TABLE $table TYPE=$tbl_type") or mysql_die();
 	}
+	if(isset($submitorderby) && !empty($order_field)){
+		$result = mysql_query("ALTER TABLE $table ORDER BY $order_field") or mysql_die();
+	}
 
 	$result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
 	$showtable = mysql_fetch_array($result);
@@ -344,6 +347,7 @@ echo " ";
 echo " <select name=\"after_field\">\n";
 echo '  <option value="--end--">'.$strAtEndOfTable."</option>\n";
 echo '  <option value="--first--">'.$strAtBeginningOfTable."</option>\n";
+reset($aryFields);
 while(list ($junk,$fieldname) = each($aryFields)) {
     echo '  <option value="'.$fieldname.'">'.$strAfter.' '.$fieldname."</option>\n";
 }
@@ -352,6 +356,30 @@ echo " </select>\n";
 <input type="submit" value="<?php echo $strGo;?>">
 </form>
 </td></tr>
+<?php if (MYSQL_MAJOR_VERSION>=3.23 && MYSQL_MINOR_VERSION>=34){ ?>
+<tr><td><li>&nbsp;</td><td>
+<?php echo $strAlterOrderBy; ?>:</td><td>
+<form method="post" action="tbl_properties.php3" style="margin:0px;">
+<input type="hidden" name="server" value="<?php echo $server;?>">
+<input type="hidden" name="lang" value="<?php echo $lang;?>">
+<input type="hidden" name="db" value="<?php echo $db;?>">
+<input type="hidden" name="table" value="<?php echo $table;?>">
+<?php
+echo " ";
+echo " <select name=\"order_field\">\n";
+reset($aryFields);
+while(list ($junk,$fieldname) = each($aryFields)) {
+    echo "<option value=\"".$fieldname."\">$fieldname</option>\n";
+}
+echo "</select>\n";
+?>
+<input type="submit" name="submitorderby" value="<?php echo $strGo;?>">
+<?php
+echo "&nbsp;$strSingly\n";
+?>
+</form>
+</td></tr>
+<?php } ?>
 <tr><td valign=top><li>&nbsp;</td><td colspan=2>
 <a href="ldi_table.php3?<?php echo $query;?>"><?php echo $strInsertTextfiles; ?></a>
 </td></tr>
