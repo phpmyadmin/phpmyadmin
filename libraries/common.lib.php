@@ -685,7 +685,7 @@ if ($is_minimum_common == FALSE) {
      *
      * @access  private
      */
-    function PMA_charsetIntroducerCollate($original_string, $charset_introducer, $collation)
+    function PMA_charsetIntroducerCollate($original_string, $charset_introducer='_latin1', $collation='latin1_swedish_ci')
     {
         $result = '';
         if (PMA_MYSQL_INT_VERSION >= 40100) {
