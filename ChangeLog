@@ -11,6 +11,9 @@ $Source$
 2003-06-02 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_tbl.lib.php3, lang/*: Better text on button for
       executing bookmark (bug #745993).
+    * scripts/create-release.sh: Better checking for input, exit when cvs
+      doesn't work, don't include CVS and .cvsignore in tarballs, don't chmod
+      everything to 775.
 
 2003-06-02 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.1 released

@@ -71,8 +71,7 @@ END
 printf "\a"
 read do_release
 
-if [ $do_release != 'y' ]
-then
+if [ "$do_release" != 'y' ]; then
   exit
 fi
 
@@ -85,9 +84,18 @@ mkdir cvs
 cd cvs
 echo "Press [ENTER]!"
 cvs -d:pserver:anonymous@cvs1:/cvsroot/phpmyadmin login
+if [ $? -ne 0 ] ; then
+    echo "CVS login failed, bailing out"
+    exit 1
+fi
 cvs -z3 -d:pserver:anonymous@cvs1:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
+if [ $? -ne 0 ] ; then
+    echo "CVS checkout failed, bailing out"
+    exit 2
+fi
 
 date > phpMyAdmin/RELEASE-DATE-$1
+find phpMyAdmin \( -name .cvsignore -o -name CVS \) -print0 | xargs -0 rm -rf 
 mv phpMyAdmin phpMyAdmin-$1
 zip -9 -r phpMyAdmin-$1-php3.zip phpMyAdmin-$1
 tar cvzf phpMyAdmin-$1-php3.tar.gz phpMyAdmin-$1
@@ -107,7 +115,8 @@ echo "------"
 
 ls -la *.gz *.zip *.bz2
 cd ..
-chmod -R 775 cvs
+find cvs -type d -print0 | xargs -0 chmod 775
+find cvs -type f -print0 | xargs -0 chmod 664
 
 
 cat <<END
