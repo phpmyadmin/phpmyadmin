@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-14  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/italian.inc.php3 updates thanks to Pietro Danesi.
+
 2001-09-13  Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3; Documentation.html; sql.php3;
 	  libraries/display_tbl.php3; lang/*: added a optionnal "show all" button

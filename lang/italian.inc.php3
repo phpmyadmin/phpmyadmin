@@ -254,6 +254,7 @@ $strServerChoice = 'Scelta del server';
 $strServerVersion = 'Versione MySQL';
 $strSetEnumVal = 'Se il tipo di campo è "enum" o "set", immettere i valori usando il formato: \'a\',\'b\',\'c\'...<br />Se comunque dovete mettere dei backslashes ("\") o dei single quote ("\'") davanti a questi valori, backslashateli (per esempio \'\\\\xyz\' o \'a\\\'b\').';
 $strShow = 'Mostra';
+$strShowAll = 'Mostra tutti';
 $strShowingRecords = 'Visualizzazione record ';
 $strShowPHPInfo = 'Mostra le info sul PHP';
 $strShowThisQuery = 'Mostra questa query di nuovo';
@@ -312,5 +313,4 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
-$strShowAll = 'Show all'; // to translate
 ?>
