@@ -418,7 +418,7 @@ if (empty($cfgLang)) {
     }
     ?> 
                     </select>
-                    <input type="submit" value="Go" />
+                    <noscript><input type="submit" value="Go" /></noscript>
                 </form>
             </td>
         </tr>

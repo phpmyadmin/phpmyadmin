@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-12  Olivier Müller  <om@omnis.ch>
+	* main.php3, leftlight.php3: added <noscript></noscript> to hide the
+	  "Go" submit button when the browser supports JS (ist that XHTML compliant?:)
+	  (thx. JF ;)
+
 2002-01-11  Olivier Müller  <om@omnis.ch>
 	* lang/*: added $strSelectAll / $strUnselectAll, used in db_details.php3
 	* leftlight.php3, config.inc.php3, db_details.php3, index.php3, main.php3, 

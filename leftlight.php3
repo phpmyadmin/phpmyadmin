@@ -232,7 +232,7 @@ if ($num_dbs > 1) {
     } // end for $t (db list)
 
     echo '</select>';
-    echo '<input type="submit" name="Go" value="Go">';
+    echo '<noscript><input type="submit" name="Go" value="Go"></noscript>';
     echo '</form>';
 
     if (!$table_list) { 
