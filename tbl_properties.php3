@@ -30,7 +30,8 @@ if (isset($show_query) && $show_query == 'y') {
 }
 unset($sql_query);
 
-/*
+
+/**
  * Get the list and number of fields
  */
 $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
@@ -46,13 +47,14 @@ else {
     mysql_free_result($result);
 }
 
+
 /**
  * Work on the table
  */
 // loic1: defines wether file upload is available or not
 // lem9: we should check if PHP 4.0.0 really implements the "file_uploads"
 // variable, because I got a support request and his 4.0.0 did not have it
- 
+
 $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
            ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
            // loic1: php 3.0.15 and lower bug -> always enabled
@@ -80,15 +82,16 @@ require('./tbl_properties_table_info.php3');
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
             <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocuShort('S/E/SELECT.html') . '&nbsp;&nbsp;&nbsp;' . $strFields . ':'; ?>
             <select name="dummy" size="1">
-        <?php
-        echo "\n";
-        for ($i = 0 ; $i < $fields_cnt; $i++) {
-            echo '        <option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
-        }
-        ?>
-    </select>
-    <input type="button" name="insert" value="<?php echo($strInsert); ?>" onclick="sqlform.sql_query.value = sqlform.sql_query.value + sqlform.dummy.value" />
-    <br />
+<?php
+echo "\n";
+for ($i = 0 ; $i < $fields_cnt; $i++) {
+    echo '                '
+         . '<option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+}
+?>
+            </select>
+            <input type="button" name="insert" value="<?php echo($strInsert); ?>" onclick="sqlform.sql_query.value = sqlform.sql_query.value + sqlform.dummy.value" />
+            <br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" wrap="virtual"
     onfocus="if (typeof(document.layers) == 'undefined' || typeof(textarea_selected) == 'undefined') {textarea_selected = 1; this.form.elements['sql_query'].select();}">

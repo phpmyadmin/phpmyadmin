@@ -9,12 +9,18 @@ if (!isset($selected_tbl)) {
     include('./libraries/grab_globals.lib.php3');
     include('./header.inc.php3');
 }
-require('./libraries/relation.lib.php3');
 
-$cfgRelation = PMA_getRelationsParam();
+
+/**
+ * Gets the relations settings
+ */
+require('./libraries/relation.lib.php3');
+$cfgRelation  = PMA_getRelationsParam();
 if ($cfgRelation['commwork']) {
-    $comments = getComments($db,$table);
+    $comments = getComments($db, $table);
 }
+
+
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -60,15 +66,14 @@ if ($multi_tables) {
     echo '<b>'.  $strShowTables . '&nbsp;:&nbsp;' . $tbl_list . '</b>' . "\n";
     echo '<hr />' . "\n";
 } // end if
-reset($the_tables);
 
-$tablecount = count($the_tables);
+$tables_cnt = count($the_tables);
 reset($the_tables);
-$counter = 0;
+$counter    = 0;
 
 while (list($key, $table) = each($the_tables)) {
     $table = urldecode($table);
-    if($counter+1>=$tablecount) {
+    if ($counter + 1 >= $tables_cnt) {
         $breakstyle = '';
     } else {
         $breakstyle = ' style="page-break-after: always;"';
@@ -141,6 +146,7 @@ while (list($key, $table) = each($the_tables)) {
         mysql_free_result($result);
     }
 
+
     /**
      * Gets fields properties
      */
@@ -148,12 +154,11 @@ while (list($key, $table) = each($the_tables)) {
     $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $fields_cnt  = mysql_num_rows($result);
 
-    // check if we can use Relations (Mike Beck)
-
-    if ( $cfgRelation['relation']) {
+    // Check if we can use Relations (Mike Beck)
+    if ($cfgRelation['relation']) {
         // Find which tables are related with the current one and write it in
         // an array
-        $res_rel = getForeigners($db,$table);
+        $res_rel = getForeigners($db, $table);
 
         if (count($res_rel) > 0) {
             $have_rel = TRUE;
@@ -188,7 +193,7 @@ while (list($key, $table) = each($the_tables)) {
     if ($have_rel) {
         echo '<th>' . ucfirst($strLinksTo) . '</th>';
     }
-    if($cfgRelation['commwork']) {
+    if ($cfgRelation['commwork']) {
         echo '<th>' . ucfirst($strComments) . '</th>';
     }
     echo "\n";
