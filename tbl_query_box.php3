@@ -228,7 +228,7 @@ if (!isset($is_inside_querywindow) ||
             echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
             echo '                <option value=""></option>' . "\n";
             while (list($key, $value) = each($bookmark_list)) {
-                echo '                <option value="' . $value . '">' . htmlentities($key) . '</option>' . "\n";
+                echo '                <option value="' . $value . '">' . htmlspecialchars($key) . '</option>' . "\n";
             }
             echo '            </select>' . "<br />\n";
             echo '            ' . $strVar . ' (<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>): <input type="text" name="bookmark_variable" class="textfield" size="10" />' . "\n";

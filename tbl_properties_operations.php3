@@ -65,7 +65,7 @@ if (PMA_MYSQL_INT_VERSION >= 32334) {
     echo "\n";
     reset($columns);
     while (list($junk, $fieldname) = each($columns)) {
-        echo '                <option value="' . urlencode($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
+        echo '                <option value="' . htmlspecialchars($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
     }
     unset($columns);
     ?>

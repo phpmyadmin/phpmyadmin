@@ -58,7 +58,7 @@ $auto_sel  = ($cfg['TextareaAutoSelect']
     <input type="hidden" name="pos" value="0" />
     <input type="hidden" name="goto" value="db_details.php3" />
     <input type="hidden" name="zero_rows" value="<?php echo htmlspecialchars($strSuccess); ?>" />
-    <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
+    <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>" />
     <?php echo sprintf($strRunSQLQuery, $db) . ' ' . PMA_showMySQLDocu('Reference', 'SELECT'); ?>&nbsp;:<br />
     <div style="margin-bottom: 5px">
 <textarea name="sql_query" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" rows="<?php echo $cfg['TextareaRows']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
@@ -159,7 +159,7 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         echo '        <select name="id_bookmark">' . "\n";
         echo '            <option value=""></option>' . "\n";
         while (list($key, $value) = each($bookmark_list)) {
-            echo '            <option value="' . $value . '">' . htmlentities($key) . '</option>' . "\n";
+            echo '            <option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($key) . '</option>' . "\n";
         }
         echo '        </select>' . "<br />\n";
         echo '            ' . $strVar . ' (<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>): <input type="text" name="bookmark_variable" class="textfield" size="10" />' . "\n";

@@ -487,7 +487,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 // Removes automatic MySQL escape format
                 $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                 echo '                ';
-                echo '<option value="' . urlencode($enum_atom) . '"';
+                echo '<option value="' . htmlspecialchars($enum_atom) . '"';
                 if ($data == $enum_atom
                     || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
@@ -549,7 +549,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             // Removes automatic MySQL escape format
             $subset = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $subset));
             echo '                ';
-            echo '<option value="'. urlencode($subset) . '"';
+            echo '<option value="'. htmlspecialchars($subset) . '"';
             if (isset($vset[$subset]) && $vset[$subset]) {
                 echo ' selected="selected"';
             }

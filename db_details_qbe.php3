@@ -198,7 +198,7 @@ for ($x = 0; $x < $col; $x++) {
                 $sel = '';
             }
             echo '                ';
-            echo '<option value="' . urlencode($fld[$y]) . '"' . $sel . '>' . htmlspecialchars($fld[$y]) . '</option>' . "\n";
+            echo '<option value="' . htmlspecialchars($fld[$y]) . '"' . $sel . '>' . htmlspecialchars($fld[$y]) . '</option>' . "\n";
         } // end for
         ?>
             </select>
@@ -225,7 +225,7 @@ for ($x = 0; $x < $col; $x++) {
             $sel          = '';
         } // end if
         echo '                ';
-        echo '<option value="' . urlencode($fld[$y]) . '"' . $sel . '>' . htmlspecialchars($fld[$y]) . '</option>' . "\n";
+        echo '<option value="' . htmlspecialchars($fld[$y]) . '"' . $sel . '>' . htmlspecialchars($fld[$y]) . '</option>' . "\n";
     } // end for
     ?>
             </select>
@@ -632,7 +632,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 while (list($key, $val) = each($tbl_names)) {
     echo '                        ';
-    echo '<option value="' . urlencode($key) . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
+    echo '<option value="' . htmlspecialchars($key) . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
 }
 ?>
                     </select>

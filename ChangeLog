@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-26 Michal Cihar  <nijel@users.sourceforge.net>
+    * db_details.php3, db_details_qbe.php3, left.php3, tbl_change.php3,
+      tbl_properties_operations.php3, tbl_properties_structure.php3,
+      tbl_query_box.php3, tbl_select.php3, libraries/common.lib.php3: Even
+      more fixes for HTML entities in field/table/db name.
+
 2003-03-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Fixed GRANT queries for the controluser.
 

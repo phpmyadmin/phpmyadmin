@@ -307,9 +307,9 @@ if ($num_dbs > 1) {
             } // end if... else...
 
             if (!empty($num_tables)) {
-                echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (' . $num_tables . ')</option>' . "\n";
+                echo '            <option value="' . htmlspecialchars($db) . '"' . $selected . '>' . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (' . $num_tables . ')</option>' . "\n";
             } else {
-                echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (-)</option>' . "\n";
+                echo '            <option value="' . htmlspecialchars($db) . '"' . $selected . '>' . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (-)</option>' . "\n";
             } // end if... else...
 
         } // end if (light mode)

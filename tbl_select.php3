@@ -81,7 +81,7 @@ if (!isset($param) || $param[0] == '') {
         echo "\n";
         // Displays the list of the fields
         for ($i = 0 ; $i < $fields_cnt; $i++) {
-            echo '        <option value="' . urlencode($fields_list[$i]) . '" selected="selected">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+            echo '        <option value="' . htmlspecialchars($fields_list[$i]) . '" selected="selected">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
         }
         ?>
     </select><br />
@@ -152,7 +152,7 @@ if (!isset($param) || $param[0] == '') {
                 while ($relrow = @PMA_mysql_fetch_array($disp)) {
                     $key   = $relrow[$foreign_field];
                     $value = (($foreign_display != FALSE) ? '-' . htmlspecialchars($relrow[$foreign_display]) : '');
-                    echo '                        <option value="' . urlencode($key) . '">'
+                    echo '                        <option value="' . htmlspecialchars($key) . '">'
                          . htmlspecialchars($key) . $value . '</option>' . "\n";
                 } // end while
                 echo '                    </select>' . "\n";
@@ -171,7 +171,7 @@ if (!isset($param) || $param[0] == '') {
             }
 
             ?>
-                    <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
+                    <input type="hidden" name="names[]" value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />
                     <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
                 </td>
             </tr>
@@ -189,7 +189,7 @@ if (!isset($param) || $param[0] == '') {
         echo "\n";
         for ($i = 0; $i < $fields_cnt; $i++) {
             echo '                ';
-            echo '<option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+            echo '<option value="' . htmlspecialchars($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
         } // end for
         ?>
             </select>
