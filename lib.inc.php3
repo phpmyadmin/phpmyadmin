@@ -781,42 +781,70 @@ function show_docu($link) {
     return("[<a href=\"$cfgManualBase/$link\" target=\"mysql_doc\">$strDocu</a>]");
 }
 
-function show_message($message) {
-  if(!empty($GLOBALS['reload']) && ($GLOBALS['reload'] == "true"))
-    {
-        // Reload the navigation frame via JavaScript
+
+/**
+ * Displays a message at the top of the "main" (right) frame
+ *
+ * @param  string  the message to display
+ */
+function show_message($message)
+{
+    // Reloads the navigation frame via JavaScript if required
+    if (!empty($GLOBALS['reload']) && ($GLOBALS['reload'] == 'true')) {
+        echo "\n";
         ?>
-        <script language="JavaScript1.2">
-        parent.frames['nav'].location.replace('./left.php3?server=<?php echo $GLOBALS['server'];?>&lang=<?php echo $GLOBALS['lang']; ?>&db=<?php echo urlencode($GLOBALS['db']); ?>');
-        </script>
+    <script language="JavaScript1.2">
+    parent.frames['nav'].location.replace('./left.php3?server=<?php echo $GLOBALS['server'];?>&lang=<?php echo $GLOBALS['lang']; ?>&db=<?php echo urlencode($GLOBALS['db']); ?>');
+    </script>
         <?php
     }
+    echo "\n";
     ?>
-    <div align="left">
-     <table border="<?php echo $GLOBALS['cfgBorder'];?>">
-      <tr>
-       <td bgcolor="<?php echo $GLOBALS['cfgThBgcolor'];?>">
-       <b><?php echo stripslashes($message);?><b><br>
-       </td>
-      </tr>
-    <?php
-    if($GLOBALS['cfgShowSQL'] == true && !empty($GLOBALS['sql_query']))
-    {
-        ?>
-        <tr>
-        <td bgcolor="<?php echo $GLOBALS['cfgBgcolorOne'];?>">
-        <?php echo $GLOBALS['strSQLQuery'].":\n<br>", nl2br(htmlspecialchars($GLOBALS['sql_query']));
-        if (isset($GLOBALS["sql_order"])) echo " $GLOBALS[sql_order]";
-        if (isset($GLOBALS["pos"])) echo " LIMIT $GLOBALS[pos], $GLOBALS[cfgMaxRows]";?>
+<div align="left">
+    <table border="<?php echo $GLOBALS['cfgBorder']; ?>">
+    <tr>
+        <td bgcolor="<?php echo $GLOBALS['cfgThBgcolor']; ?>">
+            <b><?php echo stripslashes($message); ?></b><br />
         </td>
-        </tr>
+    </tr>
+    <?php
+    if ($GLOBALS['cfgShowSQL'] == true && !empty($GLOBALS['sql_query'])) {
+        echo "\n";
+        ?>
+    <tr>
+        <td bgcolor="<?php echo $GLOBALS['cfgBgcolorOne']; ?>">
         <?php
+        echo "\n";
+        echo '            ' . $GLOBALS['strSQLQuery'] . "&nbsp;:<br />\n";
+        // The nl2br function isn't used because its result isn't a valid
+        // xhtml1.0 statement before php4.0.5 ("<br>" and not "<br />")
+        $new_line   = '<br />' . "\n" . '            ';
+        $query_base = htmlspecialchars($GLOBALS['sql_query']);
+        $query_base = ereg_replace("(\015\012)|(\015)|(\012)", $new_line, $query_base);
+        echo '            ' . $query_base;
+        if (isset($GLOBALS['sql_order'])) {
+            echo ' ' . $GLOBALS['sql_order'];
+        }
+        // If a 'LIMIT' clause has been programatically added to the query
+        // displays it
+        $is_append_limit = (isset($GLOBALS['pos'])
+                            && eregi('^SELECT', $GLOBALS['sql_query'])
+                            && !eregi('LIMIT[ 0-9,]+$', $GLOBALS['sql_query']));
+        if ($is_append_limit) {
+            echo ' LIMIT ' . $GLOBALS['pos'] . ', ' . $GLOBALS['cfgMaxRows'];
+        }
+        echo "\n";
+        ?>
+        </td>
+    </tr>
+       <?php
     }
+    echo "\n";
     ?>
     </table>
-    </div>
+</div><br />
     <?php
-}
+} // end of the 'show_message()' function
 
 
 // Output the sql error and corresonding line of sql
@@ -994,7 +1022,7 @@ function format_byte_down($value, $limes = 6, $comma = 0)
 		$unit  = $GLOBALS['byteUnits'][1];
 	}
 	if ($unit != $GLOBALS['byteUnits'][0]) {
-	    $return_value = number_format($value, $comma, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
+		$return_value = number_format($value, $comma, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
 	} else {
 	    $return_value = number_format($value, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
 	}
