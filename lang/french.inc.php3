@@ -72,8 +72,8 @@ $strDisplay = "Display";
 $strDoAQuery = "Recherche par valeur (passepartout: \"%\")";
 $strDocu = "Documentation";
 $strDoYouReally = "Voulez-vous vraiment effectuer ";
-$strDrop = "Effacer";
-$strDropDB = "Détruire la base";
+$strDrop = "Supprimer";
+$strDropDB = "Supprimer la base";
 $strDumpingData = "Contenu de la table";
 $strDynamic = "dynamic"; //to translate
 
