@@ -9,8 +9,10 @@ $Source$
 	* Documentation.html: little changes (<tt> is for code, <i> for pathes,
 	  quotations...).
 	* libraries/common.lib.php3: removed trailing whitespaces.
-	* lang/poutuguese.inc.php3: updated thanks to
+	* lang/portuguese.inc.php3: updated thanks to
 	  Luís V. <luis.v at mail.pt>.
+	* lang/hebrew.inc.php3: updated thanks to
+	  Moran Zaltsman <sagi_nahor at hotmail.com>.
 
 2002-03-07 Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html, config.inc.php3, libraries/common.lib.php3:
