@@ -13,6 +13,9 @@ $Source$
 	  Luís V. <luis.v at mail.pt>.
 	* lang/hebrew.inc.php3: updated thanks to
 	  Moran Zaltsman <sagi_nahor at hotmail.com>.
+	* header.inc.php3, lines 161-165; user_details.php3, lines 978-980;
+	  libraries/common.lib.php3, lines 229-232: headers were sometimes missing
+      before an error is displayed.
 
 2002-03-07 Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html, config.inc.php3, libraries/common.lib.php3:

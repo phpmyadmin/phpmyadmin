@@ -225,6 +225,11 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     function PMA_mysqlDie($error_message = '', $the_query = '',
                           $is_modify_link = TRUE, $back_url = '')
     {
+
+        if (empty($GLOBALS['is_header_sent'])) {
+            include('./header.inc.php3');
+        }
+
         if (!$error_message) {
             $error_message = mysql_error();
         }
@@ -232,7 +237,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             $the_query = $GLOBALS['sql_query'];
         }
 
-        echo '<b>'. $GLOBALS['strError'] . '</b>' . "\n";
+        echo '<p><b>'. $GLOBALS['strError'] . '</b></p>' . "\n";
         // if the config password is wrong, or the MySQL server does not
         // respond, do not show the query that would reveal the
         // username/password

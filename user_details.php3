@@ -975,7 +975,11 @@ function PMA_confirm($the_host, $the_user) {
  */
 $result         = @mysql_query('USE mysql');
 if (mysql_error()) {
-    PMA_mysqlDie($GLOBALS['strNoRights'], '', FALSE, '');
+    include('./header.inc.php3');
+    echo '<p><b>' . $strError . '</b></p>' . "\n";
+    echo '<p>&nbsp;&nbsp;&nbsp;&nbsp;' .  $strNoRights . '</p>' . "\n";
+    include('./footer.inc.php3');
+    exit();
 }
 $result         = @mysql_query('SELECT COUNT(Password) FROM mysql.user');
 $password_field = (mysql_result($result, 0) ? 'Password' : 'password');

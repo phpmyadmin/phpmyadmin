@@ -157,4 +157,10 @@ if (isset($db)) {
     echo '</h1>' . "\n";
 }
 echo "\n";
+
+
+/**
+ * Sets a variable to remember headers have been sent
+ */
+$is_header_sent = TRUE;
 ?>
