@@ -7,8 +7,8 @@
           + Version history: [2]ChangeLog
           + General notes: [3]README
           + License: [4]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.241 2002/05/26
-       13:20:23 loic1 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.243 2002/06/01
+       15:16:27 loic1 Exp $
    ______________________________________________________________________
    
    [5]Top  -  [6]Requirements  -  [7]Introduction  -  [8]Installation  -
@@ -197,19 +197,27 @@ Configuration
           This setting can be dynamically completed. For example, you can
           try to use such a kind of code:
           
-$cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
-                       . $HTTP_HOST . (!empty($SERVER_PORT) ? ':' . $SERVER_POR
-T : '')
-                       . substr($PHP_SELF, 0, strrpos($PHP_SELF, '/')+1);
+$cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
+                       . $_SERVER['HTTP_HOST']
+                       . (!empty($_SERVER['SERVER_PORT']) ? ':' . $_SERVER['SER
+VER_PORT'] : '')
+                       . substr($_SERVER['PHP_SELF'], 0, strrpos($['PHP_SELF'],
+ '/')+1);
 
     or
 
-$cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
-                       . $SERVER_NAME . (!empty($SERVER_PORT) ? ':' . $SERVER_P
-ORT : '')
-                       . substr($SCRIPT_NAME, 0, strrpos($SCRIPT_NAME, '/')+1);
+$cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
+                       . $_SERVER['SERVER_NAME']
+                       . (!empty($_SERVER['SERVER_PORT']) ? ':' . $_SERVER['SER
+VER_PORT'] : '')
+                       . substr($_SERVER['SCRIPT_NAME'], 0, strrpos($_SERVER['S
+CRIPT_NAME'], '/')+1);
 
 
+          Please note that the $_SERVER array doesn't exist in
+          PHP < 4.1.0. Try to replace $_SERVER by $HTTP_SERVER_VARS or
+          $GLOBALS in this case.
+          
    $cfg['Servers'] array
           Since version 1.4.2, phpMyAdmin supports the administration of
           multiple MySQL servers. Therefore, a $cfg['Servers']-array has
@@ -841,6 +849,12 @@ FAQ - Frequently Asked Questions
    version or you know how to work around it, please post a message into
    [64]our bug tracker at SourceForge.
    
+   I can't run the "display relations" feature because the script seems
+   not to know the font face I'm using!
+   The "FPDF" library we're using for this feature requires some special
+   files to use font faces.
+   Please refers to the [65]FPDF manual to build these files.
+   
   [Configuration]
   
    The error message "Warning: Cannot add header information - headers
@@ -865,7 +879,7 @@ FAQ - Frequently Asked Questions
    change it to
        mysql.default_socket = /var/lib/mysql/mysql.sock
    Then restart apache and it will work.
-   Here is a fix suggested by Brad Ummer in the [65]phpwizard forum:
+   Here is a fix suggested by Brad Ummer in the [66]phpwizard forum:
      * First, you need to determine what socket is being used by MySQL.
        To do this, telnet to your server and go to the MySQL bin
        directory. In this directory there should be a file named
@@ -879,7 +893,7 @@ FAQ - Frequently Asked Questions
        config.inc.php3.
        For example: $cfg['Servers'][$i]['socket'] = '/tmp/mysql.sock';
        
-   Have also a look at the [66]corresponding section of the MySQL
+   Have also a look at the [67]corresponding section of the MySQL
    documentation.
    
    Nothing is displayed by my browser when I try to run phpMyAdmin, what
@@ -1036,7 +1050,7 @@ FAQ - Frequently Asked Questions
    
    With Mozilla 0.9.? to 1.0-RC3 and Netscape 7.0-PR1 I can't type a
    whitespace in the SQL-Query edit area: the page scrolls down.
-   This is a Mozilla bug (see bug #26882 at [67]Bugzilla).
+   This is a Mozilla bug (see bug #26882 at [68]Bugzilla).
    
   [Using phpMyAdmin]
   
@@ -1148,10 +1162,10 @@ FAQ - Frequently Asked Questions
   
    I have found a bug. How do I inform developers?
    Our Bug Tracker is located at
-   [68]http://sourceforge.net/projects/phpmyadmin/ under the Bugs
+   [69]http://sourceforge.net/projects/phpmyadmin/ under the Bugs
    section.
    But please first discuss your bug with other users:
-   [69]http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
+   [70]http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
    
    I want to translate the messages to a new language or upgrade an
    existing language, where do I start?
@@ -1178,15 +1192,15 @@ FAQ - Frequently Asked Questions
        [This will create a new sub-directory named phpMyAdmin]
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
-       tracker of the [70]phpMyAdmin SourceForge account.
+       tracker of the [71]phpMyAdmin SourceForge account.
        
    Write access to the CVS tree is granted only to experienced developers
    who have already contributed something useful to phpMyAdmin.
-   Also, have a look at the [71]Developers section.
+   Also, have a look at the [72]Developers section.
    ______________________________________________________________________
    
-   [72]Top  -  [73]Requirements  -  [74]Introduction  -  [75]Installation
-    -  [76]Configuration  -  [77]FAQ  -  [78]Developers  -  [79]Credits
+   [73]Top  -  [74]Requirements  -  [75]Introduction  -  [76]Installation
+    -  [77]Configuration  -  [78]FAQ  -  [79]Developers  -  [80]Credits
    ______________________________________________________________________
    
 Developers Information
@@ -1208,7 +1222,7 @@ Developers Information
        please try to keep your code as simple as possible: beginners are
        using phpMyAdmin as an example application.
        As far as possible, we want the scripts to be XHTML1.0 and CSS2
-       compliant on one hand, they fit [80]PEAR coding standards on the
+       compliant on one hand, they fit [81]PEAR coding standards on the
        other hand. Please pay attention to this.
      * Please try to keep up the file-naming conventions. Table-related
        stuff goes to tbl_*.php3, db-related code to db_*.php3 and so on.
@@ -1231,7 +1245,7 @@ Developers Information
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
        tracker of the phpMyAdmin SourceForge account
-       ([81]http://sourceforge.net/projects/phpmyadmin/)
+       ([82]http://sourceforge.net/projects/phpmyadmin/)
        
    Write access to the CVS tree is granted only to developers who have
    already contributed something useful to phpMyAdmin. If you're
@@ -1239,8 +1253,8 @@ Developers Information
    mailing list.
    ______________________________________________________________________
    
-   [82]Top  -  [83]Requirements  -  [84]Introduction  -  [85]Installation
-    -  [86]Configuration  -  [87]FAQ  -  [88]Developers  -  [89]Credits
+   [83]Top  -  [84]Requirements  -  [85]Introduction  -  [86]Installation
+    -  [87]Configuration  -  [88]FAQ  -  [89]Developers  -  [90]Credits
    ______________________________________________________________________
    
 Credits
@@ -1328,7 +1342,8 @@ code since version 2.1.0:
 - Mike Beck <mike.beck at ibmiller.de> for his work on the Relation table
   feature: automatic joint in QBE, links column in printview, Relation view.
 - Maxime Delorme <delorme.maxime at free.fr> for the PDF schema output;
-  thanks also to Olivier Plathey for the fpdf library (www.fpdf.org).
+  thanks also to Olivier Plathey for the "FPDF" library
+  (see http://www.fpdf.org/).
 
 
 And also to the following people who have contributed minor changes,
@@ -1384,11 +1399,11 @@ Original Credits of Version 2.1.0
     and or just some feedback.
    ______________________________________________________________________
    
-   [90]Top  -  [91]Requirements  -  [92]Introduction  -  [93]Installation
-    -  [94]Configuration  -  [95]FAQ  -  [96]Developers  -  [97]Credits
+   [91]Top  -  [92]Requirements  -  [93]Introduction  -  [94]Installation
+    -  [95]Configuration  -  [96]FAQ  -  [97]Developers  -  [98]Credits
    ______________________________________________________________________
    
-                                [98]Valid XHTML 1.0!      [99]Valid CSS! 
+                               [99]Valid XHTML 1.0!      [100]Valid CSS! 
 
 References
 
@@ -1455,39 +1470,40 @@ References
   61. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
   62. http://www.redhat.com/swr/i386/php-4.0.4pl1-9.i386.html
   63. http://www.mysql.com/doc/R/e/Resetting_permissions.html
-  64. https://sourceforge.net/tracker/index.php?func=detail&aid=540671&group_id=23067&atid=377408
-  65. http://www.phpwizard.net/phorum/list.php?f=1
-  66. http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html
-  67. http://bugzilla.mozilla.org/
-  68. http://sourceforge.net/projects/phpmyadmin/
+  64. http://sourceforge.net/tracker/index.php?func=detail&aid=540671&group_id=23067&atid=377408
+  65. http://www.fpdf.org/
+  66. http://www.phpwizard.net/phorum/list.php?f=1
+  67. http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html
+  68. http://bugzilla.mozilla.org/
   69. http://sourceforge.net/projects/phpmyadmin/
-  70. https://sourceforge.net/projects/phpmyadmin/
-  71. file://localhost/c:/tmp/Documentation.html#developers
-  72. file://localhost/c:/tmp/Documentation.html#top
-  73. file://localhost/c:/tmp/Documentation.html#require
-  74. file://localhost/c:/tmp/Documentation.html#intro
-  75. file://localhost/c:/tmp/Documentation.html#setup
-  76. file://localhost/c:/tmp/Documentation.html#config
-  77. file://localhost/c:/tmp/Documentation.html#faq
-  78. file://localhost/c:/tmp/Documentation.html#developers
-  79. file://localhost/c:/tmp/Documentation.html#credits
-  80. http://pear.php.net/
-  81. http://sourceforge.net/projects/phpmyadmin/
-  82. file://localhost/c:/tmp/Documentation.html#top
-  83. file://localhost/c:/tmp/Documentation.html#require
-  84. file://localhost/c:/tmp/Documentation.html#intro
-  85. file://localhost/c:/tmp/Documentation.html#setup
-  86. file://localhost/c:/tmp/Documentation.html#config
-  87. file://localhost/c:/tmp/Documentation.html#faq
-  88. file://localhost/c:/tmp/Documentation.html#developers
-  89. file://localhost/c:/tmp/Documentation.html#credits
-  90. file://localhost/c:/tmp/Documentation.html#top
-  91. file://localhost/c:/tmp/Documentation.html#require
-  92. file://localhost/c:/tmp/Documentation.html#intro
-  93. file://localhost/c:/tmp/Documentation.html#setup
-  94. file://localhost/c:/tmp/Documentation.html#config
-  95. file://localhost/c:/tmp/Documentation.html#faq
-  96. file://localhost/c:/tmp/Documentation.html#developers
-  97. file://localhost/c:/tmp/Documentation.html#credits
-  98. http://validator.w3.org/check/referer
-  99. http://jigsaw.w3.org/css-validator/
+  70. http://sourceforge.net/projects/phpmyadmin/
+  71. http://sourceforge.net/projects/phpmyadmin/
+  72. file://localhost/c:/tmp/Documentation.html#developers
+  73. file://localhost/c:/tmp/Documentation.html#top
+  74. file://localhost/c:/tmp/Documentation.html#require
+  75. file://localhost/c:/tmp/Documentation.html#intro
+  76. file://localhost/c:/tmp/Documentation.html#setup
+  77. file://localhost/c:/tmp/Documentation.html#config
+  78. file://localhost/c:/tmp/Documentation.html#faq
+  79. file://localhost/c:/tmp/Documentation.html#developers
+  80. file://localhost/c:/tmp/Documentation.html#credits
+  81. http://pear.php.net/
+  82. http://sourceforge.net/projects/phpmyadmin/
+  83. file://localhost/c:/tmp/Documentation.html#top
+  84. file://localhost/c:/tmp/Documentation.html#require
+  85. file://localhost/c:/tmp/Documentation.html#intro
+  86. file://localhost/c:/tmp/Documentation.html#setup
+  87. file://localhost/c:/tmp/Documentation.html#config
+  88. file://localhost/c:/tmp/Documentation.html#faq
+  89. file://localhost/c:/tmp/Documentation.html#developers
+  90. file://localhost/c:/tmp/Documentation.html#credits
+  91. file://localhost/c:/tmp/Documentation.html#top
+  92. file://localhost/c:/tmp/Documentation.html#require
+  93. file://localhost/c:/tmp/Documentation.html#intro
+  94. file://localhost/c:/tmp/Documentation.html#setup
+  95. file://localhost/c:/tmp/Documentation.html#config
+  96. file://localhost/c:/tmp/Documentation.html#faq
+  97. file://localhost/c:/tmp/Documentation.html#developers
+  98. file://localhost/c:/tmp/Documentation.html#credits
+  99. http://validator.w3.org/check/referer
+ 100. http://jigsaw.w3.org/css-validator/
