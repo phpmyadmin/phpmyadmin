@@ -269,7 +269,22 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
             $tmpres[1]     = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $tmpres[1]);
         }
 
-        if (preg_match_all('((,\r?\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\r\n]+)+)', $tmpres[1], $regs)) {
+        // are there any constraints to cut out?
+        if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $tmpres[1])) {
+            
+            // split the query into lines, so we can easilly handle it
+            $sql_lines = preg_split('@\r?\n@', $tmpres[1]);
+            $sql_count = count($sql_lines);
+
+            // lets find first line with constraints
+            for ($i = 0; $i < $sql_count; $i++) {
+                if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $sql_lines[$i])) break;
+            }
+
+            // remove , from the end of create statement
+            $sql_lines[$i - 1] = preg_replace('@,$@', '', $sql_lines[$i - 1]); 
+
+            // prepare variable for constraints
             if (!isset($sql_constraints)) {
                 if (isset($GLOBALS['no_constraints_comments'])) {
                     $sql_constraints = '';
@@ -279,20 +294,39 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                                         . $GLOBALS['comment_marker'] . $crlf;
                 }
             }
+
+            // comments for current table
             if (!isset($GLOBALS['no_constraints_comments'])) {
                 $sql_constraints .= $crlf .$GLOBALS['comment_marker'] . $crlf .$GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . $GLOBALS['comment_marker'] . $crlf;
             }
-            $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf
-                             . preg_replace('/(,\r?\n|^)([\s]*)(CONSTRAINT|FOREIGN[\s]*KEY)/', '\1\2ADD \3', substr($regs[0][0], 2))
-                            . ";\n";
-            $tmpres[1]     = preg_replace('((,\r?\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\r\n]+)+)', '', $tmpres[1]);
+
+            // let's do the work
+            $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf;
+
+            $first = TRUE;
+            for($j = $i; $j < $sql_count; $j++) {
+                if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $sql_lines[$j])) {
+                    if (!$first) {
+                        $sql_constraints .= $crlf;
+                    }
+                    if (strpos($sql_lines[$j], 'CONSTRAINT') === FALSE) {
+                        $sql_constraints .= preg_replace('/(FOREIGN[\s]+KEY)/', 'ADD \1', $sql_lines[$j]);
+                    } else {
+                        $sql_constraints .= preg_replace('/(CONSTRAINT)/', 'ADD \1', $sql_lines[$j]);
+                    }
+                    $first = FALSE;
+                } else {
+                    break;
+                }
+            }
+            $sql_constraints .= ';' . $crlf;
+            $tmpres[1] = implode($crlf, array_slice($sql_lines, 0, $i)) . $crlf . implode($crlf, array_slice($sql_lines, $j, $sql_count - 1));
+            unset($sql_lines);
         }
         $schema_create .= $tmpres[1];
     }
 
     $schema_create .= $auto_increment;
-
-
 
     PMA_DBI_free_result($result);
     return $schema_create;

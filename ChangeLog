@@ -9,6 +9,8 @@ $Source$
     * main.php, libraries/select_lang.lib.php: Remember selected charset in
       cookie.
     * libraries/display_export.lib.php: Add back key checking disabling.
+    * libraries/export/sql.php: Brand new CREATE query rewriter from LinuxTax,
+      fixes bug #979635.
 
 2004-06-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * queryframe.php: Undefined index errors.
