@@ -1687,7 +1687,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             global $PHP_SELF, $cfg;
             global $db_details_links_count_tabs;
 
-            if ((basename($PHP_SELF) == $link || 
+            if (((!isset($GLOBALS['active_page']) && basename($PHP_SELF) == $link) || 
                     $active || 
                     (isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $link)
                 ) && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {

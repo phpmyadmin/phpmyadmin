@@ -212,6 +212,7 @@ if (!defined('PMA_IDX_INCLUDED')
     $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, FALSE, $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
 
+    $active_page = 'tbl_properties_structure.php3';
     include('./tbl_properties_structure.php3');
     exit();
 } // end builds the new index

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-22 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_indexes.php3, libraries/common.lib.php3: Better tabs highlighting
+      when editing indexes.
+
 2003-05-22 Garvin Hicking <me@supergarv.de>
     * sql.php3, libraries/common.lib.php3: Bug #692854: Never execute
       a query in (with/without) PHP code views, and display a new
