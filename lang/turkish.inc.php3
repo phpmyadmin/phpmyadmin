@@ -195,7 +195,7 @@ $strOptimizeTable = 'Tabloyu optimize et';
 $strOptionalControls = 'Özel karakterleri yazmak ve okumak için kontroller.Opsiyonel';
 $strOptionally = 'Seçime Baðlý';
 $strOr = 'veya';
-$strOverhead = 'Üstü';
+$strOverhead = 'Kullan&#305;lamayan Veri';
 
 $strPartialText = 'Bölümsel Metinler';
 $strPassword = 'Þifre';
