@@ -729,15 +729,15 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
-$strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
-$strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
-$strIgnoreInserts = 'Use ignore inserts';  //to translate
-$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
-$strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
-$strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
-$strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
-$strAfterInsertSame = 'Go back to this page';  //to translate
-$strRenameDatabaseOK = 'Database %s has been renamed to %s';  //to translate
-$strDatabaseEmpty = 'The database name is empty!';  //to translate
-$strDBRename = 'Rename database to';  //to translate
+$strAddHeaderComment = 'Individuelle Kommentare für den Kopfbereich (\\n erzeugt einen Zeilenumbruch)';
+$strNeedPrimaryKey = 'Es sollte ein Primärschlüssel für diese Tabelle definiert werden.';
+$strIgnoreInserts = 'Fehlerübergehenden INSERT-Befehl verwenden';
+$strAddIfNotExists = 'Mit \'IF NOT EXISTS\'';
+$strCommentsForTable = 'TABELLENKOMMENTARE';
+$strMIMETypesForTable = 'MIME TYPEN DER TABELLE';
+$strRelationsForTable = 'RELATIONEN DER TABELLE';
+$strAfterInsertSame = 'Zurück zu dieser Seite';
+$strRenameDatabaseOK = 'Datenbank %s wurde umbenannt zu %s';
+$strDatabaseEmpty = 'Der Datenbankname ist leer!';
+$strDBRename = 'Datenbank umbenennen zu';
 ?>
