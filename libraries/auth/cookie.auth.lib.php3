@@ -85,7 +85,7 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>" lang="<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
 
 <head>
-<title><?php echo 'phpMyAdmin ' . PMA_VERSION . ' - ' . $GLOBALS['strLogin']; ?></title>
+<title>phpMyAdmin <?php echo PMA_VERSION; ?></title>
 <style type="text/css">
 <!--
 body     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
