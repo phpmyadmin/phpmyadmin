@@ -329,7 +329,13 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     you have modified.
 </p>
 
-<p>All configurable data is placed in <i>config.inc.php</i>.</p>
+<p>
+    All configurable data is placed in <i>config.inc.php</i>. Except these you
+    might also want to modify <i>config.footer.inc.php</i> and
+    <i>config.header.inc.php</i> files to add your site specific code to be
+    included on start and end of each page.
+</p>
+
 <dl>
     <dt><b>$cfg['PmaAbsoluteUri']</b> string</dt>
     <dd>

@@ -15,6 +15,7 @@ $Source$
  
 2004-04-19 Michal Cihar  <michal@cihar.com>
     * libraries/tbl_change.js: Better return value formatting.
+    * Documentation.html: Mentioned header and footer customization.
 
 2004-04-18 Michal Cihar  <michal@cihar.com>
     * libraries/tbl_change.js: Fixed calendar behaviour for DATE fields.
