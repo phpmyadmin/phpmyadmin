@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-05 Garvin Hicking <me@supergarv.de>
+    * libraries/common.lib.php3: Moved docu function (PHP3 compatbility)
+      (Bug #782966)
+
 2003-08-05 Michal Cihar  <nijel@users.sourceforge.net>
     * sql.php3: Fixed regular expression.
     * libraries/export/latex.php3: Use "table (field)" instead of 
