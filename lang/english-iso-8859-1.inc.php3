@@ -72,6 +72,7 @@ $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz
 $strBzip = '"bzipped"';
 
 $strCannotLogin = 'Cannot login to MySQL server';
+$strCantLoadDBG = 'cannot load DBG extension,<br />please check PHP Configuration.';  
 $strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.';
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
@@ -111,6 +112,15 @@ $strCreatePage = 'Create a new Page';
 $strCreatePdfFeat = 'Creation of PDFs';
 $strCriteria = 'Criteria';
 
+$strDBGContext = 'Context';  
+$strDBGContextID = 'Context ID'; 
+$strDBGHits = 'Hits';  
+$strDBGLine = 'Line';  
+$strDBGMinTimeMs = 'Max time, ms'; 
+$strDBGMinTimeMs = 'Min time, ms';  
+$strDBGModule = 'Module';  
+$strDBGTimePerHitMs = 'Time/Hit, ms';  
+$strDBGTotalTimeMs = 'Total time, ms'; 
 $strData = 'Data';
 $strDataDict = 'Data Dictionary';
 $strDataOnly = 'Data only';

@@ -548,4 +548,14 @@ $strImportFinished = 'Importen er ferdig';
 $strThisNotDirectory = 'Dette var ikke en katalog';
 $strWritingCommentNotPossible = 'Skriving av kommentar er ikke mulig';
 $strWritingRelationNotPossible = 'Skriving av relasjon er ikke mulig';
+$strCantLoadDBG = 'cannot load DBG extension,<br />please check PHP Configuration.';  //to translate
+$strDBGModule = 'Module';  //to translate
+$strDBGLine = 'Line';  //to translate
+$strDBGHits = 'Hits';  //to translate
+$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
+$strDBGTotalTimeMs = 'Total time, ms';  //to translate
+$strDBGMinTimeMs = 'Min time, ms';  //to translate
+$strDBGMinTimeMs = 'Max time, ms';  //to translate
+$strDBGContextID = 'Context ID';  //to translate
+$strDBGContext = 'Context';  //to translate
 ?>

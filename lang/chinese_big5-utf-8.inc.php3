@@ -442,9 +442,9 @@ $strWrongUser = '錯誤的使用者名稱或密碼，拒絕存取';
 $strYes = ' 是 ';
 
 $strZip = '"zipped"';
+
 // To translate
 $timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
-// To translate
 
 $strAbortedClients = 'Aborted'; //to translate
 $strAdministration = 'Administration'; //to translate
@@ -571,4 +571,14 @@ $strIgnoringFile = 'Ignoring file %s';  //to translate
 $strThisNotDirectory = 'This was not a directory';  //to translate
 $strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
 $strImportFiles = 'Import files';  //to translate
+$strCantLoadDBG = 'cannot load DBG extension,<br />please check PHP Configuration.';  //to translate
+$strDBGModule = 'Module';  //to translate
+$strDBGLine = 'Line';  //to translate
+$strDBGHits = 'Hits';  //to translate
+$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
+$strDBGTotalTimeMs = 'Total time, ms';  //to translate
+$strDBGMinTimeMs = 'Min time, ms';  //to translate
+$strDBGMinTimeMs = 'Max time, ms';  //to translate
+$strDBGContextID = 'Context ID';  //to translate
+$strDBGContext = 'Context';  //to translate
 ?>

@@ -545,4 +545,14 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
+$strCantLoadDBG = 'cannot load DBG extension,<br />please check PHP Configuration.';  //to translate
+$strDBGModule = 'Module';  //to translate
+$strDBGLine = 'Line';  //to translate
+$strDBGHits = 'Hits';  //to translate
+$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
+$strDBGTotalTimeMs = 'Total time, ms';  //to translate
+$strDBGMinTimeMs = 'Min time, ms';  //to translate
+$strDBGMinTimeMs = 'Max time, ms';  //to translate
+$strDBGContextID = 'Context ID';  //to translate
+$strDBGContext = 'Context';  //to translate
 ?>
