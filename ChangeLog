@@ -10,12 +10,14 @@ $Source$
     * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.
 
 2003-01-14 Michal Cihar  <nijel@users.sourceforge.net>
-    * tbl_properties_structure.php3,libraries/functions.js: Added (un)check
+    * tbl_properties_structure.php3, libraries/functions.js: Added (un)check
       all for fields selection.
-    * tbl_properties.inc.php3,libraries/functions.js: Merged patch #554439
+    * tbl_properties.inc.php3, libraries/functions.js: Merged patch #554439
       (Jumping cursor using keyboard).
-    * tbl_alter.php3: Always include functions.js to allow jumping using
-      keyboard.
+    * tbl_alter.php3, tbl_addfield.php3, tbl_create.php3: Always include
+      functions.js to allow jumping using keyboard.
+    * tbl_change.php3, libraries/tbl_change.js: Moving cursor with Ctrl+arrows
+      works also for row editing.
 
 2002-01-13 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.class.php3:

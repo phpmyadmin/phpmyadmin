@@ -485,10 +485,10 @@ function setSelectOptions(the_form, the_select, do_check)
   * @param   object   event data   
   */
 function onKeyDownArrowsHandler(e) {
-    e=e||window.event;
+    e = e||window.event;
     var o = (e.srcElement||e.target);
     if (!o) return;
-    if (o.tagName != "INPUT" && o.tagName != "SELECT") return;
+    if (o.tagName != "TEXTAREA" && o.tagName != "INPUT" && o.tagName != "SELECT") return;
     if (!e.ctrlKey) return;
     if (!o.id) return;
 
@@ -496,17 +496,23 @@ function onKeyDownArrowsHandler(e) {
     if (pos[0] != "field" || typeof pos[2] == "undefined") return;
 
     var x = pos[2], y=pos[1];
+    
+    // skip non existent fields
+    for (i=0; i<10; i++)
+    {
+        switch(e.keyCode) {
+            case 38: y--; break; // up
+            case 40: y++; break; // down
+            case 37: x--; break; // left
+            case 39: x++; break; // right
+            default: return;
+        }
 
-    switch(e.keyCode) {
-        case 38: y--; break; // up
-        case 40: y++; break; // down
-        case 37: x--; break; // left
-        case 39: x++; break; // right
-        default: return;
+        var id = "field_" + y + "_" + x;
+        var nO = document.getElementById(id);
+        if (nO) break;
     }
-
-    var id = "field_" + y + "_" + x;
-    var nO = document.getElementById(id);
+    
     if (!nO) return;
     nO.focus();
     if (nO.tagName != 'SELECT') {

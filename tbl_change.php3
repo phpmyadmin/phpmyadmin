@@ -140,6 +140,13 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 // some browsers send wrongly this form to the http server.
 ?>
 
+<!-- Set on key handler for moving using by Ctrl+arrows -->
+<script type="text/javascript" language="javascript">
+<!--
+document.onkeydown = onKeyDownArrowsHandler;
+// -->
+</script>
+
 <!-- Change table properties form -->
 <form method="post" action="tbl_replace.php3" name="insertForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
@@ -317,7 +324,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } else {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="funcs[<?php echo urlencode($field); ?>]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($fields_cnt + $i + 1); ?>">
+            <select name="funcs[<?php echo urlencode($field); ?>]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($fields_cnt + $i + 1); ?>" id="field_<?php echo $i; ?>_1">
                 <option></option>
             <?php
             echo "\n";
@@ -350,6 +357,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if ($data == 'NULL' && !$first_timestamp) {
             echo ' checked="checked"';
         }
+        echo ' id="field_' . $i . '_2"';
         $onclick         = ' onclick="if (this.checked) {nullify(';
         if (strstr($row_table_def['True_Type'], 'enum')) {
             if (strlen($row_table_def['Type']) > 20) {
@@ -380,8 +388,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
         <?php echo $backup_field . "\n"; ?>
-        <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$foreign$" />
-        <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>">
+        <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$foreign$" id="field_<?php echo $i; ?>_1" />
+        <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_2">
             <option value=""></option>
         <?php
         echo "\n";
@@ -402,7 +410,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo $i; ?>_2"
                 <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>"><?php echo $special_chars; ?></textarea>
         </td>
         <?php
@@ -426,7 +434,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if (strlen($row_table_def['Type']) > 20) {
             echo "\n";
             ?>
-            <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>">
+            <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_2">
                 <option value=""></option>
             <?php
             echo "\n";
@@ -460,6 +468,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                     echo ' checked="checked"';
                 }
+                echo ' id="field_' . $i . '_2"';
                 echo 'tabindex="' . ($i + 1) . '" />' . "\n";
                 echo '            <label for="radio_field_' . $j . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
             } // end for
@@ -487,7 +496,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
-            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" >
+            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_2">
         <?php
         echo "\n";
         $countset = count($set);
@@ -523,7 +532,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo $i; ?>_2"
                 <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" ><?php echo $special_chars; ?></textarea>
         </td>
             <?php
@@ -538,7 +547,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_2" />
         </td>
             <?php
         } // end if...elseif...else
@@ -563,13 +572,13 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if ($is_char && isset($cfg['CharEditing']) && ($cfg['CharEditing'] == 'textarea')) {
             echo "\n";
             ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo $i; ?>_2"
                 <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" ><?php echo $special_chars; ?></textarea>
             <?php
         } else {
             echo "\n";
             ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_2" />
             <?php
         }
         echo "\n";
