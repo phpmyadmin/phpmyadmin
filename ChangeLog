@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_operations.php, lang/*: InnoDB table defragmentation
+ 
 2004-05-08 Alexander M. Turek  <me@derrabus.de>
     * config.inc.php, db_details_structure.php, Documentation.html,
       header.inc.php, left.php, main.php, images/*, libraries/common.lib.php,

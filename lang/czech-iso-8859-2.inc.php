@@ -742,4 +742,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
+$strDefragment = 'Defragment table';  //to translate
 ?>

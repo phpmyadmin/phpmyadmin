@@ -188,6 +188,7 @@ $strDbPrivileges = 'Privilèges spécifiques à une base de données';
 $strDbSpecific = 'spécifique à cette base de données';
 $strDefault = 'Défaut';
 $strDefaultValueHelp = 'Pour les valeurs par défaut, veuillez n\'entrer qu\'une seule valeur, sans caractère d\'échappement ou apostrophes, sous la forme: a';
+$strDefragment = 'Défragmenter la table';
 $strDelOld = 'Cette page fait référence à des tables qui n\'existent plus. Voulez-vous effacer ces références?';
 $strDelayedInserts = 'Insertions avec délais (DELAYED)';
 $strDelete = 'Effacer';

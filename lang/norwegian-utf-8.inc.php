@@ -744,4 +744,5 @@ $strZip = 'Komprimert (zip)';
 // To translate:
 
 $strRefresh = 'Refresh';  //to translate
+$strDefragment = 'Defragment table';  //to translate
 ?>

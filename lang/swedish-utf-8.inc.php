@@ -737,4 +737,5 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 
 $strRefresh = 'Refresh';  //to translate
+$strDefragment = 'Defragment table';  //to translate
 ?>

@@ -188,6 +188,7 @@ $strDbPrivileges = 'Database-specific privileges';
 $strDbSpecific = 'database-specific';
 $strDefault = 'Default';
 $strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';
+$strDefragment = 'Defragment table';
 $strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';
 $strDelayedInserts = 'Use delayed inserts';
 $strDelete = 'Delete';

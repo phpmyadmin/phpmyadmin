@@ -738,4 +738,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavenie týchto parametrov na 0 (nulu) od
 $strZip = '"zo zipované"';
 
 $strRefresh = 'Refresh';  //to translate
+$strDefragment = 'Defragment table';  //to translate
 ?>

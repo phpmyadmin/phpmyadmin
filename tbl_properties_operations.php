@@ -250,6 +250,16 @@ if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB')
         <?php
     }
     echo "\n";
+    if ($tbl_type == 'INNODB') {
+        ?>
+        <li>
+            <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' TYPE=InnoDB'); ?>">
+                <?php echo $strDefragment; ?></a>&nbsp;
+            <?php echo PMA_showMySQLDocu('InnoDB', 'InnoDB_File_Defragmenting') . "\n"; ?>
+        </li>
+        <?php
+    }
+    echo "\n";
     if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB') {
         ?>
         <li>

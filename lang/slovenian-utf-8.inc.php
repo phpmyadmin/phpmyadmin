@@ -739,4 +739,5 @@ $strZeroRemovesTheLimit = 'Obvestilo: Če postavite vrednost na 0 (nič), boste 
 $strZip = '"zipano"';
 
 $strRefresh = 'Refresh';  //to translate
+$strDefragment = 'Defragment table';  //to translate
 ?>
