@@ -16,6 +16,7 @@ $Source$
     * tbl_replace.php: could not upload a binary field in mysqli
     * libraries/transformations.lib.php: could not change MIME type, etc
       in mysqli
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
 
 2004-08-19 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*: bug 1009667: do not spell Ms Excel but MS Excel
