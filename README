@@ -47,6 +47,7 @@ phpMyAdmin - Readme
       - create and read dumps of tables
       - export and import CSV data
       - administer one single database
+      - communicate in more than 20 different languages
 
   Download:
     You can get the newest version at http://phpmyadmin.sourceforge.net/.

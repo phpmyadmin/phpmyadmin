@@ -22,6 +22,19 @@ phpMyAdmin - Installation
         in your browser. phpMyAdmin should now display a welcome screen 
         and your databases.
 
+   Bookmarks:
+     To use the new bookmarks feature, you will have to create a new
+     db and table on your system, and to type the informations in 
+     config.ini.php3. Table definition:
+
+     CREATE TABLE bookmark (
+      id int(11) DEFAULT '0' NOT NULL auto_increment,
+      dbase varchar(255) NOT NULL,
+      label varchar(255) NOT NULL,
+      query text NOT NULL,
+      PRIMARY KEY (id)
+     );
+
   Installation notes:
   + Be sure to protect the phpMyAdmin-directory. By default, it is not 
     protected in any way! It shouldn't be readable by anyone and 

@@ -3,7 +3,6 @@
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
 
-
 // Get the host name
 if (empty($HTTP_HOST)) {
   if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_HOST'])) {

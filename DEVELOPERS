@@ -25,6 +25,9 @@ phpMyAdmin - Developer's Information
  
  IMPORTANT:
   With 1.4.1, development has switched to CVS. 
+
+  Public CVS Web access: http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/
+
   The following method is preferred for new developers:
   - fetch the current CVS tree over anonymous CVS:
     cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login
