@@ -628,7 +628,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             $bgcolor = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
 
             ?>
-<tr onmouseover="setPointer(this, '<?php echo $GLOBALS['cfgPointerColor']; ?>')" onmouseout="setPointer(this, '<?php echo $bgcolor; ?>')">
+<tr onmouseover="setPointer(this, '<?php echo $GLOBALS['cfgBrowsePointerColor']; ?>')" onmouseout="setPointer(this, '<?php echo $bgcolor; ?>')">
             <?php
             echo "\n";
 

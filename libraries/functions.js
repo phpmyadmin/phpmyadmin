@@ -305,13 +305,14 @@ function checkTransmitDump(theForm, theAction)
  */
 function setPointer(theRow, thePointerColor)
 {
-    if (typeof(theRow.style) == 'undefined' || typeof(theRow.cells) == 'undefined') {
+    if (thePointerColor == ''
+        || (typeof(theRow.style) == 'undefined' || typeof(theRow.cells) == 'undefined')) {
         return false;
     }
 
     var row_cells_cnt           = theRow.cells.length;
     for (var c = 0; c < row_cells_cnt; c++) {
-        theRow.cells[c].bgColor = thePointerColor;
+        theRow.cells[c].style.backgroundColor = thePointerColor;
     }
 
     return true;
