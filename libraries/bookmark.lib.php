@@ -102,6 +102,7 @@ function PMA_queryBookmarks($db, $cfgBookmark, $id, $id_field = 'id', $action_bo
                     . '      OR user = \'\')' )
                     . ' AND ' . PMA_backquote($id_field) . ' = ' . $id;
     $result = PMA_DBI_try_query($query, $dbh);
+    if (!$result) return FALSE;
     list($bookmark_query) = PMA_DBI_fetch_row($result) or array(FALSE);
 
     return $bookmark_query;

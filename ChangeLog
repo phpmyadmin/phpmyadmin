@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-25 Michal Cihar  <michal@cihar.com>
+    * libraries/bookmark.lib.php: Fix errors when bookmarktable does not
+      exists (bug #922509).
+
 2004-03-24 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug 922553, wrong boundary check in
       PMA_flipstring(), thanks to Virgile Petit (pvtc)
