@@ -209,8 +209,17 @@
     before uploading them to your server.
 </p>
 
+<p>
+    <font color="#bb0000">Documentation warning:</font> when you see in this
+    document a <tt>.php3</tt> file extension, please transpose to <tt>.php</tt>
+    if you are using a kit with files having this extension.
+</p>
+
 <p><b>Quick Install:</b></p>
 <ol>
+    <li> Use a distribution kit with the files having the extension
+         (.php3 or .php) depending on the way your web/PHP server interprets
+         those extensions.</li>
     <li> Untar or unzip the distribution (be sure to unzip the subdirectories):
          <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
          document root.</li>
@@ -250,33 +259,32 @@
 
     <li>Http and cookie authentication modes are secure: the MySQL password
         does not need to be set in the phpMyAdmin configuration file. (except
-        for the &quot;standard user&quot; -see the Configuration section-).
+        for the &quot;controluser&quot; -see the Configuration section-).
         <br />
         In cookie mode, we send the password in a temporary cookie, so most
         browsers should not store the password in their cookie file.
         <br /><br /></li>
 
     <li>
-        For 'http' and 'cookie' modes, phpMyAdmin needs a stduser that has
+        For 'http' and 'cookie' modes, phpMyAdmin needs a controluser that has
         <b>only</b> the <tt>SELECT</tt> privilege on the <i>mysql.user (all
         columns except &quot;Password&quot;)</i>, <i>mysql.db (all columns)</i>
         &amp; <i>mysql.tables_priv (all columns except &quot;Grantor&quot;
         &amp; &quot;Timestamp&quot;) </i>tables.<br />
-        You must specify the details for the stduser in the
+        You must specify the details for the controluser in the
         <i>config.inc.php3</i> file under the
-        <tt>$cfgServers[n]['stduser']</tt> &amp;
-        <tt>$cfgServers[n]['stdpass']</tt> settings.<br />
-        To create the control account (<tt>&lt;stduser&gt;</tt> and
-        <tt>&lt;stdpass&gt;</tt> have to be replaced by your own values, of
-        course):<br />
+        <tt>$cfgServers[n]['controluser']</tt> &amp;
+        <tt>$cfgServers[n]['controlpass']</tt> settings.<br />
+        This example assumes you want to use <tt>pma</tt> as the controluser
+        and <tt>pmapass</tt> as the controlpass:<br />
         <table border="0">
         <tr>
             <td>&nbsp;&nbsp;&nbsp;</td>
             <td>
-                <tt>GRANT USAGE ON mysql.* TO '&lt;stduser&gt;'@'localhost' IDENTIFIED BY '&lt;stdpass&gt;';</tt><br />
-                <tt>GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv, Grant_priv, References_priv, Index_priv, Alter_priv) ON mysql.user TO '&lt;stduser&gt;'@'localhost';</tt><br />
-                <tt>GRANT SELECT ON mysql.db TO '&lt;stduser&gt;'@'localhost';</tt><br />
-                <tt>GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv) ON mysql.tables_priv TO '&lt;stduser&gt;'@'localhost';</tt>
+                <tt>GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';</tt><br />
+                <tt>GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv, Grant_priv, References_priv, Index_priv, Alter_priv) ON mysql.user TO 'pma'@'localhost';</tt><br />
+                <tt>GRANT SELECT ON mysql.db TO 'pma'@'localhost';</tt><br />
+                <tt>GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv) ON mysql.tables_priv TO 'pma'@'localhost';</tt>
             </td>
         </tr>
         <tr>
@@ -287,7 +295,7 @@
         <tr>
             <td>&nbsp;&nbsp;&nbsp;</td>
             <td>
-                <tt>GRANT SELECT, INSERT, DELETE ON &lt;bookmark_db&gt;.&lt;bookmark_table&gt; TO '&lt;stduser&gt;'@'localhost';</tt>
+                <tt>GRANT SELECT, INSERT, DELETE ON &lt;bookmark_db&gt;.&lt;bookmark_table&gt; TO 'pma'@'localhost';</tt>
             </td>
         </tr>
         </table>
@@ -330,7 +338,7 @@
     <li>This mode is the less secure one because it requires you to fill the
         <tt>$cfgServers[n]['user']</tt> and <tt>$cfgServers[n]['password']</tt>
         fields.<br />
-        But usually you don't need to setup a &quot;standard user&quot; here:
+        But you don't need to setup a &quot;controluser&quot; here:
         using the <tt>$cfgServers[n]['only_db']</tt> might be enough.<br />
         In the ISP FAQ section, there is an entry explaining how to protect
         your configuration file.<br /></li>
@@ -416,8 +424,8 @@
     </dd>
 
     <dt>
-        <b>$cfgServers[n]['stduser']</b> string<br />
-        <b>$cfgServers[n]['stdpass']</b> string
+        <b>$cfgServers[n]['controluser']</b> string<br />
+        <b>$cfgServers[n]['controlpass']</b> string
     </dt>
     <dd>
         When using http or cookie authentication modes (or 'config'
@@ -431,10 +439,12 @@
         Please see the <a class="navigation" href="#setup">install section</a>
         on &quot;Using http authentication&quot; for more information.
         <br /><br />
-        Note that if you try login to phpMyAdmin with this &quot;stduser&quot;,
+        Note that if you try login to phpMyAdmin with this &quot;controluser&quot;,
         you could get some errors, depending the exact privileges you gave to
-        the &quot;stduser&quot;. phpMyAdmin does not support a direct login
-        with the &quot;stduser&quot;.
+        the &quot;controluser&quot;. phpMyAdmin does not support a direct login
+        with the &quot;controluser&quot;.
+        <br /><br />
+        In versions before 2.2.5, those were called stduser/stdpass.
         <br /><br />
     </dd>
 
@@ -538,10 +548,11 @@
             </li>
         </ul><br />
 
-        Note that <tt>stduser</tt> must have <tt>SELECT</tt>, <tt>INSERT</tt>
+        Note that <tt>controluser</tt> must have <tt>SELECT</tt>, <tt>INSERT</tt>
         and <tt>DELETE</tt> privileges on the bookmark table.
-        Here is a query to set up those privileges:<br />
-        <tt>GRANT SELECT,INSERT,DELETE ON &lt;bookmarkdb&gt;.&lt;bookmarktable&gt; to 'stduser'@localhost;</tt>
+        Here is a query to set up those privileges (using &quot;pma&quot; as
+        the controluser:<br />
+        <tt>GRANT SELECT,INSERT,DELETE ON &lt;bookmarkdb&gt;.&lt;bookmarktable&gt; to 'pma'@localhost;</tt>
         <br /><br />
     </dd>
 
@@ -633,7 +644,7 @@
 
     <dt><b>$cfgAllowUserDropDatabase </b>boolean</dt>
     <dd>
-        Defines whether standard users (non administrator) are allowed to
+        Defines whether normal users (non-administrator) are allowed to
         delete their own database or not. If set as FALSE, the link &quot;Drop
         Database&quot; will not be shown, and even a &quot;DROP DATABASE
         mydatabase&quot; will be rejected. Quite practical for ISP's with many
@@ -1238,8 +1249,8 @@
 </p>
 <ul>
     <li>
-        <tt>$cfgServers[n]['stduser']</tt> and/or
-        <tt>$cfgServers[n]['stdpass']</tt> are wrong.
+        <tt>$cfgServers[n]['controluser']</tt> and/or
+        <tt>$cfgServers[n]['controlpass']</tt> are wrong.
     </li>
     <li>
         The username/password you specify in the login-dialog are invalid.
