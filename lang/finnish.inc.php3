@@ -79,6 +79,7 @@ $strCriteria = 'Hakuehdot';
 $strData = 'Data';
 $strDatabase = 'Tietokanta ';
 $strDatabases = 'tietokantaa';
+$strDatabaseHasBeenDropped = 'Tietokanta %s on pudotettu';
 $strDatabasesStats = 'Tietokantastatistiikka';
 $strDataOnly = 'Vain data';
 $strDbEmpty = 'Tietokannan nimi puuttuu!';
@@ -87,7 +88,7 @@ $strDelete = 'Poista';
 $strDeleted = 'Rivi on poistettu';
 $strDeletedRows = 'Poistetut rivit:';
 $strDeleteFailed = 'Poistaminen epäonnistui!';
-$strDeletePassword = 'Poista salasana';
+$strDeleteUserMessage = Käyttäjä %s on poistettu.';
 $strDelPassMessage = 'Salasana poistettu käyttäjältä';
 $strDescending = 'Laskeva';
 $strDisplay = 'Näytä';
@@ -134,8 +135,6 @@ $strGzip = '"gzip-pakattu"';
 
 $strHasBeenAltered = 'on muutettu.';
 $strHasBeenCreated = 'on luotu.';
-$strHasBeenDropped = 'on pudotettu.';
-$strHasBeenEmptied = 'on tyhjennetty.';
 $strHome = 'Etusivu';
 $strHomepageOfficial = 'phpMyAdminin viralliset sivut';
 $strHomepageSourceforge = 'phpMyAdminin sivut SourceForge-palvelussa';
@@ -157,6 +156,7 @@ $strInstructions = 'Ohjeet';
 $strInUse = 'käytössä';
 $strInvalidName = '"%s" on varattu sana eikä sitä voi käyttää tietokannan, taulun tai sarakkeen nimenä.';
 
+$strKeepPass = 'Älä vaihda salasanaa';
 $strKeyname = 'Avaimen nimi';
 $strKill = 'Tapa';
 
@@ -200,7 +200,6 @@ $strOptimizeTable = 'Optimoi taulu';
 $strOptionalControls = 'Valinnainen. Ohjaa erikoismerkkien lukua ja kirjoitusta.';
 $strOptionally = 'Valinnaisesti';
 $strOr = 'Tai';
-$strOverhead = 'Overhead'; //to translate
 
 $strPartialText = 'Osittaiset tekstit';
 $strPassword = 'Salasana';
@@ -297,6 +296,9 @@ $strType = 'Tyyppi';
 
 $strUncheckAll = 'Poista valinta kaikista';
 $strUnique = 'Uniikki';
+$strUpdatePrivMessage = 'Käyttäjän %s käyttöoikeudet on päivitetty.';
+$strUpdateProfile = 'Päivitä profiili:';
+$strUpdateProfileMessage = 'Profiili on päivitetty.';
 $strUpdateQuery = 'Päivitä lause';
 $strUsage = 'Tila';
 $strUseBackquotes = 'Laita taulujen ja sarakkeiden nimet lainausmerkkeihin';
@@ -317,14 +319,9 @@ $strWrongUser = 'Väärä käyttäjätunnus tai salasana. Pääsy kielletty.';
 $strYes = 'Kyllä';
 
 // To translate
-$strDeleteUserMessage = 'You have deleted the user %s.';//to translate
-$strKeepPass = 'Do not change the password';//to translate
+$strOverhead = 'Overhead'; //to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
-$strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
-$strUpdateProfile = 'Update profile:';//to translate
-$strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
 ?>

@@ -84,7 +84,6 @@ $strDelete = 'Zmaza»';
 $strDeleted = 'Riadok bol zmazaný';
 $strDeletedRows = 'Zmazané riadky:';
 $strDeleteFailed = 'Mazanie bolo neúspe¹né!';
-$strDeletePassword = 'Zmaza» heslo';
 $strDelPassMessage = 'Bolo zmazané heslo pre';
 $strDescending = 'Zostupne';
 $strDisplay = 'Zobrazi»';
@@ -131,8 +130,6 @@ $strGzip = '"gzip-ované"';
 
 $strHasBeenAltered = 'bola zmenená.';
 $strHasBeenCreated = 'bola vytvorená.';
-$strHasBeenDropped = 'bola zmazaná.';
-$strHasBeenEmptied = 'bola vyprázdnená.';
 $strHome = 'Domov';
 $strHomepageOfficial = 'Oficiálne stránky phpMyAdmin-a';
 $strHomepageSourceforge = 'Download stránka phpMyAdmin-a (Sourceforge)';

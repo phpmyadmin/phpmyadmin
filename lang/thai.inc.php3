@@ -75,7 +75,6 @@ $strDefault = 'Default'; //to translate
 $strDelete = 'ลบ';
 $strDeleted = 'ลบแถวออกเรียบร้อยแล้ว';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDeletePassword = 'Delete Password'; //to translate
 $strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = 'แสดงผล';
@@ -110,8 +109,6 @@ $strGrants = 'Grants'; //to translate
 
 $strHasBeenAltered = 'ได้เปลี่ยนแปลงแล้ว';
 $strHasBeenCreated = 'ได้ถูกสร้างแล้ว';
-$strHasBeenDropped = 'ได้ทำการ drop แล้ว';
-$strHasBeenEmptied = 'ได้ทำให้ว่างแล้ว';
 $strHome = 'Home'; //to translate
 $strHomepageOfficial = 'Official phpMyAdmin Homepage'; //to translate
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate

@@ -75,7 +75,6 @@ $strDefault = '기본값';
 $strDelete = '삭제';
 $strDeleted = '선택한 열을 삭제 하였습니다.';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDeletePassword = 'Delete Password'; //to translate
 $strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = '보기';
@@ -110,8 +109,6 @@ $strGrants = 'Grants'; //to translate
 
 $strHasBeenAltered = '을(를) 변경하였습니다.';
 $strHasBeenCreated = '을(를) 작성하였습니다.';
-$strHasBeenDropped = '을(를) 삭제하였습니다.';
-$strHasBeenEmptied = '을(를) 비웠습니다.';
 $strHome = 'MainPage';
 $strHomepageOfficial = 'phpMyAdmin 홈 페이지';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page';

@@ -75,7 +75,6 @@ $strDefault = '基本値';
 $strDelete = '削除';
 $strDeleted = '選択した列を削除しました。';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDeletePassword = 'Delete Password'; //to translate
 $strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = '表示';
@@ -110,8 +109,6 @@ $strGrants = 'Grants'; //to translate
 
 $strHasBeenAltered = 'を変更しました。';
 $strHasBeenCreated = 'を作成しました。';
-$strHasBeenDropped = 'を削除しました。';
-$strHasBeenEmptied = 'を空にしました。';
 $strHome = 'MainPage';
 $strHomepageOfficial = 'phpMyAdminホーム';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page';

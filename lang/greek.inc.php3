@@ -81,7 +81,6 @@ $strDelete = 'Διαγραφή';
 $strDeleted = 'Η Γραμμή έχει διαγραφεί';
 $strDeletedRows = 'Διαγραμμένες Γραμμές:';
 $strDeleteFailed = 'Η διαγραφή απέτυχε';
-$strDeletePassword = 'Διαγραφή Κωδικού Πρόσβασης';
 $strDelPassMessage = 'Διαγράψατε τον Κωδικό Πρόσβασης για τον';
 $strDescending = 'Φθίνουσα';
 $strDisplay = 'Εμφάνιση';
@@ -124,8 +123,6 @@ $strGzip = 'συμπίεση «gzip»';
 
 $strHasBeenAltered = 'έχει αλλαχθεί.';
 $strHasBeenCreated = 'έχει δημιουργηθεί.';
-$strHasBeenDropped = 'έχει διαγραφεί.';
-$strHasBeenEmptied = 'έχει αδειάσει.';
 $strHome = 'Κενρτική σελίδα';
 $strHomepageOfficial = 'Επίσημη σελίδα του phpMyAdmin';
 $strHomepageSourceforge = 'Σελίδα του Sourceforge για την απόκτηση του phpMyAdmin';

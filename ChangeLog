@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-22  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/romanian.inc.php3 updates, thanks to Valics Lehel
+	* lang/polish.inc.php3 updates, thanks to Jakub Wilk
+	* lang/finnish.inc.php3 updates, thanks to Visa Kopu
+	* lang/galician.inc.php3 updates, thanks to Xosé Calvo
+
 2001-09-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html:
 	  - added a faq entry about server crashes and output compression problems;

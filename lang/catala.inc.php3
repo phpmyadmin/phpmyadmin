@@ -78,7 +78,6 @@ $strDefault = 'Defecte';
 $strDelete = 'Esborrar';
 $strDeleted = 'La fila ha estat esborrada';
 $strDeleteFailed = 'No s\'ha pogut esborrar!';
-$strDeletePassword = 'Esborrar contrasenya';
 $strDeleteUserMessage = 'Has esborrat l\'usuari %s.';
 $strDelPassMessage = 'Has esborrat la contrasenya de l\'usuari';
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
@@ -116,8 +115,6 @@ $strGzip = '"comprimit amb gzip"';
 
 $strHasBeenAltered = 'ha estat alterada.';
 $strHasBeenCreated = 'ha estat creada.';
-$strHasBeenDropped = 'ha estat eliminada.';
-$strHasBeenEmptied = 'ha estat buidada.';
 $strHome = 'Inici';
 $strHomepageOfficial = 'Plana oficial del phpMyAdmin';
 $strHomepageSourceforge = 'Plana de desc&agrave;rrega del phpMyAdmin a SourceForge';

@@ -79,7 +79,6 @@ $strDelete = 'Verwijderen';
 $strDeleted = 'De rij is verwijderd';
 $strDeletedRows = 'Verwijder rijen:';
 $strDeleteFailed = 'Verwijderen mislukt!';
-$strDeletePassword = 'Verwijder het wachtwoord';
 $strDelPassMessage = 'Het heeft het wachtwoord verwijderd voor';
 $strDescending = 'Aflopend';
 $strDisplay = 'Laat zien';
@@ -120,8 +119,6 @@ $strGrants = 'Grants'; //to translate
 
 $strHasBeenAltered = 'is veranderd.';
 $strHasBeenCreated = 'is aangemaakt.';
-$strHasBeenDropped = 'is verwijderd.';
-$strHasBeenEmptied = 'is leeggemaakt.';
 $strHome = 'Home';
 $strHomepageOfficial = 'Officiële phpMyAdmin Website';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Pagina';

@@ -75,7 +75,6 @@ $strDefault = 'Default';
 $strDelete = 'Remove';
 $strDeleted = 'Registro eliminado';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDeletePassword = 'Delete Password'; //to translate
 $strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = 'Display'; //to translate
@@ -110,8 +109,6 @@ $strGrants = 'Grants'; //to translate
 
 $strHasBeenAltered = 'foi alterado.';
 $strHasBeenCreated = 'foi criado.';
-$strHasBeenDropped = 'foi eliminado.';
-$strHasBeenEmptied = 'foi esvaziado.';
 $strHome = 'Home';
 $strHomepageOfficial = 'Official phpMyAdmin Homepage'; //to translate
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate

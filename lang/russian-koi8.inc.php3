@@ -77,7 +77,6 @@ $strDefault = 'По умолчанию';
 $strDelete = 'Удалить';
 $strDeleted = 'Ряд был удален';
 $strDeleteFailed = 'Неудачное удаление!';
-$strDeletePassword = 'Увалить пароль';
 $strDelPassMessage = 'Был удален пароль для';
 $strDescending = 'Нисходящий';
 $strDisplay = 'Показать';
@@ -116,8 +115,6 @@ $strGrants = 'Предоставление прав';
 
 $strHasBeenAltered = 'была изменена.';
 $strHasBeenCreated = 'была создана.';
-$strHasBeenDropped = 'была уничтожена.';
-$strHasBeenEmptied = 'была опустошена.';
 $strHome = 'К началу';
 $strHomepageOfficial = 'Официальная страница phpMyAdmin';
 $strHomepageSourceforge = 'Загрузка phpMyAdmin на Sourceforge';

@@ -80,7 +80,6 @@ $strDelete = 'Borrar';
 $strDeleted = 'La fila se ha borrado';
 $strDeletedRows = 'Filas Borradas: ';
 $strDeleteFailed = 'La operacion de borrado ha fallado!'; 
-$strDeletePassword = 'Borrar contraseña'; 
 $strDeleteUserMessage = 'Ud. ha borrado el usuario %s.';
 $strDelPassMessage = 'Ud. ha borrado la contraseña para'; 
 $strDescending = 'Descendente';
@@ -122,8 +121,6 @@ $strGrants = 'Permisos';
 
 $strHasBeenAltered = 'se ha Modificado.';
 $strHasBeenCreated = 'se ha creado.';
-$strHasBeenDropped = 'se ha eliminado.';
-$strHasBeenEmptied = 'se ha vaciado.';
 $strHome = 'Home';
 $strHomepageOfficial = 'Pagina Oficial de phpMyAdmin'; 
 $strHomepageSourceforge = 'Bajar phpMyAdmin de Sourceforge'; 

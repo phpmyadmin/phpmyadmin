@@ -79,7 +79,6 @@ $strDefault = '預設值';
 $strDelete = '刪除';
 $strDeleted = '記錄已被刪除';
 $strDeleteFailed = '刪除失敗!';
-$strDeletePassword = '刪除密碼';
 $strDelPassMessage = '您已經刪除了下面這位使用者的密碼:';
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = '顯示';
@@ -116,8 +115,6 @@ $strGzip = '"gzipped"';
 
 $strHasBeenAltered = '已經修改';
 $strHasBeenCreated = '已經建立';
-$strHasBeenDropped = '已經被刪除';
-$strHasBeenEmptied = '已經被清空';
 $strHome = '主目錄';
 $strHomepageOfficial = 'phpMyAdmin 官方網站';
 $strHomepageSourceforge = 'phpMyAdmin 下載網頁';

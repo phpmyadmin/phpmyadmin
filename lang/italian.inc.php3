@@ -84,7 +84,6 @@ $strDelete = 'Cancella';
 $strDeleted = 'La riga è stata cancellata';
 $strDeletedRows = 'Righe cancellate:';
 $strDeleteFailed = 'Cancellazione fallita!';
-$strDeletePassword = 'Cancella Password';
 $strDeleteUserMessage = 'Hai cancellato l\'utente %s.';
 $strDelPassMessage = 'Hai cancellato la password per';
 $strDescending = 'Decrescente';
@@ -132,8 +131,6 @@ $strGzip = '"compresso con gzip"';
 
 $strHasBeenAltered = 'è stato modificato.';
 $strHasBeenCreated = 'è stato creato.';
-$strHasBeenDropped = 'è stato eliminato.';
-$strHasBeenEmptied = 'è stato svuotato.';
 $strHome = 'Home';
 $strHomepageOfficial = 'Home page ufficiale di phpMyAdmin';
 $strHomepageSourceforge = 'Home page di phpMyAdmin su sourceforge.net';

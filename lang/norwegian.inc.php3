@@ -82,7 +82,6 @@ $strDelete = 'Slett';
 $strDeleted = 'Raden er slettet';
 $strDeletedRows = 'Slettede rader:';
 $strDeleteFailed = 'Slettingen misslyktes!';
-$strDeletePassword = 'Slett passord';
 $strDelPassMessage = 'Du har slettet passordet til';
 $strDescending = 'Synkende';
 $strDisplay = 'Vis';
@@ -127,8 +126,6 @@ $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'er endret.';
 $strHasBeenCreated = 'er opprettet.';
-$strHasBeenDropped = 'er slettet.';
-$strHasBeenEmptied = 'er tømt.';
 $strHome = 'Hjem';
 $strHomepageOfficial = 'Offisiell phpMyAdmin Hjemmeside';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin nedlastingsside';

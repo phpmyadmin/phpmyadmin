@@ -75,7 +75,6 @@ $strDefault = '缺省值';
 $strDelete = '删除';
 $strDeleted = '该记录已经被删除。';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDeletePassword = 'Delete Password'; //to translate
 $strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = 'Display'; //to translate
@@ -110,8 +109,6 @@ $strGrants = 'Grants'; //to translate
 
 $strHasBeenAltered = '已经被修改。';
 $strHasBeenCreated = '已经建立。';
-$strHasBeenDropped = '已经被丢弃。';
-$strHasBeenEmptied = '已经被清空。';
 $strHome = '主目录';
 $strHomepageOfficial = 'Official phpMyAdmin Homepage'; //to translate
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate

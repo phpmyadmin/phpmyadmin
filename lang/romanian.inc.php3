@@ -74,6 +74,7 @@ $strCriteria = 'Criteriu';
 
 $strData = 'Date';
 $strDatabase = 'Baza de date ';
+$strDatabaseHasBeenDropped = 'Baza de date %s a fost aruncat';
 $strDatabases = 'Baze de date';
 $strDatabasesStats = 'Statisticile bazelor de date';
 $strDataOnly = 'Numai date';
@@ -83,7 +84,6 @@ $strDelete = 'Sterge';
 $strDeleted = 'Linia a fost stearsa';
 $strDeletedRows = 'Randuri sterse:';
 $strDeleteFailed = 'Stergere nereusita!';
-$strDeletePassword = 'Sterge parola';
 $strDeleteUserMessage = 'Ati sters utilizatorul %s.';
 $strDelPassMessage = 'Ati sters parola pentru';
 $strDescending = 'Descrescator';
@@ -131,8 +131,6 @@ $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'a fost alterat.';
 $strHasBeenCreated = 'a fost creat.';
-$strHasBeenDropped = 'a fost aruncat.';
-$strHasBeenEmptied = 'a fost golit.';
 $strHome = 'Pagina de start';
 $strHomepageOfficial = 'Pagina oficiala phpMyAdmin';
 $strHomepageSourceforge = 'Pagina de descarcare Sourceforge phpMyAdmin';
@@ -153,6 +151,7 @@ $strInstructions = 'Instructiuni';
 $strInUse = 'in folosinta';
 $strInvalidName = '"%s" este un cuvant rezervat, nu o poti folosi ca o baza de date/tabela/nume de camp.';
 
+$strKeepPass = 'Nu schimbati parola';
 $strKeyname = 'Nume cheie';
 $strKill = 'Opreste';
 
@@ -294,7 +293,9 @@ $strType = 'Tip';
 
 $strUncheckAll = 'Deselecteaza toate';
 $strUnique = 'Unic';
-$strUpdatePrivMessage = 'Ati reinnoit drepturile de acces pentru %s.';
+$strUpdatePrivMessage = 'Ati actualizat privilegiile pentru %s.';
+$strUpdateProfile = 'Actualizarea profilului:';
+$strUpdateProfileMessage = 'Profilul a fost actualizat.';
 $strUpdateQuery = 'Reinnoire comanda';
 $strUsage = 'Utilizare';
 $strUseBackquotes = 'Utilizati apostroful pentru numele tabelelor si a campurilor';
@@ -316,12 +317,8 @@ $strYes = 'Da';
 
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
-$strKeepPass = 'Do not change the password';//to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
-$strUpdateProfile = 'Update profile:';//to translate
-$strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
 ?>

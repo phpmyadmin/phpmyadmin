@@ -84,7 +84,6 @@ $strDelete = 'Effacer';
 $strDeleted = 'L\'enregistrement a été effacé';
 $strDeletedRows = 'Nombre d\'enregistrements effacés :';
 $strDeleteFailed = 'L\'effacement a échoué';
-$strDeletePassword = 'Effacer le mot de passe';
 $strDeleteUserMessage = 'Vous avez effacé l\'utilisateur %s.';
 $strDelPassMessage = 'Vous avez effacé le mot de passe de ';
 $strDescending = 'Décroissant';
@@ -132,8 +131,6 @@ $strGzip = '"gzippé"';
 
 $strHasBeenAltered = 'a été modifié(e).';
 $strHasBeenCreated = 'a été créé(e).';
-$strHasBeenDropped = 'a été effacé(e).';
-$strHasBeenEmptied = 'a été vidé(e).';
 $strHome = 'Accueil';
 $strHomepageOfficial = 'Site officiel de phpMyAdmin';
 $strHomepageSourceforge = 'Page de Téléchargement phpMyAdmin sur Sourceforge';  

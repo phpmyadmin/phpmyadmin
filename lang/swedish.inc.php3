@@ -81,7 +81,6 @@ $strDelete = 'Radera';
 $strDeleted = 'Raden har raderats';
 $strDeletedRows = 'Raderade rader';
 $strDeleteFailed = 'Raderingen misslyckades!';
-$strDeletePassword = 'Radera lösenord';
 $strDelPassMessage = 'Du har raderat lösenordet för';
 $strDescending = 'Fallande';
 $strDisplay = 'Visa';
@@ -124,8 +123,6 @@ $strGzip = '"gzippad"';
 
 $strHasBeenAltered = 'har ändrats.';
 $strHasBeenCreated = 'har skapats.';
-$strHasBeenDropped = 'har raderats.';
-$strHasBeenEmptied = 'har tömts.';
 $strHome = 'Hem';
 $strHomepageOfficial = 'phpMyAdmin:s officiella hemsida';
 $strHomepageSourceforge = 'phpMyAdmin Sourceforge-nedladdningssida';

@@ -74,6 +74,7 @@ $strCriteria = 'Criterio';
 
 $strData = 'Datos';
 $strDatabase = 'Banco de Datos ';
+$strDatabaseHasBeenDropped = 'A base de datos %s foi eliminada';
 $strDatabases = 'Bancos de Datos';
 $strDatabasesStats = 'Estatísticas dos bancos de datos';
 $strDataOnly = 'Só os datos';
@@ -83,8 +84,7 @@ $strDelete = 'Eliminar';
 $strDeleted = 'Rexistro eliminado';
 $strDeletedRows = 'Filas borradas:';
 $strDeleteFailed = 'Non foi posible eliminar!';
-$strDeletePassword = 'Borrar o contrasinal';
-$strDeleteUserMessage = 'Eliminou o usuario %s.';
+$strDeleteUserMessage = 'Acaba de eliminar o usuario %s.';
 $strDelPassMessage = 'Eliminou o contrasinal de';
 $strDescending = 'Descendente';
 $strDisplay = 'Mostrar';
@@ -131,8 +131,6 @@ $strGzip = 'comprimido no formato "gzipped"';
 
 $strHasBeenAltered = 'foi alterado.';
 $strHasBeenCreated = 'foi creado.';
-$strHasBeenDropped = 'foi eliminado.';
-$strHasBeenEmptied = 'foi esvaciado.';
 $strHome = 'Comezo ("Home")';
 $strHomepageOfficial = 'Páxina Oficial do phpMyAdmin';
 $strHomepageSourceforge = 'Páxina do phpMyAdmin en Sourceforge';
@@ -152,6 +150,7 @@ $strInsertTextfiles = 'Inserir un arquivo de texto na tabela';
 $strInstructions = 'Instruccións';
 $strInUse = 'en uso';
 
+$strKeepPass = 'Non mude o contrasinal';
 $strKeyname = 'Nome chave';
 $strKill = 'Matar (kill)';
 
@@ -293,7 +292,9 @@ $strType = 'Tipo';
 
 $strUncheckAll = 'Quitar-lles as marcas a todos';
 $strUnique = 'Único';
-$strUpdatePrivMessage = 'Mudou os privilexios para %s.';
+$strUpdatePrivMessage = 'Acaba de actualizar os privilexios de %s.';
+$strUpdateProfile = 'Actualizar o perfil:';
+$strUpdateProfileMessage = 'Actualizouse o perfil.';
 $strUpdateQuery = 'Actualizar a procura';
 $strUsage = 'Uso';
 $strUseBackquotes = 'Protexer os nomes das tabelas e dos campos con&nbsp;" ` "';
@@ -315,13 +316,9 @@ $strYes = 'Si';
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
-$strKeepPass = 'Do not change the password';//to translate
 $strRunningAs = 'as';
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
-$strUpdateProfile = 'Update profile:';//to translate
-$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:';
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
 ?>

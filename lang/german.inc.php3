@@ -81,7 +81,6 @@ $strDelete = 'Löschen';
 $strDeleted = 'Die Zeile wurde gelöscht.';
 $strDeletedRows = 'Gelöschte Zeilen:';
 $strDeleteFailed = 'Löschen fehlgeschlagen!';
-$strDeletePassword = 'Password löschen';
 $strDeleteUserMessage = 'Der Benutzer wurde gelöscht %s.';
 $strDelPassMessage = 'Password entfernt für';
 $strDescending = 'absteigend';
@@ -125,8 +124,6 @@ $strGzip = '"GZip komprimiert"';
 
 $strHasBeenAltered = 'wurde geändert.';
 $strHasBeenCreated = 'wurde erzeugt.';
-$strHasBeenDropped = 'wurde gelöscht.';
-$strHasBeenEmptied = 'wurde geleert.';
 $strHome = 'Home';
 $strHomepageOfficial = ' Offizielle phpMyAdmin Homepage ';
 $strHomepageSourceforge = ' Sourceforge phpMyAdmin Download Homepage ';

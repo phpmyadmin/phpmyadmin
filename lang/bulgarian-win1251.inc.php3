@@ -75,7 +75,6 @@ $strDefault = 'По подразбиране';
 $strDelete = 'Изтрий';
 $strDeleted = 'Редът беше изтрит';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDeletePassword = 'Delete Password'; //to translate
 $strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Низходящ';
 $strDisplay = 'Display'; //to translate
@@ -110,8 +109,6 @@ $strGrants = 'Grants'; //to translate
 
 $strHasBeenAltered = 'беше променена.';
 $strHasBeenCreated = 'беше създадена.';
-$strHasBeenDropped = 'беше унищожена.';
-$strHasBeenEmptied = 'беше изпразнена.';
 $strHome = 'Начало';
 $strHomepageOfficial = 'Official phpMyAdmin Homepage'; //to translate
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate

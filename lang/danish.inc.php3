@@ -78,7 +78,6 @@ $strDefault = 'Standardv&aelig;rdi';
 $strDelete = 'Slet';
 $strDeleted = 'R&aelig;kken er slettet!';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDeletePassword = 'Delete Password'; //to translate
 $strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = 'Vis';
@@ -115,8 +114,6 @@ $strGzip = '"gzipped"';  //to translate
 
 $strHasBeenAltered = 'er &aelig;ndret.';
 $strHasBeenCreated = 'er oprettet.';
-$strHasBeenDropped = 'er slettet.';
-$strHasBeenEmptied = 'er t&oslash;mt.';
 $strHome = 'Hjem';
 $strHomepageOfficial = 'Officiel phpMyAdmin hjemmeside ';
 $strHomepageSourceforge = 'Ny phpMyAdmin hjemmeside ';

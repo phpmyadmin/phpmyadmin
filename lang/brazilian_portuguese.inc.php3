@@ -83,7 +83,6 @@ $strDelete = 'Remove';
 $strDeleted = 'Registro eliminado';
 $strDeletedRows = 'Registro deletados:';
 $strDeleteFailed = 'Não foi possível apagar!';
-$strDeletePassword = 'Apagar Senha';
 $strDeleteUserMessage = 'Você deletou o usuário %s.';
 $strDelPassMessage = 'Você deletou a senha de';
 $strDescending = 'Descendente';
@@ -131,8 +130,6 @@ $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'foi alterado.';
 $strHasBeenCreated = 'foi criado.';
-$strHasBeenDropped = 'foi eliminado.';
-$strHasBeenEmptied = 'foi esvaziado.';
 $strHome = 'Principal';
 $strHomepageOfficial = 'Página Oficial do phpMyAdmin';
 $strHomepageSourceforge = 'Nova Página do phpMyAdmin';
