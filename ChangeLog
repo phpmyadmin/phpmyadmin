@@ -8,6 +8,11 @@ $Source$
 2001-08-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/galician.inc.php3, select_lang.inc.php3: new Galician lang thanks to
 	  Xose Calvo <xosecalvo@terra.es>.
+	* select_lang.inc.php3: added the possible use of a cookie to retain the
+	  language choosen by the user.
+	* main.php3:
+	  - lines 425-426: form is submitted with post method;
+	  - lines 431-447: languages are sorted by their true names.
 
 2001-08-28  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: fixed the sql query so that the script won't die, even if

@@ -422,11 +422,29 @@ if (empty($cfgLang)) {
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <form method="get" action="index.php3?&server=<?php echo urlencode($server); ?>" target="_top">
+                <form method="post" action="index.php3" target="_top">
+                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     Language:
                     <select name="lang" onchange="this.form.submit();">
     <?php
     echo "\n";
+
+    /**
+     * Compares values of keys and sorts them
+     *
+     * @param	array	the array to be sorted
+     * @param	mixed	a required parameter
+     *
+     * @return	the sorted array
+     *
+     * @access	private
+     */
+    function pmaComp(&$a, $b)
+    {
+        return (strcmp($a[1], $b[1]));
+    } // end of the 'pmaComp()' function
+
+    uasort($available_languages, 'pmaComp');
     reset($available_languages);
     while (list($id, $tmplang) = each($available_languages)) {
         $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
