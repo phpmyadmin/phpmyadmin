@@ -161,7 +161,7 @@ if (!isset($username) && !isset($hostname)) {
             $oldPrivTables = TRUE;
         }
     }
-    if (!$res || (PMA_MYSQL_INT_VERSION >= 32211 && PMA_MYSQL_INT_VERSION < 40002)) {
+    if (!isset($res) || empty($res) || (PMA_MYSQL_INT_VERSION >= 32211 && PMA_MYSQL_INT_VERSION < 40002)) {
         $res = PMA_mysql_query('SELECT `User`, `Host`, IF(`Password` = "", "N", "Y") AS "Password", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Index_priv`, `Alter_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv` FROM `user`;', $userlink);
         if (!$res) {
             // the query failed! This may have two reasons:
