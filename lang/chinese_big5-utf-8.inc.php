@@ -8,9 +8,6 @@
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
-$allow_recoding = TRUE;
-$allow_recoding = TRUE;
-$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'helvetica, sans-serif';

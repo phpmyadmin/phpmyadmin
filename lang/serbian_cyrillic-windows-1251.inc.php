@@ -8,7 +8,6 @@
  */
 
 $charset = 'windows-1251';
-$allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -573,7 +572,7 @@ $strSQLParserBugMessage = 'Постоји могућност да сте пронашли баг у SQL парсеру. 
 $strSQLParserUserError = 'Изгледа да постоји грешка у вашем SQL упиту. Овде је порука о грешки MySQL сервера, која вам може помоћи у откривању проблема';
 $strSQLQuery = 'SQL упит';
 $strSQLResult = 'SQL резултат';
-$strSQPBugInvalidIdentifer = 'Неисправан идентификатор';
+$strSQPBugInvalidIdentifer = 'Неисправан иГ¤ентификатор';
 $strSQPBugUnclosedQuote = 'Наводник није затворен';
 $strSQPBugUnknownPunctuation = 'Непознат стринг интерпункције';
 $strSave = 'Сачувај';
@@ -678,7 +677,7 @@ $strTransformation_image_jpeg__inline = 'Приказује умањену слику на коју је могу
 $strTransformation_image_jpeg__link = 'Приказује линк ка овој снимци (нпр. директно преузимање из BLOB-а).';
 $strTransformation_image_png__inline = 'Прикажи JPEG слике на страни';
 $strTransformation_text_plain__dateformat = 'Узима TIME, TIMESTAMP или DATETIME поље и форматира га користећи локални облик приказивања датума. Прва опција је офсет (у сатима) који се додаје временској ознаци (подразумевано: 0). Друга опција је различит формат датума према параметрима који су доступни за PHP-ov strftime().';
-$strTransformation_text_plain__external = 'САМО LINUX: Покреће екстерну апликацију и попуњава податке у пољима преко стандардног улаза. Враћа стандардни излаз апликације. Подразумевано је Tidy, за лепши приказ HTML кода. Због сигурносних разлога, морате ручно изменити датотеку libraries/transformations/text_plain__external.inc.php и додати алате које желите да користите. Прва опција је број програма које желите да користите, а друга су параметри програма. Ако се трећи параметар постави на 1 излаз ће бити конвертован користећи htmlspecialchars() (подразумевано је 1). Ако је четврти параметар постављен на 1, NOWRAP ће бити додато ћелији са садржајем тако да ће излаз бити приказан без измена. (подразумевано 1)';
+$strTransformation_text_plain__external = 'САМО LINUX: Покреће екстерну апликацију и попуњава податке у пољима преко стандардног улаза. Враћа стандардни излаз апликације. Подразумевано је Tidy, за лепши приказ HTML кода. Због сигурносних разлога, морате ручно изменити датотеку libraries/transformations/text_plain__external.inc.php и додати алате које желите да користите. Прва опГ¶ија је број програма које желите да користите, а друга су параметри програма. Ако се трећи параметар постави на 1 излаз ће бити конвертован користећи htmlspecialchars() (подразумевано је 1). Ако је четврти параметар постављен на 1, NOWRAP ће бити додато ћелији са садржајем тако да ће излаз бити приказан без измена. (подразумевано 1)';
 $strTransformation_text_plain__formatted = 'Чува оригинално форматирање поља. Escaping се не врши.';
 $strTransformation_text_plain__imagelink = 'Приказује слику и линк, поље садржи назив датотеке; прва опција је префикс као "http://domain.com/", друга опција је ширина у пикселима, трећа је висина.';
 $strTransformation_text_plain__link = 'Приказује линк, поље садржи назив датотеке; прва опција је префикс као "http://domain.com/", друга опција је наслов за линк.';

@@ -90,6 +90,7 @@ $strBzError = 'phpMyAdmin ei suutnud pakkida seda andmebaasiväljundit kuna Bz2 
 $strBzip = '"bzipitud"';
 
 $strCSVOptions = 'CSV seaded';
+$strCalendar = 'Kalender';
 $strCannotLogin = 'Eei suuda MySQL serverisse logida';
 $strCantLoad = 'ei suutnud lugeda moodulit %s,<br />palun kontrollige PHP konfiguratsiooni';
 $strCantLoadRecodeIconv = 'Ei suuda lugeda iconv või recode moodulit mida on vaja tähetabeli konvertimiseks, konfigureerige PHP-d nii, et see sisaldaks antud mooduleid või keelake tähetabeli konvertimine phpMyAdminis.';
@@ -187,6 +188,7 @@ $strDbPrivileges = 'Andmebaas-spetsiifilised privileegid';
 $strDbSpecific = 'andmebaasipõhine';
 $strDefault = 'Vaikimisi';
 $strDefaultValueHelp = 'Vaikimisi väärtuse jaoks sisestage lihtsalt üksik väärtus, ilma kaldkriipsudega varjestamata ning jutumärkideta, kasutades järgmist kirjakuju: a';
+$strDefragment = 'Defrgamenteeri tabel';
 $strDelOld = 'Antud lehel on viiteid tabelitele mida enam ei ole. Kas te soovite kustutada need viited?';
 $strDelayedInserts = 'Kasuta ajastatud lisamisi';
 $strDelete = 'Kustuta';
@@ -227,6 +229,7 @@ $strEffective = 'Efektiivne';
 $strEmpty = 'Tühjenda';
 $strEmptyResultSet = 'MySQL tagastas tühja tulemuse (s.t. null rida).';
 $strEnabled = 'Lubatud';
+$strEncloseInTransaction = 'Lisa eksport ülekandesse';
 $strEnd = 'Lõpp';
 $strEndCut = 'LÕPETA LÕIGE';
 $strEndRaw = 'LÕPETA PUHAS';
@@ -408,6 +411,7 @@ $strNoPhp = 'ilma PHP koodita';
 $strNoPrivileges = 'Ei oma ühtegi privileegi';
 $strNoQuery = 'Ühtegi SQL päringut!';
 $strNoRights = 'Teil pole piisavalt õigusi, et hetkel siin olla!';
+$strNoRowsSelected = 'Ridu pole valitud';
 $strNoSpace = 'Liiga vähe kettaruumi, et salvestada fail %s.';
 $strNoTablesFound = 'Andmebaasist ei leitud tabeleid.';
 $strNoUsersFound = 'Ei leitud ühtegi kasutajat.';
@@ -518,6 +522,7 @@ $strReType = 'Sisesta uuesti';
 $strReceived = 'Saadud';
 $strRecords = 'Kirjeid';
 $strReferentialIntegrity = 'Kontrolli pärinevust:';
+$strRefresh = 'Uuenda';
 $strRelationNotWorking = 'Lisavõimalused töötamiseks lingitud tabelitega on deaktiveeritud. Et lugeda miks see nii on, vajutage %ssiia%s.';
 $strRelationView = 'Pärinevuse vaade';
 $strRelationalSchema = 'Seoseskeem';
@@ -566,6 +571,7 @@ $strSQLParserUserError = 'Tundub, et teie SQL päringus on viga. MySQLi serveri 
 $strSQLQuery = 'SQL-päring';
 $strSQLResult = 'SQL tulemus';
 $strSQPBugInvalidIdentifer = 'Vigane identifikaator';
+$strSQPBugSyntaxError = 'Süntaksi viga';
 $strSQPBugUnclosedQuote = 'Sulgemata jutumärk/ülakoma';
 $strSQPBugUnknownPunctuation = 'Tundmatu suunav tekst';
 $strSave = 'Salvesta';
@@ -734,14 +740,4 @@ $strYes = 'Jah';
 $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate limiidi.';
 $strZip = '"zipitud"';
 
-// To translate:
-
-$strCalendar = 'Calendar';  //to translate
-
-$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
-
-$strRefresh = 'Refresh';  //to translate
-$strDefragment = 'Defragment table';  //to translate
-$strNoRowsSelected = 'No rows selected';  //to translate
-$strSQPBugSyntaxError = 'Syntax error';  //to translate
 ?>

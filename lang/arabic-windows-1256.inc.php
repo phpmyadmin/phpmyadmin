@@ -8,7 +8,6 @@
  */
 
 $charset = 'windows-1256';
-$allow_recoding = TRUE;
 $text_dir = 'rtl'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'Tahoma, verdana, arial, helvetica, sans-serif';
 $right_font_family = '"Windows UI", Tahoma, verdana, arial, helvetica, sans-serif';
@@ -397,7 +396,7 @@ $strNoIndexPartsDefined = '≈Ã“«¡ «·›Â—”Â €Ì— „⁄—›Â!';
 $strNoModification = '·«  €ÌÌ—« ';
 $strNoOptions = 'Â–« «· ‰”Ìﬁ ·Ì” ·Â √Ì ŒÌ«—« ';
 $strNoPassword = '·« ﬂ·„… ”—';
-$strNoPermission = 'Œ«œ„ «·Ê» ·Ì” ·œÌÂ ’·«ÕÌ… ·Õ›Ÿ «·„·› %s.';
+$strNoPermission = 'Œ«œ√£ «·Ê» ·Ì” ·œÌÂ ’·«ÕÌ… ·Õ›Ÿ «·„·› %s.';
 $strNoPhp = '»œÊ‰ ‘Ì›—… PHP';
 $strNoPrivileges = '≈„ Ì«“ €Ì— „ÊÃÊœ';
 $strNoQuery = '·Ì”  ≈” ⁄·«„ SQL!';

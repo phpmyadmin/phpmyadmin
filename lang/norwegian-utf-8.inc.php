@@ -193,6 +193,7 @@ $strDbPrivileges = 'Database-spesifikke privilegier';
 $strDbSpecific = 'databasespesifikk';
 $strDefault = 'Standard';
 $strDefaultValueHelp = 'Sett inn en enkelt verdi for standard verdier uten skråstrek, anførselstegn eller annen &quot;escaping&quot; med dette formatet: a';
+$strDefragment = 'Defragmenter tabell';
 $strDelOld = 'Den nåværende siden har referanser til tabeller som ikke lenger eksisterer. Vil du slette disse referansene?';
 $strDelayedInserts = 'Bruk forsinkede innsettinger';
 $strDelete = 'Slett';
@@ -415,6 +416,7 @@ $strNoPhp = 'uten PHP kode';
 $strNoPrivileges = 'Ingen privilegier';
 $strNoQuery = 'Ingen SQL spørring!';
 $strNoRights = 'Du har ikke nok rettigheter til å være her nå!';
+$strNoRowsSelected = 'Ingen rader valgt';
 $strNoSpace = 'Ikke nok plass til å lagre fila %s.';
 $strNoTablesFound = 'Ingen tabeller i databasen.';
 $strNoUsersFound = 'Ingen bruker(e) funnet.';
@@ -525,6 +527,7 @@ $strReType = 'Gjenta';
 $strReceived = 'Mottatt';
 $strRecords = 'Rader';
 $strReferentialIntegrity = 'Sjekk referanseintegritet:';
+$strRefresh = 'Oppdater';
 $strRelationNotWorking = 'Tilleggsfunksjonene for å kunne jobbe med koblede tabeller er deaktivert. For å finne ut hvorfor, klikk %sher%s.';
 $strRelationView = 'Relasjonsvisning';
 $strRelationalSchema = 'Relasjonsskjema';
@@ -573,6 +576,7 @@ $strSQLParserUserError = 'Det ser ut til å være en feil i din SQL-spørring. E
 $strSQLQuery = 'SQL-spørring';
 $strSQLResult = 'SQL-resultat';
 $strSQPBugInvalidIdentifer = 'Ugyldig identifikator';
+$strSQPBugSyntaxError = 'Syntaksfeil';
 $strSQPBugUnclosedQuote = 'Anførselstegnet er ikke lukket';
 $strSQPBugUnknownPunctuation = 'Ukjent tegnsettingsstreng';
 $strSave = 'Lagre';
@@ -738,13 +742,9 @@ $strXML = 'XML';
 
 $strYes = 'Ja';
 
-$strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrensningen.';
+$strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensningen.';
 $strZip = 'Komprimert (zip)';
 
 // To translate:
 
-$strRefresh = 'Refresh';  //to translate
-$strDefragment = 'Defragment table';  //to translate
-$strNoRowsSelected = 'No rows selected';  //to translate
-$strSQPBugSyntaxError = 'Syntax error';  //to translate
 ?>
