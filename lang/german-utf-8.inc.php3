@@ -418,4 +418,6 @@ $strCreatePdfFeat = 'Erzeugen von PDFs';  //to translate
 $strColComFeat = 'Darstellung von Spaltenkommentaren';  //to translate
 $strDisabled = 'Deaktiviert';  //to translate
 $strEnabled = 'Aktiviert';  //to translate
+$strOK = 'OK';  //to translate
+$strNotOK = 'not OK';  //to translate
 ?>

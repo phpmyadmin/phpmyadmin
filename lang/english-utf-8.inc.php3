@@ -408,4 +408,6 @@ $strCreatePdfFeat = 'Creation of PDFs';
 $strColComFeat = 'Displaying Column Comments';
 $strDisabled = 'Disabled';
 $strEnabled = 'Enabled';
+$strOK = 'OK';  //to translate
+$strNotOK = 'not OK';  //to translate
 ?>

@@ -155,14 +155,14 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             echo '<tr><th align="left">relation Table ... </th><td align="right">'
                  . ((isset($cfgRelation['relation'])) ? $hit : sprintf($shit, 'relation'))
                  . '</td></tr>' . "\n";
-            echo '<tr><td colspan=2 align="center">'. $GLOBALS['strGeneralRelationFeat'] . ':'
+            echo '<tr><td colspan=2 align="center">'. $GLOBALS['strGeneralRelationFeat'] . ': '
                  . (($cfgRelation['relwork'] == TRUE) ? $enabled :  $disabled)
                  . '</td></tr>' . "\n";
 
             echo '<tr><th align="left">table_info   ... </th><td align="right">'
                  . (($cfgRelation['displaywork'] == FALSE) ? sprintf($shit, 'table_info') : $hit)
                  . '</td></tr>' . "\n";
-            echo '<tr><td colspan=2 align="center">' . $GLOBALS['strDisplayFeat'] . ':'
+            echo '<tr><td colspan=2 align="center">' . $GLOBALS['strDisplayFeat'] . ': '
                  . (($cfgRelation['displaywork'] == TRUE) ? $enabled : $disabled)
                  . '</td></tr>' . "\n";
 
@@ -172,13 +172,13 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             echo '<tr><th align="left">pdf_pages ... </th><td align="right">'
                  . ((isset($cfgRelation['pdf_pages'])) ? $hit : sprintf($shit, 'table_coords'))
                  . '</td></tr>' . "\n";
-            echo '<tr><td colspan=2 align="center">' . $GLOBALS['strCreatePdfFeat'] . ':'
+            echo '<tr><td colspan=2 align="center">' . $GLOBALS['strCreatePdfFeat'] . ': '
                  . (($cfgRelation['pdfwork'] == TRUE) ? $enabled : $disabled)
                  . '</td></tr>' . "\n";
             echo '<tr><th align="left">column_comments ... </th><td align="right">'
                  . ((isset($cfgRelation['column_comments'])) ? $hit : sprintf($shit, 'col_com'))
                  . '</td></tr>' . "\n";
-            echo '<tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ':'
+            echo '<tr><td colspan=2 align="center">' . $GLOBALS['strColComFeat'] . ': '
                  . (($cfgRelation['commwork'] == TRUE) ? $enabled : $disabled)
                  . '</td></tr>' . "\n";
             echo '</table>' . "\n";
