@@ -5,7 +5,6 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-
 2002-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/afrikaans update, thanks to Andreas Pauley
     * lang/turkish: update, thanks to Bora Alioglu
@@ -40,6 +39,8 @@ $Source$
         - Updates, thanks to Björn T. Hallberg (bth)
     * libraries/sqlparser.lib.php3:
         - Added LANG to the list of BUG() data
+    * lang/*:
+        - Spelling fix in $strSQLParserBugMessage where not yet translated
 
 2002-08-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.php3, libraries/sqlvalidator.lib.php3:
