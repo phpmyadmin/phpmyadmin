@@ -11,6 +11,7 @@ $Source$
           - config.inc.php3
           - libraries/display_tbl.lib.php3
           - lang/*
+          - Documentation.html
 
 2001-12-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3:
