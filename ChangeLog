@@ -11,6 +11,7 @@ $Source$
     * libraries/display_tbl.lib.php3: use PMA_getForeigners()
     * libraries/relation.lib.php3: now PMA_getForeigners() gets also
       foreign keys defined in innnodb
+    * tbl_select.php3: use PMA_getForeigners() also for innodb
 
 2003-06-17 Michal Cihar  <nijel@users.sourceforge.net>
     * config.inc.php3: Fixed typo (s/'PMA_pdf_page'/'PMA_pdf_pages'/).

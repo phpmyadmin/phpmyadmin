@@ -65,7 +65,10 @@ if (!isset($param) || $param[0] == '') {
         // <markus@noga.de>
         // retrieve keys into foreign fields, if any
         $cfgRelation = PMA_getRelationsParam();
-        $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
+        // check also foreigners even if relwork is FALSE (to get
+        // foreign keys from innodb)
+        //$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
+        $foreigners  = PMA_getForeigners($db, $table);
         ?>
 <form method="post" action="tbl_select.php3">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
