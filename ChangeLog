@@ -13,6 +13,8 @@ $Source$
 	  improved font size definition.
 	* tbl_replace.php3, lines 107-108: maybe fixed bugs #458324 - Editing
 	  fields and #457260 - update (LIMIT 1).
+	* lang/italian.inc.php3: updated thanks to
+	  Pietro Danesi <danone at aruba.it>.
 
 2001-09-03  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/czech-iso.inc.php3 & czech-win1250.inc.php3: updated thanks to
