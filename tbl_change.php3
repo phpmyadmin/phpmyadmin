@@ -731,8 +731,9 @@ $checked = !empty($disp_message) ? ' checked="checked"' : '';
     </tr>
 
     <tr>
-        <td colspan="3" align="center" valign="middle">
+        <td colspan="3" align="right" valign="middle">
             <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo ((3 * $fields_cnt) + 5); ?>" />
+            <input type="reset" value="<?php echo $strReset; ?>" tabindex="<?php echo ((3 * $fields_cnt) + 6); ?>" />
         </td>
     </tr>
     </table>
