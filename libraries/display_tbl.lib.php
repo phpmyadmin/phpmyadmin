@@ -489,6 +489,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             $sort_expression_nodir = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
 
             // grab indexes data:
+            PMA_DBI_select_db($db);
+
             if (!defined('PMA_IDX_INCLUDED')) {
                 $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
                 $result      = PMA_DBI_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);

@@ -279,6 +279,8 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
 
     while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
         if (($curr_table[0] != $table) && ($curr_table[0] != $cfg['Server']['relation'])) {
+            PMA_DBI_select_db($db);
+
             // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
             $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';', NULL, PMA_DBI_QUERY_STORE);
             if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
@@ -325,6 +327,8 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
         // current table (see bug report #574851)
         }
         else if ($curr_table[0] == $table) {
+            PMA_DBI_select_db($db);
+
             // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
             $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';', NULL, PMA_DBI_QUERY_STORE);
             if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
