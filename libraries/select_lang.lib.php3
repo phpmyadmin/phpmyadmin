@@ -77,6 +77,7 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
         'gl-utf-8'     => array('gl|galician', 'galician-utf-8', 'gl'),
         'gl-iso-8859-1'=> array('gl|galician', 'galician-iso-8859-1', 'gl'),
         'he-iso-8859-8-i'=> array('he|hebrew', 'hebrew-iso-8859-8-i', 'he'),
+        'hi-utf-8'     => array('hi|hindi', 'hindi-utf-8', 'hi'),
         'hr-utf-8'     => array('hr|croatian', 'croatian-utf-8', 'hr'),
         'hr-win1250'   => array('hr|croatian', 'croatian-windows-1250', 'hr'),
         'hr-iso-8859-2'=> array('hr|croatian', 'croatian-iso-8859-2', 'hr'),
