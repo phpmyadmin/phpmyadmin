@@ -168,6 +168,8 @@ $is_superuser        = FALSE;
 if ($server > 0) {
     // Get user's global privileges ($dbh and $userlink are links to MySQL
     // defined in the "common.lib.php" library)
+    // Note: if no controluser is defined, $dbh contains $userlink
+
     $is_create_priv  = FALSE;
     $is_process_priv = TRUE;
     $is_reload_priv  = FALSE;
@@ -197,7 +199,6 @@ if ($server > 0) {
             mysql_free_result($rs_usr);
         } // end if
     } // end if
-
     // If the user has Create priv on a inexistant db, show him in the dialog
     // the first inexistant db name that we find, in most cases it's probably
     // the one he just dropped :)
@@ -245,6 +246,8 @@ if ($server > 0) {
                         else if (ereg($re0 . '%|_', $show_grants_dbname) || !PMA_mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
                             $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
                             $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
+                            // and remove backquotes
+                            $db_to_create = str_replace('`','',$db_to_create);
                             $is_create_priv     = TRUE;
                             break;
                         } // end elseif
