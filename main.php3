@@ -44,18 +44,17 @@ echo "\n";
 <?php
 // Don't display server info if $server == 0 (no server selected)
 if ($server > 0) {
-    $local_query = 'SELECT Version() as version';
-    $res_version = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
-    $row_version = mysql_fetch_array($res_version);
-    echo '<p><b>MySQL ' . $row_version['version'] . ' ' . $strRunning . ' ' . $cfgServer['host'];
+    $local_query = 'SELECT VERSION() as version, USER() as user';
+    $res         = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
+    echo '<p><b>MySQL ' . mysql_result($res, 0, 'version') . ' ' . $strRunning . ' ' . $cfgServer['host'];
     if (!empty($cfgServer['port'])) {
         echo ':' . $cfgServer['port'];
     }
     if (!empty($cfgServer['socket'])) {
         echo ':' . $cfgServer['socket'];
     }
-    echo "</b></p><br />\n";
-}
+    echo ' ' . $strRunningAs . ' ' . mysql_result($res, 0, 'user') . '</b></p><br />' . "\n";
+} // end if
 
 
 /**
