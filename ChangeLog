@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-29  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/common.lib.php3:
+	  - fixed a possible problem with invalid keys values in the $uva_mydbs
+	    array;
+	  - taken into account the case where available databases names returned by
+	    MySQL is empty or '%' (ie all databases);
+	  - fixed an invalid regexp at line 494.
+
 2001-09-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3: coding standards.
 

@@ -457,32 +457,53 @@ if (!defined('__LIB_COMMON__')){
                             // database names instead of with regular
                             // expressions.
                             while ($row = mysql_fetch_array($rs)) {
-                                // loic1: avoid multiple entries for dbs
+                                // loic1: all databases cases - part 1
+                                if (empty($row['Db']) || $row['Db'] == '%') {
+                                    $uva_mydbs[md5('%')] = '%';
+                                    break;
+                                }
+                                // loic1: avoid multiple entries for dbs and
+                                //        ensure the key value is valid
                                 if (pmaIsInto($row['Db'], $dblist) == -1) {
-                                    $uva_mydbs[$row['Db']] = 1;
+                                    $uva_mydbs[md5($row['Db'])] = $row['Db'];
                                 }
                             }
                             mysql_free_result($rs);
                             $uva_alldbs = mysql_list_dbs();
-                            while ($uva_row = mysql_fetch_array($uva_alldbs)) {
-                                $uva_db = $uva_row[0];
-                                if (isset($uva_mydbs[$uva_db]) && 1 == $uva_mydbs[$uva_db]) {
-                                    $dblist[]           = $uva_db;
-                                    $uva_mydbs[$uva_db] = 0;
-                                } else {
-                                    reset($uva_mydbs);
-                                    while (list($uva_matchpattern, $uva_value) = each($uva_mydbs)) {
-                                        $uva_regex = ereg_replace('%', '.+', $uva_matchpattern);
-                                        // Fixed db name matching
-                                        // 2000-08-28 -- Benjamin Gandon
-                                        if (ereg('^' . $uva_regex . '$', $uva_db)) {
-                                            $dblist[] = $uva_db;
-                                            break;
-                                        }
-                                    } // end while
-                                } // end if ... else ....
-                            } // end while
+                            // loic1: all databases cases - part 2
+                            if (isset($uva_mydbs[md5('%')])) {
+                                while ($uva_row = mysql_fetch_array($uva_alldbs)) {
+                                    $dblist[] = $uva_row[0];
+                                } // end while
+                            } // end if
+                            else {
+                                while ($uva_row = mysql_fetch_array($uva_alldbs)) {
+                                    $uva_db_key = md5($uva_row[0]);
+                                    if (!empty($uva_mydbs[$uva_db_key])) {
+                                        $dblist[]               = $uva_row[0];
+                                        $uva_mydbs[$uva_db_key] = '';
+                                    } else {
+                                        reset($uva_mydbs);
+                                        while (list($uva_matchpattern, $uva_value) = each($uva_mydbs)) {
+                                            // loic1: fixed bad regexp
+                                            // TODO: - slash before wildcards
+                                            //         may be itself slashed
+                                            //       - db names may contain
+                                            //         characters that are
+                                            //         regexp instructions
+                                            $uva_regex = ereg_replace('[^\]%', '.*', ereg_replace('[^\]_', '.{1}', $uva_value));
+                                            // Fixed db name matching
+                                            // 2000-08-28 -- Benjamin Gandon
+                                            if (ereg('^' . $uva_regex . '$', $uva_row[0])) {
+                                                $dblist[] = $uva_row[0];
+                                                break;
+                                            }
+                                        } // end while
+                                    } // end if ... else ....
+                                } // end while
+                            } // end else
                             mysql_free_result($uva_alldbs);
+                            unset($uva_mydbs);
                         } // end else
                     } // end if
                 } // end else
