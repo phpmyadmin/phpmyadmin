@@ -31,7 +31,7 @@ if ((!empty($submit_mult) && isset($selected_db))
                 . '&amp;convcharset=' . $convcharset
                 . '&amp;server=' . $server;
     $action     = 'db_stats.php3';
-    $show_query = 'y';
+    $show_query = '1';
     include('./mult_submits.inc.php3');
 }
 

@@ -1036,7 +1036,7 @@ if (!isset($submit_updProfile)) {
     echo '</h1>';
 }
 if (isset($message)) {
-    $show_query = 'y';
+    $show_query = '1';
     PMA_showMessage($message);
 }
 
@@ -1104,7 +1104,7 @@ else if (isset($delete) && $delete
 
 // Adds an user
 else if (isset($submit_addUser)) {
-    $show_query   = 'y';
+    $show_query   = '1';
     if (!isset($host) || $host == '') {
         $host     = '%';
     }
@@ -1159,7 +1159,7 @@ else if (isset($submit_addUser)) {
 
 // Updates the profile of an user
 else if (isset($submit_updProfile)) {
-    $show_query     = 'y';
+    $show_query     = '1';
     $edit           = TRUE;
     if (!isset($host) || $host == '') {
         $host     = '%';
@@ -1262,7 +1262,7 @@ else if (isset($submit_updProfile)) {
 
 // Changes the privileges of an user
 else if (isset($submit_chgPriv)) {
-    $show_query   = 'y';
+    $show_query   = '1';
     $edit         = TRUE;
     if (!isset($host) || $host == '') {
         $host     = '%';
@@ -1293,7 +1293,7 @@ else if (isset($submit_chgPriv)) {
 
 // Revoke/Grant privileges
 else if (isset($grants) && $grants) {
-    $show_query   = 'y';
+    $show_query   = '1';
     if (!isset($host) || $host == '') {
         $host     = '%';
     }

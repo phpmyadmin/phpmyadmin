@@ -11,7 +11,7 @@ $url_query .= '&amp;goto=db_details.php3';
 /**
  * Database work
  */
-if (isset($show_query) && $show_query == 'y') {
+if (isset($show_query) && $show_query == '1') {
     // This script has been called by read_dump.php3
     if (isset($sql_query_cpy)) {
         $query_to_display = $sql_query_cpy;
@@ -65,7 +65,7 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
     onfocus="if (typeof(document.layers) == 'undefined' || typeof(textarea_selected) == 'undefined') {textarea_selected = 1; this.form.elements['sql_query'].select();}">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>
 </textarea><br />
-        <input type="checkbox" name="show_query" value="y" id="checkbox_show_query" checked="checked" />&nbsp;
+        <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />&nbsp;
         <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label><br />
     </div>
 <?php

@@ -23,7 +23,7 @@ if (isset($db)) {
 if (isset($table)) {
     unset($table);
 }
-$show_query = 'y';
+$show_query = '1';
 require('./header.inc.php3');
 if (isset($message)) {
     PMA_showMessage($message);

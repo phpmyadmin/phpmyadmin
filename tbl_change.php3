@@ -22,10 +22,10 @@ if (!empty($message)) {
                        . '&amp;server=' . $server
                        . '&amp;db=' . urlencode($db)
                        . '&amp;table=' . urlencode($table)
-                       . '&amp;$show_query=y'
+                       . '&amp;$show_query=1'
                        . '&amp;sql_query=' . urlencode($disp_query);
     } else {
-        $show_query = 'y';
+        $show_query = '1';
     }
     if (isset($sql_query)) {
         $sql_query_cpy = $sql_query;
@@ -112,7 +112,7 @@ if (isset($primary_key)) {
                            . '&amp;server=' . $server
                            . '&amp;db=' . urlencode($db)
                            . '&amp;table=' . urlencode($table)
-                           . '&amp;$show_query=y'
+                           . '&amp;$show_query=1'
                            . '&amp;sql_query=' . urlencode($local_query);
         if (isset($sql_query)) {
             $sql_query_cpy = $sql_query;

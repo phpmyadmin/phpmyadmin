@@ -341,7 +341,7 @@ else {
             $error        = PMA_mysql_error();
             include('./header.inc.php3');
             $full_err_url = (ereg('^(db_details|tbl_properties)', $err_url))
-                          ? $err_url . '&amp;show_query=y&amp;sql_query=' . urlencode($sql_query)
+                          ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
             PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
         }

@@ -5,7 +5,7 @@
 /**
  * Defines the query to be displayed in the query textarea
  */
-if (isset($show_query) && $show_query == 'y') {
+if (isset($show_query) && $show_query == '1') {
     // This script has been called by read_dump.php3
     if (isset($sql_query_cpy)) {
         $query_to_display = $sql_query_cpy;
@@ -85,7 +85,7 @@ for ($i = 0 ; $i < $fields_cnt; $i++) {
     onfocus="if (typeof(document.layers) == 'undefined' || typeof(textarea_selected) == 'undefined') {textarea_selected = 1; this.form.elements['sql_query'].select();}">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE 1'); ?>
 </textarea><br />
-            <input type="checkbox" name="show_query" value="y" id="checkbox_show_query" checked="checked" />&nbsp;
+            <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />&nbsp;
                 <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label><br />
             </div>
 <?php
