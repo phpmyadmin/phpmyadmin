@@ -12,6 +12,8 @@ $Source$
     * lang/ukrainian.inc.php3 updates, thanks to Markijan Baran
     * lang/spanish.inc.php3, catala.inc.php3 updates, thanks to Xavier Navarro
     * lang/czech* updates, thanks to Michal Cihar
+    * lang/norwegian.inc.php3 updates, thanks to Sven-Erik Andersen 
+    * lang/swedish.inc.php3 updates, thanks to Björn T. Hallberg
 
 2002-06-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/thai.inc.php3: Updates, thanks again to Arthit Suriyawongkul.
