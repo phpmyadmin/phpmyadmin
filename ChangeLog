@@ -10,6 +10,7 @@ $Source$
 	* Table Maintence Features added in tbl_properties.php3
 	* Fixed create table "default" bug.
 	* Language tags for Table Types & Table Maintance
+	* Trailing slash on help path bug
 
 2001-05-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* grab_globals.inc.php3 handles now the $HTTP_POST_FILES array

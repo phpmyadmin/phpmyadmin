@@ -47,7 +47,8 @@ $cfgServerDefault = 1;                            // Default server  (0 = no def
 $cfgServer = '';
 unset($cfgServers[0]);
 
-$cfgManualBase = "http://www.mysql.com/documentation/mysql/bychapter/";
+// Be sure to include no trailing slash on the path
+$cfgManualBase = "http://www.mysql.com/documentation/mysql/bychapter";
 
 $cfgConfirm = true;
 $cfgPersistentConnections = false;
