@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-23 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.4.0 released
+
 2003-02-23 Olivier L. Müller  <om@omnis.ch>
     * docs.css: highlight FAQ questions in blue -> more readble.
 
