@@ -10,6 +10,9 @@ $Source$
 	* lib.inc.php3, lines 1674-1680: enclose all fields in cvs generated files
 	  if this option has been checked.
 	* main.php3: XHTML1.0 fixes.
+	* footer.inc.php3, lines 9-10; lib.inc.php3, line 162: the "</body>" html
+	  tag was lacking.
+	* db_stats.php3, lines 14-12: optimized a bit.
 
 2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3: fixed a syntax error (is_defined is not a function).
