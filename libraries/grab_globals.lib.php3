@@ -24,12 +24,6 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
         extract($HTTP_POST_VARS);
     } // end if
 
-    if (!empty($_SERVER) && isset($_SERVER['SCRIPT_NAME'])) {
-        $SCRIPT_NAME = $_SERVER['SCRIPT_NAME'];
-    } else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['SCRIPT_NAME'])) {
-        $SCRIPT_NAME = $HTTP_SERVER_VARS['SCRIPT_NAME'];
-    } // end if
-
     if (!empty($_FILES)) {
         while (list($name, $value) = each($_FILES)) {
             $$name = $value['tmp_name'];
