@@ -7,7 +7,7 @@
  * Prepares the work and runs some other scripts if required
  */
 if (!empty($submit_mult)
-    && ($submit_mult != $strWithSelected)
+    && ($submit_mult != $strWithChecked)
     && (!empty($selected_db) || !empty($selected_tbl) || !empty($selected_fld))) {
 
     if (!empty($selected_db)) {
