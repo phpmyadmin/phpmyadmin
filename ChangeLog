@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-28  Olivier Müller  <om@omnis.ch>
+	* db_stats.php3: fixed the sql query so that the script won't
+	  die, even if the result of one query (for example on invalid
+	  db name) fails.
+
 2001-08-27  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* lib.inc.php3, db_readdump.php3
 	  - removed expand_sql_query() as no longer needed

@@ -136,17 +136,18 @@ if ($num_dbs > 1) {
         $tot_idx     = 0;
         $tot_all     = 0;
         $local_query = 'SHOW TABLE STATUS FROM ' . $db_clean;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
-        if (mysql_num_rows($result)) {
-            while ($row = mysql_fetch_array($result)) {
-                $tot_data += $row['Data_length'];
-                $tot_idx  += $row['Index_length'];
-            } 
-           $tot_all            = $tot_data + $tot_idx;
-           $big_tot_all        += $tot_all;
-           $big_tot_idx        += $tot_idx;
-           $big_tot_data       += $tot_data;
-           $results_array[$db] = $tot_all;
+        if ($result = @mysql_query($local_query)) {
+            if (mysql_num_rows($result)) {
+                while ($row = mysql_fetch_array($result)) {
+                    $tot_data += $row['Data_length'];
+                    $tot_idx  += $row['Index_length'];
+                } 
+                $tot_all            = $tot_data + $tot_idx;
+                $big_tot_all        += $tot_all;
+                $big_tot_idx        += $tot_idx;
+                $big_tot_data       += $tot_data;
+                $results_array[$db] = $tot_all;
+            }
         }
 
         list($tot_data_format,$unit_data) = format_byte_down($tot_data,3,1);
@@ -154,7 +155,7 @@ if ($num_dbs > 1) {
         list($tot_all_format,$unit_all)   = format_byte_down($tot_all,3,1);
 
         echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
-        echo '        <td>&nbsp;' . urlencode($db) . '&nbsp;</td>' . "\n";
+        echo '        <td>&nbsp;' . htmlentities($db) . '&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $num_tables . '&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</td>' . "\n";
@@ -168,7 +169,7 @@ if ($num_dbs > 1) {
     list($tot_all_format,$unit_all)   = format_byte_down($big_tot_all,3,1);
 
     echo '    <tr>' . "\n";
-    echo '        <th>&nbsp;' . $strSum . '&nbsp;</th>' . "\n";
+    echo '        <th>&nbsp;' . $strSum . ':&nbsp;' . $num_dbs . '</th>' . "\n";
     echo '        <th align="right">&nbsp;' . $tot_tables . '&nbsp;</th>' . "\n";
     echo '        <th align="right">&nbsp;' . $tot_data_format . ' ' . $unit_data . '&nbsp;</th>' . "\n";
     echo '        <th align="right">&nbsp;' . $tot_idx_format . ' ' . $unit_idx . '&nbsp;</th>' . "\n";
