@@ -56,7 +56,7 @@ $strColumnEmpty = "Les noms de colonnes sont vides";
 $strColumnNames = "Nom des colonnes";
 $strCompleteInserts = "Insertions complètes";
 $strConfirm = "Veuillez confirmer";
-$strCopyTable = "<b>Copier</b> la table vers:";
+$strCopyTable = "<b>Copier</b> la table vers";
 $strCopyTableOK = "La table \$table a été copiée vers \$new_name.";
 $strCreate = "Créer";
 $strCreateNewDatabase = "Créer une base de données";
@@ -108,7 +108,7 @@ $strFunction = "Fonction";
 $strGenTime = "Généré le ";
 $strGo = "Exécuter";
 $strGrants = "Autres privilèges";
-$strGzip = "Gzip";
+$strGzip = "\"gzippé\"";
 
 $strHasBeenAltered = "a été modifié.";
 $strHasBeenCreated = "a été créé.";

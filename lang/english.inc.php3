@@ -106,7 +106,7 @@ $strFunction = "Function";
 $strGenTime = "Generation Time";
 $strGo = "Go";
 $strGrants = "Grants";
-$strGzip = "Gzip";
+$strGzip = "\"gzipped\"";
 
 $strHasBeenAltered = "has been altered.";
 $strHasBeenCreated = "has been created.";
