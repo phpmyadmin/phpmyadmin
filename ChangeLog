@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2001-10-28  Loïc Chapeaux  <lolo@phpheaven.net>
+	* main.php3, line 342: cosmetic change.
+	* lang/bulgarian.inc.php3, line 304: a ';' was missig at EOL.
+
 2001-10-27  Loïc Chapeaux  <lolo@phpheaven.net>
 	* read_dump.php3, lines 286-288; lang/*: "there is no query" were displayed
 	  when deleting a bookmark.
