@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-08 Michal Čihař  <michal@cihar.com>
+    * config.inc.php, lang/*, libraries/common.lib.php,
+      libraries/config_import.lib.php, libraries/display_export.lib.php,
+      libraries/export/sql.php: Add FOREIGN_KEY_CHECKS=0 to export (RFE
+      #966038).
+
 2004-06-08 Alexander M. Turek  <me@derrabus.de>
     * libraries/common.lib.php: backwards compatibility.
     * config.inc.php: typo.

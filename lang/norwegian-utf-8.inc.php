@@ -749,4 +749,5 @@ $strZip = 'Komprimert (zip)';
 
 $strSpanish = 'Spanish';  //to translate
 $strStrucNativeExcel = 'Native MS Excel data';  //to translate
+$strDisableForeignChecks = 'Disable foreign key checks';  //to translate
 ?>

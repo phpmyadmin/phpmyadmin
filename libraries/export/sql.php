@@ -57,6 +57,10 @@ function PMA_exportFooter() {
 
     $foot = '';
     
+    if (isset($GLOBALS['disable_fk'])) {
+        $foot .=  $crlf . 'SET FOREIGN_KEY_CHECKS=1;' . $crlf;
+    }
+    
     if (isset($GLOBALS['use_transaction'])) {
         $foot .=  $crlf . 'COMMIT;' . $crlf;
     }
@@ -95,11 +99,15 @@ function PMA_exportHeader() {
                . $GLOBALS['comment_marker'] . $crlf;
     }
     
+    if (isset($GLOBALS['disable_fk'])) {
+        $head .=  $crlf . 'SET FOREIGN_KEY_CHECKS=0;' . $crlf;
+    }
+        
     if (isset($GLOBALS['use_transaction'])) {
         $head .=  $crlf .'SET AUTOCOMMIT=0;' . $crlf
                 . 'START TRANSACTION;' . $crlf . $crlf;
     }
-        
+    
     return PMA_exportOutputHandler($head);
 }
 
@@ -234,7 +242,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
         $tmpres        = PMA_DBI_fetch_row($result);
         // Fix for case problems with winwin, thanks to
-        // Pawe≥ SzczepaÒski <pauluz at users.sourceforge.net>
+        // Pawe≈Ç Szczepa≈Ñski <pauluz at users.sourceforge.net>
         $pos           = strpos($tmpres[1], ' (');
 
         // Fix a problem with older versions of mysql

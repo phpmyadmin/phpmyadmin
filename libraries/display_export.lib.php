@@ -167,6 +167,9 @@ if (isset($sql_query)) {
 
                 <input type="checkbox" name="use_transaction" value="yes" id="checkbox_use_transaction" <?php PMA_exportCheckboxCheck('sql_use_transaction'); ?> />
                 <label for="checkbox_use_transaction"><?php echo $strEncloseInTransaction; ?></label><br />
+                
+                <input type="checkbox" name="disable_fk" value="yes" id="checkbox_disable_fk" <?php PMA_exportCheckboxCheck('sql_disable_fk'); ?> />
+                <label for="checkbox_disable_fk"><?php echo $strDisableForeignChecks; ?></label><br />
 <?php
 if ($export_type == 'server') {
 ?>

@@ -207,6 +207,7 @@ $strDeleting = 'Odstraòuji %s';
 $strDescending = 'Sestupnì';
 $strDescription = 'Popis';
 $strDictionary = 'slovník';
+$strDisableForeignChecks = 'Vypnout kontrolu cizích klíèù';
 $strDisabled = 'Vypnuto';
 $strDisplay = 'Zobrazit';
 $strDisplayFeat = 'Zobrazení funkcí';

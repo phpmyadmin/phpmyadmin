@@ -750,4 +750,5 @@ $strSQPBugSyntaxError = 'Syntax error';  //to translate
 
 $strSpanish = 'Spanish';  //to translate
 $strStrucNativeExcel = 'Native MS Excel data';  //to translate
+$strDisableForeignChecks = 'Disable foreign key checks';  //to translate
 ?>

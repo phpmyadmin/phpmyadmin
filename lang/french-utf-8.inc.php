@@ -743,4 +743,5 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
 $strStrucNativeExcel = 'Native MS Excel data';  //to translate
+$strDisableForeignChecks = 'Disable foreign key checks';  //to translate
 ?>
