@@ -201,7 +201,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
 <tr bgcolor="<?php echo $cfgThBgcolor; ?>">
     <td colspan="7" align="center">
         <?php echo $strSum . "\n"; ?>&nbsp;&nbsp;
-        <b>(<?php echo $num_tables . ' ' . $strTables; ?>)</b>
+        <b>( <?php echo $num_tables . ' ' . $strTables; ?> )</b>
     </td>
     <td align="right" nowrap="nowrap">
         <?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
