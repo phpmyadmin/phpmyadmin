@@ -258,6 +258,7 @@ $strNotValidNumber = ' není platné èíslo øádku!';
 $strNull = 'Nulový';
 $strNumSearchResultsInTable = '%s odpovídající(ch) záznam(ù) v&nbsp;tabulce <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Celkem:</b> <i>%s</i> odpovídající(ch) záznam(ù)';
+$strNumTables = 'Tabulek';
 
 $strOK = 'OK';
 $strOftenQuotation = 'Èasto uvozující znaky. Volitelnì znamená, že pouze položky u kterých je to nutné (obvykle typu CHAR a VARCHAR) jsou uzavøeny do uzavíracích znakù.';
@@ -390,7 +391,7 @@ $strSubmit = 'Odešli';
 $strSuccess = 'Váš SQL-dotaz byl úspìšnì vykonán';
 $strSum = 'Celkem';
 
-$strTable = 'Tabulka ';
+$strTable = 'Tabulka';
 $strTableComments = 'Komentáøe k tabulce';
 $strTableEmpty = 'Jméno tabulky je prázdné!';
 $strTableHasBeenDropped = 'Tabulka %s byla odstranìna';
@@ -405,6 +406,7 @@ $strTheContent = 'Obsah souboru byl vložen';
 $strTheContents = 'Obsah souboru pøepíše obsah zvolené tabulky v tìch øádcích, kde je stejný primární nebo unikátní klíè.';
 $strTheTerminator = 'Sloupce jsou oddìleny tímto znakem.';
 $strTotal = 'celkem';
+$strTotalUC = 'Celkem';
 $strType = 'Typ';
 
 $strUncheckAll = 'Odškrtnout vše';
@@ -437,8 +439,6 @@ $strWrongUser = 'Špatné uživatelské jméno/heslo. Pøístup odepøen.';
 $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
-
 // To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
+
 ?>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-29 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech*.php3: Updated translation.
+
 2002-11-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/italian.inc.php3: Updates, thanks again to Pietro Danesi (danone).
     * lang/chinese_*.inc.php3: Updates, thanks again to Siu Sun (siusun).
