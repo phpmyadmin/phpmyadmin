@@ -196,7 +196,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             9 => '||'
         );
         $allpunct_list_pair_size = 10; //count($allpunct_list_pair);
-        $quote_list              = "\'\"\`";
+        $quote_list              = '\'"`';
         $arraysize               = 0;
 
         while ($count2 < $len) {
@@ -382,7 +382,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $count2--;
                         $punct_data = substr($sql, $count1, $count2 - $count1);
                     } else {
-                        $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . ($count1+1) . "\n" 
+                        $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . ($count1+1) . "\n"
                                   . 'STR: ' . $punct_data;
                         PMA_SQP_throwError($debugstr, $sql);
                         return $sql;
@@ -418,7 +418,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             $is_float_digit = TRUE;
                             continue;
                         } else {
-                            $debugstr = $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . ($count1+1) . "\n" 
+                            $debugstr = $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . ($count1+1) . "\n"
                                       . 'STR: ' . substr($sql, $count1, $count2 - $count1);
                             PMA_SQP_throwError($debugstr, $sql);
                             return $sql;
@@ -485,8 +485,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
         if ($arraysize > 0) {
             $t_next     = $sql_array[0]['type'];
-            $t_prev     = NULL;
-            $t_cur      = NULL;
+            $t_prev     = '';
+            $t_cur      = '';
         }
 
         for ($i = 0; $i < $arraysize; $i++) {
@@ -495,7 +495,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             if (($i + 1) < $arraysize) {
                 $t_next = $sql_array[$i + 1]['type'];
             } else {
-                $t_next = NULL;
+                $t_next = '';
             }
             if ($t_cur == 'alpha') {
                 $t_suffix     = '_identifier';
@@ -702,9 +702,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         $arraysize = $arr['len'];
         $typearr   = array();
         if ($arraysize >= 0) {
-            $typearr[0] = NULL;
-            $typearr[1] = NULL;
-            $typearr[2] = NULL;
+            $typearr[0] = '';
+            $typearr[1] = '';
+            $typearr[2] = '';
             $typearr[3] = $arr[0]['type'];
         }
 
@@ -724,7 +724,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $typearr[4] = $arr[$i + 1]['type'];
             } else {
                 //array_push($typearr, NULL);
-                $typearr[4] = NULL;
+                $typearr[4] = '';
             }
 
             for ($j=0; $j<4; $j++) {

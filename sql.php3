@@ -562,7 +562,7 @@ else {
                            . '&amp;disp_direction=' . $disp_direction
                            . '&amp;repeat_cells=' . $repeat_cells
                            . '&amp;printview=1'
-                           . (($dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
+                           . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
                            . '&amp;sql_query=' . urlencode($sql_query);
                 echo '    <!-- Print view -->' . "\n"
                    . '    <a href="sql.php3' . $url_query . '" target="print_view">' . $strPrintView . '</a>' . "\n";
