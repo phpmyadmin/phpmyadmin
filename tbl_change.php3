@@ -563,7 +563,6 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
         // Upload choice
         // (displayed whatever value the ProtectBinary has)
-        // TODO: check if uploads are allowed by PHP
 
         if ($is_upload) {
             echo '<td><input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" id="field_' . $i . '_3" />';
