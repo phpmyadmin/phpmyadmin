@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/romanian.inc.php3 updates thanks to Valics Lehel
+
 2002-05-05 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/thai.inc.php3: completed thanks to Arthit Suriyawongkul &
       Warit Wanasathian.
