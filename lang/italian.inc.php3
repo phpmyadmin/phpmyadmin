@@ -79,6 +79,7 @@ $strCheckTable = 'Controlla tabella';
 $strChoosePage = 'Prego scegliere una Page da modificare';
 $strColumn = 'Colonna';
 $strColumnNames = 'Nomi delle colonne';
+$strComments = 'Commenti';
 $strCompleteInserts = 'Inserimenti completi';
 $strConfigFileError = 'phpMyAdmin non riesce a leggere il file di configurazione!<br />Questo può accadere se il php trova un parse error in esso oppure il php non trova il file.<br />Richiamate il file di configurazione direttamente utilizzando il link sotto e leggete il/i messaggio/i di errore del php che ricevete. Nella maggior parte dei casi ci sono un apostrofo o una virgoletta mancanti.<br />Se ricevete una pagina bianca, allora è tutto a posto.';
 $strConfigureTableCoord = 'Prego, configurare le coordinate per la tabella %s';
@@ -405,5 +406,4 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
-$strComments = 'Comments';  //to translate
 ?>

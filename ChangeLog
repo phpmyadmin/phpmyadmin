@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2002-06-17 Robin Johnson  <robbat2@users.sourceforge.net>
-    * lang/finnish.inc.php3 updates, thanks to Visa Kopu
+    * lang/finnish.inc.php3 updates, thanks to Visa Kopu (#569317)
+    * lang/italian.inc.php3 update, thanks to Pietro Danesi (#569424)
 
 2002-06-17 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: the I option in tar for bzip output
