@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-14  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/italian.inc.php3 updates, thanks to danone at users.sf.net
+
 2002-01-12  Marc Delisle  <lem9@users.sourceforge.net>
         * tbl_change.php3, bug 501773 (null checkbox), idea thanks to
           rabus at users.sourceforge.net

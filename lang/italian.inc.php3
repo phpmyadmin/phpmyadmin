@@ -271,6 +271,7 @@ $strRunSQLQuery = 'Esegui la/e query SQL sul database %s';
 
 $strSave = 'Salva';
 $strSelect = 'Seleziona';
+$strSelectAll = 'Seleziona Tutto';
 $strSelectFields = 'Seleziona campi (almeno uno):';
 $strSelectNumRows = 'nella query';
 $strSend = 'Salva con nome...';
@@ -320,6 +321,7 @@ $strType = 'Tipo';
 
 $strUncheckAll = 'Deseleziona tutti';
 $strUnique = 'Unica';
+$strUnselectAll = 'Deseleziona Tutto';
 $strUpdatePrivMessage = 'Hai aggiornato i permessi per %s.';
 $strUpdateProfile = 'Aggiorna profilo:';
 $strUpdateProfileMessage = 'Il profilo &egrave; stato aggiornato.';
@@ -347,6 +349,5 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>
+
