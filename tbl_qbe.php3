@@ -3,7 +3,7 @@
 
 
 /**
- * Gets the values of the variables posted or sent to this script and displays
+ * Get the values of the variables posted or sent to this script and display
  * the headers
  */
 require('./libraries/grab_globals.lib.php3');
@@ -13,7 +13,7 @@ require('./libraries/relation.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
 
 /**
- * A query has been submitted -> executes it, else displays the headers
+ * A query has been submitted -> execute it, else display the headers
  */
 if (isset($submit_sql) && eregi('^SELECT',$encoded_sql_query)) {
     $goto      = 'db_details.php3';
@@ -25,14 +25,16 @@ if (isset($submit_sql) && eregi('^SELECT',$encoded_sql_query)) {
     include('./sql.php3');
     exit();
 } else {
-    include('./header.inc.php3');
+    require('./db_details_common.php3');
+    $url_query .= '&amp;goto=tbl_qbe.php3';
+    require('./db_details_db_info.php3');
 }
 
 if(isset($submit_sql) && !eregi('^SELECT',$encoded_sql_query)) {
     echo '<p class="warning">' . $strHaveToShow . '</p>';
 }
 /**
- * Initializes some variables
+ * Initialize some variables
  */
 if (empty($Columns)) {
     $Columns  = 3;  // Initial number of columns
