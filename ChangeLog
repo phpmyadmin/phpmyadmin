@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-29 Garvin Hicking <me@supergarv.de>
+    * index.php3: Add frameborder to allow resizing. Introduces a 1px
+      bar, but cannot be solved. Note that this is only neccessary
+      for Mozilla, IE5/6 allow resizing with a "0" frameborder
+    * footer.inc.php3: Only update queryframes DB/Table info when
+      no error happened in a query.
+
 2003-05-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html: Typo.
 

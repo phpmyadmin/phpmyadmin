@@ -23,11 +23,17 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     }
     ?>
     
+    <?php
+    if (!isset($error_message) || $error_message == '') {
+    ?>
     if (top.frames.queryframe && top.frames.queryframe.document && top.frames.queryframe.document.queryframeform) {
         top.frames.queryframe.document.queryframeform.db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";
         top.frames.queryframe.document.queryframeform.table.value = "<?php echo (isset($table) ? addslashes($table) : ''); ?>";
     }
-
+    <?php
+    }
+    ?>
+    
     function reload_querywindow () {
         if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
             <?php echo ($cfg['QueryFrameDebug'] ? 'document.writeln("<a href=\'#\' onClick=\'top.frames.queryframe.querywindow.focus(); return false;\'>Query Window</a> can be updated.<br>");' : ''); ?>

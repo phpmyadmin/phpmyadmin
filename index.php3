@@ -69,7 +69,7 @@ if ($cfg['QueryFrame']) {
     if ($cfg['QueryFrameJS']) {
         echo '<script type="text/javascript">' . "\n";
         echo '<!--' . "\n";
-        echo '    document.writeln(\'<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" framespacing="0" frameborder="0" border="0">\');' . "\n";
+        echo '    document.writeln(\'<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0">\');' . "\n";
         echo '    document.writeln(\'    <frameset rows="*, 50" framespacing="0" frameborder="0" border="0">\');' . "\n";
         echo '    document.writeln(\'        <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="nav" frameborder="0" />\');' . "\n";
         echo '    document.writeln(\'        <frame src="queryframe.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="queryframe" frameborder="0" />\');' . "\n";
@@ -87,7 +87,7 @@ if ($cfg['QueryFrame']) {
         echo '<noscript>' . "\n";
     }
 
-    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*">' . "\n";
+    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*"  border="1" frameborder="1" framespacing="0">' . "\n";
     echo '    <frameset rows="*, 50" framespacing="0" frameborder="0" border="0">' . "\n";
     echo '        <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />' . "\n";
     echo '        <frame src="queryframe.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="queryframe" frameborder="0" />' . "\n";
@@ -96,7 +96,7 @@ if ($cfg['QueryFrame']) {
 
 } else {
     
-    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*">' . "\n";
+    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0">' . "\n";
     echo '    <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />' . "\n";
     echo '    <frame src="' . (empty($db) ? 'main.php3' : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="1" />' . "\n";
 
