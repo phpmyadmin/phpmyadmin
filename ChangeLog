@@ -25,12 +25,12 @@ $Source$
       Arthit Suriyawongkul (bacteria).
 
 2002-08-07 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/afrikaans update, thanks to Andreas Pauley
+    * lang/afrikaans: update, thanks to Andreas Pauley
     * lang/turkish: update, thanks to Bora Alioglu
     * lang/polish: update, thanks to Jakub Wilk
-    * lang/spanish update, thanks to Daniel Hinostroza
+    * lang/spanish: update, thanks to Daniel Hinostroza
     * lang/galician: update, thanks to Xosé Calvo
-    * lang/hungarian update, thanks to Peter Bakondy
+    * lang/hungarian: update, thanks to Peter Bakondy
 
 2002-08-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/turkish-*.inc.php3: Updates, thanks again to
