@@ -49,7 +49,9 @@ if (isset($url_err)) {
 }
 // Resets tables defined in the configuration file
 reset($fields);
-reset($funcs);
+if (isset($funcs)) {
+    reset($funcs);
+}
 // Misc
 if (get_magic_quotes_gpc()) {
     $submit_type = stripslashes($submit_type);

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-01  Marc Delisle  <lem9@users.sourceforge.net>
+        * tbl_replace.php3, bug 497919: $funcs was being reset()
+          but was not defined (for example, only 1 field of type 'set')
+
 2001-12-29  Marc Delisle  <lem9@users.sourceforge.net>
         * tbl_change.php3, tbl_replace.php3, Documentation.html:
           feature 442855: checkboxes for null values, 
