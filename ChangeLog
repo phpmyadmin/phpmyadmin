@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-01 Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/defines*:
+        - Add another set of defines to make the original
+          version datas available as strings.
+
 2002-08-02 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/portuguese: update, thanks to Lopo Pizarro
     * lang/catalan: update, thanks to Xavier Navarro

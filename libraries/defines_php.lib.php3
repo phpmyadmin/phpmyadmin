@@ -32,6 +32,7 @@ if (!defined('PMA_PHP_INT_VERSION')) {
     } else {
         define('PMA_PHP_INT_VERSION', 0);
     }
+    define('PMA_PHP_STR_VERSION', phpversion());
 }
 
 // Whether the os php is running on is windows or not
