@@ -92,7 +92,7 @@ while (list($name, $value) = each($serverProcesses)) {
         <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo $value['Command']; ?>&nbsp;</th>
         <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>" align="right">&nbsp;<?php echo $value['Time']; ?>&nbsp;</th>
         <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo (empty($value['State']) ? '---' : $value['State']); ?>&nbsp;</th>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo PMA_SQP_formatHtml(PMA_SQP_parse($value['Info'])); ?>&nbsp;</th>
+        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo (empty($value['Info']) ? '---' : PMA_SQP_formatHtml(PMA_SQP_parse($value['Info']))); ?>&nbsp;</th>
 <?php
     $useBgcolorOne = !$useBgcolorOne;
 }
