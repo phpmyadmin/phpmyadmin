@@ -3,7 +3,7 @@
 
 
 require("./grab_globals.inc.php3");
- 
+
 require("./lib.inc.php3");
 
 if(isset($goto) && $goto == "sql.php3")
@@ -35,8 +35,10 @@ if($is_drop_sql_query && !isset($btnDrop)) {
   } else {
     $stripped_sql_query = $sql_query;
   }
-  // loic1: fix bugs when the query contains js instructions and html tags
-  $stripped_sql_query = str_replace('\\"', '&quot;', $stripped_sql_query);
+  // loic1: fix bugs when the query contains js instructions and html tags or
+  // entities
+  $stripped_sql_query = str_replace('&', '&amp;', $stripped_sql_query);
+  $stripped_sql_query = ereg_replace('(\\")|(")', '&quot;', $stripped_sql_query);
   $stripped_sql_query = str_replace('<', '&lt;', $stripped_sql_query);
   $stripped_sql_query = str_replace('>', '&gt;', $stripped_sql_query);
 
@@ -70,7 +72,7 @@ else {
   }
     // loic1: A table have to be created -> left frame should be reloaded
     if (!empty($reload) && eregi("^CREATE TABLE (.*)", $sql_query))
-        $reload = true;
+        $reload = 'true';
     if(isset($sessionMaxRows))
         $cfgMaxRows = $sessionMaxRows;
     $sql_limit = (isset($pos) && eregi("^SELECT", $sql_query) && !eregi("LIMIT[ 0-9,]+$", $sql_query)) ? " LIMIT $pos, $cfgMaxRows" : '';
@@ -78,20 +80,23 @@ else {
 
     $result = mysql_query($sql_query.$sql_order.$sql_limit);
 
-    // the same SELECT without LIMIT
-    if (eregi("^SELECT", $sql_query))
-    {
+    // Count the total number of rows for the same 'SELECT' query without the
+    // 'LIMIT' clause that may have been programatically added
+    if (empty($sql_limit)) {
+        $SelectNumRows = @mysql_num_rows($result);
+    }
+    else if (eregi("^SELECT", $sql_query)) {
         $array = split(' from | FROM ',$sql_query,2); //read only the from-part of the query
         if (!empty($array[1])) {
 		    $count_query       = "select count(*) as count from $array[1]"; //and make a count(*) to count the entries
 		    $OPresult          = mysql_query($count_query);
 		    if ($OPresult) {
-		        $SelectNumRows = mysql_result($OPresult,'0','count');
+		        $SelectNumRows = mysql_result($OPresult, 0, 'count');
 		    }
 		} else {
             $SelectNumRows     = 0; 
         }
-    }
+    } // end rows total count
 
     if(!$result)
     {
