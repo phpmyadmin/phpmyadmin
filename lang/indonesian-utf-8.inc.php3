@@ -566,7 +566,6 @@ $strTotalUC = 'Jumlah';
 $strTraffic = 'Traffic';
 $strTransformation_image_jpeg__inline = 'Tampilkan sebuah Thumbnail yang bisa diklik; pilihan: lebar, tinggi dalam piksel (rasio asli dipertahankan)';
 $strTransformation_image_jpeg__link = 'Tampilkan link ke gambar ini (direct blob download, i.e.).';
-$strTransformation_image_jpeg__plain = 'Mengambil file gambar dan tampilkan link-nya. Argumen pilihan utama adalah deretan pembuka seperti http://...';
 $strTransformation_image_png__inline = 'Lihat image/jpeg: inline';
 $strTransformation_text_plain__dateformat = 'Menggunakan format waktu setempat Anda untuk field TIME, TIMESTAMP atau DATETIME. Pilihan pertama adalah Offset (dalam jam) yang akan ditambahkan pada Timestamp (Default: 0). Pilihan kedua adalah Dateformat yang berbeda sesuai dengan parameter yang tersedia pada strftime() dari PHP.';
 $strTransformation_text_plain__external = 'HANYA UNTUK LINUX: Luncurkan aplikasi eksternal dan mengisi data Field dengan cara standar. Menghasilkan output standar dari aplikasi yang bersangkutan. Default-nya adalah Tidy untuk mempercantik kode HTML cetakan. Dengan alasan pengamanan sistem, Anda perlu meng-edit file libraries/transformations/text_plain__external.inc.php dan menambahkan Tools yang akan diizinkan secara manual. Pilihan pertama adalah jumlah dari program yang ingin digunakan oleh Anda dan pilihan kedua adalah parameter untuk program-program tersebut. Parameter ketiga, bila diset ke 1 akan mengubah output dengan menggunakan htmlspecialchars() (Default adalah 1). Parameter keempat, bila diset ke 1 akan menambah sebuah NOWRAP pada Content Cell dengan hasil output yang akan ditampilkan tanpa keperluan untuk format ulang (Default 1)';
@@ -621,4 +620,5 @@ $strZip = '"Dikompress dengan Zip"';
 // To translate
 
 $strAutodetect = 'Autodetect';  //to translate
+$strTransformation_text_plain__imagelink = 'Displays a link to an external image; the field contains the filename; first option is a prefix like "http://domain.com/"';  //to translate
 ?>

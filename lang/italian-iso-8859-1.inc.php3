@@ -565,7 +565,6 @@ $strTotalUC = 'Totale';
 $strTraffic = 'Traffico';
 $strTransformation_image_jpeg__inline = 'Mostra un thumbnalil cliccabile; opzioni: larghezza,altezza in pixel (mantiere la proporzione iniziale)';  
 $strTransformation_image_jpeg__link = 'Mostra un link a questa immagine (download blob diretto, i.e.).';
-$strTransformation_image_jpeg__plain = 'Prende un file immagine e restituisce un link ad esso. Il primo argomento delle opzioni è una possibile stringa prepended come http:
 $strTransformation_image_png__inline = 'Vedi immagine/jpeg: inline';  
 $strTransformation_text_plain__formatted = 'Preserva l\'originale formattazione del campo. Nessun Escaping viene applicato.';
 $strTransformation_text_plain__unformatted = 'Mostra il codice HTML come entità HTML. Nessuna formattazione HTML viene applicata.';
@@ -629,4 +628,5 @@ $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external appl
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 
 $strAutodetect = 'Autodetect';  //to translate
+$strTransformation_text_plain__imagelink = 'Displays a link to an external image; the field contains the filename; first option is a prefix like "http://domain.com/"';  //to translate
 ?>

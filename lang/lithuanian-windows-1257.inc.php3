@@ -561,7 +561,6 @@ $strTotalUC = 'Viso';
 $strTraffic = 'Apkrovimas';
 $strTransformation_image_jpeg__inline = 'Parodo aktyvø maþiná; nustatymai: plotis,aukðtis pikseliais (iðsaugo originalø santyká)';  
 $strTransformation_image_jpeg__link = 'Iðvedama nuoroda á ðá paveikslëlá (tiesioginis blob atsisiuntimas ir pan.).';
-$strTransformation_image_jpeg__plain = 'Pasiima paveiksliukà ir iðveda nuorodà á já. Pirmasis nustatymø argumentas yra galimas fiksuotas þodis kaip http:
 $strTransformation_image_png__inline = 'Þr. image/jpeg: vidø';  
 $strTransformation_text_plain__formatted = 'Iðsaugo originalø lauko apipavidalinimà. Nevykdomas iðvengimas.';
 $strTransformation_text_plain__unformatted = 'Rodo HTML kodà kaip HTML esybes. Nerodomas HTML apipavidalinimas.';
@@ -623,4 +622,5 @@ $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external appl
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 
 $strAutodetect = 'Autodetect';  //to translate
+$strTransformation_text_plain__imagelink = 'Displays a link to an external image; the field contains the filename; first option is a prefix like "http://domain.com/"';  //to translate
 ?>
