@@ -15,10 +15,10 @@ $Source$
       bug #990724).
     * libraries/export/sql.php: Fix export of '0' strings (bug #990398).
 
-
 2004-07-15 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug 990959, undefined index for DATETIME
       field (problem in UTF-8 only!)
+    * main.php: bug 984136: other fix for RTL and logo
 
 2004-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php, libraries/common.lib.php: bug 989581 and left panel

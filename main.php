@@ -134,8 +134,14 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
         </td>
         <?php
         if (@file_exists($pmaThemeImage . 'logo_right.png')) {
-            echo '        <td align="right" valign="top">' . "\n";
-            echo '            <img src="' . $pmaThemeImage . 'logo_right.png" alt="phpMyAdmin - Logo" border="0" hspace="5" vspace="5" align="right" />' . "\n";
+            // td and img seems not to obey the general dir= of the html tag
+            if ($GLOBALS['text_dir'] == 'ltr') {
+               $tmp_align = 'right';
+            } else {
+               $tmp_align = 'left';
+            }
+            echo '        <td align="' . $tmp_align . '" valign="top">' . "\n";
+            echo '            <img src="' . $pmaThemeImage . 'logo_right.png" alt="phpMyAdmin - Logo" border="0" hspace="5" vspace="5" align="' . $tmp_align . '" />' . "\n";
             echo '        </td>';
         }
         ?>
