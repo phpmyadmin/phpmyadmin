@@ -260,6 +260,7 @@ $strNotValidNumber = ' non è una riga valida!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s corrisponde/ono nella tabella <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totale:</b> <i>%s</i> corrispondenza/e';
+$strNumTables = 'Tabelle';
 
 $strOK = 'OK';
 $strOftenQuotation = 'In genere da doppi apici (virgolette). OPZIONALE indica che solo i campi <I>char</I> e <I>varchar</I> devono essere delimitati dal carattere indicato.';
@@ -407,6 +408,7 @@ $strTheContent = 'Il contenuto del file è stato inserito.';
 $strTheContents = 'Il contenuto del file sostituisce le righe della tabella con la stessa chiave primaria o chiave unica.';
 $strTheTerminator = 'Il carattere terminatore dei campi.';
 $strTotal = 'Totali';
+$strTotalUC = 'Totale';
 $strType = 'Tipo';
 
 $strUncheckAll = 'Deseleziona tutti';
@@ -439,9 +441,5 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 $strZip = '"compresso con zip"';
-
-// To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
 
 ?>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-29 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/italian.inc.php3: Updates, thanks again to Pietro Danesi (danone).
+
 2002-11-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, tbl_select.php3, tbl_properties_operations.php3:
       bug 645173 wrong back link for inserts
