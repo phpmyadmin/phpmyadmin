@@ -1,7 +1,6 @@
 <?php
 /* $Id$*/
 
-
 /**
  * Gets some core libraries
  */
@@ -84,7 +83,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
                     if ($parts[1] == 'USAGE') {
                         $priv = '';
                     } else {
-                        $priv = ereg_replace('REFERENCE([^S]|$)', 'REFERENCES', trim($parts[1]));
+                        $priv = ereg_replace('REFERENCE([^S]|$)', 'REFERENCES\\1', trim($parts[1]));
                     }
                     $db       = $parts[2];
                     $table    = trim($parts[3]);
