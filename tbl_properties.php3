@@ -30,6 +30,21 @@ if (isset($show_query) && $show_query == 'y') {
 }
 unset($sql_query);
 
+/*
+ * Get the list and number of fields
+ */
+$local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+$result      = @PMA_mysql_query($local_query);
+if (!$result) {
+    PMA_mysqlDie('', $local_query, '', $err_url);
+}
+else {
+    $fields_cnt        = mysql_num_rows($result);
+    while ($row = PMA_mysql_fetch_array($result)) {
+        $fields_list[] = $row['Field'];
+    } // end while
+    mysql_free_result($result);
+}
 
 /**
  * Work on the table
@@ -63,7 +78,16 @@ require('./tbl_properties_table_info.php3');
             <input type="hidden" name="goto" value="tbl_properties.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
-            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocuShort('S/E/SELECT.html'); ?>&nbsp;:<br />
+            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocuShort('S/E/SELECT.html') . '&nbsp;&nbsp;&nbsp;' . $strFields . ':'; ?>
+            <select name="dummy[]" size="1">
+        <?php
+        echo "\n";
+        for ($i = 0 ; $i < $fields_cnt; $i++) {
+            echo '        <option value="' . urlencode($fields_list[$i]) . '" se
+lected="selected">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+        }
+        ?>
+    </select><br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" wrap="virtual"
     onfocus="if (typeof(document.layers) == 'undefined' || typeof(textarea_selected) == 'undefined') {textarea_selected = 1; this.form.elements['sql_query'].select();}">
