@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-07  Armel Fauveau <armel.fauveau@globalis-ms.com>
+	* add gzip dump feature (Feature #420812)
+
 2001-07-07  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug 439340: do not backquote in grant/revoke, will have to find
 	  the proper way to protect special db names
