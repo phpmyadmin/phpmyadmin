@@ -268,31 +268,21 @@ function PMA_getRelationsParam($verbose = FALSE)
  *
  * @global  array    the list of relations settings
  * @global  string   the URL of the page to show in case of error
- * @global  string   the connection charset, as defined in
- *                   libraries/database_interface.lib.php
  *
  * @access  public
  *
  * @author  Mike Beck <mikebeck@users.sourceforge.net> and Marc Delisle
  */
 function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
-    global $cfgRelation, $err_url_0, $charset_connection;
+    global $cfgRelation, $err_url_0;
 
     if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
         $rel_query          = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
-                            . ' FROM ' . PMA_backquote($cfgRelation['relation']);
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            $rel_query     .= ' WHERE CONVERT(master_db USING ' . $charset_connection . ') =  \'' . PMA_sqlAddslashes($db) . '\' '
-                            . ' AND   CONVERT(master_table USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($table) . '\' ';
-            if (!empty($column)) {
-                $rel_query .= ' AND   CONVERT(master_field USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($column) . '\'';
-            }
-        } else {
-            $rel_query     .= ' WHERE master_db =  \'' . PMA_sqlAddslashes($db) . '\' '
+                            . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                            . ' WHERE master_db =  \'' . PMA_sqlAddslashes($db) . '\' '
                             . ' AND   master_table = \'' . PMA_sqlAddslashes($table) . '\' ';
-            if (!empty($column)) {
-                $rel_query .= ' AND   master_field = \'' . PMA_sqlAddslashes($column) . '\'';
-            }
+        if (!empty($column)) {
+            $rel_query .= ' AND   master_field = \'' . PMA_sqlAddslashes($column) . '\'';
         }
         $relations     = PMA_query_as_cu($rel_query);
         $i = 0;
@@ -354,11 +344,47 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
         }
     }
 
+    /**
+     * Emulating relations for some information_schema tables
+     */
+    if (PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema'
+        && ($source == 'internal' || $source == 'both')) {
+        $foreign = array();
+        switch ($table) {
+            case 'COLLATION_CHARACTER_SET_APPLICABILITY':
+                if ((empty($column) || $column == 'CHARACTER_SET_NAME') && !isset($foreign['CHARACTER_SET_NAME'])) {
+                    $foreign['CHARACTER_SET_NAME'] = array(
+                        'foreign_db'    => 'information_schema',
+                        'foreign_table' => 'CHARACTER_SETS',
+                        'foreign_field' => 'CHARACTER_SET_NAME'
+                    );
+                }
+                if ((empty($column) || $column == 'COLLATION_NAME') && !isset($foreign['COLLATION_NAME'])) {
+                    $foreign['COLLATION_NAME'] = array(
+                        'foreign_db'    => 'information_schema',
+                        'foreign_table' => 'COLLATIONS',
+                        'foreign_field' => 'COLLATION_NAME'
+                    );
+                }
+                break;
+            case 'SCHEMATA':
+                if ((empty($column) || $column == 'DEFAULT_CHARACTER_SET_NAME') && !isset($foreign['DEFAULT_CHARACTER_SET_NAME'])) {
+                    $foreign['DEFAULT_CHARACTER_SET_NAME'] = array(
+                        'foreign_db'    => 'information_schema',
+                        'foreign_table' => 'CHARACTER_SETS',
+                        'foreign_field' => 'CHARACTER_SET_NAME'
+                    );
+                }
+                break;
+        }
+    }
+
     if (isset($foreign) && is_array($foreign)) {
        return $foreign;
     } else {
-       return FALSE;
+        return FALSE;
     }
+
 } // end of the 'PMA_getForeigners()' function
 
 
@@ -371,36 +397,47 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
  * @return  string   field name
  *
  * @global  array    the list of relations settings
- * @global  string   the connection charset, as defined in
- *                   libraries/database_interface.lib.php
  *
  * @access  public
  *
  * @author  Mike Beck <mikebeck@users.sourceforge.net>
  */
 function PMA_getDisplayField($db, $table) {
-    global $cfgRelation, $charset_connection;
-    if (trim(@$cfgRelation['table_info']) == '') {
-        return FALSE;
+    global $cfgRelation;
+
+    /**
+     * Try to fetch the display field from DB.
+     */
+    if (trim(@$cfgRelation['table_info']) != '') {
+
+        $disp_query = 'SELECT display_field FROM ' . PMA_backquote($cfgRelation['table_info'])
+                    . ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
+                    . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+
+        $disp_res   = PMA_query_as_cu($disp_query);
+        $row        = ($disp_res ? PMA_DBI_fetch_assoc($disp_res) : '');
+        PMA_DBI_free_result($disp_res);
+        if (isset($row['display_field'])) {
+            return $row['display_field'];
+        }
+
     }
 
-    $disp_query      = 'SELECT display_field FROM ' . PMA_backquote($cfgRelation['table_info']);
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $disp_query .= ' WHERE CONVERT(db_name    USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($db) . '\''
-                     . ' AND   CONVERT(table_name USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($table) . '\'';
-    } else {
-        $disp_query .= ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
-                     . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+    /**
+     * Emulating the display field for some information_schema tables.
+     */
+    if (PMA_MYSQL_INT_VERSION >= 50002 && $db == 'information_schema') {
+        switch ($table) {
+            case 'CHARACTER_SETS': return 'DESCRIPTION';
+            case 'TABLES':         return 'TABLE_COMMENT';
+        }
     }
 
-    $disp_res   = PMA_query_as_cu($disp_query);
-    $row        = ($disp_res ? PMA_DBI_fetch_assoc($disp_res) : '');
-    PMA_DBI_free_result($disp_res);
-    if (isset($row['display_field'])) {
-        return $row['display_field'];
-    } else {
-        return FALSE;
-    }
+    /**
+     * No Luck...
+     */
+    return FALSE;
+
 } // end of the 'PMA_getDisplayField()' function
 
 
@@ -413,8 +450,6 @@ function PMA_getDisplayField($db, $table) {
  * @return  array    [field_name] = comment
  *
  * @global  array    the list of relations settings
- * @global  string   the connection charset, as defined in
- *                   libraries/database_interface.lib.php
  *
  * @access  public
  *
@@ -422,7 +457,7 @@ function PMA_getDisplayField($db, $table) {
  *           and lem9
  */
 function PMA_getComments($db, $table = '') {
-    global $cfgRelation, $charset_connection;
+    global $cfgRelation;
 
     if ($table != '') {
 
@@ -443,28 +478,17 @@ function PMA_getComments($db, $table = '') {
         // (this function can be called even if $cfgRelation['commwork'] is
         // FALSE, to get native column comments, so recheck here)
         if ($cfgRelation['commwork']) {
-            $com_qry      = 'SELECT column_name, comment FROM ' . PMA_backquote($cfgRelation['db']) . '.' .PMA_backquote($cfgRelation['column_info']);
-            if (PMA_MYSQL_INT_VERSION >= 40100) {
-                $com_qry .= ' WHERE CONVERT(db_name    USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($db) . '\''
-                          . ' AND   CONVERT(table_name USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($table) . '\'';
-            } else {
-                $com_qry .= ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
-                          . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-            }
+            $com_qry = 'SELECT column_name, comment FROM ' . PMA_backquote($cfgRelation['db']) . '.' .PMA_backquote($cfgRelation['column_info'])
+                     . ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
+                     . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
             $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
         }
     } else {
         // pmadb internal db comments
-        $com_qry      = 'SELECT ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']);
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            $com_qry .= ' WHERE CONVERT(db_name     USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($db) . '\''
-                      . ' AND   CONVERT(table_name  USING ' . $charset_connection . ') = \'\''
-                      . ' AND   CONVERT(column_name USING ' . $charset_connection . ') = \'(db_comment)\'';
-        } else {
-            $com_qry .= ' WHERE db_name     = \'' . PMA_sqlAddslashes($db) . '\''
-                      . ' AND   table_name  = \'\''
-                      . ' AND   column_name = \'(db_comment)\'';
-        }
+        $com_qry = 'SELECT ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info'])
+                 . ' WHERE db_name     = \'' . PMA_sqlAddslashes($db) . '\''
+                 . ' AND   table_name  = \'\''
+                 . ' AND   column_name = \'(db_comment)\'';
         $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
     }
 
@@ -534,13 +558,11 @@ function PMA_handleSlashes($val) {
  * @return  boolean  true, if comment-query was made.
  *
  * @global  array    the list of relations settings
- * @global  string   the connection charset, as defined in
- *                   libraries/database_interface.lib.php
  *
  * @access  public
  */
 function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='auto') {
-    global $cfgRelation, $charset_connection;
+    global $cfgRelation;
 
     if ($mode=='auto') {
         if (PMA_MYSQL_INT_VERSION >= 40100) {
@@ -572,21 +594,12 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
     }
 
     // $mode == 'pmadb' section: 
-
     
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $cols = array(
-            'db_name'     => 'CONVERT(db_name     USING ' . $charset_connection . ')',
-            'table_name'  => 'CONVERT(table_name  USING ' . $charset_connection . ')',
-            'column_name' => 'CONVERT(column_name USING ' . $charset_connection . ')'
-        );
-    } else {
-        $cols = array(
-            'db_name'     => 'db_name    ',
-            'table_name'  => 'table_name ',
-            'column_name' => 'column_name'
-        );
-    }
+    $cols = array(
+        'db_name'     => 'db_name    ',
+        'table_name'  => 'table_name ',
+        'column_name' => 'column_name'
+    );
 
     if ($removekey != '' AND $removekey != $col) {
         $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
@@ -647,8 +660,6 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
  * @param   string   the sql query
  *
  * @global  array    the list of relations settings
- * @global  string   the connection charset, as defined in
- *                   libraries/database_interface.lib.php
  *
  * @return  boolean  true
  *
@@ -678,28 +689,21 @@ function PMA_setHistory($db, $table, $username, $sqlquery) {
  * @param   string   the username
  *
  * @global  array    the list of relations settings
- * @global  string   the connection charset, as defined in
- *                   libraries/database_interface.lib.php
  *
  * @return  array    list of history items
  *
  * @access  public
  */
 function PMA_getHistory($username) {
-    global $cfgRelation, $charset_connection;
+    global $cfgRelation;
 
-    $hist_query      = 'SELECT '
-                     . PMA_backquote('db') . ','
-                     . PMA_backquote('table') . ','
-                     . PMA_backquote('sqlquery')
-                     . ' FROM ' . PMA_backquote($cfgRelation['history'])
-                     . ' WHERE ';
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $hist_query .= 'CONVERT(username USING ' . $charset_connection . ')';
-    } else {
-        $hist_query .= 'username';
-    }
-    $hist_query     .= ' = \'' . PMA_sqlAddslashes($username) . '\' ORDER BY id DESC';
+    $hist_query = 'SELECT '
+                . PMA_backquote('db') . ','
+                . PMA_backquote('table') . ','
+                . PMA_backquote('sqlquery')
+                . ' FROM ' . PMA_backquote($cfgRelation['history'])
+                . ' WHERE username = \'' . PMA_sqlAddslashes($username) . '\''
+                . ' ORDER BY id DESC';
 
     $hist_rs = PMA_query_as_cu($hist_query);
     unset($hist_query);
@@ -725,23 +729,17 @@ function PMA_getHistory($username) {
  *
  * @global  array    the list of relations settings
  * @global  array    global phpMyAdmin configuration
- * @global  string   the connection charset, as defined in
- *                   libraries/database_interface.lib.php
  *
  * @return  boolean  true
  *
  * @access  public
  */
 function PMA_purgeHistory($username) {
-    global $cfgRelation, $cfg, $charset_connection;
+    global $cfgRelation, $cfg;
 
-    $purge_query  = 'SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE ';
-    if (PMA_MYSQL_INT_VERSION >= 40100) {
-        $purge_query .= 'CONVERT(username USING ' . $charset_connection . ')';
-    } else {
-        $purge_query .= 'username';
-    }
-    $purge_query .= ' = \'' . PMA_sqlAddSlashes($username) . '\' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1';
+    $purge_query = 'SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history'])
+                 . ' WHERE username = \'' . PMA_sqlAddSlashes($username) . '\''
+                 . ' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1';
     $purge_rs = PMA_query_as_cu($purge_query);
     $i = 0;
     $row = PMA_DBI_fetch_row($purge_rs);

@@ -11,6 +11,11 @@ $Source$
 2005-03-25 Alexander M. Turek  <me@derrabus.de>
     * db_details_structure.php: Let's prefer separate icons over CSS 3 hacks
       for marking a functionality as unavailable.
+    * libraries/relation.lib.php:
+      - Removed recoding function calls from controluser queries as they do
+        not depend on the connection charset anymore;
+      - Added emulated relations for some information_schema tables. To be
+        continued.
 
 2005-03-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/*.dbi.lib.php, libraries/common.lib.php,
