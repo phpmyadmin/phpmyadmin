@@ -312,53 +312,61 @@ ul.mainLeft li {
 
 
 <?php if ($cfg['MainPageIconic']) { ?>
-.lstPhpInfo {
+li.lstPhpInfo {
   list-style: url(../images/php_sym.png);
 }
-.lstPmaDocs {
+li.lstPmaDocs {
   list-style: url(../images/b_docs.png);
 }
-.lstPmaPage {
+li.lstPmaPage {
   list-style: url(../images/b_home.png);
 }
-.lstPmaLang {
+li.lstPmaLang {
   list-style: url(../images/s_lang.png);
 }
-.lstPmaChar {
+li.lstPmaChar {
   list-style: url(../images/s_rights.png);
 }
-.lstNewdb {
+li.lstNewdb {
   list-style: url(../images/b_newdb.png);
 }
-.lstStatus {
+li.lstStatus {
   list-style: url(../images/s_status.png);
 }
-.lstVars {
+li.lstVars {
   list-style: url(../images/s_vars.png);
 }
-.lstProcess {
+li.lstProcess {
   list-style: url(../images/s_process.png);
 }
-.lstPrivileges {
+li.lstPrivileges {
   list-style: url(../images/s_rights.png);
 }
-.lstCollations {
+li.lstCollations {
   list-style: url(../images/s_asci.png);
 }
-.lstReload {
+li.lstReload {
   list-style: url(../images/s_reload.png);
 }
-.lstDatabases {
+li.lstDatabases {
   list-style: url(../images/s_db.png);
 }
-.lstExport {
+li.lstExport {
   list-style: url(../images/b_export.png);
 }
-.lstLogoff {
+li.lstLogoff {
   list-style: url(../images/s_loggoff.png);
 }
-.lstPasswd {
+li.lstPasswd {
   list-style: url(../images/s_passwd.png);
+}
+<?php } ?>
+<?php if ($cfg['MainPageIconic']) { ?>
+li.lstUsradd {
+  list-style: url(../images/b_usradd.png);
+}
+li.lstUsrdrop {
+  list-style: url(../images/b_usrdrop.png);
 }
 <?php } ?>
 

@@ -210,7 +210,7 @@ if (count($statistics) > 0) {
     }
     if ($is_superuser) {
         echo '            <th>' . "\n"
-           . '                &nbsp;' . $strAction . '&nbsp;' . "\n"
+           . '                &nbsp;' . ($cfg['PropertiesIconic'] ? '' : $strAction . '&nbsp;') . "\n"
            . '            </th>' . "\n";
     }
     echo '        </tr>' . "\n";
@@ -272,7 +272,7 @@ if (count($statistics) > 0) {
         if ($is_superuser) {
             echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
                . '                <a onclick="reload_window(\'' . urlencode($current['db_name']) . '\'); return true;" href="./server_privileges.php?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
-               . '                    ' . $strCheckPrivs . "\n"
+               . '                    ' . ($cfg['PropertiesIconic'] ? '<img src="./images/b_usrcheck.png" alt="' . $strCheckPrivs . '" border="0" width="16" height="16" />' : $strCheckPrivs) . "\n"
                . '                </a>' . "\n"
                . '            </td>' . "\n";
         }

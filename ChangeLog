@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-07 Alexander M. Turek  <me@derrabus.de>
+    * css/phpmyadmin.css.php: beautifications.
+    * server_databases.php, server_privileges.php, css/phpmyadmin.css.php:
+      Enabled new icons for privileges administration (patch #947190).
+
 2004-06-06 Garvin Hicking <me@supergarv.de>
     * libraries/display_tbl.lib.php, libraries/functions.js,
       css/phpmyadmin.css.php: Further fixing of broken vertical

@@ -949,7 +949,7 @@ if (empty($adduser) && empty($checkprivs)) {
                . '            <th>&nbsp;' . $strPassword . '&nbsp;</th>' . "\n"
                . '            <th>&nbsp;' . $strGlobalPrivileges . '&nbsp;</th>' . "\n"
                . '            <th>&nbsp;' . $strGrantOption . '&nbsp;</th>' . "\n"
-               . '            <th>&nbsp;' . $strAction . '&nbsp;</th>' . "\n";
+               . '            <th>&nbsp;' . ($cfg['PropertiesIconic'] ? '' : $strAction . '&nbsp;') . '</th>' . "\n";
             echo '        </tr>' . "\n";
             $useBgcolorOne = TRUE;
             for ($i = 0; $row = PMA_DBI_fetch_assoc($res); $i++) {
@@ -963,7 +963,7 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '                ' . join(',' . "\n" . '            ', $privs) . "\n"
                    . '            </tt></td>' . "\n"
                    . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Grant_priv'] == 'Y' ? $strYes : $strNo) . '</td>' . "\n"
-                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php?' . $url_query . '&amp;username=' . urlencode($row['User']) . '&amp;hostname=' . urlencode($row['Host']) . '">' . $strEdit . '</a></td>' . "\n"
+                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php?' . $url_query . '&amp;username=' . urlencode($row['User']) . '&amp;hostname=' . urlencode($row['Host']) . '" title="' . $strEdit . '">' . ($cfg['PropertiesIconic'] ? '<img src="./images/b_usredit.png" alt="' . $strEdit . '" border="0" width="16" height="16" />' : $strEdit) . '</a></td>' . "\n"
                    . '        </tr>' . "\n";
                 $useBgcolorOne = !$useBgcolorOne;
             }
@@ -986,11 +986,11 @@ if (empty($adduser) && empty($checkprivs)) {
                . '        </tr>' . "\n"
                . '    </table>' . "\n"
                . '    <ul>' . "\n"
-               . '        <li>' . "\n"
+               . '        <li class="lstUsradd">' . "\n"
                . '            <b><a href="server_privileges.php?' . $url_query . '&amp;adduser=1">' . $strAddUser . '</a></b><br />' . "\n"
                . '            <br /><br />' . "\n"
                . '        </li>' . "\n"
-               . '        <li>' . "\n"
+               . '        <li class="lstUsrdrop">' . "\n"
                . '            <b>' . $strRemoveSelectedUsers . '</b><br />' . "\n"
                . '            <input type="radio" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '" name="mode" id="radio_mode_1" value="1" checked="checked" />' . "\n"
                . '            <label for="radio_mode_1" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '">' . "\n"
