@@ -5,12 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-04 Garvin Hicking  <me@supergarv.de>
+    * common.lib.php3: Fixed a possible 'undefined index' error.
+
 2003-02-04 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: new faq entry about IE bug with http auth,
       switching from one server to the other
     * db_details_qbe.php3: bug 661758 (undefined offset when doing a qbe
       and only table selected)
-    * ldi_check.php3: check local_infile on recent MySQL versions, 
+    * ldi_check.php3: check local_infile on recent MySQL versions,
       thanks to Alexander
 
 2003-02-03 Michal Cihar  <nijel@users.sourceforge.net>
@@ -19,10 +22,10 @@ $Source$
     * tbl_replace_fields.php3, tbl_change.php3: Allow binary uploads.
     * tbl_dump.php3: Fix bug #679699 (export to XML, save to file - Undefined
       variable: charset_of_file).
-    
-2003-02-03 Garvin Hicking <me@supergarv.de>
-    * pdf_schema.php3, libraries/dbg/profiling.php3, 
-    libraries/xpath/XPath.class.php: Backwards compatibility (foreach loops)
+
+2003-02-03 Garvin Hicking  <me@supergarv.de>
+    * pdf_schema.php3, libraries/dbg/profiling.php3,
+      libraries/xpath/XPath.class.php: Backwards compatibility (foreach loops).
 
 2003-02-03 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.4.0-rc1 released
@@ -59,7 +62,7 @@ $Source$
     * lang/galician: update, thanks to Xosé Calvo
     * lang/lithuanian: update, thanks to Vilius Zigmantas
     * lang/japanese: update, thanks to Yukihiro Kawada
-    * lang/*, libraries/dbg/profiling.php3: strDBGMaxTimeMs, 
+    * lang/*, libraries/dbg/profiling.php3: strDBGMaxTimeMs,
       thanks to Alexander
 
 2003-02-01 Robin Johnson  <robbat2@users.sourceforge.net>
