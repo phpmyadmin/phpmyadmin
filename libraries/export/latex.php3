@@ -7,6 +7,23 @@
  */
 
 /**
+ * Escapes some special characters for use in TeX/LaTeX
+ *
+ * @param   string      the string to convert
+ *
+ * @return  string      the converted string with escape codes
+ *
+ * @access  private
+ */
+function PMA_texEscape($string) {
+   $escape = array('$', '%', '{', '}',  '&',  '#', '_', '^');
+   for($k=0;$k<count($escape);$k++) {
+      $string = str_replace($escape[$k], '\\' . $escape[$k], $string);
+   }
+   return $string;
+}
+
+/**
  * Outputs comment
  *
  * @param   string      Text of comment
@@ -100,8 +117,6 @@ function PMA_exportDBCreate($db) {
  * @access  public
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
-    $tex_escape = array("$", "%", "{", "}",  "&",  "#", "_", "^");
-
     $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
 
     $columns_cnt = mysql_num_fields($result);
@@ -110,28 +125,36 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     }
     unset($i);
 
-    $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strData'] . $crlf . '%' . $crlf
-                 . '\\begin{table} ' . $crlf
+    $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strData'] . ': ' . $table . $crlf . '%' . $crlf
                  . ' \\begin{longtable}{|';
 
     for($index=0;$index<$columns_cnt;$index++) {
-       $buffer .= 'c|';
+       $buffer .= 'l|';
     }
     $buffer .= '} ' . $crlf ;
 
     $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
+    if (isset($GLOBALS['latex_caption'])) {
+        $buffer .= ' \\caption{' . str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_data_caption'])
+                   . '} \\label{' . str_replace('__TABLE__', $table, $GLOBALS['latex_data_label']) . '} \\\\';
+    }
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
     
     // show column names
     if (isset($GLOBALS['latex_showcolumns'])) {
-        $local_buffer = stripslashes(implode("\000", $columns));
-        for($k=0;$k<count($tex_escape);$k++) {
-            $local_buffer = str_replace($tex_escape[$k], '\\' . $tex_escape[$k], $local_buffer);
+        $buffer = '\\hline ';
+        for ($i = 0; $i < $columns_cnt; $i++) {
+            $buffer .= '\\multicolumn{1}{|c|}{\\textbf{' . PMA_texEscape(stripslashes($columns[$i])) . '}} & ';
+          }
+
+        $buffer = substr($buffer,0,-2) . '\\\\ \\hline \hline ';
+        if (!PMA_exportOutputHandler($buffer . ' \\endfirsthead ' . $crlf)) return FALSE;
+        if (isset($GLOBALS['latex_caption'])) {
+            if (!PMA_exportOutputHandler('\\caption{' . str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_data_continued_caption']) . '} \\\\ ')) return FALSE;
         }
-        $buffer = str_replace("\000", ' & ', $local_buffer);
-        unset($local_buffer);
-        $buffer .= ' \\\\ \\hline \\hline' . $crlf;
-        if (!PMA_exportOutputHandler($buffer)) return FALSE;
+        if (!PMA_exportOutputHandler($buffer . '\\endhead \\endfoot' . $crlf)) return FALSE;
+    } else {
+        if (!PMA_exportOutputHandler('\\\\ \hline')) return FALSE;
     }
 
     // print the whole table
@@ -141,13 +164,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         // print each row
         for($i = 0; $i < $columns_cnt; $i++) {
             if ( isset($record[$columns[$i]]) && (!function_exists('is_null') || !is_null($record[$columns[$i]]))) {
-                $column_value = stripslashes($record[$columns[$i]]);
-
-                //    $ % { } & # _ ^
-                // escaping special characters
-                for($k=0;$k<count($tex_escape);$k++) {
-                    $column_value = str_replace($tex_escape[$k], '\\' . $tex_escape[$k], $column_value);
-                }
+                $column_value = PMA_texEscape(stripslashes($record[$columns[$i]]));
             } else {
                 $column_value = $GLOBALS['latex_replace_null'];
             }
@@ -163,7 +180,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         if (!PMA_exportOutputHandler($buffer)) return FALSE;
     }
 
-    $buffer = ' \\end{longtable} \\end{table}' . $crlf;
+    $buffer = ' \\end{longtable}' . $crlf;
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
 
     mysql_free_result($result);
@@ -186,11 +203,11 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
  *
  * @access  public
  */
+ // @@@ $strTableStructure
 function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false)
 {
     global $cfgRelation;
 
-    $tex_escape = array("$", "%", "{", "}",  "&",  "#", "_", "^");
     /**
      * Gets fields properties
      */
@@ -218,44 +235,58 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     /**
      * Displays the table structure
      */
-    $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strStructure'] . $crlf . '%' . $crlf
-                 . '\\begin{table} ' . $crlf
-                 . ' \\begin{longtable}{|';
+    $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strStructure'] . ': ' . $table  . $crlf . '%' . $crlf
+                 . ' \\begin{longtable}{';
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
 
     $columns_cnt = 4;
+    $alignment = '|l|c|c|c|';
     if ($do_relation && $have_rel) {
         $columns_cnt++;
+        $alignment .= 'l|';
     }
     if ($do_comments && $cfgRelation['commwork']) {
         $columns_cnt++;
+        $alignment .= 'l|';
     }
     if ($do_mime && $cfgRelation['mimework']) {
         $columns_cnt++;
+        $alignment .='l|';
     }
-    $buffer = '';
-    for($index=0;$index<$columns_cnt;$index++) {
-       $buffer .= 'c|';
-    }
-    $buffer .= '} ' . $crlf ;
+    $buffer = $alignment . '} ' . $crlf ;
 
-    $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
-    
-    $buffer .= $GLOBALS['strField'] . ' & ' . $GLOBALS['strType'] . ' & ' . $GLOBALS['strNull'] . ' & ' . $GLOBALS['strDefault'];
+    $header .= ' \\hline ';
+    $header .= '\\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strField'] . '}} & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strType'] . '}} & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strNull'] . '}} & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strDefault'] . '}}';
     if ($do_relation && $have_rel) {
-        $buffer .= ' & ' . $GLOBALS['strLinksTo'];
+        $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strLinksTo'] . '}}';
     }
     if ($do_comments && $cfgRelation['commwork']) {
-        $buffer .= ' & ' . $GLOBALS['strComments'];
+        $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . $GLOBALS['strComments'] . '}}';
         $comments = PMA_getComments($db, $table);
     }
     if ($do_mime && $cfgRelation['mimework']) {
-        $buffer .= ' & MIME';
+        $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
         $mime_map = PMA_getMIME($db, $table, true);
     }
-    $buffer .= ' \\\\ \\hline \\hline ' . $crlf;
+
+    $local_buffer = PMA_texEscape($table);
+
+    // Table caption for first page and label
+    if (isset($GLOBALS['latex_caption'])) {
+        $buffer .= ' \\caption{'. str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_structure_caption'])
+                   . '} \\label{' . str_replace('__TABLE__', $table, $GLOBALS['latex_structure_label'])
+                   . '} \\\\' . $crlf;
+    }
+    $buffer .= $header . ' \\\\ \\hline \\hline' . $crlf . '\\endfirsthead' . $crlf;
+    // Table caption on next pages
+    if (isset($GLOBALS['latex_caption'])) {
+        $buffer .= ' \\caption{'. str_replace('__TABLE__', PMA_texEscape($table), $GLOBALS['latex_structure_continued_caption'])
+                   . '} \\\\ ' . $crlf;
+    }
+    $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot';
+
     if (!PMA_exportOutputHandler($buffer)) return FALSE;
-    
+
     while ($row = PMA_mysql_fetch_array($result)) {
 
         $type             = $row['Type'];
@@ -299,6 +330,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
         } else {
             $row['Default'] = $row['Default'];
         }
+
         $field_name = $row['Field'];
 
         $local_buffer = $field_name . "\000" . $type . "\000" . (($row['Null'] == '') ? $GLOBALS['strNo'] : $GLOBALS['strYes'])  . "\000" . (isset($row['Default']) ? $row['Default'] : '');
@@ -321,15 +353,19 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
                 $local_buffer .= str_replace('_', '/', $mime_map[$field_name]['mimetype']);
             }
         }
-        for($k=0;$k<count($tex_escape);$k++) {
-            $local_buffer = str_replace($tex_escape[$k], '\\' . $tex_escape[$k], $local_buffer);
+        $local_buffer = PMA_texEscape($local_buffer);
+        if ($row['Key']=='PRI') {
+            $pos=strpos($local_buffer, "\000");
+            $local_buffer = '\\textit{' . substr($local_buffer,0,$pos) . '}' . substr($local_buffer,$pos);
         }
         $buffer = str_replace("\000", ' & ', $local_buffer);
         $buffer .= ' \\\\ \\hline ' . $crlf;
+
         if (!PMA_exportOutputHandler($buffer)) return FALSE;
     } // end while
     mysql_free_result($result);
-    $buffer = ' \\end{longtable} \\end{table}' . $crlf;
+
+    $buffer = ' \\end{longtable}' . $crlf;
     return PMA_exportOutputHandler($buffer);
 } // end of the 'PMA_getTableStructureLaTeX()' function
 ?>

@@ -183,6 +183,9 @@ if ($cfgRelation['mimework']) {
              <fieldset id="latex_options">
                  <legend><?php echo $strLaTeXOptions; ?></legend>
 
+                     <input type="checkbox" name="latex_caption" value="yes" id="checkbox_latex_show_caption" <?php PMA_exportCheckboxCheck('latex_caption'); ?> />
+                     <label for="checkbox_latex_show_caption"><?php echo $strLatexIncludeCaption; ?></label><br />
+
 <?php if (!$hide_structure) { ?>
                  <!-- For structure -->
                  <fieldset>
@@ -190,6 +193,32 @@ if ($cfgRelation['mimework']) {
                          <input type="checkbox" name="latex_structure" value="structure" id="checkbox_latex_structure" <?php PMA_exportCheckboxCheck('latex_structure'); ?> onclick="if(!this.checked && !getElement('checkbox_latex_data').checked) return false; else return true;" />
                          <label for="checkbox_latex_structure"><?php echo $strStructure; ?></label><br />
                      </legend>
+                    <table border="0" cellspacing="1" cellpadding="0">
+                        <tr>
+                            <td>
+                                <?php echo $strLatexCaption; ?>&nbsp;
+                            </td>
+                            <td>
+                                <input type="text" name="latex_structure_caption" size="30" value="<?php echo $strLatexStructure; ?>" class="textfield" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <?php echo $strLatexContinuedCaption; ?>&nbsp;
+                            </td>
+                            <td>
+                                <input type="text" name="latex_structure_continued_caption" size="30" value="<?php echo $strLatexStructure . ' ' . $strLatexContinued; ?>" class="textfield" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <?php echo $strLatexLabel; ?>&nbsp;
+                            </td>
+                            <td>
+                                <input type="text" name="latex_structure_label" size="30" value="<?php echo $cfg['Export']['latex_structure_label']; ?>" class="textfield" />
+                            </td>
+                        </tr>
+                    </table>
 <?php
 if (!empty($cfgRelation['relation'])) {
 ?>
@@ -224,6 +253,30 @@ if ($cfgRelation['mimework']) {
                      <input type="checkbox" name="latex_showcolumns" value="yes" id="ch_latex_showcolumns" <?php PMA_exportCheckboxCheck('latex_columns'); ?> />
                      <label for="ch_latex_showcolumns"><?php echo $strColumnNames; ?></label><br />
                     <table border="0" cellspacing="1" cellpadding="0">
+                        <tr>
+                            <td>
+                                <?php echo $strLatexCaption; ?>&nbsp;
+                            </td>
+                            <td>
+                                <input type="text" name="latex_data_caption" size="30" value="<?php echo $strLatexContent; ?>" class="textfield" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <?php echo $strLatexContinuedCaption; ?>&nbsp;
+                            </td>
+                            <td>
+                                <input type="text" name="latex_data_continued_caption" size="30" value="<?php echo $strLatexContent . ' ' . $strLatexContinued; ?>" class="textfield" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <?php echo $strLatexLabel; ?>&nbsp;
+                            </td>
+                            <td>
+                                <input type="text" name="latex_data_label" size="30" value="<?php echo $cfg['Export']['latex_data_label']; ?>" class="textfield" />
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <?php echo $strReplaceNULLBy; ?>&nbsp;

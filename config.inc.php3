@@ -313,6 +313,9 @@ $cfg['Export']['latex_relation']            = TRUE;
 $cfg['Export']['latex_comments']            = TRUE;
 $cfg['Export']['latex_mime']                = TRUE;
 $cfg['Export']['latex_null']                = '\textit{NULL}';
+$cfg['Export']['latex_caption']             = TRUE;
+$cfg['Export']['latex_data_label']          = 'tab:__TABLE__-data';
+$cfg['Export']['latex_structure_label']     = 'tab:__TABLE__-structure';
 
 $cfg['Export']['sql_structure']             = TRUE;
 $cfg['Export']['sql_data']                  = TRUE;

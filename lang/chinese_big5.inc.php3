@@ -707,4 +707,12 @@ $strWindowNotFound = 'The target browser window could not be updated. Maybe you 
 $strInternalRelations = 'Internal relations';  //to translate
 $strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
 $strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
+$strLatexStructure = 'Structure of table __TABLE__';//to translate
+$strLatexContinued = '(continued)';//to translate
+$strLatexContent = 'Content of table __TABLE__';//to translate
+$strLatexIncludeCaption = 'Include table caption';//to translate
+$strLatexCaption = 'Table caption';//to translate
+$strLatexLabel = 'Label key';//to translate
+$strLatexContinuedCaption = 'Continued table caption';//to translate
+
 ?>

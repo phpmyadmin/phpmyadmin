@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 2003-08-25 Michal Cihar  <nijel@users.sourceforge.net>
+    * config.inc.php3, lang/*, libraries/config_import.lib.php3,
+      libraries/display_export.lib.php3, libraries/export/latex.php3: Improved
+      LaTeX export (patch #777451).
+
+2003-08-25 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     
 2003-08-25 Marc Delisle  <lem9@users.sourceforge.net>

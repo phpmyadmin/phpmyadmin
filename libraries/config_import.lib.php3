@@ -1180,6 +1180,15 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['Export']['latex_mime'])) {
         $cfg['Export']['latex_mime'] = TRUE;
     }
+    if (!isset($cfg['Export']['latex_caption'])) {
+        $cfg['Export']['latex_caption'] = TRUE;
+    }
+    if (!isset($cfg['Export']['latex_data_label'])) {
+        $cfg['Export']['latex_data_label'] = 'tab:__TABLE__-data';
+    }
+    if (!isset($cfg['Export']['latex_structure_label'])) {
+        $cfg['Export']['latex_structure_label'] = 'tab:__TABLE__-structure';
+    }
 
     if (!isset($cfg['Export']['sql_drop_database'])) {
         $cfg['Export']['sql_drop_database'] = FALSE;
