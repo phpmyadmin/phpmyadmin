@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-25 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * tbl_rename.php3: After renaming a table, move back to
+      tbl_properties_operations.php3 instead of tbl_properties.php3.
+
 2003-08-22 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).

@@ -79,7 +79,7 @@ if (isset($new_name) && trim($new_name) != '') {
         unset($table_query);
         unset($tb_rs);
     }
-    
+
     if ($cfgRelation['pdfwork']) {
         $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_coords'])
                         . ' SET     table_name = \'' . PMA_sqlAddslashes($table) . '\''
@@ -105,5 +105,5 @@ else {
 /**
  * Back to the calling script
  */
-require('./tbl_properties.php3');
+require('./tbl_properties_operations.php3');
 ?>
