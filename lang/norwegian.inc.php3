@@ -241,6 +241,7 @@ $strQBEIns = 'Sett inn';
 $strQueryOnDb = 'SQL-spørring i database <b>%s</b>:';
 
 $strRecords = 'Rader';
+$strReferentialIntegrity = 'Sjekk referanse integritet:';
 $strReloadFailed = 'Omstart av MySQL feilet.';
 $strReloadMySQL = 'Omstart av MySQL';
 $strRememberReload = 'Husk å re-starte serveren.';
@@ -346,5 +347,4 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

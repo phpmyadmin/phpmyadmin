@@ -11,8 +11,8 @@ $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
 $day_of_week = array('Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec');
-// See http://www.php.net/manual/en/function.strftime.php to define the
-// variable below
+// See http://www.php.net/manual/en/function.strftime.php
+// to define the variable below
 $datefmt = '%d/%m %Y kl. %H:%M:%S';
 
 
@@ -24,6 +24,7 @@ $strAddNewField = 'Tilføj nyt felt';
 $strAddPriv = 'Tilføj nyt privilegium';
 $strAddPrivMessage = 'Du har tilføjet et nyt privilegium.';
 $strAddSearchConditions = 'Tilføj søgekriterier (kroppen af "WHERE" sætningen):';
+$strAddToIndex = 'Føj til indeks &nbsp;%s&nbsp;kolonne(r)'; 
 $strAddUser = 'Tilføj en ny bruger';
 $strAddUserMessage = 'Du har tilføjet en ny bruger.';
 $strAffectedRows = 'Berørte rækker:';
@@ -51,17 +52,18 @@ $strBack = 'Tilbage';
 $strBinary = ' Binært ';
 $strBinaryDoNotEdit = ' Binært - må ikke ændres ';
 $strBookmarkDeleted = 'Bogmærket er fjernet.';
-$strBookmarkLabel = 'Label'; //to translate
+$strBookmarkLabel = 'Label'; 
 $strBookmarkQuery = 'SQL-forespørgsel med bogmærke';
 $strBookmarkThis = 'Lav bogmærke til denne SQL-forespørgsel';
 $strBookmarkView = 'Kun oversigt';
 $strBrowse = 'Vis';
-$strBzip = '"bzipped"'; //to translate
+$strBzip = '"bzipped"'; 
 
-$strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.'; //to translate
+$strCantRenameIdxToPrimary = 'Kan ikke omdøbe indeks til PRIMARY!';
 $strCardinality = 'Kardinalitet';
 $strCarriage = 'Carriage return: \\r';
 $strChange = 'Ændre';
+$strChangePassword = 'Ændre password';
 $strCheckAll = 'Afmærk alt';
 $strCheckDbPriv = 'Tjek database privilegier';
 $strCheckTable = 'Tjek tabel';
@@ -73,6 +75,7 @@ $strCookiesRequired = 'Herefter skal cookies være sat til.';
 $strCopyTable = 'Kopier tabel til (database<b>.</b>tabel):';
 $strCopyTableOK = 'Tabellen %s er nu kopieret til: %s.';
 $strCreate = 'Opret';
+$strCreateIndex = 'Dan et indeks på&nbsp;%s&nbsp;kolonner'; 
 $strCreateIndexTopic = 'Lav et nyt indeks';
 $strCreateNewDatabase = 'Opret ny database';
 $strCreateNewTable = 'Opret ny tabel i database ';
@@ -83,6 +86,7 @@ $strDatabase = 'Database: ';
 $strDatabaseHasBeenDropped = 'Database %s er slettet.';
 $strDatabases = 'databaser';
 $strDatabasesStats = 'Database statistik';
+$strDatabaseWildcard = 'Database (jokertegn tilladt):'; 
 $strDataOnly = 'Kun data';
 $strDefault = 'Standardværdi';
 $strDelete = 'Slet';
@@ -110,7 +114,7 @@ $strEmptyResultSet = 'MySQL returnerede ingen data (fx ingen rækker).';
 $strEnd = 'Slut';
 $strEnglishPrivileges = ' NB: Navne på MySQL privilegier er på engelsk ';
 $strError = 'Fejl';
-$strExtendedInserts = 'Extended inserts';  //to translate
+$strExtendedInserts = 'Udvidede inserts';  
 $strExtra = 'Ekstra';
 
 $strField = 'Feltnavn';
@@ -122,7 +126,7 @@ $strFieldsEscapedBy = 'Felter escaped med';
 $strFieldsTerminatedBy = 'Felter afsluttet med';
 $strFixed = 'ordnet';
 $strFlushTable = 'Flush tabellen ("FLUSH")';
-$strFormat = 'Format'; //to translate
+$strFormat = 'Format'; 
 $strFormEmpty = 'Ingen værdi i formularen !';
 $strFullText = 'Komplette tekster';
 $strFunction = 'Funktion';
@@ -130,7 +134,7 @@ $strFunction = 'Funktion';
 $strGenTime = 'Genereringstidspunkt';
 $strGo = 'Udfør';
 $strGrants = 'Tildelinger';
-$strGzip = '"gzipped"';  //to translate
+$strGzip = '"gzipped"';  
 
 $strHasBeenAltered = 'er ændret.';
 $strHasBeenCreated = 'er oprettet.';
@@ -145,7 +149,7 @@ $strIfYouWish = 'Hvis du kun ønsker at importere nogle af tabellens kolonner, an
 $strIgnore = 'Ignorer';
 $strIndex = 'Indeks';
 $strIndexes = 'Indekser';
-$strIndexHasBeenDropped = 'Index %s er blevet slettet';
+$strIndexHasBeenDropped = 'Indeks %s er blevet slettet';
 $strIndexName = 'Indeks navn&nbsp;:';
 $strIndexType = 'Indeks type&nbsp;:';
 $strInsert = 'Indsæt';
@@ -159,7 +163,7 @@ $strInUse = 'i brug';
 
 $strKeepPass = 'Password må ikke ændres';
 $strKeyname = 'Nøgle';
-$strKill = 'Kill'; //to translate
+$strKill = 'Kill'; 
 
 $strLength = 'Længde';
 $strLengthSet = 'Længde/Værdi*';
@@ -192,7 +196,8 @@ $strNo = 'Nej';
 $strNoDatabases = 'Ingen databaser';
 $strNoDropDatabases = '"DROP DATABASE" erklæringer kan ikke bruges.';
 $strNoFrames = 'phpMyAdmin er mere brugervenlig med en browser, der kan klare <b>frames</b>.';
-$strNoIndex = 'Intet index defineret!';
+$strNoIndex = 'Intet indeks defineret!';
+$strNoIndexPartsDefined = 'Ingen dele af indeks er definerede!'; 
 $strNoModification = 'Ingen ændring';
 $strNone = 'Intet';
 $strNoPassword = 'Intet password';
@@ -218,19 +223,21 @@ $strPasswordEmpty = 'Der er ikke angivet noget password!';
 $strPasswordNotSame = 'De to passwords er ikke ens!';
 $strPHPVersion = 'PHP version';
 $strPmaDocumentation = 'phpMyAdmin dokumentation';
+$strPmaUriError = '<tt>$cfgPmaAbsoluteUri</tt> direktivet SKAL være sat i konfigurationsfilen!';
 $strPos1 = 'Start';
 $strPrevious = 'Forrige';
 $strPrimary = 'Primær';
 $strPrimaryKey = 'Primær nøgle';
 $strPrimaryKeyHasBeenDropped = 'Primærnøglen er slettet';
 $strPrimaryKeyName = 'Navnet på primærnøglen skal være... PRIMARY!';
+$strPrimaryKeyWarning = '("PRIMARY" <b>skal</b> være navnet på og <b>kun på</b> en primær nøgle!)';
 $strPrintView = 'Vis (udskriftvenlig)';
 $strPrivileges = 'Privilegier';
 $strProperties = 'Egenskaber';
 
 $strQBE = 'Query by Example';
-$strQBEDel = 'Del';  //to translate (used in tbl_qbe.php3)
-$strQBEIns = 'Ins';  //to translate (used in tbl_qbe.php3)
+$strQBEDel = 'Del';  
+$strQBEIns = 'Ins';  
 $strQueryOnDb = 'SQL-forespørgsel til database <b>%s</b>:';
 
 $strRecords = 'Poster';
@@ -263,6 +270,8 @@ $strRunSQLQuery = 'Kør SQL forspørgsel(er) på database %s';
 
 $strSave = 'Gem';
 $strSelect = 'Vælg';
+$strSelectADb = 'Vælg en database';
+$strSelectAll = 'Vælg alle';  
 $strSelectFields = 'Vælg mindst eet felt:';
 $strSelectNumRows = 'i forespørgsel';
 $strSend = 'Send';
@@ -311,6 +320,7 @@ $strType = 'Datatype';
 
 $strUncheckAll = 'Fjern alle mærker';
 $strUnique = 'Unik';
+$strUnselectAll = 'Fravælg alle'; 
 $strUpdatePrivMessage = 'Du har opdateret privilegierne for %s.';
 $strUpdateProfile = 'Opdater profil:';
 $strUpdateProfileMessage = 'Profilen er blevet opdateret.';
@@ -333,19 +343,8 @@ $strWrongUser = 'Forkert brugernavn/kodeord. Adgang nægtet.';
 
 $strYes = 'Ja';
 
-$strZip = '"zipped"'; //to translate
+$strZip = '"zipped"'; 
 
-// To translate
-$strAddToIndex = 'Add to index &nbsp;%s&nbsp;column(s)';
-$strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
-$strChangePassword = 'Change password';
-$strCreateIndex = 'Create an index on&nbsp;%s&nbsp;columns';
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
-$strNoIndexPartsDefined = 'No index parts defined!';
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
-$strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
+$strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.'; //to translate
+$strReferentialIntegrity = 'Check referential integrity:'; //to translate
 ?>

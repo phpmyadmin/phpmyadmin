@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-02 Marc Delisle  <lem9@users.sourceforge.net>
+	* Documentation.html: faq about maximum upload filesize
+	* romanian, swedish, indonesian, spanish, catalan, czech*, danish,
+	  dutch, norwegian updates
+
 2002-04-01 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/select_lang.lib.php3, lang/indonesian.inc.php3,
 	  Documentation.html:

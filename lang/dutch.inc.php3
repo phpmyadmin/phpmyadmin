@@ -194,6 +194,7 @@ $strQBEIns = 'Toevoegen';
 $strQueryOnDb = 'SQL-query op database <b>%s</b>:';
 
 $strRecords = 'Records';
+$strReferentialIntegrity = 'Check referentiele integriteit';
 $strReloadFailed = 'Opnieuw laden van MySQL mislukt.';
 $strReloadMySQL = 'MySQL opnieuw laden.';
 $strRememberReload = 'Vergeet niet de server opnieuw te starten.';
@@ -348,5 +349,4 @@ $strNoIndex = 'No index defined!';
 $strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
 $strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
