@@ -140,8 +140,7 @@ if ($server == 0 || count($cfgServers) > 1) {
 /**
  * Displays the mysql server related links 
  */
-if ($server > 0
-    && empty($cfgServer['only_db']))
+if ($server > 0)
 {
     ?>
     <!-- MySQL server related links -->
