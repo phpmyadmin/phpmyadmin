@@ -6,6 +6,14 @@ $Id$
 $Source$
 
 2001-11-13  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3: fixed bug #480178 - select ... into outfile fails.
+	* libraries/common.lib.php3:
+	  - fixed bug 481593 - interface fonts too big on macs;
+	  - taked into account the case when "magic_quotes_sybase" is set in the
+	    php configuration file and fixed the js errors.
+	* libraries/tbl_dump.php3 : "zero" value was exported as ''.
+
+2001-11-13  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3; db_printview.php3; left.php3; tbl_properties.php3;
 	  tbl_printview.php3: fixed some display bugs with right to left text
 	  direction (Arabic language).
