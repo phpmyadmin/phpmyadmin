@@ -177,6 +177,7 @@ $strNext = 'Next';
 $strNo = 'No';
 $strNoDatabases = 'No databases';
 $strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
+$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strNoModification = 'No change';
 $strNoPassword = 'No Password';
 $strNoPrivileges = 'No Privileges';

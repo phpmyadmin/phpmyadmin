@@ -319,5 +319,6 @@ $strZip = '"zo zipované"';
 
 // To translate
 $strFlushTable = 'Flush the table ("FLUSH")';
+$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>

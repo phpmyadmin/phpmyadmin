@@ -312,6 +312,7 @@ $strExtendedInserts = 'Extended inserts';
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strFullText = 'Full Texts';//to translate
 $strIdxFulltext = 'Fulltext';  //to translate 
+$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strNoRights = 'You don\'t have enough rights to be here right now!'; //to translate
 $strPartialText = 'Partial Texts';//to translate
 $strShowAll = 'Show all'; // to translate

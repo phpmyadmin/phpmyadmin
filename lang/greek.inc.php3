@@ -304,6 +304,7 @@ $strKeepPass = 'Do not change the password';//to translate
 $strLinesTerminatedBy = 'Lines terminated by';//to translate
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
+$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strNoQuery = 'No SQL query!';  //to translate
 $strPrimaryKeyHasBeenDropped = 'The primary key has been dropped';//to translate
 $strRunningAs = 'as';

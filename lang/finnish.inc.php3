@@ -319,6 +319,7 @@ $strZip = '"zip-pakattu"';
 
 // To translate
 $strFlush = 'Flush';
+$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strOverhead = 'Overhead'; //to translate
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 ?>

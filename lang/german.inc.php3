@@ -314,6 +314,7 @@ $strZip = '"Zip komprimiert"';
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strIndexHasBeenDropped = 'Index %s has been dropped';//to translate
+$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strRunningAs = 'as';
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
