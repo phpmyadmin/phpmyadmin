@@ -14,7 +14,11 @@ $Source$
       libraries/display_tbl.lib.php, libraries/display_tbl_links.lib.php:
       Multi row edit via checkboxes in browse mode is now available.
       This means, you can edit multiple records at once now.
-
+    * tbl_row_delete.php, tbl_change.php, tbl_change.js: Fixed 
+       (un)nullify() function
+    * libraries/display_tbl.lib.php, libraries/display_tbl_links.lib.php:
+      Made checkbox/edit/delete fields smaller
+ 
 2003-12-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: the constant used to check
       if the transformation function is included no longer exists
