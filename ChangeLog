@@ -6,9 +6,9 @@ $Id$
 $Source$
 
 2002-02-09 Marc Delisle  <lem9@users.sourceforge.net>
-	* main.php3, libraries/auth/cookie.auth.lib.php3, Patch 
+	* main.php3, libraries/auth/cookie.auth.lib.php3, Patch
 	  495360 (cookie with domain), experimental, thanks to
-	  Piotr Roszatycki (d3xter) and Christoph (certelt)
+	  Piotr Roszatycki (d3xter) and Christoph (certelt).
 
 2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/functions.js: improved the "mark row" feature (it wasn't
@@ -22,6 +22,8 @@ $Source$
 	* tbl_properties.php3, line 573: fixed an xhtml error.
 	* header.inc.php3, lines 53-57; left.php3, line 67: patch #515199 - Problem
 	  with <base href=""> thanks to Alexander M. Turek.
+	* main.php3, lines 11-14; libraries/grab_globals.lib.php3, lines 27-32;
+	  libraries/auth/cookie.auth.lib.php3: improved patch #495360.
 
 2002-02-08 Marc Delisle  <lem9@users.sourceforge.net>
 	* ukrainian updates thanks to Markijan Baran.
