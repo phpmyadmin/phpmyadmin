@@ -2,6 +2,8 @@
 /* $Id$ */
 
 $charset = "iso-8859-1";
+$left_font_family = "sans-serif";
+$right_font_family = "sans-serif";
 
 $strAccessDenied = "Acceso denegado ";
 $strAction = "Acci&oacute;n";
@@ -264,4 +266,6 @@ $strYes = "Si";
 $strBinary=" Binary ";  //to translate
 $strBinaryDoNotEdit=" Binary - do not edit ";  //to translate
 $strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";  //to translate
+$strNotNumber = "This is not a number!";  //to translate
+$strNotValidNumber = " is not a valid row number!";  //to translate
 ?>

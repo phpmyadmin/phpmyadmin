@@ -11,6 +11,10 @@ $Source$
 	  -> list is no long expandable/collapsible with this browsers).
 	* sql.php3, lines 85-93: fix suggested by
 	  Michael Tacelosky <tac@smokescreen.org> into the phpwizard forum.
+	* functions.js, lines 21 & 29; lib.inc.php3, lines 76-84; language files:
+	  outsourced error messages.
+	* left.js, left.php3, header.php3, language files: the font family is now
+	  language dependant.
 
 2001-07-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_details.php3: fixed many little scripting bugs.

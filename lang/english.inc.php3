@@ -2,6 +2,8 @@
 /* $Id$ */
 
 $charset = "iso-8859-1";
+$left_font_family = "verdana, helvetica, arial, geneva, sans-serif";
+$right_font_family = "helvetica, arial, geneva, sans-serif";
 
 $strAccessDenied = "Access denied";
 $strAction = "Action";
@@ -148,6 +150,8 @@ $strNoPassword = "No Password";
 $strNoPrivileges = "No Privileges";
 $strNoRights = "You don't have enough rights to be here right now!";
 $strNoTablesFound = "No tables found in database.";
+$strNotNumber = "This is not a number!";
+$strNotValidNumber = " is not a valid row number!";
 $strNoUsersFound = "No user(s) found.";
 $strNull = "Null";
 $strNumberIndexes = " Number of advanced indexes ";
