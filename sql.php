@@ -713,7 +713,7 @@ else {
                            . '&amp;goto=' . urlencode($lnk_goto);
 
                 echo '    <!-- Insert a new row -->' . "\n"
-                   . '    <a href="tbl_change.php' . $url_query . '">' . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_insrow.png" border="0" height="16" width="16" align="middle" hspace="2" />' : '') . $strInsertNewRow . '</a>';
+                   . '    <a href="tbl_change.php' . $url_query . '">' . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_insrow.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strInsertNewRow . '"/>' : '') . $strInsertNewRow . '</a>';
                 if ($disp_mode[9] == '1') {
                     echo '&nbsp;&nbsp;';
                 }
@@ -734,14 +734,14 @@ else {
                    . '    <a href="sql.php' . $url_query
                    . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
                    . '" target="print_view">' 
-                   . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" />' : '')
+                   . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintView . '"/>' : '')
                    . $strPrintView . '</a>' . "\n";
                 if (!$dontlimitchars) {
                    echo   '    &nbsp;&nbsp;' . "\n"
                         . '    <a href="sql.php' . $url_query
                         . '&amp;dontlimitchars=1'
                         . '" target="print_view">'
-                        . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" />' : '')
+                        . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strPrintViewFull . '" />' : '')
                         . $strPrintViewFull . '</a>&nbsp;&nbsp;' . "\n";
                 }
             } // end displays "printable view"
@@ -764,7 +764,7 @@ else {
                    . '&amp;unlim_num_rows=' . $unlim_num_rows
                    . $single_table
                    . '">' 
-                   . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_tblexport.png" border="0" height="16" width="16" align="middle" hspace="2" />' : '')
+                   . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_tblexport.png" border="0" height="16" width="16" align="middle" hspace="2" alt="' . $strExport . '" />' : '')
                    . $strExport . '</a>' . "\n";
         }
 
@@ -791,12 +791,12 @@ else {
                 echo '    <i>' . $strOr . '</i>' . "\n";
             }else echo '<br /><br />';
             ?>
+<form action="sql.php" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
 <table border="0" cellpadding="2" cellspacing="0">
 <tr><td class="tblHeaders" colspan="2"><?php
-     echo ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_bookmark.png" border="0" width="16" height="16" hspace="2" align="middle" />' : '')
+     echo ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_bookmark.png" border="0" width="16" height="16" hspace="2" align="middle" alt="' . $strBookmarkThis . '" />' : '')
         . $strBookmarkThis;
 ?></td></tr>
-<form action="sql.php" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td>
     <?php echo $strBookmarkLabel; ?>:
     <?php echo PMA_generate_common_hidden_inputs(); ?>
@@ -814,7 +814,7 @@ else {
 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="2" align="right">
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
     </td></tr>
-</form></table>
+</table></form>
             <?php
         } // end bookmark support
 
