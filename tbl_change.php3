@@ -1,12 +1,14 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Get the variables sent or posted to this script and displays the header
  */
 require('./libraries/grab_globals.lib.php3');
 $js_to_run = 'tbl_change.js';
 include('./header.inc.php3');
+
 // Displays the query submitted and its result
 if (!empty($message)) {
     if (isset($goto)) {
@@ -66,10 +68,15 @@ if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
              . (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
 }
 
-require('./libraries/db_table_exists.lib.php3');
 
 /**
- * Set parameters for links
+ * Ensures db and table are valid, else moves to the "parent" script
+ */
+require('./libraries/db_table_exists.lib.php3');
+
+
+/**
+ * Sets parameters for links and displays top menu
  */
 $url_query = 'lang=' . $lang
            . '&amp;convcharset=' . $convcharset
@@ -80,6 +87,7 @@ $url_query = 'lang=' . $lang
 
 require('./tbl_properties_table_info.php3');
 echo '<br />';
+
 
 /**
  * Get the list of the fields of the current table
@@ -180,22 +188,20 @@ $timestamp_seen = 0;
 $fields_cnt     = mysql_num_rows($table_def);
 
 for ($i = 0; $i < $fields_cnt; $i++) {
-
-
-    // display the submit button after every 15 lines --swix
-    // (wanted to use an <a href="#bottom"> and <a name> instead, 
-    // but it didn't worked because of the <base href>) 
+    // Display the submit button after every 15 lines --swix
+    // (wanted to use an <a href="#bottom"> and <a name> instead,
+    // but it didn't worked because of the <base href>)
 
     if ((($i % 15) == 0) && ($i != 0)) {
-    ?>
+        ?>
     <tr>
         <th colspan="5" align="right">
             <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo $fields_cnt+6; ?>" />&nbsp;
         </td>
     </tr>
-    <?php
-    }
-
+        <?php
+    } // end if
+    echo "\n";
 
     $row_table_def   = PMA_mysql_fetch_array($table_def);
     $field           = $row_table_def['Field'];
