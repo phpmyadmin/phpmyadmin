@@ -101,13 +101,15 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
                               : strpos(' ' . $sql, "\015", $i+2);
             if (!$end_of_comment) {
                 // no eol found after '#', add the parsed part to the returned
-                // array and exit
-                $ret[]   = trim(substr($sql, 0, $i-1));
+                // array if required and exit
+                if ($start_of_comment > 0) {
+                    $ret[]    = trim(substr($sql, 0, $start_of_comment));
+                }
                 return TRUE;
             } else {
-                $sql     = substr($sql, 0, $start_of_comment)
-                         . ltrim(substr($sql, $end_of_comment));
-                $sql_len = strlen($sql);
+                $sql          = substr($sql, 0, $start_of_comment)
+                              . ltrim(substr($sql, $end_of_comment));
+                $sql_len      = strlen($sql);
                 $i--;
             } // end if...else
         } // end else if (is comment)
@@ -356,7 +358,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
 } else if (!isset($sql_query_cpy)) {
     $message   = $strNoQuery;
 } else if ($sql_query_cpy == '') {
-    $message   = "$strSuccess&nbsp:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
+    $message   = "$strSuccess&nbsp;:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
 } else {
     $message   = $strSuccess;
 }
