@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-23 Alexander M. Turek  <me@derrabus.de>
+    * libraries/grab_globals.lib.php: More hotfixes against bug #1149381.
+
 2005-02-22 Alexander M. Turek  <me@derrabus.de>
     * libraries/grab_globals.lib.php: Hotfix against bug #1149381 and parts
       of bug #1149383.
