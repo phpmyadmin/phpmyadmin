@@ -9,6 +9,8 @@ $Source$
     * config.inc.php3; db_details_links.php3; db_search.php3;
       Documentation.html; lang/*; libraries/common.lib.php3: patch #554925
       - Search into database, thanks to Thomas Chaumeny <chaume92 at aol.com>.
+    * libraries/functions.js, lines 15-17: fixed bug #559815 - Javascript
+      problem with Opera.
 
 2002-05-23 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, config.inc.php3, db_details_structure.php3,
