@@ -11,8 +11,8 @@ if(!defined("__LIB_INC__")){
 	else $suffix=".so";
 	if (intval(phpversion())==3) $extension="MySQL";
 	else $extension="mysql";
-	if (!extension_loaded($extension) && !get_cfg_var("safe_mode")) @dl($extension.$suffix);
-	if (!extension_loaded($extension)){
+	if (!@extension_loaded($extension) && !@get_cfg_var('safe_mode')) @dl($extension.$suffix);
+	if (!@extension_loaded($extension)){
 		echo $strCantLoadMySQL;
 		exit;
 	}
