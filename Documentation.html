@@ -425,7 +425,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['Servers'][$i]['port']</b> string</dt>
     <dd>
         The port-number of your $i-th MySQL-server. Default is 3306 (leave
-        blank).
+        blank). If you use &quot;localhost&quot; as the hostname, MySQL
+        ignores this port number and connects with the socket, so if you want
+        to connect to a port different from the default port, use 
+        &quot;127.0.0.1&quot; or the real hostname in 
+        $cfg['Servers'][$i]['host'].
         <br /><br />
     </dd>
 
