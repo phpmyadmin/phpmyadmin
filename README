@@ -5,8 +5,8 @@ phpMyAdmin - Readme
 
   A set of PHP-scripts to administrate MySQL over the WWW.
 
-  Version 2.5.3 - July 2003
-  -------------------------
+  Version 2.5.4-dev
+  -----------------
   http://www.phpmyadmin.net/
 
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias.ratschiller_at_maguma.com>
