@@ -71,12 +71,7 @@ echo PMA_printTab($strStructure, 'db_details_structure.php3', $url_query);
 echo PMA_printTab($strSQL, 'db_details.php3', $url_query . '&amp;db_query_force=1');
 echo PMA_printTab($strExport, $lnk3, $arg3);
 echo PMA_printTab($strSearch, $lnk4, $arg4);
-
-// Query by example and dump of the db are only displayed if there is at least
-// one table in the db
-if ($num_tables > 0) {
-    echo PMA_printTab($strQBE, 'db_details_qbe.php3', $url_query);
-} // end if
+echo PMA_printTab($strQBE, ($num_tables > 0) ? 'db_details_qbe.php3' : '', $url_query);
 
 // Displays drop link
 if ($lnk5) {
