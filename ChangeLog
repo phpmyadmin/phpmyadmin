@@ -13,6 +13,8 @@ $Source$
 	  Mike Eheler <meheler @ users.sourceforge.net>.
 	* tbl_alter.php3, lines 109-112: fixed bug #543365 - Can't change field
 	  properties when name contains localized characters.
+	* left.php3, lines 271, 298 & 415; libraries/display_tbl.lib.php3, line 460: the valid xhtml attribute
+	  to display the "tool tip" of an image is "title" and not "alt".
 
 2002-04-12 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3, lines 957-991: expended cosmetic changes
