@@ -452,11 +452,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> boolean</dt>
     <dd>
         Starting with version 2.3.0 phpMyAdmin offers a lot of features to work
-        with master / foreign - tables. These features require the PMA
-        administrator to set up a special database for PMA (see
+        with master / foreign - tables (see 
         <a class="navigation" href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>).
-        Its contents and use will be explained further down.<br />
-        If you tried to set this up and it does not work for you have a look on
+        <br />
+        If you tried to set this up and it does not work for you, have a look on
         the &quot;Structure&quot; page of one database where you would like to
         use it. You will find a link that will analyze why those features have
         been disabled.<br />
@@ -609,10 +608,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         Starting with version 2.3.0 phpMyAdmin offers a lot of features
         to work with master / foreign - tables. To use those as well as
-        the bookmark feature you will need to create a new db.
+        the bookmark feature you need special tables with a
+        predefined structure, which we explain below.<br />
+        If you are the only user of this phpMyAdmin installation, you can 
+        use your current database to store those special tables; in this
+        case, just put your current database name in 
+        <tt>$cfg['Servers'][$i]['pmadb']</tt>.
         <br /><br />
-
-        To use this functionality as superuser create a new database:
+        If you are setting up a multi-user phpMyAdmin installation,
+        you will need to create a new db and setup special privileges,
+        so, as superuser:
+        <br /><br />
         <ul>
             <li>
                 create a new database for phpmyadmin:<br />
@@ -642,9 +648,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Since release 2.2.0 phpMyAdmin allows to bookmark queries. This can be
         useful for queries you often run.<br /><br />
 
-        To allow the usage of this functionality the superuser has to:
+        To allow the usage of this functionality you have to:
         <ul>
-            <li>set up a PMA database as described above</li>
+            <li>set up &quot;pmadb&quot; as described above</li>
             <li>within this database create a table following this scheme:
                 <br />
                 <tt>
@@ -701,7 +707,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
         To allow the usage of this functionality the superuser has to:
         <ul>
-            <li>set up a PMA database as described above</li>
+            <li>set up &quot;pmadb&quot; as described above</li>
             <li>
                 within this database create a table following this scheme:
                 <br />
@@ -746,7 +752,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         table.
         To allow the usage of this functionality the superuser has to:
         <ul>
-            <li>set up a PMA database as described above</li>
+            <li>set up &quot;pmadb&quot; as described above</li>
             <li>within this database create a table following this scheme:
                 <br />
                 <tt>
@@ -790,7 +796,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
         To allow the usage of this functionality the superuser has to:
         <ul>
-            <li>set up a PMA database as described above</li>
+            <li>set up &quot;pmadb&quot; as described above</li>
             <li>
                 within this database create a table following this scheme:
                 <br />
@@ -838,7 +844,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br />
         To allow the usage of this functionality the superuser has to:
         <ul>
-            <li>set up a PMA database as described above</li>
+            <li>set up &quot;pmadb&quot; as described above</li>
             <li>
                 within this database create a table following this scheme:
                 <br />

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: clarification about pmadb when you are not
+      the superuser
+
 2002-10-13 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug #621357
     * libraries/commom.inc.php3, string.lib.php3, sqlparser.lib.php3:
