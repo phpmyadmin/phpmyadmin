@@ -11,8 +11,12 @@ $Source$
       any (bug #943626).
 
 2004-04-28 Garvin Hicking <pma@supergarv.de>
+    * libraries/tbl_change.js: Restrict calendar to maximum values for
+      days/hours/minutes/seconds.
+    * tbl_change.php: Bug #913600 - Made tabindex/id of multi-edit table
+      unique.
     * left.php, libraries/left.js: Fixed unneeded spacing between items
-      and wrong collapsion in nested mode (Bug #943140). Removed
+      and wrong collapsing in nested mode (Bug #943140). Removed
       some debugging non-xhtml tags.
     * css/phpmyadmin.css.php: Added zero margin/padding to nowrap element
       for compatibility to the good old nobr-tag

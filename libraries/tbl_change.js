@@ -68,7 +68,7 @@ function unNullify(urlField, multi_edit)
 /**
   * Allows moving around inputs/select by Ctrl+arrows
   *
-  * @param   object   event data   
+  * @param   object   event data
   */
 function onKeyDownArrowsHandler(e) {
     e = e||window.event;
@@ -82,7 +82,7 @@ function onKeyDownArrowsHandler(e) {
     if (pos[0] != "field" || typeof pos[2] == "undefined") return;
 
     var x = pos[2], y=pos[1];
-    
+
     // skip non existent fields
     for (i=0; i<10; i++)
     {
@@ -102,7 +102,7 @@ function onKeyDownArrowsHandler(e) {
         }
         if (nO) break;
     }
-    
+
     if (!nO) return;
     nO.focus();
     if (nO.tagName != 'SELECT') {
@@ -129,8 +129,8 @@ var clock_set = 0;
  * @param   string      edit type - date/timestamp
  */
 function openCalendar(params, form, field, type) {
-	window.open("./calendar.php?" + params, "calendar", "width=400,height=200,status=yes");
-	dateField = eval("document." + form + "." + field);
+    window.open("./calendar.php?" + params, "calendar", "width=400,height=200,status=yes");
+    dateField = eval("document." + form + "." + field);
     dateType = type;
 }
 
@@ -139,10 +139,33 @@ function openCalendar(params, form, field, type) {
  *
  * @param   int number to format.
  */
-function formatNum2(i) {
-    return (i < 10 ? '0' : '') + i;
+function formatNum2(i, valtype) {
+    f = (i < 10 ? '0' : '') + i;
+    if (valtype && valtype != '') {
+        switch(valtype) {
+            case 'month':
+                f = (f > 12 ? 12 : f);
+                break;
+
+            case 'day':
+                f = (f > 31 ? 31 : f);
+                break;
+
+            case 'hour':
+                f = (f > 24 ? 24 : f);
+                break;
+
+            default:
+            case 'second':
+            case 'minute':
+                f = (f > 59 ? 59 : f);
+                break;
+        }
+    }
+
+    return f;
 }
- 
+
 /**
  * Formats number to four digits.
  *
@@ -156,7 +179,7 @@ function formatNum4(i) {
  * Initializes calendar window.
  */
 function initCalendar() {
-	if (!year && !month && !day) {
+    if (!year && !month && !day) {
         /* Called for first time */
         if (window.opener.dateField.value) {
             value = window.opener.dateField.value;
@@ -164,7 +187,7 @@ function initCalendar() {
                 if (window.opener.dateType == 'datetime') {
                     parts   = value.split(' ');
                     value   = parts[0];
-                    
+
                     if (parts[1]) {
                         time    = parts[1].split(':');
                         hour    = parseInt(time[0]);
@@ -197,30 +220,30 @@ function initCalendar() {
             minute  = dt.getMinutes();
             second  = dt.getSeconds();
         }
-	} else {
+    } else {
         /* Moving in calendar */
         if (month > 11) {
-            month = 0; 
+            month = 0;
             year++;
         }
         if (month < 0) {
-            month = 11; 
+            month = 11;
             year--;
         }
     }
-	
-	if (document.getElementById) {
-		cnt = document.getElementById("calendar_data");
-	} else if (document.all) {
-		cnt = document.all["calendar_data"];
-	}
-	
-	cnt.innerHTML = "";
-	
-	str = ""
+
+    if (document.getElementById) {
+        cnt = document.getElementById("calendar_data");
+    } else if (document.all) {
+        cnt = document.all["calendar_data"];
+    }
+
+    cnt.innerHTML = "";
+
+    str = ""
 
     //heading table
-	str += '<table class="calendar"><tr><th width="50%">';
+    str += '<table class="calendar"><tr><th width="50%">';
     str += '<a href="#" onclick="month--; initCalendar();">&laquo;</a> ';
     str += month_names[month];
     str += ' <a href="#" onclick="month++; initCalendar();">&raquo;</a>';
@@ -230,68 +253,68 @@ function initCalendar() {
     str += ' <a href="#" onclick="year++; initCalendar();">&raquo;</a>';
     str += '</th></tr></table>';
 
-	str += '<table class="calendar"><tr>';
-	for (i = 0; i < 7; i++) {
-		str += "<th>" + day_names[i] + "</th>";
-	}
-	str += "</tr>";
-    
-	var firstDay = new Date(year, month, 1).getDay();
-	var lastDay = new Date(year, month + 1, 0).getDate();
+    str += '<table class="calendar"><tr>';
+    for (i = 0; i < 7; i++) {
+        str += "<th>" + day_names[i] + "</th>";
+    }
+    str += "</tr>";
 
-	str += "<tr>";
-	
-	dayInWeek = 0;	
-	for (i = 0; i < firstDay; i++) {
-		str += "<td>&nbsp;</td>";
-		dayInWeek++;
-	}
-	for (i = 1; i <= lastDay; i++) {
-		if (dayInWeek == 7) {
-			str += "</tr><tr>";
-			dayInWeek = 0;
-		}
-        
+    var firstDay = new Date(year, month, 1).getDay();
+    var lastDay = new Date(year, month + 1, 0).getDate();
+
+    str += "<tr>";
+
+    dayInWeek = 0;
+    for (i = 0; i < firstDay; i++) {
+        str += "<td>&nbsp;</td>";
+        dayInWeek++;
+    }
+    for (i = 1; i <= lastDay; i++) {
+        if (dayInWeek == 7) {
+            str += "</tr><tr>";
+            dayInWeek = 0;
+        }
+
         dispmonth = 1 + month;
-        
+
         if (window.opener.dateType == 'datetime' || window.opener.dateType == 'date') {
-		    actVal = formatNum4(year) + "-" + formatNum2(dispmonth) + "-" + formatNum2(i);
+            actVal = formatNum4(year) + "-" + formatNum2(dispmonth, 'month') + "-" + formatNum2(i, 'day');
         } else {
-		    actVal = "" + formatNum4(year) + formatNum2(dispmonth) + formatNum2(i);
+            actVal = "" + formatNum4(year) + formatNum2(dispmonth, 'month') + formatNum2(i, 'day');
         }
         if (i == day) {
             style = ' class="selected"';
         } else {
             style = '';
         }
-		str += "<td" + style + "><a href='#' onclick='returnDate(\"" + actVal + "\");'>" + i + "</a></td>"
-		dayInWeek++;
-	}
-	for (i = dayInWeek; i < 7; i++) {
-		str += "<td>&nbsp;</td>";
-	}
-	
-	str += "</tr></table>";
+        str += "<td" + style + "><a href='#' onclick='returnDate(\"" + actVal + "\");'>" + i + "</a></td>"
+        dayInWeek++;
+    }
+    for (i = dayInWeek; i < 7; i++) {
+        str += "<td>&nbsp;</td>";
+    }
 
-	cnt.innerHTML = str;
+    str += "</tr></table>";
+
+    cnt.innerHTML = str;
 
     // Should we handle time also?
     if (window.opener.dateType != 'date' && !clock_set) {
-        
+
         if (document.getElementById) {
             cnt = document.getElementById("clock_data");
         } else if (document.all) {
             cnt = document.all["clock_data"];
         }
-        
+
         str = '';
         str += '<form class="clock">';
-        str += '<input id="hour"    type="text" size="2" maxlength="2" value="' + formatNum2(hour) + '" />:';
-        str += '<input id="minute"  type="text" size="2" maxlength="2" value="' + formatNum2(minute) + '" />:';
-        str += '<input id="second"  type="text" size="2" maxlength="2" value="' + formatNum2(second) + '" />';
+        str += '<input id="hour"    type="text" size="2" maxlength="2" onblur="this.value=formatNum2(this.value, \'hour\')" value="' + formatNum2(hour, 'hour') + '" />:';
+        str += '<input id="minute"  type="text" size="2" maxlength="2" onblur="this.value=formatNum2(this.value, \'minute\')" value="' + formatNum2(minute, 'minute') + '" />:';
+        str += '<input id="second"  type="text" size="2" maxlength="2" onblur="this.value=formatNum2(this.value, \'second\')" value="' + formatNum2(second, 'second') + '" />';
         str += '</form>';
-        
-    	cnt.innerHTML = str;
+
+        cnt.innerHTML = str;
         clock_set = 1;
     }
 
@@ -310,13 +333,13 @@ function returnDate(d) {
         m = parseInt(document.getElementById('minute').value);
         s = parseInt(document.getElementById('second').value);
         if (window.opener.dateType == 'datetime') {
-            txt += ' ' + formatNum2(h) + ':' + formatNum2(m) + ':' + formatNum2(s);
+            txt += ' ' + formatNum2(h, 'hour') + ':' + formatNum2(m, 'minute') + ':' + formatNum2(s, 'second');
         } else {
             // timestamp
-            txt += formatNum2(h) + formatNum2(m) + formatNum2(s);
+            txt += formatNum2(h, 'hour') + formatNum2(m, 'minute') + formatNum2(s, 'second');
         }
     }
 
-	window.opener.dateField.value = txt;
-	window.close();
+    window.opener.dateField.value = txt;
+    window.close();
 }
