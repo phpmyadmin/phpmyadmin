@@ -10,6 +10,8 @@ $Source$
         - Typo fixes:
         s/RestricColumnTypes/RestrictColumnTypes/
         s/RestricFunctions/RestrictFunctions/
+    * scripts/create_tables.sql: 
+        -  Neaten up SQL, add DROP TABLE/DATABASE cleanness
 
 2003-03-13 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_status.php3: Fixed the Garvin's calculations.
