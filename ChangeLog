@@ -24,6 +24,7 @@ $Source$
     * serbian: big update, 
       thanks to Branislav Jovanoviæ <branej@users.sourceforge.net> and
       Mihailo Stefanoviæ <mst@mikis.org>
+    * sql.php3: bug 779301: MySQL 3 and SELECT DISTINCT
 
 2003-07-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_properties_structure.php3, css/phpmyadmin.css.php3: Use icons for

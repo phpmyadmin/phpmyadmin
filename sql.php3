@@ -237,6 +237,10 @@ else {
     //              $is_count is changed for more correct "LIMIT" clause
     //              appending in queries like
     //                "SELECT COUNT(...) FROM ... GROUP BY ..."
+
+    // TODO: detect all this with the parser, to avoid problems finding
+    // those strings in comments or backquoted identifiers
+
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = FALSE;
     if ($is_select) { // see line 141
         $is_group = eregi('(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+', $sql_query);
@@ -378,6 +382,7 @@ else {
                 } else { // n o t   " j u s t   b r o w s i n g "
 
                     if (PMA_MYSQL_INT_VERSION < 40000) {
+                        // TODO: detect DISTINCT in the parser 
                         if (eregi('DISTINCT(.*)', $sql_query)) {
                             $count_what = 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
                         } else {
@@ -445,8 +450,7 @@ else {
 
                     if (PMA_MYSQL_INT_VERSION < 40000) {
                         if ($cnt_all_result = PMA_mysql_query($count_query)) {
-                            if ($is_group) {
-//                            if ($count_what == '*') {
+                            if ($is_group && $count_what == '*') {
                                 $unlim_num_rows = @mysql_num_rows($cnt_all_result);
                             } else {
                                 $unlim_num_rows = PMA_mysql_result($cnt_all_result, 0, 'count');
