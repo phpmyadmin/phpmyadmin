@@ -171,6 +171,14 @@ if ($num_tables == 0) {
 else {
     // No csv or xml or latex format -> add some comments at the top
 
+    if ($use_comments) {
+        require('./libraries/relation.lib.php3');
+        $cfgRelation = PMA_getRelationsParam();
+        $use_comments_work = true;
+    } else {
+        $use_comments_work = false;
+    }
+
     if ($what != 'csv' &&  $what != 'excel' && $what != 'xml' && $what != 'latex') {
         $dump_buffer       .= '# phpMyAdmin MySQL-Dump' . $crlf
                            .  '# version ' . PMA_VERSION . $crlf
@@ -210,7 +218,7 @@ else {
                                  .  $crlf . '#' . $crlf
                                  .  '# ' . $strTableStructure . ' ' . $formatted_table_name . $crlf
                                  .  '#' . $crlf . $crlf
-                                 .  PMA_getTableDef($db, $table, $crlf, $err_url) . ';' . $crlf;
+                                 .  PMA_getTableDef($db, $table, $crlf, $err_url, $use_comments_work) . ';' . $crlf;
                 }
                 if (function_exists('PMA_kanji_str_conv')) { // Y.Kawada
                     $dump_buffer = PMA_kanji_str_conv($dump_buffer, $knjenc, isset($xkana) ? $xkana : '');

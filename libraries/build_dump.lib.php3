@@ -35,6 +35,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      * @param   string   the table name
      * @param   string   the end of line sequence
      * @param   string   the url to go back in case of error
+     * @param   boolean  whether to include column comments
      *
      * @return  string   the CREATE statement on success
      *
@@ -46,7 +47,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @access  public
      */
-    function PMA_getTableDef($db, $table, $crlf, $error_url)
+    function PMA_getTableDef($db, $table, $crlf, $error_url, $comments = false)
     {
         global $drop;
         global $use_backquotes;
@@ -54,6 +55,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $schema_create = '';
         if (!empty($drop)) {
             $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes) . ';' . $crlf;
+        }
+
+        if ($comments) {
+            $comments_map = PMA_getComments($db, $table);
+        } else {
+            $comments_map = array();
         }
 
         // Steve Alberty's patch for complete table dump,
@@ -91,6 +98,17 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                                . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
                                . substr($tmpres[1], $pos);
                 $schema_create .= str_replace("\n", $crlf, PMA_htmlFormat($tmpres[1]));
+
+                // garvin: Because replacing within a direct mysql result is a bit dangerous, just insert comments after that.
+                if ($comments && is_array($comments_map) && count($comments_map) > 0) {
+                    $schema_create .= $crlf . $crlf . '/* COMMENTS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+                    @reset($comments_map);
+                    while(list($comment_field, $comment) = each($comments_map)) {
+                        $schema_create .= '    ' . PMA_backquote($comment_field, $use_backquotes) . $crlf . '        ' . PMA_backquote($comment, $use_backquotes) . $crlf;
+                        // omitting html_format is intentional. No use for htmlchars in the dump.
+                    }
+                    $schema_create .= '*/';
+                }
             }
             mysql_free_result($result);
             return $schema_create;
@@ -112,6 +130,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             if ($row['Extra'] != '') {
                 $schema_create .= ' ' . $row['Extra'];
             }
+
+            if ($comments && is_array($comments_map) && isset($comments_map[$row['Field']])) {
+                $schema_create .= $crlf . '    /* ' . PMA_backquote($comments_map[$row['Field']], $use_backquotes) . ' */';
+                // omitting html_format is intentional. No use for htmlchars in the dump.
+            }
+
             $schema_create     .= ',' . $crlf;
         } // end while
         mysql_free_result($result);

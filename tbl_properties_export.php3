@@ -95,6 +95,20 @@ if (PMA_MYSQL_INT_VERSION >= 32306) {
     <?php
 } // end backquotes feature
 echo "\n";
+
+// garvin: whether to show column comments
+require('./libraries/relation.lib.php3');
+$cfgRelation = PMA_getRelationsParam();
+
+if ($cfgRelation['commwork']) {
+    ?>
+            &nbsp;&nbsp;
+            <input type="checkbox" name="use_comments" value="1" id="checkbox_dump_use_comments" />
+            <label for="checkbox_dump_use_comments"><?php echo $strDumpComments; ?></label><br />
+    <?php
+} // end dump comments
+echo "\n";
+
 ?>
             <br />
             <!-- For data -->
