@@ -219,7 +219,12 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     $field           = $row_table_def['Field'];
     // loic1: current date should not be set as default if the field is NULL
     //        for the current row
-    if ($row_table_def['Type'] == 'datetime') {
+    // lem9:  but do not put here the current datetime if there is a default 
+    //        value (the real default value will be set in the 
+    //        Default value logic below)
+
+    if (($row_table_def['Type'] == 'datetime')
+        && (!isset($row_table_def['Default']))) {
         // INSERT case
         if ($insert_mode) {
             $row[$field] = date('Y-m-d H:i:s', time());
