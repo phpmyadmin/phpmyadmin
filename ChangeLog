@@ -12,7 +12,7 @@ $Source$
     * lang/italian: Updated, thanks to Pietro Danesi.
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi.
     * lang/lithuanian: Updated, thanks to Vilius Zigmantas.
-    * lang/chinesse: Updated, thanks to Siu Sun.
+    * lang/chinese: Updated, thanks to Siu Sun.
 
 2003-03-18 Garvin Hicking <me@supergarv.de>
     * libraries/display_export.lib.php3: Fixed variable usage.
