@@ -1246,7 +1246,7 @@ if (typeof(document.getElementById) != 'undefined'
 
             //if (!isset($GLOBALS['goto'])) {
                 //$edit_target = (isset($GLOBALS['table'])) ? $cfg['DefaultTabTable'] : $cfg['DefaultTabDatabase'];
-            $edit_target = (isset($GLOBALS['table'])) ? 'tbl_properties.php3' : 'db_details.php3';
+            $edit_target = isset($GLOBALS['db']) ? (isset($GLOBALS['table']) ? 'tbl_properties.php3' : 'db_details.php3') : '';
             //} else if ($GLOBALS['goto'] != 'main.php3') {
             //    $edit_target = $GLOBALS['goto'];
             //} else {

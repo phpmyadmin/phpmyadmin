@@ -8,6 +8,8 @@ $Source$
 2003-02-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * ANNOUNCE.txt: Prepared announcement for 2.4.0. Please feel free to correct
       it if necessary.
+    * libraries/common.lib.php3: Don't display edit link for
+      database-independant queries.
 
 2003-02-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_databases.php3, server_privileges.php3, lang/*.inc.php3:
