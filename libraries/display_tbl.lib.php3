@@ -1411,7 +1411,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 while ($rel = PMA_mysql_fetch_row($result)) {
                     // check for display field?
                     if ($cfgRelation['displaywork']) {
-                        $display_field = getDisplayField($db, $rel[2]);
+                        $display_field = PMA_getDisplayField($db, $rel[2]);
                     } // end if
                     $map[$rel[0]] = array($rel[2], $rel[3], $display_field);
                 } // end while

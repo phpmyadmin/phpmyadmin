@@ -482,7 +482,7 @@ class PMA_RT_Table
         $this->y = (double) $this->y;
 
         // displayfield
-        $this->displayfield = getDisplayField($db, $table_name);
+        $this->displayfield = PMA_getDisplayField($db, $table_name);
 
         // index
         $sql    = 'SHOW index FROM ' . PMA_backquote($table_name);
@@ -852,8 +852,8 @@ class PMA_RT
                   .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   .   ' AND pdf_page_number = ' . $which_rel;
         $tab_rs   = PMA_query_as_cu($tab_sql);
-        if(!mysql_num_rows($tab_rs)>0){
-                die('no tables');
+        if (!mysql_num_rows($tab_rs) > 0) {
+            die('No tables');
         }
         while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
             $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
@@ -867,25 +867,24 @@ class PMA_RT
                 .   ' AND foreign_table IN (' . $intable . ')';
         $result =  PMA_query_as_cu($sql);
 
-        /*
-        mikebeck: maybe we can show tables without relations if i comment that out
-        if (!$result || !mysql_num_rows($result)) {
-            $pdf->PMA_PDF_die($GLOBALS['strPdfInvalidPageNum']);
-        }
-        */
-        if(isset($result) && $result && mysql_num_rows($result)>0){
-                while ($row = PMA_mysql_fetch_array($result)) {
-                    $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
-                }
-                $norelations=FALSE;
-        }else{
-                reset ($alltables);
-                while (list(, $table) = each ($alltables)) {
-                        $this->tables[$table] = new PMA_RT_Table($table, $this->ff);
-                        $this->PMA_RT_setMinMax($this->tables[$table]);
-                }
-                $norelations=TRUE;
-        }
+        // mikebeck: maybe we can show tables without relations if i comment
+        //           that out
+//        if (!$result || !mysql_num_rows($result)) {
+//            $pdf->PMA_PDF_die($GLOBALS['strPdfInvalidPageNum']);
+//        }
+        if (isset($result) && $result && mysql_num_rows($result) > 0) {
+            while ($row = PMA_mysql_fetch_array($result)) {
+                $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
+            }
+            $norelations = FALSE;
+        } else {
+            reset ($alltables);
+            while (list(, $table) = each ($alltables)) {
+                    $this->tables[$table] = new PMA_RT_Table($table, $this->ff);
+                    $this->PMA_RT_setMinMax($this->tables[$table]);
+            }
+            $norelations = TRUE;
+        } // end if... else...
 
         // Defines the scale factor
         if ($scale == 'auto') {
@@ -904,8 +903,8 @@ class PMA_RT
             $this->PMA_RT_strokeGrid();
         }
         $pdf->PMA_PDF_setFontSizeScale(14);
-        if($norelations==FALSE){
-                $this->PMA_RT_drawRelations($change_color);
+        if ($norelations == FALSE) {
+            $this->PMA_RT_drawRelations($change_color);
         }
         $this->PMA_RT_drawTables($show_info);
 

@@ -522,7 +522,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     //          work anyway, but display a big warning on the main.php3
     //          page.
     if (empty($cfg['PmaAbsoluteUri'])) {
-    $port_in_HTTP_HOST = strpos($HTTP_SERVER_VARS['HTTP_HOST'], ':') > 0;
+        $port_in_HTTP_HOST              = (strpos($HTTP_SERVER_VARS['HTTP_HOST'], ':') > 0);
         $cfg['PmaAbsoluteUri']          = (!empty($HTTP_SERVER_VARS['HTTPS']) ? 'https' : 'http') . '://'
                                         . $HTTP_SERVER_VARS['HTTP_HOST']
                                         . ((!empty($HTTP_SERVER_VARS['SERVER_PORT']) && !$port_in_HTTP_HOST) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '')
@@ -1400,8 +1400,14 @@ if (typeof(document.getElementById) != 'undefined'
         global $PHP_SELF;
         global $db_details_links_count_tabs;
 
-        $bgcolor = (basename($PHP_SELF) == $link) ? 'silver' : '#DFDFDF';
-        $db_details_links_count_tabs++;
+        if (basename($PHP_SELF) == $link
+            && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
+            $bgcolor = 'silver';
+        } else {
+            $bgcolor = '#DFDFDF';
+        }
+
+		$db_details_links_count_tabs++;
         if (!empty($attr)) {
             $attr = ' ' . $attr;
         }

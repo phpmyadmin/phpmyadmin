@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-11 Loïc Chapeaux  <lolo@phpheaven.net>
+	* pdf_schema.php3; tbl_printview.php3; tbl_properties_links.php3;
+	  tbl_properties_operations.php3; tbl_relation.php3;
+	  libraries/charset_conversion.lib.php3; libraries/display_tbl.lib.php3;
+	  libraries/relation.lib.php3: coding standards.
+	* libraries/common.lib.php3: coding standards and a little display bug.
+
 2002-07-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: PHP3 compatibility.
     * read_dump.php3: Fixed bug #579968, thanks to Alvar Soome (finsoft).

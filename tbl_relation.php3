@@ -22,10 +22,10 @@ $cfgRelation = PMA_getRelationsParam();
  * Updates
  */
 if ($cfgRelation['relwork']) {
-    $existrel = getForeigners($db, $table);
+    $existrel = PMA_getForeigners($db, $table);
 }
 if ($cfgRelation['displaywork']) {
-    $disp     = getDisplayField($db, $table);
+    $disp     = PMA_getDisplayField($db, $table);
 }
 if ($cfgRelation['relwork']
     && isset($submit_rel) && $submit_rel == 'true') {
@@ -124,13 +124,13 @@ if ($cfgRelation['commwork']
 
 // Now that we might have changed we have to see again
 if ($cfgRelation['relwork']) {
-    $existrel = getForeigners($db, $table);
+    $existrel = PMA_getForeigners($db, $table);
 }
 if ($cfgRelation['displaywork']) {
-    $disp     = getDisplayField($db, $table);
+    $disp     = PMA_getDisplayField($db, $table);
 }
 if ($cfgRelation['commwork']) {
-    $comments = getComments($db, $table);
+    $comments = PMA_getComments($db, $table);
 }
 
 
@@ -168,7 +168,7 @@ if ($cfgRelation['relwork']) {
     } // end while
 
     // Create array of relations (Mike Beck)
-    $rel_dest = getForeigners($db, $table);
+    $rel_dest = PMA_getForeigners($db, $table);
 } // end if
 
 // Now find out the columns of our $table
@@ -241,7 +241,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     <?php
     if ($cfgRelation['displaywork']) {
         // Get "display_filed" infos
-        $disp = getDisplayField($db, $table);
+        $disp = PMA_getDisplayField($db, $table);
 
         echo "\n";
         ?>

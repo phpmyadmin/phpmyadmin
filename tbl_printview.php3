@@ -17,7 +17,7 @@ if (!isset($selected_tbl)) {
 require('./libraries/relation.lib.php3');
 $cfgRelation  = PMA_getRelationsParam();
 if ($cfgRelation['commwork']) {
-    $comments = getComments($db, $table);
+    $comments = PMA_getComments($db, $table);
 }
 
 
@@ -158,7 +158,7 @@ while (list($key, $table) = each($the_tables)) {
     if ($cfgRelation['relation']) {
         // Find which tables are related with the current one and write it in
         // an array
-        $res_rel = getForeigners($db, $table);
+        $res_rel = PMA_getForeigners($db, $table);
 
         if (count($res_rel) > 0) {
             $have_rel = TRUE;

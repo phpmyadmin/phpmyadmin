@@ -13,21 +13,21 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
     /**
      * Loads the recode or iconv extensions if any of it is not loaded yet
      */
-    if ( isset($cfg['AllowAnywhereRecoding'])
-         && $cfg['AllowAnywhereRecoding']
-         && $allow_recoding
-         && ((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
-         || (PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
-         && @function_exists('dl')) {
-        if (!(@extension_loaded('recode')||@extension_loaded('iconv'))) {
+    if (isset($cfg['AllowAnywhereRecoding'])
+        && $cfg['AllowAnywhereRecoding']
+        && $allow_recoding
+        && ((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
+        || (PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
+        && @function_exists('dl')) {
+        if (!(@extension_loaded('recode') || @extension_loaded('iconv'))) {
             if (PMA_IS_WINDOWS) {
                 $suffix = '.dll';
             } else {
                 $suffix = '.so';
             }
-            @dl('recode'.$suffix);
+            @dl('recode' . $suffix);
             if (!@extension_loaded('recode')) {
-                @dl('iconv'.$suffix);
+                @dl('iconv' . $suffix);
                 if (!@extension_loaded('iconv')) {
                     echo $strCantLoadRecodeIconv;
                     exit();
@@ -35,7 +35,6 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             }
         }
     } // end load mysql extension
-    // if allowed recoding, we should try to load extensions for it...
 
 
     /**

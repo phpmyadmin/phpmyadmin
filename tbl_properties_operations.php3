@@ -296,7 +296,7 @@ if ($cfgRelation['relwork']) {
     // and $db is not the last of the list, because PMA_availableDatabases()
     // has made a PMA_mysql_select_db() on the last one
     PMA_mysql_select_db($db);
-    $foreign = getForeigners($db, $table);
+    $foreign = PMA_getForeigners($db, $table);
 
     if ($foreign) {
         ?>

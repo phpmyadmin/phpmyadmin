@@ -37,7 +37,6 @@ if ($table_info_num_rows > 0) {
     $att6    = '';
 }
 
-$lnk7 = "sql.php3";
 $arg7 = ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query) . '&amp;back=tbl_properties' . $sub_part . '.php3&amp;reload=1&amp;sql_query= ' . urlencode('DROP TABLE ' . PMA_backquote($table) ) . '&amp;zero_rows=' . urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table)));
 $att7 = 'class="drop" onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsFormat($table) . '\')"';
 
