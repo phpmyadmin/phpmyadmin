@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * footer.inc.php: Fixed bug #942316 - Consistent window layout for
+      query window.
     * left.php: Fixed bug #942374 - Undefined indizes in left frame
       for light mode. Improved performance. Fixed tab-formatted code and
       adjusted to coding guidelines.
