@@ -119,7 +119,6 @@ $err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
  */
 PMA_DBI_select_db($db);
 
-
 /**
  * A target table name has been sent to this script -> do the work
  */
@@ -164,7 +163,6 @@ if (isset($new_name) && trim($new_name) != '') {
 
             /* Generate query back */
             $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
-
             // If table exists, and 'add drop table' is selected: Drop it!
             $drop_query = '';
             if (isset($drop_if_exists) && $drop_if_exists == 'true') {
@@ -213,7 +211,8 @@ if (isset($new_name) && trim($new_name) != '') {
         }
 
         // Copy the data
-        if ($result != FALSE && ($what == 'data' || $what == 'dataonly')) {
+        //if ($result != FALSE && ($what == 'data' || $what == 'dataonly')) {
+        if ($what == 'data' || $what == 'dataonly') {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
             PMA_DBI_query($sql_insert_data);
             $sql_query      .= "\n\n" . $sql_insert_data . ';';
