@@ -5,6 +5,12 @@
 #
 # Example:  add_message.sh '$strNewMessage' 'new message contents'
 #
+
+if [ $# -ne 2 ] ; then
+    echo "usage: add_message.sh '\$strNewMessage' 'new message contents'"
+    exit 1
+fi
+    
 for file in *.inc.php3
 do
         echo $file " "
