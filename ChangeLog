@@ -9,6 +9,8 @@ $Source$
     * main.php: bug 984136, wrong alignment in RTL languages
     * lang/arabic-utf-8, lang/sync_lang.sh: bug 984176, wrong encoding
       for arabic UTF-8. sync with --iconv works.
+    * tbl_relation.php: use PMA_DBI_try_query() to be able to catch the
+      missing index error (InnoDB) and give appropriate advice
 
 2004-07-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/xls.php: enable user to specify './tmp' as the

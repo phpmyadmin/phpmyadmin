@@ -189,7 +189,7 @@ if (isset($submit_rel) && $submit_rel == 'true') {
             } // end if... else....
 
             if (isset($upd_query)) {
-                $upd_rs         = PMA_DBI_query($upd_query);
+                $upd_rs         = PMA_DBI_try_query($upd_query);
                 if (substr(PMA_DBI_getError(), 1, 4) == '1005') {
                     echo '<p class="warning">' . $strNoIndex . ' (' . $master_field .')</p>'  . PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
                 }
