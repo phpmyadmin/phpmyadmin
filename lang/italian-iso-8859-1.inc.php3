@@ -517,6 +517,7 @@ $strSearchOption3 = 'la frase esatta';
 $strSearchOption4 = 'come espressione regolare';
 $strSearchResultsFor = 'Cerca i risultati per "<i>%s</i>" %s:';
 $strSearchType = 'Trova:';
+$strSecretRequired = 'Adesso c\'è bisogno di una password per il file di configurazione (blowfish_secret).';
 $strSelect = 'Seleziona';
 $strSelectADb = 'Prego, selezionare un database';
 $strSelectAll = 'Seleziona Tutto';
@@ -578,6 +579,7 @@ $strTableHasBeenEmptied = 'La tabella %s è stata svuotata';
 $strTableHasBeenFlushed = 'La tabella %s è stata inizializzata';
 $strTableMaintenance = 'Amministrazione tabella';
 $strTableOfContents = 'Tabella dei contenuti';
+$strTableOptions = 'Opzioni della tabella';
 $strTableStructure = 'Struttura della tabella';
 $strTableType = 'Tipo tabella';
 $strTables = '%s tabella(e)';
@@ -590,6 +592,7 @@ $strThisHost = 'Questo Host';
 $strThisNotDirectory = 'Questa non è una directory';
 $strThreadSuccessfullyKilled = 'Il thread %s è stato terminato con successo.';
 $strTime = 'Tempo';
+$strToggleScratchboard = '(dis)attiva scratchboard';
 $strTotal = 'Totali';
 $strTotalUC = 'Totale';
 $strTraffic = 'Traffico';
@@ -654,9 +657,4 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-
-$strToggleScratchboard = 'toggle scratchboard';  //to translate
-
-$strTableOptions = 'Table options';  //to translate
-$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
 ?>

@@ -30,6 +30,8 @@ $strAccessDenied = 'Accesso negato';
 $strAction = 'Azione';
 $strAddDeleteColumn = 'Aggiungi/Cancella campo';
 $strAddDeleteRow = 'Aggiungi/Cancella criterio';
+$strAddDropDatabase = 'Aggiungi DROP DATABASE';
+$strAddIntoComments = 'Aggiungi nei commenti';
 $strAddNewField = 'Aggiungi un nuovo campo';
 $strAddPriv = 'Aggiungi un nuovo privilegio';
 $strAddPrivMessage = 'Hai aggiunto un nuovo privilegio.';
@@ -145,7 +147,9 @@ $strData = 'Dati';
 $strDataDict = 'Data Dictionary';
 $strDataOnly = 'Solo dati';
 $strDatabase = 'Database ';
+$strDatabaseExportOptions = 'Opzioni di esportazione del database';
 $strDatabaseHasBeenDropped = 'Il Database %s è stato eliminato.';
+$strDatabaseNoTable = 'Questo database non contiene tabelle!';
 $strDatabaseWildcard = 'Database (wildcards permesse):';
 $strDatabases = 'Database';
 $strDatabasesDropped = '%s databases sono stati cancellati correttamente.';
@@ -514,6 +518,7 @@ $strSearchOption3 = 'la frase esatta';
 $strSearchOption4 = 'come espressione regolare';
 $strSearchResultsFor = 'Cerca i risultati per "<i>%s</i>" %s:';
 $strSearchType = 'Trova:';
+$strSecretRequired = 'Adesso c\'è bisogno di una password per il file di configurazione (blowfish_secret).';
 $strSelect = 'Seleziona';
 $strSelectADb = 'Prego, selezionare un database';
 $strSelectAll = 'Seleziona Tutto';
@@ -575,6 +580,7 @@ $strTableHasBeenEmptied = 'La tabella %s è stata svuotata';
 $strTableHasBeenFlushed = 'La tabella %s è stata inizializzata';
 $strTableMaintenance = 'Amministrazione tabella';
 $strTableOfContents = 'Tabella dei contenuti';
+$strTableOptions = 'Opzioni della tabella';
 $strTableStructure = 'Struttura della tabella';
 $strTableType = 'Tipo tabella';
 $strTables = '%s tabella(e)';
@@ -587,6 +593,7 @@ $strThisHost = 'Questo Host';
 $strThisNotDirectory = 'Questa non è una directory';
 $strThreadSuccessfullyKilled = 'Il thread %s è stato terminato con successo.';
 $strTime = 'Tempo';
+$strToggleScratchboard = '(dis)attiva scratchboard';
 $strTotal = 'Totali';
 $strTotalUC = 'Totale';
 $strTraffic = 'Traffico';
@@ -632,6 +639,7 @@ $strValue = 'Valore';
 $strVar = 'Variabile';
 $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
+$strViewDumpDatabases = 'Visualizza il dump (schema) dei databases';
 
 $strWebServerUploadDirectory = 'directory di upload del web-server';
 $strWebServerUploadDirectoryError = 'La directory impostata per l\'upload non può essere trovata';
@@ -650,15 +658,4 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strAddDropDatabase = 'Add DROP DATABASE';//to translate
-$strAddIntoComments = 'Add into comments';//to translate
-
-$strDatabaseExportOptions = 'Database export options';//to translate
-$strDatabaseNoTable = 'This database contains no table!';//to translate
-
-$strViewDumpDatabases = 'View dump (schema) of databases';//to translate
-
-$strToggleScratchboard = 'toggle scratchboard';  //to translate
-$strTableOptions = 'Table options';  //to translate
-$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
 ?>
