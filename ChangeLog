@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-15 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Updated.
+
 2004-06-09 Alexander M. Turek  <me@derrabus.de>
     * libraries/config_import.lib.php: The default settings should be merged.
 
