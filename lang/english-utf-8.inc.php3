@@ -642,13 +642,12 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
-$strPaperSize = 'Paper size';  //to translate
-$strDatabaseNoTable = 'This database contains no table!';//to translate
-$strViewDumpDatabases = 'View dump (schema) of databases';//to translate
-$strAddIntoComments = 'Add into comments';//to translate
-$strDatabaseExportOptions = 'Database export options';//to translate
-$strAddDropDatabase = 'Add DROP DATABASE';//to translate
-$strReset = 'reset';  //to translate
-$strToggleScratchboard = 'toggle scratchboard';  //to translate
+$strQueryWindowLock = 'Do not overwrite this query from outside the window';
+$strPaperSize = 'Paper size';
+$strDatabaseNoTable = 'This database contains no table!';
+$strViewDumpDatabases = 'View dump (schema) of databases';
+$strAddIntoComments = 'Add into comments';
+$strDatabaseExportOptions = 'Database export options';
+$strAddDropDatabase = 'Add DROP DATABASE';
+$strToggleScratchboard = 'Toggle scratchboard';
 ?>

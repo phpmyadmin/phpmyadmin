@@ -474,7 +474,7 @@ $strRepairTable = 'Opravit tabulku';
 $strReplace = 'Pøepsat';
 $strReplaceNULLBy = 'Nahradit NULL hodnoty';
 $strReplaceTable = 'Pøepsat data tabulky souborem';
-$strReset = 'Pùvodní (reset)';
+$strReset = 'Pùvodní';
 $strResourceLimits = 'Omezení zdrojù';
 $strRevoke = 'Zru¹it';
 $strRevokeAndDelete = 'Odebrat u¾ivatelùm ve¹kerá oprávnìní a poté je odstranit z tabulek.';
@@ -591,6 +591,7 @@ $strThisHost = 'Tento poèítaè';
 $strThisNotDirectory = 'Nebyl zadán adresáø';
 $strThreadSuccessfullyKilled = 'Vlákno %s bylo úspì¹ne zabito.';
 $strTime = 'Èas';
+$strToggleScratchboard = 'Zobrazit grafický návrh';
 $strTotal = 'celkem';
 $strTotalUC = 'Celkem';
 $strTraffic = 'Provoz';
@@ -655,6 +656,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strReset = 'reset';  //to translate
-$strToggleScratchboard = 'toggle scratchboard';  //to translate
 ?>

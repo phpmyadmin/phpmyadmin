@@ -12,6 +12,11 @@ $Source$
     * libraries/export/{csv,latex,xml}.php3: Use correct field names when
       exporting custom SQL (also saves one SQL query for export) (fixes bug
       #755386).
+    * lang/italian: Updated, thanks to Pietro Danesi (danone).
+    * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
+    * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
+    * lang/czech:  Updated.
+    * lang/*: Removed duplicate strReset.
 
 2003-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, bug 759568, row count, DISTINCT and MySQL 4

@@ -651,6 +651,5 @@ $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 $strAddIntoComments = 'Add into comments';//to translate
 $strDatabaseExportOptions = 'Database export options';//to translate
 $strAddDropDatabase = 'Add DROP DATABASE';//to translate
-$strReset = 'reset';  //to translate
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 ?>

@@ -656,6 +656,5 @@ $strViewDumpDatabases = 'Dump (Schema) der Datenbanken anzeigen';
 $strAddIntoComments = 'In Kommentarbereich einbeziehen';
 $strDatabaseExportOptions = 'Export-Optionen der Datenbank';
 $strAddDropDatabase = 'DROP DATABASE hinzufügen';
-$strReset = 'Zurücksetzen';
 $strToggleScratchboard = 'Klemmbrett anzeigen';
 ?>

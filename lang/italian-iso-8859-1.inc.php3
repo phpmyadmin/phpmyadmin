@@ -29,6 +29,8 @@ $strAccessDenied = 'Accesso negato';
 $strAction = 'Azione';
 $strAddDeleteColumn = 'Aggiungi/Cancella campo';
 $strAddDeleteRow = 'Aggiungi/Cancella criterio';
+$strAddDropDatabase = 'Aggiungi DROP DATABASE';
+$strAddIntoComments = 'Aggiungi nei commenti';
 $strAddNewField = 'Aggiungi un nuovo campo';
 $strAddPriv = 'Aggiungi un nuovo privilegio';
 $strAddPrivMessage = 'Hai aggiunto un nuovo privilegio.';
@@ -144,7 +146,9 @@ $strData = 'Dati';
 $strDataDict = 'Data Dictionary';
 $strDataOnly = 'Solo dati';
 $strDatabase = 'Database ';
+$strDatabaseExportOptions = 'Opzioni di esportazione del database';
 $strDatabaseHasBeenDropped = 'Il Database %s è stato eliminato.';
+$strDatabaseNoTable = 'Questo database non contiene tabelle!';
 $strDatabaseWildcard = 'Database (wildcards permesse):';
 $strDatabases = 'Database';
 $strDatabasesDropped = '%s databases sono stati cancellati correttamente.';
@@ -631,6 +635,7 @@ $strValue = 'Valore';
 $strVar = 'Variabile';
 $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
+$strViewDumpDatabases = 'Visualizza il dump (schema) dei databases';
 
 $strWebServerUploadDirectory = 'directory di upload del web-server';
 $strWebServerUploadDirectoryError = 'La directory impostata per l\'upload non può essere trovata';
@@ -649,14 +654,7 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strAddDropDatabase = 'Add DROP DATABASE';//to translate
-$strAddIntoComments = 'Add into comments';//to translate
 
-$strDatabaseExportOptions = 'Database export options';//to translate
-$strDatabaseNoTable = 'This database contains no table!';//to translate
-
-$strViewDumpDatabases = 'View dump (schema) of databases';//to translate
-
-$strReset = 'reset';  //to translate
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
+
 ?>
