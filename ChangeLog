@@ -11,13 +11,15 @@ $Source$
 
 2002-08-12 Mike Beck  <mikebeck@users.sourceforge.net>
     * tbl_select.php3: Bugfix: it created IS 'NULL'
-      instead of IS NULL
+      instead of IS NULL.
+
 2002-08-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/defines_php.lib.php3, Documentation.*, translators.html:
       corrected version number.
     * libraries/grab_globals.lib.php3: disallow accessing serious server files
       via "?goto=".
     * lang/hindi-utf-8.inc.php3: File was corrupted.
+    * lang/chinese_gb-utf-8.inc.php3: Back to previous version.
 
 2002-08-11 Robin Johnson  <robbat2@users.sourceforge.net>
     ### 2.3.0 is released ###
