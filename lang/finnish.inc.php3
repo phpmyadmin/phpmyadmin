@@ -149,7 +149,7 @@ $strInsertedRows = 'Lisätyt rivit:';
 $strInsertIntoTable = 'Lisää rivi tauluun';
 $strInsertNewRow = 'Lisää uusi rivi';
 $strInsertTextfiles = 'Syötä tekstitiedosto tauluun';
-$strInstructions = 'Ohjeet';
+$strInstructions = 'komentoa';
 $strInUse = 'käytössä';
 $strInvalidName = '"%s" on varattu sana eikä sitä voi käyttää tietokannan, taulun tai sarakkeen nimenä.';
 
