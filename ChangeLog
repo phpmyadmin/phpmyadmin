@@ -6,9 +6,12 @@ $Id$
 $Source$
 
 2001-11-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_change.php3, lines 208-212: always use the existing timestamp
+	  value in the update statement else MySQL auto-update it to the
+	  current timestamp.
 	* main.php3: removed the "MySQL" column if no MySQL feature is allowed.
-	* Documentation.html, lines 958-966: added a faq entry about the invalid
-	  "$cfgPmaAbsoluteUri" related problems.
+	* Documentation.html, lines 958-966: added a faq entry about the
+	  invalid "$cfgPmaAbsoluteUri" related problems.
 
 2001-11-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, lines 178-492; tbl_properties.php3, lines 670-685: the

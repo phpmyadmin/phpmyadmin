@@ -205,7 +205,11 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } // end if
         $special_chars = htmlspecialchars($row[$field]);
         $data          = $row[$field];
-        $backup_field  = '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($data) . '" />';
+        // loic1: if a timestamp field value is not included in an update
+        //        statement MySQL auto-update it to the current timestamp
+        $backup_field  = ($row_table_def['True_Type'] == 'timestamp')
+                       ? ''
+                       : '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($data) . '" />';
     } else {
         // loic1: display default values 
         if (!isset($row_table_def['Default'])) {
