@@ -3,7 +3,7 @@
 
 /**
  * Portuguese language file by
- *   António Raposo <Antonio.Raposo at CFMsoft.JazzNet.pt>
+ *   António Raposo <cfmsoft@users.sourceforge.net>
  *   Lopo Pizarro <lopopizarro@users.sourceforge.net>
  */
 
