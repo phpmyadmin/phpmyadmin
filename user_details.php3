@@ -32,13 +32,13 @@ $err_url = 'user_details.php3'
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
  *
- * @see     check_db()
+ * @see     checkDb()
  *
  * @TODO    "SHOW GRANTS" statements is available and buggyless since
  *          MySQL 3.23.4 and it seems not to return privileges of the anonymous
  *          user while these privileges applies to all users.
  */
-function table_grants(&$host_db_result, $dbcheck = FALSE) {
+function tableGrants(&$host_db_result, $dbcheck = FALSE) {
     global $lang, $server;
     ?>
 
@@ -200,7 +200,7 @@ function table_grants(&$host_db_result, $dbcheck = FALSE) {
     echo "\n";
 
     return TRUE;
-} // end of the 'table_grants()' function
+} // end of the 'tableGrants()' function
 
 
 /**
@@ -210,9 +210,9 @@ function table_grants(&$host_db_result, $dbcheck = FALSE) {
  *
  * @return  boolean  true/false in case of success/failure
  *
- * @see table_grants()
+ * @see tableGrants()
  */
-function check_db($dbcheck)
+function checkDb($dbcheck)
 {
     $local_query  = 'SELECT Host, User FROM mysql.user ORDER BY Host, User';
     $result       = mysql_query($local_query);
@@ -221,10 +221,10 @@ function check_db($dbcheck)
     if (!$host_usr_cnt) {
         return FALSE;
     }
-    table_grants($result, $dbcheck);
+    tableGrants($result, $dbcheck);
 
     return TRUE;
-} // end of the 'check_db()' function
+} // end of the 'checkDb()' function
 
 
 /**
@@ -235,9 +235,9 @@ function check_db($dbcheck)
  *
  * @return  boolean  always true
  *
- * @see normal_operations()
+ * @see normalOperations()
  */
-function table_privileges($form, $row = FALSE)
+function tablePrivileges($form, $row = FALSE)
 {
     ?>
 
@@ -286,7 +286,7 @@ function table_privileges($form, $row = FALSE)
     echo "\n";
 
     return TRUE;
-} // end of the 'table_privileges()' function
+} // end of the 'tablePrivileges()' function
 
 
 /**
@@ -298,9 +298,9 @@ function table_privileges($form, $row = FALSE)
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
  *
- * @see table_privileges()
+ * @see tablePrivileges()
  */
-function normal_operations()
+function normalOperations()
 {
     global $lang, $server;
     ?>
@@ -403,7 +403,7 @@ function normal_operations()
             </table>
     <?php
     echo "\n";
-    table_privileges('addUserForm');
+    tablePrivileges('addUserForm');
     ?>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
@@ -415,7 +415,7 @@ function normal_operations()
     <?php
 
     return TRUE;
-} // end of the 'normal_operations()' function
+} // end of the 'normalOperations()' function
 
 
 /**
@@ -433,9 +433,9 @@ function normal_operations()
  * @global  string   the database to check grants for
  * @global  string   the table to check grants for
  *
- * @see table_privileges()
+ * @see tablePrivileges()
  */
-function grant_operations($grants)
+function grantOperations($grants)
 {
     global $lang, $server, $host, $pma_user;
     global $dbgrant, $tablegrant;
@@ -583,7 +583,7 @@ function grant_operations($grants)
             </table>
     <?php
     echo "\n";
-    table_privileges('userGrants', $grants);
+    tablePrivileges('userGrants', $grants);
     ?>
             <input type="submit" name="upd_grants" value="<?php echo $GLOBALS['strGo']; ?>" />
         </form>
@@ -594,7 +594,7 @@ function grant_operations($grants)
     echo "\n";
 
     return TRUE;
-} // end of the 'grant_operations()' function
+} // end of the 'grantOperations()' function
 
 
 /**
@@ -611,9 +611,9 @@ function grant_operations($grants)
  * @global  string   the host name to check grants for
  * @global  string   the username to check grants for
  *
- * @see table_privileges()
+ * @see tablePrivileges()
  */
-function edit_operations($host, $user)
+function editOperations($host, $user)
 {
     global $lang, $server;
     global $host, $pma_user;
@@ -709,7 +709,7 @@ function edit_operations($host, $user)
         <form action="user_details.php3" method="post" name="privForm">
             <?php echo $GLOBALS['strEditPrivileges'] . "\n"; ?>
     <?php
-    table_privileges('privForm', $row);
+    tablePrivileges('privForm', $row);
     echo "\n";
     ?>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -725,26 +725,7 @@ function edit_operations($host, $user)
     echo "\n";
 
     return TRUE;
-} // end of the 'edit_operations()' function
-
-
-/**
- * Checks whether the current user is a super-user or not
- *
- * @return  boolean  true as soon as the current user is super-user, no return
- *                   else
- *
- * @access  private
- */
-function check_rights()
-{
-    $result = @mysql_query('USE mysql');
-    if (mysql_error()) {
-        mysql_die($GLOBALS['strNoRights'], '', FALSE, '');
-    }
-
-    return true;
-} // end of the 'check_rights()' function
+} // end of the 'editOperations()' function
 
 
 /**
@@ -759,7 +740,7 @@ function check_rights()
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
  */
-function table_users($host = FALSE, $user = FALSE)
+function tableUsers($host = FALSE, $user = FALSE)
 {
     global $lang, $server;
 
@@ -894,7 +875,7 @@ function table_users($host = FALSE, $user = FALSE)
         <?php echo (($row['User']) ? '<b>' . $row['User'] . '</b>' : '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>') . "\n"; ?>
     </td>
     <td>
-        <?php echo (($row['Password']) ? $GLOBALS['strYes'] : '<span style="color: #FF0000">' . $GLOBALS['strNo'] . '</span>') . "\n"; ?>
+        <?php echo (($row[$GLOBALS['password_field']]) ? $GLOBALS['strYes'] : '<span style="color: #FF0000">' . $GLOBALS['strNo'] . '</span>') . "\n"; ?>
     </td>
     <td>
         <?php echo $strPriv . "\n"; ?>
@@ -913,7 +894,7 @@ function table_users($host = FALSE, $user = FALSE)
     echo "\n";
 
     return TRUE;
-} // end of the 'table_users()' function
+} // end of the 'tableUsers()' function
 
 
 /**
@@ -957,10 +938,20 @@ function confirm($the_host, $the_user) {
 
 
 /**
- * Ensure the user is super-user and display headers
+ * Ensures the user is super-user and gets the case sensitive password field
+ * name
  */
-check_rights();
+$result         = @mysql_query('USE mysql');
+if (mysql_error()) {
+    mysql_die($GLOBALS['strNoRights'], '', FALSE, '');
+}
+$result         = @mysql_query('SELECT COUNT(Password) FROM mysql.user');
+$password_field = (mysql_result($result, 0) ? 'Password' : 'password');
 
+
+/**
+ * Displays headers
+ */
 if (isset($db)) {
     $db_bkp       = (get_magic_quotes_gpc() ? stripslashes($db) : $db);
     unset($db);
@@ -1097,7 +1088,7 @@ else if (isset($submit_addUser)) {
         }
 
         $sql_query  = 'INSERT INTO mysql.user '
-                    . 'SET host = \'' . sql_addslashes($host) . '\', user = \'' . sql_addslashes($pma_user) . '\', password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($pma_pw) . '\')')
+                    . 'SET Host = \'' . sql_addslashes($host) . '\', User = \'' . sql_addslashes($pma_user) . '\', ' . $password_field . ' = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($pma_pw) . '\')')
                     . ', ' . $sql_query;
         $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url);
         unset($host);
@@ -1126,7 +1117,7 @@ else if (isset($submit_updProfile)) {
         $new_server = stripslashes($new_server);
     }
     if ($new_server != '' && $new_server != $host) {
-        $common_upd .= 'host = \'' . sql_addslashes($new_server) . '\'';
+        $common_upd .= 'Host = \'' . sql_addslashes($new_server) . '\'';
     } else if (isset($new_server)) {
         unset($new_server);
     }
@@ -1138,7 +1129,7 @@ else if (isset($submit_updProfile)) {
     }
     if ($new_user != '' && $new_user != $pma_user) {
         $common_upd .= (empty($common_upd) ? '' : ', ')
-                    . 'user = \'' . sql_addslashes($new_user) . '\'';
+                    . 'User = \'' . sql_addslashes($new_user) . '\'';
     } else if (isset($new_user)) {
         unset($new_user);
     }
@@ -1161,7 +1152,7 @@ else if (isset($submit_updProfile)) {
     }
     else {
         $sql_query = (empty($common_upd) ? '' : $common_upd . ', ')
-                   . 'Password = ' . (($new_pw == '') ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($new_pw) . '\')');
+                   . $password_field . ' = ' . (($new_pw == '') ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($new_pw) . '\')');
     }
     
     if (!empty($sql_query)) {
@@ -1307,8 +1298,8 @@ else if (isset($grants) && $grants) {
  */
 // Edit an user properies
 if (isset($edit) && $edit) {
-    table_users($host, $pma_user);
-    edit_operations($host, $pma_user);
+    tableUsers($host, $pma_user);
+    editOperations($host, $pma_user);
 }
 
 // Revoke/Grant privileges for an user
@@ -1316,7 +1307,7 @@ else if (isset($grants) && $grants) {
     // Displays the full list of privileges for this host & user
     $infos['Host'] = $host;
     $infos['User'] = $pma_user;
-    table_grants($infos);
+    tableGrants($infos);
 
     // Displays the list of privileges for user on the selected db/table/column
     $user_priv     = array();
@@ -1392,12 +1383,12 @@ else if (isset($grants) && $grants) {
 
     // TODO: column privileges
 
-    grant_operations($user_priv);
+    grantOperations($user_priv);
 }
 
 // Check database privileges
 else if (isset($check) && $check) {
-    check_db($db);
+    checkDb($db);
     ?>
 <ul>
     <li>
@@ -1417,8 +1408,8 @@ else {
     if (!isset($pma_user)) {
         $pma_user = FALSE;
     }
-    table_users($host, $pma_user) or mysql_die($strNoUsersFound, '', FALSE, '');
-    normal_operations();
+    tableUsers($host, $pma_user) or mysql_die($strNoUsersFound, '', FALSE, '');
+    normalOperations();
 }
 
 
