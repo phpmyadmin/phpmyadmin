@@ -137,6 +137,7 @@ $strDatabases = 'database';
 $strDatabasesStats = 'Statistiche dei databases';
 $strDbPrivileges = 'Privilegi specifici al database';
 $strDefault = 'Predefinito';
+$strDefaultValueHelp = 'Per i valori predefiniti, prego inserire un singolo valore, senza backslashes escaping o virgolette, utilizzando questo formato: a';
 $strDelete = 'Cancella';
 $strDeleteAndFlush = 'Cancella gli utenti e dopo ricarica i privilegi.';
 $strDeleteAndFlushDescr = 'Questa è la vita più giusta, ma il caricamento dei privilegi può durare qualche secondo.';
@@ -559,5 +560,4 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 ?>
