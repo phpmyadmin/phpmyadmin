@@ -197,14 +197,18 @@ if(mysql_num_rows($result)>0)
 <input type="hidden" name="db" value="<?php echo $db;?>">
 <input type="hidden" name="goto" value="db_details.php3">
 <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>">
-<?php echo $strRunSQLQuery.$db." ".show_docu("manual_Reference.html#Select");?>:<br>
+<?php echo $strRunSQLQuery.$db." ".show_docu("manual_Reference.html#SELECT");?>:<br>
 <textarea name="sql_query" cols="40" rows="3" wrap="VIRTUAL" style="width: <?php
 echo $cfgMaxInputsize;?>">select * from <?php echo $table?> where 1</textarea>
 <input type="submit" name="SQL" value="<?php echo $strGo; ?>">
 </form>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table");?>&pos=0&<?php echo $query;?>"><?php echo $strBrowse; ?></a>
-<li><a href="tbl_select.php3?<?php echo $query;?>"><?php echo $strSelect; ?></a>
-<li><a href="tbl_change.php3?<?php echo $query;?>"><?php echo $strInsert; ?></a>
+<li><a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table");?>&pos=0&<?php echo $query;?>"><?php echo $strBrowse; ?></a></li>
+<li><a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table");?>&pos=0&<?php echo $query;?>"><?php echo $strCheckTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#CHECK_TABLE"); ?></li>
+<li><a href="sql.php3?sql_query=<?php echo urlencode("ANALYZE TABLE $table");?>&pos=0&<?php echo $query;?>"><?php echo $strAnalyzeTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#ANALYZE_TABLE"); ?></li>
+<li><a href="sql.php3?sql_query=<?php echo urlencode("REPAIR TABLE $table");?>&pos=0&<?php echo $query;?>"><?php echo $strRepairTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#REPAIR_TABLE"); ?></li>
+<li><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&pos=0&<?php echo $query;?>"><?php echo $strOptimizeTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE"); ?></li>
+<li><a href="tbl_select.php3?<?php echo $query;?>"><?php echo $strSelect; ?></a></li>
+<li><a href="tbl_change.php3?<?php echo $query;?>"><?php echo $strInsert; ?></a></li>
 <li><form method="post" action="tbl_addfield.php3"> <input type="hidden" name="server" value="<?php echo $server;?>">
  <input type="hidden" name="lang" value="<?php echo $lang;?>">
  <input type="hidden" name="db" value="<?php echo $db;?>">
