@@ -8,6 +8,13 @@ $Source$
 2005-03-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: db comments broken
     * libraries/dbi/*.php, lang/*: new $strSocketProblem message
+    * db_details.php, tbl_query_box.php, libraries/bookmark.lib.php:
+      bookmark improvement, 
+      based on patch #1034161 by Ryan Schmidt - ryandesign:
+      sort bookmarks by label, remove the number before each bookmark
+      in the drop-down choice. For this I had to change some logic in the
+      calling scripts. It's still possible to have the same label more
+      than once.
 
 2005-03-07 Michal Čihař  <michal@cihar.com>
     * db_printview.php, tbl_printview.php, css/phpmyadmin.css.php,

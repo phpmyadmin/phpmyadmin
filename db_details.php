@@ -224,7 +224,7 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         echo '        <select name="id_bookmark">' . "\n";
         echo '            <option value=""></option>' . "\n";
         foreach ($bookmark_list AS $key => $value) {
-            echo '            <option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($key) . '</option>' . "\n";
+            echo '            <option value="' . htmlspecialchars($key) . '">' . htmlspecialchars($value) . '</option>' . "\n";
         }
         echo '        </select>' . "\n";
         echo '    </td></tr><tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2">';

@@ -434,7 +434,7 @@ if (!isset($is_inside_querywindow) ||
             echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
             echo '                <option value=""></option>' . "\n";
             foreach($bookmark_list AS $key => $value) {
-                echo '                <option value="' . $value . '">' . htmlspecialchars($key) . '</option>' . "\n";
+                echo '                <option value="' . htmlspecialchars($key) . '">' . htmlspecialchars($value) . '</option>' . "\n";
             }
             echo '            </select>' . "&nbsp;&nbsp;&nbsp;\n";
             echo '            ' . $strVar;
