@@ -7,6 +7,7 @@ $Source$
 
 2002-11-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3: Fixed a small inconsistance.
+    * config.inc.php3: Added a note about bug #634931.
 
 2002-11-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html, lang/*.inc.php3: Fixed some typos.

@@ -225,7 +225,7 @@ $cfg['DefaultTabTable']       = 'tbl_properties_structure.php3';
                                    // Possible values:
                                    // 'tbl_properties_structure.php3' = fields list
                                    // 'tbl_properties.php3' = sql form
-                                   // 'tbl_select.php3 = select page
+                                   // 'tbl_select.php3 = select page (buggy!)
                                    // 'tbl_change.php3 = insert row page
 
 
@@ -341,7 +341,7 @@ $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit m
                                             // (this value will be emphasized (*2) for sql
                                             // query textareas)
 $cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
-$cfg['TextareaAutoSelect']  = TRUE;         // autoselect when clicking in the textarea of the querybox 
+$cfg['TextareaAutoSelect']  = TRUE;         // autoselect when clicking in the textarea of the querybox
 $cfg['CharTextareaCols']    = 40;           // textarea size (columns) for CHAR/VARCHAR
 $cfg['CharTextareaRows']    = 2;            // textarea size (rows) for CHAR/VARCHAR
 $cfg['LimitChars']          = 50;           // max field data length in browse mode
