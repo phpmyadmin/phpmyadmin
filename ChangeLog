@@ -6,6 +6,12 @@ $Id$
 $Source$
 
 2001-11-20  Loïc Chapeaux  <lolo@phpheaven.net>
+	* config.inc.php3: removed some remaining tabs.
+	* libraries/common.inc.php3: simplified the error handling settings
+	  under php4.
+	* lang/russian-*: updated thanks to
+	  Gosha Sakovich <gt2 at users.sourceforge.net>.
+2001-11-20  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3, lines 146-148: set the default function to "NOW()"
 	  for timestamp fields only in insert mode (ie not in update mode).
 	* sql.php3; tbl_select.php3; libraries/display_tbl.php3: changed
