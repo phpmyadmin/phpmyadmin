@@ -3289,6 +3289,29 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p>
     Please upgrade to at least version 1.2.3.
 </p>
+<h4>
+    [5.16] With Internet Explorer, I get &quot;Access is denied&quot;
+    Javascript errors. Or I cannot make phpMyAdmin work under Windows. 
+</h4>
+<p>
+    Please check the following points:
+    <ul>
+        <li>
+            Maybe you have defined your <tt>PmaAbsoluteUri</tt> setting 
+            in <tt>config.inc.php</tt> to an IP address and you are starting 
+            phpMyAdmin with a URL containing a domain name, or the reverse situation.
+        </li>
+        <li>
+            Security settings in IE and/or Microsoft Security Center are
+            too high, thus blocking scripts execution.
+        </li>
+        <li>
+            The Windows Firewall is blocking Apache and MySQL. You must
+            allow http ports (80 or 443) and MySQL port (usually 3306)
+            in the &quot;in&quot; and &quot;out&quot; directions.
+        </li>
+    </ul> 
+</p>
 
 <a name="faqusing"></a><br />
 <h3>[6. Using phpMyAdmin]</h3>
