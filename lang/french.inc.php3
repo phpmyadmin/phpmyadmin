@@ -2,6 +2,8 @@
 /* $Id$ */
 
 
+$charset = 'iso-8859-1';
+
 $strAccessDenied = "Accès refusé";
 $strAction = "Action";
 $strAddDeleteColumn = "Ajouter/effacer une colonne de critères";

@@ -2,6 +2,8 @@
 /* $Id$ */
 
 
+$charset = 'iso-8859-1';
+
 $strAccessDenied = "Acceso denegado ";
 $strAction = "Acci&oacute;n";
 $strAddDeleteColumn = "Aqadir/borrar  columna de criterio";

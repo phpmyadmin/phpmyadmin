@@ -2,6 +2,8 @@
 /* $Id$ */
 
 
+$charset = 'koi8-r';
+
 $strAccessDenied = "В доступе отказано";
 $strAction = "Действие";
 $strAddDeleteColumn = "Добавить/удалить столбец критерия";

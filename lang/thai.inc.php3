@@ -2,6 +2,8 @@
 /* $Id$ */
 
 
+$charset = 'tis-620';
+
 $strAccessDenied = "ไม่อนุญาตให้ใช้งาน";#Access denied";
 $strAction = "กระทำการ";
 $strAddDeleteColumn = ""; //to translate, but its not in use ...

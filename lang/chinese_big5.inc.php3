@@ -2,6 +2,8 @@
 /* $Id$ */
 
 
+$charset = 'big5';
+
 $strAccessDenied = "訪問被拒絕";
 $strAction = "執行操作";
 $strAddDeleteColumn = ""; //to translate, but its not in use ...

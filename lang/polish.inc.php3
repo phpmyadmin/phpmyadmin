@@ -2,6 +2,8 @@
 /* $Id$ */
 
 
+$charset = 'iso-8859-2';
+
 $strAccessDenied = "Brak dostêpu";
 $strAction = "Dzia³anie";
 $strAddDeleteColumn = ""; //to translate, but its not in use ...

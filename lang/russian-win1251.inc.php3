@@ -2,6 +2,8 @@
 /* $Id$ */
 
 
+$charset = 'windows-1251';
+
 $strAccessDenied = "В доступе отказано";
 $strAction = "Действие";
 $strAddDeleteColumn = "Добавить/удалить столбец критерия";
