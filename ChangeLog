@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-22 Alexander M. Turek
+    * lang/english-*.inc.php: Grammar fix.
+
 2004-10-22 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Use "Structure" instead of "Properties" for
       link to table structure.
