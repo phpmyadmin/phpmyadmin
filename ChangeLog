@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html, libraries/common.lib.php: new FAQ 2.8 about
+      Missing parameters, and when the error happens, show a link to FAQ
+
 2005-03-03 Alexander M. Turek  <me@derrabus.de>
     * libraries/grab_globals.lib.php: Bug #1153079 (Updating columns starting
       with "str").

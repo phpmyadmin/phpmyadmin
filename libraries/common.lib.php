@@ -2252,7 +2252,7 @@ if (typeof(document.getElementById) != 'undefined'
 
         foreach ($params AS $param) {
             if (!isset($GLOBALS[$param])) {
-                $error_message .= $reported_script_name . ': Missing parameter: ' . $param . '<br />';
+                $error_message .= $reported_script_name . ': Missing parameter: ' . $param . ' <a href="./Documentation.html#faqmissingparameters" target="documentation"> (FAQ 2.8)</a><br />';
                 $found_error = TRUE;
             }
         }

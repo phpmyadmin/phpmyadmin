@@ -2870,6 +2870,26 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     directory &quot;img&quot; in &quot;your_theme_name&quot;. phpMyAdmin will
     use the default icons and buttons (from the system-theme &quot;original&quot;).
     </p>
+<a name="faqmissingparameters"></a><br />
+<h4>
+    [2.8] I get &quot;Missing parameters&quot; errors, what can I do?
+</h4>
+<p>
+    Here are a few points to check:
+    <ul>
+        <li>
+        In <tt>config.inc.php</tt>, try to leave the 
+        <tt>$cfg['PmaAbsoluteUri']</tt>directive empty. See also FAQ 4.7. 
+        </li>
+        <li>
+        Maybe you have a broken PHP installation or you need to upgrade
+        your Zend Optimizer. See 
+        <a href="http://bugs.php.net/bug.php?id=31134">
+        http://bugs.php.net/bug.php?id=31134</a>.
+        </li>
+    </ul>
+</p>
+
 <a name="faqlimitations"></a><br />
 <h3>[3. Known limitations]</h3>
 <a name="login_bug"></a><br />
