@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_operations.php: db comments updating broken
+
 2005-03-08 Michael Keck  <mkkeck@users.sourceforge.net>
     * themes/*/img/bd_insrow.png, themes/*/bd_insrow.png: Added disabled
       versions of insert-row icons.
