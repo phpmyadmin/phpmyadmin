@@ -700,4 +700,7 @@ $strThai = 'Thai';  //to translate
 $strUseThisValue = 'Use this value';  //to translate
 $strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
 $strBrowseForeignValues = 'Browse foreign values';  //to translate
+$strInternalRelations = 'Internal relations';  //to translate
+$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
+$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
 ?>

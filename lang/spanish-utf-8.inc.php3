@@ -694,4 +694,7 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 
+$strInternalRelations = 'Internal relations';  //to translate
+$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
+$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
 ?>

@@ -700,4 +700,7 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
+$strInternalRelations = 'Internal relations';  //to translate
+$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
+$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
 ?>

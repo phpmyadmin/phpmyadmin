@@ -700,4 +700,7 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) e
 $strZip = 'comprimido no formato "zip"';
 // To translate
 
+$strInternalRelations = 'Internal relations';  //to translate
+$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
+$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
 ?>

@@ -719,4 +719,7 @@ $strWritingRelationNotPossible = 'Writing of relation not possible';  //to trans
 $strXML = 'XML';//to translate
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
+$strInternalRelations = 'Internal relations';  //to translate
+$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
+$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
 ?>

@@ -293,6 +293,8 @@ $strInsertTextfiles = 'Insert data from a textfile into table';
 $strInsertedRowId = 'Inserted row id:';
 $strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';
+$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';
+$strInternalRelations = 'Internal relations';
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.';
 
 $strJapanese = 'Japanese';
@@ -651,6 +653,7 @@ $strUpdatePrivMessage = 'You have updated the privileges for %s.';
 $strUpdateProfile = 'Update profile:';
 $strUpdateProfileMessage = 'The profile has been updated.';
 $strUpdateQuery = 'Update Query';
+$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';
 $strUsage = 'Usage';
 $strUseBackquotes = 'Enclose table and field names with backquotes';
 $strUseHostTable = 'Use Host Table';
