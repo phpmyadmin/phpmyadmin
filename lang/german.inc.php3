@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Kann Index nicht in PRIMARY umbenennen!';
 $strCardinality = 'Kardinalität';
 $strCarriage = 'Wagenrücklauf \\r';
 $strChange = 'Ändern';
+$strChangePassword = 'Kennwort ändern';
 $strCheckAll = 'Alle auswählen';
 $strCheckDbPriv = 'Rechte einer Datenbank prüfen';
 $strCheckTable = 'Überprüfe Tabelle';
@@ -346,5 +347,4 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strChangePassword = 'Change password';
 ?>
