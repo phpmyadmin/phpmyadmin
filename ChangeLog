@@ -21,6 +21,7 @@ $Source$
     * main.php: Don't display server choice here, if also in left frame (RFE
       #984153).
     * libraries/common.lib.php: Fix navigation reloading.
+    * server_databases.php: Show box for creating database here (RFE #869814).
 
 2004-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: there was already a tip icon in our collection,
