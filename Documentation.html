@@ -381,6 +381,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE bookmark (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(11) DEFAULT '0' NOT NULL auto_increment,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbase varchar(255) NOT NULL,<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user varchar(255) NOT NULL,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label varchar(255) NOT NULL,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;query text NOT NULL,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id)<br />
@@ -394,11 +395,6 @@
                 able to find the bookmark table.
             </li>
         </ul><br />
-
-        For security reasons, if you want to use the bookmark feature with
-        advanced authentification, you must configure a different
-        <tt>$cfgServers</tt> section for each user. 
-        <br /><br />
     </dd>
 
     <dt><b>$cfgServerDefault</b> integer</dt>
