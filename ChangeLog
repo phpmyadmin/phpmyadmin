@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-30 Michal Cihar  <michal@cihar.com>
+    * libraries/auth/cookie.auth.lib.php: Do not double frames on login (bug
+      #944870).
+
 2004-04-29 Garvin Hicking <pma@supergarv.de>
     * db_details_structure.php: Bug #942362 - Colspan off by one
     * left.php: Modified js function to fit typecasting of Safari

@@ -218,7 +218,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
         echo "\n";
         ?>
 <!-- Language selection -->
-<form method="post" action="index.php">
+<form method="post" action="index.php" target="_top">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <b>Language:&nbsp;</b>
     <select name="lang" dir="ltr" onchange="this.form.submit();">
@@ -264,7 +264,7 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 
 
 <!-- Login form -->
-<form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?>>
+<form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top">
     <table cellpadding="5">
 <?php if ($GLOBALS['cfg']['AllowArbitraryServer']) { ?>
     <tr>
