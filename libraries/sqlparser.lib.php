@@ -698,6 +698,7 @@ if ($is_minimum_common == FALSE) {
             'having_clause'  => '',
             'where_clause'   => '',
             'where_clause_identifiers'   => array(),
+            'unsorted_query' => '',
             'queryflags'     => array(),
             'select_expr'    => array(),
             'table_ref'      => array(),
@@ -750,9 +751,10 @@ if ($is_minimum_common == FALSE) {
  * Currently, those are generated:
  *
  * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
- * ['queryflags']['select_from'] = 1; if this is a real SELECT...FROM
- * ['queryflags']['distinct'] = 1;    for a DISTINCT
- * ['queryflags']['union'] = 1;       for a UNION
+ * ['queryflags']['select_from'] = 1;  if this is a real SELECT...FROM
+ * ['queryflags']['distinct'] = 1;     for a DISTINCT
+ * ['queryflags']['union'] = 1;        for a UNION
+ * ['queryflags']['join'] = 1;         for a JOIN
  *
  * lem9:  query clauses
  *        -------------
@@ -765,8 +767,11 @@ if ($is_minimum_common == FALSE) {
  * ['having_clause']
  * ['where_clause']
  *
- * and the identifiers of the where clause are put into the array
+ * The identifiers of the WHERE clause are put into the array
  * ['where_clause_identifier']
+ *
+ * For a SELECT, the whole query without the ORDER BY clause is put into
+ * ['unsorted_query']
  *
  * lem9:   foreign keys
  *         ------------
@@ -781,6 +786,8 @@ if ($is_minimum_common == FALSE) {
  *
  * The array index of the first SELECT we find. Will be used to
  * insert a SQL_CALC_FOUND_ROWS.
+ *
+ * End of description of analyzer results
  */
 
         // must be sorted
@@ -1235,13 +1242,14 @@ if ($is_minimum_common == FALSE) {
         $seen_reserved_word = FALSE;
         $seen_group = FALSE;
         $seen_order = FALSE;
-        $in_group_by = FALSE; // true when we are into the GROUP BY clause
-        $in_order_by = FALSE; // true when we are into the ORDER BY clause
-        $in_having = FALSE; // true when we are into the HAVING clause
-        $in_select_expr = FALSE; // true when we are into the select expr clause
-        $in_where = FALSE; // true when we are into the WHERE clause
+        $in_group_by = FALSE; // true when we are inside the GROUP BY clause
+        $in_order_by = FALSE; // true when we are inside the ORDER BY clause
+        $in_having = FALSE; // true when we are inside the HAVING clause
+        $in_select_expr = FALSE; // true when we are inside the select expr clause
+        $in_where = FALSE; // true when we are inside the WHERE clause
         $in_from = FALSE;
         $in_group_concat = FALSE;
+        $unsorted_query = '';
 
         for ($i = 0; $i < $size; $i++) {
 //DEBUG echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
@@ -1295,6 +1303,10 @@ if ($is_minimum_common == FALSE) {
 
                if ($upper_data == 'UNION') {
                       $subresult['queryflags']['union'] = 1;
+               }
+
+               if ($upper_data == 'JOIN') {
+                      $subresult['queryflags']['join'] = 1;
                }
 
                // if this is a real SELECT...FROM
@@ -1429,6 +1441,13 @@ if ($is_minimum_common == FALSE) {
                 || ($arr[$i]['type'] == 'alpha_identifier')) {
                    $where_clause_identifiers[] = $arr[$i]['data'];
                }
+           }
+
+           // FIXME: is it correct to always add $sep ?
+           if (isset($subresult['queryflags']['select_from'])
+             && $subresult['queryflags']['select_from'] == 1 
+             && !$seen_order) {
+               $unsorted_query .= $arr[$i]['data'] . $sep;
            }
 
            // clear $upper_data for next iteration
@@ -1593,6 +1612,9 @@ if ($is_minimum_common == FALSE) {
         }
         if (isset($where_clause)) {
             $subresult['where_clause'] = $where_clause;
+        }
+        if (isset($unsorted_query) && !empty($unsorted_query)) {
+            $subresult['unsorted_query'] = $unsorted_query;
         }
         if (isset($where_clause_identifiers)) {
             $subresult['where_clause_identifiers'] = $where_clause_identifiers;

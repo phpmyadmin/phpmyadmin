@@ -9,6 +9,8 @@ $Source$
     * Documentation.html: typos and XHTML validity, thanks to Cedric Corazza
     * libraries/export/sql.php: bug #1039639: under mysqli, some field types
       were wrongly exported as binary
+    * libraries/sqlparser.lib.php, /display_tbl.lib.php: bug #967610, double
+      column sort with JOIN 
 
 2004-10-11 Michal Čihař  <michal@cihar.com>
     * tbl_query_box.php: Don't try to replace %t and %f when table name is empty.

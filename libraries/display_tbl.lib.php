@@ -452,41 +452,28 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         $analyzed_sql = array();
     }
 
-    // can be result sorted?
+    // can the result be sorted?
     if ($is_display['sort_lnk'] == '1') {
 
         // Just as fallback
         $unsorted_sql_query     = $sql_query;
+        if (isset($analyzed_sql[0]['unsorted_query'])) {
+            $unsorted_sql_query = $analyzed_sql[0]['unsorted_query'];
+        }
+  
+        // we need $sort_expression and $sort_expression_nodir
+        // even if there are many table references
 
-        // sorting by indexes, only if it makes sense
+        $sort_expression = trim(str_replace('  ', ' ',$analyzed_sql[0]['order_by_clause']));
+
+        // Get rid of ASC|DESC (TODO: analyzer)
+        preg_match('@(.*)([[:space:]]*(ASC|DESC))@si',$sort_expression,$matches);
+        $sort_expression_nodir = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
+
+        // sorting by indexes, only if it makes sense (only one table ref)
         if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
             isset($analyzed_sql[0]['querytype']) && $analyzed_sql[0]['querytype'] == 'SELECT' &&
             isset($analyzed_sql[0]['table_ref']) && count($analyzed_sql[0]['table_ref']) == 1) {
-
-            $unsorted_sql_query = 'SELECT ';
-            if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
-                $unsorted_sql_query .= ' DISTINCT ';
-            }
-            $unsorted_sql_query .= $analyzed_sql[0]['select_expr_clause'];
-            if (!empty($analyzed_sql[0]['from_clause'])) {
-                $unsorted_sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
-            }
-
-            if (!empty($analyzed_sql[0]['where_clause'])) {
-                $unsorted_sql_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
-            }
-            if (!empty($analyzed_sql[0]['group_by_clause'])) {
-                $unsorted_sql_query .= ' GROUP BY ' . $analyzed_sql[0]['group_by_clause'];
-            }
-            if (!empty($analyzed_sql[0]['having_clause'])) {
-                $unsorted_sql_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
-            }
-
-            $sort_expression = trim(str_replace('  ', ' ',$analyzed_sql[0]['order_by_clause']));
-
-            // Get rid of ASC|DESC
-            preg_match('@(.*)([[:space:]]*(ASC|DESC))@si',$sort_expression,$matches);
-            $sort_expression_nodir = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
 
             // grab indexes data:
             PMA_DBI_select_db($db);
@@ -513,7 +500,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 if (isset($row['Cardinality'])) {
                     $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
                 }
-            //    I don't know what does following column mean....
+            //    I don't know what does the following column mean....
             //    $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
                 $indexes_info[$row['Key_name']]['Comment']         = (isset($row['Comment']))
                                                                    ? $row['Comment']
@@ -714,7 +701,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     }
 
     if ($is_display['sort_lnk'] == '1') {
-        $is_join = preg_match('@(.*)[[:space:]]+FROM[[:space:]]+.*[[:space:]]+JOIN@i', $sql_query, $select_stt);
+        //$is_join = preg_match('@(.*)[[:space:]]+FROM[[:space:]]+.*[[:space:]]+JOIN@im', $sql_query, $select_stt);
+        $is_join = (isset($analyzed_sql[0]['queryflags']['join']) ?TRUE:FALSE);
+        $select_expr = $analyzed_sql[0]['select_expr_clause'];
     } else {
         $is_join = FALSE;
     }
@@ -763,13 +752,15 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             //       FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
             if (($is_join
-                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_stt[1], $parts))
+                //&& !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_stt[1], $parts))
+                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_expr, $parts))
                || ( isset($analyzed_sql[0]['select_expr'][$i]['expr'])
                    && isset($analyzed_sql[0]['select_expr'][$i]['column'])
                    && $analyzed_sql[0]['select_expr'][$i]['expr'] !=
                    $analyzed_sql[0]['select_expr'][$i]['column']
                   && !empty($fields_meta[$i]->table)) ) {
-                $sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
+                //$sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
+                $sort_tbl = PMA_backquote($fields_meta[$i]->table) . ' . ';
             } else {
                 $sort_tbl = '';
             }
