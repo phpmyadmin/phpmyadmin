@@ -269,6 +269,7 @@ $strHasBeenAltered = 'ha estat alterada.';
 $strHasBeenCreated = 'ha estat creada.';
 $strHaveToShow = 'Has d\'escollir al menys una columna per mostrar';
 $strHebrew = 'Hebreu';
+$strHexForBinary = 'Usa hexadecimal per camps binaris';
 $strHome = 'Inici';
 $strHomepageOfficial = 'Plana oficial del phpMyAdmin';
 $strHost = 'Servidor';
@@ -708,5 +709,4 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el limit.';
 $strZip = '"comprimit amb zip"';
 
-$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>
