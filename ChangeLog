@@ -9,6 +9,9 @@ $Source$
         * sql.php3: bug 434405: percent bug in delete queries
 
 2001-06-22  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_dump.php3: add timecode in dump, add linefeed at end of file
+	  and change phpMyAdmin URI to sourceforge
+	* Speed up table copy; use insert select instead of get_table_content
 	* tbl_copy.php3: fixes serious problem with copy table and new
 	  structure definition
 
