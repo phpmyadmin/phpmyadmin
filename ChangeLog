@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-07  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* user_details.php3, line 664: fixed '<?echo' to '<?php echo' for XML compatiblity
+
 2001-08-07  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3 & sql.php3: fix for the order bugs (need to be tested).
 	* tbl_change.php3, line 244-246: fixed a possible warning.

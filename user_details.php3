@@ -641,7 +641,7 @@ function edit_operations($host, $user)
     <table>
     <tr><td><?php echo $strPassword; ?>: <input type="password" name="pw" size=10></td>
     <td>&nbsp;</td>
-    <td><?echo $strReType; ?>: <input type="password" name="pw2" size=10></td></tr>
+    <td><?php echo $strReType; ?>: <input type="password" name="pw2" size=10></td></tr>
     </table>
     <input type="button" value="<?php echo $strGo; ?>" onclick="changePassword(document.passForm)"></p>
     </form></li>
