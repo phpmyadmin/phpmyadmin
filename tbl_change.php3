@@ -113,10 +113,13 @@ else
 /**
  * Displays the form
  */
+
+// Had to put the URI because  when hosted on an https server,
+// some browsers send wrongly this form to the http server.
 ?>
 
 <!-- Change table properties form -->
-<form method="post" action="tbl_replace.php3" name="insertForm">
+<form method="post" action="<?php echo $cfgPmaAbsoluteUri; ?>tbl_replace.php3" name="insertForm">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
