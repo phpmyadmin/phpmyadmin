@@ -766,7 +766,7 @@ if ($num_tables > 0) {
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="db" value="<?php echo $db; ?>" />
 <?php
-echo '        ' . $strCreateNewTable . htmlspecialchars($db) . '&nbsp;:<br />' . "\n";
+echo '        ' . sprintf($strCreateNewTable, htmlspecialchars($db)) . '&nbsp;:<br />' . "\n";
 echo '        ' . $strName . '&nbsp;:&nbsp;' . "\n";
 echo '        ' . '<input type="text" name="table" maxlength="64" />' . "\n";
 echo '        ' . '<br />' . "\n";

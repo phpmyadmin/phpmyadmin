@@ -79,7 +79,7 @@ $strCreate = 'Crear';
 $strCreateIndex = 'Crea un index a la columna:&nbsp;%s';
 $strCreateIndexTopic = 'Crea un nou index';
 $strCreateNewDatabase = 'Crea una nova base de dades';
-$strCreateNewTable = 'Crear una taula nova a la base de dades ';
+$strCreateNewTable = 'Crear una taula nova a la base de dades %s';
 $strCriteria = 'Criteris';
 
 $strData = 'Dades';

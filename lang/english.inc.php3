@@ -79,7 +79,7 @@ $strCreate = 'Create';
 $strCreateIndex = 'Create an index on&nbsp;%s&nbsp;columns';
 $strCreateIndexTopic = 'Create a new index';
 $strCreateNewDatabase = 'Create new database';
-$strCreateNewTable = 'Create new table on database ';
+$strCreateNewTable = 'Create new table on database %s';
 $strCriteria = 'Criteria';
 
 $strData = 'Data';

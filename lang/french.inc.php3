@@ -79,7 +79,7 @@ $strCreate = 'Créer';
 $strCreateIndex = 'Créer une clef sur&nbsp;%s&nbsp;colonne(s)';
 $strCreateIndexTopic = 'Créer un nouvelle clef';
 $strCreateNewDatabase = 'Créer une base de données';
-$strCreateNewTable = 'Créer une nouvelle table sur la base ';
+$strCreateNewTable = 'Créer une nouvelle table sur la base %s';
 $strCriteria = 'Critère';
 
 $strData = 'Données';

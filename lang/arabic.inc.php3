@@ -81,7 +81,7 @@ $strCreate = ' яжнд';
 $strCreateIndex = ' ’гнг Ёе—”е Џбм&nbsp;%s&nbsp;Џгжѕ';
 $strCreateIndexTopic = ' ’гнг Ёе—”е ћѕнѕе';
 $strCreateNewDatabase = ' яжнд ё«Џѕ… »н«д«  ћѕнѕе';
-$strCreateNewTable = ' яжнд ћѕжб ћѕнѕ Ён ё«Џѕ… «б»н«д«  ';
+$strCreateNewTable = ' яжнд ћѕжб ћѕнѕ Ён ё«Џѕ… «б»н«д«  %s';
 $strCriteria = '«бгЏ«нн—';
 
 $strData = '»н«д« ';

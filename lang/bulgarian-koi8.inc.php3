@@ -78,7 +78,7 @@ $strCreate = 'Създай';
 $strCreateIndex = 'Създай индекс върху &nbsp;%s&nbsp;колони';
 $strCreateIndexTopic = 'Създай нов индекс';
 $strCreateNewDatabase = 'Създай нова БД';
-$strCreateNewTable = 'Създай нова таблица в БД ';
+$strCreateNewTable = 'Създай нова таблица в БД %s';
 $strCriteria = 'Критерий';
 
 $strData = 'Данни';
