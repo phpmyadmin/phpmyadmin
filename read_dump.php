@@ -121,9 +121,16 @@ if ($sql_file != 'none') {
         }
 
         // Convert the file's charset if necessary
-        if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
+        if (PMA_MYSQL_INT_VERSION < 40100
+            && $cfg['AllowAnywhereRecoding'] && $allow_recoding
             && isset($charset_of_file) && $charset_of_file != $charset) {
             $sql_query = PMA_convert_string($charset_of_file, $charset, $sql_query);
+        } else if (PMA_MYSQL_INT_VERSION >= 40100
+            && isset($charset_of_file) && $charset_of_file != 'utf8') {
+            $sql_query = "SET NAMES '" . $charset_of_file . "';\n"
+            . $sql_query . "\n"
+            . "SET CHARACTER SET utf8;\n"
+            . "SET SESSION collation_connection ='" . $collation_connection . "';";
         }
     } // end uploaded file stuff
 }
@@ -237,7 +244,6 @@ if ($sql_query != '') {
             $save_bandwidth_pieces = $max_nofile_pieces;
         }
     }
-
     // really run the query?
     if ($view_bookmark == 0) {
         // Only one query to run
@@ -270,7 +276,6 @@ if ($sql_query != '') {
                     $sql_query = $a_sql_query;
                     require('./sql.php');
                 }
-
                 $result = PMA_DBI_try_query($a_sql_query);
                 if ($result == FALSE) { // readdump failed
                     if (isset($my_die) && $cfg['IgnoreMultiSubmitErrors']) {

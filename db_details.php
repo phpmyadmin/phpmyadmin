@@ -183,7 +183,7 @@ if (!empty($cfg['UploadDir'])) {
 } // end if (web-server upload directory)
 // Charset conversion options
 if ($is_upload || $is_upload_dir) {
-    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+    if (PMA_MYSQL_INT_VERSION < 40100 && $cfg['AllowAnywhereRecoding'] && $allow_recoding) {
         echo '    <tr bgcolor="' .$cfg['BgcolorTwo'] . '"><td>' . "\n";
         $temp_charset = reset($cfg['AvailableCharsets']);
         echo '&nbsp;' . $strCharsetOfFile . "\n"
@@ -201,6 +201,13 @@ if ($is_upload || $is_upload_dir) {
             echo '>' . $temp_charset . '</option>' . "\n";
         }
         echo '        </select><br />' . "\n" . '    ';
+        echo '    </td>' . "\n";
+        echo '    <td align="right"><input type="submit" name="SQL" value="' . $strGo . '" /></td>' . "\n";
+        echo '    </tr>' . "\n";
+    } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
+        echo '    <tr bgcolor="' .$cfg['BgcolorTwo'] . '"><td>' . "\n"
+           . $strCharsetOfFile . "\n";
+        echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_CHARSET, 'charset_of_file', NULL, FALSE);
         echo '    </td>' . "\n";
         echo '    <td align="right"><input type="submit" name="SQL" value="' . $strGo . '" /></td>' . "\n";
         echo '    </tr>' . "\n";
