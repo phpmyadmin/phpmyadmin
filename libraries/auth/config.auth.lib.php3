@@ -60,6 +60,8 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
      * @global  string    the font face to use in case of failure
      * @global  string    the default font size to use in case of failure
      * @global  string    the big font size to use in case of failure
+     * @global  boolean   tell the "PMA_mysqlDie()" function headers have been
+     *                    sent
      *
      * @return  boolean   always true (no return indeed)
      *
@@ -70,6 +72,7 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
         global $php_errormsg;
         global $connect_func, $server_port, $server_socket, $cfg;
         global $right_font_family, $font_size, $font_bigger;
+        global $is_header_sent;
 
         if (mysql_error()) {
             $conn_error = mysql_error();

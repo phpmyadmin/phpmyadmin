@@ -9,6 +9,7 @@ $Source$
 	* Documentation.html: xhtml fixes.
 	* libraries/display_tbl.lib.php3; libraries/functions.js: better fix
 	  against bug #547384 (Marker Color can't equal Pointer Color).
+	* libraries/auth/config.auth.lib.php3, line 111: fixed a header problem.
 
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>
 	* ## created 2.2.7 branch into the CVS tree ##
