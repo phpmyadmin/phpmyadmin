@@ -47,7 +47,10 @@ else {
 // loic1: defines wether file upload is available or not
 // ($is_upload now defined in common.lib.php3)
 
-$auto_sel  = ($cfg['TextareaAutoSelect'])
+$auto_sel  = ($cfg['TextareaAutoSelect']
+               // 2003-02-05 rabus: This causes big trouble with Opera 7 for
+               // Windows, so let's disable it there...
+               && !(PMA_USR_OS == 'Win' && PMA_USR_BROWSER_AGENT == 'OPERA' && PMA_USR_BROWSER_VER >= 7))
            ? "\n" . '             onfocus="if (typeof(document.layers) == \'undefined\' || typeof(textarea_selected) == \'undefined\') {textarea_selected = 1; this.form.elements[\'sql_query\'].select();}"'
            : '';
 ?>
