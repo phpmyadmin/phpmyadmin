@@ -7,8 +7,7 @@ phpMyAdmin - Readme
 
   Version 2.2.0 - August 2001
   ---------------------------
-  http://phpwizard.net/projects/phpMyAdmin/
-  http://phpmyadmin.sourceforge.net/
+  http://www.phpmyadmin.net/
 
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias@phpwizard.net>
     Copyright (C) 2001-     Olivier Müller <om@omnis.ch>
@@ -50,7 +49,7 @@ phpMyAdmin - Readme
       - communicate in more than 20 different languages
 
   Download:
-    You can get the newest version at http://phpmyadmin.sourceforge.net/.
+    You can get the newest version at http://www.phpmyadmin.net/.
 
   Credits:
     Please see the Documentation.txt/.html file.
@@ -65,7 +64,7 @@ phpMyAdmin - Readme
     Basic documentation available in Documentation.txt/.html
 
   Support:
-    There is a support forum under http://phpwizard.net/phorum/list.php?f=1 
+    There is are 2 support forums under http://www.phpmyadmin.net/
 
 
     Enjoy!

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-03 Olivier Müller  <om@omnis.ch>
+	* activated www.phpmyadmin.net as project homepage, and
+	  updated the urls in the documentation/links.
+
 2002-04-03 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_indexes.php3, bug 538074: FULLTEXT is only supported since
 	  MySQL 3.23.23; so before, SHOW KEYS does not show a column 'Comment'
