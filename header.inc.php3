@@ -161,14 +161,13 @@ echo "\n";
 <?php
 if (isset($db)) {
     $header_url_qry = '?lang=' . urlencode($lang)
-                    . '&amp;server=' . $server
-                    . '&amp;db=' . urlencode($db);
+                    . '&amp;server=' . $server;
     echo '<h1>' . "\n";
-    echo '    ' . $strDatabase . ' <i><a class="h1" href="db_details.php3' . $header_url_qry . '">' . htmlspecialchars($db) . '</a></i>' . "\n";
+    echo '    ' . $strDatabase . ' <i><a class="h1" href="db_details.php3' . $header_url_qry . '&amp;db=' . urlencode($db) . '">' . htmlspecialchars($db) . '</a></i>' . "\n";
     if (!empty($table)) {
-        echo '    - ' . $strTable . ' <i><a class="h1" href="tbl_properties.php3' . $header_url_qry . '&amp;table=' . urlencode($table) . '">' . htmlspecialchars($table) . '</a></i>' . "\n";
+        echo '    - ' . $strTable . ' <i><a class="h1" href="tbl_properties.php3' . $header_url_qry . '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($table) . '">' . htmlspecialchars($table) . '</a></i>' . "\n";
     }
-    echo '    ' . sprintf($strRunning, ' <i>' . (($cfg['Server']['verbose']) ? $cfg['Server']['verbose'] : $cfg['Server']['host']) . '</i>') . "\n";
+    echo '    ' . sprintf($strRunning, ' <i><a class="h1" href="db_stats.php3' . $header_url_qry . '">' . (($cfg['Server']['verbose']) ? $cfg['Server']['verbose'] : $cfg['Server']['host']) . '</a></i>') . "\n";
     echo '</h1>' . "\n";
 }
 echo "\n";
