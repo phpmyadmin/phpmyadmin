@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-21 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-*.inc.php3: Updates.
+
 2002-09-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 612117, vertical view and
       buttons as links
@@ -20,17 +23,17 @@ $Source$
 2002-09-19 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_printview.php3: fix for #611499 (empty comment column)
     * libraries/common.lib.php3: fix for #593971 (common.lib.php3 js error)
-    
+
 2002-09-19 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation.html, config.inc.php3, tbl_change.php3,
       libraries/config_import.lib.php3: fix for #581494 - problems with \n in
       CHAR/VARCHAR, added new configs $cfg['CharEditing'] and
       $cfg['CharTextarea{Cols,Rows}']
     * tbl_change.php3: revised by Loïc to fit coding standards
-      
-2002-09-18 Mike Beck	<mikebeck@users.sourceforge.net>
-	* db_details_qbe.php3: complete rewrite of the code
-            that creates the JOINS hoping that this will 
+
+2002-09-18 Mike Beck    <mikebeck@users.sourceforge.net>
+    * db_details_qbe.php3: complete rewrite of the code
+            that creates the JOINS hoping that this will
             be much faster in certain circumstances
             please try - this needs some testing
 
@@ -38,7 +41,7 @@ $Source$
     * lang/slovenian update: thanks to Kositer Uros (urosh)
 
 2002-09-18 Loïc Chapeaux  <lolo@phpheaven.net>
-    * tbl_change.php3, tbl_replace.php3, sql.php3, 
+    * tbl_change.php3, tbl_replace.php3, sql.php3,
       libraries/display_tbl.lib.php3: bug 610315 full text toggle
 
 2002-09-18 Michal Cihar  <nijel@users.sourceforge.net>
@@ -47,7 +50,7 @@ $Source$
     * lang/czech-*.inc.php3: Updates.
     * lang/sync_lang.sh: accepts parameters --iconv/--recode to force
       convertor
-    
+
 2002-09-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: update, thanks to Daniel Hinostroza
     * tbl_change.php3: bug 609614, default value for datetime ignored

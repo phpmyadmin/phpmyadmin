@@ -185,6 +185,7 @@ $strHostEmpty = 'Es wurde kein Host angegeben!';
 $strIdxFulltext = 'Volltext';
 $strIfYouWish = 'Wenn Sie nur bestimmte Spalten importieren möchten, geben Sie diese bitte hier an.';
 $strIgnore = 'Ignorieren';
+$strImportDocSQL = 'docSQL-Dateien importieren';
 $strIndex = 'Index';
 $strIndexes = 'Indizes';
 $strIndexHasBeenDropped = 'Index %s wurde entfernt.';
@@ -438,5 +439,4 @@ $strYes = 'Ja';
 $strZip = 'Zip-komprimiert';
 // To translate
 
-$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>
