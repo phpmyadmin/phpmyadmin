@@ -917,6 +917,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 //     "primary" key to use in links
                 if ($is_display['edit_lnk'] == 'ur' /* || $is_display['edit_lnk'] == 'dr' */) {
                     for ($i = 0; $i < $fields_cnt; ++$i) {
+                        $field_flags = PMA_mysql_field_flags($dt_result, $i);
                         $meta      = $fields_meta[$i];
 
                         // do not use an alias in a condition
@@ -951,8 +952,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $condition .= 'IS NULL AND';
                         } else {
-                            if ($meta->type == 'blob') {
-                                $condition .= 'LIKE 0x' . bin2hex($row[$pointer]). ' AND';
+                            if ($meta->type == 'blob'
+                                // hexify only if this is a true BLOB
+                                 && eregi('BINARY', $field_flags)) {
+                                    $condition .= 'LIKE 0x' . bin2hex($row[$pointer]). ' AND';
                             } else {
                                 $condition .= '= \'' . PMA_sqlAddslashes($row[$pointer], FALSE, TRUE) . '\' AND';
                             }
@@ -1182,7 +1185,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     // TEXT fields type, however TEXT fields must be displayed
                     // even if $cfg['ShowBlob'] is false -> get the true type
                     // of the fields.
-                    $field_flags = PMA_mysql_field_flags($dt_result, $i);
 
                     if (eregi('BINARY', $field_flags)) {
                         $blobtext = '[BLOB';

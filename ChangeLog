@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-09 Marc Delisle  <lem9@users.sourceforge.net>
+     * libraries/display_tbl.lib.php3: bug 731367: hexifying all
+       TEXT fields (a if on the type returns "blob") caused
+       problems
+
 2003-05-05 Marc Delisle  <lem9@users.sourceforge.net>
      * libraries/build_dump.lib.php3: bug 731866: text fields were
        exported hexified, because mysql_field_type() was used and
