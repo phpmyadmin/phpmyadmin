@@ -7,6 +7,7 @@ $Source$
 
 2002-07-01 Olivier L. Müller  <om@omnis.ch>
     * header.inc.php3: nicer CSS for Tabs (J.Fornallaz)
+    * tbl_properties.php3: added insert button to Marc's <select> :) 
 
 2002-07-01 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php3, db_details_links.php3: better vertical spacing 

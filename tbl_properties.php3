@@ -67,7 +67,7 @@ require('./tbl_properties_table_info.php3');
     <!-- Query box and bookmark support -->
     <li>
         <form method="post" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
-            onsubmit="return checkSqlQuery(this)">
+            onsubmit="return checkSqlQuery(this)" name="sqlform">
             <input type="hidden" name="is_js_confirmed" value="0" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
@@ -79,15 +79,16 @@ require('./tbl_properties_table_info.php3');
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
             <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocuShort('S/E/SELECT.html') . '&nbsp;&nbsp;&nbsp;' . $strFields . ':'; ?>
-            <select name="dummy[]" size="1">
+            <select name="dummy" size="1">
         <?php
         echo "\n";
         for ($i = 0 ; $i < $fields_cnt; $i++) {
-            echo '        <option value="' . urlencode($fields_list[$i]) . '" se
-lected="selected">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+            echo '        <option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
         }
         ?>
-    </select><br />
+    </select>
+    <input type="button" name="insert" value="<?php echo($strInsert); ?>" onclick="sqlform.sql_query.value = sqlform.sql_query.value + sqlform.dummy.value" />
+    <br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" wrap="virtual"
     onfocus="if (typeof(document.layers) == 'undefined' || typeof(textarea_selected) == 'undefined') {textarea_selected = 1; this.form.elements['sql_query'].select();}">
