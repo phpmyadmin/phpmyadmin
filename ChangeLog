@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3: could not go to next page when browsing a query containing
+      a function like SUM(), due to IFs in reversed sequence
+    * lang/french update
+
 2002-09-24 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech-*.inc.php3: update
     

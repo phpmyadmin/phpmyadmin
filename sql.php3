@@ -8,7 +8,6 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
-
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -274,8 +273,8 @@ else {
     //                "SELECT COUNT(...) FROM ... GROUP BY ..."
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = FALSE;
     if ($is_select) { // see line 141
-        $is_func =  !$is_group && (eregi('[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(', $sql_query));
         $is_group = eregi('[[:space:]]+(GROUP BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+', $sql_query);
+        $is_func =  !$is_group && (eregi('[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(', $sql_query));
         $is_count = !$is_group && (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
         $is_export   = (eregi('[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+', $sql_query));
         $is_analyse  = (eregi('[[:space:]]+PROCEDURE[[:space:]]+ANALYSE\(', $sql_query));
