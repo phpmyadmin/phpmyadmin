@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-30 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_move_copy.php3: Better fix for #729416 (use INSERT IGNORE).
+
 2003-04-29 Michal Cihar  <nijel@users.sourceforge.net>
     * server_privileges.php3: No need to escape wild characters here.
 
