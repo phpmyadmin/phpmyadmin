@@ -11,8 +11,8 @@
           + General notes: [5]README
           + Credits information: [6]CREDITS
           + License: [7]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.39 2001/08/08
-       16:22:26 swix Exp $
+     * Documentation version: $Id: Documentation.html,v 1.41 2001/08/09
+       08:09:19 swix Exp $
    ______________________________________________________________________
    
    [8]Top  -  [9]Requirements  -  [10]Introduction  -  [11]Installation
@@ -194,6 +194,10 @@ Configuration
             and $cfgServers[n]['bookmarktable'] so phpMyAdmin will be
             able to find the bookmark table.
             
+          If you are using advanced authentification, stduser must have
+          Select_Priv, Insert_Priv and Delete_Priv set to "Y" in mysql.db
+          table for the bookmark database.
+          
    $cfgServerDefault integer
           If you have more than one server configured, you can set
           $cfgServerDefault to any one of them to autoconnect to that
@@ -633,83 +637,13 @@ References
 
    1. http://www.phpwizard.net/projects/phpMyAdmin/
    2. http://phpmyadmin.sourceforge.net/
-   3. file://localhost/home/om/www/phpMyAdmin/ChangeLog
-   4. file://localhost/home/om/www/phpMyAdmin/INSTALL
-   5. file://localhost/home/om/www/phpMyAdmin/README
-   6. file://localhost/home/om/www/phpMyAdmin/CREDITS
-   7. file://localhost/home/om/www/phpMyAdmin/LICENSE
-   8. file://localhost/home/om/www/phpMyAdmin/Documentation.html#top
-   9. file://localhost/home/om/www/phpMyAdmin/Documentation.html#require
-  10. file://localhost/home/om/www/phpMyAdmin/Documentation.html#intro
-  11. file://localhost/home/om/www/phpMyAdmin/Documentation.html#setup
-  12. file://localhost/home/om/www/phpMyAdmin/Documentation.html#config
-  13. file://localhost/home/om/www/phpMyAdmin/Documentation.html#faq
-  14. file://localhost/home/om/www/phpMyAdmin/Documentation.html#developers
-  15. file://localhost/home/om/www/phpMyAdmin/Documentation.html#credits
-  16. file://localhost/home/om/www/phpMyAdmin/Documentation.html#top
-  17. file://localhost/home/om/www/phpMyAdmin/Documentation.html#require
-  18. file://localhost/home/om/www/phpMyAdmin/Documentation.html#intro
-  19. file://localhost/home/om/www/phpMyAdmin/Documentation.html#setup
-  20. file://localhost/home/om/www/phpMyAdmin/Documentation.html#config
-  21. file://localhost/home/om/www/phpMyAdmin/Documentation.html#faq
-  22. file://localhost/home/om/www/phpMyAdmin/Documentation.html#developers
-  23. file://localhost/home/om/www/phpMyAdmin/Documentation.html#credits
-  24. file://localhost/home/om/www/phpMyAdmin/Documentation.html#top
-  25. file://localhost/home/om/www/phpMyAdmin/Documentation.html#require
-  26. file://localhost/home/om/www/phpMyAdmin/Documentation.html#intro
-  27. file://localhost/home/om/www/phpMyAdmin/Documentation.html#setup
-  28. file://localhost/home/om/www/phpMyAdmin/Documentation.html#config
-  29. file://localhost/home/om/www/phpMyAdmin/Documentation.html#faq
-  30. file://localhost/home/om/www/phpMyAdmin/Documentation.html#developers
-  31. file://localhost/home/om/www/phpMyAdmin/Documentation.html#credits
   32. http://www.apacheweek.com/features/userauth
-  33. file://localhost/home/om/www/phpMyAdmin/Documentation.html#top
-  34. file://localhost/home/om/www/phpMyAdmin/Documentation.html#require
-  35. file://localhost/home/om/www/phpMyAdmin/Documentation.html#intro
-  36. file://localhost/home/om/www/phpMyAdmin/Documentation.html#setup
-  37. file://localhost/home/om/www/phpMyAdmin/Documentation.html#config
-  38. file://localhost/home/om/www/phpMyAdmin/Documentation.html#faq
-  39. file://localhost/home/om/www/phpMyAdmin/Documentation.html#developers
-  40. file://localhost/home/om/www/phpMyAdmin/Documentation.html#credits
-  41. file://localhost/home/om/www/phpMyAdmin/Documentation.html#top
-  42. file://localhost/home/om/www/phpMyAdmin/Documentation.html#require
-  43. file://localhost/home/om/www/phpMyAdmin/Documentation.html#intro
-  44. file://localhost/home/om/www/phpMyAdmin/Documentation.html#setup
-  45. file://localhost/home/om/www/phpMyAdmin/Documentation.html#config
-  46. file://localhost/home/om/www/phpMyAdmin/Documentation.html#faq
-  47. file://localhost/home/om/www/phpMyAdmin/Documentation.html#developers
-  48. file://localhost/home/om/www/phpMyAdmin/Documentation.html#credits
   49. http://www.phpwizard.net/phorum/list.php?f=1
   50. https://sourceforge.net/projects/phpmyadmin/
-  51. file://localhost/home/om/www/phpMyAdmin/Documentation.html#developers
   52. http://www.php.net/bugs.php?id=8966
   53. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
   54. http://people.redhat.com/nalin/test/php-4.0.4pl1-7.i386.rpm
-  55. file://localhost/home/om/www/phpMyAdmin/Documentation.html#top
-  56. file://localhost/home/om/www/phpMyAdmin/Documentation.html#require
-  57. file://localhost/home/om/www/phpMyAdmin/Documentation.html#intro
-  58. file://localhost/home/om/www/phpMyAdmin/Documentation.html#setup
-  59. file://localhost/home/om/www/phpMyAdmin/Documentation.html#config
-  60. file://localhost/home/om/www/phpMyAdmin/Documentation.html#faq
-  61. file://localhost/home/om/www/phpMyAdmin/Documentation.html#developers
-  62. file://localhost/home/om/www/phpMyAdmin/Documentation.html#credits
   63. http://pear.php.net/
   64. http://sourceforge.net/projects/phpmyadmin/
-  65. file://localhost/home/om/www/phpMyAdmin/Documentation.html#top
-  66. file://localhost/home/om/www/phpMyAdmin/Documentation.html#require
-  67. file://localhost/home/om/www/phpMyAdmin/Documentation.html#intro
-  68. file://localhost/home/om/www/phpMyAdmin/Documentation.html#setup
-  69. file://localhost/home/om/www/phpMyAdmin/Documentation.html#config
-  70. file://localhost/home/om/www/phpMyAdmin/Documentation.html#faq
-  71. file://localhost/home/om/www/phpMyAdmin/Documentation.html#developers
-  72. file://localhost/home/om/www/phpMyAdmin/Documentation.html#credits
-  73. file://localhost/home/om/www/phpMyAdmin/Documentation.html#top
-  74. file://localhost/home/om/www/phpMyAdmin/Documentation.html#require
-  75. file://localhost/home/om/www/phpMyAdmin/Documentation.html#intro
-  76. file://localhost/home/om/www/phpMyAdmin/Documentation.html#setup
-  77. file://localhost/home/om/www/phpMyAdmin/Documentation.html#config
-  78. file://localhost/home/om/www/phpMyAdmin/Documentation.html#faq
-  79. file://localhost/home/om/www/phpMyAdmin/Documentation.html#developers
-  80. file://localhost/home/om/www/phpMyAdmin/Documentation.html#credits
   81. http://validator.w3.org/check/referer
   82. http://jigsaw.w3.org/css-validator/

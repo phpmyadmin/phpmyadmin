@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-09  Olivier Müller  <om@omnis.ch>
+	* releasing 2.2.0rc4
+
 2001-08-09  Armel Fauveau  <armel.fauveau@globalis-ms.com>
 	* Update Documentation.html (bookmark and stduser priv)
 

@@ -23,8 +23,8 @@ CREDITS, in chronological order
 
 [lc] - Loïc Chapeaux <lolo@phpHeaven.net>
 	* rewrote and optimized javascript, DHTML and DOM stuff
-    * started to rewrite the scripts so they fit the PEAR coding standards
-      and generate XHTML1.0 and CSS2 compliant codes
+	* started to rewrite the scripts so they fit the PEAR coding standards
+	  and generate XHTML1.0 and CSS2 compliant codes
 	* improved the language detection system
 	* bugfixes
 
