@@ -1681,8 +1681,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>[3.2] When dumping a large table in compressed mode, I get a memory limit
-       error or a time limit error.</b>
+    <b>[3.2] When dumping a large table in compressed mode, I get a memory
+       limit error or a time limit error.</b>
     <br />
     As of version 2.2.4, we build the compressed dump in memory, so large
     tables dumps may hang. The only alternative we can think about (using
@@ -1692,10 +1692,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>[3.3] With InnoDB tables, I lose foreign key relationships when I rename 
+    <b>[3.3] With InnoDB tables, I lose foreign key relationships when I rename
        or alter a table.</b>
     <br />
-    This seems to be a InnoDB bug (fixed in MySQL 3.23.50?).  However, keep 
+    This seems to be a InnoDB bug (fixed in MySQL 3.23.50?).  However, keep
     in mind that phpMyAdmin as of version 2.3.0 does not support InnoDB.
 </p>
 

@@ -200,7 +200,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     <tr>
         <th colspan="5" align="right">
             <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo $fields_cnt+6; ?>" />&nbsp;
-        </td>
+        </th>
     </tr>
         <?php
     } // end if

@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-29 Loïc Chapeaux  <lolo@phpheaven.net>
+    * tbl_change.php3, line 203: fixed an xhtml bug (#587974) thanks to
+      Christophe Jaillet <tititou at users.sourceforge.net>
+    * libraries/sqlparser.lib.php3: fixed parse errors (bug #588010)
+      thanks to Nagi Peters <nagipeters at users.sourceforge.net> and
+      coding standards.
+    * Documentation.html: coding standards.
+    * libraries/relation.lib.php3: beautified generated page.
+
 2002-07-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian update, thanks to Valics Lehel
     * lang/polish update, thanks to Jakub Wilk

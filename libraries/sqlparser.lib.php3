@@ -178,12 +178,12 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         break;
                     }
 
-                    // Check for MySQL escaping using a \
-                    // And check for ANSI escaping using the $quotetype character
-                    if (PMA_STR_charIsEscaped($sql, $pos) ) {
+                    // Checks for MySQL escaping using a \
+                    // And checks for ANSI escaping using the $quotetype character
+                    if (PMA_STR_charIsEscaped($sql, $pos)) {
                         $pos ++;
                         continue;
-                    } else if (($sql[$pos] == $quotetype) && ($sql[$pos+1] == $quotetype)) {
+                    } else if (($sql[$pos] == $quotetype) && ($sql[$pos + 1] == $quotetype)) {
                         $pos = $pos + 2;
                         continue;
                     } else {
@@ -391,7 +391,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             echo '---END CUT---<br /><br />' . "\n\n";
             echo '</p>' . "\n";
             flush();
-            if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) { 
+            if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
                 ob_flush();
             }
             die();
@@ -557,7 +557,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'USING'
         );
         $keywords_with_brackets_1before_cnt        = 3;
-            
+
         $keywords_with_brackets_2before            = array(
             'IGNORE',
             'INDEX',
@@ -567,7 +567,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'PROCEDURE',
             'REFERENCES',
             'UNIQUE',
-            'USE',
+            'USE'
         );
         // $keywords_with_brackets_2before_cnt = count($keywords_with_brackets_2before);
         $keywords_with_brackets_2before_cnt        = 9;
@@ -629,9 +629,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     // Make sure this array is sorted!
                     if (($typearr[1] == 'alpha_functionName') || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct')
                         || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex') || ($typearr[3] == 'digit_float')
-                        || (($typearr[0] == 'alpha_reservedWord') 
+                        || (($typearr[0] == 'alpha_reservedWord')
                             && PMA_STR_binarySearchInArr(strtoupper($arr[$i - 2]['data']), $keywords_with_brackets_2before, $keywords_with_brackets_2before_cnt))
-                        || (($typearr[1] == 'alpha_reservedWord') 
+                        || (($typearr[1] == 'alpha_reservedWord')
                             && PMA_STR_binarySearchInArr(strtoupper($arr[$i - 1]['data']), $keywords_with_brackets_1before, $keywords_with_brackets_1before_cnt))
                         ) {
                         $functionlevel++;
@@ -684,7 +684,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     if ($infunction == TRUE) {
                         $functionlevel--;
                         $after     .= ' ';
-                        $before .= ' ';
+                        $before    .= ' ';
                     } else {
                         $indent--;
                         $before    .= '</div>';
@@ -696,15 +696,15 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $after     .= ' ';
                     }
                     if ($typearr[1] == 'alpha_columnType') {
-                        $before .= ' ';
+                        $before    .= ' ';
                     }
                     break;
                 case 'alpha_reservedWord':
                     $upper         = $arr[$i]['data'];
-                    if ((($typearr[1] != 'alpha_reservedWord') 
-                        || (($typearr[1] == 'alpha_reservedWord') 
-                            && PMA_STR_binarySearchInArr(strtoupper($arr[$i-1]['data']), $keywords_no_newline, $keywords_no_newline_cnt)))
-                        && ($typearr[1] != 'punct_level_plus')  
+                    if ((($typearr[1] != 'alpha_reservedWord')
+                        || (($typearr[1] == 'alpha_reservedWord')
+                            && PMA_STR_binarySearchInArr(strtoupper($arr[$i - 1]['data']), $keywords_no_newline, $keywords_no_newline_cnt)))
+                        && ($typearr[1] != 'punct_level_plus')
                         && (!PMA_STR_binarySearchInArr($upper, $keywords_no_newline, $keywords_no_newline_cnt))) {
                         $before    .= $space_alpha_reserved_word;
                     } else {
