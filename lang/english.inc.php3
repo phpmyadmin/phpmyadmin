@@ -107,7 +107,7 @@ $strHasBeenDropped = "has been dropped.";
 $strHasBeenEmptied = "has been emptied.";
 $strHome = "Home";
 $strHomepageOfficial = "Official phpMyAdmin Homepage";
-$strHomepageSourceforge = "new (but still unofficial) phpMyAdmin Homepage";
+$strHomepageSourceforge = "Sourceforge phpMyAdmin Download Page";
 $strHost = "Host";
 $strHostEmpty = "The host name is empty!";
 

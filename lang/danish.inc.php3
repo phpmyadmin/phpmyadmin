@@ -107,7 +107,7 @@ $strHasBeenDropped = "er slettet.";
 $strHasBeenEmptied = "er t&oslash;mt.";
 $strHome = "Hjem";
 $strHomepageOfficial = "Officiel phpMyAdmin hjemmeside ";
-$strHomepageSourceforge = "Ny (men ikke endnu officiel) phpMyAdmin hjemmeside ";
+$strHomepageSourceforge = "Ny phpMyAdmin hjemmeside ";
 $strHost = "Host";
 $strHostEmpty = "The host name is empty!"; //to translate
 

@@ -107,7 +107,7 @@ $strHasBeenDropped = "foi eliminado.";
 $strHasBeenEmptied = "foi esvaziado.";
 $strHome = "Base";	// Alguem tem alguma palavra melhor para 'Home'?
 $strHomepageOfficial = "Página Oficial do phpMyAdmin";
-$strHomepageSourceforge = "Nova (mas ainda não oficial) Página do phpMyAdmin";
+$strHomepageSourceforge = "Nova Página do phpMyAdmin";
 $strHost = "Servidor";
 $strHostEmpty = "O nome do servidor está vazio!";
 

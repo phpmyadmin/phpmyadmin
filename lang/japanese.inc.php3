@@ -107,7 +107,7 @@ $strHasBeenDropped = "を削除しました。";
 $strHasBeenEmptied = "を空にしました。";
 $strHome = "MainPage";
 $strHomepageOfficial = "phpMyAdminホーム";
-$strHomepageSourceforge = "new (but still unofficial) phpMyAdmin Homepage";
+$strHomepageSourceforge = "Sourceforge phpMyAdmin Download Page";
 $strHost = "ホスト";
 $strHostEmpty = "The host name is empty!"; //to translate
 

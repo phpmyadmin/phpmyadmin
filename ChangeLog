@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-04  Olivier Müller  <om@omnis.ch>
+	* set version to 2.2.0rc1
+	* removed anything about "unofficial" from the pages
+	* updated links, and labels in all lang files
+	* General cleanups and updates in the docs and README files
+
 2001-07-03  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3: patch from Chee Wai for illegal index
 	* lang/brazilian_portuguese.inc.php3 update from 
@@ -33,12 +39,10 @@ $Source$
 	* tbl_change.php3, lang/*: merge patch: "do not edit blobs" from 
 	  Bernard M. Piller <bernard@bmpsystems.com>
 
-========================================================================================
 2001-06-30  Olivier Müller  <om@omnis.ch>
 	IMPORTANT : FROM NOW, PLEASE COMMIT YOUR CHANGES IN THE PHPMYADMIN-DEVEL BRANCH!
 	THE PHPMYADMIN-DEVEL BRANCH (where you are now) WILL BECOME THE MAIN BRANCH
 	AS SOON AS THE SF STAFF MAKE THE CHANGE
-=========================================================================================
 
 2001-06-30  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, line 27: fixed a bug with PHP3 thanks to

@@ -1,4 +1,4 @@
-<?php
+1;2c1;2c1;2c<?php
 /* $Id$ */
 
 $charset = "windows-1250";
@@ -107,7 +107,7 @@ $strHasBeenDropped = "byla odstranìna.";
 $strHasBeenEmptied = "byla vyprázdnìna.";
 $strHome = "Domu";
 $strHomepageOfficial = " Oficiální stránka phpMyAdmina ";
-$strHomepageSourceforge = " nová (ale neoficiální) stránka phpMyAdmina ";
+$strHomepage1;2cSourceforge = " nová stránka phpMyAdmina ";
 $strHost = "Hostitel";
 $strHostEmpty = "Jméno hostitele je prázdné!";
 

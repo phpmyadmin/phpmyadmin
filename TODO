@@ -3,20 +3,9 @@ $Id$
 phpMyAdmin - Todo
 =================
 
-High priority
--------------
-[ ] code cleanup, and release
+We are currently using the Sourceforge Tracker as Todo list:
 
-Normal priority
----------------
-[ ] create a new project homepage
-
-Low priority
-------------
-[X] add a [save & insert] button on the record insert form.
+  http://sourceforge.net/tracker/?atid=377411&group_id=23067&func=browse
 
 
---------------------------------------------------------------------------
-[ ]  Todo       [X]  Done      [.]  On the way/currently thinking about it
---------------------------------------------------------------------------
-
+-- swix/20010704

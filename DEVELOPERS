@@ -1,6 +1,7 @@
 $Id$
 
 phpMyAdmin - Developer's Information
+------------------------------------
 
  phpMyAdmin is Open Source, so you're invited to contribute to it.
  Many great features have been written by other people and you too
@@ -36,7 +37,9 @@ phpMyAdmin - Developer's Information
   - put the modified files (tar'ed and gzip'ed) inside the patch tracker of the
     phpMyAdmin SourceForge account
     (https://sourceforge.net/projects/phpmyadmin/)
+
   Write access to the CVS tree is granted only to developers who have already
   contributed something useful to phpMyAdmin.  If you're interested in that, 
-  please contact us.
+  please contact us using the phpmyadmin-devel mailing list.
+
 

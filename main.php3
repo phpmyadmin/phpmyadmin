@@ -36,8 +36,8 @@ if (empty($cfgLang)) {
  * Displays the welcome message and the server informations
  */
 
-echo "<h1>$strWelcome phpMyAdmin<br>";
-echo PHPMYADMIN_VERSION." (unofficial devel-branch)";
+echo "<h1>$strWelcome phpMyAdmin ";
+echo PHPMYADMIN_VERSION;
 echo "</h1>\n";
 
 // Don't display server info if $server == 0 (no server selected)
@@ -250,14 +250,14 @@ if ($server > 0
 
     <!-- documentation -->
     <li>
-        <a href="http://phpmyadmin.sourceforge.net/" target="_top">
-        <?php echo $strHomepageSourceforge; ?></a>&nbsp;(SourceForge)&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<a href="ChangeLog">ChangeLog</a>&nbsp;]
+        <a href="Documentation.html" target="_new">phpMyAdmin <?php echo $strDocu; ?></a>
     </li>
     <li>
-        <a href="http://phpwizard.net/projects/phpMyAdmin/" target="_top"><?php echo $strHomepageOfficial; ?></a>
+        <a href="http://phpwizard.net/projects/phpMyAdmin/" target="_new"><?php echo $strHomepageOfficial; ?></a>
     </li>
     <li>
-        <a href="Documentation.html" target="_top">phpMyAdmin <?php echo $strDocu; ?></a>
+        <a href="http://phpmyadmin.sourceforge.net/" target="_new">
+        <?php echo $strHomepageSourceforge; ?></a>&nbsp;&nbsp;&nbsp;[&nbsp;<a href="ChangeLog" target="_new">ChangeLog</a>&nbsp;]
     </li>
 </ul>
 

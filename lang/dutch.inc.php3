@@ -107,7 +107,7 @@ $strHasBeenDropped = "is verwijderd.";
 $strHasBeenEmptied = "is leeggemaakt.";
 $strHome = "Home";
 $strHomepageOfficial = "Official phpMyAdmin Homepage"; //to translate
-$strHomepageSourceforge = "new (but still unofficial) phpMyAdmin Homepage"; //to translate
+$strHomepageSourceforge = "Sourceforge phpMyAdmin Download Page"; //to translate
 $strHost = "Host";
 $strHostEmpty = "The host name is empty!"; //to translate
 

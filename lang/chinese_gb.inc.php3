@@ -107,7 +107,7 @@ $strHasBeenDropped = "已经被丢弃。";
 $strHasBeenEmptied = "已经被清空。";
 $strHome = "主目录";
 $strHomepageOfficial = "Official phpMyAdmin Homepage"; //to translate
-$strHomepageSourceforge = "new (but still unofficial) phpMyAdmin Homepage"; //to translate
+$strHomepageSourceforge = "Sourceforge phpMyAdmin Download Page"; //to translate
 $strHost = "主机";
 $strHostEmpty = "The host name is empty!"; //to translate
 

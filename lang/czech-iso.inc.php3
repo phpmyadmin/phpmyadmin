@@ -107,7 +107,7 @@ $strHasBeenDropped = "byla odstranìna.";
 $strHasBeenEmptied = "byla vyprázdnìna.";
 $strHome = "Domu";
 $strHomepageOfficial = " Oficiální stránka phpMyAdmina ";
-$strHomepageSourceforge = " nová (ale neoficiální) stránka phpMyAdmina ";
+$strHomepageSourceforge = " nová stránka phpMyAdmina ";
 $strHost = "Hostitel";
 $strHostEmpty = "Jméno hostitele je prázdné!";
 

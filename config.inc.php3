@@ -26,9 +26,9 @@ $cfgServers[1]['port'] = '';                    // MySQL port - leave blank for 
 $cfgServers[1]['adv_auth'] = false;             // Use advanced authentication?
 $cfgServers[1]['stduser'] = '';                 // MySQL standard user (only needed with advanced auth)
 $cfgServers[1]['stdpass'] = '';                 // MySQL standard password (only needed with advanced auth)
-$cfgServers[1]['user'] = 'phpMyAdmin';          // MySQL user (only needed with basic auth)
-$cfgServers[1]['password'] = 'test99';          // MySQL password (only needed with basic auth)
-$cfgServers[1]['only_db'] = 'phpMyAdmin';       // If set to a db-name, only this db is accessible
+$cfgServers[1]['user'] = 'root';          // MySQL user (only needed with basic auth)
+$cfgServers[1]['password'] = 'qmail';          // MySQL password (only needed with basic auth)
+$cfgServers[1]['only_db'] = '';       // If set to a db-name, only this db is accessible
 $cfgServers[1]['verbose'] = '';                 // Verbose name for this host - leave blank to show the hostname
 $cfgServers[1]['bookmarkdb'] = '';              // Bookmark db - leave blank for no bookmark support
 $cfgServers[1]['bookmarktable'] = '';           // Bookmark table - leave blank for no bookmark support
@@ -67,7 +67,7 @@ $cfgServer = '';
 unset($cfgServers[0]);
 
 // Be sure to include no trailing slash on the path
-$cfgManualBase = "http://www.mysql.com/documentation/mysql/bychapter";
+$cfgManualBase = "http://www.mysql.com/documentation/mysql/";
 
 $cfgConfirm = true;
 $cfgPersistentConnections = false;

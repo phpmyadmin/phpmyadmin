@@ -107,7 +107,7 @@ $strHasBeenDropped = "была уничтожена.";
 $strHasBeenEmptied = "была опустошена.";
 $strHome = "К началу";
 $strHomepageOfficial = "Official phpMyAdmin Homepage"; //to translate
-$strHomepageSourceforge = "new (but still unofficial) phpMyAdmin Homepage"; //to translate
+$strHomepageSourceforge = "Sourceforge phpMyAdmin Download Page"; //to translate
 $strHost = "Хост";
 $strHostEmpty = "The host name is empty!"; //to translate
 

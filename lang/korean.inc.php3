@@ -107,7 +107,7 @@ $strHasBeenDropped = "을(를) 삭제하였습니다.";
 $strHasBeenEmptied = "을(를) 비웠습니다.";
 $strHome = "MainPage";
 $strHomepageOfficial = "phpMyAdmin 홈 페이지";
-$strHomepageSourceforge = "new (but still unofficial) phpMyAdmin Homepage";
+$strHomepageSourceforge = "Sourceforge phpMyAdmin Download Page";
 $strHost = "호스트";
 $strHostEmpty = "The host name is empty!"; //to translate
 

@@ -107,7 +107,7 @@ $strHasBeenDropped = "ได้ทำการ drop แล้ว";#"has been dropped.";
 $strHasBeenEmptied = "ได้ทำให้ว่างแล้ว";#"has been emptied.";
 $strHome = "Home"; //to translate
 $strHomepageOfficial = "Official phpMyAdmin Homepage"; //to translate
-$strHomepageSourceforge = "new (but still unofficial) phpMyAdmin Homepage"; //to translate
+$strHomepageSourceforge = "Sourceforge phpMyAdmin Download Page"; //to translate
 $strHost = "Host"; //to translate
 $strHostEmpty = "The host name is empty!"; //to translate
 

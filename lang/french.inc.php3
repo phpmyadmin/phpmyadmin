@@ -107,7 +107,7 @@ $strHasBeenDropped = "a été effacé.";
 $strHasBeenEmptied = "a été vidé.";
 $strHome = "Accueil";
 $strHomepageOfficial = "Site officiel de phpMyAdmin";
-$strHomepageSourceforge = "Nouveau site (non encore officiel) de phpMyAdmin";
+$strHomepageSourceforge = "Page de Téléchargement phpMyAdmin sur Sourceforge";  
 $strHost = "Serveur";
 $strHostEmpty = "Le nom de serveur est vide";
 
