@@ -500,6 +500,7 @@ h1 div {
     font-family: <?php echo $right_font_family; ?>;
     font-size: <?php echo $font_size; ?>;
     font-weight: normal;
+    white-space: nowrap;
 }
 
 h1 div a {
