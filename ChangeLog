@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-21 Michal Cihar  <thesiswritten@cihar.com>
+    * lang/czech: Fixed unclear message.
+
 2004-01-20 Marc Delisle  <lem9@users.sourceforge.net>
     * all concerned scripts: PMA_DBI_num_rows()
     * all concerned scripts: PMA_DBI_free_result()
