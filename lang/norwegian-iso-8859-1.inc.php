@@ -739,4 +739,5 @@ $strZip = 'Komprimert (zip)';
 
 // To translate:
 
+$strOperator = 'Operator';  //to translate
 ?>

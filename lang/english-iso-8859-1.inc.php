@@ -425,6 +425,7 @@ $strNumTables = 'Tables';
 $strOK = 'OK';
 $strOftenQuotation = 'Often quotation marks. OPTIONALLY means that only char and varchar fields are enclosed by the "enclosed by"-character.';
 $strOperations = 'Operations';
+$strOperator = 'Operator';
 $strOptimizeTable = 'Optimize table';
 $strOptionalControls = 'Optional. Controls how to write or read special characters.';
 $strOptionally = 'OPTIONALLY';

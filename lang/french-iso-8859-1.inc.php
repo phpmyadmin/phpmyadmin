@@ -423,6 +423,7 @@ $strNumTables = 'Tables';
 $strOK = 'OK';
 $strOftenQuotation = 'Souvent des guillemets. OPTIONNEL signifie que seuls les champs de type char et varchar sont entourés par ce caractère.';
 $strOperations = 'Opérations';
+$strOperator = 'Opérateur';
 $strOptimizeTable = 'Optimiser la table';
 $strOptionalControls = 'Optionnel. Indique le caractère qui permet d\'enlever l\'effet des caractères spéciaux.';
 $strOptionally = 'OPTIONNEL';

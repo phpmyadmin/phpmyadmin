@@ -733,4 +733,5 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) se elimina restrictia.';
 $strZip = '"arhivat"';
 
+$strOperator = 'Operator';  //to translate
 ?>

@@ -741,4 +741,5 @@ $strAfterInsertSame = 'Zurück zu dieser Seite';
 $strRenameDatabaseOK = 'Datenbank %s wurde umbenannt zu %s';
 $strDatabaseEmpty = 'Der Datenbankname ist leer!';
 $strDBRename = 'Datenbank umbenennen zu';
+$strOperator = 'Operator';  //to translate
 ?>

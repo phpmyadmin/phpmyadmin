@@ -737,4 +737,5 @@ $strAfterInsertSame = 'Go back to this page';  //to translate
 $strRenameDatabaseOK = 'Database %s has been renamed to %s';  //to translate
 $strDatabaseEmpty = 'The database name is empty!';  //to translate
 $strDBRename = 'Rename database to';  //to translate
+$strOperator = 'Operator';  //to translate
 ?>

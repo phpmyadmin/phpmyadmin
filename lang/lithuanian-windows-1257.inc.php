@@ -732,4 +732,5 @@ $strYes = 'Taip';
 $strZeroRemovesTheLimit = 'Pastaba: nëra jokiø apribojimø jeigu reikðmë nurodyta lygi 0 (nuliui).';
 $strZip = '"zip"';
 
+$strOperator = 'Operator';  //to translate
 ?>
