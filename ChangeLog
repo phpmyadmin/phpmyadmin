@@ -7,6 +7,7 @@ $Source$
 
 2003-11-25 Alexander M. Turek  <jaggedlittlepill@derrabus.de>
     * translators.html: Changed email of Hindi translator, again.
+    * badwords.txt: File is obsolete.
 
 2003-11-25 Garvin Hicking <phpmyadminismyaeroplane@supergarv.de>
     * db_details_qbe.php, left.php, main.php, pdf_pages.php, server_collations.php,
