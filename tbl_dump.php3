@@ -456,10 +456,13 @@ if (!empty($asfile)) {
                 }
             }
         }
+        $js_to_run = 'functions.js';
         include('./header.inc.php3');
         if (!isset($single)) {
+            $active_page = 'db_details_export.php3';
             include('./db_details_export.php3');
         } else {
+            $active_page = 'tbl_properties_export.php3';
             include('./tbl_properties_export.php3');
         }
     /* Send dump over HTTP */

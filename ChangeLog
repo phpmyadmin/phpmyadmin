@@ -11,6 +11,10 @@ $Source$
       some people seem to want this (based on patch #73516).
     * tbl_dump.php3, lang/*: Use other messages (thanks to Marc), replace
       slashes in filename with underscore to avoid possible problems.
+    * db_details_export.php3: Remember selected tables after exporting to a
+      file.
+    * libraries/common.lib.php3, tbl_dump.php3, sql.php3: Better way for
+      highliting tabs when including files (set $active_page for highliting).
 
 2003-05-14 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/defines_php.lib.php3: bug 736111: better GD2 detection

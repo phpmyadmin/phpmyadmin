@@ -1680,7 +1680,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
             if ((basename($PHP_SELF) == $link || 
                     $active || 
-                    (isset($GLOBALS['goto']) && (basename($PHP_SELF) == 'tbl_dump.php3' || basename($PHP_SELF) == 'read_dump.php3') && $GLOBALS['goto'] == $link)
+                    (isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $link)
                 ) && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
                 $bgcolor = 'silver';
             } else {

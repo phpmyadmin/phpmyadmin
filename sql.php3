@@ -642,6 +642,7 @@ else {
             if ($goto != 'main.php3') {
                 include('./header.inc.php3');
             }
+            $active_page = $goto;
             include('./' . $goto);
         } // end if file_exist
         else {
