@@ -61,8 +61,8 @@ $strAutodetect = 'Autodetekcja';
 $strAutomaticLayout = 'Układ automatyczny';
 
 $strBack = 'Powrót';
-$strBeginCut = 'POCZĄTEK CUT';
-$strBeginRaw = 'POCZĄTEK RAW';
+$strBeginCut = 'TNIJ STĄD';
+$strBeginRaw = 'TNIJ STĄD';
 $strBinary = ' Binarne ';
 $strBinaryDoNotEdit = ' Binarne - nie do edycji ';
 $strBookmarkDeleted = 'Zapamiętane zapytanie SQL zostało usunięte.';
@@ -92,6 +92,7 @@ $strChangeCopyModeRevoke = ' ... odebranie wszystkich aktywnych uprawnień stare
 $strChangeCopyUser = 'Zmień dane użytkownika / Skopiuj użytkownika';
 $strChangeDisplay = 'Wybierz wyświetlane pole';
 $strChangePassword = 'Zmiana hasła';
+$strCharset = 'System kodowania znaków';
 $strCharsetOfFile = 'System kodowanie znaków dla pliku:';
 $strCheckAll = 'Zaznaczenie wszystkich';
 $strCheckDbPriv = 'Sprawdzanie uprawnień bazy danych';
@@ -186,8 +187,8 @@ $strEmpty = 'Wyczyszczenie';
 $strEmptyResultSet = 'MySQL zwrócił pusty wynik (np. zero rekordów).';
 $strEnabled = 'włączone';
 $strEnd = 'Koniec';
-$strEndCut = 'KONIEC CUT';
-$strEndRaw = 'KONIEC RAW';
+$strEndCut = 'TNIJ DOTĄD';
+$strEndRaw = 'TNIJ DODĄD';
 $strEnglishPrivileges = ' Uwaga: Uprawnienia MySQL są oznaczone w jęz. angielskim ';
 $strError = 'Błąd';
 $strExplain = 'Wyjaśnienie SQL';
@@ -624,7 +625,5 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie.';
 $strZip = '".zip"';
 // To translate
-
-$strCharset = 'Charset';  //to translate
 
 ?>
