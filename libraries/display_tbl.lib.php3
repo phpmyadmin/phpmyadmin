@@ -1333,9 +1333,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
             $tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
 
-            $local_query = 'SELECT src_column, dest_table, dest_column'
+            $local_query = 'SELECT master_field, foreign_table, foreign_field'
                          . ' FROM ' . $cfg['Server']['relation']
-                         . ' WHERE src_table IN ' . $tabs;
+                         . ' WHERE master_table IN ' . $tabs;
             $result      = @mysql_query($local_query);
             if ($result) {
                 while ($rel = mysql_fetch_row($result)) {

@@ -146,14 +146,14 @@ while (list($key, $table) = each($the_tables)) {
     if($rel_work){
     		unset($res_rel);
             //  Find which tables are related with the current one and write it in an array
-            $rel_query   = 'SELECT src_column,concat(dest_table,\'->\',dest_column) as rel ';
+            $rel_query   = 'SELECT master_field,concat(foreign_table,\'->\',foreign_field) as rel ';
             $rel_query  .= 'FROM ' . PMA_backquote($cfg['Server']['relation']);
-            $rel_query  .= ' WHERE src_table = \'' . urldecode($table) .'\'';
+            $rel_query  .= ' WHERE master_table = \'' . urldecode($table) .'\'';
 
             $relations   = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
             $res_rel     = array();
             while ($relrow = @mysql_fetch_array($relations)){
-            	$col = $relrow['src_column'];
+            	$col = $relrow['master_field'];
             	$res_rel[$col]=$relrow['rel'];
             	//debug echo "col: ".$col." - ". $relrow['rel']."<br>";
             }
