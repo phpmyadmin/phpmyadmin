@@ -47,10 +47,12 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
     if (!empty($_FILES)) {
         while (list($name, $value) = each($_FILES)) {
             $$name = $value['tmp_name'];
+            ${$name . '_name'} = $value['name'];
         }
     } else if (!empty($HTTP_POST_FILES)) {
         while (list($name, $value) = each($HTTP_POST_FILES)) {
             $$name = $value['tmp_name'];
+            ${$name . '_name'} = $value['name'];
         }
     } // end if
 

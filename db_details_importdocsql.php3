@@ -12,6 +12,7 @@
  * Get the values of the variables posted or sent to this script and display
  * the headers
  */
+require('./libraries/read_dump.lib.php3');
 require('./libraries/grab_globals.lib.php3');
 require('./header.inc.php3');
 
@@ -19,81 +20,94 @@ require('./header.inc.php3');
 //all hardcoded strings converted by Robbat2, 15 January 2003 9.34PM
 require('./libraries/common.lib.php3');
 
-
 /**
- * Executes import if required
+ * Imports docSQL files
+ *
+ * @param   string   the basepath
+ * @param   string   the filename
+ * @param   string   the complete filename
+ * @param   string   the content of a file
+
+ *
+ * @return  boolean  always true
+ *
+ * @global  array    GLOBAL variables
  */
-if (isset($do) && $do == 'import') {
-    // echo '<h1>Starting Import</h1>';
-    if (substr($docpath, strlen($docpath) - 2, 1) != '/') {
-        $docpath = $docpath . '/';
-    }
-    if (is_dir($docpath)) {
-        // Get relation settings
-        include('./libraries/relation.lib.php3');
-        $cfgRelation = PMA_getRelationsParam();
+function docsql_check($docpath = '', $file = '', $filename = '', $content = 'none') {
+global $GLOBALS;
 
-        // Do the work
-        $handle = opendir($docpath);
-        while ($file = @readdir($handle)) {
-            $filename = basename($file);
-            // echo '<p>Working on file ' . $filename . '</p>';
-            if (strpos(' ' . $filename, '_field_comment.txt')) {
-                 $tab = substr($filename, 0, strlen($filename) - strlen('_field_comment.txt'));
-                //echo '<h1>Working on Table ' . $_tab . '</h1>';
-                $fd  = fopen($docpath . $file, 'r');
-                if ($fd) {
-                    while (!feof($fd)) {
-                        $line    = fgets($fd, 4096);
-                        //echo '<p>' . $line . '</p>';
-                        $inf     = explode('|',$line);
-                        if (!empty($inf[1]) && strlen(trim($inf[1])) > 0) {
-                            $qry = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
-                                 . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
-                                 . ' VALUES('
-                                 . '\'' . PMA_sqlAddslashes($db) . '\','
-                                 . '\'' . PMA_sqlAddslashes(trim($tab)) . '\','
-                                 . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\','
-                                 . '\'' . PMA_sqlAddslashes(trim($inf[1])) . '\')';
-                            if (PMA_query_as_cu($qry)) {
-                                echo '<p>' . $strAddedColumnComment . ' ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . '</p>';
-                            } else {
-                                echo '<p>' . $strWritingCommentNotPossible . '</p>';
-                            }
-                            echo "\n";
-                        } // end inf[1] exists
-                        if (!empty($inf[2]) && strlen(trim($inf[2])) > 0) {
-                            $for = explode('->', $inf[2]);
-                            $qry = 'INSERT INTO ' . PMA_backquote($cfgRelation['relation'])
-                                   . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
-                                   . ' VALUES('
-                                   . '\'' . PMA_sqlAddslashes($db) . '\', '
-                                   . '\'' . PMA_sqlAddslashes(trim($tab)) . '\', '
-                                   . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\', '
-                                   . '\'' . PMA_sqlAddslashes($db) . '\', '
-                                   . '\'' . PMA_sqlAddslashes(trim($for[0])) . '\','
-                                   . '\'' . PMA_sqlAddslashes(trim($for[1])) . '\')';
-                            if (PMA_query_as_cu($qry)) {
-                                echo '<p>' . $strAddedColumnRelation . ' ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . ' to ' . htmlspecialchars($for) . '</p>';
-                            } else {
-                                echo '<p>' . $strWritingRelationNotPossible . '</p>';
-                            }
-                            echo "\n";
-                        } // end inf[2] exists
-                    }
-                    echo '<p><font color="green">' . $strImportFinished . '</font></p>' . "\n";
-                } else {
-                    echo '<p><font color="red">' . $strFileCouldNotBeRead . '</font></p>' . "\n";
+    if (eregi('^(.*)_field_comment\.(txt|zip|bz2|bzip).*$', $filename)) {
+        $tab = eregi_replace('^(.*)_field_comment\.(txt|zip|bz2|bzip).*', '\1', $filename);
+        //echo '<h1>Working on Table ' . $_tab . '</h1>';
+        if ($content == 'none') {
+            $lines = array();
+            $fd  = fopen($docpath . $file, 'r');
+            if ($fd) {
+                while (!feof($fd)) {
+                    $lines[]    = fgets($fd, 4096);
                 }
-            } else {
-                echo '<p><font color="yellow">' . sprintf($strIgnoringFile, ' ' . $file) . '</font></p>' . "\n";
-            } // end working on table
-        } // end while
+            }
+        } else {
+            $content = str_replace("\r\n", "\n", $content);
+            $content = str_replace("\r", "\n", $content);
+            $lines = explode("\n", $content);
+        }
+        
+        if (isset($lines) && is_array($lines) && count($lines) > 0) {
+            @reset($lines);
+            while(list($lkey, $line) = each($lines)) { 
+                //echo '<p>' . $line . '</p>';
+                $inf     = explode('|',$line);
+                if (!empty($inf[1]) && strlen(trim($inf[1])) > 0) {
+                    $qry = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
+                            . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
+                            . ' VALUES('
+                            . '\'' . PMA_sqlAddslashes($GLOBALS['db']) . '\','
+                            . '\'' . PMA_sqlAddslashes(trim($tab)) . '\','
+                            . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\','
+                            . '\'' . PMA_sqlAddslashes(trim($inf[1])) . '\')';
+                    if (PMA_query_as_cu($qry)) {
+                        echo '<p>' . $GLOBALS['strAddedColumnComment'] . ' ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . '</p>';
+                    } else {
+                        echo '<p>' . $GLOBALS['strWritingCommentNotPossible'] . '</p>';
+                    }
+                    echo "\n";
+                } // end inf[1] exists
+                if (!empty($inf[2]) && strlen(trim($inf[2])) > 0) {
+                    $for = explode('->', $inf[2]);
+                    $qry = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['relation'])
+                            . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
+                            . ' VALUES('
+                            . '\'' . PMA_sqlAddslashes($GLOBALS['db']) . '\', '
+                            . '\'' . PMA_sqlAddslashes(trim($tab)) . '\', '
+                            . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\', '
+                            . '\'' . PMA_sqlAddslashes($GLOBALS['db']) . '\', '
+                            . '\'' . PMA_sqlAddslashes(trim($for[0])) . '\','
+                            . '\'' . PMA_sqlAddslashes(trim($for[1])) . '\')';
+                    if (PMA_query_as_cu($qry)) {
+                        echo '<p>' . $GLOBALS['strAddedColumnRelation'] . ' ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . ' to ' . htmlspecialchars($inf[2]) . '</p>';
+                    } else {
+                        echo '<p>' . $GLOBALS['strWritingRelationNotPossible'] . '</p>';
+                    }
+                    echo "\n";
+                } // end inf[2] exists
+            }
+            echo '<p><font color="green">' . $GLOBALS['strImportFinished'] . '</font></p>' . "\n";
+        } else {
+            echo '<p><font color="red">' . $GLOBALS['strFileCouldNotBeRead'] . '</font></p>' . "\n";
+        }
+        
+        return 1;
     } else {
-        echo $strThisNotDirectory . "\n";
-    }
+        if ($content != '') {
+            echo '<p><font color="orange">' . sprintf($GLOBALS['strIgnoringFile'], ' ' . $file) . '</font></p>' . "\n";
+        } else {
+            // garvin: disabled. Shouldn't impose ANY non-submitted files ever.
+            echo '<p><font color="orange">' . sprintf($GLOBALS['strIgnoringFile'], ' ' . '') . '</font></p>' . "\n";
+        }
+        return 0;
+    } // end working on table
 }
-
 
 /**
  * Try to get the "$DOCUMENT_ROOT" variable whatever is the register_globals
@@ -116,9 +130,102 @@ if (empty($DOCUMENT_ROOT)) {
         $DOCUMENT_ROOT = getenv('DOCUMENT_ROOT');
     }
     else {
-        $DOCUMENT_ROOT = '';
+        $DOCUMENT_ROOT = '.';
     }
 } // end if
+
+/**
+ * Executes import if required
+ */
+if (isset($do) && $do == 'import') {
+    $orig_docpath = $docpath;
+    
+    if (empty($sql_file)) {
+        $sql_file  = 'none';
+    }
+
+    // Get relation settings
+    include('./libraries/relation.lib.php3');
+    $cfgRelation = PMA_getRelationsParam();
+
+    // Gets the query from a file if required
+    if ($sql_file != 'none') {
+        if (file_exists($sql_file)
+            && is_uploaded_file($sql_file)) {
+
+            $open_basedir     = '';
+            if (PMA_PHP_INT_VERSION >= 40000) {
+                $open_basedir = @ini_get('open_basedir');
+            }
+            if (empty($open_basedir)) {
+                $open_basedir = @get_cfg_var('open_basedir');
+            }
+    
+            // If we are on a server with open_basedir, we must move the file
+            // before opening it. The doc explains how to create the "./tmp"
+            // directory
+    
+            if (!empty($open_basedir)) {
+    
+                $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
+    
+                // function is_writeable() is valid on PHP3 and 4
+                if (!is_writeable($tmp_subdir)) {
+                    // if we cannot move the file, let PHP report the error
+                    error_reporting(E_ALL);
+                    $docsql_text = PMA_readFile($sql_file, $sql_file_compression);
+                }
+                else {
+                    $sql_file_new = $tmp_subdir . basename($sql_file);
+                    if (PMA_PHP_INT_VERSION < 40003) {
+                        copy($sql_file, $sql_file_new);
+                    } else {
+                        move_uploaded_file($sql_file, $sql_file_new);
+                    }
+                    $docsql_text = PMA_readFile($sql_file_new, $sql_file_compression);
+                    unlink($sql_file_new);
+                }
+            }
+            else {
+                // read from the normal upload dir
+                $docsql_text = PMA_readFile($sql_file, $sql_file_compression);
+            }
+    
+            // Convert the file's charset if necessary
+            if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
+                && isset($charset_of_file) && $charset_of_file != $charset) {
+                $docsql_text = PMA_convert_string($charset_of_file, $charset, $docsql_text);
+            }
+            
+            if (!isset($docsql_text) || $docsql_text == FALSE || $docsql_text == '') {
+                echo '<p><font color="red">' . $GLOBALS['strFileCouldNotBeRead'] . '</font></p>' . "\n";
+            } else {
+                docsql_check('', $sql_file_name, $sql_file_name, $docsql_text);
+            }
+        } // end uploaded file stuff
+    } else {
+        
+        // echo '<h1>Starting Import</h1>';
+        $docpath = $DOCUMENT_ROOT . dirname($PHP_SELF) . '/' . $docpath;
+        if (substr($docpath, strlen($docpath) - 2, 1) != '/') {
+            $docpath = $docpath . '/';
+        }
+    
+        $matched_files = 0;
+        
+        if (is_dir($docpath)) {
+            // Do the work
+            $handle = opendir($docpath);
+            while ($file = @readdir($handle)) {
+                $filename = basename($file);
+                // echo '<p>Working on file ' . $filename . '</p>';
+                $matched_files += docsql_check($docpath, $file, $filename);
+            } // end while
+        } else {
+            echo '<p><font color="red">' .$docpath . ': ' . $strThisNotDirectory . "</font></p>\n";
+        }
+    }
+}
 
 
 /**
@@ -126,13 +233,64 @@ if (empty($DOCUMENT_ROOT)) {
  */
 ?>
 
-<form method="post" action="db_details_importdocsql.php3">
+<form method="post" action="db_details_importdocsql.php3" <?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>>
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="submit_show" value="true" />
     <input type="hidden" name="do" value="import" />
     <b><?php echo $strAbsolutePathToDocSqlDir; ?>:</b>
     <br /><br />
-    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="docpath" size="50" value="<?php echo htmlspecialchars($DOCUMENT_ROOT); ?>" />
+    <?php echo dirname($PHP_SELF); ?>/<input class="textfield" type="text" name="docpath" size="15" value="<?php echo (isset($orig_docpath) ? $orig_docpath : 'docSQL/'); ?>" />
+<?php
+// garvin: displays import dump feature only if file upload available
+if ($is_upload) {
+    echo '<br /><br />';
+    echo '            <i>' . $strOr . '</i> ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
+    ?>
+            <div style="margin-bottom: 5px">
+            <input type="file" name="sql_file" class="textfield" /><br />
+    <?php
+    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+        $temp_charset = reset($cfg['AvailableCharsets']);
+        echo $strCharsetOfFile . "\n"
+             . '        <select name="charset_of_file" size="1">' . "\n"
+             . '                <option value="' . $temp_charset . '"';
+        if ($temp_charset == $charset) {
+            echo ' selected="selected"';
+        }
+        echo '>' . $temp_charset . '</option>' . "\n";
+        while ($temp_charset = next($cfg['AvailableCharsets'])) {
+            echo '                <option value="' . $temp_charset . '"';
+            if ($temp_charset == $charset) {
+                echo ' selected="selected"';
+            }
+            echo '>' . $temp_charset . '</option>' . "\n";
+        } // end while
+        echo '            </select><br />' . "\n" . '    ';
+    } // end if
+    $is_gzip = ($cfg['GZipDump'] && @function_exists('gzopen'));
+    $is_bzip = ($cfg['BZipDump'] && @function_exists('bzdecompress'));
+    if ($is_bzip || $is_gzip) {
+        echo '        ' . $strCompression . ':' . "\n"
+           . '            <input type="radio" id="radio_sql_file_compression_plain" name="sql_file_compression" value="text/plain" checked="checked" />' . "\n"
+           . '            <label for="radio_sql_file_compression_plain">' . $strNone . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
+        if ($is_gzip) {
+            echo '            <input type="radio" id="radio_sql_file_compression_gzip" name="sql_file_compression" value="application/x-gzip" />' . "\n"
+               . '            <label for="radio_sql_file_compression_gzip">' . $strGzip . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
+        }
+        if ($is_bzip) {
+            echo '            <input type="radio" id="radio_sql_file_compression_bzip" name="sql_file_compression" value="application/x-bzip" />' . "\n"
+               . '            <label for="radio_sql_file_compression_bzip">' . $strBzip . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
+        }
+    } else {
+        echo '        <input type="hidden" name="sql_file_compression" value="text/plain" />' . "\n";
+    }
+    ?>
+            </div>
+    <?php
+} // end if
+echo "\n";
+?>
+    <br />
     &nbsp;<input type="submit" value="<?php echo $strImportFiles; ?>" />
 </form>
 

@@ -6,6 +6,14 @@ $Id$
 $Source$
 
 2003-03-11 Garvin Hicking <me@supergarv.de>
+    * docSQL/*, read_dump.php3, db_details_importdocsql.php3, 
+      libraries/grab_globals.lib.php3, libraries/read_dump.lib.php3:
+      Improved security of docSQL importer. You now can only access
+      a subdirectory of phpMyAdmin ('docSQL' proposed) OR upload each
+      file on its own via File Upload (if $is_upload is true).
+      Filenames not matching the converter will no more printed out to
+      maintain security.
+    
     * transformation_wrapper.php3 - Remove $err_url, because if a query
       fails here, the user won't get to see the error string anyways.
       Can happen if you want to display a blob without having an index
