@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2003-11-05 Garvin Hicking <me@supergarv.de>
+    * libraries/common.lib.php3, footer.inc.php3: Bug #831181: Do not 
+      store queries with errors in history, also when coming from the 
+      database SQL tab.
     * libraries/common.lib.php3: Bug #835854. The MySQL-error messages
       are now put inside a <code> HTML-container, not <pre>. This allows
       wordwrapping to hide vertical scrollbars. Linebreak/Whitespace
