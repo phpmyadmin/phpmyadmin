@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2001-08-19  Loïc Chapeaux  <lolo@phpheaven.net>
-	* tbl_change.php3: do not modify blob/binaries if $cfgProtectBlob is TRUE.
+	* tbl_change.php3: do not modify blob/binaries if $cfgProtectBlob is true.
 	* db_details.php3; main.php3: move back to the welcome page if the current
 	  database has been dropped.
 
