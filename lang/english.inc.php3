@@ -99,7 +99,6 @@ $strFunction = "Function";
 
 $strGenTime = "Generation Time";
 $strGo = "Go";
-$strGrantOption = "Grant Option";
 $strGrants = "Grants";
 
 $strHasBeenAltered = "has been altered.";

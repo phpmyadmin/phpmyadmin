@@ -99,7 +99,6 @@ $strFunction = "功能";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "開始";
-$strGrantOption = "Grant Option"; //to translate
 $strGrants = "Grants"; //to translate
 
 $strHasBeenAltered = "已經被修改。";

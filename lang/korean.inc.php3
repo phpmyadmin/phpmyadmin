@@ -99,7 +99,6 @@ $strFunction = "함수";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "실행";
-$strGrantOption = "Grant Option"; //to translate
 $strGrants = "Grants"; //to translate
 
 $strHasBeenAltered = "을(를) 변경하였습니다.";

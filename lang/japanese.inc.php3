@@ -99,7 +99,6 @@ $strFunction = "関数";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "実行";
-$strGrantOption = "Grant Option"; //to translate
 $strGrants = "Grants"; //to translate
 
 $strHasBeenAltered = "を変更しました。";

@@ -339,7 +339,7 @@ function table_grants_header($dbcheck = false) {
 
     global $strAction;
     global $strHost, $strUser, $strDatabase, $strColumn;
-    global $strTable, $strPrivileges, $strGrantOption;
+    global $strTable, $strPrivileges;
 
     echo "<table border=$cfgBorder>\n<tr>";
 
@@ -352,9 +352,9 @@ function table_grants_header($dbcheck = false) {
     }
 
     echo "<th>$strDatabase</th>";
-    echo "<th>$strTable</th>";
+    echo "<th>" . UCFirst($strTable) . "</th>";
     echo "<th>$strPrivileges</th>";
-    if (!$dbcheck) echo "<th>$strGrantOption</th>";
+    if (!$dbcheck) echo "<th>Grant Option</th>";
     echo "</tr>\n";
 }
 

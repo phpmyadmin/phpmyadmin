@@ -93,13 +93,12 @@ $strExtra = "Extra";
 
 $strField = "Champ";
 $strFields = "Champs";
-$strFixed = "fixed"; //to translate
-$strFormat = "Format"; //to translate
+$strFixed = "fixe"; 
+$strFormat = "format"; 
 $strFunction = "Fonction";
 
-$strGenTime = "Generation Time"; //to translate
+$strGenTime = "Généré le ";
 $strGo = "Exécuter";
-$strGrantOption = "Grant Option"; //to translate
 $strGrants = "Grants"; //to translate
 
 $strHasBeenAltered = "a été modifié.";

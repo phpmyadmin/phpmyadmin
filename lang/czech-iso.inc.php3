@@ -99,7 +99,6 @@ $strFunction = "Funkce";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "Proveï";
-$strGrantOption = "Pøidìlit práva";
 $strGrants = "Povolení";
 
 $strHasBeenAltered = "byla zmìnìna.";

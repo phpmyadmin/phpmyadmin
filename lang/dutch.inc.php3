@@ -99,7 +99,6 @@ $strFunction = "Functie";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "Start";
-$strGrantOption = "Grant Option"; //to translate
 $strGrants = "Grants"; //to translate
 
 $strHasBeenAltered = "is veranderd.";

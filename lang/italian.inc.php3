@@ -99,7 +99,6 @@ $strFunction = "Funzione";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "Esegui";
-$strGrantOption = "Opzioni permessi";
 $strGrants = "Permetti";
 
 $strHasBeenAltered = "è stato modificato.";
