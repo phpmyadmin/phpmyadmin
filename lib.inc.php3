@@ -1277,7 +1277,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
 
         // Steve Alberty's patch for complete table dump,
         // modified by Lem9 to allow older MySQL versions to continue to work
-        if (MYSQL_MAJOR_VERSION >= 32321) {
+        if (MYSQL_INT_VERSION >= 32321) {
             // Whether to quote table and fields names or not
             if ($use_backquotes) {
                 mysql_query('SET SQL_QUOTE_SHOW_CREATE = 1');
