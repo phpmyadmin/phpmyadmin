@@ -181,10 +181,10 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         ?>
 <tr>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($table); ?>"<?php echo $checked; ?> />
+        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($table); ?>" id="checkbox_tbl_<?php echo urlencode($table); ?>"<?php echo $checked; ?> />
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-        &nbsp;<b><?php echo htmlspecialchars($table); ?>&nbsp;</b>&nbsp;
+        &nbsp;<b><label for="checkbox_tbl_<?php echo urlencode($table); ?>"><?php echo htmlspecialchars($table); ?></label>&nbsp;</b>&nbsp;
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
@@ -427,10 +427,10 @@ else {
         ?>
 <tr>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($tables[$i]); ?>"<?php echo $checked; ?> />
+        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($tables[$i]); ?>" id="checkbox_tbl_<?php echo urlencode($tables[$i]); ?>"<?php echo $checked; ?> />
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" class="data">
-        <b>&nbsp;<?php echo $tables[$i]; ?>&nbsp;</b>
+        <b>&nbsp;<label for="checkbox_tbl_<?php echo urlencode($table); ?>"><?php echo $tables[$i]; ?></label>&nbsp;</b>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($tables[$i])); ?>&amp;pos=0"><?php echo $strBrowse; ?></a>
@@ -558,8 +558,8 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
     onfocus="if (typeof(document.layers) == 'undefined' || typeof(textarea_selected) == 'undefined') {textarea_selected = 1; this.form.elements['sql_query'].select();}">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>
 </textarea><br />
-            <input type="checkbox" name="show_query" value="y" checked="checked" />&nbsp;
-                <?php echo $strShowThisQuery; ?><br />
+            <input type="checkbox" name="show_query" value="y" id="checkbox_show_query" checked="checked" />&nbsp;
+                <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label><br />
             </div>
 <?php
 // loic1: displays import dump feature only if file upload available
@@ -584,9 +584,9 @@ if ($cfgBookmark['db'] && $cfgBookmark['table']) {
             echo '                <option value="' . $value . '">' . htmlentities($key) . '</option>' . "\n";
         }
         echo '            </select>' . "\n";
-        echo '            <input type="radio" name="action_bookmark" value="0" checked="checked" style="vertical-align: middle" />' . $strSubmit . "\n";
-        echo '            &nbsp;<input type="radio" name="action_bookmark" value="1" style="vertical-align: middle" />' . $strBookmarkView . "\n";
-        echo '            &nbsp;<input type="radio" name="action_bookmark" value="2" style="vertical-align: middle" />' . $strDelete . "\n";
+        echo '            <input type="radio" name="action_bookmark" value="0" id="radio_bookmark0" checked="checked" style="vertical-align: middle" /><label for="radio_bookmark0">' . $strSubmit . '</label>' . "\n";
+        echo '            &nbsp;<input type="radio" name="action_bookmark" value="1" id="radio_bookmark1" style="vertical-align: middle" /><label for="radio_bookmark1">' . $strBookmarkView . '</label>' . "\n";
+        echo '            &nbsp;<input type="radio" name="action_bookmark" value="2" id="radio_bookmark2" style="vertical-align: middle" /><label for="radio_bookmark2">' . $strDelete . '</label>' . "\n";
         echo '            <br />' . "\n";
         echo '            </div>' . "\n";
     }
@@ -650,12 +650,12 @@ if ($num_tables > 0) {
     echo "\n";
     ?>
             <td valign="middle">
-                <input type="radio" name="what" value="structure" checked="checked" />
-                <?php echo $strStrucOnly; ?><br />
-                <input type="radio" name="what" value="data" />
-                <?php echo $strStrucData; ?><br />
-                <input type="radio" name="what" value="dataonly" />
-                <?php echo $strDataOnly; ?>
+                <input type="radio" name="what" value="structure" id="radio_dump_structure" checked="checked" />
+                <label for="radio_dump_structure"><?php echo $strStrucOnly; ?></label><br />
+                <input type="radio" name="what" id="radio_dump_data" value="data" />
+                <label for="radio_dump_data"><?php echo $strStrucData; ?></label><br />
+                <input type="radio" name="what" id="radio_dump_dataonly" value="dataonly" />
+                <label for="radio_dump_dataonly"><?php echo $strDataOnly; ?></label>
     <?php
     if ($num_tables > 1) {
         echo "\n";
@@ -672,20 +672,20 @@ if ($num_tables > 0) {
         </tr>
         <tr>
             <td<?php echo $colspan; ?>>
-                <input type="checkbox" name="drop" value="1" />
-                <?php echo $strStrucDrop . "\n"; ?>
+                <input type="checkbox" name="drop" value="1" id="checkbox_dump_drop" />
+                <label for="checkbox_dump_drop"><?php echo $strStrucDrop; ?></label>
             </td>
         </tr>
         <tr>
             <td<?php echo $colspan; ?>>
-                <input type="checkbox" name="showcolumns" value="yes" />
-                <?php echo $strCompleteInserts . "\n"; ?>
+                <input type="checkbox" name="showcolumns" value="yes" id="checkbox_dump_showcolumns" />
+                <label for="checkbox_dump_showcolumns"><?php echo $strCompleteInserts; ?></label>
             </td>
         </tr>
         <tr>
             <td<?php echo $colspan; ?>>
-                <input type="checkbox" name="extended_ins" value="yes" />
-                <?php echo $strExtendedInserts . "\n"; ?>
+                <input type="checkbox" name="extended_ins" value="yes" id="checkbox_dump_extended_ins" />
+                <label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label>
             </td>
         </tr>
     <?php
@@ -694,8 +694,8 @@ if ($num_tables > 0) {
         ?>
         <tr>
             <td<?php echo $colspan; ?>>
-                <input type="checkbox" name="use_backquotes" value="1" />
-                <?php echo $strUseBackquotes . "\n"; ?>
+                <input type="checkbox" name="use_backquotes" value="1" id="checkbox_dump_use_backquotes" />
+                <label for="checkbox_dump_use_backquotes"><?php echo $strUseBackquotes; ?></label>
             </td>
         </tr>
         <?php
@@ -704,8 +704,8 @@ if ($num_tables > 0) {
     ?>
         <tr>
             <td<?php echo $colspan; ?>>
-                <input type="checkbox" name="asfile" value="sendit" onclick="return checkTransmitDump(this.form, 'transmit')" />
-                <?php echo $strSend . "\n"; ?>
+                <input type="checkbox" name="asfile" value="sendit" id="checkbox_dump_asfile" onclick="return checkTransmitDump(this.form, 'transmit')" />
+                <label for="checkbox_dump_asfile"><?php echo $strSend; ?></label>
     <?php
     // gzip and bzip2 encode features
     if (PMA_PHP_INT_VERSION >= 40004) {
@@ -716,19 +716,22 @@ if ($num_tables > 0) {
             echo "\n" . '                (' . "\n";
             if ($is_zip) {
                 ?>
-                <input type="checkbox" name="zip" value="zip" onclick="return checkTransmitDump(this.form, 'zip')" /><?php echo $strZip . (($is_gzip || $is_bzip) ? '&nbsp;' : '') . "\n"; ?>
+                <input type="checkbox" name="zip" value="zip" id="checkbox_dump_zip" onclick="return checkTransmitDump(this.form, 'zip')" />
+                <?php echo '<label for="checkbox_dump_zip">' . $strZip . '</label>' . (($is_gzip || $is_bzip) ? '&nbsp;' : '') . "\n"; ?>
                 <?php
             }
             if ($is_gzip) {
                 echo "\n"
                 ?>
-                <input type="checkbox" name="gzip" value="gzip" onclick="return checkTransmitDump(this.form, 'gzip')" /><?php echo $strGzip . (($is_bzip) ? '&nbsp;' : '') . "\n"; ?>
+                <input type="checkbox" name="gzip" value="gzip" id="checkbox_dump_gzip" onclick="return checkTransmitDump(this.form, 'gzip')" />
+                <?php echo '<label for="checkbox_dump_gzip">' . $strGzip . '</label>' . (($is_bzip) ? '&nbsp;' : '') . "\n"; ?>
                 <?php
             }
             if ($is_bzip) {
                 echo "\n"
                 ?>
-                <input type="checkbox" name="bzip" value="bzip" onclick="return checkTransmitDump(this.form, 'bzip')" /><?php echo $strBzip . "\n"; ?>
+                <input type="checkbox" name="bzip" value="bzip" id="checkbox_dump_bzip" onclick="return checkTransmitDump(this.form, 'bzip')" />
+                <?php echo '<label for="checkbox_dump_bzip">' . $strBzip . '</label>' . "\n"; ?>
                 <?php
             }
             echo "\n" . '                )';

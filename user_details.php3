@@ -280,9 +280,9 @@ function PMA_tablePrivileges($form, $row = FALSE)
             echo '                <td>&nbsp;</td>' . "\n";
         }
         echo '                <td>' . "\n";
-        echo '                    <input type="checkbox" name="' . $priv . '_priv"' . $checked . ' />' . "\n";
+        echo '                    <input type="checkbox" name="' . $priv . '_priv" id="checkbox_priv_' . $priv . '"' . $checked . ' />' . "\n";
         echo '                </td>' . "\n";
-        echo '                <td>' . $priv . '</td>' . "\n";
+        echo '                <td><label for="checkbox_priv_' . $priv . '">' . $priv . '</label></td>' . "\n";
         if ($item % 2 == 0) {
             echo '            </tr>' . "\n";
         }
@@ -374,13 +374,13 @@ function PMA_normalOperations()
             <table>
             <tr>
                 <td>
-                    <input type="radio" name="anyhost" checked="checked" />
-                    <?php echo $GLOBALS['strAnyHost'] . "\n"; ?>
+                    <input type="radio" name="anyhost" id="radio_anyhost0" checked="checked" />
+                    <label for="radio_anyhost0"><?php echo $GLOBALS['strAnyHost']; ?></label>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" name="anyhost" />
-                    <?php echo $GLOBALS['strHost']; ?>&nbsp;:&nbsp;
+                    <input type="radio" name="anyhost" id="radio_anyhost1" />
+                    <label for="radio_anyhost1"><?php echo $GLOBALS['strHost']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <input type="text" name="host" size="10" class="textfield" <?php echo $GLOBALS['chg_evt_handler']; ?>="this.form.anyhost[1].checked = true" />
@@ -388,13 +388,13 @@ function PMA_normalOperations()
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="anyuser" />
-                    <?php echo $GLOBALS['strAnyUser']; ?>
+                    <input type="radio" name="anyuser" id="radio_anyuser0" />
+                    <label for="radio_anyuser0"><?php echo $GLOBALS['strAnyUser']; ?></label>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" name="anyuser" checked="checked" />
-                    <?php echo $GLOBALS['strUserName']; ?>&nbsp;:&nbsp;
+                    <input type="radio" name="anyuser" id="radio_anyuser1" checked="checked" />
+                    <label for="radio_anyuser1"><?php echo $GLOBALS['strUserName']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <input type="text" name="pma_user" size="10" class="textfield" <?php echo $GLOBALS['chg_evt_handler']; ?>="this.form.anyuser[1].checked = true" />
@@ -402,13 +402,13 @@ function PMA_normalOperations()
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="nopass" value="1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
-                    <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
+                    <input type="radio" name="nopass" value="1" id="radio_nopass1" onclick="pma_pw.value = ''; pma_pw2.value = ''; this.checked = true" />
+                    <label for="radio_nopass1"><?php echo $GLOBALS['strNoPassword']; ?></label>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" name="nopass" value="0" checked="checked" />
-                    <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
+                    <input type="radio" name="nopass" value="0" id="radio_nopass0" checked="checked" />
+                    <label for="radio_nopass0"><?php echo $GLOBALS['strPassword']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <input type="password" name="pma_pw" size="10" class="textfield" <?php echo $GLOBALS['chg_evt_handler']; ?>="nopass[1].checked = true" />
@@ -486,13 +486,13 @@ function PMA_grantOperations($grants)
             <table>
             <tr>
                 <td>
-                    <input type="radio" name="anydb" value="1"<?php echo ($dbgrant) ? '' : ' checked="checked"'; ?> />
-                    <?php echo $GLOBALS['strAnyDatabase'] . "\n"; ?>
+                    <input type="radio" name="anydb" value="1" id="radio_anydb1"<?php echo ($dbgrant) ? '' : ' checked="checked"'; ?> />
+                    <label for="radio_anydb1"><?php echo $GLOBALS['strAnyDatabase']; ?></label>
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
                 <td>
-                    <input type="radio" name="anydb" value="0"<?php echo ($dbgrant) ? ' checked="checked"' : ''; ?> />
-                    <?php echo $GLOBALS['strDatabase']; ?>&nbsp;:&nbsp;
+                    <input type="radio" name="anydb" value="0" id="radio_anydb0"<?php echo ($dbgrant) ? ' checked="checked"' : ''; ?> />
+                    <label for="radio_anydb0"><?php echo $GLOBALS['strDatabase']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <select name="dbgrant" onchange="change(this)">
@@ -525,13 +525,13 @@ function PMA_grantOperations($grants)
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="anytable" value="1"<?php echo ($tablegrant) ? '' : ' checked="checked"'; ?> />
-                    <?php echo $GLOBALS['strAnyTable'] . "\n"; ?>
+                    <input type="radio" name="anytable" value="1" id="radio_anytable1"<?php echo ($tablegrant) ? '' : ' checked="checked"'; ?> />
+                    <label for="radio_anytable1"><?php echo $GLOBALS['strAnyTable']; ?></label>
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
                 <td>
-                    <input type="radio" name="anytable" value="0"<?php echo ($tablegrant) ? ' checked="checked"' : ''; ?> />
-                    <?php echo $GLOBALS['strTable']; ?>&nbsp;:&nbsp;
+                    <input type="radio" name="anytable" value="0" id="radio_anytable0"<?php echo ($tablegrant) ? ' checked="checked"' : ''; ?> />
+                    <label for="radio_anytable0"><?php echo $GLOBALS['strTable']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <select name="tablegrant" onchange="change(this)">
@@ -562,13 +562,13 @@ function PMA_grantOperations($grants)
             </tr>
             <tr>
                 <td valign="top">
-                    <input type="radio" name="anycolumn" value="1" checked="checked" />
-                    <?php echo $GLOBALS['strAnyColumn'] . "\n"; ?>
+                    <input type="radio" name="anycolumn" value="1" id="radio_anycolumn1" checked="checked" />
+                    <label for="radio_anycolumn1"><?php echo $GLOBALS['strAnyColumn']; ?></label>
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
                 <td valign="top">
-                    <input type="radio" name="anycolumn" value="0" />
-                    <?php echo $GLOBALS['strColumn']; ?>&nbsp;:&nbsp;
+                    <input type="radio" name="anycolumn" value="0" id="radio_anycolumn0" />
+                    <label for="radio_anycolumn0"><?php echo $GLOBALS['strColumn']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
     <?php
@@ -679,13 +679,13 @@ function PMA_editOperations($host, $user)
             <table>
             <tr>
                 <td>
-                    <input type="radio" value="1" name="anyhost"<?php if ($host == '' || $host == '%') echo ' checked="checked"'; ?> />
-                    <?php echo $GLOBALS['strAnyHost'] . "\n"; ?>
+                    <input type="radio" value="1" name="anyhost" id="radio_anyhost1"<?php if ($host == '' || $host == '%') echo ' checked="checked"'; ?> />
+                    <label for="radio_anyhost1"><?php echo $GLOBALS['strAnyHost']; ?></label>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" value="0" name="anyhost"<?php if ($host != '' && $host != '%') echo ' checked="checked"'; ?> />
-                    <?php echo $GLOBALS['strHost']; ?>&nbsp;:&nbsp;
+                    <input type="radio" value="0" name="anyhost" id="radio_anyhost0"<?php if ($host != '' && $host != '%') echo ' checked="checked"'; ?> />
+                    <label for="radio_anyhost0"><?php echo $GLOBALS['strHost']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <input type="text" name="new_server" size="10" value="<?php echo str_replace('"', '&quot;', $host); ?>" class="textfield" <?php echo $GLOBALS['chg_evt_handler']; ?>="this.form.anyhost[1].checked = true" />
@@ -693,13 +693,13 @@ function PMA_editOperations($host, $user)
             </tr>
             <tr>
                 <td>
-                    <input type="radio" value="1" name="anyuser"<?php if ($user == '' || $user == '%') echo ' checked="checked"'; ?> />
-                    <?php echo $GLOBALS['strAnyUser']; ?>
+                    <input type="radio" value="1" name="anyuser" id="radio_anyuser1"<?php if ($user == '' || $user == '%') echo ' checked="checked"'; ?> />
+                    <label for="radio_anyuser1"><?php echo $GLOBALS['strAnyUser']; ?></label>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" value="0" name="anyuser" checked="checked"<?php if ($user != '' && $user != '%') echo ' checked="checked"'; ?> />
-                    <?php echo $GLOBALS['strUserName']; ?>&nbsp;:&nbsp;
+                    <input type="radio" value="0" name="anyuser" id="radio_anyuser0" checked="checked"<?php if ($user != '' && $user != '%') echo ' checked="checked"'; ?> />
+                    <label for="radio_anyuser0"><?php echo $GLOBALS['strUserName']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <input type="text" name="new_user" size="10" value="<?php echo str_replace('"', '&quot;', $user); ?>" class="textfield" <?php echo $GLOBALS['chg_evt_handler']; ?>="this.form.anyuser[1].checked = true" />
@@ -707,8 +707,8 @@ function PMA_editOperations($host, $user)
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="nopass" value="-1" checked="checked" onclick="new_pw.value = ''; new_pw2.value = ''; this.checked = true" />
-                    <?php echo $GLOBALS['strKeepPass'] . "\n"; ?>
+                    <input type="radio" name="nopass" value="-1" id="radio_nopass-1" checked="checked" onclick="new_pw.value = ''; new_pw2.value = ''; this.checked = true" />
+                    <label for="radio_nopass-1"><?php echo $GLOBALS['strKeepPass']; ?></label>
                 </td>
                 <td colspan="3">&nbsp;</td>
             </tr>
@@ -717,13 +717,13 @@ function PMA_editOperations($host, $user)
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="nopass" value="1" onclick="new_pw.value = ''; new_pw2.value = ''; this.checked = true" />
-                    <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
+                    <input type="radio" name="nopass" value="1" id="radio_nopass1" onclick="new_pw.value = ''; new_pw2.value = ''; this.checked = true" />
+                    <label for="radio_nopass1"><?php echo $GLOBALS['strNoPassword']; ?></label>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" name="nopass" value="0" />
-                    <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
+                    <input type="radio" name="nopass" value="0" id="radio_nopass0" />
+                    <label for="radio_nopass0"><?php echo $GLOBALS['strPassword']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <input type="password" name="new_pw" size="10" <?php echo $GLOBALS['chg_evt_handler']; ?>="nopass[2].checked = true" />

@@ -370,14 +370,14 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 // Removes automatic MySQL escape format
                 $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                 echo '            ';
-                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($enum_atom) . '"' . ' onclick="if (typeof(document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) . ']\']) != \'undefined\') {document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false}"';
+                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($enum_atom) . '" id="radio_field_' . md5($field) . '_' . urlencode($enum_atom) . '" onclick="if (typeof(document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) . ']\']) != \'undefined\') {document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false}"';
                 if ($data == $enum_atom
                     || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                     echo ' checked="checked"';
                 }
                 echo 'tabindex="' . $i . '" />' . "\n";
-                echo '            ' . htmlspecialchars($enum_atom) . "\n";
+                echo '            <label for="radio_field_' . md5($field) . '_' . urlencode($enum_atom) . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
             } // end for
 
         } // end else
@@ -489,9 +489,9 @@ echo "\n";
 <?php
 if (isset($primary_key)) {
     ?>
-            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" checked="checked" tabindex="<?php echo $fields_cnt+1; ?>" /><?php echo $strSave; ?><br />
+            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" id="radio_submit_type_save" checked="checked" tabindex="<?php echo $fields_cnt+1; ?>" /><label for="radio_submit_type_save"><?php echo $strSave; ?></label><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" tabindex="<?php echo $fields_cnt+2; ?>" /><?php echo $strInsertAsNewRow. "\n"; ?>
+            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" id="radio_submit_type_insert_as_new_row" tabindex="<?php echo $fields_cnt+2; ?>" /><label for="radio_submit_type_insert_as_new_row"><?php echo $strInsertAsNewRow; ?></label>
     <?php
 } else {
     echo "\n";
@@ -511,9 +511,9 @@ $checked = (!empty($message)) ? ' checked="checked"' : '';
             &nbsp;&nbsp;&nbsp;<b>-- <?php echo $strAnd; ?> --</b>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
-            <input type="radio" name="after_insert" value="back" checked="checked" tabindex="<?php echo $fields_cnt+4; ?>" /><?php echo $strAfterInsertBack; ?><br />
+            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" checked="checked" tabindex="<?php echo $fields_cnt+4; ?>" /><label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="after_insert" value="new_insert"<?php echo $checked; ?> tabindex="<?php echo $fields_cnt+5; ?>" /><?php echo $strAfterInsertNewInsert . "\n"; ?>
+            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked; ?> tabindex="<?php echo $fields_cnt+5; ?>" /><label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label>
         </td>
     </tr>
 
