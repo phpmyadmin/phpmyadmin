@@ -28,10 +28,14 @@
  *
  */
 
+
 if (!defined('PMA_SQP_LIB_INCLUDED')) {
     define('PMA_SQP_LIB_INCLUDED', 1);
 
-    if(!defined('DEBUGTIMING')) {
+    require('./libraries/string.lib.php3');
+    require('./libraries/sqlparser.data.php3');
+
+    if (!defined('DEBUGTIMING')) {
         function PMA_SQP_ArrayAdd(&$arr,$type,$data, &$arrsize)
         {
             $arr[] = array( 'type' => $type, 'data' => $data );
@@ -51,7 +55,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     function PMA_SQP_Parse($sql)
     {	
         $len = strlen($sql);
-        if($len == 0) {
+        if ($len == 0) {
             return array();
         }
         $sql_array = array();
@@ -87,14 +91,14 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $c = $sql[$count2];
             $count1 = $count2;
 
-            if( ($c == "\n") ) {
+            if ( ($c == "\n") ) {
                 $count2++;
                 PMA_SQP_ArrayAdd( $sql_array, 'white_newline', '', $arraysize);
                 continue;
             }
 
             //check for white space
-            if(PMA_STR_IsSpace($c)) {
+            if (PMA_STR_IsSpace($c)) {
                 $count2++;
                 continue;
             }
@@ -103,7 +107,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             // MySQL style #
             // C style /* */
             // ANSI style -- 
-            if( ($c == '#') || (($count2+1 < $len) && ($c == '/') && ($sql[$count2+1] == '*')) || (($c == '-') && ($count2+2 < $len) && ($sql[$count2+1] == '-') && ($sql[$count2+2] == ' '))) {
+            if ( ($c == '#') || (($count2+1 < $len) && ($c == '/') && ($sql[$count2+1] == '*')) || (($c == '-') && ($count2+2 < $len) && ($sql[$count2+1] == '-') && ($sql[$count2+2] == ' '))) {
                 $count2++;
                 $pos = 0;
                 $type = 'bad'; 
@@ -129,7 +133,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             }
 
             //check for something inside quotation marks
-            if(PMA_STR_StrInStr($c,$quote_list)) {
+            if (PMA_STR_StrInStr($c,$quote_list)) {
                 $startquotepos = $count2;
                 $quotetype = $c;
                 $count2++;
@@ -141,18 +145,18 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     $oldpos = $pos;
                     $pos = strpos($sql,$quotetype,$oldpos);
                     // ($pos === FALSE)
-                    if(!is_integer($pos)) {
+                    if (!is_integer($pos)) {
                         trigger_error('Syntax: Unclosed quote ('.$quotetype.') at '.$startquotepos);
                         return;
                     }
 
                     //if the quote is the first character,
                     //it can't be escaped, so don't do the rest of the code
-                    if($pos == 0) {
+                    if ($pos == 0) {
                         break;
                     }
 
-                    if(PMA_STR_CharIsEscaped($sql,$pos)) {
+                    if (PMA_STR_CharIsEscaped($sql,$pos)) {
                         $pos ++;
                         continue;
                     } else {
@@ -181,19 +185,19 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 continue;
             }
             //check for brackets
-            if(PMA_STR_StrInStr($c,$bracket_list)) {
+            if (PMA_STR_StrInStr($c,$bracket_list)) {
                 //all bracket tokens are only one item long
                 $count2++;
                 $type_type = '';
-                if(PMA_STR_StrInStr($c,'([{')) {
+                if (PMA_STR_StrInStr($c,'([{')) {
                     $type_type = 'open';
                 } else {	
                     $type_type = 'close';
                 }
                 $type_style = '';
-                if(PMA_STR_StrInStr($c,'()')) {	
+                if (PMA_STR_StrInStr($c,'()')) {	
                     $type_style = 'round';
-                } elseif(PMA_STR_StrInStr($c,'[]')) {	
+                } elseif (PMA_STR_StrInStr($c,'[]')) {	
                     $type_style = 'square';
                 } else {	
                     $type_style = 'curly';
@@ -204,13 +208,13 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 continue;
             }
             //check for punct
-            if(PMA_STR_StrInStr($c,$allpunct_list))
+            if (PMA_STR_StrInStr($c,$allpunct_list))
             {	
                 while( ($count2 < $len) && PMA_STR_StrInStr($sql[$count2],$allpunct_list) ) {
                     $count2++;
                 }
                 $l = $count2-$count1;
-                if($l == 1) {
+                if ($l == 1) {
                     $punct_data = $c;
                 } else {
                     $punct_data = substr($sql,$count1,$l);
@@ -218,7 +222,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
                 //special case, sometimes, althought two characters are adjectent directly,
                 //they ACTUALLY need to be seperate
-                if( $l == 1 ) {	
+                if ( $l == 1 ) {	
                     $t_suffix = '';
                     switch($punct_data) {
                         case $punct_queryend:
@@ -234,7 +238,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             break;
                     }
                     PMA_SQP_ArrayAdd ( $sql_array, 'punct'.$t_suffix, $punct_data, $arraysize);
-                } elseif( PMA_STR_BinarySearchInArr($punct_data,$allpunct_list_pair,$allpunct_list_pair_size)) {
+                } elseif ( PMA_STR_BinarySearchInArr($punct_data,$allpunct_list_pair,$allpunct_list_pair_size)) {
                     //Ok, we have one of the valid combined punct expressions
                     PMA_SQP_ArrayAdd ( $sql_array, 'punct', $punct_data, $arraysize );
                 } else {	
@@ -243,13 +247,13 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     $first2 = $punct_data[0].$punct_data[1];
                     $last2 = $punct_data[$l-2].$punct_data[$l-1];
                     $last = $punct_data[$l-1];
-                    if(($first == ',') || ($first == ';') || ($first == '.') || $first = '*') {
+                    if (($first == ',') || ($first == ';') || ($first == '.') || $first = '*') {
                         $count2 = $count1 + 1;
                         $punct_data = $first;
-                    } elseif(($last2 == '/*') || ($last2 == '--')) {
+                    } elseif (($last2 == '/*') || ($last2 == '--')) {
                         $count2-=2;
                         $punct_data = substr($sql,$count1,$count2-$count1);
-                    } elseif(($last == '-') || ($last == '+') || ($last == '!')) {
+                    } elseif (($last == '-') || ($last == '+') || ($last == '!')) {
                         $count2--;
                         $punct_data = substr($sql,$count1,$count2-$count1);
                     } else {	
@@ -262,7 +266,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 continue;
             }
             //check for alpha
-            if( FALSE && PMA_STR_IsSqlIdentifier($c,FALSE) || ($c == '@')) {
+            if (PMA_STR_IsSqlIdentifier($c,FALSE) || ($c == '@')) {
                 $count2 ++;
                 $is_SQLvariable = ($c == '@');
                 $is_Digit = (!$is_SQLvariable) && PMA_STR_IsDigit($c);
@@ -270,20 +274,20 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $is_FloatDigit = FALSE; 
                 $is_FloatDigitExponent = FALSE;
 
-                if($is_HexDigit) {	
+                if ($is_HexDigit) {	
                     $count2++;
                 }
 
 
                 while(($count2 < $len) && PMA_STR_IsSqlIdentifier($sql[$count2],$is_SQLvariable || $is_Digit)) {
                     $c2 = $sql[$count2];
-                    if($is_SQLvariable && ($c2 == '.')) {
+                    if ($is_SQLvariable && ($c2 == '.')) {
                         $count2++;
                         continue;
                     }
-                    if($is_Digit && (!$is_HexDigit) && ($c2 == '.')) {
+                    if ($is_Digit && (!$is_HexDigit) && ($c2 == '.')) {
                         $count2++;
-                        if(!$is_FloatDigit) {
+                        if (!$is_FloatDigit) {
                             $is_FloatDigit = TRUE;
                             continue;
                         } else {	
@@ -291,8 +295,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             return;
                         }
                     }
-                    if($is_Digit && (!$is_HexDigit) && (($c2 == 'e') || ($c2 == 'E'))) {
-                        if(!$is_FloatDigitExponent) {
+                    if ($is_Digit && (!$is_HexDigit) && (($c2 == 'e') || ($c2 == 'E'))) {
+                        if (!$is_FloatDigitExponent) {
                             $is_FloatDigitExponent = TRUE;
                             $is_FloatDigit = TRUE;
                             $count2++;
@@ -302,7 +306,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             $is_FloatDigit = FALSE;
                         }
                     }
-                    if( ($is_HexDigit && PMA_STR_IsHexDigit($c2)) || ($is_Digit && PMA_STR_IsDigit($c2))) {
+                    if ( ($is_HexDigit && PMA_STR_IsHexDigit($c2)) || ($is_Digit && PMA_STR_IsDigit($c2))) {
                         $count2++;
                         continue;
                     } else {	
@@ -318,17 +322,17 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $str = substr($sql,$count1,$l);
 
                 $type = '';		
-                if($is_Digit) {
+                if ($is_Digit) {
                     $type = 'digit';
-                    if($is_FloatDigit) {
+                    if ($is_FloatDigit) {
                         $type .= '_float';
-                    } elseif($is_HexDigit) {
+                    } elseif ($is_HexDigit) {
                         $type .= '_hex';
                     } else {
                         $type .= '_integer';
                     }
                 } else {
-                    if($is_SQLvariable != FALSE) {
+                    if ($is_SQLvariable != FALSE) {
                         $type = 'alpha_variable';
                     } else {	
                         $type = 'alpha';
@@ -359,13 +363,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
         }
 
-        global $syntax_columnAttrib, $syntax_reservedWord, $syntax_columnType, $syntax_functionName;
-        $len_columnAttrib = count($syntax_columnAttrib);
-        $len_reservedWord = count($syntax_reservedWord);
-        $len_columnType = count($syntax_columnType);
-        $len_functionName = count($syntax_functionName);
-
-        if($arraysize > 0) {
+        global $PMA_SQPdata_ColumnAttrib, $PMA_SQPdata_ReservedWord, $PMA_SQPdata_ColumnType, $PMA_SQPdata_FunctionName,
+        $PMA_SQPdata_ColumnAttribLen, $PMA_SQPdata_ReservedWordLen, $PMA_SQPdata_ColumnTypeLen, $PMA_SQPdata_FunctionNameLen;
+        
+        if ($arraysize > 0) {
             $t_next = $sql_array[0]['type'];
             $t_prev = NULL;
         }
@@ -373,23 +374,23 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         for($i = 0; $i < $arraysize; $i++) {
             $t_prev = $t_cur;
             $t_cur = $t_next;
-            if(($i+1)<$arraysize) {
+            if (($i+1)<$arraysize) {
                 $t_next = $sql_array[$i+1]['type'];
             } else {	
                 $t_next = NULL;
             }
-            if($t_cur == 'alpha') {	
+            if ($t_cur == 'alpha') {	
                 $t_suffix = '_identifier';
                 $d_cur_upper = strtoupper($sql_array[$i]['data']);
-                if( ($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
+                if ( ($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
                     $t_suffix = '_identifier';
-                } elseif( ($t_next == 'punct_bracket_open_round') && PMA_STR_BinarySearchInArr($d_cur_upper,$syntax_functionName,$len_functionName)) {
+                } elseif ( ($t_next == 'punct_bracket_open_round') && PMA_STR_BinarySearchInArr($d_cur_upper,$PMA_SQPdata_FunctionName,$PMA_SQPdata_FunctionNameLen)) {
                     $t_suffix = '_functionName';
-                } elseif(PMA_STR_BinarySearchInArr($d_cur_upper,$syntax_reservedWord,$len_reservedWord)) {
+                } elseif (PMA_STR_BinarySearchInArr($d_cur_upper,$PMA_SQPdata_ReservedWord,$PMA_SQPdata_ReservedWordLen)) {
                     $t_suffix = '_reservedWord';
-                } elseif(PMA_STR_BinarySearchInArr($d_cur_upper,$syntax_columnType,$len_columnType)) {
+                } elseif (PMA_STR_BinarySearchInArr($d_cur_upper,$PMA_SQPdata_ColumnType,$PMA_SQPdata_ColumnTypeLen)) {
                     $t_suffix = '_columnType';
-                } elseif(PMA_STR_BinarySearchInArr($d_cur_upper,$syntax_columnAttrib,$len_columnAttrib)) {
+                } elseif (PMA_STR_BinarySearchInArr($d_cur_upper,$PMA_SQPdata_ColumnAttrib,$PMA_SQPdata_ColumnAttribLen)) {
                     $t_suffix = '_columnAttrib';
                 } else {
                     // Do nothing
@@ -407,7 +408,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     }
 
 
-    function PMA_SQP_Analyze($arr) {	
+    function PMA_SQP_Analyze($arr) 
+    {	
         $result = array();
         $size = $arr['len'];
         $subresult = array(
@@ -443,8 +445,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
         for($i=0;$i <= $size; $i++) {
             // High speed seek for locating the end of the current query
-            if($seek_queryend == TRUE) {
-                if($arr[$i]['type'] == 'punct_queryend') {
+            if ($seek_queryend == TRUE) {
+                if ($arr[$i]['type'] == 'punct_queryend') {
                     $seek_queryend = FALSE;
                 } else {
                     continue;
@@ -458,11 +460,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     break;
                 case 'alpha_reservedWord':
                     // We don't know what type of query yet, so run this
-                    if($subresult['querytype'] == '') {
+                    if ($subresult['querytype'] == '') {
                         $subresult['querytype'] = strtoupper($arr[$i]['data']);
                     }
                     // Check if we support this type of query
-                    if(! PMA_STR_BinarySearchInArr($subresult['querytype'],$supportedQueryTypes,$supportedQueryTypes_size)) {
+                    if (! PMA_STR_BinarySearchInArr($subresult['querytype'],$supportedQueryTypes,$supportedQueryTypes_size)) {
                         // Skip ahead to the next one if we don't
                         $seek_queryend = TRUE;
                     }
@@ -481,7 +483,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         }
 
         // They are are naughty and didn't have a trailing semi-colon, then still handle it properly
-        if($subresult['querytype'] != '') {
+        if ($subresult['querytype'] != '') {
             $result[] = $subresult;
         }
 
@@ -490,10 +492,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         echo '</pre>';
     }
 
-    function PMA_SQP_FormatHTML_colorize($arr) {	
+    function PMA_SQP_FormatHTML_colorize($arr)
+    {	
         $i = strpos($arr['type'],'_');
         $class = '';
-        if($i > 0) {
+        if ($i > 0) {
             $class = 'syntax_'.substr($arr['type'],0,$i).' ';
         }
 
@@ -501,7 +504,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         return '<span class="'.$class.'">'.htmlspecialchars($arr['data']).'</span>';
     }
 
-    function PMA_SQP_FormatHTML($arr) {	
+    function PMA_SQP_FormatHTML($arr)
+    {	
         $str = '';
         $indent = 0;
         $bracketlevel = 0;
@@ -521,7 +525,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         $keywordsWithBrackets_size = count($keywordsWithBrackets);
         $arraysize = $arr['len'];
         $typearr = array();
-        if($arraysize >= 0) {
+        if ($arraysize >= 0) {
             /*	array_push($typearr,NULL);
             array_push($typearr,NULL);
             array_push($typearr,NULL);
@@ -545,7 +549,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             2 current
             3 next
             */
-            if(($i+1)<$arraysize) {
+            if (($i+1)<$arraysize) {
                 //array_push($typearr,$arr[$i+1]['type']);
                 $typearr[4] = $arr[$i+1]['type'];
             } else {	
@@ -566,7 +570,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     $bracketlevel++;
                     $infunction = FALSE;
                     //make sure this array is sorted!
-                    if( ($typearr[1] == 'alpha_functionName') || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct') || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex') || ($typearr[3] == 'digit_float') || ( ( $typearr[0] == 'alpha_reservedWord' ) && ( PMA_STR_BinarySearchInArr(strtoupper($arr[$i-2]['data']),$keywordsWithBrackets,$keywordsWithBrackets_size))) ) {
+                    if ( ($typearr[1] == 'alpha_functionName') || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct') || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex') || ($typearr[3] == 'digit_float') || ( ( $typearr[0] == 'alpha_reservedWord' ) && ( PMA_STR_BinarySearchInArr(strtoupper($arr[$i-2]['data']),$keywordsWithBrackets,$keywordsWithBrackets_size))) ) {
                         $functionlevel++;
                         $infunction = TRUE;
                         $after .= ' ';
@@ -578,14 +582,14 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 case 'punct_qualifier': 
                     break;
                 case 'punct_listsep':
-                    if($infunction == TRUE) {
+                    if ($infunction == TRUE) {
                         $after .= $space_punct_listsep_functionName;
                     } else {	
                         $after .= $space_punct_listsep;
                     }
                     break;
                 case 'punct_queryend':
-                    if(($typearr[3] != 'white_newline') && ($typearr[3] != 'comment_mysql')&& ($typearr[3] != 'comment_ansi') ) {
+                    if (($typearr[3] != 'white_newline') && ($typearr[3] != 'comment_mysql')&& ($typearr[3] != 'comment_ansi') ) {
                         $after .= '<br />'."\n";
                     }
                     break;
@@ -593,7 +597,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     break;
                 case 'punct_bracket_close_round':
                     $bracketlevel--;
-                    if($infunction == TRUE) {
+                    if ($infunction == TRUE) {
                         $functionlevel--;
                         $after .= ' ';
                     } else {	
@@ -604,7 +608,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     break;
 
                 case 'alpha_reservedWord':
-                    if( ($typearr[1] != 'alpha_reservedWord') && ($typearr[1] != 'punct_level_plus')  && ($typearr[1] != 'white_newline')) {
+                    if ( ($typearr[1] != 'alpha_reservedWord') && ($typearr[1] != 'punct_level_plus')  && ($typearr[1] != 'white_newline')) {
                         $before .= $space_alpha_reservedWord;
                     }
 
@@ -640,7 +644,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     break;
             }
 
-            if($typearr[3] != 'punct_qualifier') {
+            if ($typearr[3] != 'punct_qualifier') {
                 $after .= ' ';
             }
             $str .= $before.PMA_SQP_FormatHTML_colorize($arr[$i]).$after;

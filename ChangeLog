@@ -11,6 +11,9 @@ $Source$
 2002-07-24 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/string.lib.php3: optimizations (thanks Loïc)
     * libraries/sqlparser.lib.php3: SQL Parser merging (in progress)
+        - Spacing around if statements
+        - Added require statements for parser
+        - Moved to global constants for size of keyword arrays
     * libraries/sqlparser.data.php3: Merged
     
 2002-07-24 Loïc Chapeaux  <lolo@phpheaven.net>
