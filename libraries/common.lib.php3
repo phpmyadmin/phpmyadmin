@@ -921,6 +921,12 @@ if (typeof(document.getElementById) != 'undefined'
     </tr>
         <?php
         if ($GLOBALS['cfg']['ShowSQL'] == TRUE && !empty($GLOBALS['sql_query'])) {
+            // Basic url query part
+            $url_qpart = '?lang=' . $GLOBALS['lang']
+                       . '&amp;server=' . $GLOBALS['server']
+                       . ((!empty($GLOBALS['db'])) ? '&amp;db=' . urlencode($GLOBALS['db']) : '')
+                       . ((!empty($GLOBALS['table'])) ? '&amp;table=' . urlencode($GLOBALS['table']) : '');
+
             echo "\n";
             ?>
     <tr>
@@ -953,15 +959,19 @@ if (typeof(document.getElementById) != 'undefined'
                     $edit_target = '';
                 }
                 if ($edit_target == 'tbl_properties.php3') {
-                    $edit_link = '<a href="tbl_properties.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;table=' . urlencode($GLOBALS['table']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
+                    $edit_link = '<a href="tbl_properties.php3'
+                               . $url_qpart
+                               . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
                 } else if ($edit_target != '') {
-                    $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
+                    $edit_link = '<a href="db_details.php3'
+                               . $url_qpart
+                               . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=y#querybox">' . $GLOBALS['strEdit'] . '</a>';
                 }
                 // Want to have the query explained (Mike Beck 2002-05-22)
                 // but do not explain an explain (lem9)
                 if (!eregi('^EXPLAIN[[:space:]]+', $GLOBALS['sql_query'])) {
-                    $explain_link = '[<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db'])
-                                  . (!empty($GLOBALS['table']) ? '&amp;table=' . urlencode($GLOBALS['table']) : '')
+                    $explain_link = '[<a href="sql.php3'
+                                  . $url_qpart 
                                   . '&amp;sql_query=' . urlencode('EXPLAIN '.$GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';
                 } else {
                     $explain_link = '';
@@ -969,15 +979,15 @@ if (typeof(document.getElementById) != 'undefined'
                 // Also we would like to get the SQL formed in some nice
                 // php-code (Mike Beck 2002-05-22)
                 if (!empty($GLOBALS['show_as_php'])) {
-                    $php_link = '<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db'])
-                              . (!empty($GLOBALS['table']) ? '&amp;table=' . urlencode($GLOBALS['table']) : '')
+                    $php_link = '<a href="sql.php3'
+                              . $url_qpart
                               . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=0">' . $GLOBALS['strNoPhp'] . '</a>';
                 } else {
-                    $php_link = '<a href="sql.php3?lang=' . $GLOBALS['lang'] . '&amp;server=' . $GLOBALS['server'] . '&amp;db=' . urlencode($GLOBALS['db'])
-                              . (!empty($GLOBALS['table']) ? '&amp;table=' . urlencode($GLOBALS['table']) : '')
+                    $php_link = '<a href="sql.php3'
+                              . $url_qpart
                               . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_as_php=1">' . $GLOBALS['strPhp'] . '</a>';
                 }
-            }
+            } // end if (prepare links)
 
             // Displays the message
             echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:';
