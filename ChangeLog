@@ -5,10 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2003-05-15 Michal Cihar  <nijel@users.sourceforge.net>
+2003-05-20 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_change.php3: Fixed table layout when LongtextDoubleTextarea is
       false.
-    * tbl_select.php3: Fixed problems with empty value in enum.
+    * tbl_select.php3: Fixed problems with empty value in enum (bug #740420).
     
 2003-05-18 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php3, index.php3: bug 739348: because the db name is no longer
