@@ -23,19 +23,18 @@ if (!defined('__OB_LIB_INC__')) {
     else
       $mode = 0;
 
-/*
- * If a user sets the output_handler in php.ini to ob_gzhandler, then 
- * any right frame file in phpMyAdmin will not be handled properly by the 
- * browser. My fix was to check the ini file within the 
- * out_buffer_mode_get() function. 
- *
- * (Patch by Garth Gillespie, modified by Marc Delisle)
- */
-
-    if (ini_get('output_handler') == 'ob_gzhandler') 
-       $mode = 0; 
-
-// End patch
+    /**
+     * If a user sets the output_handler in php.ini to ob_gzhandler, then
+     * any right frame file in phpMyAdmin will not be handled properly by the
+     * browser. My fix was to check the ini file within the
+     * out_buffer_mode_get() function.
+     *
+     * (Patch by Garth Gillespie, modified by Marc Delisle)
+     */
+    if (@ini_get('output_handler') == 'ob_gzhandler') {
+        $mode = 0;
+    }
+    // End patch
 
     # Zero (0) is no mode or in other words output buffering is OFF.
 
