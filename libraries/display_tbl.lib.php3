@@ -14,7 +14,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     /**
      * Defines the display mode to use for the results of a sql query
      *
-     * It uses a syntetic string that contains all the required informations.
+     * It uses a synthetic string that contains all the required informations.
      * In this string:
      *   - the first two characters stand for the the action to do while
      *     clicking on the "edit" link (eg 'ur' for update a row, 'nn' for no
@@ -28,10 +28,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
      *     Of course '0'/'1' means the feature won't/will be enabled.
      *
      * @param   string   the synthetic value for display_mode (see §1 a few
-     *                   lines below for explanations)
+     *                   lines above for explanations)
      * @global  integer  the total number of rows returned by the sql query
      *                   without any programmatically appended "LIMIT" clause
-     *                   that may be computed inside this function
+     *                   (just a copy of $unlim_num_rows if it exists, else
+     *                   computed inside this function)
      *
      * @return  array    an array with explicit indexes for all the display
      *                   elements
