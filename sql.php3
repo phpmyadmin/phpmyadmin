@@ -198,8 +198,8 @@ else {
     // Do append a "LIMIT" clause?
     if (isset($pos)
         && (!$cfgShowAll || $session_max_rows != 'all')
-        && $is_select 
-        && !($is_count || $is_export) 
+        && $is_select
+        && !($is_count || $is_export)
         && eregi('[[:space:]]FROM[[:space:]]', $sql_query)
         && !eregi('[[:space:]]LIMIT[ 0-9,]+$', $sql_query)) {
 
@@ -257,13 +257,13 @@ else {
     }
     else if ($is_select) {
         // reads only the from-part of the query...
-	$sp='[[:space:]]';
+        $sp='[[:space:]]';
         $array = split(
-            $sp . 'from' . $sp .'|' . $sp . 'FROM' .$sp . 
+            $sp . 'from' . $sp .'|' . $sp . 'FROM' .$sp .
             '|' . $sp .'order' . $sp . '|' . $sp . 'ORDER' . $sp .
             '|' . $sp .'having' . $sp . '|' . $sp . 'HAVING' . $sp .
             '|' . $sp .'limit' . $sp . '|' . $sp . 'LIMIT' . $sp .
-            '|' . $sp .'group' . $sp . 'by'. $sp . 
+            '|' . $sp .'group' . $sp . 'by'. $sp .
             '|' . $sp . 'GROUP' . $sp . 'BY' . $sp, $sql_query);
         if (!empty($array[1])) {
             // ... and makes a count(*) to count the entries

@@ -550,34 +550,38 @@
     </dt>
     <dd>
         Since release 2.2.4 you can describe in a relation table which field
-        is a key in another table. phpMyAdmin currently uses this to make 
-        clickable the data values that point to another table.<br /><br />
+        is a key in another table. phpMyAdmin currently uses this to make
+        clickable the data values that point to another table.
+        <br /><br />
 
-        Currently, the keys must be numeric, and you must be running PHP 4.<br /><br />
+        Currently, the keys must be numeric, and you must be running PHP 4.
+        <br /><br />
 
         To use this functionality you have to:
         <ul>
             <li>
-                create in the same database a table (for example 'relation') following this scheme:<br />
+                create in the same database a table (for example 'relation')
+                following this scheme:<br />
                 <tt>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `relation` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`src_table` varchar(32) NOT NULL default '',<br />
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`src_column` varchar(32) NOT NULL default '',<br />
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`dest_table` varchar(32) NOT NULL default '',<br />
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`dest_column` varchar(32) NOT NULL default '',<br />
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`src_table`,`src_column`)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ) TYPE=MyISAM COMMENT='Table Relation';<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`src_column` varchar(32) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`dest_table` varchar(32) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`dest_column` varchar(32) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`src_table`,`src_column`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table Relation';<br />
                 </tt>
             </li>
             <li>
-                put the relation table name in 
+                put the relation table name in
                 <tt>$cfgServers[n]['relation']</tt>
             </li>
             <li>
-                then manually fill the relation table with information
-                about the keys.
+                then manually fill the relation table with information about
+                the keys.
             </li>
         </ul><br />
+    </dd>
 
     <dt><b>$cfgServerDefault</b> integer</dt>
     <dd>
@@ -977,17 +981,16 @@
     <br />
     We recommend the following setup for Apache servers running in safe mode,
     to enable uploads of files while being reasonably secure:
-    <br />
-    <ul>
-       <li>create a separate directory for uploads:
-           <tt>mkdir /tmp/php</tt></li>
-       <li>give ownership to the Apache server's user.group:
-           <tt>chown apache.apache /tmp/php</tt></li>
-       <li>give proper permission: <tt>chmod 600 /tmp/php</tt></li>
-       <li>put <tt>upload_tmp_dir = /tmp/php</tt> in php.ini</li>
-       <li>restart Apache</li>
-    </ul>
 </p>
+<ul>
+   <li>create a separate directory for uploads:
+           <tt>mkdir /tmp/php</tt></li>
+   <li>give ownership to the Apache server's user.group:
+           <tt>chown apache.apache /tmp/php</tt></li>
+   <li>give proper permission: <tt>chmod 600 /tmp/php</tt></li>
+   <li>put <tt>upload_tmp_dir = /tmp/php</tt> in php.ini</li>
+   <li>restart Apache</li>
+</ul>
 
 <p>
     <b>I'm having troubles when uploading files. In general file uploads don't
@@ -1532,15 +1535,15 @@ CREDITS, in chronological order
 
 Thanks to those guy who send us some major improvements to merge into the
 code since version 2.1.0:
-- Michal Cihar <nijel at users.sourceforge.net> who implemented the enhanced
-  index creation/display feature.
+- Michal Cihar &lt;nijel at users.sourceforge.net&gt; who implemented the
+  enhanced index creation/display feature.
 - Christophe Gesché from the "MySQL Form Generator for PHPMyAdmin"
   (http://sourceforge.net/projects/phpmysqlformgen/) who suggested the patch
   for multiple table printviews.
-- Garvin Hicking <hicking at faktor-e.de> who builds the patch for vertical
-  display of table rows.
-- Piotr Roszatycki <d3xter at users.sourceforge.net> and Dan Wilson, for the
-  Cookie authentication mode.
+- Garvin Hicking &lt;hicking at faktor-e.de&gt; who builds the patch for
+  vertical display of table rows.
+- Piotr Roszatycki &lt;d3xter at users.sourceforge.net&gt; and Dan Wilson, for
+  the Cookie authentication mode.
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version 2.1.0:

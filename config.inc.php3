@@ -52,7 +52,8 @@ $cfgServers[1]['only_db']       = '';          // If set to a db-name, only this
 $cfgServers[1]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 $cfgServers[1]['bookmarkdb']    = '';          // Bookmark db - leave blank for no bookmark support
 $cfgServers[1]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
-$cfgServers[1]['relation']      = '';          // table to describe the relation between links (see doc) - leave blank for no relation-links support
+$cfgServers[1]['relation']      = '';          // table to describe the relation between links (see doc)
+                                               //   - leave blank for no relation-links support
 
 $cfgServers[2]['host']          = '';
 $cfgServers[2]['port']          = '';
