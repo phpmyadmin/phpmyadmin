@@ -113,13 +113,12 @@ echo "\n";
                 <tr>
                     <td>
                         <select name="target_db">
-                            <option value=""></option>
 <?php
 // The function used below is defined in "common.lib.php3"
 PMA_availableDatabases('main.php3?' . PMA_generate_common_url());
 for ($i = 0; $i < $num_dbs; $i++) {
     echo '                            ';
-    echo '<option value="' . str_replace('"', '&quot;', $dblist[$i]) . '">' . htmlspecialchars($dblist[$i]) . '</option>';
+    echo '<option value="' . htmlspecialchars($dblist[$i]) . '">' . htmlspecialchars($dblist[$i]) . '</option>';
     echo "\n";
 } // end for
 ?>
@@ -154,7 +153,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
 <?php
 for ($i = 0; $i < $num_dbs; $i++) {
     echo '                            ';
-    echo '<option value="' . str_replace('"', '&quot;', $dblist[$i]) . '"';
+    echo '<option value="' . htmlspecialchars($dblist[$i]) . '"';
     if ($dblist[$i] == $db) {
         echo ' selected="selected"';
     }
