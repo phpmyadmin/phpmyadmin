@@ -296,11 +296,10 @@ function checkTransmitDump(theForm, theAction)
 
 
 /**
- * Displays an confirmation box beforme to submit a "DROP/DELETE/ALTER" query.
- * This function is called while clicking links
+ * Sets/unsets the pointer in browse mode
  *
- * @param   object   the link
- * @param   object   the sql query to submit
+ * @param   object   the table row
+ * @param   object   the color to use for this row
  *
  * @return  boolean  whether pointer is set or not
  */
