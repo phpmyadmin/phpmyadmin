@@ -110,15 +110,15 @@ if ($do_confirm) {
     }
     include('./header.inc.php3');
     echo $strDoYouReally . '&nbsp;:<br />' . "\n";
-    echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>';
+    echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n";
     ?>
 <form action="sql.php3" method="post" enctype="application/x-www-form-urlencoded">
-    <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
     <input type="hidden" name="table" value="<?php echo isset($table) ? $table : ''; ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
+    <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo isset($goto) ? $goto : ''; ?>" />
     <input type="hidden" name="back" value="<?php echo isset($back) ? $back : ''; ?>" />
     <input type="hidden" name="reload" value="<?php echo isset($reload) ? $reload : ''; ?>" />
@@ -293,14 +293,16 @@ else {
             }
         }
 
-        // Gets the list of fields properties
+        // Gets the list of fields properties 
         while ($field = mysql_fetch_field($result)) {
             $fields_meta[] = $field;
         }
         $fields_cnt        = count($fields_meta);
 
-        // Defines wether to display the full/partial text button or not
+        // Defines wether to display the full/partial text button or and
+        // refines the display mode if required
         $show_text_btn         = FALSE;
+        $prev_table            = $fields_meta[0]->table;
         for ($i = 0; $i < $fields_cnt; $i++) {
             if (eregi('BLOB', $fields_meta[$i]->type)) {
                 $show_text_btn = TRUE;
@@ -310,11 +312,14 @@ else {
             }
             // loic1: maybe the fix for the second alias bug?
             if (($display != 'simple' && $display != 'bkmOnly')
-                && $fields_meta[$i]->table == '') {
+                && ($fields_meta[$i]->table == ''|| $fields_meta[$i]->table != $prev_table)) {
                 $display = 'simple';
+                if ($show_text_btn) {
+                    break;
+                }
             }
+            $prev_table = $fields_meta[$i]->table;
         } // end while
-        mysql_field_seek($result, 0);
         
         // Displays the results in a table
         display_table($result, ($display == 'simple' || $display == 'bkmOnly'), $show_text_btn);
