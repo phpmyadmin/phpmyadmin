@@ -24,6 +24,33 @@ $err_url = 'tbl_properties.php3'
  */
 mysql_select_db($db);
 
+// add by Moosh 
+
+if (is_array($tables)) 
+{ $lesTables =$tables; 
+} else 
+    { if (isset($tables)) 
+      { $lesTables = explode("|",$tables); 
+       } 
+      if (isset($table)) 
+      { $lesTables[] = $table; 
+        } 
+} 
+
+$multiTable = 0; 
+if (sizeof($lesTables)> 1) 
+   { $multiTable = 1; 
+      while ( list( $key, $table ) = each($lesTables)) 
+            { echo '['.$table. ']'; 
+             } 
+      } 
+      reset($lesTables); 
+      while ( list( $key, $table ) = each($lesTables)) 
+          { 
+          if ($multiTable) echo '<div style="page-break-after: 
+                        always;"><H1>'.$table. '</H1>'; 
+
+          //end of add by Moosh 
 
 /**
  * Gets table informations
@@ -447,6 +474,20 @@ if ($cfgShowStats) {
     } // end if (PMA_MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE)
 } // end if ($cfgShowStats)
 
+//ajout Moosh 
+
+
+ if ($multiTable) 
+ { //nettoyer les valeurs 
+    unset($ret_keys); 
+    unset($num_rows); 
+    unset($show_comment); 
+
+    echo '</DIV><HR>'; 
+ } 
+} 
+
+//fin ajout Moosh 
 
 /**
  * Displays the footer
