@@ -646,7 +646,7 @@ if ($num_tables > 0) {
         echo "\n";
         ?>
             <td>
-                <select name="table_select[]" size="5" multiple="multiple">
+                <select name="table_select[]" size="6" multiple="multiple">
         <?php
         $i = 0;
         echo "\n";
@@ -670,7 +670,9 @@ if ($num_tables > 0) {
                 <input type="radio" name="what" id="radio_dump_data" value="data" />
                 <label for="radio_dump_data"><?php echo $strStrucData; ?></label><br />
                 <input type="radio" name="what" id="radio_dump_dataonly" value="dataonly" />
-                <label for="radio_dump_dataonly"><?php echo $strDataOnly; ?></label>
+                <label for="radio_dump_dataonly"><?php echo $strDataOnly; ?></label><br />
+                <input type="radio" name="what" id="radio_dump_xml" value="xml" />
+                <label for="radio_dump_xml"><?php echo $strExportToXML; ?></label>
     <?php
     if ($num_tables > 1) {
         echo "\n";

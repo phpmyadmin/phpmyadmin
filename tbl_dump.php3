@@ -146,6 +146,9 @@ else {
     } else if ($what == 'csv' || $what == 'excel') {
         $ext       = 'csv';
         $mime_type = 'text/x-csv';
+    } else if ($what == 'xml') {
+        $ext       = 'xml';
+        $mime_type = 'text/xml';
     } else {
         $ext       = 'sql';
         // loic1: 'application/octet-stream' is the registered IANA type but
@@ -189,8 +192,8 @@ if ($num_tables == 0) {
 }
 // At least on table -> do the work
 else {
-    // No csv format -> add some comments at the top
-    if ($what != 'csv' &&  $what != 'excel') {
+    // No csv or xml format -> add some comments at the top
+    if ($what != 'csv' &&  $what != 'excel' && $what != 'xml') {
         $dump_buffer       .= '# phpMyAdmin MySQL-Dump' . $crlf
                            .  '# version ' . PMA_VERSION . $crlf
                            .  '# http://phpwizard.net/phpMyAdmin/' . $crlf
@@ -265,8 +268,35 @@ else {
         // staybyte: don't remove, it makes easier to select & copy from
         // browser
         $dump_buffer .= $crlf;
-    } // end 'no csv' case
+    } // end 'no csv or xml' case
 
+    // 'xml' case
+    else if ($GLOBALS['what'] == 'xml') {
+        // first add the xml tag
+        $dump_buffer .= '<?xml version="1.0" encoding="' . $charset . '"?>' . $crlf;
+        // some comments
+        $dump_buffer       .= '<!--' . $crlf
+                           .  '-' . $crlf
+                           .  '- phpMyAdmin XML-Dump' . $crlf
+                           .  '- version ' . PMA_VERSION . $crlf
+                           .  '- http://phpwizard.net/phpMyAdmin/' . $crlf
+                           .  '- http://www.phpmyadmin.net/ (download page)' . $crlf
+                           .  '-' . $crlf
+                           .  '- ' . $strHost . ': ' . $cfg['Server']['host'];
+        if (!empty($cfg['Server']['port'])) {
+            $dump_buffer   .= ':' . $cfg['Server']['port'];
+        }
+        $formatted_db_name = (isset($use_backquotes))
+                           ? PMA_backquote($db)
+                           : '\'' . $db . '\'';
+        $dump_buffer       .= $crlf
+                           .  '- ' . $strGenTime . ': ' . PMA_localisedDate() . $crlf
+                           .  '- ' . $strServerVersion . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
+                           .  '- ' . $strPHPVersion . ': ' . phpversion() . $crlf
+                           .  '- ' . $strDatabase . ': ' . $formatted_db_name . $crlf
+                           .  '-' . $crlf
+                           .  '-->' . $crlf;
+    }
     // 'csv' case
     else {
         // Handles the EOL character
@@ -319,11 +349,14 @@ else if (isset($gzip) && $gzip == 'gzip') {
         echo gzencode($dump_buffer);
     }
 }
-// 4. on screen or as a text file
-else {
+// 4. as a text file
+else if (!empty($asfile)) {
     echo $dump_buffer;
 }
-
+// 5. on display
+else {
+    echo htmlspecialchars($dump_buffer);
+}
 
 /**
  * Close the html tags and add the footers in dump is displayed on screen
