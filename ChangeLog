@@ -16,6 +16,7 @@ $Source$
 2005-02-14 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_table_info.php: avoid errors #1046, no database selected
       in MySQL 5.0.2
+    * lang/romanian: Updated, thanks to Valics Lehel.
 
 2005-02-13 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french update
