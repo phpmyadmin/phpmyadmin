@@ -881,7 +881,7 @@ class PMA_RT
                 $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->tablewidth);
                 $this->PMA_RT_setMinMax($this->tables[$table]);
             }
-        } // end if... else...
+        } // while
 
         // Defines the scale factor
         if ($scale == 'auto') {
