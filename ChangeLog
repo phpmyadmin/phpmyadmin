@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-02 Garvin Hicking <me@supergarv.de>
+    * tbl_move_copy.php3, tbl_properties_operations.php3: Made 'move to
+      newly created table' depend on a selected checkbox. State of that
+      checkbox is saved in a cookie.
+    * lang/*: Added $strSwitchToTable for the above.
+    * lang/german-*: Translations
+
 2003-04-02 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_move_copy.php3: Fixed copying/moving to work after some changes in
       generated SQL dump, move to newly created table also after copying.

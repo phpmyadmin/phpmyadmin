@@ -381,9 +381,21 @@ if (isset($new_name) && trim($new_name) != '') {
     $message   = sprintf($message, $source, $target);
     $reload    = 1;
     $js_to_run = 'functions.js';
-    /* Work on new table */
-    $db        = $target_db;
-    $table     = $new_name;
+    /* Check: Work on new table or on old table? */
+    if (isset($submit_move)) {
+        $db        = $target_db;
+        $table     = $new_name;
+    } else {
+        $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
+        if (isset($switch_to_new) && $switch_to_new == 'true') {
+            setcookie('pma_switch_to_new', 'true', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
+            $db             = $target_db;
+            $table          = $new_name;
+        } else {
+            setcookie('pma_switch_to_new', '', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
+            // garvin:Keep original table for work.
+        }
+    }
     include('./header.inc.php3');
 } // end is target table name
 
