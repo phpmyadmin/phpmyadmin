@@ -200,6 +200,7 @@ $strLogout = 'Neu einloggen';
 $strLogPassword = 'Kennwort:';
 $strLogUsername = 'Benutzername:';
 
+$strMissingBracket = 'Fehlende Klammer';
 $strModifications = 'Änderungen gespeichert.';
 $strModify = 'Verändern';
 $strModifyIndexTopic = 'Index modifizieren';
@@ -401,5 +402,4 @@ $strYes = 'Ja';
 $strZip = 'Zip komprimiert';
 
 // To translate
-$strMissingBracket = 'Missing Bracket';  //to translate
 ?>

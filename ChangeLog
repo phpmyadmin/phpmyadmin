@@ -8,6 +8,7 @@ $Source$
 2002-06-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/turkish.inc.php3: Updates, thanks again to
       Bora Alioglu <bora@risc01.ktu.edu.tr>.
+    * lang/german.inc.php3: Translated $strMissingBracket.
 
 2002-06-12 Mike Beck <mikebeck@users.sourceforge.net>
     Syntaxcoloring for SQL - Statements
