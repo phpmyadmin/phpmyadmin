@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_move_copy.php: typo about constraints
+
 2003-11-21 Michal Cihar  <nijel@users.sourceforge.net>
     * scripts/create-release.sh: Udated information what is needed to change on
       home page to currect status.

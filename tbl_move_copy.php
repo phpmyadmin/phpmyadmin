@@ -220,7 +220,7 @@ if (isset($new_name) && trim($new_name) != '') {
                 } else if (isset($sql_query)) {
                     $sql_query .= "\n" . $sql_constraints;
                 } else {
-                    $sql_query = $sql_constrtaints;
+                    $sql_query = $sql_constraints;
                 }
             }
 
