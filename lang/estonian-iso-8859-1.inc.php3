@@ -176,6 +176,7 @@ $strHostEmpty = 'Masin on tühi!';
 $strIdxFulltext = 'Täistekst';
 $strIfYouWish = 'Kui soovite lugeda ainult mõningaid tabeli välju, sisestage komaga eraldatud väljade loetelu.';
 $strIgnore = 'Ignoreeri';
+$strImportDocSQL = 'docSQL failide importimine';
 $strInUse = 'kasutusel';
 $strIndex = 'Indeks';
 $strIndexHasBeenDropped = 'Indeks %s kustutatud';
@@ -284,6 +285,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>peab</b> olema ja <b>ainult</b> olema pri
 $strPrintView = 'Trükivaade';
 $strPrivileges = 'Privileegid';
 $strProperties = 'Seaded';
+$strPutColNames = 'Pange väljade nimed esimesse ritta';
 
 $strQBE = 'Päring näite järgi';
 $strQBEDel = 'Del';
@@ -348,6 +350,7 @@ $strSelectFields = 'Vali väljad (vähemalt üks):';
 $strSelectNumRows = 'päringus';
 $strSelectTables = 'Vali tabelid';
 $strSend = 'Salvesta failina';
+$strServer = 'Server %s';
 $strServerChoice = 'Serveri valik';
 $strServerVersion = 'Serveri versioon';
 $strSetEnumVal = 'Kui välja tüüp on "enum" või "set", palun sisestage väärtused kasutades järgmist paigutust: \'a\',\'b\',\'c\'...<br />Kui te peate lisama kaldkriipsu ("\") või ülakoma ("\'") sinna paigutusse, varjestage see tagurpidi kaldkriipsuga (näiteks \'\\\\xyz\' või \'a\\\'b\').';
@@ -427,7 +430,4 @@ $strYes = 'Jah';
 $strZip = '"zipitud"';
 // To translate
 
-$strServer = 'Server %s';  //to translate
-$strPutColNames = 'Put fields names at first row';  //to translate
-$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>
