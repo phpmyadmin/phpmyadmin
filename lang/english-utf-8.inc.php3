@@ -260,6 +260,7 @@ $strInsert = 'Insert';
 $strInsertAsNewRow = 'Insert as a new row';
 $strInsertNewRow = 'Insert new row';
 $strInsertTextfiles = 'Insert data from a textfile into table';
+$strInsertedRowId = 'Inserted row id:';
 $strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.';
@@ -283,6 +284,8 @@ $strLines = 'Lines';
 $strLinesTerminatedBy = 'Lines terminated by';
 $strLinkNotFound = 'Link not found';
 $strLinksTo = 'Links to';
+$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';
+$strLoadMethod = 'LOAD method';
 $strLocalhost = 'Local';
 $strLocationTextfile = 'Location of the textfile';
 $strLogPassword = 'Password:';
@@ -636,7 +639,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strInsertedRowId = 'Inserted row id:';
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>
