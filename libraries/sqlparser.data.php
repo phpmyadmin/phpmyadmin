@@ -232,6 +232,7 @@ $PMA_SQPdata_reserved_word = array (
     'CONSTRAINT',
     'CREATE',
     'CROSS',
+    'CURRENT_TIMESTAMP',
     'DATA',
     'DATABASE',
     'DATABASES',
@@ -455,7 +456,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 260;
+$PMA_SQPdata_reserved_word_cnt = 261;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',

@@ -1461,8 +1461,14 @@ if ($is_minimum_common == FALSE) {
                               if ($arr[$i+3]['type'] == 'alpha_reservedWord') {
                                   $value = $third_upper_data . '_' . strtoupper($arr[$i+3]['data']);
                               }
+                          } else {
+                          // for example: ON UPDATE CURRENT_TIMESTAMP
+                          // which is not for a foreign key
+                              $value = '';
                           }
-                          $foreign[$foreign_key_number][$clause] = $value;
+                          if (!empty($value)) {
+                              $foreign[$foreign_key_number][$clause] = $value;
+                          }
                        }
                    }
                }

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php /sqlparser.data.php: bug 981343,
+      cannot copy a table with a timestamp (MySQL 4.1.2)
+
 2004-07-25 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, libraries/common.lib.php: bug 997682:
       illegal mix of collations
