@@ -143,28 +143,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         $cfgLeftFrameLight      = TRUE;
     }
 
-    // If $cfgPmaAbsoluteUri is empty, tries to guess it
-    if (empty($cfgPmaAbsoluteUri)) {
-        if (!empty($_SERVER)) {
-            $HTTPS       = (isset($_SERVER['HTTPS']) ? $_SERVER['HTTPS'] : '');
-            $SERVER_NAME = (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '');
-            $SERVER_PORT = (isset($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : '');
-            $SCRIPT_NAME = (isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '');
-        } else if (!empty($HTTP_SERVER_VARS)) {
-            $HTTPS       = (isset($HTTP_SERVER_VARS['HTTPS']) ? $HTTP_SERVER_VARS['HTTPS'] : '');
-            $SERVER_NAME = (isset($HTTP_SERVER_VARS['SERVER_NAME']) ? $HTTP_SERVER_VARS['SERVER_NAME'] : '');
-            $SERVER_PORT = (isset($HTTP_SERVER_VARS['SERVER_PORT']) ? $HTTP_SERVER_VARS['SERVER_PORT'] : '');
-            $SCRIPT_NAME = (isset($HTTP_SERVER_VARS['SCRIPT_NAME']) ? $HTTP_SERVER_VARS['SCRIPT_NAME'] : '');
-        } // end if... else if
-        if (!empty($SERVER_NAME) && !empty($SCRIPT_NAME)) {
-            $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
-                               . $SERVER_NAME . (!empty($SERVER_PORT) ? ':' . $SERVER_PORT : '')
-                               . substr($SCRIPT_NAME, 0, strrpos($SCRIPT_NAME, '/')+1);
-        } // end if
-    } // end if
-    // Else adds a trailing slash et the end of the phpMyAdmin uri if it does
-    // not exist
-    else if (substr($cfgPmaAbsoluteUri, -1) != '/') {
+    // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
+    // exist
+    if ($cfgPmaAbsoluteUri != '' && substr($cfgPmaAbsoluteUri, -1) != '/') {
         $cfgPmaAbsoluteUri .= '/';
     }
 
