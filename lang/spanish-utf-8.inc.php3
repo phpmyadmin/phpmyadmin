@@ -34,6 +34,7 @@ $strAfter = 'Después de %s';
 $strAfterInsertBack = 'Volver';
 $strAfterInsertNewInsert = 'Insertar un nuevo registro';
 $strAll = 'Todos/as';
+$strAllTableSameWidth = '¿Mostrar todas las tablas que tienen el mismo ancho?';
 $strAlterOrderBy = 'Modificar el "Order By" de la tabla';
 $strAnIndex = 'Se añadió un índice en %s';
 $strAnalyzeTable = 'Analizar tabla';
@@ -66,6 +67,7 @@ $strCantRenameIdxToPrimary = 'No puede cambiar el nombre del índice a PRIMARY!'
 $strCantUseRecodeIconv = 'No se puede utilizar iconv ni libiconv ni la función recode_string mientras se carga la extensión de informes. Comprueba la configuración de php.';
 $strCardinality = 'Cardinalidad';
 $strCarriage = 'Retorno de carro: \\r';
+$strCharsetOfFile = 'Codificación de los caracteres del archivo:';
 $strChange = 'Cambiar';
 $strChangeDisplay = 'Elija el campo a mostrar';
 $strChangePassword = 'Cambio de contraseña';
@@ -73,6 +75,7 @@ $strCheckAll = 'Revisar todos/as';
 $strCheckDbPriv = 'Revisar privilegios de la base de datos';
 $strCheckTable = 'Revisar tabla';
 $strChoosePage = 'Elija la página a editar';
+$strColComFeat = 'Mostrando los comentarios de la columna';
 $strColumn = 'Columna';
 $strColumnNames = 'Nombre de las columnas';
 $strComments = 'Comentarios';
@@ -89,6 +92,7 @@ $strCreateIndexTopic = 'Crear un nuevo índice';
 $strCreateNewDatabase = 'Crear nueva base de datos';
 $strCreateNewTable = 'Crear nueva tabla en base de datos %s';
 $strCreatePage = 'Crear una nueva página';
+$strCreatePdfFeat = 'Creación de los PDF';
 $strCriteria = 'Criterio';
 
 $strData = 'Datos';
@@ -105,7 +109,9 @@ $strDeleteUserMessage = 'Ud. ha borrado el usuario %s.';
 $strDeleted = 'La fila se ha borrado';
 $strDeletedRows = 'Filas borradas: ';
 $strDescending = 'Descendente';
+$strDisabled = 'Deshabilitado';
 $strDisplay = 'Mostrar';
+$strDisplayFeat = 'Mostrar los componentes';  //Features = ¿componentes?
 $strDisplayOrder = 'Mostrar en este orden:';
 $strDisplayPDF = 'Mostrar esquema PDF';
 $strDoAQuery = 'Realizar una "consulta de ejemplo" (comodín: "%")';
@@ -124,6 +130,7 @@ $strEditPrivileges = 'Editar Privilegios';
 $strEffective = 'Efectivo/a';
 $strEmpty = 'Vaciar';
 $strEmptyResultSet = 'MySQL ha devuelto un valor vacío (i.e. cero columnas).';
+$strEnabled = 'Habilitado';
 $strEnd = 'Fin';
 $strEnglishPrivileges = ' Nota: Los nombres de privilegios de MySQL están expresados en inglés ';
 $strError = 'Error';
@@ -148,6 +155,7 @@ $strFullText = 'Textos completos';
 $strFunction = 'Función';
 
 $strGenBy = 'Generado por';
+$strGeneralRelationFeat = 'Componentes de relación general';  //Features = ¿componentes?
 $strGenTime = 'Tiempo de generación';
 $strGo = 'Continúe';
 $strGrants = 'Permisos';
@@ -222,22 +230,24 @@ $strNoFrames = 'phpMyAdmin funciona mejor con un navegador que <b>soporte marcos
 $strNoIndex = 'No se ha definido el índice!';
 $strNoIndexPartsDefined = 'No se han definido las partes del índice!';
 $strNoModification = 'Sin cambios';
+$strNone = 'Ninguna';
 $strNoPassword = 'Sin contraseña';
 $strNoPhp = 'Sin código PHP';
 $strNoPrivileges = 'Sin privilegios';
 $strNoRights = 'Usted no tiene suficientes privilegios para estar aquí ahora!';
 $strNoTablesFound = 'No se han encontrado tablas en la base de datos.';
-$strNoUsersFound = 'Usuario(s) no encontrado(s).';
-$strNone = 'Ninguna';
 $strNotNumber = 'Esto no es un número!';
+$strNotOK = 'no recibió el OK';
 $strNotSet = 'Tabla <b>%s</b> no encontrada o no definida en %s';
 $strNotValidNumber = '¡no es un número de fila válido!';
+$strNoUsersFound = 'Usuario(s) no encontrado(s).';
 $strNoValidateSQL = 'Saltarse la validacisn del SQL';
 $strNull = 'Nulo';
 $strNumSearchResultsInTable = '%s resultado(s) en la tabla <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> resultado(s)';
 
 $strOftenQuotation = 'A menudo comillas. OPCIONALMENTE significa que únicamente los campos char y varchar están encerrados por el caracter "enclosed by".';
+$strOK = 'OK';
 $strOperations = 'Operaciones';
 $strOptimizeTable = 'Optimizar tabla';
 $strOptionalControls = 'Opcional. Controla el modo de escribir o leer caracteres especiales.';
@@ -255,6 +265,7 @@ $strPasswordNotSame = '¡Las contraseñas no coinciden!';
 $strPdfDbSchema = 'Esquema de la base de datos "%s" - Página %s';
 $strPdfInvalidPageNum = '¡No se ha definido el número de página PDF!';
 $strPdfInvalidTblName = '¡La tabla "%s" no existe!';
+$strPdfNoTables = 'No existen tablas';
 $strPhp = 'Crear código PHP';
 $strPmaDocumentation = 'Documentación de phpMyAdmin';
 $strPmaUriError = 'La directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> DEBE constar en el fichero de configuración!';
@@ -277,6 +288,7 @@ $strQueryOnDb = 'Consulta en la base de datos <b>%s</b>:';
 $strReType = 'Re-escriba';
 $strRecords = 'Campos';
 $strReferentialIntegrity = 'Compruebe la integridad referencial:';
+$strRelationNotWorking = 'Los componentes adicionales para trabajar con tablas vinculadas fueron desactivados. Para saber porqué, dé clic %saquí%s.';  //Features = ¿componentes?
 $strRelationView = 'Vista de relaciones';
 $strReloadFailed = 'El reinicio de MySQL ha fallado.';
 $strReloadMySQL = 'Reinicio de MySQL';
@@ -401,19 +413,7 @@ $strYes = 'Sí';
 
 $strZip = '"comprimido con zip"';
 
-$strRelationNotWorking = 'Los componentes adicionales para trabajar con tablas vinculadas fueron desactivados. Para saber porqué, dé clic %saquí%s.';  //Features = ¿componentes?
-$strAllTableSameWidth = '¿Mostrar todas las tablas que tienen el mismo ancho?';
-$strPdfNoTables = 'No existen tablas';
-$strDisplayFeat = 'Mostrar los componentes';  //Features = ¿componentes?
-$strCreatePdfFeat = 'Creación de los PDF';
-$strColComFeat = 'Mostrando los comentarios de la columna';
-$strDisabled = 'Deshabilitado';
-$strEnabled = 'Habilitado';
-$strOK = 'OK';
-$strNotOK = 'no recibió el OK';
-$strGeneralRelationFeat = 'Componentes de relación general';  //Features = ¿componentes?
-
-$strCharsetOfFile = 'Character set of the file:'; //to translate
+// To translate
 $strBeginCut = 'BEGIN CUT';  //to translate
 $strEndCut = 'END CUT';  //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
