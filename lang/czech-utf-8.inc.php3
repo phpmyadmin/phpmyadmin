@@ -580,6 +580,7 @@ $strTableHasBeenEmptied = 'Tabulka %s byla vyprázdněna';
 $strTableHasBeenFlushed = 'Vyrovnávací paměť pro tabulku %s byla vyprázdněna';
 $strTableMaintenance = ' Údržba tabulky ';
 $strTableOfContents = 'Obsah';
+$strTableOptions = 'Parametry tabulky';
 $strTableStructure = 'Struktura tabulky';
 $strTableType = 'Typ tabulky';
 $strTables = '%s tabulek';
@@ -657,5 +658,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
-$strTableOptions = 'Table options';  //to translate
 ?>
