@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-02-13 Alexander M. Turek  <resist@derrabus.de>
+    * libraries/common.lib.php: Fixed bug #890186 (PMA chokes on undefined
+      parser functions if one of the very first queries fails.
+
 2004-02-11 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: bug 818654, password not copied
     * read_dump.php, libraries/display_tbl.lib.php, /bookmark.lib.php:
