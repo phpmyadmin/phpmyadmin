@@ -36,6 +36,7 @@ $strAddSearchConditions = 'Condición da pesquisa (ou sexa, o complemento da cl�
 $strAddToIndex = 'Adicionar ao índice &nbsp;%s&nbsp;coluna(s)';
 $strAddUser = 'Adicionar un novo usuario';
 $strAddUserMessage = 'Usuario adicionado.';
+$strAdministration = 'Administración';
 $strAffectedRows = 'Filas que van ser afectadas:';
 $strAfter = 'Despois de %s';
 $strAfterInsertBack = 'Voltar';
@@ -119,10 +120,13 @@ $strDatabases = 'Bancos de Datos';
 $strDatabasesStats = 'Estatísticas dos bancos de datos';
 $strDefault = 'Padrón';
 $strDelete = 'Eliminar';
+$strDeleteAndFlush = 'Eliminar os usuarios e recarregar os privilexios a continuación.'; 
+$strDeleteAndFlushDescr = 'Este é o modo máis limpo, mais pode que recarregar os privilexios leve un pouco de tempo.';
 $strDeleteFailed = 'Non foi posible eliminar!';
 $strDeleteUserMessage = 'Acaba de eliminar o usuario %s.';
 $strDeleted = 'Rexistro eliminado';
 $strDeletedRows = 'Filas borradas:';
+$strDeleting = 'A eliminar %s';
 $strDescending = 'Descendente';
 $strDisabled = 'Desactivado';
 $strDisplay = 'Mostrar';
@@ -166,6 +170,7 @@ $strFieldsEnclosedBy = 'Os campos delimítanse con';
 $strFieldsEscapedBy = 'Os campos escápanse con';
 $strFieldsTerminatedBy = 'Os campos rematan por';
 $strFixed = 'fixo';
+$strFlushPrivilegesNote = 'Nota: phpMyAdmin recolle os privilexios dos usuarios directamente das tabelas de privilexios do MySQL. O contido destas tabelas pode diferir dos privilexios que usa o servidor se se levaron a cabo alteracións manuais.  Neste caso, debería %svolver a carregar os privilexios%s antes de continuar.';
 $strFlushTable = 'Fechar a tabela ("FLUSH")';
 $strFormEmpty = 'Falta un valor no formulario!';
 $strFormat = 'Formato';
@@ -175,8 +180,10 @@ $strFunction = 'Funcións';
 $strGenBy = 'Xerado por';
 $strGenTime = 'Xerado en';
 $strGeneralRelationFeat = 'Características xerais das relacións';
+$strGlobalPrivileges = 'Privilexios globais';
 $strGlobalValue = 'Valor global';
 $strGo = 'Executar';
+$strGrantOption = 'Conceder';
 $strGrants = 'Conceder';
 $strGzip = 'comprimido no formato "gzipped"';
 
@@ -207,6 +214,9 @@ $strInsertTextfiles = 'Inserir un arquivo de texto na tabela';
 $strInsertedRows = 'Filas inseridas:';
 $strInstructions = 'Instruccións';
 $strInvalidName = '"%s" i unha palabra reservada. Non se pode utilizar como nome dun banco de datos, dunha tabela ou dun campo.';
+
+$strJustDelete = 'Elimine só os usuarios das tabelas de privilexios.';
+$strJustDeleteDescr = 'Os usuarios &quot;eliminados&quot; poderán ainda acceder ao servidor como sempre atá que se recarreguen os privilexios.';
 
 $strKeepPass = 'Non mude o contrasinal';
 $strKeyname = 'Nome chave';
@@ -288,6 +298,7 @@ $strPHPVersion = 'Versión do PHP';
 $strPageNumber = 'Número de páxina:';
 $strPartialText = 'Textos parciais';
 $strPassword = 'Contrasinal';
+$strPasswordChanged = 'Modificou-se sen problemas o contrasinal de %s.';
 $strPasswordEmpty = 'O contrasinal está vacío!';
 $strPasswordNotSame = 'Os contrasinais non son os mesmos!';
 $strPdfDbSchema = 'Esquema da base de datos "%s" - Páxina %s';
@@ -308,7 +319,37 @@ $strPrimaryKeyName = 'O nome da chave primaria debe ser... PRIMARIA';
 $strPrimaryKeyWarning = '("PRIMARIA" <b>debe</b> ser o nome de e <b>só de</b> unha chave primaria)';
 $strPrint = 'Imprimir';
 $strPrintView = 'Visualización previa da impresión';
+$strPrivDescAllPrivileges = 'Inclue todos os privilexios a excepción de GRANT (Conceder).';
+$strPrivDescAlter = 'Permite alterar a estrutura das tabelas xa existentes.';
+$strPrivDescCreateDb = 'Permite crear novas bases de datos e tabelas.';
+$strPrivDescCreateTbl = 'Permite crear tabelas novas.';
+$strPrivDescCreateTmpTable = 'Permite crear tabelas temporais.';
+$strPrivDescDelete = 'Permite eliminar datos.';
+$strPrivDescDropDb = 'Permite eliminar bases de datos e tabelas.';
+$strPrivDescDropTbl = 'Permite eliminar tabelas.';
+$strPrivDescExecute = 'Permite facer correr procedimentos armacenados. Non funciona nesta versión do MySQL.';
+$strPrivDescFile = 'Permite importar e exportar datos desde e para ficheiros.';
+$strPrivDescGrant = 'Permite acrescentar usuarios e privilexios sen recarregar as tabelas de privilexios.';
+$strPrivDescIndex = 'Permite crear e eliminar índices.';
+$strPrivDescInsert = 'Permite inserir e substituir datos.';
+$strPrivDescLockTables = 'Permite bloquear tabelas do fío en uso'; 
+$strPrivDescMaxConnections = 'Limita o número de conexións novas por hora que pode abrir un usuario.';
+$strPrivDescMaxQuestions = 'Limita o número de procuras por hora que pode enviar un usuario.';
+$strPrivDescMaxUpdates = 'Limita o número de comandos que modifiquen unha tabela ou database por hora que pode executar un usuario.';
+$strPrivDescProcess3 = 'Permite matar procesos pertencentes a outros usuarios.';
+$strPrivDescProcess4 = 'Permite ver as procuras completas na listaxe de procesos.';
+$strPrivDescReferences = 'Non funciona nesta versión do MySQL.';
+$strPrivDescReload = 'Permite recarregar a configuración do servidor e limpar a súa caché.';
+$strPrivDescReplClient = 'Permite-lle ao usuario perguntar onde están os escravos e os masters.';
+$strPrivDescReplSlave = 'Necesario para os escravos de replicación.';
+$strPrivDescSelect = 'Permite gravar datos.';
+$strPrivDescShowDb = 'Permite acceder á listaxe de bases de datos completa';
+$strPrivDescShutdown = 'Permite apagar o servidor.';
+$strPrivDescSuper = 'Permite conexións, mesmo chegado ao número máximo de conexións. Ven requerido para a maioría das operación administracións, como configurar as variábeis globais ou matar os fíos doutros usuarios.';
+$strPrivDescUpdate = 'Permite modificar datos.';
+$strPrivDescUsage = 'Sen privilexios.';
 $strPrivileges = 'Privilexios';
+$strPrivilegesReloaded = 'Non houbo problemas ao recarregar os privilexios.';
 $strProcesslist = 'Listaxe dos procesos';
 $strProperties = 'Propiedades';
 $strPutColNames = 'Pór os nomes dos campos na primeira fileira';
@@ -329,14 +370,19 @@ $strRelationView = 'Vista das relacións';
 $strRelationalSchema = 'Relational schema';
 $strReloadFailed = 'A reinicialización do MySQL fallou.';
 $strReloadMySQL = 'Reinicializar o MySQL';
+$strReloadingThePrivileges = 'A recarregar os privilexios';
 $strRememberReload = 'Lembre-se recarregar o servidor.';
+$strRemoveSelectedUsers = 'Eliminar os usuarios seleccionados';
 $strRenameTable = 'Renomear a tabela para';
 $strRenameTableOK = 'Tabela \$table renomeada para \$new_name';
 $strRepairTable = 'Reparar a tabela';
 $strReplace = 'Substituir';
 $strReplaceTable = 'Substituir os datos da tabela polos do ficheiro';
 $strReset = 'Reiniciar';
+$strResourceLimits = 'Limites de recursos';
 $strRevoke = 'Revogar';
+$strRevokeAndDelete = 'Retirar-lles todos os privilexios activos aos usuarios e eliminá-los a continuación.';
+$strRevokeAndDeleteDescr = 'Os usuarios terán ainda o privilexio USAGE até que se recarreguen os privilexios.';
 $strRevokeGrant = 'Revogar privilexio de conceder';
 $strRevokeGrantMessage = 'Retirou-lle o privilexio de Permitir a %s';
 $strRevokeMessage = 'Retirou-lle os privilexios a %s';
@@ -455,7 +501,9 @@ $strUseTables = 'Usar as tabelas';
 $strUser = 'Usuario';
 $strUserEmpty = 'O nome do usuario está vacío!';
 $strUserName = 'Nome do usuario';
+$strUserOverview = 'Vista xeral do usuario';
 $strUsers = 'Usuarios';
+$strUsersDeleted = 'Os usuarios seleccionados elimináron-se sen problemas.';
 
 $strValidateSQL = 'Validar SQL';
 $strValidatorError = 'Non foi posible iniciar o comprobador de SQL. Comprobe que ten instaladas todas as extensións de php tal e como se descrebe na %sdocumentación%s.';
@@ -472,69 +520,14 @@ $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 
 $strYes = 'Si';
 
+$strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) elimina-se o limite.';
 $strZip = 'comprimido no formato "zipped"';
 // To translate
 
-$strAdministration = 'Administration'; //to translate
-
 $strCannotLogin = 'Cannot login to MySQL server'; //to translate
-
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-
-$strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
-
-$strGlobalPrivileges = 'Global privileges'; //to translate
-$strGrantOption = 'Grant'; //to translate
 
 $strImportDocSQL = 'Import docSQL Files'; //to translate
 
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
-
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
-$strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
-$strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
-$strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
-$strPrivDescCreateTbl = 'Allows creating new tables.'; //to translate
-$strPrivDescCreateTmpTable = 'Allows creating temporary tables.'; //to translate
-$strPrivDescDelete = 'Allows deleting data.'; //to translate
-$strPrivDescDropDb = 'Allows dropping databases and tables.'; //to translate
-$strPrivDescDropTbl = 'Allows dropping tables.'; //to translate
-$strPrivDescExecute = 'Allows running stored procedures; Has no effect in this MySQL version.'; //to translate
-$strPrivDescFile = 'Allows importing data from and exporting data into files.'; //to translate
-$strPrivDescGrant = 'Allows adding users and privileges without reloading the privilege tables.'; //to translate
-$strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
-$strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
-$strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.'; //to translate
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.'; //to translate
-$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.'; //to translate
-$strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
-$strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
-$strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
-$strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
-$strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescSelect = 'Allows reading data.'; //to translate
-$strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
-$strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
-$strPrivDescSuper = 'Allows connectiong, even if maximum number of connections is reached; Required for most administrative operations like setting global variables or killing threads of other users.'; //to translate
-$strPrivDescUpdate = 'Allows changing data.'; //to translate
-$strPrivDescUsage = 'No privileges.'; //to translate
-$strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
-
-$strReloadingThePrivileges = 'Reloading the privileges'; //to translate
-$strRemoveSelectedUsers = 'Remove selected users'; //to translate
-$strResourceLimits = 'Resource limits'; //to translate
-$strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
-$strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
-
 $strServerTabVariables = 'Variables'; //to translate
 
-$strUserOverview = 'User overview'; //to translate
-$strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-
-$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 ?>
