@@ -193,4 +193,9 @@ function PMA_DBI_get_dblist($link = '') {
     unset($res);
     return $dbs_array;   
 }
+
+function PMA_DBI_num_rows($result) {
+    return mysql_num_rows($result);
+}
+
 ?>
