@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php3: stripslashes issues (with LOAD DATA)
+
 2002-11-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 636575 (unquoted identifiers)
     * libraries/sqlparser.lib.php3, libraries/common.lib.php3, sql.php3:
