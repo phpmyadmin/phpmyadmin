@@ -246,6 +246,25 @@ function checkFormElementInRange(theForm, theFieldName, min, max)
     return true;
 } // end of the 'checkFormElementInRange()' function
 
+function checkTableEditForm(theForm, fieldsCnt)
+{
+    for (i=0; i<fieldsCnt; i++)
+    {
+        var id = "field_" + i + "_2";
+        var elm = getElement(id);
+        if (elm.value == 'VARCHAR' || elm.value == 'CHAR') {
+            elm2 = getElement("field_" + i + "_3")
+            val = parseInt(elm2.value);
+            if (isNaN(val)) {
+                elm2.select();
+                alert(errorMsg1);
+                elm2.focus();
+                return false;
+            }
+        }
+    }
+} // enf of the 'checkTableEditForm()' function
+ 
 
 /**
  * Ensures the choice between 'transmit', 'zipped', 'gzipped' and 'bzipped'

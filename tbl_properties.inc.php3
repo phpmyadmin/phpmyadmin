@@ -18,7 +18,7 @@ document.onkeydown = onKeyDownArrowsHandler;
 </script>
 <?php } ?>
 
-<form method="post" action="<?php echo $action; ?>">
+<form method="post" action="<?php echo $action; ?>" onsubmit="checkTableEditForm(this, <?php echo $num_fields; ?>)" >
 <?php
 echo PMA_generate_common_hidden_inputs($db, $table);
 if ($action == 'tbl_create.php3') {

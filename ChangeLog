@@ -7,6 +7,8 @@ $Source$
 
 2003-06-25 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: Fixed XSS problem.
+    * tbl_properties.inc.php3, libraries/functions.js: Alert user when not
+      specied length for CHAR/VARCHAR fields.
 
 2003-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, bug 759568, row count, DISTINCT and MySQL 4
