@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.data.php3: bug 736793, new reserved
+      word 'DIV' in MySQL 4.1.0 (note: it is classified as a function but
+      follows the syntax of an operator: SELECT 5 DIV 2) so I have put
+      it in the reserved words for now.
+
 2003-05-13 Garvin Hicking <me@supergarv.de>
     * footer.inc.php3, querywindow.php3: Fix bug #736197
       (clicking on edit link from a sql-query now switches
