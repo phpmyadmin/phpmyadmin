@@ -294,7 +294,12 @@ $cfg['SQLQuery']['Edit']      = TRUE;       // Edit link to change a query
 $cfg['SQLQuery']['Explain']   = TRUE;       // EXPLAIN on SELECT queries
 $cfg['SQLQuery']['ShowAsPHP'] = TRUE;       // Wrap a query in PHP
 $cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLValidator'] as well)
- 
+
+$cfg['SQLValidator']['use']              = FALSE;   // Make the SQL Validator available
+$cfg['SQLValidator']['username']         = '';      // If you have a custom username, specify it here (defaults to anonymous)
+$cfg['SQLValidator']['password']         = '';      // Password for username
+$cfg['SQLValidator']['DisplayCopyright'] = TRUE;    // It is possible to strip the copyright, but strongly discouraged
+
 /**
  * SQL Parser Settings
  */

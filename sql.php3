@@ -195,14 +195,16 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
  * with js) because possible security issue is not so important here: at most,
  * the confirm message isn't displayed.
  *
- * Also bypassed if only showing php code.
+ * Also bypassed if only showing php code.or validating a SQL query
  */
 if (!$cfg['Confirm']
     || (isset($is_js_confirmed) && $is_js_confirmed)
     || isset($btnDrop)
-    || !empty($GLOBALS['show_as_php'])) {
+    || !empty($GLOBALS['show_as_php'])
+    || !empty($GLOBALS['validatequery'])) {
     $do_confirm = FALSE;
 } else {
+     /* SQL-Parser-Analyzer */ 
     $do_confirm = (eregi('DROP[[:space:]]+(IF[[:space:]]+EXISTS[[:space:]]+)?(TABLE|DATABASE[[:space:]])|ALTER[[:space:]]+TABLE[[:space:]]+((`[^`]+`)|([A-Za-z0-9_$]+))[[:space:]]+DROP[[:space:]]|DELETE[[:space:]]+FROM[[:space:]]', $sql_query));
 }
 
@@ -328,7 +330,7 @@ else {
     }
     // Executes the query
     // Only if we didn't ask to see the php code (mikebeck)
-    if (!empty($GLOBALS['show_as_php'])) {
+    if (!empty($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         unset($result);
         $num_rows = 0;
     }
@@ -414,6 +416,8 @@ else {
             $message = $zero_rows;
         } else if (!empty($GLOBALS['show_as_php'])) {
             $message = $strPhp;
+        } else if (!empty($GLOBALS['validatequery'])) {
+            $message = $strValidateSQL;
         } else {
             $message = $strEmptyResultSet;
         }
