@@ -239,8 +239,7 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
     </tr>
     <tr>
         <td>
-           <input type="radio" name="what" value="dataonly">
-                <?php echo $strDataOnly; ?>
+           <input type="radio" name="what" value="dataonly"><?php echo $strDataOnly; ?>
         </td>
         <td>
            <input type="checkbox" name="showcolumns" value="yes"><?php echo $strCompleteInserts; ?>
