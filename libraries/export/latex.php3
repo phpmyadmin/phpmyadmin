@@ -100,20 +100,15 @@ function PMA_exportDBCreate($db) {
  * @access  public
  */
 function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
-
-    $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-    for ($i = 0; $row = PMA_mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
-        $columns[$i] = $row['Field'];
-    }
-    $columns_cnt     = count($columns);
-    unset($i);
-    unset($local_query);
-    mysql_free_result($result);
-
     $tex_escape = array("$", "%", "{", "}",  "&",  "#", "_", "^");
 
     $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
+
+    $columns_cnt = mysql_num_fields($result);
+    for ($i = 0; $i < $columns_cnt; $i++) {
+        $columns[$i] = mysql_field_name($result, $i);
+    }
+    unset($i);
 
     $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strData'] . $crlf . '%' . $crlf
                  . '\\begin{table} ' . $crlf

@@ -109,29 +109,26 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     global $enclosed;
     global $escaped;
 
+    // Gets the data from the database
+    $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
+    $fields_cnt  = mysql_num_fields($result);
 
     // If required, get fields name at the first line
     if (isset($GLOBALS['showcsvnames']) && $GLOBALS['showcsvnames'] == 'yes') {
         $schema_insert = '';
-        $local_query   = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
-        $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-        while ($row = PMA_mysql_fetch_array($result)) {
-            if ($enc_by == '') {
-                $schema_insert .= $row['Field'];
+        for ($i = 0; $i < $fields_cnt; $i++) {
+            if ($enclosed == '') {
+                $schema_insert .= mysql_field_name($result, $i);
             } else {
-                $schema_insert .= $enc_by
-                               . str_replace($enc_by, $esc_by . $enc_by, $row['Field'])
-                               . $enc_by;
+                $schema_insert .= $enclosed
+                               . str_replace($enclosed, $escaped . $enclosed, mysql_field_name($result, $i))
+                               . $enclosed;
             }
-            $schema_insert     .= $sep;
-        } // end while
+            $schema_insert     .= $separator;
+        } // end for
         $schema_insert  =trim(substr($schema_insert, 0, -1));
         if (!PMA_exportOutputHandler($schema_insert . $add_character)) return FALSE;
     } // end if
-
-    // Gets the data from the database
-    $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
-    $fields_cnt  = mysql_num_fields($result);
 
     // Format the data
     $i = 0;

@@ -9,6 +9,9 @@ $Source$
     * libraries/sqlparser.lib.php3: Fixed XSS problem.
     * tbl_properties.inc.php3, libraries/functions.js: Alert user when not
       specied length for CHAR/VARCHAR fields.
+    * libraries/export/{csv,latex,xml}.php3: Use correct field names when
+      exporting custom SQL (also saves one SQL query for export) (fixes bug
+      #755386).
 
 2003-06-24 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, bug 759568, row count, DISTINCT and MySQL 4
