@@ -121,10 +121,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $schema_insert = '';
         for ($i = 0; $i < $fields_cnt; $i++) {
             if ($enclosed == '') {
-                $schema_insert .= stripslashes(mysql_field_name($result, $i)); //! UNWRAPPED FUNCTION!
+                $schema_insert .= stripslashes(PMA_DBI_field_name($result, $i));
             } else {
                 $schema_insert .= $enclosed
-                               . str_replace($enclosed, $escaped . $enclosed, stripslashes(mysql_field_name($result, $i))) //! UNWRAPPED FUNCTION!
+                               . str_replace($enclosed, $escaped . $enclosed, stripslashes(PMA_DBI_field_name($result, $i)))
                                . $enclosed;
             }
             $schema_insert     .= $separator;

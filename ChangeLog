@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-08 Marcel Tschopp <marcel.tschopp@gmx.net>
+    * phpinfo.php, tbl_relation.php, libraries/display_tbl.lib.php
+      libraries/mysql_wrappers.lib.php, libraries/dbi/mysql.dbi.lib.php
+      libraries/dbi/mysqli.dbi.lib.php, libraries/export/*.php:
+      phpMyAdmin should now be fully compatible with the new mysqli
+      extension. All extension specific functions are wrapped now.
+
 2004-04-07 Marcel Tschopp <marcel.tschopp@gmx.net>
     * multi_submits.inc.php, lang/german: bug 930714, wrong spelling and 
       query display. Thanks to Daniel Marschall (blackdrake)

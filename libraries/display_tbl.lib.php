@@ -1035,7 +1035,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             //     "primary" key to use in links
             if ($is_display['edit_lnk'] == 'ur' /* || $is_display['edit_lnk'] == 'dr' */) {
                 for ($i = 0; $i < $fields_cnt; ++$i) {
-                    $field_flags = PMA_mysql_field_flags($dt_result, $i); // !UNWRAPPED FUNCTION!
+                    $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     $meta      = $fields_meta[$i];
                     // do not use an alias in a condition
                     $column_for_condition = $meta->name;
@@ -1351,7 +1351,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 // TEXT fields type, however TEXT fields must be displayed
                 // even if $cfg['ShowBlob'] is false -> get the true type
                 // of the fields.
-                $field_flags = PMA_mysql_field_flags($dt_result, $i); // !UNWRAPPED FUNCTION!
+                $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {
                     $blobtext = '[BLOB';
                     if (isset($row[$pointer])) {
@@ -1398,7 +1398,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     }
 
                     // loic1: displays special characters from binaries
-                    $field_flags = PMA_mysql_field_flags($dt_result, $i); // !UNWRAPPED FUNCTION!
+                    $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     if (stristr($field_flags, 'BINARY')) {
                         $row[$pointer]     = str_replace("\x00", '\0', $row[$pointer]);
                         $row[$pointer]     = str_replace("\x08", '\b', $row[$pointer]);

@@ -434,7 +434,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
                 $field_set[$j] = PMA_backquote($analyzed_sql[0]['select_expr'][$j]['column'], $use_backquotes);
             } else {
-                $field_set[$j] = PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes); //! UNWRAPPED FUNCTION!
+                $field_set[$j] = PMA_backquote(PMA_DBI_field_name($result, $j), $use_backquotes);
             }
 
             $type          = $field_types[$field_set[$j]];

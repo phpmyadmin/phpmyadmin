@@ -337,7 +337,7 @@ if ($cfgRelation['relwork']) {
 
 
 // Now find out the columns of our $table
-$col_rs    = PMA_mysql_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';');
+$col_rs    = PMA_DBI_try_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';');
 
 if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     while ($row = PMA_DBI_fetch_assoc($col_rs)) {

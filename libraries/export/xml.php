@@ -117,7 +117,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
 
     $columns_cnt = PMA_DBI_num_fields($result);
     for ($i = 0; $i < $columns_cnt; $i++) {
-        $columns[$i] = stripslashes(mysql_field_name($result, $i)); //! UNWRAPPED FUNCTION!
+        $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));
     }
     unset($i);
 

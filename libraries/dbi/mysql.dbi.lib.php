@@ -259,4 +259,12 @@ function PMA_DBI_field_len($result, $i) {
     return mysql_field_len($result, $i);
 }
 
+function PMA_DBI_field_name($result, $i) {
+    return mysql_field_name($result, $field_index);
+}
+
+function PMA_DBI_field_flags($result, $i) {
+    return PMA_mysql_field_flags($result, $i);
+}
+
 ?>

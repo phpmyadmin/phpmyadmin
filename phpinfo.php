@@ -13,7 +13,7 @@ require_once('./libraries/common.lib.php');
 /**
  * Displays PHP information
  */
-$is_superuser = @PMA_mysql_query('USE mysql', $userlink);
+$is_superuser = @PMA_DBI_try_query('USE mysql', $userlink);
 if ($is_superuser || $cfg['ShowPhpInfo']) {
     phpinfo();
 }
