@@ -662,7 +662,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *
      * @see     PMA_displayTable()
      */
-    function PMA_displayTableBody(&$dt_result, &$is_display, $map = array())
+    function PMA_displayTableBody(&$dt_result, &$is_display, $map)
     {
         global $lang, $server, $db, $table;
         global $goto;
@@ -670,6 +670,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $vertical_display, $disp_direction, $repeat_cells;
         global $dontlimitchars;
 
+        if (!is_array($map)) {
+            $map = array();
+        }
         ?>
 <!-- Results table body -->
         <?php
