@@ -92,7 +92,7 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
         // 2.2 Statement is a "SHOW..."
         else if ($GLOBALS['is_show']) {
             // 2.2.1 TODO : defines edit/delete links depending on show statement
-            $tmp = preg_match('@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS)@i', $GLOBALS['sql_query'], $which);
+            $tmp = preg_match('@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS|DATABASES)@i', $GLOBALS['sql_query'], $which);
             if (strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0) {
                 $do_display['edit_lnk'] = 'nn'; // no edit link
                 $do_display['del_lnk']  = 'kp'; // "kill process" type edit link
