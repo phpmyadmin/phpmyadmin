@@ -512,4 +512,6 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrensningen.';
 $strZip = 'Komprimert (zip)';
 // To translate
+
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 ?>

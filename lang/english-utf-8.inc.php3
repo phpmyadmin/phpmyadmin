@@ -288,6 +288,7 @@ $strPHPVersion = 'PHP Version';
 $strPageNumber = 'Page number:';
 $strPartialText = 'Partial Texts';
 $strPassword = 'Password';
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 $strPasswordEmpty = 'The password is empty!';
 $strPasswordNotSame = 'The passwords aren\'t the same!';
 $strPdfDbSchema = 'Schema of the the "%s" database - Page %s';

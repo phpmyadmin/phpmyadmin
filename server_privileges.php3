@@ -80,6 +80,9 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
  * Updates privileges
  */
 if (!empty($update_privs)) {
+    if (empty($hostname)) {
+        $hostname = '%';
+    }
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON *.* FROM "' . $username . '"@"' . $hostname . '";';
     $sql_query1 = 'REVOKE GRANT OPTION ON *.* FROM "' . $username . '"@"' . $hostname . '";';
     $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO "' . $username . '"@"' . $hostname . '"';
@@ -113,6 +116,33 @@ if (!empty($update_privs)) {
 }
 
 /**
+ * Updates the password
+ */
+if (!empty($change_pw)) {
+    if (empty($hostname)) {
+        $hostname = '%';
+    }
+    if ($nopass == 1) {
+        $sql_query = 'SET PASSWORD FOR "' . $username . '"@"' . $hostname . '" = ""';
+        PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+        $message = sprintf($strPasswordChanged, '\'' . $username . '\'@\'' . $hostname . '\'');
+    } else if (empty($pma_pw) || empty($pma_pw2)) {
+        $message = $strPasswordEmpty;
+    } else if ($pma_pw != $pma_pw2) {
+        $message = $strPasswordNotSame;
+    } else {
+        $hidden_pw = '';
+        for ($i = 0; $i < strlen($pma_pw); $i++) {
+            $hidden_pw .= '*';
+        }
+        $local_query = 'SET PASSWORD FOR "' . $username . '"@"' . $hostname . '" = PASSWORD("' . $pma_pw . '")';
+        $sql_query = 'SET PASSWORD FOR "' . $username . '"@"' . $hostname . '" = PASSWORD("' . $hidden_pw . '")';
+        PMA_mysql_query($local_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+        $message = sprintf($strPasswordChanged, '\'' . $username . '\'@\'' . $hostname . '\'');
+    }
+}
+
+/**
  * Reloads the privilege tables into memory
  */
 if (!empty($flush_privileges)) {
@@ -127,6 +157,7 @@ if (!empty($flush_privileges)) {
 /**
  * Does the common work
  */
+$js_to_run = 'user_details.js';
 require('./server_common.inc.php3');
 
 /**
@@ -139,7 +170,7 @@ require('./server_links.inc.php3');
  */
 if (!$is_superuser) {
     echo '<h2>' . "\n"
-       . '    ' . $strUsers . "\n"
+       . '    ' . $strPrivileges . "\n"
        . '</h2>' . "\n"
        . $strNoPrivileges . "\n";
     include('./footer.inc.php3');
@@ -161,7 +192,7 @@ if (!isset($username) && !isset($hostname)) {
             $oldPrivTables = TRUE;
         }
     }
-    if (!isset($res) || empty($res) || (PMA_MYSQL_INT_VERSION >= 32211 && PMA_MYSQL_INT_VERSION < 40002)) {
+    if (empty($res) || (PMA_MYSQL_INT_VERSION >= 32211 && PMA_MYSQL_INT_VERSION < 40002)) {
         $res = PMA_mysql_query('SELECT `User`, `Host`, IF(`Password` = "", "N", "Y") AS "Password", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Index_priv`, `Alter_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv` FROM `user`;', $userlink);
         if (!$res) {
             // the query failed! This may have two reasons:
@@ -170,7 +201,7 @@ if (!isset($username) && !isset($hostname)) {
             $oldPrivTables = TRUE;
         }
     }
-    if (!$res || PMA_MYSQL_INT_VERSION < 32211) {
+    if (empty($res) || PMA_MYSQL_INT_VERSION < 32211) {
         $res = PMA_mysql_query('SELECT * FROM `user`;', $userlink);
     }
     if (!$res) {
@@ -229,11 +260,10 @@ if (!isset($username) && !isset($hostname)) {
         $hostname = '%';
     }
     echo '<h2>' . "\n"
-       . '    ' . $strEditPrivileges . '<br />' . "\n"
-       . '</h2>' . "\n"
-       . '<h3>' . "\n"
        . '   ' . $strUser . ' <i>\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</i>' . "\n"
-       . '</h3>' . "\n";
+       . '</h2>' . "\n"
+       . '<ul>' . "\n"
+       . '    <li>' . "\n";
     $res = PMA_mysql_query('SELECT * FROM `user` WHERE `User` = "' . $username . '" AND `Host` = "' . $hostname . '"', $userlink);
     $row = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
     @mysql_free_result($res);
@@ -282,73 +312,107 @@ if (!isset($username) && !isset($hostname)) {
     if (isset($row['Repl_slave_priv'])) {
         $privTable[2][] = array('Repl_slave', 'REPLICATION&nbsp;SLAVE', $strPrivDescReplSlave);
     }
-    echo '<form action="server_privileges.php3" method="post">' . "\n"
-       . '    <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
-       . '    <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
-       . '    <input type="hidden" name="server" value="' . $server . '" />' . "\n"
-       . '    <input type="hidden" name="username" value="' . urlencode($username) . '" />' . "\n";
+    echo '        <form action="server_privileges.php3" method="post">' . "\n"
+       . '            <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
+       . '            <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
+       . '            <input type="hidden" name="server" value="' . $server . '" />' . "\n"
+       . '            <input type="hidden" name="username" value="' . urlencode($username) . '" />' . "\n";
     if ($hostname != '%') {
-        echo '    <input type="hidden" name="hostname" value="' . urlencode($hostname) . '" />' . "\n";
+        echo '            <input type="hidden" name="hostname" value="' . urlencode($hostname) . '" />' . "\n";
     }
-    echo '    <input type="hidden" name="grant_count" value="' . (count($privTable[0]) + count($privTable[1]) + count($privTable[2])) . '" />' . "\n"
-       . '    <table border="0">' . "\n"
-       . '        <tr>' . "\n"
-       . '            <th colspan="6">&nbsp;' . $strGlobalPrivileges . '&nbsp;</th>' . "\n"
-       . '        </tr>' . "\n"
-       . '        <tr>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="6"><small><i>' . $strEnglishPrivileges . '</i></small></th>' . "\n"
-       . '        </tr>' . "\n"
-       . '        <tr>'
-       . '            <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $strData . '</i></b>&nbsp;</td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $strStructure . '</i></b>&nbsp;</td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $strAdministration . '</i></b>&nbsp;</td>' . "\n"
-       . '        </tr>' . "\n";
+    echo '            <input type="hidden" name="grant_count" value="' . (count($privTable[0]) + count($privTable[1]) + count($privTable[2])) . '" />' . "\n"
+       . '                <b>' . $strEditPrivileges . '</b><br />' . "\n"
+       . '                <table border="0">' . "\n"
+       . '                    <tr>' . "\n"
+       . '                    <th colspan="6">&nbsp;' . $strGlobalPrivileges . '&nbsp;</th>' . "\n"
+       . '                </tr>' . "\n"
+       . '                <tr>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="6"><small><i>' . $strEnglishPrivileges . '</i></small></th>' . "\n"
+       . '                </tr>' . "\n"
+       . '                <tr>'
+       . '                    <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $strData . '</i></b>&nbsp;</td>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $strStructure . '</i></b>&nbsp;</td>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $strAdministration . '</i></b>&nbsp;</td>' . "\n"
+       . '                </tr>' . "\n";
     $limitTable = FALSE;
     for ($i = 0; isset($privTable[0][$i]) || isset($privTable[1][$i]) || isset($privTable[2][$i]); $i++) {
-        echo '        <tr>' . "\n";
+        echo '                <tr>' . "\n";
         for ($j = 0; $j < 3; $j++) {
             if (isset($privTable[$j][$i])) {
-                echo '            <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $privTable[$j][$i][0] . '_priv" id="checkbox_' . $privTable[$j][$i][0] . '_priv" value="Y" ' . ($row[$privTable[$j][$i][0] . '_priv'] == 'Y' ? 'checked="checked" ' : '') . 'title="' . $privTable[$j][$i][2] . '"/></td>' . "\n"
-                   . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $privTable[$j][$i][0] . '_priv"><tt><dfn title="' . $privTable[$j][$i][2] . '">' . $privTable[$j][$i][1] . '</dfn></tt></label></td>' . "\n";
+                echo '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $privTable[$j][$i][0] . '_priv" id="checkbox_' . $privTable[$j][$i][0] . '_priv" value="Y" ' . ($row[$privTable[$j][$i][0] . '_priv'] == 'Y' ? 'checked="checked" ' : '') . 'title="' . $privTable[$j][$i][2] . '"/></td>' . "\n"
+                   . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $privTable[$j][$i][0] . '_priv"><tt><dfn title="' . $privTable[$j][$i][2] . '">' . $privTable[$j][$i][1] . '</dfn></tt></label></td>' . "\n";
             } else if (!isset($privTable[0][$i]) && !isset($privTable[1][$i])
                 && isset($row['max_questions']) && isset($row['max_updates']) && isset($row['max_connections'])
                 && !$limitTable) {
-                echo '            <td colspan="4" rowspan="' . (count($privTable[2]) - $i) . '">' . "\n"
-                   . '                <table border="0">' . "\n"
-                   . '                    <tr>' . "\n"
-                   . '                        <th colspan="2">&nbsp;' . $strResourceLimits . '&nbsp;</th>' . "\n"
-                   . '                    </tr>' . "\n"
-                   . '                    <tr>' . "\n"
-                   . '                        <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="2"><small><i>' . $strZeroRemovesTheLimit . '</i></small></td>' . "\n"
-                   . '                    </tr>' . "\n"
-                   . '                    <tr>' . "\n"
-                   . '                        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_questions"><tt><dfn title="' . $strPrivDescMaxQuestions . '">MAX&nbsp;QUERIES&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
-                   . '                        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_questions" id="text_max_questions" value="' . $row['max_questions'] . '" size="11" maxlength="11" title="' . $strPrivDescMaxQuestions . '" /></td>' . "\n"
-                   . '                    </tr>' . "\n"
-                   . '                    <tr>' . "\n"
-                   . '                        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_updates"><tt><dfn title="' . $strPrivDescMaxUpdates . '">MAX&nbsp;UPDATES&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
-                   . '                        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_updates" id="text_max_updates" value="' . $row['max_updates'] . '" size="11" maxlength="11" title="' . $strPrivDescMaxUpdates . '" /></td>' . "\n"
-                   . '                    </tr>' . "\n"
-                   . '                    <tr>' . "\n"
-                   . '                        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_connections"><tt><dfn title="' . $strPrivDescMaxConnections . '">MAX&nbsp;CONNECTIONS&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
-                   . '                        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_connections" id="text_max_connections" value="' . $row['max_connections'] . '" size="11" maxlength="11" title="' . $strPrivDescMaxConnections . '" /></td>' . "\n"
-                   . '                    </tr>' . "\n"
-                   . '                </table>' . "\n"
-                   . '            </td>' . "\n";
+                echo '                    <td colspan="4" rowspan="' . (count($privTable[2]) - $i) . '">' . "\n"
+                   . '                        <table border="0">' . "\n"
+                   . '                            <tr>' . "\n"
+                   . '                                <th colspan="2">&nbsp;' . $strResourceLimits . '&nbsp;</th>' . "\n"
+                   . '                            </tr>' . "\n"
+                   . '                            <tr>' . "\n"
+                   . '                                <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="2"><small><i>' . $strZeroRemovesTheLimit . '</i></small></td>' . "\n"
+                   . '                            </tr>' . "\n"
+                   . '                            <tr>' . "\n"
+                   . '                                <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_questions"><tt><dfn title="' . $strPrivDescMaxQuestions . '">MAX&nbsp;QUERIES&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
+                   . '                                <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_questions" id="text_max_questions" value="' . $row['max_questions'] . '" size="11" maxlength="11" title="' . $strPrivDescMaxQuestions . '" /></td>' . "\n"
+                   . '                            </tr>' . "\n"
+                   . '                            <tr>' . "\n"
+                   . '                                <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_updates"><tt><dfn title="' . $strPrivDescMaxUpdates . '">MAX&nbsp;UPDATES&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
+                   . '                                <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_updates" id="text_max_updates" value="' . $row['max_updates'] . '" size="11" maxlength="11" title="' . $strPrivDescMaxUpdates . '" /></td>' . "\n"
+                   . '                            </tr>' . "\n"
+                   . '                            <tr>' . "\n"
+                   . '                                <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="text_max_connections"><tt><dfn title="' . $strPrivDescMaxConnections . '">MAX&nbsp;CONNECTIONS&nbsp;PER&nbsp;HOUR</dfn></tt></label></td>' . "\n"
+                   . '                                <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="text" name="max_connections" id="text_max_connections" value="' . $row['max_connections'] . '" size="11" maxlength="11" title="' . $strPrivDescMaxConnections . '" /></td>' . "\n"
+                   . '                            </tr>' . "\n"
+                   . '                        </table>' . "\n"
+                   . '                    </td>' . "\n";
                 $limitTable = TRUE;
             } else if (!$limitTable) {
-                echo '            <td colspan="2"></td>' . "\n";
+                echo '                    <td colspan="2"></td>' . "\n";
             }
         }
-        echo '        </tr>' . "\n";
+        echo '                </tr>' . "\n";
     }
-    echo '        <tr>' . "\n"
-       . '            <td colspan="6" align="center">' . "\n"
-       . '                <input type="submit" name="update_privs" value="' . $strGo . '" />' . "\n"
-       . '            </td>' . "\n"
-       . '        </tr>' . "\n"
-       . '    </table>' . "\n"
-       . '</form>' . "\n";
+    echo '                <tr>' . "\n"
+       . '                    <td colspan="6" align="center">' . "\n"
+       . '                        <input type="submit" name="update_privs" value="' . $strGo . '" />' . "\n"
+       . '                    </td>' . "\n"
+       . '                </tr>' . "\n"
+       . '            </table>' . "\n"
+       . '        </form>' . "\n"
+       . '    </li>' . "\n"
+       . '    <li>' . "\n"
+       . '        <form name="chgPassword" action="server_privileges.php3" method="post" onsubmit="return checkPassword(this);">' . "\n"
+       . '            <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
+       . '            <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
+       . '            <input type="hidden" name="server" value="' . $server . '" />' . "\n"
+       . '            <input type="hidden" name="username" value="' . urlencode($username) . '" />' . "\n";
+    if ($hostname != '%') {
+        echo '            <input type="hidden" name="hostname" value="' . urlencode($hostname) . '" />' . "\n";
+    }
+    echo '            <b>' . $strChangePassword . '</b><br />' . "\n"
+       . '            <table border="0">' . "\n"
+       . '                <tr>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorOne'] . '"><input type="radio" name="nopass" value="1" id="radio_nopass_1" onclick="pma_pw.value=\'\'; pma_pw2.value=\'\';" /></td>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2"><label for="radio_nopass_1">' . $strNoPassword . '</label></td>' . "\n"
+       . '                </tr>' . "\n"
+       . '                <tr>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="radio" name="nopass" value="0" id="radio_nopass_0" onclick="document.getElementById(\'pw_pma_pw\').focus();" /></td>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="radio_nopass_0">' . $strPassword . ':</label></td>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="password" name="pma_pw" id="pw_pma_pw" class="textfield" onchange="nopass[1].checked = true;" /></td>' . "\n"
+       . '                </tr>' . "\n"
+       . '                <tr>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '">&nbsp;</td>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="pw_pma_pw2">' . $strReType . ':</label></td>' . "\n"
+       . '                    <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="password" name="pma_pw2" id="pw_pma_pw2" class="textfield" onchange="nopass[1].checked = true;" /></td>' . "\n"
+       . '                </tr>' . "\n"
+       . '                    <td colspan="3" align="center">' . "\n"
+       . '                        <input type="submit" name="change_pw" value="' . $strGo . '" />' . "\n"
+       . '                    </td>' . "\n"
+       . '            </table>' . "\n"
+       . '        </form>' . "\n"
+       . '    </li>' . "\n"
+       . '</ul>' . "\n";
 } else if (isset($hostname)) {
     // TODO: Host privilege editor
 }

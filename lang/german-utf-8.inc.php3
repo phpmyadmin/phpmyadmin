@@ -294,6 +294,7 @@ $strOverhead = 'Überhang';
 $strPageNumber = 'Seite:';
 $strPartialText = 'gekürzte Textfelder';
 $strPassword = 'Kennwort';
+$strPasswordChanged = 'Das Kennwort für %s wurde geändert.';
 $strPasswordEmpty = 'Es wurde kein Kennwort angegeben!';
 $strPasswordNotSame = 'Die eingegebenen Kennwörter sind nicht identisch!';
 $strPdfDbSchema = 'Schema der Datenbank "%s" - Seite %s';

@@ -213,7 +213,7 @@ $strKeepPass = 'Wijzig het wachtwoord niet';
 $strKeyname = 'Sleutelnaam';
 $strKill = 'stop proces';
 
-$strLaTeX = 'LaTeX'; 
+$strLaTeX = 'LaTeX';
 $strLength = 'Lengte';
 $strLengthSet = 'Lengte/Waardes*';
 $strLimitNumRows = 'records per pagina';
@@ -521,4 +521,6 @@ $strShowDatadictAs = 'Data Dictionary Format';  //to translate
 $strUserOverview = 'User overview'; //to translate
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
+
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 ?>

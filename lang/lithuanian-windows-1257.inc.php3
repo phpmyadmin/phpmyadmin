@@ -508,4 +508,5 @@ $strZeroRemovesTheLimit = 'Pastaba: Nëra jokiø apribojimø jeigu reikðmë nurodyta
 $strZip = '"zip"';
 
 // To translate
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 ?>

@@ -515,4 +515,6 @@ $strResourceLimits = 'Resource limits'; //to translate
 $strUserOverview = 'User overview'; //to translate
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
+
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 ?>

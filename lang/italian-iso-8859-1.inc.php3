@@ -516,4 +516,5 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 ?>

@@ -514,4 +514,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 ?>
