@@ -1232,12 +1232,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // (see the 'relation' config variable)
         // (currently not available for PHP3 due to spliti()  )
 
+        // init map
+        $map = array();
+
         if (PMA_PHP_INT_VERSION >= 40000
             && isset($cfgServer['relation'])
             && !empty($cfgServer['relation'])) {
-
-            // init map
-            $map = array();
             // find tables
             $tabs = '(\'' . join('\',\'', spliti('`? *((on [^,]+)?,|(NATURAL )?(inner|left|right)( outer)? join) *`?',
                     eregi_replace('^.*FROM +`?|`? *(on [^,]+)?(WHERE.*)?$', '', $sql_query))) . '\')';
