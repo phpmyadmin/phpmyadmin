@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-04 Michal Čihař  <michal@cihar.com>
+    * tbl_change.php: Fix TIMESTAMP editing on MySQL 4.1 (bug #1114120).
+
 2005-02-03 Alexander M. Turek  <me@derrabus.de>
     * tbl_addfield.php: Bug #1040682 (adding field with collation).
 
