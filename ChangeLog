@@ -6,7 +6,9 @@ $Id$
 $Source$
 
 2004-09-04 Marc Delisle  <lem9@users.sourceforge.net>
-    * sql.php: bug 899430: left frame problem when lower_case_table_names==2
+    * sql.php: bug #899430: left frame problem when lower_case_table_names==2
+    * libraries/database_interface.lib.php: bug #1009791: now remove non-UTF-8
+      choices from the drop-down (in main) for MySQL 4.1.x
 
 2004-09-03 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, server_privileges.php, libraries/common.lib.php:
@@ -20,7 +22,7 @@ $Source$
       versions 4.1.0 and 4.1.1.
 
 2004-09-01 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/auth/cookie.auth.lib.php: bug 939531: when people upgrade
+    * libraries/auth/cookie.auth.lib.php: bug #939531: when people upgrade
       phpMyAdmin on the same directory, the previous cookie pma_cookie_username
       was used but produced an Undefined offset in blowfish.php, because
       on previous PMA versions it was not encoded the same way. Now this old
@@ -31,7 +33,7 @@ $Source$
     * libraries/export/sql.php: Fix empty BLOB export (bug #1020052).
 
 2004-08-29 Marc Delisle  <lem9@users.sourceforge.net>
-    * server_privileges.php: bug 1007870, illegal mix of collations
+    * server_privileges.php: bug #1007870, illegal mix of collations
       for operation UNION
 
 2004-08-28 Marc Delisle  <lem9@users.sourceforge.net>
@@ -40,11 +42,11 @@ $Source$
       support for VARBINARY and BINARY field types
 
 2004-08-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_relation.php, libraries/display_tbl.lib.php: bug 1016997, 
+    * tbl_relation.php, libraries/display_tbl.lib.php: bug #1016997, 
       wrong db name generated in SHOW KEYS
 
 2004-08-26 Marc Delisle  <lem9@users.sourceforge.net>
-    * index.php, libraries/common.lib.php: bug 1006011: now we save
+    * index.php, libraries/common.lib.php: bug #1006011: now we save
       the chosen connection collation into a cookie
     * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000) 
     * lang/hebrew, turkish: bug 1016609: <br> tags

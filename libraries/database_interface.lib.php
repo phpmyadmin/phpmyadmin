@@ -145,6 +145,19 @@ function PMA_DBI_postConnect($link) {
             }
         }
 
+        // and we remove the non-UTF-8 choices to avoid confusion
+        if (!defined('PMA_REMOVED_NON_UTF_8')) {
+            $tmp_available_languages        = $GLOBALS['available_languages']; 
+            $GLOBALS['available_languages'] = array();
+            foreach ($tmp_available_languages AS $tmp_lang => $tmp_lang_data) {
+                if (substr($tmp_lang, -5) == 'utf-8') {
+                    $GLOBALS['available_languages'][$tmp_lang] = $tmp_lang_data;
+                }
+            } // end foreach
+            unset($tmp_lang, $tmp_lang_data, $tmp_available_languages);
+            define('PMA_REMOVED_NON_UTF_8',1);
+        }
+
         $mysql_charset = $GLOBALS['mysql_charset_map'][$GLOBALS['charset']];
         if (empty($collation_connection) || (strpos('_', $collation_connection) ? substr($collation_connection, 0, strpos('_', $collation_connection)) : $collation_connection) == $mysql_charset) {
             PMA_DBI_query('SET NAMES ' . $mysql_charset . ';', $link, PMA_DBI_QUERY_STORE);
