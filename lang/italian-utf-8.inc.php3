@@ -520,6 +520,7 @@ $strShowAll = 'Mostra tutti';
 $strShowColor = 'Mostra il colore';
 $strShowCols = 'Mostra le colonne';
 $strShowDatadictAs = 'Formato del Data Dictionary';
+$strShowFullQueries = 'Mostra query complete';
 $strShowGrid = 'Mostra la griglia';
 $strShowPHPInfo = 'Mostra le info sul PHP';
 $strShowTableDimension = 'Mostra la dimensione delle tabelle';
@@ -576,8 +577,11 @@ $strTransformation_image_png__inline = 'Vedi immagine/jpeg: inline';
 $strTransformation_text_plain__dateformat = 'Prende un campo TIME, TIMESTAMP o DATETIME e lo formatta utilizzando il formato data locale. La prima opzione è il time offset (in ore) il quale sarà aggiunto al timestamp (Predefinito: 0). La seconda opzione è un formato data in linea con i parametri disponibili per la funzione strftime() del PHP.';
 $strTransformation_text_plain__external = 'SOLO PER LINUX: Lancia un\'applicazione esterna e riempie i dati dei campi tramite lo standard input. Restituisce lo standard output dell\'applicazione. L\'impostazione predefinita è Tidy, per stampare in maniera corretta il codice HTML. Per motivi di sicurezza, dovete editare manualmente il file libraries/transformations/text_plain__external.inc.php e inserire gli strumenti che permettete di utilizzare. La prima opzione è così il numero del programma che volete utilizzare e la seconda sono i parametri per il programma. Il terzo parametro, se impostato a 1 convertirà l\'output utilizzando htmlspecialchars() (Predefinito: 1). Un quarto parametro, se impostato a 1 inserirà un NOWRAP al contenuto della cella così che l\'intero output sarà mostrato senza essere riformattato (Predefinito: 1)';
 $strTransformation_text_plain__formatted = 'Preserva l\'originale formattazione del campo. Nessun Escaping viene applicato.';
+$strTransformation_text_plain__imagelink = 'Mostra un collegamento ad una immagine esterna; il campo contiene il nome del file; la prima opzione è un prefisso come "http://tuodominio.com/", la seconda opzione è la larghezza in pixel, la terza è l\'altezza.'; 
+$strTransformation_text_plain__link = 'Mostra un collegamento, il campo contiene il nome del file; la prima opzione è un prefisso come "http://tuodominio.com/", la seconda opzione è un titolo per il collegamento.'; 
 $strTransformation_text_plain__substr = 'Mostra soltanto una parte della stringa. La prima opzione è l\'offset che serve a definire dove inizia l\'output del vostro testo (Prefinito: 0). La seconda opzione è un offset che indica quanto testo viene restituito. Se vuoto, restituisce tutto il testo rimanente. La terza opzione definisce quali caratteri saranno aggiunti in fondo all\'output quando una soptto-stringa viene restituita (Predefinito: ...) .';
 $strTransformation_text_plain__unformatted = 'Mostra il codice HTML come entità HTML. Nessuna formattazione HTML viene applicata.';
+$strTruncateQueries = 'Tronca le Query Mostrate'; 
 $strType = 'Tipo';
 
 $strUncheckAll = 'Deseleziona tutti';
@@ -589,6 +593,7 @@ $strUpdateProfileMessage = 'Il profilo è stato aggiornato.';
 $strUpdateQuery = 'Aggiorna Query';
 $strUsage = 'Utilizzo';
 $strUseBackquotes = 'Usa i backquotes con i nomi delle tabelle e dei campi';
+$strUseHostTable = 'Utilizza la Tabella dell\'Host'; 
 $strUseTables = 'Utilizza tabelle';
 $strUseTextField = 'Utilizza campo text';
 $strUser = 'Utente';
@@ -625,13 +630,6 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
-$strShowFullQueries = 'Show Full Queries';  //to translate
-
-$strTransformation_text_plain__imagelink = 'Mostra un link ad una immagine esterna; il campo contiene il nome del file; la prima opzione è un prefisso come "http://tuodominio.com/", second option is the width in pixels, third is the height.'; //to translate
-$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
-
-$strUseHostTable = 'Use Host Table';  //to translate
-
 $strSwitchToTable = 'Switch to copied table';  //to translate
+
 ?>
