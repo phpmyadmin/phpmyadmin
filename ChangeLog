@@ -8,6 +8,7 @@ $Source$
 2001-08-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_replace.php3: fixed some coding style inconcistencies and optimized a
 	  bit both the '$set$' switch cases.
+	* ldi_check.php3: fixed bug #448522 (Insert Data Error on Win32-Server).
 
 2001-08-08  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_replace.php3: remove warning in a new row if a 'set' field is not

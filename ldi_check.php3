@@ -30,15 +30,14 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     }
 
     // Formats the data posted to this script
+    $textfile             = sql_addslashes($textfile);
     if (get_magic_quotes_gpc()) {
-        $textfile         = sql_addslashes(stripslashes($textfile));
         $field_terminater = sql_addslashes(stripslashes($field_terminater));
         $enclosed         = sql_addslashes(stripslashes(str_replace('&quot;', '"', $enclosed)));
         $escaped          = sql_addslashes(stripslashes($escaped));
         $line_terminator  = sql_addslashes(stripslashes($line_terminator));
         $column_name      = sql_addslashes(stripslashes($column_name));
     } else {
-        $textfile         = sql_addslashes($textfile);
         $field_terminater = sql_addslashes($field_terminater);
         $enclosed         = sql_addslashes(str_replace('&quot;', '"', $enclosed));
         $escaped          = sql_addslashes($escaped);
