@@ -242,11 +242,10 @@ if ($sql_file != 'none') {
 
         if (!empty($open_basedir)) {
             // check if '.' is in open_basedir
-            $pos = strpos($open_basedir, '.');
+            $pos = strpos(' ' . $open_basedir, '.');
 
             // from the PHP annotated manual
-            if (   (PMA_PHP_INT_VERSION < 40000 && is_integer($pos) && !$pos)
-                || (PMA_PHP_INT_VERSION >= 40000 && $pos === false) ) {
+            if (!$pos) {
                 // if no '.' in openbasedir, do not move the file, force the
                 // error and let PHP report it
                 error_reporting(E_ALL);
