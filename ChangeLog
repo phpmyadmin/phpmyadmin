@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-15 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_change.php3: Fixed table layout when LongtextDoubleTextarea is
+      false.
+    * tbl_select.php3: Fixed problems with empty value in enum.
+    
 2003-05-18 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php3, index.php3: bug 739348: because the db name is no longer
       encoded in left.php3 (to accomodate html entities), we have to stop
@@ -14,7 +19,7 @@ $Source$
 
 2003-05-15 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation, config.inc.php3, tbl_change.php3,
-      libraries/config_import.lib.php3: Double sized textare for LONGTEXT is
+      libraries/config_import.lib.php3: Double sized textarea for LONGTEXT is
       configurable (RFE #737174).
 
 2003-05-14 Michal Cihar  <nijel@users.sourceforge.net>

@@ -50,8 +50,6 @@ if (!isset($param) || $param[0] == '') {
             $shorttype     = substr($type, 0, 3);
             if ($shorttype == 'set' || $shorttype == 'enu') {
                 $type      = eregi_replace(',', ', ', $type);
-                // Removes automatic MySQL escape format
-                $type      = str_replace('\'\'', '\\\'', $type);
             } else {
                 $type          = eregi_replace('BINARY', '', $type);
                 $type          = eregi_replace('ZEROFILL', '', $type);

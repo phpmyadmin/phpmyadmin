@@ -239,7 +239,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     ?>
     <tr>
-        <td <?php echo (strstr($row_table_def['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($field); ?></td>
+        <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($row_table_def['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($field); ?></td>
     <?php
     echo "\n";
 
