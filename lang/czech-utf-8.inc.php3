@@ -644,4 +644,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
+$strLoadMethod = 'LOAD method';  //to translate
+$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>

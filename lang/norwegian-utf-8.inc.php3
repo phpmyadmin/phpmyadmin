@@ -642,4 +642,6 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrens
 $strZip = 'Komprimert (zip)';
 // To translate
 
+$strLoadMethod = 'LOAD method';  //to translate
+$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>

@@ -639,4 +639,6 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
+$strLoadMethod = 'LOAD method';  //to translate
+$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>

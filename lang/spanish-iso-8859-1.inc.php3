@@ -638,4 +638,6 @@ $strZip = '"comprimido con zip"';
 
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table'; //to translate
 
+$strLoadMethod = 'LOAD method';  //to translate
+$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>

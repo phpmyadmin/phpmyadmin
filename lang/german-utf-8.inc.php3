@@ -645,4 +645,6 @@ $strDumpSaved = 'Dump (Schema) wurde in Datei %s gespeichert.';
 $strNoPermission = 'Der Webserver hat keine Schreibrechte um die Datei %s zu speichern.';
 $strNoSpace = 'Zu wenig Speicherplatz um die Datei %s zu speichern.';
 $strInsertedRowId = 'Letzte automatisch eingefügte ID:';
+$strLoadMethod = 'LOAD method';  //to translate
+$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>

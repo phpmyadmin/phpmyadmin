@@ -640,4 +640,6 @@ $strYes = '是';
 
 $strZeroRemovesTheLimit = '注意：将这些选项设为 0 (零)将删除限制。';
 $strZip = '"zipped"';
+$strLoadMethod = 'LOAD method';  //to translate
+$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>

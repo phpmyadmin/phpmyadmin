@@ -639,4 +639,6 @@ $strDumpSaved = 'Dump has been saved to file %s.';  //to translate
 $strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
 $strNoSpace = 'Insufficient space to save the file %s.';  //to translate
 $strInsertedRowId = 'Inserted row id:';  //to translate
+$strLoadMethod = 'LOAD method';  //to translate
+$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>
