@@ -72,7 +72,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
     // For compatibility with old config.inc.php3
     if (!isset($cfg)) {
-        include('config_import.inc.php3');
+        include('./config_import.inc.php3');
     }
 
     /**

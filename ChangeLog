@@ -6,11 +6,13 @@ $Id$
 $Source$
 
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>
-        * ## created 2.2.7 branch into the CVS tree ##
-        * lang/nowegian.inc.php: updated thanks to Sven-Erik Andersen.
-        * lang/brazilian_portuguese.inc.php3: updated thanks to Renato Lins.
-        * sql.php3; tbl_replace.php3: patch #547030 - file_exists $goto thanks to
-          Melvyn Sopacua <nyvlem at users.sourceforge.net>.
+	* ## created 2.2.7 branch into the CVS tree ##
+	* lang/nowegian.inc.php: updated thanks to Sven-Erik Andersen.
+	* lang/brazilian_portuguese.inc.php3: updated thanks to Renato Lins.
+	* sql.php3; tbl_replace.php3: patch #547030 - file_exists $goto thanks to
+	  Melvyn Sopacua <nyvlem at users.sourceforge.net>.
+	* libraries/common.lib.php3, line 70: "invalid" path.
+	* tbl_printview.php3; tbl_qbe.php3: coding standards and warnings.
 
 2002-04-26 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_qbe.php3: automatic joints from Relation table, thanks
