@@ -136,7 +136,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     include('./libraries/defines.lib.php3');
 
     // For compatibility with old config.inc.php3
-    include('./libraries/config_import.lib.php3');
+    if (!isset($cfg['FileRevision']) || (int)substr($cfg['FileRevision'],13,3) < 110) {
+        include('./libraries/config_import.lib.php3');
+    }
 
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
