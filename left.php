@@ -543,7 +543,7 @@ if ($num_dbs > 1) {
             }
 
             if ($cfg['NaturalOrder']) {
-                natcasesort($table_array);
+                natsort($table_array);
             }
 
             foreach ($table_array as $table => $table_sortkey) {

@@ -20,7 +20,9 @@ $Source$
     * main.php, themes.php, libraries/common.lib.php,
       libraries/defines.lib.php, libraries/select_theme.lib.php,
       themes/darkblue_orange/info.inc.php, themes/original/info.inc.php:
-      Impleneted versioning and naming for themes (RFEs #991642 and #991645).
+      Implemeted versioning and naming for themes (RFEs #991642 and #991645).
+    * left.php: Use always natsort and not natcasesort in one case, it caused
+      inconsistency (bug #1008120).
 
 2004-08-11 Michal Čihař  <michal@cihar.com>
     * tbl_replace.php: Do not empty protected values (bug #1006812).
