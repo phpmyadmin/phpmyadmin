@@ -85,6 +85,7 @@ if (isset($submit_search)) {
         $search_wds_cnt  = count($search_words);
 
         $like_or_regex   = (($search_option == 4) ? 'REGEXP' : 'LIKE');
+        $automatic_wildcard   = (($search_option <3) ? '%' : '');
 
         for ($i = 0; $i < $search_wds_cnt; $i++) {
             // Elimines empty values
@@ -92,7 +93,10 @@ if (isset($submit_search)) {
                 for ($j = 0; $j < $tblfields_cnt; $j++) {
                     $thefieldlikevalue[] = $tblfields[$j]
                                          . ' ' . $like_or_regex
-                                         . ' \'' . $search_words[$i] . '\'';
+                                         . ' \'' 
+                                         . $automatic_wildcard
+                                         . $search_words[$i]
+                                         . $automatic_wildcard . '\'';
                 } // end for
 
                 $fieldslikevalues[]      = ($search_wds_cnt > 1)

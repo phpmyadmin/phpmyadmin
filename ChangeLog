@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_search.php3: automatic wildcard
+
 2002-12-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/grab_globals.lib.php3: Back to previous version.
 
