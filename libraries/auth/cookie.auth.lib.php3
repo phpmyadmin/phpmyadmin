@@ -396,7 +396,7 @@ if (uname.value == '') {
 
         // The user wants to be logged out -> delete password cookie
         if (!empty($old_usr)) {
-            setcookie('pma_cookie_password', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+            setcookie('pma_cookie_password', base64_encode(''), 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
         }
 
         // The user just logged in
@@ -434,6 +434,7 @@ if (uname.value == '') {
             else {
                 $from_cookie   = FALSE;
             }
+            $PHP_AUTH_PW = base64_decode($PHP_AUTH_PW);
             $PHP_AUTH_PW = PMA_blowfish_decrypt($PHP_AUTH_PW,$GLOBALS['cfg']['Server']['blowfish_secret']);
 
             if ($PHP_AUTH_PW == "\xff(blank)") {
@@ -501,9 +502,12 @@ if (uname.value == '') {
                 time() + (60 * 60 * 24 * 30),
                 $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);
+
             // Duration = till the browser is closed for password
+            // Some binary contents are now retrieved properly when stored
+            // as a cookie, so we base64_encode()
             setcookie('pma_cookie_password',
-                PMA_blowfish_encrypt(((!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)"), $GLOBALS['cfg']['Server']['blowfish_secret']),
+                base64_encode(PMA_blowfish_encrypt(((!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)"), $GLOBALS['cfg']['Server']['blowfish_secret'])),
                 0,
                 $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);
@@ -541,7 +545,7 @@ if (uname.value == '') {
 	global $conn_error;
 
         // Deletes password cookie and displays the login form
-        setcookie('pma_cookie_password', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+        setcookie('pma_cookie_password', base64_encode(''), 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
 
         if (PMA_mysql_error()) {
             $conn_error = PMA_mysql_error();
