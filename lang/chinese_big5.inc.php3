@@ -1,7 +1,10 @@
 <?php
 /* $Id$ */
-// Last translation by: siusun <siusun@best-view.net>
-// Follow by the original translation of Taiyen Hung ¬x®õ¤¸<yen789@pchome.com.tw>
+
+/**
+ * Last translation by: siusun <siusun@best-view.net>
+ * Follow by the original translation of Taiyen Hung ¬x®õ¤¸<yen789@pchome.com.tw>
+ */
 
 $charset = 'big5';
 $text_dir = 'ltr';
@@ -365,6 +368,7 @@ $strYes = ' ¬O ';
 
 $strZip = '"zipped"';
 
+// To translate
 $strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
 $strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
 ?>

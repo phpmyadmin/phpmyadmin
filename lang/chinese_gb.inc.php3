@@ -1,6 +1,9 @@
 <?php
 /* $Id$ */
-// Last translation by: siusun <siusun@best-view.net>
+
+/**
+ * Last translation by: siusun <siusun@best-view.net>
+ */
 
 $charset = 'gb2312';
 $text_dir = 'ltr';
@@ -365,6 +368,7 @@ $strYes = 'ÊÇ';
 
 $strZip = '"zipped"';
 
+// To translate
 $strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
 $strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
 ?>
