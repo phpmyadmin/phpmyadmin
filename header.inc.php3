@@ -55,7 +55,7 @@ if (!empty($cfg['PmaAbsoluteUri'])) {
 ?>
 <style type="text/css">
 <!--
-body            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: <?php echo $cfg['RightBgColor']; ?>}
+body            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-image:url('images/bkg.gif'); background-repeat:repeat-y; background-color: <?php echo $cfg['RightBgColor']; ?>}
 pre, tt         {font-size: <?php echo $font_size; ?>}
 th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: <?php echo $cfg['ThBgcolor']; ?>}
 td              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
@@ -159,7 +159,7 @@ echo "\n";
 </head>
 
 
-<body bgcolor="<?php echo $cfg['RightBgColor']; ?>" background="images/bkg.gif">
+<body bgcolor="<?php echo $cfg['RightBgColor']; ?>">
 <?php
 if (isset($db)) {
     $header_url_qry = '?lang=' . urlencode($lang)
