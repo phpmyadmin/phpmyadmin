@@ -11,6 +11,7 @@ $Source$
       lang/lithuanian-*.inc.php3, lang/malay-*.inc.php3,
       lang/russian-*.inc.php3, lang/ukrainian-*.inc.php3: Checked all language
       files for incomplete arrays ($byteUnits, $day_of_week and $month).
+    * libraries/common.lib.php3: Security fix against bad JS code.
 
 2003-06-22 Robin Johnson <robbat2@users.sourceforge.net>
     * scripts/updatedocs.sh:

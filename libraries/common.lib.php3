@@ -411,7 +411,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // Robbat2 - 12 January 2003, 9:46PM
             // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
             if (PMA_SQP_isError()) {
-                $parsed_sql = $the_query;
+                $parsed_sql = htmlspecialchars($the_query);
             } else {
                 $parsed_sql = PMA_SQP_parse($the_query);
             }
