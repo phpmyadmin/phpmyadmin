@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-24 Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/string.lib.php3: optimizations (thanks Loïc)
+
+2002-07-24 Loïc Chapeaux  <lolo@phpheaven.net>
+    * libraries/string.lib.php3: Function documentation
+
 2002-07-23 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/string.lib.php3: String functions for the new
       SQL Parser system

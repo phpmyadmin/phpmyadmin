@@ -1,150 +1,276 @@
 <?php
 /* $Id$ */
 
-if(!defined('PMA_STR_LIB_INCLUDED')) {
+
+/** Specialized String Functions for phpMyAdmin
+ *
+ * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
+ * http://www.orbis-terrarum.net/?l=people.robbat2
+ *
+ * Defines a set of function callbacks that have a pure C version available if
+ * the "ctype" extension is available, but otherwise have PHP versions to use
+ * (that are slower).
+ *
+ * The SQL Parser code relies heavily on these functions.
+ */
+
+
+if (!defined('PMA_STR_LIB_INCLUDED')) {
     define('PMA_STR_LIB_INCLUDED', 1);
-    /* Specialized String Functions for phpMyAdmin
-    **
-    ** Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
-    ** http://www.orbis-terrarum.net/?l=people.robbat2
-    **
-    ** Defines a set of function callbacks that have a pure C version 
-    ** available if the ctype extension is available, but otherwise 
-    ** have PHP versions to use (that are slower)
-    **
-    ** The SQL Parser code relies heavily on these functions
-    **/
 
     /**
      * This checks if a string actually exists inside another string
-     * We try to do it in a PHP3-portable way 
+     * We try to do it in a PHP3-portable way.
      * We don't care about the position it is in.
      *
-     * @param   string  string to search for
-     * @param   string  string to search in
+     * @param   string   string to search for
+     * @param   string   string to search in
      *
-     * @return  boolean if the needle is in the haystack
+     * @return  boolean  whether the needle is in the haystack or not
      */
-    function PMA_STR_StrInStr($needle,$haystack)
-    {	
-        // strpos($haystack,$needle) !== FALSE
-        return (is_integer(strpos($haystack,$needle)));
-    }
+    function PMA_STR_StrInStr($needle, $haystack)
+    {
+        // strpos($haystack, $needle) !== FALSE
+        // return (is_integer(strpos($haystack, $needle)));
+        return strpos(' ' . $haystack, $needle);
+    } // end of the "PMA_STR_strInStr()" function
 
-    // checks if a given character position in
-    // the string is escaped or not
-    function PMA_STR_CharIsEscaped($string,$pos,$start=0)
-    {	
+
+    /**
+     * Checks if a given character position in the string is escaped or not
+     *
+     * @param   string   string to check for
+     * @param   integer  the character to check for
+     * @param   integer  starting position in the string
+     *
+     * @return  boolean  whether the character is escaped or not
+     */
+    function PMA_STR_charIsEscaped($string, $pos, $start=0)
+    {
         $len = strlen($string);
-        // Base case
-        // Check for string length or invalid input
-        // or special case of input
+        // Base case:
+        // Check for string length or invalid input or special case of input
         // (pos == $start)
-        if($pos == $start || $len <= $pos) {
+        if (($pos == $start) || ($len <= $pos)) {
             return FALSE;
         }
 
-        $p = $pos-1;
-        $escaped = FALSE;
-        while(($p >= $start) && ($string[$p] == "\\")) {	
+        $p           = $pos - 1;
+        $escaped     = FALSE;
+        while (($p >= $start) && ($string[$p] == '\\')) {
             $escaped = !$escaped;
             $p--;
+        } // end while
+
+        if ($pos < $start) {
+            // throw error about strings
         }
 
-        if($pos < $start) {
-            //throw error about strings
-        }
         return $escaped;
+    } // end of the "PMA_STR_strInStr()" function
 
-    }
 
-    function PMA_STR_NumberInRangeInclusive($num,$lower,$upper)
-    {	
-        return ($num >= $lower) && ($num <= $upper);
-    }
+    /**
+     * Checks if a number is in a range
+     *
+     * @param   integer  number to check for
+     * @param   integer  lower bound
+     * @param   integer  upper bound
+     *
+     * @return  boolean  whether the number is in the range or not
+     */
+    function PMA_STR_NumberInRangeInclusive($num, $lower, $upper)
+    {
+        return (($num >= $lower) && ($num <= $upper));
+    } // end of the "PMA_STR_NumberInRangeInclusive()" function
 
-    function PMA_STR_isdigit($c)
-    {	
+
+    /**
+     * Checks if a character is a digit
+     *
+     * @param   string   character to check for
+     *
+     * @return  boolean  whether the character is a digit or not
+     *
+     * @see     PMA_STR_NumberInRangeInclusive()
+     */
+    function PMA_STR_IsDigit($c)
+    {
         $ord_zero = 48; //ord('0');
         $ord_nine = 57; //ord('9');
-        $ord_c = ord($c);
-        return PMA_STR_NumberInRangeInclusive($ord_c,$ord_zero,$ord_nine);
-    }
+        $ord_c    = ord($c);
 
-    function PMA_STR_ishexdigit($c)
-    {	
-        $ord_Aupper = 65; //ord('A');
-        $ord_Fupper = 70; //ord('F');
-        $ord_Alower = 97; //ord('a');
+        return PMA_STR_NumberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
+    } // end of the "PMA_STR_IsDigit()" function
+
+
+    /**
+     * Checks if a character is an hexadecimal digit
+     *
+     * @param   string   character to check for
+     *
+     * @return  boolean  whether the character is an hexadecimal digit or not
+     *
+     * @see     PMA_STR_NumberInRangeInclusive()
+     */
+    function PMA_STR_IsHexDigit($c)
+    {
+        $ord_Aupper = 65;  //ord('A');
+        $ord_Fupper = 70;  //ord('F');
+        $ord_Alower = 97;  //ord('a');
         $ord_Flower = 102; //ord('f');
-        $ord_zero = 48; //ord('0');
-        $ord_nine = 57; //ord('9');
-        $ord_c = ord($c);
-        return 
-        PMA_STR_NumberInRangeInclusive($ord_c,$ord_zero,$ord_nine)
-        || PMA_STR_NumberInRangeInclusive($ord_c,$ord_Aupper,$ord_Fupper)
-        || PMA_STR_NumberInRangeInclusive($ord_c,$ord_Alower,$ord_Flower);
-    }
+        $ord_zero   = 48;  //ord('0');
+        $ord_nine   = 57;  //ord('9');
+        $ord_c      = ord($c);
 
-    function PMA_STR_isupper($c)
-    {	
+        return (PMA_STR_NumberInRangeInclusive($ord_c, $ord_zero, $ord_nine)
+                || PMA_STR_NumberInRangeInclusive($ord_c, $ord_Aupper, $ord_Fupper)
+                || PMA_STR_NumberInRangeInclusive($ord_c, $ord_Alower, $ord_Flower));
+    } // end of the "PMA_STR_IsHexDigit()" function
+
+
+    /**
+     * Checks if a character is an upper alphabetic one
+     *
+     * @param   string   character to check for
+     *
+     * @return  boolean  whether the character is an upper alphabetic one or
+     *                   not
+     *
+     * @see     PMA_STR_NumberInRangeInclusive()
+     */
+    function PMA_STR_IsUpper($c)
+    {
         $ord_zero = 65; //ord('A');
         $ord_nine = 90; //ord('Z');
-        $ord_c = ord($c);
-        return PMA_STR_NumberInRangeInclusive($ord_c,$ord_zero,$ord_nine);
-    }
+        $ord_c    = ord($c);
 
-    function PMA_STR_islower($c)
-    {	
-        $ord_zero = 97; //ord('a');
+        return PMA_STR_NumberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
+    } // end of the "PMA_STR_IsUpper()" function
+
+
+    /**
+     * Checks if a character is a lower alphabetic one
+     *
+     * @param   string   character to check for
+     *
+     * @return  boolean  whether the character is a lower alphabetic one or
+     *                   not
+     *
+     * @see     PMA_STR_NumberInRangeInclusive()
+     */
+    function PMA_STR_IsLower($c)
+    {
+        $ord_zero = 97;  //ord('a');
         $ord_nine = 122; //ord('z');
-        $ord_c = ord($c);
-        return PMA_STR_NumberInRangeInclusive($ord_c,$ord_zero,$ord_nine);
-    }
+        $ord_c    = ord($c);
 
-    function PMA_STR_isalpha($c)
-    {	
-        return PMA_STR_isupper($c) || PMA_STR_islower($c);
-    }
+        return PMA_STR_NumberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
+    } // end of the "PMA_STR_IsLower()" function
 
-    function PMA_STR_isalnum($c)
-    {	
-        return PMA_STR_isupper($c) || PMA_STR_islower($c) || PMA_STR_isdigit($c);
-    }
 
-    function PMA_STR_isspace($c)
-    {	
-        $ord_tab = 9;
-        $ord_CR = 13;
-        $ord_c = ord($c);
-        return  ($ord_c == 32) ||
-        PMA_STR_NumberInRangeInclusive($ord_c,$ord_tab,$ord_CR);
-    }
+    /**
+     * Checks if a character is an alphabetic one
+     *
+     * @param   string   character to check for
+     *
+     * @return  boolean  whether the character is an alphabetic one or not
+     *
+     * @see     PMA_STR_IsUpper()
+     * @see     PMA_STR_IsLower()
+     */
+    function PMA_STR_IsAlpha($c)
+    {
+        return (PMA_STR_IsUpper($c) || PMA_STR_IsLower($c));
+    } // end of the "PMA_STR_IsAlpha()" function
 
-    function PMA_STR_isSQLidentifier($c,$dotIsValid=FALSE)
-    {	
-        return PMA_STR_isalnum($c) || ($c == '_') || ($c == '$') || (($dotIsValid != FALSE) && ($c == '.'));
-    }
 
-    function PMA_STR_BinarySearchInArr($str,$arr,$arrsize)
-    {	
-        //$arr NUST be sorted, due to binary search
-        $top = $arrsize-1;
+    /**
+     * Checks if a character is an alphanumeric one
+     *
+     * @param   string   character to check for
+     *
+     * @return  boolean  whether the character is an alphanumeric one or not
+     *
+     * @see     PMA_STR_IsUpper()
+     * @see     PMA_STR_IsLower()
+     * @see     PMA_STR_IsDigit()
+     */
+    function PMA_STR_IsAlnum($c)
+    {
+        return (PMA_STR_IsUpper($c) || PMA_STR_IsLower($c) || PMA_STR_IsDigit($c));
+    } // end of the "PMA_STR_IsAlnum()" function
+
+
+    /**
+     * Checks if a character is a space one
+     *
+     * @param   string   character to check for
+     *
+     * @return  boolean  whether the character is a space one or not
+     *
+     * @see     PMA_STR_NumberInRangeInclusive()
+     */
+    function PMA_STR_IsSpace($c)
+    {
+        $ord_space = 32; //ord(' ')
+        $ord_tab = 9; //ord('\t')
+        $ord_CR  = 13; //ord('\n')
+        $ord_c   = ord($c);
+
+        return (($ord_c == $ord_space)
+                || PMA_STR_NumberInRangeInclusive($ord_c, $ord_tab, $ord_CR));
+    } // end of the "PMA_STR_IsSpace()" function
+
+
+    /**
+     * Checks if a character is an SQL identifier
+     *
+     * @param   string   character to check for
+     * @param   boolean  whether the dot character is valid or not
+     *
+     * @return  boolean  whether the character is an SQL identifier or not
+     *
+     * @see     PMA_STR_IsAlnum()
+     */
+    function PMA_STR_IsSqlIdentifier($c, $dot_is_valid = FALSE)
+    {
+        return (PMA_STR_IsAlnum($c)
+                || ($c == '_') || ($c == '$')
+                || (($dot_is_valid != FALSE) && ($c == '.')));
+    } // end of the "PMA_STR_IsSqlIdentifier()" function
+
+
+    /**
+     * Binary search of a value in a sorted array
+     *
+     * @param   string   string to search for
+     * @param   array    sorted array to search into
+     * @param   integer  size of sorted array to search into
+     *
+     * @return  boolean  whether the string has been found or not
+     */
+    function PMA_STR_binarySearchInArr($str, $arr, $arrsize)
+    {
+        // $arr NUST be sorted, due to binary search
+        $top    = $arrsize - 1;
         $bottom = 0;
-        $found = FALSE;
-        while( ($top >= $bottom) && ($found == FALSE)) {
-            $mid = intval(($top+$bottom)/2);
-            $res = strcmp($str,$arr[$mid]);
-            if($res == 0) {
-                $found = TRUE;
-            } elseif($res < 0) {
-                $top = $mid-1;
-            } else { 
-                $bottom = $mid+1;
+        $found  = FALSE;
+
+        while (($top >= $bottom) && ($found == FALSE)) {
+            $mid        = intval(($top + $bottom) / 2);
+            $res        = strcmp($str, $arr[$mid]);
+            if ($res == 0) {
+                $found  = TRUE;
+            } else if ($res < 0) {
+                $top    = $mid - 1;
+            } else {
+                $bottom = $mid + 1;
             }
-        }
+        } // end while
+
         return $found;
-    }
+    } // end of the "PMA_STR_binarySearchInArr()" function
 
 } // $__PMA_STR_LIB__
 
