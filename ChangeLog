@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-25 Loïc Chapeaux  <lolo@phpheaven.net>
+    * libraries/sqlparser.lib.php3: PHP3 parse errors fixed,
+
 2002-07-24 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3:
         - Fix code to work around CSS bug in Mozilla/Konqueror with 'inherit'

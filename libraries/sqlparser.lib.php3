@@ -101,7 +101,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             6 => '<>',
             7 => '>=',
             8 => '>>',
-            9 => '||',
+            9 => '||'
         );
         $allpunct_list_pair_size = 10; //count($allpunct_list_pair);
         $quote_list              = "\'\"\`";
@@ -444,7 +444,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'list_tbl'       => array(),
             'list_tbl_alias' => array(),
             'list_col'       => array(),
-            'list_col_alias' => array(),
+            'list_col_alias' => array()
         );
         $subresult_empty = $subresult;
         $seek_queryend   = FALSE;
@@ -757,9 +757,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         $str = '.' . $classname . ' {';
         if($value != '') {
             $str .= $property . ': ' . $value . '; ';
-        } 
+        }
         $str .= '}' . "\n";
-        return $str; 
+
+        return $str;
     } // end of the "PMA_SQP_buildCssRule()" function
 
 
