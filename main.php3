@@ -82,7 +82,7 @@ if ($server == 0 || count($cfgServers) > 1) {
 </tr>
 <tr>
     <td>
-        <form action="index.php3" target="_top">
+        <form action="index.php3" target="_parent">
             <select name="server">
     <?php
     echo "\n";
@@ -301,7 +301,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="index.php3?<?php echo$common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_top">
+                <a href="index.php3?<?php echo$common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
                     <b><?php echo $strLogout; ?></b></a>&nbsp;
                 <a href="<?php echo $cfgPmaAbsoluteUri; ?>Documentation.html#login_bug" target="documentation">(*)</a>
             </td>
@@ -420,7 +420,7 @@ if (empty($cfgLang)) {
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <form method="post" action="index.php3" target="_top">
+                <form method="post" action="index.php3" target="_parent">
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     Language:
                     <select name="lang" onchange="this.form.submit();">
