@@ -13,6 +13,7 @@ $Source$
       - "Check privileges" should now also check for wildcards;
       - The revoke mode for deleting users did not always produce valid MySQL.
     * lang/chinese-*.inc.php3: Fixed bug #682161 by removing some errornous strings.
+    * ANNOUNCE.txt: synchronized list of features and fixes.
 
 2003-02-16 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
