@@ -383,5 +383,4 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
 ?>
