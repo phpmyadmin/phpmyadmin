@@ -91,6 +91,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     if (!isset($cfg)) {
         include('./config_import.inc.php3');
     }
+    if (!isset($cfg['UseDbSearch'])) {
+        $cfg['UseDbSearch'] = TRUE;
+    }
 
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
