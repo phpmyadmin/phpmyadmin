@@ -5,12 +5,23 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-23 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/mysql_charsets.lib.php3:
+      - better method for retrieving the supported MySQL charsets;
+      - fixed a bug that caused "armascii8" to appear twice in the charsets
+        list (as "armascii8" and "armascii");
+      - added ability to retrieve all collations and related MySQL settings;
+      - added a function to build description strings for given collations
+        (still needs some optimization).
+    * server_collations.php3, server_links.inc.php3, lang/*.inc.php3:
+      New status page "Character Sets and Collations" for MySQL 4.1.
+
 2003-07-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/grab_globals.lib.php3: error when $_SERVER does not exist
     * tbl_printview.php3: wrong validation for path disclosure (bug 776436)
 
 2003-07-23 Garvin Hicking <me@supergarv.de>
-    * css/phpmyadmin.css.php3: Removed 'lowercase' transform 
+    * css/phpmyadmin.css.php3: Removed 'lowercase' transform
       (Bug #769827)
     * libraries/display_export.lib.php3, libraries/export/sql.php3
       Only print Update/Creation/Check time when the checkbox 'Include
@@ -35,17 +46,17 @@ $Source$
 2003-07-18 Garvin Hicking <me@supergarv.de>
     * read_dump.php3: When PHP3 < 4.3.0 is detected, try an alternative
       way of rewriting bookmark variables.
-    * Documentation.html: Bookmark variable expansion only works with PHP 
+    * Documentation.html: Bookmark variable expansion only works with PHP
       4.3.0 and above
-    * tbl_query_box.php3: For the querywindow - if no items are available 
-      for the 'file import' tab, hide the 'Go' button and instead display 
+    * tbl_query_box.php3: For the querywindow - if no items are available
+      for the 'file import' tab, hide the 'Go' button and instead display
       a warning message. Can happen if you don't have $cfg['UploadDir']
       set and $is_upload is false.
 
 2003-07-17 Marc Delisle  <lem9@users.sourceforge.net>
     * server_status.php3: the percentages of Query types did not add up
       to 100, because the number of connections is included in the total
-      number of queries, thanks to jht001 ( Jams H Thompson )  
+      number of queries, thanks to jht001 ( Jams H Thompson )
 
 2003-07-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_change.php3, libraries/common.lib.php3: Fixed a MySQL 4.1 bug that

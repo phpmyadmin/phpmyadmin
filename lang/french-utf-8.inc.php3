@@ -656,4 +656,25 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
+$strCharsets = 'Charsets';  //to translate
+$strDescription = 'Description';  //to translate
+$strCharsetsAndCollations = 'Character Sets and Collations';  //to translate
+$strCollation = 'Collation';  //to translate
+$strMultilingual = 'multilingual';  //to translate
+$strGerman = 'German';  //to translate
+$strPhoneBook = 'phone book';  //to translate
+$strDictionary = 'dictionary';  //to translate
+$strSwedish = 'Swedish';  //to translate
+$strDanish = 'Danish';  //to translate
+$strCzech = 'Czech';  //to translate
+$strTurkish = 'Turkish';  //to translate
+$strEnglish = 'English';  //to translate
+$strHungarian = 'Hungarian';  //to translate
+$strCroatian = 'Croatian';  //to translate
+$strBulgarian = 'Bulgarian';  //to translate
+$strLithuanian = 'Lithuanian';  //to translate
+$strEstonian = 'Estonian';  //to translate
+$strCaseInsensitive = 'case-insensitive';  //to translate
+$strCaseSensitive = 'case-sensitive';  //to translate
+$strUkrainian = 'Ukrainian';  //to translate
 ?>

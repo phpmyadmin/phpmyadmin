@@ -55,6 +55,9 @@ if ($cfg['ShowMysqlInfo']) {
 if ($cfg['ShowMysqlVars']) {
     echo PMA_printTab($strServerTabVariables, 'server_variables.php3', $url_query);
 }
+if (PMA_MYSQL_INT_VERSION >= 40100) {
+    echo PMA_printTab($strCharsets, 'server_collations.php3', $url_query);
+}
 if ($is_superuser) {
     echo PMA_printTab($strPrivileges, 'server_privileges.php3', $url_query);
 }
