@@ -652,6 +652,10 @@ if (!isset($cfg['BgcolorTwo'])) {
     }
 }
 
+if (!isset($cfg['BrowsePointerEnable'])) {
+    $cfg['BrowsePointerEnable'] = TRUE;
+}
+
 if (!isset($cfg['BrowsePointerColor'])) {
     if (isset($cfgBrowsePointerColor)) {
         $cfg['BrowsePointerColor'] = $cfgBrowsePointerColor;
@@ -659,6 +663,9 @@ if (!isset($cfg['BrowsePointerColor'])) {
     } else {
         $cfg['BrowsePointerColor'] = '#CCFFCC';
     }
+// no longer accept an empty value to mean "disable the pointer"
+} elseif ($cfg['BrowsePointerColor'] == '') {
+    $cfg['BrowsePointerColor'] = '#CCFFCC';
 }
 
 if (!isset($cfg['BrowseMarkerColor'])) {

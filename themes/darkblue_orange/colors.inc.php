@@ -12,7 +12,6 @@ $cfg['ThBgcolor']           = '#666699';    // table header row colour
 $cfg['BgcolorOne']          = '#EEEEEE';    // table data row colour
 $cfg['BgcolorTwo']          = '#E5E5E5';    // table data row colour, alternate
 $cfg['BrowsePointerColor']  = '#CCCCFF';    // color of the pointer in browse mode
-                                            // (blank for no pointer)
 $cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
                                             // by clicking on it) in browse mode
                                             // (blank for no marker)

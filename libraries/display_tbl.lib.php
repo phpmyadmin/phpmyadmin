@@ -1060,9 +1060,11 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             // loic1: pointer code part
             $on_mouse     = '';
             if (!isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1')) {
-                if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+                if ($GLOBALS['cfg']['BrowsePointerEnable'] == TRUE) {
                     $on_mouse = ' onmouseover="setPointer(this, ' . $row_no . ', \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
                               . ' onmouseout="setPointer(this, ' . $row_no . ', \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+                } else {
+                    $on_mouse = '';
                 }
                 if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
                     $on_mouse .= ' onmousedown="setPointer(this, ' . $row_no . ', \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
@@ -1216,7 +1218,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             }
 
             if ($disp_direction == 'vertical' && (!isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1'))) {
-                if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+                if ($GLOBALS['cfg']['BrowsePointerColor'] == TRUE) {
                     $column_style .= ' onmouseover="setVerticalPointer(this, ' . $row_no . ', \'over\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
                               . ' onmouseout="setVerticalPointer(this, ' . $row_no . ', \'out\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
                 }
@@ -1489,7 +1491,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
         }
 
         $column_style_vertical = '';
-        if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+        if ($GLOBALS['cfg']['BrowsePointerEnable'] == TRUE) {
             $column_style_vertical .= ' onmouseover="setVerticalPointer(this, ' . $row_no . ', \'over\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
                          . ' onmouseout="setVerticalPointer(this, ' . $row_no . ', \'out\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
         }

@@ -83,9 +83,11 @@ echo '&nbsp;</th>' . "\n";
 $useBgcolorOne = TRUE;
 $on_mouse='';
 foreach ($serverVars as $name => $value) {
-        if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+        if ($GLOBALS['cfg']['BrowsePointerEnable'] == TRUE) {
             $on_mouse = ' onmouseover="this.style.backgroundColor=\'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\';"'
                       . ' onmouseout="this.style.backgroundColor=\'' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '\';"';
+        } else {
+            $on_mouse = '';
         }
 ?>
     <tr bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>"<?php echo $on_mouse; ?>>
