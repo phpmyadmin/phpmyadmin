@@ -287,7 +287,17 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if ($data == 'NULL') {
             echo ' checked="checked"';
         }
-        echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'fields[' . urlencode($field) . ']\'].value = \'\'}; return true" />' . "\n";
+        if (strstr($row_table_def['True_Type'], 'enum')) {
+            if (strlen($row_table_def['Type']) > 20) {
+                echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'field_' . md5($field) . '[]\'].selectedIndex = -1}; return true" />' . "\n";
+            } else {
+                echo ' onclick="if (this.checked) {var elts = document.forms[\'insertForm\'].elements[\'field_' . md5($field) . '[]\']; var elts_cnt = elts.length; for (var i = 0; i < elts_cnt; i++ ) {elts[i].checked = false}}; return true" />' . "\n";
+            }
+        } else if (strstr($row_table_def['True_Type'], 'set')) {
+            echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'field_' . md5($field) . '[]\'].selectedIndex = -1}; return true" />' . "\n";
+	} else {
+            echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'fields[' . urlencode($field) . ']\'].value = \'\'}; return true" />' . "\n";
+        }
     } else {
         echo '            &nbsp;' . "\n";
     }
