@@ -75,24 +75,6 @@ if ($is_upload) {
     <div style="margin-bottom: 5px">
         <input type="file" name="sql_file" class="textfield" /><br />
     <?php
-    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-        $temp_charset = reset($cfg['AvailableCharsets']);
-        echo $strCharsetOfFile . "\n"
-             . '    <select name="charset_of_file" size="1">' . "\n"
-             . '            <option value="' . $temp_charset . '"';
-        if ($temp_charset == $charset) {
-            echo ' selected="selected"';
-        }
-        echo '>' . $temp_charset . '</option>' . "\n";
-        while ($temp_charset = next($cfg['AvailableCharsets'])) {
-            echo '            <option value="' . $temp_charset . '"';
-            if ($temp_charset == $charset) {
-                echo ' selected="selected"';
-            }
-            echo '>' . $temp_charset . '</option>' . "\n";
-        }
-        echo '        </select><br />' . "\n" . '    ';
-    } // end if (recoding)
     $is_gzip = ($cfg['GZipDump'] && @function_exists('gzopen'));
     $is_bzip = ($cfg['BZipDump'] && @function_exists('bzdecompress'));
     if ($is_bzip || $is_gzip) {
@@ -119,14 +101,15 @@ if ($is_upload) {
 echo "\n";
 
 // web-server upload directory
-// (TODO: display the charset selection, even if is_upload == FALSE)
 
+$is_upload_dir = false;
 if ($cfg['UploadDir'] != '') {
     if ($handle = @opendir($cfg['UploadDir'])) {
         $is_first = 0;
         while ($file = @readdir($handle)) {
             if (is_file($cfg['UploadDir'] . $file) && substr($file, -4) == '.sql') {
                 if ($is_first == 0) {
+                    $is_upload_dir = true;
                     echo "\n";
                     echo '    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";
                     echo '    <div style="margin-bottom: 5px">' . "\n";
@@ -150,6 +133,30 @@ if ($cfg['UploadDir'] != '') {
         echo '    </div>' . "\n";
     }
 } // end if (web-server upload directory)
+
+// Charset conversion options
+if ($is_upload || $is_upload_dir) {
+    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+        echo '    <div style="margin-bottom: 5px">' . "\n";
+        $temp_charset = reset($cfg['AvailableCharsets']);
+        echo $strCharsetOfFile . "\n"
+             . '    <select name="charset_of_file" size="1">' . "\n"
+             . '            <option value="' . $temp_charset . '"';
+        if ($temp_charset == $charset) {
+            echo ' selected="selected"';
+        }
+        echo '>' . $temp_charset . '</option>' . "\n";
+        while ($temp_charset = next($cfg['AvailableCharsets'])) {
+            echo '            <option value="' . $temp_charset . '"';
+            if ($temp_charset == $charset) {
+                echo ' selected="selected"';
+            }
+            echo '>' . $temp_charset . '</option>' . "\n";
+        }
+        echo '        </select><br />' . "\n" . '    ';
+        echo '    </div>' . "\n";
+    } // end if (recoding)
+}
 
 // Bookmark Support
 if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
