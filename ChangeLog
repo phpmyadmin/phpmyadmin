@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-04 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * sql.php3: Back to previous version.
+
 2002-12-03 Alexander M. Turek  <rabus@users.sourceforge.net>
     * sql.php3: Fixed bug #641652, thanks to "bumperbox".
     * lang/latvian-windows-1257.inc.php3, lang/norwegian-iso-8859-1.inc.php3,
