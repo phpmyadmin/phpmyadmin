@@ -209,7 +209,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
                 for ($j = 0; $j < $fields_cnt; $j++) {
                     if (!isset($row[$j])) {
                         $values[]     = 'NULL';
-                    } else if ($test == '0' || $test != '') {
+                    } else if ($row[$j] == '0' || $row[$j] != '') {
                         // a number
                         if ($field_num[$j]) {
                             $values[] = $row[$j];
@@ -314,7 +314,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {
                     $schema_insert .= ' NULL, ';
-                } else if ($test == '0' || $test != '') {
+                } else if ($row[$j] == '0' || $row[$j] != '') {
                     $type          = mysql_field_type($result, $j);
                     // a number
                     if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
@@ -487,7 +487,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
                 if (!isset($row[$j])) {
                     $schema_insert .= 'NULL';
                 }
-                else if ($test == '0' || $test != '') {
+                else if ($row[$j] == '0' || $row[$j] != '') {
                     // loic1 : always enclose fields
                     if ($what == 'excel') {
                         $row[$j]   = ereg_replace("\015(\012)?", "\012", $row[$j]);
