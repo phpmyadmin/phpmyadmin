@@ -87,11 +87,18 @@ header('Content-Type: text/html; charset=' . $charset);
 <h2><?php echo $strGenTime . ': ' . date('F j, Y, g:i a'); ?></h2>
 
 
-<!-- Databases and tables list -->
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <td valign="top" align="left">
+
+<!-- Databases list -->
 
 <table border="<?php echo $cfgBorder; ?>">
 <tr>
-    <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;</th>
+    <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;
+        <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />
+
+    </th>
     <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
     <th>&nbsp;<?php echo ucfirst($strData); ?>&nbsp;</th>
     <th>&nbsp;<?php echo ucfirst($strIndexes); ?>&nbsp;</th>
@@ -105,6 +112,7 @@ if ($num_dbs > 1) {
     $big_tot_all  = 0;
     $big_tot_idx  = 0;
     $big_tot_data = 0;
+    $results_array = array();
 
     // Gets and displays the tables stats per database
     for ($i = 0; $i < $num_dbs; $i++) {
@@ -134,10 +142,12 @@ if ($num_dbs > 1) {
                 $tot_data += $row['Data_length'];
                 $tot_idx  += $row['Index_length'];
             } 
+
            $tot_all = $tot_data + $tot_idx;
            $big_tot_all += $tot_all;
            $big_tot_idx += $tot_idx;
            $big_tot_data += $tot_data;
+           $results_array[$db] = $tot_all;
         }
 
         list($tot_data_format,$unit_data) = format_byte_down($tot_data,3,1);
@@ -167,6 +177,52 @@ if ($num_dbs > 1) {
     echo '</tr>' . "\n";
 
     echo '</table>' . "\n";
+
+    // Display 20 biggest db's
+
+    ?>
+
+    </td>
+    <td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td valign="top">
+
+<table border="<?php echo $cfgBorder; ?>">
+<tr>
+    <th>&nbsp;&nbsp;</th>
+    <th>&nbsp;<?php echo ucfirst($strDatabase); ?>&nbsp;</th>
+    <th>&nbsp;<?php echo ucfirst($strTotal); ?>&nbsp;
+        <img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />
+        &nbsp;
+    </th>
+
+</tr>
+
+    <?php
+
+    arsort($results_array);
+    $display_max = 20;
+    $j = 0;
+    if (count($results_array) < $display_max) {
+        $display_max = count($results_array);
+    }
+
+    reset ($results_array);
+    while ((list ($key, $val) = each ($results_array)) && ($j < $display_max)) {
+
+        $j++;
+
+        list($disp_val,$unit) = format_byte_down($val,3,1);
+
+        echo '<tr bgcolor="'. $bgcolor . '">' . "\n";
+        echo '    <td align="right">&nbsp;' . $j . '&nbsp;</td>' . "\n";
+        echo '    <td>&nbsp;' . urlencode($key) . '&nbsp;</td>' . "\n";
+        echo '    <td align="right">&nbsp;<b>' . $disp_val . ' ' . $unit . '<b>&nbsp;</td>' . "\n";
+        echo '</tr>' . "\n";
+    }
+
+    echo '</table>' . "\n";
+    echo '</td></tr></table>';
+
 } // end if ($num_dbs == 1)
 
 else {
