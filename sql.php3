@@ -473,7 +473,7 @@ else {
             && isset($db) && isset($table)
             && !empty($db) && !empty($table) && !empty($purgekey)) {
             include('./libraries/relation_cleanup.lib.php3');
-            PMA_relationsCleanupColumnt($db, $table, $purgekey);
+            PMA_relationsCleanupColumn($db, $table, $purgekey);
 
         } // end if column PMA_* purge
     } // end else "didn't ask to see php code"
