@@ -17,20 +17,9 @@ $cfg['BrowsePointerColor']  = '#CCCCFF';    // color of the pointer in browse mo
 $cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
                                             // by clicking on it) in browse mode
                                             // (blank for no marker)
-/* rows and columns for inputs */
-$cfg['TextareaCols']        = 40;           // textarea size (columns) in edit mode
-                                            // (this value will be emphasized (*2) for sql
-                                            // query textareas and (*1.25) for query window)
-$cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
-$cfg['CharTextareaCols']    = 40;           // textarea size (columns) for CHAR/VARCHAR
-$cfg['CharTextareaRows']    = 2;            // textarea size (rows) for CHAR/VARCHAR
-
 /**
  * SQL Parser Settings
  */
-$cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, text, none)
-$cfg['SQP']['fmtInd']       = '1';          // Amount to indent each level (floats ok)
-$cfg['SQP']['fmtIndUnit']   = 'px';         // Units for indenting each level (CSS Types - {em,px,pt})
 $cfg['SQP']['fmtColor']     = array(        // Syntax colouring data
     'comment'            => '#808000',
     'comment_mysql'      => '',
