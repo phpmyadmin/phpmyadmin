@@ -278,6 +278,7 @@ $strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strDisplayOrder = 'Display order:';
 $strDropDB = 'Drop database %s';
 $strDropTable = 'Drop table';
+$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
 $strExtendedInserts = 'Extended inserts';
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate
 $strFieldsEmpty = ' The field count is empty! ';  //to translate

@@ -354,4 +354,7 @@ $strZip = '"zippé"';
 
 $strStructure = 'Structure';
 $strRelationView = 'Gestion des relations';
+
+// To translate
+$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
 ?>

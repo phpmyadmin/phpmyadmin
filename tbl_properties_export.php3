@@ -98,10 +98,7 @@ if (function_exists('PMA_set_enc_form')) {
             </tr>
             <tr>
                 <td colspan="2">
-                    &nbsp;<?php echo $strStartingRecord; ?>&nbsp;
-                    <input type="text" name="limit_from" value="0" size="5" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
-                    &nbsp;--&nbsp;<?php echo $strNbRecords; ?>&nbsp;
-                    <input type="text" name="limit_to" size="5" value="<?php echo PMA_countRecords($db, $table, TRUE); ?>" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
+                    &nbsp;<?php echo sprintf($strDumpXRows , '<input type="text" name="limit_to" size="5" value="' . PMA_countRecords($db, $table, TRUE) . '" class="textfield" style="vertical-align: middle" onfocus="this.select()" />' , '<input type="text" name="limit_from" value="0" size="5" class="textfield" style="vertical-align: middle" onfocus="this.select()" />'); ?>
                 </td>
             </tr>
             <tr>

@@ -105,6 +105,7 @@ $strDrop = 'Drop';
 $strDropDB = 'Drop database %s';
 $strDropTable = 'Drop table';
 $strDumpingData = 'Dumping data for table';
+$strDumpXRows = 'Dump %s rows starting at row %s.';
 $strDynamic = 'dynamic';
 
 $strEdit = 'Edit';

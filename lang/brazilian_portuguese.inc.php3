@@ -359,4 +359,5 @@ $strExportToXML = 'Export to XML format'; //to translate
 $strOptions = 'Options';  //to translate
 $strStructure = 'Structure';  //to translate
 $strRelationView = 'Relation view';  //to translate
+$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
 ?>

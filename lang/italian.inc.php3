@@ -254,6 +254,7 @@ $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 
 $strRecords = 'Record';
 $strReferentialIntegrity = 'Controlla l\'integrità delle referenze:';
+$strRelationView = 'Vedi relazione';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
 $strReloadMySQL = 'Riavvia MySQL';
 $strRememberReload = 'Ricorda di riavviare MySQL.';
@@ -310,6 +311,7 @@ $strStrucData = 'Struttura e dati';
 $strStrucDrop = 'Aggiungi \'drop table\'';
 $strStrucExcelCSV = 'CSV per dati Ms Excel';
 $strStrucOnly = 'Solo struttura';
+$strStructure = 'Struttura';
 $strSubmit = 'Invia';
 $strSuccess = 'La query è stata eseguita con successo';
 $strSum = 'Totali';
@@ -360,7 +362,5 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-$strOptions = 'Options';  //to translate
-$strStructure = 'Structure';  //to translate
-$strRelationView = 'Relation view';  //to translate
+$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
 ?>

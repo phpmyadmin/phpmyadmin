@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-02 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * tbl_properties_export.php3, lang/*.inc.php3: Clarified the interface.
+    * lang/italian.inc.php3: Updates, thanks again to
+      Pietro Danesi <danone@users.sourceforge.net>.
+    * lang/german.inc.php3: Updates.
+
 2002-05-01 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.php3, tbl_properties_links.php3,
       new tbl_properties_structure, lang/*.php3: Structure page
@@ -34,7 +40,7 @@ $Source$
 
 2002-04-30 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_qbe.php3, try to make it work again
-    * tbl_properties.php3, tbl_properties_table_info.php3, 
+    * tbl_properties.php3, tbl_properties_table_info.php3,
       tbl_properties_options.php3: support for 3 MyISAM table options
 
 2002-04-30 Alexander M. Turek  <rabus@users.sourceforge.net>

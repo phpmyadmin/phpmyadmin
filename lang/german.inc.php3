@@ -105,6 +105,7 @@ $strDrop = 'Löschen';
 $strDropDB = 'Datenbank %s löschen';
 $strDropTable = 'Tabelle löschen:';
 $strDumpingData = 'Daten für Tabelle';
+$strDumpXRows = 'Sichere %s Datensätze ab Datensatz %s.';
 $strDynamic = 'dynamisch';
 
 $strEdit = 'Ändern';
@@ -248,6 +249,7 @@ $strQueryOnDb = ' SQL-Befehl in der Datenbank <b>%s</b>:';
 
 $strRecords = 'Einträge';
 $strReferentialIntegrity = 'Prüfe referentielle Integrität:';
+$strRelationView = 'Beziehungsübersicht';
 $strReloadFailed = 'MySQL Neuladen fehlgeschlagen.';
 $strReloadMySQL = 'MySQL neu starten';
 $strRememberReload = 'Der Server muss neu gestartet werden.';
@@ -304,6 +306,7 @@ $strStrucData = 'Struktur und Daten';
 $strStrucDrop = 'Mit \'DROP TABLE\'';
 $strStrucExcelCSV = 'CSV-Daten für MS Excel';
 $strStrucOnly = 'Nur Struktur';
+$strStructure = 'Struktur';
 $strSubmit = 'Abschicken';
 $strSuccess = 'Ihr SQL-Befehl wurde erfolgreich ausgeführt.';
 $strSum = 'Summe';
@@ -353,6 +356,4 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strStructure = 'Structure';  //to translate
-$strRelationView = 'Relation view';  //to translate
 ?>
