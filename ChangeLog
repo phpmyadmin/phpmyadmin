@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-07  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/polish.inc.php3: fixed typos thanks to Tomasz Regdos & Jakub Wilk.
+	* tbl_indexes; tbl_printview.php3; tbl_properties.php3;
+	  tbl_properties.inc.php3: improved the fix against bug #489440.
+	* libraries/display_tbl.lib.php3: better pointer coding.
+
 2001-12-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, mult_submits.inc.php3, tbl_printview.php3: beautify
 	  the code and the results of the patch #484112.
