@@ -1213,32 +1213,41 @@ else if (PMA_MYSQL_INT_VERSION >= 32306
 if (!empty($cfgServer['relation'])) {
 
     $local_query = 'SELECT src_column, dest_table, dest_column'
-                         . ' FROM ' . $cfgServer['relation']
-                         . ' WHERE src_table =\'' . $table . '\';';
-    mysql_select_db($db);
+                 . ' FROM ' . $cfgServer['relation']
+                 . ' WHERE src_table =\'' . $table . '\';';
+//    mysql_select_db($db);
     $result      = @mysql_query($local_query);
 
     if ($result != FALSE && mysql_num_rows($result) > 0) {
-        echo "    <!-- Referential integrity check -->\n";
-        echo "    <li>" . $strReferentialIntegrity . "<br />\n";
+        ?>
+    <!-- Referential integrity check -->
+    <li style="vertical-align: top">
+        <div style="margin-bottom: 10px">
+        <?php echo $strReferentialIntegrity; ?><br />
+        <?php
+        echo "\n";
         while ($rel = mysql_fetch_row($result)) {
             echo '        <a href="sql.php3?' . $url_query .'&amp;sql_query='
-	       . urlencode('SELECT ' . PMA_backquote($table) . '.* FROM '
-               . PMA_backquote($table) . ' LEFT JOIN '
-               . PMA_backquote($rel[1]) . ' ON '
-               . PMA_backquote($table) . '.' . PMA_backquote($rel[0])
-               . ' = ' . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2])
-               . ' WHERE '  
-               . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2]) 
-               . ' IS NULL') . '">' . $rel[0] . '-> ' . $rel[1] . '.'
-               . $rel[2] . '</a><br />' . "\n";
+                 . urlencode('SELECT ' . PMA_backquote($table) . '.* FROM '
+                             . PMA_backquote($table) . ' LEFT JOIN '
+                             . PMA_backquote($rel[1]) . ' ON '
+                             . PMA_backquote($table) . '.' . PMA_backquote($rel[0])
+                             . ' = ' . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2])
+                             . ' WHERE '
+                             . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2])
+                             . ' IS NULL')
+                 . '">' . $rel[0] . '&nbsp;->&nbsp;' . $rel[1] . '.' . $rel[2]
+                 . '</a><br />' . "\n";
         } // end while
-        echo "    </li><br />\n"; 
+        ?>
+        </div>
+    </li><br />
+        <?php
     } // end if ($result)
+    echo "\n";
 
 } // end  if (!empty($cfgServer['relation']))
 ?>
-
 
     <!-- Flushes the table -->
     <li>
