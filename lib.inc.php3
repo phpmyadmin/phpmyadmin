@@ -362,7 +362,7 @@ if (!defined('__LIB_INC__')){
                         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND User = \'' . $PHP_AUTH_USER . '\'';
                         $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
                         if (@mysql_numrows($rs) <= 0) {
-                            $local_query = 'SELECT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . $PHP_AUTH_USER . '\'';
+                            $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . $PHP_AUTH_USER . '\'';
                             $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
                             if (@mysql_numrows($rs) <= 0) {
                                 auth();
