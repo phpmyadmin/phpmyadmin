@@ -7,6 +7,7 @@ $Source$
 
 2002-07-24 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/string.lib.php3: optimizations (thanks Loïc)
+    * libraries/sqlparser.lib.php3: SQL Parser merging (in progress)
 
 2002-07-24 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/string.lib.php3: Function documentation
