@@ -312,8 +312,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         global $cfg;
 
         if (empty($GLOBALS['is_header_sent'])) {
-            // rabus: If we include header.inc.php3 here, we get a huge set of
-            // "Undefined variable" errors (see bug #549570)!
             include('./header.inc.php3');
         }
 
