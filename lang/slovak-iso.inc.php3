@@ -348,5 +348,5 @@ $strZip = '"zo zipované"';
 
 
 // To translate
-$strNewDb = 'New database:';  //to translate
+$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

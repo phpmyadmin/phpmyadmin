@@ -325,7 +325,6 @@ $strLogin = 'Login';
 $strLogPassword = 'Password:';
 $strLogUsername = 'Username:';
 $strMySQLServerProcess = 'MySQL %pma_s1% running on %pma_s2% as %pma_s3%';
-$strNewDb = 'New database:';  //to translate
 $strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
 $strPartialText = 'Partial Texts';
 $strRowsModeHorizontal = 'horizontal';  //to translate
@@ -346,4 +345,5 @@ $strCardinality = 'Cardinality';
 $strIgnore = 'Ignorar';
 $strNoIndexPartsDefined = 'No index parts defined!';
 $strNoIndex = 'No index defined!';
+$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

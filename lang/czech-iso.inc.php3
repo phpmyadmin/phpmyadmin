@@ -344,6 +344,6 @@ $strYes = 'Ano';
 
 $strZip = '"zazipováno"';
 // To translate
-$strNewDb = 'New database:';  //to translate
 
+$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

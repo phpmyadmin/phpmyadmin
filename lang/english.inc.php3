@@ -86,6 +86,7 @@ $strDatabase = 'Database ';
 $strDatabaseHasBeenDropped = 'Database %s has been dropped.';
 $strDatabases = 'databases';
 $strDatabasesStats = 'Databases statistics';
+$strDatabaseWildcard = 'Database (wildcards allowed):';
 $strDataOnly = 'Data only';
 $strDefault = 'Default';
 $strDelete = 'Delete';
@@ -190,7 +191,6 @@ $strMySQLShowVars = 'Show MySQL system variables';
 
 $strName = 'Name';
 $strNbRecords = 'Number of rows';
-$strNewDb = 'New database:';
 $strNext = 'Next';
 $strNo = 'No';
 $strNoDatabases = 'No databases';

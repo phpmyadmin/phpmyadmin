@@ -345,5 +345,5 @@ $strYes = 'Да';
 $strZip = 'упаковать в "zip"';
 
 // To translate
-$strNewDb = 'New database:';  //to translate
+$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

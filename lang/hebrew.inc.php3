@@ -348,5 +348,5 @@ $strYes = 'λο';
 $strZip = '"zipped"';
 
 // To translate
-$strNewDb = 'New database:';  //to translate
+$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

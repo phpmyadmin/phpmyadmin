@@ -86,6 +86,7 @@ $strDatabase = 'Base de données';
 $strDatabaseHasBeenDropped = 'La base de données %s a été effacée.';
 $strDatabases = 'bases de données';
 $strDatabasesStats = 'Statistiques sur les bases de données';
+$strDatabaseWildcard = 'Base de données (passepartout autorisé):';
 $strDataOnly = 'Données seulement';
 $strDefault = 'Défaut';
 $strDelete = 'Effacer';
@@ -190,7 +191,6 @@ $strMySQLShowVars = 'Afficher les variables du serveur MySQL';
 
 $strName = 'Nom';
 $strNbRecords = 'nb. d\'enregistrements';
-$strNewDb = 'Nouvelle base de données :';
 $strNext = 'Suivant';
 $strNo = 'Non';
 $strNoDropDatabases = 'La commande "DROP DATABASE" est désactivée.';

@@ -346,5 +346,5 @@ $strYes = 'Igen';
 $strZip = '"zippel tömörítve"';
 
 // To translate
-$strNewDb = 'New database:';  //to translate
+$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

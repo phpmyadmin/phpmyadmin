@@ -348,5 +348,5 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-$strNewDb = 'New database:';  //to translate
+$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>
