@@ -14,7 +14,8 @@ $Source$
         * read_dump.php3: coding standards (ident. = 4 space characters).
         * main.php3, line 33; db_details.php3, line 50: added a <cr>.
         * left.php3; libraries/function.js, left.js, user_details.js: patch
-          #501282 - JavaScript strict warnings.
+          #501282 - JavaScript strict warnings tahnks to
+          Alex Vincent <jscript at pacbell.net>.
         * left.php3; lang/*: fixed a js error and ensured localized strings are
           used.
 
