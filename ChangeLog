@@ -26,6 +26,7 @@ $Source$
 	* lang/polish.inc.php3: updated thanks to Piotr Roszatycki.
 	* tbl_properties.php3, lines 573-576: added the same file upload box than
 	  the one at db_details.php3.
+	* tbl_change.php, line 305: Feature Requests #455543 - Editable Blobs.
 
 2001-08-31  Olivier Müller  <om@omnis.ch>
 	* releasing phpMyAdmin 2.2.0-final

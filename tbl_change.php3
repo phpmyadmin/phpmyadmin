@@ -128,9 +128,6 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // Note: from the MySQL manual: "BINARY doesn't affect how the column is
     //       stored or retrieved" so it does not mean that the contents is
     //       binary
-
-    //if ((strstr($row_table_def['Type'], 'blob') || strstr($row_table_def['Type'], 'binary'))
-    //    && !empty($data)) {
     if (strstr($row_table_def['True_Type'], 'blob')
         && !empty($data)
         && $cfgProtectBlob == TRUE) {
@@ -305,7 +302,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     }
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data destroyed
-    else if (strstr($row_table_def['Type'], 'blob') && !empty($data)) {
+    else if (strstr($row_table_def['Type'], 'blob')) {
         if ($cfgProtectBlob == TRUE) {
             echo "\n";
             ?>
