@@ -108,7 +108,7 @@ echo "\n";
 // web-server upload directory
 // (TODO: display the charset selection, even if is_upload == FALSE)
 
-if ($cfg['UploadDir'] !='' && $handle = opendir($cfg['UploadDir'])) {
+if ($cfg['UploadDir'] != '' && $handle = @opendir($cfg['UploadDir'])) {
     $is_first = 0;
     while ($file = @readdir($handle)) {
         if (is_file($cfg['UploadDir'] . $file)) {
