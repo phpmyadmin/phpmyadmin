@@ -196,6 +196,7 @@ $strDatabasesStatsHeavyTraffic = 'Nota: De habilitar as estatísticas da base de
 $strDbPrivileges = 'Privilexios proprios de base de datos';
 $strDbSpecific = 'específico da base de datos';
 $strDefault = 'Padrón';
+$strDefaultEngine = '%s é o motor de armacenamento predefinido neste servidor de MySQL.';
 $strDefaultValueHelp = 'Para os valores por omisión, introduza un único valor, sen escapalo con barras ou aspas e usando este formato: a';
 $strDefragment = 'Tabela de defragmentación';  
 $strDelOld = 'Esta páxina ten referencias a tabelas que xa non existen. Quere eliminar esas referencias?';
@@ -237,6 +238,10 @@ $strEncloseInTransaction = 'Incluir a exportación nunha transacción';
 $strEnd = 'Fin';
 $strEndCut = 'FIN DO RECORTE';
 $strEndRaw = 'FIN DO TEXTO SIMPLE ("RAW")';
+$strEngineAvailable = '%s está disponíbel neste servidor de MySQL.';
+$strEngineDisabled = '%s foi desactivado neste servidor de MySQL.';
+$strEngineUnsupported = 'Este servidor de MySQL non acepta o motor de armacenamento %s.';
+$strEngines = 'Motores';
 $strEnglish = 'InglÃ©s';
 $strEnglishPrivileges = ' Nota: os nomes de privilexios do MySQL están en inglés';
 $strError = 'Erro';
@@ -366,6 +371,7 @@ $strLogUsername = 'Nome de usuario:';
 $strLogin = 'Entrada (login)';
 $strLoginInformation = 'Información sobre o acceso (login)';
 $strLogout = 'Sair';
+$strLongOperation = 'Esta operación pode que leve moito tempo. Procésase igual?';
 
 $strMIMETypesForTable = 'TIPOS MIME PARA A TABELA';  
 $strMIME_MIMEtype = 'Tipo MIME';
@@ -391,6 +397,18 @@ $strMoveTableOK = 'Moveuse a tabela %s para %s.';
 $strMoveTableSameNames = 'Non se pode mover unha tabela sobre si mesma';
 $strMultilingual = 'multilÃ­ngÃ¼e';
 $strMustSelectFile = 'Debería escoller o ficheiro que quere inserir.';
+$strMyISAMDataPointerSize = 'Tamaño do punteiro de datos';
+$strMyISAMDataPointerSizeDesc = 'O tamaño por omisión do punteiro de datos en bytes; usarase con CREATE TABLE para tabelas MyISAM cando non se especifique a opción MAX_ROWS.';
+$strMyISAMMaxExtraSortFileSize = 'Tamaño máixmo dos ficheiros temporarios no momento de crear índices';
+$strMyISAMMaxExtraSortFileSizeDesc = 'Se o ficheiro temporario usado para a creación rápida dun índice de MyISAM for máis grande que se se usar o caché de chaves na cantidade que se especifique aquí, preferir o método da caché de chaves.';
+$strMyISAMMaxSortFileSize = 'Tamaño máximo dos ficheiros de ordenación temporarios';
+$strMyISAMMaxSortFileSizeDesc = 'O tamaño máximo do ficheiro temporario que se lle permite utilizar a MySQL no momento de recrear un índice MyISAM (durante REPAIR TABLE, ALTER TABLE, ou LOAD DATA INFILE).';
+$strMyISAMRecoverOptions = 'Modo de recuperación automática';
+$strMyISAMRecoverOptionsDesc = 'O modo de recuperación automática de tabelas MyISAM escaralladas, tal e como se configura na opción de inicio do servidor --myisam-recover.';
+$strMyISAMRepairThreads = 'Reparar os fíos';
+$strMyISAMRepairThreadsDesc = 'Se este valor é maior que 1, os índices das tabelas MyISAM créanse en paralelo (cada índice no seu propio fío) durante o proceso Reparar ordenando.';
+$strMyISAMSortBufferSize = 'Tamaño da memoria intermedia de ordenación';
+$strMyISAMSortBufferSizeDesc = 'Cantidade de memoria intermedia que se reserva ao ordenar os índices MyISAM durante unha instrución REPAIR TABLE ou ao crear índices con CREATE INDEX ou ALTER TABLE.';
 $strMySQLCharset = 'Código de caracteres (Charset) MySQL';
 $strMySQLConnectionCollation = 'Codificación de caracteres (Collation) da conexión de MySQL';
 $strMySQLReloaded = 'MySQL reiniciado.';
@@ -408,6 +426,7 @@ $strNoActivity = 'Non se rexistrou actividade algunha desde hai %s segundos ou m
 $strNoDatabases = 'Non hai nengunha base de datos';
 $strNoDatabasesSelected = 'Non hai nengunha base de datos seleccionada.';
 $strNoDescription = 'sen descrición';
+$strNoDetailsForEngine = 'Non se conta con información de estado detallada sobre este motor de armacenamento.';
 $strNoDropDatabases = 'Os comandos "Eliminar a base de datos" non están permitidos.';
 $strNoExplain = 'Saltar a explicacion de SQL';
 $strNoFrames = 'phpMyAdmin usa-se mellor cun navegador que <b>acepte molduras</b>.';
@@ -638,6 +657,8 @@ $strStatCreateTime = 'Creación';
 $strStatUpdateTime = 'Actualización máis recente';
 $strStatement = 'Informacións';
 $strStatus = 'Estado';
+$strStorageEngine = 'Motor de armacenamento';
+$strStorageEngines = 'Motores de armacenamento';
 $strStrucCSV = 'Datos CSV';
 $strStrucData = 'Estrutura e datos';
 $strStrucDrop = 'Adicionar \'Eliminar a tabela anterior se xa existe\'';
@@ -730,6 +751,7 @@ $strValidateSQL = 'Validar SQL';
 $strValidatorError = 'Non foi posíbel iniciar o comprobador de SQL. Comprobe que ten instaladas todas as extensións de php tal e como se descrebe na %sdocumentación%s.';
 $strValue = 'Valor';
 $strVar = 'Variable';
+$strVersionInformation = 'Información sobre a versión';
 $strView = 'Vista';
 $strViewDump = 'Ver o esquema do volcado da tabela';
 $strViewDumpDB = 'Ver o esquema do volcado da base de datos';
@@ -756,61 +778,42 @@ $strZip = 'comprimido no formato "zip"';
 
 // To translate:
 
-$strDefaultEngine = '%s is the default storage engine on this MySQL server.';  //to translate
-
-$strEngineAvailable = '%s is available on this MySQL server.';  //to translate
-$strEngineDisabled = '%s has been disabled for this MySQL server.';  //to translate
-$strEngineUnsupported = 'This MySQL server does not support the %s storage engine.';  //to translate
-$strEngines = 'Engines';  //to translate
-
-$strLongOperation = 'This operation could be long. Proceed anyway?';  //to translate
-
-$strMyISAMDataPointerSize = 'Data pointer size';  //to translate
-$strMyISAMDataPointerSizeDesc = 'The default pointer size in bytes, to be used by CREATE TABLE for MyISAM tables when no MAX_ROWS option is specified.';  //to translate
-$strMyISAMMaxExtraSortFileSize = 'Maximum size for temporary files on index creation';  //to translate
-$strMyISAMMaxExtraSortFileSizeDesc = 'If the temporary file used for fast MyISAM index creation would be larger than using the key cache by the amount specified here, prefer the key cache method.';  //to translate
-$strMyISAMMaxSortFileSize = 'Maximum size for temporary sort files';  //to translate
-$strMyISAMMaxSortFileSizeDesc = 'The maximum size of the temporary file MySQL is allowed to use while re-creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE).';  //to translate
-$strMyISAMRecoverOptions = 'Automatic recovery mode';  //to translate
-$strMyISAMRecoverOptionsDesc = 'The mode for automatic recovery of crashed MyISAM tables, as set via the --myisam-recover server startup option.';  //to translate
-$strMyISAMRepairThreads = 'Repair threads';  //to translate
-$strMyISAMRepairThreadsDesc = 'If this value is greater than 1, MyISAM table indexes are created in parallel (each index in its own thread) during the Repair by sorting process.';  //to translate
-$strMyISAMSortBufferSize = 'Sort buffer size';  //to translate
-$strMyISAMSortBufferSizeDesc = 'The buffer that is allocated when sorting MyISAM indexes during a REPAIR TABLE or when creating indexes with CREATE INDEX or ALTER TABLE.';  //to translate
-
-$strNoDetailsForEngine = 'There is no detailed status information available for this storage engine.';  //to translate
-
-$strStorageEngine = 'Storage Engine';  //to translate
-$strStorageEngines = 'Storage Engines';  //to translate
-
-$strVersionInformation = 'Version information';  //to translate
-
-$strInnoDBDataHomeDir = 'Data home directory';  //to translate
-$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
-$strInnoDBDataFilePath = 'Data files';  //to translate
-$strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
-$strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strBufferPool = 'Buffer Pool';  //to translate
-$strBufferPoolUsage = 'Buffer Pool Usage';  //to translate
-$strDataPages = 'Pages containing data';  //to translate
-$strFreePages = 'Free pages';  //to translate
-$strBusyPages = 'Busy pages';  //to translate
-$strDirtyPages = 'Dirty pages';  //to translate
-$strPagesToBeFlushed = 'Pages to be flushed';  //to translate
-$strLatchedPages = 'Latched pages';  //to translate
 $strBufferPoolActivity = 'Buffer Pool Activity';  //to translate
-$strReadRequests = 'Read requests';  //to translate
-$strWriteRequests = 'Write requests';  //to translate
+$strBufferPoolUsage = 'Buffer Pool Usage';  //to translate
 $strBufferReadMisses = 'Read misses';  //to translate
 $strBufferReadMissesInPercent = 'Read misses in %';  //to translate
 $strBufferWriteWaits = 'Write waits';  //to translate
 $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
+$strBusyPages = 'Busy pages';  //to translate
+
+$strDataPages = 'Pages containing data';  //to translate
+$strDirtyPages = 'Dirty pages';  //to translate
+
+$strFreePages = 'Free pages';  //to translate
+
 $strHTMLExcel = 'Microsoft Excel 2000';  //to translate
 $strHTMLExcelOptions = 'Microsoft Excel 2000 export options';  //to translate
 $strHTMLWord = 'Microsoft Word 2000';  //to translate
 $strHTMLWordOptions = 'Microsoft Word 2000 export options';  //to translate
-$strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cache data and indexes of its tables.';  //to translate
+
+$strInnoDBAutoextendIncrement = 'Autoextend increment';  //to translate
+$strInnoDBAutoextendIncrementDesc = ' The increment size for extending the size of an autoextending tablespace when it becomes full.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate
+$strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cache data and indexes of its tables.';  //to translate
+$strInnoDBDataFilePath = 'Data files';  //to translate
+$strInnoDBDataHomeDir = 'Data home directory';  //to translate
+$strInnoDBDataHomeDirDesc = 'The common part of the directory path for all InnoDB data files.';  //to translate
 $strInnoDBPages = 'pages';  //to translate
+
+$strLatchedPages = 'Latched pages';  //to translate
+
+$strPagesToBeFlushed = 'Pages to be flushed';  //to translate
+
+$strReadRequests = 'Read requests';  //to translate
+
 $strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
+
+$strWriteRequests = 'Write requests';  //to translate
+
 ?>
