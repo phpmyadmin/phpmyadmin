@@ -252,7 +252,8 @@ if ($sql_file != 'none') {
                 $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
             }
             else {
-                $sql_file_new = './tmp/' . basename($sql_file);
+                $sql_file_new = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/')
+                              . basename($sql_file);
                 if (PMA_PHP_INT_VERSION < 40003) {
                     copy($sql_file, $sql_file_new);
                 } else {
