@@ -683,6 +683,7 @@ $strUpgrade = 'Vous devriez utiliser %s en version %s ou plus récente.';
 $strUsage = 'Espace';
 $strUseBackquotes = 'Protéger les noms des tables et des champs par des&nbsp;"`"';
 $strUseHostTable = 'Utiliser la table Host';
+$strUseTabKey = 'Utilisez la tabulation pour aller d\'une valeur à l\'autre, ou CTRL+flèches pour aller n\'importe où';
 $strUseTables = 'Utiliser les tables';
 $strUseTextField = 'Entrez une valeur';
 $strUseThisValue = 'Utiliser cette valeur';
@@ -721,5 +722,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
 ?>
