@@ -341,7 +341,7 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type 
         ?>
         <tr>
             <td colspan="3" align="center">
-                [<a href="sql.php3?<?php echo $url_query; ?>&pos=0&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple">[<?php echo $strOptimizeTable; ?>]</a>]
+                [<a href="sql.php3?<?php echo $url_query; ?>&pos=0&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple"><?php echo $strOptimizeTable; ?></a>]
             </td>
         <tr>
         <?php
