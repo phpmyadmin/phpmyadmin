@@ -260,6 +260,9 @@ if (!defined('__LIB_INC__')){
                     $PHP_AUTH_USER = getenv('REMOTE_USER');
                 }
                 // Fix from Matthias Fichtner for WebSite Professional - Part 1
+                else if (isset($AUTH_USER)) {
+                    $PHP_AUTH_USER = $AUTH_USER;
+                }
                 else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['AUTH_USER'])) {
                     $PHP_AUTH_USER = $HTTP_ENV_VARS['AUTH_USER'];
                 }
@@ -283,6 +286,9 @@ if (!defined('__LIB_INC__')){
                     $PHP_AUTH_PW = getenv('REMOTE_PASSWORD');
                 }
                 // Fix from Matthias Fichtner for WebSite Professional - Part 2
+                else if (isset($AUTH_PASSWORD)) {
+                    $PHP_AUTH_PW = $AUTH_PASSWORD;
+                }
                 else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['AUTH_PASSWORD'])) {
                     $PHP_AUTH_USER = $HTTP_ENV_VARS['AUTH_PASSWORD'];
                 }
