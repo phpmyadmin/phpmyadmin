@@ -191,8 +191,7 @@ if ($num_dbs > 1) {
             $tooltip = array();
             $result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
             while ($tmp = mysql_fetch_array($result)) {
-                // loic1: use md5 to ensure the key use valid characters only
-                $tooltip[md5($tmp['Name'])] = rtrim($tmp['Comment'] . ' (' . $tmp['Rows'] . ' ' . $strRows . ')');
+                $tooltip[$tmp['Name']] = rtrim($tmp['Comment'] . ' (' . $tmp['Rows'] . ' ' . $strRows . ')');
             } // end while
         } // end if
 
@@ -229,7 +228,7 @@ if ($num_dbs > 1) {
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
         <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&amp;pos=0&amp;goto=tbl_properties.php3">
             <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-        <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[md5($table)]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
+        <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[$table]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
             <?php
         } // end for $j (tables list)
@@ -277,8 +276,7 @@ else if ($num_dbs == 1) {
         $tooltip = array();
         $result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
         while ($tmp = mysql_fetch_array($result)) {
-            // loic1: use md5 to ensure the key use valid characters only
-            $tooltip[md5($tmp['Name'])] = rtrim($tmp['Comment'] . ' (' . $tmp['Rows'] . ' ' . $strRows . ')');
+            $tooltip[$tmp['Name']] = rtrim($tmp['Comment'] . ' (' . $tmp['Rows'] . ' ' . $strRows . ')');
         } // end while
     } // end if
 
@@ -298,7 +296,7 @@ else if ($num_dbs == 1) {
         ?>
         <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&amp;pos=0&amp;goto=tbl_properties.php3">
                   <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
-              <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[md5($table)]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
+              <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[$table]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
                   <?php echo $table; ?></a></nobr><br />
         <?php
     } // end for $j (tables list)
