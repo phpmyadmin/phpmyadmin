@@ -12,6 +12,8 @@ $Source$
 
 2002-04-26 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: fixed a controluser bug.
+    * libraries/display_tbl.lib.php3: fixed bug #547384 (Marker Color can't
+      equal Pointer Color)
 
 2002-04-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/italian.inc.php3: updated, thanks again to Pietro Danesi.

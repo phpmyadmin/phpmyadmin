@@ -742,7 +742,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // loic1: use 'mysql_fetch_array' rather than 'mysql_fetch_row' to get
         //        the NULL values
 
-        while ($row = mysql_fetch_array($dt_result)) {
+        for ($row_no = 0; $row = mysql_fetch_array($dt_result); $row_no++) {
 
             // lem9: "vertical display" mode stuff
             if (($foo != 0) && ($repeat_cells != 0) && !($foo % $repeat_cells) && $disp_direction == 'horizontal') {
@@ -770,11 +770,23 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 // loic1: pointer code part
                 $on_mouse     = '';
                 if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
-                    $on_mouse = ' onmouseover="setPointer(this, \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"'
-                              . ' onmouseout="setPointer(this, \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"';
+                    $on_mouse = ' onmouseover="';
+                    if ($GLOBALS['cfg']['BrowsePointerColor'] == $GLOBALS['cfg']['BrowsePointerColor']) {
+                        $on_mouse .= 'if (typeof(row' . $row_no . '_marked) == \'undefined\') { row' . $row_no . '_marked = false; }; ';
+                    }
+                    $on_mouse .= 'setPointer(this, \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
+                               . ' onmouseout="';
+                    if ($GLOBALS['cfg']['BrowsePointerColor'] == $GLOBALS['cfg']['BrowsePointerColor']) {
+                        $on_mouse .= 'if (!row' . $row_no . '_marked) ';
+                    }
+                    $on_mouse .= 'setPointer(this, \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
                 }
                 if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
-                    $on_mouse .= ' onmousedown="setPointer(this, \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\')"';
+                    $on_mouse .= ' onmousedown="setPointer(this, \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');';
+                    if ($GLOBALS['cfg']['BrowsePointerColor'] == $GLOBALS['cfg']['BrowsePointerColor']) {
+                        $on_mouse .= 'if (row' . $row_no . '_marked) { row' . $row_no . '_marked = false; } else { row' . $row_no . '_marked = true; }';
+                    }
+                    $on_mouse .= '"';
                 }
                 ?>
 <tr<?php echo $on_mouse; ?>>
