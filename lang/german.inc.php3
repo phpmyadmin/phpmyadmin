@@ -89,7 +89,7 @@ $strDocu = 'Dokumentation';
 $strDoYouReally = 'Möchten Sie wirklich diese Abfrage ausführen: ';
 $strDrop = 'Löschen';
 $strDropDB = 'Datenbank löschen:';
-$strDropTable = 'Tabelle löschen';
+$strDropTable = 'Tabelle löschen:';
 $strDumpingData = 'Daten für Tabelle';
 $strDynamic = 'dynamisch';
 
