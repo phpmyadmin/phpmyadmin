@@ -29,6 +29,8 @@ $strAddUser = 'Yeni kullanýcý ekle';
 $strAddUserMessage = 'Yeni bir kullanýcý eklediniz.';
 $strAffectedRows = 'Etkilenen satýrlar:';
 $strAfter = 'Sonuna:';
+$strAfterInsertBack = 'Return';
+$strAfterInsertNewInsert = 'Yeni kayit ekle';
 $strAll = 'Tümü';
 $strAlterOrderBy = 'Tabloyu deðiþtir ve þuna göre sýrala:';
 $strAnalyzeTable = 'Tabloyu analiz et';
@@ -49,6 +51,7 @@ $strAttr = 'Özellikler';
 $strBack = 'Geri';
 $strBinary = 'Binari';
 $strBinaryDoNotEdit = 'Binari - düzenlemeyiniz';
+$strBookmarkDeleted = 'Bookmark silindi.';
 $strBookmarkLabel = 'Etiket';
 $strBookmarkQuery = ' SQL-sorgusu';
 $strBookmarkThis = 'Bu SQL-sorgusunu iþaretle';
@@ -334,8 +337,4 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
-$strAfterInsertBack = 'Return';
-$strAfterInsertNewInsert = 'Insert a new record';
-$strBookmarkDeleted = 'The bookmark has been deleted.';
-
 ?>

@@ -29,6 +29,8 @@ $strAddUser = 'Legg til en ny bruker';
 $strAddUserMessage = 'Du har lagt til en ny bruker.';
 $strAffectedRows = 'Berørte rader:';
 $strAfter = 'Etter';
+$strAfterInsertBack = 'Returner';
+$strAfterInsertNewInsert = 'Sett inn en ny post';
 $strAll = 'Alle';
 $strAlterOrderBy = 'Endre tabell rekkefølge ved';
 $strAnalyzeTable = 'Analyser tabell';
@@ -49,6 +51,7 @@ $strAttr = 'Attributter';
 $strBack = 'Tilbake';
 $strBinary = ' Binær ';
 $strBinaryDoNotEdit = ' Binær - må ikke redigeres ';
+$strBookmarkDeleted = 'Bokmerket har blitt slettet.';
 $strBookmarkLabel = 'Navn';
 $strBookmarkQuery = 'Lagret SQL-spørring';
 $strBookmarkThis = 'Lagre denne SQL-spørringen';
@@ -333,8 +336,4 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
-$strAfterInsertBack = 'Return';
-$strAfterInsertNewInsert = 'Insert a new record';
-$strBookmarkDeleted = 'The bookmark has been deleted.';
-
 ?>
