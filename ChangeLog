@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-03 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/romanian updates, thanks to Valics Lehel
+    * lang/turkish: update, thanks to Bora Alioglu
+
 2003-07-01 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: faq 8.1 about security alert of 2003-06-18
     * tbl_properties_links.php3: fix missing SQL section for exports
