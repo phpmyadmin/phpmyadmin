@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-22  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_copy.php3: fixes serious problem with copy table and new
+	  structure definition
+
 2001-06-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3, lines 67-68: The left frame is now reloaded when a table is
       created.
