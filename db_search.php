@@ -63,7 +63,6 @@ if (isset($submit_search)) {
         } // while
         PMA_DBI_free_result($res);
         unset($current, $res);
-        $sqlstr_fieldstoselect = ' ' . implode(', ', $tblfields);
         $tblfields_cnt         = count($tblfields);
 
         // Table to use
@@ -102,7 +101,7 @@ if (isset($submit_search)) {
         unset($fieldslikevalues);
 
         // Builds complete queries
-        $sql['select_fields'] = $sqlstr_select . $sqlstr_fieldstoselect . $sqlstr_from . $sqlstr_where;
+        $sql['select_fields'] = $sqlstr_select . ' * ' . $sqlstr_from . $sqlstr_where;
         $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS count' . $sqlstr_from . $sqlstr_where;
         $sql['delete']        = $sqlstr_delete . $sqlstr_from . $sqlstr_where;
 
