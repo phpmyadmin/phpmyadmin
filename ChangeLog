@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-09-30 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.5.4-rc1 released
+
 2003-09-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     * config.inc.php3, db_details_importdocsql.php3,
