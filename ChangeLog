@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-13 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_dump.php3: Fix output order of inserts/creates, generate file
+      extension to include also file type, not only compression (now it
+      generates something like dump.sql.gz).
+
 2002-12-13 Mike Beck <mikebeck@users.sourceforge.net>
     * pdf_schema.php3: Change generated filename to
       db_pdfname.pdf instead of db_pdfnumber.pdf

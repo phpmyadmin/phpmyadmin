@@ -24,18 +24,7 @@ function PMA_myHandler($sql_insert)
     $eol_dlm = (isset($GLOBALS['extended_ins']) && ($GLOBALS['current_row'] < $GLOBALS['rows_cnt']))
              ? ','
              : ';';
-    // Result has to be displayed on screen
-    if (empty($GLOBALS['asfile'])) {
-        echo htmlspecialchars($sql_insert . $eol_dlm . $GLOBALS['crlf']);
-    }
-    // Result has to be saved in a text file
-    else if (!isset($GLOBALS['zip']) && !isset($GLOBALS['bzip']) && !isset($GLOBALS['gzip'])) {
-        $tmp_buffer .= $sql_insert . $eol_dlm . $GLOBALS['crlf'];
-    }
-    // Result will be saved in a *zipped file
-    else {
-        $tmp_buffer .= $sql_insert . $eol_dlm . $GLOBALS['crlf'];
-    }
+    $tmp_buffer .= $sql_insert . $eol_dlm . $GLOBALS['crlf'];
 } // end of the 'PMA_myHandler()' function
 
 
@@ -61,18 +50,7 @@ function PMA_myCsvHandler($sql_insert)
     if (function_exists('PMA_kanji_str_conv')) {
         $sql_insert = PMA_kanji_str_conv($sql_insert, $GLOBALS['knjenc'], isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : '');
     }
-    // Result has to be displayed on screen
-    if (empty($GLOBALS['asfile'])) {
-        echo htmlspecialchars($sql_insert) . $add_character;
-    }
-    // Result has to be saved in a text file
-    else if (!isset($GLOBALS['zip']) && !isset($GLOBALS['bzip']) && !isset($GLOBALS['gzip'])) {
-        echo $sql_insert . $add_character;
-    }
-    // Result will be saved in a *zipped file
-    else {
-        $tmp_buffer .= $sql_insert . $add_character;
-    }
+    $tmp_buffer .= $sql_insert . $add_character;
 } // end of the 'PMA_myCsvHandler()' function
 
 
@@ -142,16 +120,9 @@ else {
     } else {
         $filename = PMA_convert_string($convcharset, 'iso-8859-1', $filename);
     }
-    if (isset($bzip) && $bzip == 'bzip') {
-        $ext       = 'bz2';
-        $mime_type = 'application/x-bzip';
-    } else if (isset($gzip) && $gzip == 'gzip') {
-        $ext       = 'gz';
-        $mime_type = 'application/x-gzip';
-    } else if (isset($zip) && $zip == 'zip') {
-        $ext       = 'zip';
-        $mime_type = 'application/x-zip';
-    } else if ($what == 'csv' || $what == 'excel') {
+    
+    // Generate basic dump extension
+    if ($what == 'csv' || $what == 'excel') {
         $ext       = 'csv';
         $mime_type = 'text/x-csv';
     } else if ($what == 'xml') {
@@ -168,24 +139,21 @@ else {
                    ? 'application/octetstream'
                    : 'application/octet-stream';
     }
+    
+    // If dump is going to be copressed, set correct mime_type and add
+    // compression to extension
+    if (isset($bzip) && $bzip == 'bzip') {
+        $ext       .= '.bz2';
+        $mime_type = 'application/x-bzip';
+    } else if (isset($gzip) && $gzip == 'gzip') {
+        $ext       .= '.gz';
+        $mime_type = 'application/x-gzip';
+    } else if (isset($zip) && $zip == 'zip') {
+        $ext       .= '.zip';
+        $mime_type = 'application/x-zip';
+    }
 
     $now = gmdate('D, d M Y H:i:s') . ' GMT';
-
-    /* 2002-12-10: We have to send the header later, since we have to check for
-       complications during the compression first! (See bug #651414)
-    // Send headers
-    header('Content-Type: ' . $mime_type);
-    header('Expires: ' . $now);
-    // lem9 & loic1: IE need specific headers
-    if (PMA_USR_BROWSER_AGENT == 'IE') {
-        header('Content-Disposition: inline; filename="' . $filename . '.' . $ext . '"');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-    } else {
-        header('Content-Disposition: attachment; filename="' . $filename . '.' . $ext . '"');
-        header('Pragma: no-cache');
-    }
-    */
 } // end download
 
 
@@ -326,7 +294,6 @@ else {
         $dump_buffer         .= '</' . $db . '>' . $crlf;
     } // end 'xml' case
 
-
     // latex case
     else if ($GLOBALS['what'] == 'latex') {
     
@@ -364,7 +331,6 @@ else {
 	
     } //end latex case
 
-
     // 'csv' case
     else {
         // Handles the EOL character
@@ -388,6 +354,9 @@ else {
 } // end building the dump
 
 
+/**
+ * Send the dump as a file...
+ */
 if (!empty($asfile)) {
     // Convert the charset if required.
     if ($GLOBALS['cfg']['AllowAnywhereRecoding'] && $GLOBALS['allow_recoding']
@@ -395,47 +364,43 @@ if (!empty($asfile)) {
         && (!empty($GLOBALS['asfile']))) {
         $dump_buffer = PMA_convert_string($GLOBALS['charset'], $GLOBALS['charset_of_file'], $dump_buffer);
     }
-}
 
-/**
- * "Displays" the dump...
- */
-// 1. as a gzipped file
-if (isset($zip) && $zip == 'zip') {
-    if (PMA_PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
-        if ($what == 'csv' || $what == 'excel') {
-            $extbis = '.csv';
-        } else if ($what == 'xml') {
-            $extbis = '.xml';
-        } else {
-            $extbis = '.sql';
-        }
-        $zipfile = new zipfile();
-        $zipfile -> addFile($dump_buffer, $filename . $extbis);
-        $dump_buffer = $zipfile -> file();
-    }
-}
-// 2. as a bzipped file
-else if (isset($bzip) && $bzip == 'bzip') {
-    if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
-        $dump_buffer = bzcompress($dump_buffer);
-        if ($dump_buffer === -8) {
-            include('./header.inc.php3');
-            echo sprintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
-            include('./footer.inc.php3');
-            exit;
+    // Do the compression
+    // 1. as a gzipped file
+    if (isset($zip) && $zip == 'zip') {
+        if (PMA_PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
+            if ($what == 'csv' || $what == 'excel') {
+                $extbis = '.csv';
+            } else if ($what == 'xml') {
+                $extbis = '.xml';
+            } else {
+                $extbis = '.sql';
+            }
+            $zipfile = new zipfile();
+            $zipfile -> addFile($dump_buffer, $filename . $extbis);
+            $dump_buffer = $zipfile -> file();
         }
     }
-}
-// 3. as a gzipped file
-else if (isset($gzip) && $gzip == 'gzip') {
-    if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
-        // without the optional parameter level because it bug
-        $dump_buffer = gzencode($dump_buffer);
+    // 2. as a bzipped file
+    else if (isset($bzip) && $bzip == 'bzip') {
+        if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
+            $dump_buffer = bzcompress($dump_buffer);
+            if ($dump_buffer === -8) {
+                include('./header.inc.php3');
+                echo sprintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
+                include('./footer.inc.php3');
+                exit;
+            }
+        }
     }
-}
-// 4. as a text file
-else if (!empty($asfile)) {
+    // 3. as a gzipped file
+    else if (isset($gzip) && $gzip == 'gzip') {
+        if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
+            // without the optional parameter level because it bug
+            $dump_buffer = gzencode($dump_buffer);
+        }
+    }
+
     // finally send the headers and the file
     header('Content-Type: ' . $mime_type);
     header('Expires: ' . $now);
@@ -450,7 +415,9 @@ else if (!empty($asfile)) {
     }
     echo $dump_buffer;
 }
-// 5. on display
+/**
+ * Displays the dump...
+ */
 else {
     echo htmlspecialchars($dump_buffer);
     /**
