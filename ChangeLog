@@ -10,6 +10,7 @@ $Source$
     * lang/norwegian: update, thanks to Sven-Erik Andersen
     * lang/polish: update, thanks to Jakub Wilk
     * lang/swedish: update, thanks to Björn T. Hallberg
+    * lang/slovak: remove duplicates
 
 2003-02-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/arabic*: Updates thanks to Ossama Khayat <ossamak at nht.com.kw>
