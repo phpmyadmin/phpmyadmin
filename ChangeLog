@@ -10,6 +10,8 @@ $Source$
       calendar.
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * libraries/display_tbl.lib.php, tbl_row_delete: Bug #942356,
+      missing localization for multi-row edit/delete/export feature.
     * footer.inc.php: Fixed bug #942316 - Consistent window layout for
       query window.
     * left.php: Fixed bug #942374 - Undefined indizes in left frame

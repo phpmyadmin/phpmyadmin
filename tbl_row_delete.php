@@ -24,6 +24,22 @@ if (isset($mult_btn)) {
     $submit_mult = 'row_delete';
 }
 
+switch($submit_mult) {
+    case $GLOBALS['strExport']:
+        $submit_mult = 'row_export';
+        break;
+
+    case $GLOBALS['strDelete']:
+    case $GLOBALS['strKill']:
+        $submit_mult = 'row_delete';
+        break;
+
+    default:
+    case $GLOBALS['strEdit']:
+        $submit_mult = 'row_edit';
+        break;
+}
+
 if ($submit_mult == 'row_edit') {
     $js_to_run = 'tbl_change.js';
 }
@@ -44,16 +60,16 @@ if (!empty($submit_mult)) {
                 foreach($rows_to_delete AS $i_primary_key => $del_query) {
                     $primary_key[] = urldecode($i_primary_key);
                 }
-                
+
                 include './tbl_change.php';
             }
             break;
-        
+
         case 'row_export':
             if (isset($rows_to_delete) && is_array($rows_to_delete)) {
                 // Needed to allow SQL export
                 $single_table = TRUE;
-                
+
                 $primary_key = array();
                 $sql_query = urldecode($sql_query);
                 // garvin: As we got the fields to be edited from the 'rows_to_delete' checkbox, we use the index of it as the
@@ -61,11 +77,11 @@ if (!empty($submit_mult)) {
                 foreach($rows_to_delete AS $i_primary_key => $del_query) {
                     $primary_key[] = urldecode($i_primary_key);
                 }
-                
+
                 include './tbl_properties_export.php';
             }
             break;
-        
+
         case 'row_delete':
         default:
             if ((isset($rows_to_delete) && is_array($rows_to_delete))
@@ -81,8 +97,8 @@ if (!empty($submit_mult)) {
             }
             $url_query = PMA_generate_common_url($db, $table)
                        . '&amp;goto=tbl_properties.php';
-            
-            
+
+
             /**
              * Show result of multi submit operation
              */
@@ -90,26 +106,26 @@ if (!empty($submit_mult)) {
                 || isset($mult_btn)) {
                 PMA_showMessage($strSuccess);
             }
-            
+
             if (isset($original_sql_query)) {
                 $sql_query = urldecode($original_sql_query);
             }
-            
+
             if (isset($original_url_query)) {
                 $url_query = $original_url_query;
             }
-            
+
             if (isset($original_pos)) {
                 $pos       = $original_pos;
             }
-            
+
             // this is because sql.php could call tbl_properties_structure
             // which would think it needs to call mult_submits.inc.php:
             unset($submit_mult);
             unset($mult_btn);
 
             require('./sql.php');
-            
+
             /**
              * Displays the footer
              */

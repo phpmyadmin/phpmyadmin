@@ -1816,9 +1816,9 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             }
             echo "\n";
         } else {
-            echo '                    <input type="submit" name="submit_mult" value="row_edit" title="' . $GLOBALS['strEdit'] . '" />' . "\n";
-            echo '&nbsp;<input type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '" />' . "\n";
-            echo '&nbsp;<input type="submit" name="submit_mult" value="row_export" title="' . $GLOBALS['strExport'] . '" />' . "\n";
+            echo '                    <input type="submit" name="submit_mult" value="' . htmlspecialchars($GLOBALS['strEdit']) . '" title="' . $GLOBALS['strEdit'] . '" />' . "\n";
+            echo '&nbsp;<input type="submit" name="submit_mult" value="' . htmlspecialchars($delete_text) . '" title="' . $delete_text . '" />' . "\n";
+            echo '&nbsp;<input type="submit" name="submit_mult" value="' . htmlspecialchars($GLOBALS['strExport']) . '" title="' . $GLOBALS['strExport'] . '" />' . "\n";
         }
         echo '<input type="hidden" name="sql_query" value="' . $encoded_sql_query . '" />' . "\n";
         echo '<input type="hidden" name="pos" value="' . $pos . '" />' . "\n";
