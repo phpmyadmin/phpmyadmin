@@ -440,8 +440,19 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         echo "\n";
         while ($relrow = @PMA_mysql_fetch_array($disp)) {
             $key   = $relrow[$foreign_field];
-            $value = (($foreign_display != FALSE) ? '&nbsp;-&nbsp;' . htmlspecialchars($relrow[$foreign_display]) : '');
+            if (strlen($relrow[$foreign_display]) <= $cfg['LimitChars']) {
+                $value  = (($foreign_display != FALSE) ? '&nbsp;-&nbsp;' . htmlspecialchars($relrow[$foreign_display]) : '');
+                $vtitle = '';
+            } else {
+                $vtitle = htmlspecialchars($relrow[$foreign_display]);
+                $value  = (($foreign_display != FALSE) ? '&nbsp;-&nbsp;' . htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
+            }
+            
             echo '            <option value="' . htmlspecialchars($key) . '"';
+            if ($vtitle != '') {
+                echo ' title="' . $vtitle . '"';
+            }
+            
             if ($key == $data) {
                echo ' selected="selected"';
             } // end if
