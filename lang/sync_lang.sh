@@ -39,7 +39,7 @@ japanese-euc
 korean-ks_c_5601-1987
 latvian-windows-1257
 lithuanian-windows-1257
-norwegian
+norwegian-iso-8859-1
 polish
 portuguese
 romanian
