@@ -19,15 +19,36 @@ require('./lib.inc.php3');
  * before the user choose among available ones at the welcome screen.
  */
 if ($server > 0) {
-    // Get databases list
-    if (empty($dblist)) {
-        $dbs     = @mysql_list_dbs() or mysql_die();
-        $num_dbs = mysql_numrows($dbs);
-    } else {
-        $num_dbs = count($dblist);
+    // Get the valid databases list
+    $num_dbs = count($dblist);
+    $dbs     = @mysql_list_dbs() or mysql_die();
+    while ($a_db = mysql_fetch_object($dbs)) {
+        if (!$num_dbs) {
+            $dblist[]                     = $a_db->Database;
+        } else {
+            $true_dblist[$a_db->Database] = '';
+        }
     }
+    if ($num_dbs && empty($true_dblist)) {
+        $dblist = array();
+    } else if ($num_dbs) {
+        for ($i = 0; $i < $num_dbs; $i++) {
+            if (isset($true_dblist[$dblist[$i]])) {
+                $dblist_valid[] = $dblist[$i];
+            }
+        }
+        if (isset($dblist_valid)) {
+            $dblist = $dblist_valid;
+            unset($dblist_valid);
+        } else {
+            $dblist = array();
+        }
+        unset($true_dblist);
+    }
+    // Get the valid databases count
+    $num_dbs = count($dblist);
 } else {
-        $num_dbs = 0;
+    $num_dbs = 0;
 }
 
 
@@ -62,7 +83,7 @@ if ($num_dbs > 1) {
     echo "\n";
     ?>
     <!-- Collapsible tables list scripts -->
-    <script type="text/javascript" language="javascript1.2">
+    <script type="text/javascript" language="javascript">
     <!--
     var isDOM      = (typeof(document.getElementsByTagName) != 'undefined') ? 1 : 0;
     var isIE4      = ((typeof(document.all) != 'undefined') && (parseInt(navigator.appVersion) >= 4)) ? 1 : 0;
@@ -153,19 +174,15 @@ echo "\n";
 //    '$cfgServerDefault = 0' is set. In that case, we want the welcome screen
 //    to appear with no database info displayed.
 // 2. there is only one database available (ie either only one database exists
-//    or $cfgServers['only_db'] is defined)
+//    or $cfgServers['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
 if ($num_dbs > 1) {
     $selected_db = 0;
 
     // Gets the tables list per database
     for ($i = 0; $i < $num_dbs; $i++) {
-        if (empty($dblist)) {
-            $db  = mysql_dbname($dbs, $i);
-        } else {
-            $db  = $dblist[$i];
-        }
-        $j = $i + 2;
+        $db = $dblist[$i];
+        $j  = $i + 2;
         if (!empty($db_start) && $db == $db_start) {
             $selected_db = $j;
         }
@@ -187,7 +204,7 @@ if ($num_dbs > 1) {
         if (!empty($num_tables)) {
             echo "\n";
             ?>
-        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="expandBase('el<?php echo $j; ?>', true); return false;">
+        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (typeof(expandBase) != 'undefined') {expandBase('el<?php echo $j; ?>', true); return false;}">
             <img name="imEx" id="el<?php echo $j; ?>Img" src="images/plus.gif" border="0" width="9" height="9" alt="+" /></a>
             <?php
         } else {
@@ -198,7 +215,7 @@ if ($num_dbs > 1) {
         }
         echo "\n";
         ?>
-        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="expandBase('el<?php echo $j; ?>', false);">
+        <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (typeof(expandBase) != 'undefined') {expandBase('el<?php echo $j; ?>', false)}">
             <font color="black" class="heada"><?php echo $db; ?>&nbsp;&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a>
     </div>
 
@@ -243,12 +260,7 @@ if ($num_dbs > 1) {
 
 // Case where only one database has to be displayed
 else if ($num_dbs == 1) {
-    // Get tables list of the database
-    if (empty($dblist)) {
-        $db  = mysql_dbname($dbs, 0);
-    } else {
-        $db  = $dblist[0];
-    }
+    $db                  = $dblist[0];
     $tables              = @mysql_list_tables($db);
     $num_tables          = @mysql_numrows($tables);
     $common_url_query    = 'lang=' . $lang
@@ -284,7 +296,11 @@ else if ($num_dbs == 1) {
     ?>
     </div>
     <?php
-} // end if ($server == 1)
+} // end if ($num_dbs == 1)
+else {
+    echo "\n";
+    echo '<p>' . $strNoDatabases . '</p>';
+} // end if ($num_dbs == 0)
 echo "\n";
 ?>
 
