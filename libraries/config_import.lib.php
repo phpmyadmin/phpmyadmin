@@ -1046,6 +1046,52 @@ if ($cfg['ShowFunctionFields']) {
     }
 }
 
+if (!isset($cfg['NumOperators'])) {
+    $cfg['NumOperators'] = array(
+       '=',
+       '>',
+       '>=',
+       '<',
+       '<=',
+       '!=',
+       'LIKE',
+       'NOT LIKE'
+    );
+}
+
+if (!isset($cfg['TextOperators'])) {
+    $cfg['TextOperators'] = array(
+       'LIKE',
+       'LIKE %...%',
+       'NOT LIKE',
+       '=',
+       '!=',
+       'REGEXP',
+       'NOT REGEXP'
+    );
+}
+
+if (!isset($cfg['EnumOperators'])) {
+    $cfg['EnumOperators'] = array(
+       '=',
+       '!='
+    );
+}
+
+if (!isset($cfg['NullOperators'])) {
+    $cfg['NullOperators'] = array(
+       'IS NULL',
+       'IS NOT NULL'
+    );
+}
+
+if (!isset($cfg['UnaryOperators'])) {
+    $cfg['UnaryOperators'] = array(
+       'IS NULL'     => 1,
+       'IS NOT NULL' => 1
+    );
+}
+
 if (!isset($cfg['GD2Available'])) {
     $cfg['GD2Available'] = 'auto';
 }

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_select.php, config.inc.php, libraries/config_import.lib.php,
+      libraries/common.lib.php: move search operators to config file,
+      and set "LIKE" as default operator instead of "LIKE %...%", for
+      performance reasons
+
 2004-08-16 Alexander M. Turek  <me@derrabus.de>
     * libraries/relation.lib.php: Fixed some collation problems with the
       relational tables (bug #995359).

@@ -655,7 +655,7 @@ $cfg['ColumnTypes'] = array(
    'SET'
 );
 
-// Atributes
+// Attributes
 $cfg['AttributeTypes'] = array(
    '',
    'BINARY',
@@ -778,6 +778,42 @@ if ($cfg['ShowFunctionFields']) {
 
 } // end if
 
+// Search operators
+$cfg['NumOperators'] = array(
+   '=',
+   '>',
+   '>=',
+   '<',
+   '<=',
+   '!=',
+   'LIKE',
+   'NOT LIKE'
+);
+
+$cfg['TextOperators'] = array(
+   'LIKE',
+   'LIKE %...%',
+   'NOT LIKE',
+   '=',
+   '!=',
+   'REGEXP',
+   'NOT REGEXP'
+);
+
+$cfg['EnumOperators'] = array(
+   '=',
+   '!='
+);
+
+$cfg['NullOperators'] = array(
+   'IS NULL',
+   'IS NOT NULL'
+);
+
+$cfg['UnaryOperators'] = array(
+   'IS NULL'     => 1,
+   'IS NOT NULL' => 1
+);
 
 /**
  * Unset magic_quotes_runtime - do not change!

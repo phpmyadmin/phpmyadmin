@@ -31,20 +31,6 @@ if ($cfg['PropertiesIconic'] == true) {
 }
 
 /**
- * Defines arrays of functions (should possibly be in config.inc.php
- * so it can also be used in tbl_qbe.php)
- *
- * LIKE works also on integers and dates so I added it in numfunctions
- */
-$numfunctions   = array('=', '>', '>=', '<', '<=', '!=', 'LIKE', 'NOT LIKE');
-$textfunctions  = array('LIKE %...%','LIKE', 'NOT LIKE', '=', '!=', 'REGEXP', 'NOT REGEXP');
-$enumfunctions  = array('=', '!=');
-$nullfunctions  = array('IS NULL', 'IS NOT NULL');
-$unaryfunctions = array(
-    'IS NULL'     => 1,
-    'IS NOT NULL' => 1);
-
-/**
  * Not selection yet required -> displays the selection form
  */
 if (!isset($param) || $param[0] == '') {
@@ -103,8 +89,8 @@ if (!isset($param) || $param[0] == '') {
 function PMA_tbl_select_operator(f, index, multiple) {
     switch (f.elements["func[" + index + "]"].options[f.elements["func[" + index + "]"].selectedIndex].value) {
 <?php
-        reset($unaryfunctions);
-        while (list($operator) = each($unaryfunctions)) {
+        reset($GLOBALS['cfg']['UnaryOperators']);
+        while (list($operator) = each($GLOBALS['cfg']['UnaryOperators'])) {
             echo '        case "' . $operator . "\":\r\n";
         }
 ?>
@@ -242,23 +228,23 @@ function PMA_tbl_select_operator(f, index, multiple) {
                     <select name="func[]">
         <?php
         if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
-            foreach ($enumfunctions as $k => $fc) {
+            foreach ($GLOBALS['cfg']['EnumOperators'] as $k => $fc) {
                 echo "\n" . '                        '
                    . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
             }
         } elseif (preg_match('@char|blob|text|set@i', $fields_type[$i])) {
-            foreach ($textfunctions as $k => $fc) {
+            foreach ($GLOBALS['cfg']['TextOperators'] as $k => $fc) {
             echo "\n" . '                        '
                . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
             }
         } else {
-            foreach ($numfunctions as $k => $fc) {
+            foreach ($GLOBALS['cfg']['NumOperators'] as $k => $fc) {
                 echo "\n" . '                        '
                    . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
             }
         } // end if... else...
         if ($fields_null[$i]) {
-            foreach ($nullfunctions as $k => $fc) {
+            foreach ($GLOBALS['cfg']['NullOperators'] as $k => $fc) {
                 echo "\n" . '                        '
                    . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
             }
@@ -369,7 +355,7 @@ else {
         $cnt_func = count($func);
         reset($func);
         while (list($i, $func_type) = each($func)) {
-            if (@$unaryfunctions[$func_type] == 1) {
+            if (@$GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) {
                 $fields[$i] = '';
                 $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type;
 
@@ -426,7 +412,6 @@ else {
     if ($orderField != '--nil--') {
         $sql_query .= ' ORDER BY ' . PMA_backquote(urldecode($orderField)) . ' ' . $order;
     } // end if
-
     include('./sql.php');
 }
 
