@@ -288,7 +288,11 @@ if ($num_dbs > 1) {
                     $table      = mysql_tablename($tables, $j);
                     $table_list .= '    <nobr><a target="phpmain" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table)) . '&amp;pos=0&amp;goto=tbl_properties.php3">' . "\n";
                     $table_list .= '              <img src="images/browse.gif" border="0" alt="' . $strBrowse . ': ' . $table . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
-                    $table_list .= '          <a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
+                    if (PMA_USR_BROWSER_AGENT == 'IE') {
+                        $table_list .= '          <a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '"><span class="tblItem">' . $table . '</span></a></nobr><br />' . "\n";
+                    } else {
+                        $table_list .= '          <a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
+                    }
                 } // end for $j (tables list)
 
                 if (!$table_list) { 
