@@ -770,10 +770,6 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['DBG']['profile']['threshold'] = 0.5;
     }
 
-    if (!isset($cfg['SQP']['enable'])) {
-        $cfg['SQP']['enable'] = TRUE;
-    }
-
     if (!isset($cfg['SQP']['fmtType'])) {
         $cfg['SQP']['fmtType'] = 'html';
     }

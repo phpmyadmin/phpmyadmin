@@ -217,12 +217,6 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             global $PMA_SQPdata_column_attrib, $PMA_SQPdata_reserved_word, $PMA_SQPdata_column_type, $PMA_SQPdata_function_name,
             $PMA_SQPdata_column_attrib_cnt, $PMA_SQPdata_reserved_word_cnt, $PMA_SQPdata_column_type_cnt, $PMA_SQPdata_function_name_cnt;
     
-            // if the SQL parser is disabled just return the original query string
-            if ($cfg['SQP']['enable'] == FALSE) {
-                // Debug : echo 'FALSE';
-                return $sql;
-            }
-    
             // rabus: Convert all line feeds to Unix style
             $sql = str_replace("\r\n", "\n", $sql);
             $sql = str_replace("\r", "\n", $sql);

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3, libraries/config_import.lib.php3,
+      config.inc.php3, Documentation.html: disabling of the parser no 
+      longer possible
+
 2003-03-22 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/defines.lib.php3: Small bugfix.
     * libraries/defines_php.lib.php3: New constant: PMA_MYSQL_CLIENT_API.

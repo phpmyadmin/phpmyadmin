@@ -1517,18 +1517,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br /><br />
     </dd>
 
-    <dt><b>$cfg['SQP']['enable']</b> boolean</dt>
-    <dd>
-    As of phpMyAdmin 2.3.0, we now have a fully functional SQL Parser system.
-    It is enabled by default, as it is used to format the SQL queries.
-    <br />
-    As of 2.3.1, it will become an integral part of phpMyAdmin, as it will
-    analyze certain queries to improve the behavior of phpMyAdmin. But as
-    it is very new, and not yet heavily used, we offer you an option to
-    turn it off.
-    <br /><br />
-    </dd>
-
     <dt><b>$cfg['SQP']['fmtType']</b> string [<tt>html</tt>|<tt>none</tt>]</dt>
     <dd>
     The main use of the new SQL Parser is to pretty-print SQL queries. By
