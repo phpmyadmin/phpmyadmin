@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-17  Marc Delisle  <lem9@users.sourceforge.net>
+	* user_details.php3, bugs 441987, 441990:
+	  corrections thanks to vinay and girish @sanisoft.com:
+
 2001-07-17  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_addfield.php3: add trouble detection if insert field failed
 	* tbl_rename.php3,tbl_copy.php3: block table rename if newname empty

@@ -2,6 +2,7 @@
 /* $Id$*/
 
 require("./grab_globals.inc.php3");
+require("./lib.inc.php3");
 
 function check_operations()
 {
@@ -567,7 +568,7 @@ function edit_operations($host, $user)
 
     global $strBack, $strGo;
     global $strDelPassMessage, $strRememberReload, $strUpdatePassMessage;
-    global $strUpdatePrivMessage, $strRememberReload;
+    global $strUpdatePrivMessage;
     global $strPasswordEmpty, $strPasswordNotSame;
     global $strDeletePassword, $strUpdatePassword, $strEditPrivileges;
     global $strPassword, $strReType;
