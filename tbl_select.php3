@@ -36,7 +36,7 @@ if (!isset($param) || $param[0] == '') {
                . '&amp;table=' . urlencode($table);
 
     // Gets the list and number of fields
-    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
     $result      = @PMA_mysql_query($local_query);
     if (!$result) {
         PMA_mysqlDie('', $local_query, '', $err_url);

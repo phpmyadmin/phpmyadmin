@@ -902,11 +902,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                               . '&goto=' . (empty($goto) ? 'tbl_properties.php3' : $goto);
                     $del_url  = 'sql.php3'
                               . '?' . $url_query
-                              . '&amp;sql_query=' . urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . urlencode(' LIMIT 1')
+                              . '&amp;sql_query=' . urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . ((PMA_MYSQL_INT_VERSION >= 32207) ? urlencode(' LIMIT 1') : '')
                               . '&amp;zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                               . '&amp;goto=' . urlencode($lnk_goto);
                     $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
-                              . ' WHERE ' . trim(PMA_jsFormat(urldecode($uva_condition), FALSE)) . ' LIMIT 1';
+                              . ' WHERE ' . trim(PMA_jsFormat(urldecode($uva_condition), FALSE))
+						      . ((PMA_MYSQL_INT_VERSION >= 32207) ? ' LIMIT 1' : '');
                     $del_str  = $GLOBALS['strDelete'];
                 } else if ($is_display['del_lnk'] == 'kp') { // kill process case
                     $lnk_goto = 'sql.php3'

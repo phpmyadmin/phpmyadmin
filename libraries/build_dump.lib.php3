@@ -82,7 +82,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         // For MySQL < 3.23.20
         $schema_create .= 'CREATE TABLE ' . PMA_htmlFormat(PMA_backquote($table), $use_backquotes) . ' (' . $crlf;
 
-        $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
         $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         while ($row = PMA_mysql_fetch_array($result)) {
             $schema_create     .= '   ' . PMA_htmlFormat(PMA_backquote($row['Field'], $use_backquotes)) . ' ' . $row['Type'];
@@ -100,7 +100,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         mysql_free_result($result);
         $schema_create         = ereg_replace(',' . $crlf . '$', '', $schema_create);
 
-        $local_query = 'SHOW KEYS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         while ($row = PMA_mysql_fetch_array($result))
         {

@@ -38,7 +38,7 @@ require('./tbl_properties_table_info.php3');
 /**
  * Get columns names
  */
-$local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+$local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
 $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
 for ($i = 0; $row = PMA_mysql_fetch_array($result); $i++) {
         $columns[$i] = $row['Field'];

@@ -26,7 +26,7 @@ unset($sql_query);
 /**
  * Get the list and number of fields
  */
-$local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+$local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
 $result      = @PMA_mysql_query($local_query);
 if (!$result) {
     PMA_mysqlDie('', $local_query, '', $err_url);
@@ -95,12 +95,12 @@ if ($is_upload) {
     ?>
             <div style="margin-bottom: 5px">
             <input type="file" name="sql_file" class="textfield" /><br />
-<?php
+    <?php
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
         $temp_charset = reset($cfg['AvailableCharsets']);
         echo $strCharsetOfFile . "\n"
-           . '            <select name="charset_of_file" size="1">' . "\n"
-           . '                <option value="' . $temp_charset . '"';
+             . '        <select name="charset_of_file" size="1">' . "\n"
+             . '                <option value="' . $temp_charset . '"';
         if ($temp_charset == $charset) {
             echo ' selected="selected"';
         }
@@ -111,10 +111,11 @@ if ($is_upload) {
                 echo ' selected="selected"';
             }
             echo '>' . $temp_charset . '</option>' . "\n";
-        }
-    echo '            </select>';
-    }
-?>
+        } // end while
+        echo '            </select>';
+    } // end if
+    echo "\n";
+    ?>
             </div>
     <?php
 } // end if

@@ -120,7 +120,7 @@ else {
         else {
             $field = PMA_sqlAddslashes($selected[$i], TRUE);
         }
-        $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . " LIKE '$field'";
+        $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . " LIKE '$field'";
         $result        = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
         $fields_meta[] = PMA_mysql_fetch_array($result);
         mysql_free_result($result);

@@ -63,7 +63,7 @@ if (isset($submit_search)) {
         $sqlstr_delete = 'DELETE';
 
         // Fields to select
-        $local_query           = 'SHOW FIELDS FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
+        $local_query           = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']);
         $res                   = @PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
         $res_cnt               = ($res ? mysql_num_rows($res) : 0);
         for ($i = 0; $i < $res_cnt; $i++) {

@@ -586,7 +586,7 @@ function PMA_grantOperations($grants)
         echo '                    ' . '</select>' . "\n";
     }
     else {
-        $result = PMA_mysql_query('SHOW COLUMNS FROM ' . PMA_backquote($dbgrant) . '.' . PMA_backquote($tablegrant));
+        $result = PMA_mysql_query('SHOW COLUMNS FROM ' . PMA_backquote($tablegrant) . ' FROM ' . PMA_backquote($dbgrant));
         if ($result && @mysql_num_rows($result)) {
             echo '                    '
                  . '<select name="colgrant[]" multiple="multiple" onchange="anycolumn[1].checked = true">' . "\n";
