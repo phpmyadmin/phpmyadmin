@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-08 Michael Keck  <mkkeck@users.sourceforge.net>
+    * themes/*/img/bd_insrow.png, themes/*/bd_insrow.png: Added disabled
+      versions of insert-row icons.
+
 2005-03-08 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french update
 
