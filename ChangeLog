@@ -9,7 +9,7 @@ $Source$
 	* libraries/display_tbl.lib.php3, changed a variable name for
 	  better doc.
 	* tbl_properties.php3, lang/*, Documentation.html: 
-	  new feature: Relational integrity
+	  new feature: Referential integrity
 
 2002-03-26 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3, lines 146-152, 519-524 & 567: fixed bug

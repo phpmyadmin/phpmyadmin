@@ -163,7 +163,8 @@
     <li>create (*) and read dumps of tables</li>
     <li>export (*) and import data to CSV values</li>
     <li>administer multiple servers and single databases</li>
-    <li>communicate in more than 20 different languages</li>
+    <li>check referential integrity</li>
+    <li>communicate in more than 38 different languages</li>
 </ul>
 
 <table border="0" cellspacing="0" cellpadding="0">
@@ -570,8 +571,15 @@ $cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <dd>
         Since release 2.2.4 you can describe, in a special 'relation' table, which field
         is a key in another table (a foreign key). phpMyAdmin currently uses 
-        this to make clickable, when you browse the src table, the data values
-        that point to the dest table.
+        this to 
+        <ul>
+           <li>
+              make clickable, when you browse the src table, the data values
+              that point to the dest table </li>
+           <li>
+              display links on the table properties page, to check referential 
+              integrity (display missing foreign keys) for each described key</li>
+        </ul>
         <br /><br />
 
         The keys can be numeric or character.

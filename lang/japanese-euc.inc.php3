@@ -352,5 +352,5 @@ $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
 $strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
-$strRelationalIntegrity = 'Check relational integrity:';  //to translate
+$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

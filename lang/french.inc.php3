@@ -242,7 +242,6 @@ $strQBEIns = 'Ajouter';
 $strQueryOnDb = 'Requête SQL sur la base <b>%s</b>&nbsp;:';
 
 $strRecords = 'Enregistrements';
-$strRelationalIntegrity = 'Vérifier l\'intégrité relationnelle';
 $strReloadFailed = 'MySQL n\'a pu être rechargé.';
 $strReloadMySQL = 'Recharger MySQL';
 $strRememberReload = 'N\'oubliez pas de recharger MySQL';
@@ -347,4 +346,5 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
+$strReferentialIntegrity = 'Vérifier l\'intégrité référentielle';
 ?>

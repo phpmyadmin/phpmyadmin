@@ -242,7 +242,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'SQL-query on database <b>%s</b>:';
 
 $strRecords = 'Records';
-$strRelationalIntegrity = 'Check relational integrity:';
+$strReferentialIntegrity = 'Check referential integrity:';
 $strReloadFailed = 'MySQL reload failed.';
 $strReloadMySQL = 'Reload MySQL';
 $strRememberReload = 'Remember reload the server.';

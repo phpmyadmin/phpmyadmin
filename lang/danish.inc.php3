@@ -347,5 +347,5 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b
 $strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';  //to translate
 $strUnselectAll = 'Unselect All';  //to translate
-$strRelationalIntegrity = 'Check relational integrity:';  //to translate
+$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

@@ -347,5 +347,5 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
-$strRelationalIntegrity = 'Check relational integrity:';  //to translate
+$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

@@ -350,5 +350,5 @@ $strZip = '"zo zipované"';
 
 
 // To translate
-$strRelationalIntegrity = 'Check relational integrity:';  //to translate
+$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

@@ -347,5 +347,5 @@ $strYes = 'Jah';
 $strZip = '"zipitud"';
 
 // To translate
-$strRelationalIntegrity = 'Check relational integrity:';  //to translate
+$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

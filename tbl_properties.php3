@@ -1209,7 +1209,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32306
     echo "\n";
 } // end 3.23.06 < MySQL < 3.23.22
 
-// Relational integrity check
+// Referential integrity check
 if (!empty($cfgServer['relation'])) {
 
     $local_query = 'SELECT src_column, dest_table, dest_column'
@@ -1219,8 +1219,8 @@ if (!empty($cfgServer['relation'])) {
     $result      = @mysql_query($local_query);
 
     if ($result != FALSE && mysql_num_rows($result) > 0) {
-        echo "    <!-- Relational integrity check -->\n";
-        echo "    <li>" . $strRelationalIntegrity . "<br />\n";
+        echo "    <!-- Referential integrity check -->\n";
+        echo "    <li>" . $strReferentialIntegrity . "<br />\n";
         while ($rel = mysql_fetch_row($result)) {
             echo '        <a href="sql.php3?' . $url_query .'&amp;sql_query='
 	       . urlencode('SELECT ' . PMA_backquote($table) . '.* FROM '
