@@ -380,7 +380,14 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
          . $strOptimizeTable . '</option>' . "\n";
     ?>
         </select>
-        <input type="submit" value="<?php echo $strGo; ?>" />
+        <script type="text/javascript" language="javascript">
+        <!--
+        // Fake js to allow the use of the <noscript> tag
+        -->
+        </script>
+        <noscript>
+            <input type="submit" value="<?php echo $strGo; ?>" />
+        </noscript>
     </td>
 </tr>
 </table>
