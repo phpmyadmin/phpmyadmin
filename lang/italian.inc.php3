@@ -66,7 +66,7 @@ $strColumnEmpty = 'Il nome della colonna è vuoto!';
 $strColumnNames = 'Nomi delle colonne';
 $strCompleteInserts = 'Inserimenti completi';
 $strConfirm = 'Sicuro di volerlo fare?';
-$strCopyTable = 'Copia la tabella su';
+$strCopyTable = 'Copia la tabella nel (database<b>.</b>tabella):';
 $strCopyTableOK = 'La tabella %s è stata copiata su %s.';
 $strCreate = 'Crea';
 $strCreateNewDatabase = 'Crea un nuovo database';
@@ -169,6 +169,8 @@ $strLogout = 'Disconnetti';
 
 $strModifications = 'Le modifiche sono state salvate';
 $strModify = 'Modifica';
+$strMoveTable = 'Sposta la tabella nel (database<b>.</b>tabella):';
+$strMoveTableOK = 'La tabella %s &egrave; stata spostata in %s.';
 $strMySQLReloaded = 'MySQL riavviato.';
 $strMySQLSaid = 'Messaggio di MySQL: ';
 $strMySQLShowProcess = 'Visualizza processi in esecuzione';
@@ -325,7 +327,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strCopyTable = 'Copy table to (database<b>.</b>table):';
-$strMoveTable = 'Move table to (database<b>.</b>table):';
-$strMoveTableOK = 'Table %s has been moved to %s.';
 ?>

@@ -5,15 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-09-25  Marc Delisle  <lem9@users.sourceforge.net>
-	* lang/norwegian.inc.php3 updates, thanks to Sven-Erik Andersen
-	* lang/czech* updates, thanks to Michal Cihar
+2001-09-25  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
 
-2001-09-23  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-09-25  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/norwegian.inc.php3 updates, thanks to Sven-Erik Andersen.
+	* lang/czech* updates, thanks to Michal Cihar.
+
+2001-09-24  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_properties.php3; tbl_copy.php3 (removed); tbl_move_copy.php3 (added);
 	  lang/*: feature request #463164 (Add ability to move -rename- across
 	  db's).
-	* lang/italian.inc.php3 updates, thanks to Pietro Danesi.
+	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
 
 2001-09-24  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/polish.inc.php3 updates, thanks to Jakub Wilk.
