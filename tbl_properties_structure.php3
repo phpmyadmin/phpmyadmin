@@ -518,6 +518,20 @@ unset($aryFields);
             <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
         </form>
     </li>
+
+<?php
+if ($cfg['Server']['relation']) {
+?>
+<!-- Work on Relations -->
+    <li>
+        <div style="margin-bottom: 10px"><a href="tbl_relation.php3?<?php
+echo $url_query; ?>"><?php echo $strRelationView; ?></a></div>
+    </li>
+
+<?php 
+}
+?>
+
 </ul>
 
 <?php

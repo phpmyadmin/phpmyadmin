@@ -361,4 +361,5 @@ $strZip = '"Compressão zip"';
 // To translate
 $strOptions = 'Options';  //to translate
 $strStructure = 'Structure';  //to translate
+$strRelationView = 'Relation view';  //to translate
 ?>

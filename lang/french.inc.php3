@@ -352,5 +352,6 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-$strStructure = 'Structure';  //to translate
+$strStructure = 'Structure';
+$strRelationView = 'Gestion des relations';
 ?>

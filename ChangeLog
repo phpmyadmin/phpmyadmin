@@ -10,6 +10,7 @@ $Source$
       new tbl_properties_structure, lang/*.php3: Structure page
       (todo: - stay on the sub-pages as long as needed)
     * tbl_qbe.php3: last changes from Mike Beck
+    * new tbl_relation.php3 (relation management), thanks to Mike Beck
 
 2002-05-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_properties.php3; tbl_properties_table_info.php3: comments.
