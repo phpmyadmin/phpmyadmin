@@ -73,7 +73,11 @@ sortlang()
 echo "-------------------------------------------------------------------"
 for i in $1; 
 do
-    echo "Sorting $i"
-    sortlang $i $2
+    if [ ! -f $i ] ; then
+        echo "$i is not a file, skipping"
+    else
+        echo "Sorting $i"
+        sortlang $i $2
+    fi
     echo "-------------------------------------------------------------------"
 done;
