@@ -234,7 +234,7 @@ button.mult_submit {
 .syntax_alpha_functionName {text-transform: uppercase;}
 .syntax_alpha_identifier   {}
 .syntax_alpha_variable     {}
-.syntax_quote              {}
+.syntax_quote              {white-space: pre;}
 .syntax_quote_backtick     {}
     <?php
     echo PMA_SQP_buildCssData();
