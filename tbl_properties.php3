@@ -348,9 +348,15 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
             <td align="right">
         <?php
         echo '        ';
-        if ($showtable['Row_format'] == 'Fixed') echo $strFixed;
-        else if ($showtable['Row_format'] == 'Dynamic') echo $strDynamic;
-        else echo $showtable['Row_format'];
+        if ($showtable['Row_format'] == 'Fixed') {
+            echo $strFixed;
+        }
+        else if ($showtable['Row_format'] == 'Dynamic') {
+            echo $strDynamic;
+        }
+        else {
+            echo $showtable['Row_format'];
+        }
         ?>
             </td>
         </tr>
@@ -369,13 +375,13 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         </tr>
         <?php
     }
-    if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length']>0) {
+    if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
         echo (++$i%2)
              ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
              : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
         echo "\n";
         ?>
-            <td><?php echo ucfirst($strRowLength) . '&nbsp;&oslash;'; ?></td>
+            <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
             <td align="right">
                 <?php echo $showtable['Avg_row_length'] . "\n"; ?>
             </td>
@@ -388,8 +394,8 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
              : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
         echo "\n";
         ?>
-            <td><?php echo ucfirst($strRowSize) . '&nbsp;&oslash;'; ?></td>
-            <td align="right">
+            <td><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
+            <td align="right" nowrap="nowrap">
                 <?php echo "$avg_size $avg_unit\n"; ?>
             </td>
         </tr>
@@ -401,7 +407,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
              : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
         echo "\n";
         ?>
-            <td><?php echo ucfirst($strNext) . '&nbsp;Autoindex'; ?></td>
+            <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
             <td align="right">
                 <?php echo $showtable['Auto_increment'] . "\n"; ?>
             </td>
@@ -618,7 +624,7 @@ echo "\n";
     <!-- Change table name and copy table -->
     <li style="vertical-align: top">
         <div style="margin-bottom: 10px">
-        <table border="0" cellspacing="0" cellpadding="0">
+        <table border="0" cellspacing="0" cellpadding="0" style="vertical-align: top">
         <tr>
             <td valign="top">
             <form method="post" action="tbl_rename.php3">
@@ -691,7 +697,7 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
     <!-- Table maintenance -->
     <li style="vertical-align: top">
         <div style="margin-bottom: 10px">
-        <table border="0" cellspacing="0" cellpadding="0">
+        <table border="0" cellspacing="0" cellpadding="0" style="vertical-align: top">
         <tr>
             <td><?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;</td>
         <?php
