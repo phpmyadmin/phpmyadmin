@@ -86,9 +86,9 @@ $font_family = ($charset == 'iso-8859-1')
 
 <body bgcolor="#D0DCE0">
     <!-- Link to the welcome page -->
-    <div id="el1Parent" class="parent">
+    <div id="el1Parent" class="parent" style="margin-bottom: 5px">
         <a class="item" href="main.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>">
-            <font color="black" class="heada"><?php echo $strHome; ?></font></a>
+            <font color="black" class="heada"><b><?php echo $strHome; ?></b></font></a>
     </div>
 
    
@@ -143,7 +143,7 @@ if ($server > 0) {
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="expandBase('el<?php echo $j; ?>', false);">
             <font color="black" class="heada"><?php echo $db; ?></font></a>
     </div>
-    <div id="el<?php echo $j;?>Child" class="child">
+    <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
         <?php
         for ($j = 0; $j < $num_tables; $j++) {
             $table = mysql_tablename($tables, $j);
