@@ -17,13 +17,18 @@ function sortlang()
     STRINGSTRING='^[[:space:]]*\$str[[:alnum:]_]*'
     WHITESPACE='^[[:blank:]]*$'
     STRINGORDER="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+    CVSID='/* .Id: .* . */'
 
     echo -n "Extracting:"
     echo -n " head"
     egrep -i -v $TRANSLATIONSTRING $f | \
-    egrep -v $STRINGSTRING | \
+    egrep -v "$STRINGSTRING|$CVSID" | \
     sed 's/?>//g;s/<?php//g'| \
     uniq >>$targetdir/head
+
+    echo -n " cvs"
+    head -n10 $f | \
+    egrep "$CVSID" >>$targetdir/cvs
 
     echo -n " strings"
     egrep -i -v $TRANSLATIONSTRING $f | \
@@ -39,7 +44,8 @@ function sortlang()
     for i in $STRINGORDER;
     do
         echo
-        egrep '^\$str'$i'[[:alpha:]]*' $targetdir/tmp-tosort | sort 
+        egrep '^\$str'$i'[[:alpha:]]*' $targetdir/tmp-tosort | \
+        sort -k 1,1
     done | \
     uniq >>$targetdir/sort
 
@@ -49,14 +55,16 @@ function sortlang()
     for i in $STRINGORDER;
     do
         echo
-        egrep '^\$str'$i'[[:alpha:]]*' $targetdir/tmp-translate | sort
+        egrep '^\$str'$i'[[:alpha:]]*' $targetdir/tmp-translate | \
+        sort -k 1,1
     done | \
     uniq >>$targetdir/translate
 
     echo -e "\nAssembling final"
     f=$f$2
     echo "<?php" >$f
-    cat $targetdir/head $targetdir/sort $targetdir/translate >>$f
+    cat $targetdir/cvs $targetdir/head $targetdir/sort $targetdir/translate | \
+    uniq >>$f
     echo "?>" >>$f
 
     rm -rf $targetdir
@@ -66,6 +74,6 @@ echo "-------------------------------------------------------------------"
 for i in $1; 
 do
     echo "Sorting $i"
-    sortlang $i
+    sortlang $i $2
     echo "-------------------------------------------------------------------"
 done;
