@@ -58,6 +58,8 @@ $strAnyDatabase = 'Oricare baza de date';
 $strAnyHost = 'Oricare host';
 $strAnyTable = 'Oricare tabel';
 $strAnyUser = 'Oricare utilizator';
+$strArabic = 'Arabic';
+$strArmenian = 'Armenian';
 $strAscending = 'Crescatoare';
 $strAtBeginningOfTable = 'La inceputul tabelului';
 $strAtEndOfTable = 'La sfarsitul tabelului';
@@ -66,6 +68,7 @@ $strAutodetect = 'Autodetectare';
 $strAutomaticLayout = 'Layout automat';
 
 $strBack = 'Inapoi';
+$strBaltic = 'Baltic';
 $strBeginCut = 'DE TAIAT - INCEPUT';
 $strBeginRaw = 'INCEPUT RAW';
 $strBinary = 'Binar';
@@ -88,6 +91,7 @@ $strCantRenameIdxToPrimary = 'Nu poti redenumi index-ul la un nume PRIMARY!';
 $strCantUseRecodeIconv = 'Nu pot folosi functiile iconv nici libiconv nici recode_string in timp ce extensia este incarcata. Verifica configuratia PHP.';
 $strCardinality = 'Cardinalitate';
 $strCarriage = 'Enter: \\r';
+$strCentralEuropean = 'European de est';
 $strChange = 'Schimbare';
 $strChangeCopyMode = 'Creaza un utilizatoru nou cu acelasi privilegii si...';
 $strChangeCopyModeCopy = '... mentine cel vechi.';
@@ -130,6 +134,7 @@ $strCreateNewTable = 'Creaza tabela noua in baza de date %s';
 $strCreatePage = 'Creaza o noua pagina';
 $strCreatePdfFeat = 'Creare de PDF';
 $strCriteria = 'Criteriu';
+$strCyrillic = 'Cyrillic';
 
 $strDBComment = 'Comentarii referitoare la baza de date: ';
 $strDBGContext = 'Context';
@@ -238,11 +243,13 @@ $strGlobalValue = 'Valoare globala';
 $strGo = 'Executa';
 $strGrantOption = 'Grant';
 $strGrants = 'Drepturi';
+$strGreek = 'Grec';
 $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'a fost alterat.';
 $strHasBeenCreated = 'a fost creat.';
 $strHaveToShow = 'Trebuie sa alegi cel putin o coloana pentru a putea afisa';
+$strHebrew = 'Ebraica';
 $strHome = 'Pagina de start';
 $strHomepageOfficial = 'Pagina oficiala phpMyAdmin';
 $strHomepageSourceforge = 'Pagina de descarcare Sourceforge phpMyAdmin';
@@ -274,6 +281,7 @@ $strInsertedRows = 'Randuri inserate:';
 $strInstructions = 'Instructiuni';
 $strInvalidName = '"%s" este un cuvant rezervat, nu o poti folosi ca o baza de date/tabela/nume de camp.';
 
+$strJapanese = 'Japonez';
 $strJumpToDB = 'Sari la baza de date &quot;%s&quot;.';
 $strJustDelete = 'Sterge utilizatorii din tabelele de drepturi.';
 $strJustDeleteDescr = 'Utilizatorii &quot;stersi&quot; vor avea acces la server la fel ca pana acum pana ce drepturile sunt reincarcate.';
@@ -281,6 +289,7 @@ $strJustDeleteDescr = 'Utilizatorii &quot;stersi&quot; vor avea acces la server 
 $strKeepPass = 'Nu schimbati parola';
 $strKeyname = 'Nume cheie';
 $strKill = 'Opreste';
+$strKorean = 'Corean';
 
 $strLaTeX = 'LaTeX';
 $strLaTeXOptions = 'Optiuni LaTeX';
@@ -493,6 +502,7 @@ $strRowsStatistic = 'Statisticile randului';
 $strRunQuery = 'Trimite comanda';
 $strRunSQLQuery = 'Run SQL query/queries pe baza de date %s';
 $strRunning = 'ruland pe %s';
+$strRussian = 'Rus';
 
 $strSQL = 'SQL';
 $strSQLOptions = 'Optiuni SQL';
@@ -548,6 +558,7 @@ $strShowTableDimension = 'Arata dimensiunile tabelei';
 $strShowTables = 'Arata tabelele';
 $strShowThisQuery = ' Afiseaza aceasta comanda din nou aici ';
 $strShowingRecords = 'Afiseaza inregistrari';
+$strSimplifiedChinese = 'Chineza simplificata';
 $strSingly = '(singly)';
 $strSize = 'Marime';
 $strSort = 'Sortare';
@@ -584,6 +595,7 @@ $strTableType = 'Tipul tabelului';
 $strTables = '%s tabele';
 $strTblPrivileges = 'Drepturi specifice de tabele';
 $strTextAreaLength = ' Datorita lungimii sale, <br /> acest camp s-ar putea sa nu fie editabil';
+$strThai = 'Tailandez';
 $strTheContent = 'Continutul fisierului dumneavoastra a fost inserat.';
 $strTheContents = 'Continutul acestui fisier inlocuieste continutul tabelului selectat pentru liniile cu cheie primara identica.';
 $strTheTerminator = 'Terminatorul campurilor.';
@@ -594,6 +606,7 @@ $strTime = 'Timp';
 $strToggleScratchboard = 'dezactivare scratchboard';
 $strTotal = 'total';
 $strTotalUC = 'Total';
+$strTraditionalChinese = 'Chineza Traditionala';
 $strTraffic = 'Trafic';
 $strTransformation_image_jpeg__inline = 'Afiseaza o imagine mica clicabila ; optiuni: latime, inaltime in pixeli (metine dimensiunile originale)';
 $strTransformation_image_jpeg__link = 'Afiseaza un link la imagine (direct blob download, i.e.).';
@@ -609,7 +622,9 @@ $strTruncateQueries = 'Truncare comenzi afisate';
 $strType = 'Tip';
 
 $strUncheckAll = 'Deselecteaza toate';
+$strUnicode = 'Unicode';
 $strUnique = 'Unic';
+$strUnknown = 'necunoscut';
 $strUnselectAll = 'Deselecteaza tot';
 $strUpdComTab = 'Parcurgeti documentatia pentru modul de updatare a Column_comments Table';
 $strUpdatePrivMessage = 'Ati actualizat privilegiile pentru %s.';
@@ -642,6 +657,7 @@ $strViewDumpDatabases = 'Vizualizarea schemei bazei de date';
 $strWebServerUploadDirectory = 'director de upload al web-server-ului';
 $strWebServerUploadDirectoryError = 'Directorul setat pentru upload nu poate fi gasit';
 $strWelcome = 'Bine ai venit la %s';
+$strWestEuropean = 'European de vest';
 $strWildcard = 'wildcard';
 $strWithChecked = 'Verificat cu:';
 $strWritingCommentNotPossible = 'Scrierea unui comentariu nu este posibil';
@@ -656,41 +672,37 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
-$strCharsets = 'Charsets';  //to translate
-$strDescription = 'Description';  //to translate
-$strCharsetsAndCollations = 'Character Sets and Collations';  //to translate
-$strCollation = 'Collation';  //to translate
-$strMultilingual = 'multilingual';  //to translate
-$strGerman = 'German';  //to translate
-$strPhoneBook = 'phone book';  //to translate
-$strDictionary = 'dictionary';  //to translate
-$strSwedish = 'Swedish';  //to translate
-$strDanish = 'Danish';  //to translate
-$strCzech = 'Czech';  //to translate
-$strTurkish = 'Turkish';  //to translate
-$strEnglish = 'English';  //to translate
-$strHungarian = 'Hungarian';  //to translate
-$strCroatian = 'Croatian';  //to translate
 $strBulgarian = 'Bulgarian';  //to translate
-$strLithuanian = 'Lithuanian';  //to translate
-$strEstonian = 'Estonian';  //to translate
+
 $strCaseInsensitive = 'case-insensitive';  //to translate
 $strCaseSensitive = 'case-sensitive';  //to translate
+$strCharsets = 'Charsets';  //to translate
+$strCharsetsAndCollations = 'Character Sets and Collations';  //to translate
+$strCollation = 'Collation';  //to translate
+$strCroatian = 'Croatian';  //to translate
+$strCzech = 'Czech';  //to translate
+
+$strDanish = 'Danish';  //to translate
+$strDescription = 'Description';  //to translate
+$strDictionary = 'dictionary';  //to translate
+
+$strEnglish = 'English';  //to translate
+$strEstonian = 'Estonian';  //to translate
+
+$strGerman = 'German';  //to translate
+
+$strHungarian = 'Hungarian';  //to translate
+
+$strLithuanian = 'Lithuanian';  //to translate
+
+$strMultilingual = 'multilingual';  //to translate
+
+$strPhoneBook = 'phone book';  //to translate
+
+$strSwedish = 'Swedish';  //to translate
+
+$strTurkish = 'Turkish';  //to translate
+
 $strUkrainian = 'Ukrainian';  //to translate
-$strHebrew = 'Hebrew';  //to translate
-$strWestEuropean = 'West European';  //to translate
-$strCentralEuropean = 'Central European';  //to translate
-$strTraditionalChinese = 'Traditional Chinese';  //to translate
-$strCyrillic = 'Cyrillic';  //to translate
-$strArmenian = 'Armenian';  //to translate
-$strArabic = 'Arabic';  //to translate
-$strRussian = 'Russian';  //to translate
-$strUnknown = 'unknown';  //to translate
-$strBaltic = 'Baltic';  //to translate
-$strUnicode = 'Unicode';  //to translate
-$strSimplifiedChinese = 'Simplified Chinese';  //to translate
-$strKorean = 'Korean';  //to translate
-$strGreek = 'Greek';  //to translate
-$strJapanese = 'Japanese';  //to translate
-$strThai = 'Thai';  //to translate
+
 ?>
