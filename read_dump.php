@@ -312,7 +312,7 @@ if ($sql_query != '') {
                 }
 
                 // .*? bellow is non greedy expansion, just in case somebody wants to understand it...
-                if (!isset($reload) && preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $a_sql_query)) {
+                if (!isset($reload) && preg_match('@^((-- |#)[^\n]*\n|/\*.*?\*/)*(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $sql_query)) {
                     $reload = 1;
                 }
             } // end for

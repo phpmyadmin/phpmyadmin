@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-19 Michal Čihař  <michal@cihar.com>
+    * read_dump.php: Fixed one case of reload detection (I forgot to update
+      second regexp on 2004-08-16) (bug #1011479).
+
 2004-08-17 Michal Čihař  <michal@cihar.com>
     * sql.php: Work with $display_query only if set (Marc spotted this out).
     * libraries/display_export.lib.php: No options text should not be bold red
