@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-17  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_addfield.php3: add trouble detection if insert field failed
+	* tbl_rename.php3,tbl_copy.php3: block table rename if newname empty
 	
 2001-07-16  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3, bug 441689, "Insert as new row" was not copying blobs.
