@@ -201,7 +201,7 @@ else if ($mult_btn == $strYes) {
                 } else {
                     $a_query .= 'DELETE FROM ';
                 }
-                $a_query .= PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
+                $a_query .= PMA_backquote(htmlspecialchars(urldecode($selected[$i])));
                 break;
 
             case 'drop_fld':

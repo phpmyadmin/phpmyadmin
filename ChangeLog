@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-06 Michal Cihar  <nijel@users.sourceforge.net>
+    * mult_submits.inc.php3: Missing ;.
+
 2003-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: new faq 6.20 about CREATE TEMPORARY TABLES
     * libraries/sqlparser.lib.php3: bug 716679, parsing of negation operator
