@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-09 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/hindi-utf-8.inc.php3: Updates, thanks again to
+      Girish Nair (girish_nair).
+
 2002-09-08 Robin Johnson  <robbat2@users.sourceforge.net>
     * scripts/create-release.sh: Tweaked instruction list
     * Documentaion.html, lib/sqlvalidator.class.php3:
