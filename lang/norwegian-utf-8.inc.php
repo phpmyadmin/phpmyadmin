@@ -721,4 +721,5 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrens
 $strZip = 'Komprimert (zip)';
 // To translate
 
+$strAddConstraints = 'Add constraints';  //to translate
 ?>

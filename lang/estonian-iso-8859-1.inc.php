@@ -716,4 +716,5 @@ $strZip = '"zipitud"';
 
 $strDelayedInserts = 'Use delayed inserts';  //to translate
 $strSQLExportType = 'Export type';  //to translate
+$strAddConstraints = 'Add constraints';  //to translate
 ?>

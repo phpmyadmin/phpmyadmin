@@ -729,4 +729,5 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanması sınırı kaldırır..';
 $strZip = '"ziplenmiş"';
 
+$strAddConstraints = 'Add constraints';  //to translate
 ?>

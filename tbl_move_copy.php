@@ -138,10 +138,6 @@ if (isset($new_name) && trim($new_name) != '') {
         (PMA_isInto($db, $dblist) == -1 || PMA_isInto($target_db, $dblist) == -1)) {
         exit();
     }
-    if (PMA_MYSQL_INT_VERSION < 32306) {
-        PMA_checkReservedWords($target_db, $err_url);
-        PMA_checkReservedWords($new_name, $err_url);
-    }
 
     if ($db == $target_db && $new_name == $table) {
         $message   = (isset($submit_move) ? $strMoveTableSameNames : $strCopyTableSameNames);
@@ -155,23 +151,26 @@ if (isset($new_name) && trim($new_name) != '') {
         
         $target = PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
 
-        include('./libraries/export/sql.php');
-
-        $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
-        $parsed_sql =  PMA_SQP_parse($sql_structure);
-
-        /* nijel: Find table name in query and replace it */
-        $i = 0;
-        while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
-        
-        /* no need to PMA_backquote() */
-        $parsed_sql[$i]['data'] = $target;
-
-        /* Generate query back */
-        $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
-
         // do not create the table if dataonly
         if ($what != 'dataonly') {
+            include('./libraries/export/sql.php');
+
+            $no_constraints_comments = true;
+            $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
+            unset($no_constraints_comments);
+
+            $parsed_sql =  PMA_SQP_parse($sql_structure);
+
+            /* nijel: Find table name in query and replace it */
+            $i = 0;
+            while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
+            
+            /* no need to PMA_backquote() */
+            $parsed_sql[$i]['data'] = $target;
+
+            /* Generate query back */
+            $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
+        
             // If table exists, and 'add drop table' is selected: Drop it!
             $drop_query = '';
             if (isset($drop_if_exists) && $drop_if_exists == 'true') {
@@ -202,26 +201,42 @@ if (isset($new_name) && trim($new_name) != '') {
             } else {
                 $sql_query = $sql_structure . ';';
             }
+            
+            if ((isset($submit_move) || isset($constraints)) && isset($sql_constraints)) {
+                $parsed_sql =  PMA_SQP_parse($sql_constraints);
+               
+                $i = 0;
+                while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
+                
+                /* no need to PMA_backquote() */
+                $parsed_sql[$i]['data'] = $target;
+
+                /* Generate query back */
+                $sql_constraints = PMA_SQP_formatHtml($parsed_sql, 'query_only');
+                $result        = @PMA_mysql_query($sql_constraints);
+                if (PMA_mysql_error()) {
+                    include('./header.inc.php');
+                    PMA_mysqlDie('', $sql_structure, '', $err_url);
+                } else if (isset($sql_query)) {
+                    $sql_query .= "\n" . $sql_constraints;
+                } else {
+                    $sql_query = $sql_constrtaints;
+                }
+            }
+
         } else {
             $sql_query='';
         }
 
         // Copy the data
         if ($result != FALSE && ($what == 'data' || $what == 'dataonly')) {
-            // speedup copy table - staybyte - 22. Juni 2001
-            if (PMA_MYSQL_INT_VERSION >= 32300) {
-                $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
-                $result          = @PMA_mysql_query($sql_insert_data);
-                if (PMA_mysql_error()) {
-                    include('./header.inc.php');
-                    PMA_mysqlDie('', $sql_insert_data, '', $err_url);
-                }
-            } // end MySQL >= 3.23
-            else {
-                $sql_insert_data = '';
-                PMA_getTableContent($db, $table, 0, 0, 'PMA_myHandler', $err_url,'');
-            } // end MySQL < 3.23
-            $sql_query .= "\n\n" . $sql_insert_data;
+            $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
+            $result          = @PMA_mysql_query($sql_insert_data);
+            if (PMA_mysql_error()) {
+                include('./header.inc.php');
+                PMA_mysqlDie('', $sql_insert_data, '', $err_url);
+            }
+            $sql_query .= "\n\n" . $sql_insert_data . ';';
         }
 
         include('./libraries/relation.lib.php');

@@ -208,6 +208,8 @@ for ($i = 0; $i < $num_dbs; $i++) {
                     <label for="checkbox_drop"><?php echo $strStrucDrop; ?></label>&nbsp;&nbsp;<br />
                     <input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" />
                     <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+                    <input type="checkbox" name="constraints" value="1" id="checkbox_constraints" />
+                    <label for="checkbox_constraints"><?php echo $strAddConstraints; ?></label><br />
                     <?php
                     if (isset($_COOKIE) && isset($_COOKIE['pma_switch_to_new']) && $_COOKIE['pma_switch_to_new'] == 'true') {
                         $pma_switch_to_new = 'true';

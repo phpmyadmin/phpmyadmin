@@ -30,6 +30,7 @@ $strAccessDenied = 'Pøístup odepøen';
 $strAccessDeniedExplanation = 'phpMyAdmin se pokusil pøipojit k&nbsp;MySQL serveru, a ten odmítl pøipojení. Zkontrolujte jméno serveru, u¾ivatelské jméno a heslo v&nbsp;souboru config.inc.php a ujistìte se, ¾e jsou toto¾né s&nbsp;tìmi co máte od administrátora MySQL serveru.';
 $strAction = 'Akce';
 $strAddAutoIncrement = 'Pøidat hodnotu AUTO_INCREMENT';
+$strAddConstraints = 'Pøidat omezení';
 $strAddDeleteColumn = 'Pøidat/Smazat sloupec';
 $strAddDeleteRow = 'Pøidat/Smazat øádek s&nbsp;podmínkou';
 $strAddDropDatabase = 'Pøidat DROP DATABASE';

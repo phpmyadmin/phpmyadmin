@@ -725,4 +725,5 @@ $strCreationDates = 'Creation/Update/Check dates';  //to translate
 $strCheckOverhead = 'Check overheaded';  //to translate
 $strDelayedInserts = 'Use delayed inserts';  //to translate
 $strSQLExportType = 'Export type';  //to translate
+$strAddConstraints = 'Add constraints';  //to translate
 ?>
