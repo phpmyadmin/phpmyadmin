@@ -220,14 +220,23 @@ button.mult_submit {
     border:           1px dashed #000000;
 }
 
+/* Warning showing div with right border and optional icon */
+
+div.warning {
+    border: 1px solid red;
+<?php if($cfg['ErrorIconic']) { ?>
+    background-image: url(../images/s_warn.png);
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+    margin: 0px;
+<?php } ?>
+    width: 90%;
+}
+
 /* some new styles added 20047-05-05 by Michael Keck (mkkeck) */
 
 /* tables */
-.tblWarning {
-  border: 1px solid #cc0000;
-  background-color: #ffffff;
-		width: 100%;
-}
 .tblError {
   border:           1px solid #cc0000;
   background-color: #ffffcc;

@@ -568,12 +568,7 @@ echo "\n";
  * modified: 2004-05-05 mkkeck
  */
 if ($display_pmaAbsoluteUri_warning) {
-    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
-    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
-    echo '<tr>'."\n";
-                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
-    echo '<td class="warning">' . $strPmaUriError . '</td>' . "\n";
-    echo '</tr>'."\n".'</table>';
+    echo '<div class="warning">' . $strPmaUriError . '</div>' . "\n";
 }
 
 /**
@@ -583,12 +578,7 @@ if ($display_pmaAbsoluteUri_warning) {
 if ($server != 0
     && $cfg['Server']['user'] == 'root'
     && $cfg['Server']['password'] == '') {
-    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
-    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
-    echo '<tr>'."\n";
-                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
-    echo '<td class="warning">' . $strInsecureMySQL . '</td>' . "\n";
-    echo '</tr>'."\n".'</table>';
+    echo '<div class="warning">' . $strInsecureMySQL . '</div>' . "\n";
 }
 
 /**
@@ -597,12 +587,7 @@ if ($server != 0
  */
 
 if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
-    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
-    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
-    echo '<tr>'."\n";
-                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
-    echo '<td class="warning">' . $strPHP40203 . '</td>' . "\n";
-    echo '</tr>'."\n".'</table>';
+    echo '<div class="warning">' . $strPHP40203 . '</div>' . "\n";
 }
 
 /**
@@ -611,12 +596,7 @@ if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
  */
 
 if (PMA_PHP_INT_VERSION < 40100) {
-    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
-    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
-    echo '<tr>'."\n";
-                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
-    echo '<td class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.0') . '</td>' . "\n";
-    echo '</tr>'."\n".'</table>';
+    echo '<div class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.0') . '</div>' . "\n";
 }
 
 /**
@@ -625,12 +605,7 @@ if (PMA_PHP_INT_VERSION < 40100) {
  */
 // not yet defined before the server choice
 if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
-    echo '<img src="images/spacer.png" width="1" height="5" border="0" />';
-    echo '<table class="tblWarning" border="0" cellpadding="2" cellspacing="0">'."\n";
-    echo '<tr>'."\n";
-                if($cfg['ErrorIconic']){ echo '<td valign="top" width="20"><img src="images/s_warn.png" border="0" align="left" hspace="2" vspace="2" alt="Warning" /></td>'; }
-    echo '<td class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</td>' . "\n";
-    echo '</tr>'."\n".'</table>';
+    echo '<div class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</div>' . "\n";
 }
 
 /**
