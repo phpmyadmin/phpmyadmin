@@ -96,6 +96,26 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
 <li><a href="tbl_qbe.php3<?php echo $query;?>"><?php echo $strQBE;?></a>
 <li><form method="post" action="db_dump.php3"><?php echo $strViewDumpDB;?><br>
 <table>
+    <?php
+        $tables = mysql_list_tables($db);
+        $num_tables = @mysql_numrows($tables);
+        if($num_tables>1) {
+            print "<tr>\n";
+            print "\t<td colspan=\"2\">\n";
+            print "\t\t<select name=\"table_select[]\" size=\"5\" multiple>\n";
+
+            $i=0;
+   
+            while($i < $num_tables) {
+                $table = mysql_tablename($tables, $i);
+                echo "\t\t\t<option value=\"".$table."\">".$table."</option>\n";
+                $i++;
+            }
+            echo "\t\t</select>\n";
+            echo "\t</td>\n";
+            echo "</tr>\n";
+        }
+    ?>
     <tr>
         <td>
             <input type="radio" name="what" value="structure" checked><?php echo $strStrucOnly;?>

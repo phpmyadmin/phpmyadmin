@@ -78,32 +78,43 @@ else
     }
     print " $strDatabase: $db$crlf";
 
+    if (isset($table_select)) {
+        $tmp_select=implode($table_select,"|");
+        $tmp_select="|".$tmp_select."|";
+        echo $tmp_select;
+    }
+
     while($i < $num_tables)
     { 
         $table = mysql_tablename($tables, $i);
 
-      if($what != "dataonly")
-      {
-        print $crlf;
-        print "# --------------------------------------------------------$crlf";
-        print "#$crlf";
-        print "# $strTableStructure '$table'$crlf";
-        print "#$crlf";
-        print $crlf;
+        if(isset($tmp_select) && is_int(strpos($tmp_select,"|".$table."|"))==false)
+            $i++;
+        else {
 
-        echo get_table_def($db, $table, $crlf).";$crlf$crlf";
-      }
-        
-      if(($what == "data") || ($what == "dataonly"))
-        {
+            if($what != "dataonly")
+            {
+            print $crlf;
+            print "# --------------------------------------------------------$crlf";
             print "#$crlf";
-            print "# $strDumpingData '$table'$crlf";
+            print "# $strTableStructure '$table'$crlf";
             print "#$crlf";
             print $crlf;
-        
-            get_table_content($db, $table, "my_handler");
+
+            echo get_table_def($db, $table, $crlf).";$crlf$crlf";
+            }
+
+            if(($what == "data") || ($what == "dataonly"))
+            {
+                print "#$crlf";
+                print "# $strDumpingData '$table'$crlf";
+                print "#$crlf";
+                print $crlf;
+
+                get_table_content($db, $table, "my_handler");
+            }
+            $i++;
         }
-        $i++;
     }
 }
 

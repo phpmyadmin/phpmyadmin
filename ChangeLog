@@ -5,12 +5,15 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-09  Armel Fauveau   <armel.fauveau@globalis-ms.com>
+	* add multiple dump feature (Feature #424176)
+
 2001-06-08  Marc Delisle  <lem9@users.sourceforge.net>
-        * add hostname in title bar
+	* add hostname in title bar
 
 2001-06-07  Marc Delisle  <lem9@users.sourceforge.net>
-        * modify/implement Steve Alberty's patch for complete table dump
-        * implement Alessandro Astarita's patch for data only dump
+	* modify/implement Steve Alberty's patch for complete table dump
+	* implement Alessandro Astarita's patch for data only dump
 
 2001-06-06  Armel Fauveau   <armel.fauveau@globalis-ms.com>
 	* patch bookmark section in sql.php3 (bug #430628)
