@@ -45,6 +45,7 @@ $available_languages = array(
     'cs-win1250' => array('cs|czech', 'czech-win1250'),
     'da'         => array('da|danish', 'danish'),
     'de'         => array('de([-_][[:alpha:]]{2})?|german', 'german'),
+    'el'         => array('el|greek',  'greek'),
     'en'         => array('en([-_][[:alpha:]]{2})?|english',  'english'),
     'es'         => array('es([-_][[:alpha:]]{2})?|spanish', 'spanish'),
     'fr'         => array('fr([-_][[:alpha:]]{2})?|french', 'french'),
