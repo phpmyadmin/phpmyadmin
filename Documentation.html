@@ -694,11 +694,17 @@
 
 <p>
     <b>I try to upload a file and I get: <br /> 
-     Error MySQL said: The file '/tmp/phpkvpp60' must be in the database directory or be readable by all </b>
+    Error MySQL said: The file '/tmp/phpkvpp60' must be in the database
+    directory or be readable by all</b>
     <br />
-    Your uploaded file is saved by PHP in the "upload dir", as defined in php.ini by the variable upload_tmp_dir (usually the system default is /tmp).  If this directory is not readable by all, the MySQL server (which must be running on the same machine) cannot open the file (except if running as root, which is not recommended).
+    Your uploaded file is saved by PHP in the "upload dir", as defined in
+    <i>php.ini</i> by the variable <tt>upload_tmp_dir</tt> (usually the system
+    default is <i>/tmp</i>).
+    If this directory is not readable by all, the MySQL server (which must be
+    running on the same machine) cannot open the file (except if running as
+    root, which is not recommended).
     <br />
-    The system administrator can do a "chmod 777 /tmp" to enable uploads.
+    The system administrator can do a "<tt>chmod 777 /tmp</tt>" to enable uploads.
 </p>
 
 
@@ -845,6 +851,10 @@ CREDITS, in chronological order
 
 [kc] - Korakot Chaovavanich &lt;korakot@iname.com&gt;
 [pk] - Pete Kelly &lt;webmaster@trafficg.com&gt;
+
+[sa] - Steve Alberty &lt;alberty@neptunlabs.de&gt;
+        * rewrote dump code for PHP4
+        * MySQL Table Statistics
 
 The following people have contributed minor changes, enhancements, bugfixes or
 or support for a new language since version 2.1.0:
