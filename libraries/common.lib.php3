@@ -451,7 +451,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $font_smallest = 'x-small';
         }
 
-        return true;
+        return TRUE;
     } // end of the 'PMA_setFontSizes()' function
 
 
