@@ -48,23 +48,23 @@ $cfg['Servers'][$i]['port']          = '';          // MySQL port - leave blank 
 $cfg['Servers'][$i]['socket']        = '';          // Path to the socket - leave blank for default socket
 $cfg['Servers'][$i]['connect_type']  = 'tcp';       // How to connect to MySQL server ('tcp' or 'socket')
 $cfg['Servers'][$i]['controluser']   = '';          // MySQL control user settings
-                                                // (this user must have read-only
+                                                    // (this user must have read-only
 $cfg['Servers'][$i]['controlpass']   = '';          // access to the "mysql/user"
-                                                // and "mysql/db" tables)
+                                                    // and "mysql/db" tables)
 $cfg['Servers'][$i]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
 $cfg['Servers'][$i]['user']          = 'root';      // MySQL user
 $cfg['Servers'][$i]['password']      = '';          // MySQL password (only needed
-                                                // with 'config' auth_type)
+                                                    // with 'config' auth_type)
 $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
-                                                // this db is displayed
-                                                // at left frame
-                                                // It may also be an array
-                                                // of db-names
+                                                    // this db is displayed
+                                                    // at left frame
+                                                    // It may also be an array
+                                                    // of db-names
 $cfg['Servers'][$i]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 $cfg['Servers'][$i]['bookmarkdb']    = '';          // Bookmark db - leave blank for no bookmark support
 $cfg['Servers'][$i]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
 $cfg['Servers'][$i]['relation']      = '';          // table to describe the relation between links (see doc)
-                                                //   - leave blank for no relation-links support
+                                                    //   - leave blank for no relation-links support
 
 $i++;
 $cfg['Servers'][$i]['host']          = '';
@@ -103,7 +103,7 @@ $cfg['Servers'][$i]['relation']      = '';
 // or set it to 0 to be given a list of servers without logging in
 // If you have only one server configured, $cfg['ServerDefault'] *MUST* be
 // set to that server.
-$cfg['ServerDefault'] = 1;                         // Default server (0 = no default server)
+$cfg['ServerDefault'] = 1;              // Default server (0 = no default server)
 $cfg['Server']        = '';
 unset($cfg['Servers'][0]);
 
@@ -115,7 +115,7 @@ $cfg['OBGzip']                = TRUE;   // use GZIP output buffering if possible
 $cfg['PersistentConnections'] = FALSE;  // use persistent connections to MySQL database
 $cfg['ExecTimeLimit']         = 300;    // maximum execution time in seconds (0 for no limit)
 $cfg['SkipLockedTables']      = FALSE;  // mark used tables, make possible to show
-                                    // locked tables (since MySQL 3.23.30)
+                                        // locked tables (since MySQL 3.23.30)
 $cfg['ShowSQL']               = TRUE;   // show SQL queries as run
 $cfg['AllowUserDropDatabase'] = FALSE;  // show a 'Drop database' link to normal users
 $cfg['Confirm']               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
@@ -123,13 +123,13 @@ $cfg['LoginCookieRecall']     = TRUE;   // recall previous login in cookie auth.
 
 // Left frame setup
 $cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the
-                                    // current tables in the left frame.
+                                        // current tables in the left frame.
 $cfg['ShowTooltip']           = TRUE;   // display table comment as tooltip in left frame
 
 // In the main frame, at startup...
 $cfg['ShowStats']             = TRUE;   // allow to display statistics and space usage in
-                                    // the pages about database details and table
-                                    // properties
+                                        // the pages about database details and table
+                                        // properties
 $cfg['ShowMysqlInfo']         = FALSE;  // whether to display the "MySQL runtime
 $cfg['ShowMysqlVars']         = FALSE;  // information", "MySQL system variables", "PHP
 $cfg['ShowPhpInfo']           = FALSE;  // information" and "change password" links for
@@ -148,10 +148,10 @@ $cfg['Order']                 = 'ASC';  // default for 'ORDER BY' clause (valid
 
 // In edit mode...
 $cfg['ProtectBinary']         = 'blob'; // disallow editing of binary fields
-                                    // valid values are:
-                                    //   FALSE  allow editing
-                                    //   'blob' allow editing except for BLOB fields
-                                    //   'all'  disallow editing
+                                        // valid values are:
+                                        //   FALSE  allow editing
+                                        //   'blob' allow editing except for BLOB fields
+                                        //   'all'  disallow editing
 $cfg['ShowFunctionFields']    = TRUE;   // Display the function fields in edit/insert mode
 
 // For the export features...
@@ -185,24 +185,24 @@ require('./libraries/select_lang.lib.php3');
 $cfg['LeftWidth']           = 150;          // left frame width
 $cfg['LeftBgColor']         = '#D0DCE0';    // background color for the left frame
 $cfg['LeftPointerColor']    = '#CCFFCC';    // color of the pointer in left frame
-                                        // (blank for no pointer)
+                                            // (blank for no pointer)
 $cfg['RightBgColor']        = '#F5F5F5';    // background color for the right frame
 $cfg['Border']              = 0;            // border width on tables
 $cfg['ThBgcolor']           = '#D3DCE3';    // table header row colour
 $cfg['BgcolorOne']          = '#CCCCCC';    // table data row colour
 $cfg['BgcolorTwo']          = '#DDDDDD';    // table data row colour, alternate
 $cfg['BrowsePointerColor']  = '#CCFFCC';    // color of the pointer in browse mode
-                                        // (blank for no pointer)
+                                            // (blank for no pointer)
 $cfg['BrowseMarkerColor']   = '#FFCC99';    // color of the marker (visually marks row
-                                        // by clicking on it) in browse mode
-                                        // (blank for no marker)
+                                            // by clicking on it) in browse mode
+                                            // (blank for no marker)
 $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit mode
 $cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
 $cfg['LimitChars']          = 50;           // max field data length in browse mode
 $cfg['ModifyDeleteAtLeft']  = TRUE;         // show edit/delete links on left side of browse
-                                        // (or at the top with vertical browse)
+                                            // (or at the top with vertical browse)
 $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right side of browse
-                                        // (or at the bottom with vertical browse)
+                                            // (or at the bottom with vertical browse)
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
