@@ -716,8 +716,6 @@ if ($num_tables > 0) {
 echo '        ' . $strCreateNewTable . htmlspecialchars($db) . '&nbsp;:<br />' . "\n";
 echo '        ' . $strName . '&nbsp;:&nbsp;' . "\n";
 echo '        ' . '<input type="text" name="table" maxlength="64" />' . "\n";
-//    echo '        ' . $strNumberIndexes. '&nbsp;:&nbsp;' . "\n";
-//    echo '        ' . '<input type="text" name="num_indexes" size="2" />' . "\n";
 echo '        ' . '<br />' . "\n";
 echo '        ' . $strFields . '&nbsp;:&nbsp;' . "\n"; 
 echo '        ' . '<input type="text" name="num_fields" size="2" />' . "\n";
