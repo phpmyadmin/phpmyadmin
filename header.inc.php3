@@ -66,7 +66,7 @@ var errorMsg0   = '<?php echo str_replace('\'', '\\\'', $strFormEmpty); ?>';
 var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $strNotNumber); ?>';
 var errorMsg2   = '<?php echo str_replace('\'', '\\\'', $strNotValidNumber); ?>';
 var noDropDbMsg = '<?php echo((!$cfgAllowUserDropDatabase) ? str_replace('\'', '\\\'', $strNoDropDatabases) : ''); ?>';
-var confirmMsg  = '<?php echo str_replace('\'', '\\\'', $strDoYouReally); ?>';
+var confirmMsg  = '<?php echo(($cfgConfirm) ? str_replace('\'', '\\\'', $strDoYouReally) : ''); ?>';
 //-->
 </script>
 <script src="functions.js" type="text/javascript" language="javascript"></script>

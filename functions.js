@@ -2,6 +2,31 @@
 
 
 /**
+ * Displays an confirmation box beforme to submit a "DROP/DELETE/ALTER" query.
+ * This function is called while clicking links
+ *
+ * @param   object   the link
+ * @param   object   the sql query to submit
+ *
+ * @return  boolean  whether to run the query or not
+ */
+function confirmLink(theLink, theSqlQuery)
+{
+    // Confirmation is not required in the configuration file
+    if (confirmMsg == '') {
+        return true;
+    }
+
+    var is_confirmed = confirm(confirmMsg + ' :\n' + theSqlQuery);
+    if (is_confirmed) {
+        theLink.href += '&is_js_confirmed=1';
+    }
+
+    return is_confirmed;
+} // end of the 'confirmLink()' function
+
+
+/**
  * Displays an error message if a "DROP DATABASE" statement is submitted
  * while it isn't allowed, else confirms a "DROP/DELETE/ALTER" query before
  * sumitting it if required.
@@ -16,8 +41,13 @@
  */
 function confirmQuery(theForm1, sqlQuery1)
 {
+    // Confirmation is not required in the configuration file
+    if (confirmMsg == '') {
+        return true;
+    }
+
     // The replace function (js1.2) isn't supported
-    if (typeof(sqlQuery1.value.replace) == 'undefined') {
+    else if (typeof(sqlQuery1.value.replace) == 'undefined') {
         return true;
     }
 

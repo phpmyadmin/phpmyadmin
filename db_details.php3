@@ -138,11 +138,13 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
             <?php echo $strProperties; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+            onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
             <?php echo $strDrop; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>"
+            onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
             <?php echo $strEmpty; ?></a>
     </td>
         <?php
@@ -548,7 +550,8 @@ if ($cfgAllowUserDropDatabase || $is_superuser) {
     ?>
     <!-- Drop database -->
     <li>
-        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo urlencode($db); ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=true">
+        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo urlencode($db); ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=true"
+            onclick="return confirmLink(this, 'DROP DATABASE <?php echo js_format($db); ?>')">
             <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>
         <?php echo show_docu('manual_Reference.html#DROP_DATABASE') . "\n"; ?>
     </li>

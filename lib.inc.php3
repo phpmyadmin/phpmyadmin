@@ -511,6 +511,24 @@ if (!defined('__LIB_INC__')){
 
 
     /**
+     * Format db/table/filed name so they can be passed to a javascript
+     * function.
+     * This function is used to displays a javascript confirmation box for
+     * "DROP/DELETE/ALTER" queries.
+     *
+     * @param   string   the string to format
+     *
+     * @return  string   the formated string
+     */
+    function js_format($a_string = '')
+    {
+        $a_string = str_replace('"', '&quot;', $a_string);
+        $a_string = addslashes($a_string);
+        return backquote($a_string);
+    } // end of the 'sql_addslashes()' function
+
+
+    /**
      * Defines the <CR><LF> value depending on the user OS that may be grabbed
      * from the 'HTTP_USER_AGENT' variable.
      *
