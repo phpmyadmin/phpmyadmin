@@ -9,6 +9,8 @@ $Source$
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
     * lang/polish-*.inc.php3: Updates, thanks again to Jakub Wilk (ubanus).
     * lang/slovenian-*.inc.php3: Updates, thanks again to Kositer Uros (urosh).
+    * lang/norwegian-*.inc.php3: Updates, thanks again to
+      Sven-Erik Andersen (sven-erik).
 
 2002-12-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.

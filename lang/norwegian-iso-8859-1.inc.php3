@@ -67,6 +67,7 @@ $strBookmarkQuery = 'Lagret SQL-spørring';
 $strBookmarkThis = 'Lagre denne SQL-spørringen';
 $strBookmarkView = 'Bare se';
 $strBrowse = 'Se på';
+$strBzError = 'phpMyAdmin kunne ikke komprimere dumpede data fordi Bz2 tillegget til denne php versjonen er ødelagt. Vi anbefaler på det sterkeste at du setter <code>$cfg[\'BZipDump\']</code> direktivet i din phpMyAdmin konfigurasjonsfil til <code>FALSE</code>. Hvis du ønsker å bruke Bz2 komprimerings funksjonene, så bør du oppgradere til en nyere php versjon. Se php bug rapport %s for detaljer.';
 $strBzip = 'Komprimert (bz2)';
 
 $strCannotLogin = 'Kan ikke logge inn til MySQL serveren';
@@ -87,6 +88,7 @@ $strChoosePage = 'Vennligst velg en side for redigering';
 $strColComFeat = 'Vis kolonne kommentarer';
 $strColumn = 'Kolonne';
 $strColumnNames = 'Kolonnenavn';
+$strCommand = 'Kommando';
 $strComments = 'Kommentarer';
 $strCompleteInserts = 'Komplette innlegg';
 $strCompression = 'Kompresjon';
@@ -97,6 +99,7 @@ $strConnections = 'tilkoblinger';
 $strCookiesRequired = 'Cookies må være slått på forbi dette punkt.';
 $strCopyTable = 'Kopier tabell til (database<b>.</b>tabell):';
 $strCopyTableOK = 'Tabellen %s er kopiert til %s.';
+$strCouldNotKill = 'phpMyAdmin kunne ikke avslutte tråd %s. Den er sansynligvis alt avsluttet.';
 $strCreate = 'Opprett';
 $strCreateIndex = 'Lag en indeks p&aring;&nbsp;%s&nbsp;kolonner';
 $strCreateIndexTopic = 'Lag en ny indeks';
@@ -186,6 +189,7 @@ $strHomepageSourceforge = 'Sourceforge phpMyAdmin nedlastingsside';
 $strHost = 'Vert';
 $strHostEmpty = 'Vertsnavnet er tomt!';
 
+$strId = 'ID';
 $strIdxFulltext = 'Fulltekst';
 $strIfYouWish = 'Hvis du ønsker å kun lese inn enkelte av tabellens kolonner, angi en komme-separert felt-liste.';
 $strIgnore = 'Ignorer';
@@ -210,6 +214,7 @@ $strKeyname = 'Nøkkel';
 $strKill = 'Avslutt';
 
 $strLandscape = 'Lanskapsformat';
+$strLaTeX = 'LaTeX';
 $strLength = 'Lengde';
 $strLengthSet = 'Lengde/Sett*';
 $strLimitNumRows = 'Antall poster per side';
@@ -304,6 +309,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>m&aring;</b> v&aelig;re navnet til og <b>
 $strPrint = 'Skriv ut';
 $strPrintView = 'Utskriftsvennlig forhåndsvisning';
 $strPrivileges = 'Privilegier';
+$strProcesslist = 'Prosess liste';
 $strProperties = 'Egenskaper';
 $strPutColNames = 'Sett inn feltnavn i første rad';
 
@@ -403,6 +409,7 @@ $strSQPBugInvalidIdentifer = 'Ugyldig identifiserer';
 $strSQPBugUnclosedQuote = 'Anførselstegnet er ikke lukket';
 $strSQPBugUnknownPunctuation = 'Ukjent tegnsetting streng';
 $strStatement = 'Oversikt';
+$strStatus = 'Status';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Struktur og data';
 $strStrucDrop = 'Legg til \'drop table\'';
@@ -429,6 +436,8 @@ $strTextAreaLength = ' På grunn av sin lengde,<br /> så vil muligens dette felte
 $strTheContent = 'Innholdet av filen er lagt inn.';
 $strTheContents = 'Innholdet av filen erstatter valgt tabell for rader med lik identifikator eller unikt felt';
 $strTheTerminator = 'Tegn som angir slutt på felter.';
+$strThreadSuccessfullyKilled = 'Tråd %s ble avsluttet med suksess.';
+$strTime = 'Tid'; //to translate
 $strTotal = 'totalt';
 $strTotalUC = 'Totalt';
 $strTraffic = 'Trafikk';
@@ -465,17 +474,6 @@ $strWrongUser = 'Ugyldig brukernavn/passord. Ingen tilgang.';
 $strYes = 'Ja';
 
 $strZip = 'Komprimert (zip)';
-
 // To translate
 
-$strCommand = 'Command'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-$strId = 'ID'; //to translate
-$strProcesslist = 'Process list'; //to translate
-$strStatus = 'Status'; //to translate
-$strTime = 'Time'; //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-$strLaTeX = 'LaTeX';  //to translate
 ?>
