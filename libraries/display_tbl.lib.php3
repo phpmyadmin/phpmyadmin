@@ -166,7 +166,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         //    displayed but there is only one row, change these settings to
         //    false
         if ($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1') {
- 
+
             if (isset($unlim_num_rows) && $unlim_num_rows < 2) {
                 $do_display['nav_bar']  = (string) '0';
                 $do_display['sort_lnk'] = (string) '0';
@@ -564,7 +564,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     // for the sort expression (avoids problems with queries
                     // like "SELECT id, count(id)..." and clicking to sort
                     // on id or on count(id) )
-                      $is_in_sort = (PMA_backquote($fields_meta[$i]->name)==$sort_expression?TRUE:FALSE);
+                      $is_in_sort = (PMA_backquote($fields_meta[$i]->name) == $sort_expression ? TRUE : FALSE);
                 }
                 // 2.1.3 Checks if the table name is required (it's the case
                 //       for a query with a "JOIN" statement and if the column
@@ -1012,7 +1012,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
-                                                                   .  PMA_generate_common_url($db, $map[$meta->name][0]) 
+                                                                   .  PMA_generate_common_url($db, $map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$pointer]) . '"' . $title . '>'
                                                                    .  $row[$pointer] . '</a>';
@@ -1127,7 +1127,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
-                                                                   .  PMA_generate_common_url($db, $map[$meta->name][0]) 
+                                                                   .  PMA_generate_common_url($db, $map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
                                                                    .  $row[$pointer] . '</a>';
@@ -1441,7 +1441,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             $target=array();
             reset($analyzed_sql[0]['table_ref']);
             while (list ($table_ref_position, $table_ref) = each ($analyzed_sql[0]['table_ref'])) {
-               $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name']; 
+               $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name'];
             }
             $tabs    = '(\'' . join('\',\'', $target) . '\')';
 
