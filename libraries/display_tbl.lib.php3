@@ -779,8 +779,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 ?>
 <tr<?php echo $on_mouse; ?>>
                 <?php
+                echo "\n";
             }
-            echo (($disp_direction == 'horizontal') ? "\n" : '');
 
             // 1. Prepares the row (gets primary keys to use)
             if ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn') {
@@ -788,11 +788,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $unique_key               = '';
                 $uva_nonprimary_condition = '';
 
-                // 1.1 Results from a "SELECT" statement -> builds
+                // 1.1 Results from a "SELECT" statement -> builds the
                 //     the "primary" key to use in links
                 if ($is_display['edit_lnk'] == 'ur' /* || $is_display['edit_lnk'] == 'dr' */) {
                     for ($i = 0; $i < $fields_cnt; ++$i) {
-                        $meta   = $fields_meta[$i];
+                        $meta      = $fields_meta[$i];
                         $condition = ' ' . PMA_backquote($meta->name) . ' ';
 
                         // loic1: To fix bug #474943 under php4, the row
@@ -909,12 +909,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             // 2. Displays the rows' values
             for ($i = 0; $i < $fields_cnt; ++$i) {
-                $meta = $fields_meta[$i];
+                $meta    = $fields_meta[$i];
 
                 // loic1: To fix bug #474943 under php4, the row pointer will
                 //        depend on whether the "is_null" php4 function is
                 //        available or not
                 $pointer = (function_exists('is_null') ? $i : $meta->name);
+
                 if ($meta->numeric == 1) {
                     if (!isset($row[$meta->name])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
@@ -994,14 +995,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                                                                 .  'lang=' . $lang . '&amp;server=' . $server
                                                                 .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
                                                                 .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . " = '" . $row[$pointer] . "'") . '">'
+                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . $map[$meta->name][1] . ' = \'' . $row[$pointer] . '\'') . '">'
                                                                 .  $row[$pointer] . '</a>';
                         } else {
                             $vertical_display['data'][$foo][$i] .= $row[$pointer];
                         }
-
                         $vertical_display['data'][$foo][$i]     .= ' </td>' . "\n";
-
                     } else {
                         $vertical_display['data'][$foo][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
