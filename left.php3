@@ -55,10 +55,18 @@ if($server > 0)
         else
             $db = $dblist[$i];
     $j = $i + 2;
+		// few changes, staybyte
+		$tables = mysql_list_tables($db);
+		$num_tables = @mysql_numrows($tables);
     ?>
       <div ID="el<?php echo $j;?>Parent" CLASS="parent">
-      <a class="item" HREF="db_details.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=<?php echo $db;?>" onClick="expandBase('el<?php echo $j;?>', true); return false;">
-      <img NAME="imEx" SRC="images/plus.gif" BORDER="0" ALT="+" width="9" height="9" ID="el<?php echo $j;?>Img"></a>
+		<?php
+		if (!empty($num_tables)){
+			?><a class="item" HREF="db_details.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=<?php echo $db;?>" onClick="expandBase('el<?php echo $j;?>', true); return false;">
+      <img NAME="imEx" SRC="images/plus.gif" BORDER="0" ALT="+" width="9" height="9" ID="el<?php echo $j;?>Img"></a><?php
+		}
+		else echo "<img NAME=\"imEx\" SRC=\"images/minus.gif\" width=9 height=9>\n";
+		?>
       <a class="item" HREF="db_details.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=<?php echo $db;?>" onClick="expandBase('el<?php echo $j;?>', false);">
       <font color="black" class="heada">
     <?php echo $db;?>
@@ -66,8 +74,6 @@ if($server > 0)
       </div>
       <div ID="el<?php echo $j;?>Child" CLASS="child">
     <?php
-    $tables = mysql_list_tables($db);
-    $num_tables = @mysql_numrows($tables);
 
     for($j=0; $j<$num_tables; $j++)
     {

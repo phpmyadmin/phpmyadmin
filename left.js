@@ -183,7 +183,7 @@ function expandBase(el, unexpand)
   if (isDOM) {
     var whichEl = document.getElementById(el + 'Child');
     var whichIm = document.getElementById(el + 'Img');
-    if (whichEl.style.display == 'none') {
+    if (whichEl.style.display == 'none' && whichIm) {
       whichEl.style.display  = 'block';
       whichIm.src            = imgOpened.src;
     }
