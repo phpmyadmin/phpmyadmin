@@ -131,7 +131,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     if (strstr($row_table_def['True_Type'], 'blob')
         && !empty($data)
         && $cfgProtectBlob == TRUE) {
-        echo '        <td>' . $strBinary . '</td>' . "\n";
+        echo '        <td align="center">' . $strBinary . '</td>' . "\n";
     } else {
         ?>
         <td>
@@ -228,7 +228,6 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         } // end if
         else {
             echo "\n";
-            
             for ($j = 0; $j < $enum_cnt; $j++) {
                 // Removes automatic MySQL escape format
                 $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
@@ -305,10 +304,8 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         if ($cfgProtectBlob == TRUE) {
             echo "\n";
             ?>
-        <td>
+        <td align="center">
             <?php echo $strBinaryDoNotEdit . "\n"; ?>
-            <?php echo $backup_field . "\n"; ?>
-            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" />
         </td>
             <?php
         } else {
