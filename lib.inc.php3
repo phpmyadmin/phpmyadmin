@@ -297,6 +297,7 @@ function display_table ($dt_result, $is_simple = false) {
   global $strTotal, $strEdit, $strPrevious, $strNext, $strDelete, $strDeleted;
   global $strPos1, $strEnd, $sessionMaxRows, $strGo, $strShow, $strRowsFrom;
   global $cfgModifyDeleteAtLeft, $cfgModifyDeleteAtRight;
+  global $strKill;
 
   $cfgMaxRows = isset($sessionMaxRows) ? $sessionMaxRows : $cfgMaxRows;
   $sessionMaxRows = isset($sessionMaxRows) ? $sessionMaxRows : $cfgMaxRows;
@@ -352,6 +353,9 @@ function display_table ($dt_result, $is_simple = false) {
     <?php
     if($cfgModifyDeleteAtLeft && !$is_simple) {
       echo "<td></td><td></td>\n";
+    }
+    if($sql_query == "SHOW PROCESSLIST") {
+      echo "<td></td>";
     }
     while($field = mysql_fetch_field($dt_result))
     {
@@ -441,7 +445,7 @@ function display_table ($dt_result, $is_simple = false) {
         //end correction uva 19991216 pt. 3 -----------------------------
 
         if($sql_query == "SHOW PROCESSLIST")
-            echo "<td align=right><a href='sql.php3?db=mysql&sql_query=".urlencode("KILL $Id")."&goto=main.php3'>KILL</a></td>\n";
+            echo "<td align=right><a href='sql.php3?db=mysql&sql_query=".urlencode("KILL $Id")."&goto=main.php3'>$strKill</a></td>\n";
 
 	//possibility to have the modify/delete button on the left added
 	// 2000-08-29

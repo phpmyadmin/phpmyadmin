@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-12  Marc Delisle  <lem9@users.sourceforge.net>
+        * bug 432091: missing column in show processes
+        * add $strKill
+
 2001-06-11  Marc Delisle  <lem9@users.sourceforge.net>
         * italian translation update by Alessandro Astarita
         * german translation update by Kristof Hamann (korelstar)
