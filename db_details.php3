@@ -200,16 +200,16 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     ?>
 <tr bgcolor="<?php echo $cfgThBgcolor; ?>">
     <td align="center">
-        <?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)) . "\n"; ?>
+        <b><?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)) . "\n"; ?></b>
     </td>
     <td colspan="6" align="center">
-        <?php echo $strSum . "\n"; ?>
+        <b><?php echo $strSum . "\n"; ?></b>
     </td>
     <td align="right" nowrap="nowrap">
-        <?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
+        <b><?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?></b>
     </td>
     <td align="right" nowrap="nowrap">
-        <?php echo $sum_formated . ' '. $unit . "\n"; ?>
+        <b><?php echo $sum_formated . ' '. $unit . "\n"; ?></b>
     </td>
 </tr>
 </table>

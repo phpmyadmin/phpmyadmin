@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-18  Olivier Müller  <om@omnis.ch>
+	* db_details.php3: added a few <b>
+	* left.php3: one more space between table name and num_dbs
+	* tbl_properties.php3: activate select/browser/empty links
+	  only if there is at least one row in the table 
+	  (other way would be to remove the inactivated links)
+
 2001-08-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3; lang/*: modified the way the tables' number is
 	  displayed.
