@@ -313,4 +313,6 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
+$strShowCols = 'Show columns';
+$strShowTables = 'Show tables';
 ?>

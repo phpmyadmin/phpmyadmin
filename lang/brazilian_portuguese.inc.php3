@@ -311,5 +311,7 @@ $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/tabl
 $strOffSet = 'offset'; //to translate
 $strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').'; //to translate
 $strShowAll = 'Show all'; // to translate
+$strShowCols = 'Show columns';
+$strShowTables = 'Show tables';
 $strWithChecked = 'With checked:'; //to translate
 ?>

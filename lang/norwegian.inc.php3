@@ -309,6 +309,8 @@ $strGrants = 'Grants';	//to translate
 $strOffSet = 'offset';	//to translate
 $strPartialText = 'Partial Texts';	//to translate
 $strShowAll = 'Show all'; // to translate
+$strShowCols = 'Show columns';
+$strShowTables = 'Show tables';
 $strStatement = 'Statements';	//to translate
 $strWithChecked = 'With checked:';	//to translate
 ?>

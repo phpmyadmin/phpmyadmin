@@ -312,4 +312,6 @@ $strYes = 'Ja';
 // To translate
 $strIdxFulltext = 'Fulltext';  //to translate 
 $strShowAll = 'Show all'; // to translate
+$strShowCols = 'Show columns';
+$strShowTables = 'Show tables';
 ?>

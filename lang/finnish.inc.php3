@@ -316,4 +316,6 @@ $strYes = 'Kyllä';
 
 // To translate
 $strShowAll = 'Show all'; // to translate
+$strShowCols = 'Show columns';
+$strShowTables = 'Show tables';
 ?>

@@ -310,6 +310,8 @@ $strIdxFulltext = 'Fulltext';  //to translate
 $strNoDropDatabases = '"DROP DATABASE" statements zijn niet mogelijk.'; //to translate
 $strOffSet = 'offset'; //to translate
 $strShowAll = 'Show all'; // to translate
+$strShowCols = 'Show columns';
+$strShowTables = 'Show tables';
 $strUseBackquotes = 'Gebruik backquotes bij tabellen en velden\' namen'; // what are backquotes?
 $strWithChecked = 'With checked:';
 ?>
