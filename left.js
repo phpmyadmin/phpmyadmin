@@ -218,28 +218,28 @@ if (capable) {
     if (isDOM) {
       var lstyle = '<style type="text/css">'
                  + 'div {color: #000000;}'
-                 + '.heada {font: 12px\/13px; Times}'
+                 + '.heada {font-family: ' + fontFamily + '; font-size: 10pt}'
                  + '.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display: block}'
                  + '.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration:none; display: none}'
                  + '.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none; font-size: 8pt;}'
-                 + '.tblItem:hover {color: #FF0000; text-decoration: underline;}'
+                 + '.tblItem:hover {color: #FF0000; text-decoration: underline}'
                  + '<\/style>';
       write(lstyle);
     }
     else {
       write('<style type="text/css">');
       write('div {color: #000000; }');
-      write('.heada {font: 12px\/13px; Times}');
+      write('.heada {font-family: ' + fontFamily + '; font-size: 10pt}');
       if (isIE4) {
         write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; display: block}');
         write('.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration: none; display: none}');
-        write('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none; font-size: 8pt;}');
-        write('.tblItem:hover {color: #FF0000; text-decoration: underline;}');
+        write('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none; font-size: 8pt}');
+        write('.tblItem:hover {color: #FF0000; text-decoration: underline}');
       }
       else {
-        write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden;}');
+        write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; position: absolute; visibility: hidden}');
         write('.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; position: absolute; visibility: hidden}');
-        write('.item, .tblItem {color: #333399; text-decoration: none;}');
+        write('.item, .tblItem {color: #333399; text-decoration: none}');
       }
       write('<\/style>');
     }
@@ -249,11 +249,11 @@ else {
   with (document) {
     write('<style type="text/css">');
     write('div {color: #000000; }');
-    write('.heada {font: 12px\/13px; Times}');
-    write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none;}');
-    write('.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration: none;}');
-    write('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none;}');
-    write('.tblItem:hover {color: #FF0000; text-decoration: underline;}');
+    write('.heada {font-family: ' + fontFamily + '; font-size: 10pt}');
+    write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none}');
+    write('.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration: none}');
+    write('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}');
+    write('.tblItem:hover {color: #FF0000; text-decoration: underline}');
     write('<\/style>');
   }
 } // end of adding styles

@@ -30,9 +30,6 @@ header('Content-Type: text/html; charset=' . $charset);
 /**
  * Displays the frame
  */
-$font_family = ($charset == 'iso-8859-1')
-             ? 'verdana, helvetica, arial, geneva, sans-serif'
-             : 'sans-serif';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html>
@@ -54,7 +51,7 @@ $font_family = ($charset == 'iso-8859-1')
             capable = 0;
         }
     }
-    var fontFamily = '<?php echo $font_family; ?>';
+    var fontFamily = '<?php echo $left_font_family; ?>';
     //-->
     </script>
     <script src="left.js" type="text/javascript" language="javascript1.2"></script>
@@ -62,24 +59,17 @@ $font_family = ($charset == 'iso-8859-1')
         <style type="text/css">
         <!--
         div {color: #000000;}
-        .heada {font: 12px/13px; Times}
-        .parent {font-family: <?php echo $font_family; ?>; color: #000000; text-decoration: none;}
-        .child {font-family: <?php echo $font_family; ?>; font-size: 8pt; color: #333399; text-decoration: none;}
-        .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none;}
-        .tblItem:hover {color: #FF0000; text-decoration: underline;}
+        .heada {font-family: ' + fontFamily + '; font-size: 10pt}
+        .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
+        .child {font-family: <?php echo $left_font_family; ?>; font-size: 8pt; color: #333399; text-decoration: none}
+        .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
+        .tblItem:hover {color: #FF0000; text-decoration: underline}
         //-->
         </style>
     </noscript>
     <style type="text/css">
     <!--
-<?php
-// Hard coded font name and size depends on charset. This is a temporary and
-// uggly fix
-$font_family = ($charset == 'iso-8859-1')
-             ? 'helvetica, arial, geneva, sans-serif'
-             : 'sans-serif';
-?>
-    body {font-family: <?php echo $font_family; ?>; font-size: 10pt}
+    body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
     //-->
     </style>
 </head>
