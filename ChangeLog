@@ -12,6 +12,7 @@ $Source$
     * lang/thai: update, thanks to Arthit Suriyawongkul
     * tbl_change.php3: do not use enctype="multipart/form-data"
       if !$is_upload (possible solution for bug 689215)
+    * lang/swedish: update, thanks to Björn T. Hallberg
 
 2003-02-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: Coding standards.
