@@ -31,6 +31,8 @@ if ($cfg['OBGzip']) {
     }
 }
 
+PMA_checkParameters(array('hash'));
+
 include('./libraries/bookmark.lib.php3');
 require('./libraries/relation.lib.php3');
 $cfgRelation = PMA_getRelationsParam();

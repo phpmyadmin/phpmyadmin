@@ -7,6 +7,12 @@
  * This file defines the forms used to insert a textfile into a table
  */
 
+// Check parameters
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
+    include('./libraries/common.lib.php3');
+}
+PMA_checkParameters(array('db', 'table'));
+
 
 /**
  * Gets some core libraries and displays links
@@ -15,7 +21,6 @@ require('./tbl_properties_common.php3');
 $err_url   = 'ldi_table.php3' . $err_url;
 $url_query .= '&amp;goto=ldi_table.php3&amp;back=ldi_table.php3';
 require('./tbl_properties_table_info.php3');
-
 
 /**
  * Displays the form

@@ -10,6 +10,16 @@ if (!isset($selected_tbl)) {
     include('./header.inc.php3');
 }
 
+// Check parameters
+
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
+    include('./libraries/common.lib.php3');
+}
+
+PMA_checkParameters(array('the_tables'));
+if (!is_array($the_tables)) {
+    exit();
+}
 
 /**
  * Gets the relations settings
@@ -635,7 +645,7 @@ function printPage()
 //-->
 </script>
 <?php
-echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" id="print" value="Print" onclick="printPage()">' . "\n";
+echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
 
 require('./footer.inc.php3');
 ?>
