@@ -26,6 +26,6 @@ if (isset($userlink) && $userlink) {
  */
 if (isset($cfgOBGzip) && $cfgOBGzip
     && isset($ob_mode) && $ob_mode) {
-     out_buffer_post($ob_mode);
+     PMA_outBufferPost($ob_mode);
 }
 ?> 

@@ -57,7 +57,7 @@ class zipfile
      *
      * @access public
      */
-    function add_file($data, $name)
+    function addFile($data, $name)
     {
         $name = str_replace('\\', '/', $name);
 
@@ -118,7 +118,7 @@ class zipfile
         // optional extra field, file comment goes here
         // save to central directory
         $this -> ctrl_dir[] = $cdrec;
-    } // end of the 'add_file()' method
+    } // end of the 'addFile()' method
 
 
     /**

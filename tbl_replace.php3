@@ -74,7 +74,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                     if ($val == 'null') {
                         // void
                     } else {
-                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
+                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
                     }
                 } else {
                     $val     = "''";
@@ -85,7 +85,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 $f = 'field_' . md5($key);
                 if (!empty($$f)) {
                     $val = implode(',', $$f);
-                    $val = "'" . sql_addslashes(urldecode($val)) . "'";
+                    $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
                 } else {
                     $val = "''";
                 }
@@ -94,7 +94,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 if (get_magic_quotes_gpc()) {
                     $val = "'" . str_replace('\\"', '"', $val) . "'";
                 } else {
-                    $val = "'" . sql_addslashes($val) . "'";
+                    $val = "'" . PMA_sqlAddslashes($val) . "'";
                 }
                 break;
         } // end switch
@@ -102,17 +102,17 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         // No change for this column and no MySQL function is used -> next column
         if (empty($funcs[$encoded_key])
             && isset($fields_prev) && isset($fields_prev[$encoded_key])
-            && ("'" . sql_addslashes(urldecode($fields_prev[$encoded_key])) . "'" == $val)) {
+            && ("'" . PMA_sqlAddslashes(urldecode($fields_prev[$encoded_key])) . "'" == $val)) {
             continue;
         }
         else if (!empty($val)) {
             if (empty($funcs[$encoded_key])) {
-                $valuelist .= backquote($key) . ' = ' . $val . ', ';
+                $valuelist .= PMA_backquote($key) . ' = ' . $val . ', ';
             } else if ($val == '\'\''
                        && (ereg('^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$', $funcs[$encoded_key]))) {
-                $valuelist .= backquote($key) . ' = ' . $funcs[$encoded_key] . '(), ';
+                $valuelist .= PMA_backquote($key) . ' = ' . $funcs[$encoded_key] . '(), ';
             } else {
-                $valuelist .= backquote($key) . ' = ' . $funcs[$encoded_key] . "($val), ";
+                $valuelist .= PMA_backquote($key) . ' = ' . $funcs[$encoded_key] . "($val), ";
             }
         }
     } // end while
@@ -120,8 +120,8 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // Builds the sql upate query
     $valuelist    = ereg_replace(', $', '', $valuelist);
     if (!empty($valuelist)) {
-        $query    = 'UPDATE ' . backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
-                  . ((MYSQL_INT_VERSION >= 32300) ? ' LIMIT 1' : '');
+        $query    = 'UPDATE ' . PMA_backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
+                  . ((PMA_MYSQL_INT_VERSION >= 32300) ? ' LIMIT 1' : '');
         $message  = $strAffectedRows . '&nbsp;';
     }
     // No change -> move back to the calling script
@@ -148,7 +148,7 @@ else {
     while (list($key, $val) = each($fields)) {
         $encoded_key = $key;
         $key         = urldecode($key);
-        $fieldlist .= backquote($key) . ', ';
+        $fieldlist .= PMA_backquote($key) . ', ';
 
         switch (strtolower($val)) {
             case 'null':
@@ -161,7 +161,7 @@ else {
                     if ($val == 'null') {
                         // void
                     } else {
-                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
+                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
                     }
                 } else {
                     $val     = "''";
@@ -172,7 +172,7 @@ else {
                 $f = 'field_' . md5($key);
                 if (!empty($$f)) {
                     $val = implode(',', $$f);
-                    $val = "'" . sql_addslashes(urldecode($val)) . "'";
+                    $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
                 } else {
                     $val = "''";
                 }
@@ -181,7 +181,7 @@ else {
                 if (get_magic_quotes_gpc()) {
                     $val = "'" . str_replace('\\"', '"', $val) . "'";
                 } else {
-                    $val = "'" . sql_addslashes($val) . "'";
+                    $val = "'" . PMA_sqlAddslashes($val) . "'";
                 }
                 break;
         } // end switch
@@ -199,7 +199,7 @@ else {
     // Builds the sql insert query
     $fieldlist = ereg_replace(', $', '', $fieldlist);
     $valuelist = ereg_replace(', $', '', $valuelist);
-    $query     = 'INSERT INTO ' . backquote($table) . ' (' . $fieldlist . ') VALUES (' . $valuelist . ')';
+    $query     = 'INSERT INTO ' . PMA_backquote($table) . ' (' . $fieldlist . ') VALUES (' . $valuelist . ')';
     $message   = $strInsertedRows . '&nbsp;';
 } // end row insertion
 
@@ -215,7 +215,7 @@ $result    = mysql_query($query);
 if (!$result) {
     $error = mysql_error();
     include('./header.inc.php3');
-    mysql_die($error, '', '', $url_err);
+    PMA_mysqlDie($error, '', '', $url_err);
 } else {
     if (@mysql_affected_rows()) {
         $message .= @mysql_affected_rows();

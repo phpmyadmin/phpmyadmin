@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-23  Loïc Chapeaux  <lolo@phpheaven.net>
+	* light changes (function and constant names) in most of the scripts:
+	  they're now about to fully fit the PEAR codding standards.
+
 2001-11-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, lines 142-148: merged patch #479083 - display name
 	  of server after db/table thanks to

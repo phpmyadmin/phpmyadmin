@@ -74,8 +74,8 @@ $available_languages = array(
 );
 
 
-if (!defined('__PMA_LANG_DETECT__')) {
-    define('__PMA_LANG_DETECT__', 1);
+if (!defined('PMA_IS_LANG_DETECT_FUNCTION')) {
+    define('PMA_IS_LANG_DETECT_FUNCTION', 1);
 
     /**
      * Analyzes some PHP environment variables to find the most probable language
@@ -89,7 +89,7 @@ if (!defined('__PMA_LANG_DETECT__')) {
      *
      * @access  private
      */
-    function pma_lang_detect($str = '', $envType = '')
+    function PMA_langDetect($str = '', $envType = '')
     {
         global $available_languages;
         global $lang;
@@ -104,7 +104,7 @@ if (!defined('__PMA_LANG_DETECT__')) {
                 break;
             }
         }
-    } // end of the 'pmcLangDetect()' function
+    } // end of the 'PMA_langDetect()' function
 
 } // end if
 
@@ -150,12 +150,12 @@ if (empty($lang) && !empty($HTTP_ACCEPT_LANGUAGE)) {
     $acceptedCnt = count($accepted);
     reset($accepted);
     for ($i = 0; $i < $acceptedCnt && empty($lang); $i++) { 
-        pma_lang_detect($accepted[$i], 1);
+        PMA_langDetect($accepted[$i], 1);
     }
 }
 // 2. try to findout users language by checking it's HTTP_USER_AGENT variable
 if (empty($lang) && !empty($HTTP_USER_AGENT)) {
-    pma_lang_detect($HTTP_USER_AGENT, 2);
+    PMA_langDetect($HTTP_USER_AGENT, 2);
 }
 
 // 3. Didn't catch any valid lang : we use the default settings
@@ -166,4 +166,7 @@ if (empty($lang)) {
 // 4. Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php3';
 require('./' . $lang_file);
+
+
+ // $__PMA_SELECT_LANG_LIB__
 ?>

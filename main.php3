@@ -21,7 +21,7 @@ if (isset($table)) {
 $show_query = 'y';
 require('./header.inc.php3');
 if (isset($message)) {
-    show_message($message);
+    PMA_showMessage($message);
 }
 else if (isset($reload) && $reload) {
     // Reloads the navigation frame via JavaScript if required
@@ -41,20 +41,20 @@ echo "\n";
  * Displays the welcome message and the server informations
  */
 ?>
-<h1><?php echo sprintf($strWelcome, ' phpMyAdmin ' . PHPMYADMIN_VERSION); ?></h1>
+<h1><?php echo sprintf($strWelcome, ' phpMyAdmin ' . PMA_VERSION); ?></h1>
 
 <?php
 // Don't display server info if $server == 0 (no server selected)
 if ($server > 0) {
     $local_query = 'SELECT VERSION() as version, USER() as user';
-    $res         = mysql_query($local_query) or mysql_die('', $local_query, FALSE, '');
+    $res         = mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
     echo '<p><b>MySQL ' . mysql_result($res, 0, 'version') . ' ' . $strRunning . ' ' . $cfgServer['host'];
     if (!empty($cfgServer['port'])) {
         echo ':' . $cfgServer['port'];
     }
     // loic1: skip this because it's not a so good idea to display sockets
     //        used to everybody
-    // if (!empty($cfgServer['socket']) && PHP_INT_VERSION >= 30010) {
+    // if (!empty($cfgServer['socket']) && PMA_PHP_INT_VERSION >= 30010) {
     //     echo ':' . $cfgServer['socket'];
     // }
     echo ' ' . $strRunningAs . ' ' . mysql_result($res, 0, 'user') . '</b></p><br />' . "\n";
@@ -65,7 +65,7 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = mysql_query('FLUSH PRIVILEGES'); // Debug: or mysql_die('', 'FLUSH PRIVILEGES', FALSE, 'main.php3?lang=' . $lang . '&amp;server=' . $server);
+    $result = mysql_query('FLUSH PRIVILEGES'); // Debug: or PMA_mysqlDie('', 'FLUSH PRIVILEGES', FALSE, 'main.php3?lang=' . $lang . '&amp;server=' . $server);
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
@@ -111,7 +111,7 @@ if ($server == 0 || count($cfgServers) > 1) {
                 }
                 // loic1: skip this because it's not a so good idea to display
                 //        sockets used to everybody
-                // if (!empty($val['socket']) && PHP_INT_VERSION >= 30010) {
+                // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
                 //     echo ':' . $val['socket'];
                 // }
             }
@@ -157,8 +157,8 @@ if ($server > 0) {
     $is_reload_priv  = FALSE;
     $is_superuser    = @mysql_query('USE mysql', $userlink);
     if ($dbh) {
-        $local_query = 'SELECT Create_priv, Process_priv, Reload_priv FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\' OR User = \'\'';
-        $rs_usr      = mysql_query($local_query, $dbh); // Debug: or mysql_die('', $local_query, FALSE);
+        $local_query = 'SELECT Create_priv, Process_priv, Reload_priv FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\' OR User = \'\'';
+        $rs_usr      = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
             $result_usr      = mysql_fetch_array($rs_usr);
             $is_create_priv  = ($result_usr['Create_priv'] == 'Y');
@@ -173,8 +173,8 @@ if ($server > 0) {
     // the one he just dropped :)
     // (Note: we only get here after a browser reload, I don't know why)
     if (!$is_create_priv) {
-        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND (User = \'' . sql_addslashes($cfgServer['user']) . '\' OR User = \'\')';
-        $rs_usr      = mysql_query($local_query, $dbh); // Debug: or mysql_die('', $local_query, FALSE);
+        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\' OR User = \'\')';
+        $rs_usr      = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if (@mysql_numrows($rs_usr) > 0) {
             while ($row = mysql_fetch_array($rs_usr)) {
                 if (!mysql_select_db($row['Db'], $dbh)) {
@@ -215,7 +215,7 @@ if ($server > 0) {
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
             <form method="post" action="db_create.php3">
-                <?php echo $strCreateNewDatabase . '&nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
+                <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showDocu('manual_Reference.html#CREATE_DATABASE'); ?><br />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="reload" value="1" />
@@ -240,7 +240,7 @@ if ($server > 0) {
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW STATUS'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowStatus; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
+                <?php echo PMA_showDocu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -253,7 +253,7 @@ if ($server > 0) {
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&amp;goto=main.php3">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
-                <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
+                <?php echo PMA_showDocu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -267,7 +267,7 @@ if ($server > 0) {
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
+                <?php echo PMA_showDocu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -281,7 +281,7 @@ if ($server > 0) {
             <td>
                 <a href="main.php3?<?php echo $common_url_query; ?>&amp;mode=reload">
                     <?php echo $strReloadMySQL; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
+                <?php echo PMA_showDocu('manual_Reference.html#FLUSH') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -295,11 +295,11 @@ if ($server > 0) {
             <td>
                 <a href="user_details.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;table=user">
                     <?php echo $strUsers; ?></a>&nbsp;
-                <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
+                <?php echo PMA_showDocu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
             </td>
         </tr>
             <?php
-            if (MYSQL_INT_VERSION >= 32303) {
+            if (PMA_MYSQL_INT_VERSION >= 32303) {
                 echo "\n";
                 ?>
         <tr>
@@ -369,19 +369,19 @@ if (empty($cfgLang)) {
     /**
      * Sorts available languages by their true names
      *
-     * @param	array	the array to be sorted
-     * @param	mixed	a required parameter
+     * @param   array   the array to be sorted
+     * @param   mixed   a required parameter
      *
-     * @return	the sorted array
+     * @return  the sorted array
      *
-     * @access	private
+     * @access  private
      */
-    function pmaComp(&$a, $b)
+    function PMA_cmp(&$a, $b)
     {
         return (strcmp($a[1], $b[1]));
-    } // end of the 'pmaComp()' function
+    } // end of the 'PMA_cmp()' function
 
-    uasort($available_languages, 'pmaComp');
+    uasort($available_languages, 'PMA_cmp');
     reset($available_languages);
     while (list($id, $tmplang) = each($available_languages)) {
         $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));

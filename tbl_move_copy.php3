@@ -12,16 +12,16 @@
  * @global  string  the target database and table names
  * @global  string  the sql query used to copy the data
  */
-function my_handler($sql_insert = '')
+function PMA_myHandler($sql_insert = '')
 {
     global $db, $table, $target;
     global $sql_insert_data;
 
     $sql_insert = eregi_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . $target, $sql_insert);
-    $result     = mysql_query($sql_insert) or mysql_die('', $sql_insert, '', $GLOBALS['err_url']);
+    $result     = mysql_query($sql_insert) or PMA_mysqlDie('', $sql_insert, '', $GLOBALS['err_url']);
     
     $sql_insert_data .= $sql_insert . ';' . "\n";
-} // end of the 'my_handler' function
+} // end of the 'PMA_myHandler()' function
 
 
 /**
@@ -65,25 +65,25 @@ if (isset($new_name) && trim($new_name) != '') {
 
     // Ensure the target is valid
     if (count($dblist) > 0 &&
-        (pmaIsInto($db, $dblist) == -1 || pmaIsInto($target_db, $dblist) == -1)) {
+        (PMA_isInto($db, $dblist) == -1 || PMA_isInto($target_db, $dblist) == -1)) {
         exit();
     }
-    if (MYSQL_INT_VERSION < 32306) {
-        check_reserved_words($target_db, $err_url);
-        check_reserved_words($new_name, $err_url);
+    if (PMA_MYSQL_INT_VERSION < 32306) {
+        PMA_checkReservedWords($target_db, $err_url);
+        PMA_checkReservedWords($new_name, $err_url);
     }
 
-    $source = backquote($db) . '.' . backquote($table);
-    $target = backquote($target_db) . '.' . backquote($new_name);
+    $source = PMA_backquote($db) . '.' . PMA_backquote($table);
+    $target = PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
 
     include('./libraries/build_dump.lib.php3');
 
-    $sql_structure = get_table_def($db, $table, "\n", $err_url);
+    $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
     $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . $target, $sql_structure);
     $result        = @mysql_query($sql_structure);
     if (mysql_error()) {
         include('./header.inc.php3');
-        mysql_die('', $sql_structure, '', $err_url);
+        PMA_mysqlDie('', $sql_structure, '', $err_url);
     } else if (isset($sql_query)) {
         $sql_query .= "\n" . $sql_structure . ';';
     } else {
@@ -93,17 +93,17 @@ if (isset($new_name) && trim($new_name) != '') {
     // Copy the data
     if ($result != FALSE && $what == 'data') {
         // speedup copy table - staybyte - 22. Juni 2001
-        if (MYSQL_INT_VERSION >= 32300) {
+        if (PMA_MYSQL_INT_VERSION >= 32300) {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
             $result          = @mysql_query($sql_insert_data);
             if (mysql_error()) {
                 include('./header.inc.php3');
-                mysql_die('', $sql_insert_data, '', $err_url);
+                PMA_mysqlDie('', $sql_insert_data, '', $err_url);
             }
         } // end MySQL >= 3.23
         else {
             $sql_insert_data = '';
-            get_table_content($db, $table, 0, 0, 'my_handler', $err_url);
+            PMA_getTableContent($db, $table, 0, 0, 'PMA_myHandler', $err_url);
         } // end MySQL < 3.23
         $sql_query .= "\n\n" . $sql_insert_data;
     }
@@ -114,7 +114,7 @@ if (isset($new_name) && trim($new_name) != '') {
         $result         = @mysql_query($sql_drop_table);
         if (mysql_error()) {
             include('./header.inc.php3');
-            mysql_die('', $sql_drop_table, '', $err_url);
+            PMA_mysqlDie('', $sql_drop_table, '', $err_url);
         }
         $sql_query      .= "\n\n" . $sql_drop_table . ';';
         $db             = $target_db;
@@ -134,7 +134,7 @@ if (isset($new_name) && trim($new_name) != '') {
  */
 else {
     include('./header.inc.php3');
-    mysql_die($strTableEmpty, '', '', $err_url);
+    PMA_mysqlDie($strTableEmpty, '', '', $err_url);
 } 
 
 

@@ -36,8 +36,8 @@ if (isset($submit)) {
             $field_length[$i]  = stripslashes($field_length[$i]);
         }
 
-        if (MYSQL_INT_VERSION < 32306) {
-            check_reserved_words($field_name[$i], $err_url);
+        if (PMA_MYSQL_INT_VERSION < 32306) {
+            PMA_checkReservedWords($field_name[$i], $err_url);
         }
 
         // Some fields have been urlencoded or double quotes have been translated
@@ -59,7 +59,7 @@ if (isset($submit)) {
         } else {
             $query .= ', CHANGE ';
         }
-        $query .= backquote($field_orig[$i]) . ' ' . backquote($field_name[$i]) . ' ' . $field_type[$i];
+        $query .= PMA_backquote($field_orig[$i]) . ' ' . PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
         // Some field types shouldn't have lengths
         if ($field_length[$i] != ''
             && !eregi('^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$', $field_type[$i])) {
@@ -72,7 +72,7 @@ if (isset($submit)) {
             if (strtoupper($field_default[$i]) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else {
-                $query .= ' DEFAULT \'' . sql_addslashes($field_default[$i]) . '\'';
+                $query .= ' DEFAULT \'' . PMA_sqlAddslashes($field_default[$i]) . '\'';
             }
         }
         if ($field_null[$i] != '') {
@@ -84,8 +84,8 @@ if (isset($submit)) {
     } // end for
 
     // Optimization fix - 2 May 2001 - Robbat2
-    $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' CHANGE ' . $query;
-    $result    = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
+    $sql_query = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' CHANGE ' . $query;
+    $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
     $btnDrop   = 'Fake';
     include('./tbl_properties.php3');
@@ -107,12 +107,12 @@ else {
     // TODO: optimize in case of multiple fields to modify
     for ($i = 0; $i < $selected_cnt; $i++) {
         if (get_magic_quotes_gpc()) {
-            $field = sql_addslashes(stripslashes($selected[$i]), TRUE);
+            $field = PMA_sqlAddslashes(stripslashes($selected[$i]), TRUE);
         } else {
-            $field = sql_addslashes($selected[$i], TRUE);
+            $field = PMA_sqlAddslashes($selected[$i], TRUE);
         }
-        $local_query   = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table) . " LIKE '$field'";
-        $result        = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+        $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . " LIKE '$field'";
+        $result        = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
         $fields_meta[] = mysql_fetch_array($result);
         mysql_free_result($result);
     }

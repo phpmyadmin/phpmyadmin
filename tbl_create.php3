@@ -43,10 +43,10 @@ if (isset($submit)) {
         if (get_magic_quotes_gpc()) {
             $field_name[$i] = stripslashes($field_name[$i]);
         }
-        if (MYSQL_INT_VERSION < 32306) {
-            check_reserved_words($field_name[$i], $err_url);
+        if (PMA_MYSQL_INT_VERSION < 32306) {
+            PMA_checkReservedWords($field_name[$i], $err_url);
         }
-        $query = backquote($field_name[$i]) . ' ' . $field_type[$i];
+        $query = PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != '') {
             if (get_magic_quotes_gpc()) {
                 $query .= '(' . stripslashes($field_length[$i]) . ')';
@@ -61,9 +61,9 @@ if (isset($submit)) {
             if (strtoupper($field_default[$i]) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else if (get_magic_quotes_gpc()) {
-                $query .= ' DEFAULT \'' . sql_addslashes(stripslashes($field_default[$i])) . '\'';
+                $query .= ' DEFAULT \'' . PMA_sqlAddslashes(stripslashes($field_default[$i])) . '\'';
             } else {
-                $query .= ' DEFAULT \'' . sql_addslashes($field_default[$i]) . '\'';
+                $query .= ' DEFAULT \'' . PMA_sqlAddslashes($field_default[$i]) . '\'';
             }
         }
         if ($field_null[$i] != '') {
@@ -101,7 +101,7 @@ if (isset($submit)) {
             if (get_magic_quotes_gpc()) {
                 $field_name[$j] = stripslashes($field_name[$j]);
             }
-            $primary .= backquote($field_name[$j]) . ', ';
+            $primary .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
     unset($primary_cnt);
@@ -121,7 +121,7 @@ if (isset($submit)) {
             if (get_magic_quotes_gpc()) {
                 $field_name[$j] = stripslashes($field_name[$j]);
             }
-            $index .= backquote($field_name[$j]) . ', ';
+            $index .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
     unset($index_cnt);
@@ -141,7 +141,7 @@ if (isset($submit)) {
             if (get_magic_quotes_gpc()) {
                 $field_name[$j] = stripslashes($field_name[$j]);
             }
-           $unique .= backquote($field_name[$j]) . ', ';
+           $unique .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
     unset($unique_cnt);
@@ -161,7 +161,7 @@ if (isset($submit)) {
             if (get_magic_quotes_gpc()) {
                 $field_name[$j] = stripslashes($field_name[$j]);
             }
-           $fulltext .= backquote($field_name[$j]) . ', ';
+           $fulltext .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
     unset($field_fulltext);
@@ -173,24 +173,24 @@ if (isset($submit)) {
     unset($fulltext);
 
     // Builds the 'create table' statement
-    $sql_query      = 'CREATE TABLE ' . backquote($table) . ' (' . $sql_query . ')';
-    $query_cpy      = 'CREATE TABLE ' . backquote($table) . ' (' . $query_cpy . "\n" . ')';
+    $sql_query      = 'CREATE TABLE ' . PMA_backquote($table) . ' (' . $sql_query . ')';
+    $query_cpy      = 'CREATE TABLE ' . PMA_backquote($table) . ' (' . $query_cpy . "\n" . ')';
 
     // Adds table type and comments (2 May 2001 - Robbat2)
     if (!empty($tbl_type) && ($tbl_type != 'Default')) {
         $sql_query .= ' TYPE = ' . $tbl_type;
         $query_cpy .= ' TYPE = ' . $tbl_type;
     }
-    if (MYSQL_INT_VERSION >= 32300 && !empty($comment)) {
+    if (PMA_MYSQL_INT_VERSION >= 32300 && !empty($comment)) {
         if (get_magic_quotes_gpc()) {
             $comment = stripslashes($comment);
         }
-        $sql_query .= ' COMMENT = \'' . sql_addslashes($comment) . '\'';
-        $query_cpy .= "\n" . 'COMMENT = \'' . sql_addslashes($comment) . '\'';
+        $sql_query .= ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
+        $query_cpy .= "\n" . 'COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
     }
 
     // Executes the query
-    $result    = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
+    $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $sql_query = $query_cpy . ';';
     unset($query_cpy);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
@@ -208,11 +208,11 @@ else {
     }
     // No table name
     if (!isset($table) || trim($table) == '') {
-        mysql_die($strTableEmpty, '', '', $err_url);
+        PMA_mysqlDie($strTableEmpty, '', '', $err_url);
     }
     // No valid number of fields
     else if (empty($num_fields) || !is_int($num_fields)) {
-        mysql_die($strFieldsEmpty, '', '', $err_url);
+        PMA_mysqlDie($strFieldsEmpty, '', '', $err_url);
     }
     // Table name and number of fields are valid -> show the form
     else {
@@ -220,8 +220,8 @@ else {
         if (get_magic_quotes_gpc()) {
             $table = stripslashes($table);
         }
-        if (MYSQL_INT_VERSION < 32306) {
-            check_reserved_words($table, $err_url);
+        if (PMA_MYSQL_INT_VERSION < 32306) {
+            PMA_checkReservedWords($table, $err_url);
         }
 
         $action = 'tbl_create.php3';

@@ -26,7 +26,7 @@ if (!isset($param) || $param[0] == '') {
     include('./header.inc.php3');
     $result = @mysql_list_fields($db, $table);
     if (!$result) {
-        mysql_die('', 'mysql_list_fields(' . $db . ', ' . $table . ')', '', $err_url);
+        PMA_mysqlDie('', 'mysql_list_fields(' . $db . ', ' . $table . ')', '', $err_url);
     }
     else {
         // Gets the list and number of fields
@@ -65,7 +65,7 @@ if (!isset($param) || $param[0] == '') {
         <li>
             <?php echo $strAddSearchConditions; ?><br />
             <input type="text" name="where" />&nbsp;
-            <?php print show_docu("manual_Reference.html#Functions") . "\n"; ?>
+            <?php print PMA_showDocu("manual_Reference.html#Functions") . "\n"; ?>
             <br /><br />
             <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
             <table border="<?php echo $cfgBorder; ?>">
@@ -130,16 +130,16 @@ if (!isset($param) || $param[0] == '') {
  */
 else {
     // Builds the query
-    $sql_query = 'SELECT ' . backquote(urldecode($param[0]));
+    $sql_query = 'SELECT ' . PMA_backquote(urldecode($param[0]));
     $i         = 0;
     $c         = count($param);
     while ($i < $c) {
         if ($i > 0) {
-            $sql_query .= ',' . backquote(urldecode($param[$i]));
+            $sql_query .= ',' . PMA_backquote(urldecode($param[$i]));
         }
         $i++;
     }
-    $sql_query .= ' FROM ' . backquote($table);
+    $sql_query .= ' FROM ' . PMA_backquote($table);
     // The where clause
     if ($where != '') {
         $sql_query .= ' WHERE ' . ((get_magic_quotes_gpc()) ? stripslashes($where) : $where);
@@ -158,7 +158,7 @@ else {
                     if (get_magic_quotes_gpc()) {
                         $fields[$i] = stripslashes($fields[$i]);
                     }
-                    $fields[$i]     = sql_addslashes($fields[$i], TRUE);
+                    $fields[$i]     = PMA_sqlAddslashes($fields[$i], TRUE);
                 }
                 else if ($types[$i] == 'date' || $types[$i] == 'time') {
                     $quot = '\'';
@@ -176,12 +176,12 @@ else {
                     $quot = '';
                     $cmp  = '=';
                 } // end if
-                $sql_query .= ' AND ' . backquote(urldecode($names[$i])) . " $cmp $quot$fields[$i]$quot";
+                $sql_query .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $cmp $quot$fields[$i]$quot";
             } // end if
         } // end for
     } // end if
     if ($orderField != '--nil--') {
-        $sql_query .= ' ORDER BY ' . backquote(urldecode($orderField)) . ' ' . $order;
+        $sql_query .= ' ORDER BY ' . PMA_backquote(urldecode($orderField)) . ' ' . $order;
     } // end if
 
     $url_query = 'lang=' . $lang

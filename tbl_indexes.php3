@@ -25,7 +25,7 @@ $index_types = array(
  * informations.
  * Skipped if this script is called by "tbl_properties.php3"
  */
-if (!defined('_IDX_INCLUDED_')) {
+if (!defined('PMA_IDX_INCLUDED')) {
     // Not a valid db name -> back to the welcome page
     if (!empty($db)) {
         $is_db = @mysql_select_db($db);
@@ -36,7 +36,7 @@ if (!defined('_IDX_INCLUDED_')) {
     }
     // Not a valid table name -> back to the db_details.php3
     if (!empty($table)) {
-        $is_table = @mysql_query("SHOW TABLES LIKE '" . sql_addslashes($table, TRUE) . '\'');
+        $is_table = @mysql_query("SHOW TABLES LIKE '" . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
     if (empty($table) || !@mysql_numrows($is_table)) {
         header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
@@ -54,7 +54,7 @@ if (!defined('_IDX_INCLUDED_')) {
 /**
  * Gets fields and indexes informations
  */
-if (defined('_IDX_INCLUDED_')) {
+if (defined('PMA_IDX_INCLUDED')) {
     $err_url_0 = 'db_details.php3'
                . '?lang=' . $lang
                . '&amp;server=' . $server
@@ -67,16 +67,16 @@ $prev_index   = '';
 $indexes_info = array();
 $indexes_data = array();
 // keys had already been grabbed in "tbl_properties.php3"
-if (defined('_IDX_INCLUDED_')) {
+if (defined('PMA_IDX_INCLUDED')) {
     $idx_cnt     = count($ret_keys);
 } else {
-    $local_query = 'SHOW KEYS FROM ' . backquote($table);
-    $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
+    $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
+    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $idx_cnt     = mysql_num_rows($result);
 }
 
 for ($i = 0; $i < $idx_cnt; $i++) {
-    $row = (defined('_IDX_INCLUDED_') ? $ret_keys[$i] : mysql_fetch_array($result));
+    $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : mysql_fetch_array($result));
 
     if ($row['Key_name'] != $prev_index ){
         $indexes[]  = $row['Key_name'];
@@ -97,7 +97,7 @@ for ($i = 0; $i < $idx_cnt; $i++) {
     }
 } // end while
 
-if (defined('_IDX_INCLUDED_')) {
+if (defined('PMA_IDX_INCLUDED')) {
     unset($ret_keys);
 } else if ($result) {
     mysql_free_result($result);
@@ -105,11 +105,11 @@ if (defined('_IDX_INCLUDED_')) {
 
 // Get fields and stores their name/type
 // fields had already been grabbed in "tbl_properties.php3"
-if (defined('_IDX_INCLUDED_')) {
+if (defined('PMA_IDX_INCLUDED')) {
     mysql_data_seek($fields_rs, 0);
 } else {
-    $local_query = 'SHOW FIELDS FROM ' . backquote($table);
-    $fields_rs   = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
+    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
+    $fields_rs   = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $fields_cnt  = mysql_num_rows($fields_rs);
 }
 
@@ -142,7 +142,7 @@ if (get_magic_quotes_gpc()) {
  * Do run the query to build the new index and moves back to
  * "tbl_properties.php3"
  */
-if (!defined('_IDX_INCLUDED_')
+if (!defined('PMA_IDX_INCLUDED')
     && (isset($index) && isset($do_save_data))) {
 
     $err_url     = 'tbl_indexes.php3'
@@ -160,20 +160,20 @@ if (!defined('_IDX_INCLUDED_')
         if ($index == '') {
             $index = 'PRIMARY';
         } else if ($index != 'PRIMARY') {
-            mysql_die($strPrimaryKeyName, '', FALSE, $err_url);
+            PMA_mysqlDie($strPrimaryKeyName, '', FALSE, $err_url);
         }
     } else if ($index == 'PRIMARY') {
-         mysql_die($strCantRenameIdxToPrimary, '', FALSE, $err_url);
+         PMA_mysqlDie($strCantRenameIdxToPrimary, '', FALSE, $err_url);
     }
 
-    $sql_query         = 'ALTER TABLE ' . backquote($table);
+    $sql_query         = 'ALTER TABLE ' . PMA_backquote($table);
 
     // Drops the old index
     if (!empty($old_index)) {
         if ($old_index == 'PRIMARY') {
             $sql_query .= ' DROP PRIMARY KEY,';
         } else {
-             $sql_query .= ' DROP INDEX ' . backquote($old_index) .',';
+             $sql_query .= ' DROP INDEX ' . PMA_backquote($old_index) .',';
         }
     } // end if
 
@@ -183,30 +183,30 @@ if (!defined('_IDX_INCLUDED_')
             $sql_query .= ' ADD PRIMARY KEY (';
             break;
         case 'FULLTEXT':
-            $sql_query .= ' ADD FULLTEXT ' . (empty($index) ? '' : backquote($index)) . ' (';
+            $sql_query .= ' ADD FULLTEXT ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
             break;
         case 'UNIQUE':
-            $sql_query .= ' ADD UNIQUE ' . (empty($index) ? '' : backquote($index)) . ' (';
+            $sql_query .= ' ADD UNIQUE ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
             break;
         case 'INDEX':
-            $sql_query .= ' ADD INDEX ' . (empty($index) ? '' : backquote($index)) . ' (';
+            $sql_query .= ' ADD INDEX ' . (empty($index) ? '' : PMA_backquote($index)) . ' (';
             break;
     } // end switch
     $index_fields         = '';
     while (list($i, $name) = each($column)) {
         if ($name != '--ignore--') {
             $index_fields .= (empty($index_fields) ? '' : ',')
-                          . backquote(get_magic_quotes_gpc() ? stripslashes($name) : $name)
+                          . PMA_backquote(get_magic_quotes_gpc() ? stripslashes($name) : $name)
                           . (empty($sub_part[$i]) ? '' : '(' . $sub_part[$i] . ')');
         }
     } // end while
     if (empty($index_fields)){
-        mysql_die($strNoIndexPartsDefined, '', FALSE, $err_url);
+        PMA_mysqlDie($strNoIndexPartsDefined, '', FALSE, $err_url);
     } else {
         $sql_query .= $index_fields . ')';
     }
 
-    $result    = mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url);
+    $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
 
     include('./tbl_properties.php3');
@@ -217,7 +217,7 @@ if (!defined('_IDX_INCLUDED_')
 /**
  * Edits an index or defines a new one
  */
-else if (!defined('_IDX_INCLUDED_')
+else if (!defined('PMA_IDX_INCLUDED')
          && (isset($index) || isset($create_index))) {
 
     // Prepares the form values
@@ -317,7 +317,7 @@ else if (!defined('_IDX_INCLUDED_')
                 <option value="FULLTEXT"<?php if ($index_type == 'FULLTEXT') echo ' selected="selected"'; ?>>FULLTEXT</option>
                 <option value="INDEX"<?php if ($index_type == 'INDEX') echo ' selected="selected"'; ?>>INDEX</option>
             </select>&nbsp;
-            <?php echo show_docu('manual_Reference.html#ALTER_TABLE') . "\n"; ?>
+            <?php echo PMA_showDocu('manual_Reference.html#ALTER_TABLE') . "\n"; ?>
         </td>
     </tr>
     </table><br />
@@ -396,7 +396,7 @@ else if (!defined('_IDX_INCLUDED_')
     <?php    
     echo "\n";
     echo '        ' . $strIndexes . '&nbsp;:' . "\n";
-    echo '        ' . show_docu('manual_MySQL_Optimization.html#MySQL_indexes') . '<br />' ."\n";
+    echo '        ' . PMA_showDocu('manual_MySQL_Optimization.html#MySQL_indexes') . '<br />' ."\n";
 
     if ($idx_cnt > 0) {
         ?>
@@ -436,12 +436,12 @@ else if (!defined('_IDX_INCLUDED_')
                  . '            </td>' . "\n";
 
             if ($index_name == 'PRIMARY') {
-                $sql_query = urlencode('ALTER TABLE ' . backquote($table) . ' DROP PRIMARY KEY');
-                $js_msg    = 'ALTER TABLE ' . js_format($table) . ' DROP PRIMARY KEY';
+                $sql_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY');
+                $js_msg    = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP PRIMARY KEY';
                 $zero_rows = urlencode($strPrimaryKeyHasBeenDropped);
             } else {
-                $sql_query = urlencode('ALTER TABLE ' . backquote($table) . ' DROP INDEX ' . backquote($index_name));
-                $js_msg    = 'ALTER TABLE ' . js_format($table) . ' DROP INDEX ' . js_format($index_name);
+                $sql_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP INDEX ' . PMA_backquote($index_name));
+                $js_msg    = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP INDEX ' . PMA_jsFormat($index_name);
                 $zero_rows = urlencode(sprintf($strIndexHasBeenDropped, htmlspecialchars($index_name)));
             }
             echo $index_td
@@ -498,7 +498,7 @@ else if (!defined('_IDX_INCLUDED_')
  */
 echo "\n";
 
-if (!defined('_IDX_INCLUDED_')){
+if (!defined('PMA_IDX_INCLUDED')){
     require('./footer.inc.php3');
 }
 ?>

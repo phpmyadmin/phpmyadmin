@@ -9,7 +9,7 @@ require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
 // Gets the default font sizes
-set_font_sizes();
+PMA_setFontSizes();
 
 // Gets the host name
 if (empty($HTTP_HOST)) {
@@ -37,7 +37,7 @@ $url_query = 'lang=' . $lang
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
 <head>
-<title>phpMyAdmin <?php echo PHPMYADMIN_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
+<title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
 <style type="text/css">
 <!--
 body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}

@@ -29,7 +29,7 @@ if (!empty($message)) {
     if (isset($disp_query)) {
         $sql_query     = (get_magic_quotes_gpc() ? stripslashes($disp_query) : $disp_query);
     }
-    show_message($message);
+    PMA_showMessage($message);
     if (isset($goto_cpy)) {
         $goto         = $goto_cpy;
         unset($goto_cpy);
@@ -70,10 +70,10 @@ if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
  * Get the list of the fields of the current table
  */
 mysql_select_db($db);
-$table_def = mysql_query('SHOW FIELDS FROM ' . backquote($table));
+$table_def = mysql_query('SHOW FIELDS FROM ' . PMA_backquote($table));
 if (isset($primary_key)) {
-    $local_query = 'SELECT * FROM ' . backquote($table) . ' WHERE ' . $primary_key;
-    $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+    $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key;
+    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $row         = mysql_fetch_array($result);
     // No row returned
     if (!$row) {
@@ -93,7 +93,7 @@ if (isset($primary_key)) {
             unset($sql_query);
         }
         $sql_query         = $local_query;
-        show_message($strEmptyResultSet);
+        PMA_showMessage($strEmptyResultSet);
         $goto              = $goto_cpy;
         unset($goto_cpy);
         if (isset($sql_query_cpy)) {
@@ -104,8 +104,8 @@ if (isset($primary_key)) {
 }
 else
 {
-    $local_query = 'SELECT * FROM ' . backquote($table) . ' LIMIT 1';
-    $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+    $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1';
+    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     unset($row);
 }
 

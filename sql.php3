@@ -40,7 +40,7 @@ if (!defined('PMA_CHK_DROP')
     $result = @mysql_query('USE mysql');
     if (mysql_error()) {
         include('./header.inc.php3');
-        mysql_die($strNoDropDatabases, '', '', $err_url);
+        PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
     } // end if
 } // end if
 
@@ -53,7 +53,7 @@ if (isset($store_bkm)) {
         $fields['label'] = stripslashes($fields['label']);
     }
     include('./libraries/bookmark.lib.php3');
-    add_bookmarks($fields, $cfgBookmark);
+    PMA_addBookmarks($fields, $cfgBookmark);
     header('Location: ' . $cfgPmaAbsoluteUri . $goto);
 }
 
@@ -230,7 +230,7 @@ else {
         $full_err_url = (ereg('^(db_details|tbl_properties)', $err_url))
                       ? $err_url . '&amp;show_query=y&amp;sql_query=' . urlencode($sql_query)
                       : $err_url;
-        mysql_die($error, $full_sql_query, '', $full_err_url);
+        PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
     }
 
     // Gets the number of rows affected/returned
@@ -289,7 +289,7 @@ else {
                 if (!isset($table)) {
                     $goto     = 'db_details.php3';
                 } else {
-                    $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
+                    $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
                     if (!@mysql_numrows($is_table)) {
                         $goto = 'db_details.php3';
                         unset($table);
@@ -344,11 +344,11 @@ else {
         // Displays the results in a table
         include('./libraries/display_tbl.lib.php3');
         if (empty($disp_mode)) {
-            // see the "set_display_mode()" function in
+            // see the "PMA_setDisplayMode()" function in
             // libraries/display_tbl.lib.php3
             $disp_mode = 'urdr11110';
         }
-        display_table($result, $disp_mode);
+        PMA_displayTable($result, $disp_mode);
         mysql_free_result($result);
         
         // Displays "Insert a new row" link if required

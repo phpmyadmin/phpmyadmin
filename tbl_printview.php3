@@ -29,15 +29,15 @@ mysql_select_db($db);
  * Gets table informations
  */
 // The 'show table' statement works correct since 3.23.03
-if (MYSQL_INT_VERSION >= 32303) {
-    $local_query  = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
-    $result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+if (PMA_MYSQL_INT_VERSION >= 32303) {
+    $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
+    $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $showtable    = mysql_fetch_array($result);
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
 } else {
-    $local_query  = 'SELECT COUNT(*) AS count FROM ' . backquote($table);
-    $result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+    $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
+    $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $showtable    = array();
     $num_rows     = mysql_result($result, 0, 'count');
     $show_comment = '';
@@ -50,8 +50,8 @@ if ($result) {
 /**
  * Gets table keys and retains them
  */
-$local_query  = 'SHOW KEYS FROM ' . backquote($table);
-$result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+$local_query  = 'SHOW KEYS FROM ' . PMA_backquote($table);
+$result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
 $primary      = '';
 $indexes      = array();
 $lastIndex    = '';
@@ -91,8 +91,8 @@ if ($result) {
 /**
  * Gets fields properties
  */
-$local_query = 'SHOW FIELDS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+$local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
+$result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
 $fields_cnt  = mysql_num_rows($result);
 
 
@@ -272,25 +272,25 @@ if ($cfgShowStats) {
     if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
         $nonisam = TRUE;
     }
-    if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
+    if (PMA_MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
         // Gets some sizes
         $mergetable     = FALSE;
         if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
             $mergetable = TRUE;
         }
-        list($data_size, $data_unit)         = format_byte_down($showtable['Data_length']);
+        list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
         if ($mergetable == FALSE) {
-            list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
+            list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length']);
         }
         if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-            list($free_size, $free_unit)     = format_byte_down($showtable['Data_free']);
-            list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
+            list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free']);
+            list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
         } else {
-            list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
+            list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
         }
-        list($tot_size, $tot_unit)           = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
+        list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
         if ($num_rows > 0) {
-            list($avg_size, $avg_unit)       = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+            list($avg_size, $avg_unit)       = PMA_formatByteDown(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
         }
 
         // Displays them
@@ -439,7 +439,7 @@ if ($cfgShowStats) {
 </table>
 
         <?php
-    } // end if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE)
+    } // end if (PMA_MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE)
 } // end if ($cfgShowStats)
 
 

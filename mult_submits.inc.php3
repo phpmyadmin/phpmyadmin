@@ -34,32 +34,32 @@ if (!empty($submit_mult)
         switch ($what) {
             case 'drop_db':
                 $full_query .= 'DROP DATABASE '
-                            . backquote(htmlspecialchars(urldecode($selected[$i])))
+                            . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
                             . ';<br />';
                 break;
 
             case 'drop_tbl':
                 $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
-                            . backquote(htmlspecialchars(urldecode($selected[$i])))
+                            . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
                             . (($i == $selected_cnt - 1) ? ';<br />' : '');
                 break;
 
             case 'empty_tbl':
                 $full_query .= 'DELETE FROM '
-                            . backquote(htmlspecialchars(urldecode($selected[$i])))
+                            . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
                             . ';<br />';
                 break;
 
             case 'drop_fld':
                 if ($full_query == '') {
                     $full_query .= 'ALTER TABLE '
-                                . backquote(htmlspecialchars($table))
+                                . PMA_backquote(htmlspecialchars($table))
                                 . '<br />&nbsp;&nbsp;DROP '
-                                . backquote(htmlspecialchars(urldecode($selected[$i])))
+                                . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
                                 . ',';
                 } else {
                     $full_query .= '<br />&nbsp;&nbsp;DROP '
-                                . backquote(htmlspecialchars(urldecode($selected[$i])))
+                                . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
                                 . ',';
                 }
                 if ($i == $selected_cnt-1) {
@@ -111,25 +111,25 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btnDrop) == $strYes)
         switch ($query_type) {
             case 'drop_db':
                 $a_query   = 'DROP DATABASE '
-                           . backquote(urldecode($selected[$i]));
+                           . PMA_backquote(urldecode($selected[$i]));
                 $reload    = 1;
                 break;
 
             case 'drop_tbl':
                 $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
-                           . backquote(urldecode($selected[$i]))
+                           . PMA_backquote(urldecode($selected[$i]))
                            . (($i == $selected_cnt-1) ? ';' : '');
                 $reload    = 1;
                 break;
 
             case 'empty_tbl':
                 $a_query   = 'DELETE FROM '
-                           . backquote(urldecode($selected[$i]));
+                           . PMA_backquote(urldecode($selected[$i]));
                 break;
 
             case 'drop_fld':
-                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . backquote($table) : ',')
-                           . ' DROP ' . backquote(urldecode($selected[$i]))
+                $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) : ',')
+                           . ' DROP ' . PMA_backquote(urldecode($selected[$i]))
                            . (($i == $selected_cnt-1) ? ';' : '');
                 break;
         } // end switch
@@ -141,16 +141,16 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btnDrop) == $strYes)
             if ($query_type != 'drop_db') {
                 mysql_select_db($db);
             }
-            $result = @mysql_query($a_query) or mysql_die('', $a_query, FALSE, $err_url);
+            $result = @mysql_query($a_query) or PMA_mysqlDie('', $a_query, FALSE, $err_url);
         } // end if
     } // end for
 
     if ($query_type == 'drop_tbl' || $query_type == 'drop_fld') {
         mysql_select_db($db);
-        $result = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url);
+        $result = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
     }
 
-    show_message($strSuccess);
+    PMA_showMessage($strSuccess);
 }
 
 ?>

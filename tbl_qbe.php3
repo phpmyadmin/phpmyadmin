@@ -129,10 +129,10 @@ while ($i < $tbl_result_cnt) {
 
     // The fields list per selected tables
     if ($tbl_names[$tbl] == ' selected="selected"') {
-        $fld[$k++] =  backquote($tbl) . '.*';
+        $fld[$k++] =  PMA_backquote($tbl) . '.*';
         while ($j < $fld_results_cnt) {
             $fld[$k] = mysql_field_name($fld_results, $j);
-            $fld[$k] = backquote($tbl) . '.' . backquote($fld[$k]);
+            $fld[$k] = PMA_backquote($tbl) . '.' . PMA_backquote($fld[$k]);
             $k++;
             $j++;
         } // end while
@@ -505,9 +505,9 @@ for ($y = 0; $y <= $row; $y++) {
             } else {
                 $stripped_or = ${$or}[$x];
             }
-	    } else {
-	        $stripped_or     = '';
-	    }
+        } else {
+            $stripped_or     = '';
+        }
         ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <textarea cols="20" rows="2" style="width: <?php echo $widem; ?>" name="Or<?php echo $w . '[' . $z . ']'; ?>"><?php echo htmlspecialchars($stripped_or); ?></textarea>
@@ -699,7 +699,7 @@ for ($x = 0; $x < sizeof($TableList); $x++) {
     if ($x) {
         $qry_from .=  ', ';
     }
-    $qry_from     .=  backquote(urldecode($TableList[$x]));
+    $qry_from     .=  PMA_backquote(urldecode($TableList[$x]));
 } // end for
 if (!empty($qry_from)) {
     $encoded_qry .= urlencode('FROM ' . $qry_from . "\n");

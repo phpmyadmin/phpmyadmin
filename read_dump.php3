@@ -16,7 +16,7 @@
  *
  * @access  public
  */
-function split_sql_file(&$ret, $sql, $release)
+function PMA_splitSqlFile(&$ret, $sql, $release)
 {
     $sql               = trim($sql);
     $sql_len           = strlen($sql);
@@ -125,7 +125,7 @@ function split_sql_file(&$ret, $sql, $release)
     }
 
     return TRUE;
-} // end of the 'split_sql_file()' function
+} // end of the 'PMA_splitSqlFile()' function
 
 
 
@@ -172,14 +172,14 @@ if (!empty($id_bookmark)) {
     include('./libraries/bookmark.lib.php3');
     switch($action_bookmark) {
         case 0: // bookmarked query that have to be run
-            $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
+            $sql_query = PMA_queryBookmarks($db, $cfgBookmark, $id_bookmark);
             break;
         case 1: // bookmarked query that have to be displayed
-            $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
+            $sql_query = PMA_queryBookmarks($db, $cfgBookmark, $id_bookmark);
             $view_bookmark = 1;
             break;
         case 2: // bookmarked query that have to be deleted
-            $sql_query = delete_bookmarks($db, $cfgBookmark, $id_bookmark);
+            $sql_query = PMA_deleteBookmarks($db, $cfgBookmark, $id_bookmark);
             break;
     }
 } // end if
@@ -219,7 +219,7 @@ if (!$cfgAllowUserDropDatabase
     $result = @mysql_query('USE mysql');
     if (mysql_error()) {
         include('./header.inc.php3');
-        mysql_die($strNoDropDatabases, '', '', $err_url);
+        PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
     }
 }
 define('PMA_CHK_DROP', 1);
@@ -230,7 +230,7 @@ define('PMA_CHK_DROP', 1);
  */
 if ($sql_query != '') {
     $pieces       = array();
-    split_sql_file($pieces, $sql_query, MYSQL_INT_VERSION);
+    PMA_splitSqlFile($pieces, $sql_query, PMA_MYSQL_INT_VERSION);
     $pieces_count = count($pieces);
 
     // Copy of the cleaned sql statement for display purpose only (see near the
@@ -281,7 +281,7 @@ if ($sql_query != '') {
 if (isset($my_die)) {
     $js_to_run = 'functions.js';
     include('./header.inc.php3');
-    mysql_die('', $my_die, '', $err_url);
+    PMA_mysqlDie('', $my_die, '', $err_url);
 }
 
 
@@ -300,7 +300,7 @@ if ($goto == 'tbl_properties.php3') {
     if (!isset($table)) {
         $goto     = 'db_details.php3';
     } else {
-        $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
+        $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
         if (!@mysql_numrows($is_table)) {
             $goto = 'db_details.php3';
             unset($table);

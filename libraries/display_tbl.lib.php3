@@ -8,8 +8,8 @@
 
 
 
-if (!defined('__LIB_DISPLAY_TBL__')){
-    define('__LIB_DISPLAY_TBL__', 1);
+if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
+    define('PMA_DISPLAY_TBL_LIB_INCLUDED', 1);
 
     /**
      * Defines the display mode to use for the results of a sql query
@@ -45,11 +45,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
      * @global  string   the url to return to in case of error in a sql
      *                   statement
      *
-     * @access	private
+     * @access  private
      *
-     * @see display_table()
+     * @see PMA_displayTable()
      */
-    function set_display_mode(&$the_disp_mode, &$the_total)
+    function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
     {
         global $db, $table;
         global $unlim_num_rows, $fields_meta;
@@ -140,8 +140,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         }
         else if (($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1')
                  && (!empty($db) && !empty($table))) {
-            $local_query = 'SELECT COUNT(*) AS total FROM ' . backquote($db) . '.' . backquote($table);
-            $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+            $local_query = 'SELECT COUNT(*) AS total FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+            $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
             $the_total   = mysql_result($result, 0, 'total');
             mysql_free_result($result);
         }
@@ -160,7 +160,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         $the_disp_mode = join('', $do_display);
 
         return $do_display;
-    } // end of the 'set_display_mode()' function
+    } // end of the 'PMA_setDisplayMode()' function
 
 
     /**
@@ -184,11 +184,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
      *
-     * @access	private
+     * @access  private
      *
-     * @see display_table()
+     * @see PMA_displayTable()
      */
-    function display_table_navigation($pos_next, $pos_prev, $encoded_query)
+    function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
     {
         global $lang, $server, $db, $table;
         global $goto;
@@ -348,7 +348,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
 </table>
 
         <?php
-    } // end of the 'display_table_navigation()' function
+    } // end of the 'PMA_displayTableNavigation()' function
 
 
     /**
@@ -374,11 +374,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
      *
-     * @access	private
+     * @access  private
      *
-     * @see display_table()
+     * @see PMA_displayTable()
      */
-    function display_table_headers(&$is_display, &$fields_meta, $fields_cnt = 0, $encoded_query = '')
+    function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $encoded_query = '')
     {
         global $lang, $server, $db, $table;
         global $goto;
@@ -482,7 +482,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                 //       isn't aliased)
                 if ($is_join
                     && !eregi('([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name, $select_stt[1], $parts)) {
-                    $sort_tbl = backquote($fields_meta[$i]->table) . '.';
+                    $sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
                 } else {
                     $sort_tbl = '';
                 }
@@ -493,15 +493,15 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                     if ($cfgOrder == 'SMART') {
                         $cfgOrder = (eregi('time|date', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
                     }
-                    $sort_order = ' ORDER BY ' . $sort_tbl . backquote($fields_meta[$i]->name) . ' ' . $cfgOrder;
+                    $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ' . $cfgOrder;
                     $order_img  = '';
                 }
                 else if (substr($sql_order, -3) == 'ASC' && $is_in_sort) {
-                    $sort_order = ' ORDER BY ' . $sort_tbl . backquote($fields_meta[$i]->name) . ' DESC';
+                    $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' DESC';
                     $order_img  = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />';
                 }
                 else if (substr($sql_order, -4) == 'DESC' && $is_in_sort) {
-                    $sort_order = ' ORDER BY ' . $sort_tbl . backquote($fields_meta[$i]->name) . ' ASC';
+                    $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ASC';
                     $order_img  = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="DESC" />';
                 }
                 if (eregi('(.*)( LIMIT (.*)| PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)', $unsorted_sql_query, $regs3)) {
@@ -563,7 +563,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         echo "\n";
 
         return true;
-    } // end of the 'display_table_headers()' function
+    } // end of the 'PMA_displayTableHeaders()' function
 
 
     /**
@@ -591,11 +591,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
      *
-     * @access	private
+     * @access  private
      *
-     * @see display_table()
+     * @see PMA_displayTable()
      */
-    function display_table_body(&$dt_result, &$is_display)
+    function PMA_displayTableBody(&$dt_result, &$is_display)
     {
         global $lang, $server, $db, $table;
         global $goto;
@@ -643,12 +643,12 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                 if ($is_display['edit_lnk'] == 'ur' /* || $is_display['edit_lnk'] == 'dr' */) {
                     for ($i = 0; $i < $fields_cnt; ++$i) {
                         $primary   = $fields_meta[$i];
-                        $condition = ' ' . backquote($primary->name) . ' ';
+                        $condition = ' ' . PMA_backquote($primary->name) . ' ';
                         if (!isset($row[$primary->name])
                             || (function_exists('is_null') && is_null($row[$primary->name]))) {
                             $condition .= 'IS NULL AND';
                         } else {
-                            $condition .= '= \'' . sql_addslashes($row[$primary->name]) . '\' AND';
+                            $condition .= '= \'' . PMA_sqlAddslashes($row[$primary->name]) . '\' AND';
                         }
                         if ($primary->primary_key > 0) {
                             $primary_key .= $condition;
@@ -706,11 +706,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                               . '&goto=tbl_properties.php3';
                     $del_url  = 'sql.php3'
                               . '?' . $url_query
-                              . '&amp;sql_query=' . urlencode('DELETE FROM ' . backquote($table) . ' WHERE') . $uva_condition . urlencode(' LIMIT 1')
+                              . '&amp;sql_query=' . urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . urlencode(' LIMIT 1')
                               . '&amp;zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                               . '&amp;goto=' . urlencode($goto);
-                    $js_conf  = 'DELETE FROM ' . js_format($table)
-                              . ' WHERE ' . trim(js_format(urldecode($uva_condition), FALSE)) . ' LIMIT 1';
+                    $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
+                              . ' WHERE ' . trim(PMA_jsFormat(urldecode($uva_condition), FALSE)) . ' LIMIT 1';
                     $del_str  = $GLOBALS['strDelete'];
                 } else if ($is_display['del_lnk'] == 'kp') { // kill process case
                     $goto     = 'sql.php3'
@@ -846,7 +846,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         } // end while
 
         return true;
-    } // end of the 'display_table_body()' function
+    } // end of the 'PMA_displayTableBody()' function
 
 
     /**
@@ -874,12 +874,12 @@ if (!defined('__LIB_DISPLAY_TBL__')){
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
      *
-     * @access	private
+     * @access  private
      *
-     * @see     show_message(), set_display_mode(), display_table_navigation(),
-     *          display_table_headers(), display_table_body()
+     * @see     PMA_showMessage(), PMA_setDisplayMode(), PMA_displayTableNavigation(),
+     *          PMA_displayTableHeaders(), PMA_displayTableBody()
      */
-    function display_table(&$dt_result, &$the_disp_mode)
+    function PMA_displayTable(&$dt_result, &$the_disp_mode)
     {
         global $lang, $server, $db, $table;
         global $goto;
@@ -891,7 +891,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         // 1.1 Gets the informations about which functionnalities should be
         //     displayed
         $total      = '';
-        $is_display = set_display_mode($the_disp_mode, $total);
+        $is_display = PMA_setDisplayMode($the_disp_mode, $total);
         if ($total == '') {
             unset($total);
         }
@@ -934,9 +934,9 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             $last_shown_rec = ($GLOBALS['session_max_rows'] == 'all' || $pos_next > $total)
                             ? $total
                             : $pos_next;
-            show_message($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec ($total " . $GLOBALS['strTotal'] . $selectstring . ')');
+            PMA_showMessage($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec ($total " . $GLOBALS['strTotal'] . $selectstring . ')');
         } else {
-            show_message($GLOBALS['strSQLQuery']);
+            PMA_showMessage($GLOBALS['strSQLQuery']);
         }
 
         // 2.3 Displays the navigation bars
@@ -944,7 +944,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             $table = $fields_meta[0]->table;
         }
         if ($is_display['nav_bar'] == '1') {
-            display_table_navigation($pos_next, $pos_prev, $encoded_sql_query);
+            PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_sql_query);
             echo "\n";
         } else {
             echo "\n" . '<br /><br />' . "\n";
@@ -957,8 +957,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
 <table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
         <?php
         echo "\n";
-        display_table_headers($is_display, $fields_meta, $fields_cnt, $encoded_sql_query);
-        display_table_body($dt_result, $is_display);
+        PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $encoded_sql_query);
+        PMA_displayTableBody($dt_result, $is_display);
         ?>
 </table>
 <br />
@@ -968,11 +968,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         // 4. ----- Displays the navigation bar at the bottom if required -----
 
         if ($is_display['nav_bar'] == '1') {
-            display_table_navigation($pos_next, $pos_prev, $encoded_sql_query);
+            PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_sql_query);
         } else {
             echo "\n" . '<br />' . "\n";
         }
-    } // end of the 'display_table()' function
+    } // end of the 'PMA_displayTable()' function
 
-} // $__LIB_DISPLAY_TBL__
+} $__PMA_DISPLAY_TBL_LIB__
 ?>

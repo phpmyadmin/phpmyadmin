@@ -19,7 +19,7 @@ require('./libraries/common.lib.php3');
  * before the user choose among available ones at the welcome screen.
  */
 if ($server > 0) {
-    available_databases(); // this function is defined in "common.lib.php3"
+    PMA_availableDatabases(); // this function is defined in "common.lib.php3"
 } else {
     $num_dbs = 0;
 }
@@ -43,7 +43,7 @@ header('Content-Type: text/html; charset=' . $charset);
  * Displays the frame
  */
 // Gets the font sizes to use
-set_font_sizes();
+PMA_setFontSizes();
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -187,10 +187,10 @@ if ($num_dbs > 1) {
         }
 
         // Get additional infomation about tables for tooltip
-        if ($cfgShowTooltip && MYSQL_INT_VERSION >= 32303
+        if ($cfgShowTooltip && PMA_MYSQL_INT_VERSION >= 32303
             && $num_tables) {
             $tooltip = array();
-            $result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
+            $result  = mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
             while ($tmp = mysql_fetch_array($result)) {
                 $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
                                        . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
@@ -228,7 +228,7 @@ if ($num_dbs > 1) {
             echo "\n";
             ?>
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
-        <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&amp;pos=0&amp;goto=tbl_properties.php3">
+        <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0&amp;goto=tbl_properties.php3">
             <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
         <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[$table]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
@@ -273,10 +273,10 @@ else if ($num_dbs == 1) {
     }
 
     // Get additional infomation about tables for tooltip
-    if ($cfgShowTooltip && MYSQL_INT_VERSION >= 32303
+    if ($cfgShowTooltip && PMA_MYSQL_INT_VERSION >= 32303
         && $num_tables) {
         $tooltip = array();
-        $result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
+        $result  = mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
         while ($tmp = mysql_fetch_array($result)) {
             $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
                                    . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
@@ -297,7 +297,7 @@ else if ($num_dbs == 1) {
         $table = mysql_tablename($tables, $j);
         echo "\n";
         ?>
-        <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&amp;pos=0&amp;goto=tbl_properties.php3">
+        <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0&amp;goto=tbl_properties.php3">
                   <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
               <a class="tblItem" title="<?php echo str_replace('"', '&quot;', $tooltip[$table]); ?>" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
                   <?php echo $table; ?></a></nobr><br />

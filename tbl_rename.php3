@@ -31,17 +31,17 @@ if (isset($new_name) && trim($new_name) != '') {
     }
 
     // Ensure the target is valid
-    if (count($dblist) > 0 && pmaIsInto($db, $dblist) == -1) {
+    if (count($dblist) > 0 && PMA_isInto($db, $dblist) == -1) {
         exit();
     }
-    if (MYSQL_INT_VERSION < 32306) {
-        check_reserved_words($new_name, $err_url);
+    if (PMA_MYSQL_INT_VERSION < 32306) {
+        PMA_checkReservedWords($new_name, $err_url);
     }
 
     include('./header.inc.php3');
     mysql_select_db($db);
-    $sql_query = 'ALTER TABLE ' . backquote($old_name) . ' RENAME ' . backquote($new_name);
-    $result    = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
+    $sql_query = 'ALTER TABLE ' . PMA_backquote($old_name) . ' RENAME ' . PMA_backquote($new_name);
+    $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $message   = sprintf($strRenameTableOK, $old_name, $table);
     $reload    = 1;
 } 
@@ -52,7 +52,7 @@ if (isset($new_name) && trim($new_name) != '') {
  */
 else { 
     include('./header.inc.php3');
-    mysql_die($strTableEmpty, '', '', $err_url); 
+    PMA_mysqlDie($strTableEmpty, '', '', $err_url); 
 } 
 
 

@@ -8,8 +8,8 @@
 
 
 
-if (!defined('__LIB_BOOKMARK__')){
-    define('__LIB_BOOKMARK__', 1);
+if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
+    define('PMA_BOOKMARK_LIB_INCLUDED', 1);
 
     /**
      * Defines the bookmark parameters for the current user
@@ -19,9 +19,9 @@ if (!defined('__LIB_BOOKMARK__')){
      * @global  array    the list of settings for the current server
      * @global  integer  the id of the current server
      *
-     * @access	public
+     * @access  public
      */
-    function get_bookmarks_param()
+    function PMA_getBookmarksParam()
     {
         global $cfgServer;
         global $server;
@@ -38,7 +38,7 @@ if (!defined('__LIB_BOOKMARK__')){
         $cfgBookmark['table'] = $cfgServer['bookmarktable'];
 
         return $cfgBookmark;
-    } // end of the 'get_bookmarks_param()' function
+    } // end of the 'PMA_getBookmarksParam()' function
 
 
     /**
@@ -49,13 +49,13 @@ if (!defined('__LIB_BOOKMARK__')){
      *
      * @return  mixed    the bookmarks list if defined, false else
      *
-     * @access	public
+     * @access  public
      */
-    function list_bookmarks($db, $cfgBookmark)
+    function PMA_listBookmarks($db, $cfgBookmark)
     {
-        $query  = 'SELECT label, id FROM '. backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
-                . ' WHERE dbase = \'' . sql_addslashes($db) . '\''
-                . ' AND user = \'' . sql_addslashes($cfgBookmark['user']) . '\'';
+        $query  = 'SELECT label, id FROM '. PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
+                . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
+                . ' AND user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\'';
         if (isset($GLOBALS['dbh'])) {
             $result = mysql_query($query, $GLOBALS['dbh']);
         } else {
@@ -75,7 +75,7 @@ if (!defined('__LIB_BOOKMARK__')){
         else {
             return FALSE;
         }
-    } // end of the 'list_bookmarks()' function
+    } // end of the 'PMA_listBookmarks()' function
 
 
     /**
@@ -87,13 +87,13 @@ if (!defined('__LIB_BOOKMARK__')){
      *
      * @return  string   the sql query
      *
-     * @access	public
+     * @access  public
      */
-    function query_bookmarks($db, $cfgBookmark, $id)
+    function PMA_queryBookmarks($db, $cfgBookmark, $id)
     {
-        $query          = 'SELECT query FROM ' . backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
-                        . ' WHERE dbase = \'' . sql_addslashes($db) . '\''
-                        . ' AND user = \'' . sql_addslashes($cfgBookmark['user']) . '\''
+        $query          = 'SELECT query FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
+                        . ' WHERE dbase = \'' . PMA_sqlAddslashes($db) . '\''
+                        . ' AND user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
                         . ' AND id = ' . $id;
         if (isset($GLOBALS['dbh'])) {
             $result = mysql_query($query, $GLOBALS['dbh']);
@@ -103,7 +103,7 @@ if (!defined('__LIB_BOOKMARK__')){
         $bookmark_query = mysql_result($result, 0, 'query');
 
         return $bookmark_query;
-    } // end of the 'query_bookmarks()' function
+    } // end of the 'PMA_queryBookmarks()' function
 
 
     /**
@@ -112,18 +112,18 @@ if (!defined('__LIB_BOOKMARK__')){
      * @param   array    the properties of the bookmark to add
      * @param   array    the bookmark parameters for the current user
      *
-     * @access	public
+     * @access  public
      */
-    function add_bookmarks($fields, $cfgBookmark)
+    function PMA_addBookmarks($fields, $cfgBookmark)
     {
-        $query = 'INSERT INTO ' . backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
-               . ' (id, dbase, user, query, label) VALUES (\'\', \'' . sql_addslashes($fields['dbase']) . '\', \'' . sql_addslashes($fields['user']) . '\', \'' . sql_addslashes(urldecode($fields['query'])) . '\', \'' . sql_addslashes($fields['label']) . '\')';
+        $query = 'INSERT INTO ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
+               . ' (id, dbase, user, query, label) VALUES (\'\', \'' . PMA_sqlAddslashes($fields['dbase']) . '\', \'' . PMA_sqlAddslashes($fields['user']) . '\', \'' . PMA_sqlAddslashes(urldecode($fields['query'])) . '\', \'' . PMA_sqlAddslashes($fields['label']) . '\')';
         if (isset($GLOBALS['dbh'])) {
             $result = mysql_query($query, $GLOBALS['dbh']);
         } else {
             $result = mysql_query($query);
         }
-    } // end of the 'add_bookmarks()' function
+    } // end of the 'PMA_addBookmarks()' function
 
 
     /**
@@ -133,26 +133,26 @@ if (!defined('__LIB_BOOKMARK__')){
      * @param   array    the bookmark parameters for the current user
      * @param   integer  the id of the bookmark to get
      *
-     * @access	public
+     * @access  public
      */
-    function delete_bookmarks($db, $cfgBookmark, $id)
+    function PMA_deleteBookmarks($db, $cfgBookmark, $id)
     {
-        $query  = 'DELETE FROM ' . backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
-                . ' WHERE user = \'' . sql_addslashes($cfgBookmark['user']) . '\''
+        $query  = 'DELETE FROM ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
+                . ' WHERE user = \'' . PMA_sqlAddslashes($cfgBookmark['user']) . '\''
                 . ' AND id = ' . $id;
         if (isset($GLOBALS['dbh'])) {
             $result = mysql_query($query, $GLOBALS['dbh']);
         } else {
             $result = mysql_query($query);
         }
-    } // end of the 'delete_bookmarks()' function
+    } // end of the 'PMA_deleteBookmarks()' function
 
 
     /**
      * Bookmark Support
      */
-    $cfgBookmark = get_bookmarks_param();
+    $cfgBookmark = PMA_getBookmarksParam();
 
 
-} // $__LIB_BOOKMARK__
+} // $__PMA_BOOKMARK_LIB__
 ?>

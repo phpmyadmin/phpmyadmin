@@ -224,7 +224,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             } else {
                 $checked_unique   = '';
             }
-            if (MYSQL_INT_VERSION >= 32323
+            if (PMA_MYSQL_INT_VERSION >= 32323
                 &&(isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
                 $checked_fulltext = ' checked="checked"';
             } else {
@@ -242,14 +242,14 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             <input type="checkbox" name="field_unique[]" value="<?php echo $i; ?>"<?php echo $checked_unique; ?> />
         </td>
             <?php
-            if (MYSQL_INT_VERSION >= 32323) {
+            if (PMA_MYSQL_INT_VERSION >= 32323) {
                 echo "\n";
                 ?>
         <td nowrap="nowrap">
             <input type="checkbox" name="field_fulltext[]" value="<?php echo $i; ?>"<?php echo $checked_fulltext; ?> />
         </td>
                 <?php
-            } // end if (MYSQL_INT_VERSION >= 32323)
+            } // end if (PMA_MYSQL_INT_VERSION >= 32323)
             echo "\n";
         } // end if (empty($num_indexes))
     } // end if ($action ==...)
@@ -264,7 +264,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     <br />
 
 <?php
-if ($action == 'tbl_create.php3' && MYSQL_INT_VERSION >= 32300) {
+if ($action == 'tbl_create.php3' && PMA_MYSQL_INT_VERSION >= 32300) {
     echo "\n";
     ?>
     <table>
@@ -363,4 +363,4 @@ echo "\n";
 </table>
 <br />
 
-<center><?php echo show_docu('manual_Reference.html#CREATE_TABLE'); ?></center>
+<center><?php echo PMA_showDocu('manual_Reference.html#CREATE_TABLE'); ?></center>

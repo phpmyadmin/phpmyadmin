@@ -24,16 +24,16 @@ $err_url = 'main.php3'
 if (get_magic_quotes_gpc()) {
     $db      = stripslashes($db);
 }
-if (MYSQL_INT_VERSION < 32306) {
-    check_reserved_words($db, $err_url);
+if (PMA_MYSQL_INT_VERSION < 32306) {
+    PMA_checkReservedWords($db, $err_url);
 }
 
 
 /**
  * Executes the db creation sql query
  */
-$local_query = 'CREATE DATABASE ' . backquote($db);
-$result      = mysql_query('CREATE DATABASE ' . backquote($db)) or mysql_die('', $local_query, FALSE, $err_url);
+$local_query = 'CREATE DATABASE ' . PMA_backquote($db);
+$result      = mysql_query('CREATE DATABASE ' . PMA_backquote($db)) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
 
 
 /**

@@ -8,8 +8,8 @@
 
 
 
-if (!defined('__LIB_BUILD_DUMP__')){
-    define('__LIB_BUILD_DUMP__', 1);
+if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
+    define('PMA_BUILD_DUMP_LIB_INCLUDED', 1);
 
     /**
      * Uses the 'htmlspecialchars()' php function on databases, tables and fields
@@ -19,18 +19,18 @@ if (!defined('__LIB_BUILD_DUMP__')){
      *
      * @return  string   the formatted string
      *
-     * @access	private
+     * @access  private
      */
-    function html_format($a_string = '')
+    function PMA_htmlFormat($a_string = '')
     {
         return (empty($GLOBALS['asfile']) ? htmlspecialchars($a_string) : $a_string);
-    } // end of the 'html_format()' function
+    } // end of the 'PMA_htmlFormat()' function
 
 
     /**
      * Returns $table's CREATE definition
      *
-     * Uses the 'html_format()' function defined in 'tbl_dump.php3'
+     * Uses the 'PMA_htmlFormat()' function defined in 'tbl_dump.php3'
      *
      * @param   string   the database name
      * @param   string   the table name
@@ -43,47 +43,47 @@ if (!defined('__LIB_BUILD_DUMP__')){
      * @global  boolean  whether to use backquotes to allow the use of special
      *                   characters in database, table and fields names or not
      *
-     * @see	    html_format()
+     * @see     PMA_htmlFormat()
      *
-     * @access	public
+     * @access  public
      */
-    function get_table_def($db, $table, $crlf, $error_url)
+    function PMA_getTableDef($db, $table, $crlf, $error_url)
     {
         global $drop;
         global $use_backquotes;
 
         $schema_create = '';
         if (!empty($drop)) {
-            $schema_create .= 'DROP TABLE IF EXISTS ' . backquote(html_format($table), $use_backquotes) . ';' . $crlf;
+            $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes) . ';' . $crlf;
         }
 
         // Steve Alberty's patch for complete table dump,
         // modified by Lem9 to allow older MySQL versions to continue to work
-        if (MYSQL_INT_VERSION >= 32321) {
+        if (PMA_MYSQL_INT_VERSION >= 32321) {
             // Whether to quote table and fields names or not
             if ($use_backquotes) {
                 mysql_query('SET SQL_QUOTE_SHOW_CREATE = 1');
             } else {
                 mysql_query('SET SQL_QUOTE_SHOW_CREATE = 0');
             }
-            $result = mysql_query('SHOW CREATE TABLE ' . backquote($db) . '.' . backquote($table));
+            $result = mysql_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
             if ($result != FALSE && mysql_num_rows($result) > 0) {
                 $tmpres        = mysql_fetch_array($result);
-                $schema_create .= str_replace("\n", $crlf, html_format($tmpres[1]));
+                $schema_create .= str_replace("\n", $crlf, PMA_htmlFormat($tmpres[1]));
             }
             mysql_free_result($result);
             return $schema_create;
         } // end if MySQL >= 3.23.20
 
         // For MySQL < 3.23.20
-        $schema_create .= 'CREATE TABLE ' . html_format(backquote($table), $use_backquotes) . ' (' . $crlf;
+        $schema_create .= 'CREATE TABLE ' . PMA_htmlFormat(PMA_backquote($table), $use_backquotes) . ' (' . $crlf;
 
-        $local_query   = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table);
-        $result        = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
+        $local_query   = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        $result        = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         while ($row = mysql_fetch_array($result)) {
-            $schema_create     .= '   ' . html_format(backquote($row['Field'], $use_backquotes)) . ' ' . $row['Type'];
+            $schema_create     .= '   ' . PMA_htmlFormat(PMA_backquote($row['Field'], $use_backquotes)) . ' ' . $row['Type'];
             if (isset($row['Default']) && $row['Default'] != '') {
-                $schema_create .= ' DEFAULT \'' . html_format(sql_addslashes($row['Default'])) . '\'';
+                $schema_create .= ' DEFAULT \'' . PMA_htmlFormat(PMA_sqlAddslashes($row['Default'])) . '\'';
             }
             if ($row['Null'] != 'YES') {
                 $schema_create .= ' NOT NULL';
@@ -96,8 +96,8 @@ if (!defined('__LIB_BUILD_DUMP__')){
         mysql_free_result($result);
         $schema_create         = ereg_replace(',' . $crlf . '$', '', $schema_create);
 
-        $local_query = 'SHOW KEYS FROM ' . backquote($db) . '.' . backquote($table);
-        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
+        $local_query = 'SHOW KEYS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         while ($row = mysql_fetch_array($result))
         {
             $kname    = $row['Key_name'];
@@ -114,9 +114,9 @@ if (!defined('__LIB_BUILD_DUMP__')){
                 $index[$kname] = array();
             }
             if ($sub_part > 1) {
-                $index[$kname][] = html_format(backquote($row['Column_name'], $use_backquotes)) . '(' . $sub_part . ')';
+                $index[$kname][] = PMA_htmlFormat(PMA_backquote($row['Column_name'], $use_backquotes)) . '(' . $sub_part . ')';
             } else {
-                $index[$kname][] = html_format(backquote($row['Column_name'], $use_backquotes));
+                $index[$kname][] = PMA_htmlFormat(PMA_backquote($row['Column_name'], $use_backquotes));
             }
         } // end while
         mysql_free_result($result);
@@ -138,7 +138,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
         $schema_create .= $crlf . ')';
 
         return $schema_create;
-    } // end of the 'get_table_def()' function
+    } // end of the 'PMA_getTableDef()' function
 
 
     /**
@@ -162,24 +162,24 @@ if (!defined('__LIB_BUILD_DUMP__')){
      * @global  boolean  whether to use backquotes to allow the use of special
      *                   characters in database, table and fields names or not
      *
-     * @access	private
+     * @access  private
      *
-     * @see     get_table_content()
+     * @see     PMA_getTableContent()
      *
      * @author  staybyte
      */
-    function get_table_content_fast($db, $table, $add_query = '', $handler, $error_url)
+    function PMA_getTableContentFast($db, $table, $add_query = '', $handler, $error_url)
     {
         global $use_backquotes;
 
-        $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
+        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         if ($result != FALSE) {
             $fields_cnt = mysql_num_fields($result);
 
             // Checks whether the field is an integer or not
             for ($j = 0; $j < $fields_cnt; $j++) {
-                $field_set[$j] = backquote(mysql_field_name($result, $j), $use_backquotes);
+                $field_set[$j] = PMA_backquote(mysql_field_name($result, $j), $use_backquotes);
                 $type          = mysql_field_type($result, $j);
                 if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
                     $type == 'bigint'  ||$type == 'timestamp') {
@@ -192,10 +192,10 @@ if (!defined('__LIB_BUILD_DUMP__')){
             // Sets the scheme
             if (isset($GLOBALS['showcolumns'])) {
                 $fields        = implode(', ', $field_set);
-                $schema_insert = 'INSERT INTO ' . backquote(html_format($table), $use_backquotes)
-                               . ' (' . html_format($fields) . ') VALUES (';
+                $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
+                               . ' (' . PMA_htmlFormat($fields) . ') VALUES (';
             } else {
-                $schema_insert = 'INSERT INTO ' . backquote(html_format($table), $use_backquotes)
+                $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
                                . ' VALUES (';
             }
         
@@ -216,7 +216,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
                         }
                         // a string
                         else {
-                            $values[] = "'" . str_replace($search, $replace, sql_addslashes($row[$j])) . "'";
+                            $values[] = "'" . str_replace($search, $replace, PMA_sqlAddslashes($row[$j])) . "'";
                         }
                     } else {
                         $values[]     = "''";
@@ -250,7 +250,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
         mysql_free_result($result);
     
         return TRUE;
-    } // end of the 'get_table_content_fast()' function
+    } // end of the 'PMA_getTableContentFast()' function
 
 
     /**
@@ -274,16 +274,16 @@ if (!defined('__LIB_BUILD_DUMP__')){
      * @global  boolean  whether to use backquotes to allow the use of special
      *                   characters in database, table and fields names or not
      *
-     * @access	private
+     * @access  private
      *
-     * @see     get_table_content()
+     * @see     PMA_getTableContent()
      */
-    function get_table_content_old($db, $table, $add_query = '', $handler, $error_url)
+    function PMA_getTableContentOld($db, $table, $add_query = '', $handler, $error_url)
     {
         global $use_backquotes;
 
-        $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
+        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $i           = 0;
         $isFirstRow  = TRUE;
         $fields_cnt  = mysql_num_fields($result);
@@ -293,7 +293,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
         while ($row = mysql_fetch_row($result)) {
             $table_list     = '(';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                $table_list .= backquote(mysql_field_name($result, $j), $use_backquotes) . ', ';
+                $table_list .= PMA_backquote(mysql_field_name($result, $j), $use_backquotes) . ', ';
             }
             $table_list     = substr($table_list, 0, -2);
             $table_list     .= ')';
@@ -302,10 +302,10 @@ if (!defined('__LIB_BUILD_DUMP__')){
                 $schema_insert = '(';
             } else {
                 if (isset($GLOBALS['showcolumns'])) {
-                    $schema_insert = 'INSERT INTO ' . backquote(html_format($table), $use_backquotes)
-                                   . ' ' . html_format($table_list) . ' VALUES (';
+                    $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
+                                   . ' ' . PMA_htmlFormat($table_list) . ' VALUES (';
                 } else {
-                    $schema_insert = 'INSERT INTO ' . backquote(html_format($table), $use_backquotes)
+                    $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
                                    . ' VALUES (';
                 }
                 $isFirstRow        = FALSE;
@@ -357,11 +357,11 @@ if (!defined('__LIB_BUILD_DUMP__')){
         }
 
         return TRUE;
-    } // end of the 'get_table_content_old()' function
+    } // end of the 'PMA_getTableContentOld()' function
 
 
     /**
-     * Dispatches between the versions of 'get_table_content' to use depending
+     * Dispatches between the versions of 'getTableContent' to use depending
      * on the php version
      *
      * Last revision 13 July 2001: Patch for limiting dump size from
@@ -376,13 +376,13 @@ if (!defined('__LIB_BUILD_DUMP__')){
      *                   ($sql_insert)
      * @param   string   the url to go back in case of error
      *
-     * @access	public
+     * @access  public
      *
-     * @see     get_table_content_fast(), get_table_content_old()
+     * @see     PMA_getTableContentFast(), PMA_getTableContentOld()
      *
      * @author  staybyte
      */
-    function get_table_content($db, $table, $limit_from = 0, $limit_to = 0, $handler, $error_url)
+    function PMA_getTableContent($db, $table, $limit_from = 0, $limit_to = 0, $handler, $error_url)
     {
         // Defines the offsets to use
         if ($limit_from > 0) {
@@ -397,12 +397,12 @@ if (!defined('__LIB_BUILD_DUMP__')){
         }
 
         // Call the working function depending on the php version
-        if (PHP_INT_VERSION >= 40005) {
-            get_table_content_fast($db, $table, $add_query, $handler, $error_url);
+        if (PMA_PHP_INT_VERSION >= 40005) {
+            PMA_getTableContentFast($db, $table, $add_query, $handler, $error_url);
         } else {
-            get_table_content_old($db, $table, $add_query, $handler, $error_url);
+            PMA_getTableContentOld($db, $table, $add_query, $handler, $error_url);
         }
-    } // end of the 'get_table_content()' function
+    } // end of the 'PMA_getTableContent()' function
 
 
     /**
@@ -426,9 +426,9 @@ if (!defined('__LIB_BUILD_DUMP__')){
      *
      * @return  boolean always true
      *
-     * @access	public
+     * @access  public
      */
-    function get_table_csv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $esc_by, $handler, $error_url)
+    function PMA_getTableCsv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $esc_by, $handler, $error_url)
     {
         global $what;
 
@@ -473,8 +473,8 @@ if (!defined('__LIB_BUILD_DUMP__')){
         }
 
         // Gets the data from the database
-        $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
+        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $fields_cnt  = mysql_num_fields($result);
 
         @set_time_limit($GLOBALS['cfgExecTimeLimit']);
@@ -509,7 +509,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
         mysql_free_result($result);
 
         return TRUE;
-    } // end of the 'get_table_csv()' function
+    } // end of the 'PMA_getTableCsv()' function
 
-} // $__LIB_BUILD_DUMP__
+} // $__PMA_BUILD_DUMP_LIB__
 ?>

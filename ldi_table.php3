@@ -49,7 +49,7 @@ require('./header.inc.php3');
     </tr>
     <tr>
         <td><?php echo $strLinesTerminatedBy; ?></td>
-        <td><input type="text" name="line_terminator" size="8" maxlength="8" value="<?php echo ((which_crlf() == "\n") ? '\n' : '\r\n'); ?>" /></td>
+        <td><input type="text" name="line_terminator" size="8" maxlength="8" value="<?php echo ((PMA_whichCrlf() == "\n") ? '\n' : '\r\n'); ?>" /></td>
         <td><?php echo $strCarriage; ?><br /><?php echo $strLineFeed; ?></td>
     </tr>
     <tr>
@@ -58,7 +58,7 @@ require('./header.inc.php3');
         <td><?php echo $strIfYouWish; ?></td>
     </tr>
     <tr>
-        <td colspan="3" align="center"><?php print show_docu('manual_Reference.html#LOAD_DATA'); ?></td>
+        <td colspan="3" align="center"><?php print PMA_showDocu('manual_Reference.html#LOAD_DATA'); ?></td>
     </tr>
     <tr>
         <td colspan="3" align="center">

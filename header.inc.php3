@@ -8,9 +8,9 @@
 require('./libraries/common.lib.php3');
 require('./libraries/ob.lib.php3');
 if ($cfgOBGzip) {
-    $ob_mode = out_buffer_mode_get();
+    $ob_mode = PMA_outBufferModeGet();
     if ($ob_mode) {
-        out_buffer_pre($ob_mode);
+        PMA_outBufferPre($ob_mode);
     }
 }
 
@@ -33,7 +33,7 @@ header('Content-Type: text/html; charset=' . $charset);
  * Sends the beginning of the html page then returns to the calling script
  */
 // Gets the font sizes to use
-set_font_sizes();
+PMA_setFontSizes();
 // Defines the cell alignment values depending on text direction
 if ($text_dir == 'ltr') {
     $cell_align_left  = 'left';
@@ -78,7 +78,7 @@ if (isset($table)) {
 if (!empty($cfgServer) && isset($cfgServer['host'])) {
     $title = (isset($title) ? $title . ' ' . trim($strRunning) . ' ' . str_replace('\'', '\\\'', $cfgServer['host']) : str_replace('\'', '\\\'', $cfgServer['host']));
 }
-$title = (isset($title) ? $title . ' - phpMyAdmin ' . PHPMYADMIN_VERSION : 'phpMyAdmin ' . PHPMYADMIN_VERSION);
+$title = (isset($title) ? $title . ' - phpMyAdmin ' . PMA_VERSION : 'phpMyAdmin ' . PMA_VERSION);
 ?>
 <script type="text/javascript" language="javascript">
 <!--

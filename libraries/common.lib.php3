@@ -9,8 +9,8 @@
 
 
 
-if (!defined('__LIB_COMMON__')){
-    define('__LIB_COMMON__', 1);
+if (!defined('PMA_COMMON_LIB_INCLUDED')){
+    define('PMA_COMMON_LIB_INCLUDED', 1);
 
     /**
      * Order of sections for common.lib.php3:
@@ -23,24 +23,24 @@ if (!defined('__LIB_COMMON__')){
      * the include of libraries/defines.lib.php3 must be after the connection
      * to db to get the MySql version
      *
-     * the sql_addslashes() function must be before the connection to db
+     * the PMA_sqlAddslashes() function must be before the connection to db
      *
-     * the auth() function must be before the connection to db but after the
-     * pmaIsInto() function
+     * the PMA_auth() function must be before the connection to db but after
+     * the PMA_isInto() function
      *
-     * the mysql_die() function must be before the connection to db but after
+     * the PMA_mysqlDie() function must be before the connection to db but after
      * mysql extension has been loaded
      *
      * ... so the required order is:
      *
-     * - definition of auth()
+     * - definition of PMA_auth()
      * - parsing of the configuration file
      * - first load of the libraries/define.lib.php3 library (won't get the
      *   MySQL release number)
      * - load of mysql extension (if necessary)
-     * - definition of sql_addslashes()
-     * - definition of mysql_die()
-     * - definition of pmaIsInto()
+     * - definition of PMA_sqlAddslashes()
+     * - definition of PMA_mysqlDie()
+     * - definition of PMA_isInto()
      * - db connection
      * - advanced authentication work if required
      * - second load of the libraries/define.lib.php3 library to get the MySQL
@@ -67,7 +67,7 @@ if (!defined('__LIB_COMMON__')){
      *
      * @access  public
      */
-    function auth()
+    function PMA_auth()
     {
         header('WWW-Authenticate: Basic realm="phpMyAdmin ' . trim($GLOBALS['strRunning']) . ' ' . $GLOBALS['cfgServer']['host'] . '"');
         header('HTTP/1.0 401 Unauthorized');
@@ -93,7 +93,7 @@ if (!defined('__LIB_COMMON__')){
         <?php
         echo "\n";
         exit();
-    } // end of the 'auth()' function
+    } // end of the 'PMA_auth()' function
 
 
     /**
@@ -165,8 +165,8 @@ if (!defined('__LIB_COMMON__')){
 
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
-    if (PHP_INT_VERSION < 40000
-        || (PHP_INT_VERSION >= 40005 && @ini_get('zlib.output_compression'))) {
+    if (PMA_PHP_INT_VERSION < 40000
+        || (PMA_PHP_INT_VERSION >= 40005 && @ini_get('zlib.output_compression'))) {
         $cfgOBGzip = FALSE;
     }
 
@@ -176,15 +176,15 @@ if (!defined('__LIB_COMMON__')){
      * Loads the mysql extensions if it is not loaded yet
      * staybyte - 26. June 2001
      */
-    if (((PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode'))
-        || (PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
+    if (((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode'))
+        || (PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
         && @function_exists('dl')) {
-        if (PHP_INT_VERSION < 40000) {
+        if (PMA_PHP_INT_VERSION < 40000) {
             $extension = 'MySQL';
         } else {
             $extension = 'mysql';
         }
-        if (PMA_WINDOWS) {
+        if (PMA_IS_WINDOWS) {
             $suffix = '.dll';
         } else {
             $suffix = '.so';
@@ -211,7 +211,7 @@ if (!defined('__LIB_COMMON__')){
      *
      * @access  public
      */
-    function sql_addslashes($a_string = '', $is_like = FALSE)
+    function PMA_sqlAddslashes($a_string = '', $is_like = FALSE)
     {
         if ($is_like) {
             $a_string = str_replace('\\', '\\\\\\\\', $a_string);
@@ -221,7 +221,7 @@ if (!defined('__LIB_COMMON__')){
         $a_string = str_replace('\'', '\\\'', $a_string);
     
         return $a_string;
-    } // end of the 'sql_addslashes()' function
+    } // end of the 'PMA_sqlAddslashes()' function
 
 
     /**
@@ -234,8 +234,8 @@ if (!defined('__LIB_COMMON__')){
      *
      * @access  public
      */
-    function mysql_die($error_message = '', $the_query = '',
-                       $is_modify_link = TRUE, $back_url = '')
+    function PMA_mysqlDie($error_message = '', $the_query = '',
+                          $is_modify_link = TRUE, $back_url = '')
     {
         if (!$error_message) {
             $error_message = mysql_error();
@@ -276,7 +276,7 @@ if (!defined('__LIB_COMMON__')){
 
         include('./footer.inc.php3');
         exit();
-    } // end of the 'mysql_die()' function
+    } // end of the 'PMA_mysqlDie()' function
 
 
     /**
@@ -290,7 +290,7 @@ if (!defined('__LIB_COMMON__')){
      *
      * @access  public
      */
-    function pmaIsInto($toFind = '', &$in)
+    function PMA_isInto($toFind = '', &$in)
     {
         $max = count($in);
         for ($i = 0; $i < $max && ($toFind != $in[$i]); $i++) {
@@ -298,7 +298,7 @@ if (!defined('__LIB_COMMON__')){
         }
 
         return ($i < $max) ? $i : -1;
-    }  // end of the 'pmaIsInto()' function
+    }  // end of the 'PMA_isInto()' function
 
 
     /**
@@ -349,7 +349,7 @@ if (!defined('__LIB_COMMON__')){
         if (strtolower($cfgServer['connect_type']) == 'tcp') {
             $cfgServer['socket'] = '';
         }
-        $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
+        $server_socket = (empty($cfgServer['socket']) || PMA_PHP_INT_VERSION < 30010)
                        ? ''
                        : ':' . $cfgServer['socket'];
 
@@ -433,7 +433,7 @@ if (!defined('__LIB_COMMON__')){
 
             // Calls the authentication window or store user's login/password
             if ($do_auth) {
-                auth();
+                PMA_auth();
             } else {
                 if (get_magic_quotes_gpc()) {
                     $PHP_AUTH_USER = stripslashes($PHP_AUTH_USER);
@@ -465,7 +465,7 @@ if (!defined('__LIB_COMMON__')){
             }
         } // end if
 
-        if (PHP_INT_VERSION >= 40000) {
+        if (PMA_PHP_INT_VERSION >= 40000) {
             $bkp_track_err = @ini_set('track_errors', 1);
         }
 
@@ -491,7 +491,7 @@ if (!defined('__LIB_COMMON__')){
                                 . $cfgServer['host'] . $server_port . $server_socket . ', '
                                 . $cfgServer['stduser'] . ', '
                                 . $cfgServer['stdpass'] . ')';
-                mysql_die($conn_error, $local_query, FALSE);
+                PMA_mysqlDie($conn_error, $local_query, FALSE);
             } // end if
         } // end if
 
@@ -504,7 +504,7 @@ if (!defined('__LIB_COMMON__')){
         if ($userlink == FALSE) {
             // Advanced authentication case
             if ($cfgServer['adv_auth']) {
-                auth();
+                PMA_auth();
             }
             // Standard authentication case
             else if (mysql_error()) {
@@ -518,10 +518,10 @@ if (!defined('__LIB_COMMON__')){
                             . $cfgServer['host'] . $server_port . $server_socket . ', '
                             . $cfgServer['user'] . ', '
                             . $cfgServer['password'] . ')';
-            mysql_die($conn_error, $local_query, FALSE);
+            PMA_mysqlDie($conn_error, $local_query, FALSE);
         } // end if
 
-        if (PHP_INT_VERSION >= 40000) {
+        if (PMA_PHP_INT_VERSION >= 40000) {
             @ini_set('track_errors', $bkp_track_err);
         }
 
@@ -549,7 +549,7 @@ if (!defined('__LIB_COMMON__')){
                     }
                     // Debug
                     // else if (mysql_error()) {
-                    //    mysql_die('', $local_query, FALSE);
+                    //    PMA_mysqlDie('', $local_query, FALSE);
                     // }
                     while ($row = @mysql_fetch_array($rs)) {
                         $true_dblist[] = $row['Database'];
@@ -570,8 +570,8 @@ if (!defined('__LIB_COMMON__')){
         else {
             $auth_query = 'SELECT User, Select_priv '
                         . 'FROM mysql.user '
-                        . 'WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-            $rs         = mysql_query($auth_query, $dbh); // Debug: or mysql_die('', $auth_query, FALSE);
+                        . 'WHERE User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\'';
+            $rs         = mysql_query($auth_query, $dbh); // Debug: or PMA_mysqlDie('', $auth_query, FALSE);
         } // end if
 
         // Access to "mysql" db allowed -> gets the usable db list
@@ -590,11 +590,11 @@ if (!defined('__LIB_COMMON__')){
             // expressions.
             if ($row['Select_priv'] != 'Y') {
                 // lem9: User can be blank (anonymous user)
-                $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . sql_addslashes($cfgServer['user']) . '\' OR User = \'\')';
-                $rs          = mysql_query($local_query, $dbh); // Debug: or mysql_die('', $local_query, FALSE);
+                $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\' OR User = \'\')';
+                $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
                 if (@mysql_numrows($rs) <= 0) {
-                    $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-                    $rs          = mysql_query($local_query, $dbh); // Debug: or mysql_die('', $local_query, FALSE);
+                    $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\'';
+                    $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
                     if (@mysql_numrows($rs)) {
                         while ($row = mysql_fetch_array($rs)) {
                             $dblist[] = $row['Db'];
@@ -680,7 +680,7 @@ if (!defined('__LIB_COMMON__')){
      * @global  array    the list of available databases
      * @global  integer  the number of available databases
      */
-    function available_databases($error_url = '')
+    function PMA_availableDatabases($error_url = '')
     {
         global $dblist;
         global $num_dbs;
@@ -706,7 +706,7 @@ if (!defined('__LIB_COMMON__')){
         // 2. Allowed database list is empty -> gets the list of all databases
         //    on the server
         else {
-            $dbs          = mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', FALSE, $error_url);
+            $dbs          = mysql_list_dbs() or PMA_mysqlDie('', 'mysql_list_dbs()', FALSE, $error_url);
             $num_dbs      = @mysql_num_rows($dbs);
             $real_num_dbs = 0;
             for ($i = 0; $i < $num_dbs; $i++) {
@@ -722,7 +722,7 @@ if (!defined('__LIB_COMMON__')){
         } // end else
 
         return TRUE;
-    } // end of the 'available_databases()' function
+    } // end of the 'PMA_availableDatabases()' function
 
 
     /**
@@ -755,31 +755,31 @@ if (!defined('__LIB_COMMON__')){
      *
      * @version 1.1
      */
-    function set_font_sizes()
+    function PMA_setFontSizes()
     {
         global $font_size, $font_bigger, $font_smaller, $font_smallest;
 
         // IE (<6)/Opera for win case: needs smaller fonts than anyone else
-        if (USR_OS == 'Win'
-            && ((USR_BROWSER_AGENT == 'IE' && USR_BROWSER_VER < 6) || USR_BROWSER_AGENT == 'OPERA')) {
+        if (PMA_USR_OS == 'Win'
+            && ((PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 6) || PMA_USR_BROWSER_AGENT == 'OPERA')) {
             $font_size     = 'x-small';
             $font_bigger   = 'large';
             $font_smaller  = '90%';
             $font_smallest = '7pt';
         }
         // IE6 and other browsers for win case
-        else if (USR_OS == 'Win') {
+        else if (PMA_USR_OS == 'Win') {
             $font_size     = 'small';
             $font_bigger   = 'large';
-            $font_smaller  = (USR_BROWSER_AGENT == 'IE')
+            $font_smaller  = (PMA_USR_BROWSER_AGENT == 'IE')
                            ? '90%'
                            : 'x-small';
             $font_smallest = 'x-small';
         }
         // Mac browsers: need bigger fonts except IE 5+ & NS 6+
-        else if (USR_OS == 'Mac'
-                 && ((USR_BROWSER_AGENT != 'IE' && USR_BROWSER_AGENT != 'MOZILLA')
-                     || USR_BROWSER_VER < 5)) {
+        else if (PMA_USR_OS == 'Mac'
+                 && ((PMA_USR_BROWSER_AGENT != 'IE' && PMA_USR_BROWSER_AGENT != 'MOZILLA')
+                     || PMA_USR_BROWSER_VER < 5)) {
             $font_size     = 'medium';
             $font_bigger   = 'x-large';
             $font_smaller  = 'small';
@@ -794,7 +794,7 @@ if (!defined('__LIB_COMMON__')){
         }
 
         return true;
-    } // end of the 'set_font_sizes()' function
+    } // end of the 'PMA_setFontSizes()' function
 
 
     /**
@@ -811,16 +811,16 @@ if (!defined('__LIB_COMMON__')){
      *
      * @access  public
      */
-    function backquote($a_name, $do_it = TRUE)
+    function PMA_backquote($a_name, $do_it = TRUE)
     {
         if ($do_it
-            && MYSQL_INT_VERSION >= 32306
+            && PMA_MYSQL_INT_VERSION >= 32306
             && !empty($a_name) && $a_name != '*') {
             return '`' . $a_name . '`';
         } else {
             return $a_name;
         }
-    } // end of the 'backquote()' function
+    } // end of the 'PMA_backquote()' function
 
 
     /**
@@ -835,7 +835,7 @@ if (!defined('__LIB_COMMON__')){
      *
      * @access  public
      */
-    function js_format($a_string = '', $add_backquotes = TRUE)
+    function PMA_jsFormat($a_string = '', $add_backquotes = TRUE)
     {
         if (is_string($a_string)) {
             $a_string = str_replace('"', '&quot;', $a_string);
@@ -846,8 +846,8 @@ if (!defined('__LIB_COMMON__')){
             $a_string = str_replace("\015", '\\\\r', $a_string);
         }
 
-        return (($add_backquotes) ? backquote($a_string) : $a_string);
-    } // end of the 'js_format()' function
+        return (($add_backquotes) ? PMA_backquote($a_string) : $a_string);
+    } // end of the 'PMA_jsFormat()' function
 
 
     /**
@@ -857,17 +857,17 @@ if (!defined('__LIB_COMMON__')){
      *
      * @access  public
      */
-    function which_crlf()
+    function PMA_whichCrlf()
     {
         $the_crlf = "\n";
 
-        // The 'USR_OS' constant is defined in "./libraries/defines.lib.php3"
+        // The 'PMA_USR_OS' constant is defined in "./libraries/defines.lib.php3"
         // Win case
-        if (USR_OS == 'Win') {
+        if (PMA_USR_OS == 'Win') {
             $the_crlf = "\r\n";
         }
         // Mac case
-        else if (USR_OS == 'Mac') {
+        else if (PMA_USR_OS == 'Mac') {
             $the_crlf = "\r";
         }
         // Others
@@ -876,7 +876,7 @@ if (!defined('__LIB_COMMON__')){
         }
 
         return $the_crlf;
-    } // end of the 'which_crlf()' function
+    } // end of the 'PMA_whichCrlf()' function
 
 
     /**
@@ -893,9 +893,9 @@ if (!defined('__LIB_COMMON__')){
      *
      * @access  public
      */
-    function count_records($db, $table, $ret = FALSE)
+    function PMA_countRecords($db, $table, $ret = FALSE)
     {
-        $result = mysql_query('SELECT COUNT(*) AS num FROM ' . backquote($db) . '.' . backquote($table));
+        $result = mysql_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
         $num    = mysql_result($result, 0, 'num');
         mysql_free_result($result);
         if ($ret) {
@@ -904,7 +904,7 @@ if (!defined('__LIB_COMMON__')){
             echo number_format($num, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
             return TRUE;
         }
-    } // end of the 'count_records()' function
+    } // end of the 'PMA_countRecords()' function
 
 
     /**
@@ -914,7 +914,7 @@ if (!defined('__LIB_COMMON__')){
      *
      * @access  public
      */
-    function show_message($message)
+    function PMA_showMessage($message)
     {
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
@@ -989,7 +989,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
     </table>
 </div><br />
         <?php
-    } // end of the 'show_message()' function
+    } // end of the 'PMA_showMessage()' function
 
 
     /**
@@ -1001,12 +1001,12 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      *
      * @access  public
      */
-    function show_docu($link)
+    function PMA_showDocu($link)
     {
         if (!empty($GLOBALS['cfgManualBase'])) {
             return '[<a href="' . $GLOBALS['cfgManualBase'] . '/' . $link .'" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
         }
-    } // end of the 'show_docu()' function
+    } // end of the 'PMA_showDocu()' function
 
 
     /**
@@ -1023,7 +1023,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      * @author   staybyte
      * @version  1.1 - 07 July 2001
      */
-    function format_byte_down($value, $limes = 6, $comma = 0)
+    function PMA_formatByteDown($value, $limes = 6, $comma = 0)
     {
         $dh           = pow(10, $comma);
         $li           = pow(10, $limes);
@@ -1049,7 +1049,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         }
 
         return array($return_value, $unit);
-    } // end of the 'format_byte_down' function
+    } // end of the 'PMA_formatByteDown' function
 
 
     /**
@@ -1065,7 +1065,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      *
      * @author   Dell'Aiera Pol; Olivier Blin
      */
-    function check_reserved_words($the_name, $error_url)
+    function PMA_checkReservedWords($the_name, $error_url)
     {
         // The name contains caracters <> a-z, A-Z and "_" -> not a reserved
         // word
@@ -1086,11 +1086,11 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             $word_cnt  = count($word_list);
             for ($i = 0; $i < $word_cnt; $i++) {
                 if (strtolower($the_name) == $word_list[$i]) {
-                    mysql_die(sprintf($GLOBALS['strInvalidName'], $the_name), '', FALSE, $error_url);
+                    PMA_mysqlDie(sprintf($GLOBALS['strInvalidName'], $the_name), '', FALSE, $error_url);
                 } // end if
             } // end for
         } // end if
-    } // end of the 'check_reserved_words' function
+    } // end of the 'PMA_checkReservedWords' function
 
 
     /**
@@ -1102,7 +1102,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      *
      * @access  public
      */
-    function localised_date($timestamp = -1)
+    function PMA_localisedDate($timestamp = -1)
     {
         global $datefmt, $month, $day_of_week;
 
@@ -1114,7 +1114,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         $date = ereg_replace('%[bB]', $month[(int)strftime('%m', $timestamp)-1], $date);
 
         return strftime($date, $timestamp);
-    } // end of the 'localised_date()' function
+    } // end of the 'PMA_localisedDate()' function
 
-} // $__LIB_COMMON__
+} // $__PMA_COMMON_LIB__
 ?>

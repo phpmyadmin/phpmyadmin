@@ -7,8 +7,8 @@
  * script in the '$HTTP_*_VARS' arrays and sets simple globals variables from
  * them
  */
-if (!defined('__LIB_GRAB_GLOBALS__')) {
-    define('__LIB_GRAB_GLOBALS__', 1);
+if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
+    define('PMA_GRAB_GLOBALS_INCLUDED', 1);
 
     if (!empty($HTTP_GET_VARS)) {
         extract($HTTP_GET_VARS);
@@ -24,5 +24,5 @@ if (!defined('__LIB_GRAB_GLOBALS__')) {
         }
     } // end if
 
-} // end __LIB_GRAB_GLOBALS__
+} // $__PMA_GRAB_GLOBALS_LIB__
 ?>

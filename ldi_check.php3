@@ -30,17 +30,17 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     }
 
     // Formats the data posted to this script
-    $textfile             = sql_addslashes($textfile);
+    $textfile             = PMA_sqlAddslashes($textfile);
     if (get_magic_quotes_gpc()) {
         $field_terminater = stripslashes($field_terminater);
-        $enclosed         = sql_addslashes(stripslashes($enclosed));
-        $escaped          = sql_addslashes(stripslashes($escaped));
+        $enclosed         = PMA_sqlAddslashes(stripslashes($enclosed));
+        $escaped          = PMA_sqlAddslashes(stripslashes($escaped));
         $line_terminator  = stripslashes($line_terminator);
-        $column_name      = sql_addslashes(stripslashes($column_name));
+        $column_name      = PMA_sqlAddslashes(stripslashes($column_name));
     } else {
-        $enclosed         = sql_addslashes($enclosed);
-        $escaped          = sql_addslashes($escaped);
-        $column_name      = sql_addslashes($column_name);
+        $enclosed         = PMA_sqlAddslashes($enclosed);
+        $escaped          = PMA_sqlAddslashes($escaped);
+        $column_name      = PMA_sqlAddslashes($column_name);
     }
     
     // Builds the query
@@ -48,7 +48,7 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     if (!empty($replace)) {
         $query .= ' ' . $replace;
     }
-    $query     .= ' INTO TABLE ' . backquote($into_table);
+    $query     .= ' INTO TABLE ' . PMA_backquote($into_table);
     if (isset($field_terminater)) {
         $query .= ' FIELDS TERMINATED BY \'' . $field_terminater . '\'';
     }
@@ -65,14 +65,14 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         $query .= ' LINES TERMINATED BY \'' . $line_terminator . '\'';
     }
     if (strlen($column_name) > 0) {
-        if (MYSQL_INT_VERSION >= 32306) {
+        if (PMA_MYSQL_INT_VERSION >= 32306) {
             $query .= ' (';
             $tmp   = split(',( ?)', $column_name);
             for ($i = 0; $i < count($tmp); $i++) {
                 if ($i > 0) {
                     $query .= ', ';
                 }
-                $query     .= backquote(trim($tmp[$i]));
+                $query     .= PMA_backquote(trim($tmp[$i]));
             } // end for
             $query .= ')';
         } else {

@@ -23,11 +23,11 @@ $err_url = 'db_details.php3'
  * tables if possible
  */
 // staybyte: speedup view on locked tables - 11 June 2001
-if (MYSQL_INT_VERSION >= 32303) {
+if (PMA_MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
-    if ($cfgSkipLockedTables == TRUE && MYSQL_INT_VERSION >= 32330) {
-        $local_query  = 'SHOW OPEN TABLES FROM ' . backquote($db);
-        $result        = mysql_query($query) or mysql_die('', $local_query, '', $err_url);
+    if ($cfgSkipLockedTables == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {
+        $local_query  = 'SHOW OPEN TABLES FROM ' . PMA_backquote($db);
+        $result        = mysql_query($query) or PMA_mysqlDie('', $local_query, '', $err_url);
         // Blending out tables in use
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($tmp = mysql_fetch_array($result)) {
@@ -39,13 +39,13 @@ if (MYSQL_INT_VERSION >= 32303) {
             mysql_free_result($result);
 
             if (isset($sot_cache)) {
-                $local_query = 'SHOW TABLES FROM ' . backquote($db);
-                $result      = mysql_query($query) or mysql_die('', $local_query, '', $err_url);
+                $local_query = 'SHOW TABLES FROM ' . PMA_backquote($db);
+                $result      = mysql_query($query) or PMA_mysqlDie('', $local_query, '', $err_url);
                 if ($result != FALSE && mysql_num_rows($result) > 0) {
                     while ($tmp = mysql_fetch_array($result)) {
                         if (!isset($sot_cache[$tmp[0]])) {
-                            $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'';
-                            $sts_result  = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+                            $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'';
+                            $sts_result  = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
                             $sts_tmp     = mysql_fetch_array($sts_result);
                             $tables[]    = $sts_tmp;
                         } else { // table in use
@@ -59,8 +59,8 @@ if (MYSQL_INT_VERSION >= 32303) {
         }
     }
     if (!isset($sot_ready)) {
-        $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db);
-        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+        $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($sts_tmp = mysql_fetch_array($result)) {
                 $tables[] = $sts_tmp;
@@ -69,7 +69,7 @@ if (MYSQL_INT_VERSION >= 32303) {
         }
     }
     $num_tables = (isset($tables) ? count($tables) : 0);
-} // end if (MYSQL_INT_VERSION >= 32303)
+} // end if (PMA_MYSQL_INT_VERSION >= 32303)
 else {
     $result     = mysql_list_tables($db);
     $num_tables = @mysql_numrows($result);
@@ -89,7 +89,7 @@ if ($num_tables == 0) {
     echo $strNoTablesFound;
 }
 // 2. Shows table informations on mysql >= 3.23 - staybyte - 11 June 2001
-else if (MYSQL_INT_VERSION >= 32300) {
+else if (PMA_MYSQL_INT_VERSION >= 32300) {
     ?>
 
 <!-- The tables list -->
@@ -134,9 +134,9 @@ else if (MYSQL_INT_VERSION >= 32300) {
                     $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
                     $sum_size                       += $tblsize;
                     if ($tblsize > 0) {
-                        list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
+                        list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, 1);
                     } else {
-                        list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
+                        list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, 0);
                     }
                 } else if ($cfgShowStats) {
                     $formated_size                  = '&nbsp;-&nbsp;';
@@ -191,7 +191,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
     }
     // Show Summary
     if ($cfgShowStats) {
-        list($sum_formated, $unit) = format_byte_down($sum_size, 3, 1);
+        list($sum_formated, $unit) = PMA_formatByteDown($sum_size, 3, 1);
     }
     echo "\n";
     ?>
@@ -243,7 +243,7 @@ else {
         <b><?php echo htmlspecialchars($tables[$i]); ?>&nbsp;</b>
     </td>
     <td align="right" nowrap="nowrap">
-        &nbsp;<?php count_records($db, $tables[$i]); ?> 
+        &nbsp;<?php PMA_countRecords($db, $tables[$i]); ?> 
     </td>
 </tr>
         <?php

@@ -34,11 +34,11 @@ if (isset($submit)) {
         if (get_magic_quotes_gpc()) {
             $field_name[$i] = stripslashes($field_name[$i]);
         }
-        if (MYSQL_INT_VERSION < 32306) {
-            check_reserved_words($field_name[$i], $err_url);
+        if (PMA_MYSQL_INT_VERSION < 32306) {
+            PMA_checkReservedWords($field_name[$i], $err_url);
         }
 
-        $query .= backquote($field_name[$i]) . ' ' . $field_type[$i];
+        $query .= PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != ''
             && !eregi('^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$', $field_type[$i])) {
             if (get_magic_quotes_gpc()) {
@@ -54,9 +54,9 @@ if (isset($submit)) {
             if (strtoupper($field_default[$i]) == 'NULL') {
                 $query .= ' DEFAULT NULL';
             } else if (get_magic_quotes_gpc()) {
-                $query .= ' DEFAULT \'' . sql_addslashes(stripslashes($field_default[$i])) . '\'';
+                $query .= ' DEFAULT \'' . PMA_sqlAddslashes(stripslashes($field_default[$i])) . '\'';
             } else {
-                $query .= ' DEFAULT \'' . sql_addslashes($field_default[$i]) . '\'';
+                $query .= ' DEFAULT \'' . PMA_sqlAddslashes($field_default[$i]) . '\'';
             }
         }
         if ($field_null[$i] != '') {
@@ -84,16 +84,16 @@ if (isset($submit)) {
                     $query .= ' FIRST';
                 } else {
                     if (get_magic_quotes_gpc()) {
-                        $query .= ' AFTER ' . backquote(stripslashes(urldecode($after_field)));
+                        $query .= ' AFTER ' . PMA_backquote(stripslashes(urldecode($after_field)));
                     } else {
-                        $query .= ' AFTER ' . backquote(urldecode($after_field));
+                        $query .= ' AFTER ' . PMA_backquote(urldecode($after_field));
                     }
                 }
             } else {
                 if (get_magic_quotes_gpc()) {
-                    $query .= ' AFTER ' . backquote(stripslashes($field_name[$i-1]));
+                    $query .= ' AFTER ' . PMA_backquote(stripslashes($field_name[$i-1]));
                 } else {
-                    $query .= ' AFTER ' . backquote($field_name[$i-1]);
+                    $query .= ' AFTER ' . PMA_backquote($field_name[$i-1]);
                 }
             }
         }
@@ -101,8 +101,8 @@ if (isset($submit)) {
     } // end for
     $query = ereg_replace(', ADD $', '', $query);
 
-    $sql_query     = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD ' . $query;
-    $result        = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
+    $sql_query     = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD ' . $query;
+    $result        = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $sql_query_cpy = $sql_query . ';';
 
     // Builds the primary keys statements and updates the table
@@ -111,12 +111,12 @@ if (isset($submit)) {
         $primary_cnt = count($field_primary);
         for ($i = 0; $i < $primary_cnt; $i++) {
             $j       = $field_primary[$i];
-            $primary .= backquote($field_name[$j]) . ', ';
+            $primary .= PMA_backquote($field_name[$j]) . ', ';
         } // end for
         $primary     = ereg_replace(', $', '', $primary);
         if (!empty($primary)) {
-            $sql_query      = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
-            $result         = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
+            $sql_query      = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
+            $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
@@ -127,12 +127,12 @@ if (isset($submit)) {
         $index_cnt = count($field_index);
         for ($i = 0; $i < $index_cnt; $i++) {
             $j     = $field_index[$i];
-            $index .= backquote($field_name[$j]) . ', ';
+            $index .= PMA_backquote($field_name[$j]) . ', ';
         } // end for
         $index     = ereg_replace(', $', '', $index);
         if (!empty($index)) {
-            $sql_query      = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD INDEX (' . $index . ')';
-            $result         = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
+            $sql_query      = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD INDEX (' . $index . ')';
+            $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
@@ -143,12 +143,12 @@ if (isset($submit)) {
         $unique_cnt = count($field_unique);
         for ($i = 0; $i < $unique_cnt; $i++) {
             $j      = $field_unique[$i];
-            $unique .= backquote($field_name[$j]) . ', ';
+            $unique .= PMA_backquote($field_name[$j]) . ', ';
         } // end for
         $unique = ereg_replace(', $', '', $unique);
         if (!empty($unique)) {
-            $sql_query      = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $unique . ')';
-            $result         = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
+            $sql_query      = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD UNIQUE (' . $unique . ')';
+            $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
@@ -156,16 +156,16 @@ if (isset($submit)) {
 
     // Builds the fulltext statements and updates the table
     $fulltext = '';
-    if (MYSQL_INT_VERSION >= 32323 && isset($field_fulltext)) {
+    if (PMA_MYSQL_INT_VERSION >= 32323 && isset($field_fulltext)) {
         $fulltext_cnt = count($field_fulltext);
         for ($i = 0; $i < $fulltext_cnt; $i++) {
             $j        = $field_fulltext[$i];
-            $fulltext .= backquote($field_name[$j]) . ', ';
+            $fulltext .= PMA_backquote($field_name[$j]) . ', ';
         } // end for
         $fulltext = ereg_replace(', $', '', $fulltext);
         if (!empty($fulltext)) {
-            $sql_query      = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
-            $result         = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
+            $sql_query      = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
+            $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if

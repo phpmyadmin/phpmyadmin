@@ -2,8 +2,8 @@
 /* $Id$ */
 
 
-if (!defined('__OB_LIB__')) {
-    define('__OB_LIB__', 1);
+if (!defined('PMA_OB_LIB_INCLUDED')) {
+    define('PMA_OB_LIB_INCLUDED', 1);
 
     # Output buffer functions for phpMyAdmin
     #
@@ -20,9 +20,9 @@ if (!defined('__OB_LIB__')) {
      *
      * @return  integer  the output buffer mode
      */
-    function out_buffer_mode_get()
+    function PMA_outBufferModeGet()
     {
-        if (PHP_INT_VERSION >= 40000 && @function_exists('ob_start')) {
+        if (PMA_PHP_INT_VERSION >= 40000 && @function_exists('ob_start')) {
             $mode = 1;
         } else {
             $mode = 0;
@@ -31,14 +31,14 @@ if (!defined('__OB_LIB__')) {
         // If a user sets the output_handler in php.ini to ob_gzhandler, then
         // any right frame file in phpMyAdmin will not be handled properly by
         // the browser. My fix was to check the ini file within the
-        // out_buffer_mode_get() function.
+        // PMA_outBufferModeGet() function.
         //
         // (Patch by Garth Gillespie, modified by Marc Delisle)
-        if (PHP_INT_VERSION >= 40000 && @ini_get('output_handler')) {
+        if (PMA_PHP_INT_VERSION >= 40000 && @ini_get('output_handler')) {
             if (@ini_get('output_handler') == 'ob_gzhandler') {
                 $mode = 0;
             }
-        } else if (PHP_INT_VERSION >= 40000) {
+        } else if (PMA_PHP_INT_VERSION >= 40000) {
             if (@get_cfg_var('output_handler') == 'ob_gzhandler') {
                 $mode = 0;
             }
@@ -53,19 +53,19 @@ if (!defined('__OB_LIB__')) {
         header('X-ob_mode: ' . $mode);
 
         return $mode;
-    } // end of the 'out_buffer_mode_get()' function
+    } // end of the 'PMA_outBufferModeGet()' function
 
 
     /**
      * This function will need to run at the top of all pages if output
      * output buffering is turned on.  It also needs to be passed $mode from
-     * the out_buffer_mode_get() function or it will be useless.
+     * the PMA_outBufferModeGet() function or it will be useless.
      *
      * @param   integer  the output buffer mode
      *
      * @return  boolean  whether output buffering is enabled or not
      */
-    function out_buffer_pre($mode)
+    function PMA_outBufferPre($mode)
     {
         switch($mode)
         {
@@ -85,19 +85,19 @@ if (!defined('__OB_LIB__')) {
         } // end switch
 
         return $retval;
-    } // end of the 'out_buffer_pre()' function
+    } // end of the 'PMA_outBufferPre()' function
 
 
     /**
      * This function will need to run at the bottom of all pages if output
      * buffering is turned on.  It also needs to be passed $mode from the
-     * out_buffer_mode_get() function or it will be useless.
+     * PMA_outBufferModeGet() function or it will be useless.
      *
      * @param   integer  the output buffer mode
      *
      * @return  boolean  whether data has been send from the buffer or not
      */     
-    function out_buffer_post($mode)
+    function PMA_outBufferPost($mode)
     {
         switch($mode)
         {
@@ -117,8 +117,8 @@ if (!defined('__OB_LIB__')) {
         } // end switch
 
         return $retval;
-    } // end of the 'out_buffer_post()' function
+    } // end of the 'PMA_outBufferPost()' function
 
-} // $__OB_LIB__
+} // $__PMA_OB_LIB__
 
 ?>

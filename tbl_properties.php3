@@ -41,7 +41,7 @@ if (!isset($is_db) || !$is_db) {
 if (!isset($is_table) || !$is_table) {
     // Not a valid table name -> back to the db_details.php3
     if (!empty($table)) {
-        $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
+        $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
     if (empty($table) || !@mysql_numrows($is_table)) {
         header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
@@ -56,7 +56,7 @@ if (!isset($message)) {
     $js_to_run = 'functions.js';
     include('./header.inc.php3');
 } else {
-    show_message($message);
+    PMA_showMessage($message);
 }
 
 
@@ -109,18 +109,18 @@ if (isset($submitcomment)) {
         $comment = stripslashes($comment);
     }
     if (empty($prev_comment) || urldecode($prev_comment) != $comment) {
-        $local_query = 'ALTER TABLE ' . backquote($table) . ' COMMENT = \'' . sql_addslashes($comment) . '\'';
-        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+        $local_query = 'ALTER TABLE ' . PMA_backquote($table) . ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     }
 }
 if (isset($submittype)) {
-    $local_query = 'ALTER TABLE ' . backquote($table) . ' TYPE = ' . $tbl_type;
-    $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+    $local_query = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $tbl_type;
+    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
 }
 if (isset($submitorderby) && !empty($order_field)) {
-    $order_field = backquote(urldecode($order_field));
-    $local_query = 'ALTER TABLE ' . backquote($table) . 'ORDER BY ' . $order_field;
-    $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
+    $order_field = PMA_backquote(urldecode($order_field));
+    $local_query = 'ALTER TABLE ' . PMA_backquote($table) . 'ORDER BY ' . $order_field;
+    $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
 }
 
 
@@ -129,16 +129,16 @@ if (isset($submitorderby) && !empty($order_field)) {
  * browse/select/insert/empty links
  */
 // The 'show table' statement works correct since 3.23.03
-if (MYSQL_INT_VERSION >= 32303) {
-    $local_query  = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
-    $result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
+if (PMA_MYSQL_INT_VERSION >= 32303) {
+    $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
+    $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $showtable    = mysql_fetch_array($result);
     $tbl_type     = strtoupper($showtable['Type']);
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
 } else {
-    $local_query  = 'SELECT COUNT(*) AS count FROM ' . backquote($table);
-    $result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
+    $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
+    $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $showtable    = array();
     $num_rows     = mysql_result($result, 0, 'count');
     $show_comment = '';
@@ -152,17 +152,17 @@ if ($num_rows > 0) {
     ?>
 <!-- first browse links --> 
 <p>
-    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&amp;pos=0">
+    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0">
         <b><?php echo $strBrowse; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_select.php3?<?php echo $url_query; ?>">
         <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
+    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
+         onclick="return confirmLink(this, 'DELETE FROM <?php echo PMA_jsFormat($table); ?>')">
          <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
+         onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
     <?php
@@ -176,8 +176,8 @@ if ($num_rows > 0) {
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
+         onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
     <?php
@@ -194,8 +194,8 @@ if (!empty($show_comment)) {
 } // end (1.)
 
 // 2. Gets table keys and retains them
-$local_query = 'SHOW KEYS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
+$local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
+$result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
 $primary     = '';
 $ret_keys    = array();
 $pk_array    = array(); // will be use to emphasis prim. keys in the table view
@@ -211,8 +211,8 @@ mysql_free_result($result);
 
 
 // 3. Get fields
-$local_query = 'SHOW FIELDS FROM ' . backquote($table);
-$fields_rs   = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
+$local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
+$fields_rs   = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
 $fields_cnt  = mysql_num_rows($fields_rs);
 
 
@@ -239,7 +239,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
     <th><?php echo ucfirst($strNull); ?></th>
     <th><?php echo ucfirst($strDefault); ?></th>
     <th><?php echo ucfirst($strExtra); ?></th>
-    <th colspan="<?php echo((MYSQL_INT_VERSION >= 32323) ? '6' : '5'); ?>"><?php echo ucfirst($strAction); ?></th>
+    <th colspan="<?php echo((PMA_MYSQL_INT_VERSION >= 32323) ? '6' : '5'); ?>"><?php echo ucfirst($strAction); ?></th>
 </tr>
 
 <?php
@@ -315,8 +315,8 @@ while ($row = mysql_fetch_array($fields_rs)) {
         if ($fields_cnt > 1) {
             echo "\n";
             ?>
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP ' . backquote($row['Field'])); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strFieldHasBeenDropped, htmlspecialchars($row['Field']))); ?>"
-            onclick="return confirmLink(this, 'ALTER TABLE <?php echo js_format($table); ?> DROP <?php echo js_format($row['Field']); ?>')">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field'])); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strFieldHasBeenDropped, htmlspecialchars($row['Field']))); ?>"
+            onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP <?php echo PMA_jsFormat($row['Field']); ?>')">
             <?php echo $strDrop; ?></a>
             <?php
         } else {
@@ -326,24 +326,24 @@ while ($row = mysql_fetch_array($fields_rs)) {
         ?>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
-            onclick="return confirmLink(this, 'ALTER TABLE <?php echo js_format($table); ?> DROP PRIMARY KEY, ADD PRIMARY KEY(<?php echo js_format($row['Field']); ?>)')">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
+            onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP PRIMARY KEY, ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
             <?php echo $strPrimary; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD INDEX(' . backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex ,htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex ,htmlspecialchars($row['Field']))); ?>">
             <?php echo $strIndex; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD UNIQUE(' . backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $strUnique; ?></a>
     </td>
     <?php
-    if (MYSQL_INT_VERSION >= 32323) {
+    if (PMA_MYSQL_INT_VERSION >= 32323) {
         echo "\n";
         ?>
     <td nowrap="nowrap">
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD FULLTEXT(' . backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $strIdxFulltext; ?></a>
     </td>
         <?php
@@ -358,7 +358,7 @@ echo "\n";
 ?>
 
 <tr>
-    <td colspan="<?php echo((MYSQL_INT_VERSION >= 32323) ? '13' : '12'); ?>">
+    <td colspan="<?php echo((PMA_MYSQL_INT_VERSION >= 32323) ? '13' : '12'); ?>">
         <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strChange; ?>" />
@@ -389,17 +389,17 @@ if ($fields_cnt > 20) {
         ?>
 <!-- Browse links --> 
 <p>
-    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&amp;pos=0">
+    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0">
         <b><?php echo $strBrowse; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_select.php3?<?php echo $url_query; ?>">
         <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
+    [ <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
+         onclick="return confirmLink(this, 'DELETE FROM <?php echo PMA_jsFormat($table); ?>')">
          <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
+         onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
         <?php
@@ -413,8 +413,8 @@ if ($fields_cnt > 20) {
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-         onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
+         onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
         <?php
@@ -433,7 +433,7 @@ echo "\n\n";
 <tr>
     <td>
 <?php
-define('_IDX_INCLUDED_', 1);
+define('PMA_IDX_INCLUDED', 1);
 require ('./tbl_indexes.php3');
 ?>
     </td>
@@ -448,25 +448,25 @@ if ($cfgShowStats) {
     if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
         $nonisam = TRUE;
     }
-    if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
+    if (PMA_MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
         // Gets some sizes
         $mergetable     = FALSE;
         if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
             $mergetable = TRUE;
         }
-        list($data_size, $data_unit)         = format_byte_down($showtable['Data_length']);
+        list($data_size, $data_unit)         = PMA_formatByteDown($showtable['Data_length']);
         if ($mergetable == FALSE) {
-            list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
+            list($index_size, $index_unit)   = PMA_formatByteDown($showtable['Index_length']);
         }
         if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-            list($free_size, $free_unit)     = format_byte_down($showtable['Data_free']);
-            list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
+            list($free_size, $free_unit)     = PMA_formatByteDown($showtable['Data_free']);
+            list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
         } else {
-            list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
+            list($effect_size, $effect_unit) = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
         }
-        list($tot_size, $tot_unit)           = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
+        list($tot_size, $tot_unit)           = PMA_formatByteDown($showtable['Data_length'] + $showtable['Index_length']);
         if ($num_rows > 0) {
-            list($avg_size, $avg_unit)       = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+            list($avg_size, $avg_unit)       = PMA_formatByteDown(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
         }
 
         // Displays them
@@ -529,7 +529,7 @@ if ($cfgShowStats) {
             ?>
         <tr>
             <td colspan="3" align="center">
-                [<a href="sql.php3?<?php echo $url_query; ?>&amp;pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>"><?php echo $strOptimizeTable; ?></a>]
+                [<a href="sql.php3?<?php echo $url_query; ?>&amp;pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php echo $strOptimizeTable; ?></a>]
             </td>
         <tr>
             <?php
@@ -659,17 +659,17 @@ echo "\n";
             <input type="hidden" name="goto" value="tbl_properties.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
-            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
+            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual">
-<?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . backquote($table) . ' WHERE 1'); ?>
+<?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE 1'); ?>
 </textarea><br />
             <input type="checkbox" name="show_query" value="y" checked="checked" />&nbsp;
                 <?php echo $strShowThisQuery; ?><br />
             </div>
 <?php
 // loic1: displays import dump feature only if file upload available
-$is_upload = (PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
+$is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
            ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
            : (intval(@get_cfg_var('upload_max_filesize')));
 if ($is_upload) {
@@ -684,7 +684,7 @@ echo "\n";
 
 // Bookmark Support
 if ($cfgBookmark['db'] && $cfgBookmark['table']) {
-    if (($bookmark_list = list_bookmarks($db, $cfgBookmark)) && count($bookmark_list) > 0) {
+    if (($bookmark_list = PMA_listBookmarks($db, $cfgBookmark)) && count($bookmark_list) > 0) {
         echo "            <i>$strOr</i> $strBookmarkQuery&nbsp;:<br />\n";
         echo '            <div style="margin-bottom: 5px">' . "\n";
         echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
@@ -730,7 +730,7 @@ while (list($junk, $fieldname) = each($aryFields)) {
     </li>
 
 <?php
-if (MYSQL_INT_VERSION >= 32334) {
+if (PMA_MYSQL_INT_VERSION >= 32334) {
     ?>
     <!-- Order the table -->
     <li>
@@ -791,7 +791,7 @@ echo "\n";
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFieldsEscapedBy; ?>&nbsp;
                     <input type="text" name="escaped" size="2" value="\" />&nbsp;&nbsp;<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strLinesTerminatedBy; ?>&nbsp;
-                    <input type="text" name="add_character" size="2" value="<?php echo ((which_crlf() == "\n") ? '\n' : '\r\n'); ?>" />&nbsp;&nbsp;
+                    <input type="text" name="add_character" size="2" value="<?php echo ((PMA_whichCrlf() == "\n") ? '\n' : '\r\n'); ?>" />&nbsp;&nbsp;
                 </td>
                 <td valign="middle">
                     <input type="checkbox" name="drop" value="1" />
@@ -802,7 +802,7 @@ echo "\n";
                     <?php echo $strExtendedInserts; ?><br />
 <?php
 // Add backquotes checkbox
-if (MYSQL_INT_VERSION >= 32306) {
+if (PMA_MYSQL_INT_VERSION >= 32306) {
     ?>
                     <input type="checkbox" name="use_backquotes" value="1" />
                     <?php echo $strUseBackquotes; ?><br />
@@ -815,7 +815,7 @@ echo "\n";
                     <?php echo $strSend . "\n"; ?>
 <?php
 // zip, gzip and bzip2 encode features
-if (PHP_INT_VERSION >= 40004) {
+if (PMA_PHP_INT_VERSION >= 40004) {
     $is_zip  = (isset($cfgZipDump) && $cfgZipDump && @function_exists('gzcompress'));
     $is_gzip = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzencode'));
     $is_bzip = (isset($cfgBZipDump) && $cfgBZipDump && @function_exists('bzcompress'));
@@ -850,7 +850,7 @@ echo "\n";
                     &nbsp;<?php echo $strStartingRecord; ?>&nbsp;
                     <input type="text" name="limit_from" value="0" size="5" style="vertical-align: middle" />
                     &nbsp;--&nbsp;<?php echo $strNbRecords; ?>&nbsp;
-                    <input type="text" name="limit_to" size="5" value="<?php echo count_records($db, $table, TRUE); ?>" style="vertical-align: middle" />
+                    <input type="text" name="limit_to" size="5" value="<?php echo PMA_countRecords($db, $table, TRUE); ?>" style="vertical-align: middle" />
                 </td>
             </tr>
             <tr>
@@ -905,7 +905,7 @@ echo "\n";
                             <option value=""></option>
 <?php
 // The function used below is defined in "common.lib.php3"
-available_databases('main.php3?lang=' . $lang . '&amp;server=' . $server);
+PMA_availableDatabases('main.php3?lang=' . $lang . '&amp;server=' . $server);
 for ($i = 0; $i < $num_dbs; $i++) {
     echo '                            ';
     echo '<option value="' . str_replace('"', '&quot;', $dblist[$i]) . '">' . htmlspecialchars($dblist[$i]) . '</option>';
@@ -979,7 +979,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
     </li>
 
 <?php
-if (MYSQL_INT_VERSION >= 32322) {
+if (PMA_MYSQL_INT_VERSION >= 32322) {
     if ($tbl_type == 'MYISAM' or $tbl_type == 'BDB') {
         ?>
     <!-- Table maintenance -->
@@ -993,9 +993,9 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('CHECK TABLE ' . backquote($table)); ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('CHECK TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strCheckTable; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#CHECK_TABLE') . "\n"; ?>
+                <?php echo PMA_showDocu('manual_Reference.html#CHECK_TABLE') . "\n"; ?>
             </td>
             <td>&nbsp;-&nbsp;</td>
             <?php
@@ -1004,9 +1004,9 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ANALYZE TABLE ' . backquote($table)); ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ANALYZE TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strAnalyzeTable; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#ANALYZE_TABLE') . "\n";?>
+                <?php echo PMA_showDocu('manual_Reference.html#ANALYZE_TABLE') . "\n";?>
             </td>
             <?php
         }
@@ -1020,9 +1020,9 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('REPAIR TABLE ' . backquote($table)); ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('REPAIR TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strRepairTable; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#REPAIR_TABLE') . "\n"; ?>
+                <?php echo PMA_showDocu('manual_Reference.html#REPAIR_TABLE') . "\n"; ?>
             </td>
             <td>&nbsp;-&nbsp;</td>
             <?php
@@ -1031,9 +1031,9 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strOptimizeTable; ?></a>&nbsp;
-                <?php echo show_docu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
+                <?php echo PMA_showDocu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
             </td>
             <?php
         }
@@ -1116,7 +1116,7 @@ if (MYSQL_INT_VERSION >= 32322) {
                 <option value="MERGE"<?php if ($tbl_type == 'MRG_MYISAM') echo ' selected="selected"'; ?>>Merge</option>
             </select>&nbsp;
             <input type="submit" name="submittype" value="<?php echo $strGo; ?>" style="vertical-align: middle" />&nbsp;
-            <?php echo show_docu('manual_Table_types.html#Table_types') . "\n"; ?>
+            <?php echo PMA_showDocu('manual_Table_types.html#Table_types') . "\n"; ?>
         </form>
     </li>
     <?php
@@ -1131,9 +1131,9 @@ else { // MySQL < 3.23.22
     <li style="vertical-align: top">
         <div style="margin-bottom: 10px">
         <?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>">
             <?php echo $strOptimizeTable; ?></a>&nbsp;
-        <?php echo show_docu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
+        <?php echo PMA_showDocu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
         </div>
     </li>
     <?php
@@ -1143,15 +1143,15 @@ else { // MySQL < 3.23.22
 
     <!-- Flushes the table -->
     <li>
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfgShowTooltip) echo '&amp;reload=1'; ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfgShowTooltip) echo '&amp;reload=1'; ?>">
             <?php echo $strFlushTable; ?></a>
         <br /><br />
     </li>
 
     <!-- Deletes the table -->
     <li>
-        <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
-            onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
+        <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&amp;back=tbl_properties.php3&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
+            onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
             <?php echo $strDropTable; ?></a>
     </li>
 

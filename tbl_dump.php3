@@ -10,7 +10,7 @@
  *
  * @global  string  the buffer containing formatted strings
  */
-function my_handler($sql_insert)
+function PMA_myHandler($sql_insert)
 {
     global $tmp_buffer;
 
@@ -24,7 +24,7 @@ function my_handler($sql_insert)
     else {
         $tmp_buffer .= $sql_insert . $eol_dlm . $GLOBALS['crlf'];
     }
-} // end of the 'my_handler()' function
+} // end of the 'PMA_myHandler()' function
 
 
 /**
@@ -40,7 +40,7 @@ function my_handler($sql_insert)
  * @global  string  the character to add at the end of lines
  * @global  string  the buffer containing formatted strings
  */
-function my_csvhandler($sql_insert)
+function PMA_myCsvHandler($sql_insert)
 {
     global $add_character;
     global $tmp_buffer;
@@ -53,7 +53,7 @@ function my_csvhandler($sql_insert)
     else {
         $tmp_buffer .= $sql_insert . $add_character;
     }
-} // end of the 'my_csvhandler()' function
+} // end of the 'PMA_myCsvHandler()' function
 
 
 
@@ -82,7 +82,7 @@ $err_url = 'tbl_properties.php3'
 @set_time_limit($cfgExecTimeLimit);
 $dump_buffer = '';
 // Defines the default <CR><LF> format
-$crlf        = which_crlf();
+$crlf        = PMA_whichCrlf();
 
 
 /**
@@ -132,7 +132,7 @@ else {
         $ext       = 'sql';
         // loic1: 'application/octet-stream' is the registered IANA type but
         //        MSIE and Opera seems to prefer 'application/octetstream'
-        $mime_type = (USR_BROWSER_AGENT == 'IE' || USR_BROWSER_AGENT == 'OPERA')
+        $mime_type = (PMA_USR_BROWSER_AGENT == 'IE' || PMA_USR_BROWSER_AGENT == 'OPERA')
                    ? 'application/octetstream'
                    : 'application/octet-stream';
     }
@@ -140,7 +140,7 @@ else {
     // Send headers
     header('Content-Type: ' . $mime_type);
     // lem9 & loic1: IE need specific headers
-    if (USR_BROWSER_AGENT == 'IE') {
+    if (PMA_USR_BROWSER_AGENT == 'IE') {
         header('Content-Disposition: inline; filename="' . $filename . '.' . $ext . '"');
         header('Expires: 0');
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
@@ -174,7 +174,7 @@ else {
     // No csv format -> add some comments at the top
     if ($what != 'csv' &&  $what != 'excel') {
         $dump_buffer       .= '# phpMyAdmin MySQL-Dump' . $crlf
-                           .  '# version ' . PHPMYADMIN_VERSION . $crlf
+                           .  '# version ' . PMA_VERSION . $crlf
                            .  '# http://phpwizard.net/phpMyAdmin/' . $crlf
                            .  '# http://phpmyadmin.sourceforge.net/ (download page)' . $crlf
                            .  '#' . $crlf
@@ -183,11 +183,11 @@ else {
             $dump_buffer   .= ':' . $cfgServer['port'];
         }
         $formatted_db_name = (isset($use_backquotes))
-                           ? backquote($db)
+                           ? PMA_backquote($db)
                            : '\'' . $db . '\'';
         $dump_buffer       .= $crlf
-                           .  '# ' . $strGenTime . ': ' . localised_date() . $crlf
-                           .  '# ' . $strServerVersion . ': ' . substr(MYSQL_INT_VERSION, 0, 1) . '.' . substr(MYSQL_INT_VERSION, 1, 2) . '.' . substr(MYSQL_INT_VERSION, 3) . $crlf
+                           .  '# ' . $strGenTime . ': ' . PMA_localisedDate() . $crlf
+                           .  '# ' . $strServerVersion . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
                            .  '# ' . $strPHPVersion . ': ' . phpversion() . $crlf
                            .  '# ' . $strDatabase . ': ' . $formatted_db_name . $crlf;
 
@@ -204,7 +204,7 @@ else {
                 $i++;
             } else {
                 $formatted_table_name = (isset($use_backquotes))
-                                      ? backquote($table)
+                                      ? PMA_backquote($table)
                                       : '\'' . $table . '\'';
                 // If only datas, no need to displays table name
                 if ($what != 'dataonly') {
@@ -212,7 +212,7 @@ else {
                                 .  $crlf . '#' . $crlf
                                 .  '# ' . $strTableStructure . ' ' . $formatted_table_name . $crlf
                                 .  '#' . $crlf . $crlf
-                                .  get_table_def($db, $table, $crlf, $err_url) . ';' . $crlf;
+                                .  PMA_getTableDef($db, $table, $crlf, $err_url) . ';' . $crlf;
                 }
                 // At least data
                 if (($what == 'data') || ($what == 'dataonly')) {
@@ -223,7 +223,7 @@ else {
                     if (!isset($limit_from) || !isset($limit_to)) {
                         $limit_from = $limit_to = 0;
                     }
-                    get_table_content($db, $table, $limit_from, $limit_to, 'my_handler', $err_url);
+                    PMA_getTableContent($db, $table, $limit_from, $limit_to, 'PMA_myHandler', $err_url);
                     $dump_buffer .= $tmp_buffer;
                 } // end if
                 $i++;
@@ -251,7 +251,7 @@ else {
         } // end if
 
         $tmp_buffer = '';
-        get_table_csv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'my_csvhandler', $err_url);
+        PMA_getTableCsv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'PMA_myCsvHandler', $err_url);
         $dump_buffer .= $tmp_buffer;
     } // end 'csv case
 } // end building the dump
@@ -262,26 +262,26 @@ else {
  */
 // 1. as a gzipped file
 if (isset($zip) && $zip == 'zip') {
-    if (PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
+    if (PMA_PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
         if ($what == 'csv' || $what == 'excel') {
             $extbis = '.csv';
         } else {
             $extbis = '.sql';
         }
         $zipfile = new zipfile();
-        $zipfile -> add_file($dump_buffer, $filename . $extbis);
+        $zipfile -> addFile($dump_buffer, $filename . $extbis);
         echo $zipfile -> file();
     }
 }
 // 2. as a bzipped file
 else if (isset($bzip) && $bzip == 'bzip') {
-    if (PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
+    if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
         echo bzcompress($dump_buffer);
     } 
 }
 // 3. as a gzipped file
 else if (isset($gzip) && $gzip == 'gzip') {
-    if (PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
+    if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
         // without the optional parameter level because it bug
         echo gzencode($dump_buffer);
     }

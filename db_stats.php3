@@ -37,7 +37,7 @@ if ((!empty($submit_mult) && isset($selected_db))
  *
  * @access  private
  */
-function pmaDbCmp($a, $b)
+function PMA_dbCmp($a, $b)
 {
     global $dbs_array;
     global $col;
@@ -58,7 +58,7 @@ function pmaDbCmp($a, $b)
         $tmp = (($dbs_array[$a][$col] < $dbs_array[$b][$col]) ? -1 : 1);
         return (($is_asc) ? $tmp : -$tmp);
     }
-} // end of the 'pmaDbCmp()' function
+} // end of the 'PMA_dbCmp()' function
 
 
 /**
@@ -69,7 +69,7 @@ function pmaDbCmp($a, $b)
 if ($server > 0) {
     // Get the valid databases list
     $num_dbs = count($dblist);
-    $dbs     = @mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', '', 'main.php3?lang' . $lang . '&amp;server=' . $server);
+    $dbs     = @mysql_list_dbs() or PMA_mysqlDie('', 'mysql_list_dbs()', '', 'main.php3?lang' . $lang . '&amp;server=' . $server);
     while ($a_db = mysql_fetch_object($dbs)) {
         if (!$num_dbs) {
             $dblist[]                     = $a_db->Database;
@@ -116,7 +116,7 @@ if ($server > 0) {
 </tr>
 <tr>
     <th align="<?php echo $cell_align_left; ?>"><big><?php echo $strGenTime . ' :'; ?></big></th>
-    <th align="<?php echo $cell_align_left; ?>"><big><?php echo localised_date(); ?></big></th>
+    <th align="<?php echo $cell_align_left; ?>"><big><?php echo PMA_localisedDate(); ?></big></th>
 </tr>
 </table>
 <br /><br />
@@ -148,7 +148,7 @@ if ($num_dbs > 0) {
     if ($sort_by == 'db_name') {
         $url_sort[0]['order']    = (($sort_order == 'asc') ? 'desc' : 'asc');
         $url_sort[0]['img_tag']  = $img_tag;
-        $col                     = 'key'; // used in 'pmaDbCmp()'
+        $col                     = 'key'; // used in 'PMA_dbCmp()'
     } else if ($sort_by == 'tbl_cnt') {
         $url_sort[1]['order']    = (($sort_order == 'asc') ? 'desc' : 'asc');
         $url_sort[1]['img_tag']  = $img_tag;
@@ -224,7 +224,7 @@ if ($num_dbs > 0) {
         $dbs_array[$db][2] = 0; // index size column
         $dbs_array[$db][3] = 0; // full size column
     
-        $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db);
+        $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
         $result      = @mysql_query($local_query);
         // needs the "@" below otherwise, warnings in case of special DB names
         if (@mysql_num_rows($result)) {
@@ -242,7 +242,7 @@ if ($num_dbs > 0) {
     mysql_close();
 
     // Sorts the dbs arrays
-    uksort($dbs_array, 'pmaDbCmp');
+    uksort($dbs_array, 'PMA_dbCmp');
     reset($dbs_array);
 
     // Displays the tables stats per database
@@ -250,9 +250,9 @@ if ($num_dbs > 0) {
     while (list($db_name, $db_prop) = each($dbs_array)) {
         $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
 
-        list($data_size, $data_unit) = format_byte_down($dbs_array[$db_name][1], 3, 1);
-        list($idx_size, $idx_unit)   = format_byte_down($dbs_array[$db_name][2], 3, 1);
-        list($tot_size, $tot_unit)   = format_byte_down($dbs_array[$db_name][3], 3, 1);
+        list($data_size, $data_unit) = PMA_formatByteDown($dbs_array[$db_name][1], 3, 1);
+        list($idx_size, $idx_unit)   = PMA_formatByteDown($dbs_array[$db_name][2], 3, 1);
+        list($tot_size, $tot_unit)   = PMA_formatByteDown($dbs_array[$db_name][3], 3, 1);
 
         echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
         echo '        <td align="center">' . "\n";
@@ -270,9 +270,9 @@ if ($num_dbs > 0) {
     unset($dbs_array);
 
     // Displays the server stats
-    list($data_size, $data_unit) = format_byte_down($total_array[1], 3, 1);
-    list($idx_size, $idx_unit)   = format_byte_down($total_array[2], 3, 1);
-    list($tot_size, $tot_unit)   = format_byte_down($total_array[3], 3, 1);
+    list($data_size, $data_unit) = PMA_formatByteDown($total_array[1], 3, 1);
+    list($idx_size, $idx_unit)   = PMA_formatByteDown($total_array[2], 3, 1);
+    list($tot_size, $tot_unit)   = PMA_formatByteDown($total_array[3], 3, 1);
 
     echo '    <tr>' . "\n";
     echo '        <th>&nbsp;</th>' . "\n";
