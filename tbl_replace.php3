@@ -71,7 +71,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                     $f = 'field_' . $key;
                 }
                 if (!empty($$f)) {
-                    if ($$f = 'null') {
+                    if ($$f == 'null') {
                         // void
                     } else if ($is_encoded) {
                         $val = "'" . sql_addslashes(urldecode($$f)) . "'";
@@ -168,7 +168,7 @@ else {
                     $f = 'field_' . $key;
                 }
                 if (!empty($$f)) {
-                    if ($$f = 'null') {
+                    if ($$f == 'null') {
                         // void
                     } else if (get_magic_quotes_gpc()) {
                         $val = "'" . str_replace('\\"', '"', implode(',', $$f)) . "'";
