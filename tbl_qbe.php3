@@ -87,8 +87,8 @@ if (!isset($AndOrCol)) {
         $AndOrCol[$i] = '';
     }
 }
+// minimum width
 $wid          = 12;
-$widem        = $wid . 'em';
 $col          = $Columns + $Add_Col;
 if ($col < 0) {
     $col      = 0;
@@ -133,6 +133,12 @@ while ($i < $tbl_result_cnt) {
         while ($j < $fld_results_cnt) {
             $fld[$k] = mysql_field_name($fld_results, $j);
             $fld[$k] = PMA_backquote($tbl) . '.' . PMA_backquote($fld[$k]);
+
+            // increase the width if necessary
+            if (strlen($fld[$k]) > $wid) {
+                $wid = strlen($fld[$k]);
+            } //end if
+
             $k++;
             $j++;
         } // end while
@@ -143,6 +149,8 @@ while ($i < $tbl_result_cnt) {
 } // end if
 mysql_free_result($tbl_result);
 
+// largest width found
+$realwidth = $wid . 'ex';
 
 /**
  * Displays the form
@@ -164,7 +172,7 @@ for ($x = 0; $x < $col; $x++) {
     if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <select style="width: <?php echo $widem; ?>" name="Field[<?php echo $z; ?>]" size="1">
+            <select style="width: <?php echo $realwidth; ?>" name="Field[<?php echo $z; ?>]" size="1">
                 <option value=""></option>
         <?php
         echo "\n";
@@ -190,7 +198,7 @@ for ($x = 0; $x < $col; $x++) {
     }
     ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-            <select style="width: <?php echo $widem; ?>" name="Field[<?php echo $z; ?>]" size="1">
+            <select style="width: <?php echo $realwidth; ?>" name="Field[<?php echo $z; ?>]" size="1">
                 <option value=""></option>
     <?php
     echo "\n";
@@ -225,7 +233,7 @@ for ($x = 0; $x < $col; $x++) {
     if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-            <select style="width: <?php echo $widem; ?>" name="Sort[<?php echo $z; ?>]" size="1">
+            <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
                 <option value=""></option>
                 <option value="ASC"><?php echo $strAscending; ?></option>
                 <option value="DESC"><?php echo $strDescending; ?></option>
@@ -241,7 +249,7 @@ for ($x = 0; $x < $col; $x++) {
     }
     ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-            <select style="width: <?php echo $widem; ?>" name="Sort[<?php echo $z; ?>]" size="1">
+            <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
                 <option value=""></option>
     <?php
     echo "\n";
@@ -320,7 +328,7 @@ for ($x = 0; $x < $col; $x++) {
     if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
-            <input type="text" name="Criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $widem; ?>" size="20" />
+            <input type="text" name="Criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
         </td>
         <?php
         $z++;
@@ -348,7 +356,7 @@ for ($x = 0; $x < $col; $x++) {
     ?>
         <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <input type="hidden" name="prev_Criteria[<?php echo $z; ?>]" value="<?php echo $encoded_Criteria; ?>" />
-            <input type="text" name="Criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($stripped_Criteria); ?>" class="textfield" style="width: <?php echo $widem; ?>" size="20" />
+            <input type="text" name="Criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($stripped_Criteria); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
         </td>
     <?php
     $z++;
@@ -406,7 +414,7 @@ for ($y = 0; $y <= $row; $y++) {
                 $or = 'Or' . $w . '[' . $z . ']';
                 ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <textarea cols="20" rows="2" style="width: <?php echo $widem; ?>" name="<?php echo $or; ?>"></textarea>
+            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>"></textarea>
         </td>
                 <?php
                 $z++;
@@ -419,7 +427,7 @@ for ($y = 0; $y <= $row; $y++) {
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <textarea cols="20" rows="2" style="width: <?php echo $widem; ?>" name="<?php echo $or; ?>"></textarea>
+            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>"></textarea>
         </td>
             <?php
             $z++;
@@ -485,7 +493,7 @@ for ($y = 0; $y <= $row; $y++) {
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <textarea cols="20" rows="2" style="width: <?php echo $widem; ?>" name="<?php echo $or; ?>"></textarea>
+            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>"></textarea>
         </td>
             <?php
             $z++;
@@ -510,7 +518,7 @@ for ($y = 0; $y <= $row; $y++) {
         }
         ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <textarea cols="20" rows="2" style="width: <?php echo $widem; ?>" name="Or<?php echo $w . '[' . $z . ']'; ?>"><?php echo htmlspecialchars($stripped_or); ?></textarea>
+            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="Or<?php echo $w . '[' . $z . ']'; ?>"><?php echo htmlspecialchars($stripped_or); ?></textarea>
         </td>
         <?php
         if (!empty(${$or}) && isset(${$or}[$x])) {

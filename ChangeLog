@@ -10,6 +10,7 @@ $Source$
 
 2002-05-17 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, bug 556296: field size for int
+    * tbl_qbe.php3, adjust drop-down width, thanks to Mike Beck
 
 2002-05-17 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3, lines 446-458;
