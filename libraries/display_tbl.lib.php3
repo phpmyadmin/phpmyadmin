@@ -1000,9 +1000,20 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 //        depend on whether the "is_null" php4 function is
                 //        available or not
                 $pointer = (function_exists('is_null') ? $i : $meta->name);
-
                 if ($meta->numeric == 1) {
-                    if (!isset($row[$meta->name])
+
+                // lem9: if two fields have the same name (this is possible
+                //       with self-join queries, for example), using $meta->name
+                //       will show both fields NULL even if only one is NULL,
+                //       so use the $pointer
+                //      (works only if function_exists('is_null')
+                // PS:   why not always work with the number ($i), since
+                //       the default second parameter of
+                //       mysql_fetch_array() is MYSQL_BOTH, so we always get
+                //       associative and numeric indices?
+ 
+                    //if (!isset($row[$meta->name])
+                    if (!isset($row[$pointer])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
@@ -1050,7 +1061,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     if (eregi('BINARY', $field_flags)) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
                     } else {
-                        if (!isset($row[$meta->name])
+                        //if (!isset($row[$meta->name])
+                        if (!isset($row[$pointer])
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                         } else if ($row[$pointer] != '') {
@@ -1068,7 +1080,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         }
                     }
                 } else {
-                    if (!isset($row[$meta->name])
+                    //if (!isset($row[$meta->name])
+                    if (!isset($row[$pointer])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {

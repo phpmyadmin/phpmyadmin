@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: bug 601809: when two fields have the
+      same name, both are showed NULL even if only one is NULL
+
 2002-09-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
 
