@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-28 Garvin Hicking <me@supergarv.de>
+    * libraries/sqlvalidator.class.php3: Fix Bug #739096: Because
+      the PEAR library and PHP changed the way how referenced variables
+      get accessed, we have to pre-initialize the array and submit that
+      to the PEAR call() funktion.
+
 2003-05-26 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: sorted.
 
