@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/export/sql.php: bug #1108521, part 2: mysqli_num_rows
+      cannot be used with MYSQL_USE_RESULT
+
 2005-01-29 Alexander M. Turek  <me@derrabus.de>
     * lang/japanese-utf-8.inc.php: Bug #1111855 ("Undefined index" when using
       the Janapese language file under MySQL 4.1.

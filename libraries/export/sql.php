@@ -183,8 +183,8 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     $auto_increment = '';
     $new_crlf = $crlf;
 
-
-    $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
+    // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
+    $result = PMA_DBI_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'', NULL, PMA_DBI_QUERY_STORE);
     if ($result != FALSE) {
         if (PMA_DBI_num_rows($result) > 0) {
             $tmpres        = PMA_DBI_fetch_assoc($result);
