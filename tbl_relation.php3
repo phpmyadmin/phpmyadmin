@@ -55,6 +55,7 @@ if ($cfgRelation['relwork']
         } // end if... else....
         if(isset($upd_query)){
             $upd_rs = PMA_query_as_cu($upd_query);
+            unset($upd_query);
         }
     } // end while
 } // end if

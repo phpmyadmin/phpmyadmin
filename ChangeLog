@@ -11,6 +11,7 @@ $Source$
     * lang/romanian updates, thanks to Valics Lehel
     * lang/thai updates, thanks to Arthit Suriyawongkul.
     * lang/turkish updates, thanks to Bora Alioglu
+    * tbl_relation.php3, bug 570691: query was executed too many times
 
 2002-06-18 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/arabic.inc.php3: Changed $cfgPmaAbsoluteUri into $cfg['...'].
