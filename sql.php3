@@ -392,6 +392,13 @@ else {
                     $count_query .= ' HAVING ' . $analyzed_sql[0]['having_clause'];
                 }
 
+                // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
+                // long delays. Returned count will be complete anyway.
+
+                if (PMA_MYSQL_INT_VERSION >= 40000) {
+                    $count_query .= ' LIMIT 1';
+                }
+
                 // do not put the order_by_clause, it interferes
                 // run the count query
                 if (PMA_MYSQL_INT_VERSION < 40000) {
