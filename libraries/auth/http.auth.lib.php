@@ -43,6 +43,42 @@ body     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
 //-->
 </style>
+<script language="JavaScript" type="text/javascript">
+<!--
+    /* added 2004-06-10 by Michael Keck
+     *       we need this for Backwards-Compatibility and resolving problems
+     *       with non DOM browsers, which may have problems with css 2 (like NC 4)
+    */
+    var isDOM      = (typeof(document.getElementsByTagName) != 'undefined'
+                      && typeof(document.createElement) != 'undefined')
+                   ? 1 : 0;
+    var isIE4      = (typeof(document.all) != 'undefined'
+                      && parseInt(navigator.appVersion) >= 4)
+                   ? 1 : 0;
+    var isNS4      = (typeof(document.layers) != 'undefined')
+                   ? 1 : 0;
+    var capable    = (isDOM || isIE4 || isNS4)
+                   ? 1 : 0;
+    // Uggly fix for Opera and Konqueror 2.2 that are half DOM compliant
+    if (capable) {
+        if (typeof(window.opera) != 'undefined') {
+            var browserName = ' ' + navigator.userAgent.toLowerCase();
+            if ((browserName.indexOf('konqueror 7') == 0)) {
+                capable = 0;
+            }
+        } else if (typeof(navigator.userAgent) != 'undefined') {
+            var browserName = ' ' + navigator.userAgent.toLowerCase();
+            if ((browserName.indexOf('konqueror') > 0) && (browserName.indexOf('konqueror/3') == 0)) {
+                capable = 0;
+            }
+        } // end if... else if...
+    } // end if
+    document.writeln('<link rel="stylesheet" type="text/css" href="<?php echo defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : './'; ?>css/phpmyadmin.css.php?lang=<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>&amp;js_frame=right&amp;js_isDOM=' + isDOM + '" />');
+//-->
+</script>
+<noscript>
+    <link rel="stylesheet" type="text/css" href="<?php echo defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : './'; ?>css/phpmyadmin.css.php?lang=<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>&amp;js_frame=right" />
+</noscript>
 </head>
 
 <body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor']; ?>">
@@ -54,7 +90,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
     <h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>
 </center>
 <br />
-<p><?php echo $GLOBALS['strWrongUser']; ?></p>
+<div class="warning"><p><?php echo $GLOBALS['strWrongUser']; ?></p></div>
 
 <?php include('./config.footer.inc.php'); ?>
 
