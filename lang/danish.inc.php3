@@ -189,6 +189,8 @@ $strProducedAnError = "forsagede en fejl.";
 $strProperties = "Egenskaber";
 
 $strQBE = "Query by Example";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "L&aelig;s dokumentationen";
 $strRecords = "Poster";

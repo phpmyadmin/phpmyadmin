@@ -180,6 +180,8 @@ $strProducedAnError = "ha causato un errore.";
 $strProperties = "Proprietà";
 
 $strQBE = "Query da esempio";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "Leggere la docomentazione";
 $strRecords = "Record";

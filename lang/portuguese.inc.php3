@@ -179,6 +179,8 @@ $strProducedAnError = "produziu um erro.";
 $strProperties = "Propriedades";
 
 $strQBE = "Query by Example";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "Leia os docs";
 $strRecords = "Registros";

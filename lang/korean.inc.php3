@@ -179,6 +179,8 @@ $strProducedAnError = "에러가 발생하였습니다";
 $strProperties = "프로파티";
 
 $strQBE = "예(例)에서 쿼리 실행";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "문서 읽어 들이기";
 $strRecords = "기록수";

@@ -179,6 +179,8 @@ $strProducedAnError = "produced an error."; //to translate
 $strProperties = "คุณสมบัติ";#"Properties";
 
 $strQBE = "Query by Example"; //to translate
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "อ่านคู่มือ";#"Read the docs";
 $strRecords = "ระเบียน";

@@ -179,6 +179,8 @@ $strProducedAnError = "產生一個錯誤。";
 $strProperties = "屬性";
 
 $strQBE = "查詢模板";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "參照以下文檔 ";
 $strRecords = "記錄";

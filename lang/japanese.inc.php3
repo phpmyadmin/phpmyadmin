@@ -179,6 +179,8 @@ $strProducedAnError = "エラーが発生しました。";
 $strProperties = "プロパティ";
 
 $strQBE = "例からクエリー実行";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "文書の読み込み";
 $strRecords = "レコード数";

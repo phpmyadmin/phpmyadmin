@@ -189,6 +189,8 @@ $strProducedAnError = "produced an error.";
 $strProperties = "Properties";
 
 $strQBE = "Query by Example";
+$strQBEDel = "Del";
+$strQBEIns = "Ins";
 
 $strReadTheDocs = "Read the docs";
 $strRecords = "Records";

@@ -179,6 +179,8 @@ $strProducedAnError = "leverde een fout op.";
 $strProperties = "Eigenschappen";
 
 $strQBE = "Query opbouwen";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "Lees de documentatie";
 $strRecords = "Records";

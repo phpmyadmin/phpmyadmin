@@ -179,6 +179,8 @@ $strProducedAnError = "resulterte i en feil.";
 $strProperties = "Egenskaper";
 
 $strQBE = "Query by Example"; //to translate
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "Les dokumentasjonen";
 $strRecords = "Rader";

@@ -179,6 +179,8 @@ $strProducedAnError = "доведе до грешка.";
 $strProperties = "Свойства";
 
 $strQBE = "Запитване по пример";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "Прочети документацията";
 $strRecords = "Записи";

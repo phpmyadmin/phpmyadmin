@@ -188,6 +188,8 @@ $strProducedAnError = "zg³osi³ b³±d.";
 $strProperties = "W³a¶ciwo¶ci";
 
 $strQBE = "Zapytanie przez przyk³ad";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "Proszê przeczytaæ dokumentacjê";
 $strRecords = "Rekordy";

@@ -179,6 +179,8 @@ $strProducedAnError = "återgav ett fel.";
 $strProperties = "Inställningar";
 
 $strQBE = "Fråga som exemplet";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "Läs manualen";
 $strRecords = "Insättning";

@@ -179,6 +179,8 @@ $strProducedAnError = "产生一个错误。";
 $strProperties = "属性";
 
 $strQBE = "查询模板";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "参照以下文档 ";
 $strRecords = "记录";

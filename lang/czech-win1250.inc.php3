@@ -184,6 +184,8 @@ $strProducedAnError = "vytvoøil chybu.";
 $strProperties = "Vlastnosti";
 
 $strQBE = "Dotaz podle pøíkladu";
+$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
+$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
 
 $strReadTheDocs = "Pøeèti dokumentaci";
 $strRecords = "Záznamù";
