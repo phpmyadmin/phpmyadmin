@@ -228,6 +228,10 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
     /**
      * Checks if a character is an accented character
      *
+     * @note    Presently this only works for some 
+     *          character sets. More work may be 
+     *          needed to fix it.
+     *
      * @param   string   character to check for
      *
      * @return  boolean  whether the character is an upper alphabetic one or
@@ -237,14 +241,19 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      */
     function PMA_STR_isAccented($c)
     {
-        $ord_min1 = 128; //ord('A');
-        $ord_max1 = 154; //ord('Z');
-        $ord_min2 = 128; //ord('A');
-        $ord_max2 = 154; //ord('Z');
+        
+        $ord_min1 = 192; //ord('A');
+        $ord_max1 = 214; //ord('Z');
+        $ord_min2 = 216; //ord('A');
+        $ord_max2 = 246; //ord('Z');
+        $ord_min3 = 248; //ord('A');
+        $ord_max3 = 255; //ord('Z');
+        
         $ord_c    = ord($c);
 
-        return (PMA_STR_numberInRangeInclusive($ord_c, $ord_min1, $ord_max1)
-               || PMA_STR_numberInRangeInclusive($ord_c, $ord_min2, $ord_max2));
+        return PMA_STR_numberInRangeInclusive($ord_c, $ord_min1, $ord_max1)
+               || PMA_STR_numberInRangeInclusive($ord_c, $ord_min2, $ord_max2)
+               || PMA_STR_numberInRangeInclusive($ord_c, $ord_min2, $ord_max2);
     } // end of the "PMA_STR_isAccented()" function
 
 
