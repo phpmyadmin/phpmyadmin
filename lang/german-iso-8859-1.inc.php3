@@ -308,7 +308,7 @@ $strQueryOnDb = ' SQL-Befehl in der Datenbank <b>%s</b>:';
 
 $strRecords = 'Einträge';
 $strReferentialIntegrity = 'Prüfe referentielle Integrität:';
-$strRelationalSchema = 'Bezeihnungsschema';
+$strRelationalSchema = 'Beziehungsschema';
 $strRelationNotWorking = 'Die zusätzlichen Funktionen für verknüpfte Tabellen wurden automatisch deaktiviert. Klicken Sie %shier%s um herauszufinden warum.';
 $strRelationView = 'Beziehungsübersicht';
 $strReloadFailed = 'MySQL Neuladen fehlgeschlagen.';

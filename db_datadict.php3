@@ -177,7 +177,7 @@ while ($row = mysql_fetch_array($rowset)) {
         echo '    <th width="50">' . $strLinksTo . '</th>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '    <th width="400">' . $strComments . '</th>' . "\n";
+        echo '    <th>' . $strComments . '</th>' . "\n";
     }
     ?>
 </tr>
@@ -254,7 +254,7 @@ while ($row = mysql_fetch_array($rowset)) {
             echo '&nbsp;</td>' . "\n";
         }
         if ($cfgRelation['commwork']) {
-            echo '    <td width="400" class="print">';
+            echo '    <td class="print">';
             if (isset($comments[$field_name])) {
                 echo htmlspecialchars($comments[$field_name]);
             }

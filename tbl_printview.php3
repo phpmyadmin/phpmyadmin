@@ -181,21 +181,21 @@ while (list($key, $table) = each($the_tables)) {
     ?>
 
 <!-- TABLE INFORMATIONS -->
-<table width="100%" bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
+<table width="95%" bordercolorlight="black" border="border" style="border-collapse: collapse; background-color: white">
 <tr>
     <th width="50"><?php echo $strField; ?></th>
-    <th width="50"><?php echo $strType; ?></th>
+    <th width="80"><?php echo $strType; ?></th>
     <!--<th width="50"><?php echo $strAttr; ?></th>-->
-    <th width="50"><?php echo $strNull; ?></th>
-    <th width="50"><?php echo $strDefault; ?></th>
+    <th width="40"><?php echo $strNull; ?></th>
+    <th width="70"><?php echo $strDefault; ?></th>
     <!--<th width="50"><?php echo $strExtra; ?></th>-->
     <?php
     echo "\n";
     if ($have_rel) {
-        echo '    <th width="50">' . $strLinksTo . '</th>' . "\n";
+        echo '    <th>' . $strLinksTo . '</th>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '    <th width="400">' . $strComments . '</th>' . "\n";
+        echo '    <th>' . $strComments . '</th>' . "\n";
     }
     ?>
 </tr>
@@ -256,15 +256,15 @@ while (list($key, $table) = each($the_tables)) {
     }
     ?>
     </td>
-    <td width="50" class="print"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
+    <td width="80" class="print"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
     <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>-->
-    <td width="50" class="print"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td width="50" class="print" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
+    <td width="40" class="print"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
+    <td width="70" class="print" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <!--<td width="50" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>-->
     <?php
     echo "\n";
     if ($have_rel) {
-        echo '    <td width="50" class="print">';
+        echo '    <td class="print">';
         if (isset($res_rel[$field_name])) {
             echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] );
         }
