@@ -13,6 +13,7 @@ $Source$
     * lang/czech: Fix some translations.
     * libraries/transformations/text_plain__external.inc.php: Handle better
       backslash.
+    * themes/*/img/*.gif: Remove unused gif images.
 
 2004-10-12 Alexander M. Turek  <me@derrabus.de>
     * db_search.php, tbl_select.php, libraries/database_interface.lib.php:
