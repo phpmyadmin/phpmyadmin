@@ -10,8 +10,8 @@ require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db'));
 
 function fillTooltip(&$tooltip_truename, &$tooltip_aliasname, &$tmp) {
-    $tooltip_truename[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']) : $tmp['Name']);
-    $tooltip_aliasname[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']));
+    $tooltip_truename[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] && $GLOBALS['cfg']['ShowTooltipAliasTB'] != 'nested' ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']) : $tmp['Name']);
+    $tooltip_aliasname[$tmp['Name']] = ($GLOBALS['cfg']['ShowTooltipAliasTB'] && $GLOBALS['cfg']['ShowTooltipAliasTB'] != 'nested'  ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : $tmp['Name']));
     if (isset($tmp['Create_time']) && !empty($tmp['Create_time'])) {
         $tooltip_aliasname[$tmp['Name']] .= ', ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmp['Create_time']));
     }
