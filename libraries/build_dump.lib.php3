@@ -585,12 +585,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $buffer         .= '    <' . $table . '>' . $crlf;
             for ($i = 0; $i < $columns_cnt; $i++) {
                 // There is no way to dectect a "NULL" value with PHP3
-                if (!function_exists('is_null') || !is_null($record[$column[$i]])) {
-                    $buffer .= '        <' . $column . '>' . htmlspecialchars($record[$column])
-                            .  '</' . $column . '>' . $crlf;
+                if (!function_exists('is_null') || !is_null($record[$columns[$i]])) {
+                    $buffer .= '        <' . $columns[$i] . '>' . htmlspecialchars($record[$columns[$i]])
+                            .  '</' . $columns[$i] . '>' . $crlf;
                 }
             }
-            $buffer         .= '    </' . $table . '>';
+            $buffer         .= '    </' . $table . '>' . $crlf;
         }
         mysql_free_result($result);
 

@@ -300,11 +300,12 @@ else {
             $tmp_select = implode($table_select, '|');
             $tmp_select = '|' . $tmp_select . '|';
         }
+        $i = 0;
         while ($i < $num_tables) {
             if (!isset($single)) {
                 $table = mysql_tablename($tables, $i);
             }
-            if (isset($tmp_select) && strpos($tmp_select, ' |' . $table . '|')) {
+            if (isset($tmp_select) && strpos($tmp_select, ' |' . $table . '|')>=0) {
                 $dump_buffer .= PMA_getTableXML($db, $table, $crlf, $err_url) . $crlf;
             }
             $i++;
