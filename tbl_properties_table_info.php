@@ -21,6 +21,11 @@ global $showtable, $tbl_is_view, $tbl_type, $show_comment, $tbl_collation,
 /**
  * Gets table informations
  */
+
+// Seems we need to do this in MySQL 5.0.2,
+// otherwise error #1046, no database selected
+PMA_DBI_select_db($db);
+
 // The 'show table' statement works correct since 3.23.03
 $table_info_result   = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
 $showtable           = PMA_DBI_fetch_assoc($table_info_result);
