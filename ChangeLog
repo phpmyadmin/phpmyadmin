@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-18  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/finnish.inc.php3 updates, thanks to Visa Kopu.
+
 2001-10-17  Marc Delisle  <lem9@users.sourceforge.net>
 	* release 2.2.1rc2
 

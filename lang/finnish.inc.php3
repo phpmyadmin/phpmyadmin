@@ -118,6 +118,7 @@ $strFieldsEnclosedBy = 'Sarakkeiden ympäröintimerkki';
 $strFieldsEscapedBy = 'Koodinvaihtomerkki (escape)';
 $strFieldsTerminatedBy = 'Sarakkeiden erotinmerkki';
 $strFixed = 'kiinteä';
+$strFlush = 'Tyhjennä välimuisti';
 $strFormat = 'Muoto';
 $strFormEmpty = 'Tarvittava tieto puuttuu lomakkeesta!';
 $strFullText = 'Koko tekstit';
@@ -180,6 +181,7 @@ $strNext = 'Seuraava';
 $strNo = 'Ei';
 $strNoDatabases = 'Ei tietokantoja';
 $strNoDropDatabases = '"DROP DATABASE"-lauseiden käyttö on estetty.';
+$strNoFrames = 'phpMyAdmin toimii parhaiten <b>kehyksiä</b> tukevalla selaimella.';
 $strNoModification = 'Ei muutoksia';
 $strNoPassword = 'Ei salasanaa';
 $strNoPrivileges = 'Ei käyttöoikeuksia';
@@ -280,6 +282,7 @@ $strTableComments = 'Kommentoi taulua';
 $strTableEmpty = 'Taulun nimi puuttuu!';
 $strTableHasBeenDropped = 'Taulu %s on pudotettu';
 $strTableHasBeenEmptied = 'Taulu %s on tyhjennetty';
+$strTableHasBeenFlushed = 'Taulun %s välimuisti on tyhjennetty';
 $strTableMaintenance = 'Taulun huolto';
 $strTables = '%s taulu(a)';
 $strTableStructure = 'Rakenne taululle';
@@ -318,8 +321,5 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
-$strFlush = 'Flush';
-$strNoFrames = 'phpMyAdmin is more friendly with a <b>frames-capable</b> browser.';
-$strOverhead = 'Overhead'; //to translate
-$strTableHasBeenFlushed = 'Table %s has been flushed';
+$strOverhead = 'Overhead';
 ?>
