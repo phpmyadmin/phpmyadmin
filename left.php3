@@ -304,7 +304,7 @@ if ($num_dbs > 1) {
 
                 $table_list_header .= '<nobr><img name="imEx" src="images/minus.gif" border="0" width="9" height="9" alt="-" />';
                 $table_list_header .= '        <a class="item" target="phpmain" href="db_details.php3?' . $common_url_query . '">';
-                $table_list_header .= '            <span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(' . $num_tables_disp . ')</span></a></nobr>';
+                $table_list_header .= '            <span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span></a></nobr>';
                 $table_list_header .= '';
 
             } else {
