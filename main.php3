@@ -89,13 +89,17 @@ if($server > 0) {
 	  $result_db=mysql_fetch_array($rs_db);
 	}
 	
-	if($result_usr['Create_priv']=='Y') {
-	  $CREATE=TRUE;
-	} elseif(!empty($result_db) && $result_db['Create_priv']=='Y') {
-	  $CREATE=TRUE;
-	} else {
-	  $CREATE=FALSE;
-	}
+   if($result_usr['Create_priv']=='Y') {
+     $CREATE=TRUE;
+// BEGIN 
+// 2001-05-04, Lem9: The create_priv on a single database does not allow
+//     to create a database
+// } elseif(!empty($result_db) && $result_db['Create_priv']=='Y') {
+//   $CREATE=TRUE;
+//  END  
+   } else {
+     $CREATE=FALSE;
+   }
 
 	if($CREATE) {
 		?>
@@ -151,10 +155,10 @@ if($server > 0) {
 ?>
 
 <li>
-<a href="http://phpmyadmin.sourceforge.net/" target="_top">new (but still unofficial) phpMyAdmin-Homepage</a> (sourceforge)
+<a href="http://phpmyadmin.sourceforge.net/" target="_top"><?php print $strHomepageSourceforge; ?> </a> (sourceforge)
 &nbsp;&nbsp;&nbsp;&nbsp; [ <a href="ChangeLog" target="_top">ChangeLog</a> ]
 <li>
-<a href="http://phpwizard.net/projects/phpMyAdmin/" target="_top">Official phpMyAdmin-Homepage</a>
+<a href="http://phpwizard.net/projects/phpMyAdmin/" target="_top"><?php print $strHomepageOfficial; ?> </a>
 <li>
 <a href="Documentation.html" target="_top">phpMyAdmin <?php print $strDocu;?></a>
 

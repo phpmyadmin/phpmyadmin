@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-04  Marc Delisle <lem9@users.sourceforge.net>
+	* outsource some strings in main.php3
+	* kill the bug in main.php3 about Create privilege
+
 2001-05-03  Loïc Chapeaux  <lolo@phpheaven.net>
 	* build a js library that contains all the functions used to collapse/expand
 	  databases list stuff and improve them
