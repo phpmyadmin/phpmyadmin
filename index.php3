@@ -67,7 +67,7 @@ if ($cfg['QueryHistoryDB'] && $cfgRelation['historywork']) {
     <frame src="queryframe.php3?<?php echo $url_query; ?>" name="queryframe" frameborder="0" />
     </frameset>
     <?php } ?>
-    <frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain" frameborder="1" />
+    <frame src="<?php echo (empty($db)) ? 'main.php3' : $cfg['DefaultTabDatabase']; ?>?<?php echo $url_query; ?>" name="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" frameborder="1" />
 
     <noframes>
         <body bgcolor="#FFFFFF">

@@ -1001,7 +1001,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 } // end if (1.2.1)
 
                 if ($table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db']) {
-                    $bookmark_go = '<form method="post" target="phpmain" action="read_dump.php3">'
+                    $bookmark_go = '<form method="post" target="phpmain' . md5($GLOBALS['cfg']['PmaAbsoluteUri']) . '" action="read_dump.php3">'
                                     . PMA_generate_common_hidden_inputs($row['dbase'], '')
                                     . '<input type="hidden" name="id_bookmark" value="' . $row['id'] . '" />'
                                     . '<input type="hidden" name="action_bookmark" value="0" />'

@@ -78,7 +78,7 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] || ($cfg['QueryFrameJS'] && !$d
 }
 
 ?>
-        <form method="post" target="phpmain" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
+        <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
             onsubmit="return checkSqlQuery(this)" name="sqlform">
             <input type="hidden" name="is_js_confirmed" value="0" />
             <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
@@ -278,7 +278,7 @@ if (!isset($is_inside_querywindow) ||
         <!-- Insert a text file -->
         <br /><br />
         <li>
-            <div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain.location.href = \'' . $ldi_target . '\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>
+            <div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \'' . $ldi_target . '\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>
         </li>
         <?php
     }

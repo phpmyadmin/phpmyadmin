@@ -91,7 +91,7 @@ if ($cfg['QueryFrameJS']) {
     $onclick = 'onClick="javascript:open_querywindow(this.href); return false;"';
 } else {
     $href = $anchor;
-    $target = 'target="phpmain"';
+    $target = 'target="phpmain' . md5($cfg['PmaAbsoluteUri']) . '"';
     $onclick = '';
 }
 ?>
