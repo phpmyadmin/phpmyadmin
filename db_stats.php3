@@ -9,8 +9,9 @@ require('./grab_globals.inc.php3');
 if (!empty($db)) {
     $db_start = $db;
 }
-require('./lib.inc.php3');
-include('./header.inc.php3');
+// loic1: lib.inc.php3 will be loaded by header.inc.php3
+//require('./lib.inc.php3');
+require('./header.inc.php3');
 
 
 /**
@@ -202,7 +203,7 @@ if ($num_dbs > 1) {
     while ((list($key, $val) = each($results_array)) && ($j < $display_max)) {
         $j++;
 
-        $bgcolor = ($j % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+        $bgcolor               = ($j % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
         list($disp_val, $unit) = format_byte_down($val, 3, 1);
         echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
         echo '        <td align="right">&nbsp;' . $j . '&nbsp;</td>' . "\n";
