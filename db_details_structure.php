@@ -759,7 +759,7 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 if ($num_tables > 0
     && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
     echo '<tr><th colspan="3" class="tblHeadError"><div class="errorhead">' . $strError . '</div></th></tr>'
-        . '<tr><td colspan="2" class="tblError">'
+        . '<tr><td colspan="3" class="tblError">'
         . sprintf(wordwrap($strRelationNotWorking,65,'<br />'), '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',  '</a>')
         . '</td></tr>';
 } // end if
