@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-16 Michal Cihar  <michal@cihar.com>
+    * libraries/common.lib.php, libraries/export/sql.php: ANSI compatible
+      exports (RFE #859815).
+
 2004-04-15 Marc Delisle  <lem9@users.sourceforge.net>
     * ldi_table.php: allow longer field terminator (was 2 now 4);
       for example, to load a file where each line represents one field

@@ -7,6 +7,11 @@ error_reporting(E_ALL);
  */
 
 /**
+ * Marker for comments, -- is needed for ANSI SQL.
+ */
+$comment_marker = '-- ';
+
+/**
  * Returns $table's field types
  *
  * @param   string   the database name
@@ -37,7 +42,7 @@ function PMA_fieldTypes($db, $table,$use_backquotes) {
  * @return  bool        Whether it suceeded
  */
 function PMA_exportComment($text) {
-    return PMA_exportOutputHandler('# ' . $text . $GLOBALS['crlf']);
+    return PMA_exportOutputHandler($GLOBALS['comment_marker'] . $text . $GLOBALS['crlf']);
 }
 
 /**
@@ -70,24 +75,24 @@ function PMA_exportHeader() {
     global $crlf;
     global $cfg;
 
-    $head  =  '# phpMyAdmin SQL Dump' . $crlf
-           .  '# version ' . PMA_VERSION . $crlf
-           .  '# http://www.phpmyadmin.net' . $crlf
-           .  '#' . $crlf
-           .  '# ' . $GLOBALS['strHost'] . ': ' . $cfg['Server']['host'];
+    $head  =  $GLOBALS['comment_marker'] . 'phpMyAdmin SQL Dump' . $crlf
+           .  $GLOBALS['comment_marker'] . 'version ' . PMA_VERSION . $crlf
+           .  $GLOBALS['comment_marker'] . 'http://www.phpmyadmin.net' . $crlf
+           .  $GLOBALS['comment_marker'] . $crlf
+           .  $GLOBALS['comment_marker'] . $GLOBALS['strHost'] . ': ' . $cfg['Server']['host'];
     if (!empty($cfg['Server']['port'])) {
          $head .= ':' . $cfg['Server']['port'];
     }
     $head .= $crlf
-           .  '# ' . $GLOBALS['strGenTime'] . ': ' . PMA_localisedDate() . $crlf
-           .  '# ' . $GLOBALS['strServerVersion'] . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
-           .  '# ' . $GLOBALS['strPHPVersion'] . ': ' . phpversion() . $crlf;
+           .  $GLOBALS['comment_marker'] . $GLOBALS['strGenTime'] . ': ' . PMA_localisedDate() . $crlf
+           .  $GLOBALS['comment_marker'] . $GLOBALS['strServerVersion'] . ': ' . substr(PMA_MYSQL_INT_VERSION, 0, 1) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 1, 2) . '.' . (int) substr(PMA_MYSQL_INT_VERSION, 3) . $crlf
+           .  $GLOBALS['comment_marker'] . $GLOBALS['strPHPVersion'] . ': ' . phpversion() . $crlf;
            
     if (isset($GLOBALS['header_comment']) && !empty($GLOBALS['header_comment'])) {
         $lines = explode('\n', $GLOBALS['header_comment']);
-        $head .= '# ' . $crlf
-               . '# ' . implode($crlf . '# ', $lines) . $crlf
-               . '# ' . $crlf;
+        $head .= $GLOBALS['comment_marker'] . $crlf
+               . $GLOBALS['comment_marker'] . implode($crlf . $GLOBALS['comment_marker'], $lines) . $crlf
+               . $GLOBALS['comment_marker'] . $crlf;
     }
     
     if (isset($GLOBALS['use_transaction'])) {
@@ -137,9 +142,9 @@ function PMA_exportDBCreate($db) {
  */
 function PMA_exportDBHeader($db) {
     global $crlf;
-    $head = '# ' . $crlf
-          . '# ' . $GLOBALS['strDatabase'] . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
-          . '# ' . $crlf;
+    $head = $GLOBALS['comment_marker'] . $crlf
+          . $GLOBALS['comment_marker'] . $GLOBALS['strDatabase'] . ': ' . (isset($GLOBALS['use_backquotes']) ? PMA_backquote($db) : '\'' . $db . '\''). $crlf
+          . $GLOBALS['comment_marker'] . $crlf;
     return PMA_exportOutputHandler($head);
 }
 
@@ -195,18 +200,18 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
             }
 
             if ($show_dates && isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
-                $schema_create .= '# ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
-                $new_crlf = '#' . $crlf . $crlf;
+                $schema_create .= $GLOBALS['comment_marker'] . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
+                $new_crlf = $GLOBALS['comment_marker'] . $crlf . $crlf;
             }
 
             if ($show_dates && isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
-                $schema_create .= '# ' . $GLOBALS['strStatUpdateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])) . $crlf;
-                $new_crlf = '#' . $crlf . $crlf;
+                $schema_create .= $GLOBALS['comment_marker'] . $GLOBALS['strStatUpdateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])) . $crlf;
+                $new_crlf = $GLOBALS['comment_marker'] . $crlf . $crlf;
             }
 
             if ($show_dates && isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
-                $schema_create .= '# ' . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
-                $new_crlf = '#' . $crlf . $crlf;
+                $schema_create .= $GLOBALS['comment_marker'] . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
+                $new_crlf = $GLOBALS['comment_marker'] . $crlf . $crlf;
             }
         PMA_DBI_free_result($result);
         }
@@ -261,13 +266,13 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                 if (isset($GLOBALS['no_constraints_comments'])) {
                     $sql_constraints = '';
                 } else {
-                    $sql_constraints = $crlf . '#' . $crlf
-                                        . '# ' . $GLOBALS['strConstraintsForDumped'] . $crlf
-                                        . '#' . $crlf;
+                    $sql_constraints = $crlf . $GLOBALS['comment_marker'] . $crlf
+                                        . $GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForDumped'] . $crlf
+                                        . $GLOBALS['comment_marker'] . $crlf;
                 }
             }
             if (!isset($GLOBALS['no_constraints_comments'])) {
-                $sql_constraints .= $crlf .'#' . $crlf .'# ' . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . '#' . $crlf;
+                $sql_constraints .= $crlf .$GLOBALS['comment_marker'] . $crlf .$GLOBALS['comment_marker'] . $GLOBALS['strConstraintsForTable'] . ' ' . PMA_backquote($table) . $crlf . $GLOBALS['comment_marker'] . $crlf;
             }
             $sql_constraints .= 'ALTER TABLE ' . PMA_backquote($table) . $crlf
                              . preg_replace('/(,\r?\n|^)([\s]*)(CONSTRAINT|FOREIGN[\s]*KEY)/', '\1\2ADD \3', substr($regs[0][0], 2))
@@ -333,35 +338,35 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
     }
 
     if (isset($comments_map) && count($comments_map) > 0) {
-        $schema_create .= $crlf . '#' . $crlf 
-                       . '# ' . $GLOBALS['strCommentsForTable']. ' ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+        $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf 
+                       . $GLOBALS['comment_marker'] . $GLOBALS['strCommentsForTable']. ' ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
         foreach($comments_map AS $comment_field => $comment) {
-            $schema_create .= '#   ' . PMA_backquote($comment_field, $use_backquotes) . $crlf 
-                            . '#       ' . PMA_backquote($comment, $use_backquotes) . $crlf;
+            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($comment_field, $use_backquotes) . $crlf 
+                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($comment, $use_backquotes) . $crlf;
         }
-        $schema_create .= '#' . $crlf;
+        $schema_create .= $GLOBALS['comment_marker'] . $crlf;
     }
 
     if (isset($mime_map) && count($mime_map) > 0) {
-        $schema_create .= $crlf . '#' . $crlf 
-                       . '# ' . $GLOBALS['strMIMETypesForTable']. ' ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+        $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf 
+                       . $GLOBALS['comment_marker'] . $GLOBALS['strMIMETypesForTable']. ' ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
         @reset($mime_map);
         foreach($mime_map AS $mime_field => $mime) {
-            $schema_create .= '#   ' . PMA_backquote($mime_field, $use_backquotes) . $crlf 
-                            . '#       ' . PMA_backquote($mime['mimetype'], $use_backquotes) . $crlf;
+            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($mime_field, $use_backquotes) . $crlf 
+                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($mime['mimetype'], $use_backquotes) . $crlf;
         }
-        $schema_create .= '#' . $crlf;
+        $schema_create .= $GLOBALS['comment_marker'] . $crlf;
     }
 
     if ($have_rel) {
-        $schema_create .= $crlf . '#' . $crlf 
-                       . '# ' . $GLOBALS['strRelationsForTable']. ' ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+        $schema_create .= $crlf . $GLOBALS['comment_marker'] . $crlf 
+                       . $GLOBALS['comment_marker'] . $GLOBALS['strRelationsForTable']. ' ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
         foreach($res_rel AS $rel_field => $rel) {
-            $schema_create .= '#   ' . PMA_backquote($rel_field, $use_backquotes) . $crlf 
-                            . '#       ' . PMA_backquote($rel['foreign_table'], $use_backquotes) 
+            $schema_create .= $GLOBALS['comment_marker'] . '  ' . PMA_backquote($rel_field, $use_backquotes) . $crlf 
+                            . $GLOBALS['comment_marker'] . '      ' . PMA_backquote($rel['foreign_table'], $use_backquotes) 
                             . ' -> ' . PMA_backquote($rel['foreign_field'], $use_backquotes) . $crlf;
         }
-        $schema_create .= '#' . $crlf;
+        $schema_create .= $GLOBALS['comment_marker'] . $crlf;
     }
 
     return $schema_create;
@@ -388,10 +393,10 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
     $dump = $crlf
-          . '# --------------------------------------------------------' . $crlf
-          .  $crlf . '#' . $crlf
-          .  '# ' . $GLOBALS['strTableStructure'] . ' ' . $formatted_table_name . $crlf
-          .  '#' . $crlf
+          .  $GLOBALS['comment_marker'] . '--------------------------------------------------------' . $crlf
+          .  $crlf . $GLOBALS['comment_marker'] . $crlf
+          .  $GLOBALS['comment_marker'] . $GLOBALS['strTableStructure'] . ' ' . $formatted_table_name . $crlf
+          .  $GLOBALS['comment_marker'] . $crlf
           .  PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf
           .  PMA_getTableComments($db, $table, $crlf, $relation, $comments, $mime);
 
@@ -432,9 +437,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
     $head = $crlf
-          . '#' . $crlf
-          . '# ' . $GLOBALS['strDumpingData'] . ' ' . $formatted_table_name . $crlf
-          . '#' . $crlf .$crlf;
+          . $GLOBALS['comment_marker'] . $crlf
+          . $GLOBALS['comment_marker'] . $GLOBALS['strDumpingData'] . ' ' . $formatted_table_name . $crlf
+          . $GLOBALS['comment_marker'] . $crlf .$crlf;
 
     if (!PMA_exportOutputHandler($head)) return FALSE;
 

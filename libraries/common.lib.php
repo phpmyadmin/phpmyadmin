@@ -307,7 +307,7 @@ if ($is_minimum_common == FALSE) {
             $a_string = str_replace("\t", '\t', $a_string);
         }
 
-        $a_string = str_replace('\'', '\\\'', $a_string);
+        $a_string = str_replace('\'', '\'\'', $a_string);
 
         return $a_string;
     } // end of the 'PMA_sqlAddslashes()' function
