@@ -15,6 +15,8 @@ $Source$
 	* lang/korean.inc.php3: added some "to translate" strings.
 	* lang/arabic.inc.php3: updated thanks to
 	  Tarik kallida <kallida at users.sourceforge.net>.
+	* lang/georgian.inc.php3; libraries/select_lang.lib.php3: new translation
+	  thanks to Lasha Altunashvili <lasha_al at hotmail.com>.
 
 2002-04-17 Alexander M. Turek  <rabus@users.sourceforge.net>
 	* badwords.txt: Updated and reordered badwords, made it MySQL 4 compatible.

@@ -20,7 +20,6 @@ $lang_path = 'lang/';
  * 1. The key must be the "official" ISO 639 language code and, if required,
  *    the dialect code. It can also contains some informations about the
  *    charset (see the Russian case).
- *    These code are displayed at the starting page of phpMyAdmin.
  * 2. The first of the values associated to the key is used in a regular
  *    expression to find some keywords corresponding to the language inside two
  *    environment variables.
@@ -63,6 +62,7 @@ $available_languages = array(
     'ja-euc'     => array('ja|japanese', 'japanese-euc', 'ja'),
     'ja-sjis'    => array('ja|japanese', 'japanese-sjis', 'ja'),
     'ko'         => array('ko|korean', 'korean', 'ko'),
+    'ka'         => array('ka|georgian', 'georgian', 'ka'),
     'lt'         => array('lt|lithuanian', 'lithuanian', 'lt'),
     'lv'         => array('lv|latvian', 'latvian', 'lv'),
     'nl'         => array('nl([-_][[:alpha:]]{2})?|dutch', 'dutch', 'nl'),
