@@ -50,7 +50,7 @@ A:hover.nav   {font-family: <?php echo $font_family; ?>; color: red;}
 if(isset($db))
 {
     echo "<h1> $strDatabase $db";
-    if(isset($table))
+    if (isset($table) && !isset($btnDrop))
     {
         echo " - $strTable $table";
     }
