@@ -10,6 +10,7 @@ $Source$
 
 2003-01-01 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech*: Updated.
+    * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
 
 2002-12-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/ukrainian: update, thanks to Markijan Baran

@@ -22,7 +22,7 @@ $month = array('Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'O
 $datefmt = '%d %B, %Y at %I:%M %p'; //italian time
 $timespanfmt = '%s giorni, %s ore, %s minuti e %s secondi';
 
-
+$strAPrimaryKey = 'Una chiave primaria è stata aggiunta in %s';
 $strAbortedClients = 'Fallito';
 $strAccessDenied = 'Accesso negato';
 $strAction = 'Azione';
@@ -52,7 +52,6 @@ $strAnyDatabase = 'Qualsiasi database';
 $strAnyHost = 'Qualsiasi host';
 $strAnyTable = 'Qualsiasi tabella';
 $strAnyUser = 'Qualsiasi utente';
-$strAPrimaryKey = 'Una chiave primaria è stata aggiunta in %s';
 $strAscending = 'Crescente';
 $strAtBeginningOfTable = 'All\'inizio della tabella';
 $strAtEndOfTable = 'Alla fine della tabella';
@@ -225,8 +224,8 @@ $strKeepPass = 'Non cambiare la password';
 $strKeyname = 'Nome chiave';
 $strKill = 'Rimuovi';
 
-$strLandscape = 'Orizzontale';
 $strLaTeX = 'LaTeX';
+$strLandscape = 'Orizzontale';
 $strLength = 'Lunghezza';
 $strLengthSet = 'Lunghezza/Set*';
 $strLimitNumRows = 'record per pagina';
@@ -293,6 +292,7 @@ $strOptionalControls = 'Opzionale. Questo carattere controlla come scrivere o le
 $strOptionally = 'OPZIONALE';
 $strOptions = 'Opzioni';
 $strOr = 'Oppure';
+$strOriginalInterface = 'interfaccia originale';
 $strOverhead = 'In eccesso';
 
 $strPHP40203 = 'Si sta utilizzando PHP 4.2.3, che presenta un serio bug con le stringhe multi-byte (mbstring). Vedi report PHP 19404. Questa versione di PHP non è raccomandata per l\'utilizzo con phpMyAdmin.';
@@ -341,9 +341,9 @@ $strPrivDescMaxUpdates = 'Limita il numero di comandi che possono cambiare una t
 $strPrivDescProcess3 = 'Permette di killare i processi di altri utenti.';
 $strPrivDescProcess4 = 'Permette di vedere le queries complete nella lista dei processi.';
 $strPrivDescReferences = 'Non ha alcun effetto in questa versione di MySQL.';
+$strPrivDescReload = 'Permette di ricaricare i parametri del server e di resettare la cache del server.';
 $strPrivDescReplClient = 'Accorda il diritto ad un utente di domandare dove sono i masters/slaves.';
 $strPrivDescReplSlave = 'Necessario per la replicazione degli slaves.';
-$strPrivDescReload = 'Permette di ricaricare i parametri del server e di resettare la cache del server.';
 $strPrivDescSelect = 'Permette di leggere i dati.';
 $strPrivDescShowDb = 'Accorda l\'accesso alla lista completa dei databases.';
 $strPrivDescShutdown = 'Permette di chiudere il server.';
@@ -363,16 +363,16 @@ $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 $strQueryStatistics = '<b>Statistiche delle Query</b>: Dal suo avvio, sono state inviate al server %s queries.';
 $strQueryType = 'Tipo di Query';
 
+$strReType = 'Reinserisci';
 $strReceived = 'Ricevuti';
 $strRecords = 'Record';
 $strReferentialIntegrity = 'Controlla l\'integrità delle referenze:';
-$strRelationalSchema = 'Schema relazionale';
 $strRelationNotWorking = 'Le caratteristiche aggiuntive sono state disattivate per funzionare con le tabelle linkate. Per scoprire perchè clicca %squi%s.';
-$strRelationalSchema = 'Schema relazionale';
 $strRelationView = 'Vedi relazioni';
+$strRelationalSchema = 'Schema relazionale';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
-$strReloadingThePrivileges = 'Caricamento dei privilegi in corso';
 $strReloadMySQL = 'Riavvia MySQL';
+$strReloadingThePrivileges = 'Caricamento dei privilegi in corso';
 $strRememberReload = 'Ricorda di riavviare MySQL.';
 $strRemoveSelectedUsers = 'Rimuove gli utenti selezionati';
 $strRenameTable = 'Rinomina la tabella in';
@@ -382,7 +382,6 @@ $strReplace = 'Sostituisci';
 $strReplaceTable = 'Sostituisci i dati della tabella col file';
 $strReset = 'Riavvia';
 $strResourceLimits = 'Limiti di risorse';
-$strReType = 'Reinserisci';
 $strRevoke = 'Revoca';
 $strRevokeAndDelete = 'Revoca tutti i privilegi attivi agli utenti e dopo li cancella.';
 $strRevokeAndDeleteDescr = 'Gli utenti UTILIZZERANNO comunque il privilegio finchè i privilegi non saranno ricaricati.';
@@ -434,8 +433,8 @@ $strServer = 'Server %s';
 $strServerChoice = 'Scelta del server';
 $strServerStatus = 'Informazioni di Runtime';
 $strServerStatusUptime = 'Questo server MySQL sta girando da %s. E\' stato avviato il %s.';
-$strServerTabVariables = 'Variabili';
 $strServerTabProcesslist = 'Processi';
+$strServerTabVariables = 'Variabili';
 $strServerTrafficNotes = '<b>Traffico del server</b>: Queste tabelle mostrano le statistiche del traffico di retedi questo server MySQL dal momento del suo avvio.';
 $strServerVars = 'Variabili e parametri del Server';
 $strServerVersion = 'Versione MySQL';
@@ -526,8 +525,6 @@ $strYes = ' Si ';
 
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
-
 // To translate
 
-$strOriginalInterface = 'original interface';  //to translate
 ?>
