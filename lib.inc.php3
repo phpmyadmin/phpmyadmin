@@ -73,7 +73,15 @@ function show_table_navigation($pos_next, $pos_prev, $dt_result) {
 }
 
 function load_javascript () {
-    echo "\n<script language=\"javascript\" src=\"functions.js\" > </script>";
+    ?>
+    <script type="text/javascript" language="javascript">
+    <!--
+    var errorMsg1 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotNumber'])); ?>';
+    var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumber'])); ?>';
+    //-->
+    </script>
+    <script src="functions.js" type="text/javascript" language="javascript"></script>
+    <?php
 }
 
 function mysql_die($error = "") {

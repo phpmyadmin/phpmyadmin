@@ -1,5 +1,3 @@
-<!--
-
 var isFormElementInRange;
 
 /**
@@ -20,7 +18,7 @@ function checkFormElementInRange(theForm, theFieldName, min, max )
 
     // It's not a number
     if (isNaN(val)) {
-        alert('This is not a number!');
+        alert(errorMsg1);
         isFormElementInRange = false;
         theField.select();
         theField.focus();
@@ -28,7 +26,7 @@ function checkFormElementInRange(theForm, theFieldName, min, max )
     }
     // It's a number but it is not between min and max
     else if (val < min || val > max)  {
-        alert(val + ' is not a valid row number!');
+        alert(val + errorMsg2);
         isFormElementInRange = false;
         theField.select();
         theField.focus();
@@ -40,6 +38,3 @@ function checkFormElementInRange(theForm, theFieldName, min, max )
     }
     return true;
 } // end of the 'checkFormElementInRange()' function
-
-//-->
-
