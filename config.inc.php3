@@ -8,12 +8,12 @@
 
 // The $cfgServers array starts with $cfgServers[1].  Do not use $cfgServers[0].
 // You can disable a server config entry by setting host to ''.
-$cfgServers[1]['host'] = 'mysql.sourceforge.net';           // MySQL hostname
+$cfgServers[1]['host'] = 'localhost';           // MySQL hostname
 $cfgServers[1]['port'] = '';                    // MySQL port - leave blank for default port
 $cfgServers[1]['adv_auth'] = false;             // Use advanced authentication?
 $cfgServers[1]['stduser'] = '';             // MySQL standard user (only needed with advanced auth)
 $cfgServers[1]['stdpass'] = '';                 // MySQL standard password (only needed with advanced auth)
-$cfgServers[1]['user'] = 'phpmyadmin';                // MySQL user (only needed with basic auth)
+$cfgServers[1]['user'] = 'phpMyAdmin';                // MySQL user (only needed with basic auth)
 $cfgServers[1]['password'] = 'test99';                // MySQL password (only needed with basic auth)
 $cfgServers[1]['only_db'] = 'phpMyAdmin';                 // If set to a db-name, only this db is accessible
 $cfgServers[1]['verbose'] = '';                 // Verbose name for this host - leave blank to show the hostname
@@ -99,23 +99,33 @@ $cfgColumnTypes = array(
    "ENUM",
    "SET");
 
+//Some functions discussed on patch #419826 added. - 05/May/2001 - Robbat2
 $cfgFunctions = array(
    "ASCII",
    "CHAR",
    "SOUNDEX",
-   "CURDATE",
-   "CURTIME",
    "ENCRYPT",
-   "FROM_DAYS",
-   "FROM_UNIXTIME",
+   "LCASE",
+   "UCASE",
    "NOW",
    "PASSWORD",
+   "ENCODE",
+   "DECODE",
+   "MD5",
+   "RAND",
+   "LAST_INSERT_ID",
+   "COUNT",
+   "AVG",
+   "SUM",
+   "CURDATE",
+   "CURTIME",
+   "FROM_DAYS",
+   "FROM_UNIXTIME",
    "PERIOD_ADD",
    "PERIOD_DIFF",
    "TO_DAYS",
    "USER",
-   "WEEKDAY",
-   "RAND");
+   "WEEKDAY");
 
 $cfgAttributeTypes = array(
    "",

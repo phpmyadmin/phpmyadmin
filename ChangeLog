@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-05 Robin Johnson  <robbat2@users.sourceforge.net>
+	* Some functions discussed on patch #419826 added.
+
 2001-05-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* grab_globals.inc.php3 handles now the $HTTP_POST_FILES array
 	* db_readdump.php3, line 24: added a trick to enforce reloading of the left
