@@ -251,7 +251,7 @@ $strUsage = "Usage";
 $strUser = "User";
 $strUserEmpty = "The user name is empty!";
 $strUserName = "User name";
-$strUsers = "Users";
+$strUsers = "Users and privileges";
 $strUseTables = ""; //to translate, but its not in use ...
 
 $strValue = "Value";
