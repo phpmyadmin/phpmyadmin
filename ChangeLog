@@ -6,10 +6,11 @@ $Id$
 $Source$
 
 2002-08-10 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/french update
+    * lang/french: update.
 
 2002-08-10 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * sql.php3: Default pages for tables / databases.
+    * sql.php3, db_details_common.php3, tbl_properties_common.php3:
+      Default pages for tables / databases.
 
 2002-08-10 Loïc Chapeaux  <lolo@phpheaven.net>
     * config.inc.php3: coding standards.

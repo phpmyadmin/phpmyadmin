@@ -13,12 +13,12 @@ require('./libraries/bookmark.lib.php3');
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = 'db_details.php3'
+$err_url_0 = $cfg['DefaultTabDatabase']
            . '?lang=' . $lang
            . '&amp;convcharset=' . $convcharset
            . '&amp;server=' . $server
            . '&amp;db=' . urlencode($db);
-$err_url   = 'tbl_properties.php3'
+$err_url   = $cfg['DefaultTabTable']
            . '?lang=' . $lang
            . '&amp;convcharset=' . $convcharset
            . '&amp;server=' . $server
