@@ -18,7 +18,7 @@ $Source$
 2002-09-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3: Another fix against bug #582890.
     * lang/german-*.inc.php3: Updates.
-    * libraries/sqlparser.lib.php3: XHTML fix (nl2br is not XHTML compilant
+    * libraries/sqlparser.lib.php3: XHTML fix (nl2br() is not XHTML compilant
       before PHP 4.0.5).
 
 2002-09-10: Robin Johnson  <robbat2@users.sourceforge.net>
