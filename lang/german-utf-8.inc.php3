@@ -65,6 +65,7 @@ $strAscending = 'aufsteigend';
 $strAtBeginningOfTable = 'An den Anfang der Tabelle';
 $strAtEndOfTable = 'An das Ende der Tabelle';
 $strAttr = 'Attribute';
+$strAutodetect = 'Autom. Erkennung';
 $strAutomaticLayout = 'Automatische Anordnung';
 
 $strBack = 'Zurück';
@@ -520,6 +521,7 @@ $strShowAll = 'Alles anzeigen';
 $strShowColor = 'mehrfarbig';
 $strShowCols = 'Reihen anzeigen';
 $strShowDatadictAs = 'Format des Strukturverzeichnisses';
+$strShowFullQueries = 'Zeige die SQL-Abfragen vollständig an';
 $strShowGrid = 'Gitterlinien anzeigen';
 $strShowPHPInfo = 'PHP-Informationen anzeigen';
 $strShowTableDimension = 'Tabellendimensionen anzeigen.';
@@ -570,6 +572,7 @@ $strTime = 'Dauer';
 $strTotal = 'insgesamt';
 $strTotalUC = 'Insgesamt';
 $strTraffic = 'Traffic';
+$strTruncateQueries = 'Zeige die SQL-Abfragen verkürzt an';
 $strType = 'Typ';
 
 $strUncheckAll = 'Auswahl entfernen';
@@ -581,6 +584,7 @@ $strUpdateProfileMessage = 'Benutzer wurde geändert.';
 $strUpdateQuery = 'Aktualisieren';
 $strUsage = 'Verbrauch';
 $strUseBackquotes = ' Tabellen- und Feldnamen in einfachen Anführungszeichen ';
+$strUseHostTable = 'Verwende Hosttabelle';
 $strUseTables = 'Verwendete Tabellen';
 $strUseTextField = 'Textfeld verwenden';
 $strUser = 'Benutzer';
@@ -625,13 +629,9 @@ $strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
 $strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
 $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
+$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
+$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
 
-$strAutodetect = 'Autodetect';  //to translate
-$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
-$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strUseHostTable = 'Use Host Table';  //to translate
-$strShowFullQueries = 'Show Full Queries';  //to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
 ?>
