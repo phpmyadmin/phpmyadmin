@@ -5,11 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-23 Alexander M. Turek  <stormfront@derrabus.de>
+    * lang/german-*.inc.php: Updates.
+
 2004-01-29 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan: Updated, thanks to Xavier Navarro (xavin)
     * lang/italian: Updated, thanks to Pietro Danesi (danone).
     * lang/danish: updates, thanks to Finn Sorensen (alleyman01)
-    * lang/*, header.inc.php, db_details_links.php, sql.php, 
+    * lang/*, header.inc.php, db_details_links.php, sql.php,
       libraries/functions.js: new stronger warning before a DROP DATABASE
 
 2004-01-28 Garvin Hicking <MyDoom@supergarv.de>
