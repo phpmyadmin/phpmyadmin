@@ -269,6 +269,7 @@ $strHasBeenAltered = 'fue modificada.';
 $strHasBeenCreated = 'se creó.';
 $strHaveToShow = 'Debe elegir al menos una columna para mostrar';
 $strHebrew = 'Hebreo';
+$strHexForBinary = 'Use hexadecimal para campos binarios';
 $strHome = 'Página de inicio';
 $strHomepageOfficial = 'Página oficial de phpMyAdmin';
 $strHost = 'Servidor';
@@ -708,5 +709,4 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 
-$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>
