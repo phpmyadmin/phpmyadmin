@@ -12,29 +12,6 @@ error_reporting(E_ALL);
 $comment_marker = '-- ';
 
 /**
- * Returns $table's field types
- *
- * @param   string   the database name
- * @param   string   the table name
- *
- * @return  array    the field types; key of array is PMA_backquote
- *                   of the field name
- *
- * @access  public
- *
- * This function exists because mysql_field_type() returns 'blob'
- * even for 'text' fields.
- */
-function PMA_fieldTypes($db, $table,$use_backquotes) {
-    PMA_DBI_select_db($db);
-    $table_def = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-    while ($row = PMA_DBI_fetch_assoc($table_def)) {
-        $types[PMA_backquote($row['Field'],$use_backquotes)] = ereg_replace('\\(.*', '', $row['Type']);
-    }
-    return $types;
-}
-
-/**
  * Outputs comment
  *
  * @param   string      Text of comment
@@ -472,10 +449,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     if (!PMA_exportOutputHandler($head)) return FALSE;
 
     $buffer = '';
-
-    // get the real types of the table's fields (in an array)
-    // the key of the array is the backquoted field name
-    $field_types = PMA_fieldTypes($db,$table,$use_backquotes);
 
     // analyze the query to get the true column names, not the aliases
     // (this fixes an undefined index, also if Complete inserts

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-02 Michal Čihař  <michal@cihar.com>
+    * libraries/export/sql.php: Removed unused code.
+
 2004-08-01 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, libraries/relation.lib.php: bug 1001159, Commands
       out of sync on Insert
