@@ -223,6 +223,14 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         }
     } // end load mysql extension
 
+    // check whether mysql is available
+    if (!@function_exists('mysql_connect')) {
+        echo $strCantLoadMySQL . '<br />' . "\n"
+             . '<a href="./Documentation.html#faqmysql" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
+        exit();
+    }
+
+
 
     /**
      * Add slashes before "'" and "\" characters so a value containing them can
