@@ -22,6 +22,10 @@ $cfgRelation = PMA_getRelationsParam();
  */
 require_once('./libraries/mysql_charsets.lib.php');
 
+// reselect current db (needed in some cases probably due to
+// the calling of relation.lib.php)
+PMA_DBI_select_db($db);
+
 /**
  * Updates table comment, type and options if required
  */
