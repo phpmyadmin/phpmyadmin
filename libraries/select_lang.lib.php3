@@ -70,6 +70,7 @@ $available_languages = array(
     'sk'         => array('sk|slovak', 'slovak-iso', 'sk'),
     'th'         => array('th|thai', 'thai', 'th'),
     'tr'         => array('tr|turkish', 'turkish', 'tr'),
+    'uk-win1251' => array('uk|ukrainian', 'ukrainian-win1251', 'uk'),
     'zh-tw'      => array('zh[-_]tw|chinese traditional', 'chinese_big5', 'zh-TW'),
     'zh'         => array('zh|chinese simplified', 'chinese_gb', 'zh')
 );
