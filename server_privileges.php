@@ -980,7 +980,7 @@ if (empty($adduser) && empty($checkprivs)) {
                 $array_initials[chr($letter_counter + 64)] = FALSE;
             }
 
-            $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC', NULL, PMA_DBI_QUERY_STORE);
+            $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(' . PMA_convert_using('User') . ',1)) FROM `user` ORDER BY `User` ASC', NULL, PMA_DBI_QUERY_STORE);
             while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
                 $array_initials[$tmp_initial] = TRUE;
             }

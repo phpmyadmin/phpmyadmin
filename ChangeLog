@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2004-11-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_privileges.php: MySQL 4.1.x compatibility for list of initials
+
 2004-11-01 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php: for MySQL 4.1.2+ a non-privileged user can do 
       a simple SHOW GRANTS to fetch current privileges, so we no longer
