@@ -21,7 +21,7 @@ $err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
 /**
  * A new name has been submitted -> do the work
  */
-if (isset($new_name) && trim($new_name) != '') {
+if (isset($new_name) && trim($new_name) != '' && strpos($new_name,'.') === FALSE) {
     $old_name     = $table;
     $table        = $new_name;
 
@@ -95,7 +95,11 @@ if (isset($new_name) && trim($new_name) != '') {
  */
 else {
     include('./header.inc.php');
-    PMA_mysqlDie($strTableEmpty, '', '', $err_url);
+    if (strpos($new_name,'.') === FALSE) {
+        PMA_mysqlDie($strTableEmpty, '', '', $err_url);
+    } else {
+        PMA_mysqlDie($strError . ': ' . $new_name, '', '', $err_url);
+    }
 }
 
 

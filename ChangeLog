@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_rename.php: give an error if the new table name has a dot
+      in its name, to avoid doing our automatic relation-table renames
+
 2003-11-24 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/common.lib.php: Use preg again, it just needs a bit more
       escaping of \ (once for PHP and once for PCRE).
