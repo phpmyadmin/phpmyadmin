@@ -6,8 +6,13 @@ $Id$
 $Source$
 
 2001-07-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, lib.inc.php3 & sql.php3: fixed some bugs with the patch
+	  from Laurent Haas merged the day before.
+
+2001-07-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3 & lib.inc.php3: patch from Laurent Haas <mci@free.fr>
       that allows to remember and modify a sql query submitted.
+      Fixed some bugs with this feature latter in the morning
 
 2001-07-19  Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3, tbl_change.php3, db_details.php3, lib.inc.php3,

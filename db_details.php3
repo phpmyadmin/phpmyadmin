@@ -266,10 +266,14 @@ if ($num_tables > 0) {
 >
 <?php
 if (isset($show_query)) {
+    if (get_magic_quotes_gpc()) {
+        $sql_query = stripslashes($sql_query);
+    }
     echo $show_query=="y" ? $sql_query : '';
-} else {
-    echo stripslashes($sql_query);
 }
+// else if (isset($sql_query)) {
+//    echo stripslashes($sql_query);
+//}
 ?>
 </textarea><br />
 <INPUT type=checkbox name='show_query' value="y" checked /><?php echo $strShowThisQuery; ?><br />

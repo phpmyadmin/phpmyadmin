@@ -106,10 +106,10 @@ function mysql_die($error = "") {
   global $strError,$strSQLQuery, $strMySQLSaid, $strBack, $sql_query;
   
     echo "<b> $strError </b><p>";
-    if(isset($sql_query) && !empty($sql_query))
+    if (!empty($sql_query))
     {
-        $edit_link=sprintf("<a href='db_details.php3?server=%s&lang=%s&db=%s&sql_query=%s'>%s</a>",$GLOBALS['server'],$GLOBALS['lang'],$GLOBALS['db'],urlencode($sql_query),$GLOBALS['strEdit']);
-        echo "$strSQLQuery: <pre>".$edit_link.htmlspecialchars($sql_query)."</pre><p>";
+        $edit_link = '<a href="db_details.php3?server=' . urlencode($GLOBALS['server']) . '&lang=' . $GLOBALS['lang'] . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+        echo "$strSQLQuery: [$edit_link] <pre>".htmlspecialchars($sql_query)."</pre><p>";
     }
     if(empty($error))
         echo "$strMySQLSaid ".mysql_error();
@@ -938,14 +938,18 @@ function show_message($message)
         <td bgcolor="<?php echo $GLOBALS['cfgBgcolorOne']; ?>">
         <?php
         echo "\n";
-        echo '            ' . $GLOBALS['strSQLQuery'] . "&nbsp;:<br />\n";
         // The nl2br function isn't used because its result isn't a valid
         // xhtml1.0 statement before php4.0.5 ("<br>" and not "<br />")
         $new_line   = '<br />' . "\n" . '            ';
         $query_base = htmlspecialchars($GLOBALS['sql_query']);
         $query_base = ereg_replace("(\015\012)|(\015)|(\012)", $new_line, $query_base);
-        $edit_link=sprintf("<a href='db_details.php3?server=%s&lang=%s&db=%s&sql_query=%s'>%s</a>",$GLOBALS['server'],$GLOBALS['lang'],$GLOBALS['db'],urlencode($GLOBALS['sql_query']),$GLOBALS['strEdit']);
-        echo '            ' . $edit_link.'&nbsp;'.$query_base;
+        if (!isset($GLOBALS['show_query']) || $GLOBALS['show_query'] != 'y') {
+            $edit_link = '<a href="db_details.php3?server=' . urlencode($GLOBALS['server']) . '&lang=' . $GLOBALS['lang'] . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+            echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']<br />' . "\n";
+        } else {
+            echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:<br />' . "\n";
+        }
+        echo '            ' . $query_base;
         if (isset($GLOBALS['sql_order'])) {
             echo ' ' . $GLOBALS['sql_order'];
         }

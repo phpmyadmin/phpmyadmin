@@ -54,6 +54,7 @@ if($is_drop_sql_query && !isset($btnDrop)) {
     <input type="hidden" name="table" value="<?php echo isset($table) ? $table : "";?>">
     <input type="hidden" name="goto" value="<?php echo isset($goto) ? $goto : "";?>">
     <input type="hidden" name="reload" value="<?php echo isset($reload) ? $reload : "";?>">
+    <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? $show_query : "";?>">
     <input type="Submit" name="btnDrop" value="<?php echo $strYes; ?>">
     <input type="Submit" name="btnDrop" value="<?php echo $strNo; ?>">
     </form>
