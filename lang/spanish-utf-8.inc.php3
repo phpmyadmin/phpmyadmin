@@ -99,10 +99,10 @@ $strChangeCopyModeRevoke = ' ... revocar todos los privilegios activos del viejo
 $strChangeCopyUser = 'Cambie la información de Login / Copiar Usuario';
 $strChangeDisplay = 'Elija el campo a mostrar';
 $strChangePassword = 'Cambio de contraseña';
-$strCharset = 'Charset';
-$strCharsetOfFile = 'Codificación de los caracteres del archivo:';
-$strCharsets = 'Charsets';
-$strCharsetsAndCollations = 'Character Sets y Collations';
+$strCharset = 'Juego de caracteres';
+$strCharsetOfFile = 'Juego de caracteres del archivo:'; 
+$strCharsets = 'Juegos de caracteres'; 
+$strCharsetsAndCollations = 'Juego de caracteres y sus cotejamientos (collations)'; 
 $strCheckAll = 'Revisar todos/as';
 $strCheckDbPriv = 'Revisar privilegios de la base de datos';
 $strCheckPrivs = 'Revise los privilegios';
@@ -676,20 +676,32 @@ $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0
 $strZip = '"comprimido con zip"';
 // To translate
 
-$strHebrew = 'Hebrew';  //to translate
-$strWestEuropean = 'West European';  //to translate
-$strCentralEuropean = 'Central European';  //to translate
-$strTraditionalChinese = 'Traditional Chinese';  //to translate
-$strCyrillic = 'Cyrillic';  //to translate
-$strArmenian = 'Armenian';  //to translate
 $strArabic = 'Arabic';  //to translate
-$strRussian = 'Russian';  //to translate
-$strUnknown = 'unknown';  //to translate
+$strArmenian = 'Armenian';  //to translate
+
 $strBaltic = 'Baltic';  //to translate
-$strUnicode = 'Unicode';  //to translate
-$strSimplifiedChinese = 'Simplified Chinese';  //to translate
-$strKorean = 'Korean';  //to translate
+
+$strCentralEuropean = 'Central European';  //to translate
+$strCyrillic = 'Cyrillic';  //to translate
+
 $strGreek = 'Greek';  //to translate
+
+$strHebrew = 'Hebrew';  //to translate
+
 $strJapanese = 'Japanese';  //to translate
+
+$strKorean = 'Korean';  //to translate
+
+$strRussian = 'Russian';  //to translate
+
+$strSimplifiedChinese = 'Simplified Chinese';  //to translate
+
 $strThai = 'Thai';  //to translate
+$strTraditionalChinese = 'Traditional Chinese';  //to translate
+
+$strUnicode = 'Unicode';  //to translate
+$strUnknown = 'unknown';  //to translate
+
+$strWestEuropean = 'West European';  //to translate
+
 ?>
