@@ -54,6 +54,8 @@ $strAtEndOfTable = 'Ved slutten av tabellen';
 $strAttr = 'Attributter';
 
 $strBack = 'Tilbake';
+$strBeginCut = 'START KUTT';
+$strBeginRaw = 'START RÅ';
 $strBinary = ' Binær ';
 $strBinaryDoNotEdit = ' Binær - må ikke redigeres ';
 $strBookmarkDeleted = 'Bokmerket har blitt slettet.';
@@ -73,10 +75,12 @@ $strCarriage = 'Linjeskift (Mac): \\r';
 $strChange = 'Endre';
 $strChangeDisplay = 'Velg felt for visning';
 $strChangePassword = 'Endre passord';
+$strCharsetOfFile = 'Filens tegnsett:';
 $strCheckAll = 'Merk alle';
 $strCheckDbPriv = 'Kontroller database privilegier';
 $strCheckTable = 'Kontroller tabell';
 $strChoosePage = 'Vennligst velg en side for redigering';
+$strColComFeat = 'Vis kolonne kommentarer';
 $strColumn = 'Kolonne';
 $strColumnNames = 'Kolonnenavn';
 $strComments = 'Kommentarer';
@@ -93,6 +97,7 @@ $strCreateIndexTopic = 'Lag en ny indeks';
 $strCreateNewDatabase = 'Opprett ny database';
 $strCreateNewTable = 'Opprett ny tabell i database %s';
 $strCreatePage = 'Lag en ny side';
+$strCreatePdfFeat = 'Lag PDF dokumenter';
 $strCriteria = 'Kriterier';
 
 $strData = 'Data';
@@ -109,7 +114,9 @@ $strDeletedRows = 'Slettede rader:';
 $strDeleteFailed = 'Slettingen misslyktes!';
 $strDeleteUserMessage = 'Du har slettet brukeren %s.';
 $strDescending = 'Synkende';
+$strDisabled = 'Avslått';
 $strDisplay = 'Vis';
+$strDisplayFeat = 'Vis egenskaper';
 $strDisplayOrder = 'Visningsrekkefølge:';
 $strDisplayPDF = 'Vis PDF Schema';
 $strDoAQuery = 'Utfør en "query by example" (wildcard: "%")';
@@ -128,9 +135,13 @@ $strEditPrivileges = 'Rediger privilegier';
 $strEffective = 'Effektiv';
 $strEmpty = 'Tøm';
 $strEmptyResultSet = 'MySQL returnerte tomt resultat (m.a.o. ingen rader).';
+$strEnabled = 'Påslått';
 $strEnd = 'Slutt';
+$strEndCut = 'STOPP KUTT';
+$strEndRaw = 'STOPP RÅ';
 $strEnglishPrivileges = ' OBS: MySQL privilegie navn er på engelsk ';
 $strError = 'Feil';
+$strExplain = 'Forklar SQL';
 $strExport = 'Eksporter';
 $strExportToXML = 'Eksporter til XML format';
 $strExtendedInserts = 'Utvidete innlegg';
@@ -151,6 +162,7 @@ $strFullText = 'Hele strenger';
 $strFunction = 'Funksjon';
 
 $strGenBy = 'Generert av';
+$strGeneralRelationFeat = 'Generelle relasjons egenskaper';
 $strGenTime = 'Generert den';
 $strGo = 'Utfør';
 $strGrants = 'Rettigheter';
@@ -173,6 +185,7 @@ $strIndexes = 'Indekser';
 $strIndexHasBeenDropped = 'Indeksen %s har blitt slettet';
 $strIndexName = 'Indeks navn&nbsp;:';
 $strIndexType = 'Indeks type&nbsp;:';
+$strInsecureMySQL = 'Din konfigurasjonsfil inneholder innstillinger (root uten passord) som korrensponderer med MySQLs standard priviligerte brukerkonto. Din MySQL server kjører med denne standard innstillingen, er åpen for misbruk, og du burde fikse dette sikkerhetshullet snarest.';
 $strInsert = 'Sett inn';
 $strInsertAsNewRow = 'Sett inn som ny rad';
 $strInsertedRows = 'Innsatte rader:';
@@ -220,6 +233,7 @@ $strNo = 'Nei';
 $strNoDatabases = 'Ingen databaser';
 $strNoDescription = 'ingen beskrivelse';
 $strNoDropDatabases = '"DROP DATABASE" uttrykk er avslått.';
+$strNoExplain = 'Ikke forklar SQL';
 $strNoFrames = 'phpMyAdmin er mere brukervennlig med en <b>ramme-kapabel</b> web-leser.';
 $strNoIndex = 'Ingen indeks definert!';
 $strNoIndexPartsDefined = 'Ingen indeks deler definert!';
@@ -232,14 +246,17 @@ $strNoQuery = 'Ingen SQL spxrring!';
 $strNoRights = 'Du har ikke nok rettigheter til å være her nå!';
 $strNoTablesFound = 'Ingen tabeller i databasen.';
 $strNotNumber = 'Dette er ikke ett tall!';
+$strNotOK = 'ikke OK';
 $strNotSet = '<b>%s</b> tabellen ble ikke funnet eller ikke konfigurert i %s';
 $strNotValidNumber = ' er ikke et gyldig rad nummer!';
 $strNoUsersFound = 'Ingen bruker(e) funnet.';
+$strNoValidateSQL = 'Ikke teste SQL';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s treff i tabell <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totalt:</b> <i>%s</i> treff';
 
 $strOftenQuotation = 'Ofte anførselstegn. Valgfritt innebærer at kun tekstfelter ("char" og "varchar") felter er omfattet av tegnet.';
+$strOK = 'OK';
 $strOperations = 'Operasjoner';
 $strOptimizeTable = 'Optimiser tabell';
 $strOptionalControls = 'Valgfritt. Angir hvordan spesialtegn skrives eller leses.';
@@ -256,6 +273,7 @@ $strPasswordNotSame = 'Passordene er ikke like!';
 $strPdfDbSchema = 'Schema for "%s" databasen - Side %s';
 $strPdfInvalidPageNum = 'Undefinert PDF side nummer!';
 $strPdfInvalidTblName = 'Tabellen "%s" eksisterer ikke!';
+$strPdfNoTables = 'Ingen tabeller';
 $strPhp = 'Lag PHP kode';
 $strPHPVersion = 'PHP Versjon';
 $strPmaDocumentation = 'phpMyAdmin Dokumentasjon';
@@ -345,8 +363,10 @@ $strSort = 'Sorter';
 $strSpaceUsage = 'Plass bruk';
 $strSplitWordsWithSpace = 'Ord er separert med et mellomrom (" ").';
 $strSQL = 'SQL';
+$strSQLParserUserError = 'Det ser ut til å være en feil i din SQL spørring. Feilmeldingen fra MySQL serveren skrevet ut nedenfor, hvis det var en, kan kanskje hjelpe deg med å finne feilen.';
 $strSQLQuery = 'SQL-spørring';
 $strSQLResult = 'SQL resultat';
+$strSQPBugUnclosedQuote = 'Anførselstegnet er ikke lukket';
 $strStatement = 'Oversikt';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Struktur og data';
@@ -391,10 +411,14 @@ $strUserName = 'Brukernavn';
 $strUsers = 'Brukere';
 $strUseTables = 'Bruk tabeller';
 
+$strValidateSQL = 'Test SQL';
+$strValidatorError = 'SQL kontrolleren kunne ikke startes. Vennligst sjekk at du har installert de nødvendige php tilleggene som beskrevet i %sdocumentation%s.';
 $strValue = 'Verdi';
 $strViewDump = 'Vis dump (skjema) av tabell';
 $strViewDumpDB = 'Vis dump (skjema) av database';
 
+$strWebServerUploadDirectory = 'web-server opplastings katalog';
+$strWebServerUploadDirectoryError = 'Katalogen du anga for opplasting kan ikke nåes';
 $strWelcome = 'Velkommen til %s';
 $strWithChecked = 'Med avkrysset:';
 $strWrongUser = 'Ugyldig brukernavn/passord. Ingen tilgang.';
@@ -402,43 +426,10 @@ $strWrongUser = 'Ugyldig brukernavn/passord. Ingen tilgang.';
 $strYes = 'Ja';
 
 $strZip = 'Komprimert (zip)';
+
 // To translate
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-
-$strDisabled = 'Disabled';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-
-$strEnabled = 'Enabled';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-
-$strGeneralRelationFeat = 'General relation features';  //to translate
-
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-
-$strOK = 'OK';  //to translate
-
-$strPdfNoTables = 'No tables';  //to translate
-
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
 
-$strValidateSQL = 'Validate SQL';  //to translate
-
-$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
-$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
-$strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
-$strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
 ?>
