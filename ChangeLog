@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-02  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/bulgarian-win1251.inc.php3 updates, thanks to Peter Petrov
+
 2001-10-01  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/czech* updates, thanks to Michal Cihar
 
