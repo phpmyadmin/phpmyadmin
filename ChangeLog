@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-25 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/estonian: Updated, thanks to finsoft@sourceforge.net.
+    * lang/norwegian: Updated, thanks to Sven-Erik Andersen (sven-erik).
+    * lang/thai: Updated, thanks to Arthit Suriyawongkul.
+
 2003-04-23 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_dump.php3: Fixed syntax error with === (#724093, ##707538).
     * libraries/display_export.lib.php3: Automatically check "Save as file"

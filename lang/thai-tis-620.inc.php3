@@ -2,7 +2,7 @@
 /* $Id$ */
 
 // first created 2002/04/29 Arthit Suriyawongkul & Warit Wanasathian
-// last modified 2003/04/11 Arthit Suriyawongkul
+// last modified 2003/04/20 Arthit Suriyawongkul
 
 $charset = 'tis-620';
 $text_dir = 'ltr';
@@ -23,6 +23,7 @@ $timespanfmt = '%s วัน, %s ชั่วโมง, %s นาที, %s วินาที';
 
 $strAPrimaryKey = 'ได้เพิ่มไพรมารีคีย์แล้วใน %s';
 $strAbortedClients = 'ยกเลิก';
+$strAbsolutePathToDocSqlDir = 'กรุณาใส่ absolute path ของไดเรกทอรี docSQL บนเวบเซิร์ฟเวอร์';
 $strAccessDenied = 'ไม่อนุญาตให้ใช้งาน';
 $strAction = 'กระทำการ';
 $strAddDeleteColumn = 'เพิ่ม/ลบ คอลัมน์ (ฟิลด์)';
@@ -88,10 +89,13 @@ $strCarriage = 'ปัดแคร่: \\r';
 $strChange = 'เปลี่ยน';
 $strChangeCopyMode = 'สร้างผู้ใช้ใหม่ ให้มีสิทธิเหมือนกัน และ ...';
 $strChangeCopyModeCopy = '... เก็บของเก่าไว้.';
+$strChangeCopyModeDeleteAndReload = ' ... ลบของเก่า่จากตารางผู้ใช้ แล้วเรียกใช้รายการสิทธิ์ใหม่หลังจากนั้น.';
 $strChangeCopyModeJustDelete = ' ... ลบของเก่าทิ้งไปจากตารางผู้ใช้.';
+$strChangeCopyModeRevoke = ' ... เรียกคืนสิทธิ์ทั้งหมดจากเดิม แล้วลบมันหลังจากนั้น.';
 $strChangeCopyUser = 'เปลี่ยนข้อมูลล็ิอกอิน / ทำสำเนาผู้ใช้';
 $strChangeDisplay = 'เลือกฟิลด์ที่ต้องการแสดง';
 $strChangePassword = 'เปลี่ยนรหัสผ่าน';
+$strCharset = 'ชุดตัวอักษร';
 $strCharsetOfFile = 'ชุดอักขระของไฟล์ (character set):';
 $strCheckAll = 'เลือกทั้งหมด';
 $strCheckDbPriv = 'ตรวจสอบสิทธิในฐานข้อมูล';
@@ -114,6 +118,7 @@ $strConnections = 'การเชื่อมต่อ';
 $strCookiesRequired = 'ต้องอนุญาตใช้ใช้ \'คุ๊กกี้\' (cookie) เสียก่อน จึงจะผ่านจุดนี้ไปได้';
 $strCopyTable = 'คัดลอกตารางไปยัง (ฐานข้อมูล<b>.</b>ตาราง):';
 $strCopyTableOK =  'คัดลอกตาราง %s ไปเก็บในชื่อ %s เรียบร้อยแล้ว.';
+$strCouldNotKill = 'phpMyAdmin ไม่สามารถฆ่าเธรด %s. บางทีมันอาจจะถูกปิดไปแล้วก็ได้.';
 $strCreate = 'สร้าง';
 $strCreateIndex = 'สร้างดัชนีโดยคอลัมน์ %s';
 $strCreateIndexTopic = 'สร้างดัชนีใหม่';
@@ -144,10 +149,12 @@ $strDatabasesDropped = '%s ฐานข้อมูลได้ถูกทิ้งไปเรียบร้อยแล้ว.';
 $strDatabasesStats = 'สถิติฐานข้อมูล';
 $strDatabasesStatsDisable = 'ยกเลิกการเก็บสถิติ';
 $strDatabasesStatsEnable = 'ให้มีการเก็บสถิติ';
+$strDatabasesStatsHeavyTraffic = 'โปรดทราบ: การเปิดใช้การเก็บสถิติของฐานข้อมูล อาจจะทำให้มีปริมาณการถ่ายโอนข้อมูลจำนวนมาก ระหว่างเวบเซิร์ฟเวอร์ และเซิร์ฟเวอร์ MySQL.';
 $strDbPrivileges = 'สิทธิเจาะจงเฉพาะฐานข้อมูล';
 $strDbSpecific = 'เฉพาะฐานข้อมูล';
 $strDefault = 'ค่าปริยาย';
 $strDelete = 'ลบ';
+$strDeleteAndFlush = 'ลบผู้ใช้ และเรียกใช้รายการสิืทธิ์ใหม่หลังจากนั้น.';
 $strDeleteAndFlushDescr = 'นี่เป็นวิธีที่หมดจดที่สุด แต่การโหลดสิทธิใช้งานใหม่ จะต้องใช้เวลาสักระยะ.';
 $strDeleteFailed = 'ลบไม่สำเร็จ!';
 $strDeleteUserMessage = 'คุณได้ลบผู้ใช้ %s ไปแล้ว';
@@ -553,6 +560,7 @@ $strTraffic = 'การจราจร';
 $strTransformation_image_jpeg__inline = 'แสดงรูปขนาดเล็กที่กดเข้าไปดูภาพใหญ่ได้; ตัวเลือก: ความกว้าง, ความสูง หน่วยเป็นพิกเซล (คงสัดส่วนเดิม)';
 $strTransformation_image_jpeg__link = 'แสดงลิงก์ไปยังรูป (ดาวน์โหลดข้อมูลไบนารีโดยตรง/blob).';
 $strTransformation_image_png__inline = 'ดูรูปชนิด image/jpeg ทันที';
+$strTransformation_text_plain__formatted = 'สงวนการจัดรูปแบบเดิมในฟิลด์ไว้ -- ไม่แทรก escape character.';
 $strTransformation_text_plain__unformatted = 'แสดงโค้ด HTML เป็น HTML entities. การจัดรูปแบบแบบ HTML จะไม่ถูกแสดง';
 $strTruncateQueries = 'ตัดทอนคำค้นที่แสดง';
 $strType = 'ชนิด';
@@ -602,16 +610,8 @@ $strYes = 'ใช่';
 $strZeroRemovesTheLimit = 'โปรดทราบ: ถ้าเปลี่ยนค่าเหล่านี้เป็น 0 (ศูนย์) จะหมายถึง ไม่มีขีดจำกัด.';
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-
-$strChangeCopyModeDeleteAndReload = ' ... delete the old one from the user tables and reload the privileges afterwards.';  //to translate
-$strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one and delete it afterwards.';  //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-
-$strDatabasesStatsHeavyTraffic = 'โปรดทราบ: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
 $strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 $strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
 
 $strFlushPrivilegesNote = 'โปรดทราบ: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
 
@@ -619,7 +619,7 @@ $strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to acces
 
 $strMIME_transformation = 'Browser transformation';//to translate
 $strMIME_transformation_note = 'For a list of available transformation options and their MIME-type transformations, click on %stransformation descriptions%s';//to translate
-$strMIME_transformation_options = 'Transformation options';//to translate
+$strMIME_transformation_options = 'ตัวเลือกการแปลง';//to translate
 $strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
 $strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
 
@@ -630,12 +630,10 @@ $strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %
 
 $strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
 $strTransformation_text_plain__external = 'สำหรับ ลีนุกซ์ เท่านั้น: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
-$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
 $strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
 $strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
 $strTransformation_text_plain__substr = 'แสดงข้อความบางส่วนเท่านั้น. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 
 $strUseHostTable = 'Use Host Table';  //to translate
 
-$strCharset = 'Charset';  //to translate
 ?>
