@@ -532,12 +532,13 @@ $cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocume
 
 
 /**
- * Default queries.
- *  %d will be replaced by database name
- *  %t will be replaced by table name
+ * Default queries
+ * %d will be replaced by the database name.
+ * %t will be replaced by the table name.
+ * %f will be replaced by a list of field names.
  */
-$cfg['DefaultQueryTable']   = 'SELECT * FROM %t WHERE 1';
-$cfg['DefaultQueryDatabase']= '';
+$cfg['DefaultQueryTable']    = 'SELECT * FROM %t WHERE 1';
+$cfg['DefaultQueryDatabase'] = '';
 
 /**
  * SQL Query box settings

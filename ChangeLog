@@ -8,6 +8,8 @@ $Source$
 2004-05-28 Michal Čihař  <michal@cihar.com>
     * libraries/display_tbl.lib.php: Decrease limit for query truncating (see
       comments in bug #951744).
+    * Documentation.html, config.inc.php, tbl_query_box.php: Default query can
+      contain field names (RFE #948590, patch #961726).
 
 2004-05-26 Michal Čihař  <michal@cihar.com>
     * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.

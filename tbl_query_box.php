@@ -139,12 +139,15 @@ if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
                     <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                     <td valign="top"><textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
 <?php
-if (!empty($query_to_display)) {
+if (! empty($query_to_display)) {
     echo htmlspecialchars($query_to_display);
-} elseif (isset($table)) {
-    echo htmlspecialchars(str_replace('%d', PMA_backquote($db), str_replace('%t', PMA_backquote($table), $cfg['DefaultQueryTable'])));
 } else {
-    echo htmlspecialchars(str_replace('%d', PMA_backquote($db), $cfg['DefaultQueryDatabase']));
+    $query = str_replace('%d', PMA_backquote($db), $cfg['DefaultQueryDatabase']);
+    if (isset($table)) {
+        $query = str_replace('%f', implode(', ', PMA_backquote($fields_list)), $cfg['DefaultQueryTable']);
+        $query = str_replace('%t', PMA_backquote($table), $query);
+    }
+    echo htmlspecialchars($query);
 }
 ?></textarea></td>
                        <?php if (isset($table) && $fields_cnt > 0) { ?>
