@@ -20,7 +20,7 @@ $Source$
       libraries/select_server.lib.php: Use same code for all server selection,
       possibly display server links also in right frame, show server links in
       query frame when possible.
-    * libraries/display_export.lib.php: Fix broken choice swithing.
+    * libraries/display_export.lib.php: Fix broken choice switching.
 
 2004-06-15 Alexander M. Turek  <me@derrabus.de>
     * libraries/config_import.lib.php: The default settings should be merged.
