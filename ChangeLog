@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-27 Michal Cihar  <michal@cihar.com>
+    * calendar.php, libraries/tbl_change.js: Don't reset clock when moving in
+      calendar.
+
 2004-04-27 Garvin Hicking <pma@supergarv.de>
     * footer.inc.php: Fixed bug #942316 - Consistent window layout for
       query window.

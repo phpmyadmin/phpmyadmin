@@ -22,5 +22,6 @@ var day_names = new Array("<?php echo implode('","', $day_of_week); ?>");
 </head>
 <body onload="initCalendar();">
 <div id="calendar_data"></div>
+<div id="clock_data"></div>
 </body>
 </html>

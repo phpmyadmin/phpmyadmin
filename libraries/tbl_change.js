@@ -118,6 +118,7 @@ var year;
 var hour;
 var minute;
 var second;
+var clock_set = 0;
 
 /**
  * Opens calendar window.
@@ -272,16 +273,28 @@ function initCalendar() {
 	
 	str += "</tr></table>";
 
+	cnt.innerHTML = str;
+
     // Should we handle time also?
-    if (window.opener.dateType != 'date') {
+    if (window.opener.dateType != 'date' && !clock_set) {
+        
+        if (document.getElementById) {
+            cnt = document.getElementById("clock_data");
+        } else if (document.all) {
+            cnt = document.all["clock_data"];
+        }
+        
+        str = '';
         str += '<form class="clock">';
         str += '<input id="hour"    type="text" size="2" maxlength="2" value="' + formatNum2(hour) + '" />:';
         str += '<input id="minute"  type="text" size="2" maxlength="2" value="' + formatNum2(minute) + '" />:';
         str += '<input id="second"  type="text" size="2" maxlength="2" value="' + formatNum2(second) + '" />';
         str += '</form>';
+        
+    	cnt.innerHTML = str;
+        clock_set = 1;
     }
 
-	cnt.innerHTML = str;
 }
 
 /**
