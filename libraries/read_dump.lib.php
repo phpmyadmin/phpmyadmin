@@ -72,11 +72,12 @@ function PMA_splitSqlFile(&$ret, $sql, $release)
        
         // lets skip comments (/*, -- and #)
         else if (($char == '-' && $sql[$i + 1] == '-' && $sql[$i + 2] <= ' ') || $char == '#' || ($char == '/' && $sql[$i + 1] == '*')) {
-            $i = strpos($sql, $char == '/' ? '*/' : "\n", $i) + ($char == '/' ? 1 : 0);
+            $i = strpos($sql, $char == '/' ? '*/' : "\n", $i);
             // didn't we hit end of string?
             if ($i === FALSE) {
                 break;
             }
+            if ($char == '/') $i++;
         }
 
         // We are not in a string, first check for delimiter...
