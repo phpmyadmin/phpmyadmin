@@ -327,8 +327,12 @@ if ($export_type == 'database') {
     }
 }
 
+// Fake loop just to allow skip of remain of this code by break, I'd really
+// need exceptions here :-)
+do {
+
 // Add possibly some comments to export
-PMA_exportHeader();
+if (!PMA_exportHeader()) break;
 
 // Will we need relation & co. setup?
 $do_relation = isset($GLOBALS[$what . '_relation']);
@@ -365,23 +369,30 @@ if ($export_type == 'server') {
     foreach($dblist AS $current_db) {
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
             || !isset($tmp_select)) {
-            PMA_exportDBHeader($current_db);
-            PMA_exportDBCreate($current_db);
+            if (!PMA_exportDBHeader($current_db)) 
+                break 2;
+            if (!PMA_exportDBCreate($current_db)) 
+                break 2;
             $tables = PMA_DBI_get_tables($current_db);
             foreach ($tables as $table) {
                 $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
                 if (isset($GLOBALS[$what . '_structure'])) {
-                    PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates);
+                    if (!PMA_exportStructure($current_db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates))
+                        break 3;
                 }
                 if (isset($GLOBALS[$what . '_data'])) {
-                    PMA_exportData($current_db, $table, $crlf, $err_url, $local_query);
+                    if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query))
+                        break 3;
                 }
             }
-            PMA_exportDBFooter($current_db);
+            if (!PMA_exportDBFooter($current_db)) 
+                break 2;
         }
     }
 } elseif ($export_type == 'database') {
-    PMA_exportDBHeader($db);
+    if (!PMA_exportDBHeader($db))
+        break;
+
     if (isset($table_select)) {
         $tmp_select = implode($table_select, '|');
         $tmp_select = '|' . $tmp_select . '|';
@@ -393,16 +404,20 @@ if ($export_type == 'server') {
             || !isset($tmp_select)) {
 
             if (isset($GLOBALS[$what . '_structure'])) {
-                PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates);
+                if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates))
+                    break 2;
             }
             if (isset($GLOBALS[$what . '_data'])) {
-                PMA_exportData($db, $table, $crlf, $err_url, $local_query);
+                if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query))
+                    break 2;
             }
         }
     }
-    PMA_exportDBFooter($db);
+    if (!PMA_exportDBFooter($db)) 
+        break;
 } else {
-    PMA_exportDBHeader($db);
+    if (!PMA_exportDBHeader($db)) 
+        break;
     // We export just one table
 
     if ($limit_to > 0 && $limit_from >= 0) {
@@ -420,9 +435,35 @@ if ($export_type == 'server') {
         $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
     }
 
-    if (isset($GLOBALS[$what . '_structure'])) PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates);
-    if (isset($GLOBALS[$what . '_data'])) PMA_exportData($db, $table, $crlf, $err_url, $local_query);
-    PMA_exportDBFooter($db);
+    if (isset($GLOBALS[$what . '_structure'])) {
+        if (!PMA_exportStructure($db, $table, $crlf, $err_url, $do_relation, $do_comments, $do_mime, $do_dates))
+            break;
+    }
+    if (isset($GLOBALS[$what . '_data'])) {
+        if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query))
+            break;
+    }
+    if (!PMA_exportDBFooter($db))
+        break;
+}
+
+} while (FALSE);
+// End of fake loop
+
+if ($save_on_server && isset($message)) {
+    $js_to_run = 'functions.js';
+    require_once('./header.inc.php');
+    if ($export_type == 'server') {
+        $active_page = 'server_export.php';
+        require('./server_export.php');
+    } elseif ($export_type == 'database') {
+        $active_page = 'db_details_export.php';
+        require('./db_details_export.php');
+    } else {
+        $active_page = 'tbl_properties_export.php';
+        require('./tbl_properties_export.php');
+    }
+    exit();
 }
 
 /**
