@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-21  Steve Alberty  <alberty@neptunlabs.de>
+	* db_details.php3,tbl_properties.php3: fix incorrect size
+	  calculation with merge tables
+
 2001-07-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* ob.lib.inc.php3, lines 50-54 & 73-76: fixed a bug with php3.
 

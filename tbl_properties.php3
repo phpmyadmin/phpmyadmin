@@ -262,8 +262,9 @@ if ($index_count > 0) {
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
 if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type != "INNODB" && isset($showtable)) {
     // Gets some sizes
+    if (isset($showtable['Type']) && $showtable['Type']=="MRG_MyISAM") $mergetable=true;
     list($data_size, $data_unit)     = format_byte_down($showtable['Data_length']);
-    list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
+    if (!isset($mergetable)) list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
     if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
         list($free_size, $free_unit) = format_byte_down($showtable['Data_free']);
     }
@@ -293,15 +294,19 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
             <td align="right" nowrap="nowrap"><?php echo $data_size; ?></td>
             <td><?php echo $data_unit; ?></td>
         </tr>
+    <?php
+    if (isset($index_size)) {
+    ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
         <td style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
             <td><?php echo $index_unit; ?></td>
         </tr>
     <?php
+    }
     if (isset($free_size)) {
         echo "\n";
-        ?>
+    ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="color: #bb0000">
         <td style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
@@ -400,7 +405,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         </tr>
         <?php
     }
-    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0) {
+    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && !isset($mergetable)) {
         echo (++$i%2)
              ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
              : '    <tr bgcolor="' . $cfgBgcolorOne . '">';

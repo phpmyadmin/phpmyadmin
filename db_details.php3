@@ -114,28 +114,46 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     <td>
         <a href="sql.php3<?php echo $query; ?>&sql_query=<?php echo urlencode("DELETE FROM $table"); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . $table . ' ' . $strHasBeenEmptied); ?>"><?php echo $strEmpty; ?></a>
     </td>
-        <?php
+      <?php
         echo "\n";
-        if (isset($sts_data['Rows'])) {
-            $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
-            $sum_size                       += $tblsize;
-            $sum_entries                    += $sts_data['Rows'];
+        if (isset($sts_data['Type']) && $sts_data['Type']=="MRG_MyISAM") $mergetable=true;
+        if (isset($sts_data['Rows']))
+        {
+          if (!isset($mergetable)){
+            $tblsize                      =  $sts_data['Data_length'] + $sts_data['Index_length'];
+            $sum_size                    += $tblsize;
+            $sum_entries                 += $sts_data['Rows'];
             if ($tblsize > 0) {
-                list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
+              list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
             } else {
-                list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
+              list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
             }
-            ?>
+          }
+          else if (isset($mergetable))  // MyISAM MERGE Table
+          {
+            $formated_size="&nbsp;-&nbsp;";
+            $unit="";
+          }
+          else
+          {
+            $formated_size="unknown";
+            $unit="";
+          }
+       ?>
     <td align="right">
-        <?php echo number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
+        <?php
+          if (isset($mergetable)) echo "<i>";
+          echo number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n";
+          if (isset($mergetable)) echo "</i>";
+        ?>
     </td>
     <td align="right" nowrap="nowrap">
         &nbsp;&nbsp;
         <a href="tbl_properties.php3<?php echo $query; ?>>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
     </td>
-            <?php
+    <?php
         } else {
-            ?>
+    ?>
     <td colspan="3" align="center">
         <?php echo $strInUse . "\n"; ?>
     </td>
