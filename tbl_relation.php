@@ -12,7 +12,7 @@ $url_query .= '&amp;goto=tbl_properties.php';
 
 // Note: in tbl_properties_table_info we get and display the table comment.
 // For InnoDB, this comment contains the REFER information but any update
-// has not been done yet (will be done in tbl_relation later).
+// has not been done yet (will be done in tbl_relation.php later).
 $avoid_show_comment = TRUE;
 require('./tbl_properties_table_info.php');
 require_once('./libraries/relation.lib.php');
@@ -64,55 +64,56 @@ $cfgRelation = PMA_getRelationsParam();
 
 if ($cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table, '', 'internal');
-    if ($tbl_type=='INNODB') {
-        $existrel_innodb = PMA_getForeigners($db, $table, '', 'innodb');
-    }
+}
+if ($tbl_type=='INNODB') {
+    $existrel_innodb = PMA_getForeigners($db, $table, '', 'innodb');
 }
 if ($cfgRelation['displaywork']) {
     $disp     = PMA_getDisplayField($db, $table);
 }
-if ($cfgRelation['relwork']
-    && isset($submit_rel) && $submit_rel == 'true') {
 
+// updates for internal relations or innodb?
+if (isset($submit_rel) && $submit_rel == 'true') {
     // u p d a t e s   f o r   I n t e r n a l    r e l a t i o n s
+    if ($cfgRelation['relwork']) {
 
-    foreach ($destination AS $master_field => $foreign_string) {
-        if ($foreign_string != 'nix') {
-            list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
-            if (!isset($existrel[$master_field])) {
-                $upd_query  = 'INSERT INTO ' . PMA_backquote($cfgRelation['relation'])
-                            . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
-                            . ' values('
-                            . '\'' . PMA_sqlAddslashes($db) . '\', '
-                            . '\'' . PMA_sqlAddslashes($table) . '\', '
-                            . '\'' . PMA_sqlAddslashes($master_field) . '\', '
-                            . '\'' . PMA_sqlAddslashes($foreign_db) . '\', '
-                            . '\'' . PMA_sqlAddslashes($foreign_table) . '\','
-                            . '\'' . PMA_sqlAddslashes($foreign_field) . '\')';
-            } else if ($existrel[$master_field]['foreign_db'] . '.' .$existrel[$master_field]['foreign_table'] . '.' . $existrel[$master_field]['foreign_field'] != $foreign_string) {
-                $upd_query  = 'UPDATE ' . PMA_backquote($cfgRelation['relation']) . ' SET'
-                            . ' foreign_db       = \'' . PMA_sqlAddslashes($foreign_db) . '\', '
-                            . ' foreign_table    = \'' . PMA_sqlAddslashes($foreign_table) . '\', '
-                            . ' foreign_field    = \'' . PMA_sqlAddslashes($foreign_field) . '\' '
-                            . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_sqlAddslashes($master_field) . '\'';
+        foreach ($destination AS $master_field => $foreign_string) {
+            if ($foreign_string != 'nix') {
+                list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
+                if (!isset($existrel[$master_field])) {
+                    $upd_query  = 'INSERT INTO ' . PMA_backquote($cfgRelation['relation'])
+                                . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
+                                . ' values('
+                                . '\'' . PMA_sqlAddslashes($db) . '\', '
+                                . '\'' . PMA_sqlAddslashes($table) . '\', '
+                                . '\'' . PMA_sqlAddslashes($master_field) . '\', '
+                                . '\'' . PMA_sqlAddslashes($foreign_db) . '\', '
+                                . '\'' . PMA_sqlAddslashes($foreign_table) . '\','
+                                . '\'' . PMA_sqlAddslashes($foreign_field) . '\')';
+                } else if ($existrel[$master_field]['foreign_db'] . '.' .$existrel[$master_field]['foreign_table'] . '.' . $existrel[$master_field]['foreign_field'] != $foreign_string) {
+                    $upd_query  = 'UPDATE ' . PMA_backquote($cfgRelation['relation']) . ' SET'
+                                . ' foreign_db       = \'' . PMA_sqlAddslashes($foreign_db) . '\', '
+                                . ' foreign_table    = \'' . PMA_sqlAddslashes($foreign_table) . '\', '
+                                . ' foreign_field    = \'' . PMA_sqlAddslashes($foreign_field) . '\' '
+                                . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
+                                . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
+                                . ' AND master_field = \'' . PMA_sqlAddslashes($master_field) . '\'';
+                } // end if... else....
+            } else if (isset($existrel[$master_field])) {
+                $upd_query      = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
+                                . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
+                                . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
+                                . ' AND master_field = \'' . PMA_sqlAddslashes($master_field) . '\'';
             } // end if... else....
-        } else if (isset($existrel[$master_field])) {
-            $upd_query      = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
-                            . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_sqlAddslashes($master_field) . '\'';
-        } // end if... else....
-        if (isset($upd_query)) {
-            $upd_rs         = PMA_query_as_cu($upd_query);
-            unset($upd_query);
-        }
-    } // end while
-
+            if (isset($upd_query)) {
+                $upd_rs         = PMA_query_as_cu($upd_query);
+                unset($upd_query);
+            }
+        } // end while
+    } // end if (updates for internal relations)
 
     // u p d a t e s   f o r   I n n o D B
-    // ( for now, one index name; we keep the definitions if the
+    // ( for now, one index name only; we keep the definitions if the
     // foreign db is not the same)
     if (isset($destination_innodb)) {
         foreach ($destination_innodb AS $master_field => $foreign_string) {
@@ -197,7 +198,7 @@ if ($cfgRelation['relwork']
         } // end while
     } // end if isset($destination_innodb)
 
-} // end if
+} // end if (updates for internal relations or InnoDB)
 
 
 // U p d a t e s   f o r   d i s p l a y   f i e l d
@@ -239,9 +240,10 @@ if ($cfgRelation['commwork']
 } // end if (commwork)
 
 // If we did an update, refresh our data
-if ($cfgRelation['relwork']
-    && isset($submit_rel) && $submit_rel == 'true') {
-    $existrel = PMA_getForeigners($db, $table, '', 'internal');
+if (isset($submit_rel) && $submit_rel == 'true') {
+    if ($cfgRelation['relwork']) {
+        $existrel = PMA_getForeigners($db, $table, '', 'internal');
+    }
     if ($tbl_type=='INNODB') {
         $existrel_innodb = PMA_getForeigners($db, $table, '', 'innodb');
     }
@@ -257,7 +259,7 @@ if ($cfgRelation['commwork']) {
 /**
  * Dialog
  */
-if ($cfgRelation['relwork']) {
+if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
 
     // To choose relations we first need all tables names in current db
     // and if PMA version permits and the main table is innodb,
@@ -360,12 +362,15 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         <th colspan="<?php echo $tbl_type=='INNODB' ? '4' : '2'; ?>" align="center" class="tblHeaders"><b><?php echo $strLinksTo; ?></b></th>
     </tr>
     <tr>
-        <th></th><th><b><?php echo $strInternalRelations;
-        if ($tbl_type=='INNODB') {
-            echo '&nbsp;(*)';
-        }
-        ?></b></th>
+        <th></th>
         <?php
+        if ($cfgRelation['relwork']) {
+            echo '        <th><b>' .$strInternalRelations;
+            if ($tbl_type=='INNODB') {
+                echo '&nbsp;(*)';
+            }
+            echo '</b></th>';
+        }
         if ($tbl_type=='INNODB') {
             echo '<th colspan="2">InnoDB';
             if (PMA_MYSQL_INT_VERSION < 40013) {
@@ -382,43 +387,48 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         ?>
     <tr>
         <td align="center" bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>"><b><?php echo $save_row[$i]['Field']; ?></b></td>
+        <?php
+        if ($cfgRelation['relwork']) { 
+        ?>
         <td bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>">
             <select name="destination[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
-        <?php
-        echo "\n";
+            <?php
+            echo "\n";
 
-        // PMA internal relations
-        if (isset($existrel[$myfield])) {
-            $foreign_field    = $existrel[$myfield]['foreign_db'] . '.'
-                     . $existrel[$myfield]['foreign_table'] . '.'
-                     . $existrel[$myfield]['foreign_field'];
-        } else {
-            $foreign_field    = FALSE;
-        }
-        $seen_key = FALSE;
-        foreach ($selectboxall AS $key => $value) {
-            echo '                '
-                 . '<option value="' . htmlspecialchars($key) . '"';
-            if ($foreign_field && $key == $foreign_field) {
-                echo ' selected="selected"';
-                $seen_key = TRUE;
+            // PMA internal relations
+            if (isset($existrel[$myfield])) {
+                $foreign_field    = $existrel[$myfield]['foreign_db'] . '.'
+                         . $existrel[$myfield]['foreign_table'] . '.'
+                         . $existrel[$myfield]['foreign_field'];
+            } else {
+                $foreign_field    = FALSE;
             }
-            echo '>' . $value . '</option>'. "\n";
-        } // end while
+            $seen_key = FALSE;
+            foreach ($selectboxall AS $key => $value) {
+                echo '                '
+                     . '<option value="' . htmlspecialchars($key) . '"';
+                if ($foreign_field && $key == $foreign_field) {
+                    echo ' selected="selected"';
+                    $seen_key = TRUE;
+                }
+                echo '>' . $value . '</option>'. "\n";
+            } // end while
 
         // if the link defined in relationtable points to a foreign field
         // that is not a key in the foreign table, we show the link
         // (will not be shown with an arrow)
-        if ($foreign_field && !$seen_key) {
-            echo '                '
-                 . '<option value="' . htmlspecialchars($foreign_field) . '"';
-            echo ' selected="selected"';
-            echo '>' . $foreign_field . '</option>'. "\n";
-        }
+            if ($foreign_field && !$seen_key) {
+                echo '                '
+                     . '<option value="' . htmlspecialchars($foreign_field) . '"';
+                echo ' selected="selected"';
+                echo '>' . $foreign_field . '</option>'. "\n";
+            }
         ?>
             </select>
         </td>
         <?php
+        } // end if (internal relations)
+
         if ($tbl_type=='INNODB') {
         ?>
         <td bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>">
@@ -486,10 +496,12 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     </table>
     <?php
         if ($tbl_type=='INNODB') {
-            echo $strInternalNotNecessary . '<br />';
-                if (PMA_MYSQL_INT_VERSION < 40013) {
-                    echo '** ' . sprintf($strUpgrade, 'MySQL', '4.0.13') . '<br />';
-                }
+            if ($cfgRelation['relwork']) {
+                echo $strInternalNotNecessary . '<br />';
+            }
+            if (PMA_MYSQL_INT_VERSION < 40013) {
+                echo '** ' . sprintf($strUpgrade, 'MySQL', '4.0.13') . '<br />';
+            }
         }
     ?>
 </form>

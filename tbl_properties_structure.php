@@ -450,7 +450,10 @@ if ($cfg['PropertiesIconic']) {
             ?></a>&nbsp;&nbsp;
                     
 <?php
-if ($cfg['Server']['relation']) {
+// if internal relations are available, or the table type is INNODB
+// ($tbl_type comes from tbl_properties_table_info.php)
+
+if ($cfg['Server']['relation'] || $tbl_type=="INNODB") {
     ?>
     <!-- Work on Relations -->
         <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
