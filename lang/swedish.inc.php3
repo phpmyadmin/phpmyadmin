@@ -259,6 +259,9 @@ $strRowLength = 'Radlängd';
 $strRows = 'Rader';
 $strRowsFrom = 'rader med början från';
 $strRowSize = 'Radstorlek';
+$strRowsModeVertical= 'lodrätt';
+$strRowsModeHorizontal= 'vågrätt';
+$strRowsModeOptions= 'i %s format och upprepa rubrikerna efter %s celler';
 $strRowsStatistic = 'Radstatistik';
 $strRunning = 'körs på %s';
 $strRunQuery = 'Kör fråga';
@@ -341,7 +344,4 @@ $strZip = '"zippad"';
 
 // To translate
 
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
 ?>
