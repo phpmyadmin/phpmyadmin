@@ -237,6 +237,8 @@ $strPartialText = 'Testo parziale';
 $strPassword = 'Password';
 $strPasswordEmpty = 'La password è vuota!';
 $strPasswordNotSame = 'La password non coincide!';
+$strPdfInvalidPageNum = 'Pagina del PDF non definita!';
+$strPdfInvalidTblName = 'La tabella "%s" non esiste!';
 $strPHPVersion = 'Versione PHP';
 $strPmaDocumentation = 'Documentazione di phpMyAdmin';
 $strPmaUriError = 'La direttiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> DEVE essere impostata nel file di configurazione!';
@@ -369,6 +371,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
-$strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
 ?>

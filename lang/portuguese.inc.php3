@@ -111,6 +111,7 @@ $strDrop = 'Elimina';
 $strDropDB = 'Elimina a base de dados %s';
 $strDropTable = 'Elimina tabela';
 $strDumpingData = 'Extraindo dados da tabela';
+$strDumpXRows = 'Exporta %s registos começando em %s.';
 $strDynamic = 'dinâmico';
 
 $strEdit = 'Edita';
@@ -224,6 +225,7 @@ $strOperations = 'Operações';
 $strOptimizeTable = 'Optimizar tabela';
 $strOptionalControls = 'Opcional. Comanda o modo de escrita e leitura dos caracteres especiais.';
 $strOptionally = 'OPCIONAL';
+$strOptions = 'Opções';
 $strOr = 'Ou';
 $strOverhead = 'Suspenso';
 
@@ -307,6 +309,7 @@ $strStrucData = 'Estrutura e dados';
 $strStrucDrop = 'Adiciona \'drop table\'';
 $strStrucExcelCSV = 'dados CSV para Ms Excel';
 $strStrucOnly = 'Somente estrutura';
+$strStructure = 'Estrutura';
 $strSubmit = 'Submete';
 $strSuccess = 'O seu comando SQL foi executado com sucesso';
 $strSum = 'Soma';
@@ -357,10 +360,7 @@ $strZip = '"Compressão zip"';
 
 
 // To translate
-$strOptions = 'Options';  //to translate
-$strStructure = 'Structure';  //to translate
 $strRelationView = 'Relation view';  //to translate
-$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
 $strSQL = 'SQL'; //to translate
 $strLinkNotFound = 'Link not found';  //to translate
 $strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
