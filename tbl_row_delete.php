@@ -25,6 +25,12 @@ if (isset($mult_btn)) {
 }
 
 switch($submit_mult) {
+    case 'row_delete':
+    case 'row_edit':
+    case 'row_export':
+        // leave as is
+        break;
+
     case $GLOBALS['strExport']:
         $submit_mult = 'row_export';
         break;

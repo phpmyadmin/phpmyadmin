@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-03 Garvin Hicking <pma@supergarv.de>
+    * tbl_row_delete.php: Multi Row edit/delete: Fixed wrong switch
+      structure to take previous settings into account.
+
 2004-05-02 Michal Cihar  <michal@cihar.com>
     * tbl_change.php: Unclosed tag written by javascript (bug #945905).
 
