@@ -66,8 +66,8 @@ if (isset($btnLDI) && ($textfile != 'none')) {
 
     // for versions before 3.23.49, we use the LOCAL keyword, because
     // there was a version (cannot find which one, and it does not work
-    // with 3.23.38) where the user can LOAD, even if the user does not 
-    // have FILE priv, and even if the file is on the server 
+    // with 3.23.38) where the user can LOAD, even if the user does not
+    // have FILE priv, and even if the file is on the server
     // (which is the present case)
     //
     // we could also code our own loader, but LOAD DATA INFILE is optimized
@@ -78,11 +78,11 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     }
 
     if (PMA_MYSQL_INT_VERSION > 40003) {
-        $tmp_query  = "SHOW VARIABLES LIKE 'local\_infile'";
+        $tmp_query  = "SHOW VARIABLES LIKE 'local\\_infile'";
         $result = PMA_mysql_query($tmp_query);
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             $tmp = PMA_mysql_fetch_row($result);
-            if ($tmp[1] == 'ON') {  
+            if ($tmp[1] == 'ON') {
                 $query     .= ' LOCAL';
             }
         }
