@@ -73,6 +73,7 @@ $strBzError = 'phpMyAdmin n\'a pu compresser le fichier exporté en raison d\'une
 $strBzip = '"bzippé"';
 
 $strCannotLogin = 'Connexion au serveur MySQL non permise';
+$strCantLoad = 'PHP ne peut charger l\'extension %s,<br />veuillez vérifier votre configuration de PHP';
 $strCantLoadMySQL = 'ne peux charger l\'extension MySQL,<br />vérifiez la configuration PHP';
 $strCantLoadRecodeIconv = 'Erreur lors du chargement de l\'extension iconv ou recode, utilisée pour convertir le jeu de caractères; veuillez activer l\'une de ces extensions dans PHP, ou désactiver la conversion des jeux de caractères dans phpMyAdmin';
 $strCantRenameIdxToPrimary = 'La clef ne peut être renommée PRIMARY&nbsp;!';
@@ -112,6 +113,15 @@ $strCreatePage = 'Créer une page';
 $strCreatePdfFeat = 'Génération de schémas en PDF';
 $strCriteria = 'Critère';
 
+$strDBGContext = 'Contexte';
+$strDBGContextID = 'Identificateur de contexte';
+$strDBGHits = 'Occurences';
+$strDBGLine = 'Ligne';
+$strDBGMinTimeMs = 'Durée maximum, ms';
+$strDBGMinTimeMs = 'Durée minimum, ms';
+$strDBGModule = 'Module';
+$strDBGTimePerHitMs = 'Durée/Occurence, ms';
+$strDBGTotalTimeMs = 'Durée totale, ms';
 $strData = 'Données';
 $strDataDict = 'Dictionnaire de données';
 $strDataOnly = 'Données seulement';
@@ -545,14 +555,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strDBGModule = 'Module';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGMinTimeMs = 'Max time, ms';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGContext = 'Context';  //to translate
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
 ?>
