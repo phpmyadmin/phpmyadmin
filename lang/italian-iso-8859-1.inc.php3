@@ -22,8 +22,6 @@ $month = array('Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'O
 $datefmt = '%d %B, %Y at %I:%M %p'; //italian time
 $timespanfmt = '%s giorni, %s ore, %s minuti e %s secondi';
 
-$strUpdComTab = 'Prego leggere la documentazione su come aggiornare la vostra tabella Column_comments';  
-
 $strAPrimaryKey = 'Una chiave primaria è stata aggiunta in %s';
 $strAbortedClients = 'Fallito';
 $strAbsolutePathToDocSqlDir = 'Prego, immettere il path assoluto sul webserver alla directory di docSQL';
@@ -546,6 +544,7 @@ $strStructure = 'Struttura';
 $strSubmit = 'Invia';
 $strSuccess = 'La query è stata eseguita con successo';
 $strSum = 'Totali';
+$strSwitchToTable = 'Passa alla tabella copiata';
 
 $strTable = 'Tabella';
 $strTableComments = 'Commenti sulla tabella';
@@ -586,6 +585,7 @@ $strType = 'Tipo';
 $strUncheckAll = 'Deseleziona tutti';
 $strUnique = 'Unica';
 $strUnselectAll = 'Deseleziona Tutto';
+$strUpdComTab = 'Prego leggere la documentazione su come aggiornare la vostra tabella Column_comments';  
 $strUpdatePrivMessage = 'Hai aggiornato i permessi per %s.';
 $strUpdateProfile = 'Aggiorna profilo:';
 $strUpdateProfileMessage = 'Il profilo è stato aggiornato.';
@@ -628,7 +628,5 @@ $strYes = ' Si ';
 $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
-
-$strSwitchToTable = 'Switch to copied table';  //to translate
 
 ?>
