@@ -963,7 +963,7 @@ echo "\n";
                 <input type="hidden" name="table" value="<?php echo $table; ?>" />
                 <input type="hidden" name="reload" value="1" />
                 <?php echo $strRenameTable; ?>&nbsp;:
-                <input type="text" size="20" name="new_name" />&nbsp;
+                <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" />&nbsp;
                 <input type="submit" value="<?php echo $strGo; ?>" />
             </form>
         </div>
