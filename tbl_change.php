@@ -90,7 +90,7 @@ if (isset($primary_key)) {
     $result = array();
     foreach ($primary_key_array AS $rowcount => $primary_key) {
         $local_query             = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
-        $result[$rowcount]       = PMA_DBI_query($local_query);
+        $result[$rowcount]       = PMA_DBI_query($local_query, NULL, PMA_DBI_QUERY_STORE);
         $row[$rowcount]          = PMA_DBI_fetch_assoc($result[$rowcount]);
         PMA_DBI_free_result($result[$rowcount]);
         $primary_keys[$rowcount] = $primary_key;
@@ -121,7 +121,7 @@ if (isset($primary_key)) {
         } // end if (no record returned)
     }
 } else {
-    $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;');
+    $result = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;', NULL, PMA_DBI_QUERY_STORE);
     unset($row);
 }
 

@@ -6,7 +6,6 @@ error_reporting(E_ALL);
  * Set of functions used with the relation and pdf feature
  */
 
-
 /**
  * Executes a query as controluser if possible, otherwise as normal user
  *
@@ -293,6 +292,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
             $foreign[$field]['foreign_field'] = $relrow['foreign_field'];
             $i++;
         } // end while
+        PMA_DBI_free_result($relations);
+        unset($relations);
     }
 
     if (($source == 'both' || $source == 'innodb') && !empty($table)) {
@@ -300,7 +301,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
             . PMA_backquote($db) . '.' . PMA_backquote($table);
         $show_create_table_res = PMA_DBI_query($show_create_table_query);
         list(,$show_create_table) = PMA_DBI_fetch_row($show_create_table_res);
-
+        PMA_DBI_free_result($show_create_table_res);
+        unset($show_create_table_res);
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
         foreach ($analyzed_sql[0]['foreign_keys'] AS $one_key) {
