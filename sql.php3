@@ -253,18 +253,20 @@ else {
                 unset($db);
             }
         }
+
+        if ($is_delete) {
+            $message = $strDeletedRows . '&nbsp;' . $num_rows;
+        } else if ($is_insert) {
+            $message = $strInsertedRows . '&nbsp;' . $num_rows;
+        } else if ($is_affected) {
+            $message = $strAffectedRows . '&nbsp;' . $num_rows;
+        } else if (!empty($zero_rows)) {
+            $message = $zero_rows;
+        } else {
+            $message = $strEmptyResultSet;
+        }
+
         if (file_exists('./' . $goto)) {
-            if ($is_delete) {
-                $message = $strDeletedRows . '&nbsp;' . $num_rows;
-            } else if ($is_insert) {
-                $message = $strInsertedRows . '&nbsp;' . $num_rows;
-            } else if ($is_affected) {
-                $message = $strAffectedRows . '&nbsp;' . $num_rows;
-            } else if (!empty($zero_rows)) {
-                $message = $zero_rows;
-            } else {
-                $message = $strEmptyResultSet;
-            }
             $goto = ereg_replace('\.\.*', '.', $goto);
             if ($goto == 'db_details.php3' && !empty($table)) {
                 unset($table);
@@ -278,8 +280,7 @@ else {
             include('./' . $goto);
         } // end if file_exist
         else {
-            $message = $zero_rows;
-            header('Location: ' . $cfgPmaAbsoluteUri . $goto);
+            header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . $message);
         } // end else
         exit();
     } // end no rows returned
