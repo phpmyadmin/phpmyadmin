@@ -69,12 +69,23 @@ EOT`
 ##
 # which translations should not be translated to utf-8
 ##
-# List here any translation should not be converted to utf-8. The name is same
-# as above.
+# List here any translation that should not be converted to utf-8. The name is
+# same as above.
 #
 IGNORE_UTF=`cat <<EOT
 hebrew-iso-8859-8-i
 korean-ks_c_5601-1987
+EOT`
+
+##
+# which translations should not be automatically generated
+##
+# List here any translation should not be automatically generated from base
+# translation for that language (usually for those which are not correctly
+# supported by convertor).
+#
+IGNORE_TRANSLATIONS=`cat <<EOT
+japanese-sjis
 EOT`
 
 ##
@@ -87,6 +98,10 @@ for base in $BASE_TRANSLATIONS ; do
     lang=$(echo $base|sed 's%-.*%%')
     # which files will we create from current?
     create_files=$(ls --color=none -1 $lang*.inc.php3|grep -v $base.inc.php3)
+
+    for ignore in $IGNORE_TRANSLATIONS ; do
+        create_files=$(echo "$create_files" | grep -v $ignore)
+    done
 
     # charset of source file
     src_charset=$(grep '\$charset' $base.inc.php3 | sed "s%^[^'\"]*['\"]\\([^'\"]*\\)['\"][^'\"]*$%\\1%")
