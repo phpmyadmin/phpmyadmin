@@ -12,6 +12,7 @@ $Source$
       - footer.inc.php now automatically stops the script execution;
       - Coding standards.
     * config.inc.php: Don't include select_lang.lib.php here.
+    * libraries/common.lib.php: Backwards compatibility.
     * libraries/common.lib.php, libraries/defines.lib.php,
       libraries/defines_php.lib.php, libraries/defines_mysql.lib.php,
       scripts/create-release.sh:
