@@ -8,7 +8,6 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
-
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -82,11 +81,9 @@ if (isset($btnDrop) || isset($navig)) {
  * Reformat the query
  */
 
-$sql_query = (get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query);
-$parsed_sql = PMA_SQP_parse($sql_query);
+$parsed_sql = PMA_SQP_parse((get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query));
 $is_select = eregi('^SELECT[[:space:]]+', $sql_query);
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-
 $sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
 // If the query is a Select, extract the db and table names and modify
@@ -170,11 +167,9 @@ if (!$cfg['Confirm']
 }
 
 if ($do_confirm) {
-    if (get_magic_quotes_gpc()) {
-        $stripped_sql_query = stripslashes($sql_query);
-    } else {
-        $stripped_sql_query = $sql_query;
-    }
+    // already stripped at beginning of script
+    //$stripped_sql_query = (get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query);
+    $stripped_sql_query = $sql_query;
     include('./header.inc.php3');
     echo $strDoYouReally . '&nbsp;:<br />' . "\n";
     echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n";
@@ -185,7 +180,7 @@ if ($do_confirm) {
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo isset($table) ? $table : ''; ?>" />
-    <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo urlencode(addslashes($sql_query)); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="<?php echo isset($back) ? $back : ''; ?>" />
@@ -205,9 +200,11 @@ if ($do_confirm) {
 else {
     if (!isset($sql_query)) {
         $sql_query = '';
-    } else if (get_magic_quotes_gpc()) {
-        $sql_query = stripslashes($sql_query);
-    }
+    } 
+    // already stripped at beginning of script
+    // else if (get_magic_quotes_gpc()) {
+    //    $sql_query = stripslashes($sql_query);
+    //}
     // Defines some variables
     // loic1: A table has to be created -> left frame should be reloaded
     if ((!isset($reload) || $reload == 0)
