@@ -8,8 +8,6 @@ $Source$
 2003-07-31 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_replace_fields: bug 780793: a '+' sign in ENUM (or SET 
       or a foreign key) was wrongly urldecoded to a space
-    * libraries/sqlparser.data.php3: bug 780516, first and status are not
-      reserved words
  
 2003-07-30 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_move_copy.php3: wrong Missing message
