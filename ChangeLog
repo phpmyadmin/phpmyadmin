@@ -9,6 +9,7 @@ $Source$
     * db_create.php3:
       - Display CREATE DATABASE query;
       - Call user-defined default tab instead of hardcoded db_details.php3.
+    * index.php3: Don't display scrollbars in queryframe (Opera fix).
 
 2003-07-10 Garvin Hicking <me@supergarv.de>
     * libraries/display_tbl.lib.php3: Let the default function take
