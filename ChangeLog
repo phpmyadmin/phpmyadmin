@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-15 Michal Cihar  <nijel@users.sourceforge.net>
+    * Documentation: Synced export FAQ with export page.
+
 2003-08-14 Michal Cihar  <nijel@users.sourceforge.net>
     * server_privileges.php3: Fix notice about undefined index (bug #780861).
 

@@ -3164,8 +3164,11 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     once the INSERT verb and the table name.<br />
     &quot;Enclose table and field names with backquotes&quot; ensures that
     field and table names formed with special characters are protected.<br />
-    &quot;Include column comments as inline SQL-comments&quot; includes any
-    column comments set in the PMA-DB in the dump as SQL comments (<i>/* xxx */</i>).<br /></p>
+    &quot;Add AUTO_INCREMENT value&quot; ensures, that AUTO_INCREMENT value
+    (if any) will be included in backup.<br />
+    &quot;Add into comments&quot; includes column comments, relations and MIME
+    types set in the PMA-DB in the dump as SQL comments (<i>/* xxx */</i>).<br />
+</p>
 
 <h4>
     [6.13] I would like to create a database with a dot in its name.
