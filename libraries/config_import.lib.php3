@@ -215,7 +215,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
             $cfg['ShowTooltip'] = TRUE;
         }
     }
-    
+
     if (!isset($cfg['LeftDisplayLogo'])) {
         $cfg['LeftDisplayLogo'] = TRUE;
     }
@@ -603,6 +603,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
 
     if (!isset($cfg['SQLQuery']['Validate'])) {
         $cfg['SQLQuery']['Validate'] = FALSE;
+    }
+
+    if (!isset($cfg['UploadDir'])) {
+        $cfg['UploadDir'] = './upload/';
     }
 
     if (!isset($cfg['SQLValidator']['use'])) {
