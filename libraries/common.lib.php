@@ -1007,27 +1007,23 @@ if ($is_minimum_common == FALSE) {
         // scripts)
         if ($cfg['Server']['controluser'] != '') {
             $dbh = PMA_DBI_connect($cfg['Server']['controluser'], $cfg['Server']['controlpass']);
-        } // end if
+        } // end if ... else
 
         // Pass #1 of DB-Config to read in master level DB-Config will go here
         // Robbat2 - May 11, 2002
 
         // Connects to the server (validates user's login)
         $userlink = PMA_DBI_connect($cfg['Server']['user'], $cfg['Server']['password']);
+        
+        if (empty($dbh)) {
+            $dbh = $userlink;
+        }
 
         // Pass #2 of DB-Config to read in user level DB-Config will go here
         // Robbat2 - May 11, 2002
 
         @ini_set('track_errors', $bkp_track_err);
-
-        // If controluser isn't defined, use the current user settings to get
-        // his rights
-        if ($cfg['Server']['controluser'] == '') {
-            $dbh = $userlink;
-        }
-
-        // Gets the mysql release number
-        require_once('./libraries/defines_mysql.lib.php');
+        unset($bkp_track_err);
 
         /**
          * SQL Parser code

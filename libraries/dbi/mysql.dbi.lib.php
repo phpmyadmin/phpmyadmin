@@ -63,6 +63,23 @@ function PMA_DBI_connect($user, $password) {
         PMA_auth_fails();
     } // end if
 
+    if (!defined('PMA_MYSQL_INT_VERSION')) {
+        $result = PMA_DBI_try_query('SELECT VERSION() AS version', $link);
+        if ($result != FALSE && @mysql_num_rows($result) > 0) {
+            $row   = PMA_DBI_fetch_assoc($result);
+            $match = explode('.', $row['version']);
+            mysql_free_result($result);
+        }
+        if (!isset($row)) {
+            define('PMA_MYSQL_INT_VERSION', 32332);
+            define('PMA_MYSQL_STR_VERSION', '3.23.32');
+        } else{
+            define('PMA_MYSQL_INT_VERSION', (int)sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2])));
+            define('PMA_MYSQL_STR_VERSION', $row['version']);
+            unset($result, $row, $match);
+        }
+    }
+
     return $link;
 }
 
@@ -75,6 +92,57 @@ function PMA_DBI_try_query($query, $link = '') {
         }
     }
     return mysql_query(PMA_convert_charset($query), $link);
+}
+
+// The following function is meant for internal use only.
+// Do not call it from outside this library!
+function PMA_mysql_fetch_array($result, $type = FALSE) {
+    global $cfg, $allow_recoding, $charset, $convcharset;
+
+    if ($type != FALSE) {
+        $data = mysql_fetch_array($result, $type);
+    } else {
+        $data = mysql_fetch_array($result);
+    }
+    if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
+        /* No recoding -> return data as we got them */
+        return $data;
+    } else {
+        $ret = array();
+        $num = mysql_num_fields($result);
+        $i = 0;
+        for($i = 0; $i < $num; $i++) {
+            $meta = mysql_fetch_field($result);
+            $name = mysql_field_name($result, $i);
+            if (!$meta) {
+                /* No meta information available -> we guess that it should be converted */
+                if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
+                if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
+            } else {
+                /* Meta information available -> check type of field and convert it according to the type */
+                if ($meta->blob || stristr($meta->type, 'BINARY')) {
+                    if (isset($data[$i])) $ret[$i] = $data[$i];
+                    if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = $data[$name];
+                } else {
+                    if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
+                    if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
+                }
+            }
+        }
+        return $ret;
+    }
+}
+
+function PMA_DBI_fetch_assoc($result) {
+    return PMA_mysql_fetch_array($result, MYSQL_ASSOC);
+}
+
+function PMA_DBI_fetch_row($result) {
+    return PMA_mysql_fetch_array($result, MYSQL_NUM);
+}
+
+function PMA_DBI_free_result($result) {
+    return mysql_free_result($result);
 }
 
 function PMA_DBI_getError($link = '') {

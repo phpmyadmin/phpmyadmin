@@ -29,43 +29,6 @@ function PMA_mysql_error($id = FALSE) {
     return FALSE;
 }
 
-function PMA_mysql_fetch_array($result, $type = FALSE) {
-    global $cfg, $allow_recoding, $charset, $convcharset;
-
-    if ($type != FALSE) {
-        $data = mysql_fetch_array($result, $type);
-    } else {
-        $data = mysql_fetch_array($result);
-    }
-    if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
-        /* No recoding -> return data as we got them */
-        return $data;
-    } else {
-        $ret = array();
-        $num = mysql_num_fields($result);
-        $i = 0;
-        for($i = 0; $i < $num; $i++) {
-            $meta = mysql_fetch_field($result);
-            $name = mysql_field_name($result, $i);
-            if (!$meta) {
-                /* No meta information available -> we guess that it should be converted */
-                if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
-                if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
-            } else {
-                /* Meta information available -> check type of field and convert it according to the type */
-                if ($meta->blob || stristr($meta->type, 'BINARY')) {
-                    if (isset($data[$i])) $ret[$i] = $data[$i];
-                    if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = $data[$name];
-                } else {
-                    if (isset($data[$i])) $ret[$i] = PMA_convert_display_charset($data[$i]);
-                    if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
-                }
-            }
-        }
-        return $ret;
-    }
-}
-
 function PMA_mysql_fetch_field($result , $field_offset = FALSE) {
     if ($field_offset != FALSE) {
         return PMA_convert_display_charset(mysql_fetch_field($result, $field_offset));

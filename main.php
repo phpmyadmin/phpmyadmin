@@ -71,12 +71,15 @@ if ($server > 0) {
     // if (!empty($cfg['Server']['socket']) && PMA_PHP_INT_VERSION >= 30010) {
     //     $server_info .= ':' . $cfg['Server']['socket'];
     // }
-    $local_query             = 'SELECT VERSION() as version, USER() as user';
-    $res                     = PMA_DBI_query($local_query);
-    $mysql_cur_user_and_host = PMA_mysql_result($res, 0, 'user');
+    $res                     = PMA_DBI_query('SELECT USER();');
+    $row                     = PMA_DBI_fetch_row($res);
+    $mysql_cur_user_and_host = $row[0];
     $mysql_cur_user          = substr($mysql_cur_user_and_host, 0, strrpos($mysql_cur_user_and_host, '@'));
 
-    $full_string     = str_replace('%pma_s1%', PMA_mysql_result($res, 0, 'version'), $strMySQLServerProcess);
+    PMA_DBI_free_result($res);
+    unset($res, $row);
+
+    $full_string     = str_replace('%pma_s1%', PMA_MYSQL_STR_VERSION, $strMySQLServerProcess);
     $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
     $full_string     = str_replace('%pma_s3%', $mysql_cur_user_and_host, $full_string);
 
@@ -88,13 +91,14 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = PMA_DBI_query('FLUSH PRIVILEGES'); // Debug: or PMA_mysqlDie('', 'FLUSH PRIVILEGES', FALSE, 'main.php?' . PMA_generate_common_url());
+    $result = PMA_DBI_query('FLUSH PRIVILEGES');
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
     } else {
       echo $strReloadFailed;
     }
+    unset($result);
     echo '</b></p>' . "\n\n";
 }
 
@@ -179,24 +183,19 @@ if ($server > 0) {
 // (even if they cannot see the tables)
     $is_superuser    = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $userlink);
     if ($dbh) {
-        $local_query = 'SELECT Create_priv, Process_priv, Reload_priv FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
+        $local_query = 'SELECT Create_priv, Reload_priv FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
         $rs_usr      = PMA_DBI_try_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
-            while ($result_usr = PMA_mysql_fetch_array($rs_usr)) {
+            while ($result_usr = PMA_DBI_fetch_assoc($rs_usr)) {
                 if (!$is_create_priv) {
                     $is_create_priv  = ($result_usr['Create_priv'] == 'Y');
                 }
-                /* 02-12-09 rabus: Every user has access to the process list -
-                                   at least to its own :-)
-                if (!$is_process_priv) {
-                    $is_process_priv = ($result_usr['Process_priv'] == 'Y');
-                }
-                */
                 if (!$is_reload_priv) {
                     $is_reload_priv  = ($result_usr['Reload_priv'] == 'Y');
                 }
             } // end while
-            mysql_free_result($rs_usr);
+            PMA_DBI_free_result($rs_usr);
+            unset($rs_usr, $result_usr);
         } // end if
     } // end if
     // If the user has Create priv on a inexistant db, show him in the dialog
@@ -208,16 +207,17 @@ if ($server > 0) {
         if ($rs_usr) {
             $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
             $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
-            while ($row = PMA_mysql_fetch_array($rs_usr)) {
+            while ($row = PMA_DBI_fetch_assoc($rs_usr)) {
                 if (ereg($re0 . '(%|_)', $row['Db'])
-                    || (!PMA_mysql_select_db(ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db']), $userlink) && @mysql_errno() != 1044)) {
+                    || (!PMA_DBI_try_query('USE ' . ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db'])) && substr(PMA_DBI_getError(), 1, 4) != 1044)) {
                     $db_to_create   = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $row['Db']));
                     $db_to_create   = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
                     $is_create_priv = TRUE;
                     break;
                 } // end if
             } // end while
-            mysql_free_result($rs_usr);
+            PMA_DBI_free_result($rs_usr);
+            unset($rs_usr, $row, $re0, $re1);
         } // end if
         else {
             // Finally, let's try to get the user's privileges by using SHOW
@@ -231,10 +231,11 @@ if ($server > 0) {
                 $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user;
                 $rs_usr      = PMA_DBI_try_query($local_query, $dbh);
             }
+            unset($local_query);
             if ($rs_usr) {
                 $re0 = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
                 $re1 = '(^|[^\])(\\\)+'; // escaped wildcards
-                while ($row = PMA_mysql_fetch_row($rs_usr)) {
+                while ($row = PMA_DBI_fetch_row($rs_usr)) {
                     $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4,(strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
                     $show_grants_str    = substr($row[0],6,(strpos($row[0],' ON ')-6));
                     if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str, 'CREATE')) {
@@ -243,7 +244,7 @@ if ($server > 0) {
                             $db_to_create   = '';
                             break;
                         } // end if
-                        else if (ereg($re0 . '%|_', $show_grants_dbname) || !PMA_mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
+                        else if (ereg($re0 . '%|_', $show_grants_dbname) || !PMA_DBI_try_query('USE ' . $show_grants_dbname) && substr(PMA_DBI_getError(), 1, 4) != 1044) {
                             $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
                             $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
                             // and remove backquotes
@@ -253,8 +254,9 @@ if ($server > 0) {
                         } // end elseif
                     } // end if
                 } // end while
-                unset($show_grants_dbname, $show_grants_str);
-                mysql_free_result($rs_usr);
+                unset($show_grants_dbname, $show_grants_str, $re0, $re1);
+                PMA_DBI_free_result($rs_usr);
+                unset($rs_usr);
             } // end if
         } // end elseif
     } // end if

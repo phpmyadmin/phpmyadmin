@@ -7,15 +7,16 @@ $Source$
 
 2004-01-17 Michal Cihar  <argh@cihar.com>
     * lang/czech: Updated.
-    
+
 2004-01-17 Alexander M. Turek  <roomservice@derrabus.de>
     * config.inc.php, Documentation.html, footer.inc.php, lang/*.inc.php,
       libraries/common.lib.php, libraries/config_import.lib.php,
       libraries/database_interface.lib.php, libraries/defines.lib.php,
+      libraries/defines_mysql.lib.php, libraries/mysql_wrappers.lib.php,
       libraries/auth/config.auth.lib.php, libraries/auth/cookie.lib.php,
-      libraries/dbi/mysql.dbi.lib.php: Database abstraction, part I - Added
-      new procedures for connecting and querying.
-    * main.php: Changed all calls to PMA_mysql_query by the new functions.
+      libraries/dbi/mysql.dbi.lib.php: Database abstraction.
+    * main.php: This script now accesses MySQL exclusivly through the new DBI
+      functions.
 
 2004-01-14 Marc Delisle  <lem9@users.sourceforge.net>
     * mult_submits.inc.php: bug 876805, dropping a field with the
