@@ -332,9 +332,12 @@
         <br />
     </li>
     <li>
-        Then each of the <i>true</i> users should be granted of a set of
-        privileges on a set of particular databases but shouldn't have any
-        global privileges. For example, to grant the user <i>real_user</i> with
+        Then each of the <i>true</i> users should be granted a set of
+        privileges on a set of particular databases. Normally you shouldn't
+        give global privileges to an ordinary user, unless you understand
+        the impact of those privileges (for example, you are creating 
+        a superuser).<br />
+        For example, to grant the user <i>real_user</i> with
         all privileges on the database <i>user_base</i>:<br />
         &nbsp;&nbsp;&nbsp;<tt>GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';</tt>
         <br />
