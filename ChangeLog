@@ -16,6 +16,9 @@ $Source$
       and count rows correctly (in MySQL 3),
       thanks to Matthias Pigulla (mp@webfactory.de) 
     * server_privileges.php: cosmetic: title for Edit privileges
+    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/italian: Updates, thanks to Pietro Danesi
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen
 
 2004-10-13 Michal Čihař  <michal@cihar.com>
     * libraries/fpdf/fpdf.php: Updated to 1.52.
