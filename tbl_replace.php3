@@ -29,15 +29,8 @@ if ($goto == 'sql.php3') {
 reset($fields);
 reset($funcs);
 // Misc
-$is_encoded = FALSE;
-if (isset($submit_type)) {
-    if (get_magic_quotes_gpc()) {
-        $submit_type = stripslashes($submit_type);
-    }
-    // values have been urlencoded in tbl_change.php3
-    if ($submit_type == $strSave || $submit_type == $strInsertAsNewRow) {
-        $is_encoded = TRUE;
-    }
+if (get_magic_quotes_gpc()) {
+    $submit_type = stripslashes($submit_type);
 }
 
 
@@ -46,64 +39,37 @@ if (isset($submit_type)) {
  */
 if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // Restore the "primary key" to a convenient format
-    if ($is_encoded) {
-        $primary_key = urldecode($primary_key);
-    }
-    else if (get_magic_quotes_gpc()) {
-        $primary_key = stripslashes($primary_key);
-    }
+    $primary_key = urldecode($primary_key);
 
     // Defines the SET part of the sql query
     $valuelist = '';
     while (list($key, $val) = each($fields)) {
-        if ($is_encoded) {
-            $encoded_key = $key;
-            $key         = urldecode($key);
-        } else {
-            $encoded_key = urlencode($key);
-        }
+        $encoded_key = $key;
+        $key         = urldecode($key);
 
         switch (strtolower($val)) {
             case 'null':
                 break;
             case '$enum$':
                 // if we have an enum, then construct the value
-                if ($is_encoded) {
-                    $f = 'field_' . md5($key);
-                } else {
-                    $f = 'field_' . $key;
-                }
+                $f = 'field_' . md5($key);
                 if (!empty($$f)) {
                     $val     = implode(',', $$f);
                     if ($val == 'null') {
                         // void
-                    } else if ($is_encoded) {
-                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
-                    } else if (get_magic_quotes_gpc()) {
-                        $val = "'" . str_replace('\\"', '"', $val) . "'";
                     } else {
-                        $val = "'" . sql_addslashes($val) . "'";
+                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
                     }
                 } else {
-                    $val = "''";
+                    $val     = "''";
                 }
                 break;
             case '$set$':
                 // if we have a set, then construct the value
-                if ($is_encoded) {
-                    $f = 'field_' . md5($key);
-                } else {
-                    $f = 'field_' . $key;
-                }
+                $f = 'field_' . md5($key);
                 if (!empty($$f)) {
-                    $val    = implode(',', $$f);
-                    if ($is_encoded) {
-                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
-                    } else if (get_magic_quotes_gpc()) {
-                        $val = "'" . str_replace('\\"', '"', $val) . "'";
-                    } else {
-                        $val = "'" . sql_addslashes($val) . "'";
-                    }
+                    $val = implode(',', $$f);
+                    $val = "'" . sql_addslashes(urldecode($val)) . "'";
                 } else {
                     $val = "''";
                 }
@@ -162,16 +128,8 @@ else {
     $fieldlist = '';
     $valuelist = '';
     while (list($key, $val) = each($fields)) {
-        if ($is_encoded) {
-            $encoded_key = $key;
-            $key         = urldecode($key);
-        } else {
-            $encoded_key = urlencode($key);
-            // the 'query' row is urlencoded in sql.php3
-            if ($key == 'query') {
-                $val     = urldecode($val);
-            }
-        }
+        $encoded_key = $key;
+        $key         = urldecode($key);
         $fieldlist .= backquote($key) . ', ';
 
         switch (strtolower($val)) {
@@ -179,21 +137,13 @@ else {
                 break;
             case '$enum$':
                 // if we have a set, then construct the value
-                if ($is_encoded) {
-                    $f = 'field_' . md5($key);
-                } else {
-                    $f = 'field_' . $key;
-                }
+                $f = 'field_' . md5($key);
                 if (!empty($$f)) {
                     $val     = implode(',', $$f);
                     if ($val == 'null') {
                         // void
-                    } else if ($is_encoded) {
-                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
-                    } else if (get_magic_quotes_gpc()) {
-                        $val = "'" . str_replace('\\"', '"', $val) . "'";
                     } else {
-                        $val = "'" . sql_addslashes($val) . "'";
+                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
                     }
                 } else {
                     $val     = "''";
@@ -201,22 +151,12 @@ else {
                 break;
             case '$set$':
                 // if we have a set, then construct the value
-                if ($is_encoded) {
-                    $f = 'field_' . md5($key);
-                } else {
-                    $f = 'field_' . $key;
-                }
+                $f = 'field_' . md5($key);
                 if (!empty($$f)) {
-                    $val    = implode(',', $$f);
-                    if ($is_encoded) {
-                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
-                    } else if (get_magic_quotes_gpc()) {
-                        $val = "'" . str_replace('\\"', '"', $val) . "'";
-                    } else {
-                        $val = "'" . sql_addslashes($val) . "'";
-                    }
+                    $val = implode(',', $$f);
+                    $val = "'" . sql_addslashes(urldecode($val)) . "'";
                 } else {
-                    $val     = "''";
+                    $val = "''";
                 }
                 break;
             default:

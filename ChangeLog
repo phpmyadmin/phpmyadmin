@@ -19,6 +19,8 @@ $Source$
 	* lang/norwegian.inc.php3: fixed some typos and re-sorted a bit.
 	* ldi_table.php3: removed some unnecessary lines of code.
 	* sql.php3, lines 51-66: fixed bug #456254 - Crash select on a table.
+	* tbl_replace.php3: removed the $is_encoded variable that is unnecessary
+	  and which use caused some bugs.
 
 2001-08-29  Olivier Müller  <om@omnis.ch>
 	* left.php3: on login with std_auth, only the databases on which
