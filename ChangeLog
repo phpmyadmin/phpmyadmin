@@ -7,6 +7,7 @@ $Source$
 
 2004-09-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysql.dbi.lib.php: typo, thanks to Matthias Pigulla 
+    ### 2.6.0-rc3 released
 
 2004-09-21 Alexander M. Turek  <me@derrabus.de>
     * db_details.php, read_dump.php, tbl_query_box.php: Allow import of
