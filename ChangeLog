@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-22  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_properties.php3, line 983; lang/*: added $strDropTable.
+
 2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3: fixed a syntax error (is_defined is not a function).
 	* lib.inc.php3: beautify a but the design of the table in browse mode.
