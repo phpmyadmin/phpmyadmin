@@ -589,10 +589,12 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             break;
     }
     $res = PMA_DBI_query('SELECT "foo" FROM `user` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '";');
-    if (PMA_DBI_affected_rows($userlink) == 1) {
+    if (PMA_DBI_affected_rows() == 1) {
+        PMA_DBI_free_result($res);
         $message = sprintf($strUserAlreadyExists, '<i>\'' . $username . '\'@\'' . $hostname . '\'</i>');
         $adduser = 1;
     } else {
+        PMA_DBI_free_result($res);
         $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '"';
         if ($pred_password != 'none' && $pred_password != 'keep') {
             $pma_pw_hidden = '';
@@ -642,9 +644,7 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             $tmp_count = count($queries);
             $queries_for_display[$tmp_count - 1] = $sql_query;
         }
-        unset($real_sql_query);
-        PMA_DBI_free_result($res);
-        unset($res);
+        unset($res, $real_sql_query);
     }
 }
 
