@@ -29,7 +29,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
      *
      * @param   string   the synthetic value for display_mode (see §1 a few
      *                   lines above for explanations)
-     * @global  integer  the total number of rows returned by the sql query
+     * @param   integer  the total number of rows returned by the sql query
      *                   without any programmatically appended "LIMIT" clause
      *                   (just a copy of $unlim_num_rows if it exists, else
      *                   computed inside this function)
