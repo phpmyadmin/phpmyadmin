@@ -10,8 +10,7 @@ $server_links_count_tabs = 0;
 
 
 /**
- * If coming from a Show MySQL link on the home page,
- * put something in $sub_part
+ * Put something in $sub_part
  */
 if (!isset($sub_part)) {
     $sub_part = '';
@@ -24,6 +23,14 @@ if (!isset($sub_part)) {
 if ($is_superuser) {
     $cfg['ShowMysqlInfo'] = TRUE;
     $cfg['ShowMysqlVars'] = TRUE;
+}
+
+
+/**
+ * Displays a message
+ */
+if (!empty($message)) {
+    PMA_showMessage($message);
 }
 
 
@@ -50,4 +57,3 @@ echo PMA_printTab($strServerTabProcesslist, 'server_processlist.php3', $url_quer
     </tr>
 </table>
 <br />
-

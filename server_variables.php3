@@ -8,10 +8,12 @@
  */
 require('./server_common.inc.php3');
 
+
 /**
  * Displays the links
  */
 require('./server_links.inc.php3');
+
 
 /**
  * Displays the sub-page heading
@@ -19,6 +21,7 @@ require('./server_links.inc.php3');
 echo '<h2>' . "\n"
    . '    ' . $strServerVars . "\n"
    . '</h2>' . "\n";
+
 
 /**
  * Checks if the user is allowed to do what he tries to...
@@ -29,8 +32,9 @@ if (!$is_superuser && !$cfg['ShowMysqlVars']) {
     exit;
 }
 
+
 /**
- * Sends the queries and buffers the result
+ * Sends the queries and buffers the results
  */
 if (PMA_MYSQL_INT_VERSION >= 40003) {
     $res = @PMA_mysql_query('SHOW SESSION VARIABLES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW SESSION VARIABLES;');
@@ -52,6 +56,7 @@ if (PMA_MYSQL_INT_VERSION >= 40003) {
 }
 unset($res);
 unset($row);
+
 
 /**
  * Displays the page
@@ -92,6 +97,7 @@ while (list($name, $value) = each($serverVars)) {
 ?>
 </table>
 <?php
+
 
 /**
  * Sends the footer

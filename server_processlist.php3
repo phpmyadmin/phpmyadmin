@@ -4,14 +4,10 @@
 
 
 /**
- * Gets some core libraries
+ * Does the common work
  */
-if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
-    include('./libraries/grab_globals.lib.php3');
-}
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php3');
-}
+require('./server_common.inc.php3');
+
 
 /**
  * Kills a selected process
@@ -25,15 +21,12 @@ if (!empty($kill)) {
     }
 }
 
-/**
- * Does the common work
- */
-require('./server_common.inc.php3');
 
 /**
  * Displays the links
  */
 require('./server_links.inc.php3');
+
 
 /**
  * Displays the sub-page heading
@@ -41,6 +34,7 @@ require('./server_links.inc.php3');
 echo '<h2>' . "\n"
    . '    ' . $strProcesslist . "\n"
    . '</h2>' . "\n";
+
 
 /**
  * Checks if the user is allowed to do what he tries to...
@@ -50,6 +44,7 @@ if (!$is_superuser && !$cfg['ShowMysqlVars']) {
     include('./footer.inc.php3');
     exit;
 }
+
 
 /**
  * Sends the query and buffers the result
@@ -62,6 +57,7 @@ while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
 @mysql_free_result($res);
 unset($res);
 unset($row);
+
 
 /**
  * Displays the page
@@ -102,6 +98,7 @@ while (list($name, $value) = each($serverProcesses)) {
 ?>
 </table>
 <?php
+
 
 /**
  * Sends the footer

@@ -8,10 +8,12 @@
  */
 require('./server_common.inc.php3');
 
+
 /**
  * Displays the links
  */
 require('./server_links.inc.php3');
+
 
 /**
  * Displays the sub-page heading
@@ -19,6 +21,7 @@ require('./server_links.inc.php3');
 echo '<h2>' . "\n"
    . '    ' . $strServerStatus . "\n"
    . '</h2>' . "\n";
+
 
 /**
  * Checks if the user is allowed to do what he tries to...
@@ -28,6 +31,7 @@ if (!$is_superuser && !$cfg['ShowMysqlInfo']) {
     include('./footer.inc.php3');
     exit;
 }
+
 
 /**
  * Sends the query and buffers the result
@@ -39,6 +43,7 @@ while ($row = PMA_mysql_fetch_row($res)) {
 @mysql_free_result($res);
 unset($res);
 unset($row);
+
 
 /**
  * Displays the page
@@ -234,6 +239,7 @@ unset($useBgcolorOne);
 
 
 <?php
+
 
 /**
  * Sends the footer

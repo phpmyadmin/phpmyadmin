@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-11 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_*.php3:
+      - The messages are now displayed by server_links.inc.php3, so
+        server_common.inc.php3 may be included earlier;
+      - Beautified code.
+    * server_privileges.php3: Wrong GRANT syntax.
+
 2003-01-10 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3: bug 665885, wrong back link after sql error
     * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.

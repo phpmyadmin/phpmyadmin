@@ -4,14 +4,25 @@
 
 
 /**
- * Gets some core libraries
+ * Does the common work
  */
-if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
-    include('./libraries/grab_globals.lib.php3');
+$js_to_run = 'server_privileges.js';
+require('./server_common.inc.php3');
+
+
+/**
+ * Checks if the user is allowed to do what he tries to...
+ */
+if (!$is_superuser) {
+    include('./server_links.inc.php3');
+    echo '<h2>' . "\n"
+       . '    ' . $strPrivileges . "\n"
+       . '</h2>' . "\n"
+       . $strNoPrivileges . "\n";
+    include('./footer.inc.php3');
+    exit;
 }
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php3');
-}
+
 
 /**
  * Extracts the privilege information of a priv table row
@@ -289,6 +300,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
     echo $spaces . '</table>' . "\n";
 } // end of the 'PMA_displayPrivTable()' function
 
+
 /**
  * Adds a user
  */
@@ -322,21 +334,6 @@ if (!empty($adduser_submit)) {
     } else {
         if (PMA_MYSQL_INT_VERSION >= 32211) {
             $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO "' . $username . '"@"' . $hostname . '"';
-            if ((isset($Grant_priv) && $Grant_priv == 'Y') || isset($max_questions) || isset($max_connections) || isset($max_updates)) {
-                $real_sql_query .= 'WITH';
-                if (isset($Grant_priv) && $Grant_priv == 'Y') {
-                    $real_sql_query .= ' GRANT OPTION';
-                }
-                if (isset($max_questions)) {
-                    $real_sql_query .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
-                }
-                if (isset($max_connections)) {
-                    $real_sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
-                }
-                if (isset($max_updates)) {
-                    $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
-                }
-            }
             if ($pred_password != 'none') {
                 $pma_pw_hidden = '';
                 for ($i = 0; $i < strlen($pma_pw); $i++) {
@@ -347,6 +344,28 @@ if (!empty($adduser_submit)) {
             } else {
                 $sql_query = $real_sql_query;
             }
+            if ((isset($Grant_priv) && $Grant_priv == 'Y') || isset($max_questions) || isset($max_connections) || isset($max_updates)) {
+                $real_sql_query .= 'WITH';
+                $sql_query .= 'WITH';
+                if (isset($Grant_priv) && $Grant_priv == 'Y') {
+                    $real_sql_query .= ' GRANT OPTION';
+                    $sql_query .= ' GRANT OPTION';
+                }
+                if (isset($max_questions)) {
+                    $real_sql_query .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
+                    $sql_query .= ' MAX_QUERIES_PER_HOUR ' . (int)$max_questions;
+                }
+                if (isset($max_connections)) {
+                    $real_sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
+                    $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . (int)$max_connections;
+                }
+                if (isset($max_updates)) {
+                    $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+                    $sql_query .= ' MAX_UPDATES_PER_HOUR ' . (int)$max_updates;
+                }
+            }
+            $real_sql_query .= ';';
+            $sql_query .= ';';
             PMA_mysql_query($real_sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
             unset($real_sql_query);
             $message = $strAddUserMessage;
@@ -375,6 +394,7 @@ if (!empty($adduser_submit)) {
         unset($res);
     }
 }
+
 
 /**
  * Updates privileges
@@ -427,6 +447,7 @@ if (!empty($update_privs)) {
     }
 }
 
+
 /**
  * Revokes Privileges
  */
@@ -449,6 +470,7 @@ if (!empty($revokeall)) {
         unset($tablename);
     }
 }
+
 
 /**
  * Updates the password
@@ -477,12 +499,11 @@ if (!empty($change_pw)) {
     }
 }
 
+
 /**
  * Deletes users
  */
 if (!empty($delete)) {
-    PMA_mysql_query('USE `mysql`;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'USE `mysql`;');
-    $is_superuser = TRUE;
     $queries = array();
     for ($i = 0; isset($selected_usr[$i]); $i++) {
         list($this_user, $this_host) = explode('@', $selected_usr[$i]);
@@ -520,7 +541,8 @@ if (!empty($delete)) {
         $message = $strError . ': ' . $strDeleteNoUsersSelected;
     } else {
         if ($mode == 3) {
-            $queries[] = '# ' . $strReloadingThePrivileges . ' ...' . "\n" . 'FLUSH PRIVILEGES;';
+            $queries[] = '# ' . $strReloadingThePrivileges . ' ...';
+            $queries[] = 'FLUSH PRIVILEGES;';
         }
         while (list(, $sql_query) = each($queries)) {
             if (substr($sql_query, 0, 1) != '#') {
@@ -532,6 +554,7 @@ if (!empty($delete)) {
     }
     unset($queries);
 }
+
 
 /**
  * Reloads the privilege tables into memory
@@ -545,29 +568,16 @@ if (!empty($flush_privileges)) {
     }
 }
 
-/**
- * Does the common work
- */
-$js_to_run = 'server_privileges.js';
-require('./server_common.inc.php3');
 
 /**
  * Displays the links
  */
 require('./server_links.inc.php3');
 
-/**
- * Checks if the user is allowed to do what he tries to...
- */
-if (!$is_superuser) {
-    echo '<h2>' . "\n"
-       . '    ' . $strPrivileges . "\n"
-       . '</h2>' . "\n"
-       . $strNoPrivileges . "\n";
-    include('./footer.inc.php3');
-    exit;
-}
 
+/**
+ * Displays the page
+ */
 if (empty($adduser)) {
     if (!isset($username)) {
         // No username is given --> display the overview
@@ -684,7 +694,8 @@ if (empty($adduser)) {
                . '    </ul>' . "\n"
                . '</form>' . "\n"
                . '<div>' . "\n"
-               . '    ' . sprintf($strFlushPrivilegesNote, '<a href="server_privileges.php3?' . $url_query . '&amp;flush_privileges=1">', '</a>');
+               . '    ' . sprintf($strFlushPrivilegesNote, '<a href="server_privileges.php3?' . $url_query . '&amp;flush_privileges=1">', '</a>') . "\n"
+               . '</div>' . "\n";
         }
     } else if (isset($username)) {
         if (!isset($hostname)) {
@@ -901,7 +912,7 @@ if (empty($adduser)) {
        . '                <select name="pred_username" id="select_pred_username" title="' . $strUserName . '" class="textfield"' . "\n"
        . '                    onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">' . "\n"
        . '                    <option value="any"' . ((isset($pred_username) && $pred_username == 'any') ? ' selected="selected"' : '') . '>' . $strAnyUser . '</option>' . "\n"
-       . '                    <option value="userdefined"' . ((isset($pred_username) && $pred_username == 'userdefined') ? ' selected="selected"' : '') . '>' . $strUseTextField . ':</option>' . "\n"
+       . '                    <option value="userdefined"' . ((!isset($pred_username) || $pred_username == 'userdefined') ? ' selected="selected"' : '') . '>' . $strUseTextField . ':</option>' . "\n"
        . '                </select>' . "\n"
        . '            </td>' . "\n"
        . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
@@ -926,11 +937,9 @@ if (empty($adduser)) {
             unset($thishost);
         }
     }
-    if (empty($thishost)) {
-        echo '                    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
-    } else {
-        echo '                    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } else if (this.value == \'thishost\') { hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; } else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
-    }
+    echo '                    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } '
+       . (empty($thishost) ? '' : 'else if (this.value == \'thishost\') { hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; } ')
+       . 'else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
     unset($row);
     echo '                    <option value="any"' . ((isset($pred_hostname) && $pred_hostname == 'any') ? ' selected="selected"' : '') . '>' . $strAnyHost . '</option>' . "\n"
        . '                    <option value="localhost"' . ((isset($pred_hostname) && $pred_hostname == 'localhost') ? ' selected="selected"' : '') . '>' . $strLocalhost . '</option>' . "\n";
@@ -955,7 +964,7 @@ if (empty($adduser)) {
        . '                <select name="pred_password" id="select_pred_password" title="' . $strPassword . '" class="textfield"' . "\n"
        . '                    onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">' . "\n"
        . '                    <option value="none">' . $strNoPassword . '</option>' . "\n"
-       . '                    <option value="userdefined">' . $strUseTextField . ':</option>' . "\n"
+       . '                    <option value="userdefined" selected="selected">' . $strUseTextField . ':</option>' . "\n"
        . '                </select>' . "\n"
        . '            </td>' . "\n"
        . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
@@ -980,9 +989,11 @@ if (empty($adduser)) {
        . '</form>' . "\n";
 } // end if (empty($adduser)) ... else ...
 
+
 /**
  * Displays the footer
  */
+echo "\n\n";
 require('./footer.inc.php3');
 
 ?>

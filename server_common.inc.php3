@@ -38,13 +38,6 @@ $err_url = 'main.php3' . $url_query;
 require('./header.inc.php3');
 
 /**
- * Displays a message
- */
-if (!empty($message)) {
-    PMA_showMessage($message);
-}
-
-/**
  * Checks for superuser privileges
  */
 $is_superuser = @PMA_mysql_query('USE mysql', $userlink);
