@@ -625,7 +625,7 @@ if ($is_minimum_common == FALSE) {
                   ($d_bef_prev_upper == 'CHARACTER' && $d_prev_upper == 'SET')
                   || ($d_bef_prev_upper == 'SET' && $d_prev_upper == '=')
                   || ($d_bef_prev_upper == 'CHARSET' && $d_prev_upper == '=')
-                  || $prev_upper == 'CHARSET'
+                  || $d_prev_upper == 'CHARSET'
                   ) && PMA_STR_binarySearchInArr($d_cur, $mysql_charsets, count($mysql_charsets))) {
                   $t_suffix = '_charset';
               }
