@@ -197,7 +197,7 @@ if ($server > 0) {
     // loic1: Displays the MySQL column only if at least one feature has to be
     //        displayed
     if ($is_superuser || $is_create_priv || $is_process_priv || $is_reload_priv
-        || $cfgShowMysqlInfo || $cfgShowMysqlVars) {
+        || $cfgShowMysqlInfo || $cfgShowMysqlVars || $cfgServer['adv_auth']) {
         ?>
     <!-- MySQL server related links -->
     <td valign="top" align="<?php echo $cell_align_left; ?>">

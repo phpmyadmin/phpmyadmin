@@ -6,6 +6,7 @@ $Id$
 $Source$
 
 2001-11-24  Loïc Chapeaux  <lolo@phpheaven.net>
+	* main.php3, line 200: fixed bug #485116 - No logout option for users.
 	* Documentation.html, lines 969-979: added an other entry about the
 	  $cfgOBGZip setting and beta versions of php4.
 	* Documentation.txt: updated.
