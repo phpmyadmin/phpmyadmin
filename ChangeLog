@@ -5,6 +5,29 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3:
+	  - splitted the function "display_table" in 3 little functions with
+	    specific targets (top of the page/headers of the table/body of the
+	    table);
+	  - added the function "set_display_mode" that defines which elements
+	    should be displayed while browsing a table (it fixes the bugs #458462
+	    -Full texts botton disapear- and #444767 Other cases for
+	    display=simple-). Marc Delisle drawed the buttons used to
+	    expand/collapase text/blob fields;
+	  - fixed the empty page bug with php 3.0.9 thanks to the help of
+	    Graziano "Radio head" <dreamservice at libero.it>;
+	  - fixed a bug in the csv export function.
+	* lib.inc.php3; main.php3; tbl_properties.php3, sql.php3: updated with
+	  "lib.inc.php3".
+	* main.php3, lines 8-11; select_lang.inc.php3: the language cookie is set
+	  only by the main page and its duration is now 30 days.
+	* main.php3: fixed an xhtml1.0 bug.
+	* tbl_properties.php3:
+	  - fixed bug #458557 (Navigation bar);
+	  - optimized a bit.
+	* ldi_check.php3: removed some unnecessary "str_replace".
+
 2001-09-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:
 	  - improved the fix for bug #458160 - Advanced auth fails on WebSite Pro,
