@@ -343,7 +343,8 @@
         <tt>$cfg['Servers'][$i]['user']</tt> and
         <tt>$cfg['Servers'][$i]['password']</tt> fields.<br />
         But you don't need to setup a &quot;controluser&quot; here:
-        using the <tt>$cfg['Servers'][$i]['only_db']</tt> might be enough.<br />
+        using the <tt>$cfg['Servers'][$i]['only_db']</tt> might be enough.
+        <br />
         In the ISP FAQ section, there is an entry explaining how to protect
         your configuration file.<br /></li>
 </ul>
@@ -389,14 +390,14 @@
         use such a kind of code:
         <pre>
 $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
-                   . $HTTP_HOST . (!empty($SERVER_PORT) ? ':' . $SERVER_PORT : '')
-                   . substr($PHP_SELF, 0, strrpos($PHP_SELF, '/')+1);
+                       . $HTTP_HOST . (!empty($SERVER_PORT) ? ':' . $SERVER_PORT : '')
+                       . substr($PHP_SELF, 0, strrpos($PHP_SELF, '/')+1);
 
     or
 
 $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
-                   . $SERVER_NAME . (!empty($SERVER_PORT) ? ':' . $SERVER_PORT : '')
-                   . substr($SCRIPT_NAME, 0, strrpos($SCRIPT_NAME, '/')+1);
+                       . $SERVER_NAME . (!empty($SERVER_PORT) ? ':' . $SERVER_PORT : '')
+                       . substr($SCRIPT_NAME, 0, strrpos($SCRIPT_NAME, '/')+1);
         </pre>
     </dd>
 
@@ -404,11 +405,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <dd>
         Since version 1.4.2, phpMyAdmin supports the administration of multiple
         MySQL servers.
-        Therefore, a $cfg['Servers']-array has been added which contains the login
-        information for the different servers. The first
+        Therefore, a $cfg['Servers']-array has been added which contains
+        the login information for the different servers. The first
         <tt>$cfg['Servers'][$i]['host']</tt> contains the hostname of the first
-        server, the second <tt>$cfg['Servers'][$i]['host']</tt> the hostname of the
-        second server, etc.
+        server, the second <tt>$cfg['Servers'][$i]['host']</tt> the hostname of
+        the second server, etc.
         If you have only one server to administer, simply leave free the
         hostname of the other $cfg['Server']-entries.
         <br /><br />
@@ -469,7 +470,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['Servers'][$i]['auth_type']</b> string <tt>['http'|'cookie'|'config']</tt> </dt>
+    <dt><b>$cfg['Servers'][$i]['auth_type']</b> string <tt>['http'|'cookie'|'config']</tt></dt>
     <dd>
         Whether config or cookie or http authentication should be used for this
         server.
@@ -563,9 +564,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
             <li>
                 then complete the two variables
                 <tt>$cfg['Servers'][$i]['bookmarkdb']</tt> and
-                <tt>$cfg['Servers'][$i]['bookmarktable']</tt> with the database and
-                table names you've choosen so phpMyAdmin will be able to find
-                the bookmarks.
+                <tt>$cfg['Servers'][$i]['bookmarktable']</tt> with the database
+                and table names you've choosen so phpMyAdmin will be able to
+                find the bookmarks.
             </li>
         </ul><br />
 
@@ -632,11 +633,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <dt><b>$cfg['ServerDefault']</b> integer</dt>
     <dd>
         If you have more than one server configured, you can set
-        <tt>$cfg['ServerDefault']</tt> to any one of them to autoconnect to that
-        server when phpMyAdmin is started, or set it to 0 to be given a list of
-        servers without logging in.<br />
-        If you have only one server configured, <tt>$cfg['ServerDefault']</tt> MUST
-        be set to that server.
+        <tt>$cfg['ServerDefault']</tt> to any one of them to autoconnect to
+        that server when phpMyAdmin is started, or set it to 0 to be given a
+        list of servers without logging in.<br />
+        If you have only one server configured, <tt>$cfg['ServerDefault']</tt>
+        MUST be set to that server.
         <br /><br />
     </dd>
 
@@ -1194,8 +1195,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     systems, too.<br />
     If you encounter this bug together with another OS and/or MySQL version or
     you know how to work around it, please post a message into
-    <a href="https://sourceforge.net/tracker/index.php?func=detail&aid=540671&group_id=23067&atid=377408"
-    target="_blank">our bug tracker</a> at SourceForge.
+    <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=540671&amp;group_id=23067&amp;atid=377408" target="_blank">
+    our bug tracker</a> at SourceForge.
 </p>
 
 
@@ -1284,8 +1285,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
        table, an error 404 (page not found) is displayed or, with http or
        cookie authentication, I'm asked to login again. What's wrong?</b>
     <br />
-    Check the value you set for the <tt>$cfg['PmaAbsoluteUri']</tt> directive in
-    the phpMyAdmin configuration file.
+    Check the value you set for the <tt>$cfg['PmaAbsoluteUri']</tt> directive
+    in the phpMyAdmin configuration file.
 </p>
 
 <a name="faqlimitations"></a>
@@ -1546,7 +1547,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE countries (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;country_code char(1) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description varchar(10) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (country_code)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (country_code)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO countries VALUES ('C', 'Canada');<br />
@@ -1556,7 +1557,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person_name varchar(32) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) default '0',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;country_code char(1) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (id)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO persons VALUES (11, 'Marc', 'S', '');<br />
@@ -1567,7 +1568,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_field varchar(32) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_table varchar(32) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_field varchar(32) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (master_table,master_field)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (master_table,master_field)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'town_code', 'towns', 'town_code');<br />
@@ -1576,7 +1577,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE towns (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) NOT NULL default '0',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description varchar(30) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (town_code)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (town_code)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('S', 'Sherbrooke');<br />
@@ -1584,20 +1585,21 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     </tt>
     <br />
     Then test like this:
-    <ul>
-       <li>Click on your db name in the left frame</li>
-       <li>Choose &quot;Query by example&quot;</li>
-       <li>Use tables: persons, towns, countries</li>
-       <li>Click &quot;Update query&quot;</li>
-       <li>In the fields row, choose persons.person_name and click the 
-           &quot;Show&quot; tickbox </li>
-       <li>Do the same for towns.description and countries.descriptions in 
-           the other 2 columns</li>
-       <li>Click &quot;Update query&quot; and you will see in the query box
-           that the correct joints have been generated</li>
-       <li>Click &quot;Submit query&quot;</li>
-    </ul>
 </p>
+<ul>
+    <li>Click on your db name in the left frame</li>
+    <li>Choose &quot;Query by example&quot;</li>
+    <li>Use tables: persons, towns, countries</li>
+    <li>Click &quot;Update query&quot;</li>
+    <li>In the fields row, choose persons.person_name and click the
+        &quot;Show&quot; tickbox </li>
+    <li>Do the same for towns.description and countries.descriptions in the
+        other 2 columns</li>
+    <li>Click &quot;Update query&quot; and you will see in the query box that
+        the correct joints have been generated</li>
+    <li>Click &quot;Submit query&quot;</li>
+</ul>
+<br />
 
 <a name="faqproject"></a>
 <h3>[phpMyAdmin project]</h3>

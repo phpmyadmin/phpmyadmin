@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-27 Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html: xhtml fixes.
+
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>
 	* ## created 2.2.7 branch into the CVS tree ##
 	* lang/nowegian.inc.php: updated thanks to Sven-Erik Andersen.
