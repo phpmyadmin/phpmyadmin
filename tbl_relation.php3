@@ -177,22 +177,18 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     </tr>
     </table>
 </form>
+
     <?php
-} // end if
+    if (!empty($cfg['Server']['table_info'])) {
+        // Get "display_filed" infos
+        $disp_query = 'SELECT display_field FROM ' .  PMA_backquote($cfg['Server']['table_info'])
+                  . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+        $disp_rs    = mysql_query($disp_query) or PMA_mysqlDie('', $disp_query, '', $err_url_0);
+        $row        = ($disp_rs ? mysql_fetch_array($disp_rs) : '');
+        if (isset($row['display_field'])) {
+            $disp   = $row['display_field'];
+        }
 
-if (!empty($cfg['Server']['table_info'])) {
-    // Get "display_filed" infos
-    $disp_query = 'SELECT display_field FROM ' .  PMA_backquote($cfg['Server']['table_info'])
-                . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-    $disp_rs    = mysql_query($disp_query) or PMA_mysqlDie('', $disp_query, '', $err_url_0);
-    $row        = ($disp_rs ? mysql_fetch_array($disp_rs) : '');
-    if (isset($row['display_field'])) {
-        $disp   = $row['display_field'];
-    }
-    $col_query  = 'SHOW COLUMNS FROM ' . PMA_backquote($table);
-    $col_rs     = mysql_query($col_query) or PMA_mysqlDie('', $col_query, '', $err_url_0);
-
-    if ($col_rs && mysql_num_rows($col_rs) > 0) {
         echo "\n";
         ?>
 <form method="post" action="tbl_relation.php3" onchange="this.form.submit();">
@@ -206,6 +202,7 @@ if (!empty($cfg['Server']['table_info'])) {
     <select name="display_field">
         <?php
         echo "\n";
+        mysql_data_seek($col_rs, 0);
         while ($row = @mysql_fetch_array($col_rs)) {
             echo '        <option value="' . htmlspecialchars($row['Field']) . '"';
             if (isset($disp) && $row['Field'] == $disp) {

@@ -12,6 +12,7 @@ $Source$
     * header.inc.php3: enforce relative url in CSS.
     * tbl_relation.php3:
       - fixed an error when $cfg['Server']['table_info'] is not valid;
+      - optimized a bit;
       - removed an "onchange" js handler to lower server charge.
 
 2002-05-25 Alexander M. Turek  <rabus@users.sourceforge.net>
