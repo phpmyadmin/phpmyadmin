@@ -21,6 +21,7 @@ $timespanfmt = '%s zile, %s ore, %s minute si %s secunde';
 
 $strAPrimaryKey = 'A fost adaugat o cheie primara la %s';
 $strAbortedClients = 'Intrerupt';
+$strAbsolutePathToDocSqlDir = 'Va rugam introduceti calea absoluta al serverului web la directorul docSQL';
 $strAccessDenied = 'Acces interzis';
 $strAction = 'Actiune';
 $strAddDeleteColumn = 'Adauga/Sterge coloane';
@@ -34,6 +35,8 @@ $strAddSearchConditions = 'Adauga conditie de cautare (parte a comenzii "where")
 $strAddToIndex = 'Adauga la coloana(ele) index &nbsp;%s&nbsp;';
 $strAddUser = 'Adauga un utilizator nou';
 $strAddUserMessage = 'Ati adaugat un nou utilizator.';
+$strAddedColumnComment = 'Sa adaugat comentariu la coloana';
+$strAddedColumnRelation = 'Sa adaugat o relatie la coloana';
 $strAdministration = 'Administrare';
 $strAffectedRows = 'Linii afectate:';
 $strAfter = 'Dupa %s';
@@ -181,6 +184,7 @@ $strFieldsEmpty = ' Rezultat gol ';
 $strFieldsEnclosedBy = 'Campuri incadrate de';
 $strFieldsEscapedBy = 'Campuri realizate de';
 $strFieldsTerminatedBy = 'Campuri terminate de';
+$strFileCouldNotBeRead = 'Fisierul nu poate fi citit';
 $strFixed = 'fixat';
 $strFlushPrivilegesNote = 'Nota: phpMyAdmin foloseste privilegiile utilizatorilor direct din tabela de privilegii din MySQL. Continutul acestei tabele poate diferi de cel original. In acest caz, reincarca de aici inainte de a continua %sreincarcarea drepturilor%s.';
 $strFlushTable = 'Curatarea tabelului ("FLUSH")';
@@ -212,7 +216,10 @@ $strId = 'ID';
 $strIdxFulltext = 'Tot textul';
 $strIfYouWish = 'In cazul in care doriti sa incarcati numai o parte a coloanelor tabelului, specificati o lista separata prin virgula.';
 $strIgnore = 'Ignora';
+$strIgnoringFile = 'Fisier %s ignorat';
 $strImportDocSQL = 'Import de fisiere docSQL';
+$strImportFiles = 'Import de fisiere';
+$strImportFinished = 'Importarea a fost finalizat';
 $strInUse = 'in folosinta';
 $strIndex = 'Index';
 $strIndexHasBeenDropped = 'Index %s a fost aruncat';
@@ -499,6 +506,7 @@ $strTheContent = 'Continutul fisierului dumneavoastra a fost inserat.';
 $strTheContents = 'Continutul acestui fisier inlocuieste continutul tabelului selectat pentru liniile cu cheie primara identica.';
 $strTheTerminator = 'Terminatorul campurilor.';
 $strThisHost = 'Acest Host';
+$strThisNotDirectory = 'Acesta nu este un director';
 $strThreadSuccessfullyKilled = 'Firul de executie %s a fost oprit cu succes.';
 $strTime = 'Timp';
 $strTotal = 'total';
@@ -537,6 +545,8 @@ $strWebServerUploadDirectory = 'director de upload al web-server-ului';
 $strWebServerUploadDirectoryError = 'Directorul setat pentru upload nu poate fi gasit';
 $strWelcome = 'Bine ai venit la %s';
 $strWithChecked = 'Verificat cu:';
+$strWritingCommentNotPossible = 'Scrierea unui comentariu nu este posibil';
+$strWritingRelationNotPossible = 'Scrierea unei relatii nu este posibil';
 $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
 
 $strYes = 'Da';
@@ -544,20 +554,5 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) se elimina restrictia.';
 $strZip = '"arhivat"';
 // To translate
-
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strImportFiles = 'Import files';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-
-$strThisNotDirectory = 'This was not a directory';  //to translate
-
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
 
 ?>
