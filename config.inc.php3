@@ -61,7 +61,8 @@ $cfg['Servers'][$i]['table_info']    = '';          // table to describe the dis
                                                     //   - leave blank for no display fields support
 $cfg['Servers'][$i]['table_coords']  = '';          // table to describe the tables position for the PDF
                                                     //   schema - leave blank for no PDF schema support
-$cfg['Servers'][$i]['column_comments']='';          // table to store columncomments
+$cfg['Servers'][$i]['column_comments']              // table to store columncomments
+                                     = '';
                                                     // - leave blank if you don't want to use this
 $cfg['Servers'][$i]['pdf_pages']     = '';          // table to describe pages of relationpdf
 $cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use
@@ -198,8 +199,8 @@ $cfg['DefaultLang'] = 'en';
 /**
  * Charset conversion settings
  */
-// Default charset to use for recoding of MySQL queries, does not take 
-// any effect when charsets recoding is switched off by 
+// Default charset to use for recoding of MySQL queries, does not take
+// any effect when charsets recoding is switched off by
 // $cfg['AllowAnywhereRecoding'] or in language file
 // (see $cfg['AvailableCharsets'] to possible choices, you can add your own)
 $cfg['DefaultCharset'] = 'iso-8859-1';

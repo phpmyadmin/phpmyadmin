@@ -120,12 +120,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Include MySQL wrappers.
      */
     include('./libraries/mysql_wrappers.lib.php3');
-    
+
     /**
      * Include charset conversion.
      */
     include('./libraries/charset_conversion.lib.php3');
-    
+
     /**
      * Gets constants that defines the PHP, MySQL... releases.
      * This include must be located physically before any code that needs to
@@ -136,12 +136,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     include('./libraries/defines.lib.php3');
 
     // For compatibility with old config.inc.php3
-    if (!isset($cfg)) {
-        include('./libraries/config_import.lib.php3');
-    }
-    if (!isset($cfg['UseDbSearch'])) {
-        $cfg['UseDbSearch'] = TRUE;
-    }
+    include('./libraries/config_import.lib.php3');
 
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
@@ -556,18 +551,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                        ? ''
                        : ':' . $cfg['Server']['socket'];
 
-        // Ensures compatibility with old config files
-        if (!isset($cfg['Server']['auth_type'])) {
-            $cfg['Server']['auth_type']  = (isset($cfg['Server']['adv_auth']) && $cfg['Server']['adv_auth'])
-                                         ? 'http'
-                                         : 'config';
-        }
-
-        if (isset($cfg['Server']['stduser'])) {
-           $cfg['Server']['controluser'] = $cfg['Server']['stduser'];
-           $cfg['Server']['controlpass'] = $cfg['Server']['stdpass'];
-        }
-
         // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
         include('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php3');
@@ -937,7 +920,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if ($do_it
             && PMA_MYSQL_INT_VERSION >= 32306
             && !empty($a_name) && $a_name != '*') {
-            
+
             if (is_array($a_name)) {
                  $result = array();
                  reset($a_name);
