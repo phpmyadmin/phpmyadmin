@@ -61,7 +61,7 @@ $strBzip = '"bzipされる"';
 
 $strCantLoadMySQL = 'MySQLを実行できません。<br />PHPの設定を確認して下さい。';
 $strCantRenameIdxToPrimary = 'インデックスの名前をPRIMARYに変更できません。';
-$strCardinality = '信頼性';
+$strCardinality = 'カーディナリティ';
 $strCarriage = 'キャリッジリターン: \\r';
 $strChange = '変更';
 $strCheckAll = '全てをマーク';
@@ -71,6 +71,7 @@ $strColumn = '列';
 $strColumnNames = '列(コラム)名';
 $strCompleteInserts = '完全なINSERT文の作成';
 $strConfirm = '実行しても良いですか？';
+$strCookiesRequired = 'ここから先はクッキーが許可されている必要があります。';
 $strCopyTable = 'テーブルを(database<b>.</b>table)にコピーする:';
 $strCopyTableOK = '%sテーブルを%sにコピーしました。';
 $strCreate = '作成';
@@ -344,6 +345,4 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 
 // To translate
-$strCardinality = 'Cardinality';
-$strCookiesRequired = 'Cookies must be enabled past this point.';
 ?>
