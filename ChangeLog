@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php3: fix from Loïc for bug 579017
+
 2002-07-08 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_create.php3: Fixed bug #578321 (Wrong page after table creation).
     * libraries/common.lib.php3: Fixed bug #578404 (js error in no-frame mode).
