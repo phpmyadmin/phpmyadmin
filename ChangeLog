@@ -19,6 +19,7 @@ $Source$
 	  <josh at boxcarmedia.com> to get valid statistics whatever are the table
 	  types.
 	* read_dump.php3, lines 245-249: fixed bug #521003 - parse error.
+	* lang/catala.inc.php3: sorted strings by name.
 
 2002-02-19 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/common.lib.php3: get_magic_quotes fix  thanks to

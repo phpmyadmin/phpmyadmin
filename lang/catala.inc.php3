@@ -10,11 +10,11 @@ $number_decimal_separator = '.';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
 $day_of_week = array('Diu', 'Dll', 'Dma', 'Dcr', 'Djs', 'Div', 'Dis');
-$month = array('Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago',
-'Set', 'Oct', 'Nov', 'Dec');
+$month = array('Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Dec');
 // Veure http://www.php.net/manual/es/function.strftime.php per a definir
 // la variable seguent
 $datefmt = '%d-%m-%Y a les %H:%M:%S';
+
 
 $strAPrimaryKey = 'S\'ha afegit una clau primària a %s';
 $strAccessDenied = 'Access denegat';
@@ -97,8 +97,8 @@ $strDescending = 'Descendent';
 $strDisplay = 'Mostrar';
 $strDisplayOrder = 'Ordre del llistat:';
 $strDoAQuery = 'Fer un "petició segons exemple" (comodí: "%")';
-$strDoYouReally = 'Realment vols ';
 $strDocu = 'Documentació';
+$strDoYouReally = 'Realment vols ';
 $strDrop = 'Eliminar';
 $strDropDB = 'Eliminar base de dades ';
 $strDropTable = 'Esborrar taula';
@@ -125,8 +125,8 @@ $strFieldsEscapedBy = 'Camps amb marca d\'escape';
 $strFieldsTerminatedBy = 'Camps acabats per';
 $strFixed = 'fixa';
 $strFlushTable = 'Flush the table ("FLUSH")'; //to translate
-$strFormEmpty = 'Falta un valor al formulari !';
 $strFormat = 'Format';
+$strFormEmpty = 'Falta un valor al formulari !';
 $strFullText = 'Textes sencers';
 $strFunction = 'Funció';
 
@@ -146,7 +146,6 @@ $strHostEmpty = 'El nom del servidor ès buit!';
 $strIdxFulltext = 'Texte sencer';
 $strIfYouWish = 'Si només vols carregar algunes col.lumnes de la taula, especifica-ho amb una llista separada per comes.';
 $strIgnore = 'Ignora';
-$strInUse = 'en use';
 $strIndex = 'Index';
 $strIndexHasBeenDropped = 'S\'ha esborrat l\'index %s';
 $strIndexName = 'Nom d\'index&nbsp;:';
@@ -158,6 +157,7 @@ $strInsertNewRow = 'Inserir nova fila';
 $strInsertTextfiles = 'Inserir fitxers de text a la taula';
 $strInsertedRows = 'Files Inserides:';
 $strInstructions = 'Instruccions';
+$strInUse = 'en use';
 $strInvalidName = '"%s" és una paraula reservada, no es pot fer servir com a nom de base de dades/taula/camp.';
 
 $strKeepPass = 'No canviis la contrasenya';
@@ -209,17 +209,18 @@ $strNotNumber = 'Aquest valor no és un número!';
 $strNotValidNumber = ' no es un número de col.lumna vàlid!';
 $strNull = 'Nul';
 
-$strOftenQuotation = 'Marques sintàctiques. OPCIONALMENT vol dir que només els camps de tipus char i varchar van "tancats dins" "-aquest caràcter.'; $strOptimizeTable = 'Optimitza la taula';
+$strOftenQuotation = 'Marques sintàctiques. OPCIONALMENT vol dir que només els camps de tipus char i varchar van "tancats dins" "-aquest caràcter.';
+$strOptimizeTable = 'Optimitza la taula';
 $strOptionalControls = 'Opcional. Controla com llegir o escriure caràcters especials.';
 $strOptionally = 'OPCIONALMENT';
 $strOr = 'O';
 $strOverhead = 'Overhead'; //to translate
 
-$strPHPVersion = 'PHP versió';
 $strPartialText = 'Textes Parcials';
 $strPassword = 'Contrasenya';
 $strPasswordEmpty = 'La contrasenya és buida!';
 $strPasswordNotSame = 'Les contrasenyes no coincideixen!';
+$strPHPVersion = 'PHP versió';
 $strPmaDocumentation = 'Documentació de phpMyAdmin';
 $strPos1 = 'Inici';
 $strPrevious = 'Anterior';
@@ -237,7 +238,6 @@ $strQBEDel = 'Sup';
 $strQBEIns = 'Ins';
 $strQueryOnDb = 'Consulta SQL a la base de dades <b>%s</b>:';
 
-$strReType = 'Re-escriure';
 $strRecords = 'Registres';
 $strReloadFailed = 'El reinici del MySQL ha fallat';
 $strReloadMySQL = 'Rellegir el MySQL';
@@ -248,15 +248,16 @@ $strRepairTable = 'Reparar taula';
 $strReplace = 'Substituïr';
 $strReplaceTable = 'Substituïr les dades de la taula pel fitxer ';
 $strReset = 'Esborrar';
+$strReType = 'Re-escriure';
 $strRevoke = 'Revocar';
 $strRevokeGrant = 'Revocar garantia';
 $strRevokeGrantMessage = 'Has revocat la garantia de privilegis per a %s';
 $strRevokeMessage = 'Has revocat els privilegis per %s';
 $strRevokePriv = 'Revocar privilegis';
 $strRowLength = 'Longitud de fila';
-$strRowSize = ' tamany de fila ';
 $strRows = 'Fila';
 $strRowsFrom = 'Files començant des de';
+$strRowSize = ' tamany de fila ';
 $strRowsModeHorizontal = 'horizontal';
 $strRowsModeOptions=" en modus %s i repeteix capçaleres després de %s cel.les ";
 $strRowsModeVertical = 'vertical';
@@ -265,7 +266,6 @@ $strRunQuery = 'Executa consulta';
 $strRunSQLQuery = 'Executa consulta/s SQL a la Base de Dades %s';
 $strRunning = 'funcionant a %s';
 
-$strSQLQuery = 'crida SQL';
 $strSave = 'Guardar';
 $strSelect = 'Sel&middot;lecciona';
 $strSelectADb = 'Selecciona una Base de Dades';
@@ -288,6 +288,7 @@ $strSingly = '(singly)';
 $strSize = 'Mida';
 $strSort = 'Clasificació';
 $strSpaceUsage = 'Utilització d\'espai';
+$strSQLQuery = 'crida SQL';
 $strStartingRecord = 'Registre inicial';
 $strStatement = 'Sentències';
 $strStrucCSV = 'dades CSV ';
@@ -325,11 +326,11 @@ $strUpdateProfileMessage = 'S\'ha actualitzat el perfil.';
 $strUpdateQuery = 'Actualitza consulta';
 $strUsage = 'Ús';
 $strUseBackquotes = 'Usa "backquotes" amb taules i noms de camps';
-$strUseTables = 'Usa Taules';
 $strUser = 'Usuari';
 $strUserEmpty = 'El nom d\'usuari és buit!';
 $strUserName = 'Nom d\'usuari';
 $strUsers = 'Usuaris';
+$strUseTables = 'Usa Taules';
 
 $strValue = 'Valor';
 $strViewDump = 'Veure un esquema de la taula';
@@ -342,5 +343,6 @@ $strWrongUser = 'Usuari i/o clau erronis. Access denegat.';
 $strYes = 'Si';
 
 $strZip = '"comprimit amb zip"';
+
 // To translate
 ?>
