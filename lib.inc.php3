@@ -373,6 +373,7 @@ if (!defined('__LIB_INC__')){
                 // Seems to be a valid login...
                 else {
                     $row = mysql_fetch_array($rs);
+                    mysql_free_result($rs);
                     // Correction uva 19991215
                     // Previous code assumed database "mysql" admin table "db"
                     // column "db" contains literal name of user database, and
@@ -397,6 +398,7 @@ if (!defined('__LIB_INC__')){
                                 while ($row = mysql_fetch_array($rs)) {
                                     $dblist[] = $row['Db'];
                                 }
+                                mysql_free_result($rs);
                             }
                         } else {
                             // Will use as associative array of the following 2
@@ -413,6 +415,7 @@ if (!defined('__LIB_INC__')){
                             while ($row = mysql_fetch_array($rs)) {
                                 $uva_mydbs[$row['Db']] = 1;
                             }
+                            mysql_free_result($rs);
                             $uva_alldbs = mysql_list_dbs();
                             while ($uva_row = mysql_fetch_array($uva_alldbs)) {
                                 $uva_db = $uva_row[0];
@@ -432,6 +435,7 @@ if (!defined('__LIB_INC__')){
                                     } // end while
                                 } // end if ... else ....
                             } // end while
+                            mysql_free_result($uva_alldbs);
                         } // end else
                     } // end if
                 } // end else
@@ -659,8 +663,9 @@ if (!defined('__LIB_INC__')){
      */
     function count_records($db, $table, $ret = FALSE)
     {
-        $result = mysql_query('select count(*) as num from ' . backquote($db) . '.' . backquote($table));
-        $num    = mysql_result($result,0,"num");
+        $result = mysql_query('SELECT COUNT(*) AS num FROM ' . backquote($db) . '.' . backquote($table));
+        $num    = mysql_result($result, 0, 'num');
+        mysql_free_result($result);
         if ($ret) {
             return $num;
         } else {
@@ -996,6 +1001,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             $local_query = 'SELECT COUNT(*) AS total FROM ' . backquote($db) . '.' . backquote($table);
             $result      = mysql_query($local_query) or mysql_die('', $local_query);
             $the_total   = mysql_result($result, 0, 'total');
+            mysql_free_result($result);
         }
         
         // 4. If navigation bar or sorting fields names urls should be
@@ -1808,6 +1814,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 $tmpres        = mysql_fetch_array($result);
                 $schema_create .= str_replace("\n", $crlf, html_format($tmpres[1]));
             }
+            mysql_free_result($result);
             return $schema_create;
         } // end if MySQL >= 3.23.20
 
@@ -1829,6 +1836,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             }
             $schema_create     .= ',' . $crlf;
         } // end while
+        mysql_free_result($result);
         $schema_create         = ereg_replace(',' . $crlf . '$', '', $schema_create);
 
         $local_query = 'SHOW KEYS FROM ' . backquote($db) . '.' . backquote($table);
@@ -1854,6 +1862,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 $index[$kname][] = html_format(backquote($row['Column_name'], $use_backquotes));
             }
         } // end while
+        mysql_free_result($result);
 
         while (list($x, $columns) = @each($index)) {
             $schema_create     .= ',' . $crlf;
@@ -1984,6 +1993,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
               $GLOBALS['tmp_buffer'] = ereg_replace(',([^,]*)$', ';\\1', $GLOBALS['tmp_buffer']);
             }
         } // end if ($result != FALSE)
+        mysql_free_result($result);
     
         return TRUE;
     } // end of the 'get_table_content_fast()' function
@@ -2019,12 +2029,13 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         $result      = mysql_query($local_query) or mysql_die('', $local_query);
         $i           = 0;
         $isFirstRow  = TRUE;
+        $fields_cnt  = mysql_num_fields($result);
 
         while ($row = mysql_fetch_row($result)) {
             @set_time_limit(60); // HaRa
             $table_list     = '(';
 
-            for ($j = 0; $j < mysql_num_fields($result); $j++) {
+            for ($j = 0; $j < $fields_cnt; $j++) {
                 $table_list .= backquote(mysql_field_name($result, $j), $use_backquotes) . ', ';
             }
 
@@ -2044,7 +2055,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 $isFirstRow        = FALSE;
             }
 
-            for ($j = 0; $j < mysql_num_fields($result); $j++) {
+            for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {
                     $schema_insert .= ' NULL,';
                 } else if ($row[$j] != '') {
@@ -2073,6 +2084,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             $handler(trim($schema_insert));
             ++$i;
         } // end while
+        mysql_free_result($result);
 
         // Replace last comma by a semi-column in extended inserts case
         if ($i > 0 && isset($GLOBALS['extended_ins'])) {
@@ -2191,13 +2203,13 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         // Gets the data from the database
         $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
         $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $fields_cnt  = mysql_num_fields($result);
 
         // Format the data
         $i      = 0;
         while ($row = mysql_fetch_row($result)) {
             @set_time_limit(60);
             $schema_insert = '';
-            $fields_cnt    = mysql_num_fields($result);
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {
                     $schema_insert .= 'NULL';
@@ -2221,6 +2233,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             $handler(trim($schema_insert));
             ++$i;
         } // end while
+        mysql_free_result($result);
 
         return TRUE;
     } // end of the 'get_table_csv()' function

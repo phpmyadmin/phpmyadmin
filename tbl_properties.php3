@@ -63,6 +63,8 @@ if (!empty($table)) {
 if (empty($table) || !@mysql_numrows($is_table)) {
     header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . '&reload=true');
     exit();
+} else {
+    mysql_free_result($result);
 }
 
 
@@ -118,6 +120,7 @@ if (MYSQL_INT_VERSION >= 32303) {
     $num_rows     = mysql_result($result, 0, 'count');
     $show_comment = '';
 }
+mysql_free_result($result);
 ?>
 
 <?php
@@ -171,14 +174,31 @@ if (!empty($show_comment)) {
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
 $result      = mysql_query($local_query) or mysql_die('', $local_query);
 $primary     = '';
-$pk_array    = array();
+$prev_key    = '';
+$prev_seq    = 0;
+$i           = 0;
+$pk_array    = array(); // will be use to emphasis prim. keys in the table view
 while($row = mysql_fetch_array($result)) {
     $ret_keys[]  = $row;
+    // Unset the 'Seq_in_index' value if it's not a composite index - part 1
+    if ($i > 0 && $row['Key_name'] != $prev_key && $prev_seq == 1) {
+        unset($ret_keys[$i-1]['Seq_in_index']);
+    }
+    $prev_key    = $row['Key_name'];
+    $prev_seq    = $row['Seq_in_index'];
+    // Backups the list of primary keys
     if ($row['Key_name'] == 'PRIMARY') {
         $primary .= $row['Column_name'] . ', ';
         $pk_array[$row['Column_name']] = 1;
     }
+    $i++;
 }
+// Unset the 'Seq_in_index' value if it's not a composite index - part 2
+if ($i > 0 && $row['Key_name'] != $prev_key && $prev_seq == 1) {
+    unset($ret_keys[$i-1]['Seq_in_index']);
+}
+mysql_free_result($result);
+
 
 // 3. Get fields
 $local_query = 'SHOW FIELDS FROM ' . backquote($table);
@@ -186,37 +206,23 @@ $result      = mysql_query($local_query) or mysql_die('', $local_query);
 $fields_cnt  = mysql_num_rows($result);
 
 
+
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
  */
 ?>
 
-
-
 <!-- TABLE INFORMATIONS -->
 
-<?php
-// Drop button if there is at least two fields
-if ($fields_cnt > 1) {
-    ?>
 <form action="tbl_properties.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
-    <?php
-}
-echo "\n";
-?>
 
 <table border="<?php echo $cfgBorder; ?>">
 <tr>
-<?php
-// Drop button if there is at least two fields
-if ($fields_cnt > 1) {
-    echo '    <td></td>' . "\n";
-}
-?>
+    <td></td>
     <th>&nbsp;<?php echo ucfirst($strField); ?>&nbsp;</th>
     <th><?php echo ucfirst($strType); ?></th>
     <th><?php echo ucfirst($strAttr); ?></th>
@@ -280,17 +286,9 @@ while ($row = mysql_fetch_array($result)) {
     echo "\n";
     ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
-    <?php
-    // Drop button if there is at least two fields
-    if ($fields_cnt > 1) {
-        ?>
     <td align="center">
         <input type="checkbox" name="selected_fld[]" value="<?php echo urlencode($row['Field']); ?>" />
     </td>
-        <?php
-    }
-    echo "\n";
-    ?>
     <td nowrap="nowrap">&nbsp;<?php echo $field_name; ?>&nbsp;</td>
     <td<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
     <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
@@ -333,30 +331,31 @@ while ($row = mysql_fetch_array($result)) {
 </tr>
     <?php
 } // end while
-echo "\n";
 
-// Drop button if there is at least two fields
-if ($fields_cnt > 1) {
-    ?>
+mysql_free_result($result);
+echo "\n";
+?>
+
 <tr>
     <td colspan="12">
         <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strChange; ?>" />
+<?php
+// Drop button if there is at least two fields
+if ($fields_cnt > 1) {
+    ?>
+        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
+    <?php
+}
+echo "\n";
+?>
     </td>
 <tr>
 </table>
 
 </form>
-    <?php
-} else {
-    echo "\n"
-    ?>
-</table>
-    <?php
-}
-echo "\n";
-?>
 <br />
 
 
@@ -1052,6 +1051,8 @@ if (MYSQL_INT_VERSION >= 32322) {
             } // end if isset($tmp['Variable_name'])
         } // end while
     } // end if $result
+
+    mysql_free_result($result);
     echo "\n";
     ?>
     <li>

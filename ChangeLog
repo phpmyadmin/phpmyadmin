@@ -19,6 +19,8 @@ $Source$
 	  support-).
 	* lang/czech-iso.inc.php3 & czech-win1250.inc.php3: updated thanks to
 	  Michal Cihar.
+	* tbl_properties.php3; db_details.php3; db_stats.php3; lib.inc.php3;
+	  sql.php3: optimized a bit (mainly added some 'mysql_free_result').
 
 2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:

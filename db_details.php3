@@ -52,8 +52,8 @@ if (mysql_error() != '') {
 if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfgSkipLockedTables == TRUE && MYSQL_INT_VERSION >= 32330) {
-        $query  = 'SHOW OPEN TABLES FROM ' . backquote($db);
-        $result = mysql_query($query);
+        $local_query  = 'SHOW OPEN TABLES FROM ' . backquote($db);
+        $result        = mysql_query($query) or mysql_die('', $local_query);
         // Blending out tables in use
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($tmp = mysql_fetch_array($result)) {
@@ -65,13 +65,14 @@ if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
             mysql_free_result($result);
 
             if (isset($sot_cache)) {
-                $query  = 'SHOW TABLES FROM ' . backquote($db);
-                $result = mysql_query($query);
+                $local_query = 'SHOW TABLES FROM ' . backquote($db);
+                $result      = mysql_query($query) or mysql_die('', $local_query);
                 if ($result != FALSE && mysql_num_rows($result) > 0) {
                     while ($tmp = mysql_fetch_array($result)) {
                         if (!isset($sot_cache[$tmp[0]])) {
-                            $sts_result  = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'');
-                            $sts_tmp     = mysql_fetch_array($sts_result);
+                            $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'';
+                            $sts_result  = mysql_query($local_query) or mysql_die('', $local_query);
+                            $sts_tmp     = mysql_fetch_array($sts_result) or mysql_die('', $local_query);
                             $tbl_cache[] = $sts_tmp;
                         } else { // table in use
                             $tbl_cache[] = array('Name' => $tmp[0]);
@@ -84,7 +85,8 @@ if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
         }
     }
     if (!isset($sot_ready)) {
-        $result = mysql_query('SHOW TABLE STATUS FROM ' . backquote($db));
+        $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db);
+        $result      = mysql_query($local_query) or mysql_die('', $local_query);
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($sts_tmp = mysql_fetch_array($result)) {
                 $tbl_cache[] = $sts_tmp;
@@ -338,7 +340,7 @@ else {
 </tr>
         <?php
         $i++;
-    }
+    } // end while
     echo "\n";
     ?>
 <tr>
@@ -468,8 +470,9 @@ if ($num_tables > 0) {
         <tr>
     <?php
     $colspan    = '';
-    $tables     = mysql_list_tables($db);
-    $num_tables = @mysql_numrows($tables);
+    // loic1: already defined at the top of the script!
+    // $tables     = mysql_list_tables($db);
+    // $num_tables = @mysql_numrows($tables);
     if ($num_tables > 1) {
         $colspan = ' colspan="2"';
         echo "\n";
@@ -488,7 +491,9 @@ if ($num_tables > 0) {
                 </select>
             </td>
         <?php
-    }
+    } // end if
+    mysql_free_result($tables);
+
     echo "\n";
     ?>
             <td valign="middle">

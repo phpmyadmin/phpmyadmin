@@ -72,7 +72,8 @@ if ($server > 0) {
         } else {
             $true_dblist[$a_db->Database] = '';
         }
-    }
+    } // end while
+    mysql_free_result($dbs);
     if ($num_dbs && empty($true_dblist)) {
         $dblist = array();
     } else if ($num_dbs) {
@@ -211,6 +212,7 @@ if ($num_dbs > 0) {
 
         // Number of tables
         $dbs_array[$db][0] = @mysql_numrows($tables);
+        mysql_free_result($tables);
         $total_array[0]    += $dbs_array[$db][0];
 
         // Size of data and indexes
@@ -230,8 +232,10 @@ if ($num_dbs > 0) {
             $total_array[1]        += $dbs_array[$db][1];
             $total_array[2]        += $dbs_array[$db][2];
             $total_array[3]        += $dbs_array[$db][3];
-        }
+        } // end if
+        mysql_free_result($result);
     } // end for
+    mysql_close();
 
     // Sorts the dbs arrays
     uksort($dbs_array, 'pmaDbCmp');

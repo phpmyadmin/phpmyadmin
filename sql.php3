@@ -198,6 +198,7 @@ else {
         } else {
             $num_rows = 0;
         }
+        mysql_free_result($OPresult);
     }
 
     // Executes the query
@@ -232,6 +233,7 @@ else {
             if ($OPresult) {
                 $unlim_num_rows = mysql_result($OPresult, 0, 'count');
             }
+            mysql_free_result($OPresult);
         } else {
             $unlim_num_rows     = 0;
         }
@@ -301,6 +303,7 @@ else {
             $disp_mode = 'urdr11110';
         }
         display_table($result, $disp_mode);
+        mysql_free_result($result);
         
         // Displays "Insert a new row" link if required
         if ($disp_mode[6] == '1') {
