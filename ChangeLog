@@ -8,6 +8,8 @@ $Source$
 2003-08-15 Garvin Hicking <me@supergarv.de>
     * tbl_properties_structure.php3: RFE #784900 (show alternate text for
       multi-submit button)
+    * tbl_properties_structure.php3, db_details_structure.php3: RFE #787810
+      - Enlarge area around the new buttons for better usability
 
 2003-08-15 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation: Synced export FAQ with export page.

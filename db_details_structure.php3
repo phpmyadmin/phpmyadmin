@@ -110,15 +110,15 @@ if ($cfg['PropertiesIconic'] == true) {
         $iconic_spacer = '';
     }
 
-    $titles['Browse']     = $iconic_spacer . '<img width="12" height="13" src="images/button_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-    $titles['Select']     = $iconic_spacer . '<img width="14" height="13" src="images/button_select.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
-    $titles['NoBrowse']   = $iconic_spacer . '<img width="12" height="13" src="images/button_nobrowse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-    $titles['NoSelect']   = $iconic_spacer . '<img width="14" height="13" src="images/button_noselect.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
-    $titles['Insert']     = $iconic_spacer . '<img width="13" height="13" src="images/button_insert.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
-    $titles['Properties'] = $iconic_spacer . '<img width="18" height="13" src="images/button_properties.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
-    $titles['Drop']       = $iconic_spacer . '<img width="11" height="13" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-    $titles['Empty']      = $iconic_spacer . '<img width="11" height="13" src="images/button_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
-    $titles['NoEmpty']    = $iconic_spacer . '<img width="11" height="13" src="images/button_noempty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
+    $titles['Browse']     = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
+    $titles['Select']     = $iconic_spacer . '<img hspace="7" width="14" height="13" src="images/button_select.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
+    $titles['NoBrowse']   = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_nobrowse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
+    $titles['NoSelect']   = $iconic_spacer . '<img hspace="7" width="14" height="13" src="images/button_noselect.png" alt="' . $strSelect . '" title="' . $strSelect . '" border="0" />';
+    $titles['Insert']     = $iconic_spacer . '<img hspace="7" width="13" height="13" src="images/button_insert.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
+    $titles['Properties'] = $iconic_spacer . '<img hspace="7" width="18" height="13" src="images/button_properties.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
+    $titles['Drop']       = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+    $titles['Empty']      = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
+    $titles['NoEmpty']    = $iconic_spacer . '<img hspace="7" width="11" height="13" src="images/button_noempty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
 
     if ($propicon == 'both') {
         $titles['Browse']     .= '&nbsp;' . $strBrowse . '</nobr>';
