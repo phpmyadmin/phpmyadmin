@@ -10,7 +10,7 @@ $Source$
       Documentation.html: new feature: pdf schema output, 
       thanks to Maxime Delorme (delorme.maxime at free.fr) 
       and to Olivier Plathey (www.fpdf.org)
-      (todo: checkboxes for grid, color and show coordinates) 
+      (todo: checkboxes for color and show coordinates) 
 
 2002-05-13 Loïc Chapeaux  <lolo@phpheaven.net>
     * left.php3, libraries/common.lib.php3: fixed xhtml bugs and optimized the

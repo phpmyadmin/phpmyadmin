@@ -347,9 +347,9 @@ class rt_table {
 if (!isset($pdf_page_number)){
     $pdf_page_number = 1;
 }
-if (!isset($show_grid)){
-    $show_grid = 0;
-}
+
+$show_grid = (isset($show_grid) && $show_grid=='on')? 1:0;
+
 $rt  = new RT("auto",$pdf_page_number,0,1,$show_grid);
 
 ?>

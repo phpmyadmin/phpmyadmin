@@ -369,4 +369,5 @@ $strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to
 $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
 $strDisplayPDF = 'Display PDF schema';  //to translate
 $strPageNumber = 'Page number:';  //to translate
+$strShowGrid = 'Show grid';  //to translate
 ?>

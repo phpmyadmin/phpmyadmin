@@ -452,6 +452,8 @@ if ( PMA_PHP_INT_VERSION >= 40000
 echo '        ' . $strDisplayPDF . '&nbsp;:<br />' . "\n";
 echo '        ' . $strPageNumber . '&nbsp;' . "\n";
 echo '        ' . '<input type="text" name="pdf_page_number" size="3" class="textfield" />' . "\n";
+echo '        ' . $strShowGrid . '&nbsp;' . "\n";
+echo '        ' . '<input type="checkbox" name="show_grid" />' . "\n";
 echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 ?>
         </form>
