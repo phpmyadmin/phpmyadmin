@@ -1599,7 +1599,13 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         as your window is opened they remain saved.<br /><br />
         When using the JavaScript based query window, it will always get updated when you
         click on a new table/db to browse and will focus if you click on "Edit SQL" after
-        using a query.<br /><br />
+        using a query. You can suppress updating the query window by checking the box
+        "Do not overwrite this query from outside the window" below the query textarea. Then
+        you can browse tables/databases in the background without losing the contents of the
+        textarea, so this is especially useful when composing a query with tables you first
+        have to look in. The checkbox will get automatically checked whenever you change the
+        contents of the textarea. Please uncheck the button whenever you definitely want the
+        query window to get updated even though you have made alterations.<br /><br />
         If $cfg['QueryHistoryDB'] is set to TRUE you can specify the amount of saved
         history items using $cfg['QueryHistoryMax'].<br /><br />
         The query window also has a custom tabbed look to group the features. Using the
@@ -3179,8 +3185,6 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <font color="#a52a2a"><b>\end</b></font><font color="#6a5acd">{</font><font color="#a020f0">document</font><font color="#6a5acd">}</font>
 </pre>
 </p>
-
-
 
 <a name="faqproject"></a><br />
 <h3>[7. phpMyAdmin project]</h3>

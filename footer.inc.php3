@@ -41,15 +41,17 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             <?php
             if (!isset($error_message) || $error_message == '') {
             ?>
-            top.frames.queryframe.querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
-            top.frames.queryframe.querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
-            top.frames.queryframe.querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
-            top.frames.queryframe.querywindow.document.querywindow.query_history_latest_table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
-    
-            <?php echo (isset($sql_query) ? 'top.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : '// no sql query update') . "\n"; ?>
-    
-            <?php echo ($cfg['QueryFrameDebug'] ? 'alert(\'Querywindow submits. Last chance to check variables.\');' : '') . "\n"; ?>
-            top.frames.queryframe.querywindow.document.querywindow.submit();
+            if (!top.frames.queryframe.querywindow.document.sqlform.LockFromUpdate.checked) {
+                top.frames.queryframe.querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
+                top.frames.queryframe.querywindow.document.querywindow.query_history_latest_db.value = "<?php echo (isset($db) ? addslashes($db) : '') ?>";
+                top.frames.queryframe.querywindow.document.querywindow.table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
+                top.frames.queryframe.querywindow.document.querywindow.query_history_latest_table.value = "<?php echo (isset($table) ? addslashes($table) : '') ?>";
+        
+                <?php echo (isset($sql_query) ? 'top.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : '// no sql query update') . "\n"; ?>
+        
+                <?php echo ($cfg['QueryFrameDebug'] ? 'alert(\'Querywindow submits. Last chance to check variables.\');' : '') . "\n"; ?>
+                top.frames.queryframe.querywindow.document.querywindow.submit();
+            }
             <?php
             } else {
             ?>

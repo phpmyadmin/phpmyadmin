@@ -45,12 +45,19 @@ else {
 // loic1: defines wether file upload is available or not
 // ($is_upload now defined in common.lib.php3)
 
+if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full')) {
+    $locking   = 'onKeyPress="this.form.elements[\'LockFromUpdate\'].checked = true;"';
+} else {
+    $locking   = '';
+}
+            
 $auto_sel  = ($cfg['TextareaAutoSelect']
                // 2003-02-05 rabus: This causes big trouble with Opera 7 for
                // Windows, so let's disable it there...
                && !(PMA_USR_OS == 'Win' && PMA_USR_BROWSER_AGENT == 'OPERA' && PMA_USR_BROWSER_VER >= 7))
            ? "\n" . '             onfocus="if (typeof(document.layers) == \'undefined\' || typeof(textarea_selected) == \'undefined\') {textarea_selected = 1; this.form.elements[\'sql_query\'].select();}"'
            : '';
+$auto_sel .= ' ' . $locking;
 
 // garvin: If non-JS query window is embedded, display a list of databases to choose from.
 //         Apart from that, a non-js query window sucks badly.
@@ -143,6 +150,16 @@ if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
             </table>
             <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />&nbsp;
                 <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label><br />
+            <?php
+            if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
+            ?>
+            <script type="text/javascript">
+                document.writeln('<input type="checkbox" name="LockFromUpdate" value="1" id="checkbox_lock" />&nbsp;');
+                document.writeln('    <label for="checkbox_lock"><?php echo $strQueryWindowLock; ?></label><br />');
+            </script>
+            <?php
+            }
+            ?>
             </div>
 <?php
 } else {

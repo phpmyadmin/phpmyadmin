@@ -643,4 +643,5 @@ $strZip = '"comprimit amb zip"';
 $strExecuteBookmarked = 'Execute bookmarked query';  //to translate
 $strExcelOptions = 'Excel options';  //to translate
 $strReplaceNULLBy = 'Replace NULL by';  //to translate
+$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
 ?>

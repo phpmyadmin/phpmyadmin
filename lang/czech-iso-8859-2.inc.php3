@@ -648,4 +648,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
+$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
 ?>
