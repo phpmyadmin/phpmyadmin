@@ -629,4 +629,5 @@ $strTransformation_text_plain__link = 'Displays a link, the field contains the f
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
 
+$strUseHostTable = 'Use Host Table';  //to translate
 ?>
