@@ -7,7 +7,8 @@
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
-include('./db_details_common.php3');
+require('./db_details_common.php3');
+
 
 /**
  * Settings for relation stuff
@@ -114,7 +115,7 @@ if ($cfgRelation['pdfwork']) {
     $page_rs    = PMA_query_as_cu($page_query);
     if ($page_rs && mysql_num_rows($page_rs) > 0) {
         ?>
-<form action="pdf_pages.php3" method="post" name="selpage">
+<form method="post" action="pdf_pages.php3" name="selpage">
     <?php echo $strChoosePage . "\n"; ?>
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -143,7 +144,7 @@ if ($cfgRelation['pdfwork']) {
 
     // Possibility to create a new page:
     ?>
-<form action="pdf_pages.php3" method="post" name="crpage">
+<form method="post" action="pdf_pages.php3" name="crpage">
     <?php echo $strCreatePage . "\n"; ?>
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
@@ -163,7 +164,7 @@ if ($cfgRelation['pdfwork']) {
 <hr />
 
 <h2><?php echo $strSelectTables ;?></h2>
-<form action="pdf_pages.php3" method="post" name="edcoord">
+<form method="post" action="pdf_pages.php3" name="edcoord">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
@@ -253,7 +254,7 @@ if ($cfgRelation['pdfwork']) {
         echo "\n" . '</form>' . "\n\n";
     } // end if
 
-    if ($do == "edcoord" || $do == "choosepage") {
+    if ($do == 'edcoord' || $do == 'choosepage') {
         ?>
 <form method="post" action="pdf_schema.php3">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
