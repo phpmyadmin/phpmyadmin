@@ -515,6 +515,7 @@ $strShowAll = 'Tout afficher';
 $strShowColor = 'Couleurs';
 $strShowCols = 'Afficher les colonnes';
 $strShowDatadictAs = 'Orientation du dictionnaire:';
+$strShowFullQueries = 'Afficher les requêtes complètes';
 $strShowGrid = 'Grille';
 $strShowPHPInfo = 'Afficher les informations relatives à PHP';
 $strShowTableDimension = 'Dimension des tables';
@@ -571,8 +572,11 @@ $strTransformation_image_png__inline = 'Voir image/jpeg: inline';
 $strTransformation_text_plain__dateformat = 'Change le format des champs de type TIME, TIMESTAMP ou DATETIME selon votre format local de date/heure. La première option est le décalage horaire qui sera ajouté (par défaut 0). La seconde option est un format en accord avec les paramètres de la fonction PHP strftime().'; 
 $strTransformation_text_plain__external = '(Linux seulement) Exécute un programme externe et lui envoit le contenu du champ via l\'entrée standard. Puis capture la sortie standard de ce programme externe. Le programme par défaut est tidy, pour un affichage embelli du code HTML.  Pour des raisons de sécurité, vous devez éditer le script libraries/transformations/text_plain__external.inc.php et y insérer les noms de programme externe possibles. La première option est le numéro du programme que vous voulez utiliser, la seconde option contient les paramètres pour ce programme. En troisième option, une valeur de 1 va convertir le résultat avec la fonction htmlspecialchars() (par défaut, 1). En option 4, une valeur de 1 va ajouter NOWRAP à la cellule affichée (par défaut, 1).';
 $strTransformation_text_plain__formatted = 'Préserve le contenu original du champ, sans ajout de caractères d\'échappement.';
+$strTransformation_text_plain__imagelink = 'Affiche une image et un lien, le champ contient le nom du fichier; en première option, un préfixe comme "http://domaine.com/", en seconde option, la largeur en pixels, en troisième option la hauteur en pixels.';
+$strTransformation_text_plain__link = 'Affiche un lien, le champ contient le nom du fichier; en première option, un préfixe comme "http://domaine.com/", en seconde option, un titre pour le lien.';
 $strTransformation_text_plain__substr = 'N\'affiche qu\'une partie du champ. En première option, la position de départ (par défaut, 0). En seconde option, le nombre de caractères à afficher (par défaut, le reste). En troisième option, des caractères à afficher à la fin du texte (par défaut: "...").';
 $strTransformation_text_plain__unformatted = 'Affiche le code HTML sous forme d\'entités HTML.';
+$strTruncateQueries = 'Afficher les requêtes tronquées';
 $strType = 'Type';
 
 $strUncheckAll = 'Tout décocher';
@@ -584,6 +588,7 @@ $strUpdateProfileMessage = 'Le profil a été modifié.';
 $strUpdateQuery = 'Mise-à-jour de la requête';
 $strUsage = 'Espace';
 $strUseBackquotes = 'Protéger les noms des tables et des champs par des&nbsp;"`"';
+$strUseHostTable = 'Utiliser la table Host';
 $strUseTables = 'Utiliser les tables';
 $strUseTextField = 'Entrez une valeur';
 $strUser = 'Utilisateur';
@@ -620,9 +625,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
-$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strUseHostTable = 'Use Host Table';  //to translate
-$strShowFullQueries = 'Show Full Queries';  //to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
 ?>

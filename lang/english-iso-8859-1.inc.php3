@@ -514,6 +514,7 @@ $strShowAll = 'Show all';
 $strShowColor = 'Show color';
 $strShowCols = 'Show columns';
 $strShowDatadictAs = 'Data Dictionary Format';
+$strShowFullQueries = 'Show Full Queries';
 $strShowGrid = 'Show grid';
 $strShowPHPInfo = 'Show PHP information';
 $strShowTableDimension = 'Show dimension of tables';
@@ -574,6 +575,7 @@ $strTransformation_text_plain__imagelink = 'Displays an image and a link, the fi
 $strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';
+$strTruncateQueries = 'Truncate Shown Queries';
 $strType = 'Type';
 
 $strUncheckAll = 'Uncheck All';
@@ -585,6 +587,7 @@ $strUpdateProfileMessage = 'The profile has been updated.';
 $strUpdateQuery = 'Update Query';
 $strUsage = 'Usage';
 $strUseBackquotes = 'Enclose table and field names with backquotes';
+$strUseHostTable = 'Use Host Table';
 $strUseTables = 'Use Tables';
 $strUseTextField = 'Use text field';
 $strUser = 'User';
@@ -620,7 +623,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strUseHostTable = 'Use Host Table';  //to translate
-$strShowFullQueries = 'Show Full Queries';  //to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
 ?>
