@@ -139,7 +139,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
  */
 function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent = 0)
 {
-    global $cfg, $userlink, $url_query;
+    global $cfg, $userlink, $url_query, $checkall;
 
     if ($db == '*') {
         $table = '*';
@@ -239,7 +239,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         while (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
             list($current_grant, $current_grant_value) = each($row);
         }
-        echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
+        echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox"' . (empty($checkall) ?  '' : ' checked="checked"') . ' name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label></td>' . "\n"
            . $spaces . '    </tr>' . "\n"
            . $spaces . '    <tr>' . "\n";
@@ -255,7 +255,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         echo $spaces . '            </select><br />' . "\n"
            . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
-           . $spaces . '            <input type="checkbox" name="Select_priv_none" id="checkbox_Select_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_Select_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
+           . $spaces . '            <input type="checkbox"' . (empty($checkall) ?  '' : ' checked="checked"') . ' name="Select_priv_none" id="checkbox_Select_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_Select_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="Insert_priv[]" multiple="multiple">' . "\n";
@@ -268,7 +268,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         echo $spaces . '            </select><br />' . "\n"
            . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
-           . $spaces . '            <input type="checkbox" name="Insert_priv_none" id="checkbox_Insert_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_Insert_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
+           . $spaces . '            <input type="checkbox"' . (empty($checkall) ?  '' : ' checked="checked"') . ' name="Insert_priv_none" id="checkbox_Insert_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_Insert_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="Update_priv[]" multiple="multiple">' . "\n";
@@ -281,7 +281,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         echo $spaces . '            </select><br />' . "\n"
            . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
-           . $spaces . '            <input type="checkbox" name="Update_priv_none" id="checkbox_Update_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_Update_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
+           . $spaces . '            <input type="checkbox"' . (empty($checkall) ?  '' : ' checked="checked"') . ' name="Update_priv_none" id="checkbox_Update_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_Update_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="References_priv[]" multiple="multiple">' . "\n";
@@ -294,14 +294,14 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         }
         echo $spaces . '            </select><br />' . "\n"
            . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
-           . $spaces . '            <input type="checkbox" name="References_priv_none" id="checkbox_References_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_References_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
+           . $spaces . '            <input type="checkbox"' . (empty($checkall) ?  '' : ' checked="checked"') . ' name="References_priv_none" id="checkbox_References_priv_none" title="' . $GLOBALS['strNone'] . '" /><label for="checkbox_References_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n";
         unset($rowspan);
         list($current_grant, $current_grant_value) = each($row);
         while (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
             list($current_grant, $current_grant_value) = each($row);
         }
-        echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
+        echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox"' . (empty($checkall) ?  '' : ' checked="checked"') . ' name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label></td>' . "\n"
            . $spaces . '    </tr>' . "\n";
         while (list($current_grant, $current_grant_value) = each($row)) {
@@ -309,7 +309,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
                 continue;
             }
             echo $spaces . '    <tr>' . "\n"
-               . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
+               . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox"' . (empty($checkall) ?  '' : ' checked="checked"') . ' name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
                . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label></td>' . "\n"
                . $spaces . '    </tr>' . "\n";
         }
@@ -385,7 +385,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             echo $spaces . '    <tr>' . "\n";
             for ($j = 0; $j < 3; $j++) {
                 if (isset($privTable[$j][$i])) {
-                    echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $privTable[$j][$i][0] . '_priv" id="checkbox_' . $privTable[$j][$i][0] . '_priv" value="Y" ' . ($row[$privTable[$j][$i][0] . '_priv'] == 'Y' ? 'checked="checked" ' : '') . 'title="' . $privTable[$j][$i][2] . '"/></td>' . "\n"
+                    echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox"' . (empty($checkall) ?  '' : ' checked="checked"') . ' name="' . $privTable[$j][$i][0] . '_priv" id="checkbox_' . $privTable[$j][$i][0] . '_priv" value="Y" ' . ($row[$privTable[$j][$i][0] . '_priv'] == 'Y' ? 'checked="checked" ' : '') . 'title="' . $privTable[$j][$i][2] . '"/></td>' . "\n"
                        . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $privTable[$j][$i][0] . '_priv"><tt><dfn title="' . $privTable[$j][$i][2] . '">' . $privTable[$j][$i][1] . '</dfn></tt></label></td>' . "\n";
                 } else if ($db == '*' && !isset($privTable[0][$i]) && !isset($privTable[1][$i])
                     && isset($row['max_questions']) && isset($row['max_updates']) && isset($row['max_connections'])
@@ -1288,6 +1288,7 @@ if (empty($adduser) && empty($checkprivs)) {
     }
 } else if (!empty($adduser)) {
     // Add a new user
+    $url_query .= '&amp;adduser=1';
     echo '<h2>' . "\n"
        . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_usradd.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
        . '    ' . $strAddUser . "\n"
