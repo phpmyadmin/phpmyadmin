@@ -244,6 +244,7 @@ $strQBEIns = 'Aggiungi';
 $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 
 $strRecords = 'Record';
+$strReferentialIntegrity = 'Controlla l\'integrità delle referenze:';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
 $strReloadMySQL = 'Riavvia MySQL';
 $strRememberReload = 'Ricorda di riavviare MySQL.';
@@ -350,6 +351,4 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
