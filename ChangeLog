@@ -8,6 +8,8 @@ $Source$
 2002-05-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_properties.php3; tbl_properties_table_info.php3: comments.
     * tbl_properties_options.php3: added labels and beautified display.
+    * db_stats.php3, lines 12-22: ensure this script can only be ran by a
+      super-user.
 
 2002-04-30 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/italian.inc.php3: updated thanks to Pietro Danesi.

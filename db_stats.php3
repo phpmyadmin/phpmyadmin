@@ -10,6 +10,17 @@ require('./header.inc.php3');
 
 
 /**
+ * Ensures the current user is super-user
+ */
+if (!@mysql_query('USE mysql', $userlink)) {
+    echo '<p><b>' . $strError . '</b></p>' . "\n";
+    echo '<p>&nbsp;&nbsp;&nbsp;&nbsp;' .  $strNoRights . '</p>' . "\n";
+    include('./footer.inc.php3');
+    exit();
+} // end if
+
+
+/**
  * Drop databases if required
  */
 if ((!empty($submit_mult) && isset($selected_db))
