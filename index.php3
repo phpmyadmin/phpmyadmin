@@ -35,7 +35,9 @@ if (empty($HTTP_HOST)) {
  */
 // loic1: If left light mode -> urldecode the db name
 if (isset($lightm_db)) {
-    $db    = urldecode($lightm_db);
+// no longer urlencoded because of html entities in the db name
+//    $db    = urldecode($lightm_db);
+    $db    = $lightm_db;
     unset($lightm_db);
 }
 $url_query = PMA_generate_common_url(isset($db) ? $db : '');

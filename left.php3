@@ -9,7 +9,9 @@
  */
 require('./libraries/grab_globals.lib.php3');
 if (isset($lightm_db) && !empty($lightm_db)) {
-    $db = urldecode($lightm_db);
+// no longer urlencoded because of html entities in the db name
+//    $db = urldecode($lightm_db);
+    $db = $lightm_db;
 }
 
 if (!empty($db)) {
