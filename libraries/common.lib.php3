@@ -1129,7 +1129,7 @@ if (typeof(document.getElementById) != 'undefined'
             if (!empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = &quot;' . $query_base;
             } else if (!empty($GLOBALS['validatequery'])) {
-                $query_base = validateSQL($query_base);
+                $query_base = PMA_validateSQL($query_base);
             } else {
                 $parsed_sql = PMA_SQP_parse($query_base);
                 $query_base = PMA_formatSql($parsed_sql);

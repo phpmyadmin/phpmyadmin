@@ -37,8 +37,10 @@ if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
     // We need the PEAR libraries, so do a minimum version check first
     // I'm not sure if PEAR was available before this point
     // For now we actually use a configuration flag
-    if ($cfg['SQLValidator']['use'] == TRUE && !defined(PMA_SQL_VALIDATOR_CLASS_INCLUDED)) {
-        include('./sqlvalidator.class.php3');
+    if ($cfg['SQLValidator']['use'] == TRUE)  {
+        // We cannot check && !defined(PMA_SQL_VALIDATOR_CLASS_INCLUDED))
+        // as it will produce a nasty warning message
+        include('./libraries/sqlvalidator.class.php3');
     } // if ($cfg['SQLValidator']['use'] == TRUE)
 
 
@@ -83,9 +85,7 @@ if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
             // Do service validation
             $str = $srv->validationString($sql);
 
-            }
-        }
-        else {
+        } else {
             // The service is not available so note that properly
             $str = $GLOBALS['strValidatorDisabled'];
         } // end if... else...
