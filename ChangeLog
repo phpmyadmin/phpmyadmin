@@ -5,16 +5,21 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-10 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * translators.html: Another mechanism against stupid people who use the
+      translator list as a list of localised support hotlines or try to get a
+      translation by mail order... :o)
+
 2003-03-10 Garvin Hicking <me@supergarv.de>
     * tbl_dump.php3, tbl_properties_export.php3, css/phpmyadmin.css.php3,
       lang/*:
       Added new table export format by Michal Cihar. db_details_export.php3
       should be adapted to the new layout somewhen. Fixed Compression.
     * header.inc.php3, header_printview.inc.php3, index.php3,
-      left.php3, queryframe.php3, querywindow.php3, 
+      left.php3, queryframe.php3, querywindow.php3,
       transformation_wrapper.php3, css/phpmyadmin.css.php3,
       libraries/common.lib.php3, libraries/db_table_exists.lib.php3,
-      libraries/functions.js, libraries/header_http.inc.php3, 
+      libraries/functions.js, libraries/header_http.inc.php3,
       libraries/header_meta_style.inc.php3, libraries/left.js
       libraries/sqlparser.lib.php3:
       Massive code-cleanup. Put all stylesheets into new central file
@@ -26,7 +31,7 @@ $Source$
       directive and should also be able to be cached by the browser.
       See patch #699454.
       Also some unneccessary code was removed from querywindow/wrapper.
-    
+
     * tbl_change.php3: Patch #697541 to prevent non-associative MySQL
       fieldnames to be mapped to false keys for display.
 
@@ -52,7 +57,7 @@ $Source$
     * libraries/common.lib.php3, libraries/display_tbl.lib.php3:
       Fix bug #658668, special escaping of \n, \r and \t characters.
       Please test, works fine for me now (both magic_quotes on/off).
-      
+
 2003-03-05 Robin Johnson  <robbat2@users.sourceforge.net>
     * Documentation.html, Documentation.txt: Long-withstanding spelling fixes!
     * updatedocs.sh: Script to make conversion easier
@@ -60,17 +65,17 @@ $Source$
 2003-03-05 Garvin Hicking <me@supergarv.de>
     * Documentation.html: Added FAQ 2.6 about localhost-socket connections.
     * libraries/relation.lib.php3, libraries/transformations.lib.php3,
-      tbl_relation.php3, tbl_move_copy.php3: Replace PMA_handleSlashes() 
+      tbl_relation.php3, tbl_move_copy.php3: Replace PMA_handleSlashes()
       call with PMA_sqlAddslashes() call because of new global s
       lashes-handling.
     * sql.php3: Fixed querytime bug, when query was only shown for PHP
       display.
     * read_dump.php3, sql.php3, tbl_alter.php3,
-      tbl_properties_export.php3: Fixed remaining calls to stripslashes() 
-      where not neccessary, because grab_globals already stripslashed 
-      the data. This fixes the problem of the SQL Pretty printer showing 
+      tbl_properties_export.php3: Fixed remaining calls to stripslashes()
+      where not neccessary, because grab_globals already stripslashed
+      the data. This fixes the problem of the SQL Pretty printer showing
       the data wrongly formatted.
-      
+
 2003-03-05 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/sqlparser.data.php3: TRANSACTION isn't reserved word (fixes
      #697961)
