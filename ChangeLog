@@ -12,6 +12,7 @@ $Source$
     * lang/*: remove $strCantLoadMySQL message
     * libraries/dbi/mysqli.dbi.lib.php: @ before connect to avoid the
       display of unwanted error messages
+    * libraries/relation.lib.php: PMA_DBI_fetch_row() instead of fetch_assoc()
 
 2004-01-23 Alexander M. Turek  <foreveryoung@derrabus.de>
     * header_printview.inc.php:
