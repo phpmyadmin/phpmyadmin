@@ -326,10 +326,12 @@ for ($x = 0; $x < $col; $x++) {
     if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
         continue;
     }
-    if (get_magic_quotes_gpc()) {
-        $stripped_Criteria = stripslashes($Criteria[$x]);
-    } else {
-        $stripped_Criteria = $Criteria[$x];
+    if (isset($Criteria[$x])){
+	    if (get_magic_quotes_gpc()) {
+  	      $stripped_Criteria = stripslashes($Criteria[$x]);
+    	} else {
+      	  $stripped_Criteria = $Criteria[$x];
+    	}
     }
     if (!isset($prev_Criteria[$x])
         || urldecode($prev_Criteria[$x]) != htmlspecialchars($stripped_Criteria)) {
@@ -356,7 +358,7 @@ for ($x = 0; $x < $col; $x++) {
 $w = 0;
 for ($y = 0; $y <= $row; $y++) {
     $bgcolor = ($y % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
-    if ($InsRow[$y] == 'on') {
+    if (isset ($InsRow[$y]) && $InsRow[$y] == 'on') {
         $chk['or']  = ' checked="checked"';
         $chk['and'] = '';
         ?>
@@ -425,12 +427,13 @@ for ($y = 0; $y <= $row; $y++) {
         <?php
     } // end if
 
-    if ($DelRow[$y] == 'on') {
+    if (isset($DelRow[$y]) && $DelRow[$y] == 'on') {
         continue;
     }
 
-    $curAndOrRow[$w] = $AndOrRow[$y];
-    if($AndOrRow[$y] == 'and') {
+
+    if (isset($AndOrRow[$y])) $curAndOrRow[$w] = $AndOrRow[$y];
+    if (isset($AndOrRow[$y]) && $AndOrRow[$y] == 'and') {
         $chk['and'] =  ' checked="checked"';
         $chk['or']  =  '';
     } else {
@@ -491,17 +494,20 @@ for ($y = 0; $y <= $row; $y++) {
         if (!isset(${$or})) {
             ${$or} = '';
         }
-        if (get_magic_quotes_gpc()) {
-            $stripped_or = stripslashes(${$or}[$x]);
-        } else {
-            $stripped_or = ${$or}[$x];
-	    }
+        if (isset(${$or}[$x])){
+	        if (get_magic_quotes_gpc()) {
+  	          $stripped_or = stripslashes(${$or}[$x]);
+    	    } else {
+      	      $stripped_or = ${$or}[$x];
+      		}
+		    }
+		    else $stripped_or="";
         ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <textarea cols="20" rows="2" style="width: <?php echo $widem; ?>" name="Or<?php echo $w . '[' . $z . ']'; ?>"><?php echo htmlspecialchars($stripped_or); ?></textarea>
         </td>
         <?php
-        ${'cur' . $or}[$z] = ${$or}[$x];
+        if (isset(${$or}[$x])) ${'cur' . $or}[$z] = ${$or}[$x];
         $z++;
     } // end for
     $w++;
@@ -551,7 +557,7 @@ for ($x = 0; $x < $col; $x++) {
         continue;
     }
 
-    $curAndOrCol[$z] = $AndOrCol[$y];
+    if (isset($AndOrCol[$y])) $curAndOrCol[$z] = $AndOrCol[$y];
     if (isset($AndOrCol[$z]) && $AndOrCol[$z] == 'or') {
         $chk['or']  = ' checked="checked"';
         $chk['and'] = '';

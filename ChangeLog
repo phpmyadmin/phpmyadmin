@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+
+2001-08-02  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3, db_details.php3: fixed problem with table
+	  size display and MERGE tables
+	* tbl_qbe.php3: remove some warnings in higher errorlevel
+
 2001-08-03  Olivier Müller  <om@omnis.ch>
 	* Generated Documentation.txt based on Documentation.html
 	  (not everybody is having a webbrowser on their servers... :)
