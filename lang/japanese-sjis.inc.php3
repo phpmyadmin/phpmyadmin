@@ -401,5 +401,5 @@ $strKanjiEncodConvert = '漢字コード変換'; // kanji code convert
 $strXkana = '全角カナへ変換する'; // convert to X208-kana
 
 // To translate
-$strNotSet = '<b>%s</b> table not found or not set in config.inc.php(3)';
+$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 ?>

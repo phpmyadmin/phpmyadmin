@@ -222,6 +222,7 @@ $strNoQuery = 'No SQL query!';
 $strNoRights = 'You don\'t have enough rights to be here right now!';
 $strNoTablesFound = 'No tables found in database.';
 $strNotNumber = 'This is not a number!';
+$strNotSet = '<b>%s</b> table not found or not set in %s';
 $strNotValidNumber = ' is not a valid row number!';
 $strNoUsersFound = 'No user(s) found.';
 $strNull = 'Null';
@@ -391,5 +392,4 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
-$strNotSet = '<b>%s</b> table not found or not set in config.inc.php(3)';  //to translate
 ?>
