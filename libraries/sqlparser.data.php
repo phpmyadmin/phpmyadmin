@@ -405,6 +405,7 @@ $PMA_SQPdata_reserved_word = array (
     'SQL_BIG_TABLES',
     'SQL_BUFFER_RESULT',
     'SQL_CACHE',
+    'SQL_CALC_FOUND_ROWS',
     'SQL_LOG_BIN',
     'SQL_LOG_OFF',
     'SQL_LOG_UPDATE',
@@ -453,7 +454,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 258;
+$PMA_SQPdata_reserved_word_cnt = 259;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',
