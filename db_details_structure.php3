@@ -346,6 +346,8 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
          . $strEmpty . '</option>' . "\n";
     echo '            <option value="' . $strPrintView . '" >'
          . $strPrintView . '</option>' . "\n";
+    echo '            <option value="' . $strCheckTable . '" >'
+         . $strCheckTable . '</option>' . "\n";
     echo '            <option value="' . $strOptimizeTable . '" >'
          . $strOptimizeTable . '</option>' . "\n";
     echo '            <option value="' . $strRepairTable . '" >'

@@ -25,6 +25,11 @@ if (!empty($submit_mult)
                case $strEmpty:
                    $what = 'empty_tbl';
                    break;
+               case $strCheckTable:
+                   unset($submit_mult);
+                   $query_type = 'check_tbl';
+                   $mult_btn   = $strYes;
+                   break;
                case $strOptimizeTable:
                    unset($submit_mult);
                    $query_type = 'optimize_tbl';
@@ -149,6 +154,12 @@ else if ($mult_btn == $strYes) {
                 $reload    = 1;
                 break;
 
+            case 'check_tbl':
+                $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
+                           . PMA_backquote(urldecode($selected[$i]))
+                           . (($i == $selected_cnt-1) ? ';' : '');
+                break;
+
             case 'optimize_tbl':
                 $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]))
@@ -178,7 +189,8 @@ else if ($mult_btn == $strYes) {
         if ($query_type != 'drop_tbl'
             && $query_type != 'drop_fld'
             && $query_type != 'repair_tbl'
-            && $query_type != 'optimize_tbl') {
+            && $query_type != 'optimize_tbl'
+            && $query_type != 'check_tbl') {
             $sql_query .= $a_query . ';' . "\n";
 
             if ($query_type != 'drop_db') {
@@ -191,6 +203,7 @@ else if ($mult_btn == $strYes) {
     if ($query_type == 'drop_tbl'
         || $query_type == 'drop_fld'
         || $query_type == 'repair_tbl'
+        || $query_type == 'check_tbl'
         || $query_type == 'optimize_tbl') {
         PMA_mysql_select_db($db);
         $result = @PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
