@@ -647,6 +647,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 'order_by_clause'=> '',
                 'having_clause'  => '',
                 'where_clause'   => '',
+                'where_clause_identifiers'   => array(),
                 'queryflags'     => array(),
                 'select_expr'    => array(),
                 'table_ref'      => array()
@@ -707,7 +708,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      * ['order_by_clause']
      * ['having_clause']
      * ['where_clause']
+     *
+     * and the identifiers of the where clause are put into the array
+     * ['where_clause_identifier']
      */
+
             // must be sorted
             // TODO: current logic checks for only one word, so I put only the
             // first word of the reserved expressions that end a table ref;
@@ -1234,6 +1239,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                    if ($upper_data == 'WHERE') {
                        $in_where = TRUE;
                        $where_clause = '';
+                       $where_clause_identifiers = array();
                        $seen_group = FALSE;
                        $seen_order = FALSE;
                        $in_group_by = FALSE;
@@ -1292,6 +1298,13 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                }
                if ($in_where && $upper_data != 'WHERE') {
                    $where_clause .= $arr[$i]['data'] . $sep;
+
+                   if (($arr[$i]['type'] == 'quote_backtick')
+                    || ($arr[$i]['type'] == 'quote_double')
+                    || ($arr[$i]['type'] == 'quote_single')
+                    || ($arr[$i]['type'] == 'alpha_identifier')) {
+                       $where_clause_identifiers[] = $arr[$i]['data'];
+                   }
                }
     
                // clear $upper_data for next iteration
@@ -1316,6 +1329,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             }
             if (isset($where_clause)) {
                 $subresult['where_clause'] = $where_clause;
+            }
+            if (isset($where_clause_identifiers)) {
+                $subresult['where_clause_identifiers'] = $where_clause_identifiers;
             }
     
     
@@ -1444,7 +1460,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             }
     
             for ($i = 0; $i < $arraysize; $i++) {
-                //DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
+                // DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
                 $before = '';
                 $after  = '';
                 $indent = 0;
