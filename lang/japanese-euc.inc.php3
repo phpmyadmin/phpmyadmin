@@ -1,4 +1,5 @@
 <?php
+
 /* $Id$ */
 
 /**
@@ -21,6 +22,7 @@ $month = array('1·î','2·î','3·î','4·î','5·î','6·î','7·î','8·î','9·î','10·î','11·
 $datefmt = '%YÇ¯%B%dÆü %H:%M';
 
 // japanese only
+
 
 $strAccessDenied = '¥¢¥¯¥»¥¹¤ÏµñÈÝ¤µ¤ì¤Þ¤·¤¿¡£';
 $strAction = '¼Â¹Ô';
@@ -56,8 +58,10 @@ $strAtEndOfTable = '¥Æ¡¼¥Ö¥ë¤ÎºÇ¸å';
 $strAttr = 'É½¼¨';
 
 $strBack = 'Ìá¤ë';
-$strBinary = ' ¥Ð¥¤¥Ê¥ê ';
+$strBeginCut = 'ÀÚ¤ê¼è¤ê³«»Ï';
+$strBeginRaw = 'RAW³«»Ï';
 $strBinaryDoNotEdit = ' ¥Ð¥¤¥Ê¥ê -  ½¤Àµ½ÐÍè¤Þ¤»¤ó';
+$strBinary = ' ¥Ð¥¤¥Ê¥ê ';
 $strBookmarkDeleted = '¥Ö¥Ã¥¯¥Þ¡¼¥¯¤òÀµ¾ï¤Ëºï½ü¤·¤Þ¤·¤¿¡£';
 $strBookmarkLabel = '¥é¥Ù¥ë';
 $strBookmarkQuery = '¥Ö¥Ã¥¯¥Þ¡¼¥¯¤µ¤ì¤Æ¤¤¤ëSQL¥¯¥¨¥ê¡¼';
@@ -72,13 +76,15 @@ $strCantRenameIdxToPrimary = '¥¤¥ó¥Ç¥Ã¥¯¥¹¤ÎÌ¾Á°¤òPRIMARY¤ËÊÑ¹¹¤Ç¤­¤Þ¤»¤ó¡£';
 $strCantUseRecodeIconv = 'iconv¡¢libiconv¡¢recode_string¤Î¤É¤Î´Ø¿ô¤â»ÈÍÑ½ÐÍè¤Þ¤»¤ó¡£php ¤ÎÀßÄê¤ò¥Á¥§¥Ã¥¯¤·¤Æ¤¯¤À¤µ¤¤¡£';
 $strCardinality = '¥«¡¼¥Ç¥£¥Ê¥ê¥Æ¥£';
 $strCarriage = '¥­¥ã¥ê¥Ã¥¸¥ê¥¿¡¼¥ó: \\r';
-$strChange = 'ÊÑ¹¹';
 $strChangeDisplay = 'É½¼¨¤µ¤»¤ë¥Õ¥£¡¼¥ë¥É¤òÁª¤ó¤Ç²¼¤µ¤¤';
+$strChange = 'ÊÑ¹¹';
 $strChangePassword = '¥Ñ¥¹¥ï¡¼¥É¤ÎÊÑ¹¹';
+$strCharsetOfFile = '¥Õ¥¡¥¤¥ë¤ÎÊ¸»ú¥»¥Ã¥È:';
 $strCheckAll = 'Á´¤Æ¤ò¥Þ¡¼¥¯';
 $strCheckDbPriv = '¥Ç¡¼¥¿¥Ù¡¼¥¹¤ÎÆÃ¸¢¤Î³ÎÇ§';
 $strCheckTable = '¥Æ¡¼¥Ö¥ë¤ò¥Á¥§¥Ã¥¯¤·¤Þ¤¹¡£';
 $strChoosePage = 'ÊÔ½¸¤¹¤ë¥Ú¡¼¥¸¤òÁªÂò¤·¤Æ²¼¤µ¤¤';
+$strColComFeat = 'Îó¥³¥á¥ó¥ÈÉ½¼¨µ¡Ç½';
 $strColumn = 'Îó';
 $strColumnNames = 'Îó(¥³¥é¥à)Ì¾';
 $strComments = '¥³¥á¥ó¥È';
@@ -89,36 +95,39 @@ $strConfirm = '¼Â¹Ô¤·¤Æ¤âÎÉ¤¤¤Ç¤¹¤«¡©';
 $strCookiesRequired = '¤³¤³¤«¤éÀè¤Ï¥¯¥Ã¥­¡¼¤¬µö²Ä¤µ¤ì¤Æ¤¤¤ëÉ¬Í×¤¬¤¢¤ê¤Þ¤¹¡£';
 $strCopyTable = '¥Æ¡¼¥Ö¥ë¤ò(database<b>.</b>table)¤Ë¥³¥Ô¡¼¤¹¤ë:';
 $strCopyTableOK = '%s¥Æ¡¼¥Ö¥ë¤ò%s¤Ë¥³¥Ô¡¼¤·¤Þ¤·¤¿¡£';
-$strCreate = 'ºîÀ®';
 $strCreateIndex = '&nbsp;%s&nbsp;¤ÎÎó¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹¤ÎºîÀ®';
 $strCreateIndexTopic = '¿·¤·¤¤¥¤¥ó¥Ç¥Ã¥¯¥¹¤ÎºîÀ®';
 $strCreateNewDatabase = '¿·¤·¤¤DB¤òºîÀ®¤·¤Þ¤¹¡£';
 $strCreateNewTable = '¸½ºß¤ÎDB¤Ë¿·¤·¤¤¥Æ¡¼¥Ö¥ë¤òºîÀ®¤·¤Þ¤¹¡£ %s --> ';
+$strCreate = 'ºîÀ®';
 $strCreatePage = '¿·µ¬¥Ú¡¼¥¸¤ÎºîÀ®';
+$strCreatePdfFeat = 'PDFºîÀ®µ¡Ç½';
 $strCriteria = '´ð½à';
 
-$strData = '¥Ç¡¼¥¿';
 $strDatabase = '¥Ç¡¼¥¿¥Ù¡¼¥¹';
 $strDatabaseHasBeenDropped = '¥Ç¡¼¥¿¥Ù¡¼¥¹%s¤òÀµ¾ï¤Ëºï½ü¤·¤Þ¤·¤¿¡£';
 $strDatabases = '¥Ç¡¼¥¿¥Ù¡¼¥¹';
 $strDatabasesStats = '¥Ç¡¼¥¿¥Ù¡¼¥¹¤ÎÅý·×';
 $strDatabaseWildcard = '¥Ç¡¼¥¿¥Ù¡¼¥¹(¥ï¥¤¥ë¥É¥«¡¼¥É»ÈÍÑ²Ä):';
+$strData = '¥Ç¡¼¥¿';
 $strDataOnly = '¥Ç¡¼¥¿¤Î¤ß';
 $strDefault = '´ðËÜÃÍ';
-$strDelete = 'ºï½ü';
 $strDeleted = 'ÁªÂò¤·¤¿Îó¤òºï½ü¤·¤Þ¤·¤¿¡£';
 $strDeletedRows = 'ºï½ü¤µ¤ì¤¿¹Ô¿ô:';
 $strDeleteFailed = 'ºï½ü¤Ë¼ºÇÔ¤·¤Þ¤·¤¿';
+$strDelete = 'ºï½ü';
 $strDeleteUserMessage = '¥æ¡¼¥¶¡¼%s¤òºï½ü¤·¤Þ¤·¤¿¡£';
 $strDescending = '¹ß½ç';
+$strDisabled = 'Ìµ¸ú';
 $strDisplay = 'É½¼¨';
+$strDisplayFeat = '¥Æ¡¼¥Ö¥ë¾ðÊóÉ½¼¨µ¡Ç½';
 $strDisplayOrder = 'È¯É½½çÈÖ:';
 $strDisplayPDF = 'PDF¥¹¥­¡¼¥Þ¤ÎÉ½¼¨';
 $strDoAQuery = '"Îã¤ÎQUERY"¤ò¼Â¹Ô (wildcard: "%")';
 $strDocu = '¥Ø¥ë¥×';
 $strDoYouReally = 'ËÜÅö¤Ë¼Â¹Ô¤·¤Æ¤âÎÉ¤¤¤Ç¤¹¤«¡© --> ';
-$strDrop = 'ºï½ü';
 $strDropDB = '¥Ç¡¼¥¿¥Ù¡¼¥¹%s¤Îºï½ü ';
+$strDrop = 'ºï½ü';
 $strDropTable = '¥Æ¡¼¥Ö¥ë¤Îºï½ü';
 $strDumpingData = '¥Æ¡¼¥Ö¥ë¤Î¥À¥ó¥×¥Ç¡¼¥¿';
 $strDumpXRows = '%s Îó¤ò¥À¥ó¥×¡£»Ï¤á¤ëÎó¤Ï %s.';
@@ -130,21 +139,25 @@ $strEditPrivileges = 'ÆÃ¸¢¤ò½¤Àµ';
 $strEffective = '»ö¼Â¾å';
 $strEmpty = '¶õ¤Ë¤¹¤ë';
 $strEmptyResultSet = 'MySQL¤¬¶õ¤ÎÃÍ¤òÊÖ¤·¤Þ¤·¤¿¡£(i.e. zero rows).';
+$strEnabled = 'Í­¸ú';
 $strEncto = '¥¨¥ó¥³¡¼¥Ç¥£¥ó¥°¤ØÊÑ´¹¤¹¤ë'; // encoding convert
 $strEnd = 'ºÇ¸å';
+$strEndCut = 'ÀÚ¤ê¼è¤ê½ªÎ»';
+$strEndRaw = 'RAW½ªÎ»';
 $strEnglishPrivileges = ' Ãí°Õ: MySQL¤ÎÆÃ¸¢¤ÎÌ¾Á°¤Ï±Ñ¸ì¤ÇÈ¯É½¤·¤Æ¤¤¤Þ¤¹¡£';
 $strError = '¥¨¥é¡¼';
+$strExplain = 'Explain SQL';
 $strExport = '¥¨¥¯¥¹¥Ý¡¼¥È';
 $strExportToXML = 'XML·Á¼°¤Ç¥¨¥¯¥¹¥Ý¡¼¥È';
 $strExtendedInserts = 'Ä¹¤¤INSERTÊ¸¤ÎºîÀ®';
 $strExtra = 'ÄÉ²Ã';
 
-$strField = '¥Õ¥£¡¼¥ë¥É';
 $strFieldHasBeenDropped = '¥Õ¥£¡¼¥ë¥É%s¤¬Àµ¾ï¤Ëºï½ü¤µ¤ì¤Þ¤·¤¿';
-$strFields = '¥Õ¥£¡¼¥ë¥É';
+$strField = '¥Õ¥£¡¼¥ë¥É';
 $strFieldsEmpty = ' ¥Õ¥£¡¼¥ë¥É¿ô¤Ï¶õ¤Ç¤¹¡£ ';
 $strFieldsEnclosedBy = '¥Õ¥£¡¼¥ë¥É°Ï¤ßµ­¹æ';
 $strFieldsEscapedBy = '¥Õ¥£¡¼¥ë¥É¤Î¥¨¥¹¥±¡¼¥×µ­¹æ';
+$strFields = '¥Õ¥£¡¼¥ë¥É';
 $strFieldsTerminatedBy = '¥Õ¥£¡¼¥ë¥É¶èÀÚ¤êµ­¹æ';
 $strFixed = '¸ÇÄê';
 $strFlushTable = '¥Æ¡¼¥Ö¥ë¤Î¥­¥ã¥Ã¥·¥å¤ò¶õ¤Ë¤¹¤ë("FLUSH")';
@@ -154,6 +167,7 @@ $strFullText = 'Á´Ê¸';
 $strFunction = '´Ø¿ô';
 
 $strGenBy = 'À¸À®¤µ¤ì¤¿ by';
+$strGeneralRelationFeat = '¥ê¥ì¡¼¥·¥ç¥óµ¡Ç½';
 $strGenTime = 'ºîÀ®¤Î»þ´Ö';
 $strGo = '¼Â¹Ô';
 $strGrants = 'ÉÕÍ¿';
@@ -165,16 +179,16 @@ $strHaveToShow = 'É½¼¨¤¹¤ë¤¿¤á¤Ë¡¢¾¯¤Ê¤¯¤Æ¤â¤Ò¤È¤Ä¤Î¥«¥é¥à¤òÁªÂò¤·¤Ê¤±¤ì¤Ð¤Ê¤ê¤Þ
 $strHome = '¥á¡¼¥ó¥Ú¡¼¥¸¤Ø';
 $strHomepageOfficial = 'phpMyAdmin¥Û¡¼¥à';
 $strHomepageSourceforge = 'Sourceforge¤ÎphpMyAdmin¥À¥¦¥ó¥í¡¼¥É¥Ú¡¼¥¸';
-$strHost = '¥Û¥¹¥È';
 $strHostEmpty = '¥Û¥¹¥ÈÌ¾¤Ï¶õ¤Ç¤¹!';
+$strHost = '¥Û¥¹¥È';
 
 $strIdxFulltext = 'Á´Ê¸';
 $strIfYouWish = '¥Æ¡¼¥Ö¥ë¤Î¥³¥é¥à(Îó)¤Ë¥Ç¡¼¥¿¤òÄÉ²Ã¤¹¤ë¾ì¹ç¤Ï¡¢¥Õ¥£¡¼¥ë¥É¥ê¥¹¥È¤ò¥«¥ó¥Þ¤Ç¶èÊ¬¤·¤Æ¤¯¤À¤µ¤¤¡£';
 $strIgnore = 'Ìµ»ë';
-$strIndex = '¥¤¥ó¥Ç¥Ã¥¯¥¹';
 $strIndexes = '¥¤¥ó¥Ç¥Ã¥¯¥¹¿ô';
 $strIndexHasBeenDropped = '¥¤¥ó¥Ç¥Ã¥¯¥¹%s¤¬ºï½ü¤µ¤ì¤Þ¤·¤¿';
 $strIndexName = '¥¤¥ó¥Ç¥Ã¥¯¥¹Ì¾&nbsp;:';
+$strIndex = '¥¤¥ó¥Ç¥Ã¥¯¥¹';
 $strIndexType = '¥¤¥ó¥Ç¥Ã¥¯¥¹¤Î¥¿¥¤¥×&nbsp;:';
 $strInsert = 'ÄÉ²Ã';
 $strInsertAsNewRow = '¿·¤·¤¤¹Ô¤È¤·¤Æ¤ÎÄÉ²Ã';
@@ -224,6 +238,7 @@ $strNo = '¤¤¤¤¤¨';
 $strNoDatabases = '¥Ç¡¼¥¿¥Ù¡¼¥¹¿ô';
 $strNoDescription = 'µ­½Ò¤¬¤¢¤ê¤Þ¤»¤ó';
 $strNoDropDatabases = '"DROP DATABASE"¥¹¥Æ¡¼¥È¥á¥ó¥È¤Ï¶Ø»ß¤µ¤ì¤ë¡£';
+$strNoExplain = 'Explain SQL¤ò¥¹¥­¥Ã¥×';
 $strNoFrames = '<b>¥Õ¥ì¡¼¥à</b>²ÄÇ½¤Ê¥Ö¥é¥¦¥¶¡¼¤ÎÊý¤¬phpMyAdmin¤Ï»È¤¤¤ä¤¹¤¤¤Ç¤¹¡£';
 $strNoIndex = '¥¤¥ó¥Ç¥Ã¥¯¥¹¤ÏÀßÄê¤µ¤ì¤Æ¤¤¤Þ¤»¤ó¡£';
 $strNoIndexPartsDefined = '¥¤¥ó¥Ç¥Ã¥¯¥¹¤ÎÉôÊ¬¤ÏÀßÄê¤µ¤ì¤Æ¤¤¤Þ¤»¤ó¡£';
@@ -236,14 +251,17 @@ $strNoQuery = 'SQL¥¯¥¨¥ê¡¼Ìµ¤·';
 $strNoRights = '¸½ºßÆÃ¸¢¤ò»ý¤Ã¤Æ¤Ê¤¤¤Î¤Ç¤³¤³¤ËÆþ¤ì¤Þ¤»¤ó¡£';
 $strNoTablesFound = '¸½ºß¤ÎDB¤Ë¥Æ¡¼¥Ö¥ë¤Ï¤¢¤ê¤Þ¤»¤ó¡£';
 $strNotNumber = '¤³¤ì¤ÏÈÖ¹æ¤Ç¤Ï¤¢¤ê¤Þ¤»¤ó¡£';
+$strNotOK = 'OK¤¸¤ã¤Ê¤¤';
 $strNotSet = '<b>%s</b> ¥Æ¡¼¥Ö¥ë¤¬¸«¤Ä¤«¤é¤Ê¤¤¤«¡¢%s ¤¬¤¢¤ê¤Þ¤»¤ó¡£';
 $strNotValidNumber = ' ¤Ï¹Ô¤ÎÀµ¤·¤¤ÈÖ¹æ¤Ç¤Ï¤¢¤ê¤Þ¤»¤ó ';
 $strNoUsersFound = '¥æ¡¼¥¶¡¼¤Ï¸«¤Ä¤«¤ê¤Þ¤»¤ó¤Ç¤·¤¿¡£';
+$strNoValidateSQL = 'SQL¸¡¾Ú¤ò¥¹¥­¥Ã¥×';
 $strNull = '¶õ¤ÎÃÍ(Null)';
 $strNumSearchResultsInTable = '%s ·ï¤¬ <i>%s</i>¥Æ¡¼¥Ö¥ë¤Ç¸«¤Ä¤«¤ê¤Þ¤·¤¿';
 $strNumSearchResultsTotal = '<b>·ï¿ô:</b> <i>%s</i> ¤¬¸«¤Ä¤«¤ê¤Þ¤·¤¿';
 
 $strOftenQuotation = '°úÍÑÉä¹æ¤Ç¤¹¡£¥ª¥×¥·¥ç¥ó¤Ï¡¢char¤Þ¤¿¤Ïvarchar¥Õ¥£¡¼¥ë¥É¤Î¤ß" "¤Ç°Ï¤Þ¤ì¤Æ¤¤¤ë¤³¤È¤ò°ÕÌ£¤·¤Þ¤¹¡£';
+$strOK = 'OK';
 $strOperations = 'Áàºî';
 $strOptimizeTable = '¥Æ¡¼¥Ö¥ë¤òºÇÅ¬²½¤·¤Þ¤¹¡£';
 $strOptionalControls = 'ÆÃ¼ìÊ¸»ú¤ÎÆÉ¤ß¹þ¤ß/½ñ¤­¹þ¤ß¥ª¥×¥·¥ç¥ó';
@@ -254,12 +272,13 @@ $strOverhead = '¥ª¡¼¥Ð¡¼¥Ø¥Ã¥É';
 
 $strPageNumber = '¥Ú¡¼¥¸ÈÖ¹æ:';
 $strPartialText = 'ÉôÊ¬Åª¤ÊÊ¸½ñ';
-$strPassword = '¥Ñ¥¹¥ï¡¼¥É';
 $strPasswordEmpty = '¥Ñ¥¹¥ï¡¼¥É¤Ï¶õ¤Ç¤¹¡£';
+$strPassword = '¥Ñ¥¹¥ï¡¼¥É';
 $strPasswordNotSame = '¥Ñ¥¹¥ï¡¼¥É¤Ï¶õ¤Ç¤¹¡£';
 $strPdfDbSchema = '"%s" ¥Ç¡¼¥¿¥Ù¡¼¥¹ - %sÊÇ¤Î¿Þ';
 $strPdfInvalidPageNum = 'PDF¥Ú¡¼¥¸¤¬Ì¤ÄêµÁ¡ª';
 $strPdfInvalidTblName = '"%s" ¥Æ¡¼¥Ö¥ë¤¬¤¢¤ê¤Þ¤»¤ó!';
+$strPdfNoTables = '¥Æ¡¼¥Ö¥ë¤¬¤¢¤ê¤Þ¤»¤ó';
 $strPhp = 'PHP¥³¡¼¥É¤ÎºîÀ®';
 $strPHPVersion = 'PHP ¥Ð¡¼¥¸¥ç¥ó';
 $strPmaDocumentation = 'phpMyAdmin¤Î¥É¥­¥å¥á¥ó¥È';
@@ -275,8 +294,8 @@ $strPrintView = '°õºþÍÑÉ½¼¨';
 $strPrivileges = 'ÆÃ¸¢';
 $strProperties = '¥×¥í¥Ñ¥Æ¥£';
 
-$strQBE = '¥¯¥¨¥ê¡¼';
 $strQBEDel = 'ºï½ü';
+$strQBE = '¥¯¥¨¥ê¡¼';
 $strQBEIns = 'ÁÞÆþ';
 $strQueryOnDb = '¥Ç¡¼¥¿¥Ù¡¼¥¹¤ÎSQL¥¯¥¨¥ê¡¼ <b>%s</b>:';
 
@@ -313,10 +332,10 @@ $strRunSQLQuery = '¥Ç¡¼¥¿¥Ù¡¼¥¹%s¤ËSQL¥¯¥¨¥ê¡¼¼Â¹Ô';
 
 $strSave = 'ÊÝÂ¸';
 $strScaleFactorSmall = '£±¥Ú¡¼¥¸Æâ¤Ë¿ÞÉ½¤òÇÛÃÖ¤µ¤»¤ë¤¿¤á¤Ë¤ÏÂç¤­¤µ¤¬¾®¤µ²á¤®¤Þ¤¹';
-$strSearch = '¸¡º÷';
 $strSearchFormTitle = '¥Ç¡¼¥¿¥Ù¡¼¥¹Æâ¤Î¸¡º÷';
 $strSearchInTables = '¥Æ¡¼¥Ö¥ë¤Î»ØÄê:';
 $strSearchNeedle = '¸¡º÷¤¹¤ëÃ±¸ì¡¢¤Þ¤¿¤ÏÃÍ (¥ï¥¤¥ë¥É¥«¡¼¥É¤Ï: "%"):';
+$strSearch = '¸¡º÷';
 $strSearchOption1 = '¤¤¤º¤ì¤«¤ÎÃ±¸ì¤ò´Þ¤à';
 $strSearchOption2 = 'Á´¤Æ¤ÎÃ±¸ì¤ò´Þ¤à';
 $strSearchOption3 = 'Àµ³Î¤Ê¥Õ¥ì¡¼¥º';
@@ -333,10 +352,10 @@ $strSend = '¥Õ¥¡¥¤¥ë¤ËÍî¤È¤¹';
 $strServerChoice = '¥µ¡¼¥Ð¡¼¤ÎÁªÂò';
 $strServerVersion = '¥µ¡¼¥Ð¡¼¤Î¥Ð¡¼¥¸¥ç¥ó';
 $strSetEnumVal = '¥Õ¥£¡¼¥ë¥É¥¿¥¤¥×¤¬"enum"Ëô¤Ï"set"¤Î¾ì¹ç¤ÏÃÍ¤ò¤³¤Î¥Õ¥©¡¼¥Þ¥Ã¥È¤ò»È¤Ã¤ÆÆþÎÏ¤·¤Æ²¼¤µ¤¤: \'a\',\'b\',\'c\'...<br />¥Ð¥Ã¥¯¥¹¥é¥Ã¥·¥å¡Ö"\"¡×Ëô¤Ï¥¯¥ª¡¼¥È¡Ö"\'"¡×¤òÆþÎÏ¤·¤¿¤¤¤È¡¢Æ¬¤Ë¥Ð¥Ã¥¯¥¹¥é¥Ã¥·¥å¤òÉÕ¤±¤Æ²¼¤µ¤¤¡ÖÎã: \'\\\\xyz\' or \'a\\\'b\'¡×¡£';
-$strShow = 'É½¼¨';
 $strShowAll = 'Á´¤ÎÈ¯É½';
 $strShowColor = '¿§É½¼¨';
 $strShowCols = 'Îó¤ÎÈ¯É½';
+$strShow = 'É½¼¨';
 $strShowGrid = '¥°¥ê¥Ã¥É¤ÎÉ½¼¨';
 $strShowingRecords = '¥ì¥³¡¼¥ÉÉ½¼¨';
 $strShowPHPInfo = 'PHP¾ðÊó';
@@ -348,9 +367,14 @@ $strSize = '¥µ¥¤¥º';
 $strSort = '¥½¡¼¥È';
 $strSpaceUsage = '¥Ç¥£¥¹¥¯»ÈÍÑÎÌ';
 $strSplitWordsWithSpace = '³ÆÃ±¸ì¤Ï¥¹¥Ú¡¼¥¹Ê¸»ú(" ")¤Ç¶èÀÚ¤Ã¤Æ²¼¤µ¤¤';
-$strSQL = 'SQL';
 $strSQLQuery = '¼Â¹Ô¤µ¤ì¤¿SQL¥¯¥¨¥ê¡¼';
 $strSQLResult = 'SQL¤Î·ë²Ì';
+$strSQL = 'SQL';
+$strSQLParserBugMessage = '¤¢¤Ê¤¿¤ÏSQL¥Ñ¡¼¥µ¡¼¤Ç¥Ð¥°¤ò¸«¤Ä¤±¤é¤ì¤ë¤«¤â¤·¤ì¤Þ¤»¤ó¡£¤¢¤Ê¤¿¤Î¥¯¥¨¥ê¡¼¤òÇ°Æþ¤ê¤Ë³Î¤«¤á¤Æ¡¢°úÍÑÉä¤¬Àµ¤·¤¯¥ß¥¹¥Þ¥Ã¥Á¤¬¤Ê¤¤¤«¥Á¥§¥Ã¥¯¤·¤Þ¤·¤ç¤¦¡£¤½¤ÎÂ¾¤Î¼ºÇÔ¤Ë¤Ï¥Æ¥­¥¹¥È¥¨¥ê¥¢¤Ç°úÍÑ¤·¤¿³°Â¦¤Ë¥Ð¥¤¥Ê¥ê¡Ý¥³¡¼¥É¤¬ÉÕ¤¤¤Æ¥Õ¥¡¥¤¥ë¤¬¥¢¥Ã¥×¥í¡¼¥É¤µ¤ì¤Æ¤·¤Þ¤Ã¤¿¤è¤¦¤Ê¸¶°ø¤¬¹Í¤¨¤é¤ì¤Þ¤¹¡£¤Þ¤¿¡¢¤¢¤Ê¤¿¤Î¥¯¥¨¥ê¡¼¤òMySQL¤Î¥³¥Þ¥ó¥É¥é¥¤¥ó¤ò»È¤Ã¤Æ»î¤¹¤³¤È¤â½ÐÍè¤Þ¤¹¡£MySQL¥µ¡¼¥Ð¡¼¤Ï°Ê²¼¤Î¤è¤¦¤Ë¥¨¥é¡¼¤ò½Ð¤·¤Þ¤¹¡£¤½¤³¤Ë¤ÏÌäÂê¤ò²ò·è¤¹¤ë¼ê½õ¤±¤¬¤¢¤ë¤Ç¤·¤ç¤¦¡£¥³¥Þ¥ó¥É¥é¥¤¥ó¤Ç¤ÏÀ®¸ù¤·¤Æ¤â¡¢¤Þ¤ÀÌäÂê¤¬¤¢¤ë¾ì¹ç¡¢¥Ñ¡¼¥µ¡¼¤¬¼ºÇÔ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¢ÌäÂê¤Î¤¢¤ëSQL¥¯¥¨¥ê¡¼¤ò¤Ò¤È¤Ä¤ÎÊ¸¤Ë¸º¤é¤·¤Æ¤ß¤Æ²¼¤µ¤¤¡£¤½¤·¤Æ°Ê²¼¤Î¥»¥¯¥·¥ç¥ó¤Ç¥Ç¡¼¥¿¤òÀÚ¤ê¼è¤Ã¤ÆBUGÊó¹ð¤òÁ÷¤Ã¤Æ²¼¤µ¤¤:';
+$strSQLParserUserError = '¤¢¤Ê¤¿¤ÎSQL¥¯¥¨¥ê¡¼¤Ë¥¨¥é¡¼¤¬¤¢¤ê¤Þ¤¹¡£MySQL¥µ¡¼¥Ð¡¼¤Ï°Ê²¼¤Î¤è¤¦¤Ë¥¨¥é¡¼¤ò½Ð¤·¤Þ¤¹¡£¤½¤³¤Ë¤ÏÌäÂê¤ò²ò·è¤¹¤ë¼ê½õ¤±¤¬¤¢¤ë¤Ç¤·¤ç¤¦¡£';
+$strSQPBugInvalidIdentifer = 'Ç§¾Ú¤¬Ìµ¸ú¤Ç¤¹';
+$strSQPBugUnclosedQuote = '°úÍÑÉä¤¬ÊÄ¤¸¤Æ¤¤¤Ê¤¤';
+$strSQPBugUnknownPunctuation = 'Ìµ¸ú¤Ê¶çÆÉÅÀÊ¸»ú¤Ç¤¹';
 $strStatement = '¥¹¥Æ¡¼¥È¥á¥ó¥È';
 $strStrucCSV = 'CSV¥Ç¡¼¥¿';
 $strStrucData = '¹½Â¤¤È¥Ç¡¼¥¿';
@@ -395,6 +419,7 @@ $strUserName = '¥æ¡¼¥¶¡¼Ì¾';
 $strUsers = '¥æ¡¼¥¶¡¼';
 $strUseTables = '»È¤¦¥Æ¡¼¥Ö¥ë';
 
+$strValidateSQL = 'SQL¤Î¸¡¾Ú';
 $strValue = 'ÃÍ';
 $strViewDump = '¥Æ¡¼¥Ö¥ë¤Î¥À¥ó¥×(¥¹¥­¡¼¥Þ)É½¼¨';
 $strViewDumpDB = 'DB¤Î¥À¥ó¥×(¥¹¥­¡¼¥Þ)É½¼¨';
@@ -409,38 +434,5 @@ $strYes = '¤Ï¤¤';
 
 $strZip = '"zip¤µ¤ì¤ë"';
 // To translate
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-
-$strDisabled = 'Disabled';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-
-$strEnabled = 'Enabled';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-
-$strGeneralRelationFeat = 'General relation features';  //to translate
-
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-
-$strOK = 'OK';  //to translate
-
-$strPdfNoTables = 'No tables';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-
-$strValidateSQL = 'Validate SQL';  //to translate
 
 ?>
