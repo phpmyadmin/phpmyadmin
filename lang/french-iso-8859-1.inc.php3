@@ -18,6 +18,8 @@ $datefmt = '%A %d %B %Y à %H:%M';
 
 $timespanfmt = '%s jours, %s heures, %s minutes et %s secondes';
 
+$updComTab = 'La documentation indique comment mettre à jour votre table Column_comments';
+
 $strAPrimaryKey = 'Une clé primaire a été ajoutée sur %s';
 $strAbortedClients = 'Arrêts prématurés';
 $strAbsolutePathToDocSqlDir = 'Veuillez entrer le chemin absolu du répertoire docSQL sur le serveur web';
@@ -57,6 +59,8 @@ $strAscending = 'Croissant';
 $strAtBeginningOfTable = 'En début de Table';
 $strAtEndOfTable = 'En fin de Table';
 $strAttr = 'Attributs';
+$strAutodetect = 'Détection automatique';
+$strAutomaticLayout = 'Mise en page automatique';
 
 $strBack = 'Retour';
 $strBeginCut = 'Début de la section à couper';
@@ -72,6 +76,7 @@ $strBrowse = 'Afficher';
 $strBzError = 'phpMyAdmin n\'a pu compresser le fichier exporté en raison d\'une composante Bz2 défaillante dans cette version de PHP. Il est recommandé de donner à <code>$cfg[\'BZipDump\']</code> dans votre fichier de configuration phpMyAdmin la valeur <code>FALSE</code>. Si vous voulez utiliser la compression en mode Bz2, veuillez mettre à niveau votre version de PHP. Ce rapport d\'anomalies PHP donne les détails: %s.';
 $strBzip = '"bzippé"';
 
+$strCSVOptions = 'Options CSV';
 $strCannotLogin = 'Connexion au serveur MySQL non permise';
 $strCantLoad = 'PHP ne peut charger l\'extension %s,<br />veuillez vérifier votre configuration de PHP';
 $strCantLoadMySQL = 'ne peux charger l\'extension MySQL,<br />vérifiez la configuration PHP';
@@ -147,6 +152,7 @@ $strDbPrivileges = 'Privilèges spécifiques à une base de données';
 $strDbSpecific = 'spécifique à cette base de données';
 $strDefault = 'Défaut';
 $strDefaultValueHelp = 'Pour les valeurs par défaut, veuillez n\'entrer qu\'une seule valeur, sans caractère d\'échappement ou apostrophes, sous la forme: a'; 
+$strDelOld = 'Cette page fait référence à des tables qui n\'existent plus. Voulez-vous effacer ces références?';
 $strDelete = 'Effacer';
 $strDeleteAndFlush = 'Effacer les utilisateurs, puis recharger les privilèges.';
 $strDeleteAndFlushDescr = 'Ceci est la méthode la plus directe, mais le fait de recharger les privilèges pourrait prendre du temps.';
@@ -201,6 +207,9 @@ $strFieldsEnclosedBy = 'Champs entourés par';
 $strFieldsEscapedBy = 'Caractère spécial';
 $strFieldsTerminatedBy = 'Champs terminés par';
 $strFileCouldNotBeRead = 'Le fichier n\'a pu être lu';
+$strFileNameTemplate = 'Modèle de nom de fichier';
+$strFileNameTemplateHelp = 'Utilisez __DB__ comme nom de base, __TABLE__ comme nom de table et %stoute option valide de strftime%s comme indicateur de date/heure, le suffixe sera ajouté automatiquement. Tout autre texte sera préservé.';
+$strFileNameTemplateRemember = 'se souvenir du modèle';
 $strFixed = 'fixe';
 $strFlushPrivilegesNote = 'Note: phpMyAdmin obtient la liste des privilèges directement à partir des tables MySQL. Le contenu de ces tables peut être différent des privilèges effectifs, si des changements manuels ont été apportés. Dans ce cas, vous devriez %srecharger les privilèges%s avant de continuer.';
 $strFlushTable = 'Recharger la table ("FLUSH")';
@@ -243,6 +252,7 @@ $strIndexHasBeenDropped = 'L\'index %s a été effacé';
 $strIndexName = 'Nom de la clef&nbsp;:';
 $strIndexType = 'Type de clef&nbsp;:';
 $strIndexes = 'Index';
+$strInnodbStat = 'État InnoDB';
 $strInsecureMySQL = 'Votre fichier de configuration fait référence à l\'utilisateur root sans mot de passe, ce qui correspond à la valeur par défaut de MySQL.  Votre serveur MySQL est donc ouvert aux intrusions, et vous devriez corriger ce problème de sécurité.';
 $strInsert = 'Insérer';
 $strInsertAsNewRow = 'Insérer en tant que nouvel enregistrement';
@@ -316,6 +326,7 @@ $strNoFrames = 'L\'utilisation de phpMyAdmin est plus aisée avec un navigateur <
 $strNoIndex = 'Aucune clef n\'est définie&nbsp;!';
 $strNoIndexPartsDefined = 'Aucune colonne n\'a été définie pour cette clef&nbsp;!';
 $strNoModification = 'Pas de modifications';
+$strNoOptions = 'Ce format ne comporte pas d\'options';
 $strNoPassword = 'aucun mot de passe';
 $strNoPhp = 'Sans source PHP';
 $strNoPrivileges = 'aucun privilège';
@@ -358,6 +369,8 @@ $strPdfInvalidPageNum = 'Numéro de page PDF non défini !';
 $strPdfInvalidTblName = 'La table "%s" n\'existe pas !';
 $strPdfNoTables = 'Pas de table !';
 $strPerHour = 'par heure';
+$strPerMinute = 'par minute';
+$strPerSecond = 'par seconde';
 $strPhp = 'Créer source PHP';
 $strPmaDocumentation = 'Documentation de phpMyAdmin';
 $strPmaUriError = 'Le paramètre <tt>$cfg[\'PmaAbsoluteUri\']</tt> DOIT être renseigné dans votre fichier de configuration !';
@@ -415,6 +428,7 @@ $strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %
 $strQueryOnDb = 'Requête SQL sur la base <b>%s</b>&nbsp;:';
 $strQuerySQLHistory = 'Historique SQL';
 $strQueryStatistics = '<b>Statistiques sur les requêtes</b>: Depuis son démarrage, %s requêtes ont été envoyées au serveur.';
+$strQueryTime = 'traitement: %01.4f sec.';
 $strQueryType = 'Type de requête';
 
 $strReType = 'Entrer à nouveau';
@@ -457,6 +471,7 @@ $strRunSQLQuery = 'Exécuter une ou des <b>requêtes</b> sur la base %s';
 $strRunning = 'sur le serveur %s';
 
 $strSQL = 'SQL';
+$strSQLOptions = 'options SQL';
 $strSQLParserBugMessage = 'Il semble que vous ayiez trouvé une anomalie dans l\'analyseur syntaxique SQL. Veuillez examiner votre requête attentivement, et vérifier que vos apostrophes sont conformes. Il se pourrait aussi que vous ayiez chargé un fichier dont le contenu binaire n\'est pas entre apostrophes.  Si vous avez accès à MySQL via son interface de commande en mode ligne, vous pouvez y essayer votre requête. Le message d\'erreur présenté plus bas pourrait vous indiquer la source du problème. En dernier recours, veuillez trouver la plus courte requête possible qui cause le problème, et soumettre un rapport d\'anomalie en incluant la section à couper:';
 $strSQLParserUserError = 'Il semble qu\'il y ait une erreur dans votre requête SQL. Le message ci-bas peut vous aider à en trouver la cause.';
 $strSQLQuery = 'requête SQL';
@@ -511,6 +526,9 @@ $strSize = 'Taille';
 $strSort = 'Tri';
 $strSpaceUsage = 'Espace utilisé';
 $strSplitWordsWithSpace = 'Séparer les mots par un espace (" ").';
+$strStatCheckTime = 'Dernière vérification';
+$strStatCreateTime = 'Création';
+$strStatUpdateTime = 'Dernière modification';
 $strStatement = 'Information';
 $strStatus = 'État';
 $strStrucCSV = 'Données CSV';
@@ -547,6 +565,15 @@ $strTime = 'Durée';
 $strTotal = 'total';
 $strTotalUC = 'Total';
 $strTraffic = 'Trafic';
+$strTransformation_image_jpeg__inline = 'Affiche une image timbre-poste cliquable; les options sont: largeur,hauteur en pixels (conserve le rapport original)';
+$strTransformation_image_jpeg__link = 'Affiche un lien vers cette image';
+$strTransformation_image_jpeg__plain = 'Affiche un lien vers cette image, avec en option un préfixe au lien, par exemple http://...';
+$strTransformation_image_png__inline = 'Voir image/jpeg: inline';
+$strTransformation_text_plain__dateformat = 'Change le format des champs de type TIME, TIMESTAMP ou DATETIME selon votre format local de date/heure. La première option est le décalage horaire qui sera ajouté (par défaut 0). La seconde option est un format en accord avec les paramètres de la fonction PHP strftime().'; 
+$strTransformation_text_plain__external = '(Linux seulement) Exécute un programme externe et lui envoit le contenu du champ via l\'entrée standard. Puis capture la sortie standard de ce programme externe. Le programme par défaut est tidy, pour un affichage embelli du code HTML.  Pour des raisons de sécurité, vous devez éditer le script libraries/transformations/text_plain__external.inc.php et y insérer les noms de programme externe possibles. La première option est le numéro du programme que vous voulez utiliser, la seconde option contient les paramètres pour ce programme. En troisième option, une valeur de 1 va convertir le résultat avec la fonction htmlspecialchars() (par défaut, 1). En option 4, une valeur de 1 va ajouter NOWRAP à la cellule affichée (par défaut, 1).';
+$strTransformation_text_plain__formatted = 'Préserve le contenu original du champ, sans ajout de caractères d\'échappement.';
+$strTransformation_text_plain__substr = 'N\'affiche qu\'une partie du champ. En première option, la position de départ (par défaut, 0). En seconde option, le nombre de caractères à afficher (par défaut, le reste). En troisième option, des caractères à afficher à la fin du texte (par défaut: "...").';
+$strTransformation_text_plain__unformatted = 'Affiche le code HTML sous forme d\'entités HTML.';
 $strType = 'Type';
 
 $strUncheckAll = 'Tout décocher';
@@ -586,48 +613,12 @@ $strWritingCommentNotPossible = 'Ajout de commentaire impossible';
 $strWritingRelationNotPossible = 'Ajout de relation impossible';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
+$strXML = 'XML';
+
 $strYes = 'Oui';
 
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
-$updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 
-$strAutomaticLayout = 'Automatic layout';  //to translate
-
-$strCSVOptions = 'CSV options';//to translate
-
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
-$strFileNameTemplateRemember = 'remember template';//to translate 
-
-$strInnodbStat = 'InnoDB Status';  //to translate
-
-$strNoOptions = 'This format has no options';//to translate
-
-$strPerMinute = 'per minute';//to translate
-$strPerSecond = 'per second';//to translate
-
-$strQueryTime = 'traitement: %01.4f sec.';//to translate
-
-$strSQLOptions = 'SQL options';//to translate
-$strStatCheckTime = 'Last check';//to translate
-$strStatCreateTime = 'Creation';//to translate
-$strStatUpdateTime = 'Last update';//to translate
-
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link for it. First options argument is a possible prepended string like http://...';//to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
-$strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
-$strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
-$strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
-$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
-
-$strXML = 'XML';//to translate
-
-$strAutodetect = 'Autodetect';  //to translate
 ?>
