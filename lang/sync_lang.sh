@@ -16,8 +16,8 @@ BASE_TRANSLATIONS=`cat <<EOT
 albanian-iso-8859-1
 arabic-windows-1256
 brazilian_portuguese
-bulgarian-koi8
-catala
+bulgarian-koi8-r
+catalan-iso-8859-1
 chinese_big5
 chinese_gb
 croatian-iso8859-2
