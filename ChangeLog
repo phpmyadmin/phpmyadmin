@@ -10,6 +10,7 @@ $Source$
       a LONGTEXT with character set latin7
     * db_details_structure.php3, tbl_properties_structure.php3: missing
       $err_url for mult_submits
+    * scripts/create-tables.sql: don't use backquotes in USE
 
 2003-07-14 Garvin Hicking <me@supergarv.de>
     * Documentation.html: Link to phpMyAdmin homepage for a 'link section'
