@@ -428,7 +428,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $first2 = $punct_data[0] . $punct_data[1];
                         $last2  = $punct_data[$l - 2] . $punct_data[$l - 1];
                         $last   = $punct_data[$l - 1];
-                        if (($first == ',') || ($first == ';') || ($first == '.') || ($first = '*')) {
+                        if (($first == ',') || ($first == ';') || ($first == '.') || ($first == '*')) {
                             $count2     = $count1 + 1;
                             $punct_data = $first;
                         } else if (($last2 == '/*') || ($last2 == '--')) {
@@ -437,7 +437,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         } else if (($last == '-') || ($last == '+') || ($last == '!')) {
                             $count2--;
                             $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
-                        } else {
+                        // TODO: for negation operator, split in 2 tokens ?
+                        // "select x&~1 from t"
+                        // becomes "select x & ~ 1 from t" ?
+
+                        } else if ($last != '~') {
                             $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . ($count1+1) . "\n"
                                       . 'STR: ' . $punct_data;
                             PMA_SQP_throwError($debugstr, $sql);
