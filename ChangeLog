@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * header.inc.php3: XHTML compatibility
+
 2003-07-24 Garvin Hicking <me@supergarv.de>
     * libraries/sqlparser.lib.php3 - Confirmation is also needed on
       TRUNCATE statements!

@@ -111,7 +111,7 @@ var errorMsg2   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strNotValidNum
 }
 echo "\n";
 ?>
-    <meta name="OBGZip" value="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
+    <meta name="OBGZip" content="<?php echo ($cfg['OBGzip'] ? 'true' : 'false'); ?>" />
 </head>
 
 
