@@ -2,6 +2,9 @@
 #
 # $Id$
 #
+# 2004-06-07  rabus@users.sourceforge.net
+# - create backup config file
+#
 # 2004-04-29, lem9@users.sourceforge.net:
 # - keep only the previous cvs directory created
 #
@@ -164,6 +167,9 @@ find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
 
 # Building Documentation.txt
 lynx --dont_wrap_pre --nolist --dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
+
+# Creating a backup config.inc.php
+cp phpMyAdmin/config.inc.php phpMyAdmin/config.default
 
 # Renaming directory
  mv phpMyAdmin phpMyAdmin-$target
