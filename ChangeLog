@@ -8,6 +8,7 @@ $Source$
 2005-01-23 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_query_box.php: bug #1107937, undefined $fields_list
     * lang/estonian: Update thanks to Alvar Soome - finsoft.
+    ### 2.6.1 released
 
 2005-01-23 Michal Čihař  <michal@cihar.com>
     * export.php: Back to Content-Type application/x-bzip2 on bzip2 export
