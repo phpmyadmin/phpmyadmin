@@ -73,18 +73,19 @@ if (isset($btnDrop) || isset($navig)) {
 // query may contain aliases.
 // (todo: check for embedded comments...)
 
-eregi('SELECT[[:space:]](.*)[[:space:]]FROM[[:space:]]+(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
+if (eregi('SELECT[[:space:]]', $sql_query)) {
+    eregi('SELECT[[:space:]](.*)[[:space:]]FROM[[:space:]]+(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
 
-if ($tmp[3] == '.') {
-    $prev_db = $db;
-    $db      = str_replace('`', '', $tmp[2]);
-    $reload  = ($db == $prev_db) ? 0 : 1;
-    $table   = str_replace('`', '', $tmp[4]);
+    if ($tmp[3] == '.') {
+        $prev_db = $db;
+        $db      = str_replace('`', '', $tmp[2]);
+        $reload  = ($db == $prev_db) ? 0 : 1;
+        $table   = str_replace('`', '', $tmp[4]);
+    }
+    else {
+        $table   = str_replace('`', '', $tmp[2]);
+    }
 }
-else {
-    $table   = str_replace('`', '', $tmp[2]);
-}
-
 
 /**
  * Sets or modifies the $goto variable if required
@@ -230,6 +231,7 @@ else {
     } else {
         $full_sql_query      = $sql_query;
     } // end if...else
+
 
     mysql_select_db($db);
 

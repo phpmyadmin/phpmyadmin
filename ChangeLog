@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-11 Marc Delisle  <lem9@users.sourceforge.net>
+	* sql.php3: $table was emptied when the query was not a Select
+
 2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* most of the scripts: removed tabs and/or trailing spaces.
 	* libraries/common.lib.php3; libraries/auth/cookie.auth.lib.php3: fixed css
