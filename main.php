@@ -645,8 +645,8 @@ if (PMA_PHP_INT_VERSION < 40100) {
 /**
  * Warning for old MySQL version
  */
-
-if (PMA_MYSQL_INT_VERSION < 32332) {
+// not yet defined before the server choice
+if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
     echo '<p class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</p>' . "\n";
 }
 
