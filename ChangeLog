@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-03 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_select.php3, tbl_change.php3,
+      new libraries/get_foreign.lib.php3: drop-down of foreign keys
+      on Select sub-page, thanks to Markus L. Noga (mlnoga)
+
 2002-10-03 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_dump.php3, libraries/build_dump.lib.php3: Completed fix against
       bug #607896, thanks to Loïc.

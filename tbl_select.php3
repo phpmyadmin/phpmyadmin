@@ -7,6 +7,7 @@
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
+require('./libraries/relation.lib.php3'); // foreign keys
 
 
 /**
@@ -62,6 +63,11 @@ if (!isset($param) || $param[0] == '') {
             $fields_type[] = $type;
         } // end while
         mysql_free_result($result);
+
+        // <markus@noga.de>
+        // retrieve keys into foreign fields, if any
+        $cfgRelation = PMA_getRelationsParam();
+        $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
         ?>
 <form method="post" action="tbl_select.php3">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
@@ -132,9 +138,36 @@ if (!isset($param) || $param[0] == '') {
                     </select>
                 </td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
-                    <input type="text" name="fields[]" size="40" class="textfield" />
-                    <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
-                    <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
+                    <?php
+    // <markus@noga.de>
+    $field=$fields_list[$i];
+
+    require('./libraries/get_foreign.lib.php3');
+
+    if($foreigners && isset($foreigners[$field]) &&
+       isset($disp) && $disp) {
+         ?>
+<select name="fields[]">
+                    <option value=""></option>
+        <?php
+
+        while ($relrow = @PMA_mysql_fetch_array($disp)) {
+            $key   = $relrow[$foreign_field];
+            $value = (($foreign_display != FALSE) ? '-' . htmlspecialchars($relrow[$foreign_display]) : '');
+            echo '                  <option value="' . urlencode($key) . '">'.
+                 htmlspecialchars($key) . $value . '</option>' . "\n";
+        } // end while
+        ?>
+                    </select>
+        <?php
+    } else {
+                    ?>
+ <input type="text" name="fields[]" size="40" class="textfield" />
+                    <?php
+    }
+                    ?>
+ <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
+                     <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
                 </td>
             </tr>
             <?php
