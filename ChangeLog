@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/auth/cookie.auth.lib.php: bug 939531: when people upgrade
+      phpMyAdmin on the same directory, the previous cookie pma_cookie_username
+      was used but produced an Undefined offset in blowfish.php, because
+      on previous PMA versions it was not encoded the same way. Now this old
+      cookie is not used. Users have to reenter their username (not a big 
+      impact IMO)
+
 2004-09-01 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Fix empty BLOB export (bug #1020052).
 
