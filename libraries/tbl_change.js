@@ -115,6 +115,9 @@ function onKeyDownArrowsHandler(e) {
 var day;
 var month;
 var year;
+var hour;
+var minute;
+var second;
 
 /**
  * Opens calendar window.
@@ -131,6 +134,24 @@ function openCalendar(params, form, field, type) {
 }
 
 /**
+ * Formats number to two digits.
+ *
+ * @param   int number to format.
+ */
+function formatNum2(i) {
+    return (i < 10 ? '0' : '') + i;
+}
+ 
+/**
+ * Formats number to four digits.
+ *
+ * @param   int number to format.
+ */
+function formatNum4(i) {
+    return (i < 1000 ? i < 100 ? i < 10 ? '000' : '00' : '0' : '') + i;
+}
+
+/**
  * Initializes calendar window.
  */
 function initCalendar() {
@@ -139,21 +160,41 @@ function initCalendar() {
         if (window.opener.dateField.value) {
             value = window.opener.dateField.value;
             if (window.opener.dateType == 'datetime' || window.opener.dateType == 'date') {
-                date = value.split("-");
-                day = parseInt(date[2]);
-                month = parseInt(date[1]) - 1;
-                year = parseInt(date[0]);
+                if (window.opener.dateType == 'datetime') {
+                    parts   = value.split(' ');
+                    value   = parts[0];
+                    
+                    if (parts[1]) {
+                        time    = parts[1].split(':');
+                        hour    = parseInt(time[0]);
+                        minute  = parseInt(time[1]);
+                        second  = parseInt(time[2]);
+                    }
+                }
+                date        = value.split("-");
+                day         = parseInt(date[2]);
+                month       = parseInt(date[1]) - 1;
+                year        = parseInt(date[0]);
             } else {
-                year = parseInt(value.substr(0,4));
-                month = parseInt(value.substr(4,2)) - 1;
-                day = parseInt(value.substr(6,2));
+                year        = parseInt(value.substr(0,4));
+                month       = parseInt(value.substr(4,2)) - 1;
+                day         = parseInt(value.substr(6,2));
+                hour        = parseInt(value.substr(8,2));
+                minute      = parseInt(value.substr(10,2));
+                second      = parseInt(value.substr(12,2));
             }
         }
         if (isNaN(year) || isNaN(month) || isNaN(day) || day == 0) {
-            dt = new Date();
-            year = dt.getFullYear();
-            month = dt.getMonth();
-            day = dt.getDate();
+            dt      = new Date();
+            year    = dt.getFullYear();
+            month   = dt.getMonth();
+            day     = dt.getDate();
+        }
+        if (isNaN(hour) || isNaN(minute) || isNaN(second)) {
+            dt      = new Date();
+            hour    = dt.getHours();
+            minute  = dt.getMinutes();
+            second  = dt.getSeconds();
         }
 	} else {
         /* Moving in calendar */
@@ -212,14 +253,10 @@ function initCalendar() {
         
         dispmonth = 1 + month;
         
-        yearstring = (year < 1000 ? year < 100 ? year < 10 ? '000' : '00' : '0' : '') + year;
-        monthstring = (dispmonth < 10 ? '0' : '') + dispmonth;
-        daystring = (i < 10 ? '0' : '') + i;
-        
         if (window.opener.dateType == 'datetime' || window.opener.dateType == 'date') {
-		    actVal = yearstring + "-" + monthstring + "-" + daystring;
+		    actVal = formatNum4(year) + "-" + formatNum2(dispmonth) + "-" + formatNum2(day);
         } else {
-		    actVal = "" + yearstring + monthstring + daystring;
+		    actVal = "" + formatNum4(year) + formatNum2(dispmonth) + formatNum2(day);
         }
         if (i == day) {
             style = ' class="selected"';
@@ -235,6 +272,15 @@ function initCalendar() {
 	
 	str += "</tr></table>";
 
+    // Should we handle time also?
+    if (window.opener.dateType != 'date') {
+        str += '<form class="clock">';
+        str += '<input id="hour"    type="text" size="2" maxlength="2" value="' + formatNum2(hour) + '" />:';
+        str += '<input id="minute"  type="text" size="2" maxlength="2" value="' + formatNum2(minute) + '" />:';
+        str += '<input id="second"  type="text" size="2" maxlength="2" value="' + formatNum2(second) + '" />';
+        str += '</form>';
+    }
+
 	cnt.innerHTML = str;
 }
 
@@ -244,6 +290,20 @@ function initCalendar() {
  * @param   string     date text
  */
 function returnDate(d) {
-	window.opener.dateField.value = d;
+    txt = d;
+    if (window.opener.dateType != 'date') {
+        // need to get time
+        h = parseInt(document.getElementById('hour').value);
+        m = parseInt(document.getElementById('minute').value);
+        s = parseInt(document.getElementById('second').value);
+        if (window.opener.dateType == 'datetime') {
+            txt += ' ' + formatNum2(h) + ':' + formatNum2(m) + ':' + formatNum2(s);
+        } else {
+            // timestamp
+            txt += formatNum2(h) + formatNum2(m) + formatNum2(s);
+        }
+    }
+
+	window.opener.dateField.value = txt;
 	window.close();
 }

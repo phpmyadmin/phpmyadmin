@@ -273,3 +273,7 @@ table.calendar td.selected {
 img.calendar {
     border: none;
 }
+
+form.clock {
+    text-align: center;
+}

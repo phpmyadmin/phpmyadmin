@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-20 Michal Cihar  <michal@cihar.com>
+    * libraries/tbl_change.js, css/phpmyadmin.css.php: Added time editing to
+      calendar.
+    
 2004-04-19 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Clarification.
     * config.inc.php, Documentation.html, libraries/config_import.lib.php:
