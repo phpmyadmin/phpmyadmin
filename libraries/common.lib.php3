@@ -122,11 +122,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     include('./libraries/mysql_wrappers.lib.php3');
 
     /**
-     * Include charset conversion.
-     */
-    include('./libraries/charset_conversion.lib.php3');
-
-    /**
      * Gets constants that defines the PHP, MySQL... releases.
      * This include must be located physically before any code that needs to
      * reference the constants, else PHP 3.0.16 won't be happy; and must be
@@ -134,6 +129,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * below).
      */
     include('./libraries/defines.lib.php3');
+
+    /**
+     * Include charset conversion.
+     */
+    include('./libraries/charset_conversion.lib.php3');
 
     // For compatibility with old config.inc.php3
     if (!isset($cfg['FileRevision']) || (int)substr($cfg['FileRevision'],13,3) < 116) {
