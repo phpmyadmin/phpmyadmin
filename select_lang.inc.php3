@@ -157,10 +157,7 @@ if (empty($lang)) {
     $lang = $cfgDefaultLang;
 }
 
-// Puts the retained language in a cookie that will expire in one year
-setcookie('lang', $lang, time() + 60*60*24*365);
-
-// Defines the associated filename and load the translation
+// 4. Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php3';
 require('./' . $lang_file);
 ?>
