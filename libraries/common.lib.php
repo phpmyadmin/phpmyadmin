@@ -1553,8 +1553,10 @@ if (typeof(document.getElementById) != 'undefined'
             } //show as php
 
             // Refresh query
-            if (TRUE || (isset($cfg['SQLQuery']['Refresh'])
-                && $cfg['SQLQuery']['Refresh'])) {
+            if (isset($cfg['SQLQuery']['Refresh'])
+                && $cfg['SQLQuery']['Refresh']
+                && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $local_query)) {
+                
                 $refresh_link = '&nbsp;[<a href="sql.php'
                           . $url_qpart
                           . '&amp;show_query=1'
