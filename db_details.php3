@@ -15,18 +15,60 @@ else
 $tables = mysql_list_tables($db);
 $num_tables = @mysql_numrows($tables);
 
-if (MYSQL_MAJOR_VERSION>=3.23){
-	$query="show table status from $db";
-	$result=mysql_query($query);
+// speedup view on locked tables - staybyte - 11 June 2001
+if ($num_tables>0 && MYSQL_MAJOR_VERSION>=3.23 && intval(MYSQL_MINOR_VERSION)>=3){
+	// Special speedup for newer MySQL Versions
+	if ($cfgSkipLockedTables==true && MYSQL_MAJOR_VERSION==3.23 && intval(MYSQL_MINOR_VERSION)>=30){ // in 4.0 format changed
+		$query="SHOW OPEN TABLES from $db";
+		$result=mysql_query($query);
+		// Blending out tables in use
+		if ($result!=false && mysql_num_rows($result)>0){
+			while ($tmp=mysql_fetch_array($result)){
+				if (preg_match("/in_use=[1-9]+/",$tmp["Comment"])){ // in use?
+					// memorize tablename
+					$sot_cache[$tmp[0]]=true;
+				}
+			}
+			mysql_free_result($result);
+
+			if (isset($sot_cache)){
+				$query="show tables from $db";
+				$result=mysql_query($query);
+				if ($result!=false && mysql_num_rows($result)>0){
+					while ($tmp=mysql_fetch_array($result)){
+						if (!isset($sot_cache[$tmp[0]])){
+							$sts_result=mysql_query("show table status from $db like '".AddSlashes($tmp[0])."'");
+							$sts_tmp=mysql_fetch_array($sts_result);
+							$tbl_cache[]=$sts_tmp;
+						}
+						else{ // table in use
+							
+							$tbl_cache[]=array("Name"=>$tmp[0]);
+						}
+					}
+					mysql_free_result($result);
+					$sot_ready=true;
+				}
+			}
+		}
+	}
+	if (!isset($sot_ready)){
+		$result=mysql_query("show table status from $db");
+		if ($result!=false && mysql_num_rows($result)>0){
+			while ($sts_tmp=mysql_fetch_array($result)){
+				$tbl_cache[]=$sts_tmp;
+			}
+			mysql_free_result($result);
+		}
+	}
 }
 
 if($num_tables == 0)
 {
     echo $strNoTablesFound;
 }
-// shows all tables faster on high traffic sites
-// and views table size - staybyte - 9 June 2001
-else if (MYSQL_MAJOR_VERSION>=3.23 && $result!=false && mysql_num_rows($result)>0){
+// show table size on mysql >= 3.23 - staybyte - 11 June 2001
+else if (MYSQL_MAJOR_VERSION>=3.23 && isset($tbl_cache)){
 	echo "<table border=$cfgBorder>\n";
 	echo "<th>".UCFirst($strTable)."</th>";
 	echo "<th colspan=6>$strAction</th>";
@@ -34,8 +76,8 @@ else if (MYSQL_MAJOR_VERSION>=3.23 && $result!=false && mysql_num_rows($result)>
 	// temporary
 	if (!empty($strSize)) echo "<th>$strSize</th>";
 	else echo "<th>&nbsp;</th>";
-	$i=0;
-	while ($sts_data=mysql_fetch_array($result)){
+	$i=$sum_entries=$sum_size=0;
+	while (list($keyname,$sts_data)=each($tbl_cache)){
 		$table=$sts_data["Name"];
 		$query = "?server=$server&lang=$lang&db=$db&table=$table&goto=db_details.php3";
 		$bgcolor = $cfgBgcolorOne;
@@ -50,16 +92,29 @@ else if (MYSQL_MAJOR_VERSION>=3.23 && $result!=false && mysql_num_rows($result)>
            <td><a href="sql.php3<?php echo $query;?>&reload=true&sql_query=<?php echo urlencode("DROP TABLE $table");?>&zero_rows=<?php echo urlencode($strTable." ".$table." ".$strHasBeenDropped);?>"><?php echo $strDrop; ?></a></td>
            <td><a href="sql.php3<?php echo $query;?>&sql_query=<?php echo urlencode("DELETE FROM $table");?>&zero_rows=<?php echo urlencode($strTable." ".$table." ".$strHasBeenEmptied);?>"><?php echo $strEmpty; ?></a></td>
 <?php
-		echo "<td align=right>".$sts_data["Rows"]."</td>\n";
-		$tblsize=$sts_data["Data_length"]+$sts_data["Index_length"];
-		if ($tblsize>1000000000) $tblsize_format=number_format(round($tblsize/107374182.4)/10,1,','.')." GB";
-		else if ($tblsize>1000000) $tblsize_format=number_format(round($tblsize/104857.6)/10,1,','.')." MB";
-		else if ($tblsize>1000) $tblsize_format=number_format(round($tblsize/102.4)/10,1)." KB";
-		echo "<td align=right>&nbsp;&nbsp;";
-		echo "<a href=\"tbl_properties.php3$query#showusage\">";
-		echo $tblsize_format."</a></td>\n";
+		if (isset($sts_data["Rows"])){
+			echo "<td align=right>".number_format($sts_data["Rows"],0,',','.')."</td>\n";
+			$tblsize=$sts_data["Data_length"]+$sts_data["Index_length"];
+			$sum_size+=$tblsize;
+			$sum_entries+=$sts_data["Rows"];
+			list($formated_size,$unit)=format_byte_down($tblsize,3,1);
+			echo "<td align=right>&nbsp;&nbsp;";
+			echo "<a href=\"tbl_properties.php3$query#showusage\">";
+			echo "$formated_size $unit</a></td>\n";
+		}
+		else echo "<td colspan=3 align=center>in use</td>\n";
 		echo "</tr>\n";
 	}
+	// Show Summary
+	echo "<tr bgcolor=$cfgThBgcolor>\n";
+	echo "<td colspan=7 align=center>";
+	if (!empty($strSum)) echo $strSum;
+	echo "</td>\n";
+	list ($sum_formated,$unit)=format_byte_down($sum_size,3,1);
+	echo "<td align=right>".number_format($sum_entries,0,',','.')."</td>\n";
+	echo "<td align=right>$sum_formated $unit</td>\n";
+	echo "</tr>\n";
+
 	echo "</table>\n";
 }
 else
