@@ -140,19 +140,25 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     }
 
     // rabus: Devide charset from the rest of the type definition (MySQL >= 4.1)
-    if (PMA_MYSQL_INT_VERSION >= 40100 && (
-        substr($type, 0, 4) == 'char'
-        || substr($type, 0, 7) == 'varchar'
-        || substr($type, 0, 4) == 'text'
-        || substr($type, 0, 8) == 'tinytext'
-        || substr($type, 0, 10) == 'mediumtext'
-        || substr($type, 0, 8) == 'longtext'
-        ) && !$binary) {
-        if (strpos($type, ' character set ')) {
-            $type = substr($type, 0, strpos($type, ' character set '));
-        }
-        if (!empty($row['Collation'])) {
-            $field_charset = $row['Collation'];
+    unset($field_charset);
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
+        if ((substr($type, 0, 4) == 'char'
+            || substr($type, 0, 7) == 'varchar'
+            || substr($type, 0, 4) == 'text'
+            || substr($type, 0, 8) == 'tinytext'
+            || substr($type, 0, 10) == 'mediumtext'
+            || substr($type, 0, 8) == 'longtext'
+            ) && !$binary) {
+            if (strpos($type, ' character set ')) {
+                $type = substr($type, 0, strpos($type, ' character set '));
+            }
+            if (!empty($row['Collation'])) {
+                $field_charset = $row['Collation'];
+            } else {
+                $field_charset = '';
+            }
+        } else {
+            $field_charset = '';
         }
     }
 
@@ -508,7 +514,7 @@ if ($cfg['ShowStats']) {
             <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strCharset; ?></td>
             <td bgcolor="<?php echo $bgcolor; ?>" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
             <?php
-            echo $showtable['Charset'];
+            echo $tbl_charset;
             ?>
             </td>
         </tr>

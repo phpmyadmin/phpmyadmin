@@ -59,6 +59,8 @@ if (isset($submit)) {
         }
         if ($field_attribute[$i] != '') {
             $query .= ' ' . $field_attribute[$i];
+        } else if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($field_charset[$i])) {
+            $query .= ' CHARACTER SET ' . $field_charset[$i];
         }
         if ($field_default[$i] != '') {
             if (strtoupper($field_default[$i]) == 'NULL') {
@@ -154,10 +156,14 @@ if (isset($submit)) {
     $sql_query      = 'CREATE TABLE ' . PMA_backquote($table) . ' (' . $sql_query . ')';
     $query_cpy      = 'CREATE TABLE ' . PMA_backquote($table) . ' (' . $query_cpy . "\n" . ')';
 
-    // Adds table type and comments (2 May 2001 - Robbat2)
+    // Adds table type, character set and comments
     if (!empty($tbl_type) && ($tbl_type != 'Default')) {
         $sql_query .= ' TYPE = ' . $tbl_type;
-        $query_cpy .= ' TYPE = ' . $tbl_type;
+        $query_cpy .= "\n" . 'TYPE = ' . $tbl_type;
+    }
+    if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($tbl_charset)) {
+        $sql_query .= ' CHARACTER SET = ' . $tbl_charset;
+        $query_cpy .= "\n" . 'CHARACTER SET = ' . $tbl_charset;
     }
     if (PMA_MYSQL_INT_VERSION >= 32300 && !empty($comment)) {
         $sql_query .= ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
@@ -172,13 +178,13 @@ if (isset($submit)) {
         $sql_query = $query_cpy . ';';
         unset($query_cpy);
         $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
-    
+
         // garvin: If comments were sent, enable relation stuff
         require('./libraries/relation.lib.php3');
         require('./libraries/transformations.lib.php3');
-    
+
         $cfgRelation = PMA_getRelationsParam();
-    
+
         // garvin: Update comment table, if a comment was set.
         if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
             @reset($field_comments);
@@ -186,7 +192,7 @@ if (isset($submit)) {
                 PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
             }
         }
-    
+
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
             @reset($field_mimetype);
@@ -194,7 +200,7 @@ if (isset($submit)) {
                 PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
             }
         }
-    
+
         include('./' . $cfg['DefaultTabTable']);
         $abort = TRUE;
         exit();

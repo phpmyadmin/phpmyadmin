@@ -18,6 +18,13 @@ require('./libraries/relation.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
 
 /**
+ * Gets available MySQL charsets
+ */
+if (PMA_MYSQL_INT_VERSION >= 40100 && !defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')) {
+    include('./libraries/mysql_charsets.lib.php3');
+}
+
+/**
  * Updates table comment, type and options if required
  */
 if (isset($submitcomment)) {
@@ -29,6 +36,11 @@ if (isset($submitcomment)) {
 }
 if (isset($submittype)) {
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' TYPE = ' . $tbl_type;
+    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
+    $message       = $strSuccess;
+}
+if (isset($submitcharset)) {
+    $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' CHARACTER SET = ' . $tbl_charset;
     $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $err_url);
     $message       = $strSuccess;
 }
@@ -473,6 +485,29 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <?php echo PMA_showMySQLDocu('Table_types', 'Table_types') . "\n"; ?>
         </form>
     </li>
+    <?php
+
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
+        echo "\n"
+           . '<!-- Table character set -->' . "\n"
+           . '    <li>' . "\n"
+           . '        <form method="post" action="tbl_properties_operations.php3">' . "\n"
+           . PMA_generate_common_hidden_inputs($db, $table, 3)
+           . '            ' . $strCharset . '&nbsp;:&nbsp;' . "\n"
+           . '            <select name="tbl_charset" style="vertical-align: middle">' . "\n";
+           $real_charset = strpos($tbl_charset, '_') ? substr($tbl_charset, 0, strpos($tbl_charset, '_')) : $tbl_charset;
+        for ($i = 1; isset($mysql_charsets[$i]); $i++) {
+            echo '                <option value="' . $mysql_charsets[$i] . '"' . ($mysql_charsets[$i] == $real_charset ? ' selected="selected"' : '') . '>' . $mysql_charsets[$i] . '</option>' . "\n";
+        }
+        unset($i);
+        unset($real_charset);
+        echo '            </select>&nbsp;' . "\n"
+           . '            <input type="submit" name="submitcharset" value="' . $strGo . '" style="vertical-align: middle" />&nbsp;' . "\n"
+           . '        </form>' . "\n"
+           . '    </li>' . "\n";
+    }
+
+    ?>
 
     <!-- Table options -->
     <li style="vertical-align: top">

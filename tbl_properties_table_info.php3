@@ -14,6 +14,7 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     $table_info_result   = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $showtable           = PMA_mysql_fetch_array($table_info_result);
     $tbl_type            = strtoupper($showtable['Type']);
+    $tbl_charset         = empty($showtable['Charset']) ? '' : $showtable['Charset'];
     $table_info_num_rows = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment        = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
     $auto_increment      = (isset($showtable['Auto_increment']) ? $showtable['Auto_increment'] : '');

@@ -55,6 +55,8 @@ if (isset($submit)) {
         }
         if ($field_attribute[$i] != '') {
             $query .= ' ' . $field_attribute[$i];
+        } else if (PMA_MYSQL_INT_VERSION >= 40100 && $field_charset[$i] != '') {
+            $query .= ' CHARACTER SET ' . $field_charset[$i];
         }
         if ($field_default[$i] != '') {
             if (strtoupper($field_default[$i]) == 'NULL') {
@@ -106,9 +108,9 @@ if (isset($submit)) {
     $result        = PMA_mysql_query($sql_query)  or $error_create = true;
 
     if ($error_create == false) {
-    
+
         $sql_query_cpy = $sql_query . ';';
-    
+
         // Builds the primary keys statements and updates the table
         $primary = '';
         if (isset($field_primary)) {
@@ -126,7 +128,7 @@ if (isset($submit)) {
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
         } // end if
-    
+
         // Builds the indexes statements and updates the table
         $index = '';
         if (isset($field_index)) {
@@ -144,7 +146,7 @@ if (isset($submit)) {
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
         } // end if
-    
+
         // Builds the uniques statements and updates the table
         $unique = '';
         if (isset($field_unique)) {
@@ -162,8 +164,8 @@ if (isset($submit)) {
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
         } // end if
-    
-    
+
+
         // Builds the fulltext statements and updates the table
         $fulltext = '';
         if (PMA_MYSQL_INT_VERSION >= 32323 && isset($field_fulltext)) {
@@ -179,13 +181,13 @@ if (isset($submit)) {
                 $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
         } // end if
-    
+
         // garvin: If comments were sent, enable relation stuff
         require('./libraries/relation.lib.php3');
         require('./libraries/transformations.lib.php3');
-    
+
         $cfgRelation = PMA_getRelationsParam();
-    
+
         // garvin: Update comment table, if a comment was set.
         if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
             @reset($field_comments);
@@ -193,7 +195,7 @@ if (isset($submit)) {
                 PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
             }
         }
-    
+
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
             @reset($field_mimetype);
@@ -201,7 +203,7 @@ if (isset($submit)) {
                 PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
             }
         }
-    
+
         // Go back to the structure sub-page
         $sql_query = $sql_query_cpy;
         unset($sql_query_cpy);

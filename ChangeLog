@@ -8,6 +8,15 @@ $Source$
 2003-06-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Incremented required config.inc.php3 revision
       number.
+    * tbl_addfield.php3, tbl_alter.php3, tbl_create.php3,
+      tbl_properties.inc.php3, tbl_properties_operations.php3,
+      tbl_properties_structure.php3, tbl_properties_table_info.php3,
+      libraries/mysql_charsets.lib.php3: Improved MySQL 4.1 support:
+      - phpMyAdmin is now able to assign / alter table and field charsets;
+      - The table structure page sometimes displayed "Array" in the charset
+        column;
+      - When altering the field type, the input box for the field length
+        sometimes had a strange default value.
 
 2003-06-06 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, config.inc.php3: new LimitChars behavior

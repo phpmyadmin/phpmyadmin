@@ -55,6 +55,8 @@ if (isset($submit)) {
         }
         if ($field_attribute[$i] != '') {
             $query .= ' ' . $field_attribute[$i];
+        } else if (PMA_MYSQL_INT_VERSION >= 40100 && $field_charset[$i] != '') {
+            $query .= ' CHARACTER SET ' . $field_charset[$i];
         }
         if ($field_default[$i] != '') {
             if (strtoupper($field_default[$i]) == 'NULL') {
@@ -83,13 +85,13 @@ if (isset($submit)) {
     if ($error_create == false) {
         $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
         $btnDrop   = 'Fake';
-    
+
         // garvin: If comments were sent, enable relation stuff
         require('./libraries/relation.lib.php3');
         require('./libraries/transformations.lib.php3');
-    
+
         $cfgRelation = PMA_getRelationsParam();
-        
+
         // garvin: Update comment table, if a comment was set.
         if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
             @reset($field_comments);
@@ -97,7 +99,7 @@ if (isset($submit)) {
                 PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex]);
             }
         }
-        
+
         // garvin: Rename relations&display fields, if altered.
         if (($cfgRelation['displaywork'] || $cfgRelation['relwork']) && isset($field_orig) && is_array($field_orig)) {
             @reset($field_orig);
@@ -123,7 +125,7 @@ if (isset($submit)) {
                         $tb_rs    = PMA_query_as_cu($table_query);
                         unset($table_query);
                         unset($tb_rs);
-    
+
                         $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
                                       . ' SET     foreign_field = \'' . PMA_sqlAddslashes($field_name[$fieldindex]) . '\''
                                       . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
@@ -136,7 +138,7 @@ if (isset($submit)) {
                 } // end if fieldname has changed
             } // end while check fieldnames
         } // end if relations/display has to be changed
-    
+
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
             @reset($field_mimetype);
@@ -144,7 +146,7 @@ if (isset($submit)) {
                 PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
             }
         }
-        
+
         $active_page = 'tbl_properties_structure.php3';
         include('./tbl_properties_structure.php3');
         exit();
