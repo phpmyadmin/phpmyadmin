@@ -789,4 +789,8 @@ $strZip = '"zipped"';
 
 $strBufferWriteWaits = 'Write waits';  //to translate
 $strBufferWriteWaitsInPercent = 'Write waits in %';  //to translate
+$strHTMLExcel = 'Microsoft Excel 2000';  //to translate
+$strHTMLExcelOptions = 'Microsoft Excel 2000 export options';  //to translate
+$strHTMLWord = 'Microsoft Word 2000';  //to translate
+$strHTMLWordOptions = 'Microsoft Word 2000 export options';  //to translate
 ?>

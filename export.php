@@ -219,6 +219,12 @@ if ($asfile) {
     if ($type == 'csv') {
         $filename  .= '.csv';
         $mime_type = 'text/x-comma-separated-values';
+    } else if ($type == 'htmlexcel') {
+        $filename  .= '.xls';
+        $mime_type = 'application/vnd.ms-excel';
+    } else if ($type == 'htmlword') {
+        $filename  .= '.doc';
+        $mime_type = 'application/vnd.ms-word';
     } else if ($type == 'xls') {
         $filename  .= '.xls';
         $mime_type = 'application/vnd.ms-excel';

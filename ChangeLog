@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-06 Michal Čihař  <michal@cihar.com>
+    * export.php, libraries/display_export.lib.php, config.inc.php,
+      libraries/config_import.lib.php, libraries/export/htmlexcel.php,
+      libraries/export/htmlword.php, lang/*: Added Microsoft Word and Excel
+      2000 export (RFE #1155122).
+
 2005-03-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php, /display_export.lib.php,
       /export/sql.php: native comments. For MySQL 4.1.x+ I do not display

@@ -1118,7 +1118,7 @@ if (!isset($cfg['Export'])) {
 
 if (!isset($cfg['Export']['format'])) {
     $cfg['Export']['format'] = 'sql';
-} // sql/latex/excel/csv/xml/xls
+} // sql/latex/excel/csv/xml/xls/htmlexcel/htmlword
 if (!isset($cfg['Export']['compression'])) {
     $cfg['Export']['compression'] = 'none';
 } // none/zip/gzip/bzip2
@@ -1140,6 +1140,18 @@ if (!isset($cfg['Export']['csv_null'])) {
 }
 if (!isset($cfg['Export']['csv_columns'])) {
     $cfg['Export']['csv_columns'] = FALSE;
+}
+if (!isset($cfg['Export']['htmlexcel_null'])) {
+    $cfg['Export']['htmlexcel_null']                = 'NULL';
+}
+if (!isset($cfg['Export']['htmlexcel_columns'])) {
+    $cfg['Export']['htmlexcel_columns'] = FALSE;
+}
+if (!isset($cfg['Export']['htmlword_null'])) {
+    $cfg['Export']['htmlword_null']                = 'NULL';
+}
+if (!isset($cfg['Export']['htmlword_columns'])) {
+    $cfg['Export']['htmlword_columns'] = FALSE;
 }
 if (!isset($cfg['Export']['xls_null'])) {
     $cfg['Export']['xls_null']                = 'NULL';

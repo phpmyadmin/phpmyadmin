@@ -309,13 +309,19 @@ $cfg['DefaultTabTable']       = 'tbl_properties_structure.php';
  * Export defaults
  */
 
-$cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml/xls
+$cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml/xls/hmtlexcel/htmlword
 $cfg['Export']['compression']               = 'none'; // none/zip/gzip/bzip2
 
 $cfg['Export']['asfile']                    = FALSE;
 $cfg['Export']['onserver']                  = FALSE;
 $cfg['Export']['onserver_overwrite']        = FALSE;
 $cfg['Export']['remember_file_template']    = TRUE;
+
+$cfg['Export']['htmlexcel_columns']         = FALSE;
+$cfg['Export']['htmlexcel_null']            = 'NULL';
+
+$cfg['Export']['htmlword_columns']          = FALSE;
+$cfg['Export']['htmlword_null']             = 'NULL';
 
 $cfg['Export']['xls_columns']               = FALSE;
 $cfg['Export']['xls_null']                  = 'NULL';
