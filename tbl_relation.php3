@@ -5,6 +5,11 @@
 /**
  * Gets some core libraries
  */
+ /* i am including part of the tbl_properties stuff which will complain if it is
+    not being told what part of the tbl_properties is calling it, so i set this variable empty:
+ */
+$sub_part='';
+
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 require('./tbl_properties_common.php3');
@@ -158,14 +163,26 @@ if ($cfgRelation['relwork']) {
                         $field_full = $db . '.' . $curr_field['Table'] . '.' . $curr_field['Column_name'];
                         $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
                     } // end if
-                } // end while
-
+                } // end while over keys
                 if (isset($field_full) && isset($field_v)) {
                     $selectboxall[$field_full] =  $field_v;
                 }
             } // end if (mysql_num_rows)
+        // Mike Beck 24.07.02: i've been asked to add all keys of the current table Bug 574851
+        } else if ($curr_table[0] == $table) {
+            $fi_query = 'SHOW KEYS FROM ' . PMA_backquote($curr_table[0]);
+            $fi_rs    = PMA_mysql_query($fi_query) or PMA_mysqlDie('', $fi_query, '', $err_url_0);
+            if ($fi_rs && mysql_num_rows($fi_rs) > 0) {
+                while ($curr_field = PMA_mysql_fetch_array($fi_rs)) {
+                        $field_full = $db . '.' .$curr_field['Table'] . '.' . $curr_field['Column_name'];
+                        $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
+                        if (isset($field_full) && isset($field_v)) {
+                            $selectboxall[$field_full] =  $field_v;
+                        }
+                }
+            } // end if (mysql_num_rows)
         }
-    } // end while
+    } // end while over tables
 
     // Create array of relations (Mike Beck)
     $rel_dest = PMA_getForeigners($db, $table);
