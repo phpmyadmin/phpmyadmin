@@ -178,7 +178,9 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                                      . PMA_backquote($table); 
                 $table_info_result   = PMA_mysql_query($local_query) 
                                      or PMA_mysqlDie('', $local_query, '', $err_url_0);
-                $display_rows        =  number_format(PMA_mysql_result($table_info_result, 0, 'count'), 0, $number_decimal_separator, $number_thousands_separator);
+                $row_count           = PMA_mysql_result($table_info_result, 0, 'count');
+                $sum_entries         += $row_count;
+                $display_rows        =  number_format($row_count, 0, $number_decimal_separator, $number_thousands_separator);
             }
 
             // Merge or BerkleyDB table: Only row count is accurate.

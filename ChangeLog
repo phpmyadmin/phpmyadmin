@@ -12,6 +12,7 @@ $Source$
     * libraries/get_foreign.lib.php3, there are no functions
       in this file that need to be protected from being defined
       twice.  The added code introduced a bug
+    * db_details_structure.php3: total of records for InnoDB tables
 
 2002-10-08 Marc Delisle  <lem9@users.sourceforge.net>
     * ### 2.3.2 released ###
