@@ -6,7 +6,7 @@
    Transformations  -  FAQ  -  Developers  -  Credits  -  Translators
    ______________________________________________________________________
    
-                      phpMyAdmin 2.5.0-rc2 Documentation
+                        phpMyAdmin 2.5.0 Documentation
                                        
      * SourceForge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ] 
@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.433 2003/04/18
-       18:44:46 nijel Exp $
+     * Documentation version: $Id: Documentation.html,v 1.438 2003/05/11
+       10:06:17 lem9 Exp $
        
 Requirements
 
@@ -299,7 +299,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           
    $cfg['Servers'][$i]['port'] string
           The port-number of your $i-th MySQL-server. Default is 3306
-          (leave blank).
+          (leave blank). If you use "localhost" as the hostname, MySQL
+          ignores this port number and connects with the socket, so if
+          you want to connect to a port different from the default port,
+          use "127.0.0.1" or the real hostname in
+          $cfg['Servers'][$i]['host'].
           
    $cfg['Servers'][$i]['socket'] string
           The path to the socket to use. Leave blank for default.
@@ -702,7 +706,18 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           
    $cfg['LeftFrameLight'] boolean
           Defines whether to use select-based menu and display only the
-          current tables in the left frame (smaller page).
+          current tables in the left frame (smaller page). Only in
+          Non-Lightmode you can use the feature to display nested folders
+          using $cfg['LeftFrameTableSeparator']
+          
+   $cfg['LeftFrameTableSeparator'] string
+          Defines a string to be used to nest table spaces. Defaults to
+          '__'. This means if you have tables like 'first__second__third'
+          this will be shown as a three-level hierarchie like: first >
+          second > third. If set to FALSE or empty, the feature is
+          disabled. NOTE: You shall not use this Separator in a table
+          name at the beginning or end of a table name, or multiple times
+          after another without any other characters in between.
           
    $cfg['ShowTooltip'] boolean
           Defines whether to display table comment as tool-tip in left
@@ -1072,7 +1087,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           + punct Applies to all punctuation sub-classes
           + punct_bracket_open_round Opening brackets"("
           + punct_bracket_close_round Closing brackets ")"
-          + punct_listsep List item seperator ","
+          + punct_listsep List item Separator ","
           + punct_qualifier Table/Column Qualifier "."
           + punct_queryend End of query marker ";"
           + alpha Applies to all alphabetic classes
@@ -1609,6 +1624,8 @@ FAQ - Frequently Asked Questions
        phpMyAdmin, you need to complete the socket information in the
        config.inc.php3.
        For example: $cfg['Servers'][$i]['socket'] = '/tmp/mysql.sock';
+       Please also make sure that the permissions of this file allow to
+       be readable by your webserver (i.e. '0755').
        
    Have also a look at the corresponding section of the MySQL
    documentation.
@@ -1687,6 +1704,14 @@ FAQ - Frequently Asked Questions
    -- -------------------------------------------------------
    or
    #---------------------------------------------------------
+   
+    [3.3] When using nested folders ($cfg['LeftFrameTableSeparator']) there are
+    some multiple hierarchies displayed in a wrong manner?!
+    
+   Please note that you should not use the seperating string multiple
+   times without any characters between them, or at the beginning/end of
+   your table name. If you have to, think about using another
+   TableSeparator or disabling that feature
    
   [4. ISPs, multi-user installations ]
   
@@ -2008,17 +2033,15 @@ FAQ - Frequently Asked Questions
     
    No, it's MySQL that is doing silent column type changing.
    
-    [6.10] My database has an underscore in it's name, and when I grant
-    privileges to a user for this database, a backslash is added before the
-    underscore.
+    [6.10] When creating a privilege, what happens with underscores in the
+    database name?
     
-   This is normal and means that the grant is done only for this
-   database. If there was no backslash, this would be a wildcard grant,
-   and the underscore would mean "any character". So, if the database
-   name is "john_db", the user would get rights to john1db, john2db...
-   instead of just john_db.
-   If you really want to grant using a wildcard, there is a dialog box "
-   Database (wildcards allowed)" for this.
+   If you do not put a backslash before the underscore, this is a
+   wildcard grant, and the underscore means "any character". So, if the
+   database name is "john_db", the user would get rights to john1db,
+   john2db...
+   If you put a backslash before the underscore, it means that the
+   database name will have a real underscore.
    
     [6.11] What is the curious symbol ø in the statistics pages?
     

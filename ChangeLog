@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-11 Marc Delisle  <lem9@users.sourceforge.net>
+     ### 2.5.0 released
+
 2003-05-10 Marc Delisle  <lem9@users.sourceforge.net>
      * libraries/display_tbl.lib.php3: bug 735439: if too many page numbers,
        show just the pages near the current page
