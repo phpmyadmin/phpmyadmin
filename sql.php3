@@ -8,6 +8,9 @@
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
 
+if (get_magic_quotes_gpc()) {
+   $sql_query = stripslashes($sql_query);
+}
 
 /**
  * Bookmark add

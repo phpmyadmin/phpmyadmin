@@ -7,6 +7,7 @@ $Source$
 
 2001-08-08  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3, enum values were not displayed
+	* sql.php3, bug of strange display after a Select
 
 2001-08-08  Olivier Müller  <om@omnis.ch> 
 	* new script create-release.sh
