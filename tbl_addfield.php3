@@ -31,15 +31,17 @@ if (isset($submit)) {
     // Transforms the radio button field_key into 3 arrays
     $field_cnt = count($field_name);
     for ($i = 0; $i < $field_cnt; ++$i) {
-        if (${'field_key_' . $i} == 'primary_' . $i) {
-           $field_primary[] = $i;
-        }
-        if (${'field_key_' . $i} == 'index_' . $i) {
-           $field_index[]   = $i;
-        }
-        if (${'field_key_' . $i} == 'unique_' . $i) {
-           $field_unique[]  = $i;
-        }
+        if (isset(${'field_key_' . $i})) {
+            if (${'field_key_' . $i} == 'primary_' . $i) {
+                $field_primary[] = $i;
+            }
+            if (${'field_key_' . $i} == 'index_' . $i) {
+                $field_index[]   = $i;
+            }
+            if (${'field_key_' . $i} == 'unique_' . $i) {
+                $field_unique[]  = $i;
+            }
+        } // end if
     } // end for
     // Builds the field creation statement and alters the table
     for ($i = 0; $i < $field_cnt; ++$i) {

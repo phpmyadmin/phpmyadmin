@@ -163,7 +163,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     if ($row_table_def['Type'] == 'datetime' && empty($row[$field])) {
         $row[$field] = date('Y-m-d H:i:s', time());
     }
-    $len             = @mysql_field_len($result, $i);
+    $len             = (eregi('float|double', $row_table_def['Type']))
+                     ? 100
+                     : @mysql_field_len($result, $i);
     $first_timestamp = 0;
 
     $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;

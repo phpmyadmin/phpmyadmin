@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-22 Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_addfield.php3, lines 34-44; tbl_create.php3, lines 40-50: fixed php
+	  warnings (see bug #521751).
+	* tbl_change.php3, lines 166-168: fixed bug #521589 - float(4,2) and field
+	  length.
+
 2002-02-22 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/catala.inc.php3 updates, thanks to Xavier Navarro
 	  (xnavarro at hidrogen.com)
