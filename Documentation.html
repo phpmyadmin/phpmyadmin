@@ -665,6 +665,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
            <li>which field is to be displayed as a tooltip when moving the
                cursor over the corresponding key</li>
         </ul>
+        <br />
         This configuration variable will hold the name of this special
         table.
         <br /><br />
@@ -693,10 +694,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
             </li>
             <li>
                 then manually fill this table with information about the table
-                positions on the PDF schema, and/or the display field.
+                positions on the PDF schema, and/or the display fields.
             </li>
         </ul><br />
-        See also this <a class="navigation" href="#faqpdf">usage tip.</a>
+        Usage tips: <a class="navigation" href="#faqpdf">PDF output</a> and
+        <a class="navigation" href="#faqdisplay">display field</a>.
         <br /><br />
     </dd>
 
@@ -1710,8 +1712,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
 <p>
     <b>How can I use the relation table in Query-by-example?</b>
     <br />
-    Here is an example with the tables persons, towns and countries. Start
-    by creating this: <br /><br />
+    Here is an example with the tables persons, towns and countries. If you
+    don't have a PMA_relation table, create it as explained in the
+    configuration section. Then create the example tables:
+    <br /><br />
     <tt>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE countries (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;country_code char(1) NOT NULL default '',<br />
@@ -1732,19 +1736,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO persons VALUES (11, 'Marc', 'S', '');<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO persons VALUES (15, 'Paul', 'S', 'C');<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_relation` (<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_table varchar(64) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_field varchar(64) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_table varchar(64) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_field varchar(64) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pdf_page_number int(11) NOT NULL default '0',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (master_table,master_field),<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY pdf_page_number (`pdf_page_number`)<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
-    <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'town_code', 'towns', 'town_code', 1);<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'country_code', 'countries', 'country_code', 1);<br />
-    <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE towns (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) NOT NULL default '0',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description varchar(30) NOT NULL default '',<br />
@@ -1753,6 +1744,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('S', 'Sherbrooke');<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('M', 'Montréal');<br />
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'town_code', 'towns', 'town_code', 1);<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'country_code', 'countries', 'country_code', 1);<br />
     </tt>
     <br />
     Then test like this:
@@ -1771,6 +1765,22 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <li>Click &quot;Submit query&quot;</li>
 </ul>
 <br />
+
+<a name="faqdisplay"></a>
+<p>
+    <b>How can I use the &quot;display field&quot; feature?</b>
+    <br />
+    Starting from the previous example, create the PMA_table_info as explained
+    in the configuration section, then:
+    <br /><br />
+    <tt>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_table_info` (table_name, display_field) VALUES ('towns', 'description');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_table_info` (table_name, display_field) VALUES ('countries', 'description');<br />
+    </tt>
+    <br />
+    Then browse your persons table, and move the mouse over a town code or
+    country code.
+
 
 <a name="faqpdf"></a>
 <p>
