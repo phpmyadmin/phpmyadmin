@@ -97,7 +97,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 
 <body bgcolor="<?php echo $GLOBALS['cfgRightBgColor']; ?>">
 <center>
-<h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h1>
+<h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION . ' - ' . $GLOBALS['strLogin']); ?></h1>
 <br />
 
         <?php
