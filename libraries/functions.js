@@ -71,7 +71,7 @@ function confirmQuery(theForm1, sqlQuery1)
         // for this kind of verification
         // For now, I just added a ^ to check for the statement at
         // beginning of expression
-        
+
         //var do_confirm_re_0 = new RegExp('DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)\\s', 'i');
         //var do_confirm_re_1 = new RegExp('ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
         //var do_confirm_re_2 = new RegExp('DELETE\\s+FROM\\s', 'i');
@@ -253,9 +253,10 @@ function checkTableEditForm(theForm, fieldsCnt)
         var id = "field_" + i + "_2";
         var elm = getElement(id);
         if (elm.value == 'VARCHAR' || elm.value == 'CHAR') {
-            elm2 = getElement("field_" + i + "_3")
+            elm2 = getElement("field_" + i + "_3");
             val = parseInt(elm2.value);
-            if (isNaN(val)) {
+            elm3 = getElement("field_" + i + "_1");
+            if (isNaN(val) && elm3.value != "") {
                 elm2.select();
                 alert(errorMsg1);
                 elm2.focus();
@@ -263,8 +264,9 @@ function checkTableEditForm(theForm, fieldsCnt)
             }
         }
     }
+    return true;
 } // enf of the 'checkTableEditForm()' function
- 
+
 
 /**
  * Ensures the choice between 'transmit', 'zipped', 'gzipped' and 'bzipped'
@@ -510,7 +512,7 @@ function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theD
         // 4. Defines the new color
         // 4.1 Current color is the default one
         if (currentColor == ''
-            || currentColor.toLowerCase() == theDefaultColor1.toLowerCase() 
+            || currentColor.toLowerCase() == theDefaultColor1.toLowerCase()
             || currentColor.toLowerCase() == theDefaultColor2.toLowerCase()) {
             if (theAction == 'over' && thePointerColor != '') {
                 newColor              = thePointerColor;
@@ -616,7 +618,7 @@ function setSelectOptions(the_form, the_select, do_check)
 /**
   * Allows moving around inputs/select by Ctrl+arrows
   *
-  * @param   object   event data   
+  * @param   object   event data
   */
 function onKeyDownArrowsHandler(e) {
     e = e||window.event;
@@ -630,7 +632,7 @@ function onKeyDownArrowsHandler(e) {
     if (pos[0] != "field" || typeof pos[2] == "undefined") return;
 
     var x = pos[2], y=pos[1];
-    
+
     // skip non existent fields
     for (i=0; i<10; i++)
     {
@@ -646,7 +648,7 @@ function onKeyDownArrowsHandler(e) {
         var nO = document.getElementById(id);
         if (nO) break;
     }
-    
+
     if (!nO) return;
     nO.focus();
     if (nO.tagName != 'SELECT') {
@@ -673,7 +675,7 @@ function insertValueQuery() {
                     chaineAj += ", ";
                 chaineAj += myListBox.options[i].value;
             }
-        } 
+        }
 
         //IE support
         if (document.selection) {
@@ -687,7 +689,7 @@ function insertValueQuery() {
             var startPos = document.sqlform.sql_query.selectionStart;
             var endPos = document.sqlform.sql_query.selectionEnd;
             var chaineSql = document.sqlform.sql_query.value;
-        
+
             myQuery.value = chaineSql.substring(0, startPos) + chaineAj + chaineSql.substring(endPos, chaineSql.length);
         } else {
             myQuery.value += chaineAj;
