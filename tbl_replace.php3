@@ -228,7 +228,7 @@ if (!$result) {
     } else {
         $message = $strModifications;
     }
-    if (file_exists('./' . $goto)) {
+    if (@file_exists('./' . $goto)) {
         if ($goto == 'db_details.php3' && !empty($table)) {
             unset($table);
         }
