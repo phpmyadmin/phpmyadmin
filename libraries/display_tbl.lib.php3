@@ -826,17 +826,27 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 $uva_nonprimary_condition = '';
 
                 // 1.1 Results from a "SELECT" statement -> builds the
-                //     the "primary" key to use in links
+                //     "primary" key to use in links
                 if ($is_display['edit_lnk'] == 'ur' /* || $is_display['edit_lnk'] == 'dr' */) {
                     for ($i = 0; $i < $fields_cnt; ++$i) {
                         $meta      = $fields_meta[$i];
-                        $condition = ' ' . PMA_backquote($meta->name) . ' ';
+
+                        // to fix the bug where float fields (primary or not)
+                        // can't be matched because of the imprecision of
+                        // floating comparison, use CONCAT 
+                        // (also, the syntax "CONCAT(field) IS NULL"
+                        // that we need on the next "if" will work)
+
+                        if ($meta->type=='real') {
+                            $condition = ' CONCAT(' . PMA_backquote($meta->name) . ') '; 
+                        } else {
+                            $condition = ' ' . PMA_backquote($meta->name) . ' ';
+                        } // end if
 
                         // loic1: To fix bug #474943 under php4, the row
                         //        pointer will depend on whether the "is_null"
                         //        php4 function is available or not
                         $pointer = (function_exists('is_null') ? $i : $meta->name);
-
                         if (!isset($row[$meta->name])
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
                             $condition .= 'IS NULL AND';

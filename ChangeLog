@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3: Bug 576895: matching a float field
+
 2002-08-26 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech-*.inc.php3: Updates, fixes.
 
