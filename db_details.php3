@@ -496,12 +496,17 @@ if ($num_tables > 0) {
     </li>
     <?php
 }
+
+// loic1: defines wether file upload is available or not
+$is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
+           ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
+           : (intval(@get_cfg_var('upload_max_filesize')));
 ?>
 
     <!-- Query box, sql file loader and bookmark support -->
     <li>
         <a name="querybox"></a>
-        <form method="post" action="read_dump.php3" enctype="multipart/form-data"
+        <form method="post" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -521,9 +526,6 @@ if ($num_tables > 0) {
             </div>
 <?php
 // loic1: displays import dump feature only if file upload available
-$is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
-           ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
-           : (intval(@get_cfg_var('upload_max_filesize')));
 if ($is_upload) {
     echo '            <i>' . $strOr . '</i> ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
     ?>
