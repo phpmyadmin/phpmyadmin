@@ -370,14 +370,14 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 // Removes automatic MySQL escape format
                 $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                 echo '            ';
-                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($enum_atom) . '" id="radio_field_' . md5($field) . '_' . urlencode($enum_atom) . '" onclick="if (typeof(document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) . ']\']) != \'undefined\') {document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false}"';
+                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($enum_atom) . '" id="radio_field_' . $j . '" onclick="if (typeof(document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) . ']\']) != \'undefined\') {document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false}"';
                 if ($data == $enum_atom
                     || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                     echo ' checked="checked"';
                 }
                 echo 'tabindex="' . $i . '" />' . "\n";
-                echo '            <label for="radio_field_' . md5($field) . '_' . urlencode($enum_atom) . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
+                echo '            <label for="radio_field_' . $j . '">' . htmlspecialchars($enum_atom) . '</label>' . "\n";
             } // end for
 
         } // end else

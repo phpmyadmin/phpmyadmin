@@ -257,7 +257,7 @@ function PMA_tablePrivileges($form, $row = FALSE)
                                  : $GLOBALS['HTTP_SERVER_VARS']['QUERY_STRING'];
     }
     if (!empty($GLOBALS['QUERY_STRING'])) {
-        $checkpriv_url           .= $GLOBALS['QUERY_STRING'] . '&amp;';
+        $checkpriv_url           .= str_replace('&', '&amp;', $GLOBALS['QUERY_STRING']) . '&amp;';
     }
     ?>
 
@@ -698,7 +698,7 @@ function PMA_editOperations($host, $user)
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" value="0" name="anyuser" id="radio_anyuser0" checked="checked"<?php if ($user != '' && $user != '%') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="0" name="anyuser" id="radio_anyuser0"<?php if ($user != '' && $user != '%') echo ' checked="checked"'; ?> />
                     <label for="radio_anyuser0"><?php echo $GLOBALS['strUserName']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>

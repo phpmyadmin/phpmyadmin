@@ -169,22 +169,25 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     $i = $sum_entries = $sum_size = 0;
     $checked = (!empty($checkall) ? ' checked="checked"' : '');
     while (list($keyname, $sts_data) = each($tables)) {
-        $table     = $sts_data['Name'];
+        $table         = $sts_data['Name'];
+        $table_encoded = urlencode($table);
+        $table_name    = htmlspecialchars($table);
+
         // Sets parameters for links
         $url_query = 'lang=' . $lang
                    . '&amp;server=' . $server
                    . '&amp;db=' . urlencode($db)
-                   . '&amp;table=' . urlencode($table)
+                   . '&amp;table=' . $table_encoded
                    . '&amp;goto=db_details.php3';
         $bgcolor   = ($i++ % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         echo "\n";
         ?>
 <tr>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($table); ?>" id="checkbox_tbl_<?php echo urlencode($table); ?>"<?php echo $checked; ?> />
+        <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-        &nbsp;<b><label for="checkbox_tbl_<?php echo urlencode($table); ?>"><?php echo htmlspecialchars($table); ?></label>&nbsp;</b>&nbsp;
+        &nbsp;<b><label for="checkbox_tbl_<?php echo $i; ?>"><?php echo $table_name; ?></label>&nbsp;</b>&nbsp;
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
@@ -424,24 +427,28 @@ else {
     <?php
     $checked = (!empty($checkall) ? ' checked="checked"' : '');
     while ($i < $num_tables) {
+        $table         = $tables[$i];
+        $table_encoded = urlencode($table);
+        $table_name    = htmlspecialchars($table);
+
         // Sets parameters for links
         $url_query = 'lang=' . $lang
                    . '&amp;server=' . $server
                    . '&amp;db=' . urlencode($db)
-                   . '&amp;table=' . urlencode($tables[$i])
+                   . '&amp;table=' . $table_encoded
                    . '&amp;goto=db_details.php3';
         $bgcolor   = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         echo "\n";
         ?>
 <tr>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($tables[$i]); ?>" id="checkbox_tbl_<?php echo urlencode($tables[$i]); ?>"<?php echo $checked; ?> />
+        <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" class="data">
-        <b>&nbsp;<label for="checkbox_tbl_<?php echo urlencode($table); ?>"><?php echo $tables[$i]; ?></label>&nbsp;</b>
+        <b>&nbsp;<label for="checkbox_tbl_<?php echo $i; ?>"><?php echo $table_name; ?></label>&nbsp;</b>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($tables[$i])); ?>&amp;pos=0"><?php echo $strBrowse; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0"><?php echo $strBrowse; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_select.php3?<?php echo $url_query; ?>"><?php echo $strSelect; ?></a>
@@ -453,13 +460,13 @@ else {
         <a href="tbl_properties.php3?<?php echo $url_query; ?>"><?php echo $strProperties; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($tables[$i])); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($tables[$i]))); ?>"><?php echo $strDrop; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, $table_name)); ?>"><?php echo $strDrop; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($tables[$i])); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($tables[$i]))); ?>"><?php echo $strEmpty; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, $table_name)); ?>"><?php echo $strEmpty; ?></a>
     </td>
     <td align="right" bgcolor="<?php echo $bgcolor; ?>">
-        <?php PMA_countRecords($db, $tables[$i]); echo "\n"; ?>
+        <?php PMA_countRecords($db, $table); echo "\n"; ?>
     </td>
 </tr>
         <?php
@@ -645,7 +652,7 @@ if ($num_tables > 0) {
         echo "\n";
         $is_selected = (!empty($selectall) ? ' selected="selected"' : '');
         while ($i < $num_tables) {
-            $table = ((PMA_MYSQL_INT_VERSION >= 32303) ? $tables[$i]['Name'] : $tables[$i]);
+            $table   = htmlspecialchars((PMA_MYSQL_INT_VERSION >= 32303) ? $tables[$i]['Name'] : $tables[$i]);
             echo '                    <option value="' . $table . '"' . $is_selected . '>' . $table . '</option>' . "\n";
             $i++;
         }

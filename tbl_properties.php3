@@ -252,24 +252,27 @@ while ($row = mysql_fetch_array($fields_rs)) {
     } else {
         $row['Default'] = htmlspecialchars($row['Default']);
     }
-    $field_name = htmlspecialchars($row['Field']);
+
+    $field_encoded = urlencode($row['Field']);
+    $field_name    = htmlspecialchars($row['Field']);
     if (isset($pk_array[$row['Field']])) {
         $field_name = '<u>' . $field_name . '</u>';
     }
     echo "\n";
+
     ?>
 <tr>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-        <input type="checkbox" name="selected_fld[]" value="<?php echo urlencode($row['Field']); ?>" id="checkbox_row_<?php echo urlencode($row['Field']); ?>" />
+        <input type="checkbox" name="selected_fld[]" value="<?php echo $field_encoded; ?>" id="checkbox_row_<?php echo $i; ?>" />
     </td>
-    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label for="checkbox_row_<?php echo urlencode($row['Field']); ?>"><?php echo $field_name; ?></label>&nbsp;</td>
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="tbl_alter.php3?<?php echo $url_query; ?>&amp;field=<?php echo urlencode($row['Field']); ?>">
+        <a href="tbl_alter.php3?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
             <?php echo $strChange; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
