@@ -11,6 +11,7 @@ $Source$
 	from Ignacio Vazquez-Abrams (ivazquezabrams)
 	* tbl_change.php3: bug 445722 when one of the enums is a datatype
 	enum('text','audio','image','video','data','application','other')
+	* removed DEVELOPERS (merged in Documentation.html)
 
 2001-08-02  Benjamin Gandon <gandon@isia.cma.fr>
 	* Documentation.html: added a FAQ entry about the buggy php
