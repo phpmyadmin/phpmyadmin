@@ -8,8 +8,8 @@
 // The 'show table' statement works correct since 3.23.03
 if (PMA_MYSQL_INT_VERSION >= 32303) {
     $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
-    $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-    $showtable    = PMA_mysql_fetch_array($result);
+    $table_info_result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+    $showtable    = PMA_mysql_fetch_array($table_info_result);
     $tbl_type     = strtoupper($showtable['Type']);
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
@@ -27,12 +27,12 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     unset($tmp);
 } else {
     $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
-    $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+    $table_info_result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $showtable    = array();
-    $num_rows     = PMA_mysql_result($result, 0, 'count');
+    $num_rows     = PMA_mysql_result($table_info_result, 0, 'count');
     $show_comment = '';
 }
-mysql_free_result($result);
+mysql_free_result($table_info_result);
 
 
 /**

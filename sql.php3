@@ -1,13 +1,11 @@
 <?php
 /* $Id$ */
 
-
 /**
  * Gets some core libraries
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
-
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -92,6 +90,11 @@ $sql_query = PMA_sqlFormat($sql_query);
 // query may contain aliases.
 // (todo: check for embedded comments...)
 
+// (todo: if there are more than one table name in the Select:
+// - do not extract the first table name 
+// - do not show a table name in the page header
+// - do not display the sub-pages links)
+
 $is_select = eregi('^SELECT[[:space:]]+', $sql_query);
 if ($is_select) {
     eregi('^SELECT[[:space:]]+(.*)[[:space:]]+FROM[[:space:]]+(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
@@ -106,7 +109,6 @@ if ($is_select) {
         $table   = str_replace('`', '', $tmp[2]);
     }
 } // end if
-
 
 /**
  * Sets or modifies the $goto variable if required
@@ -425,8 +427,9 @@ else {
             include('./header_printview.inc.php3');
         } else {
             $js_to_run = 'functions.js';
-            include('./header.inc.php3');
-            include('./libraries/bookmark.lib.php3');
+            unset($message);
+            include('./tbl_properties_common.php3');
+            include('./tbl_properties_table_info.php3');
             include('./libraries/relation.lib.php3');
             $cfgRelation = PMA_getRelationsParam();
         }
