@@ -71,10 +71,13 @@ echo "\n";
 /**
  * Displays the welcome message and the server informations
  */
+
+// note: for proper display of RTL languages, I removed the
+//       align="left" in the next <td> tag
 ?>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td align="left" valign="top">
+        <td valign="top">
         <h1>
         <?php
         echo sprintf($strWelcome, ' phpMyAdmin ' . PMA_VERSION . ''); 

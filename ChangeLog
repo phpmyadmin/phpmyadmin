@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: bug 984136, wrong alignment in RTL languages
+
 2004-07-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/xls.php: enable user to specify './tmp' as the
       TempDir -- use realpath() to find the complete path. Add error trap
