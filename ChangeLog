@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/galician: update, thanks to Xosé Calvo
+    * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.
+
 2003-01-14 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_properties_structure.php3,libraries/functions.js: Added (un)check
       all for fields selection.
