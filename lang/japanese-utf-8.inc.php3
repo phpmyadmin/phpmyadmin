@@ -261,6 +261,7 @@ $strNotValidNumber = ' は行の正しい番号ではありません ';
 $strNull = '空の値(Null)';
 $strNumSearchResultsInTable = '%s 件が <i>%s</i>テーブルで見つかりました';
 $strNumSearchResultsTotal = '<b>件数:</b> <i>%s</i> が見つかりました';
+$strNumTables = 'テーブル';
 
 $strOK = 'OK';
 $strOftenQuotation = '引用符号です。オプションは、charまたはvarcharフィールドのみ" "で囲まれていることを意味します。';
@@ -408,6 +409,7 @@ $strTheContent = 'ファイルのデータを挿入しました。';
 $strTheContents = 'ファイルのデータで、選択したテーブルの主要キーまたは唯一なキーに一致する列を置き換えます。';
 $strTheTerminator = 'フィールドの終端記号です。';
 $strTotal = '合計';
+$strTotalUC = '合計';
 $strType = 'フィールドタイプ';
 
 $strUncheckAll = '全てのマークを削除';
@@ -443,7 +445,4 @@ $strYes = 'はい';
 
 $strZip = '"zipされる"';
 
-// To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
 ?>
