@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/indonesian update, thanks to Rachim Tamsjadi
+    * lang/italian update, thanks to Pietro Danesi
+    * lang/lithuanian update, thanks to Vilius Zigmantas
+    * lang/slovenian update, thanks to Kositer Uros
+    * lang/swedish: update, thanks to Björn T. Hallberg
+
 2003-02-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_replace_fields.php3: sometimes we receive "none" as the file
       name when there is no field upload for some field
