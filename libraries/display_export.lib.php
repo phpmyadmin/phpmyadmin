@@ -488,7 +488,7 @@ if (!$hide_structure) { ?>
                         <td>
                             <select name="excel_edition" id="select_excel_edition" style="vertical-align: middle">
                                 <option value="win"<?php echo $cfg['Export']['excel_edition'] == 'win' ? ' selected="selected"' : ''; ?>>Windows</option>
-                                <option value="mac"<?php echo $cfg['Export']['excel_edition'] == 'mac' ? ' selected="selected"' : ''; ?>>Macintosh</option>
+                                <option value="mac"<?php echo $cfg['Export']['excel_edition'] == 'mac' ? ' selected="selected"' : ''; ?>>Excel 2003 / Macintosh</option>
                             </select>
                         </td>
                     </tr>
