@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/slovak update, thanks to Lubos Klokner
+    * lang/estonian: update, thanks to Alvar Soome
+
 2002-09-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * read_dump.php3: Fixed an "undefined variable" error.
 
