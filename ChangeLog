@@ -8,6 +8,9 @@ $Source$
 2004-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php, libraries/common.lib.php: bug 989581 and left panel
       display problems when switching themes
+    * tbl_relation.php: bug 978111, out of sync in Relation view
+      (note: we need to use the PMA_DBI_QUERY_STORE option in a mysqli query
+       when we later do a PMA_DBI_num_rows() on the results)
 
 2004-07-13 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.

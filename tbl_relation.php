@@ -260,7 +260,6 @@ if ($cfgRelation['commwork']) {
  * Dialog
  */
 if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
-
     // To choose relations we first need all tables names in current db
     // and if PMA version permits and the main table is innodb,
     // we use SHOW TABLE STATUS because we need to find other InnoDB tables
@@ -280,7 +279,8 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
 
     while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
         if (($curr_table[0] != $table) && ($curr_table[0] != $cfg['Server']['relation'])) {
-            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';');
+            // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
+            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';', NULL, PMA_DBI_QUERY_STORE);
             if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
                 $seen_a_primary = FALSE;
                 while ($curr_field = PMA_DBI_fetch_assoc($fi_rs)) {
@@ -319,12 +319,14 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
                     } // end if
                 } // end while over keys
             } // end if (PMA_DBI_num_rows)
-
+            PMA_DBI_free_result($fi_rs);
+            unset($fi_rs);
         // Mike Beck - 24.07.02: i've been asked to add all keys of the
         // current table (see bug report #574851)
         }
         else if ($curr_table[0] == $table) {
-            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';');
+            // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
+            $fi_rs    = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($curr_table[0]) . ';', NULL, PMA_DBI_QUERY_STORE);
             if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
                 while ($curr_field = PMA_DBI_fetch_assoc($fi_rs)) {
                     $field_full = $db . '.' . $curr_field['Table'] . '.' . $curr_field['Column_name'];
@@ -335,6 +337,8 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
                     }
                 } // end while
             } // end if (PMA_DBI_num_rows)
+            PMA_DBI_free_result($fi_rs);
+            unset($fi_rs);
         }
     } // end while over tables
 
@@ -342,7 +346,8 @@ if ($cfgRelation['relwork'] || $tbl_type=='INNODB') {
 
 
 // Now find out the columns of our $table
-$col_rs    = PMA_DBI_try_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';');
+// need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
+$col_rs    = PMA_DBI_try_query('SHOW COLUMNS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
 
 if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     while ($row = PMA_DBI_fetch_assoc($col_rs)) {
