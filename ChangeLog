@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-18 Loïc Chapeaux  <lolo@phpheaven.net>
+    * libraries/common.lib.php3; libraries/ip_allow_deny.lib.php3:
+      - exported the "IP-based Allow/Deny" code in a distinct library;
+      - coding standards;
+      - improved PHP3 compliance;
+      - better ip checking.
+    * Documentation.html: typos and line sizes.
+
 2002-05-17 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3, libraries/common.lib.php3: IP-based Allow/Deny code
       from feature #484158
