@@ -16,9 +16,6 @@ if (!isset($selected_tbl)) {
  */
 require('./libraries/relation.lib.php3');
 $cfgRelation  = PMA_getRelationsParam();
-if ($cfgRelation['commwork']) {
-    $comments = PMA_getComments($db, $table);
-}
 
 
 /**
@@ -168,8 +165,7 @@ while (list($key, $table) = each($the_tables)) {
     }
     else {
            $have_rel = FALSE;
-    }
-     // end if
+    } // end if
 
 
     /**
@@ -276,6 +272,7 @@ while (list($key, $table) = each($the_tables)) {
     }
     if ($cfgRelation['commwork']) {
         echo '    <td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
+        $comments = PMA_getComments($db, $table);
         if (isset($comments[$field_name])) {
             echo htmlspecialchars($comments[$field_name]);
         }
