@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/database_interface.lib.php, /select_lang.lib.php:
+      bug 968174: now, in MySQL 4.1.0+ we auto-switch the language to
+      the corresponding -UTF-8 version (if it exists); also, now
+      the default language is the non-UTF-8 one
+
 2004-08-02 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Removed unused code.
 

@@ -134,6 +134,17 @@ function PMA_DBI_postConnect($link) {
     }
 
     if (PMA_MYSQL_INT_VERSION >= 40100) {
+
+        // If $lang is defined and we are on MySQL >= 4.1.x,
+        // we auto-switch the lang to its UTF-8 version (if it exists)
+        if (!empty($GLOBALS['lang']) && (substr($GLOBALS['lang'], -5) != 'utf-8')) {
+            $lang_utf_8_version = substr($GLOBALS['lang'], 0, strpos($GLOBALS['lang'], '-')) . '-utf-8';
+            if (!empty($GLOBALS['available_languages'][$lang_utf_8_version])) {
+                $GLOBALS['lang'] = $lang_utf_8_version;
+                $GLOBALS['charset'] = $charset = 'utf-8';
+            }
+        }
+
         $mysql_charset = $GLOBALS['mysql_charset_map'][$GLOBALS['charset']];
         if (empty($collation_connection) || (strpos('_', $collation_connection) ? substr($collation_connection, 0, strpos('_', $collation_connection)) : $collation_connection) == $mysql_charset) {
             PMA_DBI_query('SET NAMES ' . $mysql_charset . ';', $link, PMA_DBI_QUERY_STORE);
