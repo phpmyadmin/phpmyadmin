@@ -353,4 +353,5 @@ $strYes = 'да';
 $strZip = '"zip-нато"';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

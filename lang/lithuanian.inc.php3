@@ -348,4 +348,5 @@ $strZip = '"zip"';
 
 //to translate:
 $strReferentialIntegrity = 'Check referential integrity:';  //to translate
+$strLinksTo = 'Links to';  //to translate
 ?>

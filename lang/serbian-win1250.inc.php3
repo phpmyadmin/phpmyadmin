@@ -354,4 +354,5 @@ $strYes = 'Da';
 $strZip = '"zip-ovano"';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

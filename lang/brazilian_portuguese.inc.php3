@@ -348,4 +348,5 @@ $strZip = '"compactado com zip"';
 $strBookmarkDeleted = 'The bookmark has been deleted.';
 $strChangePassword = 'Change password'; //to translate
 $strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
+$strLinksTo = 'Links to';  //to translate
 ?>

@@ -349,4 +349,5 @@ $strYes = 'Ναι';
 $strZip = 'συμπίεση «zip»';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

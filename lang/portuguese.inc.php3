@@ -355,4 +355,5 @@ $strZip = '"Compressão zip"';
 
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

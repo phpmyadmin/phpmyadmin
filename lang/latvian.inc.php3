@@ -352,4 +352,5 @@ $strYes = 'Jâ';
 $strZip = 'arhivçts ar zip';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-23 Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_printview.php3, lang/*.php3: Relation links in printview,
+	  thanks to Mike Beck (mike.beck at ibmiller.de)
+
 2002-04-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: fixed bug #547605 using Loïc's patch.
 

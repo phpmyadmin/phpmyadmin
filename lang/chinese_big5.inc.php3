@@ -350,4 +350,5 @@ $strYes = ' ¬O ';
 
 $strZip = '"zipped"';
 
+$strLinksTo = 'Links to';  //to translate
 ?>

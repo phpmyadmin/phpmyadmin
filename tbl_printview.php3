@@ -134,6 +134,35 @@ while (list($key, $table) = each($the_tables)) {
     $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $fields_cnt  = mysql_num_rows($result);
 
+    //	check if we can use Relations (Mike Beck)
+    $rel_work=FALSE;
+    $rel_query   = 'SHOW TABLES';
+    $tables   = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+    while($ctable = @mysql_fetch_array($tables)){
+        if($ctable[0] == $cfgServer['relation']){
+                $rel_work=TRUE;
+         }
+    }
+    if($rel_work){
+    		unset($res_rel);
+            //  Find which tables are related with the current one and write it in an array
+            $rel_query   = 'SELECT src_column,concat(dest_table,\'->\',dest_column) as rel ';
+            $rel_query  .= 'FROM ' . PMA_backquote($cfgServer['relation']);
+            $rel_query  .= ' WHERE src_table = \'' . urldecode($table) .'\'';
+        
+            $relations   = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
+            while ($relrow = @mysql_fetch_array($relations)){
+            	$col = $relrow['src_column'];
+            	$res_rel[$col]=$relrow['rel'];
+            	//debug echo "col: ".$col." - ". $relrow['rel']."<br>";
+            }
+            if(count($res_rel)>0){
+            	$have_rel=TRUE;
+            }else{
+            	$have_rel=FALSE;
+            }            
+    }
+    //
 
 
     /**
@@ -157,6 +186,11 @@ while (list($key, $table) = each($the_tables)) {
     <th><?php echo ucfirst($strNull); ?></th>
     <th><?php echo ucfirst($strDefault); ?></th>
     <th><?php echo ucfirst($strExtra); ?></th>
+    <?php
+        if($rel_work && $have_rel==TRUE){
+                echo '<th>'. ucfirst($strLinksTo).'</th>';
+        }
+    ?>    
 </tr>
 
     <?php
@@ -215,6 +249,13 @@ while (list($key, $table) = each($the_tables)) {
     <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
+    <?php
+    if($rel_work && $have_rel==TRUE){
+        ?>
+        <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $res_rel[$field_name]; ?>&nbsp;</td>
+        <?php
+    }
+    ?>    
 </tr>
         <?php
     } // end while

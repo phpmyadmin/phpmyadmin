@@ -352,4 +352,5 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

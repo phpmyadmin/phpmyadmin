@@ -348,4 +348,5 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

@@ -349,5 +349,6 @@ $strYes = 'Igen';
 $strZip = '"zippel tömörítve"';
 
 // To translate
-?>
 
+$strLinksTo = 'Links to';  //to translate
+?>

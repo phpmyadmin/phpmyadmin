@@ -348,4 +348,5 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

@@ -348,4 +348,5 @@ $strYes = 'λο';
 
 $strZip = '"Zipped"';
 
+$strLinksTo = 'Links to';  //to translate
 ?>

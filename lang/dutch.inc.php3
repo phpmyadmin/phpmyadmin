@@ -345,4 +345,5 @@ $strWrongUser = 'Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd.';
 $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
+$strLinksTo = 'Links to';  //to translate
 ?>

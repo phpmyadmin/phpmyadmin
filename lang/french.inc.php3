@@ -172,6 +172,7 @@ $strLimitNumRows = 'Nombre d\'enregistrements par page';
 $strLineFeed = 'Saut de ligne : \\n';
 $strLines = 'Lignes';
 $strLinesTerminatedBy = 'Lignes terminées par';
+$strLinksTo = 'Relié à';
 $strLocationTextfile = 'Emplacement du fichier texte';
 $strLogin = 'Entrer';
 $strLogout = 'Quitter';

@@ -346,4 +346,5 @@ $strWrongUser = 'ÃÜÂë´íÎó£¬·ÃÎÊ±»¾Ü¾ø¡£';
 $strYes = 'ÊÇ';
 
 $strZip = '"zipped"'; 
+$strLinksTo = 'Links to';  //to translate
 ?>

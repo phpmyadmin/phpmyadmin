@@ -349,4 +349,5 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

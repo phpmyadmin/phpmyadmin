@@ -348,4 +348,5 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

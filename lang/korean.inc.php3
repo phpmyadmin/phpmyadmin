@@ -349,4 +349,5 @@ $strYes = ' ¿¹ ';
 $strZip = 'zip ¾ÐÃà';
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>

@@ -172,6 +172,7 @@ $strLimitNumRows = 'Number of rows per page';
 $strLineFeed = 'Linefeed: \\n';
 $strLines = 'Lines';
 $strLinesTerminatedBy = 'Lines terminated by';
+$strLinksTo = 'Links to';  
 $strLocationTextfile = 'Location of the textfile';
 $strLogin = 'Login';
 $strLogout = 'Log out';

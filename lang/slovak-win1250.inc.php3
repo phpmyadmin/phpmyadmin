@@ -351,4 +351,5 @@ $strZip = '"zozipované"';
 
 
 // To translate
+$strLinksTo = 'Links to';  //to translate
 ?>
