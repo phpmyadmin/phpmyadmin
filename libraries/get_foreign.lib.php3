@@ -27,7 +27,7 @@
         // We could also do the SELECT anyway, with a LIMIT, and ensure that
         // the current value of the field is one of the choices.
 
-        $the_total   = PMA_countRecords($db, $table, TRUE);
+        $the_total   = PMA_countRecords($foreign_db, $foreign_table, TRUE);
 
         if ($the_total < 200) {
             // foreign_display can be FALSE if no display field defined:
