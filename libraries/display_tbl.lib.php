@@ -980,8 +980,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     // ne0x:  Use function PMA_DBI_fetch_array() due to mysqli
     //        compatibility. Now this function is wrapped.
 
-    while ($row = PMA_DBI_fetch_array($dt_result)) {
-
+    while ($row = PMA_DBI_fetch_row($dt_result)) {
         // lem9: "vertical display" mode stuff
         if (($row_no != 0) && ($repeat_cells != 0) && !($row_no % $repeat_cells) && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
             echo '<tr>' . "\n";
@@ -1072,18 +1071,21 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     // loic1: To fix bug #474943 under php4, the row
                     //        pointer will depend on whether the "is_null"
                     //        php4 function is available or not
-                    $pointer = (function_exists('is_null') ? $i : $meta->name);
-                    if (!isset($row[$meta->name])
-                        || (function_exists('is_null') && is_null($row[$pointer]))) {
+                    // ne0x:  Not used anymore because PMA needs PHP > 4.1.0 where
+                    //        the "is_null" function is available.
+                    // 
+                    // $pointer = (function_exists('is_null') ? $i : $meta->name);
+                    
+                    if (!isset($row[$i]) || is_null($row[$i])) {
                         $condition .= 'IS NULL AND';
                     } else {
                         if ($meta->type == 'blob'
                             // hexify only if this is a true not empty BLOB
                              && stristr($field_flags, 'BINARY')
-                             && !empty($row[$pointer])) {
-                                $condition .= 'LIKE 0x' . bin2hex($row[$pointer]). ' AND';
+                             && !empty($row[$i])) {
+                                $condition .= 'LIKE 0x' . bin2hex($row[$i]). ' AND';
                         } else {
-                            $condition .= '= \'' . PMA_sqlAddslashes($row[$pointer], FALSE, TRUE) . '\' AND';
+                            $condition .= '= \'' . PMA_sqlAddslashes($row[$i], FALSE, TRUE) . '\' AND';
                         }
                     }
                     if ($meta->primary_key > 0) {
@@ -1151,8 +1153,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
             if ($table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db']) {
                 $bookmark_go = '<a href="read_dump.php?'
-                                . PMA_generate_common_url($row['dbase'], '')
-                                . '&amp;id_bookmark=' . $row['id']
+                                . PMA_generate_common_url($row[1], '')
+                                . '&amp;id_bookmark=' . $row[0]
                                 . '&amp;action_bookmark=0'
                                 . '&amp;action_bookmark_all=1'
                                 . '&amp;SQL=' . $GLOBALS['strExecuteBookmarked']
@@ -1203,10 +1205,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                           . '&goto=main.php';
                 $del_url  = 'sql.php?'
                           . PMA_generate_common_url('mysql')
-                          . '&amp;sql_query=' . urlencode('KILL ' . $row['Id'])
+                          . '&amp;sql_query=' . urlencode('KILL ' . $row[0])
                           . '&amp;goto=' . urlencode($lnk_goto);
-                $del_query = urlencode('KILL ' . $row['Id']);
-                $js_conf  = 'KILL ' . $row['Id'];
+                $del_query = urlencode('KILL ' . $row[0]);
+                $js_conf  = 'KILL ' . $row[0];
                 if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
                     $del_str = $GLOBALS['strKill'];
                 } else {
@@ -1232,7 +1234,6 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             //        depend on whether the "is_null" php4 function is
             //        available or not
             $pointer = (function_exists('is_null') ? $i : $meta->name);
-
             // garvin: See if this column should get highlight because it's used in the
             //  where-query.
             if (isset($highlight_columns) && (isset($highlight_columns[$meta->name]) || isset($highlight_columns[PMA_backquote($meta->name)]))) {
@@ -1288,10 +1289,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             //       associative and numeric indices?
 
                 //if (!isset($row[$meta->name])
-                if (!isset($row[$pointer])
-                    || (function_exists('is_null') && is_null($row[$pointer]))) {
+                if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
-                } else if ($row[$pointer] != '') {
+                } else if ($row[$i] != '') {
                     $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '" nowrap="nowrap">';
 
                     if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
@@ -1312,7 +1312,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
                                          . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
-                                         . ' = ' . $row[$pointer];
+                                         . ' = ' . $row[$i];
                             $dispresult  = PMA_DBI_try_query($dispsql);
                             if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                                 list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
@@ -1320,24 +1320,25 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             else {
                                 $dispval = $GLOBALS['strLinkNotFound'];
                             }
+                            @PMA_DBI_free_result($dispresult);
                         }
                         else {
                             $dispval     = '';
                         } // end if... else...
 
                         if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
-                            $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options, $meta) : $transform_function($row[$pointer], array(), $meta)) . ' <code>[-&gt;' . $dispval . ']</code>';
+                            $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$i], $transform_options, $meta) : $transform_function($row[$i], array(), $meta)) . ' <code>[-&gt;' . $dispval . ']</code>';
                         } else {
                             $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php?'
                                                                    .  PMA_generate_common_url($map[$meta->name][3], $map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
-                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$pointer]) . '"' . $title . '>'
-                                                                   .  ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options, $meta) : $transform_function($row[$pointer], array(), $meta)) . '</a>';
+                                                                   .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$i]) . '"' . $title . '>'
+                                                                   .  ($transform_function != $default_function ? $transform_function($row[$i], $transform_options, $meta) : $transform_function($row[$i], array(), $meta)) . '</a>';
                         }
                     } else {
-                        $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options, $meta) : $transform_function($row[$pointer], array(), $meta));
+                        $vertical_display['data'][$row_no][$i] .= ($transform_function != $default_function ? $transform_function($row[$i], $transform_options, $meta) : $transform_function($row[$i], array(), $meta));
                     }
                     $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                 } else {
@@ -1354,8 +1355,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {
                     $blobtext = '[BLOB';
-                    if (isset($row[$pointer])) {
-                        $blob_size = PMA_formatByteDown(strlen($row[$pointer]), 3, 1);
+                    if (isset($row[$i])) {
+                        $blob_size = PMA_formatByteDown(strlen($row[$i]), 3, 1);
                         $blobtext .= ' - '. $blob_size [0] . ' ' . $blob_size[1];
                         unset($blob_size);
                     }
@@ -1365,52 +1366,48 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
                     $vertical_display['data'][$row_no][$i]      = '    <td align="center" ' . $column_style . ' valign="top" bgcolor="' . $bgcolor . '">' . $blobtext . '</td>';
                 } else {
-                    //if (!isset($row[$meta->name])
-                    if (!isset($row[$pointer])
-                        || (function_exists('is_null') && is_null($row[$pointer]))) {
+                    if (!isset($row[$i]) || is_null($row[$i])) {
                         $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
-                    } else if ($row[$pointer] != '') {
+                    } else if ($row[$i] != '') {
                         // garvin: if a transform function for blob is set, none of these replacements will be made
-                        if (PMA_strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
-                            $row[$pointer] = PMA_substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                        if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
+                            $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                         }
                         // loic1: displays all space characters, 4 space
                         // characters for tabulations and <cr>/<lf>
-                        $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options, $meta) : $default_function($row[$pointer], array(), $meta));
+                        $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
 
-                        $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">' . $row[$i] . '</td>' . "\n";
                     } else {
                         $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 }
             } else {
-                //if (!isset($row[$meta->name])
-                if (!isset($row[$pointer])
-                    || (function_exists('is_null') && is_null($row[$pointer]))) {
+                if (!isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i]     = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
-                } else if ($row[$pointer] != '') {
+                } else if ($row[$i] != '') {
                     // loic1: support blanks in the key
-                    $relation_id = $row[$pointer];
+                    $relation_id = $row[$i];
 
                     // nijel: Cut all fields to $cfg['LimitChars']
-                    if (PMA_strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
-                        $row[$pointer] = PMA_substr($row[$pointer], 0, $GLOBALS['cfg']['LimitChars']) . '...';
+                    if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
+                        $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars']) . '...';
                     }
 
                     // loic1: displays special characters from binaries
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     if (stristr($field_flags, 'BINARY')) {
-                        $row[$pointer]     = str_replace("\x00", '\0', $row[$pointer]);
-                        $row[$pointer]     = str_replace("\x08", '\b', $row[$pointer]);
-                        $row[$pointer]     = str_replace("\x0a", '\n', $row[$pointer]);
-                        $row[$pointer]     = str_replace("\x0d", '\r', $row[$pointer]);
-                        $row[$pointer]     = str_replace("\x1a", '\Z', $row[$pointer]);
-                        $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options, $meta) : $default_function($row[$pointer], array(), $meta));
+                        $row[$i]     = str_replace("\x00", '\0', $row[$i]);
+                        $row[$i]     = str_replace("\x08", '\b', $row[$i]);
+                        $row[$i]     = str_replace("\x0a", '\n', $row[$i]);
+                        $row[$i]     = str_replace("\x0d", '\r', $row[$i]);
+                        $row[$i]     = str_replace("\x1a", '\Z', $row[$i]);
+                        $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
                     }
                     // loic1: displays all space characters, 4 space
                     // characters for tabulations and <cr>/<lf>
                     else {
-                        $row[$pointer]     = ($default_function != $transform_function ? $transform_function($row[$pointer], $transform_options, $meta) : $default_function($row[$pointer], array(), $meta));
+                        $row[$i]     = ($default_function != $transform_function ? $transform_function($row[$i], $transform_options, $meta) : $default_function($row[$i], array(), $meta));
                     }
 
                     // garvin: transform functions may enable nowrapping:
@@ -1439,7 +1436,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
                                          . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
-                                         . ' = \'' . PMA_sqlAddslashes($row[$pointer]) . '\'';
+                                         . ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
                             $dispresult  = PMA_DBI_try_query($dispsql);
                             if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                                 list($dispval) = PMA_DBI_fetch_row($dispresult);
@@ -1447,6 +1444,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             else {
                                 $dispval = $GLOBALS['strLinkNotFound'];
                             }
+                            @PMA_DBI_free_result($dispresult);
                         }
                         else {
                             $dispval = '';
@@ -1457,9 +1455,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                                                .  PMA_generate_common_url($map[$meta->name][3], $map[$meta->name][0])
                                                                .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
-                                                               .  $row[$pointer] . '</a>';
+                                                               .  $row[$i] . '</a>';
                     } else {
-                        $vertical_display['data'][$row_no][$i] .= $row[$pointer];
+                        $vertical_display['data'][$row_no][$i] .= $row[$i];
                     }
                     $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                 } else {

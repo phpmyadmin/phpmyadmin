@@ -24,7 +24,7 @@
  *
  * @author  Mike Beck <mikebeck@users.sourceforge.net>
  */
- function PMA_query_as_cu($sql, $show_error = TRUE, $options) {
+ function PMA_query_as_cu($sql, $show_error = TRUE, $options = 0) {
     global $err_url_0, $db, $dbh, $cfgRelation;
 
     PMA_DBI_select_db($cfgRelation['db'], $dbh);

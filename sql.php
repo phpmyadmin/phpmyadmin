@@ -494,6 +494,7 @@ else {
                         // }
                         $cnt_all_result       = PMA_DBI_query('SELECT FOUND_ROWS() as count;');
                         list($unlim_num_rows) = PMA_DBI_fetch_row($cnt_all_result);
+                        @PMA_DBI_free_result($cnt_all_result);
                     }
             } // end else "just browsing"
 
@@ -568,6 +569,7 @@ else {
                         $goto = 'db_details.php';
                         unset($table);
                     }
+                    @PMA_DBI_free_result($is_table);
                 } // end if... else...
             }
             if (strpos(' ' . $goto, 'db_details') == 1) {

@@ -15,6 +15,8 @@ $Source$
       libraries/relation.lib.php, libraries/dbi/mysqli.dbi.lib.php:
       Changed some queries to use MYSQLI_STORE_RESULT. phpMyAdmin now works
       with MYSQLI_USE_RESULT as default.
+    * libraries/display_tbl.lib.php: Use PMA_DBI_fetch_row instead of 
+      PMA_DBI_fetch_array.
     
 2004-04-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php, lang/*: feature 788608: new features for Search:
