@@ -5,9 +5,6 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-05-17 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * libraries/display_tbl.lib.php3, line 1006: improved Loïc's fix.
-
 2002-05-17 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, bug 556296: field size for int
     * tbl_qbe.php3, adjust drop-down width, thanks to Mike Beck
