@@ -81,10 +81,10 @@ if (isIE4) {
  */
 function nsGetIndex(el) {
   var ind       = null;
-  var layersCnt = document.layers.length;
+  var theLayers = document.layers;
+  var layersCnt = theLayers.length;
   for (var i = 0; i < layersCnt; i++) {
-    var whichEl = document.layers[i];
-    if (whichEl.id == el) {
+    if (theLayers[i].id == el) {
       ind = i;
       break;
     }
@@ -100,13 +100,13 @@ function nsGetIndex(el) {
  */
 function nsArrangeList() {
   if (firstInd != null) {
-    var nextY     = document.layers[firstInd].pageY + document.layers[firstInd].document.height;
-    var layersCnt = document.layers.length;
+    var theLayers = document.layers;
+    var layersCnt = theLayers.length;
+    var nextY     = theLayers[firstInd].pageY + theLayers[firstInd].document.height;
     for (var i = firstInd + 1; i < layersCnt; i++) {
-      var whichEl = document.layers[i];
-      if (whichEl.visibility != 'hide') {
-        whichEl.pageY = nextY;
-        nextY         += whichEl.document.height;
+      if (theLayers[i].visibility != 'hide') {
+        theLayers[i].pageY = nextY;
+        nextY              += theLayers[i].document.height;
       }
     }
   }
@@ -119,10 +119,10 @@ function nsArrangeList() {
  * @access  public
  */
 function nsShowAll() {
-  var layersCnt = document.layers.length;
+  var theLayers = document.layers;
+  var layersCnt = theLayers.length;
   for (i = firstInd; i < layersCnt; i++) {
-    whichEl = document.layers[i];
-    whichEl.visibility = 'show';
+    theLayers[i].visibility = 'show';
   }
 } // end of the 'nsShowAll()' function
 
@@ -154,13 +154,13 @@ function initIt()
     }
   } // end of the IE4 case
   else if (isNS4) {
-    var layersCnt   = document.layers.length;
-    for (var i=0; i<layersCnt; i++) {
-      var whichEl = document.layers[i];
-      if (whichEl.id.indexOf('Child') != -1)
-        whichEl.visibility        = 'hide';
+    var theLayers  = document.layers;
+    var layersCnt  = theLayers.length;
+    for (var i = 0; i < layersCnt; i++) {
+      if (theLayers[i].id.indexOf('Child') != -1)
+        theLayers[i].visibility   = 'hide';
       else
-        whichEl.visibility        = 'show';
+        theLayers[i].visibility   = 'show';
     }
     nsArrangeList();
   } // end of the NS4 case
