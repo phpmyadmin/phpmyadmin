@@ -145,8 +145,12 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $data          = '';
         $backup_field  = '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="NULL" />';
     } else {
-        $special_chars = '';
-        $data          = '';
+        // loic1: display default values 
+        if (!isset($row_table_def['Default'])) {
+            $row_table_def['Default'] = (($row_table_def['Null'] == 'YES') ? 'NULL' : '');
+        }
+        $special_chars = htmlspecialchars($row_table_def['Default']);
+        $data          = $row_table_def['Default'];
         $backup_field  = '';
     }
 
