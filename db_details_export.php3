@@ -162,7 +162,7 @@ if (function_exists('PMA_set_enc_form')) {
     <input type="hidden" name="db" value="<?php echo $db;?>" />
 </form>
 
-<a href="./Documentation.html#faqexport" target="documentation"><?php echo $strDocu; ?></a>;
+<a href="./Documentation.html#faqexport" target="documentation"><?php echo $strDocu; ?></a>
 
 
 <?php
