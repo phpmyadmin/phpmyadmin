@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 
-
 /**
  * Confirmation form if required or include of other scripts
  */
@@ -19,8 +18,18 @@ if (!empty($submit_mult)
             include('./tbl_printview.php3');
             exit();
         } else {    
-            $selected = $selected_tbl;
-            $what     = (($submit_mult == $strDrop) ? 'drop_tbl' : 'empty_tbl');
+           $selected = $selected_tbl;
+           switch ($submit_mult) {
+               case $strDrop:
+                   $what = 'drop_tbl';
+                   break;
+               case $strEmpty:
+                   $what = 'empty_tbl';
+                   break;
+               case $strOptimizeTable:
+                   $what = 'optimize_tbl';
+                   break;
+           } // end switch
         }
     } else {
         $selected     = $selected_fld;
@@ -45,6 +54,12 @@ if (!empty($submit_mult)
 
             case 'drop_tbl':
                 $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
+                            . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
+                            . (($i == $selected_cnt - 1) ? ';<br />' : '');
+                break;
+
+            case 'optimize_tbl':
+                $full_query .= (empty($full_query) ? 'OPTIMIZE TABLE ' : ', ')
                             . PMA_backquote(htmlspecialchars(urldecode($selected[$i])))
                             . (($i == $selected_cnt - 1) ? ';<br />' : '');
                 break;
@@ -94,8 +109,8 @@ if (!empty($submit_mult)
     }
     ?>
     <input type="hidden" name="query_type" value="<?php echo $what; ?>" />
-    <input type="submit" name="mult_btnDrop" value="<?php echo $strYes; ?>" />
-    <input type="submit" name="mult_btnDrop" value="<?php echo $strNo; ?>" />
+    <input type="submit" name="mult_btn" value="<?php echo $strYes; ?>" />
+    <input type="submit" name="mult_btn" value="<?php echo $strNo; ?>" />
 </form>
     <?php
     echo"\n";
@@ -107,8 +122,8 @@ if (!empty($submit_mult)
 /**
  * Executes the query
  */
-else if ((get_magic_quotes_gpc() && stripslashes($mult_btnDrop) == $strYes)
-         || $mult_btnDrop == $strYes) {
+else if ((get_magic_quotes_gpc() && stripslashes($mult_btn) == $strYes)
+         || $mult_btn == $strYes) {
 
     $sql_query      = '';
     $selected_cnt   = count($selected);
@@ -127,6 +142,12 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btnDrop) == $strYes)
                 $reload    = 1;
                 break;
 
+            case 'optimize_tbl':
+                $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
+                           . PMA_backquote(urldecode($selected[$i]))
+                           . (($i == $selected_cnt-1) ? ';' : '');
+                break;
+
             case 'empty_tbl':
                 $a_query   = 'DELETE FROM '
                            . PMA_backquote(urldecode($selected[$i]));
@@ -139,8 +160,11 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btnDrop) == $strYes)
                 break;
         } // end switch
 
-        // All "DROP TABLE" and "DROP FIELD" statements will be run at once below
-        if ($query_type != 'drop_tbl' && $query_type != 'drop_fld') {
+        // All "DROP TABLE","DROP FIELD" and "OPTIMIZE TABLE" statements 
+        // will be run at once below
+        if ($query_type != 'drop_tbl' 
+         && $query_type != 'drop_fld'
+         && $query_type != 'optimize_tbl') {
             $sql_query .= $a_query . ';' . "\n";
 
             if ($query_type != 'drop_db') {
@@ -150,7 +174,9 @@ else if ((get_magic_quotes_gpc() && stripslashes($mult_btnDrop) == $strYes)
         } // end if
     } // end for
 
-    if ($query_type == 'drop_tbl' || $query_type == 'drop_fld') {
+    if ($query_type == 'drop_tbl' 
+     || $query_type == 'drop_fld'
+     || $query_type == 'optimize_tbl') {
         mysql_select_db($db);
         $result = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
     }

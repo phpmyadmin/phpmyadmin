@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-02 Marc Delisle  <lem9@users.sourceforge.net>
+	* db_stats.php3, db_details.php3, mult_submits.inc.php3, 
+          tbl_properties.php3: Button to optimize many tables
+
 2002-02-01 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_properties.inc.php3, add a link to doc for column types
 

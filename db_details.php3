@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 
-
 /**
  * Gets some core libraries
  */
@@ -23,7 +22,7 @@ $err_url   = 'db_details.php3'
 
 
 /**
- * Ensures the database exists (else move to the "parent" script) and diplays
+ * Ensures the database exists (else move to the "parent" script) and displays
  * headers
  */
 if (!isset($is_db) || !$is_db) {
@@ -62,7 +61,7 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang;
  * Drop/delete multiple tables if required
  */
 if ((!empty($submit_mult) && isset($selected_tbl))
-    || isset($mult_btnDrop)) {
+    || isset($mult_btn)) {
     $action = 'db_details.php3';
     include('./mult_submits.inc.php3');
 }
@@ -349,6 +348,8 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
         <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
         &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strPrintView; ?>" />
+        &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
+        <input type="submit" name="submit_mult" value="<?php echo $strOptimizeTable; ?>" />
     </td>
 </tr>
 </table>
