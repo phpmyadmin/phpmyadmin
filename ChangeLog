@@ -8,6 +8,7 @@ $Source$
 
 2002-11-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: correct detection of PHP 4.2.x
+    * main.php3, lang/*.php3: PHP 4.2.3 warning
     
 2002-11-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_datadict.php3: Fixed bug #632515 (JS error in data dictonary).

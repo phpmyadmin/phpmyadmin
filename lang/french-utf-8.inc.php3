@@ -264,6 +264,7 @@ $strOptions = 'Options';
 $strOr = 'Ou';
 $strOverhead = 'Perte';
 
+$strPHP40203 = 'Vous utilisez PHP 4.2.3, et cette version a un sérieux problème avec les caractères multi-octets (mbstring), tel que décrit sur le rapport d\'anomalies 19404 chez PHP.  Il n\'est pas recommandé d\'utiliser cette version de PHP avec phpMyAdmin.';
 $strPHPVersion = 'Version de PHP';
 $strPageNumber = 'Page n°:';
 $strPartialText = 'Textes réduits';

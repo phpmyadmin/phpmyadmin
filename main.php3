@@ -596,6 +596,14 @@ if ($server != 0
 }
 
 /**
+ * Warning for PHP 4.2.3
+ */
+
+if (PMA_PHP_INT_VERSION == 40203) {
+    echo '<p class="warning">' . $strPHP40203 . '</p>' . "\n";
+}
+
+/**
  * Displays the footer
  */
 echo "\n";
