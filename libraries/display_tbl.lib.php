@@ -460,7 +460,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         if (isset($analyzed_sql[0]['unsorted_query'])) {
             $unsorted_sql_query = $analyzed_sql[0]['unsorted_query'];
         }
-  
+
         // we need $sort_expression and $sort_expression_nodir
         // even if there are many table references
 
@@ -489,7 +489,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             }
 
             $prev_index = '';
-            foreach ($ret_keys as $row) { 
+            foreach ($ret_keys as $row) {
 
                 if ($row['Key_name'] != $prev_index ){
                     $indexes[]  = $row['Key_name'];
@@ -692,9 +692,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     if ($GLOBALS['cfg']['ShowBrowseComments'] && $GLOBALS['cfgRelation']['commwork'] && $disp_direction != 'horizontalflipped') {
         $comments_map = array();
         foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
-            
+
             $tb = $tbl['table_true_name'];
-            
+
             $comments_map[$tb] = PMA_getComments($db, $tb);
         }
     }
@@ -736,7 +736,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         }
 
         // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
-        if (isset($comments_map) && 
+        if (isset($comments_map) &&
                 isset($comments_map[$fields_meta[$i]->table]) &&
                 isset($comments_map[$fields_meta[$i]->table][$fields_meta[$i]->name])) {
             /*$comments_table_wrap_pre = '<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><th>';
@@ -1867,10 +1867,10 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
           echo '&nbsp;&nbsp;<i>' . $GLOBALS['strWithChecked'] . '</i>'. "\n";
 
         if ($cfg['PropertiesIconic']) {
-            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_change', $GLOBALS['strChange'], 'b_edit.png');
-            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_change', $delete_text, 'b_drop.png');
+            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $GLOBALS['strChange'], 'b_edit.png');
+            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $delete_text, 'b_drop.png');
             if ($analyzed_sql[0]['querytype'] == 'SELECT') {
-                PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_change', $GLOBALS['strExport'], 'b_tblexport.png');
+                PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $GLOBALS['strExport'], 'b_tblexport.png');
             }
             echo "\n";
         } else {

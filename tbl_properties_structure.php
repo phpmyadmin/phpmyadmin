@@ -419,16 +419,16 @@ $checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db,$t
                     <?php
 
 if ($cfg['PropertiesIconic']) {
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_change', $strChange, 'b_edit.png');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $strChange, 'b_edit.png');
     // Drop button if there is at least two fields
     if ($fields_cnt > 1) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_drop', $strDrop, 'b_drop.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_drop', $strDrop, 'b_drop.png');
     }
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_primary', $strPrimary, 'b_primary.png');
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_index', $strIndex, 'b_index.png');
-    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_unique', $strUnique, 'b_unique.png');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_primary', $strPrimary, 'b_primary.png');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_index', $strIndex, 'b_index.png');
+    PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_unique', $strUnique, 'b_unique.png');
     if ((!empty($tbl_type) && $tbl_type == 'MYISAM')) {
-        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submin_mult_fulltext', $strIdxFulltext, 'b_ftext.png');
+        PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_fulltext', $strIdxFulltext, 'b_ftext.png');
     }
 } else {
     echo '<input type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '" />' . "\n";
