@@ -15,6 +15,7 @@ $Source$
       SELECT DISTINCT x AS foo, y AS bar FROM sometable
       and count rows correctly (in MySQL 3),
       thanks to Matthias Pigulla (mp@webfactory.de) 
+    * server_privileges.php: cosmetic: title for Edit privileges
 
 2004-10-13 Michal Čihař  <michal@cihar.com>
     * libraries/fpdf/fpdf.php: Updated to 1.52.

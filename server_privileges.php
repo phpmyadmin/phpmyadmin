@@ -969,9 +969,9 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Grant_priv'] == 'Y' ? $strYes : $strNo) . '</td>' . "\n"
                    . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '" align="center"><a href="server_privileges.php?' . $url_query . '&amp;username=' . urlencode($row['User']) . '&amp;hostname=' . urlencode($row['Host']) . '">';
                 if ($GLOBALS['cfg']['PropertiesIconic']) {
-                    echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_usredit.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strEdit . '" />';
+                    echo '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_usredit.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strEditPrivileges . '" title="' . $strEditPrivileges . '" />';
                 } else {
-                    echo $strEdit;
+                    echo $strEditPrivileges;
                 }
                 echo '</a></td>' . "\n"
                    . '        </tr>' . "\n";
