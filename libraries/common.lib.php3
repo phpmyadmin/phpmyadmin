@@ -608,8 +608,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                        ? ''
                        : ':' . $cfg['Server']['socket'];
         if (PMA_PHP_INT_VERSION >= 40300) {
-            $client_flags = ($cfg['Server']['ssl'] ? MYSQL_CLIENT_SSL : 0)
-                          & ($cfg['Server']['compress'] ? MYSQL_CLIENT_COMPRESS : 0);
+            $client_flags = ($cfg['Server']['compress'] ? MYSQL_CLIENT_COMPRESS : 0);
         }
 
         // Gets the authentication library that fits the $cfg['Server'] settings
