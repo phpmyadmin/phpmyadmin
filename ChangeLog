@@ -6,11 +6,18 @@ $Id$
 $Source$
 
 2001-12-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* config.inc.php3; Documentation.html; left.php3;
+	  libraries/display_tbl.php3; libraries/common.lib.php3:
+	  patch #458673 - Nicer navigation for MSIE, update... thanks to
+	  Marcus Börger <helly at users.sourceforge.net>.
+	* libraries/functions.js, function "setPointer()" :
+	  - skip pointer is allowed by letting blank the color value;
+	  - fixed a js bad command.
 	* libraries/select_lang.inc.php3, lines 45-46: updated to take into account
 	  the new Bulgarian translation thanks to
-	  Georgi Georgiev <chutz@chubaka.homeip.net>.
+	  Georgi Georgiev <chutz at chubaka.homeip.net>.
 	* lang/japanese.inc.php3; bulgarian-*.inc.php3: updated thanks to
-	  Georgi Georgiev <chutz@chubaka.homeip.net>.
+	  Georgi Georgiev <chutz at chubaka.homeip.net>.
 
 2001-12-04  Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html: FAQ about Konqueror
