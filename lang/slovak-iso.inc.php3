@@ -167,6 +167,8 @@ $strLogout = 'Odhlási» sa';
 
 $strModifications = 'Zmeny boli ulo¾ené';
 $strModify = 'Zmeni»';
+$strMoveTable = 'Presunú» tabuµku do (databáza<b>.</b>tabuµka):';
+$strMoveTableOK = 'Tabuµka %s bola presunutá do %s.';
 $strMySQLReloaded = 'MySQL znovu-naèítaná.';
 $strMySQLSaid = 'MySQL hlási: ';
 $strMySQLShowProcess = 'Zobrazi» procesy';
@@ -182,6 +184,7 @@ $strNoDropDatabases = 'Mo¾nos» "DROP DATABASE" vypnutá.';
 $strNoModification = '®iadna zmena';
 $strNoPassword = '®iadne heslo';
 $strNoPrivileges = '®iadne privilégia';
+$strNoQuery = '®iadny SQL dotaz!'; 
 $strNoRights = 'Nemáte dostatoèné práva na vykonanie tejto akcie!';
 $strNoTablesFound = 'Neboli nájdené ¾iadne tabuµky v tejto datábaze.';
 $strNotNumber = 'Toto nieje èíslo!';
@@ -318,9 +321,7 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 
 $strYes = 'Áno';
 
+$strZip = '"zo zipované"';  
+
 // To translate
-$strMoveTable = 'Move table to (database<b>.</b>table):';
-$strMoveTableOK = 'Table %s has been moved to %s.';
-$strNoQuery = 'No SQL query!';  //to translate
-$strZip = '"zipped"';  //to translate
 ?>
