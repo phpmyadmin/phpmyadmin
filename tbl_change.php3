@@ -43,6 +43,10 @@ if (isset($primary_key)) {
     $local_query = 'SELECT * FROM ' . backquote($table) . ' WHERE ' . $primary_key;
     $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
     $row         = mysql_fetch_array($result);
+    if (!$row) {
+        unset($row);
+        unset($primary_key);
+    }
 }
 else
 {
@@ -140,10 +144,6 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $special_chars = htmlspecialchars($row[$field]);
         $data          = $row[$field];
         $backup_field  = '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($data) . '" />';
-    } else if (isset($primary_key)) {
-        $special_chars = 'NULL';
-        $data          = '';
-        $backup_field  = '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="NULL" />';
     } else {
         // loic1: display default values 
         if (!isset($row_table_def['Default'])) {

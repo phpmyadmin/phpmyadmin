@@ -13,6 +13,8 @@ $Source$
 	  configuration file.
 	* tbl_properties.php3, line 1243: added a param. to enforce reloading of
 	  the left frame after a flush if $cfgShowTooltip is set to 1.
+	* tbl_change.php3: fixed some inconcistancies if an update is required but
+	  the record can't be found.
 
 2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/*: cleanup thanks to Björn T. Hallberg - Removed unused strings
