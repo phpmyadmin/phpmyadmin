@@ -435,4 +435,6 @@ $strWrongUser = 'Vale kasutajanimi/parool. Ligipääd keelatud.';
 $strYes = 'Jah';
 
 $strZip = '"zipitud"';
+$strRelationalSchema = 'Relational schema';  //to translate
+$strTableOfContents = 'Table of contents';  //to translate
 ?>

@@ -440,4 +440,6 @@ $strYes = 'Ja';
 $strZip = '"Gezipt"';
 // To translate
 
+$strRelationalSchema = 'Relational schema';  //to translate
+$strTableOfContents = 'Table of contents';  //to translate
 ?>

@@ -445,4 +445,6 @@ $strYes = 'はい';
 
 $strZip = '"zipされる"';
 
+$strRelationalSchema = 'Relational schema';  //to translate
+$strTableOfContents = 'Table of contents';  //to translate
 ?>

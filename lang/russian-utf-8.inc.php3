@@ -443,4 +443,6 @@ $strZip = 'архивировать в zip';
 // To translate
 $strNumTables = 'Tables'; //to translate
 $strTotalUC = 'Total'; //to translate
+$strRelationalSchema = 'Relational schema';  //to translate
+$strTableOfContents = 'Table of contents';  //to translate
 ?>

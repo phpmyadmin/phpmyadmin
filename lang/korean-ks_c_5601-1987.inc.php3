@@ -454,4 +454,6 @@ $strWebServerUploadDirectoryError = '업로드 디렉토리에 접근할 수 없습니다';  //t
 
 $strNumTables = 'Tables'; //to translate
 $strTotalUC = 'Total'; //to translate
+$strRelationalSchema = 'Relational schema';  //to translate
+$strTableOfContents = 'Table of contents';  //to translate
 ?>

@@ -444,4 +444,6 @@ $strYes = 'Ja';
 
 $strZip = 'Zip-komprimiert';
 
+$strRelationalSchema = 'Relational schema';  //to translate
+$strTableOfContents = 'Table of contents';  //to translate
 ?>
