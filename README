@@ -31,8 +31,8 @@ phpMyAdmin - Readme
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
   Requirements: 
-    PHP3 or PHP4
-    MySQL (tested with 3.21.x, 3.22.x and 3.23.x
+    PHP3 (>= 3.0.8) or PHP4
+    MySQL (tested with 3.21.x, 3.22.x and 3.23.x)
     a web-browser (doh!)
                 
   Summary:

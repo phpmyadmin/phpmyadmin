@@ -5,7 +5,12 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
-2001-07-13  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-07-14  Marc Delisle  <lem9@users.sourceforge.net>
+            Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html: added a requirement section, rewritten the entry
+	  about the use of advanced authentification.
+
+2001-07-14  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, tbl_dump.php3: limitation feature for data dumps wasn't
 	  working with CSV exports.
 
