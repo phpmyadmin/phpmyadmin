@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-12 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/defines_php.lib.php3, Documentation.*, translators.html:
+      corrected version number.
+
 2002-08-11 Robin Johnson  <robbat2@users.sourceforge.net>
     ### 2.3.0 is released ###
     * Documentation.html:

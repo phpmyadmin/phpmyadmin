@@ -1,5 +1,5 @@
 
-                        phpMyAdmin 2.3.0 Documentation
+                      phpMyAdmin 2.3.0-dev Documentation
 
      * Sourceforge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ]
@@ -1681,4 +1681,4 @@ Original Credits of Version 2.1.0
    Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
 
-                                        Valid XHTML 1.0!      Valid CSS! 
+                                        Valid XHTML 1.0!      Valid CSS!
