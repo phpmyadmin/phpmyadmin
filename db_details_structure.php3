@@ -471,8 +471,6 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     <!-- PDF schema -->
     <?php
     // We only show this if we find something in the new pdf_pages table
-    //
-    // Note the trailing slash in the action target, this is intentional
 
     $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
