@@ -5,11 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-28 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html: Fixed a typo.
+
 2003-02-28 Garvin Hicking <me@supergarv.de>
     * translators.html: Adjusted to same topmenu as Documentation.html.
       With the new 'Transformations' item the bar was too large to fit
       on standard 800x600 browser windows.
-                
+
 2003-02-27 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     * lang/english: Resorted.
