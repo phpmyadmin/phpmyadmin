@@ -193,17 +193,19 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             $row[$current_grant . '_priv'] = in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
         unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
-        $res = PMA_DBI_query('SHOW COLUMNS FROM `' . $db . '`.`' . $table . '`;');
+        $res = PMA_DBI_try_query('SHOW COLUMNS FROM `' . $db . '`.`' . $table . '`;');
         $columns = array();
-        while ($row1 = PMA_DBI_fetch_row($res)) {
-            $columns[$row1[0]] = array(
-                'Select' => FALSE,
-                'Insert' => FALSE,
-                'Update' => FALSE,
-                'References' => FALSE
-            );
+        if ($res) {
+            while ($row1 = PMA_DBI_fetch_row($res)) {
+                $columns[$row1[0]] = array(
+                    'Select' => FALSE,
+                    'Insert' => FALSE,
+                    'Update' => FALSE,
+                    'References' => FALSE
+                );
+            }
+            PMA_DBI_free_result($res);
         }
-        PMA_DBI_free_result($res);
         unset($res, $row1);
     }
     if (!empty($columns)) {
