@@ -420,6 +420,22 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> boolean</dt>
+    <dd>
+        Starting with version 2.3.0 phpMyAdmin offers a lot of features to work
+        with master / foreign - tables. These features require the PMA
+        administrator to set up a special database for PMA (see
+        <a class="navigation" href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>).
+        Its contents and use will be explained further down.<br />
+        If you tried to set this up and it does not work for you have a look on
+        the &quot;Structure&quot; page of one database where you would like to
+        use it. You will find a link that will analyze why those features have
+        been disabled.<br />
+        If you do not want to use those features set this variable to
+        <tt>TRUE</tt> to stop this message from appearing.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['Servers']</b> array</dt>
     <dd>
         Since version 1.4.2, phpMyAdmin supports the administration of multiple
@@ -1260,54 +1276,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['UseSyntaxColoring'] </b>boolean</dt>
-    <dd>
-        Introduced in 2.3.0, phpMyAdmin is now able to show SQL in syntax
-        coloring.<br />
-        To use this feature set this value to <tt>TRUE</tt> (the default).
-        If not everything you want is colored or to influence where a newline
-        is inserted see the configuration arrays <tt>$cfg['keywords']</tt> and
-        <tt>$cfg['additional']</tt>.<br />
-        Note: for version 2.3.0, syntax coloring is non functional.
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['colorFunctions'] </b>string [HTML color]</dt>
-    <dd>
-        If you use syntax coloring then this defines the color of
-        function names. e.g. all that are found in <tt>$cfg['Functions']</tt>.
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['colorKeywords'] </b>string [HTML color]</dt>
-    <dd>
-        If you use syntax coloring then this defines the color of
-        keywords. e.g. all that are found in <tt>$cfg['keywords']</tt>.
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['colorStrings'] </b>string [HTML color]</dt>
-    <dd>
-        If you use syntax coloring then this defines the color of
-        strings. e.g. all that are between ' or &quot;
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['colorColType'] </b>string [HTML color]</dt>
-    <dd>
-        If you use syntax coloring then this defines the color of
-        column types. e.g. all that are found in <tt>$cfg['ColumnTypes']</tt>.
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['colorAdd'] </b>string [HTML color]</dt>
-    <dd>
-        If you use syntax coloring then this defines the color of
-        additional keywords that do not get a newline. e.g. all that
-        are found in <tt>$cfg['additional']</tt>.
-        <br /><br />
-    </dd>
-
     <dt><b>$cfg['ColumnTypes'] </b>array</dt>
     <dd>
         All possible types of a MySQL column. In most cases you don't need to
@@ -1337,30 +1305,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['additional'] </b>array</dt>
-    <dd>
-        A list of additional keywords that is used for syntax coloring. All
-        keywords that are in this list will <b>not</b> get a new line before
-        them.<br />
-        Usually you won't need to change those.
-        <br /><br />
-    </dd>
-
-    <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> boolean</dt>
-    <dd>
-        Starting with version 2.3.0 phpMyAdmin offers a lot of features to work
-        with master / foreign - tables. These features require the PMA
-        administrator to set up a special database for PMA (see
-        <a class="navigation" href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>).
-        Its contents and use will be explained further down.<br />
-        If you tried to set this up and it does not work for you have a look on
-        the &quot;Structure&quot; page of one database where you would like to
-        use it. You will find a link that will analyze why those features have
-        been disabled.<br />
-        If you do not want to use those features set this variable to
-        <tt>TRUE</tt> to stop this message from appearing.
-        <br /><br />
-    </dd>
 </dl>
 
 
@@ -2106,7 +2050,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         For example, x=100 and y=200 means that the table will be at 200 mm
         down and 100 mm right from the upper left corner.<br />
         Actually if you have a width of more than 300 or a height of more than
-        100 than it will automatically be scaled but 300*100 is a good start to
+        200 than it will automatically be scaled but 300*100 is a good start to
         have an idea of what coordinates to use.</li>
     <li>After every table you submitted you will have the possibility to submit
         more tables</li>
@@ -2122,36 +2066,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         without an extension. Under Windows it is important to have the
         extension &quot;.pdf&quot;, under other OSes you should be fine just
         saving the file under the name it offers).</li>
-</ul>
-
-<a name="faqsyntaxcoloring"></a>
-<p>
-    <b>I don't like the way syntax coloring displays my query!</b>
-    <br />
-    There is two things about the way how the syntax coloring works that
-    you can easily change yourself:
-</p>
-<ul>
-    <li>
-        <b>number of newlines within your statement</b><br />
-        All words that are in <tt>$cfg['keywords']</tt> will get a newline in
-        front of them, all words in <tt>$cfg['additional']</tt> won't.
-        So say you don't like to have a newline in front of every
-        <tt>WHERE</tt>, you need to remove it from the
-        <tt>$cfg['keywords']</tt> array and enter it in the
-        <tt>$cfg['additional']</tt> array instead.
-    </li>
-    <li>
-        <b>colors</b><br />
-        The colors are easily changed using the variables
-        <ul>
-            <li><tt>$cfg['colorFunctions']</tt></li>
-            <li><tt>$cfg['colorKeywords']</tt></li>
-            <li><tt>$cfg['colorStrings']</tt></li>
-            <li><tt>$cfg['colorColType']</tt></li>
-            <li><tt>$cfg['colorAdd']</tt></li>
-        </ul>
-    </li>
 </ul>
 
 <p>
