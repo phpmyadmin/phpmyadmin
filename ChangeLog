@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.data.php3: bug 779453, wrong count
+
 2003-08-04 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
 

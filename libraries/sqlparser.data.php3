@@ -453,7 +453,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'YEAR_MONTH'
     );
     //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-    $PMA_SQPdata_reserved_word_cnt = 253;
+    $PMA_SQPdata_reserved_word_cnt = 255;
 
     $PMA_SQPdata_column_type = array (
         'BIGINT',
