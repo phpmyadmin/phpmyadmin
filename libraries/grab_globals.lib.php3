@@ -54,9 +54,6 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
         if (isset($table)) {
             $table = stripslashes($table);
         }
-        if (isset($sql_query)) {
-            $sql_query = stripslashes($sql_query);
-        }
     }
 
 } // $__PMA_GRAB_GLOBALS_LIB__

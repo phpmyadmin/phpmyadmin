@@ -6,7 +6,10 @@ $Id$
 $Source$
 
 2002-12-01 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * libaries/grab_globals.lib.php3: Merged a possible fix against bug #641652.
+    * libraries/grab_globals.lib.php3: Back to previous version.
+
+2002-12-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/grab_globals.lib.php3: Possible fix against bug #641652.
 
 2002-12-01 Marc Delisle  <lem9@users.sourceforge.net>
     * user_details.php3: the script wrongly created a user % when asked
