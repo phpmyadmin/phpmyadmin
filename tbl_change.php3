@@ -395,7 +395,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
-            <select name="field_<?php echo md5($field) . '[]" onchange="document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false"> size="' . $size . '" multiple="multiple">';
+            <select name="field_<?php echo md5($field) . '[]" onchange="document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false" size="' . $size . '" multiple="multiple">';
 
         echo "\n";
         $countset = count($set);
