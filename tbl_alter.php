@@ -22,7 +22,8 @@ require('./tbl_properties_table_info.php');
  * Displays top menu links
  */
 $active_page = 'tbl_properties_structure.php';
-require('./tbl_properties_links.php');
+// I don't see the need to display the links here, they will be displayed later
+//require('./tbl_properties_links.php');
 
 
 /**
