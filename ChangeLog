@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-09 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_databases.php3: Bugfixes & interface cosmetic.
+
 2003-02-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * config.inc.php3, lang/add_message.sh: Typos.
     * lang/italian.inc.php3: Updates, thanks to Pietro Danesi (danone).
