@@ -10,7 +10,6 @@ require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 require('./libraries/relation.lib.php3'); // foreign keys
 
-
 /**
  * Defines arrays of functions (should possibly be in config.inc.php3
  * so it can also be used in tbl_qbe.php3)
@@ -19,7 +18,6 @@ require('./libraries/relation.lib.php3'); // foreign keys
  */
 $numfunctions  = array('=', '>', '>=', '<', '<=', '!=', 'LIKE');
 $textfunctions = array('LIKE', '=', '!=');
-
 
 /**
  * Not selection yet required -> displays the selection form
@@ -204,6 +202,7 @@ if (!isset($param) || $param[0] == '') {
     </ul>
 
     &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="hidden" name="max_number_of_fields" value="<?php echo $fields_cnt; ?>" />
     <input type="submit" name="submit" value="<?php echo $strGo; ?>" />
 </form>
         <?php
@@ -218,15 +217,28 @@ if (!isset($param) || $param[0] == '') {
  */
 else {
     // Builds the query
-    $sql_query = 'SELECT ' . PMA_backquote(urldecode($param[0]));
-    $i         = 0;
-    $c         = count($param);
-    while ($i < $c) {
-        if ($i > 0) {
-            $sql_query .= ',' . PMA_backquote(urldecode($param[$i]));
+
+    $sql_query = 'SELECT ';
+
+    // if all fields were selected to display, we do a SELECT *
+    // (more efficient and this helps prevent a problem in IE
+    // if one of the rows is edited and we come back to the Select results)
+
+    if (count($param) == $max_number_of_fields) {
+        $sql_query .= '* ';
+    } else {
+
+        $sql_query .= PMA_backquote(urldecode($param[0]));
+        $i         = 0;
+        $c         = count($param);
+        while ($i < $c) {
+            if ($i > 0) {
+                $sql_query .= ',' . PMA_backquote(urldecode($param[$i]));
+            }
+            $i++;
         }
-        $i++;
-    }
+    } // end if
+
     $sql_query .= ' FROM ' . PMA_backquote($table);
     // The where clause
     if ($where != '') {
