@@ -10,6 +10,8 @@ $Source$
       calendar.
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * read_dump.php: Bug #925913 - Uploading with UploadDir/open_basedir
+      fails.
     * querywindow.php: Bug #942395 - Missing space
     * libraries/display_tbl.lib.php: Bug #942362 - Colspan of results
       table off by one.

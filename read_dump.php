@@ -96,18 +96,23 @@ if ($sql_file != 'none') {
                 if ($sql_query == FALSE) {
                     $message = $strFileCouldNotBeRead;
                 }
-            }
-            else {
+            } else {
                 $sql_file_new = $tmp_subdir . basename($sql_file);
-                move_uploaded_file($sql_file, $sql_file_new);
-                $sql_query = PMA_readFile($sql_file_new, $sql_file_compression);
-                if ($sql_query == FALSE) {
-                    $message = $strFileCouldNotBeRead;
+                if (move_uploaded_file($sql_file, $sql_file_new)) {
+                    $sql_query = PMA_readFile($sql_file_new, $sql_file_compression);
+                    if ($sql_query == FALSE) {
+                        $message = $strFileCouldNotBeRead;
+                    }
+                    unlink($sql_file_new);
+                } else {
+                    // Moving uploaded file failed. Falling back to try reading it immediately.
+                    $sql_query = PMA_readFile($sql_file, $sql_file_compression);
+                    if ($sql_query == FALSE) {
+                        $message = $strFileCouldNotBeRead;
+                    }
                 }
-                unlink($sql_file_new);
             }
-        }
-        else {
+        } else {
             // read from the normal upload dir
             $sql_query = PMA_readFile($sql_file, $sql_file_compression);
             if ($sql_query == FALSE) {
