@@ -321,8 +321,12 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } // end if...else
     } // end else if
     else {
-        $fieldsize = (($len > 40) ? 40 : $len);
-        $maxlength = (($len < 4)  ? 4  : $len);
+        if ($len < 4) {
+            $fieldsize = $maxlength = 4;
+        } else {
+            $fieldsize = $len;
+            $maxlength = (($len > 40) ? 40 : $len);
+        }
         echo "\n";
         ?>
         <td>
