@@ -16,6 +16,9 @@ $Source$
         of each query of a multi-query statement (taking some maximum
         line/pieces amounts into account)
       o changed formatting of syntax_comment to include some space
+    * libraries/common.lib.php3, libaries/mysql_wrappers.lib.php3:
+      Display MySQL error code and link to the MySQL-Documentation of
+      error codes
     
 2003-07-29 Marc Delisle  <lem9@users.sourceforge.net>
     * serbian: big update, 

@@ -465,9 +465,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     . $error_message . "\n"
                     . '</pre>' . "\n";
 
-
+            echo PMA_showMySQLDocu('Error-returns', 'Error-returns');
+            
             if (!empty($back_url) && $exit) {
-                echo '<a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a>';
+                echo '&nbsp;&middot;&nbsp;[<a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a>]';
             }
             echo "\n";
 
