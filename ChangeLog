@@ -10,6 +10,8 @@ $Source$
       not displayed anymore
     * read_dump.php: bug #1033133, left frame not reloaded after dump read
     * db_datadict.php: bug #1034299, error in SHOW KEYS for data dict
+    * read_dump.php: bug #1034216 open_basedir and file upload, 
+      thanks to Dominique Rousseau - domi
 
 2004-09-24 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Fixed export of '0' string (bug #1033869).

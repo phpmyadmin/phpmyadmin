@@ -76,8 +76,14 @@ if ($sql_file != 'none') {
 // loic1 : fixed a security issue
 //    if ((file_exists($sql_file) && is_uploaded_file($sql_file))
 //        || file_exists($cfg['UploadDir'] . $sql_localfile)) {
-    if (file_exists($sql_file)
-        && ((isset($sql_localfile) && $sql_file == $cfg['UploadDir'] . $sql_localfile) || is_uploaded_file($sql_file))) {
+
+    // file_exists() returns false if open_basedir is set
+    //if (file_exists($sql_file)
+    //    && ((isset($sql_localfile) && $sql_file == $cfg['UploadDir'] . $sql_localfile) || is_uploaded_file($sql_file))) {
+        
+    if ((is_uploaded_file($sql_file))
+        ||(isset($sql_localfile) && $sql_file == $cfg['UploadDir'] . $sql_localfile)  && file_exists($sql_file)) {
+
         $open_basedir = @ini_get('open_basedir');
 
         if (!isset($sql_file_compression)) $sql_file_compression = '';
