@@ -220,11 +220,6 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                     <label for="checkbox_dump_asfile"><?php echo $strSend; ?></label>
                 </legend>
                 
-                <?php 
-                $strFileNameTemplate = "File name template"; 
-                $strFileNameTemplateRemember = "remember template"; 
-                $strFileNameTemplateHelp = "Use __DB__ for database name, __TABLE_ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.";
-                ?>
                 <?php echo $strFileNameTemplate; ?>&nbsp;:
                 <input type="text" name="filename_template"
                 <?php 
