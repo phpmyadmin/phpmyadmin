@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-12 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: Fixed bug #684947 ('uncheck all' of 'privileges'
+      is broken), thanks to Alexander Schuch (ci-dev).
+
 2003-02-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/indonesian update, thanks to Rachim Tamsjadi
     * lang/italian update, thanks to Pietro Danesi

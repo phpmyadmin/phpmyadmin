@@ -810,7 +810,7 @@ if (empty($adduser)) {
                . '                <img src="./images/arrow_' . $text_dir . '.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
                . '                <a href="./server_privileges.php3?' . $url_query .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', \'selected_usr\', true); return false;">' . $strCheckAll . '</a>' . "\n"
                . '                &nbsp;/&nbsp;' . "\n"
-               . '                <a href="server_privileges.php3' . $url_query .  '" onclick="setCheckboxes(\'usersForm\', \'selected_usr\', false); return false;">' . $strUncheckAll . '</a>' . "\n"
+               . '                <a href="server_privileges.php3?' . $url_query .  '" onclick="setCheckboxes(\'usersForm\', \'selected_usr\', false); return false;">' . $strUncheckAll . '</a>' . "\n"
                . '            </td>' . "\n"
                . '        </tr>' . "\n"
                . '    </table>' . "\n"
