@@ -93,8 +93,6 @@ if (!defined('__LIB_INC__')){
     if (!isset($cfgTextareaRows)) {
         $cfgTextareaRows = 7;
     }
- 
-    // defines wants to connect mysql, and at this place there are no connexion yet...
     include('./defines.inc.php3');
 
 
@@ -1180,10 +1178,16 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                         if (strlen($row[$i]) > $GLOBALS['cfgLimitChars']) {
                             $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
                         }
-                        echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
+                        // loic1 : displays <cr>/<lf>
+                        //  echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
+                        $row[$i]     = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
+                        echo '    <td>&nbsp;' . $row[$i] . '&nbsp;</td>' . "\n";
                     }
                 } else {
-                    echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
+                    // loic1 : displays <cr>/<lf>
+                    // echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
+                    $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
+                    echo '    <td>&nbsp;' . $row[$i] . '&nbsp;</td>' . "\n";
                 }
             } // end for
             // Possibility to have the modify/delete button on the left added

@@ -18,6 +18,8 @@ $Source$
 	* lib.inc.php3:
 	  - fixed again the socket patch, should work now.
 	  - modified the way defines.inc.php3 is loaded.
+	  - while browsing a table, ensure <cr> and <lf> in text/blob fields are
+	    displayed (remplaced by the <br /> tag).
 	* defines.lib.php3; db_details; tbl_properties.php3: ensures each constant
 	  isn't already defined before to define it and renamed PMA_INT_VERSION to
 	  PHP_INT_VERSION.
