@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php3, tbl_properties_common.php3, 
+      new libraries/db_table_exists.lib.php3: menu on insert/edit
+
 2002-06-27 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, db_details_db_info.php3, db_details_links.php3: bug with a 
       Select and no table
