@@ -306,52 +306,59 @@ if (count($statistics) > 0) {
            . '            <th>&nbsp;</th>' . "\n"
            . '        </tr>' . "\n";
     }
-    $common_url_query = PMA_generate_common_url() . '&amp;sort_by=' . $sort_by . '&amp;sort_order=' . $sort_order . '&amp;dbstats=' . (empty($dbstats) ? '10' : '3');
-    echo '    <tr>' . "\n"
-       . '        <td colspan="' . (empty($dbstats) ? '10' : '3') . '">' . "\n"
-       . '            <img src="./images/arrow_' . $text_dir . '.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
-       . '            <a href="./server_databases.php3?' . $common_url_query . '&amp;checkall=1" onclick="setCheckboxes(\'dbStatsForm\', true); return false;">' . "\n"
-       . '                ' . $strCheckAll
-       . '            </a>' . "\n"
-       . '            &nbsp;/&nbsp;' . "\n"
-       . '            <a href="./server_databases.php3?' . $common_url_query . '" onclick="setCheckboxes(\'dbStatsForm\', false); return false;">' . "\n"
-       . '                ' . $strUncheckAll
-       . '            </a>' . "\n"
-       . '        </td>' . "\n"
-       . '    </tr>' . "\n"
-       . '    </table>' . "\n"
-       . '    <ul>' . "\n";
+    if ($is_superuser || $cfg['AllowUserDropDatabase']) {
+        $common_url_query = PMA_generate_common_url() . '&amp;sort_by=' . $sort_by . '&amp;sort_order=' . $sort_order . '&amp;dbstats=' . (empty($dbstats) ? '10' : '3');
+        echo '    <tr>' . "\n"
+           . '        <td colspan="' . (empty($dbstats) ? '10' : '3') . '">' . "\n"
+           . '            <img src="./images/arrow_' . $text_dir . '.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
+           . '            <a href="./server_databases.php3?' . $common_url_query . '&amp;checkall=1" onclick="setCheckboxes(\'dbStatsForm\', true); return false;">' . "\n"
+           . '                ' . $strCheckAll
+           . '            </a>' . "\n"
+           . '            &nbsp;/&nbsp;' . "\n"
+           . '            <a href="./server_databases.php3?' . $common_url_query . '" onclick="setCheckboxes(\'dbStatsForm\', false); return false;">' . "\n"
+           . '                ' . $strUncheckAll
+           . '            </a>' . "\n"
+           . '        </td>' . "\n"
+           . '    </tr>' . "\n";
+    }
+    echo '    </table>' . "\n";
     unset($data_size);
     unset($data_unit);
     unset($idx_size);
     unset($idx_unit);
     unset($tot_size);
     unset($tot_unit);
-    echo '        <li>' . "\n"
-       . '            <b>' . "\n";
+    if ($is_superuser || $cfg['AllowUserDropDatabase']) {
+        echo '    <ul>' . "\n";
+    }
     if ($is_superuser && empty($dbstats) && PMA_MYSQL_INT_VERSION >= 32303) {
-        echo '                <a href="./server_databases.php3?' . $url_query . '&amp;dbstats=1" title="' . $strDatabasesStatsEnable . '">' . "\n"
+        echo '        <li>' . "\n"
+           . '            <b>' . "\n"
+           . '                <a href="./server_databases.php3?' . $url_query . '&amp;dbstats=1" title="' . $strDatabasesStatsEnable . '">' . "\n"
            . '                    ' . $strDatabasesStatsEnable . "\n"
            . '                </a>' . "\n"
-           . '            </b><br />' . "\n"
+           . '            </b>' . "\n"
+           . '        </li><br /><br />' . "\n"
            . $strDatabasesStatsHeavyTraffic . "\n";
-    } else if (!empty($dbstats)) {
-        echo '                <a href="./server_databases.php3?' . $url_query . '" title="' . $strDatabasesStatsDisable . '">'. "\n"
+    } else if ($is_superuser && !empty($dbstats)) {
+        echo '        <li>' . "\n"
+           . '            <b>' . "\n"
+           . '                <a href="./server_databases.php3?' . $url_query . '" title="' . $strDatabasesStatsDisable . '">'. "\n"
            . '                    ' . $strDatabasesStatsDisable . "\n"
            . '                </a>' . "\n"
-           . '            </b>' . "\n";
+           . '            </b>' . "\n"
+           . '        </li><br /><br />' . "\n";
     }
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-        echo '        </li><br /><br />' . "\n"
-           . '        <li>' . "\n"
+        echo '        <li>' . "\n"
            . '            <b>' . "\n"
            . '                ' . $strDropSelectedDatabases . "\n"
            . '            </b><br />' . "\n"
            . '            <input type="submit" name="drop_selected_dbs" value="' . $strGo . '" />' . "\n"
-           . '        </li>' . "\n";
+           . '        </li>' . "\n"
+           . '    </ul>' . "\n";
     }
-    echo '    </ul>' . "\n"
-       . '</form>' . "\n";
+    echo '</form>' . "\n";
 } else {
     echo $strNoDatabases . "\n";
 }
