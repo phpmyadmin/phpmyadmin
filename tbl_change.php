@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-
+error_reporting(E_ALL);
 
 /**
  * Get the variables sent or posted to this script and displays the header
@@ -293,6 +293,22 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         // lem9:  but do not put here the current datetime if there is a default
         //        value (the real default value will be set in the
         //        Default value logic below)
+
+        // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
+        // $row_table_def['Default'] is not set if it contains NULL:
+        // Array ( [Field] => d [Type] => datetime [Null] => YES [Key] => [Extra] => [True_Type] => datetime )
+        // but, look what we get if we switch to iso: (Default is NULL)
+        // Array ( [Field] => d [Type] => datetime [Null] => YES [Key] => [Default] => [Extra] => [True_Type] => datetime )
+        // so I force a NULL into it (I don't think it's possible 
+        // to have an empty default value for DATETIME)
+        // then, the "if" after this one will work
+        if ($row_table_def['Type'] == 'datetime'
+            && !isset($row_table_def['Default'])
+            && isset($row_table_def['Null'])
+            && $row_table_def['Null'] == 'YES') {
+            $row_table_def['Default'] = NULL;
+        }
+
         if ($row_table_def['Type'] == 'datetime'
             && (!isset($row_table_def['Default']))
             && (!is_null($row_table_def['Default']))) {
@@ -387,7 +403,6 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                 $row_table_def['Default'] = '';
                 $real_null_value          = TRUE;
                 $data                     = '';
-                //$data                     = 'NULL';
             } else {
                 $data                     = $row_table_def['Default'];
             }
@@ -485,7 +500,6 @@ foreach ($loop_array AS $vrowcount => $vrow) {
             && $row_table_def['Null'] == 'YES') {
             echo '            <input type="checkbox" tabindex="' . ($tabindex + $tab2) . '"'
                  . ' name="fields_null' . $vkey . '[' . urlencode($field) . ']"';
-            //if ($data == 'NULL' && !$first_timestamp) {
             if ($real_null_value && !$first_timestamp) {
                 echo ' checked="checked"';
             }

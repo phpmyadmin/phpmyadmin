@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php: bug 990959, undefined index for DATETIME
+      field (problem in UTF-8 only!)
+
 2004-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php, libraries/common.lib.php: bug 989581 and left panel
       display problems when switching themes
