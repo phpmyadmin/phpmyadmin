@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-11 Alexander M. Turek  <bleibtallesanders@derrabus.de>
+    * server_collations.php, lang/*.inc.php, libraries/mysql_charsets.lib.php:
+      Updated character sets overview for MySQL 4.1.1.
+
 2003-12-11 Garvin Hicking <me@supergarv.de>
     * header_printview.inc.php: RFE #856503, show number of rows in printview
     * tbl_replace.php, tbl_replace_fields.php: Fixed #857445, #857684
@@ -13,7 +17,7 @@ $Source$
     * sql.php: Bug #857742: When dropping the only remaining database, an
       error occured. Fixed by checking if databases remein (as suggested
       by lem9)
-                   
+
 2003-12-10 Garvin Hicking <me@supergarv.de>
     * db_datadict.php: Bug 857186: Real fix for the problem. The '@'
       delimiter slipped to the replacement's end instead of the expression's
@@ -57,18 +61,18 @@ $Source$
     * libraries/transformations/text_plain__dateformat.inc.php:
       patch 845690: show real data before transformation
     * left.php: bug 833790: put a workaround in place
-  
+
 2003-12-04 Garvin Hicking <grinch@supergarv.de>
     * browse_foreigner.php, mult_submits.inc.php, tbl_change.php,
       tbl_replace.php, tbl_replace_fields.php, tbl_row_delete,
       libraries/display_tbl.lib.php, libraries/display_tbl_links.lib.php:
       Multi row edit via checkboxes in browse mode is now available.
       This means, you can edit multiple records at once now.
-    * tbl_row_delete.php, tbl_change.php, tbl_change.js: Fixed 
+    * tbl_row_delete.php, tbl_change.php, tbl_change.js: Fixed
        (un)nullify() function
     * libraries/display_tbl.lib.php, libraries/display_tbl_links.lib.php:
       Made checkbox/edit/delete fields smaller
- 
+
 2003-12-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: the constant used to check
       if the transformation function is included no longer exists

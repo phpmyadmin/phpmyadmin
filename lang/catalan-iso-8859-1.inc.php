@@ -717,4 +717,6 @@ $strZip = '"comprimit amb zip"';
 // To translate
 
 $strAddConstraints = 'Add constraints';  //to translate
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

@@ -718,4 +718,6 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zipped"';
 
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

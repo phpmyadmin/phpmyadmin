@@ -60,6 +60,13 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             case 'bulgarian':
                 $descr = $GLOBALS['strBulgarian'];
                 break;
+            case 'chinese':
+                if ($parts[0] == 'gb2312' || $parts[0] == 'gbk') {
+                    $descr = $GLOBALS['strSimplifiedChinese'];
+                } elseif ($parts[0] == 'big5') {
+                    $descr = $GLOBALS['strTraditionalChinese'];
+                }
+                break;
             case 'ci':
                 $descr = $GLOBALS['strCaseInsensitive'];
                 break;
@@ -90,11 +97,20 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             case 'hungarian':
                 $descr = $GLOBALS['strHungarian'];
                 break;
+            case 'japanese':
+                $descr = $GLOBALS['strJapanese'];
+                break;
             case 'lithuanian':
                 $descr = $GLOBALS['strLithuanian'];
                 break;
+            case 'korean':
+                $descr = $GLOBALS['strKorean'];
+                break;
             case 'swedish':
                 $descr = $GLOBALS['strSwedish'];
+                break;
+            case 'thai':
+                $descr = $GLOBALS['strThai'];
                 break;
             case 'turkish':
                 $descr = $GLOBALS['strTurkish'];
@@ -167,8 +183,14 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
                     case 'hebrew':
                         $descr = $GLOBALS['strHebrew'];
                         break;
+                    case 'geostd8':
+                        $descr = $GLOBALS['strGeorgian'];
+                        break;
                     case 'greek':
                         $descr = $GLOBALS['strGreek'];
+                        break;
+                    case 'keybcs2':
+                        $descr = $GLOBALS['strCzechSlovak'];
                         break;
                     case 'koi8u':
                         $descr = $GLOBALS['strUkrainian'];

@@ -723,4 +723,6 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

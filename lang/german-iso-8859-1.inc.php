@@ -32,6 +32,7 @@ $strAccessDenied = 'Zugriff verweigert.';
 $strAccessDeniedExplanation = 'phpMyAdmin hat versucht eine Verbindung zum MySQL-Server aufzubauen, jedoch hat dieser die Verbindung zurückgewiesen. Sie sollten Ihre Einstellungen für Host, Benutzername und Kennwort in Ihrer config.inc.php überprüfen und sich vergewissern, dass diese den Informationen, welche sie vom Administrator erhalten haben, entsprechen.';
 $strAction = 'Aktion';
 $strAddAutoIncrement = 'AUTO_INCREMENT-Wert hinzufügen';
+$strAddConstraints = 'Constraints hinzufügen';
 $strAddDeleteColumn = 'Spalten hinzufügen/entfernen';
 $strAddDeleteRow = 'Zeilen hinzufügen/entfernen';
 $strAddDropDatabase = 'DROP DATABASE hinzufügen';
@@ -119,6 +120,7 @@ $strCharsets = 'Zeichensätze';
 $strCharsetsAndCollations = 'Zeichensätze und Sortierungstabellen';
 $strCheckAll = 'Alle auswählen';
 $strCheckDbPriv = 'Rechte einer Datenbank prüfen';
+$strCheckOverhead = 'Überhang prüfen';
 $strCheckPrivs = 'Rechte überprüfen';
 $strCheckPrivsLong = 'Überprüft die Rechte für die Datenbank &quot;%s&quot;.';
 $strCheckTable = 'Überprüfe Tabelle';
@@ -150,10 +152,12 @@ $strCreateNewDatabase = 'Neue Datenbank anlegen';
 $strCreateNewTable = 'Neue Tabelle in Datenbank %s erstellen';
 $strCreatePage = 'Neue Seite erstellen';
 $strCreatePdfFeat = 'Erzeugen von PDFs';
+$strCreationDates = 'Erzeugungs- / Aktualisierungs- / Überprüfungszeiten';
 $strCriteria = 'Kriterium';
 $strCroatian = 'Kroatisch';
 $strCyrillic = 'Kyrillisch';
 $strCzech = 'Tschechisch';
+$strCzechSlovak = 'Tschechoslowakisch';
 
 $strDBComment = 'Datenbankkommentar: ';
 $strDBGContext = 'Kontext';
@@ -263,6 +267,7 @@ $strFunction = 'Funktion';
 $strGenBy = 'Erstellt von';
 $strGenTime = 'Erstellungszeit';
 $strGeneralRelationFeat = 'Allgemeine Verknüpfungsfunktionen';
+$strGeorgian = 'Georgisch';
 $strGerman = 'Deutsch';
 $strGlobal = 'global';
 $strGlobalPrivileges = 'Globale Rechte';
@@ -720,9 +725,5 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
-
-$strAddConstraints = 'Constraints hinzufügen';
-$strCheckOverhead = 'Überhang prüfen';
-$strCreationDates = 'Erzeugungs-/Aktualisierungs-/Überprüfungszeiten';
 
 ?>

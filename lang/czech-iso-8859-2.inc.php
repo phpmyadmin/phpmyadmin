@@ -722,4 +722,6 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

@@ -725,4 +725,6 @@ $strYes = 'äÚã';
 $strZeroRemovesTheLimit = 'ãáÇÍÙÉ: ÊÛííÑ åÐå ÇáÎíÇÑÇÊ ááÑÞã 0 )ÕÝÑ( íáÛí ÇáÍÏø.';
 $strZip = '"zipped" "ãÖÛæØ"';
 
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

@@ -722,4 +722,6 @@ $strZip = 'Komprimert (zip)';
 
 // To translate
 
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

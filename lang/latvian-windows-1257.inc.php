@@ -721,4 +721,6 @@ $strYes = 'Jâ';
 $strZeroRemovesTheLimit = 'Piezîme: Ðo opciju uzstâdîðana uz 0 (nulli) atceï ierobeþojumus.';
 $strZip = 'Arhivçts ar zip';
 
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

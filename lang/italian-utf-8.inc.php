@@ -725,4 +725,6 @@ $strDelayedInserts = 'Use delayed inserts';  //to translate
 $strSQLExportType = 'Export type';  //to translate
 
 $strAddConstraints = 'Add constraints';  //to translate
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

@@ -730,4 +730,6 @@ $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanması sınırı kal
 $strZip = '"ziplenmiş"';
 
 $strAddConstraints = 'Add constraints';  //to translate
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

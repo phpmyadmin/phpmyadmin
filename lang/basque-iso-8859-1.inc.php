@@ -712,13 +712,17 @@ $strZip = '"zipatuta"';
 
 // To translate:
 
-$strBrowseForeignValues = 'Browse foreign values';//to translate
+$strBrowseForeignValues = 'Browse foreign values';  //to translate
 
-$strLandscape = 'Horizontal'; //to translate
-$strLatexContinued = '(continued)';//to translate
-$strLatexContinuedCaption = 'Continued table caption';//to translate
-$strLatexLabel = 'Label key';//to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 
-$strServerStatus = 'Runtime Information'; //to translate
+$strGeorgian = 'Georgian';  //to translate
+
+$strLandscape = 'Horizontal';  //to translate
+$strLatexContinued = '(continued)';  //to translate
+$strLatexContinuedCaption = 'Continued table caption';  //to translate
+$strLatexLabel = 'Label key';  //to translate
+
+$strServerStatus = 'Runtime Information';  //to translate
 
 ?>

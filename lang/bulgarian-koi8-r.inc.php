@@ -728,4 +728,6 @@ $strCheckOverhead = 'Check overheaded';  //to translate
 
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

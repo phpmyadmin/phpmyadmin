@@ -726,4 +726,6 @@ $strYes = 'وگځ';
 $strZeroRemovesTheLimit = 'ځهÇطÙÉ: ÊÛٌٌع ىㄓى ÇهÎٌÇعÇÊ ههعمځ 0 )فلع( ٌهÛٌ ÇهطÏ�.';
 $strZip = '"zipped" "ځقÛيك"';
 
+$strGeorgian = 'Georgian';  //to translate
+$strCzechSlovak = 'Chech-Slovak';  //to translate
 ?>

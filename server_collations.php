@@ -58,7 +58,7 @@ $i = 0;
 $table_row_count = count($mysql_charsets) + $mysql_collations_count;
 
 foreach ($mysql_charsets as $current_charset) {
-    if ($i > $table_row_count / 2) {
+    if ($i >= $table_row_count / 2) {
         $i = 0;
         echo '            </table>' . "\n"
            . '        </td>' . "\n"
@@ -77,7 +77,7 @@ foreach ($mysql_charsets as $current_charset) {
     echo '            <tr>' . "\n"
        . '                <td colspan="2" bgcolor="' . $cfg['ThBgcolor'] . '" align="right">' . "\n"
        . '                    &nbsp;<b>' . htmlspecialchars($current_charset) . '</b>' . "\n"
-       . '                    (<i>' . htmlspecialchars($mysql_charsets_descriptions[$current_charset]) . '</i>)&nbsp;' . "\n"
+       . (empty($mysql_charsets_descriptions[$current_charset]) ? '' : '                    (<i>' . htmlspecialchars($mysql_charsets_descriptions[$current_charset]) . '</i>)&nbsp;' . "\n")
        . '                </td>' . "\n"
        . '            </tr>' . "\n";
     $useBgcolorOne = TRUE;
