@@ -304,7 +304,7 @@ if ($num_dbs > 1) {
 
                 $table_list_header .= '    <nobr><img name="imEx" src="images/minus.gif" border="0" width="9" height="9" alt="-" />' . "\n";
                 $table_list_header .= '          <a class="item" target="phpmain" href="db_details.php3?' . $common_url_query . '">' . "\n";
-                $table_list_header .= '              <span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span></a></nobr><br />' . "\n";
+                $table_list_header .= '              <span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span></a></nobr><br />' . "\n\n";
             } else {
                 $selected = '';
             } // end if... else...
@@ -332,10 +332,10 @@ if ($num_dbs > 1) {
 
         // Displays the current database name and the list of tables it
         // contains
-        echo '    <hr noshade="noshade" />' . "\n";
+        echo "\n" . '    <hr noshade="noshade" />' . "\n\n";
         echo $table_list_header;
         echo $table_list;
-        echo '    <hr noshade="noshade" />' . "\n";
+        echo "\n" . '    <hr noshade="noshade" />' . "\n";
 
     }
 
