@@ -1241,7 +1241,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
                         require_once('./libraries/transformations/' . $include_file);
 
-                        if (defined('PMA_TRANSFORMATION_' . strtoupper($transformfunction_name)) && function_exists('PMA_transformation_' . $transformfunction_name)) {
+                        if (function_exists('PMA_transformation_' . $transformfunction_name)) {
                             $transform_function = 'PMA_transformation_' . $transformfunction_name;
                             $transform_options  = PMA_transformation_getOptions((isset($GLOBALS['mime_map'][$meta->name]['transformation_options']) ? $GLOBALS['mime_map'][$meta->name]['transformation_options'] : ''));
                             $meta->mimetype     = str_replace('_', '/', $GLOBALS['mime_map'][$meta->name]['mimetype']);

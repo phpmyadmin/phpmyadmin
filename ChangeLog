@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php: the constant used to check
+      if the transformation function is included no longer exists
+    * libraries/transformations/: replaced "include" by "require_once"
+
 2003-11-28 Garvin Hicking <freakyfriday@supergarv.de>
     * main.php: Fixed one remaining preg_match
 
