@@ -7,6 +7,7 @@ $Source$
 
 2002-11-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: LEFT JOIN ... USING
+    * libraries/sqlparser.lib.php3: bug 636575 (double quotes)
 
 2002-11-10 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Fixed a typo.

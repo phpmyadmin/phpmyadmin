@@ -592,7 +592,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
  * not present (for example no select_expression alias).
  *
  * There is a debug section at the end of the main loop, if you want to
- * witness the exact contents of select_expr and table_ref
+ * see the exact contents of select_expr and table_ref
  */
         // must be sorted
         // TODO: current logic checks for only one word, so I put only the
@@ -699,10 +699,20 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
 // ==============================
             if (($arr[$i]['type'] == 'quote_backtick')
+             || ($arr[$i]['type'] == 'quote_double')
              || ($arr[$i]['type'] == 'alpha_identifier')) {
 
-                // remove backticks if any 
-                $identifier = str_replace('`','',$arr[$i]['data']);
+                //TODO: check embedded double quotes or backticks?
+                // and/or remove just the first and last character?
+                if ($arr[$i]['type'] == 'quote_backtick') { 
+                    // remove backticks
+                    $identifier = str_replace('`','',$arr[$i]['data']);
+                } 
+                    
+                if ($arr[$i]['type'] == 'quote_double') { 
+                    // remove double quotes
+                    $identifier = str_replace('"','',$arr[$i]['data']);
+                } 
                     
                 if ($subresult['querytype'] == 'SELECT') {
                     if (!$seen_from) {
@@ -729,7 +739,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         } // end if ($save_table_ref &&!$seen_end_of_table_ref)
                     } // end if (!$seen_from)
                 } // end if (querytype SELECT)
-            } // end if ( quote_backtick or alpha_identifier)
+            } // end if ( quote_backtick or double quote or alpha_identifier)
 
 // ===================================
             if ($arr[$i]['type'] == 'punct_qualifier') {
@@ -873,6 +883,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
            // set the $previous_was_identifier to FALSE if the current
            // token is not an identifier
            if (($arr[$i]['type'] != 'alpha_identifier')
+            && ($arr[$i]['type'] != 'quote_double')
             && ($arr[$i]['type'] != 'quote_backtick')) {
                $previous_was_identifier = FALSE;
            } // end if
