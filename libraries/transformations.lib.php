@@ -102,6 +102,8 @@ function PMA_getMIME($db, $table, $strict = false) {
         $mime[$col]['transformation']           = $row['transformation'];
         $mime[$col]['transformation_options']   = $row['transformation_options'];
     } // end while
+    PMA_DBI_free_result($com_rs);
+    unset($com_rs);
 
     if (isset($mime) && is_array($mime)) {
         return $mime;
@@ -134,10 +136,12 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformat
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                 . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
                 . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
-    $test_rs   = PMA_query_as_cu($test_qry);
+    $test_rs   = PMA_query_as_cu($test_qry, TRUE, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = @PMA_DBI_fetch_assoc($test_rs);
+        PMA_DBI_free_result($test_rs);
+        unset($test_rs);
 
         if (!$forcedelete && (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0 || strlen($row['comment']) > 0)) {
             $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
@@ -167,7 +171,8 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformat
 
     if (isset($upd_query)){
         $upd_rs    = PMA_query_as_cu($upd_query);
-        unset($upd_query);
+        PMA_DBI_free_result($upd_rs);
+        unset($upd_rs);
         return true;
     } else {
         return false;
