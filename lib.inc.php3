@@ -998,7 +998,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     $sorted_sql_query = $unsorted_sql_query . $sort_order;
                 }
                 $url_query = 'lang=' . $lang
-                           . '&server=' . urlencode($server)
+                           . '&server=' . $server
                            . '&db=' . urlencode($db)
                            . '&table=' . urlencode($table)
                            . '&pos=' . $pos
@@ -1081,7 +1081,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             $uva_condition     = urlencode(ereg_replace(' ?AND$', '', $uva_condition));
             
             $url_query  = 'lang=' . $lang
-                        . '&server=' . urlencode($server)
+                        . '&server=' . $server
                         . '&db=' . urlencode($db)
                         . '&table=' . urlencode($table)
                         . '&pos=' . $pos;

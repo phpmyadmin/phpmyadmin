@@ -143,7 +143,7 @@ if ($server > 0
     <?php
     echo "\n";
     
-    $common_url_query = 'lang=' . $lang . '&server=' . urlencode($server);
+    $common_url_query = 'lang=' . $lang . '&server=' . $server;
 
     // 1. With authentication
     if ($cfgServer['adv_auth'])

@@ -17,7 +17,9 @@ if (empty($HTTP_HOST)) {
     else if (@getenv('HTTP_HOST')) {
         $HTTP_HOST = getenv('HTTP_HOST');
     }
-    else $HTTP_HOST="";
+    else {
+        $HTTP_HOST = '';
+    }
 }
 
 
@@ -25,7 +27,7 @@ if (empty($HTTP_HOST)) {
  * Defines the frameset
  */
 $url_query = 'lang=' . $lang
-           . '&server=' . urlencode($server)
+           . '&server=' . $server
            . (empty($db) ? '' : '&db=' . urlencode($db));
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "DTD/xhtml1-frameset.dtd">

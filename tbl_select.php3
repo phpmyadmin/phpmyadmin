@@ -171,7 +171,7 @@ else {
     } // end if
 
     $url_query = 'lang=' . $lang
-               . '&server=' . urlencode($server)
+               . '&server=' . $server
                . '&db=' . urlencode($db)
                . '&table=' . urlencode($table)
                . '&sql_query=' . urlencode($sql_query)  

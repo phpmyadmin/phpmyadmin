@@ -185,7 +185,7 @@ if ($num_dbs > 1) {
         $tables              = @mysql_list_tables($db);
         $num_tables          = @mysql_numrows($tables);
         $common_url_query    = 'lang=' . $lang
-                             . '&server=' . urlencode($server)
+                             . '&server=' . $server
                              . '&db=' . urlencode($db);
         if ($num_tables) {
             $num_tables_disp = $num_tables;
@@ -260,7 +260,7 @@ else if ($num_dbs == 1) {
     $tables              = @mysql_list_tables($db);
     $num_tables          = @mysql_numrows($tables);
     $common_url_query    = 'lang=' . $lang
-                         . '&server=' . urlencode($server)
+                         . '&server=' . $server
                          . '&db=' . urlencode($db);
     if ($num_tables) {
         $num_tables_disp = $num_tables;

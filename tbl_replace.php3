@@ -19,7 +19,7 @@ if (isset($sql_query)) {
 if ($goto == 'sql.php3') {
     $goto  = 'sql.php3?'
            . 'lang=' . $lang
-           . '&server=' . urlencode($server)
+           . '&server=' . $server
            . '&db=' . urlencode($db)
            . '&table=' . urlencode($table)
            . '&pos=' . $pos

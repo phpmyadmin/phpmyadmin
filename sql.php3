@@ -54,7 +54,7 @@ if (isset($btnDrop) || isset($navig)) {
 if (isset($goto) && $goto == 'sql.php3') {
     $goto = 'sql.php3'
           . '?lang=' . $lang
-          . '&server=' . urlencode($server)
+          . '&server=' . $server
           . '&db=' . urlencode($db)
           . '&table=' . urlencode($table)
           . '&pos=' . $pos
@@ -269,7 +269,7 @@ else {
             // Insert a new row
             if ($display != 'bkmOnly') {
                 $url_query = 'lang=' . $lang
-                           . '&server=' . urlencode($server)
+                           . '&server=' . $server
                            . '&db=' . urlencode($db)
                            . '&table=' . urlencode($table)
                            . '&pos=' . $pos
@@ -303,7 +303,7 @@ var errorMsg0 = '<?php echo(str_replace('\'', '\\\'', $strFormEmpty)); ?>';
                 echo '    ' . $strBookmarkLabel . '&nbsp;:' . "\n";
                 $goto = 'sql.php3'
                       . '?lang=' . $lang
-                      . '&server=' . urlencode($server)
+                      . '&server=' . $server
                       . '&db=' . urlencode($db)
                       . '&table=' . urlencode($table)
                       . '&pos=' . $pos

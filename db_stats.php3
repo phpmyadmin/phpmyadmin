@@ -126,7 +126,7 @@ if ($num_dbs > 1) {
         $num_tables       = @mysql_numrows($tables);
         $tot_tables       += $num_tables;
         $common_url_query = 'lang=' . $lang
-                          . '&server=' . urlencode($server)
+                          . '&server=' . $server
                           . '&db=' . urlencode($db);
 
         // Gets size of data and indexes
@@ -136,18 +136,17 @@ if ($num_dbs > 1) {
         $tot_idx     = 0;
         $tot_all     = 0;
         $local_query = 'SHOW TABLE STATUS FROM ' . $db_clean;
-        if ($result = @mysql_query($local_query)) {
-            if (mysql_num_rows($result)) {
-                while ($row = mysql_fetch_array($result)) {
-                    $tot_data += $row['Data_length'];
-                    $tot_idx  += $row['Index_length'];
-                } 
-                $tot_all            = $tot_data + $tot_idx;
-                $big_tot_all        += $tot_all;
-                $big_tot_idx        += $tot_idx;
-                $big_tot_data       += $tot_data;
-                $results_array[$db] = $tot_all;
-            }
+        $result      = @mysql_query($local_query);
+        if (mysql_num_rows($result)) {
+            while ($row = mysql_fetch_array($result)) {
+                $tot_data += $row['Data_length'];
+                $tot_idx  += $row['Index_length'];
+            } 
+           $tot_all            = $tot_data + $tot_idx;
+           $big_tot_all        += $tot_all;
+           $big_tot_idx        += $tot_idx;
+           $big_tot_data       += $tot_data;
+           $results_array[$db] = $tot_all;
         }
 
         list($tot_data_format,$unit_data) = format_byte_down($tot_data,3,1);

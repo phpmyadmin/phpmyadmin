@@ -109,7 +109,7 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
         $table     = $sts_data['Name'];
         // Sets parameters for links
         $url_query = 'lang=' . $lang
-                   . '&server=' . urlencode($server)
+                   . '&server=' . $server
                    . '&db=' . urlencode($db)
                    . '&table=' . urlencode($table)
                    . '&goto=db_details.php3';
@@ -253,7 +253,7 @@ else {
         $table     = mysql_tablename($tables, $i);
         // Sets parameters for links
         $url_query = 'lang=' . $lang
-                   . '&server=' . urlencode($server)
+                   . '&server=' . $server
                    . '&db=' . urlencode($db)
                    . '&table=' . urlencode($table)
                    . '&goto=db_details.php3';
@@ -305,7 +305,7 @@ echo "\n";
  * Database work
  */
 $url_query = 'lang=' . $lang
-           . '&server=' . urlencode($server)
+           . '&server=' . $server
            . '&db=' . urlencode($db)
            . '&goto=db_details.php3';
 if (isset($show_query) && $show_query == 'y') {
@@ -555,7 +555,7 @@ if ($cfgAllowUserDropDatabase || $is_superuser) {
     ?>
     <!-- Drop database -->
     <li>
-        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo $db; ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=true">
+        <a href="sql.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>&db=<?php echo urlencode($db); ?>&sql_query=<?php echo urlencode('DROP DATABASE ' . backquote($db)); ?>&zero_rows=<?php echo urlencode($strDatabase . ' ' . htmlspecialchars(backquote($db)) . ' ' . $strHasBeenDropped); ?>&goto=main.php3&back=db_details.php3&reload=true">
             <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>
         <?php echo show_docu('manual_Reference.html#DROP_DATABASE') . "\n"; ?>
     </li>

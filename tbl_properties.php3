@@ -60,7 +60,7 @@ if (empty($table) || !@mysql_numrows($is_table)) {
  * Set parameters for links
  */
 $url_query = 'lang=' . $lang
-           . '&server=' . urlencode($server)
+           . '&server=' . $server
            . '&db=' . urlencode($db)
            . '&table=' . urlencode($table)
            . '&goto=tbl_properties.php3';
