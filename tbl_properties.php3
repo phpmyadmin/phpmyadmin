@@ -266,21 +266,23 @@ if ($index_count > 0) {
 ?>
 <?php
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
-if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type != "INNODB" && isset($showtable)) {
+if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type != 'INNODB' && isset($showtable)) {
     // Gets some sizes
-    $mergetable=false;
-    if (isset($showtable['Type']) && $showtable['Type']=="MRG_MyISAM") $mergetable=true;
-    list($data_size, $data_unit)     = format_byte_down($showtable['Data_length']);
-
-    if ($mergetable==false) list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
-
-    if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-        list($free_size, $free_unit) = format_byte_down($showtable['Data_free']);
+    $mergetable     = FALSE;
+    if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
+        $mergetable = TRUE;
     }
-    list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
-    list($tot_size, $tot_unit)       = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
+    list($data_size, $data_unit)       = format_byte_down($showtable['Data_length']);
+    if ($mergetable == FALSE) {
+        list($index_size, $index_unit) = format_byte_down($showtable['Index_length']);
+    }
+    if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
+        list($free_size, $free_unit)   = format_byte_down($showtable['Data_free']);
+    }
+    list($effect_size, $effect_unit)   = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
+    list($tot_size, $tot_unit)         = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
     if (isset($showtable['Rows']) && $showtable['Rows']>0) {
-        list($avg_size, $avg_unit)   = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+        list($avg_size, $avg_unit)     = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
     }
 
     // Displays them
@@ -304,17 +306,18 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type 
             <td><?php echo $data_unit; ?></td>
         </tr>
     <?php
+    echo "\n";
     if (isset($index_size)) {
-    ?>
+        ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
-        <td style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
+            <td style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
             <td><?php echo $index_unit; ?></td>
         </tr>
-    <?php
+        <?php
     }
+    echo "\n";
     if (isset($free_size)) {
-        echo "\n";
         ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="color: #bb0000">
         <td style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
@@ -328,17 +331,16 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type 
         </tr>
         <?php
     }
-    echo "\n";
-    if (isset($tot_size) && $mergetable == false) {
-    ?>
+    if (isset($tot_size) && $mergetable == FALSE) {
+        echo "\n";
+        ?>
         <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
         <td style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
             <td><?php echo $tot_unit; ?></td>
         </tr>
-    <?php
+        <?php
     }
-
     // Optimize link if overhead
     if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
         echo "\n";
@@ -398,7 +400,7 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type 
         ?>
             <td><?php echo ucfirst($strRows); ?></td>
             <td align="right" nowrap="nowrap">
-	     <?php echo number_format($showtable['Rows'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
+                <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
         <?php
@@ -411,12 +413,12 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type 
         ?>
             <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
             <td align="right" nowrap="nowrap">
-		<?php echo number_format($showtable['Avg_row_length'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
+                <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
         <?php
     }
-    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable==false) {
+    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
         echo (++$i%2)
              ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
              : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
@@ -437,7 +439,7 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type 
         ?>
             <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
             <td align="right" nowrap="nowrap">
-		<?php echo number_format($showtable['Auto_increment'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
+                <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
         <?php

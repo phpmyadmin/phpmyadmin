@@ -55,36 +55,36 @@ if (!isset($prev_Criteria)) {
 if (!isset($Criteria)) {
     //$Criteria = '';
     $Criteria = array();
-    for ($i=0; $i<$Columns; $i++) {
-	$Criteria[$i]='';
+    for ($i = 0; $i < $Columns; $i++) {
+        $Criteria[$i] = '';
     }
 }
 if (!isset($InsRow)) {
 //    $InsRow   = '';
     $InsRow = array();
-    for ($i=0; $i<$Columns; $i++) {
-	$InsRow[$i]='';
+    for ($i = 0; $i < $Columns; $i++) {
+        $InsRow[$i] = '';
     }
 }
 if (!isset($DelRow)) {
 //    $DelRow   = '';
     $DelRow = array();
-    for ($i=0; $i<$Columns; $i++) {
-	$DelRow[$i]='';
+    for ($i = 0; $i < $Columns; $i++) {
+        $DelRow[$i] = '';
     }
 }
 if (!isset($AndOrRow)) {
 //    $AndOrRow = '';
     $AndOrRow = array();
-    for ($i=0; $i<$Columns; $i++) {
-	$AndOrRow[$i]='';
+    for ($i = 0; $i < $Columns; $i++) {
+        $AndOrRow[$i] = '';
     }
 }
 if (!isset($AndOrCol)) {
 //    $AndOrCol = '';
     $AndOrCol = array();
-    for ($i=0; $i<$Columns; $i++) {
-	$AndOrCol[$i]='';
+    for ($i = 0; $i < $Columns; $i++) {
+        $AndOrCol[$i] = '';
     }
 }
 $wid          = 12;
@@ -130,7 +130,7 @@ while ($i < mysql_num_rows($tbl_result)) {
         $fld[$k++] =  backquote($tbl) . '.*';
         while ($j < mysql_num_fields($fld_results)) {
             $fld[$k] = mysql_field_name($fld_results, $j);
-            $fld[$k] = backquote($tbl) . '.' . $fld[$k];
+            $fld[$k] = backquote($tbl) . '.' . backquote($fld[$k]);
             $k++;
             $j++;
         } // end while
@@ -326,12 +326,12 @@ for ($x = 0; $x < $col; $x++) {
     if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
         continue;
     }
-    if (isset($Criteria[$x])){
-	    if (get_magic_quotes_gpc()) {
-  	      $stripped_Criteria = stripslashes($Criteria[$x]);
-    	} else {
-      	  $stripped_Criteria = $Criteria[$x];
-    	}
+    if (isset($Criteria[$x])) {
+        if (get_magic_quotes_gpc()) {
+            $stripped_Criteria = stripslashes($Criteria[$x]);
+        } else {
+            $stripped_Criteria = $Criteria[$x];
+        }
     }
     if (!isset($prev_Criteria[$x])
         || urldecode($prev_Criteria[$x]) != htmlspecialchars($stripped_Criteria)) {
@@ -358,7 +358,7 @@ for ($x = 0; $x < $col; $x++) {
 $w = 0;
 for ($y = 0; $y <= $row; $y++) {
     $bgcolor = ($y % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
-    if (isset ($InsRow[$y]) && $InsRow[$y] == 'on') {
+    if (isset($InsRow[$y]) && $InsRow[$y] == 'on') {
         $chk['or']  = ' checked="checked"';
         $chk['and'] = '';
         ?>
@@ -431,8 +431,9 @@ for ($y = 0; $y <= $row; $y++) {
         continue;
     }
 
-
-    if (isset($AndOrRow[$y])) $curAndOrRow[$w] = $AndOrRow[$y];
+    if (isset($AndOrRow[$y])) {
+        $curAndOrRow[$w] = $AndOrRow[$y];
+    }
     if (isset($AndOrRow[$y]) && $AndOrRow[$y] == 'and') {
         $chk['and'] =  ' checked="checked"';
         $chk['or']  =  '';
@@ -494,20 +495,23 @@ for ($y = 0; $y <= $row; $y++) {
         if (!isset(${$or})) {
             ${$or} = '';
         }
-        if (isset(${$or}[$x])){
-	        if (get_magic_quotes_gpc()) {
-  	          $stripped_or = stripslashes(${$or}[$x]);
-    	    } else {
-      	      $stripped_or = ${$or}[$x];
-      		}
-		    }
-		    else $stripped_or="";
+        if (isset(${$or}[$x])) {
+            if (get_magic_quotes_gpc()) {
+                $stripped_or = stripslashes(${$or}[$x]);
+            } else {
+                $stripped_or = ${$or}[$x];
+            }
+	    } else {
+	        $stripped_or     = '';
+	    }
         ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <textarea cols="20" rows="2" style="width: <?php echo $widem; ?>" name="Or<?php echo $w . '[' . $z . ']'; ?>"><?php echo htmlspecialchars($stripped_or); ?></textarea>
         </td>
         <?php
-        if (isset(${$or}[$x])) ${'cur' . $or}[$z] = ${$or}[$x];
+        if (isset(${$or}[$x])) {
+            ${'cur' . $or}[$z] = ${$or}[$x];
+        }
         $z++;
     } // end for
     $w++;
@@ -557,7 +561,9 @@ for ($x = 0; $x < $col; $x++) {
         continue;
     }
 
-    if (isset($AndOrCol[$y])) $curAndOrCol[$z] = $AndOrCol[$y];
+    if (isset($AndOrCol[$y])) {
+        $curAndOrCol[$z] = $AndOrCol[$y];
+    }
     if (isset($AndOrCol[$z]) && $AndOrCol[$z] == 'or') {
         $chk['or']  = ' checked="checked"';
         $chk['and'] = '';

@@ -33,7 +33,7 @@ $url_query = 'lang=' . $lang
 <title>phpMyAdmin <?php echo PHPMYADMIN_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
 </head>
 
-<frameset cols="<?php echo $cfgLeftWidth;?>,*" rows="*" border="0" frameborder="0">
+<frameset cols="<?php echo $cfgLeftWidth; ?>,*"  rows="*" border="0" frameborder="0">
     <frame src="left.php3?<?php echo $url_query; ?>" name="nav">
     <frame src="<?php echo (empty($db)) ? 'main.php3' : 'db_details.php3'; ?>?<?php echo $url_query; ?>" name="phpmain">
 </frameset>

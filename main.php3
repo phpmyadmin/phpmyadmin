@@ -119,9 +119,9 @@ if ($server > 0
     {
         // Get user's rights
         if (empty($cfgServer['port'])) {
-            $stdlink      = mysql_connect($cfgServer['host'], $cfgServer['stduser'], $cfgServer['stdpass']);
+            $stdlink  = mysql_connect($cfgServer['host'], $cfgServer['stduser'], $cfgServer['stdpass']);
         } else {
-            $stdlink      = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']);
+            $stdlink  = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']);
         }
         // Does user have global Create priv?
         $rs_usr       = mysql_query('SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'', $stdlink);
@@ -134,18 +134,14 @@ if ($server > 0
         // find, in most cases it's probably the one he just dropped :)
         // (Note: we only get here after a browser reload, I don't know why)
         if (!$create) {
-
-           if (empty($cfgServer['port'])) {
-               $userlink = mysql_connect($cfgServer['host'], $cfgServer['user'],
-                           $cfgServer['password']) or mysql_die();
-           } else {
-               $userlink = mysql_connect($cfgServer['host'].":".
-                           $cfgServer['port'], $cfgServer['user'],
-                           $cfgServer['password']) or mysql_die();
-           }
+            if (empty($cfgServer['port'])) {
+                $userlink = mysql_connect($cfgServer['host'], $cfgServer['user'], $cfgServer['password']) or mysql_die();
+            } else {
+                $userlink = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['user'], $cfgServer['password']) or mysql_die();
+            }
             $rs_usr = mysql_query('SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'', $stdlink);
             while ($row = mysql_fetch_array($rs_usr)) {
-                if (!mysql_select_db($row['Db'],$userlink)) {
+                if (!mysql_select_db($row['Db'], $userlink)) {
                     $db_to_create = $row['Db'];
                     $create       = TRUE;
                     break;
@@ -228,7 +224,7 @@ if ($server > 0
         echo "\n";
     } // end of 2.1 (AdvAuth case)
 
-    // 2.2. No authentification
+    // 2.2. No authentication
     else
     {
         ?>

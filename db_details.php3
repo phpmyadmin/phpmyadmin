@@ -129,42 +129,44 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     </td>
         <?php
         echo "\n";
-  $mergetable=false;
-	if (isset($sts_data['Type']) && $sts_data['Type']=="MRG_MyISAM") $mergetable=true;
-        if (isset($sts_data['Rows'])) 
-	{
-	  if ($mergetable == false){ 
-            $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
-            $sum_size                       += $tblsize;
-            $sum_entries                    += $sts_data['Rows'];
-            if ($tblsize > 0) {
-                list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
-            } else {
-                list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
+        $mergetable     = FALSE;
+        if (isset($sts_data['Type']) && $sts_data['Type'] == 'MRG_MyISAM') {
+            $mergetable = TRUE;
+        }
+        if (isset($sts_data['Rows'])) {
+            if ($mergetable == FALSE) {
+                $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
+                $sum_size                       += $tblsize;
+                $sum_entries                    += $sts_data['Rows'];
+                if ($tblsize > 0) {
+                    list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
+                } else {
+                    list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
+                }
             }
-          }
-          else if ($mergetable == true)  // MyISAM MERGE Table
-          {
-            $formated_size="&nbsp;-&nbsp;";
-            $unit="";
-          }
-          else
-          {
-            $formated_size="unknown";
-            $unit="";
-          }
+            // MyISAM MERGE Table
+            else if ($mergetable == TRUE) {
+                $formated_size = '&nbsp;-&nbsp;';
+                $unit          = '';
+            }
+            else {
+                $formated_size = 'unknown';
+                $unit          = '';
+            }
             ?>
     <td align="right">
-         <?php 
-          if ($mergetable == true) echo "<i>";
-          echo number_format($sts_data['Rows'], 0, $number_decimal_separator,
-		 $number_thousands_separator) . "\n";
-          if ($mergetable == true) echo "</i>";
-        ?>
+            <?php
+            echo "\n";
+            if ($mergetable == TRUE) {
+                echo '<i>' . number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . '</i>' . "\n";
+            } else {
+                echo number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n";
+            }
+            ?>
     </td>
     <td align="right" nowrap="nowrap">
         &nbsp;&nbsp;
-        <a href="tbl_properties.php3?<?php echo $url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
+        <a href="tbl_properties.php3?<?php echo $url_query; ?>>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
     </td>
             <?php
         } else {

@@ -7,14 +7,13 @@
  */
 require('./lib.inc.php3');
 require('./ob_lib.inc.php3');
-
-if ($cfgOBGzip)
-{
-   $ob_mode = out_buffer_mode_get();
-   if ($ob_mode) {
-       out_buffer_pre($ob_mode);
-   }
+if ($cfgOBGzip) {
+    $ob_mode = out_buffer_mode_get();
+    if ($ob_mode) {
+        out_buffer_pre($ob_mode);
+    }
 }
+
 
 /**
  * Sends http headers

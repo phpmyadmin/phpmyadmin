@@ -1,9 +1,9 @@
 <?php
 /* $Id$ */
 
-  if(!defined('__OB_LIB_INC__')) { 
-    define('__OB_LIB_INC__', 1);
 
+if (!defined('__OB_LIB_INC__')) {
+    define('__OB_LIB_INC__', 1);
 
   # Output buffer functions for phpMyAdmin
 
@@ -80,6 +80,6 @@
     return $retval;
   }
 
-} // INC
+} // $__OB_LIB_INC__
 
 ?>

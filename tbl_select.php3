@@ -70,19 +70,14 @@ if (!isset($param) || $param[0] == '') {
         <?php
         echo "\n";
         for ($i = 0; $i < $fields_count; $i++) {
-            $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+            $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+            $fieldsize = (($fields_len[$i] > 40) ? 40 : $fields_len[$i]);
             ?>
             <tr bgcolor="<?php echo $bgcolor; ?>">
                 <td><?php echo htmlspecialchars($fields_list[$i]); ?></td>
                 <td><?php echo $fields_type[$i]; ?></td>
                 <td>
-		    <?php
-			$fieldsize = (($fields_len[$i] > 40) 
-					? 40 : $fields_len[$i]);
-		    ?>
-                    <input type="text" name="fields[]" 
-			 size="<?php echo $fieldsize; ?>"
-			 maxlength="<?php echo $fields_len[$i]; ?>" />
+                    <input type="text" name="fields[]" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $fields_len[$i]; ?>" />
                     <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
                     <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
                 </td>
@@ -152,8 +147,7 @@ else {
                         $cmp  = '';
                     }
                 } // end if
-                $sql_query .= ' AND ' . backquote(urldecode($names[$i])) 
-		. ' ' . "$cmp $quot$fields[$i]$quot";
+                $sql_query .= ' AND ' . backquote(urldecode($names[$i])) . " $cmp $quot$fields[$i]$quot";
             } // end if
         } // end for
     } // end if

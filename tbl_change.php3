@@ -1,5 +1,5 @@
 <?php
-/* $Id$ */
+/* $Id: tbl_change.php3,v 1.26 2001/08/03 12:22:16 lem9 Exp */
 
 
 /**
@@ -80,7 +80,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     echo "\n";
 
     // The type column
-    $row_table_def['True_Type']=ereg_replace('\\(.*','',$row_table_def['Type']);
+    $row_table_def['True_Type'] = ereg_replace('\\(.*', '', $row_table_def['Type']);
     switch ($row_table_def['True_Type']) {
         case 'set':
             $type         = 'set';
@@ -117,20 +117,21 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
 
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data to be destroyed
-    // Note: from the MySQL manual: "BINARY doesn't affect how the column 
-    //       is stored or retrieved" so it does not mean that the contents
-    //       is binary 
+    // Note: from the MySQL manual: "BINARY doesn't affect how the column is
+    //       stored or retrieved" so it does not mean that the contents is
+    //       binary
 
     //if ((strstr($row_table_def['Type'], 'blob') || strstr($row_table_def['Type'], 'binary'))
-    //if (strstr($row_table_def['Type'], 'blob') 
-    if (strstr($row_table_def['True_Type'], 'blob') 
+    //    && !empty($data)) {
+    if (strstr($row_table_def['True_Type'], 'blob')
         && !empty($data)
-	&& $cfgProtectBlob==TRUE) {
+        && $cfgProtectBlob == TRUE) {
         echo '        <td>' . $strBinary . '</td>' . "\n";
     } else {
         ?>
         <td>
-            <select name="funcs[<?php echo $field; ?>]"> <option>
+            <select name="funcs[<?php echo $field; ?>]">
+                <option></option>
         <?php
         echo "\n";
         if (!$first_timestamp) {
@@ -161,7 +162,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
         <td>
-<textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars . "\n"; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars . "\n"; ?></textarea>
         </td>
         <?php
         echo "\n";
@@ -187,12 +188,12 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
                 echo '                ';
                 echo '<option value="' . $set[$j] . '"';
                 if ($data == $set[$j]
-                    || ($data == '' 
-		  	&& isset($row_table_def['Default'])
-			&& $set[$j] == $row_table_def['Default'])) {
-                    echo ' selected';
+                    || ($data == ''
+                        && isset($row_table_def['Default'])
+                        && $set[$j] == $row_table_def['Default'])) {
+                    echo ' selected="selected"';
                 }
-                echo '>'  .htmlspecialchars($set[$j]) . '</option>' . "\n";
+                echo '>' . htmlspecialchars($set[$j]) . '</option>' . "\n";
              } // end for
              ?>
              </select>
@@ -208,8 +209,8 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
                 echo '<input type="radio" name="fields[' . urlencode($field) . ']" ';
                 echo 'value="' . substr($set[$j], 1, -1) . '"';
                 if ($data == substr($set[$j], 1, -1)
-                    || ($data == '' 
-			&& isset($row_table_def['Default'])
+                    || ($data == ''
+                        && isset($row_table_def['Default'])
                         && substr($set[$j], 1, -1) == $row_table_def['Default']
                         && $row_table_def['Null'] != 'YES')) {
                     // To be able to display a checkmark in the [Null] box when
@@ -267,24 +268,24 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     }
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data destroyed
-    else if (strstr($row_table_def['Type'], 'blob') 
-                && !empty($data)) {
-	    if ($cfgProtectBlob==TRUE)  {
-               echo "\n";
-        ?>
-               <td>
-               <?php echo $strBinaryDoNotEdit . "\n"; ?>
-               <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" />
-               </td>
-            <?php }
-            else {
-        ?>
-               <td>
-               <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars . "\n"; ?></textarea>
-
-        <?php
-            }
-    }
+    else if (strstr($row_table_def['Type'], 'blob') && !empty($data)) {
+        if ($cfgProtectBlob == TRUE) {
+            echo "\n";
+            ?>
+        <td>
+            <?php echo $strBinaryDoNotEdit . "\n"; ?>
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" />
+        </td>
+            <?php
+        } else {
+            echo "\n";
+            ?>
+        <td>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php if (!empty($special_chars)) echo $special_chars . "\n"; ?></textarea>
+        </td>
+            <?php
+        } // end if...else
+    } // end else if
     else {
         $fieldsize = (($len > 40) ? 40 : $len);
         echo "\n";
