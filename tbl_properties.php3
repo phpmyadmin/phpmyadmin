@@ -3,10 +3,30 @@
 
 
 /**
- * Gets some core libraries and diplays headers
+ * Gets some core libraries, ensures the database and the table exist (else
+ * move to the "parent" script) and diplays headers
  */
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
+// Not a valid db name -> back to the welcome page
+if (!empty($db)) {
+    $is_db = @mysql_select_db($db);
+}
+if (empty($db) || !$is_db) {
+    header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+    exit();
+}
+// Not a valid table name -> back to the db_details.php3
+if (!empty($table)) {
+    $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
+}
+if (empty($table) || !@mysql_numrows($is_table)) {
+    header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+    exit();
+} else if (isset($is_table)) {
+    mysql_free_result($is_table);
+}
+// Displays headers
 if (!isset($message)) {
     $js_to_run = 'functions.js';
     include('./header.inc.php3');
@@ -44,29 +64,6 @@ if (isset($show_query) && $show_query == 'y') {
     $query_to_display     = '';
 }
 unset($sql_query);
-
-
-/**
- * Selects the db that will be used during this script execution
- */
-// Not a valid db name -> back to the welcome page
-if (!empty($db)) {
-    $is_db = @mysql_select_db($db);
-}
-if (empty($db) || !$is_db) {
-    header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . '&reload=true');
-    exit();
-}
-// Not a valid table name -> back to the db_details.php3
-if (!empty($table)) {
-    $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
-}
-if (empty($table) || !@mysql_numrows($is_table)) {
-    header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . '&reload=true');
-    exit();
-} else if (isset($is_table)) {
-    mysql_free_result($is_table);
-}
 
 
 /**
@@ -138,8 +135,8 @@ if ($num_rows > 0) {
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>"
          onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
-         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
@@ -153,8 +150,8 @@ if ($num_rows > 0) {
     [ <b><?php echo $strSelect; ?></b> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;
-    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;*&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
@@ -179,7 +176,7 @@ $prev_key    = '';
 $prev_seq    = 0;
 $i           = 0;
 $pk_array    = array(); // will be use to emphasis prim. keys in the table view
-while($row = mysql_fetch_array($result)) {
+while ($row = mysql_fetch_array($result)) {
     $ret_keys[]  = $row;
     // Unset the 'Seq_in_index' value if it's not a composite index - part 1
     if ($i > 0 && $row['Key_name'] != $prev_key && $prev_seq == 1) {
@@ -193,7 +190,7 @@ while($row = mysql_fetch_array($result)) {
         $pk_array[$row['Column_name']] = 1;
     }
     $i++;
-}
+} // end while
 // Unset the 'Seq_in_index' value if it's not a composite index - part 2
 if ($i > 0 && $row['Key_name'] != $prev_key && $prev_seq == 1) {
     unset($ret_keys[$i-1]['Seq_in_index']);
@@ -230,7 +227,7 @@ $fields_cnt  = mysql_num_rows($result);
     <th><?php echo ucfirst($strNull); ?></th>
     <th><?php echo ucfirst($strDefault); ?></th>
     <th><?php echo ucfirst($strExtra); ?></th>
-    <th colspan="<?php echo((MYSQL_INT_VERSION >= 32323) ? 6 : 5); ?>"><?php echo ucfirst($strAction); ?></th>
+    <th colspan="<?php echo((MYSQL_INT_VERSION >= 32323) ? '6' : '5'); ?>"><?php echo ucfirst($strAction); ?></th>
 </tr>
 
 <?php
@@ -309,7 +306,7 @@ while ($row = mysql_fetch_array($result)) {
         <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP ' . backquote($row['Field'])); ?>&zero_rows=<?php echo urlencode(htmlspecialchars($row['Field']) . ' ' . $strHasBeenDropped); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo js_format($table); ?> DROP <?php echo js_format($row['Field']); ?>')">
             <?php echo $strDrop; ?></a>
-            <?
+            <?php
         } else {
             echo "\n" . '        ' . $strDrop;
         }
@@ -329,7 +326,7 @@ while ($row = mysql_fetch_array($result)) {
         <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD UNIQUE(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . ' ' . htmlspecialchars($row['Field'])); ?>">
             <?php echo $strUnique; ?></a>
     </td>
-     <?php
+    <?php
     if (MYSQL_INT_VERSION >= 32323) {
         echo "\n";
         ?>
@@ -350,7 +347,7 @@ echo "\n";
 ?>
 
 <tr>
-    <td colspan="<?php echo((MYSQL_INT_VERSION >= 32323) ? 13 : 12); ?>">
+    <td colspan="<?php echo((MYSQL_INT_VERSION >= 32323) ? '13' : '12'); ?>">
         <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strChange; ?>" />
@@ -407,8 +404,10 @@ if ($index_count > 0) {
             <th><?php echo $strAction; ?></th>
         </tr>
     <?php
+    $prev_key = '';
+    $j        = 0;
     for ($i = 0; $i < $index_count; $i++) {
-        $row = $ret_keys[$i];
+        $row     = $ret_keys[$i];
         if (isset($row['Seq_in_index'])) {
             $key_name = htmlspecialchars($row['Key_name']) . '<nobr>&nbsp;<small>-' . $row['Seq_in_index'] . '-</small></nobr>';
         } else {
@@ -426,9 +425,15 @@ if ($index_count > 0) {
             $js_msg    = 'ALTER TABLE ' . js_format($table) . ' DROP INDEX ' . js_format($row['Key_name']);
             $zero_rows = urlencode($strIndex . ' ' . htmlspecialchars($row['Key_name']) . ' ' . $strHasBeenDropped);
         }
+
+        if ($row['Key_name'] != $prev_key) {
+            $j++;
+            $prev_key = $row['Key_name'];
+        }
+        $bgcolor = ($j % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
         echo "\n";
         ?>
-        <tr>
+        <tr bgcolor="<?php echo $bgcolor; ?>">
             <td><?php echo $key_name; ?></td>
             <td><?php echo (($row['Non_unique'] == '0') ? $strYes : $strNo); ?></td>
         <?php
@@ -437,11 +442,21 @@ if ($index_count > 0) {
             ?>
             <td><?php echo (($row['Comment'] == 'FULLTEXT') ? $strYes : $strNo); ?></td>
             <?php
-         }
-         echo "\n";
-         ?>
+        }
+        if (!empty($row['Sub_part'])) {
+            echo "\n";
+            ?>
             <td><?php echo htmlspecialchars($row['Column_name']); ?></td>
             <td align="right">&nbsp;<?php echo $row['Sub_part']; ?></td>
+            <?php
+        } else {
+            echo "\n";
+            ?>
+            <td colspan="2"><?php echo htmlspecialchars($row['Column_name']); ?></td>
+            <?php
+        }
+        echo "\n";
+        ?>
             <td>
                 <a href="sql.php3?<?php echo "$url_query&sql_query=$sql_query&zero_rows=$zero_rows\n"; ?>"
                     onclick="return confirmLink(this, '<?php echo $js_msg; ?>')">
@@ -449,14 +464,14 @@ if ($index_count > 0) {
             </td>
         </tr>
         <?php
-    }
+    } // end for
     echo "\n";
     ?>
         </table>
-        <?php echo show_docu('manual_MySQL_Optimization#MySQL_indexes') . "\n"; ?>
+        <?php echo show_docu('manual_MySQL_Optimization.html#MySQL_indexes') . "\n"; ?>
     </td>
     <?php
-}
+} // end display indexes
 
 
 /**
@@ -704,7 +719,7 @@ echo "\n";
             </div>
 <?php
 // Bookmark Support
-if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
+if ($cfgBookmark['db'] && $cfgBookmark['table']) {
     if (($bookmark_list = list_bookmarks($db, $cfgBookmark)) && count($bookmark_list) > 0) {
         echo "            <i>$strOr</i> $strBookmarkQuery&nbsp;:<br />\n";
         echo '            <div style="margin-bottom: 5px">' . "\n";
@@ -724,22 +739,6 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
 ?>
             <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
         </form>
-    </li>
-
-    <!-- Display, select, insert and empty -->
-    <li>
-        <div style="margin-bottom: 10px">
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
-            <b><?php echo $strBrowse; ?></b></a>&nbsp;-&nbsp;
-        <a href="tbl_select.php3?<?php echo $url_query; ?>">
-            <b><?php echo $strSelect; ?></b></a>&nbsp;-&nbsp;
-        <a href="tbl_change.php3?<?php echo $url_query; ?>">
-            <b><?php echo $strInsert; ?></b></a>&nbsp;-&nbsp;
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>"
-            onclick="return confirmLink(this, 'DELETE FROM <?php echo js_format($table); ?>')">
-            <b><?php echo $strEmpty; ?></b></a>
-        <br />
-        </div>
     </li>
 
     <!-- Add some new fields -->
@@ -904,7 +903,7 @@ echo "\n";
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="db" value="<?php echo $db; ?>" />
                 <input type="hidden" name="table" value="<?php echo $table; ?>" />
-                <input type="hidden" name="reload" value="true" />
+                <input type="hidden" name="reload" value="1" />
                 <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td>
@@ -932,7 +931,7 @@ echo "\n";
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="db" value="<?php echo $db; ?>" />
                 <input type="hidden" name="table" value="<?php echo $table; ?>" />
-                <input type="hidden" name="reload" value="true" />
+                <input type="hidden" name="reload" value="1" />
                 <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td colspan="2">
@@ -1108,9 +1107,9 @@ if (MYSQL_INT_VERSION >= 32322) {
     </li>
     <?php
     echo "\n";
-} // end MySQL >= 3.23
+} // end MySQL >= 3.23.22
 
-else { // MySQL < 3.23
+else { // MySQL < 3.23.22
     // FIXME: find a way to know the table type, then let OPTIMIZE if MYISAM or
     // BDB
     ?>
@@ -1125,12 +1124,12 @@ else { // MySQL < 3.23
     </li>
     <?php
     echo "\n";
-} // end MySQL < 3.23
+} // end MySQL < 3.23.22
 ?>
 
     <!-- Deletes the table -->
     <li>
-        <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
+        <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=1&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>"
             onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
             <?php echo $strDropTable . ' ' . htmlspecialchars($table); ?></a>
     </li>
