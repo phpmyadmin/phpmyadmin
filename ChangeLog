@@ -5,14 +5,39 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-07  Loïc Chapeaux  <lolo@phpheaven.net>
+    * main.php3, line 208: fixed an invalid link id.
+	* db_details.php3:
+	  - optimisation round;
+	  - the 'location' header must be above any output!
+    * tbl_properties.php3:
+	  - the 'location' header must be above any output!
+	  - line 456: fixed an invalid link to the official MySQL documentation;
+	  - added background color for indexes;
+	  - removed the Browse/Select/Insert/Empty links at the middle of the page.
+	* lib.inc.php3:
+	  - adjusted font sizes depending on IE versions;
+	  - line 2337: fixed an illegal index warning with php3;
+	  - line 1762: invalid number of parameters in the function call.
+	* db_details.php3; db_readdump.php3; sql.php3; lib.inc.php3; main.php3;
+	  tbl_copy.php3; tbl_properties.inc.php3; tbl_properties.php3;
+	  tbl_rename.php3; mult_submits.inc.php3: $reload has now true boolean
+	  values.
+	* tbl_rename.php3: the query used to complete this action is now displayed.
+	* sql.php3: removed unnecessary javascript stuff.
+	* lang/greek.inc.php3: new translation thanks to
+	  Panayotis Katsaloulis <teras@noc.uoa.gr>.
+	* lang/french.inc.php3: little improvement
+	  ("Textes entiers" -> "Textes complets").
+
 2001-09-07  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3, bug 459449: $row had old data from header.inc
 
-2001-09-05  Marc Delisle  <lem9@users.sourceforge.net>
+2001-09-06  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_dump.php3, bug 458074, "transmit not working in IE 5.5": needed
 	  "Content-Disposition: inline".
 
-2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
+2001-09-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/galician.inc.php3: updated thanks to
 	  Xosé Calvo <xosecalvo at terra.es>.
 	* lib.inc.php3:
