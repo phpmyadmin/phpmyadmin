@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/hungarian: updates, thanks to Peter Bakondy
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
+
 2004-07-29 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser*.php: bug 965026, support of GROUP_CONCAT()
 
