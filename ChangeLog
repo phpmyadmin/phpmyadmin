@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-10 Garvin Hicking <pma@supergarv.de>
+    * db_details_structure.php, tbl_properties_structure.php: Fixed
+      row-selection Javascript for Internet Explorer.
+
 2004-05-09 Garvin Hicking <pma@supergarv.de>
     * main.php, css/phpmyadmin.css.php: Corrected <form> position
       to XHTML compliance. Introduced "nospace" class.

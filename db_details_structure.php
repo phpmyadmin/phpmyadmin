@@ -319,7 +319,7 @@ else {
                     <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
                 </td>
                 <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" <?php echo $click_mouse; ?>>
-                    &nbsp;<b><label onclick="(document.getElementById('checkbox_tbl_<?php echo $i; ?>') ? return false : return true)" for="checkbox_tbl_<?php echo $i; ?>" title="<?php echo $alias; ?>"><?php echo $truename; ?></label>&nbsp;</b>&nbsp;
+                    &nbsp;<b><label onclick="javascript: return (document.getElementById('checkbox_tbl_<?php echo $i; ?>') ? false : true)" for="checkbox_tbl_<?php echo $i; ?>" title="<?php echo $alias; ?>"><?php echo $truename; ?></label>&nbsp;</b>&nbsp;
                 </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
