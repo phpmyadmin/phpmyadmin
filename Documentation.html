@@ -571,6 +571,13 @@
         Defines whether to display the &quot;MySQL runtime information&quot;,
         &quot;MySQL system variables&quot; and &quot;PHP information&quot;
         links or not for simple users at the starting main (right) frame.
+	This setting does not check MySQL commands entered directly.
+        <br /><br />
+
+        Please note that to block the usage of phpinfo() in scripts, you
+        have to put this in your php.ini:
+        <br />
+        disable_functions = phpinfo()
         <br /><br />
     </dd>
 
@@ -777,12 +784,13 @@
 
 <h2>FAQ - Frequently Asked Questions</h2>
 
+<h3>[Server]</h3>
 <p>
     <b>I'm running php 4+ and my server is crashing each time a specific action
-    is required or phpMyAdmin send a blank page to my browser, what can I
+    is required or phpMyAdmin sends a blank page to my browser, what can I
     do?</b>
     <br />
-    There is some known php bugs with output buffering and compression.<br />
+    There are some known php bugs with output buffering and compression.<br />
     Try to set the <tt>$cfgOBGzip</tt> directive to <tt>FALSE</tt> in your
     <i>config.inc.php or .php3</i> file and the
     <tt>zlib.output_compression</tt> directive to <tt>Off</tt> in your php
@@ -790,179 +798,24 @@
 </p>
 
 <p>
-    <b>The error message &quot;Warning: Cannot add header information - headers
-    already sent by ...&quot; is displayed, what's the problem?</b>
+    <b>My Apache server crashes when using phpMyAdmin.</b>
     <br />
-    Edit your <i>config.inc.php or .php3</i> file and ensure there is nothing
-    (ie no blank lines, no spaces, no characters...) neither before the
-    <tt>&lt;?php</tt> tag at the beginning, neither after the <tt>?&gt;</tt>
-    tag at the end.
-</p>
-
-<p>
-    <b>I can't insert new rows into a table - MySQL brings up a SQL-error.</b>
+    You should first try the latest versions of Apache (and possibly MySQL).
     <br />
-    Examine the SQL error with care. I've found that many programmers
-    specifying a wrong field-type.<br />
-    Common errors include:
-</p>
-<ul>
-    <li>Using <tt>VARCHAR</tt> without a size argument</li>
-    <li>Using <tt>TEXT or</tt> BLOB with a size argument</li>
-</ul>
-<p>
-    Also, look at the syntax chapter in the MySQL manual to confirm that your
-    syntax is correct.
-</p>
-
-<p>
-    <b>phpMyAdmin can't connect to MySQL. What's wrong?</b>
+    See also the other FAQ entry about php bugs with output buffering.
     <br />
-    Either there is an error with your PHP setup or your username/password is
-    wrong. Try to make a small script which uses mysql_connect and see if it
-    works. If it doesn't, it may be you haven't even compiled MySQL support
-    into PHP.
+    If your server keeps crashing, please ask for help in the various
+    Apache support groups.
 </p>
-
 <p>
-    <b>The error message &quot;Warning: MySQL Connection Failed: Can't connect
-    to local MySQL server through socket '/tmp/mysql.sock' (111)...&quot;) is
-    displayed. What can I do?</b>
+    <b>Using phpMyAdmin on IIS, I'm displayed the error message: &quot;The
+       specified CGI application misbehaved by not returning a complete set of
+       HTTP headers....&quot;</b>
     <br />
-    Here is a fix suggested by Brad Ummer in the
-    <a class="navigation" href="http://www.phpwizard.net/phorum/list.php?f=1" target="_blank">
-         phpwizard forum</a>:
-</p>
-<ul>
-    <li>
-        First, you need to determine what socket is being used by MySQL.
-        <br />
-        To do this, telnet to your server and go to the MySQL bin directory. In
-        this directory there should be a file named <i>mysqladmin</i>. Type
-        <tt>./mysqladmin variables</tt>, and this should give you a bunch of
-        info about your MySQL server, including the socket
-        (<i>/tmp/mysql.sock</i>, for example).
-    </li>
-    <li>
-        Then, you need to tell PHP to use this socket.<br />Assuming you are
-        using PHP 3.0.10 or better, you can specify the socket to use when you
-        open the connection. To do this in phpMyAdmin, you need to complete the
-        socket information in the config.inc.php3.<br />
-        For example:
-        <tt>$cfgServers[n]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt>
-    </li>
-</ul>
-<p>
-    Have also a look at the 
-    <a class="navigation" href="http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html" target="_blank">
-         corresponding section of the MySQL documentation</a>.
-</p>
-
-<p>
-    <b>phpMyAdmin always gives &quot;Access denied&quot; when using advanced
-    authentication.</b><br />
-    This could happen for several reasons:
-</p>
-<ul>
-    <li>
-        <tt>$cfgServers[n]['stduser']</tt> and/or
-        <tt>$cfgServers[n]['stdpass']</tt> are wrong.
-    </li>
-    <li>
-        The username/password you specify in the login-dialog are invalid.
-    </li>
-    <li>
-        You have already setup a security mechanism for the
-        phpMyAdmin-directory, eg. a .htaccess file. This would interfere with
-        phpMyAdmin's authentication, so remove it.
-    </li>
-</ul>
-
-<a name="login_bug"></a>
-<p>
-    <b>When using advanced authentication, an user who logged out can not
-    relogs in with the same nick.</b>
-    <br />
-    This is related to the authentication mechanism (protocol) used by
-    phpMyAdmin. We plan to change it as soon as we may find enough free time
-    to do it, but you can bypass this problem: just close all the opened
-    browser windows and then go back to phpMyAdmin. You should be able to
-    logs in again.
-</p>
-
-<p>
-    <b>I would like to help out with the development of phpMyAdmin. How should
-    I proceed?</b>
-    <br />
-    The following method is preferred for new developers:
-</p>
-<ul>
-    <li>
-        fetch the current CVS tree over anonymous CVS:<br />
-        <tt>cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login</tt><br />
-        [Password: simply press the Enter key]<br />
-        <tt>cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin checkout phpMyAdmin</tt><br />
-        [This will create a new sub-directory named phpMyAdmin]
-    </li>
-    <li>
-        add your stuff
-    </li>
-    <li>
-        put the modified files (tar'ed and gzip'ed) inside the patch tracker of
-        the
-        <a class="navigation" href="https://sourceforge.net/projects/phpmyadmin/" target="_blank">phpMyAdmin SourceForge account</a>.
-    </li>
-</ul>
-<p>
-    Write access to the CVS tree is granted only to experienced developers who
-    have already contributed something useful to phpMyAdmin.<br />
-    Also, have a look at the <a class="navigation" href="#developers">Developers section</a>.
-</p>
- 
-<p>
-    <b>What's the preferred way of making phpMyAdmin secure against evil
-    access?</b>
-    <br />
-    This depends on your system.<br />
-    If you're running a server which cannot be accessed by other people, it's
-    sufficient to use the directory protection bundled with your webserver
-    (with Apache you can use <i>.htaccess</i> files, for example).<br />
-    If other people have telnet access to your server, you should use
-    phpMyAdmin's advanced authentication feature.
-    <br /><br />
-    Suggestions:
-</p>
-<ul>
-    <li>
-        Your <i>config.inc.php3</i> file should be <tt>chmod 660</tt>.
-    </li>
-    <li>
-        All your phpMyAdmin files should be chown phpmy.apache, where phpmy
-        is a user whose password is only known to you, and apache is the
-        group under which Apache runs.
-    </li>
-    <li>
-        You should use PHP safe mode, to protect from other users that try
-        to include your <i>config.inc.php3</i> in their scripts.
-    </li>
-</ul>
-
-<p>
-    <b>How can I insert a null value into my table?</b>
-    <br />
-    Enter &quot;null&quot;, without the quotes, as the field's value. This is
-    especially useful for <tt>Timestamp</tt> or <tt>AutoIncrement</tt> fields.
-</p>
-
-<p>
-    <b>I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
-    install it for each customer?</b>
-    <br />
-    Since version 2.0.3, you can setup a central copy of phpMyAdmin for all
-    your users. The development of this feature was kindly sponsored by
-    NetCologne GmbH.
-    This requires a properly setup MySQL user management and phpMyAdmin
-    advanced authentication. See the install section on &quot;Using advanced authentication&quot;
+    You just forgot to read the <i>install.txt</i> file from the php
+    distribution. Have a look at the last message in this
+    <a href="http://bugs.php.net/bug.php?id=12061">bug report</a> from the
+    official php bug database.
 </p>
 
 <p>
@@ -1016,16 +869,146 @@
     And that fixes the \r\n problem with file uploads! 
 </p> 
 
+
+
+<h3>[Configuration]</h3>
+
 <p>
-    <b>When I create a table, I click the Index checkbox for 2 fields and
-    phpMyAdmin generates only one index with those 2 fields.</b>
+    <b>The error message &quot;Warning: Cannot add header information - headers
+    already sent by ...&quot; is displayed, what's the problem?</b>
     <br />
-    In phpMyAdmin 2.2.0 and 2.2.1, this is the way to create a multi-fields
-    index. If you want two indexes, create the first one when creating the
-    table, save, then display the table properties and click the Index link to
-    create the other index.
+    Edit your <i>config.inc.php or .php3</i> file and ensure there is nothing
+    (ie no blank lines, no spaces, no characters...) neither before the
+    <tt>&lt;?php</tt> tag at the beginning, neither after the <tt>?&gt;</tt>
+    tag at the end.
 </p>
 
+<p>
+    <b>phpMyAdmin can't connect to MySQL. What's wrong?</b>
+    <br />
+    Either there is an error with your PHP setup or your username/password is
+    wrong. Try to make a small script which uses mysql_connect and see if it
+    works. If it doesn't, it may be you haven't even compiled MySQL support
+    into PHP.
+</p>
+
+<p>
+    <b>The error message &quot;Warning: MySQL Connection Failed: Can't connect
+    to local MySQL server through socket '/tmp/mysql.sock' (111)...&quot;) is
+    displayed. What can I do?</b>
+    <br />
+    Here is a fix suggested by Brad Ummer in the
+    <a class="navigation" href="http://www.phpwizard.net/phorum/list.php?f=1" target="_blank">
+         phpwizard forum</a>:
+</p>
+<ul>
+    <li>
+        First, you need to determine what socket is being used by MySQL.
+        <br />
+        To do this, telnet to your server and go to the MySQL bin directory. In
+        this directory there should be a file named <i>mysqladmin</i>. Type
+        <tt>./mysqladmin variables</tt>, and this should give you a bunch of
+        info about your MySQL server, including the socket
+        (<i>/tmp/mysql.sock</i>, for example).
+    </li>
+    <li>
+        Then, you need to tell PHP to use this socket.<br />Assuming you are
+        using PHP 3.0.10 or better, you can specify the socket to use when you
+        open the connection. To do this in phpMyAdmin, you need to complete the
+        socket information in the config.inc.php3.<br />
+        For example:
+        <tt>$cfgServers[n]['socket']&nbsp;=&nbsp;'/tmp/mysql.sock';</tt>
+    </li>
+</ul>
+<p>
+    Have also a look at the 
+    <a class="navigation" href="http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html" target="_blank">
+         corresponding section of the MySQL documentation</a>.
+</p>
+
+<h3>[Known limitations]</h3>
+<a name="login_bug"></a>
+<p>
+    <b>When using advanced authentication, an user who logged out can not
+    relogs in with the same nick.</b>
+    <br />
+    This is related to the authentication mechanism (protocol) used by
+    phpMyAdmin. We plan to change it as soon as we may find enough free time
+    to do it, but you can bypass this problem: just close all the opened
+    browser windows and then go back to phpMyAdmin. You should be able to
+    logs in again.
+</p>
+
+<h3>[ISPs]</h3>
+<p>
+    <b>I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
+    install it for each customer?</b>
+    <br />
+    Since version 2.0.3, you can setup a central copy of phpMyAdmin for all
+    your users. The development of this feature was kindly sponsored by
+    NetCologne GmbH.
+    This requires a properly setup MySQL user management and phpMyAdmin
+    advanced authentication. See the install section on &quot;Using advanced authentication&quot;
+</p>
+
+<p>
+    <b>What's the preferred way of making phpMyAdmin secure against evil
+    access?</b>
+    <br />
+    This depends on your system.<br />
+    If you're running a server which cannot be accessed by other people, it's
+    sufficient to use the directory protection bundled with your webserver
+    (with Apache you can use <i>.htaccess</i> files, for example).<br />
+    If other people have telnet access to your server, you should use
+    phpMyAdmin's advanced authentication feature.
+    <br /><br />
+    Suggestions:
+</p>
+<ul>
+    <li>
+        Your <i>config.inc.php3</i> file should be <tt>chmod 660</tt>.
+    </li>
+    <li>
+        All your phpMyAdmin files should be chown phpmy.apache, where phpmy
+        is a user whose password is only known to you, and apache is the
+        group under which Apache runs.
+    </li>
+    <li>
+        You should use PHP safe mode, to protect from other users that try
+        to include your <i>config.inc.php3</i> in their scripts.
+    </li>
+</ul>
+
+<p> 
+    <b>I get errors about not being able to include a file in <i>/lang</i></b>
+    <br />
+    Check <i>php.ini</i>, or ask your sysadmin to check it. The
+    <tt>include_path</tt> must contain &quot;.&quot; somewhere in it, and
+    <tt>open_basedir</tt>, if used, must contain &quot;.&quot; and
+    &quot;./lang&quot; to allow normal operation of phpMyAdmin.
+</p>
+<p>
+    <b>phpMyAdmin always gives &quot;Access denied&quot; when using advanced
+    authentication.</b><br />
+    This could happen for several reasons:
+</p>
+<ul>
+    <li>
+        <tt>$cfgServers[n]['stduser']</tt> and/or
+        <tt>$cfgServers[n]['stdpass']</tt> are wrong.
+    </li>
+    <li>
+        The username/password you specify in the login-dialog are invalid.
+    </li>
+    <li>
+        You have already setup a security mechanism for the
+        phpMyAdmin-directory, eg. a .htaccess file. This would interfere with
+        phpMyAdmin's authentication, so remove it.
+    </li>
+</ul>
+
+
+<h3>[Browsers or client OS]</h3>
 <p>
     <b>I get an out of memory error, and my controls are non-functional, when
     trying to create a table with more than 14 fields.</b>
@@ -1038,15 +1021,6 @@
 </p>
 
 <p> 
-    <b>I get errors about not being able to include a file in <i>/lang</i></b>
-    <br />
-    Check <i>php.ini</i>, or ask your sysadmin to check it. The
-    <tt>include_path</tt> must contain &quot;.&quot; somewhere in it, and
-    <tt>open_basedir</tt>, if used, must contain &quot;.&quot; and
-    &quot;./lang&quot; to allow normal operation of phpMyAdmin.
-</p>
-
-<p> 
     <b>With Xitami 2.5b4, phpMyAdmin won't process form fields</b>
     <br />
     This is not a phpMyAdmin problem but a Xitami known bug: you'll face it
@@ -1054,40 +1028,40 @@
     Upgrade or downgrade your Xitami server.
 </p>
 
+<h3>[Using phpMyAdmin]</h3>
 <p>
-    <b>Using phpMyAdmin on IIS, I'm dipslayed the error message: &quot;The
-       specified CGI application misbehaved by not returning a complete set of
-       HTTP headers....&quot;</b>
+    <b>I can't insert new rows into a table - MySQL brings up a SQL-error.</b>
     <br />
-    You just forgot to read the <i>install.txt</i> file from the php
-    distribution. Have a look at the last message in this
-    <a href="http://bugs.php.net/bug.php?id=12061">bug report</a> from the
-    official php bug database.
+    Examine the SQL error with care. I've found that many programmers
+    specifying a wrong field-type.<br />
+    Common errors include:
+</p>
+<ul>
+    <li>Using <tt>VARCHAR</tt> without a size argument</li>
+    <li>Using <tt>TEXT or</tt> BLOB with a size argument</li>
+</ul>
+<p>
+    Also, look at the syntax chapter in the MySQL manual to confirm that your
+    syntax is correct.
+</p>
+<p>
+    <b>When I create a table, I click the Index checkbox for 2 fields and
+    phpMyAdmin generates only one index with those 2 fields.</b>
+    <br />
+    In phpMyAdmin 2.2.0 and 2.2.1, this is the way to create a multi-fields
+    index. If you want two indexes, create the first one when creating the
+    table, save, then display the table properties and click the Index link to
+    create the other index.
 </p>
 
 <p>
-    <b>I want to translate the messages to a new language or upgrade an
-       existing language, where do I start?</b>
+    <b>How can I insert a null value into my table?</b>
     <br />
-    Always use the current cvs version of your language file.
-    For a new language, start from english.inc.php3. If you don't know
-    how to get the cvs version, please ask one of the developers. It would be a
-    good idea to subscribe to the phpmyadmin-translators discussion list,
-    because this is where we ask for translations of new messages. You can
-    then send your translations to the sourceforge.net translation tracker.
+    Enter &quot;null&quot;, without the quotes, as the field's value. This is
+    especially useful for <tt>Timestamp</tt> or <tt>AutoIncrement</tt> fields.
 </p>
 
-<p>
-    <b>My Apache server crashes when using phpMyAdmin.</b>
-    <br />
-    You should first try the latest versions of Apache (and possibly MySQL).
-    <br />
-    See also the other FAQ entry about php bugs with output buffering.
-    <br />
-    If your server keeps crashing, please ask for help in the various
-    Apache support groups.
-</p>
-
+<h3>[phpMyAdmin project]</h3>
 <p>
     <b>I have found a bug. How do I inform developers?</b>
     <br />
@@ -1103,6 +1077,48 @@
         http://www.phpwizard.net/projects/phpMyAdmin/</a> (and choose Support
     Forum)
 </p>
+
+<p>
+    <b>I want to translate the messages to a new language or upgrade an
+       existing language, where do I start?</b>
+    <br />
+    Always use the current cvs version of your language file.
+    For a new language, start from english.inc.php3. If you don't know
+    how to get the cvs version, please ask one of the developers. It would be a
+    good idea to subscribe to the phpmyadmin-translators discussion list,
+    because this is where we ask for translations of new messages. You can
+    then send your translations to the sourceforge.net translation tracker.
+</p>
+
+<p>
+    <b>I would like to help out with the development of phpMyAdmin. How should
+    I proceed?</b>
+    <br />
+    The following method is preferred for new developers:
+</p>
+<ul>
+    <li>
+        fetch the current CVS tree over anonymous CVS:<br />
+        <tt>cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login</tt><br />
+        [Password: simply press the Enter key]<br />
+        <tt>cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin checkout phpMyAdmin</tt><br />
+        [This will create a new sub-directory named phpMyAdmin]
+    </li>
+    <li>
+        add your stuff
+    </li>
+    <li>
+        put the modified files (tar'ed and gzip'ed) inside the patch tracker of
+        the
+        <a class="navigation" href="https://sourceforge.net/projects/phpmyadmin/" target="_blank">phpMyAdmin SourceForge account</a>.
+    </li>
+</ul>
+<p>
+    Write access to the CVS tree is granted only to experienced developers who
+    have already contributed something useful to phpMyAdmin.<br />
+    Also, have a look at the <a class="navigation" href="#developers">Developers section</a>.
+</p>
+ 
 
 
 <!-- DEVELOPERS -->
