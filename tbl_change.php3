@@ -420,11 +420,12 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
     if (isset($disp) && $disp) {
         echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
+        echo '            ' . $backup_field . "\n";
         echo '            <select name="fields[' . urlencode($field) .  ']">' . "\n";
         while ($relrow = @PMA_mysql_fetch_array($disp)) {
             $key   = $relrow[$foreign_field];
-            $value = (($foreign_display != FALSE) ? '-' . htmlspecialchars($relrow[$foreign_display]) : '');
-            echo '            <option value="' . urlencode($key) . '"';
+            $value = (($foreign_display != FALSE) ? '&nbsp;-&nbsp;' . htmlspecialchars($relrow[$foreign_display]) : '');
+            echo '            <option value="' . htmlspecialchars($key) . '"';
             if ($key == $data) {
                echo ' selected="selected"';
             } // end if
