@@ -43,7 +43,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
     ?>
 
 <!-- Table of grants -->
-<table border="<?php echo $GLOBALS['cfgBorder']; ?>">
+<table border="<?php echo $GLOBALS['cfg']['Border']; ?>">
 <tr>
     <?php
     // 1. Table headers
@@ -114,7 +114,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
                     }
                 } // end if
 
-                $bgcolor    = ($i % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
+                $bgcolor    = ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
                 $revoke_url = 'sql.php3'
                             . '?' . $url_query
                             . '&amp;sql_query=' . urlencode('REVOKE ' . $priv . ' ON ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' FROM \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'')
@@ -249,7 +249,7 @@ function PMA_tablePrivileges($form, $row = FALSE)
 {
     global $checkpriv;
 
-    $checkpriv_url               = $GLOBALS['cfgPmaAbsoluteUri']
+    $checkpriv_url               = $GLOBALS['cfg']['PmaAbsoluteUri']
                                  . 'user_details.php3?';
     if (empty($GLOBALS['QUERY_STRING'])) {
         $GLOBALS['QUERY_STRING'] = (isset($_SERVER))
@@ -797,7 +797,7 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
     }
 
     echo '<i>' . $GLOBALS['strEnglishPrivileges'] . '</i><br />' . "\n";
-    echo '<table border="' . $GLOBALS['cfgBorder'] . '">' . "\n";
+    echo '<table border="' . $GLOBALS['cfg']['Border'] . '">' . "\n";
     echo '<tr>' . "\n";
     echo '    <th colspan="'. (($user) ? '2' : '3') . '">' . $GLOBALS['strAction'] . '</th>' . "\n";
     echo '    <th>' . $GLOBALS['strHost'] . '</th>' . "\n";
@@ -809,7 +809,7 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
     $i = 0;
     while ($row = mysql_fetch_array($result)) {
 
-        $bgcolor = ($i % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
+        $bgcolor = ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
 
         $strPriv     = '';
         if ($row['Select_priv'] == 'Y') {
