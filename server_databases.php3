@@ -54,23 +54,15 @@ if ($server > 0 && empty($dblist)) {
 /**
  * Drops multiple databases
  */
-if (!empty($drop_selected_dbs) && ($is_superuser || $cfg['AllowUserDropDatabase'])) {
-    if (empty($selected_db)) {
+if ((!empty($drop_selected_dbs) || isset($query_type)) && ($is_superuser || $cfg['AllowUserDropDatabase'])) {
+    if (empty($selected_db) && ! (isset($query_type) && !empty($selected))) {
         $message = $strNoDatabasesSelected;
     } else {
-        $sql_query = array();
-        while (list(, $current_db) = each($selected_db)) {
-            $current_query = 'DROP DATABASE ' . PMA_backquote($current_db) . ';';
-            $sql_query[] = $current_query;
-            PMA_mysql_query($current_query, $userlink)
-                // rabus: in case of an error, we display the full query in
-                // order to let the user know which databases have already been
-                // dropped.
-                or PMA_mysqlDie(PMA_mysql_error($userlink), join("\n", $sql_query));
-        }
-        // PMA_showMessage() needs a string...
-        $sql_query = join("\n", $sql_query);
-        $message = sprintf($strDatabasesDropped, count($selected_db));
+        $action = 'server_databases.php3';
+        $submit_mult = 'drop_db' ;
+        $err_url = 'server_databases.php3?' . PMA_generate_common_url();
+        include('./mult_submits.inc.php3');
+        $message = sprintf($strDatabasesDropped, count($selected));
         // we need to reload the database list now.
         PMA_availableDatabases();
         $reload = 1;

@@ -19,6 +19,9 @@ if (!empty($submit_mult)
         } else {
            $selected = $selected_tbl;
            switch ($submit_mult) {
+               case 'drop_db':
+                   $what = 'drop_db';
+                   break;
                case $strDrop:
                    $what = 'drop_tbl';
                    break;
@@ -70,7 +73,7 @@ if (!empty($submit_mult) && !empty($what)) {
         $url_query .= '&amp;goto=tbl_properties.php3&amp;back=tbl_properties.php3';
         include('./tbl_properties_table_info.php3');
     }
-    else {
+    elseif (!empty($db)) {
         include('./db_details_common.php3');
         include('./db_details_db_info.php3');
     }
@@ -131,6 +134,8 @@ if (!empty($submit_mult) && !empty($what)) {
         echo PMA_generate_common_hidden_inputs($db);
     } else if (strpos(' ' . $action, 'tbl_properties') == 1) {
         echo PMA_generate_common_hidden_inputs($db,$table);
+    } else  {
+        echo PMA_generate_common_hidden_inputs();
     }
     for ($i = 0; $i < $selected_cnt; $i++) {
         echo '    <input type="hidden" name="selected[]" value="' . htmlspecialchars($selected[$i]) . '" />' . "\n";
@@ -210,6 +215,7 @@ else if ($mult_btn == $strYes) {
             && $query_type != 'analyze_tbl'
             && $query_type != 'optimize_tbl'
             && $query_type != 'check_tbl') {
+
             $sql_query .= $a_query . ';' . "\n";
 
             if ($query_type != 'drop_db') {
