@@ -82,11 +82,17 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
             $i = 0;
             while ($usr_row = PMA_mysql_fetch_row($result)) {
                 if (eregi('GRANT (.*) ON ([^.]+).([^.]+) TO .*$', $usr_row[0], $parts)) {
-                    // loic1: bug #487673 - revoke 'reference'
                     if ($parts[1] == 'USAGE') {
                         $priv = '';
                     } else {
+                        // loic1: bug #487673 - revoke 'reference'
                         $priv = ereg_replace('REFERENCE([^S]|$)', 'REFERENCES\\1', trim($parts[1]));
+                        // loic1: bug #576896 - No "FILE" privileges on a
+                        //        database if neither "INSERT" nor "UPDATE" one
+                        if (strpos(' ' . $priv, 'FILE')
+                            && !(strpos(' ' . $priv, 'INSERT') || strpos(' ' . $priv, 'UPDATE'))) {
+                            $priv = ereg_replace('(^FILE(, )?)|(, FILE)', '', $priv);
+                        }
                     }
                     $db       = $parts[2];
                     $table    = trim($parts[3]);
