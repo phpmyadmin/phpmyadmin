@@ -362,7 +362,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 <select name="goToPage" onChange="goToUrl(this, '<?php echo "sql.php3?sql_query=".$encoded_query."&amp;session_max_rows=".$session_max_rows."&amp;disp_direction=".$disp_direction."&amp;repeat_cells=".$repeat_cells."&amp;goto=".$goto."&amp;dontlimitchars=".$dontlimitchars."&amp;".PMA_generate_common_url($db, $table)."&amp;"; ?>')">
 
            <?php
-            for ($i=1; $i<=$nbTotalPage; $i++){
+            if ($nbTotalPage < 200) {
+                $firstPage = 1;
+                $lastPage  = $nbTotalPage;
+            } else {
+                $range = 20;
+                $firstPage = ($pageNow - $range < 1 ? 1 : $pageNow - $range);
+                $lastPage  = ($pageNow + $range > $nbTotalPage ? $nbTotalPage : $pageNow + $range);
+            }
+            for ($i=$firstPage; $i<=$lastPage; $i++){
                 if ($i == $pageNow) {
                     $selected = 'selected="selected"';
                 } else {
