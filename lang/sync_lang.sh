@@ -32,7 +32,7 @@ galician-iso-8859-1
 german-iso-8859-1
 greek-iso-8859-7
 hebrew-iso-8859-8-i
-hungarian
+hungarian-iso-8859-2
 indonesian
 italian
 japanese-euc
