@@ -7,6 +7,7 @@ $Source$
 
 2001-12-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/left.js, lines 234-240: fixed a js bug with empty databases.
+	* libraries/functions.js: improved pointer code (for Opera 6.0).
 	* left.php3: nicer codding for Opera exception.
 
 2001-12-07  Loïc Chapeaux  <lolo@phpheaven.net>

@@ -305,14 +305,22 @@ function checkTransmitDump(theForm, theAction)
  */
 function setPointer(theRow, thePointerColor)
 {
-    if (thePointerColor == ''
-        || (typeof(theRow.style) == 'undefined' || typeof(theRow.cells) == 'undefined')) {
+    if (thePointerColor == '' || typeof(theRow.style) == 'undefined') {
+        return false;
+    }
+    if (typeof(document.getElementsByTagName) != 'undefined') {
+        var theCells = theRow.getElementsByTagName('td');
+    }
+    else if (typeof(theRow.cells) != 'undefined') {
+        var theCells = theRow.cells;
+    }
+    else {
         return false;
     }
 
-    var row_cells_cnt           = theRow.cells.length;
-    for (var c = 0; c < row_cells_cnt; c++) {
-        theRow.cells[c].style.backgroundColor = thePointerColor;
+    var rowCellsCnt  = theCells.length;
+    for (var c = 0; c < rowCellsCnt; c++) {
+        theCells[c].style.backgroundColor = thePointerColor;
     }
 
     return true;
