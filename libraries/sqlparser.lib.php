@@ -712,6 +712,9 @@ if ($is_minimum_common == FALSE) {
         // so we track wether we are in the EXTRACT()
         $in_extract          = FALSE;
 
+        // for GROUP_CONCAT( ... )
+        $in_group_concat     = FALSE;
+
 /* Description of analyzer results
  *
  * lem9: db, table, column, alias
@@ -843,7 +846,7 @@ if ($is_minimum_common == FALSE) {
         // loop #1 for each token: select_expr, table_ref for SELECT
 
         for ($i = 0; $i < $size; $i++) {
-//echo "trace <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
+//DEBUG echo "trace loop1 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
 
             // High speed seek for locating the end of the current query
             if ($seek_queryend == TRUE) {
@@ -867,6 +870,9 @@ if ($is_minimum_common == FALSE) {
                 if ($in_extract) {
                     $number_of_brackets_in_extract++;
                 }
+                if ($in_group_concat) {
+                    $number_of_brackets_in_group_concat++;
+                }
             }
 // ==============================================================
             if ($arr[$i]['type'] == 'punct_bracket_close_round') {
@@ -876,6 +882,12 @@ if ($is_minimum_common == FALSE) {
                        $in_extract = FALSE;
                     }
                 }
+                if ($in_group_concat) {
+                    $number_of_brackets_in_group_concat--;
+                    if ($number_of_brackets_in_group_concat == 0) {
+                       $in_group_concat = FALSE;
+                    }
+                }
             }
 // ==============================================================
             if ($arr[$i]['type'] == 'alpha_functionName') {
@@ -883,6 +895,10 @@ if ($is_minimum_common == FALSE) {
                 if ($upper_data =='EXTRACT') {
                     $in_extract = TRUE;
                     $number_of_brackets_in_extract = 0;
+                }
+                if ($upper_data =='GROUP_CONCAT') {
+                    $in_group_concat = TRUE;
+                    $number_of_brackets_in_group_concat = 0;
                 }
             }
 
@@ -946,7 +962,7 @@ if ($is_minimum_common == FALSE) {
                         break;
                 } // end switch
 
-                if ($subresult['querytype'] == 'SELECT') {
+                if ($subresult['querytype'] == 'SELECT' && !$in_group_concat) {
                     if (!$seen_from) {
                         if ($previous_was_identifier && isset($chain)) {
                             // found alias for this select_expr, save it
@@ -1153,11 +1169,17 @@ if ($is_minimum_common == FALSE) {
                // if this is the last token, it implies that we have
                // seen the end of table references
                // Check for the end of table references
+               //
+               // Note: if we are analyzing a GROUP_CONCAT clause,
+               // we might find a word that seems to indicate that
+               // we have found the end of table refs (like ORDER)
+               // but it's a modifier of the GROUP_CONCAT so
+               // it's not the real end of table refs
                if (($i == $size-1)
                || ($arr[$i]['type'] == 'alpha_reservedWord'
+                  && !$in_group_concat
                   && PMA_STR_binarySearchInArr($upper_data, $words_ending_table_ref, $words_ending_table_ref_cnt))) {
                    $seen_end_of_table_ref = TRUE;
-
                    // to be able to save the last table ref, but do not
                    // set it true if we found a word like "ON" that has
                    // already set it to false
@@ -1180,22 +1202,22 @@ if ($is_minimum_common == FALSE) {
         /* 
           if (isset($current_select_expr)) {
            for ($trace=0; $trace<=$current_select_expr; $trace++) {
-
-           echo "<br />";
-           reset ($subresult['select_expr'][$trace]);
-           while (list ($key, $val) = each ($subresult['select_expr'][$trace]))
-           echo "sel expr $trace $key => $val<br />\n";
-           }
+               echo "<br />";
+               reset ($subresult['select_expr'][$trace]);
+               while (list ($key, $val) = each ($subresult['select_expr'][$trace]))
+                   echo "sel expr $trace $key => $val<br />\n";
+               }
           }
 
           if (isset($current_table_ref)) {
+           echo "current_table_ref = " . $current_table_ref . "<br>";
            for ($trace=0; $trace<=$current_table_ref; $trace++) {
 
-           echo "<br />";
-           reset ($subresult['table_ref'][$trace]);
-           while (list ($key, $val) = each ($subresult['table_ref'][$trace]))
-           echo "table ref $trace $key => $val<br />\n";
-           }
+               echo "<br />";
+               reset ($subresult['table_ref'][$trace]);
+               while (list ($key, $val) = each ($subresult['table_ref'][$trace]))
+               echo "table ref $trace $key => $val<br />\n";
+               }
           }
         */ 
         // -------------------------------------------------------
@@ -1219,6 +1241,7 @@ if ($is_minimum_common == FALSE) {
         $in_select_expr = FALSE; // true when we are into the select expr clause
         $in_where = FALSE; // true when we are into the WHERE clause
         $in_from = FALSE;
+        $in_group_concat = FALSE;
 
         for ($i = 0; $i < $size; $i++) {
 //DEBUG echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br />";
@@ -1266,7 +1289,7 @@ if ($is_minimum_common == FALSE) {
                    $in_select_expr = TRUE;
                    $select_expr_clause = '';
                }
-               if ($upper_data == 'DISTINCT') {
+               if ($upper_data == 'DISTINCT' && !$in_group_concat) {
                       $subresult['queryflags']['distinct'] = 1;
                }
 
@@ -1297,7 +1320,7 @@ if ($is_minimum_common == FALSE) {
                    $in_select_expr = FALSE;
                    $in_from = FALSE;
                }
-               if ($upper_data == 'ORDER') {
+               if ($upper_data == 'ORDER' && !$in_group_concat) {
                    $seen_order = TRUE;
                    $seen_group = FALSE;
                    $in_having = FALSE;
@@ -1357,10 +1380,31 @@ if ($is_minimum_common == FALSE) {
 
 
            // do not add a blank after a function name
+           // TODO: can we combine loop 2 and loop 1? 
+           // some code is repeated here...
 
            $sep=' ';
            if ($arr[$i]['type'] == 'alpha_functionName') {
                $sep='';
+               $upper_data = strtoupper($arr[$i]['data']);
+               if ($upper_data =='GROUP_CONCAT') {
+                   $in_group_concat = TRUE;
+                   $number_of_brackets_in_group_concat = 0;
+               }
+           }
+
+           if ($arr[$i]['type'] == 'punct_bracket_open_round') {
+               if ($in_group_concat) {
+                  $number_of_brackets_in_group_concat++;
+               }
+           }
+           if ($arr[$i]['type'] == 'punct_bracket_close_round') {
+               if ($in_group_concat) {
+                  $number_of_brackets_in_group_concat--;
+                  if ($number_of_brackets_in_group_concat == 0) {
+                     $in_group_concat = FALSE;
+                  }
+               }
            }
 
            if ($in_select_expr && $upper_data != 'SELECT' && $upper_data != 'DISTINCT') {
@@ -1557,7 +1601,6 @@ if ($is_minimum_common == FALSE) {
         if (isset($position_of_first_select)) {
             $subresult['position_of_first_select'] = $position_of_first_select;
         }
-
 
         // They are naughty and didn't have a trailing semi-colon,
         // then still handle it properly

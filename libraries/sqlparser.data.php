@@ -78,6 +78,7 @@ $PMA_SQPdata_function_name = array (
     'FROM_UNIXTIME',
     'GET_LOCK',
     'GREATEST',
+    'GROUP_CONCAT',
     'GROUP_UNIQUE_USERS',
     'HEX',
     'IFNULL',
@@ -168,7 +169,7 @@ $PMA_SQPdata_function_name = array (
     'YEARWEEK'
 );
 //$PMA_SQPdata_function_name_cnt = count($PMA_SQPdata_function_name);
-$PMA_SQPdata_function_name_cnt = 151;
+$PMA_SQPdata_function_name_cnt = 152;
 
 $PMA_SQPdata_column_attrib = array (
     'AUTO_INCREMENT',
