@@ -7,6 +7,7 @@
  * been defined as startup option and include a core library
  */
 require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/bookmark.lib.php');
 if (!empty($db)) {
     $db_start = $db;
 }
@@ -285,6 +286,7 @@ if ($num_dbs > 1) {
                     $db_tooltip = implode(' ', $tmp_db_tooltip);
                 }
             }
+
             // Builds the databases' names list
             if (!empty($db_start) && $db == $db_start) {
                 $table_title = array();
