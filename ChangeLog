@@ -8,6 +8,8 @@ $Source$
 2002-09-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 612117, vertical view and
       buttons as links
+    * libraries/tbl_change.js, tbl_change.php3, tbl_replace.php3:
+      patch 612202: NULL for foreign keys, thanks to Markus L. Noga
 
 2002-09-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug 608459: syntax coloring and

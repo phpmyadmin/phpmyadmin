@@ -377,8 +377,10 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             }
         } else if (strstr($row_table_def['True_Type'], 'set')) {
             $onclick     .= '3, ';
-        } else {
+        } else if ($foreigners && isset($foreigners[$field])) {
             $onclick     .= '4, ';
+        } else {
+            $onclick     .= '5, ';
         }
         $onclick         .= '\'' . urlencode($field) . '\', \'' . md5($field) . '\'); this.checked = true}; return true" />' . "\n";
         echo $onclick;
@@ -418,19 +420,25 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
             $dispsql         = 'SELECT ' . PMA_backquote($foreign_field)
                              . (($foreign_display == FALSE) ? '' : ', ' . PMA_backquote($foreign_display))
-                             . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
+                             . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table)
+                             . ' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display);
             $disp            = PMA_mysql_query($dispsql);
         }
     } // end if $foreigners
 
     if (isset($disp) && $disp) {
-        echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
-        echo '            ' . $backup_field . "\n";
-        echo '            <select name="fields[' . urlencode($field) .  ']">' . "\n";
+        ?>
+        <td bgcolor="<?php echo $bgcolor; ?>">
+            <?php echo $backup_field . "\n"; ?>
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$foreign$" tabindex="<?php echo $i+1; ?>" />
+            <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>">
+                <option value=""></option>
+        <?php
+
         while ($relrow = @PMA_mysql_fetch_array($disp)) {
             $key   = $relrow[$foreign_field];
             $value = (($foreign_display != FALSE) ? '&nbsp;-&nbsp;' . htmlspecialchars($relrow[$foreign_display]) : '');
-            echo '            <option value="' . htmlspecialchars($key) . '"';
+            echo '              <option value="' . htmlspecialchars($key) . '"';
             if ($key == $data) {
                echo ' selected="selected"';
             } // end if

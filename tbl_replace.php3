@@ -118,6 +118,20 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                     $val = "''";
                 }
                 break;
+            case '$foreign$':
+                // if we have a foreign key, then construct the value
+                $f = 'field_' . md5($key);
+                if (!empty($$f)) {
+                    $val     = implode(',', $$f);
+                    if ($val == 'null') {
+                        // void
+                    } else {
+                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                    }
+                } else {
+                    $val     = "''";
+                }
+                break;
             default:
                 if (get_magic_quotes_gpc()) {
                     $val = "'" . str_replace('\\"', '"', $val) . "'";
