@@ -15,6 +15,6 @@ then
   exit 65
 fi
 
-./generator.sh 'TEMPLATE_MIMETYPE' '$1'
+./generator.sh 'TEMPLATE_MIMETYPE' "$1"
 echo " "
 echo "New MIMETYPE $1.inc.php3 added."

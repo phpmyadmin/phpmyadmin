@@ -18,6 +18,8 @@ then
   exit 65
 fi
 
-./generator.sh 'TEMPLATE' '$1'
+
+
+./generator.sh 'TEMPLATE' "$1" "$2"
 echo " "
 echo "New TRANSFORM FUNCTION $1.inc.php3 added."

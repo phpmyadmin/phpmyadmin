@@ -15,13 +15,12 @@ then
   echo ""
   exit 65
 fi
-
 functionupper="`echo $2 | tr [:lower:] [:upper:]`"
 functionlower="`echo $2 | tr [:upper:] [:lower:]`"
 
 cat $1 | sed "s/\[ENTER_FILENAME_HERE\]/$functionupper/" | sed "s/\[enter_filename_here\]/$functionlower/" >> $2.inc.php3
 
-if [ $3 ]
+if [ "$3" ]
 then
     echo ""
     echo "DEBUG/TODO: Call"

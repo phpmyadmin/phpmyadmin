@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/transformations/*.sh: did not work in bash
+
 2003-03-07 Marc Delisle  <lem9@users.sourceforge.net>
     * transformation_wrapper.php3, lang/*,
       libraries/transformations/image_jpeg__inline.inc.php3:
