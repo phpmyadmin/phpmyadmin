@@ -4,6 +4,13 @@
 
 
 ?>
+<!-- Set on key handler for moving using by Ctrl+arrows -->
+<script type="text/javascript" language="javascript">
+<!--
+document.onkeydown = onKeyDownArrowsHandler;
+// -->
+</script>
+
 <form method="post" action="<?php echo $action; ?>">
 <?php
 echo PMA_generate_common_hidden_inputs($db, $table);
@@ -64,10 +71,10 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     echo "\n";
     ?>
-            <input type="text" name="field_name[]" size="10" maxlength="64" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" class="textfield" />
+            <input id="field_<?php echo $i; ?>_1" type="text" name="field_name[]" size="10" maxlength="64" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" class="textfield" />
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="field_type[]">
+            <select name="field_type[]" id="field_<?php echo $i; ?>_2">
     <?php
     echo "\n";
     if (empty($row['Type'])) {
@@ -119,10 +126,10 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     echo "\n";
     ?>
-            <input type="text" name="field_length[]" size="8" value="<?php echo str_replace('"', '&quot;', $length); ?>" class="textfield" />
+            <input id="field_<?php echo $i; ?>_3" type="text" name="field_length[]" size="8" value="<?php echo str_replace('"', '&quot;', $length); ?>" class="textfield" />
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="field_attribute[]">
+            <select name="field_attribute[]" id="field_<?php echo $i; ?>_4">
     <?php
     echo "\n";
     $binary           = eregi('BINARY', $row['Type'], $test_attribute1);
@@ -149,7 +156,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             </select>
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="field_null[]">
+            <select name="field_null[]" id="field_<?php echo $i; ?>_5">
     <?php
     if (!isset($row) || empty($row['Null'])) {
         echo "\n";
@@ -185,10 +192,10 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     echo "\n";
     ?>
-            <input type="text" name="field_default[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" class="textfield" />
+            <input id="field_<?php echo $i; ?>_6" type="text" name="field_default[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" class="textfield" />
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="field_extra[]">
+            <select name="field_extra[]" id="field_<?php echo $i; ?>_7">
     <?php
     if(!isset($row) || empty($row['Extra'])) {
         echo "\n";
