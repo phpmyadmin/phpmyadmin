@@ -165,9 +165,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $oldpos          = 0;
                 do {
                     $oldpos = $pos;
-                    $pos    = strpos($sql, $quotetype, $oldpos);
+                    $pos    = strpos(' ' . $sql, $quotetype, $oldpos + 1) - 1;
                     // ($pos === FALSE)
-                    if (!is_integer($pos)) {
+                    if ($pos < 0) {
                         trigger_error('Syntax: Unclosed quote (' . $quotetype . ') at ' . $startquotepos);
                         return;
                     }
