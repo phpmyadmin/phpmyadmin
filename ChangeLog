@@ -27,6 +27,7 @@ $Source$
       files for incomplete arrays ($byteUnits, $day_of_week and $month).
     * libraries/common.lib.php3: Security fix against bad JS code.
     * translators.html: Removed Loïc from list; he is inactive at the moment.
+    * Documentation.html: Changed my email address.
 
 2003-06-22 Robin Johnson <robbat2@users.sourceforge.net>
     * scripts/updatedocs.sh:
