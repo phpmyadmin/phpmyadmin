@@ -46,6 +46,7 @@ $strAffectedRows = 'Files afectades:';
 $strAfter = 'Després %s';
 $strAfterInsertBack = 'Tornar';
 $strAfterInsertNewInsert = 'Inserta un nou registre';
+$strAfterInsertNext = 'Editar el següent registre'; 
 $strAfterInsertSame = 'Tornar a aquesta plana';
 $strAll = 'Tot';
 $strAllTableSameWidth = 'Mostrar totes les taules amb la mateixa amplada?';
@@ -372,6 +373,8 @@ $strMIME_transformation_options = 'Opcions de Transformació';
 $strMIME_transformation_options_note = 'Entra els valors per a transformar utilitzant aquest format: \'a\',\'b\',\'c\'...<br />Si mai necessites escriure una barra invertida ("\") o un apòstrof ("\'") entre aquests valors, posa una barra invertida devant (per exemple \'\\\\xyz\' o \'a\\\'b\').';
 $strMIME_without = 'Els tipus MIME en cursiva no tenen funcions de transformació a part';
 $strMaximumSize = 'Tamany Màxim: %s%s';
+$strMbExtensionMissing = 'No s\'ha trobat la extensió de PHP mbstring i sembla que feu servir un joc de caracters multibyte. Sense la extensió mbstring, phpMyAdmin és incapaç de dividir cadenes de text correctament i pot generar resultats inesperats.';
+$strMbOverloadWarning = 'Teniu activada la funció mbstring.func_overload a la configuració del vostre PHP. Aquesta opció és incompatible amb phpMyAdmin i pot provocar la perdua de dades!';
 $strModifications = 'Les modificacions han estat guardades';
 $strModify = 'Modificar';
 $strModifyIndexTopic = 'Modifica un índex';
@@ -558,6 +561,7 @@ $strRunning = 'funcionant a %s';
 $strRussian = 'Rus';
 
 $strSQL = 'SQL';
+$strSQLExportCompatibility = 'Compatibilitat d\'exportació SQL';
 $strSQLExportType = 'Tipus d\' Exportació';
 $strSQLOptions = 'Opcions SQL';
 $strSQLParserBugMessage = 'És possible que hagueu trobat un error a l\'intèrpret SQL. Si us plau, comproveu la sintaxi de la consulta i verifiqueu que les cometes estiguin al seu lloc i facin parelles. Un altra possible causa de l\'errada és que estigueu pujant un arxiu amb dades binàries per fora de l\'àrea de text delimitada. També podeu provar la consulta a la interfície de comandes de MySQL. La sortida següent generada pel servidor MySQL, si n\'hi ha, pot ajudar-vos a diagnosticar el problema. Si encara teniu problemes o si l\'intèrpret falla i l\'interfície de comandes funciona, reduïu la consulta a la part de l\'SQL que produeix l\'errada, i envieu un informe d\'error amb la cadena de dades de la secció de TALL indicada avall:';
@@ -740,8 +744,4 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el limit.';
 $strZip = '"comprimit amb zip"';
 
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
-$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
-$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
-$strAfterInsertNext = 'Edit next row';  //to translate
 ?>

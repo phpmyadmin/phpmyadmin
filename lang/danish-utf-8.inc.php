@@ -18,6 +18,7 @@ $month = array('jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'o
 $datefmt = '%d/%m %Y kl. %H:%M:%S';
 $timespanfmt = '%s dage, %s timer, %s minutter og %s sekunder';
 
+ 
 $strAPrimaryKey = 'Der er føjet en primær nøgle til %s';
 $strAbortedClients = 'Afbrudt';
 $strAbsolutePathToDocSqlDir = 'Indtast venligst absolut sti på webserveren til docSQL mappen';
@@ -47,6 +48,7 @@ $strAffectedRows = 'Berørte rækker:';
 $strAfter = 'Efter %s';
 $strAfterInsertBack = 'Retur';
 $strAfterInsertNewInsert = 'Indsæt en ny record';
+$strAfterInsertNext = "Redigér næste række";
 $strAfterInsertSame = 'Gå tilbage til denne side';
 $strAll = 'Alle';
 $strAllTableSameWidth = 'vis alle tabeller med samme bredde?';
@@ -161,6 +163,7 @@ $strCzech = 'Tjekkisk';
 $strCzechSlovak = 'Tjekkisk-Slovakisk';
 
 $strDBComment = 'Databasekommentar: ';
+$strDBCopy = 'Kopiér database til';
 $strDBGContext = 'Sammenhæng';
 $strDBGContextID = 'Sammenhæng-ID';
 $strDBGHits = 'Hits';
@@ -186,7 +189,6 @@ $strDatabasesStats = 'Databasestatistik';
 $strDatabasesStatsDisable = 'Slå Statistikker fra';
 $strDatabasesStatsEnable = 'Slå Statistikker til';
 $strDatabasesStatsHeavyTraffic = 'Bemærk: At slå databasestatistikkerne til her kan forårsage tung trafik mellem webserveren og MySQL-serveren.';
-$strDBCopy = 'Kopiér database til';
 $strDbPrivileges = 'Database-specifikke privilegier';
 $strDbSpecific = 'database-specifik';
 $strDefault = 'Standardværdi';
@@ -373,6 +375,8 @@ $strMIME_transformation_options = 'Transformationsindstillinger';
 $strMIME_transformation_options_note = 'Indtast værdier for transformationsindstillinger ud fra følgende format: \'a\',\'b\',\'c\'...<br />Skulle du få brug for at indsætte en backslash ("\") eller en apostrof ("\'") i værdierne, backslash det (for eksempel \'\\\\xyz\' eller \'a\\\'b\').';
 $strMIME_without = 'MIME-typer skrevet med kursiv har ikke en separat transformationsfunktion';
 $strMaximumSize = 'Maksimum størrelse: %s%s';
+$strMbExtensionMissing = "PHP-udvidelsen mbstring blev ikke fundet og du ser ud til at bruge et multibyte tegnsæt. Uden mbstring-udvidelsen er phpMyAdmin ude af stand til at opdele  strenge korrekt og dette kan forårsage uventede resultater.";
+$strMbOverloadWarning = "Du har mbstring.func_overload slået til i din PHP-konfiguration. Denne indstilling er ikke kompatibel med phpMyAdmin og kan forårsage ødelæggelse af nogle data!";
 $strModifications = 'Rettelserne er gemt!';
 $strModify = 'Ret';
 $strModifyIndexTopic = 'Ændring af et indeks';
@@ -560,6 +564,7 @@ $strRunning = 'kører på %s';
 $strRussian = 'Russisk';
 
 $strSQL = 'SQL';
+$strSQLExportCompatibility = "SQL eksport-kompatibilitet";
 $strSQLExportType = 'Eksporttype';
 $strSQLOptions = 'SQL-indstillinger';
 $strSQLParserBugMessage = 'Det er muligt at du har fundet en fejl i SQL-parseren. Undersøg venligst din forespørgsel nøje, og check at anførselstegn er rigtige og ikke giver konflikter. Andre fejlårsager kan være at du uploader en fil med binær udenfor et lukket tekstområde. Du kan også prøve din forespørgsel i MySQL kommandolinje-interfacet. MySQL-serverens fejlmelding der følger herunder, hvis der er nogen, kan også hjælpe dig med at finde problemet. Hvis du stadig har probemer eller hvis parseren fejler hvor kommandolinjeinterfacet lykkes, reducer din SQL-forespørgselsinput til den ene forespørgsel der forårsager problemet, og indsend en fejlrapport med datablokken i KLIP-sektionen herunder:';
@@ -742,8 +747,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zippet"';
 
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
-$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
-$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
-$strAfterInsertNext = 'Edit next row';  //to translate
 ?>
