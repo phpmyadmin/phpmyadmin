@@ -443,8 +443,10 @@ if ($num_tables > 0) {
     <?php
     // gzip and bzip2 encode features
     if (PMA_INT_VERSION >= 40004) {
-        $is_gzip = @function_exists('gzencode');
-        $is_bzip = @function_exists('bzcompress');
+        $is_gzip = (isset($cfgGZipDump) &&
+		$cfgGZipDump && @function_exists('gzencode'));
+        $is_bzip = (isset($cfgBZipDump) &&
+		$cfgBZipDump && @function_exists('bzcompress'));
         if ($is_gzip || $is_bzip) {
             echo "\n" . '                (';
             if ($is_gzip) {
