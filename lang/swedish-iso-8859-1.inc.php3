@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 $charset = 'iso-8859-1';
@@ -52,6 +51,8 @@ $strAtEndOfTable = 'I slutet av tabellen';
 $strAttr = 'Attribut';
 
 $strBack = 'Bakåt';
+$strBeginCut = 'START URKLIPP';
+$strBeginRaw = 'START RÅTEXT';
 $strBinary = 'Binär';
 $strBinaryDoNotEdit = 'Binär - ändra inte';
 $strBookmarkDeleted = 'Bokmärket har raderats.';
@@ -133,6 +134,8 @@ $strEmptyResultSet = 'MySQL skickade tillbaka ett tomt resultat (dvs inga rader)
 $strEmpty = 'Töm';
 $strEnabled = 'Aktiverat';
 $strEnd = 'Slutet';
+$strEndCut = 'SLUT URKLIPP';
+$strEndRaw = 'SLUT RÅTEXT';
 $strEnglishPrivileges = ' Obs! MySQL-privilegiumnamn anges på engelska ';
 $strError = 'Fel';
 $strExplain = 'Förklara SQL-kod';
@@ -356,9 +359,14 @@ $strSize = 'Storlek';
 $strSort = 'Sortering';
 $strSpaceUsage = 'Utrymmesanvändning';
 $strSplitWordsWithSpace = 'Ord separeras med mellanslag (" ").';
+$strSQL = 'SQL';
+$strSQLParserBugMessage = 'Det är möjligt att du har hittat en bugg i SQL-analysatorn. Var god granska din fråga noga och kontrollera att citationstecknen är korrekta och matchar varandra. En annan möjlig felorsak kan vara att du överför en fil med binärkod som inte ligger inom citationstecken. Du kan även testa din fråga i MySQL:s kommandoradsgränssnitt. Felmeddelandet från MySQL-servern nedan, om det finns något, kan också hjälpa dig att analysera problemet. Om du fortfarande har problem eller om SQL-analysatorn misslyckas när kommandoradsgränssnittet lyckas, var vänlig reducera din inmatning av SQL-frågor till den enda fråga som orsakar problem och skicka en buggrapport med datastycket i URKLIPP-sektionen nedan:';
+$strSQLParserUserError = 'Det verkar vara ett fel i din SQL-fråga. Felmeddelandet från MySQL-servern nedan, om det finns något, kan också hjälpa dig att analysera problemet.';
 $strSQLQuery = 'SQL-fråga';
 $strSQLResult = 'SQL-resultat';
-$strSQL = 'SQL';
+$strSQPBugInvalidIdentifer = 'Ogiltig identifierare';
+$strSQPBugUnclosedQuote = 'Oavslutat citat';
+$strSQPBugUnknownPunctuation = 'Okänd interpunktion i sträng';
 $strStatement = 'Uppgift';
 $strStrucCSV = 'CSV-data';
 $strStrucData = 'Struktur och data';
@@ -415,19 +423,6 @@ $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 $strYes = 'Ja';
 
 $strZip = '"zippad"';
+
 // To translate
-
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-
 ?>
