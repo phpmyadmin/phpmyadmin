@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 
+2001-11-02  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/slovak-iso.inc.php3: updates thanks to Lubos Klokner, tests
+	  with Loïc: this file must be sent gzipped, otherwise Windows will
+	  corrupt some characters
+
 2001-10-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3: removed an other display of the socket used and the port used
 	  if the 'verbose' setting exists for a server.
