@@ -9,11 +9,11 @@ $number_thousands_separator = '.';
 $number_decimal_separator = ',';
 $byteUnits = array('bajtów', 'KB', 'MB', 'GB');
 
-$day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-$month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+$day_of_week = array('Nie', 'Pon', 'Wto', '¦ro', 'Czw', 'Pi±', 'Sob');
+$month = array('Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Pa¼', 'Lis', 'Gru');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%B %d, %Y at %I:%M %p';
+$datefmt = '%d %B %Y, %H:%M';
 
 
 $strAccessDenied = 'Brak dostêpu';
