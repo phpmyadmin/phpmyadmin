@@ -19,7 +19,7 @@ $num_tables = @mysql_numrows($tables);
 if ($num_tables>0 && MYSQL_MAJOR_VERSION>=3.23 && intval(MYSQL_MINOR_VERSION)>=3){
 	// Special speedup for newer MySQL Versions
 	if ($cfgSkipLockedTables==true && MYSQL_MAJOR_VERSION==3.23 && intval(MYSQL_MINOR_VERSION)>=30){ // in 4.0 format changed
-		$query="SHOW OPEN TABLES from `$db`";
+		$query="SHOW OPEN TABLES from $db";
 		$result=mysql_query($query);
 		// Blending out tables in use
 		if ($result!=false && mysql_num_rows($result)>0){
@@ -32,12 +32,12 @@ if ($num_tables>0 && MYSQL_MAJOR_VERSION>=3.23 && intval(MYSQL_MINOR_VERSION)>=3
 			mysql_free_result($result);
 
 			if (isset($sot_cache)){
-				$query="show tables from `$db`";
+				$query="show tables from $db";
 				$result=mysql_query($query);
 				if ($result!=false && mysql_num_rows($result)>0){
 					while ($tmp=mysql_fetch_array($result)){
 						if (!isset($sot_cache[$tmp[0]])){
-							$sts_result=mysql_query("show table status from `$db` like '".AddSlashes($tmp[0])."'");
+							$sts_result=mysql_query("show table status from $db like '".AddSlashes($tmp[0])."'");
 							$sts_tmp=mysql_fetch_array($sts_result);
 							$tbl_cache[]=$sts_tmp;
 						}
@@ -53,7 +53,7 @@ if ($num_tables>0 && MYSQL_MAJOR_VERSION>=3.23 && intval(MYSQL_MINOR_VERSION)>=3
 		}
 	}
 	if (!isset($sot_ready)){
-		$result=mysql_query("show table status from `$db`");
+		$result=mysql_query("show table status from $db");
 		if ($result!=false && mysql_num_rows($result)>0){
 			while ($sts_tmp=mysql_fetch_array($result)){
 				$tbl_cache[]=$sts_tmp;
@@ -270,7 +270,7 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
 </form>
 
 <li>
-<a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=<?php echo $db;?>&sql_query=<?php echo urlencode("DROP DATABASE `$db`");?>&zero_rows=<?php echo urlencode($strDatabase." ".$db." ".$strHasBeenDropped);?>&goto=main.php3&reload=true"><?php echo $strDropDB." ".$db;?></a> <?php print show_docu("manual_Reference.html#DROP_DATABASE");?>
+<a href="sql.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&db=<?php echo $db;?>&sql_query=<?php echo urlencode("DROP DATABASE $db");?>&zero_rows=<?php echo urlencode($strDatabase." ".$db." ".$strHasBeenDropped);?>&goto=main.php3&reload=true"><?php echo $strDropDB." ".$db;?></a> <?php print show_docu("manual_Reference.html#DROP_DATABASE");?>
 </ul>
 </div>
 <?php

@@ -5,10 +5,6 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
-2001-06-26  Marc Delisle  <lem9@users.sourceforge.net>
-        * bug 434608, dashes in db name: db_create.php3, lib.inc.php3,
-                db_details.php3
-
 2001-06-26  Steve Alberty  <alberty@neptunlabs.de>
 	* lib.inc.php3: add 3 new Constants:
 	  PHPMYADMIN_VERSION, PHP_WINDOWS, PHP_INT_VERSION
