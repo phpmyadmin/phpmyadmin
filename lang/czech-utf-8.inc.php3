@@ -605,4 +605,5 @@ $strTransformation_image_jpeg__plain = 'Takes an imagefile and outputs a link fo
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
 
+$strInnodbStat = 'InnoDB Status';  //to translate
 ?>
