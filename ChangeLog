@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-16  Marc Delisle  <lem9@users.sourceforge.net>
+	* start merging Vertical/horizontal browsing patch:
+          - config.inc.php3
+
 2001-12-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3:
 	  - lines 145: ensure 'enable_dl' is set before using it;

@@ -174,7 +174,8 @@ $cfgTextareaRows        = 7;            // textarea size (rows) in edit mode
 $cfgLimitChars          = 50;           // max field data length in browse mode
 $cfgModifyDeleteAtLeft  = TRUE;         // show edit/delete links on left side of browse
 $cfgModifyDeleteAtRight = FALSE;        // show edit/delete links on right side of browse
-
+$cfgDefaultDisplay      = "horizontal"; // default display mode (horizontal|vertical) 
+$cfgRepeatCells         = 100;          // repeat header names every X cells? (0 = deactivate) 
 
 /**
  * MySQL settings
