@@ -47,7 +47,7 @@ $strAttr = 'Attributi';
 
 $strBack = 'Indietro';
 $strBinary = 'Binario';
-$strBinaryDoNotEdit = 'Binario - non modificare';
+$strBinaryDoNotEdit = 'Tipo di dato Binario - non modificare';
 $strBookmarkLabel = 'Etichetta';
 $strBookmarkQuery = 'Query SQL aggiunte ai preferiti';
 $strBookmarkThis = 'Aggiungi ai preferiti questa query SQL';
@@ -120,7 +120,7 @@ $strFieldsEmpty = ' Il contatore dei campi è vuoto! ';
 $strFixed = 'fisso';
 $strFormat = 'Formato';
 $strFormEmpty = 'Valore mancante nel form!';
-$strFullText = 'Solo testo';
+$strFullText = 'Testo completo';
 $strFunction = 'Funzione';
 
 $strGenTime = 'Generato il';
@@ -159,7 +159,7 @@ $strLength = 'Lunghezza';
 $strLengthSet = 'Lunghezza/Set*';
 $strLimitNumRows = 'record per pagina';
 $strLineFeed = 'Fine riga: \\n';
-$strLines = 'Righe';
+$strLines = 'Record';
 $strLocationTextfile = 'Percorso del file';
 $strLogin = ''; //to translate, but its not in use ...
 $strLogout = 'Disconnetti';
@@ -195,9 +195,9 @@ $strOptimizeTable = 'Ottimizza tabella';
 $strOptionalControls = 'Opzionale. Questo carattere controlla come scrivere o leggere i caratteri speciali.';
 $strOptionally = 'OPZIONALE';
 $strOr = 'O';
-$strOverhead = 'Overhead'; // To translate (I must understand the context to translate this)
+$strOverhead = 'In eccesso';
 
-$strPartialText = 'Testi parziali';
+$strPartialText = 'Testo parziale';
 $strPassword = 'Password';
 $strPasswordEmpty = 'La password è vuota!';
 $strPasswordNotSame = 'La password non coincide!';
@@ -294,7 +294,7 @@ $strUpdatePassword = 'Aggiorna Password';
 $strUpdatePrivMessage = 'Hai aggiornato i permessi per';
 $strUpdateQuery = 'Aggiorna Query';
 $strUsage = 'Utilizzo';
-$strUseBackquotes = 'Usate i backquotes con i nomi delle tabelle e dei campi';
+$strUseBackquotes = 'Usa i backquotes con i nomi delle tabelle e dei campi';
 $strUser = 'Utente';
 $strUserEmpty = 'Il nome utente è vuoto!';
 $strUserName = 'Nome utente';
@@ -306,7 +306,7 @@ $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
 
 $strWelcome = 'Benvenuto in ';
-$strWithChecked = 'Con selezionati:';
+$strWithChecked = 'Se selezionati:';
 $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 
 $strYes = ' Si ';
