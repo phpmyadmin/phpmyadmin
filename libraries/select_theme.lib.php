@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * phpMyAdmin Theme Manager
  * 2004-05-20: Michael Keck <mail_at_michaelkeck_dot_de>
@@ -63,7 +62,6 @@ if ($PMA_ThemeAvailable == TRUE) { // themeManager is available
         while (false !== ($PMA_Theme = readdir($handleThemes))) { // get themes
             if ($PMA_Theme != "." && $PMA_Theme != ".." && $PMA_Theme!='original' && $PMA_Theme!=$cfg['ThemeDefault'] && $PMA_Theme != 'CVS') { // file check
                 if (@is_dir($cfg['ThemePath'].'/'.$PMA_Theme)) { // check the theme
-                    $themesCount++;
                     $available_themes_choices[]=$PMA_Theme;
                 } // end check the theme
             } // end file check

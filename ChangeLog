@@ -16,6 +16,9 @@ $Source$
     * main.php: $theme='none' no longer a possible choice
     * open.php: permits access to message strings in theme manager
     * themes/index.php: new calling
+    My changes:
+    * libraries/common.lib.php: proper revision check
+    * libraries/select_theme.lib.php: remove unneeded counter
 
 2004-06-13 Marc Delisle  <lem9@users.sourceforge.net>
     * many files: redesign part 3, thanks to Michael Keck (mkkeck).
