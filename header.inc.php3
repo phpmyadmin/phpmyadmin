@@ -91,6 +91,18 @@ var confirmMsg  = '<?php echo(($cfgConfirm) ? str_replace('\'', '\\\'', $strDoYo
 </script>
 <script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
     <?php
+} else if (isset($js_to_run) && $js_to_run == 'user_details.js') {
+    echo "\n";
+    ?>
+// js form validation stuff
+var jsHostEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strHostEmpty']); ?>';
+var jsUserEmpty       = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strUserEmpty']); ?>';
+var jsPasswordEmpty   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordEmpty']); ?>';
+var jsPasswordNotSame = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strPasswordNotSame']); ?>';
+//-->
+</script>
+<script src="libraries/user_details.js" type="text/javascript" language="javascript"></script>
+    <?php
 } else {
     echo "\n";
     ?>

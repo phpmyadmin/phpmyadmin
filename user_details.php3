@@ -2,675 +2,660 @@
 /* $Id$*/
 
 
+/**
+ * Gets some core libraries
+ */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
-function check_operations()
-{
-    global $server, $lang;
-    global $strBack;
-    global $self;
+
+/**
+ * Displays the table of grants for an user
+ *
+ * @param   integer  the id of the query used to get hosts and databases lists
+ * @param   mixed    the database to check garnts for, FALSE for all databases
+ *
+ * @return  boolean  always true
+ *
+ * @global  string   the current language
+ * @global  integer  the server to use (refers to the number in the
+ *                   configuration file)
+ *
+ * @see check_db()
+ */
+function table_grants(&$host_db_result, $dbcheck = FALSE) {
+    global $lang, $server;
     ?>
 
-    <div align=left>
-    <ul>
-    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><?php echo $strBack; ?></a></li>
-    </ul>
-    </div>
+<!-- Table of grants -->
+<table border="<?php echo $GLOBALS['cfgBorder']; ?>">
+<tr>
+    <?php
+    // 1. Table headers
+    if ($dbcheck) {
+        echo "\n";
+        echo '    <th>' . $GLOBALS['strAction'] . '</th>' . "\n";
+        echo '    <th>' . $GLOBALS['strHost'] . '</th>' . "\n";
+        echo '    <th>' . $GLOBALS['strUser'] . '</th>';
+    } else {
+        echo "\n";
+        echo '    <th colspan="2">' . $GLOBALS['strAction'] . '</th>';
+    }
+    echo "\n";
+    echo '    <th>' . $GLOBALS['strDatabase'] . '</th>' . "\n";
+    echo '    <th>' . UCFirst($GLOBALS['strTable']) . '</th>' . "\n";
+    echo '    <th>' . $GLOBALS['strPrivileges'] . '</th>' . "\n";
+    if (!$dbcheck) {
+        echo '    <th>Grant Option</th>' . "\n";
+    }
+    ?>
+</tr>
+    <?php
+    echo "\n";
+
+    // 2. Table body
+    $url_query  = 'lang=' . $lang . '&server=' . $server . '&db=mysql&table=user';
+
+    while ($row = mysql_fetch_array($host_db_result)) {
+        $local_query = 'SHOW GRANTS FOR \'' . $row['user'] . '\'@\'' . $row['host'] . '\'';
+        $result      = mysql_query($local_query);
+        $grants_cnt  = @mysql_num_rows($result);
+
+        if ($grants_cnt) {
+            $i = 0;
+            while ($usr_row = mysql_fetch_row($result)) {
+                if (eregi('GRANT (.*) ON ([^\.]+).([^\.]+) TO .*$', $usr_row[0], $parts)) {
+                    $priv     = ($parts[1] != 'USAGE') ? trim($parts[1]) : '';
+                    $db       = $parts[2];
+                    $table    = trim($parts[3]);
+                    $grantopt = eregi('WITH GRANT OPTION$', $usr_row[0]);
+                } else {
+                    $priv     = '';
+                    $db       = '&nbsp';
+                    $table    = '&nbsp';
+                    $column   = '&nbsp';
+                    $grantopt = FALSE;
+                } // end if...else
+
+                // Checking the database ...
+                if ($dbcheck) {
+                    if (!eregi($dbcheck . '|\*', $db) || ($priv == '')) {
+                        continue;
+                    }
+                } // end if
+
+                // Password Line
+                if ($priv == '' && !$grantopt) {
+                    continue;
+                }
+
+                $bgcolor    = ($i % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
+                $revoke_url = 'sql.php3'
+                            . '?' . $url_query
+                            . '&sql_query=' . urlencode('REVOKE ' . $priv . ' ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['user'] . '\'@\'' . $row['host'] . '\'')
+                            . '&zero_rows=' . urlencode($GLOBALS['strRevokeMessage'] . ' <span style="color: #002E80">' . $row['user'] . '@' . $row['host'] . '</span>')
+                            . '&goto=user_details.php3';
+                if ($grantopt) {
+                    $revoke_grant_url = 'sql.php3'
+                                      . '?' . $url_query
+                                      . '&sql_query=' . urlencode('REVOKE GRANT OPTION ON ' . backquote($db) . '.' . backquote($table) . ' FROM \'' . $row['user'] . '\'@\'' . $row['host'] . '\'')
+                                      . '&zero_rows=' . urlencode($GLOBALS['strRevokeGrantMessage'] . ' <span style="color: #002E80">' . $row['user'] . '@' . $row['host'] . '</span>')
+                                      . '&goto=user_details.php3';
+                }
+                ?>
+<tr bgcolor="<?php echo $bgcolor; ?>">
+                <?php
+                if (!$dbcheck) {
+                    if ($priv) {
+                        echo "\n";
+                        ?>
+    <td<?php if (!$grantopt) echo ' colspan="2"'; ?>>
+        <a href="<?php echo $revoke_url; ?>">
+            <?php echo $GLOBALS['strRevokePriv']; ?></a>
+    </td>
+                        <?php
+                    }
+                    if ($grantopt) {
+                        echo "\n";
+                        ?>
+    <td<?php if (!$priv) echo ' colspan="2"'; ?>>
+        <a href="<?php echo $revoke_grant_url; ?>">
+            <?php echo $GLOBALS['strRevokeGrant']; ?></a>
+    </td>
+                        <?php
+                    }
+                } else {
+                    if ($priv) {
+                        echo "\n";
+                        ?>
+    <td>
+        <a href="<?php echo $revoke_url; ?>">
+            <?php echo $GLOBALS['strRevoke']; ?></a>
+    </td>
+                        <?php
+                    } else {
+                        echo "\n";
+                        ?>
+    <td>&nbsp;</td>
+                        <?php
+                    }
+                    echo "\n";
+                    ?>
+    <td><?php echo $row['host']; ?></td>
+    <td><?php echo ($row['user']) ? $row['user'] : '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>'; ?></td>
+                    <?php
+                }
+                echo "\n";
+                ?>
+    <td><?php echo ($db == '*') ? '<span style="color: #002E80">' . $GLOBALS['strAll'] . '</span>' : $db; ?></td>
+    <td><?php echo ($table == '*') ? '<span style="color: #002E80">' . $GLOBALS['strAll'] . '</span>' : $table; ?></td>
+    <td><?php echo ($priv != '') ? $priv : '<span style="color: #002E80">' . $GLOBALS['strNoPrivileges'] . '</span>'; ?></td>
+                <?php
+                if (!$dbcheck) {
+                    echo "\n";
+                    ?>
+    <td><?php echo ($grantopt) ? $GLOBALS['strYes'] : $GLOBALS['strNo']; ?></td>
+                    <?php
+                }
+                echo "\n";
+                ?>
+    <!-- Debug <td><?php echo $usr_row[0] ?></td> Debug -->
+</tr>
+                <?php
+                $i++;
+                echo "\n";
+            } // end while $usr_row
+        } // end if $grants_cnt >0
+    } // end while $row
+    ?>
+</table>
+<hr />
 
     <?php
-}
+    echo "\n";
 
+    return TRUE;
+} // end of the 'table_grants()' function
+
+
+/**
+ * Displays the list of grants for a/all database/s
+ *
+ * @param   mixed    the database to check garnts for, FALSE for all databases
+ *
+ * @return  boolean  true/false in case of success/failure
+ *
+ * @see table_grants()
+ */
 function check_db($dbcheck)
 {
-    $select = "SELECT host, user FROM mysql.user ORDER BY host, user";
-    $result = mysql_query($select);
-    $rows = @mysql_num_rows($result);
+    $local_query  = 'SELECT host, user FROM mysql.user ORDER BY host, user';
+    $result       = mysql_query($local_query);
+    $host_usr_cnt = @mysql_num_rows($result);
 
-    # Errors
-    if (!isset($rows)) return -1;
-    if ($rows == 0) return 0;
-
-    table_grants_header($dbcheck);
-
-    while ($row = mysql_fetch_array($result))
-       table_grants($row['host'], $row['user'], $dbcheck);
-
-    table_grants_tail();
-}
-
-function normal_operations()
-{
-    global $server, $lang, $self;
-    global $strReloadMySQL, $strGo;
-
-    global $strHostEmpty, $strUserEmpty, $strPasswordEmpty;
-    global $strPasswordNotSame, $strAddUserMessage, $strRememberReload;
-    global $strDatabase, $strHost, $strAnyHost, $strUserName;
-    global $strAnyUser, $strPassword, $strNoPassword, $strReType;
-    global $strPrivileges, $strAddUser, $strCheckDbPriv;
-
-    ?>
-
-    <script language="JavaScript">
-    <!--
-
-    function addUser(f) {
-        var sql = "INSERT INTO user SET ";
-
-        if (f.anyhost[0].checked) {
-           if (f.host.value == "") {
-               alert("<?php echo $strHostEmpty; ?>");
-               return;
-              }
-           sql += "host = '" + f.host.value + "'";
-        } else sql += "host = '%'"
-
-        if (f.anyuser[0].checked) {
-           if (f.user.value == "") {
-               alert("<?php echo $strUserEmpty; ?>");
-               return;
-              }
-           sql += ", user = '" + f.user.value + "'";
-        } else sql += ", user = ''"
-
-        if (f.nopass[0].checked) {
-           if (f.pw.value == "") {
-               alert("<?php echo $strPasswordEmpty; ?>");
-               return;
-              }
-
-           if (f.pw.value != f.pw2.value) {
-               alert("<?php echo $strPasswordNotSame; ?>");
-               return;
-              }
-              sql += ", password = PASSWORD('" + f.pw.value + "')";
-        }
-
-        sql += ", " + privToString(f);
-
-        url  = "sql.php3";
-        url += "?sql_query=" + escape(sql);
-        url += "&zero_rows=" + escape("<?php echo "$strAddUserMessage<br>$strRememberReload"; ?>");
-        url += "<?php echo "&server=$server&lang=$lang&db=mysql&table=user"; ?>";
-        url += "&goto=<?php echo $self; ?>";
-
-        location.href = url;
+    if (!$host_usr_cnt) {
+        return FALSE;
     }
+    table_grants($result, $dbcheck);
 
-    //-->
-    </script>
-
-    <div align=left>
-    <ul>
-
-    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user&mode=reload"; ?>"><?php echo $strReloadMySQL; ?></a> <?php print show_docu("manual_Reference.html#FLUSH"); ?></li>
-
-    <li><form name=userForm1 method="POST" action="<?php echo $self; ?>"><?php echo $strCheckDbPriv; ?>
-    <table width="100%"><tr>
-    <td><?php echo $strDatabase; ?>:&nbsp;<select name="db">
-<?php
-    $result = mysql_query("SHOW DATABASES");
-    if (@mysql_num_rows($result))
-        while ($row = mysql_fetch_row($result))
-            echo "<option>" . $row[0] . "</option>\n";
-?>
-    </select></td>
-    </tr></table>
-    <input type="hidden" name="server" value="<?php echo $server; ?>">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>">
-    <input type="hidden" name="check" value="1">
-    <input type="submit" value="<?php echo $strGo; ?>">
-    </form>
-    </li>
-
-    <li><form name=userForm2 onsubmit ="return false"><?php echo $strAddUser; ?>
-    <table>
-    <tr>
-    <td><input type="radio" name="anyhost">
-    <?php echo $strHost; ?>: <input type="text" name="host" size=10 onchange="anyhost[0].checked = true"></td>
-    <td>&nbsp;</td><td><input type="radio" name="anyhost" checked><?php echo $strAnyHost; ?></td>
-    </tr>
-    </table>
-    <table>
-    <tr>
-    <td><input type="radio" name="anyuser" checked>
-    <?php echo $strUserName; ?>: <input type="text" name="user" size=10 onchange="anyuser[0].checked = true"></td>
-    <td>&nbsp;</td><td><input type="radio" name="anyuser"><?php echo $strAnyUser; ?></td>
-    </tr>
-    </table>
-    <table>
-    <tr>
-    <td><input type="radio" name="nopass" checked>
-    <?php echo $strPassword; ?>: <input type="password" name="pw" size=10 onchange="nopass[0].checked = true"></td>
-    <td><?php echo $strReType; ?>: <input type="password" name="pw2" size=10 onchange="nopass[0].checked = true"></td>
-    <td>&nbsp;</td>
-    <td><input type="radio" name="nopass"><?php echo $strNoPassword; ?></td></tr>
-    <tr><td><br><?php echo $strPrivileges; ?>:<br></td></tr>
-    </table>
-    <?php table_privileges("userForm2") ?>
-    <input type="button" value="<?php echo $strGo; ?>" onclick="addUser(document.userForm2)"></p>
-    </form>
-    </li>
-    </ul>
-    </div>
-    <?php
-}
-
-function grant_operations()
-{
-    global $server, $lang, $user, $host;
-    global $dbgrant, $tablegrant;
-    global $self;
-
-    global $strBack, $strGo;
-    global $strDbEmpty, $strTableEmpty;
-    global $strAddPriv, $strAddPrivMessage;
-    global $strDatabase, $strAnyDatabase;
-    global $strTable, $strAnyTable;
-    global $strColumn, $strAnyColumn, $strColumnEmpty;
-    global $strPrivileges;
-
-    ?>
-
-    <script language="JavaScript">
-    <!--
-
-    function getSelected(field) {
-        var f = "";
-        for (var i = 0; i < field.options.length; i++)
-          if (field.options[i].selected)
-              f += field.options[i].text + ", ";
-
-        return f.substring(0, f.length - 2);
-    }
-
-    function addGrant(f) {
-        var sql;
-        var db, table, column = "";
-
-        db = getSelected(f.database);
-        table = getSelected(f.table);
-        column = getSelected(f.column);
-
-        if (f.anydb[1].checked) {
-
-            if (db == "") {
-               alert("<?php echo $strDbEmpty; ?>");
-               return;
-            }
-
-            if (f.anytable[1].checked) {
-
-               if (table == "") {
-                  alert("<?php echo $strTableEmpty; ?>");
-                  return;
-               }
-
-               if (f.anycolumn[1].checked) {
-                  if (column == "") {
-                     alert("<?php echo $strColumnEmpty; ?>");
-                     return;
-                  }
-                  column = " (" + column + ")";
-
-               } else column = "";
-
-            } else {table = "*"; column = ""; }
-
-        } else { db = "*"; table = "*"; column = ""; }
-
-        sql = "GRANT " + privGrantToString(f) + "" + column;
-        sql += " ON " + protect_name(db) + "." + protect_name(table) 
-        sql += " TO '" + "<?php echo $user; ?>" + "'@'" + "<?php echo $host ?>'"
-        if (f.Grant_priv.checked) sql += " with grant option";
-
-        url  = "sql.php3";
-        url += "?sql_query=" + escape(sql);
-        url += "&zero_rows=" + escape("<?php echo $strAddPrivMessage; ?>");
-        url += "<?php echo "&server=$server&lang=$lang"; ?>&db=mysql";
-        url += "&goto=<?php echo $self; ?>";
-
-        location.href = url;
-    }
-
-    function protect_name(db_or_table) {
-	var js_mysql_version = <?php echo MYSQL_INT_VERSION ?>;
-
-	if (js_mysql_version >= 32306) {
-<!--		return "`" + db_or_table + "`"; -->
-		return db_or_table;
-	}
-	else {
-		return db_or_table;
-	}
-    }
-
-    function change(f, param) {
-        var l, p;
-
-        l = location.href;
-        if (param == "dbgrant") {
-           p = l.indexOf("&" + param);
-           if ( p >= 0) l = l.substring(0, p);
-        }
-
-        location.href = l + "&" + param + "=" + getSelected(f);
-    }
-
-    // -->
-    </script>
-
-    <div align=left>
-    <ul>
-
-    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><?php echo $strBack; ?></a></li>
-
-    <li><form name=userForm3 onsubmit ="return false"><?php echo $strAddPriv; ?>
-    <table width="100%"><tr>
-    <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? "": " checked"; ?>><?php echo $strAnyDatabase; ?></td>
-    <td>&nbsp;</td>
-    <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? " checked":""; ?>><?php echo $strDatabase; ?>:&nbsp;
-    <select name="database" onchange="change(userForm3.database, 'dbgrant')">
-<?php
-    if (!isset($dbgrant)) echo "<option selected></option>";
-    $result = mysql_query("SHOW DATABASES");
-    if (@mysql_num_rows($result))
-        while ($row = mysql_fetch_row($result)) {
-            $selected = ($row[0] == $dbgrant)? "SELECTED" : "";
-            echo "<option $selected>" . $row[0] . "</option>\n";
-        }
-?>
-    </select></td>
-    </tr></table>
-
-    <table width="100%"><tr>
-    <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? "":" checked"; ?>><?php echo $strAnyTable; ?></td>
-    <td>&nbsp;</td>
-    <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? " checked":""; ?>><?php echo $strTable; ?>:&nbsp;
-    <select name="table" onchange="change(userForm3.table, 'tablegrant')"
-    >
-<?php
-    if (isset($dbgrant)) {
-        if (!isset($tablegrant)) echo "<option selected></option>";
-        $result = mysql_query("SHOW TABLES from ".backquote($dbgrant));
-        if (@mysql_num_rows($result))
-           while ($row = mysql_fetch_row($result)) {
-                $selected = ($row[0] == $tablegrant)? "SELECTED" : "";
-                echo "<option $selected>" . $row[0] . "</option>\n";
-                }
-    }
-?>
-    </select></td>
-    </tr></table>
-
-    <table width="100%"><tr>
-    <td VALIGN=TOP><input type="radio" name="anycolumn" checked><?php echo $strAnyColumn; ?></td>
-    <td>&nbsp;</td>
-    <td VALIGN=TOP><input type="radio" name="anycolumn"><?php echo $strColumn; ?>:</td>
-    <td>
-    <select name="column" onchange="anycolumn[1].checked = true" multiple>
-<?php
-
-    if (isset($dbgrant) && isset($tablegrant)) {
-       $result = mysql_query("SHOW COLUMNS FROM ".backquote($dbgrant)."." .
-	backquote($tablegrant));
-       if (@mysql_num_rows($result))
-           while ($row = mysql_fetch_row($result))
-               echo "<option>" . $row[0] . "</option>\n";
-    }
-?>
-    </select>
-    </td>
-    </tr></table>
-
-    <table><tr><td><br><?php echo $strPrivileges; ?>:<br></td></tr></table>
-    <?php table_privileges("userForm3") ?>
-    <input type="button" value="<?php echo $strGo; ?>" onclick="addGrant(userForm3)"></p>
-    </form>
-    </li>
-    </ul>
-    </div>
-    <?php
-}
-
-function table_grants_header($dbcheck = FALSE) {
-    global $cfgBorder;
-
-    global $strAction;
-    global $strHost, $strUser, $strDatabase, $strColumn;
-    global $strTable, $strPrivileges;
-
-    echo "<table border=$cfgBorder>\n<tr>";
-
-    if ($dbcheck) {
-       echo "<th>$strAction</th>";
-       echo "<th>$strHost</th>";
-       echo "<th>$strUser</th>";
-    } else {
-      echo "<th colspan=2>$strAction</td>";
-    }
-
-    echo "<th>$strDatabase</th>";
-    echo "<th>" . UCFirst($strTable) . "</th>";
-    echo "<th>$strPrivileges</th>";
-    if (!$dbcheck) echo "<th>Grant Option</th>";
-    echo "</tr>\n";
-}
-
-function table_grants_tail() {
-    echo "</table>\n<hr>";
-}
+    return TRUE;
+} // end of the 'check_db()' function
 
 
-function table_grants($host, $user, $dbcheck = FALSE)
-{
-    global $cfgBgcolorOne, $cfgBgcolorTwo;
-    global $server, $lang, $db, $table;
-    global $self;
-
-    global $strEdit, $strDelete, $strAny, $strAll, $strYes, $strNo;
-    global $strRevoke, $strRevokePriv, $strRevokeGrant;
-    global $strRevokeMessage, $strRevokeGrantMessage;
-    global $strNoPrivileges;
-
-    $select = "SHOW GRANTS FOR '$user'@'$host'";
-    $result = mysql_query($select);
-    $rows = @mysql_num_rows($result);
-
-    # Errors
-    if (!isset($rows)) return -1;
-    if ($rows == 0) return 0;
-
-    $i = 0;
-    while ($row = mysql_fetch_row($result)) {
-
-        if (eregi("GRANT (.*) ON ([^\.]+).([^\.]+) TO .*$", $row[0], $parts)) {
-            $priv = $parts[1];
-            $db = $parts[2];
-            $table = trim($parts[3]);
-            $grantopt = eregi("WITH GRANT OPTION$", $row[0]);
-        } else {
-            $db = "&nbsp";
-            $table = "&nbsp";
-            $column = "&nbsp";
-            $priv = "";
-            $grantopt = FALSE;
-        }
-
-        if ($priv == "USAGE") $priv = "";
-
-        # Checking the database ...
-        if ($dbcheck)
-           if (!eregi($dbcheck . "|\*", $db) || (trim($priv) == "")) continue;
-
-        # Password Line
-        if ((trim($priv) == "") && !$grantopt) continue;
-
-        if (!$dbcheck && !isset($show_header)) {
-            $show_header = TRUE;
-            table_grants_header();
-        }
-
-        $bgcolor = $cfgBgcolorOne;
-        $i % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
-
-        # Revoke
-        $query = "server=$server&lang=$lang&db=mysql&table=user";
-        $revoke_url  = "sql.php3";
-//        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON " . backquote($db) . "." . backquote($table) . " FROM '$user'@'$host'");
-        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON " . $db . "." . $table . " FROM '$user'@'$host'");
-        $revoke_url .= "&$query";
-        $revoke_url .= "&zero_rows=" . urlencode("$strRevokeMessage <font color=#002E80>$user@$host</font>");
-        $revoke_url .= "&goto=$self";
-
-        # Revoke GRANT OPTION
-        if ($grantopt) {
-            $revoke_grant_url  = "sql.php3";
-//            $revoke_grant_url .= "?sql_query=" . urlencode("REVOKE GRANT OPTION ON " . backquote($db) . "." . backquote($table) . " FROM '$user'@'$host'");
-            $revoke_grant_url .= "?sql_query=" . urlencode("REVOKE GRANT OPTION ON " . $db . "." . $table . " FROM '$user'@'$host'");
-            $revoke_grant_url .= "&$query";
-            $revoke_grant_url .= "&zero_rows=" . urlencode("$strRevokeGrantMessage <font color=#002E80>$user@$host</font>");
-            $revoke_grant_url .= "&goto=$self";
-        }
-        ?>
-
-        <tr bgcolor="<?php echo $bgcolor;?>">
-
-        <?php
-        if (!$dbcheck) {
-            if ($priv) {
-                ?>
-            <td<?php if (!$grantopt) echo ' colspan="2"'; ?>><a href="<?php echo $revoke_url; ?>"><?php echo $strRevokePriv; ?></a></td>
-                <?php
-            }
-            if ($grantopt) {
-                ?>
-            <td<?php if (!$priv) echo ' colspan="2"'; ?>><a href="<?php echo $revoke_grant_url; ?>"><?php echo $strRevokeGrant; ?></a></td>
-                <?php
-            }
-        } else {
-            ?>
-            <td>
-            <?php
-            if  ($priv) {
-                ?>
-                <a href="<?php echo $revoke_url; ?>"><?php echo $strRevoke; ?></a>
-                <?php
-            }
-            ?>
-            </td>
-            <td><?php echo $host; ?></td>
-            <td><?php echo ($user) ? $user : "<font color=\"#FF0000\">$strAny</font>"; ?></td>
-            <?php
-        }
-        ?>
-
-        <td><?php echo ($db == "*") ? "<font color=\"#002E80\">$strAll</font>" : $db; ?></td>
-        <td><?php echo ($table == "*") ? "<font color=\"#002E80\">$strAll</font>" : $table; ?></td>
-        <td><?php echo ($priv != "") ? $priv : "<font color=\"#002E80\">$strNoPrivileges</font>"; ?></td>
-        <?php if (!$dbcheck) { ?>
-        <td><?php echo ($grantopt) ? "$strYes" : "$strNo"; ?></td>
-        <?php } ?>
-        <!-- <td><?php echo $row[0] ?></td> <!-- Debug -->
-        </tr>
-
-        <?php
-        $i++;
-    }
-
-    if (!$dbcheck && isset($show_header)) table_grants_tail();
-    return $rows;
-}
-
+/**
+ * Displays the privileges part of a page
+ *
+ * @param   string   the name of the form for js validation
+ * @param   array    the list of the privileges of the user
+ *
+ * @return  boolean  always true
+ *
+ * @see normal_operations()
+ */
 function table_privileges($form, $row = FALSE)
 {
-    global $strDelete;
-    global $strCheckAll, $strUncheckAll;
-
     ?>
-    <script language="JavaScript">
-    <!--
-    function checkForm(f, checked) {
-        len = f.elements.length;
-        var i=0;
-        for( i=0; i<len; i++)
-           if (f.elements[i].name.indexOf("_priv") >= 0) {
-              f.elements[i].checked=checked;
-              }
-    }
 
-    function privGrantToString(f) {
-        var sql = '';
-        var i   = 0;
-        var len = f.elements.length;
-
-        for (i = 0; i < len; i++) {
-            var whichElt = f.elements[i];
-            if (whichElt.name.indexOf('_priv') >= 0) {
-                if (whichElt.checked && whichElt.name.indexOf('Grant') == -1) {
-                    sql += ', ' + whichElt.name.substring(0, whichElt.name.indexOf('_priv'));
-                }
-            }
-        }
-        sql = sql.substring(2);
-        if (sql == '') {
-            sql = 'Usage';
-        }
-
-        return sql;
-    }
-
-    function privToString(f) {
-        var index = 0;
-        var sql   = '';
-        var i     = 0;
-        var len   = f.elements.length;
-
-        for (i = 0; i < len; i++) {
-            var whichElt = f.elements[i];
-            if (whichElt.name.indexOf('_priv') >= 0) {
-                if (index > 0) {
-                    sql += ', ';
-                }
-                index++;
-                if (whichElt.checked) {
-                    sql += whichElt.name + ' = \'Y\'';
-                } else {
-                    sql += whichElt.name + ' = \'N\'';
-                }
-            }
-        }
-        if (sql == '') {
-            sql = 'Usage';
-        }
-
-        return sql;
-    }
-    //-->
-    </script>
-    <table>
+            <table>
     <?php
-    $list_priv = array("Select", "Insert", "Update", "Delete", "Create", "Drop", "Reload",
-		       "Shutdown", "Process", "File", "Grant", "References", "Index", "Alter");
-
-    $item = 0;
+    echo "\n";
+    $list_priv = array('Select', 'Insert', 'Update', 'Delete', 'Create', 'Drop', 'Reload',
+                       'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index', 'Alter');
+    $item      = 0;
     while ((list(,$priv) = each($list_priv)) && ++$item) {
-       $priv_priv = $priv . "_priv";
-       $checked = ($row && $row[$priv_priv] == "Y") ?  "checked" : "";
-       if ($item % 2 == 1) echo "<tr>";
-       else echo "<td>&nbsp;</td>";
-       echo "<td><input type=\"checkbox\" name=\"$priv_priv\" $checked></td>";
-//       echo "<td>" . ${"str$priv"} . "</td>";
-       echo "<td>" . $priv . "</td>";
-       if ($item % 2 == 0) echo "</tr>\n";
-    }
-    if ($item % 2 == 1) echo "<td colspan=2>&nbsp;<td></tr>\n";
-
+        $priv_priv = $priv . '_priv';
+        $checked   = ($row && $row[$priv_priv] == 'Y') ?  ' checked="checked"' : '';
+        if ($item % 2 == 1) {
+            echo '            <tr>' . "\n";
+        } else {
+            echo '                <td>&nbsp;</td>' . "\n";
+        }
+        echo '                <td>' . "\n";
+        echo '                    <input type="checkbox" name="' . $priv . '_priv"' . $checked . ' />' . "\n";
+        echo '                </td>' . "\n";
+        echo '                <td>' . $priv . '</td>' . "\n";
+        if ($item % 2 == 0) {
+            echo '            </tr>' . "\n";
+        }
+    } // end while
+    if ($item % 2 == 1) {
+        echo '                <td colspan="2">&nbsp;<td>' . "\n";
+        echo '            </tr>' . "\n";
+    } // end if
     ?>
-    </table>
-    <table>
-    <tr><td><a href="javascript:checkForm(document.<?php echo $form; ?>, true)"><?php echo $strCheckAll; ?></a></td>
-    <td>&nbsp;</td><td><a href="javascript:checkForm(document.<?php echo $form; ?>, false)"><?php echo $strUncheckAll; ?></a></td></tr>
-    </table>
+            </table>
+            <table>
+            <tr>
+                <td>
+                    <a href="#" onclick="checkForm('<?php echo $form; ?>', true); return false">
+                        <?php echo $GLOBALS['strCheckAll']; ?></a>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <a href="#" onclick="checkForm('<?php echo $form; ?>', false); return false">
+                        <?php echo $GLOBALS['strUncheckAll']; ?></a>
+                </td>
+            </tr>
+            </table>
     <?php
-}
+    echo "\n";
 
+    return TRUE;
+} // end of the 'table_privileges()' function
+
+
+/**
+ * Displays the page for "normal" operations
+ *
+ * @return  boolean  always true
+ *
+ * @global  string   the current language
+ * @global  integer  the server to use (refers to the number in the
+ *                   configuration file)
+ *
+ * @see table_privileges()
+ */
+function normal_operations()
+{
+    global $lang, $server;
+    ?>
+
+<ul>
+
+    <li>
+        <div style="margin-bottom: 10px">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=mysql&table=user&mode=reload">
+            <?php echo $GLOBALS['strReloadMySQL']; ?></a>&nbsp;
+        <?php print show_docu('manual_Reference.html#FLUSH'); ?>
+        </div>
+    </li>
+
+    <li>
+        <form name="dbPrivForm" action="user_details.php3" method="post">
+            <?php echo $GLOBALS['strCheckDbPriv'] . "\n"; ?>
+            <table>
+            <tr>
+                <td>
+                    <?php echo $GLOBALS['strDatabase']; ?>&nbsp;:&nbsp;
+                    <select name="db">
+    <?php
+    echo "\n";
+    $result = mysql_query('SHOW DATABASES');
+    if (@mysql_num_rows($result)) {
+        while ($row = mysql_fetch_row($result)) {
+            echo '                        ';
+            echo '<option value="' . str_replace('"', '&quot;', $row[0]) . '">' . htmlspecialchars($row[0]) . '</option>' . "\n";
+        } // end while
+    } // end if
+    ?>
+                    </select>
+                    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                    <input type="hidden" name="check" value="1" />
+                    <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
+                </td>
+            </tr>
+            </table>
+        </form>
+    </li>
+
+    <li>
+        <form action="user_details.php3" method="post" name="addUserForm" onsubmit="return checkAddUser()">
+            <?php echo $GLOBALS['strAddUser'] . "\n"; ?>
+            <table>
+            <tr>
+                <td>
+                    <input type="radio" name="anyhost" checked="checked" />
+                    <?php echo $GLOBALS['strAnyHost']; ?>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="radio" name="anyhost" />
+                    <?php echo $GLOBALS['strHost']; ?>&nbsp;:&nbsp;
+                </td>
+                <td>
+                    <input type="text" name="host" size="10" onchange="this.form.anyhost[1].checked = true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="anyuser" />
+                    <?php echo $GLOBALS['strAnyUser']; ?>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="radio" name="anyuser" checked="checked" />
+                    <?php echo $GLOBALS['strUserName']; ?>&nbsp;:&nbsp;
+                </td>
+                <td>
+                    <input type="text" name="pma_user" size="10" onchange="this.form.anyuser[1].checked = true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="nopass" value="1" />
+                    <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="radio" name="nopass" value="0" checked="checked" />
+                    <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
+                </td>
+                <td>
+                    <input type="password" name="pma_pw" size="10" onchange="nopass[1].checked = true" />
+                    &nbsp;&nbsp;
+                    <?php echo $GLOBALS['strReType']; ?>&nbsp;:&nbsp;
+                    <input type="password" name="pma_pw2" size="10" onchange="nopass[1].checked = true" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <br />
+                    <?php echo $GLOBALS['strPrivileges']; ?>&nbsp;:
+                    <br />
+                </td>
+            </tr>
+            </table>
+    <?php
+    echo "\n";
+    table_privileges('addUserForm');
+    ?>
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="submit" name="submit_addUser" value="<?php echo $GLOBALS['strGo']; ?>" />
+        </form>
+    </li>
+
+</ul>
+    <?php
+
+    return TRUE;
+} // end of the 'normal_operations()' function
+
+
+/**
+ * Displays the grant operations part of the page
+ *
+ * @param   array    grants of the current user
+ *
+ * @return  boolean  always true
+ *
+ * @global  string   the current language
+ * @global  integer  the server to use (refers to the number in the
+ *                   configuration file)
+ * @global  string   the host name to check grants for
+ * @global  string   the username to check grants for
+ * @global  string   the database to check grants for
+ * @global  string   the table to check grants for
+ *
+ * @see table_privileges()
+ */
+function grant_operations($grants)
+{
+    global $lang, $server, $host, $pma_user;
+    global $dbgrant, $tablegrant;
+    ?>
+
+<ul>
+
+    <li>
+        <div style="margin-bottom: 10px">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=mysql&table=user">
+            <?php echo $GLOBALS['strBack']; ?></a>
+        </div>
+    </li>
+
+    <li>
+        <form action="user_details.php3" method="post" name="userGrants">
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="grants" value="1" />
+            <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
+            <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" />
+
+            <?php echo $GLOBALS['strAddPriv'] . "\n"; ?>
+            <table>
+            <tr>
+                <td>
+                    <input type="radio" name="anydb" value="1"<?php echo ($dbgrant) ? '' : ' checked="checked"'; ?> />
+                    <?php echo $GLOBALS['strAnyDatabase'] . "\n"; ?>
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <input type="radio" name="anydb" value="0"<?php echo ($dbgrant) ? ' checked="checked"' : ''; ?> />
+                    <?php echo $GLOBALS['strDatabase']; ?>&nbsp;:&nbsp;
+                </td>
+                <td>
+                    <select name="dbgrant" onchange="change(this)">
+    <?php
+    echo "\n";
+    if (!isset($dbgrant)) {
+        echo '                        ';
+        echo '<option selected="selected"></option>' . "\n";
+    }
+    $result = mysql_query('SHOW DATABASES');
+    if (@mysql_num_rows($result)) {
+        while ($row = mysql_fetch_row($result)) {
+            $selected = (($row[0] == $dbgrant) ? ' selected="selected"' : '');
+            echo '                        ';
+            echo '<option' . $selected . '>' . $row[0] . '</option>' . "\n";
+        } // end while
+    } // end if
+    ?>
+                    </select>
+                </td>
+                <td>
+                    &nbsp;
+                    <input type="submit" value="<?php echo $GLOBALS['strShowTables']; ?>" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="anytable" value="1"<?php echo ($tablegrant) ? '' : ' checked="checked"'; ?> />
+                    <?php echo $GLOBALS['strAnyTable'] . "\n"; ?>
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <input type="radio" name="anytable" value="0"<?php echo ($tablegrant) ? ' checked="checked"' : ''; ?> />
+                    <?php echo $GLOBALS['strTable']; ?>&nbsp;:&nbsp;
+                </td>
+                <td>
+                    <select name="tablegrant" onchange="change(this)">
+    <?php
+    echo "\n";
+    if (!isset($tablegrant)) {
+        echo '                        ';
+        echo '<option selected="selected"></option>' . "\n";
+    }
+    if (isset($dbgrant)) {
+        $result = mysql_query('SHOW TABLES FROM ' . backquote($dbgrant));
+        if (@mysql_num_rows($result)) {
+            while ($row = mysql_fetch_row($result)) {
+                $selected = ((isset($tablegrant) && $row[0] == $tablegrant) ? ' selected="selected"' : '');
+                echo '                        ';
+                echo '<option' . $selected . '>' . $row[0] . '</option>' . "\n";
+            } // end while
+        } // end if
+    } // end if
+    ?>
+                    </select>
+                </td>
+                <td>
+                    &nbsp;
+                    <input type="submit" value="<?php echo $GLOBALS['strShowCols']; ?>" />
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <input type="radio" name="anycolumn" value="1" checked="checked" />
+                    <?php echo $GLOBALS['strAnyColumn'] . "\n"; ?>
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td valign="top">
+                    <input type="radio" name="anycolumn" value="0" />
+                    <?php echo $GLOBALS['strColumn']; ?>&nbsp;:&nbsp;
+                </td>
+                <td>
+                    <select name="colgrant[]" multiple="multiple" onchange="anycolumn[1].checked = true">
+    <?php
+    echo "\n";
+    if (!isset($dbgrant) || !isset($tablegrant)) {
+        echo '                        ';
+        echo '<option></option>' . "\n";
+    }
+    if (isset($dbgrant) && isset($tablegrant)) {
+        $result = mysql_query('SHOW COLUMNS FROM ' . backquote($dbgrant) . '.' . backquote($tablegrant));
+        if (@mysql_num_rows($result)) {
+            while ($row = mysql_fetch_row($result)) {
+                echo '                        ';
+                echo '<option value="' . str_replace('"', '&quot;', $row[0]) . '">' . $row[0] . '</option>' . "\n";
+            } // end while
+        } // end if
+    } // end if
+    ?>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+            <table>
+            <tr>
+                <td>
+                    <br />
+                    <?php echo $GLOBALS['strPrivileges']; ?>&nbsp;:&nbsp;
+                    <br />
+                </td>
+            </tr>
+            </table>
+    <?php
+    echo "\n";
+    table_privileges('userGrants', $grants);
+    ?>
+            <input type="submit" name="upd_grants" value="<?php echo $GLOBALS['strGo']; ?>" />
+        </form>
+    </li>
+
+</ul>
+    <?php
+    echo "\n";
+
+    return TRUE;
+} // end of the 'grant_operations()' function
+
+
+/**
+ * Displays the page to edit operations
+ *
+ * @param   string   the host name
+ * @param   string   the user name
+ *
+ * @return  boolean  always true
+ *
+ * @global  string   the current language
+ * @global  integer  the server to use (refers to the number in the
+ *                   configuration file)
+ * @global  string   the host name to check grants for
+ * @global  string   the username to check grants for
+ *
+ * @see table_privileges()
+ */
 function edit_operations($host, $user)
 {
-    global $server, $lang;
-    global $self;
+    global $lang, $server;
+    global $host, $pma_user;
 
-    global $strBack, $strGo;
-    global $strDelPassMessage, $strRememberReload, $strUpdatePassMessage;
-    global $strUpdatePrivMessage;
-    global $strPasswordEmpty, $strPasswordNotSame;
-    global $strDeletePassword, $strUpdatePassword, $strEditPrivileges;
-    global $strPassword, $strReType;
+    $result = mysql_query('SELECT * FROM mysql.user WHERE user = \'' . $user . '\' and host = \'' . $host . '\'');
+    $rows   = @mysql_num_rows($result);
 
-    $result = mysql_query("SELECT * FROM mysql.user WHERE user = '$user' and host = '$host'");
-    $rows = @mysql_num_rows($result);
-
-    # Errors
-    if (!isset($rows)) return -1;
-    if ($rows == 0) return 0;
+    if (!$rows) {
+        return FALSE;
+    }
 
     $row = mysql_fetch_array($result);
-
-    #Delete Password
-    $del_url  = "sql.php3";
-    $del_url .= "?sql_query=" . urlencode("UPDATE user SET password = '' WHERE user = '$user' and host = '$host'");
-    $del_url .= "&zero_rows=" . urlencode("$strDelPassMessage <font color=#002E80>$user@$host</font><br>$strRememberReload");
-    $del_url .= "&server=$server&lang=$lang&db=mysql&table=user";
-    $del_url .= "&goto=$self";
     ?>
 
-    <script language="JavaScript">
-    <!--
-    function changePrivileges(f) {
-        var sql = "UPDATE user SET ";
-        var url;
+<ul>
 
-        sql += privToString(f);
-        sql += " WHERE user = '<?php echo $user; ?>' and host = '<?php echo $host; ?>'";
-
-        url  = "sql.php3";
-        url += "?sql_query=" + escape(sql);
-        url += "&zero_rows=" + escape("<?php echo $strUpdatePrivMessage; ?> <font color=#002E80><?php echo "$user@$host"; ?></font><br><?php echo $strRememberReload; ?>");
-        url += "<?php echo "&server=$server&lang=$lang&db=mysql&table=user"; ?>";
-        url += "&goto=<?php echo $self; ?>";
-        location.href = url;
-    }
-
-    function changePassword(f) {
-        if (f.pw.value == "") {
-            alert("<?php echo $strPasswordEmpty; ?>");
-            return;
-           }
-
-        if (f.pw.value != f.pw2.value) {
-            alert("<?php echo $strPasswordNotSame ?>");
-            return;
-           }
-
-        url  = "sql.php3";
-        url += "?sql_query=" + escape("UPDATE user SET password = PASSWORD('" + f.pw.value + "') WHERE user = '<?php echo $user; ?>' and host = '<?php echo $host; ?>'");
-        url += "&zero_rows=" + escape("<?php echo $strUpdatePassMessage; ?> <font color=#002E80><?php echo "$user@$host"; ?></font><br><?php echo $strRememberReload; ?>");
-        url += "<?php echo "&server=$server&lang=$lang&db=mysql&table=user"; ?>";
-        url += "&goto=<?php echo $self; ?>";
-        location.href = url;
-    }
-    //-->
-    </script>
-
-    <div align=left>
-    <ul>
-
-    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><?php echo $strBack; ?></a></li>
-
-    <?php      if ($row['Password'] != "") { ?>
-    <li><td><a href="<?php echo $del_url; ?>"><?php echo $strDeletePassword; ?></a></td></li>
-    <?php } ?>
-
-    <li><form name=passForm onsubmit ="return false"><?php echo $strUpdatePassword; ?>
-    <table>
-    <tr><td><?php echo $strPassword; ?>: <input type="password" name="pw" size=10></td>
-    <td>&nbsp;</td>
-    <td><?php echo $strReType; ?>: <input type="password" name="pw2" size=10></td></tr>
-    </table>
-    <input type="button" value="<?php echo $strGo; ?>" onclick="changePassword(document.passForm)"></p>
-    </form></li>
-
-    <li><form name=privForm onsubmit ="return false"><?php echo $strEditPrivileges; ?>
-    <?php table_privileges("privForm", $row); ?>
-    <input type="button" value="<?php echo $strGo; ?>" onclick="changePrivileges(document.privForm)"></p>
-    </form>
+    <li>
+        <div style="margin-bottom: 10px">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=mysql&table=user">
+            <?php echo $GLOBALS['strBack']; ?></a>
+        </div>
     </li>
-    </ul>
-    </div>
 
+    <li>
+        <form action="user_details.php3" method="post" name="passForm" onsubmit="return checkPassword(this)">
+            <?php echo $GLOBALS['strUpdatePassword'] . "\n"; ?>
+            <table>
+            <tr>
+                <td>
+                    <input type="radio" name="nopass" value="1"<?php if ($row['Password'] == '') echo ' checked="checked"'; ?> />
+                    <?php echo $GLOBALS['strNoPassword'] . "\n"; ?>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="radio" name="nopass" value="0"<?php if ($row['Password'] != '') echo ' checked="checked"'; ?> />
+                    <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
+                </td>
+                <td>
+                    <input type="password" name="pma_pw" size="10" onchange="nopass[1].checked = true" />
+                    &nbsp;&nbsp;
+                    <?php echo $GLOBALS['strReType']; ?>&nbsp;:&nbsp;
+                    <input type="password" name="pma_pw2" size="10" onchange="nopass[1].checked = true" />
+                </td>
+            </tr>
+            </table>
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
+            <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" />
+            <input type="submit" name="submit_chgPswd" value="<?php echo $GLOBALS['strGo']; ?>" />
+        </form>
+    </li>
+
+    <li>
+        <form action="user_details.php3" method="post" name="privForm">
+            <?php echo $GLOBALS['strEditPrivileges'] . "\n"; ?>
     <?php
-}
+    table_privileges('privForm', $row);
+    echo "\n";
+    ?>
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
+            <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" />
+            <input type="submit" name="submit_chgPriv" value="<?php echo $GLOBALS['strGo']; ?>" />
+        </form>
+    </li>
+
+</ul>
+    <?php
+    echo "\n";
+
+    return TRUE;
+} // end of the 'edit_operations()' function
+
 
 /**
  * Checks whether the current user is a super-user or not
@@ -678,218 +663,500 @@ function edit_operations($host, $user)
  * @return  boolean  true as soon as the current user is super-user, no return
  *                   else
  *
- * @access	private
+ * @access  private
  */
 function check_rights()
 {
     $result = @mysql_query('USE mysql');
     if (mysql_error()) {
-        mysql_die($GLOBALS['strNoRights']);
+        mysql_die($GLOBALS['strNoRights'], '', FALSE, FALSE);
     }
-    
+
     return true;
 } // end of the 'check_rights()' function
 
 
+/**
+ * Displays the table of the users
+ *
+ * @param   string   the host name
+ * @param   string   the user name
+ *
+ * @return  boolean  always true
+ *
+ * @global  string   the current language
+ * @global  integer  the server to use (refers to the number in the
+ *                   configuration file)
+ */
 function table_users($host = FALSE, $user = FALSE)
 {
-    global $cfgBorder, $cfgBgcolorOne, $cfgBgcolorTwo;
-    global $server, $lang, $db, $table;
-    global $self;
-    global $strDelete;
-    global $strEdit, $strGrants;
-    global $strAction, $strHost, $strUser, $strPassword, $strPrivileges;
-    global $strNoPrivileges, $strDeleteUserMessage, $strRememberReload;
-    global $strYes, $strNo, $strAny, $strEnglishPrivileges;
+    global $lang, $server;
 
-    $select = "SELECT * FROM mysql.user ";
-    if ($host || $user) $select = "$select WHERE 1 ";
+    $local_query     = 'SELECT * FROM mysql.user ';
+    if ($host || $user) {
+        $local_query .= ' WHERE 1 ';
+    }
     if ($host) {
-       $select = "$select and host = '$host'";
-       $select = "$select and user = '$user'";
-       }
-    $select .= " ORDER BY host, user";
+        $local_query .= ' AND host = \'' . $host . '\'';
+        $local_query .= ' AND user = \'' . $user. '\'';
+    }
+    $local_query     .= ' ORDER BY host, user';
+    $result          = mysql_query($local_query);
+    $rows            = @mysql_num_rows($result);
 
-    $result = mysql_query($select);
-    $rows = @mysql_num_rows($result);
+    if (!$rows) {
+        return FALSE;
+    }
 
-    # Errors
-    if (!isset($rows)) return -1;
-    if ($rows == 0) return 0;
-
-    echo "<i>" . $strEnglishPrivileges . "</i><br>";
-    echo "<table border=$cfgBorder>\n";
-    echo "<tr><th colspan=3>$strAction</td>";
-    echo "<th>$strHost</th>";
-    echo "<th>$strUser</th>";
-    echo "<th>$strPassword</th>";
-    echo "<th>$strPrivileges</th></tr>";
+    echo '<i>' . $GLOBALS['strEnglishPrivileges'] . '</i><br />' . "\n";
+    echo '<table border="' . $GLOBALS['cfgBorder'] . '">' . "\n";
+    echo '<tr>' . "\n";
+    echo '    <th colspan="'. (($user) ? '2' : '3') . '">' . $GLOBALS['strAction'] . '</th>' . "\n";
+    echo '    <th>' . $GLOBALS['strHost'] . '</th>' . "\n";
+    echo '    <th>' . $GLOBALS['strUser'] . '</th>' . "\n";
+    echo '    <th>' . $GLOBALS['strPassword'] . '</th>' . "\n";
+    echo '    <th>' . $GLOBALS['strPrivileges'] . '</th>' . "\n";
+    echo '</tr>' . "\n";
 
     $i = 0;
     while ($row = mysql_fetch_array($result)) {
 
-        $bgcolor = $cfgBgcolorOne;
-        $i % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
+        $bgcolor = ($i % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
 
-        $strPriv = "";
-        if ($row['Select_priv'] == "Y")  $strPriv .= "Select ";
-        if ($row['Insert_priv'] == "Y") $strPriv .= "Insert ";
-        if ($row['Update_priv'] == "Y") $strPriv .= "Update ";
-        if ($row['Delete_priv'] == "Y") $strPriv .= "Delete ";
-        if ($row['Create_priv'] == "Y") $strPriv .= "Create ";
-        if ($row['Drop_priv'] == "Y") $strPriv .= "Drop ";
-        if ($row['Reload_priv'] == "Y") $strPriv .= "Reload ";
-        if ($row['Shutdown_priv'] == "Y") $strPriv .= "Shutdown ";
-        if ($row['Process_priv'] == "Y") $strPriv .= "Process ";
-        if ($row['File_priv'] == "Y") $strPriv .= "File ";
-        if ($row['Grant_priv'] == "Y") $strPriv .= "Grant ";
-        if ($row['References_priv'] == "Y") $strPriv .= "References ";
-        if ($row['Index_priv'] == "Y") $strPriv .= "Index ";
-        if ($row['Alter_priv'] == "Y") $strPriv .= "Alter ";
+        $strPriv     = '';
+        if ($row['Select_priv'] == 'Y') {
+            $strPriv .= 'Select ';
+        }
+        if ($row['Insert_priv'] == 'Y') {
+            $strPriv .= 'Insert ';
+        }
+        if ($row['Update_priv'] == 'Y') {
+            $strPriv .= 'Update ';
+        }
+        if ($row['Delete_priv'] == 'Y') {
+            $strPriv .= 'Delete ';
+        }
+        if ($row['Create_priv'] == 'Y') {
+            $strPriv .= 'Create ';
+        }
+        if ($row['Drop_priv'] == 'Y') {
+            $strPriv .= 'Drop ';
+        }
+        if ($row['Reload_priv'] == 'Y') {
+            $strPriv .= 'Reload ';
+        }
+        if ($row['Shutdown_priv'] == 'Y') {
+            $strPriv .= 'Shutdown ';
+        }
+        if ($row['Process_priv'] == 'Y') {
+            $strPriv .= 'Process ';
+        }
+        if ($row['File_priv'] == 'Y') {
+            $strPriv .= 'File ';
+        }
+        if ($row['Grant_priv'] == 'Y') {
+            $strPriv .= 'Grant ';
+        }
+        if ($row['References_priv'] == 'Y') {
+            $strPriv .= 'References ';
+        }
+        if ($row['Index_priv'] == 'Y') {
+            $strPriv .= 'Index ';
+        }
+        if ($row['Alter_priv'] == 'Y') {
+            $strPriv .= 'Alter ';
+        }
+        if ($strPriv == '') {
+            $strPriv = '<span style="color: #002E80">' . $GLOBALS['strNoPrivileges'] . '</span>';
+        }
 
-        if ($strPriv == "") $strPriv  = "<font color=\"#002E80\">$strNoPrivileges</font>";
+        $query          = 'lang=' . $lang . '&server=' . $server . '&db=mysql&table=user';
+        if (!$user) {
+            $edit_url   = 'user_details.php3'
+                        . '?lang=' . $lang . '&server=' . $server
+                        . '&edit=1&host=' . urlencode($row['Host']) . '&pma_user=' . urlencode($row['User']);
+        }
+        $delete_url     = 'user_details.php3'
+                        . '?' . $query
+                        . '&delete=1&confirm=1&delete_host=' . urlencode($row['Host']) . '&delete_user=' . urlencode($row['User']);
+        $check_url      = 'user_details.php3'
+                        . '?lang=' . $lang . '&server=' . $server
+                        . '&grants=1&host=' . urlencode($row['Host']) . '&pma_user=' . urlencode($row['User']);
 
-        $query = "server=$server&lang=$lang&db=mysql&table=user";
-
-        # Edit
-        $edit_url  = $self;
-        $edit_url .= "?server=$server&lang=$lang";
-        $edit_url .= "&edit=1&host=" . urlencode($row['Host']) . "&user=" . urlencode($row['User']);
-
-        # Delete
-        $delete_url  = "$self?$query";
-        $delete_url .= "&delete=1&confirm=1&delete_host=" . urlencode($row['Host']) . "&delete_user=" . urlencode($row['User']);
-
-        # Grants
-        $check_url  = $self;
-        $check_url .= "?server=$server&lang=$lang";
-        $check_url .= "&grants=1&host=" . urlencode($row['Host']) . "&user=" . urlencode($row['User']);
-
-#        $check_result =  mysql_query("SHOW GRANTS FOR '" . $row['User'] . "'@'" . $row['Host'] ."'");
-#        if (@mysql_num_rows($check_result) == 0) $check_url = ""
+//        $check_result = mysql_query('SHOW GRANTS FOR \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'');
+//        if (@mysql_num_rows($check_result) == 0) {
+//            $check_url = '';
+//        }
         ?>
 
-        <tr bgcolor="<?php echo $bgcolor;?>">
-        <td><a href="<?php echo $edit_url; ?>"><?php echo $strEdit; ?></a></td>
-        <td><a href="<?php echo $delete_url; ?>"><?php echo $strDelete; ?></a></td>
-        <td><a href="<?php echo $check_url; ?>"><?php echo $strGrants; ?></a></td>
-<!--        <td><a <?php if ($check_url != "") echo "href = \"" . $check_url . "\""; ?>>Grants</a></td> -->
-        <td><?php echo $row['Host']; ?></td>
-        <td><?php echo $row['User'] ? "<b>" . $row['User']. "</b>" : "<font color=\"#FF0000\">$strAny</font>"; ?></td>
-        <td><?php echo $row['Password'] ? $strYes : "<font color=\"#FF0000\">$strNo</font>"; ?></td>
-        <td><?php echo $strPriv; ?></td>
-        </tr>
-
+<tr bgcolor="<?php echo $bgcolor;?>">
         <?php
+        if (!$user) {
+            echo "\n";
+            ?>
+    <td>
+        <a href="<?php echo $edit_url; ?>">
+            <?php echo $GLOBALS['strEdit']; ?></a>
+    </td>
+            <?php
+        }
+        echo "\n";
+        ?>
+    <td>
+        <a href="<?php echo $delete_url; ?>">
+            <?php echo $GLOBALS['strDelete']; ?></a>
+    </td>
+    <td>
+        <a href="<?php echo $check_url; ?>">
+            <?php echo $GLOBALS['strGrants']; ?></a>
+    </td>
+<!--
+    <td>
+        <a href="<?php echo (($check_url != '') ? $check_url : '#'); ?>">
+            <?php echo $GLOBALS['strGrants']; ?></a>
+    </td>
+-->
+    <td>
+        <?php echo $row['Host'] . "\n"; ?>
+    </td>
+    <td>
+        <?php echo (($row['User']) ? '<b>' . $row['User'] . '</b>' : '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>') . "\n"; ?>
+    </td>
+    <td>
+        <?php echo (($row['Password']) ? $GLOBALS['strYes'] : '<span style="color: #FF0000">' . $GLOBALS['strNo'] . '</span>') . "\n"; ?>
+    </td>
+    <td>
+        <?php echo $strPriv . "\n"; ?>
+    </td>
+</tr>
+        <?php
+        echo "\n";
         $i++;
+    } //  end while
+
+    echo "\n";
+    ?>
+</table>
+<hr />
+    <?php
+    echo "\n";
+
+    return TRUE;
+} // end of the 'table_users()' function
+
+
+/**
+ * Displays a confirmation form
+ *
+ * @param   string   the host name and...
+ * @param   string   ... the username to delete
+ *
+ * @global  string   the current language
+ * @global  integer  the server to use (refers to the number in the
+ *                   configuration file)
+ */
+function confirm($the_host, $the_user) {
+    global $lang, $server;
+
+    if (get_magic_quotes_gpc() == 1) {
+        $the_host = stripslashes($the_host);
+        $the_user = stripslashes($the_user);
     }
 
-    echo "</table>\n<hr>";
-	return $rows;
-}
+    echo $GLOBALS['strConfirm'] . '&nbsp;:&nbsp<br />' . "\n";
+    echo 'DELETE FROM mysql.user WHERE host = \'' . $the_host . '\' AND user = \'' . $the_user . '\'' . '<br />' . "\n";
+    ?>
+<form action="user_details.php3" method="post">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <input type="hidden" name="db" value="mysql" />
+    <input type="hidden" name="table" value="user" />
+    <input type="hidden" name="delete" value="<?php echo(isset($GLOBALS['delete']) ? '1' : '0'); ?>" />
+    <input type="hidden" name="delete_host" value="<?php echo str_replace('"', '&quot;', $the_host); ?>" />
+    <input type="hidden" name="delete_user" value="<?php echo str_replace('"', '&quot;', $the_user); ?>" />
+    <input type="submit" name="btnConfirm" value="<?php echo $GLOBALS['strYes']; ?>" />
+    <input type="submit" name="btnConfirm" value="<?php echo $GLOBALS['strNo']; ?>" />
+</form>
+    <?php
+    echo "\n";
+
+    include('./footer.inc.php3');
+} // end of the 'confirm()' function
 
 
-function confirm() {
-    global $self, $server, $lang;
-    global $strYes, $strNo, $strConfirm;
 
-?>
-    <script language="JavaScript">
-    <!--
-
-    function clickNo() {
-       location = "<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>";
-    }
-
-    function clickYes() {
-       location += "&clickyes=1";
-    }
-
-    // -->
-    </script>
-
-    <?php echo $strConfirm; ?>
-
-    <form action="users_details.php3" onsubmit="return false">
-    <input type="button" name="btnDrop" value="<?php echo $strYes; ?>" onclick="clickYes();">
-    <input type="button" name="btnDrop" value="<?php echo $strNo; ?>" onclick="clickNo();">
-    </form>
-
-<?php
-}
-
-# Main Program
-
-if(!isset($message))
-{
-    include('./header.inc.php3');
-}
-else
-{
-    show_message($message);
-}
-
-$self = "user_details.php3";
+/**
+ * Ensure the user is super-user and display headers
+ */
 check_rights();
 
+if (empty($host)) {
+    $db    = 'mysql';
+    $table = 'user';
+} else if (get_magic_quotes_gpc()) {
+    $host         = stripslashes($host);
+    if (!empty($pma_user)) {
+        $pma_user = stripslashes($pma_user);
+    }
+}
+    
+$js_to_run = 'user_details.js';
+include('./header.inc.php3');
 if (!empty($host)) {
-    echo "<h1>";
-    if ($host) echo "$strHost $host - $strUser ";
-    echo ($user) ?  $user : "$strAny";
-    echo "</h1>";
+    echo '<h1>' . "\n";
+    echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+    echo '</h1>';
 }
 
-# Confirm the action ...
-if (isset($confirm) && $confirm && (!isset($clickyes) || !$clickyes)) {
-   confirm();
-   exit();
+
+/**
+ * Some actions has been submitted
+ */
+// Confirms an action
+if (isset($confirm) && $confirm) {
+    confirm($delete_host, $delete_user);
+    exit();
 }
 
-if (($server > 0) && isset($mode) && ($mode == "reload"))
-   {
-     $result = mysql_query("FLUSH PRIVILEGES");
-     if ($result != 0) {
-       echo "<b>$strMySQLReloaded</b>";
-     } else {
-       echo "<b>$strReloadFailed</b>";
-     }
-   }
-
-# Delete an user
-if (isset($delete) && $delete && isset($delete_host) && isset($delete_user)) {
-
-   # Delete Grants First!
-   mysql_query("DELETE FROM mysql.columns_priv WHERE host = '$delete_host' and user = '$delete_user'");
-   mysql_query("DELETE FROM mysql.db WHERE host = '$delete_host' and user = '$delete_user'");
-   mysql_query("DELETE FROM mysql.tables_priv WHERE host = '$delete_host' and user = '$delete_user'");
-
-   $result = mysql_query("DELETE FROM mysql.user WHERE host = '$delete_host' and user = '$delete_user'");
-   if ($result != 0) {
-      echo "<b>$strDeleteUserMessage <font color=#002E80>$delete_user@$delete_host</font><br>$strRememberReload</b>";
-   } else {
-      echo "<b>$strDeleteFailed</b>";
-   }
+// Reloads mysql
+else if (($server > 0) && isset($mode) && ($mode == 'reload')) {
+    $result = mysql_query('FLUSH PRIVILEGES');
+    if ($result != 0) {
+        echo '<p><b>' . $strMySQLReloaded . '</b></p>' . "\n";
+    } else {
+        echo '<p><b>' . $strReloadFailed . '</b></p>' . "\n";
+    }
 }
 
-if (isset($edit) && $edit) { # Edit an user
-  table_users($host, $user);
-  edit_operations($host, $user);
+// Deletes an user
+else if (isset($delete) && $delete
+         && isset($btnConfirm) && $btnConfirm == $strYes) {
+    if (get_magic_quotes_gpc()) {
+        $delete_host  = stripslashes($delete_host);
+        $delete_user  = stripslashes($delete_user);
+    }
+    $common_where     = ' WHERE host = \'' . sql_addslashes($delete_host) . '\' AND user = \'' . sql_addslashes($delete_user) . '\'';
 
-} elseif (isset($grants) && $grants) { # Revoke/Grant Privileges
-  table_grants($host, $user);
-  grant_operations();
+    // Delete Grants First!
+    mysql_query('DELETE FROM mysql.columns_priv' . $common_where);
+    mysql_query('DELETE FROM mysql.db' . $common_where);
+    mysql_query('DELETE FROM mysql.tables_priv' . $common_where);
 
-} elseif (isset($check) && $check) { # Check Database Privileges
-  check_db($db);
-  check_operations();
-
-} else {            # Users actions
-  if (!isset($host)) $host = FALSE;
-  if (!isset($user)) $user = FALSE;
-  table_users($host, $user) || mysql_die($strNoUsersFound);
-  normal_operations();
+    $result = mysql_query('DELETE FROM mysql.user' . $common_where);
+    if ($result) {
+        echo '<p><b>' . $strDeleteUserMessage . ' <span style="color: #002E80">' . $delete_user . '@' . $delete_host . '</span><br />';
+        echo '    ' . $strRememberReload . '</b></p>';
+    } else {
+        echo '<p><b>' . $strDeleteFailed . '</b></p>';
+    }
 }
 
+// Adds an user
+else if (isset($submit_addUser)) {
+    $show_query   = 'y';
+    if (empty($host)) {
+        $host     = '%';
+    }
+    if (empty($pma_user)) {
+        $pma_user = '%';
+    }
+
+    // Password is not confirmed
+    if ((!isset($nopass) || !$nopass) && empty($pma_pw)) {
+        echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordEmpty . '</b></p>' . "\n";
+        unset($host);
+        unset($pma_user);
+    }
+    else if (!empty($pma_pw)
+        && (!isset($pma_pw2) || $pma_pw != $pma_pw2)) {
+        echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordNotSame . '</b></p>' . "\n";
+        unset($host);
+        unset($pma_user);
+    }
+
+    // Password confirmed
+    else {
+        $sql_query = '';
+        $list_priv = array('Select', 'Insert', 'Update', 'Delete', 'Create', 'Drop', 'Reload',
+                           'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index', 'Alter');
+        for ($i = 0; $i < 14; $i++) {
+            $priv_name = $list_priv[$i] . '_priv';
+            if (isset($$priv_name)) {
+                $sql_query .= (empty($sql_query) ? $priv_name : ', ' . $priv_name) . ' = \'Y\'';
+            } else  {
+                $sql_query .= (empty($sql_query) ? $priv_name : ', ' . $priv_name) . ' = \'N\'';
+            }
+        } // end for
+        unset($list_priv);
+
+        $sql_query  = 'INSERT INTO mysql.user '
+                    . 'SET host = \'' . sql_addslashes($host) . '\', user = \'' . sql_addslashes($pma_user) . '\', password = ' . (empty($pma_pw) ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($pma_pw) . '\')')
+                    . ', ' . $sql_query;
+        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+        unset($host);
+        unset($pma_user);
+        show_message($strAddUserMessage . '<br />' . $strRememberReload);
+    } // end else
+}
+
+// Changes the password of an user
+else if (isset($submit_chgPswd)) {
+    $show_query   = 'y';
+    $edit         = TRUE;
+    if (empty($host)) {
+        $host     = '%';
+    }
+    if (empty($pma_user)) {
+        $pma_user = '%';
+    }
+
+    // Password is not confirmed
+    if ((!isset($nopass) || !$nopass) && empty($pma_pw)) {
+        echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordEmpty . '</b></p>' . "\n";
+    }
+    else if (!empty($pma_pw)
+        && (!isset($pma_pw2) || $pma_pw != $pma_pw2)) {
+        echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordNotSame . '</b></p>' . "\n";
+    }
+
+    // Password confirmed
+    else {
+        $sql_query  = 'UPDATE user '
+                    . 'SET password = ' . (empty($pma_pw) ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($pma_pw) . '\')') . ' '
+                    . 'WHERE user = \'' . sql_addslashes($pma_user) . '\' AND host = \'' . sql_addslashes($host) . '\'';
+        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+        show_message($strUpdatePassMessage . ' <span style="color: #002E80">' . $pma_user . '@' . $host . '</span><br />' . $strRememberReload);
+    } // end else
+}
+
+// Changes the privileges of an user
+else if (isset($submit_chgPriv)) {
+    $show_query   = 'y';
+    $edit         = TRUE;
+    if (empty($host)) {
+        $host     = '%';
+    }
+    if (empty($pma_user)) {
+        $pma_user = '%';
+    }
+
+    $sql_query = '';
+    $list_priv = array('Select', 'Insert', 'Update', 'Delete', 'Create', 'Drop', 'Reload',
+                       'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index', 'Alter');
+    for ($i = 0; $i < 14; $i++) {
+        $priv_name = $list_priv[$i] . '_priv';
+        if (isset($$priv_name)) {
+            $sql_query .= (empty($sql_query) ? $priv_name : ', ' . $priv_name) . ' = \'Y\'';
+        } else  {
+            $sql_query .= (empty($sql_query) ? $priv_name : ', ' . $priv_name) . ' = \'N\'';
+        }
+    } // end for
+    unset($list_priv);
+
+    $sql_query = 'UPDATE user SET '
+               . $sql_query
+               . ' WHERE host = \'' . sql_addslashes($host) . '\' AND user = \'' . sql_addslashes($pma_user) . '\'';
+    $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+    show_message($strUpdatePrivMessage . ' <span style="color: #002E80">' . $pma_user . '@' . $host . '</span><br />' . $strRememberReload);
+}
+
+// Revoke/Grant privileges
+else if (isset($grants) && $grants) {
+    $show_query   = 'y';
+    if (empty($host)) {
+        $host     = '%';
+    }
+    if (empty($pma_user)) {
+        $pma_user = '%';
+    }
+
+    if (isset($upd_grants)) {
+        $sql_query = '';
+        $list_priv = array('Select', 'Insert', 'Update', 'Delete', 'Create', 'Drop', 'Reload',
+                           'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index', 'Alter');
+        for ($i = 0; $i < 14; $i++) {
+            $priv_name = $list_priv[$i] . '_priv';
+            if (isset($$priv_name)) {
+                $sql_query .= (empty($sql_query) ? $list_priv[$i] : ', ' . $list_priv[$i]);
+            }
+        } // end for
+        unset($list_priv);
+
+        if (isset($colgrant) && !$anycolumn) {
+            $col_list     = '';
+            $colgrant_cnt = count($colgrant);
+            for ($i = 0; $i < $colgrant_cnt; $i++) {
+                if (get_magic_quotes_gpc()) {
+                    $colgrant[$i] = stripslashes($colgrant[$i]);
+                }
+                $col_list .= (empty($col_list) ?  backquote($colgrant[$i]) : ', ' . backquote($colgrant[$i]));
+            } // end for
+            unset($colgrant);
+            $col_list     = '(' . $col_list . ')';
+            $sql_query    .= (empty($sql_query) ? $col_list : ' ' . $col_list);
+        } // end if
+
+        $target    = (($anydb || empty($dbgrant)) ? '*' : backquote($dbgrant)) . '.'
+                   . (($anytable || empty($tablegrant)) ? '*' : backquote($tablegrant));
+        $sql_query .= (empty($sql_query) ? 'ON ' . $target : ' ON ' . $target);
+
+        $target    = (($pma_user == '%') ? $pma_user : '\'' . sql_addslashes($pma_user) . '\'')
+                   . '@'
+                   . (($host == '%') ? $host : '\'' . sql_addslashes($host) . '\'');
+        $sql_query .= (empty($sql_query) ? 'TO ' . $target : ' TO ' . $target);
+
+        $sql_query  = 'GRANT ' . $sql_query;
+        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+        show_message($strAddPrivMessage);
+    } // end if
+}
+
+
+
+/**
+ * Displays the page
+ */
+// Edit an user properies
+if (isset($edit) && $edit) {
+    table_users($host, $pma_user);
+    edit_operations($host, $pma_user);
+}
+
+// Revoke/Grant privileges for an user
+else if (isset($grants) && $grants) {
+    $result = mysql_query('SELECT * FROM mysql.user WHERE host = \'' . sql_addslashes($host) . '\' AND user = \'' . sql_addslashes($pma_user) . '\'');
+    grant_operations(mysql_fetch_array($result));
+}
+
+// Check database privileges
+else if (isset($check) && $check) {
+    check_db($db);
+    ?>
+<ul>
+    <li>
+        <a href="user_details.php3?lang=<?php echo $lang;?>&server=<?php echo $server; ?>&db=mysql&table=user">
+            <?php echo $strBack; ?></a>
+    </li>
+</ul>
+    <?php
+    echo "\n";
+}
+
+// Displays all users profiles
+else {
+    if (!isset($host)) {
+        $host = FALSE;
+    }
+    if (!isset($pma_user)) {
+        $pma_user = FALSE;
+    }
+    table_users($host, $pma_user) or mysql_die($strNoUsersFound, '', FALSE, FALSE);
+    normal_operations();
+}
+
+
+/**
+ * Displays the footer
+ */
 require('./footer.inc.php3');
-
 ?>
