@@ -271,6 +271,11 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
 
     function PMA_getDbCollation($db) {
         global $userlink;
+        if (PMA_MYSQL_INT_VERSION >= 50000 && $db = 'information_schema') {
+            // We don't have to check the collation of the virtual
+            // information_schema database: We know it!
+            return 'utf8_general_ci';
+        }
         if (PMA_MYSQL_INT_VERSION >= 40101) {
             // MySQL 4.1.0 does not support seperate charset settings
             // for databases.
