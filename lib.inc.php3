@@ -134,12 +134,12 @@ if (!defined('__LIB_INC__')){
         }
 
         echo '<b>'. $GLOBALS['strError'] . '</b>' . "\n";
-        echo '<p>' . "\n";
         if (!empty($the_query)) {
+            echo '<p>' . "\n";
             $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($the_query) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']<pre>' . htmlspecialchars($the_query) . '</pre>' . "\n";
+            echo '</p>' . "\n";
         }
-        echo '</p>' . "\n";
         echo '<p>' . "\n";
         echo '    ' . $GLOBALS['strMySQLSaid'] . '&nbsp;' . htmlspecialchars($error_message) . "\n";
         echo '</p>' . "\n";
@@ -491,7 +491,7 @@ if (!defined('__LIB_INC__')){
             ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBALS['lang']; ?>&server=<?php echo $GLOBALS['server'];?>&db=<?php echo urlencode($GLOBALS['db']); ?>');
+window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBALS['lang']; ?>&server=<?php echo $GLOBALS['server']; ?>&db=<?php echo urlencode($GLOBALS['db']); ?>');
 //-->
 </script>
             <?php
@@ -645,7 +645,7 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
         } // end for
         // In case the table reference was the last thing
         if (!$end_table_ref) {
-                   $end_table_ref = count($arr) - 1;
+            $end_table_ref = count($arr) - 1;
         }
 
         // Handles the table reference data
@@ -880,7 +880,10 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         echo "\n";
 
         // Counts the number of rows in the table if required
-        if (!$is_simple && !empty($table) && !empty($db)) {
+        if (isset($SelectNumRows) && $SelectNumRows != '') {
+            $total = $SelectNumRows;
+        }
+        else if (!$is_simple && !empty($table) && !empty($db)) {
             $result = mysql_query('SELECT COUNT(*) as total FROM ' . backquote($db) . '.' . backquote($table)) or mysql_die();
             $row    = mysql_fetch_array($result);
             $total  = $row['total'];
@@ -1132,7 +1135,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                         echo '    <td align="right">&nbsp;[BLOB]&nbsp;</td>' . "\n";
                     } else {
                         if (strlen($row[$i]) > $GLOBALS['cfgLimitChars']) {
-                            $row[$i] = substr($row[$i], 0, $cfgLimitChars) . '...';
+                            $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
                         }
                         echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
                     }
