@@ -336,7 +336,8 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'MRG_MYISAM',
         'MYISAM',
         'NATURAL',
-        'NO',
+        // 'NO' is not allowed in SQL-99 but is allowed in MySQL
+        //'NO',
         'NOT',
         'NULL',
         'ON',
