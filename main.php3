@@ -65,7 +65,6 @@ if ($server > 0) {
     $mysql_cur_user_and_host = mysql_result($res, 0, 'user');
     $mysql_cur_user          = substr($mysql_cur_user_and_host, 0, strpos($mysql_cur_user_and_host, '@'));
 
-
     $full_string     = str_replace('%pma_s1%', mysql_result($res, 0, 'version'), $strMySQLServerProcess);
     $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
     $full_string     = str_replace('%pma_s3%', $mysql_cur_user_and_host, $full_string);
@@ -206,26 +205,27 @@ if ($server > 0) {
             } // end while
             mysql_free_result($rs_usr);
         } // end if
-        elseif (PMA_MYSQL_INT_VERSION>=32304) {
-            // Finally, let's try to get the user's privileges by using SHOW GRANTS...
+        else if (PMA_MYSQL_INT_VERSION >= 32304) {
+            // Finally, let's try to get the user's privileges by using SHOW
+            // GRANTS...
             // Maybe we'll find a little CREATE priv there :)
             $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user_and_host;
             $rs_usr      = mysql_query($local_query, $dbh);
             if (!$rs_usr) {
-                // OK, now we'd have to guess the user's hostname,
-                // but we only try out the 'username'@'%' case.
+                // OK, now we'd have to guess the user's hostname, but we
+                // only try out the 'username'@'%' case.
                 $local_query = 'SHOW GRANTS FOR ' . $mysql_cur_user;
                 $rs_usr      = mysql_query($local_query, $dbh);
             }
             if ($rs_usr) {
                 $re      = '(^|(\\\\\\\\)+|[^\])';
                 while ($row = mysql_fetch_row($rs_usr)) {
-                    $show_grants_dbname = substr($row[0],strpos($row[0],' ON ')+4,(strpos($row[0],'.',strpos($row[0],' ON '))-strpos($row[0],' ON ')-4));
-                    $show_grants_str = substr($row[0],6,(strpos($row[0],' ON ')-6));
-                    if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str,'CREATE')) {
+                    $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4,(strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
+                    $show_grants_str    = substr($row[0],6,(strpos($row[0],' ON ')-6));
+                    if (($show_grants_str == 'ALL') || ($show_grants_str == 'ALL PRIVILEGES') || ($show_grants_str == 'CREATE') || strpos($show_grants_str, 'CREATE')) {
                         if ($show_grants_dbname == '*') {
                             $is_create_priv = TRUE;
-                            $db_to_create = '';
+                            $db_to_create   = '';
                             break;
                         } // end if
                         elseif (ereg($re . '%|_', $show_grants_dbname) || !mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
