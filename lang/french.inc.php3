@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'La clef ne peut être renommée PRIMARY&nbsp;!';
 $strCardinality = 'Cardinalité';
 $strCarriage = 'Retour de chariot : \\r';
 $strChange = 'Modifier';
+$strChangeDisplay = 'Champ à afficher';
 $strChangePassword = 'Modifier le mot de passe';
 $strCheckAll = 'Tout cocher';
 $strCheckDbPriv = 'Afficher les privilèges sur';
@@ -216,6 +217,8 @@ $strNotNumber = 'Ce n\'est pas un nombre !';
 $strNotValidNumber = ' n\'est pas un nombre valide !';
 $strNoUsersFound = 'Il n\'y a aucun utilisateur';
 $strNull = 'Null';
+$strNumSearchResultsInTable = '%s occurence(s) dans la table <i>%s</i>';
+$strNumSearchResultsTotal = '<b>Total :</b> <i>%s</i> occurence(s)';
 
 $strOftenQuotation = 'Souvent des guillemets. OPTIONNEL signifie que seuls les champs de type char et varchar sont entourés par ce caractère.';
 $strOperations = 'Opérations';
@@ -284,6 +287,16 @@ $strRunSQLQuery = 'Exécuter une ou des <b>requêtes</b> sur la base %s';
 
 $strSave = 'Sauvegarder';
 $strScaleFactorSmall = 'Veuillez augmenter l\'échelle car le schéma déborde la page';
+$strSearch = 'Rechercher';
+$strSearchFormTitle = 'Effectuer une nouvelle recherche dans la base de données';
+$strSearchInTables = 'Dans la(les) table(s) :';
+$strSearchNeedle = 'Mot(s) ou Valeur à rechercher (passe-partout: "%") :';
+$strSearchOption1 = 'au moins un mot';
+$strSearchOption2 = 'tous les mots';
+$strSearchOption3 = 'phrase exacte';
+$strSearchOption4 = 'expression réguliére';
+$strSearchResultsFor = 'Résultats de la recherche de "<i>%s</i>" %s :';
+$strSearchType = 'Type de recherche :';
 $strSelect = 'Sélectionner';
 $strSelectADb = 'Choisissez une base de données';
 $strSelectAll = 'Tout sélectionner';
@@ -307,6 +320,7 @@ $strSingly = '(à refaire après insertions/destructions)';
 $strSize = 'Taille';
 $strSort = 'Tri';
 $strSpaceUsage = 'Espace utilisé';
+$strSplitWordsWithSpace = 'Séparer les mots par un espace (" ").';
 $strSQL = 'SQL';
 $strSQLQuery = 'requête SQL';
 $strStatement = 'Information';
@@ -365,5 +379,4 @@ $strYes = 'Oui';
 $strZip = '"zippé"';
 
 // To translate
-$strChangeDisplay = 'Champ à afficher';
 ?>

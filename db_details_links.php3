@@ -8,9 +8,11 @@
 // Export link if there is at least one table
 if ($num_tables > 0) {
     $lnk3 = '<a href="db_details_export.php3?' . $url_query . '">';
+    $lnk4 = '<a href="db_search.php3?' . $url_query . '">';
 }
 else {
     $lnk3 = '';
+    $lnk4 = '';
 }
 // Drop link if allowed
 if (!$cfg['AllowUserDropDatabase']) {
@@ -19,7 +21,7 @@ if (!$cfg['AllowUserDropDatabase']) {
     $cfg['AllowUserDropDatabase'] = (!mysql_error());
 }
 if ($cfg['AllowUserDropDatabase']) {
-    $lnk4 = '<a href="sql.php3?' . $url_query . '&amp;sql_query='
+    $lnk5 = '<a href="sql.php3?' . $url_query . '&amp;sql_query='
           . urlencode('DROP DATABASE ' . PMA_backquote($db))
           . '&amp;zero_rows='
           . urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(PMA_backquote($db))))
@@ -28,7 +30,7 @@ if ($cfg['AllowUserDropDatabase']) {
           . 'onclick="return confirmLink(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')">';
 }
 else {
-    $lnk4 = '';
+    $lnk5 = '';
 }
 
 
@@ -43,14 +45,16 @@ else {
     <a href="db_details_structure.php3?<?php echo $url_query; ?>">
         <b><?php echo $strStructure; ?></b></a>&nbsp;|
     <?php echo $lnk3 . "\n"; ?>
-         <b><?php echo $strExport; ?></b><?php if ($lnk3) echo '</a>'; echo "\n"; ?>
+         <b><?php echo $strExport; ?></b><?php if ($lnk3) echo '</a>' ?>&nbsp;|
+    <?php echo $lnk4 . "\n"; ?>
+         <b><?php echo $strSearch; ?></b><?php if ($lnk4) echo '</a>'; echo "\n"; ?>
     &nbsp;]&nbsp;&nbsp;&nbsp;
 
 <?php
-if ($lnk4) {
+if ($lnk5) {
     ?>
     [&nbsp;
-    <?php echo $lnk4 . "\n"; ?>
+    <?php echo $lnk5 . "\n"; ?>
          <b><?php echo $strDrop; ?></b></a>
     &nbsp;]
     <?php

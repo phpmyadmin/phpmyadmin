@@ -50,21 +50,14 @@ $cfg['Servers'][$i]['bookmarkdb']    = '';          // Bookmark db - leave blank
 $cfg['Servers'][$i]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
 $cfg['Servers'][$i]['relation']      = '';          // table to describe the relation between links (see doc)
                                                     //   - leave blank for no relation-links support
-$cfg['Servers'][$i]['table_info']
-                                     = '';          // table to describe the 
-                                                    // display fields
-                                                    // - leave blank
-                                                    // for no display fields 
-                                                    // support
-$cfg['Servers'][$i]['table_coords']
-                                     = '';          // table to describe the 
-                                                    // tables position for the 
-                                                    // PDF schema - leave blank
-                                                    // for no PDF schema support
-$cfg['Servers'][$i]['AllowDeny']['order']
-                                     = '';          // Host authentication order, leave blank to not use
-$cfg['Servers'][$i]['AllowDeny']['rules']
-                                     = array();    // Host authentication rules, leave blank for defaults
+$cfg['Servers'][$i]['table_info']    = '';          // table to describe the display fields
+                                                    //   - leave blank for no display fields support
+$cfg['Servers'][$i]['table_coords']  = '';          // table to describe the tables position for the PDF
+                                                    //   schema - leave blank for no PDF schema support
+$cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use
+                                     = '';
+$cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules, leave blank for defaults
+                                     = array();
 
 
 $i++;
@@ -133,6 +126,8 @@ $cfg['ShowSQL']               = TRUE;   // show SQL queries as run
 $cfg['AllowUserDropDatabase'] = FALSE;  // show a 'Drop database' link to normal users
 $cfg['Confirm']               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
 $cfg['LoginCookieRecall']     = TRUE;   // recall previous login in cookie auth. mode or not
+$cfg['UseDbSearch']           = TRUE;   // whether to enable the "database search" feature
+                                        // or not
 
 // Left frame setup
 $cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the

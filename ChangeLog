@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-24 Loïc Chapeaux  <lolo@phpheaven.net>
+    * config.inc.php3; db_details_links.php3; db_search.php3;
+      Documentation.html; lang/*: patch #554925 - Search into database, thanks
+      to Thomas Chaumeny <chaume92 at aol.com>.
+
 2002-05-23 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, config.inc.php3, db_details_structure.php3,
       pdf_schema.php3: new 'table_coords' because a table can appear

@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
 $strCardinality = 'Cardinality';
 $strCarriage = 'Carriage return: \\r';
 $strChange = 'Change';
+$strChangeDisplay = 'Choose Field to display';
 $strChangePassword = 'Change password';
 $strCheckAll = 'Check All';
 $strCheckDbPriv = 'Check Database Privileges';
@@ -216,6 +217,8 @@ $strNotNumber = 'This is not a number!';
 $strNotValidNumber = ' is not a valid row number!';
 $strNoUsersFound = 'No user(s) found.';
 $strNull = 'Null';
+$strNumSearchResultsInTable = '%s match(es) inside table <i>%s</i>';
+$strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> match(es)';
 
 $strOftenQuotation = 'Often quotation marks. OPTIONALLY means that only char and varchar fields are enclosed by the "enclosed by"-character.';
 $strOperations = 'Operations';
@@ -284,6 +287,16 @@ $strRunSQLQuery = 'Run SQL query/queries on database %s';
 
 $strSave = 'Save';
 $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';
+$strSearch = 'Search';
+$strSearchFormTitle = 'Search in database';
+$strSearchInTables = 'Inside table(s):';
+$strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';
+$strSearchOption1 = 'at least one of the words';
+$strSearchOption2 = 'all words';
+$strSearchOption3 = 'the exact phrase';
+$strSearchOption4 = 'as regular expression';
+$strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';
+$strSearchType = 'Find:';
 $strSelect = 'Select';
 $strSelectADb = 'Please select a database';
 $strSelectAll = 'Select All';
@@ -307,6 +320,7 @@ $strSingly = '(singly)';
 $strSize = 'Size';
 $strSort = 'Sort';
 $strSpaceUsage = 'Space usage';
+$strSplitWordsWithSpace = 'Words are splitted by a space character (" ").';
 $strSQL = 'SQL';
 $strSQLQuery = 'SQL-query';
 $strStatement = 'Statements';
@@ -364,5 +378,4 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
-$strChangeDisplay = 'Choose Field to display';  //to translate
 ?>
