@@ -662,7 +662,6 @@ $strTransformation_text_plain__formatted = 'A mez"o eredeti formázásának meg"
 $strTransformation_text_plain__imagelink = 'Egy képet es egy linket jelenít meg, a mez"o tartalmazza a fájlnevet; az els"o opcíó egy el"otag, mint pl "http://domain.com/", a második a szélesség pixelben, a harmadik pedig a magasság.';  
 $strTransformation_text_plain__link = 'Meg linket jelenít meg, a megz"o tartalmazza a fájlnevet; az els"o opcíó egy el"otag, mint pl "http://domain.com/", a második a link neve.';  
 $strTransformation_text_plain__substr = 'A szöveg egy részét mutatja. Els"o opció egy offszet, ami a kezd"opozíciót állítja be (alapértelmezett: 0). A második azt adja meg, hogy mennyi szöveg jöjjön vissza. Ha üres, az összes visszamaradó szöveg átjön. A harmadik opcióban atokat a karaktereket lehet beállítani, amik a szöveg végére kerülnek, ha szövegrészt kapunk vissza (alapértelmezett: ...) .';
-$strTransformation_text_plain__unformatted = 'HTML kód megjelenítése HTML elemekként. Nincs HTML formázás.';
 $strTruncateQueries = 'A mutatott kérések törlése';  
 $strTurkish = 'Török';  
 $strType = 'Tipus';

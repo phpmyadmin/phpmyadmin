@@ -722,7 +722,6 @@ $strTransformation_text_plain__formatted = 'Conserva el format original del camp
 $strTransformation_text_plain__imagelink = 'Mostra una imatge i un enllaç, el camp conté el nom del fitxer; la primera opció és un prefixe com "http://domini.com/", la segona opció és l\'amplada en pixels, la tercera és l\'alçada.';
 $strTransformation_text_plain__link = 'Mostra un enllaç, el camp conté el nom del fitxer; la primera opció és un prefixe com "http://domini.com/", la segona opció és el titol del enllaç.';
 $strTransformation_text_plain__substr = 'Només mostra part de la cadena. La primera opció marca el desplaçament on comença el teu text (Per defecte 0). La segona opció indica la quantitat de caracters a retornar. Si és buit, retorna tot el texte restant. La tercera opció defineix els caracters que s\'han d\'afegir a la sortida quan es retorna la cadena (Defecte: ...) .';
-$strTransformation_text_plain__unformatted = 'Mostra codi HTML com entitats HTML. No es mostra en format HTML.';
 $strTruncateQueries = 'Talla les consultes mostrades';
 $strTurkish = 'Turc';
 $strType = 'Tipus';

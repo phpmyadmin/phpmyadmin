@@ -707,7 +707,6 @@ $strTransformation_text_plain__formatted = 'Hoiab alles originaalset välja forma
 $strTransformation_text_plain__imagelink = 'Kuvab pildi ja lingi, väli sisaldab failinime; esimene seade on eelnev tekst nagu "http://domain.com/", teine seade on laius pikslites, kolmas on kõrgus.';
 $strTransformation_text_plain__link = 'Kuvab lingi, väli sisaldab failinime; esimene seade on eelnev tekst näiteks "http://domain.com/", teine seade on nimi lingile.';
 $strTransformation_text_plain__substr = 'Näitab ainult osa tekstist. Esimene seade on määrang kust positsioonilt teie teksti kuva hakkab.(vaikimisi 0). Teine seade on kuipalju teksti tagastatakse, kui see tühjaks jätta, tagastatakse kogu allesjäänud tekst. Kolmas seade defineerib mis tekst lisatakse väljundi lõppu kui saadud tekst tagastatakse. (vaikimisi: ...) .';
-$strTransformation_text_plain__unformatted = 'Näitab HTML koodi puhta tekstina. HTML formateerimist ei näidata.';
 $strTruncateQueries = 'Lühenda näidatavad päringud';
 $strTurkish = 'Türgi';
 $strType = 'Tüüp';

@@ -637,7 +637,6 @@ $strTransformation_text_plain__formatted = 'Iðsaugo originalø lauko apipavidalin
 $strTransformation_text_plain__imagelink = 'Graþinamas paveikslëlis ir nuoroda á ávedimo lauke áraðytà bylos pavadinimà; argumentai: prefiksas (pvz "http://domain.com/"), plotis (pikseliais), aukðtis (pikseliais).';
 $strTransformation_text_plain__link = 'Graþinama nuoroda á ávedimo lauke áraðytà bylos pavadinimà; argumentai: prefiksas (pvz "http://domain.com/"), nuorodos pavadinimas.';
 $strTransformation_text_plain__substr = 'Rodoma tik dalis teksto. Pirmas parametras nurodo iðvedamo teksto pradþià (nutylint: 0). Antrasis parametras nurodo iðvedamo teksto kieká. Jeigu antras parametras nenurodytas tai bus iðvestas visas tekstas. Treèiasis parametras nurodo kurios raidës bus prijungtos prie iðvedimo teksto (nutylint: ...).';
-$strTransformation_text_plain__unformatted = 'Rodo HTML kodà kaip HTML esybes. Nerodomas HTML apipavidalinimas.';
 $strTruncateQueries = 'Trumpinti rodomas uþklausas';
 $strTurkish = 'Turkø';
 $strType = 'Tipas';

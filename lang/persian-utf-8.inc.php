@@ -418,7 +418,7 @@ $strChangeCopyUser = 'Change Login Information / Copy User'; //to translate
 $strCharset = 'Charset'; //to translate
 $strCharsetsAndCollations = 'Character Sets and Collations'; //to translate
 $strCharsets = 'Charsets'; //to translate
-$strCheckOverhead = 'Check overheaded';  //to translate
+$strCheckOverhead = 'Check tables with overhead';  //to translate
 $strCheckPrivs = 'Check Privileges'; //to translate
 $strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.'; //to translate
 $strCollation = 'Collation'; //to translate
@@ -713,7 +713,6 @@ $strTransformation_text_plain__formatted = 'Preserves original formatting of the
 $strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.'; //to translate
 $strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.'; //to translate
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .'; //to translate
-$strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.'; //to translate
 $strTruncateQueries = 'Truncate Shown Queries'; //to translate
 $strTurkish = 'Turkish'; //to translate
 

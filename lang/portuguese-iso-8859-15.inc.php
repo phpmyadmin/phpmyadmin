@@ -602,7 +602,6 @@ $strTransformation_image_jpeg__inline = 'Mostra uma miniatura clicável; opções: 
 $strTransformation_image_jpeg__link = 'Mostra uma ligação para esta imagem (blob download directo , i.e.).';
 $strTransformation_image_png__inline = 'Ver imagem/jpeg: inline';
 $strTransformation_text_plain__formatted = 'Preserva a formatação original do campo. Sem Escaping.';
-$strTransformation_text_plain__unformatted = 'Mostra o código HTML como entidades HTML. Não é mostrada a formatação HTML.';
 $strTruncateQueries = 'Truncar os Queries mostrados';
 $strTurkish = 'Turco';
 $strType = 'Tipo';
@@ -662,7 +661,7 @@ $strBrowseForeignValues = 'Browse foreign values';  //to translate
 $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
 
 $strCharsetsAndCollations = 'Character Sets and Collations';  //to translate
-$strCheckOverhead = 'Check overheaded';  //to translate
+$strCheckOverhead = 'Check tables with overhead';  //to translate
 $strCollation = 'Collation';  //to translate
 $strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
 $strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate

@@ -733,7 +733,6 @@ $strTransformation_text_plain__formatted = 'フィールドの元の書式を保
 $strTransformation_text_plain__imagelink = '画像とリンク、ファイル名を含むフィールドを表示します; ひとつめのオプションは "http://domain.com/" のような接頭語で、ふたつめのオプションはピクセル指定の幅、みっつめは高さです。';
 $strTransformation_text_plain__link = 'ファイル名を含むフィールド、リンクを表示; ひとつ目のオプションは "http://domain.com/" のような接頭語、二つ目のオプションはリンクのタイトルです。';
 $strTransformation_text_plain__substr = '文字列の一部のみ表示します。一つ目のオプションはテキストの出力がどこで開始するかオフセットを定義します (デフォルトは「0」です)二つ目のオプションはどれだけのテキストを返すかのオフセットです。空の場合、残りのテキストをすべて返します。三つ目のオプションは、文字列の一部が返される時、どの文字を出力に追加するか定義します。 (デフォルトは「...」です)';
-$strTransformation_text_plain__unformatted = 'HTML コードを HTML 実態として表示します。HTML を書式化して表示しません。';
 $strTruncateQueries = '照会の表示を切り詰める';
 $strTurkish = 'トルコ語';
 $strType = 'フィールドタイプ';

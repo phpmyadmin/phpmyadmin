@@ -686,7 +686,6 @@ $strTransformation_text_plain__formatted = 'Bevarer original formatering av felt
 $strTransformation_text_plain__imagelink = 'Viser et bilde og en link, feltet inneholder filnavnet; første verdi er et prefiks slik som "http://domain.com/", andre verdien er bredden i piksler, tredje er høyden.';
 $strTransformation_text_plain__link = 'Viser en link, feltet inneholder filnavnet, ; første verdi er et prefiks slik som "http://domain.com/", andre verdien er en tittel for linken.';
 $strTransformation_text_plain__substr = 'Viser bare en delstreng. Første verdien er antall tegn fra starten hvor din tekst begynner (Standard: 0). Andre verdien er hvor mange tegn som skal returneres. Hvis den er tom så returneres resten av teksten. Den tredje verdien definerer hvilke tegn som vil bli lagt til resultatet når en delstreng blir returnert (Standard: ...).';
-$strTransformation_text_plain__unformatted = 'Vis HTML kode som HTML enheter. Ingen HTML formatering blir vist.';
 $strTruncateQueries = 'Forkort vist spørring';
 $strTurkish = 'tyrkisk';
 $strType = 'Type';

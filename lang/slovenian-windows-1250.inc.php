@@ -642,7 +642,6 @@ $strTransformation_text_plain__formatted = 'Ohrani izvirno oblikovanje polja, br
 $strTransformation_text_plain__imagelink = 'Prikaže sliko in povezavo, polje vsebuje ime datoteke; najprej je predpona, npr. "http://domena.com/", druga možnost je širina v slikovnih pikah, tretja pa višina.';
 $strTransformation_text_plain__link = 'Prikaže povezavo, polje vsebuje ime datoteke; prva možnost je predpona, npr. "http://domena.com/", druga pa ime povezave.';
 $strTransformation_text_plain__substr = 'Vrne le del niza. Prva možnost je odmik, ki doloèa, kje se bo zaèelo prikazano besedilo (Privzeto: 0). Druga možnost je odmik, ki pove, koliko besedila bo prikazanega. Èe ni doloèen, bo izpisano vse preostalo besedilo. Tretja možnost pa doloèa, kateri znaki bodo pripeti vrnjenemu podnizu (Privzeto: ...) .';
-$strTransformation_text_plain__unformatted = 'Pokaže HTML-kodo namesto HTML elementov. HTML oblikovanje ne bo prikazano.';
 $strTruncateQueries = 'Skrèi prikazane poizvedbe';
 $strTurkish = 'Turško';
 $strType = 'Vrsta';

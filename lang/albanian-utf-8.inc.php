@@ -664,7 +664,6 @@ $strTransformation_text_plain__formatted = 'Konservon formatimin origjinal të f
 $strTransformation_text_plain__imagelink = 'Shfaq një figurë dhe një link, fusha përmban emrin e file; opcioni i parë është një prefiks si "http://domain.com/", opcioni i dytë është gjërësia në pixels, i treti është lartësia.';
 $strTransformation_text_plain__link = 'Shfaq një link, fusha përmban emrin e file; opcioni i parë është një prefiks si "http://domain.com/", opcioni i dytë është një titull për lidhjen.';
 $strTransformation_text_plain__substr = 'Shfaq vetëm një pjesë të string-ës. Opcioni i parë është offset-i që shërben për të përcaktuar ku fillon output i tekstit tuaj (Default 0). Opcioni i dytë është një offset që tregon se sa tekst kthehet. Po të jetë bosh, kthen të gjithë tekstin e mbetur. Opcioni i tretë përcakton çfarë karakteresh do të shtohen në fund të output kur kthehet një nën-string-ë (Default: ...) .';
-$strTransformation_text_plain__unformatted = 'Shfaq kodin HTML si entitet HTML. Formatimi HTML nuk shfaqet.';
 $strTruncateQueries = 'Shkurton (ndërpret) Queries e Shfaqura';
 $strTurkish = 'Turqisht';
 $strType = 'Lloji';

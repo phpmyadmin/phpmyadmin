@@ -740,7 +740,6 @@ $strTransformation_text_plain__formatted = 'Mantén o formato orixinal do campo.
 $strTransformation_text_plain__imagelink = 'Mostra unha imaxe e un vínculo; o campo conte o nome do ficheiro. A primeira opción é un prefixo do tipo "http://domain.com/"; a segunda opción é o ancho en píxeles; a terceira é a altura.';
 $strTransformation_text_plain__link = 'Mostra un vínculo; o campo contén o nome do ficheiro. A primeira opción é un prefixo do tipo "http://domain.com/"; a segunda opción é un título para o vínculo.';
 $strTransformation_text_plain__substr = 'Só mostra parte dunha cadea. A primeira opción é unha distancia para definir onde comeza a saída de texto (por omisión, 0). A segunda opción é unha distancia cando texto se devolve. Se é vacio, volve todo o texto que resta. A terceira opción define que caracteres se engadirán á saída cando se devolve unha subcadea (Por omisión: ...).';
-$strTransformation_text_plain__unformatted = 'Mostra o código HTML como entidades HTML. Non se usa o HTML para formatar.';
 $strTruncateQueries = 'Interrumpir as procuras mostradas';
 $strTurkish = 'Turco';
 $strType = 'Tipo';

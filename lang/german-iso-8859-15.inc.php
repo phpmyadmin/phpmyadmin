@@ -742,7 +742,6 @@ $strTransformation_text_plain__formatted = 'Behält Ursprungsformatierung des Fel
 $strTransformation_text_plain__imagelink = 'Benutzt den Inhalt eines Feldes um ein Bild und einen Link dazu darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen Feldinhalt wie "http://www.domain.com". Zweite Option ist die Breite des Bildes, die dritte Option die Höhe des Bildes in Pixeln.';
 $strTransformation_text_plain__link = 'Benutzt den Inhalt eines Feldes um einen Link darzustellen. Die erste Option ist ein Präfix vor dem eigentlichen Feldinhalt wie "http://www.domain.com". Zweite Option ist der darzustellende Titel des Links';
 $strTransformation_text_plain__substr = 'Stellt nur einen Teil des Feldinhaltes dar. Die erste Option definiert die Position des Textes ab dem die Ausgabe startet (Standard: 0), die zweite Option gibt an wieviel Zeichen ab dort dargestellt werden sollen. Falls diese Option leer ist, wird der gesamte verbleibende Text dargestellt. Die dritte Option kann einen Text enthalten, der bei partieller Ausgabe des Textes angehängt wird, um eine Abschneidung kenntlich zu machen (Standard: ...).';
-$strTransformation_text_plain__unformatted = 'Wandelt Sonderzeichen nach HTML-Regeln um, um HTML-Formatierungen innerhalb des Feldinhaltes unwirksam zu machen.';
 $strTruncateQueries = 'Zeige die SQL-Abfragen verkürzt an';
 $strTurkish = 'Türkisch';
 $strType = 'Typ';

@@ -638,7 +638,6 @@ $strTransformation_text_plain__formatted = 'Išsaugo originalų lauko apipavidal
 $strTransformation_text_plain__imagelink = 'Gražinamas paveikslėlis ir nuoroda į įvedimo lauke įrašytą bylos pavadinimą; argumentai: prefiksas (pvz "http://domain.com/"), plotis (pikseliais), aukštis (pikseliais).';
 $strTransformation_text_plain__link = 'Gražinama nuoroda į įvedimo lauke įrašytą bylos pavadinimą; argumentai: prefiksas (pvz "http://domain.com/"), nuorodos pavadinimas.';
 $strTransformation_text_plain__substr = 'Rodoma tik dalis teksto. Pirmas parametras nurodo išvedamo teksto pradžią (nutylint: 0). Antrasis parametras nurodo išvedamo teksto kiekį. Jeigu antras parametras nenurodytas tai bus išvestas visas tekstas. Trečiasis parametras nurodo kurios raidės bus prijungtos prie išvedimo teksto (nutylint: ...).';
-$strTransformation_text_plain__unformatted = 'Rodo HTML kodą kaip HTML esybes. Nerodomas HTML apipavidalinimas.';
 $strTruncateQueries = 'Trumpinti rodomas užklausas';
 $strTurkish = 'Turkų';
 $strType = 'Tipas';

@@ -687,7 +687,6 @@ $strTransformation_text_plain__formatted = 'Bevarar fältets originalformatering
 $strTransformation_text_plain__imagelink = 'Visar en bild och en länk, fältet innehåller filnamnet; första parametern är ett prefix såsom "http://domain.com/", andra parametern är bredden i pixlar, tredje är höjden.';
 $strTransformation_text_plain__link = 'Visar en länk, fältet innehåller filnamnet; första parametern är ett prefix såsom "http://domain.com/", andra parametern är en titel för länken.';
 $strTransformation_text_plain__substr = 'Visar endast del av en sträng. Första parametern specificerar var i texten utdata startar (standardvärde: 0). Andra parametern specificerar hur mycket text som returneras. Om det utelämnas, returneras all resterande text. Den tredje parametern definierar vilka tecken som kommer att läggas till i slutet på den returnerade delsträngen  (standardvärde: ...).';
-$strTransformation_text_plain__unformatted = 'Visar HTML-kod som HTML-specialtecken. HTML-formatering visas inte.';
 $strTruncateQueries = 'Korta av visade frågor';
 $strTurkish = 'Turkisk';
 $strType = 'Typ';

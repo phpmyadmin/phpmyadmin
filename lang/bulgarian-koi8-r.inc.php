@@ -657,7 +657,6 @@ $strTransformation_text_plain__formatted = 'Запазва оригиналното форматиране на 
 $strTransformation_text_plain__imagelink = 'Показва изображение и връзка на полето съдържащо файлово име; първата опция е префикс като "http://domain.com/", втората опция е ширината в пиксели, третата е височината.';
 $strTransformation_text_plain__link = 'Показва връзката на полето съдържащо файлово име; първата опция е префикс като "http://domain.com/", втората опция е заглавието на връзката.';
 $strTransformation_text_plain__substr = 'Показва част от низ. Първата опция е отместването от което ще се изхвежда вашият текст (По подразбиране е 0). Втората опция указва колко текст ще се изведе. Ако е празна, се връща целия оставащ текст. Третата опция указва кои символи ще бъдат изведени (По подразбиране: ...) .';
-$strTransformation_text_plain__unformatted = 'Показва HTML кода като HTML еденица. Без HTML форматиране.';
 $strTruncateQueries = 'Съкращаване на показаните заявки';
 $strTurkish = 'Турски';
 $strType = 'Тип';
@@ -716,7 +715,7 @@ $strZip = '"zip-нато"';
 
 // To translate:
 
-$strCheckOverhead = 'Check overheaded';  //to translate
+$strCheckOverhead = 'Check tables with overhead';  //to translate
 
 $strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 

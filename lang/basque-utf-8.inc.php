@@ -615,7 +615,6 @@ $strTransformation_text_plain__formatted = 'Eremuaren jatorrizko formateoa mante
 $strTransformation_text_plain__imagelink = 'Irudi eta esteka bana erakusten ditu, eremuak fitxategiaren izena dauka; lehenengo aukera "http://domain.com/" moduko aurrizki bat da, bigarren aukera pixeletan neurtutako zabalera da, hirugarrena altuera da.';
 $strTransformation_text_plain__link = 'Esteka bat erakusten du, eremuak fitxategiaren izena dauka; lehenengo aukera "http://domain.com/" moduko aurrizki bat da , bigarren aukera estekaren izenburua da.';
 $strTransformation_text_plain__substr = 'Soilik katearen zati bat erakutsi. Lehenengo aukerak zehazten du non hasten den zure testuaren desplazamendua (lehenetsi 0). Bigarren aukerak itzultzeko karaktere kopurua erakusten du. Hutsik badago, gainerako testu guztia bueltatuko du. Hirugarren aukerak zehazten du zeintzuk karaktere txertatuko diren irteerara azpikate bat itzultzen denean (Lehenetsia: ...) .';
-$strTransformation_text_plain__unformatted = 'Erakutsi HTML kodea HTML entitate moduan. HTML formatorik ez ikusgai.';
 $strTruncateQueries = 'Erakutsitako kontultak moztu';
 $strTurkish = 'Turkiera';
 $strType = 'Mota';

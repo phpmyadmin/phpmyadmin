@@ -706,7 +706,6 @@ $strTransformation_text_plain__formatted = 'Mentine formatarea originala a campu
 $strTransformation_text_plain__imagelink = 'Afiseaza o imagine si un link, campul contine denumirea fisierului; prima optiune este un prefix cum ar fi "http://domain.com/", a doua optiune este latimea in pixeli, iar a treia este inaltimea.';
 $strTransformation_text_plain__link = 'Afiseaza un link, campul contine denumirea fisierului,  prima optiune este un prefix cum ar fi "http://domain.com/", a doua optiune este un titlu pentru link.';
 $strTransformation_text_plain__substr = 'Afiseaza doar o parte a firului de executie. Prima optiune este un offset pentru definirea punctului de inceput a outputului de text (Default 0). A doua optiune este un offset de text returnat. Daca este gol, returneaza textul ramas. A treia optiune defineste caracterele care vor fi atasate la output la returnarea unui substring  (Default: ...) .';
-$strTransformation_text_plain__unformatted = 'Afiseaza codul HTML ca si entitate HTML. Nu se afiseaza formatarea HTML.';
 $strTruncateQueries = 'Truncare comenzi afisate';
 $strTurkish = 'Turc';
 $strType = 'Tip';

@@ -604,7 +604,6 @@ $strTransformation_text_plain__formatted = 'Èuva originalno formatiranje polja. 
 $strTransformation_text_plain__imagelink = 'Prikazuje sliku i link, polje sadrži naziv datoteke; prva opcija je prefiks kao "http://domain.com/", druga opcija je širina u pikselima, treæa je visina.';
 $strTransformation_text_plain__link = 'Prikazuje link, polje sadrži naziv datoteke; prva opcija je prefiks kao "http://domain.com/", druga opcija je naslov za link.';
 $strTransformation_text_plain__substr = 'Pokazuje samo deo stringa. Prva opcija je ofset koji definiše gde poèinje izlaz vašeg teksta (podrazumevano 0). Druga opcija je ofset koji pokazuje koliko æe teksta biti prikazano. Ako je nema, sav preostali tekst æe biti prikazan. Treæa opcija odreðuje koji æe znaci biti dodati izlazu kada se prikaže podstring (podrazumevano: ...) .';
-$strTransformation_text_plain__unformatted = 'Prikazuje HTML kod kao HTML entitete. HTML formatiranje se ne prikazuje.';
 $strTruncateQueries = 'Prikaži skraæene upite';
 $strTurkish = 'Turski';
 $strType = 'Tip';
@@ -663,7 +662,7 @@ $strZip = '"zipovano"';
 $strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
 $strBookmarkOptions = 'Bookmark options';  //to translate
 
-$strCheckOverhead = 'Check overheaded';  //to translate
+$strCheckOverhead = 'Check tables with overhead';  //to translate
 $strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
 $strConstraintsForTable = 'Constraints for table';  //to translate
 $strCreationDates = 'Creation/Update/Check dates';  //to translate

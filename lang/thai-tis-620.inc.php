@@ -595,7 +595,6 @@ $strTransformation_image_jpeg__inline = 'แสดงรูปขนาดเล็กที่กดเข้าไปดูภาพใหญ่ได้;
 $strTransformation_image_jpeg__link = 'แสดงลิงก์ไปยังรูป (ดาวน์โหลดข้อมูลไบนารีโดยตรง/blob).';
 $strTransformation_image_png__inline = 'ดูรูปชนิด image/jpeg ทันที';
 $strTransformation_text_plain__formatted = 'สงวนการจัดรูปแบบเดิมในฟิลด์ไว้ -- ไม่แทรก escape character.';
-$strTransformation_text_plain__unformatted = 'แสดงโค้ด HTML เป็น HTML entities. การจัดรูปแบบแบบ HTML จะไม่ถูกแสดง';
 $strTruncateQueries = 'ตัดทอนคำค้นที่แสดง';
 $strTurkish = 'ตุรกี';
 $strType = 'ชนิด';
@@ -660,7 +659,7 @@ $strAfterInsertSame = 'Go back to this page';  //to translate
 $strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
 $strBrowseForeignValues = 'Browse foreign values';  //to translate
 
-$strCheckOverhead = 'Check overheaded';  //to translate
+$strCheckOverhead = 'Check tables with overhead';  //to translate
 $strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
 $strConnectionError = 'Cannot connect: invalid settings.';  //to translate
 $strConstraintsForDumped = 'Constraints for dumped tables';  //to translate

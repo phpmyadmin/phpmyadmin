@@ -691,7 +691,6 @@ $strTransformation_text_plain__formatted = 'Preserveert het originele formaat va
 $strTransformation_text_plain__imagelink = 'Toont een plaatje en een link, het veld bevat de bestandsnaam; De eerste optie is een prefix als "http://domein.com/", de tweede optie is de breedte in pixels, de derde is de hoogte.';
 $strTransformation_text_plain__link = 'Toont een link, het veld bevat de bestandsnaam; De eerste optie is een prefix als "http://domein.com/", de tweede optie is de titel voor de link.';
 $strTransformation_text_plain__substr = 'Toont alleen een stuk van een string. De eerst optie is een offset om te bepalen waar de output van uw tekst start (Standaard 0). De tweede optie is een offset van de hoeveel tekst die terug wordt gegeven. Wanneer leeg, zal het alle overgebleven tekst teruggeven. De derde optie defineerd welke karakters worden toegevoegd aan de output wanneer een substring wordt teruggegeven (Standaard: ...) .';
-$strTransformation_text_plain__unformatted = 'Toont HTML code als HTML entities. Er wordt geen HTML formatting getoond.';
 $strTruncateQueries = 'Truncate getoonde Queries';
 $strTurkish = 'Turks';
 $strType = 'Type';

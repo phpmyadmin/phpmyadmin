@@ -687,7 +687,6 @@ $strTransformation_text_plain__formatted = 'Saglabâ lauka oriìinâlo formatçjumu.
 $strTransformation_text_plain__imagelink = 'Parâda attçlu un linku, lauks satur faila nosauumu; pirmâ opcija ir prefikss, piemçram, "http://domens.lv/", otrâ opcija ir platums pikseïos, treðâ ir augstums.';
 $strTransformation_text_plain__link = 'Parâda attçlu un linku, lauks satur faila nosauumu; pirmâ opcija ir prefikss, piemçram, "http://domens.lv/", otrâ opcija ir linka nosaukums.';
 $strTransformation_text_plain__substr = 'Parâda tikai virknes daïu. Pirmâ opcija ir nobîde, kas nosaka, kur Jûsu teksts sâkas (noklusçjums 0). Otrâ opcija ir atgrieþamâ teksta garums. Ja tukða, atgrieþ visu atlikuðo tekstu. Treðâ opcija nosaka rakstzîmes, kas tiks pievienotas apgrieztâs virknes galâ (noklusçjums: ...) .';
-$strTransformation_text_plain__unformatted = 'Parâda HTML kâ HTML simbolus. HTML formatçjums netiek râdîts.';
 $strTruncateQueries = 'Ierobeþot parâdîto vaicâjumu garumu';
 $strTurkish = 'Turku';
 $strType = 'Tips';

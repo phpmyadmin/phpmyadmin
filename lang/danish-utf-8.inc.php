@@ -708,7 +708,6 @@ $strTransformation_text_plain__formatted = 'Bevarer original formattering af fel
 $strTransformation_text_plain__imagelink = 'Viser et billed og et link, feltet indeholder filnavnet; første indstilling er et præfiks som "http://domain.com/", anden indstilling er bredde i pixel, tredie er højden.';
 $strTransformation_text_plain__link = 'Viser et link, feltet indeholder filnavnet; første indstilling er et præfiks som "http://domain.com/", anden indstilling er en titel på linket.';
 $strTransformation_text_plain__substr = 'Viser kun en del af en streng. Første parameter er en offset for at definere hvor outputtet af din tekst starter (Default 0). Andet parameter er en offset for hvor meget tekst der returneres. Hvis tom returneres den tilbageværende tekst. Det tredie parameter definerer hvilke karakterer der skal føjes til outputtet når en substring (understreng) returneres (Default: ...) .';
-$strTransformation_text_plain__unformatted = 'Viser HTML-kode som HTML-enheder. Der vises ingen HTML-formattering.';
 $strTruncateQueries = 'Trunkér viste forespørgsler';
 $strTurkish = 'Tyrkisk';
 $strType = 'Datatype';

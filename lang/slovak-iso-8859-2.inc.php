@@ -660,7 +660,6 @@ $strTransformation_text_plain__formatted = 'Zachová pôvodné formátovanie poµa ta
 $strTransformation_text_plain__imagelink = 'Zobrazí obrázok a odkaz z poµa obsahujúceho odkaz na obrázok. Prvý parameter je prefix URL (napr. "http://domena.sk/"), druhý a tretí parameter urèujú ¹írku a vý¹ku obrázku.';
 $strTransformation_text_plain__link = 'Zobrazí odkaz z poµa obsahujúceho odkaz. Prvý parameter je prefix URL (napr. "http://domena.sk/"), druhý parameter je text odkazu.';
 $strTransformation_text_plain__substr = 'Zobrazí iba èas» re»azca. Prvý parameter je posun od zaèiatku (predvolený je 0) a druhý urèuje då¾ku textu, ktorá sa ma zobrazi», ak nie je zadaný bude zobrazený zvy¹ok textu. Tretí parameter urèuje znaky, ktoré budú pridané na koniec skráteného textu (predvolené je ...).';
-$strTransformation_text_plain__unformatted = 'Zobrazí HTML kód pomocou HMTL entít. Prípadný HTML kód sa zobrazí v pôvodnom stave.';
 $strTruncateQueries = 'Zobrazi» skrátene dotazy';
 $strTurkish = 'Turecky';
 $strType = 'Typ';

@@ -740,7 +740,6 @@ $strTransformation_text_plain__formatted = 'Zachová původní formátování sl
 $strTransformation_text_plain__imagelink = 'Zobrazí obrázek a odkaz z&nbsp;pole obsahujícího odkaz na obrázek. První parametr je prefix URL (například "http://mojedomena.cz/"), druhý a třetí určuje šířku a výšku obrázku.';
 $strTransformation_text_plain__link = 'Zobrazí odkaz z&nbsp;pole obsahujícího odkaz. První parametr je prefix URL (například "http://mojedomena.cz/"), druhý text odkazu.';
 $strTransformation_text_plain__substr = 'Zobrazí jen část textu. První parametr je posun od začátku (výchozí je 0) a druhý určuje délku textu, který se má zobrazit, pokud není uveden, bude zobrazen zbytek textu. Třetí parametr určuje, jaký text má být přidán za zkrácený text (výchozí je ...).';
-$strTransformation_text_plain__unformatted = 'Zobrazí text pomocí HTML entit, případný HTML se zobrazí v&nbsp;původním tvaru.';
 $strTruncateQueries = 'Zobrazit zkrácené dotazy';
 $strTurkish = 'Turecky';
 $strType = 'Typ';

@@ -735,7 +735,6 @@ $strTransformation_text_plain__formatted = 'Préserve le contenu original du cham
 $strTransformation_text_plain__imagelink = 'Affiche une image et un lien, le champ contient le nom du fichier; en première option, un préfixe comme "http://domaine.com/", en seconde option, la largeur en pixels, en troisième option la hauteur en pixels.';
 $strTransformation_text_plain__link = 'Affiche un lien, le champ contient le nom du fichier; en première option, un préfixe comme "http://domaine.com/", en seconde option, un titre pour le lien.';
 $strTransformation_text_plain__substr = 'N\'affiche qu\'une partie du champ. En première option, la position de départ (par défaut, 0). En seconde option, le nombre de caractères à afficher (par défaut, le reste). En troisième option, des caractères à afficher à la fin du texte (par défaut: "...").';
-$strTransformation_text_plain__unformatted = 'Affiche le code HTML sous forme d\'entités HTML.';
 $strTruncateQueries = 'Afficher les requêtes tronquées';
 $strTurkish = 'turc';
 $strType = 'Type';

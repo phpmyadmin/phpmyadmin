@@ -711,7 +711,6 @@ $strTransformation_text_plain__formatted = 'Preserva l\'originale formattazione 
 $strTransformation_text_plain__imagelink = 'Mostra un collegamento ad una immagine esterna; il campo contiene il nome del file; la prima opzione è un prefisso come "http://tuodominio.com/", la seconda opzione è la larghezza in pixel, la terza è l\'altezza.';
 $strTransformation_text_plain__link = 'Mostra un collegamento, il campo contiene il nome del file; la prima opzione è un prefisso come "http://tuodominio.com/", la seconda opzione è un titolo per il collegamento.';
 $strTransformation_text_plain__substr = 'Mostra soltanto una parte della stringa. La prima opzione è l\'offset che serve a definire dove inizia l\'output del vostro testo (Prefinito: 0). La seconda opzione è un offset che indica quanto testo viene restituito. Se vuoto, restituisce tutto il testo rimanente. La terza opzione definisce quali caratteri saranno aggiunti in fondo all\'output quando una soptto-stringa viene restituita (Predefinito: ...) .';
-$strTransformation_text_plain__unformatted = 'Mostra il codice HTML come entità HTML. Nessuna formattazione HTML viene applicata.';
 $strTruncateQueries = 'Tronca le Query Mostrate';
 $strTurkish = 'Turco';
 $strType = 'Tipo';

@@ -666,7 +666,6 @@ $strTransformation_text_plain__formatted = '保留字段的原始格式。不进
 $strTransformation_text_plain__imagelink = '显示图像和链接，字段内包含文件名；第一个选项是类似“http://domain.com/”这样的前缀，第二个选项是以像素为单位的宽度，第三个参数是高度。';
 $strTransformation_text_plain__link = '显示链接，字段内包含文件名；第一个选项是类似“http://domain.com/”这样的前缀，第二个选项是链接的标题(弹出提示)。';
 $strTransformation_text_plain__substr = '只显示字符串的一部分。第一个选项定义了文本开始输出的偏移量(默认为 0)。第二个选项是所返回文字数量的偏移量。如果为空的话，将返回剩下的所有文本。第三个选项是将会追加到子字符串之后的输出(默认为：...) .';
-$strTransformation_text_plain__unformatted = '将 HTML 代码显示为 HTML 实体。不显示 HTML 格式化。';
 $strTruncateQueries = '截断显示的查询';
 $strTurkish = '土耳其语';
 $strType = '类型';

@@ -735,7 +735,6 @@ $strTransformation_text_plain__formatted = 'Zachowuje oryginalne formatowanie po
 $strTransformation_text_plain__imagelink = 'Wyświetla obrazek i link, pole zawiera nazwę pliku; pierwszą opcję jest prefiks, taki jak "http://domena.com/", drugą opcją jest szerokość w pikselach, trzecią opcją jest wysokość.';
 $strTransformation_text_plain__link = 'Wyświetla link, pole zawiera nazwę pliku; pierwsza opcja to prefiks, taki jak "http://domena.com/", druga opcja to tytuł linku.';
 $strTransformation_text_plain__substr = 'Pokazuje jedynie część napisu. Pierwsza opcja to offset, od którego ma zacząć się wyświetlanie tekstu (domyślnie 0). Druga opcja to ilość zwracanego tekstu. Jeżeli jest pusta, zwracany jest cały pozostały tekst. Trzecia opcja określa jakie znaki zostaną dodane do wyjścia, jeżeli zwracany jest część napisu (domyślnie: ...) .';
-$strTransformation_text_plain__unformatted = 'Wyświetla kod HTML przy pomocy encji HTML. Formatowanie HTML nie jest pokazywane.';
 $strTruncateQueries = 'Ucinaj wyświetlane zapytania';
 $strTurkish = 'Turecki';
 $strType = 'Typ';

@@ -677,7 +677,6 @@ $strTransformation_text_plain__formatted = 'Alanın orijinal biçimlendirmesini 
 $strTransformation_text_plain__imagelink = 'Bir resim ve bir link gösterir,alan dosya ismini içerir;ilk seçenek "http://domain.com/" gibi bir yazım,ikinci seçenek pixel olarak genişlik,üçüncüsü ise yüksekliktir.';
 $strTransformation_text_plain__link = 'Bir link ve dosya ismini içeren alanı gösterir;ilk seçenek "http://domain.com/" gibi bir gösterim,ikincisi ise link için bir başlıktır.';
 $strTransformation_text_plain__substr = 'Sadece yazının bir kısmını gösterir. İlk seçenek metin çıktınızın nerede olduğunu tanımlamak için kullanılacak bir offset\'tir. (varsayılan: 0).İkinci seçenek ne kadar metinin geri döndürüldüğünü belirten bir offset\'tir.. Eğer boşsa, bütün kalan metin geri döndürülür.Üçüncü seçenek bir substring döndürüldüğünde hangi karakterlerin çıktının sonuna ekleneceğini tanımlar(Varsayılan:...) .';
-$strTransformation_text_plain__unformatted = 'HTML kodunu bir bütün olarak göster.HTML biçimlendirme gösteriliyor.';
 $strTruncateQueries = 'Görülen sorguları kısalt';
 $strTurkish = 'Türkçe';
 $strType = 'Tip';

@@ -739,7 +739,6 @@ $strTransformation_text_plain__formatted = 'Zachová pùvodní formátování sloupce,
 $strTransformation_text_plain__imagelink = 'Zobrazí obrázek a odkaz z&nbsp;pole obsahujícího odkaz na obrázek. První parametr je prefix URL (napøíklad "http://mojedomena.cz/"), druhý a tøetí urèuje ¹íøku a vý¹ku obrázku.';
 $strTransformation_text_plain__link = 'Zobrazí odkaz z&nbsp;pole obsahujícího odkaz. První parametr je prefix URL (napøíklad "http://mojedomena.cz/"), druhý text odkazu.';
 $strTransformation_text_plain__substr = 'Zobrazí jen èást textu. První parametr je posun od zaèátku (výchozí je 0) a druhý urèuje délku textu, který se má zobrazit, pokud není uveden, bude zobrazen zbytek textu. Tøetí parametr urèuje, jaký text má být pøidán za zkrácený text (výchozí je ...).';
-$strTransformation_text_plain__unformatted = 'Zobrazí text pomocí HTML entit, pøípadný HTML se zobrazí v&nbsp;pùvodním tvaru.';
 $strTruncateQueries = 'Zobrazit zkrácené dotazy';
 $strTurkish = 'Turecky';
 $strType = 'Typ';

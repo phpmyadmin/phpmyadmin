@@ -688,7 +688,6 @@ $strTransformation_text_plain__formatted = 'Saglabā lauka oriģinālo formatēj
 $strTransformation_text_plain__imagelink = 'Parāda attēlu un linku, lauks satur faila nosauumu; pirmā opcija ir prefikss, piemēram, "http://domens.lv/", otrā opcija ir platums pikseļos, trešā ir augstums.';
 $strTransformation_text_plain__link = 'Parāda attēlu un linku, lauks satur faila nosauumu; pirmā opcija ir prefikss, piemēram, "http://domens.lv/", otrā opcija ir linka nosaukums.';
 $strTransformation_text_plain__substr = 'Parāda tikai virknes daļu. Pirmā opcija ir nobīde, kas nosaka, kur Jūsu teksts sākas (noklusējums 0). Otrā opcija ir atgriežamā teksta garums. Ja tukša, atgriež visu atlikušo tekstu. Trešā opcija nosaka rakstzīmes, kas tiks pievienotas apgrieztās virknes galā (noklusējums: ...) .';
-$strTransformation_text_plain__unformatted = 'Parāda HTML kā HTML simbolus. HTML formatējums netiek rādīts.';
 $strTruncateQueries = 'Ierobežot parādīto vaicājumu garumu';
 $strTurkish = 'Turku';
 $strType = 'Tips';

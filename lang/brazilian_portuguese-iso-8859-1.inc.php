@@ -692,7 +692,6 @@ $strTransformation_text_plain__formatted = 'Preservar a formatação original camp
 $strTransformation_text_plain__imagelink = 'Mostrar uma imagem e um link, o campo contém um nome de arquivo; primeira opção é um prefixo tipo "http://domain.com/", segunda opção é a largura em pixels, o terceiro é a altura.'; 
 $strTransformation_text_plain__link = 'Mostrar um link, o campo contém o nome do arquivo, primeira opção é um prefixo tipo "http://domain.com/", segunda opção é um título para o link.'; 
 $strTransformation_text_plain__substr = 'Mostrar apenas parte da string. Primeira opção é um offset para definir onde a saída do seu texto deve iniciar (Padrão: 0). Segunda opção é o quanto do texto deverá ser retornado. Se estiver em branco, retorna todo o restante do texto. Terceira opção define quais caracteres serão acrescentados na substring retornada (Padrão: ...).'; 
-$strTransformation_text_plain__unformatted = 'Mostra o código HTML como entidades HTML. Não é mostrada a formatação HTML.'; 
 $strTruncateQueries = 'Truncar as Consultas SQL exibidas'; 
 $strTurkish = 'Turco'; 
 $strType = 'Tipo'; 

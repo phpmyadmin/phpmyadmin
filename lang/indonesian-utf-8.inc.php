@@ -708,7 +708,6 @@ $strTransformation_text_plain__formatted = 'Menyimpan format asli dari field. Es
 $strTransformation_text_plain__imagelink = 'Tampilkan sebuah gambar dan sebuah Link, nama file berada dalam field; pilihan utama adalah awalan seperti "http://domain.com/", pilihan kedua adalah lebar dalam piksel, pilihan ketiga adalah tingginya.';
 $strTransformation_text_plain__link = 'Tampilkan sebuah Link, nama file berada dalam field; pilihan utama adalah awalan seperti  "http://domain.com/", pilihan kedua adalah judul untuk Link tersebut.';
 $strTransformation_text_plain__substr = 'Hanya menampilkan sebagian dari sebuah String. Pilihan pertama adalah sebuah Offset untuk menentukan tempat dari permulaan teks Anda (Default 0). Pilihan kedua adalah sebuah Offset untuk menentukan jumlah teks yang akan dikembalikan. Bila ditinggal kosong, seluruh teks yang tersisa akan dibalikkan. Pilihan ketiga mendefinisikan Chars yang akan ditambahkan pada Output bila sebuah Substring dibalikkan (Default: ...) .';
-$strTransformation_text_plain__unformatted = 'Tampilkan kode HTML sebagai perwujudan HTML. Format dari HTML tidak ditampilkan.';
 $strTruncateQueries = 'Potongkan pencarian yang ditampilkan';
 $strTurkish = 'Bahasa Turki';
 $strType = 'Jenis';
