@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-05 Michal Čihař  <michal@cihar.com>
+    * Documentation.html: Add information about theme versions and names.
+
 2004-09-04 Alexander M. Turek  <me@derrabus.de>
     * tbl_select.php: No quotes were added when querying (VAR)BINARY fields.
     * db_search.php, tbl_select.php: Made search independant from the
@@ -28,7 +31,7 @@ $Source$
     * Documentation.html: Typos; added a note about the deprecated MySQL
       versions 4.1.0 and 4.1.1.
 
-2004-09-03 Michal Cihar  <michal@cihar.com>
+2004-09-03 Michal Čihař  <michal@cihar.com>
     * libraries/string.lib.php: Encoding tis-620 is not multibyte (bug
       #1013787).
     * libraries/display_export.lib.php: Updated texts to fit Excel 2003

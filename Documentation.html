@@ -2794,9 +2794,21 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         <li>edit the css-files in &quot;your_theme_name/css&quot;</li>
         <li>put your new images in &quot;your_theme_name/img&quot;</li>
         <li>edit <tt>layout.inc.php</tt> in &quot;your_theme_name&quot;</li>
+        <li>edit <tt>info.inc.php</tt> in &quot;your_theme_name&quot; to
+        contain your chosen theme name, that will be visible in user interface</li>
         <li>make a new screenshot of your theme and save it under &quot;your_theme_name/screen.png&quot;</li>
     </ul>
     <br />
+    </p>
+    <p>
+    In theme directory there is file <tt>info.inc.php</tt> which contains
+    theme verbose name and theme version. These versions are enumerated from 1
+    and do not have any direct dependance on phpMyAdmin version. Themes with
+    higher version should work also in older phpMyAdmin versions because we
+    currently expect these will only grow (new css classes or more images),
+    but this behaviour will be probably changed in future, in case phpMyAdmin
+    will start to use some templates and these will require completely
+    different themes.
     </p>
     <p>
     If you do not want to use your own symbols and buttons, remove the 
