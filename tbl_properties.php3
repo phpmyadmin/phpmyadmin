@@ -334,7 +334,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         ?>
         <tr>
             <td colspan="3" align="center">
-                <a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table"); ?>&pos=0&<?php echo $query; ?>">[<?php echo $strOptimizeTable; ?>]</a>
+                [<a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table"); ?>&pos=0&<?php echo $query; ?>"><?php echo $strOptimizeTable; ?></a>]
             </td>
         <tr>
         <?php
@@ -387,7 +387,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         ?>
             <td><?php echo ucfirst($strRows); ?></td>
             <td align="right" nowrap="nowrap">
-                <?php echo $showtable['Rows'] . "\n"; ?>
+                <?php echo number_format($showtable['Rows'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
             </td>
         </tr>
         <?php
@@ -400,7 +400,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         ?>
             <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
             <td align="right" nowrap="nowrap">
-                <?php echo $showtable['Avg_row_length'] . "\n"; ?>
+                <?php echo number_format($showtable['Avg_row_length'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
             </td>
         </tr>
         <?php
@@ -426,7 +426,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         ?>
             <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
             <td align="right" nowrap="nowrap">
-                <?php echo $showtable['Auto_increment'] . "\n"; ?>
+                <?php echo number_format($showtable['Auto_increment'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
             </td>
         </tr>
         <?php
