@@ -142,9 +142,14 @@ if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
 if (! empty($query_to_display)) {
     echo htmlspecialchars($query_to_display);
 } else {
-    $query = str_replace('%d', PMA_backquote($db), $cfg['DefaultQueryDatabase']);
     if (isset($table)) {
-        $query = str_replace('%f', implode(', ', PMA_backquote($fields_list)), $cfg['DefaultQueryTable']);
+        $query = $cfg['DefaultQueryTable'];
+    } else {
+        $query = $cfg['DefaultQueryDatabase'];
+    }
+    $query = str_replace('%d', PMA_backquote($db), $query);
+    if (isset($table)) {
+        $query = str_replace('%f', implode(', ', PMA_backquote($fields_list)), $query);
         $query = str_replace('%t', PMA_backquote($table), $query);
     }
     echo htmlspecialchars($query);
