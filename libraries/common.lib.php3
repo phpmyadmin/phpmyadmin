@@ -401,7 +401,9 @@ if (!defined('__LIB_COMMON__')){
                     // This maintenance is to fix code to work correctly for
                     // regular expressions.
                     if ($row['Select_priv'] != 'Y') {
-                        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND User = \'' . $PHP_AUTH_USER . '\'';
+// User can be blank (anonymous user)
+                        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . $PHP_AUTH_USER . '\'
+			OR User = \'\') ';
                         $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
                         if (@mysql_numrows($rs) <= 0) {
                             $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . $PHP_AUTH_USER . '\'';

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-15  Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/common.lib.php3, bug #460475: user can be blank in
+	  mysql.db (anonymous user), as stated in MySQL doc.
+
 2001-09-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3, lines 351-352: fixed bug #461623 (wrong maxlength in
 	  table_change.php).
