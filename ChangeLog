@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-11  Armel Fauveau  <armel.fauveau@globalis-ms.com>
+        * Added a "execute" option in the phpMyBookmark patch
+
 2001-05-11  Marc Delisle  <lem9@users.sourceforge.net>
         * support FULLTEXT in table copy or dump
 
