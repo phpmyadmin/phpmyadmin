@@ -27,9 +27,14 @@ if ($num_tables > 1) {
     $multi_tables .= "\n";
     
     $i = 0;
-    $is_selected = (!empty($selectall) ? ' selected="selected"' : '');
     while ($i < $num_tables) {
-        $table   = htmlspecialchars((PMA_MYSQL_INT_VERSION >= 32303) ? $tables[$i]['Name'] : $tables[$i]);
+        $table   = (PMA_MYSQL_INT_VERSION >= 32303) ? $tables[$i]['Name'] : $tables[$i];
+        if (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))) {
+            $is_selected = ' selected="selected"';
+        } else {
+            $is_selected = '';
+        }
+        $table   = htmlspecialchars($table);
         $multi_tables .= '                <option value="' . $table . '"' . $is_selected . '>' . $table . '</option>' . "\n";
         $i++;
     } // end while
