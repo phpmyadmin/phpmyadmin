@@ -521,6 +521,7 @@ $strReType = 'Entrer à nouveau';
 $strReceived = 'Reçu';
 $strRecords = 'Enregistrements';
 $strReferentialIntegrity = 'Vérifier l\'intégrité référentielle';
+$strRefresh = 'Actualiser';
 $strRelationNotWorking = 'Certaines fonctionnalités ayant trait aux tables reliées sont désactivées. Pour une analyse du problème, cliquez %sici%s.';
 $strRelationView = 'Gestion des relations';
 $strRelationalSchema = 'Schéma relationnel';
@@ -737,5 +738,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strRefresh = 'Refresh';  //to translate
 ?>
