@@ -227,7 +227,7 @@ if (!$hide_structure) { ?>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_relation" value="yes" id="checkbox_sql_use_relation" <?php PMA_exportCheckboxCheck('sql_relation'); ?> style="vertical-align: middle" /><label for="checkbox_sql_use_relation"><?php echo $strRelations; ?></label><br />
 <?php
     } // end relation
-    if (!empty($cfgRelation['commwork'])) {
+    if (!empty($cfgRelation['commwork']) && PMA_MYSQL_INT_VERSION < 40100) {
 ?>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_comments" value="yes" id="checkbox_sql_use_comments" <?php PMA_exportCheckboxCheck('sql_comments'); ?> style="vertical-align: middle" /><label for="checkbox_sql_use_comments"><?php echo $strComments; ?></label><br />
 <?php

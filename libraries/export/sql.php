@@ -331,8 +331,11 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
 
     $schema_create = '';
 
+    // triggered only for MySQL < 4.1.x (pmadb-style comments)
     if ($do_comments && $cfgRelation['commwork']) {
-        if (!($comments_map = PMA_getComments($db, $table))) unset($comments_map);
+        if (!($comments_map = PMA_getComments($db, $table))) {
+            unset($comments_map);
+        }
     }
 
     // Check if we can use Relations (Mike Beck)

@@ -523,6 +523,7 @@ function PMA_handleSlashes($val) {
  * @param   string   the name of the column
  * @param   string   the value of the column
  * @param   string   (optional) if a column is renamed, this is the name of the former key which will get deleted
+ * @param   string   whether we set pmadb comments, native comments or both
  *
  * @return  boolean  true, if comment-query was made.
  *

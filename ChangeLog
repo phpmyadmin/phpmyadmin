@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php, /display_export.lib.php,
+      /export/sql.php: native comments. For MySQL 4.1.x+ I do not display
+      the "Add into comments ... Comments" choice, since they are
+      part of the structure
+
 2005-03-06 Alexander M. Turek  <me@derrabus.de>
     * lang/*.inc.php, libraries/engines/innodb.lib.php: InnoDB buffer pool
       activity statistics.
@@ -15,8 +21,6 @@ $Source$
     * tbl_alter.php, tbl_addfield.php, db_datadict.php, pdf_schema.php,
       tbl_create.php, libraries/common.lib.php, /relation.lib.php,
       /database_interface.lib.php: MySQL 4.1.x native comments
-      (First phase of merge, so it's experimental.
-       TODO: export and native comments; tbl_move_copy)
 
 2005-03-05 Alexander M. Turek  <me@derrabus.de>
     * server_engines.php, lang/*.inc.php, libraries/storage_engines.lib.php
