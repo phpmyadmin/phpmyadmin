@@ -56,10 +56,20 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
         }
     } // end if
 
-    if (!empty($_SERVER) && isset($_SERVER['PHP_SELF'])) {
-        $PHP_SELF = $_SERVER['PHP_SELF'];
-    } else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_SELF'])) {
-        $PHP_SELF = $HTTP_SERVER_VARS['PHP_SELF'];
+    if (!empty($_SERVER)) {
+        if (isset($_SERVER['PHP_SELF'])) {
+            $PHP_SELF = $_SERVER['PHP_SELF'];
+        }
+        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $HTTP_ACCEPT_LANGUAGE = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+        }
+    } else if (!empty($HTTP_SERVER_VARS)) {
+        if (isset($HTTP_SERVER_VARS['PHP_SELF'])) {
+            $PHP_SELF = $HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'];
+        }
+        if (isset($HTTP_SERVER_VARS['PHP_SELF'])) {
+            $HTTP_ACCEPT_LANGUAGE = $HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'];
+        }
     } // end if
 
     // Securety fix: disallow accessing serious server files via "?goto="

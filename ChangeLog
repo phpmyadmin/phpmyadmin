@@ -8,6 +8,8 @@ $Source$
 2003-04-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_datadict.php3: The result of SHOW INDEX does not have a 'Comment'
       column before MySQL 3.23 (bug #712055).
+    * libraries/grab_globals.lib.php3: Make $HTTP_ACCEPT_LANGUAGE available for
+      machines with register_globals = off.
 
 2003-04-05 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian updates, thanks to Valics Lehel
