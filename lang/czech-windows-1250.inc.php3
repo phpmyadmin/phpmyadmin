@@ -23,8 +23,6 @@ $datefmt = '%a %d. %b %Y, %H:%M';
 
 $timespanfmt = '%s dnù, %s hodin, %s minut a %s sekund';
 
-$strUpdComTab = 'Podívejte se prosím do dokumentace, jak aktualizovat tabulku s&nbsp;informacemi o&nbsp; sloupcích (Column_comments Table)';
-
 $strAPrimaryKey = 'V&nbsp;tabulce %s byl vytvoøen primární klíè';
 $strAbortedClients = 'Pøerušené';
 $strAbsolutePathToDocSqlDir = 'Zadejte absolutní cestu docSQL adresáøe na serveru';
@@ -99,6 +97,7 @@ $strChangeCopyModeRevoke = ' ... odebrat všechna oprávnìní pùodnímu uživateli a 
 $strChangeCopyUser = 'Zmìnit informace o&nbsp;uživateli / Kopírovat uživatele';
 $strChangeDisplay = 'Zvolte které sloupce zobrazit';
 $strChangePassword = 'Zmìnit heslo';
+$strCharset = 'Znaková sada';
 $strCharsetOfFile = 'Znaková sada souboru:';
 $strCheckAll = 'Zaškrtnout vše';
 $strCheckDbPriv = 'Zkontrolovat oprávnìní pro databázi';
@@ -588,6 +587,7 @@ $strType = 'Typ';
 $strUncheckAll = 'Odškrtnout vše';
 $strUnique = 'Unikátní';
 $strUnselectAll = 'Odznaèit vše';
+$strUpdComTab = 'Podívejte se prosím do dokumentace, jak aktualizovat tabulku s&nbsp;informacemi o&nbsp; sloupcích (Column_comments Table)';
 $strUpdatePrivMessage = 'Byla aktualizovana oprávnìní pro %s.';
 $strUpdateProfile = 'Zmìny pøístupu:';
 $strUpdateProfileMessage = 'Pøístup byl zmìnìn.';
@@ -631,5 +631,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strCharset = 'Charset'; //to translate
 ?>

@@ -15,6 +15,7 @@ $Source$
     * left.php3: More fixes for HTML entities.
     * tbl_properties_options.php3: Remove '; InnoDB free:' part from comment
       when changing it.
+    * lang/czech: Updated.
    
 2003-04-14 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3: Fixed SHOW TABLE STATUS LIKE ... FROM ...
