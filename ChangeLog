@@ -12,6 +12,8 @@ $Source$
 
 2002-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3, lang/*, Documentation.html: new message with doc
+    * lang/hungarian.inc.php3 updates, thanks to Peter Bakondy
+    * lang/japanese*.php3 updates, thanks to Yukihiro Kawada
 
 2002-06-10 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3, bug with end of lines
