@@ -68,9 +68,9 @@ function PMA_DBI_connect($user, $password) {
 
     $client_flags = $cfg['Server']['compress'] && defined('MYSQLI_CLIENT_COMPRESS') ? MYSQLI_CLIENT_COMPRESS : 0;
 
-    @mysqli_real_connect($link, $cfg['Server']['host'], $user, $password, FALSE, $server_port, $server_socket, $client_flags);
+    $return_value = @mysqli_real_connect($link, $cfg['Server']['host'], $user, $password, FALSE, $server_port, $server_socket, $client_flags);
 
-    if (empty($link)) {
+    if ($return_value == FALSE) {
         PMA_auth_fails();
     } // end if
 

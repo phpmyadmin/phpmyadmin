@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/dbi/mysqli.dbi.lib.php: bug #1111706, call to undefined
+      function PMA_reloadNavigation(). A failed connection was not properly
+      detected
+
 2005-01-27 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/fpdf/fpdf.php: bug #1106146, missing header for PDF,
       thanks to Michal
