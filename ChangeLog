@@ -10,6 +10,8 @@ $Source$
       solution of support request #728820
     * Documentation.html: Enhance FAQ 2.3 (mysql.sock readable,
       thanks to Ryan)
+    * Added scripts/inno2pma (from Ernie Hershey). Please see
+      Patch Tracker #709383 for further information.
 
 2003-04-30 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, bug 729517, better comment output,
