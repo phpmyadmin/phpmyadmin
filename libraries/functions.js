@@ -298,6 +298,12 @@ function checkTransmitDump(theForm, theAction)
 
 
 /**
+ * The global array below will be used inside the "setPointer()" function
+ */
+var markedRow = new Array();
+
+
+/**
  * Sets/unsets the pointer in browse mode
  *
  * @param   object   the table row
@@ -324,11 +330,24 @@ function setPointer(theRow, thePointerColor, theNormalBgColor)
     }
 
     var rowCellsCnt  = theCells.length;
-    for (var c = 0; c < rowCellsCnt; c++) {
-        if (theCells[c].style.backgroundColor.toLowerCase() == thePointerColor.toLowerCase()) {
-            theCells[c].style.backgroundColor = theNormalBgColor;
-        } else {
-            theCells[c].style.backgroundColor = thePointerColor;
+    var currentColor = null;
+    var newColor     = null;
+    if (typeof(theCells[0].getAttribute) != 'undefined' && typeof(theCells[0].getAttribute) != 'undefined') {
+        currentColor = theCells[0].getAttribute('bgcolor');
+        newColor     = (currentColor.toLowerCase() == thePointerColor.toLowerCase())
+                     ? theNormalBgColor
+                     : thePointerColor;
+        for (var c = 0; c < rowCellsCnt; c++) {
+            theCells[c].setAttribute('bgcolor', newColor, 0);
+        } // end for
+    }
+    else {
+        currentColor = theCells[0].style.backgroundColor;
+        newColor     = (currentColor.toLowerCase() == thePointerColor.toLowerCase())
+                     ? theNormalBgColor
+                     : thePointerColor;
+        for (var c = 0; c < rowCellsCnt; c++) {
+            theCells[c].style.backgroundColor = newColor;
         }
     }
 
