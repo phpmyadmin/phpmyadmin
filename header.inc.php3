@@ -135,6 +135,13 @@ var errorMsg2   = '<?php echo str_replace('\'', '\\\'', $strNotValidNumber); ?>'
 </script>
 <script src="libraries/indexes.js" type="text/javascript" language="javascript"></script>
     <?php
+} else if (isset($js_to_run) && $js_to_run == 'tbl_change.js') {
+    echo "\n";
+    ?>
+//-->
+</script>
+<script src="libraries/tbl_change.js" type="text/javascript" language="javascript"></script>
+    <?php
 } else {
     echo "\n";
     ?>

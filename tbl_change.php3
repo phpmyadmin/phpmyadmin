@@ -6,6 +6,7 @@
  * Get the variables sent or posted to this script and displays the header
  */
 require('./libraries/grab_globals.lib.php3');
+$js_to_run = 'tbl_change.js';
 include('./header.inc.php3');
 // Displays the query submitted and its result
 if (!empty($message)) {
@@ -111,8 +112,12 @@ else
 /**
  * Displays the form
  */
-
-// Had to put the URI because  when hosted on an https server,
+// loic1: autocomplete feature of IE kills the "onchange" event handler and it
+//        must be replaced by the "onpropertychange" one in this case
+$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
+                 ? 'onpropertychange'
+                 : 'onchange';
+// Had to put the URI because when hosted on an https server,
 // some browsers send wrongly this form to the http server.
 ?>
 
@@ -257,7 +262,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         } else {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="funcs[<?php echo urlencode($field); ?>]" tabindex="<?php echo ($i+2*$fields_cnt); ?>" >
+            <select name="funcs[<?php echo urlencode($field); ?>]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i+2*$fields_cnt); ?>" >
                 <option></option>
             <?php
             echo "\n";
@@ -265,9 +270,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             for ($j = 0; $j < count($cfgFunctions); $j++) {
                 // for default function = NOW() on first timestamp field
                 // -- swix/18jul01
-            	$selected = ($first_timestamp && $cfgFunctions[$j] == 'NOW')
-            	          ? ' selected="selected"'
-            	          : '';
+                $selected = ($first_timestamp && $cfgFunctions[$j] == 'NOW')
+                          ? ' selected="selected"'
+                          : '';
                 echo '                ';
                 echo '<option' . $selected . '>' . $cfgFunctions[$j] . '</option>' . "\n";
             } // end for
@@ -286,20 +291,23 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     if ($row_table_def['Null'] == 'YES') {
         echo '            <input type="checkbox" tabindex=' . ($i+3*$fields_cnt) . '"'
              . ' name="fields_null[' . urlencode($field) . ']"';
-        if ($data == 'NULL') {
+        if ($data == 'NULL' && !$first_timestamp) {
             echo ' checked="checked"';
         }
+        $onclick         = ' onclick="if (this.checked) {nullify(';
         if (strstr($row_table_def['True_Type'], 'enum')) {
             if (strlen($row_table_def['Type']) > 20) {
-                echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'field_' . md5($field) . '[]\'].selectedIndex = -1}; return true" />' . "\n";
+                $onclick .= '1, ';
             } else {
-                echo ' onclick="if (this.checked) {var elts = document.forms[\'insertForm\'].elements[\'field_' . md5($field) . '[]\']; var elts_cnt = elts.length; for (var i = 0; i < elts_cnt; i++ ) {elts[i].checked = false}}; return true" />' . "\n";
+                $onclick .= '2, ';
             }
         } else if (strstr($row_table_def['True_Type'], 'set')) {
-            echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'field_' . md5($field) . '[]\'].selectedIndex = -1}; return true" />' . "\n";
+            $onclick     .= '3, ';
         } else {
-            echo ' onclick="if (this.checked) {document.forms[\'insertForm\'].elements[\'fields[' . urlencode($field) . ']\'].value = \'\'}; return true" />' . "\n";
+            $onclick     .= '4, ';
         }
+        $onclick         .= '\'' . urlencode($field) . '\', \'' . md5($field) . '\'); this.checked = true}; return true" />' . "\n";
+        echo $onclick;
     } else {
         echo '            &nbsp;' . "\n";
     }
@@ -311,7 +319,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i; ?>"><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i; ?>"><?php echo $special_chars; ?></textarea>
         </td>
         <?php
         echo "\n";
@@ -334,7 +342,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if (strlen($row_table_def['Type']) > 20) {
             echo "\n";
             ?>
-            <select name="field_<?php echo md5($field); ?>[]" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>">
+            <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>">
                 <option value=""></option>
             <?php
             echo "\n";
@@ -395,7 +403,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
-            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>" >
+            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" >
         <?php
         echo "\n";
         $countset = count($set);
@@ -431,7 +439,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>" ><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" ><?php echo $special_chars; ?></textarea>
         </td>
             <?php
         } else {
@@ -445,7 +453,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" />
         </td>
             <?php
         } // end if...elseif...else
@@ -461,7 +469,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}" tabindex="<?php echo $i+1; ?>" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" />
         </td>
         <?php
     }
