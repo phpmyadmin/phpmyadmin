@@ -131,6 +131,7 @@ $strCompression = 'Compression';
 $strConfigFileError = 'phpMyAdmin n\'a pu lire votre fichier de configuration!<br />Il est possible qu\'il contienne une erreur de syntaxe, ou que PHP soit incapable de le trouver<br />À l\'aide du lien suivant, vous pouvez vérifier le message d\'erreur généré par PHP;<br />la plupart du temps, un apostrophe ou un point-virgule sont manquants.<br />Si vous recevez une page blanche, aucune erreur n\'a été détectée.';
 $strConfigureTableCoord = 'Les coordonnées de la table %s n\'ont pas été configurées';
 $strConfirm = 'Veuillez confirmer';
+$strConnectionError = 'Connexion impossible: réglages incorrects.'
 $strConnections = 'Connexions';
 $strConstraintsForDumped = 'Contraintes pour les tables exportées';
 $strConstraintsForTable = 'Contraintes pour la table';
@@ -151,6 +152,7 @@ $strCriteria = 'Critère';
 $strCroatian = 'croate';
 $strCyrillic = 'cyrillique';
 $strCzech = 'tchèque';
+$strCzechSlovak = 'tchèque-slovaque';
 
 $strDBComment = 'Commentaire sur la base de données: ';
 $strDBGContext = 'Contexte';
@@ -260,6 +262,7 @@ $strFunction = 'Fonction';
 $strGenBy = 'Généré par';
 $strGenTime = 'Généré le ';
 $strGeneralRelationFeat = 'Fonctions relationnelles';
+$strGeorgian = 'géorgien';
 $strGerman = 'allemand';
 $strGlobal = 'global';
 $strGlobalPrivileges = 'Privilèges globaux';
@@ -359,6 +362,7 @@ $strMIME_transformation_note = 'La %sdescription des transformations%s explique 
 $strMIME_transformation_options = 'Options de transformation';
 $strMIME_transformation_options_note = 'Veuillez entrer les valeurs des options de transformation en suivant ce format: \'a\',\'b\',\'c\'...<br />Si vous devez entrer un caractère ("\") ou une apostrophe ("\'") parmi ces valeurs, faites-le précéder du caractère d\'échappement, par exemple  \'\\\\xyz\' or \'a\\\'b\').';
 $strMIME_without = 'Les types MIME affichées en italiques ne possèdent pas de fonctions de transformation.';
+$strMaximumSize = 'Taille maximum: %s%s';
 $strMissingBracket = 'Parenthèse manquante';
 $strModifications = 'Les modifications ont été sauvegardées.';
 $strModify = 'Modifier';
@@ -650,6 +654,7 @@ $strTotal = 'total';
 $strTotalUC = 'Total';
 $strTraditionalChinese = 'chinois traditionnel';
 $strTraffic = 'Trafic';
+$strTransformation_application_octetstream__download = 'Affiche un lien pour télécharger le contenu binaire d\'une colonne. La première option est le nom du fichier binaire. La seconde option est le nom de la colonne contenant le nom du fichier. Si vous utilisez la seconde option, veuillez laisser la première option vide.';
 $strTransformation_image_jpeg__inline = 'Affiche une image timbre-poste cliquable; les options sont: largeur,hauteur en pixels (conserve le rapport original)';
 $strTransformation_image_jpeg__link = 'Affiche un lien vers cette image';
 $strTransformation_image_png__inline = 'Voir image/jpeg: inline';
@@ -717,11 +722,9 @@ $strYes = 'Oui';
 
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
-// To translate
 
-$strGeorgian = 'Georgian';  //to translate
-$strCzechSlovak = 'Czech-Slovak';  //to translate
+// To translate:
+
 $strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strMaximumSize = 'Maximum size: %s%s';  //to translate
-$strConnectionError = 'Cannot connect: invalid settings.';  //to translate
+
 ?>
