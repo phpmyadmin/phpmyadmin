@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /* $Id$ */
 
 /**
@@ -208,7 +208,7 @@ $strDisplayFeat = 'Anzeige verknüpfter Daten';
 $strDisplayOrder = 'Sortierung nach:';
 $strDisplayPDF = 'PDF-Schema anzeigen';
 $strDoAQuery = 'Suche über Beispielwerte ("query by example") (Platzhalter: "%")';
-$strDoYouReally = 'Möchten Sie wirklich diese Abfrage ausführen: ';
+$strDoYouReally = 'Möchten Sie wirklich diese Abfrage ausführen ';
 $strDocu = 'Dokumentation';
 $strDrop = 'Löschen';
 $strDropDB = 'Datenbank %s löschen';
@@ -731,7 +731,7 @@ $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränku
 $strZip = 'Zip-komprimiert';
 
 $strAddHeaderComment = 'Individuelle Kommentare für den Kopfbereich (\\n erzeugt einen Zeilenumbruch)';
-$strNeedPrimaryKey = 'Es sollte ein Primärschlüssel f�r diese Tabelle definiert werden.';
+$strNeedPrimaryKey = 'Es sollte ein Primärschlüssel f�se Tabelle definiert werden.';
 $strIgnoreInserts = 'Fehlerübergehenden INSERT-Befehl verwenden';
 $strAddIfNotExists = 'Mit \'IF NOT EXISTS\'';
 $strCommentsForTable = 'TABELLENKOMMENTARE';

@@ -88,7 +88,6 @@ if (!empty($submit_mult) && !empty($what)) {
     $selected_cnt   = count($selected);
     $i = 0;
     foreach($selected AS $idx => $sval) {
-        $i++;
         switch ($what) {
             case 'row_delete':
                 $full_query .= htmlspecialchars(urldecode($sval))
@@ -133,6 +132,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 }
                 break;
         } // end switch
+        $i++;
     }
 
     // Displays the form
