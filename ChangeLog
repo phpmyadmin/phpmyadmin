@@ -7,6 +7,7 @@ $Source$
 
 2002-06-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian.inc.php3 updates, thanks to Valics Lehel
+    * lang/indonesian.inc.php3 updates, thanks to Rachim Tamsjadi
 
 2002-06-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.inc.php3, line 1413: xhtml fix.
