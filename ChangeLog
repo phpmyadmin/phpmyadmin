@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-19 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.3.3-rc1 released
+
 2002-11-18 Marc Delisle  <lem9@users.sourceforge.net>
     * db_search.php3: undefined variable
 
