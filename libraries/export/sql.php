@@ -566,9 +566,6 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 // a number
                 } elseif ($fields_meta[$j]->numeric) {
                     $values[] = $row[$j];
-                // empty string
-                } elseif (empty($row[$j])) {
-                    $values[]     = '\'\'';
                 // a binary field
                 } else if (stristr($field_flags[$j], 'BINARY') && isset($GLOBALS['hexforbinary'])) {
                     $values[] = '0x' . bin2hex($row[$j]);
