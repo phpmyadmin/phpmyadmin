@@ -424,8 +424,14 @@ if (!defined('__LIB_COMMON__')){
                     @ini_set('track_errors', $bkp_track_err);
                 }
 
-                $PHP_AUTH_USER = str_replace('\'', '\\\'', $PHP_AUTH_USER);
-                $PHP_AUTH_PW   = str_replace('\'', '\\\'', $PHP_AUTH_PW);
+                if (get_magic_quotes_gpc()) {
+                    $PHP_AUTH_USER = str_replace('\\"', '"', str_replace('\\\\', '\\', $PHP_AUTH_USER));
+                    $PHP_AUTH_PW   = str_replace('\\"', '"', str_replace('\\\\', '\\', $PHP_AUTH_PW));
+                } else {
+                    $PHP_AUTH_USER = str_replace('\'', '\\\'', $PHP_AUTH_USER);
+                    $PHP_AUTH_PW   = str_replace('\'', '\\\'', $PHP_AUTH_PW);
+                }
+
                 $auth_query = 'SELECT User, Password, Select_priv '
                             . 'FROM mysql.user '
                             . 'WHERE '

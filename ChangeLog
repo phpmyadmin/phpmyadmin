@@ -12,8 +12,10 @@ $Source$
 	* Documentation.html, lines 766-770: added a link to the official MySQL
 	  documentation for the "socket error" problems.
 	* index.php3, line 53; lang/*: out-sourced the "no frame" sentence.
-	* libraries/common.lib.php3: improved compatibility with the old phpMyAdmin
-	  configuration file.
+	* libraries/common.lib.php3:
+	  - improved compatibility with the old phpMyAdmin configuration file;
+	  - lines 427-434: fixed bug #472209 (Login password bug if
+	    magic_quotes_gpc is set.
 	* tbl_properties.php3, line 1243: added a param. to enforce reloading of
 	  the left frame after a flush if $cfgShowTooltip is set to 1.
 	* tbl_change.php3: fixed some inconcistancies if an update is required but
