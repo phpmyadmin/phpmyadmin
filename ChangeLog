@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-21 Robin Johnson  <robbat2@users.sourceforge.net>
+    * lang/english*: $strSplitWordsWithSpace
+        - 'splitted' changed to 'seperated'	
+
 2002-06-21 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: patch 565627 for the old bug 461192: wrong query count
       for groups, thanks to Svetlozar Kovachev 
