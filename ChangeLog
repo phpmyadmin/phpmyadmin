@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php: bug 854696: fixed a typo,
+      and added some isset for a new check
+
 2003-12-05 Garvin Hicking <weihnachtsgarv@supergarv.de>
     * libraries/transformations/text_plain__dateformat.inc.php:
       Use <dfn>-Tag to display original data to not waste display
