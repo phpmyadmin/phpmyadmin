@@ -168,9 +168,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         if ($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1') {
 
             if (isset($unlim_num_rows) && $unlim_num_rows < 2) {
-                $do_display['nav_bar']  = (string) '0';
+                // garvin: force display of navbar for vertical/horizontal display-choice.
+                // $do_display['nav_bar']  = (string) '0';
                 $do_display['sort_lnk'] = (string) '0';
             }
+
         } // end if (3)
 
         // 5. Updates the synthetic var
