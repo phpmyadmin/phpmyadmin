@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-22 Alexander M. Turek  <me@derrabus.de>
+    * libraries/grab_globals.lib.php: Hotfix against bug #1149381 and parts
+      of bug #1149383.
+
 2005-02-21 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php: patch #1120466 (modified): optional column names
       in visual scratchboard, thanks to Remco Aalbers - remcoa
@@ -16,8 +20,8 @@ $Source$
 
 2005-02-16 Alexander M. Turek  <me@derrabus.de>
     * db_details_export.php: Views are not exportable yet.
-	* themes/*/css/theme_right.css.php: Allow to mark a whole row as disabled.
-	* server_engines.php: Use new CSS class 'disabled' for unavailable
+    * themes/*/css/theme_right.css.php: Allow to mark a whole row as disabled.
+    * server_engines.php: Use new CSS class 'disabled' for unavailable
       engines.
 
 2005-02-14 Michal Čihař  <michal@cihar.com>

@@ -18,6 +18,22 @@ function PMA_gpc_extract($array, &$target) {
     }
     $is_magic_quotes = get_magic_quotes_gpc();
     foreach ($array AS $key => $value) {
+        /**
+         * 2005-02-22, rabus:
+         *
+         * This is just an ugly hotfix to avoid changing internal config
+         * parameters.
+         *
+         * Currently, the following variable names are rejected when found in
+         * $_GET or $_POST: cfg and str*
+         *
+         * Warning: this is also affects array keys:
+         * Variables like $_GET['harmless']['cfg'] will also be rejected!
+         */
+        if ($key == 'cfg' || substr($key, 0, 3) == 'str') {
+            continue;
+        }
+
         if (is_array($value)) {
             // there could be a variable coming from a cookie of
             // another application, with the same name as this array
