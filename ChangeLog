@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/ukrainian: update, thanks to Markijan Baran
+    * user_details.php3: add $strGrantOption
+    * lang/french update
+
 2002-12-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3:
       - Made the script compatible to MySQL < 3.22.11;
