@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-03 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php3: drop-down for foreign keys, patch 603939,
+      thanks to markus at noga.de
+
 2002-09-03 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.lib.php3:
       - fix a PHP3 problem (foreach function was called);
