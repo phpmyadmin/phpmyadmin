@@ -10,15 +10,15 @@
 // Rewritten and put in a libray 2nd May 2001 by Loïc Chapeaux
 
 // Test passed with:
-// - Mozilla 0.8.1-0.9.6 for Windows (js enabled & disabled)
+// - Mozilla 0.8.1 to 1.0-RC1 for Windows (js enabled & disabled)
 // - IE5, 5.01, 5.5, 6.0 for Windows
-// - Netscape 4.75 for Windows
+// - Netscape 4.75 to 4.78 for Windows
 
 // Test failed (crappy DOM implementations) with:
 // - Opera 5.02 for windows: 'getElementsByTagName' is unsupported
-// - Opera 5.10 to 5.12 for windows, Opera 5+ for Linux: 'style.display' can't
+// - Opera 5.10 to 6.01 for windows, Opera 5+ for Linux: 'style.display' can't
 //   be changed
-// - Konqueror 2+: 'style.display' can't be changed
+// - Konqueror 2+, 3: 'style.display' can't be changed
 
 
 var isExpanded   = false;
