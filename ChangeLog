@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties.php3, tbl_properties_links.php3,
+      new tbl_properties_structure, lang/*.php3: Structure page
+      (todo: - stay on the sub-pages as long as needed
+             - "Add field" dialog belongs to Structure page)
+
 2002-05-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_properties.php3; tbl_properties_table_info.php3: comments.
     * tbl_properties_options.php3: added labels and beautified display.

@@ -8,6 +8,8 @@
 $lnk3        = '<a href="tbl_properties_export.php3?' . $url_query . '">';
 $lnk5        = '<a href="tbl_properties_operations.php3?' . $url_query . '">';
 $lnk6        = '<a href="tbl_properties_options.php3?' . $url_query . '">';
+$lnk7        = '<a href="tbl_properties_structure.php3?' . $url_query . '">';
+$lnk8        = '<a href="tbl_properties.php3?' . $url_query . '">';
 
 if ($num_rows > 0) {
     $lnk1    = '<a href="sql.php3?' . $url_query
@@ -35,8 +37,12 @@ if ($num_rows > 0) {
  */
 ?>
 <p>
-    [ <?php echo $lnk1 . "\n"; ?>
+    [ <?php echo $lnk8 . "\n"; ?>
+          <b><?php echo $strMain; ?></b><?php if ($lnk8) echo '</a>'; ?>&nbsp;|
+    <?php echo $lnk1 . "\n"; ?>
           <b><?php echo $strBrowse; ?></b><?php if ($lnk1) echo '</a>'; ?>&nbsp;|
+    <?php echo $lnk7 . "\n"; ?>
+          <b><?php echo $strStructure; ?></b><?php if ($lnk7) echo '</a>'; ?>&nbsp;|
     <?php echo $lnk2 . "\n"; ?>
           <b><?php echo $strSelect; ?></b><?php if ($lnk2) echo '</a>'; ?>&nbsp;|
     <a href="tbl_change.php3?<?php echo $url_query; ?>">
