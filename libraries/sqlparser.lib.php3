@@ -21,6 +21,11 @@
  * $sql_info = PMA_SQP_analyze($parsed_sql);
  * (returned structure of this function is being rewritten presently);
  *
+ * lem9: Currently the analyzer can interpret db, table, column, alias
+ *       for SELECTs;
+ *       see comments in PMA_SQP_analyze for the new returned info
+ *       (select_expr and table_ref)
+ *
  * If you want a pretty-printed version of the query, do:
  * $string = PMA_SQP_formatHtml($parsed_sql);
  * (note that that you need to have syntax.css.php3 included somehow in your
@@ -563,6 +568,32 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         $subresult_empty = $subresult;
         $seek_queryend   = FALSE;
 
+/* Description of analyzer results
+ *
+ * lem9: db, table, column, alias
+ *      ------------------------
+ *
+ * Inside the $subresult array, we create ['select_expr'] and ['table_ref'] arrays.
+ *
+ * The SELECT syntax (simplified) is
+ *
+ * SELECT 
+ *    select_expression,...
+ *    [FROM [table_references]
+ *
+ *
+ * ['select_expr'] is filled with each expression, the key represents the 
+ * expression position in the list (0-based) (so we don't lose track of 
+ * multiple occurences of the same column).
+ *
+ * ['table_ref'] is filled with each table ref, same thing for the key.
+ *
+ * I create all sub-values empty, even if they are
+ * not present (for example no select_expression alias).
+ *
+ * There is a debug section at the end of the main loop, if you want to
+ * witness the exact contents of select_expr and table_ref
+ */
         // must be sorted
         // TODO: current logic checks for only one word, so I put only the
         // first word of the reserved expressions that end a table ref;
@@ -893,7 +924,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         // -------------------------------------------------------
         // This is a big hunk of debugging code by Marc for this.
         // -------------------------------------------------------
-        /*
+        /* 
            for ($trace=0; $trace<=$current_select_expr; $trace++) {
 
            echo "<br>";
