@@ -1007,7 +1007,17 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 if ($primary->numeric == 1) {
                     echo '    <td align="right">&nbsp;' . $row[$i] . '&nbsp;</td>' . "\n";
                 } else if ($GLOBALS['cfgShowBlob'] == FALSE && eregi('BLOB', $primary->type)) {
-                    echo '    <td align="right">&nbsp;[BLOB]&nbsp;</td>' . "\n";
+                    // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
+                    // fields type, however TEXT fields must be displayed even
+                    // if $cfgShowBlob is false -> get the true type of the
+                    // fields.
+                    $result_type     = mysql_query('SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($primary->table) . ' LIKE \'' . sql_addslashes($primary->name, TRUE) . '\'') or mysql_die();
+                    $true_field_type = mysql_fetch_array($result_type);
+                    if (eregi('BLOB', $true_field_type['Type'])) {
+                        echo '    <td align="right">&nbsp;[BLOB]&nbsp;</td>' . "\n";
+                    } else {
+                        echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
+                    }
                 } else {
                     echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
                 }
