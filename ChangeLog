@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/auth/cookie.auth.lib.php3: let them use a blank password, 
+      thanks to Juliano Ravasi Ferraz (jferraz) 
+    * main.php3: extend the warning about blank root password to all auth modes
+
 2002-10-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: Fixed bug #623185 (Ordering by
       FUNCTION(`field`) fails).

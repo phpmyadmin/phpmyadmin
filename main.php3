@@ -588,7 +588,6 @@ if ($display_pmaAbsoluteUri_warning) {
  * Warning if using the default MySQL privileged account
  */
 if ($server != 0
-    && $cfg['Server']['auth_type'] == 'config'
     && $cfg['Server']['user'] == 'root'
     && $cfg['Server']['password'] == '') {
     echo '<p class="warning">' . $strInsecureMySQL . '</p>' . "\n";
