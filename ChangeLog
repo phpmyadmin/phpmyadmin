@@ -12,15 +12,17 @@ $Source$
 2003-02-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Fixed a typo.
     * server_privileges.php3: Fixed bug #691910.
+    * server_status.php3, lang/*.inc.php3: Patch #683302: InnoDB status monitor,
+      thanks to Jason Carlson (jjcarlson).
 
 2003-02-28 Garvin Hicking <me@supergarv.de>
     * config.inc.php3, header.inc.php3, queryframe.php3, querywindow.php3,
       tbl_query_box.php3, libraries/common.lib.php3, libraries/config_import.lib.php3,
-      Documentation.html: 
-      - Finetuneing for query window: Only three tabs, if DefaultTab 
+      Documentation.html:
+      - Finetuneing for query window: Only three tabs, if DefaultTab
         is not set to 'full'.
       - Inserted nobr-Tags to make german translation for 'sql history' fit inside a tab.
-      - Improved windowsize of the query window (no a *lot* smaller, hope this will suit 
+      - Improved windowsize of the query window (no a *lot* smaller, hope this will suit
          Rabus ;).
       - Made the textarea smaller (*1.25 instead of *2) for the window only.
       - Fixed a bug when you changed from a table to a database on the left frame and the

@@ -16,6 +16,24 @@ require('./server_links.inc.php3');
 
 
 /**
+ * InnoDB status
+ */
+if (!empty($innodbstatus)) {
+    echo '<h2>' . "\n"
+       . '    ' . $strInnodbStat . "\n"
+       . '</h2>' . "\n";
+    $sql_query = 'SHOW INNODB STATUS;';
+    $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
+    $row = PMA_mysql_fetch_row($res);
+    echo '<pre>' . "\n"
+       . htmlspecialchars($row[0]) . "\n"
+       . '</pre>' . "\n";
+    mysql_free_result($res);
+    include('./footer.inc.php3');
+    exit;
+}
+
+/**
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
@@ -201,18 +219,18 @@ if (!empty($serverStatus)) {
                             <th>&nbsp;<?php echo $strValue; ?>&nbsp;</th>
                         </tr>
 <?php
-$useBgcolorOne = TRUE;
-$countRows = 0;
-while (list($name, $value) = each($serverStatus)) {
+    $useBgcolorOne = TRUE;
+    $countRows = 0;
+    while (list($name, $value) = each($serverStatus)) {
 ?>
                         <tr>
                             <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?>&nbsp;</td>
                             <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars($value); ?>&nbsp;</td>
                         </tr>
 <?php
-    $useBgcolorOne = !$useBgcolorOne;
-    if (++$countRows == ceil(count($serverStatus) / 3) || $countRows == ceil(count($serverStatus) * 2 / 3)) {
-        $useBgcolorOne = TRUE;
+        $useBgcolorOne = !$useBgcolorOne;
+        if (++$countRows == ceil(count($serverStatus) / 3) || $countRows == ceil(count($serverStatus) * 2 / 3)) {
+            $useBgcolorOne = TRUE;
 ?>
                     </table>
                 </td>
@@ -223,9 +241,9 @@ while (list($name, $value) = each($serverStatus)) {
                             <th>&nbsp;<?php echo $strValue; ?>&nbsp;</th>
                         </tr>
 <?php
+        }
     }
-}
-unset($useBgcolorOne);
+    unset($useBgcolorOne);
 ?>
                     </table>
                 </td>
@@ -233,6 +251,23 @@ unset($useBgcolorOne);
         </table>
     </li>
 <?php
+}
+$res = PMA_mysql_query('SHOW VARIABLES LIKE "have_innodb";', $userlink);
+if ($res) {
+    $row = PMA_mysql_fetch_row($res);
+    if (!empty($row[1]) && $row[1] == 'YES') {
+?>
+    <br />
+    <li>
+        <!-- InnoDB Status -->
+        <a href="./server_status.php3?<?php echo $url_query; ?>&amp;innodbstatus=1">
+            <b><?php echo $strInnodbStat; ?></b>
+        </a>
+    </li>
+<?php
+    }
+} else {
+    unset($res);
 }
 ?>
 </ul>
