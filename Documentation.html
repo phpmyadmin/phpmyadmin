@@ -752,7 +752,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_nr int(10) unsigned NOT NULL auto_increment,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_descr varchar(50) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (page_nr),<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`db_name`,page_nr),<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY  (db_name),<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='PDF Relationpages for PMA';<br />
                 </tt>
@@ -775,15 +775,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             <li>set up a PMA database as described above</li>
             <li>within this database create a table following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE column_comments (
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(5) unsigned NOT NULL auto_increment,
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db_name varchar(64) NOT NULL default '',
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table_name varchar(64) NOT NULL default '',
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column_name varchar(64) NOT NULL default '',
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comment varchar(255) NOT NULL default '',
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (id),
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNIQUE KEY db_name (db_name,table_name,column_name)
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Comments for Columns';
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE column_comments (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(5) unsigned NOT NULL auto_increment,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db_name varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table_name varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column_name varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comment varchar(255) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (id),<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNIQUE KEY db_name (db_name,table_name,column_name)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Comments for Columns';<br />
                 </tt>
             </li>
             <li>
