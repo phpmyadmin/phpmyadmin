@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-09  Marc Delisle <lem9@users.sourceforge.net>
+	* new messages in /lang
+
 2001-05-08 Korakot Chaovavanich  <korakot@iname.com>
 	* In edit page, replace dropdown with radio if short enough
 
