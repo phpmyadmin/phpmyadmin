@@ -12,6 +12,9 @@ $Source$
       #946861).
 
 2004-05-04 Garvin Hicking <pma@supergarv.de>
+    * db_details_structure.php: RFE #947467 - Made coloured Mousecursor
+      available in tables overview, clicking on a cell in the table
+      selects the checkbox next to it.
     * Documentation.html, config.inc.php, left.php: Use NaturalOrder
       for Non-Light left frame. Introduce new option 'nested' for
       $cfg['ShowTooltipAliasTB']. With this set Aliases are used for

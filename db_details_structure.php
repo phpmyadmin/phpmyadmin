@@ -315,6 +315,16 @@ else {
         $bgcolor       = ($i++ % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         echo "\n";
 
+        if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+            $on_mouse = ' onmouseover="setPointer(this, ' . $i . ', \'over\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
+                      . ' onmouseout="setPointer(this, ' . $i . ', \'out\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+        }
+        if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
+            $on_mouse .= ' onmousedown="setPointer(this, ' . $i . ', \'click\', \'' . $bgcolor . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+        }
+
+        $click_mouse = ' onmousedown="document.getElementById(\'checkbox_tbl_' . $i . '\').checked = (document.getElementById(\'checkbox_tbl_' . $i . '\').checked ? false : true);" ';
+
         $row_count++;
         if($num_columns > 0 && $num_tables > $num_columns && (($row_count % ($num_columns)) == 0)) {
             $bgcolor       = $cfg['BgcolorTwo'];
@@ -329,11 +339,11 @@ else {
             pma_TableHeader();
         }
         ?>
-            <tr>
+            <tr <?php echo $on_mouse; ?>>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
                     <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
                 </td>
-                <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+                <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" <?php echo $click_mouse; ?>>
                     &nbsp;<b><label for="checkbox_tbl_<?php echo $i; ?>" title="<?php echo $alias; ?>"><?php echo $truename; ?></label>&nbsp;</b>&nbsp;
                 </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
@@ -462,18 +472,18 @@ else {
                 $display_rows                   =  'unknown';
             }
             ?>
-                <td align="right" bgcolor="<?php echo $bgcolor; ?>">
+                <td align="right" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
             <?php
             echo "\n" . '        ' . $display_rows . "\n";
             ?>
                 </td>
             <?php
             if (!($cfg['PropertiesNumColumns'] > 1)) {
-                echo '                <td bgcolor="' . $bgcolor . '" nowrap="nowrap">' . "\n"
+                echo '                <td bgcolor="' . $bgcolor . '" nowrap="nowrap" ' . $click_mouse . '>' . "\n"
                    . '                    &nbsp;' . (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;') . '&nbsp;' . "\n"
                    . '                </td>' . "\n";
                 if (PMA_MYSQL_INT_VERSION >= 40100) {
-                    echo '                <td bgcolor="' . $bgcolor . '" nowrap="nowrap">' . "\n"
+                    echo '                <td bgcolor="' . $bgcolor . '" nowrap="nowrap" ' . $click_mouse . '>' . "\n"
                        . '                    &nbsp;' . (isset($sts_data['Collation']) ? '<dfn title="' . PMA_getCollationDescr($sts_data['Collation']) . '">' . $sts_data['Collation'] . '</dfn>' : '---') . '&nbsp;' . "\n"
                        . '                </td>' . "\n";
                 }
@@ -482,11 +492,11 @@ else {
             if ($cfg['ShowStats']) {
                 echo "\n";
                 ?>
-                <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+                <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" <?php echo $click_mouse; ?>>
                     &nbsp;&nbsp;
                     <a href="tbl_properties_structure.php?<?php echo $tbl_url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
                 </td>
-                <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+                <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap" <?php echo $click_mouse; ?>>
                     &nbsp;&nbsp;
                     <?php
                     if (isset($formated_overhead)) {
@@ -503,7 +513,7 @@ else {
             } // end if
         } else {
             ?>
-                <td colspan="3" align="center" bgcolor="<?php echo $bgcolor; ?>">
+                <td colspan="3" align="center" bgcolor="<?php echo $bgcolor; ?>" <?php echo $click_mouse; ?>>
                     <?php echo $strInUse . "\n"; ?>
                 </td>
             <?php
