@@ -6,16 +6,19 @@ $Id$
 $Source$
 
 2001-08-30  Marc Delisle  <lem9@users.sourceforge.net>
-	* lang/norwegian.inc.php3 updates, thanks to Sven-Erik Andersen 
+	* lang/norwegian.inc.php3 updates, thanks to Sven-Erik Andersen.
 
 2001-08-30  Olivier Müller  <om@omnis.ch>
-	* lib.inc.php3: now calls show_table_navigation() even if
-	  $SelectNumRows is = 1.
-	* lang/*: added $strFullStrings and $strCuttedStrings
-	* renamed to $strFullText and $strPartialText
+	* lib.inc.php3: now calls show_table_navigation() even if $SelectNumRows
+	  is = 1.
+	* lang/*: added $strFullStrings and $strCuttedStrings.
+	* renamed to $strFullText and $strPartialText.
 
 2001-08-30  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3: fits to coding standards.
+	* lang/norwegian.inc.php3: fixed some typos and re-sorted a bit.
+	* ldi_table.php3: removed some unnecessary lines of code.
+	* sql.php3, lines 51-66: fixed bug #456254 - Crash select on a table.
 
 2001-08-29  Olivier Müller  <om@omnis.ch>
 	* left.php3: on login with std_auth, only the databases on which
