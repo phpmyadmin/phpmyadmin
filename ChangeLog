@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-04  Korakot Chaovavanich  <korakot@iname.com>
+	* table comment(description) as tooltip (request #464084)
+
 2001-10-03  Marc Delisle  <lem9@users.sourceforge.net>
 	* release 2.2.1-rc1
 
