@@ -649,13 +649,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             <li>enter the tablename in
                 <tt>$cfg['Servers'][$i]['bookmarktable']</tt></li>
         </ul><br />
-
-        Note that &quot;controluser&quot; must have <tt>SELECT</tt>,
-        <tt>INSERT</tt> and <tt>DELETE</tt> privileges on the bookmark table.
-        Here is a query to set up those privileges (using &quot;pma&quot; as
-        the controluser and phpmyadmin as databasename):<br />
-        <tt>&nbsp;&nbsp;GRANT SELECT,INSERT,DELETE ON &lt;phpmyadmin&gt; to 'pma'@localhost;</tt>
-        <br /><br />
     </dd>
 
     <dt>
@@ -718,9 +711,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 <tt>$cfg['Servers'][$i]['relation']</tt>
             </li>
             <li>
-                now as normal user open phpMyAdmin and for each table where you
-                want to use this feature, click &quot;Structure/Relation view/&quot;
-                and choose foreign fields.
+                now as normal user open phpMyAdmin and for each one of your
+                tables where you want to use this feature, click 
+                &quot;Structure/Relation view/&quot; and choose foreign fields.
             </li>
         </ul><br />
         Please note that in the current (2.3.0) version, <tt>master_db</tt>
