@@ -35,52 +35,6 @@ if (!isset($err_url)) {
              . ((strpos(' ' . $goto, 'db_details') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
 } // end if
 
-
-/**
- * dead function, to be removed:
- * SK -- Patch
- *
- * Does some preliminary formatting of the $sql_query to avoid problems with
- * eregi and split:
- *   1) separates reserved words in $sql_str from the next backquoted or
- *      parenthesized expression with a space;
- *   2) capitalizes reserved words
- *   3) removes repeated spaces
- *
- * @param   string  original query
- *
- * @return  string  formatted query
- */
-function PMA_sqlFormat($sql_str) {
-    // Defines reserved words to deal with
-    $res_words_arr = array('DROP', 'SELECT', 'DELETE', 'UPDATE', 'INSERT', 'LOAD', 'EXPLAIN', 'SHOW', 'FROM', 'INTO', 'OUTFILE', 'DATA', 'REPLACE', 'CHECK', 'ANALYZE', 'REPAIR', 'OPTIMIZE', 'TABLE', 'ORDER', 'HAVING', 'LIMIT', 'GROUP', 'DISTINCT');
-
-    while (list(, $w) = each($res_words_arr)) {
-        // Separates a backquoted expression with spaces
-        $pattern = '[[:space:]]' . $w . '`([^`]*)`(.*)';
-        $replace = ' ' . $w . ' `\\1` \\2';
-        $sql_str = substr(eregi_replace($pattern, $replace, ' ' . $sql_str), 1);
-
-        // Separates a parenthesized expression with spaces
-        $pattern = '[[:space:]]' . $w . '\(([^)]*)\)(.*)';
-        $replace = ' ' . $w . ' (\\1) \\2';
-        $sql_str = substr(eregi_replace($pattern, $replace, ' ' . $sql_str), 1);
-
-        // Converts reserved words to upper case if not yet done
-        $sql_str = substr(eregi_replace('[[:space:]]' . $w . '[[:space:]]', ' ' . $w  . ' ', ' ' . $sql_str), 1);
-    } // end while
-
-    // Removes repeated spaces
-    // $sql_str = ereg_replace('[[:space:]]+', ' ', $sql_str);
-    $sql_str = ereg_replace(' +', ' ', $sql_str);
-
-    // GROUP or ORDER: "BY" to uppercase too
-    $sql_str = eregi_replace('(GROUP|ORDER) BY', '\\1 BY', $sql_str);
-
-    return $sql_str;
-} // end of the "PMA_sqlFormat()" function
-
-
 /**
  * Check rights in case of DROP DATABASE
  *
@@ -124,10 +78,9 @@ if (isset($btnDrop) || isset($navig)) {
     $sql_query = urldecode($sql_query);
 }
 
-// SK -- Patch : Reformats query - adds spaces when omitted and removes extra
-//               spaces; converts reserved words to uppercase
-//$sql_query = PMA_sqlFormat($sql_query);
-
+/**
+ * Reformat the query
+ */
 $parsed_sql = PMA_SQP_parse((get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query));
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 $sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
