@@ -153,6 +153,7 @@ function PMA_getRelationsParam($verbose = FALSE)
                     $mime_field_transformation_options = TRUE;
                 }
             }
+            PMA_DBI_free_result($mime_rs);
 
             if ($mime_field_mimetype == TRUE
                 && $mime_field_transformation == TRUE
@@ -276,16 +277,26 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
     global $cfgRelation, $err_url_0;
 
     if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
-        $rel_query     = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
-                       . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                       . ' WHERE master_db =  \'' . PMA_sqlAddslashes($db) . '\' '
-                       . ' AND   master_table = \'' . PMA_sqlAddslashes($table) . '\' ';
-        if (!empty($column)) {
-            $rel_query .= ' AND master_field = \'' . PMA_sqlAddslashes($column) . '\'';
+        $rel_query          = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
+                            . ' FROM ' . PMA_backquote($cfgRelation['relation']);
+        if (PMA_MYSQL_INT_VERSION >= 40000) {
+            list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+            $rel_query     .= ' WHERE CONVERT(master_db USING ' . $conn_charset . ') =  \'' . PMA_sqlAddslashes($db) . '\' '
+                            . ' AND   CONVERT(master_table USING ' . $conn_charset . ') = \'' . PMA_sqlAddslashes($table) . '\' ';
+            if (!empty($column)) {
+                $rel_query .= ' AND   CONVERT(master_field USING ' . $conn_charset . ') = \'' . PMA_sqlAddslashes($column) . '\'';
+            }
+            unset($conn_charset);
+        } else {
+            $rel_query     .= ' WHERE master_db =  \'' . PMA_sqlAddslashes($db) . '\' '
+                            . ' AND   master_table = \'' . PMA_sqlAddslashes($table) . '\' ';
+            if (!empty($column)) {
+                $rel_query .= ' AND   master_field = \'' . PMA_sqlAddslashes($column) . '\'';
+            }
         }
         $relations     = PMA_query_as_cu($rel_query);
         $i = 0;
-        while ($relrow = @PMA_DBI_fetch_assoc($relations)) {
+        while ($relrow = PMA_DBI_fetch_assoc($relations)) {
             $field                            = $relrow['master_field'];
             $foreign[$field]['foreign_db']    = $relrow['foreign_db'];
             $foreign[$field]['foreign_table'] = $relrow['foreign_table'];
@@ -302,7 +313,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
         $show_create_table_res = PMA_DBI_query($show_create_table_query);
         list(,$show_create_table) = PMA_DBI_fetch_row($show_create_table_res);
         PMA_DBI_free_result($show_create_table_res);
-        unset($show_create_table_res);
+        unset($show_create_table_res, $show_create_table_query);
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
         foreach ($analyzed_sql[0]['foreign_keys'] AS $one_key) {
@@ -371,9 +382,15 @@ function PMA_getDisplayField($db, $table) {
         return FALSE;
     }
 
-    $disp_query = 'SELECT display_field FROM ' . PMA_backquote($cfgRelation['table_info'])
-                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+    $disp_query      = 'SELECT display_field FROM ' . PMA_backquote($cfgRelation['table_info']);
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
+        list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+        $disp_query .= ' WHERE CONVERT(db_name    USING ' . $conn_charset . ') = \'' . PMA_sqlAddslashes($db) . '\''
+                     . ' AND   CONVERT(table_name USING ' . $conn_charset . ') = \'' . PMA_sqlAddslashes($table) . '\'';
+    } else {
+        $disp_query .= ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
+                     . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+    }
 
     $disp_res   = PMA_query_as_cu($disp_query);
     $row        = ($disp_res ? PMA_DBI_fetch_assoc($disp_res) : '');
@@ -403,16 +420,31 @@ function PMA_getDisplayField($db, $table) {
 function PMA_getComments($db, $table = '') {
     global $cfgRelation;
 
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
+        list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+    }
+
     if ($table != '') {
-        $com_qry  = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info'])
-                  . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                  . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+        $com_qry      = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info']);
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            $com_qry .= ' WHERE CONVERT(db_name    USING ' . $conn_charset . ') = \'' . PMA_sqlAddslashes($db) . '\''
+                      . ' AND   CONVERT(table_name USING ' . $conn_charset . ') = \'' . PMA_sqlAddslashes($table) . '\'';
+        } else {
+            $com_qry .= ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
+                      . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+        }
         $com_rs   = PMA_query_as_cu($com_qry, TRUE);
     } else {
-        $com_qry  = 'SELECT comment FROM ' . PMA_backquote($cfgRelation['column_info'])
-                  . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                  . ' AND table_name = \'\''
-                  . ' AND column_name = \'(db_comment)\'';
+        $com_qry      = 'SELECT ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_info']);
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            $com_qry .= ' WHERE CONVERT(db_name     USING ' . $conn_charset . ') = \'' . PMA_sqlAddslashes($db) . '\''
+                      . ' AND   CONVERT(table_name  USING ' . $conn_charset . ') = \'\''
+                      . ' AND   CONVERT(column_name USING ' . $conn_charset . ') = \'(db_comment)\'';
+        } else {
+            $com_qry .= ' WHERE db_name     = \'' . PMA_sqlAddslashes($db) . '\''
+                      . ' AND   table_name  = \'\''
+                      . ' AND   column_name = \'(db_comment)\'';
+        }
         $com_rs   = PMA_query_as_cu($com_qry, TRUE);
     }
 
@@ -427,6 +459,7 @@ function PMA_getComments($db, $table = '') {
 
     } // end while
     PMA_DBI_free_result($com_rs);
+    unset($com_rs);
 
     if (isset($comment) && is_array($comment)) {
         return $comment;
@@ -466,19 +499,34 @@ function PMA_handleSlashes($val) {
 function PMA_setComment($db, $table, $key, $value, $removekey = '') {
     global $cfgRelation;
 
-    if ($removekey != '' AND $removekey != $key) {
-        $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
-                    . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                    . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                    . ' AND column_name = \'' . PMA_sqlAddslashes($removekey) . '\'';
-        $rmv_rs    = PMA_query_as_cu($remove_query);
-        unset($rmv_query);
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
+        list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+        $cols = array(
+            'db_name'     => 'CONVERT(db_name     USING ' . $conn_charset . ')',
+            'table_name'  => 'CONVERT(table_name  USING ' . $conn_charset . ')',
+            'column_name' => 'CONVERT(column_name USING ' . $conn_charset . ')'
+        );
+    } else {
+        $cols = array(
+            'db_name'     => 'db_name    ',
+            'table_name'  => 'table_name ',
+            'column_name' => 'column_name'
+        );
     }
 
-    $test_qry  = 'SELECT ' . PMA_backquote('comment') . ', mimetype, transformation, transformation_options FROM ' . PMA_backquote($cfgRelation['column_info'])
-                . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
+    if ($removekey != '' AND $removekey != $key) {
+        $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
+                      . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
+                      . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
+                      . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($removekey) . '\'';
+        PMA_query_as_cu($remove_query);
+        unset($remove_query);
+    }
+
+    $test_qry = 'SELECT ' . PMA_backquote('comment') . ', mimetype, transformation, transformation_options FROM ' . PMA_backquote($cfgRelation['column_info'])
+              . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
+              . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
+              . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($key) . '\'';
     $test_rs   = PMA_query_as_cu($test_qry, TRUE, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
@@ -487,15 +535,15 @@ function PMA_setComment($db, $table, $key, $value, $removekey = '') {
 
         if (strlen($value) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
             $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
-                   . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_sqlAddslashes($value) . '\''
-                   . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                   . ' AND column_name = \'' . PMA_sqlAddSlashes($key) . '\'';
+                       . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_sqlAddslashes($value) . '\''
+                       . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
+                       . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
+                       . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddSlashes($key) . '\'';
         } else {
             $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
-                   . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                   . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
+                       . ' WHERE ' . $cols['db_name']     . ' = \'' . PMA_sqlAddslashes($db) . '\''
+                       . ' AND   ' . $cols['table_name']  . ' = \'' . PMA_sqlAddslashes($table) . '\''
+                       . ' AND   ' . $cols['column_name'] . ' = \'' . PMA_sqlAddslashes($key) . '\'';
         }
     } else if (strlen($value) > 0) {
         $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
@@ -558,11 +606,23 @@ function PMA_setHistory($db, $table, $username, $sqlquery) {
 function PMA_getHistory($username) {
     global $cfgRelation;
 
-    $hist_rs    = PMA_query_as_cu('SELECT '
-                    . PMA_backquote('db') . ','
-                    . PMA_backquote('table') . ','
-                    . PMA_backquote('sqlquery')
-                    . ' FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddslashes($username) . '\' ORDER BY id DESC');
+    $hist_query      = 'SELECT '
+                     . PMA_backquote('db') . ','
+                     . PMA_backquote('table') . ','
+                     . PMA_backquote('sqlquery')
+                     . ' FROM ' . PMA_backquote($cfgRelation['history'])
+                     . ' WHERE ';
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
+        list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+        $hist_query .= 'CONVERT(username USING ' . $conn_charset . ')';
+        unset($conn_charset);
+    } else {
+        $hist_query .= 'username';
+    }
+    $hist_query     .= ' = \'' . PMA_sqlAddslashes($username) . '\' ORDER BY id DESC';
+
+    $hist_rs = PMA_query_as_cu($hist_query);
+    unset($hist_query);
 
     $history = array();
 
@@ -590,7 +650,16 @@ function PMA_getHistory($username) {
 function PMA_purgeHistory($username) {
     global $cfgRelation, $cfg;
 
-    $purge_rs = PMA_query_as_cu('SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddSlashes($username) . '\' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1');
+    $purge_query  = 'SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE ';
+    if (PMA_MYSQL_INT_VERION >= 40100) {
+        list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+        $purge_query .= 'CONVERT(username USING ' . $conn_charset . ')';
+        unset($conn_charset);
+    } else {
+        $purge_query .= 'username';
+    }
+    $purge_query .= ' = \'' . PMA_sqlAddSlashes($username) . '\' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1';
+    $purge_rs = PMA_query_as_cu($purge_query);
     $i = 0;
     $row = PMA_DBI_fetch_row($purge_rs);
     PMA_DBI_free_result($purge_rs);

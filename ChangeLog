@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-16 Alexander M. Turek  <me@derrabus.de>
+    * libraries/relation.lib.php: Fixed some collation problems with the
+      relational tables (bug #995359).
+
 2004-08-16 Marc Delisle  <lem9@users.sourceforge.net>
     * all .../theme_right_css.php: bug #1009661, typo,
       thanks to Ryan Schmidt (ryandesign)
