@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-27 Michal Čihař  <michal@cihar.com>
+    * server_binlog.php: MySQL 5 compatibility (bug #1151960).
+
 2005-02-26 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: added FAQ 5.16 about various IE and Windows
       problems. Thanks to Michael Keck.
@@ -33,7 +36,7 @@ $Source$
       in visual scratchboard, thanks to Remco Aalbers - remcoa
 
 2005-02-17 Marc Delisle  <lem9@users.sourceforge.net>
-    * header.inc.php, queryframe.php: HTML improvement, 
+    * header.inc.php, queryframe.php: HTML improvement,
       thanks to Armel Fauveau
     * server_privileges.php: bug #1113788, escaping character removed by error
 
