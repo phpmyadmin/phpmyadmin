@@ -344,7 +344,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     <?php
     if (PMA_MYSQL_INT_VERSION >= 32323) {
         if ((!empty($tbl_type) && $tbl_type == 'MYISAM')
-            && ($type == 'text' || strpos(' ' . $type, 'varchar'))) {
+            && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'varchar'))) {
             echo "\n";
             ?>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_structure.php3: bug 842053: not only TEXT but also
+      any ...TEXT field types can have a FULLTEXT index
+
 2003-11-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3: undefined variable dblist_full when
       renaming a table
