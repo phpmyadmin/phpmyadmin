@@ -1,6 +1,10 @@
 <?php
 /* $Id$ */
 
+/*
+ * Portuguese language file by Lopo Pizarro <lopopizarro@users.sourceforge.net>
+ */
+
 $charset = 'iso-8859-1';
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
@@ -57,6 +61,7 @@ $strBookmarkQuery = 'SQL-query marcada';
 $strBookmarkThis = 'Marcar esta SQL-query';
 $strBookmarkView = 'Ver apenas';
 $strBrowse = 'Visualiza';
+$strBzip = '"Compressão bzip"';
 
 $strCantLoadMySQL = 'não foi possível carregar a extensão MySQL,<br />por favor verifique a configuração do PHP.';
 $strCantRenameIdxToPrimary = 'Impossível renomear índice para PRIMARY!';
@@ -71,7 +76,7 @@ $strColumn = 'Campo';
 $strColumnNames = 'Nome dos Campos';
 $strCompleteInserts = 'Instrucções de inserção completas';
 $strConfirm = 'Confirma a sua opção?';
-$strCookiesRequired = 'O mecanoismo de "Cookies" tem de estar ligado a partir deste ponto.';
+$strCookiesRequired = 'O mecanismo de "Cookies" tem de estar ligado a partir deste ponto.';
 $strCopyTable = 'Copia tabela para (base-de-dados<b>.</b>tabela):';
 $strCopyTableOK = 'Tabela %s copiada para %s.';
 $strCreate = 'Criar';
@@ -134,11 +139,13 @@ $strFunction = 'Funções';
 $strGenTime = 'Data de Criação';
 $strGo = 'Executa';
 $strGrants = 'Autorizações';
+$strGzip = '"Compressão gzip"';
 
 $strHasBeenAltered = 'foi alterado.';
 $strHasBeenCreated = 'foi criado.';
 $strHome = 'Início';
 $strHomepageOfficial = 'Página Oficial do phpMyAdmin';
+$strHomepageSourceforge = 'Sourceforge phpMyAdmin - Página de Download';
 $strHost = 'Máquina';
 $strHostEmpty = 'O nome da máquina está vazio!';
 
@@ -175,16 +182,16 @@ $strLogUsername = 'Utilizador&nbsp;:';
 $strLogin = 'Entrada';
 $strLogout = 'Sair';
 
-$strModifications = 'Modificações foram salvas';
+$strModifications = 'Modificações foram Guardadas';
 $strModify = 'Modifica';
 $strModifyIndexTopic = 'Modificar um índice';
 $strMoveTable = 'Move tabela para (base de dados<b>.</b>tabela):';
 $strMoveTableOK = 'A tabela %s foi movida para %s.';
 $strMySQLReloaded = 'MySQL reiniciado.';
 $strMySQLSaid = 'Mensagens do MySQL : ';
-$strMySQLServerProcess = 'MySQL %pma_s1% correndo em %pma_s2% como %pma_s3%';
+$strMySQLServerProcess = 'MySQL %pma_s1% a correr em %pma_s2% como %pma_s3%';
 $strMySQLShowProcess = 'Mostra os Processos';
-$strMySQLShowStatus = 'Mostra informação do estado do MySql';
+$strMySQLShowStatus = 'Mostra informação do estado do MySQL';
 $strMySQLShowVars = 'Mostra as variáveis de sistema do MySQL';
 
 $strName = 'Nome';
@@ -218,8 +225,8 @@ $strOverhead = 'Suspenso';
 $strPHPVersion = 'versão do PHP';
 $strPartialText = 'Texto parcial';
 $strPassword = 'Senha';
-$strPasswordEmpty = 'Indique a Password!';
-$strPasswordNotSame = 'As passwords são diferentes!\nLembre-se de confirmar a password!';
+$strPasswordEmpty = 'Indique a Senha!';
+$strPasswordNotSame = 'As senhas são diferentes!\nLembre-se de confirmar a senha!';
 $strPmaDocumentation = 'Documentação do phpMyAdmin';
 $strPmaUriError = 'A directiva <tt>$cfgPmaAbsoluteUri</tt> TEM que ser definida no ficheiro de configuração!';
 $strPos1 = 'Inicio';
@@ -240,9 +247,10 @@ $strQueryOnDb = 'Comando SQL na base de dados <b>%s</b>:';
 
 $strReType = 'Confirma';
 $strRecords = 'Registos';
-$strReloadFailed = 'Reinicialização do MySQL falhou.';
-$strReloadMySQL = 'Reinicializa o MySQL';
-$strRememberReload = 'Lembre-se de reinicializar o servidor.';
+$strReferentialIntegrity = 'Verificar Integridade referencial:';
+$strReloadFailed = 'Reiniciação do MySQL falhou.';
+$strReloadMySQL = 'Reiniciar o MySQL';
+$strRememberReload = 'Lembre-se de reiniciar o servidor.';
 $strRenameTable = 'Renomeia a tabela para ';
 $strRenameTableOK = 'Tabela %s renomeada para %s';
 $strRepairTable = 'Reparar tabela';
@@ -284,7 +292,7 @@ $strShowPHPInfo = 'Mostra informação do PHP';
 $strShowTables = 'Mostra tabelas';
 $strShowThisQuery = ' Mostrar de novo aqui este comando ';
 $strShowingRecords = 'Mostrando registos ';
-$strSingly = '(sozinho)';
+$strSingly = '(sózinho)';
 $strSize = 'Tamanho';
 $strSort = 'Ordenação';
 $strSpaceUsage = 'Espaço ocupado';
@@ -294,7 +302,7 @@ $strStrucCSV = 'Dados CSV';
 $strStrucData = 'Estrutura e dados';
 $strStrucDrop = 'Adiciona \'drop table\'';
 $strStrucExcelCSV = 'dados CSV para Ms Excel';
-$strStrucOnly = 'Sómente estrutura';
+$strStrucOnly = 'Somente estrutura';
 $strSubmit = 'Submete';
 $strSuccess = 'O seu comando SQL foi executado com sucesso';
 $strSum = 'Soma';
@@ -324,7 +332,7 @@ $strUpdateProfile = 'Actualiza o prefil:';
 $strUpdateProfileMessage = 'O prefil foi actualizado.';
 $strUpdateQuery = 'Actualiza Comando SQL';
 $strUsage = 'Utilização';
-$strUseBackquotes = 'Usar apostrofes com os nomes das tabelas e campos';
+$strUseBackquotes = 'Usar apóstrofes com os nomes das tabelas e campos';
 $strUseTables = 'Usar Tabelas';
 $strUser = 'Utilizador';
 $strUserEmpty = 'O nome do utilizador está vazio!';
@@ -336,16 +344,13 @@ $strViewDump = 'Ver o esquema da tabela';
 $strViewDumpDB = 'Ver o esquema da base de dados';
 
 $strWelcome = 'Bemvindo ao %s';
-$strWithChecked = 'Com os selecçionados:';
+$strWithChecked = 'Com os seleccionados:';
 $strWrongUser = 'Utilizador ou Senha errada. Acesso Negado.';
 
 $strYes = 'Sim';
 
+$strZip = '"Compressão zip"';
+
 
 // To translate
-$strBzip = '"bzipped"';  //to translate
-$strGzip = '"gzipped"';  //to translate
-$strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page'; //to translate
-$strZip = '"zipped"';  //to translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
