@@ -600,6 +600,17 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
  *
  * There is a debug section at the end of the main loop, if you want to
  * see the exact contents of select_expr and table_ref
+ *
+ * lem9: queryflags
+ *       ----------
+ * 
+ * In $subresult, array 'queryflags' is filled, according to what we 
+ * find in the query.
+ *
+ * Currently, those are generated:
+ *
+ * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
+ * ['queryflags']['select_from'] = 1; if this is a real SELECT...FROM
  */
         // must be sorted
         // TODO: current logic checks for only one word, so I put only the
@@ -982,7 +993,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
         for ($i = 0; $i < $size; $i++) {
 //echo "trace 2<b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
-           // c o n f i r m a t i o n    r e q u e s t s
+
+           // c o n f i r m a t i o n    r e q u e s t s (need_confirm)
            //
            // check for reserved words that will have to generate
            // a confirmation request later in sql.php3
@@ -1014,7 +1026,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                    if ($upper_data=='DROP' && $first_reserved_word=='ALTER') {
                       $subresult['queryflags']['need_confirm'] = 1;
                       break;
- 
+                   } 
+                   if ($upper_data=='FROM' && $first_reserved_word=='SELECT') {
+                      $subresult['queryflags']['select_from'] = 1;
+                      break;
                    } 
                }
            }

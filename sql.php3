@@ -254,9 +254,13 @@ else {
     // Do append a "LIMIT" clause?
     if (isset($pos)
         && (!$cfg['ShowAll'] || $session_max_rows != 'all')
-        && $is_select
         && !($is_count || $is_export || $is_func || $is_analyse)
-        && eregi('[[:space:]]FROM[[:space:]]', $sql_query)
+
+        //&& $is_select
+        //&& eregi('[[:space:]]FROM[[:space:]]', $sql_query)
+
+        && isset($analyzed_sql[0]['queryflags']['select_from'])
+
         && !eregi('[[:space:]]LIMIT[[:space:]0-9,-]+$', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'];
         if (eregi('(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$', $sql_query, $regs)) {
