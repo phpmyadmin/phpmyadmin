@@ -1328,6 +1328,35 @@ if (typeof(document.getElementById) != 'undefined'
         return strftime($date, $timestamp);
     } // end of the 'PMA_localisedDate()' function
 
+    /**
+     * Prints out a tab for tabbed navigation.
+     * If the variables $link and $args ar left empty, an inactive tab is created
+     *
+     * @param    $text    the text to be displayed as link
+     * @param    $link    main link file, e.g. "test.php3"
+     * @param    $args    link arguments
+     *
+     * @return  string  two table cells, the first beeing a separator, the second the tab itself
+     *
+     * @access  public
+     */
+    function printTab($text,$link,$args="",$attr="") {
+        global $PHP_SELF;
+        global $db_details_links_count_tabs;
+
+        $bgcolor = (basename($PHP_SELF) == $link) ? "silver" : "#DFDFDF";
+        $db_details_links_count_tabs++;
+
+        $out = "\n\t\t<td bgcolor=\"$bgcolor\" align=\"center\" width=\"64\" nowrap=\"nowrap\">";
+        if (strlen($link)>0)
+            $out .= "<a href=\"$link?$args\" $attr><b>$text</b></a>";
+        else
+            $out .= "<b>$text</b>";
+        $out .= "</td>";
+        $out .= "\n\t\t<td width=\"8\">&nbsp;</td>";
+        return $out;
+    }
+
 
     // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
     if (PMA_PHP_INT_VERSION >= 40006

@@ -92,6 +92,7 @@ a.drop:visited  {font-family: <?php echo $right_font_family; ?>; color: #ff0000}
 a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #ffffff; background-color:#ff0000; text-decoration:none}
 .nav            {font-family: <?php echo $right_font_family; ?>; color: #000000}
 .warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
+td.topline      {font-size: 1px}
 //-->
 </style>
 

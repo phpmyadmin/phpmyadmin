@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-20 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * header.inc.php3, *_links.php3, libraries/common.lib.php3: Implemented
+      Patch #571426 (Tabbed navigation), thanks to Joachim Fornallaz (jfornall).
+
 2002-06-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3,
       config.inc.php3: Rewrote the whole backwards compatibility code for old
