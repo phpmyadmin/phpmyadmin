@@ -395,4 +395,3 @@ $strYes = 'Ja';
 $strZip = '"Gezipt"';
 
 ?>
-
