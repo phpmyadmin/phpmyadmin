@@ -31,8 +31,6 @@ if ($js_frame == 'left') {
     ?>
 /* No layer effects neccessary */
 div     {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-input   {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-select  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color: #ffffff; color: #000000}
 .heada  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
 .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
 .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
@@ -97,6 +95,8 @@ div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_
     ?>
 /* Always enabled stylesheets (left frame) */
 body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
+input   {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
+select  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color: #ffffff; color: #000000}
     <?php
 } elseif ($js_frame == 'print') {
 /************************************************************************************
