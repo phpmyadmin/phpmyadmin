@@ -5,11 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-02  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/dutch.inc.php3: other updates thanks to Paul Koster.
+
 2001-09-01  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_stat.php3: cleaned and improved the code.
 	* header.php3: cosmetic change.
 	* db_create.php3, line9; db_readdump.php3, line 135: fixed a js error.
-	* lang/norwegian.inc.php3: updated thanks to Paul Koster.
+	* lang/dutch.inc.php3: updated thanks to Paul Koster.
 	* lib.inc.php3; sql.php3, lines 296-311:
 	  - display the full/partial text button only if a field is concerned;
 	  - many little fixes when $cfgModifyDeleteAtLeft is true;
