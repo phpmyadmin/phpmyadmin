@@ -391,7 +391,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             echo '---END CUT---<br /><br />' . "\n\n";
             echo '</p>' . "\n";
             flush();
-            ob_flush();
+            if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) { 
+                ob_flush();
+            }
             die();
         } // end while ($count2 < $len)
 
