@@ -105,6 +105,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // Builds the sql update query
     $valuelist    = ereg_replace(', $', '', $valuelist);
     if (!empty($valuelist)) {
+        PMA_mysql_select_db($db);
         $query    = 'UPDATE ' . PMA_backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
                   . ((PMA_MYSQL_INT_VERSION >= 32300) ? ' LIMIT 1' : '');
         $message  = $strAffectedRows . '&nbsp;';
@@ -128,8 +129,28 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
  *  Prepares the insert of a row
  */
 else {
+    PMA_mysql_select_db($db);
+
     $fieldlist = '';
     $valuelist = '';
+
+    // garvin: Get, if sent, any protected fields to insert them here:
+    if (isset($fields_type) && is_array($fields_type) && isset($primary_key)) {
+        reset($fields_type);
+
+        $protected_stack = array();
+        while (list($key, $val) = each($fields_type)) {
+            if ($val == 'protected') {
+                $protected_stack[] = PMA_backquote(urldecode($key));
+            }
+        }
+        reset($fields_type);
+
+        $prot_local_query = 'SELECT ' . implode(', ', $protected_stack) . ' FROM ' . PMA_backquote($table) . ' WHERE ' . urldecode($primary_key);
+        $prot_result      = PMA_mysql_query($prot_local_query) or PMA_mysqlDie('', $prot_local_query, '', $err_url);
+        $prot_row         = PMA_mysql_fetch_array($prot_result);
+    }
+    
     while (list($key, $val) = each($fields)) {
         $encoded_key = $key;
         $key         = urldecode($key);
@@ -160,7 +181,6 @@ else {
  * Executes the sql query and get the result, then move back to the calling
  * page
  */
-PMA_mysql_select_db($db);
 $sql_query = $query . ';';
 $result    = PMA_mysql_query($query);
 if (!$result) {

@@ -160,9 +160,15 @@ if (!$check_stop) {
                     // but we can still handle field upload
 
                     // garvin: when in UPDATE mode, do not alter field's contents. When in INSERT
-                    // mode, insert empty field because no values were submitted.
+                    // mode, insert empty field because no values were submitted. If protected
+                    // blobs where set, insert original fields content.
                     if (isset($fieldlist)) {
-                        $val = "''";
+                        if (isset($prot_row) && isset($prot_row[$key]) && $prot_row[$key] != '') {
+                            $val = '0x' . bin2hex($prot_row[$key]);
+                            $see_binary = true;
+                        } else {
+                            $val = "''";
+                        }
                     } else {
                         unset($val);
                     }
