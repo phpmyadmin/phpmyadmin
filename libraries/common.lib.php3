@@ -120,6 +120,12 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     if (!isset($cfgTextareaRows)) {
         $cfgTextareaRows        = 7;
     }
+    if (!isset($cfgDefaultDisplay)) {
+        $cfgDefaultDisplay      = 'horizontal';
+    }
+    if (!isset($cfgRepeatCells)) {
+        $cfgRepeatCells         = 100;
+    }
 
     // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
     // exist
