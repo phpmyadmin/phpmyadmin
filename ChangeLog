@@ -6,9 +6,13 @@ $Id$
 $Source$
 
 2001-10-15  Loïc Chapeaux  <lolo@phpheaven.net>
-	* tbl_properties.php3, line 966: the current name of the table is now
-	  displayed in the text box of the "rename table" feature. Thanks to
-	  Cal Henderson for this suggestion.
+	* tbl_properties.php3:
+	  - line 966: the current name of the table is now displayed in the text
+	    box of the "rename table" feature. Thanks to Cal Henderson for this
+	    suggestion;
+	  - line 385: fixed an xhtml1.0 error.
+	* db_details.php3, line 327; db_stats.php3, line 291: fixed an xhtml1.0
+	  error.
 	* tbl_change.php3, lines 148-151: displays default values while creating
 	  a new record. Thanks to "pdobrigkeit" for this suggestion.
 

@@ -382,7 +382,7 @@ if ($fields_cnt > 1) {
 echo "\n";
 ?>
     </td>
-<tr>
+</tr>
 </table>
 
 </form>

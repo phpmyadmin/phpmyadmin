@@ -288,7 +288,7 @@ if ($num_dbs > 0) {
     echo '            <img src="./images/arrow.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n";
     echo '            <i>' . $strWithChecked . '</i>&nbsp;&nbsp;<input type="submit" name="submit_mult" value="' . $strDrop . '" />' . "\n";
     echo '        </td>' . "\n";
-    echo '    <tr>' . "\n";
+    echo '    </tr>' . "\n";
 
     echo '    </table>' . "\n\n";
 

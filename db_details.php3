@@ -324,7 +324,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
         &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
     </td>
-<tr>
+</tr>
 </table>
 
 </form>
