@@ -48,6 +48,7 @@ $available_languages = array(
     'el'         => array('el|greek',  'greek'),
     'en'         => array('en([-_][[:alpha:]]{2})?|english',  'english'),
     'es'         => array('es([-_][[:alpha:]]{2})?|spanish', 'spanish'),
+    'fi'         => array('fi|finnish', 'finnish'),
     'fr'         => array('fr([-_][[:alpha:]]{2})?|french', 'french'),
     'gl'         => array('gl|galician', 'galician'),
     'it'         => array('it|italian', 'italian'),
