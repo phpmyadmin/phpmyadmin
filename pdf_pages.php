@@ -91,7 +91,7 @@ if ($cfgRelation['pdfwork']) {
                                 . ' GROUP BY master_table'
                                 . ' ORDER BY ' . PMA_backquote('COUNT(master_table)') . ' DESC ';
                     $master_tables_rs = PMA_query_as_cu($master_tables);
-                    if ($master_tables_rs && mysql_num_rows($master_tables_rs) > 0) {
+                    if ($master_tables_rs && PMA_DBI_num_rows($master_tables_rs) > 0) {
                         // first put all the master tables at beginning
                         // of the list, so they are near the center of
                         // the schema
@@ -185,7 +185,7 @@ if ($cfgRelation['pdfwork']) {
                                     .   ' AND   table_name = \'' . PMA_sqlAddslashes($arrvalue['name']) . '\''
                                     .   ' AND   pdf_page_number = ' . $chpage;
                         $test_rs    = PMA_query_as_cu($test_query);
-                        if ($test_rs && mysql_num_rows($test_rs) > 0) {
+                        if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
                             if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
                                 $ch_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_coords'])
                                           .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
@@ -232,7 +232,7 @@ if ($cfgRelation['pdfwork']) {
     $page_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
     $page_rs    = PMA_query_as_cu($page_query);
-    if ($page_rs && mysql_num_rows($page_rs) > 0) {
+    if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
         ?>
 <form method="get" action="pdf_pages.php" name="selpage">
     <?php echo $strChoosePage . "\n"; ?>
@@ -323,7 +323,7 @@ foreach($array_sh_page AS $key => $temp_sh_page) {
                  .  PMA_backquote($temp_sh_page['table_name'] )
                 . ' FROM ' . PMA_backquote($db);
     $fields_rs = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-    $fields_cnt = mysql_num_rows($fields_rs);
+    $fields_cnt = PMA_DBI_num_rows($fields_rs);
 
     echo '<div id="table_' . $i . '" class="pdflayout_table"><u>' . $temp_sh_page['table_name'] . '</u>';
     while ($row = PMA_mysql_fetch_array($fields_rs)) {

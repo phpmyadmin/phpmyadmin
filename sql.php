@@ -336,7 +336,7 @@ else {
         // mysql_affected_rows() reports about the last query done)
 
         if (!$is_affected) {
-            $num_rows = ($result) ? @mysql_num_rows($result) : 0;
+            $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
         } else if (!isset($num_rows)) {
             $num_rows = @mysql_affected_rows();
         }
@@ -459,7 +459,7 @@ else {
                     if (PMA_MYSQL_INT_VERSION < 40000) {
                         if ($cnt_all_result = PMA_mysql_query($count_query)) {
                             if ($is_group && $count_what == '*') {
-                                $unlim_num_rows = @mysql_num_rows($cnt_all_result);
+                                $unlim_num_rows = @PMA_DBI_num_rows($cnt_all_result);
                             } else {
                                 $unlim_num_rows = PMA_mysql_result($cnt_all_result, 0, 'count');
                             }

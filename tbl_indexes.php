@@ -71,7 +71,7 @@ if (defined('PMA_IDX_INCLUDED')) {
 } else {
     $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
     $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-    $idx_cnt     = mysql_num_rows($result);
+    $idx_cnt     = PMA_DBI_num_rows($result);
 }
 
 for ($i = 0; $i < $idx_cnt; $i++) {
@@ -114,7 +114,7 @@ if (defined('PMA_IDX_INCLUDED')) {
 } else {
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
     $fields_rs   = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-    $fields_cnt  = mysql_num_rows($fields_rs);
+    $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 }
 
 $fields_names           = array();

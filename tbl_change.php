@@ -193,7 +193,7 @@ if ($cfg['PropertiesIconic'] == true) {
 
 // Set if we passed the first timestamp field
 $timestamp_seen = 0;
-$fields_cnt     = mysql_num_rows($table_def);
+$fields_cnt     = PMA_DBI_num_rows($table_def);
 
 // Set a flag here because the 'if' would not be valid in the loop
 // if we set a value in some field

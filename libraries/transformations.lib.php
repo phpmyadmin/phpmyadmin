@@ -136,7 +136,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation, $transformat
                 . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
     $test_rs   = PMA_query_as_cu($test_qry);
 
-    if ($test_rs && mysql_num_rows($test_rs) > 0) {
+    if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = @PMA_mysql_fetch_array($test_rs);
 
         if (!$forcedelete && (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0 || strlen($row['comment']) > 0)) {

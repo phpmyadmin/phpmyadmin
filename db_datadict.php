@@ -135,8 +135,7 @@ while ($row = mysql_fetch_array($rowset)) {
      */
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
     $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-    $fields_cnt  = mysql_num_rows($result);
-
+    $fields_cnt  = PMA_DBI_num_rows($result);
     // Check if we can use Relations (Mike Beck)
     if (!empty($cfgRelation['relation'])) {
         // Find which tables are related with the current one and write it in

@@ -58,7 +58,7 @@ function PMA_listBookmarks($db, $cfgBookmark)
     }
 
     // There is some bookmarks -> store them
-    if ($result > 0 && mysql_num_rows($result) > 0) {
+    if ($result > 0 && PMA_DBI_num_rows($result) > 0) {
         $flag = 1;
         while ($row = PMA_mysql_fetch_row($result)) {
             $bookmark_list[$flag . ' - ' . $row[0]] = $row[1];

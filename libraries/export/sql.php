@@ -156,7 +156,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 
     $result = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
     if ($result != FALSE) {
-        if (mysql_num_rows($result) > 0) {
+        if (PMA_DBI_num_rows($result) > 0) {
             $tmpres        = PMA_mysql_fetch_array($result);
             if (isset($GLOBALS['auto_increment']) && !empty($tmpres['Auto_increment'])) {
                 $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
@@ -194,7 +194,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
         PMA_mysql_query('SET SQL_QUOTE_SHOW_CREATE = 0');
     }
     $result = PMA_mysql_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-    if ($result != FALSE && mysql_num_rows($result) > 0) {
+    if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
         $tmpres        = PMA_mysql_fetch_array($result);
         // Fix for case problems with winwin, thanks to
         // Pawe³ Szczepañski <pauluz at users.sourceforge.net>
@@ -398,7 +398,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
     if ($result != FALSE) {
         $fields_cnt = mysql_num_fields($result);
-        $rows_cnt   = mysql_num_rows($result);
+        $rows_cnt   = PMA_DBI_num_rows($result);
 
         // get the real types of the table's fields (in an array)
         // the key of the array is the backquoted field name

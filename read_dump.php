@@ -277,7 +277,7 @@ if ($sql_query != '') {
                         break;
                     }
                 } else if ($cfg['VerboseMultiSubmit']) {
-                    $a_num_rows = (int)@mysql_num_rows($result);
+                    $a_num_rows = (int)@PMA_DBI_num_rows($result);
                     $a_aff_rows = (int)@mysql_affected_rows();
                     if ($a_num_rows > 0) {
                         $a_rows = $a_num_rows;

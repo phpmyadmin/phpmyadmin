@@ -684,7 +684,7 @@ class PMA_RT_Table
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
         $result           = PMA_mysql_query($sql);
-        if (!$result || !mysql_num_rows($result)) {
+        if (!$result || !PMA_DBI_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strPdfInvalidTblName'], $table_name));
         }
         // load fields
@@ -707,7 +707,7 @@ class PMA_RT_Table
                 .   ' AND   pdf_page_number = ' . $pdf_page_number;
         $result = PMA_query_as_cu($sql);
 
-        if (!$result || !mysql_num_rows($result)) {
+        if (!$result || !PMA_DBI_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strConfigureTableCoord'], $table_name));
         }
         list($this->x, $this->y) = PMA_mysql_fetch_array($result);
@@ -719,7 +719,7 @@ class PMA_RT_Table
         // index
         $sql    = 'SHOW index FROM ' . PMA_backquote($table_name);
         $result = PMA_mysql_query($sql);
-        if ($result && mysql_num_rows($result) > 0) {
+        if ($result && PMA_DBI_num_rows($result) > 0) {
             while ($row = PMA_mysql_fetch_array($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];
@@ -1108,7 +1108,7 @@ class PMA_RT
                   .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   .   ' AND pdf_page_number = ' . $which_rel;
         $tab_rs   = PMA_query_as_cu($tab_sql);
-        if (!$tab_rs || !mysql_num_rows($tab_rs) > 0) {
+        if (!$tab_rs || !PMA_DBI_num_rows($tab_rs) > 0) {
             $pdf->PMA_PDF_die($GLOBALS['strPdfNoTables']);
 //            die('No tables');
         }
@@ -1198,7 +1198,7 @@ class PMA_RT
 
         // loic1: also show tables without relations
 //        $norelations     = TRUE;
-//        if ($result && mysql_num_rows($result) > 0) {
+//        if ($result && PMA_DBI_num_rows($result) > 0) {
 //            $norelations = FALSE;
 //            while ($row = PMA_mysql_fetch_array($result)) {
 //                $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
@@ -1335,7 +1335,7 @@ function PMA_RT_DOC($alltables ){
          */
         $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        $fields_cnt  = mysql_num_rows($result);
+        $fields_cnt  = PMA_DBI_num_rows($result);
 
 
         // Check if we can use Relations (Mike Beck)

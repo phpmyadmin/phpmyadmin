@@ -21,7 +21,7 @@ $url_query .= '&amp;goto=db_search.php';
  * Get the list of tables from the current database
  */
 $list_tables  = PMA_mysql_list_tables($db);
-$num_tables   = ($list_tables ? mysql_num_rows($list_tables) : 0);
+$num_tables   = ($list_tables ? PMA_DBI_num_rows($list_tables) : 0);
 for ($i = 0; $i < $num_tables; $i++) {
     $tables[] = PMA_mysql_tablename($list_tables, $i);
 }
@@ -65,7 +65,7 @@ if (isset($submit_search)) {
         // Fields to select
         $local_query           = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']);
         $res                   = @PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, $err_url);
-        $res_cnt               = ($res ? mysql_num_rows($res) : 0);
+        $res_cnt               = ($res ? PMA_DBI_num_rows($res) : 0);
         for ($i = 0; $i < $res_cnt; $i++) {
             $tblfields[]       = PMA_backquote(PMA_mysql_result($res, $i, 'field'));
         } // end if

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * lots of scripts: PMA_DBI_num_rows()
+
 2004-01-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, libraries/dbi/mysql.dbi.lib.php:
       PMA_DBI_get_dblist()

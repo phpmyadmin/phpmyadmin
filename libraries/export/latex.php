@@ -215,7 +215,7 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     PMA_mysql_select_db($db);
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
     $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-    $fields_cnt  = mysql_num_rows($result);
+    $fields_cnt  = PMA_DBI_num_rows($result);
 
     // Check if we can use Relations (Mike Beck)
     if ($do_relation && !empty($cfgRelation['relation'])) {

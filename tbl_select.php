@@ -61,7 +61,7 @@ if (!isset($param) || $param[0] == '') {
         PMA_mysqlDie('', $local_query, '', $err_url);
     }
     else {
-        $fields_cnt        = mysql_num_rows($result);
+        $fields_cnt        = PMA_DBI_num_rows($result);
         while ($row = PMA_mysql_fetch_array($result)) {
             $fields_list[] = $row['Field'];
             $type          = $row['Type'];

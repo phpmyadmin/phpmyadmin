@@ -487,7 +487,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             // grab indexes data:
             $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
             $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-            $idx_cnt     = mysql_num_rows($result);
+            $idx_cnt     = PMA_DBI_num_rows($result);
 
             $prev_index = '';
             for ($i = 0; $i < $idx_cnt; $i++) {
@@ -1301,7 +1301,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                          . ' = ' . $row[$pointer];
                             $dispresult  = PMA_mysql_query($dispsql);
-                            if ($dispresult && mysql_num_rows($dispresult) > 0) {
+                            if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                                 $dispval = PMA_mysql_result($dispresult, 0);
                             }
                             else {
@@ -1428,7 +1428,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                          . ' = \'' . PMA_sqlAddslashes($row[$pointer]) . '\'';
                             $dispresult  = @PMA_mysql_query($dispsql);
-                            if ($dispresult && mysql_num_rows($dispresult) > 0) {
+                            if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                                 $dispval = PMA_mysql_result($dispresult, 0);
                             }
                             else {

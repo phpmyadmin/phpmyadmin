@@ -470,7 +470,7 @@ function PMA_setComment($db, $table, $key, $value, $removekey = '') {
                 . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
     $test_rs   = PMA_query_as_cu($test_qry);
 
-    if ($test_rs && mysql_num_rows($test_rs) > 0) {
+    if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = @PMA_mysql_fetch_array($test_rs);
 
         if (strlen($value) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {

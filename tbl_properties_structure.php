@@ -64,7 +64,7 @@ mysql_free_result($result);
 // 3. Get fields
 $local_query = 'SHOW FULL FIELDS FROM ' . PMA_backquote($table);
 $fields_rs   = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-$fields_cnt  = mysql_num_rows($fields_rs);
+$fields_cnt  = PMA_DBI_num_rows($fields_rs);
 
 
 

@@ -154,7 +154,7 @@ if (PMA_MYSQL_INT_VERSION < 32349) {
 if (PMA_MYSQL_INT_VERSION > 40003) {
     $tmp_query  = "SHOW VARIABLES LIKE 'local\\_infile'";
     $result = PMA_mysql_query($tmp_query);
-    if ($result != FALSE && mysql_num_rows($result) > 0) {
+    if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
         $tmp = PMA_mysql_fetch_row($result);
         if ($tmp[1] == 'ON') {
             $local_option_selected = TRUE;

@@ -277,7 +277,7 @@ if ($cfgRelation['relwork']) {
         if (($curr_table[0] != $table) && ($curr_table[0] != $cfg['Server']['relation'])) {
             $fi_query = 'SHOW KEYS FROM ' . PMA_backquote($curr_table[0]);
             $fi_rs    = PMA_mysql_query($fi_query) or PMA_mysqlDie('', $fi_query, '', $err_url_0);
-            if ($fi_rs && mysql_num_rows($fi_rs) > 0) {
+            if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
                 $seen_a_primary=FALSE;
                 while ($curr_field = PMA_mysql_fetch_array($fi_rs)) {
                     if (isset($curr_field['Key_name']) && $curr_field['Key_name'] == 'PRIMARY') {
@@ -314,7 +314,7 @@ if ($cfgRelation['relwork']) {
 
                     } // end if
                 } // end while over keys
-            } // end if (mysql_num_rows)
+            } // end if (PMA_DBI_num_rows)
 
         // Mike Beck - 24.07.02: i've been asked to add all keys of the
         // current table (see bug report #574851)
@@ -322,7 +322,7 @@ if ($cfgRelation['relwork']) {
         else if ($curr_table[0] == $table) {
             $fi_query = 'SHOW KEYS FROM ' . PMA_backquote($curr_table[0]);
             $fi_rs    = PMA_mysql_query($fi_query) or PMA_mysqlDie('', $fi_query, '', $err_url_0);
-            if ($fi_rs && mysql_num_rows($fi_rs) > 0) {
+            if ($fi_rs && PMA_DBI_num_rows($fi_rs) > 0) {
                 while ($curr_field = PMA_mysql_fetch_array($fi_rs)) {
                     $field_full = $db . '.' . $curr_field['Table'] . '.' . $curr_field['Column_name'];
                     $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
@@ -331,7 +331,7 @@ if ($cfgRelation['relwork']) {
                         $selectboxall_innodb[$field_full] =  $field_v;
                     }
                 } // end while
-            } // end if (mysql_num_rows)
+            } // end if (PMA_DBI_num_rows)
         }
     } // end while over tables
 
@@ -342,7 +342,7 @@ if ($cfgRelation['relwork']) {
 $col_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table);
 $col_rs    = PMA_mysql_query($col_query) or PMA_mysqlDie('', $col_query, '', $err_url_0);
 
-if ($col_rs && mysql_num_rows($col_rs) > 0) {
+if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     while ($row = PMA_mysql_fetch_array($col_rs)) {
         $save_row[] = $row;
     }
