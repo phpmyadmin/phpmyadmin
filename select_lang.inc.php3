@@ -38,7 +38,8 @@ $lang_path = 'lang/';
 $available_languages = array(
   'bg'         => array('bg|bulgarian', 'bulgarian-win1251'),
   'ca'         => array('ca|catalan', 'catala'),
-  'cs'         => array('cs|czech', 'czech-win1250'),
+  'cs-iso'     => array('cs|czech', 'czech-iso'),
+  'cs-win1250' => array('cs|czech', 'czech-win1250'),
   'da'         => array('da|danish', 'danish'),
   'de'         => array('de([-_][[:alpha:]]{2})?|german', 'german'),
   'en'         => array('en([-_][[:alpha:]]{2})?|english',  'english'),
@@ -78,17 +79,16 @@ function pmaLangDetect($str = '', $envType = '')
   global $available_languages;
   global $lang;
 
-  $notFound = true;
   reset($available_languages);
 
-  while ($notFound && list($key, $value) = each($available_languages))
+  while (list($key, $value) = each($available_languages))
   {
     // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
     //         2 for the 'HTTP_USER_AGENT' one
     if (($envType == 1 && eregi('^(' . $value[0] . ')(;q=[0-9]\\.[0-9])?$', $str))
         || ($envType == 2 && eregi('(\(|\[|;[[:space:]])(' . $value[0] . ')(;|\]|\))', $str))) {
       $lang     = $key;
-      $notFound = false;
+      break;
     }
   }
 } // end of the 'pmcLangDetect()' function
