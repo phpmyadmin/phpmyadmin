@@ -21,6 +21,9 @@ $Source$
         - PHP Class to run SQL Validator
     * libraries/sqlvalidator.php3:
         - SQL Validator interface code
+    * ChangeLog:
+        - Neatened Changelog to general follow a format
+        - (* <filename>: <details>)
 
 2002-08-02 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/defines*:
