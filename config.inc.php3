@@ -106,6 +106,7 @@ $cfgAllowUserDropDatabase = FALSE;  // disallow users to delete their own databa
 $cfgShowSQL               = TRUE;   // show SQL queries as run
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
+$cfgShowAll               = FALSE;  // allows to display all the rows in browse mode
 $cfgMaxRows               = 30;     // maximum number of rows to display in browse mode
 $cfgOrder                 = 'ASC';  // default for 'ORDER BY' clause (valid
                                     // values are 'ASC', 'DESC' or 'SMART' -ie

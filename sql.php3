@@ -148,7 +148,10 @@ else {
         && eregi('^CREATE TABLE (.*)', $sql_query)) {
         $reload           = 1;
     }
-    if (isset($sessionMaxRows)) {
+    // Gets the number of rows per page
+    if (!isset($sessionMaxRows)){
+        $sessionMaxRows   = $cfgMaxRows;
+    } else if ($sessionMaxRows != 'all') {
         $cfgMaxRows       = $sessionMaxRows;
     }
 
@@ -174,6 +177,7 @@ else {
 
     // Do append a "LIMIT" clause?
     if (isset($pos)
+        && (!$cfgShowAll || $sessionMaxRows != 'all')
         && ($is_select && !$is_count && eregi(' FROM ', $sql_query))
         && !eregi(' LIMIT[ 0-9,]+$', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";

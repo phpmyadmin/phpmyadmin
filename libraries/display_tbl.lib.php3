@@ -176,7 +176,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
      * @global  integer  the total number of rows returned by the sql query
      *                   without any programmatically appended "LIMIT" clause
      * @global  integer  the current position in results
-     * @global  integer  the maximum number of rows per page
+     * @global  mixed    the maximum number of rows per page ('all' = no limit)
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
      *
@@ -197,7 +197,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
 <tr>
         <?php
         // Move to the beginning or to the previous page
-        if ($pos > 0) {
+        if ($pos > 0 && $sessionMaxRows != 'all') {
             ?>
     <td>
         <form action="sql.php3" method="post">
@@ -245,7 +245,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
             <input type="submit" name="navig" value="<?php echo $GLOBALS['strShow']; ?>&nbsp;:" />
-            <input type="text" name="sessionMaxRows" size="3" value="<?php echo $sessionMaxRows; ?>" />
+            <input type="text" name="sessionMaxRows" size="3" value="<?php echo (($sessionMaxRows != 'all') ? $sessionMaxRows : $GLOBALS['cfgMaxRows']); ?>" />
             <?php echo $GLOBALS['strRowsFrom'] . "\n"; ?>
             <input type="text" name="pos" size="3" value="<?php echo (($pos_next >= $unlim_num_rows) ? 0 : $pos_next); ?>" />
         </form>
@@ -255,7 +255,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     </td>
         <?php
         // Move to the next page or to the last one
-        if (($pos + $sessionMaxRows < $unlim_num_rows) && $num_rows >= $sessionMaxRows) {
+        if (($pos + $sessionMaxRows < $unlim_num_rows) && $num_rows >= $sessionMaxRows
+            && $sessionMaxRows != 'all') {
             echo "\n";
             ?>
     <td>
@@ -289,6 +290,30 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     </td>
             <?php
         } // end move toward
+
+        // Show all the records if allowed
+        if ($GLOBALS['cfgShowAll'] && ($num_rows < $unlim_num_rows)) {
+            echo "\n";
+            ?>
+    <td>
+        &nbsp;&nbsp;&nbsp;
+    </td>
+    <td>
+        <form action="sql.php3" method="post">
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
+            <input type="hidden" name="pos" value="0" />
+            <input type="hidden" name="sessionMaxRows" value="all" />
+            <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+            <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
+            <input type="submit" name="navig" value="<?php echo $GLOBALS['strShowAll']; ?>" />
+        </form>
+    </td>
+            <?php
+        } // end show all
         echo "\n";
         ?>
 </tr>
@@ -811,14 +836,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
 
         // 1. ----- Prepares the work -----
 
-        // 1.1 Gets the number of rows per page
-        if (isset($GLOBALS['sessionMaxRows'])) {
-            $GLOBALS['cfgMaxRows']     = $GLOBALS['sessionMaxRows'];
-        } else {
-            $GLOBALS['sessionMaxRows'] = $GLOBALS['cfgMaxRows'];
-        }
-
-        // 1.2 Gets the informations about which functionnalities should be
+        // 1.1 Gets the informations about which functionnalities should be
         //     displayed
         $total      = '';
         $is_display = set_display_mode($the_disp_mode, $total);
@@ -826,19 +844,24 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             unset($total);
         }
 
-        // 1.3 Defines offsets for the next and previous pages
+        // 1.2 Defines offsets for the next and previous pages
         if ($is_display['nav_bar'] == '1') {
             if (!isset($pos)) {
-                $pos      = 0;
+                $pos          = 0;
             }
-            $pos_next     = $pos + $GLOBALS['cfgMaxRows'];
-            $pos_prev     = $pos - $GLOBALS['cfgMaxRows'];
-            if ($pos_prev < 0) {
-                $pos_prev = 0;
+            if ($GLOBALS['sessionMaxRows'] == 'all') {
+                $pos_next     = 0;
+                $pos_prev     = 0;
+            } else {
+                $pos_next     = $pos + $GLOBALS['cfgMaxRows'];
+                $pos_prev     = $pos - $GLOBALS['cfgMaxRows'];
+                if ($pos_prev < 0) {
+                    $pos_prev = 0;
+                }
             }
         } // end if
 
-        // 1.4 Urlencodes the query to use in input form fields ($sql_query
+        // 1.3 Urlencodes the query to use in input form fields ($sql_query
         //     will be stripslashed in 'sql.php3' if the 'magic_quotes_gpc'
         //     directive is set to 'on')
         if (get_magic_quotes_gpc()) {
@@ -856,7 +879,9 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             } else {
                 $selectstring = '';
             }
-            $last_shown_rec = ($pos_next > $total) ? $total : $pos_next;
+            $last_shown_rec = ($GLOBALS['sessionMaxRows'] == 'all' || $pos_next > $total)
+                            ? $total
+                            : $pos_next;
             show_message($GLOBALS['strShowingRecords'] . " $pos - $last_shown_rec ($total " . $GLOBALS['strTotal'] . $selectstring . ')');
         } else {
             show_message($GLOBALS['strSQLQuery']);
