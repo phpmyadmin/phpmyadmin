@@ -132,7 +132,7 @@ if (function_exists('PMA_set_enc_form')) {
     ?>
     <tr>
         <!-- Japanese encoding setting -->
-        <td colspan="2">
+        <td colspan="2" align="center">
     <?php
     echo PMA_set_enc_form('            ');
     ?>
