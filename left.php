@@ -906,11 +906,19 @@ if ($cfg['LeftFrameLight'] && $cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
 <script language="JavaScript" type="text/javascript">
 <!--
+function check_queryframe_reload() {
     if (typeof(window.parent.frames['queryframe'])!='undefined' && typeof(window.parent.frames['queryframe'].document.forms['left'])!='undefined') {
         if (window.parent.frames['queryframe'].document.forms['left'].elements['lightm_db'].value!='<?php echo $my_lightm_db; ?>') {
             window.parent.frames['queryframe'].location.replace('<?php echo 'queryframe.php?' . $my_url_query . '&hash=' . $hash; ?>');
         }
     }
+}
+// This is a workaround for the problem in Safari 1.2.3 where the
+// top left frame does not load.
+// If we call this right away it usually prevents the top-left frame from
+// loading in Safari, so call it delayed. -Ryan Schmidt 2004-08-15
+setTimeout('check_queryframe_reload()', 1000);
+
 //-->
 </script>
 <?php
