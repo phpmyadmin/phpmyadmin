@@ -265,6 +265,7 @@ $strInsert = 'Vložit';
 $strInsertAsNewRow = 'Vložit jako nový øádek';
 $strInsertNewRow = 'Vložit nový øádek';
 $strInsertTextfiles = 'Vložit textové soubory do tabulky';
+$strInsertedRowId = 'Id vloženého øádku:';
 $strInsertedRows = 'Vloženo øádkù:';
 $strInstructions = 'Instrukce';
 $strInvalidName = '"%s" je rezervované slovo a proto ho nemùžete požít jako jméno databáze/tabulky/sloupce.';
@@ -642,5 +643,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strInsertedRowId = 'Id vloženého øádku:';
 ?>
