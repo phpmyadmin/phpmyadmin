@@ -9,6 +9,7 @@ $Source$
     * libraries/grab_globals.lib.php: Bug #1153079 (Updating columns starting
       with "str").
     * header.inc.php: Wrong icon for views.
+    * libraries/sqlparser.data.php: Added more missing date / time functions.
 
 2005-03-02 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php, libraries/display_export.lib.php: Do not offer
