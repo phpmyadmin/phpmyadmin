@@ -1,9 +1,11 @@
 <?php
 /* $Id$ */
 
-/*
- *  phpMyAdmin Language Loading File - lolo@phpheaven.net 01may2001
+/**
+ * phpMyAdmin Language Loading File - lolo@phpheaven.net 01may2001
  */
+
+
 
 /**
  * Define the path to the translations directory and get some variables
@@ -62,57 +64,56 @@ $available_languages = array(
 );
 
 
-if (!function_exists('pmaLangDetect')) {
+if (!defined('__PMA_LANG_DETECT__')) {
+    define('__PMA_LANG_DETECT__', 1);
 
-/**
- * Analyzes some PHP environment variables to find the most probable language
- * that should be used
- *
- * @param  string  string to analyze
- * @param  integer  type of the PHP environment variable which value is $str
- *
- * @global  array  the list of available translations
- * @global  string  the retained translation keyword
- *
- * @access  private
- */
-function pmaLangDetect($str = '', $envType = '')
-{
-  global $available_languages;
-  global $lang;
+    /**
+     * Analyzes some PHP environment variables to find the most probable language
+     * that should be used
+     *
+     * @param   string   string to analyze
+     * @param   integer  type of the PHP environment variable which value is $str
+     *
+     * @global  array    the list of available translations
+     * @global  string   the retained translation keyword
+     *
+     * @access  private
+     */
+    function pmaLangDetect($str = '', $envType = '')
+    {
+        global $available_languages;
+        global $lang;
 
-  reset($available_languages);
+        reset($available_languages);
+        while (list($key, $value) = each($available_languages)) {
+            // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
+            //             2 for the 'HTTP_USER_AGENT' one
+            if (($envType == 1 && eregi('^(' . $value[0] . ')(;q=[0-9]\\.[0-9])?$', $str))
+                || ($envType == 2 && eregi('(\(|\[|;[[:space:]])(' . $value[0] . ')(;|\]|\))', $str))) {
+                $lang     = $key;
+                break;
+            }
+        }
+    } // end of the 'pmcLangDetect()' function
 
-  while (list($key, $value) = each($available_languages))
-  {
-    // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
-    //         2 for the 'HTTP_USER_AGENT' one
-    if (($envType == 1 && eregi('^(' . $value[0] . ')(;q=[0-9]\\.[0-9])?$', $str))
-        || ($envType == 2 && eregi('(\(|\[|;[[:space:]])(' . $value[0] . ')(;|\]|\))', $str))) {
-      $lang     = $key;
-      break;
-    }
-  }
-} // end of the 'pmcLangDetect()' function
-
-} // end if (!function_exists)
+} // end if
 
 
 /**
  * Get some global variables if 'register_globals' is set to 'off'
  */
 if (!empty($HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE']))
-  $HTTP_ACCEPT_LANGUAGE = $HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'];
+    $HTTP_ACCEPT_LANGUAGE = $HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'];
 if (!empty($HTTP_SERVER_VARS['HTTP_USER_AGENT']))
-  $HTTP_USER_AGENT = $HTTP_SERVER_VARS['HTTP_USER_AGENT'];
+    $HTTP_USER_AGENT = $HTTP_SERVER_VARS['HTTP_USER_AGENT'];
 if (!isset($lang)) {
-  if (isset($HTTP_GET_VARS) && !empty($HTTP_GET_VARS['lang'])) {
-    $lang = $HTTP_GET_VARS['lang'];
-  }
-  if (isset($HTTP_POST_VARS) && !empty($HTTP_POST_VARS['lang'])) {
-    $lang = $HTTP_POST_VARS['lang'];
-  }
-}	
+    if (isset($HTTP_GET_VARS) && !empty($HTTP_GET_VARS['lang'])) {
+        $lang = $HTTP_GET_VARS['lang'];
+    }
+    if (isset($HTTP_POST_VARS) && !empty($HTTP_POST_VARS['lang'])) {
+        $lang = $HTTP_POST_VARS['lang'];
+    }
+}
 
 
 /**
@@ -120,33 +121,33 @@ if (!isset($lang)) {
  */
 // Lang forced
 if (!empty($cfgLang)) { 
-  $lang = $cfgLang;
+    $lang = $cfgLang;
 }
 
 // If '$lang' is defined, ensure this is a valid translation
 if (!empty($lang) && empty($available_languages[$lang])) {
-  $lang = '';
+    $lang = '';
 }
 
 // Language is not defined yet :
 // 1. try to findout users language by checking it's HTTP_ACCEPT_LANGUAGE
 //    variable
 if (empty($lang) && !empty($HTTP_ACCEPT_LANGUAGE)) {
-  $accepted    = explode(',', $HTTP_ACCEPT_LANGUAGE);
-  $acceptedCnt = count($accepted);
-  reset($accepted);
-  for ($i = 0; $i < $acceptedCnt && empty($lang); $i++) { 
-    pmaLangDetect($accepted[$i], 1);
-  }
+    $accepted    = explode(',', $HTTP_ACCEPT_LANGUAGE);
+    $acceptedCnt = count($accepted);
+    reset($accepted);
+    for ($i = 0; $i < $acceptedCnt && empty($lang); $i++) { 
+      pmaLangDetect($accepted[$i], 1);
+    }
 }
 // 2. try to findout users language by checking it's HTTP_USER_AGENT variable
 if (empty($lang) && !empty($HTTP_USER_AGENT)) {
-  pmaLangDetect($HTTP_USER_AGENT, 2);
+    pmaLangDetect($HTTP_USER_AGENT, 2);
 }
 
 // 3. Didn't catch any valid lang : we use the default settings
 if (empty($lang)) {
-  $lang = $cfgDefaultLang;
+    $lang = $cfgDefaultLang;
 }
 
 // Define the associated filename and load the translation
