@@ -330,8 +330,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     <li>Was called 'advanced' in versions before 2.2.3.</li>
     <li>Introduced in 1.3.0, it uses Basic HTTP authentication method and
         allows you to login as any valid MySQL user.</li>
-    <li>Is only supported with PHP running as an Apache module, not with
-        CGI.</li>
+    <li>Is supported with PHP running as an Apache module. For IIS (ISAPI)
+        support using CGI PHP, see <a href="#faq1_32">FAQ 1.32</a>.</li>
     <li>See also <a href="#faq4_4">FAQ 4.4</a> about not using the <i>.htaccess</i> mechanism along
         with 'http' authentication mode.</li>
 </ul>
@@ -2696,6 +2696,21 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     However, phpMyAdmin needs to be backwards compatible to php4. This is why
     you won't be able to run phpMyAdmin having enabled E_STRICT in your
     error_reporting settings.
+</p>
+<a name="faq1_32"></a><br />
+<h4>
+    [1.32] Can I use HTTP authentication with IIS?
+</h4>
+<p>
+    Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in ISAPI
+    mode under IIS 5.1. 
+    <ol>
+        <li>In your <tt>php.ini</tt> file, set <tt>cgi.rfc2616_headers = 0</tt></li>
+ 
+        <li>In <tt>Web Site Properties -> File/Directory Security -> Anonymous Access</tt> dialog box, check the <tt>Anonymous access</tt> checkbox and uncheck any other checkboxes (i.e. uncheck <tt>Basic authentication</tt>, <tt>Integrated Windows authentication</tt>, and <tt>Digest</tt> if it's enabled.) Click <tt>OK</tt>. </li>
+ 
+        <li>In <tt>Custom Errors</tt>, select the range of <tt>401;1</tt> through <tt>401;5</tt> and click the <tt>Set to Default</tt> button. </li>
+    </ol>
 </p>
 
 <a name="faqconfig"></a><br />
