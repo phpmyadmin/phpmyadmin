@@ -8,7 +8,7 @@ $Source$
 2003-05-13 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_export.lib.php3, tbl_dump.php3: Support for exporting
       CSV for multiple tables, it just puts all content into one file, but
-      some people seem to want this (based on patch #73516).
+      some people seem to want this (based on patch #735136).
     * tbl_dump.php3, lang/*: Use other messages (thanks to Marc), replace
       slashes in filename with underscore to avoid possible problems.
     * db_details_export.php3: Remember selected tables after exporting to a
