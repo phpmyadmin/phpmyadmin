@@ -28,7 +28,7 @@ $cfgRelation = PMA_getRelationsParam();
  * correctly, so it is a good place to see which tables we can and
  * complain ;-)
  */
-if (!$cfgRelation['allworks']) {
+if (!$cfgRelation['pdfwork']) {
     echo '<font color="red">' . $strError . '</font><br />' . "\n";
     $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php3?' . $url_query . '">';
     echo sprintf($strRelationNotWorking, $url_to_goto, '</a>') . "\n";
@@ -867,23 +867,20 @@ class PMA_RT
                 .   ' AND foreign_table IN (' . $intable . ')';
         $result =  PMA_query_as_cu($sql);
 
-        // mikebeck: maybe we can show tables without relations if i comment
-        //           that out
-//        if (!$result || !mysql_num_rows($result)) {
-//            $pdf->PMA_PDF_die($GLOBALS['strPdfInvalidPageNum']);
-//        }
-        if (isset($result) && $result && mysql_num_rows($result) > 0) {
+        // loic1: also show tables without relations
+        $norelations     = TRUE;
+        if ($result && mysql_num_rows($result) > 0) {
+            $norelations = FALSE;
             while ($row = PMA_mysql_fetch_array($result)) {
                 $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
             }
-            $norelations = FALSE;
-        } else {
-            reset ($alltables);
-            while (list(, $table) = each ($alltables)) {
+        }
+        reset ($alltables);
+        while (list(, $table) = each ($alltables)) {
+            if (!isset($this->tables[$table])) {
                 $this->tables[$table] = new PMA_RT_Table($table, $this->ff, $this->tablewidth);
                 $this->PMA_RT_setMinMax($this->tables[$table]);
             }
-            $norelations = TRUE;
         } // end if... else...
 
         // Defines the scale factor
