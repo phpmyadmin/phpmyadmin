@@ -135,7 +135,16 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 211) {
+    if (isset($cfg['FileRevision'])) {
+        // converting revision string into an array
+        //     e.g. "Revision: 2.0" becomes array(2, 0).
+        $cfg['FileRevision'] = str_replace('$Revision$cfg['FileRevision']);
+        $cfg['FileRevision'] = str_replace(' $', '', $cfg['FileRevision']);
+        $cfg['FileRevision'] = explode('.', $cfg['FileRevision']);
+    } else {
+        $cfg['FileRevision'] = array(1, 1);
+    }
+    if ($cfg['FileRevision'][0] < 2) {
         include('./libraries/config_import.lib.php');
     }
 

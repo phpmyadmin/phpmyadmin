@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-18 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php: Recognizing new 2.x config.inc.php revisions.
+
 2003-11-18 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*: strUpgradeMySQL -> strUpgrade with one more parameter
       for the product name
@@ -20,7 +23,7 @@ $Source$
     * read_dump.php3: Show result of last SHOW query when multiple queries.
     * scripts/create-release.sh: Generate also sizes of files, for
       files.inc.php on homepage.
-    
+
 2003-11-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french: update
     * lang/turkish update, thanks to Bora Alioglu
