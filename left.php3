@@ -6,11 +6,11 @@
  * Gets the variables sent to this script, retains the db name that may have
  * been defined as startup option and include a core library
  */
-require('./grab_globals.inc.php3');
+require('./libraries/grab_globals.lib.php3');
 if (!empty($db)) {
     $db_start = $db;
 }
-require('./lib.inc.php3');
+require('./libraries/common.lib.php3');
 
 
 /**
@@ -107,7 +107,7 @@ if ($num_dbs > 1) {
     var isServer   = <?php echo ($server > 0) ? 'true' : 'false'; ?>;
     //-->
     </script>
-    <script src="left.js" type="text/javascript" language="javascript1.2"></script>
+    <script src="libraries/left.js" type="text/javascript" language="javascript1.2"></script>
     <noscript>
         <style type="text/css">
         <!--

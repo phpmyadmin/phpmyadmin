@@ -6,8 +6,8 @@
  * Gets core libraries and processes config file to determine default server
  * (if any)
  */
-require('./grab_globals.inc.php3');
-require('./lib.inc.php3');
+require('./libraries/grab_globals.lib.php3');
+require('./libraries/common.lib.php3');
 
 // Get the host name
 if (empty($HTTP_HOST)) {

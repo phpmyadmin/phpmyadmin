@@ -84,7 +84,7 @@ if (!defined('__PMA_LANG_DETECT__')) {
      *
      * @access  private
      */
-    function pmaLangDetect($str = '', $envType = '')
+    function pma_lang_detect($str = '', $envType = '')
     {
         global $available_languages;
         global $lang;
@@ -145,12 +145,12 @@ if (empty($lang) && !empty($HTTP_ACCEPT_LANGUAGE)) {
     $acceptedCnt = count($accepted);
     reset($accepted);
     for ($i = 0; $i < $acceptedCnt && empty($lang); $i++) { 
-      pmaLangDetect($accepted[$i], 1);
+        pma_lang_detect($accepted[$i], 1);
     }
 }
 // 2. try to findout users language by checking it's HTTP_USER_AGENT variable
 if (empty($lang) && !empty($HTTP_USER_AGENT)) {
-    pmaLangDetect($HTTP_USER_AGENT, 2);
+    pma_lang_detect($HTTP_USER_AGENT, 2);
 }
 
 // 3. Didn't catch any valid lang : we use the default settings

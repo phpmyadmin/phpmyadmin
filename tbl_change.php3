@@ -5,7 +5,7 @@
 /**
  * Get the variables sent or posted to this script and displays the header
  */
-require('./grab_globals.inc.php3');
+require('./libraries/grab_globals.lib.php3');
 require('./header.inc.php3');
 if (get_magic_quotes_gpc()) {
     if (!empty($sql_query)) {

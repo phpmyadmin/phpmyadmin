@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-08  Loïc Chapeaux  <lolo@phpheaven.net>
+    * IMPORTANT UPDATE: "lib.inc.php3" has been splitted into smaller libraries
+      in order to lower the server charge. All the libraries are now stored in
+      a new sub-directory which name is... "libraries".
+	* db_readdump.php3 has been renamed to read_dump.php3.
+	* lang/italian.inc.php3: updated thanks to
+	  Pietro Danesi <danone at aruba.it>.
+
 2001-09-07  Loïc Chapeaux  <lolo@phpheaven.net>
     * main.php3, line 208: fixed an invalid link id.
 	* db_details.php3:
@@ -22,7 +30,9 @@ $Source$
 	  - line 2337: fixed an illegal index warning with php3;
 	  - line 1762: invalid number of parameters in the function call.
 	* db_printview.php3; tbl_printview.php3: extended so the generated pages
-	  contains the same informations that the one in the calling page.
+	  contains the same informations that the one in the calling page. Based on
+	  patch #444128 (display & dump index length) thanks to
+	  Marcus Börger <helly at users.sourceforge.net>. 
 	* db_details.php3; db_readdump.php3; sql.php3; lib.inc.php3; main.php3;
 	  tbl_copy.php3; tbl_properties.inc.php3; tbl_properties.php3;
 	  tbl_rename.php3; mult_submits.inc.php3: $reload has now true boolean

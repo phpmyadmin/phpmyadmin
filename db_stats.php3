@@ -4,7 +4,7 @@
 /** 
  * Gets the variables sent to this script and send headers
  */
-require('./grab_globals.inc.php3');
+require('./libraries/grab_globals.lib.php3');
 require('./header.inc.php3');
 
 

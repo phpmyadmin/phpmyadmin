@@ -5,8 +5,8 @@
 /**
  * Gets some core libraries
  */
-require('./grab_globals.inc.php3');
-require('./lib.inc.php3');
+require('./libraries/grab_globals.lib.php3');
+require('./libraries/common.lib.php3');
 
 
 /** 
@@ -37,6 +37,7 @@ if (isset($store_bkm)) {
     if (get_magic_quotes_gpc()) {
         $fields['label'] = stripslashes($fields['label']);
     }
+    include('./libraries/bookmark.lib.php3');
     add_bookmarks($fields, $cfgBookmark);
     header('Location: ' . $cfgPmaAbsoluteUri . $goto);
 }
@@ -291,6 +292,7 @@ else {
         }
         $js_to_run = 'functions.js';
         include('./header.inc.php3');
+        include('./libraries/bookmark.lib.php3');
 
         // Gets the list of fields properties 
         while ($field = mysql_fetch_field($result)) {
@@ -299,8 +301,10 @@ else {
         $fields_cnt        = count($fields_meta);
 
         // Displays the results in a table
+        include('./libraries/display_tbl.lib.php3');
         if (empty($disp_mode)) {
-            // see the "set_display_mode()" function in lib.inc.php3
+            // see the "set_display_mode()" function in
+            // libraries/display_tbl.lib.php3
             $disp_mode = 'urdr11110';
         }
         display_table($result, $disp_mode);

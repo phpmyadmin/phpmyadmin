@@ -6,8 +6,8 @@
  * Gets the values of the variables posted or sent to this script and displays
  * the headers
  */
-require('./grab_globals.inc.php3');
-require('./lib.inc.php3');
+require('./libraries/grab_globals.lib.php3');
+require('./libraries/common.lib.php3');
 
 
 /**

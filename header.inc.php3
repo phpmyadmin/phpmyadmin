@@ -5,8 +5,8 @@
 /**
  * Gets a core script and starts output buffering work 
  */
-require('./lib.inc.php3');
-require('./ob_lib.inc.php3');
+require('./libraries/common.lib.php3');
+require('./libraries/ob.lib.php3');
 if ($cfgOBGzip) {
     $ob_mode = out_buffer_mode_get();
     if ($ob_mode) {
@@ -89,7 +89,7 @@ var noDropDbMsg = '<?php echo((!$cfgAllowUserDropDatabase) ? str_replace('\'', '
 var confirmMsg  = '<?php echo(($cfgConfirm) ? str_replace('\'', '\\\'', $strDoYouReally) : ''); ?>';
 //-->
 </script>
-<script src="functions.js" type="text/javascript" language="javascript"></script>
+<script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
     <?php
 } else {
     echo "\n";

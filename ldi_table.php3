@@ -10,7 +10,7 @@
 /**
  * Gets some core libraries
  */
-require('./grab_globals.inc.php3');
+require('./libraries/grab_globals.lib.php3');
 require('./header.inc.php3');
 
 

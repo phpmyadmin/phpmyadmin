@@ -27,7 +27,7 @@ function my_handler($sql_insert = '')
 /**
  * Gets some core libraries
  */
-require('./grab_globals.inc.php3');
+require('./libraries/grab_globals.lib.php3');
 $js_to_run = 'functions.js';
 require('./header.inc.php3');
 
@@ -60,6 +60,8 @@ if (isset($new_name) && trim($new_name) != '') {
 
     $source = backquote($db) . '.' . backquote($table);
     $target = backquote($target_db) . '.' . backquote($new_name);
+
+    include('./libraries/build_dump.lib.php3');
 
     $sql_structure = get_table_def($db, $table, "\n");
     $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . $target, $sql_structure);

@@ -61,7 +61,7 @@ Todo now:
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
         phpmyadmin-users@lists.sourceforge.net
-8. increment rc count or version in CVS : in defines.inc.php3
+8. increment rc count or version in CVS : in libraries/defines.lib.php3
         the line    " define('PHPMYADMIN_VERSION', '2.2.0rc4'); "
 9. the end :-)
 

@@ -269,4 +269,3 @@ function checkTransmitDump(theForm, theAction)
 
     return true;
 } // end of the 'checkTransmitDump()' function
-

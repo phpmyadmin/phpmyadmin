@@ -125,10 +125,11 @@ $cfgManualBase = 'http://www.mysql.com/documentation/mysql/bychapter';
  */
 // Default language to use, if not browser-defined or user-defined
 $cfgDefaultLang = 'en';
-// Force: always use this language - must be defined in select_lang.inc.php3
+// Force: always use this language - must be defined in
+//        libraries/select_lang.lib.php3
 // $cfgLang     = 'en';
 // Loads language file
-require('./select_lang.inc.php3');
+require('./libraries/select_lang.lib.php3');
 
 
 /**

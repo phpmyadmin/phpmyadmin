@@ -60,8 +60,9 @@ function my_csvhandler($sql_insert)
 /**
  * Get the variables sent or posted to this script and a core script
  */
-require('./grab_globals.inc.php3');
-require('./lib.inc.php3');
+require('./libraries/grab_globals.lib.php3');
+require('./libraries/common.lib.php3');
+require('./libraries/build_dump.lib.php3');
 
 
 /**

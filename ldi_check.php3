@@ -17,8 +17,8 @@
 /**
  * Gets some core scripts
  */
-require('./grab_globals.inc.php3');
-require('./lib.inc.php3');
+require('./libraries/grab_globals.lib.php3');
+require('./libraries/common.lib.php3');
  
 
 /**

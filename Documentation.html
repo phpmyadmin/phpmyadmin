@@ -323,10 +323,10 @@
         (see <tt>$cfgServers[n]['stduser']</tt>).
         <br /><br />
 
-	Please also note that if you try a phpMyAdmin login with this stduser,
-        you could get some errors, depending on the exact privileges you 
-	gave to this stduser. phpMyAdmin does not support a direct login
-	with the stduser.
+        Please also note that if you try a phpMyAdmin login with this stduser,
+        you could get some errors, depending on the exact privileges you gave
+        to this stduser. phpMyAdmin does not support a direct login with the
+        the stduser.
         <br /><br />
 
         See also the FAQ section for more information about security.
@@ -959,13 +959,16 @@
 </p>
 <ul> 
     <li>
-        All files include <i>header.inc.php3</i> (layout), <i>lib.inc.php3</i>
-        (common functions) and <i>config.inc.php3</i>.
+        All files include <i>header.inc.php3</i> (layout),
+        <i>libraries/common.lib.php3</i> (common functions) and
+        <i>config.inc.php3</i>.
         <br />
         All configuration data belongs in <i>config.inc.php3</i>. Please keep
         it free from other code.
         <br /> 
-        Commonly used functions should be added to <i>lib.inc.php3</i>.
+        Commonly used functions should be added to
+        <i>libraries/lib.inc.php3</i> and more specific ones may be added
+        within a library stored into the <i>libraries</i> sub-directory.
     </li>
     <li>
         Obviously, you're free to use whatever coding style you want. But

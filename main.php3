@@ -7,7 +7,7 @@
  */
 // Gets the language to use and put it in a cookie that will expire in 30
 // days
-require('./grab_globals.inc.php3');
+require('./libraries/grab_globals.lib.php3');
 setcookie('lang', $lang, time() + 60*60*24*30);
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {

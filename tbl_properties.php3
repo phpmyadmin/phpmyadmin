@@ -6,8 +6,9 @@
  * Gets some core libraries, ensures the database and the table exist (else
  * move to the "parent" script) and diplays headers
  */
-require('./grab_globals.inc.php3');
-require('./lib.inc.php3');
+require('./libraries/grab_globals.lib.php3');
+require('./libraries/common.lib.php3');
+require('./libraries/bookmark.lib.php3');
 // Not a valid db name -> back to the welcome page
 if (!empty($db)) {
     $is_db = @mysql_select_db($db);
@@ -49,7 +50,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
  * Defines the query to be displayed in the query textarea
  */
 if (isset($show_query) && $show_query == 'y') {
-    // This script has been called by db_readdump.php3
+    // This script has been called by read_dump.php3
     if (isset($sql_query_cpy)) {
         $query_to_display = $sql_query_cpy;
     }
@@ -726,7 +727,7 @@ echo "\n";
 
     <!-- Query box and bookmark support -->
     <li>
-        <form method="post" action="db_readdump.php3"
+        <form method="post" action="read_dump.php3"
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
