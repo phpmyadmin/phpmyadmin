@@ -47,7 +47,8 @@ if (!isset($message)) {
         ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=<?php echo urlencode($db); ?>'); //-->
+window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=<?php echo urlencode($db); ?>');
+//-->
 </script>
         <?php
     }

@@ -11,7 +11,7 @@ $Source$
           - beautify javascript code;
           - line 363: fixed a js bug.
         * read_dump.php3: coding standards (ident. = 4 space characters).
-        * main.php3, line 33: added a <cr>.
+        * main.php3, line 33; db_details.php3, line 50: added a <cr>.
 
 2002-01-18  Marc Delisle  <lem9@users.sourceforge.net>
         * Documentation.html, new download location for the RedHat PHP package,
