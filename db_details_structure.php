@@ -362,7 +362,6 @@ else {
                     $formated_size              =  '&nbsp;-&nbsp;';
                     $unit                       =  '';
                 }
-                print_r($sts_data);
                 $sum_entries                    += $sts_data['Rows'];
                 $display_rows                   =  number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator);
             }

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php: bug 868996, debug code still in place,
+      thanks to Matthias Fichtner (mfichtner)
+
 2003-12-30 Michal Cihar  <happynewyer@cihar.com>
     * lang/czech: Updated.
     * lang/*: Fixed typo s/Chech-Slovak/Czech-Slovak/.
