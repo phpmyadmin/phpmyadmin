@@ -279,7 +279,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
         ?>
             <input type="text"   name="fields[<?php echo $i; ?>]" id="field_<?php echo md5($field); ?>[<?php echo $i; ?>]" class="textfield" />
             <script type="text/javascript" language="javascript">
-                document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field); ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
+                document.writeln('<a target="_blank" onclick="window.open(this.href, \'foreigners\', \'width=640,height=240,scrollbars=yes\'); return false" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo urlencode($field); ?>&amp;fieldkey=<?php echo $i; ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>');
             </script>
         <?php
         } else if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {

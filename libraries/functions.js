@@ -830,7 +830,7 @@ function insertValueQuery() {
 /**
   * listbox redirection
   */
-function goToUrl(selObj, goToLocation){
+function goToUrl(selObj, goToLocation) {
     eval("document.location.href = '" + goToLocation + "pos=" + selObj.options[selObj.selectedIndex].value + "'");
 }
 

@@ -49,9 +49,9 @@ PMA_setFontSizes();
                 opener.document.insertForm.elements['field_' + field + '<?php echo (isset($pk) ? '[multi_edit][' . urlencode($pk) . ']' : ''); ?>[]'].value = key;
                 self.close();
                 return false;
-            } else if (opener.document.insertForm.elements['field_' + field + '[1]']) {
+            } else if (opener.document.insertForm.elements['field_' + field + '[<?php echo isset($fieldkey) ? $fieldkey : 0; ?>]']) {
                 // Search form
-                opener.document.insertForm.elements['field_' + field + '[1]'].value = key;
+                opener.document.insertForm.elements['field_' + field + '[<?php echo isset($fieldkey) ? $fieldkey : 0; ?>]'].value = key;
                 self.close();
                 return false;
             }
@@ -87,6 +87,7 @@ require('./libraries/get_foreign.lib.php');
 <form action="browse_foreigners.php" method="post">
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="field" value="<?php echo urlencode($field); ?>" />
+<input type="hidden" name="field" value="<?php echo isset($fieldkey) ? $fieldkey : ''; ?>" />
 <?php
 if (isset($pk)) {
     $pk_uri = '&amp;pk=' . urlencode($pk);
@@ -112,7 +113,7 @@ $nbTotalPage = @ceil($the_total / $session_max_rows);
 
 if ($the_total > $per_page) {
     $gotopage = '<br />' . $GLOBALS['strPageNumber']
-              . '<select name="goToPage" onchange="goToUrl(this, \'browse_foreigners.php?field=' . urlencode($field) . '&amp;' . PMA_generate_common_url($db, $table) . $pk_uri . '&amp;\');">';
+              . '<select name="goToPage" onchange="goToUrl(this, \'browse_foreigners.php?field=' . urlencode($field) . '&amp;' . PMA_generate_common_url($db, $table) . $pk_uri . '&amp;fieldkey=' . (isset($fieldkey) ? $fieldkey : '') . '&amp;\');">';
     if ($nbTotalPage < 200) {
         $firstPage = 1;
         $lastPage  = $nbTotalPage;
