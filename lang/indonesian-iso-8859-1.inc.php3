@@ -541,7 +541,6 @@ $strSubmit = 'Kirim';
 $strSuccess = 'Perintah SQL telah dilaksanakan dengan sukses';
 $strSum = 'Jumlah';
 $strSwitchToTable = 'Pindah ke tabel salinan';
-$strSwitchToTable = 'Pindah ke tabel yang disalin';
 
 $strTable = 'Tabel';
 $strTableComments = 'Komentar tabel';

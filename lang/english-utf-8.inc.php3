@@ -92,6 +92,7 @@ $strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one a
 $strChangeCopyUser = 'Change Login Information / Copy User';  
 $strChangeDisplay = 'Choose Field to display';
 $strChangePassword = 'Change password';
+$strCharset = 'Charset';
 $strCharsetOfFile = 'Character set of the file:';
 $strCheckAll = 'Check All';
 $strCheckDbPriv = 'Check Database Privileges';
@@ -624,5 +625,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strCharset = 'Charset';  //to translate
 ?>

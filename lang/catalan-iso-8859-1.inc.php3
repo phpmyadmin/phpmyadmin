@@ -17,7 +17,7 @@ $month = array('Gen', 'Feb', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'O
 // la variable seguent
 $datefmt = '%d-%m-%Y a les %H:%M:%S';
 
-$updComTab = 'Mira a la documentació com actualitzar la teva Taula de Comentaris de les Columnes';
+$strUpdComTab = 'Mira a la documentació com actualitzar la teva Taula de Comentaris de les Columnes';
 
 $strAPrimaryKey = 'S\'ha afegit una clau primària a %s';
 $strAbortedClients = 'Avortat';

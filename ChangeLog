@@ -9,6 +9,9 @@ $Source$
     * lang/estonian: Updated, thanks to finsoft@sourceforge.net.
     * lang/norwegian: Updated, thanks to Sven-Erik Andersen (sven-erik).
     * lang/thai: Updated, thanks to Arthit Suriyawongkul.
+    * catalan-iso-8859-1.inc.php3, english-iso-8859-1.inc.php3,
+      indonesian-iso-8859-1.inc.php3, spanish-iso-8859-1.inc.php3: Added some
+      missing translations.
 
 2003-04-23 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_dump.php3: Fixed syntax error with === (#724093, ##707538).

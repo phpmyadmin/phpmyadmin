@@ -624,4 +624,6 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 
+// To translate
+$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table'; //to translate
 ?>
