@@ -394,13 +394,20 @@
     <dd>
         Sets here the complete url (with full path) to your phpMyAdmin version.
         E.g. <tt>http://www.your_web.net/path_to_your_phpMyAdmin_directory/</tt>.
-        <br />
+        <br /><br />
+        phpMyAdmin needs this setting, because of requirements of the HTTP
+        protocol, explained in RFC2616, section 14.30.
+        <br /><br />
         Don't forget the slash at the end of your url. The url must contain
         characters that are valid for a url, and on some servers, the path
         is case-sensitive.
         <br /><br />
-        This setting can be dynamically completed. For example, you can try to
-        use such a kind of code:
+        Starting with version 2.3.0, you can try to leave this parameter
+        empty, because the program tries to auto-detect its proper value.
+        Additional details are in the configuration file.
+        <br /><br />
+        Or, this setting can be dynamically completed. For example, you can 
+        try to use such a kind of code:
         <pre>
 $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                        . $_SERVER['HTTP_HOST']
