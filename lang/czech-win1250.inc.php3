@@ -388,4 +388,5 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
+$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
 ?>

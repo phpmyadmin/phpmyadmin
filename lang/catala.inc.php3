@@ -383,4 +383,5 @@ $strStructPropose = 'Propose table structure';  //to translate
 $strExplain = 'Explain SQL Code';  //to translate
 $strPhp = 'Create PHP Code';  //to translate
 $strNoPhp = 'without PHP Code';  //to translate
+$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
 ?>
