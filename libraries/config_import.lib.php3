@@ -1134,14 +1134,17 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['Export']['remember_file_template'])) {
         $cfg['Export']['remember_file_template'] = TRUE;
     }
-    if (!isset($cfg['Export']['csv_columns'])) {
-        $cfg['Export']['csv_columns'] = FALSE;
-    }
     if (!isset($cfg['Export']['csv_null'])) {
         $cfg['Export']['csv_null']                  = 'NULL';
     }
+    if (!isset($cfg['Export']['csv_columns'])) {
+        $cfg['Export']['csv_columns'] = FALSE;
+    }
     if (!isset($cfg['Export']['excel_null'])) {
         $cfg['Export']['excel_null']                = 'NULL';
+    }
+    if (!isset($cfg['Export']['excel_columns'])) {
+        $cfg['Export']['excel_columns'] = FALSE;
     }
     if (!isset($cfg['Export']['latex_null'])) {
         $cfg['Export']['latex_null']                = '\textit{NULL}';

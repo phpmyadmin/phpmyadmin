@@ -9,6 +9,9 @@ $Source$
     * sql.php3: Fixed regular expression.
     * libraries/export/latex.php3: Use "table (field)" instead of 
       "table -> field" when dumping relations into LaTeX (bug #776957).
+    * libraries/display_export.lib.php3, libraries/export/csv.php3,
+      libraries/config_import.lib.php3, config.inc.php3: Allow column headers
+      for Excel export (bug #771299).
 
 2003-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 779453, wrong count

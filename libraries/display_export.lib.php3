@@ -300,6 +300,8 @@ if ($cfgRelation['mimework']) {
                         </td>
                     </tr>
                 </table>
+                <input type="checkbox" name="showexcelnames" value="yes" id="checkbox_dump_showexcelnames" <?php PMA_exportCheckboxCheck('excel_columns'); ?> />
+                <label for="checkbox_dump_showexcelnames"><?php echo $strPutColNames; ?></label>
             </fieldset>
 
             <fieldset id="none_options">

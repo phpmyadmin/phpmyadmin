@@ -37,6 +37,9 @@ function PMA_exportHeader() {
         $separator          = ',';
         $enclosed           = '"';
         $escaped            = '"';
+        if (isset($GLOBALS['showexcelnames']) && $GLOBALS['showexcelnames'] == 'yes') {
+            $GLOBALS['showcsvnames'] = 'yes';
+        }
     } else {
         if (empty($add_character)) {
             $add_character  = $GLOBALS['crlf'];

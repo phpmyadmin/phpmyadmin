@@ -303,6 +303,7 @@ $cfg['Export']['csv_separator']             = ';';
 $cfg['Export']['csv_enclosed']              = '&quot;';
 $cfg['Export']['csv_escaped']               = '\\';
 $cfg['Export']['csv_terminated']            = 'AUTO';
+$cfg['Export']['excel_columns']             = FALSE;
 $cfg['Export']['excel_null']                = 'NULL';
 
 $cfg['Export']['latex_structure']           = TRUE;
