@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * server_status.php3: the percentages of Query types did not add up
+      to 100, because the number of connections is included in the total
+      number of queries, thanks to jht001 ( Jams H Thompson )  
+
 2003-07-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_change.php3, libraries/common.lib.php3: Fixed a MySQL 4.1 bug that
       appeared when inserting values into ENUM or SET fields.

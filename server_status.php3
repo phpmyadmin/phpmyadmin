@@ -180,12 +180,16 @@ unset($tmp_array);
 $useBgcolorOne = TRUE;
 $countRows = 0;
 while (list($name, $value) = each($queryStats)) {
+
+// For the percentage column, use Questions - Connections, because
+// the number of connections is not an item of the Query types
+// but is included in Questions. Then the total of the percentages is 100. 
 ?>
                         <tr>
                             <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars($name); ?>&nbsp;</td>
                             <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>" align="right">&nbsp;<?php echo number_format($value, 0, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;</td>
                             <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>" align="right">&nbsp;<?php echo number_format(($value * 3600 / $serverStatus['Uptime']), 2, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;</td>
-                            <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>" align="right">&nbsp;<?php echo number_format(($value * 100 / $serverStatus['Questions']), 2, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;%&nbsp;</td>
+                            <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>" align="right">&nbsp;<?php echo number_format(($value * 100 / ($serverStatus['Questions'] - $serverStatus['Connections'])), 2, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;%&nbsp;</td>
                         </tr>
 <?php
     $useBgcolorOne = !$useBgcolorOne;
