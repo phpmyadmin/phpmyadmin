@@ -5,8 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-15  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_change.php3, lines 351-352: fixed bug #461623 (wrong maxlength in
+	  table_change.php).
+	* libraries/display_tbl.lib.php3: fixed bug #461684 (Comments changes for
+	  display_tbl.lib.php).
+	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
+
 2001-09-14  Loïc Chapeaux  <lolo@phpheaven.net>
-	* lang/italian.inc.php3 updates thanks to Pietro Danesi.
+	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
 
 2001-09-13  Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3; Documentation.html; sql.php3;
