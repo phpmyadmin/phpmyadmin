@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-13 Michal Cihar  <nijel@users.sourceforge.net>
+    * left.php3: Fixed displaying of tables with quote in name.
+
 2003-05-12 Garvin Hicking <me@supergarv.de>
     * queryframe.php3: Remove left/bottom margin to better fit the link title
       in the small frame.
