@@ -7,6 +7,8 @@ $Source$
 
 2002-06-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_qbe.php3: show upper links
+    * Documentation.html, user_details.php3: link to document what happens
+      with grants and underscores.
 
 2002-06-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3, libraries/common.lib.php3:
