@@ -171,7 +171,14 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                     $sum_size                   += $tblsize;
                     list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
                 }
-                $display_rows                   =  '&nbsp;-&nbsp;';
+                //$display_rows                   =  '&nbsp;-&nbsp;';
+                // get row count with another method
+                $local_query         = 'SELECT COUNT(*) AS count FROM ' 
+                                     . PMA_backquote($db) . '.' 
+                                     . PMA_backquote($table); 
+                $table_info_result   = PMA_mysql_query($local_query) 
+                                     or PMA_mysqlDie('', $local_query, '', $err_url_0);
+                $display_rows        =  number_format(PMA_mysql_result($table_info_result, 0, 'count'), 0, $number_decimal_separator, $number_thousands_separator);
             }
 
             // Merge or BerkleyDB table: Only row count is accurate.
