@@ -5,17 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2003-02-17 Michal Cihar  <nijel@users.sourceforge.net>
+2003-02-27 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     * lang/english: Resorted.
 
-2003-02-25 Alexander M. Turek  <rabus@users.sourceforge.net>
+2003-02-27 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3:
       - Backwards compatibility;
       - Removed some unnecessary code;
       - Added a small HOWTO.
     * config.inc.php3: The tab settings don't fit into the 'left frame' part.
     * lang/german-*.inc.php3: Grammar.
+    * Documentation.html: Fixed some dead links.
+    * scripts/create_tables.sql: Adjusted table comments.
 
 2003-02-27 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3, tbl_properties_links.php3, db_details_links.php3,

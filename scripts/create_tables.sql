@@ -45,7 +45,7 @@ CREATE TABLE `PMA_table_info` (
     `table_name` varchar(64) NOT NULL default '',
     `display_field` varchar(64) NOT NULL default '',
     PRIMARY KEY (`db_name`, `table_name`)
-    ) TYPE=MyISAM COMMENT='Table information  for phpMyAdmin';
+    ) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';
 
 CREATE TABLE `PMA_table_coords` (
     `db_name` varchar(64) NOT NULL default '',
@@ -73,10 +73,9 @@ CREATE TABLE `PMA_column_info` (
     mimetype varchar(255) NOT NULL default '',
     transformation varchar(255) NOT NULL default '',
     transformation_options varchar(255) NOT NULL default '',
-
     PRIMARY KEY (id),
     UNIQUE KEY db_name (db_name, table_name, column_name)
-    ) TYPE=MyISAM COMMENT='Comments for Columns';
+    ) TYPE=MyISAM COMMENT='Column Information for phpMyAdmin';
 
 CREATE TABLE `PMA_history` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
