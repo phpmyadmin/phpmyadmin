@@ -10,8 +10,10 @@ $Source$
       Richard Hornsby <rhornsby at users.sourceforge.net>.
     * Documentation.html: Fixed a typo.
     * lang/german.inc.php3: Updates.
-    * lang/italian.inc.php3: Updates, thanks again to
-      Pietro Danesi <danone at users.sourceforge.net>.
+    * lang/italian.inc.php3: 
+      - Updates, thanks again to
+        Pietro Danesi <danone at users.sourceforge.net>.
+      - Removed HTML entities.
 
 2002-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3, lang/*, Documentation.html: new message with doc

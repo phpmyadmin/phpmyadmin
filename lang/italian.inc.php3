@@ -78,7 +78,7 @@ $strChoosePage = 'Prego scegliere una Page da modificare';
 $strColumn = 'Colonna';
 $strColumnNames = 'Nomi delle colonne';
 $strCompleteInserts = 'Inserimenti completi';
-$strConfigFileError = 'phpMyAdmin non riesce a leggere il file di configurazione!<br />Questo può accadere se il php trova un parse error in esso oppure il php non trova il file.<br />Richiamate il file di configurazione direttamente utilizzando il link sotto e leggete il/i messaggio/i di errore del php che ricevete. Nella maggior parte dei casi ci sono un apostrofo o una virgoletta mancanti.<br />Se ricevete una pagina bianca, allora &egrave; tutto a posto.';
+$strConfigFileError = 'phpMyAdmin non riesce a leggere il file di configurazione!<br />Questo può accadere se il php trova un parse error in esso oppure il php non trova il file.<br />Richiamate il file di configurazione direttamente utilizzando il link sotto e leggete il/i messaggio/i di errore del php che ricevete. Nella maggior parte dei casi ci sono un apostrofo o una virgoletta mancanti.<br />Se ricevete una pagina bianca, allora è tutto a posto.';
 $strConfigureTableCoord = 'Prego, configurare le coordinate per la tabella %s';
 $strConfirm = 'Sicuro di volerlo fare?';
 $strCookiesRequired = 'Da questo punto in poi, i cookies devono essere abilitati.';
@@ -178,7 +178,7 @@ $strInsertNewRow = 'Inserisci una nuova riga';
 $strInsertTextfiles = 'Inserisci un file di testo nella tabella';
 $strInstructions = 'Istruzioni';
 $strInUse = 'in uso';
-$strInvalidName = '"%s" &egrave; una parola riservata; non &egrave; possibile utilizzarla come nome di database/tabella/campo.';
+$strInvalidName = '"%s" è una parola riservata; non è possibile utilizzarla come nome di database/tabella/campo.';
 
 $strKeepPass = 'Non cambiare la password';
 $strKeyname = 'Nome chiave';
@@ -202,7 +202,7 @@ $strModifications = 'Le modifiche sono state salvate';
 $strModify = 'Modifica';
 $strModifyIndexTopic = 'Modifica un indice';
 $strMoveTable = 'Sposta la tabella nel (database<b>.</b>tabella):';
-$strMoveTableOK = 'La tabella %s &egrave; stata spostata in %s.';
+$strMoveTableOK = 'La tabella %s è stata spostata in %s.';
 $strMySQLReloaded = 'MySQL riavviato.';
 $strMySQLSaid = 'Messaggio di MySQL: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% in esecuzione su %pma_s2% come %pma_s3%';
@@ -302,7 +302,7 @@ $strRunQuery = 'Invia Query';
 $strRunSQLQuery = 'Esegui la/e query SQL sul database %s';
 
 $strSave = 'Salva';
-$strScaleFactorSmall = 'Il fattore di scala &egrave; troppo piccolo per riempire lo schema nella pagina';
+$strScaleFactorSmall = 'Il fattore di scala è troppo piccolo per riempire lo schema nella pagina';
 $strSearch = 'Cerca';
 $strSearchFormTitle = 'Cerca nel database';
 $strSearchInTables = 'Nella/e tabella/e:';
@@ -375,7 +375,7 @@ $strUnique = 'Unica';
 $strUnselectAll = 'Deseleziona Tutto';
 $strUpdatePrivMessage = 'Hai aggiornato i permessi per %s.';
 $strUpdateProfile = 'Aggiorna profilo:';
-$strUpdateProfileMessage = 'Il profilo &egrave; stato aggiornato.';
+$strUpdateProfileMessage = 'Il profilo è stato aggiornato.';
 $strUpdateQuery = 'Aggiorna Query';
 $strUsage = 'Utilizzo';
 $strUseBackquotes = 'Usa i backquotes con i nomi delle tabelle e dei campi';
@@ -398,7 +398,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-
 $strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 ?>
