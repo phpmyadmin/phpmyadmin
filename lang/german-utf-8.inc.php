@@ -1,4 +1,4 @@
-﻿<?php
+﻿﻿<?php
 /* $Id$ */
 
 /**
@@ -731,7 +731,7 @@ $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränku
 $strZip = 'Zip-komprimiert';
 
 $strAddHeaderComment = 'Individuelle Kommentare für den Kopfbereich (\\n erzeugt einen Zeilenumbruch)';
-$strNeedPrimaryKey = 'Es sollte ein Primärschlüssel f�se Tabelle definiert werden.';
+$strNeedPrimaryKey = 'Es sollte ein Primärschlüssel für diese Tabelle definiert werden.';
 $strIgnoreInserts = 'Fehlerübergehenden INSERT-Befehl verwenden';
 $strAddIfNotExists = 'Mit \'IF NOT EXISTS\'';
 $strCommentsForTable = 'TABELLENKOMMENTARE';
