@@ -6,8 +6,8 @@ $Id$
 $Source$
 
 2002-07-06 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * charset_conversion.lib.php3: $strCantUseRecodeIconv has to be accessed via
-      the $GLOBALS[] array.
+    * libraries/charset_conversion.lib.php3: $strCantUseRecodeIconv has to be
+      accessed via the $GLOBALS[] array.
 
 2002-07-06 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php3: undefined variable
