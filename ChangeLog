@@ -7,6 +7,8 @@ $Source$
 
 2003-06-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: MySQL 4.1 users could not edit column privileges.
+    * tbl_properties.inc.php3, tbl_properties_structure.inc.php3:
+      SET and ENUM fields may have a character set, too.
 
 2003-06-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Incremented required config.inc.php3 revision

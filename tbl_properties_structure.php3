@@ -148,6 +148,8 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
             || substr($type, 0, 8) == 'tinytext'
             || substr($type, 0, 10) == 'mediumtext'
             || substr($type, 0, 8) == 'longtext'
+            || strtolower(substr($type, 0, 3)) == 'set'
+            || strtolower(substr($type, 0, 4)) == 'enum'
             ) && !$binary) {
             if (strpos($type, ' character set ')) {
                 $type = substr($type, 0, strpos($type, ' character set '));

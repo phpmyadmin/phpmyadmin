@@ -274,6 +274,8 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             || strtolower(substr($type, 0, 8)) == 'tinytext'
             || strtolower(substr($type, 0, 10)) == 'mediumtext'
             || strtolower(substr($type, 0, 8)) == 'longtext'
+            || strtolower(substr($type, 0, 3)) == 'set'
+            || strtolower(substr($type, 0, 4)) == 'enum'
             ) && !$binary) {
             $real_charset = strpos($row['Collation'], '_') ? substr($row['Collation'], 0, strpos($row['Collation'], '_')) : $row['Collation'];
         } else {
