@@ -18,7 +18,7 @@ $day_of_week = array('日', '月', '火', '水', '木', '金', '土');
 $month = array('1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%Y年%B%d日 %H:%M';
+$datefmt = '%Y年 %B %d日 %H:%M';
 
 // japanese only
 
@@ -47,7 +47,7 @@ $strAfterInsertNewInsert = '新レコードの追加';
 $strAll = '全部';
 $strAllTableSameWidth = '全てのテーブルを同じ幅で表示しますか?';
 $strAlterOrderBy = 'テーブル順番の条件';
-$strAnIndex = 'インデクスが%sに追加されていました。';
+$strAnIndex = 'インデックスが%sに追加されていました。';
 $strAnalyzeTable = 'テーブルを分析します。';
 $strAnd = 'AND';
 $strAny = '全て';
@@ -154,13 +154,13 @@ $strEditPDFPages = 'PDFの編集 ページ';
 $strEditPrivileges = '特権を修正';
 $strEffective = '実効';
 $strEmpty = '空にする';
-$strEmptyResultSet = 'MySQLが空の値を返しました。(i.e. zero rows).';
+$strEmptyResultSet = 'MySQLが空の値を返しました。(例えば行が空とか).';
 $strEnabled = '有効';
 $strEncto = 'エンコーディングへ変換する'; // encoding convert
 $strEnd = '最後';
 $strEndCut = '切り取り終了';
 $strEndRaw = 'RAW終了';
-$strEnglishPrivileges = ' 注意: MySQLの特権の名前は英語で発表しています。';
+$strEnglishPrivileges = ' 注意: MySQLの特権の名前は英語で表示しています。';
 $strError = 'エラー';
 $strExplain = 'Explain SQL';
 $strExport = 'エクスポート';
@@ -310,8 +310,8 @@ $strPageNumber = 'ページ番号:';
 $strPartialText = '部分的な文書';
 $strPassword = 'パスワード';
 $strPasswordChanged = 'パスワードは %s 変更されました。';
-$strPasswordEmpty = 'パスワードは空です。';
-$strPasswordNotSame = 'パスワードは空です。';
+$strPasswordEmpty = 'パスワードが空です。';
+$strPasswordNotSame = 'パスワードが同じではありません。';
 $strPdfDbSchema = '"%s" データベース - %s頁の図';
 $strPdfInvalidPageNum = 'PDFページが未定義！';
 $strPdfInvalidTblName = '"%s" テーブルがありません!';
@@ -341,7 +341,7 @@ $strPrivDescDropTbl = 'テーブルの削除を許可します。';
 $strPrivDescExecute = 'ストアードプロシジャーが走るのを許可します; このMySQL版では意味ありません。';
 $strPrivDescFile = 'データのインポート、データのファイルへのエクスポートを許可します。';
 $strPrivDescGrant = '特権テーブルのリロードなしにユーザー、特権の追加を許可します。';
-$strPrivDescIndex = 'インデクスの作成、削除を許可します。';
+$strPrivDescIndex = 'インデックスの作成、削除を許可します。';
 $strPrivDescInsert = 'データの挿入、入れ替えを許可します。';
 $strPrivDescLockTables = '現在のスレッドのロッキングテーブルを許可します。';
 $strPrivDescMaxConnections = '1時間内に新しく接続可能な数を制限します。';
@@ -518,7 +518,7 @@ $strUserAlreadyExists = 'ユーザー %s は既に存在します!';
 $strUserEmpty = 'ユーザー名は空です。';
 $strUserName = 'ユーザー名';
 $strUserNotFound = '選択されたユーザーは特権テーブルに見つかりませんでした。';
-$strUserOverview = 'User概観';
+$strUserOverview = 'ユーザー概観';
 $strUsers = 'ユーザー';
 $strUsersDeleted = '選択されたユーザーは削除されました。';
 
