@@ -21,6 +21,7 @@ else if ($action == 'tbl_addfield.php3') {
     <?php
 }
 echo "\n";
+$is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
 ?>
 
     <table border="<?php echo $cfgBorder; ?>">
@@ -33,7 +34,7 @@ echo "\n";
         <th><?php echo $strDefault; ?></th>
         <th><?php echo $strExtra; ?></th>
 <?php
-if ($action == 'tbl_create.php3' || $action == 'tbl_addfield.php3') {
+if (!$is_backup) {
     if (empty($num_indexes)) {
         echo "        <th>$strPrimary</th>\n";
         echo "        <th>$strIndex</th>\n";
@@ -57,8 +58,16 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     ?>
     <tr bgcolor="<?php echo $bgcolor;?>">
         <td>
-            <input type="text" name="field_name[]" size="10" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" />
+    <?php
+    if ($is_backup) {
+        echo "\n";
+        ?>
             <input type="hidden" name="field_orig[]" value="<?php if (isset($row) && isset($row['Field'])) echo urlencode($row['Field']); ?>" />
+        <?php
+    }
+    echo "\n";
+    ?>
+            <input type="text" name="field_name[]" size="10" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" />
         </td>
         <td>
             <select name="field_type[]">
@@ -99,7 +108,15 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             </select>
         </td>
         <td>
+    <?php
+    if ($is_backup) {
+        echo "\n";
+        ?>
             <input type="hidden" name="field_length_orig[]" value="<?php echo urlencode($length); ?>" />
+        <?php
+    }
+    echo "\n";
+    ?>
             <input type="text" name="field_length[]" size="8" value="<?php echo str_replace('"', '&quot;', $length); ?>" />
         </td>
         <td>
@@ -157,7 +174,15 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     echo "\n";
     ?>
         <td>
+    <?php
+    if ($is_backup) {
+        echo "\n";
+        ?>
             <input type="hidden" name="field_default_orig[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo urlencode($row['Default']); ?>" />
+        <?php
+    }
+    echo "\n";
+    ?>
             <input type="text" name="field_default[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" />
         </td>
         <td>
@@ -181,7 +206,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             </select>
         </td>
     <?php
-    if ($action == 'tbl_create.php3' || $action == 'tbl_addfield.php3') {
+    if (!$is_backup) {
         if (empty($num_indexes)) {
             if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {
                 $checked_primary = ' checked="checked"';
