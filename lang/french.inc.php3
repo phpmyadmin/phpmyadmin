@@ -110,10 +110,10 @@ $strGo = "Exécuter";
 $strGrants = "Autres privilèges";
 $strGzip = "\"gzippé\"";
 
-$strHasBeenAltered = "a été modifié.";
-$strHasBeenCreated = "a été créé.";
-$strHasBeenDropped = "a été effacé.";
-$strHasBeenEmptied = "a été vidé.";
+$strHasBeenAltered = "a été modifié(e).";
+$strHasBeenCreated = "a été créé(e).";
+$strHasBeenDropped = "a été effacé(e).";
+$strHasBeenEmptied = "a été vidé(e).";
 $strHome = "Accueil";
 $strHomepageOfficial = "Site officiel de phpMyAdmin";
 $strHomepageSourceforge = "Page de Téléchargement phpMyAdmin sur Sourceforge";  
