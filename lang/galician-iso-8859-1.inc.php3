@@ -37,6 +37,7 @@ $strAfter = 'Despois de %s';
 $strAfterInsertBack = 'Voltar';
 $strAfterInsertNewInsert = 'Inserir un novo rexistro';
 $strAll = 'Todos';
+$strAllTableSameWidth = 'mostrar todas as tabelas co mesmo ancho?';
 $strAlterOrderBy = 'Ordenar a tabela por';
 $strAnalyzeTable = 'Analizar a tabela';
 $strAnd = 'E';
@@ -278,6 +279,7 @@ $strQueryOnDb = 'Procura tipo SQL no banco de datos <b>%s</b>:';
 
 $strRecords = 'Rexistros';
 $strReferentialIntegrity = 'Comprobar a integridade das referencias:';
+$strRelationNotWorking = 'Desactivouse a funcionalidade adicional para o traballo con tabelas vinculadas. Para saber o por que, faga click%saqu&iacute;%s.';
 $strRelationView = 'Vista das relacións';
 $strReloadFailed = 'A reinicialización do MySQL fallou.';
 $strReloadMySQL = 'Reinicializar o MySQL';
@@ -404,6 +406,4 @@ $strYes = 'Si';
 $strZip = 'comprimido no formato "zipped"';
 
 // To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

@@ -14,6 +14,10 @@ $Source$
     * lang/czech update, thanks to Michal Cihar
     * lang/sync_lang.sh, can exclude some languages from conversion, 
       thanks to Michal Cihar
+    * lang/turkish update, thanks to Bora Alioglu
+    * lang/polish update, thanks to Jakub Wilk
+    * lang/galician update, thanks to Xosé Calvo
+    * lang/romanian update, thanks to Valics Lehel
 
 2002-07-18 Steve Alberty  <staybyte@users.sourceforge.net>
     * It is now possible to print stats for more than 2 GB (up to exa byte)

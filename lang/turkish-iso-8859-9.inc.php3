@@ -33,6 +33,7 @@ $strAfter = 'Sonuna %s';
 $strAfterInsertBack = 'Return';
 $strAfterInsertNewInsert = 'Yeni kayit ekle';
 $strAll = 'Tümü';
+$strAllTableSameWidth = 'Bütün tablolarý ayný geniþlikte göster';
 $strAlterOrderBy = 'Tabloyu deðiþtir ve þuna göre sýrala:';
 $strAnalyzeTable = 'Tabloyu analiz et';
 $strAnd = 'Ve';
@@ -275,6 +276,7 @@ $strQueryOnDb = 'Veritabaný üzerinde SQL-sorgusu&nbsp;<b>%s</b>:';
 
 $strRecords = 'Kayýtlar';
 $strReferentialIntegrity = 'Referans bütünlüðünü kontrol et.';
+$strRelationNotWorking = 'Baðlý tablolarla çalýþmada kullanýlan ekstra özellikler deaktif edildi...Niçin olduðunu öðrenmek için %sburaya%s týklayýnýz...';
 $strRelationView = 'Ýliþki görünümü';
 $strReloadFailed = 'MySQL yeniden yüklenmesi gerçekleþtirilemedi.';
 $strReloadMySQL = 'MySQL\'i yeniden yükle';
@@ -400,6 +402,4 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

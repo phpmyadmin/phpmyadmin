@@ -33,6 +33,7 @@ $strAfter = 'Dupa %s';
 $strAfterInsertBack = 'Revenire';
 $strAfterInsertNewInsert = 'Adauga o noua inregistrare';
 $strAll = 'Toate';
+$strAllTableSameWidth = 'arata toate tabelele cu aceeasi marime?';
 $strAlterOrderBy = 'Alterare ordine tabel dupa (Alter table order by)';
 $strAnalyzeTable = 'Analizare tabel';
 $strAnd = 'Si (And)';
@@ -275,6 +276,7 @@ $strQueryOnDb = 'Comanda SQL pe baza de date <b>%s</b>:';
 
 $strRecords = 'Inregistrari';
 $strReferentialIntegrity = 'Verificarea integritatii referentiei:';
+$strRelationNotWorking = 'Optiunile aditionale pentru folosirea tabelelor intercalate (legate intre ele) au fost dezactivate. Pentru a afla de ce ...  %shere%s.';
 $strRelationView = 'Vizualizare relationala';
 $strReloadFailed = 'Reincarcare MySQL nereusita.';
 $strReloadMySQL = 'Reincarcare MySQL';
@@ -400,6 +402,4 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 
 // To translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>
