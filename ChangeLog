@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-03  Loïc Chapeaux  <lolo@phpheaven.net>
+	* build a js library that contains all the functions used to collapse/expand
+	  databases list stuff and improve them
+	* add the brazilian portuguese translation and update the
+	  'select_lang.inc.php3' script to take the former into account
+	* reply to some questions at the official phpMyAdmin forum, suggesting the
+	  users to grab the current pre-release version from SouceForge.
+
 2001-05-03  Olivier Müller  <om@omnis.ch>
 	* started devel-branch : "phpMyAdmin-devel". To be used for experimental 
 	  stuff and new features.
