@@ -296,7 +296,11 @@ if (empty($lang)) {
 // 4. Checks whether charset recoding should be allowed or not
 $allow_recoding = FALSE; // Default fallback value
 if (!isset($convcharset) || empty($convcharset)) {
-    $convcharset = $cfg['DefaultCharset'];
+    if (isset($_COOKIE['pma_charset'])) {
+        $convcharset = $_COOKIE['pma_charset'];
+    } else {
+        $convcharset = $cfg['DefaultCharset'];
+    }
 }
 
 // 5. Defines the associated filename and load the translation

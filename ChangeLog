@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-24 Michal Čihař  <michal@cihar.com>
+    * main.php, libraries/select_lang.lib.php: Remember selected charset in
+      cookie.
+
 2004-06-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * queryframe.php: Undefined index errors.
 

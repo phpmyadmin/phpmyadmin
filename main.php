@@ -19,6 +19,9 @@ if (!isset($pma_uri_parts)) {
     $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 }
 setcookie('pma_lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
+if (isset($convcharset)) {
+    setcookie('pma_charset', $convcharset, time() + 60*60*24*30, $cookie_path, '', $is_https);
+}
 /**
  * Includes the ThemeManager
  */
