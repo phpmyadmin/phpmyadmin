@@ -6,8 +6,11 @@ $Id$
 $Source$
 
 2001-09-04  Loïc Chapeaux  <lolo@phpheaven.net>
-	* lib.inc.php3: improved the fix for bug #458160 - Advanced auth fails on
-	  WebSite Pro, thanks to Matthias Fichtner again.
+	* lib.inc.php3:
+	  - improved the fix for bug #458160 - Advanced auth fails on WebSite Pro,
+	    thanks to Matthias Fichtner again;
+	  - lines 101-106: if zlib output compression is set in the php
+	    configuration file, no output buffering should be run.
 	* tbl_properties.php3, line 1051: added a link to the MySql documentation.
 	* defines.inc.php3; header.inc.php3; left.js; left.php3; lib.inc.php3:
 	  improved font size definition.
