@@ -71,6 +71,7 @@ $strColumn = 'Coloana';
 $strColumnNames = 'Numele coloanelor';
 $strCompleteInserts = 'Rezolva inserarea';
 $strConfirm = 'Sunteti sigur ca doriti sa continuati?';
+$strCookiesRequired = 'Trebuie sa aveti activat "cookies".';
 $strCopyTable = 'Copiaza tabela la (database<b>.</b>table):';
 $strCopyTableOK = 'Tabelul %s a fost copiat la %s.';
 $strCreate = 'Creaza';
@@ -170,7 +171,10 @@ $strLineFeed = 'Dezvoltare linie: \\n';
 $strLines = 'Linii';
 $strLinesTerminatedBy = 'Linii terminate de';
 $strLocationTextfile = 'Locatia fisierului text';
+$strLogin = 'Autentificare';
 $strLogout = 'Deconectare';
+$strLogPassword = 'Parola:';
+$strLogUsername = 'Nume utilizator:';
 
 $strModifications = 'Modificarile au fost salvate';
 $strModify = 'Modificare';
@@ -336,10 +340,6 @@ $strYes = 'Da';
 $strZip = '"zipped"';
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogin = 'Login';
-$strLogPassword = 'Password&nbsp;:';
-$strLogUsername = 'Username&nbsp;:';
 
 $strRowsModeVertical=" vertical ";  //to translate
 $strRowsModeHorizontal=" horizontal ";  //to translate
