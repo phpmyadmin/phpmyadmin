@@ -780,8 +780,10 @@ if (!defined('__LIB_COMMON__')){
                            : 'x-small';
             $font_smallest = 'x-small';
         }
-        // Mac browsers: need bigger fonts
-        else if (USR_OS == 'Mac') {
+        // Mac browsers: need bigger fonts except IE 5+ & NS 6+
+        else if (USR_OS == 'Mac'
+                 && ((USR_BROWSER_AGENT != 'IE' && USR_BROWSER_AGENT != 'MOZILLA')
+                     || USR_BROWSER_VER < 5)) {
             $font_size     = 'medium';
             $font_bigger   = 'x-large ';
             $font_smaller  = 'small';
@@ -839,13 +841,17 @@ if (!defined('__LIB_COMMON__')){
      */
     function js_format($a_string = '', $add_backquotes = TRUE)
     {
-        $a_string = str_replace('"', '&quot;', $a_string);
-        $a_string = str_replace('#', '\\#', addslashes($a_string));
-        $a_string = str_replace("\012", '\\\\n', $a_string);
-        $a_string = str_replace("\015", '\\\\r', $a_string);
+        if (is_string($a_string)) {
+            $a_string = str_replace('"', '&quot;', $a_string);
+            $a_string = str_replace('\\', '\\\\', $a_string);
+            $a_string = str_replace('\'', '\\\'', $a_string);
+            $a_string = str_replace('#', '\\#', $a_string);
+            $a_string = str_replace("\012", '\\\\n', $a_string);
+            $a_string = str_replace("\015", '\\\\r', $a_string);
+        }
 
         return (($add_backquotes) ? backquote($a_string) : $a_string);
-    } // end of the 'sql_addslashes()' function
+    } // end of the 'js_format()' function
 
 
     /**
