@@ -1233,10 +1233,10 @@ else if (PMA_MYSQL_INT_VERSION >= 32306
 } // end 3.23.06 < MySQL < 3.23.22
 
 // Referential integrity check
-if (!empty($cfgServer['relation'])) {
+if (!empty($cfg['Server']['relation'])) {
 
     $local_query = 'SELECT src_column, dest_table, dest_column'
-                 . ' FROM ' . $cfgServer['relation']
+                 . ' FROM ' . $cfg['Server']['relation']
                  . ' WHERE src_table =\'' . $table . '\';';
 
     // we need this mysql_select_db if the user has access to more than one db
@@ -1274,7 +1274,7 @@ if (!empty($cfgServer['relation'])) {
     } // end if ($result)
     echo "\n";
 
-} // end  if (!empty($cfgServer['relation']))
+} // end  if (!empty($cfg['Server']['relation']))
 ?>
 
     <!-- Flushes the table -->

@@ -118,9 +118,9 @@ if (empty($asfile)
  */
 // No download
 if (empty($asfile)) {
-    $cfgServer_backup = $cfgServer;
+    $cfgServer_backup = $cfg['Server'];
     include('./header.inc.php3');
-    $cfgServer = $cfgServer_backup;
+    $cfg['Server'] = $cfgServer_backup;
     unset($cfgServer_backup);
     echo '<div align="' . $cell_align_left . '">' . "\n";
     echo '    <pre>' . "\n";
@@ -196,9 +196,9 @@ else {
                            .  '# http://phpwizard.net/phpMyAdmin/' . $crlf
                            .  '# http://www.phpmyadmin.net/ (download page)' . $crlf
                            .  '#' . $crlf
-                           .  '# ' . $strHost . ': ' . $cfgServer['host'];
-        if (!empty($cfgServer['port'])) {
-            $dump_buffer   .= ':' . $cfgServer['port'];
+                           .  '# ' . $strHost . ': ' . $cfg['Server']['host'];
+        if (!empty($cfg['Server']['port'])) {
+            $dump_buffer   .= ':' . $cfg['Server']['port'];
         }
         $formatted_db_name = (isset($use_backquotes))
                            ? PMA_backquote($db)

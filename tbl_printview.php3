@@ -139,7 +139,7 @@ while (list($key, $table) = each($the_tables)) {
     $rel_query   = 'SHOW TABLES';
     $tables   = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
     while($ctable = @mysql_fetch_array($tables)){
-        if($ctable[0] == $cfgServer['relation']){
+        if($ctable[0] == $cfg['Server']['relation']){
                 $rel_work=TRUE;
          }
     }
@@ -147,7 +147,7 @@ while (list($key, $table) = each($the_tables)) {
     		unset($res_rel);
             //  Find which tables are related with the current one and write it in an array
             $rel_query   = 'SELECT src_column,concat(dest_table,\'->\',dest_column) as rel ';
-            $rel_query  .= 'FROM ' . PMA_backquote($cfgServer['relation']);
+            $rel_query  .= 'FROM ' . PMA_backquote($cfg['Server']['relation']);
             $rel_query  .= ' WHERE src_table = \'' . urldecode($table) .'\'';
 
             $relations   = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
