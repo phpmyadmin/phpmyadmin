@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-24  Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.txt: updated.
+	* scripts/create_release.sh: added some stuffes in the "ToDo" list at
+	  the end.
+	* rolled a new CVS package.
+
 2001-11-23  Loïc Chapeaux  <lolo@phpheaven.net>
 	* light changes (function and constant names) in most of the scripts:
 	  they're now about to fully fit the PEAR codding standards.
@@ -18,7 +24,7 @@ $Source$
 	* left.php3: this frame wasn't taking into account the output buffering
 	  feature!
 	* Documentation.html, lines 843-851: added an entry about a PWS bug and
-	  its workaround tahnks to Filippo Simoncini.
+	  its workaround thanks to Filippo Simoncini.
 
 2001-11-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, lines 142-148: merged patch #479083 - display name
