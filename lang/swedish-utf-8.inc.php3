@@ -254,6 +254,7 @@ $strNotValidNumber = ' är inte ett giltigt radnummer!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s träff(ar) i tabell <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totalt:</b> <i>%s</i> träff(ar)';
+$strNumTables = 'Tabeller';
 
 $strOK = 'OK';
 $strOftenQuotation = 'Ofta citattecken. Frivilligt innebär att bara fält av typ \'char\' och \'varchar\' omges av angivet tecken.';
@@ -402,6 +403,7 @@ $strTheContent = 'Filens innehåll har importerats.';
 $strTheContents = 'Filens innehåll ersätter den valda tabellens rader som har identiska primära eller unika nycklar.';
 $strTheTerminator = 'Fältavslutare.';
 $strTotal = 'totalt';
+$strTotalUC = 'Totalt';
 $strType = 'Typ';
 
 $strUncheckAll = 'Avmarkera alla';
@@ -436,6 +438,4 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
 ?>

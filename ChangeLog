@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-05 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/swedish.inc.php3: Updates, thanks again to Björn T. Hallberg (bth).
+
 2002-12-05 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3: remove control M
     * lang/dutch update, thanks to Ivo Teel
