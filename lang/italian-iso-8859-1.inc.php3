@@ -346,6 +346,7 @@ $strSelectFields = 'Seleziona campi (almeno uno):';
 $strSelectNumRows = 'nella query';
 $strSelectTables = 'Seleziona Tables';
 $strSend = 'Salva con nome...';
+$strServer = 'Server %s';
 $strServerChoice = 'Scelta del server';
 $strServerVersion = 'Versione MySQL';
 $strSetEnumVal = 'Se il tipo di campo è "enum" o "set", immettere i valori usando il formato: \'a\',\'b\',\'c\'...<br />Se comunque dovete mettere dei backslashes ("\") o dei single quote ("\'") davanti a questi valori, backslashateli (per esempio \'\\\\xyz\' o \'a\\\'b\').';
@@ -433,5 +434,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strServer = 'Server %s';  //to translate
 ?>

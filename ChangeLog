@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-12 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
+
 2002-09-11 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3: "empty drop-downs" bug, and avoid displaying a
       drop-down if more than 200 rows in the foreign table
