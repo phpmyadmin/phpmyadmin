@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-02-02 Alexander M. Turek  <supposedformerinfatuationjunkie@derrabus.de>
+    * libraries/mysql_charsets.lib.php: Use PMA_backquote().
+
 2004-01-31 Michal Cihar  <whyisitsocold@cihar.com>
     * lang/czech: Update.
 
