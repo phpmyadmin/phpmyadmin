@@ -242,6 +242,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'Comanda SQL pe baza de date <b>%s</b>:';
 
 $strRecords = 'Inregistrari';
+$strReferentialIntegrity = 'Verificarea integritatii referentiei:';
 $strReloadFailed = 'Reincarcare MySQL nereusita.';
 $strReloadMySQL = 'Reincarcare MySQL';
 $strRememberReload = 'Nu uitati sa reincarcati serverul.';
@@ -348,5 +349,4 @@ $strZip = '"zipped"';
 
 // To translate
 $strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
