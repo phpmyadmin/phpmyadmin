@@ -173,8 +173,8 @@ for ($i = 0; $i < $num_dbs; $i++) {
                         <label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label>&nbsp;&nbsp;<br />
                         <input type="radio" name="what" value="data" id="radio_copy_data" />
                         <label for="radio_copy_data"><?php echo $strStrucData; ?></label>&nbsp;&nbsp;<br />
-                        <input type="radio" name="what" value="dataonly" id="radio_copy_data" />
-                        <label for="radio_copy_data"><?php echo $strDataOnly; ?></label>&nbsp;&nbsp;<br />
+                        <input type="radio" name="what" value="dataonly" id="radio_copy_dataobnly" />
+                        <label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label>&nbsp;&nbsp;<br />
                         <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" />
                         <label for="checkbox_drop"><?php echo $strStrucDrop; ?></label>&nbsp;&nbsp;
                     </td>
