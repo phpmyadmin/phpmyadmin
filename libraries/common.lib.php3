@@ -1084,6 +1084,7 @@ if (typeof(window.parent) != 'undefined'
 <!--
 if (typeof(document.getElementById) != 'undefined'
     && typeof(window.parent.frames['nav']) != 'undefined'
+    && typeof(window.parent.frames['nav'].document) != 'undefined' && typeof(window.parent.frames['nav'].document) != 'unknown'
     && typeof(window.parent.frames['nav'].document.getElementById('<?php echo 'tbl_' . $md5_tbl; ?>')) != 'undefined'
     && typeof(window.parent.frames['nav'].document.getElementById('<?php echo 'tbl_' . $md5_tbl; ?>').title) == 'string') {
     window.parent.frames['nav'].document.getElementById('<?php echo 'tbl_' . $md5_tbl; ?>').title = '<?php echo PMA_jsFormat($tooltip, FALSE); ?>';
