@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/french: update
+    * lang/spanish: Updates, thanks to Dr. med. Daniel Hinostroza C.
+    * lang/polish: update, thanks to Jakub Wilk
+    
 2003-04-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Better fix against possible "wrong parameter
       count" errors.
