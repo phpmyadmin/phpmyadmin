@@ -64,7 +64,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
     echo '    <th>' . UCFirst($GLOBALS['strTable']) . '</th>' . "\n";
     echo '    <th>' . $GLOBALS['strPrivileges'] . '</th>' . "\n";
     if (!$dbcheck) {
-        echo '    <th>Grant Option</th>' . "\n";
+        echo '    <th>' . $GLOBALS['strGrantOption'] . '</th>' . "\n";
     }
     ?>
 </tr>
