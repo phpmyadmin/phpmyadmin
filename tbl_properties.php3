@@ -252,12 +252,14 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
     // Gets some sizes
     list($data_size, $data_unit)     = format_byte_down($showtable['Data_length']);
     list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
-    if (!empty($showtable['Data_free'])) {
+    if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
         list($free_size, $free_unit) = format_byte_down($showtable['Data_free']);
     }
     list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
     list($tot_size, $tot_unit)       = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
-    if (isset($showtable['Rows']) && $showtable['Rows']>0) list($avg_size, $avg_unit) = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+    if (isset($showtable['Rows']) && $showtable['Rows']>0) {
+        list($avg_size, $avg_unit)   = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+    }
 
     // Displays them
     if ($index_count > 0) {
@@ -285,7 +287,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
             <td><?php echo $index_unit; ?></td>
         </tr>
     <?php
-    if (!empty($showtable['Data_free'])) {
+    if (isset($free_size)) {
         echo "\n";
         ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="color: #bb0000">
@@ -309,7 +311,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         </tr>
     <?php
     // Optimize link if overhead
-    if (!empty($showtable['Data_free']) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
+    if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
         echo "\n";
         $query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
         ?>

@@ -83,7 +83,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     <th><?php echo ucfirst($strTable); ?></th>
     <th colspan="6"><?php echo ucfirst($strAction); ?></th>
     <th><?php echo ucfirst($strRecords); ?></th>
-    <th><?php echo ((!empty($strSize)) ? ucfirst($strSize) : '&nbsp;'); ?></th>
+    <th><?php echo ucfirst($strSize); ?></th>
 </tr>
     <?php
     $i = $sum_entries = $sum_size = 0;
@@ -118,11 +118,14 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
         <?php
         echo "\n";
         if (isset($sts_data['Rows'])) {
-            $tblsize                    =  $sts_data['Data_length'] + $sts_data['Index_length'];
-            $sum_size                   += $tblsize;
-            $sum_entries                += $sts_data['Rows'];
-            if ($tblsize>0) list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
-            else list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
+            $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
+            $sum_size                       += $tblsize;
+            $sum_entries                    += $sts_data['Rows'];
+            if ($tblsize > 0) {
+                list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
+            } else {
+                list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
+            }
             ?>
     <td align="right">
         <?php echo number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
@@ -135,7 +138,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
         } else {
             ?>
     <td colspan="3" align="center">
-        <?php if (!empty($strInUse)) {echo $strInUse;}; echo "\n"; ?>
+        <?php echo $strInUse . "\n"; ?>
     </td>
             <?php
         }
@@ -150,7 +153,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     ?>
 <tr bgcolor="<?php echo $cfgThBgcolor; ?>">
     <td colspan="7" align="center">
-        <?php if (!empty($strSum)) {echo $strSum;}; echo "\n"; ?>
+        <?php echo $strSum . "\n"; ?>
     </td>
     <td align="right">
         <?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
