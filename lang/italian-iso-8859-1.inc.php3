@@ -139,6 +139,7 @@ $strEnabled = 'Abilitata';
 $strEnd = 'Fine';
 $strEnglishPrivileges = 'Nota: i nomi dei privilegi di MySQL sono in Inglese';
 $strError = 'Errore';
+$strExplain = 'Spiega SQL';
 $strExport = 'Esporta';
 $strExportToXML = 'Esporta in formato XML';
 $strExtendedInserts = 'Inserimenti estesi';
@@ -229,6 +230,7 @@ $strNo = ' No ';
 $strNoDatabases = 'Nessun database';
 $strNoDescription = 'nessuna Description';
 $strNoDropDatabases = 'I comandi "DROP DATABASE" sono disabilitati.';
+$strNoExplain = 'Non Spiegare SQL';
 $strNoFrames = 'phpMyAdmin funziona meglio con browser che supportano frames';
 $strNoIndex = 'Nessun indice definito!';
 $strNoIndexPartsDefined = 'Nessuna parte di indice definita!';
@@ -245,6 +247,7 @@ $strNotOK = 'non OK';
 $strNotSet = '<b>%s</b> tabella non trovata o non settata in %s';
 $strNotValidNumber = ' non è una riga valida!';
 $strNoUsersFound = 'Nessun utente trovato.';
+$strNoValidateSQL = 'Non Validare SQL';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s corrisponde/ono nella tabella <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totale:</b> <i>%s</i> corrispondenza/e';
@@ -403,6 +406,7 @@ $strUserName = 'Nome utente';
 $strUsers = 'Utenti';
 $strUseTables = 'Utilizza tabelle';
 
+$strValidateSQL = 'Valida SQL';
 $strValue = 'Valore';
 $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
@@ -416,9 +420,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
 ?>

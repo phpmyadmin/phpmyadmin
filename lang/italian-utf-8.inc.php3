@@ -71,7 +71,7 @@ $strCantLoadMySQL = 'impossibile caricare l\'estensione MySQL,<br />controlla la
 $strCantLoadRecodeIconv = 'Impossibile caricare l\'estensione iconv o recode necessaria per la conversione del set di caratteri, configurare il PHP per permettere di utilizzare queste estenzioni o disabilitare la conversione dei set di caratteri in phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Impossibile rinominare l\'indice a PRIMARIO!';
 $strCantUseRecodeIconv = 'Impossibile utilizzare le funzioni iconv o libiconv o recode_string in quanto l\'estensione deve essere caricata. Controllare la configurazione del PHP.';
-$strCardinality = 'Cardinalit√†';
+$strCardinality = 'Cardinalit√ ';
 $strCarriage = 'Ritorno carrello: \\r';
 $strChange = 'Modifica';
 $strChangeDisplay = 'Scegli il campo da mostrare';
@@ -140,6 +140,7 @@ $strEnabled = 'Abilitata';
 $strEnd = 'Fine';
 $strEnglishPrivileges = 'Nota: i nomi dei privilegi di MySQL sono in Inglese';
 $strError = 'Errore';
+$strExplain = 'Spiega SQL';
 $strExport = 'Esporta';
 $strExportToXML = 'Esporta in formato XML';
 $strExtendedInserts = 'Inserimenti estesi';
@@ -230,6 +231,7 @@ $strNo = ' No ';
 $strNoDatabases = 'Nessun database';
 $strNoDescription = 'nessuna Description';
 $strNoDropDatabases = 'I comandi "DROP DATABASE" sono disabilitati.';
+$strNoExplain = 'Non Spiegare SQL';
 $strNoFrames = 'phpMyAdmin funziona meglio con browser che supportano frames';
 $strNoIndex = 'Nessun indice definito!';
 $strNoIndexPartsDefined = 'Nessuna parte di indice definita!';
@@ -246,6 +248,7 @@ $strNotOK = 'non OK';
 $strNotSet = '<b>%s</b> tabella non trovata o non settata in %s';
 $strNotValidNumber = ' non √® una riga valida!';
 $strNoUsersFound = 'Nessun utente trovato.';
+$strNoValidateSQL = 'Non Validare SQL';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s corrisponde/ono nella tabella <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Totale:</b> <i>%s</i> corrispondenza/e';
@@ -282,7 +285,7 @@ $strPrimaryKeyName = 'Il nome della chiave primaria deve essere... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>deve</b> essere il nome di, e <b>solo di</b>, una chiave primaria!)';
 $strPrintView = 'Visualizza per stampa';
 $strPrivileges = 'Privilegi';
-$strProperties = 'Propriet√†';
+$strProperties = 'Propriet√ ';
 
 $strQBE = 'Query da esempio';
 $strQBEDel = 'Cancella';
@@ -290,7 +293,7 @@ $strQBEIns = 'Aggiungi';
 $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 
 $strRecords = 'Record';
-$strReferentialIntegrity = 'Controlla l\'integrit√† delle referenze:';
+$strReferentialIntegrity = 'Controlla l\'integrit√  delle referenze:';
 $strRelationNotWorking = 'Le caratteristiche aggiuntive sono state disattivate per funzionare con le tabelle linkate. Per scoprire perch√® clicca %squi%s.';
 $strRelationView = 'Vedi relazioni';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
@@ -313,7 +316,7 @@ $strRows = 'Righe';
 $strRowsFrom = 'righe a partire da';
 $strRowSize = 'Dimensione riga';
 $strRowsModeHorizontal = ' orizzontale ';
-$strRowsModeOptions = ' in modalit√† %s e ripeti gli headers dopo %s celle ';
+$strRowsModeOptions = ' in modalit√  %s e ripeti gli headers dopo %s celle ';
 $strRowsModeVertical = ' verticale ';
 $strRowsStatistic = 'Statistiche righe';
 $strRunning = 'in esecuzione su %s';
@@ -404,6 +407,7 @@ $strUserName = 'Nome utente';
 $strUsers = 'Utenti';
 $strUseTables = 'Utilizza tabelle';
 
+$strValidateSQL = 'Valida SQL';
 $strValue = 'Valore';
 $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
@@ -417,9 +421,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
 ?>
