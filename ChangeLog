@@ -11,6 +11,10 @@ $Source$
 	  libraries/common.lib.php3, lines 928-929: fixed bug #479208 - Drop a
 	  Table -> wrong server at left frame thanks to Bjoern Koester
 	  & Donald Saltarelli.
+	* db_details.php3; read_dump.php3; sql.php3; tbl_properties.php3: fixed a
+	  bug with headers that may be sent after output.
+	* tbl_properties.php3: fixed bug #481417 - Unable to insert dumps from
+	  phpmyadmin.
 
 2001-11-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/tbl_dump.php3 : merged a workaround against the IE downloading

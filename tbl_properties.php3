@@ -28,24 +28,29 @@ $err_url   = 'tbl_properties.php3'
  * Ensures the database and the table exist (else move to the "parent" script)
  * and diplays headers
  */
-// Not a valid db name -> back to the welcome page
-if (!empty($db)) {
-    $is_db = @mysql_select_db($db);
-}
-if (empty($db) || !$is_db) {
-    header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
-    exit();
-}
-// Not a valid table name -> back to the db_details.php3
-if (!empty($table)) {
-    $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
-}
-if (empty($table) || !@mysql_numrows($is_table)) {
-    header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
-    exit();
-} else if (isset($is_table)) {
-    mysql_free_result($is_table);
-}
+if (!isset($is_db) || !$is_db) {
+    // Not a valid db name -> back to the welcome page
+    if (!empty($db)) {
+        $is_db = @mysql_select_db($db);
+    }
+    if (empty($db) || !$is_db) {
+        header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        exit();
+    }
+} // end if (ensures db exists)
+if (!isset($is_table) || !$is_table) {
+    // Not a valid table name -> back to the db_details.php3
+    if (!empty($table)) {
+        $is_table = @mysql_query('SHOW TABLES LIKE \'' . sql_addslashes($table, TRUE) . '\'');
+    }
+    if (empty($table) || !@mysql_numrows($is_table)) {
+        header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        exit();
+    } else if (isset($is_table)) {
+        mysql_free_result($is_table);
+    }
+} // end if (ensures table exists)
+
 // Displays headers
 if (!isset($message)) {
     $js_to_run = 'functions.js';
@@ -643,7 +648,7 @@ echo "\n";
 
     <!-- Query box and bookmark support -->
     <li>
-        <form method="post" action="read_dump.php3"
+        <form method="post" action="read_dump.php3" enctype="multipart/form-data"
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
