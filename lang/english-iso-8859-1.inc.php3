@@ -51,7 +51,7 @@ $strAtEndOfTable = 'At End of Table';
 $strAttr = 'Attributes';
 
 $strBack = 'Back';
-$strBeginCut = 'BEGIN CUT'; 
+$strBeginCut = 'BEGIN CUT';
 $strBeginRaw = 'BEGIN RAW';
 $strBinary = 'Binary';
 $strBinaryDoNotEdit = 'Binary - do not edit';
@@ -134,7 +134,7 @@ $strEmpty = 'Empty';
 $strEmptyResultSet = 'MySQL returned an empty result set (i.e. zero rows).';
 $strEnabled = 'Enabled';
 $strEnd = 'End';
-$strEndCut = 'END CUT'; 
+$strEndCut = 'END CUT';
 $strEndRaw = 'END RAW';
 $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English ';
 $strError = 'Error';
@@ -359,10 +359,11 @@ $strSort = 'Sort';
 $strSpaceUsage = 'Space usage';
 $strSplitWordsWithSpace = 'Words are separated by a space character (" ").';
 $strSQL = 'SQL';
+$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';
 $strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';
 $strSQLQuery = 'SQL-query';
 $strSQLResult = 'SQL result';
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';
 $strSQPBugUnclosedQuote = 'Unclosed quote';
 $strSQPBugUnknownPunctation = 'Unknown Punctation String';
 $strStatement = 'Statements';
@@ -421,7 +422,4 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-
-//New
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
 ?>
