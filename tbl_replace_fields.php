@@ -140,9 +140,8 @@ if (!$check_stop) {
                             if ($val == 'null') {
                                 // void
                             } else {
-                                // the data here is not urlencoded!
-                                //$val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                                $val = "'" . PMA_sqlAddslashes($val) . "'";
+                                // the data here is urlencoded
+                                $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
                             }
                         } else {
                             $val     = "''";
@@ -152,9 +151,8 @@ if (!$check_stop) {
                     // if we have a set, then construct the value
                     if (!empty($fval)) {
                         $val = implode(',', $fval);
-                        // the data here is not urlencoded!
-                        //$val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                        $val = "'" . PMA_sqlAddslashes($val) . "'";
+                        // the data here is urlencoded
+                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
                     } else {
                         $val = "''";
                     }

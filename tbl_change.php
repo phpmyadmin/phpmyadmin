@@ -569,7 +569,8 @@ foreach($loop_array AS $vrowcount => $vrow) {
                     // Removes automatic MySQL escape format
                     $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                     echo '                ';
-                    echo '<option value="' . htmlspecialchars($enum_atom) . '"';
+                    //echo '<option value="' . htmlspecialchars($enum_atom) . '"';
+                    echo '<option value="' . urlencode($enum_atom) . '"';
                     if ($data == $enum_atom
                         || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                             && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
@@ -626,7 +627,8 @@ foreach($loop_array AS $vrowcount => $vrow) {
             echo "\n";
             for ($j = 0; $j < $countset; $j++) {
                 echo '                ';
-                echo '<option value="'. htmlspecialchars($set[$j]) . '"';
+                //echo '<option value="'. htmlspecialchars($set[$j]) . '"';
+                echo '<option value="'. urlencode($set[$j]) . '"';
                 if (isset($vset[$set[$j]]) && $vset[$set[$j]]) {
                     echo ' selected="selected"';
                 }
