@@ -628,4 +628,6 @@ $strZip = '"comprimido con zip"';
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table'; //to translate
 $strLaTeXOptions = 'LaTeX options';  //to translate
 $strRelations = 'Relations';  //to translate
+$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
+$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
 ?>

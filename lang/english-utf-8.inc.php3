@@ -627,4 +627,6 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
+$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
 ?>

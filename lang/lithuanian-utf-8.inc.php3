@@ -631,4 +631,6 @@ $strTransformation_text_plain__link = 'Displays a link, the field contains the f
 $strCharset = 'Charset';  //to translate
 $strLaTeXOptions = 'LaTeX options';  //to translate
 $strRelations = 'Relations';  //to translate
+$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
+$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
 ?>

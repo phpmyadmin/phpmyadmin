@@ -133,266 +133,270 @@ if (isset($new_name) && trim($new_name) != '') {
         PMA_checkReservedWords($new_name, $err_url);
     }
 
-    $source = PMA_backquote($db) . '.' . PMA_backquote($table);
-    if (empty($target_db)) $target_db = $db;
-    $target = PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
+    if ($db == $target_db && $new_name == $table) {
+        $message   = (isset($submit_move) ? $strMoveTableSameNames : $strCopyTableSameNames);
+    } else {
+        $source = PMA_backquote($db) . '.' . PMA_backquote($table);
+        if (empty($target_db)) $target_db = $db;
+        $target = PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
 
-    include('./libraries/build_dump.lib.php3');
+        include('./libraries/build_dump.lib.php3');
 
-    $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
-    $parsed_sql =  PMA_SQP_parse($sql_structure);
+        $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
+        $parsed_sql =  PMA_SQP_parse($sql_structure);
 
-    /* nijel: Find table name in query and replace it */
-    $i = 0;
-    while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
-    
-    /* no need to PMA_backquote() */
-    $parsed_sql[$i]['data'] = $target;
+        /* nijel: Find table name in query and replace it */
+        $i = 0;
+        while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
+        
+        /* no need to PMA_backquote() */
+        $parsed_sql[$i]['data'] = $target;
 
-    /* Generate query back */
-    $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
+        /* Generate query back */
+        $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
-    // do not create the table if dataonly
-    if ($what != 'dataonly') {
-        // If table exists, and 'add drop table' is selected: Drop it!
-        $drop_query = '';
-        if (isset($drop_if_exists) && $drop_if_exists == 'true') {
-            $drop_query = 'DROP TABLE IF EXISTS ' . PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
-            $result        = @PMA_mysql_query($drop_query);
+        // do not create the table if dataonly
+        if ($what != 'dataonly') {
+            // If table exists, and 'add drop table' is selected: Drop it!
+            $drop_query = '';
+            if (isset($drop_if_exists) && $drop_if_exists == 'true') {
+                $drop_query = 'DROP TABLE IF EXISTS ' . PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
+                $result        = @PMA_mysql_query($drop_query);
+                if (PMA_mysql_error()) {
+                    include('./header.inc.php3');
+                    PMA_mysqlDie('', $sql_structure, '', $err_url);
+                }
+                
+                if (isset($sql_query)) {
+                    $sql_query .= "\n" . $drop_query . ';';
+                } else {
+                    $sql_query = $drop_query . ';';
+                }
+
+                // garvin: If an existing table gets deleted, maintain any entries
+                // for the PMA_* tables
+                $maintain_relations = true;
+            }
+            
+            $result        = @PMA_mysql_query($sql_structure);
             if (PMA_mysql_error()) {
                 include('./header.inc.php3');
                 PMA_mysqlDie('', $sql_structure, '', $err_url);
-            }
-            
-            if (isset($sql_query)) {
-                $sql_query .= "\n" . $drop_query . ';';
+            } else if (isset($sql_query)) {
+                $sql_query .= "\n" . $sql_structure . ';';
             } else {
-                $sql_query = $drop_query . ';';
+                $sql_query = $sql_structure . ';';
             }
-
-            // garvin: If an existing table gets deleted, maintain any entries
-            // for the PMA_* tables
-            $maintain_relations = true;
-        }
-        
-        $result        = @PMA_mysql_query($sql_structure);
-        if (PMA_mysql_error()) {
-            include('./header.inc.php3');
-            PMA_mysqlDie('', $sql_structure, '', $err_url);
-        } else if (isset($sql_query)) {
-            $sql_query .= "\n" . $sql_structure . ';';
         } else {
-            $sql_query = $sql_structure . ';';
+            $sql_query='';
         }
-    } else {
-        $sql_query='';
-    }
 
-    // Copy the data
-    if ($result != FALSE && ($what == 'data' || $what == 'dataonly')) {
-        // speedup copy table - staybyte - 22. Juni 2001
-        if (PMA_MYSQL_INT_VERSION >= 32300) {
-            $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
-            $result          = @PMA_mysql_query($sql_insert_data);
+        // Copy the data
+        if ($result != FALSE && ($what == 'data' || $what == 'dataonly')) {
+            // speedup copy table - staybyte - 22. Juni 2001
+            if (PMA_MYSQL_INT_VERSION >= 32300) {
+                $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
+                $result          = @PMA_mysql_query($sql_insert_data);
+                if (PMA_mysql_error()) {
+                    include('./header.inc.php3');
+                    PMA_mysqlDie('', $sql_insert_data, '', $err_url);
+                }
+            } // end MySQL >= 3.23
+            else {
+                $sql_insert_data = '';
+                PMA_getTableContent($db, $table, 0, 0, 'PMA_myHandler', $err_url,'');
+            } // end MySQL < 3.23
+            $sql_query .= "\n\n" . $sql_insert_data;
+        }
+
+        include('./libraries/relation.lib.php3');
+        $cfgRelation = PMA_getRelationsParam();
+
+        // Drops old table if the user has requested to move it
+        if (isset($submit_move)) {
+            $sql_drop_table = 'DROP TABLE ' . $source;
+            $result         = @PMA_mysql_query($sql_drop_table);
             if (PMA_mysql_error()) {
                 include('./header.inc.php3');
-                PMA_mysqlDie('', $sql_insert_data, '', $err_url);
+                PMA_mysqlDie('', $sql_drop_table, '', $err_url);
             }
-        } // end MySQL >= 3.23
-        else {
-            $sql_insert_data = '';
-            PMA_getTableContent($db, $table, 0, 0, 'PMA_myHandler', $err_url,'');
-        } // end MySQL < 3.23
-        $sql_query .= "\n\n" . $sql_insert_data;
-    }
 
-    include('./libraries/relation.lib.php3');
-    $cfgRelation = PMA_getRelationsParam();
-
-    // Drops old table if the user has requested to move it
-    if (isset($submit_move)) {
-        $sql_drop_table = 'DROP TABLE ' . $source;
-        $result         = @PMA_mysql_query($sql_drop_table);
-        if (PMA_mysql_error()) {
-            include('./header.inc.php3');
-            PMA_mysqlDie('', $sql_drop_table, '', $err_url);
-        }
-
-        // garvin: Move old entries from PMA-DBs to new table
-        if ($cfgRelation['commwork']) {
-            $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
-                          . ' SET     table_name = \'' . PMA_sqlAddslashes($new_name) . '\', '
-                          . '        db_name    = \'' . PMA_sqlAddslashes($target_db) . '\''
-                          . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                          . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-            $rmv_rs    = PMA_query_as_cu($remove_query);
-            unset($rmv_query);
-        }
-        
-        // garvin: updating bookmarks is not possible since only a single table is moved,
-        // and not the whole DB.
-        // if ($cfgRelation['bookmarkwork']) {
-        //     $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['bookmark'])
-        //                   . ' SET     dbase = \'' . PMA_sqlAddslashes($target_db) . '\''
-        //                   . ' WHERE dbase  = \'' . PMA_sqlAddslashes($db) . '\'';
-        //     $rmv_rs    = PMA_query_as_cu($remove_query);
-        //     unset($rmv_query);
-        // }
-        
-        if ($cfgRelation['displaywork']) {
-            $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
-                            . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\', '
-                            . '         table_name = \'' . PMA_sqlAddslashes($new_name) . '\''
-                            . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-            $tb_rs    = PMA_query_as_cu($table_query);
-            unset($table_query);
-            unset($tb_rs);
-        }
-
-        if ($cfgRelation['relwork']) {
-            $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
-                            . ' SET     foreign_table = \'' . PMA_sqlAddslashes($new_name) . '\','
-                            . '         foreign_db = \'' . PMA_sqlAddslashes($target_db) . '\''
-                            . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\'';
-            $tb_rs    = PMA_query_as_cu($table_query);
-            unset($table_query);
-            unset($tb_rs);
-    
-            $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
-                            . ' SET     master_table = \'' . PMA_sqlAddslashes($new_name) . '\','
-                            . '         master_db = \'' . PMA_sqlAddslashes($target_db) . '\''
-                            . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\'';
-            $tb_rs    = PMA_query_as_cu($table_query);
-            unset($table_query);
-            unset($tb_rs);
-        }
-        
-        // garvin: [TODO] Can't get moving PDFs the right way. The page numbers always
-        // get screwed up independently from duplication because the numbers do not
-        // seem to be stored on a per-database basis. Would the author of pdf support
-        // please have a look at it?
-
-        if ($cfgRelation['pdfwork']) {
-            $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_coords'])
-                            . ' SET     table_name = \'' . PMA_sqlAddslashes($new_name) . '\','
-                            . '         db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
-                            . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-            $tb_rs    = PMA_query_as_cu($table_query);
-            unset($table_query);
-            unset($tb_rs);
-            /*
-            $pdf_query = 'SELECT pdf_page_number '
-                       . ' FROM ' . PMA_backquote($cfgRelation['table_coords'])
-                       . ' WHERE db_name  = \'' . PMA_sqlAddslashes($target_db) . '\''
-                       . ' AND table_name = \'' . PMA_sqlAddslashes($new_name) . '\'';
-            $pdf_rs = PMA_query_as_cu($pdf_query);
-        
-            while ($pdf_copy_row = @PMA_mysql_fetch_array($pdf_rs)) {
-                $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['pdf_pages'])
-                                . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
+            // garvin: Move old entries from PMA-DBs to new table
+            if ($cfgRelation['commwork']) {
+                $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
+                              . ' SET     table_name = \'' . PMA_sqlAddslashes($new_name) . '\', '
+                              . '        db_name    = \'' . PMA_sqlAddslashes($target_db) . '\''
+                              . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                              . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+                $rmv_rs    = PMA_query_as_cu($remove_query);
+                unset($rmv_query);
+            }
+            
+            // garvin: updating bookmarks is not possible since only a single table is moved,
+            // and not the whole DB.
+            // if ($cfgRelation['bookmarkwork']) {
+            //     $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['bookmark'])
+            //                   . ' SET     dbase = \'' . PMA_sqlAddslashes($target_db) . '\''
+            //                   . ' WHERE dbase  = \'' . PMA_sqlAddslashes($db) . '\'';
+            //     $rmv_rs    = PMA_query_as_cu($remove_query);
+            //     unset($rmv_query);
+            // }
+            
+            if ($cfgRelation['displaywork']) {
+                $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
+                                . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\', '
+                                . '         table_name = \'' . PMA_sqlAddslashes($new_name) . '\''
                                 . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                                . ' AND page_nr = \'' . PMA_sqlAddslashes($pdf_copy_row['pdf_page_number']) . '\'';
+                                . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
                 $tb_rs    = PMA_query_as_cu($table_query);
                 unset($table_query);
                 unset($tb_rs);
             }
-            */
-        }
 
-        $sql_query      .= "\n\n" . $sql_drop_table . ';';
-    } else {
-        // garvin: Create new entries as duplicates from old PMA DBs
-        if ($what != 'dataonly' && !isset($maintain_relations)) {
-            if ($cfgRelation['commwork']) {
-                // Get all comments and MIME-Types for current table
-                $comments_copy_query = 'SELECT
-                                            column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
-                                        FROM ' . PMA_backquote($cfgRelation['column_info']) . '
-                                        WHERE
-                                            db_name = \'' . PMA_sqlAddslashes($db) . '\' AND
-                                            table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-                $comments_copy_rs    = PMA_query_as_cu($comments_copy_query);
-    
-                // Write every comment as new copied entry. [MIME]
-                while ($comments_copy_row = @PMA_mysql_fetch_array($comments_copy_rs)) {
-                    $new_comment_query = 'REPLACE INTO ' . PMA_backquote($cfgRelation['column_info'])
-                                . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
-                                . ' VALUES('
-                                . '\'' . PMA_sqlAddslashes($target_db) . '\','
-                                . '\'' . PMA_sqlAddslashes($new_name) . '\','
-                                . '\'' . PMA_sqlAddslashes($comments_copy_row['column_name']) . '\''
-                                . ($cfgRelation['mimework'] ? ',\'' . PMA_sqlAddslashes($comments_copy_row['comment']) . '\','
-                                        . '\'' . PMA_sqlAddslashes($comments_copy_row['mimetype']) . '\','
-                                        . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation']) . '\','
-                                        . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation_options']) . '\'' : '')
-                                . ')';
-                    $new_comment_rs    = PMA_query_as_cu($new_comment_query);
-                } // end while
+            if ($cfgRelation['relwork']) {
+                $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                                . ' SET     foreign_table = \'' . PMA_sqlAddslashes($new_name) . '\','
+                                . '         foreign_db = \'' . PMA_sqlAddslashes($target_db) . '\''
+                                . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
+                                . ' AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\'';
+                $tb_rs    = PMA_query_as_cu($table_query);
+                unset($table_query);
+                unset($tb_rs);
+        
+                $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
+                                . ' SET     master_table = \'' . PMA_sqlAddslashes($new_name) . '\','
+                                . '         master_db = \'' . PMA_sqlAddslashes($target_db) . '\''
+                                . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
+                                . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\'';
+                $tb_rs    = PMA_query_as_cu($table_query);
+                unset($table_query);
+                unset($tb_rs);
             }
             
-            if ($db != $target_db) {
-                $get_fields = array('user','label','query');
-                $where_fields = array('dbase' => $db);
-                $new_fields = array('dbase' => $target_db);
-                PMA_duplicate_table('bookmarkwork', 'bookmark', $get_fields, $where_fields, $new_fields);
-            }
-    
-            $get_fields = array('display_field');
-            $where_fields = array('db_name' => $db, 'table_name' => $table);
-            $new_fields = array('db_name' => $target_db, 'table_name' => $new_name);
-            PMA_duplicate_table('displaywork', 'table_info', $get_fields, $where_fields, $new_fields);
-            
-            $get_fields = array('master_field', 'foreign_db', 'foreign_table', 'foreign_field');
-            $where_fields = array('master_db' => $db, 'master_table' => $table);
-            $new_fields = array('master_db' => $target_db, 'master_table' => $new_name);
-            PMA_duplicate_table('relwork', 'relation', $get_fields, $where_fields, $new_fields);
-    
-            $get_fields = array('foreign_field', 'master_db', 'master_table', 'master_field');
-            $where_fields = array('foreign_db' => $db, 'foreign_table' => $table);
-            $new_fields = array('foreign_db' => $target_db, 'foreign_table' => $new_name);
-            PMA_duplicate_table('relwork', 'relation', $get_fields, $where_fields, $new_fields);
-    
-            // garvin: [TODO] Can't get duplicating PDFs the right way. The page numbers always
+            // garvin: [TODO] Can't get moving PDFs the right way. The page numbers always
             // get screwed up independently from duplication because the numbers do not
             // seem to be stored on a per-database basis. Would the author of pdf support
             // please have a look at it?
-            /*
-            $get_fields = array('page_descr');
-            $where_fields = array('db_name' => $db);
-            $new_fields = array('db_name' => $target_db);
-            $last_id = PMA_duplicate_table('pdfwork', 'pdf_pages', $get_fields, $where_fields, $new_fields);
 
-            if (isset($last_id) && $last_id >= 0) {
-                $get_fields = array('x', 'y');
-                $where_fields = array('db_name' => $db, 'table_name' => $table);
-                $new_fields = array('db_name' => $target_db, 'table_name' => $new_name, 'pdf_page_number' => $last_id);
-                PMA_duplicate_table('pdfwork', 'table_coords', $get_fields, $where_fields, $new_fields);
+            if ($cfgRelation['pdfwork']) {
+                $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_coords'])
+                                . ' SET     table_name = \'' . PMA_sqlAddslashes($new_name) . '\','
+                                . '         db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
+                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                                . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+                $tb_rs    = PMA_query_as_cu($table_query);
+                unset($table_query);
+                unset($tb_rs);
+                /*
+                $pdf_query = 'SELECT pdf_page_number '
+                           . ' FROM ' . PMA_backquote($cfgRelation['table_coords'])
+                           . ' WHERE db_name  = \'' . PMA_sqlAddslashes($target_db) . '\''
+                           . ' AND table_name = \'' . PMA_sqlAddslashes($new_name) . '\'';
+                $pdf_rs = PMA_query_as_cu($pdf_query);
+            
+                while ($pdf_copy_row = @PMA_mysql_fetch_array($pdf_rs)) {
+                    $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['pdf_pages'])
+                                    . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
+                                    . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                                    . ' AND page_nr = \'' . PMA_sqlAddslashes($pdf_copy_row['pdf_page_number']) . '\'';
+                    $tb_rs    = PMA_query_as_cu($table_query);
+                    unset($table_query);
+                    unset($tb_rs);
+                }
+                */
             }
-            */
-        }
-    }
 
-    $message   = (isset($submit_move) ? $strMoveTableOK : $strCopyTableOK);
-    $message   = sprintf($message, $source, $target);
-    $reload    = 1;
-    $js_to_run = 'functions.js';
-    /* Check: Work on new table or on old table? */
-    if (isset($submit_move)) {
-        $db        = $target_db;
-        $table     = $new_name;
-    } else {
-        $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
-        if (isset($switch_to_new) && $switch_to_new == 'true') {
-            setcookie('pma_switch_to_new', 'true', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
-            $db             = $target_db;
-            $table          = $new_name;
+            $sql_query      .= "\n\n" . $sql_drop_table . ';';
         } else {
-            setcookie('pma_switch_to_new', '', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
-            // garvin:Keep original table for work.
+            // garvin: Create new entries as duplicates from old PMA DBs
+            if ($what != 'dataonly' && !isset($maintain_relations)) {
+                if ($cfgRelation['commwork']) {
+                    // Get all comments and MIME-Types for current table
+                    $comments_copy_query = 'SELECT
+                                                column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
+                                            FROM ' . PMA_backquote($cfgRelation['column_info']) . '
+                                            WHERE
+                                                db_name = \'' . PMA_sqlAddslashes($db) . '\' AND
+                                                table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+                    $comments_copy_rs    = PMA_query_as_cu($comments_copy_query);
+        
+                    // Write every comment as new copied entry. [MIME]
+                    while ($comments_copy_row = @PMA_mysql_fetch_array($comments_copy_rs)) {
+                        $new_comment_query = 'REPLACE INTO ' . PMA_backquote($cfgRelation['column_info'])
+                                    . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ($cfgRelation['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
+                                    . ' VALUES('
+                                    . '\'' . PMA_sqlAddslashes($target_db) . '\','
+                                    . '\'' . PMA_sqlAddslashes($new_name) . '\','
+                                    . '\'' . PMA_sqlAddslashes($comments_copy_row['column_name']) . '\''
+                                    . ($cfgRelation['mimework'] ? ',\'' . PMA_sqlAddslashes($comments_copy_row['comment']) . '\','
+                                            . '\'' . PMA_sqlAddslashes($comments_copy_row['mimetype']) . '\','
+                                            . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation']) . '\','
+                                            . '\'' . PMA_sqlAddslashes($comments_copy_row['transformation_options']) . '\'' : '')
+                                    . ')';
+                        $new_comment_rs    = PMA_query_as_cu($new_comment_query);
+                    } // end while
+                }
+                
+                if ($db != $target_db) {
+                    $get_fields = array('user','label','query');
+                    $where_fields = array('dbase' => $db);
+                    $new_fields = array('dbase' => $target_db);
+                    PMA_duplicate_table('bookmarkwork', 'bookmark', $get_fields, $where_fields, $new_fields);
+                }
+        
+                $get_fields = array('display_field');
+                $where_fields = array('db_name' => $db, 'table_name' => $table);
+                $new_fields = array('db_name' => $target_db, 'table_name' => $new_name);
+                PMA_duplicate_table('displaywork', 'table_info', $get_fields, $where_fields, $new_fields);
+                
+                $get_fields = array('master_field', 'foreign_db', 'foreign_table', 'foreign_field');
+                $where_fields = array('master_db' => $db, 'master_table' => $table);
+                $new_fields = array('master_db' => $target_db, 'master_table' => $new_name);
+                PMA_duplicate_table('relwork', 'relation', $get_fields, $where_fields, $new_fields);
+        
+                $get_fields = array('foreign_field', 'master_db', 'master_table', 'master_field');
+                $where_fields = array('foreign_db' => $db, 'foreign_table' => $table);
+                $new_fields = array('foreign_db' => $target_db, 'foreign_table' => $new_name);
+                PMA_duplicate_table('relwork', 'relation', $get_fields, $where_fields, $new_fields);
+        
+                // garvin: [TODO] Can't get duplicating PDFs the right way. The page numbers always
+                // get screwed up independently from duplication because the numbers do not
+                // seem to be stored on a per-database basis. Would the author of pdf support
+                // please have a look at it?
+                /*
+                $get_fields = array('page_descr');
+                $where_fields = array('db_name' => $db);
+                $new_fields = array('db_name' => $target_db);
+                $last_id = PMA_duplicate_table('pdfwork', 'pdf_pages', $get_fields, $where_fields, $new_fields);
+
+                if (isset($last_id) && $last_id >= 0) {
+                    $get_fields = array('x', 'y');
+                    $where_fields = array('db_name' => $db, 'table_name' => $table);
+                    $new_fields = array('db_name' => $target_db, 'table_name' => $new_name, 'pdf_page_number' => $last_id);
+                    PMA_duplicate_table('pdfwork', 'table_coords', $get_fields, $where_fields, $new_fields);
+                }
+                */
+            }
+        }
+
+        $message   = (isset($submit_move) ? $strMoveTableOK : $strCopyTableOK);
+        $message   = sprintf($message, $source, $target);
+        $reload    = 1;
+        $js_to_run = 'functions.js';
+        /* Check: Work on new table or on old table? */
+        if (isset($submit_move)) {
+            $db        = $target_db;
+            $table     = $new_name;
+        } else {
+            $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
+            if (isset($switch_to_new) && $switch_to_new == 'true') {
+                setcookie('pma_switch_to_new', 'true', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
+                $db             = $target_db;
+                $table          = $new_name;
+            } else {
+                setcookie('pma_switch_to_new', '', 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
+                // garvin:Keep original table for work.
+            }
         }
     }
     include('./header.inc.php3');

@@ -634,4 +634,6 @@ $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external appl
 $strCharset = 'Charset';  //to translate
 $strLaTeXOptions = 'LaTeX options';  //to translate
 $strRelations = 'Relations';  //to translate
+$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
+$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
 ?>

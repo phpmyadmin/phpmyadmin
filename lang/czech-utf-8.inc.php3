@@ -634,4 +634,6 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
+$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
+$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
 ?>
