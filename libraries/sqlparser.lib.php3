@@ -61,6 +61,58 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end if... else...
 
 
+    function PMA_SQP_throwError($message,$sql)
+    {
+        $debugstr = '';
+        $debugstr .= 'ERROR: ' . $message . "\n";
+        $debugstr .= 'SQL: ' . $sql;
+        
+        echo $GLOBALS['strSQLParserUserError'] . "<br />\n<pre>" . $debugstr . "</pre>";
+        
+        flush();
+        if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
+            ob_flush();
+        }
+        
+    }
+    
+    function PMA_SQP_BUG($message,$sql)
+    {
+
+        $debugstr = '';
+        $debugstr .= 'ERROR: ' . $message . "\n";
+        $debugstr .= 'CVS: $Id$' . "\n";
+        $debugstr .= 'MySQL: '.PMA_MYSQL_STR_VERSION . "\n";
+        $debugstr .= 'USR OS,AGENT,VER: ' . PMA_USR_OS . ' ' . PMA_USR_BROWSER_AGENT . ' ' . PMA_USR_BROWSER_VER . "\n"; 
+        $debugstr .= 'PMA: ' . PMA_VERSION . "\n";
+        $debugstr .= 'PHP VER,OS: ' . PMA_PHP_STR_VERSION . ' ' . PHP_OS . "\n";
+        $debugstr .= 'SQL: ' . $sql;
+        $encodedstr = $debugstr;
+        if (PMA_PHP_INT_VERSION >= 40001 && @function_exists('gzcompress')) {
+            $encodedstr = gzcompress($debugstr, 9);
+        }
+        $encodedstr = nl2br(chunk_split(base64_encode($encodedstr)));
+        
+        echo $GLOBALS['strSQLParserBugMessage'] . "<br />\n" 
+             . '----' . $GLOBALS['strBeginCut'] .'----' . "<br />\n"
+             . $encodedstr . "\n"
+             . '----' . $GLOBALS['strEndCut'] .'----' . "<br />\n";
+        
+        flush();
+        if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
+            ob_flush();
+        }
+        
+        echo '----' . $GLOBALS['strBeginRaw'] .'----' . "<pre>"
+             . $debugstr
+             . '</pre>----' . $GLOBALS['strEndRaw'] .'----' . "<br />\n";
+        
+        flush();
+        if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
+            ob_flush();
+        }
+    }
+    
     function PMA_SQP_parse($sql)
     {
         global $cfg;
@@ -168,7 +220,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     $pos    = strpos(' ' . $sql, $quotetype, $oldpos + 1) - 1;
                     // ($pos === FALSE)
                     if ($pos < 0) {
-                        trigger_error('Syntax: Unclosed quote (' . $quotetype . ') at ' . $startquotepos);
+                        $debugstr =  $GLOBALS['strSQPBugUnclosedQuote'] . ' @ ' . $startquotepos. "\n" 
+                                  . 'STR: ' . $quotetype;
+                        PMA_SQP_throwError($debugstr,$sql);
                         return;
                     }
 
@@ -288,7 +342,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $count2--;
                         $punct_data = substr($sql, $count1, $count2 - $count1);
                     } else {
-                        trigger_error('Syntax: Unknown punctation string (' . $punct_data . ') at ' . $count1);
+                        $debugstr =  $GLOBALS['strSQPBugUnknownPunctation'] . ' @ ' . $count1 . "\n" 
+                                  . 'STR: ' . $punct_data;
+                        PMA_SQP_throwError($debugstr,$sql);
                         return;
                     }
                     PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
@@ -322,7 +378,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             $is_float_digit = TRUE;
                             continue;
                         } else {
-                            trigger_error('Syntax: Invalid Identifer (' . substr($sql, $count1, $count2 - $count1) . ') at ' . $count1);
+                            $debugstr =  $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . $count1 . "\n" 
+                                      . 'STR: ' . substr($sql, $count1, $count2 - $count1);
+                            PMA_SQP_throwError($debugstr,$sql);
                             return;
                         }
                     }
@@ -376,25 +434,14 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
             // DEBUG
             $count2++;
-            echo "\n" . '<p>' . "\n";
-            echo 'You seem to have found a bug in the SQL parser.<br />Please submit a bug report with the data chunk below:<br />' . "\n" . '--BEGIN CUT--<br />' . "\n";
-            $debugstr   = '$Id$<br />' . "\n";
-            $debugstr   .= 'Why did we get here? ' . $count1 . ' ' . $count2 . ' ' . $len . '<br />' . "\n";
-            $debugstr   .= 'Leftover: ' . substr($sql, $count1, $count2 - $count1) . '<br />' . "\n";
-            $debugstr   .= 'A: ' . $count1 . ' ' . $count2 . '<br />' . "\n";
-            $debugstr   .= 'SQL: ' . $sql;
-            if (PMA_PHP_INT_VERSION >= 40001 && @function_exists('gzcompress')) {
-                $debugstr = gzcompress($debugstr, 9);
-            }
-            $encodedstr = nl2br(chunk_split(base64_encode($debugstr)));
-            echo $encodedstr . "\n";
-            echo '---END CUT---<br /><br />' . "\n\n";
-            echo '</p>' . "\n";
-            flush();
-            if (PMA_PHP_INT_VERSION >= 42000 && @function_exists('ob_flush')) {
-                ob_flush();
-            }
-            die();
+            
+//            $debugstr .=
+            $debugstr = 'C1 C2 LEN:' . $count1 . ' ' . $count2 . ' ' . $len .  "\n" 
+                      . 'STR: ' . substr($sql, $count1, $count2 - $count1) . "\n";
+            PMA_SQP_BUG($debugstr,$sql); 
+            
+            return;
+
         } // end while ($count2 < $len)
 
 
