@@ -2139,9 +2139,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <p>
     <b>I want to understand some Export options.</b><br />
     &quot;Complete inserts&quot; adds the column names on every INSERT command,
-    for better documentation.<br />
+    for better documentation (but resulting file is bigger).<br />
     &quot;Extended inserts&quot; provides a shorter dump file by using only
-    once the INSERT verb and the table name.
+    once the INSERT verb and the table name.<br />
+    &quot;Enclose table and field names with backquotes&quot; ensures that
+    field and table names formed with special characters are protected.<br />
 </p>
 <a name="faqproject"></a>
 <h3>[phpMyAdmin project]</h3>

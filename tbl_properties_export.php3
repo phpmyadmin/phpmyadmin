@@ -157,5 +157,7 @@ echo "\n";
  * Displays the footer
  */
 echo "\n";
+echo '<a href="./Documentation.html#faqexport" target="documentation">' . $strDocu . '</a>' . "\n";
+
 require('./footer.inc.php3');
 ?>
