@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-09 Robin Johnson  <robbat2@users.sourceforge.net>
+    * Initial checkin of base DB-Config code
+
 2002-06-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/dutch.inc.php3: Updates, thanks to "CaliMonk" <calimonk at gmx.net>.
     * translators.html:
