@@ -59,6 +59,8 @@ $strAtEndOfTable = 'By Einde van Tabel';
 $strAttr = 'Kenmerke';
 
 $strBack = 'Terug';
+$strBeginCut = 'BEGIN UITKNIPSEL';
+$strBeginRaw = 'BEGIN ONVERANDERD (RAW)';
 $strBinary = 'Biner';
 $strBinaryDoNotEdit = 'Biner - moenie verander nie';
 $strBookmarkDeleted = 'Die boekmerk is verwyder.';
@@ -78,6 +80,7 @@ $strCarriage = 'Carriage return: \\r';
 $strChangeDisplay = 'Kies \'n Veld om te vertoon';
 $strChangePassword = 'Verander wagwoord';
 $strChange = 'Verander';
+$strCharsetOfFile = 'Karakterstel van die leer:';
 $strCheckAll = 'Kies Alles';
 $strCheckDbPriv = 'Kontroleer Databasis Regte';
 $strCheckTable = 'Kontroleer tabel';
@@ -139,6 +142,8 @@ $strEmpty = 'Maak Leeg';
 $strEmptyResultSet = 'MySQL het niks teruggegee nie (dus nul rye).';
 $strEnabled = 'Beskikbaar';
 $strEnd = 'Einde';
+$strEndCut = 'EINDE UITKNIPSEL';
+$strEndRaw = 'EINDE ONVERANDERD (RAW)';
 $strEnglishPrivileges = ' Nota: MySQL regte name word in Engels vertoon ';
 $strError = 'Fout';
 $strExplain = 'Verduidelik SQL';
@@ -361,9 +366,14 @@ $strSize = 'Grootte';
 $strSort = 'Sorteer';
 $strSpaceUsage = 'Spasie verbruik';
 $strSplitWordsWithSpace = 'Woorde is geskei dmv \'n spasie karakter (" ").';
+$strSQLParserBugMessage = 'Jy het moontlik \'n fout in die SQL interpreteerder ontdek. Ondersoek asb. jou stelling deeglik, en maak seker dat jou kwotasies korrek en gebalanseerd is. Ander moontlike oorsake vir die fout mag wees dat jy probeer om \'n leer in te laai met binere data buite \'n gekwoteerde teks area. Jy kan jou SQL stelling ook probeer direk in die MySQL opdrag-raakvlak (command line interface). Die MySQL bediener se foutboodskap hieronder (indien enige) kan jou ook help om die probleem te diagnoseer. As jy dan nog steeds probleme het, of as die interpreteerder fouteer waar die opdrag-raakvlak slaag, verminder asb. jou SQL stelling toevoer na die enkele stelling wat die probleem veroorsaak, en rapporteer \'n fout met die data stuk in die UITKNIPSEL seksie hieronder:';
+$strSQLParserUserError = 'Dit lyk of daar \'n fout is in jou SQL stelling. Die MySQL bediener se foutboodskap hieronder (indien enige) kan jou ook help om die probleem te diagnoseer';
 $strSQLQuery = 'SQL-stelling';
 $strSQLResult = 'SQL resultaat';
 $strSQL = 'SQL';
+$strSQPBugInvalidIdentifer = 'Ongeldige Identifiseerder';
+$strSQPBugUnclosedQuote = 'Ongebalanseerde kwotasie-teken';
+$strSQPBugUnknownPunctuation = 'Onbekende Punktuasie String';
 $strStatement = 'Stellings';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Struktuur en data';
@@ -420,21 +430,5 @@ $strWrongUser = 'Verkeerde gebruikernaam/wagwoord. Toegang geweier.';
 $strYes = 'Ja';
 
 $strZip = '"ge-zip"';
-// To translate
-
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
 
 ?>
