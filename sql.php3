@@ -200,7 +200,7 @@ if ($do_confirm) {
 else {
     if (!isset($sql_query)) {
         $sql_query = '';
-    } 
+    }
     // already stripped at beginning of script
     // else if (get_magic_quotes_gpc()) {
     //    $sql_query = stripslashes($sql_query);
@@ -303,6 +303,18 @@ else {
                           : $err_url;
             PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
         }
+        
+        // Checks if the current database has changed
+        // This could happen if the user sends a query like "USE `database`;"
+        $res = PMA_mysql_query('SELECT DATABASE() AS "db";');
+        $row = PMA_mysql_fetch_array($res);
+        if ($db != $row['db']) {
+            $db     = $row['db'];
+            $reload = 1;
+        }
+        @mysql_free_result($res);
+        unset($res);
+        unset($row);
 
         // tmpfile remove after convert encoding appended by Y.Kawada
         if (function_exists('PMA_kanji_file_conv')
