@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-25 Alexander M. Turek  <me@derrabus.de>
+    * db_details_structure.php: Let's prefer separate icons over CSS 3 hacks
+      for marking a functionality as unavailable.
+
 2005-03-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/*.dbi.lib.php, libraries/common.lib.php,
       libraries/database_interface.lib.php:
