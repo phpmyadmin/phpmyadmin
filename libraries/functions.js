@@ -371,6 +371,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
         }
         else if (theAction == 'click' && theMarkColor != '') {
             newColor              = theMarkColor;
+            marked_row[theRowNum] = true;
         }
     }
     // 4.1.2 Current color is the pointer one
