@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2005-03-06 Alexander M. Turek  <me@derrabus.de>
+2005-03-10 Alexander M. Turek  <me@derrabus.de>
     * libraries/relation.lib.php: Bug #1159415.
 
 2005-03-10 Marc Delisle  <lem9@users.sourceforge.net>
