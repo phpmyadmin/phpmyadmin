@@ -110,7 +110,9 @@ if (MYSQL_INT_VERSION >= 32303) {
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
     [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>">
-         <b><?php echo $strEmpty; ?></b></a> ]
+         <b><?php echo $strEmpty; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>">
+         <b><?php echo $strDrop; ?></b></a> ]
 </p>
         <?php
     } else {
@@ -122,7 +124,9 @@ if (MYSQL_INT_VERSION >= 32303) {
     [ <b><?php echo $strSelect; ?></b> ]&nbsp;&nbsp;&nbsp;
     [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
         <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-    [ <b><?php echo $strEmpty; ?></b> ]
+    [ <b><?php echo $strEmpty; ?></b> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>">
+         <b><?php echo $strDrop; ?></b></a> ]
 </p>
         <?php
     }
@@ -1003,8 +1007,8 @@ else { // MySQL < 3.23
     <!-- Deletes the table -->
     <li>
         <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>">
-            <?php echo $strDropTable . ' ' . htmlspecialchars($table); ?></a> 
-    </li> 
+            <?php echo $strDropTable . ' ' . htmlspecialchars($table); ?></a>
+    </li>
 
 </ul>
 
