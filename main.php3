@@ -146,8 +146,8 @@ if ($server == 0 || count($cfgServers) > 1) {
 /**
  * Displays the mysql server related links 
  */
-if ($server > 0)
-{
+$is_superuser = FALSE;
+if ($server > 0) {
     ?>
     <!-- MySQL server related links -->
     <td valign="top" align="left">
@@ -228,6 +228,10 @@ if ($server > 0)
     // Server related links
     ?>
         <!-- server-related links -->
+    <?php
+    if ($is_superuser || $cfgShowMysqlInfo) {
+        echo "\n";
+        ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
@@ -236,6 +240,11 @@ if ($server > 0)
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
         </tr>
+        <?php
+    } // end if
+    if ($is_superuser || $cfgShowMysqlVars) {
+        echo "\n";
+        ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
@@ -244,7 +253,8 @@ if ($server > 0)
                 <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
         </tr>
-    <?php
+        <?php
+    }
     echo "\n";
 
     if ($is_process_priv) {
@@ -258,7 +268,7 @@ if ($server > 0)
             </td>
         </tr>
         <?php
-    }
+    } // end if
     echo "\n";
 
     if ($is_reload_priv) {
@@ -400,9 +410,8 @@ echo "\n";
         </tr>
 
 <?php
-
-if($cfgShowPHPInfo) 
-{ ?>
+if ($is_superuser || $cfgShowPhpInfo) {
+    ?>
         <!-- PHP Information -->
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -410,9 +419,11 @@ if($cfgShowPHPInfo)
                 <a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
             </td>
         </tr>
-<?php 
+    <?php
 }
+echo "\n";
 ?>
+
         <!-- phpMyAdmin related urls -->
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>

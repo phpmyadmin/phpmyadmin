@@ -12,6 +12,8 @@ require('./libraries/common.lib.php3');
 /**
  * Displays PHP information
  */
-if($cfgShowPHPInfo)
-	phpinfo();
+$is_superuser = @mysql_query('USE mysql', $userlink);
+if ($is_superuser || $cfgShowPhpInfo) {
+    phpinfo();
+}
 ?>

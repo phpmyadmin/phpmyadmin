@@ -109,6 +109,15 @@ if (!defined('__LIB_COMMON__')){
     if (!isset($cfgShowTooltip)) {
         $cfgShowTooltip         = TRUE;
     }
+    if (!isset($cfgShowMysqlInfo)) {
+        $cfgShowMysqlInfo       = FALSE;
+    }
+    if (!isset($cfgShowMysqlVars)) {
+        $cfgShowMysqlVars       = FALSE;
+    }
+    if (!isset($cfgShowPhpInfo)) {
+        $cfgShowPhpInfo         = FALSE;
+    }
     if (!isset($cfgShowAll)) {
         $cfgShowAll             = FALSE;
     }
