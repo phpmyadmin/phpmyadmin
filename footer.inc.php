@@ -20,7 +20,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 <script type="text/javascript">
 <!--
 <?php
-    if (!isset($no_history) && (!isset($error_message) || $error_message == '')) {
+    if (!isset($no_history) && !empty($db) && (!isset($error_message) || $error_message == '')) {
         $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
         $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
         $common_url_query    = PMA_generate_common_url($db);
