@@ -13,6 +13,10 @@ $Source$
 	  displayed in the servers choice combo.
 	* libraries/common.lib.php3, lines 340-343: fixed erroneous variable name.
 	* libraries/bookmarks.lib.php3, line 29: removed unnecessary line of code.
+	* Documentation.html: added warnings about the use of the "only_db" setting
+	  thanks to Ignacio Vazquez-Abrams <ignacio at openservices.net>.
+	* config.inc.php3, line 50: changed the comment line for the "only_db"
+	  setting.
 
 2001-10-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3, lines 1232-1245 & 1254: fixed some bugs with modifying

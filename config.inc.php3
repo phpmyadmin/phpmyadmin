@@ -47,7 +47,7 @@ $cfgServers[1]['stduser']       = '';          // MySQL standard user (only need
 $cfgServers[1]['stdpass']       = '';          // MySQL standard password (only needed with advanced auth)
 $cfgServers[1]['user']          = 'root';      // MySQL user (only needed with basic auth)
 $cfgServers[1]['password']      = '';          // MySQL password (only needed with basic auth)
-$cfgServers[1]['only_db']       = '';          // If set to a db-name, only this db is accessible
+$cfgServers[1]['only_db']       = '';          // If set to a db-name, only this db is displayed at left frame
                                                // It may also be an array of db-names
 $cfgServers[1]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 $cfgServers[1]['bookmarkdb']    = '';          // Bookmark db - leave blank for no bookmark support

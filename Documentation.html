@@ -194,6 +194,12 @@
 <h2>Installation</h2>
 
 <p>
+    <font color="#bb0000">NOTE: phpMyAdmin does not apply any special security
+    methods to the MySQL database server. It is still the sysadmin's job to
+    grant permissions on the MySQL databases properly.</font>
+</p>
+
+<p>
     <font color="#bb0000">Warning for Mac users:</font> php seems not to like
     Mac end of lines character ("<tt>\r</tt>") and Stuffit unstuffs with Mac
     formats, of course.<br />
@@ -375,7 +381,11 @@
     <dt><b>$cfgServers[n]['only_db']</b> string or array</dt>
     <dd>
         If set to a(an array of) database name(s), only this(these) database(s)
-        will be shown to the user.
+        will be shown to the user.<br />
+        <font color="#bb0000">Warning:</font> this setting does not replace the
+        privileges rules of the MySQL database server. If set, it just means
+        only these databases will be displayed but <font color="#bb0000">not at
+        all other databases can't be used.</font>
         <br /><br />
     </dd>
 
