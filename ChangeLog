@@ -11,6 +11,8 @@ $Source$
 
 2004-06-07 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.
+    * libraries/charset_conversion.lib.php: Do not convert, if charsets are
+      same.
 
 2004-06-07 Alexander M. Turek  <me@derrabus.de>
     * css/phpmyadmin.css.php: beautifications.

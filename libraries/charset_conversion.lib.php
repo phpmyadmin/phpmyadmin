@@ -240,6 +240,7 @@ function PMA_convert_charset($what) {
  * @author  nijel
  */
 function PMA_convert_string($src_charset, $dest_charset, $what) {
+    if ($src_charset == $dest_charset) return $what;
     switch ($GLOBALS['PMA_recoding_engine']) {
         case PMA_CHARSET_RECODE:
             return recode_string($src_charset . '..'  . $dest_charset, $what);
