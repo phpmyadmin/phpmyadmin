@@ -72,6 +72,7 @@ $strCriteria = 'Kriterier';
 
 $strData = 'Data';
 $strDatabase = 'Database ';
+$strDatabaseHasBeenDropped = 'Databasen %s har blitt slettet';
 $strDatabases = 'databaser';
 $strDatabasesStats = 'Statistikk for databaser';
 $strDataOnly = 'Bare data';
@@ -81,6 +82,7 @@ $strDelete = 'Slett';
 $strDeleted = 'Raden er slettet';
 $strDeletedRows = 'Slettede rader:';
 $strDeleteFailed = 'Slettingen misslyktes!';
+$strDeleteUserMessage = 'Du har slettet brukeren %s.';
 $strDescending = 'Synkende';
 $strDisplay = 'Vis';
 $strDisplayOrder = 'Visningsrekkefølge:';
@@ -145,6 +147,7 @@ $strInstructions = 'Instruksjoner';
 $strInUse = 'i bruk';
 $strInvalidName = '"%s" er ett reservert ord, du kan ikke bruke det som et database/tabell/felt navn.';
 
+$strKeepPass = 'Ikke endre passordet';
 $strKeyname = 'Nøkkel';
 $strKill = 'Avslutt';
 
@@ -284,6 +287,9 @@ $strType = 'Type';
 
 $strUncheckAll = 'Fjern avmerking';
 $strUnique = 'Unik';
+$strUpdatePrivMessage = 'Du har oppdatert privilegiene til %s.';
+$strUpdateProfile = 'Oppdater profil:';
+$strUpdateProfileMessage = 'Profilen har blitt oppdatert.';
 $strUpdateQuery = 'Oppdater spørring';
 $strUsage = 'Bruk';
 $strUseBackquotes = 'Bruk venstre anførselstegn med tabell og felt navn';
@@ -305,10 +311,7 @@ $strYes = 'Ja';
 // To translate
 $strCarriage = 'Carriage return: \\r';	//to translate
 $strCopyTable = 'Copy table to (database<b>.</b>table):';
-$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
-$strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strGrants = 'Grants';	//to translate
-$strKeepPass = 'Do not change the password';//to translate
 $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
 $strNoQuery = 'No SQL query!';  //to translate
@@ -318,9 +321,6 @@ $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
 $strStatement = 'Statements';	//to translate
-$strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
-$strUpdateProfile = 'Update profile:';//to translate
-$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:';	//to translate
 $strZip = '"zipped"';  //to translate
 ?>
