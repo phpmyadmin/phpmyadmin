@@ -659,12 +659,14 @@ $strTableOptions = 'Opciones de la tabla';
 $strTableStructure = 'Estructura de tabla para la tabla';
 $strTableType = 'Tipo de tabla';
 $strTables = '%s tabla(s)';
+$strTakeIt = 'tómelo';
 $strTblPrivileges = 'Privilegios específicos para la tabla';
 $strTextAreaLength = ' Debido a su longitud,<br /> este campo puede no ser editable ';
 $strThai = 'Tailandés';
 $strTheContent = 'Se insertó el contenido de su archivo.';
 $strTheContents = 'El contenido del archivo reemplaza el contenido de la tabla seleccionada para las columnas idénticas primarias o únicas.';
 $strTheTerminator = 'El terminador de los campos.';
+$strTheme = 'Tema / Estilo';
 $strThisHost = 'Este Host';
 $strThisNotDirectory = 'Esto no fue un directorio';
 $strThreadSuccessfullyKilled = 'El thread %s fue destruido exitosamente.';
@@ -743,6 +745,4 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 
-$strTheme = 'Theme / Style';  //to translate
-$strTakeIt = 'take it';  //to translate
 ?>
