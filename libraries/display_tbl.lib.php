@@ -349,29 +349,20 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
    <td>
         <?php //<form> for keep the form alignment of button < and << ?>
         <form>
-        <?php echo $GLOBALS['strPageNumber']; ?>
-            <select name="goToPage" onchange="goToUrl(this, '<?php echo "sql.php?sql_query=".$encoded_query."&amp;session_max_rows=".$session_max_rows."&amp;disp_direction=".$disp_direction."&amp;repeat_cells=".$repeat_cells."&amp;goto=".$goto."&amp;dontlimitchars=".$dontlimitchars."&amp;".PMA_generate_common_url($db, $table)."&amp;"; ?>')">
-
-       <?php
-        if ($nbTotalPage < 200) {
-            $firstPage = 1;
-            $lastPage  = $nbTotalPage;
-        } else {
-            $range = 20;
-            $firstPage = ($pageNow - $range < 1 ? 1 : $pageNow - $range);
-            $lastPage  = ($pageNow + $range > $nbTotalPage ? $nbTotalPage : $pageNow + $range);
-        }
-        for ($i=$firstPage; $i<=$lastPage; $i++){
-            if ($i == $pageNow) {
-                $selected = 'selected="selected"';
-            } else {
-                $selected = "";
-            }
-            echo "                <option ".$selected." value=\"".(($i - 1) * $session_max_rows)."\">".$i."</option>\n";
-        }
-       ?>
-
-            </select>
+        <?php echo PMA_pageselector(
+                     'sql.php?sql_query='        . $encoded_query .
+                        '&amp;session_max_rows=' . $session_max_rows .
+                        '&amp;disp_direction='   . $disp_direction .
+                        '&amp;repeat_cells='     . $repeat_cells .
+                        '&amp;goto='             . $goto .
+                        '&amp;dontlimitchars='   . $dontlimitchars .
+                        '&amp;'                  . PMA_generate_common_url($db, $table) .
+                        '&amp;',
+                     $session_max_rows,
+                     $pageNow,
+                     $nbTotalPage
+              );
+        ?>
         </form>
     </td>
         <?php

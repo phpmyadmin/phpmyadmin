@@ -2335,6 +2335,94 @@ if (typeof(document.getElementById) != 'undefined'
         }
     } // end function
 
+    /**
+     * Generate a pagination selector for browsing resultsets
+     *
+     * @param   string      URL for the JavaScript
+     * @param   string      Number of rows in the pagination set
+     * @param   string      current page number
+     * @param   string      number of total pages
+     * @param   string      If the number of pages is lower than this
+     *                      variable, no pages will be ommitted in
+     *                      pagination
+     * @param   string      How many rows at the beginning should always
+     *                      be shown?
+     * @param   string      How many rows at the end should always
+     *                      be shown?
+     * @param   string      Percentage of calculation page offsets to
+     *                      hop to a next page
+     * @param   string      Near the current page, how many pages should
+     *                      be considered "nearby" and displayed as
+     *                      well?
+     *
+     * @access  public
+     * @author  Garvin Hicking (pma@supergarv.de)
+     */
+    function PMA_pageselector($url, $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5, $sliceEnd = 5, $percent = 20, $range = 10) {
+        $gotopage = '<br />' . $GLOBALS['strPageNumber']
+                  . '<select name="goToPage" onchange="goToUrl(this, \'' . $url . '\');">' . "\n";
+        if ($nbTotalPage < $showAll) {
+            $pages = range(1, $nbTotalPage);
+        } else {
+            $pages = array();
+
+            // Always show first X pages
+            for ($i = 1; $i <= $sliceStart; $i++) {
+                $pages[] = $i;
+            }
+
+            // Always show last X pages
+            for ($i = $nbTotalPage - $sliceEnd; $i <= $nbTotalPage; $i++) {
+                $pages[] = $i;
+            }
+
+            // garvin: Based on the number of results we add the specified $percent percentate to each page number,
+            // so that we have a representing page number every now and then to immideately jump to specific pages.
+            // As soon as we get near our currently chosen page ($pageNow - $range), every page number will be
+            // shown.
+            $i = $sliceStart;
+            $x = $nbTotalPage - $sliceEnd;
+            $met_boundary = false;
+            while($i <= $x) {
+                if ($i >= ($pageNow - $range) && $i <= ($pageNow + $range)) {
+                    // If our pageselector comes near the current page, we use 1 counter increments
+                    $i++;
+                    $met_boundary = true;
+                } else {
+                    // We add the percentate increment to our current page to hop to the next one in range
+                    $i = $i + floor($nbTotalPage / $percent);
+
+                    // Make sure that we do not cross our boundaries.
+                    if ($i > ($pageNow - $range) && !$met_boundary) {
+                        $i = $pageNow - $range;
+                    }
+                }
+
+                if ($i > 0 && $i <= $x) {
+                    $pages[] = $i;
+                }
+            }
+
+            // Since because of ellipsing of the current page some numbers may be double,
+            // we unify our array:
+            sort($pages);
+            $pages = array_unique($pages);
+        }
+
+        foreach($pages AS $i) {
+            if ($i == $pageNow) {
+                $selected = 'selected="selected" style="font-weight: bold"';
+            } else {
+                $selected = '';
+            }
+            $gotopage .= '                <option ' . $selected . ' value="' . (($i - 1) * $rows) . '">' . $i . '</option>' . "\n";
+        }
+
+        $gotopage .= ' </select>';
+
+        return $gotopage;
+    }
+
 } // end if: minimal common.lib needed?
 
 ?>
