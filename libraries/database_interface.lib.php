@@ -40,7 +40,11 @@ function PMA_DBI_get_dblist($link = NULL) {
 
        // Before MySQL 4.0.2, SHOW DATABASES could send the
        // whole list, so check if we really have access:
-       if (PMA_MYSQL_CLIENT_API < 40002) {
+       //if (PMA_MYSQL_CLIENT_API < 40002) {
+       // Better check the server version, in case the client API
+       // is more recent than the server version
+
+       if (PMA_MYSQL_INT_VERSION < 40002) {
            $dblink = @PMA_DBI_select_db($row[0], $link);
            if (!$dblink) {
                continue;
