@@ -13,6 +13,7 @@ $Source$
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * lang/greek: update, thanks to Kyriakos Xagoraris (theremon)
     * libraries/sqlparser.lib.php3: extract the CONSTRAINTs for FOREIGN KEYs
+    * libraries/relation.lib.php3: getForeigners() returns also the constraint
 
 2003-08-21 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_relation.php3: improve variables, remove some code

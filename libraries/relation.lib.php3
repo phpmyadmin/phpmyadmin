@@ -322,6 +322,8 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             // and in 'innodb', we won't get it twice if $source='both'
             // because we use $field as key
 
+                    $foreign[$field]['constraint'] = $one_key['constraint'];
+
                     if (isset($one_key['ref_db_name'])) {
                         $foreign[$field]['foreign_db']    = $one_key['ref_db_name'];
                     } else {
