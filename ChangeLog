@@ -7,6 +7,7 @@ $Source$
 
 2001-07-24  Marc Delisle  <lem9@users.sourceforge.net>
 	* updates to french
+	* new slovak translation thanks to lubos klokner <erkac@vault-tec.sk>
 
 2001-07-24  Steve ALberty  <alberty@neptunlabs.de>
 	* tbl_copy.php3: fix parameter count, thanks Marc
