@@ -91,10 +91,10 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
            || empty($cfg['Server']['pmadb'])) {
             if ($verbose == TRUE) {
                 echo 'PMA Database ... '
-                . '<font color="red"><b>' . $GLOBALS['strNotOK'] . '</b></font>
-                . [ <a href="Documentation.html#pmadb">' . $GLOBALS['strDocu'] . '</a> ]<br />'
-                . $GLOBALS['strGeneralRelationFeat']
-                . ' <font color="green">' . $GLOBALS['strEnabled'] . '</font>';
+                     . '<font color="red"><b>' . $GLOBALS['strNotOK'] . '</b></font>'
+                     . '[ <a href="Documentation.html#pmadb">' . $GLOBALS['strDocu'] . '</a> ]<br />' . "\n"
+                     . $GLOBALS['strGeneralRelationFeat']
+                     . ' <font color="green">' . $GLOBALS['strEnabled'] . '</font>' . "\n";
             }
             return $cfgRelation;
         }
