@@ -1224,7 +1224,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         {
             global $err_url, $cfg;
             if (PMA_MYSQL_INT_VERSION >= 32303) {
-                $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\' FROM \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
+                $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\' FROM \'' . PMA_sqlAddslashes($db, TRUE) . '\'';
                 $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
                 $showtable    = PMA_mysql_fetch_array($result);
                 $num     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
@@ -1277,7 +1277,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
             // Corrects the tooltip text via JS if required
             else if (!empty($GLOBALS['table']) && $cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
-                $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
+                $result = @PMA_mysql_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\' FROM ' . PMA_backquote($GLOBALS['db']));
                 if ($result) {
                     $tbl_status = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
                     $tooltip    = (empty($tbl_status['Comment']))

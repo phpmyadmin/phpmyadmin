@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-14 Garvin Hicking <me@supergarv.de>
+    * libraries/common.lib.php3: Fixed SHOW TABLE STATUS LIKE ... FROM ...
+      usage. (Bug #720846)
+
 2003-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french: update
     * lang/spanish: Updates, thanks to Dr. med. Daniel Hinostroza C.
