@@ -330,8 +330,9 @@ if (count($statistics) > 0) {
            . '                    ' . $strDatabasesStatsEnable . "\n"
            . '                </a>' . "\n"
            . '            </b>' . "\n"
-           . '        </li><br /><br />' . "\n"
-           . $strDatabasesStatsHeavyTraffic . "\n";
+           . '            <br />' . "\n"
+           . '            ' . $strDatabasesStatsHeavyTraffic . "\n"
+           . '        </li><br /><br />' . "\n";
     } else if ($is_superuser && !empty($dbstats)) {
         echo '        <li>' . "\n"
            . '            <b>' . "\n"

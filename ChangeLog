@@ -35,6 +35,7 @@ $Source$
         config_import.lib.php3;
       - Corrected config file revison;
       - XHTML fixes.
+    * server_databases.php3: Small interface fixes.
 
 2003-05-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
