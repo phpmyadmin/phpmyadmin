@@ -711,8 +711,10 @@ else {
             echo '</p>' . "\n";
         }
 
-        // Export link, if only one table
+        // Export link
         // (the url_query has extra parameters that won't be used to export)
+        // (the single_table parameter is used in display_export.lib.php
+        //  to hide the SQL and the structure export dialogs)
         if (!isset($printview)) {
             if (isset($analyzed_sql[0]['table_ref'][0]['table_true_name']) && !isset($analyzed_sql[0]['table_ref'][1]['table_true_name'])) {
                 $single_table   = '&amp;single_table=true';
