@@ -2,6 +2,9 @@
 #
 # $Id$
 #
+# 2003-08-13, nijel@users.sourceforge.net:
+# - config.default -> config.default.php
+#
 # 2004-08-09, lem9@users.sourceforge.net:
 # - remember to create a new bug tracking group
 #
@@ -172,10 +175,10 @@ find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
 lynx --dont_wrap_pre --nolist --dump phpMyAdmin/Documentation.html > phpMyAdmin/Documentation.txt
 
 # Creating a backup config.inc.php
-cp phpMyAdmin/config.inc.php phpMyAdmin/config.default
+cp phpMyAdmin/config.inc.php phpMyAdmin/config.default.php
 
 # Renaming directory
- mv phpMyAdmin phpMyAdmin-$target
+mv phpMyAdmin phpMyAdmin-$target
 
 # Building distribution kits
 zip -9 -r phpMyAdmin-${target}.zip phpMyAdmin-${target}

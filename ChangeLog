@@ -8,6 +8,7 @@ $Source$
 2004-08-13 Michal Čihař  <michal@cihar.com>
     * libraries/read_dump.lib.php: Fix possible undefined index (bug
       #1008232).
+    * scripts/create-release.sh: Rename config.default to config.default.php.
 
 2004-08-12 Michal Čihař  <michal@cihar.com>
     * db_details_structure.php: Inconsistency of drop/empty links (bug
