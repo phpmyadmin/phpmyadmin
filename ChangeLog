@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* left.js, lines 241-242: fixed the scrollbar bug with NS4
+
 2001-05-18  Pete Kelly  <webmaster@trafficg.com>
 	* db_readdump.php3 & lib.inc.php3: finally fixed all the special characters
 	  problems (Bug #421889)
