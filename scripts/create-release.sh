@@ -42,8 +42,8 @@ Please ensure you have:
      - in Documentation.html the 2 lines
           " <h1>phpMyAdmin $1 Documentation</h1> "
      - in translators.html
-  2. built the new "Documentation.txt" version using the Lynx "print" command
-     on the "Documentation.html" file.
+  2. built the new "Documentation.txt" version using:
+       lynx --nolist --dump Documentation.html > Documentation.txt 
 
 Continue (y/n)?
 END
