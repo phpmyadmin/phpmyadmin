@@ -9,6 +9,8 @@ $Source$
     * lang/japanese* updates, thanks to Yukihiro Kawada
     * Documentation.html: explain the oslash symbol in the statistics
     * left.php3: the - as first choice is not clear
+    * tbl_properties_table_info.php3, tbl_properties_links.php3: bug
+      576776: ShowAll never displayed
 
 2002-07-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * sql.php3: Completed fix against bug #575867 (Error with limit or load in

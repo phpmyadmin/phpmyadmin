@@ -7,7 +7,7 @@ $db_details_links_count_tabs = 0;
 /**
  * Prepares links
  */
-if ($num_rows > 0) {
+if ($table_info_num_rows > 0) {
     $lnk2    = 'sql.php3';
     $arg2    = $url_query
              . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table))

@@ -1,6 +1,8 @@
 <?php
 /* $Id$ */
 
+// this should be recoded as functions, to avoid messing with global
+// variables
 
 /**
  * Gets table informations
@@ -11,7 +13,7 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     $table_info_result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $showtable    = PMA_mysql_fetch_array($table_info_result);
     $tbl_type     = strtoupper($showtable['Type']);
-    $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+    $table_info_num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
 
 // better logic, thanks to Loic:
@@ -29,7 +31,7 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
     $table_info_result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
     $showtable    = array();
-    $num_rows     = PMA_mysql_result($table_info_result, 0, 'count');
+    $table_info_num_rows     = PMA_mysql_result($table_info_result, 0, 'count');
     $show_comment = '';
 }
 mysql_free_result($table_info_result);
