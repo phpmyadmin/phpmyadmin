@@ -449,9 +449,9 @@ function get_table_def($db, $table, $crlf)
     $result = mysql_db_query($db, "SHOW KEYS FROM $table") or mysql_die();
     while($row = mysql_fetch_array($result))
     {
-	$kname=$row['Key_name'];
-        $comment=$row['Comment'];
-        $sub_part=$row['Sub_part'];
+        $kname=$row['Key_name'];
+        $comment=(isset($row['Comment'])) ? $row['Comment'] : '';
+        $sub_part=(isset($row['Sub_part'])) ? $row['Sub_part'] : '';
 
         if(($kname != "PRIMARY") && ($row['Non_unique'] == 0))
             $kname="UNIQUE|$kname";
@@ -678,19 +678,23 @@ function split_sql_file($sql, $delimiter) {
 }
 
 // Remove # type remarks from large sql files
-// Version 2 18th May 2001 - Last Modified By Pete Kelly
+// Version 3 20th May 2001 - Last Modified By Pete Kelly
 function remove_remarks($sql) {
-  $i = 0; 
-  while($i < strlen($sql)) { 
-    if($sql[$i] == "#" and ($sql[$i-1] == "\n" or $i==0)) { 
+  $i = 0;
+  while ($i < strlen($sql)) {
+    if ($sql[$i] == "#" and ($sql[$i-1] == "\n" or $i==0)) {
       $j=1;
-      while($sql[$i+$j] != "\n") $j++;
+      while ($sql[$i+$j] != "\n") {
+        $j++;
+        if ($j+$i > strlen($sql)) break;
+      }
       $sql = substr($sql,0,$i) . substr($sql,$i+$j);
     }
     $i++;
   }
   return($sql);
 }
+
 
 
 // Bookmark Support
