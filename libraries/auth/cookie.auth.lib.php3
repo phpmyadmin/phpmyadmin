@@ -377,7 +377,7 @@ if (uname.value == '') {
             setcookie('pma_cookie_password',
                 $cfgServer['password'],
                 0,
-                $GLOBALS['cookie_path'], ''
+                $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);
         } // end if
 
