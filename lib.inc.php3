@@ -613,6 +613,9 @@ if (!defined('__LIB_INC__')){
     {
         $a_string = str_replace('"', '&quot;', $a_string);
         $a_string = str_replace('#', '\\#', addslashes($a_string));
+        $a_string = str_replace("\012", '\\\\n', $a_string);
+        $a_string = str_replace("\015", '\\\\r', $a_string);
+
         return (($add_backquotes) ? backquote($a_string) : $a_string);
     } // end of the 'sql_addslashes()' function
 
