@@ -11,6 +11,8 @@ $Source$
     * tbl_properties_structure.php, tbl_relation.php:
       enable Relation view for InnoDB, even if the internal
       relational infrastructure is not available
+    * libraries/common.lib.php: undefined $unparsed_sql when fmtType=='none'
+    * config.inc.php: clarify MainPageIconic comments
 
 2004-06-16 Marc Delisle  <lem9@users.sourceforge.net>
     Changes, thanks to Michael Keck (mkkeck):

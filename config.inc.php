@@ -532,7 +532,7 @@ $cfg['SetHttpHostTitle']    = '';              // if ShowHttpHostTitle=true, ple
                                              // If not set (or empty), the PMA will get your real Host-Adress.
 
 $cfg['ErrorIconic']          = TRUE;    // show some icons for warnings, errors and informations (true|false)?
-$cfg['MainPageIconic']       = TRUE;    // show icons in list on main page and on navigation bar (true|false)?
+$cfg['MainPageIconic']       = TRUE;    // show icons in list on main page, on right panel top menu (server db table)  and on menu tabs (true|false)?
 $cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocumentation (true|false)?
 
 // theme manager
