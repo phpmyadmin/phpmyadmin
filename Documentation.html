@@ -694,44 +694,58 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-
-
-    <dt><b>$cfg['Servers'][$i]['AllowDeny']['order']</b> string</dt>
+    <dt>
+        <b>$cfg['Servers'][$i]['AllowDeny']['order']</b> string
+    </dt>
     <dd>
         If your rule order is empty, then IP authentication is disabled.
         <br /><br />
-        If your rule order is set to <tt>'deny,allow'</tt>. Then the system applies all deny rules followed by allow rules. 
-        Access is allowed by default.  Any client which does not match a Deny command or does match an Allow command will be
-        allowed access to the server.
+        If your rule order is set to <tt>'deny,allow'</tt>. Then the system
+        applies all deny rules followed by allow rules. 
+        Access is allowed by default. Any client which does not match a Deny
+        command or does match an Allow command will be allowed access to the
+        server.
         <br /><br />
-        If your rule order is set to <tt>'allow,deny'</tt>. Then the system applies all allow rules followed by deny rules. Access
-        is denied by default.  Any client which does not match an Allow directive or does match a Deny directive will be denied
-        access to the server.
+        If your rule order is set to <tt>'allow,deny'</tt>. Then the system
+        applies all allow rules followed by deny rules. Access is denied by
+        default.  Any client which does not match an Allow directive or does
+        match a Deny directive will be denied access to the server.
         <br /><br />
-        If your rule order is set to 'explicit', the authentication is performed in a similar fashion to rule order 'deny,allow',
-        with the added restriction that your host/username combination <b>must</b> be listed in the <i>allow</i> rules, and not
-        listed in the <i>deny</i> rules. This is the <b>most</b> secure means of using Allow/Deny rules, and was available in
-        Apache by specifying allow and deny rules without setting any order.
+        If your rule order is set to 'explicit', the authentication is
+        performed in a similar fashion to rule order 'deny,allow', with the
+        added restriction that your host/username combination <b>must</b> be
+        listed in the <i>allow</i> rules, and not listed in the <i>deny</i>
+        rules. This is the <b>most</b> secure means of using Allow/Deny rules,
+        and was available in Apache by specifying allow and deny rules without
+        setting any order.
         <br /><br />
     </dd>
 
-
-    <dt><b>$cfg['Servers'][$i]['AllowDeny']['rules']</b> array of strings</dt>
+    <dt>
+        <b>$cfg['Servers'][$i]['AllowDeny']['rules']</b> array of strings
+    </dt>
     <dd>
         The general format for the rules is as such:<br />
-        <tt>&lt;'allow' | 'deny'&gt; &lt;username&gt; [from] &lt;ipmask&gt;</tt>
+        <tt>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &lt;'allow' | 'deny'&gt; &lt;username&gt; [from] &lt;ipmask&gt;
+        </tt>
         <br /><br />
 
-        If you wish to match all users, it is possible to use a <tt>'%'</tt> as a wildcard in the <i>username</i> field.<br />
-        There are a few shortcuts you can use in the <i>ipmask</i> field as well:
-        <tt><br />
+        If you wish to match all users, it is possible to use a <tt>'%'</tt> as
+        a wildcard in the <i>username</i> field.<br />
+        There are a few shortcuts you can use in the <i>ipmask</i> field as
+        well:<br />
+        <tt>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'all' -&gt; 0.0.0.0/0<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'localhost' -&gt; 127.0.0.1/8</tt>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'localhost' -&gt; 127.0.0.1/8
+        </tt>
         <br /><br />
 
-        Having an empty rule list is equivilent to either using <tt>'allow % from all'</tt> if your rule order is set to
-        <tt>'deny,allow'</tt> or <tt>'deny % from all'</tt> if your rule order is set to <tt>'allow,deny'</tt> or
-        <tt>'explicit'</tt>.
+        Having an empty rule list is equivalent to either using
+        <tt>'allow % from all'</tt> if your rule order is set to
+        <tt>'deny,allow'</tt> or <tt>'deny % from all'</tt> if your rule order
+        is set to <tt>'allow,deny'</tt> or <tt>'explicit'</tt>.
         <br /><br />
 
         For the IP matching system, the following work:<br />
@@ -741,7 +755,6 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         But the following does not work:<br />
         <tt>xxx.xxx.xxx.xx[yyy-zzz]</tt> (partial IP address range)
         <br /><br />
-
     </dd>
 
     <dt><b>$cfg['ServerDefault']</b> integer</dt>
@@ -1512,25 +1525,28 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
 <p>
     <b>How can I use the Host-based authentication additions?</b>
     <br />
-    If you have existing rules from an old .htaccess file, you can take them and 
-    add a username between the <tt>'deny'</tt>/<tt>'allow'</tt> and <tt>'from'</tt>
-    strings. Using the username wildcard of <tt>'%'</tt> would be a major benefit 
-    here if your installation is suited to using it. Then you can just add those
-    updated lines into the <tt>$cfg['Servers'][$i]['AllowDeny']['rules']</tt> array.
+    If you have existing rules from an old .htaccess file, you can take them
+    and add a username between the <tt>'deny'</tt>/<tt>'allow'</tt> and
+    <tt>'from'</tt> strings. Using the username wildcard of <tt>'%'</tt> would
+    be a major benefit here if your installation is suited to using it. Then
+    you can just add those updated lines into the
+    <tt>$cfg['Servers'][$i]['AllowDeny']['rules']</tt> array.
     <br /><br />
-    If you want a pre-made sample, you can try this fragment. It stops the 'root' 
-    user from logging in from any networks other than the private network IP blocks.
-    <br /><tt>
-&nbsp;&nbsp;&nbsp;&nbsp;//block root from logging in except from the private networks<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$cfg['Servers'][$i]['AllowDeny']['rules'] = array(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'deny root from all',<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from localhost',<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from 10.0.0.0/8',<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from 192.168.0.0/16',<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from 172.16.0.0/12',<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</tt>
-
+    If you want a pre-made sample, you can try this fragment. It stops the
+    'root' user from logging in from any networks other than the private
+    network IP blocks.
+    <br />
+    <tt>
+    &nbsp;&nbsp;&nbsp;&nbsp;//block root from logging in except from the private networks<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;$cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;$cfg['Servers'][$i]['AllowDeny']['rules'] = array(<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'deny root from all',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from localhost',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from 10.0.0.0/8',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from 192.168.0.0/16',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'allow root from 172.16.0.0/12',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
+    </tt>
 </p>
 
 <a name="faqbrowsers"></a>
