@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.data.php3: bug 753813, "session" is not
+      a reserved word
+
 2003-06-13 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/charset_conversion.lib.php3, libraries/common.lib.php3,
       libraries/defines_php.lib.php3, libraries/dbg/setup.php3: Use new PMA_dl

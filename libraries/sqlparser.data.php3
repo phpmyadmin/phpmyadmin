@@ -391,7 +391,6 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'SECOND',
         'SELECT',
         'SERIALIZABLE',
-        'SESSION',
         'SHARE',
         'SHOW',
         'SHUTDOWN',
@@ -451,7 +450,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'YEAR_MONTH'
     );
     //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-    $PMA_SQPdata_reserved_word_cnt = 250;
+    $PMA_SQPdata_reserved_word_cnt = 249;
 
     $PMA_SQPdata_column_type = array (
         'BIGINT',
