@@ -131,7 +131,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $SQP_errorString = '<p>'.$GLOBALS['strSQLParserUserError'] . '</p>' . "\n"
                 . '<pre>' . "\n"
                 . 'ERROR: ' . $message . "\n"
-                . 'SQL: ' . $sql .  "\n"
+                . 'SQL: ' . htmlspecialchars($sql) .  "\n"
                 . '</pre>' . "\n";
 
             /*
@@ -162,7 +162,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $debugstr .= 'PMA: ' . PMA_VERSION . "\n";
             $debugstr .= 'PHP VER,OS: ' . PMA_PHP_STR_VERSION . ' ' . PHP_OS . "\n";
             $debugstr .= 'LANG: ' . $GLOBALS['lang'] . "\n";
-            $debugstr .= 'SQL: ' . $sql;
+            $debugstr .= 'SQL: ' . htmlspecials($sql);
 
             $encodedstr     = $debugstr;
             if (PMA_PHP_INT_VERSION >= 40001 && @function_exists('gzcompress')) {
