@@ -181,6 +181,7 @@ $strLimitNumRows = 'record per pagina';
 $strLineFeed = 'Fine riga: \\n';
 $strLines = 'Record';
 $strLinesTerminatedBy = 'Linee terminate da';
+$strLinkNotFound = 'Link non trovato';
 $strLinksTo = 'Collegamenti a';
 $strLocationTextfile = 'Percorso del file';
 $strLogin = 'Connetti';
@@ -303,6 +304,7 @@ $strSingly = '(singolarmente)';
 $strSize = 'Dimensione';
 $strSort = 'Ordinamento';
 $strSpaceUsage = 'Spazio utilizzato';
+$strSQL = 'SQL';
 $strSQLQuery = 'query SQL';
 $strStatement = 'Istruzioni';
 $strStrucCSV = 'dati CSV';
@@ -360,6 +362,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strSQL = 'SQL'; //to translate
-$strLinkNotFound = 'Link not found';  //to translate
 ?>

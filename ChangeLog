@@ -8,6 +8,7 @@ $Source$
 2002-05-07 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_relation.php3; libraries/display_tbl.lib.php3: added backquotes and
       slashed some values.
+    * lang/italian.inc.php3: updated, thanks to Pietro Danesi.
 
 2002-05-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian.inc.php3 updates thanks to Valics Lehel
