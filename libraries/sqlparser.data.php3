@@ -183,6 +183,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'AGGREGATE',
         'ALL',
         'ALTER',
+        'ANALYSE',
         'ANALYZE',
         'AND',
         'AS',

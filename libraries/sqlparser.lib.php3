@@ -32,8 +32,16 @@
 if (!defined('PMA_SQP_LIB_INCLUDED')) {
     define('PMA_SQP_LIB_INCLUDED', 1);
 
-    require('./libraries/string.lib.php3');
-    require('./libraries/sqlparser.data.php3');
+
+    /**
+     * Include the string libarry as we use it heavily
+     */
+    include('./libraries/string.lib.php3');
+    
+    /**
+     * Include data for the SQL Parser
+     */
+    include('./libraries/sqlparser.data.php3');
 
     if (!defined('DEBUGTIMING')) {
         function PMA_SQP_ArrayAdd(&$arr,$type,$data, &$arrsize)
@@ -53,11 +61,21 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     }
 
     function PMA_SQP_Parse($sql)
-    {	
+    {   
+        global $cfg;
+        
+        // if the SQL parser is disabled
+        // just return the original query string
+        if($cfg['SQP']['enable'] == FALSE) {
+            echo 'FALSE';
+            return $sql;
+        }
+        
         $len = strlen($sql);
         if ($len == 0) {
             return array();
         }
+        
         $sql_array = array();
         $sql_array['raw'] = $sql;
         $count1 = 0;
@@ -369,6 +387,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         if ($arraysize > 0) {
             $t_next = $sql_array[0]['type'];
             $t_prev = NULL;
+            $t_cur = NULL;
         }
 
         for($i = 0; $i < $arraysize; $i++) {
@@ -520,6 +539,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             'INTO',
             'KEY',
             'PRIMARY',
+            'PROCEDURE',
             'REFERENCES',
             'UNIQUE'
         );
@@ -658,6 +678,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         case 'DROP':
                         case 'UPDATE':
                         case 'TRUNCATE':
+                        case 'ANALYZE':
+                        case 'ANALYSE':
                             $space_punct_listsep = '<br />';
                             $space_alpha_reservedWord = ' ';
                             break;
@@ -694,6 +716,14 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $after .= ' ';
                     }
                     break;
+                case 'quote_backtick':
+                    if ($typearr[3] != 'punct_qualifier') {
+                        $after .= ' ';
+                    }
+                    if ($typearr[1] != 'punct_qualifier') {
+                        $before .= ' ';
+                    }
+                    break;
                 default:
                     break;
             }
@@ -716,32 +746,30 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     function PMA_SQP_BuildCssData()
     {   
         global $cfg;
-        $css_string = <<<EOD
-.syntax { font-family: sans-serif; font-size: small; }
-.syntax_comment { }
-.syntax_digit { }
-.syntax_digit_hex {	}
-.syntax_digit_integer {	}
-.syntax_digit_float { }
-.syntax_punct {	}
-.syntax_alpha {	text-transform: lowercase; }
-.syntax_alpha_columnType { text-transform: uppercase; }
-.syntax_alpha_columnAttrib { text-transform: uppercase; }
-.syntax_alpha_reservedWord { text-transform: uppercase; font-weight: bold; }
-.syntax_alpha_functionName { text-transform: uppercase; }
-.syntax_alpha_identifier { } 
-.syntax_alpha_variable { }
-.syntax_quote {	}
-.syntax_quote_backtick { }
-EOD;
-        foreach($cfg['SQP']['fmt']['color'] as $key => $col) {
+        $css_string = ''; 
+        foreach($cfg['SQP']['fmtColor'] as $key => $col) {
             $css_string .= PMA_SQP_BuildCssRule('syntax_'.$key, 'color', $col);
         }
         for($i = 0; $i < 8; $i++) {
-            $css_string .= PMA_SQP_BuildCssRule('syntax_indent'.$i, 'margin-left', ($i * $cfg['SQP']['fmt']['indent']).$cfg['SQP']['fmt']['indentunits']);
+            $css_string .= PMA_SQP_BuildCssRule('syntax_indent'.$i, 'margin-left', ($i * $cfg['SQP']['fmtInd']).$cfg['SQP']['fmtIndUnit']);
         }
         return $css_string;
 
     }
 
+
+    function PMA_SQP_FormatNone($arr)
+    {   
+        $formattedSQL = htmlspecialchars($arr['raw']);
+        $formattedSQL = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $formattedSQL);
+        return $formattedSQL;
+        }
+    
+    function PMA_SQP_FormatText($arr)
+    {   
+        /**
+         * TODO WRITE THIS!
+         */
+         return PMA_SQP_FormatNone($arr);
+    }
 } // $__PMA_SQP_LIB__

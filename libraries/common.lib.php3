@@ -165,7 +165,17 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      */
     include('./libraries/defines.lib.php3');
 
+    /**
+     * String handling
+     */
+     include('./libraries/string.lib.php3');
 
+     /**
+      * SQL Parser data and code
+      */
+     include('./libraries/sqlparser.data.php3');
+     include('./libraries/sqlparser.lib.php3');
+     
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
     if (PMA_PHP_INT_VERSION < 40000
@@ -230,7 +240,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     /**
      * format sql strings
      *
-     * @param   string   sql
+     * @param   struct    pre-parsed SQL structure
      *
      * @return  string   the formatted sql
      *
@@ -239,128 +249,38 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      *
      * @access  public
      *
-     * @author  Mike Beck <mikebeck@users.sourceforge.net>
+     * @author  Robin Johnson <robbat2@users.sourceforge.net> 
      */
-    function PMA_format_sql ($sql) {
-        global $cfg, $mult;
-
-// lem9: bypass this function for now
-        return $sql;
-
-        $sfuncs   = '^' . implode('$|^', $cfg['Functions']) . '$';
-        $skeyw    = '^' . implode('$|^', $cfg['keywords']) . '$';
-        $scoltype = '^' . implode('$|^', $cfg['ColumnTypes']) . '$';
-        $add      = '^' . implode('$|^', $cfg['additional']) . '$';
-
-        // First of all lets remove all newlines - we'll add our own later
-        $sql  = str_replace("\n", ' ', $sql);
-        // There should always be blanks around = and after , ()
-        // fixme - i would like to replace ';' with '; ' but then i need
-        // to know how to do that without getting ; within strings as well
-        $sql  = str_replace('=', ' = ', $sql);
-        $sql  = str_replace(',', ', ', $sql);
-        $sql  = str_replace(')', ' ) ', $sql);
-        $sql  = str_replace('(', ' ( ', $sql);
-
-        // Now split everything by the blanks
-        $sql_parts = explode(' ', $sql);
-        // Start a loop over the parts check each word and put them back into
-        // $sql
-        unset($sql);
-        $s_nr      = 0;
-
-        while (list($num, $word) = each($sql_parts)) {
-            // We might have added to many blanks when checking for = and,
-            // which might lead to empty members in the array
-            if (strlen($word) == 0) {
-                continue;
-            }
-            $is_string = FALSE;
-
-            // Anything inside quots might be more than one word
-            // so as we splitted by the blanks we have to try to get those
-            // parts back together
-            if ((substr($word, 0, 1) == '\'' || substr($word, 0, 1) == '"')
-                && !isset($temp)) {
-                //  start of a string
-                $temp          = $word;
-                $is_string     = TRUE;
-            } else {
-                if (isset($temp)) {
-                    // We are continuing a string
-                    $temp      .= $word;
-                    $is_string = TRUE;
-                 }
-            } // end if... else...
-
-            if (substr($word, strlen($word) - 1, 1) == '\''
-                || substr($word, strlen($word) - 1, 1) == '"') {
-                // End of a String
-                $word      = '<font color="' . $cfg['colorStrings'] . '">' . htmlspecialchars($temp) . '</font>';
-                unset($temp);
-                // Debug echo "fertig " . $word . '<br />';
-                $is_string = FALSE;
-            } // end if
-
-            if (!isset($is_string) || $is_string == FALSE) {
-                // No String
-                if (eregi($sfuncs,  $word)) {
-                    $word     = '<font color="' . $cfg['colorFunctions'].'">' . htmlspecialchars($word) . '</font>';
-                } else if (eregi($skeyw,  $word)) {
-                    $word     = '<font color="' . $cfg['colorKeywords'].'">' . htmlspecialchars($word) . '</font>';
-                    if (!isset($mult) || $mult != TRUE) {
-                        $word = "\n" . $word;
-                    }
-                } else if (eregi($scoltype, $word)) {
-                    $word     = '<font color="' . $cfg['colorColType'].'">' . htmlspecialchars($word) . '</font>';
-                } else if (eregi($add, $word)) {
-                    $word     = '<font color="' . $cfg['colorAdd'].'">' . htmlspecialchars($word) . '</font>';
-                } else if ($word == '(') {
-                    if (isset($brack_o)) {
-                        $skey = count($brack_o);
-                    } else {
-                        $skey = 0;
-                    }
-                    $brack_o[$skey] = $s_nr;
-                } else if ($word == ')') {
-                    if (isset($brack_o)) {
-                        unset($brack_o[count($brack_o) - 1]);
-                        if (count($brack_o) == 0) {
-                            unset($brack_o);
-                        }
-                    } else {
-                        $brack_c[] = $s_nr;
-                    }
-                } else if ($word == ';') {
-                    $word     = ';' . "\n";
-                }
+    function PMA_format_sql ($ParsedSQL)
+    {
+        global $cfg;
+        
+        // Check that we actually have a valid set of parsed data
+        // well, not quite
+        if(!is_array($ParsedSQL)) {
+            // We don,t so just return the input directly
+            // This is intended to be used for when the SQL Parser is turned off
+            return $ParsedSQL;
             }
 
-            if (!isset($temp) || strlen($temp) == 0) {
-                $sql_p[$s_nr] = $word;
-                $s_nr++;
-            }
-        } // end while
+        $formattedSQL = '';
 
-        if (isset($brack_o)) {
-            while (list($num, $elem) = each($brack_o)) {
-                $sql_p[$elem] = '<font color="red">' . $sql_p[$elem] . '</font>';
-                echo '<br /><font color="red">' . $GLOBALS['strMissingBracket'] . '</font><br />';
-            }
+        switch($cfg['SQP']['fmtType']) {
+            case 'none':
+                $formattedSQL = PMA_SQP_FormatNone($ParsedSQL);
+                break;
+            case 'html':
+                $formattedSQL = PMA_SQP_FormatHTML($ParsedSQL);
+                break;
+            case 'text':
+                $formattedSQL = PMA_SQP_FormatText($ParsedSQL);
+                break;
+            default:
+                break;
         }
-
-        if (isset($brack_c)) {
-            while (list($num, $elem) = each($brack_c)) {
-                $sql_p[$elem] = '<font color="red">' . $sql_p[$elem] . '</font>';
-                echo '<br /><font color="red">' . $GLOBALS['strMissingBracket'] . '</font><br />';
-            }
-        }
-
-        $sql = implode(' ', $_sql_p);
-        $sql = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', $sql);
-        $sql = ereg_replace('<br />[ ]*<br />', '<br />', $sql);
-
-        return $sql;
+        
+        return $formattedSQL;
+        
     } // end of the "PMA_format_sql()" function
 
 
@@ -394,13 +314,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $the_query = $GLOBALS['sql_query'];
         }
 
+        $ParsedSQL = PMA_SQP_Parse($the_query);
+
         echo '<p><b>'. $GLOBALS['strError'] . '</b></p>' . "\n";
         // if the config password is wrong, or the MySQL server does not
         // respond, do not show the query that would reveal the
         // username/password
         if (!empty($the_query) && !strstr($the_query, 'connect')) {
-            $query_base = htmlspecialchars($the_query);
-            $query_base = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $query_base);
             echo '<p>' . "\n";
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
             if ($is_modify_link) {
@@ -410,7 +330,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             } // end if
             echo '</p>' . "\n"
                  . '<p>' . "\n"
-                 . '    ' . ($cfg['UseSyntaxColoring'] ? PMA_format_sql($query_base) : $query_base) . "\n"
+                 . '    ' . PMA_format_sql($ParsedSQL) . "\n"
                  . '</p>' . "\n";
         } // end if
         if (!empty($error_message)) {
@@ -1192,9 +1112,9 @@ if (typeof(document.getElementById) != 'undefined'
             $sqlnr = 1;
             if (!empty($GLOBALS['show_as_php'])) {
                 $new_line = '&quot;;<br />' . "\n" . '            $sql .= &quot;';
-            } else if ($cfg['UseSyntaxColoring'] == FALSE) {
+            } /* else if ($cfg['UseSyntaxColoring'] == FALSE) {
                 $new_line = '<br />' . "\n";
-            }
+            } */
             if (isset($new_line)) {
                 $query_base = htmlspecialchars($GLOBALS['sql_query']);
                 $query_base = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
@@ -1203,8 +1123,10 @@ if (typeof(document.getElementById) != 'undefined'
             }
             if (!empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = &quot;' . $query_base;
-            } else if ($cfg['UseSyntaxColoring']) {
-                $query_base = PMA_format_sql($query_base);
+//            } else d$if ($cfg['UseSyntaxColoring']) {
+            } else {
+                $ParsedSQL = PMA_SQP_Parse($query_base);
+                $query_base = PMA_format_sql($ParsedSQL);
             }
 
             // Prepares links that may be displayed to edit/explain the query
@@ -1258,11 +1180,7 @@ if (typeof(document.getElementById) != 'undefined'
             // If a 'LIMIT' clause has been programatically added to the query
             // displays it
             if (!empty($GLOBALS['sql_limit_to_append'])) {
-                if($cfg['UseSyntaxColoring']) {
-                    echo PMA_format_sql($GLOBALS['sql_limit_to_append']);
-                } else {
-                    echo $GLOBALS['sql_limit_to_append'];
-                }
+                echo PMA_format_sql(PMA_SQP_Parse($GLOBALS['sql_limit_to_append']));
             }
             if (!empty($GLOBALS['show_as_php'])) {
                 echo '&quot;;';

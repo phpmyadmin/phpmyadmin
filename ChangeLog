@@ -9,16 +9,26 @@ $Source$
     * new lang: slovenian, thanks to Kositer Uros (urosh)
 
 2002-07-24 Robin Johnson  <robbat2@users.sourceforge.net>
-    * libraries/string.lib.php3: optimizations (thanks Loïc)
-    * libraries/sqlparser.lib.php3: SQL Parser merging (in progress)
+    * libraries/string.lib.php3: 
+        - optimizations/PHP3 fixes (thanks Loïc)
+    * libraries/sqlparser.lib.php3: 
+        - Merged
         - Spacing around if statements
         - Added require statements for parser
         - Moved to global constants for size of keyword arrays
         - Added CSS creation rules
-    * libraries/sqlparser.data.php3: Merged
+        - Cleaned up CSS creation functions
+        - Formatting fixes
+    * libraries/sqlparser.data.php3: 
+        - Merged
+        - Added 'ANALYSE' reserved word (note spelling)
     * config.inc.php3: 
         - Added SQL Parser variables
         - Remove old SQL Parser variables
+    * header.inc.php3:
+        - Added CSS for SQL Parser
+    * libraries/common.lib.php3:
+        - Change of PMA_format_sql to use new SQL Parser
     
 2002-07-24 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/string.lib.php3: Function documentation

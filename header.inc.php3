@@ -112,6 +112,26 @@ table.tabs      {
     border-left: none;
     border-bottom: 1px solid #666;
 }
+
+.syntax { font-family: sans-serif; font-size: small; }
+.syntax_comment { }
+.syntax_digit { }
+.syntax_digit_hex { }
+.syntax_digit_integer { }
+.syntax_digit_float { }
+.syntax_punct { }
+.syntax_alpha { text-transform: lowercase; }
+.syntax_alpha_columnType { text-transform: uppercase; }
+.syntax_alpha_columnAttrib { text-transform: uppercase; }
+.syntax_alpha_reservedWord { text-transform: uppercase; font-weight: bold; }
+.syntax_alpha_functionName { text-transform: uppercase; }
+.syntax_alpha_identifier { }
+.syntax_alpha_variable { }
+.syntax_quote { }
+.syntax_quote_backtick { }
+<?php
+echo PMA_SQP_BuildCssData();
+?>
 //-->
 </style>
 
