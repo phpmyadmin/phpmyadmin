@@ -136,7 +136,7 @@ unset($tmp_array);
                             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">&nbsp;<?php echo $strTotalUC; ?>&nbsp;</td>
                             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">&nbsp;<?php echo number_format($serverStatus['Connections'], 0, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;</td>
                             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">&nbsp;<?php echo number_format(($serverStatus['Connections'] * 3600 / $serverStatus['Uptime']), 2, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;</td>
-                            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">&nbsp;100,00&nbsp;%&nbsp;</td>
+                            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">&nbsp;<?php echo number_format(100, 2, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;%&nbsp;</td>
                         </tr>
                     </table>
                 </td>
