@@ -495,7 +495,6 @@ $cfg['RepeatCells']         = 100;          // repeat header names every X cells
 $cfg['QueryFrame']          = TRUE;         // displays a new frame where a link to a querybox is always displayed.
 $cfg['QueryFrameJS']        = TRUE;         // whether to use JavaScript functions for opening a new window for SQL commands.
                                             // if set to 'false', the target of the querybox is always the right frame.
-$cfg['QueryFrameDebug']     = FALSE;        // display JS debugging link (DEVELOPERS only)
 $cfg['QueryWindowWidth']    = 550;          // Width of Query window
 $cfg['QueryWindowHeight']   = 310;          // Height of Query window
 $cfg['QueryHistoryDB']      = FALSE;         // Set to TRUE if you want DB-based query history.

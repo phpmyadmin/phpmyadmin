@@ -48,25 +48,6 @@ require_once('./libraries/header_meta_style.inc.php');
 ?>
 
 <script type="text/javascript" language="javascript">
-<?php
-if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && $cfg['QueryFrameDebug']) {
-    $js_db = (isset($db) ? $db : 'FALSE');
-    $js_table = (isset($table) ? $table : 'FALSE');
-    $js_server = (isset($server) ? $server : 'FALSE');
-
-    $js_true_db = '\' + document.querywindow.db.value + \'';
-    $js_true_table = '\' + document.querywindow.table.value + \'';
-    $js_true_server = '\' + document.querywindow.server.value + \'';
-
-    $js_parent = '\' + opener.location.href + \'';
-    $js_frame = '\' + opener.parent.location.href + \'';
-?>
-function debug() {
-    alert('<?php echo sprintf($strQueryFrameDebugBox, $js_db, $js_table, $js_server, $js_true_db, $js_true_table, $js_true_server, $js_parent, $js_frame); ?>');
-    return false;
-}
-<?php
-}
 ?>
 function query_auto_commit() {
     document.sqlform.submit();
@@ -262,17 +243,6 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 </form>
 <?php
 }
-
-/* REMOVE ME */
-if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && $cfg['QueryFrameDebug']) {
-?>
-<br />
-<center>
-    <a href='#' onClick='return debug();'><?php echo $strQueryFrameDebug; ?></a>
-</center>
-<?php
-}
-/* REMOVE ME */
 ?>
 
 </body>

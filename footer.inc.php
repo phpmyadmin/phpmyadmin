@@ -20,15 +20,6 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 <script type="text/javascript">
 <!--
 <?php
-    if ($cfg['QueryFrameDebug']) {
-    ?>
-        document.writeln("Updating query window. DB: <?php echo (isset($db) ? addslashes($db) : 'FALSE'); ?>, Table: <?php echo (isset($table) ? addslashes($table) : 'FALSE'); ?><br />");
-        document.writeln("Window: " + parent.frames.queryframe.querywindow.location + "<br />");
-    <?php
-    }
-    ?>
-
-    <?php
     if (!isset($no_history) && (!isset($error_message) || $error_message == '')) {
     ?>
     if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.queryframeform) {
@@ -41,8 +32,6 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 
     function reload_querywindow () {
         if (parent.frames.queryframe && parent.frames.queryframe.querywindow && !parent.frames.queryframe.querywindow.closed && parent.frames.queryframe.querywindow.location) {
-            <?php echo ($cfg['QueryFrameDebug'] ? 'document.writeln("<a href=\'#\' onClick=\'parent.frames.queryframe.querywindow.focus(); return false;\'>Query Window</a> can be updated.<br />");' : ''); ?>
-
             <?php
             if (!isset($no_history) && (!isset($error_message) || $error_message == '')) {
                 if (isset($LockFromUpdate) && $LockFromUpdate == '1' && isset($sql_query)) {
@@ -61,7 +50,6 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 
                 <?php echo (isset($sql_query) ? 'parent.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = "' . urlencode($sql_query) . '";' : '// no sql query update') . "\n"; ?>
 
-                <?php echo ($cfg['QueryFrameDebug'] ? 'alert(\'Querywindow submits. Last chance to check variables.\');' : '') . "\n"; ?>
                 parent.frames.queryframe.querywindow.document.querywindow.submit();
             }
             <?php

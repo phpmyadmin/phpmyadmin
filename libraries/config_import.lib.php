@@ -767,10 +767,6 @@ if (!isset($cfg['QueryFrameJS'])) {
     $cfg['QueryFrameJS'] = TRUE;
 }
 
-if (!isset($cfg['QueryFrameDebug'])) {
-    $cfg['QueryFrameDebug'] = FALSE;
-}
-
 if (!isset($cfg['QueryWindowWidth'])) {
     $cfg['QueryWindowWidth'] = 550;
 }

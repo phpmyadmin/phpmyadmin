@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2004-05-03 Garvin Hicking <pma@supergarv.de>
+    * config.inc.php, libraries/config_import.lib.php, querywindow.php,
+      footer.inc.php, Documentation.html: Removed obsolete
+      QueryFrameDebug configuration directive
     * tbl_row_delete.php: Multi Row edit/delete: Fixed wrong switch
       structure to take previous settings into account.
 
