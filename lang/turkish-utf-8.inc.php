@@ -742,4 +742,5 @@ $strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
 $strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
 $strMIMETypesForTable = 'MIME TYPES FOR TABLE';  //to translate
 $strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
+$strAfterInsertSame = 'Go back to this page';  //to translate
 ?>

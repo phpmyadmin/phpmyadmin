@@ -33,6 +33,21 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&repeat_cells=' . $repeat_cells
           . '&dontlimitchars=' . $dontlimitchars
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
+} elseif (isset($after_insert) && $after_insert == 'same_insert') {
+    $goto = 'tbl_change.php?'
+          . PMA_generate_common_url($db, $table, '&')
+          . '&goto=' . urlencode($goto)
+          . '&pos=' . $pos
+          . '&session_max_rows=' . $session_max_rows
+          . '&disp_direction=' . $disp_direction
+          . '&repeat_cells=' . $repeat_cells
+          . '&dontlimitchars=' . $dontlimitchars
+          . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
+    if (isset($primary_key)) {
+        foreach($primary_key AS $pk) {
+            $goto .= '&primary_key[]=' . $pk;
+        }
+    }
 } else if ($goto == 'sql.php') {
     $goto = 'sql.php?'
           . PMA_generate_common_url($db, $table, '&')

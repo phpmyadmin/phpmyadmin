@@ -90,7 +90,8 @@ if (isset($primary_key)) {
     $row = array();
     $result = array();
     foreach($primary_key_array AS $rowcount => $primary_key) {
-        $result[$rowcount]       = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';');
+        $local_query             = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';';
+        $result[$rowcount]       = PMA_DBI_query($local_query);
         $row[$rowcount]          = PMA_DBI_fetch_assoc($result[$rowcount]);
         $primary_keys[$rowcount] = $primary_key;
 
@@ -115,6 +116,8 @@ if (isset($primary_key)) {
                 $sql_query    = $sql_query_cpy;
                 unset($sql_query_cpy);
             }
+            echo "\n";
+            require_once('./footer.inc.php');
         } // end if (no record returned)
     }
 } else {
@@ -817,9 +820,18 @@ if (!empty($disp_message)) {
             &nbsp;&nbsp;&nbsp;<b>-- <?php echo $strAnd; ?> --</b>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
-            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" <?php echo $checked_after_insert_back; ?> tabindex="<?php echo ((3 * $fields_cnt) + 3); ?>" /><label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
+            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" <?php echo $checked_after_insert_back; ?> tabindex="<?php echo ((3 * $fields_cnt) + 3); ?>" />
+            <label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
+            
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ((3 * $fields_cnt) + 4); ?>" /><label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label>
+            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ((3 * $fields_cnt) + 4); ?>" />
+            <label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label><br />
+           
+<?php if (isset($primary_key)) { ?>          
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
+            <input type="radio" name="after_insert" value="same_insert" id="radio_after_insert_same_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ((3 * $fields_cnt) + 4); ?>" />
+            <label for="radio_after_insert_same_insert"><?php echo $strAfterInsertSame; ?></label>
+<?php } ?>            
         </td>
     </tr>
 

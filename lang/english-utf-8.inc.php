@@ -660,6 +660,7 @@ $strTotal = 'total';
 $strTotalUC = 'Total';
 $strTraditionalChinese = 'Traditional Chinese';
 $strTraffic = 'Traffic';
+$strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';
 $strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';
 $strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';
 $strTransformation_image_png__inline = 'See image/jpeg: inline';
@@ -729,7 +730,6 @@ $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the l
 $strZip = '"zipped"';
 
 // To translate:
-
-$strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
+$strAfterInsertSame = 'Go back to this page';  //to translate
 
 ?>

@@ -21,6 +21,8 @@ $Source$
       export (RFE #913421).
     * lang/czech: Updated.
     * libraries/export/sql.php, lang/*: Remove some hardcoded strings.
+    * tbl_change.php, tbl_replace.php, lang/*: New "Go back to this page"
+      while editing.
 
 2004-03-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, libraries/display*, lang/*: 
