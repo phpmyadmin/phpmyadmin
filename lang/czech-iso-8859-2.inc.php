@@ -406,8 +406,8 @@ $strNoUsersFound = '®ádný u¾ivatel nenalezen.';
 $strNoUsersSelected = 'Nebyl vybrán ¾ádný u¾ivatel.';
 $strNoValidateSQL = 'Bez kontroly SQL';
 $strNone = '®ádná';
-$strNotNumber = 'Toto není èíslo!';
-$strNotOK = 'není OK';
+$strNotNumber = 'Nebylo zadáno èíslo!';
+$strNotOK = 'není v poøádku';
 $strNotSet = '<b>%s</b> tabulka nenalezena nebo není nastavena v&nbsp;%s';
 $strNotValidNumber = ' není platné èíslo øádku!';
 $strNull = 'Nulový';
@@ -721,6 +721,5 @@ $strYes = 'Ano';
 
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
-// To translate
 
 ?>

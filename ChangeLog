@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-26 Michal Cihar  <cleanerfasterbetter@cihar.com>
+    * lang/check_lang.sh: Cleanup.
+    * lang/sort_lang.sh: Cleanup.
+    * lang/czech: Better translated some strings.
+    
 2003-11-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/arabic: update, thanks to Ossama Khayat (okhayat)
     * lang/hindi: update, thanks to Girish Nair (girish_nair)
