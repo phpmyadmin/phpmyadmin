@@ -56,7 +56,15 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 
     function focus_querywindow(sql_query) {
         if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
-            top.frames.queryframe.querywindow.focus();
+            if (top.frames.queryframe.querywindow.document.querywindow.querydisplay_tab != 'sql') {
+                top.frames.queryframe.querywindow.document.querywindow.querydisplay_tab.value = "sql";
+                top.frames.queryframe.querywindow.document.querywindow.query_history_latest.value = sql_query;
+                top.frames.queryframe.querywindow.document.querywindow.submit();
+                top.frames.queryframe.querywindow.focus();
+            } else {
+                top.frames.queryframe.querywindow.focus();
+            }
+
             return false;
         } else if (top.frames.queryframe) {
             new_win_url = 'querywindow.php3?sql_query=' + sql_query + '&<?php echo PMA_generate_common_url(isset($db) ? addslashes($db) : '', isset($table) ? addslashes($table) : '', '&'); ?>';

@@ -146,6 +146,8 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
         $db = $query_history_latest_db;
         $table = $query_history_latest_table;
         $dup_sql[$query_history_latest] = true;
+    } elseif (isset($query_history_latest) && $query_history_latest != '') {
+        $sql_query = urldecode($query_history_latest);
     }
     
     if (isset($sql_query)) {
