@@ -721,10 +721,8 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
-// To translate
-$strAddConstraints = 'Add constraints';  //to translate
-
-$strCheckOverhead = 'Check overheaded';  //to translate
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
+$strAddConstraints = 'Constraints hinzufügen';
+$strCheckOverhead = 'Überhang prüfen';
+$strCreationDates = 'Erzeugungs-/Aktualisierungs-/Überprüfungszeiten';
 
 ?>
