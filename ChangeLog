@@ -5,11 +5,16 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-14 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german.inc.php3: Updates.
+    * libraries/select_lang.lib.php3, lang/german-utf8.inc.php3:
+      Added German UTF-8 file.
+
 2002-06-14 Marc Delisle  <lem9@users.sourceforge.net>
     * big patch for charset support, all files that call mysql have been
       modified; thanks to Michal Cihar.
 
-2002-06-14 Mike Beck    <mikebeck@users.sourceforge.net>
+2002-06-14 Mike Beck  <mikebeck@users.sourceforge.net>
     * tbl_qbe:  Bugfixing
       - Don't try to use a generated SQL Statement without
         a SELECT (if none of the Columns is marked as display
