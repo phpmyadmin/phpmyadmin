@@ -161,7 +161,7 @@ if ($server > 0)
     $is_reload_priv  = FALSE;
     $is_superuser    = @mysql_query('USE mysql', $userlink);
     if ($dbh) {
-        $local_query = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
+        $local_query = 'SELECT Create_priv, Process_priv, Reload_priv FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\' OR User = \'\'';
         $rs_usr      = mysql_query($local_query, $dbh); // Debug: or mysql_die('', $local_query, FALSE);
         if ($rs_usr) {
             $result_usr      = mysql_fetch_array($rs_usr);

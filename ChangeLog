@@ -9,6 +9,12 @@ $Source$
 2001-10-27  Loïc Chapeaux  <lolo@phpheaven.net>
 	* read_dump.php3, lines 286-288; lang/*: "there is no query" were displayed
 	  when deleting a bookmark.
+	* Documentation.php3; main.php3; libraries/common.lib.php3: feature request
+	  #??? (will update this whn SF is up) - Improved security by no long
+	  requiring the "SELECT" privilege on the "Password" field for the standard
+	  user.
+	* Documentation.html: added faq entries about a Xitami 2.5b4 bug and a
+	  widespread IIS misconfiguration problem.
 
 2001-10-27  Olivier Müller  <om@omnis.ch>
 	* config.inc.php3: put the ENCRYPT function back to the config file.

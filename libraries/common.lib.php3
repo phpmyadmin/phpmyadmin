@@ -104,36 +104,42 @@ if (!defined('__LIB_COMMON__')){
 
     // For compatibility with old config.inc.php3
     if (!isset($cfgShowStats)) {
-        $cfgShowStats         = TRUE;
+        $cfgShowStats           = TRUE;
     }
     if (!isset($cfgShowTooltip)) {
-        $cfgShowTooltip       = TRUE;
+        $cfgShowTooltip         = TRUE;
     }
     if (!isset($cfgShowAll)) {
-        $cfgShowAll           = FALSE;
+        $cfgShowAll             = FALSE;
+    }
+    if (!isset($cfgNavigationBarIconic)) {
+        $cfgNavigationBarIconic = TRUE;
     }
     if (!isset($cfgProtectBinary)) {
         if (isset($cfgProtectBlob)) {
-            $cfgProtectBinary = ($cfgProtectBlob ? 'blob' : FALSE);
+            $cfgProtectBinary   = ($cfgProtectBlob ? 'blob' : FALSE);
             unset($cfgProtectBlob);
         } else {
-            $cfgProtectBinary = 'blob';
+            $cfgProtectBinary   = 'blob';
         }
     }
     if (!isset($cfgZipDump)) {
-        $cfgZipDump           = (isset($cfgGZipDump) ? $cfgGZipDump : TRUE);
+        $cfgZipDump             = (isset($cfgGZipDump) ? $cfgGZipDump : TRUE);
     }
     if (!isset($cfgLeftBgColor)) {
-        $cfgLeftBgColor       = '#D0DCE0';
+        $cfgLeftBgColor         = '#D0DCE0';
     }
     if (!isset($cfgRightBgColor)) {
-        $cfgRightBgColor      = '#F5F5F5';
+        $cfgRightBgColor        = '#F5F5F5';
+    }
+    if (!isset($cfgPointerColor)) {
+        $cfgPointerColor        = '#CCFFCC';
     }
     if (!isset($cfgTextareaCols)) {
-        $cfgTextareaCols      = 40;
+        $cfgTextareaCols        = 40;
     }
     if (!isset($cfgTextareaRows)) {
-        $cfgTextareaRows      = 7;
+        $cfgTextareaRows        = 7;
     }
 
     // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
@@ -527,7 +533,7 @@ if (!defined('__LIB_COMMON__')){
                 if (ereg($re, $dblist[$i])) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                     $rs          = mysql_query($local_query, $dbh);
-                    // "SHOW DATABASES" statements are disabled
+                    // "SHOW DATABASES" statement is disabled
                     if ($i == 0
                         && (mysql_error() && mysql_errno() == 1045)) {
                         $true_dblist   = $dblist;
@@ -555,11 +561,9 @@ if (!defined('__LIB_COMMON__')){
         // 'only_db' is empty for the current user -> checks for available
         // databases in the "mysql" db
         else {
-            $auth_query = 'SELECT User, Password, Select_priv '
+            $auth_query = 'SELECT User, Select_priv '
                         . 'FROM mysql.user '
-                        . 'WHERE '
-                        .    'User = \'' . sql_addslashes($cfgServer['user']) . '\' '
-                        .    'AND Password = PASSWORD(\'' . sql_addslashes($cfgServer['password']) . '\')';
+                        . 'WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
             $rs         = mysql_query($auth_query, $dbh); // Debug: or mysql_die('', $auth_query, FALSE);
         } // end if
 
