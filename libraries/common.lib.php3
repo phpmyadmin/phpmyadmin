@@ -214,11 +214,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         //  first of all lets remove all newlines - we'll add our own later
         $sql  = str_replace("\n", ' ', $sql);
         //  there should always be blanks around = and after , ()
+        //  fixme - i would like to replace ';' with '; ' but then i need
+        //  to know how to do that without getting ; within strings as well
         $sql  = str_replace('=', ' = ', $sql);
         $sql  = str_replace(',', ', ', $sql);
         $sql  = str_replace(')', ' ) ', $sql);
         $sql  = str_replace('(', ' ( ', $sql);
-        $sql  = str_replace(';', '  ; ', $sql);
+
         //  now split everything by the blanks
         $_sql_parts=explode(' ',$sql);
         //  start a loop over the parts check each word and put them back into $sql
@@ -230,37 +232,39 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // which might lead to empty members in the array
             if(strlen($_word)==0){continue;}
             $_is_string = FALSE;
+            // debug echo "prüfe: $_word ";
             //  Anything inside quots might be more than one word
             //  so as we splitted by the blanks we have to try to get those parts back
             //  together
-            if (
-                (substr($_word, 0, 1) == '\'' || substr($_word, 0, 1) == '"') &&
-                (!isset($_temp) || strlen($_temp)==0)
-                ) {
-                //  start of a string
-                $_temp = $_word;
-                $_is_string = TRUE;
-             } else {
-                if(isset($_temp) && strlen($_temp)>0){
+            if (substr($_word, 0, 1) == '\'' || substr($_word, 0, 1 == '"')
+                 && (!isset($_temp))) {
+                    //  start of a string
+                    $_temp = $_word;
+                    $_is_string = TRUE;
+                    // debug echo "starte " . $_temp . '<br />';
+            }else {
+                if(isset($_temp)) {
                     //  we are continuing a string
                     $_temp .= $_word;
                     $_is_string = TRUE;
-                }
+                    // debug echo "weiter " . $_temp . '<br />';
+                 }
             }
             if(substr($_word, strlen($_word)-1, 1) == '\''
                 || substr($_word, strlen($_word)-1, 1) == '"') {
                 //  End of a String
-                $_word = '<font color="' . $cfg['colorStrings'] . '">' . $_temp . '</font>';
-                $_temp = '';
+                $_word = '<font color="' . $cfg['colorStrings'] . '">' . htmlspecialchars($_temp) . '</font>';
+                unset($_temp);
+                // debug echo "fertig " . $_word . '<br />';
                 $_is_string = FALSE;
             }
             if(!isset($_is_string) || $_is_string == FALSE) {
                 // no String
                 if(eregi($_sfuncs,  $_word)) {
-                    $_word = '<font color="' . $cfg['colorFunctions'].'">' . $_word . '</font>';
+                    $_word = '<font color="' . $cfg['colorFunctions'].'">' . htmlspecialchars($_word) . '</font>';
                 } else {
                     if(eregi($_skeyw,  $_word)) {
-                        $_word = '<font color="' . $cfg['colorKeywords'].'">' . $_word . '</font>';
+                        $_word = '<font color="' . $cfg['colorKeywords'].'">' . htmlspecialchars($_word) . '</font>';
                         if(isset($mult) && $mult == TRUE){
                         } else {
                             $_word = "\n" . $_word;
@@ -268,10 +272,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
                     } else {
                         if(eregi($_scoltype, $_word)) {
-                            $_word = '<font color="' . $cfg['colorColType'].'">' . $_word . '</font>';
+                            $_word = '<font color="' . $cfg['colorColType'].'">' . htmlspecialchars($_word) . '</font>';
                         } else {
                             if(eregi($_add, $_word)) {
-                                $_word = '<font color="' . $cfg['colorAdd'].'">' . $_word . '</font>';
+                                $_word = '<font color="' . $cfg['colorAdd'].'">' . htmlspecialchars($_word) . '</font>';
                             } else {
                                 if($_word=='(') {
                                     $_brack_o[]=$s_nr;
@@ -298,6 +302,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $_sql_p[$s_nr] = $_word;
                 $s_nr++;
             }
+            // debug echo "<br />";
         }   //  End while
         if(isset($_brack_o)) {
             while (list($_num,$elem) = each($_brack_o)) {
@@ -1107,10 +1112,16 @@ if (typeof(document.getElementById) != 'undefined'
             if (!empty($GLOBALS['show_as_php'])) {
                 $new_line = '&quot;;<br />' . "\n" . '            $sql .= &quot;';
             }else{
-                $new_line = "<br />\n";
+                if($cfg['UseSyntaxColoring'] == FALSE){
+                    $new_line = "<br />\n";
+                }
             }
-            $query_base     = htmlspecialchars($GLOBALS['sql_query']);
-            $query_base     = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
+            if(isset($new_line)){
+                $query_base     = htmlspecialchars($GLOBALS['sql_query']);
+                $query_base     = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
+            }else{
+                $query_base     = $GLOBALS['sql_query'];
+            }
             if (!empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = &quot;' . $query_base;
             } else {
