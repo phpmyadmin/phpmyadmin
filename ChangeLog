@@ -9,6 +9,9 @@ $Source$
      * libraries/common.lib.php3: Whole tab is now link.
      * libraries/display_export.lib.php3: Disable CSV export for multiple
        tables - fixes #734104.
+     * lang/latvian: Update thanks to Sandis Jerics (saaa2002).
+     * lang/chinese: Update thanks to Wang (fundawang).
+     * lang/sync_lang.sh: Fix for POSIX sh.
 
 2003-05-09 Marc Delisle  <lem9@users.sourceforge.net>
      * libraries/display_tbl.lib.php3: bug 731367: hexifying all
