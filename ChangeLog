@@ -6,8 +6,10 @@ $Id$
 $Source$
 
 2004-04-17 Alexander M. Turek  <me@derrabus.de>
-    * db_create.php, main.php, libraries/mysql_charsets.lib.php:
+    * db_create.php, db_details_structure.php, db_details_common.php, main.php,
+      libraries/mysql_charsets.lib.php:
       Added ability to set / alter collations on database level.
+    * tbl_alter.php: Charset information got lost when changing fields.
 
 2004-04-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french update

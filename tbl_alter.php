@@ -174,7 +174,7 @@ if ($abort == FALSE) {
         } else {
             $field = PMA_sqlAddslashes($selected[$i], TRUE);
         }
-        $result        = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ' LIKE \'' . $field . '\';');
+        $result        = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ' LIKE \'' . $field . '\';');
         $fields_meta[] = PMA_DBI_fetch_assoc($result);
         PMA_DBI_free_result($result);
     }
