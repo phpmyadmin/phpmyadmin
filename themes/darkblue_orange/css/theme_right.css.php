@@ -500,7 +500,7 @@ img, input, select, button {
     color:            #666666;
     text-decoration:  none;
 }
-td.disabled {
+tr.disabled td, td.disabled {
     background-color: #cccccc;
 }
 

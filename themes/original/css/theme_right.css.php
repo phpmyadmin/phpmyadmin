@@ -285,7 +285,7 @@ img, input, select, button {
 .disabled a:hover {
     text-decoration: none;
 }
-td.disabled {
+tr.disabled td, td.disabled {
     background-color: #cccccc;
 }
 

@@ -144,7 +144,7 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
     $useBgcolorOne = TRUE;
     $common_url = './server_engines.php?' . PMA_generate_common_url() . '&amp;engine=';
     foreach ($mysql_storage_engines as $engine => $details) {
-        echo '        <tr>' . "\n"
+        echo '        <tr' . ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED' ? ' class="disabled"' : '') . '>' . "\n"
            . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
            . '                <a href="' . $common_url . $engine . '">' . "\n"
            . '                    ' . htmlspecialchars($details['Engine']) . "\n"
