@@ -221,11 +221,11 @@ if ($cfgRelation['pdfwork']) {
     } // end if (isset($do))
 
     // We will need an array of all tables in this db
-    $selectboxall[] = '--';
+    $selectboxall = array('--');
     $alltab_qry     = 'SHOW TABLES FROM ' . PMA_backquote($db);
     $alltab_rs      = @PMA_mysql_query($alltab_qry) or PMA_mysqlDie('', $alltab_qry, '', $err_url_0);
-    while (list($table) = @PMA_mysql_fetch_array($alltab_rs)) {
-        $selectboxall[] = $table;
+    while ($val = @PMA_mysql_fetch_array($alltab_rs)) {
+        $selectboxall[] = $table[0];
     }
 
 
