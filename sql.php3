@@ -616,9 +616,10 @@ else {
                 include('./db_details_common.php3');
                 include('./db_details_db_info.php3');
             }
-            include('./libraries/relation.lib.php3');
-            $cfgRelation = PMA_getRelationsParam();
         }
+
+        include('./libraries/relation.lib.php3');
+        $cfgRelation = PMA_getRelationsParam();
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
@@ -771,7 +772,7 @@ else {
 <!--
 // Do print the page
 if (typeof(window.print) != 'undefined') {
-    window.print();
+    // window.print();
 }
 //-->
 </script>

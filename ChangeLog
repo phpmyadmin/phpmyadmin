@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-06 Garvin Hicking <me@supergarv.de>
+    * sql.php3, libraries/display_tbl.lib.php3:
+      RFE #835491: Display linked values in printview. Display relation-
+      related features (comments, MIME-transformations) in printview.
+      Fix empty table rows in vertical display (kept Mozilla from displaying
+      borders in this printmode). Adjusted layout a tiny-weeny bit to let
+      the comments of a field fit the whole space.
+
 2003-11-06 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/xml.php3: Add xml header with encoding information 
       (bug #836630).
