@@ -5,7 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2003-05-13 Michal Cihar  <nijel@users.sourceforge.net>
+2003-05-15 Michal Cihar  <nijel@users.sourceforge.net>
+    * Documentation, config.inc.php3, tbl_change.php3,
+      libraries/config_import.lib.php3: Double sized textare for LONGTEXT is
+      configurable (RFE #737174).
+
+2003-05-14 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_export.lib.php3, tbl_dump.php3: Support for exporting
       CSV for multiple tables, it just puts all content into one file, but
       some people seem to want this (based on patch #735136).

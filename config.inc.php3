@@ -387,6 +387,7 @@ $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit m
                                             // (this value will be emphasized (*2) for sql
                                             // query textareas and (*1.25) for query window)
 $cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
+$cfg['LongtextDoubleTextarea'] = TRUE;      // double size of textarea size for longtext fields
 $cfg['TextareaAutoSelect']  = TRUE;         // autoselect when clicking in the textarea of the querybox
 $cfg['CharTextareaCols']    = 40;           // textarea size (columns) for CHAR/VARCHAR
 $cfg['CharTextareaRows']    = 2;            // textarea size (rows) for CHAR/VARCHAR

@@ -612,6 +612,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         }
     }
 
+    if (!isset($cfg['LongtextDoubleTextarea'])) {
+        $cfg['LongtextDoubleTextarea'] = TRUE;
+    }
+
     if (!isset($cfg['TextareaRows'])) {
         if (isset($cfgTextareaRows)) {
             $cfg['TextareaRows'] = $cfgTextareaRows;

@@ -449,7 +449,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         echo '        </td>' . "\n";
         unset($disp);
     }
-    else if (strstr($row_table_def['True_Type'], 'longtext')) {
+    else if ($cfg['LongtextDoubleTextarea'] && strstr($row_table_def['True_Type'], 'longtext')) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">&nbsp;</td>
     </tr>
