@@ -19,8 +19,7 @@ require('./libraries/common.lib.php3');
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (!isset($goto)
-    || ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3')) {
+if (!isset($goto) || !eregi('^(db_details|tbl_properties)(_[a-z]*)?\.php3$', $goto)) {
     $goto = 'db_details.php3';
 }
 $err_url  = $goto
