@@ -967,6 +967,17 @@
 </p>
 
 <p>
+    <b>Nothing is displayed by my browser when I try to run phpMyAdmin, what
+       can I do?</b>
+    <br />
+    Try to set the <tt>$cfgOBGZip</tt> directive to <tt>FALSE</tt> in the
+    phpMyAdmin configuration file. It helps sometime.<br />
+    Also have a look at your php version number: if it contains
+    &quot;4.0b...&quot; it means you're running a beta version of PHP. That's
+    not a so good idea, please upgrade to a plain revision.
+</p>
+
+<p>
     <b>Each time I want to insert or change a record or drop a database or a
        table, an error 404 (page not found) is displayed or, with advanced
        authentication, I'm asked to login again. What's wrong?</b>

@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2001-11-24  Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html, lines 969-979: added an other entry about the
+	  $cfgOBGZip setting and beta versions of php4.
 	* Documentation.txt: updated.
 	* scripts/create_release.sh: added some stuffes in the "ToDo" list at
 	  the end.
@@ -22,7 +24,9 @@ $Source$
 	  Detlev Stender <detlev.stender at web.de>.
 	* tbl_select.php3: the true MySQL type of columns is now displayed.
 	* left.php3: this frame wasn't taking into account the output buffering
-	  feature!
+	  feature! This should fix the problem some users faced with XP (thanks
+	  to an anonymous user who reported the at the SF bug tracker and did
+	  some testings).
 	* Documentation.html, lines 843-851: added an entry about a PWS bug and
 	  its workaround thanks to Filippo Simoncini.
 
