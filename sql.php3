@@ -364,7 +364,7 @@ else {
             include('./' . $goto);
         } // end if file_exist
         else {
-            header('Location: ' . $cfgPmaAbsoluteUri . str_replace('&amp;', '&', $goto) . '&message=' . $message);
+            header('Location: ' . $cfgPmaAbsoluteUri . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
         } // end else
         exit();
     } // end no rows returned
