@@ -12,6 +12,8 @@ $Source$
 	  File name too long in tbl_replace.php.
 	* tbl_printview.php3; tbl_properties.php3; tbl_properties.inc.php3: fixed
 	  bug #489440 - enum fields in tbl_properties.php.
+	* user_details.php3, lines 616, 617 & 624: fixed a double declaration of
+	  variables.
 
 2001-12-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/japanese.inc.php3; lang/bulgarian-*.inc.php3: completed thanks to

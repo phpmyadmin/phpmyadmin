@@ -605,23 +605,20 @@ function PMA_grantOperations($grants)
 /**
  * Displays the page to edit operations
  *
- * @param   string   the host name
- * @param   string   the user name
+ * @param   string   the host name to check grants for
+ * @param   string   the user name to check grants for
  *
  * @return  boolean  always true
  *
  * @global  string   the current language
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
- * @global  string   the host name to check grants for
- * @global  string   the username to check grants for
  *
  * @see     PMA_tablePrivileges()
  */
 function PMA_editOperations($host, $user)
 {
     global $lang, $server;
-    global $host, $pma_user;
 
     $result = mysql_query('SELECT * FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($user) . '\' AND Host = \'' . PMA_sqlAddslashes($host) . '\'');
     $rows   = @mysql_num_rows($result);
@@ -662,16 +659,16 @@ function PMA_editOperations($host, $user)
             </tr>
             <tr>
                 <td>
-                    <input type="radio" value="1" name="anyuser"<?php if ($pma_user == '' || $pma_user == '%') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="1" name="anyuser"<?php if ($user == '' || $user == '%') echo ' checked="checked"'; ?> />
                     <?php echo $GLOBALS['strAnyUser']; ?>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" value="0" name="anyuser" checked="checked"<?php if ($pma_user != '' && $pma_user != '%') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="0" name="anyuser" checked="checked"<?php if ($user != '' && $user != '%') echo ' checked="checked"'; ?> />
                     <?php echo $GLOBALS['strUserName']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
-                    <input type="text" name="new_user" size="10" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" onchange="this.form.anyuser[1].checked = true" />
+                    <input type="text" name="new_user" size="10" value="<?php echo str_replace('"', '&quot;', $user); ?>" onchange="this.form.anyuser[1].checked = true" />
                 </td>
             </tr>
             <tr>
@@ -705,7 +702,7 @@ function PMA_editOperations($host, $user)
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
-            <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" />
+            <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $user); ?>" />
             <input type="submit" name="submit_updProfile" value="<?php echo $GLOBALS['strGo']; ?>" />
         </form>
     </li>
@@ -720,7 +717,7 @@ function PMA_editOperations($host, $user)
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="server" value="<?php echo $server; ?>" />
             <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
-            <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" />
+            <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $user); ?>" />
             <input type="submit" name="submit_chgPriv" value="<?php echo $GLOBALS['strGo']; ?>" />
         </form>
     </li>
