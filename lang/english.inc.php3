@@ -214,6 +214,7 @@ $strNoUsersFound = 'No user(s) found.';
 $strNull = 'Null';
 
 $strOftenQuotation = 'Often quotation marks. OPTIONALLY means that only char and varchar fields are enclosed by the "enclosed by"-character.';
+$strOperations = 'Operations';
 $strOptimizeTable = 'Optimize table';
 $strOptionalControls = 'Optional. Controls how to write or read special characters.';
 $strOptionally = 'OPTIONALLY';
@@ -349,5 +350,4 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
-$strOperations = 'Operations';  //to translate
 ?>

@@ -214,6 +214,7 @@ $strNoUsersFound = 'Il n\'y a aucun utilisateur';
 $strNull = 'Null';
 
 $strOftenQuotation = 'Souvent des guillemets. OPTIONNEL signifie que seuls les champs de type char et varchar sont entourés par ce caractère.';
+$strOperations = 'Opérations';
 $strOptimizeTable = 'Optimiser la table';
 $strOptionalControls = 'Optionnel. Indique le caractère qui permet d\'enlever l\'effet des caractères spéciaux.';
 $strOptionally = 'OPTIONNEL';
@@ -349,5 +350,4 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-$strOperations = 'Operations';  //to translate
 ?>
