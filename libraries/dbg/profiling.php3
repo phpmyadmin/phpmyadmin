@@ -32,7 +32,7 @@ if (!defined('PMA_DBG_PROFILING_INCLUDED')) {
                 '<td>' . $GLOBALS['strDBGTimePerHitMs'] . '</td>' . "\n" .
                 '<td>' . $GLOBALS['strDBGTotalTimeMs'] . '</td>' . "\n" .
                 '<td>' . $GLOBALS['strDBGMinTimeMs'] . '</td>' . "\n" .
-                '<td>' . $GLOBALS['strDBGMinTimeMs'] . '</td>' . "\n" .
+                '<td>' . $GLOBALS['strDBGMaxTimeMs'] . '</td>' . "\n" .
                 '<td>' . $GLOBALS['strDBGContextID'] . '</td>' . "\n" .
                 '<td>' . $GLOBALS['strDBGContext'] . '</td>' . "\n" .
                 '</tr></thead>' . "\n" .

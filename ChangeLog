@@ -9,7 +9,7 @@ $Source$
     * tbl_addfield.php3: ignore empty fields on alter table
 
 2003-02-02 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * libiraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
+    * libraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
       compatibility.
     * lang/german-*.inc.php3: Updates.
     * server_privileges.php3: Remove column privileges.
@@ -31,6 +31,9 @@ $Source$
     * lang/romanian: update, thanks to Valics Lehel
     * lang/galician: update, thanks to Xosé Calvo
     * lang/lithuanian: update, thanks to Vilius Zigmantas
+    * lang/japanese: update, thanks to Yukihiro Kawada
+    * lang/*, libraries/dbg/profiling.php3: strDBGMaxTimeMs, 
+      thanks to Alexander
 
 2003-02-01 Robin Johnson  <robbat2@users.sourceforge.net>
     * R.I.P.: --- On Feb. 1, 2003, the Space Shuttle Columbia (STS-107) was lost during its
