@@ -22,12 +22,11 @@ mysql_select_db($db);
  * The form used to define the structure of the table has been submitted
  */
 if (isset($submit)) {
-    if (!isset($query)) {
-        $query = '';
-    }
+    $sql_query = $query_cpy = '';
 
     // Builds the fields creation statements
-    for ($i = 0; $i < count($field_name); $i++) {
+    $fields_cnt = count($field_name);
+    for ($i = 0; $i < $fields_cnt; $i++) {
         if (empty($field_name[$i])) {
             continue;
         }
@@ -37,7 +36,7 @@ if (isset($submit)) {
         if (MYSQL_INT_VERSION < 32306) {
             check_reserved_words($field_name[$i]);
         }
-        $query .= backquote($field_name[$i]) . ' ' . $field_type[$i];
+        $query = backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != '') {
             if (get_magic_quotes_gpc()) {
                 $query .= '(' . stripslashes($field_length[$i]) . ')';
@@ -65,17 +64,18 @@ if (isset($submit)) {
         } else {
             $query .= ', ';
         }
+        $sql_query .= $query;
+        $query_cpy .= "\n" . '  ' . $query;
     } // end for
-    $query = ereg_replace(', $', '', $query);
+    unset($fields_cnt);
+    unset($query);
+    $sql_query = ereg_replace(', $', '', $sql_query);
+    $query_cpy = ereg_replace(', $', '', $query_cpy);
 
     // Builds the primary keys statements
-    if (!isset($primary)) {
-        $primary = '';
-    }
-    if (!isset($field_primary)) {
-        $field_primary = array();
-    }
-    for ($i = 0; $i < count($field_primary); $i++) {
+    $primary     = '';
+    $primary_cnt = (isset($field_primary) ? count($field_primary) : 0);
+    for ($i = 0; $i < $primary_cnt; $i++) {
         $j = $field_primary[$i];
         if (!empty($field_name[$j])) {
             if (get_magic_quotes_gpc()) {
@@ -84,40 +84,38 @@ if (isset($submit)) {
             $primary .= backquote($field_name[$j]) . ', ';
         }
     } // end for
+    unset($primary_cnt);
     $primary = ereg_replace(', $', '', $primary);
     if (!empty($primary)) {
-        $primary = ', PRIMARY KEY (' . $primary . ')';
+        $sql_query .= ', PRIMARY KEY (' . $primary . ')';
+        $query_cpy .= ',' . "\n" . '  PRIMARY KEY (' . $primary . ')';
     }
+    unset($primary);
 
     // Builds the indexes statements
-    if (!isset($index)) {
-        $index = '';
-    }
-    if (!isset($field_index)) {
-        $field_index = array();
-    }
-    for ($i = 0;$i < count($field_index); $i++) {
+    $index     = '';
+    $index_cnt = (isset($field_index) ? count($field_index) : 0);
+    for ($i = 0;$i < $index_cnt; $i++) {
         $j = $field_index[$i];
         if (!empty($field_name[$j])) {
             if (get_magic_quotes_gpc()) {
                 $field_name[$j] = stripslashes($field_name[$j]);
             }
-           $index .= backquote($field_name[$j]) . ', ';
+            $index .= backquote($field_name[$j]) . ', ';
         }
     } // end for
+    unset($index_cnt);
     $index = ereg_replace(', $', '', $index);
     if (!empty($index)) {
-        $index = ', INDEX (' . $index . ')';
+        $sql_query .= ', INDEX (' . $index . ')';
+        $query_cpy .= ',' . "\n" . '  INDEX (' . $index . ')';
     }
+    unset($index);
 
     // Builds the uniques statements
-    if (!isset($unique)) {
-        $unique = '';
-    }
-    if (!isset($field_unique)) {
-        $field_unique = array();
-    }
-    for ($i = 0; $i < count($field_unique); $i++) {
+    $unique     = '';
+    $unique_cnt = (isset($field_unique) ? count($field_unique) : 0);
+    for ($i = 0; $i < $unique_cnt; $i++) {
         $j = $field_unique[$i];
         if (!empty($field_name[$j])) {
             if (get_magic_quotes_gpc()) {
@@ -126,19 +124,18 @@ if (isset($submit)) {
            $unique .= backquote($field_name[$j]) . ', ';
         }
     } // end for
+    unset($unique_cnt);
     $unique = ereg_replace(', $', '', $unique);
     if (!empty($unique)) {
-        $unique = ', UNIQUE (' . $unique . ')';
+        $sql_query .= ', UNIQUE (' . $unique . ')';
+        $query_cpy .= ',' . "\n" . '  UNIQUE (' . $unique . ')';
     }
+    unset($unique);
 
     // Builds the fulltextes statements
-    if (!isset($fulltext)) {
-        $fulltext = '';
-    }
-    if (!isset($field_fulltext) || MYSQL_INT_VERSION < 32323) {
-        $field_fulltext = array();
-    }
-    for ($i = 0; $i < count($field_fulltext); $i++) {
+    $fulltext     = '';
+    $fulltext_cnt = (isset($field_fulltext) ? count($field_fulltext) : 0);
+    for ($i = 0; $i < $fulltext_cnt; $i++) {
         $j = $field_fulltext[$i];
         if (!empty($field_name[$j])) {
             if (get_magic_quotes_gpc()) {
@@ -147,32 +144,36 @@ if (isset($submit)) {
            $fulltext .= backquote($field_name[$j]) . ', ';
         }
     } // end for
+    unset($field_fulltext);
     $fulltext = ereg_replace(', $', '', $fulltext);
     if (!empty($fulltext)) {
-        $fulltext = ', FULLTEXT (' . $fulltext . ')';
+        $sql_query .= ', FULLTEXT (' . $fulltext . ')';
+        $query_cpy .= ',' . "\n" . '  FULLTEXT (' . $fulltext . ')';
     }
-
-    $query_keys = $primary . $index . $unique . $fulltext;
-    $query_keys = ereg_replace(', $', '', $query_keys);
+    unset($fulltext);
 
     // Builds the 'create table' statement
-    $sql_query = 'CREATE TABLE ' . backquote($table) . ' ('
-               . $query . ' '
-               . $query_keys . ')';
-    // Adds table type (2 May 2001 - Robbat2)
+    $sql_query      = 'CREATE TABLE ' . backquote($table) . ' (' . $sql_query . ')';
+    $query_cpy      = 'CREATE TABLE ' . backquote($table) . ' (' . $query_cpy . "\n" . ')';
+
+    // Adds table type and comments (2 May 2001 - Robbat2)
     if (!empty($tbl_type) && ($tbl_type != 'Default')) {
         $sql_query .= ' TYPE = ' . $tbl_type;
+        $query_cpy .= ' TYPE = ' . $tbl_type;
     }
     if (MYSQL_INT_VERSION >= 32300 && !empty($comment)) {
         if (get_magic_quotes_gpc()) {
             $comment = stripslashes($comment);
         }
-        $sql_query .= ' comment = \'' . sql_addslashes($comment) . '\'';
+        $sql_query .= ' COMMENT = \'' . sql_addslashes($comment) . '\'';
+        $query_cpy .= "\n" . 'COMMENT = \'' . sql_addslashes($comment) . '\'';
     }
 
     // Executes the query
-    $result  = mysql_query($sql_query) or mysql_die();
-    $message = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
+    $result    = mysql_query($sql_query) or mysql_die();
+    $sql_query = $query_cpy . ';';
+    unset($query_cpy);
+    $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
     include('./tbl_properties.php3');
     exit();
 } // end do create table
