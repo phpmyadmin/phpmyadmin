@@ -10,6 +10,7 @@ $Source$
       calendar.
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * querywindow.php: Bug #942395 - Missing space
     * libraries/display_tbl.lib.php: Bug #942362 - Colspan of results
       table off by one.
     * db_datadict.php: Bug #942359 - Data dictionary had wrong <div>-
