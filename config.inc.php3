@@ -315,6 +315,11 @@ $cfg['AllowAnywhereRecoding'] = FALSE;
 //      recode - use recode_string function
 $cfg['RecodingEngine'] = 'auto';
 
+// Specify some parameters for iconv used in charset conversion. See iconv
+// documentation for details:
+// http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html 
+$cfg['IconvExtraParams'] = '//IGNORE';
+
 // Available charsets for MySQL conversion. currently contains all which could
 // be found in lang/* files and few more.
 // Charsets will be shown in same order as here listed, so if you frequently

@@ -1325,6 +1325,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['IconvExtraParams'] </b>string</dt>
+    <dd>
+        Specify some parameters for iconv used in charset conversion. See 
+        <a
+        href="http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html">iconv
+        documentation</a> for details.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['AvailableCharsets'] </b>array</dt>
     <dd>
         Available character sets for MySQL conversion. You can add your own (any of

@@ -82,6 +82,10 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
     define('PMA_CHARSET_LIBICONV', 2);
     define('PMA_CHARSET_RECODE', 3);
 
+    if (!isset($cfg['IconvExtraParams'])) {
+        $cfg['IconvExtraParams'] = '//IGNORE';
+    }
+
     // Finally detects which function will we use:
     if (isset($cfg['AllowAnywhereRecoding'])
         && $cfg['AllowAnywhereRecoding']
@@ -185,7 +189,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
                     return recode_string($convcharset . '..'  . $charset, $what);
                     break;
                 case PMA_CHARSET_ICONV:
-                    return iconv($convcharset, $charset, $what);
+                    return iconv($convcharset, $charset . $cfg['IconvExtraParams'], $what);
                     break;
                 case PMA_CHARSET_LIBICONV:
                     return libiconv($convcharset, $charset, $what);
@@ -241,7 +245,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
                     return recode_string($charset . '..'  . $convcharset, $what);
                     break;
                 case PMA_CHARSET_ICONV:
-                    return iconv($charset, $convcharset, $what);
+                    return iconv($charset, $convcharset . $cfg['IconvExtraParams'], $what);
                     break;
                 case PMA_CHARSET_LIBICONV:
                     return libiconv($charset, $convcharset, $what);
@@ -272,7 +276,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
                 return recode_string($src_charset . '..'  . $dest_charset, $what);
                 break;
             case PMA_CHARSET_ICONV:
-                return iconv($src_charset, $dest_charset, $what);
+                return iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $what);
                 break;
             case PMA_CHARSET_LIBICONV:
                 return libiconv($src_charset, $dest_charset, $what);
@@ -312,7 +316,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
                     while (!feof($fin)) {
                         $line = fgets($fin, 4096);
                         if ($GLOBALS['PMA_recoding_engine'] == PMA_CHARSET_ICONV) {
-                            $dist = iconv($src_charset, $dest_charset, $line);
+                            $dist = iconv($src_charset, $dest_charset . $GLOBALS['cfg']['IconvExtraParams'], $line);
                         } else {
                             $dist = libiconv($src_charset, $dest_charset, $line);
                         }

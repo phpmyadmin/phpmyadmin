@@ -482,6 +482,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['AllowAnywhereRecoding'] = FALSE;
     }
 
+    if (!isset($cfg['IconvExtraParams'])) {
+        $cfg['IconvExtraParams'] = '//IGNORE';
+    }
+
     if (!isset($cfg['Lang']) &&isset($cfgLang)) {
         $cfg['Lang'] = $cfgLang;
         unset($cfgLang);
