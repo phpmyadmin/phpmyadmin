@@ -12,6 +12,9 @@ $Source$
     * tbl_properties_strcuture, tbl_properties_table_info.php:
       - Changed "Charset" label to "Collation" because it fits better;
       - The column collations weren't displayed with MySQL 5.0.
+    * libraries/sqlparser.data.php: New reserved words:
+      - COLLATE (since MySQL 4.1.0);
+      - RETURN  (since MySQL 5.0.0).
 
 2003-12-28 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.5 released
