@@ -96,6 +96,7 @@ if ($cfg['LeftDisplayLogo']) {
            . '<img src="./images/pma_logo2.png" alt="phpMyAdmin" border="0" />'
            . '</a></div>' . "\n";
     }
+    echo '<hr />';
 } // end of display logo
 
 if ($cfg['MainPageIconic']) {
@@ -104,7 +105,6 @@ if ($cfg['MainPageIconic']) {
     $str_spacer_links=' - ';
 }
     ?>
-    <hr />
 <!-- Link to the welcome page -->
     <div align="center">
 <?php

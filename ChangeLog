@@ -11,6 +11,7 @@ $Source$
       libraries/config_import.lib.php: Support for SHA1 function (RFE
       #971703).
     * main.php: Possible undefined variable.
+    * queryframe.php: Do not show <hr /> when no logo is shown.
 
 2004-06-09 Alexander M. Turek  <me@derrabus.de>
     * libraries/config_import.lib.php: The default settings should be merged.
