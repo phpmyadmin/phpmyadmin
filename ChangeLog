@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-05 Marc Delisle  <lem9@users.sourceforge.net>
+     * libraries/build_dump.lib.php3: bug 731866: text fields were
+       exported hexified, because mysql_field_type() was used and
+       it returns 'blob' for 'text' fields, so use a new PMA_fieldTypes()
+ 
 2003-05-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/get_foreign.lib.php3: bug 731480: was not counting
       the rows of the foreign, thanks to Stefan Elssner
