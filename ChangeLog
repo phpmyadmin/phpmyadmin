@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-17 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Fix typos (translation #1103785).
+
 2005-01-17 Alexander M. Turek  <me@derrabus.de>
     * server_engines.php, lang/*.inc.php: Nice output for some MyISAM
       parameters.
