@@ -173,6 +173,8 @@ if ($num_dbs > 1) {
                           . '&server=' . urlencode($server)
                           . '&db=' . urlencode($db);
 
+        if ($num_tables) { $num_tables_disp = $num_tables; } else { $num_tables_disp = "-"; }
+
         // Displays the database name
         echo "\n";
         echo '    <div id="el' . $j . 'Parent" class="parent">';
@@ -192,7 +194,7 @@ if ($num_dbs > 1) {
         echo "\n";
         ?>
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="expandBase('el<?php echo $j; ?>', false);">
-            <font color="black" class="heada"><?php echo $db; ?> (<?php echo $num_tables; ?>)</font></a>
+            <font color="black" class="heada"><?php echo $db; ?> (<?php echo $num_tables_disp; ?>)</font></a>
     </div>
 
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
@@ -248,12 +250,14 @@ else if ($num_dbs == 1) {
                       . '&server=' . urlencode($server)
                       . '&db=' . urlencode($db);
 
+    if ($num_tables) { $num_tables_disp = $num_tables; } else { $num_tables_disp = "-"; }
+
     // Displays the database name
     echo "\n";
     ?>
     <div id="el2Parent" class="parent">
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>">
-            <font color="black" class="heada"><?php echo $db; ?> (<?php echo $num_tables; ?>)</font></a>
+            <font color="black" class="heada"><?php echo $db; ?> (<?php echo $num_tables_disp; ?>)</font></a>
     </div>
     <div id="el2Child" class="child" style="margin-bottom: 5px">
     <?php
