@@ -30,11 +30,9 @@ var isExpanded   = false;
  */
 
 var imgOpened    = new Image(9,9);
-//imgOpened.src    = 'images/minus.png';
 imgOpened.src    = imgUrlMinus;
 
 var imgClosed    = new Image(9,9);
-//imgClosed.src    = 'images/plus.png';
 imgClosed.src    = imgUrlPlus;
 
 
