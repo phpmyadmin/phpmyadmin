@@ -109,6 +109,7 @@ else if ($num_dbs == 1) {
     body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
     div {color: #000000}
     .heada {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: 8pt}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
     .child {font-family: <?php echo $left_font_family; ?>; font-size: 8pt; color: #333399; text-decoration: none}
     .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
@@ -126,6 +127,7 @@ else {
     body {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
     div {color: #000000}
     .heada {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
+    .heada_cnt {font-family: <?php echo $left_font_family; ?>; font-size: 8pt}
     //-->
     </style>
     <?php
@@ -167,13 +169,16 @@ if ($num_dbs > 1) {
         if (!empty($db_start) && $db == $db_start) {
             $selected_db = $j;
         }
-        $tables           = @mysql_list_tables($db);
-        $num_tables       = @mysql_numrows($tables);
-        $common_url_query = 'lang=' . $lang
-                          . '&server=' . urlencode($server)
-                          . '&db=' . urlencode($db);
-
-        if ($num_tables) { $num_tables_disp = $num_tables; } else { $num_tables_disp = "-"; }
+        $tables              = @mysql_list_tables($db);
+        $num_tables          = @mysql_numrows($tables);
+        $common_url_query    = 'lang=' . $lang
+                             . '&server=' . urlencode($server)
+                             . '&db=' . urlencode($db);
+        if ($num_tables) {
+            $num_tables_disp = $num_tables;
+        } else {
+            $num_tables_disp = '-';
+        }
 
         // Displays the database name
         echo "\n";
@@ -194,7 +199,7 @@ if ($num_dbs > 1) {
         echo "\n";
         ?>
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="expandBase('el<?php echo $j; ?>', false);">
-            <font color="black" class="heada"><?php echo $db; ?> (<?php echo $num_tables_disp; ?>)</font></a>
+            <font color="black" class="heada"><?php echo $db; ?>&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a>
     </div>
 
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
@@ -244,20 +249,23 @@ else if ($num_dbs == 1) {
     } else {
         $db  = $dblist[0];
     }
-    $tables           = @mysql_list_tables($db);
-    $num_tables       = @mysql_numrows($tables);
-    $common_url_query = 'lang=' . $lang
-                      . '&server=' . urlencode($server)
-                      . '&db=' . urlencode($db);
-
-    if ($num_tables) { $num_tables_disp = $num_tables; } else { $num_tables_disp = "-"; }
-
+    $tables              = @mysql_list_tables($db);
+    $num_tables          = @mysql_numrows($tables);
+    $common_url_query    = 'lang=' . $lang
+                         . '&server=' . urlencode($server)
+                         . '&db=' . urlencode($db);
+    if ($num_tables) {
+        $num_tables_disp = $num_tables;
+    } else {
+        $num_tables_disp = '-';
+    }
+    
     // Displays the database name
     echo "\n";
     ?>
     <div id="el2Parent" class="parent">
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>">
-            <font color="black" class="heada"><?php echo $db; ?> (<?php echo $num_tables_disp; ?>)</font></a>
+            <font color="black" class="heada"><?php echo $db; ?>&nbsp;<span class="heada_cnt">(<?php echo $num_tables_disp; ?>)</span></font></a>
     </div>
     <div id="el2Child" class="child" style="margin-bottom: 5px">
     <?php

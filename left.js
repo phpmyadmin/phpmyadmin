@@ -220,6 +220,7 @@ if (capable) {
       var lstyle = '<style type="text/css">'
                  + 'div {color: #000000;}'
                  + '.heada {font-family: ' + fontFamily + '; font-size: 10pt}'
+                 + '.heada_cnt {font-family: ' + fontFamily + '; font-size: 8pt}'
                  + '.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration:none; display: block}'
                  + '.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration:none; display: none}'
                  + '.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none; font-size: 8pt;}'
@@ -231,6 +232,7 @@ if (capable) {
       write('<style type="text/css">');
       write('div {color: #000000; }');
       write('.heada {font-family: ' + fontFamily + '; font-size: 10pt}');
+      write('.heada_cnt {font-family: ' + fontFamily + '; font-size: 8pt}');
       if (isIE4) {
         write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none; display: block}');
         write('.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration: none; display: none}');
@@ -251,6 +253,7 @@ else {
     write('<style type="text/css">');
     write('div {color: #000000; }');
     write('.heada {font-family: ' + fontFamily + '; font-size: 10pt}');
+    write('.heada_cnt {font-family: ' + fontFamily + '; font-size: 8pt}');
     write('.parent {font-family: ' + fontFamily + '; color: #000000; text-decoration: none}');
     write('.child {font-family: ' + fontFamily + '; font-size: 8pt; color: #333399; text-decoration: none}');
     write('.item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}');
