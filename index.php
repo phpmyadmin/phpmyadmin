@@ -99,8 +99,8 @@ if ($cfg['QueryFrame']) {
     if ($cfg['QueryFrameJS']) {
         echo '<script type="text/javascript">' . "\n";
         echo '<!--' . "\n";
-        echo '    document.writeln(\'<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0">\');' . "\n";
-        echo '    document.writeln(\'    <frameset rows="' . $query_frame_height . ', *" framespacing="0" frameborder="0" border="0">\');' . "\n";
+        echo '    document.writeln(\'<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0" name="mainFrameset" id="mainFrameset">\');' . "\n";
+        echo '    document.writeln(\'    <frameset rows="' . $query_frame_height . ', *" framespacing="0" frameborder="0" border="0" name="leftFrameset" id="leftFrameset">\');' . "\n";
         echo '    document.writeln(\'        <frame src="queryframe.php?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="queryframe" frameborder="0" scrolling="no" />\');' . "\n";
         echo '    document.writeln(\'        <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="nav" frameborder="0" />\');' . "\n";
         echo '    document.writeln(\'    </frameset>\');' . "\n";
