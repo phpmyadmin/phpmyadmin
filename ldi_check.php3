@@ -31,7 +31,7 @@ if (isset($btnLDI) && ($textfile != 'none')) {
 
     // Kanji encoding convert appended by Y.Kawada
     if (function_exists('PMA_kanji_file_conv')) {
-        $textfile         = PMA_kanji_file_conv($textfile, $knjenc, $xkana);
+        $textfile         = PMA_kanji_file_conv($textfile, $knjenc, isset($xkana) ? $xkana : '');
     }
     // Formats the data posted to this script
     $textfile             = PMA_sqlAddslashes($textfile);

@@ -265,7 +265,8 @@ else {
     }
 
     // tmpfile remove after convert encoding appended by Y.Kawada
-    if (function_exists('PMA_kanji_file_conv') && file_exists($textfile)) {
+    if (function_exists('PMA_kanji_file_conv')
+        && (isset($textfile) && file_exists($textfile))) {
         unlink($textfile);
     }
 

@@ -66,6 +66,7 @@ if (function_exists('PMA_set_enc_form')) {
          . PMA_set_enc_form('            ')
          . '        </td>' . "\n"
          . '    </tr>' . "\n";
+} // end if
 ?>
     <tr>
         <td colspan="3" align="center"><?php print PMA_showDocuShort('L/O/LOAD_DATA.html'); ?></td>
