@@ -647,7 +647,7 @@ function table_users($host = false, $user = false)
     global $cfgBorder, $cfgBgcolorOne, $cfgBgcolorTwo;
     global $server, $lang, $db, $table;
     global $self;
-
+    global $strDelete;
     global $strEdit, $strGrants;
     global $strAction, $strHost, $strUser, $strPassword, $strPrivileges;
     global $strNoPrivileges, $strDeleteUserMessage, $strRememberReload;
