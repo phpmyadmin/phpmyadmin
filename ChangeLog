@@ -5,10 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-06 Alexander M. Turek  <therising@derrabus.de>
+    * libraries/charset_conversion.lib.php: Skip charset conversion code if
+      input charset and output charset are the same.
+
 2004-01-05 Garvin Hicking <returnofthegarv@supergarv.de>
     * browse_foreigners.php, tbl_change.php: Sort key/value pairs
       as discussed in RFE #868369. Made foreigner window resizable.
-    * libraries/functions.js: Reverted row marker patch. See RFE #867284 
+    * libraries/functions.js: Reverted row marker patch. See RFE #867284
       for details.
     * libraries/display_tbl.lib.php, libraries/display_tbl_links.lib.php,
       libraries/functions.js: Upon clicking on a result row, de/activate
