@@ -9,7 +9,12 @@ $Source$
     * left.php, config.inc.php, Documentation.html,
       libraries/config_import.lib.php + common.lib.php, all colors.inc.php:
       $cfg['LeftPointerEnable']
-      (I am still working for BrowsePointerEnable and BrowseMarkerEnable)
+    * db_details_structure.php, server_variables.php, 
+      tbl_properties_structure.php, config.inc.php, Documentation.html,
+      libraries/config_import.lib.php + common.lib.php + display_tbl.lib.php,
+      all colors.inc.php:
+      $cfg['BrowsePointerEnable']
+      (I am still working for BrowseMarkerEnable)
 
 2004-06-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysqli.dbi.php: Undefined variable if PMA_DBI_getError() is
