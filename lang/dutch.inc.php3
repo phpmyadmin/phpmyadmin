@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/06/04 12:44.
+ * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/06/06 9:20.
  */
 
 $charset = 'iso-8859-1';
@@ -72,12 +72,14 @@ $strChangePassword = 'Wijzig paswoord';
 $strCheckAll = 'Selecteer alles';
 $strCheckDbPriv = 'Controleer database rechten';
 $strCheckTable = 'Controleer tabel';
+$strChoosePage = 'Kies een pagina om aan te passen';
 $strColumn = 'Kolom';
 $strColumnNames = 'Kolom namen';
 $strCompleteInserts = 'Insert voltooid';
 $strConfigureTableCoord = 'Configureer de coördinaten voor de tabel %s';
 $strConfirm = 'Weet u zeker dat u dit wilt?';
 $strCookiesRequired = 'Cookies moeten aan staan voorbij dit punt.';
+$strCoordsNotSet = 'table_coords tabel niet gevonden of niet ingesteld in config.inc.php3';
 $strCopyTable = 'Kopieer tabel naar (database<b>.</b>tabel):';
 $strCopyTableOK = 'Tabel %s is gekopieerd naar %s.';
 $strCreate = 'Aanmaken';
@@ -85,6 +87,7 @@ $strCreateIndex = 'Creëer een index op kolommen&nbsp;%s&nbsp;';
 $strCreateIndexTopic = 'Creëer een nieuwe index';
 $strCreateNewDatabase = 'Nieuwe database aanmaken';
 $strCreateNewTable = 'Nieuwe tabel aanmaken in database %s';
+$strCreatePage = 'Creëer een nieuwe pagina';
 $strCriteria = 'Criteria';
 
 $strData = 'Data';
@@ -115,6 +118,7 @@ $strDumpXRows = '%s rijen aan het dumpen, start bij rij %s.';
 $strDynamic = 'dynamisch';
 
 $strEdit = 'Wijzigen';
+$strEditPDFPages = 'PDF Paginas aanpassen';
 $strEditPrivileges = 'Wijzig rechten';
 $strEffective = 'Effectief';
 $strEmpty = 'Legen';
@@ -164,6 +168,7 @@ $strIndexHasBeenDropped = 'Index %s is vervallen';
 $strIndexName = 'Index naam&nbsp;:';
 $strIndexType = 'Index type&nbsp;:';
 $strIndexes = 'Indices';
+$strInfoNotSet = 'table_info tabel niet gevonden of niet ingesteld in config.inc.php3';
 $strInsert = 'Invoegen';
 $strInsertAsNewRow = 'Voeg toe als nieuwe rij';
 $strInsertNewRow = 'Nieuwe rij invoegen';
@@ -174,8 +179,7 @@ $strInvalidName = '"%s" is een gereserveerd woord, je kan het niet gebruiken voo
 
 $strKeepPass = 'Wijzig het paswoord niet';
 $strKeyname = 'Sleutelnaam';
-$strKill = 'Ongedaan maken'; //! Is this OK?
-
+$strKill = 'stop proces';
 $strLength = 'Lengte';
 $strLengthSet = 'Lengte/Waardes*';
 $strLimitNumRows = 'records per pagina';
@@ -206,6 +210,7 @@ $strName = 'Naam';
 $strNext = 'Volgende';
 $strNo = 'Nee';
 $strNoDatabases = 'Geen databases';
+$strNoDescription = 'Geen beschrijving aanwezig';
 $strNoDropDatabases = '"DROP DATABASE" opdrachten zijn niet mogelijk.';
 $strNoFrames = 'phpMyAdmin is vriendelijker met een browser die <b>frames</b> aan kan.';
 $strNoIndex = 'Geen index gedefinieerd!';
@@ -265,6 +270,7 @@ $strQueryOnDb = 'SQL-query op database <b>%s</b>:';
 $strReType = 'Type opnieuw';
 $strRecords = 'Records';
 $strReferentialIntegrity = 'Controleer referentiële integriteit';
+$strRelationNotSet = 'Relatietabel niet gevonden of niet ingesteld in config.inc.php3';
 $strRelationView = 'Relatie overzicht';
 $strReloadFailed = 'Opnieuw laden van MySQL mislukt.';
 $strReloadMySQL = 'MySQL opnieuw laden.';
@@ -310,6 +316,7 @@ $strSelectADb = 'Selecteer A.U.B. een database';
 $strSelectAll = 'Selecteer Alles';
 $strSelectFields = 'Selecteer velden (tenminste 1):';
 $strSelectNumRows = 'in query';
+$strSelectTables = 'Selecteer tabellen';
 $strSend = 'verzenden';
 $strServerChoice = 'Server keuze';
 $strServerVersion = 'Server versie';
@@ -369,7 +376,7 @@ $strUpdateProfile = 'Pas profiel aan:';
 $strUpdateProfileMessage = 'Het profiel is aangepast.';
 $strUpdateQuery = 'Wijzig Query';
 $strUsage = 'Gebruik';
-$strUseBackquotes = 'Gebruik backquotes bij tabellen en velden\' namen'; //! what are backquotes?
+$strUseBackquotes = 'Gebruik backquotes bij tabellen en velden\' namen'; //! what are backquotes? - good question what was the original line, because i didn't set this one :-)
 $strUseTables = 'Gebruik tabellen';
 $strUser = 'Gebruiker';
 $strUserEmpty = 'De gebruikersnaam is leeg!';
@@ -389,12 +396,4 @@ $strYes = 'Ja';
 $strZip = '"Gezipt"';
 
 // To translate
-$strEditPDFPages = 'Edit PDF Pages';  //to translate
-$strNoDescription = 'no Description';  //to translate
-$strRelationNotSet = 'Relationtable not found or not set in config.inc.php3';  //to translate
-$strInfoNotSet = 'table_info table not found or not set in config.inc.php3';  //to translate
-$strCoordsNotSet = 'table_coords table not found or not set in config.inc.php3';  //to translate
-$strChoosePage = 'Please choose a Page to edit';  //to translate
-$strCreatePage = 'Create a new Page';  //to translate
-$strSelectTables = 'Select Tables';  //to translate
 ?>
