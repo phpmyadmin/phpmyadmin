@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-08-02  Benjamin Gandon <gandon@isia.cma.fr>
+	* Documentation.html: added a FAQ entry about the buggy php
+	                      package still available for RedHat 7.0
+	                      update.
+
 2001-08-02  Steve Alberty  <alberty@neptunlabs.de>
 	* sql.php3: fix confirm bug with the new backquotes
 	* db_readdump.php3: mysql_die2 to mysql_die

@@ -810,6 +810,35 @@
      
 </p>
 
+<p>
+    <b>I'm having troubles when uploading files. In general file
+    uploads don't work on my system and uploaded files have a
+    <i>Content-Type:</i> header in the first line.</b>
+    <br />    
+
+    It's not really phpMyAdmin related but RedHat 7.0. You have a
+    RedHat 7.0 and you updated your php rpm to
+    php-4.0.4pl1-3.i386.rpm, didn't you?
+    <br />
+    So the problem is that this packaged has a serious bug that was
+    corrected ages ago in php (2001-01-28: see <a
+    href="http://www.php.net/bugs.php?id=8966">php's bug tracking
+    system</a> for more details). The problem is that the bugged
+    package is still available though it was corrected (see <a
+    href="http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933">redhat's
+    bugzilla</a> for more details).
+    <br />
+    So please download <a
+    href="http://people.redhat.com/nalin/test/php-4.0.4pl1-7.i386.rpm">the
+    fixed package</a> and the problem should go away.
+    <br />
+
+
+And that fixes the \r\n problem with
+file uploads!
+
+</p>
+
 
 
 <!-- FAQ -->
