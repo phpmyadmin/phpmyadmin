@@ -952,12 +952,12 @@ if (isset($Field) && count($Field) > 0) {
             if ($run > 5) {
 
                 foreach ($tab_left AS $tab) {
-                    $emerg    .= ', ' . $tab;
+                    $emerg    .= ', ' . PMA_backquote($tab);
                     $tab_left = PMA_arrayShort($tab_left, $tab);
                 }
             }
         } // end while
-        $qry_from = $master . $emerg . $fromclause;
+        $qry_from = PMA_backquote($master) . $emerg . $fromclause;
     } // end if ($cfgRelation['relwork'] && count($tab_all) > 0)
 
 } // end count($Field) > 0
