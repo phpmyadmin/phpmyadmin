@@ -1,20 +1,20 @@
 
                       phpMyAdmin 2.3.0-rc3 Documentation
-
+                                       
      * Sourceforge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ]
      * Local documents:
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.273 2002/06/29
-       20:32:13 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.282 2002/07/14
+       15:04:15 lem9 Exp $
    ______________________________________________________________________
-
+   
    Top  -  Requirements  -  Introduction  -  Installation  -
    Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
-
+   
 Requirements
 
      * PHP3 or PHP4: phpMyAdmin widely uses the 'str_replace()' php
@@ -24,11 +24,11 @@ Requirements
      * MySQL (tested with 3.21.x, 3.22.x, 3.23.x and 4.0.x);
      * a web-browser (doh!).
    ______________________________________________________________________
-
+   
    Top  -  Requirements  -  Introduction  -  Installation  -
    Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
-
+   
 Introduction
 
    phpMyAdmin can manage a whole MySQL-server (needs a super-user) but
@@ -46,34 +46,34 @@ Introduction
      * export (*) and import data to CSV values
      * administer multiple servers and single databases
      * check referential integrity
-     * create complex Queries automatically connecting required tables
+     * create complex queries automatically connecting required tables
      * create PDF graphics of your Database layout
      * communicate in more than 38 different languages
-
+       
    (*)  phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats)
    dumps and CSV exports if you use PHP4 >= 4.0.4 with Zlib support
    (--with-zlib) and/or Bzip2 support (--with-bz2).
    ______________________________________________________________________
-
+   
    Top  -  Requirements  -  Introduction  -  Installation  -
    Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
-
+   
 Installation
 
    NOTE: phpMyAdmin does not apply any special security methods to the
    MySQL database server. It is still the sysadmin's job to grant
    permissions on the MySQL databases properly.
-
+   
    Warning for Mac users: php seems not to like Mac end of lines
    character ("\r") and Stuffit unstuffs with Mac formats, of course.
    So you'll have to resave as in Bbedit to unix style ALL phpMyAdmin
    scripts before uploading them to your server.
-
+   
    Documentation warning: when you see in this document a .php3 file
    extension, please transpose to .php if you are using a kit with files
    having this extension.
-
+   
    Quick Install:
     1. Use a distribution kit with the files having the extension (.php3
        or .php) depending on the way your web/PHP server interprets those
@@ -95,13 +95,13 @@ Installation
        your browser. phpMyAdmin should now display a welcome screen and
        your databases, or a login dialog if using http or cookie
        authentication mode.
-
+       
    Upgrading from an older version:
      * Please do not copy your older config.inc.php3 over the new one: it
        may offer new configuration variables, and the new version may
        depend on these for normal behavior. It is suggested instead to
        insert your site values in the new one.
-
+       
    Using authentication modes:
      * Http and cookie authentication modes are recommended in a
        multi-user environment where you want to give users access to
@@ -124,7 +124,7 @@ Installation
        $cfg['Servers'][$i]['controlpass'] settings.
        This example assumes you want to use pma as the controluser and
        pmapass as the controlpass:
-
+       
        GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY
    'pmapass';
    GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv,
@@ -149,21 +149,21 @@ Installation
        management system.
        With http or cookie auth mode, you don't need to fill the
        user/password fields inside the $cfg['Servers'] array.
-
+       
    'http' authentication mode:
      * Was called 'advanced' in versions before 2.2.3.
      * Introduced in 1.3.0, it uses Basic HTTP authentication method and
        allows you to login as any valid MySQL user.
      * Is only supported with PHP running as an Apache module, not with
        cgi.
-
+       
    'cookie' authentication mode:
      * You can use this method as a replacement for the http
        authentication (for example, if you're running IIS).
      * Obviously, the user must enable cookies in the browser.
      * With this mode, the use can truly logout of phpMyAdmin and login
        back with the same username.
-
+       
    'config' authentication mode:
      * This mode is the less secure one because it requires you to fill
        the $cfg['Servers'][$i]['user'] and
@@ -177,20 +177,20 @@ Installation
        $cfg['Servers'][$i]['AllowDeny']['rules'] configuration
        directives.
    ______________________________________________________________________
-
+   
    Top  -  Requirements  -  Introduction  -  Installation  -
    Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
-
+   
 Configuration
 
    Warning for Mac users: php seems not to like Mac end of lines
    character ("\r"). So ensure you choose the option that allows to use
    the *nix end of line character ("\n") in your text editor before
    registering a script you have modified.
-
+   
    All configurable data is placed in config.inc.php3.
-
+   
    $cfg['PmaAbsoluteUri'] string
           Sets here the complete url (with full path) to your phpMyAdmin
           version. E.g.
@@ -200,7 +200,7 @@ Configuration
           servers, the path is case-sensitive.
           This setting can be dynamically completed. For example, you can
           try to use such a kind of code:
-
+          
 $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                        . $_SERVER['HTTP_HOST']
                        . (!empty($_SERVER['SERVER_PORT']) ? ':' . $_SERVER['SER
@@ -221,7 +221,7 @@ CRIPT_NAME'], '/')+1);
           Please note that the $_SERVER array doesn't exist in
           PHP < 4.1.0. Try to replace $_SERVER by $HTTP_SERVER_VARS or
           $GLOBALS in this case.
-
+          
    $cfg['Servers'] array
           Since version 1.4.2, phpMyAdmin supports the administration of
           multiple MySQL servers. Therefore, a $cfg['Servers']-array has
@@ -231,24 +231,24 @@ CRIPT_NAME'], '/')+1);
           $cfg['Servers'][$i]['host'] the hostname of the second server,
           etc. If you have only one server to administer, simply leave
           free the hostname of the other $cfg['Server']-entries.
-
+          
    $cfg['Servers'][$i]['host'] string
           The hostname of your $i-th MySQL-server. E.g. localhost.
-
+          
    $cfg['Servers'][$i]['port'] string
           The port-number of your $i-th MySQL-server. Default is 3306
           (leave blank).
-
+          
    $cfg['Servers'][$i]['socket'] string
           The path to the socket to use. Leave blank for default.
           To use the socket feature you must run php 3.0.10 or more.
-
+          
    $cfg['Servers'][$i]['connect_type'] string
           What type connection to use with the MySQL server. Your options
           are 'socket' & 'tcp'. It defaults to 'tcp' as that is nearly
           guarenteed to be available on all MySQL servers, while sockets
           are not supported on some platforms.
-
+          
    $cfg['Servers'][$i]['controluser'] string
           $cfg['Servers'][$i]['controlpass'] string
           When using http or cookie authentication modes (or 'config'
@@ -265,11 +265,11 @@ CRIPT_NAME'], '/')+1);
           privileges you gave to the "controluser". phpMyAdmin does not
           support a direct login with the "controluser".
           In versions before 2.2.5, those were called "stduser/stdpass".
-
+          
    $cfg['Servers'][$i]['auth_type'] string ['http'|'cookie'|'config']
           Whether config or cookie or http authentication should be used
           for this server.
-
+          
           + 'config' authentication ($auth_type = 'config') is the plain
             old way: username and password are stored in config.inc.php3.
           + 'cookie' authentication mode ($auth_type = 'cookie') as
@@ -280,16 +280,16 @@ CRIPT_NAME'], '/')+1);
           + 'http' authentication (was called 'advanced' in older
             versions) ($auth_type = 'http') as introduced in 1.3.0 allows
             you to log in as any valid MySQL user via HTTP-Auth.
-
+            
           Please see the install section on "Using authentication modes"
           for more information.
-
+          
    $cfg['Servers'][$i]['user'] string
           $cfg['Servers'][$i]['password'] string
           The user/password-pair which phpMyAdmin will use to connect to
           this MySQL-server. This user/password pair is not needed when
           http or cookie authentication is used, and should be empty.
-
+          
    $cfg['Servers'][$i]['only_db'] string or array
           If set to a(an array of) database name(s), only this(these)
           database(s) will be shown to the user. Since phpMyAdmin 2.2.1,
@@ -303,36 +303,37 @@ CRIPT_NAME'], '/')+1);
           privileges rules of the MySQL database server. If set, it just
           means only these databases will be displayed but not at all
           other databases can't be used.
-
+          
    $cfg['Servers'][$i]['verbose'] string
           Only useful when using phpMyAdmin with multiple server entries.
           If set, this string will be displayed instead of the hostname
           in the pulldown menu on the main page. This can be useful if
           you want to show only certain databases on your system, for
           example.
-
+          
    $cfg['Servers'][$i]['pmadb'] string
-          Starting with Version 2.3.0 phpMyAdmin offers a lot of Features
-          to work with Master / Foreign - Tables. To use those as well as
+          Starting with version 2.3.0 phpMyAdmin offers a lot of features
+          to work with master / foreign - tables. To use those as well as
           the bookmark feature you will need to create a new db.
           To use this functionality as superuser create a new database:
-
-          + create a new database for phpmyadmin:   CREATE database
-            phpmyadmin; Note that controluser must have SELECT, INSERT
-            and DELETE privileges on the bookmark table. Here is a query
-            to set up those privileges (using "pma" as the controluser):
-              GRANT SELECT,INSERT,DELETE ON to 'pma'@localhost; do not
-            give any other user rights on this db.
-          + Enter the databasename in $cfg['Servers'][$i]['pmadb']
-
+          
+          + create a new database for phpmyadmin:
+              CREATE DATABASE phpmyadmin;
+            Note that "controluser" must have SELECT, INSERT and DELETE
+            privileges on the bookmark table. Here is a query to set up
+            those privileges (using "pma" as the controluser):
+              GRANT SELECT,INSERT,DELETE ON <pmadb> to 'pma'@localhost;
+            do not give any other user rights on this database.
+          + enter the databasename in $cfg['Servers'][$i]['pmadb']
+            
    $cfg['Servers'][$i]['bookmarktable'] string
           Since release 2.2.0 phpMyAdmin allows to bookmark queries. This
           can be useful for queries you often run.
           To allow the usage of this functionality the superuser has to:
-
+          
           + set up a PMA database as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE bookmark (
+                 CREATE TABLE `PMA_bookmark` (
                    id int(11) DEFAULT '0' NOT NULL auto_increment,
                    dbase varchar(255) NOT NULL,
                    user varchar(255) NOT NULL,
@@ -340,19 +341,20 @@ CRIPT_NAME'], '/')+1);
                    query text NOT NULL,
                    PRIMARY KEY (id)
                  ) TYPE=MyISAM COMMENT='Bookmarks';
-          + Enter the tablename in $cfg['Servers'][$i]['bookmarktable']
-
-          Note that controluser must have SELECT, INSERT and DELETE
+          + enter the tablename in $cfg['Servers'][$i]['bookmarktable']
+            
+          Note that "controluser" must have SELECT, INSERT and DELETE
           privileges on the bookmark table. Here is a query to set up
           those privileges (using "pma" as the controluser and phpmyadmin
-          as databasename:
-          GRANT SELECT,INSERT,DELETE ON <phpmyadmin> to 'pma'@localhost;
-
+          as databasename):
+            GRANT SELECT,INSERT,DELETE ON <phpmyadmin> to
+          'pma'@localhost;
+          
    $cfg['Servers'][$i]['relation'] string
           Since release 2.2.4 you can describe, in a special 'relation'
           table, which field is a key in another table (a foreign key).
           phpMyAdmin currently uses this to
-
+          
           + make clickable, when you browse the master table, the data
             values that point to the foreign table;
           + display in an optional tooltip the "display field" when
@@ -365,33 +367,33 @@ CRIPT_NAME'], '/')+1);
             in the FAQ, section "Using phpMyAdmin");
           + enable you to get a PDF schema of your database (also uses
             the table_coords table).
-
+            
           The keys can be numeric or character.
           To allow the usage of this functionality the superuser has to:
-
+          
           + set up a PMA database as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE `relation` (
+                 CREATE TABLE `PMA_relation` (
                    `master_db` varchar(64) NOT NULL default '',
                    `master_table` varchar(64) NOT NULL default '',
                    `master_field` varchar(64) NOT NULL default '',
                    `foreign_db` varchar(64) NOT NULL default '',
                    `foreign_table` varchar(64) NOT NULL default '',
                    `foreign_field` varchar(64) NOT NULL default '',
-                   PRIMARY KEY
-            (`master_db`,`master_table`,`master_field`),
-                   KEY foreign_field (foreign_db,foreign_table)
+                   PRIMARY KEY (`master_db`, `master_table`,
+            `master_field`),
+                   KEY foreign_field (foreign_db, foreign_table)
                  ) TYPE=MyISAM COMMENT='Relation table';
           + put the relation table name in
             $cfg['Servers'][$i]['relation']
           + now as normal user open phpMyAdmin and for each table where
             you want to use this feature, click "Structure/Relation
             view/" and choose foreign fields.
-
+            
           Please note that in the current (2.3.0) version, master_db must
-          be the same as foreign_db. Those fields have been put in place
-          for a future development of the cross-db relations.
-
+          be the same as foreign_db. Those fields have been put in future
+          development of the cross-db relations.
+          
    $cfg['Servers'][$i]['table_info'] string
           Since release 2.3.0 you can describe, in a special 'table_info'
           table, which field is to be displayed as a tooltip when moving
@@ -399,82 +401,80 @@ CRIPT_NAME'], '/')+1);
           This configuration variable will hold the name of this special
           table. To allow the usage of this functionality the superuser
           has to:
-
+          
           + set up a PMA database as described above
           + within this database create a table following this scheme:
                  CREATE TABLE `PMA_table_info` (
                    `db_name` varchar(64) NOT NULL default '',
                    `table_name` varchar(64) NOT NULL default '',
                    `display_field` varchar(64) NOT NULL default '',
-                   PRIMARY KEY (`db_name`,`table_name`)
+                   PRIMARY KEY (`db_name`, `table_name`)
                  ) TYPE=MyISAM COMMENT='Table information for
             phpMyAdmin';
           + put the table name in $cfg['Servers'][$i]['table_info']
           + then for each table where you want to use this feature, click
             "Structure/Relation view/Choose field to display" to choose
             the field.
-
+            
           Usage tip: Display field.
-
+          
    $cfg['Servers'][$i]['table_coords'] string
           $cfg['Servers'][$i]['pdf_pages'] string
-          Since release 2.3.0 you can have phpMyAdmin create PDF Pages
+          Since release 2.3.0 you can have phpMyAdmin create PDF pages
           showing the relations between your tables. To do this it needs
-          two tables 'pdf_pages' (storing information about the available
-          pdf Pages) and 'table_coords' (storing coordinates where each
+          two tables "pdf_pages" (storing information about the available
+          pdf pages) and "table_coords" (storing coordinates where each
           table will be placed on a PDF schema output).
-          PDF output is supported under PHP4, and you must be using also
-          the 'relation' feature and have a table of PDF Pages (see
-          $cfg['Servers'][$i]['pdf_pages']). Also, we used the fpdf
-          library which currently only supports iso-8859 (Latin1)
-          character sets in PDF.
+          You must be using the "relation" feature and have a table of
+          PDF pages (see $cfg['Servers'][$i]['pdf_pages']) to create PDF
+          output.
           To allow the usage of this functionality the superuser has to:
-
+          
           + set up a PMA database as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE `table_coords` (
+                 CREATE TABLE `PMA_table_coords` (
                    `db_name` varchar(64) NOT NULL default '',
                    `table_name` varchar(64) NOT NULL default '',
                    `pdf_page_number` int NOT NULL default '0',
                    `x` float unsigned NOT NULL default '0',
                    `y` float unsigned NOT NULL default '0',
-                   PRIMARY KEY (`db_name`,`table_name`,
+                   PRIMARY KEY (`db_name`, `table_name`,
             `pdf_page_number`)
                  ) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin
             PDF output';
-          + also within this database create:      CREATE TABLE pdf_pages
-            (
+          + also within this database create:
+                 CREATE TABLE `PMA_pdf_pages` (
                    `db_name` varchar(64) NOT NULL default '',
-                   page_nr int(10) unsigned NOT NULL auto_increment,
-                   page_descr varchar(50) NOT NULL default '',
+                   `page_nr` int(10) unsigned NOT NULL auto_increment,
+                   `page_descr` varchar(50) NOT NULL default '',
                    PRIMARY KEY (page_nr),
                    KEY (db_name)
                  ) TYPE=MyISAM COMMENT='PDF Relationpages for PMA';
           + put the first table name in
             $cfg['Servers'][$i]['table_coords'] and the second table name
             in $cfg['Servers'][$i]['pdf_pages']
-
+            
           Usage tips: PDF output.
-
+          
    $cfg['Servers'][$i]['column_comments'] string
           Since release 2.3.0 you can store comments to describe each
           column for each table. These will then be shown on the
-          printview. To allow the usage of this functionality the
-          superuser has to:
-
+          "printview".
+          To allow the usage of this functionality the superuser has to:
+          
           + set up a PMA database as described above
           + within this database create a table following this scheme:
-                 CREATE TABLE column_comments (
+                 CREATE TABLE `PMA_column_comments` (
                    id int(5) unsigned NOT NULL auto_increment,
                    db_name varchar(64) NOT NULL default '',
                    table_name varchar(64) NOT NULL default '',
                    column_name varchar(64) NOT NULL default '',
                    comment varchar(255) NOT NULL default '',
                    PRIMARY KEY (id),
-                   UNIQUE KEY db_name (db_name,table_name,column_name)
+                   UNIQUE KEY db_name (db_name, table_name, column_name)
                  ) TYPE=MyISAM COMMENT='Comments for Columns';
           + put the table name in $cfg['Servers'][$i]['column_comments']
-
+            
    $cfg['Servers'][$i]['AllowDeny']['order'] string
           If your rule order is empty, then IP authentication is
           disabled.
@@ -495,7 +495,7 @@ CRIPT_NAME'], '/')+1);
           This is the most secure means of using Allow/Deny rules, and
           was available in Apache by specifying allow and deny rules
           without setting any order.
-
+          
    $cfg['Servers'][$i]['AllowDeny']['rules'] array of strings
           The general format for the rules is as such:
                 <'allow' | 'deny'> <username> [from] <ipmask>
@@ -516,7 +516,7 @@ CRIPT_NAME'], '/')+1);
           IP addresses)
           But the following does not work:
           xxx.xxx.xxx.xx[yyy-zzz] (partial IP address range)
-
+          
    $cfg['ServerDefault'] integer
           If you have more than one server configured, you can set
           $cfg['ServerDefault'] to any one of them to autoconnect to that
@@ -524,48 +524,48 @@ CRIPT_NAME'], '/')+1);
           list of servers without logging in.
           If you have only one server configured, $cfg['ServerDefault']
           MUST be set to that server.
-
+          
    $cfg['OBGzip'] boolean
           Defines whether to use gzip output buffering for increased
           speed in HTTP transfers.
-
+          
    $cfg['PersistentConnections'] boolean
           Whether persistent connections should be used or not
           (mysql_connect or mysql_pconnect).
-
+          
    $cfg['ExecTimeLimit'] integer [number of seconds]
           Set the number of seconds a script is allowed to run. If
           seconds is set to zero, no time limit is imposed.
           This setting is used while importing/exporting dump files but
           has no effect when PHP is running in safe mode.
-
+          
    $cfg['SkipLockedTables'] boolean
           Mark used tables and make it possible to show databases with
           locked tables (since 3.23.30).
-
+          
    $cfg['ShowSQL'] boolean
           Defines whether sql-queries generated by phpMyAdmin should be
           displayed or not.
-
+          
    $cfg['AllowUserDropDatabase'] boolean
           Defines whether normal users (non-administrator) are allowed to
           delete their own database or not. If set as FALSE, the link
           "Drop Database" will not be shown, and even a "DROP DATABASE
           mydatabase" will be rejected. Quite practical for ISP's with
           many customers.
-
+          
    $cfg['Confirm'] boolean
           Whether a warning ("Are your really sure..") should be
           displayed when you're about to loose data.
-
+          
    $cfg['ShowTooltip'] boolean
           Defines whether to display table comment as tooltip in left
           frame or not.
-
+          
    $cfg['LeftFrameLight'] boolean
           Defines whether to use select-based menu and display only the
           current tables in the left frame (smaller page).
-
+          
    $cfg['ShowMysqlInfo'] boolean
           $cfg['ShowMysqlVars'] boolean
           $cfg['ShowPhpInfo'] boolean
@@ -582,49 +582,49 @@ CRIPT_NAME'], '/')+1);
           effect with "config" authentication mode: because of the hard
           coded password value in the configuration file, end users can't
           be allowed to change their passwords.
-
+          
    $cfg['SuggestDBName'] boolean
           Defines whether to suggest a database name on the "Create
           Database" form or to keep the textfield empty.
-
+          
    $cfg['LoginCookieRecall'] boolean
           Define whether the previous login should be recalled or not in
           cookie authentication mode.
-
+          
    $cfg['UseDbSearch'] boolean
           Define whether the "search string inside database" is enabled
           or not.
-
+          
    $cfg['ShowStats'] boolean
           Defines whether to display space usage and statistics about
           databases and tables or not.
           Note that statistics requires at least MySQL 3.23.3 and that,
           at this date, MySQL doesn't return such information for
           Berkeley DB tables.
-
+          
    $cfg['ShowBlob'] boolean
           Defines whether BLOB fields are shown when browsing a table's
           content or not.
-
+          
    $cfg['NavigationBarIconic'] boolean
           Defines whether navigation bar buttons contain text or symbols
           only.
-
+          
    $cfg['ShowAll'] boolean
           Defines whether an user should be displayed a "show all
           (records)" button in browse mode or not.
-
+          
    $cfg['MaxRows'] integer
           Number of rows displayed when browsing a resultset. If the
           resultset contains more rows, Previous/Next links will be
           shown.
-
+          
    $cfg['Order'] string [DESC|ASC|SMART]
           Defines whether fields are displayed in ascending (ASC) order,
           in descending (DESC) order or in a "smart" (SMART) order -ie
           descending order for fields of type TIME, DATE, DATETIME &
           TIMESTAMP, ascending order else- by default.
-
+          
    $cfg['ProtectBinary'] boolean or string
           Defines whether BLOB or BINARY fields are protected from
           edition when browsing a table's content or not. Valid values
@@ -632,89 +632,90 @@ CRIPT_NAME'], '/')+1);
           - FALSE to allow edition of all fields;
           - blob to allow edition of all fields except BLOBS;
           - all to disallow edition of all BINARY or BLOB fields.
-
+          
    $cfg['ShowFunctionFields'] boolean
           Defines whether MySQL functions fields should be displayed or
           not in edit/insert mode.
-
+          
    $cfg['ZipDump'] boolean
           $cfg['GZipDump'] boolean
           $cfg['BZipDump'] boolean
           Defines whether to allow the use of zip/gzip/bzip compression
           when creating a dump file or not.
-
+          
    $cfg['DefaultTabDatabase'] string
-          Defines the Tab displayed by default on database view. Possible
-          values: 'db_details_structure.php3', 'db_details.php3', or
-          'db_search.php3'.
-
+          Defines the tab displayed by default on database view. Possible
+          values: "db_details_structure.php3", "db_details.php3" or
+          "db_search.php3".
+          
    $cfg['DefaultTabTable'] string
-          Defines the Tab displayed by default on table view. Possible
-          values: 'tbl_properties_structure.php3', 'tbl_properties.php3',
-          'tbl_select.php3', 'tbl_change.php3'.
-
+          Defines the tab displayed by default on table view. Possible
+          values: "tbl_properties_structure.php3", "tbl_properties.php3",
+          "tbl_select.php3" or "tbl_change.php3".
+          
    $cfg['ManualBaseShort'] string
           If set to an URL which points to the MySQL documentation (on
           short pages), appropriate help links are generated.
-
+          
    $cfg['DefaultLang'] string
           Defines the default language to use, if not browser-defined or
           user-defined.
           See the select_lang.inc.php3 script to know the valid values
           for this setting.
-
+          
    $cfg['Lang'] string
           Force: always use this language (must be defined in the
           select_lang.inc.php3 script).
-
+          
    $cfg['DefaultCharset'] string
           Default charset to use for recoding of MySQL queries. This must
           be enabled and it's described by $cfg['AllowAnywhereRecoding']
-          option. You can give here any charset which is in
+          option.
+          You can give here any charset which is in
           $cfg['AvailableCharsets'] array and this is just default
           choice, user can select any of them.
-
+          
    $cfg['AllowAnywhereRecoding'] boolean
           Allow charset recoding of MySQL queries. You need recode or
           iconv support (compiled in or module) in php to allow MySQL
           queries recoding and used language file must have it enabled
           (by default only these which are in unicode, just to avoid
           losing some characters).
-
+          
    $cfg['AvailableCharsets'] array
           Available charsets for MySQL conversion. You can add your own
           (any of supported by recode/iconv) or remove these which you
           don't use. Charsets will be shown in same order as here listed,
           so if you frequently use some of these move them to the top.
-
+          
    $cfg['LeftWidth'] integer
           Left frame width in pixel.
-
+          
    $cfg['LeftBgColor'] string [HTML color]
           $cfg['RightBgColor'] string [HTML color]
           The background colors (HTML) used for both the frames.
-
+          
    $cfg['RightBgImage'] string
           The URI of the background image used for the right frame. It
           can be absolute as well as relative from your phpMyAdmin
           directory.
-
+          
    $cfg['LeftPointerColor'] string [HTML color]
           The color (HTML) used for the pointer in the left frame (does
           not work with NS4).
-
+          
    $cfg['Border'] integer
           The size of a table's border.
-
+          
    $cfg['ThBgcolor'] string [HTML color]
           The color (HTML) used for table headers.
-
+          
    $cfg['BgcolorOne'] string [HTML color]
           The color (HTML) #1 for table rows.
-
+          
    $cfg['BgcolorTwo'] string [HTML color]
           The color (HTML) #2 for table rows.
-
+          
    $cfg['BrowsePointerColor'] string [HTML color]
           $cfg['BrowseMarkerColor'] string [HTML color]
           The colors (HTML) uses for the pointer and the marker in browse
@@ -724,94 +725,97 @@ CRIPT_NAME'], '/')+1);
           clicking on them.
           You can disable both of these features by emptying the
           respective directive.
-
+          
    $cfg['TextareaCols'] integer
           $cfg['TextareaRows'] integer
           Number of columns and rows for the textareas.
           This value will be emphasized (*2) for sql query textareas.
-
+          
    $cfg['LimitChars'] integer
           Maximal number of Chars showed in a TEXT OR a BLOB field on
           browse view. Can be turned off by a toggle button on the browse
           page.
-
+          
    $cfg['ModifyDeleteAtLeft'] boolean
           $cfg['ModifyDeleteAtRight'] boolean
           Defines the place where modify and delete links would be put
           when tables contents are displayed (you may have them displayed
           both at the left and at the right). "Left" and "right" are
           parsed as "top" and "bottom" with vertical display mode.
-
+          
    $cfg['DefaultDisplay'] string
           There are 2 display modes: horizontal and vertical. Define
           which one is displayed by default.
-
+          
    $cfg['RepeatCells'] integer
           Repeat the headers every X cells, or 0 to deactivate.
-
+          
    $cfg['UseSyntaxColoring'] boolean
-          Introduced in 2.3.0 PhpMyAdmin is now able to show SQL in
-          Syntaxcoloring. To use this feature set this value to TRUE (the
-          default). If not everything you want is colored or to influence
-          where a newline is inserted see the Configurationarrays
-          $cfg['keywords'] and $cfg['additional']. Note: for version
-          2.3.0-rc1, syntax coloring is non functional.
-
+          Introduced in 2.3.0, phpMyAdmin is now able to show SQL in
+          syntax coloring.
+          To use this feature set this value to TRUE (the default). If
+          not everything you want is colored or to influence where a
+          newline is inserted see the configuration arrays
+          $cfg['keywords'] and $cfg['additional'].
+          Note: for version 2.3.0, syntax coloring is non functional.
+          
    $cfg['colorFunctions'] string [HTML color]
-          If you use Syntaxcoloring then this defines the Color of
-          Functionnames. e.g. all that are found in $cfg['Functions'].
-
+          If you use syntax coloring then this defines the color of
+          function names. e.g. all that are found in $cfg['Functions'].
+          
    $cfg['colorKeywords'] string [HTML color]
-          If you use Syntaxcoloring then this defines the Color of
-          Keywords. e.g. all that are found in $cfg['keywords'].
-
+          If you use syntax coloring then this defines the color of
+          keywords. e.g. all that are found in $cfg['keywords'].
+          
    $cfg['colorStrings'] string [HTML color]
-          If you use Syntaxcoloring then this defines the Color of
-          Strings. e.g. all that are between ' or "
-
+          If you use syntax coloring then this defines the color of
+          strings. e.g. all that are between ' or "
+          
    $cfg['colorColType'] string [HTML color]
-          If you use Syntaxcoloring then this defines the Color of
-          ColumnTypes. e.g. all that are found in $cfg['ColumnTypes'].
-
+          If you use syntax coloring then this defines the color of
+          column types. e.g. all that are found in $cfg['ColumnTypes'].
+          
    $cfg['colorAdd'] string [HTML color]
-          If you use Syntaxcoloring then this defines the Color of
-          additional Keywords that do not get a newline. e.g. all that
+          If you use syntax coloring then this defines the color of
+          additional keywords that do not get a newline. e.g. all that
           are found in $cfg['additional'].
-
+          
    $cfg['ColumnTypes'] array
           All possible types of a MySQL column. In most cases you don't
           need to edit this.
-
+          
    $cfg['AttributeTypes'] array
           Possible attributes for fields. In most cases you don't need to
           edit this.
-
+          
    $cfg['Functions'] array
           A list of functions MySQL supports. In most cases you don't
           need to edit this.
-
+          
    $cfg['keywords'] array
-          A list of Keywords that is used for Syntaxcoloring. All
-          Keywords that are in this list will also get a new line before
-          them. Usually you won't need to change those.
-
+          A list of keywords that is used for syntax coloring. All
+          keywords that are in this list will also get a new line before
+          them.
+          Usually you won't need to change those.
+          
    $cfg['additional'] array
-          A list of additional Keywords that is used for Syntaxcoloring.
-          All Keywords that are in this list will not get a new line
-          before them. Usually you won't need to change those.
+          A list of additional keywords that is used for syntax coloring.
+          All keywords that are in this list will not get a new line
+          before them.
+          Usually you won't need to change those.
    ______________________________________________________________________
-
+   
    Top  -  Requirements  -  Introduction  -  Installation  -
    Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
-
+   
 FAQ - Frequently Asked Questions
 
    Server  -  Configuration  -  Limitations  -  Multi-user  -  Browsers
-   -  Usage tips  -  Project  -  Syntax Coloring
-
+   -  Usage tips  -  Project
+   
   [Server]
-
+  
    I'm running php 4+ and my server is crashing each time a specific
    action is required or phpMyAdmin sends a blank page or a page full of
    cryptic characters to my browser, what can I do?
@@ -823,28 +827,28 @@ FAQ - Frequently Asked Questions
    candidates of php 4.2.0 (tested with php 4.2.0 RC1 to RC4) together
    with MS Internet Explorer. Please upgrade to the release version php
    4.2.0.
-
+   
    My Apache server crashes when using phpMyAdmin.
    You should first try the latest versions of Apache (and possibly
    MySQL).
    See also the other FAQ entry about php bugs with output buffering.
    If your server keeps crashing, please ask for help in the various
    Apache support groups.
-
+   
    I'm running phpMyAdmin with "cookie" authentication mode under PHP
    4.2.0 or 4.2.1 loaded as an Apache 2+ module but can't enter the
    script: I'm always displayed the login screen.
    This is a kown PHP bug (see this bug report) from the official php bug
    database. It means there is and won't be any phpMyAdmin fix against it
    because there is no way to code a fix.
-
+   
    Using phpMyAdmin on IIS, I'm displayed the error message: "The
    specified CGI application misbehaved by not returning a complete set
    of HTTP headers...."
    You just forgot to read the install.txt file from the php
    distribution. Have a look at the last message in this bug report from
    the official php bug database.
-
+   
    Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages
    with the http or advanced authentication mode.
    This is a known problem with the php ISAPI filter: it's not so stable.
@@ -852,13 +856,13 @@ FAQ - Frequently Asked Questions
    posted by André B. aka "djdeluxe76" in this thread from the phpWizard
    forum.
    Please use instead the cookie authentication mode.
-
+   
    I can't use phpMyAdmin on PWS: nothing is displayed!
    This seems to be a PWS bug. Filippo Simoncini found a workaroud (at
    this time there is no better fix): remove or comment the DOCTYPE
    declarations (3 lines) from the scripts header.inc.php3, index.php3,
    left.php3 and libraries/common.lib.php3.
-
+   
    How can I GZip or Bzip a dump or a CSV export. It seems to not work?
    These features are based on the gzencode() and bzcompress() php
    functions to be more independent of the platform (Unix/Windows, Safe
@@ -867,7 +871,7 @@ FAQ - Frequently Asked Questions
    We faced php crashes when trying to download a dump with MS Internet
    Explorer when phpMyAdmin is run with a release candidate of php 4.2.0.
    In this case you should switch to the release version of php 4.2.0.
-
+   
    I cannot insert a text file in a table, and I get an error about safe
    mode being in effect.
    Your uploaded file is saved by PHP in the "upload dir", as defined in
@@ -881,7 +885,7 @@ FAQ - Frequently Asked Questions
      * give proper permission: chmod 600 /tmp/php
      * put upload_tmp_dir = /tmp/php in php.ini
      * restart Apache
-
+       
    I'm having troubles when uploading files. In general file uploads
    don't work on my system and uploaded files have a Content-Type: header
    in the first line.
@@ -896,7 +900,7 @@ FAQ - Frequently Asked Questions
    So please download the fixed package (4.0.4pl1-9) and the problem
    should go away.
    And that fixes the \r\n problem with file uploads!
-
+   
    I'm having troubles when uploading files with phpMyAdmin running on a
    secure server. My browser is Internet Explorer and I'm using the
    Apache server.
@@ -904,7 +908,7 @@ FAQ - Frequently Asked Questions
    httpd.conf:
        SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
    It seems to clear up many problems between IE and SSL.
-
+   
    I get an 'open_basedir restriction' while uploading a file from the
    query box.
    Since version 2.2.4, phpMyAdmin supports servers with open_basedir
@@ -914,31 +918,31 @@ FAQ - Frequently Asked Questions
    and the same owner as the owner of your phpMyAdmin directory. The
    uploaded files will be moved there, and after execution of your SQL
    commands, removed.
-
+   
    I have lost my MySQL root password, what can I do?
    The MySql manual explains how to reset the permissions.
-
+   
    I get an error 'No SQL query' when trying to execute a bookmark.
    If PHP does not have read/write access to its upload_tmp_dir, it
    cannot access the uploaded query.
-
+   
    I get an error 'No SQL query' when trying to submit a query from the
    convenient text area.
    Check the post_max_size directive from your php configuration file and
    try to increase it.
-
+   
    I have problems with mysql.user field names.
    In older MySQL versions, the User and Password fields were named user
    and password. Please modify your field names to align with current
    standards.
-
+   
    I cannot upload big dump files.
    The first things to check (or ask your host provider to check) are the
    values of upload_max_filesize, memory_limit and post_max_size in the
    php.ini configuration file.
    All of these three settings limit the maximum size of data that can be
    submitted and handled by php.
-
+   
    Does phpMyAdmin support MySQL 4?
    MySQL 4 is not yet fully supported by phpMyAdmin.
    Because of MySQL 4's backwards compatibility you can use phpMyAdmin
@@ -949,37 +953,34 @@ FAQ - Frequently Asked Questions
    Furthermore, several users reported problems with phpMyAdmin related
    to bugs in MySQL 4. MySQL 4 is still an alpha release and should be
    used for test purposes only!
-
-   I'm running MySQL 4.0.1 on a Windows NT machine. Each time I create a
-   table the table name is changed to lowercase.
-   This seems to be a bug of MySQL 4.0.1 because it also appears when
-   using the MySQL commandline. Currently we only know about its
-   appearance on Windows NT systems, but it is possible that it appears
-   on other systems, too.
-   If you encounter this bug together with another OS and/or MySQL
-   version or you know how to work around it, please post a message into
-   our bug tracker at SourceForge.
-
+   
+   I'm running MySQL <= 4.0.1 having lower_case_table_names set to 1. If
+   I create a new table with a capital letter in its name it is changed
+   to lowercase as it should. But if I try to DROP this table MySQL is
+   unable to find the corresponding file.
+   This is a bug of MySQL <= 4.0.1. Please upgrade to at least
+   MySQL 4.0.2 or turn off your lower_case_table_names directive.
+   
    I can't run the "display relations" feature because the script seems
    not to know the font face I'm using!
    The "FPDF" library we're using for this feature requires some special
    files to use font faces.
    Please refers to the FPDF manual to build these files.
-
+   
   [Configuration]
-
+  
    The error message "Warning: Cannot add header information - headers
    already sent by ..." is displayed, what's the problem?
    Edit your config.inc.php or .php3 file and ensure there is nothing (ie
    no blank lines, no spaces, no characters...) neither before the <?php
    tag at the beginning, neither after the ?> tag at the end.
-
+   
    phpMyAdmin can't connect to MySQL. What's wrong?
    Either there is an error with your PHP setup or your username/password
    is wrong. Try to make a small script which uses mysql_connect and see
    if it works. If it doesn't, it may be you haven't even compiled MySQL
    support into PHP.
-
+   
    The error message "Warning: MySQL Connection Failed: Can't connect to
    local MySQL server through socket '/tmp/mysql.sock' (111)...") is
    displayed. What can I do?
@@ -1003,10 +1004,10 @@ FAQ - Frequently Asked Questions
        phpMyAdmin, you need to complete the socket information in the
        config.inc.php3.
        For example: $cfg['Servers'][$i]['socket'] = '/tmp/mysql.sock';
-
+       
    Have also a look at the corresponding section of the MySQL
    documentation.
-
+   
    Nothing is displayed by my browser when I try to run phpMyAdmin, what
    can I do?
    Try to set the $cfg['OBGZip'] directive to FALSE in the phpMyAdmin
@@ -1014,15 +1015,15 @@ FAQ - Frequently Asked Questions
    Also have a look at your php version number: if it contains "4.0b..."
    it means you're running a beta version of PHP. That's not a so good
    idea, please upgrade to a plain revision.
-
+   
    Each time I want to insert or change a record or drop a database or a
    table, an error 404 (page not found) is displayed or, with http or
    cookie authentication, I'm asked to login again. What's wrong?
    Check the value you set for the $cfg['PmaAbsoluteUri'] directive in
    the phpMyAdmin configuration file.
-
+   
   [Known limitations]
-
+  
    When using http authentication, an user who logged out can not relog
    in with the same nick.
    This is related to the authentication mechanism (protocol) used by
@@ -1030,7 +1031,7 @@ FAQ - Frequently Asked Questions
    time to do it, but you can bypass this problem: just close all the
    opened browser windows and then go back to phpMyAdmin. You should be
    able to logs in again.
-
+   
    When dumping a large table in compressed mode, I get a memory limit
    error or a time limit error.
    As of version 2.2.4, we build the compressed dump in memory, so large
@@ -1038,9 +1039,9 @@ FAQ - Frequently Asked Questions
    system calls to mysqldump then gzip or bzip2) would not be applicable
    in environments where PHP is in safe mode: access to system programs
    is is limited by the system administrator, and time limit is enforced.
-
+   
   [ISPs, multi-user installations ]
-
+  
    I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
    install it for each customer?
    Since version 2.0.3, you can setup a central copy of phpMyAdmin for
@@ -1048,7 +1049,7 @@ FAQ - Frequently Asked Questions
    by NetCologne GmbH. This requires a properly setup MySQL user
    management and phpMyAdmin http or cookie authentication. See the
    install section on "Using http authentication".
-
+   
    What's the preferred way of making phpMyAdmin secure against evil
    access?
    This depends on your system.
@@ -1064,13 +1065,13 @@ FAQ - Frequently Asked Questions
        the group under which Apache runs.
      * You should use PHP safe mode, to protect from other users that try
        to include your config.inc.php3 in their scripts.
-
+       
    I get errors about not being able to include a file in /lang or in
    /libraries.
    Check php.ini, or ask your sysadmin to check it. The include_path must
    contain "." somewhere in it, and open_basedir, if used, must contain
    "." and "./lang" to allow normal operation of phpMyAdmin.
-
+   
    phpMyAdmin always gives "Access denied" when using http
    authentication.
    This could happen for several reasons:
@@ -1080,13 +1081,13 @@ FAQ - Frequently Asked Questions
      * You have already setup a security mechanism for the
        phpMyAdmin-directory, eg. a .htaccess file. This would interfere
        with phpMyAdmin's authentication, so remove it.
-
+       
    Is it possible to let users create their own databases?
    Starting with 2.2.5, in the user management page, you can enter a
    wildcard database name for a user, and put the privileges you want.
    For example, adding SELECT, INSERT, UPDATE, DELETE, CREATE, DROP,
    INDEX, ALTER would let a user create/manage his/her database(s).
-
+   
    How can I use the Host-based authentication additions?
    If you have existing rules from an old .htaccess file, you can take
    them and add a username between the 'deny'/'allow' and 'from' strings.
@@ -1106,21 +1107,21 @@ FAQ - Frequently Asked Questions
            'allow root from 192.168.0.0/16',
            'allow root from 172.16.0.0/12',
            );
-
+   
   [Browsers or client OS]
-
+  
    I get an out of memory error, and my controls are non-functional, when
    trying to create a table with more than 14 fields.
    We could reproduce this problem only under Win98/98SE. Testing under
    WinNT4 or Win2K, we could easily create more than 60 fields.
    A workaround is to create a smaller number of fields, then come back
    to your table properties and add the other fields.
-
+   
    With Xitami 2.5b4, phpMyAdmin won't process form fields.
    This is not a phpMyAdmin problem but a Xitami known bug: you'll face
    it with each script/website that use forms.
    Upgrade or downgrade your Xitami server.
-
+   
    I have problems dumping tables with Konqueror (phpMyAdmin 2.2.2)
    With Konqueror 2.1.1: plain dumps, zip and gzip dumps work ok, except
    that the proposed file name for the dump is always 'tbl_dump.php'.
@@ -1129,7 +1130,7 @@ FAQ - Frequently Asked Questions
    user's temporary directory, so they must be moved before closing
    Konqueror, or else they disappear. Gzip dumps give an error message.
    Testing needs to be done for Konqueror 2.2.2.
-
+   
    I can't use the cookie authentication mode because Internet Explorer
    never stores the cookies.
    MS Internet Explorer seems to be really buggy about cookies, at least
@@ -1137,11 +1138,11 @@ FAQ - Frequently Asked Questions
    4.1.1 bug in this area!
    Then, If you're running php 4.1.1, try to upgrade or downgrade... it
    may work!
-
+   
    In Internet Explorer 5.0, I get Javascript errors when browsing my
    rows.
    Upgrade to at least Internet Explorer 5.5SP2.
-
+   
    In Internet Explorer 5.0, 5.5 or 6.0, I get an error when trying to
    modify a row in a table with many fields, or with a text field.
    Your table neither have a primary key nor an unique one, so we must
@@ -1149,44 +1150,50 @@ FAQ - Frequently Asked Questions
    the URL in those browsers, and this not happen in Netscape, for
    example. The workaround is to create a primary or unique key, or use
    another browser.
-
+   
    I refresh (reload) my browser, and come back to the welcome page.
    Some browsers support right-clicking into the frame you want to
    refresh, just do this in the right frame.
-
+   
    With Mozilla 0.9.7 I have problems sending a query modified in the
    query box.
    Looks like a Mozilla bug: 0.9.6 was ok. We will keep an eye on future
    Mozilla versions.
-
+   
    With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a
    whitespace in the SQL-Query edit area: the page scrolls down.
    This is a Mozilla bug (see bug #26882 at Bugzilla).
-
+   
+   With Netscape 4.75 I get empty rows between each row of data in a CSV
+   exported file.
+   This is a known Netscape 4.75 bug: it adds some line feeds when
+   exporting data in octet-stream mode. Since we can't detect the
+   specific Netscape version, we cannot workaround this bug.
+   
   [Using phpMyAdmin]
-
+  
    I can't insert new rows into a table - MySQL brings up a SQL-error.
    Examine the SQL error with care. I've found that many programmers
    specifying a wrong field-type.
    Common errors include:
      * Using VARCHAR without a size argument
      * Using TEXT or BLOB with a size argument
-
+       
    Also, look at the syntax chapter in the MySQL manual to confirm that
    your syntax is correct.
-
+   
    When I create a table, I click the Index checkbox for 2 fields and
    phpMyAdmin generates only one index with those 2 fields.
    In phpMyAdmin 2.2.0 and 2.2.1, this is the way to create a
    multi-fields index. If you want two indexes, create the first one when
    creating the table, save, then display the table properties and click
    the Index link to create the other index.
-
+   
    How can I insert a null value into my table?
    Since version 2.2.3, you have a checkbox for each field that can be
    null. Before 2.2.3, you had to enter "null", without the quotes, as
    the field's value.
-
+   
    How can I backup my database or table?
    Click on a database or table name in the left frame, the properties
    will be displayed. Then go to the Dump section, you can dump the
@@ -1198,14 +1205,14 @@ FAQ - Frequently Asked Questions
    $cfg['ExecTimeLimit'] configuration variable.
    For additional help on this subject, look for the word "dump" in this
    document.
-
+   
    How can I restore (upload) my database or table using a dump?
    Click on a database name in the left frame, the properties will be
    displayed. Then in the "Run SQL query" section, type in your local
    dump filename, or use the Browse button. Then click Go.
    For additional help on this subject, look for the word "upload" in
    this document.
-
+   
    How can I use the relation table in Query-by-example?
    Here is an example with the tables persons, towns and countries, all
    located in the database mydb. If you don't have a PMA_relation table,
@@ -1233,8 +1240,8 @@ FAQ - Frequently Asked Questions
         ) TYPE=MyISAM;
         INSERT INTO towns VALUES ('S', 'Sherbrooke');
         INSERT INTO towns VALUES ('M', 'Montréal');
-        INSERT INTO `PMA_relation` VALUES ('mydb','persons', 'town_code',
-   'mydb', 'towns', 'town_code');
+        INSERT INTO `PMA_relation` VALUES ('mydb', 'persons',
+   'town_code', 'mydb', 'towns', 'town_code');
         INSERT INTO `PMA_relation` VALUES ('mydb', 'persons',
    'country_code', 'mydb', 'countries', 'country_code');
    Then test like this:
@@ -1249,14 +1256,14 @@ FAQ - Frequently Asked Questions
      * Click "Update query" and you will see in the query box that the
        correct joins have been generated
      * Click "Submit query"
-
+       
    How can I use the "display field" feature?
    Starting from the previous example, create the PMA_table_info as
    explained in the configuration section, then browse your persons
    table, and move the mouse over a town code or country code.
-
+   
    How can I produce a PDF schema of my database?
-   First you have to fill the 'relation', 'table_coords' and 'pdf_pages'
+   First you have to fill the "relation", "table_coords" and "pdf_pages"
    configuration variables.
    Then, think about your schema layout: which tables will go on which
    pages.
@@ -1283,38 +1290,38 @@ FAQ - Frequently Asked Questions
        left frame again
      * Now, again at the bottom of the page you should be able to choose
        "Display PDF schema"
-       For testing it might be useful to show the Grid as well, so you
-       can see the coordinates used
-       maybe also choose Color and submit.
+       For testing it might be useful to show the grid as well, so you
+       can see the coordinates used.
+       Maybe also choose color and submit.
      * Save the file he will offer you to something like Schema.pdf
-       (Internet Explorer has some Bug there which might make it offer it
+       (Internet Explorer has some bug there which might make it offer it
        without an extension. Under Windows it is important to have the
-       Extension .pdf, in under OS you should be fine just saving the
-       file under the name it offers) in the navigation on top
-
-   I don't like the way syntaxcoloring displays my query
-   There is two things about the way how the Syntaxcoloring works that
+       extension ".pdf", under other OSes you should be fine just saving
+       the file under the name it offers).
+       
+   I don't like the way syntax coloring displays my query!
+   There is two things about the way how the syntax coloring works that
    you can easily change yourself:
      * number of newlines within your statement
-       All Words that are in $cfg['keywords'] will get a newline in front
-       of them, all words in $cfg['additional'] don't. So say you don't
+       All words that are in $cfg['keywords'] will get a newline in front
+       of them, all words in $cfg['additional'] won't. So say you don't
        like to have a newline in front of every WHERE, you need to remove
        it from the $cfg['keywords'] array and enter it in the
        $cfg['additional'] array instead.
-     * Colors
+     * colors
        The colors are easily changed using the variables
           + $cfg['colorFunctions']
           + $cfg['colorKeywords']
           + $cfg['colorStrings']
           + $cfg['colorColType']
           + $cfg['colorAdd']
-
+       
    phpMyAdmin is changing the type of one of my columns!
    No, it's MySQL that is doing silent column type changing.
-
+   
    My database has an underscore in it's name, and when I grant
    privileges to a user for this database, a backslash is added before
-   the underscore.
+   the underscore. 
    This is normal and means that the grant is done only for this
    database. If there was no backslash, this would be a wildcard grant,
    and the underscore would mean "any character". So, if the database
@@ -1322,26 +1329,40 @@ FAQ - Frequently Asked Questions
    instead of just john_db.
    If you really want to grant using a wildcard, there is a dialog box "
    Database (wildcards allowed)" for this.
-
+   
+   What is the curious symbol ø in the table statistics?
+   It means "average".
+   
+   I want to understand some Export options.
+   "Complete inserts" adds the column names on every INSERT command, for
+   better documentation (but resulting file is bigger).
+   "Extended inserts" provides a shorter dump file by using only once the
+   INSERT verb and the table name.
+   "Enclose table and field names with backquotes" ensures that field and
+   table names formed with special characters are protected.
+   
   [phpMyAdmin project]
-
+  
    I have found a bug. How do I inform developers?
    Our Bug Tracker is located at
    http://sourceforge.net/projects/phpmyadmin/ under the Bugs section.
    But please first discuss your bug with other users:
    http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
-
+   
    I want to translate the messages to a new language or upgrade an
    existing language, where do I start?
    Always use the current cvs version of your language file. For a new
    language, start from english.inc.php3. If you don't know how to get
    the cvs version, please ask one of the developers.
+   Please note that we try not to use html entities like &eacute; in the
+   translations, since we define the right character set in the file.
+   With html entities, the text on buttons would not display correctly.
    You can then put your translations, as a zip file to avoid losing
    special characters, on the sourceforge.net translation tracker.
    It would be a good idea to subscribe to the phpmyadmin-translators
    mailing list, because this is where we ask for translations of new
    messages.
-
+   
    I would like to help out with the development of phpMyAdmin. How
    should I proceed?
    The following method is preferred for new developers:
@@ -1357,22 +1378,22 @@ FAQ - Frequently Asked Questions
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
        tracker of the phpMyAdmin SourceForge account.
-
+       
    Write access to the CVS tree is granted only to experienced developers
    who have already contributed something useful to phpMyAdmin.
    Also, have a look at the Developers section.
    ______________________________________________________________________
-
+   
    Top  -  Requirements  -  Introduction  -  Installation  -
    Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
-
+   
 Developers Information
 
    phpMyAdmin is Open Source, so you're invited to contribute to it. Many
    great features have been written by other people and you too can help
    to make phpMyAdmin a useful tool.
-
+   
    If you're planning to contribute source, please read the following
    information:
      * All files include header.inc.php3 (layout),
@@ -1394,7 +1415,7 @@ Developers Information
        string (at least) to english.inc.php3 and print() it out.
      * If you want to be really helpful, write an entry for the
        ChangeLog.
-
+       
    IMPORTANT: With 1.4.1, development has switched to CVS. The following
    method is preferred for new developers:
      * fetch the current CVS tree over anonymous CVS:
@@ -1410,17 +1431,17 @@ Developers Information
      * put the modified files (tar'ed and gzip'ed) inside the patch
        tracker of the phpMyAdmin SourceForge account
        (http://sourceforge.net/projects/phpmyadmin/)
-
+       
    Write access to the CVS tree is granted only to developers who have
    already contributed something useful to phpMyAdmin. If you're
    interested in that, please contact us using the phpmyadmin-devel
    mailing list.
    ______________________________________________________________________
-
+   
    Top  -  Requirements  -  Introduction  -  Installation  -
    Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
-
+   
 Credits
 
 
@@ -1568,9 +1589,9 @@ Original Credits of Version 2.1.0
     And thanks to everyone else who sent me email with suggestions, bug-reports
     and or just some feedback.
    ______________________________________________________________________
-
+   
    Top  -  Requirements  -  Introduction  -  Installation  -
    Configuration  -  FAQ  -  Developers  -  Credits
    ______________________________________________________________________
-
-                                        Valid XHTML 1.0!      Valid CSS!
+   
+                                        Valid XHTML 1.0!      Valid CSS! 

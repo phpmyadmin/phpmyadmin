@@ -5,14 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-07-14 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * config.inc.php3, libraries/common.lib.php3: Fixed bug #576018.
-    * lang/german-*.inc.php3: Clarification.
-
 2002-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, db_details_exports.php3, tbl_properties_export.php3:
       add a link to a new faq entry explaining some dump options
     * libraries/relation.lib.php3: bug 575868 Unitialized string offset
+    * 2.3.0-rc3 released
+
+2002-07-14 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * config.inc.php3, libraries/common.lib.php3: Fixed bug #576018.
+    * lang/german-*.inc.php3: Clarification.
 
 2002-07-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3: bug 580929: do not EXPLAIN if this is
