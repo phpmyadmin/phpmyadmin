@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/dutch.inc.php3 updates, thanks to Ivo Teel
+
 2002-06-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: JS fixes, thanks to
       Richard Hornsby <rhornsby at users.sourceforge.net>.
