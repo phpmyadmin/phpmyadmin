@@ -23,6 +23,7 @@ $strAbsolutePathToDocSqlDir = 'Ange absolut sökväg på webbservern till docSQL-ka
 $strAccessDenied = 'Åtkomst nekad';
 $strAccessDeniedExplanation = 'phpMyAdmin försökte skapa en förbindelse till MySQL-servern, men servern nekade uppkopplingen. Kontrollera värd, användarnamn och lösenord i config.inc.php och förvissa dig om att de stämmer överens med informationen från administratören av MySQL-servern.';
 $strAction = 'Åtgärd';
+$strAddAutoIncrement = 'Lägg till AUTO_INCREMENT-värde';
 $strAddDeleteColumn = 'Lägg till/ta bort fältkolumner';
 $strAddDeleteRow = 'Lägg till/ta bort villkorsrader';
 $strAddDropDatabase = 'Lägg till \'DROP DATABASE\'';
@@ -653,5 +654,4 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) t
 $strZip = '"zippad"';
 // To translate
 
-$strAddAutoIncrement = 'Add AUTO_INCREMENT value';  //to translate
 ?>
