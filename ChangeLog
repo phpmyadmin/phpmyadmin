@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-22 Loïc Chapeaux  <lolo@phpheaven.net>
+    * libraries/display_tbl.lib.php3: fixed possible errors with special
+      characters in tables names.
+    * header.inc.php3, lines 25-26; left.php3, lines 47-48: fixed Apache 2+
+      & PHP 4.2+ HTTP header bug.
+
 2002-05-22 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, config.inc.php3, db_details_structure.php3,
       pdf_schema.php3, libraries/display_tbl.lib.php3: PMA_pdf_table_position 
