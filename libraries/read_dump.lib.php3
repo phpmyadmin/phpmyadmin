@@ -31,17 +31,28 @@ if (!defined('__LIB_READ_DUMP__')){
         $ret               = array();
         $string_start      = '';
         $in_string         = FALSE;
+        $in_comment        = FALSE;
         $escaped_backslash = FALSE;
 
         for ($i = 0; $i < strlen($sql); ++$i) {
             $char = $sql[$i];
 
             // if delimiter found, add the parsed part to the returned array
-            if ($char == $delimiter && !$in_string) {
+            if ($char == $delimiter && !$in_string && !$in_comment) {
                 $ret[]     = substr($sql, 0, $i);
                 $sql       = substr($sql, $i + 1);
                 $i         = 0;
                 $last_char = '';
+            }
+            // if in comment, add the parsed part to the returned array and
+            // remove the comment (till the first end of line)
+            else if ($in_comment) {
+                $ret[]      = substr($sql, 0, $i);
+                $pos        = strpos($sql, "\n");
+                $sql        = substr($sql, $pos + 1);
+                $i          = 0;
+                $last_char  = '';
+                $in_comment = FALSE;
             }
 
             if ($in_string) {
@@ -66,6 +77,10 @@ if (!defined('__LIB_READ_DUMP__')){
                     $in_string    = TRUE;
                     $string_start = $char;
                 }
+                // not start of a string, check for start of a "eol comment"
+                else if ($char == '#') {
+                    $in_comment   = TRUE;
+                } 
             }
             $last_char = $char;
         } // end for

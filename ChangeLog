@@ -15,6 +15,8 @@ $Source$
 	* tbl_create.php3: optimized a bit.
 	* tbl_replace.php3: message associated to the query wasn't displayed if the
 	  location header is used.
+	* libraries/read_dump.lib.php3, function 'split_sql_file()': fixed bug
+	  #444279 (# problem in uploaded file)... but find an other one :(
 
 2001-09-09  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/italian.inc.php3 updates thanks to Pietro Danesi.
