@@ -275,7 +275,7 @@ if ($sql_query != '') {
 
                 // .*? below is non greedy expansion, just in case somebody wants to understand it...
                 // looks ok here without using PCRE_MULTILINE
-                if ($i == $count - 1 && preg_match('@^((-- |#)[^\n]*\n|/\*.*?\*/)*(SELECT|SHOW)@i', $a_sql_query)) {
+                if ($i == $count - 1 && preg_match('@^((-- |#)[^\n]*\n|[\s]*\n|/\*.*?\*/)*(SELECT|SHOW)@i', $a_sql_query)) {
                     $complete_query = $sql_query;
                     $display_query = $sql_query;
                     $sql_query = $a_sql_query;

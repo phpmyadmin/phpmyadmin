@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-27 Michal Čihař  <michal@cihar.com>
+    * read_dump.php: Fix detection of SELECT query to display on multiple
+      submits (bug #1110727).
+
 2005-01-23 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_query_box.php: bug #1107937, undefined $fields_list
     * lang/estonian: Update thanks to Alvar Soome - finsoft.
