@@ -2,7 +2,7 @@
 /* $Id$ */
 
 // first created 2002/04/29 Arthit Suriyawongkul & Warit Wanasathian
-// last modified 2002/09/07 Arthit Suriyawongkul
+// last modified 2002/10/01 Arthit Suriyawongkul
 
 $charset = 'tis-620';
 $text_dir = 'ltr';
@@ -36,7 +36,7 @@ $strAfter = 'หลัง %s';
 $strAfterInsertBack = 'ส่งกลับ';
 $strAfterInsertNewInsert = 'แทรกระเบียนใหม่';
 $strAll = 'ทั้งหมด';
-$strAllTableSameWidth = 'ให้แสดงตารางทุกตารางด้วยความกว้างเท่ากันหรือไม่?';
+$strAllTableSameWidth = 'ให้แสดงตารางทุกตาราง ด้วยความกว้างเท่ากันหรือไม่?';
 $strAlterOrderBy = 'เรียงค่าในตารางตาม';
 $strAnIndex = 'ได้เพิ่มดัชนีแล้วใน %s';
 $strAnalyzeTable = 'วิเคราะห์ตาราง';
@@ -53,8 +53,8 @@ $strAtEndOfTable = 'ที่จุดสุดท้ายของตาราง';
 $strAttr = 'แอตทริบิวต์';
 
 $strBack = 'ย้อนกลับ';
-$strBeginCut = 'BEGIN CUT (จุดตัดเริ่ม)';
-$strBeginRaw = 'BEGIN RAW (เริ่ม RAW)';
+$strBeginCut = 'เริ่มจุดตัด';
+$strBeginRaw = 'เริ่มข้อมูลดิบ';
 $strBinary = ' ข้อมูลไบนารี ';
 $strBinaryDoNotEdit = ' ข้อมูลไบนารี - ห้ามแก้ไข ';
 $strBookmarkDeleted = 'ลบคำค้นที่จดไว้เรียบร้อยแล้ว';
@@ -68,7 +68,7 @@ $strBzip = '"bzipped"';
 $strCantLoadMySQL = 'ไม่สามารถเรียกใช้ตัวช่วยของ MySQL,<br />กรุณาตรวจสอบการตั้งค่าของ PHP';
 $strCantLoadRecodeIconv = 'ไม่สามารถเรียกใช้ตัวช่วย iconv หรือ recode เพื่อแปลงชุดตัวอักษร, ทางเลือก: 1) ตั้งค่าให้ PHP สามารถใช้ตัวช่วยเหล่านี้ได้ หรือ 2) ตั้งค่าให้ phpMyAdmin ไม่ต้องแปลงชุดตัวอักษร';
 $strCantRenameIdxToPrimary = 'เปลี่ยนชื่อดัชนีเป็น PRIMARY ไม่ได้!';
-$strCantUseRecodeIconv = 'ไม่สามารถใช้ฟังก์ชั่น iconv หรือ libiconv หรือ recode_string ทั้งๆ ที่สามารถเรียกตัวช่วยสำหรับฟังก์ชั่นเหล่านั้นขึ้นมาได้แล้ว. ลองตรวจสอบการตั้งค่าของ PHP';
+$strCantUseRecodeIconv = 'ไม่สามารถใช้ฟังก์ชั่น iconv หรือ libiconv หรือ recode_string ทั้งๆ ที่สามารถเรียกตัวช่วย สำหรับฟังก์ชั่นเหล่านั้นขึ้นมาได้แล้ว. ลองตรวจสอบการตั้งค่าของ PHP';
 $strCardinality = 'Cardinality';
 $strCarriage = 'ปัดแคร่: \\r';
 $strChange = 'เปลี่ยน';
@@ -136,8 +136,8 @@ $strEmpty = 'ลบข้อมูล';
 $strEmptyResultSet = 'MySQL คืนผลลัพธ์ว่างเปล่า (null) กลับมา (0 แถว).';
 $strEnabled = 'เปิดใช้อยู่';
 $strEnd = 'ท้ายสุด';
-$strEndCut = 'END CUT (จุดตัดสิ้นสุด)';
-$strEndRaw = 'END RAW (สิ้นสุด RAW)';
+$strEndCut = 'สิ้นสุดจุดตัด';
+$strEndRaw = 'สิ้นสุดข้อมูลดิบ';
 $strEnglishPrivileges = ' โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ ';
 $strError = 'ผิดพลาด';
 $strExplain = 'อธิบาย SQL';
@@ -177,15 +177,16 @@ $strHost = 'โฮสต์';
 $strHostEmpty = 'ชื่อโฮสต์ยังว่างอยู่!';
 
 $strIdxFulltext = 'Fulltext';
-$strIfYouWish = 'ถ้าต้องการเรียกดูเฉพาะบางคอลัมน์ ให้ระบุรายชื่อฟิลด์มาด้วย (คั่นแต่ละชื่อด้วยเครื่องหมายลูกน้ำ)';
+$strIfYouWish = 'ถ้าต้องการเรียกดู เฉพาะบางคอลัมน์ ให้ระบุรายชื่อฟิลด์มาด้วย (คั่นแต่ละชื่อด้วยเครื่องหมายลูกน้ำ)';
 $strIgnore = 'ไม่สนใจ';
+$strImportDocSQL = 'นำเข้าไฟล์ docSQL';
 $strInUse = 'ใช้อยู่';
 $strIndex = 'ดัชนี';
 $strIndexHasBeenDropped = 'โยนดัชนี %s ทิ้งไปเรียบร้อยแล้ว';
 $strIndexName = 'ชื่อดัชนี :';
 $strIndexType = 'ชนิดของดัชนี :';
 $strIndexes = 'ดัชนี';
-$strInsecureMySQL = 'ไฟล์เก็บค่ากำหนดของคุณ ได้กำหนดค่า (root with no password) เอาไว้ ซึ่งมันจะถูกใช้เป็น ทะเบียนชื่อปริยาย สำหรับทะเบียนชื่อที่มีสิทธิพิเศษของ MySQL.  เซิร์ฟเวอร์ MySQL ที่ทำงานด้วยค่ากำหนดนี้ จะเปิดโอกาสให้ถูกบุกรุกได้ คุณควรจะแก้ไขรูรั่วอันนี้ทันที เพื่อความปลอดภัย';
+$strInsecureMySQL = 'ไฟล์เก็บค่ากำหนดของคุณ ได้กำหนดค่า (root with no password) เอาไว้ ซึ่งมันจะถูกใช้เป็น ชื่อปริยาย สำหรับชื่อที่มีสิทธิพิเศษของ MySQL.  เซิร์ฟเวอร์ MySQL ที่ทำงานด้วยค่ากำหนดนี้ จะเปิดโอกาสให้ถูกบุกรุกได้ คุณควรจะแก้ไขรูรั่วอันนี้ทันที เพื่อความปลอดภัย';
 $strInsert = 'แทรก';
 $strInsertAsNewRow = 'แทรกเป็นแถวใหม่';
 $strInsertNewRow = 'แทรกแถวใหม่';
@@ -255,10 +256,10 @@ $strNumSearchResultsInTable = 'พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>';
 $strNumSearchResultsTotal = '<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง';
 
 $strOK = 'ตกลง';
-$strOftenQuotation = 'โดยปกติจะเป็นเครื่องหมายอัญประกาศ (เครื่องหมายคำพูด)<br />"เท่าที่จำเป็น" หมายถึงให้ใส่เครื่องหมายคร่อมเฉพาะกับฟิลด์ชนิด char และ varchar เท่านั้น';
+$strOftenQuotation = 'โดยปกติจะเป็นเครื่องหมายอัญประกาศ (เครื่องหมายคำพูด)<br />"เท่าที่จำเป็น" หมายถึง ให้ใส่เครื่องหมายคร่อม เฉพาะกับฟิลด์ชนิด char และ varchar เท่านั้น';
 $strOperations = 'กระบวนการ';
 $strOptimizeTable = 'ปรับแต่งตาราง';
-$strOptionalControls = 'กำหนดว่าจะเขียนหรืออ่านตัวอักขระพิเศษ อย่างไร';
+$strOptionalControls = 'กำหนดว่าจะเขียน หรืออ่านตัวอักขระพิเศษ อย่างไร';
 $strOptionally = 'เท่าที่จำเป็น';
 $strOptions = 'ตัวเลือก';
 $strOr = 'หรือ';
@@ -281,12 +282,13 @@ $strPos1 = 'จุดเริ่มต้น';
 $strPrevious = 'ก่อนหน้า';
 $strPrimary = 'Primary';
 $strPrimaryKey = 'Primary key';
-$strPrimaryKeyHasBeenDropped = 'โยนไพรมารีคีย์ทิ้งไปเรียบ ร้อยแล้ว';
-$strPrimaryKeyName = 'ชื่อของไพรมารีคีย์จะต้องเป็น... PRIMARY!';
+$strPrimaryKeyHasBeenDropped = 'โยนไพรมารีคีย์ทิ้งไปเรียบร้อยแล้ว';
+$strPrimaryKeyName = 'ชื่อของไพรมารีคีย์ จะต้องเป็น... PRIMARY!';
 $strPrimaryKeyWarning = '(ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> "PRIMARY" เท่านั้น!)';
 $strPrintView = 'แสดง';
 $strPrivileges = 'สิทธิ';
 $strProperties = 'คุณสมบัติ';
+$strPutColNames = 'ใส่ชื่อฟิลด์ที่แถวแรก';
 
 $strQBE = 'คำค้นจากตัวอย่าง';
 $strQBEDel = 'ลบ';
@@ -296,7 +298,7 @@ $strQueryOnDb = 'คำค้นบนฐานข้อมูล <b>%s</b>:';
 $strReType = 'พิมพ์ใหม่';
 $strRecords = 'ระเบียน';
 $strReferentialIntegrity = 'ตรวจสอบความสมบูรณ์ของการอ้างถึง:';
-$strRelationNotWorking = 'ความสามารถเพิ่มเติมที่อนุญาตให้ใช้งาน linked Tables ได้ ได้ถูกระงับเอาไว้ ด้วยเหตุผลตามที่แจ้งไว้ใน %shere%s';
+$strRelationNotWorking = 'ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere%s';
 $strRelationView = 'มุมมองรีเลชัน';
 $strReloadFailed = 'รีโหลด MySQL ใหม่ไม่สำเร็จ';
 $strReloadMySQL = 'รีโหลด MySQL ใหม่';
@@ -325,7 +327,7 @@ $strRunSQLQuery = 'ประมวลผลคำค้นบนฐานข้อมูล %s';
 $strRunning = 'ทำงานอยู่บน %s';
 
 $strSQL = 'SQL';
-$strSQLParserBugMessage = 'อาจจะมีการเปลี่ยนแปลงบางอย่างที่คุณพบว่ามันเป็นข้อผิดพลาดของ SQL parser. กรุณาตรวจสอบคำค้นของคุณให้ถี่ถ้วน โดยเฉพาะการเปิด/ปิดเครื่องหมายคำพูด (quotes) ให้ถูกต้อง. อีกสาเหตุหนึ่งที่เป็นไปได้ของข้อผิดพลาดคือ คุณอาจจะอัพโหลดไฟล์ไบนารีข้างนอกช่วงของเครื่องหมายคำพูด. คุณสามารถที่จะลองคำค้นของคุณที่คอมมานด์ไลน์ของ MySQL ซึ่งคุณอาจจะพบข้อผิดพลาดบางอย่างในนั้น. หาก MySQL server ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น. ถ้าคุณยังพบปัญหากับ parser ใน phpMyAdmin อยู่ แต่ไม่พบปัญหากับ parser ใน command line, ให้ลองลดความยาวของคำค้น SQL ลง จนกระทั่งเหลือคำค้น SQL เดี่ยวๆ ที่ยังทำให้เกิดปัญหาอยู่อีก, แล้วแจ้งข้อผิดพลาดดังกล่าวมาที่เรา ส่งมันมาพร้อมกับตัวข้อมูลที่คุณค้น ซึ่งได้จากส่วนของ CUT ด้านล่าง.';
+$strSQLParserBugMessage = 'อาจจะมีการเปลี่ยนแปลงบางอย่าง ที่คุณพบว่ามันเป็นข้อผิดพลาดของตัวอ่านคำสั่ง SQL. กรุณาตรวจสอบคำค้นของคุณให้ถี่ถ้วน โดยเฉพาะการเปิด/ปิดเครื่องหมายคำพูด (quotes) ให้ถูกต้อง. อีกสาเหตุหนึ่งที่เป็นไปได้คือ คุณอาจจะอัพโหลดไฟล์ไบนารีข้างนอกช่วงของเครื่องหมายคำพูด. คุณสามารถที่จะลองคำค้นของคุณที่คอมมานด์ไลน์ของ MySQL ซึ่งคุณอาจจะพบข้อผิดพลาดบางอย่างในนั้น. หาก MySQL server ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น. ถ้าคุณยังพบปัญหากับ parser ใน phpMyAdmin อยู่ แต่ไม่พบปัญหากับ parser ใน command line, ให้ลองลดความยาวของคำค้น SQL ลง จนกระทั่งเหลือคำค้น SQL เดี่ยวๆ ที่ยังทำให้เกิดปัญหาอยู่อีก, แล้วแจ้งข้อผิดพลาดดังกล่าวมาที่เรา ส่งมันมาพร้อมกับตัวข้อมูลที่คุณค้น ซึ่งได้จากส่วนของ CUT ด้านล่าง.';
 $strSQLParserUserError = 'อาจจะมีข้อผิดพลาดบางอย่างในคำค้น SQL ของคุณ. หาก MySQL server ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น';
 $strSQLQuery = 'คำค้น SQL';
 $strSQLResult = 'ผลลัพธ์ SQL';
@@ -351,6 +353,7 @@ $strSelectFields = 'เลือกฟิลด์ (อย่างน้อยหนึ่งฟิลด์):';
 $strSelectNumRows = 'ในคำค้น';
 $strSelectTables = 'เลือกตาราง';
 $strSend = 'ส่งมาเป็นไฟล์';
+$strServer = 'เซิร์ฟเวอร์ %s';
 $strServerChoice = 'ตัวเลือกเซิร์ฟเวอร์';
 $strServerVersion = 'รุ่นของเซิร์ฟเวอร์';
 $strSetEnumVal = 'ถ้าชนิดของฟิลด์เป็น "enum" หรือ "set" โปรดใส่ค่าตามรูปแบบ: \'a\',\'b\',\'c\'...<br />ถ้าต้องการใส่เครื่องหมาย backslash ("\\") หรือ อัญประกาศเดี่ยว ("\'") เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย backslash นำหน้า (ตัวอย่าง: \'\\\\xyz\' or \'a\\\'b\')';
@@ -392,8 +395,8 @@ $strTableStructure = 'โครงสร้างตาราง';
 $strTableType = 'ชนิดตาราง';
 $strTables = '%s ตาราง';
 $strTextAreaLength = ' เนื่องจากความยาวของมัน <br />ฟิลด์นี้ ไม่อาจแก้ไขได้ ';
-$strTheContent = 'ได้แทรกข้อมูลจากไฟล์ของคุณเรียบร้อยแล้ว';
-$strTheContents = 'สำหรับแถวที่มีไพรมารีคีย์หรือ unique key เหมือนกัน เนื้อหาจากไฟล์จะแทนที่เนื้อหาเดิมในตาราง';
+$strTheContent = 'ได้แทรกข้อมูล จากไฟล์ของคุณเรียบร้อยแล้ว';
+$strTheContents = 'สำหรับแถวที่มีไพรมารีคีย์ หรือ unique key เหมือนกัน เนื้อหาจากไฟล์ จะแทนที่เนื้อหาเดิมในตาราง';
 $strTheTerminator = 'จุดสิ้นสุดของฟิลด์';
 $strTotal = 'ทั้งหมด';
 $strType = 'ชนิด';
@@ -429,7 +432,4 @@ $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
-$strServer = 'Server %s';  //to translate
-$strPutColNames = 'Put fields names at first row';  //to translate
-$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>
