@@ -1,7 +1,7 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-error_reporting(E_ALL);
+
 /**
  * Set of functions used with the relation and pdf feature
  */
@@ -519,7 +519,7 @@ function PMA_handleSlashes($val) {
  * Set a single comment to a certain value.
  *
  * @param   string   the name of the db
- * @param   string   the name of the table
+ * @param   string   the name of the table (may be empty in case of a db comment)
  * @param   string   the name of the column
  * @param   string   the value of the column
  * @param   string   (optional) if a column is renamed, this is the name of the former key which will get deleted
@@ -545,7 +545,8 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
         }
     }
 
-    if ($mode == 'native') {
+    // native mode is only for column comments so we need a table name
+    if ($mode == 'native' && !empty($table)) {
         $fields = PMA_DBI_get_fields($db, $table);
         // TODO: get directly the information of $col
         foreach($fields as $key=>$field) {

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php: db comments broken
+
 2005-03-07 Michal Čihař  <michal@cihar.com>
     * db_printview.php, tbl_printview.php, css/phpmyadmin.css.php,
       libraries/header_meta_style.inc.php: Actually use print style in themes,
