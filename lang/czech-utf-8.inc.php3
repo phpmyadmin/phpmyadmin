@@ -28,6 +28,7 @@ $strAPrimaryKey = 'V&nbsp;tabulce %s byl vytvořen primární klíč';
 $strAbortedClients = 'Přerušené';
 $strAbsolutePathToDocSqlDir = 'Zadejte absolutní cestu docSQL adresáře na serveru';
 $strAccessDenied = 'Přístup odepřen';
+$strAccessDeniedExplanation = 'phpMyAdmin se pokusil připojit k&nbsp;MySQL serveru, a ten odmítl připojení. Zkontrolujte jméno serveru, uživatelské jméno a heslo v&nbsp;souboru config.inc.php3 a ujistěte se, že jsou totožné s&nbsp;těmi co máte od administrátora MySQL serveru.';
 $strAction = 'Akce';
 $strAddDeleteColumn = 'Přidat/Smazat sloupec';
 $strAddDeleteRow = 'Přidat/Smazat řádek s&nbsp;podmínkou';
@@ -659,5 +660,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
-$strAccessDeniedExplanation = 'phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in config.inc.php and make sure that they correspond to the information given by the administrator of the MySQL server.';  //to translate
 ?>
