@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-07 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech: Updated.
+
 2003-01-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: Sorting user list.
 
