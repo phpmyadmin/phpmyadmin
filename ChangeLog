@@ -8,6 +8,12 @@ $Source$
 2003-07-23 Garvin Hicking <me@supergarv.de>
     * css/phpmyadmin.css.php3: Removed 'lowercase' transform 
       (Bug #769827)
+    * libraries/display_export.lib.php3, libraries/export/sql.php3
+      Only print Update/Creation/Check time when the checkbox 'Include
+      Comments' is chosen. So it is now also possible to check that
+      box even though the relational features could be deactivated.
+      But all checks to relational comments will only use those if
+      the relation features work.
 
 2003-07-22 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian update, thanks to finsoft@sourceforge.net.

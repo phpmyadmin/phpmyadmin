@@ -149,12 +149,10 @@ if (!empty($cfgRelation['relation'])) {
 <?php
  } // end relation
 
-if ($cfgRelation['commwork']) {
-     ?>
+?>
                         <input type="checkbox" name="sql_comments" value="yes" id="checkbox_sql_use_comments" <?php PMA_exportCheckboxCheck('sql_comments'); ?> />
                         <label for="checkbox_sql_use_comments"><?php echo $strComments; ?></label><br />
 <?php
-} // end comments
 
 if ($cfgRelation['mimework']) {
      ?>

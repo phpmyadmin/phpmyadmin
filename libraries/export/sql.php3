@@ -151,17 +151,17 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
                 $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
             }
 
-            if (isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
+            if ($do_comments && isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
                 $schema_create .= '# ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
                 $new_crlf = '#' . $crlf . $crlf;
             }
 
-            if (isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
+            if ($do_comments && isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
                 $schema_create .= '# ' . $GLOBALS['strStatUpdateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])) . $crlf;
                 $new_crlf = '#' . $crlf . $crlf;
             }
 
-            if (isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
+            if ($do_comments && isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
                 $schema_create .= '# ' . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
                 $new_crlf = '#' . $crlf . $crlf;
             }
