@@ -229,6 +229,7 @@ $strLines = 'Rader';
 $strLinesTerminatedBy = 'Raderna avslutas med';
 $strLinkNotFound = 'Länk ej funnen';
 $strLinksTo = 'Länkar till';
+$strLocalhost = 'Local';
 $strLocationTextfile = 'Textfilens plats';
 $strLogPassword = 'Lösenord:';
 $strLogUsername = 'Användarnamn:';
@@ -522,28 +523,36 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 // To translate
 
+$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
 $strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
 $strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
+$strAddedColumnComment = 'Added comment for column';  //to translate
+$strAddedColumnRelation = 'Added relation for column';  //to translate
+
 $strColumnPrivileges = 'Column-specific privileges'; //to translate
+
 $strDbPrivileges = 'Database-specific privileges'; //to translate
-$strLocalhost = 'Local';
+$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
+
+$strFileCouldNotBeRead = 'File could not be read';  //to translate
+
+$strIgnoringFile = 'Ignoring file %s';  //to translate
+$strImportFiles = 'Import files';  //to translate
+$strImportFinished = 'Import finished';  //to translate
+
 $strLoginInformation = 'Login Information'; //to translate
-$strTblPrivileges = 'Table-specific privileges'; //to translate
-$strThisHost = 'This Host'; //to translate
-$strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
-$strUserAlreadyExists = 'The user %s already exists!'; //to translate
-$strUseTextField = 'Use text field'; //to translate
 
 $strNoUsersSelected = 'No users selected.'; //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-$strIgnoringFile = 'Ignoring file %s';  //to translate
+
+$strTblPrivileges = 'Table-specific privileges'; //to translate
+$strThisHost = 'This Host'; //to translate
 $strThisNotDirectory = 'This was not a directory';  //to translate
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strImportFiles = 'Import files';  //to translate
+
+$strUseTextField = 'Use text field'; //to translate
+$strUserAlreadyExists = 'The user %s already exists!'; //to translate
+$strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
+
+$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
+$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
+
 ?>
