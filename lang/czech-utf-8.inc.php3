@@ -378,6 +378,7 @@ $strOverwriteExisting = 'Přepsat existující soubor(y)';
 $strPHP40203 = 'Používáte PHP 4.2.3, které má závažnou chybu při práci s&nbsp;vícebajtovými znaky (mbsting), jedná se o&nbsp;chybu PHP číslo 19404. Nedoporučujeme používat tuto verzi PHP s&nbsp;phpMyAdminem.';
 $strPHPVersion = 'Verze PHP';
 $strPageNumber = 'Strana číslo:';
+$strPaperSize = 'Velikost stránky';
 $strPartialText = 'Zkrácené texty';
 $strPassword = 'Heslo';
 $strPasswordChanged = 'Heslo pro %s bylo úspěšně změněno.';
@@ -449,6 +450,7 @@ $strQuerySQLHistory = 'SQL historie';
 $strQueryStatistics = '<b>Statistika dotazů</b>: Od spuštění bylo serveru posláno %s dotazů.';
 $strQueryTime = 'Dotaz zabral %01.4f sekund';
 $strQueryType = 'Typ dotazu';
+$strQueryWindowLock = 'Nepřepisovat tento dotaz z&nbsp;hlavního okna';
 
 $strReType = 'Heslo znovu';
 $strReceived = 'Přijato';
@@ -649,6 +651,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
-$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
-$strPaperSize = 'Paper size';  //to translate
 ?>

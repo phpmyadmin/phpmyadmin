@@ -9,6 +9,7 @@ $Source$
     * libraries/display_tbl.lib.php3: Display Full/Partial text links for
       almost every select.
     * lang/italian: Updated, thanks to Pietro Danesi (danone).
+    * lang/czech: Updated.
 
 2003-06-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: MySQL 4.1 users could not edit column privileges.
