@@ -19,7 +19,7 @@ PMA_checkParameters(array('db', 'table'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_properties.php?' . PMA_generate_common_url($db, $table);
+$err_url = $cfg['DefaultTabTable'] . '?' . PMA_generate_common_url($db, $table);
 
 
 /**
