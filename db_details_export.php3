@@ -53,7 +53,19 @@ echo "\n";
             <input type="radio" name="what" id="radio_dump_dataonly" value="dataonly" />
             <label for="radio_dump_dataonly"><?php echo $strDataOnly; ?></label><br />
             <input type="radio" name="what" id="radio_dump_xml" value="xml" />
-            <label for="radio_dump_xml"><?php echo $strExportToXML; ?></label>
+            <label for="radio_dump_xml"><?php echo $strExportToXML; ?></label><br />
+            <input type="radio" name="what" value="latex" id="radio_dump_latex" />
+            <label for="radio_dump_latex"><?php echo $strLaTeX; ?></label> &nbsp; &nbsp;
+            <!-- for now we have only one environment supported -->
+            <input type="hidden" name="environment" value="longtable" />
+            <?php /*
+            <select name="environment">
+                <option value="longtable" selected><?php echo $strLaTeXMultipageTable; ?></option>
+                <option value="sideways"><?php echo $strLaTeXSidewaysTable; ?></option>
+                <option value="table"><?php echo $strLaTeXStandardTable; ?></option>
+            </select>
+            */ ?>
+
 <?php
 if ($num_tables > 1) {
     $checkall_url = 'db_details_export.php3'

@@ -5,9 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-12-10 Michal Cihar  <nijel@users.sourceforge.net>
+2002-12-11 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_dump.php3: Fix exporting of structure and data to file, fix and make
       cleaner charset conversion for export.
+    * db_details_export.php3, tbl_dump.php3, tbl_properties_export.php3,
+      lang/*, libraries/build_dump.lib.php3: Support for exporting to LaTeX,
+      thanks to Valentine for creating the patch #627496.
 
 2002-12-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/galician: update, thanks to Xosé Calvo

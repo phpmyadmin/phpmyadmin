@@ -35,6 +35,21 @@ require('./tbl_properties_table_info.php3');
             <input type="radio" name="what" value="dataonly" id="radio_dump_dataonly" />
             <label for="radio_dump_dataonly"><?php echo $strDataOnly; ?></label>&nbsp;&nbsp;<br />
             <br />
+
+            <!-- LaTeX table -->
+            <input type="radio" name="what" value="latex" id="radio_dump_latex" />
+            <label for="radio_dump_latex"><?php echo $strLaTeX; ?></label> &nbsp; &nbsp;
+            <!-- for now we have only one environment supported -->
+            <input type="hidden" name="environment" value="longtable" />
+            <?php /*
+            <select name="environment">
+                <option value="longtable" selected><?php echo $strLaTeXMultipageTable; ?></option>
+                <option value="sideways"><?php echo $strLaTeXSidewaysTable; ?></option>
+                <option value="table"><?php echo $strLaTeXStandardTable; ?></option>
+            </select>
+            */ ?>
+            <br /><br />
+
             <!-- Excel CSV -->
             <input type="radio" name="what" value="excel" id="radio_dump_excel" />
             <label for="radio_dump_excel"><?php echo $strStrucExcelCSV; ?></label>&nbsp;&nbsp;<br />

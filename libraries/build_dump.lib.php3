@@ -644,5 +644,89 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         return $buffer;
     } // end of the 'PMA_getTableXML()' function
 
+
+
+
+
+
+   /**
+     * Outputs the content of a table in LaTeX table/sideways table environment
+     *
+     * @param   string   the database name
+     * @param   string   the table name
+     * @param   string   the environment name to be used for the table
+     * @param   integer  the offset on this table
+     * @param   integer  the last row to get
+     * @param   string   the end of line sequence
+     * @param   string   the url to go back in case of error
+     *
+     * @return  string   the LaTeX table environment
+     *
+     * @access  public
+     */
+   function PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $error_url) {
+
+        $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+        for ($i = 0; $row = PMA_mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
+            $columns[$i] = $row['Field'];
+        }
+        $columns_cnt     = count($columns);
+        unset($i);
+        unset($local_query);
+        mysql_free_result($result);
+
+        $tex_escape = array("$", "%", "{", "}",  "&",  "#", "_", "^");
+        
+        $local_query = 'select * from ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+
+        $buffer	     .= '\begin{table} ' . $crlf 
+            . ' \begin{longtable}{|';
+	
+	    for($index=0;$index<$columns_cnt;$index++) {
+           $buffer .= 'c|';
+        }
+        $buffer .= '} ' . $crlf ;
+
+        $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
+
+        // print the whole table
+        while ($record = PMA_mysql_fetch_array($result, MYSQL_ASSOC)) {
+            
+            // print each row
+            for($i = 0; $i < $columns_cnt; $i++) {
+                if (!function_exists('is_null') || !is_null($record[$columns[$i]])) {
+                    $column_value = $record[$columns[$i]];
+
+                    //	$ % { } & # _ ^
+                    // escaping special characters
+                    for($k=0;$k<count($tex_escape);$k++) {
+                        $column_value = str_replace($tex_escape[$k], '\\' . $tex_escape[$k], $column_value);
+                    }
+
+                    // last column ... no need for & character
+                    if($i == ($columns_cnt - 1)) {
+                        $buffer .= $column_value;
+                    } else {
+                        $buffer .= $column_value . " & ";
+                    }
+                }
+            }
+            $buffer .= ' \\\\ \hline ' . $crlf;
+        }
+
+        $buffer .= ' \end{longtable} \end{table}' . $crlf;
+
+        mysql_free_result($result);
+        return $buffer;
+    
+    } // end getTableLatex
+
+
+
+
+
+
 } // $__PMA_BUILD_DUMP_LIB__
 ?>

@@ -157,6 +157,9 @@ else {
     } else if ($what == 'xml') {
         $ext       = 'xml';
         $mime_type = 'text/xml';
+    } else if ($what == 'latex') {
+        $ext 	   = 'tex';
+        $mime_type = 'application/x-tex';
     } else {
         $ext       = 'sql';
         // loic1: 'application/octet-stream' is the registered IANA type but
@@ -204,8 +207,9 @@ if ($num_tables == 0) {
 }
 // At least one table -> do the work
 else {
-    // No csv or xml format -> add some comments at the top
-    if ($what != 'csv' &&  $what != 'excel' && $what != 'xml') {
+    // No csv or xml or latex format -> add some comments at the top
+
+    if ($what != 'csv' &&  $what != 'excel' && $what != 'xml' && $what != 'latex') {
         $dump_buffer       .= '# phpMyAdmin MySQL-Dump' . $crlf
                            .  '# version ' . PMA_VERSION . $crlf
                            .  '# http://www.phpmyadmin.net/ (download page)' . $crlf
@@ -321,6 +325,45 @@ else {
         }
         $dump_buffer         .= '</' . $db . '>' . $crlf;
     } // end 'xml' case
+
+
+    // latex case
+    else if ($GLOBALS['what'] == 'latex') {
+    
+
+        $dump_buffer   .=    '% ' . $crlf
+            .  '% phpMyAdmin LaTeX-Dump' . $crlf
+            .  '% version ' . PMA_VERSION . $crlf
+            .  '% http://www.phpmyadmin.net/ (download page)' . $crlf
+            .  '%' . $crlf
+            .  '% ' . $strHost . ': ' . $cfg['Server']['host'] . $crlf
+            .  '%' . $crlf;
+
+        if (isset($table_select)) {
+            $tmp_select = implode($table_select, '|');
+            $tmp_select = '|' . $tmp_select . '|';
+        }
+
+        $i = 0;
+        while ($i < $num_tables) {
+
+            if (!isset($single)) {
+                $table = PMA_mysql_tablename($tables, $i);
+            }
+            if (!isset($limit_from) || !isset($limit_to)) {
+                $limit_from = $limit_to = 0;
+            }
+            if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
+                || (!isset($tmp_select) && !empty($table))) {
+                
+                // to do: add option for the formatting ( c, l, r, p)
+                $dump_buffer .= PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $err_url);
+            }
+            $i++;
+        }
+	
+    } //end latex case
+
 
     // 'csv' case
     else {

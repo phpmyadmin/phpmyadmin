@@ -488,4 +488,5 @@ $strTraffic = 'Traffic'; //to translate
 
 $strVar = 'Variable'; //to translate
 
+$strLaTeX = 'LaTeX';  //to translate
 ?>

@@ -504,4 +504,5 @@ $strTime = 'Time'; //to translate
 $strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
 
 $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
+$strLaTeX = 'LaTeX';  //to translate
 ?>

@@ -214,6 +214,7 @@ $strKeepPass = 'Nemìnit heslo';
 $strKeyname = 'Klíèovı název';
 $strKill = 'Zabít';
 
+$strLaTeX = 'LaTeX';
 $strLandscape = 'Na ¹íøku';
 $strLength = 'Délka';
 $strLengthSet = 'Délka/Mno¾ina*';

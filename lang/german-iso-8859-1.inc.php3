@@ -477,4 +477,5 @@ $strYes = 'Ja';
 
 $strZip = 'Zip-komprimiert';
 
+$strLaTeX = 'LaTeX';  //to translate
 ?>
