@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-02  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug 436108, quotes into manual requests: db_readdump.php3
+
 2001-07-01  Marc Delisle  <lem9@users.sourceforge.net>
 	* user_details.php3, lang/*: privileges in MySQL-speak
 	* new script lang/remove_message.sh

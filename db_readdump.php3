@@ -34,7 +34,6 @@ if(!empty($id_bookmark)) {
 }
 
 
-
 if($sql_file != "none") {
   // do file upload
   if(ereg("^php[0-9A-Za-z_.-]+$", basename($sql_file))) {
@@ -57,6 +56,10 @@ if($sql_query != "") {
   if (count($pieces) == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
     $sql_query = trim($pieces[0]);
     if (eregi('^CREATE TABLE (.+)', $sql_query))  $reload = "true";
+
+// sql.php3 will stripslash the query if get_magic_quotes_gpc
+    if (get_magic_quotes_gpc() == 1) $sql_query = addslashes($sql_query);
+
     include("./sql.php3");
     exit;
   }
