@@ -63,7 +63,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')) {
     }
 
     /**
-     * Avoids undefined variables in PHP3
+     * Avoids undefined variables
      */
     if (!isset($use_backquotes)) {
         $use_backquotes   = 0;
@@ -173,30 +173,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         /**
          * Define $is_upload
          */
-          //$is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
-          //     ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
-               // loic1: php 3.0.15 and lower bug -> always enabled
-          //     : (PMA_PHP_INT_VERSION < 30016 || intval(@get_cfg_var('upload_max_filesize')));
-
-          // Note: PHP <40300 returns TRUE for function_exists, even
-          // if the function is disabled;
-          // PHP < 30016 had problems with get_cfg_var;
-          //  so if we cannot detect that uploads
-          //  are disabled, we assume they are enabled
 
           $is_upload = TRUE;
-          if (PMA_PHP_INT_VERSION >= 40000
-              && function_exists('ini_get')
-              && (strtolower(@ini_get('file_uploads')) == 'off'
-                 || @ini_get('file_uploads') == 0)) {
+          if (strtolower(@ini_get('file_uploads')) == 'off'
+                 || @ini_get('file_uploads') == 0) {
               $is_upload = FALSE;
           }
-          if (PMA_PHP_INT_VERSION >= 30016
-              && PMA_PHP_INT_VERSION < 40000
-              && !intval(@get_cfg_var('upload_max_filesize'))) {
-              $is_upload = FALSE;
-          }
-
 
         /**
          * Charset conversion.
@@ -242,8 +224,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
-    if (PMA_PHP_INT_VERSION < 40000
-        || (PMA_PHP_INT_VERSION >= 40005 && @ini_get('zlib.output_compression'))) {
+    if (@ini_get('zlib.output_compression')) {
         $cfg['OBGzip'] = FALSE;
     }
 
@@ -262,17 +243,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
          */
         include('./libraries/url_generating.lib.php');
 
-
         /**
          * Loads the mysql extensions if it is not loaded yet
          */
         if (!@function_exists('mysql_connect')) {
-            if (PMA_PHP_INT_VERSION < 40000) {
-                $extension = 'MySQL';
-            } else {
-                $extension = 'mysql';
-            }
-            PMA_dl($extension);
+            PMA_dl('mysql');
         }
 
         // check whether mysql is available
@@ -319,26 +294,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             return $a_string;
         } // end of the 'PMA_sqlAddslashes()' function
 
-
-        if (!function_exists('in_array')) {
-            /**
-             * Searches $haystack for $needle and returns TRUE if it is found in
-             * the array, FALSE otherwise.
-             *
-             * @param  mixed    the 'needle'
-             * @param  array    the 'haystack'
-             *
-             * @return boolean  has $needle been found or not?
-             */
-            function in_array($needle, $haystack) {
-                while (list(, $value) = each($haystack)) {
-                    if ($value == $haystack) {
-                        return TRUE;
-                    }
-                }
-                return FALSE;
-            }
-        }
 
         /**
          * Add slashes before "_" and "%" characters for using them in MySQL
@@ -527,7 +482,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             } // end if
             if (!empty($error_message)) {
                 $error_message = htmlspecialchars($error_message);
-                $error_message = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $error_message);
+                $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
             }
             echo '<p>' . "\n"
                     . '    ' . $GLOBALS['strMySQLSaid'] . '<br />' . "\n"
@@ -603,28 +558,26 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if ($only_db_check == FALSE) {
             // ... first checks whether the "safe_show_database" is on or not
             //     (if MYSQL supports this)
-            if (PMA_MYSQL_INT_VERSION >= 32330) {
-                $is_safe_show_dbs = FALSE;
-                if (PMA_MYSQL_INT_VERSION >= 40002) {
-                    $is_safe_show_dbs = 'ON';
-                }
-                else {
-                    $local_query      = 'SHOW VARIABLES LIKE \'safe\\_show\\_database\'';
-                    $rs               = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                    $is_safe_show_dbs = ($rs) ? @PMA_mysql_result($rs, 0, 'Value') : FALSE;
-                    mysql_free_result($rs);
-                }
+            $is_safe_show_dbs = FALSE;
+            if (PMA_MYSQL_INT_VERSION >= 40002) {
+                $is_safe_show_dbs = 'ON';
+            }
+            else {
+                $local_query      = 'SHOW VARIABLES LIKE \'safe\\_show\\_database\'';
+                $rs               = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                $is_safe_show_dbs = ($rs) ? @PMA_mysql_result($rs, 0, 'Value') : FALSE;
+                mysql_free_result($rs);
+            }
 
-                // ... and if on, try to get the available dbs list
-                if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
-                    $uva_alldbs   = mysql_list_dbs($userlink);
-                    while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
-                          $dblist[] = $uva_row[0];
-                    } // end while
-                    $dblist_cnt   = count($dblist);
-                    unset($uva_alldbs);
-                } // end if ($is_safe_show_dbs)
-            } //end if (PMA_MYSQL_INT_VERSION)
+            // ... and if on, try to get the available dbs list
+            if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
+                $uva_alldbs   = mysql_list_dbs($userlink);
+                while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
+                      $dblist[] = $uva_row[0];
+                } // end while
+                $dblist_cnt   = count($dblist);
+                unset($uva_alldbs);
+            } // end if ($is_safe_show_dbs)
 
             // ... else checks for available databases in the "mysql" db
             if (!$dblist_cnt) {
@@ -694,16 +647,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                 $dblist[]           = $uva_db;
                                 $uva_mydbs[$uva_db] = 0;
                             } else if (!isset($dblist[$uva_db])) {
-                                reset($uva_mydbs);
-                                while (list($uva_matchpattern, $uva_value) = each($uva_mydbs)) {
+                                foreach($uva_mydbs AS $uva_matchpattern => $uva_value) {
                                     // loic1: fixed bad regexp
                                     // TODO: db names may contain characters
                                     //       that are regexp instructions
-                                    $re        = '(^|(\\\\\\\\)+|[^\])';
-                                    $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
+                                    $re        = '@(^|(\\\\\\\\)+|[^\])';
+                                    $uva_regex = preg_replace($re . '%@', '\\1.*', preg_replace($re . '_@', '\\1.{1}', $uva_matchpattern));
                                     // Fixed db name matching
                                     // 2000-08-28 -- Benjamin Gandon
-                                    if (ereg('^' . $uva_regex . '$', $uva_db)) {
+                                    if (preg_match('@^' . $uva_regex . '$@', $uva_db)) {
                                         $dblist[] = $uva_db;
                                         break;
                                     }
@@ -834,8 +786,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if (empty($cfg['PmaAbsoluteUri'])) {
             if (!empty($_SERVER)) {
                 $SERVER_ARRAY = '_SERVER';
-            } else if (!empty($HTTP_SERVER_VARS)) {
-                $SERVER_ARRAY = 'HTTP_SERVER_VARS';
             } else {
                 $SERVER_ARRAY = 'GLOBALS';
             } // end if
@@ -906,8 +856,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if (substr($cfg['PmaAbsoluteUri'], 0, 7) != 'http://' && substr($cfg['PmaAbsoluteUri'], 0, 8) != 'https://') {
                 if (!empty($_SERVER)) {
                     $SERVER_ARRAY = '_SERVER';
-                } else if (!empty($HTTP_SERVER_VARS)) {
-                    $SERVER_ARRAY = 'HTTP_SERVER_VARS';
                 } else {
                     $SERVER_ARRAY = 'GLOBALS';
                 } // end if
@@ -932,8 +880,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         /**
          * Gets the valid servers list and parameters
          */
-        reset($cfg['Servers']);
-        while (list($key, $val) = each($cfg['Servers'])) {
+        foreach($cfg['Servers'] AS $key => $val) {
             // Don't use servers with no hostname
             if ( ($val['connect_type'] == 'tcp') && empty($val['host'])) {
                 unset($cfg['Servers'][$key]);
@@ -980,10 +927,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if (strtolower($cfg['Server']['connect_type']) == 'tcp') {
                 $cfg['Server']['socket'] = '';
             }
-            $server_socket = (empty($cfg['Server']['socket']) || PMA_PHP_INT_VERSION < 30010)
+            $server_socket = (empty($cfg['Server']['socket']))
                            ? ''
                            : ':' . $cfg['Server']['socket'];
-            if (PMA_PHP_INT_VERSION >= 40300 && PMA_MYSQL_CLIENT_API >= 32349) {
+            if (PMA_MYSQL_CLIENT_API >= 32349) {
                 $client_flags = $cfg['Server']['compress'] && defined('MYSQL_CLIENT_COMPRESS') ? MYSQL_CLIENT_COMPRESS : 0;
             }
 
@@ -1050,9 +997,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 }
             } // end if
 
-            if (PMA_PHP_INT_VERSION >= 40000) {
-                $bkp_track_err = @ini_set('track_errors', 1);
-            }
+            $bkp_track_err = @ini_set('track_errors', 1);
 
             // Try to connect MySQL with the control user profile (will be used to
             // get the privileges list for the current user but the true user link
@@ -1122,9 +1067,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // Pass #2 of DB-Config to read in user level DB-Config will go here
             // Robbat2 - May 11, 2002
 
-            if (PMA_PHP_INT_VERSION >= 40000) {
-                @ini_set('track_errors', $bkp_track_err);
-            }
+            @ini_set('track_errors', $bkp_track_err);
 
             // If controluser isn't defined, use the current user settings to get
             // his rights
@@ -1150,7 +1093,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     if ($dblist[$i] == '*' && $dblist_asterisk_bool == FALSE) {
                         $dblist_asterisk_bool = TRUE;
                         $dblist_full = PMA_safe_db_list(FALSE, $dbh, FALSE, $rs, $userlink, $cfg, $dblist);
-                        while(list($dbl_key, $dbl_val) = each($dblist_full)) {
+                        foreach($dblist_full AS $dbl_key => $dbl_val) {
                             if (!in_array($dbl_val, $dblist)) {
                                 $true_dblist[] = $dbl_val;
                             }
@@ -1162,7 +1105,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                         continue;
                     }
 
-                    if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
+                    if ($is_show_dbs && preg_match('@(^|[^\])(_|%)@', $dblist[$i])) {
                         $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                         $rs          = PMA_mysql_query($local_query, $dbh);
                         // "SHOW DATABASES" statement is disabled
@@ -1286,13 +1229,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_backquote($a_name, $do_it = TRUE)
         {
             if ($do_it
-                && PMA_MYSQL_INT_VERSION >= 32306
                 && !empty($a_name) && $a_name != '*') {
 
                 if (is_array($a_name)) {
                      $result = array();
-                     reset($a_name);
-                     while(list($key, $val) = each($a_name)) {
+                     foreach($a_name AS $key => $val) {
                          $result[$key] = '`' . $val . '`';
                      }
                      return $result;
@@ -1378,14 +1319,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         function PMA_countRecords($db, $table, $ret = FALSE)
         {
             global $err_url, $cfg;
-            if (PMA_MYSQL_INT_VERSION >= 32303) {
-                $local_query  = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
-                $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-                $showtable    = PMA_mysql_fetch_array($result);
-                $num     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
-                if ($num < $cfg['MaxExactCount']) unset($num);
-                mysql_free_result($result);
-            }
+            $local_query  = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
+            $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+            $showtable    = PMA_mysql_fetch_array($result);
+            $num     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+            if ($num < $cfg['MaxExactCount']) unset($num);
+            mysql_free_result($result);
+
             if (!isset($num)) {
                 $result = PMA_mysql_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)) or PMA_mysqlDie('', $local_query, '', $err_url);
                 $num    = ($result) ? PMA_mysql_result($result, 0, 'num') : 0;
@@ -1431,7 +1371,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             }
 
             // Corrects the tooltip text via JS if required
-            else if (!empty($GLOBALS['table']) && $cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
+            else if (!empty($GLOBALS['table']) && $cfg['ShowTooltip']) {
                 $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
                 if ($result) {
                     $tbl_status = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
@@ -1460,8 +1400,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             } // end if... else if
 
             // Checks if the table needs to be repaired after a TRUNCATE query.
-            if (PMA_MYSQL_INT_VERSION >= 40000
-                && isset($GLOBALS['table']) && isset($GLOBALS['sql_query'])
+            if (isset($GLOBALS['table']) && isset($GLOBALS['sql_query'])
                 && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
                 if (!isset($tbl_status)) {
                     $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
@@ -1509,7 +1448,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                      /* SQL-Parser-Analyzer */
                     $query_base = PMA_sqlAddslashes(htmlspecialchars($local_query));
                      /* SQL-Parser-Analyzer */
-                    $query_base = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
+                    $query_base = preg_replace("@((\015\012)|(\015)|(\012))+@", $new_line, $query_base);
                 } else {
                     $query_base = $local_query;
                 }
@@ -1572,9 +1511,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                   . $explain_link_validate
                                   . '&amp;sql_query=';
 
-                    if (eregi('^SELECT[[:space:]]+', $local_query)) {
+                    if (preg_match('@^SELECT[[:space:]]+@i', $local_query)) {
                         $explain_link .= urlencode('EXPLAIN ' . $local_query) . '">' . $GLOBALS['strExplain'];
-                    } else if (eregi('^EXPLAIN[[:space:]]+SELECT[[:space:]]+', $local_query)) {
+                    } else if (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $local_query)) {
                         $explain_link .= urlencode(substr($local_query, 8)) . '">' . $GLOBALS['strNoExplain'];
                     } else {
                         $explain_link = '';
@@ -1732,48 +1671,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             return $options;
         } // end of the 'PMA_getEnumSetOptions' function
 
-
-        /**
-         * Ensures a database/table/field's name is not a reserved word (for MySQL
-         * releases < 3.23.6)
-         *
-         * @param    string   the name to check
-         * @param    string   the url to go back in case of error
-         *
-         * @return   boolean  true if the name is valid (no return else)
-         *
-         * @access  public
-         *
-         * @author   Dell'Aiera Pol; Olivier Blin
-         */
-        function PMA_checkReservedWords($the_name, $error_url)
-        {
-            // The name contains caracters <> a-z, A-Z and "_" -> not a reserved
-            // word
-            if (!ereg('^[a-zA-Z_]+$', $the_name)) {
-                return TRUE;
-            }
-
-            // Else do the work
-            $filename = 'badwords.txt';
-            if (file_exists($filename)) {
-                // Builds the reserved words array
-                $fd        = fopen($filename, 'r');
-                $contents  = fread($fd, filesize($filename) - 1);
-                fclose ($fd);
-                $word_list = explode("\n", $contents);
-
-                // Do the checking
-                $word_cnt  = count($word_list);
-                for ($i = 0; $i < $word_cnt; $i++) {
-                    if (strtolower($the_name) == $word_list[$i]) {
-                        PMA_mysqlDie(sprintf($GLOBALS['strInvalidName'], $the_name), '', FALSE, $error_url);
-                    } // end if
-                } // end for
-            } // end if
-        } // end of the 'PMA_checkReservedWords' function
-
-
         /**
          * Writes localised date
          *
@@ -1795,8 +1692,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $timestamp = time();
             }
 
-            $date = ereg_replace('%[aA]', $day_of_week[(int)strftime('%w', $timestamp)], $format);
-            $date = ereg_replace('%[bB]', $month[(int)strftime('%m', $timestamp)-1], $date);
+            $date = preg_replace('@%[aA]@', $day_of_week[(int)strftime('%w', $timestamp)], $format);
+            $date = preg_replace('@%[bB]@', $month[(int)strftime('%m', $timestamp)-1], $date);
 
             return strftime($date, $timestamp);
         } // end of the 'PMA_localisedDate()' function
@@ -1897,15 +1794,14 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $link_or_button     = '        <form action="'
                                     . $edit_url_parts['path']
                                     . '" method="post">' . "\n";
-                reset ($query_parts);
-                while (list(, $query_pair) = each($query_parts)) {
+                foreach($query_parts AS $query_pair) {
                     list($eachvar, $eachval) = explode('=', $query_pair);
                     $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />' . "\n";
                 } // end while
 
                 if (stristr($message, '<img')) {
-                    $link_or_button     .= '            <input type="image" src="' . eregi_replace('^.*src="(.*)".*$', '\1', $message) . '" value="'
-                                        . htmlspecialchars(eregi_replace('^.*alt="(.*)".*$', '\1', $message)) . '" />' . "\n" . '</form>' . "\n";
+                    $link_or_button     .= '            <input type="image" src="' . preg_replace('@^.*src="(.*)".*$@i', '\1', $message) . '" value="'
+                                        . htmlspecialchars(preg_replace('@^.*alt="(.*)".*$@i', '\1', $message)) . '" />' . "\n" . '</form>' . "\n";
                 } else {
                     $link_or_button     .= '            <input type="submit" value="'
                                         . htmlspecialchars($message) . '" />' . "\n" . '</form>' . "\n";
@@ -1958,7 +1854,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $charbuff = false;
 
             for ($i = 0; $i <= strlen($string); $i++) {
-                $char = substr($string, $i, 1);
+                $char = $string{$i};
                 $append = false;
 
                 if ($char == '&') {
@@ -1971,9 +1867,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $format_string .= $charbuff;
                     $charbuff = false;
                     $append = true;
-                }
-                else
-                {
+                } else {
                     $format_string .= $char;
                     $append = true;
                 }
@@ -2008,7 +1902,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $found_error = FALSE;
             $error_message = '';
 
-            while (list(, $param) = each($params)) {
+            foreach($params AS $param) {
                 if (!isset($GLOBALS[$param])) {
                     $error_message .= $reported_script_name . ': Missing ' . $param . '<br />';
                     $found_error = TRUE;
@@ -2025,38 +1919,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
 
         // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
-        if (PMA_PHP_INT_VERSION >= 40006
-            && @function_exists('mb_convert_encoding')
+        if (@function_exists('mb_convert_encoding')
             && strpos(' ' . $lang, 'ja-')
             && file_exists('./libraries/kanji-encoding.lib.php')) {
             include('./libraries/kanji-encoding.lib.php');
             define('PMA_MULTIBYTE_ENCODING', 1);
-        } // end if
-
-        // garvin: moved from read_dump.php because this should be used in tbl_replace_fields.php as well.
-        if (!function_exists('is_uploaded_file')) {
-            /**
-             * Emulates the 'is_uploaded_file()' function for old php versions.
-             * Grabbed at the php manual:
-             *     http://www.php.net/manual/en/features.file-upload.php
-             *
-             * @param   string    the name of the file to check
-             *
-             * @return  boolean   wether the file has been uploaded or not
-             *
-             * @access  public
-             */
-            function is_uploaded_file($filename) {
-                if (!$tmp_file = @get_cfg_var('upload_tmp_dir')) {
-                    $tmp_file = tempnam('','');
-                    $deleted  = @unlink($tmp_file);
-                    $tmp_file = dirname($tmp_file);
-                }
-                $tmp_file     .= '/' . basename($filename);
-
-                // User might have trailing slash in php.ini...
-                return (ereg_replace('/+', '/', $tmp_file) == $filename);
-            } // end of the 'is_uploaded_file()' emulated function
         } // end if
 
         /**

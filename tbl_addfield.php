@@ -47,9 +47,6 @@ if (isset($submit)) {
         if (empty($field_name[$i])) {
             continue;
         }
-        if (PMA_MYSQL_INT_VERSION < 32306) {
-            PMA_checkReservedWords($field_name[$i], $err_url);
-        }
 
         $query .= PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != ''

@@ -14,8 +14,6 @@
 ****************************************************************************/
 
 
-// loic1: PHP3 compatibility
-// define('FPDF_VERSION', '1.51');
 $FPDF_version = (string) '1.51';
 
 
@@ -312,8 +310,7 @@ class FPDF
     {
         $nf = $this->n;
 
-        reset($this->diffs);
-        while (list(, $diff) = each($this->diffs)) {
+        foreach($this->diffs AS $diff) {
             // Encodings
             $this->_newobj();
             $this->_out('<</Type /Encoding /BaseEncoding /WinAnsiEncoding /Differences [' . $diff . ']>>');
@@ -323,15 +320,10 @@ class FPDF
         $mqr = get_magic_quotes_runtime();
         set_magic_quotes_runtime(0);
 
-        reset($this->FontFiles);
-        while (list($file, $info) = each($this->FontFiles)) {
+        foreach($this->FontFiles AS $file => $info) {
             // Font file embedding
             $this->_newobj();
             $this->FontFiles[$file]['n'] = $this->n;
-            // loic1: PHP3 compatibility
-            // if (defined('FPDF_FONTPATH')) {
-            //     $file = FPDF_FONTPATH . $file;
-            // }
             if (isset($GLOBALS['FPDF_font_path'])) {
                 $file = $GLOBALS['FPDF_font_path'] . $file;
             }
@@ -355,8 +347,7 @@ class FPDF
         } // end while
         set_magic_quotes_runtime($mqr);
 
-        reset($this->fonts);
-        while (list($k, $font) = each($this->fonts)) {
+        foreach($this->fonts AS $k => $font) {
             // Font objects
             $this->_newobj();
             $this->fonts[$k]['n'] = $this->n;
@@ -390,8 +381,6 @@ class FPDF
             if ($font['type'] != 'core')  {
                 // Widths
                 $this->_newobj();
-                // loic1: PHP3 compatibility
-                // $cw    = &$font['cw'];
                 $s     = '[';
                 for ($i = 32; $i <= 255; $i++) {
                     $s .= $font['cw'][chr($i)] . ' ';
@@ -401,8 +390,7 @@ class FPDF
                 // Descriptor
                 $this->_newobj();
                 $s     = '<</Type /FontDescriptor /FontName /' . $name;
-                reset($font['desc']);
-                while (list($k, $v) = each($font['desc'])) {
+                foreach($font['desc'] AS $k => $v) {
                     $s .= ' /' . $k . ' ' . $v;
                 }
                 $file = $font['file'];
@@ -425,8 +413,7 @@ class FPDF
     {
         $filter = ($this->compress) ? '/Filter /FlateDecode ' : '';
 
-        reset($this->images);
-        while (list($file, $info) = each($this->images)) {
+        foreach($this->images AS $file => $info) {
             $this->_newobj();
             $this->images[$file]['n'] = $this->n;
             $this->_out('<</Type /XObject');
@@ -485,15 +472,13 @@ class FPDF
         $this->_out('2 0 obj');
         $this->_out('<</ProcSet [/PDF /Text /ImageB /ImageC /ImageI]');
         $this->_out('/Font <<');
-        reset($this->fonts);
-        while (list(, $font) = each($this->fonts)) {
+        foreach($this->fonts AS $font) {
             $this->_out('/F' . $font['i'] . ' ' . $font['n'] . ' 0 R');
         }
         $this->_out('>>');
         if (count($this->images)) {
             $this->_out('/XObject <<');
-            reset($this->images);
-            while (list(, $image) = each($this->images)) {
+            foreach($this->images AS $image) {
                 $this->_out('/I' . $image['i'] . ' ' . $image['n'] . ' 0 R');
             }
             $this->_out('>>');
@@ -1432,10 +1417,6 @@ class FPDF
                         $file .= strtolower($style);
                     }
                     $file     .= '.php';
-                    // loic1: PHP3 compatibility
-                    // if (defined('FPDF_FONTPATH')) {
-                    //     $file = FPDF_FONTPATH . $file;
-                    // }
                     if (isset($GLOBALS['FPDF_font_path'])) {
                         $file = $GLOBALS['FPDF_font_path'] . $file;
                     }
@@ -1462,9 +1443,7 @@ class FPDF
         $this->FontStyle   = $style;
         $this->FontSizePt  = $size;
         $this->FontSize    = $size / $this->k;
-        // loic1: PHP3 compatibility
-        // $this->CurrentFont = &$this->fonts[$fontkey];
-        eval('$this->CurrentFont = ' . ($GLOBALS['FPDF_is_php4'] ? '&' : '') . '$this->fonts[\'' . $fontkey . '\'];');
+        $this->CurrentFont = &$this->fonts[$fontkey];
         if ($this->page > 0) {
             $this->_out(sprintf('BT /F%d %.2f Tf ET', $this->CurrentFont['i'], $this->FontSizePt));
         }
@@ -1776,10 +1755,6 @@ class FPDF
         if ($file == '') {
             $file = str_replace(' ', '', $family) . strtolower($style) . '.php';
         }
-        // loic1: PHP3 compatibility
-        // if (defined('FPDF_FONTPATH')) {
-        //     $file = FPDF_FONTPATH . $file;
-        // }
         if (isset($GLOBALS['FPDF_font_path'])) {
             $file = $GLOBALS['FPDF_font_path'] . $file;
         }
@@ -2128,9 +2103,6 @@ class FPDF
                 $ns++;
             } // end if
 
-            // Other character
-            // loic1: PHP3 compatibility
-            // $l += $cw[$c];
             $l += $this->CurrentFont['cw'][$c];
             if ($l > $wmax) {
                 // Automatic line break
@@ -2194,8 +2166,6 @@ class FPDF
      */
     function Write($h, $txt, $link = '')
     {
-        // loic1: PHP3 compatibility
-        // $cw   = &$this->CurrentFont['cw'];
         $w    = $this->w - $this->rMargin - $this->x;
         $wmax = ($w - 2 * $this->cMargin) * 1000 / $this->FontSize;
         $s    = str_replace("\r", '', $txt);
@@ -2232,9 +2202,6 @@ class FPDF
                 $ls  = $l;
             } // end if
 
-            // Other character
-            // loic1: PHP3 compatibility
-            // $l += $cw[$c];
             $l += $this->CurrentFont['cw'][$c];
             if ($l > $wmax) {
                 // Automatic line break
@@ -2478,7 +2445,7 @@ class FPDF
                   &&  (strpos($HTTP_USER_AGENT, 'Gecko') &&
                   (strpos($HTTP_USER_AGENT, 'rv:0.') || strpos($HTTP_USER_AGENT, 'rv:1.0') || strpos($HTTP_USER_AGENT, 'rv:1.1')))) {
                      header('Content-Type: application/');
-            } 
+            }
             else {
                 header('Content-Type: application/pdf');
             }
@@ -2513,9 +2480,6 @@ if (!empty($_ENV) && isset($_ENV['HTTP_USER_AGENT'])) {
 else if (!empty($_SERVER) && isset($_SERVER['HTTP_USER_AGENT'])) {
     $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
 }
-else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_USER_AGENT'])) {
-    $HTTP_USER_AGENT = $HTTP_ENV_VARS['HTTP_USER_AGENT'];
-}
 else if (@getenv('HTTP_USER_AGENT')) {
     $HTTP_USER_AGENT = getenv('HTTP_USER_AGENT');
 }
@@ -2524,10 +2488,4 @@ if ($HTTP_USER_AGENT == 'contype') {
     header('Content-Type: application/pdf');
     exit();
 }
-
-
-/**
- * Gets PHP version (PHP3 or PHP4)
- */
-$FPDF_is_php4 = (floor(phpversion()) >= 4);
 ?>

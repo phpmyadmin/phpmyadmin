@@ -155,8 +155,7 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
         }
         else if (is_array($what)) {
             $result = array();
-            reset($what);
-            while (list($key, $val) = each($what)) {
+            foreach($what AS $key => $val) {
                 if (is_string($val) || is_array($val)) {
                     if (is_string($key)) {
                         $result[PMA_convert_display_charset($key)] = PMA_convert_display_charset($val);

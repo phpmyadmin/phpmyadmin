@@ -34,8 +34,7 @@ $types = PMA_getAvailableMIMEtypes();
 
 <h2><?php echo $strMIME_available_mime; ?></h2>
 <?php
-@reset($types);
-while(list($key, $mimetype) = each($types['mimetype'])) {
+foreach($types['mimetype'] AS $key => $mimetype) {
 
     if (isset($types['empty_mimetype'][$mimetype])) {
         echo '<i>' . $mimetype . '</i><br />';
@@ -61,7 +60,7 @@ while(list($key, $mimetype) = each($types['mimetype'])) {
 <?php
 @reset($types);
 $i = 0;
-while(list($key, $transform) = each($types['transformation'])) {
+foreach($types['transformation'] AS $key => $transform) {
     $i++;
     $func = strtolower(str_replace('.inc.php', '', $types['transformation_file'][$key]));
     $desc = 'strTransformation_' . $func;

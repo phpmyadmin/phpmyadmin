@@ -57,9 +57,6 @@ if (isset($submit)) {
         if (empty($field_name[$i])) {
             continue;
         }
-        if (PMA_MYSQL_INT_VERSION < 32306) {
-            PMA_checkReservedWords($field_name[$i], $err_url);
-        }
         $query = PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != '') {
             $query .= '(' . $field_length[$i] . ')';
@@ -238,10 +235,6 @@ if ($abort == FALSE) {
     }
     // Table name and number of fields are valid -> show the form
     else {
-        if (PMA_MYSQL_INT_VERSION < 32306) {
-            PMA_checkReservedWords($table, $err_url);
-        }
-
         $action = 'tbl_create.php';
         include('./tbl_properties.inc.php');
         // Diplays the footer

@@ -21,8 +21,8 @@ if (!defined('PMA_VERSION')) {
 
 // php version
 if (!defined('PMA_PHP_INT_VERSION')) {
-    if (!ereg('([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})', phpversion(), $match)) {
-        $result = ereg('([0-9]{1,2}).([0-9]{1,2})', phpversion(), $match);
+    if (!preg_match('@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match)) {
+        $result = preg_match('@([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match);
     }
     if (isset($match) && !empty($match[1])) {
         if (!isset($match[2])) {
@@ -41,21 +41,14 @@ if (!defined('PMA_PHP_INT_VERSION')) {
 
 // MySQL client API
 if (!defined('PMA_MYSQL_CLIENT_API')) {
-    if (function_exists('mysql_get_client_info')) {
-        $client_api = mysql_get_client_info();
-    } else {
-        // for compatibility with php <= 4.0.5
-        // expect the worst!
-        $client_api = '3.21.0';
-    }
-    $client_api = explode('.', $client_api);
+    $client_api = explode('.', mysql_get_client_info());
     define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
     unset($client_api);
 }
 
 // Whether the os php is running on is windows or not
 if (!defined('PMA_IS_WINDOWS')) {
-    if (defined('PHP_OS') && eregi('win', PHP_OS)) {
+    if (defined('PHP_OS') && stristr(PHP_OS, 'win')) {
         define('PMA_IS_WINDOWS', 1);
     } else {
         define('PMA_IS_WINDOWS', 0);
@@ -64,27 +57,20 @@ if (!defined('PMA_IS_WINDOWS')) {
 
 function PMA_dl($module) {
     if (!isset($GLOBALS['PMA_dl_allowed'])) {
-        if (((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
-            || (PMA_PHP_INT_VERSION < 40000 && PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
-            && @function_exists('dl')) {
-            
-            if (PMA_PHP_INT_VERSION < 40000) {
-                $GLOBALS['PMA_dl_allowed'] = TRUE;
-            } else {
-                ob_start();
-                phpinfo(INFO_GENERAL); /* Only general info */
-                $a = strip_tags(ob_get_contents());
-                ob_end_clean();
-                /* Get GD version string from phpinfo output */
-                if (ereg('Thread Safety[[:space:]]*enabled', $a)) {
-                    if (ereg('Server API[[:space:]]*\(CGI\|CLI\)', $a)) {
-                        $GLOBALS['PMA_dl_allowed'] = TRUE;
-                    } else {
-                        $GLOBALS['PMA_dl_allowed'] = FALSE;
-                    }
-                } else {
+        if (!@ini_get('safe_mode') && @ini_get('enable_dl') && @function_exists('dl')) {
+            ob_start();
+            phpinfo(INFO_GENERAL); /* Only general info */
+            $a = strip_tags(ob_get_contents());
+            ob_end_clean();
+            /* Get GD version string from phpinfo output */
+            if (preg_match('@Thread Safety[[:space:]]*enabled@', $a)) {
+                if (preg_match('@Server API[[:space:]]*\(CGI\|CLI\)@', $a)) {
                     $GLOBALS['PMA_dl_allowed'] = TRUE;
+                } else {
+                    $GLOBALS['PMA_dl_allowed'] = FALSE;
                 }
+            } else {
+                $GLOBALS['PMA_dl_allowed'] = TRUE;
             }
         } else {
             $GLOBALS['PMA_dl_allowed'] = FALSE;
@@ -100,7 +86,6 @@ function PMA_dl($module) {
     } else {
         return FALSE;
     }
-
 }
 
 // Whether GD2 is present
@@ -123,14 +108,14 @@ if (!defined('PMA_IS_GD2')) {
                 } else {
                     define('PMA_IS_GD2', 0);
                 }
-            } elseif (PMA_PHP_INT_VERSION >= 40000) {
+            } else {
                 /* We must do hard way... */
                 ob_start();
                 phpinfo(INFO_MODULES); /* Only modules */
                 $a = strip_tags(ob_get_contents());
                 ob_end_clean();
                 /* Get GD version string from phpinfo output */
-                if (ereg('GD Version[[:space:]]*\(.*\)', $a, $v)) {
+                if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
                     if (strstr($v, '2.')) {
                         define('PMA_IS_GD2', 1);
                     } else {
@@ -139,9 +124,6 @@ if (!defined('PMA_IS_GD2')) {
                 } else {
                     define('PMA_IS_GD2', 0);
                 }
-            } else {
-                // This is PHP 3 version, it probably doesn't have GD2
-                define('PMA_IS_GD2', 0);
             }
         }
     }

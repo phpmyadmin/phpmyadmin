@@ -21,7 +21,8 @@ $Source$
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi (tamsy).
 
 2003-11-20 Garvin Hicking <me@supergarv.de>
-    * libraries/auth/*, libraries/dbg/*, libraries/export/*
+    * libraries/auth/*, libraries/dbg/*, libraries/export/*, libraries/fpdf/*,
+      libraries/transformations/overview.php, libraries/*.php
       (work in progress)
 
       Lots of PHP < 4.1.0 / MySQL < 3.23.32 compatibility/performance changes:
@@ -30,9 +31,14 @@ $Source$
       - Removed calls to $HTTP_*_VARS (using $_* now).
       - Replaced some TAB-characters with whitespace
       - Removed PHP4 < 4.1.0 compatibility code
+      - Removed MySQL < 3.23.32 compatibility code
       - Replaced "for ($i=0; $i <= count(); $i++)" loops to
         "$cnt = count(); for ($i=0; $i <= $cnt; $i++)" structures for better
         performance
+      - Replace calls to eregi*/split functions to their preg* counterparts for
+        faster and binary-safe operation
+      - Replace regex-Calls to simple string functions where possible (speedup)
+      - Replace calls to substr($string, X, 1) to $string{X}
 
 2003-11-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php: first group of headers was offset by

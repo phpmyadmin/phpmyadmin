@@ -134,13 +134,6 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 . 'SQL: ' . htmlspecialchars($sql) .  "\n"
                 . '</pre>' . "\n";
 
-            /*
-            // Removed to solve bug #641765 - Robbat2 - 12 January 2003, 9:46PM
-            flush();
-            if (PMA_PHP_INT_VERSION >= 40200 && @function_exists('ob_flush')) {
-                ob_flush();
-            }
-            */
         } // end of the "PMA_SQP_throwError()" function
 
 
@@ -165,7 +158,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $debugstr .= 'SQL: ' . htmlspecialchars($sql);
 
             $encodedstr     = $debugstr;
-            if (PMA_PHP_INT_VERSION >= 40001 && @function_exists('gzcompress')) {
+            if (@function_exists('gzcompress')) {
                 $encodedstr = gzcompress($debugstr, 9);
             }
             $encodedstr     = preg_replace("/(\015\012)|(\015)|(\012)/", '<br />' . "\n", chunk_split(base64_encode($encodedstr)));
@@ -569,7 +562,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $d_next_upper = '';
               }
 
-              //DEBUG echo "[prev: <b>".$d_prev."</b> ".$t_prev."][cur: <b>".$d_cur."</b> ".$t_cur."][next: <b>".$d_next."</b> ".$t_next."]<br>"; 
+              //DEBUG echo "[prev: <b>".$d_prev."</b> ".$t_prev."][cur: <b>".$d_cur."</b> ".$t_cur."][next: <b>".$d_next."</b> ".$t_next."]<br>";
 
               if ($t_cur == 'alpha') {
                 $t_suffix     = '_identifier';
@@ -727,8 +720,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      *
      * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
      * ['queryflags']['select_from'] = 1; if this is a real SELECT...FROM
-     * ['queryflags']['distinct'] = 1;    for a DISTINCT 
-     * ['queryflags']['union'] = 1;       for a UNION 
+     * ['queryflags']['distinct'] = 1;    for a DISTINCT
+     * ['queryflags']['union'] = 1;       for a UNION
      *
      * lem9:  query clauses
      *        -------------
@@ -747,7 +740,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      * lem9:   foreign keys
      *         ------------
      * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
-     * analyzed and ['foreign_keys'] is an array filled with 
+     * analyzed and ['foreign_keys'] is an array filled with
      * the constraint name, the index list,
      * the REFERENCES table name and REFERENCES index list,
      * and ON UPDATE | ON DELETE clauses
@@ -755,7 +748,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      * lem9: position_of_first_select
      *       ------------------------
      *
-     * The array index of the first SELECT we find. Will be used to 
+     * The array index of the first SELECT we find. Will be used to
      * insert a SQL_CALC_FOUND_ROWS.
      */
 
@@ -1234,7 +1227,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                        if ($first_reserved_word=='SELECT'){
                            $position_of_first_select = $i;
                        }
-                   
+
                    } else {
                        if ($upper_data=='DROP' && $first_reserved_word=='ALTER') {
                           $subresult['queryflags']['need_confirm'] = 1;
@@ -1417,11 +1410,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                            $second_upper_data = strtoupper($arr[$i+1]['data']);
                            if ($second_upper_data == 'DELETE') {
                                 $clause = 'on_delete';
-                           }                         
+                           }
                            if ($second_upper_data == 'UPDATE') {
                                 $clause = 'on_update';
-                           }                         
-                           if (isset($clause) 
+                           }
+                           if (isset($clause)
                            && ($arr[$i+2]['type'] == 'alpha_reservedWord'
 
                  // ugly workaround because currently, NO is not
@@ -1429,10 +1422,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                  // (we got a bug report about not being able to use
                  // 'no' as an identifier)
                                || ($arr[$i+2]['type'] == 'alpha_identifier'
-                                  && strtoupper($arr[$i+2]['data'])=='NO') ) 
+                                  && strtoupper($arr[$i+2]['data'])=='NO') )
                               ) {
                               $third_upper_data = strtoupper($arr[$i+2]['data']);
-                              if ($third_upper_data == 'CASCADE' 
+                              if ($third_upper_data == 'CASCADE'
                                || $third_upper_data == 'RESTRICT') {
                                   $value = $third_upper_data;
                               } elseif ($third_upper_data == 'SET'
@@ -1491,7 +1484,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             } // end for $i (loop #3)
 
             if (isset($foreign)) {
-                $subresult['foreign_keys'] = $foreign;     
+                $subresult['foreign_keys'] = $foreign;
             }
             //DEBUG print_r($foreign);
 
@@ -1562,7 +1555,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
          * Formats SQL queries to html
          *
          * @param  array   The SQL queries
-         * @param  string  mode 
+         * @param  string  mode
          * @param  integer starting token
          * @param  integer number of tokens to format, -1 = all
          *
@@ -1758,7 +1751,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         // select 20 -9
                         // )
                         if ($typearr[3] != 'digit_integer') {
-                           $after        .= ' '; 
+                           $after        .= ' ';
                         }
                         break;
                     case 'punct_bracket_close_round':
@@ -1821,7 +1814,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             // privilege list
                                 if (PMA_STR_binarySearchInArr($arr[$i]['data'], $keywords_priv_list, $keywords_priv_list_cnt)) {
                                     $in_priv_list = TRUE;
-                                } 
+                                }
                             }
                         } else {
                             $before    .= ' ';
@@ -1968,9 +1961,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         global $cfg;
 
         $css_string     = '';
-        while (list($key, $col) = each($cfg['SQP']['fmtColor'])) {
+        foreach($cfg['SQP']['fmtColor'] AS $key => $col) {
             $css_string .= PMA_SQP_buildCssRule('syntax_' . $key, 'color', $col);
         }
+
         for ($i = 0; $i < 8; $i++) {
             $css_string .= PMA_SQP_buildCssRule('syntax_indent' . $i, 'margin-left', ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']);
         }
@@ -1991,7 +1985,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         function PMA_SQP_formatNone($arr)
         {
             $formatted_sql = htmlspecialchars($arr['raw']);
-            $formatted_sql = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $formatted_sql);
+            $formatted_sql = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $formatted_sql);
 
             return $formatted_sql;
         } // end of the "PMA_SQP_formatNone()" function

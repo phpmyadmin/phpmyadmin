@@ -22,14 +22,6 @@ PMA_checkParameters(array('db'));
 $err_url = 'main.php?' . PMA_generate_common_url();
 
 /**
- * Ensures the db name is valid
- */
-if (PMA_MYSQL_INT_VERSION < 32306) {
-    PMA_checkReservedWords($db, $err_url);
-}
-
-
-/**
  * Executes the db creation sql query
  */
 $sql_query = 'CREATE DATABASE ' . PMA_backquote($db);

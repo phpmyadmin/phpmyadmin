@@ -12,18 +12,18 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
 
     function PMA_transformation_getOptions($string) {
         $transform_options = array();
-        
+
         if ($string != '') {
-            if (eregi('^\'.*\'$', $string)) {
-                $transform_options = explode('\',\'', eregi_replace('^\'(.*)\'$', '\1', $string));
+            if ($string{0} == "'" && $string{strlen($string)-1} == "'") {
+                $transform_options = explode('\',\'', substr($string, 1, strlen($string)-2));
             } else {
                 $transform_options = array(0 => $string);
             }
         }
-        
+
         return $transform_options;
     }
-    
+
     /**
      * Gets all available MIME-types
      *
@@ -38,34 +38,33 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
 
         $stack = array();
         $filestack = array();
-        
+
         while (($file = readdir($handle)) != false) {
             $filestack[$file] = $file;
-        }  
+        }
 
         closedir($handle);
 
         if (is_array($filestack)) {
             @ksort($filestack);
-            @reset($filestack);
-            while(list($key, $file) = each($filestack)) {
+            foreach($filestack AS $key => $file) {
 
-                if (eregi('^.*__.*\.inc\.php$', trim($file))) {
+                if (preg_match('|^.*__.*\.inc\.php$|', trim($file))) {
                     // File contains transformation functions.
-                    $base = explode("__", str_replace(".inc.php", "", $file));
-                    
-                    $mimetype = str_replace("_", "/", $base[0]);
+                    $base = explode('__', str_replace('.inc.php', '', $file));
+
+                    $mimetype = str_replace('_', '/', $base[0]);
                     $stack['mimetype'][$mimetype] = $mimetype;
-                    
+
                     $stack['transformation'][] = $mimetype . ': ' . $base[1];
                     $stack['transformation_file'][] = $file;
 
-                } else if (eregi('^.*\.inc\.php$', trim($file))) {
+                } else if (preg_match('|^.*\.inc\.php$|', trim($file))) {
                     // File is a plain mimetype, no functions.
-                    $base = str_replace(".inc.php", "", $file);
-                    
+                    $base = str_replace('.inc.php', '', $file);
+
                     if ($base != 'global') {
-                        $mimetype = str_replace("_", "/", $base);
+                        $mimetype = str_replace('_', '/', $base);
                         $stack['mimetype'][$mimetype] = $mimetype;
                         $stack['empty_mimetype'][$mimetype] = $mimetype;
                     }
@@ -76,7 +75,7 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
 
         return $stack;
     }
-    
+
     /**
      * Gets the mimetypes for all rows of a table
      *
@@ -143,7 +142,7 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
 
         if ($test_rs && mysql_num_rows($test_rs) > 0) {
             $row = @PMA_mysql_fetch_array($test_rs);
-            
+
             if (!$forcedelete && (strlen($mimetype) > 0 || strlen($transformation) > 0 || strlen($transformation_options) > 0 || strlen($row['comment']) > 0)) {
                 $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
                        . ' SET mimetype = \'' . PMA_sqlAddslashes($mimetype) . '\','

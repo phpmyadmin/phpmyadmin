@@ -18,8 +18,7 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
             return FALSE;
         }
         $is_magic_quotes = get_magic_quotes_gpc();
-        reset($array);
-        while (list($key, $value) = each($array)) {
+        foreach($array AS $key => $value) {
             if (is_array($value)) {
                 // there could be a variable coming from a cookie of
                 // another application, with the same name as this array
@@ -45,7 +44,7 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
     } // end if
 
     if (!empty($_FILES)) {
-        while (list($name, $value) = each($_FILES)) {
+        foreach($_FILES AS $name => $value) {
             $$name = $value['tmp_name'];
             ${$name . '_name'} = $value['name'];
         }

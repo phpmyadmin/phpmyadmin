@@ -32,7 +32,7 @@ if (!defined('PMA_DB_CONFIG_LIB_INCLUDED')) {
 
             // Check for __attr
             if (is_object($val->__attr)) {
-                while (list($key2, $val2) = each($val->__attr)) {
+                foreach($val->__attr AS $key2 => $val2) {
                     $attr .= " $key2=\"$val2\"";
                 }
             } else {

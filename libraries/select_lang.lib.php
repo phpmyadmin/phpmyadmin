@@ -171,12 +171,11 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
             global $available_languages;
             global $lang;
 
-            reset($available_languages);
-            while (list($key, $value) = each($available_languages)) {
+            foreach($available_languages AS $key => $value) {
                 // $envType =  1 for the 'HTTP_ACCEPT_LANGUAGE' environment variable,
                 //             2 for the 'HTTP_USER_AGENT' one
-                if (($envType == 1 && eregi('^(' . $value[0] . ')(;q=[0-9]\\.[0-9])?$', $str))
-                    || ($envType == 2 && eregi('(\(|\[|;[[:space:]])(' . $value[0] . ')(;|\]|\))', $str))) {
+                if (($envType == 1 && preg_match('@^(' . $value[0] . ')(;q=[0-9]\\.[0-9])?$@i', $str))
+                    || ($envType == 2 && preg_match('@(\(|\[|;[[:space:]])(' . $value[0] . ')(;|\]|\))@i', $str))) {
                     $lang     = $key;
                     break;
                 }
@@ -193,35 +192,20 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
     if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
         $HTTP_ACCEPT_LANGUAGE = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
     }
-    else if (!empty($HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'])) {
-        $HTTP_ACCEPT_LANGUAGE = $HTTP_SERVER_VARS['HTTP_ACCEPT_LANGUAGE'];
-    }
 
     if (!empty($_SERVER['HTTP_USER_AGENT'])) {
         $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
-    }
-    else if (!empty($HTTP_SERVER_VARS['HTTP_USER_AGENT'])) {
-        $HTTP_USER_AGENT = $HTTP_SERVER_VARS['HTTP_USER_AGENT'];
     }
 
     if (!isset($lang)) {
         if (isset($_GET) && !empty($_GET['lang'])) {
             $lang = $_GET['lang'];
         }
-        else if (isset($HTTP_GET_VARS) && !empty($HTTP_GET_VARS['lang'])) {
-            $lang = $HTTP_GET_VARS['lang'];
-        }
         else if (isset($_POST) && !empty($_POST['lang'])) {
             $lang = $_POST['lang'];
         }
-        else if (isset($HTTP_POST_VARS) && !empty($HTTP_POST_VARS['lang'])) {
-            $lang = $HTTP_POST_VARS['lang'];
-        }
         else if (isset($_COOKIE) && !empty($_COOKIE['lang'])) {
             $lang = $_COOKIE['lang'];
-        }
-        else if (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['lang'])) {
-            $lang = $HTTP_COOKIE_VARS['lang'];
         }
     }
 
@@ -244,7 +228,7 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
     if (!isset($cfg['AllowAnywhereRecoding']) || !$cfg['AllowAnywhereRecoding']) {
         $available_language_files               = $available_languages;
         $available_languages                    = array();
-        while (list($tmp_lang, $tmp_lang_data) = each($available_language_files)) {
+        foreach($available_language_files AS $tmp_lang => $tmp_lang_data) {
             if (substr($tmp_lang, -5) != 'utf-8') {
                 $available_languages[$tmp_lang] = $tmp_lang_data;
             }
@@ -270,7 +254,6 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
     if (empty($lang) && !empty($HTTP_ACCEPT_LANGUAGE)) {
         $accepted    = explode(',', $HTTP_ACCEPT_LANGUAGE);
         $acceptedCnt = count($accepted);
-        reset($accepted);
         for ($i = 0; $i < $acceptedCnt && empty($lang); $i++) {
             PMA_langDetect($accepted[$i], 1);
         }

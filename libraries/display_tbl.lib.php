@@ -95,7 +95,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             // 2.2 Statement is a "SHOW..."
             else if ($GLOBALS['is_show']) {
                 // 2.2.1 TODO : defines edit/delete links depending on show statement
-                $tmp = eregi('^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS)', $GLOBALS['sql_query'], $which);
+                $tmp = preg_match('@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS)@i', $GLOBALS['sql_query'], $which);
                 if (strpos(' ' . strtoupper($which[1]), 'PROCESSLIST') > 0) {
                     $do_display['edit_lnk'] = 'nn'; // no edit link
                     $do_display['del_lnk']  = 'kp'; // "kill process" type edit link
@@ -460,22 +460,22 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             // Defines the url used to append/modify a sorting order
             // Nijel: This was originally done inside loop below, but I see
             //        no reason to do this for each column.
-            if (eregi('(.*)([[:space:]]ORDER[[:space:]]*BY[[:space:]](.*))', $sql_query, $regs1)) {
-                if (eregi('((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)', $regs1[2], $regs2)) {
+            if (preg_match('@(.*)([[:space:]]ORDER[[:space:]]*BY[[:space:]](.*))@i', $sql_query, $regs1)) {
+                if (preg_match('@((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)@i', $regs1[2], $regs2)) {
                     $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
                     $sql_order          = trim($regs2[1]);
-                    eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
+                    preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@i',$sql_order,$after_order);
                     $sort_expression = trim($after_order[2]);
                 }
-                else if (eregi('((.*))[[:space:]]+(LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)', $regs1[2], $regs3)) {
+                else if (preg_match('@((.*))[[:space:]]+(LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)@i', $regs1[2], $regs3)) {
                     $unsorted_sql_query = trim($regs1[1] . ' ' . $regs3[3]);
                     $sql_order          = trim($regs3[1]) . ' ASC';
-                    eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
+                    preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@i',$sql_order,$after_order);
                     $sort_expression = trim($after_order[2]);
                 } else {
                     $unsorted_sql_query = trim($regs1[1]);
                     $sql_order          = trim($regs1[2]) . ' ASC';
-                    eregi('(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)',$sql_order,$after_order);
+                    preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@i',$sql_order,$after_order);
                     $sort_expression = trim($after_order[2]);
                 }
             } else {
@@ -545,10 +545,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">&nbsp;';
                 $used_index = false;
                 $local_order = (isset($sql_order) ? str_replace('  ', ' ', $sql_order) : '');
-                while (list($key, $val) = each($indexes_data)) {
+                foreach($indexes_data AS $key => $val) {
                     $asc_sort = 'ORDER BY ';
                     $desc_sort = 'ORDER BY ';
-                    while (list($key2, $val2) = each($val)) {
+                    foreach($val AS $key2 => $val2) {
                         $asc_sort .= PMA_backquote($val2['Column_name']) . ' ASC , ';
                         $desc_sort .= PMA_backquote($val2['Column_name']) . ' DESC , ';
                     }
@@ -704,9 +704,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             $GLOBALS['mime_map'] = PMA_getMIME($db, $table);
         }
 
-
         if ($is_display['sort_lnk'] == '1') {
-            $is_join = eregi('(.*)[[:space:]]+FROM[[:space:]]+.*[[:space:]]+JOIN', $sql_query, $select_stt);
+            $is_join = preg_match('@(.*)[[:space:]]+FROM[[:space:]]+.*[[:space:]]+JOIN@i', $sql_query, $select_stt);
         } else {
             $is_join = FALSE;
         }
@@ -719,12 +718,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
             $wi = 0;
             if (isset($analyzed_sql[0]['where_clause_identifiers']) && is_array($analyzed_sql[0]['where_clause_identifiers'])) {
-                reset($analyzed_sql[0]['where_clause_identifiers']);
-                while(list($wci_nr, $wci) = each($analyzed_sql[0]['where_clause_identifiers'])) {
+                foreach($analyzed_sql[0]['where_clause_identifiers'] AS $wci_nr => $wci) {
                     $highlight_columns[$wci] = 'true';
                 }
             }
         }
+
         for ($i = 0; $i < $fields_cnt; $i++) {
             // garvin: See if this column should get highlight because it's used in the
             //  where-query.
@@ -769,7 +768,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 //       for a query with a "JOIN" statement and if the column
                 //       isn't aliased)
                 if ($is_join
-                    && !eregi('([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name, $select_stt[1], $parts)) {
+                    && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_stt[1], $parts)) {
                     $sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
                 } else {
                     $sort_tbl = '';
@@ -787,20 +786,20 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     // loic1: patch #455484 ("Smart" order)
                     $cfg['Order']  = strtoupper($GLOBALS['cfg']['Order']);
                     if ($cfg['Order'] == 'SMART') {
-                        $cfg['Order'] = (eregi('time|date', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
+                        $cfg['Order'] = (preg_match('@time|date@i', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
                     }
                     $sort_order .= $cfg['Order'];
                     $order_img   = '';
                 }
-                else if (eregi('[[:space:]]ASC$', $sql_order)) {
+                else if (preg_match('@[[:space:]]ASC$@i', $sql_order)) {
                     $sort_order .= ' DESC';
                     $order_img   = '&nbsp;<img src="./images/asc_order.png" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
                 }
-                else if (eregi('[[:space:]]DESC$', $sql_order)) {
+                else if (preg_match('@[[:space:]]DESC$@i', $sql_order)) {
                     $sort_order .= ' ASC';
                     $order_img   = '&nbsp;<img src="./images/desc_order.png" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
                 }
-                if (eregi('(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))', $unsorted_sql_query, $regs3)) {
+                if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@i', $unsorted_sql_query, $regs3)) {
                     $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
                 } else {
                     $sorted_sql_query = $unsorted_sql_query . $sort_order;
@@ -1038,8 +1037,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         // do not use an alias in a condition
                         $column_for_condition = $meta->name;
                         if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                            reset($analyzed_sql[0]['select_expr']);
-                            while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
+                            foreach($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
                                 $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
                                 if (!empty($alias)) {
                                     $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
@@ -1071,7 +1069,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         } else {
                             if ($meta->type == 'blob'
                                 // hexify only if this is a true not empty BLOB
-                                 && eregi('BINARY', $field_flags)
+                                 && stristr($field_flags, 'BINARY')
                                  && !empty($row[$pointer])) {
                                     $condition .= 'LIKE 0x' . bin2hex($row[$pointer]). ' AND';
                             } else {
@@ -1170,7 +1168,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                               . '&sql_query=' . urlencode($sql_query)
                               . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                               . '&goto=' . (empty($goto) ? 'tbl_properties.php' : $goto);
-                    $del_query = urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . ((PMA_MYSQL_INT_VERSION >= 32207) ? urlencode(' LIMIT 1') : '');
+                    $del_query = urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . '+LIMIT+1';
                     $del_url  = 'sql.php'
                               . '?' . $url_query
                               . '&amp;sql_query=' . $del_query
@@ -1178,7 +1176,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                               . '&amp;goto=' . urlencode($lnk_goto);
                     $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
                               . ' WHERE ' . trim(PMA_jsFormat(urldecode($uva_condition), FALSE))
-                              . ((PMA_MYSQL_INT_VERSION >= 32207) ? ' LIMIT 1' : '');
+                              . ' LIMIT 1';
                     if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
                         $del_str = $GLOBALS['strDelete'];
                     } else {
@@ -1241,7 +1239,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                     if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation']) && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])) {
                         // garvin: for security, never allow to break out from transformations directory
-                        $include_file = eregi_replace('\.\.*', '.', $GLOBALS['mime_map'][$meta->name]['transformation']);
+                        $include_file = preg_replace('@\.\.*@', '.', $GLOBALS['mime_map'][$meta->name]['transformation']);
                         if (file_exists('./libraries/transformations/' . $include_file)) {
                             $transformfunction_name = str_replace('.inc.php', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
 
@@ -1286,8 +1284,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '" nowrap="nowrap">';
 
                         if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                            reset($analyzed_sql[0]['select_expr']);
-                            while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
+                            foreach($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
                                 $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
                                 if (!empty($alias)) {
                                     $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
@@ -1338,13 +1335,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                 //  b l o b
 
-                } else if ($GLOBALS['cfg']['ShowBlob'] == FALSE && eregi('BLOB', $meta->type)) {
+                } else if ($GLOBALS['cfg']['ShowBlob'] == FALSE && stristr($meta->type, 'BLOB')) {
                     // loic1 : PMA_mysql_fetch_fields returns BLOB in place of
                     // TEXT fields type, however TEXT fields must be displayed
                     // even if $cfg['ShowBlob'] is false -> get the true type
                     // of the fields.
                     $field_flags = PMA_mysql_field_flags($dt_result, $i);
-                    if (eregi('BINARY', $field_flags)) {
+                    if (stristr($field_flags, 'BINARY')) {
                         $blobtext = '[BLOB';
                         if (isset($row[$pointer])) {
                             $blob_size = PMA_formatByteDown(strlen($row[$pointer]), 3, 1);
@@ -1391,7 +1388,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                         // loic1: displays special characters from binaries
                         $field_flags = PMA_mysql_field_flags($dt_result, $i);
-                        if (eregi('BINARY', $field_flags)) {
+                        if (stristr($field_flags, 'BINARY')) {
                             $row[$pointer]     = str_replace("\x00", '\0', $row[$pointer]);
                             $row[$pointer]     = str_replace("\x08", '\b', $row[$pointer]);
                             $row[$pointer]     = str_replace("\x0a", '\n', $row[$pointer]);
@@ -1410,12 +1407,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $bool_nowrap = (($default_function != $transform_function && function_exists($function_nowrap)) ? $function_nowrap($transform_options) : false);
 
                         // loic1: do not wrap if date field type
-                        $nowrap = ((eregi('DATE|TIME', $meta->type) || $bool_nowrap) ? ' nowrap="nowrap"' : '');
+                        $nowrap = ((preg_match('@DATE|TIME@i', $meta->type) || $bool_nowrap) ? ' nowrap="nowrap"' : '');
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"' . $nowrap . '>';
 
                         if (isset($analyzed_sql[0]['select_expr']) && is_array($analyzed_sql[0]['select_expr'])) {
-                            reset($analyzed_sql[0]['select_expr']);
-                            while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
+                            foreach($analyzed_sql[0]['select_expr'] AS $select_expr_position => $select_expr) {
                                 $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
                                 if (!empty($alias)) {
                                     $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
@@ -1554,9 +1550,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['row_delete']) && (count($vertical_display['row_delete']) > 0 || !empty($vertical_display['textbtn']))) {
             echo '<tr>' . "\n";
             echo $vertical_display['textbtn'];
-            reset($vertical_display['row_delete']);
             $foo_counter = 0;
-            while (list($key, $val) = each($vertical_display['row_delete'])) {
+            foreach($vertical_display['row_delete'] AS $key => $val) {
                 if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                     echo '<td>&nbsp;</td>' . "\n";
                 }
@@ -1573,9 +1568,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             if (!is_array($vertical_display['row_delete'])) {
                 echo $vertical_display['textbtn'];
             }
-            reset($vertical_display['edit']);
             $foo_counter = 0;
-            while (list($key, $val) = each($vertical_display['edit'])) {
+            foreach($vertical_display['edit'] AS $key => $val) {
                 if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                     echo '    <td>&nbsp;</td>' . "\n";
                 }
@@ -1592,9 +1586,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             if (!is_array($vertical_display['edit']) && !is_array($vertical_display['row_delete'])) {
                 echo $vertical_display['textbtn'];
             }
-            reset($vertical_display['delete']);
             $foo_counter = 0;
-            while (list($key, $val) = each($vertical_display['delete'])) {
+            foreach($vertical_display['delete'] AS $key => $val) {
                 if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                     echo '<td>&nbsp;</td>' . "\n";
                 }
@@ -1606,9 +1599,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         } // end if
 
         // Displays data
-        reset($vertical_display['desc']);
         $row_no = 0;
-        while (list($key, $val) = each($vertical_display['desc'])) {
+        foreach($vertical_display['desc'] AS $key => $val) {
             $row_no++;
 
             if (isset($GLOBALS['printview']) && ($GLOBALS['printview'] == '1')) {
@@ -1632,7 +1624,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             echo $val;
 
             $foo_counter = 0;
-            while (list($subkey, $subval) = each($vertical_display['rowdata'][$key])) {
+            foreach($vertical_display['rowdata'][$key] AS $subkey => $subval) {
                 if (($foo_counter != 0) && ($repeat_cells != 0) and !($foo_counter % $repeat_cells)) {
                     echo $val;
                 }
@@ -1648,9 +1640,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         if ($GLOBALS['cfg']['ModifyDeleteAtRight'] && is_array($vertical_display['row_delete']) && (count($vertical_display['row_delete']) > 0 || !empty($vertical_display['textbtn']))) {
             echo '<tr>' . "\n";
             echo $vertical_display['textbtn'];
-            reset($vertical_display['row_delete']);
             $foo_counter = 0;
-            while (list($key, $val) = each($vertical_display['row_delete'])) {
+            foreach($vertical_display['row_delete'] AS $key => $val) {
                 if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                     echo '<td>&nbsp;</td>' . "\n";
                 }
@@ -1667,9 +1658,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             if (!is_array($vertical_display['row_delete'])) {
                 echo $vertical_display['textbtn'];
             }
-            reset($vertical_display['edit']);
             $foo_counter = 0;
-            while (list($key, $val) = each($vertical_display['edit'])) {
+            foreach($vertical_display['edit'] AS $key => $val) {
                 if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                     echo '<td>&nbsp;</td>' . "\n";
                 }
@@ -1686,9 +1676,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             if (!is_array($vertical_display['edit']) && !is_array($vertical_display['row_delete'])) {
                 echo $vertical_display['textbtn'];
             }
-            reset($vertical_display['delete']);
             $foo_counter = 0;
-            while (list($key, $val) = each($vertical_display['delete'])) {
+            foreach($vertical_display['delete'] AS $key => $val) {
                 if (($foo_counter != 0) && ($repeat_cells != 0) && !($foo_counter % $repeat_cells)) {
                     echo '<td>&nbsp;</td>' . "\n";
                 }
@@ -1818,8 +1807,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         $target=array();
         if (isset($analyzed_sql[0]['table_ref']) && is_array($analyzed_sql[0]['table_ref'])) {
-            reset($analyzed_sql[0]['table_ref']);
-            while (list ($table_ref_position, $table_ref) = each ($analyzed_sql[0]['table_ref'])) {
+            foreach($analyzed_sql[0]['table_ref'] AS $table_ref_position => $table_ref) {
                $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name'];
             }
         }
@@ -1831,7 +1819,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             } else {
                 $exist_rel = PMA_getForeigners($db, $table, '', 'both');
                 if ($exist_rel) {
-                    while (list($master_field,$rel) = each($exist_rel)) {
+                    foreach($exist_rel AS $master_field => $rel) {
                         $display_field = PMA_getDisplayField($rel['foreign_db'],$rel['foreign_table']);
                         $map[$master_field] = array($rel['foreign_table'],
                                               $rel['foreign_field'],
@@ -1910,7 +1898,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     function default_function($buffer) {
         $buffer = htmlspecialchars($buffer);
         $buffer = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $buffer));
-        $buffer = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $buffer);
+        $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />', $buffer);
 
         return $buffer;
     }

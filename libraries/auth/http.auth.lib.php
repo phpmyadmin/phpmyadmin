@@ -150,16 +150,16 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
         if (empty($PHP_AUTH_USER) && empty($PHP_AUTH_PW)
             && function_exists('base64_decode')) {
             if (!empty($HTTP_AUTHORIZATION)
-                && ereg('^Basic ', $HTTP_AUTHORIZATION)) {
+                && substr($HTTP_AUTHORIZATION, 0, 6) == 'Basic ') {
                 list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr($HTTP_AUTHORIZATION, 6)));
             }
             else if (!empty($_ENV)
                  && isset($_ENV['HTTP_AUTHORIZATION'])
-                 && ereg('^Basic ', $_ENV['HTTP_AUTHORIZATION'])) {
+                 && substr($_ENV['HTTP_AUTHORIZATION'], 0, 6) == 'Basic ') {
                 list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr($_ENV['HTTP_AUTHORIZATION'], 6)));
             }
             else if (@getenv('HTTP_AUTHORIZATION')
-                     && ereg('^Basic ', getenv('HTTP_AUTHORIZATION'))) {
+                     && substr(getenv('HTTP_AUTHORIZATION'), 0, 6) == 'Basic ') {
                 list($PHP_AUTH_USER, $PHP_AUTH_PW) = explode(':', base64_decode(substr(getenv('HTTP_AUTHORIZATION'), 6)));
             }
         } // end IIS

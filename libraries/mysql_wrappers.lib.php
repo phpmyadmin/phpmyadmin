@@ -29,7 +29,7 @@ if (!defined('PMA_MYSQL_WRAPPERS_LIB_INCLUDED')){
         } elseif (mysql_errno() != 0) {
             return PMA_convert_display_charset('#' . mysql_errno() . ' - ' . mysql_error());
         }
-        
+
         return FALSE;
     }
 
@@ -57,7 +57,7 @@ if (!defined('PMA_MYSQL_WRAPPERS_LIB_INCLUDED')){
                     if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = PMA_convert_display_charset($data[$name]);
                 } else {
                     /* Meta information available -> check type of field and convert it according to the type */
-                    if ($meta->blob || eregi('BINARY', $meta->type)) {
+                    if ($meta->blob || stristr($meta->type, 'BINARY')) {
                         if (isset($data[$i])) $ret[$i] = $data[$i];
                         if (isset($data[$name])) $ret[PMA_convert_display_charset($name)] = $data[$name];
                     } else {
@@ -123,7 +123,7 @@ if (!defined('PMA_MYSQL_WRAPPERS_LIB_INCLUDED')){
 // mysql_list_fields() is deprecated, also we got report about weird results
 // under some circumstances
 //
-// using SELECT * FROM db.table 
+// using SELECT * FROM db.table
 // lets us use functions like mysql_field_name() on the result set
 
     function PMA_mysql_list_fields_alternate($database_name, $table_name, $link_identifier = FALSE) {
@@ -136,12 +136,12 @@ if (!defined('PMA_MYSQL_WRAPPERS_LIB_INCLUDED')){
              . PMA_backquote(PMA_convert_charset($database_name)) . '.'
              . PMA_backquote(PMA_convert_charset($table_name)));
         }
-        
+
         $fields = array();
         while ($row = PMA_mysql_fetch_array($result)) {
             $fields[] = $row;
         }
-        
+
         return $fields;
     }
 

@@ -11,34 +11,6 @@
 if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
     define('PMA_ALLOW_DENY_LIB_INCLUDED', 1);
 
-    if (PMA_PHP_INT_VERSION < 40000) {
-        /**
-         * Emulates the "ip2long" function under PHP3
-         *
-         * Based on a piece of code from
-         *     richard lithvall <richard at lithvall dot nu>
-         *
-         * @param   string   an IP in Internet standard format
-         *
-         * @return  string   its IPv4 Internet network address
-         *
-         * @access  private
-         */
-        function ip2long($dotted)
-        {
-            $dotted = split('\.', $dotted);
-            $ip     = (double)0;
-            $y      = 0x1000000;
-            for ($i = 0; $i < 4; $i++) {
-                $ip += ($dotted[$i] * $y);
-                $y  = ($y >> 8);
-            } // end for
-
-            return $ip;
-        } // end of the "ip2long" function
-    } // end if
-
-
     /**
      * Gets the "true" IP address of the current user
      *
@@ -51,7 +23,6 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
         global $REMOTE_ADDR;
         global $HTTP_X_FORWARDED_FOR, $HTTP_X_FORWARDED, $HTTP_FORWARDED_FOR, $HTTP_FORWARDED;
         global $HTTP_VIA, $HTTP_X_COMING_FROM, $HTTP_COMING_FROM;
-        global $HTTP_SERVER_VARS, $HTTP_ENV_VARS;
 
         // Get some server/environment variables values
         if (empty($REMOTE_ADDR)) {
@@ -60,12 +31,6 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             }
             else if (!empty($_ENV) && isset($_ENV['REMOTE_ADDR'])) {
                 $REMOTE_ADDR = $_ENV['REMOTE_ADDR'];
-            }
-            else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['REMOTE_ADDR'])) {
-                $REMOTE_ADDR = $HTTP_SERVER_VARS['REMOTE_ADDR'];
-            }
-            else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['REMOTE_ADDR'])) {
-                $REMOTE_ADDR = $HTTP_ENV_VARS['REMOTE_ADDR'];
             }
             else if (@getenv('REMOTE_ADDR')) {
                 $REMOTE_ADDR = getenv('REMOTE_ADDR');
@@ -78,12 +43,6 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             else if (!empty($_ENV) && isset($_ENV['HTTP_X_FORWARDED_FOR'])) {
                 $HTTP_X_FORWARDED_FOR = $_ENV['HTTP_X_FORWARDED_FOR'];
             }
-            else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['HTTP_X_FORWARDED_FOR'])) {
-                $HTTP_X_FORWARDED_FOR = $HTTP_SERVER_VARS['HTTP_X_FORWARDED_FOR'];
-            }
-            else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_X_FORWARDED_FOR'])) {
-                $HTTP_X_FORWARDED_FOR = $HTTP_ENV_VARS['HTTP_X_FORWARDED_FOR'];
-            }
             else if (@getenv('HTTP_X_FORWARDED_FOR')) {
                 $HTTP_X_FORWARDED_FOR = getenv('HTTP_X_FORWARDED_FOR');
             }
@@ -94,12 +53,6 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             }
             else if (!empty($_ENV) && isset($_ENV['HTTP_X_FORWARDED'])) {
                 $HTTP_X_FORWARDED = $_ENV['HTTP_X_FORWARDED'];
-            }
-            else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['HTTP_X_FORWARDED'])) {
-                $HTTP_X_FORWARDED = $HTTP_SERVER_VARS['HTTP_X_FORWARDED'];
-            }
-            else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_X_FORWARDED'])) {
-                $HTTP_X_FORWARDED = $HTTP_ENV_VARS['HTTP_X_FORWARDED'];
             }
             else if (@getenv('HTTP_X_FORWARDED')) {
                 $HTTP_X_FORWARDED = getenv('HTTP_X_FORWARDED');
@@ -112,12 +65,6 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             else if (!empty($_ENV) && isset($_ENV['HTTP_FORWARDED_FOR'])) {
                 $HTTP_FORWARDED_FOR = $_ENV['HTTP_FORWARDED_FOR'];
             }
-            else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['HTTP_FORWARDED_FOR'])) {
-                $HTTP_FORWARDED_FOR = $HTTP_SERVER_VARS['HTTP_FORWARDED_FOR'];
-            }
-            else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_FORWARDED_FOR'])) {
-                $HTTP_FORWARDED_FOR = $HTTP_ENV_VARS['HTTP_FORWARDED_FOR'];
-            }
             else if (@getenv('HTTP_FORWARDED_FOR')) {
                 $HTTP_FORWARDED_FOR = getenv('HTTP_FORWARDED_FOR');
             }
@@ -128,12 +75,6 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             }
             else if (!empty($_ENV) && isset($_ENV['HTTP_FORWARDED'])) {
                 $HTTP_FORWARDED = $_ENV['HTTP_FORWARDED'];
-            }
-            else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['HTTP_FORWARDED'])) {
-                $HTTP_FORWARDED = $HTTP_SERVER_VARS['HTTP_FORWARDED'];
-            }
-            else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_FORWARDED'])) {
-                $HTTP_FORWARDED = $HTTP_ENV_VARS['HTTP_FORWARDED'];
             }
             else if (@getenv('HTTP_FORWARDED')) {
                 $HTTP_FORWARDED = getenv('HTTP_FORWARDED');
@@ -146,12 +87,6 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             else if (!empty($_ENV) && isset($_ENV['HTTP_VIA'])) {
                 $HTTP_VIA = $_ENV['HTTP_VIA'];
             }
-            else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['HTTP_VIA'])) {
-                $HTTP_VIA = $HTTP_SERVER_VARS['HTTP_VIA'];
-            }
-            else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_VIA'])) {
-                $HTTP_VIA = $HTTP_ENV_VARS['HTTP_VIA'];
-            }
             else if (@getenv('HTTP_VIA')) {
                 $HTTP_VIA = getenv('HTTP_VIA');
             }
@@ -163,12 +98,6 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             else if (!empty($_ENV) && isset($_ENV['HTTP_X_COMING_FROM'])) {
                 $HTTP_X_COMING_FROM = $_ENV['HTTP_X_COMING_FROM'];
             }
-            else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['HTTP_X_COMING_FROM'])) {
-                $HTTP_X_COMING_FROM = $HTTP_SERVER_VARS['HTTP_X_COMING_FROM'];
-            }
-            else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_X_COMING_FROM'])) {
-                $HTTP_X_COMING_FROM = $HTTP_ENV_VARS['HTTP_X_COMING_FROM'];
-            }
             else if (@getenv('HTTP_X_COMING_FROM')) {
                 $HTTP_X_COMING_FROM = getenv('HTTP_X_COMING_FROM');
             }
@@ -179,12 +108,6 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             }
             else if (!empty($_ENV) && isset($_ENV['HTTP_COMING_FROM'])) {
                 $HTTP_COMING_FROM = $_ENV['HTTP_COMING_FROM'];
-            }
-            else if (!empty($HTTP_COMING_FROM) && isset($HTTP_SERVER_VARS['HTTP_COMING_FROM'])) {
-                $HTTP_COMING_FROM = $HTTP_SERVER_VARS['HTTP_COMING_FROM'];
-            }
-            else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_COMING_FROM'])) {
-                $HTTP_COMING_FROM = $HTTP_ENV_VARS['HTTP_COMING_FROM'];
             }
             else if (@getenv('HTTP_COMING_FROM')) {
                 $HTTP_COMING_FROM = getenv('HTTP_COMING_FROM');
@@ -219,7 +142,7 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             // True IP without proxy
             return $direct_ip;
         } else {
-            $is_ip = ereg('^([0-9]{1,3}\.){3,3}[0-9]{1,3}', $proxy_ip, $regs);
+            $is_ip = preg_match('|^([0-9]{1,3}\.){3,3}[0-9]{1,3}|', $proxy_ip, $regs);
             if ($is_ip && (count($regs) > 0)) {
                 // True IP behind a proxy
                 return $regs[0];
@@ -257,7 +180,7 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
     {
        $result = TRUE;
 
-       if (ereg('([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)', $testRange, $regs)) {
+       if (preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs)) {
            // performs a mask match
            $ipl    = ip2long($ipToTest);
            $rangel = ip2long($regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]);
@@ -277,12 +200,12 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
            }
        } else {
            // range based
-           $maskocts = split('\.', $testRange);
-           $ipocts   = split('\.', $ipToTest);
+           $maskocts = explode('.', $testRange);
+           $ipocts   = explode('.', $ipToTest);
 
            // perform a range match
            for ($i = 0; $i < 4; $i++) {
-                if (ereg('\[([0-9]+)\-([0-9]+)\]', $maskocts[$i], $regs)) {
+                if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs)) {
                     if (($ipocts[$i] > $regs[2])
                         || ($ipocts[$i] < $regs[1])) {
                         $result = FALSE;
@@ -332,8 +255,7 @@ if (!defined('PMA_ALLOW_DENY_LIB_INCLUDED')) {
             'localhost' => '127.0.0.1/8'
         );
 
-        reset($rules); // used instead of a foreach look for PHP3 support
-        while (list(, $rule) = each($rules)) {
+        foreach($rules AS $rule) {
             // extract rule data
             $rule_data = explode(' ', $rule);
 

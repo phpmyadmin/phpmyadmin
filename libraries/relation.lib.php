@@ -145,11 +145,11 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         }
         if (isset($cfgRelation['column_info'])) {
             $cfgRelation['commwork']    = TRUE;
-               
+
             if ($cfg['Server']['verbose_check']) {
                 $mime_query  = 'SHOW FIELDS FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']);
                 $mime_rs     = PMA_query_as_cu($mime_query, FALSE);
-                    
+
                 $mime_field_mimetype                = FALSE;
                 $mime_field_transformation          = FALSE;
                 $mime_field_transformation_options  = FALSE;
@@ -157,12 +157,12 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                     if ($curr_mime_field[0] == 'mimetype') {
                         $mime_field_mimetype               = TRUE;
                     } else if ($curr_mime_field[0] == 'transformation') {
-                        $mime_field_transformation         = TRUE; 
+                        $mime_field_transformation         = TRUE;
                     } else if ($curr_mime_field[0] == 'transformation_options') {
-                        $mime_field_transformation_options = TRUE; 
+                        $mime_field_transformation_options = TRUE;
                     }
                 }
-                   
+
                 if ($mime_field_mimetype == TRUE
                     && $mime_field_transformation == TRUE
                     && $mime_field_transformation_options == TRUE) {
@@ -172,7 +172,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                 $cfgRelation['mimework'] = TRUE;
             }
         }
-        
+
         if (isset($cfgRelation['history'])) {
             $cfgRelation['historywork']     = TRUE;
         }
@@ -242,14 +242,12 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                  . (($cfgRelation['bookmarkwork'] == TRUE) ? $enabled : $disabled)
                  . '</td></tr>' . "\n";
             echo '    <tr><th align="left">MIME ...</th><td align="right">'
-                 . (($cfgRelation['mimework'] == TRUE) ? $hit : sprintf($shit, 'col_com')) 
+                 . (($cfgRelation['mimework'] == TRUE) ? $hit : sprintf($shit, 'col_com'))
                  . '</td></tr>' . "\n";
 
                  if (($cfgRelation['commwork'] == TRUE) && ($cfgRelation['mimework'] != TRUE)) {
                      echo '<tr><td colspan=2 align="left">' . $GLOBALS['strUpdComTab'] . '</td></tr>' . "\n";
                  }
-
-//                 . '<br />(MIME: ' . (($cfgRelation['mimework'] == TRUE) ? $enabled : $disabled) . ')'
 
             echo '    <tr><th align="left">$cfg[\'Servers\'][$i][\'history\'] ... </th><td align="right">'
                  . ((isset($cfgRelation['history'])) ? $hit : sprintf($shit, 'history'))
@@ -305,18 +303,19 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             } // end while
         }
 
-        if (PMA_MYSQL_INT_VERSION >= 32320 && ($source == 'both' || $source == 'innodb') && !empty($table)) {
-            $show_create_table_query = 'SHOW CREATE TABLE ' 
+        if (($source == 'both' || $source == 'innodb') && !empty($table)) {
+            $show_create_table_query = 'SHOW CREATE TABLE '
                 . PMA_backquote($db) . '.' . PMA_backquote($table);
             $show_create_table_res = PMA_mysql_query($show_create_table_query);
             list(,$show_create_table) = PMA_mysql_fetch_row($show_create_table_res);
 
             $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-            while (list(,$one_key) = each ($analyzed_sql[0]['foreign_keys'])) {
+
+            foreach($analyzed_sql[0]['foreign_keys'] AS $one_key) {
 
             // the analyzer may return more than one column name in the
             // index list or the ref_index_list
-                while (list($i,$field) = each($one_key['index_list'])) {
+                foreach($one_key['index_list'] AS $i => $field) {
 
             // If a foreign key is defined in the 'internal' source (pmadb)
             // and in 'innodb', we won't get it twice if $source='both'
@@ -339,7 +338,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                     }
                 }
             }
-        }      
+        }
 
         if (isset($foreign) && is_array($foreign)) {
            return $foreign;
@@ -414,7 +413,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         while ($row = @PMA_mysql_fetch_array($com_rs)) {
             $i++;
             $col           = ($table != '' ? $row['column_name'] : $i);
-            
+
             if (strlen($row['comment']) > 0) {
                 $comment[$col] = $row['comment'];
             }
@@ -522,7 +521,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
     */
     function PMA_setHistory($db, $table, $username, $sqlquery) {
         global $cfgRelation;
-        
+
         $hist_rs    = PMA_query_as_cu('INSERT INTO ' . PMA_backquote($cfgRelation['history']) . ' ('
                     . PMA_backquote('username') . ','
                     . PMA_backquote('db') . ','
@@ -549,21 +548,21 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
     */
     function PMA_getHistory($username) {
         global $cfgRelation;
-        
+
         $hist_rs    = PMA_query_as_cu('SELECT '
                         . PMA_backquote('db') . ','
                         . PMA_backquote('table') . ','
                         . PMA_backquote('sqlquery')
                         . ' FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddslashes($username) . '\' ORDER BY id DESC');
-        
+
         $history = array();
-        
+
         while ($row = @PMA_mysql_fetch_array($hist_rs)) {
             $history[] = $row;
         }
 
         return $history;
-        
+
     } // end of 'PMA_getHistory()' function
 
     /**
@@ -584,7 +583,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         $purge_rs = PMA_query_as_cu('SELECT timevalue FROM ' . PMA_backquote($cfgRelation['history']) . ' WHERE username = \'' . PMA_sqlAddSlashes($username) . '\' ORDER BY timevalue DESC LIMIT ' . $cfg['QueryHistoryMax'] . ', 1');
         $i = 0;
         $row = @PMA_mysql_fetch_array($purge_rs);
-        
+
         if (is_array($row) && isset($row[0]) && $row[0] > 0) {
             $maxtime = $row[0];
             // quotes added around $maxtime to prevent a difficult to
@@ -594,7 +593,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
 
         return true;
     } // end of 'PMA_purgeHistory()' function
-    
+
     /**
     * Outputs dropdown with values of foreign fields
     *
@@ -609,7 +608,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
     */
     function PMA_foreignDropdown($disp, $foreign_field, $foreign_display, $data, $max = 100) {
         global $cfg;
-        
+
         $ret = '<option value=""></option>' . "\n";
 
         $reloptions = array('content-id' => array(), 'id-content' => array());
@@ -622,12 +621,12 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                 $vtitle = htmlspecialchars($relrow[$foreign_display]);
                 $value  = (($foreign_display != FALSE) ? htmlspecialchars(substr($vtitle, 0, $cfg['LimitChars']) . '...') : '');
             }
-            
+
             $reloption = '<option value="' . htmlspecialchars($key) . '"';
             if ($vtitle != '') {
                 $reloption .= ' title="' . $vtitle . '"';
             }
-            
+
             if ($key == $data) {
                $reloption .= ' selected="selected"';
             } // end if
@@ -635,7 +634,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $reloptions['id-content'][] = $reloption . '>' . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>' . "\n";
             $reloptions['content-id'][] = $reloption . '>' . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>' . "\n";
         } // end while
-        
+
         if ($max == -1 || count($reloptions['content-id']) < $max) {
             $ret .= implode('', $reloptions['content-id']);
             if (count($reloptions['content-id']) > 0) {
@@ -645,9 +644,9 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         }
 
         $ret .= implode('', $reloptions['id-content']);
-        
+
         return $ret;
     } // end of 'PMA_foreignDropdown()' function
-    
+
 } // $__PMA_RELATION_LIB__
 ?>

@@ -23,7 +23,7 @@ if (!defined('PMA_OB_LIB_INCLUDED')) {
      */
     function PMA_outBufferModeGet()
     {
-        if (PMA_PHP_INT_VERSION >= 40000 && @function_exists('ob_start')) {
+        if (@function_exists('ob_start')) {
             $mode = 1;
         } else {
             $mode = 0;
@@ -35,23 +35,20 @@ if (!defined('PMA_OB_LIB_INCLUDED')) {
         // PMA_outBufferModeGet() function.
         //
         // (Patch by Garth Gillespie, modified by Marc Delisle)
-        if (PMA_PHP_INT_VERSION >= 40000 && @ini_get('output_handler')) {
-            if (@ini_get('output_handler') == 'ob_gzhandler') {
-                $mode = 0;
-            }
-        } else if (PMA_PHP_INT_VERSION >= 40000) {
-            if (@get_cfg_var('output_handler') == 'ob_gzhandler') {
-                $mode = 0;
-            }
+        if (@ini_get('output_handler') == 'ob_gzhandler') {
+            $mode = 0;
+        }
+        if (@get_cfg_var('output_handler') == 'ob_gzhandler') {
+            $mode = 0;
         }
         // End patch
 
         // If output buffering is enabled in php.ini it's not possible to
-        // add the ob_gzhandler without a warning message from php 4.3.0. 
+        // add the ob_gzhandler without a warning message from php 4.3.0.
         // Being better safe than sorry, check for any existing output handler
         // instead of just checking the 'output_buffering' setting.
         //
-        if (PMA_PHP_INT_VERSION >= 40300 && @function_exists('ob_get_level')) {
+        if (@function_exists('ob_get_level')) {
             if (ob_get_level() > 0) {
                 $mode = 0;
             }

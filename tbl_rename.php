@@ -29,9 +29,6 @@ if (isset($new_name) && trim($new_name) != '') {
     if (count($dblist) > 0 && PMA_isInto($db, $dblist) == -1) {
         exit();
     }
-    if (PMA_MYSQL_INT_VERSION < 32306) {
-        PMA_checkReservedWords($new_name, $err_url);
-    }
 
     include('./header.inc.php');
     PMA_mysql_select_db($db);

@@ -21,11 +21,7 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
     $res = PMA_mysql_query('SHOW COLLATION;', $userlink)
         or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW COLLATION;');
 
-    if (PMA_PHP_INT_VERSION >= 40000) {
-        sort($mysql_charsets, SORT_STRING);
-    } else {
-        sort($mysql_charsets);
-    }
+    sort($mysql_charsets, SORT_STRING);
 
     $mysql_collations = array_flip($mysql_charsets);
     $mysql_default_collations = array();;
@@ -44,11 +40,7 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
     $mysql_collations_count = 0;
     while (list($key, $value) = each($mysql_collations)) {
         $mysql_collations_count += count($mysql_collations[$key]);
-        if (PMA_PHP_INT_VERSION >= 40000) {
-            sort($mysql_collations[$key], SORT_STRING);
-        } else {
-            sort($mysql_collations[$key]);
-        }
+        sort($mysql_collations[$key], SORT_STRING);
         reset($mysql_collations[$key]);
     }
     reset($mysql_collations);

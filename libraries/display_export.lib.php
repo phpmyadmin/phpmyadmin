@@ -162,25 +162,13 @@ if ($export_type == 'server') {
                     <label for="checkbox_dump_drop"><?php echo $strStrucDrop; ?></label><br />
                     <input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" <?php PMA_exportCheckboxCheck('sql_auto_increment'); ?> />
                     <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
-<?php
-// Add backquotes checkbox
-if (PMA_MYSQL_INT_VERSION >= 32306) {
-    ?>
                     <input type="checkbox" name="use_backquotes" value="1" id="checkbox_dump_use_backquotes" <?php PMA_exportCheckboxCheck('sql_backquotes'); ?> />
                     <label for="checkbox_dump_use_backquotes"><?php echo $strUseBackquotes; ?></label><br />
-    <?php
-} // end backquotes feature
-?>
                     <fieldset>
                         <legend><?php echo $strAddIntoComments; ?></legend>
-<?php
-if (PMA_MYSQL_INT_VERSION >= 32321) {
-?>
                         <input type="checkbox" name="sql_dates" value="yes" id="checkbox_sql_dates" <?php PMA_exportCheckboxCheck('sql_dates'); ?> />
                         <label for="checkbox_sql_dates"><?php echo $strCreationDates; ?></label><br />
 <?php
- } // end MySQL >= 3.23.21
-
 if (!empty($cfgRelation['relation'])) {
 ?>
                         <input type="checkbox" name="sql_relation" value="yes" id="checkbox_sql_use_relation" <?php PMA_exportCheckboxCheck('sql_relation'); ?> />
@@ -477,24 +465,18 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                     if ($export_type == 'database') {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
                             echo $_COOKIE['pma_db_filename_template'];
-                        } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_db_filename_template'])) {
-                            echo $HTTP_COOKIE_VARS['pma_db_filename_template'];
                         } else {
                             echo '__DB__';
                         }
                     } elseif ($export_type == 'table') {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_table_filename_template'])) {
                             echo $_COOKIE['pma_table_filename_template'];
-                        } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_table_filename_template'])) {
-                            echo $HTTP_COOKIE_VARS['pma_table_filename_template'];
                         } else {
                             echo '__TABLE__';
                         }
                     } else {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_server_filename_template'])) {
                             echo $_COOKIE['pma_server_filename_template'];
-                        } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_server_filename_template'])) {
-                            echo $HTTP_COOKIE_VARS['pma_server_filename_template'];
                         } else {
                             echo '__SERVER__';
                         }
@@ -541,31 +523,29 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
 <?php
 
 // zip, gzip and bzip2 encode features
-if (PMA_PHP_INT_VERSION >= 40004) {
-    $is_zip  = (isset($cfg['ZipDump']) && $cfg['ZipDump'] && @function_exists('gzcompress'));
-    $is_gzip = (isset($cfg['GZipDump']) && $cfg['GZipDump'] && @function_exists('gzencode'));
-    $is_bzip = (isset($cfg['BZipDump']) && $cfg['BZipDump'] && @function_exists('bzcompress'));
-    if ($is_zip || $is_gzip || $is_bzip) {
-        if ($is_zip) {
-            ?>
-                    <input type="radio" name="compression" value="zip" id="radio_compression_zip" onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportIsActive('compression', 'zip'); ?> />
-                    <label for="radio_compression_zip"><?php echo $strZip; ?></label><?php echo (($is_gzip || $is_bzip) ? '&nbsp;' : ''); ?>
-            <?php
-        }
-        if ($is_gzip) {
-            echo "\n"
-            ?>
-                    <input type="radio" name="compression" value="gzip" id="radio_compression_gzip" onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportIsActive('compression', 'gzip'); ?> />
-                    <label for="radio_compression_gzip"><?php echo $strGzip; ?></label><?php echo ($is_bzip ? '&nbsp;' : ''); ?>
-            <?php
-        }
-        if ($is_bzip) {
-            echo "\n"
-            ?>
-                    <input type="radio" name="compression" value="bzip" id="radio_compression_bzip" onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportIsActive('compression', 'bzip'); ?> />
-                    <label for="radio_compression_bzip"><?php echo $strBzip; ?></label>
-            <?php
-        }
+$is_zip  = (isset($cfg['ZipDump']) && $cfg['ZipDump'] && @function_exists('gzcompress'));
+$is_gzip = (isset($cfg['GZipDump']) && $cfg['GZipDump'] && @function_exists('gzencode'));
+$is_bzip = (isset($cfg['BZipDump']) && $cfg['BZipDump'] && @function_exists('bzcompress'));
+if ($is_zip || $is_gzip || $is_bzip) {
+    if ($is_zip) {
+        ?>
+                <input type="radio" name="compression" value="zip" id="radio_compression_zip" onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportIsActive('compression', 'zip'); ?> />
+                <label for="radio_compression_zip"><?php echo $strZip; ?></label><?php echo (($is_gzip || $is_bzip) ? '&nbsp;' : ''); ?>
+        <?php
+    }
+    if ($is_gzip) {
+        echo "\n"
+        ?>
+                <input type="radio" name="compression" value="gzip" id="radio_compression_gzip" onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportIsActive('compression', 'gzip'); ?> />
+                <label for="radio_compression_gzip"><?php echo $strGzip; ?></label><?php echo ($is_bzip ? '&nbsp;' : ''); ?>
+        <?php
+    }
+    if ($is_bzip) {
+        echo "\n"
+        ?>
+                <input type="radio" name="compression" value="bzip" id="radio_compression_bzip" onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportIsActive('compression', 'bzip'); ?> />
+                <label for="radio_compression_bzip"><?php echo $strBzip; ?></label>
+        <?php
     }
 }
 echo "\n";

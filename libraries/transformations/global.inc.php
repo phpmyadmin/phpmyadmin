@@ -40,7 +40,7 @@ if (!defined('PMA_TRANSFORMATION_LIB_GLOBAL')){
         }
 
         if (isset($options['regex']) && isset($options['regex_replace'])) {
-            $buffer = eregi_replace($options['regex'], $options['regex_replace'], $buffer);
+            $buffer = preg_replace('@' . str_replace('@', '\@', $options['regex']) . '@i', $options['regex_replace'], $buffer);
         }
 
         // Replace occurences of [__BUFFER__] with actual text

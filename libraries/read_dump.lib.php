@@ -27,10 +27,10 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
         $string_start = '';
         $in_string    = FALSE;
         $time0        = time();
-    
+
         for ($i = 0; $i < $sql_len; ++$i) {
             $char = $sql[$i];
-    
+
             // We are in a string, check for not escaped end of strings except for
             // backquotes that can't be escaped
             if ($in_string) {
@@ -72,7 +72,7 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
                     } // end if...elseif...else
                 } // end for
             } // end if (in string)
-    
+
             // We are not in a string, first check for delimiter...
             else if ($char == ';') {
                 // if delimiter found, add the parsed part to the returned array
@@ -86,13 +86,13 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
                     return TRUE;
                 }
             } // end else if (is delimiter)
-    
+
             // ... then check for start of a string,...
             else if (($char == '"') || ($char == '\'') || ($char == '`')) {
                 $in_string    = TRUE;
                 $string_start = $char;
             } // end else if (is start of string)
-    
+
             // ... for start of a comment (and remove this comment if found)...
             else if ($char == '#'
                      || ($char == ' ' && $i > 1 && $sql[$i-2] . $sql[$i-1] == '--')) {
@@ -117,13 +117,13 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
                     $i--;
                 } // end if...else
             } // end else if (is comment)
-    
+
             // ... and finally disactivate the "/*!...*/" syntax if MySQL < 3.22.07
             else if ($release < 32270
                      && ($char == '!' && $i > 1  && $sql[$i-2] . $sql[$i-1] == '/*')) {
                 $sql[$i] = ' ';
             } // end else if
-    
+
             // loic1: send a fake header each 30 sec. to bypass browser timeout
             $time1     = time();
             if ($time1 >= $time0 + 30) {
@@ -131,16 +131,16 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
                 header('X-pmaPing: Pong');
             } // end if
         } // end for
-    
+
         // add any rest to the returned array
-        if (!empty($sql) && ereg('[^[:space:]]+', $sql)) {
+        if (!empty($sql) && preg_match('@[^[:space:]]+@', $sql)) {
             $ret[] = $sql;
         }
-    
+
         return TRUE;
     } // end of the 'PMA_splitSqlFile()' function
-    
-    
+
+
     /**
      * Reads (and decompresses) a (compressed) file into a string
      *
@@ -154,7 +154,7 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
      */
     function PMA_readFile($path, $mime = '') {
         global $cfg;
-    
+
         if (!file_exists($path)) {
             return FALSE;
         }
