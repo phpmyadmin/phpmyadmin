@@ -219,7 +219,7 @@ function grant_operations()
         } else { db = "*"; table = "*"; column = ""; }
 
         sql = "GRANT " + privGrantToString(f) + "" + column;
-        sql += " ON " + protect_name(db) + "." + protect_name(table)
+        sql += " ON " + protect_name(db) + "." + protect_name(table) 
         sql += " TO '" + "<?php echo $user; ?>" + "'@'" + "<?php echo $host ?>'"
         if (f.Grant_priv.checked) sql += " with grant option";
 
@@ -239,7 +239,8 @@ function grant_operations()
 
 	if (js_mysql_major_version >= "3.23") {
 	   if (js_mysql_minor_version >= "6")  {
-		return "`" + db_or_table + "`";
+<!--		return "`" + db_or_table + "`"; -->
+		return db_or_table;
 	   }
 	}
 	else {
@@ -419,7 +420,8 @@ function table_grants($host, $user, $dbcheck = false)
         # Revoke
         $query = "server=$server&lang=$lang&db=mysql&table=user";
         $revoke_url  = "sql.php3";
-        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON " . db_name($db) . "." . tbl_name($table) . " FROM '$user'@'$host'");
+//        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON " . db_name($db) . "." . tbl_name($table) . " FROM '$user'@'$host'");
+        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON " . $db . "." . $table . " FROM '$user'@'$host'");
         $revoke_url .= "&$query";
         $revoke_url .= "&zero_rows=" . urlencode("$strRevokeMessage <font color=#002E80>$user@$host</font>");
         $revoke_url .= "&goto=$self";
@@ -427,7 +429,8 @@ function table_grants($host, $user, $dbcheck = false)
         # Revoke GRANT OPTION
         if ($grantopt) {
             $revoke_grant_url  = "sql.php3";
-            $revoke_grant_url .= "?sql_query=" . urlencode("REVOKE GRANT OPTION ON " . db_name($db) . "." . tbl_name($table) . " FROM '$user'@'$host'");
+//            $revoke_grant_url .= "?sql_query=" . urlencode("REVOKE GRANT OPTION ON " . db_name($db) . "." . tbl_name($table) . " FROM '$user'@'$host'");
+            $revoke_grant_url .= "?sql_query=" . urlencode("REVOKE GRANT OPTION ON " . $db . "." . $table . " FROM '$user'@'$host'");
             $revoke_grant_url .= "&$query";
             $revoke_grant_url .= "&zero_rows=" . urlencode("$strRevokeGrantMessage <font color=#002E80>$user@$host</font>");
             $revoke_grant_url .= "&goto=$self";

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-07  Marc Delisle  <lem9@users.sourceforge.net>
+	* bug 439340: do not backquote in grant/revoke, will have to find
+	  the proper way to protect special db names
+
 2001-07-07  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3: improved the css.
 	* left.js: try to "fix" the Opera and Konqueror bug (bad DOM implemenation
