@@ -571,15 +571,16 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      */
     function PMA_getTableXML($db, $table, $crlf, $error_url) {
         $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
-        $result      = @mysql_query($local_query);
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         for ($i = 0; $row = mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
             $columns[$i] = $row['Field'];
         }
         $columns_cnt     = count($columns);
         unset($i);
         mysql_free_result($result);
+
         $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-        $result      = @mysql_query($local_query);
+        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $buffer      = '  <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
         while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
             $buffer         .= '    <' . $table . '>' . $crlf;
@@ -593,6 +594,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $buffer         .= '    </' . $table . '>';
         }
         mysql_free_result($result);
+
         return $buffer;
     } // end of the 'PMA_getTableXML()' function
 
