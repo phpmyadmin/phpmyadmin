@@ -10,8 +10,8 @@ $byteUnits = array("Octets", "Ko", "Mo", "Go");
 
 $strAccessDenied = "Accès refusé";
 $strAction = "Action";
-$strAddDeleteColumn = "Ajouter/effacer une colonne de critères";
-$strAddDeleteRow = "Ajouter/effacer une ligne de critères";
+$strAddDeleteColumn = "Ajouter/effacer x colonne(s)";
+$strAddDeleteRow = "Ajouter/effacer x ligne(s)";
 $strAddNewField = "Ajouter un champ";
 $strAddPriv = "Ajouter un privilège";
 $strAddPrivMessage = "Vous avez ajouté un privilège";
@@ -188,8 +188,8 @@ $strProducedAnError = "a généré une erreur.";
 $strProperties = "Propriétés";
 
 $strQBE = "Requête par un exemple";
-$strQBEDel = "Del";  //to translate (used in tbl_qbe.php3)
-$strQBEIns = "Ins";  //to translate (used in tbl_qbe.php3)
+$strQBEDel = "Effacer";  
+$strQBEIns = "Ajouter";  
 
 $strReadTheDocs = "Lire la documentation";
 $strRecords = "Enregistrements";
