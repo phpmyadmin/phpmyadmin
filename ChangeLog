@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-01 Olivier L. Müller  <om@omnis.ch>
+    * header.inc.php3: nicer CSS for Tabs (J.Fornallaz)
+
 2002-07-01 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_links.php3, db_details_links.php3: better vertical spacing 
     * tbl_properties.php3, db_details.php3: misplaced bullet
