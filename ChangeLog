@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * sql.php3: Fixed bug #575867 (Error with limit or load in the table name).
+
 2002-06-30 Marc Delisle  <lem9@users.sourceforge.net>
     * user_details.php3: fix the tooltip
     * 2.3.0-rc2 released

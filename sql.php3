@@ -609,7 +609,7 @@ require('./footer.inc.php3');
             $sql_str = eregi_replace($pattern, $replace, $sql_str);
 
             // convert reservered words to upper case if not yet done
-            $sql_str = eregi_replace("$w ", "$w ", $sql_str);
+            $sql_str = substr(eregi_replace(" $w ", " $w ", ' ' . $sql_str), 1);
         }; // end foreach
 
          // remove repeated spaces
