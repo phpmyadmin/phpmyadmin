@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2001-08-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/chinese_big5.inc.php3: updated thanks to
+	  Taiyen Hung ¬x®õ¤¸<yen789@pchome.com.tw>.
 	* db_details.php3, lines 292-296: queries retained and displayed into the
 	  textearea when stripslashed one time more than required.
 	* tbl_properties.php3: fixed some coding inconcistencies (tabs, ...).
