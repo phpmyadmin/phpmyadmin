@@ -1,6 +1,6 @@
 <?php
 /* $Id$ */
-/* Pietro Danesi <danone@aruba.it>  04.09.2001 */
+/* Pietro Danesi <danone@aruba.it>  07.09.2001 */
 
 $charset = 'iso-8859-1';
 $left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
@@ -120,7 +120,7 @@ $strFieldsEmpty = ' Il contatore dei campi è vuoto! ';
 $strFixed = 'fisso';
 $strFormat = 'Formato';
 $strFormEmpty = 'Valore mancante nel form!';
-$strFullText = 'Testi pieni';
+$strFullText = 'Solo testo';
 $strFunction = 'Funzione';
 
 $strGenTime = 'Generato il';
@@ -138,6 +138,7 @@ $strHomepageSourceforge = 'Home page di phpMyAdmin su sourceforge.net';
 $strHost = 'Host';
 $strHostEmpty = 'Il nome di host è vuoto!';
 
+$strIdxFulltext = 'Testo completo';
 $strIfYouWish = 'Per caricare i dati solo per alcune colonne della tabella, specificare la lista dei campi (separati da virgole).';
 $strIndex = 'Indice';
 $strIndexes = 'Indici';
@@ -149,6 +150,7 @@ $strInsertNewRow = 'Inserisci una nuova riga';
 $strInsertTextfiles = 'Inserisci un file di testo nella tabella';
 $strInstructions = 'Istruzioni';
 $strInUse = 'in uso';
+$strInvalidName = '"%s" &egrave; una parola riservata; non &egrave; possibile utilizzarla come nome di database/tabella/campo.';
 
 $strKeyname = 'Nome chiave';
 $strKill = 'Uccidi';
@@ -304,12 +306,8 @@ $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
 
 $strWelcome = 'Benvenuto in ';
+$strWithChecked = 'Con selezionati:';
 $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 
 $strYes = ' Si ';
-
-// To translate
-$strIdxFulltext = 'Fulltext';  //to translate 
-$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
-$strWithChecked = 'With checked:';
 ?>
