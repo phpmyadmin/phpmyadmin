@@ -1404,6 +1404,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 case 'digit_integer':
                 case 'digit_float':
                 case 'digit_hex':
+                    //TODO: could there be other types preceding a digit?
+                    if ($typearr[1] == 'alpha_reservedWord') {
+                        $after .= ' ';
+                    }
                     if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
                         $after     .= ' ';
                     }
