@@ -387,13 +387,13 @@ if (!empty($asfile)) {
             }
             $zipfile = new zipfile();
             $zipfile -> addFile($dump_buffer, $filename . $extbis);
-            echo $zipfile -> file();
+            $dump_buffer = $zipfile -> file();
         }
     }
     // 2. as a bzipped file
     else if (isset($compression) && $compression == 'bzip') {
         if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
-            echo bzcompress($dump_buffer);
+            $dump_buffer = bzcompress($dump_buffer);
             // nijel: eval in next line is because otherwise === causes syntax error on php3
             if (eval('return($dump_buffer === -8);')) {
                 include('./header.inc.php3');
@@ -407,14 +407,19 @@ if (!empty($asfile)) {
     else if (isset($compression) && $compression == 'gzip') {
         if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
             // without the optional parameter level because it bug
-            echo gzencode($dump_buffer);
+            $dump_buffer = gzencode($dump_buffer);
         }
     }
 
     /* If ve saved on server, we have to close file now */
     if ($save_on_server) {
+        $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
-        $message = sprintf($strDumpSaved, $save_filename);
+        if (strlen($dump_buffer) !=0 && (!$write_result || ($write_result != strlen($dump_buffer)))) {
+            $message = sprintf($strNoSpace, $save_filename);
+        } else {
+            $message = sprintf($strDumpSaved, $save_filename);
+        }
 
         $js_to_run = 'functions.js';
         include('./header.inc.php3');
@@ -429,6 +434,8 @@ if (!empty($asfile)) {
             include('./tbl_properties_export.php3');
         }
         exit();
+    } else {
+        echo $dump_buffer;
     }
 }
 /**
