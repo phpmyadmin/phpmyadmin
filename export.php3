@@ -74,7 +74,7 @@ function PMA_exportOutputHandler($line)
             if ($GLOBALS['save_on_server']) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
                 if (!$write_result || ($write_result != strlen($line))) {
-                    $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], $save_filename);
+                    $GLOBALS['message'] = sprintf($GLOBALS['strNoSpace'], htmlspecialchars($save_filename));
                     return FALSE;
                 }
                 $time_now = time();
@@ -195,13 +195,13 @@ if ($save_on_server) {
     $save_filename = $cfg['SaveDir'] . ereg_replace('[/\\]','_',$filename);
     unset($message);
     if (file_exists($save_filename) && empty($onserverover)) {
-        $message = sprintf($strFileAlreadyExists, $save_filename);
+        $message = sprintf($strFileAlreadyExists, htmlspecialchars($save_filename));
     } else {
         if (is_file($save_filename) && !is_writable($save_filename)) {
-            $message = sprintf($strNoPermission, $save_filename);
+            $message = sprintf($strNoPermission, htmlspecialchars($save_filename));
         } else {
             if (!$file_handle = @fopen($save_filename, 'w')) {
-                $message = sprintf($strNoPermission, $save_filename);
+                $message = sprintf($strNoPermission, htmlspecialchars($save_filename));
             }
         }
     }
@@ -418,9 +418,9 @@ if (!empty($asfile)) {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
         if (strlen($dump_buffer) !=0 && (!$write_result || ($write_result != strlen($dump_buffer)))) {
-            $message = sprintf($strNoSpace, $save_filename);
+            $message = sprintf($strNoSpace, htmlspecialchars($save_filename));
         } else {
-            $message = sprintf($strDumpSaved, $save_filename);
+            $message = sprintf($strDumpSaved, htmlspecialchars($save_filename));
         }
 
         $js_to_run = 'functions.js';

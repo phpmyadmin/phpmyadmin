@@ -103,7 +103,7 @@ global $GLOBALS;
         return 1;
     } else {
         if ($content != 'none') {
-            echo '<p><font color="orange">' . sprintf($GLOBALS['strIgnoringFile'], ' ' . $file) . '</font></p>' . "\n";
+            echo '<p><font color="orange">' . sprintf($GLOBALS['strIgnoringFile'], ' ' . htmlspecialchars($file)) . '</font></p>' . "\n";
         } else {
             // garvin: disabled. Shouldn't impose ANY non-submitted files ever.
             echo '<p><font color="orange">' . sprintf($GLOBALS['strIgnoringFile'], ' ' . '...') . '</font></p>' . "\n";

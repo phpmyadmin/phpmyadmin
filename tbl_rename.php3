@@ -37,7 +37,7 @@ if (isset($new_name) && trim($new_name) != '') {
     PMA_mysql_select_db($db);
     $sql_query = 'ALTER TABLE ' . PMA_backquote($old_name) . ' RENAME ' . PMA_backquote($new_name);
     $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
-    $message   = sprintf($strRenameTableOK, $old_name, $table);
+    $message   = sprintf($strRenameTableOK, htmlspecialchars($old_name), htmlspecialchars($table));
     $reload    = 1;
 
     // garvin: Move old entries from comments to new table

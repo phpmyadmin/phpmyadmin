@@ -390,7 +390,7 @@ if (isset($new_name) && trim($new_name) != '') {
         }
 
         $message   = (isset($submit_move) ? $strMoveTableOK : $strCopyTableOK);
-        $message   = sprintf($message, $source, $target);
+        $message   = sprintf($message, htmlspecialchars($source), htmlspecialchars($target));
         $reload    = 1;
         $js_to_run = 'functions.js';
         /* Check: Work on new table or on old table? */
