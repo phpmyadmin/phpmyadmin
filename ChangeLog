@@ -8,6 +8,8 @@ $Source$
 2002-06-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/dutch.inc.php3: Updates, thanks to "CaliMonk" <calimonk at gmx.net>.
     * lang/thai.inc.php3: Updates, thanks again to Arthit Suriyawongkul.
+    * lang/italian.inc.php3: Updates, thanks again to
+      Pietro Danesi <danone at users.sourceforge.net>.
 
 2002-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/polish.inc.php3 updates, thanks to Jakub Wilk

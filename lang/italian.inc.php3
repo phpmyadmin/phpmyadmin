@@ -74,12 +74,14 @@ $strChangePassword = 'Cambia password';
 $strCheckAll = 'Seleziona tutti';
 $strCheckDbPriv = 'Controlla i privilegi del database';
 $strCheckTable = 'Controlla tabella';
+$strChoosePage = 'Prego scegliere una Page da modificare';
 $strColumn = 'Colonna';
 $strColumnNames = 'Nomi delle colonne';
 $strCompleteInserts = 'Inserimenti completi';
 $strConfigureTableCoord = 'Prego, configurare le coordinate per la tabella %s';
 $strConfirm = 'Sicuro di volerlo fare?';
 $strCookiesRequired = 'Da questo punto in poi, i cookies devono essere abilitati.';
+$strCoordsNotSet = 'tabella table_coords non trovata o non settata in config.inc.php3';
 $strCopyTable = 'Copia la tabella nel (database<b>.</b>tabella):';
 $strCopyTableOK = 'La tabella %s è stata copiata su %s.';
 $strCreate = 'Crea';
@@ -87,6 +89,7 @@ $strCreateIndex = 'Crea un indice su &nbsp;%s&nbsp;columns';
 $strCreateIndexTopic = 'Crea un nuovo indice';
 $strCreateNewDatabase = 'Crea un nuovo database';
 $strCreateNewTable = 'Crea una nuova tabella nel database %s';
+$strCreatePage = 'Crea una nuova Page';
 $strCriteria = 'Criterio';
 
 $strData = 'Dati';
@@ -118,6 +121,7 @@ $strDumpXRows = 'Dump di %s righe a partire dalla riga %s.';
 $strDynamic = 'dinamico';
 
 $strEdit = 'Modifica';
+$strEditPDFPages = 'Modifica pagine PDF';
 $strEditPrivileges = 'Modifica Privilegi';
 $strEffective = 'Effettivo';
 $strEmpty = 'Svuota';
@@ -167,6 +171,7 @@ $strIndexHasBeenDropped = 'L\'indice %s è stato eliminato';
 $strIndexes = 'Indici';
 $strIndexName = 'Nome dell\'indice&nbsp;:';
 $strIndexType = 'Tipo di indice&nbsp;:';
+$strInfoNotSet = 'tabella table_info non trovata o non settata in config.inc.php3';
 $strInsert = 'Inserisci';
 $strInsertAsNewRow = 'Inserisci come nuova riga';
 $strInsertedRows = 'Righe inserite:';
@@ -210,6 +215,7 @@ $strName = 'Nome';
 $strNext = 'Prossimo';
 $strNo = ' No ';
 $strNoDatabases = 'Nessun database';
+$strNoDescription = 'nessuna Description';
 $strNoDropDatabases = 'I comandi "DROP DATABASE" sono disabilitati.';
 $strNoFrames = 'phpMyAdmin funziona meglio con browser che supportano frames';
 $strNoIndex = 'Nessun indice definito!';
@@ -268,6 +274,7 @@ $strQueryOnDb = 'SQL-query sul database <b>%s</b>:';
 
 $strRecords = 'Record';
 $strReferentialIntegrity = 'Controlla l\'integrità delle referenze:';
+$strRelationNotSet = 'Relationtable non trovata o non settata in config.inc.php3';
 $strRelationView = 'Vedi relazione';
 $strReloadFailed = 'Riavvio di MySQL fallito.';
 $strReloadMySQL = 'Riavvia MySQL';
@@ -313,6 +320,7 @@ $strSelectADb = 'Prego, selezionare un database';
 $strSelectAll = 'Seleziona Tutto';
 $strSelectFields = 'Seleziona campi (almeno uno):';
 $strSelectNumRows = 'nella query';
+$strSelectTables = 'Seleziona Tables';
 $strSend = 'Salva con nome...';
 $strServerChoice = 'Scelta del server';
 $strServerVersion = 'Versione MySQL';
@@ -393,12 +401,4 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
-$strEditPDFPages = 'Edit PDF Pages';  //to translate
-$strNoDescription = 'no Description';  //to translate
-$strRelationNotSet = 'Relationtable not found or not set in config.inc.php3';  //to translate
-$strInfoNotSet = 'table_info table not found or not set in config.inc.php3';  //to translate
-$strCoordsNotSet = 'table_coords table not found or not set in config.inc.php3';  //to translate
-$strChoosePage = 'Please choose a Page to edit';  //to translate
-$strCreatePage = 'Create a new Page';  //to translate
-$strSelectTables = 'Select Tables';  //to translate
 ?>
