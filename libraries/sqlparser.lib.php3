@@ -35,12 +35,16 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     /**
      * Include the string library as we use it heavily
      */
-    include('./libraries/string.lib.php3');
+    if (!defined('PMA_STR_LIB_INCLUDED')) {
+        include('./libraries/string.lib.php3');
+    }
 
     /**
      * Include data for the SQL Parser
      */
-    include('./libraries/sqlparser.data.php3');
+    if (!defined('PMA_SQP_DATA_INCLUDED')) {
+        include('./libraries/sqlparser.data.php3');
+    }
 
     if (!defined('DEBUG_TIMING')) {
         function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize)

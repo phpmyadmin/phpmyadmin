@@ -7,6 +7,9 @@ $Source$
 
 2002-08-23 Loïc Chapeaux  <lolo@phpheaven.net>
     * left.php3, lines 169-181: XHTML optimizations.
+    * db_details_common.php3, tbl_properties_common.php3,
+      libraries/sqlparser.lib.php3: Fixed bug #571409 (it doesn't work properly
+      with Zend Accelerator).
 
 2002-08-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/charset_conversion.lib.php3: Don't let php display an error
