@@ -1,9 +1,11 @@
 <?php
 /* $Id$ */
 
+
 /**
- * Gets the variables sent to this script and diplays headers
+ * Gets some core libraries and diplays headers
  */
+require('./lib.inc.php3');
 require('./grab_globals.inc.php3');
 if (!isset($message)) {
     include('./header.inc.php3');
@@ -22,18 +24,16 @@ mysql_select_db($db);
 /**
  * Set parameters for links
  */
-
-// it would be better to rename this variable "link_parameters" because
-// "query" is often used by developers for a quick query
-// and the real $query has to be reinitialized
-// (I had to rename $query to $query_tmp somewhere in this script)
-
-$query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
+$url_query = 'lang=' . $lang
+           . '&server=' . urlencode($server)
+           . '&db=' . urlencode($db)
+           . '&table=' . urlencode($table)
+           . '&goto=tbl_properties.php3';
 ?>
 
 <!-- first browse link -->
 <p> 
-    <a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&<?php echo $query; ?>">
+    <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
         <b><?php echo $strBrowse; ?></b></a>
 </p>
 <?php
@@ -43,20 +43,26 @@ $query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3
  * Gets table informations
  */
 // 1. Get table type and comments ('show table' works correct since 3.23.03)
-if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) >= 3) {
+if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 3) {
     // Update table type, comment and order if required by the user
     if (isset($submitcomment)) {
-        $result = mysql_query("ALTER TABLE $table COMMENT='$comment'") or mysql_die();
+        if (get_magic_quotes_gpc()) {
+            $comment = stripslashes($comment);
+        }
+        if (empty($prev_comment) || urldecode($prev_comment) != str_replace('&quot;', '"', $comment)) {
+            $result = mysql_query('ALTER TABLE ' . backquote($table) . ' COMMENT = \'' . sql_addslashes($comment) . '\'') or mysql_die();
+        }
     }
     if (isset($submittype)) {
-        $result = mysql_query("ALTER TABLE $table TYPE=$tbl_type") or mysql_die();
+        $result = mysql_query('ALTER TABLE ' . backquote($table) . " TYPE=$tbl_type") or mysql_die();
     }
     if (isset($submitorderby) && !empty($order_field)) {
-        $result = mysql_query("ALTER TABLE $table ORDER BY $order_field") or mysql_die();
+        $order_field = backquote(urldecode($order_field));
+        $result      = mysql_query('ALTER TABLE ' . backquote($table) . 'ORDER BY ' . $order_field) or mysql_die();
     }
 
     // Get table type and comments
-    $result       = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
+    $result       = mysql_query('SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'') or mysql_die();
     $showtable    = mysql_fetch_array($result);
     $tbl_type     = strtoupper($showtable['Type']);
 
@@ -75,7 +81,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) >= 3) {
 }
 
 // 2. Get table keys and retains them
-$result  = mysql_query("SHOW KEYS FROM $table") or mysql_die();
+$result  = mysql_query('SHOW KEYS FROM ' . backquote($table)) or mysql_die();
 $primary = '';
 while($row = mysql_fetch_array($result)) {
     $ret_keys[]  = $row;
@@ -85,7 +91,7 @@ while($row = mysql_fetch_array($result)) {
 }
 
 // 3. Get fields
-$result = mysql_query("SHOW FIELDS FROM $table") or mysql_die();
+$result = mysql_query('SHOW FIELDS FROM ' . backquote($table)) or mysql_die();
 
 
 /**
@@ -117,25 +123,21 @@ echo "\n";
 <?php
 $i         = 0;
 $aryFields = array();
-$query     = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
 
 while ($row = mysql_fetch_array($result)) {
     $i++;
     $bgcolor          = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
     $aryFields[]      = $row['Field'];
 
-    if (get_magic_quotes_runtime()) {
-      $type           = stripslashes($row['Type']);
-    } else {
-      $type           = $row['Type'];
-    }
+    $type             = $row['Type'];
     // reformat mysql query output - staybyte - 9. June 2001
     $shorttype        = substr($type, 0, 3);
     if ($shorttype == 'set' || $shorttype == 'enu') {
         $type         = eregi_replace(',', ', ', $type);
-        $nowrap=false;
+        $type_nowrap  = '';
+    } else {
+        $type_nowrap  = ' nowrap="nowrap"';
     }
-    else $nowrap=true;
     $type             = eregi_replace('BINARY', '', $type);
     $type             = eregi_replace('ZEROFILL', '', $type);
     $type             = eregi_replace('UNSIGNED', '', $type);
@@ -147,43 +149,47 @@ while ($row = mysql_fetch_array($result)) {
     $unsigned         = eregi('UNSIGNED', $row['Type'], $test);
     $zerofill         = eregi('ZEROFILL', $row['Type'], $test);
     $strAttribute     = '&nbsp;';
-    if ($binary)
+    if ($binary) {
         $strAttribute = 'BINARY';
-    if ($unsigned)
+    }
+    if ($unsigned) {
         $strAttribute = 'UNSIGNED';
-    if ($zerofill)
+    }
+    if ($zerofill) {
         $strAttribute = 'UNSIGNED ZEROFILL';
+    }
     echo "\n";
     ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
-    <td nowrap="nowrap"><?php echo $row['Field']; ?>&nbsp;</td>
-    <?php
-    	if ($nowrap) echo "<td nowrap=\"nowrap\">";
-    	else echo "<td>";
-    	echo $type;
-    ?></td>
+    <td nowrap="nowrap"><?php echo htmlspecialchars($row['Field']); ?>&nbsp;</td>
+    <td<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
     <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
+    <td nowrap="nowrap"><?php if (isset($row['Default'])) echo htmlspecialchars($row['Default']); ?>&nbsp;</td>
     <td nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
     <?php
     if (empty($printer_friendly)) {
         echo "\n";
         ?>
     <td>
-        <a href="tbl_alter.php3?<?php echo $query; ?>&field=<?php echo $row['Field']; ?>"><?php echo $strChange; ?></a>
+        <a href="tbl_alter.php3?<?php echo $url_query; ?>&field=<?php echo urlencode($row['Field']); ?>">
+            <?php echo $strChange; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . $table . ' DROP ' . $row['Field']); ?>&zero_rows=<?php echo urlencode($row['Field'] . ' ' . $strHasBeenDropped); ?>"><?php echo $strDrop; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP ' . backquote($row['Field'])); ?>&zero_rows=<?php echo urlencode(htmlspecialchars($row['Field']) . ' ' . $strHasBeenDropped); ?>">
+            <?php echo $strDrop; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . $table . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . $row['Field'] . ')'); ?>&zero_rows=<?php echo urlencode($strAPrimaryKey . $row['Field']); ?>"><?php echo $strPrimary; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAPrimaryKey . ' ' . htmlspecialchars($row['Field'])); ?>">
+            <?php echo $strPrimary; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . $table . ' ADD INDEX(' . $row['Field'] . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . $row['Field']); ?>"><?php echo $strIndex; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD INDEX(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . ' ' . htmlspecialchars($row['Field'])); ?>">
+            <?php echo $strIndex; ?></a>
     </td>
     <td>
-        <a href="sql.php3?<?php echo $query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . $table . ' ADD UNIQUE(' . $row['Field'] . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . $row['Field']); ?>"><?php echo $strUnique; ?></a>
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' ADD UNIQUE(' . backquote($row['Field']) . ')'); ?>&zero_rows=<?php echo urlencode($strAnIndex . ' ' . htmlspecialchars($row['Field'])); ?>">
+            <?php echo $strUnique; ?></a>
     </td>
         <?php
     }
@@ -227,20 +233,20 @@ if ($index_count > 0) {
     for ($i = 0; $i < $index_count; $i++) {
         $row = $ret_keys[$i];
         if ($row['Key_name'] == 'PRIMARY') {
-            $sql_query = urlencode('ALTER TABLE ' . $table . ' DROP PRIMARY KEY');
+            $sql_query = urlencode('ALTER TABLE ' . backquote($table) . ' DROP PRIMARY KEY');
             $zero_rows = urlencode($strPrimaryKey . ' ' . $strHasBeenDropped);
         } else {
-            $sql_query = urlencode('ALTER TABLE ' . $table . ' DROP INDEX ' . $row['Key_name']);
-            $zero_rows = urlencode($strIndex . ' ' . $row['Key_name'] . ' ' . $strHasBeenDropped);
+            $sql_query = urlencode('ALTER TABLE ' . backquote($table) . ' DROP INDEX ' . backquote($row['Key_name']));
+            $zero_rows = urlencode($strIndex . ' ' . htmlspecialchars($row['Key_name']) . ' ' . $strHasBeenDropped);
         }
         echo "\n";
         ?>
         <tr>
-            <td><?php echo $row['Key_name'] . "\n"; ?></td>
+            <td><?php echo htmlspecialchars($row['Key_name']) . "\n"; ?></td>
             <td><?php echo (($row['Non_unique'] == '0') ? $strYes : $strNo) . "\n"; ?></td>
-            <td><?php echo $row['Column_name'] . "\n"; ?></td>
+            <td><?php echo htmlspecialchars($row['Column_name']) . "\n"; ?></td>
             <td>
-                <?php echo "<a href=\"sql.php3?$query&sql_query=$sql_query&zero_rows=$zero_rows\">$strDrop</a>\n"; ?>
+                <?php echo "<a href=\"sql.php3?$url_query&sql_query=$sql_query&zero_rows=$zero_rows\">$strDrop</a>\n"; ?>
             </td>
         </tr>
         <?php
@@ -260,11 +266,13 @@ if ($index_count > 0) {
 ?>
 <?php
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
-if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type != "INNODB" && isset($showtable)) {
+if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type != "INNODB" && isset($showtable)) {
     // Gets some sizes
-    if (isset($showtable['Type']) && $showtable['Type']=="MRG_MyISAM") $mergetable=true;
+    if (isset($showtable['Type']) && $showtable['Type']=="MRG_MyISAM")
+	$mergetable=true;
     list($data_size, $data_unit)     = format_byte_down($showtable['Data_length']);
-    if (!isset($mergetable)) list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
+   if (!isset($mergetable))
+	 list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
     if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
         list($free_size, $free_unit) = format_byte_down($showtable['Data_free']);
     }
@@ -306,7 +314,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
     }
     if (isset($free_size)) {
         echo "\n";
-    ?>
+        ?>
         <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="color: #bb0000">
         <td style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
             <td align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
@@ -330,11 +338,10 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
     // Optimize link if overhead
     if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
         echo "\n";
-        $query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
         ?>
         <tr>
             <td colspan="3" align="center">
-                [<a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table"); ?>&pos=0&<?php echo $query; ?>"><?php echo $strOptimizeTable; ?></a>]
+                [<a href="sql.php3?<?php echo $url_query; ?>&pos=0&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple">[<?php echo $strOptimizeTable; ?>]</a>]
             </td>
         <tr>
         <?php
@@ -387,7 +394,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         ?>
             <td><?php echo ucfirst($strRows); ?></td>
             <td align="right" nowrap="nowrap">
-                <?php echo number_format($showtable['Rows'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
+	     <?php echo number_format($showtable['Rows'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
             </td>
         </tr>
         <?php
@@ -400,12 +407,13 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         ?>
             <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
             <td align="right" nowrap="nowrap">
-                <?php echo number_format($showtable['Avg_row_length'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
+		<?php echo number_format($showtable['Avg_row_length'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
             </td>
         </tr>
         <?php
     }
-    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && !isset($mergetable)) {
+    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0
+	&& !isset($mergetable)) {
         echo (++$i%2)
              ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
              : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
@@ -426,7 +434,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         ?>
             <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
             <td align="right" nowrap="nowrap">
-                <?php echo number_format($showtable['Auto_increment'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
+		<?php echo number_format($showtable['Auto_increment'], 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator'])."\n"; ?>
             </td>
         </tr>
         <?php
@@ -458,7 +466,7 @@ echo "\n";
 
     <!-- Printable view of the table -->
     <li>
-        <div style="margin-bottom: 10px"><a href="tbl_printview.php3?<?php echo $query; ?>"><?php echo $strPrintView; ?></a></div>
+        <div style="margin-bottom: 10px"><a href="tbl_printview.php3?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a></div>
     </li>
 
     <!-- Query box and bookmark support -->
@@ -470,13 +478,10 @@ echo "\n";
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="goto" value="db_details.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
-            <?php echo $strRunSQLQuery . $db . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
+            <?php echo $strRunSQLQuery . htmlspecialchars($db) . ' ' . show_docu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
-<textarea name="sql_query" wrap="virtual" 
- rows="<?php echo $cfgTextareaRows; ?>"
- cols="<?php echo $cfgTextareaCols; ?>"
->
-SELECT * FROM <?php echo $table; ?> WHERE 1
+<textarea name="sql_query" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual">
+SELECT * FROM <?php echo backquote($table); ?> WHERE 1
 </textarea><br />
             </div>
 <?php
@@ -488,7 +493,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
         echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
         echo '                <option value=""></option>' . "\n";
         while (list($key, $value) = each($bookmark_list)) {
-            echo '                <option value="' . htmlentities($value) . '">' . htmlentities($key) . '</option>' . "\n";
+            echo '                <option value="' . $value . '">' . htmlentities($key) . '</option>' . "\n";
         }
         echo '            </select>' . "\n";
         echo '            <input type="radio" name="action_bookmark" value="0" checked="checked" style="vertical-align: middle" />' . $strSubmit . "\n";
@@ -506,11 +511,11 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
     <!-- Display, select and insert -->
     <li>
         <div style="margin-bottom: 10px">
-        <a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&<?php echo $query; ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
             <b><?php echo $strBrowse; ?></b></a>&nbsp;-&nbsp;
-        <a href="tbl_select.php3?<?php echo $query; ?>">
+        <a href="tbl_select.php3?<?php echo $url_query; ?>">
             <b><?php echo $strSelect; ?></b></a>&nbsp;-&nbsp;
-        <a href="tbl_change.php3?<?php echo $query; ?>">
+        <a href="tbl_change.php3?<?php echo $url_query; ?>">
             <b><?php echo $strInsert; ?></b></a>
         <br />
         </div>
@@ -531,7 +536,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
 <?php
 reset($aryFields);
 while(list($junk, $fieldname) = each($aryFields)) {
-    echo '                <option value="' . $fieldname . '">' . $strAfter . ' ' . $fieldname . '</option>' . "\n";
+    echo '                <option value="' . urlencode($fieldname) . '">' . $strAfter . ' ' . htmlspecialchars($fieldname) . '</option>' . "\n";
 }
 ?>
             </select>
@@ -555,7 +560,7 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && MYSQL_MINOR_VERSION >= 34) {
     echo "\n";
     reset($aryFields);
     while(list($junk, $fieldname) = each($aryFields)) {
-        echo '                <option value="' . $fieldname . '">' . $fieldname . '</option>' . "\n";
+        echo '                <option value="' . urlencode($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
     }
     ?>
             </select>
@@ -570,7 +575,7 @@ echo "\n";
 
     <!-- Insert a text file -->
     <li>
-        <div style="margin-bottom: 10px"><a href="ldi_table.php3?<?php echo $query; ?>"><?php echo $strInsertTextfiles; ?></a></div>
+        <div style="margin-bottom: 10px"><a href="ldi_table.php3?<?php echo $url_query; ?>"><?php echo $strInsertTextfiles; ?></a></div>
     </li>
 
     <!-- Dump of a database -->
@@ -581,41 +586,38 @@ echo "\n";
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <?php echo $strViewDumpDB; ?><br />
-            <table>
+            <table cellpadding="5" border="2">
             <tr>
-                <td colspan="2">
-                    <?php echo $strOffSet; ?>&nbsp;
-                    <input type="text" name="limit_from" value="0" size="5" style="vertical-align: middle" />&nbsp;
-                    <?php echo $strNbRecords; ?>&nbsp;
-                    <input type="text" name="limit_to" size="5" value="<?php echo count_records($db, $table, true); ?>" style="vertical-align: middle" />
-                </td>
-            </tr>
-            <tr>
-                <td>
+                <td nowrap="nowrap">
                     <input type="radio" name="what" value="structure" checked="checked" />
-                    <?php echo $strStrucOnly; ?>&nbsp;&nbsp;
-                </td>
-                <td>
-                    <input type="checkbox" name="drop" value="1" />
-                    <?php echo $strStrucDrop . "\n"; ?>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                    <?php echo $strStrucOnly; ?>&nbsp;&nbsp;<br />
                     <input type="radio" name="what" value="data" />
-                    <?php echo $strStrucData; ?>&nbsp;&nbsp;
-                </td>
-                <td>
-                    <input type="checkbox" name="showcolumns" value="yes" />
-                    <?php echo $strCompleteInserts . "\n"; ?>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                    <?php echo $strStrucData; ?>&nbsp;&nbsp;<br />
                     <input type="radio" name="what" value="dataonly" />
-                    <?php echo $strDataOnly; ?>&nbsp;&nbsp;
+                    <?php echo $strDataOnly; ?>&nbsp;&nbsp;<br />
+                    <input type="radio" name="what" value="csv" />
+                    <?php echo $strStrucCSV;?>&nbsp;:<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFields . ' '. $strTerminatedBy; ?>&nbsp;
+                    <input type="text" name="separator" size="1" value=";" />&nbsp;&nbsp;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strLines . ' '. $strTerminatedBy; ?>&nbsp;
+                    <input type="text" name="add_character" size="2" value="<?php echo ((which_crlf() == "\n") ? '\n' : '\r\n'); ?>" />&nbsp;&nbsp;
                 </td>
-                <td>
+                <td valign="middle">
+                    <input type="checkbox" name="drop" value="1" />
+                    <?php echo $strStrucDrop; ?><br />
+                    <input type="checkbox" name="showcolumns" value="yes" />
+                    <?php echo $strCompleteInserts; ?><br />
+<?php
+// Add backquotes checkbox
+if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 6) {
+    ?>
+                    <input type="checkbox" name="use_backquotes" value="1" />
+                    <?php echo $strUseBackquotes; ?><br />
+    <?php
+} // end backquotes feature
+echo "\n";
+?>
+                    <br />
                     <input type="checkbox" name="asfile" value="sendit" onclick="return checkTransmitDump(this.form, 'transmit')" />
                     <?php echo $strSend . "\n"; ?>
 <?php
@@ -624,7 +626,7 @@ if (PMA_INT_VERSION >= 40004) {
     $is_gzip = @function_exists('gzencode');
     $is_bzip = @function_exists('bzcompress');
     if ($is_gzip || $is_bzip) {
-        echo "\n" . '                    (';
+        echo "\n" . '                    (' . "\n";
         if ($is_gzip) {
             ?>
                     <input type="checkbox" name="gzip" value="gzip" onclick="return checkTransmitDump(this.form, 'gzip')" /><?php echo $strGzip . (($is_bzip) ? '&nbsp;' : '') . "\n"; ?>
@@ -645,16 +647,14 @@ echo "\n";
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="radio" name="what" value="csv" />
-                    <?php echo $strStrucCSV;?>&nbsp;->&nbsp;
-                    <?php echo $strFields . ' '. $strTerminatedBy; ?>&nbsp;
-                    <input type="text" name="separator" size="1" value=";" />&nbsp;
-                    <?php echo $strLines . ' '. $strTerminatedBy; ?>&nbsp;
-                    <input type="text" name="add_character" size="2" value="\n" />
+                    &nbsp;<?php echo $strData . '&nbsp;:&nbsp;' . $strOffSet; ?>&nbsp;
+                    <input type="text" name="limit_from" value="0" size="5" style="vertical-align: middle" />
+                    &nbsp;--&nbsp;<?php echo $strNbRecords; ?>&nbsp;
+                    <input type="text" name="limit_to" size="5" value="<?php echo count_records($db, $table, TRUE); ?>" style="vertical-align: middle" />
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="2" align="center">
                     <input type="submit" value="<?php echo $strGo; ?>" />
                 </td>
             </tr>
@@ -732,7 +732,7 @@ echo "\n";
     </li>
 
 <?php
-if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
+if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 22) {
     if ($tbl_type == 'MYISAM' or $tbl_type == 'BDB') {
         ?>
     <!-- Table maintenance -->
@@ -746,7 +746,7 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
         if ($tbl_type == 'MYISAM') {
             ?>
             <td>
-                <a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table"); ?>&display=simple&<?php echo $query; ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('CHECK TABLE ' . backquote($table)); ?>&display=simple">
                     <?php echo $strCheckTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#CHECK_TABLE') . "\n"; ?>
             </td>
@@ -757,7 +757,7 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
         if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
             ?>
             <td>
-                <a href="sql.php3?sql_query=<?php echo urlencode("ANALYZE TABLE $table"); ?>&display=simple&<?php echo $query; ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ANALYZE TABLE ' . backquote($table)); ?>&display=simple">
                     <?php echo $strAnalyzeTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#ANALYZE_TABLE') . "\n";?>
             </td>
@@ -773,7 +773,7 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
         if ($tbl_type == 'MYISAM') {
             ?>
             <td>
-                <a href="sql.php3?sql_query=<?php echo urlencode("REPAIR TABLE $table"); ?>&display=simple&<?php echo $query; ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('REPAIR TABLE ' . backquote($table)); ?>&display=simple">
                     <?php echo $strRepairTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#REPAIR_TABLE') . "\n"; ?>
             </td>
@@ -784,7 +784,7 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
         if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
             ?>
             <td>
-                <a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table"); ?>&display=simple&<?php echo $query; ?>">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple">
                     <?php echo $strOptimizeTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
             </td>
@@ -809,7 +809,8 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <?php echo $strTableComments; ?>&nbsp;:&nbsp;
-            <input type="text" name="comment" maxlength="60" size="30" value="<?php echo $show_comment; ?>" style="vertical-align: middle" />&nbsp;
+            <input type="hidden" name="prev_comment" value="<?php echo urlencode($show_comment); ?>" />&nbsp;
+            <input type="text" name="comment" maxlength="60" size="30" value="<?php echo str_replace('"', '&quot;', $show_comment); ?>" style="vertical-align: middle" />&nbsp;
             <input type="submit" name="submitcomment" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
         </form>
     </li>
@@ -817,30 +818,30 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
     <!-- Table type -->
     <?php
     // modify robbat2 code - staybyte - 11. June 2001
-    $query_tmp  = "SHOW VARIABLES LIKE 'have_%'";
-    $result = mysql_query($query_tmp);
-    if ($result != false && mysql_num_rows($result) > 0) {
+    $query  = "SHOW VARIABLES LIKE 'have_%'";
+    $result = mysql_query($query);
+    if ($result != FALSE && mysql_num_rows($result) > 0) {
         while ($tmp = mysql_fetch_array($result)) {
             if (isset($tmp['Variable_name'])) {
                 switch ($tmp['Variable_name']) {
                     case 'have_bdb':
                         if ($tmp['Value'] == 'YES') {
-                            $tbl_bdb    = true;
+                            $tbl_bdb    = TRUE;
                         }
                         break;
                     case 'have_gemini':
                         if ($tmp['Value'] == 'YES') {
-                            $tbl_gemini = true;
+                            $tbl_gemini = TRUE;
                         }
                         break;
                     case 'have_innodb':
                         if ($tmp['Value'] == 'YES') {
-                            $tbl_innodb = true;
+                            $tbl_innodb = TRUE;
                         }
                         break;
                     case 'have_isam':
                         if ($tmp['Value'] == 'YES') {
-                            $tbl_isam   = true;
+                            $tbl_isam   = TRUE;
                         }
                         break;
                 } // end switch
@@ -879,7 +880,7 @@ else { // MySQL < 3.23
     <!-- Table maintenance -->
     <li>
         <?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;
-        <a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table"); ?>&display=simple&<?php echo $query; ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple">
             <?php echo $strOptimizeTable; ?></a>&nbsp;
         <?php echo show_docu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
     </li>
@@ -889,14 +890,16 @@ else { // MySQL < 3.23
 ?>
 
     <li>
-     <a href="sql.php3?<?php echo $query; ?>&goto=db_details.php3&reload=true&sql_query=<?php echo urlencode("DROP TABLE $table"); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . $table . ' ' . $strHasBeenDropped); ?>"><?php echo $strDrop . ' ' . $table; ?></a>
-    </li>
+        <a href="sql.php3?<?php echo $url_query; ?>&goto=db_details.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>">
+            <?php echo $strDrop . ' ' . htmlspecialchars($table); ?></a> 
+    </li> 
+
 </ul>
 
 <?php
 /**
  * Displays the footer
  */
-require('./footer.inc.php3');
 echo "\n";
+require('./footer.inc.php3');
 ?>

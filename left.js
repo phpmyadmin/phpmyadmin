@@ -1,5 +1,6 @@
 /* $Id$ */
 
+
 // These scripts were originally found on cooltype.com.
 // Modified 01/01/1999 by Tobias Ratschiller for linuxapps.com
 

@@ -1,10 +1,10 @@
 <?php
 /* $Id$ */
 
-/**
- * phpMyAdmin Language Loading File - lolo@phpheaven.net 01may2001
- */
 
+/**
+ * phpMyAdmin Language Loading File - lolo@phpheaven.net 01 may 2001
+ */
 
 
 /**
@@ -15,7 +15,7 @@ $lang_path = 'lang/';
 
 
 /**
- * All the suported languages have to be listed in the array below.
+ * All the supported languages have to be listed in the array below.
  * 1. The key key must be the "official" ISO language code and, if required,
  *    the dialect code. It can also contains some informations about the
  *    charset (see the Russian case).
@@ -38,32 +38,31 @@ $lang_path = 'lang/';
  * example.
  */
 $available_languages = array(
-  'bg'         => array('bg|bulgarian', 'bulgarian-win1251'),
-  'ca'         => array('ca|catalan', 'catala'),
-  'cs-iso'     => array('cs|czech', 'czech-iso'),
-  'cs-win1250' => array('cs|czech', 'czech-win1250'),
-  'da'         => array('da|danish', 'danish'),
-  'de'         => array('de([-_][[:alpha:]]{2})?|german', 'german'),
-  'en'         => array('en([-_][[:alpha:]]{2})?|english',  'english'),
-  'es'         => array('es([-_][[:alpha:]]{2})?|spanish', 'spanish'),
-  'fr'         => array('fr([-_][[:alpha:]]{2})?|french', 'french'),
-  'it'         => array('it|italian', 'italian'),
-  'ja'         => array('ja|japanese', 'japanese'),
-  'ko'         => array('ko|korean', 'korean'),
-  'nl'         => array('nl([-_][[:alpha:]]{2})?|dutch', 'dutch'),
-  'no'         => array('no|norwegian', 'norwegian'),
-  'pl'         => array('pl|polish', 'polish'),
-  'pt-br'      => array('pt[-_]br|brazilian portuguese', 'brazilian_portuguese'),
-  'pt'         => array('pt([-_][[:alpha:]]{2})?|portuguese', 'portuguese'),
-  'ru-koi8r'   => array('ru|russian', 'russian-koi8'),
-  'ru-win1251' => array('ru|russian', 'russian-win1251'),
-  'se'         => array('se|swedish', 'swedish'),
-  'sk'         => array('sk|slovak', 'slovak-iso'),
-  'th'         => array('th|thai', 'thai'),
-  'zh-tw'      => array('zh[-_]tw|chinese traditional', 'chinese_big5'),
-  'zh'         => array('zh|chinese simplified', 'chinese_gb')
+    'bg'         => array('bg|bulgarian', 'bulgarian-win1251'),
+    'ca'         => array('ca|catalan', 'catala'),
+    'cs-iso'     => array('cs|czech', 'czech-iso'),
+    'cs-win1250' => array('cs|czech', 'czech-win1250'),
+    'da'         => array('da|danish', 'danish'),
+    'de'         => array('de([-_][[:alpha:]]{2})?|german', 'german'),
+    'en'         => array('en([-_][[:alpha:]]{2})?|english',  'english'),
+    'es'         => array('es([-_][[:alpha:]]{2})?|spanish', 'spanish'),
+    'fr'         => array('fr([-_][[:alpha:]]{2})?|french', 'french'),
+    'it'         => array('it|italian', 'italian'),
+    'ja'         => array('ja|japanese', 'japanese'),
+    'ko'         => array('ko|korean', 'korean'),
+    'nl'         => array('nl([-_][[:alpha:]]{2})?|dutch', 'dutch'),
+    'no'         => array('no|norwegian', 'norwegian'),
+    'pl'         => array('pl|polish', 'polish'),
+    'pt-br'      => array('pt[-_]br|brazilian portuguese', 'brazilian_portuguese'),
+    'pt'         => array('pt([-_][[:alpha:]]{2})?|portuguese', 'portuguese'),
+    'ru-koi8r'   => array('ru|russian', 'russian-koi8'),
+    'ru-win1251' => array('ru|russian', 'russian-win1251'),
+    'se'         => array('se|swedish', 'swedish'),
+    'sk'         => array('sk|slovak', 'slovak-iso'),
+    'th'         => array('th|thai', 'thai'),
+    'zh-tw'      => array('zh[-_]tw|chinese traditional', 'chinese_big5'),
+    'zh'         => array('zh|chinese simplified', 'chinese_gb')
 );
-
 
 if (!defined('__PMA_LANG_DETECT__')) {
     define('__PMA_LANG_DETECT__', 1);
@@ -150,7 +149,6 @@ if (empty($lang) && !empty($HTTP_USER_AGENT)) {
 if (empty($lang)) {
     $lang = $cfgDefaultLang;
 }
-
 // Define the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php3';
 require('./' . $lang_file);

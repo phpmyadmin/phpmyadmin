@@ -296,7 +296,7 @@ function grant_operations()
 <?php
     if (isset($dbgrant)) {
         if (!isset($tablegrant)) echo "<option selected></option>";
-        $result = mysql_query("SHOW TABLES from ".db_name($dbgrant));
+        $result = mysql_query("SHOW TABLES from ".backquote($dbgrant));
         if (@mysql_num_rows($result))
            while ($row = mysql_fetch_row($result)) {
                 $selected = ($row[0] == $tablegrant)? "SELECTED" : "";
@@ -316,8 +316,8 @@ function grant_operations()
 <?php
 
     if (isset($dbgrant) && isset($tablegrant)) {
-       $result = mysql_query("SHOW COLUMNS FROM ".db_name($dbgrant)."." .
-	tbl_name($tablegrant));
+       $result = mysql_query("SHOW COLUMNS FROM ".backquote($dbgrant)."." .
+	backquote($tablegrant));
        if (@mysql_num_rows($result))
            while ($row = mysql_fetch_row($result))
                echo "<option>" . $row[0] . "</option>\n";
@@ -337,7 +337,7 @@ function grant_operations()
     <?php
 }
 
-function table_grants_header($dbcheck = false) {
+function table_grants_header($dbcheck = FALSE) {
     global $cfgBorder;
 
     global $strAction;
@@ -366,7 +366,7 @@ function table_grants_tail() {
 }
 
 
-function table_grants($host, $user, $dbcheck = false)
+function table_grants($host, $user, $dbcheck = FALSE)
 {
     global $cfgBgcolorOne, $cfgBgcolorTwo;
     global $server, $lang, $db, $table;
@@ -398,7 +398,7 @@ function table_grants($host, $user, $dbcheck = false)
             $table = "&nbsp";
             $column = "&nbsp";
             $priv = "";
-            $grantopt = false;
+            $grantopt = FALSE;
         }
 
         if ($priv == "USAGE") $priv = "";
@@ -411,7 +411,7 @@ function table_grants($host, $user, $dbcheck = false)
         if ((trim($priv) == "") && !$grantopt) continue;
 
         if (!$dbcheck && !isset($show_header)) {
-            $show_header = true;
+            $show_header = TRUE;
             table_grants_header();
         }
 
@@ -421,7 +421,7 @@ function table_grants($host, $user, $dbcheck = false)
         # Revoke
         $query = "server=$server&lang=$lang&db=mysql&table=user";
         $revoke_url  = "sql.php3";
-//        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON " . db_name($db) . "." . tbl_name($table) . " FROM '$user'@'$host'");
+//        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON " . backquote($db) . "." . backquote($table) . " FROM '$user'@'$host'");
         $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON " . $db . "." . $table . " FROM '$user'@'$host'");
         $revoke_url .= "&$query";
         $revoke_url .= "&zero_rows=" . urlencode("$strRevokeMessage <font color=#002E80>$user@$host</font>");
@@ -430,7 +430,7 @@ function table_grants($host, $user, $dbcheck = false)
         # Revoke GRANT OPTION
         if ($grantopt) {
             $revoke_grant_url  = "sql.php3";
-//            $revoke_grant_url .= "?sql_query=" . urlencode("REVOKE GRANT OPTION ON " . db_name($db) . "." . tbl_name($table) . " FROM '$user'@'$host'");
+//            $revoke_grant_url .= "?sql_query=" . urlencode("REVOKE GRANT OPTION ON " . backquote($db) . "." . backquote($table) . " FROM '$user'@'$host'");
             $revoke_grant_url .= "?sql_query=" . urlencode("REVOKE GRANT OPTION ON " . $db . "." . $table . " FROM '$user'@'$host'");
             $revoke_grant_url .= "&$query";
             $revoke_grant_url .= "&zero_rows=" . urlencode("$strRevokeGrantMessage <font color=#002E80>$user@$host</font>");
@@ -486,7 +486,7 @@ function table_grants($host, $user, $dbcheck = false)
     return $rows;
 }
 
-function table_privileges($form, $row = false)
+function table_privileges($form, $row = FALSE)
 {
     global $strDelete;
     global $strCheckAll, $strUncheckAll;
@@ -668,7 +668,7 @@ function check_rights()
 }
 
 
-function table_users($host = false, $user = false)
+function table_users($host = FALSE, $user = FALSE)
 {
     global $cfgBorder, $cfgBgcolorOne, $cfgBgcolorTwo;
     global $server, $lang, $db, $table;
@@ -861,8 +861,8 @@ if (isset($edit) && $edit) { # Edit an user
   check_operations();
 
 } else {            # Users actions
-  if (!isset($host)) $host = false;
-  if (!isset($user)) $user = false;
+  if (!isset($host)) $host = FALSE;
+  if (!isset($user)) $user = FALSE;
   table_users($host, $user) || mysql_die($strNoUsersFound);
   normal_operations();
 }

@@ -5,47 +5,74 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-28  Marc Delisle  <lem9@users.sourceforge.net>
+	* lib.inc.php3: establish constraints for the code, to get
+	  PHP3 compatibility
+	* tbl_qbe.php3: add checks for unset variables
+
+2001-07-27  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_select.php3 and dynamic field size
+
+2001-07-25  Marc Delisle  <lem9@users.sourceforge.net>
+	* Backport fixes from cvs made after the fork, to Loïc's version
+
 2001-07-24  Marc Delisle  <lem9@users.sourceforge.net>
-	* updates to french
-	* new slovak translation thanks to lubos klokner <erkac@vault-tec.sk>
-	* main.php3: bug 443710 Create New Database option: was working
+        * updates to french
+        * select_lang.inc.php3, lang/: new slovak translation 
+		thanks to lubos klokner <erkac@vault-tec.sk>
+        * main.php3: bug 443710 Create New Database option: was working
           only if stduser has Global privileges on all databases.
-	* footer.inc.php3: if new cfgOBGzip is not defined
+        * footer.inc.php3: if new cfgOBGzip is not defined
 
 2001-07-24  Steve ALberty  <alberty@neptunlabs.de>
-	* tbl_copy.php3: fix parameter count, thanks Marc
-	* Documentation.html: order $cfg sequence and add description
-	  of cfgSkipLockedTables and cfgLeftWidth
+        * tbl_copy.php3: fix parameter count, thanks Marc
+        * Documentation.html: order $cfg sequence and add description
+          of cfgSkipLockedTables and cfgLeftWidth
 
 2001-07-24  Geert Lund  <glund@silversoft.dk>
-	* danish language file code cleanup (only changed order of stings)
-	* added $strQBEDel and $strQBEIns strings to all language files
-	* tbl_qbe.php3: added language support (stripped all static text) (Feat.req.: #443959)
-	* upated slovak-iso.inc.php3 to include english strings to be translated for the tbl_qbe.php3
+        * danish language file code cleanup (only changed order of strings)
+        * added $strQBEDel and $strQBEIns strings to all language files
+        * tbl_qbe.php3: added language support (stripped all static text) (Feat.
+req.: #443959)
+        * updated slovak-iso.inc.php3 to include english strings to be translated
+ for the tbl_qbe.php3
 
 2001-07-23  Marc Delisle  <lem9@users.sourceforge.net>
-	* updates to italian thanks to Alessandro Astarita <aleast@libero.it> 
-	* updates to catala  thanks to Jordi Bruguera <jordi@t800.grn.es>
-	* updates to spanish thanks to Gabriel Ginard <gginard@naveglia.com>
-	* updates to czech-iso and czech-win1250,thanks to Michal Cihar (nijel)
- 	* config.inc.php3, Documentation.html, footer.inc.php3,
-	  header.inc.php3, ob_lib.inc.php3: 
+        * updates to italian thanks to Alessandro Astarita <aleast@libero.it>
+        * updates to catala  thanks to Jordi Bruguera <jordi@t800.grn.es>
+        * updates to spanish thanks to Gabriel Ginard <gginard@naveglia.com>
+        * updates to czech-iso and czech-win1250,thanks to Michal Cihar (nijel)
+        * config.inc.php3, Documentation.html, footer.inc.php3,
+          header.inc.php3
            bug 443318 Undefined variable: ob_mode
-	   fix thanks to Jeremy Brand <jeremy@nirvani.net>
-	
+           fix thanks to Jeremy Brand <jeremy@nirvani.net>
+
 2001-07-23  Steve Alberty  <alberty@neptunlabs.de>
-	* tbl_properties.php3: correct small display bugs
-	* sql.php3: complement list of 'show' options to
-	  suppress 'insert new row'
+        * tbl_properties.php3: correct small display bugs
+        * sql.php3: complement list of 'show' options to
+          suppress 'insert new row'
 
 2001-07-22  Olivier Müller  <om@omnis.ch>
-	* releasing 2.2.0rc3
+        * releasing 2.2.0rc3
 
 2001-07-21  Steve Alberty  <alberty@neptunlabs.de>
-	* config.inc.php3,index.php3: add $cfgLeftWidth to configure
-	  individual left frame width
-	* db_details.php3,tbl_properties.php3: fix incorrect size
-	  calculation with merge tables BUG: #442948
+        * config.inc.php3,index.php3: add $cfgLeftWidth to configure
+          individual left frame width
+        * db_details.php3,tbl_properties.php3: fix incorrect size
+          calculation with merge tables BUG: #442948
+
+2001-07-21  Loïc Chapeaux  <lolo@phpheaven.net>
+    Started a new dev. version (or the next RC?):
+	* added the ability to use special characters in databases, tables and
+	  fields' names	with the help of backquotes.
+	* added a checkbox to let the user choose whether he wants backotes or
+	  not in the dumps he requires.
+	* navigation bar only shows what can be done.
+	* fixed bug #439565 (Bug with &amp;amp;# characters type), at least I
+      hope so.
+	* except 'users_details.php3' I've got to work on, all the scripts
+	  validates CSS2 now and, as far as possible, XHTML1.0.
+	  They have been rewriiten according to the PEAR standards.
 
 2001-07-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* ob.lib.inc.php3, lines 50-54 & 73-76: fixed a bug with php3.

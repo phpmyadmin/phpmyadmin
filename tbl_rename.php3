@@ -2,26 +2,38 @@
 /* $Id$ */
 
 
-require("./grab_globals.inc.php3");
+/**
+ * Gets some core libraries
+ */
+require('./grab_globals.inc.php3');
+require('./lib.inc.php3');
 
-if (isset($new_name)) $new_name=trim($new_name); // Cleanup to suppress '' tables
-if (isset($new_name) && $new_name!=""){
 
-	$old_name = $table;
-	$table = $new_name;
+/**
+ * A new name has been submitted -> do the work
+ */
+if (isset($new_name) && trim($new_name) != '') { 
+    $old_name = $table;
+    $table    = $new_name;
+    include('./header.inc.php3');
+    mysql_select_db($db);
+    $result   = mysql_query('ALTER TABLE ' . backquote($old_name) . ' RENAME ' . backquote($new_name)) or mysql_die();
+    $message  = sprintf($strRenameTableOK, $old_name, $table);
+    $reload   = 'true';
+} 
 
-	include("./header.inc.php3");
 
-	mysql_select_db($db);
-	$result = mysql_query("ALTER TABLE $old_name RENAME $new_name") or mysql_die();
-	$table = $old_name;
-	eval("\$message =  \"$strRenameTableOK\";");
-	$table = $new_name;
-}
-else{
-	include("./header.inc.php3");
-	mysql_die($strTableEmpty);
-}
+/**
+ * No new name for the table!
+ */
+else { 
+    include('./header.inc.php3');
+    mysql_die($strTableEmpty); 
+} 
 
-require("./tbl_properties.php3");
+
+/**
+ * Back to the calling script
+ */
+require('./tbl_properties.php3');
 ?>

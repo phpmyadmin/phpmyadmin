@@ -138,7 +138,7 @@ echo "\n";
 <body bgcolor="#D0DCE0">
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
-        <a class="item" href="main.php3?server=<?php echo $server; ?>&lang=<?php echo $lang; ?>">
+        <a class="item" href="main.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>">
             <font color="black" class="heada"><b><?php echo $strHome; ?></b></font></a>
     </div>
 
@@ -169,7 +169,9 @@ if ($num_dbs > 1) {
         }
         $tables           = @mysql_list_tables($db);
         $num_tables       = @mysql_numrows($tables);
-        $common_url_query = "server=$server&lang=$lang&db=$db";
+        $common_url_query = 'lang=' . $lang
+                          . '&server=' . urlencode($server)
+                          . '&db=' . urlencode($db);
 
         // Displays the database name
         echo "\n";
@@ -202,7 +204,7 @@ if ($num_dbs > 1) {
             echo "\n";
             ?>
         <nobr><img src="images/spacer.gif" border="0" width="9" height="9" alt="" />
-        <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&goto=tbl_properties.php3">
+        <a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0&goto=tbl_properties.php3">
             <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
         <a class="tblItem" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
             <?php echo $table; ?></a></nobr><br />
@@ -242,7 +244,9 @@ else if ($num_dbs == 1) {
     }
     $tables           = @mysql_list_tables($db);
     $num_tables       = @mysql_numrows($tables);
-    $common_url_query = "server=$server&lang=$lang&db=$db";
+    $common_url_query = 'lang=' . $lang
+                      . '&server=' . urlencode($server)
+                      . '&db=' . urlencode($db);
 
     // Displays the database name
     echo "\n";
@@ -258,7 +262,7 @@ else if ($num_dbs == 1) {
         $table = mysql_tablename($tables, $j);
         echo "\n";
         ?>
-        <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&goto=tbl_properties.php3">
+        <nobr><a target="phpmain" href="sql.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0&goto=tbl_properties.php3">
                   <img src="images/browse.gif" border="0" alt="<?php echo "$strBrowse: $table"; ?>" /></a>&nbsp;
               <a class="tblItem" target="phpmain" href="tbl_properties.php3?<?php echo $common_url_query; ?>&table=<?php echo urlencode($table); ?>">
                   <?php echo $table; ?></a></nobr><br />

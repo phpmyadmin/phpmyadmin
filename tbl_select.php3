@@ -2,125 +2,171 @@
 /* $Id$ */
 
 
-require("./grab_globals.inc.php3");
- 
+/**
+ * Gets some core libraries
+ */
+require('./grab_globals.inc.php3');
+require('./lib.inc.php3');
 
-if(!isset($param) || $param[0] == "") {
-  include("./header.inc.php3");
-  $result = mysql_list_fields($db, $table);
-  if (!$result) {
-    mysql_die();
-  }
-  else {
-    ?>
-       <form method="POST" ACTION="tbl_select.php3">
-       <input type="hidden" name="server" value="<?php echo $server;?>">
-       <input type="hidden" name="lang" value="<?php echo $lang;?>">
-       <input type="hidden" name="db" value="<?php echo $db;?>">
-       <input type="hidden" name="table" value="<?php echo $table;?>">
-       <?php echo $strSelectFields; ?><br>
-       <select multiple NAME="param[]" size="10">
 
-       <?php
-       for ($i=0 ; $i<mysql_num_fields($result); $i++) {
-         $field = mysql_field_name($result,$i);
-         if($i >= 0)
-           echo "<option value=$field selected>$field</option>\n";
-         else
-           echo "<option value=$field>$field</option>\n";
-       }
-       ?>
-
-       </select><br>
-       <div align="left">
-       <ul><li><?php if (isset($strDisplay)) echo $strDisplay; ?> <input type="text" size=4 name="sessionMaxRows" value=<?php echo $cfgMaxRows; ?>>
-                <?php if (isset($strLimitNumRows)) echo $strLimitNumRows; ?>
-       <li><?php echo $strAddSearchConditions; ?><br>
-       <input type="text" name="where"> <?php print show_docu("manual_Reference.html#Functions");?><br>
-
-   <br>
-   <li><?php echo $strDoAQuery; ?><br>
-   <table border="<?php echo $cfgBorder;?>">
-   <tr>
-   <th><?php echo $strField; ?></th>
-   <th><?php echo $strType; ?></th>
-   <th><?php echo $strValue; ?></th>
-   </tr>
-   <?php
-   $result = mysql_list_fields($db, $table);
-   for ($i=0;$i<mysql_num_fields($result);$i++) {
-     $field = mysql_field_name($result,$i);;
-     $type = mysql_field_type($result,$i);
-     $len = mysql_field_len($result,$i);
-     $bgcolor = $cfgBgcolorOne;
-     ($i % 2) ? 0: $bgcolor = $cfgBgcolorTwo;
-
-     echo "<tr bgcolor=".$bgcolor.">";
-     echo "<td>$field</td>";
-     echo "<td>$type</td>";
-
-     $fieldsize=($len>40? 40: $len);
-     echo "<td><input type=text name=fields[] 
-	size=\"$fieldsize\" maxlength=".$len."></td>\n";
-     echo "<input type=hidden name=names[] value=\"$field\">\n";
-     echo "<input type=hidden name=types[] value=\"$type\">\n";
-     echo "</tr>";
-   }
-   echo "</table><br>";
-   ?>
-
-       <input name="SUBMIT" value="<?php echo $strGo; ?>" type="SUBMIT">
-     </form></ul>
-
-    <?php
-  }
-  include("./footer.inc.php3");
-}
-else {
-  $sql_query="SELECT $param[0]";
-  $i=0;
-  $c=count($param);
-  while($i < $c) {
-    if($i>0) $sql_query .= ",$param[$i]";
-    $i++;
-  }
-  $sql_query .= " from $table";
-  if ($where != "") {
-    $sql_query .= ' where ' . ((get_magic_quotes_gpc()) ? stripslashes($where) : $where);
-  }
-  else {
-    $sql_query .= " where 1";
-    for ($i=0;$i<count($fields);$i++) {
-      if (!empty($fields) && $fields[$i] != "") {
-        $quot="";
-        if ($types[$i]=="string"||$types[$i]=="blob") {
-          $quot="\"";
-          $cmp="like";
-          if (!get_magic_quotes_gpc()) $fields[$i] = str_replace('"', '\\"', $fields[$i]);
-        }
-        else if ($types[$i]=="date"||$types[$i]=="time") {
-          $quot="\"";
-          $cmp="=";
-        }
-        else {
-          if (strstr($fields[$i], '%')) {
-            $cmp='LIKE';
-            $quot='"';
-          } else {
-            $cmp='=';
-            $quot='';
-          }
-          if (substr($fields[$i],0,1)=="<" || substr($fields[$i],0,1)==">") $cmp="";
-        }
-        $sql_query .= " and $names[$i] $cmp $quot$fields[$i]$quot";
-      }
+/**
+ * Not selection yet required -> displays the selection form
+ */
+if (!isset($param) || $param[0] == '') {
+    include('./header.inc.php3');
+    $result = mysql_list_fields($db, $table);
+    if (!$result) {
+        mysql_die();
     }
-  }
-  if (empty($sessionMaxRows)) {
-    include("./config.inc.php3");
-    $sessionMaxRows = $cfgMaxRows;
-  }
-  Header("Location:sql.php3?sql_query=".urlencode($sql_query)."&goto=db_details.php3&server=$server&lang=$lang&db=$db&table=$table&pos=0&sessionMaxRows=$sessionMaxRows");
+    else {
+        // Gets the list and number of fields
+        $fields_count = mysql_num_fields($result);
+        for ($i = 0; $i < $fields_count; $i++) {
+            $fields_list[] = mysql_field_name($result, $i);
+            $fields_type[] = mysql_field_type($result, $i);
+            $fields_len[]  = mysql_field_len($result, $i);
+        }
+        ?>
+<form method="post" action="tbl_select.php3">
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <?php echo $strSelectFields; ?>&nbsp;:<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name="param[]" size="10" multiple="multiple">
+        <?php
+        echo "\n";
+        // Displays the list of the fields
+        for ($i = 0 ; $i < $fields_count; $i++) {
+            echo '        <option value="' . urlencode($fields_list[$i]) . '" selected="selected">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+        }
+        ?>
+    </select><br />
+    <ul>
+        <li>
+            <div style="margin-bottom: 10px">
+            <?php echo $strDisplay; ?>&nbsp;
+            <input type="text" size="4" name="sessionMaxRows" value="<?php echo $cfgMaxRows; ?>" />
+            <?php echo $strLimitNumRows . "\n"; ?>
+            </div>
+        </li>
+        <li>
+            <div style="margin-bottom: 10px">
+            <?php echo $strAddSearchConditions; ?><br />
+            <input type="text" name="where" />&nbsp;
+            <?php print show_docu("manual_Reference.html#Functions") . "\n"; ?>
+            </div>
+        </li>
+        <li>
+            <?php echo $strDoAQuery; ?><br />
+            <table border="<?php echo $cfgBorder; ?>">
+            <tr>
+                <th><?php echo $strField; ?></th>
+                <th><?php echo $strType; ?></th>
+                <th><?php echo $strValue; ?></th>
+            </tr>
+        <?php
+        echo "\n";
+        for ($i = 0; $i < $fields_count; $i++) {
+            $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+            ?>
+            <tr bgcolor="<?php echo $bgcolor; ?>">
+                <td><?php echo htmlspecialchars($fields_list[$i]); ?></td>
+                <td><?php echo $fields_type[$i]; ?></td>
+                <td>
+		    <?php
+			$fieldsize = (($fields_len[$i] > 40) 
+					? 40 : $fields_len[$i]);
+		    ?>
+                    <input type="text" name="fields[]" 
+			 size="<?php echo $fieldsize; ?>"
+			 maxlength="<?php echo $fields_len[$i]; ?>" />
+                    <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
+                    <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
+                </td>
+            </tr>
+            <?php
+        } // end for
+        echo "\n";
+        ?>
+            </table><br />
+        </li>
+    </ul>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="submit" value="<?php echo $strGo; ?>" />
+</form>
+        <?php
+    } // end if
+    echo "\n";
+    include('./footer.inc.php3');
+}
+
+
+/**
+ * Selection criteria have been submitted -> do the work
+ */
+else {
+    // Builds the query
+    $sql_query = 'SELECT ' . backquote(urldecode($param[0]));
+    $i         = 0;
+    $c         = count($param);
+    while ($i < $c) {
+        if ($i > 0) {
+            $sql_query .= ',' . backquote(urldecode($param[$i]));
+        }
+        $i++;
+    }
+    $sql_query .= ' FROM ' . backquote($table);
+    // The where clause
+    if ($where != '') {
+        $sql_query .= ' WHERE ' . ((get_magic_quotes_gpc()) ? stripslashes($where) : $where);
+    }
+    else {
+        $sql_query .= ' WHERE 1';
+        for ($i = 0; $i < count($fields); $i++) {
+            if (!empty($fields) && $fields[$i] != '') {
+                $quot = '';
+                if ($types[$i] == 'string' || $types[$i] == 'blob') {
+                    $quot = '"';
+                    $cmp  = 'LIKE';
+                    if (!get_magic_quotes_gpc()) {
+                        $fields[$i] = str_replace('"', '\\"', $fields[$i]);
+                    }
+                }
+                else if ($types[$i] == 'date' || $types[$i] == 'time') {
+                    $quot = '"';
+                    $cmp  = '=';
+                }
+                else {
+                    if (strstr($fields[$i], '%')) {
+                        $cmp  = 'LIKE';
+                        $quot = '"';
+                    } else {
+                        $cmp  = '=';
+                        $quot = '';
+                    }
+                    if (substr($fields[$i], 0, 1) == '<' || substr($fields[$i], 0, 1) == '>') {
+                        $cmp  = '';
+                    }
+                } // end if
+                $sql_query .= ' AND ' . backquote(urldecode($names[$i])) 
+		. ' ' . "$cmp $quot$fields[$i]$quot";
+            } // end if
+        } // end for
+    } // end if
+
+    $url_query = 'lang=' . $lang
+               . '&server=' . urlencode($server)
+               . '&db=' . urlencode($db)
+               . '&table=' . urlencode($table)
+               . '&sql_query=' . urlencode($sql_query)  
+               . '&pos=0'
+               . '&sessionMaxRows=' . $sessionMaxRows
+               . '&goto=db_details.php3';
+    header('Location: sql.php3?' . $url_query);
 }
 
 ?>

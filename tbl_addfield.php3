@@ -2,144 +2,135 @@
 /* $Id$ */
 
 
-require("./grab_globals.inc.php3");
- 
-require("./header.inc.php3");
+/**
+ * Get some core libraries
+ */
+require('./grab_globals.inc.php3');
+require('./header.inc.php3');
 
-if(isset($submit))
-{
-    $query = "";
-    for($i=0; $i<count($field_name); ++$i)
-    {
-        $query .= "$field_name[$i] $field_type[$i] ";
-        if($field_length[$i] != "") {
-	  if(get_magic_quotes_gpc()) {
-            $query .= "(".stripslashes($field_length[$i]).") ";
-	  } else {
-            $query .= "(".($field_length[$i]).") ";
-	  }
-	}
 
-        if($field_attribute[$i] != "")
-            $query .= "$field_attribute[$i] " ;
-        if($field_default[$i] != "") {
-	  if(get_magic_quotes_gpc()) {
-            $query .= "DEFAULT '".stripslashes($field_default[$i])."' ";
-	  } else {
-            $query .= "DEFAULT '".($field_default[$i])."' ";
-	  }
-	}
+/**
+ * The form used to define the field to add has been submitted
+ */
+if (isset($submit)) {
+    $query = '';
 
-        $query .= "$field_null[$i] $field_extra[$i]";
-
-        if($after_field != "--end--") {
-	  // only the first field can be added somewhere else than at the end
-	  if ($i == 0) {
-	    if ($after_field == "--first--") {
-	      $query .= " FIRST ";
-	    } else {
-	      if(get_magic_quotes_gpc()) {
-		$query .= " AFTER ".stripslashes($after_field)." ";
-	      } else {
-		$query .= " AFTER ".$after_field." ";
-	      }
+    // Builds the field creation statement and alters the table
+    for ($i = 0; $i < count($field_name); ++$i) {
+        $query .= backquote($field_name[$i]) . ' ' . $field_type[$i];
+        if ($field_length[$i] != '') {
+	        if (get_magic_quotes_gpc()) {
+                $query .= '(' . stripslashes($field_length[$i]) . ')';
+	        } else {
+                $query .= '(' . $field_length[$i] . ')';
+	        }
 	    }
-	  } else {
-	    if(get_magic_quotes_gpc()) {
-	      $query .= " AFTER ".stripslashes($field_name[$i-1])." ";
-	    } else {
-	      $query .= " AFTER ".($field_name[$i-1])." ";
-	    }
-	  }
-	}
-        $query .= ", ADD ";
+        if ($field_attribute[$i] != '') {
+            $query .= ' ' . $field_attribute[$i];
+        }
+        if ($field_default[$i] != '') {
+	        if (get_magic_quotes_gpc()) {
+                $query .= ' DEFAULT \'' . sql_addslashes(stripslashes($field_default[$i])) . '\'';
+	        } else {
+                $query .= ' DEFAULT \'' . sql_addslashes($field_default[$i]) . '\'';
+	        }
+        }
+        if ($field_null[$i] != '') {
+            $query .= ' ' . $field_null[$i];
+        }
+        if ($field_extra[$i] != '') {
+            $query .= ' ' . $field_extra[$i];
+        }
 
-    }
-	
-    if(get_magic_quotes_gpc()) {
-      $query = stripslashes(ereg_replace(", ADD $", "", $query));
+        if ($after_field != '--end--') {
+            // Only the first field can be added somewhere else than at the end
+	        if ($i == 0) {
+	            if ($after_field == '--first--') {
+	                $query .= ' FIRST';
+	            } else {
+	                if (get_magic_quotes_gpc()) {
+		                $query .= ' AFTER ' . backquote(stripslashes(urldecode($after_field)));
+                    } else {
+                        $query .= ' AFTER ' . backquote(urldecode($after_field));
+	                }
+	            }
+	        } else {
+	            if (get_magic_quotes_gpc()) {
+	                $query .= ' AFTER ' . backquote(stripslashes($field_name[$i-1]));
+	            } else {
+	                $query .= ' AFTER ' . backquote($field_name[$i-1]);
+	            }
+	        }
+	    }
+        $query .= ', ADD ';
+    } // end for
+    if (get_magic_quotes_gpc()) {
+        $query = stripslashes(ereg_replace(', ADD $', '', $query));
     } else {
-      $query = ereg_replace(", ADD $", "", $query);
+        $query = ereg_replace(', ADD $', '', $query);
     }
 
-    $sql_query = "ALTER TABLE $table ADD $query";
-    $result = mysql_query("ALTER TABLE ".db_name($db).".". tbl_name($table) . " ADD $query")  or mysql_die();
+    $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD ' . $query;
+    $result    = mysql_query($sql_query) or mysql_die();
 
+    // Builds the primary keys statements and updates the table
     $primary = '';
-    
-    if (isset($field_primary))
-    {
-     
-        for($i=0;$i<count($field_primary);$i++)
-        {
-            $j = $field_primary[$i];
-            $primary .= "$field_name[$j], ";
+    if (isset($field_primary)) {
+        for ($i = 0; $i < count($field_primary); $i++) {
+            $j       = $field_primary[$i];
+            $primary .= backquote($field_name[$j]) . ', ';
+        } // end for
+        $primary     = ereg_replace(', $', '', $primary);
+        if (!empty($primary)) {
+            $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
+            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')') or mysql_die();
         }
-        $primary = ereg_replace(", $", "", $primary);
-        if(count($field_primary) > 0)
-        {
-            $primary = "ADD PRIMARY KEY ($primary)";
-            $sql_query .= "\nALTER TABLE $table $primary";
-            $result = mysql_query("ALTER TABLE ".db_name($db).".$table $primary") or mysql_die();
-        }
-    
-    }
+    } // end if
      
-
+    // Builds the indexes statements and updates the table
     $index = '';
-    
-    if (isset($field_index))
-    {
-     
-        for($i=0;$i<count($field_index);$i++)
-        {
-            $j = $field_index[$i];
-            $index .= "$field_name[$j], ";
+    if (isset($field_index)) {
+        for ($i = 0; $i < count($field_index); $i++) {
+            $j     = $field_index[$i];
+            $index .= backquote($field_name[$j]) . ', ';
+        } // end for
+        $index     = ereg_replace(', $', '', $index);
+        if (!empty($index)) {
+            $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD INDEX (' . $index . ')';
+            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD INDEX (' . $index . ')') or mysql_die();
         }
-        $index = ereg_replace(", $", "", $index);
-        if(count($field_index) > 0)
-        {
-            $index = "ADD INDEX ($index)";
-            $sql_query .= "\nALTER TABLE $table $index";
-            $result = mysql_query("ALTER TABLE ".db_name($db).".$table $index") or mysql_die();
-        }
-    
-    }
+    } // end if
      
-
+    // Builds the uniques statements and updates the table
     $unique = '';
-    
-    if (isset($field_unique))
-    {
-     
-        for($i=0;$i<count($field_unique);$i++)
-        {
-            $j = $field_unique[$i];
-            $unique .= "$field_name[$j], ";
+    if (isset($field_unique)) {
+        for ($i = 0; $i < count($field_unique); $i++) {
+            $j      = $field_unique[$i];
+            $unique .= backquote($field_name[$j]) . ', ';
+        } // end for
+        $unique = ereg_replace(', $', '', $unique);
+        if (!empty($unique)) {
+            $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $unique . ')';
+            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $unique . ')') or mysql_die();
         }
-        $unique = ereg_replace(", $", "", $unique);
-        if(count($field_unique) > 0)
-        {
-            $unique = "ADD UNIQUE ($unique)";
-            $sql_query .= "\nALTER TABLE $table $unique";
-            $result = mysql_query("ALTER TABLE ".db_name($db).".$table $unique") or mysql_die();
-        }
-    
-    }
+    } // end if
      
+    // Go back to table properties
+    $message = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
+    include('./tbl_properties.php3');
+    exit();
+} // end do alter table
 
-    $query_keys = $primary.$index.$unique;
-    $query_keys = ereg_replace(", $", "", $query_keys);
+/**
+ * Displays the form used to define the new field
+ */
+else{
+    $action = 'tbl_addfield.php3';
+    include('./tbl_properties.inc.php3');
 
-    $message = "$strTable $table $strHasBeenAltered";
-    include("./tbl_properties.php3");
-    exit;
-}
-else
-{
-    $action = "tbl_addfield.php3";
-    include("./tbl_properties.inc.php3");
+    // Diplays the footer
+    echo "\n";
+    include('./footer.inc.php3');
 }
 
-require("./footer.inc.php3");
 ?>

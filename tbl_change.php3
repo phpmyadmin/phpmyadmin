@@ -2,238 +2,307 @@
 /* $Id$ */
 
 
-require("./grab_globals.inc.php3");
- 
-require("./header.inc.php3");
+/**
+ * Get the variables sent or posted to this script and displays the header
+ */
+require('./grab_globals.inc.php3');
+require('./header.inc.php3');
 
+
+/**
+ * Get the list of the fields of the current table
+ */
 mysql_select_db($db);
-$table_def = mysql_query("SHOW FIELDS FROM $table");
+$table_def = mysql_query('SHOW FIELDS FROM ' . backquote($table));
 
-if(isset($primary_key)) {
-  if(get_magic_quotes_gpc()) {
-    $primary_key = stripslashes($primary_key);
-  }
-  $result = mysql_query("SELECT * FROM $table WHERE $primary_key");
-  $row = mysql_fetch_array($result);
+if (isset($primary_key)) {
+    if (get_magic_quotes_gpc()) {
+        $primary_key = stripslashes($primary_key);
+    }
+    $result = mysql_query('SELECT * FROM ' . backquote($table) . ' WHERE ' . $primary_key);
+    $row    = mysql_fetch_array($result);
 }
 else
 {
-    $result = mysql_query("SELECT * FROM $table LIMIT 1");
+    $result = mysql_query('SELECT * FROM ' . backquote($table) . ' LIMIT 1');
 }
 
+
+/**
+ * Displays the form
+ */
 ?>
+
+<!-- Change table properties form -->
 <form method="post" action="tbl_replace.php3">
-<input type="hidden" name="server" value="<?php echo $server;?>">
-<input type="hidden" name="lang" value="<?php echo $lang;?>">
-<input type="hidden" name="db" value="<?php echo $db;?>">
-<input type="hidden" name="table" value="<?php echo $table;?>">
-<input type="hidden" name="goto" value="<?php echo $goto;?>">
-<input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode(stripslashes($sql_query)) : "";?>">
-<input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0;?>">
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode($sql_query) : ''; ?>" />
+    <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
 <?php
-
-if(isset($primary_key))
-    echo '<input type="hidden" name="primary_key" value="' . htmlspecialchars($primary_key) . '">' . "\n";
+if (isset($primary_key)) {
+    ?>
+    <input type="hidden" name="primary_key" value="<?php echo urlencode($primary_key); ?>" />
+    <?php
+}
+echo "\n";
 ?>
-<table border="<?php echo $cfgBorder;?>">
-<tr>
-<th><?php echo $strField; ?></th>
-<th><?php echo $strType; ?></th>
-<th><?php echo $strFunction; ?></th>
-<th><?php echo $strValue; ?></th>
-</tr>
+
+    <table border="<?php echo $cfgBorder; ?>">
+    <tr>
+        <th><?php echo $strField; ?></th>
+        <th><?php echo $strType; ?></th>
+        <th><?php echo $strFunction; ?></th>
+        <th><?php echo $strValue; ?></th>
+    </tr>
+
 <?php
+// Set if we passed the first timestamp field
+$timestamp_seen = 0;
 
-
-$timestamp_seen = 0;   // set if we passed the first timestamp field.
-
-for($i=0;$i<mysql_num_rows($table_def);$i++)
-{
-    $row_table_def = mysql_fetch_array($table_def);
-    $field = $row_table_def["Field"];
-    if($row_table_def['Type']  == "datetime" && empty($row[$field]))
-        $row[$field] = date("Y-m-d H:i:s", time());
-    $len = @mysql_field_len($result,$i);
-
+for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
+    $row_table_def   = mysql_fetch_array($table_def);
+    $field           = $row_table_def['Field'];
+    if ($row_table_def['Type'] == 'datetime' && empty($row[$field])) {
+        $row[$field] = date('Y-m-d H:i:s', time());
+    }
+    $len             = @mysql_field_len($result, $i);
     $first_timestamp = 0;
-    $bgcolor = $cfgBgcolorOne;
-    $i % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
-    echo "<tr bgcolor=".$bgcolor.">\n";
-    echo "<td>$field</td>\n";
-    switch (ereg_replace("\\(.*", "", $row_table_def['Type']))
-    {
-        case "set":
-            $type = "set";
+
+    $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+    ?>
+    <tr bgcolor="<?php echo $bgcolor; ?>">
+        <td align="center"><?php echo htmlspecialchars($field); ?></td>
+    <?php
+    echo "\n";
+
+    // The type column
+    switch (ereg_replace('\\(.*', '', $row_table_def['Type'])) {
+        case 'set':
+            $type         = 'set';
+            $type_nowrap  = '';
             break;
-        case "enum":
-            $type = "enum";
+        case 'enum':
+            $type         = 'enum';
+            $type_nowrap  = '';
             break;
-        case "timestamp":
+        case 'timestamp':
             if (!$timestamp_seen) {   // can only occur once per table
-                $timestamp_seen = 1;
+                $timestamp_seen  = 1;
                 $first_timestamp = 1;
             }
-            $type = $row_table_def['Type'];
+            $type         = $row_table_def['Type'];
             break;
         default:
-            $type = $row_table_def['Type'];
+            $type         = $row_table_def['Type'];
+            $type_nowrap  = ' nowrap="nowrap"';
             break;
     }
-    echo "<td>$type</td>\n";
+    ?>
+        <td align="center"<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
+    <?php
+    echo "\n";
 
-    if(isset($row) && isset($row[$field]))
-    {
+    // The function column
+    if (isset($row) && isset($row[$field])) {
         $special_chars = htmlspecialchars($row[$field]);
-        $data = $row[$field];
-    }
-    else
-    {
-        $data = $special_chars = "";
+        $data          = $row[$field];
+    } else {
+        $data = $special_chars = '';
     }
 
-    // THE FUNCTION COLUMN
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data to be destroyed
-    if((strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary")) && !empty($data))
-    {
-        echo "<td>$strBinary</td>";
-    }
-    else
-    {
-    	echo "<td><select name=\"funcs[$field]\"><option>\n";
-
+    if ((strstr($row_table_def['Type'], 'blob') || strstr($row_table_def['Type'], 'binary'))
+        && !empty($data)) {
+        echo '        <td>' . $strBinary . '</td>' . "\n";
+    } else {
+        ?>
+        <td>
+            <select name="funcs[<?php echo $field; ?>]"> <option>
+        <?php
+        echo "\n";
         if (!$first_timestamp) {
-    	    for($j=0; $j<count($cfgFunctions); $j++)
-         	    echo "<option>$cfgFunctions[$j]\n";
-	} else {
-            // for default function = NOW() on first timestamp field --swix/18jul01
-    	    for($j=0; $j<count($cfgFunctions); $j++) {
-                if ($cfgFunctions[$j] == "NOW") {
-        	    echo "<option selected>$cfgFunctions[$j]\n";
-		} else {
-        	    echo "<option>$cfgFunctions[$j]\n";
-		}
+            for ($j = 0; $j < count($cfgFunctions); $j++) {
+                echo '                ';
+                echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
             }
-	}
-    	echo "</select></td>\n";
-    }
-
-   // THE VALUE COLUMN
-
-    if(strstr($row_table_def["Type"], "text"))
-    {
-        echo "<td><textarea name=fields[$field] rows=\"$cfgTextareaRows\" 
-	      cols=\"$cfgTextareaCols\" >$special_chars</textarea></td>\n";
-        if (strlen($special_chars) > 32000)
-            echo "<td>$strTextAreaLength</td>";
-    }
-    elseif(strstr($row_table_def["Type"], "enum"))
-    {
-        $set = str_replace("enum(", "", $row_table_def["Type"]);
-        $set = ereg_replace("\\)$", "", $set);
-        $set = explode(",", $set);
-
-	// show dropdown or radio depend on length
-        if (strlen($row_table_def["Type"]) > 20) {
-         echo "<td><select name=fields[$field]>\n";
-         echo "<option value=\"\">\n";
-         for($j=0; $j<count($set);$j++)
-         {
-           echo '<option value="'.substr($set[$j], 1, -1).'"';
-           if   ($data == substr($set[$j], 1, -1)
-             || (  $data == ""
-                && substr($set[$j], 1, -1) == $row_table_def["Default"]))
-              echo " selected";
-
-           echo ">".htmlspecialchars(substr($set[$j], 1, -1))."\n";
-         }
-         echo "</select></td>";
+        } else {
+            // for default function = NOW() on first timestamp field
+            // -- swix/18jul01
+            for ($j = 0; $j < count($cfgFunctions); $j++) {
+                echo '                ';
+                if ($cfgFunctions[$j] == 'NOW') {
+                    echo '<option selected="selected">' . $cfgFunctions[$j] . '</option>' . "\n";
+                } else {
+                    echo '<option>' . $cfgFunctions[$j] . '</option>' . "\n";
+                }
+            } // end for
         }
-       else {
-         echo "<td>\n";
-
-         $seenchecked = 0;
-         for($j=0; $j<count($set);$j++)
-         {
-           echo "<input type=radio name=fields[$field] ";
-           echo 'value="'.substr($set[$j], 1, -1).'"';
-           if   ($data == substr($set[$j], 1, -1)
-             || (     $data == ""
-                   && substr($set[$j], 1, -1) == $row_table_def["Default"]
-                   && $row_table_def["Null"] != "YES"))
-
-// To be able to display a checkmark in the [Null] box when the field
-// is null, we lose the ability to display a checkmark besides the default value
-           {
-                echo " checked";
-                $seenchecked=1;
-           }
-           echo ">".htmlspecialchars(substr($set[$j], 1, -1))."\n";
-         }
-
-           if ($row_table_def["Null"] == "YES") {
-                echo "<input type=\"radio\"
-                             name=fields[$field]
-                             value=\"null\"";
-
-                if ($seenchecked==0)
-                   echo " checked";
-
-                echo ">[$strNull]";
-           }
-           echo "</td>";
-         }
-
+        ?>
+            </select>
+        </td>
+        <?php
     }
-    elseif(strstr($row_table_def["Type"], "set"))
-    {
-        $set = str_replace("set(", "", $row_table_def["Type"]);
-        $set = ereg_replace("\)$", "", $set);
+    echo "\n";
 
-        $set = explode(",",$set);
-        for($vals = explode(",", $data); list($t, $k) = each($vals);)
+    // The value column (depends on type)
+    if (strstr($row_table_def['Type'], 'text')) {
+        ?>
+        <td>
+<textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>">
+<?php if (!empty($special_chars)) echo $special_chars . "\n"; ?>
+</textarea>
+        </td>
+        <?php
+        echo "\n";
+        if (strlen($special_chars) > 32000) {
+            echo '        <td>' . $strTextAreaLength . '</td>' . "\n";
+        }
+    }
+    else if (strstr($row_table_def['Type'], 'enum')) {
+        $set = str_replace('enum(', '', $row_table_def['Type']);
+        $set = ereg_replace('\\)$', '', $set);
+        $set = explode(',', $set);
+
+        // show dropdown or radio depend on length
+        if (strlen($row_table_def['Type']) > 20) {
+            ?>
+        <td>
+            <select name="fields[<?php echo urlencode($field); ?>]">
+                <option value=""></option>
+            <?php
+            echo "\n";
+
+            for ($j = 0; $j < count($set);$j++) {
+                echo '                ';
+                echo '<option value="' . substr($set[$j], 1, -1) . '"';
+                if ($data == substr($set[$j], 1, -1)
+                    || ($data == '' && substr($set[$j], 1, -1) == $row_table_def['Default'])) {
+                    echo ' slected="selected"';
+                }
+                echo '>' . htmlspecialchars(substr($set[$j], 1, -1)) . '</option>' . "\n";
+             } // end for
+             ?>
+             </select>
+        </td>
+            <?php
+        } // end if
+        else {
+            echo '        <td>' . "\n";
+
+            $seenchecked = 0;
+            for ($j = 0; $j < count($set); $j++) {
+                echo '            ';
+                echo '<input type="radio" name="fields[' . urlencode($field) . ']" ';
+                echo 'value="' . substr($set[$j], 1, -1) . '"';
+                if ($data == substr($set[$j], 1, -1)
+                    || ($data == '' 
+                        && substr($set[$j], 1, -1) == $row_table_def['Default']
+                        && $row_table_def['Null'] != 'YES')) {
+                    // To be able to display a checkmark in the [Null] box when
+                    // the field is null, we lose the ability to display a
+                    // checkmark besides the default value
+                    echo ' checked="checked"';
+                    $seenchecked =1;
+                }
+                echo ' />' . "\n";
+                echo '            ' . htmlspecialchars(substr($set[$j], 1, -1)) . "\n";
+            } // end for
+
+            if ($row_table_def['Null'] == 'YES') {
+                echo '            ';
+                echo '<input type="radio" name="fields[' . urlencode($field) . ']" value="null"';
+                if ($seenchecked == 0) {
+                    echo ' checked="checked"';
+                }
+                echo ' />' . "\n";
+                echo '            [' . $strNull . ']' . "\n";
+            } // end if
+
+            echo '        </td>' . "\n";
+        } // end else
+    }
+    else if (strstr($row_table_def['Type'], 'set')) {
+        $set = str_replace('set(', '', $row_table_def['Type']);
+        $set = ereg_replace('\)$', '', $set);
+        $set = explode(',', $set);
+
+        for ($vals = explode(',', $data); list($t, $k) = each($vals);) {
             $vset[$k] = 1;
-        $size = min(4, count($set));
-        echo "<td><input type=\"hidden\" name=\"fields[$field]\" value=\"\$set\$\">";
-        echo "<select name=field_${field}[] size=$size multiple>\n";
-        $countset=count($set);
-        for($j=0; $j<$countset;$j++)
-        {
-        		$subset=substr($set[$j], 1, -1);
-            echo '<option value="'.htmlspecialchars($subset).'"';
-            if(isset($vset[$subset]) && $vset[$subset])
-                echo " selected";
-            echo ">".htmlspecialchars($subset)."\n";
         }
-        echo "</select></td>";
+        $size = min(4, count($set));
+        ?>
+        <td>
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $set; ?>$" />
+            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple">
+        <?php
+        echo "\n";
+        $countset = count($set);
+        for ($j = 0; $j < $countset;$j++) {
+            $subset = substr($set[$j], 1, -1);
+            echo '                ';
+            echo '<option value="'. urlencode($subset) . '"';
+            if (isset($vset[$subset]) && $vset[$subset]) {
+                echo ' selected="selected"';
+            }
+            echo '>' . htmlspecialchars($subset) . '</option>' . "\n";
+        } // end for
+        ?>
+            </select>
+        </td>
+        <?php
     }
     // Change by Bernard M. Piller <bernard@bmpsystems.com>
     // We don't want binary data destroyed
-    elseif((strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary")) && !empty($data))
-    {
-        echo "<td>" . $strBinaryDoNotEdit;
-        echo "<input type=\"hidden\" name=fields[$field] value=\"".$special_chars."\"></td>";
+    else if ((strstr($row_table_def['Type'], 'blob') || strstr($row_table_def['Type'], 'binary'))
+             && !empty($data)) {
+        echo "\n";
+        ?>
+        <td>
+            <?php echo $strBinaryDoNotEdit . "\n"; ?>
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" />
+        </td>
+        <?php
     }
-    else
-    {
-        $fieldsize=($len>40? 40: $len);
-
-        echo "<td><input type=text name=fields[$field] 
-	 value=\"".$special_chars."\" maxlength=\"$len\" size=\"$fieldsize\"></td>";
+    else {
+        $fieldsize = (($len > 40) ? 40 : $len);
+        echo "\n";
+        ?>
+        <td>
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $len; ?>" />
+        </td>
+        <?php
     }
-    echo "</tr>\n";
-}
-
-echo "</table>";
-
+    echo "\n";
+    ?>
+    </tr>
+    <?php
+echo "\n";
+} // end for
 ?>
-  <p>
-  <input type="submit" name="submit_type" value="<?php echo $strSave; ?>">
-<?php if (isset($primary_key)) { ?>
-  <input type="submit" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>">
-<?php } ?>
-  </form>
+    </table>
+    <br /><br />
+
+    <input type="submit" name="submit_type" value="<?php echo $strSave; ?>" />
+<?php
+if (isset($primary_key)) {
+    ?>
+    <input type="submit" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" />
+    <?php
+}
+echo "\n";
+?>
+</form>
+
 
 <?php
-require("./footer.inc.php3");
+/**
+ * Displays the footer
+ */
+echo "\n";
+require('./footer.inc.php3');
 ?>

@@ -1,9 +1,6 @@
 /* $Id$ */
 
 
-var isFormElementInRange;
-
-
 /**
  * Ensures a value submitted in a form is numeric and is in a range
  *
@@ -16,23 +13,21 @@ var isFormElementInRange;
  */
 function checkFormElementInRange(theForm, theFieldName, min, max)
 {
-    isFormElementInRange = true;
     var theField         = theForm.elements[theFieldName];
     var val              = parseInt(theField.value);
+    var isRange          = (typeof(min) != 'undefined' && typeof(max) != 'undefined');
 
     // It's not a number
     if (isNaN(val)) {
-        alert(errorMsg1);
-        isFormElementInRange = false;
         theField.select();
+        alert(errorMsg1);
         theField.focus();
         return false;
     }
     // It's a number but it is not between min and max
-    else if (val < min || val > max) {
-        alert(val + errorMsg2);
-        isFormElementInRange = false;
+    else if (isRange && (val < min || val > max)) {
         theField.select();
+        alert(val + errorMsg2);
         theField.focus();
         return false;
     }

@@ -1,81 +1,117 @@
 <?php
 /* $Id$ */
 
+
+/**
+ * Increases the max. allowed time to run a script
+ */
 @set_time_limit(10000);
 
-require("./grab_globals.inc.php3");
 
-require("./lib.inc.php3");
+/**
+ * Gets some core libraries
+ */
+require('./grab_globals.inc.php3');
+require('./lib.inc.php3');
 
 
-// set up default values
+/**
+ * Set up default values for some variables and 
+ */
 $view_bookmark = 0;
-$sql_bookmark  = isset($sql_bookmark) ? $sql_bookmark : "";
-$sql_query     = isset($sql_query)    ? $sql_query    : "";
-$sql_file      = isset($sql_file)     ? $sql_file     : "none";
+$sql_bookmark  = isset($sql_bookmark) ? $sql_bookmark : '';
+$sql_query     = isset($sql_query)    ? $sql_query    : '';
+$sql_file      = isset($sql_file)     ? $sql_file     : 'none';
 
 
-// Bookmark Support
-if(!empty($id_bookmark)) {
-  switch($action_bookmark) {
-    case 0:
-      $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
-      break;
-   
-    case 1:
-      $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
-      $view_bookmark = 1;
-      break;
-  
-    case 2:
-      $sql_query = delete_bookmarks($db, $cfgBookmark, $id_bookmark);
-      break;
-  }
-}
+/**
+ * Bookmark Support: get a query back from bookmark if required
+ */
+if (!empty($id_bookmark)) {
+    switch($action_bookmark) {
+        case 0: // bookmarked query that have to be run
+            $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
+            break;
+        case 1: // bookmarked query that have to be displayed
+            $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
+            $view_bookmark = 1;
+            break;
+        case 2: // bookmarked query that have to be deleted
+            $sql_query = delete_bookmarks($db, $cfgBookmark, $id_bookmark);
+            break;
+    }
+} // end if
 
 
-if($sql_file != "none") {
-  // do file upload
-  if(ereg("^php[0-9A-Za-z_.-]+$", basename($sql_file))) {
-    $sql_query = fread(fopen($sql_file, "r"), filesize($sql_file));
-    if (get_magic_quotes_runtime() == 1) $sql_query = stripslashes($sql_query);
-  }
+/**
+ * Prepares the sql query
+ */
+// Gets the query from a file if required 
+if ($sql_file != 'none') {
+    if (ereg('^php[0-9A-Za-z_.-]+$', basename($sql_file))) {
+        $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
+        if (get_magic_quotes_runtime() == 1) {
+            $sql_query = stripslashes($sql_query);
+        }
+    }
 }
 else if (get_magic_quotes_gpc() == 1) {
 	$sql_query = stripslashes($sql_query);
 }
-
 $sql_query = trim($sql_query);
-$sql_query_cpy = $sql_query; // copy the query, used for display purposes only
-
-if($sql_query != "") {
-  $sql_query = remove_remarks($sql_query);
-  $pieces    = split_sql_file($sql_query,";");
-  $piecescount=count($pieces);
-
-  if (count($pieces) == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
-    $sql_query = trim($pieces[0]);
-    if (eregi('^CREATE TABLE (.+)', $sql_query))  $reload = "true";
-
-// sql.php3 will stripslash the query if get_magic_quotes_gpc
-    if (get_magic_quotes_gpc() == 1) $sql_query = addslashes($sql_query);
-    include("./sql.php3");
-    exit;
-  }
- 
-  if(mysql_select_db($db)) {
-    // run multiple queries
-    for ($i=0; $i<$piecescount; $i++) {
-      $sql = trim($pieces[$i]);
-      if(!empty($sql) and $sql[0] != "#") $result = mysql_query($sql) or mysql_die2($sql);
-      if (!isset($reload) && eregi('^CREATE TABLE (.+)', $pieces[$i])) $reload = "true";
+// $sql_query come from the query textarea, if it's a reposted query gets its
+// 'true' value
+if (!empty($prev_sql_query)) {
+    $prev_sql_query = urldecode($prev_sql_query);
+    if ($sql_query == trim(htmlspecialchars($prev_sql_query))) {
+        $sql_query = $prev_sql_query;
     }
-  }
 }
 
-// copy the original query back for display purposes
-include("./header.inc.php3");
+// Copy the query, used for display purposes only
+$sql_query_cpy = $sql_query;
+
+
+/**
+ * Executes the query
+ */
+if ($sql_query != '') {
+    $sql_query    = remove_remarks($sql_query);
+    $pieces       = split_sql_file($sql_query, ';');
+    $pieces_count = count($pieces);
+
+    // Only one query to run
+    if ($pieces_count == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
+        $sql_query = trim($pieces[0]);
+        // sql.php3 will stripslash the query if get_magic_quotes_gpc
+        if (get_magic_quotes_gpc() == 1) {
+            $sql_query = addslashes($sql_query);
+        }
+        include('./sql.php3');
+        exit();
+    }
+
+    // Runs multiple queries
+    else if (mysql_select_db($db)) {
+        for ($i = 0; $i < $pieces_count; $i++) {
+            $a_sql_query = trim($pieces[$i]);
+            if (!empty($a_sql_query) && $a_sql_query[0] != '#') {
+                $result = mysql_query($a_sql_query) or mysql_die2('', $a_sql_query);
+            }
+            if (!isset($reload) && eregi('^(DROP|CREATE) +(TABLE|DATABASE) (.+)', $a_sql_query)) {
+                $reload = 'true';
+            }
+        } // end for
+    } // end else if
+} // end if
+
+
+/**
+ * Go back to db_details.php3
+ */
+// Copy the original query back for display purposes
 $sql_query = $sql_query_cpy;
-$message = $strSuccess;
-require("./db_details.php3");
+include('./header.inc.php3');
+$message   = $strSuccess;
+require('./db_details.php3');
 ?>

@@ -2,50 +2,70 @@
 /* $Id$ */
 
 
-require("./grab_globals.inc.php3");
- 
-
-if(!isset($message))
-{
-    include("./header.inc.php3");
-}
-else
-{
+/**
+ * Gets the variables sent or posted to this script, then displays headers
+ */
+require('./grab_globals.inc.php3');
+if (!isset($message)) {
+    include('./header.inc.php3');
+} else {
     show_message($message);
 }
 
-$tables = mysql_list_tables($db);
+
+/**
+ * Get the list and count of the tables
+ */
+$tables     = mysql_list_tables($db);
 $num_tables = @mysql_numrows($tables);
 
-if($num_tables == 0)
-{
+
+/**
+ * If there is at least one table, displays the printer friendly view, else
+ * an error message
+ */
+// No table
+if ($num_tables == 0) {
     echo $strNoTablesFound;
 }
-else
-{
+// At least one table
+else {
     $i = 0;
-    
-    echo "<table border=$cfgBorder>\n";
-    echo '<th>' . UCFirst($strTable) . '</th>';
-    echo "<th>$strRecords</th>";
-    while($i < $num_tables)
-    {
-        $table = mysql_tablename($tables, $i);
-        $query = "?server=$server&lang=$lang&db=$db&table=$table&goto=db_details.php3";
-        $bgcolor = $cfgBgcolorOne;
-        $i % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
+    ?>
+
+<!-- The tables list -->
+<table border="<?php echo($cfgBorder); ?>">
+<tr>
+    <th><?php echo ucfirst($strTable); ?></th>
+    <th><?php echo ucfirst($strRecords); ?></th>
+</tr>
+    <?php
+    while ($i < $num_tables) {
+        $table   = mysql_tablename($tables, $i);
+        $bgcolor = ($i % 2) ? $cfgBgcolorOne : $bgcolor = $cfgBgcolorTwo;
+        echo "\n";
         ?>
-           <tr bgcolor="<?php echo $bgcolor;?>">
-         
-           <td class=data><b><?php echo $table;?></b></td>
-           <td align="right">&nbsp;<?php count_records($db,$table) ?></td>
-         </tr>
+<tr bgcolor="<?php echo $bgcolor; ?>">
+    <td nowrap="nowrap">
+        <b><?php echo htmlspecialchars($table); ?>&nbsp;</b>
+    </td>
+    <td align="right" nowrap="nowrap">
+        &nbsp;<?php count_records($db, $table); ?> 
+    </td>
+</tr>
         <?php
         $i++;
-    }
-    
-    echo "</table>\n";
-}
+    } // end while
+    echo "\n";
+    ?>
+</table>
+    <?php
+} // end if
 
-require("./footer.inc.php3");
+
+/**
+ * Displays the footer
+ */
+echo "\n";
+require('./footer.inc.php3');
 ?>
