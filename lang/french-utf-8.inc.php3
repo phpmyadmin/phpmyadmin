@@ -33,6 +33,7 @@ $strAfter = 'Après %s';
 $strAfterInsertBack = 'Retourner à la page précédente';
 $strAfterInsertNewInsert = 'Insérer un nouvel enregistrement';
 $strAll = 'Tout';
+$strAllTableSameWidth = 'Afficher toutes les tables avec une largeur identique';
 $strAlterOrderBy = '<b>Ordonner</b> la table par';
 $strAnalyzeTable = 'Analyser la table';
 $strAnd = 'et';
@@ -277,6 +278,7 @@ $strRecords = 'Enregistrements';
 $strReferentialIntegrity = 'Vérifier l\'intégrité référentielle';
 $strReloadFailed = 'MySQL n\'a pu être rechargé.';
 $strReloadMySQL = 'Recharger MySQL';
+$strRelationNotWorking = 'Certaines fonctionnalités ayant trait aux tables reliées sont désactivées. Pour une analyse du problème, cliquez %sici%s.';
 $strRelationView = 'Gestion des relations';
 $strRememberReload = 'N\'oubliez pas de recharger MySQL';
 $strRenameTable = '<b>Changer le nom</b> de la table pour';
@@ -399,6 +401,4 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

@@ -8,6 +8,13 @@ $Source$
 2002-07-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/sync_lang.sh: support for multiple convertors (recode added),
       thanks to Michal Cihar
+    * lang/spanish update, thanks to Daniel Hinostroza 
+      (Daniel.Hinostroza  at grunenthal.com.ec)
+    * lang/swedish updates: thanks to Björn T. Hallberg
+    * lang/indonesian updates, thanks to Rachim Tamsjadi.
+    * lang/japanese* updates, thanks to Yukihiro Kawada
+    * lang/french updates
+    * lang/lithuanian updates, thanks to Vilius Zigmantas
 
 2002-07-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3: Added
