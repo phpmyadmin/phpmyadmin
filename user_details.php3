@@ -33,7 +33,6 @@ $err_url = 'user_details.php3'
  * @global  string   the current charset for MySQL
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
- * @global  string   the current charset for MySQL
  *
  * @see     PMA_checkDb()
  *
@@ -42,7 +41,7 @@ $err_url = 'user_details.php3'
  *          user while these privileges applies to all users.
  */
 function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
-    global $lang, $convcharset, $server, $convertcharset;
+    global $lang, $convcharset, $server;
     ?>
 
 <!-- Table of grants -->
@@ -72,7 +71,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
     echo "\n";
 
     // 2. Table body
-    $url_query  = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user&amp;convcharset=' . $convcharset;
+    $url_query  = 'lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user';
 
     while ($row = (is_array($host_db_result) ? $host_db_result : PMA_mysql_fetch_array($host_db_result))) {
         $local_query = 'SHOW GRANTS FOR \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'';
@@ -322,22 +321,22 @@ function PMA_tablePrivileges($form, $row = FALSE)
  * @return  boolean  always true
  *
  * @global  string   the current language
+ * @global  string   the current charset for MySQL
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
- * @global  string   the current charset for MySQL
  *
  * @see     PMA_tablePrivileges()
  */
 function PMA_normalOperations()
 {
-    global $lang, $server, $convcharset;
+    global $lang, $convcharset, $server;
     ?>
 
 <ul>
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;mode=reload&amp;convcharset=<?php echo $convcharset; ?>">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;mode=reload">
             <?php echo $GLOBALS['strReloadMySQL']; ?></a>&nbsp;
         <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
         </div>
@@ -456,9 +455,9 @@ function PMA_normalOperations()
  * @return  boolean  always true
  *
  * @global  string   the current language
+ * @global  string   the current charset for MySQL
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
- * @global  string   the current charset for MySQL
  * @global  string   the host name to check grants for
  * @global  string   the username to check grants for
  * @global  string   the database to check grants for
@@ -468,7 +467,7 @@ function PMA_normalOperations()
  */
 function PMA_grantOperations($grants)
 {
-    global $lang, $server, $convcharset, $host, $pma_user;
+    global $lang, $convcharset, $server, $host, $pma_user;
     global $dbgrant, $tablegrant, $newdb;
     ?>
 
@@ -476,7 +475,7 @@ function PMA_grantOperations($grants)
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;convcharset=<?php echo $convcharset; ?>">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
             <?php echo $GLOBALS['strBack']; ?></a>
         </div>
     </li>
@@ -653,15 +652,15 @@ function PMA_grantOperations($grants)
  * @return  boolean  always true
  *
  * @global  string   the current language
+ * @global  string   the current charset for MySQL
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
- * @global  string   the current charset for MySQL
  *
  * @see     PMA_tablePrivileges()
  */
 function PMA_editOperations($host, $user)
 {
-    global $lang, $server, $convcharset;
+    global $lang, $convcharset, $server;
 
     $result = PMA_mysql_query('SELECT * FROM mysql.user WHERE User = \'' . PMA_sqlAddslashes($user) . '\' AND Host = \'' . PMA_sqlAddslashes($host) . '\'');
     $rows   = ($result) ? @mysql_num_rows($result) : 0;
@@ -677,7 +676,7 @@ function PMA_editOperations($host, $user)
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;convcharset=<?php echo $convcharset; ?>">
+        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
             <?php echo $GLOBALS['strBack']; ?></a>
         </div>
     </li>
@@ -784,13 +783,13 @@ function PMA_editOperations($host, $user)
  * @return  boolean  always true
  *
  * @global  string   the current language
+ * @global  string   the current charset for MySQL
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
- * @global  string   the current charset for MySQL
  */
 function PMA_tableUsers($host = FALSE, $user = FALSE)
 {
-    global $lang, $server, $convcharset;
+    global $lang, $convcharset, $server;
 
     $local_query     = 'SELECT * FROM mysql.user ';
     if ($host || $user) {
@@ -873,16 +872,14 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
         $query          = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user&amp;convcharset=' . $convcharset;
         if (!$user) {
             $edit_url   = 'user_details.php3'
-                        . '?lang=' . $lang . '&amp;server=' . $server
-                        . '&amp;convcharset=' . $convcharset
+                        . '?lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server
                         . '&amp;edit=1&amp;host=' . urlencode($row['Host']) . '&amp;pma_user=' . urlencode($row['User']);
         }
         $delete_url     = 'user_details.php3'
                         . '?' . $query
                         . '&amp;delete=1&amp;confirm=1&amp;delete_host=' . urlencode($row['Host']) . '&amp;delete_user=' . urlencode($row['User']);
         $check_url      = 'user_details.php3'
-                        . '?lang=' . $lang . '&amp;server=' . $server
-                        . '&amp;convcharset=' . $convcharset
+                        . '?lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server
                         . '&amp;grants=1&amp;host=' . urlencode($row['Host']) . '&amp;pma_user=' . urlencode($row['User']);
         ?>
 
@@ -949,12 +946,12 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
  * @param   string   ... the username to delete
  *
  * @global  string   the current language
+ * @global  string   the current charset for MySQL
  * @global  integer  the server to use (refers to the number in the
  *                   configuration file)
- * @global  string   the current charset for MySQL
  */
 function PMA_confirm($the_host, $the_user) {
-    global $lang, $server, $convcharset;
+    global $lang, $convcharset, $server;
 
     if (get_magic_quotes_gpc() == 1) {
         $the_host = stripslashes($the_host);
@@ -1472,7 +1469,7 @@ else if (isset($check) && $check) {
     ?>
 <ul>
     <li>
-        <a href="user_details.php3?lang=<?php echo $lang;?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;convcharset=<?php echo $convcharset; ?>">
+        <a href="user_details.php3?lang=<?php echo $lang;?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
             <?php echo $strBack; ?></a>
     </li>
 </ul>

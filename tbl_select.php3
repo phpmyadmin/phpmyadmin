@@ -8,12 +8,14 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
-/*
-*   Defines an array of functions (should possibly be in config.inc.
-*   so i can also use it in tbl_qbe
-*/
-$numfunctions  = array('=','>','>=','<','<=','!=');
-$textfunctions = array('LIKE','=','!=');
+
+/**
+ * Defines arrays of functions (should possibly be in config.inc.php3
+ * so it can also be used in tbl_qbe.php3)
+ */
+$numfunctions  = array('=', '>', '>=', '<', '<=', '!=');
+$textfunctions = array('LIKE', '=', '!=');
+
 
 /**
  * Not selection yet required -> displays the selection form
@@ -111,20 +113,24 @@ if (!isset($param) || $param[0] == '') {
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $fields_type[$i]; ?></td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
                     <select name="func[]">
-<?php
-                            reset($numfunctions);
-                            reset($textfunctions);
-                            if (eregi('char|blob|text|set|enum', $fields_type[$i])){
-                                while (list($k,$fc) = each($textfunctions)){
-                                    echo '                        <option value="'.$fc.'">'.htmlentities($fc).'</option>' . "\n";
-                                }
-                            }else{
-                                while (list($k,$fc) = each($numfunctions)){
-                                    echo '                        <option value="'.$fc.'">'.htmlentities($fc).'</option>' . "\n";
-                                }
-                            }
-                        ?>
-                    </select></td>
+            <?php
+            reset($numfunctions);
+            reset($textfunctions);
+            if (eregi('char|blob|text|set|enum', $fields_type[$i])) {
+                while (list($k, $fc) = each($textfunctions)) {
+                    echo "\n" . '                        '
+                         . '<option value="' . $fc . '">' . htmlentities($fc) . '</option>';
+                } // end while
+            } else {
+                while (list($k, $fc) = each($numfunctions)) {
+                    echo "\n" . '                        '
+                         . '<option value="' . $fc . '">' . htmlentities($fc) . '</option>';
+                } // end while
+            } // end if... else...
+            echo "\n";
+            ?>
+                    </select>
+                </td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
                     <input type="text" name="fields[]" size="40" class="textfield" />
                     <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
@@ -190,18 +196,19 @@ else {
         for ($i = 0; $i < count($fields); $i++) {
             if (!empty($fields) && $fields[$i] != '') {
                 if (strtoupper($fields[$i]) == 'NULL' || strtoupper($fields[$i]) == 'NOT NULL') {
-                    $quot = '';
-                    $func[$i]  = 'IS';
+                    $quot     = '';
+                    $func[$i] = 'IS';
                 }
-                if (eregi('char|blob|text|set|enum|date|time|year', $types[$i])){
-                    $quot = '\'';
-                }else{
-                    $quot = '';
+                if (eregi('char|blob|text|set|enum|date|time|year', $types[$i])) {
+                    $quot     = '\'';
+                } else {
+                    $quot     = '';
                 }
-                $sql_query .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $func[$i] $quot$fields[$i]$quot";
+                $sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $func[$i] $quot$fields[$i]$quot";
             } // end if
         } // end for
     } // end if
+
     if ($orderField != '--nil--') {
         $sql_query .= ' ORDER BY ' . PMA_backquote(urldecode($orderField)) . ' ' . $order;
     } // end if
