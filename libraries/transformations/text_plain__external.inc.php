@@ -10,17 +10,22 @@ function PMA_SecureShellArgs($s) {
     $len = strlen($s);
     $inside_single = FALSE;
     $inside_double = FALSE;
+    $is_escaped = FALSE;
     for($i = 0; $i < $len; $i++) {
-        if (!$inside_double && $s[$i] == '\'' && ($i == 0 || $s[$i -1] != '\\')) {
+        if (!$inside_single && $s[$i] == '\\') {
+            $is_escaped = ! $is_escaped;
+            continue;
+        }
+        if (!$inside_double && !$is_escaped && $s[$i] == '\'') {
            $inside_single = ! $inside_single;
            continue;
         }
-        if (!$inside_single && $s[$i] == '"' && ($i == 0 || $s[$i -1] != '\\')) {
+        if (!$inside_single && !$is_escaped && $s[$i] == '"') {
            $inside_double = ! $inside_double;
            continue;
         }
         // escape shell special chars in we're not inside quotes
-        if (!$inside_single && !$inside_double && ($i == 0 || $s[$i -1] != '\\')) {
+        if (!$inside_single && !$is_escaped && !$inside_double) {
             if (strstr('><$`|;&', $s[$i])) {
                 $s = substr($s, 0, $i) . '\\' . substr($s, $i);
                 $i++;
@@ -28,7 +33,7 @@ function PMA_SecureShellArgs($s) {
             }
         }
         // in double quotes we need to escape more
-        if ($inside_double) {
+        if ($inside_double && !$is_escaped) {
             if (strstr('$`', $s[$i])) {
                 $s = substr($s, 0, $i) . '\\' . substr($s, $i);
                 $i++;
