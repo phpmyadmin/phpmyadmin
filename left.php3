@@ -109,7 +109,7 @@ if ($server > 0) {
         if (!empty($db_start) && $db == $db_start) {
             $selected_db = $j;
         }
-        $tables           = mysql_list_tables($db);
+        $tables           = @mysql_list_tables($db);
        	$num_tables       = @mysql_numrows($tables);
 		$common_url_query = "server=$server&lang=$lang&db=$db";
 		
