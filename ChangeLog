@@ -24,6 +24,8 @@ $Source$
       tbl_move_copy.php3, tbl_rename.php3: Added some html quoting.
     * libraries/tbl_change.js: When ENUM field has just one value, it could
       not be set to NULL (bug #783533).
+    * tbl_move_copy.php3: Use database we're working on to avoid some problems
+      with replicated databases (bug #780439).
 
 2003-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 779453, wrong count

@@ -148,6 +148,11 @@ if (isset($new_name) && trim($new_name) != '') {
     } else {
         $source = PMA_backquote($db) . '.' . PMA_backquote($table);
         if (empty($target_db)) $target_db = $db;
+
+        // This could avoid some problems with replicated databases, when 
+        // moving table from replicated one to not replicated one
+        PMA_mysql_select_db($target_db);
+        
         $target = PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
 
         include('./libraries/export/sql.php3');
@@ -224,6 +229,11 @@ if (isset($new_name) && trim($new_name) != '') {
 
         // Drops old table if the user has requested to move it
         if (isset($submit_move)) {
+            
+            // This could avoid some problems with replicated databases, when 
+            // moving table from replicated one to not replicated one
+            PMA_mysql_select_db($db);
+            
             $sql_drop_table = 'DROP TABLE ' . $source;
             $result         = @PMA_mysql_query($sql_drop_table);
             if (PMA_mysql_error()) {
