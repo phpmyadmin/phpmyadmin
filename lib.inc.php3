@@ -410,18 +410,25 @@ function display_table ($dt_result, $is_simple = false) {
         echo "<tr bgcolor=$bgcolor>";
         for($i=0; $i<mysql_num_fields($dt_result); ++$i)
         {
+            $primary = mysql_fetch_field($dt_result,$i);
             if(!isset($row[$i]))
-	      $row[$i] = '';
-	    $primary = mysql_fetch_field($dt_result,$i);
+				{
+					$row[$i] = '';
+					$condition = " $primary->name IS NULL AND";
+				}
+				else
+				{
+					$condition = " $primary->name = '".addslashes($row[$i])."' AND";
+				}
             if($primary->numeric == 1) {
 	      if($sql_query == "SHOW PROCESSLIST")
 		$Id = $row[$i];
             }
             if($primary->primary_key > 0)
-                $primary_key .= " $primary->name = '".addslashes($row[$i])."' AND";
+                $primary_key .= $condition;
             //begin correction uva 19991216 pt. 2 ---------------------------
             //see pt. 1, above, for description of change
-            $uva_nonprimary_condition .= " $primary->name = '".addslashes($row[$i])."' AND";
+            $uva_nonprimary_condition .= $condition;
             //end correction uva 19991216 pt. 2 -----------------------------
         }
         //begin correction uva 19991216 pt. 3 ---------------------------

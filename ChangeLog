@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-05  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3: Patch #438708 (Changes to display_table) thanks to
+	  Thomas Kläger.
+
 2001-07-04  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug #438319 (IE 5.5 and "Add a new user"): user_details.php3, 
 	  thanks to Loïc Chapeaux  <lolo@phpheaven.net>
