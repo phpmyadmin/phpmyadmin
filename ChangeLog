@@ -7,6 +7,7 @@ $Source$
 
 2002-06-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-utf8.inc.php3: Synchronization.
+    * ChangeLog: Added a note about the older ChangeLogs at EoF.
 
 2002-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/georgian-utf-8 updates, thanks to Kakha Mchedlidze
@@ -835,3 +836,7 @@ $Source$
 
 2002-04-21 Marc Delisle  <lem9@users.sourceforge.net>
     * ### 2.2.6 released ###
+
+
+         --- Older ChangeLogs can be found on our project website ---
+                     http://www.phpmyadmin.net/ChangeLogs/
