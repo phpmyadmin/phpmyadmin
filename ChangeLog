@@ -19,6 +19,8 @@ $Source$
         - Updates, thanks to Kyriakos Xagoraris (theremon)
     * lang.swedish-iso-8859-1.inc.php3:
         - Updates, thanks to Björn T. Hallberg (bth)
+    * libraries/sqlparser.lib.php3:
+        - Added LANG to the list of BUG() data
 
 2002-08-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.php3, libraries/sqlvalidator.lib.php3:

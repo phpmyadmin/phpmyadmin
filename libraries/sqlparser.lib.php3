@@ -86,6 +86,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         $debugstr .= 'USR OS,AGENT,VER: ' . PMA_USR_OS . ' ' . PMA_USR_BROWSER_AGENT . ' ' . PMA_USR_BROWSER_VER . "\n"; 
         $debugstr .= 'PMA: ' . PMA_VERSION . "\n";
         $debugstr .= 'PHP VER,OS: ' . PMA_PHP_STR_VERSION . ' ' . PHP_OS . "\n";
+        $debugstr .= 'LANG: ' . $GLOBALS['lang'] . "\n";
         $debugstr .= 'SQL: ' . $sql;
         $encodedstr = $debugstr;
         if (PMA_PHP_INT_VERSION >= 40001 && @function_exists('gzcompress')) {
