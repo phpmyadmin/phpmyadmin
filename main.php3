@@ -5,9 +5,9 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
-// Gets the language to use and put it in a cookie that will expire in 30
-// days
 require('./libraries/grab_globals.lib.php3');
+require('./libraries/common.lib.php3');
+// Puts the language to use in a cookie that will expire in 30 days
 setcookie('lang', $lang, time() + 60*60*24*30);
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {
@@ -98,7 +98,7 @@ if ($server == 0 || count($cfgServers) > 1) {
                 echo ' selected="selected"';
             }
             echo '>';
-            print((!empty($val['verbose'])) ? $val['verbose'] :  $val['host']);
+            echo ((!empty($val['verbose'])) ? $val['verbose'] :  $val['host']);
             if (!empty($val['port'])) {
                 echo ':' . $val['port'];
             }
