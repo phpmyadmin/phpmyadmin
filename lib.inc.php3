@@ -2,11 +2,11 @@
 /* $Id$ */
 
 
-
 if (!defined('__LIB_INC__')){
     define('__LIB_INC__', 1);
 
-    /* Order of sections for lib.inc.php3 
+    /**
+     * Order of sections for lib.inc.php3:
      *
      * in PHP3, functions and constants must be physically defined
      * before they are referenced
@@ -14,33 +14,37 @@ if (!defined('__LIB_INC__')){
      * some functions need the constants of defines.inc.php3
      *
      * the include of defines.inc.php3 must be after the connection to db
-     * 
+     *
      * the auth() function must be before the connection to db
+     *
+     * the mysql_die() function must be before the connection to db but after
+     * mysql extension has been loaded
      *
      * ... so the required order is:
      *
      * - definition of auth()
      * - parsing of the configuration file
      * - load of mysql extension (if necessary)
+     * - definition of mysql_die()
      * - db connection
      * - defines.inc.php3
      * - other functions, respecting dependencies 
      */
 
-    /* avoid undefined variables in PHP3
-     *
-     */
 
-     if (!isset($use_backquotes)) {
-	$use_backquotes=0;
-     }
-     if (!isset($pos)) {
-	$pos=0;
-     }
-     if (!isset($cfgProtectBlob)) {
-	$cfgProtectBlob=FALSE;
-     }
-    /* ---------------------- Advanced authentification -------------------- */
+    /**
+     * Avoids undefined variables in PHP3
+     */
+    if (!isset($use_backquotes)) {
+        $use_backquotes = 0;
+    }
+    if (!isset($pos)) {
+        $pos            = 0;
+    }
+    if (!isset($cfgProtectBlob)) {
+        $cfgProtectBlob = FALSE;
+    }
+
 
     /**
      * Advanced authentication work
@@ -71,6 +75,7 @@ if (!defined('__LIB_INC__')){
         echo "\n";
         exit();
     } // end of the 'auth()' function
+
 
     /**
      * Parses the configuration file
@@ -109,6 +114,40 @@ if (!defined('__LIB_INC__')){
             exit();
         }
     } // end load mysql extension
+
+
+    /**
+     * Displays a MySQL error message in the right frame.
+     *
+     * @param   string   the error mesage
+     * @param   string   the sql query that failed
+     */
+    function mysql_die($error_message = '', $the_query = '')
+    {
+        global $sql_query;
+
+        if (empty($error_message)) {
+            $error_message = mysql_error();
+        }
+        if (empty($the_query)) {
+            $the_query     = $GLOBALS['sql_query'];
+        }
+
+        echo '<b>'. $GLOBALS['strError'] . '</b>' . "\n";
+        echo '<p>' . "\n";
+        if (!empty($the_query)) {
+            $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($the_query) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
+            echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']<pre>' . htmlspecialchars($the_query) . '</pre>' . "\n";
+        }
+        echo '</p>' . "\n";
+        echo '<p>' . "\n";
+        echo '    ' . $GLOBALS['strMySQLSaid'] . '&nbsp;' . htmlspecialchars($error_message) . "\n";
+        echo '</p>' . "\n";
+        echo '<a href="javascript:history.go(-1)">' . $GLOBALS['strBack'] . '</a>';
+
+        include('./footer.inc.php3');
+        exit();
+    } // end of the 'mysql_die()' function
 
 
     /**
@@ -157,7 +196,7 @@ if (!defined('__LIB_INC__')){
             $dblist[] = $cfgServer['only_db'];
         }
 
-        // Advanced authentification is required
+        // Advanced authentication is required
         if ($cfgServer['adv_auth']) {
             // Grabs the $PHP_AUTH_USER variable whatever are the values of the
             // 'register_globals' and the 'variables_order' directives
@@ -197,7 +236,7 @@ if (!defined('__LIB_INC__')){
                 $old_usr = $HTTP_GET_VARS['old_usr'];
             }
 
-            // First load -> checks if authentification is required
+            // First load -> checks if authentication is required
             if (!isset($old_usr)) {
                 if (empty($PHP_AUTH_USER)) {
                     $do_auth = TRUE;
@@ -215,7 +254,7 @@ if (!defined('__LIB_INC__')){
                 }
             }
 
-            // Calls the authentification window or validates user's login
+            // Calls the authentication window or validates user's login
             if ($do_auth) {
                 auth();
             } else {
@@ -305,7 +344,7 @@ if (!defined('__LIB_INC__')){
             // Validation achived -> store user's login/password
             $cfgServer['user']     = $PHP_AUTH_USER;
             $cfgServer['password'] = $PHP_AUTH_PW;
-        } // end Advanced authentification
+        } // end Advanced authentication
 
         // Do connect to the user's database
         if (empty($cfgServer['port'])) {
@@ -321,6 +360,7 @@ if (!defined('__LIB_INC__')){
     else {
         echo $strHostEmpty;
     }
+
 
     /**
      * Gets constants that defines the PHP, MySQL... releases.
@@ -436,40 +476,6 @@ if (!defined('__LIB_INC__')){
             return TRUE;
         }
     } // end of the 'count_records()' function
-
-
-    /**
-     * Displays a MySQL error message in the right frame.
-     *
-     * @param   string   the error mesage
-     * @param   string   the sql query that failed
-     */
-    function mysql_die($error_message = '', $the_query = '')
-    {
-        global $sql_query;
-
-        if (empty($error_message)) {
-            $error_message = mysql_error();
-        }
-        if (empty($the_query)) {
-            $the_query     = $GLOBALS['sql_query'];
-        }
-
-        echo '<b>'. $GLOBALS['strError'] . '</b>' . "\n";
-        echo '<p>' . "\n";
-        if (!empty($the_query)) {
-            $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($the_query) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
-            echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']<pre>' . htmlspecialchars($the_query) . '</pre>' . "\n";
-        }
-        echo '</p>' . "\n";
-        echo '<p>' . "\n";
-        echo '    ' . $GLOBALS['strMySQLSaid'] . '&nbsp;' . htmlspecialchars($error_message) . "\n";
-        echo '</p>' . "\n";
-        echo '<a href="javascript:history.go(-1)">' . $GLOBALS['strBack'] . '</a>';
-
-        include('./footer.inc.php3');
-        exit();
-    } // end of the 'mysql_die()' function
 
 
     /**
@@ -1454,7 +1460,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      * Last revision: 2nd August 2001 - Benjamin Gandon
      *
      * @param   string   the sql commands
-     * @param   char     the end of command line delimiter 
+     * @param   string   the end of command line delimiter 
      *
      * @return  array    the splitted sql commands
      */
@@ -1472,7 +1478,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             $char = $sql[$i];
 
             // if delimiter found, add the parsed part to the returned array
-            if (($char == $delimiter) && !$in_string) {
+            if ($char == $delimiter && !$in_string) {
                 $ret[]     = substr($sql, 0, $i);
                 $sql       = substr($sql, $i + 1);
                 $i         = 0;
@@ -1480,7 +1486,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             }
 
             if ($in_string) {
-                // we are in a string, first check for escaped backslashes
+                // We are in a string, first check for escaped backslashes
                 if ($char == '\\') {
                     if ($last_char != '\\') {
                         $escaped_backslash = FALSE;
@@ -1553,28 +1559,27 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     /**
      * Defines the bookmark parameters for the current user
      *
+     * @return  array    the bookmark parameters for the current user
+     *
      * @global  array    the list of settings for the current server
      * @global  integer  the id of the current server
-     *
-     * @return  array    the bookmark parameters for the current user
      */
     function get_bookmarks_param()
     {
-     	global $cfgServer;
+        global $cfgServer;
         global $server;
-    	
-        $cfgBookmark=false;
-        $cfgBookmark="";
-    
-    	// No server selected -> no bookmark table
 
+        $cfgBookmark = FALSE;
+        $cfgBookmark = '';
+
+        // No server selected -> no bookmark table
         if ($server == 0) {
             return '';
-    	}
-        
-    	$cfgBookmark['user']=$cfgServer['user'];
-        $cfgBookmark['db']=$cfgServer['bookmarkdb'];
-    	$cfgBookmark['table']=$cfgServer['bookmarktable'];
+        }
+
+        $cfgBookmark['user']  = $cfgServer['user'];
+        $cfgBookmark['db']    = $cfgServer['bookmarkdb'];
+        $cfgBookmark['table'] = $cfgServer['bookmarktable'];
 
         return $cfgBookmark;
     } // end of the 'get_bookmarks_param()' function
@@ -1585,38 +1590,32 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      *
      * @param   string   the current database name
      * @param   array    the bookmark parameters for the current user
-     * @global	link     a MySQL link identifier
      *
-     * @return  array    the bookmarks list
+     * @return  mixed    the bookmarks list if defined, false else
      */
     function list_bookmarks($db, $cfgBookmark)
     {
-    	global $dbh;
-    	
-        $query ='SELECT label, id FROM '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
-			.' WHERE dbase=\'' . str_replace('\'', '\\\'', $db) . '\''
-			.' AND user = \'' . str_replace('\'', '\\\'', $cfgBookmark['user']) . '\'';
+        $query  = 'SELECT label, id FROM '. backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
+                . ' WHERE dbase = \'' . sql_addslashes($db) . '\''
+                . ' AND user = \'' . sql_addslashes($cfgBookmark['user']) . '\'';
+        if (isset($GLOBALS['dbh'])) {
+            $result = mysql_query($query, $GLOBALS['dbh']);
+        } else {
+            $result = mysql_query($query);
+        }
 
-        if(isset($dbh))
-            $result=mysql_query($query,$dbh);
-        else
-            $result=mysql_query($query);
-        
         // There is some bookmarks -> store them
-        if($result>0 && mysql_num_rows($result)>0)
-        {
+        if ($result > 0 && mysql_num_rows($result) > 0) {
             $flag = 1;
-            while($row = mysql_fetch_row($result))
-            {
-                $bookmark_list["$flag - ".$row[0]] = $row[1];
+            while ($row = mysql_fetch_row($result)) {
+                $bookmark_list[$flag . ' - ' . $row[0]] = $row[1];
                 $flag++;
-            }
-            
-            return	$bookmark_list;
+            } // end while
+            return $bookmark_list;
         }
         // No bookmarks for the current database
         else {
-        	return false;
+            return FALSE;
         }
     } // end of the 'list_bookmarks()' function
 
@@ -1627,58 +1626,43 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      * @param   string   the current database name
      * @param   array    the bookmark parameters for the current user
      * @param   integer  the id of the bookmark to get
-     * @global	link     a MySQL link identifier
      *
      * @return  string   the sql query
      */
     function query_bookmarks($db, $cfgBookmark, $id)
     {
-        global $dbh;
-        
-        $query ='SELECT query FROM '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
-			.' WHERE dbase=\'' . str_replace('\'', '\\\'', $db) . '\''
-			.' AND user = \'' . str_replace('\'', '\\\'', $cfgBookmark['user']) . '\''
-			.' AND id = '.$id;
-		   
-        if(isset($dbh))
-	    	$result=mysql_query($query,$dbh);
-		else
-	        $result=mysql_query($query);
-		
-		$bookmark_query=mysql_result($result,0,"query");
-		$bookmark_query=urldecode($bookmark_query);
-		$bookmark_query=str_replace('\'', '\\\'', $bookmark_query);
+        $query          = 'SELECT query FROM ' . backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
+                        . ' WHERE dbase = \'' . sql_addslashes($db) . '\''
+                        . ' AND user = \'' . sql_addslashes($cfgBookmark['user']) . '\''
+                        . ' AND id = ' . $id;
+        if (isset($GLOBALS['dbh'])) {
+            $result = mysql_query($query, $GLOBALS['dbh']);
+        } else {
+            $result = mysql_query($query);
+        }
+        $bookmark_query = mysql_result($result, 0, 'query');
 
-    	return $bookmark_query;
+        return $bookmark_query;
     } // end of the 'query_bookmarks()' function
-    
+
+
     /**
-     * Add a bookmark
+     * Adds a bookmark
      *
-     * @param   string   the current database name
+     * @param   array    the properties of the bookmark to add
      * @param   array    the bookmark parameters for the current user
-     * @param   integer  the id of the bookmark to get
-     * @global	link     a MySQL link identifier
-     *
-     * @return  string   the sql query
      */
     function add_bookmarks($fields, $cfgBookmark)
     {
-     	global $dbh;
-   
-     	$query ='INSERT INTO '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
-			.' (id, dbase, user, query, label) VALUES ('
-			.' \'\','
-			.' \''.str_replace('\'', '\\\'', $fields['dbase']).'\','
-			.' \''.str_replace('\'', '\\\'', $fields['user']).'\','
-			.' \''.str_replace('\'', '\\\'', $fields['query']).'\','
-			.' \''.str_replace('\'', '\\\'', $fields['label']).'\' )';
+        $query = 'INSERT INTO ' . backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
+               . ' (id, dbase, user, query, label) VALUES (\'\', \'' . sql_addslashes($fields['dbase']) . '\', \'' . sql_addslashes($fields['user']) . '\', \'' . sql_addslashes(urldecode($fields['query'])) . '\', \'' . sql_addslashes($fields['label']) . '\')';
+        if (isset($GLOBALS['dbh'])) {
+            $result = mysql_query($query, $GLOBALS['dbh']);
+        } else {
+            $result = mysql_query($query);
+        }
+    } // end of the 'add_bookmarks()' function
 
-       	if(isset($dbh))
-    		$result=mysql_query($query,$dbh);
-    	else
-    		$result=mysql_query($query);
-    } // end of the 'add_bookmarks()' function    
 
     /**
      * Deletes a bookmark
@@ -1686,28 +1670,22 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
      * @param   string   the current database name
      * @param   array    the bookmark parameters for the current user
      * @param   integer  the id of the bookmark to get
-     * @global	link     a MySQL link identifier
-     *
-     * @return  string   the sql query
      */
     function delete_bookmarks($db, $cfgBookmark, $id)
     {
-    	global $dbh;
-    	
-    	$query ='DELETE FROM '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
-    	       .' WHERE user = \'' . str_replace('\'', '\\\'', $cfgBookmark['user']) . '\''
-			   .' AND id = '.$id;
-                
-        if(isset($dbh))
-        	$result=mysql_query($query,$dbh);
-        else
-        	$result=mysql_query($query);
+        $query  = 'DELETE FROM ' . backquote($cfgBookmark['db']) . '.' . backquote($cfgBookmark['table'])
+                . ' WHERE user = \'' . sql_addslashes($cfgBookmark['user']) . '\''
+                . ' AND id = ' . $id;
+        if (isset($GLOBALS['dbh'])) {
+            $result = mysql_query($query, $GLOBALS['dbh']);
+        } else {
+            $result = mysql_query($query);
+        }
     } // end of the 'delete_bookmarks()' function
 
 
-
-
     /* -------------------- End of functions definitions ------------------- */
+
 
     /**
      * Bookmark Support

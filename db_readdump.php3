@@ -55,7 +55,7 @@ if ($sql_file != 'none') {
         }
     }
 }
-else if (get_magic_quotes_gpc() == 1) {
+else if (empty($id_bookmark) && get_magic_quotes_gpc() == 1) {
 	$sql_query = stripslashes($sql_query);
 }
 $sql_query = trim($sql_query);
@@ -97,9 +97,9 @@ if ($sql_query != '') {
             $a_sql_query = trim($pieces[$i]);
             if (!empty($a_sql_query) && $a_sql_query[0] != '#') {
                 $result = mysql_query($a_sql_query);
-                if ($result==false) { // readdump failed
-                	$my_die=$a_sql_query;
-                	break;
+                if ($result == FALSE) { // readdump failed
+                    $my_die = $a_sql_query;
+                    break;
                 }
             }
             if (!isset($reload) && eregi('^(DROP|CREATE) +(TABLE|DATABASE) (.+)', $a_sql_query)) {
@@ -116,7 +116,9 @@ if ($sql_query != '') {
 // Copy the original query back for display purposes
 $sql_query = $sql_query_cpy;
 include('./header.inc.php3');
-if (isset($my_die)) mysql_die('', $my_die);
+if (isset($my_die)) {
+    mysql_die('', $my_die);
+}
 $message   = $strSuccess;
 require('./db_details.php3');
 ?>

@@ -8,13 +8,18 @@
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
 
+
 /**
- * Bookmark Add
+ * Bookmark add
  */
-if(isset($bookmarkthis)) {
-	add_bookmarks($fields, $cfgBookmark);
-	Header("Location: $goto");
+if (isset($store_bkm)) {
+    if (get_magic_quotes_gpc()) {
+        $fields['label'] = stripslashes($fields['label']);
+    }
+    add_bookmarks($fields, $cfgBookmark);
+    header('Location: ' . $goto);
 }
+
 
 /**
  * Gets the true sql query
@@ -216,7 +221,6 @@ else {
                 }
                 echo '    <br /><br />' . "\n";
                 echo '    ' . $strBookmarkLabel . '&nbsp;:' . "\n";
-               
                 $goto = 'sql.php3'
                       . '?lang=' . $lang
                       . '&server=' . urlencode($server)
@@ -227,11 +231,10 @@ else {
                       . '&id_bookmark=1';
                 ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-    <input type="hidden" name="bookmarkthis" value="true" />
-    <input type="hidden" name="fields[dbase]" value="<?php echo $db;?>" />
-    <input type="hidden" name="fields[user]" value="<?php echo $cfgBookmark['user'];?>" />
-    <input type="hidden" name="fields[query]" value="<?php echo isset($sql_query) ? urlencode($sql_query)  : "";?>" />
-    <input type="text"   name="fields[label]" value="">
+    <input type="hidden" name="fields[dbase]" value="<?php echo $db; ?>" />
+    <input type="hidden" name="fields[user]" value="<?php echo $cfgBookmark['user']; ?>" />
+    <input type="hidden" name="fields[query]" value="<?php echo isset($sql_query) ? urlencode($full_sql_query) : ''; ?>" />
+    <input type="text" name="fields[label]" value="" />
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
 </form>
                 <?php
