@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-13 Alexander M. Turek  <me@derrabus.de>
+    * libraries/dbi/mysqli.dbi.lib.php: avoid php errors if result set is
+      FALSE.
+
 2004-07-12 Marc Delisle  <lem9@users.sourceforge.net>
     * all themes/colors.inc.php, libraries/common.lib.php,
       config.inc.php, Documentation.html: rename colors.inc.php to

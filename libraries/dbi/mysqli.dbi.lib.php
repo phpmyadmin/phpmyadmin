@@ -123,9 +123,9 @@ function PMA_mysqli_fetch_array($result, $type = FALSE) {
     global $cfg, $allow_recoding, $charset, $convcharset;
 
     if ($type != FALSE) {
-        $data = mysqli_fetch_array($result, $type);
+        $data = @mysqli_fetch_array($result, $type);
     } else {
-        $data = mysqli_fetch_array($result);
+        $data = @mysqli_fetch_array($result);
     }
 
     /* No data returned => do not touch it */
