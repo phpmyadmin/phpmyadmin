@@ -15,4 +15,4 @@ do
         mv ${file}.new $file
 done
 echo " "
-echo "Message added to add message files (including english)"
+echo "Message added to all message files (including english)"
