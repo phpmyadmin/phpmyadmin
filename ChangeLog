@@ -12,6 +12,7 @@ $Source$
 	  textarea) the whole file, which could be problematic with large dumps.
 	* db_details: removed $sql_query_cpy stuff (was used by db_readdump.php3).
 	* lang/*: $strInstructions (used in db_readdump.php3).
+	* Documentation.html, CREDITS: various updates, removed CREDITS contents
 
 2001-08-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3: do not modify blob/binaries if $cfgProtectBlob is true,
