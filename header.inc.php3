@@ -5,11 +5,10 @@
 /**
  * Gets a core script and starts output buffering work
  */
-if (function_exists('require_once')) {
-    require_once('./libraries/common.lib.php3');
-    require_once('./libraries/ob.lib.php3');
-} else {
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
     require('./libraries/common.lib.php3');
+}
+if (!defined('PMA_OB_LIB_INCLUDED')) {
     require('./libraries/ob.lib.php3');
 }
 if ($GLOBALS['cfg']['OBGzip']) {
