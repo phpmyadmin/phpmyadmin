@@ -555,7 +555,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             if ($is_display['sort_lnk'] == '1') {
                 // Defines the url used to append/modify a sorting order
                 // 2.1.1 Checks if an hard coded 'order by' clause exists
-                if (eregi('(.*)([[:space:]]ORDER BY[[:space:]](.*))', $sql_query, $regs1)) {
+                if (eregi('(.*)([[:space:]]ORDER[[:space:]]*BY[[:space:]](.*))', $sql_query, $regs1)) {
                     if (eregi('((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)', $regs1[2], $regs2)) {
                         $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
                         $sql_order          = trim($regs2[1]);
@@ -579,7 +579,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     $pattern = str_replace('\\', '\\\\', $fields_meta[$i]->name);
                     $pattern = str_replace('(','\(', $pattern);
                     $pattern = str_replace(')','\)', $pattern);
-                    $is_in_sort = eregi('[[:space:]](`?)' . $pattern . '(`?)[ ,$]', $sql_order);
+                    //$is_in_sort = eregi('[[:space:]](`?)' . $pattern . '(`?)[ ,$]', $sql_order);
+                    // field name may be preceded by a space, or any number
+                    // of characters followed by a dot (tablename.fieldname)
+                    $is_in_sort = eregi('([[:space:]]|(.*\.))(`?)' . $pattern . '(`?)[ ,$]', $sql_order);
                 }
                 // 2.1.3 Checks if the table name is required (it's the case
                 //       for a query with a "JOIN" statement and if the column

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/display_tbl.lib.php3, sort order problem
+      SELECT tablename.columnname ... order by tablename.columnname
 
 2002-11-03 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html: Added another message to avoid annoying emails.
