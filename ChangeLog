@@ -8,6 +8,7 @@ $Source$
 2003-10-10 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/sql.php3: Fix PMA_getTableContentOld (bug #820932).
     * left.php3: Konqueror 3 and Opera 7 works with tree view (bug #820717).
+    * scripts/create-release.sh: Generate MD5 sums (RFE #748415).
 
 2003-10-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian*: updated, thanks to Artyom Rabzonov

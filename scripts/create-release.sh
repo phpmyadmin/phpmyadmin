@@ -2,6 +2,9 @@
 #
 # $Id$
 #
+# 2003-10-10, nijel@users.sourceforge.net:
+# - cvsserver set on just one place to ease testing
+# - echoes md5 sums to include on download page
 # 2003-06-22, robbat2@users.sourceforge.net:
 # - Moved to using updatedocs.sh for updating documentation
 # - Make tarring faster by re-arranging ops
@@ -32,6 +35,7 @@
 # - added release todo list
 #
 
+cvsserver=cvs.sourceforge.net
 
 if [ $# == 0 ]
 then
@@ -89,12 +93,12 @@ fi
 mkdir cvs
 cd cvs
 echo "Press [ENTER]!"
-cvs -d:pserver:anonymous@cvs1:/cvsroot/phpmyadmin login
+cvs -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin login
 if [ $? -ne 0 ] ; then
     echo "CVS login failed, bailing out"
     exit 1
 fi
-cvs -z3 -d:pserver:anonymous@cvs1:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
+cvs -z3 -d:pserver:anonymous@$cvsserver:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
 if [ $? -ne 0 ] ; then
     echo "CVS checkout failed, bailing out"
     exit 2
@@ -131,6 +135,16 @@ echo "Files:"
 echo "------"
 
 ls -la *.gz *.zip *.bz2
+
+echo
+echo "MD5 sums:"
+echo "--------"
+
+md5sum *.gz *.zip *.bz2 | sed "s/\([^ ]*\)[ ]*\([^ ]*\)/\$md5sum['\2'] = '\1';/"
+
+echo
+echo "Add these to /home/groups/p/ph/phpmyadmin/htdocs/home_page/md5.inc.php on sf"
+
 cd ..
 find cvs -type d -print0 | xargs -0 chmod 775
 find cvs -type f -print0 | xargs -0 chmod 664
@@ -163,7 +177,8 @@ Todo now:
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
         - in translators.html
- 9. the end :-)
+ 9. Add MD5s to /home/groups/p/ph/phpmyadmin/htdocs/home_page/md5.inc.php
+10. the end :-)
 
 END
 
