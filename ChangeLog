@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/auth/cookie.auth.lib.php: bug #1149373, error when
+      blowfish_secret is empty
+
 2005-02-23 Alexander M. Turek  <me@derrabus.de>
     * libraries/grab_globals.lib.php: More hotfixes against bug #1149381.
     * libraries/mysql_charsets.lib.php: Detection for new Japanese charsets

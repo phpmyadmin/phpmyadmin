@@ -407,6 +407,11 @@ function PMA_auth_check()
     global $pma_servername, $pma_username, $pma_password, $old_usr, $server;
     global $from_cookie;
 
+    // avoid an error in mcrypt
+    if ($GLOBALS['cfg']['blowfish_secret']=='') {
+        return FALSE;
+    }
+
     // Initialization
     $PHP_AUTH_USER = $PHP_AUTH_PW = '';
     $from_cookie   = FALSE;
