@@ -95,7 +95,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
         ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
     <td class="data">
-        <b><?php echo $table; ?></b>
+        <b><?php echo $table; ?>&nbsp;</b>
     </td>
     <td>
         <a href="sql.php3<?php echo $query; ?>&sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0"><?php echo $strBrowse; ?></a>
@@ -327,7 +327,7 @@ if ($num_tables > 0) {
         <tr>
             <td>
                 <input type="radio" name="what" value="structure" checked="checked" />
-                <?php echo $strStrucOnly . "\n"; ?>
+                <?php echo $strStrucOnly; ?>&nbsp;&nbsp;
             </td>
             <td>
                 <input type="checkbox" name="drop" value="1" />
@@ -337,7 +337,7 @@ if ($num_tables > 0) {
         <tr>
             <td>
                 <input type="radio" name="what" value="data" />
-                <?php echo $strStrucData . "\n"; ?>
+                <?php echo $strStrucData; ?>&nbsp;&nbsp;
             </td>
              <td>
                 <input type="checkbox" name="showcolumns" value="yes" />
@@ -347,7 +347,7 @@ if ($num_tables > 0) {
         <tr>
             <td>
                 <input type="radio" name="what" value="dataonly" />
-                <?php echo $strDataOnly . "\n"; ?>
+                <?php echo $strDataOnly; ?>&nbsp;&nbsp;
             </td>
             <td>
                 <input type="checkbox" name="asfile" value="sendit"<?php if (function_exists('gzencode')) { ?>onclick="if (!document.forms['db_dump'].elements['asfile'].checked) document.forms['db_dump'].elements['gzip'].checked = false<?php }; ?>" />
