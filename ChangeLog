@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-04 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech: Updated.
+
 2003-08-01 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3: bug 697979, implemented a suggestion by
       Joerg Klein (j0erch) to do a SELECT * when all fields were selected
@@ -696,7 +699,7 @@ $Source$
     * lang/chinese_big5: Updated, thanks to Siu Sun
     ### 2.5.1-rc1 released
 
-2003-05-26 michal cihar  <nijel@users.sourceforge.net>
+2003-05-26 Michal Cihar  <nijel@users.sourceforge.net>
     * documentation, config.inc.php3, tbl_change.php3,
       tbl_properties.inc.php3, libraries/config_import.lib.php3: possibility
       to disable ctrl+arrows moving.
