@@ -251,7 +251,7 @@ else {
     // 'xml' case
     else if ($GLOBALS['what'] == 'xml') {
         // first add the xml tag
-        $dump_buffer         .= '<?xml version="1.0" encoding="' . $charset_of_file . '"?>' . $crlf . $crlf;
+        $dump_buffer         .= '<?xml version="1.0" encoding="' . (empty($asfile) ? $charset : $charset_of_file) . '"?>' . $crlf . $crlf;
         // some comments
         $dump_buffer         .= '<!--' . $crlf
                              .  '-' . $crlf
