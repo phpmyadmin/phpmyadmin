@@ -383,7 +383,7 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
     <?php
     // modify robbat2 code - staybyte - 11. June 2001
     $result = PMA_DBI_query('SHOW VARIABLES LIKE \'have_%\';');
-    if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
+    if ($result) {
         while ($tmp = PMA_DBI_fetch_assoc($result)) {
             if (isset($tmp['Variable_name'])) {
                 switch ($tmp['Variable_name']) {
