@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-30  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/common.lib.php3, lines 489-493: fixed "backslashed backslash"
+	  before wildcards problem in databases names.
+
 2001-09-29  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3:
 	  - fixed a possible problem with invalid keys values in the $uva_mydbs

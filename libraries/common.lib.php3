@@ -486,12 +486,11 @@ if (!defined('__LIB_COMMON__')){
                                         reset($uva_mydbs);
                                         while (list($uva_matchpattern, $uva_value) = each($uva_mydbs)) {
                                             // loic1: fixed bad regexp
-                                            // TODO: - slash before wildcards
-                                            //         may be itself slashed
-                                            //       - db names may contain
-                                            //         characters that are
-                                            //         regexp instructions
-                                            $uva_regex = ereg_replace('[^\]%', '.*', ereg_replace('[^\]_', '.{1}', $uva_value));
+                                            // TODO: db names may contain
+                                            //       characters that are regexp
+                                            //       instructions
+                                            $re        = '(^|(\\\\\\\\)+|[^\])';
+                                            $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_value));
                                             // Fixed db name matching
                                             // 2000-08-28 -- Benjamin Gandon
                                             if (ereg('^' . $uva_regex . '$', $uva_row[0])) {
