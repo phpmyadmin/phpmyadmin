@@ -744,12 +744,15 @@ foreach($loop_array AS $vrowcount => $vrow) {
             // types (int or float), the length is not a limit on the values that
             // can be entered, so let's be generous (20) (we could also use the
             // real limits for each numeric type)
+            // 2004-04-07, it turned out that 20 was not generous enough
+            // for the maxlength
             if ($is_char) {
                 $fieldsize = (($len > 40) ? 40 : $len);
                 $maxlength = $len;
             }
             else {
-                $fieldsize = $maxlength = 20;
+                $fieldsize = 20;
+                $maxlength = 99;
             } // end if... else...
             echo "\n";
             ?>

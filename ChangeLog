@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php, bug 931034, big number data entry,
+      thanks to Dmitry (yrtimd)
+ 
 2004-04-06 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, complete the fix for bug 922054
 
