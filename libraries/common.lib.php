@@ -1889,7 +1889,7 @@ if (typeof(document.getElementById) != 'undefined'
             $out     .= "\n" . '        '
                      .  '</td>'
                      .  "\n" . '        '
-                     .  '<td class="navSpacer"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td>';
+                     .  '<td class="navSpacer"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" width="1" height="1" border="0" alt="" /></td>';
         }
 
         return $out;
