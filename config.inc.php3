@@ -177,8 +177,10 @@ $cfgBgcolorOne          = '#CCCCCC';    // table data row colour
 $cfgBgcolorTwo          = '#DDDDDD';    // table data row colour, alternate
 $cfgBrowsePointerColor  = '#CCFFCC';    // color of the pointer in browse mode
                                         // (blank for no pointer)
-$cfgBrowseMarkRow       = 0;            // if 1, you can click on rows to
-                                        // visually mark them
+$cfgBrowseMarkRow       = 0;            // if set to 1, 
+                                        // and $cfgBrowsePointerColor has a 
+                                        // value, you can click on rows to
+                                        // visually mark them with this color
 $cfgTextareaCols        = 40;           // textarea size (columns) in edit mode
 $cfgTextareaRows        = 7;            // textarea size (rows) in edit mode
 $cfgLimitChars          = 50;           // max field data length in browse mode
