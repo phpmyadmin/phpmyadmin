@@ -5,18 +5,23 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* The 'bkg.gif' was somewhat corrupted (it caused some annoying problems
+	  with NS4+). Fixed thanks to Laurent Hass. 
+
 2001-06-17  Robin Johnson  <robbat2@orbis-terrarum.net>
-	* Fixed the '<?' tags in user_details.php3 to proper '<?php' to work on a wider set of systems.
+	* Fixed the '<?' tags in user_details.php3 to proper '<?php' to work on a
+	  wider set of systems.
 
 2001-06-17  Loïc Chapeaux  <lolo@phpheaven.net>
 	* From Michal Cihar <cihar at email.cz>:
       - header.inc.php3, left.php3, all translations: added sending of charset
 	    in header
       - updated czech translation
-	  - added czech translation in iso-8859-2
+	  - added czech translation in iso-8859-2 and then modified
+	    select_lang.inc.php3
 	* main.php3: put the localization links at the top of the page
 	* left.js: optimized again the code for NS4+
-
 
 2001-06-15  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug 433388, patch from Alain Brissaud (hal0802)
