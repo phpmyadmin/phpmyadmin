@@ -19,7 +19,9 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     $tmp_cnt      = count($tmp);
     for ($i = 0; $i < $tmp_cnt; $i++) {
         $tmp1       = explode('=', $tmp[$i]);
-        $$tmp1[0] = $tmp1[1];
+        if (isset($tmp1[1])) {
+            $$tmp1[0] = $tmp1[1];
+        }
     }
     unset($tmp1);
     unset($tmp);
