@@ -106,7 +106,7 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
         <tr>
             <th align="left">
                 <?php
-                echo '<b>' . $theme_name . '</b>';
+                echo '<b>' . htmlspecialchars($theme_name) . '</b>';
                 ?>
             </th>
         </tr>
@@ -119,17 +119,17 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
                     if (document.getElementById) { 
                         document.write('style="border: 1px solid #000000;" ');
                     }
-                    document.write('alt="<?php echo $theme_name; ?> - Theme" ');
-                    document.write('title="<?php echo $theme_name; ?> - Theme" />');
+                    document.write('alt="<?php echo htmlspecialchars(addslashes($theme_name)); ?> - Theme" ');
+                    document.write('title="<?php echo htmlspecialchars(addslashes($theme_name)); ?> - Theme" />');
                     document.write('</a><br />');
                     document.write('[ <b><a href="#top" onclick="takeThis(\'<?php echo $PMA_Theme; ?>\'); return false;">');
-                    document.write('<?php echo (isset($strTakeIt) ? addslashes($strTakeIt) : 'take it'); ?>');
+                    document.write('<?php echo addslashes($strTakeIt); ?>');
                     document.write('</a></b> ]');
                 //-->
                 </script>
                 <noscript>
                     <?php
-                echo '<img src="' . $screen_directory . '/screen.png" border="1" alt="' . $theme_name . ' - Theme" />';
+                echo '<img src="' . $screen_directory . '/screen.png" border="1" alt="' . htmlspecialchars($theme_name) . ' - Theme" />';
                     ?>
                 </noscript>
             </td>

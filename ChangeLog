@@ -10,6 +10,7 @@ $Source$
       #1013787).
     * libraries/display_export.lib.php: Updated texts to fit Excel 2003
       behaviour (bug #1018457).
+    * main.php, themes.php: Escape theme names (bug #1016608).
 
 2004-09-01 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php: bug 939531: when people upgrade

@@ -631,7 +631,7 @@ if (isset($available_themes_choices) && $available_themes_choices > 1) {
                         if ($cur_theme == $theme) {
                             echo ' selected="selected"';
                         }
-                        echo '>' . $available_themes_choices_names[$cur_theme] . '</option>';
+                        echo '>' . htmlspecialchars($available_themes_choices_names[$cur_theme]) . '</option>';
                     }
                 ?>
                 </select>
