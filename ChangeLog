@@ -24,6 +24,7 @@ $Source$
       Michael Keck
     * footer.inc.php: sync left frame when choosing a db from server_databases,
       thanks to Michael Keck
+    * export.php: no longer auto-select the textarea containing exported data
 
 2004-06-24 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysqli.dbi.php: Undefined variable if PMA_DBI_getError() is
