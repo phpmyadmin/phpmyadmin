@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-27  Steve Alberty  <alberty@neptunlabs.de>
+	* lib.inc.php3: speedup get_table_content for tbl_dump
+	* tbl_dump: fixed a big bug
+	* db_readdump: fixed warning and a double include
+	* add defines.inc.php3
+
 2001-06-26  Steve Alberty  <alberty@neptunlabs.de>
 	* lib.inc.php3: add 3 new Constants:
 	  PHPMYADMIN_VERSION, PHP_WINDOWS, PHP_INT_VERSION
