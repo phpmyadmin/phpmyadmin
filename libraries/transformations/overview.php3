@@ -6,6 +6,7 @@
  * Change to basedir for including/requiring other fields
  */
 chdir('../../');
+define('PMA_PATH_TO_BASEDIR', '../../'); // rabus: required for the CSS link tag.
 
 /**
  * Don't display the page heading
@@ -56,7 +57,7 @@ while(list($key, $mimetype) = each($types['mimetype'])) {
         <th><?php echo $strMIME_transformation; ?></th>
         <th><?php echo $strMIME_description; ?></th>
     </tr>
-    
+
 <?php
 @reset($types);
 $i = 0;

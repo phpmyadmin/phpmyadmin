@@ -8,6 +8,8 @@ $Source$
 2003-03-13 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_status.php3: Fixed the Garvin's calculations.
     * server_variables.php3: Fixed the display for MySQL <= 4.0.3-beta.
+    * libraries/header_meta_style.inc.php3,
+      libraries/transformations/overview.php3: Fixed CSS link.
 
 2003-03-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: analyzer: where_clause_identifiers
