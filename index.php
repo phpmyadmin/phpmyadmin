@@ -61,7 +61,8 @@ $phpmain_hash_js = time();
 </head>
 
 <?php
-$query_frame_height = 60;
+//  adjust for new logo, but TODO: move into theme config
+$query_frame_height = 75;
 if ($cfg['LeftDisplayServers'] && !$cfg['DisplayServersList']) {
     $query_frame_height = $query_frame_height + 40;
 }
