@@ -410,6 +410,8 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 
 // To translate
-$strExplain = 'Explain SQL Query';  //to translate
-$strNoExplain = 'Unexplain SQL Query';  //to translate
+$strNoValidateSQL = 'Skip Validate SQL';  //to translate
+$strValidateSQL = 'Validate SQL';  //to translate
+$strNoExplain = 'Skip Explain SQL';  //to translate
+$strExplain = 'Explain SQL';  //to translate
 ?>
