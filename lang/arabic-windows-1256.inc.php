@@ -4,10 +4,11 @@
 /**
  * Original translation to Arabic by Fisal <fisal77 at hotmail.com>
  * Update by Tarik kallida <kallida at caramail.com>
- * Final Update on Februray 4, 2002 by Ossama Khayat <ossamak at nht.com.kw>
+ * Final Update on November 25, 2003 by Ossama Khayat <okhayat at yahoo.com>
  */
 
 $charset = 'windows-1256';
+$allow_recoding = TRUE;
 $text_dir = 'rtl'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'Tahoma, verdana, arial, helvetica, sans-serif';
 $right_font_family = '"Windows UI", Tahoma, verdana, arial, helvetica, sans-serif';
@@ -32,6 +33,7 @@ $strAccessDenied = 'ÛíÑ ãÓãæÍ';
 $strAccessDeniedExplanation = 'ÍÇæá phpMyAdmin ÇáÇÊÕÇá ÈÎÇÏã MySQL¡ æÑİÖ ÇáÎÇÏã ÇáÇÊÕÇá. Úáíß Ãä ÊÊÍŞŞ ãä ÇáãÓÊÖíİ¡ Ãæ ÇÓã ÇáãÓÊÎÏã æßáãÉ ÇáãÑæÑ İí ãáİ ÇáÅÚÏÇÏ config.inc.php æÊÊÃßÏ ÃäåÇ ãØÇÈŞÉ ááãÚáæãÇÊ ÇáãÚØÇÉ Åáíß ãä ŞÈá ÇáãÓÄæá Úä ÎÇÏã MySQL.';  
 $strAction = 'ÇáÚãáíÉ';
 $strAddAutoIncrement = 'ÃÖİ ŞíãÉ AUTO_INCREMENT';  
+$strAddConstraints = 'ÃÖİ ŞíæÏÇğ'; 
 $strAddDeleteColumn = 'ÅÖÇİå/ÍĞİ ÚãæÏ ÍŞá';
 $strAddDeleteRow = 'ÅÖÇİå/ÍĞİ Õİ ÓÌá';
 $strAddDropDatabase = 'ÃÖİ Ãæ ÇÍĞİ ŞÇÚÏÉ ÈíÇäÇÊ';
@@ -79,8 +81,10 @@ $strBeginCut = 'ÈÏÁ ÇáŞÕø';
 $strBeginRaw = 'ÈÏÁ ÈíÇäÇÊ ÃÕáíøÉ';
 $strBinary = 'ËäÇÆí';
 $strBinaryDoNotEdit = 'ËäÇÆí - áÇÊÍÑÑå';
+$strBookmarkAllUsers = 'ÇÓãÍ áßá ÇáãÓÊÎÏãíä ÇáæÕæá Åáì åĞå ÇáÚáÇãÉ ÇáãÑÌÚíÉ';
 $strBookmarkDeleted = 'áŞÏ ÍõĞİÊ ÇáÚáÇãå ÇáãÑÌÚíå.';
 $strBookmarkLabel = 'ÚáÇãå';
+$strBookmarkOptions = 'ÎíÇÑÇÊ ÇáÚáÇãÇÊ';
 $strBookmarkQuery = 'ÚáÇãå ãÑÌÚíå SQL-ÅÓÊÚáÇã';
 $strBookmarkThis = 'ÅÌÚá ÚáÇãå ãÑÌÚíå SQL-ÅÓÊÚáÇã';
 $strBookmarkView = 'ÚÑÖ İŞØ';
@@ -117,6 +121,7 @@ $strCharsets = 'ãÌãæÚÇÊ ÇáãÍÇÑİ';
 $strCharsetsAndCollations = 'ãÌãæÚÇÊ ÇáãÍÇÑİ æCollations';  
 $strCheckAll = 'ÅÎÊÑ Çáßá';
 $strCheckDbPriv = 'İÍÕ ÅãÊíÇÒ ŞÇÚÏÉ ÇáÈíÇäÇÊ';
+$strCheckOverhead = 'ÊÍŞŞ ãä overheaded';
 $strCheckPrivs = 'ÊÍŞŞ ãä ÇáÕáÇÍíÇÊ';  
 $strCheckPrivsLong = 'ÊÍŞŞ ãä ÇáÕáÇÍíÇÊ áŞÇÚÏÉ ÈíÇäÇÊ &quot;%s&quot;.';  
 $strCheckTable = 'ÇáÊÍŞŞ ãä ÇáÌÏæá';
@@ -134,6 +139,8 @@ $strConfigFileError = 'áã íÓÊØÚ phpMyAdmin Ãä íŞÑÃ ãáİ ÅÚÏÇÏÇÊß!<br />ŞÏ íßæä åĞ
 $strConfigureTableCoord = 'ÑÌÇÁ ÅÚÏÇÏ ÇáãæŞÚ ááÌÏæá %s';
 $strConfirm = 'åá ÊÑíÏ ÍŞÇğ Ãä ÊİÚá Ğáß¿';
 $strConnections = 'ÇÊÕÇáÇÊ';
+$strConstraintsForDumped = 'ŞíæÏ ÇáÌÏÇæá ÇáãÍİæÙÉ';
+$strConstraintsForTable = 'ÇáŞíæÏ ááÌÏæá'; 
 $strCookiesRequired = 'íÌÈ ÊİÚíá ÏÚã ÇáßæßíÒ İí åĞå ÇáãÑÍáÉ.';
 $strCopyTable = 'äÓÎ ÇáÌÏæá Åáì';
 $strCopyTableOK = 'ÇáÌÏæá %s áŞÏ Êã äÓÎå Åáì %s.';
@@ -146,6 +153,7 @@ $strCreateNewDatabase = 'Êßæíä ŞÇÚÏÉ ÈíÇäÇÊ ÌÏíÏÉ';
 $strCreateNewTable = 'Êßæíä ÌÏæá ÌÏíÏ İí ŞÇÚÏÉ ÇáÈíÇäÇÊ %s';
 $strCreatePage = 'ÃäÔÆ ÕİÍÉ ÌÏíÏÉ';
 $strCreatePdfFeat = 'ÅäÔÇÁ ãáİÇÊ PDF';
+$strCreationDates = 'ÊæÇÑíÎ ÇáÅäÔÇÁ/ÇáÊÍÏíË/ÇáÊÍŞøŞ';
 $strCriteria = 'ÇáãÚÇííÑ';
 $strCroatian = 'ÇáßÑæÇÊíÉ';  
 $strCyrillic = 'ÇáÓíÑíáíÉ';  
@@ -181,6 +189,7 @@ $strDbSpecific = 'ÎÇÕ ÈŞÇÚÏÉ ÈíÇäÇÊ';
 $strDefault = 'ÅİÊÑÇÖí';
 $strDefaultValueHelp = 'ááŞíã ÇáÇİÊÑÇÖíÉ¡ ÇáÑÌÇÁ ÃÏÎá ŞíãÉ ãİÑÏÉ¡ Ïæä ÚáÇãÇÊ åÑæÈ Ãæ ÊäÕíÕ¡ ÈÇÓÊÎÏÇã ÇáÊäÓíŞ: a';  
 $strDelOld = 'ÊÍÊæí ÇáÕİÍÉ ÇáÍÇáíÉ ãÑÇÌÚ áÌÏÇæá áã ÊÚÏ ãæÌæÏÉ. åá ÊæÏ ÍĞİ åĞå ÇáãÑÇÌÚ¿';  
+$strDelayedInserts = 'ÇÓÊÎÏã ÇáÅÖÇİÇÊ ÇáãÊÃÎÑÉ';
 $strDelete = 'ÍĞİ';
 $strDeleteAndFlush = 'ÇÍĞİ ÇáãÓÊÎÏãíä æŞã ÈÅÚÇÏÉ ŞÑÇÁÉ ÇáÕáÇÍíÇÊ ÈÚÏ Ğáß.';
 $strDeleteAndFlushDescr = 'åĞå åí ÃäÙİ ØÑíŞÉ¡ áßä ÅÚÇÏÉ ŞÑÇÁÉ ÇáÕáÇÍíÇÊ ŞÏ íÊØáøÈ ÈÚÖ ÇáæŞÊ.';
@@ -225,6 +234,7 @@ $strEnglish = 'ÇáÅäÌáíÒíÉ';
 $strEnglishPrivileges = ' ãáÇÍÙå: ÅÓã ÇáÅãÊíÇÒ áÜMySQL íÙåÑ æíõŞÑÃ ÈÇááÛå ÇáÅäÌáíÒíå İŞØ ';
 $strError = 'ÎØÃ';
 $strEstonian = 'ÇáÅÓÊæäíÉ';  
+$strExcelEdition = 'ÅÕÏÇÑÉ ÅßÓá';
 $strExcelOptions = 'ÎíÇÑÇÊ ÅßÓá';  
 $strExecuteBookmarked = 'äİøĞ ÇÓÊÚáÇã ãÍİæÙ ÈÚáÇãÉ ãÑÌÚíÉ';  
 $strExplain = 'ÅÔÑÍ SQL';
@@ -301,6 +311,8 @@ $strInsertTextfiles = 'ÅÏÎÇá ãáİ äÕí İí ÇáÌÏæá';
 $strInsertedRowId = 'ÑŞã ãÚÑøİ ÇáÓøØÑ ÇáãÖÇİ:';  
 $strInsertedRows = 'Õİæİ ãÏÎáå:';
 $strInstructions = 'ÇáÃæÇãÑ';
+$strInternalNotNecessary = '* ÇáÚáÇŞÉ ÇáÏÇÎáíÉ ÛíÑ ÖÑæÑíÉ ÚäÏãÇ Êßæä ãæÌæÏÉ ãÓÈŞÇğ İí InnoDB.';
+$strInternalRelations = 'ÇáÚáÇŞÇÊ ÇáÏÇÎáíÉ';
 $strInvalidName = '"%s" ßáãå ãÍÌæÒå, áÇíãßäß ÅÓÊÎÏÇãåÇ ßÅÓã ŞÇÚÏÉ ÈíÇäÇÊ/ÌÏæá/ÍŞá.';
 
 $strJapanese = 'ÇáíÇÈÇäíÉ';  
@@ -316,6 +328,13 @@ $strKorean = 'ÇáßæÑíÉ';
 $strLaTeX = 'áÇÊößúÓú';
 $strLaTeXOptions = 'ÎíÇÑÇÊ áÇÊßÓ';  
 $strLandscape = 'ÚÑÖ ÇáÕİÍÉ';
+$strLatexCaption = 'ÚäæÇä ÇáÌÏæá';
+$strLatexContent = 'ãÍÊæííÇÊ ÇáÌÏæá __TABLE__';
+$strLatexContinued = '(ÊÇÈÚ)';
+$strLatexContinuedCaption = 'ÚäæÇä ÌÏæá ÊÇÈÚ';
+$strLatexIncludeCaption = 'ÃÖİ ÚäæÇäÇğ ááÌÏæá';
+$strLatexLabel = 'Label key';
+$strLatexStructure = 'ÈäíÉ ÇáÌÏæá __TABLE__';
 $strLength = 'ÇáØæá';
 $strLengthSet = 'ÇáØæá/ÇáŞíãå*';
 $strLimitNumRows = 'ÑŞã ÇáÓÌáÇÊ áßá ÕİÍå';
@@ -330,6 +349,7 @@ $strLoadMethod = 'ØÑíŞ LOAD';
 $strLocalhost = 'ãÍáí';
 $strLocationTextfile = 'ãßÇä ãáİ äÕí';
 $strLogPassword = 'ßáãÉ ÇáÓÑ:';
+$strLogServer = 'ÎÇÏã ÇáÓÌáø';
 $strLogUsername = 'ÅÓã ÇáãõÓÊÎÏã:';
 $strLogin = 'ÏÎæá';
 $strLoginInformation = 'ÈíÇäÇÊ ÇáÏÎæá';
@@ -439,6 +459,7 @@ $strPrimaryKeyName = 'ÅÓã ÇáãİÊÇÍ ÇáÃÓÇÓí íÌÈ Ãä íßæä ÃÓÇÓí... PRIMARY!';
 $strPrimaryKeyWarning = '("ÇáÃÓÇÓí" <b>íÌÈ</b> íÌÈ Ãä íßæä ÇáÃÓã <b>æÃíÖÇğ İŞØ</b> ÇáãİÊÇÍ ÇáÃÓÇÓí!)';
 $strPrint = 'ÅØÈÚ';
 $strPrintView = 'ÚÑÖ äÓÎÉ ááØÈÇÚÉ';
+$strPrintViewFull = 'ÚÑÖ ÇáØÈÇÚÉ (ãÚ ÇáäÕæÕ ÇáßÇãáÉ).';
 $strPrivDescAllPrivileges = 'íÊÖãøä ßá ÇáÕáÇÍíøÇÊ ÚÏÇ GRANT.';
 $strPrivDescAlter = 'íÓãÍ ÈÊÚÏíá ÈäÇÁ ÇáÌÏÇæá ÇáãæÌæÏÉ ãÓÈŞÇğ.';
 $strPrivDescCreateDb = 'íÓãÍ ÈÅäÔÇÁ ŞæÇÚÏ ÈíÇäÇÊ æÌÏÇæá ÌÏíÏÉ.';
@@ -530,6 +551,7 @@ $strRunning = ' Úáì ÇáãÒæÏ %s';
 $strRussian = 'ÇáÑæÓíÉ';  
 
 $strSQL = 'SQL';
+$strSQLExportType = 'äæÚ ÇáÊÕÏíÑ'; 
 $strSQLOptions = 'ÎíÇÑÇÊ SQL';
 $strSQLParserBugMessage = 'åäÇß ÇÍÊãÇá Ãäß ÚËÑÊ Úáì Îáá İí ãÏŞŞø SQL. ÑÌÇÁğ ÇÎÊÈÑ ÇÓÊÚáÇãß ÈÏŞøÉ¡ æÊÃßøÏ ãä Ãä ÚáÇãÇÊ ÇáÊäÕíÕ ÕÍíÍÉ æãÊØÇÈŞÉ. ÈÚÖ ÃÓÈÇÈ ÇáÅÎİÇŞ ÇáÃÎÑì ŞÏ Êßæä Ãäß ÊÍÇæá ÊÍãíá ãáİ íÍÊæí Úáì ÈíÇäÇÊ ÛíÑ äÕøíÉ ÎÇÑÌ ãäØŞÉ ÇáÊäÕíÕ. íãßäß ÃíÖÇğ ÊÌÑÈÉ ÇÓÊÚáÇãß ÈæÇÓØÉ ÓØÑ ÃæÇãÑ MySQL. ŞÏ ÊÓÇÚÏß ÑÓÇáÉ ÎØÃ ÎÇÏã MySQL ÃÏäÇå¡ Åä ßÇäÊ åäÇß æÇÍÏÉ¡ Úáì ÊÔÎíÕ ÇáãÔßáÉ. Åä ÈŞí åäÇß ãÔÇßá Ãæ Åä ÃÎİŞ ÇáãÏŞøŞ İí Ííä äÌÍ ÇÓÊÎÏÇã ÓØÑ ÇáÃæÇãÑ¡ ÑÌÇÁğ ŞáøÕ ÍÌã ÇÓÊÚáÇãß áÇÓÊÚáÇã æÇÍÏ íÓÈÈ ÇáãÔßáÉ¡ æŞã ÈÅÑÓÇá ÊŞÑíÑ Îáá ãÚ ÌÒÁ ÇáÈíÇäÇÊ İí ãäØŞÉ ÇáŞÕø ÃÏäÇå:';
 $strSQLParserUserError = 'íÈÏæ Ãä åäÇß ÎØÃ İí ÇÓÊÚáÇã SQL. Óæİ ÊÓÇÚÏß ÑÓÇáÉ ÇáÎØÃ ãä ÎÇÏã MySQL ÃÏäÇå İí ÊÔÎíÕ ÇáãÔßáÉ¡ Åä ßÇä åäÇß æÇÍÏÉ¡.';
@@ -587,6 +609,7 @@ $strSimplifiedChinese = 'ÇáÕíäíÉ ÇáãÈÓØÉ';
 $strSingly = '(İÑÏí)';
 $strSize = 'ÇáÍÌã';
 $strSort = 'ÊÕäíİ';
+$strSortByKey = 'ÑÊøÈ ÍÓÈ ÇáãİÊÇÍ';
 $strSpaceUsage = 'ÇáãÓÇÍÉ ÇáãÓÊÛáÉ';
 $strSplitWordsWithSpace = 'ÇáßáãÇÊ ãİÕæáÉ ÈÍÑİ ãÓÇİÉ (" ").';
 $strStatCheckTime = 'ÇáÊÍŞŞ ÇáÃÎíÑ';
@@ -659,6 +682,7 @@ $strUpdatePrivMessage = 'áŞÏ ÌÏÏÊ æÍÏËÊ ÇáÅãÊíÇÒÇÊ áÜ %s.';
 $strUpdateProfile = 'ÊÌÏíÏ ÇáÚÑÖ ÇáÌÇäÈí:';
 $strUpdateProfileMessage = 'áŞÏ Êã ÊÌÏíÏ ÇáÚÑÖ ÇáÌÇäÈí.';
 $strUpdateQuery = 'ÊÌÏíÏ ÅÓÊÚáÇã';
+$strUpgrade = 'Úáíß ÇáÊÍÏíË Åáì %s %s Ãæ áÇÍŞÇ.';
 $strUsage = 'ÇáãÓÇÍÉ';
 $strUseBackquotes = 'ÍãÇíÉ ÃÓãÇÁ ÇáÌÏÇæá æ ÇáÍŞæá È "`" ';
 $strUseHostTable = 'ÇÓÊÎÏã ÇáÌÏæá ÇáãÖíİ';  
@@ -701,34 +725,4 @@ $strYes = 'äÚã';
 $strZeroRemovesTheLimit = 'ãáÇÍÙÉ: ÊÛííÑ åĞå ÇáÎíÇÑÇÊ ááÑŞã 0 )ÕİÑ( íáÛí ÇáÍÏø.';
 $strZip = '"zipped" "ãÖÛæØ"';
 
-$strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
-$strBookmarkOptions = 'Bookmark options';  //to translate
-
-$strCheckOverhead = 'Check overheaded';  //to translate
-$strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
-$strConstraintsForTable = 'Constraints for table';  //to translate
-$strCreationDates = 'Creation/Update/Check dates';  //to translate
-
-$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
-$strInternalRelations = 'Internal relations';  //to translate
-
-$strLatexCaption = 'Table caption';//to translate
-$strLatexContent = 'Content of table __TABLE__';//to translate
-$strLatexContinued = '(continued)';//to translate
-$strLatexContinuedCaption = 'Continued table caption';//to translate
-$strLatexIncludeCaption = 'Include table caption';//to translate
-$strLatexLabel = 'Label key';//to translate
-$strLatexStructure = 'Structure of table __TABLE__';//to translate
-$strLogServer = 'Server';  //to translate
-
-$strPrintViewFull = 'Print view (with full texts)';  //to translate
-
-$strSortByKey = 'Sort by key';  //to translate
-
-$strUpgrade = 'You should upgrade to %s %s or later.';  //to translate
-
-$strExcelEdition = 'Excel edition';  //to translate
-$strDelayedInserts = 'Use delayed inserts';  //to translate
-$strSQLExportType = 'Export type';  //to translate
-$strAddConstraints = 'Add constraints';  //to translate
 ?>
