@@ -44,13 +44,6 @@ require('./libraries/transformations.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
 
 $comments_map = array();
-
-if ($cfgRelation['commwork']) {
-    $comments_map = PMA_getComments($db, $table);
-    echo '<th>' . $strComments . '</th>';
-}
-
-$comments_map = array();
 $mime_map = array();
 $available_mime = array();
 
