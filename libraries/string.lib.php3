@@ -219,10 +219,11 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
         $ord_NOBR  = 160; //ord('U+00A0);
         $ord_c     = ord($c);
 
-        return (($ord_c == $ord_space) 
+        return (($ord_c == $ord_space)
                 || ($ord_c == $ord_NOBR)
                 || PMA_STR_numberInRangeInclusive($ord_c, $ord_tab, $ord_CR));
     } // end of the "PMA_STR_isSpace()" function
+
 
     /**
      * Checks if a character is an accented character
@@ -242,8 +243,8 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
         $ord_max2 = 154; //ord('Z');
         $ord_c    = ord($c);
 
-        return PMA_STR_numberInRangeInclusive($ord_c, $ord_min1, $ord_max1)
-        || PMA_STR_numberInRangeInclusive($ord_c, $ord_min2, $ord_max2);
+        return (PMA_STR_numberInRangeInclusive($ord_c, $ord_min1, $ord_max1)
+               || PMA_STR_numberInRangeInclusive($ord_c, $ord_min2, $ord_max2));
     } // end of the "PMA_STR_isAccented()" function
 
 
