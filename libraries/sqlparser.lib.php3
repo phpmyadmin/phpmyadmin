@@ -398,7 +398,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $count2 ++;
                 $is_sql_variable         = ($c == '@');
                 $is_digit                = (!$is_sql_variable) && PMA_STR_isDigit($c);
-                $is_hex_digit            = ($is_digit) && ($c == '0') && ($sql[$count2] == 'x');
+                $is_hex_digit            = ($is_digit) && ($c == '0') && ($count2 < $len) && ($sql[$count2] == 'x');
                 $is_float_digit          = FALSE;
                 $is_float_digit_exponent = FALSE;
 
