@@ -31,7 +31,6 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
                 $target[$key] = $value;
             }
         }
-        reset($array);
         return TRUE;
     }
 

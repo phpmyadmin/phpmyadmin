@@ -55,8 +55,6 @@ echo '<table border="0">' . "\n"
    . '                </th>' . "\n"
    . '            </tr>' . "\n";
 
-reset($mysql_charsets);
-reset($mysql_collations);
 $i = 0;
 $table_row_count = count($mysql_charsets) + $mysql_collations_count;
 

@@ -209,13 +209,13 @@ if ($server > 0) {
         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
         $rs_usr      = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
-            $re0     = '@(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
-            $re1     = '@(^|[^\])(\\\)+';       // escaped wildcards
+            $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
+            $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
             while ($row = PMA_mysql_fetch_array($rs_usr)) {
-                if (preg_match($re0 . '(%|_)@', $row['Db'])
-                    || (!PMA_mysql_select_db(preg_replace($re1 . '(%|_)@', '\\1\\3', $row['Db']), $userlink) && @mysql_errno() != 1044)) {
-                    $db_to_create   = preg_replace($re0 . '%@', '\\1...', preg_replace($re0 . '_@', '\\1?', $row['Db']));
-                    $db_to_create   = preg_replace($re1 . '(%|_)@', '\\1\\3', $db_to_create);
+                if (ereg($re0 . '(%|_)', $row['Db'])
+                    || (!PMA_mysql_select_db(ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db']), $userlink) && @mysql_errno() != 1044)) {
+                    $db_to_create   = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $row['Db']));
+                    $db_to_create   = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
                     $is_create_priv = TRUE;
                     break;
                 } // end if
@@ -235,8 +235,8 @@ if ($server > 0) {
                 $rs_usr      = PMA_mysql_query($local_query, $dbh);
             }
             if ($rs_usr) {
-                $re0 = '@(^|(\\\\\\\\)+|[^\\\\])'; // non-escaped wildcards
-                $re1 = '@(^|[^\])(\\\)+'; // escaped wildcards
+                $re0 = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
+                $re1 = '(^|[^\])(\\\)+'; // escaped wildcards
                 while ($row = PMA_mysql_fetch_row($rs_usr)) {
                     $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4,(strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
                     $show_grants_str    = substr($row[0],6,(strpos($row[0],' ON ')-6));
@@ -246,9 +246,9 @@ if ($server > 0) {
                             $db_to_create   = '';
                             break;
                         } // end if
-                        else if (preg_match($re0 . '%|_@', $show_grants_dbname) || !PMA_mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
-                            $db_to_create = preg_replace($re0 . '%@', '\\1...', preg_replace($re0 . '_@', '\\1?', $show_grants_dbname));
-                            $db_to_create = preg_replace($re1 . '(%|_)@', '\\1\\3', $db_to_create);
+                        else if (preg_match($re0 . '%|_', $show_grants_dbname) || !PMA_mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
+                            $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
+                            $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
                             $is_create_priv     = TRUE;
                             break;
                         } // end elseif

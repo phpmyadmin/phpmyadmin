@@ -25,7 +25,7 @@ if (!defined('PMA_DB_CONFIG_LIB_INCLUDED')) {
      */
     function obj2xml($v, $indent = '') {
         $attr = '';
-        while (list($key, $val) = each($v)) {
+        foreach($v AS $key => $val) {
             if (is_string($key) && ($key == '__attr')) {
                 continue;
             }

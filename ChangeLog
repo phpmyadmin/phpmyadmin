@@ -5,6 +5,17 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-24 Garvin Hicking <phpmyadminismyaeroplane@supergarv.de>
+    * db_details_qbe.php, left.php, main.php, pdf_pages.php, server_collations.php,
+      tbl_change.php, tbl_indexes.php, tbl_move_copy.php, tbl_relation.php,
+      tbl_replace.php, libraries/common.lib.php, libraries/db_config.lib.php,
+      libraries/display_tbl.lib.php, libraries/grab_globals.lib.php,
+      libraries/mysql_charsets.lib.php, libraries/select_lang.lib.php:
+
+      Reverted some obfuscated regular expressions to their working eregi-versions
+      to not break stuff. Removed unneccessary reset() calls, replaced some more
+      while(list()) constructs.
+
 2003-11-24 Alexander M. Turek  <bloodsugarsexmagik@derrabus.de>
     * lang/german-*.inc.php: Updates.
     * lang/english-*.inc.php: Sortation.

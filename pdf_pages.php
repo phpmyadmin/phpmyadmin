@@ -295,7 +295,6 @@ $i = 0;
 while ($temp_sh_page = @PMA_mysql_fetch_array($page_rs)) {
     $array_sh_page[] = $temp_sh_page;
 }
-reset($array_sh_page);
 
 // garvin: Display WYSIWYG-PDF parts?
 if ($cfg['WYSIWYG-PDF']) {
@@ -384,7 +383,6 @@ function resetDrag() {
             echo '>';
             echo "\n" . '        <td>'
                  . "\n" . '            <select name="c_table_' . $i . '[name]">';
-            reset($selectboxall);
             foreach($selectboxall AS $key => $value) {
                 echo "\n" . '                <option value="' . $value . '"';
                 if ($value == $sh_page['table_name']) {

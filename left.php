@@ -484,7 +484,6 @@ if ($num_dbs > 1) {
                 if (!empty($cfg['LeftFrameTableSeparator'])) {
                     $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'',$table));
                     if (is_array($_table)) {
-                        reset($_table);
                         foreach($_table AS $key => $val) {
                             if ($val == '') {
                                 $_table[$key] = '__protected__';

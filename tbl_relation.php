@@ -379,7 +379,6 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         echo "\n";
 
         // PMA internal relations
-        reset($selectboxall);
         if (isset($existrel[$myfield])) {
             $foreign_field    = $existrel[$myfield]['foreign_db'] . '.'
                      . $existrel[$myfield]['foreign_table'] . '.'

@@ -985,8 +985,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     echo '    <td>&nbsp;</td>' . "\n";
                 }
 
-                reset($vertical_display['desc']);
-                while (list($key, $val) = each($vertical_display['desc'])) {
+                foreach($vertical_display['desc'] AS $key => $val) {
                     echo $val;
                 }
 
@@ -1543,8 +1542,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     function PMA_displayVerticalTable()
     {
         global $vertical_display, $repeat_cells;
-
-        reset($vertical_display);
 
         // Displays "multi row delete" link at top if required
         if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && is_array($vertical_display['row_delete']) && (count($vertical_display['row_delete']) > 0 || !empty($vertical_display['textbtn']))) {

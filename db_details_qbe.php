@@ -862,7 +862,6 @@ if (isset($Field) && count($Field) > 0) {
             } else {
                 reset($col_cand);
                 $master = current($col_cand); // Only one single candidate
-                //
             }
         } // end if (exactly one where clause)
 

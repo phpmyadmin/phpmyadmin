@@ -220,7 +220,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo "\n";
 
     $row_table_def   = PMA_mysql_fetch_array($table_def);
-    $row_table_def['True_Type'] = preg_replace('@\\(.*@', '', $row_table_def['Type']);
+    $row_table_def['True_Type'] = preg_replace('@\(.*@', '', $row_table_def['Type']);
+    
     $field           = $row_table_def['Field'];
 
     // garvin: possible workaround. If current field is numerical, do not try to

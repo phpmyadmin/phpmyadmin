@@ -127,7 +127,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     $fields_names[]     = $row['Field'];
     // loic1: set or enum types: slashes single quotes inside options
     if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
-        $tmp[2]         = substr(preg_replace('@([^,])\'\@', '\\1\\\'', ',' . $tmp[2]), 1);
+        $tmp[2]         = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
         $fields_types[] = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
     } else {
         $fields_types[] = $row['Type'];
@@ -352,7 +352,6 @@ else if (!defined('PMA_IDX_INCLUDED')
                 <option value="--ignore--"<?php if ('--ignore--' == $selected) echo ' selected="selected"'; ?>>
                     -- <?php echo $strIgnore; ?> --</option>
         <?php
-        reset($fields_names);
         foreach($fields_names AS $key => $val) {
             if ($index_type != 'FULLTEXT'
                 || preg_match('@^(varchar|text|tinytext|mediumtext|longtext)@i', $fields_types[$key])) {

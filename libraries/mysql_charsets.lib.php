@@ -36,14 +36,12 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
         }
     }
 
-    reset($mysql_collations);
     $mysql_collations_count = 0;
-    while (list($key, $value) = each($mysql_collations)) {
+    foreach($mysql_collations AS $key => $value) {
         $mysql_collations_count += count($mysql_collations[$key]);
         sort($mysql_collations[$key], SORT_STRING);
         reset($mysql_collations[$key]);
     }
-    reset($mysql_collations);
 
     @mysql_free_result($res);
     unset($res);

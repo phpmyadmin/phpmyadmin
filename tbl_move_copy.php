@@ -57,7 +57,6 @@ global $cfgRelation;
     $last_id = -1;
     
     if ($cfgRelation[$work]) {
-        @reset($get_fields);
         $select_parts = array();
         $row_fields = array();
         foreach($get_fields AS $nr => $get_field) {

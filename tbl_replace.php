@@ -62,7 +62,6 @@ if (isset($err_url)) {
 }
 
 // Resets tables defined in the configuration file
-reset($fields);
 if (isset($funcs)) {
     reset($funcs);
 }
