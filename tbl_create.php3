@@ -209,7 +209,7 @@ if (isset($submit)) {
     $sql_query = $query_cpy . ';';
     unset($query_cpy);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
-    include('./tbl_properties.php3');
+    include('./' . $cfg['DefaultTabTable']);
     exit();
 } // end do create table
 

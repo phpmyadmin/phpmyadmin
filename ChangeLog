@@ -5,11 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-08 Loïc Chapeaux  <lolo@phpheaven.net>
+    * tbl_create.php3: Fixed bug #578321 (Wrong page after table creation).
+
 2002-07-08 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 577645: extra space in the cell
     * libraries/common.lib.php3, defines.lib.php3, defines_php.lib.php3,
       scripts/create-release.sh: split defines.lib.php3 because
-      of charset_conversion needs (thanks to Michal Cihar) 
+      of charset_conversion needs (thanks to Michal Cihar)
     * slovak: with permission from Peter Svek, now the windows-1250
       is generated from the -iso-8859-2 file.
 
