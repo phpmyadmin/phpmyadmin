@@ -50,7 +50,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
  */
 $do_confirm = ($cfgConfirm
                && !isset($btnDrop)
-               && eregi('DROP +(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_]* +DROP|DELETE FROM', $sql_query));
+               && eregi('DROP +(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_`]* +DROP|DELETE FROM', $sql_query));
 $is_select  = eregi('^SELECT ', $sql_query);
 $is_delupd  = eregi('^(DELETE|UPDATE) ', $sql_query);
 
