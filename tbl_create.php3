@@ -34,9 +34,21 @@ mysql_select_db($db);
 if (isset($submit)) {
     $sql_query = $query_cpy = '';
 
+    // transform the radio button field_key into 3 arrays
+    $field_cnt = count($field_name);
+    for ($i = 0; $i < $field_cnt; ++$i) {
+        if (${'field_key_'.$i} == 'primary_'.$i) {
+           $field_primary[]=$i;
+        }
+        if (${'field_key_'.$i} == 'index_'.$i) {
+           $field_index[]=$i;
+        }
+        if (${'field_key_'.$i} == 'unique_'.$i) {
+           $field_unique[]=$i;
+        }
+    }
     // Builds the fields creation statements
-    $fields_cnt = count($field_name);
-    for ($i = 0; $i < $fields_cnt; $i++) {
+    for ($i = 0; $i < $field_cnt; $i++) {
         if (empty($field_name[$i])) {
             continue;
         }
@@ -87,7 +99,7 @@ if (isset($submit)) {
         $sql_query .= $query;
         $query_cpy .= "\n" . '  ' . $query;
     } // end for
-    unset($fields_cnt);
+    unset($field_cnt);
     unset($query);
     $sql_query = ereg_replace(', $', '', $sql_query);
     $query_cpy = ereg_replace(', $', '', $query_cpy);

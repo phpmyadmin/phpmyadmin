@@ -28,8 +28,20 @@ $err_url = 'tbl_properties.php3'
 if (isset($submit)) {
     $query = '';
 
-    // Builds the field creation statement and alters the table
+    // transform the radio button field_key into 3 arrays
     $field_cnt = count($field_name);
+    for ($i = 0; $i < $field_cnt; ++$i) {
+        if (${'field_key_'.$i} == 'primary_'.$i) {
+           $field_primary[]=$i;
+        }
+        if (${'field_key_'.$i} == 'index_'.$i) {
+           $field_index[]=$i;
+        }
+        if (${'field_key_'.$i} == 'unique_'.$i) {
+           $field_unique[]=$i;
+        }
+    }
+    // Builds the field creation statement and alters the table
     for ($i = 0; $i < $field_cnt; ++$i) {
         if (get_magic_quotes_gpc()) {
             $field_name[$i] = stripslashes($field_name[$i]);

@@ -42,6 +42,7 @@ if (!$is_backup) {
     echo "        <th>$strPrimary</th>\n";
     echo "        <th>$strIndex</th>\n";
     echo "        <th>$strUnique</th>\n";
+    echo "        <th>---</th>\n";
     echo "        <th>$strIdxFulltext</th>\n";
 }
 ?>
@@ -235,13 +236,16 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             echo "\n";
             ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <input type="checkbox" name="field_primary[]" value="<?php echo $i; ?>"<?php echo $checked_primary; ?> />
+            <input type="radio" name="field_key_<?php echo $i; ?>" value="primary_<?php echo $i; ?>"<?php echo $checked_primary; ?> />
         </td>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <input type="checkbox" name="field_index[]" value="<?php echo $i; ?>"<?php echo $checked_index; ?> />
+            <input type="radio" name="field_key_<?php echo $i; ?>" value="index_<?php echo $i; ?>"<?php echo $checked_index; ?> />
         </td>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <input type="checkbox" name="field_unique[]" value="<?php echo $i; ?>"<?php echo $checked_unique; ?> />
+            <input type="radio" name="field_key_<?php echo $i; ?>" value="unique_<?php echo $i; ?>"<?php echo $checked_unique; ?> />
+        </td>
+        <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+            <input type="radio" name="field_key_<?php echo $i; ?>" value="none_<?php echo $i; ?>" />
         </td>
             <?php
             if (PMA_MYSQL_INT_VERSION >= 32323) {

@@ -10,6 +10,8 @@ $Source$
 	  495360 (cookie with domain), experimental, thanks to
 	  Piotr Roszatycki (d3xter) and Christoph (certelt).
 	* tbl_properties.inc.php3: clarifications
+	* tbl_create.php3, tbl_addfield.php3, tbl_properties.inc.php3:
+	  radio buttons for indexes.
 
 2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/functions.js: improved the "mark row" feature (it wasn't
