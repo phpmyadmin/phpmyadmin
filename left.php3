@@ -178,8 +178,8 @@ echo "\n";
 // Don't display expansible/collapsible database info if:
 // 1. $server == 0 (no server selected)
 //    This is the case when there are multiple servers and
-//    '$cfg['ServerDefault'] = 0' is set. In that case, we want the welcome screen
-//    to appear with no database info displayed.
+//    '$cfg['ServerDefault'] = 0' is set. In that case, we want the welcome
+//    screen to appear with no database info displayed.
 // 2. there is only one database available (ie either only one database exists
 //    or $cfg['Servers']['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
