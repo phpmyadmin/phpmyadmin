@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-05 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html: Added a note about "bug" #662602 (FAQ 3.4).
+
 2003-01-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/estonian*, malay*: remove control M
     * lang/romanian: update, thanks to Valics Lehel

@@ -335,7 +335,7 @@
         Then each of the <i>true</i> users should be granted a set of
         privileges on a set of particular databases. Normally you shouldn't
         give global privileges to an ordinary user, unless you understand
-        the impact of those privileges (for example, you are creating 
+        the impact of those privileges (for example, you are creating
         a superuser).<br />
         For example, to grant the user <i>real_user</i> with
         all privileges on the database <i>user_base</i>:<br />
@@ -1960,6 +1960,31 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br />
     This seems to be a InnoDB bug (fixed in MySQL 3.23.50?). However, keep in
     mind that phpMyAdmin as of version 2.3.0 does not support InnoDB.
+</p>
+
+<p>
+    <b>[3.4] I am unable to import dumps I created with the mysqldump tool
+       bundled with the MySQL server distribution.</b>
+    <br />
+    The problem is that mysqldump creates invalid comments like this:<br />
+    <blockquote><tt>
+        -- MySQL dump 8.22<br />
+        --<br />
+        -- Host: localhost Database: database<br />
+        ---------------------------------------------------------<br />
+        -- Server version 3.23.54<br />
+    </tt></blockquote>
+    The invalid part of the code is the horizontal line made of dashes that
+    appears once in every dump created with mysqldump. If you want to run your
+    dump you have to turn it into valid MySQL. This means, you have to add a
+    whitespace after the first to dashes of the line or add a # before it:<br/>
+    <tt>
+        -- -------------------------------------------------------<br />
+    </tt>
+    or<br />
+    <tt>
+        #---------------------------------------------------------
+    </tt>
 </p>
 
 
