@@ -876,6 +876,10 @@ if (!isset($cfg['SQLQuery']['Validate'])) {
     $cfg['SQLQuery']['Validate'] = FALSE;
 }
 
+if (!isset($cfg['SQLQuery']['Refresh'])) {
+    $cfg['SQLQuery']['Refresh'] = TRUE;
+}
+
 if (!isset($cfg['UploadDir'])) {
     $cfg['UploadDir'] = '';
 }

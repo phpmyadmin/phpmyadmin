@@ -552,6 +552,7 @@ $cfg['SQLQuery']['Edit']      = TRUE;       // Edit link to change a query
 $cfg['SQLQuery']['Explain']   = TRUE;       // EXPLAIN on SELECT queries
 $cfg['SQLQuery']['ShowAsPHP'] = TRUE;       // Wrap a query in PHP
 $cfg['SQLQuery']['Validate']  = FALSE;      // Validate a query (see $cfg['SQLValidator'] as well)
+$cfg['SQLQuery']['Refresh']   = TRUE;       // Refresh the results page
 
 
 /**
