@@ -532,16 +532,16 @@ $strYes = 'Sí';
 
 $strZeroRemovesTheLimit = 'Nota: cambiando los parámetros de estas opciones a 0 (cero) remueven el límite.';
 $strZip = '"comprimido con zip"';
-// To translate
 
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-$strImportFinished = 'Import finished';  //to translate
-$strFileCouldNotBeRead = 'File could not be read';  //to translate
-$strIgnoringFile = 'Ignoring file %s';  //to translate
-$strThisNotDirectory = 'This was not a directory';  //to translate
-$strAbsolutePathToDocSqlDir = 'Please enter the absolute path on webserver to docSQL directory';  //to translate
-$strImportFiles = 'Import files';  //to translate
+$strAbsolutePathToDocSqlDir = 'Por favor, ingrese la ruta absoluta del servidor hacia el directorio docSQL';
+$strAddedColumnComment = 'Se añadió un comentario para la columna';
+$strAddedColumnRelation = 'Se añadió una relación para la columna';
+$strFileCouldNotBeRead = 'No fue posible leer el archivo';
+$strIgnoringFile = 'Ignorando el archivo %s';
+$strImportFiles = 'Importar archivos';
+$strImportFinished = 'Importación culminada'; 
+$strThisNotDirectory = 'Esto no fue un directorio';
+$strWritingCommentNotPossible = 'No fue posible escribir el comentario';
+$strWritingRelationNotPossible = 'No fue posible escribir la relación';
+
 ?>
