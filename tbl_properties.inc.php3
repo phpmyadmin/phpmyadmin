@@ -106,7 +106,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         if (strtoupper($type) == strtoupper($cfg['ColumnTypes'][$j])) {
             echo ' selected="selected"';
         }
-        echo ">" . $cfg['ColumnTypes'][$j] . "</option>\n";
+        echo '>' . $cfg['ColumnTypes'][$j] . '</option>' . "\n";
     } // end for
     ?>
             </select>
@@ -145,7 +145,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         if (strtoupper($strAttribute) == strtoupper($cfg['AttributeTypes'][$j])) {
             echo ' selected="selected"';
         }
-        echo ">" . $cfg['AttributeTypes'][$j] . "</option>\n";
+        echo '>' . $cfg['AttributeTypes'][$j] . '</option>' . "\n";
     }
     ?>
             </select>
