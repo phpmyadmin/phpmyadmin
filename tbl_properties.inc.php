@@ -175,7 +175,9 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
         $submit_length    = (isset($field_length) && isset($field_length[$i]) ? $field_length[$i] : FALSE);
         $submit_attribute = (isset($field_attribute) && isset($field_attribute[$i]) ? $field_attribute[$i] : FALSE);
-
+        
+        $submit_default_current_timestamp = (isset($field_default_current_timestamp) && isset($field_default_current_timestamp[$i]) ? TRUE : FALSE);
+        
         if (isset($field_comments) && isset($field_comments[$i])) {
             $comments_map[$row['Field']] = $field_comments[$i];
         }
@@ -257,11 +259,12 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim($type);
+    $type_upper = strtoupper($type);
 
     $cnt_column_types = count($cfg['ColumnTypes']);
     for ($j = 0; $j < $cnt_column_types; $j++) {
         $content_cells[$i][$ci] .= '                <option value="'. $cfg['ColumnTypes'][$j] . '"';
-        if (strtoupper($type) == strtoupper($cfg['ColumnTypes'][$j])) {
+        if ($type_upper == strtoupper($cfg['ColumnTypes'][$j])) {
             $content_cells[$i][$ci] .= ' selected="selected"';
         }
         $content_cells[$i][$ci] .= '>' . $cfg['ColumnTypes'][$j] . '</option>' . "\n";
@@ -322,7 +325,8 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     if (isset($row['Field']) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
         $attribute = 'ON UPDATE CURRENT_TIMESTAMP';
     }
-    if (isset($row['Field']) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp'])) {
+    if ((isset($row['Field']) && isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['default_current_timestamp']))
+     || $submit_default_current_timestamp  ) {
         $default_current_timestamp = TRUE; 
     } else {
         $default_current_timestamp = FALSE; 
@@ -377,7 +381,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     // for a TIMESTAMP, do not show CURRENT_TIMESTAMP as a default value
     if (PMA_MYSQL_INT_VERSION >= 40102 
-        && $type == 'timestamp'
+        && $type_upper == 'TIMESTAMP'
         && $default_current_timestamp
         && isset($row)
         && isset($row['Default'])) {
@@ -385,7 +389,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
 
     $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_default[]" size="12" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
-    if (PMA_MYSQL_INT_VERSION >= 40102 && $type == 'timestamp') {
+    if (PMA_MYSQL_INT_VERSION >= 40102 && $type_upper == 'TIMESTAMP') {
         $content_cells[$i][$ci] .= '<br /><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
         if ($default_current_timestamp) {
             $content_cells[$i][$ci] .= ' checked="checked" ';

@@ -15,6 +15,10 @@ $Source$
     * lang/english: improvements, thanks to Ryan Schmidt - ryandesign
     * lang/*: removed unused message and modified strCheckOverhead
       where still untranslated
+    * tbl_properties.inc.php: bug #1163595 (problem #5): after an error
+      modifying TIMESTAMP options, the table structure editing form
+      was shown without the new options. Still having an issue with
+      a default value for a TIMESTAMP not generated in the ALTER TABLE.
 
 2005-03-29 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: XSS vulnerability on convcharset
