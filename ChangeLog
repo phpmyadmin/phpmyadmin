@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 
+2002-10-21 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/dutch.inc.php3: Fixed a bug in the Dutch language files
+      (see Translations #629818).
+
 2002-10-25 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/common.lib.php3; libraries/display_tbl.lib.php3;
       libraries/kanji-encoding.lib.php3; libraries/sqlparser.lib.php3
@@ -26,7 +30,7 @@ $Source$
     * `find -name '*.php3'`: Added vim modelines for PEAR style indentation
 
 2002-10-22 Marc Delisle  <lem9@users.sourceforge.net>
-    * pdf_pages.php3: undefined variable, fix thanks to 
+    * pdf_pages.php3: undefined variable, fix thanks to
       Jose Fandos (jose.fandos at sonnd.com).
 
 2002-10-21 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -2132,7 +2136,7 @@ $Source$
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/ChangeLogs/
 
-# vim: ft=changelog 
+# vim: ft=changelog
 # vim: expandtab ts=4 sw=4 sts=4
 # vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>8&&getline(v\:lnum)!~'^#'
-# vim: fdn=1 fdm=expr 
+# vim: fdn=1 fdm=expr
