@@ -369,12 +369,16 @@ class PMA_RT_Table
         $pdf->SetFont($ff, '');
         $pdf->SetTextColor(0);
         $pdf->SetFillColor(255);
-
+        
         reset($this->fields);
         while (list(, $field) = each($this->fields)) {
+            if($field == $this->primary){$pdf->SetFillColor(215,121,123);}
+            if($field == $this->displayfield){$pdf->SetFillColor(142,159,224);}
             $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, ' ' . $field, 1, 1, 'L', 1);
             $pdf->PMA_PDF_setXScale($this->x);
-        }
+            $pdf->SetFillColor(255);
+        }        
+
         if ($pdf->PageNo() > 1) {
             $pdf->PMA_PDF_die($GLOBALS['strScaleFactorSmall']);
         }
@@ -427,6 +431,28 @@ class PMA_RT_Table
         list($this->x, $this->y) = mysql_fetch_array($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
+        
+        //displayfield
+        $sql    =  'SELECT display_field from '.PMA_backquote($GLOBALS['cfg']['Server']['table_info'])
+                . ' WHERE table_name = \'' . PMA_sqlAddslashes($table_name) . '\'';
+        $result = mysql_query($sql);
+        if(mysql_num_rows($result)>0){
+            list($this->displayfield) = mysql_fetch_array($result);
+        }
+        while ($row = mysql_fetch_array($result)) {
+            $this->displayfield = $row['display_field '];
+         }
+        // index
+        $sql    =  'SHOW index from '.PMA_backquote($table_name);
+        $result = mysql_query($sql);
+
+        if(mysql_num_rows($result)>0){
+            while ($row = mysql_fetch_array($result)) {
+                if($row['Key_name'] == 'PRIMARY'){
+                    $this->primary = $row['Column_name'];
+                }
+            }
+        }        
     } // end of the "PMA_RT_Table()" method
 } // end class "PMA_RT_Table"
 
@@ -777,18 +803,26 @@ class PMA_RT
         $pdf->SetFont($this->ff, '', 14);
         $pdf->SetAutoPageBreak('auto');
 
-        // Gets relations to display and exits if none
+        //  get tables on this page
+        $tab_sql = 'SELECT table_name from '.PMA_backquote($GLOBALS['cfg']['Server']['table_coords']) .
+                   ' WHERE pdf_page_number = ' . $which_rel;
+        $tab_rs  = mysql_query($tab_sql) or PMA_mysqlDie('', $tab_sql, '', $err_url_0);
+        while ($curr_table = @mysql_fetch_array($tab_rs)) {
+            $alltables[]     = $curr_table['table_name'];
+            $intable         = "'" . implode("','",$alltables) . "'";
+        }
         $sql    = 'SELECT * FROM '
                 . PMA_backquote($GLOBALS['cfg']['Server']['relation'])
-                . ' WHERE pdf_page_number = ' . $which_rel;
+                . ' WHERE master_table in (' . $intable . ') '
+                . ' AND foreign_table   in (' . $intable . ')';
         $result = mysql_query($sql);
         if (!$result || !mysql_num_rows($result)) {
             $pdf->PMA_PDF_die($GLOBALS['strPdfInvalidPageNum']);
-        } // end if
+        }
         while ($row = mysql_fetch_array($result)) {
             $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
-        } // end while
-
+        }
+        
         // Defines the scale factor
         if ($scale == 'auto') {
             $this->scale = ceil(max(($this->x_max - $this->x_min) / (297 - $this->r_marg - $this->l_marg), ($this->y_max - $this->y_min) / (210 - $this->t_marg - $this->b_marg)) * 100) / 100;

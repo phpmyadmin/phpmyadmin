@@ -440,25 +440,46 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 if (!empty($cfg['Server']['table_coords'])
     && $num_tables > 0) {
     ?>
-    <!-- PDF schema -->
+    <!-- Work on PDF Pages -->
     <li>
-        <form method="post" action="pdf_schema.php3">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <?php echo $strDisplayPDF; ?>&nbsp;:<br />
-            <?php echo $strPageNumber; ?>&nbsp;
-            <input type="text" name="pdf_page_number" size="3" class="textfield" value="1" /><br />
-            <input type="checkbox" name="show_grid" id="show_grid_opt" />
-            <label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
-            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
-            <label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
-            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
-            <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label>
-            &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
-        </form>
+        <?php
+            $takeaway = $url_query . '&amp;table=' . urlencode($cfg['Server']['pdf_pages']);
+        ?>
+        <a href="pdf_pages.php3?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages ;?></a>
     </li>
+    <!-- PDF schema -->
     <?php
+    //  We only show this if we find something in the new pdf_pages table
+    @mysql_select_db($db);
+    $test_query = 'SELECT * FROM ' . PMA_backquote($cfg['Server']['pdf_pages']);
+    $test_rs    = mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
+    if(mysql_num_rows($test_rs) > 0){
+        ?>
+        <li>
+            <form method="post" action="pdf_schema.php3">
+                <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="db" value="<?php echo $db; ?>" />
+                <?php echo $strDisplayPDF; ?>&nbsp;:<br />
+                <?php echo $strPageNumber; ?>&nbsp;
+                <select name="pdf_page_number">
+                <?php
+                    while ($pages = @mysql_fetch_array($test_rs)) {
+                        echo '<option value="'.$pages['page_nr'].'">'.$pages['page_nr'].': '.$pages['page_descr'].'</option>'."\n";
+                    }
+                ?>
+                </select><br />
+                <input type="checkbox" name="show_grid" id="show_grid_opt" />
+                <label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
+                <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
+                <label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
+                <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
+                <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label>
+                &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
+            </form>
+        </li>
+        <?php
+    }   // end if
 } // end if
 
 echo "\n" . '</ul>';

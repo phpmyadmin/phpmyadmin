@@ -54,6 +54,7 @@ $cfg['Servers'][$i]['table_info']    = '';          // table to describe the dis
                                                     //   - leave blank for no display fields support
 $cfg['Servers'][$i]['table_coords']  = '';          // table to describe the tables position for the PDF
                                                     //   schema - leave blank for no PDF schema support
+$cfg['Servers'][$i]['pdf_pages']     = '';          // table to describe pages of relationpdf
 $cfg['Servers'][$i]['AllowDeny']['order']           // Host authentication order, leave blank to not use
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']           // Host authentication rules, leave blank for defaults
@@ -77,6 +78,7 @@ $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
 $cfg['Servers'][$i]['table_info']    = '';
 $cfg['Servers'][$i]['table_coords']  = '';
+$cfg['Servers'][$i]['pdf_pages']     = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
@@ -99,6 +101,7 @@ $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
 $cfg['Servers'][$i]['table_info']    = '';
 $cfg['Servers'][$i]['table_coords']  = '';
+$cfg['Servers'][$i]['pdf_pages']     = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
