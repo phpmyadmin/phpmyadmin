@@ -713,6 +713,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
      * ['queryflags']['select_from'] = 1; if this is a real SELECT...FROM
      * ['queryflags']['distinct'] = 1;    for a DISTINCT 
+     * ['queryflags']['union'] = 1;       for a UNION 
      *
      * lem9:  query clauses
      *        -------------
@@ -1230,6 +1231,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                           $subresult['queryflags']['distinct'] = 1;
                    }
 
+                   if ($upper_data == 'UNION') {
+                          $subresult['queryflags']['union'] = 1;
+                   }
+
                    // if this is a real SELECT...FROM
                    if ($upper_data == 'FROM' && isset($subresult['queryflags']['select_from']) && $subresult['queryflags']['select_from'] == 1) {
                        $in_from = TRUE;
@@ -1475,12 +1480,16 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
          * Formats SQL queries to html
          *
          * @param  array   The SQL queries
+         * @param  string  mode 
+         * @param  integer starting token
+         * @param  integer number of tokens to format, -1 = all
          *
          * @return string  The formatted SQL queries
          *
          * @access public
          */
-        function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0)
+        function PMA_SQP_formatHtml($arr, $mode='color', $start_token=0,
+            $number_of_tokens=-1)
         {
             // first check for the SQL parser having hit an error
             if (PMA_SQP_isError()) {
@@ -1560,7 +1569,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             );
             $keywords_priv_list_cnt            = 2;
 
-            $arraysize = $arr['len'];
+            if ($number_of_tokens == -1) {
+                $arraysize = $arr['len'];
+            } else {
+                $arraysize = $number_of_tokens;
+            }
             $typearr   = array();
             if ($arraysize >= 0) {
                 $typearr[0] = '';

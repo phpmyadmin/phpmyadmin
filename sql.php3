@@ -355,7 +355,9 @@ else {
                 // because SQL_CALC_FOUND_ROWS
                 // is not quick on large InnoDB tables
 
-                if (!$is_group && !isset($analyzed_sql[0]['table_ref'][1]['table_name'])
+                if (!$is_group 
+                 && !isset($analyzed_sql[0]['queryflags']['union'])
+                 && !isset($analyzed_sql[0]['table_ref'][1]['table_name'])
                  && (empty($analyzed_sql[0]['where_clause'])
                    || $analyzed_sql[0]['where_clause'] == '1 ')) {
 
@@ -373,9 +375,6 @@ else {
  
                         $count_query = 'SELECT COUNT(' . $count_what . ') AS count';
                     }
-                    else {
-                        $count_query = 'SELECT SQL_CALC_FOUND_ROWS ';
-                    } 
 
                     // add the remaining of select expression if there is
                     // a GROUP BY or HAVING clause
@@ -386,13 +385,22 @@ else {
                         $count_query .= ' ,' . $analyzed_sql[0]['select_expr_clause'];
                     }
 
-                    // add select expression after the SQL_CALC_FOUND_ROWS
                     if (PMA_MYSQL_INT_VERSION >= 40000) {
+                         // add select expression after the SQL_CALC_FOUND_ROWS
 //                        if (eregi('DISTINCT(.*)', $sql_query)) {
 //                            $count_query .= 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
 //                        } else {
                             //$count_query .= $analyzed_sql[0]['select_expr_clause'];
       
+                            // for UNION, just adding SQL_CALC_FOUND_ROWS
+                            // after the first SELECT works.
+
+                            // take the left part, could be:
+                            // SELECT
+                            // (SELECT
+                            $count_query = PMA_SQP_formatHtml($parsed_sql, 'query_only', 0, $analyzed_sql[0]['position_of_first_select'] + 1);
+                            $count_query .= ' SQL_CALC_FOUND_ROWS ';
+
                             // add everything that was after the first SELECT
                             $count_query .= PMA_SQP_formatHtml($parsed_sql, 'query_only', $analyzed_sql[0]['position_of_first_select']+1);
 //                        }
@@ -414,13 +422,15 @@ else {
 
                     // if using SQL_CALC_FOUND_ROWS, add a LIMIT to avoid
                     // long delays. Returned count will be complete anyway.
+                    // (but a LIMIT would disrupt results in an UNION)
 
-                    if (PMA_MYSQL_INT_VERSION >= 40000) {
+                    if (PMA_MYSQL_INT_VERSION >= 40000
+                    && !isset($analyzed_sql[0]['queryflags']['union'])) {
                         $count_query .= ' LIMIT 1';
                     }
 
                     // run the count query
-//echo "trace cq=" . $count_query . "<br/>";
+//DEBUG echo "trace cq=" . $count_query . "<br/>";
 
                     if (PMA_MYSQL_INT_VERSION < 40000) {
                         if ($cnt_all_result = PMA_mysql_query($count_query)) {
