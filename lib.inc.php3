@@ -966,7 +966,7 @@ function format_byte_down($value, $limes = 6, $comma = 0)
 		$value = round($value/(1024/$dh))/$dh;
 		$unit  = $GLOBALS['byteUnits'][1];
 	}
-	if ($unit != 'Byte') {
+	if ($unit != $GLOBALS['byteUnits'][0]) {
 	    $return_value = number_format($value, $comma, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
 	} else {
 	    $return_value = number_format($value, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
