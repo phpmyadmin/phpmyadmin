@@ -5,12 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-08-10 Alexander M. Turek  <rabus@users.sourceforge.net>
+2002-08-11 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/swedish-*.inc.php3: Updates, thanks again to Björn T. Hallberg (bth).
     * lang/slovak-*.inc.php3: Updates, thanks again to Lubos Klokner (erkac).
     * lang/polish-*.inc.php3: Updates, thanks again to Jakub Wilk (ubanus).
     * lang/albanian-*.inc.php3: Updates, thanks again to
       Laurent Dhima (laurenti).
+    * lang/chinese_*.inc.php3: Updates, thanks again to Siu Sun (siusun).
 
 2002-08-10 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/string.lib.php3:

@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 /**
@@ -57,6 +56,8 @@ $strAtEndOfTable = '于数据表尾端';
 $strAttr = '属性';
 
 $strBack = '返回';
+$strBeginCut = '开始 剪取';
+$strBeginRaw = '开始 原始资料';
 $strBinaryDoNotEdit = ' 二进制码 - 无法编辑 ';
 $strBinary = ' 二进制码 ';
 $strBookmarkDeleted = '标签已经删除.';
@@ -76,6 +77,7 @@ $strCarriage = '回车: \\r';
 $strChange = '改变';
 $strChangeDisplay = '选择显示之字段';
 $strChangePassword = '更改密码';
+$strCharsetOfFile = '字元表档案:';
 $strCheckAll = '全选';
 $strCheckDbPriv = '检查数据库权限';
 $strCheckTable = '检查数据表';
@@ -137,6 +139,8 @@ $strEmpty = '清空';
 $strEmptyResultSet = 'MySQL 返回的查询结果为空。 (原因可能为：没有找到符合条件的记录。)';
 $strEnabled = '启动';
 $strEnd = '结束';
+$strEndCut = '结束 剪取';
+$strEndRaw = '结束 原始资料';
 $strEnglishPrivileges = ' 注意: MySQL 权限名称会被解释成英文 ';
 $strError = '错误';
 $strExplain = '说明 SQL';
@@ -359,9 +363,14 @@ $strSize = '大小';
 $strSort = '排序';
 $strSpaceUsage = '已使用空间';
 $strSplitWordsWithSpace = '每组文字以空格 (" ") 分隔.';
+$strSQL = 'SQL'; // should express in english
+$strSQLParserBugMessage = '这可能是您找到了 SQL 分折的一些程式错误，请细心查看您的语句，检查一下引号是正确及没有遗漏，其他可能出错的原因可能来自您上传档案时在引号外的地方使用了二进制码。您可以尝试在 MySQL 命令列介面执行该语句。如 MySQL 伺服器发出错误信息，这可能帮助您去找出问题所在。如您仍然未能解决问题，或在分析程式出现错误，但在命令列模式能正常执行，请将该句出现错误的 SQL 语句抽出，并将以下的"剪取"部份一同提交到臭虫区:';
+$strSQLParserUserError = '可能是您的 SQL 语句出现错误，如 MySQL 伺服器发出错误信息，这可能帮助您去找出问题所在。';
 $strSQLQuery = 'SQL 语句';
 $strSQLResult = 'SQL 查询结果';
-$strSQL = 'SQL'; // should express in english
+$strSQPBugInvalidIdentifer = '无效的识别码 (Invalid Identifer)';
+$strSQPBugUnclosedQuote = '未完结的引号 (Unclosed quote)';
+$strSQPBugUnknownPunctuation = '不知明的标点符号 (Unknown Punctuation String)';
 $strStatement = '叙述';
 $strStrucCSV = 'CSV 数据';
 $strStrucData = '结构和数据';
@@ -418,21 +427,6 @@ $strWrongUser = '密码错误，访问被拒绝。';
 $strYes = '是';
 
 $strZip = '"zipped"';
+
 // To translate
-
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-
 ?>
