@@ -280,6 +280,7 @@ $strYes = 'Si';
 // To translate
 $strAffectedRows = 'Affected rows:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
+$strFormEmpty = 'Missing value in the form !';
 $strQueryOnDb = 'SQL-query on database ';
 $strShowThisQuery = ' Show this query here again ';
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';

@@ -282,6 +282,7 @@ $strGzip = '"gzipped"';  //to translate
 // To translate
 $strAffectedRows = 'Affected rows:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
+$strFormEmpty = 'Missing value in the form !';
 $strNbRecords = 'no. of records';
 $strOffSet = 'offset';
 $strQueryOnDb = 'SQL-query on database ';

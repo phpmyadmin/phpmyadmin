@@ -282,6 +282,7 @@ $strYes = ' ¬O ';
 // To translate
 $strAffectedRows = ' Rows affected: ';  //to translate
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
+$strFormEmpty = 'Missing value in the form !';
 $strQueryOnDb = ' SQL-query on database ';  //to translate
 $strUseBackquotes = ' Use backquotes with tables and fields names ';  //to translate
 ?>

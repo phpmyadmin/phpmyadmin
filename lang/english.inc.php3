@@ -107,6 +107,7 @@ $strFields = 'Fields';
 $strFieldsEmpty = ' The field count is empty! ';
 $strFixed = 'fixed';
 $strFormat = 'Format';
+$strFormEmpty = 'Missing value in the form !';
 $strFunction = 'Function';
 
 $strGenTime = 'Generation Time';

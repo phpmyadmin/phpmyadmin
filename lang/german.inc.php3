@@ -163,7 +163,7 @@ $strNoPrivileges = 'Keine Rechte';
 $strNoRights = 'Du hast nicht genug Rechte um fortzufahren!';
 $strNoTablesFound = 'Keine Tabellen in der Datenbank gefunden.';
 $strNotNumber = 'Das ist keine Zahl!';
-$strNotValidNumber = ' ist keine gültige Zeilennummer!'; // do not html quote
+$strNotValidNumber = ' ist keine gültige Zeilennummer!';
 $strNoUsersFound = 'Keine(n) Benutzer gefunden.';
 $strNull = 'Null';
 $strNumberIndexes = ' Anzahl der erweiterten Indizes ';
@@ -281,4 +281,7 @@ $strWelcome = 'Willkommen bei ';
 $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
+
+// To translate
+$strFormEmpty = 'Missing value in the form !';
 ?>

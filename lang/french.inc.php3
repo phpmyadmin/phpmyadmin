@@ -107,6 +107,7 @@ $strFields = 'Champs';
 $strFieldsEmpty = 'Il faut indiquer le nombre de champs';
 $strFixed = 'fixe'; 
 $strFormat = 'format'; 
+$strFormEmpty = 'Formulaire incomplet !';
 $strFunction = 'Fonction';
 
 $strGenTime = 'Généré le ';

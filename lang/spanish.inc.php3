@@ -284,5 +284,6 @@ $strGzip = '"gzipped"';  //to translate
 // To translate
 $strAffectedRows = 'Rows affected: ';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
+$strFormEmpty = 'Missing value in the form !';
 $strOffSet = 'offset';
 ?>
