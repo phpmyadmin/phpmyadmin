@@ -14,17 +14,15 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
 
-    ereg('pack_keys=([0-1])', $showtable['Create_options'], $tmp_ar);
-    $pack_keys = (isset($tmp_ar[1]) ? $tmp_ar[1]: 0);
-    unset($tmp_ar);
-
-    ereg('checksum=([0-1])', $showtable['Create_options'], $tmp_ar);
-    $checksum = (isset($tmp_ar[1]) ? $tmp_ar[1]: 0);
-    unset($tmp_ar);
-
-    ereg('delay_key_write=([0-1])', $showtable['Create_options'], $tmp_ar);
-    $delay_key_write = (isset($tmp_ar[1]) ? $tmp_ar[1]: 0);
-    unset($tmp_ar);
+// better logic, thanks to Loic:
+    $tmp            = explode(' ', $showtable['Create_options']);
+    $tmp_cnt      = count($tmp);
+    for ($i = 0; $i < $tmp_cnt; $i++) {
+        $tmp1       = explode('=', $tmp[$i]);
+        $$tmp1[0] = $tmp1[1];
+    }
+    unset($tmp1);
+    unset($tmp);
 
 } else {
     $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
