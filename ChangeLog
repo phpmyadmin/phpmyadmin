@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-10  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_properties.php3, feature 439394 (browse link at top of page)
+
 2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, lines 865-867; main.php3, line 78; left.php3, line 55;
 	  left.js, line 116: fixed some bugs (including #439553) when

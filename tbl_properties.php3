@@ -12,12 +12,23 @@ if (!isset($message)) {
 }
 unset($sql_query);
 
-
-/**
+/*
  * Selects the db that will be used during this script execution
  */
 mysql_select_db($db);
 
+/*
+ * Set parameters for links
+ */
+$query="server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
+
+?>
+ <!-- first browse link -->
+<p> 
+<a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table"); ?>&pos=0&<?php echo $query; ?>">
+            <b><?php echo $strBrowse; ?></b></a>
+</p>
+<?php
 
 /**
  * Gets table informations
@@ -43,7 +54,8 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) >= 3) {
     if (!empty($showtable['Comment'])) {
         $show_comment = $showtable['Comment'];
         ?>
-<!-- Table comment -->
+
+ <!-- Table comment -->
 <p><i>
     <?php echo $show_comment . "\n"; ?>
 </i></p>
@@ -98,11 +110,11 @@ echo "\n";
 $i         = 0;
 $aryFields = array();
 
+$query            = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
+
 while ($row = mysql_fetch_array($result)) {
     $i++;
     $bgcolor          = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
-    $query            = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
-
     $aryFields[]      = $row['Field'];
 
     if (get_magic_quotes_runtime()) {
@@ -166,7 +178,7 @@ while ($row = mysql_fetch_array($result)) {
     ?>
 </tr>
     <?php
-}
+} // (end while)
     echo "\n";
 ?>
 </table>
