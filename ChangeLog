@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/japanese: update, thanks to Yukihiro Kawada
+    * lang/italian: update, thanks to Pietro Danesi
+    * lang/galician: update, thanks to Xosé Calvo
+
 2002-09-23 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.lib.php3, tbl_change.php3: coding standards
 
