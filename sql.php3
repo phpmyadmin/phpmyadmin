@@ -57,19 +57,11 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
 
 
 /**
- * Defines some "properties" of the sql query to submit
+ * Displays the confirm page if required
  */
 $do_confirm   = ($cfgConfirm
                  && !isset($btnDrop)
                  && eregi('DROP +(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_`]* +DROP|DELETE FROM', $sql_query));
-$is_select    = eregi('^SELECT ', $sql_query);
-$is_count     = ($is_select && eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $sql_query));
-$is_affected  = eregi('^(DELETE|INSERT|LOAD DATA|UPDATE) ', $sql_query);
-
-
-/**
- * Displays the confirm page if required
- */
 if ($do_confirm) {
     if (get_magic_quotes_gpc()) {
         $stripped_sql_query = stripslashes($sql_query);
@@ -117,6 +109,21 @@ else {
     if (isset($sessionMaxRows)) {
         $cfgMaxRows       = $sessionMaxRows;
     }
+
+    $is_select = $is_count = $is_delete = $is_insert = $is_affected = FALSE;
+    if (eregi('^SELECT ', $sql_query)) {
+        $is_select   = TRUE;
+        $is_count    = (eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $sql_query));
+    } else if (eregi('^DELETE ', $sql_query)) {
+        $is_delete   = TRUE;
+        $is_affected = TRUE;
+    } else if (eregi('^(INSERT|LOAD DATA) ', $sql_query)) {
+        $is_insert   = TRUE;
+        $is_affected = TRUE;
+    } else if (eregi('^UPDATE ', $sql_query)) {
+        $is_affected = TRUE;
+    }
+
     $sql_limit_to_append  = (isset($pos)
                              && ($is_select && !$is_count)
                              && !eregi(' LIMIT[ 0-9,]+$', $sql_query))
@@ -133,7 +140,7 @@ else {
     // If the query is a DELETE query with no WHERE clause, get the number of
     // rows that will be deleted (mysql_affected_rows will always return 0 in
     // this case)
-    if ($is_affected
+    if ($is_delete
         && eregi('^DELETE( .+)?( FROM (.+))$', $sql_query, $parts)
         && !eregi(' WHERE ', $parts[3])) {
         $OPresult     = @mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
@@ -184,7 +191,11 @@ else {
     // No rows returned -> move back to the calling page
     if ($num_rows < 1 || $is_affected) {
         if (file_exists('./' . $goto)) {
-            if ($is_affected) {
+            if ($is_delete) {
+                $message = $strDeletedRows . '&nbsp;' . $num_rows;
+            } else if ($is_insert) {
+                $message = $strInsertedRows . '&nbsp;' . $num_rows;
+            } else if ($is_affected) {
                 $message = $strAffectedRows . '&nbsp;' . $num_rows;
             } else if (!empty($zero_rows)) {
                 $message = $zero_rows;
