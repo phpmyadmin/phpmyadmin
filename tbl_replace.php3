@@ -104,7 +104,8 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // Builds the sql upate query
     $valuelist = ereg_replace(', $', '', $valuelist);
     if (!empty($valuelist)) {
-        $query = 'UPDATE ' . backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key . ' LIMIT 1';
+        $query = 'UPDATE ' . backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
+               . ((MYSQL_INT_VERSION >= 32300) ? ' LIMIT 1' : '');
         $message   = $strAffectedRows . '&nbsp;';
     }
     // No change -> move back to the calling script
