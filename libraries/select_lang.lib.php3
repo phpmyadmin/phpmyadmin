@@ -21,7 +21,7 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
     /**
      * All the supported languages have to be listed in the array below.
      * 1. The key must be the "official" ISO 639 language code and, if required,
-     *    the dialect code. It can also contains some informations about the
+     *    the dialect code. It can also contain some informations about the
      *    charset (see the Russian case).
      * 2. The first of the values associated to the key is used in a regular
      *    expression to find some keywords corresponding to the language inside two
@@ -46,8 +46,8 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
      * first.
      */
     $available_languages = array(
-        'af-utf-8'     => array('af|afrikaans', 'afrikaans-utf-8', 'af'), 
-        'af-iso-8859-1'=> array('af|afrikaans', 'afrikaans-iso-8859-1', 'af'), 
+        'af-utf-8'     => array('af|afrikaans', 'afrikaans-utf-8', 'af'),
+        'af-iso-8859-1'=> array('af|afrikaans', 'afrikaans-iso-8859-1', 'af'),
         'ar-utf-8'     => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic-utf-8', 'ar'),
         'ar-win1256'   => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic-windows-1256', 'ar'),
         'bg-utf-8'     => array('bg|bulgarian', 'bulgarian-utf-8', 'bg'),
