@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 /**
@@ -21,7 +20,6 @@ $month = array('януари', 'февруари', 'март', 'април', 'май', 'юни', 'юли', 'авгу
 // variable below
 $datefmt = '%e %B %Y в %H:%M';
 
-
 $strAccessDenied = 'Отказан достъп';
 $strAction = 'Действие';
 $strAddDeleteColumn = 'Добави/изтрий колона по критерий';
@@ -34,18 +32,18 @@ $strAddToIndex = ' &nbsp;%s&nbsp;колона(и) бяха добавени към индекса ';
 $strAddUser = 'Добавяне на нов потребител.';
 $strAddUserMessage = 'Вие добавихте нов потребител.';
 $strAffectedRows = 'Засегнати реда:';
+$strAfter = 'След %s';
 $strAfterInsertBack = 'се върни';
 $strAfterInsertNewInsert = 'вмъкни нов запис';
-$strAfter = 'След %s';
 $strAll = 'всички';
 $strAlterOrderBy = 'Подреди таблицата по';
 $strAnalyzeTable = 'Анализиране на таблицата';
 $strAnd = 'и';
 $strAnIndex = 'Беше добавен индекс на %s';
+$strAny = 'всеки';
 $strAnyColumn = 'Всяка колона';
 $strAnyDatabase = 'Всяка база данни';
 $strAnyHost = 'Всеки хост';
-$strAny = 'всеки';
 $strAnyTable = 'Всяка таблица';
 $strAnyUser = 'Всеки потребител';
 $strAPrimaryKey = 'Бeшe добавен главен ключ към ';
@@ -81,11 +79,11 @@ $strConfirm = 'Действително ли желаете да го направите?';
 $strCookiesRequired = 'Оттук нататък са необходими "Cookies".';
 $strCopyTable = 'Копиране на таблица (база от данни<b>.</b>таблица):';
 $strCopyTableOK = 'Таблица %s беше копирана в %s.';
+$strCreate = 'Създай';
 $strCreateIndex = 'Създай индекс върху &nbsp;%s&nbsp;колони';
 $strCreateIndexTopic = 'Създай нов индекс';
 $strCreateNewDatabase = 'Създай нова БД';
 $strCreateNewTable = 'Създай нова таблица в БД %s';
-$strCreate = 'Създай';
 $strCriteria = 'Критерий';
 
 $strData = 'Данни';
@@ -96,9 +94,9 @@ $strDatabasesStats = ' Статистика за базите данни';
 $strDatabaseWildcard = 'База данни (може и с wildcard):';
 $strDataOnly = 'Само данни';
 $strDefault = 'По подразбиране';
+$strDelete = 'Изтрий';
 $strDeleted = 'Редът беше изтрит';
 $strDeletedRows = 'Изтрити редове:';
-$strDelete = 'Изтрий';
 $strDeleteFailed = 'Неуспешно изтриване!';
 $strDeleteUserMessage = 'Вие изтрихте потребител %s.';
 $strDescending = 'Низходящо';
@@ -107,8 +105,8 @@ $strDisplayOrder = 'Покажи подредба:';
 $strDoAQuery = 'Изпълни "запитване по заявка" (символ за  заместване: "%")';
 $strDocu = 'Документация';
 $strDoYouReally = 'Действително ли желаете да';
-$strDropDB = 'Унищожи БД %s';
 $strDrop = 'Унищожи';
+$strDropDB = 'Унищожи БД %s';
 $strDropTable = 'Изтрий таблицата';
 $strDumpingData = 'Дъмп (схема) на данните в таблицата';
 $strDynamic = 'динамичен';
@@ -124,12 +122,12 @@ $strError = 'Грешка';
 $strExtendedInserts = 'Разширени INSERT-и';
 $strExtra = 'Допълнително';
 
-$strFieldHasBeenDropped = 'Полето %s беше изтрито';
 $strField = 'Поле';
+$strFieldHasBeenDropped = 'Полето %s беше изтрито';
+$strFields = 'Полета';
 $strFieldsEmpty = ' Брояча на полетата е празен! ';
 $strFieldsEnclosedBy = 'Полетата са оградени със';
 $strFieldsEscapedBy = 'Представка пред специалните символи';
-$strFields = 'Полета';
 $strFieldsTerminatedBy = 'Полетата завършват със';
 $strFixed = 'Фиксиран';
 $strFlushTable = 'Изпразни кеша на таблицата ("FLUSH")';
@@ -159,9 +157,9 @@ $strIndexes = 'Индекси';
 $strIndexHasBeenDropped = 'Индекса %s беше изтрит';
 $strIndexName = 'Име на индекса&nbsp;:';
 $strIndexType = 'Тип на индекса&nbsp;:';
+$strInsert = 'Вмъкни';
 $strInsertAsNewRow = 'Вмъкни като нов ред';
 $strInsertedRows = 'Вмъкнати реда:';
-$strInsert = 'Вмъкни';
 $strInsertNewRow = 'Вмъкни нов ред';
 $strInsertTextfiles = 'Вмъкни текстови файлове в таблицата';
 $strInstructions = 'Инструкции';
@@ -185,8 +183,8 @@ $strLogPassword = 'Парола:';
 $strLogUsername = 'Име:';
 
 $strModifications = 'Промените бяха съхранени';
-$strModifyIndexTopic = 'Промяна на индекс';
 $strModify = 'Промени';
+$strModifyIndexTopic = 'Промяна на индекс';
 $strMoveTable = 'Преместване на таблица към (база от данни<b>.</b>таблица):';
 $strMoveTableOK = 'Таблицата %s беше преместена към %s.';
 $strMySQLReloaded = 'MySQL е презареден.';
@@ -198,10 +196,10 @@ $strMySQLShowVars = 'Покажи системните променливи на MySQL';
 
 $strName = 'Име';
 $strNext = 'Следващ';
+$strNo = 'не';
 $strNoDatabases = 'Няма бази от данни';
 $strNoDropDatabases = '"DROP DATABASE" зявката е забранена.';
 $strNoFrames = 'phpMyAdmin е по дружелюбен ако използвате браузър, който поддържа <b>frames</b>.';
-$strNo = 'не';
 $strNoIndex = 'Не е дефиниран индекс!';
 $strNoIndexPartsDefined = 'Не са дефинирани части на индекс!';
 $strNoModification = 'Няма промяна';
@@ -233,18 +231,18 @@ $strPmaDocumentation = 'phpMyAdmin документация';
 $strPmaUriError = 'На <tt>$cfg[\'PmaAbsoluteUri\']</tt> ТРЯБВА да се зададе стойност в конфигурационния файл!';
 $strPos1 = 'Начало';
 $strPrevious = 'Предишен';
+$strPrimary = 'PRIMARY';
 $strPrimaryKey = 'Главен ключ';
 $strPrimaryKeyHasBeenDropped = ' Главния ключ беше изтрит.';
 $strPrimaryKeyName = 'Името на главния ключ трябва да е... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>трябва</b> да е името на <b>и единствено на</b> главния ключ!)';
-$strPrimary = 'PRIMARY';
 $strPrintView = 'Изглед за печат';
 $strPrivileges = 'Привилегии';
 $strProperties = 'Свойства';
 
+$strQBE = 'Запитване по пример';
 $strQBEDel = 'Изтрий';
 $strQBEIns = 'Вмъкни';
-$strQBE = 'Запитване по пример';
 $strQueryOnDb = 'SQL-заявка към базата от данни <b>%s</b>:';
 
 $strRecords = 'Записи';
@@ -255,40 +253,40 @@ $strRememberReload = 'Не забравяйте да презаредите сървъра.';
 $strRenameTable = 'Преименувай таблицата на';
 $strRenameTableOK = 'Таблица %s беше преименувана на %s';
 $strRepairTable = 'Поправяне на таблицата';
-$strReplaceTable = 'Замести данните от таблицата с данните от файла';
 $strReplace = 'Замести';
+$strReplaceTable = 'Замести данните от таблицата с данните от файла';
 $strReset = 'Изчисти';
 $strReType = 'Отново';
+$strRevoke = 'Отмени';
 $strRevokeGrant = 'Отнемане на Grant&nbsp;прив.';
 $strRevokeGrantMessage = 'Вие премахнахте Grant привилегиите за %s';
-$strRevoke = 'Отмени';
 $strRevokeMessage = 'Вие отменихте привилегиите за %s';
 $strRevokePriv = 'Отмяна на привилегии';
 $strRowLength = 'Дължина на реда';
+$strRows = 'Редове';
 $strRowsFrom = 'реда започвайки от';
 $strRowSize = ' Размер на ред ';
 $strRowsModeHorizontal = 'хоризонтален';
 $strRowsModeOptions = 'в %s вид и повтаряй имената на колоните през всеки %s<br />';
 $strRowsModeVertical = 'вертикален';
-$strRows = 'Редове';
 $strRowsStatistic = 'Статистика за редовете';
 $strRunning = 'работи на %s';
 $strRunQuery = 'Изпълни заявката';
 $strRunSQLQuery = 'Стартиране SQL заявка/заявки към база от данни %s';
 
 $strSave = 'Запиши';
+$strSelect = 'Избери';
 $strSelectADb = 'Моля изберете база данни';
 $strSelectAll = 'Селектирай всичко';
-$strSelect = 'Избери';
 $strSelectFields = 'Избери поле (минимум едно):';
 $strSelectNumRows = 'в запитването';
 $strSend = 'Изпрати';
 $strServerChoice = 'Избор на сървър';
 $strServerVersion = 'Версия на сървъра';
 $strSetEnumVal = 'Ако типа на полето е "enum" или "set", моля въведете стойностите използвайки този формат: \'a\',\'b\',\'c\'...<br />Ако е необходимо да сложите обратна черта ("\") или апостроф ("\'") между тези стойности, сложите обратна черта пред тях (например:  \'\\\\xyz\' или \'a\\\'b\').';
+$strShow = 'Покажи';
 $strShowAll = 'Покажи всички';
 $strShowCols = 'Покажи колоните';
-$strShow = 'Покажи';
 $strShowingRecords = 'Показва записи ';
 $strShowPHPInfo = 'Покажи информация за PHP ';
 $strShowTables = 'Покажи таблиците';
@@ -308,13 +306,13 @@ $strSubmit = 'Изпълни';
 $strSuccess = 'Вашето SQL-запитване беше изпълнено успешно';
 $strSum = 'Сума';
 
+$strTable = 'Таблица ';
 $strTableComments = 'Коментари към таблицата';
 $strTableEmpty = 'Името на таблицата е празно!';
 $strTableHasBeenDropped = 'Таблицата %s беше изтрита';
 $strTableHasBeenEmptied = 'Таблицата %s беше изпразнена';
 $strTableHasBeenFlushed = 'Кеша на таблица %s беше изпразнен';
 $strTableMaintenance = 'Поддръжка на таблицата';
-$strTable = 'Таблица ';
 $strTables = '%s таблица(и)';
 $strTableStructure = 'Структура на таблица';
 $strTableType = 'Тип на таблицата';
@@ -334,15 +332,15 @@ $strUpdateProfileMessage = 'Профила беше обновен.';
 $strUpdateQuery = 'Допълни Запитването';
 $strUsage = 'Използвани';
 $strUseBackquotes = 'Използвай обратни кавички около имена на таблици и полета';
-$strUserEmpty = 'Потребителското име е празно!';
 $strUser = 'Потребител';
+$strUserEmpty = 'Потребителското име е празно!';
 $strUserName = 'Потребителско име';
 $strUsers = 'Потребители';
 $strUseTables = 'Използвай таблицата';
 
 $strValue = 'Стойност';
-$strViewDumpDB = 'Покажи дъмп (схема) на БД';
 $strViewDump = 'Покажи дъмп (схема) на таблицата';
+$strViewDumpDB = 'Покажи дъмп (схема) на БД';
 
 $strWelcome = 'Добре дошли в %s';
 $strWithChecked = 'Когато има отметка:';
@@ -352,7 +350,6 @@ $strYes = 'да';
 
 $strZip = '"zip-нато"';
 // To translate
-
 
 $strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 
@@ -419,6 +416,7 @@ $strRelationNotWorking = 'The additional Features for working with linked Tables
 $strRelationView = 'Relation view';  //to translate
 
 $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
+$strSearch = 'Search';//to translate
 $strSearchFormTitle = 'Search in database';//to translate
 $strSearchInTables = 'Inside table(s):';//to translate
 $strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';//to translate
@@ -427,17 +425,16 @@ $strSearchOption2 = 'all words';//to translate
 $strSearchOption3 = 'the exact phrase';//to translate
 $strSearchOption4 = 'as regular expression';//to translate
 $strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
-$strSearch = 'Search';//to translate
 $strSearchType = 'Find:';//to translate
 $strSelectTables = 'Select Tables';  //to translate
 $strShowColor = 'Show color';  //to translate
 $strShowGrid = 'Show grid';  //to translate
 $strShowTableDimension = 'Show dimension of tables';  //to translate
 $strSplitWordsWithSpace = 'Words are seperated by a space character (" ").';//to translate
+$strSQL = 'SQL'; //to translate
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
 $strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
 $strSQLResult = 'SQL result'; //to translate
-$strSQL = 'SQL'; //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
 $strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate

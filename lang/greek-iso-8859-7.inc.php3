@@ -1,6 +1,6 @@
 <?php
-
 /* $Id$ */
+
 /* Translated by Kyriakos Xagoraris <theremon at users.sourceforge.net> */
 
 $charset = 'iso-8859-7';
@@ -20,18 +20,17 @@ $datefmt = '%d %B %Y, στις %I:%M %p';
 
 // To Arrange
 
-
 $strAccessDenied = '\'Αρνηση Πρόσβασης';
 $strAction = 'Ενέργεια';
 $strAddDeleteColumn = 'Προσθήκη/Αφαίρεση Στήλης Πεδίου';
 $strAddDeleteRow = 'Προσθήκη/Αφαίρεση Γραμμής Κριτηρίων';
 $strAddNewField = 'Προσθήκη νέου Πεδίου';
-$strAddPrivMessage = 'Προσθέσατε νέο Προνόμιο.';
 $strAddPriv = 'Προσθήκη νέου Προνομίου';
+$strAddPrivMessage = 'Προσθέσατε νέο Προνόμιο.';
 $strAddSearchConditions = 'Προσθήκη νέου όρου (σώμα της "where" πρότασης):';
 $strAddToIndex = 'Προσθήκη στο ευρετήριο &nbsp;%s&nbsp;κολώνας(ων)';
-$strAddUserMessage = 'Προσθέσατε ένα νέο χρήστη.';
 $strAddUser = 'Προσθήκη νέου Χρήστη';
+$strAddUserMessage = 'Προσθέσατε ένα νέο χρήστη.';
 $strAffectedRows = 'Επηρεαζόμενες εγγραφές:';
 $strAfter = 'Μετά το %s';
 $strAfterInsertBack = 'Επιστροφή';
@@ -42,10 +41,10 @@ $strAlterOrderBy = 'Αλλαγή ταξινόμησης Πίνακα κατά';
 $strAnalyzeTable = 'Ανάλυση Πίνακα';
 $strAnd = 'Και';
 $strAnIndex = 'Ένα ευρετήριο προστέθηκε στο %s';
+$strAny = 'Οποιοδήποτε';
 $strAnyColumn = 'Οποιαδήποτε Στήλη';
 $strAnyDatabase = 'Οποιαδήποτε Βάση';
 $strAnyHost = 'Οποιοδήποτε Σύστημα';
-$strAny = 'Οποιοδήποτε';
 $strAnyTable = 'Οποιοσδήποτε Πίνακας';
 $strAnyUser = 'Οποιοσδήποτε Χρήστης';
 $strAPrimaryKey = 'Ένα πρωτεύον κλειδί προστέθηκε στο %s';
@@ -75,8 +74,8 @@ $strCheckAll = 'Επιλογή όλων';
 $strCheckDbPriv = 'Έλεγχος προνομίων Βάσης';
 $strCheckTable = 'Έλεγχος πίνακα';
 $strColComFeat = 'Εμφάνιση σχολίων πεδίων';
-$strColumnNames = 'Ονόματα στηλών';
 $strColumn = 'Στήλη';
+$strColumnNames = 'Ονόματα στηλών';
 $strCompleteInserts = 'Ολοκληρωμένες εντολές «Insert»';
 $strConfirm = 'Πραγματικά θέλετε να το εκτελέσετε;';
 $strCookiesRequired = 'Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένα cookies.';
@@ -154,8 +153,8 @@ $strHasBeenCreated = 'έχει δημιουργηθεί.';
 $strHome = 'Κεντρική σελίδα';
 $strHomepageOfficial = 'Επίσημη σελίδα του phpMyAdmin';
 $strHomepageSourceforge = 'Σελίδα του Sourceforge για την απόκτηση του phpMyAdmin';
-$strHostEmpty = 'Το όνομα του Συστήματος είναι κενό!';
 $strHost = 'Σύστημα';
+$strHostEmpty = 'Το όνομα του Συστήματος είναι κενό!';
 
 $strIdxFulltext = 'Πλήρες κείμενο';
 $strIfYouWish = 'Αν ενδιαφέρεστε να φορτώσετε μόνο μερικές απο τις στήλες του πίνακα, καθορίστε μία λίστα πεδίων διαχωρισμένα με κόμμα.';
@@ -191,8 +190,8 @@ $strLogPassword = 'Κωδικός πρόσβασης:';
 $strLogUsername = 'Όνομα χρήστη:';
 
 $strModifications = 'Οι αλλαγές αποθηκεύτηκαν';
-$strModifyIndexTopic = 'Αλλαγή ενός ευρετηρίου';
 $strModify = 'Τροποποίηση';
+$strModifyIndexTopic = 'Αλλαγή ενός ευρετηρίου';
 $strMoveTable = 'Μεταφορά πίνακα σε (βάση<b>.</b>πίνακας):';
 $strMoveTableOK = 'Ο πίνακας %s μεταφέρθηκε στο %s.';
 $strMySQLReloaded = 'Η MySQL επαναφορτώθηκε.';
@@ -232,8 +231,8 @@ $strOr = 'Ή';
 $strOverhead = 'Επιβάρυνση';
 
 $strPartialText = 'Επιμέρους κείμενα';
-$strPasswordEmpty = 'Ο Κωδικός Πρόσβασης είναι κενός!';
 $strPassword = 'Κωδικός Πρόσβασης';
+$strPasswordEmpty = 'Ο Κωδικός Πρόσβασης είναι κενός!';
 $strPasswordNotSame = 'Οι κωδικοί πρόσβασης δεν είναι ίδιοι!';
 $strPdfNoTables = 'Δεν υπάρχουν πίνακες';
 $strPHPVersion = 'Έκδοση PHP';
@@ -241,11 +240,11 @@ $strPmaDocumentation = 'Τεκμηρίωση phpMyAdmin';
 $strPmaUriError = 'Η εντολή <tt>$cfg[\'PmaAbsoluteUri\']</tt> ΠΡΕΠΕΙ να οριστεί στο αρχείο προεπιλογών!';
 $strPos1 = 'Αρχή';
 $strPrevious = 'Προηγούμενο';
+$strPrimary = 'Πρωτεύον';
+$strPrimaryKey = 'Πρωτεύον κλειδί';
 $strPrimaryKeyHasBeenDropped = 'Το πρωτεύον κλειδί διεγράφη';
 $strPrimaryKeyName = 'Το όνομα του πρωτεύοντος κλειδιού πρέπει να είναι... PRIMARY!';
-$strPrimaryKey = 'Πρωτεύον κλειδί';
 $strPrimaryKeyWarning = '("PRIMARY" <b>πρέπει</b> να είναι το όνομα του πρωτεύοντος κλειδιού και <b>μόνο αυτού</b> !)';
-$strPrimary = 'Πρωτεύον';
 $strPrintView = 'Εμφάνιση για εκτύπωση';
 $strPrivileges = 'Προνόμια';
 $strProperties = 'Ιδιότητες';
@@ -286,8 +285,8 @@ $strRunQuery = 'Υποβολή επερώτησης';
 $strRunSQLQuery = 'Εκτέλεση εντολής/εντολών SQL στη βάση δεδομένων %s';
 
 $strSave = 'Αποθήκευση';
-$strSelectADb = 'Παρακαλώ επιλέξτε μία βάση δεδομένων';
 $strSelect = 'Επιλογή';
+$strSelectADb = 'Παρακαλώ επιλέξτε μία βάση δεδομένων';
 $strSelectAll = 'Επιλογή όλων';
 $strSelectFields = 'Επιλογή πεδίων (τουλάχιστον ένα)';
 $strSelectNumRows = 'στην εντολή';
@@ -317,13 +316,13 @@ $strSubmit = 'Αποστολή';
 $strSuccess = 'Η SQL εντολή σας εκτελέσθηκε επιτυχώς';
 $strSum = 'Σύνολο';
 
+$strTable = 'Πίνακας ';
 $strTableComments = 'Σχόλια Πίνακα';
 $strTableEmpty = 'Το όνομα του Πίνακα είναι κενό!';
 $strTableHasBeenDropped = 'Ο Πίνακας %s διεγράφη';
 $strTableHasBeenEmptied = 'Ο Πίνακας %s άδειασε';
 $strTableHasBeenFlushed = 'Ο Πίνακας %s εκκαθαρίστικε ("FLUSH")';
 $strTableMaintenance = 'Συντήρηση Πίνακα';
-$strTable = 'Πίνακας ';
 $strTables = '%s Πίνακας/Πίνακες';
 $strTableStructure = 'Δομή Πίνακα για τον Πίνακα';
 $strTableType = 'Τύπος Πίνακα';
@@ -343,9 +342,9 @@ $strUpdateProfileMessage = 'Τα στοιχεία ανανεώθηκαν.';
 $strUpdateQuery = 'Ενημέρωση της εντολής';
 $strUsage = 'Χρήση';
 $strUseBackquotes = 'Χρήση ανάποδων εισαγωγικών στα ονόματα των Πινάκων και των Πεδίων';
+$strUser = 'Χρήστης';
 $strUserEmpty = 'Το όνομα του χρήστη είναι κενό!';
 $strUserName = 'Όνομα χρήστη';
-$strUser = 'Χρήστης';
 $strUsers = 'Χρήστες';
 $strUseTables = 'Χρήση Πινάκων';
 
@@ -361,7 +360,6 @@ $strYes = 'Ναι';
 
 $strZip = 'συμπίεση «zip»';
 // To Translate
-
 
 $strBeginCut = 'BEGIN CUT';  //to translate
 $strBeginRaw = 'BEGIN RAW';  //to translate
@@ -431,10 +429,10 @@ $strShowColor = 'Εμφάνιση χρωμάτων';  //to translate
 $strShowGrid = 'Εμφάνιση πλέγματος';  //to translate
 $strShowTableDimension = 'Εμφάνιση διαστάσεων πινάκων';  //to translate
 $strSplitWordsWithSpace = 'Οι λέξεις χωρίζονται από τον χαρακτήρα διαστήματος (" ").';//to translate
+$strSQL = 'SQL'; //to translate
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
 $strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
 $strSQLResult = 'αποτέλεσμα SQL'; //to translate
-$strSQL = 'SQL'; //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
 $strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate

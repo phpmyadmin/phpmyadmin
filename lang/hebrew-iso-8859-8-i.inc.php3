@@ -1,6 +1,6 @@
 <?php
-
 /* $Id$ */
+
 /* Translated by: Yuval "Etus" Sarna */
 
 $charset = 'iso-8859-8-i';
@@ -17,7 +17,6 @@ $month = array('ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%B %d, %Y at %I:%M %p';
-
 
 $strAccessDenied = 'הגישה נדחתה';
 $strAction = 'פעולה';
@@ -39,9 +38,9 @@ $strAlterOrderBy = 'שנה את סדר הטבלה על-ידי';
 $strAnalyzeTable = 'נתח טבלה';
 $strAnd = 'וגם';
 $strAnIndex = 'אינדקס התווסף ב- %s';
+$strAny = 'כל';
 $strAnyColumn = 'כל עמודה';
 $strAnyDatabase = 'כל מסד נתונים';
-$strAny = 'כל';
 $strAnyHost = 'כל מארח';
 $strAnyTable = 'כל טבלה';
 $strAnyUser = 'כל משתמש';
@@ -66,15 +65,15 @@ $strCantLoadMySQL = 'לא יכול לטעון את סיומת ה- MySQL,<br />בבקשה בדוק את קונפיגו
 $strCantRenameIdxToPrimary = 'לא יכול לשנות את האינדקס לעיקרי !';
 $strCardinality = 'Cardinality';
 $strCarriage = 'תו החזרת גררה: \\r';
+$strChange = 'שנה';
 $strChangeDisplay = 'בחר שדה להצגה';
 $strChangePassword = 'שנה סיסמה';
-$strChange = 'שנה';
 $strCheckAll = 'סמן הכל';
 $strCheckDbPriv = 'בדוק את הרשאות מסד הנתונים';
 $strCheckTable = 'בדוק טבלה';
 $strChoosePage = 'אנא בחר עמוד לעריכה';
-$strColumnNames = 'שמות השורות';
 $strColumn = 'עמודה';
+$strColumnNames = 'שמות השורות';
 $strComments = 'הערות';
 $strCompleteInserts = 'השלם הכנסות';
 $strConfigFileError = 'phpMyAdmin לא הצליח לקרוא את קובץ הקונפיגורציה שלך! מצב זה יתכן אם PHP מוצא טעות בקוד הקובץ או אם הוא לא מוצא את הקובץ.<br> אנא קרא לקובץ הקונפיגורציה ישירות בעזרת הקישור מתחת להודעה זו וקרא את הודעת PHP שהינך מקבל. ברוב המילים גרש או נקודה-פסיק חסרים במקום כלשהו.<br> אם הינך מקבל דף ריק, הכל בסדר.';
@@ -82,26 +81,26 @@ $strConfirm = 'אתה באמת רוצה לעשות את זה?';
 $strCookiesRequired = 'אפשרות הקוקיס חייבת להיות מופעלת לאחר נקודה זו.';
 $strCopyTable = 'העתק טבלה ל- (מסד נתונים<b>.</b>טבלה):';
 $strCopyTableOK = 'הטבלה %s הועתקה ל- %s.';
+$strCreate = 'צור';
 $strCreateIndex = 'צור אינקס ב-&nbsp;%s&nbsp;שורות';
 $strCreateIndexTopic = 'צור אינקס חדש';
 $strCreateNewDatabase = 'צור מסד נתונים חדש';
 $strCreateNewTable = 'צור טבלה חדשה על מסד הנתונים %s';
-$strCreate = 'צור';
 $strCreatePage = 'צור עמוד חדש';
 $strCriteria = 'קריטריון';
 
-$strDatabaseHasBeenDropped = 'מסד הנתונים %s נמחק.';
+$strData = 'מידע';
 $strDatabase = 'מסד נתונים ';
+$strDatabaseHasBeenDropped = 'מסד הנתונים %s נמחק.';
 $strDatabases = 'מסדי הנתונים';
 $strDatabasesStats = 'סטטיסטיקת מסד הנתונים';
 $strDatabaseWildcard = 'מסד נתונים (תווים כלליים מורשים):';
-$strData = 'מידע';
 $strDataOnly = 'מידע בלבד';
 $strDefault = 'ברירת מחדל';
+$strDelete = 'מחק';
 $strDeleted = 'השורה נמחקה';
 $strDeletedRows = 'שורות שנמחקו:';
 $strDeleteFailed = 'מחיקה נכשלה !';
-$strDelete = 'מחק';
 $strDeleteUserMessage = 'מחקת את המשתמש %s.';
 $strDescending = 'יורד';
 $strDisplay = 'הצג';
@@ -130,13 +129,13 @@ $strExportToXML = 'ייצא לפורמט XML';
 $strExtendedInserts = 'הכנסות מורחבות';
 $strExtra = 'נוסף';
 
+$strField = 'שדה';
 $strFieldHasBeenDropped = 'השדה %s נמחק';
+$strFields = 'שדות';
 $strFieldsEmpty = ' ספירת השדות ריקה ! ';
 $strFieldsEnclosedBy = 'צרף שדות עם';
 $strFieldsEscapedBy = 'הורד שדות עם';
 $strFieldsTerminatedBy = 'סיים שדות עם';
-$strFields = 'שדות';
-$strField = 'שדה';
 $strFixed = 'תוקן';
 $strFlushTable = 'שטוף את מסד הנתונים ("שטוף")';
 $strFormat = 'פורמט';
@@ -155,8 +154,8 @@ $strHasBeenCreated = 'נוצר.';
 $strHome = 'עמוד ראשי';
 $strHomepageOfficial = 'אתר phpMyAdmin הרשמי';
 $strHomepageSourceforge = 'עמוד ההורדות של phpMyAdmin באתר Sourceforge';
-$strHostEmpty = 'נתון המארח ריק !';
 $strHost = 'מארח';
+$strHostEmpty = 'נתון המארח ריק !';
 
 $strIdxFulltext = 'טקסט מלא';
 $strIfYouWish = 'אם ברצונך לטעון רק חלק מן עמודות הטבלה, כתוב פסיק המפריד בין רשימת השדות.';
@@ -183,8 +182,8 @@ $strLength = 'אורך';
 $strLengthSet = 'אורך/ערכים*';
 $strLimitNumRows = 'מספר עמודות בכל דף';
 $strLineFeed = 'הזנת שורה: \\n';
-$strLinesTerminatedBy = 'שורות נגמרות על-ידי';
 $strLines = 'שורות';
+$strLinesTerminatedBy = 'שורות נגמרות על-ידי';
 $strLinkNotFound = 'קישור לא נמצא';
 $strLinksTo = 'קישורים ל-';
 $strLocationTextfile = 'מיקום קובץ הטקסט';
@@ -195,8 +194,8 @@ $strLogUsername = 'שם משתמש:';
 
 $strMissingBracket = 'מרכאות חסרות';
 $strModifications = 'השינויים נשמרו';
-$strModifyIndexTopic = 'שנה אינדקס';
 $strModify = 'שנה';
+$strModifyIndexTopic = 'שנה אינדקס';
 $strMoveTable = 'העבר טבלה ל- (מסד נתונים<b>.</b>טבלה):';
 $strMoveTableOK = 'הטבלה %s הועברה ל- %s.';
 $strMySQLReloaded = 'MySQL נטען מחדש.';
@@ -208,11 +207,11 @@ $strMySQLShowVars = 'הראה את משתני המערכת של MySQL';
 
 $strName = 'שם';
 $strNext = 'הבא';
+$strNo = 'לא';
 $strNoDatabases = 'אין מסדי נתונים';
 $strNoDescription = 'אין תיאור';
 $strNoDropDatabases = 'הביטוי "DROP DATABASE" מנוטרל.';
 $strNoFrames = 'phpMyAdmin הוא יותר ידידותי עם דפדפן <b>התומך בפריימים</b>.';
-$strNo = 'לא';
 $strNoIndex = 'אינדקס לא מוגדר !';
 $strNoIndexPartsDefined = 'אין חלקי אינדקס מוגדרים !';
 $strNoModification = 'אין שינוי';
@@ -241,8 +240,8 @@ $strOverhead = 'תקורה';
 
 $strPageNumber = 'מספר עמוד:';
 $strPartialText = 'טקסטים חלקיים';
-$strPasswordEmpty = 'הסיסמה ריקה !';
 $strPassword = 'סיסמה';
+$strPasswordEmpty = 'הסיסמה ריקה !';
 $strPasswordNotSame = 'הסיסמאות אינן זהות !';
 $strPdfDbSchema = 'סכמת מסד הנתונים "%s" - עמוד %s';
 $strPdfInvalidPageNum = 'מספר עמוד של PDF לא מוגדר!';
@@ -253,18 +252,18 @@ $strPmaDocumentation = 'דוקומנטצית phpMyAdmin';
 $strPmaUriError = 'הנחיית ה- <tt>$cfg[\'PmaAbsoluteUri\']</tt> חייבת להיות ממוקמת בקובץ הקונפיגורציה שלך!';
 $strPos1 = 'התחל';
 $strPrevious = 'הקודם';
-$strPrimaryKeyHasBeenDropped = 'המפתח הראשי נמחק';
+$strPrimary = 'ראשי';
 $strPrimaryKey = 'מפתח ראשי';
+$strPrimaryKeyHasBeenDropped = 'המפתח הראשי נמחק';
 $strPrimaryKeyName = 'השם של המפתח הראשי חייב להיות... ראשי !';
 $strPrimaryKeyWarning = '("מפתח ראשי" <b>חייב</b> להיקרות בשם של מפתח ראשי !)';
-$strPrimary = 'ראשי';
 $strPrintView = 'הצגת הדפסה';
 $strPrivileges = 'הרשאות';
 $strProperties = 'מאפיינים';
 
+$strQBE = 'שאילתה לדוגמה';
 $strQBEDel = 'Del';
 $strQBEIns = 'Ins';
-$strQBE = 'שאילתה לדוגמה';
 $strQueryOnDb = 'שאילתת SQL על מסד הנתונים <b>%s</b>:';
 
 $strRecords = 'רשומות';
@@ -273,26 +272,26 @@ $strRelationView = 'תצוגת יחס';
 $strReloadFailed = 'טעינה מחדש של MySQL נכשלה.';
 $strReloadMySQL = 'טען מחדש את MySQL';
 $strRememberReload = 'זכור לטעון מחדש את השרת.';
-$strRenameTableOK = 'שם הטבלה %s השתנה ל- %s';
 $strRenameTable = 'שנה את שם הטבלה ל-';
+$strRenameTableOK = 'שם הטבלה %s השתנה ל- %s';
 $strRepairTable = 'תקן טבלה';
 $strReplace = 'החלף';
 $strReplaceTable = 'החלף את שם הטבלה עם קובץ';
 $strReset = 'אפס';
 $strReType = 'הכנס מחדש';
-$strRevokeGrantMessage = 'פסלת את הרשאת ה- Grant מ- %s';
-$strRevokeGrant = 'פסילה אושרה';
-$strRevokeMessage = ' פסלת את ההרשמה מ- %s';
 $strRevoke = 'פסול';
+$strRevokeGrant = 'פסילה אושרה';
+$strRevokeGrantMessage = 'פסלת את הרשאת ה- Grant מ- %s';
+$strRevokeMessage = ' פסלת את ההרשמה מ- %s';
 $strRevokePriv = 'פסול הרשאות';
 $strRowLength = 'אורך שורה';
+$strRows = 'שורות';
 $strRowsFrom = 'שורות המתחילות מ-';
 $strRowSize = ' גודל השורה ';
 $strRowsModeHorizontal = 'אופקי';
 $strRowsModeOptions = 'במצב %s חזור על הכותרת העליונה לאחר %s תאים';
 $strRowsModeVertical = 'אורכי';
 $strRowsStatistic = 'סטטיסטיקת השורה';
-$strRows = 'שורות';
 $strRunning = 'רץ על %s';
 $strRunQuery = 'שלח שאילתה';
 $strRunSQLQuery = 'הרץ את שאילתה/שאילתות על מסד הנתונים %s';
@@ -317,8 +316,8 @@ $strSend = 'שמור כקובץ';
 $strServerChoice = 'בחירת שרת';
 $strServerVersion = 'גרסת שרת';
 $strSetEnumVal = 'אם סוג השדה הוא enum או set, הכנס בבקשה ערכים המשתמשים בפורמט הבא: \'a\',\'b\',\'c\'...<br />אם תשים אי פעם סימן \ או מרכאה אחת יחד עם הערכים הללו, הוסף \ לפניו.';
-$strShowAll = 'הראה הכל';
 $strShow = 'הראה';
+$strShowAll = 'הראה הכל';
 $strShowColor = 'הצג צבע';
 $strShowCols = 'הראה טורים';
 $strShowingRecords = 'מראה שורות';
@@ -330,9 +329,9 @@ $strSize = 'גודל';
 $strSort = 'סיווג';
 $strSpaceUsage = 'נפח מקום';
 $strSplitWordsWithSpace = 'המילים מופרדות על ידי תו רווח (" ").';
+$strSQL = 'SQL';
 $strSQLQuery = 'שאילתת SQL';
 $strSQLResult = 'תוצאות SQL';
-$strSQL = 'SQL';
 $strStatement = 'משפטים';
 $strStrucCSV = 'מידע CSV';
 $strStrucData = 'מבנים ומידע';
@@ -345,8 +344,8 @@ $strSubmit = 'שלח';
 $strSuccess = 'שאילתת ה- SQL שלך בוצעה בהצלחה';
 $strSum = 'סיכום';
 
-$strTableComments = 'הערות טבלה';
 $strTable = 'טבלה ';
+$strTableComments = 'הערות טבלה';
 $strTableEmpty = 'שם הטבלה ריק !';
 $strTableHasBeenDropped = 'הטבלה %s נמחקה';
 $strTableHasBeenEmptied = 'Table %s רוקנה';
@@ -366,13 +365,13 @@ $strUncheckAll = 'בטל סימון של הכל';
 $strUnique = 'יחודי';
 $strUnselectAll = 'בטל בחירה של הכל';
 $strUpdatePrivMessage = 'עידכנת את ההרשאות ל- %s.';
-$strUpdateProfileMessage = 'הפרופיל עודכן.';
 $strUpdateProfile = 'עדכן פרופיל:';
+$strUpdateProfileMessage = 'הפרופיל עודכן.';
 $strUpdateQuery = 'עדכן שאילתה';
 $strUsage = 'שימוש';
 $strUseBackquotes = 'השתמש במרכאות אחוריות עם טבלאות ושמות שדות';
-$strUserEmpty = 'שם המשתמש ריק !';
 $strUser = 'משתמש';
+$strUserEmpty = 'שם המשתמש ריק !';
 $strUserName = 'שם משתמש';
 $strUsers = 'משתמשים';
 $strUseTables = 'השתמש בטבלאות';
@@ -389,7 +388,6 @@ $strYes = 'כן';
 
 $strZip = '"Zipped"';
 //To translate:
-
 
 $strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 

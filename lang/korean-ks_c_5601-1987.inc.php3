@@ -1,6 +1,6 @@
 <?php
-
 /* $Id$ */
+
 /* Translated by WooSuhan <kjh@unews.co.kr> */
 
 $charset = 'ks_c_5601-1987';
@@ -18,7 +18,6 @@ $month = array('해오름달', '시샘달', '물오름달', '잎새달', '푸른달', '누리달', '
 // variable below
 $datefmt = '%Y년 %B %d일 %p %I:%M ';
 
-
 $strAccessDenied = '접근이 거부되었습니다.';
 $strAction = '실행';
 $strAddDeleteColumn = '필드 칼럼 추가/삭제';
@@ -28,12 +27,12 @@ $strAddPriv = '권한 추가하기';
 $strAddPrivMessage = '새 권한을 추가했습니다';
 $strAddSearchConditions = '검색 조건 추가 ("where" 조건의 내용):';
 $strAddToIndex = '%s칼럼에 인덱스 추가';
-$strAddUserMessage = '새 사용자를 추가했습니다.';
 $strAddUser = '새 사용자 추가';
+$strAddUserMessage = '새 사용자를 추가했습니다.';
 $strAffectedRows = '적용된 열:';
+$strAfter = '%s 다음에';
 $strAfterInsertBack = '되돌아가기';
 $strAfterInsertNewInsert = '새 레코드(열) 삽입하기';
-$strAfter = '%s 다음에';
 $strAlterOrderBy = '다음 순서대로 테이블 정렬(변경)';
 $strAnalyzeTable = '테이블 분석';
 $strAnd = '그리고';
@@ -85,9 +84,9 @@ $strDatabasesStats = '데이터베이스 사용량 통계';
 $strDatabaseWildcard = '데이터베이스 (와일드카드문자 사용 가능):';
 $strDataOnly = '데이터만';
 $strDefault = '기본값';
+$strDelete = '삭제';
 $strDeleted = '선택한 열을 삭제 하였습니다.';
 $strDeletedRows = '지워진 열:';
-$strDelete = '삭제';
 $strDeleteUserMessage = '사용자 %s 를 삭제했습니다.';
 $strDescending = '내림차순(역순)';
 $strDisplay = '보기';
@@ -95,8 +94,8 @@ $strDisplayOrder = '출력 순서:';
 $strDoAQuery = '다음으로 쿼리를 만들기 (와일드카드: "%")';
 $strDocu = '도움말';
 $strDoYouReally = '정말로 다음을 실행하시겠습니까? ';
-$strDropDB = '데이터베이스 %s 제거';
 $strDrop = '삭제';
+$strDropDB = '데이터베이스 %s 제거';
 $strDropTable = '테이블 제거';
 $strDumpingData = '테이블의 덤프 데이터';
 $strDynamic = '동적(다이내믹)';
@@ -142,8 +141,8 @@ $strIndexes = '인덱스';
 $strIndexHasBeenDropped = '인덱스 %s 를 제거했습니다';
 $strIndexName = '인덱스 이름:';
 $strIndexType = '인덱스 종류:';
-$strInsertAsNewRow = '새 열을 삽입합니다';
 $strInsert = '추가';
+$strInsertAsNewRow = '새 열을 삽입합니다';
 $strInsertedRows = '삽입된 열:';
 $strInsertNewRow = '새 열을 삽입';
 $strInsertTextfiles = '텍스트파일을 읽어서 테이블에 데이터 삽입';
@@ -263,10 +262,10 @@ $strSend = '파일로 저장';
 $strServerChoice = '서버 선택';
 $strServerVersion = '서버 버전';
 $strSetEnumVal = '필드 종류가 "enum"이나 "set"이면, 다음과 같은 형식으로 값을 입력하십시오: \'a\',\'b\',\'c\'...<br />이 값에 역슬래시("\")나 작은따옴표("\'")가 넣어야 한다면, 역슬래시를 사용하십시오. (예: \'\\\\xyz\' 또는 \'a\\\'b\').';
+$strShow = '보기';
 $strShowAll = '모두 보기';
 $strShowCols = '칼럼(행) 보기';
 $strShowingRecords = '레코드(열) 보기';
-$strShow = '보기';
 $strShowPHPInfo = 'PHP 정보 보기';
 $strShowTables = '테이블 보기';
 $strShowThisQuery = ' 이 쿼리를 다시 보여줌 ';
@@ -328,7 +327,6 @@ $strYes = ' 예 ';
 
 $strZip = 'zip 압축';
 // To translate
-
 
 $strAll = 'All'; // To translate
 $strAllTableSameWidth = 'display all Tables with same width?';  //to translate
@@ -416,6 +414,7 @@ $strRelationNotWorking = 'The additional Features for working with linked Tables
 $strRelationView = 'Relation view';  //to translate
 
 $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
+$strSearch = 'Search';//to translate
 $strSearchFormTitle = 'Search in database';//to translate
 $strSearchInTables = 'Inside table(s):';//to translate
 $strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';//to translate
@@ -424,7 +423,6 @@ $strSearchOption2 = 'all words';//to translate
 $strSearchOption3 = 'the exact phrase';//to translate
 $strSearchOption4 = 'as regular expression';//to translate
 $strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
-$strSearch = 'Search';//to translate
 $strSearchType = 'Find:';//to translate
 $strSelectTables = 'Select Tables';  //to translate
 $strShowColor = 'Show color';  //to translate
@@ -432,10 +430,10 @@ $strShowGrid = 'Show grid';  //to translate
 $strShowTableDimension = 'Show dimension of tables';  //to translate
 $strSort = 'Sort'; // To translate
 $strSplitWordsWithSpace = 'Words are seperated by a space character (" ").';//to translate
+$strSQL = 'SQL'; //to translate
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
 $strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
 $strSQLResult = 'SQL result'; //to translate
-$strSQL = 'SQL'; //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
 $strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate

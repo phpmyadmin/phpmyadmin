@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 /**
@@ -22,7 +21,6 @@ $month = array('ٌوÇٌع', 'لÈعÇٌع', 'ځÇعـ', 'ژÈعٌه', 'ځÇٌي
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d %B %Y ÇهـÇگÉ %H:%M';
-
 
 $strAccessDenied = 'Ûٌع ځـځيط';
 $strAction = 'ÇهگځهٌÉ';
@@ -57,8 +55,8 @@ $strAtEndOfTable = 'لٌ وىÇٌÉ ÇهضÏيه';
 $strAttr = 'ÇهÎيÇف';
 
 $strBack = 'عضيگ';
-$strBinaryDoNotEdit = 'ËوÇصٌ - هÇÊطععى';
 $strBinary = 'ËوÇصٌ';
+$strBinaryDoNotEdit = 'ËوÇصٌ - هÇÊطععى';
 $strBookmarkDeleted = 'همÏ طّㄓلÊ ÇهگهÇځى Çهځعضگٌى.';
 $strBookmarkLabel = 'گهÇځى';
 $strBookmarkQuery = 'گهÇځى ځعضگٌى SQL-شـÊگهÇځ';
@@ -76,8 +74,8 @@ $strChangePassword = 'ÊÛٌٌع نهځÉ Çهـع';
 $strCheckAll = 'شÎÊع Çهنه';
 $strCheckDbPriv = 'لطف شځÊٌÇغ مÇگÏÉ ÇهÈٌÇوÇÊ';
 $strCheckTable = 'ÇهÊطمم ځو ÇهضÏيه';
-$strColumnNames = 'شـځ ÇهگځيÏ';
 $strColumn = 'گځيÏ';
+$strColumnNames = 'شـځ ÇهگځيÏ';
 $strCompleteInserts = 'ÇهشÏÎÇه همÏ شنÊځه';
 $strConfirm = 'ىه ÊعٌÏ طمÇٍ ژو Êلگه ㄓهنر';
 $strCookiesRequired = 'ٌضÈ Êلگٌه Ïگځ Çهنينٌغ لٌ ىㄓى ÇهځعطهÉ.';
@@ -90,27 +88,27 @@ $strCreateNewDatabase = 'Êنيٌو مÇگÏÉ ÈٌÇوÇÊ ضÏٌÏÉ';
 $strCreateNewTable = 'Êنيٌو ضÏيه ضÏٌÏ لٌ مÇگÏÉ ÇهÈٌÇوÇÊ %s';
 $strCriteria = 'ÇهځگÇٌٌع';
 
-$strDatabaseHasBeenDropped = 'مÇگÏÉ ÈٌÇوÇÊ %s ځطㄓيلى.';
-$strDatabasesStats = 'شطفÇصٌÇÊ ميÇگÏ ÇهÈٌÇوÇÊ';
-$strDatabases = 'مÇگÏÉ ÈٌÇوÇÊ';
-$strDatabase = 'مÇگÏÉ ÇهÈٌÇوÇÊ ';
-$strDatabaseWildcard = 'مÇگÏÉ ÈٌÇوÇÊ:';
 $strData = 'ÈٌÇوÇÊ';
+$strDatabase = 'مÇگÏÉ ÇهÈٌÇوÇÊ ';
+$strDatabaseHasBeenDropped = 'مÇگÏÉ ÈٌÇوÇÊ %s ځطㄓيلى.';
+$strDatabases = 'مÇگÏÉ ÈٌÇوÇÊ';
+$strDatabasesStats = 'شطفÇصٌÇÊ ميÇگÏ ÇهÈٌÇوÇÊ';
+$strDatabaseWildcard = 'مÇگÏÉ ÈٌÇوÇÊ:';
 $strDataOnly = 'ÈٌÇوÇÊ لمك';
 $strDefault = 'شلÊعÇقٌ';
+$strDelete = 'طㄓل';
 $strDeleted = 'همÏ Êځ طㄓل Çهفل';
 $strDeletedRows = 'Çهفليل Çهځطㄓيلى:';
 $strDeleteFailed = 'Çهطㄓل ÎÇكص!';
-$strDelete = 'طㄓل';
 $strDeleteUserMessage = 'همÏ طㄓلÊ ÇهځـÊÎÏځ %s.';
 $strDescending = 'ÊوÇغهٌÇٍ';
-$strDisplayOrder = 'ÊعÊٌÈ Çهگعق:';
 $strDisplay = 'گعق';
+$strDisplayOrder = 'ÊعÊٌÈ Çهگعق:';
 $strDoAQuery = 'Êضگه "شـÊگهÇځ ÈيÇـكÉ ÇهځËÇه" (wildcard: "%")';
 $strDocu = 'ځـÊوÏÇÊ يËÇصمٌى';
 $strDoYouReally = 'ىه ÊعٌÏ طمÇٍ Êولٌㄓ';
-$strDropDB = 'طㄓل مÇگÏÉ ÈٌÇوÇÊ %s';
 $strDrop = 'طㄓل';
+$strDropDB = 'طㄓل مÇگÏÉ ÈٌÇوÇÊ %s';
 $strDropTable = 'طㄓل ضÏيه';
 $strDumpingData = 'شعضÇگ ژي شـÊٌعÇÏ ÈٌÇوÇÊ ÇهضÏيه';
 $strDynamic = 'ÏٌوÇځٌنٌ';
@@ -128,11 +126,11 @@ $strExtra = 'شقÇلٌ';
 
 $strField = 'Çهطمه';
 $strFieldHasBeenDropped = 'طمه ځطㄓيل %s';
+$strFields = ' گÏÏ Çهطميه';
 $strFieldsEmpty = ' ÊگÏÇÏ Çهطمه لÇعÛ! ';
 $strFieldsEnclosedBy = 'طمه ځقځو ÈÜ';
 $strFieldsEscapedBy = 'طمه ځّÊضÇىه ÈÜ';
 $strFieldsTerminatedBy = 'طمه ځلفيه ÈÜ';
-$strFields = ' گÏÏ Çهطميه';
 $strFixed = 'ځËÈÊ';
 $strFlushTable = 'شگÇÏÉ Êطځٌه ÇهضÏيه ("FLUSH")';
 $strFormat = 'فٌÛى';
@@ -156,11 +154,11 @@ $strHostEmpty = 'شـځ ÇهځـÊقٌل لÇعÛ!';
 $strIdxFulltext = 'Çهوف نÇځهÇٍ';
 $strIfYouWish = 'شㄓÇ نوÊ ÊعÛÈ لٌ ژو Êطځه Èگق ژگځÏÉ ÇهضÏيه لمك, طÏÏ ÈÇهلÇفهى ÇهÊٌ Êلفه مÇصځÉ Çهطمه.';
 $strIgnore = 'ÊضÇىه';
+$strIndex = 'لىعـÊ';
 $strIndexes = 'لىÇعـ';
 $strIndexHasBeenDropped = 'لىعـى ځطㄓيلى %s';
 $strIndexName = 'شـځ Çهلىعـ&nbsp;:';
 $strIndexType = 'ويگ Çهلىعـ&nbsp;:';
-$strIndex = 'لىعـÊ';
 $strInsert = 'شÏÎÇه';
 $strInsertAsNewRow = 'شÏÎÇه نÊـضٌه ضÏٌÏ';
 $strInsertedRows = 'فليل ځÏÎهى:';
@@ -204,8 +202,8 @@ $strNo = 'هÇ';
 $strNoDatabases = 'هÇٌيضÏ ميÇگÏ ÈٌÇوÇÊ';
 $strNoDropDatabases = 'ځگكه "طㄓل مÇگÏÉ ÈٌÇوÇÊ"Çهژځع ';
 $strNoFrames = 'phpMyAdmin ژنËع ÊلىځÇٍ ځگ ځـÊگعق <b>ÇهشكÇعÇÊ</b>.';
-$strNoIndexPartsDefined = 'شضغÇز Çهلىعـى Ûٌع ځگعلى!';
 $strNoIndex = 'لىعـ Ûٌع ځگعل!';
+$strNoIndexPartsDefined = 'شضغÇز Çهلىعـى Ûٌع ځگعلى!';
 $strNoModification = 'هÇ ÊÛٌٌعÇÊ';
 $strNone = 'هÇÔص';
 $strNoPassword = 'هÇ نهځÉ ـع';
@@ -226,9 +224,9 @@ $strOr = 'ژي';
 $strOverhead = 'Çهليمٌ';
 
 $strPartialText = 'وفيف ضغصٌى';
+$strPassword = 'نهځÉ Çهـع';
 $strPasswordEmpty = 'نهځÉ Çهـع لÇعÛÉ !';
 $strPasswordNotSame = 'نهځÊÇ Çهـع Ûٌع ځÊÔÇÈىÊÇو !';
-$strPassword = 'نهځÉ Çهـع';
 $strPHPVersion = ' PHP شفÏÇعÉ';
 $strPmaDocumentation = 'ځـÊوÏÇÊ يËÇصمٌى هÜ phpMyAdmin (ÈÇهشوضهٌغٌÉ)';
 $strPmaUriError = 'ÇهځÊÛٌع <span dir="ltr"><tt>$cfg[\'PmaAbsoluteUri\']</tt></span> ٌضÈ ÊگÏٌهى لٌ ځهل Çهنيلٌن !';
@@ -266,20 +264,20 @@ $strRevokeGrantMessage = 'همÏ ژÈكهÊ شځÊٌÇغ Grant هÜ %s';
 $strRevokeMessage = 'همÏ ژÈكهÊ ÇهژځÊٌÇغÇÊ هÜ %s';
 $strRevokePriv = 'شÈكÇه شځÊٌÇغÇÊ';
 $strRowLength = 'كيه Çهفل';
+$strRows = 'فليل';
 $strRowsFrom = 'فليل ÊÈÏژ ځو';
 $strRowSize = ' ځمÇـ Çهفل ';
 $strRowsModeHorizontal = 'ژلمٌ';
 $strRowsModeOptions = ' %s ي شگÇÏÉ Çهعسيـ ÈگÏ %s طمه';
 $strRowsModeVertical = 'گځيÏٌ';
-$strRows = 'فليل';
 $strRowsStatistic = 'شطفÇصٌÇÊ';
 $strRunning = ' گهً ÇهځغيÏ %s';
 $strRunQuery = 'شعـÇه ÇهشـÊگهÇځ';
 $strRunSQLQuery = 'Êولٌㄓ شـÊگهÇځ/شـÊگهÇځÇÊ SQL گهً مÇگÏÉ ÈٌÇوÇÊ %s';
 
 $strSave = 'طلÜÜÙ';
-$strSelectADb = 'شÎÊع مÇگÏÉ ÈٌÇوÇÊ ځو ÇهمÇصځÉ';
 $strSelect = 'شÎÊٌÇع';
+$strSelectADb = 'شÎÊع مÇگÏÉ ÈٌÇوÇÊ ځو ÇهمÇصځÉ';
 $strSelectAll = 'ÊطÏٌÏ Çهنه';
 $strSelectFields = 'شÎÊٌÇع طميه (گهً Çهژمه يÇطÏ):';
 $strSelectNumRows = 'لٌ ÇهشـÊگهÇځ';
@@ -287,13 +285,13 @@ $strSend = 'طلÙ نځهل';
 $strServerChoice = 'شÎÊٌÇع ÇهÎÇÏځ';
 $strServerVersion = 'شفÏÇعÉ ÇهځغيÏ';
 $strSetEnumVal = 'شㄓÇ نÇو ويگ Çهطمه ىي "enum" ژي "set", ÇهعضÇز شÏÎÇه Çهمٌځ ÈشـÊÎÏÇځ ىㄓÇ ÇهÊوـٌم: \'a\',\'b\',\'c\'...<br />شㄓÇ نوÊ ÊطÊÇض Èژو Êقگ گهÇځÉ ÇهÔعكى ÇهځÇصهى ههٌـÇع ("\") ژي گهÇځÉ ÇهشمÊÈÇـ ÇهلعÏٌى ("\'") لٌځÇ Èٌو Êهن Çهمٌځ, شضگهىÇ نÔعكى ځÇصهى ههٌـÇع (ځËهÇٍ \'\\\\xyz\' ژي \'a\\\'b\').';
+$strShow = 'گعق';
 $strShowAll = 'ÔÇىÏ Çهنه';
 $strShowCols = 'ÔÇىÏ ÇهژگځÏى';
 $strShowingRecords = 'ځÔÇىÏÉ ÇهـضهÇÊ ';
 $strShowPHPInfo = 'گعق ÇهځگهيځÇÊ ÇهځÊگهمÉ È  PHP';
 $strShowTables = 'ÔÇىÏ ÇهضÏيه';
 $strShowThisQuery = ' گعق ىㄓÇ ÇهشـÊگهÇځ ىوÇ ځعÉ ژÎعً ';
-$strShow = 'گعق';
 $strSingly = '(لعÏٌ)';
 $strSize = 'Çهطضځ';
 $strSort = 'Êفوٌل';
@@ -342,8 +340,8 @@ $strUsers = 'ÇهځـÊÎÏځٌو';
 $strUseTables = 'شـÊÎÏځ ÇهضÏيه';
 
 $strValue = 'Çهمٌځى';
-$strViewDumpDB = 'گعق ÈوٌÉ مÇگÏÉ ÇهÈٌÇوÇÊ';
 $strViewDump = 'گعق ÈوٌÉ ÇهضÏيه ';
+$strViewDumpDB = 'گعق ÈوٌÉ مÇگÏÉ ÇهÈٌÇوÇÊ';
 
 $strWelcome = 'ژىهÇٍ Èن لٌ %s';
 $strWithChecked = ': گهً ÇهځطÏÏ';
@@ -353,7 +351,6 @@ $strYes = 'وگځ';
 
 $strZip = '"zipped" "ځقÛيك"';
 // To translate
-
 
 $strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 
@@ -420,6 +417,7 @@ $strRelationNotWorking = 'The additional Features for working with linked Tables
 $strRelationView = 'Relation view';  //to translate
 
 $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
+$strSearch = 'Search';//to translate
 $strSearchFormTitle = 'Search in database';//to translate
 $strSearchInTables = 'Inside table(s):';//to translate
 $strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';//to translate
@@ -428,17 +426,16 @@ $strSearchOption2 = 'all words';//to translate
 $strSearchOption3 = 'the exact phrase';//to translate
 $strSearchOption4 = 'as regular expression';//to translate
 $strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
-$strSearch = 'Search';//to translate
 $strSearchType = 'Find:';//to translate
 $strSelectTables = 'Select Tables';  //to translate
 $strShowColor = 'Show color';  //to translate
 $strShowGrid = 'Show grid';  //to translate
 $strShowTableDimension = 'Show dimension of tables';  //to translate
 $strSplitWordsWithSpace = 'Words are seperated by a space character (" ").';//to translate
+$strSQL = 'SQL'; //to translate
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
 $strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
 $strSQLResult = 'SQL result'; //to translate
-$strSQL = 'SQL'; //to translate
 $strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
 $strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate

@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 $charset = 'windows-1251';
@@ -16,7 +15,6 @@ $month = array('Січ', 'Лют', 'Бер', 'Квт', 'Трв', 'Чрв', 'Лип', 'Сер', 'Вер', 'Ж
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%B %d %Y р., %H:%M';
-
 
 $strAccessDenied = 'Доступ заборонено';
 $strAction = 'Дія';
@@ -85,11 +83,11 @@ $strConfirm = 'Ви насправді хочете це зробити?';
 $strCookiesRequired = 'З цього моменту Cookies повинні бути дозволені.';
 $strCopyTable = 'Скопіювати таблицю в (база даних<b>.</b>таблиця):';
 $strCopyTableOK = 'Таблицю %s було скопійовано в %s.';
+$strCreate = 'Створити';
 $strCreateIndex = 'Створити індекс на&nbsp;%s&nbsp;колонках';
 $strCreateIndexTopic = 'Створити новий індекс';
 $strCreateNewDatabase = 'Створити нову БД';
 $strCreateNewTable = 'Створити нову таблицю в БД %s';
-$strCreate = 'Створити';
 $strCreatePage = 'Створити нову сторінку';
 $strCreatePdfFeat = 'Створити PDF-файл';
 $strCriteria = 'Критерій';
@@ -103,14 +101,14 @@ $strDatabaseWildcard = 'База даних (дозволено використання шаблонів):';
 $strDataOnly = 'Лише дані';
 $strDefault = 'По замовчуванню';
 $strDelete = 'Видалити';
-$strDeletedRows = 'Видалено наступні рядки:';
 $strDeleted = 'Рядок видалено';
+$strDeletedRows = 'Видалено наступні рядки:';
 $strDeleteFailed = 'Видалення не вдалося!';
 $strDeleteUserMessage = 'Видалено користувача %s.';
 $strDescending = 'Спадаючий';
 $strDisabled = 'недоступно';
-$strDisplayFeat = 'Показати можливості';
 $strDisplay = 'Показати';
+$strDisplayFeat = 'Показати можливості';
 $strDisplayOrder = 'Порядок перегляду:';
 $strDisplayPDF = 'Показати PDF схему';
 $strDoAQuery = 'Виконати "запит згідно прикладу" (символ підставновки: "%")';
@@ -138,12 +136,12 @@ $strExportToXML = 'Експортувати у XML формат';
 $strExtendedInserts = 'Розширена вставка';
 $strExtra = 'Додатково';
 
-$strFieldHasBeenDropped = 'Поле %s було видалено';
 $strField = 'Поле';
+$strFieldHasBeenDropped = 'Поле %s було видалено';
+$strFields = 'Поля';
 $strFieldsEmpty = ' Порожній перелік полів! ';
 $strFieldsEnclosedBy = 'Поля взято в';
 $strFieldsEscapedBy = 'Поля екрануються';
-$strFields = 'Поля';
 $strFieldsTerminatedBy = 'Поля розділені';
 $strFixed = 'фіксований';
 $strFlushTable = 'Очистити кеш таблиці ("FLUSH")';
@@ -165,8 +163,8 @@ $strHaveToShow = 'Необхідно вибрати принаймі один Стовпчик для показу';
 $strHome = 'На початок';
 $strHomepageOfficial = 'Офіційна сторінка phpMyAdmin';
 $strHomepageSourceforge = 'Завантаження phpMyAdmin з Sourceforge';
-$strHostEmpty = 'Порожнє ім\'я хоста!';
 $strHost = 'Хост';
+$strHostEmpty = 'Порожнє ім\'я хоста!';
 
 $strIdxFulltext = 'ПовнТекст';
 $strIfYouWish = 'Якщо Ви бажаєте завантажити лише деякі колонки таблиці, задайте розділений комами список полів.';
@@ -193,8 +191,8 @@ $strLength = 'Довжина';
 $strLengthSet = 'Довжини/Значення*';
 $strLimitNumRows = 'записів на сторінці';
 $strLineFeed = 'Символ кінця рядка: \\n';
-$strLinesTerminatedBy = 'Рядки розділено';
 $strLines = 'Рядки';
+$strLinesTerminatedBy = 'Рядки розділено';
 $strLinkNotFound = 'Лінк не знайдено';
 $strLinksTo = 'Лінки до';
 $strLocationTextfile = 'вкажіть розташування текстового файлу';
@@ -219,11 +217,11 @@ $strMySQLShowVars = 'Показати системні змінні MySQL';
 
 $strName = 'Ім\'я';
 $strNext = 'Дальше';
+$strNo = 'Ні';
 $strNoDatabases = 'БД відсутні';
 $strNoDescription = 'без опису';
 $strNoDropDatabases = 'Оператори "DROP DATABASE" заборонені.';
 $strNoFrames = 'Для роботи phpMyAdmin потрібно браузер з підтримкою <b>фреймів</b>.';
-$strNo = 'Ні';
 $strNoIndex = 'Індекс не визначено!';
 $strNoIndexPartsDefined = 'Не визначено частини індекса!';
 $strNoModification = 'Змін немає';
@@ -255,8 +253,8 @@ $strOverhead = 'Надмірні видатки';
 
 $strPageNumber = 'Номер сторінки:';
 $strPartialText = 'Часткові тексти';
-$strPasswordEmpty = 'Порожній пароль!';
 $strPassword = 'Пароль';
+$strPasswordEmpty = 'Порожній пароль!';
 $strPasswordNotSame = 'Паролі не однакові!';
 $strPdfDbSchema = 'Схема бази даних "%s" - Сторінка %s';
 $strPdfInvalidPageNum = 'Не встановлено номер PDF сторінки!';
@@ -268,8 +266,8 @@ $strPmaUriError = 'Змінна <tt>$cfg[\'PmaAbsoluteUri\']</tt> ПОВИННА бути встанов
 $strPos1 = 'Початок';
 $strPrevious = 'Назад';
 $strPrimary = 'Первинний';
-$strPrimaryKeyHasBeenDropped = 'Первинний ключ було знищено';
 $strPrimaryKey = 'Первинний ключ';
+$strPrimaryKeyHasBeenDropped = 'Первинний ключ було знищено';
 $strPrimaryKeyName = 'Ім\'я первинного ключа повинно бути PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>повинно</b> бути іменем <b>лише</b> первинного ключа!)';
 $strPrintView = 'Версія для друку';
@@ -300,31 +298,31 @@ $strRevokeGrantMessage = 'Було відмінено надання прав для %s';
 $strRevokeMessage = 'Ви змінили привілеї для %s';
 $strRevokePriv = 'Відмінити привілеї';
 $strRowLength = 'Довжина рядка';
+$strRows = 'Рядки';
 $strRowsFrom = 'рядків з';
 $strRowSize = ' Розмір рядка ';
 $strRowsModeHorizontal = ' горизонтально ';
 $strRowsModeOptions = '-го %s і дублювати заголовки через кожні %s рядків ';
 $strRowsModeVertical = ' вертикально ';
 $strRowsStatistic = 'Статистика рядка';
-$strRows = 'Рядки';
 $strRunning = 'на %s';
 $strRunQuery = 'Виконати запит';
 $strRunSQLQuery = 'Виконати SQL запит(и) до БД %і';
 
 $strSave = 'Зберегти';
 $strScaleFactorSmall = 'Занадто малий масштаб щоб схема займала цілу сторінку';
+$strSearch = 'Шукати';
 $strSearchFormTitle = 'Шукати в базі даних';
 $strSearchInTables = 'Всередині таблиць:';
 $strSearchNeedle = 'Слова чи значення, які потрібно знайти (маска: "%"):';
-$strSearch = 'Шукати';
 $strSearchOption1 = 'принаймі одне з слів';
 $strSearchOption2 = 'всі слова';
 $strSearchOption3 = 'точну фразу';
 $strSearchOption4 = 'регулярний вираз';
 $strSearchResultsFor = 'Результати пошуку "<i>%s</i>" %s:';
 $strSearchType = 'Знайти:';
-$strSelectADb = 'Прошу вибрати базу даних';
 $strSelect = 'Вибрати';
+$strSelectADb = 'Прошу вибрати базу даних';
 $strSelectAll = 'Відмітити все';
 $strSelectFields = 'Вибрати поля (щонайменше одне):';
 $strSelectNumRows = 'по запиту';
@@ -333,11 +331,11 @@ $strSend = 'Відіслати';
 $strServerChoice = 'Вибір сервера';
 $strServerVersion = 'Версія сервера';
 $strSetEnumVal = 'Для типів поля "enum" та "set", введіть значення згідно такого формату: \'a\',\'b\',\'c\'...<br />Якщо вам буде потрібно ввести зворотню косу риску ("\"") або поодинокі лапки ("\'") посеред цих значень, поставте перед ними зворотню косу риску (наприклад, \'\\\\xyz\' чи \'a\\\'b\').';
+$strShow = 'Показати';
 $strShowAll = 'Показати все';
 $strShowColor = 'Показати колір';
 $strShowCols = 'Показати колонки';
 $strShowGrid = 'Показати сітку';
-$strShow = 'Показати';
 $strShowingRecords = 'Показано записи ';
 $strShowPHPInfo = 'Показати інформацію про PHP';
 $strShowTableDimension = 'Показати розміри таблиць';
@@ -348,9 +346,9 @@ $strSize = 'Розмір';
 $strSort = 'Посортувати';
 $strSpaceUsage = 'Простір, що використовується';
 $strSplitWordsWithSpace = 'Слова розділені пробілом (" ").';
+$strSQL = 'SQL';
 $strSQLQuery = 'SQL-запит';
 $strSQLResult = 'SQL result';
-$strSQL = 'SQL';
 $strStatement = 'Параметр';
 $strStrucCSV = 'CSV дані';
 $strStrucData = 'Структуру і дані';
@@ -363,13 +361,13 @@ $strSubmit = 'Виконати';
 $strSuccess = 'Ваш SQL-запит було успішно виконано';
 $strSum = 'Всього';
 
+$strTable = 'таблиця ';
 $strTableComments = 'Коментар до таблиці';
 $strTableEmpty = 'Порожня назва таблиці!';
 $strTableHasBeenDropped = 'Таблицю %s було знищено';
 $strTableHasBeenEmptied = 'Таблицю %s було очищено';
 $strTableHasBeenFlushed = 'Було очищено кеш таблиці %s';
 $strTableMaintenance = 'Обслговування таблиці';
-$strTable = 'таблиця ';
 $strTables = '%s таблиц(і)';
 $strTableStructure = 'Структура таблиці';
 $strTableType = 'Тип таблиці';
@@ -396,8 +394,8 @@ $strUsers = 'Користувачі';
 $strUseTables = 'Використовувати таблиці';
 
 $strValue = 'Значення';
-$strViewDumpDB = 'Переглянути дамп (схему) БД';
 $strViewDump = 'Переглянути дамп (схему) таблиці';
+$strViewDumpDB = 'Переглянути дамп (схему) БД';
 
 $strWelcome = 'Ласкаво просимо до %s';
 $strWithChecked = 'З відміченими:';
@@ -407,7 +405,6 @@ $strYes = 'Так';
 
 $strZip = 'запакувати в "zip"';
 // To translate
-
 
 $strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 
