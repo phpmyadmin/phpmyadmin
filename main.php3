@@ -257,7 +257,7 @@ if ($server > 0
     </li>
     <li>
         <a href="http://phpmyadmin.sourceforge.net/" target="_new">
-        <?php echo $strHomepageSourceforge; ?></a>&nbsp;&nbsp;&nbsp;[&nbsp;<a href="ChangeLog" target="_new">ChangeLog</a>&nbsp;]
+        <?php echo $strHomepageSourceforge; ?></a>&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_new">ChangeLog</a>]
     </li>
 </ul>
 

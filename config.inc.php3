@@ -67,7 +67,7 @@ $cfgServer = '';
 unset($cfgServers[0]);
 
 // Be sure to include no trailing slash on the path
-$cfgManualBase = "http://www.mysql.com/documentation/mysql/";
+$cfgManualBase = "http://www.mysql.com/documentation/mysql/bychapter";
 
 $cfgConfirm = true;
 $cfgPersistentConnections = false;
