@@ -166,6 +166,7 @@ $strNbRecords = 'Datensätze';
 $strNext = 'Nächste';
 $strNo = 'Nein';
 $strNoDatabases = 'Keine Datenbanken';
+$strNoDropDatabases = '"DROP DATABASE" Anweisung wurde deaktiviert.';
 $strNoModification = 'Keine Änderung';
 $strNoPassword = 'Kein Password';
 $strNoPrivileges = 'Keine Rechte';
@@ -296,5 +297,4 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
-$strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
 ?>
