@@ -35,7 +35,7 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
         } else {
             $mysql_collations[$row['Charset']][] = $row['Collation'];
         }
-        if ($row['D'] == 'Y') {
+        if ((isset($row['D']) && $row['D'] == 'Y') || (isset($row['Default']) && $row['Default'] == 'Yes')) {
             $mysql_default_collations[$row['Charset']] = $row['Collation'];
         }
     }

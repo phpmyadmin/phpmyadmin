@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-09-01 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/mysql_charsets.lib.php3: Name of column is sometimes Default
+      (bug #798426).
+
 2003-08-31 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: extract ON DELETE, ON UPDATE for FOREIGN KEYs
     * libraries/relation.lib.php3: populate $foreign with ON DELETE, ON UPDATE
