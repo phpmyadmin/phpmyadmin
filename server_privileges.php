@@ -153,11 +153,11 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         $username = $GLOBALS['username'];
         $hostname = $GLOBALS['hostname'];
         if ($db == '*') {
-            $sql_query = 'SELECT * FROM `user` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '";';
+            $sql_query = 'SELECT * FROM `user` WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($hostname) . ';';
         } else if ($table == '*') {
-            $sql_query = 'SELECT * FROM `db` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '" AND `Db` = "' . $db . '";';
+            $sql_query = 'SELECT * FROM `db` WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($hostname) . ' AND `Db` =' . PMA_charsetIntroducerCollate($db) . ';';
         } else {
-            $sql_query = 'SELECT `Table_priv` FROM `tables_priv` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '" AND `Db` = "' . $db . '" AND `Table_name` = "' . $table . '";';
+            $sql_query = 'SELECT `Table_priv` FROM `tables_priv` WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($hostname) . ' AND `Db` =' . PMA_charsetIntroducerCollate($db) . ' AND `Table_name` = ' . PMA_charsetIntroducerCollate($table) . ';';
         }
         $res = PMA_DBI_query($sql_query);
         $row = PMA_DBI_fetch_assoc($res);
@@ -210,7 +210,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         unset($res, $row1);
     }
     if (!empty($columns)) {
-        $res = PMA_DBI_query('SELECT `Column_name`, `Column_priv` FROM `columns_priv` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '" AND `Db` = "' . $db . '" AND `Table_name` = "' . $table . '";');
+        $res = PMA_DBI_QUERY('SELECT `Column_name`, `Column_priv` FROM `columns_priv` WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($hostname) . ' AND `Db` =' . PMA_charsetIntroducerCollate($db) . ' AND `Table_name` = ' . PMA_charsetIntroducerCollate($table) . ';');
         while ($row1 = PMA_DBI_fetch_row($res)) {
             $row1[1] = explode(',', $row1[1]);
             foreach ($row1[1] as $current) {
@@ -544,7 +544,8 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
  * Changes / copies a user, part I
  */
 if (!empty($change_copy)) {
-    $res = PMA_DBI_query('SELECT * FROM `mysql`.`user` WHERE `User` = "' . PMA_sqlAddslashes($old_username) . '" AND `Host` = "' . $old_hostname . '";');
+    $user_host_condition = ' WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($old_username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($old_hostname) . ';';
+    $res = PMA_DBI_query('SELECT * FROM `mysql`.`user` ' . $user_host_condition);
     if (!$res) {
         $message = $strNoUsersFound;
         unset($change_copy);
@@ -591,7 +592,7 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             unset($row);
             break;
     }
-    $res = PMA_DBI_query('SELECT "foo" FROM `user` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '";');
+    $res = PMA_DBI_query('SELECT "foo" FROM `user` WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($hostname) . ';');
     if (PMA_DBI_affected_rows() == 1) {
         PMA_DBI_free_result($res);
         $message = sprintf($strUserAlreadyExists, '<i>\'' . $username . '\'@\'' . $hostname . '\'</i>');
@@ -656,15 +657,16 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
  * Changes / copies a user, part III
  */
 if (!empty($change_copy)) {
-    $res = PMA_DBI_query('SELECT * FROM `mysql`.`db` WHERE `User` = "' . PMA_sqlAddslashes($old_username) . '" AND `Host` = "' . $old_hostname . '";');
+    $user_host_condition = ' WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($old_username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($old_hostname) . ';';
+    $res = PMA_DBI_query('SELECT * FROM `mysql`.`db`' . $user_host_condition );
     while ($row = PMA_DBI_fetch_assoc($res)) {
         $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row)) . ' ON `' . $row['Db'] . '`.* TO "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '"' . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION' : '') . ';';
     }
     PMA_DBI_free_result($res);
-    $res = PMA_DBI_query('SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv` WHERE `User` = "' . PMA_sqlAddslashes($old_username) . '" AND `Host` = "' . $old_hostname . '";', $userlink);
+    $res = PMA_DBI_query('SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $user_host_condition, $userlink);
     while ($row = PMA_DBI_fetch_assoc($res)) {
 
-        $res2 = PMA_DBI_query('SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE `User` = "' . PMA_sqlAddslashes($old_username) . '" AND `Host` = "' . $old_hostname . '" AND `Db` = "' . $row['Db'] . '" AND `Table_name` = "' . $row['Table_name'] . '";');
+        $res2 = PMA_DBI_QUERY('SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($old_username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($old_hostname) . ' AND `Db` =' . PMA_charsetIntroducerCollate($row['Db']) . ' AND `Table_name` = ' . PMA_charsetIntroducerCollate($row['Table_name']) . ';');
 
         $tmp_privs1 = PMA_extractPrivInfo($row);
         $tmp_privs2 = array(
@@ -673,6 +675,7 @@ if (!empty($change_copy)) {
             'Update' => array(),
             'References' => array()
         );
+
         while ($row2 = PMA_DBI_fetch_assoc($res2)) {
             $tmp_array = explode(',', $row2['Column_priv']);
             if (in_array('Select', $tmp_array)) {
@@ -829,13 +832,14 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
             }
             unset($res);
         }
-        $queries[] = 'DELETE FROM `user` WHERE `User` = "' . PMA_sqlAddslashes($this_user) . '" AND `Host` = "' . $this_host . '";';
+        $queries[] = 'DELETE FROM `user` WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($this_user)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($this_host) . ';';
         if ($mode != 2) {
             // If we REVOKE the table grants, we should not need to modify the
             // `db`, `tables_priv` and `columns_priv` tables manually...
-            $queries[] = 'DELETE FROM `db` WHERE `User` = "' . PMA_sqlAddslashes($this_user) . '" AND `Host` = "' . $this_host . '";';
-            $queries[] = 'DELETE FROM `tables_priv` WHERE `User` = "' . PMA_sqlAddslashes($this_user) . '" AND `Host` = "' . $this_host . '";';
-            $queries[] = 'DELETE FROM `columns_priv` WHERE `User` = "' . PMA_sqlAddslashes($this_user) . '" AND `Host` = "' . $this_host . '";';
+            $user_host_condition = ' WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($this_user)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($this_host) . ';';
+            $queries[] = 'DELETE FROM `db`' . $user_host_condition;
+            $queries[] = 'DELETE FROM `tables_priv`' . $user_host_condition;
+            $queries[] = 'DELETE FROM `columns_priv`' . $user_host_condition;
         }
         if (!empty($drop_users_db)) {
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
@@ -1040,7 +1044,7 @@ if (empty($adduser) && empty($checkprivs)) {
             }
         }
         echo '</h2>' . "\n";
-        $res = PMA_DBI_query('SELECT "foo" FROM `user` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '";');
+        $res = PMA_DBI_query('SELECT "foo" FROM `user` WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($hostname) . ';');
         if (PMA_DBI_affected_rows($userlink) < 1) {
             echo $strUserNotFound;
             require_once('./footer.inc.php');
@@ -1074,10 +1078,11 @@ if (empty($adduser) && empty($checkprivs)) {
                . '                <th>&nbsp;' . (empty($dbname) ? $strTblPrivileges : $strColumnPrivileges) . '&nbsp;</th>' . "\n"
                . '                <th colspan="2">&nbsp;' . $strAction . '&nbsp;</th>' . "\n"
                . '            </tr>' . "\n";
+            $user_host_condition = ' WHERE `User` = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($username)) . ' AND `Host` = ' . PMA_charsetIntroducerCollate($hostname);
             if (empty($dbname)) {
-                $sql_query = 'SELECT * FROM `db` WHERE `Host` = "' . $hostname . '" AND `User` = "' . PMA_sqlAddslashes($username) . '" ORDER BY `Db` ASC;';
+                $sql_query = 'SELECT * FROM `db`' . $user_host_condition . ' ORDER BY `Db` ASC;';
             } else {
-                $sql_query = 'SELECT `Table_name`, `Table_priv`, IF(`Column_priv` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . ' "", 0, 1) AS "Column_priv" FROM `tables_priv` WHERE `Host` = "' . $hostname . '" AND `User` = "' . PMA_sqlAddslashes($username) . '" AND `Db` = "' . $dbname . '" ORDER BY `Table_name` ASC;';
+                $sql_query = 'SELECT `Table_name`, `Table_priv`, IF(`Column_priv` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . ' "", 0, 1) AS "Column_priv" FROM `tables_priv`' . $user_host_condition . ' AND `Db` = ' . PMA_charsetIntroducerCollate($dbname) . ' ORDER BY `Table_name` ASC;';
             }
             $res = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
             if (PMA_DBI_affected_rows() == 0) {
@@ -1087,7 +1092,7 @@ if (empty($adduser) && empty($checkprivs)) {
             } else {
                 $useBgcolorOne = TRUE;
                 if (empty($dbname)) {
-                    $res2 = PMA_DBI_query('SELECT `Db` FROM `tables_priv` WHERE `Host` = "' . $hostname . '" AND `User` = "' . PMA_sqlAddslashes($username) . '" GROUP BY `Db` ORDER BY `Db` ASC;');
+                    $res2 = PMA_DBI_query('SELECT `Db` FROM `tables_priv`' . $user_host_condition . ' GROUP BY `Db` ORDER BY `Db` ASC;');
                     $row2 = PMA_DBI_fetch_assoc($res2);
                 }
                 $found_rows = array();
@@ -1342,7 +1347,10 @@ if (empty($adduser) && empty($checkprivs)) {
     if (PMA_MYSQL_INT_VERSION >= 40000) {
         // Starting with MySQL 4.0.0, we may use UNION SELECTs and this makes
         // the job much easier here!
-        $sql_query = '(SELECT `User`, `Host`, `Db`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `db` WHERE "' . $checkprivs . '" LIKE `Db` AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) UNION (SELECT `User`, `Host`, "*" AS "Db", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `user` WHERE NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) ORDER BY `User` ASC, `Host` ASC, `Db` ASC;';
+        //$sql_query = '(SELECT `User`, `Host`, `Db`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `db` WHERE ' . PMA_charsetIntroducerCollate($checkprivs) . ' LIKE `Db` AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) UNION (SELECT `User`, `Host`, "*" AS "Db", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `user` WHERE NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) ORDER BY `User` ASC, `Host` ASC, `Db` ASC;';
+        $no = PMA_charsetIntroducerCollate('N'); 
+        // FIXME: illegal mix of collations for operation UNION
+        $sql_query = '(SELECT `User`, `Host`, `Db`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `db` WHERE `Db` LIKE ' . PMA_charsetIntroducerCollate($checkprivs) . ' AND NOT (`Select_priv` = ' . $no . ' AND `Insert_priv` = ' . $no . ' AND `Update_priv` = ' . $no . ' AND `Delete_priv` = ' . $no . ' AND `Create_priv` = ' . $no . ' AND `Drop_priv` = ' . $no . ' AND `Grant_priv` = ' . $no . ' AND `References_priv` = ' . $no . ')) UNION (SELECT `User`, `Host`, "*" AS "Db", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `user` WHERE NOT (`Select_priv` = ' . $no . ' AND `Insert_priv` = ' . $no . ' AND `Update_priv` = ' . $no . ' AND `Delete_priv` = ' . $no . ' AND `Create_priv` = ' . $no . ' AND `Drop_priv` = ' . $no . ' AND `Grant_priv` = ' . $no . ' AND `References_priv` = ' . $no . ')) ORDER BY `User` ASC, `Host` ASC, `Db` ASC;';
         $res = PMA_DBI_query($sql_query);
         $row = PMA_DBI_fetch_assoc($res);
         if ($row) {

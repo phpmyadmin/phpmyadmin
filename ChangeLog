@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php, libraries/common.lib.php: bug 997682:
+      illegal mix of collations
+    * server_privileges.php: same bug
+      FIXME: check privileges for a db 
+
 2004-07-23 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: take into account the new script to
       create tables for the infrastructure
