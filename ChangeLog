@@ -14,6 +14,7 @@ $Source$
 	    "g-doggie" <penumbradesign at hotmail.com> &
         "Ladonna G." <gladonna at oconnorschurchgoods.com>;
 	  - lines 484-490: added the $cfgShowTooltip entry.
+	* db_details.php3, line 294: cosmetic change.
 
 2001-10-04  Korakot Chaovavanich  <korakot@iname.com>
 	* table comment(description) as tooltip (request #464084).

@@ -74,7 +74,7 @@ if (MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfgSkipLockedTables == TRUE && MYSQL_INT_VERSION >= 32330) {
         $local_query  = 'SHOW OPEN TABLES FROM ' . backquote($db);
-        $result        = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
+        $result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
         // Blending out tables in use
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($tmp = mysql_fetch_row($result)) {
@@ -291,7 +291,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
     ?>
 <tr>
     <td></td>
-    <th align="center">
+    <th align="center" nowrap="nowrap">
         &nbsp;<b><?php echo sprintf($strTables, number_format($num_tables, 0, $number_decimal_separator, $number_thousands_separator)); ?></b>&nbsp;
     </th>
     <th colspan="6" align="center">
