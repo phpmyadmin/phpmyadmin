@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-23  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_dump.php3: merge with db_dump.php3, db_dump is now obsolete
+	* db_details.php3: change from db_dump.php3 to tbl_dump.php3
+
 2001-06-23  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3: Rewrote this script so it fits PEAR codding standards and
 	  produces an xhtml compliant output. 
@@ -16,8 +20,9 @@ $Source$
 	* sql.php3: bug 434405: percent bug in delete queries
 
 2001-06-22  Steve Alberty  <alberty@neptunlabs.de>
-	* tbl_dump.php3: add timecode in dump, add linefeed at end of file
-	  and change phpMyAdmin URI to sourceforge
+	* tbl_dump.php3: add timecode,mysql version in dump header,
+	  add linefeed at end of file and change
+	  phpMyAdmin URI to sourceforge
 	* Speed up table copy; use insert select instead of get_table_content
 	* tbl_copy.php3: fixes serious problem with copy table and new
 	  structure definition
