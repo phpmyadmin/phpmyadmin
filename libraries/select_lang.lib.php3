@@ -207,15 +207,28 @@ if (!isset($lang)) {
  */
 
 // compatibility with config.inc.php3 <= v1.80
-if (isset($cfgLang)) {
+if (!isset($cfg['Lang']) && isset($cfgLang)) {
     $cfg['Lang']        = $cfgLang;
     unset($cfgLang);
 }
-if (isset($cfgDefaultLang)) {
+if (!isset($cfg['DefaultLang']) && isset($cfgDefaultLang)) {
     $cfg['DefaultLang'] = $cfgDefaultLang;
     unset($cfgLang);
 }
 
+// Disable UTF-8 if $cfg['AllowAnywhereRecoding'] has been set to FALSE.
+if (!isset($cfg['AllowAnywhereRecoding']) || !$cfg['AllowAnywhereRecoding']) {
+    $available_language_files = $available_languages;
+    $available_languages = array();
+    foreach ($available_language_files as $tmp_lang => $tmp_lang_data) {
+        if (substr($tmp_lang, -5) != 'utf-8') {
+            $available_languages[$tmp_lang] = $tmp_lang_data;
+        }
+    }
+    unset($tmp_lang);
+    unset($tmp_lang_data);
+    unset($available_language_files);
+}
 
 // Lang forced
 if (!empty($cfg['Lang'])) {
