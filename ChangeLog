@@ -9,6 +9,8 @@ $Source$
     * libraries/relation.lib.php: bug 930445 when PMA_table_info not defined,
       thanks to Philippe Jausions (jausions)
     * Documentation.html: new faq links and cleanup, thanks to Cédric Corazza
+    * tbl_replace.php, libraries/defines.lib.php, /common.lib.php:
+      bug 898484, IIS crash: do not use header('Location: ')
 
 2004-04-12 Marcel Tschopp <marcel.tschopp@gmx.net>
     * left.php, tbl_properties_structure.php, libraries/mysql_charsets.lib.php,

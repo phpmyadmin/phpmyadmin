@@ -1085,6 +1085,35 @@ if ($is_minimum_common == FALSE) {
         echo $strHostEmpty;
     }
 
+    /**
+     * Send HTTP header, taking IIS limits into account
+     *                   ( 600 seems ok)
+     *
+     * @param   string   the header to send
+     *
+     * @return  boolean  always true
+     */
+     function PMA_sendHeaderLocation($uri)
+     {
+         if (PMA_IS_IIS && strlen($uri) > 600) {
+
+             echo '<html><head><title>- - -</title>' . "\n";
+             echo '<meta http-equiv="expires" content="0">' . "\n";
+             echo '<meta http-equiv="Pragma" content="no-cache">' . "\n";
+             echo '<meta http-equiv="Cache-Control" content="no-cache">' . "\n";
+             echo '<meta http-equiv="Refresh" content="0;url=' .$uri . '">' . "\n";
+             echo '<script language="JavaScript">' . "\n";
+             echo 'setTimeout ("window.location = unescape(\'"' . $uri . '"\')",2000); </script>' . "\n";
+             echo '</head>' . "\n";
+             echo '<body> <script language="JavaScript">' . "\n";
+             echo 'document.write (\'<p><a href="' . $uri . '">' . $GLOBALS['strGo'] . '</a></p>\');' . "\n";
+             echo '</script></body></html>' . "\n";
+
+         } else { 
+             header('Location: ' . $uri);
+         }
+     }
+
 
     /**
      * Get the list and number of available databases.

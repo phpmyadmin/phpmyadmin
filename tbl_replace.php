@@ -264,7 +264,7 @@ if ($is_gotofile) {
     // on the resulting page
     // Nijel: we also need to limit size of url...
     $add_query = (!$seen_binary && strlen($sql_query) < 1024 ? '&disp_query=' . urlencode($sql_query) : '');
-    header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . $add_query);
+    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . $add_query);
 }
 exit();
 ?>
