@@ -359,10 +359,10 @@ if ($num_dbs > 1) {
     if ($cfg['LeftFrameLight']) {
         ?>
         <script type="text/javascript" language="javascript">
-            document.writeln('<form method="post" action="left.php3" name="left" target="nav">');
+            document.writeln('<form method="post" action="index.php3" name="left" target="_parent">');
         </script>
         <noscript>
-            <form method="post" action="left.php3" name="left" target="nav">
+            <form method="post" action="index.php3" name="left" target="_parent">
         </noscript>
         <?php
         echo PMA_generate_common_hidden_inputs();
