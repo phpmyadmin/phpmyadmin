@@ -776,6 +776,11 @@ if (isset($Field) && count($Field) > 0) {
             $master = key($tab_wher);
         } else {
             // Now let's find out which of the tables has an index
+            // ( When the control user is the same as the normal user
+            // because he is using one of his databases as pmadb,
+            // the last db selected is not always the one where we need to work)
+            PMA_mysql_select_db($db);
+
             foreach($tab_all AS $tab) {
                 $ind_qry  = 'SHOW INDEX FROM ' . PMA_backquote($tab);
                 $ind_rs   = PMA_mysql_query($ind_qry);
