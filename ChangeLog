@@ -9,6 +9,7 @@ $Source$
     * main.php3: Added link to charset page.
     * libraries/mysql_charsets.lib.php3, lang/*.inc.php3: More detailed charset
       information.
+    * tbl_properties_structure.php3: Tooltips for collations.
 
 2003-07-31 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_replace_fields: bug 780793: a '+' sign in ENUM (or SET

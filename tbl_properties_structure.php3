@@ -9,6 +9,9 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
 if (!defined('PMA_COMMON_LIB_INCLUDED')) {
     include('./libraries/common.lib.php3');
 }
+if (PMA_MYSQL_INT_VERSION >= 40100 && !defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')) {
+    include('./libraries/mysql_charsets.lib.php3');
+}
 
 /**
  * Drop multiple fields if required
@@ -262,7 +265,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
-<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '">' . (empty($field_charset) ? '&nbsp;' : $field_charset) . '</td>' . "\n" : '' ?>
+<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '">' . (empty($field_charset) ? '&nbsp;' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
@@ -579,7 +582,7 @@ if ($cfg['ShowStats']) {
             <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strCharset; ?></td>
             <td bgcolor="<?php echo $bgcolor; ?>" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
             <?php
-            echo $tbl_charset;
+            echo '<dfn title="' . PMA_getCollationDescr($tbl_charset) . '">' . $tbl_charset . '</dfn>';
             ?>
             </td>
         </tr>
