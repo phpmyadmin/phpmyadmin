@@ -14,6 +14,9 @@ $Source$
 	  Xosé Calvo <xosecalvo at terra.es>.
 	* lib.inc.php3: fixed a bug with the browse table headers sorting feature.
 	* tbl_dump.php3: improved the patch Marc commited.
+	* defines.inc.php3: distinguished Konqueror from the "other browsers"
+	  group (to prepare a fix for bug #439081 -Konqueror 2.1.2 browser
+	  support-).
 
 2001-09-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3:

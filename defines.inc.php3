@@ -108,6 +108,9 @@ if (!defined('USR_OS')) {
     } else if (ereg('Mozilla/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
         define('USR_BROWSER_VER', $log_version[1]);
         define('USR_BROWSER_AGENT', 'MOZILLA');
+    } else if (ereg('Konqueror/([0-9].[0-9]{1,2})', $HTTP_USER_AGENT, $log_version)) {
+        define('USR_BROWSER_VER', $log_version[1]);
+        define('USR_BROWSER_AGENT', 'KONQUEROR');
     } else {
         define('USR_BROWSER_VER', 0);
         define('USR_BROWSER_AGENT', 'OTHER');
