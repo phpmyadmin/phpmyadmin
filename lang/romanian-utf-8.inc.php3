@@ -17,7 +17,10 @@ $month = array('Ian', 'Feb', 'Mar', 'Apr', 'Mai', 'Iun', 'Iul', 'Aug', 'Sep', 'O
 // variable below
 $datefmt = '%B %d, %Y at %I:%M %p';
 
+$timespanfmt = '%s zile, %s ore, %s minute si %s secunde';
+
 $strAPrimaryKey = 'A fost adaugat o cheie primara la %s';
+$strAbortedClients = 'Intrerupt';
 $strAccessDenied = 'Acces interzis';
 $strAction = 'Actiune';
 $strAddDeleteColumn = 'Adauga/Sterge coloane';
@@ -61,6 +64,7 @@ $strBookmarkQuery = 'Comanda SQL salvata (Bookmarked SQL-query)';
 $strBookmarkThis = 'Salveaza aceasta comanda SQL';
 $strBookmarkView = 'Numai vizualizare';
 $strBrowse = 'Navigare';
+$strBzError = 'phpMyAdmin nu a reusit sa compreseze acest dump din cauza unei extensii Bz2 invalide in aceasta versiune php. Va recomandam sa setati directiva <code>$cfg[\'BZipDump\']</code> in in fisierul de configurare phpMyAdmin la <code>FALSE</code>. Daca doriti sa utilizati caracteristicile de compresie Bz2 va trebui sa upgradati la o versiune mai noua de php.  Pentru detalii revedeti raportul de erori php %s.';
 $strBzip = '"bzipped"';
 
 $strCannotLogin = 'Nu pot face conexiunea catre serverul MySQL';
@@ -81,15 +85,18 @@ $strChoosePage = 'Selecteaza o pagina pentru a fi editata';
 $strColComFeat = 'Arata comentariile coloanei';
 $strColumn = 'Coloana';
 $strColumnNames = 'Numele coloanelor';
+$strCommand = 'Comanda';
 $strComments = 'Comentarii';
 $strCompleteInserts = 'Rezolva inserarea';
 $strCompression = 'Compresie';
 $strConfigFileError = 'phpMyAdmin nu poate citi corect fisierul de configuratie!  <br />Acesta se poate intampla in cazul in care PHP nu poate gasi fisierul sau nu o poate parsa corect.  <br />Vezi configuratia fisierului apasand pe linkul de mai jos si citeste cu atentie erorile aparute ...  In cele mai multe cazuri lipsesc apostroful sau ghilimele.<br />Daca primesti o pagina goala, totul pare sa fie bine.';
 $strConfigureTableCoord = 'Configureaza coordonatelepentru tabela %s';
 $strConfirm = 'Sunteti sigur ca doriti sa continuati?';
+$strConnections = 'Conexiuni';
 $strCookiesRequired = 'Trebuie sa aveti activat "cookies".';
 $strCopyTable = 'Copiaza tabela la (database<b>.</b>table):';
 $strCopyTableOK = 'Tabelul %s a fost copiat la %s.';
+$strCouldNotKill = 'phpMyAdmin n-a reusit sa opreasca firul de executie %s.  Probabil a fost deja oprit.';
 $strCreate = 'Creaza';
 $strCreateIndex = 'Creaza un index pe&nbsp;%s&nbsp;coloana';
 $strCreateIndexTopic = 'Creaza un nou index';
@@ -147,6 +154,7 @@ $strExportToXML = 'Export in format XML';
 $strExtendedInserts = 'Inserari extinse';
 $strExtra = 'Extra';
 
+$strFailedAttempts = 'Incercari nereusite';
 $strField = 'Camp';
 $strFieldHasBeenDropped = 'Campul %s a fost aruncat';
 $strFields = 'Campuri';
@@ -164,6 +172,7 @@ $strFunction = 'Functie';
 $strGenBy = 'Generat de';
 $strGenTime = 'Timp de generare';
 $strGeneralRelationFeat = 'Facilitati generale';
+$strGlobalValue = 'Valoare globala';
 $strGo = 'Executa';
 $strGrants = 'Drepturi';
 $strGzip = '"gzipped"';
@@ -177,6 +186,7 @@ $strHomepageSourceforge = 'Pagina de descarcare Sourceforge phpMyAdmin';
 $strHost = 'Gazda (Host)';
 $strHostEmpty = 'Numele de gazda este gol!';
 
+$strId = 'ID';
 $strIdxFulltext = 'Tot textul';
 $strIfYouWish = 'In cazul in care doriti sa incarcati numai o parte a coloanelor tabelului, specificati o lista separata prin virgula.';
 $strIgnore = 'Ignora';
@@ -200,6 +210,7 @@ $strKeepPass = 'Nu schimbati parola';
 $strKeyname = 'Nume cheie';
 $strKill = 'Opreste';
 
+$strLaTeX = 'LaTeX';
 $strLandscape = 'Landscape';
 $strLength = 'Lungime';
 $strLengthSet = 'Lungime/Setare';
@@ -219,6 +230,7 @@ $strMissingBracket = 'Paranteza lipsa';
 $strModifications = 'Modificarile au fost salvate';
 $strModify = 'Modificare';
 $strModifyIndexTopic = 'Modifica un index';
+$strMoreStatusVars = 'Alte variabile de stare';
 $strMoveTable = 'Muta tabela la (database<b>.</b>table):';
 $strMoveTableOK = 'Tabela %s a fost mutat la %s.';
 $strMySQLCharset = 'Setul de caractere MySQL';
@@ -279,6 +291,7 @@ $strPdfDbSchema = 'Schema bazei de date "%s" - Pagina %s';
 $strPdfInvalidPageNum = 'Numar de pagina la PDF nedefinit!';
 $strPdfInvalidTblName = 'Tabela "%s" nu exista!';
 $strPdfNoTables = 'Nu exista tabele';
+$strPerHour = 'pe ora';
 $strPhp = 'Creaza cod PHP';
 $strPmaDocumentation = 'Documentatie phpMyAdmin';
 $strPmaUriError = 'Directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> TREBUIE sa fie setat in fisierul de configurare!';
@@ -292,7 +305,11 @@ $strPrimaryKeyName = 'Numele cheii primare trebuie sa fie ... PRIMARY!';
 $strPrimaryKeyWarning = '("Numele PRIMARY" <b>trebuie</b> sa fie <b>numai la</b> cheie primara!)';
 $strPrint = 'Listare';
 $strPrintView = 'Viziualizare imprimare';
+$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
+$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
+$strPrivDescMaxUpdates = 'Limits the number of commands that that change any table or database the user may execute per hour.';
 $strPrivileges = 'Drepturi de acces';
+$strProcesslist = 'Lista procese';
 $strProperties = 'Atribute';
 $strPutColNames = 'Pune numele filed-ului in primul rand';
 
@@ -300,8 +317,11 @@ $strQBE = 'Comanda prin exemplu (Query by Example)';
 $strQBEDel = 'Del';
 $strQBEIns = 'Ins';
 $strQueryOnDb = 'Comanda SQL pe baza de date <b>%s</b>:';
+$strQueryStatistics = '<b>Statistica interogari</b>: De la inceput, s-au trimis %s interogari la server.';
+$strQueryType = 'Tip interogare';
 
 $strReType = 'Re-type';
+$strReceived = 'Receptionat';
 $strRecords = 'Inregistrari';
 $strReferentialIntegrity = 'Verificarea integritatii referentiei:';
 $strRelationNotWorking = 'Optiunile aditionale pentru folosirea tabelelor intercalate (legate intre ele) au fost dezactivate. Pentru a afla de ce ...  %shere%s.';
@@ -360,9 +380,17 @@ $strSelectFields = 'Selecteaza campurile (cel putin unul):';
 $strSelectNumRows = 'in comanda (in query)';
 $strSelectTables = 'Selecteaza tabele';
 $strSend = 'Trimite';
+$strSent = 'Trimis';
 $strServer = 'Server %s';
 $strServerChoice = 'Alegerea serverului';
+$strServerStatus = 'Informatii rulare';
+$strServerStatusUptime = 'Acest server MySQL ruleaza de %s. S-a lansat la %s.';
+$strServerTabProcesslist = 'Procese';
+$strServerTabVariables = 'Variabile';
+$strServerTrafficNotes = '<b>Server trafic</b>: Aceste tabele arata statistica de trafic in retea al acestui server MySQL de la lansare.';
+$strServerVars = 'Variabile si setari de server';
 $strServerVersion = 'Versiune server';
+$strSessionValue = 'Valoare sesiune';
 $strSetEnumVal = 'Daca campul este "enum" sau "set", va rugam adaugati valori folosind formatul: \'a\',\'b\',\'c\'...<br />Daca aveti nevoie sa puneti bara intoarsa (backslash) ("\") sau semnul ("\'") la aceste valori, folositi exemplul ( \'\\\\xyz\' or \'a\\\'b\').';
 $strShow = 'Afiseaza';
 $strShowAll = 'Arata toate';
@@ -381,6 +409,7 @@ $strSort = 'Sortare';
 $strSpaceUsage = 'Utilizare spatiu';
 $strSplitWordsWithSpace = 'Cuvinte sparte de un spatiu (" ").';
 $strStatement = 'Comenzi';
+$strStatus = 'Status';
 $strStrucCSV = 'Date CSV';
 $strStrucData = 'Structura si date';
 $strStrucDrop = 'Adauga \'salveaza tabel\'';
@@ -407,8 +436,11 @@ $strTextAreaLength = ' Datorita lungimii sale, <br /> acest camp s-ar putea sa n
 $strTheContent = 'Continutul fisierului dumneavoastra a fost inserat.';
 $strTheContents = 'Continutul acestui fisier inlocuieste continutul tabelului selectat pentru liniile cu cheie primara identica.';
 $strTheTerminator = 'Terminatorul campurilor.';
+$strThreadSuccessfullyKilled = 'Firul de executie %s a fost oprit cu succes.';
+$strTime = 'Timp';
 $strTotal = 'total';
 $strTotalUC = 'Total';
+$strTraffic = 'Trafic';
 $strType = 'Tip';
 
 $strUncheckAll = 'Deselecteaza toate';
@@ -429,6 +461,7 @@ $strUsers = 'Utilizatori';
 $strValidateSQL = 'Valideaza SQL';
 $strValidatorError = 'Validatorul SQL nu poate fi initializat. Verifica daca e instalat extesnsia necesara PHP asa cum e descris in %sdocumentation%s.';
 $strValue = 'Valoare';
+$strVar = 'Variabil';
 $strViewDump = 'Vizualizarea schemei tabelului';
 $strViewDumpDB = 'Vizualizarea schemei bazei de date';
 
@@ -441,46 +474,15 @@ $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
 $strYes = 'Da';
 
 $strZip = '"arhivat"';
-
 // To translate
 
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
-
-$strAbortedClients = 'Aborted'; //to translate
-$strConnections = 'Connections'; //to translate
-$strFailedAttempts = 'Failed attempts'; //to translate
-$strGlobalValue = 'Global value'; //to translate
-$strMoreStatusVars = 'More status variables'; //to translate
-$strPerHour = 'per hour'; //to translate
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
-$strQueryType = 'Query type'; //to translate
-$strReceived = 'Received'; //to translate
-$strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-$strTraffic = 'Traffic'; //to translate
-$strVar = 'Variable'; //to translate
-
-$strCommand = 'Command'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-$strId = 'ID'; //to translate
-$strProcesslist = 'Process list'; //to translate
-$strStatus = 'Status'; //to translate
-$strTime = 'Time'; //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-$strLaTeX = 'LaTeX';  //to translate
-
 $strAdministration = 'Administration'; //to translate
+
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
+
 $strGlobalPrivileges = 'Global privileges'; //to translate
 $strGrantOption = 'Grant'; //to translate
+
 $strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
 $strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
 $strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
@@ -495,15 +497,12 @@ $strPrivDescGrant = 'Allows adding users and privileges without reloading the pr
 $strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
 $strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
 $strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
-$strPrivDescMaxUpdates = 'Limits the number of commands that that change any table or database the user may execute per hour.';
 $strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
 $strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
 $strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
+$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
 $strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescSelect = 'Allows reading data.'; //to translate
 $strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
 $strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
@@ -511,7 +510,10 @@ $strPrivDescSuper = 'Allows connectiong, even if maximum number of connections i
 $strPrivDescUpdate = 'Allows changing data.'; //to translate
 $strPrivDescUsage = 'No privileges.'; //to translate
 $strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
+
 $strResourceLimits = 'Resource limits'; //to translate
+
 $strUserOverview = 'User overview'; //to translate
+
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 ?>
