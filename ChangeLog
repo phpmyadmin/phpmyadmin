@@ -7,6 +7,7 @@ $Source$
 
 2002-07-06 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php3: undefined variable
+    * pdf_pages.php3: bug 574637 undefined index
 
 2002-07-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3: Tried to fix bug #571409 (Zend Accelerator problems).

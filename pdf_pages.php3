@@ -68,7 +68,7 @@ if ($cfgRelation['pdfwork']){
                                       ' AND pdf_page_number = '.$chpage;
                         $test_rs = PMA_query_as_cu($test_query);
                         if(mysql_num_rows($test_rs)>0){
-                            if($arrvalue['delete'] == 'y'){
+                            if(isset($arrvalue['delete']) && $arrvalue['delete'] == 'y'){
                                 $ch_query = 'DELETE FROM '.PMA_backquote($cfgRelation['table_coords'])
                                           . ' WHERE       db_name = \'' . $db . '\''
                                           . ' AND      table_name = \''.$arrvalue['name'] . '\''
@@ -120,7 +120,9 @@ if ($cfgRelation['pdfwork']){
         <?php
         while ($curr_page = @PMA_mysql_fetch_array($page_rs)) {
             echo '<option value="'.$curr_page['page_nr'].'"';
-                if($chpage==$curr_page['page_nr']){echo ' selected="selected"';}
+                if (isset($chpage) && $chpage==$curr_page['page_nr']) {
+                    echo ' selected="selected"';
+                }
                 echo '>';
                 echo $curr_page['page_nr'] . ': '.$curr_page['page_descr'].'</option>';
         }
