@@ -68,7 +68,7 @@ echo PMA_printTab($strBrowse, $lnk2, $arg2);
 echo PMA_printTab($strSQL, 'tbl_properties.php3', $url_query);
 echo PMA_printTab($strSelect, $lnk4, $arg4);
 echo PMA_printTab($strInsert, 'tbl_change.php3', $url_query);
-echo PMA_printTab($strExport, 'tbl_properties_export.php3', $url_query);
+echo PMA_printTab($strExport, 'tbl_properties_export.php3', $url_query . '&amp;single_table=true');
 echo PMA_printTab($strOperations, 'tbl_properties_operations.php3', $url_query);
 echo PMA_printTab($strEmpty, $lnk6, $arg6, $att6);
 echo PMA_printTab($strDrop, 'sql.php3', $arg7, $att7);
