@@ -281,6 +281,7 @@ $strYes = ' ¬O ';
 
 // To translate
 $strAffectedRows = ' Rows affected: ';  //to translate
+$strDisplayOrder = 'Display order:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strQueryOnDb = ' SQL-query on database ';  //to translate

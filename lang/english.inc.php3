@@ -81,6 +81,7 @@ $strDelPassMessage = 'You have deleted the password for';
 $strDescending = 'Desending';
 $strDisableMagicQuotes = '<b>Warning:</b> You have enabled magic_quotes_gpc in your PHP configuration. This version of PhpMyAdmin cannot work properly with it. Please have a look at the configuration section of the PHP manual for information on how to disable it.';
 $strDisplay = 'Display';
+$strDisplayOrder = 'Display order:';
 $strDoAQuery = 'Do a "query by example" (wildcard: "%")';
 $strDocu = 'Documentation';
 $strDoYouReally = 'Do you really want to ';

@@ -81,6 +81,7 @@ $strDelPassMessage = 'Vous avez effacé le mot de passe de ';
 $strDescending = 'Décroissant';
 $strDisableMagicQuotes = '<b>Attention:</b> Vous avez positionné magic_quotes_gpc dans la configuration de PHP. Cette version de PhpMyAdmin ne peut fonctionner correctement avec. Veuillez vous référer au paragraphe traitant de la configration dans la documentation de PHP pour positionner cette variable à off.';
 $strDisplay = 'Montrer';
+$strDisplayOrder = 'Ordre d\'affichage :';
 $strDoAQuery = 'Recherche par valeur (passepartout: "%")';
 $strDocu = 'Documentation';
 $strDoYouReally = 'Voulez-vous vraiment effectuer ';

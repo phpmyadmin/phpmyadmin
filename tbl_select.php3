@@ -53,14 +53,11 @@ if (!isset($param) || $param[0] == '') {
             </div>
         </li>
         <li>
-            <div style="margin-bottom: 10px">
             <?php echo $strAddSearchConditions; ?><br />
             <input type="text" name="where" />&nbsp;
             <?php print show_docu("manual_Reference.html#Functions") . "\n"; ?>
-            </div>
-        </li>
-        <li>
-            <?php echo $strDoAQuery; ?><br />
+            <br /><br />
+            <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
             <table border="<?php echo $cfgBorder; ?>">
             <tr>
                 <th><?php echo $strField; ?></th>
@@ -87,6 +84,24 @@ if (!isset($param) || $param[0] == '') {
         echo "\n";
         ?>
             </table><br />
+        </li>
+        <li>
+            <?php echo $strDisplayOrder; ?><br />
+            <select name="orderField" style="vertical-align: middle">
+                <option value="--nil--"></option>
+        <?php
+        echo "\n";
+        for ($i = 0; $i < mysql_num_fields($result); $i++) {
+            $field = mysql_field_name($result, $i);
+            echo '                ';
+            echo '<option value="' . urlencode($field) . '">' . htmlspecialchars($field) . '</option>' . "\n";
+        } // end for
+        ?>
+            </select>
+            <input type="radio" name="order" value="ASC" checked="checked" />
+            <?php echo $strAscending; ?>&nbsp;
+            <input type="radio" name="order" value="DESC" />
+            <?php echo $strDescending; ?><br /><br />
         </li>
     </ul>
 
@@ -150,6 +165,9 @@ else {
                 $sql_query .= ' AND ' . backquote(urldecode($names[$i])) . " $cmp $quot$fields[$i]$quot";
             } // end if
         } // end for
+    } // end if
+    if ($orderField != '--nil--') {
+        $sql_query .= ' ORDER BY ' . backquote(urldecode($orderField)) . ' ' . $order;
     } // end if
 
     $url_query = 'lang=' . $lang

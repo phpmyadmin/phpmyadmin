@@ -279,6 +279,7 @@ $strYes = 'Si';
 
 // To translate
 $strAffectedRows = 'Affected rows:';
+$strDisplayOrder = 'Display order:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strQueryOnDb = 'SQL-query on database ';

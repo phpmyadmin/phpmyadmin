@@ -283,6 +283,7 @@ $strGzip = '"gzipped"';  //to translate
 
 // To translate
 $strAffectedRows = 'Rows affected: ';
+$strDisplayOrder = 'Display order:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strOffSet = 'offset';
