@@ -10,6 +10,8 @@ $Source$
     * export.php, sql.php, db_details_importdocsql.php, ldi_check.php,
       tbl_replace.php, libraries/common.lib.php, 
       libraries/transformations.lib.php: new function PMA_securePATH()
+    * main.php, tbl_properties_structure.php: theme "none" should be "original",
+      thanks to Michael Keck (mkkeck)
 
 2004-06-15 Michal Čihař  <michal@cihar.com>
     * lang/czech: Updated.

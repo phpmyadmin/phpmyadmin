@@ -466,7 +466,7 @@ echo "\n";
 <td valign="top">
 <table border="0" cellpadding="3" cellspacing="0">
     <tr>
-        <th<?php if($theme!='none'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;phpMyAdmin</th>
+        <th<?php if($theme!='original'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;phpMyAdmin</th>
     </tr>
 <?php
 // Displays language selection combo

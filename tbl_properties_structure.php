@@ -744,7 +744,7 @@ if ($cfg['ShowStats']) {
             ?>
         <tr>
             <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatCreateTime; ?></td>
-            <td<?php if($theme=='none' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td<?php if($theme=='original' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
                 <?php echo PMA_localisedDate(strtotime($showtable['Create_time'])) . "\n"; ?>
             </td>
         </tr>
@@ -758,7 +758,7 @@ if ($cfg['ShowStats']) {
             ?>
         <tr>
             <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatUpdateTime; ?></td>
-            <td<?php if($theme=='none' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td<?php if($theme=='original' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
                 <?php echo PMA_localisedDate(strtotime($showtable['Update_time'])) . "\n"; ?>
             </td>
         </tr>
@@ -772,7 +772,7 @@ if ($cfg['ShowStats']) {
             ?>
         <tr>
             <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatCheckTime; ?></td>
-            <td<?php if($theme=='none' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td<?php if($theme=='original' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
                 <?php echo PMA_localisedDate(strtotime($showtable['Check_time'])) . "\n"; ?>
             </td>
         </tr>
