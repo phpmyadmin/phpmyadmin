@@ -134,7 +134,7 @@ if (!$cfgConfirm
     || isset($btnDrop)) {
     $do_confirm = FALSE;
 } else {
-    $do_confirm = (eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)|ALTER TABLE +((`[^`]+`)|([A-Za-z0-9_$]+)) +DROP|DELETE FROM', $sql_query));
+    $do_confirm = (eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)|ALTER TABLE[[:space:]]+((`[^`]+`)|([A-Za-z0-9_$]+))[[:space:]]+DROP|DELETE FROM', $sql_query));
 }
 
 if ($do_confirm) {
@@ -178,7 +178,7 @@ else {
     // Defines some variables
     // loic1: A table have to be created -> left frame should be reloaded
     if ((!isset($reload) || $reload == 0)
-        && eregi('^CREATE TABLE (.*)', $sql_query)) {
+        && eregi('^CREATE TABLE[[:space:]]+(.*)', $sql_query)) {
         $reload           = 1;
     }
     // Gets the number of rows per page
@@ -224,7 +224,7 @@ else {
         && !eregi('[[:space:]]LIMIT[[:space:]0-9,]+$', $sql_query)) {
 
         $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";
-        if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)$', $sql_query, $regs)) {
+        if (eregi('(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR UPDATE|LOCK IN SHARE MODE))$', $sql_query, $regs)) {
             $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];
         } else {
             $full_sql_query  = $sql_query . $sql_limit_to_append;
@@ -240,8 +240,8 @@ else {
     // rows that will be deleted (mysql_affected_rows will always return 0 in
     // this case)
     if ($is_delete
-        && eregi('^DELETE( .+)?( FROM (.+))$', $sql_query, $parts)
-        && !eregi(' WHERE ', $parts[3])) {
+        && eregi('^DELETE([[:space:]].+)?([[:space:]]FROM[[:space:]](.+))$', $sql_query, $parts)
+        && !eregi('[[:space:]]WHERE[[:space:]]', $parts[3])) {
         $OPresult     = @mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
         if ($OPresult) {
             $num_rows = mysql_result($OPresult, 0, 'count');

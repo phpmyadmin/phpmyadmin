@@ -10,6 +10,7 @@ $Source$
 	* tbl_change.php3: restored default value to "NOW()" with timestamp fields
 	  in an "UPDATE" statement.
 	* lang/japanese-*: updated thanks to "luc".
+	* sql.php3: use "[[:space:]]" class inside all regular expressions.
 
 2002-02-23 Marc Delisle  <lem9@users.sourceforge.net>
 	* swedish updates thanks to Björn T. Hallberg
