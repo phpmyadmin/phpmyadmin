@@ -1,5 +1,5 @@
 <?php
-/* $Id: georgian.inc.php3,v 1.26 2001/07/24 23:47:00 */
+/* $Id$ */
 
 /**
  * Translation by Lasha Altunashvili <lasha_al at hotmail.com>
