@@ -8,7 +8,7 @@ $Source$
 2004-04-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php, lang/*: feature 788608: new features for Search:
       DISTINCT, IS NULL, IS NOT NULL, NOT LIKE, multiple select for ENUM,
-      and column title is now Operator, thanks to Philippe (jausions)
+      and column title is now Operator, thanks to Philippe Jausions (jausions)
 
 2004-04-08 Marcel Tschopp <marcel.tschopp@gmx.net>
     * phpinfo.php, tbl_relation.php, libraries/display_tbl.lib.php
