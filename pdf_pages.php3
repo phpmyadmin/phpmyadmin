@@ -47,12 +47,18 @@ if (!empty($cfg['Server']['pdf_pages'])){
     //  this will fail if either the variable was not set or the table does not
     //  exist
     //
-    //  i'd like to have a link to the appropiate chapter of the documentation
-    //  within the strings i am using now, but that requires the
-    //  documentation.html to have some anchors
-    if(!isset($relex)){die($strRelationNotSet);}
-    if(!isset($info))  {die($strInfoNotSet);}
-    if(!isset($coords)){die($strCoordsNotSet);}
+    if(!isset($relex)){
+        echo sprintf($strNotSet,'relation') . '<br /><a href="Documentation.html#relation" target="documentation">' . $strDocu . '</a>';
+        die();
+    }
+    if(!isset($info))  {
+        echo sprintf($strNotSet,'table_info') . '<br /><a href="Documentation.html#table_info" target="documentation">' . $strDocu . '</a>';
+        die();
+    }
+    if(!isset($coords)){
+        echo sprintf($strNotSet,'table_coords') . '<br /><a href="Documentation.html#table_coords" target="documentation">' . $strDocu . '</a>';
+        die();
+    }
 
     //  now is the time to work on all changes
     if(isset($do)){
