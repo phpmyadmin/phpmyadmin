@@ -69,12 +69,14 @@ $strChangePassword = 'Zmiana has³a';
 $strCheckAll = 'Zaznaczenie wszystkich';
 $strCheckDbPriv = 'Sprawdzanie uprawnieñ dla bazy danych';
 $strCheckTable = 'Sprawdzanie tabeli';
+$strChoosePage = 'Proszê wybraæ stronê do edycji';
 $strColumn = 'Kolumna';
 $strColumnNames = 'Nazwy kolumn';
 $strCompleteInserts = 'Pe³ne dodania';
 $strConfigureTableCoord = 'Proszê skonfigurowaæ wspó³rzêdnie dla tabeli %s';
 $strConfirm = 'Czy na pewno to zrobiæ?';
 $strCookiesRequired = 'Odt±d musi byæ w³±czona obs³uga "cookies".';
+$strCoordsNotSet = 'Tabela table_coords nie zosta³a znaleziena lub nie jest ustawiona w config.inc.php3';
 $strCopyTable = 'Skopiuj tabelê do (bazadanych<b>.</b>tabela):';
 $strCopyTableOK = 'Tabela %s zosta³a skopiowana do %s.';
 $strCreate = 'Utworzenie';
@@ -82,6 +84,7 @@ $strCreateIndex = 'Utworzenie indeksu dla %s kolumn';
 $strCreateIndexTopic = 'Utworzenie nowego indeksu';
 $strCreateNewDatabase = 'Utworzenie nowej bazy danych';
 $strCreateNewTable = 'Utworzenie nowej tabeli dla bazy danych %s';
+$strCreatePage = 'Utworzenie nowej strony';
 $strCriteria = 'Kryteria';
 
 $strData = 'Dane';
@@ -112,6 +115,7 @@ $strDumpXRows = 'Zrzuæ %s wierszy zaczynaj±c od wiersza %s.';
 $strDynamic = 'zmienny';
 
 $strEdit = 'Edycja';
+$strEditPDFPages = 'Edycja stron PDF';
 $strEditPrivileges = 'Edycja uprawnieñ';
 $strEffective = 'Efektywne';
 $strEmpty = 'Wyczyszczenie';
@@ -161,6 +165,7 @@ $strIndexHasBeenDropped = 'Klucz %s zosta³ usuniêty';
 $strIndexes = 'Indeksy';
 $strIndexName = 'Nazwa indeksu :';
 $strIndexType = 'Rodzaj indeksu :';
+$strInfoNotSet = 'Tabela table_info nie zosta³a znaleziona lub nie jest ustawiona w config.inc.php3';
 $strInsert = 'Dodanie';
 $strInsertAsNewRow = 'Dodanie jako nowego rekordu';
 $strInsertNewRow = 'Dodanie nowego rekordu';
@@ -204,6 +209,7 @@ $strName = 'Nazwa';
 $strNext = 'Nastêpne';
 $strNo = 'Nie';
 $strNoDatabases = 'Brak baz danych';
+$strNoDescription = 'brak opisu';
 $strNoDropDatabases = 'Polecenie "DROP DATABASE" jest zablokowane.';
 $strNoFrames='phpMyAdmin jest bardziej przyjazny w przegl±darkach <b>obs³uguj±cych ramki</b>';
 $strNoIndex = 'Brak zdefiniowanego indeksu!';
@@ -262,6 +268,7 @@ $strQueryOnDb = 'Zapytanie SQL dla bazy danych <b>%s</b>:';
 
 $strRecords = 'Rekordy';
 $strReferentialIntegrity = 'Sprawdzenie spójno¶ci powi±zañ:';
+$strRelationNotSet = 'Tabela relacji nie zosta³a znaleziona lub nie jest ustawiona w config.inc.php3';
 $strRelationView = 'Widok relacyjny';
 $strReloadFailed = 'Nie powiod³o siê prze³adowanie MySQL.';
 $strReloadMySQL = 'Prze³adowanie MySQL';
@@ -307,6 +314,7 @@ $strSelectADb = 'Proszê wybraæ bazê danych';
 $strSelectAll = 'Zaznaczenie wszystkich';
 $strSelectFields = 'Wybór pól (co najmniej jedno):';
 $strSelectNumRows = 'w zapytaniu';
+$strSelectTables = 'Wybierz tabele';
 $strSend = 'wys³anie';
 $strServerChoice = 'Wybór serwera';
 $strServerVersion = 'Wersja serwera';
@@ -386,12 +394,5 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-$strEditPDFPages = 'Edit PDF Pages';  //to translate
-$strNoDescription = 'no Description';  //to translate
-$strRelationNotSet = 'Relationtable not found or not set in config.inc.php3';  //to translate
-$strInfoNotSet = 'table_info table not found or not set in config.inc.php3';  //to translate
-$strCoordsNotSet = 'table_coords table not found or not set in config.inc.php3';  //to translate
-$strChoosePage = 'Please choose a Page to edit';  //to translate
-$strCreatePage = 'Create a new Page';  //to translate
-$strSelectTables = 'Select Tables';  //to translate
+
 ?>
