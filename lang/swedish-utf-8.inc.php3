@@ -78,6 +78,7 @@ $strBookmarkQuery = 'Bokmärkt SQL-fråga';
 $strBookmarkThis = 'Skapa bokmärke för den här SQL-frågan';
 $strBookmarkView = 'Visa endast';
 $strBrowse = 'Visa';
+$strBrowseForeignValues = 'Visa främmande värden';
 $strBulgarian = 'Bulgarisk';
 $strBzError = 'phpMyAdmin kunde inte komprimera SQL-satserna på grund av en trasig Bz2-utvidgning i denna php-version. Det rekommenderas starkt att sätta direktivet <code>$cfg[\'BZipDump\']</code> i din phpMyAdmin-konfigurationsfil till <code>FALSE</code>. Om du vill använda Bz2-komprimering, bör du uppgradera till en senare php-version. Se php:s buggrapport %s för detaljer.';
 $strBzip = '"bzippad"';
@@ -656,6 +657,7 @@ $strUseBackquotes = 'Använd bakåtcitat runt tabell- och fältnamn';
 $strUseHostTable = 'Använd värdtabell';
 $strUseTables = 'Använd tabeller';
 $strUseTextField = 'Använd textfältet';
+$strUseThisValue = 'Använd detta värde';
 $strUser = 'Användare';
 $strUserAlreadyExists = 'Användaren %s finns redan!';
 $strUserEmpty = 'Användarnamnet är tomt!';
@@ -679,6 +681,7 @@ $strWebServerUploadDirectoryError = 'Katalogen som du konfigurerat för uppladdn
 $strWelcome = 'Välkommen till %s';
 $strWestEuropean = 'Västeuropeisk';
 $strWildcard = 'jokertecken';
+$strWindowNotFound = 'Målfönstret kunde inte uppdateras. Orsaken kan vara att du stängt föräldrafönstret eller att din webbläsares säkerhetsinställningar blockerar uppdateringar mellan fönster.';
 $strWithChecked = 'Med markerade:';
 $strWritingCommentNotPossible = 'Skrivning av kommentar inte möjlig';
 $strWritingRelationNotPossible = 'Skrivning av relation inte möjlig';
@@ -692,7 +695,4 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 // To translate
 
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>
