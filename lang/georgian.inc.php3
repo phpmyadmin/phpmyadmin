@@ -402,4 +402,5 @@ $strPrimaryKeyHasBeenDropped = 'The primary key has been dropped';
 $strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
 $strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
+$strMissingBracket = 'Missing Bracket';  //to translate
 ?>

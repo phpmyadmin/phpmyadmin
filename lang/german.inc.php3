@@ -401,4 +401,5 @@ $strYes = 'Ja';
 $strZip = 'Zip komprimiert';
 
 // To translate
+$strMissingBracket = 'Missing Bracket';  //to translate
 ?>

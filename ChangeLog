@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-12 Mike Beck <mikebeck@users.sourceforge.net>
+    Syntaxcoloring for SQL - Statements
+    * config.inc.php3 lines 226-,302-
+    * libraries/common.lib.php3 lines 34,43,192-,312-,987,1062
 2002-06-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/dutch.inc.php3 updates, thanks to Ivo Teel
 

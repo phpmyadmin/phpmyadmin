@@ -221,7 +221,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         //  now split everything by the blanks
         $_sql_parts=explode(' ',$sql);
         //  start a loop over the parts check each word and put them back into $sql
-        $sql  = '';
+        unset($sql);
+        $s_nr=0;
+        
         while (list($_num,$_word) = each($_sql_parts)) {
             //  we might have added to many blanks when checking for = and ,
             // which might lead to empty members in the array
@@ -256,18 +258,41 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                         } else {
                             if(eregi($_add, $_word)) {
                                 $_word = '<font color="' . $cfg['colorAdd'].'">' . $_word . '</font>';
+                            } else {
+                                if($_word=='(') {
+                                    $_brack_o[]=$s_nr;
+                                } else {
+                                    if($_word==')') {
+                                        if(isset($_brack_o)){
+                                            unset($_brack_o[count($_brack_o)-1]);
+                                        } else {
+                                            $_brack_c[]=$s_nr;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
             if(!isset($_temp) || strlen($_temp) == 0) {
-                if($_num != 0 && $_word != '(') {
-                    $sql .= ' ';
-                }
-                $sql .= $_word;
+                $_sql_p[$s_nr] = $_word;
+                $s_nr++;
             }
         }   //  End while
+        if(isset($_brack_o)) {
+            while (list($_num,$elem) = each($_brack_o)) {
+                $_sql_p[$elem] = '<font color="red">' . $_sql_p[$elem] . '</font>';
+                echo '<br /><font color="red">' . $GLOBALS['strMissingBracket'] . '</font><br />';
+            }
+        }
+        if(isset($_brack_c)) {
+            while (list($_num,$elem) = each($_brack_c)) {
+                $_sql_p[$elem] = '<font color="red">' . $_sql_p[$elem] . '</font>';
+                echo '<br /><font color="red">' . $GLOBALS['strMissingBracket'] . '</font><br />';                
+            }
+        }
+        $sql = implode(' ',$_sql_p);
         return $sql;
     }   // End of PMA_format_sql function
 

@@ -399,4 +399,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strMissingBracket = 'Missing Bracket';  //to translate
 ?>

@@ -392,4 +392,5 @@ $strYes = 'Yes';
 
 $strZip = '"zipped"';
 
+$strMissingBracket = 'Missing Bracket';  //to translate
 ?>
