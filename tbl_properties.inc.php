@@ -390,11 +390,11 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_default[]" size="12" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
     if (PMA_MYSQL_INT_VERSION >= 40102 && $type_upper == 'TIMESTAMP') {
-        $content_cells[$i][$ci] .= '<br /><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
+        $content_cells[$i][$ci] .= '<br /><div style="white-space: nowrap;"><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
         if ($default_current_timestamp) {
             $content_cells[$i][$ci] .= ' checked="checked" ';
         }
-        $content_cells[$i][$ci] .= ' /><label for="field_' . $i . '_' . ($ci - $ci_offset) . 'a" style="font-size: ' . $font_smallest . ';">CURRENT_TIMESTAMP</label>'; 
+        $content_cells[$i][$ci] .= ' /><label for="field_' . $i . '_' . ($ci - $ci_offset) . 'a" style="font-size: ' . $font_smallest . ';">CURRENT_TIMESTAMP</label></div>'; 
     }
     $ci++;
 
