@@ -12,6 +12,8 @@ $Source$
 
 2004-10-11 Michal Čihař  <michal@cihar.com>
     * tbl_query_box.php: Don't try to replace %t and %f when table name is empty.
+    * libraries/export/sql.php: Convert end of line chars we get from MySQL
+      (bug #1042521).
 
 2004-10-08 Garvin Hicking <pma@supergarv.de>
     * lots of files: Adjusted superfluous spaces, added

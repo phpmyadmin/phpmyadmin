@@ -221,6 +221,15 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
         $create_query = $row[1];
         unset($row);
 
+        // Convert end of line chars to one that we want (note that MySQL doesn't return query it will accept in all cases)
+        if (strpos($create_query, "(\r\n ")) {
+            $create_query = str_replace("\r\n", $crlf, $create_query);
+        } elseif (strpos($create_query, "(\n ")) {
+            $create_query = str_replace("\n", $crlf, $create_query);
+        } elseif (strpos($create_query, "(\r ")) {
+            $create_query = str_replace("\r", $crlf, $create_query);
+        }
+
         // Should we use IF NOT EXISTS?
         if (isset($GLOBALS['if_not_exists'])) {
             $create_query     = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $create_query);
@@ -229,12 +238,8 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
         // are there any constraints to cut out?
         if (preg_match('@CONSTRAINT|FOREIGN[\s]+KEY@', $create_query)) {
 
-            // split the query into lines, so we can easilly handle it
-            if (strpos(",\r\n ", $create_query) === FALSE) {
-                $sql_lines = preg_split('@\r|\n@', $create_query);
-            } else {
-                $sql_lines = preg_split('@\r\n@', $create_query);
-            }
+            // Split the query into lines, so we can easily handle it. We know lines are separated by $crlf (done few lines above).
+            $sql_lines = explode($crlf, $create_query);
             $sql_count = count($sql_lines);
 
             // lets find first line with constraints
