@@ -7,6 +7,7 @@ $Source$
 
 2003-07-19 Marc Delisle  <lem9@users.sourceforge.net>
     * (in lots of scripts): checks for paths disclosure
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
 
 2003-07-18 Garvin Hicking <me@supergarv.de>
     * read_dump.php3: When PHP3 < 4.3.0 is detected, try an alternative
