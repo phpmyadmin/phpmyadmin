@@ -43,7 +43,7 @@ function PMA_DBI_connect($user, $password) {
                    ? FALSE
                    : $cfg['Server']['socket'];
 
-    $link = mysqli_connect($cfg['Server']['host'], $user, $password, FALSE, $server_port, $server_socket);
+    $link = @mysqli_connect($cfg['Server']['host'], $user, $password, FALSE, $server_port, $server_socket);
 
     if (empty($link)) {
         PMA_auth_fails();
