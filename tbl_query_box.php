@@ -90,7 +90,6 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] && !$db || ($cfg['QueryFrameJS'
 
 $form_items = 0;
 
-echo "<li>\n";
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow) {
 ?>
         <script type="text/javascript">
@@ -104,6 +103,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) 
 <?php
 } else {
 ?>
+    <li>
         <form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
 <?php
 }
@@ -380,9 +380,9 @@ if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_insi
         }
 }
 ?>
-</form>
-</li>
+    </form>
 <?php
+if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "</li>\n";
 if (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')) && isset($db) && $db != '') {
 
@@ -390,9 +390,9 @@ if (!isset($is_inside_querywindow) ||
     $ldi_target = 'ldi_table.php?' . $url_query . (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '&amp;focus_querywindow=true' : '');
 
     if ($is_upload && isset($db) && isset($table)) {
+        if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "<li>\n";
         ?>
         <!-- Insert a text file -->
-        <li>
             <?php
             if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             ?>
@@ -420,8 +420,8 @@ if (!isset($is_inside_querywindow) ||
             <noscript>
                <a href="<?php echo $ldi_target; ?>"><?php echo $strInsertTextfiles; ?></a>
             </noscript>
-        </li>
         <?php
+        if (!isset($is_inside_querywindow) || !$is_inside_querywindow) echo "</li>\n";
     }
 }
 echo "\n";
