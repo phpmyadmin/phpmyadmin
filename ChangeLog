@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/relation.lib.php3: bug 826880, quotes added
+
 2003-10-31 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian: Updated, thanks to Valics Lehel.
     * tbl_relation.php3: add backquotes around table and field names
