@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/07/22 11:36.
+ * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/11/05.
  */
 
 $charset = 'utf-8';
@@ -108,6 +108,7 @@ $strDatabaseHasBeenDropped = 'Database %s is vervallen.';
 $strDatabaseWildcard = 'Database (wildcards toegestaan):';
 $strDatabases = 'databases';
 $strDatabasesStats = 'Database statistieken';
+$strDataDict = 'Data Woordenboek';
 $strDefault = 'Standaardwaarde';
 $strDelete = 'Verwijderen';
 $strDeleteFailed = 'Verwijderen mislukt!';
@@ -267,7 +268,6 @@ $strOptions = 'Opties';
 $strOr = 'Of';
 $strOverhead = 'Overhead';
 
-$strPHPVersion = 'PHP Versie';
 $strPageNumber = 'Pagina nummer:';
 $strPartialText = 'Gedeeltelijke teksten';
 $strPassword = 'Wachtwoord';
@@ -278,6 +278,8 @@ $strPdfInvalidPageNum = 'Ongedefinieerde PDF pagina nummer!';
 $strPdfInvalidTblName = 'De tabel "%s" bestaat niet!';
 $strPdfNoTables = 'Geen Tabellen';
 $strPhp = 'Creëer PHP Code';
+$strPHP40203 = 'U gebruikt PHP 4.2.3, deze versie bevat een grote fout in de multi-byte strings (mbstring). Voor meer informatie zie PHP bug report 19404. Het wordt sterk afgeraden deze versie van PHP te gebruiken met phpMyAdmin.';
+$strPHPVersion = 'PHP Versie';
 $strPmaDocumentation = 'phpMyAdmin Documentatie';
 $strPmaUriError = 'De <tt>$cfg[\'PmaAbsoluteUri\']</tt> richtlijn MOET gezet zijn in het configuratie bestand!';
 $strPos1 = 'Begin';
@@ -287,6 +289,7 @@ $strPrimaryKey = 'Primaire sleutel';
 $strPrimaryKeyHasBeenDropped = 'De primaire sleutel is vervallen';
 $strPrimaryKeyName = 'De naam van de primaire sleutel moet PRIMARY zijn!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>moet</b> de naam van en <b>alleen van</b> een primaire sleutel zijn!)';
+$strPrint = 'Afdrukken';
 $strPrintView = 'Printopmaak';
 $strPrivileges = 'Rechten';
 $strProperties = 'Eigenschappen';
@@ -434,7 +437,5 @@ $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
 
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
+// To translate
 ?>
