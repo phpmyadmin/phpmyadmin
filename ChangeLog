@@ -16,6 +16,12 @@ $Source$
 	* tbl_dump.php3, lines 101-123: improved mime types and http headers used
 	  when exporting dumps to files thanks to Dan Allen &
 	  Ignacio Vazquez-Abrams.
+	* tbl_printview.php3, lines 92-98 & 106: completed the fix for the "NULL"
+	  value problem.
+	* header.inc.php3; sql.php3; db_readdump.php3: fix some errors about
+	  whether to display table name or not at the top of the page.
+	* tbl_copy.php3, line 86: returns to tbl_properties.php3 rather than
+	  db_details.php3.
 
 2001-08-28  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: fixed the sql query so that the script won't die, even if
