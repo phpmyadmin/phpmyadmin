@@ -161,7 +161,7 @@ if (!defined('__LIB_INC__')){
      * Gets the valid servers list and parameters
      */
     reset($cfgServers);
-    while(list($key, $val) = each($cfgServers)) {
+    while (list($key, $val) = each($cfgServers)) {
         // Don't use servers with no hostname
         if (empty($val['host'])) {
             unset($cfgServers[$key]);
@@ -856,7 +856,7 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
     {
         global $lang, $server, $db, $table;
         global $sql_query, $goto, $pos;
-        global $SelectNumRows, $cfgLimitChars;
+        global $SelectNumRows;
 
         // Gets the number of rows per page
         if (isset($GLOBALS['sessionMaxRows'])) {
@@ -1131,8 +1131,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     if (eregi('BLOB', $true_field_type['Type'])) {
                         echo '    <td align="right">&nbsp;[BLOB]&nbsp;</td>' . "\n";
                     } else {
-                        if (strlen($row[$i]) > $cfgLimitChars){
-                            $row[$i] = substr($row[$i],0,$cfgLimitChars) . "...";
+                        if (strlen($row[$i]) > $GLOBALS['cfgLimitChars']) {
+                            $row[$i] = substr($row[$i], 0, $cfgLimitChars) . '...';
                         }
                         echo '    <td>&nbsp;' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
                     }

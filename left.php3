@@ -192,7 +192,7 @@ if ($num_dbs > 1) {
         echo "\n";
         ?>
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="expandBase('el<?php echo $j; ?>', false);">
-            <font color="black" class="heada"><?php echo $db; ?> (<?php echo "$num_tables"; ?>)</font></a>
+            <font color="black" class="heada"><?php echo $db; ?> (<?php echo $num_tables; ?>)</font></a>
     </div>
 
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
@@ -253,7 +253,7 @@ else if ($num_dbs == 1) {
     ?>
     <div id="el2Parent" class="parent">
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>">
-            <font color="black" class="heada"><?php echo $db; ?> (<?php echo "$num_tables"; ?>)</font></a>
+            <font color="black" class="heada"><?php echo $db; ?> (<?php echo $num_tables; ?>)</font></a>
     </div>
     <div id="el2Child" class="child" style="margin-bottom: 5px">
     <?php

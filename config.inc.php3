@@ -70,7 +70,7 @@ $cfgServers[3]['bookmarktable'] = '';
 // or set it to 0 to be given a list of servers without logging in
 // If you have only one server configured, $cfgServerDefault *MUST* be
 // set to that server.
-$cfgServerDefault = 1;              // Default server (0 = no default server)
+$cfgServerDefault = 1;                         // Default server (0 = no default server)
 $cfgServer        = '';
 unset($cfgServers[0]);
 
@@ -81,13 +81,13 @@ unset($cfgServers[0]);
 $cfgConfirm               = TRUE;
 $cfgPersistentConnections = FALSE;
 $cfgShowBlob              = FALSE;
-$cfgProtectBlob           = FALSE;
+$cfgProtectBlob		      = FALSE;
 $cfgShowSQL               = TRUE;
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
 $cfgMaxRows               = 30;
 $cfgOrder                 = 'ASC';
-$cfgOBGzip                = TRUE;   // GZIP output buffering
+$cfgOBGzip 		          = TRUE;   // GZIP output buffering
 $cfgGZipDump              = TRUE;   // Allow the use of gzip/bzip compression
 $cfgBZipDump              = TRUE;   // for dump files
 
@@ -118,11 +118,11 @@ $cfgThBgcolor           = '#D3DCE3';
 $cfgBgcolorOne          = '#CCCCCC';
 $cfgBgcolorTwo          = '#DDDDDD';
 $cfgTextareaCols        = 40;
-$cfgLimitChars		= 50;	    // max field data length in browse mode
 $cfgTextareaRows        = 7;
+$cfgLimitChars          = 50;           // max field data length in browse mode
 $cfgModifyDeleteAtLeft  = TRUE;
 $cfgModifyDeleteAtRight = FALSE;
-$cfgLeftWidth           = 150;      // left frame width
+$cfgLeftWidth           = 150;          // left frame width
 
 
 /**
