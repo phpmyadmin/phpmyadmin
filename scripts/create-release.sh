@@ -94,8 +94,11 @@ if [ $? -ne 0 ] ; then
     exit 2
 fi
 
-date > phpMyAdmin/RELEASE-DATE-$1
+LC_ALL=C date > phpMyAdmin/RELEASE-DATE-$1
 find phpMyAdmin \( -name .cvsignore -o -name CVS \) -print0 | xargs -0 rm -rf 
+find phpMyAdmin -type d -print0 | xargs -0 chmod 755
+find phpMyAdmin -type f -print0 | xargs -0 chmod 644
+find phpMyAdmin \( -name '*.sh' -o -name '*.pl' \) -print0 | xargs -0 chmod 755
 mv phpMyAdmin phpMyAdmin-$1
 zip -9 -r phpMyAdmin-$1-php3.zip phpMyAdmin-$1
 tar cvzf phpMyAdmin-$1-php3.tar.gz phpMyAdmin-$1
