@@ -107,16 +107,19 @@ $cfgShowStats             = TRUE;   // allow to display statistics and space usa
                                     // properties
 $cfgShowTooltip	          = TRUE;	// display table comment as tooltip in left frame
 
-$cfgShowBlob              = FALSE;  // display blob field contents in browse mode
-$cfgShowAll               = FALSE;  // allows to display all the rows in browse mode
-$cfgMaxRows               = 30;     // maximum number of rows to display in browse mode
+// In browse mode...
+$cfgShowBlob              = FALSE;  // display blob field contents
+$cfgNavigationBarIconic   = TRUE;   // do not display text inside navigation bar buttons
+$cfgShowAll               = FALSE;  // allows to display all the rows
+$cfgMaxRows               = 30;     // maximum number of rows to display
 $cfgOrder                 = 'ASC';  // default for 'ORDER BY' clause (valid
                                     // values are 'ASC', 'DESC' or 'SMART' -ie
                                     // descending order for fields of type
                                     // TIME, DATE, DATETIME & TIMESTAMP,
                                     // ascending order else-)
 
-$cfgProtectBinary         = 'blob'; // disallow editing of binary fields in edit mode
+// In edit mode...
+$cfgProtectBinary         = 'blob'; // disallow editing of binary fields
                                     // valid values are:
                                     //   FALSE  allow editing
                                     //   'blob' allow editing except for BLOB fields

@@ -10,6 +10,12 @@ $Source$
 	* tbl_change.php3, lines 198-205: fixed a crash with binary "characters".
 	  Bug was reported by Joshua Nye <josh at boxcarmedia.com> to the
 	  phpMyAdmin-devel mailing-list.
+	* config.inc.php3, line 112; Documentation.html, lines 545-550;
+	  libraries/display_tbl.lib.php3: merged patch #474210 (hiding full text of
+	  navigation buttons) submitted by
+	  Gosha Sakovich <gt2 at users.sourceforge.net>.
+	* Documentation.html, lines 407-410: explicited the use of MySQL wildcards
+	  in the "only_db" setting.
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
 
 2001-10-25  Loïc Chapeaux  <lolo@phpheaven.net>
@@ -35,7 +41,6 @@ $Source$
 	    "mysql.db" table;
 	  - get all privilege at the begenning of the script;
 ###	* released 2.2.1 revision. ###
-
 
 2001-10-24  Marc Delisle  <lem9@users.sourceforge.net>
 	* main.php3 (for Loïc): a non-empty only_db was removing the MySQL links on

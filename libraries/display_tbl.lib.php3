@@ -202,6 +202,18 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         <?php
         // Move to the beginning or to the previous page
         if ($pos > 0 && $sessionMaxRows != 'all') {
+            // loic1: patch #474210 from Gosha Sakovich - part 1
+            if ($GLOBALS['cfgNavigationBarIconic']) {
+                $caption1 = '&lt;&lt;';
+                $caption2 = '&nbsp;&lt;&nbsp;';
+                $title1   = ' title="' . $GLOBALS['strPos1'] . '"';
+                $title2   = ' title="' . $GLOBALS['strPrevious'] . '"';
+            } else {
+                $caption1 = $GLOBALS['strPos1'] . ' &lt;&lt;';
+                $caption2 = $GLOBALS['strPrevious'] . ' &lt;';
+                $title1   = '';
+                $title2   = '';
+            } // end if... else...
             ?>
     <td>
         <form action="sql.php3" method="post">
@@ -214,7 +226,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
-            <input type="submit" name="navig" value="<?php echo $GLOBALS['strPos1'] . ' &lt;&lt;'; ?>" />
+            <input type="submit" name="navig" value="<?php echo $caption1; ?>"<?php echo $title1; ?> />
         </form>
     </td>
     <td>
@@ -228,7 +240,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
-            <input type="submit" name="navig" value="<?php echo $GLOBALS['strPrevious'] . ' &lt;'; ?>" />
+            <input type="submit" name="navig" value="<?php echo $caption2; ?>"<?php echo $title2; ?> />
         </form>
     </td>
             <?php
@@ -261,6 +273,18 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         // Move to the next page or to the last one
         if (($pos + $sessionMaxRows < $unlim_num_rows) && $num_rows >= $sessionMaxRows
             && $sessionMaxRows != 'all') {
+            // loic1: patch #474210 from Gosha Sakovich - part 2
+            if ($GLOBALS['cfgNavigationBarIconic']) {
+                $caption3 = '&nbsp;&gt;&nbsp;';
+                $caption4 = '&gt;&gt;';
+                $title3   = ' title="' . $GLOBALS['strNext'] . '"';
+                $title4   = ' title="' . $GLOBALS['strEnd'] . '"';
+            } else {
+                $caption3 = '&gt; ' . $GLOBALS['strNext'];
+                $caption4 = '&gt;&gt; ' . $GLOBALS['strEnd'];
+                $title3   = '';
+                $title4   = '';
+            } // end if... else...
             echo "\n";
             ?>
     <td>
@@ -274,7 +298,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
-            <input type="submit" name="navig" value="<?php echo '&gt; ' . $GLOBALS['strNext']; ?>" />
+            <input type="submit" name="navig" value="<?php echo $caption3; ?>"<?php echo $title3; ?> />
         </form>
     </td>
     <td>
@@ -289,7 +313,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
-            <input type="submit" name="navig" value="<?php echo '&gt;&gt; ' . $GLOBALS['strEnd']; ?>" />
+            <input type="submit" name="navig" value="<?php echo $caption4; ?>"<?php echo $title4; ?> />
         </form>
     </td>
             <?php
