@@ -22,6 +22,14 @@ $old_error_rep = error_reporting(E_ALL);
  *
  * It must contain characters that are valid for a URL, and the path is
  * case sensitive on some Web servers, for example Unix-based servers.
+ *
+ * In most cases you can leave this variable alone, as the correct value 
+ * will be detected automatically. However, we recommened that you do 
+ * test to see that the auto-detection code works in your system.
+ *
+ * If the auto-detection code does work properly, you can set the 
+ * $cfg['PmaAbsoluteUri_DisableWarning'] variable at the bottom of 
+ * this file.
  */
 $cfg['PmaAbsoluteUri'] = '';
 
@@ -436,6 +444,14 @@ if($cfg['UseSyntaxColoring']) {
         'SET'
     );
 }
+
+/**
+ * Disable the default warning about $cfg['PmaAbsoluteUri'] not being set
+ * You should use this if and ONLY if the PmaAbsoluteUri auto-detection 
+ * works perfectly.
+ */
+$cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
+
 /**
  * Unset magic_quotes_runtime - do not change!
  */

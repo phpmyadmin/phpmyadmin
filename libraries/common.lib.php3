@@ -494,8 +494,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
     if (empty($cfg['PmaAbsoluteUri'])) {
 
-        $DisplayPmaAbsoluteUriWarning = 1;
-
         // Setup a default value to let the people and lazy syadmins work anyway,
         // but display a big warning on the main.php3 page.  --Olivier
 
@@ -503,6 +501,16 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             . $HTTP_SERVER_VARS['SERVER_NAME']
             . (!empty($HTTP_SERVER_VARS['SERVER_PORT']) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '')
             . substr($HTTP_SERVER_VARS['SCRIPT_NAME'], 0, strrpos($HTTP_SERVER_VARS['SCRIPT_NAME'], '/')+1);
+
+         // We display the warning by default, but not if it is disabled thru
+         // via the $cfg['PmaAbsoluteUri_DisableWarning'] variable.
+         // This is intended for sysadmins that actually want the default behaviour 
+         // of auto-detection due to their setup.
+         // See the mailing list message:
+         // http://sourceforge.net/mailarchive/forum.php?thread_id=859093&forum_id=2141
+        if ($cfg['PmaAbsoluteUri_DisableWarning'] === FALSE) {
+            $DisplayPmaAbsoluteUriWarning = 1;
+        }
 
     }
     // Adds a trailing slash et the end of the phpMyAdmin uri if it does not

@@ -5,8 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-04 Robin Johnson  <robbat2@users.sourceforge.net>
+    * config.inc.php3, libraries/common.lib.php3:
+      Code for $cfg['PmaAbsoluteUri_DisableWarning']
+
 2002-07-03 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/japanese* updates, thanks to Yukihiro Kawada
+    * lang/japanese* updates:, thanks to Yukihiro Kawada
     * Documentation.html: explain the oslash symbol in the statistics
     * left.php3: the - as first choice is not clear
     * tbl_properties_table_info.php3, tbl_properties_links.php3: bug
@@ -83,8 +87,8 @@ $Source$
 2002-06-26 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: update the persons/towns/countries example
     * sql.php3, tbl_properties_table_info.php3: sub-page links on browse
-    * lang/japanese* updates, thanks to Yukihiro Kawada
-    * libraries/mysql_wrappers.lib.php3 patch #574009, charset
+    * lang/japanese* updates: thanks to Yukihiro Kawada
+    * libraries/mysql_wrappers.lib.php3: patch #574009, charset
       conversion for db names, thanks to Michal Cihar_
 
 2002-06-26 Olivier L. Müller  <om@omnis.ch>
@@ -99,8 +103,8 @@ $Source$
     * ChangeLog: Added a note about the older ChangeLogs at EoF.
 
 2002-06-25 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/georgian-utf-8 updates, thanks to Kakha Mchedlidze
-    * lang/ukrainian-win1251 updates, thanks to Markijan Baran
+    * lang/georgian-utf-8 updates: thanks to Kakha Mchedlidze
+    * lang/ukrainian-win1251 updates: thanks to Markijan Baran
 
 2002-06-25 Olivier L. Müller  <om@omnis.ch>
     * lang/german.inc.php3: Du -> Sie
@@ -109,7 +113,7 @@ $Source$
     * lang/lithuanian.inc.php3: Removed line feed at EoF.
 
 2002-06-23 Robin Johnson  <robbat2@users.sourceforge.net>
-    * lang/portuguese.inc.php3 updates, thanks to Lopo Pizarro
+    * lang/portuguese.inc.php3 updates: thanks to Lopo Pizarro
 
 2002-06-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Revised some files in /lang/:
@@ -140,8 +144,8 @@ $Source$
         - Fixed style="PAGE-BREAK-AFTER: always" from appearing on the
           last <div>, to stop a blank page being printed
         - Moved <hr /> to just inside </div> - gets line on the same page
-    * lang/portuguese.inc.php3 updates, thanks to Lopo Pizarro
-    * lang/chinese*.inc.php3 updates, thanks to Siu Sun
+    * lang/portuguese.inc.php3 updates: thanks to Lopo Pizarro
+    * lang/chinese*.inc.php3 updates: thanks to Siu Sun
     * lang/english*: $strSplitWordsWithSpace
         - Fix spelling 'seperated' -> 'separated'
 
@@ -154,21 +158,21 @@ $Source$
 2002-06-21 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/english*: $strSplitWordsWithSpace
         - 'splitted' changed to 'seperated'
-    * lang/portuguese.inc.php3 updates, thanks to Lopo Pizarro
-    * lang/polish.inc.php3 updates, thanks to Jakub Wilk
+    * lang/portuguese.inc.php3 updates: thanks to Lopo Pizarro
+    * lang/polish.inc.php3 updates: thanks to Jakub Wilk
     * db_details_links.php3, header.inc.php3,
-      tbl_properties_links.php3, libraries/common.lib.php3
+      tbl_properties_links.php3, libraries/common.lib.php3:
         - Neater tab code by Michal Cihar (Patch #571837)
 
 2002-06-21 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: patch 565627 for the old bug 461192: wrong query count
       for groups, thanks to Svetlozar Kovachev
-    * lang/czech* updates, thanks to Michal Cihar
-    * lang/greek updates, thanks to Kyriakos Xagoraris
-    * lang/norwegian updates, thanks to Sven-Erik Andersen
+    * lang/czech* updates: thanks to Michal Cihar
+    * lang/greek updates: thanks to Kyriakos Xagoraris
+    * lang/norwegian updates: thanks to Sven-Erik Andersen
     * tbl_properties_structure.php3, bug 572127: wrong back link, thanks
       to "nobody"
-    * tbl_addfield.php3, goback to the structure sub-page
+    * tbl_addfield.php3: goback to the structure sub-page
 
 2002-06-20 Robin Johnson  <robbat2@users.sourceforge.net>
     * tbl_qbe.php3: Using * for tables fields disables
@@ -176,11 +180,11 @@ $Source$
     * db_details_links.php3: Added $args3, $args4 = '', for no tables case
 
 2002-06-20 Marc Delisle  <lem9@users.sourceforge.net>
-    * ChangeLog_till_2.2.6.gz removed from the distribution and copied
+    * ChangeLog_till_2.2.6.gz: removed from the distribution and copied
       to home page
-    * lang/georgian-utf-8, thanks to Kakha Mchedlidze <kakha at qartuli.com>
-    * lang/polish updates, thanks to Jakub Wilk
-    * lang/galician updates, thanks to Xosé Calvo
+    * lang/georgian-utf-8: thanks to Kakha Mchedlidze <kakha at qartuli.com>
+    * lang/polish updates: thanks to Jakub Wilk
+    * lang/galician updates: thanks to Xosé Calvo
 
 2002-06-20 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, *_links.php3, libraries/common.lib.php3: Implemented
@@ -197,11 +201,11 @@ $Source$
 
 2002-06-19 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php3: missing header, thanks to Michal Cihar
-    * lang/japanese* updates, thanks to Yukihiro Kawada
-    * lang/spanish, catala updates, thanks to Xavier Navarro
-    * lang/dutch updates, thanks to Ivo Teel.
-    * lang/swedish updates, thanks to Björn T. Hallberg
-    * lang/galician updates, thanks to Xosé Calvo
+    * lang/japanese* updates: thanks to Yukihiro Kawada
+    * lang/spanish, catala updates: thanks to Xavier Navarro
+    * lang/dutch updates: thanks to Ivo Teel.
+    * lang/swedish updates: thanks to Björn T. Hallberg
+    * lang/galician updates: thanks to Xosé Calvo
     * libraries/config_import.lib.php3, fixed 3 parse errors
     * common.lib.php3: due to formatting problems, bypass PMA_format_sql
       for 2.3.0-rc1
@@ -210,15 +214,15 @@ $Source$
 2002-06-19 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/charset_conversion.lib.php3,
       libraries/common.lib.php3,
-      main.php3
+      main.php3:
         - added isset() before some configuration variables
 
 2002-06-18 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/chinese* updates, thanks to Siu Sun
-    * lang/lithuanian updates, thanks to Vilius Zigmantas
-    * lang/romanian updates, thanks to Valics Lehel
-    * lang/thai updates, thanks to Arthit Suriyawongkul.
-    * lang/turkish updates, thanks to Bora Alioglu
+    * lang/chinese* updates: thanks to Siu Sun
+    * lang/lithuanian updates: thanks to Vilius Zigmantas
+    * lang/romanian updates: thanks to Valics Lehel
+    * lang/thai updates: thanks to Arthit Suriyawongkul.
+    * lang/turkish updates: thanks to Bora Alioglu
     * tbl_relation.php3, bug 570691: query was executed too many times
 
 2002-06-18 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -235,21 +239,21 @@ $Source$
         - Last fix for $strConfigFileError done as well
 
 2002-06-17 Robin Johnson  <robbat2@users.sourceforge.net>
-    * lang/finnish.inc.php3 updates, thanks to Visa Kopu (#569317)
-    * lang/italian.inc.php3 update, thanks to Pietro Danesi (#569424)
+    * lang/finnish.inc.php3 updates: thanks to Visa Kopu (#569317)
+    * lang/italian.inc.php3 update: thanks to Pietro Danesi (#569424)
 
 2002-06-17 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: the I option in tar for bzip output
       is deprecated and no longer works on sourceforge, use j
-    * lang/french.inc.php3 updates
-    * user_password.php3 parse error as reported by Olivier
+    * lang/french.inc.php3: updates
+    * user_password.php3: parse error as reported by Olivier
     * libraries/relation.lib.php3: pmadb can be left blank
 
 2002-06-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/sync_lang.sh: new script thanks to Michal Cihar
     * Documentation.html: typos
-    * lang/hebrew.inc.php3 updates, thanks to Yuval Sarna
-    * lang/turkish.inc.php3 updates, thanks to Bora Alioglu
+    * lang/hebrew.inc.php3 updates: thanks to Yuval Sarna
+    * lang/turkish.inc.php3 updates: thanks to Bora Alioglu
 
 2002-06-15 Mike Beck <mikebeck@users.sourceforge.net>
     more changes because of new centralized db for pma
