@@ -136,8 +136,8 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
 <?php 
 	echo $strName.":"; 
 	echo "<input type=\"text\" name=\"table\">";
-	echo $strNumberIndexes.":";
-	echo "<input type=\"text\" name=\"num_indexes\" size=2>";
+//	echo $strNumberIndexes.":";
+//	echo "<input type=\"text\" name=\"num_indexes\" size=2>";
 	echo "<br>";
 	echo $strFields.":"; 
 	echo "<input type=\"text\" name=\"num_fields\" size=2>";
