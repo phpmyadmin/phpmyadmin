@@ -270,6 +270,7 @@ $strWrongUser = "Usuario/password equivocado. Acesso denegado.";
 $strYes = "Si";
 
 // export Zip (July 07, 2001, 19:48am)
+$strBzip = "\"bzipped\"";
 $strGzip = "\"gzipped\"";  //to translate
 $strOffSet = "Offset";
 $strNbRecords = "No. Of records";

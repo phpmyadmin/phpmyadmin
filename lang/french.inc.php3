@@ -44,6 +44,7 @@ $strBookmarkQuery = "Requêtes bookmarkées";
 $strBookmarkThis = "Bookmarker cette requête";
 $strBookmarkView = "Voir uniquement";
 $strBrowse = "Afficher";
+$strBzip = "\"bzippé\"";
 
 $strCantLoadMySQL = "ne peux charger l'extension MySQL,<br>vérifiez la configuration PHP"; 
 $strCarriage = "Retour de chariot: \\r";

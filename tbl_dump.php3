@@ -6,7 +6,8 @@ require("./grab_globals.inc.php3");
 @set_time_limit(600);
 $crlf="\n";
 
-if (empty($asfile) && !empty($gzip)) {
+if (empty($asfile)
+    && (!empty($gzip) || !empty($bzip))) {
     $asfile = 1;
 }
 
@@ -20,11 +21,16 @@ else
 	if (!isset($table)) $filename=$db;
 	else $filename=$table;
 	include("./lib.inc.php3");
-	$ext = "sql";
-	if($what == "csv") $ext = "csv";
-	if(isset($gzip))
-        	if($gzip == "gzip") $ext = "gz";
-
+    if (isset($bzip) && $bzip == 'bzip') {
+        $ext = 'bz2';
+    } else if (isset($gzip) && $gzip == 'bzip') {
+        $ext = 'gz';
+    } else if ($what == 'csv') {
+        $ext = 'csv';
+    } else {
+        $ext = 'sql';
+    }
+	
 	header('Content-Type: application/octetstream');
 	header('Content-Disposition: filename="' . $filename . '.' . $ext . '"');
 	header('Pragma: no-cache');
@@ -152,7 +158,10 @@ else
 					$dump_buffer.= "#$crlf$crlf";
 					
 					$tmp_buffer="";
-					get_table_content($db, $table, $limit_from, $limit_to, 'my_handler');
+					if (!isset($limit_from) || !isset($limit_to)) {
+					    $limit_from = $limit_to = 0;
+					}
+				    get_table_content($db, $table, $limit_from, $limit_to, 'my_handler');
 					$dump_buffer.=$tmp_buffer;
 				}
 				$i++;
@@ -169,13 +178,20 @@ else
 	}
 }
 
-if(isset($gzip)) {
-	if($gzip == "gzip" && function_exists("gzencode"))
-		// without the optional parameter level because it bug
-        	echo gzencode($dump_buffer);  
+if (isset($bzip) && $bzip == 'bzip') {
+    if (function_exists('bzcompress')) {
+        echo bzcompress($dump_buffer);
+    } 
 }
-else
-	echo $dump_buffer;
+else if (isset($gzip) && $gzip == 'gzip') {
+    if ($gzip == 'gzip' && function_exists('gzencode')) {
+        // without the optional parameter level because it bug
+        echo gzencode($dump_buffer);
+    }
+}
+else {
+    echo $dump_buffer;
+}
 
 if(empty($asfile))
 {

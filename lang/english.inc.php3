@@ -45,6 +45,7 @@ $strBookmarkQuery = "Bookmarked SQL-query";
 $strBookmarkThis = "Bookmark this SQL-query";
 $strBookmarkView = "View only";
 $strBrowse = "Browse";
+$strBzip = "\"bzipped\"";
 
 $strCantLoadMySQL = "cannot load MySQL extension,<br>please check PHP Configuration.";
 $strCarriage = "Carriage return: \\r";

@@ -168,8 +168,9 @@
 <tr>
     <td valign="top">(*)&nbsp;</td>
     <td>
-        phpMyAdmin can compress (GZip format - RFC 1952) dumps and CSV exports
-        if you use PHP>=4.0.4 with Zlib support (--with-zlib)
+        phpMyAdmin can compress (GZip format -RFC 1952- or Bzip2) dumps and CSV
+        exports if you use PHP4&nbsp;>=&nbsp;4.0.4 with Zlib support
+        (<tt>--with-zlib</tt>) and/or Bzip2 support (<tt>--with-bz2</tt>).
     </td>
 </tr>
 </table>
@@ -748,11 +749,13 @@
 </p>
 
 <p>
-    <b>How can I GZip a dump or a CSV export. It seem to not work?</b>
+    <b>How can I GZip or Bzip a dump or a CSV export. It seem to not work?</b>
     <br />
-    This feature is based on gzencode() to be more independent of the platform
+    These features are based on the <tt>gzencode()</tt> and
+    <tt>bzcompress()</tt> php functions to be more independent of the platform
     (Unix/Windows, Safe Mode or not, and so on).
-    So, you must have PHP4&nbsp;>=&nbsp;4.0.4 and Zlib support (<tt>--with-zlib</tt>).
+    So, you must have PHP4&nbsp;>=&nbsp;4.0.4 and Zlib/Bzip2 support
+    (<tt>--with-zlib</tt> and <tt>--with-bz2</tt>).
 </p>
 
 <p>

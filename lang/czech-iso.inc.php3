@@ -270,6 +270,7 @@ $strWrongUser = "©patné u¾ivatelské jméno/heslo. Pøístup odepøen.";
 $strYes = "Ano";
 
 // export Zip (July 07, 2001, 19:48am)
+$strBzip = "\"bzipped\"";
 $strGzip = "\"gzipped\"";  //to translate
 $strOffSet = "Offset";
 $strNbRecords = "No. Of records";

@@ -273,6 +273,7 @@ $strNotNumber = "Das ist keine Zahl!";
 $strNotValidNumber = " ist keine gültige Zeilennummer!";
 
 // export Zip (July 07, 2001, 19:48am)
+$strBzip = "\"bzipped\"";
 $strGzip = "\"GZip komprimiert\"";
 $strOffSet = "Offset";
 $strNbRecords = "No. Of records";
