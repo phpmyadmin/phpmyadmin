@@ -10,6 +10,8 @@ $Source$
     * libraries/common.lib.php: DEFAULT CURRENT_TIMESTAMP is only 
       for TIMESTAMP (bug when changing from a TIMESTAMP to a non-TIMESTAMP type)    * (same): bug #1163595, problem 4: a TIMESTAMP must be explicitely
       set to NULL to have the NULL attribute
+    * libraries/tbl_move_copy.php: bug #1168996, error copying InnoDB table 
+      with FK constraints to a table in the same db
 
 2005-03-31 Alexander M. Turek  <me@derrabus.de>
     * left.php: Undefined offset (Bug #1174045).
