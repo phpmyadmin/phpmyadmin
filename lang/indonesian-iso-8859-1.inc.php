@@ -128,6 +128,7 @@ $strCompression = 'Kompresi';
 $strConfigFileError = 'phpMyAdmin gagal membaca file konfigurasi!<br />Hal ini diakibatkan oleh parse error atau file tidak ditemukan.<br />Silakan buka file konfigurasi secara langsung dengan gunakan link dibawah. Mohon perhatikan php error message(s) yang akan tertampil. Serinkali sebuah quote atau semicolon tertinggal.<br />Jika sebuah halaman kosong yang muncul berarti tidak ada masalah.';
 $strConfigureTableCoord = 'Silakan konfigurasikan koordinasi bagi tabel %s';
 $strConfirm = 'Anda yakin ingin melakukannya?';
+$strConnectionError = 'Koneksi gagal: Stelan tidak valid.';
 $strConnections = 'Koneksi';
 $strConstraintsForDumped = 'Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)';
 $strConstraintsForTable = 'Ketidakleluasaan untuk tabel';
@@ -202,6 +203,7 @@ $strDoYouReally = 'Apakah anda ingin ';
 $strDocu = 'Dokumentasi';
 $strDrop = 'Hapus Field ini';
 $strDropDB = 'Hapus database %s';
+$strDropDatabaseStrongWarning = 'Anda akan MENGHAPUSKAN database secara komplit!';
 $strDropSelectedDatabases = 'Drop database pilihan';
 $strDropTable = 'Hapus tabel:';
 $strDropUsersDb = 'Hapus database yang miliki nama yang sama dengan pengunanya.';
@@ -719,8 +721,9 @@ $strYes = 'Ya';
 $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
 
- = 'Cannot connect: invalid settings.';  //to translate
-$strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
+// To translate:
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
+
 $strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
+
 ?>
