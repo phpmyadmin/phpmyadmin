@@ -1158,7 +1158,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
-                                                                   .  PMA_generate_common_url($db, $map[$meta->name][0])
+                                                                   .  PMA_generate_common_url($map[$meta->name][3], $map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$pointer]) . '"' . $title . '>'
                                                                    .  ($transform_function != $default_function ? $transform_function($row[$pointer], $transform_options) : $transform_function($row[$pointer])) . '</a>';
@@ -1285,7 +1285,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
-                                                                   .  PMA_generate_common_url($db, $map[$meta->name][0])
+                                                                   .  PMA_generate_common_url($map[$meta->name][3], $map[$meta->name][0])
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
                                                                    .  $row[$pointer] . '</a>';
@@ -1629,7 +1629,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     // check for display field?
                     if ($cfgRelation['displaywork']) {
                         $display_field = PMA_getDisplayField($db, $rel[2]);
-                        $map[$rel[0]] = array($rel[2], $rel[3], $display_field);
+                        $map[$rel[0]] = array($rel[2], $rel[3], $display_field, $rel[1]);
                     } // end if
                 } // end while
             } // end if

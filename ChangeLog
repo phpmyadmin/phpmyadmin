@@ -11,6 +11,8 @@ $Source$
     * tbl_replace.php3, tbl_replace_fields.php3: Bug #722629 - Use
       original values of a BLOB field when 'Insert as new row' is
       chosen on edit.
+    * libraries/display_tbl.lib.php3: Bug #662320 (highlight fields
+      crossing DB borders now allowed)
 
 2003-04-16 Garvin Hicking <me@supergarv.de>
     * tbl_query_box.php3: Only hide 'go' SQL button, when in files mode
