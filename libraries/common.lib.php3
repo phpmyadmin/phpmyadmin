@@ -128,7 +128,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php3 revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 131) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 137) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -1083,7 +1083,7 @@ if (typeof(document.getElementById) != 'undefined'
                 <?php
             } // end if
         } // end if... else if
-        
+
         // Checks if the table needs to be repaired after a TRUNCATE query.
         if (PMA_MYSQL_INT_VERSION >= 40000
             && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
@@ -1098,7 +1098,7 @@ if (typeof(document.getElementById) != 'undefined'
                 @PMA_mysql_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
             }
         }
-        
+
         unset($tbl_status);
 
         echo "\n";

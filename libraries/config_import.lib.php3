@@ -373,13 +373,23 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
         $cfg['DefaultTabTable'] = 'tbl_properties_structure.php3';
     }
 
-    if (!isset($cfg['ManualBaseShort'])) {
+    if (!isset($cfg['ManualBase'])) {
         if (isset($cfgManualBaseShort)) {
-            $cfg['ManualBaseShort'] = $cfgManualBaseShort;
+            $cfg['ManualBase'] = $cfgManualBaseShort;
+            $cfg['MySQLManualType'] = 'old';
             unset($cfgManualBaseShort);
+        } else if (isset($cfg['ManualBaseShort'])) {
+            $cfg['ManualBase'] = $cfg['ManualBaseShort'];
+            $cfg['MySQLManualType'] = 'old';
+            unset($cfg['ManualBaseShort']);
         } else {
-            $cfg['ManualBaseShort'] = 'http://www.mysql.com/doc';
+            $cfg['ManualBase'] = 'http://www.mysql.com/doc/en';
+            $cfg['MySQLManualType'] = 'searchable';
         }
+    }
+    
+    if (!isset($cfg['MySQLManualType'])) {
+        $cfg['MySQLManualType'] = 'none';
     }
 
     if (!isset($cfg['DefaultLang'])) {
