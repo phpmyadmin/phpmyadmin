@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # $Id$
 ##
 # Shell script to make each language file neat and tidy
@@ -7,6 +7,20 @@
 # August 9, 2002
 ##
 
+specialsort()
+{
+    in=$1
+    out=$2
+
+    STRINGORDER="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+    
+    for i in $STRINGORDER;
+    do
+        egrep '^\$str'$i $in | sort >> $out
+        echo >> $out
+    done
+}
+
 sortlang()
 {
     f=$1
@@ -14,70 +28,56 @@ sortlang()
     mkdir -p $targetdir
 
     TRANSLATIONSTRING='//.*translate.*$'
-    STRINGSTRING='^[[:space:]]*\$str[[:alnum:]_]*'
+    STRINGSTRING='^\$str[[:alnum:]_]+'
     WHITESPACE='^[[:blank:]]*$'
-    STRINGORDER="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
-    CVSID='/* .Id: .* . */'
+    CVSID='/\* \$Id$ \*/'
 
-    echo -en "Extracting:"
-    echo -en " head"
+    echo -n "Extracting:"
+    echo -n " head"
     egrep -i -v $TRANSLATIONSTRING $f | \
-    egrep -v "$STRINGSTRING|$CVSID" | \
-    sed 's/?>//g;s/<?php//g'| \
-    uniq >>$targetdir/head
+    egrep -v "$STRINGSTRING|$CVSID|\?>|<\?php" >> $targetdir/head
 
-    echo -en " cvs"
-    head -n10 $f | \
-    egrep "$CVSID" >>$targetdir/cvs
+    echo -n " cvs"
+    egrep "$CVSID" $f >>$targetdir/cvs
 
-    echo -en " strings"
-    egrep -i -v $TRANSLATIONSTRING $f | \
-    egrep $STRINGSTRING | \
-    egrep -v $WHITESPACE >$targetdir/tmp-tosort
+    echo -n " strings"
+    egrep -i -v "$WHITESPACE|$TRANSLATIONSTRING" $f | \
+    egrep $STRINGSTRING > $targetdir/tmp-tosort
 
-    echo -en " pending_translations"
-    egrep -i $TRANSLATIONSTRING $f | \
-    uniq >$targetdir/tmp-translate
+    echo -n " pending_translations"
+    egrep -i "$STRINGSTRING.*$TRANSLATIONSTRING" $f > $targetdir/tmp-translate
+    echo
 
-    echo -en "\nBuilding:"
-    echo -en " strings"
-    for i in $STRINGORDER;
-    do
-        echo
-        egrep '^\$str'$i'[[:alpha:]]*' $targetdir/tmp-tosort | \
-        sort -k 1,1
-    done | \
-    uniq >>$targetdir/sort
+    echo -n "Building:"
+    echo -n " strings"
+    specialsort $targetdir/tmp-tosort $targetdir/sort
 
-    echo -en " pending_translations"
-    egrep -v $STRINGSTRING $targetdir/tmp-translate | uniq > $targetdir/translate
-    echo >> $targetdir/translate
-    for i in $STRINGORDER;
-    do
-        echo
-        egrep '^\$str'$i'[[:alpha:]]*' $targetdir/tmp-translate | \
-        sort -k 1,1
-    done | \
-    uniq >>$targetdir/translate
+    echo -n " pending_translations"
+    if [ -s $targetdir/tmp-translate ] ; then
+        echo '// To translate:' > $targetdir/translate
+        specialsort $targetdir/tmp-translate $targetdir/translate
+    else
+        echo -n > $targetdir/translate
+    fi
+    echo
 
-    echo -en "\nAssembling final\n"
-    f=$f$2
-    echo "<?php" >$f
-    cat $targetdir/cvs $targetdir/head $targetdir/sort $targetdir/translate | \
-    uniq >>$f
-    echo "?>" >>$f
+    echo "Assembling final"
+    echo "<?php" > $f
+    cat $targetdir/cvs $targetdir/head $targetdir/sort $targetdir/translate \
+    | uniq >> $f
+    echo "?>" >> $f
 
     rm -rf $targetdir
 }
 
 echo "-------------------------------------------------------------------"
-for i in $1; 
+for i in "$@"; 
 do
     if [ ! -f $i ] ; then
         echo "$i is not a file, skipping"
     else
         echo "Sorting $i"
-        sortlang $i $2
+        sortlang $i
     fi
     echo "-------------------------------------------------------------------"
 done;
