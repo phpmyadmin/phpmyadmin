@@ -2,6 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+error_reporting(E_ALL);
 /** SQL Parser Functions for phpMyAdmin
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
@@ -869,7 +870,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             // for each table_ref alias, put the true name of the table
             // in the corresponding select expressions
 
-            if ($seen_end_of_table_ref || $i == $size-1) {
+            if (isset($current_table_ref) && ($seen_end_of_table_ref || $i == $size-1)) {
                 for ($tr=0; $tr <= $current_table_ref; $tr++) {
                     $alias = $subresult['table_ref'][$tr]['table_alias'];
                     $truename = $subresult['table_ref'][$tr]['table_true_name'];
@@ -925,7 +926,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                    // to be able to save the last table ref, but do not
                    // set it true if we found a word like "ON" that has
                    // already set it to false
-                   if ($save_table_ref != FALSE) {
+                   if (isset($save_table_ref) && $save_table_ref != FALSE) {
                       $save_table_ref = TRUE;
                    } //end if
 
