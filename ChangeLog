@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3 /relation.lib.php3 /get_foreign.lib.php3:
+      bug 772765, InnoDB and multi-columns foreign key
+
 2003-07-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/mysql_charsets.lib.php3:
       - better method for retrieving the supported MySQL charsets;

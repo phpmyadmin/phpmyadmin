@@ -31,11 +31,12 @@
 
         if ($the_total < 200) {
             // foreign_display can be FALSE if no display field defined:
+
             $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
             $dispsql         = 'SELECT ' . PMA_backquote($foreign_field)
                              . (($foreign_display == FALSE) ? '' : ', ' . PMA_backquote($foreign_display))
                              . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table)
-                             . ' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display);
+                             . (($foreign_display == FALSE) ? '' :' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display));
             $disp            = PMA_mysql_query($dispsql);
         }
         else {

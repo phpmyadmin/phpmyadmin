@@ -699,7 +699,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      * I create all sub-values empty, even if they are
      * not present (for example no select_expression alias).
      *
-     * There is a debug section at the end of the main loop, if you want to
+     * There is a debug section at the end of loop #1, if you want to
      * see the exact contents of select_expr and table_ref
      *
      * lem9: queryflags
@@ -1183,7 +1183,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $in_from = FALSE;
 
             for ($i = 0; $i < $size; $i++) {
-    //echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
+    //DEBUG echo "trace loop2 <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
 
                // need_confirm
                //
@@ -1369,6 +1369,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                    if ($upper_data == 'FOREIGN') {
                        $seen_foreign = TRUE;
                        $seen_references = FALSE;
+                       $foreign_key_number++;
                    }
                    if ($upper_data == 'REFERENCES') {
                        $seen_foreign = FALSE;
@@ -1392,8 +1393,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     if ($seen_foreign && $in_bracket) {
                         // remove backquotes
                         $identifier = str_replace('`','',$arr[$i]['data']);
-                        // new foreign key
-                        $foreign_key_number++;
+                        //$foreign_key_number++;
                         $foreign[$foreign_key_number]['index_list'][] = $identifier;
                     }
 
