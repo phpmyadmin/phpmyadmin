@@ -134,14 +134,26 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
             $type     = '&nbsp;';
         }
 
-        $binary       = eregi('BINARY', $row['Type'], $test);
+        $binary       = eregi('BLOB', $row['Type'], $test) || eregi('BINARY', $row['Type'], $test);
         $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
         $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
     }
 
     // rabus: Devide charset from the rest of the type definition (MySQL >= 4.1)
-    if (strpos($type, ' character set ')) {
-        list($type, $field_charset) = explode(' character set ', $type);
+    if (PMA_MYSQL_INT_VERSION >= 40100 && (
+        substr($type, 0, 4) == 'char'
+        || substr($type, 0, 7) == 'varchar'
+        || substr($type, 0, 4) == 'text'
+        || substr($type, 0, 8) == 'tinytext'
+        || substr($type, 0, 10) == 'mediumtext'
+        || substr($type, 0, 8) == 'longtext'
+        ) && !$binary) {
+        if (strpos($type, ' character set ')) {
+            $type = substr($type, 0, strpos($type, ' character set '));
+        }
+        if (!empty($row['Collation'])) {
+            $field_charset = $row['Collation'];
+        }
     }
 
     // garvin: Display basic mimetype [MIME]
@@ -191,7 +203,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
-<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '">' . (empty($field_charset) ? '---' : $field_charset) . '</td>' . "\n" : '' ?>
+<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '">' . (empty($field_charset) ? '&nbsp;' : $field_charset) . '</td>' . "\n" : '' ?>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
@@ -283,6 +295,7 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     ?>
 </tr>
     <?php
+    unset($field_charset);
 } // end while
 
 echo "\n";
@@ -341,7 +354,7 @@ echo "\n\n";
 <br />
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-    <td>
+    <td valign="top">
 <?php
 define('PMA_IDX_INCLUDED', 1);
 require ('./tbl_indexes.php3');
@@ -483,6 +496,19 @@ if ($cfg['ShowStats']) {
                 echo $showtable['Row_format'];
             }
             echo "\n";
+            ?>
+            </td>
+        </tr>
+            <?php
+        }
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
+            ?>
+        <tr>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strCharset; ?></td>
+            <td bgcolor="<?php echo $bgcolor; ?>" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
+            <?php
+            echo $showtable['Charset'];
             ?>
             </td>
         </tr>

@@ -62,8 +62,8 @@
 
 <ul>
     <li>
-        PHP3 or PHP4: phpMyAdmin widely uses the 'str_replace()' PHP function
-        that was added in PHP&nbsp;3.0.6, but was buggy up until
+        PHP3, PHP4 or PHP5: phpMyAdmin widely uses the 'str_replace()' PHP
+        function that was added in PHP&nbsp;3.0.6, but was buggy up until
         PHP&nbsp;3.0.8.
         Then <span class="important">you should not run this script with
         PHP3&nbsp;&lt;&nbsp;3.0.8</span>.<br />
@@ -73,10 +73,10 @@
         GD2 support in PHP.
     </li>
     <li>
-        MySQL (tested with 3.21.x, 3.22.x, 3.23.x and 4.0.x);<br />
-        <span class="important">Note: Because of a major change in the definition
-        syntax of string field types, this version of phpMyAdmin probably won't
-        work correctly with MySQL&nbsp;&gt;=&nbsp;4.1.0!</span>
+        MySQL (tested with 3.21.x, 3.22.x, 3.23.x, 4.0.x and 4.1.x);<br />
+        <span class="important">
+            Note: The implemented MySQL&nbsp;4.1.x support is experimental!
+        </span>
     </li>
     <li>
         a web-browser (doh!).
@@ -427,8 +427,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         The port-number of your $i-th MySQL-server. Default is 3306 (leave
         blank). If you use &quot;localhost&quot; as the hostname, MySQL
         ignores this port number and connects with the socket, so if you want
-        to connect to a port different from the default port, use 
-        &quot;127.0.0.1&quot; or the real hostname in 
+        to connect to a port different from the default port, use
+        &quot;127.0.0.1&quot; or the real hostname in
         $cfg['Servers'][$i]['host'].
         <br /><br />
     </dd>
@@ -1075,7 +1075,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         up tables by the above Separator.
         <br /><br />
     </dd>
- 
+
     <dt><b>$cfg['ShowTooltip'] </b>boolean</dt>
     <dd>
         Defines whether to display table comment as tool-tip in left frame or
@@ -1336,7 +1336,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['IconvExtraParams'] </b>string</dt>
     <dd>
-        Specify some parameters for iconv used in charset conversion. See 
+        Specify some parameters for iconv used in charset conversion. See
         <a
         href="http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html">iconv
         documentation</a> for details.
@@ -1619,10 +1619,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['MaxExactCount'] </b>integer</dt>
     <dd>
-    	Determines for how large tables phpMyAdmin should get exact row count by
-	<code>SELECT COUNT</code>. If approximate row count is smaller than this
-	value, <code>SELECT COUNT</code> will be used, otherwise only value 
-	returned by <code>SHOW TABLE STATUS</code>.
+        Determines for how large tables phpMyAdmin should get exact row count by
+    <code>SELECT COUNT</code>. If approximate row count is smaller than this
+    value, <code>SELECT COUNT</code> will be used, otherwise only value
+    returned by <code>SHOW TABLE STATUS</code>.
     <br /><br />
     </dd>
 
@@ -2176,13 +2176,16 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 
 <h4>
-    [1.17] Does phpMyAdmin support MySQL&nbsp;4.1?
+    [1.17] Does phpMyAdmin support MySQL&nbsp;4.1 and 5.0?
 </h4>
 <p>
-    Because of a major change in the definition syntax of string field types,
-    this version of phpMyAdmin probably won't work correctly with
-    MySQL&nbsp;&gt;=&nbsp;4.1.0! We will work on the support as soon as
-    MySQL&nbsp;4.1.0 is released.
+    phpMyAdmin provides limited support for MySQL&nbsp;4.1. That means that you
+    can neither assign character sets to a table or field on create nor change
+    the (automatically) assigned character set.<br />
+    When compiling php, we strongly recommend that you manually link it to a
+    MySQL&nbsp;4.1 client library since the one that is currently bundled with
+    php is rather old and might cause problems.<br />
+    MySQL 5 is not yet supported.
 </p>
 
 <h4>
@@ -3014,12 +3017,12 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <a name="underscore"></a><br />
 <h4>
-    [6.10] When creating a privilege, what happens with underscores in 
+    [6.10] When creating a privilege, what happens with underscores in
     the database name?
 </h4>
 <p>
-    If you do not put a backslash before the underscore, this is a wildcard 
-    grant, and the underscore means &quot;any character&quot;. So, if the 
+    If you do not put a backslash before the underscore, this is a wildcard
+    grant, and the underscore means &quot;any character&quot;. So, if the
     database name is &quot;john_db&quot;, the user would get rights to john1db,
     john2db...<br /><br />
     If you put a backslash before the underscore, it means that the database

@@ -84,7 +84,7 @@ if (isset($primary_key)) {
     $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key;
     $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
     $row         = PMA_mysql_fetch_array($result);
-    
+
     // No row returned
     if (!$row) {
         unset($row);
@@ -212,7 +212,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     } else {
         $rowfield = $field;
     }
-    
+
     // loic1: current date should not be set as default if the field is NULL
     //        for the current row
     // lem9:  but do not put here the current datetime if there is a default
@@ -336,7 +336,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             <?php
             echo "\n";
             $selected     = '';
-            
+
             // garvin: Find the current type in the RestrictColumnTypes. Will result in 'FUNC_CHAR'
             // or something similar. Then directly look up the entry in the RestrictFunctions array,
             // which will then reveal the available dropdown options
@@ -345,7 +345,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             } else {
                 $dropdown = array();
             }
-            
+
             $dropdown_built = array();
             $op_spacing_needed = FALSE;
 
@@ -361,7 +361,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 $dropdown_built[$dropdown[$j]] = 'TRUE';
                 $op_spacing_needed = TRUE;
             }
-            
+
             // garvin: For compatibility's sake, do not let out all other functions. Instead
             // print a seperator (blank) and then show ALL functions which weren't shown
             // yet.
@@ -451,7 +451,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         echo '        </td>' . "\n";
         unset($disp);
     }
-    else if ($cfg['LongtextDoubleTextarea'] && strstr($row_table_def['True_Type'], 'longtext')) {
+    else if ($cfg['LongtextDoubleTextarea'] && strstr($type, 'longtext')) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">&nbsp;</td>
     </tr>
@@ -463,7 +463,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         </td>
       <?php
     }
-    else if (strstr($row_table_def['True_Type'], 'text')) {
+    else if (strstr($type, 'text')) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
@@ -476,7 +476,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             echo '        <td bgcolor="' . $bgcolor . '">' . $strTextAreaLength . '</td>' . "\n";
         }
     }
-    else if (strstr($row_table_def['True_Type'], 'enum')) {
+    else if ($type == 'enum') {
         $enum        = str_replace('enum(', '', $row_table_def['Type']);
         $enum        = ereg_replace('\\)$', '', $enum);
         $enum        = explode('\',\'', substr($enum, 1, -1));
@@ -537,7 +537,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <?php
         echo "\n";
     }
-    else if (strstr($row_table_def['Type'], 'set')) {
+    else if ($type == 'set') {
         $set = str_replace('set(', '', $row_table_def['Type']);
         $set = ereg_replace('\)$', '', $set);
         $set = explode(',', $set);
@@ -625,7 +625,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if ($is_upload && $is_blob) {
             echo '<input type="file" name="fields_upload_' . urlencode($field) . '" class="textfield" id="field_' . $i . '_3" />';
         }
-        
+
         if ($cfg['UploadDir'] != '') {
             if ($handle = @opendir($cfg['UploadDir'])) {
                 $is_first = 0;
@@ -650,7 +650,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 echo '        ' . $strWebServerUploadDirectoryError . "\n";
             }
         } // end if (web-server upload directory)
-        
+
         echo '</td>';
 
     } // end else if ( binary or blob)

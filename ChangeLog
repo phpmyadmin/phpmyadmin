@@ -8,6 +8,20 @@ $Source$
 2003-05-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/bulgarian-*.inc.php3: Updates, thanks to
       Stanislav Yordanov (stanprog).
+    * tbl_properties_structure.inc.php3:
+      - Fixed display for tables with few indexes;
+      - BLOBs are always binary;
+      - RFE #623665 (MySQL 4.1 support):
+        - Fixed display of field charsets;
+        - The table charset is now displayed.
+    * libraries/sqlparser.data.php3: Added CHARSET.
+    * tbl_change.php3: binary fields with CHARACTER SET definition were treated
+      as SET fields (again RFE #623665).
+    * Documentation.html:
+      - Declared MySQL 4.1 support as experimental;
+      - Added some notes about MySQL 4.1 / 5.0;
+      - php 5.0.0-dev should work fine with phpMyAdmin - it has been doing so at
+        least on my test machines for a couple of months.
 
 2003-05-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
