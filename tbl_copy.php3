@@ -17,11 +17,19 @@ function my_handler($sql_insert)
 }
 
 $sql_structure = get_table_def($db, $table, "\n");
-// in dependence of get_table_def result (new or old version)
-if(MYSQL_MAJOR_VERSION == "3.23") $sql_structure = ereg_replace("CREATE TABLE `$table`", "CREATE TABLE `$new_name`", $sql_structure);
-else $sql_structure = ereg_replace("CREATE TABLE $table", "CREATE TABLE $new_name", $sql_structure);
-
-$result = mysql_query($sql_structure) or mysql_die();
+// speedup copy table - staybyte - 22. Juni 2001
+if(MYSQL_MAJOR_VERSION >= "3.23"){
+	$sql_structure = ereg_replace("CREATE TABLE `$table`", "CREATE TABLE `$new_name`", $sql_structure);
+	$result = mysql_query($sql_structure) or mysql_die();
+	if($what == "data"){
+		$query="INSERT INTO $new_name SELECT * FROM $table";
+		$result = mysql_query($query) or mysql_die();
+	}
+}
+else{
+	$sql_structure = ereg_replace("CREATE TABLE $table", "CREATE TABLE $new_name", $sql_structure);
+	$result = mysql_query($sql_structure) or mysql_die();
+}
 
 if (isset($sql_query))
     $sql_query .= "\n$sql_structure";
@@ -31,8 +39,7 @@ else
 //$sql_query .= "\n$sql_structure";
  
 
-if($what == "data")
-    get_table_content($db, $table, "my_handler");
+if(MYSQL_MAJOR_VERSION < "3.23" && $what == "data") get_table_content($db, $table, "my_handler");
 
 eval("\$message = \"$strCopyTableOK\";");
 require("./db_details.php3");
