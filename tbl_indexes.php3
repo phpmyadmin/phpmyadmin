@@ -336,10 +336,11 @@ else if (!defined('PMA_IDX_INCLUDED')
         } else {
             $sub_part = '';
         }
+        $bgcolor      = (($row_no % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo);
         echo "\n";
         ?>
-    <tr bgcolor="<?php echo (($row_no % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo); ?>">
-        <td>
+    <tr>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="column[]">
                 <option value="--ignore--"<?php if ('--ignore--' == $selected) echo ' selected="selected"'; ?>>
                     -- <?php echo $strIgnore; ?> --</option>
@@ -357,7 +358,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         ?>
             </select>
         </td>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <input type="text" size="5" name="sub_part[]"<?php echo $sub_part; ?> />
         </td>
     </tr>

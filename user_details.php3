@@ -123,13 +123,13 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
                                       . '&amp;goto=user_details.php3';
                 }
                 ?>
-<tr bgcolor="<?php echo $bgcolor; ?>">
+<tr>
                 <?php
                 if (!$dbcheck) {
                     if ($priv) {
                         echo "\n";
                         ?>
-    <td<?php if (!$grantopt) echo ' colspan="2"'; ?>>
+    <td<?php if (!$grantopt) echo ' colspan="2"'; ?> bgcolor="<?php echo $bgcolor; ?>">
         <a href="<?php echo $revoke_url; ?>">
             <?php echo $GLOBALS['strRevokePriv']; ?></a>
     </td>
@@ -138,7 +138,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
                     if ($grantopt) {
                         echo "\n";
                         ?>
-    <td<?php if (!$priv) echo ' colspan="2"'; ?>>
+    <td<?php if (!$priv) echo ' colspan="2"'; ?> bgcolor="<?php echo $bgcolor; ?>">
         <a href="<?php echo $revoke_grant_url; ?>">
             <?php echo $GLOBALS['strRevokeGrant']; ?></a>
     </td>
@@ -148,7 +148,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
                     if ($priv) {
                         echo "\n";
                         ?>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="<?php echo $revoke_url; ?>">
             <?php echo $GLOBALS['strRevoke']; ?></a>
     </td>
@@ -156,30 +156,30 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
                     } else {
                         echo "\n";
                         ?>
-    <td>&nbsp;</td>
+    <td bgcolor="<?php echo $bgcolor; ?>">&nbsp;</td>
                         <?php
                     }
                     echo "\n";
                     ?>
-    <td><?php echo $row['Host']; ?></td>
-    <td><?php echo ($row['User']) ? $row['User'] : '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>'; ?></td>
+    <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $row['Host']; ?></td>
+    <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($row['User']) ? $row['User'] : '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>'; ?></td>
                     <?php
                 }
                 echo "\n";
                 ?>
-    <td><?php echo ($db == '*') ? '<span style="color: #002E80">' . $GLOBALS['strAll'] . '</span>' : $db; ?></td>
-    <td><?php echo ($table == '*') ? '<span style="color: #002E80">' . $GLOBALS['strAll'] . '</span>' : $table; ?></td>
-    <td><?php echo ($priv != '') ? $priv : '<span style="color: #002E80">' . $GLOBALS['strNoPrivileges'] . '</span>'; ?></td>
+    <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($db == '*') ? '<span style="color: #002E80">' . $GLOBALS['strAll'] . '</span>' : $db; ?></td>
+    <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($table == '*') ? '<span style="color: #002E80">' . $GLOBALS['strAll'] . '</span>' : $table; ?></td>
+    <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($priv != '') ? $priv : '<span style="color: #002E80">' . $GLOBALS['strNoPrivileges'] . '</span>'; ?></td>
                 <?php
                 if (!$dbcheck) {
                     echo "\n";
                     ?>
-    <td><?php echo ($grantopt) ? $GLOBALS['strYes'] : $GLOBALS['strNo']; ?></td>
+    <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ($grantopt) ? $GLOBALS['strYes'] : $GLOBALS['strNo']; ?></td>
                     <?php
                 }
                 echo "\n";
                 ?>
-    <!-- Debug <td><?php echo $usr_row[0] ?></td> Debug -->
+    <!-- Debug <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $usr_row[0] ?></td> Debug -->
 </tr>
                 <?php
                 $i++;
@@ -841,12 +841,12 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
 //        }
         ?>
 
-<tr bgcolor="<?php echo $bgcolor;?>">
+<tr>
         <?php
         if (!$user) {
             echo "\n";
             ?>
-    <td>
+    <td bgcolor="<?php echo $bgcolor;?>">
         <a href="<?php echo $edit_url; ?>">
             <?php echo $GLOBALS['strEdit']; ?></a>
     </td>
@@ -854,30 +854,30 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
         }
         echo "\n";
         ?>
-    <td>
+    <td bgcolor="<?php echo $bgcolor;?>">
         <a href="<?php echo $delete_url; ?>">
             <?php echo $GLOBALS['strDelete']; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor;?>">
         <a href="<?php echo $check_url; ?>">
             <?php echo $GLOBALS['strGrants']; ?></a>
     </td>
 <!--
-    <td>
+    <td bgcolor="<?php echo $bgcolor;?>">
         <a href="<?php echo (($check_url != '') ? $check_url : '#'); ?>">
             <?php echo $GLOBALS['strGrants']; ?></a>
     </td>
 //-->
-    <td>
+    <td bgcolor="<?php echo $bgcolor;?>">
         <?php echo $row['Host'] . "\n"; ?>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor;?>">
         <?php echo (($row['User']) ? '<b>' . $row['User'] . '</b>' : '<span style="color: #FF0000">' . $GLOBALS['strAny'] . '</span>') . "\n"; ?>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor;?>">
         <?php echo (($row[$GLOBALS['password_field']]) ? $GLOBALS['strYes'] : '<span style="color: #FF0000">' . $GLOBALS['strNo'] . '</span>') . "\n"; ?>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor;?>">
         <?php echo $strPriv . "\n"; ?>
     </td>
 </tr>

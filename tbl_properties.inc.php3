@@ -57,8 +57,8 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
     ?>
-    <tr bgcolor="<?php echo $bgcolor;?>">
-        <td>
+    <tr>
+        <td bgcolor="<?php echo $bgcolor; ?>">
     <?php
     if ($is_backup) {
         echo "\n";
@@ -70,7 +70,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     ?>
             <input type="text" name="field_name[]" size="10" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" />
         </td>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="field_type[]">
     <?php
     echo "\n";
@@ -108,7 +108,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     ?>
             </select>
         </td>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
     <?php
     if ($is_backup) {
         echo "\n";
@@ -120,7 +120,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     ?>
             <input type="text" name="field_length[]" size="8" value="<?php echo str_replace('"', '&quot;', $length); ?>" />
         </td>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="field_attribute[]">
     <?php
     echo "\n";
@@ -147,7 +147,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     ?>
             </select>
         </td>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="field_null[]">
     <?php
     if (!isset($row) || empty($row['Null'])) {
@@ -174,7 +174,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     echo "\n";
     ?>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
     <?php
     if ($is_backup) {
         echo "\n";
@@ -186,7 +186,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     ?>
             <input type="text" name="field_default[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" />
         </td>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="field_extra[]">
     <?php
     if(!isset($row) || empty($row['Extra'])) {
@@ -232,20 +232,20 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             }
             echo "\n";
             ?>
-        <td align="center">
+        <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <input type="checkbox" name="field_primary[]" value="<?php echo $i; ?>"<?php echo $checked_primary; ?> />
         </td>
-        <td align="center">
+        <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <input type="checkbox" name="field_index[]" value="<?php echo $i; ?>"<?php echo $checked_index; ?> />
         </td>
-        <td align="center">
+        <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <input type="checkbox" name="field_unique[]" value="<?php echo $i; ?>"<?php echo $checked_unique; ?> />
         </td>
             <?php
             if (PMA_MYSQL_INT_VERSION >= 32323) {
                 echo "\n";
                 ?>
-        <td nowrap="nowrap">
+        <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
             <input type="checkbox" name="field_fulltext[]" value="<?php echo $i; ?>"<?php echo $checked_fulltext; ?> />
         </td>
                 <?php

@@ -47,7 +47,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *
      * @access  private
      *
-     * @see PMA_displayTable()
+     * @see     PMA_displayTable()
      */
     function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
     {
@@ -186,7 +186,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *
      * @access  private
      *
-     * @see PMA_displayTable()
+     * @see     PMA_displayTable()
      */
     function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
     {
@@ -376,7 +376,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *
      * @access  private
      *
-     * @see PMA_displayTable()
+     * @see     PMA_displayTable()
      */
     function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $encoded_query = '')
     {
@@ -593,7 +593,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *
      * @access  private
      *
-     * @see PMA_displayTable()
+     * @see     PMA_displayTable()
      */
     function PMA_displayTableBody(&$dt_result, &$is_display)
     {
@@ -628,7 +628,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             $bgcolor = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
 
             ?>
-<tr bgcolor="<?php echo $bgcolor; ?>" onmouseover="if (typeof(this.style) != 'undefined') this.style.backgroundColor = '<?php echo $GLOBALS['cfgPointerColor']; ?>'" onmouseout="if (typeof(this.style) != 'undefined') this.style.backgroundColor = ''">
+<tr onmouseover="setPointer(this, '<?php echo $GLOBALS['cfgPointerColor']; ?>')" onmouseout="setPointer(this, '<?php echo $bgcolor; ?>')">
             <?php
             echo "\n";
 
@@ -731,7 +731,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 if ($GLOBALS['cfgModifyDeleteAtLeft']) {
                     if (!empty($edit_url)) {
                         ?>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="<?php echo $edit_url; ?>">
             <?php echo $edit_str; ?></a>
     </td>
@@ -740,7 +740,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     if (!empty($del_url)) {
                         echo "\n";
                         ?>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="<?php echo $del_url; ?>"
             <?php if (isset($js_conf)) echo 'onclick="return confirmLink(this, \'' . $js_conf . '\')"'; ?>>
             <?php echo $del_str; ?></a>
@@ -757,11 +757,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 if ($primary->numeric == 1) {
                     if (!isset($row[$primary->name])
                         || (function_exists('is_null') && is_null($row[$primary->name]))) {
-                        echo '    <td align="right" valign="top"><i>NULL</i></td>' . "\n";
+                        echo '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$i] != '') {
-                        echo '    <td align="right" valign="top">' . $row[$primary->name] . '</td>' . "\n";
+                        echo '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
-                        echo '    <td align="right" valign="top">&nbsp;</td>' . "\n";
+                        echo '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 } else if ($GLOBALS['cfgShowBlob'] == FALSE && eregi('BLOB', $primary->type)) {
                     // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
@@ -770,26 +770,26 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     // fields.
                     $field_flags = mysql_field_flags($dt_result, $i);
                     if (eregi('BINARY', $field_flags)) {
-                        echo '    <td align="center" valign="top">[BLOB]</td>' . "\n";
+                        echo '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">[BLOB]</td>' . "\n";
                     } else {
                         if (!isset($row[$primary->name])
                             || (function_exists('is_null') && is_null($row[$primary->name]))) {
-                            echo '    <td valign="top"><i>NULL</i></td>' . "\n";
+                            echo '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                         } else if ($row[$primary->name] != '') {
                             if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
                                 $row[$primary->name] = substr($row[$primary->name], 0, $GLOBALS['cfgLimitChars']) . '...';
                             }
                             // loic1: displays <cr>/<lf>
                             $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
-                            echo '    <td valign="top">' . $row[$primary->name] . '</td>' . "\n";
+                            echo '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                         } else {
-                            echo '    <td valign="top">&nbsp;</td>' . "\n";
+                            echo '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                         }
                     }
                 } else {
                     if (!isset($row[$primary->name])
                         || (function_exists('is_null') && is_null($row[$primary->name]))) {
-                        echo '    <td valign="top"><i>NULL</i></td>' . "\n";
+                        echo '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$primary->name] != '') {
                         // loic1: Cut text/blob fields even if $cfgShowBlob is true
                         if (eregi('BLOB', $primary->type)) {
@@ -810,9 +810,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                         else {
                             $row[$primary->name] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$primary->name]));
                         }
-                        echo '    <td valign="top">' . $row[$primary->name] . '</td>' . "\n";
+                        echo '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$primary->name] . '</td>' . "\n";
                     } else {
-                        echo '    <td valign="top">&nbsp;</td>' . "\n";
+                        echo '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 }
             } // end for (2)
@@ -821,7 +821,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             if ($GLOBALS['cfgModifyDeleteAtRight']) {
                 if (!empty($edit_url)) {
                     ?>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="<?php echo $edit_url; ?>">
             <?php echo $edit_str; ?></a>
     </td>
@@ -830,7 +830,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 if (!empty($del_url)) {
                     echo "\n";
                     ?>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="<?php echo $del_url; ?>"
             <?php if (isset($js_conf)) echo 'onclick="return confirmLink(this, \'' . $js_conf . '\')"'; ?>>
             <?php echo $del_str; ?></a>
@@ -876,8 +876,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      *
      * @access  private
      *
-     * @see     PMA_showMessage(), PMA_setDisplayMode(), PMA_displayTableNavigation(),
-     *          PMA_displayTableHeaders(), PMA_displayTableBody()
+     * @see     PMA_showMessage(), PMA_setDisplayMode(),
+     *          PMA_displayTableNavigation(), PMA_displayTableHeaders(),
+     *          PMA_displayTableBody()
      */
     function PMA_displayTable(&$dt_result, &$the_disp_mode)
     {
@@ -974,5 +975,5 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         }
     } // end of the 'PMA_displayTable()' function
 
-} $__PMA_DISPLAY_TBL_LIB__
+} // $__PMA_DISPLAY_TBL_LIB__
 ?>

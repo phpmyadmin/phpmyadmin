@@ -112,8 +112,8 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
         $bgcolor   = ($i++ % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
         echo "\n";
         ?>
-<tr bgcolor="<?php echo $bgcolor; ?>">
-    <td nowrap="nowrap">
+<tr>
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         &nbsp;<b><?php echo htmlspecialchars($table); ?>&nbsp;</b>&nbsp;
     </td>
         <?php
@@ -154,7 +154,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
                 $unit          = '';
             }
             ?>
-    <td align="right">
+    <td align="right" bgcolor="<?php echo $bgcolor; ?>">
             <?php
             echo "\n" . '        ';
             if ($mergetable == TRUE) {
@@ -164,14 +164,14 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
             }
             ?>
     </td>
-    <td nowrap="nowrap">
+    <td nowrap="nowrap" bgcolor="<?php echo $bgcolor; ?>">
         &nbsp;<?php echo (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;'); ?>&nbsp;
     </td>
             <?php
             if ($cfgShowStats) {
                 echo "\n";
                 ?>
-    <td align="right" nowrap="nowrap">
+    <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         &nbsp;<?php echo $formated_size . ' ' . $unit . "\n"; ?>
     </td>
                 <?php
@@ -179,7 +179,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
             } // end if
         } else {
             ?>
-    <td colspan="3" align="center">
+    <td colspan="3" align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php echo $strInUse . "\n"; ?>
     </td>
             <?php
@@ -238,11 +238,11 @@ else {
         $bgcolor = ($i % 2) ? $cfgBgcolorOne : $bgcolor = $cfgBgcolorTwo;
         echo "\n";
         ?>
-<tr bgcolor="<?php echo $bgcolor; ?>">
-    <td nowrap="nowrap">
+<tr>
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         <b><?php echo htmlspecialchars($tables[$i]); ?>&nbsp;</b>
     </td>
-    <td align="right" nowrap="nowrap">
+    <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         &nbsp;<?php PMA_countRecords($db, $tables[$i]); ?> 
     </td>
 </tr>

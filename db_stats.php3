@@ -254,15 +254,15 @@ if ($num_dbs > 0) {
         list($idx_size, $idx_unit)   = PMA_formatByteDown($dbs_array[$db_name][2], 3, 1);
         list($tot_size, $tot_unit)   = PMA_formatByteDown($dbs_array[$db_name][3], 3, 1);
 
-        echo '    <tr bgcolor="'. $bgcolor . '">' . "\n";
-        echo '        <td align="center">' . "\n";
+        echo '    <tr>' . "\n";
+        echo '        <td align="center" bgcolor="'. $bgcolor . '">' . "\n";
         echo '            &nbsp;<input type="checkbox" name="selected_db[]" value="' . urlencode($db_name) . '" />&nbsp;' . "\n";
         echo '        </td>' . "\n";
-        echo '        <td>&nbsp;<a href="index.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;' . $data_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $data_unit . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;' . $idx_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $idx_unit . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;<b>' . $tot_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $tot_unit . '</b>&nbsp;</td>' . "\n";
+        echo '        <td bgcolor="'. $bgcolor . '">&nbsp;<a href="index.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
+        echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
+        echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $data_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $data_unit . '&nbsp;</td>' . "\n";
+        echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $idx_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $idx_unit . '&nbsp;</td>' . "\n";
+        echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;<b>' . $tot_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $tot_unit . '</b>&nbsp;</td>' . "\n";
         echo '    </tr>' . "\n";
 
         $i++;

@@ -295,21 +295,21 @@ while ($row = mysql_fetch_array($fields_rs)) {
     }
     echo "\n";
     ?>
-<tr bgcolor="<?php echo $bgcolor; ?>">
-    <td align="center">
+<tr>
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <input type="checkbox" name="selected_fld[]" value="<?php echo urlencode($row['Field']); ?>" />
     </td>
-    <td nowrap="nowrap">&nbsp;<?php echo $field_name; ?>&nbsp;</td>
-    <td<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
-    <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
-    <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
-    <td nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
-    <td nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<?php echo $field_name; ?>&nbsp;</td>
+    <td bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; ?><bdo dir="ltr"></bdo></td>
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
+    <td bgcolor="<?php echo $bgcolor; ?>"><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_alter.php3?<?php echo $url_query; ?>&amp;field=<?php echo urlencode($row['Field']); ?>">
             <?php echo $strChange; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
         // loic1: Drop field only if there is more than one field in the table
         if ($fields_cnt > 1) {
@@ -325,16 +325,16 @@ while ($row = mysql_fetch_array($fields_rs)) {
         echo "\n";
         ?>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP PRIMARY KEY, ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
             <?php echo $strPrimary; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex ,htmlspecialchars($row['Field']))); ?>">
             <?php echo $strIndex; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $strUnique; ?></a>
     </td>
@@ -342,7 +342,7 @@ while ($row = mysql_fetch_array($fields_rs)) {
     if (PMA_MYSQL_INT_VERSION >= 32323) {
         echo "\n";
         ?>
-    <td nowrap="nowrap">
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $strIdxFulltext; ?></a>
     </td>
@@ -482,44 +482,44 @@ if ($cfgShowStats) {
             <th><?php echo $strType; ?></th>
             <th colspan="2" align="center"><?php echo $strUsage; ?></th>
         </tr>
-        <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
-            <td style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
-            <td align="right" nowrap="nowrap"><?php echo $data_size; ?></td>
-            <td><?php echo $data_unit; ?></td>
+        <tr>
+            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" align="right" nowrap="nowrap"><?php echo $data_size; ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>"><?php echo $data_unit; ?></td>
         </tr>
         <?php
         if (isset($index_size)) {
             echo "\n";
             ?>
-        <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>">
-            <td style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
-            <td align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
-            <td><?php echo $index_unit; ?></td>
+        <tr>
+            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>"><?php echo $index_unit; ?></td>
         </tr>
             <?php
         }
         if (isset($free_size)) {
             echo "\n";
             ?>
-        <tr bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="color: #bb0000">
-            <td style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
-            <td align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
-            <td><?php echo $free_unit; ?></td>
+        <tr style="color: #bb0000">
+            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>"><?php echo $free_unit; ?></td>
         </tr>
-        <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
-            <td style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
-            <td align="right" nowrap="nowrap"><?php echo $effect_size; ?></td>
-            <td><?php echo $effect_unit; ?></td>
+        <tr>
+            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" align="right" nowrap="nowrap"><?php echo $effect_size; ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorOne; ?>"><?php echo $effect_unit; ?></td>
         </tr>
             <?php
         }
         if (isset($tot_size) && $mergetable == FALSE) {
             echo "\n";
         ?>
-        <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
-            <td style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
-            <td align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
-            <td><?php echo $tot_unit; ?></td>
+        <tr>
+            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
+            <td bgcolor="<?php echo $cfgBgcolorOne; ?>"><?php echo $tot_unit; ?></td>
         </tr>
             <?php
         }
@@ -551,11 +551,12 @@ if ($cfgShowStats) {
         <?php
         $i = 0;
         if (isset($showtable['Row_format'])) {
+            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
             echo "\n";
             ?>
-        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
-            <td><?php echo ucfirst($strFormat); ?></td>
-            <td align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
+        <tr>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strFormat); ?></td>
+            <td bgcolor="<?php echo $bgcolor; ?>" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
             <?php
             echo '                ';
             if ($showtable['Row_format'] == 'Fixed') {
@@ -574,44 +575,48 @@ if ($cfgShowStats) {
             <?php
         }
         if (isset($showtable['Rows'])) {
+            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
             echo "\n";
             ?>
-        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
-            <td><?php echo ucfirst($strRows); ?></td>
-            <td align="right" nowrap="nowrap">
+        <tr>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strRows); ?></td>
+            <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
             <?php
         }
         if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
+            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
             echo "\n";
             ?>
-        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
-            <td><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
-            <td align="right" nowrap="nowrap">
+        <tr>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strRowLength); ?>&nbsp;&oslash;</td>
+            <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Avg_row_length'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>
             <?php
         }
         if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
+            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
             echo "\n";
             ?>
-        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
-            <td><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
-            <td align="right" nowrap="nowrap">
+        <tr>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
+            <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
                 <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
             </td>
         </tr>
             <?php
         }
         if (isset($showtable['Auto_increment'])) {
+            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
             echo "\n";
             ?>
-        <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
-            <td><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
-            <td align="right" nowrap="nowrap">
+        <tr>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo ucfirst($strNext); ?>&nbsp;Autoindex</td>
+            <td bgcolor="<?php echo $bgcolor; ?>" align="right" nowrap="nowrap">
                 <?php echo number_format($showtable['Auto_increment'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
             </td>
         </tr>

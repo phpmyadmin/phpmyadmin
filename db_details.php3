@@ -179,35 +179,35 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
         $bgcolor   = ($i++ % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
         echo "\n";
         ?>
-<tr bgcolor="<?php echo $bgcolor; ?>">
-    <td align="center">
+<tr>
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($table); ?>" />
     </td>
-    <td nowrap="nowrap">
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         &nbsp;<b><?php echo htmlspecialchars($table); ?>&nbsp;</b>&nbsp;
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0">
             <?php echo $strBrowse; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_select.php3?<?php echo $url_query; ?>">
             <?php echo $strSelect; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_change.php3?<?php echo $url_query; ?>">
             <?php echo $strInsert; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_properties.php3?<?php echo $url_query; ?>">
             <?php echo $strProperties; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DROP TABLE <?php echo PMA_jsFormat($table); ?>')">
             <?php echo $strDrop; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
             onclick="return confirmLink(this, 'DELETE FROM <?php echo PMA_jsFormat($table); ?>')">
             <?php echo $strEmpty; ?></a>
@@ -250,7 +250,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
                 $unit          = '';
             }
             ?>
-    <td align="right">
+    <td align="right" bgcolor="<?php echo $bgcolor; ?>">
             <?php
             echo "\n" . '        ';
             if ($mergetable == TRUE) {
@@ -260,14 +260,14 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
             }
             ?>
     </td>
-    <td nowrap="nowrap">
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         &nbsp;<?php echo (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;'); ?>&nbsp;
     </td>
             <?php
             if ($cfgShowStats) {
                 echo "\n";
                 ?>
-    <td align="right" nowrap="nowrap">
+    <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         &nbsp;&nbsp;
         <a href="tbl_properties.php3?<?php echo $url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
     </td>
@@ -276,7 +276,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
             } // end if
         } else {
             ?>
-    <td colspan="3" align="center">
+    <td colspan="3" align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php echo $strInUse . "\n"; ?>
     </td>
             <?php
@@ -363,32 +363,32 @@ else {
         $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
         echo "\n";
         ?>
-<tr bgcolor="<?php echo $bgcolor; ?>">
-    <td align="center">
+<tr>
+    <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <input type="checkbox" name="selected_tbl[]" value="<?php echo urlencode($tables[$i]); ?>" />
     </td>
-    <td class="data">
+    <td bgcolor="<?php echo $bgcolor; ?>" class="data">
         <b>&nbsp;<?php echo $tables[$i]; ?>&nbsp;</b>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($tables[$i])); ?>&amp;pos=0"><?php echo $strBrowse; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_select.php3?<?php echo $url_query; ?>"><?php echo $strSelect; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_change.php3?<?php echo $url_query; ?>"><?php echo $strInsert; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_properties.php3?<?php echo $url_query; ?>"><?php echo $strProperties; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;reload=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($tables[$i])); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($tables[$i]))); ?>"><?php echo $strDrop; ?></a>
     </td>
-    <td>
+    <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($tables[$i])); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($tables[$i]))); ?>"><?php echo $strEmpty; ?></a>
     </td>
-    <td align="right">
+    <td align="right" bgcolor="<?php echo $bgcolor; ?>">
         <?php PMA_countRecords($db, $tables[$i]); echo "\n"; ?>
     </td>
 </tr>

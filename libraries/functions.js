@@ -293,3 +293,27 @@ function checkTransmitDump(theForm, theAction)
 
     return true;
 } // end of the 'checkTransmitDump()' function
+
+
+/**
+ * Displays an confirmation box beforme to submit a "DROP/DELETE/ALTER" query.
+ * This function is called while clicking links
+ *
+ * @param   object   the link
+ * @param   object   the sql query to submit
+ *
+ * @return  boolean  whether pointer is set or not
+ */
+function setPointer(theRow, thePointerColor)
+{
+    if (typeof(theRow.style) == 'undefined' || typeof(theRow.cells) == 'undefined') {
+        return false;
+    }
+
+    var row_cells_cnt           = theRow.cells.length;
+    for (var c = 0; c < row_cells_cnt; c++) {
+        theRow.cells[c].bgColor = thePointerColor;
+    }
+
+    return true;
+} // end of the 'setPointer()' function

@@ -159,8 +159,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
     $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
     ?>
-    <tr bgcolor="<?php echo $bgcolor; ?>">
-        <td align="center"><?php echo htmlspecialchars($field); ?></td>
+    <tr>
+        <td align="center" bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($field); ?></td>
     <?php
     echo "\n";
 
@@ -190,7 +190,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             break;
     }
     ?>
-        <td align="center"<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
+        <td align="center" bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
     <?php
     echo "\n";
 
@@ -230,12 +230,12 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     if ((($cfgProtectBinary && $is_blob)
          || ($cfgProtectBinary == 'all' && $is_binary))
         && !empty($data)) {
-        echo '        <td align="center">' . $strBinary . '</td>' . "\n";
+        echo '        <td align="center" bgcolor="'. $bgcolor . '">' . $strBinary . '</td>' . "\n";
     } else if (strstr($row_table_def['True_Type'], 'enum') || strstr($row_table_def['True_Type'], 'set')) {
-        echo '        <td align="center">--</td>' . "\n";
+        echo '        <td align="center" bgcolor="'. $bgcolor . '">--</td>' . "\n";
     } else {
         ?>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="funcs[<?php echo urlencode($field); ?>]">
                 <option></option>
         <?php
@@ -267,14 +267,14 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // The value column (depends on type)
     if (strstr($row_table_def['True_Type'], 'text')) {
         ?>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php echo $special_chars; ?></textarea>
         </td>
         <?php
         echo "\n";
         if (strlen($special_chars) > 32000) {
-            echo '        <td>' . $strTextAreaLength . '</td>' . "\n";
+            echo '        <td bgcolor="' . $bgcolor . '">' . $strTextAreaLength . '</td>' . "\n";
         }
     }
     else if (strstr($row_table_def['True_Type'], 'enum')) {
@@ -284,7 +284,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $enum_cnt    = count($enum);
         $seenchecked = 0;
         ?>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" />
         <?php
         echo "\n" . '            ' . $backup_field;
@@ -376,7 +376,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         }
         $size = min(4, count($set));
         ?>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
             <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple">
@@ -406,14 +406,14 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             || ($cfgProtectBinary == 'all' && $is_binary)) {
             echo "\n";
             ?>
-        <td align="center">
+        <td align="center" bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $strBinaryDoNotEdit . "\n"; ?>
         </td>
             <?php
         } else if ($is_blob) {
             echo "\n";
             ?>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php echo $special_chars; ?></textarea>
         </td>
@@ -427,7 +427,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             }
             echo "\n";
             ?>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" />
         </td>
@@ -443,7 +443,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         }
         echo "\n";
         ?>
-        <td>
+        <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" />
         </td>
