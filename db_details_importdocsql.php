@@ -46,8 +46,8 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
     function docsql_check($docpath = '', $file = '', $filename = '', $content = 'none') {
     global $GLOBALS;
 
-        if (eregi('^(.*)_field_comment\.(txt|zip|bz2|bzip).*$', $filename)) {
-            $tab = eregi_replace('^(.*)_field_comment\.(txt|zip|bz2|bzip).*', '\1', $filename);
+        if (preg_match('@^(.*)_field_comment\.(txt|zip|bz2|bzip).*$@i', $filename)) {
+            $tab = preg_replace('@^(.*)_field_comment\.(txt|zip|bz2|bzip).*@i', '\1', $filename);
             //echo '<h1>Working on Table ' . $_tab . '</h1>';
             if ($content == 'none') {
                 $lines = array();
@@ -64,8 +64,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
             }
             
             if (isset($lines) && is_array($lines) && count($lines) > 0) {
-                @reset($lines);
-                while(list($lkey, $line) = each($lines)) { 
+                foreach($lines AS $lkey => $line) {
                     //echo '<p>' . $line . '</p>';
                     $inf     = explode('|',$line);
                     if (!empty($inf[1]) && strlen(trim($inf[1])) > 0) {
@@ -127,14 +126,8 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
         if (!empty($_SERVER) && isset($_SERVER['DOCUMENT_ROOT'])) {
             $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
         }
-        else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['DOCUMENT_ROOT'])) {
-            $DOCUMENT_ROOT = $HTTP_SERVER_VARS['DOCUMENT_ROOT'];
-        }
         else if (!empty($_ENV) && isset($_ENV['DOCUMENT_ROOT'])) {
             $DOCUMENT_ROOT = $_ENV['DOCUMENT_ROOT'];
-        }
-        else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['DOCUMENT_ROOT'])) {
-            $DOCUMENT_ROOT = $HTTP_ENV_VARS['DOCUMENT_ROOT'];
         }
         else if (@getenv('DOCUMENT_ROOT')) {
             $DOCUMENT_ROOT = getenv('DOCUMENT_ROOT');
@@ -163,13 +156,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
             if (file_exists($sql_file)
                 && is_uploaded_file($sql_file)) {
 
-                $open_basedir     = '';
-                if (PMA_PHP_INT_VERSION >= 40000) {
-                    $open_basedir = @ini_get('open_basedir');
-                }
-                if (empty($open_basedir)) {
-                    $open_basedir = @get_cfg_var('open_basedir');
-                }
+                $open_basedir = @ini_get('open_basedir');
         
                 // If we are on a server with open_basedir, we must move the file
                 // before opening it. The doc explains how to create the "./tmp"
@@ -189,11 +176,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
                     }
                     else {
                         $sql_file_new = $tmp_subdir . basename($sql_file);
-                        if (PMA_PHP_INT_VERSION < 40003) {
-                            copy($sql_file, $sql_file_new);
-                        } else {
-                            move_uploaded_file($sql_file, $sql_file_new);
-                        }
+                        move_uploaded_file($sql_file, $sql_file_new);
                         $docsql_text = PMA_readFile($sql_file_new, $sql_file_compression);
                         unlink($sql_file_new);
                     }
@@ -218,7 +201,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
         } else {
             
             // echo '<h1>Starting Import</h1>';
-            $docpath = $cfg['docSQLDir'] . eregi_replace('\.\.*', '.', $docpath);
+            $docpath = $cfg['docSQLDir'] . preg_replace('@\.\.*@', '.', $docpath);
             if (substr($docpath, -1) != '/') {
                 $docpath .= '/';
             }

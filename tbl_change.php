@@ -50,12 +50,12 @@ if (!empty($disp_message)) {
 if (!isset($goto)) {
     $goto    = 'db_details.php';
 }
-if (!ereg('^(db_details|tbl_properties|tbl_select)', $goto)) {
+if (!preg_match('@^(db_details|tbl_properties|tbl_select)@', $goto)) {
     $err_url = $goto . "?" . PMA_generate_common_url($db) . "&amp;sql_query=" . urlencode($sql_query);
 } else {
     $err_url = $goto . '?'
              . PMA_generate_common_url($db)
-             . ((ereg('^(tbl_properties|tbl_select)', $goto)) ? '&amp;table=' . urlencode($table) : '');
+             . ((preg_match('@^(tbl_properties|tbl_select)@', $goto)) ? '&amp;table=' . urlencode($table) : '');
 }
 
 
@@ -220,13 +220,13 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo "\n";
 
     $row_table_def   = PMA_mysql_fetch_array($table_def);
-    $row_table_def['True_Type'] = ereg_replace('\\(.*', '', $row_table_def['Type']);
+    $row_table_def['True_Type'] = preg_replace('@\\(.*@', '', $row_table_def['Type']);
     $field           = $row_table_def['Field'];
 
     // garvin: possible workaround. If current field is numerical, do not try to
     //  access the result-array with its 'associative' key but with its numerical
     //  represantation.
-    if ((PMA_PHP_INT_VERSION > 40000 && is_numeric($field)) || eregi('^[0-9]*$', $field)) {
+    if (is_numeric($field)) {
         $rowfield = $i;
     } else {
         $rowfield = $field;
@@ -246,15 +246,11 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             $row[$rowfield] = date('Y-m-d H:i:s', time());
         }
         // UPDATE case with an empty and not NULL value under PHP4
-        else if (empty($row[$rowfield]) && function_exists('is_null')) {
-            $row[$rowfield] = (is_null($row[$rowfield]) ? $row[$rowfield] : date('Y-m-d H:i:s', time()));
-        }
-        // UPDATE case with an empty value under PHP3
-        else if (empty($row[$rowfield])) {
+        else if (empty($row[$rowfield]) && is_null($row[$rowfield])) {
             $row[$rowfield] = date('Y-m-d H:i:s', time());
-        } // end if... else if... else if...
+        } // end if... else if... 
     }
-    $len             = (eregi('float|double', $row_table_def['Type']))
+    $len             = (preg_match('@float|double@', $row_table_def['Type']))
                      ? 100
                      : @mysql_field_len($result, $i);
     $first_timestamp = 0;
@@ -267,9 +263,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo "\n";
 
     // The type column
-    $is_binary                  = eregi(' binary', $row_table_def['Type']);
-    $is_blob                    = eregi('blob', $row_table_def['Type']);
-    $is_char                    = eregi('char', $row_table_def['Type']);
+    $is_binary                  = stristr($row_table_def['Type'], ' binary');
+    $is_blob                    = stristr($row_table_def['Type'], 'blob');
+    $is_char                    = stristr($row_table_def['Type'], 'car');
     switch ($row_table_def['True_Type']) {
         case 'set':
             $type         = 'set';
@@ -377,7 +373,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             $op_spacing_needed = FALSE;
 
             // garvin: loop on the dropdown array and print all available options for that field.
-            for ($j = 0; $j < count($dropdown); $j++) {
+            $cnt_dropdown = count($dropdown);
+            for ($j = 0; $j < $cnt_dropdown; $j++) {
                 // Is current function defined as default?
                 $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp']) 
                             || (!$first_timestamp && $dropdown[$j] == $default_function)
@@ -392,7 +389,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             // garvin: For compatibility's sake, do not let out all other functions. Instead
             // print a seperator (blank) and then show ALL functions which weren't shown
             // yet.
-            for ($j = 0; $j < count($cfg['Functions']); $j++) {
+            $cnt_functions = count($cfg['Functions']);
+            for ($j = 0; $j < $cnt_functions; $j++) {
                 if (!isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'TRUE') {
                     // Is current function defined as default?
                     $selected = ($first_timestamp && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp']) 

@@ -54,7 +54,7 @@ $multi_tables     = (count($the_tables) > 1);
 
 if ($multi_tables) {
     $tbl_list     = '';
-    while (list($key, $table) = each($the_tables)) {
+    foreach($the_tables AS $key => $table) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_backquote(urldecode($table));
     }
@@ -63,10 +63,9 @@ if ($multi_tables) {
 } // end if
 
 $tables_cnt = count($the_tables);
-reset($the_tables);
 $counter    = 0;
 
-while (list($key, $table) = each($the_tables)) {
+foreach($the_tables AS $key => $table) {
     $table = urldecode($table);
     if ($counter + 1 >= $tables_cnt) {
         $breakstyle = '';
@@ -80,20 +79,11 @@ while (list($key, $table) = each($the_tables)) {
     /**
      * Gets table informations
      */
-    // The 'show table' statement works correct since 3.23.03
-    if (PMA_MYSQL_INT_VERSION >= 32303) {
-        $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
-        $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        $showtable    = PMA_mysql_fetch_array($result);
-        $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
-        $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
-    } else {
-        $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
-        $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-        $showtable    = array();
-        $num_rows     = PMA_mysql_result($result, 0, 'count');
-        $show_comment = '';
-    } // end display comments
+    $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
+    $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $showtable    = PMA_mysql_fetch_array($result);
+    $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+    $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
     if ($result) {
         mysql_free_result($result);
     }
@@ -210,8 +200,8 @@ while (list($key, $table) = each($the_tables)) {
         $type             = $row['Type'];
         // reformat mysql query output - staybyte - 9. June 2001
         // loic1: set or enum types: slashes single quotes inside options
-        if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
-            $tmp[2]       = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
+        if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
+            $tmp[2]       = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
             $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
             $type_nowrap  = '';
 
@@ -220,16 +210,16 @@ while (list($key, $table) = each($the_tables)) {
             $zerofill     = 0;
         } else {
             $type_nowrap  = ' nowrap="nowrap"';
-            $type         = eregi_replace('BINARY', '', $type);
-            $type         = eregi_replace('ZEROFILL', '', $type);
-            $type         = eregi_replace('UNSIGNED', '', $type);
+            $type         = preg_replace('@BINARY@i', '', $type);
+            $type         = preg_replace('@ZEROFILL@i', '', $type);
+            $type         = preg_replace('@UNSIGNED@i', '', $type);
             if (empty($type)) {
                 $type     = '&nbsp;';
             }
 
-            $binary       = eregi('BINARY', $row['Type'], $test);
-            $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
-            $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
+            $binary       = stristr($row['Type'], 'binary');
+            $unsigned     = stristr($row['Type'], 'unsigned');
+            $zerofill     = stristr($row['Type'], 'zerofill');
         }
         $strAttribute     = '&nbsp;';
         if ($binary) {
@@ -326,7 +316,7 @@ while (list($key, $table) = each($the_tables)) {
     </tr>
         <?php
         echo "\n";
-        while (list($index_no, $index_name) = each($indexes)) {
+        foreach($indexes AS $index_no => $index_name) {
             $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
             $index_td = '        <td class="print" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
             echo '    <tr>' . "\n";
@@ -351,7 +341,7 @@ while (list($key, $table) = each($the_tables)) {
                  . '            ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . "\n"
                  . '        </td>' . "\n";
 
-            while (list($row_no, $seq_index) = each($indexes_info[$index_name]['Sequences'])) {
+            foreach($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
                 if ($row_no > 0) {
                     echo '    <tr>' . "\n";
                 }
@@ -386,10 +376,10 @@ while (list($key, $table) = each($the_tables)) {
      */
     if ($cfg['ShowStats']) {
         $nonisam     = FALSE;
-        if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
+        if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
             $nonisam = TRUE;
         }
-        if (PMA_MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
+        if ($nonisam == FALSE) {
             // Gets some sizes
             $mergetable     = FALSE;
             if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
@@ -605,7 +595,7 @@ while (list($key, $table) = each($the_tables)) {
 </table>
 
             <?php
-        } // end if (PMA_MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE)
+        } // end if ($nonisam == FALSE)
     } // end if ($cfg['ShowStats'])
 
     echo "\n";

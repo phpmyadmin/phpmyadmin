@@ -111,7 +111,7 @@ if (!empty($dbstats) && !$is_superuser) {
  * Prepares the statistics
  */
 $statistics = array();
-while (list(, $current_db) = each($dblist)) {
+foreach($dblist AS $current_db) {
     $tmp_array = array(
         'db_name' => $current_db,
         'tbl_cnt' => 0,

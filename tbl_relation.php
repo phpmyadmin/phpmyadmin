@@ -37,7 +37,7 @@ function PMA_generate_dropdown($dropdown_question,$radio_name,$choices,$selected
     echo '<select name="' . $radio_name . '" style="font-size: ' . $font_smallest . '">' . "\n";
     echo '<option value="nix" style="font-size: ' . $font_smallest . '" >--</option>' . "\n";
 
-    while (list($one_value, $one_label) = each($choices)) {
+    foreach($choices AS $one_value => $one_label) {
         echo '<option value="' . $one_value . '"';
         if ($selected_value == $one_value) {
             echo ' selected="selected" ';
@@ -73,7 +73,7 @@ if ($cfgRelation['relwork']
 
     // u p d a t e s   f o r   I n t e r n a l    r e l a t i o n s
 
-    while (list($master_field, $foreign_string) = each($destination)) {
+    foreach($destination AS $master_field => $foreign_string) {
         if ($foreign_string != 'nix') {
             list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
             if (!isset($existrel[$master_field])) {
@@ -111,7 +111,7 @@ if ($cfgRelation['relwork']
     // u p d a t e s   f o r   I n n o D B 
     // ( for now, same db only, and one index name)
     if (isset($destination_innodb)) {
-        while (list($master_field, $foreign_string) = each($destination_innodb)) {
+        foreach($destination_innodb AS $master_field => $foreign_string) {
             if ($foreign_string != 'nix') {
                 list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
                 if (!isset($existrel_innodb[$master_field])) {
@@ -222,7 +222,7 @@ if ($cfgRelation['displaywork']
 
 if ($cfgRelation['commwork']
     && isset($submit_comm) && $submit_comm == 'true') {
-    while (list($key, $value) = each($comment)) {
+    foreach($comment AS $key => $value) {
         // garvin: I exported the snippet here to a function (relation.lib.php) , so it can be used multiple times throughout other pages where you can set comments.
         PMA_setComment($db, $table, $key, $value);
     }  // end while (transferred data)
@@ -253,7 +253,7 @@ if ($cfgRelation['relwork']) {
     // and if PMA version permits and the main table is innodb,
     // we use SHOW TABLE STATUS because we need to find other InnoDB tables
 
-    if (PMA_MYSQL_INT_VERSION >= 32303 && $tbl_type=='INNODB') {
+    if ($tbl_type=='INNODB') {
         $tab_query           = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
     // [0] of the row is the name
     // [1] is the type
@@ -285,7 +285,7 @@ if ($cfgRelation['relwork']) {
                         // resulting value of SHOW KEYS is InnoDB
                       
                         if ($tbl_type=='INNODB' && isset($curr_table[1]) && $curr_table[1]=='InnoDB') {
-                        $selectboxall_innodb[$field_full] =  $field_v;
+                            $selectboxall_innodb[$field_full] =  $field_v;
                         }
 
                     } else if (isset($curr_field['Non_unique']) && $curr_field['Non_unique'] == 0 && $seen_a_primary==FALSE) {
@@ -296,7 +296,7 @@ if ($cfgRelation['relwork']) {
                         $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
                         $selectboxall[$field_full] =  $field_v;
                         if ($tbl_type=='INNODB' && isset($curr_table[1]) && $curr_table[1]=='InnoDB') {
-                        $selectboxall_innodb[$field_full] =  $field_v;
+                            $selectboxall_innodb[$field_full] =  $field_v;
                         }
 
                     // for InnoDB, any index is allowed
@@ -321,7 +321,7 @@ if ($cfgRelation['relwork']) {
                     $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
                     $selectboxall[$field_full] =  $field_v;
                     if ($tbl_type=='INNODB' && isset($curr_table[1]) && $curr_table[1]=='InnoDB') {
-                    $selectboxall_innodb[$field_full] =  $field_v;
+                        $selectboxall_innodb[$field_full] =  $field_v;
                     }
                 } // end while
             } // end if (mysql_num_rows)
@@ -388,7 +388,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
             $foreign_field    = FALSE;
         }
         $seen_key = FALSE;
-        while (list($key, $value) = each($selectboxall)) {
+        foreach($selectboxall AS $key => $value) {
             echo '                '
                  . '<option value="' . htmlspecialchars($key) . '"';
             if ($foreign_field && $key == $foreign_field) {
@@ -416,7 +416,6 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         <td>
             <select name="destination_innodb[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
         <?php
-            reset($selectboxall_innodb);
             if (isset($existrel_innodb[$myfield])) {
                 $foreign_field    = $existrel_innodb[$myfield]['foreign_db'] . '.'
                          . $existrel_innodb[$myfield]['foreign_table'] . '.'
@@ -424,7 +423,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
             } else {
                 $foreign_field    = FALSE;
             }
-            while (list($key, $value) = each($selectboxall_innodb)) {
+            foreach($selectboxall_innodb AS $key => $value) {
                 echo '                '
                      . '<option value="' . htmlspecialchars($key) . '"';
                 if ($foreign_field && $key == $foreign_field) {

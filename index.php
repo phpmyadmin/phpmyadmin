@@ -18,9 +18,6 @@ if (empty($HTTP_HOST)) {
     if (!empty($_ENV) && isset($_ENV['HTTP_HOST'])) {
         $HTTP_HOST = $_ENV['HTTP_HOST'];
     }
-    else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_HOST'])) {
-        $HTTP_HOST = $HTTP_ENV_VARS['HTTP_HOST'];
-    }
     else if (@getenv('HTTP_HOST')) {
         $HTTP_HOST = getenv('HTTP_HOST');
     }

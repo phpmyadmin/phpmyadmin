@@ -52,9 +52,8 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     $mime_map = PMA_getMime($db, $table);
     $mime_options = PMA_transformation_getOptions((isset($mime_map[urldecode($transform_key)]['transformation_options']) ? $mime_map[urldecode($transform_key)]['transformation_options'] : ''));
 
-    @reset($mime_options);
-    while(list($key, $option) = each($mime_options)) {
-        if (eregi('^; charset=.*$', $option)) {
+    foreach($mime_options AS $key => $option) {
+        if (substr($option, 0, 10) == '; charset=') {
             $mime_options['charset'] = $option;
         }
     }
@@ -66,7 +65,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 
 include('./libraries/header_http.inc.php');
 // [MIME]
-$content_type = 'Content-Type: ' . (isset($mime_map[urldecode($transform_key)]['mimetype']) ? str_replace("_", "/", $mime_map[urldecode($transform_key)]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
+$content_type = 'Content-Type: ' . (isset($mime_map[urldecode($transform_key)]['mimetype']) ? str_replace('_', '/', $mime_map[urldecode($transform_key)]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 header($content_type);
 
 if (!isset($resize)) {
@@ -102,10 +101,10 @@ if (!isset($resize)) {
 // better quality but slower:
     ImageCopyResampled( $destImage, $srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight );
 
-    if ($resize == "jpeg") {
-        ImageJPEG( $destImage,"",75 );
+    if ($resize == 'jpeg') {
+        ImageJPEG( $destImage,'',75 );
     }
-    if ($resize == "png") {
+    if ($resize == 'png') {
         ImagePNG( $destImage);
     }
     ImageDestroy( $srcImage );

@@ -21,7 +21,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * A query has been submitted -> execute it, else display the headers
  */
-if (isset($submit_sql) && eregi('^SELECT', $encoded_sql_query)) {
+if (isset($submit_sql) && preg_match('@^SELECT@i', $encoded_sql_query)) {
     $goto      = 'db_details.php';
     $zero_rows = htmlspecialchars($strSuccess);
     $sql_query = urldecode($encoded_sql_query);
@@ -34,7 +34,7 @@ if (isset($submit_sql) && eregi('^SELECT', $encoded_sql_query)) {
     include('./db_details_db_info.php');
 }
 
-if (isset($submit_sql) && !eregi('^SELECT', $encoded_sql_query)) {
+if (isset($submit_sql) && !preg_match('@^SELECT@i', $encoded_sql_query)) {
     echo '<p class="warning">' . $strHaveToShow . '</p>';
 }
 
@@ -121,7 +121,8 @@ $k              = 0;
 
 // The tables list sent by a previously submitted form
 if (!empty($TableList)) {
-    for ($x = 0; $x < count($TableList); $x++) {
+    $cnt_table_list = count($TableList);
+    for ($x = 0; $x < $cnt_table_list; $x++) {
         $tbl_names[urldecode($TableList[$x])] = ' selected="selected"';
     }
 } // end if
@@ -627,7 +628,7 @@ for ($x = 0; $x < $col; $x++) {
                     <br />
                     <select name="TableList[]" size="7" multiple="multiple">
 <?php
-while (list($key, $val) = each($tbl_names)) {
+foreach($tbl_names AS $key => $val) {
     echo '                        ';
     echo '<option value="' . htmlspecialchars($key) . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
 }
@@ -714,8 +715,6 @@ if (!empty($qry_select)) {
 // If we can use Relations we could make some left joins.
 // First find out if relations are available in this database.
 
-// Debugging:
-//echo '</textarea><pre style="background-color: white;">';
 // First we need the really needed Tables - those in TableList might still be
 // all Tables.
 if (isset($Field) && count($Field) > 0) {
@@ -730,21 +729,19 @@ if (isset($Field) && count($Field) > 0) {
     $fromclause = '';
 
     // We only start this if we have fields, otherwise it would be dumb
-// echo "get everything\n";
-    while (list(, $value) = each($Field)) {
+    foreach($Field AS $value) {
         $parts             = explode('.', $value);
         if (!empty($parts[0]) && !empty($parts[1])) {
             $tab_raw       = urldecode($parts[0]);
             $tab           = str_replace('`', '', $tab_raw);
-// echo 'new Tab: ' . $tab . "\n";
             $tab_all[$tab] = $tab;
+
             $col_raw       = urldecode($parts[1]);
             $col_all[]     = $tab . '.' . str_replace('`', '', $col_raw);
-// echo 'new col: ' . $tab . '.' . str_replace('`', '', $col_raw) . "\n";
          }
     } // end while
 
-// echo "check where clauses\n";
+    // Check 'where' clauses
     if ($cfgRelation['relwork'] && count($tab_all) > 0) {
         // Now we need all tables that we have in the where clause
         $crit_cnt         = count($Criteria);
@@ -760,10 +757,9 @@ if (isset($Field) && count($Field) > 0) {
                 // Now we know that our array has the same numbers as $Criteria
                 // we can check which of our columns has a where clause
                 if (!empty($Criteria[$x])) {
-                    if (substr($Criteria[$x], 0, 1) == '=' || eregi('is', $Criteria[$x])) {
+                    if (substr($Criteria[$x], 0, 1) == '=' || stristr($Criteria[$x], 'is')) {
                         $col_where[$col] = $col1;
                         $tab_wher[$tab]  = $tab;
-// echo 'new where clause: ' . $tab_wher[$tab] . "||\n";
                     }
                 } // end if
             } // end if
@@ -778,11 +774,9 @@ if (isset($Field) && count($Field) > 0) {
             // If there is exactly one column that has a decent where-clause
             // we will just use this
             $master = key($tab_wher);
-// echo 'nur ein where: master = ' .$master . "||\n";
         } else {
             // Now let's find out which of the tables has an index
-// echo "prüfe indexe:\n";
-            while (list(, $tab) = each($tab_all)) {
+            foreach($tab_all AS $tab) {
                 $ind_qry  = 'SHOW INDEX FROM ' . PMA_backquote($tab);
                 $ind_rs   = PMA_mysql_query($ind_qry);
                 while ($ind = PMA_mysql_fetch_array($ind_rs)) {
@@ -794,14 +788,12 @@ if (isset($Field) && count($Field) > 0) {
                             } else {
                                 $col_unique[$col1] = 'N';
                             }
-//echo 'neuen unique index gefunden: ' . $col . "\n";
                         } else {
                             if (isset($col_where[$col1])) {
                                 $col_index[$col1] = 'Y';
                             } else {
                                 $col_index[$col1] = 'N';
                             }
-//echo 'neuen index gefunden: ' . $col . "\n";
                         }
                     }
                 } // end while (each col of tab)
@@ -809,20 +801,16 @@ if (isset($Field) && count($Field) > 0) {
             // now we want to find the best.
             if (isset($col_unique) && count($col_unique) > 0) {
                 $col_cand = $col_unique;
-//echo "Kandidaten sind jetzt alle mit unique index\n";
                 $needsort = 1;
             } else if (isset($col_index) && count($col_index) > 0) {
                 $col_cand = $col_index;
                 $needsort = 1;
-//echo "Kandidaten sind jetzt alle mit index\n";
             } else if (isset($col_where) && count($col_where) > 0) {
                 $col_cand = $tab_wher;
-//echo "Kandidaten sind jetzt alle im whereclause\n";
                 $needsort = 0;
             } else {
                 $col_cand = $tab_all;
                 $needsort = 0;
-//echo "Kandidaten sind jetzt alle \n";
             }
 
             // If we came up with $col_unique (very good) or $col_index (still
@@ -830,7 +818,7 @@ if (isset($Field) && count($Field) > 0) {
             // (that would mean that they were also found in the whereclauses
             // which would be great). if yes, we take only those
             if ($needsort == 1) {
-                while (list($col, $is_where) = each($col_cand)) {
+                foreach($col_cand AS $col => $is_where) {
                     $tab           = explode('.', $col);
                     $tab           = $tab[0];
                     if ($is_where == 'Y') {
@@ -841,10 +829,10 @@ if (isset($Field) && count($Field) > 0) {
                 }
                 if (isset($vg)) {
                     $col_cand      = $vg;
-//echo "Kandidaten konnten auf index+where beschränkt werden\n";
+                    // Candidates restricted in index+where
                 } else {
                     $col_cand      = $sg;
-//echo "keiner der Kandidaten mit Index ist im wherclause\n";
+                    // None of the candidates where in a where-clause
                 }
             }
 
@@ -854,38 +842,29 @@ if (isset($Field) && count($Field) > 0) {
             // the Criteria which gives the smallest result set in its table,
             // but it would take too much time to check this
             if (count($col_cand) > 1) {
-//echo "wir haben immer noch mehr als einen Kandidaten. Prüfe Größe\n";
                 // Of course we only want to check each table once
                 $checked_tables = $col_cand;
-                while (list(, $tab) = each($col_cand)) {
+                foreach($col_cand AS $tab) {
                     if ($checked_tables[$tab] != 1 ) {
-//echo 'prüfe jetzt: Tabelle ' . $tab . "\n";
                         $rows_qry = 'SELECT COUNT(1) AS anz '
                                   . 'FROM ' . PMA_backquote($tab);
                         $rows_rs  = PMA_mysql_query($rows_qry);
                         while ($res = PMA_mysql_fetch_array($rows_rs)) {
                             $tsize[$tab] = $res['anz'];
-//echo "$tab hat: "  . $tsize[$tab] . "\n";
                         }
                         $checked_tables[$tab] = 1;
                     }
                     $csize[$tab] = $tsize[$tab];
-//echo 'erster csize: ' . $csize[$tab] . "\n";
                 }
                 asort($csize);
                 reset($csize);
-                $master = key($csize);
-//echo 'kleinste Datei: ' . $master . "\n";
+                $master = key($csize); // Smallest
             } else {
-                //$master = $col_cand[0];
                 reset($col_cand);
-                $master = current($col_cand);
-//echo 'master ist der einzige Kandidat: ' . $master . "\n";
+                $master = current($col_cand); // Only one single candidate
+                //
             }
         } // end if (exactly one where clause)
-//echo 'ich habe mich entschieden: ' . $master;
-//die;
-
 
         /**
          * Removes unwanted entries from an array (PHP3 compliant)
@@ -899,7 +878,7 @@ if (isset($Field) && count($Field) > 0) {
          */
         function PMA_arrayShort($array, $key)
         {
-            while (list($k, $v) = each($array)) {
+            foreach($array AS $k => $v) {
                 if ($k != $key) {
                     $reta[$k] = $v;
                 }
@@ -986,7 +965,7 @@ if (isset($Field) && count($Field) > 0) {
             $run++;
             if ($run > 5) {
 
-                while (list(, $tab) = each($tab_left)) {
+                foreach($tab_left AS $tab) {
                     $emerg    .= ', ' . $tab;
                     $tab_left = PMA_arrayShort($tab_left, $tab);
                 }

@@ -82,7 +82,6 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
         $av_grants = explode ('\',\'' , substr($row1['Type'], 5, strlen($row1['Type']) - 7));
         unset($row1);
         $users_grants = explode(',', $row['Table_priv']);
-//        while (list(, $current_grant) = each($av_grants)) {
         foreach ($av_grants as $current_grant) {
             $row[$current_grant . '_priv'] = in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
@@ -92,7 +91,6 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
     }
     $privs = array();
     $allPrivileges = TRUE;
-//    while (list(, $current_grant) = each($grants)) {
     foreach ($grants as $current_grant) {
         if ((!empty($row) && isset($row[$current_grant[0]])) || (empty($row) && isset($GLOBALS[$current_grant[0]]))) {
             if ((!empty($row) && $row[$current_grant[0]] == 'Y') || (empty($row) && ($GLOBALS[$current_grant[0]] == 'Y' || (is_array($GLOBALS[$current_grant[0]]) && count($GLOBALS[$current_grant[0]]) == $GLOBALS['column_count'] && empty($GLOBALS[$current_grant[0] . '_none']))))) {
@@ -199,7 +197,6 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         $av_grants = explode ('\',\'' , substr($row1['Type'], strpos($row1['Type'], '(') + 2, strpos($row1['Type'], ')') - strpos($row1['Type'], '(') - 3));
         unset($row1);
         $users_grants = explode(',', $row['Table_priv']);
-//        while (list(, $current_grant) = each($av_grants)) {
         foreach ($av_grants as $current_grant) {
             $row[$current_grant . '_priv'] = in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
@@ -227,7 +224,6 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
         while ($row1 = PMA_mysql_fetch_row($res)) {
             $row1[1] = explode(',', $row1[1]);
-//            while (list(, $current) = each($row1[1])) {
             foreach ($row1[1] as $current) {
                 $columns[$row1[0]][$current] = TRUE;
             }
@@ -261,7 +257,6 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         $rowspan = count($row) - 5;
         echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="Select_priv[]" multiple="multiple">' . "\n";
-//        while (list($current_column, $current_column_privileges) = each($columns)) {
         foreach ($columns as $current_column => $current_column_privileges) {
             echo $spaces . '                <option value="' . htmlspecialchars($current_column) . '"';
             if ($row['Select_priv'] == 'Y' || $current_column_privileges['Select']) {
@@ -276,8 +271,6 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="Insert_priv[]" multiple="multiple">' . "\n";
-//        reset($columns);
-//        while (list($current_column, $current_column_privileges) = each($columns)) {
         foreach ($columns as $current_column => $current_column_privileges) {
             echo $spaces . '                <option value="' . htmlspecialchars($current_column) . '"';
             if ($row['Insert_priv'] == 'Y' || $current_column_privileges['Insert']) {
@@ -292,8 +285,6 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="Update_priv[]" multiple="multiple">' . "\n";
-//        reset($columns);
-//        while (list($current_column, $current_column_privileges) = each($columns)) {
         foreach ($columns as $current_column => $current_column_privileges) {
             echo $spaces . '                <option value="' . htmlspecialchars($current_column) . '"';
             if ($row['Update_priv'] == 'Y' || $current_column_privileges['Update']) {
@@ -308,8 +299,6 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="References_priv[]" multiple="multiple">' . "\n";
-//        reset($columns);
-//        while (list($current_column, $current_column_privileges) = each($columns)) {
         foreach ($columns as $current_column => $current_column_privileges) {
             echo $spaces . '                <option value="' . htmlspecialchars($current_column) . '"';
             if ($row['References_priv'] == 'Y' || $current_column_privileges['References']) {
@@ -330,7 +319,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
         echo $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><input type="checkbox" name="' . $current_grant . '" id="checkbox_' . $current_grant . '" value="Y" ' . ($current_grant_value == 'Y' ? 'checked="checked" ' : '') . 'title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '"/></td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '"><label for="checkbox_' . $current_grant . '"><tt><dfn title="' . (isset($GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))]) ? $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5))] : $GLOBALS['strPrivDesc' . substr($current_grant, 0, (strlen($current_grant) - 5)) . 'Tbl']) . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></tt></label></td>' . "\n"
            . $spaces . '    </tr>' . "\n";
-        while (list($current_grant, $current_grant_value) = each($row)) {
+        foreach($row AS $current_grant => $current_grant_value) {
             if (in_array(substr($current_grant, 0, (strlen($current_grant) - 5)), array('Select', 'Insert', 'Update', 'References'))) {
                 continue;
             }
@@ -855,9 +844,8 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
                 $queries[] = '# ' . $strReloadingThePrivileges . ' ...';
                 $queries[] = 'FLUSH PRIVILEGES;';
             }
-//            while (list(, $sql_query) = each($queries)) {
             foreach ($queries as $sql_query) {
-                if (substr($sql_query, 0, 1) != '#') {
+                if ($sql_query{0} != '#') {
                     PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
                 }
             }
@@ -873,9 +861,8 @@ if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
  * Changes / copies a user, part V
  */
 if (!empty($change_copy)) {
-//    while (list(, $sql_query) = each($queries)) {
     foreach ($queries as $sql_query) {
-        if (substr($sql_query, 0, 1) != '#') {
+        if ($sql_query{0} != '#') {
             PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
         }
     }
@@ -1174,7 +1161,6 @@ if (empty($adduser) && empty($checkprivs)) {
                 if (!empty($pred_db_array)) {
                     echo '                        <select name="pred_dbname" onchange="this.form.submit();">' . "\n"
                        . '                            <option value="" selected="selected">' . $strUseTextField . ':</option>' . "\n";
-//                    while (list(, $current_db) = each($pred_db_array)) {
                     foreach ($pred_db_array as $current_db) {
                         echo '                            <option value="' . htmlspecialchars($current_db) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
                     }
@@ -1197,7 +1183,6 @@ if (empty($adduser) && empty($checkprivs)) {
                     if (!empty($pred_tbl_array)) {
                         echo '                        <select name="pred_tablename" onchange="this.form.submit();">' . "\n"
                            . '                            <option value="" selected="selected">' . $strUseTextField . ':</option>' . "\n";
-//                        while (list(, $current_table) = each($pred_tbl_array)) {
                         foreach ($pred_tbl_array as $current_table) {
                             echo '                            <option value="' . htmlspecialchars($current_table) . '">' . htmlspecialchars($current_table) . '</option>' . "\n";
                         }
@@ -1395,7 +1380,6 @@ if (empty($adduser) && empty($checkprivs)) {
             echo ' bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
                . '            ' . htmlspecialchars($current_host) . "\n"
                . '        </td>' . "\n";
-//            while (list(, $current) = each($current_privileges)) {
             foreach ($current_privileges as $current) {
                 echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
                    . '            ';

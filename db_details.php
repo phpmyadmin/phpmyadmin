@@ -173,7 +173,7 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         echo '    <div style="margin-bottom: 5px">' . "\n";
         echo '        <select name="id_bookmark">' . "\n";
         echo '            <option value=""></option>' . "\n";
-        while (list($key, $value) = each($bookmark_list)) {
+        foreach($bookmark_list AS $key => $value) {
             echo '            <option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($key) . '</option>' . "\n";
         }
         echo '        </select>' . "<br />\n";

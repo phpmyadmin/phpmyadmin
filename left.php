@@ -69,7 +69,7 @@ function PMA_indent($spaces) {
 
 function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_level, $val, $childout = true) {
     $name = $key;
-    $id = eregi_replace('[^a-z0-9]*', '', $baseid . $keyhistory . $key) . $indent;
+    $id = preg_replace('@[^a-z0-9]*@i', '', $baseid . $keyhistory . $key) . $indent;
 
     $on_mouse = (($GLOBALS['cfg']['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
 
@@ -103,7 +103,7 @@ function PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, $indent, $indent
         $indent++;
     }
     
-    while(list($key, $val) = each($tablestack)) {
+    foreach($tablestack AS $key => $val) {
         if ($key != 'pma_name' && $key != 'pma_list_item') {
             if ($headerOut) {
                 PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_level, $val);
@@ -153,11 +153,11 @@ function PMA_nestedSet($baseid, $tablestack, $key = '__protected__', $keyhistory
         $on_mouse = (($GLOBALS['cfg']['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $keyhistory . $key . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
         
         $loops = 0;
-        while(list($tkey, $tval) = each($tablestack['pma_name'])) {
+        foreach($tablestack['pma_name'] AS $tkey => $tval) {
 
             echo PMA_indent($indent * 5) . '<nobr><img src="images/spacer.gif" border="0" width="' . (($indent+$extra_indent) * $indent_level) . '" height="9" alt="" />';
             $items = explode("\n", $tablestack['pma_list_item'][$tkey]);
-            while(list($ikey, $ival) = each($items)) {
+            foreach($items AS $ikey => $ival) {
                 echo "\n";
                 echo PMA_indent(($indent * 5)) . $ival;
             }
@@ -307,8 +307,7 @@ if ($cfg['LeftDisplayServers']) {
             <select name="server" onchange="this.form.submit();">
     <?php
     echo "\n";
-    reset($cfg['Servers']);
-    while (list($key, $val) = each($cfg['Servers'])) {
+    foreach($cfg['Servers'] AS $key => $val) {
         if (!empty($val['host'])) {
             echo '                <option value="' . $key . '"';
             if (!empty($server) && ($server == $key)) {
@@ -486,7 +485,7 @@ if ($num_dbs > 1) {
                     $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'',$table));
                     if (is_array($_table)) {
                         reset($_table);
-                        while(list($key, $val) = each($_table)) {
+                        foreach($_table AS $key => $val) {
                             if ($val == '') {
                                 $_table[$key] = '__protected__';
                             }
@@ -715,8 +714,7 @@ else if ($num_dbs == 1) {
             if (!empty($cfg['LeftFrameTableSeparator'])) {
                 $_table = explode($cfg['LeftFrameTableSeparator'], $table);
                 if (is_array($_table)) {
-                    reset($_table);
-                    while(list($key, $val) = each($_table)) {
+                    foreach($_table AS $key => $val) {
                         if ($val == '') {
                             $_table[$key] = '__protected__';
                         }

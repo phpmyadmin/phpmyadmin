@@ -85,8 +85,8 @@ if (isset($submit)) {
     } // end for
     unset($field_cnt);
     unset($query);
-    $sql_query = ereg_replace(', $', '', $sql_query);
-    $query_cpy = ereg_replace(', $', '', $query_cpy);
+    $sql_query = preg_replace('@, $@', '', $sql_query);
+    $query_cpy = preg_replace('@, $@', '', $query_cpy);
 
     // Builds the primary keys statements
     $primary     = '';
@@ -98,7 +98,7 @@ if (isset($submit)) {
         }
     } // end for
     unset($primary_cnt);
-    $primary = ereg_replace(', $', '', $primary);
+    $primary = preg_replace('@, $@', '', $primary);
     if (!empty($primary)) {
         $sql_query .= ', PRIMARY KEY (' . $primary . ')';
         $query_cpy .= ',' . "\n" . '  PRIMARY KEY (' . $primary . ')';
@@ -115,7 +115,7 @@ if (isset($submit)) {
         }
     } // end for
     unset($index_cnt);
-    $index = ereg_replace(', $', '', $index);
+    $index = preg_replace('@, $@', '', $index);
     if (!empty($index)) {
         $sql_query .= ', INDEX (' . $index . ')';
         $query_cpy .= ',' . "\n" . '  INDEX (' . $index . ')';
@@ -132,7 +132,7 @@ if (isset($submit)) {
         }
     } // end for
     unset($unique_cnt);
-    $unique = ereg_replace(', $', '', $unique);
+    $unique = preg_replace('@, $@', '', $unique);
     if (!empty($unique)) {
         $sql_query .= ', UNIQUE (' . $unique . ')';
         $query_cpy .= ',' . "\n" . '  UNIQUE (' . $unique . ')';
@@ -149,7 +149,7 @@ if (isset($submit)) {
         }
     } // end for
 
-    $fulltext = ereg_replace(', $', '', $fulltext);
+    $fulltext = preg_replace('@, $@', '', $fulltext);
     if (!empty($fulltext)) {
         $sql_query .= ', FULLTEXT (' . $fulltext . ')';
         $query_cpy .= ',' . "\n" . '  FULLTEXT (' . $fulltext . ')';
@@ -169,7 +169,8 @@ if (isset($submit)) {
         $sql_query .= ' CHARACTER SET = ' . $tbl_charset;
         $query_cpy .= "\n" . 'CHARACTER SET = ' . $tbl_charset;
     }
-    if (PMA_MYSQL_INT_VERSION >= 32300 && !empty($comment)) {
+
+    if (!empty($comment)) {
         $sql_query .= ' COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
         $query_cpy .= "\n" . 'COMMENT = \'' . PMA_sqlAddslashes($comment) . '\'';
     }
@@ -191,16 +192,14 @@ if (isset($submit)) {
 
         // garvin: Update comment table, if a comment was set.
         if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
-            @reset($field_comments);
-            while(list($fieldindex, $fieldcomment) = each($field_comments)) {
+            foreach($field_comments AS $fieldindex => $fieldcomment) {
                 PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
             }
         }
 
         // garvin: Update comment table for mime types [MIME]
         if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
-            @reset($field_mimetype);
-            while(list($fieldindex, $mimetype) = each($field_mimetype)) {
+            foreach($field_mimetype AS $fieldindex => $mimetype) {
                 PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
             }
         }

@@ -27,7 +27,7 @@ function PMA_myHandler($sql_insert = '')
     global $db, $table, $target;
     global $sql_insert_data;
 
-    $sql_insert = eregi_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . $target, $sql_insert);
+    $sql_insert = preg_replace('~INSERT INTO (`?)' . $table . '(`?)~i', 'INSERT INTO ' . $target, $sql_insert);
     $result     = PMA_mysql_query($sql_insert) or PMA_mysqlDie('', $sql_insert, '', $GLOBALS['err_url']);
 
     $sql_insert_data .= $sql_insert . ';' . "\n";
@@ -60,21 +60,19 @@ global $cfgRelation;
         @reset($get_fields);
         $select_parts = array();
         $row_fields = array();
-        while(list($nr, $get_field) = each($get_fields)) {
+        foreach($get_fields AS $nr => $get_field) {
             $select_parts[] = PMA_backquote($get_field);
             $row_fields[$get_field] = 'cc';
         }
         
-        @reset($where_fields);
         $where_parts = array();
-        while(list($_where, $_value) = each($where_fields)) {
+        foreach($where_fields AS $_where => $_value) {
             $where_parts[] = PMA_backquote($_where) . ' = \'' . PMA_sqlAddslashes($_value) . '\'';
         }
         
-        @reset($new_fields);
         $new_parts = array();
         $new_value_parts = array();
-        while(list($_where, $_value) = each($new_fields)) {
+        foreach($new_fields AS $_where => $_value) {
             $new_parts[] = PMA_backquote($_where);
             $new_value_parts[] = PMA_sqlAddslashes($_value);
         }
@@ -86,7 +84,7 @@ global $cfgRelation;
 
         while ($table_copy_row = @PMA_mysql_fetch_array($table_copy_rs)) {
             $value_parts = array();
-            while(list($_key, $_val) = each($table_copy_row)) {
+            foreach($table_copy_row AS $_key => $_val) {
                 if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
                     $value_parts[] = PMA_sqlAddslashes($_val);
                 }

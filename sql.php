@@ -14,7 +14,7 @@ require('./libraries/common.lib.php');
  */
 // Security checkings
 if (!empty($goto)) {
-    $is_gotofile     = ereg_replace('^([^?]+).*$', '\\1', $goto);
+    $is_gotofile     = preg_replace('@^([^?]+).*$@', '\\1', $goto);
     if (!@file_exists('./' . $is_gotofile)) {
         unset($goto);
     } else {
@@ -55,7 +55,7 @@ PMA_checkParameters(array('sql_query', 'db'));
  */
 if (!defined('PMA_CHK_DROP')
     && !$cfg['AllowUserDropDatabase']
-    && eregi('DROP[[:space:]]+DATABASE[[:space:]]+', $sql_query)) {
+    && preg_match('@DROP[[:space:]]+DATABASE[[:space:]]+@i', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
@@ -151,7 +151,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
             unset($table);
         }
         $active_page = $goto;
-        include('./' . ereg_replace('\.\.*', '.', $goto));
+        include('./' . preg_replace('@\.\.*@', '.', $goto));
     } else {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
     }
@@ -220,7 +220,7 @@ else {
     // Defines some variables
     // loic1: A table has to be created -> left frame should be reloaded
     if ((!isset($reload) || $reload == 0)
-        && eregi('^CREATE TABLE[[:space:]]+(.*)', $sql_query)) {
+        && preg_match('@^CREATE TABLE[[:space:]]+(.*)@i', $sql_query)) {
         $reload           = 1;
     }
     // Gets the number of rows per page
@@ -248,24 +248,24 @@ else {
 
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = FALSE;
     if ($is_select) { // see line 141
-        $is_group = eregi('(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+', $sql_query);
-        $is_func =  !$is_group && (eregi('[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(', $sql_query));
-        $is_count = !$is_group && (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
-        $is_export   = (eregi('[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+', $sql_query));
-        $is_analyse  = (eregi('[[:space:]]+PROCEDURE[[:space:]]+ANALYSE', $sql_query));
-    } else if (eregi('^EXPLAIN[[:space:]]+', $sql_query)) {
+        $is_group = preg_match('@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $sql_query);
+        $is_func =  !$is_group && (preg_match('@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
+        $is_count = !$is_group && (preg_match('@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
+        $is_export   = (preg_match('@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query));
+        $is_analyse  = (preg_match('@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query));
+    } else if (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
         $is_explain  = TRUE;
-    } else if (eregi('^DELETE[[:space:]]+', $sql_query)) {
+    } else if (preg_match('@^DELETE[[:space:]]+@i', $sql_query)) {
         $is_delete   = TRUE;
         $is_affected = TRUE;
-    } else if (eregi('^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+', $sql_query)) {
+    } else if (preg_match('@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
         $is_insert   = TRUE;
         $is_affected = TRUE;
-    } else if (eregi('^UPDATE[[:space:]]+', $sql_query)) {
+    } else if (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
         $is_affected = TRUE;
-    } else if (eregi('^SHOW[[:space:]]+', $sql_query)) {
+    } else if (preg_match('@^SHOW[[:space:]]+@i', $sql_query)) {
         $is_show     = TRUE;
-    } else if (eregi('^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+', $sql_query)) {
+    } else if (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
         $is_maint    = TRUE;
     }
 
@@ -274,9 +274,9 @@ else {
         && (!$cfg['ShowAll'] || $session_max_rows != 'all')
         && !($is_count || $is_export || $is_func || $is_analyse)
         && isset($analyzed_sql[0]['queryflags']['select_from'])
-        && !eregi('[[:space:]]LIMIT[[:space:]0-9,-]+$', $sql_query)) {
+        && !preg_match('@[[:space:]]LIMIT[[:space:]0-9,-]+$@i', $sql_query)) {
         $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'];
-        if (eregi('(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$', $sql_query, $regs)) {
+        if (preg_match('@(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$@i', $sql_query, $regs)) {
             $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];
         } else {
             $full_sql_query  = $sql_query . $sql_limit_to_append;
@@ -291,8 +291,8 @@ else {
     // rows that will be deleted (mysql_affected_rows will always return 0 in
     // this case)
     if ($is_delete
-        && eregi('^DELETE([[:space:]].+)?([[:space:]]FROM[[:space:]](.+))$', $sql_query, $parts)
-        && !eregi('[[:space:]]WHERE[[:space:]]', $parts[3])) {
+        && preg_match('@^DELETE([[:space:]].+)?([[:space:]]FROM[[:space:]](.+))$@i', $sql_query, $parts)
+        && !preg_match('@[[:space:]]WHERE[[:space:]]@i', $parts[3])) {
         $cnt_all_result = @PMA_mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
         if ($cnt_all_result) {
             $num_rows   = PMA_mysql_result($cnt_all_result, 0, 'count');
@@ -325,7 +325,7 @@ else {
         if (PMA_mysql_error()) {
             $error        = PMA_mysql_error();
             include('./header.inc.php');
-            $full_err_url = (ereg('^(db_details|tbl_properties)', $err_url))
+            $full_err_url = (preg_match('@^(db_details|tbl_properties)@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
             PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
@@ -391,7 +391,7 @@ else {
 
                     if (PMA_MYSQL_INT_VERSION < 40000) {
                         // TODO: detect DISTINCT in the parser
-                        if (eregi('DISTINCT(.*)', $sql_query)) {
+                        if (stristr($sql_query, 'DISTINCT')) {
                             $count_what = 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
                         } else {
                             $count_what = '*';
@@ -478,7 +478,7 @@ else {
                         }
                     } else {
                         PMA_mysql_query($count_query);
-                        if (mysql_error()) {
+                        // if (mysql_error()) {
                         // void. I tried the case
                         // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
                         // UNION (SELECT `User`, `Host`, "%" AS "Db",
@@ -486,7 +486,7 @@ else {
                         // FROM `user`) ORDER BY `User`, `Host`, `Db`;
                         // and although the generated count_query is wrong
                         // the SELECT FOUND_ROWS() work!
-                        }
+                        // }
                         $cnt_all_result = PMA_mysql_query('SELECT FOUND_ROWS() as count');
                         $unlim_num_rows = PMA_mysql_result($cnt_all_result,0,'count');
                     }
@@ -545,7 +545,7 @@ else {
         $message .= ' ' . (isset($GLOBALS['querytime']) ? '(' . sprintf($strQueryTime, $GLOBALS['querytime']) . ')' : '');
 
         if ($is_gotofile) {
-            $goto = ereg_replace('\.\.*', '.', $goto);
+            $goto = preg_replace('@\.\.*@', '.', $goto);
             // Checks for a valid target script
             if (isset($table) && $table == '') {
                 unset($table);

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-22 Garvin Hicking <me@supergarv.de>
+    * ./*: More PHP3-compatibility removal, see 2003-11-20.
+
 2003-11-22 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_operations.php: display "Add constraints" only
       if there are foreign keys in current table

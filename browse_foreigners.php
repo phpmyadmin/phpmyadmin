@@ -109,7 +109,7 @@ if ($the_total > $per_page) {
         if ($i == $pageNow) {
             $selected = 'selected="selected"';
         } else {
-            $selected = "";
+            $selected = '';
         }
         $gotopage .= '                <option ' . $selected . ' value="' . (($i - 1) * $session_max_rows) . '">' . $i . '</option>' . "\n";
     }

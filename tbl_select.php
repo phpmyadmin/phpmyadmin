@@ -68,11 +68,11 @@ if (!isset($param) || $param[0] == '') {
             // reformat mysql query output - staybyte - 9. June 2001
             $shorttype     = substr($type, 0, 3);
             if ($shorttype == 'set' || $shorttype == 'enu') {
-                $type      = eregi_replace(',', ', ', $type);
+                $type      = str_replace(',', ', ', $type);
             } else {
-                $type          = eregi_replace('BINARY', '', $type);
-                $type          = eregi_replace('ZEROFILL', '', $type);
-                $type          = eregi_replace('UNSIGNED', '', $type);
+                $type          = preg_replace('@BINARY@i', '', $type);
+                $type          = preg_replace('@ZEROFILL@i', '', $type);
+                $type          = preg_replace('@UNSIGNED@i', '', $type);
             }
             if (empty($type)) {
                 $type      = '&nbsp;';
@@ -136,15 +136,13 @@ if (!isset($param) || $param[0] == '') {
                 <td bgcolor="<?php echo $bgcolor; ?>">
                     <select name="func[]">
             <?php
-            reset($numfunctions);
-            reset($textfunctions);
-            if (eregi('char|blob|text|set|enum', $fields_type[$i])) {
-                while (list($k, $fc) = each($textfunctions)) {
+            if (preg_match('@char|blob|text|set|enum@i', $fields_type[$i])) {
+                foreach($textfunctions AS $k => $fc) {
                     echo "\n" . '                        '
                          . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
                 } // end while
             } else {
-                while (list($k, $fc) = each($numfunctions)) {
+                foreach($numfunctions AS $k => $fc) {
                     echo "\n" . '                        '
                          . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
                 } // end while
@@ -179,10 +177,11 @@ if (!isset($param) || $param[0] == '') {
             <?php
             } else if (substr($fields_type[$i], 0, 3)=='enu'){
                 // e n u m s
-                $enum_value=explode(", ",str_replace("'", "", substr($fields_type[$i], 5, -1)));
+                $enum_value=explode(', ', str_replace("'", '', substr($fields_type[$i], 5, -1)));
                 echo '                    <select name="fields[]">' . "\n";
                 echo '                        <option value=""></option>' . "\n";
-                for ($j=0; $j<count($enum_value);$j++){
+                $cnt_enum_value = count($enum_value);
+                for ($j=0; $j<$cnt_enum_value;$j++){
                     echo '                        <option value="' . $enum_value[$j] . '">' . $enum_value[$j] . '</option>';
                 } // end for
                 echo '                    </select>' . "\n";
@@ -266,9 +265,10 @@ else {
     }
     else {
         $sql_query .= ' WHERE 1';
-        for ($i = 0; $i < count($fields); $i++) {
+        $cnt_fields = count($fields);
+        for ($i = 0; $i < $cnt_fields; $i++) {
             if (!empty($fields) && $fields[$i] != '') {
-                if (eregi('char|blob|text|set|enum|date|time|year', $types[$i])) {
+                if (preg_match('@char|blob|text|set|enum|date|time|year@i', $types[$i])) {
                     $quot     = '\'';
                 } else {
                     $quot     = '';

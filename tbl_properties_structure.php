@@ -94,7 +94,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
     <th><?php echo $strNull; ?></th>
     <th><?php echo $strDefault; ?></th>
     <th><?php echo $strExtra; ?></th>
-    <th colspan="<?php echo((PMA_MYSQL_INT_VERSION >= 32323) ? '6' : '5'); ?>"><?php echo $strAction; ?></th>
+    <th colspan="6"><?php echo $strAction; ?></th>
 </tr>
 
 <?php
@@ -129,8 +129,8 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
     $type             = $row['Type'];
     // reformat mysql query output - staybyte - 9. June 2001
     // loic1: set or enum types: slashes single quotes inside options
-    if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
-        $tmp[2]       = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
+    if (preg_match('@^(set|enum)\((.+)\)$@i', $type, $tmp)) {
+        $tmp[2]       = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
         $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
         $type_nowrap  = '';
 
@@ -139,16 +139,16 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
         $zerofill     = 0;
     } else {
         $type_nowrap  = ' nowrap="nowrap"';
-        $type         = eregi_replace('BINARY', '', $type);
-        $type         = eregi_replace('ZEROFILL', '', $type);
-        $type         = eregi_replace('UNSIGNED', '', $type);
+        $type         = preg_replace('@BINARY@i', '', $type);
+        $type         = preg_replace('@ZEROFILL@i', '', $type);
+        $type         = preg_replace('@UNSIGNED@i', '', $type);
         if (empty($type)) {
             $type     = '&nbsp;';
         }
 
-        $binary       = eregi('BLOB', $row['Type'], $test) || eregi('BINARY', $row['Type'], $test);
-        $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
-        $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
+        $binary       = stristr($row['Type'], 'blob') || stristr($row['Type'], 'binary');
+        $unsigned     = stristr($row['Type'], 'unsigned');
+        $zerofill     = stristr($row['Type'], 'zerofill');
     }
 
     // rabus: Devide charset from the rest of the type definition (MySQL >= 4.1)
@@ -342,7 +342,6 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
         ?>
     </td>
     <?php
-    if (PMA_MYSQL_INT_VERSION >= 32323) {
         if ((!empty($tbl_type) && $tbl_type == 'MYISAM')
             && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'varchar'))) {
             echo "\n";
@@ -354,13 +353,12 @@ while ($row = PMA_mysql_fetch_array($fields_rs)) {
             <?php
         } else {
             echo "\n";
-            ?>
+        ?>
     <td align="center" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
     </td>
-            <?php
+        <?php
         } // end if... else...
-    } // end if
     echo "\n"
     ?>
 </tr>
@@ -374,7 +372,7 @@ $checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db,$t
 ?>
 
 <tr>
-    <td colspan="<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '14' : (PMA_MYSQL_INT_VERSION >= 32323 ? '13' : '12'); ?>">
+    <td colspan="<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '14' : '13'; ?>">
         <table>
             <tr>
                 <td>
@@ -471,10 +469,10 @@ require ('./tbl_indexes.php');
 if ($cfg['ShowStats']) {
     $nonisam     = FALSE;
     $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
-    if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
+    if (isset($showtable['Type']) && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
         $nonisam = TRUE;
     }
-    if (PMA_MYSQL_INT_VERSION >= 32303 && ($nonisam == FALSE || $is_innodb)) {
+    if ($nonisam == FALSE || $is_innodb) {
         // Gets some sizes
         $mergetable     = FALSE;
         if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
@@ -742,8 +740,7 @@ echo "\n";
                 <option value="--end--"><?php echo $strAtEndOfTable; ?></option>
                 <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
 <?php
-reset($aryFields);
-while (list($junk, $fieldname) = each($aryFields)) {
+foreach($aryFields AS $junk => $fieldname) {
     echo '                <option value="' . htmlspecialchars($fieldname) . '">' . sprintf($strAfter, htmlspecialchars($fieldname)) . '</option>' . "\n";
 }
 unset($aryFields);

@@ -148,8 +148,8 @@ if ($cfg['PropertiesIconic'] == true) {
 if ($num_tables == 0) {
     echo $strNoTablesFound . "\n";
 }
-// 2. Shows table informations on mysql >= 3.23.03 - staybyte - 11 June 2001
-else if (PMA_MYSQL_INT_VERSION >= 32303) {
+// 2. Shows table informations - staybyte - 11 June 2001
+else {
     // Get additional information about tables for tooltip
     if ($cfg['ShowTooltip']) {
         $tooltip_truename = array();
@@ -211,7 +211,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     $checked   = (!empty($checkall) ? ' checked="checked"' : '');
     $num_columns = ($cfg['PropertiesNumColumns'] > 1 ? (ceil($num_tables / $cfg['PropertiesNumColumns']) + 1) : 0);
     $row_count = 0;
-    while (list($keyname, $sts_data) = each($tables)) {
+    foreach($tables AS $keyname => $sts_data) {
         $table         = $sts_data['Name'];
         $table_encoded = urlencode($table);
         $table_name    = htmlspecialchars($table);
@@ -316,7 +316,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         if (isset($sts_data['Rows'])) {
             // MyISAM, ISAM or Heap table: Row count, data size and index size
             // is accurate.
-            if (isset($sts_data['Type']) && ereg('^(MyISAM|ISAM|HEAP)$', $sts_data['Type'])) {
+            if (isset($sts_data['Type']) && preg_match('@^(MyISAM|ISAM|HEAP)$@', $sts_data['Type'])) {
                 if ($cfg['ShowStats']) {
                     $tblsize                    =  doubleval($sts_data['Data_length']) + doubleval($sts_data['Index_length']);
                     $sum_size                   += $tblsize;
@@ -356,7 +356,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
             }
 
             // Merge or BerkleyDB table: Only row count is accurate.
-            else if (isset($sts_data['Type']) && ereg('^(MRG_MyISAM|BerkeleyDB)$', $sts_data['Type'])) {
+            else if (isset($sts_data['Type']) && preg_match('@^(MRG_MyISAM|BerkeleyDB)$@', $sts_data['Type'])) {
                 if ($cfg['ShowStats']) {
                     $formated_size              =  '&nbsp;-&nbsp;';
                     $unit                       =  '';
@@ -530,144 +530,11 @@ if ($cfg['PropertiesNumColumns'] > 1) {
 ?>
 </form>
     <?php
-} // end case mysql >= 3.23.03
-
-// 3. Shows tables list mysql < 3.23.03
-else {
-    if ($cfgRelation['commwork']) {
-        $comment = PMA_getComments($db);
-
-        /**
-         * Displays table comment
-         */
-        if (is_array($comment)) {
-            ?>
-        <!-- DB comment -->
-        <p><i>
-            <?php echo htmlspecialchars(implode(' ', $comment)) . "\n"; ?>
-        </i></p>
-            <?php
-        } // end if
-    }
-
-    $i = 0;
-    echo "\n";
-    ?>
-<form action="db_details_structure.php">
-    <?php PMA_generate_common_hidden_inputs($db); ?>
-
-<?php
-    if ($cfg['PropertiesNumColumns'] > 1) {
-?>
-<table cellspacing="0" cellpadding="0" border="0">
-    <tr>
-        <td valign="top">
-<?php
-    }
-
-    pma_TableHeader(true);
-    
-    $checked = (!empty($checkall) ? ' checked="checked"' : '');
-    $num_columns = ($cfg['PropertiesNumColumns'] > 1 ? (ceil($num_tables / $cfg['PropertiesNumColumns']) + 1) : 0);
-    $row_count = 0;
-    while ($i < $num_tables) {
-        $table         = $tables[$i];
-        $table_encoded = urlencode($table);
-        $table_name    = htmlspecialchars($table);
-
-        // Sets parameters for links
-        $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
-        $bgcolor       = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-        echo "\n";
-        $row_count++;
-        if($num_columns > 0 && $num_tables > $num_columns && (($row_count % ($num_columns)) == 0)) {
-            $bgcolor       = $cfg['BgcolorTwo'];
-            $row_count = 1;
-        ?>
-            </tr>
-        </table>
-    </td>
-    <td><img src="./images/spacer.gif" border="0" width="10" height="1" alt="" /></td>
-    <td valign="top">
-        <?php
-            pma_TableHeader(true);
-        }
-        ?>
-            <tr>
-                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-                    <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
-                </td>
-                <td bgcolor="<?php echo $bgcolor; ?>" class="data">
-                    <b>&nbsp;<label for="checkbox_tbl_<?php echo $i; ?>"><?php echo $table_name; ?></label>&nbsp;</b>
-                </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0"><?php echo $strBrowse; ?></a>
-                </td>
-                <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="tbl_select.php?<?php echo $tbl_url_query; ?>"><?php echo $titles['Search']; ?></a>
-                </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="tbl_change.php?<?php echo $tbl_url_query; ?>"><?php echo $titles['Insert']; ?></a>
-                </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="tbl_properties.php?<?php echo $tbl_url_query; ?>"><?php echo $titles['Properties']; ?></a>
-                </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;reload=1&amp;purge=1&amp;sql_query=<?php echo urlencode('DROP TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenDropped, $table_name)); ?>"><?php echo $titles['Drop']; ?></a>
-                </td>
-                <td bgcolor="<?php echo $bgcolor; ?>">
-                    <a href="sql.php?<?php echo $tbl_url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, $table_name)); ?>"><?php echo $titles['Empty']; ?></a>
-                </td>
-                <td align="right" bgcolor="<?php echo $bgcolor; ?>">
-                    <?php PMA_countRecords($db, $table); echo "\n"; ?>
-                </td>
-            </tr>
-        <?php
-        $i++;
-    } // end while
-    echo "\n";
-
-    // Check all tables url
-    $checkall_url = 'db_details_structure.php?' . PMA_generate_common_url($db);
-    ?>
-            <tr>
-                <td colspan="9">
-                    <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
-                    <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
-                        <?php echo $strCheckAll; ?></a>
-                    &nbsp;/&nbsp;
-                    <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('tablesForm', false); return false;">
-                        <?php echo $strUncheckAll; ?></a>
-                </td>
-            </tr>
-            
-            <tr>
-                <td colspan="9">
-                    <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
-                    <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
-                    <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
-                    &nbsp;<?php $strOr . "\n"; ?>&nbsp;
-                    <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
-                </td>
-            </tr>
-            </table>
-<?php
-    if ($cfg['PropertiesNumColumns'] > 1) {
-?>
-        </td>
-    </tr>
-</table>
-<?php
-    }
-?>
-</form>
-    <?php
-} // end case mysql < 3.23.03
+} // end if more than one table
 
 echo "\n";
 ?>
 <hr />
-
 
 <?php
 /**
@@ -791,7 +658,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
             <?php echo $strPaperSize; ?>
             <select name="paper">
             <?php
-                while (list($key,$val) = each($cfg['PDFPageSizes'])) {
+                foreach($cfg['PDFPageSizes'] AS $key => $val) {
                     echo '<option value="' . $val . '"';
                     if ($val == $cfg['PDFDefaultPageSize']) {
                         echo ' selected="selected"';

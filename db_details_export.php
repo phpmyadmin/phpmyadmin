@@ -28,7 +28,7 @@ if ($num_tables > 1) {
     
     $i = 0;
     while ($i < $num_tables) {
-        $table   = (PMA_MYSQL_INT_VERSION >= 32303) ? $tables[$i]['Name'] : $tables[$i];
+        $table   = $tables[$i]['Name'];
         if (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))) {
             $is_selected = ' selected="selected"';
         } else {

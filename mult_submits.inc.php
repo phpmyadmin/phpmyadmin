@@ -129,7 +129,7 @@ if (!empty($submit_mult) && !empty($what)) {
                                 . ',';
                 }
                 if ($i == $selected_cnt-1) {
-                    $full_query = ereg_replace(',$', ';<br />', $full_query);
+                    $full_query = preg_replace('@,$@', ';<br />', $full_query);
                 }
                 break;
         } // end switch

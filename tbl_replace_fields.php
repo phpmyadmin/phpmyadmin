@@ -28,18 +28,18 @@ PMA_checkParameters(array('db','encoded_key'));
 // binary file is uploaded, thus bypassing further manipulation of $val.
 
 $check_stop = false;
-if (isset(${"fields_upload_" . $encoded_key}) && ${"fields_upload_" . $encoded_key} != 'none'){
+if (isset(${'fields_upload_' . $encoded_key}) && ${'fields_upload_' . $encoded_key} != 'none'){
     // garvin: This fields content is a blob-file upload.
 
-    if (!empty(${"fields_upload_" . $encoded_key})) {
+    if (!empty(${'fields_upload_' . $encoded_key})) {
         // garvin: The blob-field is not empty. Check what we have there.
 
-        $data_file = ${"fields_upload_" . $encoded_key};
+        $data_file = ${'fields_upload_' . $encoded_key};
 
         if (is_uploaded_file($data_file)) {
             // garvin: A valid uploaded file is found. Look into the file...
 
-            $val = fread(fopen($data_file, "rb"), filesize($data_file));
+            $val = fread(fopen($data_file, 'rb'), filesize($data_file));
             // nijel: This is probably the best way how to put binary data
             // into MySQL and it also allow not to care about charset
             // conversion that would otherwise corrupt the data.
@@ -62,16 +62,10 @@ if (isset(${"fields_upload_" . $encoded_key}) && ${"fields_upload_" . $encoded_k
         if (substr($cfg['UploadDir'], -1) != '/') {
             $cfg['UploadDir'] .= '/';
         }
-        $file_to_upload = $cfg['UploadDir'] . eregi_replace('\.\.*', '.', ${'fields_uploadlocal_' . $encoded_key});
+        $file_to_upload = $cfg['UploadDir'] . preg_replace('@\.\.*@', '.', ${'fields_uploadlocal_' . $encoded_key});
 
         // A local file will be uploaded.
-        $open_basedir     = '';
-        if (PMA_PHP_INT_VERSION >= 40000) {
-            $open_basedir = @ini_get('open_basedir');
-        }
-        if (empty($open_basedir)) {
-            $open_basedir = @get_cfg_var('open_basedir');
-        }
+        $open_basedir = @ini_get('open_basedir');
 
         // If we are on a server with open_basedir, we must move the file
         // before opening it. The doc explains how to create the "./tmp"
@@ -88,11 +82,7 @@ if (isset(${"fields_upload_" . $encoded_key}) && ${"fields_upload_" . $encoded_k
                 $file_to_upload = '';
             } else {
                 $new_file_to_upload = $tmp_subdir . basename($file_to_upload);
-                if (PMA_PHP_INT_VERSION < 40003) {
-                    copy($file_to_upload, $new_file_to_upload);
-                } else {
-                    move_uploaded_file($file_to_upload, $new_file_to_upload);
-                }
+                move_uploaded_file($file_to_upload, $new_file_to_upload);
 
                 $file_to_upload = $new_file_to_upload;
                 $unlink = true;
@@ -101,7 +91,7 @@ if (isset(${"fields_upload_" . $encoded_key}) && ${"fields_upload_" . $encoded_k
 
         if ($file_to_upload != '') {
             
-            $val = fread(fopen($file_to_upload, "rb"), filesize($file_to_upload));
+            $val = fread(fopen($file_to_upload, 'rb'), filesize($file_to_upload));
             if (!empty($val)) {
                 $val = '0x' . bin2hex($val);
                 $seen_binary = TRUE;

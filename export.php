@@ -157,7 +157,7 @@ $output_charset_conversion = $asfile &&
 $buffer_needed = isset($compression) && ($compression == 'zip' | $compression == 'gzip' | $compression == 'bzip');
 
 // Use on fly compression?
-$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && PMA_PHP_INT_VERSION >= 40004 && isset($compression) && ($compression == 'gzip' | $compression == 'bzip');
+$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && isset($compression) && ($compression == 'gzip' | $compression == 'bzip');
 if ($onfly_compression) {
     $memory_limit = trim(@ini_get('memory_limit'));
     // 2 MB as default
@@ -248,7 +248,7 @@ if ($save_on_server) {
     if (substr($cfg['SaveDir'], -1) != '/') {
         $cfg['SaveDir'] .= '/';
     }
-    $save_filename = $cfg['SaveDir'] . ereg_replace('[/\\]','_',$filename);
+    $save_filename = $cfg['SaveDir'] . preg_replace('@[/\\]@','_',$filename);
     unset($message);
     if (file_exists($save_filename) && empty($onserverover)) {
         $message = sprintf($strFileAlreadyExists, htmlspecialchars($save_filename));
@@ -364,8 +364,7 @@ if ($export_type == 'server') {
         $tmp_select = '|' . $tmp_select . '|';
     }
     // Walk over databases
-    reset($dblist);
-    while (list(, $current_db) = each($dblist)) {
+    foreach($dblist AS $current_db) {
         if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
             || !isset($tmp_select)) {
             PMA_exportDBHeader($current_db);
@@ -438,7 +437,7 @@ if (!empty($asfile)) {
     // Do the compression
     // 1. as a gzipped file
     if (isset($compression) && $compression == 'zip') {
-        if (PMA_PHP_INT_VERSION >= 40000 && @function_exists('gzcompress')) {
+        if (@function_exists('gzcompress')) {
             if ($type == 'csv' ) {
                 $extbis = '.csv';
             } else if ($type == 'xml') {
@@ -453,10 +452,9 @@ if (!empty($asfile)) {
     }
     // 2. as a bzipped file
     else if (isset($compression) && $compression == 'bzip') {
-        if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
+        if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
-            // nijel: eval in next line is because otherwise === causes syntax error on php3
-            if (eval('return($dump_buffer === -8);')) {
+            if ($dump_buffer === -8) {
                 include('./header.inc.php');
                 echo sprintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
                 include('./footer.inc.php');
@@ -466,7 +464,7 @@ if (!empty($asfile)) {
     }
     // 3. as a gzipped file
     else if (isset($compression) && $compression == 'gzip') {
-        if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
+        if (@function_exists('gzencode')) {
             // without the optional parameter level because it bug
             $dump_buffer = gzencode($dump_buffer);
         }

@@ -17,17 +17,13 @@ if (!defined('PMA_COMMON_LIB_INCLUDED'))  {
 /**
  * Defines the index types ("FULLTEXT" is available since MySQL 3.23.23)
  */
-$index_types_cnt   = 3;
+$index_types_cnt   = 4;
 $index_types       = array(
     'PRIMARY',
     'INDEX',
-    'UNIQUE'
+    'UNIQUE',
+    'FULLTEXT'
 );
-if (PMA_MYSQL_INT_VERSION >= 32323) {
-    $index_types[] = 'FULLTEXT';
-    $index_types_cnt++;
-}
-
 
 /**
  * Ensures the db & table are valid, then loads headers and gets indexes
@@ -130,8 +126,8 @@ $fields_types           = array();
 while ($row = PMA_mysql_fetch_array($fields_rs)) {
     $fields_names[]     = $row['Field'];
     // loic1: set or enum types: slashes single quotes inside options
-    if (eregi('^(set|enum)\((.+)\)$', $row['Type'], $tmp)) {
-        $tmp[2]         = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
+    if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
+        $tmp[2]         = substr(preg_replace('@([^,])\'\@', '\\1\\\'', ',' . $tmp[2]), 1);
         $fields_types[] = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
     } else {
         $fields_types[] = $row['Type'];
@@ -196,7 +192,7 @@ if (!defined('PMA_IDX_INCLUDED')
             break;
     } // end switch
     $index_fields         = '';
-    while (list($i, $name) = each($column)) {
+    foreach($column AS $i => $name) {
         if ($name != '--ignore--') {
             $index_fields .= (empty($index_fields) ? '' : ',')
                           . PMA_backquote($name)
@@ -251,7 +247,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         $edited_index_data                    = $indexes_data[$old_index];
 
 
-        if ((PMA_MYSQL_INT_VERSION >= 32323 && PMA_MYSQL_INT_VERSION < 40002 && $edited_index_info['Comment'] == 'FULLTEXT')
+        if ((PMA_MYSQL_INT_VERSION < 40002 && $edited_index_info['Comment'] == 'FULLTEXT')
                 || (PMA_MYSQL_INT_VERSION >= 40002 && $edited_index_info['Index_type'] == 'FULLTEXT')) {
             $index_type                       = 'FULLTEXT';
         } else if ($index == 'PRIMARY') {
@@ -274,7 +270,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         } // end for
 
         // Restore entered values
-        while (list($i, $name) = each($column)) {
+        foreach($column AS $i => $name) {
             if ($name != '--ignore--'){
                 $edited_index_data[$i+1]['Column_name'] = $name;
                 $edited_index_data[$i+1]['Sub_part']    = $sub_part[$i];
@@ -339,7 +335,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         <th><?php echo $strSize; ?></th>
     </tr>
     <?php
-    while (list($row_no, $seq_index) = each($edited_index_info['Sequences'])) {
+    foreach($edited_index_info['Sequences'] AS $row_no => $seq_index) {
         $add_type     = (is_array($fields_types) && count($fields_types) == count($fields_names));
         $selected     = $edited_index_data[$seq_index]['Column_name'];
         if (!empty($edited_index_data[$seq_index]['Sub_part'])) {
@@ -357,9 +353,9 @@ else if (!defined('PMA_IDX_INCLUDED')
                     -- <?php echo $strIgnore; ?> --</option>
         <?php
         reset($fields_names);
-        while (list($key, $val) = each($fields_names)) {
+        foreach($fields_names AS $key => $val) {
             if ($index_type != 'FULLTEXT'
-                || eregi('^(varchar|text|tinytext|mediumtext|longtext)', $fields_types[$key])) {
+                || preg_match('@^(varchar|text|tinytext|mediumtext|longtext)@i', $fields_types[$key])) {
                 echo "\n" . '                '
                      . '<option value="' . htmlspecialchars($val) . '"' . (($val == $selected) ? ' selected="selected"' : '') . '>'
                      . htmlspecialchars($val) . (($add_type) ? ' [' . $fields_types[$key] . ']' : '' ) . '</option>' . "\n";
@@ -419,7 +415,7 @@ else if (!defined('PMA_IDX_INCLUDED')
         </tr>
         <?php
         echo "\n";
-        while (list($index_no, $index_name) = each($indexes)) {
+        foreach($indexes AS $index_no => $index_name) {
             $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
             $index_td = '            <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
             echo '        <tr>' . "\n";
@@ -427,7 +423,7 @@ else if (!defined('PMA_IDX_INCLUDED')
                  . '                ' . htmlspecialchars($index_name) . "\n"
                  . '            </td>' . "\n";
 
-            if ((PMA_MYSQL_INT_VERSION >= 32323 && PMA_MYSQL_INT_VERSION < 40002 && $indexes_info[$index_name]['Comment'] == 'FULLTEXT')
+            if ((PMA_MYSQL_INT_VERSION < 40002 && $indexes_info[$index_name]['Comment'] == 'FULLTEXT')
                 || (PMA_MYSQL_INT_VERSION >= 40002 && $indexes_info[$index_name]['Index_type'] == 'FULLTEXT')) {
                 $index_type = 'FULLTEXT';
             } else if ($index_name == 'PRIMARY') {
@@ -462,7 +458,7 @@ else if (!defined('PMA_IDX_INCLUDED')
                  . '                <a href="sql.php?' . $url_query . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . ($cfg['PropertiesIconic'] ? '<img src="./images/button_drop.png" width="11" height="12" hspace="7" border="0" title="' . $strDrop . '" alt="' . $strDrop . '">' : $strDrop) . '</a>' . "\n"
                  . '            </td>' . "\n";
 
-            while (list($row_no, $seq_index) = each($indexes_info[$index_name]['Sequences'])) {
+            foreach($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
                 if ($row_no > 0) {
                     echo '        <tr>' . "\n";
                 }

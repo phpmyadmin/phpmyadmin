@@ -37,18 +37,18 @@ unset($sql_query);
  */
 $fields_cnt = 0;
 if (isset($db) && isset($table) && $table != '' && $db != '') {
-$local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
-$result      = @PMA_mysql_query($local_query);
-if (!$result) {
-    PMA_mysqlDie('', $local_query, '', $err_url);
-}
-else {
-    $fields_cnt        = mysql_num_rows($result);
-    while ($row = PMA_mysql_fetch_array($result)) {
-        $fields_list[] = $row['Field'];
-    } // end while
-    mysql_free_result($result);
-}
+    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
+    $result      = @PMA_mysql_query($local_query);
+    if (!$result) {
+        PMA_mysqlDie('', $local_query, '', $err_url);
+    }
+    else {
+        $fields_cnt        = mysql_num_rows($result);
+        while ($row = PMA_mysql_fetch_array($result)) {
+            $fields_list[] = $row['Field'];
+        } // end while
+        mysql_free_result($result);
+    }
 }
 
 /**
@@ -330,7 +330,7 @@ if (!isset($is_inside_querywindow) ||
             echo '            <div style="margin-bottom: 5px">' . "\n";
             echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
             echo '                <option value=""></option>' . "\n";
-            while (list($key, $value) = each($bookmark_list)) {
+            foreach($bookmark_list AS $key => $value) {
                 echo '                <option value="' . $value . '">' . htmlspecialchars($key) . '</option>' . "\n";
             }
             echo '            </select>' . "<br />\n";

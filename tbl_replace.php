@@ -44,7 +44,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&sql_query=' . urlencode($sql_query);
 } else if (!empty($goto)) {
     // Security checkings
-    $is_gotofile     = ereg_replace('^([^?]+).*$', '\\1', $goto);
+    $is_gotofile     = preg_replace('@^([^?]+).*$@', '\\1', $goto);
     if (!@file_exists('./' . $is_gotofile)) {
         $goto        = (empty($table)) ? 'db_details.php' : 'tbl_properties.php';
         $is_gotofile = TRUE;
@@ -80,7 +80,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // Defines the SET part of the sql query
     $valuelist = '';
 
-    while (list($key, $val) = each($fields)) {
+    foreach($fields AS $key => $val) {
         $encoded_key = $key;
         $key         = urldecode($key);
 
@@ -96,7 +96,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
             if (empty($funcs[$encoded_key])) {
                 $valuelist .= PMA_backquote($key) . ' = ' . $val . ', ';
             } else if ($val == '\'\''
-                       && (ereg('^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$', $funcs[$encoded_key]))) {
+                       && (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $funcs[$encoded_key]))) {
                 $valuelist .= PMA_backquote($key) . ' = ' . $funcs[$encoded_key] . '(), ';
             } else {
                 $valuelist .= PMA_backquote($key) . ' = ' . $funcs[$encoded_key] . "($val), ";
@@ -105,11 +105,11 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     } // end while
 
     // Builds the sql update query
-    $valuelist    = ereg_replace(', $', '', $valuelist);
+    $valuelist    = preg_replace('@, $@', '', $valuelist);
     if (!empty($valuelist)) {
         PMA_mysql_select_db($db);
         $query    = 'UPDATE ' . PMA_backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
-                  . ((PMA_MYSQL_INT_VERSION >= 32300) ? ' LIMIT 1' : '');
+                  . ' LIMIT 1';
         $message  = $strAffectedRows . '&nbsp;';
     }
     // No change -> move back to the calling script
@@ -118,7 +118,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         if ($is_gotofile) {
             $js_to_run = 'functions.js';
             include('./header.inc.php');
-            include('./' . ereg_replace('\.\.*', '.', $goto));
+            include('./' . preg_replace('@\.\.*@', '.', $goto));
         } else {
             header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
         }
@@ -143,7 +143,7 @@ else {
         $prot_row         = PMA_mysql_fetch_array($prot_result);
     }
     
-    while (list($key, $val) = each($fields)) {
+    foreach($fields AS $key => $val) {
         $encoded_key = $key;
         $key         = urldecode($key);
         $fieldlist   .= PMA_backquote($key) . ', ';
@@ -153,8 +153,8 @@ else {
         if (empty($funcs[$encoded_key])) {
             $valuelist .= $val . ', ';
         } else if (($val == '\'\''
-                   && ereg('^(UNIX_TIMESTAMP|RAND|LAST_INSERT_ID)$', $funcs[$encoded_key]))
-                   || ereg('^(NOW|CURDATE|CURTIME|USER)$', $funcs[$encoded_key])) {
+                   && preg_match('@^(UNIX_TIMESTAMP|RAND|LAST_INSERT_ID)$@', $funcs[$encoded_key]))
+                   || preg_match('@^(NOW|CURDATE|CURTIME|USER)$@', $funcs[$encoded_key])) {
             $valuelist .= $funcs[$encoded_key] . '(), ';
         } else {
             $valuelist .= $funcs[$encoded_key] . '(' . $val . '), ';
@@ -162,8 +162,8 @@ else {
     } // end while
 
     // Builds the sql insert query
-    $fieldlist = ereg_replace(', $', '', $fieldlist);
-    $valuelist = ereg_replace(', $', '', $valuelist);
+    $fieldlist = preg_replace('@, $@', '', $fieldlist);
+    $valuelist = preg_replace('@, $@', '', $valuelist);
     $query     = 'INSERT INTO ' . PMA_backquote($table) . ' (' . $fieldlist . ') VALUES (' . $valuelist . ')';
     $message   = $strInsertedRows . '&nbsp;';
 } // end row insertion
@@ -196,7 +196,7 @@ if (!$result) {
         $js_to_run = 'functions.js';
         $active_page = $goto;
         include('./header.inc.php');
-        include('./' . ereg_replace('\.\.*', '.', $goto));
+        include('./' . preg_replace('@\.\.*@', '.', $goto));
     } else {
         // I don't understand this one:
         //$add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');

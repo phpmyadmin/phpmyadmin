@@ -180,8 +180,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 
         $temp_history = PMA_getHistory($cfg['Server']['user']);
         if (is_array($temp_history) && count($temp_history) > 0) {
-            @reset($temp_history);
-            while(@list($history_nr, $history_array) = @each($temp_history)) {
+            foreach($temp_history AS $history_nr => $history_array) {
                 if (!isset($dup_sql[$history_array['sqlquery']])) {
                     $sql_history[] = '<li>'
                                    . '<a href="#" onClick="document.querywindow.querydisplay_tab.value = \'' . (isset($querydisplay_tab) && $querydisplay_tab != 'full' ? 'sql' : 'full') . '\'; document.querywindow.query_history_latest.value = \'' . preg_replace('/(\n)/i', ' ', addslashes(htmlspecialchars($history_array['sqlquery']))) . '\'; document.querywindow.auto_commit.value = \'false\'; document.querywindow.db.value = \'' . htmlspecialchars($history_array['db']) . '\'; document.querywindow.query_history_latest_db.value = \'' . htmlspecialchars($history_array['db']) . '\'; document.querywindow.table.value = \'' . (isset($history_array['table']) ? htmlspecialchars($history_array['table']) : '') . '\'; document.querywindow.query_history_latest_table.value = \'' . (isset($history_array['table']) ? htmlspecialchars($history_array['table']) : '') . '\'; document.querywindow.submit(); return false;">' . $titles['Change'] . '</a>'
@@ -196,8 +195,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
         
         if (isset($query_history) && is_array($query_history)) {
             $current_index = count($query_history);
-            @reset($query_history);
-            while(list($query_no, $query_sql) = each($query_history)) {
+            foreach($query_history AS $query_no => $query_sql) {
                 if (!isset($dup_sql[$query_sql])) {
     
                     $input_query_history[] = '<input type="hidden" name="query_history[]" value="' . $query_sql . '" />';

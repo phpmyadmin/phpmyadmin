@@ -22,12 +22,12 @@ if (!isset($db)) {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-if (!isset($goto) || !eregi('^(db_details|tbl_properties)(_[a-z]*)?\.php$', $goto)) {
+if (!isset($goto) || !preg_match('@^(db_details|tbl_properties)(_[a-z]*)?\.php$@i', $goto)) {
     $goto = 'db_details.php';
 }
 $err_url  = $goto
           . '?' . PMA_generate_common_url($db)
-          . (eregi('^tbl_properties(_[a-z]*)?\.php$', $goto) ? '&amp;table=' . urlencode($table) : '');
+          . (preg_match('@^tbl_properties(_[a-z]*)?\.php$@', $goto) ? '&amp;table=' . urlencode($table) : '');
 
 
 /**
@@ -54,11 +54,7 @@ if (!empty($id_bookmark)) {
         case 0: // bookmarked query that have to be run
             $sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
             if (isset($bookmark_variable) && !empty($bookmark_variable)) {
-                if (PMA_PHP_INT_VERSION >= 40300) {
-                    $sql_query = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $sql_query);
-                } else {
-                    $sql_query = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '\1 ' . PMA_sqlAddslashes($bookmark_variable) . '\2', $sql_query);
-                }
+                $sql_query = preg_replace('|/\*(.*)\[VARIABLE\](.*)\*/|imsU', '${1}' . PMA_sqlAddslashes($bookmark_variable) . '${2}', $sql_query);
             }
             break;
         case 1: // bookmarked query that have to be displayed
@@ -148,7 +144,7 @@ if (!empty($prev_sql_query)) {
 
 // Drop database is not allowed -> ensure the query can be run
 if (!$cfg['AllowUserDropDatabase']
-    && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE ', $sql_query)) {
+    && preg_match('@DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
@@ -240,7 +236,7 @@ if ($sql_query != '') {
         // Only one query to run
         if ($pieces_count == 1 && !empty($pieces[0])) {
             $sql_query = $pieces[0];
-            if (eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $sql_query)) {
+            if (preg_match('@^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $sql_query)) {
                 $reload = 1;
             }
             include('./sql.php');
@@ -255,7 +251,7 @@ if ($sql_query != '') {
             
             for ($i = 0; $i < $pieces_count; $i++) {
                 $a_sql_query = $pieces[$i];
-                if ($i == $pieces_count - 1 && eregi('^(SELECT|SHOW)', $a_sql_query)) {
+                if ($i == $pieces_count - 1 && preg_match('@^(SELECT|SHOW)@i', $a_sql_query)) {
                     $complete_query = $sql_query;
                     $display_query = $sql_query;
                     $sql_query = $a_sql_query;
@@ -300,7 +296,7 @@ if ($sql_query != '') {
                     $info_count++;
                 }
 
-                if (!isset($reload) && eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $a_sql_query)) {
+                if (!isset($reload) && preg_match('@^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $a_sql_query)) {
                     $reload = 1;
                 }
             } // end for
@@ -326,7 +322,7 @@ if (isset($my_die)) {
     $js_to_run = 'functions.js';
     include('./header.inc.php');
     if (is_array($my_die)) {
-        while(list($key, $die_string) = each($my_die)) {
+        foreach($my_die AS $key => $die_string) {
             PMA_mysqlDie('', $die_string, '', $err_url, FALSE);
             echo '<hr />';
         }

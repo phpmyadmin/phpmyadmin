@@ -119,8 +119,7 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
             <select name="server">
     <?php
     echo "\n";
-    reset($cfg['Servers']);
-    while (list($key, $val) = each($cfg['Servers'])) {
+    foreach($cfg['Servers'] AS $key => $val) {
         if (!empty($val['host'])) {
             echo '                <option value="' . $key . '"';
             if (!empty($server) && ($server == $key)) {
@@ -134,11 +133,6 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
                 if (!empty($val['port'])) {
                     echo ':' . $val['port'];
                 }
-                // loic1: skip this because it's not a so good idea to display
-                //        sockets used to everybody
-                // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-                //     echo ':' . $val['socket'];
-                // }
             }
             // loic1: if 'only_db' is an array and there is more than one
             //        value, displaying such informations may not be a so good
@@ -215,20 +209,20 @@ if ($server > 0) {
         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
         $rs_usr      = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
-            $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
-            $re1     = '(^|[^\])(\\\)+';       // escaped wildcards
+            $re0     = '@(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
+            $re1     = '@(^|[^\])(\\\)+';       // escaped wildcards
             while ($row = PMA_mysql_fetch_array($rs_usr)) {
-                if (ereg($re0 . '(%|_)', $row['Db'])
-                    || (!PMA_mysql_select_db(ereg_replace($re1 . '(%|_)', '\\1\\3', $row['Db']), $userlink) && @mysql_errno() != 1044)) {
-                    $db_to_create   = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $row['Db']));
-                    $db_to_create   = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
+                if (preg_match($re0 . '(%|_)@', $row['Db'])
+                    || (!PMA_mysql_select_db(preg_replace($re1 . '(%|_)@', '\\1\\3', $row['Db']), $userlink) && @mysql_errno() != 1044)) {
+                    $db_to_create   = preg_replace($re0 . '%@', '\\1...', preg_replace($re0 . '_@', '\\1?', $row['Db']));
+                    $db_to_create   = preg_replace($re1 . '(%|_)@', '\\1\\3', $db_to_create);
                     $is_create_priv = TRUE;
                     break;
                 } // end if
             } // end while
             mysql_free_result($rs_usr);
         } // end if
-        else if (PMA_MYSQL_INT_VERSION >= 32304) {
+        else {
             // Finally, let's try to get the user's privileges by using SHOW
             // GRANTS...
             // Maybe we'll find a little CREATE priv there :)
@@ -241,8 +235,8 @@ if ($server > 0) {
                 $rs_usr      = PMA_mysql_query($local_query, $dbh);
             }
             if ($rs_usr) {
-                $re0 = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
-                $re1 = '(^|[^\])(\\\)+'; // escaped wildcards
+                $re0 = '@(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
+                $re1 = '@(^|[^\])(\\\)+'; // escaped wildcards
                 while ($row = PMA_mysql_fetch_row($rs_usr)) {
                     $show_grants_dbname = substr($row[0], strpos($row[0], ' ON ') + 4,(strpos($row[0], '.', strpos($row[0], ' ON ')) - strpos($row[0], ' ON ') - 4));
                     $show_grants_str    = substr($row[0],6,(strpos($row[0],' ON ')-6));
@@ -252,9 +246,9 @@ if ($server > 0) {
                             $db_to_create   = '';
                             break;
                         } // end if
-                        else if (ereg($re0 . '%|_', $show_grants_dbname) || !PMA_mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
-                            $db_to_create = ereg_replace($re0 . '%', '\\1...', ereg_replace($re0 . '_', '\\1?', $show_grants_dbname));
-                            $db_to_create = ereg_replace($re1 . '(%|_)', '\\1\\3', $db_to_create);
+                        else if (preg_match($re0 . '%|_@', $show_grants_dbname) || !PMA_mysql_select_db($show_grants_dbname, $userlink) && @mysql_errno() != 1044) {
+                            $db_to_create = preg_replace($re0 . '%@', '\\1...', preg_replace($re0 . '_@', '\\1?', $show_grants_dbname));
+                            $db_to_create = preg_replace($re1 . '(%|_)@', '\\1\\3', $db_to_create);
                             $is_create_priv     = TRUE;
                             break;
                         } // end elseif
@@ -516,8 +510,7 @@ if (empty($cfg['Lang'])) {
     } // end of the 'PMA_cmp()' function
 
     uasort($available_languages, 'PMA_cmp');
-    reset($available_languages);
-    while (list($id, $tmplang) = each($available_languages)) {
+    foreach($available_languages AS $id => $tmplang) {
         $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
         if ($lang == $id) {
             $selected = ' selected="selected"';
@@ -551,8 +544,7 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
                     <select name="convcharset" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
-    reset($cfg['AvailableCharsets']);
-    while (list($id, $tmpcharset) = each($cfg['AvailableCharsets'])) {
+    foreach($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
         if ($convcharset == $tmpcharset) {
             $selected = ' selected="selected"';
         } else {

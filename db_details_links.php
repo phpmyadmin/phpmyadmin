@@ -86,4 +86,3 @@ if (!$cfg['LightTabs']) {
 }
 ?>
 <br />
-

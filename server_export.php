@@ -39,8 +39,7 @@ if ($server > 0 && empty($dblist)) {
 $multi_values = '<div align="center"><select name="db_select[]" size="6" multiple="multiple">';
 $multi_values .= "\n";
 
-reset($dblist);
-while (list(, $current_db) = each($dblist)) {
+foreach($dblist AS $current_db) {
     if (!empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {
         $is_selected = ' selected="selected"';
     } else {
@@ -71,4 +70,3 @@ require('./libraries/display_export.lib.php');
  */
 require('./footer.inc.php');
 ?>
-
