@@ -142,7 +142,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * Loads the mysql extensions if it is not loaded yet
      * staybyte - 26. June 2001
      */
-    if (((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode'))
+    if (((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
         || (PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
         && @function_exists('dl')) {
         if (PMA_PHP_INT_VERSION < 40000) {
@@ -318,6 +318,13 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         $server_socket = (empty($cfgServer['socket']) || PMA_PHP_INT_VERSION < 30010)
                        ? ''
                        : ':' . $cfgServer['socket'];
+
+        // Ensures compatibility with old config files
+        if (!isset($cfgServer['auth_type'])) {
+            $cfgServer['auth_type'] = (isset($cfgServer['adv_auth']) && $cfgServer['adv_auth'])
+                                    ? 'http'
+                                    : 'config';
+        }
 
         // Gets the authentication library that fits the cfgServer settings
         // and run authentication
