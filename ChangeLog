@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-19 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html: The Mozilla textarea bug also appears in
+      Mozilla 1.0-RC2 and Netscape 7.0-PR1.
+
 2002-05-22 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.lib.php3: fixed possible errors with special
       characters in tables names.
@@ -13,8 +17,8 @@ $Source$
 
 2002-05-22 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, config.inc.php3, db_details_structure.php3,
-      pdf_schema.php3, libraries/display_tbl.lib.php3: PMA_pdf_table_position 
-      renamed to PMA_table_info, "foreign_display_field" moved from 
+      pdf_schema.php3, libraries/display_tbl.lib.php3: PMA_pdf_table_position
+      renamed to PMA_table_info, "foreign_display_field" moved from
       PMA_relation to PMA_table_info (once per table)
     * lang/indonesian.inc.php3 updates thanks to Rachim Tamsjadi
       (tamsjadi at icqmail.com)

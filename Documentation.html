@@ -346,7 +346,7 @@
         using the <tt>$cfg['Servers'][$i]['only_db']</tt> might be enough.</li>
     <li>In the ISP FAQ section, there is an entry explaining how to protect
         your configuration file.<br /></li>
-    <li>For additional security in this mode, you may wish to consider the 
+    <li>For additional security in this mode, you may wish to consider the
         Host authentication <tt>$cfg['Servers'][$i]['AllowDeny']['order']</tt>
         and <tt>$cfg['Servers'][$i]['AllowDeny']['rules']</tt> configuration
         directives.</li>
@@ -442,7 +442,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     <dd>
         What type connection to use with the MySQL server. Your options are
         <tt>'socket'</tt> &amp; <tt>'tcp'</tt>. It defaults to 'tcp' as that
-        is nearly guarenteed to be available on all MySQL servers, while 
+        is nearly guarenteed to be available on all MySQL servers, while
         sockets are not supported on some platforms.
         <br /><br />
     </dd>
@@ -709,7 +709,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         If your rule order is empty, then IP authentication is disabled.
         <br /><br />
         If your rule order is set to <tt>'deny,allow'</tt> then the system
-        applies all deny rules followed by allow rules. 
+        applies all deny rules followed by allow rules.
         Access is allowed by default. Any client which does not match a Deny
         command or does match an Allow command will be allowed access to the
         server.
@@ -1638,8 +1638,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>With Mozilla 0.9.? to 1.0-RC1 I can't type a whitespace in the SQL-Query
-       edit area: the page scrolls down.</b>
+    <b>With Mozilla 0.9.? to 1.0-RC2 and Netscape 7.0-PR1 I can't type a
+       whitespace in the SQL-Query edit area: the page scrolls down.</b>
     <br />
     This is a Mozilla bug (see bug #26882 at
     <a class="navigation" href="http://bugzilla.mozilla.org/" target="_blank">Bugzilla</a>).<br />
