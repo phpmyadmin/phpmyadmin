@@ -16,6 +16,8 @@ $Source$
         - Added '//to translate' to all untranslated strings
     * lang/*:
         - Resorted language files with fixed sort_lang.sh
+    * scripts/create-release.sh:
+        - Fix bug for existance of directory
 
 2002-08-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/afrikaans: update, thanks to Andreas Pauley
