@@ -7,6 +7,8 @@ $Source$
 
 2004-05-10 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
+    * left.php: commit for Garvin: fix for wrong group expanding (group
+      name containing foreign characters)
 
 2004-05-10 Michal Čihař  <michal@cihar.com>
     * libraries/dbi/mysql.dbi.lib.php: Fix PMA_DBI_field_name, fixes also bug

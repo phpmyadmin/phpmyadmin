@@ -77,7 +77,9 @@ function PMA_indent($spaces) {
 
 function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_level, $val, $childout = true) {
     $name = $key;
-    $id = preg_replace('@[^a-z0-9]*@i', '', $baseid . $keyhistory . $key) . $indent;
+    //$id = preg_replace('@[^a-z0-9]*@i', '', $baseid . $keyhistory . $key) . $indent;
+    $id = base64_encode($baseid . $keyhistory . $key) . $indent;
+
     $groupkey = $keyhistory . ($key != $keyhistory ? $GLOBALS['cfg']['LeftFrameTableSeparator'] . $key : '');
 
     $on_mouse = (($GLOBALS['cfg']['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $id . '\', \'' . $GLOBALS['cfg']['LeftBgColor'] . '\')}"');
