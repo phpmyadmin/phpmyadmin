@@ -525,9 +525,6 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
                 echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:<br />' . "\n";
             }
             echo '            ' . $query_base;
-            if (isset($GLOBALS['sql_order'])) {
-                echo ' ' . $GLOBALS['sql_order'];
-            }
             // If a 'LIMIT' clause has been programatically added to the query
             // displays it
             $is_append_limit = (isset($GLOBALS['pos'])
@@ -622,7 +619,6 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
      * @global  string   the database name
      * @global  string   the table name
      * @global  string   the current sql query
-     * @global  string   the sort order sql query part
      * @global  integer  the current position in results
      * @global  string   the url to go back in case of errors
      * @global  integer  the maximum number of rows per page
@@ -631,17 +627,15 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
     function show_table_navigation($pos_next, $pos_prev, $dt_result)
     {
         global $lang, $server, $db, $table;
-        global $sql_query, $sql_order, $pos, $goto;
+        global $sql_query, $pos, $goto;
         global $sessionMaxRows, $SelectNumRows;
         
-        // $sql_query and $sql_order will be stripslashed in 'sql.php3' if the
+        // $sql_query will be stripslashed in 'sql.php3' if the
         // 'magic_quotes_gpc' directive is set to 'on'
         if (get_magic_quotes_gpc()) {
             $encoded_sql_query = urlencode(addslashes($sql_query));
-            $encoded_sql_order = urlencode(addslashes($sql_order));
         } else {
             $encoded_sql_query = urlencode($sql_query);
-            $encoded_sql_order = urlencode($sql_order);
         }
         ?>
 
@@ -659,7 +653,6 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
-            <input type="hidden" name="sql_order" value="<?php echo $encoded_sql_order; ?>" />
             <input type="hidden" name="pos" value="0" />
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -673,7 +666,6 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
-            <input type="hidden" name="sql_order" value="<?php echo $encoded_sql_order; ?>" />
             <input type="hidden" name="pos" value="<?php echo $pos_prev; ?>" />
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -695,7 +687,6 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
-            <input type="hidden" name="sql_order" value="<?php echo $encoded_sql_order; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="submit" name="navig" value="<?php echo $GLOBALS['strShow']; ?>&nbsp;:" />
             <input type="text" name="sessionMaxRows" size="3" value="<?php echo $sessionMaxRows; ?>" />
@@ -717,7 +708,6 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
-            <input type="hidden" name="sql_order" value="<?php echo $encoded_sql_order; ?>" />
             <input type="hidden" name="pos" value="<?php echo $pos_next; ?>" />
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -732,7 +722,6 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
-            <input type="hidden" name="sql_order" value="<?php echo $encoded_sql_order; ?>" />
             <input type="hidden" name="pos" value="<?php echo $SelectNumRows - $sessionMaxRows; ?>" />
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -764,14 +753,13 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $GLOBA
      * @global  string   the database name
      * @global  string   the table name
      * @global  string   the current sql query
-     * @global  string   the sort order sql query part
      * @global  string   the url to go back in case of errors
      * @global  integer  the total number of rows returned by the sql query
      */
     function display_table($dt_result, $is_simple = FALSE)
     {
         global $lang, $server, $db, $table;
-        global $sql_query, $goto, $sql_order, $pos;
+        global $sql_query, $goto, $pos;
         global $SelectNumRows;
 
         // Gets the number of rows per page
@@ -857,22 +845,50 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         while ($field = mysql_fetch_field($dt_result)) {
             // Result is more than one row long
             if (@mysql_num_rows($dt_result) > 1 && !$is_simple) {
+                // Defines the url used to append/modify a sorting order
+                // 1. Checks if an hard coded 'order by' clause exists
+                if (eregi('(.*)( ORDER BY (.*))', $sql_query, $regs1)) {
+                    if (eregi('((.*)( ASC| DESC)( |$))(.*)', $regs1[2], $regs2)) {
+                        $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
+                        $sql_order          = trim($regs2[1]);
+                    }
+                    else if (eregi('((.*)) (LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)', $regs1[2], $regs3)) {
+                        $unsorted_sql_query = trim($regs1[1] . ' ' . $regs3[3]);
+                        $sql_order          = trim($regs3[1]) . ' ASC';
+                    } else {
+                        $unsorted_sql_query = trim($regs1[1]);
+                        $sql_order          = trim($regs1[2]) . ' ASC';
+                    }
+                } else {
+                    $unsorted_sql_query     = $sql_query;
+                }
+                // 2. Checks if the current column is used to sort the result
                 if (empty($sql_order)) {
+                    $is_in_sort = FALSE;
+                } else {
+                    $is_in_sort = eregi(' (`?)' . str_replace('\\', '\\\\', $field->name) . '(`?)[ ,$]', $sql_order);
+                }
+                // 3. Do define the sorting url
+                if (!$is_in_sort) {
                     $sort_order = ' ORDER BY ' . backquote($field->name) . ' ' . $GLOBALS['cfgOrder'];
                 }
-                else if (substr($sql_order, -3) == 'ASC') {
+                else if (substr($sql_order, -3) == 'ASC' && $is_in_sort) {
                     $sort_order = ' ORDER BY ' . backquote($field->name) . ' DESC';
                 }
-                else if (substr($sql_order, -4) == 'DESC') {
+                else if (substr($sql_order, -4) == 'DESC' && $is_in_sort) {
                     $sort_order = ' ORDER BY ' . backquote($field->name) . ' ASC';
+                }
+                if (eregi('(.*)( LIMIT (.*)| PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)', $unsorted_sql_query, $regs3)) {
+                    $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
+                } else {
+                    $sorted_sql_query = $unsorted_sql_query . $sort_order;
                 }
                 $url_query = 'lang=' . $lang
                            . '&server=' . urlencode($server)
                            . '&db=' . urlencode($db)
                            . '&table=' . urlencode($table)
                            . '&pos=' . $pos
-                           . '&sql_query=' . urlencode($sql_query)
-                           . '&sql_order=' . urlencode($sort_order);
+                           . '&sql_query=' . urlencode($sorted_sql_query);
                 ?>
     <th>
         <a href="sql.php3?<?php echo $url_query; ?>">

@@ -28,9 +28,6 @@ if (isset($store_bkm)) {
 // queries or in the navigation bar for browsing among records
 if (isset($btnDrop) || isset($navig)) {
     $sql_query = urldecode($sql_query);
-    if (isset($sql_order)) {
-        $sql_order = urldecode($sql_order);
-    }
 }
 
 
@@ -94,16 +91,10 @@ if ($do_confirm) {
  * Executes the query and displays results
  */
 else {
-    if (get_magic_quotes_gpc()) {
-        $sql_query     = isset($sql_query) ? stripslashes($sql_query) : '';
-        $sql_order     = isset($sql_order) ? stripslashes($sql_order) : '';
-    } else {
-        if (!isset($sql_query)) {
-            $sql_query = '';
-        }
-        if (!isset($sql_order)) {
-            $sql_order = '';
-        }
+    if (!isset($sql_query)) {
+        $sql_query = '';
+    } else if (get_magic_quotes_gpc()) {
+        $sql_query = stripslashes($sql_query);
     }
 
     //defines some variables
@@ -114,13 +105,14 @@ else {
     if (isset($sessionMaxRows)) {
         $cfgMaxRows       = $sessionMaxRows;
     }
-    $sql_limit_to_append  = (isset($pos) 
-				&& $is_select 
-				&& !eregi(' LIMIT[ 0-9,]+$', $sql_query)
-				&& eregi(' FROM ', $sql_query))
+    $sql_limit_to_append  = (isset($pos) && $is_select && !eregi(' LIMIT[ 0-9,]+$', $sql_query))
                           ? " LIMIT $pos, $cfgMaxRows"
                           : '';
-    $full_sql_query       = $sql_query . $sql_order . $sql_limit_to_append;
+    if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)', $sql_query, $regs)) {
+        $full_sql_query   = $regs[1] . $sql_limit_to_append . $regs[2];
+    } else {
+        $full_sql_query   = $sql_query . $sql_limit_to_append;
+    }
 
     // Executes the query
     mysql_select_db($db);
@@ -133,8 +125,9 @@ else {
         mysql_die($error, $full_sql_query);
     }
 
-    // Gets the number of rows returned
-    $num_rows = mysql_num_rows($result);
+    // Gets the number of rows returned ('@' is required because mysql_num_rows
+    // ran on queries that are not 'SELECT' statements returns an error
+    $num_rows = @mysql_num_rows($result);
 
     // Counts the total number of rows for the same 'SELECT' query without the
     // 'LIMIT' clause that may have been programatically added
@@ -207,7 +200,7 @@ else {
                            . '&db=' . urlencode($db)
                            . '&table=' . urlencode($table)
                            . '&pos=' . $pos
-                           . '&sql_query=' . urlencode($full_sql_query)
+                           . '&sql_query=' . urlencode($sql_query)
                            . '&goto=' . urlencode($goto);
                 echo "\n\n";
                 echo '<!-- Insert a new row -->' . "\n";
@@ -217,7 +210,8 @@ else {
             } // end insert row
 
             // Bookmark Support
-            if ($cfgBookmark['db'] && $cfgBookmark['table'] && empty($id_bookmark)) {
+            if ($cfgBookmark['db'] && $cfgBookmark['table'] && empty($id_bookmark)
+                && !empty($sql_query)) {
                 echo "\n";
                 echo '<!-- Bookmark the query -->' . "\n";
                 echo '<form method="post" action="sql.php3">' . "\n";
@@ -232,13 +226,13 @@ else {
                       . '&db=' . urlencode($db)
                       . '&table=' . urlencode($table)
                       . '&pos=' . $pos
-                      . '&sql_query=' . urlencode($full_sql_query)
+                      . '&sql_query=' . urlencode($sql_query)
                       . '&id_bookmark=1';
                 ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="fields[dbase]" value="<?php echo $db; ?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfgBookmark['user']; ?>" />
-    <input type="hidden" name="fields[query]" value="<?php echo isset($sql_query) ? urlencode($full_sql_query) : ''; ?>" />
+    <input type="hidden" name="fields[query]" value="<?php echo urlencode($sql_query); ?>" />
     <input type="text" name="fields[label]" value="" />
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
 </form>
