@@ -28,6 +28,24 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
     unset($client_api);
 }
 
+// Constants from mysql_com.h of MySQL 4.1.3
+
+define('NOT_NULL_FLAG',         1);
+define('PRI_KEY_FLAG',          2);
+define('UNIQUE_KEY_FLAG',       4);
+define('MULTIPLE_KEY_FLAG',     8);
+define('BLOB_FLAG',            16);
+define('UNSIGNED_FLAG',        32);
+define('ZEROFILL_FLAG',        64);
+define('BINARY_FLAG',         128);
+define('ENUM_FLAG',           256);
+define('AUTO_INCREMENT_FLAG', 512);
+define('TIMESTAMP_FLAG',     1024);
+define('SET_FLAG',           2048);
+define('NUM_FLAG',          32768);
+define('PART_KEY_FLAG',     16384);
+define('UNIQUE_FLAG',       65536);
+
 function PMA_DBI_connect($user, $password) {
     global $cfg, $php_errormsg;
 
@@ -298,71 +316,22 @@ function PMA_DBI_field_flags($result, $i) {
     $f = mysqli_fetch_field_direct($result, $i);
     $f = $f->flags;
     $flags = '';
-    while ($f > 0) {
-        if (floor($f / 65536)) {
-            $flags .= 'unique ';
-            $f -= 65536;
-            continue;
-        } elseif (floor($f / 32768)) {
-            $flags .= 'num ';
-            $f -= 32768;
-            continue;
-        } elseif (floor($f / 16384)) {
-            $flags .= 'part_key ';
-            $f -= 16384;
-            continue;
-        } elseif (floor($f / 2048)) {
-            $flags .= 'set ';
-            $f -= 2048;
-            continue;
-        } elseif (floor($f / 1024)) {
-            $flags .= 'timestamp ';
-            $f -= 1024;
-            continue;
-        } elseif (floor($f / 512)) {
-            $flags .= 'auto_increment ';
-            $f -= 512;
-            continue;
-        } elseif (floor($f / 256)) {
-            $flags .= 'enum ';
-            $f -= 256;
-            continue;
-        } elseif (floor($f / 128)) {
-            $flags .= 'binary ';
-            $f -= 128;
-            continue;
-        } elseif (floor($f / 64)) {
-            $flags .= 'zerofill ';
-            $f -= 64;
-            continue;
-        } elseif (floor($f / 32)) {
-            $flags .= 'unsigned ';
-            $f -= 32;
-            continue;
-        } elseif (floor($f / 16)) {
-            $flags .= 'blob ';
-            $f -= 16;
-            continue;
-        } elseif (floor($f / 8)) {
-            $flags .= 'multiple_key ';
-            $f -= 8;
-            continue;
-        } elseif (floor($f / 4)) {
-            $flags .= 'unique_key ';
-            $f -= 4;
-            continue;
-        } elseif (floor($f / 2)) {
-            $flags .= 'primary_key ';
-            $f -= 2;
-            continue;
-        } elseif (floor($f / 1)) {
-            $flags .= 'not_null ';
-            $f -= 1;
-            continue;
-        }
-    }
+    if ($f & UNIQUE_FLAG)         { $flags .= 'unique ';}
+    if ($f & NUM_FLAG)            { $flags .= 'num ';}
+    if ($f & PART_KEY_FLAG)       { $flags .= 'part_key ';}
+    if ($f & SET_FLAG)            { $flags .= 'set ';}
+    if ($f & TIMESTAMP_FLAG)      { $flags .= 'timestamp ';}
+    if ($f & AUTO_INCREMENT_FLAG) { $flags .= 'auto_increment ';}
+    if ($f & ENUM_FLAG)           { $flags .= 'enum ';}
+    if ($f & BINARY_FLAG)         { $flags .= 'binary ';}
+    if ($f & ZEROFILL_FLAG)       { $flags .= 'zerofill ';}
+    if ($f & UNSIGNED_FLAG)       { $flags .= 'unsigned ';}
+    if ($f & BLOB_FLAG)           { $flags .= 'blob ';}
+    if ($f & MULTIPLE_KEY_FLAG)   { $flags .= 'multiple_key ';}
+    if ($f & UNIQUE_KEY_FLAG)     { $flags .= 'unique_key ';}
+    if ($f & PRI_KEY_FLAG)        { $flags .= 'primary_key ';}
+    if ($f & NOT_NULL_FLAG)       { $flags .= 'not_null ';}
     return PMA_convert_display_charset(trim($flags));
 }
-
 
 ?>

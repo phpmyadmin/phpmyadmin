@@ -9,6 +9,8 @@ $Source$
     * tbl_change.php, libraries/relation.lib.php: bug 1001159, Commands
       out of sync on Insert
     * tbl_move_copy.php: bug 995098, cannot copy table data only
+    * libraries/dbi/mysqli.dbi.lib.php: use faster AND comparison for flags,
+      as suggested by Michal
 
 2004-07-31 Alexander M. Turek  <me@derrabus.de>
     * tbl_change.php, tbl_replace.php, libraries/relation.lib.php: Small
