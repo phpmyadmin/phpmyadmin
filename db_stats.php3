@@ -98,6 +98,9 @@ header('Content-Type: text/html; charset=' . $charset);
 <?php
 if ($num_dbs > 1) {
     $selected_db = 0;
+    $big_tot_all = 0;
+    $big_tot_idx = 0;
+    $big_tot_data = 0;
 
     // Gets the tables list per database
     for ($i = 0; $i < $num_dbs; $i++) {
@@ -125,6 +128,9 @@ if ($num_dbs > 1) {
                $tot_idx += $row['Index_length'];
            } 
            $tot_all = $tot_data + $tot_idx;
+           $big_tot_all += $tot_all;
+           $big_tot_idx += $tot_idx;
+           $big_tot_data += $tot_data;
         }
 
         list($tot_data_format,$unit_data) = format_byte_down($tot_data,3,1);
@@ -138,6 +144,17 @@ if ($num_dbs > 1) {
         echo "</tr>";
 
     }
+
+
+    list($tot_data_format,$unit_data) = format_byte_down($big_tot_data,3,1);
+    list($tot_idx_format,$unit_idx) = format_byte_down($big_tot_idx,3,1);
+    list($tot_all_format,$unit_all) = format_byte_down($big_tot_all,3,1);
+
+    echo "<tr><th>" . $strSum . " </th>";
+    echo "<th>$tot_data_format $unit_data </th>";
+    echo "<th>$tot_idx_format $unit_idx </th>";
+    echo "<th><b>$tot_all_format $unit_all<b> </th>";
+    echo "</tr>";
 
     echo "</table>";
 
