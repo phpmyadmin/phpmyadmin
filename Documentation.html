@@ -2733,6 +2733,19 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     LEFT JOIN from the foreign table.
 </p>
 
+<h4>
+    [3.7] I have table with many (100+) fields and when I try to browse table
+    I get series of errors like &quot;Warning: unable to parse url&quot;. How 
+    can this be fixed?
+</h4>
+<p>
+    Your table neither have a primary key nor an unique one, so we must use a
+    long expression to identify this row. This causes problems to parse_url
+    function. The workaround is to create a primary or unique key.
+    <br />
+</p>
+
+
 <a name="faqmultiuser"></a><br />
 <h3>[4. ISPs, multi-user installations ]</h3>
 

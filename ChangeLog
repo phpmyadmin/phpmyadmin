@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-07 Michal Cihar  <nijel@users.sourceforge.net>
+    * Documentation: Another hint for creating primary/unique keys.
+
 2003-10-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
 
