@@ -11,6 +11,7 @@ $Source$
                 - better check before appending LIMIT
     * lang/galician: update, thanks to Xosé Calvo
     * lang/spanish: update, thanks to Dr. med. Daniel Hinostroza C.
+    * lang/indonesian: missing semicolon
 
 2003-01-08 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/url_generating.lib.php3, libraries/common.lib.php3: New URL
