@@ -8,6 +8,7 @@ $Source$
 2004-09-24 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: following the fix for bug #978930, the added LIMIT was
       not displayed anymore
+    * read_dump.php: bug #1033133, left frame not reloaded after dump read
 
 2004-09-24 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php: Fixed export of '0' string (bug #1033869).
