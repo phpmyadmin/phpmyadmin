@@ -207,7 +207,11 @@ function PMA_tbl_select_operator(f, index, multiple) {
             // f o r e i g n    k e y s
             echo '                    <select name="fields[' . $i . ']">' . "\n";
             // go back to first row
-            echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data, 100);
+
+            // here, the 4th parameter is empty because there is no current
+            // value of data for the dropdown (the search page initial values
+            // are displayed empty)
+            echo PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, '', 100);
             echo '                    </select>' . "\n";
         } else if (isset($foreign_link) && $foreign_link == true) {
         ?>
