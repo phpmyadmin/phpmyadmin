@@ -160,8 +160,6 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
 ?>
 
 <!-- MySQL and phpMyAdmin related links -->
-<table>
-<tr>
 
 <?php
 /**
@@ -283,45 +281,45 @@ if ($server > 0) {
         || $cfg['ShowMysqlInfo'] || $cfg['ShowMysqlVars'] || $cfg['ShowChgPassword']
         || $cfg['Server']['auth_type'] != 'config') {
         ?>
-    <!-- MySQL server related links -->
-    <td valign="top" align="<?php echo $cell_align_left; ?>">
-        <table>
-        <tr>
-            <th colspan="2">&nbsp;&nbsp;MySQL</th>
-        </tr>
+<table>
+    <tr>
+        <th>&nbsp;&nbsp;MySQL</th>
+        <th>&nbsp;&nbsp;phpMyAdmin</th>
+    </tr>
+    <tr>
+        <!-- MySQL server related links -->
+        <td valign="top" align="<?php echo $cell_align_left; ?>">
+        <ul class="main">
         <?php
         // The user is allowed to create a db
         if ($is_create_priv) {
-            echo "\n"
-               . '        <!-- db creation form -->' . "\n"
-               . '        <tr>' . "\n"
-               . '            <td valign="baseline"><img src="' . $item_img . '" width="7" height="7" alt="item" /></td>' . "\n"
-               . '            <td>' . "\n"
-               . '                <form method="post" action="db_create.php">' . "\n"
-               . '                    ' . $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE') . "\n"
-               . '<br />' . "\n"
-               . PMA_generate_common_hidden_inputs(5)
-               . '                    <input type="hidden" name="reload" value="1" />' . "\n"
-               . '                    <input type="text" name="db" value="' . $db_to_create . '" maxlength="64" class="textfield" />' . "\n";
+            ?>
+
+            <!-- db creation form -->
+            <li>
+                <form method="post" action="db_create.php">
+                    <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />
+                    <?php echo PMA_generate_common_hidden_inputs(5); ?>
+                    <input type="hidden" name="reload" value="1" />
+                    <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
+                    <?php
             if (PMA_MYSQL_INT_VERSION >= 40101) {
                 require_once('./libraries/mysql_charsets.lib.php');
                 echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', NULL, NULL, TRUE, 5);
             }
-            echo '                    <input type="submit" value="' . $strCreate . '" />' . "\n"
-               . '                </form>' . "\n"
-               . '            </td>' . "\n"
-               . '        </tr>' . "\n";
+                    ?>
+                    <input type="submit" value="<?php echo $strCreate; ?>" />
+                </form>
+            </li>
+            <?php
         } else {
-            echo "\n";
             ?>
-        <!-- db creation no privileges message -->
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            
+            <!-- db creation no privileges message -->
+            <li>
                 <?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />
                 <?php echo '<i>' . $strNoPrivileges .'</i>'; ?><br />
-            </td>
-        </tr>
+            </li>
             <?php
         } // end create db form or message
         echo "\n";
@@ -333,109 +331,82 @@ if ($server > 0) {
         if ($cfg['ShowMysqlInfo']) {
             echo "\n";
             ?>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            <li>
                 <a href="./server_status.php?<?php echo $common_url_query; ?>">
                     <?php echo $strMySQLShowStatus . "\n"; ?>
                 </a>
-            </td>
-        </tr>
+            </li>
             <?php
         } // end if
         if ($cfg['ShowMysqlVars']) {
             echo "\n";
             ?>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            <li>
                 <a href="./server_variables.php?<?php echo $common_url_query; ?>">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_VARIABLES') . "\n"; ?>
-            </td>
-        </tr>
+            </li>
             <?php
         }
 
         echo "\n";
         ?>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            <li>
                 <a href="./server_processlist.php?<?php echo $common_url_query; ?>">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_PROCESSLIST') . "\n"; ?>
-            </td>
-        </tr>
+            </li>
         <?php
 
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             echo "\n";
             ?>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            <li>
                 <a href="./server_collations.php?<?php echo $common_url_query; ?>">
                     <?php echo $strCharsetsAndCollations; ?></a>&nbsp;
-            </td>
-        </tr>
+            </li>
             <?php
         }
 
         if ($is_reload_priv) {
             echo "\n";
             ?>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            <li>
                 <a href="main.php?<?php echo $common_url_query; ?>&amp;mode=reload">
                     <?php echo $strReloadMySQL; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH') . "\n"; ?>
-            </td>
-        </tr>
+            </li>
             <?php
         }
 
         if ($is_superuser) {
             echo "\n";
             ?>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            <li>
                 <a href="server_privileges.php?<?php echo $common_url_query; ?>">
                     <?php echo $strPrivileges; ?></a>&nbsp;
-            </td>
-        </tr>
+            </li>
             <?php
         }
         ?>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            <li>
                 <a href="./server_databases.php?<?php echo $common_url_query; ?>">
                     <?php echo $strDatabases; ?></a>
-            </td>
-        </tr>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            </li>
+            <li>
                 <a href="./server_export.php?<?php echo $common_url_query; ?>">
                     <?php echo $strExport; ?></a>
-            </td>
-        </tr>
+            </li>
         <?php
 
         // Change password (needs another message)
         if ($cfg['ShowChgPassword']) {
             echo "\n";
             ?>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            <li>
                 <a href="user_password.php?<?php echo $common_url_query; ?>">
                     <?php echo ($strChangePassword); ?></a>
-            </td>
-        </tr>
+            </li>
             <?php
         } // end if
 
@@ -446,21 +417,16 @@ if ($server > 0) {
                          : '';
             echo "\n";
             ?>
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
+            <li>
                 <a href="index.php?<?php echo $common_url_query; ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
                     <b><?php echo $strLogout; ?></b></a>&nbsp;<?php echo $http_logout . "\n"; ?>
-            </td>
-        </tr>
+            </li>
             <?php
         } // end if
-        echo "\n";
         ?>
-        </table>
+        </ul>
     </td>
 
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <?php
     } // end if
 } // end of if ($server > 0)
@@ -474,24 +440,19 @@ echo "\n";
 
     <!-- phpMyAdmin related links -->
     <td valign="top" align="<?php echo $cell_align_left; ?>">
-        <table>
-        <tr>
-            <th colspan="2">&nbsp;&nbsp;phpMyAdmin</th>
-        </tr>
+    <ul class="main">
 
 <?php
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
     ?>
         <!-- Language Selection -->
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td nowrap="nowrap">
-                <form method="post" action="index.php" target="_parent">
-                    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                    Language <a href="./translators.html" target="documentation">(*)</a>:
-                    <select name="lang" dir="ltr" onchange="this.form.submit();">
+        <li class="nowrap">
+            <form method="post" action="index.php" target="_parent">
+                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
+                <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                Language <a href="./translators.html" target="documentation">(*)</a>:
+                <select name="lang" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
 
@@ -522,11 +483,10 @@ if (empty($cfg['Lang'])) {
         echo '<option value="' . $id . '"' . $selected . '>' . $lang_name . ' (' . $id . ')</option>' . "\n";
     }
     ?>
-                    </select>
-                    <noscript><input type="submit" value="Go" /></noscript>
-                </form>
-            </td>
-        </tr>
+                </select>
+                <noscript><input type="submit" value="Go" /></noscript>
+            </form>
+        </li>
     <?php
 }
 
@@ -535,14 +495,12 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
     echo "\n";
     ?>
         <!-- Charset Selection -->
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td nowrap="nowrap">
-                <form method="post" action="index.php" target="_parent">
-                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                    <?php echo $strMySQLCharset;?>:
-                    <select name="convcharset" dir="ltr" onchange="this.form.submit();">
+        <li class="nowrap">
+            <form method="post" action="index.php" target="_parent">
+                <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <?php echo $strMySQLCharset;?>:
+                <select name="convcharset" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
     foreach($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
@@ -555,59 +513,46 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
            . '<option value="' . $tmpcharset . '"' . $selected . '>' . $tmpcharset . '</option>' . "\n";
     }
     ?>
-                    </select>
-                    <noscript><input type="submit" value="Go" /></noscript>
-                </form>
-            </td>
-        </tr>
+                </select>
+                <noscript><input type="submit" value="Go" /></noscript>
+            </form>
+        </li>
     <?php
 } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
-    echo '        <tr>' . "\n"
-       . '            <td valign="baseline"><img src="' . $item_img . '" width="7" height="7" alt="item" /></td>' . "\n"
-       . '            <td nowrap="nowrap">' . "\n"
+    echo '        <li>' . "\n"
        . '                ' . $strMySQLCharset . ':' . "\n"
        . '                ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
        . '                (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
-       . '            </td>' . "\n"
-       . '        </tr>' . "\n";
+       . '        </li>' . "\n";
 }
 echo "\n";
 ?>
 
         <!-- Documentation -->
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
-                <a href="Documentation.html" target="documentation"><b><?php echo $strPmaDocumentation; ?></b></a>
-            </td>
-        </tr>
+        <li>
+            <a href="Documentation.html" target="documentation"><b><?php echo $strPmaDocumentation; ?></b></a>
+        </li>
 
 <?php
 if ($is_superuser || $cfg['ShowPhpInfo']) {
     ?>
         <!-- PHP Information -->
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
-                <a href="phpinfo.php?<?php echo PMA_generate_common_url(); ?>" target="_blank"><?php echo $strShowPHPInfo; ?></a>
-            </td>
-        </tr>
+        <li>
+            <a href="phpinfo.php?<?php echo PMA_generate_common_url(); ?>" target="_blank"><?php echo $strShowPHPInfo; ?></a>
+        </li>
     <?php
 }
 echo "\n";
 ?>
 
         <!-- phpMyAdmin related urls -->
-        <tr>
-            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
-            <td>
-                <a href="http://www.phpMyAdmin.net/" target="_blank"><?php echo $strHomepageOfficial; ?></a><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_blank">ChangeLog</a>]
-                &nbsp;&nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_blank">CVS</a>]
-                &nbsp;&nbsp;&nbsp;[<a href="http://sourceforge.net/mail/?group_id=23067" target="_blank">Lists</a>]
-            </td>
-        </tr>
-        </table>
+        <li>
+            <a href="http://www.phpMyAdmin.net/" target="_blank"><?php echo $strHomepageOfficial; ?></a><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_blank">ChangeLog</a>]
+            &nbsp;&nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_blank">CVS</a>]
+            &nbsp;&nbsp;&nbsp;[<a href="http://sourceforge.net/mail/?group_id=23067" target="_blank">Lists</a>]
+        </li>
+    </ul>
     </td>
 
 </tr>

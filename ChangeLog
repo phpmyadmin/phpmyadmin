@@ -8,7 +8,9 @@ $Source$
 2004-04-27 Michal Cihar  <michal@cihar.com>
     * calendar.php, libraries/tbl_change.js: Don't reset clock when moving in
       calendar.
-    * Almost everyting: Be valid XHTML (probably still not completely).
+    * Almost everything: Be valid XHTML 1.0 (probably still not completely).
+    * main.php, css/phpmyadmin.css.php: Main page now uses lists instead of
+      nested tables.
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
     * libraries/display_tbl.lib.php: Bug #942392 - Wrapping sort order

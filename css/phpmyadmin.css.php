@@ -289,3 +289,13 @@ li {
 li form {
     display: inline;
 }
+
+ul.main {
+    margin: 0px;
+    padding-left:2em;
+}
+
+ul.main li {
+    list-style-image: url(../images/item_<?php echo $text_dir; ?>.png);
+    padding-bottom: 0.1em;
+}
