@@ -1,39 +1,91 @@
 <?php
 /* $Id$ */
 
-/** Parser BUG decoder
+/**
+ * Parser BUG decoder
+ *
  * This is the parser bug decoder system
  * Throw the bug data in teh query box, and hit submit for output.
- * 
+ *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
  */
+
+
+/**
+ * Displays the form
+ */
 ?>
-<html>
-<h4>Parser BUG decoder</h4>
-<form method="post" action="decode_bug.php3">
-<textarea name="foo" cols="72" rows="10">
-</textarea>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>phpMyAdmin - Parser BUG decoder</title>
+    <style type="text/css">
+    <!--
+    body, p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:   medium;
+    }
+    h1 {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size:   large;
+        font-weight: bold;
+        color:       #000066;
+    }
+    //-->
+    </style>
+</head>
+
+
+<body bgcolor="#FFFFFF">
+<h1>Parser BUG decoder</h1>
 <br />
-<input type="submit" />
-<input type="hidden" name="bar" value="<?php echo rand(); ?>" />
+
+<form method="post" action="./decode_bug.php3">
+    <input type="hidden" name="bar" value="<?php echo rand(); ?>" />
+	Encoded bug report:<br />
+    <textarea name="bug_encoded" cols="72" rows="10"></textarea>
+    <br /><br />
+    <input type="submit" />
 </form>
-
 <hr />
+
 <?php
-if(isset($_REQUEST['foo']))
-{
-    $foo = $_REQUEST['foo'];
-} else {
-    $foo = "";
+/**
+ * If the form has been submitted -> decodes the bug report
+ */
+if (!empty($_POST) && isset($_POST['bug_encoded'])) {
+    $bug_encoded = $_POST['bug_encoded'];
+}
+else if (!empty($HTTP_POST_VARS) && isset($HTTP_POST_VARS['bug_encoded'])) {
+    $bug_encoded = $HTTP_POST_VARS['bug_encoded'];
 }
 
-$foo = eregi_replace("[[:space:]]", "", $foo);
-$bar = base64_decode($foo);
-if(substr($foo,0,2) == 'eN')
-{
-    $bar = gzuncompress($bar);
-}
-echo "Decoded:<br />".$bar."<br />";
+if (!empty($bug_encoded)) {
+    if (get_magic_quotes_gpc()) {
+        $bug_encoded = stripslashes($bug_encoded);
+    }
 
+    $bug_encoded     = ereg_replace('[[:space:]]', '', $bug_encoded);
+    $bug_decoded     = base64_decode($bug_encoded);
+    if (substr($bug_encoded, 0, 2) == 'eN') {
+        if (function_exists('gzuncompress')) {
+            $result  = '    Decoded:<br />' . "\n"
+                     . '    ' . gzuncompress($bug_decoded) . '<br />' . "\n";
+        } else {
+            $result  = 'Error: &quot;gzuncompress()&quot; is unavailable!' . "\n";
+        }
+    }
+    else {
+        $result      = '    Decoded:<br />' . "\n"
+                     . '    ' . $bug_decoded . '<br />'. "\n";
+    } // end if... else...
+
+    echo '<p>' . "\n" . $result . '</p>' . "\n";
+} // end if
 ?>
+</body>
+
 </html>
