@@ -6,6 +6,7 @@ $Id$
 $Source$
 
 2001-08-04  Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html: fixed some typos thanks to Larry Meaney.
 	* lang/chinese_big5.inc.php3: updated thanks to
 	  Taiyen Hung ¬x®õ¤¸<yen789@pchome.com.tw>.
 	* db_details.php3, lines 292-296: queries retained and displayed into the
