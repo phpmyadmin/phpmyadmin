@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/romanian: Updated, thanks to Valics Lehel.
+    
 2004-03-13 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: bug 913630: did not detect correctly DELETE FROM table 
       and even if detected, was calling a non-existent PMA_DBI_result()       
