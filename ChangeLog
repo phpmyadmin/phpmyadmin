@@ -6,7 +6,10 @@ $Id$
 $Source$
 
 2002-04-14 Alexander M. Turek  <rabus@users.sourceforge.net>
-	* Documentation.html: Added some notes about MySQL 4.
+	* Documentation.*: Added some notes about MySQL 4.
+	* db_details.php3, tbl_change.php3, tbl_properties.php3,
+	  user_details.php3: feature #542837, labels for checkboxes and
+	  radiobuttons.
 
 2002-04-13 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/korean.inc.php3: fixed some inconcistencies.
