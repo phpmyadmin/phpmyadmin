@@ -147,7 +147,7 @@ $Source$
     * lang/malay: updated, thanks to nobody
     * lang/lithuanian: Updated, thanks to Vilius Zigmantas (viliusz).
 
-2004-03-23 Olivier Mueller <om@omnis.ch>
+2004-04-03 Olivier Mueller <om@omnis.ch>
     * server_privileges.php, libraries/server_privileges.js: added 
       (un)checkall links to the "Global privileges" edition form.
       Todo: make it work even if JS is disabled + local links
