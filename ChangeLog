@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-23 Marc Delisle  <lem9@users.sourceforge.net>
+    * all themes: item_ltr.png and item_rtl.png: new solid arrow
+      that looks better, thanks to Efim Shuvikov
+
 2004-09-23 Michal Čihař  <michal@cihar.com>
     * themes.php, css/phpmyadmin.css.php, libraries/common.lib.php: Do not
       prepend $cfg['ThemePath'] with another './'.
