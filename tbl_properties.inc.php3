@@ -232,7 +232,6 @@ echo $strTableType.":"; ?>
 <?php if (isset($tbl_gemini)){ ?><option value="GEMINI">Gemini</option><?php }?>
 <?php if (isset($tbl_innodb)){ ?><option value="InnoDB">INNO DB</option><?php }?>
 <?php if (isset($tbl_isam)){ ?><option value="ISAM">ISAM</option><?php }?>
-?>
 </select>
 <?php
 }

@@ -15,6 +15,8 @@ $Source$
 	  outsourced error messages.
 	* left.js, left.php3, header.php3, language files: the font family is now
 	  language dependant.
+	* tbl_properties.inc.php3, line 235: removed an unnecessary php closing
+	  tag.
 
 2001-07-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_details.php3: fixed many little scripting bugs.
