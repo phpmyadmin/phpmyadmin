@@ -230,7 +230,7 @@ else {
     <input type="hidden" name="bookmarkthis" value="true" />
     <input type="hidden" name="fields[dbase]" value="<?php echo $db;?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfgBookmark['user'];?>" />
-    <input type="hidden" name="fields[query]" value="<?php echo isset($sql_query) ? $sql_query : "";?>" />
+    <input type="hidden" name="fields[query]" value="<?php echo isset($sql_query) ? urlencode($sql_query)  : "";?>" />
     <input type="text"   name="fields[label]" value="">
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
 </form>

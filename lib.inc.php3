@@ -1580,8 +1580,9 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     	global $dbh;
     	
         $query ='SELECT label, id FROM '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
-               .' WHERE dbase=\'' . str_replace('\'', '\\\'', $db) . '\''.' AND user=\''.backquote($cfgBookmark['user']).'\'';
-                       
+			.' WHERE dbase=\'' . str_replace('\'', '\\\'', $db) . '\''
+			.' AND user = \'' . str_replace('\'', '\\\'', $cfgBookmark['user']) . '\'';
+
         if(isset($dbh))
             $result=mysql_query($query,$dbh);
         else
@@ -1621,13 +1622,19 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         global $dbh;
         
         $query ='SELECT query FROM '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
-	       .' WHERE dbase=\'' . str_replace('\'', '\\\'', $db) . '\''.' AND id = ' . $id .' AND user=\''.backquote($cfgBookmark['user']).'\'';
-
+			.' WHERE dbase=\'' . str_replace('\'', '\\\'', $db) . '\''
+			.' AND user = \'' . str_replace('\'', '\\\'', $cfgBookmark['user']) . '\''
+			.' AND id = '.$id;
+		   
         if(isset($dbh))
 	    	$result=mysql_query($query,$dbh);
-	else
+		else
 	        $result=mysql_query($query);
-	$bookmark_query=mysql_result($result,0,"query");
+		
+		$bookmark_query=mysql_result($result,0,"query");
+		$bookmark_query=urldecode($bookmark_query);
+		$bookmark_query=str_replace('\'', '\\\'', $bookmark_query);
+
     	return $bookmark_query;
     } // end of the 'query_bookmarks()' function
     
@@ -1644,9 +1651,14 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     function add_bookmarks($fields, $cfgBookmark)
     {
      	global $dbh;
-     	
+   
      	$query ='INSERT INTO '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
-	       .' (id, dbase, user, query, label) VALUES (\'\',\''.backquote($fields['dbase']).'\',\''.backquote($fields['user']).'\',\''.backquote($fields['query']).'\',\''.backquote($fields['label']).'\')';
+			.' (id, dbase, user, query, label) VALUES ('
+			.' \'\','
+			.' \''.str_replace('\'', '\\\'', $fields['dbase']).'\','
+			.' \''.str_replace('\'', '\\\'', $fields['user']).'\','
+			.' \''.str_replace('\'', '\\\'', $fields['query']).'\','
+			.' \''.str_replace('\'', '\\\'', $fields['label']).'\' )';
 
        	if(isset($dbh))
     		$result=mysql_query($query,$dbh);
@@ -1669,8 +1681,9 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
     	global $dbh;
     	
     	$query ='DELETE FROM '.backquote($cfgBookmark['db']).'.'.backquote($cfgBookmark['table'])
-    	       .' WHERE id = ' . $id .' AND user=\''.backquote($cfgBookmark['user']).'\'';
-
+    	       .' WHERE user = \'' . str_replace('\'', '\\\'', $cfgBookmark['user']) . '\''
+			   .' AND id = '.$id;
+                
         if(isset($dbh))
         	$result=mysql_query($query,$dbh);
         else
