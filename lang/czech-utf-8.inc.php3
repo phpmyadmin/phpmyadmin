@@ -720,4 +720,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
+$strExcelEdition = 'Excel edition';  //to translate
 ?>

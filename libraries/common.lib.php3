@@ -135,7 +135,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php3 revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 207) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 208) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -698,7 +698,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         } else {
             // The URI is specified, however users do often specify this
             // wrongly, so we try to fix this.
-            
+
             // Adds a trailing slash et the end of the phpMyAdmin uri if it
             // does not exist.
             if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
@@ -1983,7 +1983,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 return (ereg_replace('/+', '/', $tmp_file) == $filename);
             } // end of the 'is_uploaded_file()' emulated function
         } // end if
-        
+
         /**
          * Function to check valid extension of file. It accepts entered
          * extensions and bz2 and gz if supported.

@@ -721,4 +721,5 @@ $strZip = 'архивировать в zip';
 
 $strCreationDates = 'Creation/Update/Check dates';  //to translate
 $strCheckOverhead = 'Check overheaded';  //to translate
+$strExcelEdition = 'Excel edition';  //to translate
 ?>

@@ -718,4 +718,5 @@ $strZip = 'Komprimert (zip)';
 
 // To translate
 
+$strExcelEdition = 'Excel edition';  //to translate
 ?>

@@ -309,7 +309,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['LightTabs'])) {
         $cfg['LightTabs'] = FALSE;
     }
-    
+
     if (!isset($cfg['PropertiesIconic'])) {
         $cfg['PropertiesIconic'] = TRUE;
     }
@@ -317,7 +317,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['PropertiesNumColumns'])) {
         $cfg['PropertiesNumColumns'] = 1;
     }
-    
+
     if (!isset($cfg['ShowTooltip'])) {
         if (isset($cfgShowTooltip)) {
             $cfg['ShowTooltip'] = $cfgShowTooltip;
@@ -816,11 +816,11 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['UploadDir'])) {
         $cfg['UploadDir'] = '';
     }
-    
+
     if (!isset($cfg['SaveDir'])) {
         $cfg['SaveDir'] = '';
     }
-    
+
     if (!isset($cfg['docSQLDir'])) {
         $cfg['docSQLDir'] = '';
     }
@@ -1171,6 +1171,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     }
     if (!isset($cfg['Export']['excel_columns'])) {
         $cfg['Export']['excel_columns'] = FALSE;
+    }
+    if (!isset($cfg['Export']['excel_edition'])) {
+        $cfg['Export']['excel_edition'] = 'win';
     }
     if (!isset($cfg['Export']['latex_null'])) {
         $cfg['Export']['latex_null']                = '\textit{NULL}';

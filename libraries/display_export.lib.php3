@@ -173,7 +173,7 @@ if (PMA_MYSQL_INT_VERSION >= 32306) {
 ?>
                     <fieldset>
                         <legend><?php echo $strAddIntoComments; ?></legend>
-<?php                    
+<?php
 if (PMA_MYSQL_INT_VERSION >= 32321) {
 ?>
                         <input type="checkbox" name="sql_dates" value="yes" id="checkbox_sql_dates" <?php PMA_exportCheckboxCheck('sql_dates'); ?> />
@@ -393,9 +393,26 @@ if ($cfgRelation['mimework']) {
                             <input type="text" name="excel_replace_null" size="20" value="<?php echo $cfg['Export']['excel_null']; ?>" class="textfield" />
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="checkbox" name="showexcelnames" value="yes" id="checkbox_dump_showexcelnames" <?php PMA_exportCheckboxCheck('excel_columns'); ?> />
+                            <label for="checkbox_dump_showexcelnames"><?php echo $strPutColNames; ?></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="select_excel_edition">
+                                <?php echo $strExcelEdition; ?>:&nbsp;
+                            </label>
+                        </td>
+                        <td>
+                            <select name="excel_edition" id="select_excel_edition" />
+                                <option value="win"<?php echo $cfg['Export']['excel_edition'] == 'win' ? ' selected="selected"' : ''; ?>>Windows</option>
+                                <option value="mac"<?php echo $cfg['Export']['excel_edition'] == 'mac' ? ' selected="selected"' : ''; ?>>Macintosh</option>
+                            </select>
+                        </td>
+                    </tr>
                 </table>
-                <input type="checkbox" name="showexcelnames" value="yes" id="checkbox_dump_showexcelnames" <?php PMA_exportCheckboxCheck('excel_columns'); ?> />
-                <label for="checkbox_dump_showexcelnames"><?php echo $strPutColNames; ?></label>
             </fieldset>
 
             <fieldset id="none_options">

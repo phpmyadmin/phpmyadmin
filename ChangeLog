@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-03 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-*.inc.php3: Grammar.
+    * config.inc.php3, libraries/common.lib.php3,
+      libraries/config_import.lib.php3, libraries/display_export.lib.php3,
+      libraries/export/csv.php3, lang/*.inc.php3:
+      Bug #812474 (Excel v.X does not import 'CSV for Excel' exports).
+
 2003-11-02 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/arabic: big update, thanks to Ossama Khayat (okhayat)
     * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
@@ -54,14 +61,14 @@ $Source$
     * pdf_pages.php3: Patch 825672: show fields in Edit PDF scratchboard,
       thanks to Chris Walsh (chriswalshaz)
     * libraries/display_tbl.lib.php3: bug 826847, undefined $url_query
-    * tbl_relation.php3: Bug 827340: Relation view should display also 
+    * tbl_relation.php3: Bug 827340: Relation view should display also
       non-unique keys as possible choices for foreign keys
 
 2003-10-20 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation, config.inc.php3, tbl_change.php3,
       libraries/common.lib.php3, libraries/config_import.lib.php3: Make
       default functions configurable (RFE #821271).
-    
+
 2003-10-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3: bug 821512, Safari 1.0 v85.5 and fonts
     * libraries/functions.js: bug 825665, scratchboard and paper size

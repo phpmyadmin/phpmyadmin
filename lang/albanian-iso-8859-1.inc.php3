@@ -720,4 +720,5 @@ $strCreationDates = 'Creation/Update/Check dates';  //to translate
 
 $strLatexCaption = 'Table caption';  //to translate
 
+$strExcelEdition = 'Excel edition';  //to translate
 ?>

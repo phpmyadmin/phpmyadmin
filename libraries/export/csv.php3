@@ -34,7 +34,7 @@ function PMA_exportHeader() {
     // Here we just prepare some values for export
     if ($what == 'excel') {
         $add_character      = "\015\012";
-        $separator          = ',';
+        $separator          = isset($GLOBALS['excel_edition']) && $GLOBALS['excel_edition'] == 'mac' ? ';' : ',';
         $enclosed           = '"';
         $escaped            = '"';
         if (isset($GLOBALS['showexcelnames']) && $GLOBALS['showexcelnames'] == 'yes') {

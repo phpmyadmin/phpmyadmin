@@ -311,6 +311,7 @@ $cfg['Export']['csv_escaped']               = '\\';
 $cfg['Export']['csv_terminated']            = 'AUTO';
 $cfg['Export']['excel_columns']             = FALSE;
 $cfg['Export']['excel_null']                = 'NULL';
+$cfg['Export']['excel_edition']             = 'win'; // win/mac
 
 $cfg['Export']['latex_structure']           = TRUE;
 $cfg['Export']['latex_data']                = TRUE;
@@ -394,7 +395,7 @@ $cfg['RecodingEngine'] = 'auto';
 
 // Specify some parameters for iconv used in charset conversion. See iconv
 // documentation for details:
-// http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html 
+// http://www.gnu.org/software/libiconv/documentation/libiconv/iconv_open.3.html
 $cfg['IconvExtraParams'] = '';
 
 // Available charsets for MySQL conversion. currently contains all which could
@@ -653,7 +654,7 @@ if ($cfg['ShowFunctionFields']) {
        'WEEKDAY',
        'CONCAT'
     );
-    
+
     // Which column types will be mapped to which Group?
     $cfg['RestrictColumnTypes'] = array(
        'VARCHAR'      => 'FUNC_CHAR',
@@ -724,7 +725,7 @@ if ($cfg['ShowFunctionFields']) {
             'SUM'
         )
     );
-    
+
     // Default functions for above defined groups
     $cfg['DefaultFunctions'] = array(
         'FUNC_CHAR'         => '',
@@ -733,7 +734,7 @@ if ($cfg['ShowFunctionFields']) {
         'first_timestamp'   => 'NOW'
     );
 
-    
+
 } // end if
 
 
