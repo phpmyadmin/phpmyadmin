@@ -55,7 +55,7 @@ function PMA_DBI_connect($user, $password) {
         $client_flags |= 128;
     }
 
-    if (empty($client_clags)) {
+    if (empty($client_flags)) {
         $connect_func = 'mysql_' . ($cfg['PersistentConnections'] ? 'p' : '') . 'connect';
         $link = @$connect_func($cfg['Server']['host'] . $server_port . $server_socket, $user, $password);
     } else {
