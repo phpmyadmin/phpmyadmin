@@ -221,7 +221,7 @@ else {
         && $is_select
         && !($is_count || $is_export)
         && eregi('[[:space:]]FROM[[:space:]]', $sql_query)
-        && !eregi('[[:space:]]LIMIT[ 0-9,]+$', $sql_query)) {
+        && !eregi('[[:space:]]LIMIT[[:space:]0-9,]+$', $sql_query)) {
 
         $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";
         if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)$', $sql_query, $regs)) {

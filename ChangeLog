@@ -11,7 +11,7 @@ $Source$
 	* tbl_printview.php3, comments were not displayed, thanks to
 	  Björn T. Hallberg
 
-2002-02-22 Loïc Chapeaux  <lolo@phpheaven.net>
+2002-02-23 Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_addfield.php3, lines 34-44; tbl_create.php3, lines 40-50: fixed php
 	  warnings (see bug #521751).
 	* tbl_change.php3, lines 166-168: fixed bug #521589 - float(4,2) and field
@@ -21,6 +21,10 @@ $Source$
 	  selecting Databases with blanks.
 	* db_details.php3, line 775; lang/*: modified $strDropTable for easier
 	  translations.
+	* tbl_replace.php3; libraries/display_tbl.lib.php3: fixed bug
+	  #520242 - records get inserted twice, and ensured the fix does not cause
+	  the come back of the bug #508024 - (2.2.2) Wrong page back after edit.
+	* sql.php3, line 224: fixed bug #521595 - Check for LIMIT clause.
 
 2002-02-22 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/catala.inc.php3 updates, thanks to Xavier Navarro
