@@ -88,7 +88,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     // output buffering should be run
     if (PMA_PHP_INT_VERSION < 40000
         || (PMA_PHP_INT_VERSION >= 40005 && @ini_get('zlib.output_compression'))) {
-        $cfgOBGzip = FALSE;
+        $cfg['OBGzip'] = FALSE;
     }
 
 
@@ -361,7 +361,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * Otherwise, set up $cfg['Server'] and do the usual login stuff.
      */
     else if (isset($cfg['Servers'][$server])) {
-        $cfgServer = $cfg['Servers'][$server];
+        $cfg['Server'] = $cfg['Servers'][$server];
 
         // Check how the config says to connect to the server
         $server_port   = (empty($cfg['Server']['port']))
