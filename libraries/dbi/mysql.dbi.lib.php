@@ -16,7 +16,7 @@ if (!@function_exists('mysql_connect')) {
 // check whether mysql is available
 if (!@function_exists('mysql_connect')) {
     require_once('./libraries/header_http.inc.php');
-    echo $strCantLoadMySQL . '<br />' . "\n"
+    echo sprintf($strCantLoad, 'mysql') . '<br />' . "\n"
          . '<a href="./Documentation.html#faqmysql" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
     exit;
 }
