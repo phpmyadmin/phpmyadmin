@@ -1000,7 +1000,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
 
     /**
-     * Do display the result table with the vertical direction mode
+     * Do display the result table with the vertical direction mode.
+     * Credits for this feature goes to Garvin Hicking <hicking@faktor-e.de>.
      *
      * @return  boolean  always true
      *

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-19  Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html; libraries/display_tbl.lib.php3: updated credits.
+
 2001-12-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3; tbl_change.php3; tbl_replace.php3;
 	  libraries/display_tbl.lib.php3: the number of rows to return, display
