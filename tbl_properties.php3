@@ -31,16 +31,16 @@ $url_query = 'lang=' . $lang
            . '&goto=tbl_properties.php3';
 ?>
 
-<!-- first browse link -->
+<!-- first browse links -->
 <p> 
-   [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
+    [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
         <b><?php echo $strBrowse; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-   [ <a href="tbl_select.php3?<?php echo $url_query; ?>">
-            <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-   [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
-            <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
-   [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>">
-            <b><?php echo $strEmpty; ?></b></a> ]
+    [ <a href="tbl_select.php3?<?php echo $url_query; ?>">
+        <b><?php echo $strSelect; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="tbl_change.php3?<?php echo $url_query; ?>">
+        <b><?php echo $strInsert; ?></b></a> ]&nbsp;&nbsp;&nbsp;
+    [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('DELETE FROM ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenEmptied); ?>">
+         <b><?php echo $strEmpty; ?></b></a> ]
 </p>
 <?php
 
@@ -140,6 +140,8 @@ while ($row = mysql_fetch_array($result)) {
     $shorttype        = substr($type, 0, 3);
     if ($shorttype == 'set' || $shorttype == 'enu') {
         $type         = eregi_replace(',', ', ', $type);
+        // Removes automatic MySQL escape format
+        $type         = str_replace('\'\'', '\\\'', $type);
         $type_nowrap  = '';
     } else {
         $type_nowrap  = ' nowrap="nowrap"';
@@ -561,7 +563,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
                 <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
 <?php
 reset($aryFields);
-while(list($junk, $fieldname) = each($aryFields)) {
+while (list($junk, $fieldname) = each($aryFields)) {
     echo '                <option value="' . urlencode($fieldname) . '">' . $strAfter . ' ' . htmlspecialchars($fieldname) . '</option>' . "\n";
 }
 ?>
@@ -585,7 +587,7 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && MYSQL_MINOR_VERSION >= 34) {
     <?php
     echo "\n";
     reset($aryFields);
-    while(list($junk, $fieldname) = each($aryFields)) {
+    while (list($junk, $fieldname) = each($aryFields)) {
         echo '                <option value="' . urlencode($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
     }
     ?>

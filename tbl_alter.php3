@@ -13,17 +13,26 @@ require('./header.inc.php3');
  * Modifications have been submitted -> updates the table
  */
 if (isset($submit)) {
+    if (get_magic_quotes_gpc()) {
+        $field_name[0]    = stripslashes($field_name[0]);
+        $field_default[0] = stripslashes($field_default[0]);
+        $field_length[0]  = stripslashes($field_length[0]);
+    }
+
     // Some fields have been urlencoded or double quotes have been translated
     // to "&quot;" in tbl_properties.php3
-    $field_orig[0] = urldecode($field_orig[0]);
+    $field_orig[0]     = urldecode($field_orig[0]);
     if (str_replace('"', '&quot;', $field_orig[0]) == $field_name[0]) {
         $field_name[0] = $field_orig[0];
     }
     $field_default_orig[0] = urldecode($field_default_orig[0]);
     if (str_replace('"', '&quot;', $field_default_orig[0]) == $field_default[0]) {
-        $field_default[0] = $field_default_orig[0];
+        $field_default[0]  = $field_default_orig[0];
     }
-    
+    $field_length_orig[0] = urldecode($field_length_orig[0]);
+    if (str_replace('"', '&quot;', $field_length_orig[0]) == $field_length[0]) {
+        $field_length[0] = $field_length_orig[0];
+    }
     if (!isset($query)) {
         $query = '';
     }
@@ -39,9 +48,11 @@ if (isset($submit)) {
     if ($field_default[0] != '') {
         $query .= ' DEFAULT \'' . sql_addslashes($field_default[0]) . '\'';
     }
-    $query .= ' ' . $field_null[0] . ' ' . $field_extra[0];
-    if (get_magic_quotes_gpc()) {
-        $query = stripslashes($query);
+    if ($field_null[0] != '') {
+        $query .= ' ' . $field_null[0];
+    }
+    if ($field_extra[0] != '') {
+        $query .= ' ' . $field_extra[0];
     }
 
    // Optimization fix - 2 May 2001 - Robbat2

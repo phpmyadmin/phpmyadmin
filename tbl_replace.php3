@@ -95,7 +95,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 if (!empty($$f)) {
                     $val    = implode(',', $$f);
                     if ($is_encoded) {
-                        $val = "'" . sql_addslashes(urldecode(',', $val)) . "'";
+                        $val = "'" . sql_addslashes(urldecode(val)) . "'";
                     } else if (get_magic_quotes_gpc()) {
                         $val = "'" . str_replace('\\"', '"', $val) . "'";
                     } else {
@@ -198,7 +198,7 @@ else {
                 if (!empty($$f)) {
                     $val    = implode(',', $$f);
                     if ($is_encoded) {
-                        $val = "'" . sql_addslashes(urldecode(',', $val)) . "'";
+                        $val = "'" . sql_addslashes(urldecode($val)) . "'";
                     } else if (get_magic_quotes_gpc()) {
                         $val = "'" . str_replace('\\"', '"', $val) . "'";
                     } else {

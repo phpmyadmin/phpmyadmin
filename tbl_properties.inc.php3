@@ -40,8 +40,8 @@ if ($action == 'tbl_create.php3' || $action == 'tbl_addfield.php3') {
         echo "        <th>$strUnique</th>\n";
     } else {
         for ($i = 0; $i < $num_indexes; $i++) {
-	        echo "        <th>$strSequence</th>\n";
-	        echo "        <th>$strLength</th>\n";
+            echo "        <th>$strSequence</th>\n";
+            echo "        <th>$strLength</th>\n";
         } // end for
     } // end if
 }
@@ -78,14 +78,14 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     $type   = eregi_replace('ZEROFILL', '', $type);
     $type   = eregi_replace('UNSIGNED', '', $type);
     $length = $type;
-    $type   = eregi_replace('\\(.*\\)', '', $type);
-    $type   = chop($type);
+    $type   = chop(eregi_replace('\\(.*\\)', '', $type));
     if (!empty($type)) {
         $length = eregi_replace("^$type\(", '', $length);
         $length = eregi_replace('\)$', '', trim($length));
     }
-    $length = htmlspecialchars(chop($length));
-    if($length == $type) {
+    // Removes automatic MySQL escape format
+    $length = str_replace('\'\'', '\\\'', $length);
+    if ($length == $type) {
         $length = '';
     }
     for ($j = 0; $j < count($cfgColumnTypes); $j++) {
@@ -99,7 +99,8 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             </select>
         </td>
         <td>
-            <input type="text" name="field_length[]" size="8" value="<?php echo $length; ?>" />
+            <input type="hidden" name="field_length_orig[]" value="<?php echo urlencode($length); ?>" />
+            <input type="text" name="field_length[]" size="8" value="<?php echo str_replace('"', '&quot;', $length); ?>" />
         </td>
         <td>
             <select name="field_attribute[]">
@@ -134,14 +135,14 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     if (!isset($row) || empty($row['Null'])) {
         echo "\n";
         ?>
-                <option value="not null">not null</option>
+                <option value="NOT NULL">not null</option>
                 <option value="">null</option>
         <?php
     } else {
         echo "\n";
         ?>
                 <option value="">null</option>
-                <option value="not null">not null</option>
+                <option value="NOT NULL">not null</option>
         <?php
     }
     echo "\n";

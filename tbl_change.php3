@@ -177,56 +177,74 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         }
     }
     else if (strstr($row_table_def['True_Type'], 'enum')) {
-        $set = str_replace('enum(', '', $row_table_def['Type']);
-        $set = ereg_replace('\\)$', '', $set);
-        $set = explode('\',\'', substr($set, 1, -1));
+        $enum        = str_replace('enum(', '', $row_table_def['Type']);
+        $enum        = ereg_replace('\\)$', '', $enum);
+        $enum        = explode('\',\'', substr($enum, 1, -1));
+        $enum_cnt    = count($enum);
+        $seenchecked = 0;
         ?>
         <td>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" />
         <?php
-        echo "\n" . $backup_field . "\n";
+        echo "\n" . '            ' . $backup_field;
 
         // show dropdown or radio depend on length
         if (strlen($row_table_def['Type']) > 20) {
+            echo "\n";
             ?>
             <select name="field_<?php echo md5($field); ?>[]">
                 <option value=""></option>
             <?php
             echo "\n";
 
-            for ($j = 0; $j < count($set);$j++) {
+            for ($j = 0; $j < $enum_cnt; $j++) {
+                // Removes automatic MySQL escape format
+                $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                 echo '                ';
-                echo '<option value="' . urlencode($set[$j]) . '"';
-                if ($data == $set[$j]
-                    || ($data == ''
-                        && isset($row_table_def['Default'])
-                        && $set[$j] == $row_table_def['Default'])) {
+                echo '<option value="' . urlencode($enum_atom) . '"';
+                if ($data == $enum_atom
+                    || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
+                        && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
+                    // To be able to select the [Null] value when the field is
+                    // null, we lose the ability to select besides the default
+                    // value
+                    echo ' selected="selected"';
+                    $seenchecked = 1;
+                }
+                echo '>' . htmlspecialchars($enum_atom) . '</option>' . "\n";
+            } // end for
+             
+            if ($row_table_def['Null'] == 'YES') {
+                echo '                ';
+                echo '<option value="null"';
+                if ($seenchecked == 0) {
                     echo ' selected="selected"';
                 }
-                echo '>' . htmlspecialchars($set[$j]) . '</option>' . "\n";
-             } // end for
-             ?>
-             </select>
+                echo '>[' . $strNull . ']</option>' . "\n";
+            } // end if
+            ?>
+            </select>
             <?php
         } // end if
         else {
-            $seenchecked = 0;
-            for ($j = 0; $j < count($set); $j++) {
+            echo "\n";
+            
+            for ($j = 0; $j < $enum_cnt; $j++) {
+                // Removes automatic MySQL escape format
+                $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                 echo '            ';
-                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($set[$j]) . '"';
-                if ($data == $set[$j]
-                    || ($data == ''
-                        && isset($row_table_def['Default'])
-                        && $set[$j] == $row_table_def['Default']
-                        && $row_table_def['Null'] != 'YES')) {
+                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($enum_atom) . '"';
+                if ($data == $enum_atom
+                    || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
+                        && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                     // To be able to display a checkmark in the [Null] box when
                     // the field is null, we lose the ability to display a
                     // checkmark besides the default value
                     echo ' checked="checked"';
-                    $seenchecked =1;
+                    $seenchecked = 1;
                 }
                 echo ' />' . "\n";
-                echo '            ' . htmlspecialchars($set[$j]) . "\n";
+                echo '            ' . htmlspecialchars($enum_atom) . "\n";
             } // end for
 
             if ($row_table_def['Null'] == 'YES') {
@@ -239,6 +257,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
                 echo '            [' . $strNull . ']' . "\n";
             } // end if
         } // end else
+        echo "\n";
         ?>
         </td>
         <?php
@@ -266,6 +285,8 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         $countset = count($set);
         for ($j = 0; $j < $countset;$j++) {
             $subset = substr($set[$j], 1, -1);
+            // Removes automatic MySQL escape format
+            $subset = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $subset));
             echo '                ';
             echo '<option value="'. urlencode($subset) . '"';
             if (isset($vset[$subset]) && $vset[$subset]) {
@@ -302,7 +323,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
     } // end else if
     else {
         $fieldsize = (($len > 40) ? 40 : $len);
-	$maxlength = (($len < 4)  ? 4  : $len);
+        $maxlength = (($len < 4)  ? 4  : $len);
         echo "\n";
         ?>
         <td>

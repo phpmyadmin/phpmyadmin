@@ -20,21 +20,21 @@ if (isset($submit)) {
         $query .= backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != ''
             && !eregi('^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$', $field_type[$i])) {
-	        if (get_magic_quotes_gpc()) {
+            if (get_magic_quotes_gpc()) {
                 $query .= '(' . stripslashes($field_length[$i]) . ')';
-	        } else {
+            } else {
                 $query .= '(' . $field_length[$i] . ')';
-	        }
-	    }
+            }
+        }
         if ($field_attribute[$i] != '') {
             $query .= ' ' . $field_attribute[$i];
         }
         if ($field_default[$i] != '') {
-	        if (get_magic_quotes_gpc()) {
+            if (get_magic_quotes_gpc()) {
                 $query .= ' DEFAULT \'' . sql_addslashes(stripslashes($field_default[$i])) . '\'';
-	        } else {
+            } else {
                 $query .= ' DEFAULT \'' . sql_addslashes($field_default[$i]) . '\'';
-	        }
+            }
         }
         if ($field_null[$i] != '') {
             $query .= ' ' . $field_null[$i];
@@ -45,24 +45,24 @@ if (isset($submit)) {
 
         if ($after_field != '--end--') {
             // Only the first field can be added somewhere else than at the end
-	        if ($i == 0) {
-	            if ($after_field == '--first--') {
-	                $query .= ' FIRST';
-	            } else {
-	                if (get_magic_quotes_gpc()) {
-		                $query .= ' AFTER ' . backquote(stripslashes(urldecode($after_field)));
+            if ($i == 0) {
+                if ($after_field == '--first--') {
+                    $query .= ' FIRST';
+                } else {
+                    if (get_magic_quotes_gpc()) {
+                        $query .= ' AFTER ' . backquote(stripslashes(urldecode($after_field)));
                     } else {
                         $query .= ' AFTER ' . backquote(urldecode($after_field));
-	                }
-	            }
-	        } else {
-	            if (get_magic_quotes_gpc()) {
-	                $query .= ' AFTER ' . backquote(stripslashes($field_name[$i-1]));
-	            } else {
-	                $query .= ' AFTER ' . backquote($field_name[$i-1]);
-	            }
-	        }
-	    }
+                    }
+                }
+            } else {
+                if (get_magic_quotes_gpc()) {
+                    $query .= ' AFTER ' . backquote(stripslashes($field_name[$i-1]));
+                } else {
+                    $query .= ' AFTER ' . backquote($field_name[$i-1]);
+                }
+            }
+        }
         $query .= ', ADD ';
     } // end for
     $query = ereg_replace(', ADD $', '', $query);
