@@ -63,8 +63,8 @@ if (!empty($table)) {
 if (empty($table) || !@mysql_numrows($is_table)) {
     header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . '&reload=true');
     exit();
-} else {
-    mysql_free_result($result);
+} else if (isset($is_table)) {
+    mysql_free_result($is_table);
 }
 
 
