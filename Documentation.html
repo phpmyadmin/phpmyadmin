@@ -67,7 +67,7 @@
         aspect ratio, you also need GD2 support in PHP.
     </li>
     <li>
-        MySQL 3.23.32 or newer (<a href="#faqmysqlversions">details</a>);<br />
+        MySQL 3.23.32 or newer (<a href="#faqmysqlversions">details</a>);
     </li>
     <li>
         a web-browser (doh!).
@@ -2383,9 +2383,9 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [1.17] Which MySQL versions does phpMyAdmin support?
 </h4>
 <p>
-    All MySQL versions from 3.23.32 till 5.0 are fully supported. Please note
-    that the older your MySQL version is, the more limitations you will have to
-    face.
+    All MySQL versions from 3.23.32 till 5.0 (except for 4.1.0 and 4.1.1) are
+    fully supported. Please note that the older your MySQL version is, the more
+    limitations you will have to face.
     <br />
     phpMyAdmin may connect to your MySQL server using php's classic
     <a href="http://php.net/mysql">MySQL extension</a> as well as the
@@ -2403,7 +2403,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </p>
 
 <h4>
-    [1.17a] I cannot connect to the MySQL server. It alawys returns the error
+    [1.17a] I cannot connect to the MySQL server. It alaways returns the error
     message, &quot;Client does not support authentication protocol requested
     by server; consider upgrading MySQL client&quot;
 </h4>
@@ -2604,9 +2604,6 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     However, phpMyAdmin needs to be backwards compatible to php4. This is why
     you won't be able to run phpMyAdmin having enabled E_STRICT in your
     error_reporting settings.
-    <br />
-    In addition to this, we recommend to enable the zend1 compatibility mode
-    although we don't know about any issues caused by this setting.
 </p>
 
 <a name="faqconfig"></a><br />
