@@ -66,9 +66,18 @@ function confirmQuery(theForm1, sqlQuery1)
         } // end if
 
         // Confirms a "DROP/DELETE/ALTER" statement
-        var do_confirm_re_0 = new RegExp('DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)\\s', 'i');
-        var do_confirm_re_1 = new RegExp('ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
-        var do_confirm_re_2 = new RegExp('DELETE\\s+FROM\\s', 'i');
+        //
+        // TODO: find a way (if possible) to use the parser-analyser
+        // for this kind of verification
+        // For now, I just added a ^ to check for the statement at
+        // beginning of expression
+        
+        //var do_confirm_re_0 = new RegExp('DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)\\s', 'i');
+        //var do_confirm_re_1 = new RegExp('ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
+        //var do_confirm_re_2 = new RegExp('DELETE\\s+FROM\\s', 'i');
+        var do_confirm_re_0 = new RegExp('^DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)\\s', 'i');
+        var do_confirm_re_1 = new RegExp('^ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
+        var do_confirm_re_2 = new RegExp('^DELETE\\s+FROM\\s', 'i');
         if (do_confirm_re_0.test(sqlQuery1.value)
             || do_confirm_re_1.test(sqlQuery1.value)
             || do_confirm_re_2.test(sqlQuery1.value)) {
