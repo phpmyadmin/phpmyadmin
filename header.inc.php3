@@ -43,6 +43,7 @@ set_font_sizes();
 <style type="text/css">
 <!--
 body          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
+pre           {font-size: <?php echo $font_size; ?>}
 th            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; background-color: <?php echo $cfgThBgcolor;?>}
 td            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 form          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
@@ -56,14 +57,31 @@ A:hover.nav   {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
 .nav          {font-family: <?php echo $right_font_family; ?>; color: #000000}
 //-->
 </style>
+
+<?php
+if (isset($db)) {
+    $title = str_replace('\'', '\\\'', $db);
+}
+if (isset($table)) {
+    $title = (isset($title) ? $title . '.' . str_replace('\'', '\\\'', $table) : str_replace('\'', '\\\'', $table));
+}
+if (!empty($cfgServer) && isset($cfgServer['host'])) {
+    $title = (isset($title) ? $title . ' ' . trim($strRunning) . ' ' . str_replace('\'', '\\\'', $cfgServer['host']) : str_replace('\'', '\\\'', $cfgServer['host']));
+}
+$title = (isset($title) ? $title . ' - phpMyAdmin ' . PHPMYADMIN_VERSION : 'phpMyAdmin ' . PHPMYADMIN_VERSION);
+?>
+<script type="text/javascript" language="javascript">
+<!--
+// Updates the title of the frameset if possible (ns4 does not allow this)
+if (typeof(parent.document.title) == 'string') {
+    parent.document.title = '<?php echo $title; ?>';
+}
 <?php
 // Add some javascript instructions if required
 if (isset($js_to_run) && $js_to_run == 'functions.js') {
     echo "\n";
     ?>
-<!-- js form validation stuff -->
-<script type="text/javascript" language="javascript">
-<!--
+// js form validation stuff
 var errorMsg0   = '<?php echo str_replace('\'', '\\\'', $strFormEmpty); ?>';
 var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $strNotNumber); ?>';
 var errorMsg2   = '<?php echo str_replace('\'', '\\\'', $strNotValidNumber); ?>';
@@ -72,6 +90,12 @@ var confirmMsg  = '<?php echo(($cfgConfirm) ? str_replace('\'', '\\\'', $strDoYo
 //-->
 </script>
 <script src="functions.js" type="text/javascript" language="javascript"></script>
+    <?php
+} else {
+    echo "\n";
+    ?>
+//-->
+</script>
     <?php
 }
 echo "\n";
@@ -84,7 +108,7 @@ echo "\n";
 if (isset($db)) {
     echo '<h1> ' . $strDatabase . ' ' . htmlspecialchars($db);
     if (!empty($table)) {
-        echo ' - ' . $strTable . ' '  . htmlspecialchars($table);
+        echo ' - ' . $strTable . ' ' . htmlspecialchars($table);
     }
     echo '</h1>' . "\n";
 }
