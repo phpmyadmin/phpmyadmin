@@ -12,6 +12,7 @@ $Source$
 	* tbl_change.php3, bug 442778, Edit record with two similar SET fields 
 	* tbl_replace.php3, could not save a row with a set which has no
   	  value selected
+	* sql.php3, bug 444749 SQL DATE & TIME FUNCTION ERROR 
 
 2001-08-06  Steve Alberty  <alberty@nepunlabs.de>
 	* index.php3: remove warning under Apache 2.0.23-dev

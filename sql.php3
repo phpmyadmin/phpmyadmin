@@ -114,7 +114,10 @@ else {
     if (isset($sessionMaxRows)) {
         $cfgMaxRows       = $sessionMaxRows;
     }
-    $sql_limit_to_append  = (isset($pos) && $is_select && !eregi(' LIMIT[ 0-9,]+$', $sql_query))
+    $sql_limit_to_append  = (isset($pos) 
+				&& $is_select 
+				&& !eregi(' LIMIT[ 0-9,]+$', $sql_query)
+				&& eregi(' FROM ', $sql_query))
                           ? " LIMIT $pos, $cfgMaxRows"
                           : '';
     $full_sql_query       = $sql_query . $sql_order . $sql_limit_to_append;
