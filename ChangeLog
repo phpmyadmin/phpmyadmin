@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-13 Michal Čihař  <michal@cihar.com>
+    * lang/czech: Updated.
+
 2004-07-13 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysqli.dbi.lib.php: avoid php errors if result set is
       FALSE.
