@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-30 Michal Cihar  <happynewyer@cihar.com>
+    * lang/czech: Updated.
+    * lang/*: Fixed typo s/Chech-Slovak/Czech-Slovak/.
+
 2003-12-30 Alexander M. Turek  <facevalue@derrabus.de>
     * config.inc.php, db_details_common.php, db_details_structure.php,
       tbl_properties_operations.php, css/phpmyadmin.css.php,

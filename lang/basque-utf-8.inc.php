@@ -715,7 +715,7 @@ $strZip = '"zipatuta"';
 
 $strBrowseForeignValues = 'Browse foreign values';  //to translate
 
-$strCzechSlovak = 'Chech-Slovak';  //to translate
+$strCzechSlovak = 'Czech-Slovak';  //to translate
 
 $strGeorgian = 'Georgian';  //to translate
 

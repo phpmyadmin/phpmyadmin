@@ -149,7 +149,7 @@ $strCriteria = 'Criteria';
 $strCroatian = 'Croatian';
 $strCyrillic = 'Cyrillic';
 $strCzech = 'Czech';
-$strCzechSlovak = 'Chech-Slovak';
+$strCzechSlovak = 'Czech-Slovak';
 
 $strDBComment = 'Database comment: ';
 $strDBGContext = 'Context';
