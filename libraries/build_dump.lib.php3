@@ -590,7 +590,9 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             }
             $buffer         .= '    </' . $table . '>';
         }
+        mysql_free_result($result);
         return $buffer;
     } // end of the 'PMA_getTableXML()' function
+
 } // $__PMA_BUILD_DUMP_LIB__
 ?>
