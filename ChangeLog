@@ -14,6 +14,7 @@ $Source$
     * Documentation.*: Updated credits.
     * libraries/mysql_wrappers.lib.php3: fixed bug #594235, thanks to
       Pawe³ Szczepañski (pauluz).
+    * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
 
 2002-08-13 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*, main.php3: new warning strInsecureMySQL, when running with

@@ -187,6 +187,7 @@ $strIndexes = 'Indici';
 $strIndexHasBeenDropped = 'L\'indice %s è stato eliminato';
 $strIndexName = 'Nome dell\'indice&nbsp;:';
 $strIndexType = 'Tipo di indice&nbsp;:';
+$strInsecureMySQL = 'Il file di configurazione in uso contiene impostazioni (root con nessuna password) che corrispondono ai privilegi dell\'account MySQL predefinito. Un server MySQL funzionante con queste impostazioni è aperto a intrusioni, e si dovrebbe realmente riparare a questa falla nella sicurezza.';
 $strInsert = 'Inserisci';
 $strInsertAsNewRow = 'Inserisci come nuova riga';
 $strInsertedRows = 'Righe inserite:';
@@ -427,7 +428,6 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 $strZip = '"compresso con zip"';
-// To translate
 
-$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.';  //to translate
+// To translate
 ?>
