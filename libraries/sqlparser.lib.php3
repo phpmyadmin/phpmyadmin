@@ -594,6 +594,30 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         return $sql_array;
     } // end of the "PMA_SQP_parse()" function
 
+   /**
+    * Checks for token types being what we want...
+    *
+    * @param  string String of type that we have
+    * @param  string String of type that we want
+    * 
+    * @return boolean result of check
+    * 
+    * @access private
+    */
+    function PMA_SQP_typeCheck($toCheck, $whatWeWant) 
+    {
+        $typeSeperator = '_';
+        if(strcmp($whatWeWant, $toCheck) == 0) {
+            return TRUE;
+        } else {
+            if(strpos($whatWeWant, $typeSeperator) === FALSE) {
+                return strncmp($whatWeWant, $toCheck , strpos($toCheck, $typeSeperator)) == 0;
+            } else {
+                return FALSE;
+            }
+        }
+    }
+
 
     /**
      * Analyzes SQL queries
