@@ -23,6 +23,7 @@ $Source$
 	  displayed.
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
 	* lang/swedish.inc.php3: updated thanks to Björn T. Hallberg.
+	* lang/czech-*.inc.php3: put font faces between double quotes.
 
 2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/*: cleanup thanks to Björn T. Hallberg - Removed unused strings
