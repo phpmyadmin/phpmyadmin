@@ -434,10 +434,6 @@ $cfg['AvailableCharsets'] = array(
     'SHIFT_JIS'
 );
 
-// Loads language file
-require('./libraries/select_lang.lib.php');
-
-
 /**
  * Customization & design
  */

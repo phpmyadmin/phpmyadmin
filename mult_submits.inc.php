@@ -8,7 +8,7 @@
  */
 if (!empty($submit_mult)
     && ($submit_mult != $strWithChecked)
-    && (  !empty($selected_db) 
+    && (  !empty($selected_db)
        || !empty($selected_tbl)
        || !empty($selected_fld)
        || !empty($rows_to_delete)
@@ -19,8 +19,7 @@ if (!empty($submit_mult)
         $what         = 'drop_db';
     } else if (!empty($selected_tbl)) {
         if ($submit_mult == $strPrintView) {
-            include('./tbl_printview.php');
-            exit();
+            require('./tbl_printview.php');
         } else {
            $selected = $selected_tbl;
            switch ($submit_mult) {
@@ -60,8 +59,7 @@ if (!empty($submit_mult)
         if ($submit_mult == $strDrop) {
             $what     = 'drop_fld';
         } else {
-            include('./tbl_alter.php');
-            exit();
+            require('./tbl_alter.php');
         }
     } else {
         $what = 'row_delete';
@@ -77,13 +75,13 @@ if (!empty($submit_mult) && !empty($what)) {
     $js_to_run = 'functions.js';
     unset($message);
     if (!empty($table)) {
-        include('./tbl_properties_common.php');
+        require('./tbl_properties_common.php');
         $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
-        include('./tbl_properties_table_info.php');
+        require('./tbl_properties_table_info.php');
     }
     elseif (!empty($db)) {
-        include('./db_details_common.php');
-        include('./db_details_db_info.php');
+        require('./db_details_common.php');
+        require('./db_details_db_info.php');
     }
     // Builds the query
     $full_query     = '';
@@ -144,7 +142,7 @@ if (!empty($submit_mult) && !empty($what)) {
     echo "\n";
     if (strpos(' ' . $action, 'db_details') == 1) {
         echo PMA_generate_common_hidden_inputs($db);
-    } else if (strpos(' ' . $action, 'tbl_properties') == 1 
+    } else if (strpos(' ' . $action, 'tbl_properties') == 1
               || $what == 'row_delete') {
         echo PMA_generate_common_hidden_inputs($db,$table);
     } else  {
@@ -168,8 +166,7 @@ if (!empty($submit_mult) && !empty($what)) {
     <?php
     echo"\n";
 
-    include('./footer.inc.php');
-    exit();
+    require_once('./footer.inc.php');
 } // end if
 
 
@@ -179,7 +176,7 @@ if (!empty($submit_mult) && !empty($what)) {
 else if ($mult_btn == $strYes) {
 
     if ($query_type == 'drop_db' || $query_type == 'drop_tbl' || $query_type == 'drop_fld') {
-        include('./libraries/relation_cleanup.lib.php');
+        require_once('./libraries/relation_cleanup.lib.php');
     }
 
     $sql_query      = '';
@@ -268,8 +265,7 @@ else if ($mult_btn == $strYes) {
         || $query_type == 'analyze_tbl'
         || $query_type == 'check_tbl'
         || $query_type == 'optimize_tbl') {
-        include('./sql.php');
-        exit();
+        require('./sql.php');
     }
 
 }

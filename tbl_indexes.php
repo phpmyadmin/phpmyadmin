@@ -6,12 +6,8 @@
 /**
  * Gets some core libraries
  */
-if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
-    include('./libraries/grab_globals.lib.php');
-}
-if (!defined('PMA_COMMON_LIB_INCLUDED'))  {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 
 /**
@@ -37,7 +33,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
     }
     if (empty($db) || !$is_db) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
-        exit();
+        exit;
     }
     // Not a valid table name -> back to the default db_details sub-page
     if (!empty($table)) {
@@ -46,14 +42,14 @@ if (!defined('PMA_IDX_INCLUDED')) {
     if (empty($table)
         || !($is_table && @mysql_numrows($is_table))) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
-        exit();
+        exit;
     } else if (isset($is_table)) {
         mysql_free_result($is_table);
     }
 
     // Displays headers (if needed)
     $js_to_run = ((isset($index) && isset($do_save_data)) ? 'functions.js' : 'indexes.js');
-    include('./header.inc.php');
+    require_once('./header.inc.php');
 } // end if
 
 
@@ -209,8 +205,7 @@ if (!defined('PMA_IDX_INCLUDED')
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
 
     $active_page = 'tbl_properties_structure.php';
-    include('./tbl_properties_structure.php');
-    exit();
+    require('./tbl_properties_structure.php');
 } // end builds the new index
 
 
@@ -504,6 +499,6 @@ else if (!defined('PMA_IDX_INCLUDED')
 echo "\n";
 
 if (!defined('PMA_IDX_INCLUDED')){
-    include('./footer.inc.php');
+    require_once('./footer.inc.php');
 }
 ?>

@@ -2,10 +2,15 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-// In this file you may add PHP or HTML statements that will be used to define
-// the footer for phpMyAdmin pages.
+/**
+ * In this file you may add PHP or HTML statements that will be used to define
+ * the footer for phpMyAdmin pages.
+ *
+ * WARNING: This script has to be included at the very end of your code because
+ *          it will stop the script execution!
+ */
 
-require('./libraries/relation.lib.php'); // for PMA_setHistory()
+require_once('./libraries/relation.lib.php'); // for PMA_setHistory()
 
 /**
  * Query window
@@ -14,6 +19,7 @@ require('./libraries/relation.lib.php'); // for PMA_setHistory()
 // If query window is wanted and open, update with latest selected db/table.
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
+
 <script type="text/javascript">
 <!--
 <?php
@@ -137,10 +143,10 @@ if (isset($GLOBALS['cfg']['DBG']['enable'])
         && isset($GLOBALS['cfg']['DBG']['profile']['enable'])
         && $GLOBALS['cfg']['DBG']['profile']['enable']) {
     //run the basic setup code first
-    include('./libraries/dbg/setup.php');
+    require_once('./libraries/dbg/setup.php');
     //if the setup ran fine, then do the profiling
     if (isset($GLOBALS['DBG']) && $GLOBALS['DBG']) {
-        include('./libraries/dbg/profiling.php');
+        require_once('./libraries/dbg/profiling.php');
         dbg_dump_profiling_results();
     }
 }
@@ -152,5 +158,10 @@ if (isset($GLOBALS['cfg']['OBGzip']) && $GLOBALS['cfg']['OBGzip']
         && isset($GLOBALS['ob_mode']) && $GLOBALS['ob_mode']) {
     PMA_outBufferPost($GLOBALS['ob_mode']);
 }
+
+/**
+ * Stops the script execution
+ */
+exit;
 
 ?>

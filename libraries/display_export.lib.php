@@ -3,7 +3,7 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 // Get relations & co. status
-require('./libraries/relation.lib.php');
+require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 function PMA_exportCheckboxCheck($str) {

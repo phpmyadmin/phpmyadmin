@@ -6,14 +6,11 @@
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
-require('./libraries/grab_globals.lib.php');
-require('./header.inc.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./header.inc.php');
 
 // Check parameters
-
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db'));
 
@@ -25,7 +22,7 @@ $err_url = 'db_details.php?' . PMA_generate_common_url($db);
 /**
  * Settings for relations stuff
  */
-require('./libraries/relation.lib.php');
+require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -210,7 +207,7 @@ else {
             } else {
                 $needs_break = '';
             }
-            
+
             if ((isset($sts_data['Create_time']) && !empty($sts_data['Create_time']))
                  || (isset($sts_data['Update_time']) && !empty($sts_data['Update_time']))
                  || (isset($sts_data['Check_time']) && !empty($sts_data['Check_time']))) {
@@ -218,7 +215,7 @@ else {
                 ?>
                 <table border="0" cellpadding="1" cellspacing="1" width="100%">
                 <?php
-            
+
                 if (isset($sts_data['Create_time']) && !empty($sts_data['Create_time'])) {
                     ?>
                     <tr>
@@ -227,7 +224,7 @@ else {
                     </tr>
                     <?php
                 }
-    
+
                 if (isset($sts_data['Update_time']) && !empty($sts_data['Update_time'])) {
                     ?>
                     <tr>
@@ -236,7 +233,7 @@ else {
                     </tr>
                     <?php
                 }
-    
+
                 if (isset($sts_data['Check_time']) && !empty($sts_data['Check_time'])) {
                     ?>
                     <tr>
@@ -308,5 +305,5 @@ function printPage()
 <?php
 echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" name="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
 
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

@@ -5,54 +5,137 @@
 /**
  * DEFINES VARIABLES & CONSTANTS
  * Overview:
- *    PMA_MYSQL_INT_VERSION    (int)    - eg: 32339 instead of 3.23.39
+ *    PMA_VERSION              (string) - phpMyAdmin version string
+ *    PMA_PHP_INT_VERSION      (int)    - eg: 30017 instead of 3.0.17 or
+ *                                        40006 instead of 4.0.6RC3
+ *    PMA_MYSQL_CLIENT_API     (int)    - the version number of the MySQL client
+ *                                          API which php is built against.
+ *    PMA_IS_WINDOWS           (bool)   - mark if phpMyAdmin running on windows
+ *                                        server
+ *    PMA_IS_GD2               (bool)   - true is GD2 is present
  *    PMA_USR_OS               (string) - the plateform (os) of the user
  *    PMA_USR_BROWSER_AGENT    (string) - the browser of the user
  *    PMA_USR_BROWSER_VER      (double) - the version of this browser
  */
-
-// MySQL Version
-if (!defined('PMA_MYSQL_INT_VERSION') && isset($userlink)) {
-    if (!empty($server)) {
-        $result = PMA_mysql_query('SELECT VERSION() AS version');
-        if ($result != FALSE && @mysql_num_rows($result) > 0) {
-            $row   = PMA_mysql_fetch_array($result);
-            $match = explode('.', $row['version']);
-        } else {
-            $result = @PMA_mysql_query('SHOW VARIABLES LIKE \'version\'');
-            if ($result != FALSE && @mysql_num_rows($result) > 0){
-                $row   = PMA_mysql_fetch_row($result);
-                $match = explode('.', $row[1]);
-            }
-        }
-    } // end server id is defined case
-
-    if (!isset($match) || !isset($match[0])) {
-        $match[0] = 3;
-    }
-    if (!isset($match[1])) {
-        $match[1] = 21;
-    }
-    if (!isset($match[2])) {
-        $match[2] = 0;
-    }
-
-    if(!isset($row)) {
-        $row['version'] = '3.21.0';
-    }
-
-    define('PMA_MYSQL_INT_VERSION', (int)sprintf('%d%02d%02d', $match[0], $match[1], intval($match[2])));
-    define('PMA_MYSQL_STR_VERSION', $row['version']);
-    unset($match);
+// phpMyAdmin release
+if (!defined('PMA_VERSION')) {
+    define('PMA_VERSION', '2.5.5-dev');
 }
 
+// php version
+if (!defined('PMA_PHP_INT_VERSION')) {
+    if (!preg_match('@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match)) {
+        $result = preg_match('@([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match);
+    }
+    if (isset($match) && !empty($match[1])) {
+        if (!isset($match[2])) {
+            $match[2] = 0;
+        }
+        if (!isset($match[3])) {
+            $match[3] = 0;
+        }
+        define('PMA_PHP_INT_VERSION', (int)sprintf('%d%02d%02d', $match[1], $match[2], $match[3]));
+        unset($match);
+    } else {
+        define('PMA_PHP_INT_VERSION', 0);
+    }
+    define('PMA_PHP_STR_VERSION', phpversion());
+}
+
+// MySQL client API
+if (!defined('PMA_MYSQL_CLIENT_API')) {
+    $client_api = explode('.', mysql_get_client_info());
+    define('PMA_MYSQL_CLIENT_API', (int)sprintf('%d%02d%02d', $client_api[0], $client_api[1], intval($client_api[2])));
+    unset($client_api);
+}
+
+// Whether the os php is running on is windows or not
+if (!defined('PMA_IS_WINDOWS')) {
+    if (defined('PHP_OS') && stristr(PHP_OS, 'win')) {
+        define('PMA_IS_WINDOWS', 1);
+    } else {
+        define('PMA_IS_WINDOWS', 0);
+    }
+}
+
+function PMA_dl($module) {
+    if (!isset($GLOBALS['PMA_dl_allowed'])) {
+        if (!@ini_get('safe_mode') && @ini_get('enable_dl') && @function_exists('dl')) {
+            ob_start();
+            phpinfo(INFO_GENERAL); /* Only general info */
+            $a = strip_tags(ob_get_contents());
+            ob_end_clean();
+            /* Get GD version string from phpinfo output */
+            if (preg_match('@Thread Safety[[:space:]]*enabled@', $a)) {
+                if (preg_match('@Server API[[:space:]]*\(CGI\|CLI\)@', $a)) {
+                    $GLOBALS['PMA_dl_allowed'] = TRUE;
+                } else {
+                    $GLOBALS['PMA_dl_allowed'] = FALSE;
+                }
+            } else {
+                $GLOBALS['PMA_dl_allowed'] = TRUE;
+            }
+        } else {
+            $GLOBALS['PMA_dl_allowed'] = FALSE;
+        }
+    }
+    if (PMA_IS_WINDOWS) {
+        $suffix = '.dll';
+    } else {
+        $suffix = '.so';
+    }
+    if ($GLOBALS['PMA_dl_allowed']) {
+        return @dl($module . $suffix);
+    } else {
+        return FALSE;
+    }
+}
+
+// Whether GD2 is present
+if (!defined('PMA_IS_GD2')) {
+    if ($cfg['GD2Available'] == 'yes') {
+        define('PMA_IS_GD2', 1);
+    } elseif ($cfg['GD2Available'] == 'no') {
+        define('PMA_IS_GD2', 0);
+    } else {
+        if (!@extension_loaded('gd')) {
+            PMA_dl('gd');
+        }
+        if (!@function_exists('imagecreatetruecolor')) {
+            define('PMA_IS_GD2', 0);
+        } else {
+            if (@function_exists('gd_info')) {
+                $gd_nfo = gd_info();
+                if (strstr($gd_nfo["GD Version"], '2.')) {
+                    define('PMA_IS_GD2', 1);
+                } else {
+                    define('PMA_IS_GD2', 0);
+                }
+            } else {
+                /* We must do hard way... */
+                ob_start();
+                phpinfo(INFO_MODULES); /* Only modules */
+                $a = strip_tags(ob_get_contents());
+                ob_end_clean();
+                /* Get GD version string from phpinfo output */
+                if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
+                    if (strstr($v, '2.')) {
+                        define('PMA_IS_GD2', 1);
+                    } else {
+                        define('PMA_IS_GD2', 0);
+                    }
+                } else {
+                    define('PMA_IS_GD2', 0);
+                }
+            }
+        }
+    }
+}
 
 // Determines platform (OS), browser and version of the user
 // Based on a phpBuilder article:
 //   see http://www.phpbuilder.net/columns/tim20000821.php
 if (!defined('PMA_USR_OS')) {
-    // loic1 - 2001/25/11: use the new globals arrays defined with
-    // php 4.1+
     if (!empty($_SERVER['HTTP_USER_AGENT'])) {
         $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
     } else if (!isset($HTTP_USER_AGENT)) {
@@ -103,5 +186,6 @@ if (!defined('PMA_USR_OS')) {
         define('PMA_USR_BROWSER_VER', 0);
         define('PMA_USR_BROWSER_AGENT', 'OTHER');
     }
-} // $__PMA_DEFINES_LIB__
+}
+
 ?>

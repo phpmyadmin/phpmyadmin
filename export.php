@@ -5,9 +5,9 @@
 /**
  * Get the variables sent or posted to this script and a core script
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
-require('./libraries/zip.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./libraries/zip.lib.php');
 
 PMA_checkParameters(array('what'));
 
@@ -68,7 +68,7 @@ function PMA_exportOutputHandler($line)
         if ($GLOBALS['onfly_compression']) {
 
             $dump_buffer_len += strlen($dump_buffer);
-            
+
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 // as bzipped
                 if ($GLOBALS['output_charset_conversion']) {
@@ -149,7 +149,7 @@ if (empty($asfile)) {
 $crlf = PMA_whichCrlf();
 
 // Do we need to convert charset?
-$output_charset_conversion = $asfile && 
+$output_charset_conversion = $asfile &&
     $cfg['AllowAnywhereRecoding'] && $allow_recoding
     && isset($charset_of_file) && $charset_of_file != $charset;
 
@@ -182,22 +182,22 @@ if ($asfile) {
     $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
     if ($export_type == 'server') {
         if (isset($remember_template)) {
-            setcookie('pma_server_filename_template', $filename_template , 0, 
-                substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), 
+            setcookie('pma_server_filename_template', $filename_template , 0,
+                substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')),
                 '', ($pma_uri_parts['scheme'] == 'https'));
         }
         $filename = str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template));
     } elseif ($export_type == 'database') {
         if (isset($remember_template)) {
-            setcookie('pma_db_filename_template', $filename_template , 0, 
-                substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), 
+            setcookie('pma_db_filename_template', $filename_template , 0,
+                substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')),
                 '', ($pma_uri_parts['scheme'] == 'https'));
         }
         $filename = str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template)));
     } else {
         if (isset($remember_template)) {
-            setcookie('pma_table_filename_template', $filename_template , 0, 
-                substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), 
+            setcookie('pma_table_filename_template', $filename_template , 0,
+                substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')),
                 '', ($pma_uri_parts['scheme'] == 'https'));
         }
         $filename = str_replace('__TABLE__', $table, str_replace('__DB__', $db, str_replace('__SERVER__', $GLOBALS['cfg']['Server']['host'], strftime($filename_template))));
@@ -263,16 +263,16 @@ if ($save_on_server) {
     }
     if (isset($message)) {
         $js_to_run = 'functions.js';
-        include('./header.inc.php');
+        require_once('./header.inc.php');
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            include('./server_export.php');
+            require('./server_export.php');
         } elseif ($export_type == 'database') {
             $active_page = 'db_details_export.php';
-            include('./db_details_export.php');
+            require('./db_details_export.php');
         } else {
             $active_page = 'tbl_properties_export.php';
-            include('./tbl_properties_export.php');
+            require('./tbl_properties_export.php');
         }
         exit();
     }
@@ -299,7 +299,7 @@ if (!$save_on_server) {
     } else {
         // HTML
         $backup_cfgServer = $cfg['Server'];
-        include('./header.inc.php');
+        require_once('./header.inc.php');
         $cfg['Server'] = $backup_cfgServer;
         unset($backup_cfgServer);
         echo '<div align="' . $cell_align_left . '">' . "\n";
@@ -314,16 +314,16 @@ if ($export_type == 'database') {
     if ($num_tables == 0) {
         $message = $strNoTablesFound;
         $js_to_run = 'functions.js';
-        include('./header.inc.php');
+        require_once('./header.inc.php');
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            include('./server_export.php');
+            require('./server_export.php');
         } elseif ($export_type == 'database') {
             $active_page = 'db_details_export.php';
-            include('./db_details_export.php');
+            require('./db_details_export.php');
         } else {
             $active_page = 'tbl_properties_export.php';
-            include('./tbl_properties_export.php');
+            require('./tbl_properties_export.php');
         }
         exit();
     }
@@ -337,11 +337,11 @@ $do_relation = isset($GLOBALS[$what . '_relation']);
 $do_comments = isset($GLOBALS[$what . '_comments']);
 $do_mime     = isset($GLOBALS[$what . '_mime']);
 if ($do_relation || $do_comments || $do_mime) {
-    require('./libraries/relation.lib.php');
+    require_once('./libraries/relation.lib.php');
     $cfgRelation = PMA_getRelationsParam();
 }
 if ($do_mime) {
-    require('./libraries/transformations.lib.php');
+    require_once('./libraries/transformations.lib.php');
 }
 
 // Include dates in export?
@@ -358,7 +358,7 @@ if ($export_type == 'server') {
     if ($server > 0 && empty($dblist)) {
         PMA_availableDatabases();
     }
-    
+
     if (isset($db_select)) {
         $tmp_select = implode($db_select, '|');
         $tmp_select = '|' . $tmp_select . '|';
@@ -455,10 +455,9 @@ if (!empty($asfile)) {
         if (@function_exists('bzcompress')) {
             $dump_buffer = bzcompress($dump_buffer);
             if ($dump_buffer === -8) {
-                include('./header.inc.php');
+                require_once('./header.inc.php');
                 echo sprintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
-                include('./footer.inc.php');
-                exit;
+                require_once('./footer.inc.php');
             }
         }
     }
@@ -481,16 +480,16 @@ if (!empty($asfile)) {
         }
 
         $js_to_run = 'functions.js';
-        include('./header.inc.php');
+        require_once('./header.inc.php');
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            include('./server_export.php');
+            require_once('./server_export.php');
         } elseif ($export_type == 'database') {
             $active_page = 'db_details_export.php';
-            include('./db_details_export.php');
+            require_once('./db_details_export.php');
         } else {
             $active_page = 'tbl_properties_export.php';
-            include('./tbl_properties_export.php');
+            require_once('./tbl_properties_export.php');
         }
         exit();
     } else {
@@ -507,6 +506,6 @@ else {
     echo '    </pre>' . "\n";
     echo '</div>' . "\n";
     echo "\n";
-    include('./footer.inc.php');
+    require_once('./footer.inc.php');
 } // end if
 ?>

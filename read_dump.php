@@ -5,9 +5,9 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/read_dump.lib.php');
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
+require_once('./libraries/read_dump.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 if (!isset($db)) {
     $db = '';
@@ -49,7 +49,7 @@ if (!empty($sql_localfile) && !empty($cfg['UploadDir'])) {
  * Bookmark Support: get a query back from bookmark if required
  */
 if (!empty($id_bookmark)) {
-    include('./libraries/bookmark.lib.php');
+    require_once('./libraries/bookmark.lib.php');
     switch ($action_bookmark) {
         case 0: // bookmarked query that have to be run
             $sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
@@ -150,7 +150,7 @@ if (!$cfg['AllowUserDropDatabase']
     // loic1: optimized query
     $result = @PMA_mysql_query('USE mysql');
     if (PMA_mysql_error()) {
-        include('./header.inc.php');
+        require_once('./header.inc.php');
         PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
     }
 }
@@ -160,14 +160,14 @@ define('PMA_CHK_DROP', 1);
  * Store a query as a bookmark before executing it?
  */
 if (isset($SQLbookmark) && $sql_query != '') {
-    include('./libraries/bookmark.lib.php');
+    require_once('./libraries/bookmark.lib.php');
     $bfields = array(
                  'dbase' => $db,
                  'user'  => $cfg['Bookmark']['user'],
                  'query' => $sql_query,
                  'label' => $bkm_label
     );
-    
+
     PMA_addBookmarks($bfields, $cfg['Bookmark'], (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
 }
 
@@ -181,7 +181,7 @@ if ($sql_query != '') {
     if ($pieces_count > 1) {
         $is_multiple = TRUE;
     }
-    
+
     // Copy of the cleaned sql statement for display purpose only (see near the
     // beginning of "db_details.php" & "tbl_properties.php")
 
@@ -207,7 +207,7 @@ if ($sql_query != '') {
         $max_file_length   = 50000;
         $max_file_pieces   = 50;
     }
-    
+
     if ($sql_file != 'none' &&
           (($max_file_pieces != 0 && ($pieces_count > $max_file_pieces))
             ||
@@ -239,8 +239,7 @@ if ($sql_query != '') {
             if (preg_match('@^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@i', $sql_query)) {
                 $reload = 1;
             }
-            include('./sql.php');
-            exit();
+            require('./sql.php');
         }
 
         // Runs multiple queries
@@ -248,15 +247,14 @@ if ($sql_query != '') {
             $mult = TRUE;
             $info_msg = '';
             $info_count = 0;
-            
+
             for ($i = 0; $i < $pieces_count; $i++) {
                 $a_sql_query = $pieces[$i];
                 if ($i == $pieces_count - 1 && preg_match('@^(SELECT|SHOW)@i', $a_sql_query)) {
                     $complete_query = $sql_query;
                     $display_query = $sql_query;
                     $sql_query = $a_sql_query;
-                    include('./sql.php');
-                    exit();
+                    require('./sql.php');
                 }
 
                 $result = PMA_mysql_query($a_sql_query);
@@ -269,12 +267,12 @@ if ($sql_query != '') {
                     } else {
                         $my_die = $a_sql_query;
                     }
-                    
+
                     if ($cfg['VerboseMultiSubmit']) {
                         $info_msg .= $a_sql_query . '; # ' . $strError . "\n";
                         $info_count++;
                     }
-                    
+
                     if (!$cfg['IgnoreMultiSubmitErrors']) {
                         break;
                     }
@@ -291,7 +289,7 @@ if ($sql_query != '') {
                         $a_rows = '';
                         $a_switch = $strEmptyResultSet;
                     }
-                    
+
                     $info_msg .= $a_sql_query . "; # " . $a_switch . $a_rows . "\n";
                     $info_count++;
                 }
@@ -300,7 +298,7 @@ if ($sql_query != '') {
                     $reload = 1;
                 }
             } // end for
-            
+
             if ($cfg['VerboseMultiSubmit'] && strlen($info_msg) > 0 &&
                   ((!isset($save_bandwidth) || $save_bandwidth == FALSE) ||
                   ($save_bandwidth_pieces == 0 && strlen($info_msg) < $save_bandwidth_length) ||
@@ -320,7 +318,7 @@ if ($sql_query != '') {
  */
 if (isset($my_die)) {
     $js_to_run = 'functions.js';
-    include('./header.inc.php');
+    require_once('./header.inc.php');
     if (is_array($my_die)) {
         foreach($my_die AS $key => $die_string) {
             PMA_mysqlDie('', $die_string, '', $err_url, FALSE);
@@ -387,7 +385,7 @@ if ($goto == 'db_details.php' || $goto == 'tbl_properties.php') {
     $js_to_run = 'functions.js';
 }
 if ($goto != 'main.php') {
-    include('./header.inc.php');
+    require_once('./header.inc.php');
 }
 $active_page = $goto;
 require('./' . $goto);

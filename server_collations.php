@@ -28,15 +28,14 @@ echo '<h2>' . "\n"
  */
 if (PMA_MYSQL_INT_VERSION < 40100) {
     // TODO: Some nice Message :-)
-    include('./footer.inc.php');
-    exit;
+    require_once('./footer.inc.php');
 }
 
 
 /**
  * Includes the required charset library
  */
-require('./libraries/mysql_charsets.lib.php');
+require_once('./libraries/mysql_charsets.lib.php');
 
 
 /**
@@ -101,6 +100,6 @@ echo '            </table>' . "\n"
    . '    </tr>' . "\n"
    . '</table>' . "\n";
 
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 
 ?>

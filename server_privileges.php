@@ -27,13 +27,12 @@ if (!empty($pred_tablename)) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (!$is_superuser) {
-    include('./server_links.inc.php');
+    require('./server_links.inc.php');
     echo '<h2>' . "\n"
        . '    ' . $strPrivileges . "\n"
        . '</h2>' . "\n"
        . $strNoPrivileges . "\n";
-    include('./footer.inc.php');
-    exit;
+    require_once('./footer.inc.php');
 }
 
 
@@ -1021,8 +1020,7 @@ if (empty($adduser) && empty($checkprivs)) {
         $res = PMA_mysql_query('SELECT "foo" FROM `user` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '";', $userlink);
         if (mysql_affected_rows($userlink) <= 0) {
             echo $strUserNotFound;
-            include('./footer.inc.php');
-            exit;
+            require_once('./footer.inc.php');
         }
         mysql_free_result($res);
         unset($res);
@@ -1427,6 +1425,6 @@ if (empty($adduser) && empty($checkprivs)) {
  * Displays the footer
  */
 echo "\n\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 
 ?>

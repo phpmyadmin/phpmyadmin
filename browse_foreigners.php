@@ -5,25 +5,23 @@
 /**
  * Get the variables sent or posted to this script and displays the header
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 
 /**
  * Gets a core script and starts output buffering work
  */
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db', 'table', 'field'));
 
-require('./libraries/ob.lib.php');
+require_once('./libraries/ob.lib.php');
 if ($cfg['OBGzip']) {
     $ob_mode = PMA_outBufferModeGet();
     if ($ob_mode) {
         PMA_outBufferPre($ob_mode);
     }
 }
-include('./libraries/header_http.inc.php');
+require_once('./libraries/header_http.inc.php');
 $field = urldecode($field);
 
 /**
@@ -58,8 +56,8 @@ PMA_setFontSizes();
 <body bgcolor="<?php echo $cfg['LeftBgColor']; ?>" style="margin-left: 5px; margin-top: 5px; margin-right: 5px; margin-bottom: 0px">
 <?php
 $per_page = 200;
-require('./libraries/relation.lib.php'); // foreign keys
-require('./libraries/transformations.lib.php'); // Transformations
+require_once('./libraries/relation.lib.php'); // foreign keys
+require_once('./libraries/transformations.lib.php'); // Transformations
 $cfgRelation = PMA_getRelationsParam();
 $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
 
@@ -74,7 +72,7 @@ if (isset($foreign_navig) && $foreign_navig == $strShowAll) {
     unset($foreign_limit);
 }
 
-include('./libraries/get_foreign.lib.php');
+require('./libraries/get_foreign.lib.php');
 ?>
 
 <form action="browse_foreigners.php" method="post">

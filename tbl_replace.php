@@ -6,8 +6,8 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 // Check parameters
 PMA_checkParameters(array('db','table','goto'));
@@ -83,7 +83,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         $encoded_key = $key;
         $key         = urldecode($key);
 
-        include('./tbl_replace_fields.php');
+        require('./tbl_replace_fields.php');
 
         // No change for this column and no MySQL function is used -> next column
         if (empty($funcs[$encoded_key])
@@ -116,8 +116,8 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         $message = $strNoModification;
         if ($is_gotofile) {
             $js_to_run = 'functions.js';
-            include('./header.inc.php');
-            include('./' . preg_replace('@\.\.*@', '.', $goto));
+            require_once('./header.inc.php');
+            require('./' . preg_replace('@\.\.*@', '.', $goto));
         } else {
             header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
         }
@@ -141,13 +141,13 @@ else {
         $prot_result      = PMA_mysql_query($prot_local_query) or PMA_mysqlDie('', $prot_local_query, '', $err_url);
         $prot_row         = PMA_mysql_fetch_array($prot_result);
     }
-    
+
     foreach($fields AS $key => $val) {
         $encoded_key = $key;
         $key         = urldecode($key);
         $fieldlist   .= PMA_backquote($key) . ', ';
 
-        include('./tbl_replace_fields.php');
+        require('./tbl_replace_fields.php');
 
         if (empty($funcs[$encoded_key])) {
             $valuelist .= $val . ', ';
@@ -176,7 +176,7 @@ $sql_query = $query . ';';
 $result    = PMA_mysql_query($query);
 if (!$result) {
     $error = PMA_mysql_error();
-    include('./header.inc.php');
+    require_once('./header.inc.php');
     PMA_mysqlDie($error, '', '', $err_url);
 } else {
     if (@mysql_affected_rows()) {
@@ -194,8 +194,8 @@ if (!$result) {
         }
         $js_to_run = 'functions.js';
         $active_page = $goto;
-        include('./header.inc.php');
-        include('./' . preg_replace('@\.\.*@', '.', $goto));
+        require_once('./header.inc.php');
+        require('./' . preg_replace('@\.\.*@', '.', $goto));
     } else {
         // I don't understand this one:
         //$add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');

@@ -2,8 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
-    define('PMA_MYSQL_CHARSETS_LIB_INCLUDED', 1);
+if (PMA_MYSQL_INT_VERSION >= 40100){
 
     $res = PMA_mysql_query('SHOW CHARACTER SET;', $userlink)
         or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW CHARACTER SET;');
@@ -15,8 +14,7 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
         $mysql_charsets_descriptions[$row['Charset']] = $row['Description'];
     }
     @mysql_free_result($res);
-    unset($res);
-    unset($row);
+    unset($res, $row);
 
     $res = PMA_mysql_query('SHOW COLLATION;', $userlink)
         or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW COLLATION;');
@@ -44,8 +42,7 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
     }
 
     @mysql_free_result($res);
-    unset($res);
-    unset($row);
+    unset($res, $row);
 
     function PMA_getCollationDescr($collation) {
         if ($collation == 'binary') {
@@ -205,6 +202,6 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
         return $descr;
     }
 
-} // $__PMA_MYSQL_CHARSETS_LIB__
+}
 
 ?>

@@ -6,10 +6,10 @@
 /**
  * Get the variables sent or posted to this script and displays the header
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 $js_to_run = 'tbl_change.js';
-require('./header.inc.php');
-require('./libraries/relation.lib.php'); // foreign keys
+require_once('./header.inc.php');
+require_once('./libraries/relation.lib.php'); // foreign keys
 
 
 /**
@@ -221,7 +221,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
     $row_table_def   = PMA_mysql_fetch_array($table_def);
     $row_table_def['True_Type'] = preg_replace('@\(.*@s', '', $row_table_def['Type']);
-    
+
     $field           = $row_table_def['Field'];
 
     // garvin: possible workaround. If current field is numerical, do not try to
@@ -249,7 +249,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         // UPDATE case with an empty and not NULL value under PHP4
         else if (empty($row[$rowfield]) && is_null($row[$rowfield])) {
             $row[$rowfield] = date('Y-m-d H:i:s', time());
-        } // end if... else if... 
+        } // end if... else if...
     }
     $len             = (preg_match('@float|double@', $row_table_def['Type']))
                      ? 100
@@ -377,7 +377,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             $cnt_dropdown = count($dropdown);
             for ($j = 0; $j < $cnt_dropdown; $j++) {
                 // Is current function defined as default?
-                $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp']) 
+                $selected = ($first_timestamp && $dropdown[$j] == $cfg['DefaultFunctions']['first_timestamp'])
                             || (!$first_timestamp && $dropdown[$j] == $default_function)
                           ? ' selected="selected"'
                           : '';
@@ -394,7 +394,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             for ($j = 0; $j < $cnt_functions; $j++) {
                 if (!isset($dropdown_built[$cfg['Functions'][$j]]) || $dropdown_built[$cfg['Functions'][$j]] != 'TRUE') {
                     // Is current function defined as default?
-                    $selected = ($first_timestamp && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp']) 
+                    $selected = ($first_timestamp && $cfg['Functions'][$j] == $cfg['DefaultFunctions']['first_timestamp'])
                                 || (!$first_timestamp && $cfg['Functions'][$j] == $default_function)
                               ? ' selected="selected"'
                               : '';
@@ -453,7 +453,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // The value column (depends on type)
     // ----------------
 
-    include('./libraries/get_foreign.lib.php');
+    require('./libraries/get_foreign.lib.php');
 
     if (isset($foreign_link) && $foreign_link == true) {
         ?>
@@ -780,5 +780,5 @@ if (!empty($disp_message)) {
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

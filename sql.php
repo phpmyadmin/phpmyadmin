@@ -5,8 +5,8 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 
 /**
@@ -61,7 +61,7 @@ if (!defined('PMA_CHK_DROP')
     // loic1: optimized query
     $result = @PMA_mysql_query('USE mysql');
     if (PMA_mysql_error()) {
-        include('./header.inc.php');
+        require_once('./header.inc.php');
         PMA_mysqlDie($strNoDropDatabases, '', '', $err_url);
     } // end if
 } // end if
@@ -71,7 +71,7 @@ if (!defined('PMA_CHK_DROP')
  * Bookmark add
  */
 if (isset($store_bkm)) {
-    include('./libraries/bookmark.lib.php');
+    require_once('./libraries/bookmark.lib.php');
     PMA_addBookmarks($fields, $cfg['Bookmark'], (isset($bkm_all_users) && $bkm_all_users == 'true' ? true : false));
     header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto);
 } // end if
@@ -151,7 +151,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
             unset($table);
         }
         $active_page = $goto;
-        include('./' . preg_replace('@\.\.*@', '.', $goto));
+        require('./' . preg_replace('@\.\.*@', '.', $goto));
     } else {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
     }
@@ -187,7 +187,7 @@ if (!$cfg['Confirm']
 
 if ($do_confirm) {
     $stripped_sql_query = $sql_query;
-    include('./header.inc.php');
+    require_once('./header.inc.php');
     echo $strDoYouReally . '&nbsp;:<br />' . "\n";
     echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n";
     ?>
@@ -324,7 +324,7 @@ else {
         // Displays an error message if required and stop parsing the script
         if (PMA_mysql_error()) {
             $error        = PMA_mysql_error();
-            include('./header.inc.php');
+            require_once('./header.inc.php');
             $full_err_url = (preg_match('@^(db_details|tbl_properties)@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
@@ -498,7 +498,7 @@ else {
 
         // garvin: if a table or database gets dropped, check column comments.
         if (isset($purge) && $purge == '1') {
-            include('./libraries/relation_cleanup.lib.php');
+            require_once('./libraries/relation_cleanup.lib.php');
 
             if (isset($table) && isset($db) && !empty($table) && !empty($db)) {
                 PMA_relationsCleanupTable($db, $table);
@@ -513,7 +513,7 @@ else {
         if (isset($cpurge) && $cpurge == '1' && isset($purgekey)
             && isset($db) && isset($table)
             && !empty($db) && !empty($table) && !empty($purgekey)) {
-            include('./libraries/relation_cleanup.lib.php');
+            require_once('./libraries/relation_cleanup.lib.php');
             PMA_relationsCleanupColumn($db, $table, $purgekey);
 
         } // end if column PMA_* purge
@@ -585,10 +585,10 @@ else {
                 $js_to_run = 'functions.js';
             }
             if ($goto != 'main.php') {
-                include('./header.inc.php');
+                require_once('./header.inc.php');
             }
             $active_page = $goto;
-            include('./' . $goto);
+            require('./' . $goto);
         } // end if file_exist
         else {
             header('Location: ' . $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
@@ -603,22 +603,22 @@ else {
             unset($show_query);
         }
         if (isset($printview) && $printview == '1') {
-            include('./header_printview.inc.php');
+            require_once('./header_printview.inc.php');
         } else {
             $js_to_run = 'functions.js';
             unset($message);
             if (!empty($table)) {
-                include('./tbl_properties_common.php');
+                require('./tbl_properties_common.php');
                 $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
-                include('./tbl_properties_table_info.php');
+                require('./tbl_properties_table_info.php');
             }
             else {
-                include('./db_details_common.php');
-                include('./db_details_db_info.php');
+                require('./db_details_common.php');
+                require('./db_details_db_info.php');
             }
         }
 
-        include('./libraries/relation.lib.php');
+        require_once('./libraries/relation.lib.php');
         $cfgRelation = PMA_getRelationsParam();
 
         // Gets the list of fields properties
@@ -641,7 +641,7 @@ else {
         }
 
         // Displays the results in a table
-        include('./libraries/display_tbl.lib.php');
+        require_once('./libraries/display_tbl.lib.php');
         if (empty($disp_mode)) {
             // see the "PMA_setDisplayMode()" function in
             // libraries/display_tbl.lib.php
@@ -786,5 +786,5 @@ echo "\n\n";
 /**
  * Displays the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

@@ -6,7 +6,7 @@
 /**
  * Does the common work
  */
-require('./server_common.inc.php');
+require_once('./server_common.inc.php');
 
 
 /**
@@ -94,6 +94,6 @@ foreach($serverProcesses AS $name => $value) {
 /**
  * Sends the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 
 ?>

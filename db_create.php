@@ -6,13 +6,11 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 $js_to_run = 'functions.js';
-require('./header.inc.php');
+require_once('./header.inc.php');
+require_once('./libraries/common.lib.php');
 
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
 
 PMA_checkParameters(array('db'));
 
@@ -32,6 +30,6 @@ $result      = PMA_mysql_query('CREATE DATABASE ' . PMA_backquote($db)) or PMA_m
  * Displays the result and calls default page
  */
 $message = $strDatabase . ' ' . htmlspecialchars($db) . ' ' . $strHasBeenCreated;
-require('./' . $cfg['DefaultTabDatabase']);
+require_once('./' . $cfg['DefaultTabDatabase']);
 
 ?>

@@ -11,15 +11,15 @@
 /**
  * Gets some core scripts
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 
 /**
  * Settings for relation stuff
  */
-require('./libraries/relation.lib.php');
-require('./libraries/transformations.lib.php');
+require_once('./libraries/relation.lib.php');
+require_once('./libraries/transformations.lib.php');
 
 $cfgRelation = PMA_getRelationsParam();
 
@@ -42,7 +42,7 @@ if (!$cfgRelation['pdfwork']) {
 /**
  * Gets the "fpdf" libraries and defines the pdf font path
  */
-require('./libraries/fpdf/fpdf.php');
+require_once('./libraries/fpdf/fpdf.php');
 $FPDF_font_path = './libraries/fpdf/font/';
 
 
@@ -267,7 +267,7 @@ class PMA_PDF extends FPDF
         global $server, $lang, $convcharset, $db;
         global $charset, $text_dir, $strRunning, $strDatabase;
 
-        include('./header.inc.php');
+        require_once('./header.inc.php');
 
         echo '<p><b>PDF - '. $GLOBALS['strError'] . '</b></p>' . "\n";
         if (!empty($error_message)) {
@@ -281,8 +281,7 @@ class PMA_PDF extends FPDF
              . '">' . $GLOBALS['strBack'] . '</a>';
         echo "\n";
 
-        include('./footer.inc.php');
-        exit();
+        require_once('./footer.inc.php');
     } // end of the "PMA_PDF_die()" function
 
 
@@ -603,7 +602,7 @@ class PMA_RT_Table
      *
      * @param   boolean   Whether to display table position or not
      * @param   integer   The font size
-     * @param   boolean   Whether to display color 
+     * @param   boolean   Whether to display color
      * @param   integer   The max. with among tables
      *
      * @global  object    The current PDF document
@@ -1063,8 +1062,8 @@ class PMA_RT
      * @param   integer  The page number to draw (from the
      *                   $cfg['Servers'][$i]['table_coords'] table)
      * @param   boolean  Whether to display table position or not
-     * @param   boolean  Was originally whether to use one color per 
-     *                   relation or not, now enables/disables color 
+     * @param   boolean  Was originally whether to use one color per
+     *                   relation or not, now enables/disables color
      *                   everywhere, due to some problems printing with color
      * @param   boolean  Whether to draw grids or not
      * @param   boolean  Whether all tables should have the same width or not
@@ -1172,7 +1171,7 @@ class PMA_RT
 //                .   ' AND foreign_table IN (' . $intable . ')';
 //        $result =  PMA_query_as_cu($sql);
 //
-// lem9: 
+// lem9:
 // previous logic was checking master tables and foreign tables
 // but I think that looping on every table of the pdf page as a master
 // and finding its foreigns is OK (then we can support innodb)
@@ -1185,7 +1184,7 @@ class PMA_RT
                 $seen_a_relation = TRUE;
                 foreach($exist_rel AS $master_field => $rel) {
                     // put the foreign table on the schema only if selected
-                    // by the user 
+                    // by the user
                     // (do not use array_search() because we would have to
                     // to do a === FALSE and this is not PHP3 compatible)
 

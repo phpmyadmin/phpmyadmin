@@ -35,7 +35,7 @@ $sub_part    = '';
 require('./db_details_db_info.php');
 if ($num_tables == 0 && empty($db_query_force)) {
     $is_info = TRUE;
-    include('./db_details_structure.php');
+    require('./db_details_structure.php');
     exit();
 }
 
@@ -62,7 +62,7 @@ $auto_sel  = ($cfg['TextareaAutoSelect']
     <?php echo sprintf($strRunSQLQuery, htmlspecialchars($db)) . ' ' . PMA_showMySQLDocu('Reference', 'SELECT'); ?>&nbsp;:<br />
     <div style="margin-bottom: 5px">
 <textarea name="sql_query" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" rows="<?php echo $cfg['TextareaRows']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
-<?php 
+<?php
 if (!empty($query_to_display)) {
     echo htmlspecialchars($query_to_display);
 } else {
@@ -200,5 +200,5 @@ if (function_exists('PMA_set_enc_form')) {
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

@@ -6,15 +6,15 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
-require('./db_details_common.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./db_details_common.php');
 
 
 /**
  * Settings for relation stuff
  */
-require('./libraries/relation.lib.php');
+require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 
@@ -29,13 +29,13 @@ $cfgRelation = PMA_getRelationsParam();
 if (!$cfgRelation['relwork']) {
     echo sprintf($strNotSet, 'relation', 'config.inc.php') . '<br />' . "\n"
          . '<a href="./Documentation.html#relation" target="documentation">' . $strDocu . '</a>' . "\n";
-    exit();
+    require_once('./footer.inc.php');
 }
 
 if (!$cfgRelation['displaywork']) {
     echo sprintf($strNotSet, 'table_info', 'config.inc.php') . '<br />' . "\n"
          . '<a href="./Documentation.html#table_info" target="documentation">' . $strDocu . '</a>' . "\n";
-    exit();
+    require_once('./footer.inc.php');
 }
 
 if (!isset($cfgRelation['table_coords'])){
@@ -83,7 +83,7 @@ if ($cfgRelation['pdfwork']) {
                     // save the page number
                     $pdf_page_number = mysql_insert_id((isset($dbh)?$dbh:''));
 
-                    // get the tables that have relations, by descending 
+                    // get the tables that have relations, by descending
                     // number of links
                     $master_tables = 'SELECT COUNT(master_table), master_table'
                                 . ' FROM ' . PMA_backquote($cfgRelation['relation'])
@@ -110,20 +110,20 @@ if ($cfgRelation['pdfwork']) {
                             foreach($foreigners AS $foreigner) {
                                 if (!in_array($foreigner['foreign_table'], $foreign_tables)) {
                                     $foreign_tables[] = $foreigner['foreign_table'];
-                                } 
-                            } 
-                        } 
+                                }
+                            }
+                        }
 
                         // then merge the arrays
                         foreach($foreign_tables AS $foreign_table) {
                             if (!in_array($foreign_table, $all_tables)) {
                                 $all_tables[] = $foreign_table;
-                            } 
+                            }
 
                         }
                         // now generate the coordinates for the schema,
                         // in a clockwise spiral
-                       
+
                         $pos_x = 300;
                         $pos_y = 300;
                         $delta = 50;
@@ -309,7 +309,7 @@ if ($cfg['WYSIWYG-PDF']) {
 foreach($array_sh_page AS $key => $temp_sh_page) {
     $drag_x = $temp_sh_page['x'];
     $drag_y = $temp_sh_page['y'];
-    
+
     $draginit       .= '    Drag.init(getElement("table_' . $i . '"), null, 0, parseInt(myid.style.width)-2, 0, parseInt(myid.style.height)-5);' . "\n";
     $draginit       .= '    getElement("table_' . $i . '").onDrag = function (x, y) { document.edcoord.elements["c_table_' . $i . '[x]"].value = parseInt(x); document.edcoord.elements["c_table_' . $i . '[y]"].value = parseInt(y) }' . "\n";
     $draginit       .= '    getElement("table_' . $i . '").style.left = "' . $drag_x . 'px";' . "\n";
@@ -319,7 +319,7 @@ foreach($array_sh_page AS $key => $temp_sh_page) {
     $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[x]"].value = "2"' . "\n";
     $reset_draginit .= '    document.edcoord.elements["c_table_' . $i . '[y]"].value = "' . (15 * $i) . '"' . "\n";
 
-    $local_query = 'SHOW FIELDS FROM ' 
+    $local_query = 'SHOW FIELDS FROM '
                  .  PMA_backquote($temp_sh_page['table_name'] )
                 . ' FROM ' . PMA_backquote($db);
     $fields_rs = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
@@ -469,8 +469,8 @@ function resetDrag() {
     //    d i s p l a y   p d f    s c h e m a
     //    ------------------------------------
 
-    if (isset($do) 
-    && ($do == 'edcoord' 
+    if (isset($do)
+    && ($do == 'edcoord'
        || ($do == 'choosepage' && isset($chpage))
        || ($do == 'createpage' && isset($chpage)))) {
         ?>
@@ -512,7 +512,7 @@ function resetDrag() {
         ?>
 <script type="text/javascript">
 <!--
-ToggleDragDrop('pdflayout');    
+ToggleDragDrop('pdflayout');
 // -->
 </script>
         <?php
@@ -525,5 +525,5 @@ ToggleDragDrop('pdflayout');
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

@@ -6,7 +6,7 @@
 /**
  * Checks if the left frame has to be reloaded
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 
 
 /**
@@ -51,7 +51,7 @@ foreach($dblist AS $current_db) {
 $multi_values .= "\n";
 $multi_values .= '</select></div>';
 
-$checkall_url = 'server_export.php?' 
+$checkall_url = 'server_export.php?'
               . PMA_generate_common_url()
               . '&amp;goto=db_details_export.php';
 
@@ -62,11 +62,11 @@ $multi_values .= '<br />
         <br /><br />';
 
 $export_type = 'server';
-require('./libraries/display_export.lib.php');
+require_once('./libraries/display_export.lib.php');
 
 
 /**
  * Displays the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

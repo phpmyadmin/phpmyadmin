@@ -7,23 +7,20 @@ $is_transformation_wrapper = true;
 /**
  * Get the variables sent or posted to this script and displays the header
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 
 /**
  * Gets a core script and starts output buffering work
  */
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
-
-require('./libraries/relation.lib.php'); // foreign keys
-require('./libraries/transformations.lib.php'); // Transformations
+require_once('./libraries/common.lib.php');
+require_once('./libraries/relation.lib.php'); // foreign keys
+require_once('./libraries/transformations.lib.php'); // Transformations
 $cfgRelation = PMA_getRelationsParam();
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require('./libraries/db_table_exists.lib.php');
+require_once('./libraries/db_table_exists.lib.php');
 
 
 /**
@@ -63,7 +60,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 // to a seperate file. It can now be included by header.inc.php,
 // queryframe.php, querywindow.php.
 
-include('./libraries/header_http.inc.php');
+require_once('./libraries/header_http.inc.php');
 // [MIME]
 $content_type = 'Content-Type: ' . (isset($mime_map[urldecode($transform_key)]['mimetype']) ? str_replace('_', '/', $mime_map[urldecode($transform_key)]['mimetype']) : $default_ct) . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 header($content_type);
@@ -73,7 +70,7 @@ if (!isset($resize)) {
 } else {
     // if image_*__inline.inc.php finds that we can resize,
     // it sets $resize to jpeg or png
-   
+
     $srcImage = imagecreatefromstring($row[urldecode($transform_key)]);
     $srcWidth = ImageSX( $srcImage );
     $srcHeight = ImageSY( $srcImage );

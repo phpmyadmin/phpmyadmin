@@ -32,78 +32,71 @@
  */
 
 
-if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
-    define('PMA_SQL_VALIDATOR_INCLUDED', 1);
-
-    // We need the PEAR libraries, so do a minimum version check first
-    // I'm not sure if PEAR was available before this point
-    // For now we actually use a configuration flag
-    if ($cfg['SQLValidator']['use'] == TRUE)  {
-        // We cannot check && !defined(PMA_SQL_VALIDATOR_CLASS_INCLUDED))
-        // as it will produce a nasty warning message
-        include('./libraries/sqlvalidator.class.php');
-    } // if ($cfg['SQLValidator']['use'] == TRUE)
+// We need the PEAR libraries, so do a minimum version check first
+// I'm not sure if PEAR was available before this point
+// For now we actually use a configuration flag
+if ($cfg['SQLValidator']['use'] == TRUE)  {
+    require_once('./libraries/sqlvalidator.class.php');
+} // if ($cfg['SQLValidator']['use'] == TRUE)
 
 
-    /**
-     * This function utilizes the Mimer SQL Validator service
-     * to validate an SQL query
-     *
-     * <http://developer.mimer.com/validator/index.htm>
-     *
-     * @param   string   SQL query to validate
-     *
-     * @return  string   Validator result string
-     *
-     * @global  array    The PMA configuration array
-     */
-    function PMA_validateSQL($sql)
-    {
-        global $cfg;
+/**
+ * This function utilizes the Mimer SQL Validator service
+ * to validate an SQL query
+ *
+ * <http://developer.mimer.com/validator/index.htm>
+ *
+ * @param   string   SQL query to validate
+ *
+ * @return  string   Validator result string
+ *
+ * @global  array    The PMA configuration array
+ */
+function PMA_validateSQL($sql)
+{
+    global $cfg;
 
-        $str = '';
+    $str = '';
 
-        if ($cfg['SQLValidator']['use']) {
-            if (isset($GLOBALS['sqlvalidator_error'])
-                && $GLOBALS['sqlvalidator_error']) {
-                $str = sprintf($GLOBALS['strValidatorError'], '<a href="./Documentation.html#faqsqlvalidator" target="documentation">', '</a>');
-            } else {
-                // create new class instance
-                $srv = new PMA_SQLValidator();
+    if ($cfg['SQLValidator']['use']) {
+        if (isset($GLOBALS['sqlvalidator_error'])
+            && $GLOBALS['sqlvalidator_error']) {
+            $str = sprintf($GLOBALS['strValidatorError'], '<a href="./Documentation.html#faqsqlvalidator" target="documentation">', '</a>');
+        } else {
+            // create new class instance
+            $srv = new PMA_SQLValidator();
 
-                // Checks for username settings
-                // The class defaults to anonymous with an empty password
-                // automatically
-                if ($cfg['SQLValidator']['username'] != '') {
-                    $srv->setCredentials($cfg['SQLValidator']['username'], $cfg['SQLValidator']['password']);
-                }
-
-                // Identify ourselves to the server properly...
-                $srv->appendCallingProgram('phpMyAdmin', PMA_VERSION);
-
-                // ... and specify what database system we are using
-                $srv->setTargetDbms('MySQL', PMA_MYSQL_STR_VERSION);
-
-                // Log on to service
-                $srv->start();
-
-                // Do service validation
-                $str = $srv->validationString($sql);
+            // Checks for username settings
+            // The class defaults to anonymous with an empty password
+            // automatically
+            if ($cfg['SQLValidator']['username'] != '') {
+                $srv->setCredentials($cfg['SQLValidator']['username'], $cfg['SQLValidator']['password']);
             }
 
-        } // end if
+            // Identify ourselves to the server properly...
+            $srv->appendCallingProgram('phpMyAdmin', PMA_VERSION);
 
-        /*
-        else {
-            // The service is not available so note that properly
-            $str = $GLOBALS['strValidatorDisabled'];
-        } // end if... else...
-        */
+            // ... and specify what database system we are using
+            $srv->setTargetDbms('MySQL', PMA_MYSQL_STR_VERSION);
 
-        // Gives string back to caller
-        return $str;
-    } // end of the "PMA_validateSQL()" function
+            // Log on to service
+            $srv->start();
 
-} // $__PMA_SQL_VALIDATOR__
+            // Do service validation
+            $str = $srv->validationString($sql);
+        }
+
+    } // end if
+
+    /*
+    else {
+        // The service is not available so note that properly
+        $str = $GLOBALS['strValidatorDisabled'];
+    } // end if... else...
+    */
+
+    // Gives string back to caller
+    return $str;
+} // end of the "PMA_validateSQL()" function
 
 ?>

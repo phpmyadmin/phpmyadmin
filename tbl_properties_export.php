@@ -27,7 +27,7 @@ if (isset($sql_query)) {
 
     $parsed_sql = PMA_SQP_parse($sql_query);
     $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-    $sql_query = 'SELECT '; 
+    $sql_query = 'SELECT ';
 
     if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
         $sql_query .= ' DISTINCT ';
@@ -56,11 +56,11 @@ if (isset($sql_query)) {
 }
 
 $export_type = 'table';
-require('./libraries/display_export.lib.php');
+require_once('./libraries/display_export.lib.php');
 
 
 /**
  * Displays the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

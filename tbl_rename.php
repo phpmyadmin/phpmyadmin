@@ -6,9 +6,9 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 $js_to_run = 'functions.js';
-require('./libraries/common.lib.php');
+require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db','table'));
 
@@ -30,7 +30,7 @@ if (isset($new_name) && trim($new_name) != '' && strpos($new_name,'.') === FALSE
         exit();
     }
 
-    include('./header.inc.php');
+    require_once('./header.inc.php');
     PMA_mysql_select_db($db);
     $sql_query = 'ALTER TABLE ' . PMA_backquote($old_name) . ' RENAME ' . PMA_backquote($new_name);
     $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
@@ -38,7 +38,7 @@ if (isset($new_name) && trim($new_name) != '' && strpos($new_name,'.') === FALSE
     $reload    = 1;
 
     // garvin: Move old entries from comments to new table
-    include('./libraries/relation.lib.php');
+    require_once('./libraries/relation.lib.php');
     $cfgRelation = PMA_getRelationsParam();
     if ($cfgRelation['commwork']) {
         $remove_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_info'])
@@ -94,7 +94,7 @@ if (isset($new_name) && trim($new_name) != '' && strpos($new_name,'.') === FALSE
  * No new name for the table!
  */
 else {
-    include('./header.inc.php');
+    require_once('./header.inc.php');
     if (strpos($new_name,'.') === FALSE) {
         PMA_mysqlDie($strTableEmpty, '', '', $err_url);
     } else {

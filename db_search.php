@@ -379,5 +379,5 @@ echo"\n";
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

@@ -7,9 +7,7 @@
 
 // Check parameters
 
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db','encoded_key'));
 
@@ -90,7 +88,7 @@ if (isset(${'fields_upload_' . $encoded_key}) && ${'fields_upload_' . $encoded_k
         }
 
         if ($file_to_upload != '') {
-            
+
             $val = fread(fopen($file_to_upload, 'rb'), filesize($file_to_upload));
             if (!empty($val)) {
                 $val = '0x' . bin2hex($val);

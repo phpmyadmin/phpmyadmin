@@ -12,9 +12,7 @@
 
 // Check parameters
 
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db'));
 
@@ -27,7 +25,7 @@ $db_details_links_count_tabs = 0;
 /**
  * Prepares links
  */
-include('./libraries/bookmark.lib.php');
+require_once('./libraries/bookmark.lib.php');
 $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
 if ($table_info_num_rows > 0) {
@@ -67,21 +65,21 @@ $att7 = 'class="drop" onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsF
 if ($cfg['LightTabs']) {
     echo '&nbsp;';
 } else {
-    echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
-    <tr>
-        <td width="8">&nbsp;</td>';
+    echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">' . "\n"
+       . '    <tr>' . "\n"
+       . '        <td width="8">&nbsp;</td>';
 }
 
-echo PMA_printTab($strStructure, 'tbl_properties_structure.php', $url_query);
-echo PMA_printTab($strBrowse, $lnk2, $arg2);
-echo PMA_printTab($strSQL, 'tbl_properties.php', $url_query);
-echo PMA_printTab($strSearch, $lnk4, $arg4);
-echo PMA_printTab($strInsert, 'tbl_change.php', $url_query);
-echo PMA_printTab($strExport, 'tbl_properties_export.php', $url_query . '&amp;single_table=true');
-echo PMA_printTab($strOperations, 'tbl_properties_operations.php', $url_query);
-echo PMA_printTab($strEmpty, $lnk6, $arg6, $att6);
-echo PMA_printTab($strDrop, 'sql.php', $arg7, $att7);
-echo "\n";
+echo PMA_printTab($strStructure, 'tbl_properties_structure.php', $url_query)
+   . PMA_printTab($strBrowse, $lnk2, $arg2)
+   . PMA_printTab($strSQL, 'tbl_properties.php', $url_query)
+   . PMA_printTab($strSearch, $lnk4, $arg4)
+   . PMA_printTab($strInsert, 'tbl_change.php', $url_query)
+   . PMA_printTab($strExport, 'tbl_properties_export.php', $url_query . '&amp;single_table=true')
+   . PMA_printTab($strOperations, 'tbl_properties_operations.php', $url_query)
+   . PMA_printTab($strEmpty, $lnk6, $arg6, $att6)
+   . PMA_printTab($strDrop, 'sql.php', $arg7, $att7)
+   . "\n";
 
 if (!$cfg['LightTabs']) {
     echo '</tr></table>';

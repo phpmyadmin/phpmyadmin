@@ -8,26 +8,22 @@
  * because there is no table in the database ($is_info is TRUE)
  */
 if (empty($is_info)) {
-    if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
-        include('./libraries/grab_globals.lib.php');
-    }
-    if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-        include('./libraries/common.lib.php');
-    }
+    require_once('./libraries/grab_globals.lib.php');
+    require_once('./libraries/common.lib.php');
 
     // Drops/deletes/etc. multiple tables if required
     if ((!empty($submit_mult) && isset($selected_tbl))
        || isset($mult_btn)) {
         $action = 'db_details_structure.php';
         $err_url = 'db_details_structure.php?'. PMA_generate_common_url($db);
-        include('./mult_submits.inc.php');
+        require('./mult_submits.inc.php');
     }
-    include('./db_details_common.php');
+    require('./db_details_common.php');
     $url_query .= '&amp;goto=db_details_structure.php';
 
     // Gets the database structure
     $sub_part = '_structure';
-    include('./db_details_db_info.php');
+    require('./db_details_db_info.php');
     echo "\n";
 
     /**
@@ -82,7 +78,7 @@ function pma_TableHeader($alternate = FALSE) {
 /**
  * Settings for relations stuff
  */
-require('./libraries/relation.lib.php');
+require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 /**
@@ -201,7 +197,7 @@ else {
         <td valign="top">
 <?php
     }
-    
+
     pma_TableHeader();
 
     $i = $sum_entries = 0;
@@ -251,9 +247,9 @@ else {
                 </td>
                 <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <?php
-        include('./libraries/bookmark.lib.php');
+        require_once('./libraries/bookmark.lib.php');
         $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
-        
+
         if (!empty($sts_data['Rows'])) {
             echo '<a href="sql.php?' . $tbl_url_query . '&amp;sql_query='
                  . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table)))
@@ -322,7 +318,7 @@ else {
                     $sum_size                   += $tblsize;
                     list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
                     if (isset($sts_data['Data_free']) && $sts_data['Data_free'] > 0) {
-                        list($formated_overhead, $overhead_unit)     = PMA_formatByteDown($sts_data['Data_free']);      
+                        list($formated_overhead, $overhead_unit)     = PMA_formatByteDown($sts_data['Data_free']);
                         $overhead_size           += $sts_data['Data_free'];
                     }
                 }
@@ -388,7 +384,7 @@ else {
                 </td>
             <?php
             }
-            
+
             if ($cfg['ShowStats']) {
                 echo "\n";
                 ?>
@@ -398,7 +394,7 @@ else {
                 </td>
                 <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
                     &nbsp;&nbsp;
-                    <?php 
+                    <?php
                     if (isset($formated_overhead)) {
                         echo '<a href="tbl_properties_structure.php?' . $tbl_url_query . '#showusage">' . $formated_overhead . ' ' . $overhead_unit . '</a>' . "\n";
                         unset($formated_overhead);
@@ -692,5 +688,5 @@ echo "\n" . '</ul>';
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

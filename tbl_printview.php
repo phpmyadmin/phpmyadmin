@@ -6,8 +6,8 @@
  * Gets the variables sent or posted to this script, then displays headers
  */
 if (!isset($selected_tbl)) {
-    include('./libraries/grab_globals.lib.php');
-    include('./header.inc.php');
+    require_once('./libraries/grab_globals.lib.php');
+    require_once('./header.inc.php');
 }
 
 // Check parameters
@@ -19,8 +19,8 @@ if (!isset($the_tables) || !is_array($the_tables)) {
 /**
  * Gets the relations settings
  */
-require('./libraries/relation.lib.php');
-require('./libraries/transformations.lib.php');
+require_once('./libraries/relation.lib.php');
+require_once('./libraries/transformations.lib.php');
 
 $cfgRelation  = PMA_getRelationsParam();
 
@@ -632,5 +632,5 @@ function printPage()
 <?php
 echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
 
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

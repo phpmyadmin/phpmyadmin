@@ -6,10 +6,10 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
-require('./db_details_common.php');
-require('./libraries/relation.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./db_details_common.php');
+require_once('./libraries/relation.lib.php');
 
 
 /**
@@ -21,6 +21,5 @@ $cfgRelation = PMA_getRelationsParam(TRUE);
 /**
  * Displays the footer
  */
-echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

@@ -16,17 +16,11 @@ define('PMA_DISPLAY_HEADING', 0);
 /**
  * Gets some core libraries and displays a top message if required
  */
-if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
-    include('./libraries/grab_globals.lib.php');
-}
-if (!defined('PMA_COMMON_LIB_INCLUDED'))  {
-    include('./libraries/common.lib.php');
-}
-
-require('./header.inc.php');
-
-require('./libraries/relation.lib.php');
-require('./libraries/transformations.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./header.inc.php');
+require_once('./libraries/relation.lib.php');
+require_once('./libraries/transformations.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 $types = PMA_getAvailableMIMEtypes();
@@ -78,5 +72,6 @@ foreach($types['transformation'] AS $key => $transform) {
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
+
 ?>

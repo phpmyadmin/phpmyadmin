@@ -28,8 +28,7 @@ echo '<h2>' . "\n"
  */
 if (!$is_superuser && !$cfg['ShowMysqlVars']) {
     echo $strNoPrivileges;
-    include('./footer.inc.php');
-    exit;
+    require_once('./footer.inc.php');
 }
 
 
@@ -108,6 +107,6 @@ foreach ($serverVars as $name => $value) {
 /**
  * Sends the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 
 ?>

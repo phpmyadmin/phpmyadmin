@@ -6,9 +6,9 @@
 /**
  * Get some core libraries
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 $js_to_run = 'functions.js';
-require('./header.inc.php');
+require_once('./header.inc.php');
 
 // Check parameters
 PMA_checkParameters(array('db', 'table'));
@@ -183,8 +183,8 @@ if (isset($submit)) {
         } // end if
 
         // garvin: If comments were sent, enable relation stuff
-        require('./libraries/relation.lib.php');
-        require('./libraries/transformations.lib.php');
+        require_once('./libraries/relation.lib.php');
+        require_once('./libraries/transformations.lib.php');
 
         $cfgRelation = PMA_getRelationsParam();
 
@@ -207,8 +207,7 @@ if (isset($submit)) {
         unset($sql_query_cpy);
         $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
         $active_page = 'tbl_properties_structure.php';
-        include('./tbl_properties_structure.php');
-        exit();
+        require('./tbl_properties_structure.php');
     } else {
         PMA_mysqlDie('', '', '', $err_url, FALSE);
         // garvin: An error happened while inserting/updating a table definition.
@@ -227,11 +226,11 @@ if (isset($submit)) {
  */
 if ($abort == FALSE) {
     $action = 'tbl_addfield.php';
-    include('./tbl_properties.inc.php');
+    require('./tbl_properties.inc.php');
 
     // Diplays the footer
     echo "\n";
-    include('./footer.inc.php');
+    require_once('./footer.inc.php');
 }
 
 ?>

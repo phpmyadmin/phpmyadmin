@@ -5,8 +5,8 @@
 /**
  * Gets a core script and starts output buffering work
  */
-require('./libraries/common.lib.php');
-require('./libraries/ob.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./libraries/ob.lib.php');
 if ($cfg['OBGzip']) {
     $ob_mode = PMA_outBufferModeGet();
     if ($ob_mode) {
@@ -23,7 +23,7 @@ PMA_checkParameters(array('db', 'full_sql_query'));
 // to a seperate file. It can now be included by header.inc.php,
 // queryframe.php, querywindow.php.
 
-include('./libraries/header_http.inc.php');
+require_once('./libraries/header_http.inc.php');
 
 /**
  * Sends the beginning of the html page then returns to the calling script

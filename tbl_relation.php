@@ -5,8 +5,8 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 require('./tbl_properties_common.php');
 $url_query .= '&amp;goto=tbl_properties.php';
 
@@ -15,14 +15,14 @@ $url_query .= '&amp;goto=tbl_properties.php';
 // has not been done yet (will be done in tbl_relation later).
 $avoid_show_comment = TRUE;
 require('./tbl_properties_table_info.php');
-require('./libraries/relation.lib.php');
+require_once('./libraries/relation.lib.php');
 
 $options_array = array('CASCADE' => 'CASCADE', 'SET_NULL' => 'SET NULL', 'NO_ACTION' => 'NO ACTION', 'RESTRICT' => 'RESTRICT');
 
          /**
-         * Generate dropdown choices 
+         * Generate dropdown choices
          *
-         * @param   string   Message to display 
+         * @param   string   Message to display
          * @param   string   Name of the <select> field
          * @param   array    Choices for dropdown
          * @return  string   The existing value (for selected)
@@ -108,7 +108,7 @@ if ($cfgRelation['relwork']
     } // end while
 
 
-    // u p d a t e s   f o r   I n n o D B 
+    // u p d a t e s   f o r   I n n o D B
     // ( for now, same db only, and one index name)
     if (isset($destination_innodb)) {
         foreach($destination_innodb AS $master_field => $foreign_string) {
@@ -119,12 +119,12 @@ if ($cfgRelation['relwork']
 
                     // The next few lines are repeated below, so they
                     // could be put in an include file
-                    $upd_query  = 'ALTER TABLE ' . $table 
+                    $upd_query  = 'ALTER TABLE ' . $table
                                 . ' ADD FOREIGN KEY ('
                                 . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
                                 . ' REFERENCES '
                                 . PMA_backquote(PMA_sqlAddslashes($foreign_table)) . '('
-                                . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')'; 
+                                . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')';
 
                     if (${$master_field . '_on_delete'} != 'nix') {
                         $upd_query   .= ' ON DELETE ' . $options_array[${$master_field . '_on_delete'}];
@@ -135,17 +135,17 @@ if ($cfgRelation['relwork']
 
                     // end repeated code
 
-                } else if (($existrel_innodb[$master_field]['foreign_db'] . '.' .$existrel_innodb[$master_field]['foreign_table'] . '.' . $existrel_innodb[$master_field]['foreign_field'] != $foreign_string) 
-                  || ( ${$master_field . '_on_delete'} != (!empty($existrel_innodb[$master_field]['on_delete']) ? $existrel_innodb[$master_field]['on_delete'] : '')) 
-                  || ( ${$master_field . '_on_update'} != (!empty($existrel_innodb[$master_field]['on_update']) ? $existrel_innodb[$master_field]['on_update'] : '')) 
+                } else if (($existrel_innodb[$master_field]['foreign_db'] . '.' .$existrel_innodb[$master_field]['foreign_table'] . '.' . $existrel_innodb[$master_field]['foreign_field'] != $foreign_string)
+                  || ( ${$master_field . '_on_delete'} != (!empty($existrel_innodb[$master_field]['on_delete']) ? $existrel_innodb[$master_field]['on_delete'] : ''))
+                  || ( ${$master_field . '_on_update'} != (!empty($existrel_innodb[$master_field]['on_update']) ? $existrel_innodb[$master_field]['on_update'] : ''))
                        ) {
                     // another foreign key is already defined for this field
-                    // or 
+                    // or
                     // an option has been changed for ON DELETE or ON UPDATE
 
                     // remove existing key
                     if (PMA_MYSQL_INT_VERSION >= 40013) {
-                        $upd_query  = 'ALTER TABLE ' . $table 
+                        $upd_query  = 'ALTER TABLE ' . $table
                                     . ' DROP FOREIGN KEY '
                                     . PMA_backquote($existrel_innodb[$master_field]['constraint']);
 
@@ -154,12 +154,12 @@ if ($cfgRelation['relwork']
                     }
 
                     // add another
-                    $upd_query  = 'ALTER TABLE ' . $table 
+                    $upd_query  = 'ALTER TABLE ' . $table
                                 . ' ADD FOREIGN KEY ('
                                 . PMA_backquote(PMA_sqlAddslashes($master_field)) . ')'
                                 . ' REFERENCES '
                                 . PMA_backquote(PMA_sqlAddslashes($foreign_table)) . '('
-                                . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')'; 
+                                . PMA_backquote(PMA_sqlAddslashes($foreign_field)) . ')';
 
                     if (${$master_field . '_on_delete'} != 'nix') {
                         $upd_query   .= ' ON DELETE ' . $options_array[${$master_field . '_on_delete'}];
@@ -171,7 +171,7 @@ if ($cfgRelation['relwork']
                 } // end if... else....
             } else if (isset($existrel_innodb[$master_field])) {
                     if (PMA_MYSQL_INT_VERSION >= 40013) {
-                        $upd_query  = 'ALTER TABLE ' . $table 
+                        $upd_query  = 'ALTER TABLE ' . $table
                                 . ' DROP FOREIGN KEY '
                                 . PMA_backquote($existrel_innodb[$master_field]['constraint']);
                     }
@@ -190,7 +190,7 @@ if ($cfgRelation['relwork']
 } // end if
 
 
-// U p d a t e s   f o r   d i s p l a y   f i e l d 
+// U p d a t e s   f o r   d i s p l a y   f i e l d
 
 if ($cfgRelation['displaywork']
     && isset($submit_show) && $submit_show == 'true') {
@@ -214,7 +214,7 @@ if ($cfgRelation['displaywork']
                    . '\'' . PMA_sqlAddslashes($table) . '\','
                    . '\'' . PMA_sqlAddslashes($display_field) . '\')';
     }
-    
+
     if (isset($upd_query)) {
         $upd_rs    = PMA_query_as_cu($upd_query);
     }
@@ -283,7 +283,7 @@ if ($cfgRelation['relwork']) {
 
                         // Please watch here, tbl_type is INNODB but the
                         // resulting value of SHOW KEYS is InnoDB
-                      
+
                         if ($tbl_type=='INNODB' && isset($curr_table[1]) && $curr_table[1]=='InnoDB') {
                             $selectboxall_innodb[$field_full] =  $field_v;
                         }
@@ -398,7 +398,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         } // end while
 
         // if the link defined in relationtable points to a foreign field
-        // that is not a key in the foreign table, we show the link 
+        // that is not a key in the foreign table, we show the link
         // (will not be shown with an arrow)
         if ($foreign_field && !$seen_key) {
             echo '                '
@@ -435,18 +435,18 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
                 </select>
         </td>
         <td>
-        <?php 
+        <?php
               PMA_generate_dropdown('ON DELETE',
                   htmlspecialchars($save_row[$i]['Field']) . '_on_delete',
                   $options_array,
-                  (isset($existrel_innodb[$myfield]['on_delete']) ? $existrel_innodb[$myfield]['on_delete']: '') ); 
+                  (isset($existrel_innodb[$myfield]['on_delete']) ? $existrel_innodb[$myfield]['on_delete']: '') );
 
               echo '&nbsp;&nbsp;&nbsp;';
 
               PMA_generate_dropdown('ON UPDATE',
                   htmlspecialchars($save_row[$i]['Field']) . '_on_update',
                   $options_array,
-                  (isset($existrel_innodb[$myfield]['on_update']) ? $existrel_innodb[$myfield]['on_update']: '') ); 
+                  (isset($existrel_innodb[$myfield]['on_update']) ? $existrel_innodb[$myfield]['on_update']: '') );
 
         }
         ?>
@@ -555,6 +555,5 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 /**
  * Displays the footer
  */
-echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

@@ -6,15 +6,13 @@
 /**
  * Get some core libraries
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 $js_to_run = 'functions.js';
-require('./header.inc.php');
+require_once('./header.inc.php');
 
 // Check parameters
 
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db', 'table'));
 
@@ -185,8 +183,8 @@ if (isset($submit)) {
         $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
 
         // garvin: If comments were sent, enable relation stuff
-        require('./libraries/relation.lib.php');
-        require('./libraries/transformations.lib.php');
+        require_once('./libraries/relation.lib.php');
+        require_once('./libraries/transformations.lib.php');
 
         $cfgRelation = PMA_getRelationsParam();
 
@@ -204,7 +202,7 @@ if (isset($submit)) {
             }
         }
 
-        include('./' . $cfg['DefaultTabTable']);
+        require('./' . $cfg['DefaultTabTable']);
         $abort = TRUE;
         exit();
     } else {
@@ -235,10 +233,10 @@ if ($abort == FALSE) {
     // Table name and number of fields are valid -> show the form
     else {
         $action = 'tbl_create.php';
-        include('./tbl_properties.inc.php');
+        require('./tbl_properties.inc.php');
         // Diplays the footer
         echo "\n";
-        include('./footer.inc.php');
+        require_once('./footer.inc.php');
    }
 }
 

@@ -7,9 +7,7 @@
 
 // Check parameters
 
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db', 'table'));
 
@@ -34,8 +32,7 @@ for ($i = 0; $i < $tmp_cnt; $i++) {
         $$tmp1[0]    = $tmp1[1];
     }
 } // end for
-unset($tmp1);
-unset($tmp);
+unset($tmp1, $tmp);
 mysql_free_result($table_info_result);
 
 

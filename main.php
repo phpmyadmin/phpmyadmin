@@ -10,12 +10,8 @@ define('PMA_DISPLAY_HEADING', 0);
 /**
  * Gets some core libraries and displays a top message if required
  */
-if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
-    include('./libraries/grab_globals.lib.php');
-}
-if (!defined('PMA_COMMON_LIB_INCLUDED'))  {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 // Puts the language to use in a cookie that will expire in 30 days
 if (!isset($pma_uri_parts)) {
     $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
@@ -33,7 +29,7 @@ if (isset($table)) {
     unset($table);
 }
 $show_query = '1';
-require('./header.inc.php');
+require_once('./header.inc.php');
 if (isset($message)) {
     PMA_showMessage($message);
 }
@@ -254,8 +250,7 @@ if ($server > 0) {
                         } // end elseif
                     } // end if
                 } // end while
-                unset($show_grants_dbname);
-                unset($show_grants_str);
+                unset($show_grants_dbname, $show_grants_str);
                 mysql_free_result($rs_usr);
             } // end if
         } // end elseif
@@ -550,8 +545,8 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
         } else {
             $selected = '';
         }
-        echo '                        ';
-        echo '<option value="' . $tmpcharset . '"' . $selected . '>' . $tmpcharset . '</option>' . "\n";
+        echo '                        '
+           . '<option value="' . $tmpcharset . '"' . $selected . '>' . $tmpcharset . '</option>' . "\n";
     }
     ?>
                     </select>
@@ -634,20 +629,20 @@ if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
  */
 
 if (PMA_PHP_INT_VERSION < 40100) {
-    echo '<p class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.x') . '</p>' . "\n";
+    echo '<p class="warning">' . sprintf($strUpgrade, 'PHP', '4.1.0') . '</p>' . "\n";
 }
 
 /**
  * Warning for old MySQL version
  */
 
-if (PMA_MYSQL_INT_VERSION < 32336) {
-    echo '<p class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.36') . '</p>' . "\n";
+if (PMA_MYSQL_INT_VERSION < 32332) {
+    echo '<p class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</p>' . "\n";
 }
 
 /**
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

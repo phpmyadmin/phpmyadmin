@@ -4,11 +4,8 @@
 
 // Check parameters
 
-require('./libraries/grab_globals.lib.php');
-
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 PMA_checkParameters(array('db', 'table'));
 
@@ -46,16 +43,16 @@ function PMA_myHandler($sql_insert = '')
  * @param   array   Which fields will be used as new VALUES. These are the important
  *                  keys which differ from the old entry.
  *                  (array('FIELDNAME' => 'NEW FIELDVALUE'))
- 
+
  * @global  string  relation variable
- * 
+ *
  * @author          Garvin Hicking <me@supergarv.de>
  */
 function PMA_duplicate_table($work, $pma_table, $get_fields, $where_fields, $new_fields) {
 global $cfgRelation;
 
     $last_id = -1;
-    
+
     if ($cfgRelation[$work]) {
         $select_parts = array();
         $row_fields = array();
@@ -63,12 +60,12 @@ global $cfgRelation;
             $select_parts[] = PMA_backquote($get_field);
             $row_fields[$get_field] = 'cc';
         }
-        
+
         $where_parts = array();
         foreach($where_fields AS $_where => $_value) {
             $where_parts[] = PMA_backquote($_where) . ' = \'' . PMA_sqlAddslashes($_value) . '\'';
         }
-        
+
         $new_parts = array();
         $new_value_parts = array();
         foreach($new_fields AS $_where => $_value) {
@@ -88,7 +85,7 @@ global $cfgRelation;
                     $value_parts[] = PMA_sqlAddslashes($_val);
                 }
             }
-            
+
             $new_table_query = 'INSERT IGNORE INTO ' . PMA_backquote($cfgRelation[$pma_table])
                             . ' (' . implode(', ', $select_parts) . ', ' . implode(', ', $new_parts) . ')'
                             . ' VALUES '
@@ -97,18 +94,18 @@ global $cfgRelation;
             $new_table_rs    = PMA_query_as_cu($new_table_query);
             $last_id = (@function_exists('mysql_insert_id') ? @mysql_insert_id() : -1);
         } // end while
-        
+
         return $last_id;
     }
-    
+
     return true;
 } // end of 'PMA_duplicate_table()' function
 
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 
 /**
@@ -142,15 +139,15 @@ if (isset($new_name) && trim($new_name) != '') {
         $source = PMA_backquote($db) . '.' . PMA_backquote($table);
         if (empty($target_db)) $target_db = $db;
 
-        // This could avoid some problems with replicated databases, when 
+        // This could avoid some problems with replicated databases, when
         // moving table from replicated one to not replicated one
         PMA_mysql_select_db($target_db);
-        
+
         $target = PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
 
         // do not create the table if dataonly
         if ($what != 'dataonly') {
-            include('./libraries/export/sql.php');
+            require('./libraries/export/sql.php');
 
             $no_constraints_comments = true;
             $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
@@ -161,23 +158,23 @@ if (isset($new_name) && trim($new_name) != '') {
             /* nijel: Find table name in query and replace it */
             $i = 0;
             while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
-            
+
             /* no need to PMA_backquote() */
             $parsed_sql[$i]['data'] = $target;
 
             /* Generate query back */
             $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
-        
+
             // If table exists, and 'add drop table' is selected: Drop it!
             $drop_query = '';
             if (isset($drop_if_exists) && $drop_if_exists == 'true') {
                 $drop_query = 'DROP TABLE IF EXISTS ' . PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
                 $result        = @PMA_mysql_query($drop_query);
                 if (PMA_mysql_error()) {
-                    include('./header.inc.php');
+                    require_once('./header.inc.php');
                     PMA_mysqlDie('', $sql_structure, '', $err_url);
                 }
-                
+
                 if (isset($sql_query)) {
                     $sql_query .= "\n" . $drop_query . ';';
                 } else {
@@ -188,23 +185,23 @@ if (isset($new_name) && trim($new_name) != '') {
                 // for the PMA_* tables
                 $maintain_relations = true;
             }
-            
+
             $result        = @PMA_mysql_query($sql_structure);
             if (PMA_mysql_error()) {
-                include('./header.inc.php');
+                require_once('./header.inc.php');
                 PMA_mysqlDie('', $sql_structure, '', $err_url);
             } else if (isset($sql_query)) {
                 $sql_query .= "\n" . $sql_structure . ';';
             } else {
                 $sql_query = $sql_structure . ';';
             }
-            
+
             if ((isset($submit_move) || isset($constraints)) && isset($sql_constraints)) {
                 $parsed_sql =  PMA_SQP_parse($sql_constraints);
-               
+
                 $i = 0;
                 while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
-                
+
                 /* no need to PMA_backquote() */
                 $parsed_sql[$i]['data'] = $target;
 
@@ -212,7 +209,7 @@ if (isset($new_name) && trim($new_name) != '') {
                 $sql_constraints = PMA_SQP_formatHtml($parsed_sql, 'query_only');
                 $result        = @PMA_mysql_query($sql_constraints);
                 if (PMA_mysql_error()) {
-                    include('./header.inc.php');
+                    require_once('./header.inc.php');
                     PMA_mysqlDie('', $sql_structure, '', $err_url);
                 } else if (isset($sql_query)) {
                     $sql_query .= "\n" . $sql_constraints;
@@ -230,26 +227,26 @@ if (isset($new_name) && trim($new_name) != '') {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
             $result          = @PMA_mysql_query($sql_insert_data);
             if (PMA_mysql_error()) {
-                include('./header.inc.php');
+                require_once('./header.inc.php');
                 PMA_mysqlDie('', $sql_insert_data, '', $err_url);
             }
             $sql_query .= "\n\n" . $sql_insert_data . ';';
         }
 
-        include('./libraries/relation.lib.php');
+        require_once('./libraries/relation.lib.php');
         $cfgRelation = PMA_getRelationsParam();
 
         // Drops old table if the user has requested to move it
         if (isset($submit_move)) {
-            
-            // This could avoid some problems with replicated databases, when 
+
+            // This could avoid some problems with replicated databases, when
             // moving table from replicated one to not replicated one
             PMA_mysql_select_db($db);
-            
+
             $sql_drop_table = 'DROP TABLE ' . $source;
             $result         = @PMA_mysql_query($sql_drop_table);
             if (PMA_mysql_error()) {
-                include('./header.inc.php');
+                require_once('./header.inc.php');
                 PMA_mysqlDie('', $sql_drop_table, '', $err_url);
             }
 
@@ -263,7 +260,7 @@ if (isset($new_name) && trim($new_name) != '') {
                 $rmv_rs    = PMA_query_as_cu($remove_query);
                 unset($rmv_query);
             }
-            
+
             // garvin: updating bookmarks is not possible since only a single table is moved,
             // and not the whole DB.
             // if ($cfgRelation['bookmarkwork']) {
@@ -273,7 +270,7 @@ if (isset($new_name) && trim($new_name) != '') {
             //     $rmv_rs    = PMA_query_as_cu($remove_query);
             //     unset($rmv_query);
             // }
-            
+
             if ($cfgRelation['displaywork']) {
                 $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
                                 . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\', '
@@ -294,7 +291,7 @@ if (isset($new_name) && trim($new_name) != '') {
                 $tb_rs    = PMA_query_as_cu($table_query);
                 unset($table_query);
                 unset($tb_rs);
-        
+
                 $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['relation'])
                                 . ' SET     master_table = \'' . PMA_sqlAddslashes($new_name) . '\','
                                 . '         master_db = \'' . PMA_sqlAddslashes($target_db) . '\''
@@ -304,7 +301,7 @@ if (isset($new_name) && trim($new_name) != '') {
                 unset($table_query);
                 unset($tb_rs);
             }
-            
+
             // garvin: [TODO] Can't get moving PDFs the right way. The page numbers always
             // get screwed up independently from duplication because the numbers do not
             // seem to be stored on a per-database basis. Would the author of pdf support
@@ -325,7 +322,7 @@ if (isset($new_name) && trim($new_name) != '') {
                            . ' WHERE db_name  = \'' . PMA_sqlAddslashes($target_db) . '\''
                            . ' AND table_name = \'' . PMA_sqlAddslashes($new_name) . '\'';
                 $pdf_rs = PMA_query_as_cu($pdf_query);
-            
+
                 while ($pdf_copy_row = @PMA_mysql_fetch_array($pdf_rs)) {
                     $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['pdf_pages'])
                                     . ' SET     db_name = \'' . PMA_sqlAddslashes($target_db) . '\''
@@ -351,7 +348,7 @@ if (isset($new_name) && trim($new_name) != '') {
                                                 db_name = \'' . PMA_sqlAddslashes($db) . '\' AND
                                                 table_name = \'' . PMA_sqlAddslashes($table) . '\'';
                     $comments_copy_rs    = PMA_query_as_cu($comments_copy_query);
-        
+
                     // Write every comment as new copied entry. [MIME]
                     while ($comments_copy_row = @PMA_mysql_fetch_array($comments_copy_rs)) {
                         $new_comment_query = 'REPLACE INTO ' . PMA_backquote($cfgRelation['column_info'])
@@ -368,29 +365,29 @@ if (isset($new_name) && trim($new_name) != '') {
                         $new_comment_rs    = PMA_query_as_cu($new_comment_query);
                     } // end while
                 }
-                
+
                 if ($db != $target_db) {
                     $get_fields = array('user','label','query');
                     $where_fields = array('dbase' => $db);
                     $new_fields = array('dbase' => $target_db);
                     PMA_duplicate_table('bookmarkwork', 'bookmark', $get_fields, $where_fields, $new_fields);
                 }
-        
+
                 $get_fields = array('display_field');
                 $where_fields = array('db_name' => $db, 'table_name' => $table);
                 $new_fields = array('db_name' => $target_db, 'table_name' => $new_name);
                 PMA_duplicate_table('displaywork', 'table_info', $get_fields, $where_fields, $new_fields);
-                
+
                 $get_fields = array('master_field', 'foreign_db', 'foreign_table', 'foreign_field');
                 $where_fields = array('master_db' => $db, 'master_table' => $table);
                 $new_fields = array('master_db' => $target_db, 'master_table' => $new_name);
                 PMA_duplicate_table('relwork', 'relation', $get_fields, $where_fields, $new_fields);
-        
+
                 $get_fields = array('foreign_field', 'master_db', 'master_table', 'master_field');
                 $where_fields = array('foreign_db' => $db, 'foreign_table' => $table);
                 $new_fields = array('foreign_db' => $target_db, 'foreign_table' => $new_name);
                 PMA_duplicate_table('relwork', 'relation', $get_fields, $where_fields, $new_fields);
-        
+
                 // garvin: [TODO] Can't get duplicating PDFs the right way. The page numbers always
                 // get screwed up independently from duplication because the numbers do not
                 // seem to be stored on a per-database basis. Would the author of pdf support
@@ -431,7 +428,7 @@ if (isset($new_name) && trim($new_name) != '') {
             }
         }
     }
-    include('./header.inc.php');
+    require_once('./header.inc.php');
 } // end is target table name
 
 
@@ -439,7 +436,7 @@ if (isset($new_name) && trim($new_name) != '') {
  * No new name for the table!
  */
 else {
-    include('./header.inc.php');
+    require_once('./header.inc.php');
     PMA_mysqlDie($strTableEmpty, '', '', $err_url);
 }
 

@@ -29,8 +29,7 @@ if (!empty($innodbstatus)) {
        . htmlspecialchars($row[0]) . "\n"
        . '</pre>' . "\n";
     mysql_free_result($res);
-    include('./footer.inc.php');
-    exit;
+    require_once('./footer.inc.php');
 }
 
 /**
@@ -46,8 +45,7 @@ echo '<h2>' . "\n"
  */
 if (!$is_superuser && !$cfg['ShowMysqlInfo']) {
     echo $strNoPrivileges;
-    include('./footer.inc.php');
-    exit;
+    require_once('./footer.inc.php');
 }
 
 
@@ -301,6 +299,6 @@ if ($res) {
 /**
  * Sends the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 
 ?>

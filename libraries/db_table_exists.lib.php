@@ -16,7 +16,7 @@ if (!isset($is_db) || !$is_db) {
         if (!isset($is_transformation_wrapper)) {
             header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         }
-        exit();
+        exit;
     }
 } // end if (ensures db exists)
 if (!isset($is_table) || !$is_table) {
@@ -29,7 +29,7 @@ if (!isset($is_table) || !$is_table) {
         if (!isset($is_transformation_wrapper)) {
             header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         }
-        exit();
+        exit;
     } else if (isset($is_table)) {
         mysql_free_result($is_table);
     }

@@ -2,15 +2,9 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
-    include('./libraries/grab_globals.lib.php');
-}
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
-if (PMA_MYSQL_INT_VERSION >= 40100 && !defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')) {
-    include('./libraries/mysql_charsets.lib.php');
-}
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./libraries/mysql_charsets.lib.php');
 
 /**
  * Drop multiple fields if required
@@ -28,7 +22,7 @@ if ((!empty($submit_mult) && isset($selected_fld))
     || isset($mult_btn)) {
     $action = 'tbl_properties_structure.php';
     $err_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db, $table);
-    include('./mult_submits.inc.php');
+    require('./mult_submits.inc.php');
 }
 
 /**
@@ -102,8 +96,8 @@ $comments_map = array();
 $mime_map = array();
 
 if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    require('./libraries/relation.lib.php');
-    require('./libraries/transformations.lib.php');
+    require_once('./libraries/relation.lib.php');
+    require_once('./libraries/transformations.lib.php');
 
     $cfgRelation = PMA_getRelationsParam();
 
@@ -396,7 +390,7 @@ if ($cfg['PropertiesIconic']) {
            . '<img src="./images/button_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="12" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
            . '</button>' . "\n";
     } else {
-        echo '                    <input type="image" name="submit_mult_change" value="' .$strChange . '" title="' . $strChange . '" src="./images/button_edit.png" />'  . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"; 
+        echo '                    <input type="image" name="submit_mult_change" value="' .$strChange . '" title="' . $strChange . '" src="./images/button_edit.png" />'  . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n";
     }
     // Drop button if there is at least two fields
     if ($fields_cnt > 1) {
@@ -405,7 +399,7 @@ if ($cfg['PropertiesIconic']) {
                . '<img src="./images/button_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"
                . '</button>' . "\n";
         } else {
-            echo '                    <input type="image" name="submit_mult_drop" value="' .$strDrop . '" title="' . $strDrop . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"; 
+            echo '                    <input type="image" name="submit_mult_drop" value="' .$strDrop . '" title="' . $strDrop . '" src="./images/button_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n";
         }
     }
 } else {
@@ -438,7 +432,7 @@ if ($fields_cnt > 20) {
 <!-- Browse links -->
     <?php
     echo "\n";
-    include('./tbl_properties_links.php');
+    require('./tbl_properties_links.php');
 } // end if ($fields_cnt > 20)
 echo "\n\n";
 
@@ -788,6 +782,5 @@ require('./tbl_query_box.php');
 /**
  * Displays the footer
  */
-echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

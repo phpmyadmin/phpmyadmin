@@ -35,5 +35,5 @@ require('./tbl_query_box.php');
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

@@ -18,8 +18,8 @@
 /**
  * Gets some core scripts
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 // Check parameters
 
@@ -80,9 +80,9 @@ if (isset($btnLDI) && isset($local_textfile) && $local_textfile != '') {
  */
 if (isset($btnLDI) && empty($textfile)) {
     $js_to_run = 'functions.js';
-    include('./header.inc.php');
+    require_once('./header.inc.php');
     $message = $strMustSelectFile;
-    include('./ldi_table.php');
+    require('./ldi_table.php');
 } elseif (isset($btnLDI) && ($textfile != 'none')) {
     if (!isset($replace)) {
         $replace = '';
@@ -91,7 +91,7 @@ if (isset($btnLDI) && empty($textfile)) {
     // the error message does not correspond exactly to the error...
     if (!@chmod($textfile, 0644)) {
        echo $strFileCouldNotBeRead . ' ' . $textfile . '<br />';
-       exit();
+       require_once('./footer.inc.php');
     }
 
     // Kanji encoding convert appended by Y.Kawada
@@ -159,7 +159,7 @@ if (isset($btnLDI) && empty($textfile)) {
     //
     // The $goto in ldi_table.php is set to tbl_properties.php but maybe
     // if would be better to Browse the latest inserted data.
-    include('./sql.php');
+    require('./sql.php');
     if ($unlink_local_textfile) {
         unlink($textfile);
     }
@@ -170,6 +170,6 @@ if (isset($btnLDI) && empty($textfile)) {
  * The form used to define the query hasn't been yet submitted -> loads it
  */
 else {
-    include('./ldi_table.php');
+    require('./ldi_table.php');
 }
 ?>

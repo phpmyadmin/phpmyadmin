@@ -7,7 +7,7 @@
  * Gets the variables sent to this script, retains the db name that may have
  * been defined as startup option and include a core library
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 if (!empty($db)) {
     $db_start = $db;
 }
@@ -16,8 +16,8 @@ if (!empty($db)) {
 /**
  * Gets a core script and starts output buffering work
  */
-require('./libraries/common.lib.php');
-require('./libraries/ob.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./libraries/ob.lib.php');
 if ($cfg['OBGzip']) {
     $ob_mode = PMA_outBufferModeGet();
     if ($ob_mode) {
@@ -29,7 +29,7 @@ if ($cfg['OBGzip']) {
 // to a seperate file. It can now be included by header.inc.php,
 // queryframe.php, querywindow.php.
 
-include('./libraries/header_http.inc.php');
+require_once('./libraries/header_http.inc.php');
 
 /**
  * Displays the frame

@@ -12,13 +12,13 @@
  * Get the values of the variables posted or sent to this script and display
  * the headers
  */
-require('./libraries/read_dump.lib.php');
-require('./libraries/grab_globals.lib.php');
-require('./header.inc.php');
+require_once('./libraries/read_dump.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./header.inc.php');
 
 //require common added for string importing - Robbat2, 15 January 2003 9.34PM
 //all hardcoded strings converted by Robbat2, 15 January 2003 9.34PM
-require('./libraries/common.lib.php');
+require_once('./libraries/common.lib.php');
 
 // Check parameters
 PMA_checkParameters(array('db'));
@@ -62,7 +62,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
                 $content = str_replace("\r", "\n", $content);
                 $lines = explode("\n", $content);
             }
-            
+
             if (isset($lines) && is_array($lines) && count($lines) > 0) {
                 foreach($lines AS $lkey => $line) {
                     //echo '<p>' . $line . '</p>';
@@ -105,7 +105,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
             } else {
                 echo '<p><font color="red">' . $GLOBALS['strFileCouldNotBeRead'] . '</font></p>' . "\n";
             }
-            
+
             return 1;
         } else {
             if ($content != 'none') {
@@ -142,13 +142,13 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
      */
     if (isset($do) && $do == 'import') {
         $orig_docpath = $docpath;
-        
+
         if (empty($sql_file)) {
             $sql_file  = 'none';
         }
 
         // Get relation settings
-        include('./libraries/relation.lib.php');
+        require_once('./libraries/relation.lib.php');
         $cfgRelation = PMA_getRelationsParam();
 
         // Gets the query from a file if required
@@ -157,15 +157,15 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
                 && is_uploaded_file($sql_file)) {
 
                 $open_basedir = @ini_get('open_basedir');
-        
+
                 // If we are on a server with open_basedir, we must move the file
                 // before opening it. The doc explains how to create the "./tmp"
                 // directory
-        
+
                 if (!empty($open_basedir)) {
-        
+
                     $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : './tmp/');
-        
+
                     // function is_writeable() is valid on PHP3 and 4
                     if (!is_writeable($tmp_subdir)) {
                         $docsql_text = PMA_readFile($sql_file, $sql_file_compression);
@@ -185,13 +185,13 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
                     // read from the normal upload dir
                     $docsql_text = PMA_readFile($sql_file, $sql_file_compression);
                 }
-        
+
                 // Convert the file's charset if necessary
                 if ($cfg['AllowAnywhereRecoding'] && $allow_recoding
                     && isset($charset_of_file) && $charset_of_file != $charset) {
                     $docsql_text = PMA_convert_string($charset_of_file, $charset, $docsql_text);
                 }
-                
+
                 if (!isset($docsql_text) || $docsql_text == FALSE || $docsql_text == '') {
                     echo '<p><font color="red">' . $GLOBALS['strFileCouldNotBeRead'] . '</font></p>' . "\n";
                 } else {
@@ -199,15 +199,15 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
                 }
             } // end uploaded file stuff
         } else {
-            
+
             // echo '<h1>Starting Import</h1>';
             $docpath = $cfg['docSQLDir'] . preg_replace('@\.\.*@', '.', $docpath);
             if (substr($docpath, -1) != '/') {
                 $docpath .= '/';
             }
-        
+
             $matched_files = 0;
-            
+
             if (is_dir($docpath)) {
                 // Do the work
                 $handle = opendir($docpath);
@@ -299,6 +299,6 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 
 ?>

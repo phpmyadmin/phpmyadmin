@@ -64,7 +64,7 @@ cat <<END
 
 Please ensure you have:
   1. incremented rc count or version in CVS :
-     - in libraries/defines_php.lib.php the line
+     - in libraries/defines.lib.php the line
           " define('PMA_VERSION', '$1'); "
      - in Documentation.html the 2 lines
           " <title>phpMyAdmin $1 - Documentation</title> "
@@ -177,7 +177,7 @@ Todo now:
         phpmyadmin-news@lists.sourceforge.net
         phpmyadmin-users@lists.sourceforge.net
  8. increment rc count or version in CVS :
-        - in libraries/defines_php.lib.php the line
+        - in libraries/defines.lib.php the line
               " define('PHPMYADMIN_VERSION', '2.2.2-rc1'); "
         - in Documentation.html the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "

@@ -14,15 +14,13 @@ $url_query .= '&amp;goto=tbl_properties_operations.php&amp;back=tbl_properties_o
 /**
  * Gets relation settings
  */
-require('./libraries/relation.lib.php');
+require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 /**
  * Gets available MySQL charsets
  */
-if (PMA_MYSQL_INT_VERSION >= 40100 && !defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')) {
-    include('./libraries/mysql_charsets.lib.php');
-}
+require_once('./libraries/mysql_charsets.lib.php');
 
 /**
  * Updates table comment, type and options if required
@@ -291,7 +289,7 @@ echo "\n";
 
 <?php
 // Referential integrity check
-// The Referential integrity check was intended for the non-InnoDB 
+// The Referential integrity check was intended for the non-InnoDB
 // tables for which the relations are defined in pmadb
 // so I assume that if the current table is InnoDB, I don't display
 // this choice (InnoDB maintains integrity by itself)
@@ -510,5 +508,5 @@ if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
  * Displays the footer
  */
 echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

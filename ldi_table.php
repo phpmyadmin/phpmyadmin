@@ -7,12 +7,10 @@
  * This file defines the forms used to insert a textfile into a table
  */
 
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 
 // Check parameters
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db', 'table'));
 
 
@@ -165,7 +163,7 @@ if (PMA_MYSQL_INT_VERSION > 40003) {
     <tr>
         <td><?php echo $strLoadMethod; ?>
         </td>
-        <td> 
+        <td>
             <input type="radio" id="radio_local_option_0" name="local_option" value="0" <?php echo (!$local_option_selected ? ' checked="checked" ' : ''); ?>/><label for="radio_local_option_0">...DATA</label><br />
             <input type="radio" id="radio_local_option_1" name="local_option" value="1" <?php echo ($local_option_selected ? ' checked="checked" ' : ''); ?>/><label for="radio_local_option_1">...DATA LOCAL</label>
         </td>
@@ -194,5 +192,5 @@ if (PMA_MYSQL_INT_VERSION > 40003) {
 /**
  * Displays the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

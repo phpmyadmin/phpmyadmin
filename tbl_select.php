@@ -6,9 +6,9 @@
 /**
  * Gets some core libraries
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
-require('./libraries/relation.lib.php'); // foreign keys
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./libraries/relation.lib.php'); // foreign keys
 
 if ($cfg['PropertiesIconic'] == true) {
     // We need to copy the value or else the == 'both' check will always return true
@@ -43,10 +43,10 @@ $textfunctions = array('LIKE', '=', '!=');
  */
 if (!isset($param) || $param[0] == '') {
     // Gets some core libraries
-    include('./tbl_properties_common.php');
+    require('./tbl_properties_common.php');
     //$err_url   = 'tbl_select.php' . $err_url;
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
-    include('./tbl_properties_table_info.php');
+    require('./tbl_properties_table_info.php');
 
     if (!isset($goto)) {
         $goto = $cfg['DefaultTabTable'];
@@ -156,7 +156,7 @@ if (!isset($param) || $param[0] == '') {
             // <markus@noga.de>
             $field = $fields_list[$i];
 
-            include('./libraries/get_foreign.lib.php');
+            require_once('./libraries/get_foreign.lib.php');
 
             echo "\n";
             // we got a bug report: in some cases, even if $disp is true,
@@ -226,8 +226,7 @@ if (!isset($param) || $param[0] == '') {
 </form>
         <?php
     } // end if
-    echo "\n";
-    include('./footer.inc.php');
+    require_once('./footer.inc.php');
 }
 
 

@@ -4,8 +4,8 @@
 
 chdir('..');
 $is_minimum_common = TRUE;
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
 
 // Gets the default font sizes
 // garvin: TODO: Should be optimized to not include the whole common.lib.php bunch
@@ -13,7 +13,7 @@ require('./libraries/common.lib.php');
 PMA_setFontSizes();
 
 $ctype = 'css';
-require('./libraries/header_http.inc.php');
+require_once('./libraries/header_http.inc.php');
 
 if (!isset($js_frame)) {
     $js_frame = 'left';

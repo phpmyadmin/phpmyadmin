@@ -7,9 +7,9 @@
  * Get the values of the variables posted or sent to this script and display
  * the headers
  */
-require('./libraries/grab_globals.lib.php');
-require('./libraries/common.lib.php');
-require('./libraries/relation.lib.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./libraries/relation.lib.php');
 
 
 /**
@@ -25,13 +25,13 @@ if (isset($submit_sql) && preg_match('@^SELECT@i', $encoded_sql_query)) {
     $goto      = 'db_details.php';
     $zero_rows = htmlspecialchars($strSuccess);
     $sql_query = urldecode($encoded_sql_query);
-    include('./sql.php');
+    require('./sql.php');
     exit();
 } else {
     $sub_part  = '_qbe';
-    include('./db_details_common.php');
+    require('./db_details_common.php');
     $url_query .= '&amp;goto=db_details_qbe.php';
-    include('./db_details_db_info.php');
+    require('./db_details_db_info.php');
 }
 
 if (isset($submit_sql) && !preg_match('@^SELECT@i', $encoded_sql_query)) {
@@ -1076,5 +1076,5 @@ if (!empty($qry_orderby)) {
 /**
  * Displays the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>

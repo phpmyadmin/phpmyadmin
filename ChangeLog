@@ -5,17 +5,34 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-26 Alexander M. Turek  <lifeforrent@derrabus.de>
+    * Almost every file:
+      - Replaced all include / require commands by require_once where possible;
+      - Further php 4.1+ optimizations;
+      - footer.inc.php now automatically stops the script execution;
+      - Coding standards.
+    * config.inc.php: Don't include select_lang.lib.php here.
+    * libraries/common.lib.php, libraries/defines.lib.php,
+      libraries/defines_php.lib.php, libraries/defines_mysql.lib.php,
+      scripts/create-release.sh:
+      defines.lib.php was included twice. For optimization reasons I moved all
+      the code that is independent from the MySQL connection out of defines.lib
+      into defines_php.lib.
+      To point out the (new) meanings of the files I renamed defines.lib.php to
+      defines_mysql.lib.php while defines_php.lib.php is now known as
+      defines.lib.php.
+
 2003-11-26 Michal Cihar  <cleanerfasterbetter@cihar.com>
     * lang/check_lang.sh: Cleanup.
     * lang/sort_lang.sh: Cleanup.
     * lang/czech: Better translated some strings.
-    
+
 2003-11-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/arabic: update, thanks to Ossama Khayat (okhayat)
     * lang/hindi: update, thanks to Girish Nair (girish_nair)
     * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
-    
+
 2003-11-25 Alexander M. Turek  <jaggedlittlepill@derrabus.de>
     * translators.html: Changed email of Hindi translator, again.
     * badwords.txt: File is obsolete.

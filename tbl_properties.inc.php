@@ -3,18 +3,12 @@
 // vim: expandtab sw=4 ts=4 sts=4:
 
 // Check parameters
-
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
-
+require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db','table','action','num_fields'));
 
 
-// Get available character sets (MySQL >= 4.1)
-if (PMA_MYSQL_INT_VERSION >= 40100 && !defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')) {
-    include('./libraries/mysql_charsets.lib.php');
-}
+// Get available character sets
+require_once('./libraries/mysql_charsets.lib.php');
 
 ?>
 <?php if ($cfg['CtrlArrowsMoving']) { ?>
@@ -98,8 +92,8 @@ $header_cells[] = $strNull;
 $header_cells[] = $strDefault . '**';
 $header_cells[] = $strExtra;
 
-require('./libraries/relation.lib.php');
-require('./libraries/transformations.lib.php');
+require_once('./libraries/relation.lib.php');
+require_once('./libraries/transformations.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 $comments_map = array();
@@ -485,9 +479,9 @@ if ($cfg['DefaultPropDisplay'] == 'horizontal') {
         foreach($content_cells AS $content_nr => $content_row) {
             $i++;
             echo "\n" . '<tr>' . "\n";
-        
+
             $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-        
+
             if (is_array($content_row)) {
                 foreach($content_row AS $content_row_nr => $content_row_val) {
 ?>
@@ -495,7 +489,7 @@ if ($cfg['DefaultPropDisplay'] == 'horizontal') {
 <?php
                 }
             }
-    
+
             echo "\n" . '</tr>' . "\n";
         }
     }

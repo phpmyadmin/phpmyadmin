@@ -6,7 +6,7 @@
 /**
  * Checks if the left frame has to be reloaded
  */
-require('./libraries/grab_globals.lib.php');
+require_once('./libraries/grab_globals.lib.php');
 
 
 /**
@@ -74,7 +74,7 @@ if ((!empty($drop_selected_dbs) || isset($query_type)) && ($is_superuser || $cfg
         $action = 'server_databases.php';
         $submit_mult = 'drop_db' ;
         $err_url = 'server_databases.php?' . PMA_generate_common_url();
-        include('./mult_submits.inc.php');
+        require('./mult_submits.inc.php');
         $message = sprintf($strDatabasesDropped, count($selected));
         // we need to reload the database list now.
         PMA_availableDatabases();
@@ -102,8 +102,7 @@ echo '<h2>' . "\n"
  */
 if (!empty($dbstats) && !$is_superuser) {
     echo $strNoPrivileges . "\n";
-    include('./footer.inc.php');
-    exit;
+    require_once('./footer.inc.php');
 }
 
 
@@ -373,6 +372,6 @@ if (count($statistics) > 0) {
 /**
  * Sends the footer
  */
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 
 ?>

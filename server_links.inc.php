@@ -4,9 +4,7 @@
 
 // Check parameters
 
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
+require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('is_superuser', 'url_query'));
 
 /**

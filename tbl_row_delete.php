@@ -1,17 +1,10 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
-if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
-    include('./libraries/grab_globals.lib.php');
-}
-if (!defined('PMA_COMMON_LIB_INCLUDED')) {
-    include('./libraries/common.lib.php');
-}
-if (PMA_MYSQL_INT_VERSION >= 40100 && !defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')) {
-    include('./libraries/mysql_charsets.lib.php');
-}
-
-require('./header.inc.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./libraries/mysql_charsets.lib.php');
+require_once('./header.inc.php');
 
 /**
  * Drop multiple rows if required
@@ -31,7 +24,7 @@ if ((!empty($submit_mult) && isset($rows_to_delete) && is_array($rows_to_delete)
         $original_url_query = $url_query;
         $original_pos       = $pos;
     }
-    include('./mult_submits.inc.php');
+    require('./mult_submits.inc.php');
 }
 $url_query = PMA_generate_common_url($db, $table)
            . '&amp;goto=tbl_properties.php';
@@ -57,11 +50,10 @@ if (isset($original_pos)) {
     $pos       = $original_pos;
 }
 
-include('./sql.php');
+require('./sql.php');
 
 /**
  * Displays the footer
  */
-echo "\n";
-require('./footer.inc.php');
+require_once('./footer.inc.php');
 ?>
