@@ -5,6 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-10 Robin Johnson  <robbat2@users.sourceforge.net>
+    * Documentation.html:
+        - Updates for SQL Validator notes
+    * lang/sort_lang.sh:
+        - Fixed sorting bugs
+        - Now correctely arranges str values.
+        - Avoids extra blank line at top before CVS ID tag
+    * lang/hindi:
+        - Added '//to translate' to all untranslated strings
+    * lang/*:
+        - Resorted language files with fixed sort_lang.sh
+
 2002-08-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/afrikaans: update, thanks to Andreas Pauley
     * ### 2.3.0 is released ###
