@@ -197,6 +197,8 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
                     // Japanese charsets
                     case 'sjis':
                     case 'ujis':
+                    case 'cp932':
+                    case 'eucjpms':
                         $descr = $GLOBALS['strJapanese'];
                         break;
                     // Baltic charsets
