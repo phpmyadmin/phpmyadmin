@@ -5,8 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-23  Loïc Chapeaux  <lolo@phpheaven.net>
+	* config.inc.php3: removed unnecessary settings (stdpass is no long
+	  required and there is no need to use both stduser/user).
+	* Documentation.html: updated according to the changes in the configuration
+	  file.
+
 2001-10-22  Loïc Chapeaux  <lolo@phpheaven.net>
-	* Ducumentation.html, line 299: added some requirements for sockets.
+	* Documentation.html, line 299: added some requirements for sockets.
 	* main.php3: ensured sockets aren't displayed and used if php < 3.0.10.
 	* libraries/common.lib.php3: ensured the same rules apply whatever is the
 	  authentication mode and that the cfgServers[i]['only_db'] is really used.

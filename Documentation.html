@@ -314,10 +314,10 @@
     <dd>
         Whether basic or advanced authentication should be used for this
         server.<br />
-        Basic authentication (<tt>$adv_auth&nbsp;=&nbsp;false</tt>) is the
+        Basic authentication (<tt>$adv_auth&nbsp;=&nbsp;FALSE</tt>) is the
         plain old way: username and password are stored in
         <i>config.inc.php3</i>.
-        Advanced authentication (<tt>$adv_auth&nbsp;=&nbsp;true</tt>) as
+        Advanced authentication (<tt>$adv_auth&nbsp;=&nbsp;TRUE</tt>) as
         introduced in 1.3.0 allows you to log in as any valid MySQL user via
         HTTP-Auth.<br />
         Please note that this authentication mode is
@@ -338,34 +338,11 @@
             </li>
         </ul>
 
-        Advanced authentication is secure as the standard user needs just
-        read-only-access to the mysql database.
-        <br /><br />
-
-        All you have to provide in config.inc is a standard user which can
-        connect to MySQL and read the mysql user/db table
-        (see <tt>$cfgServers[n]['stduser']</tt>).
-        <br /><br />
-
-        Please also note that if you try a phpMyAdmin login with this stduser,
-        you could get some errors, depending on the exact privileges you gave
-        to this stduser. phpMyAdmin does not support a direct login with the
-        the stduser.
+        Advanced authentication is secure as the MySQL passwords does not need
+        to be set in the phpMyAdmin configuration file.
         <br /><br />
 
         See also the FAQ section for more information about security.
-        <br /><br />
-    </dd>
-
-    <dt>
-        <b>$cfgServers[n]['stduser']</b> string<br />
-        <b>$cfgServers[n]['stdpass']</b> string
-    </dt>
-    <dd>
-        A user/password pair used to verify the real user/password pair when
-        using advanced authentication. This user must be able to connect to
-        MySQL and read the mysql user table.<br />
-        Not needed when using basic authentication.
         <br /><br />
     </dd>
 
@@ -375,8 +352,10 @@
     </dt>
     <dd>
         The user/password-pair which phpMyAdmin will use to connect to this
-        MySQL-server when using basic authentication.<br />
-        Not needed when using advanced authentication.
+        MySQL-server.<br />
+        While <tt>$cfgServers[n]['user']</tt> is always required,
+        <tt>$cfgServers[n]['password']</tt> is not needed when using advanced
+        authentication (let it empty in this case).
         <br /><br />
     </dd>
 
@@ -431,7 +410,7 @@
             </li>
         </ul><br />
 
-        If you are using advanced authentication, stduser must have
+        If you are using advanced authentication, users must have
         <tt>Select_Priv, Insert_Priv</tt> and <tt>Delete_Priv</tt> set to "Y"
         in <i>mysql.db</i> table for the bookmark database.
         <br /><br />
@@ -779,8 +758,9 @@
 </p>
 <ul>
     <li>
-        <tt>$stduser/$stdpassword</tt> is wrong. Try to turn off $adv_auth and
-        use this username and password to connect to MySQL.
+        <tt>$cfgServers[n]['user']</tt> is wrong. Try to turn off
+        <tt>$cfgServers[n]['adv_auth']</tt> and use this username and password
+        to connect to MySQL.
     </li>
     <li>
         The username/password your specify in the login-dialog is wrong. Try
