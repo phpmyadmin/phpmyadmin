@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
@@ -665,7 +664,7 @@ if ($num_tables > 0) {
         echo PMA_generate_common_hidden_inputs($db);
         if($cfg['PropertiesIconic']){ echo '<img src="images/b_newtbl.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />'; }
         // if you want navigation:
-        $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
+        $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url() . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
                    . htmlspecialchars($GLOBALS['db']) . '</a>';
         // else use
         // $strDBLink = htmlspecialchars($db);
