@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-03  Geert Lund  <glund@silversoft.dk>
+	* libraries/common.lib.php3: fixed localised_date() function:
+	  - get correct month name (and not month+1)
+
 2001-10-02  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/bulgarian-win1251.inc.php3 updates, thanks to Peter Petrov
 

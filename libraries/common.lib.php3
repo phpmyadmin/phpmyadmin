@@ -1009,7 +1009,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         }
 
         $date = ereg_replace('%[aA]', $day_of_week[(int)strftime('%w',$timestamp)], $datefmt);
-        $date = ereg_replace('%[bB]', $month[(int)strftime('%m',$timestamp)], $date);
+        $date = ereg_replace('%[bB]', $month[(int)strftime('%m',$timestamp)-1], $date);
 
         return strftime($date, $timestamp);
     } // end of the 'localised_date()' function
