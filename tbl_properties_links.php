@@ -44,7 +44,7 @@ if ($table_info_num_rows > 0) {
              .  '&amp;zero_rows='
              .  urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)));
     $att6    = 'onclick="return confirmLink(this, \'' . $ln6_stt . PMA_jsFormat($table) . '\')"';
-    $class6  = 'drop';
+    $class6  = 'Drop';
 } else {
     $lnk2    = '';
     $arg2    = '';
@@ -53,12 +53,12 @@ if ($table_info_num_rows > 0) {
     $lnk6    = '';
     $arg6    = '';
     $att6    = '';
-    $class6  = '';
+    $class6  = 'Drop';
 }
 
 $arg7 = $url_query . '&amp;reload=1&amp;purge=1&amp;sql_query=' . urlencode('DROP TABLE ' . PMA_backquote($table) ) . '&amp;zero_rows=' . urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table)));
 $att7 = 'onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsFormat($table) . '\')"';
-$class7 = 'drop';
+$class7 = 'Drop';
 
 
 /**
@@ -68,24 +68,31 @@ $class7 = 'drop';
 if ($cfg['LightTabs']) {
     echo '&nbsp;';
 } else {
-    echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">' . "\n"
+    echo '<table border="0" cellspacing="0" cellpadding="0" width="100%">' . "\n"
        . '    <tr>' . "\n"
-       . '        <td width="8">&nbsp;</td>';
+       . '        <td class="nav" align="left" nowrap="nowrap" valign="bottom">'
+       . '            <table border="0" cellpadding="0" cellspacing="0"><tr>'
+       . '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
+       . '                <td class="navSpacer"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td>';
 }
 
-echo PMA_printTab($strStructure, 'tbl_properties_structure.php', $url_query)
-   . PMA_printTab($strBrowse, $lnk2, $arg2)
-   . PMA_printTab($strSQL, 'tbl_properties.php', $url_query)
-   . PMA_printTab($strSearch, $lnk4, $arg4)
-   . PMA_printTab($strInsert, 'tbl_change.php', $url_query)
-   . PMA_printTab($strExport, 'tbl_properties_export.php', $url_query . '&amp;single_table=true')
-   . PMA_printTab($strOperations, 'tbl_properties_operations.php', $url_query)
-   . PMA_printTab($strEmpty, $lnk6, $arg6, $att6, $class6)
-   . PMA_printTab($strDrop, 'sql.php', $arg7, $att7, $class7)
+echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_props.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strStructure.'" />' : '') . $strStructure, 'tbl_properties_structure.php', $url_query)
+   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_browse.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strBrowse.'" />' : '') . $strBrowse, $lnk2, $arg2)
+   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strSQL.'" />' : '') . $strSQL, 'tbl_properties.php', $url_query)
+   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_search.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strSearch.'" />' : '') . $strSearch, $lnk4, $arg4)
+   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_insrow.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strInsert.'" />' : '') . $strInsert, 'tbl_change.php', $url_query)
+   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strExport.'" />' : '') . $strExport, 'tbl_properties_export.php', $url_query . '&amp;single_table=true')
+   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblops.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strOperations.'" />' : '') . $strOperations, 'tbl_properties_operations.php', $url_query)
+   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_empty.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strEmpty.'" />' : '') . $strEmpty, $lnk6, $arg6, $att6, $class6)
+   . PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_deltbl.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strDrop.'" />' : '') . $strDrop, 'sql.php', $arg7, $att7, $class7)
    . "\n";
 
 if (!$cfg['LightTabs']) {
-    echo '</tr></table>';
+    echo '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
+       . '            </tr></table>' . "\n"
+       . '        </td>' . "\n"
+       . '    </tr>' . "\n"
+       . '</table>';
 } else {
     echo '<br />';
 }

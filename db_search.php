@@ -262,31 +262,28 @@ if (empty($search_option)) {
 }
 ?>
 <!-- Display search form -->
-<p align="center">
-    <b><?php echo $strSearchFormTitle; ?></b>
-</p>
-
 <a name="db_search"></a>
 <form method="post" action="db_search.php" name="db_search">
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
 
-    <table>
+    <table border="0" cellpadding="3" cellspacing="0">
     <tr>
-        <td>
-            <?php echo $strSearchNeedle; ?>&nbsp;
+        <th class="tblHeaders" align="center" colspan="2"><?php echo $strSearchFormTitle; ?></th>
+    </tr>
+    <tr><td colspan="2"></td></tr>
+    <tr>
+        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+            <?php echo $strSearchNeedle; ?>&nbsp;<br />
         </td>
-        <td>
-            <input type="text" name="search_str" size="30" value="<?php echo $searched; ?>" />
+        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+            <input type="text" name="search_str" size="60" value="<?php echo $searched; ?>" />
         </td>
     </tr>
-    <tr>
-        <td colspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-        <td valign="top">
+    <tr><td colspan="2"></td></tr><tr>
+        <td align="right" valign="top" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <?php echo $strSearchType; ?>&nbsp;
         </td>
-        <td>
+        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <input type="radio" id="search_option_1" name="search_option" value="1"<?php if ($search_option == 1) echo ' checked="checked"'; ?> />
             <label for="search_option_1"><?php echo $strSearchOption1; ?></label>&nbsp;*<br />
             <input type="radio" id="search_option_2" name="search_option" value="2"<?php if ($search_option == 2) echo ' checked="checked"'; ?> />
@@ -294,20 +291,19 @@ if (empty($search_option)) {
             <input type="radio" id="search_option_3" name="search_option" value="3"<?php if ($search_option == 3) echo ' checked="checked"'; ?> />
             <label for="search_option_3"><?php echo $strSearchOption3; ?></label><br />
             <input type="radio" id="search_option_4" name="search_option" value="4"<?php if ($search_option == 4) echo ' checked="checked"'; ?> />
-            <label for="search_option_4"><?php echo $strSearchOption4 . '</label> ' . PMA_showMySQLDocu('Regexp', 'Regexp'); ?><br />
+            <label for="search_option_4"><?php echo $strSearchOption4; ?></label><?php echo PMA_showMySQLDocu('Regexp', 'Regexp'); ?><br />
             <br />
             *&nbsp;<?php echo $strSplitWordsWithSpace . "\n"; ?>
         </td>
     </tr>
+    <tr><td colspan="2"></td></tr>
     <tr>
-        <td colspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-        <td valign="top">
+        <td align="right" valign="top" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <?php echo $strSearchInTables; ?>&nbsp;
         </td>
-        <td>
+        <td rowspan="2" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
 <?php
+$strDoSelectAll='&nbsp;';
 if ($num_tables > 1) {
     $i = 0;
 
@@ -329,12 +325,11 @@ if ($num_tables > 1) {
         $i++;
     } // end while
     echo '            </select>' . "\n";
-    ?>
-            <br />
-            <a href="db_search.php?<?php echo $url_query; ?>&amp;selectall=1#db_search" onclick="setSelectOptions('db_search', 'table_select[]', true); return false;"><?php echo $strSelectAll; ?></a>
-            &nbsp;/&nbsp;
-            <a href="db_search.php?<?php echo $url_query; ?>&amp;unselectall=1#db_search" onclick="setSelectOptions('db_search', 'table_select[]', false); return false;"><?php echo $strUnselectAll; ?></a>
-    <?php
+    $strDoSelectAll = '<a href="db_search.php?' . $url_query . '&amp;selectall=1#db_search"'
+                    . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', true); return false;">' . $strSelectAll . '</a>'
+                    . '&nbsp;/&nbsp;'
+                    . '<a href="db_search.php?' . $url_query . '&amp;unselectall=1#db_search"'
+                    . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', false); return false;">' . $strUnselectAll . '</a>';
 }
 else {
     echo "\n";
@@ -345,13 +340,10 @@ else {
 echo"\n";
 ?>
         </td>
-    </tr>
-
-    <tr>
-        <td colspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-        <td colspan="2"><input type="submit" name="submit_search" value="<?php echo $strGo; ?>" /></td>
+    </tr><tr><td align="right" valign="bottom" bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $strDoSelectAll; ?></td></tr>
+    <tr><td colspan="2"></td>
+    </tr><tr>
+        <td colspan="2" align="right" class="tblHeaders"><input type="submit" name="submit_search" value="<?php echo $strGo; ?>" id="buttonGo" /></td>
     </tr>
     </table>
 </form>

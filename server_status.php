@@ -20,6 +20,7 @@ require('./server_links.inc.php');
  */
 if (!empty($innodbstatus)) {
     echo '<h2>' . "\n"
+       . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '' )
        . '    ' . $strInnodbStat . "\n"
        . '</h2>' . "\n";
     $res = PMA_DBI_query('SHOW INNODB STATUS;');
@@ -35,6 +36,7 @@ if (!empty($innodbstatus)) {
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
+   . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_status.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '' )
    . '    ' . $strServerStatus . "\n"
    . '</h2>' . "\n";
 
@@ -83,10 +85,10 @@ unset($tmp_array);
     <li>
         <!-- Server Traffic -->
         <?php echo $strServerTrafficNotes; ?><br />
-        <table border="0">
+        <table border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td valign="top">
-                    <table border="0">
+                    <table border="0" cellpadding="2" cellspacing="1">
                         <tr>
                             <th colspan="2">&nbsp;<?php echo $strTraffic; ?>&nbsp;</th>
                             <th>&nbsp;&oslash;&nbsp;<?php echo $strPerHour; ?>&nbsp;</th>
@@ -109,7 +111,7 @@ unset($tmp_array);
                     </table>
                 </td>
                 <td valign="top">
-                    <table border="0">
+                    <table border="0" cellpadding="2" cellspacing="1">
                         <tr>
                             <th colspan="2">&nbsp;<?php echo $strConnections; ?>&nbsp;</th>
                             <th>&nbsp;&oslash;&nbsp;<?php echo $strPerHour; ?>&nbsp;</th>
@@ -141,11 +143,10 @@ unset($tmp_array);
     <li>
         <!-- Queries -->
         <?php echo sprintf($strQueryStatistics, number_format($serverStatus['Questions'], 0, $number_decimal_separator, $number_thousands_separator)) . "\n"; ?>
-        <table border="0">
+        <table border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td colspan="2">
-                    <br />
-                    <table border="0" align="right">
+                    <table border="0" cellpadding="2" cellspacing="1" width="100%">
                         <tr>
                             <th>&nbsp;<?php echo $strTotalUC; ?>&nbsp;</th>
                             <th>&nbsp;&oslash;&nbsp;<?php echo $strPerHour; ?>&nbsp;</th>
@@ -163,7 +164,7 @@ unset($tmp_array);
             </tr>
             <tr>
                 <td valign="top">
-                    <table border="0">
+                    <table border="0" cellpadding="2" cellspacing="1">
                         <tr>
                             <th colspan="2">&nbsp;<?php echo $strQueryType; ?>&nbsp;</th>
                             <th>&nbsp;&oslash;&nbsp;<?php echo $strPerHour; ?>&nbsp;</th>
@@ -193,7 +194,7 @@ foreach ($queryStats as $name => $value) {
                     </table>
                 </td>
                 <td valign="top">
-                    <table border="0">
+                    <table border="0" cellpadding="2" cellspacing="1">
                         <tr>
                             <th colspan="2">&nbsp;<?php echo $strQueryType; ?>&nbsp;</th>
                             <th>&nbsp;&oslash;&nbsp;<?php echo $strPerHour; ?>&nbsp;</th>
@@ -225,10 +226,10 @@ if (!empty($serverStatus)) {
     <li>
         <!-- Other status variables -->
         <b><?php echo $strMoreStatusVars; ?></b><br />
-        <table border="0">
+        <table border="0" cellpadding="5" cellspacing="0">
             <tr>
                 <td valign="top">
-                    <table border="0">
+                    <table border="0" cellpadding="2" cellspacing="1">
                         <tr>
                             <th>&nbsp;<?php echo $strVar; ?>&nbsp;</th>
                             <th>&nbsp;<?php echo $strValue; ?>&nbsp;</th>
@@ -250,7 +251,7 @@ if (!empty($serverStatus)) {
                     </table>
                 </td>
                 <td valign="top">
-                    <table border="0">
+                    <table border="0" cellpadding="2" cellspacing="1">
                         <tr>
                             <th>&nbsp;<?php echo $strVar; ?>&nbsp;</th>
                             <th>&nbsp;<?php echo $strValue; ?>&nbsp;</th>

@@ -144,7 +144,6 @@ if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRe
  * Includes the language file if it hasn't been included yet
  */
 require_once('./libraries/select_lang.lib.php');
-
 /**
  * Gets constants that defines the PHP version number.
  * This include must be located physically before any code that needs to
@@ -265,6 +264,51 @@ if (strtolower($cfg['OBGzip']) == 'auto') {
         $cfg['OBGzip'] = TRUE;
     }
 }
+
+
+/* Theme Manager
+ * 2004-05-20 Michael Keck (mail_at_michaelkeck_dot_de)
+ *            This little script checks if there're themes available
+ *            and if the directory $ThemePath/$theme/img/ exists
+ *            If not, it will use default images
+*/
+// Theme Manager
+if (!isset($_COOKIE['theme']) || empty($_COOKIE['theme'])){
+    $ThemeDefaultOk = FALSE;
+    if ($cfg['ThemePath']!='' && $cfg['ThemePath'] != FALSE) {
+        $tmp_theme_mainpath = './' . $cfg['ThemePath'];
+        $tmp_theme_fullpath = './' . $cfg['ThemePath'] . '/' .$cfg['ThemeDefault'];
+        if (@is_dir($tmp_theme_mainpath)) {
+            if (isset($cfg['ThemeDefault']) && $cfg['ThemeDefault']!='original' && @is_dir($tmp_theme_fullpath)) {
+                $ThemeDefaultOk = TRUE;
+            }
+        }
+    }
+    if ($ThemeDefaultOk == TRUE){ 
+        $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $cfg['ThemeDefault'] . '/img/';
+        $tmp_color_file = './' . $cfg['ThemePath'] . '/' . $cfg['ThemeDefault'] . '/colors.inc.php';
+        if (@file_exists($tmp_color_file)) {
+            include($tmp_color_file);
+        }
+    } else {
+        $pmaThemeImage = './images/';
+    }
+} else {
+    if ($_COOKIE['theme']!='original') {
+        $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $_COOKIE['theme'] . '/img/';
+        $tmp_color_file = './' . $cfg['ThemePath'] . '/' . $_COOKIE['theme'] . '/colors.inc.php';
+        if (@file_exists($tmp_color_file)) {
+            include($tmp_color_file);
+        }
+    } else {
+        $pmaThemeImage = './images/';
+    }
+}
+if (!is_dir($pmaThemeImage)) {
+    $pmaThemeImage = './images/';
+}
+// end theme manager
+
 
 if ($is_minimum_common == FALSE) {
     /**
@@ -436,38 +480,49 @@ if ($is_minimum_common == FALSE) {
                 if (!empty($GLOBALS['cfg']['MySQLManualType'])) {
                     switch ($GLOBALS['cfg']['MySQLManualType']) {
                         case 'old':
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
-                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
-                            return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>';
+                            }else{
+                                return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+                           }
                         case 'chapters':
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
-                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
-                            return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>';
+                           } else {
+                               return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/manual_' . $chapter . '.html#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
                         case 'big':
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
-                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
-                            return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>';
+                            } else {
+                                return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '#' . $link . '" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+                            }
                         case 'none':
                             return '';
                         case 'searchable':
                         default:
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
-                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
-                            return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                            if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+                                return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>';
+                            } else {
+                                return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+                            }
                     }
                 } else {
                     // no Type defined, show the old one
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
-                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
-                    return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+                        return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>';
+                    } else {
+                        return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+                    }
                 }
             } else {
                 // no URL defined
                 if (!empty($GLOBALS['cfg']['ManualBaseShort'])) {
                     // the old configuration
-                            if ($GLOBALS['cfg']['ReplaceHelpImg']){
-                              return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="images/b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>'; }else{
-                    return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]'; }
+                    if ($GLOBALS['cfg']['ReplaceHelpImg']) {
+                        return '<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc"><img src="' . $GLOBALS['pmaThemeImage'] . 'b_help.png" width="11" height="11" border="0" alt="' . $GLOBALS['strDocu'] . '" hspace="2" align="absmiddle"></a>';
+                    } else {
+                        return '[<a href="' . $GLOBALS['cfg']['MySQLManualBase'] . '/' . $link[0] . '/' . $link[1] . '/' . $link . '.html" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+                   }
                 } else {
                     return '';
                 }
@@ -512,8 +567,14 @@ if ($is_minimum_common == FALSE) {
             $formatted_sql = PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
         }
         // ---
-
-        echo '<p><b>'. $GLOBALS['strError'] . '</b></p>' . "\n";
+        echo "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
+        //echo '<p><b>'. $GLOBALS['strError'] . '</b></p>' . "\n";
+        echo '    <table border="0" cellpadding="2" cellspacing="1">'
+           . '        <tr>' . "\n"
+           . '            <th class="tblHeadError"><div class="errorhead">' . $GLOBALS['strError'] . '</th>' . "\n"
+           . '        </tr>' . "\n"
+           . '        <tr>' . "\n"
+           . '            <td>';
         // if the config password is wrong, or the MySQL server does not
         // respond, do not show the query that would reveal the
         // username/password
@@ -525,24 +586,38 @@ if ($is_minimum_common == FALSE) {
                 echo PMA_SQP_getErrorString();
             }
             // ---
-            echo '<p>' . "\n";
-            echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
+            // modified to show me the help on sql errors (Michael Keck)
+            echo '<div class="tblWarn"><p>' . "\n";
+            echo '    <b>' . $GLOBALS['strSQLQuery'] . ':</b>' . "\n";
+            if (strstr(strtolower($formatted_sql),'select')) { // please show me help to the error on select
+                echo PMA_showMySQLDocu('Reference', 'SELECT');
+            }
             if ($is_modify_link && isset($db)) {
-                echo '    ['
-                        . '<a href="db_details.php?' . PMA_generate_common_url($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">' . $GLOBALS['strEdit'] . '</a>'
-                        . ']' . "\n";
+                $doedit_goto = '<a href="db_details.php?' . PMA_generate_common_url($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">';
+                if ($GLOBALS['cfg']['PropertiesIconic']) {
+                    echo $doedit_goto 
+                       . '<img src=" '. $GLOBALS['pmaThemeImage'] . 'b_edit.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="' . $GLOBALS['strEdit'] .'" />'
+                       . '</a>';
+                } else {
+                    echo '    ['
+                       . $doedit_goto . $GLOBALS['strEdit'] . '</a>'
+                       . ']' . "\n";
+                }
             } // end if
             echo '</p>' . "\n"
                     . '<p>' . "\n"
                     . '    ' . $formatted_sql . "\n"
-                    . '</p>' . "\n";
+                    . '</p></div>' . "\n";
         } // end if
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
             $error_message = preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $error_message);
         }
-        echo '<p>' . "\n"
-                . '    ' . $GLOBALS['strMySQLSaid'] . '<br />' . "\n"
+        // modified to show me the help on error-returns (Michael Keck)
+        echo '<div class="tblWarn"><p>' . "\n"
+                . '    <b>' . $GLOBALS['strMySQLSaid'] . '</b>'
+                . PMA_showMySQLDocu('Error-returns', 'Error-returns')
+                . "\n"
                 . '</p>' . "\n";
 
         // The error message will be displayed within a CODE segment.
@@ -556,16 +631,20 @@ if ($is_minimum_common == FALSE) {
         $error_message = nl2br($error_message);
 
         echo '<code>' . "\n"
-                . $error_message . "\n"
-                . '</code><br /><br />' . "\n";
-
-        echo PMA_showMySQLDocu('Error-returns', 'Error-returns');
+            . $error_message . "\n"
+            . '</code><br /><br />' . "\n";
+        echo '</div>';
 
         if (!empty($back_url) && $exit) {
-            echo '&nbsp;&middot;&nbsp;[<a href="' . (strstr($back_url, '?') ? $back_url . '&amp;no_history=true' : $back_url . '?no_history=true') . '">' . $GLOBALS['strBack'] . '</a>]';
+            $goto_back_url='<a href="' . (strstr($back_url, '?') ? $back_url . '&amp;no_history=true' : $back_url . '?no_history=true') . '">&nbsp;';
+            echo '            </td> ' . "\n"
+               . '        </tr>' . "\n"
+               . '        <tr><td class="tblHeaders" align="center">';
+            echo '[' . $goto_back_url . $GLOBALS['strBack'] . '&nbsp;</a>]';
         }
-        echo "\n";
-
+        echo '            </td>' . "\n"
+           . '        </tr>' . "\n"
+           . '    </table>' . "\n\n";
         if ($exit) {
             require_once('./footer.inc.php');
         }
@@ -1416,11 +1495,11 @@ if (typeof(document.getElementById) != 'undefined'
         echo "\n";
         ?>
 <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
-    <table border="<?php echo $cfg['Border']; ?>" cellpadding="5">
+    <table border="<?php echo $cfg['Border']; ?>" cellpadding="5" cellspacing="1">
     <tr>
-        <td bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
-            <b><?php echo $message; ?></b><br />
-        </td>
+        <th<?php echo ($GLOBALS['theme'] != 'original') ? ' class="tblHeaders"' : ' bgcolor="' . $cfg['ThBgcolor'] . '"'; ?>>
+            <b><?php echo $message; ?></b>
+        </th>
     </tr>
         <?php
         if ($cfg['ShowSQL'] == TRUE && (!empty($GLOBALS['sql_query']) || !empty($GLOBALS['display_query']))) {
@@ -1588,10 +1667,7 @@ if (typeof(document.getElementById) != 'undefined'
             } //validator
 
             // Displays the message
-            echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:';
-            if (!empty($edit_target)) {
-                echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
-            }
+            echo '            <b>' . $GLOBALS['strSQLQuery'] . ':</b>&nbsp;';
             echo '<br />' . "\n";
             echo '            ' . $query_base;
             // If a 'LIMIT' clause has been programatically added to the query
@@ -1615,7 +1691,12 @@ if (typeof(document.getElementById) != 'undefined'
             ?>
         </td>
     </tr>
-           <?php
+    <?php
+            if (!empty($edit_target)) {
+                echo '<tr><td bgcolor="' . $cfg['BgcolorOne'] . '" align="center">';
+                echo $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
+                echo '</td></tr>' . "\n";
+            }
         }
         echo "\n";
         ?>
@@ -1728,6 +1809,10 @@ if (typeof(document.getElementById) != 'undefined'
      *
      * @access  public
      */
+/* replaced with a newer function
+   2004-05-20 by Michael Keck <mail_at_michaelkeck_dot_de>
+*/
+/*
     function PMA_printTab($text, $link, $args = '', $attr = '', $class = '', $sep = '?', $active = false) {
         global $PHP_SELF, $cfg;
         global $db_details_links_count_tabs;
@@ -1771,6 +1856,52 @@ if (typeof(document.getElementById) != 'undefined'
                      .  '</td>'
                      .  "\n" . '        '
                      .  '<td width="8">&nbsp;</td>';
+        }
+
+        return $out;
+    } // end of the 'PMA_printTab()' function
+*/
+// the new one:
+    function PMA_printTab($text, $link, $args = '', $attr = '', $class = '', $sep = '?', $active = false) {
+        global $PHP_SELF, $cfg;
+        global $db_details_links_count_tabs;
+        $addclass = '';
+        if (((!isset($GLOBALS['active_page']) && basename($PHP_SELF) == $link) ||
+                $active ||
+                (isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $link)
+            ) && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
+            $addclass = 'Active';
+        }
+        if ($text == $GLOBALS['strEmpty'] && $text == $GLOBALS['strDrop']) $addclass = 'Drop'; 
+        if (empty($class)){
+            if (empty($addclass)) { $addclass = 'Normal'; }
+        } else { $addclass = $class; }
+
+        $db_details_links_count_tabs++;
+
+        if ($cfg['LightTabs']) {
+            $out = '';
+            if (strlen($link) > 0) {
+                $out .= '<a class="tab" href="' . $link . $sep . $args . '"' . $attr . $class . '>'
+                     .  '' . $text . '</a>';
+            } else {
+                $out .= '<span class="tab">' . $text . '</span>';
+            }
+            $out = '[ ' . $out . ' ]&nbsp;&nbsp;&nbsp;';
+        } else {
+            $out     = "\n" . '        '
+                     . '<td class="nav' . $addclass . '" nowrap="nowrap">'
+                     . "\n" . '            ';
+            if (strlen($link) > 0) {
+                $out .= '<a href="' . $link . $sep . $args . '"' . $attr . '>'
+                     .  $text . '</a>';
+            } else {
+                $out .= $text;
+            }
+            $out     .= "\n" . '        '
+                     .  '</td>'
+                     .  "\n" . '        '
+                     .  '<td class="navSpacer"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td>';
         }
 
         return $out;
@@ -2059,4 +2190,5 @@ if (typeof(document.getElementById) != 'undefined'
     } // end function
 
 } // end if: minimal common.lib needed?
+
 ?>

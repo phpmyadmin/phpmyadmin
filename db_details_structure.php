@@ -180,15 +180,15 @@ if ($cfg['PropertiesIconic'] == true) {
         $iconic_spacer = '';
     }
 
-    $titles['Browse']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-    $titles['Search']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
-    $titles['NoBrowse']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
-    $titles['NoSearch']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
-    $titles['Insert']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_insrow.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
-    $titles['Properties'] = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_props.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
-    $titles['Drop']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-    $titles['Empty']      = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
-    $titles['NoEmpty']    = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
+    $titles['Browse']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
+    $titles['Search']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
+    $titles['NoBrowse']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_browse.png" alt="' . $strBrowse . '" title="' . $strBrowse . '" border="0" />';
+    $titles['NoSearch']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_select.png" alt="' . $strSearch . '" title="' . $strSearch . '" border="0" />';
+    $titles['Insert']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_insrow.png" alt="' . $strInsert . '" title="' . $strInsert . '" border="0" />';
+    $titles['Properties'] = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_props.png" alt="' . $strProperties . '" title="' . $strProperties . '" border="0" />';
+    $titles['Drop']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+    $titles['Empty']      = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'b_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
+    $titles['NoEmpty']    = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' .$pmaThemeImage . 'bd_empty.png" alt="' . $strEmpty . '" title="' . $strEmpty . '" border="0" />';
 
     if ($propicon == 'both') {
         $titles['Browse']     .= '&nbsp;' . $strBrowse . '</div>';
@@ -229,7 +229,7 @@ else {
         if (is_array($comment)) {
             ?>
         <!-- DB comment -->
-        <p><i>
+        <p id="dbComment"><i>
             <?php echo htmlspecialchars(implode(' ', $comment)) . "\n"; ?>
         </i></p>
             <?php
@@ -244,7 +244,7 @@ else {
 ?>
 <table cellspacing="0" cellpadding="0" border="0">
     <tr>
-        <td valign="top" bgcolor="#cc0000">
+        <td valign="top">
 <?php
     }
 
@@ -307,7 +307,7 @@ else {
             </tr>
         </table>
     </td>
-    <td><img src="./images/spacer.png" border="0" width="10" height="1" alt="" /></td>
+    <td><img src="./images/spacer.gif" border="0" width="10" height="1" alt="" /></td>
     <td valign="top">
         <?php
             pma_TableHeader();
@@ -563,7 +563,7 @@ else {
     ?>
             <tr>
                 <td colspan="<?php echo $basecolspan; ?>" valign="bottom">
-                    <img src="./images/arrow_<?php echo $text_dir; ?>.png" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+                    <img src="<?php echo $pmaThemeImage .'arrow_'.$text_dir.'.png'; ?>" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
                     <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
                         <?php echo $strCheckAll; ?></a>
                     &nbsp;/&nbsp;
@@ -575,7 +575,7 @@ else {
                         <?php echo $strCheckOverhead; ?></a>
                     <?php } ?>
                     &nbsp;&nbsp;&nbsp;
-                    <img src="./images/spacer.png" border="0" width="38" height="1" alt="" />
+                    <img src="./images/spacer.gif" border="0" width="38" height="1" alt="" />
                     <select name="submit_mult" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
@@ -639,20 +639,20 @@ if ($num_tables > 0) {
     <!-- Printable view of a table -->
 <table border="0" cellpadding="2" cellspacing="0">
                 <tr><td nowrap="nowrap" colspan="3"><?php
-                  echo '<a href="db_printview.php?' . $url_query . '">';
-      if ($cfg['PropertiesIconic']){
-                          echo '<img src="./images/b_print.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-                        }
+    echo '<a href="db_printview.php?' . $url_query . '">';
+    if ($cfg['PropertiesIconic']) {
+         echo '<img src="' . $pmaThemeImage . 'b_print.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+     }
       echo $strPrintView . '</a>';
     ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <?php
-                  echo '<a href="./db_datadict.php?' . $url_query . '">';
-                        if ($cfg['PropertiesIconic']){
-                          echo '<img src="./images/b_tblanalyse.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+     <?php
+      echo '<a href="./db_datadict.php?' . $url_query . '">';
+      if($cfg['PropertiesIconic']){
+          echo '<img src="' . $pmaThemeImage . 'b_tblanalyse.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
       }
       echo $strDataDict . '</a>';
 ?></td></tr>
-<tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr></table>
+<tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr></table>
     <?php
 } // end if
 ?>
@@ -662,7 +662,7 @@ if ($num_tables > 0) {
      <tr>
      <td class="tblHeaders" colspan="3" nowrap="nowrap"><?php
         echo PMA_generate_common_hidden_inputs($db);
-        if ($cfg['PropertiesIconic']){ echo '<img src="images/b_newtbl.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />'; }
+        if($cfg['PropertiesIconic']){ echo '<img src="' . $pmaThemeImage . 'b_newtbl.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />'; }
         // if you want navigation:
         $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url() . '&amp;db=' . urlencode($GLOBALS['db']) . '">'
                    . htmlspecialchars($GLOBALS['db']) . '</a>';
@@ -694,14 +694,14 @@ echo '             ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . 
 if ($cfgRelation['commwork']) {
 ?>
     <!-- Alter/Enter db-comment -->
-        <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>
+        <tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>
 
         <tr>
         <td colspan="3" class="tblHeaders"><?php
-          if ($cfg['PropertiesIconic']){
-                                          echo '<img src="images/b_comment.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-                                        }
-          echo $strDBComment;
+    if ($cfg['PropertiesIconic']) {
+        echo '<img src="' . $pmaThemeImage . 'b_comment.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+    }
+    echo $strDBComment;
         ?></td></tr>
                                 <form method="post" action="db_details_structure.php">
         <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
@@ -716,11 +716,11 @@ if ($cfgRelation['commwork']) {
 }
 ?>
     <!-- Rename database -->
-        <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>
+        <tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>
         <tr><td colspan="3" class="tblHeaders"><?php
-          if ($cfg['PropertiesIconic']){
-                                          echo '<img src="images/b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-                                        }
+          if ($cfg['PropertiesIconic']) {
+              echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+          }
           echo $strDBRename.':&nbsp;';
           ?></td></tr>
         <form method="post" action="db_details_structure.php"
@@ -738,11 +738,11 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
     // MySQL supports setting default charsets / collations for databases since
     // version 4.1.1.
     echo '    <!-- Change database charset -->' . "\n"
-       . '    <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
+       . '    <tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
        . '    <tr><td colspan="3" class="tblHeaders">';
-       if ($cfg['PropertiesIconic']){
-         echo '<img src="./images/s_asci.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-       }
+    if ($cfg['PropertiesIconic']) {
+        echo '<img src="' . $pmaThemeImage . 's_asci.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+    }
     echo '      <label for="select_db_collation">' . $strCollation . '</label>:&nbsp;' . "\n"
        . '    </td></tr>' . "\n"
        . '        <form method="post" action="./db_details_structure.php">' . "\n"
@@ -781,16 +781,16 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     <!-- Work on PDF Pages -->
       <tr><td colspan="3" class="tblHeaders">
       <?php
-        if ($cfg['PropertiesIconic']){
-        echo '<img src="./images/b_pdfdoc.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-        }
+    if ($cfg['PropertiesIconic']) {
+        echo '<img src="' . $pmaThemeImage . 'b_pdfdoc.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+    }
 ?>PDF</td></tr><tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
         <td colspan="3"><?php
-        echo '<a href="pdf_pages.php?' . $takeaway . '">';
-        if ($cfg['PropertiesIconic']){
-        echo '<img src="./images/b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-        }
-        echo ''. $strEditPDFPages . '</a>';
+    echo '<a href="pdf_pages.php?' . $takeaway . '">';
+    if ($cfg['PropertiesIconic']) {
+        echo '<img src="' . $pmaThemeImage . 'b_edit.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+    }
+    echo ''. $strEditPDFPages . '</a>';
      ?></td></tr>
 
     <!-- PDF schema -->
@@ -805,13 +805,13 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         ?>
         <form method="post" action="pdf_schema.php">
          <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><td colspan="3">
-            <?php
-                  echo PMA_generate_common_hidden_inputs($db);
-                  if ($cfg['PropertiesIconic']){
-                   echo '<img src="./images/b_view.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-                  }
-            ?>
-            <?php echo $strDisplayPDF; ?>:&nbsp;</td></tr>
+<?php
+         echo PMA_generate_common_hidden_inputs($db);
+         if ($cfg['PropertiesIconic']) {
+             echo '<img src="' . $pmaThemeImage . 'b_view.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+         }
+         echo $strDisplayPDF;
+?>:&nbsp;</td></tr>
             <tr bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><td width="20">&nbsp;</td><td colspan="2">
             <?php echo $strPageNumber; ?>&nbsp;
             <select name="pdf_page_number">
@@ -870,7 +870,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
                                                   <td width="20">&nbsp;</td><td colspan="3" align="right">
                 &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" /></td>
             </form></tr>
-            <tr><td colspan="3"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>
+            <tr><td colspan="3"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>
         <?php
     }   // end if
 ?>
@@ -885,11 +885,11 @@ if ($num_tables > 0
 ?>
     <!-- import docSQL files -->
     <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="3"><?php
-                   echo '<a href="db_details_importdocsql.php?' . $takeaway . '">';
-       if ($cfg['PropertiesIconic']){
-         echo '<img src="./images/b_docsql.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
-       }
-       echo $strImportDocSQL . '</a>';
+    echo '<a href="db_details_importdocsql.php?' . $takeaway . '">';
+    if ($cfg['PropertiesIconic']) {
+        echo '<img src="' . $pmaThemeImage . 'b_docsql.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />';
+    }
+    echo $strImportDocSQL . '</a>';
     ?>
     </td></tr>
     <?php

@@ -136,9 +136,26 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     // Displays the form
-    echo $strDoYouReally . '&nbsp;:<br />' . "\n";
+?>
+<!-- Do it really ? -->
+<table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+        <th class="tblHeadError" align="left">
+            <?php
+    echo ($GLOBALS['cfg']['ErrorIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_really.png" border="0" hspace="2" width="11" height="11" valign="absmiddle" />' : '');
+    echo $strDoYouReally . ':&nbsp;' . "\n";
+            ?>
+        </th>
+    </tr>
+    <tr>
+        <td bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
+           <?php
     echo '<tt>' . $full_query . '</tt>&nbsp;?<br/>' . "\n";
-    ?>
+           ?>
+        </td>
+    </tr>
+    <tr>
+       <td align="right" nowrap="nowrap">
 <form action="<?php echo $action; ?>" method="post">
     <?php
     echo "\n";
@@ -162,9 +179,12 @@ if (!empty($submit_mult) && !empty($what)) {
         echo '<input type="hidden" name="original_url_query" value="' . $original_url_query . '" />' . "\n";
     }
     ?>
-    <input type="submit" name="mult_btn" value="<?php echo $strYes; ?>" />
-    <input type="submit" name="mult_btn" value="<?php echo $strNo; ?>" />
+    <input type="submit" name="mult_btn" value="<?php echo $strYes; ?>" id="buttonYes" />
+    <input type="submit" name="mult_btn" value="<?php echo $strNo; ?>" id="buttonNo" />
 </form>
+        </td>
+    </tr>
+</table>
     <?php
     echo"\n";
 

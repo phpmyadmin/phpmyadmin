@@ -306,8 +306,10 @@ if (!$save_on_server) {
         require_once('./header.inc.php');
         $cfg['Server'] = $backup_cfgServer;
         unset($backup_cfgServer);
-        echo '<div align="' . $cell_align_left . '">' . "\n";
-        echo '    <pre>' . "\n";
+        echo "\n" . '<div align="' . $cell_align_left . '">' . "\n";
+        //echo '    <pre>' . "\n";
+        echo '    <form name="nofunction">' . "\n"
+           . '        <textarea name="sqldump" cols="50" rows="30" onclick="this.select();" id="textSQLDUMP" wrap="OFF">' . "\n";
     } // end download
 }
 
@@ -544,9 +546,32 @@ else {
     /**
      * Close the html tags and add the footers in dump is displayed on screen
      */
-    echo '    </pre>' . "\n";
+    //echo '    </pre>' . "\n";
+    echo '        </textarea>' . "\n"
+       . '    </form>' . "\n";
     echo '</div>' . "\n";
     echo "\n";
+?><script language="JavaScript" type="text/javascript">
+<!--
+    var bodyWidth=null; var bodyHeight=null;
+    if (document.getElementById('textSQLDUMP')) {
+        bodyWidth  = self.innerWidth;
+        bodyHeight = self.innerHeight;
+        if(!bodyWidth && !bodyHeight){
+            if (document.compatMode && document.compatMode == "BackCompat") {
+                bodyWidth  = document.body.clientWidth;
+                bodyHeight = document.body.clientHeight;
+            } else if (document.compatMode && document.compatMode == "CSS1Compat") {
+                bodyWidth  = document.documentElement.clientWidth;
+                bodyHeight = document.documentElement.clientHeight;
+            }
+        }
+        document.getElementById('textSQLDUMP').style.width=(bodyWidth-50) + 'px';
+        document.getElementById('textSQLDUMP').style.height=(bodyHeight-100) + 'px';
+    }
+//-->
+</script>
+<?php
     require_once('./footer.inc.php');
 } // end if
 ?>

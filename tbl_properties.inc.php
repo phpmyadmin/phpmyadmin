@@ -82,7 +82,7 @@ $header_cells = array();
 $content_cells = array();
 
 $header_cells[] = $strField;
-$header_cells[] = $strType . '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('Reference', 'Column_types') . '</span>';
+$header_cells[] = $strType . ($GLOBALS['cfg']['ReplaceHelpImg'] ? PMA_showMySQLDocu('Reference', 'Column_types') : '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('Reference', 'Column_types') . '</span>');
 $header_cells[] = $strLengthSet;
 if (PMA_MYSQL_INT_VERSION >= 40100) {
     $header_cells[] = $strCollation;
@@ -91,6 +91,21 @@ $header_cells[] = $strAttr;
 $header_cells[] = $strNull;
 $header_cells[] = $strDefault . '**';
 $header_cells[] = $strExtra;
+
+
+
+// lem9: We could remove this 'if' and let the key information be shown and
+// editable. However, for this to work, tbl_alter must be modified to use the
+// key fields, as tbl_addfield does.
+
+if (!$is_backup) {
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_primary.png" width="16" height="16" alt="' . $strPrimary . '" />' : $strPrimary;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_index.png" width="16" height="16" alt="' . $strIndex . '" />' : $strIndex;
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_unique.png" width="16" height="16" alt="' . $strUnique . '" />' : $strUnique;
+    $header_cells[] = '---';
+    $header_cells[] = $cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_ftext.png" width="16" height="16" alt="' . $strIdxFulltext . '" />' : $strIdxFulltext;
+}
+
 
 require_once('./libraries/relation.lib.php');
 require_once('./libraries/transformations.lib.php');
@@ -112,19 +127,6 @@ if ($cfgRelation['commwork']) {
         $header_cells[] = $strMIME_transformation;
         $header_cells[] = $strMIME_transformation_options . '***';
     }
-}
-
-
-// lem9: We could remove this 'if' and let the key information be shown and
-// editable. However, for this to work, tbl_alter must be modified to use the
-// key fields, as tbl_addfield does.
-
-if (!$is_backup) {
-    $header_cells[] = $strPrimary;
-    $header_cells[] = $strIndex;
-    $header_cells[] = $strUnique;
-    $header_cells[] = '---';
-    $header_cells[] = $strIdxFulltext;
 }
 
 // garvin: workaround for field_fulltext, because its submitted indizes contain
@@ -201,7 +203,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] = '';
     }
 
-    $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_name[]" size="10" maxlength="64" value="' . (isset($row) && isset($row['Field']) ? str_replace('"', '&quot;', $row['Field']) : '') . '" class="textfield" />';
+    $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_name[]" size="10" maxlength="64" value="' . (isset($row) && isset($row['Field']) ? str_replace('"', '&quot;', $row['Field']) : '') . '" class="textfield" title="' . $strField . '" />';
     $ci++;
     $content_cells[$i][$ci] = '<select name="field_type[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">' . "\n";
 
@@ -336,7 +338,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] = "\n";
     }
 
-    $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_default[]" size="8" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
+    $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_default[]" size="12" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
     $ci++;
 
     $content_cells[$i][$ci] = '<select name="field_extra[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">';
@@ -354,9 +356,57 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     $content_cells[$i][$ci] .= "\n" . '</select>';
     $ci++;
 
+
+    // lem9: See my other comment about removing this 'if'.
+    if (!$is_backup) {
+        if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {
+            $checked_primary = ' checked="checked"';
+        } else {
+            $checked_primary = '';
+        }
+        if (isset($row) && isset($row['Key']) && $row['Key'] == 'MUL') {
+            $checked_index   = ' checked="checked"';
+        } else {
+            $checked_index   = '';
+        }
+        if (isset($row) && isset($row['Key']) && $row['Key'] == 'UNI') {
+            $checked_unique   = ' checked="checked"';
+        } else {
+            $checked_unique   = '';
+        }
+        if (empty($checked_primary)
+            && empty($checked_index)
+            && empty($checked_unique)) {
+            $checked_none = ' checked="checked"';
+        } else {
+            $checked_none = '';
+        }
+
+        if ((isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
+            $checked_fulltext = ' checked="checked"';
+        } else {
+            $checked_fulltext = '';
+        }
+
+        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="primary_' . $i . '"' . $checked_primary . ' title="' . $strPrimary . '" />';
+        $ci++;
+
+        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="index_' . $i . '"' .  $checked_index . ' title="' . $strIndex . '" />';
+        $ci++;
+
+        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="unique_' . $i . '"' .  $checked_unique . ' title="' . $strUnique . '" />';
+        $ci++;
+
+        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="none_' . $i . '"' .  $checked_none . ' title="---" />';
+        $ci++;
+
+        $content_cells[$i][$ci] = '<input type="checkbox" name="field_fulltext[]" value="' . $i . '"' . $checked_fulltext . ' title="' . $strIdxFulltext . '" />';
+        $ci++;
+    } // end if ($action ==...)
+
     // garvin: comments
     if ($cfgRelation['commwork']) {
-        $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_comments[]" size="8" value="' . (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '" class="textfield" />';
+        $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_comments[]" size="12" value="' . (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '" class="textfield" />';
         $ci++;
     }
 
@@ -390,66 +440,20 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][$ci] .= '</select>';
         $ci++;
 
-        $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_transformation_options[]" size="8" value="' . (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation_options']) ?  htmlspecialchars($mime_map[$row['Field']]['transformation_options']) : '') . '" class="textfield" />';
-        $ci++;
+        $content_cells[$i][$ci] = '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_transformation_options[]" size="16" value="' . (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation_options']) ?  htmlspecialchars($mime_map[$row['Field']]['transformation_options']) : '') . '" class="textfield" />';
+        //$ci++;
     }
-
-    // lem9: See my other comment about removing this 'if'.
-    if (!$is_backup) {
-        if (isset($row) && isset($row['Key']) && $row['Key'] == 'PRI') {
-            $checked_primary = ' checked="checked"';
-        } else {
-            $checked_primary = '';
-        }
-        if (isset($row) && isset($row['Key']) && $row['Key'] == 'MUL') {
-            $checked_index   = ' checked="checked"';
-        } else {
-            $checked_index   = '';
-        }
-        if (isset($row) && isset($row['Key']) && $row['Key'] == 'UNI') {
-            $checked_unique   = ' checked="checked"';
-        } else {
-            $checked_unique   = '';
-        }
-        if (empty($checked_primary)
-            && empty($checked_index)
-            && empty($checked_unique)) {
-            $checked_none = ' checked="checked"';
-        } else {
-            $checked_none = '';
-        }
-
-        if ((isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
-            $checked_fulltext = ' checked="checked"';
-        } else {
-            $checked_fulltext = '';
-        }
-
-        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="primary_' . $i . '"' . $checked_primary . ' />';
-        $ci++;
-
-        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="index_' . $i . '"' .  $checked_index . ' />';
-        $ci++;
-
-        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="unique_' . $i . '"' .  $checked_unique . ' />';
-        $ci++;
-
-        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="none_' . $i . '"' .  $checked_none . ' />';
-        $ci++;
-
-        $content_cells[$i][$ci] = '<input type="checkbox" name="field_fulltext[]" value="' . $i . '"' . $checked_fulltext . ' />';
-    } // end if ($action ==...)
 } // end for
 
 if ($cfg['DefaultPropDisplay'] == 'horizontal') {
 ?>
-    <table border="<?php echo $cfg['Border']; ?>">
+    <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
     <tr>
 <?php
     if (is_array($header_cells)) {
         foreach ($header_cells AS $header_nr => $header_val) {
 ?>
-        <th><?php echo $header_val; ?></th>
+        <th class="tblHeaders"><?php echo $header_val; ?></th>
 <?php
         }
     }
@@ -467,7 +471,7 @@ if ($cfg['DefaultPropDisplay'] == 'horizontal') {
             if (is_array($content_row)) {
                 foreach ($content_row AS $content_row_nr => $content_row_val) {
 ?>
-        <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $content_row_val; ?></td>
+        <td bgcolor="<?php echo $bgcolor; ?>" align="center"><?php echo $content_row_val; ?></td>
 <?php
                 }
             }
@@ -515,17 +519,17 @@ if ($action == 'tbl_create.php') {
     ?>
     <table>
     <tr valign="top">
-        <td><?php echo $strTableComments; ?>&nbsp;:</td>
+        <td><?php echo $strTableComments; ?>:&nbsp;</td>
     <?php
     if ($action == 'tbl_create.php') {
         echo "\n";
         ?>
         <td width="25">&nbsp;</td>
-        <td><?php echo $strTableType; ?>&nbsp;:</td>
+        <td><?php echo $strTableType; ?>:&nbsp;</td>
         <?php
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             echo '        <td width="25">&nbsp;</td>' . "\n"
-               . '        <td>' . $strCollation . '&nbsp;:</td>' . "\n";
+               . '        <td>' . $strCollation . ':&nbsp;</td>' . "\n";
         }
     }
     echo "\n";

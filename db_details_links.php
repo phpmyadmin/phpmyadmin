@@ -48,10 +48,11 @@ if ($cfg['AllowUserDropDatabase']) {
           . urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(PMA_backquote($db))))
           . '&amp;goto=main.php&amp;back=db_details' . $sub_part . '.php&amp;reload=1&amp;purge=1';
     $att5 = 'onclick="return confirmLinkDropDB(this, \'DROP DATABASE ' . PMA_jsFormat($db) . '\')"';
-    $class5 = 'drop';
+    $class5 = 'Drop';
 }
 else {
     $lnk5 = '';
+    $class5 = 'Drop';
 }
 
 
@@ -62,25 +63,32 @@ else {
 if ($cfg['LightTabs']) {
     echo '&nbsp;';
 } else {
-    echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
-    <tr>
-        <td width="8">&nbsp;</td>';
+    echo '<table border="0" cellspacing="0" cellpadding="0" width="100%">' . "\n"
+       . '    <tr>' . "\n"
+       . '        <td class="nav" align="left" nowrap="nowrap" valign="bottom">'
+       . '            <table border="0" cellpadding="0" cellspacing="0"><tr>'
+       . '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
+       . '                <td class="navSpacer"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td>';
 }
 
-echo PMA_printTab($strStructure, 'db_details_structure.php', $url_query);
-echo PMA_printTab($strSQL, 'db_details.php', $url_query . '&amp;db_query_force=1');
-echo PMA_printTab($strExport, $lnk3, $arg3);
-echo PMA_printTab($strSearch, $lnk4, $arg4);
-echo PMA_printTab($strQBE, ($num_tables > 0) ? 'db_details_qbe.php' : '', $url_query);
+echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_props.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strStructure.'" />' : '') . $strStructure, 'db_details_structure.php', $url_query);
+echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strSQL.'" />' : '') . $strSQL, 'db_details.php', $url_query . '&amp;db_query_force=1');
+echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_export.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strExport.'" />' : '') . $strExport, $lnk3, $arg3);
+echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_search.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strSearch.'" />' : '') . $strSearch, $lnk4, $arg4);
+echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_db.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strQBE.'" />' : '') . $strQBE, ($num_tables > 0) ? 'db_details_qbe.php' : '', $url_query);
 
 // Displays drop link
 if ($lnk5) {
-   echo PMA_printTab($strDrop, $lnk5, $arg5, $att5, $class5);
+   echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_deltbl.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strDrop.'" />' : '') . $strDrop, $lnk5, $arg5, $att5, $class5);
 } // end if
 echo "\n";
 
 if (!$cfg['LightTabs']) {
-    echo '</tr></table>';
+    echo '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
+       . '            </tr></table>' . "\n"
+       . '        </td>' . "\n"
+       . '    </tr>' . "\n"
+       . '</table>';
 } else {
     echo '<br />';
 }

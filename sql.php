@@ -200,13 +200,33 @@ if (!$cfg['Confirm']
 if ($do_confirm) {
     $stripped_sql_query = $sql_query;
     require_once('./header.inc.php');
+    echo '<table border="0" cellpadding="3" cellspacing="0">' . "\n";
     if ($is_drop_database) {
-        echo $strDropDatabaseStrongWarning . '<br />' . "\n";
+        echo '    <tr>' . "\n"
+           . '        <td class="tblHeadError">' . "\n";
+        if($cfg['ErrorIconic']){
+            echo '        <img src="' .$pmaThemeImage .'s_warn.png" border="0" hspace="2" vspace="2" align="left" />';
+        }
+        echo $strDropDatabaseStrongWarning . '&nbsp;<br />' . "\n"; 
+    } else {
+        echo '    <tr>' . "\n"
+           . '        <td class="tblHeadError">' . "\n";
+        if($cfg['ErrorIconic']){
+            echo '        <img src="' .$pmaThemeImage .'s_really.png" border="0" hspace="2" align="absmiddle" />';
+        }
     }
-    echo $strDoYouReally . ':<br />' . "\n";
-    echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n";
+    echo $strDoYouReally . "\n"
+       . '        </td>' . "\n"
+       . '    </tr>' . "\n"
+       . '    <tr>' . "\n"
+       . '        <td class="tblError">' . "\n"
+       . '            <tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n"
+       . '        </td>' . "\n"
+       . '    </tr>' . "\n"
+       . '    <form action="sql.php" method="post">' . "\n"
+       . '    <tr>' . "\n"
+       . '        <td align="right">' . "\n"
     ?>
-<form action="sql.php" method="post">
     <?php echo PMA_generate_common_hidden_inputs($db, (isset($table)?$table:'')); ?>
     <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
@@ -217,10 +237,13 @@ if ($do_confirm) {
     <input type="hidden" name="cpurge" value="<?php echo isset($cpurge) ? $cpurge : ''; ?>" />
     <input type="hidden" name="purgekey" value="<?php echo isset($purgekey) ? $purgekey : ''; ?>" />
     <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? $show_query : ''; ?>" />
-    <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" style="font-weight: bold; color: #ffffff; background-color: #009900; width:80px;" />
-    <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" style="font-weight: bold; color: #ffffff; background-color: #CC0000; width:80px;" />
-</form>
+    <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" id="buttonYes" />
+    <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" id="buttonNo" />
     <?php
+    echo '        </td>' . "\n"
+       . '    </tr>' . "\n"
+       . '    </form>' . "\n"
+       . '</table>';
     echo "\n";
 } // end if
 
@@ -690,7 +713,7 @@ else {
                            . '&amp;goto=' . urlencode($lnk_goto);
 
                 echo '    <!-- Insert a new row -->' . "\n"
-                   . '    <a href="tbl_change.php' . $url_query . '">' . ($cfg['PropertiesIconic'] ? '<img src="./images/b_insrow.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '') . $strInsertNewRow . '</a>';
+                   . '    <a href="tbl_change.php' . $url_query . '">' . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_insrow.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '') . $strInsertNewRow . '</a>';
                 if ($disp_mode[9] == '1') {
                     echo '&nbsp;&nbsp;';
                 }
@@ -711,14 +734,14 @@ else {
                    . '    <a href="sql.php' . $url_query
                    . ((isset($dontlimitchars) && $dontlimitchars == '1') ? '&amp;dontlimitchars=1' : '')
                    . '" target="print_view">' 
-                   . ($cfg['PropertiesIconic'] ? '<img src="./images/b_print.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '')
-																			. $strPrintView . '</a>' . "\n";
+                   . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '')
+                   . $strPrintView . '</a>' . "\n";
                 if (!$dontlimitchars) {
                    echo   '    &nbsp;&nbsp;' . "\n"
                         . '    <a href="sql.php' . $url_query
                         . '&amp;dontlimitchars=1'
                         . '" target="print_view">'
-                        . ($cfg['PropertiesIconic'] ? '<img src="./images/b_print.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '')
+                        . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_print.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '')
                         . $strPrintViewFull . '</a>&nbsp;&nbsp;' . "\n";
                 }
             } // end displays "printable view"
@@ -741,7 +764,7 @@ else {
                    . '&amp;unlim_num_rows=' . $unlim_num_rows
                    . $single_table
                    . '">' 
-                   . ($cfg['PropertiesIconic'] ? '<img src="./images/b_tblexport.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '')
+                   . ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_tblexport.png" border="0" height="16" width="16" align="absmiddle" hspace="2" />' : '')
                    . $strExport . '</a>' . "\n";
         }
 
@@ -770,8 +793,8 @@ else {
             ?>
 <table border="0" cellpadding="2" cellspacing="0">
 <tr><td class="tblHeaders" colspan="2"><?php
-     echo ($cfg['PropertiesIconic'] ? '<img src="images/b_bookmark.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />' : '')
-     . $strBookmarkThis;
+     echo ($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 'b_bookmark.png" border="0" width="16" height="16" hspace="2" align="absmiddle" />' : '')
+        . $strBookmarkThis;
 ?></td></tr>
 <form action="sql.php" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td>
@@ -781,16 +804,16 @@ else {
     <input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
     <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
-				</td><td>
+        </td><td>
     <input type="text" name="fields[label]" value="" />
-				</td></tr>
+        </td></tr>
 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td align="right" valign="top">
     <input type="checkbox" name="bkm_all_users" id="bkm_all_users" value="true" /></td>
-				<td><label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label></td>
-				</tr>
+    <td><label for="bkm_all_users"><?php echo $strBookmarkAllUsers; ?></label></td>
+</tr>
 <tr bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><td colspan="2" align="right">
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />
-				</td></tr>
+    </td></tr>
 </form></table>
             <?php
         } // end bookmark support

@@ -183,7 +183,7 @@ if ($cfg['PropertiesIconic'] == true) {
         $iconic_spacer = '';
     }
 
-    $titles['Browse']     = $iconic_spacer . '<img width="12" height="13" src="images/button_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
+    $titles['Browse']     = $iconic_spacer . '<img width="16" height="16" src="' . $pmaThemeImage . 'b_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
 
     if ($propicon == 'both') {
         $titles['Browse']        .= '&nbsp;' . $strBrowseForeignValues . '</div>';
@@ -235,7 +235,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         echo '<label for="insert_ignore_check_' . $vrowcount . '">' . $strIgnore . '</label><br />' . "\n";
     }
 ?>
-    <table border="<?php echo $cfg['Border']; ?>">
+    <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
         <tr>
             <th><?php echo $strField; ?></th>
             <th><?php echo $strType; ?></th>
@@ -264,7 +264,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
         if ((($o_rows * $fields_cnt + $i) % 15 == 0) && ($i + $o_rows != 0)) {
             ?>
         <tr>
-            <th colspan="5" align="right">
+            <th colspan="5" align="right" class="tblFooters">
                 <input type="submit" value="<?php echo $strGo; ?>" />&nbsp;
             </th>
         </tr>
@@ -791,7 +791,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
                     ?>
                     <script type="text/javascript">
                     <!--
-                    document.write('<a title="<?php echo $strCalendar;?>" href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo substr($type, 0, 9)?>\')"><img class="calendar" src="images/button_calendar.png" alt="<?php echo $strCalendar; ?>"/></a>');
+                    document.write('<a title="<?php echo $strCalendar;?>" href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($idindex); ?>_3\', \'<?php echo substr($type, 0, 9)?>\')"><img class="calendar" src="' . $pmaThemeImage . 'b_calendar.png" alt="<?php echo $strCalendar; ?>"/></a>');
                     //-->
                     </script>
                     <?php
@@ -814,15 +814,15 @@ foreach ($loop_array AS $vrowcount => $vrow) {
 ?>
     <br />
 
-    <table cellpadding="5">
+    <table border="0" cellpadding="5" cellspacing="0">
     <tr>
         <td valign="middle" nowrap="nowrap">
 <?php
 if (isset($primary_key)) {
     ?>
-            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" id="radio_submit_type_save" checked="checked" tabindex="<?php echo ($tabindex + $tab3 + 1); ?>" /><label for="radio_submit_type_save"><?php echo $strSave; ?></label><br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" id="radio_submit_type_insert_as_new_row" tabindex="<?php echo ($tabindex + $tab3 + 2); ?>" /><label for="radio_submit_type_insert_as_new_row"><?php echo $strInsertAsNewRow; ?></label>
+            <input type="radio" name="submit_type" value="<?php echo $strSave; ?>" id="radio_submit_type_save" checked="checked" tabindex="<?php echo ($tabindex + $tab3 + 1); ?>" style="vertical-align: middle" /><label for="radio_submit_type_save"><?php echo $strSave; ?></label><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
+            <input type="radio" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>" id="radio_submit_type_insert_as_new_row" tabindex="<?php echo ($tabindex + $tab3 + 2); ?>" style="vertical-align: middle" /><label for="radio_submit_type_insert_as_new_row"><?php echo $strInsertAsNewRow; ?></label>
     <?php
 } else {
     echo "\n";
@@ -849,16 +849,16 @@ if (!empty($disp_message)) {
             &nbsp;&nbsp;&nbsp;<b>-- <?php echo $strAnd; ?> --</b>&nbsp;&nbsp;&nbsp;
         </td>
         <td valign="middle" nowrap="nowrap">
-            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" <?php echo $checked_after_insert_back; ?> tabindex="<?php echo ($tabindex + $tab3 + 3); ?>" />
+            <input type="radio" name="after_insert" value="back" id="radio_after_insert_back" <?php echo $checked_after_insert_back; ?> tabindex="<?php echo ($tabindex + $tab3 + 3); ?>" style="vertical-align: middle" />
             <label for="radio_after_insert_back"><?php echo $strAfterInsertBack; ?></label><br />
 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tab3 + 4); ?>" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
+            <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tab3 + 4); ?>" style="vertical-align: middle" />
             <label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label><br />
 
 <?php if (isset($primary_key)) { ?>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="after_insert" value="same_insert" id="radio_after_insert_same_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tab3+ 5); ?>" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
+            <input type="radio" name="after_insert" value="same_insert" id="radio_after_insert_same_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tab3+ 5); ?>" style="vertical-align: middle" />
             <label for="radio_after_insert_same_insert"><?php echo $strAfterInsertSame; ?></label>
 <?php } ?>
         </td>
@@ -866,7 +866,7 @@ if (!empty($disp_message)) {
 
     <tr>
         <td colspan="3" align="right" valign="middle">
-            <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo ($tabindex + $tab3 + 6); ?>" />
+            <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo ($tabindex + $tab3 + 6); ?>" id="buttonYes" />
             <input type="reset" value="<?php echo $strReset; ?>" tabindex="<?php echo ($tabindex + $tab3 + 7); ?>" />
         </td>
     </tr>

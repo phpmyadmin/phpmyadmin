@@ -34,15 +34,18 @@ function PMA_generate_dropdown($dropdown_question,$radio_name,$choices,$selected
 
     echo $dropdown_question . '&nbsp;&nbsp;';
 
-    echo '<select name="' . $radio_name . '" style="font-size: ' . $font_smallest . '">' . "\n";
-    echo '<option value="nix" style="font-size: ' . $font_smallest . '" >--</option>' . "\n";
+    //echo '<select name="' . $radio_name . '" style="font-size: ' . $font_smallest . '">' . "\n";
+    //echo '<option value="nix" style="font-size: ' . $font_smallest . '" >--</option>' . "\n";
+    echo '<select name="' . $radio_name . '">' . "\n";
+    echo '<option value="nix">--</option>' . "\n";
 
     foreach ($choices AS $one_value => $one_label) {
         echo '<option value="' . $one_value . '"';
         if ($selected_value == $one_value) {
             echo ' selected="selected" ';
         }
-        echo ' style="font-size: ' . $font_smallest . '">' . $one_label . '</option>' . "\n";
+        //echo ' style="font-size: ' . $font_smallest . '">'
+        echo '>' . $one_label . '</option>' . "\n";
     }
     echo '</select>' . "\n";
     echo "\n";
@@ -344,15 +347,17 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         $save_row[] = $row;
     }
     $saved_row_cnt  = count($save_row);
+    echo $tbl_type=='INNODB' ? '' : '<table border="0" cellpadding="0" cellspacing="0">' . "\n"
+                                  . '    <tr><td valign="top">' . "\n\n";
+?>
 
-    ?>
 <form method="post" action="tbl_relation.php">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="submit_rel" value="true" />
 
-    <table>
+    <table cellpadding="2" cellspacing="1">
     <tr>
-        <th colspan="4" align="center"><b><?php echo $strLinksTo; ?></b></th>
+        <th colspan="<?php echo $tbl_type=='INNODB' ? '4' : '2'; ?>" align="center" class="tblHeaders"><b><?php echo $strLinksTo; ?></b></th>
     </tr>
     <tr>
         <th></th><th><b><?php echo $strInternalRelations;
@@ -376,8 +381,8 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         echo "\n";
         ?>
     <tr>
-        <th><?php echo $save_row[$i]['Field']; ?></th>
-        <td>
+        <td align="center" bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>"><b><?php echo $save_row[$i]['Field']; ?></b></td>
+        <td bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>">
             <select name="destination[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
         <?php
         echo "\n";
@@ -416,7 +421,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         <?php
         if ($tbl_type=='INNODB') {
         ?>
-        <td>
+        <td bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>">
             <select name="destination_innodb[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
         <?php
             if (isset($existrel_innodb[$myfield])) {
@@ -450,7 +455,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         ?>
                 </select>
         </td>
-        <td>
+        <td bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>">
         <?php
               PMA_generate_dropdown('ON DELETE',
                   htmlspecialchars($save_row[$i]['Field']) . '_on_delete',
@@ -474,7 +479,7 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     echo "\n";
     ?>
     <tr>
-        <td colspan="2" align="center">
+        <td colspan="<?php echo $tbl_type=='INNODB' ? '4' : '2'; ?>" align="center" class="tblFooters">
             <input type="submit" value="<?php echo '  ' . $strGo . '  '; ?>" />
         </td>
     </tr>
@@ -490,7 +495,10 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
 </form>
 
     <?php
+    echo $tbl_type=='INNODB' ? '' : "\n\n" . '    </td>' . "\n";
     if ($cfgRelation['displaywork']) {
+        echo $tbl_type=='INNODB' ? '' : '    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>' . "\n"
+            . '    <td valign="top" align="center">' . "\n\n";
         // Get "display_field" infos
         $disp = PMA_getDisplayField($db, $table);
 
@@ -500,8 +508,8 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="submit_show" value="true" />
 
-    <p><?php echo $strChangeDisplay . ': '; ?>
-    <select name="display_field" onchange="this.form.submit();">
+    <p><b><?php echo $strChangeDisplay . ': '; ?></b><br />
+    <select name="display_field" onchange="this.form.submit();" style="vertical-align: middle">
         <option value="">---</option>
         <?php
         echo "\n";
@@ -520,24 +528,25 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
     //-->
     </script>
     <noscript>
-        <input type="submit" value="<?php echo $strGo; ?>" />
+        <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
     </noscript>
+    </p>
 </form>
-</p>
         <?php
+        echo $tbl_type=='INNODB' ? '' : "\n\n" . '    </td>' . "\n";
     } // end if (displayworks)
 
     if ($cfgRelation['commwork']) {
-
-        echo "\n";
+        echo $tbl_type=='INNODB' ? "\n" : '    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>' . "\n"
+                                        . '    <td valign="top">' . "\n\n";
         ?>
 <form method="post" action="tbl_relation.php">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="submit_comm" value="true" />
 
-    <table>
+    <table border="0" cellpadding="2" cellspacing="1">
     <tr>
-        <th colspan="2" align="center"><b><?php echo $strComments; ?></b></th>
+        <th colspan="2" align="center" class="tblHeaders"><b><?php echo $strComments; ?></b></th>
     </tr>
         <?php
         for ($i = 0; $i < $saved_row_cnt; $i++) {
@@ -545,8 +554,8 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
             echo "\n";
             ?>
     <tr>
-        <th><?php echo $field; ?></th>
-        <td>
+        <td align="center" bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>"><b><?php echo $field; ?></b></td>
+        <td bgcolor="<?php echo ($i % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']; ?>">
             <input type="text" name="comment[<?php echo $field; ?>]" value="<?php echo (isset($comments[$field]) ?  htmlspecialchars($comments[$field]) : ''); ?>" />
         </td>
     </tr>
@@ -556,14 +565,16 @@ if ($col_rs && PMA_DBI_num_rows($col_rs) > 0) {
         echo "\n";
         ?>
     <tr>
-        <td colspan="2" align="center">
-            <input type="submit" value="<?php echo $strGo; ?>" />
+        <td colspan="2" align="center" class="tblFooters">
+            <input type="submit" value="<?php echo '  ' . $strGo . '  '; ?>" />
         </td>
     </tr>
     </table>
 </form>
         <?php
     } //    end if (comments work)
+    echo $tbl_type=='INNODB' ? '' : "\n\n" . '    </td></tr>' . "\n"
+                                  . '</table>' . "\n\n";
 } // end if (we have columns in this table)
 
 

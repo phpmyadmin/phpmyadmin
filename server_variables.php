@@ -19,7 +19,8 @@ require('./server_links.inc.php');
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . '    ' . $strServerVars . "\n"
+   . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_vars.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '' )
+   . '' . $strServerVars . "\n"
    . '</h2>' . "\n";
 
 
@@ -64,7 +65,7 @@ unset($row);
  * Displays the page
  */
 ?>
-<table border="0">
+<table border="0" cellpadding="2" cellspacing="1" width="90%">
     <tr>
         <th>&nbsp;<?php echo $strVar; ?>&nbsp;</th>
 <?php
@@ -80,19 +81,24 @@ echo '&nbsp;</th>' . "\n";
     </tr>
 <?php
 $useBgcolorOne = TRUE;
+$on_mouse='';
 foreach ($serverVars as $name => $value) {
+        if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+            $on_mouse = ' onmouseover="this.style.backgroundColor=\'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\';"'
+                      . ' onmouseout="this.style.backgroundColor=\'' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '\';"';
+        }
 ?>
-    <tr>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">
-            <?php echo htmlspecialchars(str_replace('_', ' ', $name)) . "\n"; ?>
+    <tr bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>"<?php echo $on_mouse; ?>>
+        <td nowrap="nowrap" valign="top">
+            <b><?php echo htmlspecialchars(str_replace('_', ' ', $name)) . "\n"; ?></b>
         </td>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">
+        <td>
             <?php echo htmlspecialchars($value) . "\n"; ?>
         </td>
 <?php
     if (PMA_MYSQL_INT_VERSION >= 40003) {
 ?>
-        <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">
+        <td>
             <?php echo htmlspecialchars($serverVarsGlobal[$name]) . "\n"; ?>
         </td>
 <?php

@@ -60,11 +60,13 @@ function query_tab_commit(tab) {
 }
 
 // js form validation stuff
+/**/
 var errorMsg0   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strFormEmpty']); ?>';
 var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strNotNumber']); ?>';
 var errorMsg2   = '<?php echo str_replace('\'', '\\\'', $GLOBALS['strNotValidNumber']); ?>';
 var noDropDbMsg = '<?php echo((!$GLOBALS['cfg']['AllowUserDropDatabase']) ? str_replace('\'', '\\\'', $GLOBALS['strNoDropDatabases']) : ''); ?>';
 var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '\\\'', $GLOBALS['strDoYouReally']) : ''); ?>';
+/**/
 //-->
 </script>
 <script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
@@ -79,13 +81,16 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
     if ($cfg['LightTabs']) {
         echo '&nbsp;';
     } else {
-        echo '<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
-        <tr>
-            <td width="8">&nbsp;</td>';
+    echo '<table border="0" cellspacing="0" cellpadding="0" width="100%">' . "\n"
+       . '    <tr>' . "\n"
+       . '        <td class="nav" align="left" nowrap="nowrap" valign="bottom">'
+       . '            <table border="0" cellpadding="0" cellspacing="0"><tr>'
+       . '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
+       . '                <td class="navSpacer"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td>';
     }
     echo "\n";
-    echo PMA_printTab($strSQL, '#', '', 'onclick="javascript:query_tab_commit(\'sql\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
-    echo PMA_printTab($strImportFiles, '#', '', 'onclick="javascript:query_tab_commit(\'files\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
+    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_sql.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strSQL.'" />' : '') . $strSQL, '#', '', 'onclick="javascript:query_tab_commit(\'sql\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'sql' ? TRUE : FALSE));
+    echo PMA_printTab(($GLOBALS['cfg']['PropertiesIconic'] != false ? '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_import.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="'.$strImportFiles.'" />' : '') . $strImportFiles, '#', '', 'onclick="javascript:query_tab_commit(\'files\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'files' ? TRUE : FALSE));
     echo PMA_printTab($strQuerySQLHistory, '#', '', 'onclick="javascript:query_tab_commit(\'history\');return false;"', '', '', (isset($querydisplay_tab) && $querydisplay_tab == 'history' ? TRUE : FALSE));
 
     if ($cfg['QueryWindowDefTab'] == 'full') {
@@ -93,7 +98,11 @@ if ($cfg['QueryFrameJS'] && !isset($no_js)) {
     }
 
     if (!$cfg['LightTabs']) {
-        echo '</tr></table>';
+    echo '                <td nowrap="nowrap"><img src="./images/spacer.gif" width="2" height="1" border="0" alt="" /></td>'
+       . '            </tr></table>' . "\n"
+       . '        </td>' . "\n"
+       . '    </tr>' . "\n"
+       . '</table>';
     } else {
         echo '<br />';
     }
@@ -115,7 +124,7 @@ if ($cfg['PropertiesIconic'] == true) {
         $iconic_spacer = '';
     }
 
-    $titles['Change']        = $iconic_spacer . '<img hspace="7" width="12" height="13" src="images/button_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
+    $titles['Change']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
 
     if ($propicon == 'both') {
         $titles['Change']        .= '&nbsp;' . $strChange . '&nbsp;</div>';

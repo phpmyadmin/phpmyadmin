@@ -12,11 +12,8 @@ require('./tbl_properties_table_info.php');
 ?>
 
 <!-- Dump of a table -->
-<h2>
-    <?php echo $strViewDump . "\n"; ?>
-</h2>
-
 <?php
+$export_page_title = $strViewDump;
 if (isset($sql_query)) {
     // I don't want the LIMIT clause, so I use the analyzer
     // to reconstruct the query with only some parts
@@ -57,7 +54,6 @@ if (isset($sql_query)) {
     if (!empty($analyzed_sql[0]['order_by_clause'])) {
         $sql_query .= ' ORDER BY ' . $analyzed_sql[0]['order_by_clause'];
     }
-
     // TODO: can we avoid reparsing the query here?
     PMA_showMessage($GLOBALS['strSQLQuery']);
 }

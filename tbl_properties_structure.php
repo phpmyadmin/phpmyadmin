@@ -75,18 +75,17 @@ $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 
 <form method="post" action="tbl_properties_structure.php" name="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-
 <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
 <tr>
-    <td></td>
-    <th>&nbsp;<?php echo $strField; ?>&nbsp;</th>
-    <th><?php echo $strType; ?></th>
+    <th id="th1">&nbsp;</th>
+    <th id="th2">&nbsp;<?php echo $strField; ?>&nbsp;</th>
+    <th id="th3"><?php echo $strType; ?></th>
 <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <th>' . $strCollation . '</th>' . "\n" : ''; ?>
-    <th><?php echo $strAttr; ?></th>
-    <th><?php echo $strNull; ?></th>
-    <th><?php echo $strDefault; ?></th>
-    <th><?php echo $strExtra; ?></th>
-    <th colspan="6"><?php echo $strAction; ?></th>
+    <th id="th4"><?php echo $strAttr; ?></th>
+    <th id="th5"><?php echo $strNull; ?></th>
+    <th id="th5"><?php echo $strDefault; ?></th>
+    <th id="th7"><?php echo $strExtra; ?></th>
+    <th colspan="6" id="th8"><?php echo $strAction; ?></th>
 </tr>
 
 <?php
@@ -232,17 +231,17 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         }
 
         // images replaced 2004-05-08 by mkkeck
-        $titles['Change']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
-        $titles['Drop']          = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-        $titles['NoDrop']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
-        $titles['Primary']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
-        $titles['Index']         = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
-        $titles['Unique']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
-        $titles['IdxFulltext']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/b_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
-        $titles['NoPrimary']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
-        $titles['NoIndex']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
-        $titles['NoUnique']      = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
-        $titles['NoIdxFulltext'] = $iconic_spacer . '<img hspace="2" width="16" height="16" src="images/bd_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
+        $titles['Change']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_edit.png" alt="' . $strChange . '" title="' . $strChange . '" border="0" />';
+        $titles['Drop']          = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+        $titles['NoDrop']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_drop.png" alt="' . $strDrop . '" title="' . $strDrop . '" border="0" />';
+        $titles['Primary']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
+        $titles['Index']         = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
+        $titles['Unique']        = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
+        $titles['IdxFulltext']   = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'b_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
+        $titles['NoPrimary']     = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'bd_primary.png" alt="' . $strPrimary . '" title="' . $strPrimary . '" border="0" />';
+        $titles['NoIndex']       = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'bd_index.png" alt="' . $strIndex . '" title="' . $strIndex . '" border="0" />';
+        $titles['NoUnique']      = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'bd_unique.png" alt="' . $strUnique . '" title="' . $strUnique . '" border="0" />';
+        $titles['NoIdxFulltext'] = $iconic_spacer . '<img hspace="2" width="16" height="16" src="' . $pmaThemeImage . 'bd_ftext.png" alt="' . $strIdxFulltext . '" title="' . $strIdxFulltext . '" border="0" />';
 
         if ($propicon == 'both') {
             $titles['Change']        .= '&nbsp;' . $strChange . '</div>';
@@ -276,7 +275,7 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
     <td align="center" bgcolor="<?php echo $bgcolor; ?>">
         <input type="checkbox" name="selected_fld[]" value="<?php echo $field_encoded; ?>" id="checkbox_row_<?php echo $i; ?>" <?php echo $checked; ?> />
     </td>
-    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label onclick="javascript: return (document.getElementById('checkbox_row_<?php echo $i; ?>') ? false : true)" for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
+    <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">&nbsp;<label onClick="javascript: return (document.getElementById('checkbox_row_<?php echo $i; ?>') ? false : true)" for="checkbox_row_<?php echo $i; ?>"><?php echo $field_name; ?></label>&nbsp;</td>
     <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; echo $type_mime; ?><bdo dir="ltr"></bdo></td>
 <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <td bgcolor="' . $bgcolor . '" ' . $click_mouse . '>' . (empty($field_charset) ? '&nbsp;' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>') . '</td>' . "\n" : '' ?>
     <td <?php echo $click_mouse; ?> bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $strAttribute; ?></td>
@@ -381,11 +380,11 @@ $checkall_url = 'tbl_properties_structure.php?' . PMA_generate_common_url($db,$t
         <table>
             <tr>
                 <td>
-                    <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
-        <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('fieldsForm', true); return false;">
+                    <img src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+        <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onClick="setCheckboxes('fieldsForm', true); return false;">
             <?php echo $strCheckAll; ?></a>
         &nbsp;/&nbsp;
-        <a href="<?php echo $checkall_url; ?>" onclick="setCheckboxes('fieldsForm', false); return false;">
+        <a href="<?php echo $checkall_url; ?>" onClick="setCheckboxes('fieldsForm', false); return false;">
             <?php echo $strUncheckAll; ?></a>
         &nbsp;&nbsp;&nbsp;
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
@@ -398,19 +397,19 @@ if ($cfg['PropertiesIconic']) {
     /* IE has trouble with <button> */
     if (PMA_USR_BROWSER_AGENT != 'IE') {
         echo '<button class="mult_submit" type="submit" name="submit_mult" value="' . $strChange . '" title="' . $strChange . '">' . "\n"
-           . '<img src="./images/b_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
+           . '<img src="' . $pmaThemeImage . 'b_edit.png" title="' . $strChange . '" alt="' . $strChange . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
            . '</button>' . "\n";
     } else {
-        echo '                    <input type="image" name="submit_mult_change" value="' .$strChange . '" title="' . $strChange . '" src="./images/b_edit.png" />'  . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n";
+        echo '                    <input type="image" name="submit_mult_change" value="' .$strChange . '" title="' . $strChange . '" src="' . $pmaThemeImage . 'b_edit.png" />'  . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n";
     }
     // Drop button if there is at least two fields
     if ($fields_cnt > 1) {
         if (PMA_USR_BROWSER_AGENT != 'IE') {
             echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '">' . "\n"
-               . '<img src="./images/b_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"
+               . '<img src="' . $pmaThemeImage . 'b_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="16" height="16" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"
                . '</button>' . "\n";
         } else {
-            echo '                    <input type="image" name="submit_mult_drop" value="' .$strDrop . '" title="' . $strDrop . '" src="./images/b_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n";
+            echo '                    <input type="image" name="submit_mult_drop" value="' .$strDrop . '" title="' . $strDrop . '" src="' . $pmaThemeImage . 'b_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n";
         }
     }
 } else {
@@ -444,8 +443,8 @@ if ($cfg['PropertiesIconic']) {
     <tr><td>
     <!-- Printable view of the table -->
         <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-            if ($cfg['PropertiesIconic']){
-                echo '<img src="./images/b_print.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
+            if ($cfg['PropertiesIconic']) {
+                echo '<img src="' . $pmaThemeImage . 'b_print.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
             }
             echo $strPrintView; 
             ?></a>&nbsp;&nbsp;
@@ -455,8 +454,8 @@ if ($cfg['Server']['relation']) {
     ?>
     <!-- Work on Relations -->
         <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-            if ($cfg['PropertiesIconic']){
-                echo '<img src="./images/b_relations.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
+            if ($cfg['PropertiesIconic']) {
+                echo '<img src="' . $pmaThemeImage . 'b_relations.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
             }
             echo $strRelationView;
         ?></a>&nbsp;&nbsp;
@@ -465,8 +464,8 @@ if ($cfg['Server']['relation']) {
 ?>
     <!-- Let MySQL propose the optimal structure -->
         <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-            if ($cfg['PropertiesIconic']){
-                echo '<img src="./images/b_tblanalyse.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
+            if ($cfg['PropertiesIconic']) {
+                echo '<img src="' . $pmaThemeImage . 'b_tblanalyse.png" border="0" hspace="2" align="absmiddle" width="16" height="16" />';
             }
             echo $strStructPropose;
         ?></a><?php 
@@ -480,11 +479,11 @@ if ($cfg['Server']['relation']) {
             <?php 
                   echo PMA_generate_common_hidden_inputs($db, $table);
                   if ($cfg['PropertiesIconic']) {
-                       echo '<img src="./images/b_insrow.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
+                       echo '<img src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />';
                   }
                   echo $strAddNewField . ':&nbsp;';
             ?>
-            <input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />
+            <input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onFocus="this.select()" />
             <select name="after_field" style="vertical-align: middle">
                 <option value="--end--"><?php echo $strAtEndOfTable; ?></option>
                 <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
@@ -628,7 +627,7 @@ if ($cfg['ShowStats']) {
             <td colspan="3" align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
                 <a href="sql.php?<?php echo $url_query; ?>&pos=0&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php 
                     if ($cfg['PropertiesIconic']) {
-                       echo '<img src="./images/b_tbloptimize.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="' . $strOptimizeTable. '" />';
+                       echo '<img src="' . $pmaThemeImage . 'b_tbloptimize.png" width="16" height="16" border="0" hspace="2" align="absmiddle" alt="' . $strOptimizeTable. '" />';
                     }
                     echo $strOptimizeTable;
                 ?></a>
@@ -745,7 +744,7 @@ if ($cfg['ShowStats']) {
             ?>
         <tr>
             <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatCreateTime; ?></td>
-            <td style="font-size: <?php echo $font_smaller; ?>" align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td<?php if($theme=='none' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
                 <?php echo PMA_localisedDate(strtotime($showtable['Create_time'])) . "\n"; ?>
             </td>
         </tr>
@@ -759,7 +758,7 @@ if ($cfg['ShowStats']) {
             ?>
         <tr>
             <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatUpdateTime; ?></td>
-            <td style="font-size: <?php echo $font_smaller; ?>" align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td<?php if($theme=='none' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
                 <?php echo PMA_localisedDate(strtotime($showtable['Update_time'])) . "\n"; ?>
             </td>
         </tr>
@@ -773,7 +772,7 @@ if ($cfg['ShowStats']) {
             ?>
         <tr>
             <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strStatCheckTime; ?></td>
-            <td style="font-size: <?php echo $font_smaller; ?>" align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+            <td<?php if($theme=='none' || $theme==''){ echo ' style="font-size:' . $font_smaller . '"'; } ?> align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
                 <?php echo PMA_localisedDate(strtotime($showtable['Check_time'])) . "\n"; ?>
             </td>
         </tr>

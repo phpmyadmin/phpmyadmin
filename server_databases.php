@@ -93,6 +93,7 @@ require('./server_links.inc.php');
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
+   . ($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_db.png" border="0" hsape="2" align="absmiddle" width="16" height="16" />' : '')
    . '    ' . (empty($dbstats) ? $strDatabases : $strDatabasesStats) . "\n"
    . '</h2>' . "\n";
 
@@ -157,21 +158,21 @@ if (count($statistics) > 0) {
        . '    <input type="hidden" name="dbstats" value="' . (empty($dbstats) ? '0' : '1') . '" />' . "\n"
        . '    <input type="hidden" name="sort_by" value="' . $sort_by . '" />' . "\n"
        . '    <input type="hidden" name="sort_order" value="' . $sort_order . '" />' . "\n"
-       . '    <table border="0">' . "\n"
+       . '    <table border="0" cellpadding="2" cellspacing="1">' . "\n"
        . '        <tr>' . "\n"
        . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '            <th>&nbsp;</th>' . "\n" : '')
        . '            <th>' . "\n"
        . '                &nbsp;';
     if (empty($dbstats)) {
         echo $strDatabase . "\n"
-           . '                <img src="./images/asc_order.png" border="0" width="7" height="7"  alt="' . $strAscending . '" />' . "\n"
+           . '                <img src="' . $pmaThemeImage . 's_asc.png" border="0" width="11" height="9"  alt="' . $strAscending . '" />' . "\n"
            . '                &nbsp;' . "\n"
            . '            </th>' . "\n";
     } else {
         echo "\n"
            . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1&amp;sort_by=db_name&amp;sort_order=' . (($sort_by == 'db_name' && $sort_order == 'asc') ? 'desc' : 'asc') . '">' . "\n"
            . '                    ' . $strDatabase . "\n"
-           . ($sort_by == 'db_name' ? '                    <img src="./images/' . $sort_order . '_order.png" border="0" width="7" height="7"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
+           . ($sort_by == 'db_name' ? '                    <img src="' . $pmaThemeImage . 's_' . $sort_order . '.png" border="0" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
            . '                </a>' . "\n"
            . '                &nbsp;' . "\n"
            . '            </th>' . "\n"
@@ -179,7 +180,7 @@ if (count($statistics) > 0) {
            . '                &nbsp;' . "\n"
            . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1&amp;sort_by=tbl_cnt&amp;sort_order=' . (($sort_by == 'tbl_cnt' && $sort_order == 'desc') ? 'asc' : 'desc') . '">' . "\n"
            . '                    ' . $strNumTables . "\n"
-           . ($sort_by == 'tbl_cnt' ? '                    <img src="./images/' . $sort_order . '_order.png" border="0" width="7" height="7"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
+           . ($sort_by == 'tbl_cnt' ? '                    <img src="' . $pmaThemeImage . 's_' . $sort_order . '.png" border="0" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
            . '                </a>' . "\n"
            . '                &nbsp;' . "\n"
            . '            </th>' . "\n"
@@ -187,7 +188,7 @@ if (count($statistics) > 0) {
            . '                &nbsp;' . "\n"
            . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1&amp;sort_by=data_sz&amp;sort_order=' . (($sort_by == 'data_sz' && $sort_order == 'desc') ? 'asc' : 'desc') . '">' . "\n"
            . '                    ' . $strData . "\n"
-           . ($sort_by == 'data_sz' ? '                    <img src="./images/' . $sort_order . '_order.png" border="0" width="7" height="7"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
+           . ($sort_by == 'data_sz' ? '                    <img src="' . $pmaThemeImage . 's_' . $sort_order . '.png" border="0" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
            . '                </a>' . "\n"
            . '                &nbsp;' . "\n"
            . '            </th>' . "\n"
@@ -195,7 +196,7 @@ if (count($statistics) > 0) {
            . '                &nbsp;' . "\n"
            . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1&amp;sort_by=idx_sz&amp;sort_order=' . (($sort_by == 'idx_sz' && $sort_order == 'desc') ? 'asc' : 'desc') . '">' . "\n"
            . '                    ' . $strIndexes . "\n"
-           . ($sort_by == 'idx_sz' ? '                    <img src="./images/' . $sort_order . '_order.png" border="0" width="7" height="7"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
+           . ($sort_by == 'idx_sz' ? '                    <img src="' . $pmaThemeImage . 's_' . $sort_order . '.png" border="0" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
            . '                </a>' . "\n"
            . '                &nbsp;' . "\n"
            . '            </th>' . "\n"
@@ -203,7 +204,7 @@ if (count($statistics) > 0) {
            . '                &nbsp;' . "\n"
            . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1&amp;sort_by=tot_sz&amp;sort_order=' . (($sort_by == 'tot_sz' && $sort_order == 'desc') ? 'asc' : 'desc') . '">' . "\n"
            . '                    ' . $strTotalUC . "\n"
-           . ($sort_by == 'tot_sz' ? '                    <img src="./images/' . $sort_order . '_order.png" border="0" width="7" height="7"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
+           . ($sort_by == 'tot_sz' ? '                    <img src="' . $pmaThemeImage . 's_' . $sort_order . '.png" border="0" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
            . '                </a>' . "\n"
            . '                &nbsp;' . "\n"
            . '            </th>' . "\n";
@@ -270,9 +271,9 @@ if (count($statistics) > 0) {
                . '            </td>' . "\n";
         }
         if ($is_superuser) {
-            echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+            echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '" align="center">' . "\n"
                . '                <a onclick="reload_window(\'' . urlencode($current['db_name']) . '\'); return true;" href="./server_privileges.php?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
-               . '                    ' . ($cfg['PropertiesIconic'] ? '<img src="./images/b_usrcheck.png" alt="' . $strCheckPrivs . '" border="0" width="16" height="16" />' : $strCheckPrivs) . "\n"
+               . '                    ' .($cfg['PropertiesIconic'] ? '<img src="' . $pmaThemeImage . 's_rights.png" width="16" height="16" hspace="2" border="0" alt=" ' .$strCheckPrivs . '" /> ' : $strCheckPrivs ). "\n"
                . '                </a>' . "\n"
                . '            </td>' . "\n";
         }
@@ -316,7 +317,7 @@ if (count($statistics) > 0) {
         $common_url_query = PMA_generate_common_url() . '&amp;sort_by=' . $sort_by . '&amp;sort_order=' . $sort_order . '&amp;dbstats=' . (empty($dbstats) ? '10' : '3');
         echo '    <tr>' . "\n"
            . '        <td colspan="' . (empty($dbstats) ? '10' : '3') . '">' . "\n"
-           . '            <img src="./images/arrow_' . $text_dir . '.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
+           . '            <img src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n"
            . '            <a href="./server_databases.php?' . $common_url_query . '&amp;checkall=1" onclick="setCheckboxes(\'dbStatsForm\', true); return false;">' . "\n"
            . '                ' . $strCheckAll
            . '            </a>' . "\n"
@@ -335,35 +336,39 @@ if (count($statistics) > 0) {
     unset($tot_size);
     unset($tot_unit);
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-        echo '    <ul>' . "\n";
+        echo '       ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<br /><table border="0" cellpadding="2" cellspacing="0">' : '<ul>') . "\n";
     }
     if ($is_superuser && empty($dbstats)) {
-        echo '        <li>' . "\n"
+        echo '        ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<tr><td colspan="2">' : '<li>') . "\n"
            . '            <b>' . "\n"
            . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1" title="' . $strDatabasesStatsEnable . '">' . "\n"
+           . '                    ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' .$pmaThemeImage . 'b_dbstatistics.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '') . "\n"
            . '                    ' . $strDatabasesStatsEnable . "\n"
            . '                </a>' . "\n"
            . '            </b>' . "\n"
-           . '            <br />' . "\n"
+           . '           ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '</td></tr><tr><td width="20" nowrap="nowrap">&nbsp;</td><td>' : '<br />') . "\n"
            . '            ' . $strDatabasesStatsHeavyTraffic . "\n"
-           . '        </li>' . "\n";
+           . '        ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<br />&nbsp;</td></tr>' : '</li>') . "\n";
     } else if ($is_superuser && !empty($dbstats)) {
-        echo '        <li>' . "\n"
+        echo '        ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<tr><td colspan="2">' : '<li>') . "\n"
            . '            <b>' . "\n"
-           . '                <a href="./server_databases.php?' . $url_query . '" title="' . $strDatabasesStatsDisable . '">'. "\n"
+           . '                <a href="./server_databases.php?' . $url_query . '" title="' . $strDatabasesStatsDisable . '">' . "\n"
+           . '                    ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' .$pmaThemeImage . 'b_dbstatistics.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '') . "\n"
            . '                    ' . $strDatabasesStatsDisable . "\n"
            . '                </a>' . "\n"
            . '            </b>' . "\n"
-           . '        </li>' . "\n";
+           . '           ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<br />&nbsp;</td></tr>' : '<br /></li>') . "\n";
     }
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-        echo '        <li>' . "\n"
+        echo '        ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<tr><td colspan="2">' : '<li>') . "\n"
            . '            <b>' . "\n"
+           . '                ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<img src="' .$pmaThemeImage . 'b_deltbl.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '') . "\n"
            . '                ' . $strDropSelectedDatabases . "\n"
-           . '            </b><br />' . "\n"
-           . '            <input type="submit" name="drop_selected_dbs" value="' . $strGo . '" />' . "\n"
-           . '        </li>' . "\n"
-           . '    </ul>' . "\n";
+           . '            </b>' . "\n"
+           . '           ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '</td></tr><tr><td width="20" nowrap="nowrap">&nbsp;</td><td nowrap="nowrap" align="left" width="400">' : '<br />') . "\n"
+           . '            <input type="submit" name="drop_selected_dbs" value="' . $strDrop . '" id="buttonNo" />' . "\n"
+           . '           ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '<br />&nbsp;</td></tr>' : '</li>') . "\n"
+           . '    ' . ($GLOBALS['cfg']['PropertiesIconic'] ? '</table>' : '</ul>') . "\n";
     }
     echo '</form>' . "\n";
 } else {

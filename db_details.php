@@ -59,12 +59,14 @@ $strHiddenFields = '        <input type="hidden" name="is_js_confirmed" value="0
                  . '        <input type="hidden" name="prev_sql_query" value="' . ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : '') . '" />' . "\n";
 ?>
 <!-- Query box, sql file loader and bookmark support -->
+<form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
+<?php
+echo $strHiddenFields;
+?>
 <a name="querybox"></a>
 <table border="0" cellpadding="2" cellspacing="0">
-<form method="post" action="read_dump.php"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
 <tr><td class="tblHeaders" colspan="2">
     <?php
-            echo $strHiddenFields;
            // if you want navigation:
            $strDBLink = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . $header_url_qry . '&amp;db=' . urlencode($db) . '">'
                       . htmlspecialchars($db) . '</a>';
@@ -95,7 +97,7 @@ if (!empty($query_to_display)) {
 // loic1: displays import dump feature only if file upload available
 if ($is_upload) {
 ?>
-<tr><td colspan="2"><img src="images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>
+<tr><td colspan="2"><img src="images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>
 <tr>
     <td colspan="2" class="tblHeaders">
     <?php
@@ -173,9 +175,10 @@ if (!empty($cfg['UploadDir'])) {
         @closedir($handle);
     }
     else {
-        $upload_dir_error = '<tr><td colspan="2"><div class="error"><div class="head">' . $strError . '</div>'
-                            . '<div class="text">' . $strWebServerUploadDirectoryError
-                            . '</div></div></td></tr>';
+        $upload_dir_error = '<tr><td colspan="2"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>' . "\n"
+                          . '<tr><th colspan="2" class="tblHeadError"><div class="errorhead">' . $strError . '</div></th></tr>' . "\n"
+                          . '<tr><td colspan="2" class="tblError">' . $strWebServerUploadDirectoryError
+                          . '</td></tr>' . "\n";
     }
 } // end if (web-server upload directory)
 // Charset conversion options
@@ -208,7 +211,7 @@ if ($is_upload || $is_upload_dir) {
 // Bookmark Support
 if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
     if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
-        echo '    <tr><td colspan="2"><img src="./images/spacer.png" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
+        echo '    <tr><td colspan="2"><img src="./images/spacer.gif" width="1" height="1" border="0" alt="" /></td></tr>' . "\n";
         echo '    <tr><td colspan="2" class="tblHeaders">&nbsp;<i>' . $strOr . '</i></td></tr>' . "\n";
         echo '    <tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2">' . "\n";
         echo '        <b>' . $strBookmarkQuery . ':</b>&nbsp;' . "\n";
@@ -221,10 +224,10 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         echo '    </td></tr><tr bgcolor="' . $cfg['BgcolorOne'] . '"><td colspan="2">';
         echo '            ' . $strVar . ' ';
         if ($cfg['ReplaceHelpImg']){
-          echo '<a href="./Documentation.html#faqbookmark" target="documentation">'
-             . '<img src="./images/b_help.png" border="0" width="11" height="11" align="absmiddle" alt="' . $strDocu . '" /></a>';
-								}else{
-								  echo '(<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>):&nbsp;';
+            echo '<a href="./Documentation.html#faqbookmark" target="documentation">'
+             . '<img src="' .$pmaThemeImage . 'b_help.png" border="0" width="11" height="11" align="absmiddle" alt="' . $strDocu . '" /></a>';
+        }else{
+            echo '(<a href="./Documentation.html#faqbookmark" target="documentation">' . $strDocu . '</a>):&nbsp;';
         }
         echo '        <input type="text" name="bookmark_variable" class="textfield" size="10" />' . "\n";
         echo '    </td></tr><tr bgcolor="' . $cfg['BgcolorOne'] . '"><td>';
@@ -247,8 +250,8 @@ if (isset($upload_dir_error)) {
     echo $upload_dir_error;
 }
 ?>
-</form>
 </table>
+</form>
 <?php
 /**
  * Displays the footer

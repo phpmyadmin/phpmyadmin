@@ -744,4 +744,7 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 
+$strSelectTheme = 'please select...';  //to translate
+$strTheme = 'Theme / Style';  //to translate
+$strTakeIt = 'take it';  //to translate
 ?>

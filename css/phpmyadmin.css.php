@@ -20,14 +20,29 @@ if (!isset($js_frame)) {
     $js_frame = 'left';
 }
 
+// 2004-05-30: Michael Keck (mail@mnichaelkeck.de)
+//             check, if select_theme.lib.php exists
+//             and include it
+$tmp_file_lib = './libraries/select_theme.lib.php';
+if (@file_exists($tmp_file_lib) && isset($GLOBALS['cfg']['ThemePath']) && !empty($GLOBALS['cfg']['ThemePath'])){
+    require_once($tmp_file_lib);
+}else{
+    $pmaTheme = 'original';
+}
+
 if ($js_frame == 'left') {
 /************************************************************************************
  * LEFT FRAME
  ************************************************************************************/
-
+    // 2004-05-30: Michael Keck (mail@michaelkeck.de)
+    //             Check, if theme_left.css.php exists and include
+    $tmp_file = './' . $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_left.css.php';
+    if (@file_exists($tmp_file) && $pmaTheme != 'original') {
+        include($tmp_file);
+    }else{ // else use default styles
     /**
-     * Add styles for positioned layers
-     */
+    * Add styles for positioned layers
+    */
     if (isset($num_dbs) && $num_dbs == '0') {
     ?>
 /* No layer effects neccessary */
@@ -63,21 +78,20 @@ div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_
 .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
             <?php
                 if (isset($js_isIE4) && $js_isIE4 != '0') {
-                ?>
+            ?>
 /* Additional effects for IE4 */
 .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none; display: block}
 .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none; display: none}
 .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
 .tblItem:hover {color: #FF0000; text-decoration: underline}
-                <?php
-                }
-                 else {
-                ?>
+            <?php
+                } else {
+            ?>
 /* Additional effects for NON-IE4 */
 .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none; position: absolute; visibility: hidden}
 .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; position: absolute; visibility: hidden}
 .item, .tblItem {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-                <?php
+            <?php
                 }
             }
         } else {
@@ -98,27 +112,38 @@ div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_
 body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
 input   {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
 select  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color: #ffffff; color: #000000}
-hr{ color: #ffffff; background-color: #ffffff; border: 0; height: 1px; }
     <?php
+    } // end of include theme_left.css.php
 } elseif ($js_frame == 'print') {
 /************************************************************************************
  * PRINT VIEW
  ************************************************************************************/
-
+    // 2004-05-30: Michael Keck (mail@michaelkeck.de)
+    //             Check, if theme_print.css.php exists and include
+    $tmp_file = './' . $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_print.css.php';
+    if (@file_exists($tmp_file) && $pmaTheme != 'original') {
+        include($tmp_file);
+    } else { // else use default styles
     ?>
 /* For printview */
 body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #ffffff}
 h1    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_biggest; ?>; font-weight: bold}
 table {border-width:1px; border-color:#000000; border-style:solid; border-collapse:collapse; border-spacing:0}
 th    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: #ffffff; border-width:1px; border-color:#000000; border-style:solid; padding:2px}
+th.td { color: transparent; background-color: transparent;}
 td    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #ffffff; border-width:1px; border-color:#000000; border-style:solid; padding:2px}
-th.td {font-weight: normal;}
     <?php
+    } // end of include theme_print.css.php
 } else {
 /************************************************************************************
  * RIGHT FRAME
  ************************************************************************************/
-
+    // 2004-05-30: Michael Keck (mail@michaelkeck.de)
+    //             Check, if theme_right.css.php exists and include
+    $tmp_file = './' . $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_right.css.php';
+    if (@file_exists($tmp_file) && $pmaTheme != 'original') {
+        include($tmp_file);
+    } else { // else use default styles
 ?>
 /* Always enabled stylesheets (right frame) */
 body {
@@ -129,7 +154,7 @@ body {
     if ($GLOBALS['cfg']['RightBgImage'] == '') {
         // calls from a css file are relative to itself, so use ../images
         echo '    background-image: url(../images/vertical_line.png);' . "\n"
-             . '    background-repeat: repeat-y;' . "\n";
+           . '    background-repeat: repeat-y;' . "\n";
     } else {
         echo '    background-image: url(' . $GLOBALS['cfg']['RightBgImage'] . ');' . "\n";
     } // end if... else...
@@ -139,9 +164,8 @@ body {
 
 pre, tt         {font-size: <?php echo $font_size; ?>}
 th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>}
-th.td           {font-weight: normal; color: inherit; background-color: inherit; ?>}
 td              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
-form            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
+form            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; padding: 0px; margin: 0px;}
 input           {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
 select          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
@@ -170,6 +194,7 @@ dfn             {font-style: normal}
 dfn:hover       {font-style: normal; cursor: help}
 .nav            {font-family: <?php echo $right_font_family; ?>; color: #000000}
 .warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
+.tblcomment     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_smallest; ?>; font-weight: normal; color: #000099; }
 td.topline      {font-size: 1px}
 td.tab          {
     border-top: 1px solid #999;
@@ -180,7 +205,7 @@ td.tab          {
     -moz-border-radius: 2px;
 }
 
-div.tabs {
+div.tabs        {
     clear: both;
 }
 
@@ -191,7 +216,7 @@ table.tabs      {
     border-bottom: 1px solid #666;
 }
 
-fieldset {
+fieldset        {
     border:     #686868 solid 1px;
     padding:    0.5em;
 }
@@ -227,153 +252,6 @@ button.mult_submit {
     border:           1px dashed #000000;
 }
 
-/* Warning showing div with right border and optional icon */
-
-div.warning {
-    border: 1px solid red;
-<?php if ($cfg['ErrorIconic']) { ?>
-    background-image: url(../images/s_warn.png);
-    background-repeat: no-repeat;
-    background-position: 10px 50%;
-    padding: 10px 10px 10px 36px;
-    margin: 0px;
-<?php } ?>
-    width: 90%;
-}
-
-div.error {
-    width: 100%;
-    border: 1px solid #cc0000;
-    background-color: #ffffcc;
-    padding: 0px;
-}
-
-div.error  div.text {
-    padding: 5px;
-}
-
-div.error div.head {
-    background-color: #cc0000;
-    font-weight: bold;
-    color: #ffffff;
-<?php if ($cfg['ErrorIconic']) { ?>
-    background-image: url(../images/s_error.png);
-    background-repeat: no-repeat;
-    background-position: 10px 50%;
-    padding: 2px 2px 2px 30px;
-<?php } ?>
-    margin: 0px;
-}
-
-/* some new styles added 20047-05-05 by Michael Keck (mkkeck) */
-
-/* tables */
-.tblHeaders {
-  background-color: #9999CC;
-  font-weight:      bold;
-  color:            #000000;
-}
-.tblFooters {
-  background-color: #9999CC;
-  font-weight:      normal;
-  color:            #000000;
-}
-/* forbidden, no privilegs */
-.noPrivileges{
-  color:            #cc0000;
-  font-weight:      bold;
-}
-
-/* list elements */
-ul.mainRight {
-    margin: 0px;
-    padding-left:2em;
-    padding-right:2em;
-}
-
-ul.mainRight li {
-    white-space: nowrap;
-    padding-left:   0.5em;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
-}
-ul.mainLeft {
-    margin: 0px;
-    padding-left:2em;
-    padding-right:2em;
-}
-
-ul.mainLeft li {
-    white-space: nowrap;
-    padding-left:   0.5em;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
-}
-
-
-<?php if ($cfg['MainPageIconic']) { ?>
-li.lstPhpInfo {
-  list-style: url(../images/php_sym.png);
-}
-li.lstPmaDocs {
-  list-style: url(../images/b_docs.png);
-}
-li.lstPmaPage {
-  list-style: url(../images/b_home.png);
-}
-li.lstPmaLang {
-  list-style: url(../images/s_lang.png);
-}
-li.lstPmaChar {
-  list-style: url(../images/s_rights.png);
-}
-li.lstNewdb {
-  list-style: url(../images/b_newdb.png);
-}
-li.lstStatus {
-  list-style: url(../images/s_status.png);
-}
-li.lstVars {
-  list-style: url(../images/s_vars.png);
-}
-li.lstProcess {
-  list-style: url(../images/s_process.png);
-}
-li.lstPrivileges {
-  list-style: url(../images/s_rights.png);
-}
-li.lstCollations {
-  list-style: url(../images/s_asci.png);
-}
-li.lstReload {
-  list-style: url(../images/s_reload.png);
-}
-li.lstDatabases {
-  list-style: url(../images/s_db.png);
-}
-li.lstExport {
-  list-style: url(../images/b_export.png);
-}
-li.lstLogoff {
-  list-style: url(../images/s_loggoff.png);
-}
-li.lstPasswd {
-  list-style: url(../images/s_passwd.png);
-}
-<?php } ?>
-<?php if ($cfg['MainPageIconic']) { ?>
-li.lstUsradd {
-  list-style: url(../images/b_usradd.png);
-}
-li.lstUsrdrop {
-  list-style: url(../images/b_usrdrop.png);
-}
-<?php } ?>
-
-hr{ color: #666699; background-color: #6666cc; border: 0; height: 1px; }
-
-/* end of some new styles added 20047-05-05 by Michael Keck (mkkeck) */
-
 .print{font-family:arial;font-size:8pt;}
 
 /* MySQL Parser */
@@ -394,7 +272,160 @@ hr{ color: #666699; background-color: #6666cc; border: 0; height: 1px; }
 .syntax_alpha_variable     {}
 .syntax_quote              {white-space: pre;}
 .syntax_quote_backtick     {}
+
+hr{ color: #666666; background-color: #666666; border: 0; height: 1px; }
+
+/* new styles for navigation */
+
+.nav {
+    font-family: <?php echo $right_font_family; ?>;
+    color: #000000;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #666;
+}
+.navSpacer {
+    width:            5px;
+    height:           16px;
+}
+.navNormal, .navDrop, .navActive {
+    font-family:      <?php echo $right_font_family; ?>;
+    font-size:        <?php echo $font_size; ?>;
+    font-weight:      bold;
+    border-top: 1px solid #999;
+    border-right: 1px solid #666;
+    border-left: 1px solid #999;
+    border-bottom: none;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    padding: 2px 5px 2px 5px;
+}
+.navNormal {
+    color:            #000000;
+    background-color: #E5E5E5;
+}
+.navActive{
+    font-family:      <?php echo $right_font_family; ?>;
+    font-size:        <?php echo $font_size; ?>;
+    font-weight:      bold;
+    color:            #000000;
+    background-color: #CCCCCC;
+}
+.navDrop{
+    color: #000000;
+    background-color: #E5E5E5;
+}
+.navNormal a:link, .navNormal a:active, .navNormal a:visited, .navActive a:link, .navActive a:active, .navActive a:visited{
+    color: #0000FF;
+}
+
+.navDrop a:link, .navDrop a:active, .navDrop a:visited{
+    color: #FF0000;
+}
+.navDrop a:hover{
+    color: #FFFFFF;
+    background-color: #FF0000;
+}
+.navNormal a:hover, .navActive a:hover{
+    color: #FF0000;
+}
+
+/* Warning showing div with right border and optional icon */
+
+div.errorhead {
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+    <?php if ($cfg['ErrorIconic'] && isset($js_isDOM) && $js_isDOM != '0') { ?>
+    background-image: url(../images/s_error.png);
+    background-repeat: no-repeat;
+    background-position: 5px 50%;
+    padding: 0px 0px 0px 25px;
+    <?php } ?>
+    margin: 0px;
+}
+
+/* tables */
+.tblError {
+    border: 1px solid #FF0000;
+    background-color: #FFFFCC;
+}
+.tblWarn, div.tblWarn {
+    border: 1px solid #FF0000;
+    background-color: #FFFFFF;
+}
+div.tblWarn {
+    padding: 5px 5px 5px 5px;
+    margin:  0px 0px 5px 0px;
+    width:   100%;
+}
+.tblHeaders {
+    background-color: <?php echo $cfg['LeftBgColor']; ?>;
+    font-weight: bold;
+    color: #000000;
+}
+.tblFooters {
+    background-color: <?php echo $cfg['LeftBgColor']; ?>;
+    font-weight: normal;
+    color: #000000;
+}
+.tblHeaders a:link, .tblHeaders a:active, .tblHeaders a:visited, .tblFooters a:link, .tblFooters a:active, .tblFooters a:visited {
+    color: #0000FF;
+}
+.tblHeaders a:hover, .tblFooters a:hover { color: #FF0000; }
+.tblHeadError {
+    background-color: #FF0000;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+.tblHeadWarn {
+    background-color: #FFCC00;
+    font-weight: bold;
+    color: #000000;
+}
+/* forbidden, no privilegs */
+.noPrivileges{
+    color: #FF0000;
+    font-weight: bold;
+}
+
+/* Heading */
+
+.serverinfo {
+    font-family: <?php echo $right_font_family; ?>;
+    font-size: <?php echo $font_size; ?>;
+    font-weight: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0px 0px 10px 0px;
+}
+<?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
+.serverinfo a:link, .serverinfo a:activ, .serverinfo a:visited {
+    font-family: <?php echo $right_font_family; ?>;
+    font-size: <?php echo $font_size; ?>;
+    font-weight: bolder;
+}
+.serverinfo a img{
+    vertical-align: middle;
+    margin: 0px 1px 0px 2px;
+}
+.serverinfo div{
+    background-image:    url(../images/item_ltr.png);
+    background-repeat:   no-repeat;
+    background-position: 50% 50%;
+    width: 20px;
+    height: 16px;
+}
+#textSQLDUMP {
+    width: 95%;
+    height: 95%;
+    font-family: "Courier New", Courier, mono;
+    font-size:   12px;
+}
+<?php } // end of isDom ?>
     <?php
+    } // end of include theme_right.css.php
     echo PMA_SQP_buildCssData();
 }
 
@@ -486,8 +517,7 @@ td.tab a {
 }
 
 /* For light */
-div.tab {
-}
+div.tab { }
 
 /* Highlight active tab */
 td.activetab {
@@ -503,55 +533,4 @@ textarea {
 .nospace {
     margin: 0px;
     padding: 0px;
-}
-
-/* Heading */
-
-div.spacer {
-    clear: both;
-}
-
-h1 span {
-    display: block;
-    float: left;
-    clear: none;
-    width: auto;
-    padding: 2px 2px 5px 2px;
-    margin: 0px;
-    font-family: <?php echo $right_font_family; ?>;
-    font-size: <?php echo $font_size; ?>;
-    font-weight: normal;
-    white-space: nowrap;
-}
-
-h1 span a {
-<?php if ($cfg['ErrorIconic']) { ?>
-    background-repeat: no-repeat;
-    background-position: 2px 50%;
-    padding-left: 20px;
-<?php } ?>
-}
-
-h1 span a {
-    font-weight: bolder;
-}
-
-<?php if ($cfg['PropertiesIconic']) { ?>
-h1 span.server a {
-    background-image: url(../images/s_host.png);
-}
-
-h1 span.database a {
-    background-image: url(../images/s_db.png);
-}
-
-h1 span.table a {
-    background-image: url(../images/s_tbl.png);
-}
-<?php } ?>
-
-h1 span.database:before , h1 span.table:before {
-    content: '>';
-    padding-left: 5px;
-    padding-right: 5px;
 }

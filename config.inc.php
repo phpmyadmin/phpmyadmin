@@ -526,14 +526,23 @@ $cfg['NaturalOrder']        = TRUE;         // Sort table and database in natura
 // 2004-05-08 rabus: We need to rearrange these variables.
 // 2004-06-03 nijel: We also need to add these to Documentation.html
 
-$cfg['ShowHttpHostTitle']    = FALSE;   // show HTTP host in browsers window title (true|false)?
-$cfg['SetHttpHostTitle']     = '';      // if ShowHttpHostTitle=true, please set your host (server)
-                                        // or an other string, wich should be shown in browsers window title.
-                                        // If not set (or empty), the PMA will get your real host address.
+$cfg['ShowHttpHostTitle']   = TRUE;            // show HttpHost in browsers window title (true|false)?
+$cfg['SetHttpHostTitle']    = '';              // if ShowHttpHostTitle=true, please set your host (server)
+                                             // or an other string, wich should be shown in browsers window title.
+                                             // If not set (or empty), the PMA will get your real Host-Adress.
 
 $cfg['ErrorIconic']          = TRUE;    // show some icons for warnings, errors and informations (true|false)?
-$cfg['MainPageIconic']       = TRUE;    // show icons in list on main page (true|false)?
+$cfg['MainPageIconic']       = TRUE;    // show icons in list on main page and on navigation bar (true|false)?
 $cfg['ReplaceHelpImg']       = TRUE;    // show help button instead of strDocumentation (true|false)?
+
+// theme manager
+$cfg['ThemePath']           = 'themes';      // using themes manager please set up here the path to 'themes'
+                                             // else leave empty
+$cfg['ThemeManager']        = TRUE;          // if you want to use selectable themes and if ThemesPath not empty
+                                             // set it to true, else set it to false (default is false);
+$cfg['ThemeDefault']        = 'original';         // set up default theme, if ThemePath not empty
+                                             // you can set up here an valid path to themes or 'original' for
+                                             // the original pma-theme
 
 //-----------------------------------------------------------------------------
 

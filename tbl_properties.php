@@ -16,8 +16,6 @@ $url_query .= '&amp;goto=tbl_properties.php&amp;back=tbl_properties.php';
 require('./tbl_properties_table_info.php');
 
 ?>
-<ul>
-
 <!-- TABLE WORK -->
 <?php
 /**
@@ -25,11 +23,6 @@ require('./tbl_properties_table_info.php');
  */
 $goto = 'tbl_properties.php';
 require('./tbl_query_box.php');
-
-?>
-</ul>
-
-<?php
 
 /**
  * Displays the footer

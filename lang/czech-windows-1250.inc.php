@@ -749,4 +749,7 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 
 $strServerNotResponding = 'The server is not responding';  //to translate
+$strSelectTheme = 'please select...';  //to translate
+$strTheme = 'Theme / Style';  //to translate
+$strTakeIt = 'take it';  //to translate
 ?>

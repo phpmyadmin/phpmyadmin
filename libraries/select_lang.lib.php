@@ -302,5 +302,4 @@ if (!isset($convcharset) || empty($convcharset)) {
 // 5. Defines the associated filename and load the translation
 $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php';
 require_once('./' . $lang_file);
-
 ?>

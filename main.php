@@ -19,8 +19,26 @@ if (!isset($pma_uri_parts)) {
     $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 }
 setcookie('pma_lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
+/**
+ * Includes the ThemeManager
+ */
+require_once('./libraries/select_theme.lib.php');
 // Defines the "item" image depending on text direction
-$item_img = './images/dot_violet.png';
+$item_img = $GLOBALS['pmaThemeImage'] . 'item_ltr.png';
+// Defines for MainPageIconic
+$str_iconic_list    = '';
+$str_iconic_colspan = '';
+$str_normal_list    = '<td valign="top" align="right" width="16"><img src="'.$item_img.'" border="0" hspace="2" vspace="5"></td>';
+if ($cfg['MainPageIconic']) {
+    $str_iconic_list .= "<td width=\"16\" valign=\"top\" align=\"center\" nowrap=\"nowrap\">%1\$s"
+                      . "<img src=\"" . $pmaThemeImage . "%2\$s\" border=\"0\" width=\"16\" height=\"16\" hspace=\"2\" alt=\"%3\$s\" />"
+                      . "%4\$s</td>";
+    $str_iconic_colspan .= ' colspan="2"';
+} else {
+    $str_iconic_list = '';
+    $str_iconic_colspan = ' colspan="2"';
+}
+
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {
     unset($db);
@@ -51,8 +69,14 @@ echo "\n";
  * Displays the welcome message and the server informations
  */
 ?>
-<h1><?php echo sprintf($strWelcome, ' phpMyAdmin ' . PMA_VERSION); ?></h1>
-
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td align="left" valign="top">
+        <h1>
+        <?php
+        echo sprintf($strWelcome, ' phpMyAdmin ' . PMA_VERSION . ''); 
+        ?>
+        </h1>
 <?php
 // Don't display server info if $server == 0 (no server selected)
 // loic1: modified in order to have a valid words order whatever is the
@@ -82,7 +106,7 @@ if ($server > 0) {
     $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
     $full_string     = str_replace('%pma_s3%', $mysql_cur_user_and_host, $full_string);
 
-    echo '<p><b>' . $full_string . '</b></p><br />' . "\n";
+    echo '<p><b>' . $full_string . '</b></p>' . "\n";
 } // end if
 
 
@@ -93,14 +117,25 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
     $result = PMA_DBI_query('FLUSH PRIVILEGES');
     echo '<p><b>';
     if ($result != 0) {
-      echo $strMySQLReloaded;
+        echo $strMySQLReloaded;
     } else {
-      echo $strReloadFailed;
+        echo $strReloadFailed;
     }
     unset($result);
     echo '</b></p>' . "\n\n";
 }
-
+?>
+        </td>
+        <?php
+        if (@file_exists($pmaThemeImage . 'logo_right.png')) {
+            echo '        <td align="right" valign="top">' . "\n";
+            echo '            <img src="' . $pmaThemeImage . 'logo_right.png" alt="phpMyAdmin - Logo" border="0" hspace="5" vspace="5" align="right" />' . "\n";
+            echo '        </td>';
+        }
+        ?>
+</tr></table>
+<hr />
+<?php
 
 /**
  * Displays the MySQL servers choice form
@@ -109,12 +144,12 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
     ?>
 <!-- MySQL servers choice form -->
 <form method="post" action="index.php" target="_parent" class="nospace">
-<table>
-<tr>
-    <th><?php echo $strServerChoice; ?></th>
-</tr>
-<tr>
-    <td>
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+    <tr>
+        <th class="tblHeaders"><?php echo $strServerChoice; ?></th>
+    </tr>
+    <tr>
+        <td>
             <select name="server">
     <?php
     echo "\n";
@@ -151,16 +186,18 @@ if ($server == 0 || count($cfg['Servers']) > 1) {
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
             <input type="submit" value="<?php echo $strGo; ?>" />
         </td>
-</tr>
+    </tr>
 </table>
-</form>
-<br />
+</form><br />
     <?php
 } // end of the servers choice form
+
+// neted table needed
 ?>
-
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top">
 <!-- MySQL and phpMyAdmin related links -->
-
 <?php
 /**
  * Displays the mysql server related links
@@ -280,48 +317,48 @@ if ($server > 0) {
     if ($is_superuser || $is_create_priv || $is_process_priv || $is_reload_priv
         || $cfg['ShowMysqlInfo'] || $cfg['ShowMysqlVars'] || $cfg['ShowChgPassword']
         || $cfg['Server']['auth_type'] != 'config') {
-        ?>
-<table>
+?>
+<!-- MySQL server related links -->
+<table cellpadding="3" cellspacing="0">
     <tr>
-        <th class="tblHeaders">&nbsp;&nbsp;MySQL</th>
-        <th class="tblHeaders">&nbsp;&nbsp;phpMyAdmin</th>
+        <th<?php if(isset($theme) && $theme!='none'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;MySQL</th>
     </tr>
-    <tr>
-        <!-- MySQL server related links -->
-        <td valign="top" align="<?php echo $cell_align_left; ?>">
-        <ul class="mainLeft">
-        <?php
-        // The user is allowed to create a db
+    <tr><?php
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','b_newdb.png',$strCreateNewDatabase,'') : $str_normal_list); 
+?>
+    <!-- db creation form -->
+        <td valign="top" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
+<?php
         if ($is_create_priv) {
+            // The user is allowed to create a db
             ?>
-
-            <!-- db creation form -->
-            <li class="lstNewdb">
                 <form method="post" action="db_create.php"><b>
                     <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
                     <?php echo PMA_generate_common_hidden_inputs(5); ?>
                     <input type="hidden" name="reload" value="1" />
-                    <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
+                    <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" id="listTable" /><br />
                     <?php
             if (PMA_MYSQL_INT_VERSION >= 40101) {
                 require_once('./libraries/mysql_charsets.lib.php');
                 echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', NULL, NULL, TRUE, 5);
             }
                     ?>
-                    <input type="submit" value="<?php echo $strCreate; ?>" />
+                    <input type="submit" value="<?php echo $strCreate; ?>" id="buttonGo" />
                 </form>
-            </li>
             <?php
         } else {
             ?>
-
             <!-- db creation no privileges message -->
-            <li class="lstNewdb">
-                <?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />
-                <?php echo '<i>' . $strNoPrivileges .'</i>'; ?><br />
-            </li>
-            <?php
+                <b><?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
+                <?php 
+                      echo '<span class="noPrivileges">' 
+                         . ($cfg['ErrorIconic'] ? '<img src="' . $pmaThemeImage . 's_error2.png" width="11" height="11" hspace="2" border="0" align="absmiddle" />' : '')
+                         . '' . $strNoPrivileges .'</span>';
         } // end create db form or message
+        ?>
+        </td>
+    </tr>
+        <?php
         echo "\n";
 
         // Server related links
@@ -329,134 +366,175 @@ if ($server > 0) {
         <!-- server-related links -->
         <?php
         if ($cfg['ShowMysqlInfo']) {
-            echo "\n";
-            ?>
-            <li class="lstStatus">
+?>
+    <tr><?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_status.php?'.$common_url_query.'">','s_status.png',$strMySQLShowStatus,'</a>') : $str_normal_list);
+?>
+        <td>
                 <a href="./server_status.php?<?php echo $common_url_query; ?>">
                     <?php echo $strMySQLShowStatus . "\n"; ?>
                 </a>
-            </li>
+        </td>
+    </tr>
             <?php
         } // end if
         if ($cfg['ShowMysqlVars']) {
-            echo "\n";
-            ?>
-            <li class="lstVars">
+?>
+    <tr><?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_variables.php?'.$common_url_query.'">','s_vars.png',$strMySQLShowVars,'</a>') : $str_normal_list);
+?>
+        <td>
                 <a href="./server_variables.php?<?php echo $common_url_query; ?>">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_VARIABLES') . "\n"; ?>
-            </li>
-            <?php
+        </td>
+    </tr>
+        <?php
         }
-
-        echo "\n";
-        ?>
-            <li class="lstProcess">
+?>
+    <tr><?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_processlist.php?'.$common_url_query.'">','s_process.png',$strMySQLShowProcess,'</a>') : $str_normal_list);
+?>
+        <td>
                 <a href="./server_processlist.php?<?php echo $common_url_query; ?>">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'SHOW_PROCESSLIST') . "\n"; ?>
-            </li>
+        </td>
+    </tr>
         <?php
 
         if (PMA_MYSQL_INT_VERSION >= 40100) {
             echo "\n";
             ?>
-            <li class="lstCollations">
+    <tr><?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_collations.php.php?'.$common_url_query.'">','s_asci.png',$strCharsetsAndCollations,'</a>') : $str_normal_list); 
+?>
+        <td>
                 <a href="./server_collations.php?<?php echo $common_url_query; ?>">
                     <?php echo $strCharsetsAndCollations; ?></a>&nbsp;
-            </li>
+        </td>
+    </tr>
             <?php
         }
 
         if ($is_reload_priv) {
             echo "\n";
             ?>
-            <li class="lstReload">
+    <tr><?php
+            echo '        ' . ($str_iconic_list!='' ? sprintf($str_iconic_list,'<a href="main.php?'.$common_url_query.'&amp;mode=reload">','s_reload.png',$strReloadMySQL,'</a>') : $str_normal_list);  
+?>
+        <td>
                 <a href="main.php?<?php echo $common_url_query; ?>&amp;mode=reload">
                     <?php echo $strReloadMySQL; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH') . "\n"; ?>
-            </li>
+        </td>
+    </tr>
             <?php
         }
 
         if ($is_superuser) {
             echo "\n";
             ?>
-            <li class="lstPrivileges">
+    <tr><?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_privileges.php?'.$common_url_query.'">','s_rights.png',$strPrivileges,'</a>') : $str_normal_list);   
+?>
+        <td>
                 <a href="server_privileges.php?<?php echo $common_url_query; ?>">
                     <?php echo $strPrivileges; ?></a>&nbsp;
-            </li>
+        </td>
+    </tr>
             <?php
         }
         ?>
-            <li class="lstDatabases">
+    <tr><?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_databases.php?'.$common_url_query.'">','s_db.png',$strDatabases,'</a>') : $str_normal_list);  
+?>
+        <td>
                 <a href="./server_databases.php?<?php echo $common_url_query; ?>">
                     <?php echo $strDatabases; ?></a>
-            </li>
-            <li class="lstExport">
+        </td>
+    </tr>
+    <tr>
+<?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="server_export.php?'.$common_url_query.'">','b_export.png',$strExport,'</a>') : $str_normal_list);
+?>
+        <td>
                 <a href="./server_export.php?<?php echo $common_url_query; ?>">
                     <?php echo $strExport; ?></a>
-            </li>
+        </td>
+    </tr>
         <?php
 
         // Change password (needs another message)
         if ($cfg['ShowChgPassword']) {
             echo "\n";
             ?>
-            <li class="lstPasswd">
+    <tr>
+<?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="user_password.php?'.$common_url_query.'">','s_passwd.png',$strChangePassword,'</a>') : $str_normal_list);
+?>
+        <td>
                 <a href="user_password.php?<?php echo $common_url_query; ?>">
                     <?php echo ($strChangePassword); ?></a>
-            </li>
+        </td>
+    </tr>
             <?php
         } // end if
 
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
             $http_logout = ($cfg['Server']['auth_type'] == 'http')
-                         ? "\n" . '                <a href="./Documentation.html#login_bug" target="documentation">(*)</a>'
+                         ? "\n" 
+. '                <a href="./Documentation.html#login_bug" target="documentation">'
+                         . ($cfg['ReplaceHelpImg'] ? '<img src="' . $pmaThemeImage . 'b_info.png" width="11" height="11" border="0" alt="Info" align="absmiddle" />' : '(*)') . '</a>'
                          : '';
             echo "\n";
             ?>
-            <li class="lstLogoff">
+    <tr>
+<?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="index.php?'.$common_url_query.'&amp;old_usr='.urlencode($PHP_AUTH_USER).'">','s_loggoff.png',$strChangePassword,'</a>') : $str_normal_list);
+?>
+        <td>
+
                 <a href="index.php?<?php echo $common_url_query; ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
                     <b><?php echo $strLogout; ?></b></a>&nbsp;<?php echo $http_logout . "\n"; ?>
-            </li>
+        </td>
+    </tr>
             <?php
         } // end if
         ?>
-        </ul>
-    </td>
-
-        <?php
+</table>
+<?php
     } // end if
 } // end of if ($server > 0)
 echo "\n";
 
-
-/**
- * Displays the phpMyAdmin related links
- */
 ?>
-
-    <!-- phpMyAdmin related links -->
-    <td valign="top" align="<?php echo $cell_align_left; ?>">
-    <ul class="mainLeft">
-
+</td>
+<td width="20">&nbsp;</td>
+<td valign="top">
+<table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+        <th<?php if(isset($theme) && $theme!='none'){ ?> class="tblHeaders"<?php } echo $str_iconic_colspan; ?>>&nbsp;&nbsp;phpMyAdmin</th>
+    </tr>
 <?php
 // Displays language selection combo
 if (empty($cfg['Lang'])) {
     ?>
-        <!-- Language Selection -->
-        <li class="lstPmaLang">
+    <!-- Language Selection -->
+    <tr><?php
+        echo '        ' . ($str_iconic_list !='' ? sprintf($str_iconic_list,'<a href="./translators.html" target="documentation">','s_lang.png','Language','</a>') : $str_normal_list); 
+?>
+        <td nowrap="nowrap">
             <form method="post" action="index.php" target="_parent">
                 <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                <input type="hidden" name="set_theme" value="<?php echo $theme; ?>" />
                 Language <a href="./translators.html" target="documentation"><?php
-                    if ($cfg['ReplaceHelpImg']){
-                      echo '<img src="./images/b_info.png" border="0" width="11" height="11" alt="Info" hspace="1" vspace="1" />';
-                    }else{ echo '(*)'; }
-?></a>:
-                <select name="lang" dir="ltr" onchange="this.form.submit();">
+                if ($cfg['ReplaceHelpImg']){
+                    echo '<img src="' . $pmaThemeImage . 'b_info.png" border="0" width="11" height="11" alt="Info" hspace="1" vspace="1" />';
+                }else{ echo '(*)'; }
+?></a>: <select name="lang" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
     <?php
     echo "\n";
 
@@ -488,23 +566,29 @@ if (empty($cfg['Lang'])) {
     }
     ?>
                 </select>
-                <noscript><input type="submit" value="Go" /></noscript>
+                <noscript><input type="submit" value="Go" style="vertical-align: middle" /></noscript>
             </form>
-        </li>
+        </td>
+    </tr>
+       
     <?php
 }
 
 if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
     && $allow_recoding && PMA_MYSQL_INT_VERSION < 40100) {
     echo "\n";
-    ?>
-        <!-- Charset Selection -->
-        <li class="lstCollations">
+?>
+    <!-- Charset Selection -->
+    <tr><?php
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list);
+?>
+        <td>
             <form method="post" action="index.php" target="_parent">
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="set_theme" value="<?php echo $theme; ?>" />
                 <?php echo $strMySQLCharset;?>:
-                <select name="convcharset" dir="ltr" onchange="this.form.submit();">
+                <select name="convcharset" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
     <?php
     echo "\n";
     foreach ($cfg['AvailableCharsets'] AS $id => $tmpcharset) {
@@ -518,48 +602,122 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
     }
     ?>
                 </select>
-                <noscript><input type="submit" value="Go" /></noscript>
+                <noscript><input type="submit" value="Go" style="vertical-align: middle" /></noscript>
             </form>
-        </li>
+        </td>
+    </tr>
     <?php
 } elseif (PMA_MYSQL_INT_VERSION >= 40100) {
-    echo '        <li class="lstCollations">' . "\n"
-       . '                ' . $strMySQLCharset . ':' . "\n"
-       . '                ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
-       . '                (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
-       . '        </li>' . "\n";
+    echo '    <!-- Charset Info -->' . "\n"
+       . '    <tr>' .  "\n"
+       .'        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'','s_asci.png',$strMySQLCharset,'') : $str_normal_list) . "\n" 
+       . '        <td>' . "\n"
+       . '            ' . $strMySQLCharset . ': '
+       . '        <b>'
+       . '               ' . $mysql_charsets_descriptions[$mysql_charset_map[strtolower($charset)]] . "\n"
+       . '               (' . $mysql_charset_map[strtolower($charset)] . ')' . "\n"
+       . '        </b></td>' . "\n"
+       . '    </tr>' . "\n";
 }
 echo "\n";
-?>
 
-        <!-- Documentation -->
-        <li class="lstPmaDocs">
+// added by Michael Keck <mail_at_michaelkeck_dot_de>
+// ThemeManager if available
+
+if (count($available_themes_choices)>1) {
+    $theme_selected = FALSE;
+    $theme_preview_path=$cfg['ThemePath'] . '/';
+    $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" onclick="'
+                        . "window.open('" . $theme_preview_path . "','themes','left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes');"
+                        . '">';
+?>
+    <!-- Theme Manager -->
+    <tr>
+<?php
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,$theme_preview_href,'s_theme.png','Theme (Style)','</a>') : $str_normal_list) . "\n";
+?>
+        <td>
+            <form name="setTheme" method="post" action="index.php" target="_parent">
+                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
+                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+                <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                <?php
+                echo $theme_preview_href
+                   . (isset($strTheme) ? $strTheme : 'Theme (Style)')
+                   . '</a>:' . "\n";
+                ?> 
+                <select name="set_theme" dir="ltr" onchange="this.form.submit();" style="vertical-align: middle">
+                <?php
+                    for($i=0;$i<count($available_themes_choices);$i++){
+                        echo '<option value="' . $available_themes_choices[$i] . '"';
+                        if ($available_themes_choices[$i] == $theme) {
+                            echo ' selected="selected"';
+                            $theme_selected = TRUE;
+                        }
+                        echo '>' . $available_themes_choices[$i] . '</option>';
+                    }
+                    if ($theme_selected != TRUE) {
+                        echo '<option value="" selected="selected">' . (isset($strSelectTheme) ? $strSelectTheme : 'please select ...') . '</option>';
+                    }
+                ?>
+                </select>
+                <noscript><input type="submit" value="Go" style="vertical-align: middle" /></noscript>
+            </form>
+        </td>
+    </tr>
+<?php
+}
+?>
+    <!-- Documentation -->
+    <tr><?php
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="Documentation.html" target="documentation">','b_docs.png',$strPmaDocumentation,'</a>') : $str_normal_list); 
+?>
+        <td nowrap="nowrap">
             <a href="Documentation.html" target="documentation"><b><?php echo $strPmaDocumentation; ?></b></a>
-        </li>
+        </td>
+    </tr>
 
 <?php
 if ($is_superuser || $cfg['ShowPhpInfo']) {
     ?>
-        <!-- PHP Information -->
-        <li class="lstPhpInfo">
+    <!-- PHP Information -->
+    <tr><?php
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="phpinfo.php?' . PMA_generate_common_url() . '" target="_blank">','php_sym.png',$strShowPHPInfo,'</a>') : $str_normal_list);  
+?>
+        <td nowrap="nowrap">
             <a href="phpinfo.php?<?php echo PMA_generate_common_url(); ?>" target="_blank"><?php echo $strShowPHPInfo; ?></a>
-        </li>
+        </td>
+    </tr>
     <?php
 }
 echo "\n";
 ?>
 
         <!-- phpMyAdmin related urls -->
-        <li class="lstPmaPage">
-            <a href="http://www.phpMyAdmin.net/" target="_blank"><?php echo $strHomepageOfficial; ?></a><br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_blank">ChangeLog</a>]
+    <tr><?php
+        echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="http://www.phpMyAdmin.net/" target="_blank">','b_home.png',$strHomepageOfficial,'</a>') : $str_normal_list);  
+?>
+        <td nowrap="nowrap">
+            <a href="http://www.phpMyAdmin.net/" target="_blank"><?php echo $strHomepageOfficial; ?></a>
+       </td>
+    </tr> 
+    <tr>
+<?php
+        echo '<td><img src="./images/spacer.gif" width="1" height="1" border="0" /></td>'; 
+?>
+       <td nowrap="nowrap">
+            [<a href="ChangeLog" target="_blank">ChangeLog</a>]
             &nbsp;&nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_blank">CVS</a>]
             &nbsp;&nbsp;&nbsp;[<a href="http://sourceforge.net/mail/?group_id=23067" target="_blank">Lists</a>]
-        </li>
-    </ul>
-    </td>
+       </td>
+    </tr>
+</table>
+
+</td>
 </tr>
 </table>
+
+<hr />
 
 
 <?php
@@ -607,7 +765,6 @@ if (PMA_PHP_INT_VERSION < 40100) {
 if (defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION < 32332) {
     echo '<div class="warning">' . sprintf($strUpgrade, 'MySQL', '3.23.32') . '</div>' . "\n";
 }
-
 /**
  * Displays the footer
  */

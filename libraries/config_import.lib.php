@@ -827,6 +827,19 @@ if (!isset($cfg['ReplaceHelpImg'])) {
     $cfg['ReplaceHelpImg'] = TRUE;
 }
 
+if (!isset($cfg['ThemePath'])){
+    $cfg['ThemePath']='';
+    $cfg['ThemeDefault']='';
+    $cfg['ThemeManager'] = FALSE;
+} else {
+    if (!isset($cfg['ThemeDefault'])){
+        $cfg['ThemeDefault']='original';
+    }
+    if (!isset($cfg['ThemeManager'])){
+        $cfg['ThemeManager'] = FALSE;
+    }
+}
+
 if (!isset($cfg['DefaultQueryTable'])) {
     $cfg['DefaultQueryTable'] = 'SELECT * FROM %t WHERE 1';
 }

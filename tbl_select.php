@@ -21,7 +21,7 @@ if ($cfg['PropertiesIconic'] == true) {
         $iconic_spacer = '';
     }
 
-    $titles['Browse']     = $iconic_spacer . '<img width="12" height="13" src="images/button_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
+    $titles['Browse']     = $iconic_spacer . '<img width="16" height="16" src="' . $pmaThemeImage . 'b_browse.png" alt="' . $strBrowseForeignValues . '" title="' . $strBrowseForeignValues . '" border="0" />';
 
     if ($propicon == 'both') {
         $titles['Browse']        .= '&nbsp;' . $strBrowseForeignValues . '</div>';
@@ -140,12 +140,12 @@ function PMA_tbl_select_operator(f, index, multiple) {
             <input type="text" size="4" name="session_max_rows" value="<?php echo $cfg['MaxRows']; ?>" class="textfield" />
         </li>
         <li>
-            <?php echo $strAddSearchConditions; ?><br />
+        <?php echo $strAddSearchConditions; ?><br />
             <input type="text" name="where" class="textfield" />&nbsp;
             <?php echo PMA_showMySQLDocu('Reference', 'Functions') . "\n"; ?>
             <br /><br />
             <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
-            <table border="<?php echo $cfg['Border']; ?>">
+            <table border="<?php echo $cfg['Border']; ?>" cellpadding="2" cellspacing="1">
             <tr>
                 <th><?php echo $strField; ?></th>
                 <th><?php echo $strType; ?></th>
@@ -162,29 +162,29 @@ function PMA_tbl_select_operator(f, index, multiple) {
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($fields_list[$i]); ?></td>
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $fields_type[$i]; ?></td>
                 <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '<td bgcolor="' . $bgcolor . '">' . $fields_collation[$i] . '</td>' . "\n" : ''; ?>
-                <td bgcolor="<?php echo $bgcolor; ?>">
+                 <td bgcolor="<?php echo $bgcolor; ?>">
                     <select name="func[]">
         <?php
         if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
             foreach ($enumfunctions as $k => $fc) {
                 echo "\n" . '                        '
-                     . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
+                   . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
             }
         } elseif (preg_match('@char|blob|text|set@i', $fields_type[$i])) {
             foreach ($textfunctions as $k => $fc) {
-                echo "\n" . '                        '
-                     . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
+            echo "\n" . '                        '
+               . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
             }
         } else {
             foreach ($numfunctions as $k => $fc) {
                 echo "\n" . '                        '
-                     . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
+                   . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
             }
         } // end if... else...
         if ($fields_null[$i]) {
             foreach ($nullfunctions as $k => $fc) {
                 echo "\n" . '                        '
-                     . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
+                   . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
             }
         }
         echo "\n";
@@ -249,8 +249,8 @@ function PMA_tbl_select_operator(f, index, multiple) {
         <li>
             <?php echo $strDisplayOrder; ?><br />
             <select name="orderField" style="vertical-align: middle">
-                <option value="--nil--"></option>
-    <?php
+            <option value="--nil--"></option>
+            <?php
     echo "\n";
     for ($i = 0; $i < $fields_cnt; $i++) {
         echo '                ';

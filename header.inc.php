@@ -41,7 +41,7 @@ if (empty($GLOBALS['is_header_sent'])) {
      */
     $title     = '';
     if ($cfg['ShowHttpHostTitle']) {
-        $title .= (empty($cfg['SetHttpHostTitle']) ? $GLOBALS['HTTP_HOST'] : $cfg['SetHttpHostTitle']) . ' >> ';
+        $title .= (empty($GLOBALS['cfg']['SetHttpHostTitle']) ? $GLOBALS['HTTP_HOST'] : $GLOBALS['cfg']['SetHttpHostTitle']) . ' >> ';
     }
     if (!empty($GLOBALS['cfg']['Server']) && isset($GLOBALS['cfg']['Server']['host'])) {
         $title.=str_replace('\'', '\\\'', $GLOBALS['cfg']['Server']['host']);
@@ -140,7 +140,6 @@ if (empty($GLOBALS['is_header_sent'])) {
     }
     ?>
     <body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor'] . '"' . $bkg_img; ?>>
-
     <?php
     include('./config.header.inc.php');
 
@@ -151,6 +150,11 @@ if (empty($GLOBALS['is_header_sent'])) {
     /**
      * Display heading if needed. Design can be set in css file.
      */
+/*
+    // InternetExplorer have problems to show content with style called 'content:'
+    // and IE swaps images, of mouse over an icon
+    // some other Browsers have Problem with the div class="spacer"
+    // the show of icons is now based on param 'MainPageIconic'
     if (PMA_DISPLAY_HEADING) {
         echo "<h1>\n\n";
         $header_url_qry = '?' . PMA_generate_common_url();
@@ -181,8 +185,52 @@ if (empty($GLOBALS['is_header_sent'])) {
         }
         echo '</h1>';
     }
-    echo "\n" . '<div class="spacer"></div>';
+*/
+    if (PMA_DISPLAY_HEADING) {
+        echo '<table border="0" cellpadding="0" cellspacing="0">' . "\n"
+           . '    <tr>' . "\n";
+        $header_url_qry = '?' . PMA_generate_common_url();
+        $server_info = (!empty($cfg['Server']['verbose'])
+                        ? $cfg['Server']['verbose']
+                        : $server_info = $cfg['Server']['host'] . (empty($cfg['Server']['port'])
+                                                                   ? ''
+                                                                   : ':' . $cfg['Server']['port']
+                                                                  )
+                       );
+        echo '        '
+           . '<td class="serverinfo">' . $GLOBALS['strServer'] . ':'
+           . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . '?' . PMA_generate_common_url() . '">';
+        if ($GLOBALS['cfg']['MainPageIconic']) {
+            echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_host.png" width="16" height="16" border="0" alt="' . htmlspecialchars($server_info) . '" />';
+        }
+        echo htmlspecialchars($server_info) . '</a>' . "\n"
+           . '</td>' . "\n\n";
 
+        if (!empty($GLOBALS['db'])) {
+            echo '        '
+               . '<td class="serverinfo"><div></div></td>' . "\n" . '            '
+               . '<td class="serverinfo">' . $GLOBALS['strDatabase'] . ':'
+               . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($GLOBALS['db']) . '">';
+            if ($GLOBALS['cfg']['MainPageIconic']) {
+                echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_db.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['db']) . '" />';
+            }
+            echo htmlspecialchars($GLOBALS['db']) . '</a>' . "\n"
+               . '</td>' . "\n\n";
+
+            if (!empty($GLOBALS['table'])) {
+                echo '        '
+                   . '<td class="serverinfo"><div></div></td>' . "\n" . '            '
+                   . '<td class="serverinfo">' . $GLOBALS['strTable'] . ':'
+                   . '<a href="' . $GLOBALS['cfg']['DefaultTabTable'] . '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '">';
+                if ($GLOBALS['cfg']['MainPageIconic']) {
+                    echo '<img src="' . $GLOBALS['pmaThemeImage'] . 's_tbl.png" width="16" height="16" border="0" alt="' . htmlspecialchars($GLOBALS['table']) . '" />';
+                }
+                echo htmlspecialchars($GLOBALS['table']) . '</a>' . "\n"
+                   . '</td>' . "\n\n";
+            }
+        }
+        echo '    </tr>' . "\n" . '</table>';
+    }
     /**
      * Sets a variable to remember headers have been sent
      */

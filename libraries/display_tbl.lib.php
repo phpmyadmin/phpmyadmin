@@ -631,7 +631,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             ?>
 <th class="td" colspan="<?php echo $fields_cnt; ?>" align="center">
     <a href="<?php echo $text_url; ?>">
-        <img src="./images/s_<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
+        <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_'.(($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png'; ?>" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
 </th>
 </tr>
 
@@ -644,7 +644,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 <tr>
 <th class="td" colspan="<?php echo $num_rows + floor($num_rows/$repeat_cells) + 1; ?>" align="center">
     <a href="<?php echo $text_url; ?>">
-        <img src="./images/s_<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
+        <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png'; ?>" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
 </th>
 </tr>
             <?php
@@ -660,14 +660,14 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             ?>
 <th class="td" <?php echo $colspan; ?> align="center">
     <a href="<?php echo $text_url; ?>">
-        <img src="./images/s_<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
+        <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png'; ?>" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
 </th>
             <?php
         } // end horizontal/horizontalflipped mode
         else {
             $vertical_display['textbtn'] = '    <th class="td" ' . $rowspan . ' align="center" valign="middle">' . "\n"
                                          . '        <a href="' . $text_url . '">' . "\n"
-                                         . '            <img src="./images/s_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" title="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
+                                         . '            <img src="' . $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" title="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
                                          . '    </th>' . "\n";
         } // end vertical mode
     }
@@ -736,8 +736,10 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
         // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
         if (isset($comments_map[$fields_meta[$i]->name])) {
-            $comments_table_wrap_pre = '<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><th>';
-            $comments_table_wrap_post = '</th></tr><tr><th style="font-size: 8pt; font-weight: normal">' . htmlspecialchars($comments_map[$fields_meta[$i]->name]) . '</td></tr></table>';
+            /*$comments_table_wrap_pre = '<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><th>';
+            $comments_table_wrap_post = '</th></tr><tr><th style="font-size: 8pt; font-weight: normal">' . htmlspecialchars($comments_map[$fields_meta[$i]->name]) . '</td></tr></table>';*/
+            $comments_table_wrap_pre = '';
+            $comments_table_wrap_post = '<span class="tblcomment">' . htmlspecialchars($comments_map[$fields_meta[$i]->name]) . '</span>';
         } else {
             $comments_table_wrap_pre = '';
             $comments_table_wrap_post = '';
@@ -796,11 +798,11 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             }
             else if (preg_match('@[[:space:]]ASC$@i', $sort_expression)) {
                 $sort_order .= ' DESC';
-                $order_img   = '&nbsp;<img src="./images/s_asc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
+                $order_img   = '&nbsp;<img src="' . $GLOBALS['pmaThemeImage'] . 's_asc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" id="soimg' . $i . '" />';
             }
             else if (preg_match('@[[:space:]]DESC$@i', $sort_expression)) {
                 $sort_order .= ' ASC';
-                $order_img   = '&nbsp;<img src="./images/s_desc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
+                $order_img   = '&nbsp;<img src="' . $GLOBALS['pmaThemeImage'] . 's_desc.png" border="0" width="11" height="9" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" id="soimg' . $i . '" />';
             }
             if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@i', $unsorted_sql_query, $regs3)) {
                 $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
@@ -816,7 +818,19 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                        . '&amp;sql_query=' . urlencode($sorted_sql_query);
 
             // 2.1.5 Displays the sorting url
-            $order_link_pre  = '<a href="sql.php?' . $url_query . '" ' . (($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style="direction: ltr; writing-mode: tb-rl;"' : '') . ' title="' . $GLOBALS['strSort'] . '"' . '>';
+            // added 20004-06-09: Michael Keck <mail@michaelkeck.de>
+            //                    enable sord order swapping for image
+            $order_onmouse = '';
+            if (isset($order_img) && $order_img!='') {
+                if (strstr($order_img,'asc')) {
+                    $order_onmouse.= ' onmouseover="if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }"'
+                                   .' onmouseout="if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }"';
+                } else if (strstr($order_img,'desc')) {
+                    $order_onmouse.= ' onmouseover="if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_asc.png\'; }"'
+                                   .' onmouseout="if(document.getElementById(\'soimg' . $i . '\')){ document.getElementById(\'soimg' . $i . '\').src=\'' . $GLOBALS['pmaThemeImage'] . 's_desc.png\'; }"';
+                }
+            }
+            $order_link_pre  = '<a href="sql.php?' . $url_query . '" ' . (($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style="direction: ltr; writing-mode: tb-rl;"' : '') . ' title="' . $GLOBALS['strSort'] . '"' . $order_onmouse . '>';
             $order_link_post = '</a>';
             $order_link_content = ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name));
             $order_link_words = explode(' ', $order_link_content);
@@ -878,14 +892,14 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             ?>
 <th class="td" <?php echo $colspan; ?> align="center">
     <a href="<?php echo $text_url; ?>">
-        <img src="./images/s_<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
+        <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png'; ?>" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
 </th>
             <?php
         } // end horizontal/horizontalflipped mode
         else {
             $vertical_display['textbtn'] = '    <th class="td" ' . $rowspan . ' align="center" valign="middle">' . "\n"
                                          . '        <a href="' . $text_url . '">' . "\n"
-                                         . '            <img src="./images/s_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" title="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
+                                         . '            <img src="' . $GLOBALS['pmaThemeImage'] . 's_' . (($dontlimitchars) ? 'partialtext' : 'fulltext') . '.png" border="0" width="50" height="20" alt="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" title="' . (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']) . '" /></a>' . "\n"
                                          . '    </th>' . "\n";
         } // end vertical mode
     }
@@ -1102,7 +1116,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
                     $edit_str = $GLOBALS['strEdit'];
                 } else {
-                    $edit_str = $iconic_spacer . '<img width="16" height="16" src="images/b_edit.png" alt="' . $GLOBALS['strEdit'] . '" title="' . $GLOBALS['strEdit'] . '" border="0" />';
+                    $edit_str = $iconic_spacer . '<img width="16" height="16" src="' . $GLOBALS['pmaThemeImage'] . 'b_edit.png" alt="' . $GLOBALS['strEdit'] . '" title="' . $GLOBALS['strEdit'] . '" border="0" />';
                     if ($propicon == 'both') {
                         $edit_str .= '&nbsp;' . $GLOBALS['strEdit'] . '</div>';
                     }
@@ -1121,7 +1135,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
                     $bookmark_go .= $GLOBALS['strExecuteBookmarked'];
                 } else {
-                    $bookmark_go .= $iconic_spacer . '<img width="16" height="16" src="images/b_bookmark.png" alt="' . $GLOBALS['strExecuteBookmarked'] . '" title="' . $GLOBALS['strExecuteBookmarked'] . '" border="0" />';
+                    $bookmark_go .= $iconic_spacer . '<img width="16" height="16" src="' . $GLOBALS['pmaThemeImage'] . 'b_bookmark.png" alt="' . $GLOBALS['strExecuteBookmarked'] . '" title="' . $GLOBALS['strExecuteBookmarked'] . '" border="0" />';
                     if ($propicon == 'both') {
                         $bookmark_go .= '&nbsp;' . $GLOBALS['strExecuteBookmarked'] . '</div>';
                     }
@@ -1151,7 +1165,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
                     $del_str = $GLOBALS['strDelete'];
                 } else {
-                    $del_str = $iconic_spacer . '<img width="16" height="16" src="images/b_drop.png" alt="' . $GLOBALS['strDelete'] . '" title="' . $GLOBALS['strDelete'] . '" border="0" />';
+                    $del_str = $iconic_spacer . '<img width="16" height="16" src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" alt="' . $GLOBALS['strDelete'] . '" title="' . $GLOBALS['strDelete'] . '" border="0" />';
                     if ($propicon == 'both') {
                         $del_str .= '&nbsp;' . $GLOBALS['strDelete'] . '</div>';
                     }
@@ -1170,7 +1184,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
                     $del_str = $GLOBALS['strKill'];
                 } else {
-                    $del_str = $iconic_spacer . '<img width="16" height="16" src="images/b_drop.png" alt="' . $GLOBALS['strKill'] . '" title="' . $GLOBALS['strKill'] . '" border="0" />';
+                    $del_str = $iconic_spacer . '<img width="16" height="16" src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" alt="' . $GLOBALS['strKill'] . '" title="' . $GLOBALS['strKill'] . '" border="0" />';
                     if ($propicon == 'both') {
                         $del_str .= '&nbsp;' . $GLOBALS['strKill'] . '</div>';
                     }
@@ -1474,20 +1488,28 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             $vertical_display['row_delete'][$row_no] = '';
         }
 
+        $column_style_vertical = '';
+        if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+            $column_style_vertical .= ' onmouseover="setVerticalPointer(this, ' . $row_no . ', \'over\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
+                         . ' onmouseout="setVerticalPointer(this, ' . $row_no . ', \'out\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+        }
+        $column_marker_vertical = '';
+        if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
+            $column_marker_vertical .= 'setVerticalPointer(this, ' . $row_no . ', \'click\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');';
+        }
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
-            $vertical_display['row_delete'][$row_no] .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
+            $vertical_display['row_delete'][$row_no] .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '"' . $column_style_vertical . '>' . "\n"
                                                      .  '        <input type="checkbox" id="id_rows_to_delete' . $row_no . '[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[' . $uva_condition . ']"'
-                                                     .  ' onclick="copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'[%_PMA_CHECKBOX_DIR_%]\');"'
+                                                     .  ' onclick="' . $column_marker_vertical . 'copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'[%_PMA_CHECKBOX_DIR_%]\');"'
                                                      .  ' value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
-
                                                      .  '    </td>' . "\n";
         } else {
             unset($vertical_display['row_delete'][$row_no]);
         }
 
         if (isset($edit_url)) {
-            $vertical_display['edit'][$row_no]   .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
+            $vertical_display['edit'][$row_no]   .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '"' . $column_style_vertical . '>' . "\n"
                                                  . PMA_linkOrButton($edit_url, $edit_str, '', FALSE)
                                                  . $bookmark_go
                                                  .  '    </td>' . "\n";
@@ -1496,7 +1518,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
         }
 
         if (isset($del_url)) {
-            $vertical_display['delete'][$row_no] .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '">' . "\n"
+            $vertical_display['delete'][$row_no] .= '    <td align="center" valign="' . ($bookmark_go != '' ? 'top' : 'middle') . '" bgcolor="' . $bgcolor . '"' . $column_style_vertical . '>' . "\n"
                                                  . PMA_linkOrButton($del_url, $del_str, (isset($js_conf) ? $js_conf : ''), FALSE)
                                                  .  '    </td>' . "\n";
         } else {
@@ -1828,7 +1850,7 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         $delete_text = $is_display['del_lnk'] == 'dr' ? $GLOBALS['strDelete'] : $GLOBALS['strKill'];
         $propicon = (string)$GLOBALS['cfg']['PropertiesIconic'];
 ?>
-        &nbsp;&nbsp;<img src="./images/arrow_<?php echo $GLOBALS['text_dir']; ?>.png" border="0" width="38" height="22" alt="<?php echo $GLOBALS['strWithChecked']; ?>" />
+        &nbsp;&nbsp;<img src="<?php echo $GLOBALS['pmaThemeImage'] . 'arrow_' . $GLOBALS['text_dir'] . '.png'; ?>" border="0" width="38" height="22" alt="<?php echo $GLOBALS['strWithChecked']; ?>" />
         <a href="<?php echo $text_url . '&amp;checkall=1'; ?>" onclick="setCheckboxesRange('rowsDeleteForm', true, 'id_rows_to_delete', 0, '<?php echo $num_rows; ?>'); return false;">
             <?php echo $GLOBALS['strCheckAll']; ?></a>
         &nbsp;/&nbsp;
@@ -1842,23 +1864,23 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             /* IE has trouble with <button> */
             if (PMA_USR_BROWSER_AGENT != 'IE') {
                 echo '                    <button class="mult_submit" type="submit" name="submit_mult" value="row_edit" title="' . $GLOBALS['strEdit'] . '">' . "\n"
-                   . '<img src="./images/b_edit.png" title="' . $GLOBALS['strEdit'] . '" alt="' . $GLOBALS['strEdit'] . '" width="16" height="16" align="absmiddle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '') . "\n"
+                   . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_edit.png" title="' . $GLOBALS['strEdit'] . '" alt="' . $GLOBALS['strEdit'] . '" width="16" height="16" align="absmiddle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '') . "\n"
                    . '</button>';
 
                 echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_delete" title="' . $delete_text . '">' . "\n"
-                   . '<img src="./images/b_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="16" height="16" align="absmiddle" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
+                   . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" title="' . $delete_text . '" alt="' . $delete_text . '" width="16" height="16" align="absmiddle" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '') . "\n"
                    . '</button>';
                 if ($analyzed_sql[0]['querytype'] == 'SELECT') {
                     echo '&nbsp;<button class="mult_submit" type="submit" name="submit_mult" value="row_export" title="' . $GLOBALS['strExport'] . '">' . "\n"
-                       . '<img src="./images/b_tblexport.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="16" height="16" align="absmiddle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
+                       . '<img src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" title="' . $GLOBALS['strExport'] . '" alt="' . $GLOBALS['strExport'] . '" width="16" height="16" align="absmiddle" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '') . "\n"
                        . '</button>';
                 }
 
             } else {
-                echo '                    <input type="image" name="submit_mult_edit" value="row_edit" title="' . $GLOBALS['strEdit'] . '" src="./images/b_edit.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '');
-                echo '&nbsp;<input type="image" name="submit_mult" value="row_delete" title="' . $delete_text . '" src="./images/b_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '');
+                echo '                    <input type="image" name="submit_mult_edit" value="row_edit" title="' . $GLOBALS['strEdit'] . '" src="' . $GLOBALS['pmaThemeImage'] . 'b_edit.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strEdit'] : '');
+                echo '&nbsp;<input type="image" name="submit_mult" value="row_delete" title="' . $delete_text . '" src="' . $GLOBALS['pmaThemeImage'] . 'b_drop.png" />' . (($propicon == 'both') ? '&nbsp;' . $delete_text : '');
                 if ($analyzed_sql[0]['querytype'] == 'SELECT') {
-                    echo '&nbsp;<input type="image" name="submit_mult_export" value="row_export" title="' . $GLOBALS['strExport'] . '" src="./images/b_tblexport.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '');
+                    echo '&nbsp;<input type="image" name="submit_mult_export" value="row_export" title="' . $GLOBALS['strExport'] . '" src="' . $GLOBALS['pmaThemeImage'] . 'b_tblexport.png" />' . (($propicon == 'both') ? '&nbsp;' . $GLOBALS['strExport'] : '');
                 }
             }
             echo "\n";

@@ -31,6 +31,7 @@ require('./server_links.inc.php');
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
+   . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_process.png" width="16" height="16" border="0" hspace="2" align="absmiddle" />' : '' )
    . '    ' . $strProcesslist . "\n"
    . '</h2>' . "\n";
 
@@ -52,9 +53,9 @@ unset($row);
  * Displays the page
  */
 ?>
-<table border="0">
+<table border="0" cellpadding="2" cellspacing="1">
     <tr>
-        <th><a href="./server_processlist.php?<?php echo $url_query . (empty($full) ? '&amp;full=1' : ''); ?>" title="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>"><img src="./images/<?php echo empty($full) ? 'full' : 'partial'; ?>text.png" width="50" height="20" border="0" alt="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>" /></a></th>
+        <td><a href="./server_processlist.php?<?php echo $url_query . (empty($full) ? '&amp;full=1' : ''); ?>" title="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>"><img src="<?php echo $pmaThemeImage . 's_' . (empty($full) ? 'full' : 'partial'); ?>text.png" width="50" height="20" border="0" alt="<?php echo empty($full) ? $strShowFullQueries : $strTruncateQueries; ?>" /></a></td>
         <th>&nbsp;<?php echo $strId; ?>&nbsp;</th>
         <th>&nbsp;<?php echo $strUser; ?>&nbsp;</th>
         <th>&nbsp;<?php echo $strHost; ?>&nbsp;</th>

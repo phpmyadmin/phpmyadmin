@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * many files: redesign part 3, thanks to Michael Keck (mkkeck).
+      New /themes structure for Theme management
+      TODO: code improvement, access to /lang from themes/index.php,
+            possible logo change 
+
 2004-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
 

@@ -31,11 +31,8 @@ if ($server > 0 && empty($dblist)) {
 
 
 <!-- Dump of a server -->
-<h2>
-    <?php echo $strViewDumpDatabases . "\n"; ?>
-</h2>
-
-<?php
+<?php 
+$export_page_title = $strViewDumpDatabases . "\n";
 $multi_values = '<div align="center"><select name="db_select[]" size="6" multiple="multiple">';
 $multi_values .= "\n";
 
