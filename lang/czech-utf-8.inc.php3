@@ -630,4 +630,6 @@ $strTransformation_text_plain__substr = 'Only shows part of a string. First opti
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
 
 $strUseHostTable = 'Use Host Table';  //to translate
+$strShowFullQueries = 'Show Full Queries';  //to translate
+$strTruncateQueries = 'Truncate Shown Queries';  //to translate
 ?>

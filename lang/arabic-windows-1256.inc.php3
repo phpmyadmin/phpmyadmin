@@ -648,4 +648,6 @@ $strAutodetect = 'Autodetect';  //to translate
 $strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
 $strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
 $strUseHostTable = 'Use Host Table';  //to translate
+$strShowFullQueries = 'Show Full Queries';  //to translate
+$strTruncateQueries = 'Truncate Shown Queries';  //to translate
 ?>

@@ -621,4 +621,6 @@ $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the l
 $strZip = '"zipped"';
 
 $strUseHostTable = 'Use Host Table';  //to translate
+$strShowFullQueries = 'Show Full Queries';  //to translate
+$strTruncateQueries = 'Truncate Shown Queries';  //to translate
 ?>
