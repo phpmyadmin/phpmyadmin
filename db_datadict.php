@@ -85,6 +85,8 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
     /**
      * Gets table keys and retains them
      */
+
+    PMA_DBI_select_db($db);
     $result       = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
     $primary      = '';
     $indexes      = array();
