@@ -25,7 +25,7 @@ $strAddDeleteRow = 'Kritérium Sort Hozzáad/Töröl';
 $strAddNewField = 'Új mez&#0337 hozzáadása';
 $strAddPriv = 'Új privilégiumot ad';
 $strAddPrivMessage = 'Az új privilégiumot hozzáadtam.';
-$strAddSearchConditions = 'Keresési feltételek megadása (az \"ahol\" kikötések):';
+$strAddSearchConditions = 'Keresési feltételek megadása (az "ahol" kikötések):';
 $strAddToIndex = 'Adj az indexhez &nbsp;%s&nbsp;oszlopot';
 $strAddUser = 'Új felhasználó hozzáadása';
 $strAddUserMessage = 'Az új felhasználót felvettem.';
@@ -34,6 +34,7 @@ $strAfter = '%s után';
 $strAfterInsertBack = 'Vissza az el&#0337z&#0337 oldalra';
 $strAfterInsertNewInsert = 'Új sor beszúrása';
 $strAll = 'Mind';
+$strAllTableSameWidth = 'minden tábla ezzel a szélességgel jelenjen meg?'; 
 $strAlterOrderBy = 'Tábla megváltozása rendezve e szerint:';
 $strAnalyzeTable = 'Tábla vizsgálat';
 $strAnd = 'És';
@@ -62,7 +63,9 @@ $strBrowse = 'Tartalom';
 $strBzip = '"bzip-pel tömörítve"';
 
 $strCantLoadMySQL = 'nem tudom betölteni a MySQL b&#0337vítményt,<br />ellen&#0337rizd a PHP konfigurációt.';
+$strCantLoadRecodeIconv = 'Nem tudom betölteni az iconv vagy recode kiterjesztést a karakterkészlet-átalakításhoz, állítsd be a php-t, hogy engedélyezze ezeket a kiterjesztéseket vagy tiltsd le a karakterkészlet-átalakítást a phpMyAdminban.';
 $strCantRenameIdxToPrimary = 'Nem tudom átnevezni az indexet PRIMARY-vá!';
+$strCantUseRecodeIconv = 'Nem tudom használni az iconv, libiconv sem a recode_string funkciókat mialatt a kiterjesztés-jelentéseket be kell tölteni. Ellen&#0337rizd a php konfigurációt.';
 $strCardinality = 'Számosság';
 $strCarriage = 'Kocsivissza: \\r';
 $strChange = 'Változtat';
@@ -74,7 +77,9 @@ $strCheckTable = 'Tábla ellen&#0337rzés';
 $strChoosePage = 'Válassz oldalt a szerkesztéshez';
 $strColumn = 'Oszlop';
 $strColumnNames = 'Oszlop nevek';
+$strComments = 'Megjegyzések'; 
 $strCompleteInserts = 'Mez&#0337neveket is hozzáadja';
+$strConfigFileError = 'A phpMyAdmin nem tudja olvasni a konfigurációs fájlt!<br />Lehet, hogy a php szintaktikai hibát talált benne, vagy nem találja a fájlt.<br />Használd az alsó linket a konfigurációs fájl helyreállításához, olvasd el a kapott php hibaüzeneteket. Többnyire egy idéz&#0337jel vagy egy pontosvessz&#0337 hiányzik valahol.<br />Ha üres oldalt kapsz, minden rendben.'; 
 $strConfigureTableCoord = 'Állítsd be a(z) $s tábla koordinátáit';
 $strConfirm = 'Biztos, hogy végre akarod hajtani?';
 $strCookiesRequired = 'A Cookie-kat most engedélyeznek kell.';
@@ -102,10 +107,10 @@ $strDeletedRows = 'Törölt sorok:';
 $strDeleteFailed = 'Törlés meghiúsult!';
 $strDeleteUserMessage = '%s felhasználót töröltem.';
 $strDescending = 'Csökken&#0337';
-$strDisplay = 'Kijelz&#0337';
-$strDisplayOrder = 'Kijelz&#0337 rendezés:';
+$strDisplay = 'Megjelenítés';
+$strDisplayOrder = 'Megjelenítés rendezés:';
 $strDisplayPDF = 'PDF sáma kijelzése';
-$strDoAQuery = 'Csinálj egy "példa lekérdezést" (helyettesít&#0337 karakter: "%")';
+$strDoAQuery = 'Csinálj egy "lekérdezést" (helyettesít&#0337 karakter: "%")';
 $strDocu = 'Dokumentáció';
 $strDoYouReally = 'Biztos ez akarod? ';
 $strDrop = 'Eldob';
@@ -152,6 +157,7 @@ $strGzip = '"gzip-pel tömörítve"';
 
 $strHasBeenAltered = 'megváltozott.';
 $strHasBeenCreated = 'megszületett.';
+$strHaveToShow = 'Legalább egy oszlopot választanod kell a megjelenítéshez';
 $strHome = 'Kezd&#0337lap';
 $strHomepageOfficial = 'Hivatalos phpMyAdmin Honlap';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Letöltés Oldal';
@@ -193,11 +199,13 @@ $strLogout = 'Kilépés';
 $strLogPassword = 'Jelszó:';
 $strLogUsername = 'Felhasználói név:';
 
+$strMissingBracket = 'Hiányzó szögletes zárójel';  
 $strModifications = 'A változásokat elmentettem';
 $strModify = 'Változás';
 $strModifyIndexTopic = 'Index változása';
 $strMoveTable = 'Tábla áthelyezése ide (adatbázis<b>.</b>tábla):';
 $strMoveTableOK = '%s táblát áthelyeztem ide: %s.';
+$strMySQLCharset = 'MySQL karakterkészlet';  
 $strMySQLReloaded = 'MySQL újratöltve.';
 $strMySQLSaid = 'MySQL jelzi: ';
 $strMySQLServerProcess = 'MySQL %pma_s1%, szerver: %pma_s2%, felhasználó: %pma_s3%';
@@ -222,6 +230,7 @@ $strNoPrivileges = 'Nincs privilégium';
 $strNoQuery = 'Nincs SQL kérés!';  //to translate
 $strNoRights = 'Nincs elég jogod ennek végrehajtására!';
 $strNoTablesFound = 'Nincs tábla az adatbázisban.';
+$strNotSet = '<b>%s</b> táblát nem találtam vagy nincs benne: %s';
 $strNotNumber = 'Ez nem egy szám!';
 $strNotValidNumber = ' nem érvényes sorszám!';
 $strNoUsersFound = 'Nem találtam felhasználó(ka)t.';
@@ -261,13 +270,14 @@ $strPrintView = 'Nyomtatási nézet';
 $strPrivileges = 'Privilégiumok';
 $strProperties = 'Tulajdonságok';
 
-$strQBE = 'Példa lekérdezés';
+$strQBE = 'Lekérdezés';
 $strQBEDel = 'Töröl';
 $strQBEIns = 'Beszúr';
 $strQueryOnDb = 'SQL-kérés <b>%s</b> adatbázison:';
 
-$strRecords = 'Sorok';
+$strRecords = 'Sor';
 $strReferentialIntegrity = 'Hivatkozási sértetlenség ellenorzése:';
+$strRelationNotWorking = 'A munka kiegészít&#0337 tulajdonságai a vonatkozó táblákra meg lettek szüntetve. Az okokért kattints %side%s.';
 $strRelationView = 'Reláció nézet';
 $strReloadFailed = 'MySQL újratöltése sikertelen.';
 $strReloadMySQL = 'MySQL újratöltése';
@@ -292,7 +302,7 @@ $strRowsModeHorizontal = 'vízszintes';
 $strRowsModeOptions = '%s módon, a fejlécet %s soronként megismételve';
 $strRowsModeVertical = 'függ&#0337leges';
 $strRowsStatistic = 'Sor-statisztika';
-$strRunning = 'helye %s';
+$strRunning = ': %s';
 $strRunQuery = 'Kérés végrehajtása';
 $strRunSQLQuery = 'SQL parancs(ok) futtatása a(z) %s adatbázison';
 
@@ -362,7 +372,7 @@ $strTextAreaLength = ' Mivel ez a hossz,<br /> ez a mez&#0337 nem szerkeszthet&#
 $strTheContent = 'A fájl tartalmát beillesztettem.';
 $strTheContents = 'A fájl és a kiválasztott tábla sorainak tartalmát azonos els&#0337dleges vagy egyedi kulccsal cseréli ki.';
 $strTheTerminator = 'A mez&#0337k lezárója.';
-$strTotal = 'Összes';
+$strTotal = 'Összesen';
 $strType = 'Tipus';
 
 $strUncheckAll = 'Összeset törli';
@@ -385,7 +395,7 @@ $strViewDump = 'Tábla kiírás (vázlat) megnézése';
 $strViewDumpDB = 'Adatbázis kiírás (vázlat) megnézése';
 
 $strWelcome = 'Üdvözöl a %s';
-$strWithChecked = 'A kijelöltekkel végzendo m&#0369velet:';
+$strWithChecked = 'A kijelöltekkel végzend&#0337 m&#0369velet:';
 $strWrongUser = 'Rossz felhasználói név/jelszó. Hozzáférés megtagadva.';
 
 $strYes = 'Igen';
@@ -393,16 +403,5 @@ $strYes = 'Igen';
 $strZip = '"zippel tömörítve"';
 
 // To translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
 
-
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

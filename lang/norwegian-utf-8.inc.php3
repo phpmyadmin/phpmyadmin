@@ -37,6 +37,7 @@ $strAfter = 'Etter %s';
 $strAfterInsertBack = 'Returner';
 $strAfterInsertNewInsert = 'Sett inn en ny post';
 $strAll = 'Alle';
+$strAllTableSameWidth = 'vis alle tabeller med samme bredde?'; 
 $strAlterOrderBy = 'Endre tabell rekkefølge ved';
 $strAnalyzeTable = 'Analyser tabell';
 $strAnd = 'Og';
@@ -279,6 +280,7 @@ $strQueryOnDb = 'SQL-spørring i database <b>%s</b>:';
 
 $strRecords = 'Rader';
 $strReferentialIntegrity = 'Sjekk referanse integritet:';
+$strRelationNotWorking = 'Tilleggsfunksjonene for å kunne jobbe med koblede tabeller er deaktivert. For å finne ut hvorfor, klikk %sher%s.';
 $strRelationView = 'Relasjons-visning';
 $strReloadFailed = 'Omstart av MySQL feilet.';
 $strReloadMySQL = 'Omstart av MySQL';
@@ -405,6 +407,4 @@ $strZip = 'Komprimert (zip)';
 
 // To translate
 
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>

@@ -8,6 +8,9 @@ $Source$
 2002-07-19 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, bug 583833: should not complain if some tables
       are missing
+    * lang/hungarian update, thanks to Peter Bakondy
+    * lang/thai updates: thanks to Arthit Suriyawongkul.
+    * lang/norwegian updates: thanks to Sven-Erik Andersen
 
 2002-07-19 Loïc Chapeaux  <lolo@phpheaven.net>
     * pdf_schema.php3; pdf_page.php3; libraries/common.lib.php3: PHP3 fixes.

@@ -39,6 +39,7 @@ $strAfter = 'หลัง %s';
 $strAfterInsertBack = 'ส่งกลับ';
 $strAfterInsertNewInsert = 'แทรกระเบียนใหม่';
 $strAll = 'ทั้งหมด';
+$strAllTableSameWidth = 'ให้แสดงตารางทุกตารางด้วยความกว้างเท่ากันหรือไม่?'; 
 $strAlterOrderBy = 'เรียงค่าในตารางตาม';
 $strAnalyzeTable = 'วิเคราะห์ตาราง';
 $strAnd = 'และ';
@@ -281,6 +282,7 @@ $strQueryOnDb = 'คำค้นบนฐานข้อมูล <b>%s</b>:';
 
 $strRecords = 'ระเบียน';
 $strReferentialIntegrity = 'ตรวจสอบความสมบูรณ์ของการอ้างถึง:';
+$strRelationNotWorking = 'ความสามารถเพิ่มเติมที่อนุญาตให้ใช้งาน linked Tables ได้ ได้ถูกระงับเอาไว้ ด้วยเหตุผลตามที่แจ้งไว้ใน %shere%s';
 $strRelationView = 'Relation view';
 $strReloadFailed = 'รีโหลด MySQL ใหม่ไม่สำเร็จ';
 $strReloadMySQL = 'รีโหลด MySQL ใหม่';
@@ -405,6 +407,4 @@ $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>
