@@ -402,13 +402,13 @@ function PMA_normalOperations()
             </tr>
             <tr>
                 <td>
-                    <input type="radio" name="anyuser" id="radio_anyuser0" />
-                    <label for="radio_anyuser0"><?php echo $GLOBALS['strAnyUser']; ?></label>
+                    <input type="radio" name="anyuser" value="1" id="radio_anyuser1" />
+                    <label for="radio_anyuser1"><?php echo $GLOBALS['strAnyUser']; ?></label>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" name="anyuser" id="radio_anyuser1" checked="checked" />
-                    <label for="radio_anyuser1"><?php echo $GLOBALS['strUserName']; ?></label>&nbsp;:&nbsp;
+                    <input type="radio" name="anyuser" value="0" id="radio_anyuser0" checked="checked" />
+                    <label for="radio_anyuser0"><?php echo $GLOBALS['strUserName']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
                     <input type="text" name="pma_user" size="10" class="textfield" <?php echo $GLOBALS['chg_evt_handler']; ?>="this.form.anyuser[1].checked = true" />
@@ -711,12 +711,12 @@ function PMA_editOperations($host, $user)
             </tr>
             <tr>
                 <td>
-                    <input type="radio" value="1" name="anyuser" id="radio_anyuser1"<?php if ($user == '' || $user == '%') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="1" name="anyuser" id="radio_anyuser1"<?php if ($user == '') echo ' checked="checked"'; ?> />
                     <label for="radio_anyuser1"><?php echo $GLOBALS['strAnyUser']; ?></label>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="radio" value="0" name="anyuser" id="radio_anyuser0"<?php if ($user != '' && $user != '%') echo ' checked="checked"'; ?> />
+                    <input type="radio" value="0" name="anyuser" id="radio_anyuser0"<?php if ($user != '') echo ' checked="checked"'; ?> />
                     <label for="radio_anyuser0"><?php echo $GLOBALS['strUserName']; ?></label>&nbsp;:&nbsp;
                 </td>
                 <td>
@@ -1125,8 +1125,19 @@ else if (isset($submit_addUser)) {
     if (!isset($host) || $host == '') {
         $host     = '%';
     }
-    if (!isset($pma_user) || $pma_user == '') {
-        $pma_user = '%';
+    //if (!isset($pma_user) || $pma_user == '') {
+    //    $pma_user = '%';
+    //}
+    if (isset($anyuser) && $anyuser=="1") {
+        $pma_user = '';
+
+    // this is for the case where js is disabled, so they did not get
+    // the error before submitting
+    } else if (isset($pma_user) && empty($pma_user)) {
+        echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strUserEmpty . '</b></p>' . "\n";
+        unset($host);
+        unset($pma_user);
+        $forgot_checkbox_any_user = TRUE;
     }
 
     // Password is not confirmed
@@ -1143,7 +1154,7 @@ else if (isset($submit_addUser)) {
     }
 
     // Password confirmed
-    else {
+    else if (!isset($forgot_checkbox_any_user)) {
         $sql_query = '';
         $list_priv = array('Select', 'Insert', 'Update', 'Delete', 'Create', 'Drop', 'Reload',
                            'Shutdown', 'Process', 'File', 'Grant', 'References', 'Index', 'Alter');
@@ -1181,8 +1192,11 @@ else if (isset($submit_updProfile)) {
     if (!isset($host) || $host == '') {
         $host     = '%';
     }
-    if (!isset($pma_user) || $pma_user == '') {
-        $pma_user = '%';
+    //if (!isset($pma_user) || $pma_user == '') {
+    //    $pma_user = '%';
+    //}
+    if (!isset($pma_user)) {
+        $pma_user = '';
     }
 
     // Builds the sql query
@@ -1198,13 +1212,15 @@ else if (isset($submit_updProfile)) {
     } else if (isset($new_server)) {
         unset($new_server);
     }
-
-    if (isset($anyuser) && $anyuser) {
-        $new_user   = '%';
+    if (isset($anyuser) && $anyuser=="1") {
+        //$new_user   = '%';
+        // anonymous user must be empty, not %
+        $new_user   = '';
     } else if ($new_user != '' && get_magic_quotes_gpc()) {
         $new_user   = stripslashes($new_user);
     }
-    if ($new_user != '' && $new_user != $pma_user) {
+    //if ($new_user != '' && $new_user != $pma_user) {
+    if ($new_user != $pma_user) {
         $common_upd .= (empty($common_upd) ? '' : ', ')
                     . 'User = \'' . PMA_sqlAddslashes($new_user) . '\'';
     } else if (isset($new_user)) {
@@ -1237,7 +1253,6 @@ else if (isset($submit_updProfile)) {
 
     if (!empty($sql_query)) {
         $common_where       = ' WHERE Host = \'' . PMA_sqlAddslashes($host) . '\' AND User = \'' . PMA_sqlAddslashes($pma_user) . '\'';
-
         // Updates profile
         $local_query        = 'UPDATE user SET ' . $local_query . $common_where;
         $sql_query_cpy      = 'UPDATE user SET ' . $sql_query . $common_where;

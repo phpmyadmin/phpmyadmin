@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-01 Marc Delisle  <lem9@users.sourceforge.net>
+    * user_details.php3: the script wrongly created a user % when asked
+      to create an anonymous user (should be empty)
+
 2002-11-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech*.php3: Updated translation.
 
