@@ -14,10 +14,11 @@ $Source$
 	  is set to E_ALL
 	* import the "Insert new row to edit page" feature put by Korakot in
 	  the stable CVS tree
-	* lib.inc.php3, line 590: stip slash the message to be displayed
+	* lib.inc.php3, line 590: strip slash the message to be displayed
 
 2001-05-07  Marc Delisle <lem9@users.sourceforge.net>
 	* In csv data, can add a character at end-of-line
+	* Added a shell script that adds a message to all message files
 
 2001-05-07  Armel Fauveau <armel.fauveau@globalis-ms.com>
 	* Added the phpMyBookmark patch
