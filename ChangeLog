@@ -21,6 +21,8 @@ $Source$
     * scripts/create-release.sh: improved so a CVS branch tag may be used.
     * lang/croatian-*; libraries/select_lang.lib.php3: new Croatian
       translations thanks to Sime Essert <sime@nofrx.org>.
+    * tbl_properties.php3, lines 1238-1240: fix new fields names in the
+      relation table.
     * Compressed ChangeLog till the 2.2.6 release.
 
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>

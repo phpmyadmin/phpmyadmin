@@ -1235,9 +1235,9 @@ else if (PMA_MYSQL_INT_VERSION >= 32306
 // Referential integrity check
 if (!empty($cfg['Server']['relation'])) {
 
-    $local_query = 'SELECT src_column, dest_table, dest_column'
+    $local_query = 'SELECT master_field, foreign_table, foreign_field'
                  . ' FROM ' . $cfg['Server']['relation']
-                 . ' WHERE src_table =\'' . $table . '\';';
+                 . ' WHERE master_table = \'' . $table . '\';';
 
     // we need this mysql_select_db if the user has access to more than one db
     // and $db is not the last of the list, because PMA_availableDatabases()
