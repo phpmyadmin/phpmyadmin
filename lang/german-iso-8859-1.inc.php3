@@ -423,6 +423,7 @@ $strValue = 'Wert';
 $strViewDump = 'Dump (Schema) der Tabelle anzeigen';
 $strViewDumpDB = 'Dump (Schema) der Datenbank anzeigen';
 
+$strWebServerUploadDirectory = 'Upload-Verzeichnis auf dem Webserver';
 $strWelcome = 'Willkommen bei %s';
 $strWithChecked = 'markierte:';
 $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
@@ -432,5 +433,4 @@ $strYes = 'Ja';
 $strZip = 'Zip-komprimiert';
 // To translate
 
-$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 ?>
