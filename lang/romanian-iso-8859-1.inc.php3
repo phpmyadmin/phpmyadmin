@@ -81,6 +81,7 @@ $strColumn = 'Coloana';
 $strColumnNames = 'Numele coloanelor';
 $strComments = 'Comentarii';
 $strCompleteInserts = 'Rezolva inserarea';
+$strCompression = 'Compresie';
 $strConfigFileError = 'phpMyAdmin nu poate citi corect fisierul de configuratie!  <br />Acesta se poate intampla in cazul in care PHP nu poate gasi fisierul sau nu o poate parsa corect.  <br />Vezi configuratia fisierului apasand pe linkul de mai jos si citeste cu atentie erorile aparute ...  In cele mai multe cazuri lipsesc apostroful sau ghilimele.<br />Daca primesti o pagina goala, totul pare sa fie bine.';
 $strConfigureTableCoord = 'Configureaza coordonatelepentru tabela %s';
 $strConfirm = 'Sunteti sigur ca doriti sa continuati?';
@@ -431,7 +432,6 @@ $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
 $strYes = 'Da';
 
 $strZip = '"arhivat"';
-
 // To translate
-$strCompression = 'Compression'; //to translate
+
 ?>

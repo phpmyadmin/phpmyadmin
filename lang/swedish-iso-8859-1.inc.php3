@@ -81,6 +81,7 @@ $strColumn = 'Kolumn';
 $strColumnNames = 'Kolumn-namn';
 $strComments = 'Kommentarer';
 $strCompleteInserts = 'Kompletta infogningar';
+$strCompression = 'Komprimering';
 $strConfigFileError = 'phpMyAdmin kunde inte läsa din konfigurationsfil!<br />Detta kan inträffa om php hittar ett fel i den eller om php inte hittar filen.<br />Anropa konfigurationsfilen direkt mha länken nedan och läs php:s felmeddelande(n) som du erhåller. I de flesta fall saknas ett citationstecken eller ett semikolon någonstans.<br />Om du erhåller en tom sida är allt bra.';
 $strConfigureTableCoord = 'Var god ange koordinaterna för tabellen %s';
 $strConfirm = 'Vill du verkligen göra det?';
@@ -432,7 +433,6 @@ $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 $strYes = 'Ja';
 
 $strZip = '"zippad"';
-
 // To translate
-$strCompression = 'Compression'; //to translate
+
 ?>
