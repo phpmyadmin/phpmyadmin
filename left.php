@@ -613,10 +613,10 @@ if ($num_dbs > 1) {
                 while (list($table) = PMA_DBI_fetch_row($tables)) {
                     $table_array[$table] = '';
                     $url_title  = (!empty($tooltip) && isset($tooltip[$table]))
-                                ? htmlentities($tooltip[$table])
+                                ? htmlspecialchars($tooltip[$table])
                                 : '';
                     $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
-                               ? htmlentities($tooltip_name[$table])
+                               ? htmlspecialchars($tooltip_name[$table])
                                : '';
 
                     $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
