@@ -27,7 +27,13 @@ if (isset($sql_query)) {
 
     $parsed_sql = PMA_SQP_parse($sql_query);
     $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-    $sql_query = 'SELECT ' . $analyzed_sql[0]['select_expr_clause'];
+    $sql_query = 'SELECT '; 
+
+    if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
+        $sql_query .= ' DISTINCT ';
+    }
+
+    $sql_query .= $analyzed_sql[0]['select_expr_clause'];
 
     if (!empty($analyzed_sql[0]['from_clause'])) {
         $sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];

@@ -7,6 +7,8 @@ $Source$
 
 2003-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: typo, bzip should be bzip2
+    * libraries/sqlparser.lib.php3, tbl_properties_export.php3:
+      bug 760648 export SELECT DISTINCT results
 
 2003-06-25 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: Fixed XSS problem.

@@ -711,6 +711,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      *
      * ['queryflags']['need_confirm'] = 1; if the query needs confirmation
      * ['queryflags']['select_from'] = 1; if this is a real SELECT...FROM
+     * ['queryflags']['distinct'] = 1;    for a DISTINCT 
      *
      * lem9:  query clauses
      *        -------------
@@ -1212,6 +1213,9 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                    if ($upper_data == 'SELECT') {
                        $in_select_expr = TRUE;
                        $select_expr_clause = '';
+                   }
+                   if ($upper_data == 'DISTINCT') {
+                          $subresult['queryflags']['distinct'] = 1;
                    }
 
                    // if this is a real SELECT...FROM
