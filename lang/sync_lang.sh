@@ -97,7 +97,7 @@ estonian-iso-8859-1
 finnish-iso-8859-1
 french-iso-8859-1
 galician-iso-8859-1
-german-iso-8859-1
+german-utf-8
 greek-iso-8859-7
 hebrew-iso-8859-8-i
 hungarian-iso-8859-2

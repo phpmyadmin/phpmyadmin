@@ -13,6 +13,8 @@ $Source$
       libraries/auth/cookie.auth.lib.php: Automatically select Traditional
       Chinese for users with a Hong Kong locale (zh-hk), as discussed in the
       translations tracker (#1036528).
+    * lang/sync_lang.sh: Base charset for German is now UTF-8.
+    * lang/german-*.inc.php: Updates.
 
 2004-10-12 Michal Čihař  <michal@cihar.com>
     * sql.php: Don't try to require sql.php with parameters, rather redirect
