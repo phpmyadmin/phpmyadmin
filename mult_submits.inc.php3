@@ -158,17 +158,23 @@ if (!empty($submit_mult) && !empty($what)) {
  */
 else if ($mult_btn == $strYes) {
 
+    if ($query_type == 'drop_db' || $query_type == 'drop_tbl' || $query_type == 'drop_fld') {
+        include('./libraries/relation_cleanup.lib.php3');
+    }
+
     $sql_query      = '';
     $selected_cnt   = count($selected);
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
             case 'drop_db':
+                PMA_relationsCleanupDatabase($selected[$i]);
                 $a_query   = 'DROP DATABASE '
                            . PMA_backquote(urldecode($selected[$i]));
                 $reload    = 1;
                 break;
 
             case 'drop_tbl':
+                PMA_relationsCleanupTable($db, $selected[$i]);
                 $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
                            . PMA_backquote(urldecode($selected[$i]))
                            . (($i == $selected_cnt-1) ? ';' : '');
@@ -205,6 +211,7 @@ else if ($mult_btn == $strYes) {
                 break;
 
             case 'drop_fld':
+                PMA_relationsCleanupTable($db, $table, $selected[$i]);
                 $sql_query .= (empty($sql_query) ? 'ALTER TABLE ' . PMA_backquote($table) : ',')
                            . ' DROP ' . PMA_backquote(urldecode($selected[$i]))
                            . (($i == $selected_cnt-1) ? ';' : '');

@@ -457,95 +457,12 @@ else {
 
         // garvin: if a table or database gets dropped, check column comments.
         if (isset($purge) && $purge == '1') {
-            include('./libraries/relation.lib.php3');
-            $cfgRelation = PMA_getRelationsParam();
+            include('./libraries/relation_cleanup.lib.php3');
 
             if (isset($table) && isset($db) && !empty($table) && !empty($db)) {
-                // garvin: Only a table is deleted. Remove all references in PMA_*
-                if ($cfgRelation['commwork']) {
-                        $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
-                                    . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                                    . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-                        $rmv_rs    = PMA_query_as_cu($remove_query);
-                        unset($rmv_query);
-                }
-
-                if ($cfgRelation['displaywork']) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_info'])
-                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                                . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-                }
-
-                if ($cfgRelation['pdfwork']) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_coords'])
-                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                                . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-                }
-
-                if ($cfgRelation['relwork']) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
-                                . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
-                                . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
-                                . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
-                                . ' AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-                }
+                PMA_relationsCleanupTable($db, $table);
             } elseif (isset($db) && !empty($db)) {
-                // garvin: A whole DB gets deleted. Remove all references in PMA_*
-                if ($cfgRelation['commwork']) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
-                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-                }
-
-                if ($cfgRelation['bookmarkwork']) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['bookmark'])
-                                . ' WHERE dbase  = \'' . PMA_sqlAddslashes($db) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-                }
-
-                if ($cfgRelation['displaywork']) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_info'])
-                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-                }
-            
-                if ($cfgRelation['pdfwork']) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
-                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_coords'])
-                                . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-                }
-
-                if ($cfgRelation['relwork']) {
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
-                                . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-
-                    $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
-                                . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\'';
-                    $rmv_rs    = PMA_query_as_cu($remove_query);
-                    unset($rmv_query);
-                }
-
+                PMA_relationsCleanupDatabase($db);
             } else {
                 // garvin: VOID. No DB/Table gets deleted.
             } // end if relation-stuff
@@ -555,42 +472,9 @@ else {
         if (isset($cpurge) && $cpurge == '1' && isset($purgekey)
             && isset($db) && isset($table)
             && !empty($db) && !empty($table) && !empty($purgekey)) {
-            include('./libraries/relation.lib.php3');
-            $cfgRelation = PMA_getRelationsParam();
+            include('./libraries/relation_cleanup.lib.php3');
+            PMA_relationsCleanupColumnt($db, $table, $purgekey);
 
-            if ($cfgRelation['commwork']) {
-                $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_info'])
-                            . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND column_name = \'' . PMA_sqlAddslashes(urldecode($purgekey)) . '\'';
-                $rmv_rs    = PMA_query_as_cu($remove_query);
-                unset($rmv_query);
-            }
-
-            if ($cfgRelation['displaywork']) {
-                $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_info'])
-                            . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND display_field = \'' . PMA_sqlAddslashes(urldecode($purgekey)) . '\'';
-                $rmv_rs    = PMA_query_as_cu($remove_query);
-                unset($rmv_query);
-            }
-
-            if ($cfgRelation['relwork']) {
-                $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
-                            . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_sqlAddslashes(urldecode($purgekey)) . '\'';
-                $rmv_rs    = PMA_query_as_cu($remove_query);
-                unset($rmv_query);
-
-                $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
-                            . ' WHERE foreign_db  = \'' . PMA_sqlAddslashes($db) . '\''
-                            . ' AND foreign_table = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND foreign_field = \'' . PMA_sqlAddslashes(urldecode($purgekey)) . '\'';
-                $rmv_rs    = PMA_query_as_cu($remove_query);
-                unset($rmv_query);
-            }
         } // end if column PMA_* purge
     } // end else "didn't ask to see php code"
         
