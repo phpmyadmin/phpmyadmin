@@ -82,7 +82,7 @@ if (isset($submit_search)) {
         $automatic_wildcard   = (($search_option <3) ? '%' : '');
 
         for ($i = 0; $i < $search_wds_cnt; $i++) {
-            // Elimines empty values
+            // Eliminates empty values
             if (!empty($search_words[$i])) {
                 for ($j = 0; $j < $tblfields_cnt; $j++) {
                     $prefix = PMA_MYSQL_INT_VERSION >= 40100 && $tblfields[$j]['Charset'] != 'NULL'
