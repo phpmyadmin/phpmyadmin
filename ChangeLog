@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-19 Marcel Tschopp  <ne0x@users.sourceforge.net>
+    * libraries/export/sql.php, libraries/export/latex.php: Fixed a few
+      mysqli-specific export-bugs
+      
 2004-04-19 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php: bug 780516: capitalizing keywords: we no longer
       put the formatted query into $sql_query, due to better pattern matching

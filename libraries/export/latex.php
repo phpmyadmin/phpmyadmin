@@ -221,6 +221,17 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     global $cfgRelation;
 
     /**
+     * Get the unique keys in the table
+     */
+    $keys_query     = 'SHOW KEYS FROM ' . PMA_backquote($table) . ' FROM '. PMA_backquote($db);
+    $keys_result    = PMA_DBI_query($keys_query);
+    $unique_keys    = array();
+    while($key = PMA_DBI_fetch_assoc($keys_result)) {
+        if ($key['Non_unique'] == 0) $unique_keys[] = $key['Column_name'];
+    }
+    PMA_DBI_free_result($keys_result);
+    
+    /**
      * Gets fields properties
      */
     PMA_DBI_select_db($db);
@@ -243,16 +254,6 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $do_relation = fals
     else {
            $have_rel = FALSE;
     } // end if
-
-    /**
-     * Get the unique keys in the table
-     */
-    $keys_query     = 'SHOW KEYS FROM ' . PMA_backquote($table) . ' FROM '. PMA_backquote($db);
-    $keys_result    = PMA_DBI_query($keys_query);
-    $unique_keys    = array();
-    while($key = PMA_DBI_fetch_assoc($keys_result)) {
-        if ($key['Non_unique'] == 0) $unique_keys[] = $key['Column_name'];
-    }
 
     /**
      * Displays the table structure

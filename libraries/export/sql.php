@@ -213,8 +213,8 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                 $schema_create .= $GLOBALS['comment_marker'] . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
                 $new_crlf = $GLOBALS['comment_marker'] . $crlf . $crlf;
             }
-        PMA_DBI_free_result($result);
         }
+        PMA_DBI_free_result($result);
     }
 
     $schema_create .= $new_crlf;
@@ -230,7 +230,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     } else {
         PMA_DBI_query('SET SQL_QUOTE_SHOW_CREATE = 0');
     }
-    $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table));
+    $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), NULL, PMA_DBI_QUERY_STORE);
     if ($result != FALSE && PMA_DBI_num_rows($result) > 0) {
         $tmpres        = PMA_DBI_fetch_row($result);
         // Fix for case problems with winwin, thanks to
