@@ -281,6 +281,7 @@ $strPdfInvalidPageNum = 'Undefinierte PDF-Seitennummer!';
 $strPdfInvalidTblName = 'Die Tabelle "%s" existiert nicht!';
 $strPdfNoTables = 'keine Tabellen';
 $strPhp = 'PHP-Code erzeugen';
+$strPHP40203 = 'Sie verwenden die PHP-Version 4.2.3, welche leider fehlerhaft im Umgang mit Multibyte-Zeichenketten (mbstring). Dieser Fehler ist in der PHP-Datenbank als bug report #19404 dokumentiert. Aus diesem Grund wird diese PHP-Version nicht für den Betrieb von phpMyAdmin empfohlen.';
 $strPHPVersion = 'PHP-Version';
 $strPmaDocumentation = 'phpMyAdmin-Dokumentation';
 $strPmaUriError = 'Das <tt>$cfg[\'PmaAbsoluteUri\']</tt>-Verzeichnis MUSS in Ihrer Konfigurationsdatei angegeben werden!';
@@ -440,5 +441,4 @@ $strYes = 'Ja';
 $strZip = 'Zip-komprimiert';
 // To translate
 
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>
