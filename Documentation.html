@@ -2278,11 +2278,16 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_towns VALUES ('S', 'Sherbrooke');<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_towns VALUES ('M', 'Montréal');<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb', 'REL_persons', 'town_code', 'mydb', 'REL_towns', 'town_code');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb', 'REL_persons', 'country_code', 'mydb', 'REL_countries', 'country_code');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_table_info` VALUES ('mydb', 'REL_towns', 'description');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_table_info` VALUES ('mydb', 'REL_countries', 'description');<br />
     </tt>
+    To setup appropriate links and display information:
+<ul>
+    <li>on table &quot;persons&quot; click Structure, then Relation view</li>
+    <li>in Links, for &quot;town_code&quot; choose &quot;towns-&gt;code&quot</li>
+    <li>in Links, for &quot;country_code&quot; choose &quot;countries-&gt;country_code&quot</li>
+    <li>on table &quot;towns&quot; click Structure, then Relation view</li>
+    <li>in &quot;Choose field to display&quot;, choose &quot;description&quot;</li>
+    <li>repeat the two previous steps for table &quot;countries&quot;</li>
+</ul>
     <br />
     Then test like this:
 </p>

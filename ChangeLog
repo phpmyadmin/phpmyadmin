@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2002-10-25 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html, clarification about using Relation View
+
 2002-10-22 Robin Johnson  <robbat2@users.sourceforge.net>
     * user_password.php3: From Patch #625703.
     * Changelog: Added VIM modelines for filetype, folding and indentation
