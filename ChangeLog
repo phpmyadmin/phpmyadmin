@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-08  Robin Johnson  <robbat2@users.sourceforge.net>
+	* config.inc.php3,main.php3,phpinfo.php3: fixed bug #479303
+		- $cfgShowPHPInfo added, false by default
+
 2001-11-07  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_select.php3, lang/some files: modify $strLimitNumRows
 	* user_details.php3, lang/some files: modify $strRevokeGrantMessage

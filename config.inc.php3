@@ -94,18 +94,18 @@ unset($cfgServers[0]);
 /**
  * Other core phpMyAdmin settings
  */
-$cfgOBGzip 		          = TRUE;   // use GZIP output buffering if possible
+$cfgOBGzip 	          = TRUE;   // use GZIP output buffering if possible
 $cfgPersistentConnections = FALSE;  // use persistent connections to MySQL database
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
 $cfgShowSQL               = TRUE;   // show SQL queries as run
 $cfgAllowUserDropDatabase = FALSE;  // show a 'Drop database' link to normal users  
 $cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
-
 $cfgShowStats             = TRUE;   // allow to display statistics and space usage in
                                     // the pages about database details and table
                                     // properties
 $cfgShowTooltip	          = TRUE;	// display table comment as tooltip in left frame
+$cfgShowPHPInfo           = FALSE;  // disable access to the phpinfo() call
 
 // In browse mode...
 $cfgShowBlob              = FALSE;  // display blob field contents

@@ -399,6 +399,10 @@ echo "\n";
             </td>
         </tr>
 
+<?php
+
+if($cfgShowPHPInfo) 
+{ ?>
         <!-- PHP Information -->
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -406,7 +410,9 @@ echo "\n";
                 <a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
             </td>
         </tr>
-
+<?php 
+}
+?>
         <!-- phpMyAdmin related urls -->
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>

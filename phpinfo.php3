@@ -12,5 +12,6 @@ require('./libraries/common.lib.php3');
 /**
  * Displays PHP information
  */
-phpinfo();
+if($cfgShowPHPInfo)
+	phpinfo();
 ?>
