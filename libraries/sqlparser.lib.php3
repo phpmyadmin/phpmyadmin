@@ -1461,13 +1461,16 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 'AS',
                 'ASC',
                 'DESC',
+                'DISTINCT',
+                'HOUR',
+                'INTERVAL',
                 'IS',
                 'NOT',
                 'NULL',
                 'ON',
                 'OR'
             );
-            $keywords_no_newline_cnt           = 9;
+            $keywords_no_newline_cnt           = 12;
 
             // These reserved words introduce a privilege list
             $keywords_priv_list                = array(
