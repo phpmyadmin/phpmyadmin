@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/dutch update, thanks to Ivo Teel.
+    
 2002-07-22 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/common.lib.php3, lines 198-200: open the documentation
       link in the "documentation" window.

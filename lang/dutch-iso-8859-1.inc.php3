@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/06/18 11:25.
+ * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/07/22 11:36.
  */
 
 $charset = 'iso-8859-1';
@@ -37,6 +37,7 @@ $strAfter = 'Na %s';
 $strAfterInsertBack = 'Terug';
 $strAfterInsertNewInsert = 'Voeg een nieuw record toe';
 $strAll = 'Alle';
+$strAllTableSameWidth = 'Alle tabellen weergeven met de zelfde breedte?';
 $strAlterOrderBy = 'Wijzig de tabel order bij';
 $strAnIndex = 'Een index is toegevoegd aan %s';
 $strAnalyzeTable = 'Analyseer tabel';
@@ -64,9 +65,9 @@ $strBrowse = 'Verkennen';
 $strBzip = '"ge-bzipt"';
 
 $strCantLoadMySQL = 'kan de MySQL extensie niet laden,<br />controleer de PHP configuratie.';
-$strCantLoadRecodeIconv = 'Kan iconv of recode extenties niet laden die nodig zijn voor de Karakterset conversie, configureer php om deze extensies toe te laten of schakel Karakterset conversie uit in phpMyAdmin'; 
+$strCantLoadRecodeIconv = 'Kan iconv of recode extenties niet laden die nodig zijn voor de Karakterset conversie, configureer php om deze extensies toe te laten of schakel Karakterset conversie uit in phpMyAdmin';
 $strCantRenameIdxToPrimary = 'Kan index niet naar PRIMARY hernoemen';
-$strCantUseRecodeIconv = 'Kan iconv, libiconv en recode_string functies niet gebruiken zolang de extensies geladen moeten worden. Controleer de php configuratie.'; 
+$strCantUseRecodeIconv = 'Kan iconv, libiconv en recode_string functies niet gebruiken zolang de extensies geladen moeten worden. Controleer de php configuratie.';
 $strCardinality = 'Kardinaliteit';
 $strCarriage = 'Harde return: \\r';
 $strChange = 'Veranderen';
@@ -157,7 +158,7 @@ $strGzip = '"ge-gzipt"';
 
 $strHasBeenAltered = 'is veranderd.';
 $strHasBeenCreated = 'is aangemaakt.';
-$strHaveToShow = 'Er moet ten minste 1 weer te geven kolom worden gekozen'; 
+$strHaveToShow = 'Er moet ten minste 1 weer te geven kolom worden gekozen';
 $strHome = 'Home';
 $strHomepageOfficial = 'Officiële phpMyAdmin Website';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Pagina';
@@ -198,13 +199,13 @@ $strLogUsername = 'Gebruikers naam:';
 $strLogin = 'Inloggen';
 $strLogout = 'Uitloggen';
 
-$strMissingBracket = 'Er ontbreekt een bracket'; 
+$strMissingBracket = 'Er ontbreekt een bracket';
 $strModifications = 'Wijzigingen opgeslagen.';
 $strModify = 'Pas aan';
 $strModifyIndexTopic = 'Wijzig een index';
 $strMoveTable = 'Verplaats tabel naar (database<b>.</b>tabel):';
 $strMoveTableOK = 'Tabel %s is verplaatst naar %s.';
-$strMySQLCharset = 'MySQL Karakterset'; 
+$strMySQLCharset = 'MySQL Karakterset';
 $strMySQLReloaded = 'MySQL opnieuw geladen.';
 $strMySQLSaid = 'MySQL retourneerde: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% draait op %pma_s2% als %pma_s3%';
@@ -277,6 +278,7 @@ $strQueryOnDb = 'SQL-query op database <b>%s</b>:';
 $strReType = 'Type opnieuw';
 $strRecords = 'Records';
 $strReferentialIntegrity = 'Controleer referentiële integriteit';
+$strRelationNotWorking = 'Extra opties om met tabellen te werken die gelinked zijn, zijn uitgeschakeld. Om te weten te komen waarom klik %shier%s.';
 $strRelationView = 'Relatie overzicht';
 $strReloadFailed = 'Opnieuw laden van MySQL mislukt.';
 $strReloadMySQL = 'MySQL opnieuw laden.';
@@ -401,6 +403,4 @@ $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
 
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 ?>
