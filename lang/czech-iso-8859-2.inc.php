@@ -377,8 +377,8 @@ $strMySQLReloaded = 'MySQL znovu naèteno.';
 $strMySQLSaid = 'MySQL hlásí: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% bì¾ící na serveru %pma_s2%, u¾ivatel pøihlá¹en jako %pma_s3%';
 $strMySQLShowProcess = 'Zobrazit procesy';
-$strMySQLShowStatus = 'Ukázat MySQL informace o&nbsp;bìhu';
-$strMySQLShowVars = 'Ukázat MySQL systémové promìnné';
+$strMySQLShowStatus = 'Ukázat informace o&nbsp;bìhu MySQL';
+$strMySQLShowVars = 'Ukázat systémové promìnné MySQL';
 
 $strName = 'Název';
 $strNeedPrimaryKey = 'Pro tuto tabulku byste mìli definovat primární klíè.';

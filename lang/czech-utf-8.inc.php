@@ -378,8 +378,8 @@ $strMySQLReloaded = 'MySQL znovu načteno.';
 $strMySQLSaid = 'MySQL hlásí: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% běžící na serveru %pma_s2%, uživatel přihlášen jako %pma_s3%';
 $strMySQLShowProcess = 'Zobrazit procesy';
-$strMySQLShowStatus = 'Ukázat MySQL informace o&nbsp;běhu';
-$strMySQLShowVars = 'Ukázat MySQL systémové proměnné';
+$strMySQLShowStatus = 'Ukázat informace o&nbsp;běhu MySQL';
+$strMySQLShowVars = 'Ukázat systémové proměnné MySQL';
 
 $strName = 'Název';
 $strNeedPrimaryKey = 'Pro tuto tabulku byste měli definovat primární klíč.';
