@@ -12,6 +12,7 @@ $Source$
 	  statements.
 	* header.inc.php3, line 89: patch #531864 - display something in title when
 	  no db thanks to Michal Cihar.
+	* lang/brazilian_portuguese.inc.php3: removed "^M".
 
 2002-03-20 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/*, removed $strSequence

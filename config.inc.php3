@@ -42,18 +42,18 @@ $cfgServers[1]['host']          = 'localhost'; // MySQL hostname
 $cfgServers[1]['port']          = '';          // MySQL port - leave blank for default port
 $cfgServers[1]['socket']        = '';          // Path to the socket - leave blank for default socket
 $cfgServers[1]['connect_type']  = 'tcp';       // How to connect to MySQL server ('tcp' or 'socket')
-$cfgServers[1]['controluser']   = '';          // MySQL control user settings 
+$cfgServers[1]['controluser']   = '';          // MySQL control user settings
                                                // (this user must have read-only
-$cfgServers[1]['controlpass']   = '';          // access to the "mysql/user" 
+$cfgServers[1]['controlpass']   = '';          // access to the "mysql/user"
                                                // and "mysql/db" tables)
 $cfgServers[1]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
 $cfgServers[1]['user']          = 'root';      // MySQL user
-$cfgServers[1]['password']      = '';          // MySQL password (only needed 
+$cfgServers[1]['password']      = '';          // MySQL password (only needed
                                                // with 'config' auth_type)
-$cfgServers[1]['only_db']       = '';          // If set to a db-name, only 
-                                               // this db is displayed 
+$cfgServers[1]['only_db']       = '';          // If set to a db-name, only
+                                               // this db is displayed
                                                // at left frame
-                                               // It may also be an array 
+                                               // It may also be an array
                                                // of db-names
 $cfgServers[1]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 $cfgServers[1]['bookmarkdb']    = '';          // Bookmark db - leave blank for no bookmark support

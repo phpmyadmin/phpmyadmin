@@ -31,10 +31,10 @@ if (isset($nopass)) {
 
     if ($nopass == 0 && isset($pma_pw) && isset($pma_pw2)) {
         if ($pma_pw != $pma_pw2) {
-        	$error_msg = $strPasswordNotSame;
+            $error_msg = $strPasswordNotSame;
         }
         if (empty($pma_pw) || empty($pma_pw2)) {
-        	$error_msg = $strPasswordEmpty;
+            $error_msg = $strPasswordEmpty;
         }
     } // end if
 
@@ -74,7 +74,7 @@ if (isset($nopass)) {
         <?php
         exit();
     } // end if
-} // end if 
+} // end if
 
 
 /**

@@ -2,7 +2,7 @@
 
 
 /**
- * Validates the the password field in a form
+ * Validates the password field in a form
  *
  * @param   object   the form
  *
@@ -127,16 +127,16 @@ function change(the_field) {
     var sel_idx  = null;
 
     if (box_name == 'newdb') {
-    	the_form['anydb'][0].checked = true;
-    	the_form['anytable'][0].checked = true;
-    	the_form['anycolumn'][0].checked = true;
-    	if (typeof(the_form['dbgrant']) != 'undefined') {
+        the_form['anydb'][0].checked = true;
+        the_form['anytable'][0].checked = true;
+        the_form['anycolumn'][0].checked = true;
+        if (typeof(the_form['dbgrant']) != 'undefined') {
             the_form['dbgrant'].selectedIndex = -1;
         }
-    	if (typeof(the_form['tablegrant']) != 'undefined') {
+        if (typeof(the_form['tablegrant']) != 'undefined') {
             the_form['tablegrant'].selectedIndex = -1;
         }
-    	if (typeof(the_form['colgrant']) != 'undefined') {
+        if (typeof(the_form['colgrant']) != 'undefined') {
             the_form['colgrant'].selectedIndex = -1;
         }
     }
