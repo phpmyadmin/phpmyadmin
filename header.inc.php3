@@ -60,8 +60,7 @@ A:hover.nav   {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
 <?php
 if (isset($db)) {
     echo '<h1> ' . $strDatabase . ' ' . htmlspecialchars($db);
-    if (!empty($table)
-        && (!isset($btnDrop) || $btnDrop == $strNo)) {
+    if (!empty($table)) {
         echo ' - ' . $strTable . ' '  . htmlspecialchars($table);
     }
     echo '</h1>' . "\n";

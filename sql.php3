@@ -79,7 +79,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
  */
 $do_confirm   = ($cfgConfirm
                  && !isset($btnDrop)
-                 && eregi('DROP +(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_`]* +DROP|DELETE FROM', $sql_query));
+                 && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_`]* +DROP|DELETE FROM', $sql_query));
 if ($do_confirm) {
     if (get_magic_quotes_gpc()) {
         $stripped_sql_query = stripslashes($sql_query);
@@ -208,6 +208,16 @@ else {
 
     // No rows returned -> move back to the calling page
     if ($num_rows < 1 || $is_affected) {
+        if (isset($strYes)) {
+            if (isset($table)
+                && (eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?TABLE[[:space:]]+`?' . $table . '`?[[:space:]]*$', $sql_query))) {
+                unset($table);
+            }
+            if (isset($db)
+                && (eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE[[:space:]]+`?' . $db . '`?[[:space:]]*$', $sql_query))) {
+                unset($db);
+            }
+        }
         if (file_exists('./' . $goto)) {
             if ($is_delete) {
                 $message = $strDeletedRows . '&nbsp;' . $num_rows;

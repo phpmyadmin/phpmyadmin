@@ -104,7 +104,7 @@ if ($sql_query != '') {
         if (get_magic_quotes_gpc() == 1) {
             $sql_query = addslashes($sql_query);
         }
-        if (eregi('^(DROP|CREATE) +(TABLE|DATABASE) +(.+)', $sql_query)) {
+        if (eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $sql_query)) {
             $reload = 'true';
         }
         include('./sql.php3');
@@ -122,7 +122,7 @@ if ($sql_query != '') {
                     break;
                 }
             }
-            if (!isset($reload) && eregi('^(DROP|CREATE) +(TABLE|DATABASE) +(.+)', $a_sql_query)) {
+            if (!isset($reload) && eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $a_sql_query)) {
                 $reload = 'true';
             }
         } // end for
