@@ -13,6 +13,7 @@ $Source$
     * lang/spanish-*.inc.php3:
       - Updates, thanks again to Daniel Hinostroza;
       - Reordered strings.
+    * libraries/common.lib.php3: The ID names have been changed.
 
 2002-08-07 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/afrikaans update, thanks to Andreas Pauley
