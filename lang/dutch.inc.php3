@@ -222,7 +222,6 @@ $strSelect = 'Selecteren';
 $strSelectFields = 'Selecteer velden (tenminste 1):';
 $strSelectNumRows = 'in query';
 $strSend = 'verzenden';
-$strSequence = 'Seq.'; //to translate
 $strServerChoice = 'Server keuze';
 $strServerVersion = 'Server versie';
 $strSetEnumVal = 'Als het veldtype "enum" of "set" is, voer dan de waardes in volgens dit formaat: \'a\',\'b\',\'c\'...<br />Als u ooit een backslash moet plaatsen ("\") of een enkel aanhalingsteken ("\'") bij deze waardes, backslash het (voorbeeld \'\\\\xyz\' of \'a\\\'b\').';

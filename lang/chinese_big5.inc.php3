@@ -277,7 +277,6 @@ $strSelectAll = '全選';
 $strSelectFields = '選擇欄位 (至少一個)';
 $strSelectNumRows = '查詢中';
 $strSend = '下載儲存';
-$strSequence = '序列';
 $strServerChoice = '選擇伺服器';
 $strServerVersion = '資料庫版本';
 $strSetEnumVal = '如欄位格式是 "enum" 或 "set", 請使用以下的格式輸入: \'a\',\'b\',\'c\'...<br />如在數值上需要輸入反斜線 (\) 或單引號 (\') , 請再加上反斜線 (例如 \'\\\\xyz\' or \'a\\\'b\').';

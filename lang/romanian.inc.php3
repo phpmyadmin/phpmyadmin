@@ -276,7 +276,6 @@ $strSelectAll = 'Selecteaza tot';
 $strSelectFields = 'Selecteaza campurile (cel putin unul):';
 $strSelectNumRows = 'in comanda (in query)';
 $strSend = 'Trimite';
-$strSequence = 'Seq.';
 $strServerChoice = 'Alegerea serverului';
 $strServerVersion = 'Versiune server';
 $strSetEnumVal = 'Daca campul este "enum" sau "set", va rugam adaugati valori folosind formatul: \'a\',\'b\',\'c\'...<br />Daca aveti nevoie sa puneti bara intoarsa (backslash) ("\") sau semnul ("\'") la aceste valori, folositi exemplul ( \'\\\\xyz\' or \'a\\\'b\').';

@@ -277,7 +277,6 @@ $strSelectFields = 'Wybór pól (co najmniej jedno):';
 $strSelectNumRows = 'w zapytaniu';
 $strSend = 'wys³anie';
 $strServerChoice = 'Wybór serwera';
-$strSequence = 'Sekwencja';
 $strServerVersion = 'Wersja serwera';
 $strSetEnumVal = 'Je¿eli pole jest typu "ENUM" lub "SET", warto¶ci wprowadza siê w formacie: \'a\',\'b\',\'c\'...<br />Je¿eli potrzeba wprowadziæ odwrotny uko¶nik ("\") lub apostrof ("\'"), nale¿y je poprzedziæ odwrotnym uko¶nikiem (np.: \'\\\\xyz\' lub \'a\\\'b\').';
 $strShow = 'Pokazanie';

@@ -198,7 +198,6 @@ $strSelect = '선택';
 $strSelectFields = '필드 선택 (하나 이상):';
 $strSelectNumRows = '쿼리';
 $strSend = '송신';
-$strSequence = 'Seq.'; //to translate
 $strServerVersion = 'Server version'; //to translate
 $strShow = '보기';
 $strShowingRecords = '기록 보기';

@@ -277,7 +277,6 @@ $strSelectAll = 'Vybrat vše';
 $strSelectFields = 'Zvolte sloupec (alespoò jeden):';
 $strSelectNumRows = 'v&nbsp;dotazu';
 $strSend = 'Poslat';
-$strSequence = 'Sekv.';
 $strServerChoice = 'Výbìr serveru';
 $strServerVersion = 'Verze MySQL';
 $strSetEnumVal = 'Pokud je sloupec typu "enum" nebo "set", zadávejte hodnoty v&nbsp;následujícím formátu: \'a\',\'b\',\'c\'...<br />Pokud potøebujete zadat zpìtné lomítko ("\") nebo jednoduché uvozovky ("\'") mezi tìmito hodnotami, napište pøed nì zpìtné lomítko (pøíklad: \'\\\\xyz\' nebo \'a\\\'b\').';

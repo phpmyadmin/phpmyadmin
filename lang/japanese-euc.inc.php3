@@ -275,7 +275,6 @@ $strSelectAll = '全選択';
 $strSelectFields = 'フィールドの選択(一つ以上):';
 $strSelectNumRows = 'クエリー';
 $strSend = 'ファイルに落とす';
-$strSequence = '順.';
 $strServerChoice = 'サーバーの選択';
 $strServerVersion = 'サーバーのバージョン';
 $strSetEnumVal = 'フィールドタイプが"enum"又は"set"の場合は値をこのフォーマットを使って入力して下さい: \'a\',\'b\',\'c\'...<br />バックスラッシュ「"\"」又はクオート「"\'"」を入力したいと、頭にバックスラッシュを付けて下さい「例: \'\\\\xyz\' or \'a\\\'b\'」。';

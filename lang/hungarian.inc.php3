@@ -276,7 +276,6 @@ $strSelectAll = 'Mindet kijelöli';
 $strSelectFields = 'Mezõk kiválasztása (legalább egyet):';
 $strSelectNumRows = 'kérésben';
 $strSend = 'Fájlnév megadása';
-$strSequence = 'Köv.';
 $strServerChoice = 'Szerver Választás';
 $strServerVersion = 'Szerver verzió';
 $strSetEnumVal = 'Ha a mezõ tipusa "enum" vagy "set", akkor az értékeket ilyen formában írd be: \'a\',\'b\',\'c\'...<br />Ha backslash-t ("\") vagy aposztrófot ("\'") akarsz ezen értékek között használni, használd a backslash escape karaktert (pl \'\\\\xyz\' vagy \'a\\\'b\').';

@@ -266,7 +266,6 @@ $strSelect = 'Vælg';
 $strSelectFields = 'Vælg mindst eet felt:';
 $strSelectNumRows = 'i forespørgsel';
 $strSend = 'Send';
-$strSequence = 'Seq.'; //to translate
 $strServerChoice = 'Server valg';
 $strServerVersion = 'Server version';
 $strSetEnumVal = 'Hvis et felt er af typen "enum" eller "set", skal værdierne angives på formen: \'a\',\'b\',\'c\'...<br />Skulle du få brug for en backslash ("\") eller et enkelt anførselstegn ("\'") blandt disse værdier, så tilføj en ekstra backslash (fx \'\\\\xyz\' or \'a\\\'b\').';

@@ -273,7 +273,6 @@ $strSelect = 'Vybraù';
 $strSelectFields = 'Zvoliù pole (najmenej jedno):';
 $strSelectNumRows = 'v dotaze';
 $strSend = 'Poöli';
-$strSequence = 'Seq.';
 $strServerChoice = 'Voæba serveru';
 $strServerVersion = 'Verzia serveru';
 $strSetEnumVal = 'Ak je pole typu "enum" alebo "set", prosÌm zad·vajte hodnoty v tvare: \'a\',\'b\',\'c\'...<br />Ak dokonca potrebujete zadaù sp‰tnÈ lomÌtko ("\") alebo apostrof ("\'") pri t˝chto hodnot·ch, zadajte ich naprÌklad takto \'\\\\xyz\' alebo \'a\\\'b\'.';

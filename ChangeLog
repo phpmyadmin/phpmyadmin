@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-20 Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/*, removed $strSequence
+	* czech*, estonian updates
+
 2002-03-19 Marc Delisle  <lem9@users.sourceforge.net>
 	* polish, catalan, spanish, romanian, swedish, galician, ukrainian
 	  updates, thanks to usual translators

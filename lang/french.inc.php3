@@ -276,7 +276,6 @@ $strSelectAll = 'Tout sélectionner';
 $strSelectFields = 'Choisir les champs à afficher (au moins un)';
 $strSelectNumRows = 'dans la requête';
 $strSend = 'Transmettre';
-$strSequence = 'Séq.';
 $strServerChoice = 'Choix du serveur';
 $strServerVersion = 'Version du serveur';
 $strSetEnumVal = 'Les différentes valeurs des champs de type enum/set sont à spécifier sous la forme \'a\',\'b\',\'c\'...<br />Pour utiliser un caractère "\\" ou "\'" dans l\'une de ces valeurs, faites le précéder du caractère d\'échappement "\\" (par exemple \'\\\\xyz\' ou \'a\\\'b\').';

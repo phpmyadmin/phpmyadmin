@@ -275,7 +275,6 @@ $strSelectAll = 'Tümünü seç';
 $strSelectFields = 'Alan seç (en az bir):';
 $strSelectNumRows = 'sorgu içerisinde';
 $strSend = 'Dosya olarak kaydet';
-$strSequence = 'Seq.';
 $strServerChoice = 'Server seçimi';
 $strServerVersion = 'Server sürümü';
 $strSetEnumVal = 'Eðer alan tipi "enum" veya  "set" ise , lütfen verileri þu formata göre giriniz: \'a\',\'b\',\'c\'...<br>Eðer bu deðerler arasýna backslash ("\") veya tek týrnak koymanýz gerekirse ("\'"),bunun için backslash kullanýn (mesela \'\\\\xyz\' veya \'a\\\'b\').';

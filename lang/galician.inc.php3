@@ -276,7 +276,6 @@ $strSelectAll = 'Seleccionar todo';
 $strSelectFields = 'Seleccione os campos (mínimo 1)';
 $strSelectNumRows = 'a procurar';
 $strSend = 'Enviar <I>(gravar nun ficheiro)</I><br>';
-$strSequence = 'Secuencia';
 $strServerChoice = 'Escolla de Servidor';
 $strServerVersion = 'Versión do servidor';
 $strSetEnumVal = 'Se o tipo de campo é "enum" ou "set", introduza os valores usando este formato: \'a\',\'b\',\'c\'...<br />Se precisar pór unha barra invertida (" \ ") ou aspas simples (" \' ") entre estes valores, preceda a barra e as aspas de barras invertidas (por exemplo \'\\\\xyz\' ou \'a\\\'b\').';

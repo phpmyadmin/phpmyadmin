@@ -279,7 +279,6 @@ $strSelectAll = 'Valitse kaikki';
 $strSelectFields = 'Valitse sarakkeet (vähintään yksi):';
 $strSelectNumRows = 'lauseessa';
 $strSend = 'Tallenna tiedostoksi';
-$strSequence = 'Jakso';
 $strServerChoice = 'Valitse palvelin';
 $strServerVersion = 'Palvelimen versio';
 $strSetEnumVal = 'Jos sarakkeen tietotyyppi on "enum" tai "set", syötä vaaditut arvot tässä muodossa: \'a\',\'b\',\'c\'...<br />Jos tarvitset arvoissa kenoviivaa ("\") tai heittomerkkiä ("\'"), laita merkin eteen kenoviiva (esim. \'\\\\xyz\' tai \'a\\\'b\').';

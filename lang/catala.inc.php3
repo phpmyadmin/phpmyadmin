@@ -276,7 +276,6 @@ $strSelectAll = 'Selecciona Tot';
 $strSelectFields = 'Sel&middot;lecciona els camps (un com a mínim):';
 $strSelectNumRows = 'en consulta';
 $strSend = 'enviar';
-$strSequence = 'Seq.';
 $strServerChoice = 'Elecció de Servidor';
 $strServerVersion = 'Versió del servidor';
 $strSetEnumVal = 'Si el tipus de camp es "enum" o "set", entra els valors fen servir el format: \'a\',\'b\',\'c\'...<br />Si mai necessites escriure la barra invertida ("\") o la cometa simple ("\'") abans d\'aquests valors, escriu barres invertides (per exemple \'\\\\xyz\' o \'a\\\'b\').';

@@ -277,7 +277,6 @@ $strSelectAll = 'Oznaèi» v¹etko';
 $strSelectFields = 'Zvoli» pole (najmenej jedno):';
 $strSelectNumRows = 'v dotaze';
 $strSend = 'Po¹li';
-$strSequence = 'Seq.';
 $strServerChoice = 'Voµba serveru';
 $strServerVersion = 'Verzia serveru';
 $strSetEnumVal = 'Ak je pole typu "enum" alebo "set", prosím zadávajte hodnoty v tvare: \'a\',\'b\',\'c\'...<br />Ak dokonca porebujete zada» spätné lomítko ("\") alebo apostrof ("\'") pri týchto hodnotách, zadajte ich napríklad takto \'\\\\xyz\' alebo \'a\\\'b\'.';

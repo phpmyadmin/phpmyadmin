@@ -276,7 +276,6 @@ $strSelectAll = 'Märgista kõik';
 $strSelectFields = 'Vali väljad (vähemalt üks):';
 $strSelectNumRows = 'päringus';
 $strSend = 'Salvesta failina';
-$strSequence = 'järg.';
 $strServerChoice = 'Serveri valik';
 $strServerVersion = 'Serveri versioon';
 $strSetEnumVal = 'Kui välja tüüp on "enum" või "set", palun sisestage väärtused kasutades järgmist paigutust: \'a\',\'b\',\'c\'...<br />Kui te peate lisama kaldkriipsu ("\") või ülakoma ("\'") sinna paigutusse, varjestage see tagurpidi kaldkriipsuga (näiteks \'\\\\xyz\' või \'a\\\'b\').';

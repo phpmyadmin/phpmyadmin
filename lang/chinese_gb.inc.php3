@@ -199,7 +199,6 @@ $strSelect = '选择';
 $strSelectFields = '至少选择一个字段：';
 $strSelectNumRows = 'in query'; //to translate
 $strSend = '发送';
-$strSequence = 'Seq.'; //to translate
 $strServerVersion = 'Server version'; //to translate
 $strShow = 'Show'; //to translate
 $strShowingRecords = '显示记录 ';

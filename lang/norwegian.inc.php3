@@ -274,7 +274,6 @@ $strSelectAll = 'Velg alle';
 $strSelectFields = 'Velg felt (minst ett):';
 $strSelectNumRows = 'i spørring';
 $strSend = 'Last ned og lagre som fil';
-$strSequence = 'Rekkefølge';
 $strServerChoice = 'Server valg';
 $strServerVersion = 'Server versjon';
 $strSetEnumVal = 'Hvis felttypen er "enum" eller "set", skriv inn verdien med dette formatet: \'a\',\'b\',\'c\'...<br />Hvis du skulle trenge å ha en skråstrek ("\") eller en enkel apostrof ("\'") blant disse verdiene, skriv en skråstrek foran (eks. \'\\\\xyz\' eller \'a\\\'b\').';

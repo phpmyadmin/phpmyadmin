@@ -198,7 +198,6 @@ $strSelect = 'เลือก';
 $strSelectFields = 'เลือก field (อย่างน้อยหนึ่ง):';
 $strSelectNumRows = 'in query'; //to translate
 $strSend = 'Send'; //to translate
-$strSequence = 'Seq.'; //to translate
 $strServerVersion = 'Server version'; //to translate
 $strShow = 'แสดง';
 $strShowingRecords = 'แสดงระเบียนที่ ';

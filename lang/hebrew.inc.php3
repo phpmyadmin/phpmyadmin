@@ -274,7 +274,6 @@ $strSelectAll = 'בחר הכל';
 $strSelectFields = 'בחר שדות (לפחות אחד):';
 $strSelectNumRows = 'מבצע שאילתה';
 $strSend = 'שמור כקובץ';
-$strSequence = 'Seq.';
 $strServerChoice = 'בחירת שרת';
 $strServerVersion = 'גרסת שרת';
 $strSetEnumVal = 'אם סוג השדה הוא enum או set, הכנס בבקשה ערכים המשתמשים בפורמט הבא: \'a\',\'b\',\'c\'...<br />אם תשים אי פעם סימן \ או מרכאה אחת יחד עם הערכים הללו, הוסף \ לפניו.';

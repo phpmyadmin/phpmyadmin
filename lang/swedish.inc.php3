@@ -276,7 +276,6 @@ $strSelectAll = 'Markera alla';
 $strSelectFields = 'Välj fält (minst ett):';
 $strSelectNumRows = 'i fråga';
 $strSend = 'Skicka';
-$strSequence = 'Sekv.';
 $strServerChoice = 'Serverval';
 $strServerVersion = 'Serverversion';
 $strSetEnumVal = 'Om en fälttyp är "enum" eller "set", var god ange värden enligt följande format: \'a\',\'b\',\'c\'...<br />Om du behöver lägga till ett bakåtstreck ("\") eller ett enkelcitat ("\'") i värdena, skriv ett bakåtstreck före tecknet (till exempel \'\\\\xyz\' eller \'a\\\'b\').';

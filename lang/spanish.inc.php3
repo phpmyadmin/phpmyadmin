@@ -273,7 +273,6 @@ $strSelectAll = 'Selecciona todo';
 $strSelectFields = 'Seleccionar campos (al menos uno):';
 $strSelectNumRows = 'en la consulta';
 $strSend = 'enviar';
-$strSequence = 'Secuencia';
 $strServerChoice = 'Eleccion de Servidor';
 $strServerVersion = 'Version del Servidor';
 $strSetEnumVal = 'Si el tipo de campo es "enum" o "set", por favor ingrese los valores usando este formato: \'a\',\'b\',\'c\'...<br />Si alguna vez necesita poner una barra invertida("\") o una comilla simple ("\'") entre esos valores, siempre ponga una barra invertida. (Por Ejemplo \'\\\\xyz\' or \'a\\\'b\').';

@@ -274,7 +274,6 @@ $strSelectAll = 'Selecciona Todas';
 $strSelectFields = 'Seleccione os campos (no mínimo 1)';
 $strSelectNumRows = 'em query';
 $strSend = 'envia';
-$strSequence = 'Seq.'; // Sequence => Sequencia, same abreviation
 $strServerChoice = 'Escolha do Servidor';
 $strServerVersion = 'Versão do servidor';
 $strSetEnumVal = 'Se o tipo de campo é "enum" ou "set", por favor introduza os valores no seguinte formato: \'a\',\'b\',\'c\'...<br />Se precisar de colocar uma barra invertida ("\") ou um apóstrofe ("\'") entre esses valores, coloque uma barra invertida antes (por exemplo \'\\\\xyz\' ou \'a\\\'b\').';

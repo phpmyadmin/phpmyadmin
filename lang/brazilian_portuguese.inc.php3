@@ -275,7 +275,6 @@ $strSelectAll = 'Selecionar Todos';
 $strSelectFields = 'Selecione os campos (no mínimo 1)';
 $strSelectNumRows = 'na procura';
 $strSend = 'Envia';
-$strSequence = 'Sequência';
 $strServerChoice = 'Seleção da Base';
 $strServerVersion = 'Versão do Servidor';
 $strSetEnumVal = 'Se um tipo de campo é "enum" ou "set", por favor entre valores usando este formato: \'a\',\'b\',\'c\'...<br />Se você for colocar uma barra contrária ("\") ou aspas simples ("\'") entre os valores, coloque uma barra contrária antes (por exemplo \'\\\\xyz\' ou \'a\\\'b\').';
