@@ -18,8 +18,7 @@ $day_of_week = array('Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = ' %e %B %Y om %H:%M';
-
+$datefmt = '%d %B %Y om %H:%M';
 $timespanfmt = '%s dagen, %s uren, %s minuten and %s seconden';
 
 $strAPrimaryKey = 'Een primaire sleutel is toegevoegd aan %s';
@@ -77,7 +76,7 @@ $strBzError = 'phpMyAdmin is er niet in geslaagd om de dump te comprimeren doord
 $strBzip = '"ge-bzipt"';
 
 $strCannotLogin = 'Kan niet inloggen op de MySQL server';
-$strCantLoad = 'Kan de %s extentie niet laden,<br />Controleer de PHP Configuratie'; 
+$strCantLoad = 'Kan de %s extentie niet laden,<br />Controleer de PHP Configuratie';
 $strCantLoadMySQL = 'kan de MySQL extensie niet laden,<br />controleer de PHP configuratie.';
 $strCantLoadRecodeIconv = 'Kan iconv of recode extenties niet laden die nodig zijn voor de Karakterset conversie, configureer php om deze extensies toe te laten of schakel Karakterset conversie uit in phpMyAdmin';
 $strCantRenameIdxToPrimary = 'Kan index niet naar PRIMARY hernoemen';

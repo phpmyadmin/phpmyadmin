@@ -18,7 +18,7 @@ $day_of_week = array('อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.
 $month = array('ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%e %B %Y  %Rน.';
+$datefmt = '%d %B %Y  %Rน.';
 
 $timespanfmt = '%s วัน, %s ชั่วโมง, %s นาที, %s วินาที';
 

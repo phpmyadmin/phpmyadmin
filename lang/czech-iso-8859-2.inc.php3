@@ -19,7 +19,7 @@ $day_of_week = array('Nedìle', 'Pondìlí', 'Úterı', 'Støeda', 'Ètvrtek', 'Pátek',
 $month = array('ledna', 'února', 'bøezna', 'dubna', 'kvìtna', 'èervna', 'èervence', 'srpna', 'záøí', 'øíjna', 'listopadu', 'prosince');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%a %e. %b %Y, %H:%M';
+$datefmt = '%a %d. %b %Y, %H:%M';
 
 $timespanfmt = '%s dnù, %s hodin, %s minut a %s sekund';
 

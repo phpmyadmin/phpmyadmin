@@ -18,7 +18,7 @@ $day_of_week = array('нед', 'пон', 'вт', 'ср', 'чет', 'пет', 'съб');
 $month = array('януари', 'февруари', 'март', 'април', 'май', 'юни', 'юли', 'август', 'септември', 'окомври', 'ноември', 'декември');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%e %B %Y в %H:%M';
+$datefmt = '%d %B %Y в %H:%M';
 
 $strAccessDenied = 'Отказан достъп';
 $strAction = 'Действие';

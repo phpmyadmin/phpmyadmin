@@ -19,9 +19,6 @@ $month = array('1·î','2·î','3·î','4·î','5·î','6·î','7·î','8·î','9·î','10·î','11·
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%YÇ¯ %B %dÆü %H:%M';
-
-// japanese only
-
 $timespanfmt = '%s Æü, %s »þ, %s Ê¬ %s ÉÃ';
 
 $strAPrimaryKey = '¼ç¥­¡¼¤¬%s¤ËÄÉ²Ã¤µ¤ì¤Þ¤·¤¿¡£';
@@ -572,6 +569,8 @@ $strYes = '¤Ï¤¤';
 
 $strZeroRemovesTheLimit = 'Ãí°Õ: ¥ª¥×¥·¥ç¥ó¤ò 0 (¥¼¥í)¤ËÀßÄê¤¹¤ë¤ÈÀ©¸Â¤¬¤Ê¤¯¤Ê¤ê¤Þ¤¹¡£';
 $strZip = '"zip¤µ¤ì¤ë"';
+
+// To translate
 
 $strDbSpecific = 'database-specific';  //to translate
 

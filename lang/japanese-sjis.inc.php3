@@ -19,9 +19,6 @@ $month = array('1Œ','2Œ','3Œ','4Œ','5Œ','6Œ','7Œ','8Œ','9Œ','10Œ','11Œ
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%Y”N %B %d“ú %H:%M';
-
-// japanese only
-
 $timespanfmt = '%s “ú, %s , %s •ª %s •b';
 
 $strAPrimaryKey = 'åƒL[‚ª%s‚É’Ç‰Á‚³‚ê‚Ü‚µ‚½B';
@@ -310,7 +307,7 @@ $strNoQuery = 'SQLƒNƒGƒŠ[–³‚µ';
 $strNoRights = 'Œ»İ“ÁŒ ‚ğ‚Á‚Ä‚È‚¢‚Ì‚Å‚±‚±‚É“ü‚ê‚Ü‚¹‚ñB';
 $strNoTablesFound = 'Œ»İ‚ÌDB‚Éƒe[ƒuƒ‹‚Í‚ ‚è‚Ü‚¹‚ñB';
 $strNoUsersFound = 'ŠY“–ƒ†[ƒU[‚ÍŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B';
-$strNoUsersSelected = 'ƒ†[ƒU[‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB'; 
+$strNoUsersSelected = 'ƒ†[ƒU[‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB';
 $strNoValidateSQL = 'SQLŒŸØ‚ğƒXƒLƒbƒv';
 $strNone = '–³‚µ';
 $strNotNumber = '‚±‚ê‚Í”Ô†‚Å‚Í‚ ‚è‚Ü‚¹‚ñB';
@@ -572,6 +569,8 @@ $strYes = '‚Í‚¢';
 
 $strZeroRemovesTheLimit = '’ˆÓ: ƒIƒvƒVƒ‡ƒ“‚ğ 0 (ƒ[ƒ)‚Éİ’è‚·‚é‚Æ§ŒÀ‚ª‚È‚­‚È‚è‚Ü‚·B';
 $strZip = '"zip‚³‚ê‚é"';
+
+// To translate
 
 $strDbSpecific = 'database-specific';  //to translate
 

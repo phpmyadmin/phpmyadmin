@@ -14,7 +14,7 @@ $day_of_week = array('Sön', 'Mån', 'Tis', 'Ons', 'Tors', 'Fre', 'Lör');
 $month = array('januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%e %B %Y kl %H:%M';
+$datefmt = '%d %B %Y kl %H:%M';
 $timespanfmt = '%s dagar, %s timmar, %s minuter och %s sekunder';
 
 $strAPrimaryKey = 'En primär nyckel har lagts till för %s';

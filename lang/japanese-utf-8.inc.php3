@@ -20,9 +20,6 @@ $month = array('1月','2月','3月','4月','5月','6月','7月','8月','9月','1
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%Y年 %B %d日 %H:%M';
-
-// japanese only
-
 $timespanfmt = '%s 日, %s 時, %s 分 %s 秒';
 
 $strAPrimaryKey = '主キーが%sに追加されました。';
@@ -573,6 +570,8 @@ $strYes = 'はい';
 
 $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定すると制限がなくなります。';
 $strZip = '"zipされる"';
+
+// To translate
 
 $strDbSpecific = 'database-specific';  //to translate
 
