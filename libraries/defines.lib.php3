@@ -81,7 +81,7 @@ if (!defined('PMA_MYSQL_INT_VERSION') && isset($userlink)) {
 
 // Determines platform (OS), browser and version of the user
 // Based on a phpBuilder article:
-//   see http://www.php3builder.net/columns/tim20000821.php3
+//   see http://www.phpbuilder.net/columns/tim20000821.php3
 if (!defined('PMA_USR_OS')) {
     // loic1 - 2001/25/11: use the new globals arrays defined with
     // php 4.1+
