@@ -573,8 +573,15 @@ function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='aut
                 break;
             }
         }
+        if ($nulls[$col] == 'YES') {
+            $nulls[$col] = '';
+        } else {
+            $nulls[$col] = 'NOT NULL';
+        }
+
         $query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE '
             . PMA_generateAlterTable($col, $col, $types[$col], $collations[$col], $nulls[$col], $defaults[$col], $extras[$col], $comment);
+
         PMA_DBI_try_query($query, NULL, PMA_DBI_QUERY_STORE);
         return TRUE;
     }
