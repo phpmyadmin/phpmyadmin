@@ -230,7 +230,12 @@ if ($asfile) {
         $mime_type = 'application/x-tex';
     } else {
         $filename  .= '.sql';
-        $mime_type = 'text/x-sql';
+        // text/x-sql is correct MIME type, however safari ignores further
+        // Content-Disposition header, so we must force it to download it this
+        // way...
+        $mime_type = PMA_USR_BROWSER_AGENT == 'SAFARI'
+                        ? 'application/octet-stream'
+                        : 'text/x-sql';
     }
 
     // If dump is going to be compressed, set correct encoding or mime_type and add
