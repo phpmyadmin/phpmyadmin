@@ -17,6 +17,7 @@ $Source$
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
     * mult_submits.inc.php3: Fixed undefined variable warning (bug #767740).
     * pdf_schema.php3: Don't use hardcoded sizes of paper (bug #767680).
+    * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
       
 2003-07-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Send headers before exiting because of missing
