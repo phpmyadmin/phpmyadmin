@@ -7,7 +7,8 @@ $Source$
 
 2001-06-27  Marc Delisle  <lem9@users.sourceforge.net>
 	* bug 434608: support db names with special characters (MySQL >= 3.23.6)
-
+	(lib.inc.php3, db_create.php3, db_details.php3, tbl_addfield.php3,
+	 tbl_alter.php3, user_details.php3 (incomplete))
 
 2001-06-27  Steve Alberty  <alberty@neptunlabs.de>
 	* lib.inc.php3: speedup get_table_content for tbl_dump
