@@ -681,8 +681,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $local_query = 'select * from ' . PMA_backquote($db) . '.' . PMA_backquote($table);
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
 
-        $buffer      = '\begin{table} ' . $crlf
-                     . ' \begin{longtable}{|';
+        $buffer      = '\\begin{table} ' . $crlf
+                     . ' \\begin{longtable}{|';
 
         for($index=0;$index<$columns_cnt;$index++) {
            $buffer .= 'c|';
@@ -713,10 +713,10 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                     }
                 }
             }
-            $buffer .= ' \\\\ \hline ' . $crlf;
+            $buffer .= ' \\\\ \\hline ' . $crlf;
         }
 
-        $buffer .= ' \end{longtable} \end{table}' . $crlf;
+        $buffer .= ' \\end{longtable} \\end{table}' . $crlf;
 
         mysql_free_result($result);
         return $buffer;
