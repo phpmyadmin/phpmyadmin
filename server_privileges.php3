@@ -254,7 +254,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
     echo $spaces . '<input type="hidden" name="grant_count" value="' . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0)) . '" />' . "\n"
        . $spaces . '<table border="0">' . "\n"
        . $spaces . '    <tr>' . "\n"
-       . $spaces . '        <th colspan="6">&nbsp;' . ($db == '*' ? $GLOBALS['strGlobalPrivileges'] : $GLOBALS['strDbPrivileges']) . '&nbsp;</th>' . "\n"
+       . $spaces . '        <th colspan="6">&nbsp;' . ($db == '*' ? $GLOBALS['strGlobalPrivileges'] : ($table == '*' ? $GLOBALS['strDbPrivileges'] : $GLOBALS['strTblPrivileges'])) . '&nbsp;</th>' . "\n"
        . $spaces . '    </tr>' . "\n"
        . $spaces . '    <tr>' . "\n"
        . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="6"><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></td>' . "\n"

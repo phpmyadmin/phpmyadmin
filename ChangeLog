@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-16 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: Wrong label.
+
 2003-01-16 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
     * libraries/tbl_change.js, tbl_change.php3: Improved Ctrl+arrows moving in
@@ -12,7 +15,7 @@ $Source$
 
 2003-01-15 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/sort_lang.sh: Fix status output bug '\n'
-    * db_details_importdocsql.php3: Move hardcoded strings to language files 
+    * db_details_importdocsql.php3: Move hardcoded strings to language files
     * lang/*.php3: Add new strings for docSQL importer
     * libraries/sqlvalidator.*.php3: Finish fixing bug #644709
     * Documentation.html: Revised FAQ entry about SQL Validator
