@@ -206,7 +206,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                 ?>
     <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         &nbsp;&nbsp;
-        <a href="tbl_properties.php3?<?php echo $tbl_url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
+        <a href="tbl_properties_structure.php3?<?php echo $tbl_url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
     </td>
                 <?php
                 echo "\n";

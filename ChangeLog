@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-18 Steve Alberty  <staybyte@users.sourceforge.net>
+    * db_details_structure.php3: correct wrong link from table size to stats
+
 2002-07-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/sync_lang.sh: support for multiple convertors (recode added),
       thanks to Michal Cihar
