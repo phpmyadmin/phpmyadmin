@@ -17,6 +17,8 @@ $Source$
     * libraries/display_tbl.lib.php3: Don't show BLOB text instead of content
       when using transformations.
     * libraries/display_export.lib.php3: Fixed end of line chars.
+    * tbl_dump.php3, libraries/display_export.lib.php3, lang/*: User can now
+      specify how will filename for exported data look like (RFE #678642).
 
 2003-03-17 Marc Delisle  <lem9@users.sourceforge.net>
     * user_password.php3, header.inc.php3, libraries/user_password.js:

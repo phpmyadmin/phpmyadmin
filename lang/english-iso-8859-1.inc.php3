@@ -150,6 +150,7 @@ $strDbPrivileges = 'Database-specific privileges';
 $strDbSpecific = 'database-specific';  
 $strDefault = 'Default';
 $strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';
+$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';
 $strDelete = 'Delete';
 $strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.';
 $strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.';
@@ -204,6 +205,9 @@ $strFieldsEnclosedBy = 'Fields enclosed by';
 $strFieldsEscapedBy = 'Fields escaped by';
 $strFieldsTerminatedBy = 'Fields terminated by';
 $strFileCouldNotBeRead = 'File could not be read';
+$strFileNameTemplate = 'File name template';
+$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';
+$strFileNameTemplateRemember = 'remember template';
 $strFixed = 'fixed';
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.';
 $strFlushTable = 'Flush the table ("FLUSH")';
@@ -611,5 +615,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
 ?>

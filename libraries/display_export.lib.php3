@@ -219,6 +219,40 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                     <input type="checkbox" name="asfile" value="sendit" id="checkbox_dump_asfile" />
                     <label for="checkbox_dump_asfile"><?php echo $strSend; ?></label>
                 </legend>
+                
+                <?php 
+                $strFileNameTemplate = "File name template"; 
+                $strFileNameTemplateRemember = "remember template"; 
+                $strFileNameTemplateHelp = "Use __DB__ for database name, __TABLE_ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.";
+                ?>
+                <?php echo $strFileNameTemplate; ?>&nbsp;:
+                <input type="text" name="filename_template"
+                <?php 
+                    echo ' value="';
+                    if (isset($table)) {
+                        if (isset($_COOKIE) && !empty($_COOKIE['pma_table_filename_template'])) {
+                            echo $_COOKIE['pma_table_filename_template'];
+                        } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_table_filename_template'])) {
+                            echo $HTTP_COOKIE_VARS['pma_table_filename_template'];
+                        } else {
+                            echo '__TABLE__'; 
+                        }
+                    } else {
+                        if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
+                            echo $_COOKIE['pma_db_filename_template'];
+                        } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_db_filename_template'])) {
+                            echo $HTTP_COOKIE_VARS['pma_db_filename_template'];
+                        } else {
+                            echo '__DB__'; 
+                        }
+                    }
+                    echo '" ';
+                ?>
+                />
+                (
+                <input type="checkbox" name="remember_template" checked="checked" id="checkbox_remember_template" />
+                <label for="checkbox_remember_template"><?php echo $strFileNameTemplateRemember; ?></label>
+                )*
 
                 <?php
                 // charset of file
@@ -310,3 +344,12 @@ echo "\n";
     </tr>
     </table>
 </form>
+<table align="center">
+<tr>
+    <td valign="top">*&nbsp;</td>
+    <td>
+        <?php echo sprintf($strFileNameTemplateHelp, '<a href="http://www.php.net/manual/function.strftime.php" target="documentation">', '</a>') . "\n"; ?>
+        
+    </td>
+</tr>
+</table>

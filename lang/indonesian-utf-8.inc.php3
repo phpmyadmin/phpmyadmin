@@ -612,4 +612,7 @@ $strPerMinute = 'per minute';//to translate
 $strPerSecond = 'per second';//to translate
 $strAutomaticLayout = 'Automatic layout';  //to translate
 $strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
+$strFileNameTemplate = 'File name template';//to translate 
+$strFileNameTemplateRemember = 'remember template';//to translate 
+$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
 ?>

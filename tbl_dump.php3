@@ -103,11 +103,14 @@ if (empty($asfile)) {
 
 // Download
 else {
+    //
     // Defines filename and extension, and also mime types
     if (!isset($table)) {
-        $filename = $db;
+        if (isset($remember_template)) setcookie('pma_db_filename_template', $filename_template , 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+        $filename = ereg_replace('__DB__', $db, strftime($filename_template));
     } else {
-        $filename = $table;
+        if (isset($remember_template)) setcookie('pma_table_filename_template', $filename_template , 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+        $filename = ereg_replace('__TABLE__', $table, ereg_replace('__DB__', $db, strftime($filename_template)));
     }
     if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
         $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
