@@ -73,6 +73,10 @@ $cfgRelation = PMA_getRelationsParam();
  * Updates
  */
 
+// ensure we are positionned to our current db (since the previous reading
+// of relations makes pmadb the current one, maybe depending on the MySQL version)
+PMA_DBI_select_db($db);
+
 if ($cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table, '', 'internal');
 }
