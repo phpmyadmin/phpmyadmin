@@ -1118,6 +1118,13 @@ class PMA_RT
         $pdf->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $pdf->AliasNbPages();
 
+         // fonts added to phpMyAdmin and considered non-standard by fpdf
+         // (Note: those tahoma fonts are iso-8859-2 based)
+         if ($this->ff == 'tahoma') {
+             $pdf->AddFont('tahoma','','tahoma.php3');
+             $pdf->AddFont('tahoma','B','tahomab.php3');
+         }
+
         $pdf->SetFont($this->ff, '', 14);
         $pdf->SetAutoPageBreak('auto');
 
