@@ -2,18 +2,31 @@
 #
 # $Id$ 
 #
+# 2002-27-04, loic@phpmyadmin.net:
+# - added the cvs branch feature
+#
 # 2001-08-08, swix@users.sourceforge.net:
 # - created script
 # - added release todo list
 #
 
-if [ $# != 1 ]
+
+if [ $# == 0 ]
 then
-  echo "Usage: create-release.sh version"
+  echo "Usage: create-release.sh version from_branch"
   echo "  (no spaces allowed!)"
   echo ""
-  echo "Example: create-release.sh 2.2.2-rc1"
-  exit
+  echo "Example: create-release.sh 2.2.7-rc1 v2_2_7-branch"
+  exit 65
+fi
+
+if [ $# == 1 ]
+then
+  branch=''
+fi
+if [ $# == 2 ]
+then
+  branch="-r $2"
 fi
 
 
@@ -44,7 +57,7 @@ mkdir cvs
 cd cvs
 echo "Press [ENTER]!"
 cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login
-cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin co phpMyAdmin
+cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin co $branch phpMyAdmin
 
 date > phpMyAdmin/RELEASE-DATE-$1
 mv phpMyAdmin phpMyAdmin-$1
