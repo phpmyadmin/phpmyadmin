@@ -9,6 +9,7 @@ $Source$
     * libraries/dbi/mysql.dbi.lib.php: Compatibility fix for php < 4.3
       (bug #1033360), thanks to Claude Theroux.
     * lang/chinese_traditional-*.inc.php: Updates, thanks to Siu Sun.
+    * lang/dutch-*.inc.php: Updates, thanks to Ivo Teel.
 
 2004-09-27 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.6.0 released
