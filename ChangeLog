@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * transformation_wrapper.php3, lang/*,
+      libraries/transformations/image_jpeg__inline.inc.php3:
+      now 2 options for resize: width, height
+
 2003-03-06 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3, libraries/display_tbl.lib.php3:
       Fix bug #658668, special escaping of \n, \r and \t characters.
