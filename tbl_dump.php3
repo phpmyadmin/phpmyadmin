@@ -213,7 +213,7 @@ else {
                                       ? PMA_backquote($table)
                                       : '\'' . $table . '\'';
                 // If only datas, no need to displays table name
-                if ($what != 'dataonly') {
+                if (isset($sql_structure) && $sql_structure == 'structure') {
                     $dump_buffer .= '# --------------------------------------------------------' . $crlf
                                  .  $crlf . '#' . $crlf
                                  .  '# ' . $strTableStructure . ' ' . $formatted_table_name . $crlf
@@ -224,7 +224,7 @@ else {
                     $dump_buffer = PMA_kanji_str_conv($dump_buffer, $knjenc, isset($xkana) ? $xkana : '');
                 }
                 // At least data
-                if (($what == 'data') || ($what == 'dataonly')) {
+                if (isset($sql_data) && $sql_data == 'data') {
                     $tcmt = $crlf . '#' . $crlf
                                  .  '# ' . $strDumpingData . ' ' . $formatted_table_name . $crlf
                                  .  '#' . $crlf .$crlf;

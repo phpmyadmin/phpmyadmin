@@ -181,6 +181,14 @@ table.tabs      {
     border-bottom: 1px solid #666;
 }
 
+fieldset {
+    border:     #686868 solid 1px;
+    padding:    0.5em;
+}
+fieldset fieldset {
+    margin:     0.8em;
+}
+
 .print{font-family:arial;font-size:8pt;}
 
 .syntax {font-family: sans-serif; font-size: <?php echo $font_smaller; ?>;}

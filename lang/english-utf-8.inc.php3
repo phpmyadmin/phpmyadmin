@@ -601,4 +601,8 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
+$strSQLOptions = 'SQL options';
+$strXML = 'XML';
+$strCSVOptions = 'CSV options';
+$strNoOptions = 'This format has no options';
 ?>

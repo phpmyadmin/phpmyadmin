@@ -609,4 +609,8 @@ $strTransformation_image_jpeg__link = 'Displays a link to this image (direct blo
 $updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 $strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
 $strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
+$strSQLOptions = 'SQL-Optionen';
+$strXML = 'XML';
+$strCSVOptions = 'CSV-Optionen';
+$strNoOptions = 'Für dieses Format sind keine Optionen vorhanden';
 ?>

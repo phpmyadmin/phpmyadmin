@@ -624,4 +624,8 @@ $strInnodbStat = 'InnoDB Status';  //to translate
 $updComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
 $strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
 $strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
+$strSQLOptions = 'SQL options';//to translate
+$strXML = 'XML';//to translate
+$strCSVOptions = 'CSV options';//to translate
+$strNoOptions = 'This format has no options';//to translate
 ?>
