@@ -22,7 +22,7 @@ if (!defined('PMA_MYSQL_WRAPPERS_LIB_INCLUDED')){
 
     function PMA_mysql_error($id = FALSE) {
         if ($id != FALSE) {
-            return PMA_convert_display_charset(mysql_error($param));
+            return PMA_convert_display_charset(mysql_error($id));
         } else {
             return PMA_convert_display_charset(mysql_error());
         }
