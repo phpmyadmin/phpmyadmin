@@ -9,6 +9,13 @@ $Source$
     * db_details_export.php3, db_details_links.php3, Documentation.html,
       sql.php3, tbl_properties_export.php3, libraries/common.lib.php3,
       libraries/select_lang.lib.php3: fixes from Loic
+    * config.inc.php3: default value for $cfg['AllowAnywhereRecoding'] = FALSE;
+      to avoid problems on multithreaded servers, thanks to Neil Darlow
+      (ndarlow)
+    * libraries/charset_conversion.lib.php3: remove the "@" before dl()
+      because multithreaded servers don't support dl(), and we want
+      to see the error message, thanks to /Leblanc
+
 
 2002-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, db_details_exports.php3, tbl_properties_export.php3:

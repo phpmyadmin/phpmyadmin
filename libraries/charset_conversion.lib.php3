@@ -12,6 +12,11 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
 
     /**
      * Loads the recode or iconv extensions if any of it is not loaded yet
+     *
+     * (do not put a "@" before the dl() because we want to see the error
+     * message: multithreaded web servers don't support dl() but we cannot
+     * detect if the server is multithreaded, and under PHP 4.2.1 at least,
+     * it reports that the function dl exists...)
      */
     if (isset($cfg['AllowAnywhereRecoding'])
         && $cfg['AllowAnywhereRecoding']
@@ -25,9 +30,9 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
             } else {
                 $suffix = '.so';
             }
-            @dl('recode' . $suffix);
+            dl('recode' . $suffix);
             if (!@extension_loaded('recode')) {
-                @dl('iconv' . $suffix);
+                dl('iconv' . $suffix);
                 if (!@extension_loaded('iconv')) {
                     echo $strCantLoadRecodeIconv;
                     exit();
