@@ -7,6 +7,9 @@ $Source$
 
 2001-08-27  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/dutch.inc.php3 updates, thanks to Arjen Roodselaar
+	* tbl_copy.php3, eregi_replace instead of ereg_replace because
+	  MySQL 3.23.20 returns sql keywords in lowercase, thanks to
+	  Jan Paul Schmidt
 
 2001-08-25  Marc Delisle  <lem9@users.sourceforge.net>
 	* lib.inc.php3, bug 455088, avoid to reveal username/password

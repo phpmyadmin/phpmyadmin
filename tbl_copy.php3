@@ -17,7 +17,7 @@ function my_handler($sql_insert = '')
     global $db, $table, $new_name;
     global $sql_insert_data;
 
-    $sql_insert = ereg_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . backquote($new_name), $sql_insert);
+    $sql_insert = eregi_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . backquote($new_name), $sql_insert);
     $result     = mysql_query($sql_insert) or mysql_die('', $sql_insert);
     
     $sql_insert_data .= $sql_insert . ';' . "\n";
@@ -45,7 +45,7 @@ if (isset($new_name) && trim($new_name) != '') {
     $asfile         = 1;
 
     $sql_structure = get_table_def($db, $table, "\n");
-    $sql_structure = ereg_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . backquote($new_name), $sql_structure);
+    $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . backquote($new_name), $sql_structure);
     $result        = mysql_query($sql_structure) or mysql_die('', $sql_structure);
     if (isset($sql_query)) {
         $sql_query .= "\n" . $sql_structure . ';';
