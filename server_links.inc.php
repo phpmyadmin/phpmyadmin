@@ -53,9 +53,7 @@ if ($cfg['ShowMysqlVars']) {
 if (PMA_MYSQL_INT_VERSION >= 40100) {
     echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_asci.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strCharsets.'" />' : '') . $strCharsets, 'server_collations.php', $url_query);
 }
-if (PMA_MYSQL_INT_VERSION >= 40102) {
-    echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_process.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strEngines . '" />' : '') . $strEngines, 'server_engines.php', $url_query);
-}
+echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_process.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strEngines . '" />' : '') . $strEngines, 'server_engines.php', $url_query);
 if ($is_superuser) {
     echo PMA_printTab(($GLOBALS['cfg']['MainPageIconic'] ? '<img src="' . $GLOBALS['pmaThemeImage'] . 's_rights.png" width="16" height="16" border="0" hspace="2" align="middle" alt="'.$strPrivileges.'" />' : '') . $strPrivileges, 'server_privileges.php', $url_query);
 }

@@ -127,11 +127,13 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
        . '        <tr>' . "\n"
        . '            <th>' . "\n"
        . '                ' . $strStorageEngine . "\n"
-       . '            </th>' . "\n"
-       . '            <th>' . "\n"
-       . '                ' . $strDescription . "\n"
-       . '            </th>' . "\n"
-       . '        </tr>' . "\n"
+       . '            </th>' . "\n";
+    if (PMA_MYSQL_INT_VERSION >= 40102) {
+        echo '            <th>' . "\n"
+           . '                ' . $strDescription . "\n"
+           . '            </th>' . "\n";
+    }
+    echo '        </tr>' . "\n"
        . '    </thead>' . "\n"
        . '    <tbody>' . "\n";
 
@@ -147,11 +149,13 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
            . '                <a href="' . $common_url . $engine . '">' . "\n"
            . '                    ' . htmlspecialchars($details['Engine']) . "\n"
            . '                </a>' . "\n"
-           . '            </td>' . "\n"
-           . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-           . '                ' . htmlspecialchars($details['Comment']) . "\n"
-           . '            </td>' . "\n"
-           . '        </tr>' . "\n";
+           . '            </td>' . "\n";
+        if (PMA_MYSQL_INT_VERSION >= 40102) {
+            echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
+               . '                ' . htmlspecialchars($details['Comment']) . "\n"
+               . '            </td>' . "\n";
+        }
+        echo '        </tr>' . "\n";
         $useBgcolorOne = !$useBgcolorOne;
     }
     unset($useBgcolorOne, $common_url, $engine, $details);
