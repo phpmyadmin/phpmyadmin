@@ -6,8 +6,8 @@ $Id$
 $Source$
 
 2001-08-20  Marc Delisle  <lem9@users.sourceforge.net>
-	* config.inc.php3: $cfgProtectBlob is now TRUE by default, to help
-	  against the blob data corruption of some browsers
+	* config.inc.php3: $cfgProtectBlob is now TRUE by default, to help against
+	  the blob data corruption of some browsers.
 
 2001-08-20  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3; tbl_properties.php3; tbl_dump.php3; lib.inc.php3;
@@ -16,6 +16,8 @@ $Source$
 	    choice (because we know Excel does not support <cr> in data). Thanks to
 	    François <outils@altern.org>.
 	  - added an extended inserts option for dumps of data.
+	* lib.inc.php3; sql.php3: optimized a bit and started to work on feature
+	  #444767 (Other cases for display=simple).
 
 2001-08-19  Olivier Müller  <om@omnis.ch>
 	* db_readdump.php3: if file contains mutiple queries, only show this line:

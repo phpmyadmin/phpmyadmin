@@ -116,10 +116,12 @@ else {
     if (isset($sessionMaxRows)) {
         $cfgMaxRows       = $sessionMaxRows;
     }
-    $sql_limit_to_append  = (isset($pos) && $is_select && !eregi(' LIMIT[ 0-9,]+$', $sql_query))
+    $sql_limit_to_append  = (isset($pos)
+                             && ($is_select && !eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $sql_query))
+                             && !eregi(' LIMIT[ 0-9,]+$', $sql_query))
                           ? " LIMIT $pos, $cfgMaxRows"
                           : '';
-    if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)', $sql_query, $regs)) {
+    if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)$', $sql_query, $regs)) {
         $full_sql_query   = $regs[1] . $sql_limit_to_append . $regs[2];
     } else {
         $full_sql_query   = $sql_query . $sql_limit_to_append;
@@ -198,6 +200,10 @@ else {
             } else if (!empty($which[4]) && !empty($which[5])) {
                 $display = 'bkmOnly';
             }
+        }
+        if ($display != 'simple'
+            && (isset($SelectNumRows) && $SelectNumRows <= $cfgMaxRows)) {
+            $display = 'simple';
         }
 
         // Displays the results in a table

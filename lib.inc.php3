@@ -539,12 +539,16 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             echo '            ' . $query_base;
             // If a 'LIMIT' clause has been programatically added to the query
             // displays it
-            $is_append_limit = (isset($GLOBALS['pos'])
-                                && eregi('^SELECT', $GLOBALS['sql_query'])
-                                && !eregi('LIMIT[ 0-9,]+$', $GLOBALS['sql_query']));
-            if ($is_append_limit) {
-                echo ' LIMIT ' . $GLOBALS['pos'] . ', ' . $GLOBALS['cfgMaxRows'];
+            if (!empty($GLOBALS['sql_limit_to_append'])) {
+                echo $GLOBALS['sql_limit_to_append'];
             }
+            // loic1 : this was far to be optimal
+            // $is_append_limit = (isset($GLOBALS['pos'])
+            //                     && (eregi('^SELECT', $GLOBALS['sql_query']) && !eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $GLOBALS['sql_query']))
+            //                     && !eregi('LIMIT[ 0-9,]+$', $GLOBALS['sql_query']));
+            // if ($is_append_limit) {
+            //     echo ' LIMIT ' . $GLOBALS['pos'] . ', ' . $GLOBALS['cfgMaxRows'];
+            // }
             echo "\n";
             ?>
         </td>
@@ -939,7 +943,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         if (!$is_simple) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
         } else {
-            echo '<br /><br /><br /><br />';
+            echo "\n" . '<br /><br />' . "\n";
         }
 
         // Displays the results
