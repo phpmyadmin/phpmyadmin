@@ -27,7 +27,7 @@ else if (isset($reload) && $reload) {
     ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>');
+window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>');
 //-->
 </script>
     <?php
@@ -61,7 +61,7 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = mysql_query('FLUSH PRIVILEGES') or mysql_die('', 'FLUSH PRIVILEGES', FALSE, 'main.php3?lang=' . $lang . '&server=' . $server);
+    $result = mysql_query('FLUSH PRIVILEGES'); // Debug: or mysql_die('', 'FLUSH PRIVILEGES', FALSE, 'main.php3?lang=' . $lang . '&amp;server=' . $server);
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
@@ -102,8 +102,14 @@ if ($server == 0 || count($cfgServers) > 1) {
             if (!empty($val['port'])) {
                 echo ':' . $val['port'];
             }
+            if (!empty($val['socket'])) {
+                echo ':' . $val['socket'];
+            }
+            // loic1: if 'only_db' is an array and there is more than one
+            //        value, displaying such informations may not be a so good
+            //        idea
             if (!empty($val['only_db'])) {
-                echo ' - ' . $val['only_db'];
+                echo ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
             }
             if (!empty($val['user']) && !($val['adv_auth'])) {
                 echo '  (' . $val['user'] . ')';
@@ -145,7 +151,7 @@ if ($server > 0
     <?php
     echo "\n";
     
-    $common_url_query = 'lang=' . $lang . '&server=' . $server;
+    $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
 
     // 1. With authentication
     if ($cfgServer['adv_auth'])
@@ -184,6 +190,7 @@ if ($server > 0
         }
 
         // Does user have global Create priv?
+        $create           = FALSE;
         $local_query      = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
         $rs_usr           = mysql_query($local_query, $stdlink);
         if ($rs_usr) {
@@ -233,8 +240,8 @@ if ($server > 0
                         break;
                     } // end if
                 } // end while
+                mysql_free_result($rs_usr);
             } // end if
-            mysql_free_result($rs_usr);
         } // end if
 
         // The user is allowed to create a db
@@ -265,7 +272,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>&goto=main.php3">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW STATUS'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowStatus; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
@@ -273,7 +280,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&goto=main.php3">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&amp;goto=main.php3">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
                 <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
@@ -281,12 +288,12 @@ if ($server > 0
         <?php
         echo "\n";
 
-        if ($result_usr['Process_priv'] == 'Y') {
+        if (isset($result_usr) && $result_usr['Process_priv'] == 'Y') {
             ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&goto=main.php3">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
@@ -295,12 +302,12 @@ if ($server > 0
             echo "\n";
         }
 
-        if ($result_usr['Reload_priv'] == 'Y') {
+        if (isset($result_usr) && $result_usr['Reload_priv'] == 'Y') {
             ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="main.php3?<?php echo $common_url_query; ?>&mode=reload">
+                <a href="main.php3?<?php echo $common_url_query; ?>&amp;mode=reload">
                     <?php echo $strReloadMySQL; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
             </td>
@@ -315,7 +322,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
+                <a href="user_details.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;table=user">
                     <?php echo $strUsers; ?></a>&nbsp;
                 <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
             </td>
@@ -339,7 +346,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="index.php3?<?php echo $common_url_query; ?>&old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
+                <a href="index.php3?<?php echo $common_url_query; ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
                     <b><?php echo $strLogout; ?></b></a>&nbsp;
                 <a href="<?php echo $cfgPmaAbsoluteUri; ?>Documentation.html#login_bug" target="documentation">(*)</a>
             </td>
@@ -371,7 +378,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>&goto=main.php3">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW STATUS'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowStatus; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
@@ -380,7 +387,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&goto=main.php3">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowVars; ?></a>&nbsp;
                 <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
@@ -389,7 +396,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&goto=main.php3">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
@@ -398,7 +405,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="main.php3?<?php echo $common_url_query; ?>&mode=reload">
+                <a href="main.php3?<?php echo $common_url_query; ?>&amp;mode=reload">
                     <?php echo $strReloadMySQL; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
             </td>
@@ -411,7 +418,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td> 
-                <a href="user_details.php3?<?php echo $common_url_query; ?>&db=mysql&table=user">
+                <a href="user_details.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;table=user">
                     <?php echo $strUsers; ?></a>&nbsp;
                 <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
             </td>
