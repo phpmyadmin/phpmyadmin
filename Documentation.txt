@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.2.1-rc1 Documentation
+                      phpMyAdmin 2.2.2-rc1 Documentation
                                        
      * [1]Official phpMyAdmin project homepage    [
        http://www.phpwizard.net/projects/phpMyAdmin/ ]
@@ -9,8 +9,8 @@
           + Version history: [3]ChangeLog
           + General notes: [4]README
           + License: [5]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.87 2001/10/24
-       19:09:59 robbat2 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.98 2001/11/15
+       21:26:41 loic1 Exp $
    ______________________________________________________________________
    
    [6]Top  -  [7]Requirements  -  [8]Introduction  -  [9]Installation  -
@@ -94,14 +94,27 @@ Installation
        
    Using Advanced Authentication:
     1. phpMyAdmin needs a stduser that has only the SELECT privilege on
-       the mysql.db (Db,user,Select_priv) & mysql.user (user,Select_priv)
-       tables. You must specify the details for the stduser in the
+       the mysql.user (all columns except "Password"), mysql.db (all
+       columns) & mysql.tables_priv (all columns except "Grantor" &
+       "Timestamp") tables.
+       You must specify the details for the stduser in the
        config.inc.php3 file under the $cfgServers[n]['stduser'] &
-       $cfgServers[n]['stdpass'] settings. To create the control account:
-          GRANT USAGE ON mysql.* TO 'stduser'@localhost IDENTIFIED BY
-       'password';
-          GRANT SELECT ON mysql.user TO 'stduser'@localhost;
-          GRANT SELECT ON mysql.db TO 'stduser'@localhost;
+       $cfgServers[n]['stdpass'] settings.
+       To create the control account (<stduser> and <stdpass> have to be
+       replaced by your own values, of course):
+       
+       GRANT USAGE ON mysql.* TO '<stduser>'@'localhost' IDENTIFIED BY
+   '<stdpass>';
+   GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv,
+   Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv,
+   Process_priv, File_priv, Grant_priv, References_priv, Index_priv,
+   Alter_priv) ON mysql.user TO '<stduser>'@'localhost';
+   GRANT SELECT ON mysql.db TO '<stduser>'@'localhost';
+   GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv) ON
+   mysql.tables_priv TO '<stduser>'@'localhost';
+   ... and if you want to use the bookmark feature:
+       GRANT SELECT, INSERT, DELETE ON <bookmark_db>.<bookmark_table> TO
+   '<stduser>'@'localhost';
     2. Then each of the true users should be granted of a set of
        privileges on a set of perticular databases but shouldn't have any
        global privileges. For example, to grant the user real_user with
@@ -160,17 +173,18 @@ Configuration
    $cfgServers[n]['stduser'] string
           $cfgServers[n]['stdpass'] string
           When using advanced authentication mode (or standard
-          authentication mode since phpMyAdmin 2.2.1-rc3), you need to
-          supply the details of a MySQL account that has SELECT access on
-          the mysql.db (Db,user,Select_priv) & mysql.user
-          (user,Select_priv) tables.
-          This account is used to check what databases the user will see
-          at login. Please see the install section on "Using advanced
+          authentication mode since phpMyAdmin 2.2.1), you need to supply
+          the details of a MySQL account that has SELECT privilege on the
+          mysql.user (all columns except "Password"), mysql.db (all
+          columns) & mysql.tables_priv (all columns except "Grantor" &
+          "Timestamp") tables. This account is used to check what
+          databases the user will see at login.
+          Please see the [40]install section on "Using advanced
           authentication" for more information.
-          Please note that if you try login to phpMyAdmin with this
-          stduser, you could get some errors, depending the exact
-          privileges you gave to the stduser. phpMyAdmin does not support
-          a direct login with the stduser.
+          Note that if you try login to phpMyAdmin with this "stduser",
+          you could get some errors, depending the exact privileges you
+          gave to the "stduser". phpMyAdmin does not support a direct
+          login with the "stduser".
           
    $cfgServers[n]['adv_auth'] boolean
           Whether basic or advanced authentication should be used for
@@ -193,7 +207,7 @@ Configuration
           not need to be set in the phpMyAdmin configuration file.
           (except for the standard user -see above-).
           Please see the install section on "Using advanced
-          authentication" for more information.
+          authentication " for more information.
           
    $cfgServers[n]['user'] string
           $cfgServers[n]['password'] string
@@ -203,14 +217,17 @@ Configuration
           
    $cfgServers[n]['only_db'] string or array
           If set to a(an array of) database name(s), only this(these)
-          database(s) will be shown to the user. This setting is an
-          efficient way to lower the server load since the latter does
-          not need a to send requests to MySQL to build the database
-          list.
-          Warning: this setting does not replace the privileges rules of
-          the MySQL database server. If set, it just means only these
-          databases will be displayed but not at all other databases
-          can't be used.
+          database(s) will be shown to the user. Since phpMyAdmin 2.2.1,
+          this/these database(s) name(s) may contain MySQL wilcards
+          characters ("_" and "%"): if you want to use literal instances
+          of these characters, escape them (ie use 'my\_db' and not
+          'my_db').
+          This setting is an efficient way to lower the server charge
+          since the latter does not need to send MySQL requests to build
+          the available database list. But it does not replace the
+          privileges rules of the MySQL database server. If set, it just
+          means only these databases will be displayed but not at all
+          other databases can't be used.
           
    $cfgServers[n]['verbose'] string
           Only useful when using phpMyAdmin with multiple server entries.
@@ -235,8 +252,9 @@ Configuration
                    PRIMARY KEY (id)
                  );
           + then complete the two variables $cfgServers[n]['bookmarkdb']
-            and $cfgServers[n]['bookmarktable'] so phpMyAdmin will be
-            able to find the bookmark table.
+            and $cfgServers[n]['bookmarktable'] with the database and
+            table names you've choosen so phpMyAdmin will be able to find
+            the bookmarks.
             
           Note that stduser must have SELECT, INSERT and DELETE
           privileges on the bookmark table. Here is a query to set up
@@ -259,6 +277,12 @@ Configuration
    $cfgPersistentConnections boolean
           Whether persistent connections should be used or not
           (mysql_connect or mysql_pconnect).
+          
+   $cfgExecTimeLimit integer [number of seconds]
+          Set the number of seconds a script is allowed to run. If
+          seconds is set to zero, no time limit is imposed.
+          This setting is used while importing/exporting dump files but
+          has no effect when PHP is running in safe mode.
           
    $cfgSkipLockedTables boolean
           Mark used tables and make it possible to show databases with
@@ -283,6 +307,17 @@ Configuration
           Defines whether to display table comment as tooltip in left
           frame or not.
           
+   $cfgShowMysqlInfo boolean
+          $cfgShowMysqlVars boolean
+          $cfgShowPhpInfo boolean
+          Defines whether to display the "MySQL runtime information",
+          "MySQL system variables" and "PHP information" links or not for
+          simple users at the starting main (right) frame. This setting
+          does not check MySQL commands entered directly.
+          Please note that to block the usage of phpinfo() in scripts,
+          you have to put this in your php.ini:
+          disable_functions = phpinfo()
+          
    $cfgShowStats boolean
           Defines whether to display space usage and statistics about
           databases and tables or not.
@@ -293,6 +328,10 @@ Configuration
    $cfgShowBlob boolean
           Defines whether BLOB fields are shown when browsing a table's
           content or not.
+          
+   $cfgNavigationBarIconic boolean
+          Defines whether navigation bar buttons contain text or symbols
+          only.
           
    $cfgShowAll boolean
           Defines whether an user should be displayed a "show all
@@ -337,8 +376,8 @@ Configuration
           Force: always use this language (must be defined in the
           select_lang.inc.php3 script).
           
-   $cfgLeftBgColor string [HTML color] $cfgRightBgColor string [HTML
-          color]
+   $cfgLeftBgColor string [HTML color]
+          $cfgRightBgColor string [HTML color]
           The background colors (HTML) used for both the frames.
           
    $cfgBorder integer
@@ -352,6 +391,10 @@ Configuration
           
    $cfgBgcolorTwo string [HTML color]
           The color (HTML) #2 for table rows.
+          
+   $cfgPointerColor string [HTML color]
+          The color (HTML) used for the pointer in browse mode (does not
+          work with NS4).
           
    $cfgTextareaCols integer
           $cfgTextareaRows integer
@@ -384,129 +427,43 @@ Configuration
           need to edit this.
    ______________________________________________________________________
    
-   [40]Top  -  [41]Requirements  -  [42]Introduction  -  [43]Installation
-    -  [44]Configuration  -  [45]FAQ  -  [46]Developers  -  [47]Credits
+   [41]Top  -  [42]Requirements  -  [43]Introduction  -  [44]Installation
+    -  [45]Configuration  -  [46]FAQ  -  [47]Developers  -  [48]Credits
    ______________________________________________________________________
    
 FAQ - Frequently Asked Questions
 
+  [Server]
+  
    I'm running php 4+ and my server is crashing each time a specific
-   action is required or phpMyAdmin send a blank page to my browser, what
-   can I do?
-   There is some known php bugs with output buffering and compression.
+   action is required or phpMyAdmin sends a blank page or a page full of
+   cryptic characters to my browser, what can I do?
+   There are some known php bugs with output buffering and compression.
    Try to set the $cfgOBGzip directive to FALSE in your config.inc.php or
    .php3 file and the zlib.output_compression directive to Off in your
    php configuration file.
    
-   The error message "Warning: Cannot add header information - headers
-   already sent by ..." is displayed, what's the problem?
-   Edit your config.inc.php or .php3 file and ensure there is nothing (ie
-   no blank lines, no spaces, no characters...) neither before the <?php
-   tag at the beginning, neither after the ?> tag at the end.
+   My Apache server crashes when using phpMyAdmin.
+   You should first try the latest versions of Apache (and possibly
+   MySQL).
+   See also the other FAQ entry about php bugs with output buffering.
+   If your server keeps crashing, please ask for help in the various
+   Apache support groups.
    
-   I can't insert new rows into a table - MySQL brings up a SQL-error.
-   Examine the SQL error with care. I've found that many programmers
-   specifying a wrong field-type.
-   Common errors include:
-     * Using VARCHAR without a size argument
-     * Using TEXT or BLOB with a size argument
-       
-   Also, look at the syntax chapter in the MySQL manual to confirm that
-   your syntax is correct.
+   Using phpMyAdmin on IIS, I'm displayed the error message: "The
+   specified CGI application misbehaved by not returning a complete set
+   of HTTP headers...."
+   You just forgot to read the install.txt file from the php
+   distribution. Have a look at the last message in this [49]bug report
+   from the official php bug database.
    
-   phpMyAdmin can't connect to MySQL. What's wrong?
-   Either there is an error with your PHP setup or your username/password
-   is wrong. Try to make a small script which uses mysql_connect and see
-   if it works. If it doesn't, it may be you haven't even compiled MySQL
-   support into PHP.
+   Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages
+   with the advanced authentication mode.
+   This is a known problem with the php ISAPI filter: it's not so stable.
+   For some more information and complete testings see the messages
+   posted by "djdeluxe76" in [50]this thread from the phpWizard forum.
    
-   The error message "Warning: MySQL Connection Failed: Can't connect to
-   local MySQL server through socket '/tmp/mysql.sock' (111)...") is
-   displayed. What can I do?
-   Here is a fix suggested by Brad Ummer in the [48]phpwizard forum:
-     * First, you need to determine what socket is being used by MySQL.
-       To do this, telnet to your server and go to the MySQL bin
-       directory. In this directory there should be a file named
-       mysqladmin. Type ./mysqladmin variables, and this should give you
-       a bunch of info about your MySQL server, including the socket
-       (/tmp/mysql.sock, for example).
-     * Then, you need to tell PHP to use this socket.
-       Assuming you are using PHP 3.0.10 or better, you can specify the
-       socket to use when you open the connection. To do this in
-       phpMyAdmin, you need to complete the socket information in the
-       config.inc.php3.
-       For example: $cfgServers[n]['socket'] = '/tmp/mysql.sock';
-       
-   Have also a look at the [49]corresponding section of the MySQL
-   documentation.
-   
-   phpMyAdmin always gives "Access denied" when using advanced
-   authentication.
-   This could happen for several reasons:
-     * $cfgServers[n]['stduser'] and/or $cfgServers[n]['stdpass'] are
-       wrong.
-     * The username/password you specify in the login-dialog are invalid.
-     * You have already setup a security mechanism for the
-       phpMyAdmin-directory, eg. a .htaccess file. This would interfere
-       with phpMyAdmin's authentication, so remove it.
-       
-   When using advanced authentication, an user who logged out can not
-   relogs in with the same nick.
-   This is related to the authentication mechanism (protocol) used by
-   phpMyAdmin. We plan to change it as soon as we may find enough free
-   time to do it, but you can bypass this problem: just close all the
-   opened browser windows and then go back to phpMyAdmin. You should be
-   able to logs in again.
-   
-   I would like to help out with the development of phpMyAdmin. How
-   should I proceed?
-   The following method is preferred for new developers:
-     * fetch the current CVS tree over anonymous CVS:
-       cvs
-       -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmy
-       admin login
-       [Password: simply press the Enter key]
-       cvs -z3
-       -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmy
-       admin checkout phpMyAdmin
-       [This will create a new sub-directory named phpMyAdmin]
-     * add your stuff
-     * put the modified files (tar'ed and gzip'ed) inside the patch
-       tracker of the [50]phpMyAdmin SourceForge account.
-       
-   Write access to the CVS tree is granted only to experienced developers
-   who have already contributed something useful to phpMyAdmin.
-   Also, have a look at the [51]Developers section.
-   
-   What's the preferred way of making phpMyAdmin secure against evil
-   access?
-   This depends on your system.
-   If you're running a server which cannot be accessed by other people,
-   it's sufficient to use the directory protection bundled with your
-   webserver (with Apache you can use .htaccess files, for example).
-   If other people have telnet access to your server, you should use
-   phpMyAdmin's advanced authentication feature.
-   Suggestions:
-     * Your config.inc.php3 file should be chmod 660.
-     * All your phpMyAdmin files should be chown phpmy.apache, where
-       phpmy is a user whose password is only known to you, and apache is
-       the group under which Apache runs.
-     * You should use PHP safe mode, to protect from other users that try
-       to include your config.inc.php3 in their scripts.
-       
-   How can I insert a null value into my table?
-   Enter "null", without the quotes, as the field's value. This is
-   especially useful for Timestamp or AutoIncrement fields.
-   
-   I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
-   install it for each customer?
-   Since version 2.0.3, you can setup a central copy of phpMyAdmin for
-   all your users. The development of this feature was kindly sponsored
-   by NetCologne GmbH. This requires a properly setup MySQL user
-   management and phpMyAdmin advanced authentication. See the install
-   section on "Using advanced authentication"
-   
-   How can I GZip or Bzip a dump or a CSV export. It seem to not work?
+   How can I GZip or Bzip a dump or a CSV export. It seems to not work?
    These features are based on the gzencode() and bzcompress() php
    functions to be more independent of the platform (Unix/Windows, Safe
    Mode or not, and so on). So, you must have PHP4 >= 4.0.4 and
@@ -531,21 +488,109 @@ FAQ - Frequently Asked Questions
    7.0 and you updated your php rpm to php-4.0.4pl1-3.i386.rpm, didn't
    you?
    So the problem is that this package has a serious bug that was
-   corrected ages ago in php (2001-01-28: see [52]php's bug tracking
+   corrected ages ago in php (2001-01-28: see [51]php's bug tracking
    system for more details). The problem is that the bugged package is
-   still available though it was corrected (see [53]redhat's bugzilla for
+   still available though it was corrected (see [52]redhat's bugzilla for
    more details).
-   So please download [54]the fixed package and the problem should go
+   So please download [53]the fixed package and the problem should go
    away.
    And that fixes the \r\n problem with file uploads!
    
-   When I create a table, I click the Index checkbox for 2 fields and
-   phpMyAdmin generates only one index with those 2 fields.
-   In phpMyAdmin 2.2.0, this is the way to create a multi-fields index.
-   If you want two indexes, create the first one when creating the table,
-   save, then display the table properties and click the Index link to
-   create the other index.
+   I'm having troubles when uploading files with phpMyAdmin running on a
+   secure server. My browser is Internet Explorer and I'm using the
+   Apache server.
+   As suggested by "Rob M" in the phpWizard forum, add this line to your
+   httpd.conf:
+       SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
+   It seems to clear up many problems between IE and SSL.
    
+  [Configuration]
+  
+   The error message "Warning: Cannot add header information - headers
+   already sent by ..." is displayed, what's the problem?
+   Edit your config.inc.php or .php3 file and ensure there is nothing (ie
+   no blank lines, no spaces, no characters...) neither before the <?php
+   tag at the beginning, neither after the ?> tag at the end.
+   
+   phpMyAdmin can't connect to MySQL. What's wrong?
+   Either there is an error with your PHP setup or your username/password
+   is wrong. Try to make a small script which uses mysql_connect and see
+   if it works. If it doesn't, it may be you haven't even compiled MySQL
+   support into PHP.
+   
+   The error message "Warning: MySQL Connection Failed: Can't connect to
+   local MySQL server through socket '/tmp/mysql.sock' (111)...") is
+   displayed. What can I do?
+   Here is a fix suggested by Brad Ummer in the [54]phpwizard forum:
+     * First, you need to determine what socket is being used by MySQL.
+       To do this, telnet to your server and go to the MySQL bin
+       directory. In this directory there should be a file named
+       mysqladmin. Type ./mysqladmin variables, and this should give you
+       a bunch of info about your MySQL server, including the socket
+       (/tmp/mysql.sock, for example).
+     * Then, you need to tell PHP to use this socket.
+       Assuming you are using PHP 3.0.10 or better, you can specify the
+       socket to use when you open the connection. To do this in
+       phpMyAdmin, you need to complete the socket information in the
+       config.inc.php3.
+       For example: $cfgServers[n]['socket'] = '/tmp/mysql.sock';
+       
+   Have also a look at the [55]corresponding section of the MySQL
+   documentation.
+   
+  [Known limitations]
+  
+   When using advanced authentication, an user who logged out can not
+   relogs in with the same nick.
+   This is related to the authentication mechanism (protocol) used by
+   phpMyAdmin. We plan to change it as soon as we may find enough free
+   time to do it, but you can bypass this problem: just close all the
+   opened browser windows and then go back to phpMyAdmin. You should be
+   able to logs in again.
+   
+  [ISPs]
+  
+   I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
+   install it for each customer?
+   Since version 2.0.3, you can setup a central copy of phpMyAdmin for
+   all your users. The development of this feature was kindly sponsored
+   by NetCologne GmbH. This requires a properly setup MySQL user
+   management and phpMyAdmin advanced authentication. See the install
+   section on "Using advanced authentication"
+   
+   What's the preferred way of making phpMyAdmin secure against evil
+   access?
+   This depends on your system.
+   If you're running a server which cannot be accessed by other people,
+   it's sufficient to use the directory protection bundled with your
+   webserver (with Apache you can use .htaccess files, for example).
+   If other people have telnet access to your server, you should use
+   phpMyAdmin's advanced authentication feature.
+   Suggestions:
+     * Your config.inc.php3 file should be chmod 660.
+     * All your phpMyAdmin files should be chown phpmy.apache, where
+       phpmy is a user whose password is only known to you, and apache is
+       the group under which Apache runs.
+     * You should use PHP safe mode, to protect from other users that try
+       to include your config.inc.php3 in their scripts.
+       
+   I get errors about not being able to include a file in /lang
+   Check php.ini, or ask your sysadmin to check it. The include_path must
+   contain "." somewhere in it, and open_basedir, if used, must contain
+   "." and "./lang" to allow normal operation of phpMyAdmin.
+   
+   phpMyAdmin always gives "Access denied" when using advanced
+   authentication.
+   This could happen for several reasons:
+     * $cfgServers[n]['stduser'] and/or $cfgServers[n]['stdpass'] are
+       wrong.
+     * The username/password you specify in the login-dialog are invalid.
+     * You have already setup a security mechanism for the
+       phpMyAdmin-directory, eg. a .htaccess file. This would interfere
+       with phpMyAdmin's authentication, so remove it.
+       
+  [Browsers or client OS]
+  
    I get an out of memory error, and my controls are non-functional, when
    trying to create a table with more than 14 fields.
    We could reproduce this problem only under Win98/98SE. Testing under
@@ -553,23 +598,78 @@ FAQ - Frequently Asked Questions
    A workaround is to create a smaller number of fields, then come back
    to your table properties and add the other fields.
    
-   I get errors about not being able to include a file in /lang
-   Check php.ini, or ask your sysadmin to check it. The include_path must
-   contain "." somewhere in it, and open_basedir, if used, must contain
-   "." and "./lang" to allow normal operation of phpMyAdmin.
+   With Xitami 2.5b4, phpMyAdmin won't process form fields
+   This is not a phpMyAdmin problem but a Xitami known bug: you'll face
+   it with each script/website that use forms.
+   Upgrade or downgrade your Xitami server.
    
+  [Using phpMyAdmin]
+  
+   I can't insert new rows into a table - MySQL brings up a SQL-error.
+   Examine the SQL error with care. I've found that many programmers
+   specifying a wrong field-type.
+   Common errors include:
+     * Using VARCHAR without a size argument
+     * Using TEXT or BLOB with a size argument
+       
+   Also, look at the syntax chapter in the MySQL manual to confirm that
+   your syntax is correct.
+   
+   When I create a table, I click the Index checkbox for 2 fields and
+   phpMyAdmin generates only one index with those 2 fields.
+   In phpMyAdmin 2.2.0 and 2.2.1, this is the way to create a
+   multi-fields index. If you want two indexes, create the first one when
+   creating the table, save, then display the table properties and click
+   the Index link to create the other index.
+   
+   How can I insert a null value into my table?
+   Enter "null", without the quotes, as the field's value. This is
+   especially useful for Timestamp or AutoIncrement fields.
+   
+  [phpMyAdmin project]
+  
    I have found a bug. How do I inform developers?
    Our Bug Tracker is located at
-   [55]http://sourceforge.net/projects/phpmyadmin/ under the Bugs
+   [56]http://sourceforge.net/projects/phpmyadmin/ under the Bugs
    section.
    But please first discuss your bug with other users:
-   [56]http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
-   [57]http://www.phpwizard.net/projects/phpMyAdmin/ (and choose Support
+   [57]http://sourceforge.net/projects/phpmyadmin/ (and choose Forums)
+   [58]http://www.phpwizard.net/projects/phpMyAdmin/ (and choose Support
    Forum)
+   
+   I want to translate the messages to a new language or upgrade an
+   existing language, where do I start?
+   Always use the current cvs version of your language file. For a new
+   language, start from english.inc.php3. If you don't know how to get
+   the cvs version, please ask one of the developers. It would be a good
+   idea to subscribe to the phpmyadmin-translators discussion list,
+   because this is where we ask for translations of new messages. You can
+   then send your translations to the sourceforge.net translation
+   tracker.
+   
+   I would like to help out with the development of phpMyAdmin. How
+   should I proceed?
+   The following method is preferred for new developers:
+     * fetch the current CVS tree over anonymous CVS:
+       cvs
+       -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmy
+       admin login
+       [Password: simply press the Enter key]
+       cvs -z3
+       -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmy
+       admin checkout phpMyAdmin
+       [This will create a new sub-directory named phpMyAdmin]
+     * add your stuff
+     * put the modified files (tar'ed and gzip'ed) inside the patch
+       tracker of the [59]phpMyAdmin SourceForge account.
+       
+   Write access to the CVS tree is granted only to experienced developers
+   who have already contributed something useful to phpMyAdmin.
+   Also, have a look at the [60]Developers section.
    ______________________________________________________________________
    
-   [58]Top  -  [59]Requirements  -  [60]Introduction  -  [61]Installation
-    -  [62]Configuration  -  [63]FAQ  -  [64]Developers  -  [65]Credits
+   [61]Top  -  [62]Requirements  -  [63]Introduction  -  [64]Installation
+    -  [65]Configuration  -  [66]FAQ  -  [67]Developers  -  [68]Credits
    ______________________________________________________________________
    
 Developers Information
@@ -591,7 +691,7 @@ Developers Information
        please try to keep your code as simple as possible: beginners are
        using phpMyAdmin as an example application.
        By the way, we're currently updating all the scripts so they will
-       be XHTML1.0 and CSS2 compliant on one hand, they will fit [66]PEAR
+       be XHTML1.0 and CSS2 compliant on one hand, they will fit [69]PEAR
        coding standards on the other hand. Please pay attention to this.
      * Please try to keep up the file-naming conventions. Table-related
        stuff goes to tbl_*.php3, db-related code to db_*.php3 and so on.
@@ -614,7 +714,7 @@ Developers Information
      * add your stuff
      * put the modified files (tar'ed and gzip'ed) inside the patch
        tracker of the phpMyAdmin SourceForge account
-       ([67]http://sourceforge.net/projects/phpmyadmin/)
+       ([70]http://sourceforge.net/projects/phpmyadmin/)
        
    Write access to the CVS tree is granted only to developers who have
    already contributed something useful to phpMyAdmin. If you're
@@ -622,8 +722,8 @@ Developers Information
    mailing list.
    ______________________________________________________________________
    
-   [68]Top  -  [69]Requirements  -  [70]Introduction  -  [71]Installation
-    -  [72]Configuration  -  [73]FAQ  -  [74]Developers  -  [75]Credits
+   [71]Top  -  [72]Requirements  -  [73]Introduction  -  [74]Installation
+    -  [75]Configuration  -  [76]FAQ  -  [77]Developers  -  [78]Credits
    ______________________________________________________________________
    
 Credits
@@ -689,8 +789,7 @@ CREDITS, in chronological order
 
 The following people have contributed minor changes, enhancements, bugfixes or
 or support for a new language since version 2.1.0:
-Bora Alioglu, Ricardo ?, Sven-Erik Andersen, Alessandro Astarita, Borges Botelh
-o,
+Bora Alioglu, Ricardo ?, Sven-Erik Andersen, Alessandro Astarita, Borges Botelho,
 Olivier Bussier, Michal Cihar, Neil Darlow, Kristof Hamann, Thomas Kläger,
 Lubos Klokner, Martin Marconcini, Girish Nair, David Nordenberg,
 Bernard M. Piller, Laurent Haas, "Sakamoto", www.securereality.com.au,
@@ -739,11 +838,11 @@ Original Credits of Version 2.1.0
     and or just some feedback.
    ______________________________________________________________________
    
-   [76]Top  -  [77]Requirements  -  [78]Introduction  -  [79]Installation
-    -  [80]Configuration  -  [81]FAQ  -  [82]Developers  -  [83]Credits
+   [79]Top  -  [80]Requirements  -  [81]Introduction  -  [82]Installation
+    -  [83]Configuration  -  [84]FAQ  -  [85]Developers  -  [86]Credits
    ______________________________________________________________________
    
-                                [84]Valid XHTML 1.0!      [85]Valid CSS! 
+                                [87]Valid XHTML 1.0!      [88]Valid CSS! 
 
 References
 
@@ -786,49 +885,52 @@ References
   37. http://localhost/phpMyAdmin-devel/Documentation.html#faq
   38. http://localhost/phpMyAdmin-devel/Documentation.html#developers
   39. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  40. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  41. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  42. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  43. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  44. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  45. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  46. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  47. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  48. http://www.phpwizard.net/phorum/list.php?f=1
-  49. http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html
-  50. https://sourceforge.net/projects/phpmyadmin/
-  51. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  52. http://www.php.net/bugs.php?id=8966
-  53. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
-  54. http://people.redhat.com/nalin/test/php-4.0.4pl1-7.i386.rpm
-  55. http://sourceforge.net/projects/phpmyadmin/
+  40. http://localhost/phpMyAdmin-devel/Documentation.html#setup
+  41. http://localhost/phpMyAdmin-devel/Documentation.html#top
+  42. http://localhost/phpMyAdmin-devel/Documentation.html#require
+  43. http://localhost/phpMyAdmin-devel/Documentation.html#intro
+  44. http://localhost/phpMyAdmin-devel/Documentation.html#setup
+  45. http://localhost/phpMyAdmin-devel/Documentation.html#config
+  46. http://localhost/phpMyAdmin-devel/Documentation.html#faq
+  47. http://localhost/phpMyAdmin-devel/Documentation.html#developers
+  48. http://localhost/phpMyAdmin-devel/Documentation.html#credits
+  49. http://bugs.php.net/bug.php?id=12061
+  50. http://www.phpwizard.net/phorum/read.php?f=1&i=6624&t=6300
+  51. http://www.php.net/bugs.php?id=8966
+  52. http://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=24933
+  53. http://people.redhat.com/nalin/test/php-4.0.4pl1-7.i386.rpm
+  54. http://www.phpwizard.net/phorum/list.php?f=1
+  55. http://www.mysql.com/doc/C/a/Can_not_connect_to_server.html
   56. http://sourceforge.net/projects/phpmyadmin/
-  57. http://www.phpwizard.net/projects/phpMyAdmin/
-  58. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  59. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  60. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  61. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  62. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  63. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  64. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  65. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  66. http://pear.php.net/
-  67. http://sourceforge.net/projects/phpmyadmin/
-  68. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  69. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  70. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  71. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  72. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  73. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  74. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  75. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  76. http://localhost/phpMyAdmin-devel/Documentation.html#top
-  77. http://localhost/phpMyAdmin-devel/Documentation.html#require
-  78. http://localhost/phpMyAdmin-devel/Documentation.html#intro
-  79. http://localhost/phpMyAdmin-devel/Documentation.html#setup
-  80. http://localhost/phpMyAdmin-devel/Documentation.html#config
-  81. http://localhost/phpMyAdmin-devel/Documentation.html#faq
-  82. http://localhost/phpMyAdmin-devel/Documentation.html#developers
-  83. http://localhost/phpMyAdmin-devel/Documentation.html#credits
-  84. http://validator.w3.org/check/referer
-  85. http://jigsaw.w3.org/css-validator/
+  57. http://sourceforge.net/projects/phpmyadmin/
+  58. http://www.phpwizard.net/projects/phpMyAdmin/
+  59. https://sourceforge.net/projects/phpmyadmin/
+  60. http://localhost/phpMyAdmin-devel/Documentation.html#developers
+  61. http://localhost/phpMyAdmin-devel/Documentation.html#top
+  62. http://localhost/phpMyAdmin-devel/Documentation.html#require
+  63. http://localhost/phpMyAdmin-devel/Documentation.html#intro
+  64. http://localhost/phpMyAdmin-devel/Documentation.html#setup
+  65. http://localhost/phpMyAdmin-devel/Documentation.html#config
+  66. http://localhost/phpMyAdmin-devel/Documentation.html#faq
+  67. http://localhost/phpMyAdmin-devel/Documentation.html#developers
+  68. http://localhost/phpMyAdmin-devel/Documentation.html#credits
+  69. http://pear.php.net/
+  70. http://sourceforge.net/projects/phpmyadmin/
+  71. http://localhost/phpMyAdmin-devel/Documentation.html#top
+  72. http://localhost/phpMyAdmin-devel/Documentation.html#require
+  73. http://localhost/phpMyAdmin-devel/Documentation.html#intro
+  74. http://localhost/phpMyAdmin-devel/Documentation.html#setup
+  75. http://localhost/phpMyAdmin-devel/Documentation.html#config
+  76. http://localhost/phpMyAdmin-devel/Documentation.html#faq
+  77. http://localhost/phpMyAdmin-devel/Documentation.html#developers
+  78. http://localhost/phpMyAdmin-devel/Documentation.html#credits
+  79. http://localhost/phpMyAdmin-devel/Documentation.html#top
+  80. http://localhost/phpMyAdmin-devel/Documentation.html#require
+  81. http://localhost/phpMyAdmin-devel/Documentation.html#intro
+  82. http://localhost/phpMyAdmin-devel/Documentation.html#setup
+  83. http://localhost/phpMyAdmin-devel/Documentation.html#config
+  84. http://localhost/phpMyAdmin-devel/Documentation.html#faq
+  85. http://localhost/phpMyAdmin-devel/Documentation.html#developers
+  86. http://localhost/phpMyAdmin-devel/Documentation.html#credits
+  87. http://validator.w3.org/check/referer
+  88. http://jigsaw.w3.org/css-validator/
