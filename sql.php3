@@ -146,6 +146,7 @@ else {
             <input type="hidden" name="fields[dbase]" value="<?php echo $db;?>">
             <input type="hidden" name="fields[query]" value="<?php echo isset($sql_query) ? $sql_query : "";?>">
             <input type="text" name="fields[label]" value="">
+            <input type="hidden" name="sql_query" value="">
             <input type="submit" value="<?php echo $strBookmarkThis; ?>">
             </form>
             <?php

@@ -5,17 +5,20 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-06  Armel Fauveau   <armel.fauveau@globalis-ms.com>
+	* patch bookmark section in sql.php3 (bug #430628)
+
 2001-06-05  Marc Delisle  <lem9@users.sourceforge.net>
-        * tbl_properties, tbl_printview: quote Comment field
+	* tbl_properties, tbl_printview: quote Comment field
 	* bug 430288: bad parsing of from | FROM
 	* tbl_properties.php3 reorganization
 	* bug when the RunQuery box is empty, fix from Sakamoto
 
 2001-06-04  Marc Delisle  <lem9@users.sourceforge.net>
-        * tbl_change, tbl_replace: SaveAsNewRow
+	* tbl_change, tbl_replace: SaveAsNewRow
 
 2001-06-03  Marc Delisle  <lem9@users.sourceforge.net>
-        * lib.inc.php3 select_db commented out
+	* lib.inc.php3 select_db commented out
 
 2001-06-02  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_details.lib.php3: fixed some typos, warnings and little bugs
