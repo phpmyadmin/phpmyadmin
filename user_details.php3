@@ -12,11 +12,11 @@ function check_operations()
 
     <div align=left>
     <ul>
-    <li><a href="<? echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><? echo $strBack; ?></a></li>
+    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><?php echo $strBack; ?></a></li>
     </ul>
     </div>
 
-    <?
+    <?php
 }
 
 function check_db($dbcheck)
@@ -58,7 +58,7 @@ function normal_operations()
 
         if (f.anyhost[0].checked) {
            if (f.host.value == "") {
-               alert("<? echo $strHostEmpty; ?>");
+               alert("<?php echo $strHostEmpty; ?>");
                return;
               }
            sql += "host = '" + f.host.value + "'";
@@ -66,7 +66,7 @@ function normal_operations()
 
         if (f.anyuser[0].checked) {
            if (f.user.value == "") {
-               alert("<? echo $strUserEmpty; ?>");
+               alert("<?php echo $strUserEmpty; ?>");
                return;
               }
            sql += ", user = '" + f.user.value + "'";
@@ -74,12 +74,12 @@ function normal_operations()
 
         if (f.nopass[0].checked) {
            if (f.pw.value == "") {
-               alert("<? echo $strPasswordEmpty; ?>");
+               alert("<?php echo $strPasswordEmpty; ?>");
                return;
               }
 
            if (f.pw.value != f.pw2.value) {
-               alert("<? echo $strPasswordNotSame; ?>");
+               alert("<?php echo $strPasswordNotSame; ?>");
                return;
               }
               sql += ", password = PASSWORD('" + f.pw.value + "')";
@@ -89,9 +89,9 @@ function normal_operations()
 
         url  = "sql.php3";
         url += "?sql_query=" + escape(sql);
-        url += "&zero_rows=" + escape("<? echo "$strAddUserMessage<br>$strRememberReload"; ?>");
-        url += "<? echo "&server=$server&lang=$lang&db=mysql&table=user"; ?>";
-        url += "&goto=<? echo $self; ?>";
+        url += "&zero_rows=" + escape("<?php echo "$strAddUserMessage<br>$strRememberReload"; ?>");
+        url += "<?php echo "&server=$server&lang=$lang&db=mysql&table=user"; ?>";
+        url += "&goto=<?php echo $self; ?>";
 
         location.href = url;
     }
@@ -102,12 +102,12 @@ function normal_operations()
     <div align=left>
     <ul>
 
-    <li><a href="<? echo "$self?server=$server&lang=$lang&db=mysql&table=user&mode=reload"; ?>"><?php echo $strReloadMySQL; ?></a> <?php print show_docu("manual_Reference.html#Flush"); ?></li>
+    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user&mode=reload"; ?>"><?php echo $strReloadMySQL; ?></a> <?php print show_docu("manual_Reference.html#Flush"); ?></li>
 
-    <li><form name=userForm method="POST" action="<? echo $self; ?>"><? echo $strCheckDbPriv; ?>
+    <li><form name=userForm method="POST" action="<?php echo $self; ?>"><?php echo $strCheckDbPriv; ?>
     <table with="100%"><tr>
-    <td><? echo $strDatabase; ?>:&nbsp;<select name="db">
-<?
+    <td><?php echo $strDatabase; ?>:&nbsp;<select name="db">
+<?php
     $result = mysql_query("SHOW DATABASES");
     if (@mysql_num_rows($result))
         while ($row = mysql_fetch_row($result))
@@ -115,44 +115,44 @@ function normal_operations()
 ?>
     </select></td>
     </tr></table>
-    <input type="hidden" name="server" value="<? echo $server; ?>">
-    <input type="hidden" name="lang" value="<? echo $lang; ?>">
+    <input type="hidden" name="server" value="<?php echo $server; ?>">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>">
     <input type="hidden" name="check" value="1">
-    <input type="submit" value="<? echo $strGo; ?>">
+    <input type="submit" value="<?php echo $strGo; ?>">
     </form>
     </li>
 
-    <li><form name=userForm onsubmit ="return false"><? echo $strAddUser; ?>
+    <li><form name=userForm onsubmit ="return false"><?php echo $strAddUser; ?>
     <table>
     <tr>
     <td><input type="radio" name="anyhost">
-    <? echo $strHost; ?>: <input type="text" name="host" size=10 onchange="javascript:anyhost[0].checked = true"></td>
-    <td>&nbsp;</td><td><input type="radio" name="anyhost" checked><? echo $strAnyHost; ?></td>
+    <?php echo $strHost; ?>: <input type="text" name="host" size=10 onchange="javascript:anyhost[0].checked = true"></td>
+    <td>&nbsp;</td><td><input type="radio" name="anyhost" checked><?php echo $strAnyHost; ?></td>
     </tr>
     </table>
     <table>
     <tr>
     <td><input type="radio" name="anyuser" checked>
-    <? echo $strUserName; ?>: <input type="text" name="user" size=10 onchange="javascript:anyuser[0].checked = true"></td>
-    <td>&nbsp;</td><td><input type="radio" name="anyuser"><? echo $strAnyUser; ?></td>
+    <?php echo $strUserName; ?>: <input type="text" name="user" size=10 onchange="javascript:anyuser[0].checked = true"></td>
+    <td>&nbsp;</td><td><input type="radio" name="anyuser"><?php echo $strAnyUser; ?></td>
     </tr>
     </table>
     <table>
     <tr>
     <td><input type="radio" name="nopass" checked>
-    <? echo $strPassword; ?>: <input type="password" name="pw" size=10 onchange="javascript:nopass[0].checked = true"></td>
-    <td><? echo $strReType; ?>: <input type="password" name="pw2" size=10 onchange="javascript:nopass[0].checked = true"></td>
+    <?php echo $strPassword; ?>: <input type="password" name="pw" size=10 onchange="javascript:nopass[0].checked = true"></td>
+    <td><?php echo $strReType; ?>: <input type="password" name="pw2" size=10 onchange="javascript:nopass[0].checked = true"></td>
     <td>&nbsp;</td>
-    <td><input type="radio" name="nopass"><? echo $strNoPassword; ?></td></tr>
-    <tr><td><br><? echo $strPrivileges; ?>:<br></td></tr>
+    <td><input type="radio" name="nopass"><?php echo $strNoPassword; ?></td></tr>
+    <tr><td><br><?php echo $strPrivileges; ?>:<br></td></tr>
     </table>
-    <? table_privileges("userForm") ?>
-    <input type="button" value="<? echo $strGo; ?>" onclick="addUser(document.userForm)"></p>
+    <?php table_privileges("userForm") ?>
+    <input type="button" value="<?php echo $strGo; ?>" onclick="addUser(document.userForm)"></p>
     </form>
     </li>
     </ul>
     </div>
-    <?
+    <?php
 }
 
 function grant_operations()
@@ -193,20 +193,20 @@ function grant_operations()
         if (f.anydb[1].checked) {
 
             if (db == "") {
-               alert("<? echo $strDbEmpty; ?>");
+               alert("<?php echo $strDbEmpty; ?>");
                return;
             }
 
             if (f.anytable[1].checked) {
 
                if (table == "") {
-                  alert("<? echo $strTableEmpty; ?>");
+                  alert("<?php echo $strTableEmpty; ?>");
                   return;
                }
 
                if (f.anycolumn[1].checked) {
                   if (column == "") {
-                     alert("<? echo $strColumnEmpty; ?>");
+                     alert("<?php echo $strColumnEmpty; ?>");
                      return;
                   }
                   column = " (" + column + ")";
@@ -219,14 +219,14 @@ function grant_operations()
 
         sql = "GRANT " + privGrantToString(f) + "" + column;
         sql += " ON " + db + "." + table
-        sql += " TO '" + "<? echo $user; ?>" + "'@'" + "<? echo $host ?>'"
+        sql += " TO '" + "<?php echo $user; ?>" + "'@'" + "<?php echo $host ?>'"
         if (f.Grant_priv.checked) sql += " with grant option";
 
         url  = "sql.php3";
         url += "?sql_query=" + escape(sql);
-        url += "&zero_rows=" + escape("<? echo $strAddPrivMessage; ?>");
-        url += "<? echo "&server=$server&lang=$lang"; ?>&db=mysql";
-        url += "&goto=<? echo $self; ?>";
+        url += "&zero_rows=" + escape("<?php echo $strAddPrivMessage; ?>");
+        url += "<?php echo "&server=$server&lang=$lang"; ?>&db=mysql";
+        url += "&goto=<?php echo $self; ?>";
 
         location.href = url;
     }
@@ -249,15 +249,15 @@ function grant_operations()
     <div align=left>
     <ul>
 
-    <li><a href="<? echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><? echo $strBack; ?></a></li>
+    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><?php echo $strBack; ?></a></li>
 
-    <li><form name=userForm onsubmit ="return false"><? echo $strAddPriv; ?>
+    <li><form name=userForm onsubmit ="return false"><?php echo $strAddPriv; ?>
     <table with="100%"><tr>
-    <td><input type="radio" name="anydb"<? echo ($dbgrant) ? "": " checked"; ?>><? echo $strAnyDatabase; ?></td>
+    <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? "": " checked"; ?>><?php echo $strAnyDatabase; ?></td>
     <td>&nbsp;</td>
-    <td><input type="radio" name="anydb"<? echo ($dbgrant) ? " checked":""; ?>><? echo $strDatabase; ?>:&nbsp;
+    <td><input type="radio" name="anydb"<?php echo ($dbgrant) ? " checked":""; ?>><?php echo $strDatabase; ?>:&nbsp;
     <select name="database" onchange="javascript:change(userForm.database, 'dbgrant')">
-<?
+<?php
     if (!isset($dbgrant)) echo "<option selected></option>";
     $result = mysql_query("SHOW DATABASES");
     if (@mysql_num_rows($result))
@@ -270,12 +270,12 @@ function grant_operations()
     </tr></table>
 
     <table with="100%"><tr>
-    <td><input type="radio" name="anytable"<? echo ($tablegrant) ? "":" checked"; ?>><? echo $strAnyTable; ?></td>
+    <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? "":" checked"; ?>><?php echo $strAnyTable; ?></td>
     <td>&nbsp;</td>
-    <td><input type="radio" name="anytable"<? echo ($tablegrant) ? " checked":""; ?>><? echo $strTable; ?>:&nbsp;
+    <td><input type="radio" name="anytable"<?php echo ($tablegrant) ? " checked":""; ?>><?php echo $strTable; ?>:&nbsp;
     <select name="table" onchange="javascript:change(userForm.table, 'tablegrant')"
     >
-<?
+<?php
     if (isset($dbgrant)) {
         if (!isset($tablegrant)) echo "<option selected></option>";
         $result = mysql_query("SHOW TABLES from $dbgrant");
@@ -290,12 +290,12 @@ function grant_operations()
     </tr></table>
 
     <table with="100%"><tr>
-    <td VALIGN=TOP><input type="radio" name="anycolumn" checked><? echo $strAnyColumn; ?></td>
+    <td VALIGN=TOP><input type="radio" name="anycolumn" checked><?php echo $strAnyColumn; ?></td>
     <td>&nbsp;</td>
-    <td VALIGN=TOP><input type="radio" name="anycolumn"><? echo $strColumn; ?>:</td>
+    <td VALIGN=TOP><input type="radio" name="anycolumn"><?php echo $strColumn; ?>:</td>
     <td>
     <select name="column" onchange="javascript:anycolumn[1].checked = true" multiple>
-<?
+<?php
 
     if (isset($dbgrant) && isset($tablegrant)) {
        $result = mysql_query("SHOW COLUMNS FROM $dbgrant.$tablegrant");
@@ -309,13 +309,13 @@ function grant_operations()
     </tr></table>
 
     <table><tr><td><br><?php echo $strPrivileges; ?>:<br></td></tr></table>
-    <? table_privileges("userForm") ?>
-    <input type="button" value="<? echo $strGo; ?>" onclick="addGrant(userForm)"></p>
+    <?php table_privileges("userForm") ?>
+    <input type="button" value="<?php echo $strGo; ?>" onclick="addGrant(userForm)"></p>
     </form>
     </li>
     </ul>
     </div>
-    <?
+    <?php
 }
 
 function table_grants_header($dbcheck = false) {
@@ -415,25 +415,25 @@ function table_grants($host, $user, $dbcheck = false)
 
         <tr bgcolor="<?php echo $bgcolor;?>">
 
-        <? if (!$dbcheck) { ?>
-        <td><a <? echo ($priv != "") ? "href = \"$revoke_url\"": ""; ?>><? echo $strRevokePriv; ?></a></td>
-        <td><a <? echo ($grantopt) ? "href = \"$revoke_grant_url\"": ""; ?>><? echo $strRevokeGrant; ?></a></td>
-        <? } else { ?>
-        <td><a <? echo ($priv != "") ? "href = \"$revoke_url\"": ""; ?>><? echo $strRevoke; ?></a></td>
+        <?php if (!$dbcheck) { ?>
+        <td><a <?php echo ($priv != "") ? "href = \"$revoke_url\"": ""; ?>><?php echo $strRevokePriv; ?></a></td>
+        <td><a <?php echo ($grantopt) ? "href = \"$revoke_grant_url\"": ""; ?>><?php echo $strRevokeGrant; ?></a></td>
+        <?php } else { ?>
+        <td><a <?php echo ($priv != "") ? "href = \"$revoke_url\"": ""; ?>><?php echo $strRevoke; ?></a></td>
         <td><?php echo $host; ?></td>
         <td><?php echo ($user) ? $user : "<font color=\"#FF0000\">$strAny</font>"; ?></td>
-        <? } ?>
+        <?php } ?>
 
         <td><?php echo ($db == "*") ? "<font color=\"#002E80\">$strAll</font>" : $db; ?></td>
         <td><?php echo ($table == "*") ? "<font color=\"#002E80\">$strAll</font>" : $table; ?></td>
         <td><?php echo ($priv != "") ? $priv : "<font color=\"#002E80\">$strNoPrivileges</font>"; ?></td>
-        <? if (!$dbcheck) { ?>
+        <?php if (!$dbcheck) { ?>
         <td><?php echo ($grantopt) ? "$strYes" : "$strNo"; ?></td>
-        <? } ?>
+        <?php } ?>
         <!-- <td><?php echo $row[0] ?></td> <!-- Debug -->
         </tr>
 
-        <?
+        <?php
         $i++;
     }
 
@@ -492,7 +492,7 @@ function table_privileges($form, $row = false)
     //-->
     </script>
     <table>
-    <?
+    <?php
     $list_priv = array("Select", "Insert", "Update", "Delete", "Create", "Drop", "Reload",
 		       "Shutdown", "Process", "File", "Grant", "References", "Index", "Alter");
 
@@ -511,10 +511,10 @@ function table_privileges($form, $row = false)
     ?>
     </table>
     <table>
-    <tr><td><a href="javascript:checkForm(document.<? echo $form; ?>, true)"><? echo $strCheckAll; ?></a></td>
-    <td>&nbsp;</td><td><a href="javascript:checkForm(document.<? echo $form; ?>, false)"><? echo $strUncheckAll; ?></a></td></tr>
+    <tr><td><a href="javascript:checkForm(document.<?php echo $form; ?>, true)"><?php echo $strCheckAll; ?></a></td>
+    <td>&nbsp;</td><td><a href="javascript:checkForm(document.<?php echo $form; ?>, false)"><?php echo $strUncheckAll; ?></a></td></tr>
     </table>
-    <?
+    <?php
 }
 
 function edit_operations($host, $user)
@@ -553,32 +553,32 @@ function edit_operations($host, $user)
         var url;
 
         sql += privToString(f);
-        sql += " WHERE user = '<? echo $user; ?>' and host = '<? echo $host; ?>'";
+        sql += " WHERE user = '<?php echo $user; ?>' and host = '<?php echo $host; ?>'";
 
         url  = "sql.php3";
         url += "?sql_query=" + escape(sql);
-        url += "&zero_rows=" + escape("<? echo $strUpdatePrivMessage; ?> <font color=#002E80><? echo "$user@$host"; ?></font><br><? echo $strRememberReload; ?>");
-        url += "<? echo "&server=$server&lang=$lang&db=mysql&table=user"; ?>";
-        url += "&goto=<? echo $self; ?>";
+        url += "&zero_rows=" + escape("<?php echo $strUpdatePrivMessage; ?> <font color=#002E80><?php echo "$user@$host"; ?></font><br><?php echo $strRememberReload; ?>");
+        url += "<?php echo "&server=$server&lang=$lang&db=mysql&table=user"; ?>";
+        url += "&goto=<?php echo $self; ?>";
         location.href = url;
     }
 
     function changePassword(f) {
         if (f.pw.value == "") {
-            alert("<? echo $strPasswordEmpty; ?>");
+            alert("<?php echo $strPasswordEmpty; ?>");
             return;
            }
 
         if (f.pw.value != f.pw2.value) {
-            alert("<? echo $strPasswordNotSame ?>");
+            alert("<?php echo $strPasswordNotSame ?>");
             return;
            }
 
         url  = "sql.php3";
-        url += "?sql_query=" + escape("UPDATE user SET password = PASSWORD('" + f.pw.value + "') WHERE user = '<? echo $user; ?>' and host = '<? echo $host; ?>'");
-        url += "&zero_rows=" + escape("<? echo $strUpdatePassMessage; ?> <font color=#002E80><? echo "$user@$host"; ?></font><br><? echo $strRememberReload; ?>");
-        url += "<? echo "&server=$server&lang=$lang&db=mysql&table=user"; ?>";
-        url += "&goto=<? echo $self; ?>";
+        url += "?sql_query=" + escape("UPDATE user SET password = PASSWORD('" + f.pw.value + "') WHERE user = '<?php echo $user; ?>' and host = '<?php echo $host; ?>'");
+        url += "&zero_rows=" + escape("<?php echo $strUpdatePassMessage; ?> <font color=#002E80><?php echo "$user@$host"; ?></font><br><?php echo $strRememberReload; ?>");
+        url += "<?php echo "&server=$server&lang=$lang&db=mysql&table=user"; ?>";
+        url += "&goto=<?php echo $self; ?>";
         location.href = url;
     }
     //-->
@@ -587,30 +587,30 @@ function edit_operations($host, $user)
     <div align=left>
     <ul>
 
-    <li><a href="<? echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><? echo $strBack; ?></a></li>
+    <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><?php echo $strBack; ?></a></li>
 
-    <?      if ($row{"Password"} != "") { ?>
-    <li><td><a href="<? echo $del_url; ?>"><? echo $strDeletePassword; ?></a></td></li>
-    <? } ?>
+    <?php      if ($row{"Password"} != "") { ?>
+    <li><td><a href="<?php echo $del_url; ?>"><?php echo $strDeletePassword; ?></a></td></li>
+    <?php } ?>
 
-    <li><form name=passForm onsubmit ="return false"><? echo $strUpdatePassword; ?>
+    <li><form name=passForm onsubmit ="return false"><?php echo $strUpdatePassword; ?>
     <table>
-    <tr><td><? echo $strPassword; ?>: <input type="password" name="pw" size=10></td>
+    <tr><td><?php echo $strPassword; ?>: <input type="password" name="pw" size=10></td>
     <td>&nbsp;</td>
     <td><?echo $strReType; ?>: <input type="password" name="pw2" size=10></td></tr>
     </table>
-    <input type="button" value="<? echo $strGo; ?>" onclick="changePassword(document.passForm)"></p>
+    <input type="button" value="<?php echo $strGo; ?>" onclick="changePassword(document.passForm)"></p>
     </form></li>
 
-    <li><form name=privForm onsubmit ="return false"><? echo $strEditPrivileges; ?>
-    <? table_privileges("privForm", $row); ?>
-    <input type="button" value="<? echo $strGo; ?>" onclick="changePrivileges(document.privForm)"></p>
+    <li><form name=privForm onsubmit ="return false"><?php echo $strEditPrivileges; ?>
+    <?php table_privileges("privForm", $row); ?>
+    <input type="button" value="<?php echo $strGo; ?>" onclick="changePrivileges(document.privForm)"></p>
     </form>
     </li>
     </ul>
     </div>
 
-    <?
+    <?php
 }
 
 function check_rights()
@@ -705,17 +705,17 @@ function table_users($host = false, $user = false)
         ?>
 
         <tr bgcolor="<?php echo $bgcolor;?>">
-        <td><a href="<? echo $edit_url; ?>"><? echo $strEdit; ?></a></td>
-        <td><a href="<? echo $delete_url; ?>"><? echo $strDelete; ?></a></td>
-        <td><a href="<? echo $check_url; ?>"><? echo $strGrants; ?></a></td>
-<!--        <td><a <? if ($check_url != "") echo "href = \"" . $check_url . "\""; ?>>Grants</a></td> -->
+        <td><a href="<?php echo $edit_url; ?>"><?php echo $strEdit; ?></a></td>
+        <td><a href="<?php echo $delete_url; ?>"><?php echo $strDelete; ?></a></td>
+        <td><a href="<?php echo $check_url; ?>"><?php echo $strGrants; ?></a></td>
+<!--        <td><a <?php if ($check_url != "") echo "href = \"" . $check_url . "\""; ?>>Grants</a></td> -->
         <td><?php echo $row{"Host"}; ?></td>
         <td><?php echo $row{"User"} ? "<b>" . $row{"User"}. "</b>" : "<font color=\"#FF0000\">$strAny</font>"; ?></td>
         <td><?php echo $row{"Password"} ? $strYes : "<font color=\"#FF0000\">$strNo</font>"; ?></td>
         <td><?php echo $strPriv; ?></td>
         </tr>
 
-        <?
+        <?php
         $i++;
     }
 
@@ -733,7 +733,7 @@ function confirm() {
     <!--
 
     function clickNo() {
-       location = "<? echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>";
+       location = "<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>";
     }
 
     function clickYes() {
@@ -743,14 +743,14 @@ function confirm() {
     // -->
     </script>
 
-    <? echo $strConfirm; ?>
+    <?php echo $strConfirm; ?>
 
     <form action="javascript:return false;">
-    <input type="button" name="btnDrop" value="<? echo $strYes; ?>" onclick="javascript:clickYes();">
-    <input type="button" name="btnDrop" value="<? echo $strNo; ?>" onclick="javascript:clickNo();">
+    <input type="button" name="btnDrop" value="<?php echo $strYes; ?>" onclick="javascript:clickYes();">
+    <input type="button" name="btnDrop" value="<?php echo $strNo; ?>" onclick="javascript:clickNo();">
     </form>
 
-<?
+<?php
 }
 
 # Main Program
@@ -826,4 +826,5 @@ if (isset($edit) && $edit) { # Edit an user
 }
 
 require("./footer.inc.php3");
+
 ?>
