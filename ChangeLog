@@ -11,6 +11,9 @@ $Source$
 	  recommended by the w3c, lots of browsers (even IE6.0!) seems not to like
 	  it so much.
 	* Documentation.txt: updated.
+	* common.lib.php3, lines 675 & 687-689: changed font size for IE6 (because
+	  the xml declaration has been cleaned up).
+	* main.php3, lines 149 & 462: cosmetic changes. 
 	* lang/czech-*.inc.php3: fixed an other typo, thanks to Michal Cihar.
 
 2001-10-18  Loïc Chapeaux  <lolo@phpheaven.net>
