@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-29  Olivier Müller  <om@omnis.ch>
+	* left.php3: on login with std_auth, only the databases on which
+	  the user has rights will be shown (tested with @mysql_select_db($dbname)).
+
 2001-08-29  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/romanian.inc.php3 updates, thanks to Valics Lehel
 	* Documentation.html, added a FAQ about "too many fields"

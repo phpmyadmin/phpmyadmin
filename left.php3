@@ -24,7 +24,7 @@ if ($server > 0) {
     if ($num_dbs) {
         $true_dblist           = array();
         for ($i = 0; $i < $num_dbs; $i++) {
-//            $dblink = @mysql_select_db(backquote($dblist[$i]));
+            // $dblink = @mysql_select_db(backquote($dblist[$i]));
             $dblink = @mysql_select_db($dblist[$i]);
             if ($dblink) {
                 $true_dblist[] = $dblist[$i];
@@ -39,9 +39,16 @@ if ($server > 0) {
     else {
         $dbs     = mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', FALSE, FALSE);
         $num_dbs = @mysql_num_rows($dbs);
+        $real_num_dbs = 0;
         for ($i = 0; $i < $num_dbs; $i++) {
-            $dblist[] = mysql_dbname($dbs, $i);
+            $db_name_tmp = mysql_dbname($dbs, $i);
+            $dblink = @mysql_select_db($db_name_tmp);
+            if ($dblink) {
+                $dblist[] = $db_name_tmp;
+                $real_num_dbs++;
+            }
         } // end for
+        $num_dbs = $real_num_dbs; 
     } // end else
 } else {
     $num_dbs = 0;
