@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-25 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-utf8.inc.php3: Synchronization.
+
 2002-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/georgian-utf-8 updates, thanks to Kakha Mchedlidze
     * lang/ukrainian-win1251 updates, thanks to Markijan Baran
