@@ -438,15 +438,19 @@ function PMA_getComments($db, $table = '') {
         }
 
         // pmadb internal column comments
-        $com_qry      = 'SELECT column_name, comment FROM ' . PMA_backquote($cfgRelation['db']) . '.' .PMA_backquote($cfgRelation['column_info']);
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
-            $com_qry .= ' WHERE CONVERT(db_name    USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($db) . '\''
-                      . ' AND   CONVERT(table_name USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($table) . '\'';
-        } else {
-            $com_qry .= ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
-                      . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+        // (this function can be called even if $cfgRelation['commwork'] is
+        // FALSE, to get native column comments, so recheck here)
+        if ($cfgRelation['commwork']) {
+            $com_qry      = 'SELECT column_name, comment FROM ' . PMA_backquote($cfgRelation['db']) . '.' .PMA_backquote($cfgRelation['column_info']);
+            if (PMA_MYSQL_INT_VERSION >= 40100) {
+                $com_qry .= ' WHERE CONVERT(db_name    USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($db) . '\''
+                          . ' AND   CONVERT(table_name USING ' . $charset_connection . ') = \'' . PMA_sqlAddslashes($table) . '\'';
+            } else {
+                $com_qry .= ' WHERE db_name    = \'' . PMA_sqlAddslashes($db) . '\''
+                          . ' AND   table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+            }
+            $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
         }
-        $com_rs   = PMA_query_as_cu($com_qry, TRUE, PMA_DBI_QUERY_STORE);
     } else {
         // pmadb internal db comments
         $com_qry      = 'SELECT ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['column_info']);
@@ -535,7 +539,6 @@ function PMA_handleSlashes($val) {
  */
 function PMA_setComment($db, $table, $col, $comment, $removekey = '', $mode='auto') {
     global $cfgRelation, $charset_connection;
-
 
     if ($mode=='auto') {
         if (PMA_MYSQL_INT_VERSION >= 40100) {

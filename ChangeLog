@@ -7,6 +7,7 @@ $Source$
 
 2005-03-09 Marc Delisle  <lem9@users.sourceforge.net>
     * db_operations.php: db comments updating broken
+    * libraries/relation.lib.php: bug #1159415, data dictionary broken
 
 2005-03-08 Michael Keck  <mkkeck@users.sourceforge.net>
     * themes/*/img/bd_insrow.png, themes/*/bd_insrow.png: Added disabled
