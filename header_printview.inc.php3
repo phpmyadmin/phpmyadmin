@@ -48,6 +48,7 @@ if ($text_dir == 'ltr') {
 
 <head>
 <title><?php echo $strSQLResult; ?> - phpMyAdmin <?php echo PMA_VERSION ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
 <style type="text/css">
 <!--
 body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #ffffff}

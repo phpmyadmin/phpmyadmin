@@ -49,6 +49,7 @@ header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
 <head>
 <title>phpMyAdmin <?php echo PMA_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
 <style type="text/css">
 <!--
 body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}

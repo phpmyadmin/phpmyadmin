@@ -95,6 +95,7 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
 
 <head>
 <title><?php echo $GLOBALS['strAccessDenied']; ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
 <style type="text/css">
 <!--
 body     {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}

@@ -93,6 +93,7 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
 
 <head>
 <title>phpMyAdmin <?php echo PMA_VERSION; ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
 <base href="<?php echo $cfg['PmaAbsoluteUri']; ?>" />
 <style type="text/css">
 <!--
