@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2003-11-24 Garvin Hicking <phpmyadminismyaeroplane@supergarv.de>
+2003-11-25 Garvin Hicking <phpmyadminismyaeroplane@supergarv.de>
     * db_details_qbe.php, left.php, main.php, pdf_pages.php, server_collations.php,
       tbl_change.php, tbl_indexes.php, tbl_move_copy.php, tbl_relation.php,
       tbl_replace.php, libraries/common.lib.php, libraries/db_config.lib.php,
@@ -15,7 +15,15 @@ $Source$
       Reverted some obfuscated regular expressions to their working eregi-versions
       to not break stuff. Removed unneccessary reset() calls, replaced some more
       while(list()) constructs.
+    * libraries/transformations/overview.php, libraries/transformations/global.inc.php,
+      libraries/common.lib.php, libraries/display_tbl.lib.php,
+      libraries/transformations.lib.php3, user_password.php, tbl_change.php, sql.php,
+      ldi_check.php, tbl_properties.inc.php, db_details_importdocsql.php:
 
+      - When stored transformations have '.php3' ending, automagically assume '.php' now.
+      - Use 's' RegEx Pattern modifier for certain situations where '.' should also include
+        linebreaks.
+      
 2003-11-24 Alexander M. Turek  <bloodsugarsexmagik@derrabus.de>
     * lang/german-*.inc.php: Updates.
     * lang/english-*.inc.php: Sortation.

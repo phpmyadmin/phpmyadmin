@@ -220,7 +220,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo "\n";
 
     $row_table_def   = PMA_mysql_fetch_array($table_def);
-    $row_table_def['True_Type'] = preg_replace('@\(.*@', '', $row_table_def['Type']);
+    $row_table_def['True_Type'] = preg_replace('@\(.*@s', '', $row_table_def['Type']);
     
     $field           = $row_table_def['Field'];
 
@@ -266,7 +266,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // The type column
     $is_binary                  = stristr($row_table_def['Type'], ' binary');
     $is_blob                    = stristr($row_table_def['Type'], 'blob');
-    $is_char                    = stristr($row_table_def['Type'], 'car');
+    $is_char                    = stristr($row_table_def['Type'], 'char');
     switch ($row_table_def['True_Type']) {
         case 'set':
             $type         = 'set';

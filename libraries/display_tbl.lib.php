@@ -460,22 +460,22 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             // Defines the url used to append/modify a sorting order
             // Nijel: This was originally done inside loop below, but I see
             //        no reason to do this for each column.
-            if (preg_match('@(.*)([[:space:]]ORDER[[:space:]]*BY[[:space:]](.*))@i', $sql_query, $regs1)) {
-                if (preg_match('@((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)@i', $regs1[2], $regs2)) {
+            if (preg_match('@(.*)([[:space:]]ORDER[[:space:]]*BY[[:space:]](.*))@si', $sql_query, $regs1)) {
+                if (preg_match('@((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)@si', $regs1[2], $regs2)) {
                     $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
                     $sql_order          = trim($regs2[1]);
-                    preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@i',$sql_order,$after_order);
+                    preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@si',$sql_order,$after_order);
                     $sort_expression = trim($after_order[2]);
                 }
-                else if (preg_match('@((.*))[[:space:]]+(LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)@i', $regs1[2], $regs3)) {
+                else if (preg_match('@((.*))[[:space:]]+(LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)@si', $regs1[2], $regs3)) {
                     $unsorted_sql_query = trim($regs1[1] . ' ' . $regs3[3]);
                     $sql_order          = trim($regs3[1]) . ' ASC';
-                    preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@i',$sql_order,$after_order);
+                    preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@si',$sql_order,$after_order);
                     $sort_expression = trim($after_order[2]);
                 } else {
                     $unsorted_sql_query = trim($regs1[1]);
                     $sql_order          = trim($regs1[2]) . ' ASC';
-                    preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@i',$sql_order,$after_order);
+                    preg_match('@(ORDER[[:space:]]*BY[[:space:]]*)(.*)([[:space:]]*ASC|[[:space:]]*DESC)@si',$sql_order,$after_order);
                     $sort_expression = trim($after_order[2]);
                 }
             } else {
@@ -1237,10 +1237,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 if ($GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 
                     if (isset($GLOBALS['mime_map'][$meta->name]['mimetype']) && isset($GLOBALS['mime_map'][$meta->name]['transformation']) && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])) {
-                        // garvin: for security, never allow to break out from transformations directory
-                        $include_file = preg_replace('@\.\.*@', '.', $GLOBALS['mime_map'][$meta->name]['transformation']);
+                        $include_file = PMA_sanitizeTransformationFile($GLOBALS['mime_map'][$meta->name]['transformation']);
+                        
                         if (file_exists('./libraries/transformations/' . $include_file)) {
-                            $transformfunction_name = str_replace('.inc.php', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
+                            $transformfunction_name = preg_replace('@(\.inc\.php3?)$@i', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
 
                             include('./libraries/transformations/' . $include_file);
 

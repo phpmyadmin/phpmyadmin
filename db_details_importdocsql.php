@@ -47,7 +47,7 @@ if (isset($cfg['docSQLDir']) && !empty($cfg['docSQLDir'])) {
     global $GLOBALS;
 
         if (preg_match('@^(.*)_field_comment\.(txt|zip|bz2|bzip).*$@i', $filename)) {
-            $tab = preg_replace('@^(.*)_field_comment\.(txt|zip|bz2|bzip).*@i', '\1', $filename);
+            $tab = preg_replace('@^(.*)_field_comment\.(txt|zip|bz2|bzip).*@si', '\1', $filename);
             //echo '<h1>Working on Table ' . $_tab . '</h1>';
             if ($content == 'none') {
                 $lines = array();

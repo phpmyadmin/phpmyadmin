@@ -62,7 +62,7 @@ foreach($types['mimetype'] AS $key => $mimetype) {
 $i = 0;
 foreach($types['transformation'] AS $key => $transform) {
     $i++;
-    $func = strtolower(str_replace('.inc.php', '', $types['transformation_file'][$key]));
+    $func = strtolower(preg_replace('@(\.inc\.php3?)$@i', '', $types['transformation_file'][$key]));
     $desc = 'strTransformation_' . $func;
 ?>
     <tr bgcolor="<?php echo ($i % 2 ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']); ?>">

@@ -49,9 +49,9 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
             @ksort($filestack);
             foreach($filestack AS $key => $file) {
 
-                if (preg_match('|^.*__.*\.inc\.php$|', trim($file))) {
+                if (preg_match('|^.*__.*\.inc\.php(3?)$|', trim($file), $match)) {
                     // File contains transformation functions.
-                    $base = explode('__', str_replace('.inc.php', '', $file));
+                    $base = explode('__', str_replace('.inc.php' . $match[1], '', $file));
 
                     $mimetype = str_replace('_', '/', $base[0]);
                     $stack['mimetype'][$mimetype] = $mimetype;
@@ -59,9 +59,9 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
                     $stack['transformation'][] = $mimetype . ': ' . $base[1];
                     $stack['transformation_file'][] = $file;
 
-                } else if (preg_match('|^.*\.inc\.php$|', trim($file))) {
+                } else if (preg_match('|^.*\.inc\.php(3?)$|', trim($file), $match)) {
                     // File is a plain mimetype, no functions.
-                    $base = str_replace('.inc.php', '', $file);
+                    $base = str_replace('.inc.php' . $match[1], '', $file);
 
                     if ($base != 'global') {
                         $mimetype = str_replace('_', '/', $base);
@@ -177,5 +177,29 @@ if (!defined('PMA_TRANSFORMATION_LIB_INCLUDED')){
             return false;
         }
     } // end of 'PMA_setMIME()' function
+    
+    /**
+    * Returns the real filename of a configured transformation
+    *
+    * @param   string   the current filename
+    *
+    * @return  string   the new filename
+    *
+    * @access  public
+    */
+    function PMA_sanitizeTransformationFile(&$filename) {
+        // garvin: for security, never allow to break out from transformations directory
+        
+        $include_file = preg_replace('@\.\.*@', '.', $filename);
+
+        // This value can also contain a 'php3' value, in which case we map this filename to our new 'php' variant
+        $testfile = preg_replace('@\.inc\.php3$@', '.inc.php', $include_file);
+        if ($include_file{strlen($include_file)-1} == '3' && file_exists('./libraries/transformations/' . $testfile)) {
+            $include_file = $testfile;
+            $filename     = $testfile; // Corrects the referenced variable for further actions on the filename;
+        }
+        
+        return $include_file;
+    } // end of 'PMA_sanitizeTransformationFile()' function
 } // $__PMA_TRANSFORMATION_LIB__
 ?>

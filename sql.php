@@ -14,7 +14,7 @@ require('./libraries/common.lib.php');
  */
 // Security checkings
 if (!empty($goto)) {
-    $is_gotofile     = preg_replace('@^([^?]+).*$@', '\\1', $goto);
+    $is_gotofile     = preg_replace('@^([^?]+).*$@s', '\\1', $goto);
     if (!@file_exists('./' . $is_gotofile)) {
         unset($goto);
     } else {

@@ -1799,8 +1799,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 } // end while
 
                 if (stristr($message, '<img')) {
-                    $link_or_button     .= '            <input type="image" src="' . preg_replace('@^.*src="(.*)".*$@i', '\1', $message) . '" value="'
-                                        . htmlspecialchars(preg_replace('@^.*alt="(.*)".*$@i', '\1', $message)) . '" />' . "\n" . '</form>' . "\n";
+                    $link_or_button     .= '            <input type="image" src="' . preg_replace('@^.*src="(.*)".*$@si', '\1', $message) . '" value="'
+                                        . htmlspecialchars(preg_replace('@^.*alt="(.*)".*$@si', '\1', $message)) . '" />' . "\n" . '</form>' . "\n";
                 } else {
                     $link_or_button     .= '            <input type="submit" value="'
                                         . htmlspecialchars($message) . '" />' . "\n" . '</form>' . "\n";
