@@ -1,6 +1,6 @@
 <?php
 /* $Id$ */
-// Peter Bakondy <bakondyp@freeamil.hu>
+// Peter Bakondy <bakondyp@freemail.hu>
 
 $charset = 'iso-8859-2';
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
