@@ -174,7 +174,6 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         $set = str_replace('enum(', '', $row_table_def['Type']);
         $set = ereg_replace('\\)$', '', $set);
         $set = explode('\',\'', substr($set, 1, -1));
-
         // show dropdown or radio depend on length
         if (strlen($row_table_def['Type']) > 20) {
             ?>
@@ -207,11 +206,12 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
             for ($j = 0; $j < count($set); $j++) {
                 echo '            ';
                 echo '<input type="radio" name="fields[' . urlencode($field) . ']" ';
-                echo 'value="' . substr($set[$j], 1, -1) . '"';
-                if ($data == substr($set[$j], 1, -1)
+                //echo 'value="' . substr($set[$j], 1, -1) . '"';
+                echo 'value="' . $set[$j] . '"';
+                if ($data == $set[$j]
                     || ($data == ''
                         && isset($row_table_def['Default'])
-                        && substr($set[$j], 1, -1) == $row_table_def['Default']
+                        && $set[$j] == $row_table_def['Default']
                         && $row_table_def['Null'] != 'YES')) {
                     // To be able to display a checkmark in the [Null] box when
                     // the field is null, we lose the ability to display a
@@ -220,7 +220,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
                     $seenchecked =1;
                 }
                 echo ' />' . "\n";
-                echo '            ' . htmlspecialchars(substr($set[$j], 1, -1)) . "\n";
+                echo '            ' . htmlspecialchars($set[$j]) . "\n";
             } // end for
 
             if ($row_table_def['Null'] == 'YES') {
