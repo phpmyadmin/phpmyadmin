@@ -222,7 +222,7 @@ foreach ($loop_array AS $vrowcount => $vrow) {
 
     if ($insert_mode) {
         $jsvkey = $vrowcount;
-        $browse_foreigners_uri = '';
+        $browse_foreigners_uri = '&amp;pk=' . $vrowcount;
     } else {
         $jsvkey = urlencode($primary_keys[$vrowcount]);
         $browse_foreigners_uri = '&amp;pk=' . urlencode($primary_keys[$vrowcount]);

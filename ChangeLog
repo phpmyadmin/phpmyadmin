@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php: bug 981793, cross-window update message when inserting
+      a record and fetching a value from the browse foreigners window,
+      thanks to Michael Keck
+
 2004-07-08 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_qbe.php: undefined offset and undefined variable
 
