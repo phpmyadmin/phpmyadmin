@@ -459,30 +459,29 @@ if (!defined('__LIB_COMMON__')){
                             while ($row = mysql_fetch_array($rs)) {
                                 // loic1: all databases cases - part 1
                                 if (empty($row['Db']) || $row['Db'] == '%') {
-                                    $uva_mydbs[md5('%')] = '%';
+                                    $uva_mydbs['%'] = 1;
                                     break;
                                 }
-                                // loic1: avoid multiple entries for dbs and
-                                //        ensure the key value is valid
-                                if (pmaIsInto($row['Db'], $dblist) == -1) {
-                                    $uva_mydbs[md5($row['Db'])] = $row['Db'];
+                                // loic1: avoid multiple entries for dbs
+                                if (!isset($uva_mydbs[$row['Db']])) {
+                                    $uva_mydbs[$row['Db']] = 1;
                                 }
                             }
                             mysql_free_result($rs);
                             $uva_alldbs = mysql_list_dbs();
                             // loic1: all databases cases - part 2
-                            if (isset($uva_mydbs[md5('%')])) {
+                            if (isset($uva_mydbs['%'])) {
                                 while ($uva_row = mysql_fetch_array($uva_alldbs)) {
                                     $dblist[] = $uva_row[0];
                                 } // end while
                             } // end if
                             else {
                                 while ($uva_row = mysql_fetch_array($uva_alldbs)) {
-                                    $uva_db_key = md5($uva_row[0]);
-                                    if (!empty($uva_mydbs[$uva_db_key])) {
-                                        $dblist[]               = $uva_row[0];
-                                        $uva_mydbs[$uva_db_key] = '';
-                                    } else {
+                                    $uva_db = $uva_row[0];
+                                    if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
+                                        $dblist[]           = $uva_db;
+                                        $uva_mydbs[$uva_db] = 0;
+                                    } else if (!isset($dblist[$uva_db])) {
                                         reset($uva_mydbs);
                                         while (list($uva_matchpattern, $uva_value) = each($uva_mydbs)) {
                                             // loic1: fixed bad regexp
@@ -490,15 +489,15 @@ if (!defined('__LIB_COMMON__')){
                                             //       characters that are regexp
                                             //       instructions
                                             $re        = '(^|(\\\\\\\\)+|[^\])';
-                                            $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_value));
+                                            $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
                                             // Fixed db name matching
                                             // 2000-08-28 -- Benjamin Gandon
-                                            if (ereg('^' . $uva_regex . '$', $uva_row[0])) {
-                                                $dblist[] = $uva_row[0];
+                                            if (ereg('^' . $uva_regex . '$', $uva_db)) {
+                                                $dblist[] = $uva_db;
                                                 break;
                                             }
                                         } // end while
-                                    } // end if ... else ....
+                                    } // end if ... else if ....
                                 } // end while
                             } // end else
                             mysql_free_result($uva_alldbs);
@@ -1008,8 +1007,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             $timestamp = time();
         }
 
-        $date = ereg_replace('%[aA]', $day_of_week[(int)strftime('%w',$timestamp)], $datefmt);
-        $date = ereg_replace('%[bB]', $month[(int)strftime('%m',$timestamp)-1], $date);
+        $date = ereg_replace('%[aA]', $day_of_week[(int)strftime('%w', $timestamp)], $datefmt);
+        $date = ereg_replace('%[bB]', $month[(int)strftime('%m', $timestamp)-1], $date);
 
         return strftime($date, $timestamp);
     } // end of the 'localised_date()' function
