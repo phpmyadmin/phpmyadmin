@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-12 Alexander M. Turek  <me@derrabus.de>
+    * db_search.php, tbl_select.php, libraries/database_interface.lib.php:
+      - bug #1033388 (Illegal mix of collations for converted strings),
+      - don't convert if column charset and connection charset match.
+
 2004-10-12 Michal Čihař  <michal@cihar.com>
     * sql.php: Don't try to require sql.php with parameters, rather redirect
       to it.

@@ -115,7 +115,7 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = NULL
 }
 
 function PMA_DBI_postConnect($link) {
-    global $collation_connection;
+    global $collation_connection, $charset_connection;
     if (!defined('PMA_MYSQL_INT_VERSION')) {
         $result = PMA_DBI_query('SELECT VERSION() AS version', $link, PMA_DBI_QUERY_STORE);
         if ($result != FALSE && @PMA_DBI_num_rows($result) > 0) {
@@ -167,7 +167,8 @@ function PMA_DBI_postConnect($link) {
         if (!empty($collation_connection)) {
             PMA_DBI_query('SET collation_connection = \'' . $collation_connection . '\';', $link, PMA_DBI_QUERY_STORE);
         }
-        $collation_connection = PMA_DBI_get_variable('collation_connection', PMA_DBI_GETVAR_SESSION, $link);
+        $collation_connection = PMA_DBI_get_variable('collation_connection',     PMA_DBI_GETVAR_SESSION, $link);
+	$charset_connection   = PMA_DBI_get_variable('character_set_connection', PMA_DBI_GETVAR_SESSION, $link);
 
         // Add some field types to the list
         // (we pass twice here; feel free to code something better :)

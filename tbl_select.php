@@ -49,6 +49,8 @@ if (!isset($param) || $param[0] == '') {
     // Gets the list and number of fields
     $result    = PMA_DBI_query('SHOW' . (PMA_MYSQL_INT_VERSION >= 40100 ? ' FULL' : '') . ' FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
     $fields_cnt        = PMA_DBI_num_rows($result);
+    // rabue: we'd better ensure, that all arrays are empty.
+    $fields_list = $fields_null = $fields_type = $fields_collation = array();
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $fields_list[] = $row['Field'];
         $type          = $row['Type'];
@@ -64,14 +66,9 @@ if (!isset($param) || $param[0] == '') {
         }
         $fields_null[] = $row['Null'];
         $fields_type[] = $type;
-        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($row['Collation']) && $row['Collation'] != 'NULL') {
-            $fields_collation[] = $row['Collation'];
-            $tmp_charset = explode('_', $row['Collation']);
-            $fields_charset[]   = $tmp_charset[0];
-            unset($tmp_charset);
-        } else {
-            $fields_collation[] = $fields_charset[] = '';
-        }
+        $fields_collation[] = PMA_MYSQL_INT_VERSION >= 40100 && !empty($row['Collation']) && $row['Collation'] != 'NULL'
+                          ? $row['Collation']
+                          : '';
     } // end while
     PMA_DBI_free_result($result);
     unset($result, $type);
@@ -297,7 +294,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
         ?>
                     <input type="hidden" name="names[<?php echo $i; ?>]" value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />
                     <input type="hidden" name="types[<?php echo $i; ?>]" value="<?php echo $fields_type[$i]; ?>" />
-                    <input type="hidden" name="charsets[<?php echo $i; ?>]" value="<?php echo $fields_charset[$i]; ?>" />
+		    <input type="hidden" name="collations[<?php echo $i; ?>]" value="<?php echo $fields_collation[$i]; ?>" />
                 </td>
             </tr>
         <?php
@@ -349,10 +346,13 @@ else {
     if (trim($where) != '') {
         $sql_query .= ' WHERE ' . $where;
     } else {
-        $w = array();
+        $w = $charsets = array();
         $cnt_func = count($func);
         reset($func);
         while (list($i, $func_type) = each($func)) {
+	    if (PMA_MYSQL_INT_VERSION >= 40100) {
+	        list($charsets[$i]) = explode('_', $collations[$i]);
+	    }
             if (@$GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) {
                 $fields[$i] = '';
                 $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type;
@@ -378,14 +378,14 @@ else {
                         $parens_close = '';
                     }
                     $enum_where = '\'' . PMA_sqlAddslashes($fields[$i][0]) . '\'';
-                    if (PMA_MYSQL_INT_VERSION >= 40100) {
-                        $enum_where = 'CONVERT(_utf8 ' . $enum_where . ' USING ' . $charsets[$i] . ')';
+                    if (PMA_MYSQL_INT_VERSION >= 40100 && $charsets[$i] != $charset_connection) {
+                        $enum_where = 'CONVERT(_utf8 ' . $enum_where . ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
                     }
                     for ($e = 1; $e < $enum_selected_count; $e++) {
                         $enum_where .= ', ';
                         $tmp_literal = '\'' . PMA_sqlAddslashes($fields[$i][$e]) . '\'';
-                        if (PMA_MYSQL_INT_VERSION >= 40100) {
-                            $tmp_literal = 'CONVERT(_utf8 ' . $tmp_literal . ' USING ' . $charsets[$i] . ')';
+                        if (PMA_MYSQL_INT_VERSION >= 40100 && $charsets[$i] != $charset_connection) {
+                            $tmp_literal = 'CONVERT(_utf8 ' . $tmp_literal . ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
                         }
                         $enum_where .= $tmp_literal;
                         unset($tmp_literal);
@@ -402,9 +402,9 @@ else {
                 }
 
                 // Make query independant from the selected connection charset.
-                if (PMA_MYSQL_INT_VERSION >= 40101 && preg_match('@char|binary|blob|text|set@i', $types[$i])) {
+                if (PMA_MYSQL_INT_VERSION >= 40101 && $charsets[$i] != $charset_connection && preg_match('@char|binary|blob|text|set@i', $types[$i])) {
                     $prefix = 'CONVERT(_utf8 ';
-                    $suffix = ' USING ' . $charsets[$i] . ')';
+                    $suffix = ' USING ' . $charsets[$i] . ') COLLATE ' . $collations[$i];
                 } else {
                     $prefix = $suffix = '';
                 }
