@@ -11,8 +11,8 @@ $Source$
 	* tbl_addfield.php3: removed an unecessary stripslashes call (line 68) and
 	  replaced some remaining tabs characters.
 	* tbl_alter.php3; tbl_addfield.php3; tbl_change.php3; tbl_replace.php3;
-	  tbl_properties.php3; tbl_properties.inc.php3: fixed some
-	  encoding/decoding bugs.
+	  tbl_properties.php3; tbl_properties.inc.php3; tbl_printview.php3: fixed
+	  some encoding/decoding bugs.
 	* left.php3; left.js: added a style for the number of tables per database.
 
 2001-08-16  Marc Delisle  <lem9@users.sourceforge.net>

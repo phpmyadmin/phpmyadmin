@@ -61,6 +61,8 @@ while ($row = mysql_fetch_array($result)) {
     $shorttype        = substr($type, 0, 3);
     if ($shorttype == 'set' || $shorttype == 'enu') {
         $type         = eregi_replace(',', ', ', $type);
+        // Removes automatic MySQL escape format
+        $type         = str_replace('\'\'', '\\\'', $type);
         $type_nowrap  = '';
     } else {
         $type_nowrap  = ' nowrap="nowrap"';
