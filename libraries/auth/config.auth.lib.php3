@@ -108,6 +108,7 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
 <br />
         <?php
         echo "\n";
+        $is_header_sent = TRUE;
         PMA_mysqlDie($conn_error, $local_query, FALSE);
 
         return TRUE;
