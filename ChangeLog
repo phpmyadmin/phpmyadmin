@@ -10,6 +10,8 @@ $Source$
     * lang/lithuanian: Updated, thanks to Vilius Zigmantas (viliusz).
     * lang/serbian: utf-8 translations contained no strings, regenerated.
     * lang/other: Added missing strings.
+    * libraries/display_tbl.lib.php3: Try to show sorting by indexes only if
+      it makes sense (bug #829594).
 
 2003-10-20 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/sql.php3: Fix undefined variable for MySQL < 3.23.20

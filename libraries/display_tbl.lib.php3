@@ -482,93 +482,97 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 $unsorted_sql_query     = $sql_query;
             }
 
-            // sorting by indexes
+            // sorting by indexes, only if it makes sense
+            if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
+                isset($analyzed_sql[0]['querytype']) && $analyzed_sql[0]['querytype'] == 'SELECT' &&
+                isset($analyzed_sql[0]['table_ref']) && count($analyzed_sql[0]['table_ref']) == 1) {
 
-            // grab indexes data:
-            $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
-            $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-            $idx_cnt     = mysql_num_rows($result);
+                // grab indexes data:
+                $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
+                $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+                $idx_cnt     = mysql_num_rows($result);
 
-            $prev_index = '';
-            for ($i = 0; $i < $idx_cnt; $i++) {
-                $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_mysql_fetch_array($result));
+                $prev_index = '';
+                for ($i = 0; $i < $idx_cnt; $i++) {
+                    $row = (defined('PMA_IDX_INCLUDED') ? $ret_keys[$i] : PMA_mysql_fetch_array($result));
 
-                if ($row['Key_name'] != $prev_index ){
-                    $indexes[]  = $row['Key_name'];
-                    $prev_index = $row['Key_name'];
-                }
-                $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-                $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
-                if (isset($row['Cardinality'])) {
-                    $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
-                }
-            //    I don't know what does following column mean....
-            //    $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-                $indexes_info[$row['Key_name']]['Comment']         = (isset($row['Comment']))
-                                                                   ? $row['Comment']
-                                                                   : '';
-                $indexes_info[$row['Key_name']]['Index_type']      = (isset($row['Index_type']))
-                                                                   ? $row['Index_type']
-                                                                   : '';
+                    if ($row['Key_name'] != $prev_index ){
+                        $indexes[]  = $row['Key_name'];
+                        $prev_index = $row['Key_name'];
+                    }
+                    $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
+                    $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
+                    if (isset($row['Cardinality'])) {
+                        $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
+                    }
+                //    I don't know what does following column mean....
+                //    $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
+                    $indexes_info[$row['Key_name']]['Comment']         = (isset($row['Comment']))
+                                                                       ? $row['Comment']
+                                                                       : '';
+                    $indexes_info[$row['Key_name']]['Index_type']      = (isset($row['Index_type']))
+                                                                       ? $row['Index_type']
+                                                                       : '';
 
-                $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
-                if (isset($row['Sub_part'])) {
-                    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
-                }
-            } // end while
+                    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
+                    if (isset($row['Sub_part'])) {
+                        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
+                    }
+                } // end while
 
-            // do we have any index?
-            if (isset($indexes_data)) {
+                // do we have any index?
+                if (isset($indexes_data)) {
 
-                if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
-                    $span = $fields_cnt;
-                } else {
-                    $span = $num_rows + floor($num_rows/$repeat_cells) + 1;
-                }
-                if ($is_display['edit_lnk'] != 'nn') $span++;
-                if ($is_display['del_lnk'] != 'nn') $span++;
-                    
-                ?>
+                    if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
+                        $span = $fields_cnt;
+                    } else {
+                        $span = $num_rows + floor($num_rows/$repeat_cells) + 1;
+                    }
+                    if ($is_display['edit_lnk'] != 'nn') $span++;
+                    if ($is_display['del_lnk'] != 'nn') $span++;
+                        
+                    ?>
 <tr>
     <td colspan="<?php echo $span; ?>" align="center">
-                <?php
-            echo '<form action="sql.php3" method="POST">' . "\n";
-            echo PMA_generate_common_hidden_inputs($db, $table, 5);
-            echo '<input type="hidden" name="pos" value="' . $pos .  '" />' . "\n";
-            echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
-            echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
-            echo '<input type="hidden" name="repeat_cells" value="' . $repeat_cells . '" />' . "\n";
-            echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
-            echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">&nbsp;';
-            $used_index = false;
-            $local_order = str_replace('  ', ' ', $sql_order);
-            while (list($key, $val) = each($indexes_data)) {
-                $asc_sort = 'ORDER BY ';
-                $desc_sort = 'ORDER BY ';
-                while (list($key2, $val2) = each($val)) {
-                    $asc_sort .= PMA_backquote($val2['Column_name']) . ' ASC , ';
-                    $desc_sort .= PMA_backquote($val2['Column_name']) . ' DESC , ';
+                    <?php
+                echo '<form action="sql.php3" method="POST">' . "\n";
+                echo PMA_generate_common_hidden_inputs($db, $table, 5);
+                echo '<input type="hidden" name="pos" value="' . $pos .  '" />' . "\n";
+                echo '<input type="hidden" name="session_max_rows" value="' . $session_max_rows . '" />' . "\n";
+                echo '<input type="hidden" name="disp_direction" value="' . $disp_direction . '" />' . "\n";
+                echo '<input type="hidden" name="repeat_cells" value="' . $repeat_cells . '" />' . "\n";
+                echo '<input type="hidden" name="dontlimitchars" value="' . $dontlimitchars . '" />' . "\n";
+                echo $GLOBALS['strSortByKey'] . ': <select name="sql_query">&nbsp;';
+                $used_index = false;
+                $local_order = str_replace('  ', ' ', $sql_order);
+                while (list($key, $val) = each($indexes_data)) {
+                    $asc_sort = 'ORDER BY ';
+                    $desc_sort = 'ORDER BY ';
+                    while (list($key2, $val2) = each($val)) {
+                        $asc_sort .= PMA_backquote($val2['Column_name']) . ' ASC , ';
+                        $desc_sort .= PMA_backquote($val2['Column_name']) . ' DESC , ';
+                    }
+                    $asc_sort = substr($asc_sort, 0, -3);
+                    $desc_sort = substr($desc_sort, 0, -3);
+                    $used_index = $used_index || $local_order == $asc_sort || $local_order == $desc_sort;
+                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $asc_sort) . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strAscending'] . ')</option>';
+                    echo "\n";
+                    echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $desc_sort) . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strDescending'] . ')</option>';
+                    echo "\n";
                 }
-                $asc_sort = substr($asc_sort, 0, -3);
-                $desc_sort = substr($desc_sort, 0, -3);
-                $used_index = $used_index || $local_order == $asc_sort || $local_order == $desc_sort;
-                echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $asc_sort) . '"' . ($local_order == $asc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strAscending'] . ')</option>';
+                echo '<option value="' . htmlspecialchars($unsorted_sql_query) . '"' . ($used_index ? '' : ' selected="selected"' ) . '>' . $GLOBALS['strNone'] . '</option>';
                 echo "\n";
-                echo '<option value="' . htmlspecialchars($unsorted_sql_query . ' ' . $desc_sort) . '"' . ($local_order == $desc_sort ? ' selected="selected"' : '') . '>' . htmlspecialchars($key) . ' (' . $GLOBALS['strDescending'] . ')</option>';
+                echo '</select>&nbsp;';
                 echo "\n";
-            }
-            echo '<option value="' . htmlspecialchars($unsorted_sql_query) . '"' . ($used_index ? '' : ' selected="selected"' ) . '>' . $GLOBALS['strNone'] . '</option>';
-            echo "\n";
-            echo '</select>&nbsp;';
-            echo "\n";
-            echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
-            echo "\n";
-            echo '</form>';
-            echo "\n";
-            ?>
+                echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
+                echo "\n";
+                echo '</form>';
+                echo "\n";
+                ?>
     </td>
 </tr>
-            <?php
+                <?php
+                }
             }
         }
 
