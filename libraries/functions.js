@@ -332,7 +332,9 @@ function setPointer(theRow, thePointerColor, theNormalBgColor)
     var rowCellsCnt  = theCells.length;
     var currentColor = null;
     var newColor     = null;
-    if (typeof(theCells[0].getAttribute) != 'undefined' && typeof(theCells[0].getAttribute) != 'undefined') {
+    // Opera does not return valid values with "getAttribute"
+    if (typeof(window.opera) == 'undefined'
+        && typeof(theCells[0].getAttribute) != 'undefined' && typeof(theCells[0].getAttribute) != 'undefined') {
         currentColor = theCells[0].getAttribute('bgcolor');
         newColor     = (currentColor.toLowerCase() == thePointerColor.toLowerCase())
                      ? theNormalBgColor
