@@ -273,6 +273,7 @@ $strRunSQLQuery = 'Suorita SQL-lauseita tietokannassa %s';
 
 $strSave = 'Tallenna';
 $strSelect = 'Hae';
+$strSelectAll = 'Valitse kaikki';
 $strSelectFields = 'Valitse sarakkeet (vähintään yksi):';
 $strSelectNumRows = 'lauseessa';
 $strSend = 'Tallenna tiedostoksi';
@@ -322,6 +323,7 @@ $strType = 'Tyyppi';
 
 $strUncheckAll = 'Poista valinta kaikista';
 $strUnique = 'Uniikki';
+$strUnselectAll = 'Poista valinta kaikista';
 $strUpdatePrivMessage = 'Käyttäjän %s käyttöoikeudet on päivitetty.';
 $strUpdateProfile = 'Päivitä profiili:';
 $strUpdateProfileMessage = 'Profiili on päivitetty.';
@@ -348,6 +350,4 @@ $strZip = '"zip-pakattu"';
 
 // To translate
 
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>
