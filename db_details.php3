@@ -495,8 +495,8 @@ if ($num_tables > 0) {
 ?>
 
     <!-- Query box, sql file loader and bookmark support -->
-    <a name="querybox"></a>
     <li>
+	<a name="querybox"></a>
         <form method="post" action="read_dump.php3" enctype="multipart/form-data"
             onsubmit="return checkSqlQuery(this)">
             <input type="hidden" name="is_js_confirmed" value="0" />
@@ -509,7 +509,7 @@ if ($num_tables > 0) {
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
             <?php echo sprintf($strRunSQLQuery, $db) . ' ' . PMA_showDocuShort('S/E/SELECT.html'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
-<textarea name="sql_query" cols="<?php echo $cfgTextareaCols; ?>" rows="<?php echo $cfgTextareaRows; ?>" wrap="virtual" onfocus="this.select()">
+<textarea name="sql_query" cols="<?php echo $cfgTextareaCols; ?>" rows="<?php echo $cfgTextareaRows; ?>" onfocus="this.select()">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>
 </textarea><br />
             <input type="checkbox" name="show_query" value="y" checked="checked" />&nbsp;
