@@ -29,6 +29,8 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         $replace = '';
     }
 
+error_reporting(E_ALL);
+chmod($textfile, 0644);
     // Kanji encoding convert appended by Y.Kawada
     if (function_exists('PMA_kanji_file_conv')) {
         $textfile         = PMA_kanji_file_conv($textfile, $knjenc, isset($xkana) ? $xkana : '');
@@ -91,6 +93,13 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     } else {
         $sql_query = $query;
     }
+    // Set an empty sub_part to avoid an undefined variable.
+    // We could also rename the ldi* scripts
+    // to tbl_properties_ldi* to improve consistency with the other sub-pages.
+    //
+    // The $goto in ldi_table.php3 is set to tbl_properties.php3 but maybe
+    // if would be better to Browse the latest inserted data.
+    $sub_part='';
     include('./sql.php3');
 }
 

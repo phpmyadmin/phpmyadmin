@@ -9,6 +9,7 @@ $Source$
     * lang/portuguese update, thanks to Lopo Pizarro
     * lang/catalan update, thanks to Xavier Navarro
     * lang/ukrainian update, thanks to Markijan Baran
+    * ldi_check.php3: undefined $sub_part
 
 2002-08-01 Robin Johnson  <robbat2@users.sourceforge.net>
     * scripts/decode_bug.php3:
