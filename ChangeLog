@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-08 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/galician: update, thanks to Xosé Calvo
+
 2003-04-07 Michal Cihar  <nijel@users.sourceforge.net>
     * db_details_structure.php3, mult_submits.inc.php3: Added ANALYZE TABLE to
       multi submit actions.
