@@ -5,12 +5,24 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-14  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3; db_readdump.php3, lines 85-88: Fixed some coding style
+	  inconcistencies and make the patch from Robin PHP3 compatible.
+	* tbl_alter.php3, lines 30-42: Make the patch from Robin PHP3 compatible
+	  and fixed some spaces bug in the generated query.
+	* tbl_addfield.php3, lines 22: Applied patch for the bug #449858 to this
+	  script.
+	* db_details.php3, lines 182: Fixed first part of bug #449817.
+
 2001-08-14  Robin Johnson  <robbat2@orbis-terrarum.net>
-	* Patch for Bug #449858 from Ignacio Vazquez-Abrams. First patch used, not second one.
+	* tbl_alter.php3: Patch for bug #449858 from Ignacio Vazquez-Abrams. First
+	  patch used, not second one.
 
 2001-08-10  Robin Johnson  <robbat2@orbis-terrarum.net>
-	* BUG #448206, Support of table aliases - fixed, added expand_sql_query in lib.inc.php3 and a loop in db_readdump.php3 to apply it
-	
+	* lib.inc.php3; db_readdump.php3, lines 85-88: Fixed bug #448206 (support
+	  of table aliases) - added expand_sql_query in lib.inc.php3 and a loop in
+	  db_readdump.php3 to apply it.
+
 2001-08-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* phpinfo.php3, lang/*: fixed some coding style inconcistencies.
 	* tbl_change.php3, line 2: fixed $id issue.
