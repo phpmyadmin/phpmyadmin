@@ -194,7 +194,7 @@ echo "\n";
 if ($num_dbs > 1) {
 
     if ($lightMode) {
-        echo '<form action="leftlight.php3" method="get" name="left" target="nav">';
+        echo '<form action="left.php3" method="get" name="left" target="nav">';
         echo '<input type="hidden" name="lang" value="' . $lang . '">';
         echo '<input type="hidden" name="server" value="' . $server . '">';
         echo '<select name="db" onchange="this.form.submit();">';
