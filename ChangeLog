@@ -14,6 +14,7 @@ $Source$
     * lang/turkish-*.inc.php3: Updates, thanks again to
       Bora Alioglu <bora at risc01.ktu.edu.tr>.
     * lang/english-*.inc.php3: Reordered strings.
+    * lang/czech-*.inc.php3: Updates, thanks agains to Michal Cihar (nijel).
 
 2002-08-07 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details.php3, read_dump.php3, tbl_properties_links.php3:
