@@ -717,7 +717,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
      */
     function PMA_linkOrButton($url, $message, $js_conf)
     {
-        if (strlen($url) <= 1024) {
+        if (strlen($url) <= 2047) {
             $onclick_url    = (empty($js_conf) ? '' : ' onclick="return confirmLink(this, \'' . $js_conf . '\')"');
             echo '        <a href="' . $url . '"' . $onclick_url . '>' . "\n"
                  . '            ' . $message . '</a>' . "\n";
