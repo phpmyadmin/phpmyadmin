@@ -1091,7 +1091,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             echo (($disp_direction == 'horizontal') ? "\n" : '');
             $foo++;
-        } // end while
+        } // end for
 
         return TRUE;
     } // end of the 'PMA_displayTableBody()' function
