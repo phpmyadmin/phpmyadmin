@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-14  Steve Alberty  <alberty@neptunlabs.de>
+	* add support for locked tables (default=off)
+	* add summary on db_details.php3
+
 2001-06-12  Marc Delisle  <lem9@users.sourceforge.net>
         * bug 432091: missing column in show processes
         * add $strKill
@@ -23,8 +27,7 @@ $Source$
 
 2001-06-10  Steve Alberty   <alberty@neptunlabs.de>
 	* tbl_select.php3,tbl_change.php3,lib.inc.php3: fixed warnings
-	* db_details.php3: add output of table size, speedup on high loaded
-	  server
+	* db_details.php3: add output of table size
 	* left.php3, left.js: shows minus instead of plus in empty databases
 	* tbl_properties.inc.php3: change 'default' table type to localized
 	  string
