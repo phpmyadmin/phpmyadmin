@@ -10,6 +10,9 @@ $Source$
 	  required and there is no need to use both stduser/user).
 	* Documentation.html: updated according to the changes in the configuration
 	  file.
+	* libraries/common.lib.php3: fixed a possible "security" issue (in advanced
+	  authentication mode, ensured the server selected is valid according to the
+	  user name).
 
 2001-10-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html, line 299: added some requirements for sockets.

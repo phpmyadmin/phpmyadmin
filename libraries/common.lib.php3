@@ -335,15 +335,6 @@ if (!defined('__LIB_COMMON__')){
                        ? ''
                        : ':' . $cfgServer['socket'];
 
-        // The user can work with only some databases
-        if (isset($cfgServer['only_db']) && !empty($cfgServer['only_db'])) {
-            if (is_array($cfgServer['only_db'])) {
-                $dblist   = $cfgServer['only_db'];
-            } else {
-                $dblist[] = $cfgServer['only_db'];
-            }
-        }
-
         // Advanced authentication is required
         if ($cfgServer['adv_auth']) {
             // Grabs the $PHP_AUTH_USER variable whatever are the values of the
@@ -426,10 +417,35 @@ if (!defined('__LIB_COMMON__')){
             if ($do_auth) {
                 auth();
             } else {
-                $cfgServer['user']     = (get_magic_quotes_gpc() ? stripslashes($PHP_AUTH_USER) : $PHP_AUTH_USER);
-                $cfgServer['password'] = (get_magic_quotes_gpc() ? stripslashes($PHP_AUTH_PW) : $PHP_AUTH_PW);
-            }
+                if (get_magic_quotes_gpc()) {
+                    $PHP_AUTH_USER = stripslashes($PHP_AUTH_USER);
+                    $PHP_AUTH_PW   = stripslashes($PHP_AUTH_PW);
+                }
+                // Ensures the valid 'only_db' setting is used
+                if ($cfgServer['user'] != $PHP_AUTH_USER) {
+                    $servers_cnt = count($cfgServers);
+                    for ($i = 1; $i <= $servers_cnt; $i++) {
+                        if (isset($cfgServers[$i])
+                            && ($cfgServers[$i]['host'] == $cfgServer['host'] && $cfgServers[$i]['user'] == $PHP_AUTH_USER)) {
+                            $server    = $i;
+                            $cfgServer = $cfgServers[$i];
+                            break;
+                        }
+                    } // end for
+                 } // end if
+                $cfgServer['user']     = $PHP_AUTH_USER;
+                $cfgServer['password'] = $PHP_AUTH_PW;
+            } // end else
         } // end advanced authentication
+
+        // The user can work with only some databases
+        if (isset($cfgServer['only_db']) && $cfgServer['only_db'] != '') {
+            if (is_array($cfgServer['only_db'])) {
+                $dblist   = $cfgServer['only_db'];
+            } else {
+                $dblist[] = $cfgServer['only_db'];
+            }
+        } // end if
 
         // Connects to the server (validates user's login)
         $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
