@@ -12,7 +12,7 @@ require('./lib.inc.php3');
 /** 
  * Check rights in case of DROP DATABASE 
  */ 
-if (!is_defined('PMA_CHK_DROP')
+if (!defined('PMA_CHK_DROP')
     && !$cfgAllowUserDropDatabase
     && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE ', $sql_query)) {
     // Checks if the user is a Superuser
