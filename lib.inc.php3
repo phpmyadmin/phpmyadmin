@@ -928,7 +928,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             } else {
                 $selectstring = '';
             }
-            $lastShownRec     = ($pos_next > $total) ? $total : $pos_next;
+            $lastShownRec = ($pos_next > $total) ? $total : $pos_next;
             show_message($GLOBALS['strShowingRecords'] . " $pos - $lastShownRec ($total " . $GLOBALS['strTotal'] . $selectstring . ')');
         } else {
             show_message($GLOBALS['strSQLQuery']);
@@ -940,7 +940,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             $table = $field->table;
         }
         mysql_field_seek($dt_result, 0);
-        if (!$is_simple) {
+        if (!$is_simple
+            && (!isset($SelectNumRows) || $SelectNumRows > $GLOBALS['cfgMaxRows'])) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
         } else {
             echo "\n" . '<br /><br />' . "\n";
@@ -1186,12 +1187,15 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         } // end while
         ?>
 </table>
+<br />
 
         <?php
         echo "\n";
-        if (!$is_simple) {
-            echo '<br />';
+        if (!$is_simple
+            && (!isset($SelectNumRows) || $SelectNumRows > $GLOBALS['cfgMaxRows'])) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
+        } else {
+            echo "\n" . '<br />' . "\n";
         }
     } // end of the 'display_table()' function
 

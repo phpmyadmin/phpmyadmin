@@ -63,6 +63,7 @@ $do_confirm = ($cfgConfirm
                && !isset($btnDrop)
                && eregi('DROP +(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_`]* +DROP|DELETE FROM', $sql_query));
 $is_select  = eregi('^SELECT ', $sql_query);
+$is_count   = ($is_select && eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $sql_query));
 $is_delupd  = eregi('^(DELETE|UPDATE) ', $sql_query);
 
 
@@ -117,7 +118,7 @@ else {
         $cfgMaxRows       = $sessionMaxRows;
     }
     $sql_limit_to_append  = (isset($pos)
-                             && ($is_select && !eregi('^SELECT COUNT\((.*\.+)?\*\) FROM ', $sql_query))
+                             && ($is_select && !$is_count)
                              && !eregi(' LIMIT[ 0-9,]+$', $sql_query))
                           ? " LIMIT $pos, $cfgMaxRows"
                           : '';
@@ -193,6 +194,9 @@ else {
         }
         include('./header.inc.php3');
         // Defines the display mode if it wasn't passed by url
+        if ($is_count) {
+            $display = 'simple';
+        }
         if (!isset($display)) {
             $display = eregi('^((SHOW (VARIABLES|PROCESSLIST|STATUS|TABLE|GRANTS|CREATE|LOGS))|((CHECK|ANALYZE|REPAIR|OPTIMIZE) TABLE ))', $sql_query, $which);
             if (!empty($which[2]) && !empty($which[3])) {
@@ -200,10 +204,6 @@ else {
             } else if (!empty($which[4]) && !empty($which[5])) {
                 $display = 'bkmOnly';
             }
-        }
-        if ($display != 'simple'
-            && (isset($SelectNumRows) && $SelectNumRows <= $cfgMaxRows)) {
-            $display = 'simple';
         }
 
         // Displays the results in a table
