@@ -925,7 +925,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                             $vertical_display['data'][$foo][$i] .= '<a href="sql.php3?'
                                                                 .  'lang=' . $lang . '&amp;server=' . $server
                                                                 .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$primary->name][0])
-                                                                .  '&amp;pos=0&amp;sessionMaxRow=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
+                                                                .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                 .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$primary->name][0]) . ' WHERE ' . $map[$primary->name][1] . ' = ' . $row[$pointer]) . '">'
                                                                 .  $row[$pointer] . '</a>';
                         } else {
