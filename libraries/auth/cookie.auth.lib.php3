@@ -13,9 +13,12 @@
 if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
     define('PMA_COOKIE_AUTH_INCLUDED', 1);
 
+    if (!isset($coming_from_common)) {
+       exit();
+    }
     // emulate array_values() for PHP 3
-    if (PMA_PHP_INT_VERSION < 40000) {
-
+//    if (PMA_PHP_INT_VERSION < 40000) {
+      if (!@function_exists('array_values')) {
         function array_values ($arr) {
             $t = array();
             while (list($k, $v) = each ($arr)) {

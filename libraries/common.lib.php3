@@ -719,6 +719,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
             // Gets the authentication library that fits the $cfg['Server'] settings
             // and run authentication
+
+            // (for a quick check of path disclosure in auth/cookies:)
+            $coming_from_common = TRUE;
+
             include('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php3');
             if (!PMA_auth_check()) {
                 PMA_auth();
