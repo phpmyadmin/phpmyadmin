@@ -15,6 +15,7 @@ $Source$
       record.
     * tbl_change.php, libraries/tbl_change.js: Uncheck Ignore checkbox for
       inserting when multiple inserts after changing value (RFE #749733).
+    * header.inc.php: Simplified title generating.
 
 2004-05-12 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php: bug #951143, undefined $header_url_qry

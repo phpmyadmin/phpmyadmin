@@ -39,12 +39,7 @@ if (empty($GLOBALS['is_header_sent'])) {
     /* the new one
      * 2004-05-05: replaced by Michael Keck (mkkeck)
      */
-    $title     = 'PMA | ';
-    if (!isset($cfg['SetHttpHostTitle']) || empty($cfg['SetHttpHostTitle'])){
-        if (isset($HTTP_HOST)){
-            $cfg['SetHttpHostTitle'] = $HTTP_HOST;
-        }
-    }
+    $title     = '';
     if ($cfg['ShowHttpHostTitle']) {
         $title .= (empty($cfg['SetHttpHostTitle']) ? $HTTP_HOST : $cfg['SetHttpHostTitle']) . ' >> ';
     }
