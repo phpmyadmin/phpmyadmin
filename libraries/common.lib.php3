@@ -126,6 +126,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     if (!isset($cfgRepeatCells)) {
         $cfgRepeatCells         = 100;
     }
+    if (!isset($cfgLeftFrameLight)) {
+        $cfgLeftFrameLight      = TRUE;
+    }
 
     // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
     // exist
