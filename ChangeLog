@@ -14,6 +14,7 @@ $Source$
     * db_details_links.php3, index.php3, left.php3, tbl_properties_links.php3:
       moved 'Structure' to the front and use it as default value. 
       TODO: make that customizable. 
+    * config.inc.php3, main.php3, docs: added cfg['SuggestDBName'] flag 
 
 2002-06-22 Robin Johnson  <robbat2@users.sourceforge.net>
     * sql.php3:

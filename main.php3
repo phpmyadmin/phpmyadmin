@@ -247,6 +247,10 @@ if ($server > 0) {
         $db_to_create = '';
     } // end else
 
+    if (!$cfg['SuggestDBName']) {
+        $db_to_create = '';
+    }
+
     $common_url_query = 'lang=' . $lang . '&amp;server=' . $server . '&amp;convcharset=' . $convcharset;
 
     if ($is_superuser) {

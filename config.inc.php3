@@ -157,6 +157,7 @@ $cfg['ShowMysqlInfo']         = FALSE;  // whether to display the "MySQL runtime
 $cfg['ShowMysqlVars']         = FALSE;  // information", "MySQL system variables", "PHP
 $cfg['ShowPhpInfo']           = FALSE;  // information" and "change password" links for
 $cfg['ShowChgPassword']       = FALSE;  // simple users or not
+$cfg['SuggestDBName']         = TRUE;   // suggest a new DB name if possible (false = keep empty)
 
 // In browse mode...
 $cfg['ShowBlob']              = FALSE;  // display blob field contents
