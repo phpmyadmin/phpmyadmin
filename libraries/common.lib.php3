@@ -79,7 +79,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     /**
      * Parses the configuration file and gets some constants used to define
      * versions of phpMyAdmin/php/mysql...
-     */    
+     */
     $old_error_reporting = error_reporting(0);
     include($cfgfile_to_load);
     // Include failed
@@ -408,7 +408,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                      . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;convcharset=' . $GLOBALS['convcharset'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>'
                      . ']' . "\n";
             } // end if
-            echo '<p>' . "\n"
+            echo '</p>' . "\n"
+                 . '<p>' . "\n"
                  . '    ' . ($cfg['UseSyntaxColoring'] ? PMA_format_sql($query_base) : $query_base) . "\n"
                  . '</p>' . "\n";
         } // end if
@@ -416,10 +417,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $error_message = htmlspecialchars($error_message);
             $error_message = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $error_message);
         }
-        echo '<p>' . "\n";
-        echo '    ' . $GLOBALS['strMySQLSaid'] . '<br />' . "\n";
-        echo '<pre>' . "\n" . $error_message . "\n" . '</pre>' . "\n";
-        echo '</p>' . "\n";
+        echo '<p>' . "\n"
+             . '    ' . $GLOBALS['strMySQLSaid'] . '<br />' . "\n"
+             . '</p>' . "\n";
+        echo '<pre>' . "\n"
+             . $error_message . "\n"
+             . '</pre>' . "\n";
         if (!empty($back_url)) {
             echo '<a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a>';
         }
