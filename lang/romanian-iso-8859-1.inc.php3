@@ -95,6 +95,7 @@ $strCreateNewTable = 'Creaza tabela noua in baza de date %s';
 $strCreatePage = 'Creaza o noua pagina';
 $strCreatePdfFeat = 'Creare de PDF';
 $strCriteria = 'Criteriu';
+$strCvsData = 'Date CSV';
 
 $strData = 'Date';
 $strDataOnly = 'Numai date';
@@ -284,6 +285,7 @@ $strPrimaryKeyWarning = '("Numele PRIMARY" <b>trebuie</b> sa fie <b>numai la</b>
 $strPrintView = 'Viziualizare imprimare';
 $strPrivileges = 'Drepturi de acces';
 $strProperties = 'Atribute';
+$strPutColNames = 'Pune numele filed-ului in primul rand';
 
 $strQBE = 'Comanda prin exemplu (Query by Example)';
 $strQBEDel = 'Del';
@@ -348,6 +350,7 @@ $strSelectFields = 'Selecteaza campurile (cel putin unul):';
 $strSelectNumRows = 'in comanda (in query)';
 $strSelectTables = 'Selecteaza tabele';
 $strSend = 'Trimite';
+$strServer = 'Server %s';
 $strServerChoice = 'Alegerea serverului';
 $strServerVersion = 'Versiune server';
 $strSetEnumVal = 'Daca campul este "enum" sau "set", va rugam adaugati valori folosind formatul: \'a\',\'b\',\'c\'...<br />Daca aveti nevoie sa puneti bara intoarsa (backslash) ("\") sau semnul ("\'") la aceste valori, folositi exemplul ( \'\\\\xyz\' or \'a\\\'b\').';
@@ -427,7 +430,4 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 // To translate
 
-$strServer = 'Server %s';  //to translate
-$strCvsData = 'CSV data';  //to translate
-$strPutColNames = 'Put fields names at first row';  //to translate
 ?>
