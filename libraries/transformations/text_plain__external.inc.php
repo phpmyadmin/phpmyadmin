@@ -66,8 +66,25 @@ function PMA_transformation_text_plain__external($buffer, $options = array(), $m
     // further operations on $buffer using the $options[] array.
 
     $allowed_programs = array();
-    $allowed_programs[0] = '/usr/local/bin/tidy';
-    $allowed_programs[1] = '/usr/local/bin/validate';
+
+    //
+    // WARNING:
+    //
+    // It's up to administrator to allow anything here. Note that users may
+    // specify any parameters, so when programs allow output redirection or
+    // any other possibly dangerous operations, you should write wrapper
+    // script that will publish only functions you really want.
+    //
+    // Add here program definitions like (note that these are NOT safe
+    // programs):
+    //
+    // $allowed_programs[0] = '/usr/local/bin/tidy';
+    // $allowed_programs[1] = '/usr/local/bin/validate';
+
+    // no-op when no allowed programs
+    if (count($allowed_programs) == 0) {
+        return $buffer;
+    }
 
     if (!isset($options[0]) ||  $options[0] == '' || !isset($allowed_programs[$options[0]])) {
         $program = $allowed_programs[0];
