@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-17 Alexander M. Turek  <me@derrabus.de>
+    * db_create.php, main.php, libraries/mysql_charsets.lib.php:
+      Added ability to choose the collation for new databases.
+
 2004-04-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french update
 

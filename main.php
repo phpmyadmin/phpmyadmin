@@ -305,13 +305,7 @@ if ($server > 0) {
                . '                    <input type="text" name="db" value="' . $db_to_create . '" maxlength="64" class="textfield" />' . "\n";
             if (PMA_MYSQL_INT_VERSION >= 40101) {
                 require_once('./libraries/mysql_charsets.lib.php');
-                echo '                    <select name="db_charset">' . "\n"
-                   . '                        <option value="">' . $strCharset . '</option>' . "\n"
-                   . '                        <option value=""></option>' . "\n";
-                for ($i = 0; isset($mysql_charsets[$i]); $i++) {
-                    echo '                        <option value="' . htmlspecialchars($mysql_charsets[$i]) . '">' . htmlspecialchars($mysql_charsets[$i]) . '</option>' . "\n";
-                }
-                echo '                    </select>' . "\n";
+                PMA_printCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', NULL, TRUE, 5);
             }
             echo '                    <input type="submit" value="' . $strCreate . '" />' . "\n"
                . '                </form>' . "\n"

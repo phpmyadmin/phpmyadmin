@@ -4,7 +4,7 @@
 
 if (PMA_MYSQL_INT_VERSION >= 40100){
 
-    $res = PMA_DBI_query('SHOW CHARACTER SET;', NULL, PMA_DBI_QUERY_STORE);
+    $res = PMA_DBI_query('SHOW CHARACTER SET;');
 
     $mysql_charsets = array();
     while ($row = PMA_DBI_fetch_assoc($res)) {
@@ -15,7 +15,7 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
     @PMA_DBI_free_result($res);
     unset($res, $row);
 
-    $res = PMA_DBI_query('SHOW COLLATION;', NULL, PMA_DBI_QUERY_STORE);
+    $res = PMA_DBI_query('SHOW COLLATION;');
 
     $mysql_charsets_count = count($mysql_charsets);
     sort($mysql_charsets, SORT_STRING);
@@ -250,6 +250,41 @@ if (PMA_MYSQL_INT_VERSION >= 40100){
             }
         }
         return '';
+    }
+
+    define('PMA_CSDROPDOWN_COLLATION', 0);
+    define('PMA_CSDROPDOWN_CHARSET',   1);
+    
+    function PMA_printCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION, $name = NULL, $id = NULL, $label = TRUE, $indent = 0) {
+        global $mysql_charsets, $mysql_charsets_descriptions, $mysql_collations;
+
+        if (empty($name)) {
+            if ($type == PMA_CSDROPDOWN_COLLATION) {
+                $name = 'collation';
+            } else {
+                $name = 'character_set';
+            }
+        }
+        for ($i = 1; $i <= $indent; $i++) $spacer .= '    ';
+        
+        echo $spacer . '<select name="' . htmlspecialchars($name) . '"' . (empty($id) ? '' : ' id="' . htmlspecialchars($id) . '"') . '>' . "\n";
+        if ($label) {
+            echo $spacer . '    <option value="">' . ($ype == PMA_CSDROPDOWN_COLLATION ? $GLOBALS['strCollation'] : $GLOBALS['strCharset']) . '</option>' . "\n";
+        }
+        echo $spacer . '    <option value=""></option>' . "\n";
+        foreach ($mysql_charsets as $current_charset) {
+            $current_cs_descr = empty($mysql_charsets_descriptions[$current_charset]) ? $current_charset : $mysql_charsets_descriptions[$current_charset];
+            if ($type == CS_DROPDOWN_COLLATION) {
+                echo $spacer . '    <optgroup label="' . $current_charset . '" title="' . $current_cs_descr . '">' . "\n";
+                foreach ($mysql_collations[$current_charset] as $current_collation) {
+                    echo $spacer . '        <option value="' . $current_collation . '" title="' . PMA_getCollationDescr($current_collation) . '">' . $current_collation . '</option>' . "\n";
+                }
+                echo $spacer . '    </optgroup>' . "\n";
+            } else {
+                echo $spacer . '    <option value="' . $current_charset . '" title="' . $current_cs_descr . '">' . $current_charset . '</option>' . "\n";
+            }
+        }
+        echo $spacer . '</select>' . "\n";
     }
 
 }
