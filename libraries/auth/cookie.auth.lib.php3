@@ -445,11 +445,14 @@ if (uname.value == '') {
         // Returns whether we get authentication settings or not
         if (!$from_cookie && !$from_form) {
             return FALSE;
-        } else {
+        } elseif ($from_cookie) {
             if (get_magic_quotes_gpc()) {
                 $PHP_AUTH_USER = stripslashes($PHP_AUTH_USER);
-                $PHP_AUTH_PW   = stripslashes($PHP_AUTH_PW);
+                // no need to strip password as it is encrypted during transfer
             }
+            return TRUE;
+        } else {
+            // we don't need to strip here, it is done in grab_globals
             return TRUE;
         }
     } // end of the 'PMA_auth_check()' function
