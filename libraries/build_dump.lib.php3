@@ -209,7 +209,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
                 for ($j = 0; $j < $fields_cnt; $j++) {
                     if (!isset($row[$j])) {
                         $values[]     = 'NULL';
-                    } else if (!empty($row[$j])) {
+                    } else if ($row[$j] != '') {
                         // a number
                         if ($field_num[$j]) {
                             $values[] = $row[$j];

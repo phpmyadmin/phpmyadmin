@@ -10,6 +10,7 @@ $Source$
 	  header.inc.php3, line 119; left.php3, line 150: the background colors for
 	  both the fames are now defined in the configuration file thanks to
 	  Laurent Penou <laurent.penou at gadz.org>.
+	* build_dump.lib.php3, line 212: fixed bug #468807 (dump error).
 
 2001-10-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3:
