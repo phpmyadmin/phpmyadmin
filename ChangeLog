@@ -10,6 +10,9 @@ $Source$
         - 'splitted' changed to 'seperated'	
     * lang/portuguese.inc.php3 updates, thanks to Lopo Pizarro
     * lang/polish.inc.php3 updates, thanks to Jakub Wilk
+    * db_details_links.php3, header.inc.php3,
+      tbl_properties_links.php3, libraries/common.lib.php3
+        - Neater tab code by Michal Cihar (Patch #571837)
 
 2002-06-21 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: patch 565627 for the old bug 461192: wrong query count

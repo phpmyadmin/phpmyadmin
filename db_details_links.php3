@@ -44,7 +44,7 @@ else {
  * Displays tab links
  */
 ?>
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" class="tabs">
 	<tr>
 		<td width="8">&nbsp;</td>
 <?php
@@ -69,8 +69,5 @@ if ($lnk5) {
 } // end if
 echo "\n";
 ?>
-	</tr>
-	<tr>
-		<td colspan="<?php echo ($db_details_links_count_tabs*2+1); ?>" bgcolor="gray" class="topline"><img width="1" height="1" alt="" src="images/spacer.gif" /></td>
 	</tr>
 </table>

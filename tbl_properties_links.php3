@@ -25,8 +25,12 @@ if ($num_rows > 0) {
     $att6    = 'onclick="return confirmLink(this, \'' . $ln6_stt . PMA_jsFormat($table) . '\')"';
 } else {
     $lnk2 = '';
+    $arg2 = '';
     $lnk4 = '';
+    $arg4 = '';
     $lnk6 = '';
+    $arg6 = '';
+    $att6 = '';
 }
 
 $lnk7 = "sql.php3";
@@ -37,7 +41,7 @@ $att7 = 'class="drop" onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsF
  * Displays links
  */
 ?>
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" class="tabs">
 	<tr>
 		<td width="8">&nbsp;</td>
 <?php
@@ -54,8 +58,5 @@ echo printTab($strDrop,"sql.php3",$arg7,$att7);
 
 ?>
 
-	</tr>
-	<tr>
-		<td colspan="<?php echo ($db_details_links_count_tabs*2+1); ?>" bgcolor="gray" class="topline"><img width="1" height="1" alt="" src="images/spacer.gif" /></td>
 	</tr>
 </table>

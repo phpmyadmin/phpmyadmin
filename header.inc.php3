@@ -93,6 +93,20 @@ a.drop:hover    {font-family: <?php echo $right_font_family; ?>; color: #ffffff;
 .nav            {font-family: <?php echo $right_font_family; ?>; color: #000000}
 .warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
 td.topline      {font-size: 1px}
+td.tab          {
+    border-top: 1px solid black; 
+    border-right: 1px solid black; 
+    border-left: 1px solid black; 
+    border-bottom: none;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+table.tabs      {
+    border-top: none; 
+    border-right: none; 
+    border-left: none; 
+    border-bottom: 2px solid gray;
+}
 //-->
 </style>
 

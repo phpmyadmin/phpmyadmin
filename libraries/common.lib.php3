@@ -1347,7 +1347,7 @@ if (typeof(document.getElementById) != 'undefined'
         $bgcolor = (basename($PHP_SELF) == $link) ? "silver" : "#DFDFDF";
         $db_details_links_count_tabs++;
 
-        $out = "\n\t\t<td bgcolor=\"$bgcolor\" align=\"center\" width=\"64\" nowrap=\"nowrap\">";
+        $out = "\n\t\t<td bgcolor=\"$bgcolor\" align=\"center\" width=\"64\" nowrap=\"nowrap\" class=\"tab\">";
         if (strlen($link)>0)
             $out .= "<a href=\"$link?$args\" $attr><b>$text</b></a>";
         else
