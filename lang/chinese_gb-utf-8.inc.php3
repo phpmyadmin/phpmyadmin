@@ -288,6 +288,8 @@ $strLines = '行数';
 $strLinesTerminatedBy = '行终止的字符';
 $strLinkNotFound = '找不到链接';
 $strLinksTo = '链接到';
+$strLoadMethod = 'LOAD 模式';
+$strLoadExplanation = '默认情况下选中的是最好的模式，但是如果失败的话，您也可以进行更改。';
 $strLocalhost = '本地';
 $strLocationTextfile = '文本文件的位置';
 $strLogin = '登入';
@@ -640,6 +642,4 @@ $strYes = '是';
 
 $strZeroRemovesTheLimit = '注意：将这些选项设为 0 (零)将删除限制。';
 $strZip = '"zipped"';
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>
