@@ -50,10 +50,11 @@ if ($server > 0) {
     if (!empty($cfgServer['port'])) {
         echo ':' . $cfgServer['port'];
     }
-    // loic1: connection with socket is only available since php 3.0.10
-    if (!empty($cfgServer['socket']) && PHP_INT_VERSION >= 30010) {
-        echo ':' . $cfgServer['socket'];
-    }
+    // loic1: skip this because it's not a so good idea to display sockets
+    //        used to everybody
+    // if (!empty($cfgServer['socket']) && PHP_INT_VERSION >= 30010) {
+    //     echo ':' . $cfgServer['socket'];
+    // }
     echo ' ' . $strRunningAs . ' ' . mysql_result($res, 0, 'user') . '</b></p><br />' . "\n";
 } // end if
 
@@ -99,16 +100,19 @@ if ($server == 0 || count($cfgServers) > 1) {
                 echo ' selected="selected"';
             }
             echo '>';
-            echo ((!empty($val['verbose'])) ? $val['verbose'] :  $val['host']);
-            if (!empty($val['port'])) {
-                echo ':' . $val['port'];
+            if ($val['verbose'] != '') {
+                echo $val['verbose'];
+            } else {
+                echo $val['host'];
+                if (!empty($val['port'])) {
+                    echo ':' . $val['port'];
+                }
+                // loic1: skip this because it's not a so good idea to display
+                //        sockets used to everybody
+                // if (!empty($val['socket']) && PHP_INT_VERSION >= 30010) {
+                //     echo ':' . $val['socket'];
+                // }
             }
-            // loic1: connection with socket is only available since php 3.0.10
-            // loic1: skip this because it's not a so good idea to display
-            //        sockets used to everybody
-            // if (!empty($val['socket']) && PHP_INT_VERSION >= 30010) {
-            //     echo ':' . $val['socket'];
-            // }
             // loic1: if 'only_db' is an array and there is more than one
             //        value, displaying such informations may not be a so good
             //        idea

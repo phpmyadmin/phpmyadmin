@@ -7,6 +7,10 @@ $Source$
 
 
 2001-10-28  Loïc Chapeaux  <lolo@phpheaven.net>
+	* main.php3: removed an other display of the socket used and the port used
+	  if the 'verbose' setting exists for a server.
+
+2001-10-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3:
 	  - lines 107-111: removed the socket used from the settings displayed;
 	  - line 342: cosmetic change.
