@@ -45,6 +45,22 @@ require_once('./libraries/bookmark.lib.php');
 require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
+function PMA_multimerge(&$stack, &$table) {
+global $list_item, $table_item;
+
+    $key = array_shift($table);
+
+    if (count($table) > 0) {
+        if (!isset($stack[$key])) {
+            $stack[$key] = '';
+        }
+        PMA_multimerge($stack[$key], $table);
+    } else {
+        $stack['pma_name'][]      = $table_item;
+        $stack['pma_list_item'][] = $list_item;
+    }
+}
+
 function PMA_reduceNest($_table) {
 
     if ($GLOBALS['cfg']['LeftFrameTableLevel'] > 0) {
@@ -52,7 +68,7 @@ function PMA_reduceNest($_table) {
         $temp_table = $_table;
         $new_table = array();
         $last_index = 0;
-        for ($ti = 0; $ti < $max; $ti++) {
+        for ($ti = 0; $ti <= $max; $ti++) {
             if (isset($temp_table[$ti])) {
                 $new_table[$ti] = $temp_table[$ti];
                 unset($temp_table[$ti]);
@@ -325,7 +341,7 @@ echo "\n";
 
 <?php
 if ($cfg['LeftDisplayLogo'] && !$cfg['QueryFrame']) {
-?>  
+?>
 <!-- phpMyAdmin logo -->
 <?php
     if (@file_exists($pmaThemeImage . 'logo_left.png')) {
@@ -381,7 +397,7 @@ if (!$cfg['QueryFrame']) {
            . '<img src="' . $pmaThemeImage . 'b_sqlhelp.png" border="0" hspace="1" width="16" height="16" alt="MySQL - ' . $strDocu . '" title="MySQL - ' . $strDocu . '"'
            .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="absmiddle" />'
            . '</a>';
-    } 
+    }
 ?>
     </div>
     <hr />
@@ -423,7 +439,7 @@ if ($num_dbs > 1) {
     <?php
             echo PMA_generate_common_hidden_inputs();
             echo '        <input type="hidden" name="hash" value="' . $hash . '" />' . "\n";
-            echo '        <span class="heada"><b>' . $strDatabase . ':</b></span><br />'; 
+            echo '        <span class="heada"><b>' . $strDatabase . ':</b></span><br />';
             echo '        <select name="lightm_db" onchange="this.form.submit()">' . "\n";
             echo '            <option value="">(' . $strDatabases . ') ...</option>' . "\n";
         } // end !$cfg['QueryFrame']
@@ -561,13 +577,12 @@ if ($num_dbs > 1) {
                                 $_table[$key] = '__protected__';
                             }
                         }
-
-                        unset($_table[count($_table)-1]);
                         $_table = PMA_reduceNest($_table);
 
-                        $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $table_item) . '\';';
-                        $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . str_replace('\'', '\\\'', $list_item) . '\';';
-                        eval($eval_string);
+                        if (count($_table) == 1) {
+                            array_unshift($_table, '');
+                        }
+                        PMA_multimerge($tablestack, $_table);
                     } else {
                         $tablestack['']['pma_name'][] = $table_item;
                         $tablestack['']['pma_list_item'][] = $list_item;
@@ -577,12 +592,12 @@ if ($num_dbs > 1) {
                     $tablestack['']['pma_list_item'][] = $list_item;
                 }
             } // end while (tables list)
+
             PMA_nestedSet($j, $tablestack);
         ?>
         </div>
         <?php
             echo "\n";
-
         }
 
         // Light mode -> displays the select combo with databases names and the
@@ -642,10 +657,10 @@ if ($num_dbs > 1) {
             } // end if... else...
             if (!$cfg['QueryFrame']) {
                 if (!empty($num_tables)) {
-                    echo '            <option value="' . htmlspecialchars($db) . '"' . $selected . '>' 
+                    echo '            <option value="' . htmlspecialchars($db) . '"' . $selected . '>'
                        . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (' . $num_tables . ')</option>' . "\n";
                 } else {
-                    echo '            <option value="' . htmlspecialchars($db) . '"' . $selected . '>' 
+                    echo '            <option value="' . htmlspecialchars($db) . '"' . $selected . '>'
                        . ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)) . ' (-)</option>' . "\n";
                 }
             } // end !$cfg['QueryFrame']
@@ -828,13 +843,12 @@ else if ($num_dbs == 1) {
                             $_table[$key] = '__protected__';
                         }
                     }
-
-                    unset($_table[count($_table)-1]);
                     $_table = PMA_reduceNest($_table);
 
-                    $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $table_item) . '\';';
-                    $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . str_replace('\'', '\\\'', $list_item) . '\';';
-                    eval($eval_string);
+                    if (count($_table) == 1) {
+                        array_unshift($_table, '');
+                    }
+                    PMA_multimerge($tablestack, $_table);
                 } else {
                     $tablestack['']['pma_name'][] = $table_item;
                     $tablestack['']['pma_list_item'][] = $list_item;

@@ -3766,6 +3766,41 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <br /><br />
     </li>
 </ul>
+<h4>
+    [8.2] Security alert, dated 2004-06-29.
+</h4>
+<p>
+    Last update of this FAQ: 2004-06-30.
+    <br /><br />
+    The phpMyAdmin development team received notice of this security alert:
+    <a href="http://securityfocus.com/archive/1/367486/2004-06-26/2004-07-02/0" target="_blank">http://securityfocus.com/archive/1/367486/2004-06-26/2004-07-02/0</a>
+    <br /><br />
+    We would like to put emphasis on the disappointment we feel when a 
+    bugreporter does not contact the authors of a software first, before 
+    posting any exploits. The common way to report this, is to give the 
+    developers a reasonable amount of time to respond to an exploit before 
+    it is made public.
+    <br /><br />
+    We acknowledge that phpMyAdmin versions 2.5.1 to 2.5.7 are vulnerable
+    to this problem, if each of the following conditions are met:
+</p>
+<ul>
+    <li>
+    The Web server hosting phpMyAdmin is not running in safe mode.
+    </li>
+    <li>
+    In config.inc.php, <tt>$cfg['LeftFrameLight']</tt> is set to FALSE
+    (the default value of this parameter is TRUE).
+    </li>
+    <li>
+    There is no firewall blocking requests from the Web server to the
+    attacking host.
+    </li>
+</ul>
+<p>
+    <br />
+    Version 2.5.7-pl1 was released with a fix for this vulnerability.
+</p>
 
 <!-- DEVELOPERS -->
 <a name="developers"></a><br />
