@@ -175,6 +175,7 @@ $cfg['UseDbSearch']           = TRUE;   // whether to enable the "database searc
 $cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the
                                         // current tables in the left frame.
 $cfg['ShowTooltip']           = TRUE;   // display table comment as tooltip in left frame
+$cfg['LeftDisplayLogo']       = TRUE;   // display logo at top of left frame
 
 // In the main frame, at startup...
 $cfg['ShowStats']             = TRUE;   // allow to display statistics and space usage in
