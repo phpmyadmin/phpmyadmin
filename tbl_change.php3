@@ -49,7 +49,7 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
 {
     $row_table_def = mysql_fetch_array($table_def);
     $field = $row_table_def["Field"];
-    if(($row_table_def['Type']  == "datetime") AND ($row[$field] == ""))
+    if($row_table_def['Type']  == "datetime" && empty($row[$field]))
         $row[$field] = date("Y-m-d H:i:s", time());
     $len = @mysql_field_len($result,$i);
 
@@ -159,12 +159,14 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
         $size = min(4, count($set));
         echo "<td><input type=\"hidden\" name=\"fields[$field]\" value=\"\$set\$\">";
         echo "<select name=field_${field}[] size=$size multiple>\n";
-        for($j=0; $j<count($set);$j++)
+        $countset=count($set);
+        for($j=0; $j<$countset;$j++)
         {
-            echo '<option value="'.htmlspecialchars(substr($set[$j], 1, -1)).'"';
-            if($vset[substr($set[$j], 1, -1)])
+        		$subset=substr($set[$j], 1, -1);
+            echo '<option value="'.htmlspecialchars($subset).'"';
+            if(isset($vset[$subset]) && $vset[$subset])
                 echo " selected";
-            echo ">".htmlspecialchars(substr($set[$j], 1, -1))."\n";
+            echo ">".htmlspecialchars($subset)."\n";
         }
         echo "</select></td>";
     }

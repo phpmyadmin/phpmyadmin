@@ -33,8 +33,8 @@ if(!isset($param) || $param[0] == "") {
 
        </select><br>
        <div align="left">
-       <ul><li><?php echo $strDisplay; ?> <input type="text" size=4 name="sessionMaxRows" value=<?php echo $cfgMaxRows; ?>>
-                <?php echo $strLimitNumRows; ?>
+       <ul><li><?php if (isset($strDisplay)) echo $strDisplay; ?> <input type="text" size=4 name="sessionMaxRows" value=<?php echo $cfgMaxRows; ?>>
+                <?php if (isset($strLimitNumRows)) echo $strLimitNumRows; ?>
        <li><?php echo $strAddSearchConditions; ?><br>
        <input type="text" name="where"> <?php print show_docu("manual_Reference.html#Functions");?><br>
 

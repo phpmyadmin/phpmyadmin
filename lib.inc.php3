@@ -123,7 +123,7 @@ if($server == 0) {
   // case that there are multiple servers and '$cfgServerDefault = 0'
   // is set.
   $cfgServer = array();
-} else {
+} else if (isset($cfgServers[$server])){
   // Otherwise, set up $cfgServer and do the usual login stuff.
   $cfgServer = $cfgServers[$server];
 
@@ -283,6 +283,9 @@ if($server == 0) {
   //BEGIN - Additional Version Info - 2 May 2001 - Robbat2
   define("MYSQL_MINOR_VERSION", substr($row["version"], 5)); //skip the .
   //END - Additional Version Info - 2 May 2001 - Robbat2
+}
+else{
+	echo $strHostEmpty;
 }
 
 // -----------------------------------------------------------------
@@ -481,7 +484,7 @@ function get_table_def($db, $table, $crlf)
 // Steve Alberty's patch for complete table dump,
 // modified by Lem9 to allow older MySQL versions to continue to work
 
-    if(MYSQL_MAJOR_VERSION == "3.23"){
+    if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 20){
                 $result=mysql_query("show create table $db.$table");
                 if ($result!=false && mysql_num_rows($result)>0){
                         $tmpres=mysql_fetch_array($result);
@@ -764,6 +767,8 @@ function get_bookmarks_param() {
     global $cfgServer;
     global $server;
 
+		$cfgBookmark=false;
+
     $i=1;
     while($i<=sizeof($cfgServers)) {
         if($cfgServer['adv_auth']) {
@@ -822,6 +827,26 @@ function delete_bookmarks($db, $cfgBookmark, $id) {
 }
 
 $cfgBookmark=get_bookmarks_param();
+
+function format_byte_down($value){
+	$returnvalue=$value;
+	$unit="Byte";
+	if ($value>1000000000000){
+		$value=$value/1073741824;
+		$unit="GB";
+	}
+	else if ($value >= 1000000000){
+		$value=$value/1048576;
+		$unit="MB";
+	}
+	else if ($value >= 1000000){
+		$value=round($value/1024);
+		$unit="KB";
+	}
+	$returnvalue=number_format($value,0,',','.');
+	return array($returnvalue,$unit);
+}
+
 
 } // $__LIB_INC__
 // -----------------------------------------------------------------
