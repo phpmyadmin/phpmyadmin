@@ -23,8 +23,8 @@ if(isset($btnDrop) && $btnDrop == $strNo) {
   exit;
 }
 
-// Check if table should be dropped
-$is_drop_sql_query = eregi("DROP +(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_]* +DROP|DELETE FROM", $sql_query); // Get word "drop"
+// Check if table should be dropped or if a record should be deleted
+$is_drop_sql_query = eregi("DROP +(TABLE|DATABASE)|ALTER TABLE +[[:alnum:]_]* +DROP|DELETE FROM", $sql_query);
 
 if(!$cfgConfirm)
     $btnDrop = $strYes;
@@ -35,6 +35,11 @@ if($is_drop_sql_query && !isset($btnDrop)) {
   } else {
     $stripped_sql_query = $sql_query;
   }
+  // loic1: fix bugs when the query contains js instructions and html tags
+  $stripped_sql_query = str_replace('\\"', '&quot;', $stripped_sql_query);
+  $stripped_sql_query = str_replace('<', '&lt;', $stripped_sql_query);
+  $stripped_sql_query = str_replace('>', '&gt;', $stripped_sql_query);
+
     include("./header.inc.php3");
     echo $strDoYouReally.$stripped_sql_query."?<br>";
     ?>
