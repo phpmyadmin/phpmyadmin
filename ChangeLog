@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-10  Marc Delisle  <lem9@users.sourceforge.net>
+        * lang/slovak-iso updates, thanks to Lubos Klokner
+        * lang/finnish updates, thanks to Visa Kopu
+
 2002-01-07  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, lines 572, 611-620:
 	  - wrong urls;

@@ -183,7 +183,7 @@ $strLogUsername = 'K‰ytt‰j‰tunnus:';
 $strModifications = 'Muutokset tallennettu';
 $strModify = 'Muokkaa';
 $strModifyIndexTopic = 'Muokkaa indeksi‰';
-$strMoveTable = 'Siirra taulu (tietokanta<b>.</b>taulu):';
+$strMoveTable = 'Siirr‰ taulu (tietokanta<b>.</b>taulu):';
 $strMoveTableOK = 'Taulu %s on siirretty %s.';
 $strMySQLReloaded = 'MySQL uudelleenladattu.';
 $strMySQLSaid = 'MySQL ilmoittaa: ';
@@ -331,7 +331,7 @@ $strUseBackquotes = 'Laita taulujen ja sarakkeiden nimet lainausmerkkeihin';
 $strUser = 'K‰ytt‰j‰';
 $strUserEmpty = 'K‰ytt‰j‰n nimi puuttuu!';
 $strUserName = 'K‰ytt‰j‰nimi';
-$strUsers = 'k‰ytt‰j‰‰';
+$strUsers = 'K‰ytt‰j‰t';
 $strUseTables = 'K‰yt‰ tauluja';
 
 $strValue = 'Arvo';

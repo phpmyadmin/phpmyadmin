@@ -72,6 +72,7 @@ $strColumn = 'Ståpec';
 $strColumnNames = 'Názvy ståpcov';
 $strCompleteInserts = 'Úplné vlo¾enie';
 $strConfirm = 'Skutoène si ¾eláte toto vykona»?';
+$strCookiesRequired = 'Cookies musia by» zapnuté pokiaµ chcete pokraèova».';
 $strCopyTable = 'Skopírova» tabuµku do (databáza<b>.</b>tabuµka):';
 $strCopyTable = 'Skopírova» tabuµku do';
 $strCopyTableOK = 'Tabuµka %s bola skorírovaná do %s.';
@@ -172,7 +173,10 @@ $strLineFeed = 'Ukonèenie riadku (Linefeed): \\n';
 $strLines = 'Riadky';
 $strLinesTerminatedBy = 'Riadky ukonèené';
 $strLocationTextfile = 'Lokácia textového súboru';
+$strLogin = 'Login';
 $strLogout = 'Odhlási» sa';
+$strLogPassword = 'Heslo:';
+$strLogUsername = 'Pou¾ívateµ:';
 
 $strModifications = 'Zmeny boli ulo¾ené';
 $strModify = 'Zmeni»';
@@ -257,6 +261,9 @@ $strRowLength = 'Då¾ka riadku';
 $strRows = 'Riadkov';
 $strRowsFrom = 'riadky zaèínajú od';
 $strRowSize = ' Veµkos» riadku ';
+$strRowsModeHorizontal = 'horizontálnom';
+$strRowsModeOptions = 'v(o) %s móde a opakova» hlavièky po ka¾dých %s bunkách';
+$strRowsModeVertical='vertikálnom';
 $strRowsStatistic = '©tatistika riadku';
 $strRunning = 'be¾i na %s';
 $strRunQuery = 'Odo¹li dotaz';
@@ -339,12 +346,5 @@ $strZip = '"zo zipované"';
 
 
 // To translate
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogin = 'Login';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
 
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
 ?>
