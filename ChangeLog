@@ -7,8 +7,9 @@ $Source$
 
 2003-07-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php3: PHP3 compatibility
-    * libraries/auth/cookie.auth.lib.php3: sometimes, binary contents in
-      cookies is not retrieved properly, so protect it with base64_encode()
+    * user_password.php3, libraries/auth/cookie.auth.lib.php3: 
+      sometimes, binary contents in cookies is not retrieved properly, 
+      so protect it with base64_encode()
 
 2003-07-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian update, thanks to Valics Lehel
