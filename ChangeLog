@@ -15,6 +15,8 @@ $Source$
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
 	* defines.inc.php3: php3 does not allow to use TRUE or FALSE constants with
 	  the 'define()' function.
+	* users_detail.php3; lang/*: added an option to change the server from an
+	  user page.
 
 2001-09-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_create.php3; tbl_addfield.php3: fixed a bug with "auto_increment"

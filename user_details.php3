@@ -326,7 +326,7 @@ function normal_operations()
             <tr>
                 <td>
                     <input type="radio" name="anyhost" checked="checked" />
-                    <?php echo $GLOBALS['strAnyHost']; ?>
+                    <?php echo $GLOBALS['strAnyHost'] . "\n"; ?>
                 </td>
                 <td>&nbsp;</td>
                 <td>
@@ -602,6 +602,25 @@ function edit_operations($host, $user)
         <a href="user_details.php3?lang=<?php echo $lang; ?>&server=<?php echo $server; ?>&db=mysql&table=user">
             <?php echo $GLOBALS['strBack']; ?></a>
         </div>
+    </li>
+
+    <li>
+        <form action="user_details.php3" method="post" name="serverForm">
+            <?php echo $GLOBALS['strUpdateServer'] . "\n"; ?>
+            <table>
+            <tr>
+                <td>
+                    <input type="text" name="new_server" size="10" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
+                    &nbsp;
+                    <input type="submit" name="submit_chgServer" value="<?php echo $GLOBALS['strGo']; ?>" />
+                </td>
+            </tr>
+            </table>
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
+            <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" />
+        </form>
     </li>
 
     <li>
@@ -902,7 +921,7 @@ if (empty($host)) {
     
 $js_to_run = 'user_details.js';
 include('./header.inc.php3');
-if (!empty($host)) {
+if (!empty($host) && !isset($submit_chgServer)) {
     echo '<h1>' . "\n";
     echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
     echo '</h1>';
@@ -997,6 +1016,34 @@ else if (isset($submit_addUser)) {
         unset($pma_user);
         show_message($strAddUserMessage . '<br />' . $strRememberReload);
     } // end else
+}
+
+// Changes the server that an user can access
+else if (isset($submit_chgServer)) {
+    $show_query     = 'y';
+    $edit           = TRUE;
+    if (empty($host)) {
+        $host       = '%';
+    }
+    if (empty($pma_user)) {
+        $pma_user   = '%';
+    }
+    if (empty($new_server)) {
+        $new_server = '%';
+    } else if (get_magic_quotes_gpc()) {
+        $new_server = stripslashes($new_server);
+    }
+
+    $sql_query  = 'UPDATE user '
+                . 'SET host = \'' . sql_addslashes($new_server) . '\' '
+                . 'WHERE user = \'' . sql_addslashes($pma_user) . '\' AND host = \'' . sql_addslashes($host) . '\'';
+    $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+
+    $host       = $new_server;
+    echo '<h1>' . "\n";
+    echo '    ' . $strHost . ' ' . $host . ' - ' . $strUser . ' ' . (($pma_user) ?  $pma_user : $strAny) . "\n";
+    echo '</h1>';
+    show_message(sprintf($strUpdateServMessage, '<span style="color: #002E80">' . $pma_user . '@' . $host . '</span>') . '<br />' . $strRememberReload);
 }
 
 // Changes the password of an user
