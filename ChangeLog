@@ -5,10 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-15 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * main.php3: Undefined variable.
+
 2002-08-14 Olivier L. Müller  <om@omnis.ch>
-    * Documentation.html, README, ANNOUNCE.txt, tbl_dump.php3: 
+    * Documentation.html, README, ANNOUNCE.txt, tbl_dump.php3:
       updated mail address of Tobias Ratschiller (requested by himself :)
- 
+
 2002-08-14 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/charset_conversion.lib.php3, config.inc.php3, Documentation.*:
       Improved detection of used recoding function, now can be configured
