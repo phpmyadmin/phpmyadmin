@@ -209,6 +209,13 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
     global $num_rows, $unlim_num_rows, $pos, $session_max_rows;
     global $disp_direction, $repeat_cells;
     global $dontlimitchars;
+    global $is_innodb;
+    global $showtable;
+
+    // FIXME: move this to a central place
+    // FIXME: for other future table types
+    $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
+
     ?>
 
 <!-- Navigation bar -->
@@ -330,7 +337,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $encoded_query)
         <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
         <input type="hidden" name="pos" value="<?php echo @((ceil($unlim_num_rows / $session_max_rows)- 1) * $session_max_rows); ?>" />
         <?php
-        if ($unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
+        if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
             echo '<input type="hidden" name="find_real_end" value="1" />' . "\n";
             // no backquote around this message
             $onclick = ' onclick="return confirmAction(\'' . PMA_jsFormat($GLOBALS['strLongOperation'], FALSE) . '\')"';

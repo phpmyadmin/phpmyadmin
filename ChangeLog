@@ -6,8 +6,10 @@ $Id$
 $Source$
 
 2005-01-27 Marc Delisle  <lem9@users.sourceforge.net>
-    $ libraries/fpdf/fpdf.php: bug #1106146, missing header for PDF,
+    * libraries/fpdf/fpdf.php: bug #1106146, missing header for PDF,
       thanks to Michal
+    * libraries/display_tbl.lib.php: the LongOperation message should
+      be just for InnoDB
 
 2005-01-27 Michal Čihař  <michal@cihar.com>
     * read_dump.php: Fix detection of SELECT query to display on multiple
