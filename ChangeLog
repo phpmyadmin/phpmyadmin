@@ -17,7 +17,10 @@ $Source$
 
 2005-01-18 Alexander M. Turek  <me@derrabus.de>
     * server_engines.php, server_links.php libraries/storage_engines.lib.php:
-      Emulation for < MySQL 4.1.2.
+      - Emulation for < MySQL 4.1.2;
+      - BerkeleyDB version information.
+    * tbl_properties_operations.php, libraries/storage_engines.lib.php:
+      Auto-generated engine selection dropdown.
 
 2005-01-17 Michael Keck  <mkkeck@users.sourceforge.net>
     * libraries/common.lib.php: modified function for

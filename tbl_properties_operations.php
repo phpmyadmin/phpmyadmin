@@ -18,9 +18,10 @@ require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
 /**
- * Gets available MySQL charsets
+ * Gets available MySQL charsets and storage engines
  */
 require_once('./libraries/mysql_charsets.lib.php');
+require_once('./libraries/storage_engines.lib.php');
 
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
@@ -324,36 +325,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
         </tr>
         <tr>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-                <select name="tbl_type" style="vertical-align: middle">
-                    <option value="MYISAM"<?php if ($tbl_type == 'MYISAM') echo ' selected="selected"'; ?>>MyISAM</option>
-                    <option value="HEAP"<?php if ($tbl_type == 'HEAP') echo ' selected="selected"'; ?>>Heap</option>
-    <?php
-    $tbl_types     = "\n";
-    if (isset($tbl_bdb)) {
-        $tbl_types .= '                <option value="BERKELEYDB"'
-                   .  (($tbl_type == 'BERKELEYDB') ? ' selected="selected"' : '')
-                   .  '>Berkeley DB</option>' . "\n";
-    }
-    if (isset($tbl_gemini)) {
-        $tbl_types .= '                <option value="GEMINI"'
-                   .  (($tbl_type == 'GEMINI') ? ' selected="selected"' : '')
-                   .  '>Gemini</option>' . "\n";
-    }
-    if (isset($tbl_innodb)) {
-        $tbl_types .= '                <option value="INNODB"'
-                   .  (($tbl_type == 'INNODB') ? ' selected="selected"' : '')
-                   .  '>INNO DB</option>' . "\n";
-    }
-    if (isset($tbl_isam)) {
-        $tbl_types .= '                <option value="ISAM"'
-                   .  (($tbl_type == 'ISAM') ? ' selected="selected"' : '')
-                   .  '>ISAM</option>' . "\n";
-    }
-
-    echo $tbl_types;
-    ?>
-                    <option value="MERGE"<?php if ($tbl_type == 'MRG_MYISAM') echo ' selected="selected"'; ?>>Merge</option>
-                    </select>
+	        <?php echo PMA_generateEnginesDropdown('tbl_type', NULL, FALSE, $tbl_type, 4); ?>
             </td>
             <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">
                 <input type="submit" name="submittype" value="<?php echo $strGo; ?>" />

@@ -32,7 +32,7 @@ require('./server_links.inc.php');
 define('PMA_ENGINE_DETAILS_TYPE_PLAINTEXT', 0);
 define('PMA_ENGINE_DETAILS_TYPE_SIZE',      1);
 define('PMA_ENGINE_DETAILS_TYPE_NUMERIC',   2); //Has no effect yet...
-function PMA_generateEngineDetails($variables, $prefix = NULL, $indent = 0) {
+function PMA_generateEngineDetails($variables, $life = NULL, $indent = 0) {
     global $cfg;
 
     if (empty($variables)) return '';
@@ -48,7 +48,7 @@ function PMA_generateEngineDetails($variables, $prefix = NULL, $indent = 0) {
     $sql_query = 'SHOW '
                . (PMA_MYSQL_INT_VERSION >= 40102 ? 'GLOBAL ' : '')
 	       . 'VARIABLES'
-	       . (empty($prefix) ? '' : ' LIKE \'' . $prefix . '\\_%\'')
+	       . (empty($like) ? '' : ' LIKE \'' . $like . '\'')
 	       . ';';
     $res = PMA_DBI_query($sql_query);
     $mysql_vars = array();
@@ -74,7 +74,7 @@ function PMA_generateEngineDetails($variables, $prefix = NULL, $indent = 0) {
 
         $dt_table     .= $spaces . '    <tr>' . "\n"
 	               . $spaces . '        <td bgcolor="' . $bgcolor . '">' . "\n";
-	if (!empty($variables[$var])) {
+	if (!empty($variables[$var]['desc'])) {
 	    $dt_table .= $spaces . '            ' . PMA_showHint($details['desc']) . "\n";
 	}
 	$dt_table     .= $spaces . '        </td>' . "\n"
@@ -201,6 +201,16 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
     }
 
     switch ($engine) {
+        case 'bdb':
+	case 'berkeleydb':
+	    $variables = array(
+	        'version_bdb' => array(
+		    'title' => $strVersionInformation
+		)
+	    );
+	    echo PMA_generateEngineDetails($variables, 'version_bdb');
+	break;
+
 	case 'innodb':
 	case 'innobase':
 	    echo '<h3>' . "\n"
@@ -247,7 +257,7 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
 		    'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE
                 )
             );
-	    echo PMA_generateEngineDetails($variables, 'myisam');
+	    echo PMA_generateEngineDetails($variables, 'myisam\\_%');
 	break;
 
         default:

@@ -61,4 +61,39 @@ if (PMA_MYSQL_INT_VERSION >= 40102) {
     unset($known_engines, $res, $row);
 }
 
+/**
+ * Function for generating the storage engine selection
+ *
+ * @param   string   The name of the select form element
+ * @param   string   The ID of the form field
+ * @param   boolean  Should unavailable storage engines be offered?
+ * @param   string   The selected engine
+ * @param   int      The indentation level
+ *
+ * @global  array    The storage engines
+ *
+ * @return  string
+ *
+ * @author  rabus
+ */
+function PMA_generateEnginesDropdown($name = 'engine', $id = NULL, $offerUnavailableEngines = FALSE, $selected = NULL, $indent = 0) {
+    global $mysql_storage_engines;
+    $selected = strtolower($selected);
+    $spaces = '';
+    for ($i = 0; $i < $indent; $i++) $spaces .= '    ';
+    $output  = $spaces . '<select name="' . $name . '"' . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
+    foreach ($mysql_storage_engines as $key => $details) {
+        if (!$offerUnavailableEngines && ($details['Support'] == 'NO' || $details['Support'] == 'DISABLED')) {
+	    continue;
+	}
+        $output .= $spaces . '    <option value="' . htmlspecialchars($key). '"'
+	         . (empty($details['Comment']) ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
+		 . ($key == $selected || (empty($selected) && $details['Support'] == 'DEFAULT') ? ' selected="selected"' : '') . '>' . "\n"
+	         . $spaces . '        ' . htmlspecialchars($details['Engine']) . "\n"
+		 . $spaces . '    </option>' . "\n";
+    }
+    $output .= $spaces . '</select>' . "\n";
+    return $output;
+}
+
 ?>
