@@ -8,10 +8,11 @@
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
 
+
 /**
  * Initializes some variables
  */
-// Defines the url to return in casse of success of the query
+// Defines the url to return in case of success of the query
 if (isset($sql_query)) {
     $sql_query = urldecode($sql_query);
 }
