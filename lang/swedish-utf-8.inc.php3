@@ -640,4 +640,5 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) 
 $strZip = '"zippad"';
 // To translate
 
+$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
 ?>

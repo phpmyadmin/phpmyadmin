@@ -199,6 +199,7 @@ $strEndCut = 'KONEC VÝPISU';
 $strEndRaw = 'KONEC VÝPISU';
 $strEnglishPrivileges = 'Poznámka: názvy oprávnění v&nbsp;MySQL jsou uváděny anglicky';
 $strError = 'Chyba';
+$strExecuteBookmarked = 'Spustit oblíbený dotaz';
 $strExplain = 'Vysvětlit (EXPLAIN) SQL';
 $strExport = 'Export';
 $strExportToXML = 'Export do XML';

@@ -662,4 +662,5 @@ $strXML = 'XML';//to translate
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 $strLoadMethod = 'LOAD method';  //to translate
 $strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
+$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
 ?>

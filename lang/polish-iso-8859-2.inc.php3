@@ -639,4 +639,5 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 // To translate
 
+$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
 ?>

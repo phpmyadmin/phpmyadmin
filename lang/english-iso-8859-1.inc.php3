@@ -192,6 +192,7 @@ $strEndCut = 'END CUT';
 $strEndRaw = 'END RAW';
 $strEnglishPrivileges = ' Note: MySQL privilege names are expressed in English ';
 $strError = 'Error';
+$strExecuteBookmarked = 'Execute bookmarked query';
 $strExplain = 'Explain SQL';
 $strExport = 'Export';
 $strExportToXML = 'Export to XML format';

@@ -1021,7 +1021,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                                     . PMA_generate_common_hidden_inputs($row['dbase'], '')
                                     . '<input type="hidden" name="id_bookmark" value="' . $row['id'] . '" />'
                                     . '<input type="hidden" name="action_bookmark" value="0" />'
-                                    . '<input type="submit" name="SQL" value="' . $GLOBALS['strGo'] . '" />'
+                                    . '<input type="submit" name="SQL" value="' . $GLOBALS['strExecuteBookmarked'] . '" />'
                                     . '</form>';
                 } else { 
                     $bookmark_go = '';

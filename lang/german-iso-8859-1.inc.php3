@@ -646,4 +646,5 @@ $strNoSpace = 'Zu wenig Speicherplatz um die Datei %s zu speichern.';
 $strInsertedRowId = 'Letzte automatisch eingefügte ID:';
 $strLoadMethod = 'LOAD-Methode';
 $strLoadExplanation = 'Die beste Methode zur Verarbeitung der hochgeladenen Datei durch MySQL ist standardmäßig aktiviert.  Wählen Sie bei Problemen bitte die andere Methode.';
+$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
 ?>

@@ -641,4 +641,5 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 // To translate
 
+$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
 ?>
