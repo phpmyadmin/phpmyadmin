@@ -65,7 +65,6 @@ $class7 = 'drop';
  * Displays links
  */
 
-echo '<div class="tabs">';
 if ($cfg['LightTabs']) {
     echo '&nbsp;';
 } else {
@@ -90,6 +89,5 @@ if (!$cfg['LightTabs']) {
 } else {
     echo '<br />';
 }
-echo '</div>';
 
 ?><br />

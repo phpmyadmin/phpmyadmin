@@ -497,6 +497,10 @@ textarea {
 
 /* Heading */
 
+div.spacer {
+    clear: both;
+}
+
 h1 span {
     display: block;
     float: left;

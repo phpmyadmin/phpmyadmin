@@ -181,7 +181,7 @@ if (empty($GLOBALS['is_header_sent'])) {
         }
         echo '</h1>';
     }
-    echo "\n";
+    echo "\n" . '<div class="spacer"></div>';
 
     /**
      * Sets a variable to remember headers have been sent
