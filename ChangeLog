@@ -7,7 +7,9 @@ $Source$
 
 2001-07-17  Marc Delisle  <lem9@users.sourceforge.net>
 	* user_details.php3, bugs 441987, 441990:
-	  corrections thanks to vinay and girish @sanisoft.com:
+	  corrections thanks to vinay and girish @sanisoft.com
+	* tbl_properties.php3, new link to drop table, thanks to 
+	  Stuart Logan <logan69@users.sourceforge.net> for the idea 
 
 2001-07-17  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_addfield.php3: add trouble detection if insert field failed

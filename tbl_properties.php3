@@ -22,6 +22,12 @@ mysql_select_db($db);
 /**
  * Set parameters for links
  */
+
+// it would be better to rename this variable "link_parameters" because
+// "query" is often used by developers for a quick query
+// and the real $query has to be reinitialized
+// (I had to rename $query to $query_tmp somewhere in this script)
+
 $query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
 ?>
 
@@ -803,8 +809,8 @@ if (MYSQL_MAJOR_VERSION == '3.23' && intval(MYSQL_MINOR_VERSION) >= 22) {
     <!-- Table type -->
     <?php
     // modify robbat2 code - staybyte - 11. June 2001
-    $query  = "SHOW VARIABLES LIKE 'have_%'";
-    $result = mysql_query($query);
+    $query_tmp  = "SHOW VARIABLES LIKE 'have_%'";
+    $result = mysql_query($query_tmp);
     if ($result != false && mysql_num_rows($result) > 0) {
         while ($tmp = mysql_fetch_array($result)) {
             if (isset($tmp['Variable_name'])) {
@@ -874,6 +880,9 @@ else { // MySQL < 3.23
 } // end MySQL < 3.23
 ?>
 
+    <li>
+     <a href="sql.php3?<?php echo $query; ?>&goto=db_details.php3&reload=true&sql_query=<?php echo urlencode("DROP TABLE $table"); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . $table . ' ' . $strHasBeenDropped); ?>"><?php echo $strDrop . ' ' . $table; ?></a>
+    </li>
 </ul>
 
 <?php
