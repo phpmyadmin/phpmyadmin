@@ -2557,6 +2557,15 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
     </tt>
 </p>
+<h4>
+    [4.7] Authentication window is displayed more than once, why?
+</h4>
+<p>
+    This happens if you are using a URL to start phpMyAdmin which is
+    different than the one set in your <tt>$cfg['PmaAbsoluteUri']</tt>.
+    For example, a missing &quot;www&quot;, or entering with an IP address
+    while a domain name is defined in the config file.
+</p>
 
 <a name="faqbrowsers"></a><br />
 <h3>[5. Browsers or client OS]</h3>
