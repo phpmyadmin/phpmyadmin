@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.2.5-rc1 Documentation
+                        phpMyAdmin 2.2.5 Documentation
                                        
      * Official phpMyAdmin project homepage    [
        http://www.phpwizard.net/projects/phpMyAdmin/ ]
@@ -9,8 +9,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.165 2002/03/11
-       17:10:45 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.169 2002/03/22
+       12:04:53 loic1 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -624,6 +624,11 @@ FAQ - Frequently Asked Questions
    If PHP does not have read/write access to its upload_tmp_dir, it
    cannot access the uploaded query.
    
+   I get an error 'No SQL query' when trying to submit a query from the
+   convenient text area.
+   Check the post_max_size directive from your php configuration file and
+   try to increase it.
+   
    I have problems with mysql.user field names.
    In older MySQL versions, the User and Password fields were named user
    and password. Please modify your field names to align with current
@@ -1000,7 +1005,7 @@ Péter Bakondy, Borges Botelho, Olivier Bussier, Neil Darlow,
 Kristof Hamann, Thomas Kläger, Lubos Klokner, Martin Marconcini,
 Girish Nair, David Nordenberg, Bernard M. Piller, Laurent Haas,
 "Sakamoto", Yuval Sarna, www.securereality.com.au,
-Peter Svec, Michael Tacelosky, Luís V., Daniel Villanueva, Vinay,
+Alvar Soome, Peter Svec, Michael Tacelosky, Luís V., Daniel Villanueva, Vinay,
 Ignacio Vazquez-Abrams, Chee Wai, Jakub Wilk, Thomas Michael Winningham.
 
 

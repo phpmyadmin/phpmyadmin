@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 
-
 /**
  * DEFINES VARIABLES & CONSTANTS
  * Overview:
@@ -17,7 +16,7 @@
  */
 // phpMyAdmin release
 if (!defined('PMA_VERSION')) {
-    define('PMA_VERSION', '2.2.5-dev');
+    define('PMA_VERSION', '2.2.5');
 }
 
 // php version

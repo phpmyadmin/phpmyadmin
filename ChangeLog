@@ -7,6 +7,7 @@ $Source$
 
 2002-03-22 Marc Delisle  <lem9@users.sourceforge.net>
 	* finnish, norwegian updates
+	* ### 2.2.5 released ###
 
 2002-03-22 Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, lines 383-390: removed the submit button for actions on
