@@ -59,8 +59,8 @@ header('Content-Type: text/html; charset=' . $charset);
     <noscript>
         <style type="text/css">
         <!--
-        div {color: #000000;}
-        .heada {font-family: ' + fontFamily + '; font-size: 10pt}
+        div {color: #000000}
+        .heada {font-family: <?php echo $left_font_family; ?>; font-size: 10pt}
         .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
         .child {font-family: <?php echo $left_font_family; ?>; font-size: 8pt; color: #333399; text-decoration: none}
         .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
@@ -91,7 +91,7 @@ $selected_db = 0;
 // '$cfgServerDefault = 0' is set.  In that case, we want the welcome
 // to appear with no database info displayed.
 if ($server > 0) {
-    // Get db list
+    // Get databases list
     if (empty($dblist)) {
         $dbs     = mysql_list_dbs();
         $num_dbs = mysql_numrows($dbs);
@@ -99,7 +99,7 @@ if ($server > 0) {
         $num_dbs = count($dblist);
     }
 
-    // Get table list per db
+    // Get tables list per database
     for ($i = 0; $i < $num_dbs; $i++) {
         if (empty($dblist)) {
             $db  = mysql_dbname($dbs, $i);
@@ -111,11 +111,11 @@ if ($server > 0) {
             $selected_db = $j;
         }
         $tables           = @mysql_list_tables($db);
-       	$num_tables       = @mysql_numrows($tables);
-		$common_url_query = "server=$server&lang=$lang&db=$db";
-		
-		echo "\n";
-		echo '    <div id="el' . $j . 'Parent" class="parent">';
+        $num_tables       = @mysql_numrows($tables);
+        $common_url_query = "server=$server&lang=$lang&db=$db";
+
+        echo "\n";
+        echo '    <div id="el' . $j . 'Parent" class="parent">';
 
         if (!empty($num_tables)) {
             echo "\n";
@@ -123,14 +123,14 @@ if ($server > 0) {
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="expandBase('el<?php echo $j; ?>', true); return false;">
             <img name="imEx" id="el<?php echo $j; ?>Img" src="images/plus.gif" border="0" width="9" height="9" alt="+" /></a>
             <?php
-		} else {
+        } else {
             echo "\n";
             ?>
         <img name="imEx" src="images/minus.gif" border="0" width="9" height="9" />
             <?php
         }
         echo "\n";
-		?>
+        ?>
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="expandBase('el<?php echo $j; ?>', false);">
             <font color="black" class="heada"><?php echo $db; ?></font></a>
     </div>
