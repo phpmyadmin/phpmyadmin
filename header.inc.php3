@@ -139,10 +139,12 @@ echo "\n";
 <body bgcolor="<?php echo $cfgRightBgColor; ?>" background="images/bkg.gif">
 <?php
 if (isset($db)) {
-    echo '<h1> ' . $strDatabase . ' ' . htmlspecialchars($db);
+    echo '<h1>' . $strDatabase . ' <i>' . htmlspecialchars($db) . '</i>';
     if (!empty($table)) {
-        echo ' - ' . $strTable . ' ' . htmlspecialchars($table);
+        echo ' - ' . $strTable . ' <i>' . htmlspecialchars($table) . '</i>';
     }
+    echo ' ' . trim($strRunning)
+         . ' <i>' . (($cfgServer['verbose']) ? $cfgServer['verbose'] : $cfgServer['host']) . '</i>'; 
     echo '</h1>' . "\n";
 }
 echo "\n";
