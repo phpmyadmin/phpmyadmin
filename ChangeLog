@@ -7,7 +7,8 @@ $Source$
 
 2001-06-18  Loïc Chapeaux  <lolo@phpheaven.net>
 	* The 'bkg.gif' was somewhat corrupted (it caused some annoying problems
-	  with NS4+). Fixed thanks to Laurent Hass. 
+	  with NS4+). Fixed thanks to Laurent Hass.
+	* Added Japanese and Korean translation from Sakamoto <info@boreal-net.com>
 
 2001-06-17  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* Fixed the '<?' tags in user_details.php3 to proper '<?php' to work on a
