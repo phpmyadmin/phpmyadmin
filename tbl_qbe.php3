@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
 
-
 /**
  * Gets the values of the variables posted or sent to this script and displays
  * the headers
@@ -725,12 +724,12 @@ if (isset($Field) && count($Field) > 0) {
     if ($rel_work && count($alltabs) > 0) {
 
         // now we need all tables that we have in the whereclause
-        for ($x = 0; $x < $col; $x++) {
-            $wtable = explode('.', $curField[$x]);
+        for ($x = 0; $x < count($Criteria); $x++) {
+            $wtable = explode('.', urldecode($Field[$x]));
             $ctable = str_replace('`', '', $wtable[0]);
-            if (!empty($curField[$x]) && !empty($curCriteria[$x])) {
-                if (isset($where[$ctable]) && $where[$ctable] != '=') {
-                    $where[$ctable] = substr($curCriteria[$x], 0, 1);
+            if (!empty($Field[$x]) && !empty($Criteria[$x])) {
+                if ($where[$ctable] != '=') {
+                    $where[$ctable] = substr($Criteria[$x], 0, 1);
                 }
             }
         } // end for
@@ -767,6 +766,8 @@ if (isset($Field) && count($Field) > 0) {
         $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
 
         // if we don't find anything we try the other way round
+        /*
+        removed this again - i think those that are only connected as a foreign key should not have a chance to be master
         if (mysql_num_rows($rel_id) == 0) {
             $rel_query = 'SELECT foreign_table AS wer, COUNT(master_table) AS hits FROM ' . PMA_backquote($cfg['Server']['relation'])
                        . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit
@@ -774,10 +775,11 @@ if (isset($Field) && count($Field) > 0) {
 
             $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
         }
+        */
         while ($row = mysql_fetch_array($rel_id)) {
             // we want the first one (highest number of hits) or the first one
             // that is in the WHERE clause
-            if (!isset($master)) {
+             if (!isset($master)) {
                 $master = $row['wer'];
             } else {
                 // remember that we found more than one because this means we
@@ -785,19 +787,15 @@ if (isset($Field) && count($Field) > 0) {
                 $hit    = 2;
             } // end if.. else...
             while (list($key, $value) = each($wheretabs)) {
-                if ($row['master_table'] == $key) {
+                if ($row['wer'] == $key) {
                     $master = $row['wer'];
                     $ex     = 1;
-                    break 2;
+                     break;
                 }
             } // end while
+            reset($wheretabs);
         } // end while
-
-        if ($ex == 1 || $hit != 2) {
-            // if $ex is not 1 then obviously none of the tables that are used
-            // in the whereclause could be found - that means that using left
-            // joins doesn't make much sense anyway
-
+         if ($master!='') {
             if ($master != '') {
                 $qry_from = PMA_backquote($master);
             }
@@ -855,22 +853,23 @@ if (isset($Field) && count($Field) > 0) {
                            . ' WHERE master_table IN ' . $incrit_s . ' AND foreign_table IN ' . $incrit_d
                            . ' ORDER BY master_table, foreign_table';
                 $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-
                 while ($row = mysql_fetch_array($rel_id)) {
-                    $foreign_table = $row['foreign_table'];
-                    if ($rel[$foreign_table]['mcon'] == 0) {
+                    $found_table = $row['master_table'];
+                    if ($rel[$found_table]['mcon'] == 0) {
                         // if we allready found a link to the mastertable we
                         // don't want another otherwise we take whatever we get
-                        $rel[$foreign_table]['link'] = ' LEFT JOIN ' . $foreign_table
-                                                     . ' ON ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field'])
-                                                     . ' = ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field']);
+                        $rel[$found_table]['link'] = ' LEFT JOIN ' . $found_table
+                                                     . ' ON ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field'])
+                                                     . ' = ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field']);
 
                         // in extreme cases we hadn't found a master yet, so
                         // let's use the one we found now
-                        $master = $row['foreign_table'];
+                        if($master ==''){
+                            $master = $row['master_table'];
+                        }
                     }
-                    if ($row['master_table'] == $master) {
-                        $rel[$foreign_table]['mcon'] = 1;
+                    if ($row["foreign_table"] == $master) {
+                        $rel[$found_table]['mcon'] = 1;
                     }
                 } // end while
             } // end if

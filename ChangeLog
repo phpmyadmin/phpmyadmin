@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_qbe.php3: corrections from Mike Beck for better joints
+      when more than one table is the master in a relation
+      
 2002-04-28 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.php3, new tbl_properties_common.php3:
       start the split
