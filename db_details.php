@@ -61,7 +61,7 @@ $auto_sel  = ($cfg['TextareaAutoSelect']
     <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>" />
     <?php echo sprintf($strRunSQLQuery, htmlspecialchars($db)) . ' ' . PMA_showMySQLDocu('Reference', 'SELECT'); ?>&nbsp;:<br />
     <div style="margin-bottom: 5px">
-<textarea name="sql_query" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" rows="<?php echo $cfg['TextareaRows']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
+<textarea name="sql_query" cols="<?php echo $cfg['TextareaCols'] * 2; ?>" rows="<?php echo $cfg['TextareaRows']; ?>" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
 <?php
 if (!empty($query_to_display)) {
     echo htmlspecialchars($query_to_display);

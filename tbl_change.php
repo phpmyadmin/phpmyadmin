@@ -538,7 +538,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
         <tr>
             <td colspan="4" align="right" bgcolor="<?php echo $bgcolor; ?>">
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo ($cfg['TextareaRows']*2); ?>" cols="<?php echo ($cfg['TextareaCols']*2); ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
+                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo ($cfg['TextareaRows']*2); ?>" cols="<?php echo ($cfg['TextareaCols']*2); ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $vkey; ?>')" tabindex="<?php echo ($tabindex + $tab3); ?>"><?php echo $special_chars; ?></textarea>
             </td>
           <?php
@@ -547,7 +547,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
             ?>
             <td bgcolor="<?php echo $bgcolor; ?>">
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
+                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $vkey; ?>')" tabindex="<?php echo ($tabindex + $tab3); ?>"><?php echo $special_chars; ?></textarea>
             </td>
             <?php
@@ -674,7 +674,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 ?>
             <td bgcolor="<?php echo $bgcolor; ?>">
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
+                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $vkey; ?>')" tabindex="<?php echo ($tabindex + $tab3); ?>" ><?php echo $special_chars; ?></textarea>
                 <?php
 
@@ -769,7 +769,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
             if ($is_char && isset($cfg['CharEditing']) && ($cfg['CharEditing'] == 'textarea')) {
                 echo "\n";
                 ?>
-                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
+                <textarea name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" dir="<?php echo $text_dir; ?>" id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $vkey; ?>')" tabindex="<?php echo ($tabindex + $tab3); ?>" ><?php echo $special_chars; ?></textarea>
                 <?php
             } else {

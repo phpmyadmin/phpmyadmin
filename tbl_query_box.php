@@ -132,7 +132,7 @@ if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
                     <td>
                         <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . (isset($is_inside_querywindow) ? '<br />' : ' ') . PMA_showMySQLDocu('Reference', 'SELECT'); ?>
                         <br />
-                        <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
+                        <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
 <?php
 if (!empty($query_to_display)) {
     echo htmlspecialchars($query_to_display);

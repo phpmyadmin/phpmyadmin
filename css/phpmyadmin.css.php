@@ -339,3 +339,9 @@ td.activetab {
     background-color: silver;
 }
 
+
+/* Textarea */
+
+textarea {
+    overflow: auto;
+}
