@@ -87,6 +87,7 @@ $strDatabase = 'Adatbázis ';
 $strDatabaseHasBeenDropped = '%s adatbázist eldobtam.';
 $strDatabases = 'adatbázisok';
 $strDatabasesStats = 'Adatbázis statisztika';
+$strDatabaseWildcard = 'Adatbazis (joker-karakterek elfogadva):';
 $strDataOnly = 'Csak adatok';
 $strDefault = 'Alapértelmezett';
 $strDelete = 'Töröl';
@@ -346,5 +347,4 @@ $strYes = 'Igen';
 $strZip = '"zippel tömörítve"';
 
 // To translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

@@ -86,6 +86,7 @@ $strDatabase = 'Databáze ';
 $strDatabaseHasBeenDropped = 'Databáze %s byla zru¹ena.';
 $strDatabases = 'databáze';
 $strDatabasesStats = 'Statistiky databáze';
+$strDatabaseWildcard = 'Databáze (¾olíky povoleny):';
 $strDataOnly = ' Jen data ';
 $strDefault = 'Výchozí';
 $strDelete = 'Smazat';
@@ -345,5 +346,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>
