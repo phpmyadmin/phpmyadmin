@@ -46,5 +46,15 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
         unset($goto);
     } // end if
 
+    // Strip slahes from $db / $table values
+    if (get_magic_quotes_gpc()) {
+        if (isset($db)) {
+            $db = stripslashes($db);
+        }
+        if (isset($table)) {
+            $table = stripslashes($table);
+        }
+    }
+
 } // $__PMA_GRAB_GLOBALS_LIB__
 ?>

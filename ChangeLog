@@ -9,6 +9,8 @@ $Source$
     * db_details.php3, read_dump.php3, tbl_query_box.php3, lang/*.inc.php3:
       Feature #506106: Read compressed dump.
     * lang/italian-*.inc.php3: Updates, thanks again to Pietro Danesi (danone).
+    * libraries/grab_globals.lib.php3: Fixed bug #638548 (table name with a
+      quote).
 
 2002-11-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/build_dump.lib.php3: fix for old MySQL, thanks to
