@@ -56,6 +56,8 @@ $strAnyDatabase = 'Cualquier base de datos';
 $strAnyHost = 'Cualquier servidor';
 $strAnyTable = 'Cualquier tabla';
 $strAnyUser = 'Cualquier usuario';
+$strArabic = 'Árabe';
+$strArmenian = 'Armenio';
 $strAscending = 'Ascendente';
 $strAtBeginningOfTable = 'Al comienzo de la tabla';
 $strAtEndOfTable = 'Al final de la tabla';
@@ -64,6 +66,7 @@ $strAutodetect = 'Autodetecte';
 $strAutomaticLayout = 'Layout automático';
 
 $strBack = 'Volver';
+$strBaltic = 'Báltico';
 $strBeginCut = 'INICIO DEL CORTE';
 $strBeginRaw = 'INICIO DEL VOLCADO';
 $strBinary = ' Binario ';
@@ -89,6 +92,7 @@ $strCardinality = 'Cardinalidad';
 $strCarriage = 'Retorno de carro: \\r';
 $strCaseInsensitive = 'independiente de mayúsculas y minúsculas';
 $strCaseSensitive = 'dependiente de mayúsculas y minúsculas';
+$strCentralEuropean = 'Europeo central';
 $strChange = 'Cambiar';
 $strChangeCopyMode = 'Crear un nuevo usuario con los mismos privilegios y...';
 $strChangeCopyModeCopy = '... mantenga el anterior.';
@@ -135,6 +139,7 @@ $strCreatePage = 'Crear una nueva página';
 $strCreatePdfFeat = 'Creación de los PDF';
 $strCriteria = 'Criterio';
 $strCroatian = 'Croata';
+$strCyrillic = 'Cirílico';
 $strCzech = 'Checo';
 
 $strDBComment = 'Comentario de la base de datos: ';
@@ -165,11 +170,11 @@ $strDatabasesStatsHeavyTraffic = 'Nota: Activando las estadísticas de la base de
 $strDbPrivileges = 'Privilegios específicos para la base de datos';
 $strDbSpecific = 'específico para la base de datos';
 $strDefault = 'Predeterminado';
-$strDefaultValueHelp = 'Para valores predeterminados, por favor ingrese solamente un valor, sin "backslash escaping" ni comillas, usando este formato: a';
+$strDefaultValueHelp = 'Para valores predeterminados, por favor ingrese solamente un valor, sin "escaping backslash" ni comillas, usando este formato: a';
 $strDelOld = 'La página actual tiene referencias a tablas que ya no existen.  ¿Desea eliminar esas referencias?';
 $strDelete = 'Borrar';
 $strDeleteAndFlush = 'Borre a los usuarios y vuelva a cargar los privilegios posteriormente.';
-$strDeleteAndFlushDescr = 'Este es el modo más limpio, pero volver a cargar los privilegios puede tomar un tiempo.';
+$strDeleteAndFlushDescr = 'Este es el modo más limpio, pero volver a cargar los privilegios puede tomar tiempo.';
 $strDeleteFailed = '¡La operación de borrado falló!';
 $strDeleteUserMessage = 'Ud. ha borrado el usuario %s.';
 $strDeleted = 'La fila se ha borrado';
@@ -192,7 +197,7 @@ $strDropSelectedDatabases = 'Elimine la base de datos seleccionada';
 $strDropTable = 'Borrar la tabla';
 $strDropUsersDb = 'Eliminar las bases de datos que tienen los mismos nombres de los usuarios.';
 $strDumpComments = 'Incluya los comentarios de la columna como comentarios-SQL integrados';
-$strDumpSaved = 'Su archivo (dump) ha sido guardado con el nombre %s.';
+$strDumpSaved = 'Su archivo (MySQL dump) ha sido guardado con el nombre %s.';
 $strDumpXRows = 'Volcar %s filas empezando por la fila %s.';
 $strDumpingData = 'Volcar la base de datos para la tabla';
 $strDynamic = 'dinámico/a';
@@ -233,7 +238,7 @@ $strFileNameTemplate = 'Plantilla del nombre del archivo';
 $strFileNameTemplateHelp = 'Use __DB__ para nombre de la base de datos, __TABLE__ para el nombre de la tabla y las opciones %sany strftime%s para especificaciones de tiempo; la extensión se añadirá automáticamente. Cualquier otro texto será conservado.';
 $strFileNameTemplateRemember = 'recuerde la plantilla';
 $strFixed = 'fijo';
-$strFlushPrivilegesNote = 'Nota: phpMyAdmin obtiene los privilegios users\' directamente de las tablas de privilegios MySQL\'. El contenido de estas tablas puede diferir de los privilegios que usa el servidor si es que se han realizado cambios manuales en él. En este caso, deberá %sreload los privilegios%s antes de continuar.';
+$strFlushPrivilegesNote = 'Nota: phpMyAdmin obtiene los privilegios de los usuarios \'directamente de las tablas de privilegios MySQL\'. El contenido de estas tablas puede diferir de los privilegios que usa el servidor si es que se han realizado cambios manuales en él. En este caso, deberá %scargar la página de privilegios nuevamente%s antes de continuar.';
 $strFlushTable = 'Vaciar el caché de la tabla ("FLUSH")';
 $strFormEmpty = '¡Falta un valor en el formulario!';
 $strFormat = 'Formato';
@@ -250,11 +255,13 @@ $strGlobalValue = 'Valor global';
 $strGo = 'Continúe';
 $strGrantOption = 'Conceder';
 $strGrants = 'Permisos';
+$strGreek = 'Griego';
 $strGzip = '"Comprimido con gzip"';
 
 $strHasBeenAltered = 'fue modificada.';
 $strHasBeenCreated = 'se creó.';
 $strHaveToShow = 'Debe elegir al menos una columna para mostrar';
+$strHebrew = 'Hebreo';
 $strHome = 'Página de inicio';
 $strHomepageOfficial = 'Página oficial de phpMyAdmin';
 $strHomepageSourceforge = 'Descargar phpMyAdmin de Sourceforge';
@@ -287,6 +294,7 @@ $strInsertedRows = 'Filas insertadas:';
 $strInstructions = 'Instrucciones';
 $strInvalidName = '"%s" es una palabra reservada, no puede usarla como nombre de /Base de datos/tabla/campo.';
 
+$strJapanese = 'Japonés';
 $strJumpToDB = 'Salte a la base de datos &quot;%s&quot;.';
 $strJustDelete = 'Solamente borre a los usuarios de la tabla de privilegios.';
 $strJustDeleteDescr = 'Los usuarios &quot;borrados&quot; aún podrán acceder al servidor de manera usual hasta que los privilegios se hayan vuelto a cargar.';
@@ -294,6 +302,7 @@ $strJustDeleteDescr = 'Los usuarios &quot;borrados&quot; aún podrán acceder al s
 $strKeepPass = 'No cambiar la contraseña';
 $strKeyname = 'Nombre de la clave';
 $strKill = 'Matar el proceso';
+$strKorean = 'Coreano';
 
 $strLaTeX = 'LaTeX';
 $strLaTeXOptions = 'opciones LaTeX';
@@ -442,8 +451,8 @@ $strPrivDescProcess3 = 'Permite destruir los procesos de otros usuarios.';
 $strPrivDescProcess4 = 'Permite ver las consultas completas en la lista de procesos.';
 $strPrivDescReferences = 'No tiene efecto en esta versión de MySQL.';
 $strPrivDescReload = 'Permite volver a cargar los parámetros del servidor y depurar los cachés del servidor.';
-$strPrivDescReplClient = 'Da el derecho al usuario para preguntar dónde están los "slaves / masters".';
-$strPrivDescReplSlave = 'Necesario para los "slaves" de replicación.';
+$strPrivDescReplClient = 'Da el derecho al usuario para preguntar dónde están los "esclavos / masters".';
+$strPrivDescReplSlave = 'Necesario para los "esclavos" de replicación.';
 $strPrivDescSelect = 'Permite leer los datos.';
 $strPrivDescShowDb = 'Concede acceso a la lista completa de bases de datos.';
 $strPrivDescShutdown = 'Permite desconectar el servidor.';
@@ -509,6 +518,7 @@ $strRowsStatistic = 'Estadísticas de la fila';
 $strRunQuery = 'Ejecutar la consulta';
 $strRunSQLQuery = 'Ejecute la/s consulta/s SQL en la base de datos %s';
 $strRunning = 'ejecutándose en %s';
+$strRussian = 'Ruso';
 
 $strSQL = 'SQL';
 $strSQLOptions = 'Opciones SQL';
@@ -564,6 +574,7 @@ $strShowTableDimension = 'Mostrar la dimensión de las tablas';
 $strShowTables = 'Mostrar las tablas';
 $strShowThisQuery = ' Mostrar esta consulta otra vez ';
 $strShowingRecords = 'Mostrando registros ';
+$strSimplifiedChinese = 'Chino simplificado';
 $strSingly = '(solo)';
 $strSize = 'Tamaño';
 $strSort = 'Ordenar';
@@ -601,6 +612,7 @@ $strTableType = 'Tipo de tabla';
 $strTables = '%s tabla(s)';
 $strTblPrivileges = 'Privilegios específicos para la tabla';
 $strTextAreaLength = ' Debido a su longitud,<br /> este campo puede no ser editable ';
+$strThai = 'Tailandés';
 $strTheContent = 'Se insertó el contenido de su archivo.';
 $strTheContents = 'El contenido del archivo reemplaza el contenido de la tabla seleccionada para las columnas idénticas primarias o únicas.';
 $strTheTerminator = 'El terminador de los campos.';
@@ -611,8 +623,9 @@ $strTime = 'Tiempo';
 $strToggleScratchboard = 'toggle scratchboard';
 $strTotal = 'total';
 $strTotalUC = 'Total';
+$strTraditionalChinese = 'Chino tradicional';
 $strTraffic = 'Tráfico';
-$strTransformation_image_jpeg__inline = 'Muestra un thumbnail que puede abrirse mediante un clic; opciones: width,height en píxeles (mantiene la proporción original)';
+$strTransformation_image_jpeg__inline = 'Muestra un thumbnail que puede abrirse mediante un clic; opciones: width, height en píxeles (mantiene la proporción original)';
 $strTransformation_image_jpeg__link = 'Muestra un enlace a esta imagen (blob download directo, i.e.).';
 $strTransformation_image_png__inline = 'Ver imagen/jpeg: inline';
 $strTransformation_text_plain__dateformat = 'Toma un campo TIME, TIMESTAMP o DATETIME y lo formatea usando su formato de fechas local. La primera opción es el offset (en horas) que se añadirá al timestamp (Predeterminado: 0). La segunda opción es un dateformat diferente de acuerdo con los parámetros disponibles para el strftime() del PHP.';
@@ -628,7 +641,9 @@ $strType = 'Tipo';
 
 $strUkrainian = 'Ucraniano';
 $strUncheckAll = 'Desmarcar todos';
+$strUnicode = 'Unicode';
 $strUnique = 'Único';
+$strUnknown = 'desconocido';
 $strUnselectAll = 'Deseleccione todo';
 $strUpdComTab = 'Para actualizar su tabla Columna_comentarios (Column_comments), por favor revise la documentación';
 $strUpdatePrivMessage = 'Ud. ha actualizado los privilegios para %s.';
@@ -661,6 +676,7 @@ $strViewDumpDatabases = 'Ver el dump (schema) de la base de datos';
 $strWebServerUploadDirectory = 'directorio en el servidor web para subir los archivos';
 $strWebServerUploadDirectoryError = 'No está disponible el directorio que usted habilitó para subir las tareas';
 $strWelcome = 'Bienvenido a %s';
+$strWestEuropean = 'Europea occidental';
 $strWildcard = 'comodín';
 $strWithChecked = 'Con marca:';
 $strWritingCommentNotPossible = 'No fue posible escribir el comentario';
@@ -673,34 +689,5 @@ $strYes = 'Sí';
 
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
-// To translate
-
-$strArabic = 'Arabic';  //to translate
-$strArmenian = 'Armenian';  //to translate
-
-$strBaltic = 'Baltic';  //to translate
-
-$strCentralEuropean = 'Central European';  //to translate
-$strCyrillic = 'Cyrillic';  //to translate
-
-$strGreek = 'Greek';  //to translate
-
-$strHebrew = 'Hebrew';  //to translate
-
-$strJapanese = 'Japanese';  //to translate
-
-$strKorean = 'Korean';  //to translate
-
-$strRussian = 'Russian';  //to translate
-
-$strSimplifiedChinese = 'Simplified Chinese';  //to translate
-
-$strThai = 'Thai';  //to translate
-$strTraditionalChinese = 'Traditional Chinese';  //to translate
-
-$strUnicode = 'Unicode';  //to translate
-$strUnknown = 'unknown';  //to translate
-
-$strWestEuropean = 'West European';  //to translate
 
 ?>
