@@ -191,7 +191,7 @@ if (isset($submit_search)) {
                    . '&amp;server=' . $server
                    . '&amp;goto=db_details.php3'
                    . '&amp;db=' . urlencode($db)
-                   . '&amp;table=' . urlencode($table)
+         //          . '&amp;table=' . urlencode($table)
                    . '&amp;pos=0'
                    . '&amp;is_js_confirmed=0';
 
