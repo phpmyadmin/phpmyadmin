@@ -27,10 +27,7 @@ if (empty($goto)) {
 } // end if
 if (!isset($err_url)) {
     $err_url = (!empty($back) ? $back : $goto)
-             . '?lang=' . $lang
-             . '&amp;convcharset=' . $convcharset
-             . '&amp;server=' . $server
-             . (isset($db) ? '&amp;db=' . urlencode($db) : '')
+             . '?' . PMA_generate_common_url(isset($db) ? $db : '')
              . ((strpos(' ' . $goto, 'db_details') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
 } // end if
 
@@ -123,12 +120,8 @@ if ($is_select) {
  * Sets or modifies the $goto variable if required
  */
 if ($goto == 'sql.php3') {
-    $goto = 'sql.php3'
-          . '?lang=' . $lang
-          . '&amp;convcharset=' . $convcharset
-          . '&amp;server=' . $server
-          . '&amp;db=' . urlencode($db)
-          . '&amp;table=' . urlencode($table)
+    $goto = 'sql.php3?' 
+          . PMA_generate_common_url($db, $table)
           . '&amp;pos=' . $pos
           . '&amp;sql_query=' . urlencode($sql_query);
 } // end if
@@ -182,11 +175,7 @@ if ($do_confirm) {
     echo '<tt>' . htmlspecialchars($stripped_sql_query) . '</tt>&nbsp;?<br/>' . "\n";
     ?>
 <form action="sql.php3" method="post">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo isset($table) ? htmlspecialchars($table) : ''; ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="sql_query" value="<?php echo urlencode(addslashes($sql_query)); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
@@ -508,23 +497,16 @@ else {
 
             // Displays "Insert a new row" link if required
             if ($disp_mode[6] == '1') {
-                $lnk_goto  = 'sql.php3'
-                           . '?lang=' . $lang
-                           . '&amp;convcharset=' . $convcharset
-                           . '&amp;server=' . $server
-                           . '&amp;db=' . urlencode($db)
-                           . '&amp;table=' . urlencode($table)
+                $lnk_goto  = 'sql.php3?' 
+                           . PMA_generate_common_url($db, $table)
                            . '&amp;pos=' . $pos
                            . '&amp;session_max_rows=' . $session_max_rows
                            . '&amp;disp_direction=' . $disp_direction
                            . '&amp;repeat_cells=' . $repeat_cells
                            . '&amp;dontlimitchars=' . $dontlimitchars
                            . '&amp;sql_query=' . urlencode($sql_query);
-                $url_query = '?lang=' . $lang
-                           . '&amp;convcharset=' . $convcharset
-                           . '&amp;server=' . $server
-                           . '&amp;db=' . urlencode($db)
-                           . '&amp;table=' . urlencode($table)
+                $url_query = '?'
+                           . PMA_generate_common_url($db, $table)
                            . '&amp;pos=' . $pos
                            . '&amp;session_max_rows=' . $session_max_rows
                            . '&amp;disp_direction=' . $disp_direction
@@ -543,11 +525,8 @@ else {
 
             // Displays "printable view" link if required
             if ($disp_mode[9] == '1') {
-                $url_query = '?lang=' . $lang
-                           . '&amp;convcharset=' . $convcharset
-                           . '&amp;server=' . $server
-                           . '&amp;db=' . urlencode($db)
-                           . '&amp;table=' . urlencode($table)
+                $url_query = '?'
+                           . PMA_generate_common_url($db, $table)
                            . '&amp;pos=' . $pos
                            . '&amp;session_max_rows=' . $session_max_rows
                            . '&amp;disp_direction=' . $disp_direction
@@ -568,12 +547,8 @@ else {
             && !empty($sql_query)) {
             echo "\n";
 
-            $goto = 'sql.php3'
-                  . '?lang=' . $lang
-                  . '&amp;convcharset=' . $convcharset
-                  . '&amp;server=' . $server
-                  . '&amp;db=' . urlencode($db)
-                  . '&amp;table=' . urlencode($table)
+            $goto = 'sql.php3?' 
+                  . PMA_generate_common_url($db, $table)
                   . '&amp;pos=' . $pos
                   . '&amp;session_max_rows=' . $session_max_rows
                   . '&amp;disp_direction=' . $disp_direction
@@ -592,7 +567,7 @@ else {
             ?>
     <br /><br />
     <?php echo $strBookmarkLabel; ?>&nbsp;:
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <?php echo PMA_generate_common_hidden_inputs(); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="fields[dbase]" value="<?php echo htmlspecialchars($db); ?>" />
     <input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />

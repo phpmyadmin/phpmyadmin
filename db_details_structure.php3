@@ -50,10 +50,7 @@ if ($num_tables == 0) {
 else if (PMA_MYSQL_INT_VERSION >= 32303) {
     ?>
 <form method="post" action="db_details_structure.php3" name="tablesForm">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
 
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
@@ -270,11 +267,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
 
     <?php
     // Check all tables url
-    $checkall_url = 'db_details_structure.php3'
-                  . '?lang=' . $lang
-                  . '&amp;convcharset=' . $convcharset
-                  . '&amp;server=' . $server
-                  . '&amp;db=' . urlencode($db);
+    $checkall_url = 'db_details_structure.php3?' . PMA_generate_common_url($db);
     echo "\n";
     ?>
 <tr>
@@ -326,10 +319,7 @@ else {
     echo "\n";
     ?>
 <form action="db_details_structure.php3">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
 
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
@@ -385,11 +375,7 @@ else {
     echo "\n";
 
     // Check all tables url
-    $checkall_url = 'db_details_structure.php3'
-                  . '?lang=' . $lang
-                  . '&amp;convcharset=' . $convcharset
-                  . '&amp;server=' . $server
-                  . '&amp;db=' . urlencode($db);
+    $checkall_url = 'db_details_structure.php3?' . PMA_generate_common_url($db);
     ?>
 <tr>
     <td colspan="9">
@@ -448,10 +434,7 @@ if ($num_tables > 0) {
     <li>
         <form method="post" action="tbl_create.php3"
             onsubmit="return (emptyFormElements(this, 'table') && checkFormElementInRange(this, 'num_fields', 1))">
-        <input type="hidden" name="server" value="<?php echo $server; ?>" />
-        <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-        <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+        <?php echo PMA_generate_common_hidden_inputs($db); ?>
 <?php
 echo '        ' . sprintf($strCreateNewTable, htmlspecialchars($db)) . '&nbsp;:<br />' . "\n";
 echo '        ' . $strName . '&nbsp;:&nbsp;' . "\n";
@@ -496,10 +479,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         ?>
     <li>
         <form method="post" action="pdf_schema.php3">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db); ?>
             <?php echo $strDisplayPDF; ?>&nbsp;:<br />
             <?php echo $strPageNumber; ?>&nbsp;
             <select name="pdf_page_number">

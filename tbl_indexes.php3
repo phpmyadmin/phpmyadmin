@@ -40,7 +40,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
         $is_db = @PMA_mysql_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&convcharset=' . $convcharset . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?' . PMA_generate_common_url() . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     }
     // Not a valid table name -> back to the default db_details sub-page
@@ -49,7 +49,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
     }
     if (empty($table)
         || !($is_table && @mysql_numrows($is_table))) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . $cfg['DefaultTabDatabase'] . '?lang=' . $lang . '&convcharset=' . $convcharset . '&server=' . $server .'&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     } else if (isset($is_table)) {
         mysql_free_result($is_table);
@@ -65,11 +65,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
  * Gets fields and indexes informations
  */
 if (defined('PMA_IDX_INCLUDED')) {
-    $err_url_0 = 'db_details.php3'
-               . '?lang=' . $lang
-               . '&amp;convcharset=' . $convcharset
-               . '&amp;server=' . $server
-               . '&amp;db=' . urlencode($db);
+    $err_url_0 = 'db_details.php3?' . PMA_generate_common_url($db);
 }
 
 //  Gets table keys and store them in arrays
@@ -167,12 +163,7 @@ if (get_magic_quotes_gpc()) {
 if (!defined('PMA_IDX_INCLUDED')
     && (isset($index) && isset($do_save_data))) {
 
-    $err_url     = 'tbl_indexes.php3'
-                 . '?lang=' . $lang
-                 . '&amp;convcharset=' . $convcharset
-                 . '&amp;server=' . $server
-                 . '&amp;db=' . urlencode($db)
-                 . '&amp;table=' . urlencode($table);
+    $err_url     = 'tbl_indexes.php3?' . PMA_generate_common_url($db, $table);
     if (empty($old_index)) {
         $err_url .= '&amp;create_index=1&amp;idx_num_fields=' . $idx_num_fields;
     } else {
@@ -306,11 +297,7 @@ else if (!defined('PMA_IDX_INCLUDED')
 <!-- Build index form -->
 <form action="tbl_indexes.php3" method="post" name="index_frm"
     onsubmit="if (typeof(this.elements['index'].disabled) != 'undefined') {this.elements['index'].disabled = false}">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <?php
     if (isset($create_index)) {
         echo '<input type="hidden" name="create_index" value="1" />';
@@ -424,11 +411,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     ?>
     <!-- Indexes form -->
     <form action="tbl_indexes.php3" method="post">
-        <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-        <input type="hidden" name="server" value="<?php echo $server; ?>" />
-        <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-        <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+        <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <?php
     echo "\n";
     echo '        ' . $strIndexes . '&nbsp;:' . "\n";

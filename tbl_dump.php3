@@ -67,12 +67,7 @@ require('./libraries/zip.lib.php3');
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_properties.php3'
-         . '?lang=' . $lang
-         . '&amp;convcharset=' . $convcharset
-         . '&amp;server=' . $server
-         . '&amp;db=' . urlencode($db)
-         . (isset($table) ? '&amp;table=' . urlencode($table) : '');
+$err_url = 'tbl_properties.php3?' . PMA_generate_common_url($db, isset($table) ? $table : '');
 
 
 /**

@@ -237,10 +237,7 @@ if (!isset($goto)
     $goto = 'db_details.php3';
 }
 $err_url  = $goto
-          . '?lang=' . $lang
-          . '&amp;convcharset=' . $convcharset
-          . '&amp;server=' . $server
-          . '&amp;db=' . urlencode($db)
+          . '?' . PMA_generate_common_url($db)
           . (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
 
 

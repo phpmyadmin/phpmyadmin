@@ -238,11 +238,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             ?>
     <td>
         <form action="sql.php3" method="post">
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="pos" value="0" />
             <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
@@ -255,11 +251,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     </td>
     <td>
         <form action="sql.php3" method="post">
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="pos" value="<?php echo $pos_prev; ?>" />
             <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
@@ -280,11 +272,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     <td align="center">
         <form action="sql.php3" method="post"
             onsubmit="return (checkFormElementInRange(this, 'session_max_rows', 1) && checkFormElementInRange(this, 'pos', 0, <?php echo $unlim_num_rows - 1; ?>))">
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="dontlimitchars" value="<?php echo $dontlimitchars; ?>" />
@@ -329,11 +317,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             ?>
     <td>
         <form action="sql.php3" method="post">
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="pos" value="<?php echo $pos_next; ?>" />
             <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
@@ -347,11 +331,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     <td>
         <form action="sql.php3" method="post"
             onsubmit="return <?php echo (($pos + $session_max_rows < $unlim_num_rows && $num_rows >= $session_max_rows) ? 'true' : 'false'); ?>">
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="pos" value="<?php echo $unlim_num_rows - $session_max_rows; ?>" />
             <input type="hidden" name="session_max_rows" value="<?php echo $session_max_rows; ?>" />
@@ -374,11 +354,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     </td>
     <td>
         <form action="sql.php3" method="post">
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="sql_query" value="<?php echo $encoded_query; ?>" />
             <input type="hidden" name="pos" value="0" />
             <input type="hidden" name="session_max_rows" value="all" />
@@ -460,12 +436,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                       ? ' rowspan="2"'
                       : '';
         }
-        $text_url = 'sql.php3'
-                  . '?lang=' . $lang
-                  . '&amp;convcharset=' . $convcharset
-                  . '&amp;server=' . $server
-                  . '&amp;db=' . urlencode($db)
-                  . '&amp;table=' . urlencode($table)
+        $text_url = 'sql.php3?'
+                  . PMA_generate_common_url($db, $table)
                   . '&amp;sql_query=' . urlencode($sql_query)
                   . '&amp;pos=' . $pos
                   . '&amp;session_max_rows=' . $session_max_rows
@@ -634,11 +606,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 } else {
                     $sorted_sql_query = $unsorted_sql_query . $sort_order;
                 }
-                $url_query = 'lang=' . $lang
-                           . '&amp;convcharset=' . $convcharset
-                           . '&amp;server=' . $server
-                           . '&amp;db=' . urlencode($db)
-                           . '&amp;table=' . urlencode($table)
+                $url_query = PMA_generate_common_url($db, $table)
                            . '&amp;pos=' . $pos
                            . '&amp;session_max_rows=' . $session_max_rows
                            . '&amp;disp_direction=' . $disp_direction
@@ -914,11 +882,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 } // end if (1.1)
 
                 // 1.2 Defines the urls for the modify/delete link(s)
-                $url_query  = 'lang=' . $lang
-                            . '&amp;convcharset=' . $convcharset
-                            . '&amp;server=' . $server
-                            . '&amp;db=' . urlencode($db)
-                            . '&amp;table=' . urlencode($table)
+                $url_query  = PMA_generate_common_url($db, $table)
                             . '&amp;pos=' . $pos
                             . '&amp;session_max_rows=' . $session_max_rows
                             . '&amp;disp_direction=' . $disp_direction
@@ -963,11 +927,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                               . '?' . str_replace('&amp;', '&', $url_query)
                               . '&sql_query=' . urlencode($sql_query)
                               . '&goto=main.php3';
-                    $del_url  = 'sql.php3'
-                              . '?lang=' . $lang
-                              . '&amp;convcharset=' . $convcharset
-                              . '&amp;server=' . $server
-                              . '&amp;db=mysql'
+                    $del_url  = 'sql.php3?'
+                              . PMA_generate_common_url('mysql')
                               . '&amp;sql_query=' . urlencode('KILL ' . $row['Id'])
                               . '&amp;goto=' . urlencode($lnk_goto);
                     $js_conf  = 'KILL ' . $row['Id'];
@@ -1051,9 +1012,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
-                                                                   .  'lang=' . $lang . '&amp;server=' . $server
-                                                                   . '&amp;convcharset=' . $convcharset
-                                                                   .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
+                                                                   .  PMA_generate_common_url($db, $map[$meta->name][0]) 
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = ' . $row[$pointer]) . '"' . $title . '>'
                                                                    .  $row[$pointer] . '</a>';
@@ -1162,9 +1121,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $title = (!empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
 
                             $vertical_display['data'][$row_no][$i] .= '<a href="sql.php3?'
-                                                                   .  'lang=' . $lang . '&amp;convcharset=' . $convcharset
-                                                                   .  '&amp;server=' . $server
-                                                                   .  '&amp;db=' . urlencode($db) . '&amp;table=' . urlencode($map[$meta->name][0])
+                                                                   .  PMA_generate_common_url($db, $map[$meta->name][0]) 
                                                                    .  '&amp;pos=0&amp;session_max_rows=' . $session_max_rows . '&amp;dontlimitchars=' . $dontlimitchars
                                                                    .  '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($map[$meta->name][0]) . ' WHERE ' . PMA_backquote($map[$meta->name][1]) . ' = \'' . PMA_sqlAddslashes($relation_id) . '\'') . '"' . $title . '>'
                                                                    .  $row[$pointer] . '</a>';

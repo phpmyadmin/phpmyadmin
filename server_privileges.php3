@@ -590,11 +590,9 @@ if (empty($adduser)) {
                    . '    Please run the script <tt>mysql_fix_privilege_tables</tt> that should be included in your MySQL server distribution to solve this problem!' . "\n"
                    . '</div><br />' . "\n";
             }
-            echo '<form name="usersForm" action="server_privileges.php3" method="post" />' . "\n"
-               . '    <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
-               . '    <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
-               . '    <input type="hidden" name="server" value="' . $server . '" />' . "\n"
-               . '    <table border="0">' . "\n"
+            echo '<form name="usersForm" action="server_privileges.php3" method="post" />' . "\n";
+            echo PMA_generate_common_hidden_inputs();
+            echo '    <table border="0">' . "\n"
                . '        <tr>' . "\n"
                . '            <th></th>' . "\n"
                . '            <th>&nbsp;' . $strUser . '&nbsp;</th>' . "\n"
@@ -688,11 +686,9 @@ if (empty($adduser)) {
         unset($res);
         echo '<ul>' . "\n"
            . '    <li>' . "\n"
-           . '        <form action="server_privileges.php3" method="post">' . "\n"
-           . '            <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
-           . '            <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
-           . '            <input type="hidden" name="server" value="' . $server . '" />' . "\n"
-           . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
+           . '        <form action="server_privileges.php3" method="post">' . "\n";
+        echo PMA_generate_common_hidden_inputs();
+        echo '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
         if ($hostname != '%') {
             echo '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
         }
@@ -803,11 +799,9 @@ if (empty($adduser)) {
             unset($row);
             echo '            <tr>' . "\n"
                . '                <td colspan="' .(PMA_MYSQL_INT_VERSION >= 32211 ? '5' : '4') . '">' . "\n"
-               . '                    <form action="server_privileges.php3" method="post">' . "\n"
-               . '                        <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
-               . '                        <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
-               . '                        <input type="hidden" name="server" value="' . $server . '" />' . "\n"
-               . '                        <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
+               . '                    <form action="server_privileges.php3" method="post">' . "\n";
+            echo PMA_generate_common_hidden_inputs();
+            echo '                        <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
             if ($hostname != '%') {
                 echo '                        <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
             }
@@ -828,11 +822,9 @@ if (empty($adduser)) {
         }
         if (empty($dbname)) {
             echo '    <li>' . "\n"
-               . '        <form action="server_privileges.php3" method="post" onsubmit="checkPassword(this);">' . "\n"
-               . '            <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
-               . '            <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
-               . '            <input type="hidden" name="server" value="' . $server . '" />' . "\n"
-               . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
+               . '        <form action="server_privileges.php3" method="post" onsubmit="checkPassword(this);">' . "\n";
+            echo PMA_generate_common_hidden_inputs();
+            echo '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
             if ($hostname != '%') {
                 echo '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
             }
@@ -870,11 +862,9 @@ if (empty($adduser)) {
     echo '<h2>' . "\n"
        . '    ' . $strAddUser . "\n"
        . '</h2>' . "\n"
-       . '<form action="server_privileges.php3" method="post" onsubmit="return checkAddUser(this);">' . "\n"
-       . '    <input type="hidden" name="lang" value="' . $lang . '" />' . "\n"
-       . '    <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n"
-       . '    <input type="hidden" name="server" value="' . $server . '" />' . "\n"
-       . '    <table border="0">' . "\n"
+       . '<form action="server_privileges.php3" method="post" onsubmit="return checkAddUser(this);">' . "\n";
+    echo PMA_generate_common_hidden_inputs();
+    echo '    <table border="0">' . "\n"
        . '        <tr>' . "\n"
        . '            <th colspan="3">' . "\n"
        . '                ' . $strLoginInformation . "\n"

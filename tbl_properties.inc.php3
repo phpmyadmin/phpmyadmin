@@ -5,12 +5,8 @@
 
 ?>
 <form method="post" action="<?php echo $action; ?>">
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
 <?php
+echo PMA_generate_common_hidden_inputs($db, $table);
 if ($action == 'tbl_create.php3') {
     ?>
     <input type="hidden" name="reload" value="1" />

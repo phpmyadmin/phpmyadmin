@@ -13,13 +13,7 @@ require('./libraries/common.lib.php3');
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'user_details.php3'
-         . '?lang=' . $lang
-         . '&amp;convcharset=' . $convcharset
-         . '&amp;server=' . $server
-         . '&amp;db=mysql'
-         . '&amp;table=user';
-
+$err_url = 'user_details.php3?' . PMA_generate_common_url('mysql', 'user');
 
 /**
  * Displays the table of grants for an user
@@ -72,7 +66,7 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
     echo "\n";
 
     // 2. Table body
-    $url_query  = 'lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user';
+    $url_query  = PMA_generate_common_url('mysql', 'user');
 
     while ($row = (is_array($host_db_result) ? $host_db_result : PMA_mysql_fetch_array($host_db_result))) {
         $local_query = 'SHOW GRANTS FOR \'' . $row['User'] . '\'@\'' . $row['Host'] . '\'';
@@ -346,7 +340,7 @@ function PMA_normalOperations()
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user&amp;mode=reload">
+        <a href="user_details.php3?<?php echo PMA_generate_common_url('mysql', 'user'); ?>&amp;mode=reload">
             <?php echo $GLOBALS['strReloadMySQL']; ?></a>&nbsp;
         <?php echo PMA_showMySQLDocu('MySQL_Database_Administration.', 'FLUSH') . "\n"; ?>
         </div>
@@ -371,9 +365,7 @@ function PMA_normalOperations()
     } // end if
     ?>
                     </select>
-                    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+                    <?php echo PMA_generate_common_hidden_inputs(); ?>
                     <input type="hidden" name="check" value="1" />
                     <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
                 </td>
@@ -443,9 +435,7 @@ function PMA_normalOperations()
     echo "\n";
     PMA_tablePrivileges('addUserForm');
     ?>
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs(); ?>
             <input type="submit" name="submit_addUser" value="<?php echo $GLOBALS['strGo']; ?>" />
         </form>
     </li>
@@ -485,16 +475,14 @@ function PMA_grantOperations($grants)
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
+        <a href="user_details.php3?<?php echo PMA_generate_common_url('mysql', 'user'); ?>">
             <?php echo $GLOBALS['strBack']; ?></a>
         </div>
     </li>
 
     <li>
         <form action="user_details.php3" method="post" name="userGrants">
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs(); ?>
             <input type="hidden" name="grants" value="1" />
             <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
             <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $pma_user); ?>" />
@@ -686,7 +674,7 @@ function PMA_editOperations($host, $user)
 
     <li>
         <div style="margin-bottom: 10px">
-        <a href="user_details.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
+        <a href="user_details.php3?<?php echo PMA_generate_common_url('mysql', 'user'); ?>">
             <?php echo $GLOBALS['strBack']; ?></a>
         </div>
     </li>
@@ -751,9 +739,7 @@ function PMA_editOperations($host, $user)
                 </td>
             </tr>
             </table>
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs(); ?>
             <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
             <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $user); ?>" />
             <input type="submit" name="submit_updProfile" value="<?php echo $GLOBALS['strGo']; ?>" />
@@ -767,9 +753,7 @@ function PMA_editOperations($host, $user)
     PMA_tablePrivileges('privForm', $row);
     echo "\n";
     ?>
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <?php echo PMA_generate_common_hidden_inputs(); ?>
             <input type="hidden" name="host" value="<?php echo str_replace('"', '&quot;', $host); ?>" />
             <input type="hidden" name="pma_user" value="<?php echo str_replace('"', '&quot;', $user); ?>" />
             <input type="submit" name="submit_chgPriv" value="<?php echo $GLOBALS['strGo']; ?>" />
@@ -879,17 +863,17 @@ function PMA_tableUsers($host = FALSE, $user = FALSE)
             $strPriv = '<span style="color: #002E80">' . $GLOBALS['strNoPrivileges'] . '</span>';
         }
 
-        $query          = 'lang=' . $lang . '&amp;server=' . $server . '&amp;db=mysql&amp;table=user&amp;convcharset=' . $convcharset;
+        $query          = PMA_generate_common_url('mysql', 'user');
         if (!$user) {
-            $edit_url   = 'user_details.php3'
-                        . '?lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server
+            $edit_url   = 'user_details.php3?'
+                        . PMA_generate_common_url()
                         . '&amp;edit=1&amp;host=' . urlencode($row['Host']) . '&amp;pma_user=' . urlencode($row['User']);
         }
-        $delete_url     = 'user_details.php3'
-                        . '?' . $query
+        $delete_url     = 'user_details.php3?'
+                        . $query
                         . '&amp;delete=1&amp;confirm=1&amp;delete_host=' . urlencode($row['Host']) . '&amp;delete_user=' . urlencode($row['User']);
-        $check_url      = 'user_details.php3'
-                        . '?lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server
+        $check_url      = 'user_details.php3?'
+                        . PMA_generate_common_url()
                         . '&amp;grants=1&amp;host=' . urlencode($row['Host']) . '&amp;pma_user=' . urlencode($row['User']);
         ?>
 
@@ -972,11 +956,7 @@ function PMA_confirm($the_host, $the_user) {
     echo 'DELETE FROM mysql.user WHERE Host = \'' . $the_host . '\' AND User = \'' . $the_user . '\'' . '<br />' . "\n";
     ?>
 <form action="user_details.php3" method="post">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="mysql" />
-    <input type="hidden" name="table" value="user" />
+    <?php echo PMA_generate_common_hidden_inputs('mysql', 'user'); ?>
     <input type="hidden" name="delete" value="<?php echo(isset($GLOBALS['delete']) ? '1' : '0'); ?>" />
     <input type="hidden" name="delete_host" value="<?php echo str_replace('"', '&quot;', $the_host); ?>" />
     <input type="hidden" name="delete_user" value="<?php echo str_replace('"', '&quot;', $the_user); ?>" />
@@ -1501,7 +1481,7 @@ else if (isset($check) && $check) {
     ?>
 <ul>
     <li>
-        <a href="user_details.php3?lang=<?php echo $lang;?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>&amp;db=mysql&amp;table=user">
+        <a href="user_details.php3?<?php echo PMA_generate_common_url('mysql', 'user'); ?>">
             <?php echo $strBack; ?></a>
     </li>
 </ul>

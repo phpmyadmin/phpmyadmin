@@ -26,10 +26,7 @@ if (!@PMA_mysql_query('USE mysql', $userlink)) {
  */
 if ((!empty($submit_mult) && isset($selected_db))
     || isset($mult_btn)) {
-    $err_url    = 'db_stats.php3'
-                . '?lang=' . $lang
-                . '&amp;convcharset=' . $convcharset
-                . '&amp;server=' . $server;
+    $err_url    = 'db_stats.php3?' . PMA_generate_common_url();
     $action     = 'db_stats.php3';
     $show_query = '1';
     include('./mult_submits.inc.php3');
@@ -83,7 +80,7 @@ function PMA_dbCmp($a, $b)
 if ($server > 0) {
     // Get the valid databases list
     $num_dbs = count($dblist);
-    $dbs     = @mysql_list_dbs() or PMA_mysqlDie('', 'mysql_list_dbs()', '', 'main.php3?lang' . $lang . '&amp;server=' . $server);
+    $dbs     = @mysql_list_dbs() or PMA_mysqlDie('', 'mysql_list_dbs()', '', 'main.php3?' . PMA_generate_common_url());
     if ($dbs) {
         while ($a_db = PMA_mysql_fetch_object($dbs)) {
             if (!$num_dbs) {
@@ -144,7 +141,7 @@ if ($server > 0) {
  */
 if ($num_dbs > 0) {
     // Defines the urls used to sort the table
-    $common_url     = 'db_stats.php3?lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server;
+    $common_url     = 'db_stats.php3?' . PMA_generate_common_url();
     if (empty($sort_by)) {
         $sort_by                 = 'db_name';
         $sort_order              = 'asc';
@@ -185,9 +182,7 @@ if ($num_dbs > 0) {
     }
     ?>
 <form action="db_stats.php3" name="dbStatsForm">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <?php echo PMA_generate_common_hidden_inputs(); ?>
 
     <table align="center" border="<?php echo $cfg['Border']; ?>">
     <tr>
@@ -271,10 +266,8 @@ if ($num_dbs > 0) {
     reset($dbs_array);
 
     // Check/unchek all databases url
-    $checkall_url = 'db_stats.php3'
-                  . '?lang=' . $lang
-                  . '&amp;convcharset=' . $convcharset
-                  . '&amp;server=' . $server
+    $checkall_url = 'db_stats.php3?'
+                  . PMA_generate_common_url()
                   . (empty($sort_by) ? '' : '&amp;sort_by=' . $sort_by)
                   . (empty($sort_order) ? '' : '&amp;sort_order=' . $sort_order);
     $do_check     = (empty($checkall))
@@ -294,7 +287,7 @@ if ($num_dbs > 0) {
         echo '        <td align="center" bgcolor="'. $bgcolor . '">' . "\n";
         echo '            &nbsp;<input type="checkbox" name="selected_db[]" value="' . urlencode($db_name) . '"' . $do_check . ' />&nbsp;' . "\n";
         echo '        </td>' . "\n";
-        echo '        <td bgcolor="'. $bgcolor . '">&nbsp;<a href="index.php3?lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '" target="_parent">' . htmlspecialchars($db_name) . '</a>&nbsp;</td>' . "\n";
+        echo '        <td bgcolor="'. $bgcolor . '">&nbsp;<a href="index.php3?' . PMA_generate_common_url($db_name) . '" target="_parent">' . htmlspecialchars($db_name) . '</a>&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $data_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $data_unit . '&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $idx_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $idx_unit . '&nbsp;</td>' . "\n";

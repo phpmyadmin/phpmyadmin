@@ -120,11 +120,7 @@ if ($cfgRelation['pdfwork']) {
         ?>
 <form method="post" action="pdf_pages.php3" name="selpage">
     <?php echo $strChoosePage . "\n"; ?>
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="choosepage" />
     <select name="chpage" onchange="this.form.submit()">
         <?php
@@ -149,11 +145,7 @@ if ($cfgRelation['pdfwork']) {
     ?>
 <form method="post" action="pdf_pages.php3" name="crpage">
     <?php echo $strCreatePage . "\n"; ?>
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="do" value="createpage" />
     <input type="text" name="newpage" size="20" maxlength="50" />
     <input type="submit" value="<?php echo $strGo; ?>" />
@@ -168,11 +160,7 @@ if ($cfgRelation['pdfwork']) {
 
 <h2><?php echo $strSelectTables ;?></h2>
 <form method="post" action="pdf_pages.php3" name="edcoord">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="chpage" value="<?php echo $chpage; ?>" />
     <input type="hidden" name="do" value="edcoord" />
     <table border="0">
@@ -261,10 +249,7 @@ if ($cfgRelation['pdfwork']) {
     if (isset($do) && ($do == 'edcoord' || $do == 'choosepage')) {
         ?>
 <form method="post" action="pdf_schema.php3">
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="pdf_page_number" value="<?php echo $chpage; ?>" />
     <?php echo $strDisplayPDF; ?>&nbsp;:<br />
     <input type="checkbox" name="show_grid" id="show_grid_opt" />

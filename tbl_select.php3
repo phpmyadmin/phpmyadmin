@@ -33,12 +33,7 @@ if (!isset($param) || $param[0] == '') {
         $goto = $cfg['DefaultTabTable'];
     }
     // Defines the url to return to in case of error in the next sql statement
-    $err_url   = $goto
-               . '?lang=' . $lang
-               . '&amp;convcharset=' . $convcharset
-               . '&amp;server=' . $server
-               . '&amp;db=' . urlencode($db)
-               . '&amp;table=' . urlencode($table);
+    $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
     // Gets the list and number of fields
     $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
@@ -74,11 +69,7 @@ if (!isset($param) || $param[0] == '') {
         $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : FALSE);
         ?>
 <form method="post" action="tbl_select.php3">
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="tbl_select.php3" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -179,7 +179,7 @@ echo "\n";
 ?>
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
-        <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
+        <nobr><a class="item" href="main.php3?<?php echo PMA_generate_common_url(); ?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
     </div>
 
 
@@ -198,9 +198,7 @@ if ($num_dbs > 1) {
     // Light mode -> beginning of the select combo for databases
     if ($cfg['LeftFrameLight']) {
         echo '    <form method="post" action="index.php3" name="left" target="_parent">' . "\n";
-        echo '        <input type="hidden" name="lang" value="' . $lang . '" />' . "\n";
-        echo '        <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n";
-        echo '        <input type="hidden" name="server" value="' . $server . '" />' . "\n";
+        echo PMA_generate_common_hidden_inputs();
         echo '        <select name="lightm_db" onchange="this.form.submit()">' . "\n";
         echo '            <option value="">(' . $strDatabases . ') ...</option>' . "\n";
         $table_list = '';
@@ -219,10 +217,7 @@ if ($num_dbs > 1) {
         }
         $tables              = @PMA_mysql_list_tables($db);
         $num_tables          = ($tables) ? @mysql_numrows($tables) : 0;
-        $common_url_query    = 'lang=' . $lang
-                             . '&amp;convcharset=' . $convcharset
-                             . '&amp;server=' . $server
-                             . '&amp;db=' . urlencode($db);
+        $common_url_query    = PMA_generate_common_url($db);
         if ($num_tables) {
             $num_tables_disp = $num_tables;
         } else {
@@ -386,9 +381,7 @@ else if ($num_dbs == 1) {
     $db                  = $dblist[0];
     $tables              = @PMA_mysql_list_tables($db);
     $num_tables          = ($tables) ? @mysql_numrows($tables) : 0;
-    $common_url_query    = 'lang=' . $lang
-                         . '&amp;server=' . $server
-                         . '&amp;db=' . urlencode($db);
+    $common_url_query    = PMA_generate_common_url($db);
     if ($num_tables) {
         $num_tables_disp = $num_tables;
     } else {

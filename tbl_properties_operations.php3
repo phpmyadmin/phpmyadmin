@@ -58,11 +58,7 @@ if (PMA_MYSQL_INT_VERSION >= 32334) {
     <!-- Order the table -->
     <li>
         <form method="post" action="tbl_properties_operations.php3">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-            <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <?php echo $strAlterOrderBy; ?>&nbsp;:
             <select name="order_field" style="vertical-align: middle">
     <?php
@@ -88,11 +84,7 @@ echo "\n";
         <div style="margin-bottom: 10px">
             <form method="post" action="tbl_rename.php3"
                 onsubmit="return emptyFormElements(this, 'new_name')">
-                <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-                <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+                <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
                 <input type="hidden" name="reload" value="1" />
                 <?php echo $strRenameTable; ?>&nbsp;:
                 <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" class="textfield" onfocus="this.select()" />&nbsp;
@@ -109,11 +101,7 @@ echo "\n";
             <td valign="top">
             <form method="post" action="tbl_move_copy.php3"
                 onsubmit="return emptyFormElements(this, 'new_name')">
-                <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-                <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+                <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
                 <input type="hidden" name="reload" value="1" />
                 <input type="hidden" name="what" value="data" />
                 <table border="0" cellspacing="0" cellpadding="0">
@@ -128,7 +116,7 @@ echo "\n";
                             <option value=""></option>
 <?php
 // The function used below is defined in "common.lib.php3"
-PMA_availableDatabases('main.php3?lang=' . $lang . '&amp;server=' . $server);
+PMA_availableDatabases('main.php3?' . PMA_generate_common_url());
 for ($i = 0; $i < $num_dbs; $i++) {
     echo '                            ';
     echo '<option value="' . str_replace('"', '&quot;', $dblist[$i]) . '">' . htmlspecialchars($dblist[$i]) . '</option>';
@@ -152,11 +140,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
             <td valign="top">
             <form method="post" action="tbl_move_copy.php3"
                 onsubmit="return emptyFormElements(this, 'new_name')">
-                <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-                <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+                <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
                 <input type="hidden" name="reload" value="1" />
                 <table border="0" cellspacing="0" cellpadding="0">
                 <tr>

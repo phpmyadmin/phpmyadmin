@@ -249,9 +249,7 @@ if (!defined('PMA_DISPLAY_HEADING')) {
     define('PMA_DISPLAY_HEADING', 1);
 }
 if (PMA_DISPLAY_HEADING) {
-    $header_url_qry = '?lang=' . urlencode($GLOBALS['lang'])
-                    . '&amp;convcharset=' . $GLOBALS['convcharset']
-                    . '&amp;server=' . $GLOBALS['server'];
+    $header_url_qry = '?' . PMA_generate_common_url();
     echo '<h1>' . "\n";
     $server_info = (!empty($cfg['Server']['verbose'])
                     ? $cfg['Server']['verbose']

@@ -43,7 +43,7 @@ else if (isset($reload) && $reload) {
     ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?>&convcharset=<?php echo $convcharset; ?>&server=<?php echo $server; ?>');
+window.parent.frames['nav'].location.replace('./left.php3?<?php echo PMA_generate_common_url(); ?>');
 //-->
 </script>
     <?php
@@ -92,7 +92,7 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = PMA_mysql_query('FLUSH PRIVILEGES'); // Debug: or PMA_mysqlDie('', 'FLUSH PRIVILEGES', FALSE, 'main.php3?lang=' . $lang . '&amp;server=' . $server);
+    $result = PMA_mysql_query('FLUSH PRIVILEGES'); // Debug: or PMA_mysqlDie('', 'FLUSH PRIVILEGES', FALSE, 'main.php3?' . PMA_generate_common_url());
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
@@ -270,7 +270,7 @@ if ($server > 0) {
         $db_to_create = '';
     }
 
-    $common_url_query = 'lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server;
+    $common_url_query =  PMA_generate_common_url();
 
     if ($is_superuser) {
         $cfg['ShowMysqlInfo']   = TRUE;
@@ -304,9 +304,7 @@ if ($server > 0) {
             <td>
             <form method="post" action="db_create.php3">
                 <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?><br />
-                <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
+                <?php echo PMA_generate_common_hidden_inputs(); ?>
                 <input type="hidden" name="reload" value="1" />
                 <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
                 <input type="submit" value="<?php echo $strCreate; ?>" />

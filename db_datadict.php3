@@ -21,18 +21,9 @@ require('./libraries/relation.lib.php3');
  * Defines the url to return to in case of error in a sql statement
  */
 if (isset($table)) {
-    $err_url = 'tbl_properties.php3'
-             . '?lang=' . $lang
-             . '&amp;convcharset=' . $convcharset
-             . '&amp;server=' . $server
-             . '&amp;db=' . urlencode($db)
-             . '&amp;table=' . urlencode($table);
+    $err_url = 'tbl_properties.php3?' . PMA_generate_common_url($db, $table);
 } else {
-    $err_url = 'db_details.php3'
-             . '?lang=' . $lang
-             . '&amp;convcharset=' . $convcharset
-             . '&amp;server=' . $server
-             . '&amp;db=' . urlencode($db);
+    $err_url = 'db_details.php3?' . PMA_generate_common_url($db);
 }
 
 

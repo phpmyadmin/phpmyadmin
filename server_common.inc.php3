@@ -25,9 +25,7 @@ if (isset($table)) {
 /**
  * Set parameters for links
  */
-$url_query = 'lang=' . $lang
-           . '&amp;convcharset=' . $convcharset
-           . '&amp;server=' . $server;
+$url_query = PMA_generate_common_url();
 
 /**
  * Defines the urls to return to in case of error in a sql statement

@@ -190,6 +190,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         $cfg['OBGzip'] = FALSE;
     }
 
+    /**
+     * Include URL/hidden inputs generating.
+     */
+    include('./libraries/url_generating.lib.php3');
+
 
     /**
      * Loads the mysql extensions if it is not loaded yet
@@ -333,7 +338,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
             if ($is_modify_link && isset($db)) {
                 echo '    ['
-                     . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;convcharset=' . $GLOBALS['convcharset'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">' . $GLOBALS['strEdit'] . '</a>'
+                     . '<a href="db_details.php3?' . PMA_generate_common_url($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=1">' . $GLOBALS['strEdit'] . '</a>'
                      . ']' . "\n";
             } // end if
             echo '</p>' . "\n"
@@ -1061,11 +1066,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
             echo "\n";
-            $reload_url = './left.php3'
-                        . '?lang=' . $GLOBALS['lang']
-                        . '&convcharset=' . $GLOBALS['convcharset']
-                        . '&server=' . $GLOBALS['server']
-                        . ((!empty($GLOBALS['db'])) ? '&db=' . urlencode($GLOBALS['db']) : '');
+            $reload_url = './left.php3?' . PMA_generate_common_url($GLOBALS['db']);
             ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
@@ -1135,12 +1136,7 @@ if (typeof(document.getElementById) != 'undefined'
         <?php
         if ($cfg['ShowSQL'] == TRUE && !empty($GLOBALS['sql_query'])) {
             // Basic url query part
-            $url_qpart = '?convcharset=' . $GLOBALS['convcharset']
-                       . '&amp;lang=' . $GLOBALS['lang']
-                       . '&amp;server=' . $GLOBALS['server']
-                       . ((!empty($GLOBALS['db'])) ? '&amp;db=' . urlencode($GLOBALS['db']) : '')
-                       . ((!empty($GLOBALS['table'])) ? '&amp;table=' . urlencode($GLOBALS['table']) : '');
-
+            $url_qpart = '?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
             echo "\n";
             ?>
     <tr>

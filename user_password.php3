@@ -50,9 +50,7 @@ if (isset($nopass)) {
         }
 
         // Defines the url to return to in case of error in the sql statement
-        $common_url_query = 'lang=' . $lang
-                          . '&amp;convcharset=' . $convcharset
-                          . '&amp;server=' . $server;
+        $common_url_query = PMA_generate_common_url();
 
         $err_url          = 'user_password.php3?' . $common_url_query;
 
@@ -107,8 +105,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 // Displays the form
 ?>
 <form method="post" action="./user_password.php3" name="chgPassword" onsubmit="return checkPassword(this)">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
+    <?php echo PMA_generate_common_hidden_inputs(); ?>
     <table border="0">
     <tr>
         <td colspan="2">

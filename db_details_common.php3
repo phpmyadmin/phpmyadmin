@@ -19,15 +19,8 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')) {
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = 'main.php3'
-           . '?lang=' . $lang
-           . '&amp;convcharset=' . $convcharset
-           . '&amp;server=' . $server;
-$err_url   = $cfg['DefaultTabDatabase']
-           . '?lang=' . $lang
-           . '&amp;convcharset=' . $convcharset
-           . '&amp;server=' . $server
-           . '&amp;db=' . urlencode($db);
+$err_url_0 = 'main.php3?' . PMA_generate_common_url();
+$err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
 
 
 /**
@@ -40,7 +33,7 @@ if (!isset($is_db) || !$is_db) {
         $is_db = @PMA_mysql_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&convcharset=' . $convcharset . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?' . PMA_generate_common_url() . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     }
 } // end if (ensures db exists)
@@ -54,7 +47,7 @@ if (!isset($message)) {
         ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang; ?> &convcharset=<?php echo $convcharset; ?>&server=<?php echo $server; ?>&db=<?php echo urlencode($db); ?>');
+window.parent.frames['nav'].location.replace('./left.php3?<?php echo PMA_generate_common_url($db); ?>');
 //-->
 </script>
         <?php
@@ -67,9 +60,6 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang;
 /**
  * Set parameters for links
  */
-$url_query = 'lang=' . $lang
-           . '&amp;convcharset=' . $convcharset
-           . '&amp;server=' . $server
-           . '&amp;db=' . urlencode($db);
+$url_query = PMA_generate_common_url($db);
 
 ?>

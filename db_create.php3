@@ -14,11 +14,7 @@ require('./header.inc.php3');
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'main.php3'
-         . '?lang=' . $lang
-         . '&amp;convcharset=' . $convcharset
-         . '&amp;server=' . $server;
-
+$err_url = 'main.php3?' . PMA_generate_common_url();
 
 /**
  * Ensures the db name is valid

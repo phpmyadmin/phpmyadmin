@@ -296,11 +296,7 @@ class PMA_PDF extends FPDF
         echo '    ' . $error_message . "\n";
         echo '</p>' . "\n";
 
-        echo '<a href="db_details_structure.php3'
-             . '?lang=' . $lang
-             . '&amp;convcharset=' . $convcharset
-             . '&amp;server=' . $server
-             . '&amp;db=' . urlencode($db)
+        echo '<a href="db_details_structure.php3?' . PMA_generate_common_url($db)
              . '">' . $GLOBALS['strBack'] . '</a>';
         echo "\n";
 

@@ -57,10 +57,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 <!-- TABLE INFORMATIONS -->
 
 <form action="tbl_properties_structure.php3">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 
 <table border="<?php echo $cfg['Border']; ?>">
 <tr>
@@ -503,10 +500,7 @@ echo "\n";
     <li>
         <form method="post" action="tbl_addfield.php3"
             onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-            <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <?php echo $strAddNewField; ?>&nbsp;:
             <input type="text" name="num_fields" size="2" maxlength="2" value="1" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
             <select name="after_field" style="vertical-align: middle">

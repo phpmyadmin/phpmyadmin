@@ -57,10 +57,7 @@ $auto_sel  = ($cfg['TextareaAutoSelect'])
 <form method="post" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
     onsubmit="return checkSqlQuery(this)">
     <input type="hidden" name="is_js_confirmed" value="0" />
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="pos" value="0" />
     <input type="hidden" name="goto" value="db_details.php3" />
     <input type="hidden" name="zero_rows" value="<?php echo htmlspecialchars($strSuccess); ?>" />

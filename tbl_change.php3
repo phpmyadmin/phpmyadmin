@@ -18,12 +18,8 @@ require('./libraries/relation.lib.php3'); // foreign keys
 if (!empty($message)) {
     if (isset($goto)) {
         $goto_cpy      = $goto;
-        $goto          = 'tbl_properties.php3'
-                       . '?lang=' . $lang
-                       . '&amp;convcharset=' . $convcharset
-                       . '&amp;server=' . $server
-                       . '&amp;db=' . urlencode($db)
-                       . '&amp;table=' . urlencode($table)
+        $goto          = 'tbl_properties.php3?' 
+                       . PMA_generate_common_url($db, $table)
                        . '&amp;$show_query=1'
                        . '&amp;sql_query=' . urlencode($disp_query);
     } else {
@@ -66,11 +62,8 @@ if (!isset($goto)) {
 if (!ereg('^(db_details|tbl_properties|tbl_select)', $goto)) {
     $err_url = $goto;
 } else {
-    $err_url = $goto
-             . '?lang=' . $lang
-             . '&amp;convcharset=' . $convcharset
-             . '&amp;server=' . $server
-             . '&amp;db=' . urlencode($db)
+    $err_url = $goto . '?'
+             . PMA_generate_common_url($db)
              //. (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
              . ((ereg('^(tbl_properties|tbl_select)', $goto)) ? '&amp;table=' . urlencode($table) : '');
 }
@@ -85,11 +78,7 @@ require('./libraries/db_table_exists.lib.php3');
 /**
  * Sets parameters for links and displays top menu
  */
-$url_query = 'lang=' . $lang
-           . '&amp;convcharset=' . $convcharset
-           . '&amp;server=' . $server
-           . '&amp;db=' . urlencode($db)
-           . '&amp;table=' . urlencode($table)
+$url_query = PMA_generate_common_url($db, $table)
            . '&amp;goto=tbl_properties.php3';
 
 require('./tbl_properties_table_info.php3');
@@ -110,12 +99,8 @@ if (isset($primary_key)) {
         unset($row);
         unset($primary_key);
         $goto_cpy          = $goto;
-        $goto              = 'tbl_properties.php3'
-                           . '?lang=' . $lang
-                           . '&amp;convcharset=' . $convcharset
-                           . '&amp;server=' . $server
-                           . '&amp;db=' . urlencode($db)
-                           . '&amp;table=' . urlencode($table)
+        $goto              = 'tbl_properties.php3?'
+                           . PMA_generate_common_url($db, $table)
                            . '&amp;$show_query=1'
                            . '&amp;sql_query=' . urlencode($local_query);
         if (isset($sql_query)) {
@@ -159,11 +144,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 
 <!-- Change table properties form -->
 <form method="post" action="tbl_replace.php3" name="insertForm">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
     <input type="hidden" name="session_max_rows" value="<?php echo isset($session_max_rows) ? $session_max_rows : ''; ?>" />

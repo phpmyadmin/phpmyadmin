@@ -190,12 +190,8 @@ if (isset($submit_search)) {
 <br />
 
         <?php
-        $url_sql_query = 'lang=' . $lang
-                   . '&amp;convcharset=' . $convcharset
-                   . '&amp;server=' . $server
+        $url_sql_query = PMA_generate_common_url($db)
                    . '&amp;goto=db_details.php3'
-                   . '&amp;db=' . urlencode($db)
-         //          . '&amp;table=' . urlencode($table)
                    . '&amp;pos=0'
                    . '&amp;is_js_confirmed=0';
 
@@ -307,10 +303,7 @@ if (empty($search_option)) {
 
 <a name="db_search"></a>
 <form method="post" action="db_search.php3" name="db_search">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
 
     <table>
     <tr>

@@ -20,17 +20,8 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')) {
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = $cfg['DefaultTabDatabase']
-           . '?lang=' . $lang
-           . '&amp;convcharset=' . $convcharset
-           . '&amp;server=' . $server
-           . '&amp;db=' . urlencode($db);
-$err_url   = $cfg['DefaultTabTable']
-           . '?lang=' . $lang
-           . '&amp;convcharset=' . $convcharset
-           . '&amp;server=' . $server
-           . '&amp;db=' . urlencode($db)
-           . '&amp;table=' . urlencode($table);
+$err_url_0 = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
+$err_url   = $cfg['DefaultTabTable'] . '?' . PMA_generate_common_url($db, $table);
 
 
 /**
@@ -53,10 +44,6 @@ if (!isset($message)) {
 /**
  * Set parameters for links
  */
-$url_query = 'lang=' . $lang
-           . '&amp;convcharset=' . $convcharset
-           . '&amp;server=' . $server
-           . '&amp;db=' . urlencode($db)
-           . '&amp;table=' . urlencode($table);
+$url_query = PMA_generate_common_url($db, $table);
 
 ?>

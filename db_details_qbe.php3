@@ -685,9 +685,7 @@ $w--;
             <tr align="center" valign="top">
                 <td>
                     <input type="submit" name="modify" value="<?php echo $strUpdateQuery; ?>" />
-                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
+                    <?php echo PMA_generate_common_hidden_inputs(); ?>
                 </td>
             </tr>
             <!-- Executes a query -->

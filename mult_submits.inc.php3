@@ -107,16 +107,12 @@ if (!empty($submit_mult) && !empty($what)) {
     echo '<tt>' . $full_query . '</tt>&nbsp;?<br/>' . "\n";
     ?>
 <form action="<?php echo $action; ?>" method="post">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <?php
     echo "\n";
     if (strpos(' ' . $action, 'db_details') == 1) {
-        echo '    <input type="hidden" name="db" value="' . htmlspecialchars($db) . '" />' . "\n";
+        echo PMA_generate_common_hidden_inputs($db);
     } else if (strpos(' ' . $action, 'tbl_properties') == 1) {
-        echo '    <input type="hidden" name="db" value="' . htmlspecialchars($db) . '" />' . "\n";
-        echo '    <input type="hidden" name="table" value="' . htmlspecialchars($table) . '" />' . "\n";
+        echo PMA_generate_common_hidden_inputs($db,$table);
     }
     for ($i = 0; $i < $selected_cnt; $i++) {
         echo '    <input type="hidden" name="selected[]" value="' . htmlspecialchars($selected[$i]) . '" />' . "\n";

@@ -38,10 +38,7 @@ if (isset($lightm_db)) {
     $db    = urldecode($lightm_db);
     unset($lightm_db);
 }
-$url_query = 'lang=' . $lang
-           . '&amp;convcharset=' . $convcharset
-           . '&amp;server=' . $server
-           . (empty($db) ? '' : '&amp;db=' . urlencode($db));
+$url_query = PMA_generate_common_url(isset($db) ? $db : '');
 
 header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 ?>

@@ -214,10 +214,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 
     ?>
 <form method="post" action="tbl_relation.php3">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="submit_rel" value="true" />
 
     <table>
@@ -289,10 +286,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         echo "\n";
         ?>
 <form method="post" action="tbl_relation.php3">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="submit_show" value="true" />
 
     <p><?php echo $strChangeDisplay; ?></p>
@@ -326,10 +320,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         echo "\n";
         ?>
 <form method="post" action="tbl_relation.php3">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-    <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="submit_comm" value="true" />
 
     <table>

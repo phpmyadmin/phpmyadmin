@@ -22,12 +22,8 @@ if (!isset($dontlimitchars)) {
 }
 $is_gotofile = FALSE;
 if (isset($after_insert) && $after_insert == 'new_insert') {
-    $goto = 'tbl_change.php3'
-          . '?lang=' . $lang
-          . '&convcharset=' . $convcharset
-          . '&server=' . $server
-          . '&db=' . urlencode($db)
-          . '&table=' . urlencode($table)
+    $goto = 'tbl_change.php3?'
+          . PMA_generate_common_url($db, $table)
           . '&goto=' . urlencode($goto)
           . '&pos=' . $pos
           . '&session_max_rows=' . $session_max_rows
@@ -37,11 +33,7 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
 } else if ($goto == 'sql.php3') {
     $goto = 'sql.php3?'
-          . 'lang=' . $lang
-          . '&convcharset=' . $convcharset
-          . '&server=' . $server
-          . '&db=' . urlencode($db)
-          . '&table=' . urlencode($table)
+          . PMA_generate_common_url($db, $table)
           . '&pos=' . $pos
           . '&session_max_rows=' . $session_max_rows
           . '&disp_direction=' . $disp_direction

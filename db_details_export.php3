@@ -68,11 +68,8 @@ echo "\n";
 
 <?php
 if ($num_tables > 1) {
-    $checkall_url = 'db_details_export.php3'
-                  . '?lang=' . $lang
-                  . '&amp;convcharset=' . $convcharset
-                  . '&amp;server=' . $server
-                  . '&amp;db=' . urlencode($db)
+    $checkall_url = 'db_details_export.php3?' 
+                  . PMA_generate_common_url($db)
                   . '&amp;goto=db_details_export.php3';
     ?>
             <br />
@@ -191,9 +188,7 @@ if (function_exists('PMA_set_enc_form')) {
         </td>
     </tr>
     </table>
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="lang" value="<?php echo $lang;?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db);?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
 </form>
 
 <a href="./Documentation.html#faqexport" target="documentation"><?php echo $strDocu; ?></a>

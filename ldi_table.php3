@@ -102,11 +102,7 @@ if (function_exists('PMA_set_enc_form')) {
     </tr>
     <tr>
         <td colspan="3" align="center">
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
-            <input type="hidden" name="table" value="<?php echo htmlspecialchars($table); ?>" />
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
             <input type="hidden" name="zero_rows" value="<?php echo $strTheContent; ?>" />
             <input type="hidden" name="goto" value="tbl_properties.php3" />
             <input type="hidden" name="back" value="ldi_table.php3" />

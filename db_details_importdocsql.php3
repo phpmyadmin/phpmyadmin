@@ -123,9 +123,7 @@ if (empty($DOCUMENT_ROOT)) {
 ?>
 
 <form method="post" action="db_details_importdocsql.php3">
-    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <input type="hidden" name="db" value="<?php echo htmlspecialchars($db); ?>" />
+    <?php echo PMA_generate_common_hidden_inputs($db); ?>
     <input type="hidden" name="submit_show" value="true" />
     <input type="hidden" name="do" value="import" />
     <b>Please enter absolute path on webserver to docSQL Directory:</b>
