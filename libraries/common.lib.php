@@ -1662,7 +1662,7 @@ if (typeof(document.getElementById) != 'undefined'
                 $query_base = PMA_validateSQL($query_base);
             } else {
                 // avoid reparsing query:
-                if (isset($GLOBALS['parsed_sql']) && $query_base = $GLOBALS['parsed_sql']['raw']) {
+                if (isset($GLOBALS['parsed_sql']) && $query_base == $GLOBALS['parsed_sql']['raw']) {
                     $parsed_sql = $GLOBALS['parsed_sql'];
                 } else {
                     $parsed_sql = PMA_SQP_parse($query_base);
