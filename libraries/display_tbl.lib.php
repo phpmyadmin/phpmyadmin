@@ -1308,7 +1308,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                          . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                          . ' = ' . $row[$i];
-                            $dispresult  = PMA_DBI_try_query($dispsql);
+                            $dispresult  = PMA_DBI_try_query($dispsql, NULL, PMA_DBI_QUERY_STORE);
                             if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                                 list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
                             }
@@ -1434,7 +1434,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                          . ' FROM ' . PMA_backquote($map[$meta->name][3]) . '.' . PMA_backquote($map[$meta->name][0])
                                          . ' WHERE ' . PMA_backquote($map[$meta->name][1])
                                          . ' = \'' . PMA_sqlAddslashes($row[$i]) . '\'';
-                            $dispresult  = PMA_DBI_try_query($dispsql);
+                            $dispresult  = PMA_DBI_try_query($dispsql, NULL, PMA_DBI_QUERY_STORE);
                             if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
                                 list($dispval) = PMA_DBI_fetch_row($dispresult);
                                 @PMA_DBI_free_result($dispresult);
