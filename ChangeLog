@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-25  Marc Delisle  <lem9@users.sourceforge.net>
+	* Documentation.html: FAQ about compressed dumps
+
 2002-01-25  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/bulgarian-*.inc.php3, japanese.inc.php3: updated thanks to
 	  Georgi Georgiev <chutz at chubaka.homeip.net>.

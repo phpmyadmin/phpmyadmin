@@ -1134,6 +1134,17 @@
     logs in again.
 </p>
 
+<p>
+    <b>When dumping a large table in compressed mode, I get a memory limit
+       error or a time limit error.</b>
+    <br />
+    As of version 2.2.4, we build the compressed dump in memory, so large
+    tables dumps may hang.  The only alternative we can think about (using
+    system calls to mysqldump then gzip or bzip2) would not be applicable
+    in environments where PHP is in safe mode: access to system programs
+    is limited by the system administrator, and time limit is enforced.
+</p>
+
 <h3>[ISPs]</h3>
 <p>
     <b>I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to
