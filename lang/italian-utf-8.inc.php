@@ -805,4 +805,6 @@ $strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cac
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate
 $strInnoDBPages = 'pages';  //to translate
 $strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
+
+$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
 ?>

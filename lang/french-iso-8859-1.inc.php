@@ -327,7 +327,6 @@ $strIndexName = 'Nom de la clef&nbsp;:';
 $strIndexType = 'Type de clef&nbsp;:';
 $strIndexWarningMultiple = 'Plus d\'un index de type %s existe pour la colonne `%s`';
 $strIndexWarningPrimary = 'La colonne `%s` ne devrait pas faire partie à la fois d\'une clé primaire et d\'une clé index';
-$strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';
 $strIndexWarningTable = 'Il y a des problèmes avec les index de la table `%s`';
 $strIndexWarningUnique = 'La colonne `%s` ne devrait pas faire partie à la fois d\'une clé unique et d\'une clé index';
 $strIndexes = 'Index';
