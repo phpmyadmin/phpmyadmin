@@ -6,7 +6,6 @@
  * Set of functions used to display the records returned by a sql query
  */
 
-
 if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     define('PMA_DISPLAY_TBL_LIB_INCLUDED', 1);
 
@@ -1505,8 +1504,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     // check for display field?
                     if ($cfgRelation['displaywork']) {
                         $display_field = PMA_getDisplayField($db, $rel[2]);
+                        $map[$rel[0]] = array($rel[2], $rel[3], $display_field);
                     } // end if
-                    $map[$rel[0]] = array($rel[2], $rel[3], $display_field);
                 } // end while
             } // end if
         } // end 2b
