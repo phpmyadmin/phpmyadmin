@@ -3,8 +3,8 @@
 
 /**
  * Portuguese language file by
- *   António Raposo <cfmsoft@users.sourceforge.net>
  *   Lopo Pizarro <lopopizarro@users.sourceforge.net>
+ *   António Raposo <cfmsoft@users.sourceforge.net>
  */
 
 $charset = 'iso-8859-1';
@@ -377,7 +377,7 @@ $strRelationView = 'Vista de Relação';
 $strConfigureTableCoord = 'Configure as cordenadas para a tabela %s';  
 $strChangeDisplay = 'Escolha campo para mostrar';  
 $strSearchNeedle = 'Palavra(s) ou valor(es) para pesquisar para (wildcard: "%"):';
-$strSearchResultsFor = 'Procur resultados para "<i>%s</i>" %s:';
+$strSearchResultsFor = 'Procurar resultados para "<i>%s</i>" %s:';
 $strSplitWordsWithSpace = 'As palavras são separadas pelo caracter espaço (" ").';
 $strStructPropose = 'Propor uma estrutura de tabela';  
 $strExplain = 'Explicar código SQL';  
@@ -386,24 +386,24 @@ $strNoPhp = 'sem código PHP';
 $strGenBy = 'Gerado por'; 
 $strSQLResult = 'Resultado SQL'; 
 $strEditPDFPages = 'Editar páginas PDF';  
-$strNoDescription = 'sem Descripção';  
+$strNoDescription = 'sem Descrição';  
 $strChoosePage = 'Escolha uma Página para editar';  
 $strCreatePage = 'Criar uma Página nova';  
 $strSelectTables = 'Seleccionar Tabelas';  
 $strMySQLCharset = 'Mapa de Caracteres do mySQL';  
 $strComments = 'Comentários';  
 $strHaveToShow = 'Tem que escolher pelo menos uma coluna para mostrar';  
+$strDisplayPDF = 'Mostrar o esquema de PDF';  
+$strNumSearchResultsInTable = '%s resultado(s) na tabela <i>%s</i>';
+$strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> resultado(s)';
+$strSearchOption4 = 'as regular expression';
+$strPdfDbSchema = 'Esquema da base de dados "%s" - Página %s';  
+$strScaleFactorSmall = 'O factor escala é muito pequeno para encaixar o esquema numa página';  
+$strConfigFileError = 'O phpMyAdmin não foi capaz de ler o ficheiro de configuração!<br />Isto pode acontecer se o php encontrou um erro no <i>parsing</i>  ou se não consegue encontrar o ficheiro.<br />Chame o ficheiro de configuração directamente usando o <i>link</i> a baixo e leia a(s) mensagem(ns) de erro do php. Na maior parte dos casos, trata-se de uma falta de aspas ou ponto e vírgula algures.<br />Se receber uma página em branco, está tudo correcto.'; 
+$strNotSet = 'A Tabela <b>%s</b> não foi encontrada ou não foi definida em %s';  
+$strMissingBracket = 'Falta chaveta';  
 
 // To translate
-$strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
-$strDisplayPDF = 'Display PDF schema';  //to translate
-$strNumSearchResultsInTable = '%s match(es) inside table <i>%s</i>';//to translate
-$strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> match(es)';//to translate
-$strSearchOption4 = 'as regular expression';//to translate
-$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
 $strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
 
