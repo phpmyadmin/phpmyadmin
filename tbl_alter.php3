@@ -10,6 +10,8 @@ require('./libraries/grab_globals.lib.php3');
 $js_to_run = 'functions.js';
 include('./header.inc.php3');
 
+// Check parameters
+PMA_checkParameters(array('db', 'table'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -168,6 +170,7 @@ if (isset($submit)) {
  */
 if ($abort == FALSE) {
     if (!isset($selected)) {
+        PMA_checkParameters(array('field'));
         $selected[]   = $field;
         $selected_cnt = 1;
     } else { // from a multiple submit

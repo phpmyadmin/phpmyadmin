@@ -2,6 +2,14 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
+// Check parameters
+
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
+    include('./libraries/common.lib.php3');
+}
+
+PMA_checkParameters(array('db', 'table'));
+
 /**
  * Insert data from one table to another one
  *
