@@ -435,6 +435,7 @@ $strPdfNoTables = 'Pas de table !';
 $strPerHour = 'par heure';
 $strPerMinute = 'par minute';
 $strPerSecond = 'par seconde';
+$strPersian = 'perse';
 $strPhoneBook = 'annuaire téléphonique';
 $strPhp = 'Créer source PHP';
 $strPmaDocumentation = 'Documentation de phpMyAdmin';
@@ -718,5 +719,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strPersian = 'Persian';  //to translate
 ?>
