@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-12  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/select_lang.lib.php3; lang/arabic.inc.php3: new translation
+	  thanks to Fisal Assubieye.
+
 2001-11-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
 	* most of the scripts have been updated in order to prepare the use of an

@@ -41,6 +41,7 @@ $lang_path = 'lang/';
  * example.
  */
 $available_languages = array(
+    'ar'         => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic', 'ar'),
     'bg'         => array('bg|bulgarian', 'bulgarian-win1251', 'bg'),
     'ca'         => array('ca|catalan', 'catala', 'ca'),
     'cs-iso'     => array('cs|czech', 'czech-iso', 'cs'),
