@@ -62,6 +62,7 @@ Please ensure you have:
           " <title>phpMyAdmin $1 - Documentation</title> "
           " <h1>phpMyAdmin $1 Documentation</h1> "
      - in translators.html
+     - in README
   2. built the new "Documentation.txt" version using:
        "./scripts/updatedocs.sh"
   3. synchronized the language files:
