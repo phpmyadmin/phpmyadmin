@@ -203,6 +203,7 @@ $strDeleting = 'Destruction de %s';
 $strDescending = 'Décroissant';
 $strDescription = 'Description';
 $strDictionary = 'dictionnaire';
+$strDisableForeignChecks = 'Désactiver la vérification des clés étrangères';
 $strDisabled = 'désactivé';
 $strDisplay = 'Montrer';
 $strDisplayFeat = 'Affichage infobulle';
@@ -637,6 +638,7 @@ $strStrucCSV = 'Données CSV';
 $strStrucData = 'Structure et données';
 $strStrucDrop = 'Inclure des énoncés "DROP TABLE"';
 $strStrucExcelCSV = 'Données CSV pour Ms Excel';
+$strStrucNativeExcel = 'Données MS Excel (format natif)';
 $strStrucOnly = 'Structure seule';
 $strStructPropose = 'Suggérer des optimisations quant à la structure de la table';
 $strStructure = 'Structure';
@@ -742,6 +744,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strStrucNativeExcel = 'Native MS Excel data';  //to translate
-$strDisableForeignChecks = 'Disable foreign key checks';  //to translate
 ?>
