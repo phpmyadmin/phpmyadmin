@@ -10,6 +10,8 @@ $Source$
       calendar.
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * db_datadict.php: Bug #942359 - Data dictionary had wrong <div>-
+      count. Replace h1 with h2 for consitency
     * libraries/display_tbl.lib.php, tbl_row_delete: Bug #942356,
       missing localization for multi-row edit/delete/export feature.
     * footer.inc.php: Fixed bug #942316 - Consistent window layout for

@@ -65,8 +65,11 @@ while ($row = PMA_DBI_fetch_assoc($rowset)) {
 
     if ($count != 0) {
         echo '<div style="page-break-before: always">' . "\n";
+    } else {
+        echo '<div>' . "\n";
     }
-    echo '<h1>' . $table . '</h1>' . "\n";
+
+    echo '<h2>' . $table . '</h2>' . "\n";
 
     /**
      * Gets table informations
