@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-22  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/german.inc.php3 updates thanks to Michael Hauptmann
+
 2002-01-20  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3:
 	  - optimized the code a bit (build tooltips only if required in light

@@ -70,6 +70,7 @@ $strColumn = 'Spalte';
 $strColumnNames = 'Spaltennamen';
 $strCompleteInserts = 'Vollständige \'INSERT\'s';
 $strConfirm = 'Bist du dir wirklich sicher?';
+$strCookiesRequired = 'Ab diesem Punkt müssen Cookies aktiviert sein.'; 
 $strCopyTable = 'Kopiere Tabelle nach (Datenbank<b>.</b>Tabellenname):';
 $strCopyTableOK = 'Tabelle %s wurde kopiert nach %s.';
 $strCreate = 'Erzeugen';
@@ -171,6 +172,7 @@ $strLinesTerminatedBy = 'Zeilen getrennt mit';
 $strLocationTextfile = 'Datei';
 $strLogout = 'Neu einloggen';
 $strLogPassword = 'Kennwort:';
+$strLogUsername = 'Benutzername:';
 
 $strModifications = 'Änderungen gespeichert.';
 $strModify = 'Verändern';
@@ -275,8 +277,10 @@ $strServerVersion = 'Server Version';
 $strSetEnumVal = 'Wenn das Feld vom Type \'ENUM\' oder \'SET\' ist, benutzen Sie das Format: \'a\',\'b\',\'c\',....<br />Wann immer Sie ein Backslash ("\") oder ein einfaches Anführungszeichen ("\'") verwenden,<br \>setzen Sie bitte ein Backslash vor das Zeichen.  (z.B.: \'\\\\xyz\' or \'a\\\'b\').';
 $strShow = 'Zeige';
 $strShowAll = 'Alles anzeigen';
+$strShowCols = 'Reihen anzeigen';
 $strShowingRecords = 'Zeige Datensätze ';
 $strShowPHPInfo = 'PHP Informationen anzeigen';
+$strShowTables = 'Tabellen anzeigen';
 $strShowThisQuery = 'SQL Befehl hier wieder anzeigen';
 $strSingly = '(einmalig)';
 $strSize = 'Größe';
@@ -340,11 +344,7 @@ $strZip = '"Zip komprimiert"';
 
 // To translate
 $strCardinality = 'Cardinality';
-$strCookiesRequired = 'Cookies must be enabled past this point.';
 $strLogin = 'Login';
-$strLogUsername = 'Username:';
 $strSelectADb = 'Please select a database';
-$strShowCols = 'Show columns';
-$strShowTables = 'Show tables';
 
 ?>
