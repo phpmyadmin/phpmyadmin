@@ -10,6 +10,8 @@ $Source$
       calendar.
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * libraries/display_tbl.lib.php: RFE #867284 - Click on result row
+      to mark the checkbox.
     * tbl_select.php: RFE #940194 - Add REGEXP to table search options
     * read_dump.php: Bug #925913 - Uploading with UploadDir/open_basedir
       fails.
