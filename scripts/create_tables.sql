@@ -23,7 +23,7 @@ GRANT SELECT, INSERT, DELETE, UPDATE ON `phpmyadmin`.* TO
 
 DROP TABLE IF EXISTS `PMA_bookmark`;
 CREATE TABLE `PMA_bookmark` (
-    `id` int(11) DEFAULT '0' NOT NULL auto_increment,
+    `id` int(11) DEFAULT '0' NOT NULL AUTO_INCREMENT,
     `dbase` VARCHAR(255) NOT NULL,
     `user` VARCHAR(255) NOT NULL,
     `label` VARCHAR(255) NOT NULL,
@@ -55,7 +55,7 @@ DROP TABLE IF EXISTS `PMA_table_coords`;
 CREATE TABLE `PMA_table_coords` (
     `db_name` VARCHAR(64) NOT NULL DEFAULT '',
     `table_name` VARCHAR(64) NOT NULL DEFAULT '',
-    `pdf_page_number` int NOT NULL DEFAULT '0',
+    `pdf_page_number` INT NOT NULL DEFAULT '0',
     `x` float unsigned NOT NULL DEFAULT '0',
     `y` float unsigned NOT NULL DEFAULT '0',
     PRIMARY KEY (`db_name`, `table_name`, `pdf_page_number`)
@@ -87,11 +87,11 @@ CREATE TABLE `PMA_column_info` (
 DROP TABLE IF EXISTS `PMA_history`;
 CREATE TABLE `PMA_history` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `username` VARCHAR(64) NOT NULL ,
-    `db` VARCHAR(64) NOT NULL ,
-    `table` VARCHAR(64) NOT NULL ,
-    `timevalue` TIMESTAMP NOT NULL ,
-    `sqlquery` TEXT NOT NULL ,
-    PRIMARY KEY (`id`) ,
+    `username` VARCHAR(64) NOT NULL,
+    `db` VARCHAR(64) NOT NULL,
+    `table` VARCHAR(64) NOT NULL,
+    `timevalue` TIMESTAMP NOT NULL,
+    `sqlquery` TEXT NOT NULL,
+    PRIMARY KEY (`id`),
     KEY `username` (`username`, `db`, `table`, `timevalue`)
 ) TYPE=MyISAM COMMENT='SQL history';
