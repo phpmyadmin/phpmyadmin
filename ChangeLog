@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-17 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/polish-*.inc.php3: Updates, thanks to Jakub Wilk (ubanus).
+
 2003-06-16 Michal Cihar  <nijel@users.sourceforge.net>
     * index.php3: Use $cfg['DefaultTabServer'] (bug #754260).
 
@@ -23,7 +26,7 @@ $Source$
       function, that checks true dl availability (fixes #747717). All checks
       are based on php 4.3.1 source, so if this gets changed, we will need to
       change checks also.
-    
+
 2003-06-12 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php3: bug 751787: should not disable all
       the features, when the relation feature is broken
