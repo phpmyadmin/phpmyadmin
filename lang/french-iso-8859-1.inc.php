@@ -223,6 +223,7 @@ $strEndRaw = 'Fin des informations sur l\'anomalie';
 $strEnglish = 'anglais';
 $strEnglishPrivileges = ' Veuillez noter que les noms de privilèges sont exprimés en anglais';
 $strError = 'Erreur';
+$strEscapeWildcards = 'Préfixer avec \ les passepartouts _ et % pour un usage littéral';
 $strEstonian = 'estonien';
 $strExcelEdition = 'Excel en version';
 $strExcelOptions = 'Options Excel';
@@ -722,5 +723,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
 ?>
