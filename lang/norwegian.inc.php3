@@ -4,15 +4,15 @@
 $charset = 'iso-8859-1';
 $left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
 $right_font_family = 'helvetica, arial, geneva, sans-serif';
-$number_thousands_separator = ',';
-$number_decimal_separator = '.';
+$number_thousands_separator = '.';
+$number_decimal_separator = ',';
 $byteUnits = array('Bytes', 'KB', 'MB', 'GB');
 
-$day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-$month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+$day_of_week = array('Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør');
+$month = array('Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%B %d, %Y at %I:%M %p';
+$datefmt = '%d. %B, %Y klokka %H:%M %p';
 
 
 $strAccessDenied = 'Ingen tilgang';
@@ -113,6 +113,7 @@ $strExtra = 'Ekstra';
 
 $strField = 'Felt';
 $strFields = 'Felter';
+$strFieldsEmpty = ' Antall felter er tommt! ';
 $strFixed = 'statisk';
 $strFormat = 'Format';
 $strFormEmpty = 'Manglende verdi i skjemaet!';
@@ -133,6 +134,7 @@ $strHomepageSourceforge = 'Sourceforge phpMyAdmin nedlastingsside';
 $strHost = 'Vert';
 $strHostEmpty = 'Vertsnavnet er tomt!';
 
+$strIdxFulltext = 'Fulltekst';
 $strIfYouWish = 'Hvis du ønsker å kun lese inn enkelte av tabellens kolonner, angi en komme-separert felt-liste.';
 $strIndex = 'Indeks';
 $strIndexes = 'Indekser';
@@ -144,6 +146,7 @@ $strInsertNewRow = 'Sett inn ny rad';
 $strInsertTextfiles = 'Les tekstfil inn i tabell';
 $strInstructions = 'Instruksjoner';
 $strInUse = 'i bruk';
+$strInvalidName = '"%s" er ett reservert ord, du kan ikke bruke det som et database/tabell/felt navn.';
 
 $strKeyname = 'Nøkkel';
 $strKill = 'Avslutt';
@@ -204,7 +207,7 @@ $strPrivileges = 'Privilegier';
 $strProducedAnError = 'resulterte i en feil.';
 $strProperties = 'Egenskaper';
 
-$strQBE = 'Query by Example'; //to translate
+$strQBE = 'Spørring ved eksempel';
 $strQBEDel = 'Slett';
 $strQBEIns = 'Sett inn';
 $strQueryOnDb = 'SQL-spørring i database ';
@@ -241,7 +244,9 @@ $strSelectFields = 'Velg felt (minst ett):';
 $strSelectNumRows = 'i spørring';
 $strSend = 'Kjør';
 $strSequence = 'Rekkefølge';
+$strServerChoice = 'Server valg';
 $strServerVersion = 'Server versjon';
+$strSetEnumVal = 'Hvis felttypen er "enum" eller "set", skriv inn verdien med dette formatet: \'a\',\'b\',\'c\'...<br />Hvis du skulle trenge å ha en skråstrek ("\") eller en enkel apostrof ("\'") blant disse verdiene, skriv en skråstrek foran (eks. \'\\\\xyz\' eller \'a\\\'b\').';
 $strShow = 'Vis';
 $strShowingRecords = 'Viser rader ';
 $strShowPHPInfo = 'Vis PHP informasjon';
@@ -299,16 +304,10 @@ $strWrongUser = 'Ugyldig brukernavn/passord. Ingen tilgang.';
 $strYes = 'Ja';
 
 // To translate
-$strCarriage = 'Carriage return: \\r';  //to translate
-$strFieldsEmpty = ' The field count is empty! ';  //to translate
-$strGrants = 'Grants'; //to translate
-$strIdxFulltext = 'Fulltext';  //to translate 
-$strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate
-$strOffSet = 'offset'; //to translate
-$strPartialText = 'Partial Texts'; //to translate
-$strQBE = 'Query by Example'; //to translate
-$strServerChoice = 'Server Choice'; //to translate
-$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').'; //to translate
-$strStatement = 'Statements'; //to translate
-$strWithChecked = 'With checked:';
+$strCarriage = 'Carriage return: \\r';	//to translate
+$strGrants = 'Grants';	//to translate
+$strOffSet = 'offset';	//to translate
+$strPartialText = 'Partial Texts';	//to translate
+$strStatement = 'Statements';	//to translate
+$strWithChecked = 'With checked:';	//to translate
 ?>

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-12  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/norwegian.inc.php3: updated thanks to
+	  Sven-Erik Andersen <seasoft at users.sourceforge.net>.
+
 2001-09-11  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/read_dump.lib.php3; read_dump.lib.php3:
 	  - moved the 'split_sql_file()' function from the library to the main
