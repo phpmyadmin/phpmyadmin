@@ -989,6 +989,19 @@
     It seems to clear up many problems between IE and SSL.
 </p>
 
+<p>
+    <b>I get an 'open_basedir restriction' while uploading a file from the  
+       query box.</b> 
+    <br />
+    Since version 2.2.4, phpMyAdmin supports servers with open_basedir
+    restrictions. Assuming that the restriction allows you to open files
+    in the current directory ('.'), all you have to do is create a 'tmp'
+    directory under the phpMyAdmin install directory, with permissions 777
+    and the same owner as the owner of your phpMyAdmin directory. The
+    uploaded files will be moved there, and after execution of your SQL
+    commands, removed.
+</p>
+
 
 <h3>[Configuration]</h3>
 
