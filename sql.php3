@@ -79,14 +79,18 @@ else {
     $result = mysql_query($sql_query.$sql_order.$sql_limit);
 
     // the same SELECT without LIMIT
-    if(eregi("^SELECT", $sql_query))
+    if (eregi("^SELECT", $sql_query))
     {
-        $array=split(' from | FROM ',$sql_query,2); //read only the from-part of the query
-		$count_query="select count(*) as count from $array[1]"; //and make a count(*) to count the entries
-		$OPresult = mysql_query($count_query);
-		if ($OPresult) {
-		    $SelectNumRows = mysql_result($OPresult,'0','count');
-		}
+        $array = split(' from | FROM ',$sql_query,2); //read only the from-part of the query
+        if (!empty(trim($array[1]))) {
+		    $count_query       = "select count(*) as count from $array[1]"; //and make a count(*) to count the entries
+		    $OPresult          = mysql_query($count_query);
+		    if ($OPresult) {
+		        $SelectNumRows = mysql_result($OPresult,'0','count');
+		    }
+		} else {
+            $SelectNumRows     = 0; 
+        }
     }
 
     if(!$result)

@@ -8,7 +8,9 @@ $Source$
 2001-07-07  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3: improved the css.
 	* left.js: try to "fix" the Opera and Konqueror bug (bad DOM implemenation
-	  -> list is no long expandable/collapsible with this browsers)
+	  -> list is no long expandable/collapsible with this browsers).
+	* sql.php3, lines 85-93: fix suggested by
+	  Michael Tacelosky <tac@smokescreen.org> into the phpwizard forum.
 
 2001-07-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_details.php3: fixed many little scripting bugs.
