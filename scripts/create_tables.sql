@@ -13,9 +13,11 @@
 #                                                       #
 #########################################################
 
-CREATE DATABASE phpmyadmin;
+CREATE DATABASE `phpmyadmin`;
 
-GRANT     SELECT,INSERT,DELETE     ON    phpmyadmin.*    to
+USE `phpmyadmin`;
+
+GRANT SELECT, INSERT, DELETE ON `phpmyadmin`.* TO
     'pma'@localhost;
 
 CREATE TABLE `PMA_bookmark` (

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-15 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * scripts/create_tables.sql: Added a 'USE' command after 'CREATE DATABASE'.
+
 2002-11-14 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: stripslashes issues (with LOAD DATA)
     * libraries/display_tbl.lib.php3: could not Edit or Delete when only
