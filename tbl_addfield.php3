@@ -18,7 +18,8 @@ if (isset($submit)) {
     // Builds the field creation statement and alters the table
     for ($i = 0; $i < count($field_name); ++$i) {
         $query .= backquote($field_name[$i]) . ' ' . $field_type[$i];
-        if ($field_length[$i] != '') {
+        if ($field_length[$i] != ''
+            && !eregi('^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$', $field_type[$i])) {
 	        if (get_magic_quotes_gpc()) {
                 $query .= '(' . stripslashes($field_length[$i]) . ')';
 	        } else {

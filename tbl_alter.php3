@@ -27,35 +27,19 @@ if (isset($submit)) {
     if (!isset($query)) {
         $query = '';
     }
-    $query .= ' ' . backquote($field_orig[0]) . ' ' . backquote($field_name[0]) . ' ' . $field_type[0] . ' ';
+    $query .= ' ' . backquote($field_orig[0]) . ' ' . backquote($field_name[0]) . ' ' . $field_type[0];
     // Some field types shouldn't have lengths
-    switch (strtoupper($field_type[0]))
-    {
-        case 'DATE':
-        case 'DATETIME':
-        case 'TIME':
-        case 'TINYBLOB':
-        case 'TINYTEXT':
-        case 'BLOB':
-        case 'TEXT':
-        case 'MEDIUMBLOB':
-        case 'MEDIUMTEXT':
-        case 'LONGBLOB':
-        case 'LONGTEXT':
-            break;
-
-        default:
-            if ($field_length[0] != '') {
-                $query .= '(' . $field_length[0] . ') ';
-            };
-    };
+    if ($field_length[0] != ''
+        && !eregi('^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$', $field_type[0])) {
+        $query .= '(' . $field_length[0] . ')';
+    }
     if ($field_attribute[0] != '') {
-        $query .= $field_attribute[0] . ' ';
+        $query .= ' ' . $field_attribute[0];
     }
     if ($field_default[0] != '') {
-        $query .= 'DEFAULT \'' . sql_addslashes($field_default[0]) . '\' ';
+        $query .= ' DEFAULT \'' . sql_addslashes($field_default[0]) . '\'';
     }
-    $query .= $field_null[0] . ' ' . $field_extra[0];
+    $query .= ' ' . $field_null[0] . ' ' . $field_extra[0];
     if (get_magic_quotes_gpc()) {
         $query = stripslashes($query);
     }
