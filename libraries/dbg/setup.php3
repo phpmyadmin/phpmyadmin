@@ -1,4 +1,6 @@
 <?php
+/* $Id$ */
+// vim: expandtab sw=4 ts=4 sts=4:
 
 if (!defined('PMA_DBG_SETUP_INCLUDED')) {
   define('PMA_DBG_SETUP_INCLUDED', 1);
