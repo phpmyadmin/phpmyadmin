@@ -363,4 +363,5 @@ $strLinkNotFound = 'Link not found';  //to translate
 $strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
 $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
 $strDisplayPDF = 'Display PDF schema';  //to translate
+$strPageNumber = 'Page number:';  //to translate
 ?>
