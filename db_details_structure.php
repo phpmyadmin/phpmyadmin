@@ -86,6 +86,7 @@ if (empty($is_info)) {
         $action = 'db_details_structure.php';
         $err_url = 'db_details_structure.php?'. PMA_generate_common_url($db);
         require('./mult_submits.inc.php');
+        $message = $strSuccess;
     }
     require('./db_details_common.php');
     $url_query .= '&amp;goto=db_details_structure.php';
@@ -94,14 +95,6 @@ if (empty($is_info)) {
     $sub_part = '_structure';
     require('./db_details_db_info.php');
     echo "\n";
-
-    /**
-     * Show result of multi submit operation
-     */
-    if ((!empty($submit_mult) && isset($selected_tbl))
-       || isset($mult_btn)) {
-        PMA_showMessage($strSuccess);
-    }
 }
 
 if (PMA_MYSQL_INT_VERSION >= 40101) {

@@ -28,7 +28,7 @@ function PMA_myHandler($sql_insert = '')
     $result     = PMA_DBI_query($sql_insert);
 
     $sql_insert_data .= $sql_insert . ';' . "\n";
-} // end of the 'PMA_myHandler()' function 
+} // end of the 'PMA_myHandler()' function
 
 /**
  * Inserts existing entries in a PMA_* table by reading a value from an old entry

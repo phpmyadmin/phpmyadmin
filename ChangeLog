@@ -20,6 +20,8 @@ $Source$
     * lang/czech: Reordered some words.
     * libraries/select_server.lib.php: Clickable active server in left frame
       (RFE # 1044678).
+    * db_details_structure.php, tbl_move_copy.php, libraries/common.lib.php:
+      Fix left frame reloading after dropping table (bug #1034531).
 
 2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to boralioglu.

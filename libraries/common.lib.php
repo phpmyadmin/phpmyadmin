@@ -1484,7 +1484,7 @@ if ($is_minimum_common == FALSE) {
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
             echo "\n";
-            $reload_url = './left.php?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&')
+            $reload_url = './left.php?' . PMA_generate_common_url((isset($GLOBALS['db']) ? $GLOBALS['db'] : ''), '', '&');
             ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
