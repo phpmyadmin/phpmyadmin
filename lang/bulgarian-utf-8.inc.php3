@@ -215,7 +215,6 @@ $strNotValidNumber = ' не е валиден номер на ред!';
 $strNoUsersFound = 'Няма потребител(и).';
 $strNull = 'Празно';
 
-$strOffSet = 'Отместване';
 $strOftenQuotation = 'Обикновено кавички. ПО ИЗБОР означава, че само полета char и varchar се заграждат в кавички.';
 $strOptimizeTable = 'Оптимизиране на таблицата';
 $strOptionalControls = 'По избор. Контролира как да се четат или пишат специални символи.';

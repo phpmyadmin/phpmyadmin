@@ -84,11 +84,11 @@ $strColumnNames = 'N·zvy stÂpcov';
 $strComments = 'Koment·re';
 $strCompleteInserts = '⁄plnÈ vloûenie';
 $strCompression = 'Kompresia';
+$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.';
 $strConfigureTableCoord = 'ProsÌm skonfigurujte koordin·ty pre tabuæku %s';
 $strConfirm = 'SkutoËne si ûel·te toto vykonaù?';
 $strCookiesRequired = 'Cookies musia byù povolenÈ, pokiaæ chcete pokraËovaù.';
 $strCopyTable = 'SkopÌrovaù tabuæku do (datab·za<b>.</b>tabuæka):';
-$strCopyTable = 'SkopÌrovaù tabuæku do';
 $strCopyTableOK = 'Tabuæka %s bola skorÌrovan· do %s.';
 $strCreate = 'Vytvoriù';
 $strCreateIndex = 'Vytvoriù index na&nbsp;%s&nbsp;stÂpcoch';
@@ -289,6 +289,9 @@ $strPrimaryKeyName = 'N·zov prim·rneho kæ˙Ëa musÌ byù... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>musÌ</b> byù <b>iba</b> meno prim·rneho kæ˙Ëa!)';
 $strPrint = 'VytlaËiù';
 $strPrintView = 'N·hæad k tlaËi';
+$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
+$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
+$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
 $strPrivileges = 'PrivilÈgia';
 $strProperties = 'Vlastnosti';
 $strPutColNames = 'Pridaù n·zvy polÌ na prv˝ riadok';
@@ -297,6 +300,7 @@ $strQBE = 'Dotaz podæa prÌkladu';
 $strQBEDel = 'Zmazaù';
 $strQBEIns = 'Vloûiù';
 $strQueryOnDb = ' SQL dotaz v datab·ze <b>%s</b>:';
+$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
 
 $strReType = 'Potvrdiù';
 $strRecords = 'Z·znamov';
@@ -323,7 +327,7 @@ $strRows = 'Riadkov';
 $strRowsFrom = 'riadky zaËÌnaj˙ od';
 $strRowsModeHorizontal = 'horizont·lnom';
 $strRowsModeOptions = 'v(o) %s mÛde a opakovaù hlaviËky po kaûd˝ch %s bunk·ch';
-$strRowsModeVertical='vertik·lnom';
+$strRowsModeVertical = 'vertik·lnom';
 $strRowsStatistic = 'ätatistika riadku';
 $strRunQuery = 'Odoöli dotaz';
 $strRunSQLQuery = 'Spustiù SQL dotaz/dotazy na datab·zu %s';
@@ -358,6 +362,7 @@ $strSelectTables = 'Vybraù Tabuæky';
 $strSend = 'Poöli';
 $strServer = 'Server %s';
 $strServerChoice = 'Voæba serveru';
+$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
 $strServerVersion = 'Verzia serveru';
 $strSetEnumVal = 'Ak je pole typu "enum" alebo "set", prosÌm zad·vajte hodnoty v tvare: \'a\',\'b\',\'c\'...<br />Ak dokonca potrebujete zadaù sp‰tnÈ lomÌtko ("\") alebo apostrof ("\'") pri t˝chto hodnot·ch, zadajte ich naprÌklad takto \'\\\\xyz\' alebo \'a\\\'b\'.';
 $strShow = 'Uk·zaù';
@@ -434,54 +439,47 @@ $strWrongUser = 'ZlÈ pouûÌvateæskÈ meno alebo heslo. PrÌstup zamietnut˝.';
 $strYes = '¡no';
 
 $strZip = '"zo zipovanÈ"';
-
 // To translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strLandscape = 'Landscape';  //to translate
-$strPortrait = 'Portrait';  //to translate
-
 $timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
 
 $strAbortedClients = 'Aborted'; //to translate
-$strConnections = 'Connections'; //to translate
-$strFailedAttempts = 'Failed attempts'; //to translate
-$strGlobalValue = 'Global value'; //to translate
-$strMoreStatusVars = 'More status variables'; //to translate
-$strPerHour = 'per hour'; //to translate
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
-$strQueryType = 'Query type'; //to translate
-$strReceived = 'Received'; //to translate
-$strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-$strTraffic = 'Traffic'; //to translate
-$strVar = 'Variable'; //to translate
-
-$strCommand = 'Command'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-$strId = 'ID'; //to translate
-$strProcesslist = 'Process list'; //to translate
-$strStatus = 'Status'; //to translate
-$strTime = 'Time'; //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
+$strAdministration = 'Administration'; //to translate
 
 $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-$strLaTeX = 'LaTeX';  //to translate
 
-$strAdministration = 'Administration'; //to translate
+$strCannotLogin = 'Cannot login to MySQL server';  //to translate
+$strCommand = 'Command'; //to translate
+$strConnections = 'Connections'; //to translate
+$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
+
+$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
+$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
+$strDeleting = 'Deleting %s'; //to translate
+
+$strFailedAttempts = 'Failed attempts'; //to translate
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
+
 $strGlobalPrivileges = 'Global privileges'; //to translate
+$strGlobalValue = 'Global value'; //to translate
 $strGrantOption = 'Grant'; //to translate
+
+$strId = 'ID'; //to translate
+
+$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
+$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
+
+$strLaTeX = 'LaTeX';  //to translate
+$strLandscape = 'Landscape';  //to translate
+
+$strMoreStatusVars = 'More status variables'; //to translate
+
+$strNumTables = 'Tables'; //to translate
+
+$strOriginalInterface = 'original interface';  //to translate
+
+$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
+$strPerHour = 'per hour'; //to translate
+$strPortrait = 'Portrait';  //to translate
 $strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
 $strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
 $strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
@@ -496,15 +494,12 @@ $strPrivDescGrant = 'Allows adding users and privileges without reloading the pr
 $strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
 $strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
 $strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
-$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
 $strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
 $strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
 $strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
+$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
 $strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescSelect = 'Allows reading data.'; //to translate
 $strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
 $strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
@@ -512,21 +507,38 @@ $strPrivDescSuper = 'Allows connectiong, even if maximum number of connections i
 $strPrivDescUpdate = 'Allows changing data.'; //to translate
 $strPrivDescUsage = 'No privileges.'; //to translate
 $strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
-$strResourceLimits = 'Resource limits'; //to translate
-$strUserOverview = 'User overview'; //to translate
-$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
+$strProcesslist = 'Process list'; //to translate
 
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
+$strQueryType = 'Query type'; //to translate
 
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
+$strReceived = 'Received'; //to translate
+$strRelationalSchema = 'Relational schema';  //to translate
 $strReloadingThePrivileges = 'Reloading the privileges'; //to translate
 $strRemoveSelectedUsers = 'Remove selected users'; //to translate
+$strResourceLimits = 'Resource limits'; //to translate
 $strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
 $strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
+
+$strSent = 'Sent'; //to translate
+$strServerStatus = 'Runtime Information'; //to translate
+$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
+$strServerTabProcesslist = 'Processes'; //to translate
+$strServerTabVariables = 'Variables'; //to translate
+$strServerVars = 'Server variables and settings'; //to translate
+$strSessionValue = 'Session value'; //to translate
+$strShowDatadictAs = 'Data Dictionary Format';  //to translate
+$strStatus = 'Status'; //to translate
+
+$strTableOfContents = 'Table of contents';  //to translate
+$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
+$strTime = 'Time'; //to translate
+$strTotalUC = 'Total'; //to translate
+$strTraffic = 'Traffic'; //to translate
+
+$strUserOverview = 'User overview'; //to translate
 $strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-$strOriginalInterface = 'original interface';  //to translate
+
+$strVar = 'Variable'; //to translate
+
+$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 ?>

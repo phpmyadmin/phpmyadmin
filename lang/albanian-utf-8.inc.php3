@@ -113,7 +113,6 @@ $strDatabaseWildcard = 'Database (wildcards e lejuara):';
 $strDatabases = 'databazë';
 $strDatabasesStats = 'Statistikat e databazës';
 $strDefault = 'Paracaktuar';
-$strDelPassMessage = 'Ke fshirë password për';
 $strDelete = 'Fshi';
 $strDeleteFailed = 'Fshirja dështoi!';
 $strDeleteUserMessage = 'Ke fshirë përdoruesin %s.';
