@@ -163,7 +163,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     </td>
     <td align="right" nowrap="nowrap">
         &nbsp;&nbsp;
-        <a href="tbl_properties.php3?<?php echo $url_query; ?>>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
+        <a href="tbl_properties.php3?<?php echo $url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
     </td>
             <?php
         } else {
