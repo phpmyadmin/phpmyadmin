@@ -34,7 +34,7 @@ require('./libraries/common.lib.php3');
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_properties.ph3?' . PMA_generate_common_url($db, $table);
+$err_url = 'tbl_properties.php3?' . PMA_generate_common_url($db, $table);
 
 
 /**
