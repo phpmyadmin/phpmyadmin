@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php: bug 913630: did not detect correctly DELETE FROM table 
+      and even if detected, was calling a non-existent PMA_DBI_result()       
+      
 2004-03-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: bug 877359, no CONSTRAINT in 
       SHOW CREATE TABLE on older MySQL versions
