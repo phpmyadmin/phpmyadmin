@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-08 Robin Johnson  <robbat2@users.sourceforge.net>
+    * config.inc.php3 sql.php3 tbl_move_copy.php3 libraries/common.lib.php3
+      libraries/sqlparser.lib.php3: Committed Marc's patches to the SQL parser
+      and pretty printer from bugs #605030 and #631421.
+
 2002-11-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3: Fixed a small inconsistance.
     * config.inc.php3: Added a note about bug #634931.

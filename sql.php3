@@ -37,6 +37,7 @@ if (!isset($err_url)) {
 
 
 /**
+ * dead function, to be removed:
  * SK -- Patch
  *
  * Does some preliminary formatting of the $sql_query to avoid problems with
@@ -65,7 +66,7 @@ function PMA_sqlFormat($sql_str) {
         $replace = ' ' . $w . ' (\\1) \\2';
         $sql_str = substr(eregi_replace($pattern, $replace, ' ' . $sql_str), 1);
 
-        // Converts reservered words to upper case if not yet done
+        // Converts reserved words to upper case if not yet done
         $sql_str = substr(eregi_replace('[[:space:]]' . $w . '[[:space:]]', ' ' . $w  . ' ', ' ' . $sql_str), 1);
     } // end while
 
@@ -125,8 +126,11 @@ if (isset($btnDrop) || isset($navig)) {
 
 // SK -- Patch : Reformats query - adds spaces when omitted and removes extra
 //               spaces; converts reserved words to uppercase
-$sql_query = PMA_sqlFormat($sql_query);
+//$sql_query = PMA_sqlFormat($sql_query);
 
+$parsed_sql = PMA_SQP_parse((get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query));
+$analyzed_sql = PMA_SQP_analyze($parsed_sql);
+$sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
 // If the query is a Select, extract the db and table names and modify
 // $db and $table, to have correct page headers, links and left frame.
@@ -516,8 +520,8 @@ else {
             $dontlimitchars = 0;
         }
 
-        $parsed_sql = PMA_SQP_parse($sql_query);
-        $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+        //$parsed_sql = PMA_SQP_parse($sql_query);
+        //$analyzed_sql = PMA_SQP_analyze($parsed_sql);
 
         PMA_displayTable($result, $disp_mode, $analyzed_sql);
         mysql_free_result($result);

@@ -375,7 +375,7 @@ $cfg['UploadDir']             = '';         // for example, './upload/'; you mus
  * SQL Parser Settings
  */
 $cfg['SQP']['enable']       = TRUE;         // Totally turn off the SQL Parser (not recommended)
-$cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, none)
+$cfg['SQP']['fmtType']      = 'html';       // Pretty-printing style to use on queries (html, text, none)
 $cfg['SQP']['fmtInd']       = '1';          // Amount to indent each level (floats ok)
 $cfg['SQP']['fmtIndUnit']   = 'em';         // Units for indenting each level (CSS Types - {em,px,pt})
 $cfg['SQP']['fmtColor']     = array(        // Syntax colouring data

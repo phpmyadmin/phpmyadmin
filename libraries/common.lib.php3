@@ -280,10 +280,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $formatted_sql = PMA_SQP_formatNone($parsed_sql);
                 break;
             case 'html':
-                $formatted_sql = PMA_SQP_formatHtml($parsed_sql);
+                $formatted_sql = PMA_SQP_formatHtml($parsed_sql,'color');
                 break;
             case 'text':
-                $formatted_sql = PMA_SQP_formatText($parsed_sql);
+                //$formatted_sql = PMA_SQP_formatText($parsed_sql);
+                $formatted_sql = PMA_SQP_formatHtml($parsed_sql,'text');
                 break;
             default:
                 break;

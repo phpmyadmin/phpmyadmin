@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Insert datas from one table to another one
  *
@@ -81,7 +80,13 @@ if (isset($new_name) && trim($new_name) != '') {
     include('./libraries/build_dump.lib.php3');
 
     $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
-    $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . $target, $sql_structure);
+    $parsed_sql =  PMA_SQP_parse($sql_structure);
+    // no need to PMA_backquote()
+    $parsed_sql[2]['data'] = $target;
+    $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only'); 
+
+//    $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . $target, $sql_structure);
+
     $result        = @PMA_mysql_query($sql_structure);
     if (PMA_mysql_error()) {
         include('./header.inc.php3');

@@ -970,7 +970,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
         $class     .= 'syntax_' . $arr['type'];
 
-        return '<span class="' . $class . '">' . htmlspecialchars($arr['data']) . '</span>';
+        return '<span class="' . $class . '">' . htmlspecialchars($arr['data']) . '</span>' . "\n";
     } // end of the "PMA_SQP_formatHtml_colorize()" function
 
 
@@ -983,9 +983,22 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      *
      * @access public
      */
-    function PMA_SQP_formatHtml($arr)
+    function PMA_SQP_formatHtml($arr, $mode='color')
     {
-        $str                                        = '<span class="syntax">';
+        switch ($mode) {
+            case 'color':
+                $str                                = '<span class="syntax">';
+                $html_line_break                    = '<br />';
+                break;
+            case 'query_only':
+                $str                                = '';
+                $html_line_break                    = ' ';
+                break;
+            case 'text':
+                $str                                = '';
+                $html_line_break                    = '<br />';
+                break;
+        } // end switch
         $indent                                     = 0;
         $bracketlevel                               = 0;
         $functionlevel                              = 0;
@@ -1084,7 +1097,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $after      .= ' ';
                     } else {
                         $indent++;
-                        $after      .= '<div class="syntax_indent' . $indent . '">';
+                        $after      .= ($mode != 'query_only' ? '<div class="syntax_indent' . $indent . '">' : ' ');
                     }
                     break;
                 case 'alpha_identifier':
@@ -1109,8 +1122,8 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     break;
                 case 'punct_queryend':
                     if (($typearr[3] != 'comment_mysql') && ($typearr[3] != 'comment_ansi')) {
-                        $after     .= '<br />';
-                        $after     .= '<br />';
+                        $after     .= $html_line_break;
+                        $after     .= $html_line_break;
                     }
                     $space_punct_listsep               = ' ';
                     $space_punct_listsep_function_name = ' ';
@@ -1118,7 +1131,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     break;
                 case 'comment_mysql':
                 case 'comment_ansi':
-                    $after         .= '<br />';
+                    $after         .= $html_line_break;
                     break;
                 case 'punct':
                     $after         .= ' ';
@@ -1132,7 +1145,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $before    .= ' ';
                     } else {
                         $indent--;
-                        $before    .= '</div>';
+                        $before    .= ($mode != 'query_only' ? '</div>' : ' ');
                     }
                     $infunction    = ($functionlevel > 0) ? TRUE : FALSE;
                     break;
@@ -1163,7 +1176,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
                     switch ($upper) {
                         case 'CREATE':
-                            $space_punct_listsep       = '<br />';
+                            $space_punct_listsep       = $html_line_break;
                             $space_alpha_reserved_word = ' ';
                             break;
                         case 'EXPLAIN':
@@ -1177,21 +1190,21 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         case 'TRUNCATE':
                         case 'ANALYZE':
                         case 'ANALYSE':
-                            $space_punct_listsep       = '<br />';
+                            $space_punct_listsep       = $html_line_break;
                             $space_alpha_reserved_word = ' ';
                             break;
                         case 'INSERT':
                         case 'REPLACE':
-                            $space_punct_listsep       = '<br />';
-                            $space_alpha_reserved_word = '<br />';
+                            $space_punct_listsep       = $html_line_break;
+                            $space_alpha_reserved_word = $html_line_break;
                             break;
                         case 'VALUES':
                             $space_punct_listsep       = ' ';
-                            $space_alpha_reserved_word = '<br />';
+                            $space_alpha_reserved_word = $html_line_break;
                             break;
                         case 'SELECT':
                             $space_punct_listsep       = ' ';
-                            $space_alpha_reserved_word = '<br />';
+                            $space_alpha_reserved_word = $html_line_break;
                             break;
                         default:
                             break;
@@ -1231,9 +1244,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             }
             $after                 .= "\n";
 */
-            $str .= $before . PMA_SQP_formatHTML_colorize($arr[$i]) . $after;
+            $str .= $before . ($mode=='color' ? PMA_SQP_formatHTML_colorize($arr[$i]) : $arr[$i]['data']). $after;
         } // end for
-        $str .= '</span>';
+        if ($mode=='color') {
+            $str .= '</span>';
+        }
 
         return $str;
     } // end of the "PMA_SQP_formatHtml()" function
