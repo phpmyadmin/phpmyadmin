@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-01 Loïc Chapeaux  <lolo@phpheaven.net>
+    * Documentation.html: coding standards and xhtml fixes.
+
 2002-07-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
       compatibility for $cfg['PmaAbsoluteUri_DisableWarning'].

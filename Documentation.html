@@ -163,7 +163,7 @@
     <li>export (*) and import data to CSV values</li>
     <li>administer multiple servers and single databases</li>
     <li>check referential integrity</li>
-    <li>create complex Queries automatically connecting required tables</li>
+    <li>create complex queries automatically connecting required tables</li>
     <li>create PDF graphics of your Database layout</li>
     <li>
         communicate in more than
@@ -305,8 +305,8 @@
             <td>&nbsp;&nbsp;&nbsp;</td>
             <td>
                 <tt>GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt; TO 'pma'@'localhost';</tt>
-                (this of course requires you to have a special DB for phpMyAdmin, the contents
-                 will be explained later)
+                (this of course requires you to have a special DB for
+                phpMyAdmin, the contents will be explained later)
             </td>
         </tr>
         </table>
@@ -414,6 +414,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Please note that the <tt>$_SERVER</tt> array doesn't exist in
         PHP&nbsp;&lt;&nbsp;4.1.0. Try to replace <tt>$_SERVER</tt> by
         <tt>$HTTP_SERVER_VARS</tt> or <tt>$GLOBALS</tt> in this case.
+        <br /><br />
     </dd>
 
     <dt><b>$cfg['Servers']</b> array</dt>
@@ -555,33 +556,35 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['Servers'][$i]['pmadb']</b> string</dt>
     <dd>
-        Starting with Version 2.3.0 phpMyAdmin offers a lot of Features
-        to work with Master / Foreign - Tables. To use those as well as
-        the bookmark feature you will need to create a new db.<br />
-        
+        Starting with version 2.3.0 phpMyAdmin offers a lot of features
+        to work with master / foreign - tables. To use those as well as
+        the bookmark feature you will need to create a new db.
+        <br /><br />
+
         To use this functionality as superuser create a new database:
         <ul>
             <li>
-                create a new database for phpmyadmin:
+                create a new database for phpmyadmin:<br />
+                <tt>&nbsp;&nbsp;CREATE DATABASE phpmyadmin;</tt><br />
+                Note that &quot;controluser&quot; must have
+                <tt>SELECT, INSERT</tt> and <tt>DELETE</tt> privileges on the
+                bookmark table. Here is a query to set up those privileges
+                (using &quot;pma&quot; as the controluser):<br />
                 <tt>
-                &nbsp;&nbsp;CREATE database phpmyadmin;
-                </tt>
-                Note that controluser must have SELECT, INSERT and DELETE
-                privileges on the bookmark table. Here is a query to set up
-                those privileges (using "pma" as the controluser):
-                <tt>
-                &nbsp;&nbsp;GRANT SELECT,INSERT,DELETE ON <pmadb> to
-                'pma'@localhost;
-                </tt>
-                do <b>not</b> give any other user rights on this db.
+                &nbsp;&nbsp;GRANT SELECT,INSERT,DELETE ON &lt;pmadb&gt; to 'pma'@localhost;
+                </tt><br />
+                do <b>not</b> give any other user rights on this database.
             </li>
             <li>
-                Enter the databasename in <tt>$cfg['Servers'][$i]['pmadb']</tt>
+                enter the databasename in <tt>$cfg['Servers'][$i]['pmadb']</tt>
             </li>
-        </ul>
+        </ul><br />
     </dd>
-    <a name="bookmark"></a>
-    <dt><b>$cfg['Servers'][$i]['bookmarktable']</b> string</dt>
+
+    <dt>
+        <a name="bookmark"></a>
+        <b>$cfg['Servers'][$i]['bookmarktable']</b> string
+    </dt>
     <dd>
         Since release 2.2.0 phpMyAdmin allows to bookmark queries. This can be
         useful for queries you often run.<br /><br />
@@ -591,7 +594,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
             <li>set up a PMA database as described above</li>
             <li>within this database create a table following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE bookmark (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_bookmark` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(11) DEFAULT '0' NOT NULL auto_increment,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbase varchar(255) NOT NULL,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user varchar(255) NOT NULL,<br />
@@ -601,19 +604,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Bookmarks';<br />
                 </tt>
             </li>
-            <li>Enter the tablename in <tt>$cfg['Servers'][$i]['bookmarktable']</tt></li>
+            <li>enter the tablename in <tt>$cfg['Servers'][$i]['bookmarktable']</tt></li>
         </ul><br />
 
-        Note that <tt>controluser</tt> must have <tt>SELECT</tt>,
+        Note that &quot;controluser&quot; must have <tt>SELECT</tt>,
         <tt>INSERT</tt> and <tt>DELETE</tt> privileges on the bookmark table.
         Here is a query to set up those privileges (using &quot;pma&quot; as
-        the controluser and phpmyadmin as databasename:<br />
-        <tt>GRANT SELECT,INSERT,DELETE ON &lt;phpmyadmin&gt; to 'pma'@localhost;</tt>
+        the controluser and phpmyadmin as databasename):<br />
+        <tt>&nbsp;&nbsp;GRANT SELECT,INSERT,DELETE ON &lt;phpmyadmin&gt; to 'pma'@localhost;</tt>
         <br /><br />
     </dd>
 
-    <a name="relation"></a>
     <dt>
+        <a name="relation"></a>
         <b>$cfg['Servers'][$i]['relation']</b> string
     </dt>
     <dd>
@@ -651,17 +654,18 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         To allow the usage of this functionality the superuser has to:
         <ul>
             <li>set up a PMA database as described above</li>
-            <li>within this database create a table following this scheme:<br />
+            <li>
+                within this database create a table following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `relation` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_relation` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_db` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_table` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_field` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_db` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_table` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_db`,`master_table`,`master_field`),<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY foreign_field (foreign_db,foreign_table)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_db`, `master_table`, `master_field`),<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY foreign_field (foreign_db, foreign_table)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Relation table';<br />
                 </tt>
             </li>
@@ -670,17 +674,18 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 <tt>$cfg['Servers'][$i]['relation']</tt>
             </li>
             <li>
-                now as normal user open phpMyAdmin and for each table where you want to use this feature,
-                click &quot;Structure/Relation view/&quot; and choose foreign fields.
+                now as normal user open phpMyAdmin and for each table where you
+                want to use this feature, click &quot;Structure/Relation view/&quot;
+                and choose foreign fields.
             </li>
         </ul><br />
-        Please note that in the current (2.3.0) version, master_db must be
-        the same as foreign_db.  Those fields have been put in place for a
+        Please note that in the current (2.3.0) version, <tt>master_db</tt>
+        must be the same as <tt>foreign_db</tt>.  Those fields have been put in
         future development of the cross-db relations.<br /><br />
     </dd>
 
-    <a name="table_info"></a>
     <dt>
+        <a name="table_info"></a>
         <b>$cfg['Servers'][$i]['table_info']</b> string
     </dt>
     <dd>
@@ -699,7 +704,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`display_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`db_name`,`table_name`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`db_name`, `table_name`)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';<br />
                 </tt>
             </li>
@@ -717,48 +722,50 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <a name="table_coords"></a>
     <dt>
+        <a name="table_coords"></a>
         <b>$cfg['Servers'][$i]['table_coords']</b> string<br />
         <b>$cfg['Servers'][$i]['pdf_pages']</b> string
     </dt>
     <dd>
-        Since release 2.3.0 you can have phpMyAdmin create PDF Pages showing the
-        relations between your tables. To do this it needs two tables 'pdf_pages'
-        (storing information about the available pdf Pages)
-        and 'table_coords' (storing coordinates where each table will be placed
-        on a PDF schema output).
+        Since release 2.3.0 you can have phpMyAdmin create PDF pages showing
+        the relations between your tables. To do this it needs two tables
+        &quot;pdf_pages&quot; (storing information about the available pdf
+        pages) and &quot;table_coords&quot; (storing coordinates where each
+        table will be placed on a PDF schema output).
         <br /><br />
-        PDF output is supported under PHP4, and you must be using also the
-        'relation' feature and have a table of PDF Pages (see $cfg['Servers'][$i]['pdf_pages']).
-        Also, we used the fpdf library which currently
-        only supports iso-8859 (Latin1) character sets in PDF.
+        You must be using the &quot;relation&quot; feature and have a table of
+        PDF pages (see <tt>$cfg['Servers'][$i]['pdf_pages']</tt>) to create PDF
+        output.
         <br /><br />
-       To allow the usage of this functionality the superuser has to:
+        To allow the usage of this functionality the superuser has to:
         <ul>
             <li>set up a PMA database as described above</li>
-            <li>within this database create a table following this scheme:<br />
+            <li>
+                within this database create a table following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `table_coords` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_table_coords` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pdf_page_number` int NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`x` float unsigned NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`db_name`,`table_name`, `pdf_page_number`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`db_name`, `table_name`, `pdf_page_number`)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin PDF output';<br />
                 </tt>
             </li>
-            <li>also within this database create:</li>
+            <li>
+                also within this database create:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE pdf_pages (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_pdf_pages` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_nr int(10) unsigned NOT NULL auto_increment,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_descr varchar(50) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (page_nr),<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY  (db_name)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`page_nr` int(10) unsigned NOT NULL auto_increment,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`page_descr` varchar(50) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (page_nr),<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY (db_name)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='PDF Relationpages for PMA';<br />
                 </tt>
+            </li>
             <li>
                 put the first table name in
                 <tt>$cfg['Servers'][$i]['table_coords']</tt>
@@ -769,23 +776,26 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         Usage tips: <a class="navigation" href="#faqpdf">PDF output</a>.
         <br /><br />
     </dd>
+
     <dt><b>$cfg['Servers'][$i]['column_comments']</b> string</dt>
     <dd>
         Since release 2.3.0 you can store comments to describe each column
-        for each table. These will then be shown on the printview.
+        for each table. These will then be shown on the &quot;printview&quot;.
+        <br />
         To allow the usage of this functionality the superuser has to:
         <ul>
             <li>set up a PMA database as described above</li>
-            <li>within this database create a table following this scheme:<br />
+            <li>
+                within this database create a table following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE column_comments (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_column_comments` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(5) unsigned NOT NULL auto_increment,<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db_name varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table_name varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column_name varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comment varchar(255) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (id),<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNIQUE KEY db_name (db_name,table_name,column_name)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id),<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNIQUE KEY db_name (db_name, table_name, column_name)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Comments for Columns';<br />
                 </tt>
             </li>
@@ -793,7 +803,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 put the table name in
                 <tt>$cfg['Servers'][$i]['column_comments']</tt>
             </li>
-        </ul>
+        </ul><br />
     </dd>
 
     <dt>
@@ -966,8 +976,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['SuggestDBName']</b> boolean</dt>
     <dd>
-        Defines whether to suggest a database name on the "Create Database" 
-        form or to keep the textfield empty.
+        Defines whether to suggest a database name on the
+        &quot;Create Database&quot; form or to keep the textfield empty.
         <br /><br />
     </dd>
 
@@ -1060,17 +1070,18 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['DefaultTabDatabase'] </b>string</dt>
     <dd>
-        Defines the Tab displayed by default on database view. Possible
-        values: 'db_details_structure.php3', 'db_details.php3', or
-        'db_search.php3'.
+        Defines the tab displayed by default on database view. Possible
+        values: &quot;db_details_structure.php3&quot;,
+        &quot;db_details.php3&quot; or &quot;db_search.php3&quot;.
         <br /><br />
     </dd>
 
     <dt><b>$cfg['DefaultTabTable'] </b>string</dt>
     <dd>
-        Defines the Tab displayed by default on table view. Possible
-        values: 'tbl_properties_structure.php3', 'tbl_properties.php3',
-        'tbl_select.php3', 'tbl_change.php3'.
+        Defines the tab displayed by default on table view. Possible
+        values: &quot;tbl_properties_structure.php3&quot;,
+        &quot;tbl_properties.php3&quot;, &quot;tbl_select.php3&quot; or
+        &quot;tbl_change.php3&quot;.
         <br /><br />
     </dd>
 
@@ -1100,9 +1111,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dt><b>$cfg['DefaultCharset'] </b>string</dt>
     <dd>
         Default charset to use for recoding of MySQL queries. This must be
-        enabled and it's described by $cfg['AllowAnywhereRecoding'] option. 
-        You can give here any charset which is in $cfg['AvailableCharsets']
-        array and this is just default choice, user can select any of them.
+        enabled and it's described by <tt>$cfg['AllowAnywhereRecoding']</tt>
+        option.<br />
+        You can give here any charset which is in
+        <tt>$cfg['AvailableCharsets']</tt> array and this is just default
+        choice, user can select any of them.
         <br /><br />
     </dd>
 
@@ -1239,38 +1252,52 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['UseSyntaxColoring'] </b>boolean</dt>
     <dd>
-        Introduced in 2.3.0 PhpMyAdmin is now able to show SQL in Syntaxcoloring.
-        To use this feature set this value to TRUE (the default). If not everything
-        you want is colored or to influence where a newline is inserted see the
-        Configurationarrays $cfg['keywords'] and $cfg['additional']. Note: 
-        for version 2.3.0, syntax coloring is non functional.
+        Introduced in 2.3.0, phpMyAdmin is now able to show SQL in syntax
+        coloring.<br />
+        To use this feature set this value to <tt>TRUE</tt> (the default).
+        If not everything you want is colored or to influence where a newline
+        is inserted see the configuration arrays <tt>$cfg['keywords']</tt> and
+        <tt>$cfg['additional']</tt>.<br />
+        Note: for version 2.3.0, syntax coloring is non functional.
+        <br /><br />
     </dd>
+
     <dt><b>$cfg['colorFunctions'] </b>string [HTML color]</dt>
     <dd>
-        If you use Syntaxcoloring then this defines the Color of
-        Functionnames. e.g. all that are found in $cfg['Functions'].
+        If you use syntax coloring then this defines the color of
+        function names. e.g. all that are found in <tt>$cfg['Functions']</tt>.
+        <br /><br />
     </dd>
+
     <dt><b>$cfg['colorKeywords'] </b>string [HTML color]</dt>
     <dd>
-        If you use Syntaxcoloring then this defines the Color of
-        Keywords. e.g. all that are found in $cfg['keywords'].
+        If you use syntax coloring then this defines the color of
+        keywords. e.g. all that are found in <tt>$cfg['keywords']</tt>.
+        <br /><br />
     </dd>
+
     <dt><b>$cfg['colorStrings'] </b>string [HTML color]</dt>
     <dd>
-        If you use Syntaxcoloring then this defines the Color of
-        Strings. e.g. all that are between ' or &quot;
+        If you use syntax coloring then this defines the color of
+        strings. e.g. all that are between ' or &quot;
+        <br /><br />
     </dd>
+
     <dt><b>$cfg['colorColType'] </b>string [HTML color]</dt>
     <dd>
-        If you use Syntaxcoloring then this defines the Color of
-        ColumnTypes.  e.g. all that are found in $cfg['ColumnTypes'].
+        If you use syntax coloring then this defines the color of
+        column types. e.g. all that are found in <tt>$cfg['ColumnTypes']</tt>.
+        <br /><br />
     </dd>
+
     <dt><b>$cfg['colorAdd'] </b>string [HTML color]</dt>
     <dd>
-        If you use Syntaxcoloring then this defines the Color of
-        additional Keywords that do not get a newline.  e.g. all that
-         are found in $cfg['additional'].
+        If you use syntax coloring then this defines the color of
+        additional keywords that do not get a newline. e.g. all that
+        are found in <tt>$cfg['additional']</tt>.
+        <br /><br />
     </dd>
+
     <dt><b>$cfg['ColumnTypes'] </b>array</dt>
     <dd>
         All possible types of a MySQL column. In most cases you don't need to
@@ -1282,25 +1309,30 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <dd>
         Possible attributes for fields. In most cases you don't need to edit
         this.
+        <br /><br />
     </dd>
 
     <dt><b>$cfg['Functions'] </b>array</dt>
     <dd>
         A list of functions MySQL supports. In most cases you don't need to
         edit this.
+        <br /><br />
     </dd>
 
     <dt><b>$cfg['keywords'] </b>array</dt>
     <dd>
-        A list of Keywords that is used for Syntaxcoloring. All Keywords that
-        are in this list will also get a new line before them. Usually you won't need
-        to change those.
+        A list of keywords that is used for syntax coloring. All keywords that
+        are in this list will also get a new line before them.<br />
+        Usually you won't need to change those.
+        <br /><br />
     </dd>
+
     <dt><b>$cfg['additional'] </b>array</dt>
     <dd>
-        A list of additional Keywords that is used for Syntaxcoloring. All Keywords that
-        are in this list will <b>not</b> get a new line before them. Usually you won't need
-        to change those.
+        A list of additional keywords that is used for syntax coloring. All
+        keywords that are in this list will <b>not</b> get a new line before
+        them.<br />
+        Usually you won't need to change those.
         <br /><br />
     </dd>
 </dl>
@@ -1329,7 +1361,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <a class="navigation" href="#faqbrowsers">Browsers</a> &nbsp;-&nbsp;
 <a class="navigation" href="#faqusing">Usage tips</a> &nbsp;-&nbsp;
 <a class="navigation" href="#faqproject">Project</a> &nbsp;-&nbsp;
-<a class="navigation" href="#faqsyntaxcoloring">Syntax Coloring</a>
+<a class="navigation" href="#faqsyntaxcoloring">Syntax coloring</a>
 
 
 
@@ -1879,8 +1911,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     CSV exported file.</b>
     <br />
     This is a known Netscape 4.75 bug: it adds some line feeds when exporting
-    data in octet-stream mode. Since we can't detect the specific Netscape 
-    version, we cannot workaround this bug. 
+    data in octet-stream mode. Since we can't detect the specific Netscape
+    version, we cannot workaround this bug.
 </p>
 
 <a name="faqusing"></a>
@@ -1949,10 +1981,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <p>
     <b>How can I use the relation table in Query-by-example?</b>
     <br />
-    Here is an example with the tables persons, towns and countries, all 
-    located in the database mydb. If you
-    don't have a PMA_relation table, create it as explained in the
-    configuration section. Then create the example tables:
+    Here is an example with the tables persons, towns and countries, all
+    located in the database mydb. If you don't have a <tt>PMA_relation</tt>
+    table, create it as explained in the configuration section. Then create the
+    example tables:
     <br /><br />
     <tt>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE countries (<br />
@@ -1983,7 +2015,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('S', 'Sherbrooke');<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('M', 'Montréal');<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb','persons', 'town_code', 'mydb', 'towns', 'town_code');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb', 'persons', 'town_code', 'mydb', 'towns', 'town_code');<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb', 'persons', 'country_code', 'mydb', 'countries', 'country_code');<br />
     </tt>
     <br />
@@ -2017,60 +2049,75 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <p>
     <b>How can I produce a PDF schema of my database?</b>
     <br />
-    First you have to fill the 'relation', 'table_coords' and 'pdf_pages'
-    configuration variables.
+    First you have to fill the &quot;relation&quot;, &quot;table_coords&quot;
+    and &quot;pdf_pages&quot; configuration variables.
     <br /><br />
     Then, think about your schema layout: which tables will go on which pages.
-    <ul>
-        <li>Click on your db name in the left frame</li>
-        <li>Choose &quot;Structure&quot; in the navigation on top</li>
-        <li>Choose &quot;Edit PDF Pages&quot; which should be somewhere at the bottom of the page</li>
-        <li>Enter the name for a first pdf page and submit</li>
-        <li>Choose this page to edit</li>
-        <li>Now add a table you want to show on this page and it's coordinates and submit<br />
-            First you will have to guess this coordinates of course, so just
-            expect to have an area of about 297 * 210 and put the tables coordinates somewhere
-            in there, you will be able to have a look at what happened and change them later.<br />
-            For example, x=100 and y=200 means that the table will be at 200 mm down
-            and 100 mm right from the upper left corner.<br />
-            Actually if you have a width of more than 300 or a height of more than 100
-            than it will automatically be scaled but 300*100 is a good start to have
-            an idea of what coordinates to use.</li>
-        <li>After every table you submitted you will have the possibility to submit more tables</li>
-        <li>When you have entered enough tables Click on your db name in the left frame again</li>
-        <li>Now, again at the bottom of the page you should be able to choose &quot;Display PDF schema&quot;<br />
-            For testing it might be useful to show the Grid as well, so you can see the coordinates used<br />
-            maybe also choose Color and submit.</li>
-        <li>Save the file he will offer you to something like Schema.pdf (Internet Explorer has some Bug there
-        which might make it offer it without an extension. Under Windows it is important to have the Extension
-        .pdf, in under OS you should be fine just saving the file under the name it offers)</li>
-
-         in the navigation on top</li>
-    </ul>
 </p>
+<ul>
+    <li>Click on your db name in the left frame</li>
+    <li>Choose &quot;Structure&quot; in the navigation on top</li>
+    <li>Choose &quot;Edit PDF Pages&quot; which should be somewhere at the
+        bottom of the page</li>
+    <li>Enter the name for a first pdf page and submit</li>
+    <li>Choose this page to edit</li>
+    <li>Now add a table you want to show on this page and it's coordinates and
+        submit<br />
+        First you will have to guess this coordinates of course, so just expect
+        to have an area of about 297 * 210 and put the tables coordinates
+        somewhere in there, you will be able to have a look at what happened
+        and change them later.<br />
+        For example, x=100 and y=200 means that the table will be at 200 mm
+        down and 100 mm right from the upper left corner.<br />
+        Actually if you have a width of more than 300 or a height of more than
+        100 than it will automatically be scaled but 300*100 is a good start to
+        have an idea of what coordinates to use.</li>
+    <li>After every table you submitted you will have the possibility to submit
+        more tables</li>
+    <li>When you have entered enough tables Click on your db name in the left
+        frame again</li>
+    <li>Now, again at the bottom of the page you should be able to choose
+        &quot;Display PDF schema&quot;<br />
+        For testing it might be useful to show the grid as well, so you can see
+        the coordinates used.<br />
+        Maybe also choose color and submit.</li>
+    <li>Save the file he will offer you to something like <i>Schema.pdf</i>
+        (Internet Explorer has some bug there which might make it offer it
+        without an extension. Under Windows it is important to have the
+        extension &quot;.pdf&quot;, under other OSes you should be fine just
+        saving the file under the name it offers).</li>
+</ul>
+
 <a name="faqsyntaxcoloring"></a>
 <p>
-    <b>I don't like the way syntaxcoloring displays my query</b>
+    <b>I don't like the way syntax coloring displays my query!</b>
     <br />
-    There is two things about the way how the Syntaxcoloring works that
+    There is two things about the way how the syntax coloring works that
     you can easily change yourself:
-    <ul>
-        <li><b>number of newlines within your statement</b><br />
-            All Words that are in $cfg['keywords'] will get a newline in front of them,
-            all words in $cfg['additional'] don't. So say you don't like to have
-             a newline in front of every WHERE, you need to remove it from the  $cfg['keywords'] array
-             and enter it in the $cfg['additional'] array instead.</li>
-        <li><b>Colors</b><br />
-            The colors are easily changed using the variables
-            <ul>
-                <li>$cfg['colorFunctions']</li>
-                <li>$cfg['colorKeywords']</li>
-                <li>$cfg['colorStrings']</li>
-                <li>$cfg['colorColType']</li>
-                <li>$cfg['colorAdd']</li>
-            </ul></li>
-    </ul>
 </p>
+<ul>
+    <li>
+        <b>number of newlines within your statement</b><br />
+        All words that are in <tt>$cfg['keywords']</tt> will get a newline in
+        front of them, all words in <tt>$cfg['additional']</tt> won't.
+        So say you don't like to have a newline in front of every
+        <tt>WHERE</tt>, you need to remove it from the
+        <tt>$cfg['keywords']</tt> array and enter it in the
+        <tt>$cfg['additional']</tt> array instead.
+    </li>
+    <li>
+        <b>colors</b><br />
+        The colors are easily changed using the variables
+        <ul>
+            <li><tt>$cfg['colorFunctions']</tt></li>
+            <li><tt>$cfg['colorKeywords']</tt></li>
+            <li><tt>$cfg['colorStrings']</tt></li>
+            <li><tt>$cfg['colorColType']</tt></li>
+            <li><tt>$cfg['colorAdd']</tt></li>
+        </ul>
+    </li>
+</ul>
+
 <p>
     <b>phpMyAdmin is changing the type of one of my columns!</b>
     <br />
@@ -2082,12 +2129,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
        to a user for this database, a backslash is added before the underscore.
     </b><br />
     This is normal and means that the grant is done only for this database. If
-    there was no backslash, this would be a wildcard grant, and the 
+    there was no backslash, this would be a wildcard grant, and the
     underscore would mean &quot;any character&quot;. So, if the database name
     is &quot;john_db&quot;, the user would get rights to john1db, john2db...
     instead of just john_db.<br /><br />
     If you really want to grant using a wildcard, there is a dialog box &quot;
-    Database (wildcards allowed)&quot; for this. 
+    Database (wildcards allowed)&quot; for this.
 </p>
 <p>
     <b>What is the curious symbol &oslash; in the table statistics?</b><br />
@@ -2338,7 +2385,7 @@ Thanks to these guys who have sent us some major improvements to merge into the
 code since version 2.1.0:
 - Michal Cihar &lt;nijel at users.sourceforge.net&gt; who implemented the
   enhanced index creation/display feature, and the mecanism to display
-  a character set in MySQL different than the one in HTML. 
+  a character set in MySQL different than the one in HTML.
 - Christophe Gesché from the "MySQL Form Generator for PHPMyAdmin"
   (http://sourceforge.net/projects/phpmysqlformgen/) who suggested the patch
   for multiple table printviews.
