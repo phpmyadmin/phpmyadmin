@@ -146,7 +146,7 @@
 <h2>Introduction</h2>
 
 <p>
-    phpMyAdmin can administer a whole MySQL-server (needs a super-user) 
+    phpMyAdmin can manager a whole MySQL-server (needs a super-user) 
     but also a single database. To accomplish the latter you'll need
     a properly set up MySQL-user who can read/write only the desired
     database. It's up to you to look up the appropiate part in the 
@@ -423,7 +423,7 @@
             <li>
                 Cookie authentication mode
                 (<tt>$auth_type&nbsp;=&nbsp;'cookie'</tt>) as introduced in
-                2.2.4 allows you to log in as any valid MySQL user with the
+                2.2.3 allows you to log in as any valid MySQL user with the
                 help of... cookies. Log name and password are stored in
                 cookies during the session and password are deleted when it
                 ends.
@@ -438,25 +438,16 @@
             </li>
         </ul><br />
 
-        Using http or cookies authentication modes are recommended:
-        <ul>
-            <li>
-                when phpMyAdmin is running in a multi-user environment where
-                people have shell-access that you don't want to know the
-                username/password for MySQL.
-            </li>
-            <li>
-                when you want to give users access to their own database and
-                don't want them to play around with others.
-                <br /><br />
-            </li>
-        </ul>
+        Http or cookie authentication modes are recommended in a multi-user 
+        environment where you want to give users access to their own database 
+        and don't want them to play around with others.
+        <br /><br />
 
-        http or cookies authentications are secure as the MySQL passwords does
+        http or cookie authentication modes are secure: the MySQL passwords does
         not need to be set in the phpMyAdmin configuration file. (except for the
         &quot;standard user&quot; -see above-).<br />
-        If security is your main concern, always prefer the http authentication
-        mode.
+        In cookie mode, we send the password in a temporary cookie, so most    
+        browsers should not store the password in their cookie file.
         <br /><br />
 
         Please see the install section on &quot;Using http authentication&quot;
