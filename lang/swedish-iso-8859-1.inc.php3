@@ -563,4 +563,7 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) t
 $strZip = '"zippad"';
 // To translate
 
+$strGlobal = 'global';  //to translate
+$strDbSpecific = 'database-specific';  //to translate
+$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 ?>

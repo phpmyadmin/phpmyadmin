@@ -563,4 +563,7 @@ $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el l
 $strZip = '"comprimit amb zip"';
 // To translate
 
+$strGlobal = 'global';  //to translate
+$strDbSpecific = 'database-specific';  //to translate
+$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 ?>

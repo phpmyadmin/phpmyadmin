@@ -564,4 +564,7 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
+$strGlobal = 'global';  //to translate
+$strDbSpecific = 'database-specific';  //to translate
+$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 ?>

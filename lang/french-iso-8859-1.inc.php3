@@ -566,4 +566,7 @@ $strZip = '"zippé"';
 
 $strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
 
+$strGlobal = 'global';  //to translate
+$strDbSpecific = 'database-specific';  //to translate
+$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 ?>

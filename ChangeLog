@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-14 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_databases.php3, server_privileges.php3, lang/*.inc.php3:
+      Reimplemented "check privileges" feature.
+      TODO: bug #684984.
+
 2003-02-13 Robin Johnson  <robbat2@users.sourceforge.net>
     * sql.php3: Fix simple little bug #685082
 
@@ -61,7 +66,6 @@ $Source$
     * lang/italian.inc.php3: Updates, thanks to Pietro Danesi (danone).
     * server_databases.php3, server_links.inc.php3, lang/*.inc.php3:
       Reworte db_stats.php3 to be conform with the new server_ pages.
-      TODO: reimplement "check privileges" feature.
 
 2003-02-07 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.

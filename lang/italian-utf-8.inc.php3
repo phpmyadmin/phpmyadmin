@@ -569,4 +569,7 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
+$strGlobal = 'global';  //to translate
+$strDbSpecific = 'database-specific';  //to translate
+$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 ?>

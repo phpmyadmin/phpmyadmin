@@ -563,4 +563,7 @@ $strZeroRemovesTheLimit = 'Pastaba: Nëra jokiø apribojimø jeigu reikðmë nurodyta
 $strZip = '"zip"';
 // To translate
 
+$strGlobal = 'global';  //to translate
+$strDbSpecific = 'database-specific';  //to translate
+$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 ?>

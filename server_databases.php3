@@ -262,7 +262,7 @@ if (count($statistics) > 0) {
                . '            </td>' . "\n";
         }
         echo '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-           . '                <a href="./server_databases.php3?' . $url_query . '&amp;dbstats=' . (empty($dbstats) ? '0' : '1') . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
+           . '                <a href="./server_privileges.php3?' . $url_query . '&amp;checkprivs=' . urlencode($current['db_name']) . '" title="' . sprintf($strCheckPrivsLong, htmlspecialchars($current['db_name'])) . '">'. "\n"
            . '                    ' . $strCheckPrivs . "\n"
            . '                </a>' . "\n"
            . '            </td>' . "\n"

@@ -567,4 +567,7 @@ $strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
 
 $strNoDatabasesSelected = 'No databases selected.';  //to translate
 
+$strGlobal = 'global';  //to translate
+$strDbSpecific = 'database-specific';  //to translate
+$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 ?>
