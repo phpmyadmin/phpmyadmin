@@ -6,7 +6,7 @@ $Id$
 $Source$
 
 2002-04-24 Alexander M. Turek  <rabus@bugfixes.info>
-    * libraries/*: $cfg system changes.
+    * libraries/*, lang/*: $cfg system changes.
     * libraries/common.lib.php3, libraries/select_lang.php3,
       libraries/config_import.lib.php3: Config file backwards compatibility.
 

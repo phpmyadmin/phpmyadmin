@@ -224,7 +224,7 @@ $strPasswordEmpty = 'Parool on tühi!';
 $strPasswordNotSame = 'Paroolid ei ühti!';
 $strPHPVersion = 'PHP versioon';
 $strPmaDocumentation = 'phpMyAdmini dokumentatsioon';
-$strPmaUriError = '<tt>$cfgPmaAbsoluteUri</tt> konstant peab teie konfiguratsioonifailis määratud olema!';
+$strPmaUriError = '<tt>$cfg[\'PmaAbsoluteUri\']</tt> konstant peab teie konfiguratsioonifailis määratud olema!';
 $strPos1 = 'Algus';
 $strPrevious = 'Eelmine';
 $strPrimary = 'Primaarne';
@@ -242,7 +242,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'SQL-päring andmebaasist <b>%s</b>:';
 
 $strRecords = 'Kirjeid';
-$strReferentialIntegrity = 'Kontrolli pärinevust:'; 
+$strReferentialIntegrity = 'Kontrolli pärinevust:';
 $strReloadFailed = 'MySQL taaslaadimine ebaõnnestus.';
 $strReloadMySQL = 'Taaslae MySQL';
 $strRememberReload = 'Ärge unustage serverit taaslaadida.';

@@ -225,7 +225,7 @@ $strPasswordEmpty = 'הסיסמה ריקה !';
 $strPasswordNotSame = 'הסיסמאות אינן זהות !';
 $strPHPVersion = 'גרסת PHP';
 $strPmaDocumentation = 'דוקומנטצית phpMyAdmin';
-$strPmaUriError = 'הנחיית ה- <tt>$cfgPmaAbsoluteUri</tt> חייבת להיות ממוקמת בקובץ הקונפיגורציה שלך!';
+$strPmaUriError = 'הנחיית ה- <tt>$cfg[\'PmaAbsoluteUri\']</tt> חייבת להיות ממוקמת בקובץ הקונפיגורציה שלך!';
 $strPos1 = 'התחל';
 $strPrevious = 'הקודם';
 $strPrimary = 'ראשי';
@@ -243,7 +243,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'שאילתת SQL על מסד הנתונים <b>%s</b>:';
 
 $strRecords = 'רשומות';
-$strReferentialIntegrity = 'בדוק את ה- Referential Integrity:';  
+$strReferentialIntegrity = 'בדוק את ה- Referential Integrity:';
 $strReloadFailed = 'טעינה מחדש של MySQL נכשלה.';
 $strReloadMySQL = 'טען מחדש את MySQL';
 $strRememberReload = 'זכור לטעון מחדש את השרת.';

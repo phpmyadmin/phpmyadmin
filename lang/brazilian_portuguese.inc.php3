@@ -239,7 +239,7 @@ $strQBEIns = 'Ins';  //to translate (used in tbl_qbe.php3)
 $strQueryOnDb = 'Procura SQL na base de dados <b>%s</b>:';
 
 $strRecords = 'Registros';
-$strReferentialIntegrity = 'Verificar integridade referencial:'; 
+$strReferentialIntegrity = 'Verificar integridade referencial:';
 $strReloadFailed = 'Reinicialização do MySQL falhou.';
 $strReloadMySQL = 'Reinicializa o MySQL';
 $strRememberReload = 'Lembre-se recarregar o servidor.';
@@ -347,6 +347,6 @@ $strZip = '"compactado com zip"';
 // To translate
 $strBookmarkDeleted = 'The bookmark has been deleted.';
 $strChangePassword = 'Change password'; //to translate
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
+$strPmaUriError = 'The <tt>$cfg[\'PmaAbsoluteUri\']</tt> directive MUST be set in your configuration file!';
 $strLinksTo = 'Links to';  //to translate
 ?>
