@@ -27,6 +27,9 @@ $Source$
 
 2001-08-03  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3: current value of enums was lost.
+	* bug 445348, if ob_gzhandler already set in php.ini,
+	  patch by Garth Gillespie, modified by me
+
 
 2001-08-03  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_properties.php3, db_details.php3: fixed problems with table
