@@ -234,4 +234,5 @@ $strDeleteFailed = "Deleted Failed!";//to translate
 $strColumn = "Column";//to translate
 $strAnyColumn = "Any Column";//to translate
 $strColumnEmpty = "The columns names are empty!";//to translate
+$strInsertAsNewRow="Insérer ce nouvel enregistrement";  
 ?>

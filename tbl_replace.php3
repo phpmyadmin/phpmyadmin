@@ -16,7 +16,7 @@ if($goto == "sql.php3")
 reset($fields);
 reset($funcs);
 
-if(isset($primary_key) && ($submit_type != $strInsertNewRow)) {
+if(isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
   if(get_magic_quotes_gpc()) {
     $primary_key = stripslashes($primary_key);
   } else {

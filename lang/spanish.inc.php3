@@ -202,4 +202,5 @@ $strDeleteFailed = "Deleted Failed!";//to translate
 $strColumn = "Column";//to translate
 $strAnyColumn = "Any Column";//to translate
 $strColumnEmpty = "The columns names are empty!";//to translate
+$strInsertAsNewRow=" Insert as new row ";  //to translate
 ?>

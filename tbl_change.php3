@@ -180,7 +180,9 @@ echo "</table>";
 ?>
   <p>
   <input type="submit" name="submit_type" value="<?php echo $strSave; ?>">
-  <input type="submit" name="submit_type" value="<?php echo $strInsertNewRow; ?>">
+<?php if (isset($primary_key)) { ?>
+  <input type="submit" name="submit_type" value="<?php echo $strInsertAsNewRow; ?>">
+<?php } ?>
   </form>
 
 <?php
