@@ -18,6 +18,19 @@
 if (!defined('PMA_STR_LIB_INCLUDED')) {
     define('PMA_STR_LIB_INCLUDED', 1);
 
+    //this is for handling input better
+    if(defined('PMA_MULTIBYTE_ENCODING')) {
+      $GLOBALS['PMA_strlen'] = 'mb_strlen';
+      $GLOBALS['PMA_strpos'] = 'mb_strpos';
+      $GLOBALS['PMA_strrpos'] = 'mb_strrpos';
+      $GLOBALS['PMA_substr'] = 'mb_substr';
+    } else {
+      $GLOBALS['PMA_strlen'] = 'strlen';
+      $GLOBALS['PMA_strpos'] = 'strpos';
+      $GLOBALS['PMA_strrpos'] = 'strrpos';
+      $GLOBALS['PMA_substr'] = 'substr';
+    }
+
     /**
      * This checks if a string actually exists inside another string
      * We try to do it in a PHP3-portable way.
@@ -30,9 +43,9 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      */
     function PMA_STR_strInStr($needle, $haystack)
     {
-        // strpos($haystack, $needle) !== FALSE
-        // return (is_integer(strpos($haystack, $needle)));
-        return strpos(' ' . $haystack, $needle);
+        // $GLOBALS['PMA_strpos']($haystack, $needle) !== FALSE
+        // return (is_integer($GLOBALS['PMA_strpos']($haystack, $needle)));
+        return $GLOBALS['PMA_strpos'](' ' . $haystack, $needle);
     } // end of the "PMA_STR_strInStr()" function
 
 
@@ -47,7 +60,7 @@ if (!defined('PMA_STR_LIB_INCLUDED')) {
      */
     function PMA_STR_charIsEscaped($string, $pos, $start = 0)
     {
-        $len = strlen($string);
+        $len = $GLOBALS['PMA_strlen']($string);
         // Base case:
         // Check for string length or invalid input or special case of input
         // (pos == $start)

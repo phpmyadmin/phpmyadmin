@@ -32,17 +32,6 @@
 if (!defined('PMA_SQP_LIB_INCLUDED')) {
     define('PMA_SQP_LIB_INCLUDED', 1);
 
-    if(defined('PMA_MULTIBYTE_ENCODING')) {
-      $GLOBALS['PMA_SQP_strlen'] = 'mb_strlen';
-      $GLOBALS['PMA_SQP_strpos'] = 'mb_strpos';
-      $GLOBALS['PMA_SQP_strrpos'] = 'mb_strrpos';
-      $GLOBALS['PMA_SQP_substr'] = 'mb_substr';
-    } else {
-      $GLOBALS['PMA_SQP_strlen'] = 'strlen';
-      $GLOBALS['PMA_SQP_strpos'] = 'strpos';
-      $GLOBALS['PMA_SQP_strrpos'] = 'strrpos';
-      $GLOBALS['PMA_SQP_substr'] = 'substr';
-    }
 
     /**
      * Include the string library as we use it heavily
@@ -181,7 +170,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             return $sql;
         }
 
-        $len = $GLOBALS['PMA_SQP_strlen']($sql);
+        $len = $GLOBALS['PMA_strlen']($sql);
         if ($len == 0) {
             return array();
         }
@@ -246,18 +235,18 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $type = 'mysql';
                     case '-':
                         $type = 'ansi';
-                        $pos  = $GLOBALS['PMA_SQP_strpos']($sql, "\n", $count2);
+                        $pos  = $GLOBALS['PMA_strpos']($sql, "\n", $count2);
                         break;
                     case '/':
                         $type = 'c';
-                        $pos  = $GLOBALS['PMA_SQP_strpos']($sql, '*/', $count2);
+                        $pos  = $GLOBALS['PMA_strpos']($sql, '*/', $count2);
                         $pos  += 2;
                         break;
                     default:
                         break;
                 } // end switch
                 $count2 = ($pos < $count2) ? $len : $pos;
-                $str    = $GLOBALS['PMA_SQP_substr']($sql, $count1, $count2 - $count1);
+                $str    = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
                 PMA_SQP_arrayAdd($sql_array, 'comment_' . $type, $str, $arraysize);
                 continue;
             } // end if
@@ -273,7 +262,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 $oldpos          = 0;
                 do {
                     $oldpos = $pos;
-                    $pos    = $GLOBALS['PMA_SQP_strpos'](' ' . $sql, $quotetype, $oldpos + 1) - 1;
+                    $pos    = $GLOBALS['PMA_strpos'](' ' . $sql, $quotetype, $oldpos + 1) - 1;
                     // ($pos === FALSE)
                     if ($pos < 0) {
                         $debugstr = $GLOBALS['strSQPBugUnclosedQuote'] . ' @ ' . $startquotepos. "\n"
@@ -317,7 +306,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     default:
                         break;
                 } // end switch
-                $data = $GLOBALS['PMA_SQP_substr']($sql, $count1, $count2 - $count1);
+                $data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
                 PMA_SQP_arrayAdd($sql_array, $type, $data, $arraysize);
                 continue;
             }
@@ -356,7 +345,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 if ($l == 1) {
                     $punct_data = $c;
                 } else {
-                    $punct_data = $GLOBALS['PMA_SQP_substr']($sql, $count1, $l);
+                    $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $l);
                 }
 
                 // Special case, sometimes, althought two characters are
@@ -393,10 +382,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $punct_data = $first;
                     } else if (($last2 == '/*') || ($last2 == '--')) {
                         $count2     -= 2;
-                        $punct_data = $GLOBALS['PMA_SQP_substr']($sql, $count1, $count2 - $count1);
+                        $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
                     } else if (($last == '-') || ($last == '+') || ($last == '!')) {
                         $count2--;
-                        $punct_data = $GLOBALS['PMA_SQP_substr']($sql, $count1, $count2 - $count1);
+                        $punct_data = $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
                     } else {
                         $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . ($count1+1) . "\n"
                                   . 'STR: ' . $punct_data;
@@ -435,7 +424,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             continue;
                         } else {
                             $debugstr = $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . ($count1+1) . "\n"
-                                      . 'STR: ' . $GLOBALS['PMA_SQP_substr']($sql, $count1, $count2 - $count1);
+                                      . 'STR: ' . $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1);
                             PMA_SQP_throwError($debugstr, $sql);
                             return $sql;
                         }
@@ -463,7 +452,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 } // end while
 
                 $l    = $count2 - $count1;
-                $str  = $GLOBALS['PMA_SQP_substr']($sql, $count1, $l);
+                $str  = $GLOBALS['PMA_substr']($sql, $count1, $l);
 
                 $type = '';
                 if ($is_digit) {
@@ -492,7 +481,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $count2++;
 
             $debugstr = 'C1 C2 LEN: ' . $count1 . ' ' . $count2 . ' ' . $len .  "\n"
-                      . 'STR: ' . $GLOBALS['PMA_SQP_substr']($sql, $count1, $count2 - $count1) . "\n";
+                      . 'STR: ' . $GLOBALS['PMA_substr']($sql, $count1, $count2 - $count1) . "\n";
             PMA_SQP_bug($debugstr, $sql);
             return $sql;
 
@@ -657,10 +646,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
      */
     function PMA_SQP_formatHtml_colorize($arr)
     {
-        $i         = $GLOBALS['PMA_SQP_strpos']($arr['type'], '_');
+        $i         = $GLOBALS['PMA_strpos']($arr['type'], '_');
         $class     = '';
         if ($i > 0) {
-            $class = 'syntax_' . $GLOBALS['PMA_SQP_substr']($arr['type'], 0, $i) . ' ';
+            $class = 'syntax_' . $GLOBALS['PMA_substr']($arr['type'], 0, $i) . ' ';
         }
 
         $class     .= 'syntax_' . $arr['type'];

@@ -7,6 +7,8 @@ $Source$
 
 2002-10-13 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: bug #621357
+    * libraries/commom.inc.php3, string.lib.php3, sqlparser.lib.php3:
+       - Fixed MB bug
 
 2002-10-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php3: bug 620624
