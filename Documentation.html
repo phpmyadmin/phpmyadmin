@@ -1577,7 +1577,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <tt>post_max_size</tt> in the <i>php.ini</i> configuration file.
     <br />
     All of these three settings limit the maximum size of data that can be
-    submitted and handled by php.
+    submitted and handled by php. One user also said that post_max_size
+    and memory_limit need to be larger than upload_max_filesize.
 </p>
 
 <p>
