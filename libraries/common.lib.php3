@@ -503,9 +503,20 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             echo '<p>' . "\n"
                     . '    ' . $GLOBALS['strMySQLSaid'] . '<br />' . "\n"
                     . '</p>' . "\n";
-            echo '<pre>' . "\n"
+
+            // The error message will be displayed within a CODE segment.
+            // To preserve original formatting, but allow wordwrapping, we do a couple of replacements
+
+            // Replace all non-single blanks with their HTML-counterpart
+            $error_message = str_replace('  ', '&nbsp;&nbsp;', $error_message);
+            // Replace TAB-characters with their HTML-counterpart
+            $error_message = str_replace("\t", '&nbsp;&nbsp;&nbsp;&nbsp;', $error_message);
+            // Replace linebreaks
+            $error_message = nl2br($error_message);
+
+            echo '<code>' . "\n"
                     . $error_message . "\n"
-                    . '</pre>' . "\n";
+                    . '</code><br /><br />' . "\n";
 
             echo PMA_showMySQLDocu('Error-returns', 'Error-returns');
 
