@@ -11,6 +11,7 @@ $Source$
       Added German UTF-8 file.
     * lang/italian.inc.php3: Updates, thanks again to
       Pietro Danesi <danone at users.sourceforge.net>.
+    * libraries/user_details.js: Fixed a sytax error.
 
 2002-06-14 Marc Delisle  <lem9@users.sourceforge.net>
     * big patch for charset support, all files that call mysql have been
