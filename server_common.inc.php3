@@ -40,5 +40,14 @@ require('./header.inc.php3');
 /**
  * Checks for superuser privileges
  */
-$is_superuser = @PMA_mysql_query('SELECT COUNT(*) FROM mysql.user', $userlink);
+// We were checking privileges with 'USE mysql' but users with the global
+// priv CREATE TEMPORARY TABLES or LOCK TABLES can do a 'USE mysql'
+// (even if they cannot see the tables)
+
+$is_superuser = PMA_mysql_query('SELECT COUNT(*) FROM mysql.user', $userlink);
+
+// now, select the mysql db
+if ($is_superuser) {
+    @PMA_mysql_query('USE mysql', $userlink);
+}
 ?>
