@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-09-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3: NO ACTION was not correctly treated
+ 
 2003-09-03 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/italian: Updated, thanks to Pietro Danesi (danone).
 

@@ -1383,7 +1383,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             $foreign_key_number = -1;
 
             for ($i = 0; $i < $size; $i++) {
-            // DEBUG echo $arr[$i]['data'] . " " . $arr[$i]['type'] . "<br>";
+            // DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br>";
                 if ($arr[$i]['type'] == 'alpha_reservedWord') {
                    $upper_data = strtoupper($arr[$i]['data']);
 
@@ -1421,7 +1421,16 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                            if ($second_upper_data == 'UPDATE') {
                                 $clause = 'on_update';
                            }                         
-                           if (isset($clause) && $arr[$i+2]['type'] == 'alpha_reservedWord') {
+                           if (isset($clause) 
+                           && ($arr[$i+2]['type'] == 'alpha_reservedWord'
+
+                 // ugly workaround because currently, NO is not
+                 // in the list of reserved words in sqlparser.data
+                 // (we got a bug report about not being able to use
+                 // 'no' as an identifier)
+                               || ($arr[$i+2]['type'] == 'alpha_identifier'
+                                  && strtoupper($arr[$i+2]['data'])=='NO') ) 
+                              ) {
                               $third_upper_data = strtoupper($arr[$i+2]['data']);
                               if ($third_upper_data == 'CASCADE' 
                                || $third_upper_data == 'RESTRICT') {
