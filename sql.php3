@@ -74,11 +74,11 @@ if (isset($btnDrop) || isset($navig)) {
 if ($goto == 'sql.php3') {
     $goto = 'sql.php3'
           . '?lang=' . $lang
-          . '&server=' . $server
-          . '&db=' . urlencode($db)
-          . '&table=' . urlencode($table)
-          . '&pos=' . $pos
-          . '&sql_query=' . urlencode($sql_query);
+          . '&amp;server=' . $server
+          . '&amp;db=' . urlencode($db)
+          . '&amp;table=' . urlencode($table)
+          . '&amp;pos=' . $pos
+          . '&amp;sql_query=' . urlencode($sql_query);
 }
 
 
@@ -95,7 +95,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         }
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
-        header('Location: ' . $cfgPmaAbsoluteUri . $goto);
+        header('Location: ' . $cfgPmaAbsoluteUri . str_replace('&amp;', '&', $goto));
     }
     exit();
 } // end if
@@ -161,10 +161,17 @@ else {
         $reload           = 1;
     }
     // Gets the number of rows per page
-    if (!isset($session_max_rows)){
+    if (!isset($session_max_rows)) {
         $session_max_rows = $cfgMaxRows;
     } else if ($session_max_rows != 'all') {
         $cfgMaxRows       = $session_max_rows;
+    }
+    // Defines the display mode (horizontal/vertical) and header "frequency"
+    if (empty($disp_direction)) {
+        $disp_direction   = $cfgDefaultDisplay;
+    }
+    if (empty($repeat_cells)) {
+        $repeat_cells     = $cfgRepeatCells;
     }
 
     $is_explain = $is_select = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
@@ -320,7 +327,7 @@ else {
             include('./' . $goto);
         } // end if file_exist
         else {
-            header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . $message);
+            header('Location: ' . $cfgPmaAbsoluteUri . str_replace('&amp;', '&', $goto) . '&message=' . $message);
         } // end else
         exit();
     } // end no rows returned
@@ -350,16 +357,26 @@ else {
         }
         PMA_displayTable($result, $disp_mode);
         mysql_free_result($result);
-        
+
         // Displays "Insert a new row" link if required
         if ($disp_mode[6] == '1') {
+            $lnk_goto  = 'sql.php3'
+                       . '?lang=' . $lang
+                       . '&amp;server=' . $server
+                       . '&amp;db=' . urlencode($db)
+                       . '&amp;table=' . urlencode($table)
+                       . '&amp;pos=' . $pos
+                       . '&amp;session_max_rows=' . $session_max_rows
+                       . '&amp;disp_direction=' . $disp_direction
+                       . '&amp;repeat_cells=' . $repeat_cells
+                       . '&amp;sql_query=' . urlencode($sql_query);
             $url_query = 'lang=' . $lang
                        . '&amp;server=' . $server
                        . '&amp;db=' . urlencode($db)
                        . '&amp;table=' . urlencode($table)
                        . '&amp;pos=' . $pos
                        . '&amp;sql_query=' . urlencode($sql_query)
-                       . '&amp;goto=' . urlencode($goto);
+                       . '&amp;goto=' . urlencode($lnk_goto);
 
             echo "\n\n";
             echo '<!-- Insert a new row -->' . "\n";
@@ -380,6 +397,9 @@ else {
                   . '&amp;db=' . urlencode($db)
                   . '&amp;table=' . urlencode($table)
                   . '&amp;pos=' . $pos
+                  . '&amp;session_max_rows=' . $session_max_rows
+                  . '&amp;disp_direction=' . $disp_direction
+                  . '&amp;repeat_cells=' . $repeat_cells
                   . '&amp;sql_query=' . urlencode($sql_query)
                   . '&amp;id_bookmark=1';
             ?>

@@ -25,15 +25,21 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
           . '&goto=' . urlencode($goto)
           . (empty($primary_key) ? '' : '&primary_key=' . $primary_key)
           . '&pos=' . $pos
+          . '&session_max_rows=' . $session_max_rows
+          . '&disp_direction=' . $disp_direction
+          . '&repeat_cells=' . $repeat_cells
           . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
 } else if ($goto == 'sql.php3') {
-    $goto  = 'sql.php3?'
-           . 'lang=' . $lang
-           . '&server=' . $server
-           . '&db=' . urlencode($db)
-           . '&table=' . urlencode($table)
-           . '&pos=' . $pos
-           . '&sql_query=' . urlencode($sql_query);
+    $goto = 'sql.php3?'
+          . 'lang=' . $lang
+          . '&server=' . $server
+          . '&db=' . urlencode($db)
+          . '&table=' . urlencode($table)
+          . '&pos=' . $pos
+          . '&session_max_rows=' . $session_max_rows
+          . '&disp_direction=' . $disp_direction
+          . '&repeat_cells=' . $repeat_cells
+          . '&sql_query=' . urlencode($sql_query);
 }
 // Defines the url to return in case of failure of the query
 if (isset($url_err)) {

@@ -5,13 +5,25 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-18  Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3; tbl_change.php3; tbl_replace.php3;
+	  libraries/display_tbl.lib.php3: the number of rows to return, display
+	  direction and table headers "frequencies" weren't passed between scripts.
+	* config.inc.php3; Documentation.html; libraries/display_tbl.lib.php3:
+	  - codding standards;
+	  - little bugs with vertical/horizontal display direction.
+
+2001-12-16  Loïc Chapeaux  <lolo@phpheaven.net>
+	* footer.inc.php3: back to previous version (it does not fix the bug
+	  #493200 but creates a new one).
+
 2001-12-16  Marc Delisle  <lem9@users.sourceforge.net>
 	* merge and adapt Vertical/horizontal browsing patch #492470
-          thanks to Garvin Hicking (hicking at faktor-e.de)
-          - config.inc.php3
-          - libraries/display_tbl.lib.php3
-          - lang/*
-          - Documentation.html
+	  thanks to Garvin Hicking (hicking at faktor-e.de)
+	  - config.inc.php3
+	  - libraries/display_tbl.lib.php3
+	  - lang/*
+	  - Documentation.html
 
 2001-12-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3:

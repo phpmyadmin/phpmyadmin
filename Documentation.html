@@ -146,10 +146,10 @@
 <h2>Introduction</h2>
 
 <p>
-    phpMyAdmin can manager a whole MySQL-server (needs a super-user) 
+    phpMyAdmin can manager a whole MySQL-server (needs a super-user)
     but also a single database. To accomplish the latter you'll need
     a properly set up MySQL-user who can read/write only the desired
-    database. It's up to you to look up the appropriate part in the 
+    database. It's up to you to look up the appropriate part in the
     MySQL manual. Currently phpMyAdmin can:
 </p>
 
@@ -218,10 +218,10 @@
          Have a look at
          <a class="navigation" href="#config">Configuration section</a> for an
          explanation of all values.</li>
-    <li> It is recommended that you protect the directory in which
-         you installed phpMyAdmin (unless it's on a closed intranet, or you
-         wish to use http or cookie authentication), for example with 
-         HTTP-AUTH (in a <i>.htaccess</i> file). See the
+    <li> It is recommended that you protect the directory in which you
+         installed phpMyAdmin (unless it's on a closed intranet, or you wish to
+         use http or cookie authentication), for example with HTTP-AUTH (in a
+         <i>.htaccess</i> file). See the
          <a class="navigation" href="#faq">FAQ section</a> for additional
          information.</li>
     <li> Open the file
@@ -241,64 +241,67 @@
 
 <p><b>Using authentication modes:</b></p>
 <ul>
-<li>    Http and cookie authentication modes are recommended in a multi-user 
+    <li>Http and cookie authentication modes are recommended in a multi-user 
         environment where you want to give users access to their own database 
         and don't want them to play around with others.<br /><br /></li>
 
-<li>    Http and cookie authentication modes are secure: the MySQL password does
-        not need to be set in the phpMyAdmin configuration file. (except for the
-        &quot;standard user&quot; -see the Configuration section-).<br />
+    <li>Http and cookie authentication modes are secure: the MySQL password
+        does not need to be set in the phpMyAdmin configuration file. (except
+        for the &quot;standard user&quot; -see the Configuration section-).
+        <br />
         In cookie mode, we send the password in a temporary cookie, so most    
         browsers should not store the password in their cookie file.
         <br /><br /></li>
 
-<li>    For 'http' and 'cookie' modes, phpMyAdmin needs a stduser that 
-    has <b>only</b> the <tt>SELECT</tt>
-    privilege on the <i>mysql.user (all columns except
-    &quot;Password&quot;)</i>, <i>mysql.db (all columns)</i> &amp;
-    <i>mysql.tables_priv (all columns except &quot;Grantor&quot; &amp;
-    &quot;Timestamp&quot;) </i>tables.<br />
-    You must specify the details for the stduser in the <i>config.inc.php3</i>
-    file under the <tt>$cfgServers[n]['stduser']</tt> &amp;
-    <tt>$cfgServers[n]['stdpass']</tt> settings.<br />
-    To create the control account (<tt>&lt;stduser&gt;</tt> and
-    <tt>&lt;stdpass&gt;</tt> have to be replaced by your own values, of course):<br />
-    <table border="0">
-    <tr>
-        <td>&nbsp;&nbsp;&nbsp;</td>
-        <td>
-            <tt>GRANT USAGE ON mysql.* TO '&lt;stduser&gt;'@'localhost' IDENTIFIED BY '&lt;stdpass&gt;';</tt><br />
-            <tt>GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv, Grant_priv, References_priv, Index_priv, Alter_priv) ON mysql.user TO '&lt;stduser&gt;'@'localhost';</tt><br />
-            <tt>GRANT SELECT ON mysql.db TO '&lt;stduser&gt;'@'localhost';</tt><br />
-            <tt>GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv) ON mysql.tables_priv TO '&lt;stduser&gt;'@'localhost';</tt>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            ... and if you want to use the bookmark feature:
-        </td>
-    </tr>
-    <tr>
-        <td>&nbsp;&nbsp;&nbsp;</td>
-        <td>
-            <tt>GRANT SELECT, INSERT, DELETE ON &lt;bookmark_db&gt;.&lt;bookmark_table&gt; TO '&lt;stduser&gt;'@'localhost';</tt>
-        </td>
-    </tr>
-    </table>
-    <br />
-</li>
-<li>
-    Then each of the <i>true</i> users should be granted of a set of
-    privileges on a set of perticular databases but shouldn't have any global
-    privileges. For example, to grant the user <i>real_user</i> with all
-    privileges on the database <i>user_base</i>:<br />
-    &nbsp;&nbsp;&nbsp;<tt>GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';</tt>
-    <br />
-    What the user may now do is controlled entirely by the MySQL user management
-    system.<br />
-    With http or cookie auth mode, you don't need to fill the user/password 
-    fields inside the <tt>$cfgServers</tt> array.<br />
-</li>
+    <li>
+        For 'http' and 'cookie' modes, phpMyAdmin needs a stduser that has
+        <b>only</b> the <tt>SELECT</tt> privilege on the <i>mysql.user (all
+        columns except &quot;Password&quot;)</i>, <i>mysql.db (all columns)</i>
+        &amp; <i>mysql.tables_priv (all columns except &quot;Grantor&quot;
+        &amp; &quot;Timestamp&quot;) </i>tables.<br />
+        You must specify the details for the stduser in the
+        <i>config.inc.php3</i> file under the
+        <tt>$cfgServers[n]['stduser']</tt> &amp;
+        <tt>$cfgServers[n]['stdpass']</tt> settings.<br />
+        To create the control account (<tt>&lt;stduser&gt;</tt> and
+        <tt>&lt;stdpass&gt;</tt> have to be replaced by your own values, of
+        course):<br />
+        <table border="0">
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <tt>GRANT USAGE ON mysql.* TO '&lt;stduser&gt;'@'localhost' IDENTIFIED BY '&lt;stdpass&gt;';</tt><br />
+                <tt>GRANT SELECT (Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv, Grant_priv, References_priv, Index_priv, Alter_priv) ON mysql.user TO '&lt;stduser&gt;'@'localhost';</tt><br />
+                <tt>GRANT SELECT ON mysql.db TO '&lt;stduser&gt;'@'localhost';</tt><br />
+                <tt>GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv) ON mysql.tables_priv TO '&lt;stduser&gt;'@'localhost';</tt>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                ... and if you want to use the bookmark feature:
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <tt>GRANT SELECT, INSERT, DELETE ON &lt;bookmark_db&gt;.&lt;bookmark_table&gt; TO '&lt;stduser&gt;'@'localhost';</tt>
+            </td>
+        </tr>
+        </table>
+        <br />
+    </li>
+    <li>
+        Then each of the <i>true</i> users should be granted of a set of
+        privileges on a set of perticular databases but shouldn't have any
+        global privileges. For example, to grant the user <i>real_user</i> with
+        all privileges on the database <i>user_base</i>:<br />
+        &nbsp;&nbsp;&nbsp;<tt>GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';</tt>
+        <br />
+        What the user may now do is controlled entirely by the MySQL user
+        management system.<br />
+        With http or cookie auth mode, you don't need to fill the user/password 
+        fields inside the <tt>$cfgServers</tt> array.<br />
+    </li>
 </ul>
 
 <p><b>'http' authentication mode:</b></p>
@@ -308,6 +311,7 @@
         allows you to login as any valid MySQL user.</li>
     <li>Is only supported with PHP running as an Apache module, not with cgi.</li>
 </ul>
+
 <p><b>'cookie' authentication mode:</b></p>
 <ul>
     <li>You can use this method as a replacement for the http
@@ -325,8 +329,8 @@
         fields.<br />
         But usually you don't need to setup a &quot;standard user&quot; here:
         using the <tt>$cfgServers[n]['only_db']</tt> might be enough.<br />
-        In the ISP FAQ section, there is an entry explaining how to
-        protect your configuration file.<br /></li>
+        In the ISP FAQ section, there is an entry explaining how to protect
+        your configuration file.<br /></li>
 </ul>
 
 
@@ -438,8 +442,9 @@
 
         <ul>
             <li>
-                'config' authentication (<tt>$auth_type&nbsp;=&nbsp;'config'</tt>)
-                is the plain old way: username and password are stored in
+                'config' authentication
+                (<tt>$auth_type&nbsp;=&nbsp;'config'</tt>) is the plain old
+                way: username and password are stored in
                 <i>config.inc.php3</i>.
             </li>
             <li>
@@ -453,7 +458,7 @@
             <li>
                 'http' authentication (was called 'advanced' in older versions)
                 (<tt>$auth_type&nbsp;=&nbsp;'http'</tt>) as introduced in 1.3.0
-                allows you to log in as any valid MySQL user via HTTP-Auth.<br />
+                allows you to log in as any valid MySQL user via HTTP-Auth.
             </li>
         </ul><br />
 
@@ -725,21 +730,6 @@
     </dd>
 
     <dt>
-    <dt><b>$cfgDefaultDisplay </b>string</dt>
-    <dd>
-        There are 2 display modes: horizontal and vertical. Define which one
-        is displayed by default.
-        <br /><br />
-    </dd>
-
-    <dt>
-    <dt><b>$cfgRepeatCells </b>integer</dt>
-    <dd>
-        Repeat the headers every X cells, or 0 to deactivate.
-        <br /><br />
-    </dd>
-
-    <dt>
         <b>$cfgLeftBgColor </b>string [HTML color]<br />
         <b>$cfgRightBgColor </b>string [HTML color]
     </dt>
@@ -811,6 +801,21 @@
         Defines the place where modify and delete links would be put when
         tables contents are displayed (you may have them displayed both at the
         left and at the right).
+        &quot;Left&quot; and &quot;right&quot; are parsed as &quot;top&quot;
+        and &quot;bottom&quot; with vertical display mode.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfgDefaultDisplay </b>string</dt>
+    <dd>
+        There are 2 display modes: horizontal and vertical. Define which one is
+        displayed by default.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfgRepeatCells </b>integer</dt>
+    <dd>
+        Repeat the headers every X cells, or 0 to deactivate.
         <br /><br />
     </dd>
 
@@ -1168,7 +1173,7 @@
     Testing needs to be done for Konqueror 2.2.2.<br />
 </p>
 
-<p> 
+<p>
     <b>I refresh (reload) my browser, and come back to the welcome page.</b>
     <br />
     Some browsers support right-clicking into the frame you want to refresh,

@@ -31,11 +31,11 @@ if (!empty($message)) {
     }
     PMA_showMessage($message);
     if (isset($goto_cpy)) {
-        $goto         = $goto_cpy;
+        $goto          = $goto_cpy;
         unset($goto_cpy);
     }
     if (isset($sql_query_cpy)) {
-        $sql_query    = $sql_query_cpy;
+        $sql_query     = $sql_query_cpy;
         unset($sql_query_cpy);
     }
 }
@@ -123,6 +123,9 @@ else
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
+    <input type="hidden" name="session_max_rows" value="<?php echo isset($session_max_rows) ? $session_max_rows : ''; ?>" />
+    <input type="hidden" name="disp_direction" value="<?php echo isset($disp_direction) ? $disp_direction : ''; ?>" />
+    <input type="hidden" name="repeat_cells" value="<?php echo isset($disp_direction) ? $repeat_cells : ''; ?>" />
     <input type="hidden" name="err_url" value="<?php echo urlencode($err_url); ?>" />
     <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode($sql_query) : ''; ?>" />
 <?php
