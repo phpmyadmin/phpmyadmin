@@ -47,6 +47,14 @@ function PMA_dbCmp($a, $b)
 
 
 /**
+ * Gets the databases list - if it has not been built yet
+ */
+if ($server > 0 && empty($dblist)) {
+    PMA_availableDatabases();
+}
+
+
+/**
  * Drops multiple databases
  */
 if (!empty($drop_selected_dbs)) {

@@ -5,6 +5,8 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-10 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_databases.php3: Ensured that the database list is built.
 
 2003-02-10 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/catalan: update, thanks to Xavier Navarro
