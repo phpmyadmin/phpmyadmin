@@ -7,10 +7,10 @@
 #
 for file in *.inc.php3
 do
-	echo "lines before:" `wc -l $file`
-        grep -v "$1 " ${file} > ${file}.new
-        rm $file
-        mv ${file}.new $file
-	echo " lines after:" `wc -l $file`
+    echo "lines before:" `wc -l $file`
+    grep -v "$1 " ${file} > ${file}.new
+    rm $file
+    mv ${file}.new $file
+    echo " lines after:" `wc -l $file`
 done
 echo " "

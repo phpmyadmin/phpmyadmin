@@ -8,7 +8,7 @@ for file in *.inc.php3
 do
         echo $file " "
         grep -v '?>' ${file} > ${file}.new
-        echo "$1=\""  $2  '";  //to translate' >> ${file}.new
+        echo "$1 = '"$2"';  //to translate" >> ${file}.new
         echo "?>" >> ${file}.new
         rm $file
         mv ${file}.new $file

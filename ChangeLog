@@ -8,6 +8,7 @@ $Source$
 2001-12-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/spanish.inc.php3: updated thanks to
 	  Gabriel Ginard <gginard at navegalia.com>.
+	* lang/*.sh: codding standards.
 
 2001-12-27  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/left.js, line 81: fixed bug #496491 - JS error with NS 4.73 on
