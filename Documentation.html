@@ -1374,13 +1374,23 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     </dd>
 
     <dt><b>$cfg['SQLValidator']['use']</b> boolean</dt>
-    <dd>TODO
+    <dd>
+    phpMyAdmin now supports use of the <a class="navigation" href="http://developer.mimer.com/validator/index.htm">Mimer SQL Validator</a> service, 
+    as originally published on 
+    <a  class="navigation" href="http://developers.slashdot.org/article.pl?sid=02/02/19/1720246">Slashdot</a>.
+    <br />
+    For help in setting up your system to use the service, see the 
+    <a class="navigation" href="#faqsqlvalidator">FAQ #6.14</a>.
     <br /><br />
     </dd>
 
     <dt><b>$cfg['SQLValidator']['username']</b> string<br />
     <b>$cfg['SQLValidator']['password']</b> string</dt>
-    <dd>TODO
+    <dd>
+    The SOAP service allows you to login with <tt>anonymous</tt> 
+    and any password, so we use those by default.. Instead, if 
+    you have an account with them, you can put your login details 
+    here, and it will be used in place of the anonymous login.
     <br /><br />
     </dd>
 
@@ -2238,10 +2248,20 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     work with it, nor delete it.<br />
 </p>
 
-<p>
+<p name="faqsqlvalidator">
+    <a name="faqsqlvalidator" />
     <b>[6.14] How do I set up the SQL validator?</b>
     <br />
-    TODO
+    To use it, you need a very recent version of PHP, built with 
+    XML and PEAR support.  On your system command line, run 
+    <tt>"pear install Mail_Mime Net_DIME SOAP"</tt> to get the nessecary
+    PEAR modules for usage.
+    <br />
+    If you use it, you should be aware that any SQL statement you 
+    submit will be stored anonymously (database/table/column names, 
+    strings, numbers replaced with generic values). The Mimer SQL 
+    Validator itself, is &copy; 2001 Upright Database Technology. 
+    We utilize it as free XML-SOAP service.
 </p>
 
 <a name="faqproject"></a>
