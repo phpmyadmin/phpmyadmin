@@ -171,6 +171,83 @@ if ($is_minimum_common == FALSE) {
       }
 
     /**
+     * Maximum upload size as limited by PHP
+     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas 
+     *
+     * this section generates $max_upload_size in bytes
+     */
+
+    function get_real_size($size=0) {
+    /// Converts numbers like 10M into bytes
+        if (!$size) {
+            return 0;
+        }
+        $scan['MB'] = 1048576;
+        $scan['Mb'] = 1048576;
+        $scan['M'] = 1048576;
+        $scan['m'] = 1048576;
+        $scan['KB'] = 1024;
+        $scan['Kb'] = 1024;
+        $scan['K'] = 1024;
+        $scan['k'] = 1024;
+
+        while (list($key) = each($scan)) {
+            if ((strlen($size)>strlen($key))&&(substr($size, strlen($size) - strlen($key))==$key)) {
+                $size = substr($size, 0, strlen($size) - strlen($key)) * $scan[$key];
+                break;
+            }
+        }
+        return $size;
+    } // end function
+
+
+    if (!$filesize = ini_get('upload_max_filesize')) {
+        $filesize = "5M";
+    }
+    $max_upload_size = get_real_size($filesize);
+
+    if ($postsize = ini_get('post_max_size')) {
+        $postsize = get_real_size($postsize);
+        if ($postsize < $max_upload_size) {
+            $max_upload_size = $postsize;
+        }
+    } 
+    unset($filesize);
+    unset($postsize);
+
+    /**
+     * other functions for maximum upload work
+     */
+
+    /**
+     * Displays the maximum size for an upload
+     *
+     * @param   integer  the size 
+     *
+     * @return  string   the message
+     *
+     * @access  public
+     */
+     function PMA_displayMaximumUploadSize($max_upload_size) {
+         list($max_size, $max_unit) = PMA_formatByteDown($max_upload_size);
+         return '(' . sprintf($GLOBALS['strMaximumSize'], $max_size, $max_unit) . ')';
+     }
+
+    /**
+     * Generates a hidden field which should indicate to the browser
+     * the maximum size for upload
+     *
+     * @param   integer  the size 
+     *
+     * @return  string   the INPUT field
+     *
+     * @access  public
+     */
+     function PMA_generateHiddenMaxFileSize($max_size){
+         return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />'; 
+     }
+
+    /**
      * Charset conversion.
      */
     require_once('./libraries/charset_conversion.lib.php');

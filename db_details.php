@@ -78,8 +78,11 @@ if ($is_upload) {
     echo '    <i>' . $strOr . '</i> ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
     ?>
     <div style="margin-bottom: 5px">
-        <input type="file" name="sql_file" class="textfield" /><br />
+        <input type="file" name="sql_file" class="textfield" />&nbsp;<?php echo PMA_displayMaximumUploadSize($max_upload_size);?><br />
     <?php
+    // some browsers should respect this :)
+    echo '    ' . PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+
     $is_gzip = ($cfg['GZipDump'] && @function_exists('gzopen'));
     $is_bzip = ($cfg['BZipDump'] && @function_exists('bzdecompress'));
     if ($is_bzip || $is_gzip) {
