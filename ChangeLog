@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-18 Michal Cihar  <nijel@users.sourceforge.net>
+    * main.php3: Since every user has access to his processlist, set
+      is_process_priv to TRUE as default (fixes undefined variable warning).
+
 2002-12-18 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php3, bug 648263
     * libraries/common.lib.php3, bug 653764

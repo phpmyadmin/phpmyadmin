@@ -179,7 +179,7 @@ if ($server > 0) {
     // Get user's global privileges ($dbh and $userlink are links to MySQL
     // defined in the "common.lib.php3" library)
     $is_create_priv  = FALSE;
-//    $is_process_priv = FALSE;
+    $is_process_priv = TRUE;
     $is_reload_priv  = FALSE;
     $is_superuser    = @PMA_mysql_query('USE mysql', $userlink);
     if ($dbh) {
