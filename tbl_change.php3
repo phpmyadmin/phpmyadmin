@@ -332,8 +332,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             if ($len < 4) {
                 $fieldsize = $maxlength = 4;
             } else {
-                $fieldsize = $len;
-                $maxlength = (($len > 40) ? 40 : $len);
+                $fieldsize = (($len > 40) ? 40 : $len);
+                $maxlength = $len;
             }
             echo "\n";
             ?>
