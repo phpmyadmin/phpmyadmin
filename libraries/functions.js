@@ -558,10 +558,49 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultColor1, theD
     // 3.2 ... with other browsers
     else {
         domDetect    = false;
+        currentColor = theCells[theColNum].style.backgroundColor;
     } // end 3
 
     var c = null;
-    // 5.1 ... with DOM compatible browsers except Opera
+
+    // 4. Defines the new color
+    // 4.1 Current color is the default one
+    if (currentColor == ''
+        || currentColor.toLowerCase() == theDefaultColor1.toLowerCase()
+        || currentColor.toLowerCase() == theDefaultColor2.toLowerCase()) {
+        if (theAction == 'over' && thePointerColor != '') {
+            newColor              = thePointerColor;
+        } else if (theAction == 'click' && theMarkColor != '') {
+            newColor              = theMarkColor;
+            marked_row[theColNum] = true;
+        }
+    }
+    // 4.1.2 Current color is the pointer one
+    else if (currentColor.toLowerCase() == thePointerColor.toLowerCase() &&
+             (typeof(marked_row[theColNum]) == 'undefined' || !marked_row[theColNum]) || marked_row[theColNum] == false) {
+            if (theAction == 'out') {
+                if (theColNum % 2) {
+                    newColor              = theDefaultColor1;
+                } else {
+                    newColor              = theDefaultColor2;
+                }
+            }
+            else if (theAction == 'click' && theMarkColor != '') {
+                newColor              = theMarkColor;
+                marked_row[theColNum] = true;
+            }
+    }
+    // 4.1.3 Current color is the marker one
+    else if (currentColor.toLowerCase() == theMarkColor.toLowerCase()) {
+        if (theAction == 'click') {
+            newColor              = (thePointerColor != '')
+                                  ? thePointerColor
+                                  : ((theColNum % 2) ? theDefaultColor1 : theDefaultColor2);
+            marked_row[theColNum] = false;
+        }
+    } // end 4
+
+    // 5 ... with DOM compatible browsers except Opera
     for (c = 0; c < rowCnt; c++) {
         if (tagSwitch == 'tag') {
             Cells = theRows[c].getElementsByTagName('td');
@@ -575,60 +614,11 @@ function setVerticalPointer(theRow, theColNum, theAction, theDefaultColor1, theD
             Cell  = Cells[theColNum];
         }
 
-        if (domDetect) {
-            currentColor = Cell.getAttribute('bgcolor');
-        } else {
-            currentColor = Cell.style.backgroundColor;
-        }
-
-        // 4. Defines the new color
-        // 4.1 Current color is the default one
-        if (currentColor == ''
-            || currentColor.toLowerCase() == theDefaultColor1.toLowerCase()
-            || currentColor.toLowerCase() == theDefaultColor2.toLowerCase()) {
-            if (theAction == 'over' && thePointerColor != '') {
-                newColor              = thePointerColor;
-            } else if (theAction == 'click' && theMarkColor != '') {
-                newColor              = theMarkColor;
-                marked_row[theColNum] = (typeof(marked_row[theColNum]) == 'undefined' || !marked_row[theColNum])
-                                        ? true
-                                        : null;
-            }
-        }
-        // 4.1.2 Current color is the pointer one
-        else if (currentColor.toLowerCase() == thePointerColor.toLowerCase()
-                 && (typeof(marked_row[theColNum]) == 'undefined' || !marked_row[theColNum])) {
-            if (theAction == 'out') {
-                if (theColNum % 2) {
-                    newColor              = theDefaultColor1;
-                } else {
-                    newColor              = theDefaultColor2;
-                }
-            }
-            else if (theAction == 'click' && theMarkColor != '') {
-                newColor              = theMarkColor;
-                marked_row[theColNum] = false;
-            }
-        }
-        // 4.1.3 Current color is the marker one
-        else if (currentColor.toLowerCase() == theMarkColor.toLowerCase()) {
-            if (theAction == 'click') {
-                newColor              = (thePointerColor != '')
-                                      ? thePointerColor
-                                      : ((theColNum % 2) ? theDefaultColor1 : theDefaultColor2);
-                marked_row[theColNum] = (typeof(marked_row[theColNum]) == 'undefined' || !marked_row[theColNum])
-                                      ? true
-                                      : null;
-            }
-        } // end 4
-
-        // 5. Sets the new color...
+        // 5.1 Sets the new color...
         if (newColor) {
             if (domDetect) {
                 Cell.setAttribute('bgcolor', newColor, 0);
-            }
-            // 5.2 ... with other browsers
-            else {
+            } else {
                 Cell.style.backgroundColor = newColor;
             }
         } // end 5
