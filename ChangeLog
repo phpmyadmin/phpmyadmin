@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-10  Robin Johnson  <robbat2@orbis-terrarum.net>
+	* BUG #448206, Support of table aliases - fixed, added expand_sql_query in lib.inc.php3 and a loop in db_readdump.php3 to apply it
+	
 2001-08-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* phpinfo.php3, lang/*: fixed some coding style inconcistencies.
 	* tbl_change.php3, line 2: fixed $id issue.

@@ -1549,6 +1549,98 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         return $ret;
     } // end of the 'split_sql_file()' function
 
+    /**
+     * @description Expand table alias in SQL queries
+     *
+     * @lastmodified Robin Johnson
+     *
+     * @version 1
+     *
+     * @date 10th August 2001
+     *    
+     * @param   string   a single sql query
+     *
+     * @return  string   the expanded SQL query
+     */
+
+    function expand_sql_query($sql)
+    {	$sql = trim($sql);
+	$arr = explode(" ",$sql);
+	$start_table_ref = FALSE;
+	$end_table_ref = FALSE;
+
+	// find which block of text has the table reference data
+	for($i = 0; $i < count($arr); $i++)
+	{	$tmp = trim(strtoupper($arr[$i]));
+		switch($tmp)
+		{	case "FROM" :
+				$start_table_ref = $i+1;
+				break;
+			case "WHERE" :
+			case "GROUP" :
+			case "HAVING" :
+			case "ORDER" :
+			case "LIMIT" :
+			case "PROCEDURE" :
+			case "FOR" :
+			case "BY" :
+			case "UPDATE" :
+			case "LOCK" :
+			case "IN" :
+			case "SHARE" :
+			case "MODE" :
+				//we want only the first one
+				if(!$end_table_ref)
+					$end_table_ref = $i-1;
+				break;
+		} //switch
+	} // for
+
+	// in case the table reference was the last thing
+	if (!$end_table_ref)
+		$end_table_ref = count($arr) - 1;
+
+	// handle the table reference data
+	
+	// first put it back together
+	$table_ref_data = "";
+	for ($i = $start_table_ref; $i <= $end_table_ref; $i++)
+	{ $table_ref_data .= " ".$arr[$i];
+	} // for
+
+	// clean out the extra spaces
+	$table_ref_data = trim($table_ref_data);
+
+	// clean up a bit
+	unset($arr); unset($tmp); unset($i);
+
+	//break it apart into each table used
+	$arr = explode(",",$table_ref_data);
+
+	// handle each table used
+	foreach ($arr as $table)
+	{	$table = trim($table);
+		if(isset($data)) unset($data);
+		$data = explode(" ",$table); //will have at most 3 items
+		if(isset($data_count)) unset($data_count);
+		$data_count = count($data);
+		if(isset($match)) unset($match);
+		if ( $data_count  == 1)
+			continue;
+		if ( $data_count  == 3)
+		{	$data[1] = $data[2];
+			$match = $data[0]." as ".$data[1];
+			}
+		if ( $data_count  >= 2) //now in form "departments d"
+		{	$sql = preg_replace("/\W$data[1]\./i"," ".$data[0].".",$sql);
+			if(!isset($match))
+				$match = $data[0]." ".$data[1];
+			$sql = str_replace($match," ".$data[0],$sql);
+			} //if
+	} //foreach
+
+	return $sql;
+    } // function expand_sql_query
 
     /**
      * Removes # type remarks from large sql files
