@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-10 Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/chinese* update thanks to Siu Sun (siusun)
+
 2002-04-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/greek.inc.php3: update thanks to Kyriakos Xagoraris.
 	
