@@ -405,7 +405,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['blowfish_secret']</b> string</dt>
     <dd>
-        Starting with version 2.5.2, the 'cookie' auth_type uses blowfish 
+        Starting with version 2.5.2, the 'cookie' auth_type uses blowfish
         algorithm to encrypt the password.
         <br />
         If at least one server configuration uses 'cookie' auth_type,
@@ -1279,8 +1279,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt><b>$cfg['PropertiesNumColumns'] </b>integer</dt>
     <dd>
-        How many columns will be utilized to display the tables on the database property view? 
-        Default is 1 column. When setting this to a value larger than 1, the type of the database will be 
+        How many columns will be utilized to display the tables on the database property view?
+        Default is 1 column. When setting this to a value larger than 1, the type of the database will be
         omitted for more display space.
         <br /><br />
     </dd>
@@ -1657,7 +1657,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         most 4th generation browsers should be capable to use that feature. It currently
         is only tested with Internet Explorer 6 and Mozilla 1.x.<br /><br />
         If $cfg['QueryHistoryDB'] is set to TRUE, all your Queries are logged to a table,
-        which has to be created by you (see <a href="history">$cfg['Servers'][$i]['history']</a>).
+        which has to be created by you (see <a href="#history">$cfg['Servers'][$i]['history']</a>).
         If set to FALSE, all your queries will be appended to the form, but only as long
         as your window is opened they remain saved.<br /><br />
         When using the JavaScript based query window, it will always get updated when you
@@ -2066,7 +2066,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 <p><br />
    Please have a look at our <a href="http://www.phpmyadmin.net/#links">Link section</a> on the official phpMyAdmin homepage for in-depth coverage of phpMyAdmin's features and/or interface.
 </p>
-   
+
 <a name="faqserver"></a><br />
 <h3>[1. Server]</h3>
 
@@ -2462,7 +2462,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     This problem is known to happen when the server is running Turck MMCache
-    but upgrading MMCache to version 2.3.21 solves the problem. 
+    but upgrading MMCache to version 2.3.21 solves the problem.
 </p>
 <a name="faqconfig"></a><br />
 <h3>[2. Configuration]</h3>
@@ -3426,7 +3426,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         <li>&quot;Remote internal directory listing&quot;
         <br /><br />
         It was possible to retrieve the list of phpMyAdmin's directory (which we
-        doubt can cause any damage), but we fixed this in the 
+        doubt can cause any damage), but we fixed this in the
         2.5.2 version.
         <br /><br />
         </li>
@@ -3442,7 +3442,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
         </li>
         <li>&quot;Information encoding weakness&quot;
         <br /><br />
-        We believe that an exploit for this weakness would be difficult 
+        We believe that an exploit for this weakness would be difficult
         to achieve.  However version 2.5.2 now encrypts the password
         with the well-known blowfish algorithm.
         <br /><br />

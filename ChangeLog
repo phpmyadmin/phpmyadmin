@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-16 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html: Bad anchor link.
+
 2003-08-15 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php3: bug 786710, IE and dropping fields,
       and bug 788676: added a table to help Netscape aligning the icons
@@ -44,12 +47,12 @@ $Source$
       exports.
 
 2003-08-10 Marc Delisle  <lem9@users.sourceforge.net>
-    * server_status.php3: bug 786331, a 100,00% not internationalized, 
+    * server_status.php3: bug 786331, a 100,00% not internationalized,
       and align values for "More status variables"
     * libraries/grab_globals.lib.php3: probable fix for IIS HTTP auth bug
 
 2003-08-09 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/auth/cookie.auth.lib.php3: Cookies required message 
+    * libraries/auth/cookie.auth.lib.php3: Cookies required message
       should not look like an error
 
 2003-08-08 Marc Delisle  <lem9@users.sourceforge.net>
@@ -76,7 +79,7 @@ $Source$
 
 2003-08-06 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/common.lib.php3: Parse better enum fields (bug #784154).
-   
+
 2003-08-05 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3: Moved docu function (PHP3 compatbility)
       (Bug #782966)
@@ -86,7 +89,7 @@ $Source$
 
 2003-08-05 Michal Cihar  <nijel@users.sourceforge.net>
     * sql.php3: Fixed regular expression.
-    * libraries/export/latex.php3: Use "table (field)" instead of 
+    * libraries/export/latex.php3: Use "table (field)" instead of
       "table -> field" when dumping relations into LaTeX (bug #776957).
     * libraries/display_export.lib.php3, libraries/export/csv.php3,
       libraries/config_import.lib.php3, config.inc.php3: Allow column headers
@@ -127,7 +130,7 @@ $Source$
     * tbl_replace_fields: bug 780793: a '+' sign in ENUM (or SET
       or a foreign key) was wrongly urldecoded to a space
     * sql.php3: bug 781170, bad check for DROP DATABASE and IF EXISTS
- 
+
 2003-07-30 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_move_copy.php3: wrong Missing message
 
