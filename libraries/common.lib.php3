@@ -23,7 +23,8 @@ if (!defined('__LIB_COMMON__')){
      * the include of libraries/defines.lib.php3 must be after the connection
      * to db to get the MySql version
      *
-     * the auth() function must be before the connection to db
+     * the auth() function must be before the connection to db but after the
+     * pmaIsInto() function
      *
      * the mysql_die() function must be before the connection to db but after
      * mysql extension has been loaded
@@ -36,7 +37,9 @@ if (!defined('__LIB_COMMON__')){
      *   MySQL release number)
      * - load of mysql extension (if necessary)
      * - definition of mysql_die()
+     * - definition of pmaIsInto()
      * - db connection
+     * - advanced authentication work if required
      * - second load of the libraries/define.lib.php3 library to get the MySQL
      *   release number)
      * - other functions, respecting dependencies 
@@ -201,6 +204,28 @@ if (!defined('__LIB_COMMON__')){
         include('./footer.inc.php3');
         exit();
     } // end of the 'mysql_die()' function
+
+
+    /**
+     * Defines whether a string exists inside an array or not
+     *
+     * @param   string   string to search for
+     * @param   mixed    array to search into
+     *
+     * @return  integer  the rank of the $toFind string in the array or '-1' if
+     *                   it hasn't been found
+     *
+     * @access	public
+     */
+    function pmaIsInto($toFind = '', &$in)
+    {
+        $max = count($in);
+        for ($i = 0; $i < $max && ($toFind != $in[$i]); $i++) {
+            // void();
+        }
+
+        return ($i < $max) ? $i : -1;
+    }  // end of the 'pmaIsInto()' function
 
 
     /**
@@ -412,7 +437,10 @@ if (!defined('__LIB_COMMON__')){
                                 auth();
                             } else {
                                 while ($row = mysql_fetch_array($rs)) {
-                                    $dblist[] = $row['Db'];
+                                    // loic1: avoid multiple entries for dbs
+                                    if (pmaIsInto($row['Db'], $dblist) == -1) {
+                                        $dblist[] = $row['Db'];
+                                    }
                                 }
                                 mysql_free_result($rs);
                             }
@@ -429,7 +457,10 @@ if (!defined('__LIB_COMMON__')){
                             // database names instead of with regular
                             // expressions.
                             while ($row = mysql_fetch_array($rs)) {
-                                $uva_mydbs[$row['Db']] = 1;
+                                // loic1: avoid multiple entries for dbs
+                                if (pmaIsInto($row['Db'], $dblist) == -1) {
+                                    $uva_mydbs[$row['Db']] = 1;
+                                }
                             }
                             mysql_free_result($rs);
                             $uva_alldbs = mysql_list_dbs();
@@ -496,6 +527,61 @@ if (!defined('__LIB_COMMON__')){
     else {
         echo $strHostEmpty;
     }
+
+
+    /**
+     * Get the list and number of available databases.
+     *
+     * @param   string   the url to go back to in case of error
+     *
+     * @return  boolean  always true
+     *
+     * @global  array    the list of available databases
+     * @global  integer  the number of available databases
+     */
+    function available_databases($error_url = '')
+    {
+        global $dblist;
+        global $num_dbs;
+
+        $num_dbs = count($dblist);
+
+        // 1. A list of allowed databases has already been defined by the
+        //    authentification process -> gets the available databases list
+        if ($num_dbs) {
+            $true_dblist = array();
+            for ($i = 0; $i < $num_dbs; $i++) {
+                $dblink = @mysql_select_db($dblist[$i]);
+                if ($dblink) {
+                    $true_dblist[] = $dblist[$i];
+                } // end if
+            } // end for
+            unset($dblist);
+            $dblist  = $true_dblist;
+            unset($true_dblist);
+            $num_dbs = count($dblist);
+        } // end if
+
+        // 2. Allowed database list is empty -> gets the list of all databases
+        //    on the server
+        else {
+            $dbs          = mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', FALSE, $error_url);
+            $num_dbs      = @mysql_num_rows($dbs);
+            $real_num_dbs = 0;
+            for ($i = 0; $i < $num_dbs; $i++) {
+                $db_name_tmp = mysql_dbname($dbs, $i);
+                $dblink      = @mysql_select_db($db_name_tmp);
+                if ($dblink) {
+                    $dblist[] = $db_name_tmp;
+                    $real_num_dbs++;
+                }
+            } // end for
+            mysql_free_result($dbs);
+            $num_dbs = $real_num_dbs; 
+        } // end else
+
+        return TRUE;
+    } // end of the 'available_databases()' function
 
 
     /**

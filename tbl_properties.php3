@@ -991,7 +991,18 @@ echo "\n";
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" size="10" name="target_db" />
+                        <select name="target_db">
+                            <option value=""></option>
+<?php
+// The function used below is defined in "common.lib.php3"
+available_databases('main.php3?lang=' . $lang . '&server=' . $server);
+for ($i = 0; $i < $num_dbs; $i++) {
+    echo '                            ';
+    echo '<option value="' . str_replace('"', '&quot;', $dblist[$i]) . '">' . htmlspecialchars($dblist[$i]) . '</option>';
+    echo "\n";
+} // end for
+?>
+                        </select>
                         &nbsp;<b>.</b>&nbsp;
                         <input type="text" size="20" name="new_name" value="<?php echo $table; ?>" />
                     </td>
@@ -1021,7 +1032,19 @@ echo "\n";
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="text" size="10" name="target_db" value="<?php echo $db; ?>" />
+                        <select name="target_db">
+<?php
+for ($i = 0; $i < $num_dbs; $i++) {
+    echo '                            ';
+    echo '<option value="' . str_replace('"', '&quot;', $dblist[$i]) . '"';
+    if ($dblist[$i] == $db) {
+        echo ' selected="selected"';
+    }
+    echo '>' . htmlspecialchars($dblist[$i]) . '</option>';
+    echo "\n";
+} // end for
+?>
+                        </select>
                         &nbsp;<b>.</b>&nbsp;
                         <input type="text" size="20" name="new_name" />
                     </td>

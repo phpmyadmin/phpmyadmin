@@ -19,36 +19,7 @@ require('./libraries/common.lib.php3');
  * before the user choose among available ones at the welcome screen.
  */
 if ($server > 0) {
-    $num_dbs = count($dblist);
-    // 1. $cfgServers[n]['only_db'] exists -> gets the valid databases list
-    if ($num_dbs) {
-        $true_dblist = array();
-        for ($i = 0; $i < $num_dbs; $i++) {
-            $dblink = @mysql_select_db($dblist[$i]);
-            if ($dblink) {
-                $true_dblist[] = $dblist[$i];
-            } // end if
-        } // end for
-        unset($dblist);
-        $dblist  = $true_dblist;
-        unset($true_dblist);
-        $num_dbs = count($dblist);
-    } // end if
-    // 2. no $cfgServers[n]['only_db']
-    else {
-        $dbs          = mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', FALSE, '');
-        $num_dbs      = @mysql_num_rows($dbs);
-        $real_num_dbs = 0;
-        for ($i = 0; $i < $num_dbs; $i++) {
-            $db_name_tmp = mysql_dbname($dbs, $i);
-            $dblink      = @mysql_select_db($db_name_tmp);
-            if ($dblink) {
-                $dblist[] = $db_name_tmp;
-                $real_num_dbs++;
-            }
-        } // end for
-        $num_dbs = $real_num_dbs; 
-    } // end else
+    available_databases(); // this function is defined in "common.lib.php3"
 } else {
     $num_dbs = 0;
 }

@@ -62,6 +62,13 @@ if (isset($new_name) && trim($new_name) != '') {
         }
         $new_name      = stripslashes($new_name);
     }
+
+    // Ensure the target is valid
+    // The functions used below are defined in "common.lib.php3"
+    available_databases('main.php3?lang=' . $lang . '&server=' . $server);
+    if (pmaIsInto($db, $dblist) == -1 || pmaIsInto($target_db, $dblist) == -1) {
+        exit();
+    }
     if (MYSQL_INT_VERSION < 32306) {
         check_reserved_words($target_db, $err_url);
         check_reserved_words($new_name, $err_url);
@@ -88,7 +95,7 @@ if (isset($new_name) && trim($new_name) != '') {
     if ($result != FALSE && $what == 'data') {
         // speedup copy table - staybyte - 22. Juni 2001
         if (MYSQL_INT_VERSION >= 32300) {
-            $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . backquote($table);
+            $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . $source;
             $result          = @mysql_query($sql_insert_data);
             if (mysql_error()) {
                 include('./header.inc.php3');

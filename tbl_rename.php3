@@ -29,6 +29,13 @@ if (isset($new_name) && trim($new_name) != '') {
     if (get_magic_quotes_gpc()) {
         $new_name = stripslashes($new_name);
     }
+
+    // Ensure the target is valid
+    // The functions used below are defined in "common.lib.php3"
+    available_databases('main.php3?lang=' . $lang . '&server=' . $server);
+    if (pmaIsInto($db, $dblist) == -1) {
+        exit();
+    }
     if (MYSQL_INT_VERSION < 32306) {
         check_reserved_words($new_name, $err_url);
     }
