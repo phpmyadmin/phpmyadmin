@@ -74,7 +74,7 @@ if ($cfg['QueryFrame']) {
         echo '    document.writeln(\'        <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="nav" frameborder="0" />\');' . "\n";
         echo '    document.writeln(\'        <frame src="queryframe.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="queryframe" frameborder="0" />\');' . "\n";
         echo '    document.writeln(\'    </frameset>\');' . "\n";
-        echo '    document.writeln(\'    <frame src="' . (empty($db) ? 'main.php3' : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . $phpmain_hash_js . '" border="0" frameborder="0" />\');' . "\n";
+        echo '    document.writeln(\'    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . $phpmain_hash_js . '" border="0" frameborder="0" />\');' . "\n";
         echo '    document.writeln(\'    <noframes>\');' . "\n";
         echo '    document.writeln(\'        <body bgcolor="#FFFFFF">\');' . "\n";
         echo '    document.writeln(\'            <p>' . str_replace("'", "\'", $strNoFrames) . '</p>\');' . "\n";
@@ -92,13 +92,13 @@ if ($cfg['QueryFrame']) {
     echo '        <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />' . "\n";
     echo '        <frame src="queryframe.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="queryframe" frameborder="0" />' . "\n";
     echo '    </frameset>' . "\n";
-    echo '    <frame src="' . (empty($db) ? 'main.php3' : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="0" />' . "\n";
+    echo '    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="0" />' . "\n";
 
 } else {
     
     echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0">' . "\n";
     echo '    <frame src="left.php3?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />' . "\n";
-    echo '    <frame src="' . (empty($db) ? 'main.php3' : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="1" />' . "\n";
+    echo '    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" frameborder="1" />' . "\n";
 
 }
 ?>

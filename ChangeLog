@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-16 Michal Cihar  <nijel@users.sourceforge.net>
+    * index.php3: Use $cfg['DefaultTabServer'] (bug #754260).
+
 2003-06-14 Michal Cihar  <nijel@users.sourceforge.net>
     * export.php3: Fixed saving compressed dumps on server.
     * libraries/display_export.lib.php3: Fixed description for line
