@@ -39,7 +39,7 @@ echo "\n";
  * Displays the welcome message and the server informations
  */
 ?>
-<h1><?php echo $strWelcome . ' phpMyAdmin ' . PHPMYADMIN_VERSION; ?></h1>
+<h1><?php echo sprintf($strWelcome, ' phpMyAdmin ' . PHPMYADMIN_VERSION); ?></h1>
 
 <?php
 // Don't display server info if $server == 0 (no server selected)

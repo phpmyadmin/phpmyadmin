@@ -255,7 +255,7 @@ $strValue = 'Valor';
 $strViewDump = 'Veure un esquema de la taula';
 $strViewDumpDB = 'Veure l\'esquema de la base de dades';
 
-$strWelcome = 'Benvingut a ';
+$strWelcome = 'Benvingut a %s';
 $strWrongUser = 'Usuari i/o clau erronis. Access denegat.';
 
 $strYes = 'Si';

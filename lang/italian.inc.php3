@@ -315,7 +315,7 @@ $strValue = 'Valore';
 $strViewDump = 'Visualizza dump (schema) della tabella';
 $strViewDumpDB = 'Visualizza dump (schema) del database';
 
-$strWelcome = 'Benvenuto in ';
+$strWelcome = 'Benvenuto in %s';
 $strWithChecked = 'Se selezionati:';
 $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 

@@ -305,7 +305,7 @@ $strValue = 'Warto¶æ';
 $strViewDump = 'Zrzut tabeli';
 $strViewDumpDB = 'Zrzut bazy danych';
 
-$strWelcome = 'Witamy w ';
+$strWelcome = 'Witamy w %s';
 $strWithChecked = 'Zaznaczone:';
 $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 

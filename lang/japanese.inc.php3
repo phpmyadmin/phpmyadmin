@@ -245,7 +245,7 @@ $strValue = '値';
 $strViewDump = 'テーブルのダンプ(スキーマ)表示';
 $strViewDumpDB = 'DBのダンプ(スキーマ)表示';
 
-$strWelcome = 'Welcome to ';
+$strWelcome = 'Welcome to %s';
 $strWrongUser = 'ユーザ名またはパスワードが正しくありません。<br />アクセスは拒否されました。';
 
 $strYes = '  はい  ';

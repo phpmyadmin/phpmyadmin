@@ -306,7 +306,7 @@ $strValue = 'Værdi';
 $strViewDump = 'Vis dump (skema) over tabel';
 $strViewDumpDB = 'Vis dump (skema) af database';
 
-$strWelcome = 'Velkommen til ';
+$strWelcome = 'Velkommen til %s';
 $strWithChecked = 'Med det afmærkede:';
 $strWrongUser = 'Forkert brugernavn/kodeord. Adgang nægtet.';
 

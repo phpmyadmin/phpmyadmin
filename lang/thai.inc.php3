@@ -245,7 +245,7 @@ $strValue = 'Value'; //to translate
 $strViewDump = 'ดูโครงสร้างของตาราง';
 $strViewDumpDB = 'ดูโครงสร้างของฐานข้อมูล';
 
-$strWelcome = 'ยินดีต้อนรับสู่ ';
+$strWelcome = 'ยินดีต้อนรับสู่ %s';
 $strWrongUser = 'Wrong username/password. Access denied.'; //to translate
 
 $strYes = 'Yes'; //to translate

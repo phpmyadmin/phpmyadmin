@@ -312,7 +312,7 @@ $strValue = 'Hodnota';
 $strViewDump = 'Ukaž výpis (dump) tabulky';
 $strViewDumpDB = 'Ukaž výpis (dump) databáze';
 
-$strWelcome = 'Vítej v ';
+$strWelcome = 'Vítej v %s';
 $strWithChecked = 'Zaškrtnuté:';
 $strWrongUser = 'Špatné uživatelské jméno/heslo. Pøístup odepøen.';
 

@@ -310,7 +310,7 @@ $strValue = 'Värde';
 $strViewDump = 'Visa SQL-satser för tabellen';
 $strViewDumpDB = 'Visa SQL-satser för databasen';
 
-$strWelcome = 'Välkommen till ';
+$strWelcome = 'Välkommen till %s';
 $strWithChecked = 'Med markerade:';
 $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 

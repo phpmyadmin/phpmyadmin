@@ -302,7 +302,7 @@ $strValue = 'Wert';
 $strViewDump = 'Dump (Schema) der Tabelle anzeigen';
 $strViewDumpDB = 'Dump (Schema) der Datenbank anzeigen';
 
-$strWelcome = 'Willkommen bei ';
+$strWelcome = 'Willkommen bei %s';
 $strWithChecked = 'markierte:';
 $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 

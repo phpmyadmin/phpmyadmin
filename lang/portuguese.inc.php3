@@ -245,7 +245,7 @@ $strValue = 'Value';
 $strViewDump = 'Ver o esquema da tabela';
 $strViewDumpDB = 'Ver o esquema do banco de dados';
 
-$strWelcome = 'Benvindo ao ';
+$strWelcome = 'Benvindo ao %s';
 $strWrongUser = 'Usuário ou Senha errado. Acesso Negado.';
 
 $strYes = 'Sim';

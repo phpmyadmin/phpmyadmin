@@ -245,7 +245,7 @@ $strValue = '값';
 $strViewDump = '테이블의 덤프(스키마) 데이터 보기';
 $strViewDumpDB = 'DB의 덤프(스키마) 데이터 보기';
 
-$strWelcome = 'Welcome to ';
+$strWelcome = 'Welcome to %s';
 $strWrongUser = '유저명 혹은 패스워드가 바르지 않습니다. <br /> 접근이 거부되었습니다.';
 
 $strYes = ' 예 ';

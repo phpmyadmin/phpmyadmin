@@ -256,7 +256,7 @@ $strValue = '值';
 $strViewDump = '檢視資料表的備份概要 (dump schema)';
 $strViewDumpDB = '檢視資料庫的備份概要 (dump schema)';
 
-$strWelcome = '歡迎使用 ';
+$strWelcome = '歡迎使用 %s';
 $strWrongUser = '錯誤的使用者名稱或密碼   拒絕存取';
 
 $strYes = ' 是 ';

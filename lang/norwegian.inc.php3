@@ -309,7 +309,7 @@ $strValue = 'Verdi';
 $strViewDump = 'Vis dump (skjema) av tabell';
 $strViewDumpDB = 'Vis dump (skjema) av database';
 
-$strWelcome = 'Velkommen til ';
+$strWelcome = 'Velkommen til %s';
 $strWithChecked = 'Med avkrysset:';
 $strWrongUser = 'Ugyldig brukernavn/passord. Ingen tilgang.';
 

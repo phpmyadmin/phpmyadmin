@@ -245,7 +245,7 @@ $strValue = '值';
 $strViewDump = '查看数据表的结构和摘要信息。';
 $strViewDumpDB = '查看数据库的结构和摘要信息。';
 
-$strWelcome = '欢迎使用 ';
+$strWelcome = '欢迎使用 %s';
 $strWrongUser = '密码错误，访问被拒绝。';
 
 $strYes = '是';

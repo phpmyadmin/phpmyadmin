@@ -199,6 +199,7 @@ $strOptimizeTable = 'Optimoi taulu';
 $strOptionalControls = 'Valinnainen. Ohjaa erikoismerkkien lukua ja kirjoitusta.';
 $strOptionally = 'Valinnaisesti';
 $strOr = 'Tai';
+$strOverhead = 'Käyttämätön';
 
 $strPartialText = 'Osittaiset tekstit';
 $strPassword = 'Salasana';
@@ -312,7 +313,7 @@ $strValue = 'Arvo';
 $strViewDump = 'Tee vedos (dump) taulusta';
 $strViewDumpDB = 'Tee vedos (dump) tietokannasta';
 
-$strWelcome = 'Tervetuloa! - ';
+$strWelcome = 'Tervetuloa, toivottaa %s';
 $strWithChecked = 'Valitut:';
 $strWrongUser = 'Väärä käyttäjätunnus tai salasana. Pääsy kielletty.';
 

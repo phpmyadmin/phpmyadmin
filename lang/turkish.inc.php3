@@ -310,7 +310,7 @@ $strValue = 'Deðer';
 $strViewDump = 'Tablo\'nun döküm(þema)\'ünü göster';
 $strViewDumpDB = 'Veritabaný\'nýn döküm(þema)\'ünü göster';
 
-$strWelcome = 'HOÞGELDÝNÝZ: ';
+$strWelcome = 'HOÞGELDÝNÝZ: %s';
 $strWithChecked = 'seçilileri:';
 $strWrongUser = 'Hatalý kullanýcý/parola. Eriþim engellendi.';
 

@@ -273,7 +273,7 @@ $strValue = 'Waarde';
 $strViewDump = 'Bekijk een dump (schema) van tabel';
 $strViewDumpDB = 'Bekijk een dump (schema) van database';
 
-$strWelcome = 'Welkom op ';
+$strWelcome = 'Welkom op %s';
 $strWrongUser = 'Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd.';
 
 $strYes = 'Ja';

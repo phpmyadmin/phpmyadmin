@@ -300,7 +300,7 @@ $strValue = 'Стойност';
 $strViewDump = 'Покажи дъмп (схема) на таблицата';
 $strViewDumpDB = 'Покажи дъмп (схема) на БД';
 
-$strWelcome = 'Добре дошли в ';
+$strWelcome = 'Добре дошли в %s';
 $strWithChecked = 'Когато има отметка:';
 $strWrongUser = 'Грешно име/парола. Отказан достъп.';
 

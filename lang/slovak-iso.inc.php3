@@ -315,7 +315,7 @@ $strValue = 'Hodnota';
 $strViewDump = 'Zobrazi» dump (schému) tabuµky';
 $strViewDumpDB = 'Zobrazi» dump (schému) databázy';
 
-$strWelcome = 'Vitajte v ';
+$strWelcome = 'Vitajte v %s';
 $strWithChecked = 'Výber:';
 $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 

@@ -306,7 +306,7 @@ $strValue = 'Valoare';
 $strViewDump = 'Vizualizarea schemei tabelului';
 $strViewDumpDB = 'Vizualizarea schemei bazei de date';
 
-$strWelcome = 'Bun venit la ';
+$strWelcome = 'Bine ai venit la %s';
 $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
 $strWithChecked = 'Verificat cu:';
 

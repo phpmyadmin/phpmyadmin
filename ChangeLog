@@ -13,7 +13,8 @@ $Source$
 2001-11-02  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/slovak-iso.inc.php3: updates thanks to Lubos Klokner, tests
 	  with Loïc: this file must be sent gzipped, otherwise Windows will
-	  corrupt some characters.
+	  corrupt some characters
+	* main.php3, lang/*: new $strWelcome
 
 2001-10-29  Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3: removed an other display of the socket used and the port used

@@ -275,7 +275,7 @@ $strValue = 'Valor';
 $strViewDump = 'Mostrar volcado esquema de la tabla';
 $strViewDumpDB = 'Ver volcado esquema de la base de datos';
 
-$strWelcome = 'Bienvenido a ';
+$strWelcome = 'Bienvenido a %s';
 $strWrongUser = 'Usuario/password equivocado. Accesso denegado.';
 
 $strYes = 'Si';

@@ -280,7 +280,7 @@ $strValue = 'Τιμή';
 $strViewDump = 'Εμφάνιση (schema) του πίνακα';
 $strViewDumpDB = 'Εμφάνιση (schema) της βάσης';
 
-$strWelcome = 'Καλωσήρθατε στο ';
+$strWelcome = 'Καλωσήρθατε στο %s';
 $strWithChecked = 'Με επιλογή:';
 $strWrongUser = 'Λανθασμένος χρήστης/κωδικός πρόσβασης. ¶ρνηση πρόσβασης.';
 

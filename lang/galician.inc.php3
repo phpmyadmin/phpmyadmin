@@ -306,7 +306,7 @@ $strValue = 'Valor';
 $strViewDump = 'Ver o esquema do volcado da tabela';
 $strViewDumpDB = 'Ver o esquema do volcado do banco de datos';
 
-$strWelcome = 'Benvido/a ao ';
+$strWelcome = 'Benvida/o a %s';
 $strWithChecked = 'Todos os marcados';
 $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 
