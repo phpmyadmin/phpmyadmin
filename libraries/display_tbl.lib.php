@@ -457,6 +457,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
         // Just as fallback
         $unsorted_sql_query     = $sql_query;
+        $url_sql_query          = $sql_query;
 
         // sorting by indexes, only if it makes sense
         if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
@@ -471,6 +472,12 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             if (!empty($analyzed_sql[0]['from_clause'])) {
                 $unsorted_sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
             }
+
+            // query without conditions to shorten urls when needed, 800 is just guess, it should depend on remaining url length
+            if (strlen($sql_query) > 800) {
+                $url_sql_query = $unsorted_sql_query;
+            }
+            
             if (!empty($analyzed_sql[0]['where_clause'])) {
                 $unsorted_sql_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
             }
@@ -961,6 +968,23 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     global $dontlimitchars;
     global $row; // mostly because of browser transformations, to make the row-data accessible in a plugin
 
+    $url_sql_query          = $sql_query;
+
+    // query without conditions to shorten urls when needed, 600 is just guess, it should depend on remaining url length
+    if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
+        isset($analyzed_sql[0]['querytype']) && $analyzed_sql[0]['querytype'] == 'SELECT' &&
+        strlen($sql_query) > 600) {
+
+        $url_sql_query = 'SELECT ';
+        if (isset($analyzed_sql[0]['queryflags']['distinct'])) {
+            $url_sql_query .= ' DISTINCT ';
+        }
+        $url_sql_query .= $analyzed_sql[0]['select_expr_clause'];
+        if (!empty($analyzed_sql[0]['from_clause'])) {
+            $url_sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
+        }
+    }
+    
     if (!is_array($map)) {
         $map = array();
     }
@@ -1077,7 +1101,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 $edit_url = 'tbl_change.php'
                           . '?' . $url_query
                           . '&amp;primary_key=' . $uva_condition
-                          . '&amp;sql_query=' . urlencode($sql_query)
+                          . '&amp;sql_query=' . urlencode($url_sql_query)
                           . '&amp;goto=' . urlencode($lnk_goto);
                 if ($GLOBALS['cfg']['PropertiesIconic'] == FALSE) {
                     $edit_str = $GLOBALS['strEdit'];
@@ -1116,7 +1140,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             if ($is_display['del_lnk'] == 'dr') { // delete row case
                 $lnk_goto = 'sql.php'
                           . '?' . str_replace('&amp;', '&', $url_query)
-                          . '&sql_query=' . urlencode($sql_query)
+                          . '&sql_query=' . urlencode($url_sql_query)
                           . '&zero_rows=' . urlencode(htmlspecialchars($GLOBALS['strDeleted']))
                           . '&goto=' . (empty($goto) ? 'tbl_properties.php' : $goto);
                 $del_query = urlencode('DELETE FROM ' . PMA_backquote($table) . ' WHERE') . $uva_condition . '+LIMIT+1';
@@ -1139,7 +1163,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             } else if ($is_display['del_lnk'] == 'kp') { // kill process case
                 $lnk_goto = 'sql.php'
                           . '?' . str_replace('&amp;', '&', $url_query)
-                          . '&sql_query=' . urlencode($sql_query)
+                          . '&sql_query=' . urlencode($url_sql_query)
                           . '&goto=main.php';
                 $del_url  = 'sql.php?'
                           . PMA_generate_common_url('mysql')
@@ -1209,7 +1233,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             $transform_options['wrapper_link'] = '?'
                                                 . (isset($url_query) ? $url_query : '')
                                                 . '&amp;primary_key=' . (isset($uva_condition) ? $uva_condition : '')
-                                                . '&amp;sql_query=' . (isset($sql_query) ? urlencode($sql_query) : '')
+                                                . '&amp;sql_query=' . (isset($sql_query) ? urlencode($url_sql_query) : '')
                                                 . '&amp;goto=' . (isset($sql_goto) ? urlencode($lnk_goto) : '')
                                                 . '&amp;transform_key=' . urlencode($meta->name);
 
