@@ -49,10 +49,10 @@ $cfgRelation = PMA_getRelationsParam();
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
 
 <head>
-    <title>phpMyAdmin</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-    <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> />
-    <link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?lang=<?php echo $lang; ?>&amp;js_frame=left&amp;num_dbs=0" />
+<title>phpMyAdmin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
+<base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> />
+<link rel="stylesheet" type="text/css" href="./css/phpmyadmin.css.php?lang=<?php echo $lang; ?>&amp;js_frame=left&amp;num_dbs=0" />
 <?php
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
@@ -78,14 +78,58 @@ function open_querywindow(url) {
 
     return false;
 }
+
+/**
+  * function resizeRowsLeft()
+  * added 2004-07-20 by Michael Keck <mail@michaelkeck.de>
+  *                  - this function checks the complete frameset of
+  *                    index.php (parent.frames)
+  *                  - gets the offsetHeight of qfcontainer
+  *                  - sets a new frameset.rows - definition for the
+  *                    frameset 'leftFrameset' in 'index.php' dynamic.
+  * this script was tested on
+  *   IE 6, Opear 7.53, Netsacpe 7.1 and Firefox 0.9
+  *   and should work on all other DOM-Browsers and old IE-Browsers.
+  *   It will never work on Netscape smaller Version 6 and IE smaller Version 4.
+  * Please give me feedback if any browser doesn't work with this script
+  *   mailto:mail@michaelkeck.de?subject=resizeFrames - Browser: [the browser]
+**/
+
+function resizeRowsLeft() {
+    if (document.getElementById('qfcontainer')) { // dom browsers
+        // get the height of the div-element 'qfcontainer'
+        // we must add 10 (px) for framespacing
+        newHeight = document.getElementById('qfcontainer').offsetHeight+10;
+        // check if the frameset exists
+        // please see index.php and check the frameset-definitions
+        if (parent.document.getElementById('mainFrameset') && parent.document.getElementById('leftFrameset')) {
+            parent.document.getElementById('leftFrameset').rows=newHeight+',*';
+        }
+    } else {
+        if (document.all) { // older ie-browsers
+            // get the height of the div-element 'qfcontainer'
+            // we must add 10 (px) for framespacing
+            newHeight=document.all('qfcontainer').offsetHeight+10;
+            // check if the frameset exists
+            // please see index.php and check the frameset-definitions
+            if (parent.leftFrameset) {
+                parent.leftFrameset.rows=newHeight+',*';
+            }
+        }
+    }
+}
+
 //-->
 </script>
 <?php
+    // setup the onload handler for resizing frames
+    $js_frame_onload=' onload="resizeRowsLeft();"';
 }
 ?>
 </head>
 
-<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>">
+<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>"<?php echo ((isset($js_frame_onload) && $js_frame_onload!='') ? $js_frame_onload : ''); ?>>
+    <div id="qfcontainer">
 <?php
 if ($cfg['LeftDisplayLogo']) {
 ?>
@@ -93,6 +137,7 @@ if ($cfg['LeftDisplayLogo']) {
     <?php
     if (@file_exists($pmaThemeImage . 'logo_left.png')) {
     ?>
+    
     <div align="center">
         <a href="http://www.phpmyadmin.net" target="_blank"><img src="<?php echo '' . $pmaThemeImage . 'logo_left.png'; ?>" alt="phpMyAdmin" vspace="3" border="0" /></a>
     </div>
@@ -330,15 +375,15 @@ if ($num_dbs > 1) {
     } // end if LeftFrameLight
 } // end if num_db > 1
     ?>
-    <form name="queryframeform" action="queryframe.php" method="get">
+    <form name="queryframeform" action="queryframe.php" method="get" style="margin:0px; padding:0px; display:none;">
         <input type="hidden" name="db" value="" />
         <input type="hidden" name="table" value="" />
         <input type="hidden" name="framename" value="queryframe" />
     </form>
-    <form name="hashform" action="queryframe.php">
+    <form name="hashform" action="queryframe.php" style="margin:0px; padding:0px; display:none;">
         <input type="hidden" name="hash" value="<?php echo $hash; ?>" />
     </form>
-
+    </div>
 </body>
 </html>
 
