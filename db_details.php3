@@ -8,6 +8,7 @@
 require('./db_details_common.php3');
 $url_query .= '&amp;goto=db_details.php3';
 
+
 /**
  * Database work
  */
@@ -108,21 +109,23 @@ echo "\n";
 // (TODO: display the charset selection, even if is_upload == FALSE)
 
 if ($cfg['UploadDir'] !='' && $handle = opendir($cfg['UploadDir'])) {
-    $isfirst=0;
+    $is_first = 0;
     while ($file = @readdir($handle)) {
-        if(is_file($cfg['UploadDir'] . $file)) {
-            if ($isfirst==0) {
-                echo "\n".'    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";
+        if (is_file($cfg['UploadDir'] . $file)) {
+            if ($is_first == 0) {
+                echo "\n";
+                echo '    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";
                 echo '    <div style="margin-bottom: 5px">' . "\n";
                 echo '        <select size="1" name="sql_localfile">' . "\n";
                 echo '            <option value="" selected></option>' . "\n";
-            } // end if (isfirst)
-            echo '            <option value="'.$file.'">'.$file.'</option>' . "\n";
-            $isfirst++;
+            } // end if (is_first)
+            echo '            <option value="' . htmlspecialchars($file) . '">' . htmlspecialchars($file) . '</option>' . "\n";
+            $is_first++;
         } // end if (is_file)
     } // end while
-    if ($isfirst>0) {
-        echo "        </select>\n    </div>\n\n";
+    if ($is_first > 0) {
+        echo '        </select>' . "\n"
+             . '    </div>' . "\n\n";
     } // end if (isfirst > 0)
     @closedir($handle);
 } // end if (web-server upload directory)

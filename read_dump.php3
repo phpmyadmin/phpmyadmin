@@ -199,8 +199,11 @@ $err_url  = $goto
 $view_bookmark = 0;
 $sql_bookmark  = isset($sql_bookmark) ? $sql_bookmark : '';
 $sql_query     = isset($sql_query)    ? $sql_query    : '';
-$sql_file      = (!empty($sql_localfile) && $cfg['UploadDir']!='')  ? $cfg['UploadDir'].$sql_localfile : $sql_file;
-$sql_file      = !empty($sql_file)    ? $sql_file     : 'none';
+if (!empty($sql_localfile) && $cfg['UploadDir'] != '') {
+    $sql_file  = $cfg['UploadDir'] . $sql_localfile;
+} else if (empty($sql_file)) {
+    $sql_file  = 'none';
+}
 
 
 /**
@@ -208,7 +211,7 @@ $sql_file      = !empty($sql_file)    ? $sql_file     : 'none';
  */
 if (!empty($id_bookmark)) {
     include('./libraries/bookmark.lib.php3');
-    switch($action_bookmark) {
+    switch ($action_bookmark) {
         case 0: // bookmarked query that have to be run
             $sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
             break;
@@ -228,8 +231,11 @@ if (!empty($id_bookmark)) {
  */
 // Gets the query from a file if required
 if ($sql_file != 'none') {
-    if ((file_exists($sql_file) && is_uploaded_file($sql_file)) 
-       || file_exists($cfg['UploadDir'].$sql_localfile)) { 
+// loic1 : fixed a security issue
+//    if ((file_exists($sql_file) && is_uploaded_file($sql_file))
+//        || file_exists($cfg['UploadDir'] . $sql_localfile)) {
+    if (file_exists($sql_file)
+        && (($sql_file == $cfg['UploadDir'] . $sql_localfile) || is_uploaded_file($sql_file))) {
         $open_basedir     = '';
         if (PMA_PHP_INT_VERSION >= 40000) {
             $open_basedir = @ini_get('open_basedir');
