@@ -571,28 +571,120 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
         }
     }
 
-    if (!isset($cfg['UseSyntaxColoring'])) {
-        $cfg['UseSyntaxColoring'] = TRUE;
+    if (!isset($cfg['SQLQuery']['Edit'])) {
+        $cfg['SQLQuery']['Edit'] = TRUE;
     }
 
-    if (!isset($cfg['colorFunctions'])) {
-        $cfg['colorFunctions'] = '#FF0000';
+    if (!isset($cfg['SQLQuery']['Explain'])) {
+        $cfg['SQLQuery']['Explain'] = TRUE;
     }
 
-    if (!isset($cfg['colorKeywords'])) {
-        $cfg['colorKeywords'] = '#990099';
+    if (!isset($cfg['SQLQuery']['ShowAsPHP'])) {
+        $cfg['SQLQuery']['ShowAsPHP'] = TRUE;
     }
 
-    if (!isset($cfg['colorStrings'])) {
-        $cfg['colorStrings'] = '#008000';
+    if (!isset($cfg['SQLQuery']['Validate'])) {
+        $cfg['SQLQuery']['Validate'] = FALSE;
     }
 
-    if (!isset($cfg['colorColType'])) {
-        $cfg['colorColType'] = '#FF9900';
+    if (!isset($cfg['SQLValidator']['use'])) {
+        $cfg['SQLValidator']['use'] = FALSE;
     }
 
-    if (!isset($cfg['colorAdd'])) {
-        $cfg['colorAdd'] = '#0000FF';
+    if (!isset($cfg['SQLValidator']['username'])) {
+        $cfg['SQLValidator']['username'] = '';
+    }
+
+    if (!isset($cfg['SQLValidator']['password'])) {
+        $cfg['SQLValidator']['password'] = '';
+    }
+
+    if (!isset($cfg['SQLValidator']['DisplayCopyright'])) {
+        $cfg['SQLValidator']['DisplayCopyright'] = TRUE;
+    }
+
+    if (!isset($cfg['SQP']['enable'])) {
+        $cfg['SQP']['enable'] = TRUE;
+    }
+
+    if (!isset($cfg['SQP']['fmtType'])) {
+        $cfg['SQP']['fmtType'] = 'html';
+    }
+
+    if (!isset($cfg['SQP']['fmtInd'])) {
+        $cfg['SQP']['fmtInd'] = '1';
+    }
+
+    if (!isset($cfg['SQP']['fmtIndUnit'])) {
+        $cfg['SQP']['fmtIndUnit'] = 'em';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['comment'])) {
+        $cfg['SQP']['fmtColor']['comment'] = '#808000';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['digit'])) {
+        $cfg['SQP']['fmtColor']['digit'] = '';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['digit_hex'])) {
+        $cfg['SQP']['fmtColor']['digit_hex'] = 'teal';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['digit_integer'])) {
+        $cfg['SQP']['fmtColor']['digit_integer'] = 'teal';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['digit_float'])) {
+        $cfg['SQP']['fmtColor']['digit_float'] = 'aqua';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['punct'])) {
+        $cfg['SQP']['fmtColor']['punct'] = 'fuchsia';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['alpha'])) {
+        $cfg['SQP']['fmtColor']['alpha'] = '';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['alpha_columnType'])) {
+        $cfg['SQP']['fmtColor']['alpha_columnType'] = '#FF9900';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['alpha_columnAttrib'])) {
+        $cfg['SQP']['fmtColor']['alpha_columnAttrib'] = '#0000FF';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['alpha_reservedWord'])) {
+        $cfg['SQP']['fmtColor']['alpha_reservedWord'] = '#990099';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['alpha_functionName'])) {
+        $cfg['SQP']['fmtColor']['alpha_functionName'] = '#FF0000';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['alpha_identifier'])) {
+        $cfg['SQP']['fmtColor']['alpha_identifier'] = 'black';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['alpha_variable'])) {
+        $cfg['SQP']['fmtColor']['alpha_variable'] = '#800000';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['quote'])) {
+        $cfg['SQP']['fmtColor']['quote'] = '#008000';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['quote_double'])) {
+        $cfg['SQP']['fmtColor']['quote_double'] = '';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['quote_single'])) {
+        $cfg['SQP']['fmtColor']['quote_single'] = '';
+    }
+
+    if (!isset($cfg['SQP']['fmtColor']['quote_backtick'])) {
+        $cfg['SQP']['fmtColor']['quote_backtick'] = '';
     }
 
     if (!isset($cfg['AvailableCharsets'])) {
