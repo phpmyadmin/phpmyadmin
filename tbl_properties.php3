@@ -77,39 +77,53 @@ $url_query = 'lang=' . $lang
 
 
 /**
- * Gets table informations
+ * Updates table type, comment and order if required
  */
-// 1. Get table type and comments ('show table' works correct since 3.23.03)
-if (MYSQL_INT_VERSION >= 32303) {
-    // Update table type, comment and order if required by the user
-    if (isset($submitcomment)) {
-        if (get_magic_quotes_gpc()) {
-            $comment = stripslashes($comment);
-        }
-        if (empty($prev_comment) || urldecode($prev_comment) != str_replace('&quot;', '"', $comment)) {
-            $local_query = 'ALTER TABLE ' . backquote($table) . ' COMMENT = \'' . sql_addslashes($comment) . '\'';
-            $result      = mysql_query($local_query) or mysql_die('', $local_query);
-        }
+if (isset($submitcomment)) {
+    if (get_magic_quotes_gpc()) {
+        $comment = stripslashes($comment);
     }
-    if (isset($submittype)) {
-        $local_query = 'ALTER TABLE ' . backquote($table) . ' TYPE = ' . $tbl_type;
+    if (empty($prev_comment) || urldecode($prev_comment) != $comment) {
+        $local_query = 'ALTER TABLE ' . backquote($table) . ' COMMENT = \'' . sql_addslashes($comment) . '\'';
         $result      = mysql_query($local_query) or mysql_die('', $local_query);
     }
-    if (isset($submitorderby) && !empty($order_field)) {
-        $order_field = backquote(urldecode($order_field));
-        $local_query = 'ALTER TABLE ' . backquote($table) . 'ORDER BY ' . $order_field;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
-    }
-
-    // Get table type and comments and displays first browse links
-    $local_query = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
+}
+if (isset($submittype)) {
+    $local_query = 'ALTER TABLE ' . backquote($table) . ' TYPE = ' . $tbl_type;
     $result      = mysql_query($local_query) or mysql_die('', $local_query);
-    $showtable   = mysql_fetch_array($result);
-    $tbl_type    = strtoupper($showtable['Type']);
+}
+if (isset($submitorderby) && !empty($order_field)) {
+    $order_field = backquote(urldecode($order_field));
+    $local_query = 'ALTER TABLE ' . backquote($table) . 'ORDER BY ' . $order_field;
+    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+}
 
-    if (isset($showtable['Rows']) && $showtable['Rows'] > 0) {
-        echo "\n";
-        ?>
+
+/**
+ * Gets table informations and displays these informations and also top
+ * browse/select/insert/empty links
+ */
+// The 'show table' statement works correct since 3.23.03
+if (MYSQL_INT_VERSION >= 32303) {
+    $local_query  = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
+    $result       = mysql_query($local_query) or mysql_die('', $local_query);
+    $showtable    = mysql_fetch_array($result);
+    $tbl_type     = strtoupper($showtable['Type']);
+    $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+    $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
+} else {
+    $local_query  = 'SELECT COUNT(*) AS count FROM ' . backquote($table);
+    $result       = mysql_query($local_query) or mysql_die('', $local_query);
+    $showtable    = array();
+    $num_rows     = mysql_result($result, 0, 'count');
+    $show_comment = '';
+}
+?>
+
+<?php
+if ($num_rows > 0) {
+    echo "\n";
+    ?>
 <!-- first browse links --> 
 <p>
     [ <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('SELECT * FROM ' . backquote($table)); ?>&pos=0">
@@ -125,10 +139,10 @@ if (MYSQL_INT_VERSION >= 32303) {
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
-        <?php
-    } else {
-        echo "\n";
-        ?>
+    <?php
+} else {
+    echo "\n";
+    ?>
 <!-- first browse links -->
 <p>
     [ <b><?php echo $strBrowse; ?></b> ]&nbsp;&nbsp;&nbsp;
@@ -140,27 +154,18 @@ if (MYSQL_INT_VERSION >= 32303) {
          onclick="return confirmLink(this, 'DROP TABLE <?php echo js_format($table); ?>')">
          <b><?php echo $strDrop; ?></b></a> ]
 </p>
-        <?php
-    }
-    echo "\n";
+    <?php
+}
+echo "\n";
 
-    if (!empty($showtable['Comment'])) {
-        $show_comment = $showtable['Comment'];
-        ?>
-
+if (!empty($show_comment)) {
+    ?>
 <!-- Table comment -->
 <p><i>
     <?php echo $show_comment . "\n"; ?>
 </i></p>
-        <?php
-    } else {
-        $show_comment = '';
-    }
-}
-// MySQL < 3.23.03
-else {
-   $showtable = array();
-}
+    <?php
+} // end (1.)
 
 // 2. Get table keys and retains them
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
@@ -177,7 +182,8 @@ while($row = mysql_fetch_array($result)) {
 
 // 3. Get fields
 $local_query = 'SHOW FIELDS FROM ' . backquote($table);
-$result = mysql_query($local_query) or mysql_die('', $local_query);
+$result      = mysql_query($local_query) or mysql_die('', $local_query);
+$fields_cnt  = mysql_num_rows($result);
 
 
 /**
@@ -191,7 +197,7 @@ $result = mysql_query($local_query) or mysql_die('', $local_query);
 
 <?php
 // Drop button if there is at least two fields
-if (mysql_num_rows($result) > 1) {
+if ($fields_cnt > 1) {
     ?>
 <form action="tbl_properties.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -207,7 +213,7 @@ echo "\n";
 <tr>
 <?php
 // Drop button if there is at least two fields
-if (mysql_num_rows($result) > 1) {
+if ($fields_cnt > 1) {
     echo '    <td></td>' . "\n";
 }
 ?>
@@ -276,7 +282,7 @@ while ($row = mysql_fetch_array($result)) {
 <tr bgcolor="<?php echo $bgcolor; ?>">
     <?php
     // Drop button if there is at least two fields
-    if (mysql_num_rows($result) > 1) {
+    if ($fields_cnt > 1) {
         ?>
     <td align="center">
         <input type="checkbox" name="selected_fld[]" value="<?php echo urlencode($row['Field']); ?>" />
@@ -298,7 +304,7 @@ while ($row = mysql_fetch_array($result)) {
     <td>
         <?php
         // loic1: Drop field only if there is more than one field in the table
-        if (mysql_num_rows($result) > 1) {
+        if ($fields_cnt > 1) {
             echo "\n";
             ?>
         <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ALTER TABLE ' . backquote($table) . ' DROP ' . backquote($row['Field'])); ?>&zero_rows=<?php echo urlencode(htmlspecialchars($row['Field']) . ' ' . $strHasBeenDropped); ?>"
@@ -330,7 +336,7 @@ while ($row = mysql_fetch_array($result)) {
 echo "\n";
 
 // Drop button if there is at least two fields
-if (mysql_num_rows($result) > 1) {
+if ($fields_cnt > 1) {
     ?>
 <tr>
     <td colspan="12">
@@ -376,14 +382,14 @@ if ($index_count > 0) {
         <tr>
             <th><?php echo $strKeyname; ?></th>
             <th><?php echo $strUnique; ?></th>
-            <th><?php echo $strField; ?></th>
+            <th colspan="2"><?php echo $strField; ?></th>
             <th><?php echo $strAction; ?></th>
         </tr>
     <?php
     for ($i = 0; $i < $index_count; $i++) {
         $row = $ret_keys[$i];
         if (isset($row['Seq_in_index'])) {
-            $key_name = htmlspecialchars($row['Key_name']) . ' <small>-' . $row['Seq_in_index'] . '-</small>';
+            $key_name = htmlspecialchars($row['Key_name']) . '<nobr>&nbsp;<small>-' . $row['Seq_in_index'] . '-</small></nobr>';
         } else {
             $key_name = htmlspecialchars($row['Key_name']);
         }
@@ -433,23 +439,25 @@ $nonisam     = FALSE;
 if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
     $nonisam = TRUE;
 }
-if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE && isset($showtable)) {
+if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE) {
     // Gets some sizes
     $mergetable     = FALSE;
     if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
         $mergetable = TRUE;
     }
-    list($data_size, $data_unit)       = format_byte_down($showtable['Data_length']);
+    list($data_size, $data_unit)         = format_byte_down($showtable['Data_length']);
     if ($mergetable == FALSE) {
-        list($index_size, $index_unit) = format_byte_down($showtable['Index_length']);
+        list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
     }
     if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-        list($free_size, $free_unit)   = format_byte_down($showtable['Data_free']);
+        list($free_size, $free_unit)     = format_byte_down($showtable['Data_free']);
+        list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
+    } else {
+        list($effect_size, $effect_unit) = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
     }
-    list($effect_size, $effect_unit)   = format_byte_down($showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']);
-    list($tot_size, $tot_unit)         = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
-    if (isset($showtable['Rows']) && $showtable['Rows']>0) {
-        list($avg_size, $avg_unit)     = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
+    list($tot_size, $tot_unit)           = format_byte_down($showtable['Data_length'] + $showtable['Index_length']);
+    if ($num_rows > 0) {
+        list($avg_size, $avg_unit)       = format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1);
     }
 
     // Displays them
@@ -514,7 +522,7 @@ if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE && isset($showtable)) {
         ?>
         <tr>
             <td colspan="3" align="center">
-                [<a href="sql.php3?<?php echo $url_query; ?>&pos=0&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple"><?php echo $strOptimizeTable; ?></a>]
+                [<a href="sql.php3?<?php echo $url_query; ?>&pos=0&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>"><?php echo $strOptimizeTable; ?></a>]
             </td>
         <tr>
         <?php
@@ -942,7 +950,7 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('CHECK TABLE ' . backquote($table)); ?>&display=simple">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('CHECK TABLE ' . backquote($table)); ?>">
                     <?php echo $strCheckTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#CHECK_TABLE') . "\n"; ?>
             </td>
@@ -953,7 +961,7 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ANALYZE TABLE ' . backquote($table)); ?>&display=simple">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('ANALYZE TABLE ' . backquote($table)); ?>">
                     <?php echo $strAnalyzeTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#ANALYZE_TABLE') . "\n";?>
             </td>
@@ -969,7 +977,7 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('REPAIR TABLE ' . backquote($table)); ?>&display=simple">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('REPAIR TABLE ' . backquote($table)); ?>">
                     <?php echo $strRepairTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#REPAIR_TABLE') . "\n"; ?>
             </td>
@@ -980,7 +988,7 @@ if (MYSQL_INT_VERSION >= 32322) {
         if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
             ?>
             <td>
-                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple">
+                <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>">
                     <?php echo $strOptimizeTable; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
             </td>
@@ -1078,7 +1086,7 @@ else { // MySQL < 3.23
     <li style="vertical-align: top">
         <div style="margin-bottom: 10px">
         <?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;
-        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>&display=simple">
+        <a href="sql.php3?<?php echo $url_query; ?>&sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . backquote($table)); ?>">
             <?php echo $strOptimizeTable; ?></a>&nbsp;
         <?php echo show_docu('manual_Reference.html#OPTIMIZE_TABLE') . "\n"; ?>
         </div>
