@@ -71,7 +71,6 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     include('./config.inc.php3');
 
     // For compatibility with old config.inc.php3
-
     if (!isset($cfgExecTimeLimit)) {
         $cfgExecTimeLimit       = 300; // 5 minutes
     }
@@ -177,7 +176,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             $suffix = '.dll';
         } else {
             $suffix = '.so';
-        } 
+        }
         if (!@extension_loaded($extension)) {
             @dl($extension.$suffix);
         }
@@ -428,7 +427,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         if (isset($cfgServer['stduser'])) {
            $cfgServer['controluser'] = $cfgServer['stduser'];
            $cfgServer['controlpass'] = $cfgServer['stdpass'];
-        } 
+        }
 
         // Gets the authentication library that fits the cfgServer settings
         // and run authentication
@@ -492,8 +491,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             @ini_set('track_errors', $bkp_track_err);
         }
 
-        // If controluser isn't defined, use the current user settings to get his
-        // rights
+        // If controluser isn't defined, use the current user settings to get
+        // his rights
         if ($cfgServer['controluser'] == '') {
             $dbh = $userlink;
         }
@@ -556,7 +555,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                               . 'FROM mysql.user '
                               . 'WHERE User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\'';
                 $rs           = mysql_query($auth_query, $dbh); // Debug: or PMA_mysqlDie('', $auth_query, FALSE);
-            } // end 
+            } // end
         } // end if (!$dblist_cnt)
 
         // Access to "mysql" db allowed and dblist still empty -> gets the

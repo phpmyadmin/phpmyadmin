@@ -211,15 +211,15 @@
 
 <p>
     <font color="#bb0000">Documentation warning:</font> when you see in this
-    document a <tt>.php3</tt> file extension, please transpose to <tt>.php</tt>
+    document a <i>.php3</i> file extension, please transpose to <i>.php</i>
     if you are using a kit with files having this extension.
 </p>
 
 <p><b>Quick Install:</b></p>
 <ol>
     <li> Use a distribution kit with the files having the extension
-         (.php3 or .php) depending on the way your web/PHP server interprets
-         those extensions.</li>
+         (<i>.php3</i> or <i>.php</i>) depending on the way your web/PHP server
+         interprets those extensions.</li>
     <li> Untar or unzip the distribution (be sure to unzip the subdirectories):
          <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
          document root.</li>
@@ -439,12 +439,13 @@
         Please see the <a class="navigation" href="#setup">install section</a>
         on &quot;Using http authentication&quot; for more information.
         <br /><br />
-        Note that if you try login to phpMyAdmin with this &quot;controluser&quot;,
-        you could get some errors, depending the exact privileges you gave to
-        the &quot;controluser&quot;. phpMyAdmin does not support a direct login
-        with the &quot;controluser&quot;.
+        Note that if you try login to phpMyAdmin with this
+        &quot;controluser&quot;, you could get some errors, depending the exact
+        privileges you gave to the &quot;controluser&quot;. phpMyAdmin does not
+        support a direct login with the &quot;controluser&quot;.
         <br /><br />
-        In versions before 2.2.5, those were called stduser/stdpass.
+        In versions before 2.2.5, those were called
+        &quot;stduser/stdpass&quot;.
         <br /><br />
     </dd>
 
@@ -548,8 +549,8 @@
             </li>
         </ul><br />
 
-        Note that <tt>controluser</tt> must have <tt>SELECT</tt>, <tt>INSERT</tt>
-        and <tt>DELETE</tt> privileges on the bookmark table.
+        Note that <tt>controluser</tt> must have <tt>SELECT</tt>,
+        <tt>INSERT</tt> and <tt>DELETE</tt> privileges on the bookmark table.
         Here is a query to set up those privileges (using &quot;pma&quot; as
         the controluser:<br />
         <tt>GRANT SELECT,INSERT,DELETE ON &lt;bookmarkdb&gt;.&lt;bookmarktable&gt; to 'pma'@localhost;</tt>
@@ -1122,14 +1123,14 @@
     <br /><br />
     For RedHat users, Harald Legner suggests this on the mailing list:
     <br /><br />
-    On my RedHat-Box the socket of mysql is /var/lib/mysql/mysql.sock. In your 
-    php.ini you will find a line
+    On my RedHat-Box the socket of mysql is <i>/var/lib/mysql/mysql.sock</i>.
+    In your php.ini you will find a line
     <br />
-    <tt>mysql.default_socket = /tmp/mysql.sock</tt>
+    &nbsp;&nbsp;&nbsp;&nbsp;<tt>mysql.default_socket = /tmp/mysql.sock</tt>
     <br />
     change it to
     <br />
-    <tt>mysql.default_socket = /var/lib/mysql/mysql.sock</tt>
+    &nbsp;&nbsp;&nbsp;&nbsp;<tt>mysql.default_socket = /var/lib/mysql/mysql.sock</tt>
     <br />
     Then restart apache and it will work.
     <br /><br />
@@ -1280,8 +1281,8 @@
     <br />
     Starting with 2.2.5, in the user management page, you can enter a wildcard
     database name for a user, and put the privileges you want.  For example,
-    adding SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER would
-    let a user create/manage his/her database(s).
+    adding <tt>SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER</tt>
+    would let a user create/manage his/her database(s).
 </p>
 
 <h3>[Browsers or client OS]</h3>
@@ -1637,7 +1638,7 @@ Péter Bakondy, Borges Botelho, Olivier Bussier, Neil Darlow,
 Kristof Hamann, Thomas Kläger, Lubos Klokner, Martin Marconcini,
 Girish Nair, David Nordenberg, Bernard M. Piller, Laurent Haas,
 &quot;Sakamoto&quot;, Yuval Sarna, www.securereality.com.au,
-Peter Svec, Michael Tacelosky, Daniel Villanueva, Vinay,
+Peter Svec, Michael Tacelosky, Luís V., Daniel Villanueva, Vinay,
 Ignacio Vazquez-Abrams, Chee Wai, Jakub Wilk, Thomas Michael Winningham.
 
 
