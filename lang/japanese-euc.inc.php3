@@ -35,7 +35,7 @@ $strAll = '全部';
 $strAlterOrderBy = 'テーブル順番の条件';
 $strAnalyzeTable = 'テーブルを分析します。';
 $strAnd = '及び';
-$strAnIndex = 'インデックスが%sに追加去れていました。';
+$strAnIndex = 'インデックスが%sに追加されました。';
 $strAny = '全て';
 $strAnyColumn = '全コラム';
 $strAnyDatabase = '全データベース';
@@ -345,4 +345,5 @@ $strZip = '"zipされる"';
 
 // To translate
 $strCardinality = 'Cardinality';
+$strCookiesRequired = 'Cookies must be enabled past this point.';
 ?>

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-19 Marc Delisle  <lem9@users.sourceforge.net>
+	* common.lib.php3 get_magic_quotes fix,
+	libraries/select_lang.lib.php3,
+	lang/japanese-euc.inc.php3, lang/japanese-sjis.inc.php3 thanks to
+	"Luc" <luc at ceres.dti.ne.jp>
+
 2002-02-18 Marc Delisle  <lem9@users.sourceforge.net>
 	* new language: lang/hebrew.inc.php3, thanks to
 	  Yuval "Etus" Sarna (sarna at netvision.net.il)
