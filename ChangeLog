@@ -8,6 +8,8 @@ $Source$
 2001-09-12  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/norwegian.inc.php3: updated thanks to
 	  Sven-Erik Andersen <seasoft at users.sourceforge.net>.
+	* index.php3: patch #460567 (UI - small html change in frame options)
+	  thanks to Vaskin Kissoyan <killerapp at users.sourceforge.net>.
 
 2001-09-11  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/read_dump.lib.php3; read_dump.lib.php3:

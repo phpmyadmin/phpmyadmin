@@ -34,15 +34,22 @@ $url_query = 'lang=' . $lang
 <html>
 <head>
 <title>phpMyAdmin <?php echo PHPMYADMIN_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
+<style type="text/css">
+<!--
+body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
+//-->
+</style>
 </head>
 
-<frameset cols="<?php echo $cfgLeftWidth; ?>,*"  rows="*" border="0" frameborder="0">
-    <frame src="left.php3?<?php echo $url_query; ?>" name="nav">
-    <frame src="<?php echo (empty($db)) ? 'main.php3' : 'db_details.php3'; ?>?<?php echo $url_query; ?>" name="phpmain">
-</frameset>
-<noframes>
-    <body bgcolor="#FFFFFF">
+<frameset cols="<?php echo $cfgLeftWidth; ?>,*" rows="*">
+    <frame src="left.php3?<?php echo $url_query; ?>" name="nav" frameborder="1" />
+    <frame src="<?php echo (empty($db)) ? 'main.php3' : 'db_details.php3'; ?>?<?php echo $url_query; ?>" name="phpmain" />
 
-    </body>
-</noframes>
+    <noframes>
+        <body bgcolor="#FFFFFF">
+            <p>phpMyAdmin requires a <b>frames-capable</b> browser.</p>
+        </body>
+    </noframes>
+</frameset>
+
 </html>
