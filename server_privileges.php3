@@ -105,7 +105,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
                 } else {
                     $priv_string = $current_grant[1];
                 }
-                $privs[] = $priv_string . ' (' . join(', ', $GLOBALS[$current_grant[0]]) . ')';
+                $privs[] = $priv_string . ' (`' . join('`, `', $GLOBALS[$current_grant[0]]) . '`)';
             } else {
                 $allPrivileges = FALSE;
             }
