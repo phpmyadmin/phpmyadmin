@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-10 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/auth/config.auth.lib.php3: bug #620624 - displaying password
+      from config when MySQL connection can't be established
+    
 2002-10-09 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.lib.php3, bug 619735: display broken (bad HTML)
 

@@ -81,10 +81,15 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
         } else {
             $conn_error = 'Cannot connect: invalid settings.';
         }
-        $local_query    = $connect_func . '('
+/* Commented out by Nijel: This causes displaying login and password from
+ * config when connection to MySQL server can't be established. (SQL parser
+ * fails on this and then displays it as wrong SQL.
+ */
+/*      $local_query    = $connect_func . '('
                         . $cfg['Server']['host'] . $server_port . $server_socket . ', '
                         . $cfg['Server']['user'] . ', '
-                        . $cfg['Server']['password'] . ')';
+                        . $cfg['Server']['password'] . ')';*/
+        $local_query 	= '';
 
         // Defines the charset to be used
         header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
