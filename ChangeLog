@@ -9,6 +9,8 @@ $Source$
     * libraries/display_tbl.lib.php3: removed &nbsp; from button text, as
       Konqueror doesn't like it there and it is not needed.
     * lang/czech: updated.
+    * libraries/display_tbl.lib.php3: Don't show BLOB text instead of content
+      when using transformations.
 
 2003-03-17 Marc Delisle  <lem9@users.sourceforge.net>
     * user_password.php3, header.inc.php3, libraries/user_password.js:
