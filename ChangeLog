@@ -7,6 +7,9 @@ $Source$
 
 2001-08-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_properties.php3, line 983; lang/*: added $strDropTable.
+	* lib.inc.php3, lines 1674-1680: enclose all fields in cvs generated files
+	  if this option has been checked.
+	* main.php3: XHTML1.0 fixes.
 
 2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3: fixed a syntax error (is_defined is not a function).
