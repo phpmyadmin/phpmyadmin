@@ -80,14 +80,18 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
 
+    // Cell index: If certain fields get left out, the counter shouldn't chage.
+    $ci = 0;
+    
     if ($is_backup) {
-        $content_cells[$i][0] = "\n" . '<input type="hidden" name="field_orig[]" value="' . (isset($row) && isset($row['Field']) ? urlencode($row['Field']) : '') . '" />' . "\n";
+        $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_orig[]" value="' . (isset($row) && isset($row['Field']) ? urlencode($row['Field']) : '') . '" />' . "\n";
     } else {
-        $content_cells[$i][0] = '';
+        $content_cells[$i][$ci] = '';
     }
     
-    $content_cells[$i][0] .= "\n" . '<input id="field_' . $i . '_1" type="text" name="field_name[]" size="10" maxlength="64" value="' . (isset($row) && isset($row['Field']) ? str_replace('"', '&quot;', $row['Field']) : '') . '" class="textfield" />';
-    $content_cells[$i][1] = '<select name="field_type[]" id="field_' . $i . '_2">' . "\n";
+    $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_1" type="text" name="field_name[]" size="10" maxlength="64" value="' . (isset($row) && isset($row['Field']) ? str_replace('"', '&quot;', $row['Field']) : '') . '" class="textfield" />';
+    $ci++;
+    $content_cells[$i][$ci] = '<select name="field_type[]" id="field_' . $i . '_2">' . "\n";
 
     if (empty($row['Type'])) {
         $row['Type'] = '';
@@ -120,24 +124,26 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     } // end if else
 
     for ($j = 0; $j < count($cfg['ColumnTypes']); $j++) {
-        $content_cells[$i][1] .= '                <option value="'. $cfg['ColumnTypes'][$j] . '"';
+        $content_cells[$i][$ci] .= '                <option value="'. $cfg['ColumnTypes'][$j] . '"';
         if (strtoupper($type) == strtoupper($cfg['ColumnTypes'][$j])) {
-            $content_cells[$i][1] .= ' selected="selected"';
+            $content_cells[$i][$ci] .= ' selected="selected"';
         }
-        $content_cells[$i][1] .= '>' . $cfg['ColumnTypes'][$j] . '</option>' . "\n";
+        $content_cells[$i][$ci] .= '>' . $cfg['ColumnTypes'][$j] . '</option>' . "\n";
     } // end for
     
-    $content_cells[$i][1] .= '    </select>';
-
+    $content_cells[$i][$ci] .= '    </select>';
+    $ci++;
+    
     if ($is_backup) {
-        $content_cells[$i][2] = "\n" . '<input type="hidden" name="field_length_orig[]" value="' . urlencode($length) . '" />';
+        $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_length_orig[]" value="' . urlencode($length) . '" />';
     } else {
-        $content_cells[$i][2] = '';
+        $content_cells[$i][$ci] = '';
     }
     
-    $content_cells[$i][2] .= "\n" . '<input id="field_' . $i . '_3" type="text" name="field_length[]" size="8" value="' . str_replace('"', '&quot;', $length) . '" class="textfield" />' . "\n";
-
-    $content_cells[$i][3] = '<select name="field_attribute[]" id="field_' . $i . '_4">' . "\n";
+    $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_3" type="text" name="field_length[]" size="8" value="' . str_replace('"', '&quot;', $length) . '" class="textfield" />' . "\n";
+    $ci++;
+    
+    $content_cells[$i][$ci] = '<select name="field_attribute[]" id="field_' . $i . '_4">' . "\n";
 
     if (eregi('^(set|enum)$', $type)) {
         $binary           = 0;
@@ -166,21 +172,24 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][3] .= '>' . $cfg['AttributeTypes'][$j] . '</option>' . "\n";
     }
     
-    $content_cells[$i][3] .= '</select>';
-    $content_cells[$i][4] = '<select name="field_null[]" id="field_' . $i . '_5">';
+    $content_cells[$i][$ci] .= '</select>';
+    $ci++;
+    
+    $content_cells[$i][$ci] = '<select name="field_null[]" id="field_' . $i . '_5">';
 
     if (!isset($row) || empty($row['Null'])) {
-        $content_cells[$i][4] .= "\n";
-        $content_cells[$i][4] .= '    <option value="NOT NULL">not null</option>' . "\n";
-        $content_cells[$i][4] .= '    <option value="">null</option>' . "\n";
+        $content_cells[$i][$ci] .= "\n";
+        $content_cells[$i][$ci] .= '    <option value="NOT NULL">not null</option>' . "\n";
+        $content_cells[$i][$ci] .= '    <option value="">null</option>' . "\n";
     } else {
-        $content_cells[$i][4] .= "\n";
-        $content_cells[$i][4] .= '    <option value="">null</option>' . "\n";
-        $content_cells[$i][4] .= '    <option value="NOT NULL">not null</option>' . "\n";
+        $content_cells[$i][$ci] .= "\n";
+        $content_cells[$i][$ci] .= '    <option value="">null</option>' . "\n";
+        $content_cells[$i][$ci] .= '    <option value="NOT NULL">not null</option>' . "\n";
     }
 
-    $content_cells[$i][4] .= "\n" . '</select>';
-
+    $content_cells[$i][$ci] .= "\n" . '</select>';
+    $ci++;
+    
     if (isset($row)
         && !isset($row['Default']) && !empty($row['Null'])) {
         $row['Default'] = 'NULL';
@@ -192,56 +201,62 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $content_cells[$i][5] = "\n";
     }
     
-    $content_cells[$i][5] .= '<input id="field_' . $i . '_6" type="text" name="field_default[]" size="8" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
-
-    $content_cells[$i][6] = '<select name="field_extra[]" id="field_' . $i . '_7">';
+    $content_cells[$i][$ci] .= '<input id="field_' . $i . '_6" type="text" name="field_default[]" size="8" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
+    $ci++;
+    
+    $content_cells[$i][$ci] = '<select name="field_extra[]" id="field_' . $i . '_7">';
 
     if(!isset($row) || empty($row['Extra'])) {
-        $content_cells[$i][6] .= "\n";
-        $content_cells[$i][6] .= '<option value=""></option>' . "\n";
-        $content_cells[$i][6] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
+        $content_cells[$i][$ci] .= "\n";
+        $content_cells[$i][$ci] .= '<option value=""></option>' . "\n";
+        $content_cells[$i][$ci] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
     } else {
-        $content_cells[$i][6] .= "\n";
-        $content_cells[$i][6] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
-        $content_cells[$i][6] .= '<option value=""></option>' . "\n";
+        $content_cells[$i][$ci] .= "\n";
+        $content_cells[$i][$ci] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
+        $content_cells[$i][$ci] .= '<option value=""></option>' . "\n";
     }
     
-    $content_cells[$i][6] .= "\n" . '</select>';
+    $content_cells[$i][$ci] .= "\n" . '</select>';
+    $ci++;
 
     // garvin: comments
     if ($cfgRelation['commwork']) {
-        $content_cells[$i][7] = '<input id="field_' . $i . '_7" type="text" name="field_comments[]" size="8" value="' . (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '" class="textfield" />';
+        $content_cells[$i][$ci] = '<input id="field_' . $i . '_7" type="text" name="field_comments[]" size="8" value="' . (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '" class="textfield" />';
+        $ci++;
     }
 
     // garvin: MIME-types
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME'] && $cfgRelation['commwork']) {
-        $content_cells[$i][8] = '<select id="field_' . $i . '_8" size="1" name="field_mimetype[]">' . "\n";
-        $content_cells[$i][8] .= '    <option value=""></option>' . "\n";
-        $content_cells[$i][8] .= '    <option value="auto">auto-detect</option>' . "\n";
+        $content_cells[$i][$ci] = '<select id="field_' . $i . '_8" size="1" name="field_mimetype[]">' . "\n";
+        $content_cells[$i][$ci] .= '    <option value=""></option>' . "\n";
+        $content_cells[$i][$ci] .= '    <option value="auto">auto-detect</option>' . "\n";
 
         if (is_array($available_mime['mimetype'])) {
             @reset($available_mime['mimetype']);
             while(list($mimekey, $mimetype) = each($available_mime['mimetype'])) {
                 $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['mimetype']) && ($mime_map[$row['Field']]['mimetype'] == str_replace('/', '_', $mimetype)) ? 'selected ' : '');
-                $content_cells[$i][8] .= '    <option value="' . str_replace('/', '_', $mimetype) . '" ' . $checked . '>' . htmlspecialchars($mimetype) . '</option>';
+                $content_cells[$i][$ci] .= '    <option value="' . str_replace('/', '_', $mimetype) . '" ' . $checked . '>' . htmlspecialchars($mimetype) . '</option>';
             }
         }
         
-        $content_cells[$i][8] .= '</select>';
+        $content_cells[$i][$ci] .= '</select>';
+        $ci++;
 
-        $content_cells[$i][9] = '<select id="field_' . $i . '_9" size="1" name="field_transformation[]">' . "\n";
-        $content_cells[$i][9] .= '    <option value=""></option>' . "\n";
+        $content_cells[$i][$ci] = '<select id="field_' . $i . '_9" size="1" name="field_transformation[]">' . "\n";
+        $content_cells[$i][$ci] .= '    <option value=""></option>' . "\n";
         if (is_array($available_mime['transformation'])) {
             @reset($available_mime['transformation']);
             while(list($mimekey, $transform) = each($available_mime['transformation'])) {
                 $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && ($mime_map[$row['Field']]['transformation'] == $available_mime['transformation_file'][$mimekey]) ? 'selected ' : '');
-                $content_cells[$i][9] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . '>' . htmlspecialchars($transform) . '</option>' . "\n";
+                $content_cells[$i][$ci] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . '>' . htmlspecialchars($transform) . '</option>' . "\n";
             }
         }
         
-        $content_cells[$i][9] .= '</select>';
+        $content_cells[$i][$ci] .= '</select>';
+        $ci++;
 
-        $content_cells[$i][10] = '<input id="field_' . $i . '_10" type="text" name="field_transformation_options[]" size="8" value="' . (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation_options']) ?  htmlspecialchars($mime_map[$row['Field']]['transformation_options']) : '') . '" class="textfield" />';
+        $content_cells[$i][$ci] = '<input id="field_' . $i . '_10" type="text" name="field_transformation_options[]" size="8" value="' . (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation_options']) ?  htmlspecialchars($mime_map[$row['Field']]['transformation_options']) : '') . '" class="textfield" />';
+        $ci++;
     }
 
     // lem9: See my other comment about removing this 'if'.
@@ -273,13 +288,20 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             $checked_fulltext = '';
         }
         
-        $content_cells[$i][11] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="primary_' . $i . '"' . $checked_primary . ' />';
-        $content_cells[$i][12] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="index_' . $i . '"' .  $checked_index . ' />';
-        $content_cells[$i][13] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="unique_' . $i . '"' .  $checked_unique . ' />';
-        $content_cells[$i][14] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="none_' . $i . '"' .  $checked_none . ' />';
-
+        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="primary_' . $i . '"' . $checked_primary . ' />';
+        $ci++;
+        
+        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="index_' . $i . '"' .  $checked_index . ' />';
+        $ci++;
+        
+        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="unique_' . $i . '"' .  $checked_unique . ' />';
+        $ci++;
+        
+        $content_cells[$i][$ci] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="none_' . $i . '"' .  $checked_none . ' />';
+        $ci++;
+        
         if (PMA_MYSQL_INT_VERSION >= 32323) {
-            $content_cells[$i][15] = '<input type="checkbox" name="field_fulltext[]" value="' . $i . '"' . $checked_fulltext . ' />';
+            $content_cells[$i][$ci] = '<input type="checkbox" name="field_fulltext[]" value="' . $i . '"' . $checked_fulltext . ' />';
         } // end if (PMA_MYSQL_INT_VERSION >= 32323)
     } // end if ($action ==...)
 } // end for
