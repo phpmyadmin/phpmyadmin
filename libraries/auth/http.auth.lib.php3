@@ -223,13 +223,14 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
         global $cfg, $server;
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
-        // Ensures the valid 'only_db' setting is used
+        // Ensures valid authentication mode, 'only_db', bookmark database and
+        // table names and relation table name are used
         if ($cfg['Server']['user'] != $PHP_AUTH_USER) {
             $servers_cnt = count($cfg['Servers']);
             for ($i = 1; $i <= $servers_cnt; $i++) {
                 if (isset($cfg['Servers'][$i])
                     && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host'] && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)) {
-                    $server    = $i;
+                    $server        = $i;
                     $cfg['Server'] = $cfg['Servers'][$i];
                     break;
                 }
