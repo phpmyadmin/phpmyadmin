@@ -2,6 +2,9 @@
 #
 # $Id$ 
 #
+# 2002-09-08, robbat2@users.sourceforge.net:
+# - Tweaked final instruction list
+#
 # 2002-06-17, lem9@users.sourceforge.net:
 # - I option to tar for bzip2 is deprecated, use j
 #
@@ -119,11 +122,12 @@ Todo now:
         - in Documentation.html the line
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
         - in translators.html
- 9. update the demo subdirectory:
-        - in htdocs, cvs update phpMyAdmin
-        - and don't forget to give write rights for the updated scripts to the
-          whole group
-11. the end :-)
+ 9. the end :-)
 
 END
 
+# Removed due to not needed thanks to clever scripting by Robbat2
+# 9. update the demo subdirectory:
+#        - in htdocs, cvs update phpMyAdmin
+#        - and don't forget to give write rights for the updated scripts to the
+#          whole group

@@ -10,6 +10,7 @@
 *
 * All data is transported over HTTP-SOAP
 * And uses the PEAR SOAP Module
+* You also need the PHP overload module!
 *
 * Install instructions for PEAR SOAP
 * Make sure you have a really recent PHP with PEAR support
