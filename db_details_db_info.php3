@@ -10,8 +10,8 @@
 if (PMA_MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfg['SkipLockedTables'] == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {
-        $local_query  = 'SHOW OPEN TABLES FROM ' . PMA_backquote($db);
-        $db_info_result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+        $local_query    = 'SHOW OPEN TABLES FROM ' . PMA_backquote($db);
+        $db_info_result = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
         // Blending out tables in use
         if ($db_info_result != FALSE && mysql_num_rows($db_info_result) > 0) {
             while ($tmp = PMA_mysql_fetch_row($db_info_result)) {
@@ -23,8 +23,8 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
             mysql_free_result($db_info_result);
 
             if (isset($sot_cache)) {
-                $local_query = 'SHOW TABLES FROM ' . PMA_backquote($db);
-                $db_info_result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+                $local_query    = 'SHOW TABLES FROM ' . PMA_backquote($db);
+                $db_info_result = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
                 if ($db_info_result != FALSE && mysql_num_rows($db_info_result) > 0) {
                     while ($tmp = PMA_mysql_fetch_row($db_info_result)) {
                         if (!isset($sot_cache[$tmp[0]])) {
@@ -43,8 +43,8 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
         }
     }
     if (!isset($sot_ready)) {
-        $local_query = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
-        $db_info_result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
+        $local_query    = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
+        $db_info_result = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
         if ($db_info_result != FALSE && mysql_num_rows($db_info_result) > 0) {
             while ($sts_tmp = PMA_mysql_fetch_array($db_info_result)) {
                 $tables[] = $sts_tmp;
@@ -55,8 +55,8 @@ if (PMA_MYSQL_INT_VERSION >= 32303) {
     $num_tables = (isset($tables) ? count($tables) : 0);
 } // end if (PMA_MYSQL_INT_VERSION >= 32303)
 else {
-    $db_info_result     = PMA_mysql_list_tables($db);
-    $num_tables = ($db_info_result) ? @mysql_numrows($db_info_result) : 0;
+    $db_info_result = PMA_mysql_list_tables($db);
+    $num_tables     = ($db_info_result) ? @mysql_numrows($db_info_result) : 0;
     for ($i = 0; $i < $num_tables; $i++) {
         $tables[] = PMA_mysql_tablename($db_info_result, $i);
     }

@@ -10,7 +10,7 @@ if (empty($is_info)) {
    include('./db_details_common.php3');
    $url_query .= '&amp;goto=db_details_structure.php3';
 
-   //Drop/delete multiple tables if required
+   // Drops/deletes multiple tables if required
    if ((!empty($submit_mult) && isset($selected_tbl))
        || isset($mult_btn)) {
         $action = 'db_details_structure.php3';
@@ -22,8 +22,10 @@ if (empty($is_info)) {
    include('./db_details_db_info.php3');
    echo "\n";
 }
+
+
 /**
- * Settings for Relationstuff
+ * Settings for relations stuff
  */
 require('./libraries/relation.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
@@ -448,47 +450,48 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 <?php
 // is this OK to check for 'class' support?
 if ($cfgRelation['pdfwork'] && $num_tables > 0) {
+    $takeaway = $url_query . '&amp;table=' . urlencode($table);
     ?>
     <!-- Work on PDF Pages -->
     <li>
-        <?php
-            $takeaway = $url_query . '&amp;table=' . urlencode($table);
-        ?>
-        <a href="pdf_pages.php3?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages ;?></a>
+        <a href="pdf_pages.php3?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages; ?></a>
     </li>
-    <!-- PDF schema -->
-    <?php
-    //  We only show this if we find something in the new pdf_pages table
 
+	<!-- PDF schema -->
+    <?php
+    // We only show this if we find something in the new pdf_pages table
     $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
-                . ' WHERE db_name = \'' . $db . '\'';
+                . ' WHERE db_name = \'' . PMA_backquote($db) . '\'';
     $test_rs    = PMA_query_as_cu($test_query);
-    if(mysql_num_rows($test_rs) > 0){
+    if ($test_rs && mysql_num_rows($test_rs) > 0) {
+        echo "\n";
         ?>
-        <li>
-            <form method="post" action="pdf_schema.php3">
-                <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-                <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-                <input type="hidden" name="db" value="<?php echo $db; ?>" />
-                <?php echo $strDisplayPDF; ?>&nbsp;:<br />
-                <?php echo $strPageNumber; ?>&nbsp;
-                <select name="pdf_page_number">
-                <?php
-                    while ($pages = @PMA_mysql_fetch_array($test_rs)) {
-                        echo '<option value="'.$pages['page_nr'].'">'.$pages['page_nr'].': '.$pages['page_descr'].'</option>'."\n";
-                    }
-                ?>
-                </select><br />
-                <input type="checkbox" name="show_grid" id="show_grid_opt" />
-                <label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
-                <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
-                <label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
-                <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
-                <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label>
-                &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
-            </form>
-        </li>
+    <li>
+        <form method="post" action="pdf_schema.php3">
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
+            <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <?php echo $strDisplayPDF; ?>&nbsp;:<br />
+            <?php echo $strPageNumber; ?>&nbsp;
+            <select name="pdf_page_number">
+        <?php
+        while ($pages = @PMA_mysql_fetch_array($test_rs)) {
+            echo "\n" . '                '
+                 . '<option value="' . $pages['page_nr'] . '">' . $pages['page_nr'] . ': ' . $pages['page_descr'] . '</option>';
+        } // end while
+        echo "\n";
+        ?>
+            </select><br />
+            <input type="checkbox" name="show_grid" id="show_grid_opt" />
+            <label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
+            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
+            <label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
+            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
+            <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label>
+            &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
+        </form>
+    </li>
         <?php
     }   // end if
 } // end if

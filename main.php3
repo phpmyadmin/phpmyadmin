@@ -251,7 +251,7 @@ if ($server > 0) {
         $db_to_create = '';
     }
 
-    $common_url_query = 'lang=' . $lang . '&amp;server=' . $server . '&amp;convcharset=' . $convcharset;
+    $common_url_query = 'lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server;
 
     if ($is_superuser) {
         $cfg['ShowMysqlInfo']   = TRUE;
@@ -446,8 +446,8 @@ if (empty($cfg['Lang'])) {
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td nowrap="nowrap">
                 <form method="post" action="index.php3" target="_parent">
-                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
+                    <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     Language <a href="./translators.html" target="documentation">(*)</a>:
                     <select name="lang" dir="ltr" onchange="this.form.submit();">
     <?php
@@ -488,11 +488,11 @@ if (empty($cfg['Lang'])) {
         </tr>
     <?php
 }
-echo "\n";
-?>
-<?php
-if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding) {
-?>
+
+if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
+    && $allow_recoding) {
+    echo "\n";
+    ?>
         <!-- Charset Selection -->
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
@@ -521,8 +521,8 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $al
             </td>
         </tr>
     <?php
-    echo "\n";
 }
+echo "\n";
 ?>
 
         <!-- Documentation -->
@@ -566,11 +566,13 @@ echo "\n";
 
 
 <?php
-
-
-if ($DisplayPmaAbsoluteUriWarning) {
-    echo '<p class="warning">'. $strPmaUriError . '</p>' . "\n";
+/**
+ * Displays the "empty $cfg['PmaAbsoluteUri'] warning"
+ */
+if ($display_pmaAbsoluteUri_warning) {
+    echo '<p class="warning">' . $strPmaUriError . '</p>' . "\n";
 }
+
 
 /**
  * Displays the footer

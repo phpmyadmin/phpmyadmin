@@ -11,25 +11,46 @@
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
-require('./libraries/relation.lib.php3');
 
+
+/**
+ * Settings for relation stuff
+ */
+require('./libraries/relation.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
-if(!$cfgRelation['relwork']) {
-    echo sprintf($strNotSet,'relation','config.inc.php3') . '<br /><a href="Documentation.html#relation" target="documentation">' . $strDocu . '</a>';
-    die();
+
+
+/**
+ * Now in ./libraries/relation.lib.php3 we check for all tables
+ * that we need, but if we don't find them we are quiet about it
+ * so people can work without.
+ * This page is absolutely useless if you didn't set up your tables
+ * correctly, so it is a good place to see which tables we can and
+ * complain ;-)
+ */
+if (!$cfgRelation['relwork']) {
+    echo sprintf($strNotSet, 'relation', 'config.inc.php3') . '<br />' . "\n"
+         . '<a href="./Documentation.html#relation" target="documentation">' . $strDocu . '</a>' . "\n";
+    exit();
 }
-if(!$cfgRelation['displaywork']) {
-    echo sprintf($strNotSet,'table_info','config.inc.php3') . '<br /><a href="Documentation.html#table_info" target="documentation">' . $strDocu . '</a>';
-    die();
+
+if (!$cfgRelation['displaywork']) {
+    echo sprintf($strNotSet, 'table_info', 'config.inc.php3') . '<br />' . "\n"
+         . '<a href="./Documentation.html#table_info" target="documentation">' . $strDocu . '</a>' . "\n";
+    exit();
 }
-if(!isset($cfgRelation['table_coords'])){
-    echo sprintf($strNotSet,'table_coords','config.inc.php3') . '<br /><a href="Documentation.html#table_coords" target="documentation">' . $strDocu . '</a>';
-    die();
+
+if (!isset($cfgRelation['table_coords'])){
+    echo sprintf($strNotSet, 'table_coords', 'config.inc.php3') . '<br />' . "\n"
+         . '<a href="./Documentation.html#table_coords" target="documentation">' . $strDocu . '</a>' . "\n";
+    exit();
 }
-if(!isset($cfgRelation['pdf_pages'])) {
-    echo sprintf($strNotSet,'pdf_page','config.inc.php3') . '<br /><a href="Documentation.html#pdf_pages" target="documentation">' . $strDocu . '</a>';
-    die();
+if (!isset($cfgRelation['pdf_pages'])) {
+    echo sprintf($strNotSet, 'pdf_page', 'config.inc.php3') . '<br />' . "\n"
+         . '<a href="./Documentation.html#pdf_pages" target="documentation">' . $strDocu . '</a>' . "\n";
+    exit();
 }
+
 
 /**
  * Gets the "fpdf" libraries and defines the pdf font path
@@ -388,15 +409,19 @@ class PMA_RT_Table
         $pdf->SetFont($ff, '');
         $pdf->SetTextColor(0);
         $pdf->SetFillColor(255);
-        
+
         reset($this->fields);
         while (list(, $field) = each($this->fields)) {
-            if(in_array($field,$this->primary)){$pdf->SetFillColor(215,121,123);}
-            if($field == $this->displayfield){$pdf->SetFillColor(142,159,224);}
+            if (in_array($field, $this->primary)) {
+                $pdf->SetFillColor(215, 121, 123);
+            }
+            if ($field == $this->displayfield) {
+                $pdf->SetFillColor(142, 159, 224);
+            }
             $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, ' ' . $field, 1, 1, 'L', 1);
             $pdf->PMA_PDF_setXScale($this->x);
             $pdf->SetFillColor(255);
-        }        
+        } // end while
 
         if ($pdf->PageNo() > 1) {
             $pdf->PMA_PDF_die($GLOBALS['strScaleFactorSmall']);
@@ -413,6 +438,8 @@ class PMA_RT_Table
      * @global  object    The current PDF document
      * @global  integer   The current page number (from the
      *                    $cfg['Servers'][$i]['table_coords'] table)
+     * @global  array     The relations settings
+     * @global  string    The current db name
      *
      * @access  private
      *
@@ -421,7 +448,7 @@ class PMA_RT_Table
      */
     function PMA_RT_Table($table_name, $ff)
     {
-        global $pdf, $pdf_page_number,$cfgRelation,$db;
+        global $pdf, $pdf_page_number, $cfgRelation, $db;
 
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
@@ -441,9 +468,9 @@ class PMA_RT_Table
         //x and y
         $sql    = 'SELECT x, y FROM '
                 . PMA_backquote($cfgRelation['table_coords'])
-                . ' WHERE       db_name = \'' . PMA_sqlAddslashes($db) . '\''
-                . ' AND      table_name = \'' . PMA_sqlAddslashes($table_name) . '\''
-                . ' AND pdf_page_number = ' . $pdf_page_number;
+                .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                .   ' AND   table_name = \'' . PMA_sqlAddslashes($table_name) . '\''
+                .   ' AND   pdf_page_number = ' . $pdf_page_number;
         $result = PMA_query_as_cu($sql);
 
         if (!$result || !mysql_num_rows($result)) {
@@ -453,20 +480,19 @@ class PMA_RT_Table
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
 
-        //displayfield
-        $this->displayfield = getDisplayField($db,$table_name);
+        // displayfield
+        $this->displayfield = getDisplayField($db, $table_name);
 
         // index
-        $sql    =  'SHOW index from '.PMA_backquote($table_name);
+        $sql    = 'SHOW index FROM ' . PMA_backquote($table_name);
         $result = PMA_mysql_query($sql);
-
-        if(mysql_num_rows($result)>0){
+        if ($result && mysql_num_rows($result) > 0) {
             while ($row = PMA_mysql_fetch_array($result)) {
-                if($row['Key_name'] == 'PRIMARY'){
+                if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];
                 }
             }
-        }        
+        } // end if
     } // end of the "PMA_RT_Table()" method
 } // end class "PMA_RT_Table"
 
@@ -794,6 +820,8 @@ class PMA_RT
      * @param   boolean  Whether to draw grids or not
      *
      * @global  object   The current PDF document
+     * @global  string   The current db name
+     * @global  array    The relations settings
      *
      * @access  private
      *
@@ -818,23 +846,22 @@ class PMA_RT
         $pdf->SetFont($this->ff, '', 14);
         $pdf->SetAutoPageBreak('auto');
 
-        //  get tables on this page
+        // Gets tables on this page
         $tab_sql  = 'SELECT table_name FROM ' . PMA_backquote($cfgRelation['table_coords'])
-                  . ' WHERE db_name = \'' . $db . '\''
-                  . ' AND pdf_page_number=' .$which_rel;
+                  .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                  .   ' AND pdf_page_number = ' . $which_rel;
         $tab_rs   = PMA_query_as_cu($tab_sql);
 
         while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
-            $alltables[]     = $curr_table['table_name'];
-            $intable         = "'" . implode("','",$alltables) . "'";
+            $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
+            $intable     = '\'' . implode('\', \'', $alltables) . '\'';
         }
 
-        $sql = 'SELECT *'
-             . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-             . ' WHERE master_db   = \'' . $db . '\' '
-             . ' AND foreign_db    = \'' . $db . '\' '
-             . ' AND master_table  IN (' . $intable .')'
-             . ' AND foreign_table IN (' . $intable .')';
+        $sql    = 'SELECT * FROM ' . PMA_backquote($cfgRelation['relation'])
+                .   ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\' '
+                .   ' AND foreign_db    = \'' . PMA_sqlAddslashes($db) . '\' '
+                .   ' AND master_table  IN (' . $intable . ')'
+                .   ' AND foreign_table IN (' . $intable . ')';
         $result =  PMA_query_as_cu($sql);
 
         if (!$result || !mysql_num_rows($result)) {
@@ -843,7 +870,7 @@ class PMA_RT
         while ($row = PMA_mysql_fetch_array($result)) {
             $this->PMA_RT_addRelation($row['master_table'] , $row['master_field'], $row['foreign_table'], $row['foreign_field']);
         }
-        
+
         // Defines the scale factor
         if ($scale == 'auto') {
             $this->scale = ceil(max(($this->x_max - $this->x_min) / (297 - $this->r_marg - $this->l_marg), ($this->y_max - $this->y_min) / (210 - $this->t_marg - $this->b_marg)) * 100) / 100;

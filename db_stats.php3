@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Gets the variables sent to this script and send headers
  */
@@ -83,14 +84,16 @@ if ($server > 0) {
     // Get the valid databases list
     $num_dbs = count($dblist);
     $dbs     = @mysql_list_dbs() or PMA_mysqlDie('', 'mysql_list_dbs()', '', 'main.php3?lang' . $lang . '&amp;server=' . $server);
-    while ($a_db = PMA_mysql_fetch_object($dbs)) {
-        if (!$num_dbs) {
-            $dblist[]                     = $a_db->Database;
-        } else {
-            $true_dblist[$a_db->Database] = '';
-        }
-    } // end while
-    @mysql_free_result($dbs);
+    if ($dbs) {
+        while ($a_db = PMA_mysql_fetch_object($dbs)) {
+            if (!$num_dbs) {
+                $dblist[]                     = $a_db->Database;
+            } else {
+                $true_dblist[$a_db->Database] = '';
+            }
+        } // end while
+        mysql_free_result($dbs);
+    } // end if
     if ($num_dbs && empty($true_dblist)) {
         $dblist = array();
     } else if ($num_dbs) {
@@ -141,7 +144,7 @@ if ($server > 0) {
  */
 if ($num_dbs > 0) {
     // Defines the urls used to sort the table
-    $common_url     = 'db_stats.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;convcharset=' . $convcharset;
+    $common_url     = 'db_stats.php3?lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server;
     if (empty($sort_by)) {
         $sort_by                 = 'db_name';
         $sort_order              = 'asc';
@@ -230,8 +233,12 @@ if ($num_dbs > 0) {
         $tables     = @PMA_mysql_list_tables($db);
 
         // Number of tables
-        $dbs_array[$db][0] = ($tables) ? @mysql_numrows($tables) : 0;
-        @mysql_free_result($tables);
+        if ($tables) {
+            $dbs_array[$db][0] = mysql_numrows($tables);
+            mysql_free_result($tables);
+        } else {
+            $dbs_array[$db][0] = 0;
+        }
         $total_array[0]    += $dbs_array[$db][0];
 
         // Size of data and indexes
@@ -252,8 +259,8 @@ if ($num_dbs > 0) {
                 $total_array[1]        += $dbs_array[$db][1];
                 $total_array[2]        += $dbs_array[$db][2];
                 $total_array[3]        += $dbs_array[$db][3];
+                mysql_free_result($result);
             } // end if
-            @mysql_free_result($result);
         } // end if MySQL 3.23.03+
 
     } // end for
@@ -287,7 +294,7 @@ if ($num_dbs > 0) {
         echo '        <td align="center" bgcolor="'. $bgcolor . '">' . "\n";
         echo '            &nbsp;<input type="checkbox" name="selected_db[]" value="' . urlencode($db_name) . '"' . $do_check . ' />&nbsp;' . "\n";
         echo '        </td>' . "\n";
-        echo '        <td bgcolor="'. $bgcolor . '">&nbsp;<a href="index.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '&amp;convcharset=' . $convcharset . '" target="_parent">' . $db_name . '</a>&nbsp;</td>' . "\n";
+        echo '        <td bgcolor="'. $bgcolor . '">&nbsp;<a href="index.php3?lang=' . $lang . '&amp;convcharset=' . $convcharset . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '" target="_parent">' . $db_name . '</a>&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $data_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $data_unit . '&nbsp;</td>' . "\n";
         echo '        <td align="right" bgcolor="'. $bgcolor . '">&nbsp;' . $idx_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $idx_unit . '&nbsp;</td>' . "\n";

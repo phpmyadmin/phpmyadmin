@@ -8,6 +8,7 @@
  * All directives are explained in Documentation.html
  */
 
+
 /**
  * Sets the php error reporting - Please do not change this line!
  */
@@ -23,15 +24,22 @@ $old_error_rep = error_reporting(E_ALL);
  * It must contain characters that are valid for a URL, and the path is
  * case sensitive on some Web servers, for example Unix-based servers.
  *
- * In most cases you can leave this variable alone, as the correct value 
- * will be detected automatically. However, we recommened that you do 
+ * In most cases you can leave this variable alone, as the correct value
+ * will be detected automatically. However, we recommened that you do
  * test to see that the auto-detection code works in your system.
  *
- * If the auto-detection code does work properly, you can set the 
- * $cfg['PmaAbsoluteUri_DisableWarning'] variable at the bottom of 
- * this file.
+ * If the auto-detection code does work properly, you can set the
+ * $cfg['PmaAbsoluteUri_DisableWarning'] variable below.
  */
 $cfg['PmaAbsoluteUri'] = '';
+
+
+/**
+ * Disable the default warning about $cfg['PmaAbsoluteUri'] not being set
+ * You should use this if and ONLY if the PmaAbsoluteUri auto-detection
+ * works perfectly.
+ */
+$cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
 
 
 /**
@@ -91,12 +99,12 @@ $cfg['Servers'][$i]['user']            = 'root';
 $cfg['Servers'][$i]['password']        = '';
 $cfg['Servers'][$i]['only_db']         = '';
 $cfg['Servers'][$i]['verbose']         = '';
-$cfg['Servers'][$i]['pmadb']      = '';
+$cfg['Servers'][$i]['pmadb']           = '';
 $cfg['Servers'][$i]['bookmarktable']   = '';
 $cfg['Servers'][$i]['relation']        = '';
 $cfg['Servers'][$i]['table_info']      = '';
 $cfg['Servers'][$i]['table_coords']    = '';
-$cfg['Servers'][$i]['column_comments'] ='';
+$cfg['Servers'][$i]['column_comments'] = '';
 $cfg['Servers'][$i]['pdf_pages']       = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
@@ -115,12 +123,12 @@ $cfg['Servers'][$i]['user']            = 'root';
 $cfg['Servers'][$i]['password']        = '';
 $cfg['Servers'][$i]['only_db']         = '';
 $cfg['Servers'][$i]['verbose']         = '';
-$cfg['Servers'][$i]['pmadb']      = '';
+$cfg['Servers'][$i]['pmadb']           = '';
 $cfg['Servers'][$i]['bookmarktable']   = '';
 $cfg['Servers'][$i]['relation']        = '';
 $cfg['Servers'][$i]['table_info']      = '';
 $cfg['Servers'][$i]['table_coords']    = '';
-$cfg['Servers'][$i]['column_comments'] ='';
+$cfg['Servers'][$i]['column_comments'] = '';
 $cfg['Servers'][$i]['pdf_pages']       = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                        = '';
@@ -191,21 +199,19 @@ $cfg['ZipDump']               = TRUE;   // Allow the use of zip/gzip/bzip
 $cfg['GZipDump']              = TRUE;   // compression for
 $cfg['BZipDump']              = TRUE;   // dump files
 
-
 // Default Tabs display settings
-
 $cfg['DefaultTabDatabase']    = 'db_details_structure.php3';
                                    // Possible values:
                                    // 'db_details_structure.php3' = tables list
                                    // 'db_details.php3' = sql form
-                                   // 'db_search.php3' = search query			
-
+                                   // 'db_search.php3' = search query
 $cfg['DefaultTabTable']       = 'tbl_properties_structure.php3';
                                    // Possible values:
-                                   // 'tbl_properties_structure.php3' = fields list  
+                                   // 'tbl_properties_structure.php3' = fields list
                                    // 'tbl_properties.php3' = sql form
                                    // 'tbl_select.php3 = select page
                                    // 'tbl_change.php3 = insert row page
+
 
 /**
  * Link to the official MySQL documentation
@@ -215,14 +221,11 @@ $cfg['ManualBaseShort'] = 'http://www.mysql.com/doc';
 
 
 /**
- * Language settings
+ * Language and charset conversion settings
  */
 // Default language to use, if not browser-defined or user-defined
 $cfg['DefaultLang'] = 'en';
 
-/**
- * Charset conversion settings
- */
 // Default charset to use for recoding of MySQL queries, does not take
 // any effect when charsets recoding is switched off by
 // $cfg['AllowAnywhereRecoding'] or in language file
@@ -271,14 +274,14 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizontal|vertical)
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
-                                            // Note: this feature will be
-                                            // implemented after 2.3.0
+// Syntax coloring (Note: this feature will be implemented after 2.3.0)
 $cfg['UseSyntaxColoring']   = TRUE;         // use syntaxcoloring on output of SQL, might be a little slower
 $cfg['colorFunctions']      = '#FF0000';    // Colors used for Syntaxcoloring of SQL Statements
 $cfg['colorKeywords']       = '#990099';
 $cfg['colorStrings']        = '#008000';
 $cfg['colorColType']        = '#FF9900';
 $cfg['colorAdd']            = '#0000FF';
+
 
 /**
  * Available charsets for MySQL conversion. currently contains all which could
@@ -287,7 +290,6 @@ $cfg['colorAdd']            = '#0000FF';
  * Charsets will be shown in same order as here listed, so if you frequently
  * use some of these move them to the top.
  */
-
 $cfg['AvailableCharsets'] = array(
     'iso-8859-1',
     'iso-8859-2',
@@ -319,6 +321,7 @@ $cfg['AvailableCharsets'] = array(
     'tis-620',
     'SHIFT_JIS'
 );
+
 
 /**
  * MySQL settings
@@ -392,8 +395,9 @@ if ($cfg['ShowFunctionFields']) {
     );
 } // end if
 
-if($cfg['UseSyntaxColoring']) {
-    $cfg['keywords']=array(
+// Keywords for syntax coloring
+if ($cfg['UseSyntaxColoring']) {
+    $cfg['keywords'] = array(
         'SELECT',
         'INSERT',
         'LEFT',
@@ -416,8 +420,10 @@ if($cfg['UseSyntaxColoring']) {
         'VALUES'
     );
 } // end if
-if($cfg['UseSyntaxColoring']) {
-    $cfg['additional']=array(
+
+// Other reserved words for syntax coloring
+if ($cfg['UseSyntaxColoring']) {
+    $cfg['additional'] = array(
         'TABLE',
         'DEFAULT',
         'NULL',
@@ -445,23 +451,19 @@ if($cfg['UseSyntaxColoring']) {
     );
 }
 
-/**
- * Disable the default warning about $cfg['PmaAbsoluteUri'] not being set
- * You should use this if and ONLY if the PmaAbsoluteUri auto-detection 
- * works perfectly.
- */
-$cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
 
 /**
  * Unset magic_quotes_runtime - do not change!
  */
 set_magic_quotes_runtime(0);
 
+
 /**
  * Restore old error_reporting mode - do not change either!
  */
 error_reporting($old_error_rep);
 unset($old_error_rep);
+
 
 /**
  * File Revision - do not change either!

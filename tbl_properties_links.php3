@@ -46,20 +46,21 @@ $att7 = 'class="drop" onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsF
  * Displays links
  */
 ?>
-<table border="0" cellspacing="0" cellpadding="0" width="100%" class="tabs">
+<table border="0" cellspacing="0" cellpadding="3" width="100%" class="tabs">
     <tr>
         <td width="8">&nbsp;</td>
 <?php
-echo printTab($strStructure, 'tbl_properties_structure.php3', $url_query);
-echo printTab($strBrowse, $lnk2, $arg2);
-echo printTab($strSQL, 'tbl_properties.php3', $url_query);
-echo printTab($strSelect, $lnk4, $arg4);
-echo printTab($strInsert, 'tbl_change.php3', $url_query);
-echo printTab($strExport, 'tbl_properties_export.php3', $url_query);
-echo printTab($strOperations, 'tbl_properties_operations.php3', $url_query);
-echo printTab($strOptions, 'tbl_properties_options.php3', $url_query);
-echo printTab($strEmpty, $lnk6, $arg6, $att6);
-echo printTab($strDrop, 'sql.php3', $arg7, $att7);
+echo PMA_printTab($strStructure, 'tbl_properties_structure.php3', $url_query);
+echo PMA_printTab($strBrowse, $lnk2, $arg2);
+echo PMA_printTab($strSQL, 'tbl_properties.php3', $url_query);
+echo PMA_printTab($strSelect, $lnk4, $arg4);
+echo PMA_printTab($strInsert, 'tbl_change.php3', $url_query);
+echo PMA_printTab($strExport, 'tbl_properties_export.php3', $url_query);
+echo PMA_printTab($strOperations, 'tbl_properties_operations.php3', $url_query);
+echo PMA_printTab($strOptions, 'tbl_properties_options.php3', $url_query);
+echo PMA_printTab($strEmpty, $lnk6, $arg6, $att6);
+echo PMA_printTab($strDrop, 'sql.php3', $arg7, $att7);
+echo "\n";
 ?>
     </tr>
 </table>

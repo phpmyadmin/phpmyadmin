@@ -168,7 +168,7 @@ echo "\n";
 <body bgcolor="<?php echo $cfg['LeftBgColor']; ?>">
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
-        <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>&amp;convcharset=<?php echo $convcharset;?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
+        <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&amp;convcharset=<?php echo $convcharset; ?>&amp;server=<?php echo $server; ?>"><span class="heada"><b><?php echo $strHome; ?></b></span></a></nobr>
     </div>
 
 
@@ -191,7 +191,7 @@ if ($num_dbs > 1) {
         echo '        <input type="hidden" name="convcharset" value="' . $convcharset . '" />' . "\n";
         echo '        <input type="hidden" name="server" value="' . $server . '" />' . "\n";
         echo '        <select name="lightm_db" onchange="this.form.submit()">' . "\n";
-        echo '            <option value="">(' .$strDatabases. ') ...</option>' . "\n"; 
+        echo '            <option value="">(' . $strDatabases . ') ...</option>' . "\n";
         $table_list = '';
         $table_list_header = '';
         $db_name    = '';

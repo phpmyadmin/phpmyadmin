@@ -321,7 +321,9 @@ if ($sql_query != '') {
     $pieces       = array();
     PMA_splitSqlFile($pieces, $sql_query, PMA_MYSQL_INT_VERSION);
     $pieces_count = count($pieces);
-    if($pieces_count>1){$is_multiple  = TRUE;}
+    if ($pieces_count > 1) {
+        $is_multiple = TRUE;
+    }
 
     // Copy of the cleaned sql statement for display purpose only (see near the
     // beginning of "db_details.php3" & "tbl_properties.php3")

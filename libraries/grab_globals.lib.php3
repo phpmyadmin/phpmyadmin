@@ -5,7 +5,7 @@
 /**
  * This library grabs the names and values of the variables sent or posted to a
  * script in the '$HTTP_*_VARS' arrays and sets simple globals variables from
- * them
+ * them. It does the same work for the $PHP_SELF variable.
  *
  * loic1 - 2001/25/11: use the new globals arrays defined with php 4.1+
  */
@@ -32,6 +32,12 @@ if (!defined('PMA_GRAB_GLOBALS_INCLUDED')) {
         while (list($name, $value) = each($HTTP_POST_FILES)) {
             $$name = $value['tmp_name'];
         }
+    } // end if
+
+    if (!empty($_SERVER) && isset($_SERVER['PHP_SELF'])) {
+        $PHP_SELF = $_SERVER['PHP_SELF'];
+    } else if (!empty($HTTP_SERVER_VARS) && isset($HTTP_SERVER_VARS['PHP_SELF'])) {
+        $PHP_SELF = $HTTP_SERVER_VARS['PHP_SELF'];
     } // end if
 
 } // $__PMA_GRAB_GLOBALS_LIB__

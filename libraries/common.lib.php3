@@ -31,8 +31,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * the authentication libraries must be before the connection to db but
      * after the PMA_isInto() function
      *
-     * the PMA_mysqlDie() function must be before the connection to db but after
-     * mysql extension has been loaded
+     * the PMA_mysqlDie() function must be before the connection to db but
+     * after mysql extension has been loaded
      *
      * the PMA_mysqlDie() function needs the PMA_format_sql() Function
      *
@@ -78,7 +78,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         // Sends the Content-Type header
         header('Content-Type: text/html; charset=' . $charset);
         // Displays the error message
-?>
+        ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
@@ -103,8 +103,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 </body>
 
 </html>
-<?php
-        exit;
+        <?php
+        exit();
     }
 
     /**
@@ -136,7 +136,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     include('./libraries/charset_conversion.lib.php3');
 
     // For compatibility with old config.inc.php3
-    if (!isset($cfg['FileRevision']) || (int)substr($cfg['FileRevision'],13,3) < 116) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 116) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -199,6 +199,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         return $a_string;
     } // end of the 'PMA_sqlAddslashes()' function
 
+
     /**
      * format sql strings
      *
@@ -206,9 +207,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      *
      * @return  string   the formatted sql
      *
+     * @global  array    the configuration array
+     * @global  boolean  whether the current statement is a multiple one or not
+     *
      * @access  public
      *
-     * @author  Mike Beck<mikebeck@users.sourceforge.net>
+     * @author  Mike Beck <mikebeck@users.sourceforge.net>
      */
     function PMA_format_sql ($sql) {
         global $cfg, $mult;
@@ -216,109 +220,122 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 // lem9: bypass this function for now
         return $sql;
 
-        $_sfuncs   = '^' . implode('$|^', $cfg['Functions']) . '$';
-        $_skeyw    = '^' . implode('$|^', $cfg['keywords']) . '$';
-        $_scoltype = '^' . implode('$|^', $cfg['ColumnTypes']) . '$';
-        $_add      = '^' . implode('$|^', $cfg['additional']) . '$';
+        $sfuncs   = '^' . implode('$|^', $cfg['Functions']) . '$';
+        $skeyw    = '^' . implode('$|^', $cfg['keywords']) . '$';
+        $scoltype = '^' . implode('$|^', $cfg['ColumnTypes']) . '$';
+        $add      = '^' . implode('$|^', $cfg['additional']) . '$';
 
-        //  first of all lets remove all newlines - we'll add our own later
+        // First of all lets remove all newlines - we'll add our own later
         $sql  = str_replace("\n", ' ', $sql);
-        //  there should always be blanks around = and after , ()
-        //  fixme - i would like to replace ';' with '; ' but then i need
-        //  to know how to do that without getting ; within strings as well
+        // There should always be blanks around = and after , ()
+        // fixme - i would like to replace ';' with '; ' but then i need
+        // to know how to do that without getting ; within strings as well
         $sql  = str_replace('=', ' = ', $sql);
         $sql  = str_replace(',', ', ', $sql);
         $sql  = str_replace(')', ' ) ', $sql);
         $sql  = str_replace('(', ' ( ', $sql);
 
-        //  now split everything by the blanks
-        $_sql_parts=explode(' ',$sql);
-        //  start a loop over the parts check each word and put them back into $sql
+        // Now split everything by the blanks
+        $sql_parts = explode(' ', $sql);
+        // Start a loop over the parts check each word and put them back into
+        // $sql
         unset($sql);
-        $s_nr=0;
+        $s_nr      = 0;
 
-        while (list($_num,$_word) = each($_sql_parts)) {
-            //  we might have added to many blanks when checking for = and ,
+        while (list($num, $word) = each($sql_parts)) {
+            // We might have added to many blanks when checking for = and,
             // which might lead to empty members in the array
-            if(strlen($_word)==0){continue;}
-            $_is_string = FALSE;
-            //  Anything inside quots might be more than one word
-            //  so as we splitted by the blanks we have to try to get those parts back
-            //  together
-            if (substr($_word, 0, 1) == '\'' || substr($_word, 0, 1 == '"')
-                 && (!isset($_temp))) {
-                    //  start of a string
-                    $_temp = $_word;
-                    $_is_string = TRUE;
-            }else {
-                if(isset($_temp)) {
-                    //  we are continuing a string
-                    $_temp .= $_word;
-                    $_is_string = TRUE;
+            if (strlen($word) == 0) {
+                continue;
+            }
+            $is_string = FALSE;
+
+            // Anything inside quots might be more than one word
+            // so as we splitted by the blanks we have to try to get those
+            // parts back together
+            if ((substr($word, 0, 1) == '\'' || substr($word, 0, 1) == '"')
+                && !isset($temp)) {
+                //  start of a string
+                $temp          = $word;
+                $is_string     = TRUE;
+            } else {
+                if (isset($temp)) {
+                    // We are continuing a string
+                    $temp      .= $word;
+                    $is_string = TRUE;
                  }
-            }
-            if(substr($_word, strlen($_word)-1, 1) == '\''
-                || substr($_word, strlen($_word)-1, 1) == '"') {
-                //  End of a String
-                $_word = '<font color="' . $cfg['colorStrings'] . '">' . htmlspecialchars($_temp) . '</font>';
-                unset($_temp);
-                // debug echo "fertig " . $_word . '<br />';
-                $_is_string = FALSE;
-            }
-            if(!isset($_is_string) || $_is_string == FALSE) {
-                // no String
-                if(eregi($_sfuncs,  $_word)) {
-                    $_word = '<font color="' . $cfg['colorFunctions'].'">' . htmlspecialchars($_word) . '</font>';
-                } else if(eregi($_skeyw,  $_word)) {
-                    $_word = '<font color="' . $cfg['colorKeywords'].'">' . htmlspecialchars($_word) . '</font>';
-                    if(isset($mult) && $mult == TRUE){
-                    } else {
-                        $_word = "\n" . $_word;
+            } // end if... else...
+
+            if (substr($word, strlen($word) - 1, 1) == '\''
+                || substr($word, strlen($word) - 1, 1) == '"') {
+                // End of a String
+                $word      = '<font color="' . $cfg['colorStrings'] . '">' . htmlspecialchars($temp) . '</font>';
+                unset($temp);
+                // Debug echo "fertig " . $word . '<br />';
+                $is_string = FALSE;
+            } // end if
+
+            if (!isset($is_string) || $is_string == FALSE) {
+                // No String
+                if (eregi($sfuncs,  $word)) {
+                    $word     = '<font color="' . $cfg['colorFunctions'].'">' . htmlspecialchars($word) . '</font>';
+                } else if (eregi($skeyw,  $word)) {
+                    $word     = '<font color="' . $cfg['colorKeywords'].'">' . htmlspecialchars($word) . '</font>';
+                    if (!isset($mult) || $mult != TRUE) {
+                        $word = "\n" . $word;
                     }
-                } else if(eregi($_scoltype, $_word)) {
-                    $_word = '<font color="' . $cfg['colorColType'].'">' . htmlspecialchars($_word) . '</font>';
-                } else if(eregi($_add, $_word)) {
-                    $_word = '<font color="' . $cfg['colorAdd'].'">' . htmlspecialchars($_word) . '</font>';
-                } else if($_word=='(') {
-                    if(isset($_brack_o)){
-                        $_skey=count($_brack_o);
+                } else if (eregi($scoltype, $word)) {
+                    $word     = '<font color="' . $cfg['colorColType'].'">' . htmlspecialchars($word) . '</font>';
+                } else if (eregi($add, $word)) {
+                    $word     = '<font color="' . $cfg['colorAdd'].'">' . htmlspecialchars($word) . '</font>';
+                } else if ($word == '(') {
+                    if (isset($brack_o)) {
+                        $skey = count($brack_o);
                     } else {
-                        $_skey = 0;
+                        $skey = 0;
                     }
-                    $_brack_o[$_skey]=$s_nr;
-                } else if($_word==')') {
-                    if(isset($_brack_o)){
-                        unset($_brack_o[count($_brack_o)-1]);
-                        if(count($_brack_o)==0){ unset($_brack_o);}
+                    $brack_o[$skey] = $s_nr;
+                } else if ($word == ')') {
+                    if (isset($brack_o)) {
+                        unset($brack_o[count($brack_o) - 1]);
+                        if (count($brack_o) == 0) {
+                            unset($brack_o);
+                        }
                     } else {
-                        $_brack_c[]=$s_nr;
+                        $brack_c[] = $s_nr;
                     }
-                } else if($_word==';') {
-                    $_word = ";\n";
+                } else if ($word == ';') {
+                    $word     = ';' . "\n";
                 }
             }
-            if(!isset($_temp) || strlen($_temp) == 0) {
-                $_sql_p[$s_nr] = $_word;
+
+            if (!isset($temp) || strlen($temp) == 0) {
+                $sql_p[$s_nr] = $word;
                 $s_nr++;
             }
-        }   //  End while
-        if(isset($_brack_o)) {
-            while (list($_num,$elem) = each($_brack_o)) {
-                $_sql_p[$elem] = '<font color="red">' . $_sql_p[$elem] . '</font>';
+        } // end while
+
+        if (isset($brack_o)) {
+            while (list($num, $elem) = each($brack_o)) {
+                $sql_p[$elem] = '<font color="red">' . $sql_p[$elem] . '</font>';
                 echo '<br /><font color="red">' . $GLOBALS['strMissingBracket'] . '</font><br />';
             }
         }
-        if(isset($_brack_c)) {
-            while (list($_num,$elem) = each($_brack_c)) {
-                $_sql_p[$elem] = '<font color="red">' . $_sql_p[$elem] . '</font>';
+
+        if (isset($brack_c)) {
+            while (list($num, $elem) = each($brack_c)) {
+                $sql_p[$elem] = '<font color="red">' . $sql_p[$elem] . '</font>';
                 echo '<br /><font color="red">' . $GLOBALS['strMissingBracket'] . '</font><br />';
             }
         }
-        $sql = implode(' ',$_sql_p);
+
+        $sql = implode(' ', $_sql_p);
         $sql = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', $sql);
-        $sql = ereg_replace('<br />[ ]*<br />','<br />', $sql);
+        $sql = ereg_replace('<br />[ ]*<br />', '<br />', $sql);
+
         return $sql;
-    }   // End of PMA_format_sql function
+    } // end of the "PMA_format_sql()" function
+
 
     /**
      * Displays a MySQL error message in the right frame.
@@ -328,12 +345,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * @param   boolean  whether to show a "modify" link or not
      * @param   string   the "back" link url (full path is not required)
      *
+     * @global  array    the configuration array
+     *
      * @access  public
      */
     function PMA_mysqlDie($error_message = '', $the_query = '',
                           $is_modify_link = TRUE, $back_url = '')
     {
         global $cfg;
+
         if (empty($GLOBALS['is_header_sent'])) {
             // rabus: If we include header.inc.php3 here, we get a huge set of
             // "Undefined variable" errors (see bug #549570)!
@@ -358,15 +378,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
             if ($is_modify_link) {
                 echo '    ['
-                     . '<a href="db_details.php3?convcharset=' . $GLOBALS['convcharset'] . '&amp;lang=' . $GLOBALS['lang'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>'
+                     . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&amp;convcharset=' . $GLOBALS['convcharset'] . '&amp;server=' . urlencode($GLOBALS['server']) . '&amp;db=' . urlencode($GLOBALS['db']) . '&amp;sql_query=' . urlencode($the_query) . '&amp;show_query=y">' . $GLOBALS['strEdit'] . '</a>'
                      . ']' . "\n";
             } // end if
-            if($cfg['UseSyntaxColoring']){
-                echo '<p>' . "\n" . PMA_format_sql($query_base) . "\n" . '</p>' . "\n";
-            } else {
-                echo '<p>' . "\n" . $query_base . "\n" . '</p>' . "\n";
-            }
-            echo '</p>' . "\n";
+            echo '<p>' . "\n"
+                 . '    ' . ($cfg['UseSyntaxColoring'] ? PMA_format_sql($query_base) : $query_base) . "\n"
+                 . '</p>' . "\n";
         } // end if
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
@@ -489,29 +506,25 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * set properly and, depending on browsers, inserting or updating a
      * record might fail
      */
+    $display_pmaAbsoluteUri_warning = 0;
 
-    $DisplayPmaAbsoluteUriWarning = 0;
-
+    // Olivier: Setup a default value to let the people and lazy syadmins
+    //          work anyway, but display a big warning on the main.php3
+    //          page.
     if (empty($cfg['PmaAbsoluteUri'])) {
-
-        // Setup a default value to let the people and lazy syadmins work anyway,
-        // but display a big warning on the main.php3 page.  --Olivier
-
-        $cfg['PmaAbsoluteUri'] = (!empty($HTTP_SERVER_VARS['HTTPS']) ? 'https' : 'http') . '://'
-            . $HTTP_SERVER_VARS['SERVER_NAME']
-            . (!empty($HTTP_SERVER_VARS['SERVER_PORT']) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '')
-            . substr($HTTP_SERVER_VARS['SCRIPT_NAME'], 0, strrpos($HTTP_SERVER_VARS['SCRIPT_NAME'], '/')+1);
-
-         // We display the warning by default, but not if it is disabled thru
-         // via the $cfg['PmaAbsoluteUri_DisableWarning'] variable.
-         // This is intended for sysadmins that actually want the default behaviour
-         // of auto-detection due to their setup.
-         // See the mailing list message:
-         // http://sourceforge.net/mailarchive/forum.php?thread_id=859093&forum_id=2141
+        $cfg['PmaAbsoluteUri']          = (!empty($HTTP_SERVER_VARS['HTTPS']) ? 'https' : 'http') . '://'
+                                        . $HTTP_SERVER_VARS['HTTP_HOST']
+                                        . (!empty($HTTP_SERVER_VARS['SERVER_PORT']) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '')
+                                        . substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
+        // We display the warning by default, but not if it is disabled thru
+        // via the $cfg['PmaAbsoluteUri_DisableWarning'] variable.
+        // This is intended for sysadmins that actually want the default
+        // behaviour of auto-detection due to their setup.
+        // See the mailing list message:
+        // http://sourceforge.net/mailarchive/forum.php?thread_id=859093&forum_id=2141
         if ($cfg['PmaAbsoluteUri_DisableWarning'] === FALSE) {
-            $DisplayPmaAbsoluteUriWarning = 1;
+            $display_pmaAbsoluteUri_warning = 1;
         }
-
     }
     // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
     // exist
@@ -524,13 +537,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Make sure $cfg['DefaultTabDatabase'] and $cfg['DefaultTabTable'] are set.
      * Todo: check if it is set to a *valid* value.
      */
-
     if (empty($cfg['DefaultTabDatabase'])) {
         $cfg['DefaultTabDatabase'] = 'db_details_structure.php3';
     }
 
     if (empty($cfg['DefaultTabTable'])) {
-        $cfg['DefaultTabTable'] = 'tbl_properties_structure.php3';
+        $cfg['DefaultTabTable']    = 'tbl_properties_structure.php3';
     }
 
 
@@ -604,7 +616,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if (isset($cfg['Server']['AllowDeny']) && $cfg['Server']['AllowDeny']['order']) {
             include('./libraries/ip_allow_deny.lib.php3');
 
-            $allowDeny_forbidden         = FALSE; //default
+            $allowDeny_forbidden         = FALSE; // default
             if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
                 $allowDeny_forbidden     = TRUE;
                 if (PMA_allowDeny('allow')) {
@@ -942,7 +954,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      *
      * @param   mixed    the database, table or field name to "backquote" or
      *                   array of it
-     * @param   boolean  a flag to bypass this function (used by dump functions)
+     * @param   boolean  a flag to bypass this function (used by dump
+     *                   functions)
      *
      * @return  mixed    the "backquoted" database, table or field name if the
      *                   current MySQL release is >= 3.23.6, the original one
@@ -959,7 +972,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if (is_array($a_name)) {
                  $result = array();
                  reset($a_name);
-                 while(list($key,$val) = each($a_name)) {
+                 while(list($key, $val) = each($a_name)) {
                      $result[$key] = '`' . $val . '`';
                  }
                  return $result;
@@ -1061,17 +1074,20 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      *
      * @param   string  the message to display
      *
+     * @global  array   the configuration array
+     *
      * @access  public
      */
     function PMA_showMessage($message)
     {
         global $cfg;
+
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
             echo "\n";
             $reload_url = './left.php3'
-                        . '?convcharset=' . $GLOBALS['convcharset']
-                        . '&lang=' . $GLOBALS['lang']
+                        . '?lang=' . $GLOBALS['lang']
+                        . '&convcharset=' . $GLOBALS['convcharset']
                         . '&server=' . $GLOBALS['server']
                         . ((!empty($GLOBALS['db'])) ? '&db=' . urlencode($GLOBALS['db']) : '');
             ?>
@@ -1084,7 +1100,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         }
 
         // Corrects the tooltip text via JS if required
-        else if (isset($GLOBALS['table']) && $GLOBALS['cfg']['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
+        else if (isset($GLOBALS['table']) && $cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303) {
             $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
             if ($result) {
                 $tmp     = PMA_mysql_fetch_array($result, MYSQL_ASSOC);
@@ -1113,17 +1129,17 @@ if (typeof(document.getElementById) != 'undefined'
         echo "\n";
         ?>
 <div align="<?php echo $GLOBALS['cell_align_left']; ?>">
-    <table border="<?php echo $GLOBALS['cfg']['Border']; ?>" cellpadding="5">
+    <table border="<?php echo $cfg['Border']; ?>" cellpadding="5">
     <tr>
-        <td bgcolor="<?php echo $GLOBALS['cfg']['ThBgcolor']; ?>">
+        <td bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo (get_magic_quotes_gpc()) ? stripslashes($message) : $message; ?></b><br />
         </td>
     </tr>
         <?php
-        if ($GLOBALS['cfg']['ShowSQL'] == TRUE && !empty($GLOBALS['sql_query'])) {
+        if ($cfg['ShowSQL'] == TRUE && !empty($GLOBALS['sql_query'])) {
             // Basic url query part
-            $url_qpart = '?lang=' . $GLOBALS['lang']
-                       . '&amp;convcharset=' . $GLOBALS['convcharset']
+            $url_qpart = '?convcharset=' . $GLOBALS['convcharset']
+                       . '&amp;lang=' . $GLOBALS['lang']
                        . '&amp;server=' . $GLOBALS['server']
                        . ((!empty($GLOBALS['db'])) ? '&amp;db=' . urlencode($GLOBALS['db']) : '')
                        . ((!empty($GLOBALS['table'])) ? '&amp;table=' . urlencode($GLOBALS['table']) : '');
@@ -1131,7 +1147,7 @@ if (typeof(document.getElementById) != 'undefined'
             echo "\n";
             ?>
     <tr>
-        <td bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
+        <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <?php
             echo "\n";
             // Html format the query to be displayed
@@ -1141,23 +1157,19 @@ if (typeof(document.getElementById) != 'undefined'
             $sqlnr = 1;
             if (!empty($GLOBALS['show_as_php'])) {
                 $new_line = '&quot;;<br />' . "\n" . '            $sql .= &quot;';
-            }else{
-                if($cfg['UseSyntaxColoring'] == FALSE){
-                    $new_line = "<br />\n";
-                }
+            } else if ($cfg['UseSyntaxColoring'] == FALSE) {
+                $new_line = '<br />' . "\n";
             }
-            if(isset($new_line)){
-                $query_base     = htmlspecialchars($GLOBALS['sql_query']);
-                $query_base     = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
-            }else{
-                $query_base     = $GLOBALS['sql_query'];
+            if (isset($new_line)) {
+                $query_base = htmlspecialchars($GLOBALS['sql_query']);
+                $query_base = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
+            } else {
+                $query_base = $GLOBALS['sql_query'];
             }
             if (!empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = &quot;' . $query_base;
-            } else {
-                if($cfg['UseSyntaxColoring']) {
-                    $query_base = PMA_format_sql($query_base);
-                }
+            } else if ($cfg['UseSyntaxColoring']) {
+                $query_base = PMA_format_sql($query_base);
             }
 
             // Prepares links that may be displayed to edit/explain the query
@@ -1183,7 +1195,7 @@ if (typeof(document.getElementById) != 'undefined'
                 if (!eregi('^EXPLAIN[[:space:]]+', $GLOBALS['sql_query'])) {
                     $explain_link = '[<a href="sql.php3'
                                   . $url_qpart
-                                  . '&amp;sql_query=' . urlencode('EXPLAIN '.$GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';
+                                  . '&amp;sql_query=' . urlencode('EXPLAIN ' . $GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';
                 } else {
                     $explain_link = '';
                 }
@@ -1358,34 +1370,47 @@ if (typeof(document.getElementById) != 'undefined'
         return strftime($date, $timestamp);
     } // end of the 'PMA_localisedDate()' function
 
+
     /**
      * Prints out a tab for tabbed navigation.
      * If the variables $link and $args ar left empty, an inactive tab is created
      *
-     * @param    $text    the text to be displayed as link
-     * @param    $link    main link file, e.g. "test.php3"
-     * @param    $args    link arguments
+     * @param   string  the text to be displayed as link
+     * @param   string  main link file, e.g. "test.php3"
+     * @param   string  link arguments
+     * @param   string  link attributes
      *
      * @return  string  two table cells, the first beeing a separator, the second the tab itself
      *
      * @access  public
      */
-    function printTab($text,$link,$args="",$attr="") {
+    function PMA_printTab($text, $link, $args = '', $attr = '') {
         global $PHP_SELF;
         global $db_details_links_count_tabs;
 
-        $bgcolor = (basename($PHP_SELF) == $link) ? "silver" : "#DFDFDF";
+        $bgcolor = (basename($PHP_SELF) == $link) ? 'silver' : '#DFDFDF';
         $db_details_links_count_tabs++;
+        if (!empty($attr)) {
+            $attr = ' ' . $attr;
+        }
 
-        $out = "\n\t\t<td bgcolor=\"$bgcolor\" align=\"center\" width=\"64\" nowrap=\"nowrap\" class=\"tab\">";
-        if (strlen($link)>0)
-            $out .= "<a href=\"$link?$args\" $attr><b>$text</b></a>";
-        else
-            $out .= "<b>$text</b>";
-        $out .= "</td>";
-        $out .= "\n\t\t<td width=\"8\">&nbsp;</td>";
+        $out     = "\n" . '        '
+                 . '<td bgcolor="' . $bgcolor . '" align="center" width="64" nowrap="nowrap" class="tab">'
+                 . "\n" . '            ';
+        if (strlen($link) > 0) {
+            $out .= '<a href="' . $link . '?' . $args . '"' . $attr . '>'
+                 .  '<b>' . $text . '</b></a>';
+        } else {
+            $out .= '<b>' . $text . '</b>';
+        }
+        $out     .= "\n" . '        '
+                 .  '</td>'
+                 .  "\n" . '        '
+                 .  '<td width="8">&nbsp;</td>';
+
         return $out;
-    }
+    } // end of the 'PMA_printTab()' function
+
 
 
     // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)

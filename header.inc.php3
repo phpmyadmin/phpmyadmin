@@ -193,10 +193,14 @@ echo "\n";
 </head>
 
 
-<body bgcolor="<?php
-echo $GLOBALS['cfg']['RightBgColor'];
-if ($GLOBALS['cfg']['RightBgImage'] != '') echo '" background="' . $GLOBALS['cfg']['RightBgImage'];
-?>">
+<?php
+if ($GLOBALS['cfg']['RightBgImage'] != '') {
+    $bkg_img = ' background="' . $GLOBALS['cfg']['RightBgImage'] . '"';
+} else {
+    $bkg_img = '';
+}
+?>
+<body bgcolor="<?php echo $GLOBALS['cfg']['RightBgColor'] . '"' . $bkg_img; ?>>
 <?php
 if (isset($GLOBALS['db'])) {
     $header_url_qry = '?lang=' . urlencode($GLOBALS['lang'])
