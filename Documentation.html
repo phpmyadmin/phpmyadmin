@@ -1066,6 +1066,20 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['IgnoreMultiSubmitErrors'] </b>boolean</dt>
+    <dd>
+        Define whether phpMyAdmin will continue executing a multi-query statement if one of the
+        queries fails. Default is to abort execution.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['VerboseMultiSubmit'] </b>boolean</dt>
+    <dd>
+        Define whether phpMyAdmin will output the results of each query of a multi-query statement
+        embedded into the SQL output as inline comments. Defaults to TRUE.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['LeftFrameLight']</b> boolean</dt>
     <dd>
         Defines whether to use select-based menu and display only the current

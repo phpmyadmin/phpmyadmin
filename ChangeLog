@@ -5,6 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-29 Garvin Hicking <me@supergarv.de>
+    * Documentation.html, config.inc.php3, read_dump.php3,
+      css/phpmyadmin.css.php3, libraries/common.lib.php3,
+      libraries/config_import.lib.php3, libraries/sqlparser.lib.php3
+      o Introduced $cfg['IgnoreMultiSubmitErrors'] to let PMA continue
+        execution of a multi-query statement even though single queries
+        may fail
+      o Introduced $cfg['VerboseMultiSubmit'] to let PMA show the result
+        of each query of a multi-query statement (taking some maximum
+        line/pieces amounts into account)
+      o changed formatting of syntax_comment to include some space
+    
 2003-07-29 Marc Delisle  <lem9@users.sourceforge.net>
     * serbian: big update, 
       thanks to Branislav Jovanoviæ <branej@users.sourceforge.net> and

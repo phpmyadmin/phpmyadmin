@@ -188,17 +188,22 @@ unset($cfg['Servers'][0]);
 /**
  * Other core phpMyAdmin settings
  */
-$cfg['OBGzip']                = 'auto'; // use GZIP output buffering if possible (TRUE|FALSE|'auto')
-$cfg['PersistentConnections'] = FALSE;  // use persistent connections to MySQL database
-$cfg['ExecTimeLimit']         = 300;    // maximum execution time in seconds (0 for no limit)
-$cfg['SkipLockedTables']      = FALSE;  // mark used tables, make possible to show
-                                        // locked tables (since MySQL 3.23.30)
-$cfg['ShowSQL']               = TRUE;   // show SQL queries as run
-$cfg['AllowUserDropDatabase'] = FALSE;  // show a 'Drop database' link to normal users
-$cfg['Confirm']               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
-$cfg['LoginCookieRecall']     = TRUE;   // recall previous login in cookie auth. mode or not
-$cfg['UseDbSearch']           = TRUE;   // whether to enable the "database search" feature
-                                        // or not
+$cfg['OBGzip']                  = 'auto'; // use GZIP output buffering if possible (TRUE|FALSE|'auto')
+$cfg['PersistentConnections']   = FALSE;  // use persistent connections to MySQL database
+$cfg['ExecTimeLimit']           = 300;    // maximum execution time in seconds (0 for no limit)
+$cfg['SkipLockedTables']        = FALSE;  // mark used tables, make possible to show
+                                          // locked tables (since MySQL 3.23.30)
+$cfg['ShowSQL']                 = TRUE;   // show SQL queries as run
+$cfg['AllowUserDropDatabase']   = FALSE;  // show a 'Drop database' link to normal users
+$cfg['Confirm']                 = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
+$cfg['LoginCookieRecall']       = TRUE;   // recall previous login in cookie auth. mode or not
+$cfg['UseDbSearch']             = TRUE;   // whether to enable the "database search" feature
+                                          // or not
+$cfg['IgnoreMultiSubmitErrors'] = FALSE;  // if set to true, PMA continues computing multiple-statement queries
+                                          // even if one of the queries failed
+$cfg['VerboseMultiSubmit']      = TRUE;   // if set to true, PMA will show the affected rows of EACH statement on
+                                          // multiple-statement queries. See the read_dump.php3 file for hardcoded
+                                          // defaults on how many queries a statement may contain!
 
 // Left frame setup
 $cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the

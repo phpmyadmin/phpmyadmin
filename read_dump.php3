@@ -173,18 +173,49 @@ if ($sql_query != '') {
     if ($pieces_count > 1) {
         $is_multiple = TRUE;
     }
-
+    
     // Copy of the cleaned sql statement for display purpose only (see near the
     // beginning of "db_details.php3" & "tbl_properties.php3")
-    if ($sql_file != 'none' && $pieces_count > 10) {
-         // Be nice with bandwidth...
-        $sql_query_cpy = $sql_query = '';
+
+    // You can either
+    // * specify the amount of maximum pieces per query (having max_*_length set to 0!) or
+    // * specify the amount of maximum chars  per query (having max_*_pieces set to 0!)
+    // - max_nofile_* is used for any queries submitted via copy&paste in the textarea
+    // - max_file_*   is used for any file-submitted query
+    if (!$cfg['VerboseMultiSubmit']) {
+        // Here be the values if the Verbose-Mode (see config.inc.php3) is NOT activated
+        $max_nofile_length = 500;
+        $max_nofile_pieces = 0;
+        $max_file_length   = 0;
+        $max_file_pieces   = 10;
     } else {
+        // Values for verbose-mode
+        $max_nofile_length = 0;
+        $max_nofile_pieces = 50;
+        $max_file_length   = 0;
+        $max_file_pieces   = 50;
+    }
+    
+    if ($sql_file != 'none' &&
+          ($max_file_length == 0 && ($pieces_count > $max_file_pieces))
+            ||
+          ($max_file_pieces == 0 && (strlen($sql_query) > $max_file_length))) {
+          // Be nice with bandwidth...
+        $sql_query_cpy = $sql_query = '';
+        $save_bandwidth = TRUE;
+        $save_bandwidth_length = $max_file_length;
+        $save_bandwidth_pieces = $max_file_pieces;
+    } else {
+
         $sql_query_cpy = implode(";\n", $pieces) . ';';
          // Be nice with bandwidth... for now, an arbitrary limit of 500,
          // could be made configurable but probably not necessary
-        if (strlen($sql_query_cpy) > 500) {
+        if (($max_nofile_pieces == 0 && (strlen($sql_query_cpy) > $max_nofile_length))
+              || ($max_nofile_length == 0 && $pieces_count > $max_nofile_pieces)) {
             $sql_query_cpy = $sql_query = '';
+            $save_bandwidth = TRUE;
+            $save_bandwidth_length = $max_nofile_length;
+            $save_bandwidth_pieces = $max_nofile_pieces;
         }
     }
 
@@ -203,6 +234,9 @@ if ($sql_query != '') {
         // Runs multiple queries
         else if (PMA_mysql_select_db($db)) {
             $mult = TRUE;
+            $info_msg = '';
+            $info_count = 0;
+            
             for ($i = 0; $i < $pieces_count; $i++) {
                 $a_sql_query = $pieces[$i];
                 if ($i == $pieces_count - 1 && eregi('^SELECT', $a_sql_query)) {
@@ -211,15 +245,56 @@ if ($sql_query != '') {
                     include('./sql.php3');
                     exit();
                 }
+
                 $result = PMA_mysql_query($a_sql_query);
                 if ($result == FALSE) { // readdump failed
-                    $my_die = $a_sql_query;
-                    break;
+                    if (isset($my_die) && $cfg['IgnoreMultiSubmitErrors']) {
+                        $my_die[] = "\n\n" . $a_sql_query;
+                    } elseif ($cfg['IgnoreMultiSubmitErrors']) {
+                        $my_die = array();
+                        $my_die[] = $a_sql_query;
+                    } else {
+                        $my_die = $a_sql_query;
+                    }
+                    
+                    if ($cfg['VerboseMultiSubmit']) {
+                        $info_msg .= $a_sql_query . '; # ' . $strError . "\n";
+                        $info_count++;
+                    }
+                    
+                    if (!$cfg['IgnoreMultiSubmitErrors']) {
+                        break;
+                    }
+                } else if ($cfg['VerboseMultiSubmit']) {
+                    $a_num_rows = (int)@mysql_num_rows($result);
+                    $a_aff_rows = (int)@mysql_affected_rows();
+                    if ($a_num_rows > 0) {
+                        $a_rows = $a_num_rows;
+                        $a_switch = $strRows . ': ';
+                    } elseif ($a_aff_rows > 0) {
+                        $a_rows = $a_aff_rows;
+                        $a_switch = $strAffectedRows;;
+                    } else {
+                        $a_rows = '';
+                        $a_switch = $strEmptyResultSet;
+                    }
+                    
+                    $info_msg .= $a_sql_query . "; # " . $a_switch . $a_rows . "\n";
+                    $info_count++;
                 }
+
                 if (!isset($reload) && eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $a_sql_query)) {
                     $reload = 1;
                 }
             } // end for
+            
+            if ($cfg['VerboseMultiSubmit'] && strlen($info_msg) > 0 &&
+                  ((!isset($save_bandwidth) || $save_bandwidth == FALSE) ||
+                  ($save_bandwidth_pieces == 0 && strlen($sql_query) < $save_bandwidth_length) ||
+                  ($save_bandwidth_length == 0 && $info_count < $save_bandwidth_pieces))) {
+                $sql_query = $info_msg;
+            }
+
         } // end else if
     } // end if (really run the query)
     unset($pieces);
@@ -233,7 +308,14 @@ if ($sql_query != '') {
 if (isset($my_die)) {
     $js_to_run = 'functions.js';
     include('./header.inc.php3');
-    PMA_mysqlDie('', $my_die, '', $err_url . '&TEST');
+    if (is_array($my_die)) {
+        while(list($key, $die_string) = each($my_die)) {
+            PMA_mysqlDie('', $die_string, '', $err_url, FALSE);
+            echo '<hr />';
+        }
+    } else {
+        PMA_mysqlDie('', $my_die, '', $err_url, TRUE);
+    }
 }
 
 

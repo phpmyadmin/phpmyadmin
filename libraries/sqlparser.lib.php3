@@ -1660,7 +1660,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         }
                         break;
                     case 'punct_queryend':
-                        if (($typearr[3] != 'comment_mysql') && ($typearr[3] != 'comment_ansi')) {
+                        if (($typearr[3] != 'comment_mysql') && ($typearr[3] != 'comment_ansi') && $typearr[3] != 'comment_c') {
                             $after     .= $html_line_break;
                             $after     .= $html_line_break;
                         }

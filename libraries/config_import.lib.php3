@@ -277,6 +277,14 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['UseDbSearch'] = TRUE;
     }
 
+    if (!isset($cfg['IgnoreMultiSubmitErrors'])) {
+        $cfg['IgnoreMultiSubmitErrors'] = FALSE;
+    }
+
+    if (!isset($cfg['VerboseMultiSubmit'])) {
+        $cfg['VerboseMultiSubmit'] = TRUE;
+    }
+
     if (!isset($cfg['LeftFrameLight'])) {
         if (isset($cfgLeftFrameLight)) {
             $cfg['LeftFrameLight'] = $cfgLeftFrameLight;

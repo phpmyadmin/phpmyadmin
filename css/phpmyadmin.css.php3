@@ -221,7 +221,7 @@ button.mult_submit {
 .print{font-family:arial;font-size:8pt;}
 
 .syntax {font-family: sans-serif; font-size: <?php echo $font_smaller; ?>;}
-.syntax_comment            {}
+.syntax_comment            { padding-left: 4pt; padding-right: 4pt;}
 .syntax_digit              {}
 .syntax_digit_hex          {}
 .syntax_digit_integer      {}
