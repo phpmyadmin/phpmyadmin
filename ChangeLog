@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-22  Marc Delisle  <lem9@users.sourceforge.net>
+        * Bug #424237: cannot set an enum field to Null
+
 2001-05-21  Marc Delisle  <lem9@users.sourceforge.net>
         * add a message $strTextAreaLength to tell users when a textarea
           contents is too large to be editable ( > 32K)

@@ -94,31 +94,56 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
         $set = ereg_replace("\\)$", "", $set);
         $set = explode(",", $set);
 
-		// show dropdown or radio depend on length
-		if (strlen($row_table_def["Type"]) > 20) {
-			echo "<td><select name=fields[$field]>\n";
-			echo "<option value=\"\">\n";
-			for($j=0; $j<count($set);$j++)
-			{
-				echo '<option value="'.substr($set[$j], 1, -1).'"';
-				if($data == substr($set[$j], 1, -1) || ($data == "" && substr($set[$j], 1, -1) == $row_table_def["Default"]))
-					echo " selected";
-				echo ">".htmlspecialchars(substr($set[$j], 1, -1))."\n";
-			}
-			echo "</select></td>";
-		}
-		else {
-			echo "<td>\n";
-			for($j=0; $j<count($set);$j++)
-			{
-				echo "<input type=radio name=fields[$field] ";
-				echo 'value="'.substr($set[$j], 1, -1).'"';
-				if($data == substr($set[$j], 1, -1) || ($data == "" && substr($set[$j], 1, -1) == $row_table_def["Default"]))
-					echo " checked";
-				echo ">".htmlspecialchars(substr($set[$j], 1, -1))."\n";
-			}
-			echo "</td>";
-		}
+	// show dropdown or radio depend on length
+        if (strlen($row_table_def["Type"]) > 20) {
+         echo "<td><select name=fields[$field]>\n";
+         echo "<option value=\"\">\n";
+         for($j=0; $j<count($set);$j++)
+         {
+           echo '<option value="'.substr($set[$j], 1, -1).'"';
+           if   ($data == substr($set[$j], 1, -1)
+             || (  $data == ""
+                && substr($set[$j], 1, -1) == $row_table_def["Default"]))
+              echo " selected";
+
+           echo ">".htmlspecialchars(substr($set[$j], 1, -1))."\n";
+         }
+         echo "</select></td>";
+        }
+       else {
+         echo "<td>\n";
+
+         $seenchecked = 0;
+         for($j=0; $j<count($set);$j++)
+         {
+           echo "<input type=radio name=fields[$field] ";
+           echo 'value="'.substr($set[$j], 1, -1).'"';
+           if   ($data == substr($set[$j], 1, -1)
+             || (     $data == ""
+                   && substr($set[$j], 1, -1) == $row_table_def["Default"]
+                   && $row_table_def["Null"] != "YES"))
+
+// To be able to display a checkmark in the [Null] box when the field
+// is null, we lose the ability to display a checkmark besides the default value
+           {
+                echo " checked";
+                $seenchecked=1;
+           }
+           echo ">".htmlspecialchars(substr($set[$j], 1, -1))."\n";
+         }
+
+           if ($row_table_def["Null"] == "YES") {
+                echo "<input type=\"radio\"
+                             name=fields[$field]
+                             value=\"null\"";
+
+                if ($seenchecked==0)
+                   echo " checked";
+
+                echo ">[$strNull]";
+           }
+           echo "</td>";
+         }
 
     }
     elseif(strstr($row_table_def["Type"], "set"))
