@@ -1,5 +1,4 @@
 <?php
-
 /* $Id$ */
 
 /**
@@ -60,6 +59,8 @@ $strAtEndOfTable = 'An das Ende der Tabelle';
 $strAttr = 'Attribute';
 
 $strBack = 'Zurück';
+$strBeginCut = 'AUSSCHNITTSANFANG';
+$strBeginRaw = 'BEGINN DER AUSGABE';
 $strBinary = ' Binär ';
 $strBinaryDoNotEdit = ' Binär - nicht editierbar !';
 $strBookmarkDeleted = 'SQL-Abfrage wurde gelöscht.';
@@ -68,7 +69,7 @@ $strBookmarkQuery = 'Gespeicherte SQL-Abfrage';
 $strBookmarkThis = 'SQL-Abfrage speichern';
 $strBookmarkView = 'Nur zeigen';
 $strBrowse = 'Anzeigen';
-$strBzip = 'BZip komprimiert';
+$strBzip = 'BZip-komprimiert';
 
 $strCantLoadMySQL = 'Die MySQL-Erweiterung konnte nicht geladen werden.<br />Bitte überprüfen Sie Ihre PHP-Konfiguration!';
 $strCantLoadRecodeIconv = 'Die PHP-Erweiterungen iconv und recode, welche für die Zeichensatzkonvertierung benötigt werden, konnten nicht geladen werden. Bitte ändern Sie Ihre PHP-Konfiguration und aktivieren Sie diese Erweiterungen oder deaktivieren Sie die Zeichensatzkonvertierung in phpMyAdmin.';
@@ -89,6 +90,7 @@ $strColumnNames = 'Spaltennamen';
 $strColumn = 'Spalte';
 $strComments = 'Kommentare';
 $strCompleteInserts = 'Vollständige \'INSERT\'s';
+$strConfigFileError = 'phpMyAdmin konnte Ihre Konfigurationsdatei nicht verarbeiten!<br />Dies kann passieren, wenn der PHP-Parser Syntaxfehler in ihr findet oder sie nicht existiert.<br />Bitte rufen Sie die Konfigurationsdatei üben den unteren Link direkt auf und lesen Sie die PHP-Fehlermeldungen, die Sie erhalten. Meistens fehlt bloß irgendwo ein Anführungszeichen oder Semikolon.<br />Wenn Sie eine leere Seite erhalten, ist Ihre Konfigurationsdatei in Ordnung.';
 $strConfigureTableCoord = 'Bitte konfigurieren Sie die Koordinaten für die Tabelle %s';
 $strConfirm = 'Sind Sie wirklich sicher?';
 $strCookiesRequired = 'Ab diesem Punkt müssen Cookies aktiviert sein.';
@@ -140,6 +142,8 @@ $strEmpty = 'Leeren';
 $strEmptyResultSet = 'MySQL lieferte ein leeres Resultat zurück (d.h. null Zeilen).';
 $strEnabled = 'Aktiviert';
 $strEnd = 'Ende';
+$strEndCut = 'AUSSCHNITTSENDE';
+$strEndRaw = 'ENDE DER AUSGABE';
 $strEnglishPrivileges = ' Anmerkung: MySQL-Rechte werden auf Englisch angegeben. ';
 $strError = 'Fehler';
 $strExplain = 'SQL erklären';
@@ -167,7 +171,7 @@ $strGeneralRelationFeat = 'Allgemine Verknüpfungsfunktionen';
 $strGenTime = 'Erstellungszeit';
 $strGo = 'OK';
 $strGrants = 'Rechte';
-$strGzip = 'GZip komprimiert';
+$strGzip = 'GZip-komprimiert';
 
 $strHasBeenAltered = 'wurde geändert.';
 $strHasBeenCreated = 'wurde erzeugt.';
@@ -362,9 +366,14 @@ $strSize = 'Größe';
 $strSort = 'Sortierung';
 $strSpaceUsage = 'Speicherplatzverbrauch';
 $strSplitWordsWithSpace = 'Die Wörter werden durch Leerzeichen (" ") getrennt.';
+$strSQL = 'SQL';
+$strSQLParserBugMessage = 'Möglicherweise haben Sie einen Bug im SQL-Parser entgeckt. Bitte überprüfen Sie Ihre Abfrage genaustens insbesondere auf falsch gesetzte oder nicht geschlossene Auführungszeichen. Eine weite Ursache könnte darin liegen, dass Sie versuchen eine Datei mit binären Daten welche nicht von Auführungszeichen eingeschlossen sind hochzuladen. Sie können alternativ versuchen Ihre Abfrage über das MySQL-Kommandozeileninterface zu senden. Die MySQL-Fehlerausgabe, falls vorhanden, kann Ihnen auch bei der Fehleranalyse helfen. Falls Sie weiterhin Probleme haben sollten oder der Parser dort versagt wo die Kommandozeile erfolgreich ist, so reduzieren Sie bitte Ihre Abfrage auf den Befehl, welcher die Probleme verursacht, und senden Sie uns einen Bugreport mit den Datenausschnitt, den Sie weiter unten auf dieser Seite finden.:';
+$strSQLParserUserError = 'Es scheint einen Fehler in Ihrer MySQL-Abfrage zu geben. Die MySQL-Fehlerausgabe, falls vorhanden, kann Ihnen auch bei der Fehleranalyse helfen.';
 $strSQLQuery = 'SQL-Befehl';
 $strSQLResult = 'SQL-Abfrageergebnis';
-$strSQL = 'SQL';
+$strSQPBugInvalidIdentifer = 'Ungültiger Bezeichner';
+$strSQPBugUnclosedQuote = 'Nicht geschlossene Anführungszeichen';
+$strSQPBugUnknownPunctuation = 'Unbekannte Interpunktion';
 $strStatement = 'Angaben';
 $strStrucCSV = 'CSV-Daten';
 $strStrucData = 'Struktur und Daten';
@@ -420,22 +429,7 @@ $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
 
-$strZip = 'Zip komprimiert';
+$strZip = 'Zip-komprimiert';
+
 // To translate
-
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strConfigFileError = 'phpMyAdmin konnte Ihre Konfigurationsdatei nicht verarbeiten!<br />Dies kann passieren, wenn der PHP-Parser Syntaxfehler in ihr findet oder sie nicht existiert.<br />Bitte rufen Sie die Konfigurationsdatei üben den unteren Link direkt auf und lesen Sie die PHP-Fehlermeldungen, die Sie erhalten. Meistens fehlt bloß irgendwo ein Anführungszeichen oder Semikolon.<br />Wenn Sie eine leere Seite erhalten, ist Ihre Konfigurationsdatei in Ordnung.'; //to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-
 ?>
