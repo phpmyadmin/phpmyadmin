@@ -66,7 +66,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     echo "\n";
     ?>
-            <input type="text" name="field_name[]" size="10" maxlength="64" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" />
+            <input type="text" name="field_name[]" size="10" maxlength="64" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" class="textfield" />
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="field_type[]">
@@ -121,7 +121,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     echo "\n";
     ?>
-            <input type="text" name="field_length[]" size="8" value="<?php echo str_replace('"', '&quot;', $length); ?>" />
+            <input type="text" name="field_length[]" size="8" value="<?php echo str_replace('"', '&quot;', $length); ?>" class="textfield" />
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="field_attribute[]">
@@ -187,7 +187,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     echo "\n";
     ?>
-            <input type="text" name="field_default[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" />
+            <input type="text" name="field_default[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" class="textfield" />
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="field_extra[]">
@@ -288,7 +288,7 @@ if ($action == 'tbl_create.php3' && PMA_MYSQL_INT_VERSION >= 32300) {
     </tr>
     <tr>
         <td>
-            <input type="text" name="comment" size="40" maxlength="80" />
+            <input type="text" name="comment" size="40" maxlength="80" class="textfield" />
         </td>
     <?php
     // BEGIN - Table Type - 2 May 2001 - Robbat2

@@ -148,9 +148,10 @@ else {
     ?>
     <style type="text/css">
     <!--
-    body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
-    div {color: #000000}
-    .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
+    body    {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
+    div     {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
+    select  {background-color: #ffffff; color: #000000}
+    .heada  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
     .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
     .tblItem:hover {color: #FF0000; text-decoration: underline}
@@ -303,7 +304,8 @@ if ($num_dbs > 1) {
                 } // end for $t (tables list)
 
                 if (!$table_list) {
-                    $table_list = '    <br /><br />' . $strNoTablesFound . "\n";
+                    $table_list = '    <br /><br />' . "\n"
+                                . '    <div>' . $strNoTablesFound . '</div>' . "\n";
                 }
                 $selected = ' selected="selected"';
 
@@ -331,7 +333,7 @@ if ($num_dbs > 1) {
         echo '    </form>' . "\n";
 
         if (!$table_list) {
-            $table_list = '    ' . $strSelectADb . "\n";
+            $table_list = '    <div>' . $strSelectADb . '</div>' . "\n";
         }
 
         // Displays the current database name and the list of tables it

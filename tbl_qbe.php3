@@ -320,7 +320,7 @@ for ($x = 0; $x < $col; $x++) {
     if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
         <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
-            <input type="text" name="Criteria[<?php echo $z; ?>]" value="" style="width: <?php echo $widem; ?>" size="20" />
+            <input type="text" name="Criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $widem; ?>" size="20" />
         </td>
         <?php
         $z++;
@@ -348,7 +348,7 @@ for ($x = 0; $x < $col; $x++) {
     ?>
         <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
             <input type="hidden" name="prev_Criteria[<?php echo $z; ?>]" value="<?php echo $encoded_Criteria; ?>" />
-            <input type="text" name="Criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($stripped_Criteria); ?>" style="width: <?php echo $widem; ?>" size="20" />
+            <input type="text" name="Criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($stripped_Criteria); ?>" class="textfield" style="width: <?php echo $widem; ?>" size="20" />
         </td>
     <?php
     $z++;

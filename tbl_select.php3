@@ -75,12 +75,12 @@ if (!isset($param) || $param[0] == '') {
         <li>
             <div style="margin-bottom: 10px">
             <?php echo $strLimitNumRows . "\n"; ?>
-            <input type="text" size="4" name="session_max_rows" value="<?php echo $cfgMaxRows; ?>" />
+            <input type="text" size="4" name="session_max_rows" value="<?php echo $cfgMaxRows; ?>" class="textfield" />
             </div>
         </li>
         <li>
             <?php echo $strAddSearchConditions; ?><br />
-            <input type="text" name="where" />&nbsp;
+            <input type="text" name="where" class="textfield" />&nbsp;
             <?php echo PMA_showDocuShort('F/u/Functions.html') . "\n"; ?>
             <br /><br />
             <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
@@ -99,7 +99,7 @@ if (!isset($param) || $param[0] == '') {
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($fields_list[$i]); ?></td>
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $fields_type[$i]; ?></td>
                 <td bgcolor="<?php echo $bgcolor; ?>">
-                    <input type="text" name="fields[]" size="40" />
+                    <input type="text" name="fields[]" size="40" class="textfield" />
                     <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
                     <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
                 </td>

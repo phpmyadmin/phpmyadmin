@@ -728,7 +728,7 @@ if ($is_upload) {
     echo '            <i>' . $strOr . '</i> ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
     ?>
             <div style="margin-bottom: 5px">
-            <input type="file" name="sql_file" /><br />
+            <input type="file" name="sql_file" class="textfield" /><br />
             </div>
     <?php
 } // end if
@@ -771,7 +771,7 @@ if ($cfgBookmark['db'] && $cfgBookmark['table']) {
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <?php echo $strAddNewField; ?>&nbsp;:
-            <input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />
+            <input type="text" name="num_fields" size="2" maxlength="2" value="1" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
             <select name="after_field" style="vertical-align: middle">
                 <option value="--end--"><?php echo $strAtEndOfTable; ?></option>
                 <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
@@ -848,13 +848,13 @@ echo "\n";
                     <input type="radio" name="what" value="csv" />
                     <?php echo $strStrucCSV;?>&nbsp;:<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFieldsTerminatedBy; ?>&nbsp;
-                    <input type="text" name="separator" size="2" value=";" />&nbsp;&nbsp;<br />
+                    <input type="text" name="separator" size="2" value=";" class="textfield" />&nbsp;&nbsp;<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFieldsEnclosedBy; ?>&nbsp;
-                    <input type="text" name="enclosed" size="1" value="&quot;" />&nbsp;&nbsp;<br />
+                    <input type="text" name="enclosed" size="1" value="&quot;" class="textfield" />&nbsp;&nbsp;<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strFieldsEscapedBy; ?>&nbsp;
-                    <input type="text" name="escaped" size="2" value="\" />&nbsp;&nbsp;<br />
+                    <input type="text" name="escaped" size="2" value="\" class="textfield" />&nbsp;&nbsp;<br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strLinesTerminatedBy; ?>&nbsp;
-                    <input type="text" name="add_character" size="2" value="<?php echo ((PMA_whichCrlf() == "\n") ? '\n' : '\r\n'); ?>" />&nbsp;&nbsp;
+                    <input type="text" name="add_character" size="2" value="<?php echo ((PMA_whichCrlf() == "\n") ? '\n' : '\r\n'); ?>" class="textfield" />&nbsp;&nbsp;
                 </td>
                 <td valign="middle">
                     <input type="checkbox" name="drop" value="1" />
@@ -917,9 +917,9 @@ if (function_exists('PMA_set_enc_form')) {
             <tr>
                 <td colspan="2">
                     &nbsp;<?php echo $strStartingRecord; ?>&nbsp;
-                    <input type="text" name="limit_from" value="0" size="5" style="vertical-align: middle" onfocus="this.select()" />
+                    <input type="text" name="limit_from" value="0" size="5" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
                     &nbsp;--&nbsp;<?php echo $strNbRecords; ?>&nbsp;
-                    <input type="text" name="limit_to" size="5" value="<?php echo PMA_countRecords($db, $table, TRUE); ?>" style="vertical-align: middle" onfocus="this.select()" />
+                    <input type="text" name="limit_to" size="5" value="<?php echo PMA_countRecords($db, $table, TRUE); ?>" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
                 </td>
             </tr>
             <tr>
@@ -942,7 +942,7 @@ if (function_exists('PMA_set_enc_form')) {
                 <input type="hidden" name="table" value="<?php echo $table; ?>" />
                 <input type="hidden" name="reload" value="1" />
                 <?php echo $strRenameTable; ?>&nbsp;:
-                <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" onfocus="this.select()" />&nbsp;
+                <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" class="textfield" onfocus="this.select()" />&nbsp;
                 <input type="submit" value="<?php echo $strGo; ?>" />
             </form>
         </div>
@@ -983,7 +983,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
 ?>
                         </select>
                         &nbsp;<b>.</b>&nbsp;
-                        <input type="text" size="20" name="new_name" value="<?php echo $table; ?>" onfocus="this.select()" />
+                        <input type="text" size="20" name="new_name" value="<?php echo $table; ?>" class="textfield" onfocus="this.select()" />
                     </td>
                 </tr>
                 <tr>
@@ -1025,7 +1025,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
 ?>
                         </select>
                         &nbsp;<b>.</b>&nbsp;
-                        <input type="text" size="20" name="new_name" onfocus="this.select()" />
+                        <input type="text" size="20" name="new_name" class="textfield" onfocus="this.select()" />
                     </td>
                 </tr>
                 <tr>
@@ -1126,7 +1126,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
             <?php echo $strTableComments; ?>&nbsp;:&nbsp;
             <input type="hidden" name="prev_comment" value="<?php echo urlencode($show_comment); ?>" />&nbsp;
-            <input type="text" name="comment" maxlength="60" size="30" value="<?php echo str_replace('"', '&quot;', $show_comment); ?>" style="vertical-align: middle" onfocus="this.select()" />&nbsp;
+            <input type="text" name="comment" maxlength="60" size="30" value="<?php echo str_replace('"', '&quot;', $show_comment); ?>" class="textfield" style="vertical-align: middle" onfocus="this.select()" />&nbsp;
             <input type="submit" name="submitcomment" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
         </form>
     </li>

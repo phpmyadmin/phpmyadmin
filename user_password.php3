@@ -116,10 +116,10 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
             <?php echo $GLOBALS['strPassword']; ?>&nbsp;:&nbsp;
         </td>
         <td>
-            <input type="password" name="pma_pw" size="10" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
+            <input type="password" name="pma_pw" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
             &nbsp;&nbsp;
             <?php echo $GLOBALS['strReType']; ?>&nbsp;:&nbsp;
-            <input type="password" name="pma_pw2" size="10" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
+            <input type="password" name="pma_pw2" size="10" class="textfield" <?php echo $chg_evt_handler; ?>="nopass[1].checked = true" />
         </td>
     </tr>
     <tr>

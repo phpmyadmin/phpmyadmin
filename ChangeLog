@@ -8,6 +8,12 @@ $Source$
 2002-04-10 Alexander M. Turek <rabus@users.sourceforge.net>
 	* config.inc.php3, line 73: removed the "experimental" warning for the
 	  "cfgLeftFrameLight" setting.
+    * db_details.php3, header.inc.php3, left.php3, main.php3, tbl_change.php3,
+      tbl_indexes.php3, tbl_properties.php3, tbl_qbe.php3, tbl_select.php3,
+      user_details.php3, user_password.php3, libraries/display_tbl.lib.php3,
+      libraries/auth/cookie.auth.lib.php3: Better fix bugs #539756 / #540718
+    * left.php3, libraries/auth/cookie.auth.lib.php3: Fixed design for NN 4.x.
+    * Documentation.*: Added myself.
 
 2002-04-10 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/chinese* update thanks to Siu Sun (siusun)
