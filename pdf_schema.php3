@@ -19,6 +19,8 @@ require('./libraries/common.lib.php3');
  * Settings for relation stuff
  */
 require('./libraries/relation.lib.php3');
+require('./libraries/transformations.lib.php3');
+
 $cfgRelation = PMA_getRelationsParam();
 
 
@@ -1253,7 +1255,9 @@ function PMA_RT_DOC($alltables ){
         if ($cfgRelation['commwork']) {
             $comments = PMA_getComments($db, $table);
         }
-
+        if ($cfgRelation['mimework']) {
+            $mime_map = PMA_getMIME($db, $table, true);
+        }
 
         /**
          * Gets table informations
@@ -1364,8 +1368,9 @@ function PMA_RT_DOC($alltables ){
             $pdf->Cell(20,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
             $pdf->Cell(25,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
             $pdf->Cell(45,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
-            $pdf->Cell(112,8,ucfirst($GLOBALS['strComments']),1,1,'C');
-            $pdf->SetWidths(array(25,20,20,10,20,25,45,112));
+            $pdf->Cell(67,8,ucfirst($GLOBALS['strComments']),1,0,'C');
+            $pdf->Cell(45,8,'MIME',1,1,'C');
+            $pdf->SetWidths(array(25,20,20,10,20,25,45,67,45));
         } else {
             $pdf->Cell(20,8,ucfirst($GLOBALS['strField']),1,0,'C');
             $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');
@@ -1374,8 +1379,9 @@ function PMA_RT_DOC($alltables ){
             $pdf->Cell(15,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
             $pdf->Cell(15,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
             $pdf->Cell(30,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
-            $pdf->Cell(60,8,ucfirst($GLOBALS['strComments']),1,1,'C');
-            $pdf->SetWidths(array(20,20,20,10,15,15,30,60));
+            $pdf->Cell(30,8,ucfirst($GLOBALS['strComments']),1,0,'C');
+            $pdf->Cell(30,8,'MIME',1,1,'C');
+            $pdf->SetWidths(array(20,20,20,10,15,15,30,30,30));
         }
         $pdf->SetFont('', '');
     
@@ -1434,7 +1440,8 @@ function PMA_RT_DOC($alltables ){
                             ((isset($row['Default'])) ?  $row['Default'] : ''),
                             $row['Extra']  ,
                             ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] : ''),
-                            ((isset($comments[$field_name])) ? $comments[$field_name]  : '' )
+                            ((isset($comments[$field_name])) ? $comments[$field_name]  : '' ),
+                            ((isset($mime_map) && isset($mime_map[$field_name])) ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])  : '' )
                             );
             $links[0] = $pdf->PMA_links['RT'][$table][$field_name];
             if (isset($res_rel[$field_name]['foreign_table']) AND

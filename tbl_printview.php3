@@ -15,6 +15,8 @@ if (!isset($selected_tbl)) {
  * Gets the relations settings
  */
 require('./libraries/relation.lib.php3');
+require('./libraries/transformations.lib.php3');
+
 $cfgRelation  = PMA_getRelationsParam();
 
 
@@ -188,6 +190,9 @@ while (list($key, $table) = each($the_tables)) {
     if ($cfgRelation['commwork']) {
         echo '    <th>' . $strComments . '</th>' . "\n";
     }
+    if ($cfgRelation['mimework']) {
+        echo '    <th>MIME</th>' . "\n";
+    }
     ?>
 </tr>
 
@@ -270,6 +275,15 @@ while (list($key, $table) = each($the_tables)) {
         $comments = PMA_getComments($db, $table);
         if (isset($comments[$field_name])) {
             echo htmlspecialchars($comments[$field_name]);
+        }
+        echo '&nbsp;</td>' . "\n";
+    }
+    if ($cfgRelation['mimework']) {
+        $mime_map = PMA_getMIME($db, $table, true);
+
+        echo '    <td class="print">';
+        if (isset($mime_map[$field_name])) {
+            echo htmlspecialchars(str_replace('_', '/', $mime_map[$field_name]['mimetype']));
         }
         echo '&nbsp;</td>' . "\n";
     }

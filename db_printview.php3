@@ -15,6 +15,11 @@ require('./header.inc.php3');
  */
 $err_url = 'db_details.php3?' . PMA_generate_common_url($db);
 
+/**
+ * Settings for relations stuff
+ */
+require('./libraries/relation.lib.php3');
+$cfgRelation = PMA_getRelationsParam();
 
 /**
  * Gets the list of the table in the current db and informations about these
@@ -77,6 +82,21 @@ else {
     mysql_free_result($result);
 }
 
+if ($cfgRelation['commwork']) {
+    $comment = PMA_getComments($db);
+
+    /**
+     * Displays DB comment
+     */
+    if (is_array($comment)) {
+        ?>
+    <!-- DB comment -->
+    <p><i>
+        <?php echo htmlspecialchars(implode(' ', $comment)) . "\n"; ?>
+    </i></p>
+        <?php
+    } // end if
+}
 
 /**
  * If there is at least one table, displays the printer friendly view, else
@@ -102,6 +122,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     }
     echo "\n";
     ?>
+    <th><?php echo $strComments; ?></th>
 </tr>
     <?php
     $i = $sum_entries = $sum_size = 0;
@@ -184,6 +205,9 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         }
         echo "\n";
         ?>
+    <td bgcolor="<?php echo $bgcolor; ?>">
+        <?php echo $sts_data['Comment']; ?>
+    </td>
 </tr>
         <?php
     }
@@ -214,6 +238,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     }
     echo "\n";
     ?>
+    <th>&nbsp;</th>
 </tr>
 </table>
     <?php

@@ -15,6 +15,9 @@ if (!isset($selected_tbl)) {
  * Gets the relations settings
  */
 require('./libraries/relation.lib.php3');
+require('./libraries/transformations.lib.php3');
+
+$cfgRelation  = PMA_getRelationsParam();
 
 
 /**
@@ -26,6 +29,21 @@ if (isset($table)) {
     $err_url = 'db_details.php3?' . PMA_generate_common_url($db);
 }
 
+if ($cfgRelation['commwork']) {
+    $comment = PMA_getComments($db);
+
+    /**
+     * Displays DB comment
+     */
+    if (is_array($comment)) {
+        ?>
+    <!-- DB comment -->
+    <p><?php echo $strDBComment; ?> <i>
+        <?php echo htmlspecialchars(implode(' ', $comment)) . "\n"; ?>
+    </i></p>
+        <?php
+    } // end if
+}
 
 /**
  * Selects the database and gets tables names
@@ -42,7 +60,6 @@ while ($row = mysql_fetch_array($rowset)) {
         $myfieldname = 'Tables in ' . htmlspecialchars($db);
     }
     $table        = $row[$myfieldname];
-    $cfgRelation  = PMA_getRelationsParam();
     if ($cfgRelation['commwork']) {
         $comments = PMA_getComments($db, $table);
     }
@@ -170,6 +187,9 @@ while ($row = mysql_fetch_array($rowset)) {
     if ($cfgRelation['commwork']) {
         echo '    <th>' . $strComments . '</th>' . "\n";
     }
+    if ($cfgRelation['mimework']) {
+        echo '    <th>MIME</th>' . "\n";
+    }
     ?>
 </tr>
 
@@ -251,6 +271,15 @@ while ($row = mysql_fetch_array($rowset)) {
             echo '    <td class="print">';
             if (isset($comments[$field_name])) {
                 echo htmlspecialchars($comments[$field_name]);
+            }
+            echo '&nbsp;</td>' . "\n";
+        }
+        if ($cfgRelation['mimework']) {
+            $mime_map = PMA_getMIME($db, $table, true);
+    
+            echo '    <td class="print">';
+            if (isset($mime_map[$field_name])) {
+                echo htmlspecialchars(str_replace('_', '/', $mime_map[$field_name]['mimetype']));
             }
             echo '&nbsp;</td>' . "\n";
         }

@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2003-03-12 Garvin Hicking <me@supergarv.de>
+    * db_printview.php3, tbl_printview.php3, db_datadict.php3, pdf_schema.php3:
+      Display DB comments and MIME types, where appropriate.
     * header.inc.php3, querywindow.php3, libraries/common.lib.php3: Fixed some bugs for
       the querywindow which didn't show the latest querys always.
     * Documentation.html, db_details.php3, read_dump.php3, tbl_query_box.php3:
