@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/auth/cookie.auth.lib.php3: undefined scheme
+
 2003-06-10 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_qbe.php3: bug 751787, missing FROM part in query generator
     * libraries/export/sql.php3: typo largeblob -> longblob
