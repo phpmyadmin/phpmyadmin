@@ -1147,6 +1147,12 @@ if (!isset($cfg['Export']['htmlexcel_null'])) {
 if (!isset($cfg['Export']['htmlexcel_columns'])) {
     $cfg['Export']['htmlexcel_columns'] = FALSE;
 }
+if (!isset($cfg['Export']['htmlword_structure'])) {
+    $cfg['Export']['htmlword_structure'] = TRUE;
+}
+if (!isset($cfg['Export']['htmlword_data'])) {
+    $cfg['Export']['htmlword_data'] = TRUE;
+}
 if (!isset($cfg['Export']['htmlword_null'])) {
     $cfg['Export']['htmlword_null']                = 'NULL';
 }

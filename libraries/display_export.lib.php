@@ -546,14 +546,17 @@ if (!$hide_structure) { ?>
                     <tr>
                         <th align="left">
                            <b><?php echo $strHTMLWordOptions; ?></b>
-                           <input type="hidden" name="htmlword_data" value="htmlword_data" />
                         </th>
                    </tr>
                    <tr><td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+                    <input type="checkbox" name="htmlword_structure" value="structure" id="checkbox_htmlword_structure" <?php PMA_exportCheckboxCheck('htmlword_structure'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_htmlword_structure') || !getElement('checkbox_htmlword_structure').checked)) return false; else return true;" style="vertical-align: middle" /><label for="checkbox_htmlword_structure"><b><?php echo $strStructure; ?></b></label><br />
+                    </td></tr>
+                   <tr><td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
+                    <input type="checkbox" name="htmlword_data" value="data" id="checkbox_htmlword_data" <?php PMA_exportCheckboxCheck('htmlword_data'); ?> onclick="if (!this.checked &amp;&amp; (!getElement('checkbox_htmlword_structure') || !getElement('checkbox_htmlword_structure').checked)) return false; else return true;" style="vertical-align: middle" /><label for="checkbox_htmlword_data"><b><?php echo $strData; ?>:</b></label><br />
                 <table border="0" cellspacing="1" cellpadding="0">
                        <tr>
                            <td>
-                            <?php echo $strReplaceNULLBy; ?>&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strReplaceNULLBy; ?>&nbsp;
                         </td>
                         <td>
                             <input type="text" name="htmlword_replace_null" size="20" value="<?php echo $cfg['Export']['htmlword_null']; ?>" class="textfield" />
@@ -561,7 +564,7 @@ if (!$hide_structure) { ?>
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" name="htmlword_shownames" value="yes" id="checkbox_dump_htmlword_shownames" <?php PMA_exportCheckboxCheck('htmlword_columns'); ?> /><label for="checkbox_dump_htmlword_shownames"><?php echo $strPutColNames; ?></label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="htmlword_shownames" value="yes" id="checkbox_dump_htmlword_shownames" <?php PMA_exportCheckboxCheck('htmlword_columns'); ?> /><label for="checkbox_dump_htmlword_shownames"><?php echo $strPutColNames; ?></label>
                         </td>
                     </tr>
                 </table>

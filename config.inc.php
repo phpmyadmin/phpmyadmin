@@ -320,6 +320,8 @@ $cfg['Export']['remember_file_template']    = TRUE;
 $cfg['Export']['htmlexcel_columns']         = FALSE;
 $cfg['Export']['htmlexcel_null']            = 'NULL';
 
+$cfg['Export']['htmlword_structure']        = TRUE;
+$cfg['Export']['htmlword_data']             = TRUE;
 $cfg['Export']['htmlword_columns']          = FALSE;
 $cfg['Export']['htmlword_null']             = 'NULL';
 

@@ -14,6 +14,10 @@ $Source$
       find any ;-).
     * lang/english: Nothing to translate here.
     * Documentation.html: Document new Excel export.
+    * config.inc.php, libraries/config_import.lib.php,
+      libraries/display_export.lib.php, libraries/export/htmlword.php: Word
+      export now can contain table structure and better handles more
+      tables/databases export.
 
 2005-03-06 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php, /display_export.lib.php,
