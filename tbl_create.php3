@@ -19,7 +19,7 @@ mysql_select_db($db);
  * A new name has been submitted -> do the work
  */
 if (isset($num_fields)) $num_fields=intval($num_fields);
-if (isset($table) && trim($table) != '' && !empty($num_fields)) { 
+if ((!isset($submit) && isset($table) && trim($table) != '' && !empty($num_fields)) || isset($submit)) { 
 
     /**
      * The form used to define the structure of the table has been submitted
