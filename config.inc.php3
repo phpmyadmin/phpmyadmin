@@ -197,6 +197,10 @@ $cfg['UseDbSearch']           = TRUE;   // whether to enable the "database searc
 // Left frame setup
 $cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the
                                         // current tables in the left frame.
+$cfg['LeftFrameTableSeparator']= '__';  // Which string will be used to generate table prefixes
+                                        // to split tables into multiple categories
+$cfg['LeftFrameTableLevel']   = '1';    // How many sublevels should be displayed when splitting
+                                        // up tables by the above Separator
 $cfg['ShowTooltip']           = TRUE;   // display table comment as tooltip in left frame
 $cfg['ShowTooltipAliasDB']    = FALSE;  // if ShowToolTip is enabled, this defines that table/db comments
 $cfg['ShowTooltipAliasTB']    = FALSE;  // are shown (in the left menu and db_details_structure) instead of

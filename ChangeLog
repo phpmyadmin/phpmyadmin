@@ -10,6 +10,8 @@ $Source$
       in the small frame.
     * footer.inc.php3: Only update db/table variables if the query was correct.
       Fixes #735970.
+    * left.php3, config.inc.php3, libraries/config_import.lib.php3, libraries/
+      common.lib.php3: Patch #725839 (Nested display of tables)
 
 2003-05-12 Michal Cihar  <nijel@users.sourceforge.net>
     * index.php3: Better fix for #736003.

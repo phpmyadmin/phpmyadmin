@@ -265,6 +265,14 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         }
     }
 
+    if (!isset($cfg['LeftFrameTableSeparator'])) {
+        $cfg['LeftFrameTableSeparator'] = '__';
+    }
+
+    if (!isset($cfg['LeftFrameTableLevel'])) {
+        $cfg['LeftFrameTableLevel'] = '1';
+    }
+
     if (!isset($cfg['LightTabs'])) {
         $cfg['LightTabs'] = FALSE;
     }

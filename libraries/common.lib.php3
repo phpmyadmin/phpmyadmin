@@ -138,7 +138,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php3 revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 174) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 175) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -1809,13 +1809,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
          * Fulfills todo-item http://sourceforge.net/tracker/index.php?func=detail&aid=544361&group_id=23067&atid=377411
          *
          * @param   string   The string
-         * @param   string   The seperator (defaults to "<br />\n")
+         * @param   string   The Separator (defaults to "<br />\n")
          *
          * @access  public
          * @author  Garvin Hicking <me@supergarv.de>
          * @return  string      The flipped string
          */
-        function PMA_flipstring($string, $seperator = "<br />\n") {
+        function PMA_flipstring($string, $Separator = "<br />\n") {
             $format_string = '';
             $charbuff = false;
 
@@ -1841,7 +1841,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 }
 
                 if ($append && ($i != strlen($string))) {
-                    $format_string .= $seperator;
+                    $format_string .= $Separator;
                 }
             }
 
