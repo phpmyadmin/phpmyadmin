@@ -66,7 +66,7 @@ echo "------"
 
 ls -la *.gz *.zip *.bz2
 cd ..
-chmod 775 cvs
+chmod -R 775 cvs
 
 
 cat <<END
