@@ -92,6 +92,7 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
 
 <head>
 <title>phpMyAdmin <?php echo PMA_VERSION; ?></title>
+<base href="<?php echo $cfg['PmaAbsoluteUri']; ?>" />
 <style type="text/css">
 <!--
 body            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
@@ -298,24 +299,27 @@ if (uname.value == '') {
         else {
             if (!empty($pma_cookie_username)) {
                 $PHP_AUTH_USER = $pma_cookie_username;
+                $from_cookie   = TRUE;
             }
             else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username'])) {
                 $PHP_AUTH_USER = $_COOKIE['pma_cookie_username'];
+                $from_cookie   = TRUE;
             }
             else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_username'])) {
                 $PHP_AUTH_USER = $HTTP_COOKIE_VARS['pma_cookie_username'];
+                $from_cookie   = TRUE;
             }
             if (!empty($pma_cookie_password)) {
                 $PHP_AUTH_PW   = $pma_cookie_password;
-                $from_cookie   = TRUE;
             }
             else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_password'])) {
                 $PHP_AUTH_PW   = $_COOKIE['pma_cookie_password'];
-                $from_cookie   = TRUE;
             }
             else if (!empty($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_cookie_password'])) {
                 $PHP_AUTH_PW   = $HTTP_COOKIE_VARS['pma_cookie_password'];
-                $from_cookie   = TRUE;
+            }
+            else {
+                $from_cookie   = FALSE;
             }
         }
 
@@ -377,7 +381,7 @@ if (uname.value == '') {
             setcookie('pma_cookie_username',
                 $cfg['Server']['user'],
                 time() + (60 * 60 * 24 * 30),
-                $GLOBALS['cookie_path'], '' ,
+                $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);
             // Duration = till the browser is closed for password
             setcookie('pma_cookie_password',

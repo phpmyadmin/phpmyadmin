@@ -18,6 +18,7 @@ $Source$
       - fixed a warning thanks to
         Svetlio Kovachev <svetlio at users.sourceforge.net>;
       - coding standards.
+    * libraries/auth/cookies.auth.php3: improved a bit the detection mechanism. 
 
 2002-05-25 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/common.lib.php3:
