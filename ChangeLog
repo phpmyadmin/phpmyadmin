@@ -7,6 +7,7 @@ $Source$
 
 2002-05-24 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, images/bkg.gif: Tried to "fix" bug (?) #558155.
+    * Documentation.*: The Mozilla textarea bug also appears in Mozilla 1.0-RC3.
 
 2002-05-24 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/*.php3, libraries/common.lib.php3: new features EXPLAIN
@@ -33,7 +34,7 @@ $Source$
       field maintenance, thanks to Mike Beck
 
 2002-05-23 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * Documentation.html: The Mozilla textarea bug also appears in
+    * Documentation.*: The Mozilla textarea bug also appears in
       Mozilla 1.0-RC2 and Netscape 7.0-PR1.
 
 2002-05-22 Loïc Chapeaux  <lolo@phpheaven.net>
