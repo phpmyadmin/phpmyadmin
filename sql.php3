@@ -63,14 +63,16 @@ else {
   	if (!isset($sql_query)) $sql_query = '';
   	if (!isset($sql_order)) $sql_order = '';
   }
-    // loic1: A table have to be created -> left frme should be reloaded
+    // loic1: A table have to be created -> left frame should be reloaded
     if (!empty($reload) && eregi("^CREATE TABLE (.*)", $sql_query))
         $reload = true;
     if(isset($sessionMaxRows))
         $cfgMaxRows = $sessionMaxRows;
     $sql_limit = (isset($pos) && eregi("^SELECT", $sql_query) && !eregi("LIMIT[ 0-9,]+$", $sql_query)) ? " LIMIT $pos, $cfgMaxRows" : '';
     mysql_select_db($db);
+
     $result = mysql_query($sql_query.$sql_order.$sql_limit);
+
     // the same SELECT without LIMIT
     if(eregi("^SELECT", $sql_query))
     {
