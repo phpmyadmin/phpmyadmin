@@ -193,7 +193,11 @@ if (!defined('__LIB_INC__')){
 
         // The user can work with only one database
         if (isset($cfgServer['only_db']) && !empty($cfgServer['only_db'])) {
-            $dblist[] = $cfgServer['only_db'];
+            if (is_array($cfgServer['only_db'])) {
+                $dblist   = $cfgServer['only_db'];
+            } else {
+                $dblist[] = $cfgServer['only_db'];
+            }
         }
 
         // Advanced authentication is required

@@ -31,6 +31,9 @@ $Source$
 	* lib.inc.php3, line 524: beautify a bit the way the query is displayed.
 	* lang/english.inc.php3; lang/french.inc.php3: put $strInstructions at its
 	  right place.
+	* lib.inc.php3, lines 196-200; config.inc.php3, line 40;
+	  Documentation.html, lines 352-357: merged patch #452877
+	  ($cfgServer['only_db'] - array) from Jakub Wilk.
 
 2001-08-18  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* lib.inc.php3 (788, 790) : tweak size for lower resolution screens.
