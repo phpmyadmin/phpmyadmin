@@ -13,6 +13,7 @@ $Source$
     * lang/norwegian updates, thanks to Sven-Erik Andersen
     * tbl_properties_structure.php3, bug 572127: wrong back link, thanks
       to "nobody"
+    * tbl_addfield.php3, goback to the structure sub-page
 
 2002-06-20 Robin Johnson  <robbat2@users.sourceforge.net>
     * tbl_qbe.php3: Using * for tables fields disables 

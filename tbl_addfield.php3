@@ -189,11 +189,11 @@ if (isset($submit)) {
         }
     } // end if
 
-    // Go back to table properties
+    // Go back to the structure sub-page
     $sql_query = $sql_query_cpy;
     unset($sql_query_cpy);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
-    include('./tbl_properties.php3');
+    include('./tbl_properties_structure.php3');
     exit();
 } // end do alter table
 
