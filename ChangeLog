@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/hebrew update, thanks to Yuval Sarna
+
 2003-03-20 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/indonesian: Updated, thanks again to Rachim Tamsjadi.
 
