@@ -1,9 +1,13 @@
-----------------------
+﻿----------------------
 phpMyAdmin - Changelog
 ----------------------
 
 $Id$
 $Source$
+
+2004-10-24 Michael Keck <mkkeck@users.sourceforge.net>
+    * config.inc.php, themes/*/layout.inc.php:
+      bug #1050666 - Query window too small darkblue/orange theme
 
 2004-10-23 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: top index for user initials
