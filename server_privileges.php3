@@ -991,7 +991,7 @@ if (empty($adduser) && empty($checkprivs)) {
                    . '                ' . join(',' . "\n" . '            ', $privs) . "\n"
                    . '            </tt></td>' . "\n"
                    . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . ($row['Grant_priv'] == 'Y' ? $strYes : $strNo) . '</td>' . "\n"
-                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row['User']) . ($row['Host'] == '%' ? '' : '&amp;hostname=' . urlencode($row['Host'])) . '">' . $strEdit . '</a></td>' . "\n"
+                   . '            <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($row['User']) . '&amp;hostname=' . urlencode($row['Host']) . '">' . $strEdit . '</a></td>' . "\n"
                    . '        </tr>' . "\n";
                 $useBgcolorOne = !$useBgcolorOne;
             }
