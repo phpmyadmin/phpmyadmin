@@ -568,6 +568,7 @@ if ($num_tables > 0) {
     
     <!-- Dump of a database -->
     <li>
+        <a name="dumpdb"></a>
         <form method="post" action="tbl_dump.php3" name="db_dump">
         <?php echo $strViewDumpDB; ?><br />
         <table>
@@ -612,9 +613,9 @@ if ($num_tables > 0) {
         echo "\n";
     ?>
                 <br />
-                <a href="<?php echo $checkall_url; ?>&amp;selectall=1" onclick="setSelectOptions('db_dump', 'table_select[]', true); return false;"><?php echo $strCheckAll; ?></a>
+                <a href="<?php echo $checkall_url; ?>&amp;selectall=1#dumpdb" onclick="setSelectOptions('db_dump', 'table_select[]', true); return false;"><?php echo $strCheckAll; ?></a>
                 &nbsp;/&nbsp;
-                <a href="<?php echo $checkall_url; ?>" onclick="setSelectOptions('db_dump', 'table_select[]', false); return false;"><?php echo $strUncheckAll; ?></a>
+                <a href="<?php echo $checkall_url; ?>#dumpdb" onclick="setSelectOptions('db_dump', 'table_select[]', false); return false;"><?php echo $strUncheckAll; ?></a>
     <?php
     }  // end if
     echo "\n";
