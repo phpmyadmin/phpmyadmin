@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.427 2003/04/10
-       16:38:46 nijel Exp $
+     * Documentation version: $Id: Documentation.html,v 1.428 2003/04/10
+       16:48:30 nijel Exp $
 
 Requirements
 
@@ -1031,6 +1031,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
    $cfg['BrowseMIME'] boolean
           Enable MIME-transformations.
+
+   $cfg['MaxExactCount'] integer
+          Determines for how large tables phpMyAdmin should get exact row
+          count by SELECT COUNT. If approximate row cound is smaller than
+          this value, SELECT COUNT will be used, otherwise only value
+          returned by SHOW TABLE STATUS.
 
    $cfg['SQP']['fmtType'] string [html|none]
           The main use of the new SQL Parser is to pretty-print SQL

@@ -10,6 +10,7 @@ $Source$
       SELECT COUNT(*) only for small (<20000 rows) tables (RFE #708533).
     * config.inc.php3, db_details_structure.php3, libraries/common.lib.php3:
       $cfg['MaxExactCount'] is now used instead of hardcoded 20000 for above.
+    * Documentation.*: Documented above.
     * lang/albanian: Updated, thanks to Laurent Dhima (laurenti).
     * lang/galician: Added missing string.
     * lang/thai: Updated, thanks to Arthit Suriyawongkul.
