@@ -115,7 +115,11 @@ if (isset($submit)) {
     } // end for
     $query = ereg_replace(', ADD $', '', $query);
 
-    $sql_query     = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD ' . $query;
+    // To allow replication, we first select the db to use and then run queries
+    // on this db.
+    $sql_query     = 'USE ' . PMA_backquote($db);
+    $result        = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+    $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD ' . $query;
     $result        = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $sql_query_cpy = $sql_query . ';';
 
@@ -129,7 +133,7 @@ if (isset($submit)) {
         } // end for
         $primary     = ereg_replace(', $', '', $primary);
         if (!empty($primary)) {
-            $sql_query      = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
+            $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
             $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
@@ -145,7 +149,7 @@ if (isset($submit)) {
         } // end for
         $index     = ereg_replace(', $', '', $index);
         if (!empty($index)) {
-            $sql_query      = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD INDEX (' . $index . ')';
+            $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX (' . $index . ')';
             $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
@@ -161,7 +165,7 @@ if (isset($submit)) {
         } // end for
         $unique = ereg_replace(', $', '', $unique);
         if (!empty($unique)) {
-            $sql_query      = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD UNIQUE (' . $unique . ')';
+            $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE (' . $unique . ')';
             $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
@@ -178,7 +182,7 @@ if (isset($submit)) {
         } // end for
         $fulltext = ereg_replace(', $', '', $fulltext);
         if (!empty($fulltext)) {
-            $sql_query      = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
+            $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
             $result         = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
             $sql_query_cpy  .= "\n" . $sql_query . ';';
         }

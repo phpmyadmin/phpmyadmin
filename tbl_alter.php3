@@ -83,8 +83,12 @@ if (isset($submit)) {
         }
     } // end for
 
+    // To allow replication, we first select the db to use and then run queries
+    // on this db.
+    $sql_query     = 'USE ' . PMA_backquote($db);
+    $result        = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     // Optimization fix - 2 May 2001 - Robbat2
-    $sql_query = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' CHANGE ' . $query;
+    $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE ' . $query;
     $result    = mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
     $btnDrop   = 'Fake';
