@@ -563,7 +563,10 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             //        bufferized
             if (!empty($GLOBALS['ob_mode'])
                 && (isset($GLOBALS['zip']) || isset($GLOBALS['bzip']) || isset($GLOBALS['gzip']))) {
-                header('Expires: 0');
+                if (!isset($GLOBALS['now']) {
+                    $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
+                }
+                header('Expires: ' . $GLOBALS['now']);
             }
         } // end while
         mysql_free_result($result);

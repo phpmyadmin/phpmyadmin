@@ -173,17 +173,18 @@ else {
                    : 'application/octet-stream';
     }
 
+    $now = gmdate('D, d M Y H:i:s') . ' GMT';
+
     // Send headers
     header('Content-Type: ' . $mime_type);
+    header('Expires: ' . $now);
     // lem9 & loic1: IE need specific headers
     if (PMA_USR_BROWSER_AGENT == 'IE') {
         header('Content-Disposition: inline; filename="' . $filename . '.' . $ext . '"');
-        header('Expires: 0');
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Pragma: public');
     } else {
         header('Content-Disposition: attachment; filename="' . $filename . '.' . $ext . '"');
-        header('Expires: 0');
         header('Pragma: no-cache');
     }
 } // end download

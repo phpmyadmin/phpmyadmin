@@ -5,9 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-03 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * tbl_dump.php3, libraries/build_dump.lib.php3: Completed fix against
+      bug #607896, thanks to Loïc.
+
 2002-10-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, header_prinview.inc.php3: Corrected value for the
-      'Expires' HTTP header.
+      'Expires' HTTP header (Fixed bug #607896).
     * lang/german-utf-8.inc.php3: Wrong $charset value.
 
 2002-10-02 Loïc Chapeaux  <lolo@phpheaven.net>
