@@ -55,6 +55,12 @@ echo "\n";
             <label for="radio_dump_xml"><?php echo $strExportToXML; ?></label>
 <?php
 if ($num_tables > 1) {
+    $checkall_url = 'db_details_export.php3'
+                  . '?lang=' . $lang
+                  . '&amp;convcharset=' . $convcharset
+                  . '&amp;server=' . $server
+                  . '&amp;db=' . $db
+                  . '&amp;goto=db_details_export.php3';
     ?>
             <br />
             <a href="<?php echo $checkall_url; ?>&amp;selectall=1#dumpdb" onclick="setSelectOptions('db_dump', 'table_select[]', true); return false;"><?php echo $strSelectAll; ?></a>

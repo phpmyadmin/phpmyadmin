@@ -9,6 +9,8 @@ $Source$
     * user_details.php3: Added a tooltip for the new documenation link.
     * sql.php3: Fixed bug #574855 (wrong counted rows with many functions)
       thanks to Svetlozar Kovachev (svetlio).
+    * db_details_export.php3: Fixed bug #575591 ('select all' doesn't work
+      without javascript).
 
 2002-06-29 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_qbe.php3: show upper links
