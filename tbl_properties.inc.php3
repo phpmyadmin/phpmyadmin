@@ -11,7 +11,7 @@
 <?php
 if ($action == 'tbl_create.php3') {
     ?>
-    <input type="hidden" name="reload" value="true" />
+    <input type="hidden" name="reload" value="1" />
     <?php
 }
 else if ($action == 'tbl_addfield.php3') {

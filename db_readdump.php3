@@ -107,7 +107,7 @@ if ($sql_query != '') {
             $sql_query = addslashes($sql_query);
         }
         if (eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $sql_query)) {
-            $reload = 'true';
+            $reload = 1;
         }
         include('./sql.php3');
         exit();
@@ -125,7 +125,7 @@ if ($sql_query != '') {
                 }
             }
             if (!isset($reload) && eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $a_sql_query)) {
-                $reload = 'true';
+                $reload = 1;
             }
         } // end for
     } // end else if

@@ -85,7 +85,7 @@ if (isset($new_name) && trim($new_name) != '') {
     }
 
     $message  = sprintf($strCopyTableOK, $source, $target);
-    $reload   = 'true';
+    $reload   = 1;
 } // end is target table name
 
 

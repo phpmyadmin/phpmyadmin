@@ -103,13 +103,13 @@ else if ((get_magic_quotes_gpc() && stripslashes($btnDrop) == $strYes)
             case 'drop_db':
                 $a_query = 'DROP DATABASE '
                          . backquote(urldecode($selected[$i]));
-                $reload  = 'true';
+                $reload  = 1;
                 break;
 
             case 'drop_tbl':
                 $a_query = 'DROP TABLE '
                          . backquote(urldecode($selected[$i]));
-                $reload  = 'true';
+                $reload  = 1;
                 break;
 
             case 'empty_tbl':
