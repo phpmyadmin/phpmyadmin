@@ -60,7 +60,8 @@ if (isset($submit_num_fields)) {
             continue;
         }
         $query = PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];
-        if ($field_length[$i] != '') {
+        if ($field_length[$i] != ''
+            && !preg_match('@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$@i', $field_type[$i])) {
             $query .= '(' . $field_length[$i] . ')';
         }
         if ($field_attribute[$i] != '') {

@@ -8,7 +8,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin 2.6.1-dev - Documentation</title>
+    <title>phpMyAdmin 2.6.1-rc2 - Documentation</title>
     <link rel="stylesheet" type="text/css" href="docs.css" />
 </head>
 
@@ -31,7 +31,7 @@
 <hr noshade="noshade" width="100%" />
 </div>
 
-<h1>phpMyAdmin 2.6.1-dev Documentation</h1>
+<h1>phpMyAdmin 2.6.1-rc2 Documentation</h1>
 
 
 <!-- TOP MENU -->
@@ -62,12 +62,24 @@
 
 <ul>
     <li>
-        php 4.1.0 or later (<a href="#faqphp5">*</a>)<br />
-        If you want to display inline thumbnails of JPEGs with the original
-        aspect ratio, you also need GD2 support in PHP.
+        <b>PHP</b>
+        <ul>
+            <li>You need PHP 4.1.0 or newer (<a href="#faqphp5">*</a>)</li>
+            <li>If you want to display inline thumbnails of JPEGs with the 
+                original aspect ratio, you also need GD2 support in PHP</li>
+            <li>Starting with phpMyAdmin 2.6.1, MIME-based transformations
+                that use an external program need PHP 4.3.0 or newer</li>
+        </ul>
     </li>
     <li>
-        MySQL 3.23.32 or newer (<a href="#faqmysqlversions">details</a>);
+        <b>MySQL</b> 3.23.32 or newer (<a href="#faqmysqlversions">details</a>);
+    </li>
+    <li>
+        Not really a requirement but a <b>strong suggestion</b>:
+        if you are using
+        the &quot;cookie&quot; authentication method, having the <tt>mcrypt</tt>
+        PHP extension on your web server accelerates not only the login
+        phase but every other action that you do in phpMyAdmin. 
     </li>
     <li>
         a web-browser (doh!).
@@ -156,7 +168,9 @@
          Also insert the correct value for <tt>$cfg['PmaAbsoluteUri']</tt>.
          Have a look at
          <a href="#config">Configuration section</a> for an
-         explanation of all values.</li>
+         explanation of all values. Please also read the remaining of this
+         Installation section for information about authentication modes
+         and the linked-tables infrastructure.</li>
     <li> It is recommended that you protect the directory in which you
          installed phpMyAdmin (unless it's on a closed intranet, or you wish to
          use HTTP or cookie authentication), for example with HTTP-AUTH (in a
@@ -227,9 +241,9 @@
         in the configuration file.<br /><br /></li>
 
     <li>HTTP and cookie authentication modes are more secure: the MySQL
-        password does not need to be set in the phpMyAdmin configuration file
-        (except for the &quot;controluser&quot; -see the
-        <a href="#config">Configuration section</a>).
+        login information does not need to be set in the phpMyAdmin 
+        configuration file
+        (except possibly for the <a href="#controluser">controluser</a>).
         <br />
         However, keep in mind that the password travels in plain text, unless
         you are using the HTTPS protocol.
@@ -239,14 +253,18 @@
         <br /><br /></li>
 
     <li>
+        <b>Note: starting with phpMyAdmin 2.6.1, configuring the controluser
+        to enable HTTP and cookie authentication applies <i>only 
+        to MySQL servers older than 4.1.2</i>.</b>
+        <br /><br />
         For 'HTTP' and 'cookie' modes, phpMyAdmin needs a controluser that has
         <b>only</b> the <tt>SELECT</tt> privilege on the <i>mysql.user (all
         columns except &quot;Password&quot;)</i>, <i>mysql.db (all
         columns)</i>, <i>mysql.host (all columns)</i> and
         <i>mysql.tables_priv (all columns except
         &quot;Grantor&quot; &amp; &quot;Timestamp&quot;) </i>tables.<br /> You
-        must specify the details for the controluser in the
-        <i>config.inc.php</i> file under the
+        must specify the details for the <a href="#controluser">controluser</a>
+        in the <i>config.inc.php</i> file under the
         <tt>$cfg['Servers'][$i]['controluser']</tt>&amp;
         <tt>$cfg['Servers'][$i]['controlpass']</tt> settings.<br /> The
         following example assumes you want to use <tt>pma</tt> as the
@@ -328,6 +346,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         with the same username.</li>
     <li>If you want to login to arbitrary server see
     <tt><a href="#AllowArbitraryServer">$cfg['AllowArbitraryServer']</a></tt> directive.</li>
+    <li>See also the <a href="#require">requirements</a> section for a way 
+        to improve the interface speed while using this mode.</li>
 </ul>
 
 <h4>'config' authentication mode</h4>
@@ -495,14 +515,20 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dd>
 
     <dt>
+<a name="controluser"></a><br />
         <b>$cfg['Servers'][$i]['controluser']</b> string<br />
         <b>$cfg['Servers'][$i]['controlpass']</b> string
     </dt>
     <dd>
+        <i>Note: starting with phpMyAdmin 2.6.1, configuring the controluser
+        to enable HTTP and cookie authentication applies only 
+        to MySQL servers older than 4.1.2.</i>
+        <br /><br />
         This special account is used for 2 distinct purposes: to make possible
-        a multi-user installation (http or cookie authentication mode) and
-        also for all relational features (see
-        <a href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>).
+        all relational features 
+        (see <a href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>) and, for a 
+        MySQL server older than 4.1.2, to enable a multi-user installation 
+        (http or cookie authentication mode).
         <br /><br />
         When using HTTP or cookie authentication modes (or 'config'
         authentication mode since phpMyAdmin 2.2.1), you need to supply the
@@ -521,7 +547,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         privileges you gave to the &quot;controluser&quot;. phpMyAdmin does not
         support a direct login with the &quot;controluser&quot;.
         <br /><br />
-        In versions before 2.2.5, those were called
+        In phpMyAdmin versions before 2.2.5, those were called
         &quot;stduser/stdpass&quot;.
         <br /><br />
     </dd>
@@ -844,7 +870,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <b>$cfg['Servers'][$i]['AllowRoot']</b> boolean
     </dt>
     <dd>
-        Whethet to allow root access, This is just simplification of rules bellow.
+        Whether to allow root access, This is just simplification of rules below.
         <br /><br />
     </dd>
     <dt>
@@ -1713,7 +1739,8 @@ Defaults to FALSE (drop-down). <br />
         Determines for how large tables phpMyAdmin should get exact row count by
     <code>SELECT COUNT</code>. If approximate row count is smaller than this
     value, <code>SELECT COUNT</code> will be used, otherwise only value
-    returned by <code>SHOW TABLE STATUS</code>.
+    returned by <code>SHOW TABLE STATUS</code>. This has currently an impact
+    only on InnoDB tables.
     <br /><br />
     </dd>
 
@@ -2955,6 +2982,16 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     can use it for the Edit and Delete links.
 </p>
 
+<h4>
+    [3.11] The number of records for InnoDB tables is not correct.
+</h4>
+<p>
+    phpMyAdmin uses a quick method to get the row count, and this method
+    only returns an approximate count in the case of InnoDB tables. See 
+    <tt>$cfg['MaxExactCount']</tt> for a way to modify those results, but  
+    this could have a serious impact on performance.
+</p>
+
 <a name="faqmultiuser"></a><br />
 <h3>[4. ISPs, multi-user installations ]</h3>
 
@@ -3664,11 +3701,13 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     You can either export as CSV suitable for MS Excel, which works out of the
-    box or you can try native <b>experimental</b> MS Excel exporter. For
-    enabling this you need to set $cfg['TempDir'] to place where web server
-    user can write (for example <tt>'./tmp'</tt>)
-    and install PEAR module Spreadsheet_Excel_Writer into php
-    include path. The installation can be done by following command:
+    box or you can try native <b>experimental</b> MS Excel exporter. <b>This
+    export has several problems, most important are limitation of cell content
+    to 255 chars and no support for charsets, so think carefully whether you
+    want to enable this.</b>.  For enabling this you need to set
+    $cfg['TempDir'] to place where web server user can write (for example
+    <tt>'./tmp'</tt>) and install PEAR module Spreadsheet_Excel_Writer into
+    php include path. The installation can be done by following command:
 </p>
 <pre>
     pear -d preferred_state=beta install -a Spreadsheet_Excel_Writer
@@ -4037,7 +4076,8 @@ CREDITS, in chronological order
 
 - Maxime Delorme &lt;delorme.maxime_at_free.fr&gt;
     * PDF schema output, thanks also to Olivier Plathey for the
-      &quot;FPDF&quot; library (see http://www.fpdf.org/).
+      &quot;FPDF&quot; library (see <a href="http://www.fpdf.org/">http://www.fpdf.org/</a>) and Steven Wittens
+      for the &quot;UFPDF&quot; library (see <a href="http://www.acko.net/node/56">http://www.acko.net/node/56</a>).
 
 - Olof Edlund &lt;olof.edlund_at_upright.se&gt;
     * SQL validator server
@@ -4055,6 +4095,9 @@ CREDITS, in chronological order
 - Michael Keck &lt;mkkeck_at_users.sourceforge.net&gt;
     * redesign for 2.6.0
     * phpMyAdmin sailboat logo (June 2004)
+
+- Mathias Landh&auml;u&szlig;er
+    * Representation at conferences
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version 2.1.0:

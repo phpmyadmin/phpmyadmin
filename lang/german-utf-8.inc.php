@@ -747,4 +747,10 @@ $strIndexWarningPrimary = 'INDEX und PRIMARY Index-Typen sollten nicht gleichzei
 $strIndexWarningUnique = 'INDEX und UNIQUE Index-Typen sollten nicht gleichzeitig für die Spalte `%s` gesetzt sein';
 $strIndexWarningMultiple = 'Es sollte nicht mehr als ein Index des Typs %s für die Spalte `%s` gesetzt sein';
 $strIndexWarningTable = 'Warnungen bei den Indizen der Tabelle `%s`';
+$strNoActivity = 'No activity since %s seconds or more, please login again';  //to translate
+$strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
+$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
+$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
+$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
+$strAfterInsertNext = 'Edit next row';  //to translate
 ?>

@@ -303,7 +303,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
         ?>
                     <input type="hidden" name="names[<?php echo $i; ?>]" value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />
                     <input type="hidden" name="types[<?php echo $i; ?>]" value="<?php echo $fields_type[$i]; ?>" />
-		    <input type="hidden" name="collations[<?php echo $i; ?>]" value="<?php echo $fields_collation[$i]; ?>" />
+                    <input type="hidden" name="collations[<?php echo $i; ?>]" value="<?php echo $fields_collation[$i]; ?>" />
                 </td>
             </tr>
         <?php
@@ -359,9 +359,9 @@ else {
         $cnt_func = count($func);
         reset($func);
         while (list($i, $func_type) = each($func)) {
-	    if (PMA_MYSQL_INT_VERSION >= 40100) {
-	        list($charsets[$i]) = explode('_', $collations[$i]);
-	    }
+            if (PMA_MYSQL_INT_VERSION >= 40100) {
+                list($charsets[$i]) = explode('_', $collations[$i]);
+            }
             if (@$GLOBALS['cfg']['UnaryOperators'][$func_type] == 1) {
                 $fields[$i] = '';
                 $w[] = PMA_backquote(urldecode($names[$i])) . ' ' . $func_type;

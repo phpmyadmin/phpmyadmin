@@ -748,4 +748,10 @@ $strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for col
 $strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
 $strIndexWarningMultiple = 'More than one %s key was created for column `%s`';//to translate
 $strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
+$strNoActivity = 'No activity since %s seconds or more, please login again';  //to translate
+$strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
+$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
+$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
+$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
+$strAfterInsertNext = 'Edit next row';  //to translate
 ?>

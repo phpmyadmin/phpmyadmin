@@ -182,7 +182,7 @@ if (isset($disp_row) && is_array($disp_row)) {
         $val   = key($mysql_val_relrow[$i]);
         $key   = $mysql_val_relrow[$i][$val];
 
-        if (strlen($val) <= $cfg['LimitChars']) {
+        if (PMA_strlen($val) <= $cfg['LimitChars']) {
             $value  = htmlspecialchars($val);
             $vtitle = '';
         } else {
@@ -199,12 +199,12 @@ if (isset($disp_row) && is_array($disp_row)) {
 <?php
         $key   = key($mysql_key_relrow[$i]);
         $val   = $mysql_key_relrow[$i][$key];
-        if (strlen($val) <= $cfg['LimitChars']) {
+        if (PMA_strlen($val) <= $cfg['LimitChars']) {
             $value  = htmlspecialchars($val);
             $vtitle = '';
         } else {
             $vtitle = htmlspecialchars($val);
-            $value  = htmlspecialchars(substr($val, 0, $cfg['LimitChars']) . '...');
+            $value  = htmlspecialchars(PMA_substr($val, 0, $cfg['LimitChars']) . '...');
         }
 
         $key_equals_data = isset($data) && $key == $data;

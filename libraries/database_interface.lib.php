@@ -163,7 +163,7 @@ function PMA_DBI_postConnect($link) {
         }
 
         $mysql_charset = $GLOBALS['mysql_charset_map'][$GLOBALS['charset']];
-        if (empty($collation_connection) || (strpos('_', $collation_connection) ? substr($collation_connection, 0, strpos('_', $collation_connection)) : $collation_connection) == $mysql_charset) {
+        if (empty($collation_connection) || (strpos($collation_connection, '_') ? substr($collation_connection, 0, strpos($collation_connection, '_')) : $collation_connection) == $mysql_charset) {
             PMA_DBI_query('SET NAMES ' . $mysql_charset . ';', $link, PMA_DBI_QUERY_STORE);
         } else {
             PMA_DBI_query('SET CHARACTER SET ' . $mysql_charset . ';', $link, PMA_DBI_QUERY_STORE);
@@ -172,7 +172,7 @@ function PMA_DBI_postConnect($link) {
             PMA_DBI_query('SET collation_connection = \'' . $collation_connection . '\';', $link, PMA_DBI_QUERY_STORE);
         }
         $collation_connection = PMA_DBI_get_variable('collation_connection',     PMA_DBI_GETVAR_SESSION, $link);
-	$charset_connection   = PMA_DBI_get_variable('character_set_connection', PMA_DBI_GETVAR_SESSION, $link);
+        $charset_connection   = PMA_DBI_get_variable('character_set_connection', PMA_DBI_GETVAR_SESSION, $link);
 
         // Add some field types to the list
         // (we pass twice here; feel free to code something better :)

@@ -44,7 +44,7 @@ if ( $doWriteModifyAt == 'left' ){
         echo '    <td width="16" align="center" valign="top" bgcolor="' . $bgcolor . '">' . "\n"
            . '        <input type="checkbox" id="id_rows_to_delete' . $row_no . 'r" name="rows_to_delete[' . $uva_condition . ']"'
            . ' onclick="copyCheckboxesRange(\'rowsDeleteForm\', \'id_rows_to_delete' . $row_no . '\',\'r\');"'
-											. ' value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
+           . ' value="' . $del_query . '" ' . (isset($GLOBALS['checkall']) ? 'checked="checked"' : '') . ' />' . "\n"
            . '    </td>' . "\n";
     }
 }

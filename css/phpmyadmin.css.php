@@ -20,23 +20,13 @@ if (!isset($js_frame)) {
     $js_frame = 'left';
 }
 
-// 2004-05-30: Michael Keck (mail@mnichaelkeck.de)
-//             check, if select_theme.lib.php exists
-//             and include it
-$tmp_file_lib = './libraries/select_theme.lib.php';
-if (@file_exists($tmp_file_lib) && isset($GLOBALS['cfg']['ThemePath']) && !empty($GLOBALS['cfg']['ThemePath'])){
-    require_once($tmp_file_lib);
-}else{
-    $pmaTheme = 'original';
-}
-
 if ($js_frame == 'left') {
 /************************************************************************************
  * LEFT FRAME
  ************************************************************************************/
     // 2004-05-30: Michael Keck (mail@michaelkeck.de)
     //             Check, if theme_left.css.php exists and include
-    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_left.css.php';
+    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $theme . '/css/theme_left.css.php';
     if (@file_exists($tmp_file)) {
         include($tmp_file);
     } // end of include theme_left.css.php
@@ -46,7 +36,7 @@ if ($js_frame == 'left') {
  ************************************************************************************/
     // 2004-05-30: Michael Keck (mail@michaelkeck.de)
     //             Check, if theme_print.css.php exists and include
-    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_print.css.php';
+    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $theme . '/css/theme_print.css.php';
     if (@file_exists($tmp_file)) {
         include($tmp_file);
     } // end of include theme_print.css.php
@@ -56,7 +46,7 @@ if ($js_frame == 'left') {
  ************************************************************************************/
     // 2004-05-30: Michael Keck (mail@michaelkeck.de)
     //             Check, if theme_right.css.php exists and include
-    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $pmaTheme . '/css/theme_right.css.php';
+    $tmp_file = $GLOBALS['cfg']['ThemePath'] . '/' . $theme . '/css/theme_right.css.php';
     if (@file_exists($tmp_file)) {
         include($tmp_file);
     } // end of include theme_right.css.php

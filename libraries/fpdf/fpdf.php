@@ -763,7 +763,7 @@ function MultiCell($w,$h,$txt,$border=0,$align='J',$fill=0)
 			$ls=$l;
 			$ns++;
 		}
-		$l+=$cw[$c];
+		$l+=isset($cw[ord($c)])?$cw[ord($c)]:0;
 		if($l>$wmax)
 		{
 			//Automatic line break
@@ -1078,6 +1078,10 @@ function _begindoc()
 	$this->_out('%PDF-1.3');
 }
 
+function _strreplace($what, $to, $where) {
+    return str_replace($what, $to, $where);
+}
+
 function _putpages()
 {
 	$nb=$this->page;
@@ -1085,7 +1089,7 @@ function _putpages()
 	{
 		//Replace number of pages
 		for($n=1;$n<=$nb;$n++)
-			$this->pages[$n]=str_replace($this->AliasNbPages,$nb,$this->pages[$n]);
+			$this->pages[$n]=$this->_strreplace($this->AliasNbPages,$nb,$this->pages[$n]);
 	}
 	if($this->DefOrientation=='P')
 	{

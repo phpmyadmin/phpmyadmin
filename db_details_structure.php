@@ -45,7 +45,7 @@ function pma_TableHeader($alternate = FALSE) {
        . '                    &nbsp;' . $GLOBALS['strAction'] . '&nbsp;' . "\n"
        . '                </th>' . "\n"
        . '                <th>' . "\n"
-       . '                    &nbsp;' .  $GLOBALS['strRecords'] . '&nbsp;' . "\n"
+       . '                    &nbsp;' .  $GLOBALS['strRecords'] . PMA_showHint($GLOBALS['strApproximateCount']) . '&nbsp;' . "\n"
        . '                </th>' . "\n";
     if (!$alternate) {
         if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
@@ -439,7 +439,7 @@ else {
         echo '                <th align="center">' . "\n"
            . '                    <b>--</b>' . "\n"
            . '                </th>' . "\n";
-        if (PMA_MYSQL_INT_VERSION >= 40100) {
+        if (PMA_MYSQL_INT_VERSION >= 40101) {
             echo '                <th align="center">' . "\n"
                . '                    &nbsp;<b><dfn title="' . PMA_getCollationDescr($db_collation) . '">' . $db_collation . '</dfn></b>&nbsp;' . "\n"
                . '                </th>' . "\n";

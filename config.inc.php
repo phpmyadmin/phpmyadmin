@@ -342,6 +342,7 @@ $cfg['Export']['latex_structure_label']     = 'tab:__TABLE__-structure';
 
 $cfg['Export']['sql_structure']             = TRUE;
 $cfg['Export']['sql_data']                  = TRUE;
+$cfg['Export']['sql_compat']                = 'NONE';
 $cfg['Export']['sql_disable_fk']            = FALSE;
 $cfg['Export']['sql_use_transaction']       = FALSE;
 $cfg['Export']['sql_drop_database']         = FALSE;
@@ -507,12 +508,8 @@ $cfg['RepeatCells']         = 100;          // repeat header names every X cells
 $cfg['QueryFrame']          = TRUE;         // displays a link or icon in the left frame to open the querybox, and activates the querybox when clicking on [Edit] on the results page.
 $cfg['QueryFrameJS']        = TRUE;         // whether to use JavaScript functions for opening a new window for SQL commands.
                                             // if set to 'false', the target of the querybox is always the right frame.
-
-/* is moved to ./themes/.../layout.inc.php
- * bug #1050666: Query window too small darkblue/orange theme
- * $cfg['QueryWindowWidth']    = 550;        // Width of Query window
- * $cfg['QueryWindowHeight']   = 310;        // Height of Query window
-*/
+$cfg['QueryWindowWidth']    = 550;          // Width of Query window
+$cfg['QueryWindowHeight']   = 310;          // Height of Query window
 $cfg['QueryHistoryDB']      = FALSE;         // Set to TRUE if you want DB-based query history.
                                             // If FALSE, this utilizes JS-routines to display
                                             // query history (lost by window close)

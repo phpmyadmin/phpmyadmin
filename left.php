@@ -61,34 +61,15 @@ global $list_item, $table_item;
     }
 }
 
-function PMA_reduceNest($_table) {
-
+/* This will take a 1-dimensional array, and shift as many elemnts off
+ * the end, until the allowed maximum level is reached */
+function PMA_reduceNest(&$_table) {
     if ($GLOBALS['cfg']['LeftFrameTableLevel'] > 0) {
-        $max = $GLOBALS['cfg']['LeftFrameTableLevel'];
-        $temp_table = $_table;
-        $new_table = array();
-        $last_index = 0;
-        for ($ti = 0; $ti <= $max; $ti++) {
-            if (isset($temp_table[$ti])) {
-                $new_table[$ti] = $temp_table[$ti];
-                unset($temp_table[$ti]);
-                $last_index = $ti;
-            }
+        $elements = count($_table);
+        for ($ti = $elements; $ti > $GLOBALS['cfg']['LeftFrameTableLevel']; $ti--) {
+            unset($_table[$ti]);
         }
-
-        $_table = $new_table;
     }
-
-    return $_table;
-}
-
-function PMA_indent($spaces) {
-    $string = '';
-    for ($i = 0; $i <= $spaces; $i++) {
-        $string .= ' ';
-    }
-
-    return $string;
 }
 
 function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_level, $val, $childout = true) {
@@ -112,15 +93,15 @@ function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_
     }
 
     echo "\n";
-    echo PMA_indent($indent * 5) . '<div id="el' . $id . 'Parent" class="parent"' . $on_mouse . '>' . "\n";
-    echo PMA_indent($indent * 6) . '<div class="nowrap"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" border="0" width="' . (($indent - 1) * $indent_level) . '" height="9" alt="" /><a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', true); return false} else {return true}">';
+    echo str_repeat(' ', $indent * 5) . '<div id="el' . $id . 'Parent" class="parent"' . $on_mouse . '>' . "\n";
+    echo str_repeat(' ', $indent * 6) . '<div class="nowrap"><img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' . '" border="0" width="' . (($indent - 1) * $indent_level) . '" height="9" alt="" /><a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', true); return false} else {return true}">';
     echo '<img name="imEx" id="el' . $id . 'Img" src="' . $GLOBALS['pmaThemeImage'] . 'b_plus.png" border="0" width="9" height="9" alt="+" /></a>' . "\n";
-    echo PMA_indent($indent * 6) . '<a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" title="' . htmlspecialchars($name) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', false)}"><span class="heada">' . htmlspecialchars($name) . '<bdo dir="' . $GLOBALS['text_dir'] . '">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(' . $counter . ')</span></a></div>' . "\n";
-    echo PMA_indent($indent * 5) . '</div><!-- class="PMA_nestedSetHeaderParent" -->' . "\n";
+    echo str_repeat(' ', $indent * 6) . '<a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '&amp;tbl_group=' . htmlspecialchars($groupkey) . '" title="' . htmlspecialchars($name) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', false)}"><span class="heada">' . htmlspecialchars($name) . '<bdo dir="' . $GLOBALS['text_dir'] . '">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(' . $counter . ')</span></a></div>' . "\n";
+    echo str_repeat(' ', $indent * 5) . '</div><!-- class="PMA_nestedSetHeaderParent" -->' . "\n";
     echo "\n";
 
     if ($childout) {
-        echo PMA_indent($indent * 5) . '<div id="el' . $id . 'Child" class="child nowrap" ' . $on_mouse . '>' . "\n";
+        echo str_repeat(' ', $indent * 5) . '<div id="el' . $id . 'Child" class="child nowrap" ' . $on_mouse . '>' . "\n";
     }
 }
 
@@ -143,15 +124,15 @@ function PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, $indent, $indent
             }
 
             if ($headerOut) {
-                echo PMA_indent($indent * 5) . '</div><!-- class="PMA_nestedSetHeader" -->' . "\n";
+                echo str_repeat(' ', $indent * 5) . '</div><!-- class="PMA_nestedSetHeader" -->' . "\n";
             }
         }
     }
 
     if ($firstGroup && $firstGroupClose) {
-        echo PMA_indent($indent * 4) . '</div><!-- class="PMA_nestedSetHeader2" -->' . "\n";
+        echo str_repeat(' ', $indent * 4) . '</div><!-- class="PMA_nestedSetHeader2" -->' . "\n";
     } elseif ($firstGroup) {
-        echo PMA_indent($indent * 4) . '<!-- spacer="div omitted" class="PMA_nestedSetHeader2" -->' . "\n";
+        echo str_repeat(' ', $indent * 4) . '<!-- spacer="div omitted" class="PMA_nestedSetHeader2" -->' . "\n";
     }
 }
 
@@ -182,11 +163,11 @@ function PMA_nestedSet($baseid, $tablestack, $key = '__protected__', $keyhistory
         $loops = 0;
         foreach ($tablestack['pma_name'] AS $tkey => $tval) {
 
-            echo PMA_indent($indent * 5) . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' .'" border="0" width="' . (($indent+$extra_indent) * $indent_level) . '" height="9" alt="" />';
+            echo str_repeat(' ', $indent * 5) . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png' .'" border="0" width="' . (($indent+$extra_indent) * $indent_level) . '" height="9" alt="" />';
             $items = explode("\n", $tablestack['pma_list_item'][$tkey]);
             foreach ($items AS $ikey => $ival) {
                 echo "\n";
-                echo PMA_indent(($indent * 5)) . $ival;
+                echo str_repeat(' ', ($indent * 5)) . $ival;
             }
             echo "\n";
 
@@ -194,7 +175,7 @@ function PMA_nestedSet($baseid, $tablestack, $key = '__protected__', $keyhistory
         }
 
         if ($divClose) {
-            echo PMA_indent($indent * 5) . '</div><!-- space="putting omitted div" class="PMA_nestedSet2" -->';
+            echo str_repeat(' ', $indent * 5) . '</div><!-- space="putting omitted div" class="PMA_nestedSet2" -->';
         }
 
     } elseif (is_array($tablestack)) {
@@ -376,8 +357,8 @@ if (!$cfg['QueryFrame']) {
                 .' onmouseover="this.style.backgroundColor=\'#ffffff\';" onmouseout="this.style.backgroundColor=\'\';" align="middle" />'
             : '<b>' . $strHome . '</b>')
        . '</a>';
-    // Logout for advanced authentication
-    if ($cfg['Server']['auth_type'] != 'config') {
+    // if we have chosen server show logout for advanced authentication
+    if ($server != 0 && $cfg['Server']['auth_type'] != 'config') {
         echo $str_spacer_links;
         echo '<a class="item" href="index.php?' . PMA_generate_common_url() . '&amp;old_usr=' . urlencode($PHP_AUTH_USER) . '" target="_parent">'
            . ($cfg['MainPageIconic']
@@ -547,6 +528,7 @@ if ($num_dbs > 1) {
                 natsort($table_array);
             }
 
+            $book_sql_cache = PMA_queryDBBookmarks($db, $cfg['Bookmark'], $table_array);
             foreach ($table_array as $table => $table_sortkey) {
                 $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
                            ? htmlspecialchars($tooltip_name[$table])
@@ -561,7 +543,7 @@ if ($num_dbs > 1) {
                            ? $alias
                            : htmlspecialchars($table));
 
-                $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
+                $book_sql_query = (isset($book_sql_cache[$table]) ? $book_sql_cache[$table] : FALSE);
 
                 $list_item = '<a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '" title="' . $strBrowse . ': ' . $url_title . '">';
                 $list_item .= '<img src="' . $pmaThemeImage . 'b_sbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
@@ -578,7 +560,7 @@ if ($num_dbs > 1) {
                                 $_table[$key] = '__protected__';
                             }
                         }
-                        $_table = PMA_reduceNest($_table);
+                        PMA_reduceNest($_table);
 
                         if (count($_table) == 1) {
                             array_unshift($_table, '');
@@ -611,6 +593,7 @@ if ($num_dbs > 1) {
                 $table_title = array();
                 $table_array = array();
                 // Gets the list of tables from the current database
+                $book_sql_cache = PMA_queryDBBookmarks($db, $cfg['Bookmark'], $table_array);
                 while (list($table) = PMA_DBI_fetch_row($tables)) {
                     $table_array[$table] = '';
                     $url_title  = (!empty($tooltip) && isset($tooltip[$table]))
@@ -620,7 +603,7 @@ if ($num_dbs > 1) {
                                ? htmlspecialchars($tooltip_name[$table])
                                : '';
 
-                    $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
+                    $book_sql_query = (isset($book_sql_cache[$table]) ? $book_sql_cache[$table] : FALSE);
 
                     // natural order or not, use an array for the table list
 
@@ -804,6 +787,7 @@ else if ($num_dbs == 1) {
         natcasesort($table_array);
     }
 
+    $book_sql_cache = PMA_queryDBBookmarks($db, $cfg['Bookmark'], $table_array);
     foreach ($table_array as $table => $table_sortkey) {
         $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
                    ? htmlspecialchars($tooltip_name[$table])
@@ -818,7 +802,7 @@ else if ($num_dbs == 1) {
                    ? $alias
                    : htmlspecialchars($table));
 
-        $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
+        $book_sql_query = (isset($book_sql_cache[$table]) ? $book_sql_cache[$table] : FALSE);
 
         if ($cfg['LeftFrameLight']) {
         echo "\n";
@@ -844,7 +828,7 @@ else if ($num_dbs == 1) {
                             $_table[$key] = '__protected__';
                         }
                     }
-                    $_table = PMA_reduceNest($_table);
+                    PMA_reduceNest($_table);
 
                     if (count($_table) == 1) {
                         array_unshift($_table, '');

@@ -36,7 +36,12 @@ $err_url  = $goto
 $view_bookmark = 0;
 $sql_bookmark  = isset($sql_bookmark) ? $sql_bookmark : '';
 $sql_query     = isset($sql_query)    ? $sql_query    : '';
+
 if (!empty($sql_localfile) && !empty($cfg['UploadDir'])) {
+
+    // sanitize $sql_localfile as it comes from a POST
+    $sql_localfile = PMA_securePath($sql_localfile);
+
     if (substr($cfg['UploadDir'], -1) != '/') {
         $cfg['UploadDir'] .= '/';
     }
@@ -73,13 +78,7 @@ if (!empty($id_bookmark)) {
  */
 // Gets the query from a file if required
 if ($sql_file != 'none') {
-// loic1 : fixed a security issue
-//    if ((file_exists($sql_file) && is_uploaded_file($sql_file))
-//        || file_exists($cfg['UploadDir'] . $sql_localfile)) {
-
     // file_exists() returns false if open_basedir is set
-    //if (file_exists($sql_file)
-    //    && ((isset($sql_localfile) && $sql_file == $cfg['UploadDir'] . $sql_localfile) || is_uploaded_file($sql_file))) {
 
     if ((is_uploaded_file($sql_file))
         ||(isset($sql_localfile) && $sql_file == $cfg['UploadDir'] . $sql_localfile)  && file_exists($sql_file)) {
@@ -321,15 +320,15 @@ if ($sql_query != '') {
 
                 // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
                 // .*? below is non greedy expansion, just in case somebody wants to understand it...
-                if ($result != FALSE && preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*USE[[:space:]]*([^[:space]+)@i', $a_sql_query, $match)) {
-                    $db = trim($match[0]);
+                if ($result != FALSE && preg_match('@^((-- |#)^[\n]*|/\*.*?\*/)*USE[[:space:]]*([\S]+)@i', $a_sql_query, $match)) {
+                    $db = trim($match[3]);
                     $reload = 1;
                 }
 
                 // .*? below is non greedy expansion, just in case somebody wants to understand it...
                 // must check $a_sql_query and use PCRE_MULTILINE
 
-                if (!isset($reload) && preg_match('@^((-- |#)[^\n]*\n|/\*.*?\*/)*(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $a_sql_query)) {
+                if (!isset($reload) && preg_match('@^((-- |#)[^\n]*\n|/\*.*?\*/)*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $a_sql_query)) {
                     $reload = 1;
                 }
             } // end for
@@ -411,7 +410,7 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
         $message   = $strNoQuery;
     }
 } else if ($sql_query_cpy == '') {
-    $message   = "$strSuccess:<br />$strTheContent ("
+    $message   = "$strSuccess:[br]$strTheContent ("
                . (isset($sql_file_name) ? $sql_file_name . ': ' : '')
                . "$pieces_count $strInstructions)&nbsp;";
 } else {

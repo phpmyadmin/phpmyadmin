@@ -6,7 +6,7 @@
  *               Tadashi Jokagi <elf2000 at users.sourceforge.net>
  */
 
-$charset = 'utf-8';
+$charset = 'UTF-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
@@ -31,9 +31,10 @@ $strAccessDeniedExplanation = 'phpMyAdmin は、MySQL サーバーに接続し�
 $strAction = '実行';
 $strAddAutoIncrement = '「AUTO_INCREMENT」値を追加';
 $strAddConstraints = '制限追加';
-$strAddDeleteColumn = 'フィールド列の「追加／削除」';
-$strAddDeleteRow = '条件行の「追加／削除」';
+$strAddDeleteColumn = 'フィールド列の「追加/削除」';
+$strAddDeleteRow = '条件行の「追加/削除」';
 $strAddDropDatabase = '「DROP DATABASE」を追加';
+$strAddFields = '%s 個のフィールドを追加';
 $strAddHeaderComment = 'ヘッダーへカスタムコメントを追加 (\\n で改行)';
 $strAddIfNotExists = '「IF NOT EXISTS」を追加';
 $strAddIntoComments = 'コメント追加';
@@ -74,8 +75,14 @@ $strBack = '戻る';
 $strBaltic = 'バルト諸語';
 $strBeginCut = '切り取り開始';
 $strBeginRaw = 'RAW 開始';
+$strBinLogEventType = 'イベントタイプ';
+$strBinLogInfo = '情報';
+$strBinLogName = 'ログ名';
+$strBinLogPosition = '位置';
+$strBinLogServerId = 'サーバー ID';
 $strBinary = ' バイナリ ';
 $strBinaryDoNotEdit = ' バイナリ - 修正出来ません';
+$strBinaryLog = 'バイナリログ';
 $strBookmarkAllUsers = 'すべてのユーザーがこのブックマークをアクセス出来る';
 $strBookmarkDeleted = 'ブックマークを正常に削除しました。';
 $strBookmarkLabel = 'ラベル';
@@ -98,6 +105,8 @@ $strCantRenameIdxToPrimary = 'インデックスの名前を PRIMARY に変更�
 $strCantUseRecodeIconv = 'iconv、libiconv、recode_string のどの関数も使用出来ません。php の設定をチェックしてください。';
 $strCardinality = 'カーディナリティ';
 $strCarriage = 'キャリッジリターン: \\r';
+$strCaseInsensitive = '英字の大小を区別しない';
+$strCaseSensitive = '英字の大小を区別する';
 $strCentralEuropean = '中央ヨーロッパ人';
 $strChange = '変更';
 $strChangeCopyMode = '同じ特権を持った新規のユーザーを作る...';
@@ -141,7 +150,7 @@ $strCreate = '作成';
 $strCreateIndex = '&nbsp;%s&nbsp; の列のインデックスの作成';
 $strCreateIndexTopic = '新しいインデックスの作成';
 $strCreateNewDatabase = '新しいDBを作成します。';
-$strCreateNewTable = '現在のDBに新しいテーブルを作成します。 %s --> ';
+$strCreateNewTable = '現在のDBに新しいテーブルを作成する %s --> ';
 $strCreatePage = '新規ページの作成';
 $strCreatePdfFeat = 'PDF 作成機能';
 $strCreationDates = '作成/更新/検査の日付を追加';
@@ -196,7 +205,7 @@ $strDictionary = '辞書';
 $strDisableForeignChecks = '外部キーの検査を無効に';
 $strDisabled = '無効';
 $strDisplayFeat = 'テーブル情報表示機能';
-$strDisplayOrder = '発表順番:';
+$strDisplayOrder = '表示順序:';
 $strDisplayPDF = 'PDF スキーマの表示';
 $strDoAQuery = '"例のQUERY"を実行 (ワイルドカード: "%")';
 $strDoYouReally = '本当に実行しても良いですか？ --> ';
@@ -225,7 +234,7 @@ $strEnglish = '英語';
 $strEnglishPrivileges = ' 注意: MySQLの特権の名前は英語で表示しています。';
 $strError = 'エラー';
 $strEstonian = 'エストニア語';
-$strExcelEdition = 'Excel 版';
+$strExcelEdition = 'Excel の種類';
 $strExcelOptions = 'Excel オプション';
 $strExecuteBookmarked = 'ブックマークされたクエリーを実行';
 $strExplain = 'Explain SQL';
@@ -298,8 +307,10 @@ $strInnodbStat = 'InnoDB ステータス';
 $strInsecureMySQL = 'あなたのコンフィグレーションファイルの設定が MySQL デフォルトの特権アカウントになっています (root ユーザーでパスワードなし) 。 MySQL サーバーもこのデフォルト設定で動作しているので、侵入者に対して無防備です。このセキュリティーホールは必ず閉ざして下さい。';
 $strInsert = '追加';
 $strInsertAsNewRow = '新しい行としての追加';
+$strInsertBookmarkTitle = 'ブックマークのタイトルを入力してください。';
 $strInsertNewRow = '新しい行の追加';
 $strInsertTextfiles = 'テーブルにテキストファイルの追加';
+$strInsertedRowId = 'インサートした行 ID:';
 $strInsertedRows = '追加された行数:';
 $strInstructions = '実施例';
 $strInternalNotNecessary = '* InnoDB が存在する場合、内部リレーションは必要ではありません。';
@@ -351,7 +362,7 @@ $strMaximumSize = '最大サイズ: %s%s';
 $strModifications = 'を正しく修正しました。';
 $strModify = '修正';
 $strModifyIndexTopic = 'インデックスの変更';
-$strMoreStatusVars = 'さらに変数の状態';
+$strMoreStatusVars = 'その他の変数の状態';
 $strMoveTable = 'テーブルを(database<b>.</b>table)に移動:';
 $strMoveTableOK = 'テーブル %s が %s 移動されました。';
 $strMoveTableSameNames = '同じテーブルに移動できません!';
@@ -388,6 +399,7 @@ $strNoQuery = 'SQL クエリー無し';
 $strNoRights = '現在特権を持ってないのでここに入れません。';
 $strNoRowsSelected = '行は選択されませんでした。';
 $strNoTablesFound = '現在の DB にテーブルはありません。';
+$strNoThemeSupport = 'テーマをサポートしていません。設定とテーマディレクトリ %s を確認してください。';
 $strNoUsersFound = '該当ユーザーは見つかりませんでした。';
 $strNoValidateSQL = 'SQL 検証をスキップ';
 $strNone = '無し';
@@ -425,6 +437,7 @@ $strPdfNoTables = 'テーブルがありません';
 $strPerHour = '時毎';
 $strPerMinute = '/分';
 $strPerSecond = '/秒';
+$strPersian = 'ペルシア語';
 $strPhoneBook = '電話帳';
 $strPhp = 'PHP コードの作成';
 $strPmaDocumentation = 'phpMyAdmin のドキュメント';
@@ -502,6 +515,7 @@ $strRenameTable = 'テーブル名の変更';
 $strRenameTableOK = '%s を %s に名前を変更しました。';
 $strRepairTable = 'テーブルを復旧します。';
 $strReplace = '置き換える';
+$strReplaceNULLBy = 'NULL を指定の文字列で置き換える';
 $strReplaceTable = 'ファイルでテーブルを置き換える';
 $strReset = 'リセット';
 $strResourceLimits = '    リソースの制限';
@@ -515,7 +529,7 @@ $strRowSize = ' 行のサイズ ';
 $strRows = '行';
 $strRowsFrom = '開始行';
 $strRowsModeHorizontal = '水平';
-$strRowsModeOptions = '方向: %s : %s 列ずつヘッダーを繰り返し発表する';
+$strRowsModeOptions = '方向: %s : %s 列ずつヘッダーを繰り返し表示する';
 $strRowsModeVertical = '重直';
 $strRowsStatistic = '行の統計';
 $strRunQuery = 'クエリーの実行';
@@ -567,14 +581,14 @@ $strServerVersion = 'サーバーのバージョン';
 $strSessionValue = 'セッション値';
 $strSetEnumVal = 'フィールドタイプが"enum"又は"set"の場合は値をこのフォーマットを使って入力して下さい: \'a\',\'b\',\'c\'...<br />バックスラッシュ「"\"」又はクオート「"\'"」を入力したいと、頭にバックスラッシュを付けて下さい「例: \'\\\\xyz\' or \'a\\\'b\'」。';
 $strShow = '表示';
-$strShowAll = '全て発表';
+$strShowAll = '全て表示';
 $strShowColor = '色表示';
 $strShowDatadictAs = 'データ辞書フォーマット';
 $strShowFullQueries = 'フルクエリーを表示';
 $strShowGrid = 'グリッドの表示';
 $strShowPHPInfo = 'PHP 情報';
 $strShowTableDimension = 'テーブルの大きさを表示';
-$strShowTables = 'テーブルの発表';
+$strShowTables = 'テーブルの表示';
 $strShowThisQuery = ' 実行したクエリーをここに表示する';
 $strShowingRecords = 'レコード表示';
 $strSimplifiedChinese = '簡体字中国語';
@@ -604,6 +618,7 @@ $strSubmit = '実行';
 $strSuccess = 'SQL クエリーが正常に実行されました。';
 $strSum = '合計';
 $strSwedish = 'スウェーデン語';
+$strSwitchToDatabase = 'コピーしたデータベースに切り替え';
 $strSwitchToTable = 'コピーしたテーブルに切り替え';
 
 $strTable = 'テーブル ';
@@ -644,9 +659,9 @@ $strUnicode = 'ユニコード';
 $strUnique = '唯一';
 $strUnknown = '不明';
 $strUnselectAll = '全解放';
-$strUpdatePrivMessage = '%s の特権をアップデートしました。';
-$strUpdateProfileMessage = 'プロファイルをアップデートしました。';
-$strUpdateQuery = 'クエリーのアップデート';
+$strUpdatePrivMessage = '%s の特権を更新しました。';
+$strUpdateProfileMessage = 'プロファイルを更新しました。';
+$strUpdateQuery = 'クエリーの更新';
 $strUpgrade = '%s %s かそれ移行にアップグレードするべきです。';
 $strUsage = '使用量';
 $strUseBackquotes = '逆クオートでテーブル名やフィールド名を囲む';
@@ -671,7 +686,7 @@ $strViewDumpDB = 'DBのダンプ(スキーマ)表示';
 $strViewDumpDatabases = 'データベースのダンプビュー (スキーマ)';
 
 $strWebServerUploadDirectory = 'ウェブサーバー上でアップロード';
-$strWebServerUploadDirectoryError = 'アップロードを行うディレクトリがありません。。';
+$strWebServerUploadDirectoryError = 'アップロードを行うディレクトリがありません。';
 $strWelcome = '%s へようこそ';
 $strWestEuropean = '西ヨーロッパ人';
 $strWildcard = 'ワイルドカード';
@@ -690,14 +705,23 @@ $strZeroRemovesTheLimit = '注意: オプションを 0 (ゼロ)に設定する�
 $strZip = '"zip 方式"';
 
 // To translate:
+$strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
 
-$strCaseInsensitive = 'case-insensitive';  //to translate
-$strCaseSensitive = 'case-sensitive';  //to translate
+$strBinLogOriginalPosition = 'Original position';  //to translate
+
 $strCommentsForTable = 'COMMENTS FOR TABLE';  //to translate
+$strCompatibleHashing = 'MySQL&nbsp;4.0 互換';  //to translate
+$strCopyDatabaseOK = 'Database %s has been copied to %s';  //to translate
 
+$strDBCopy = 'Copy database to';  //to translate
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
 
-$strInsertedRowId = 'Inserted row id:';  //to translate
+$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
+
+$strIndexWarningMultiple = 'More than one %s key was created for column `%s`';//to translate
+$strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';//to translate
+$strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
+$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
 
 $strLatexContinuedCaption = 'Continued table caption';//to translate
 
@@ -710,15 +734,19 @@ $strMIME_transformation_options = 'Transformation options';//to translate
 $strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
 $strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
 
+$strNoActivity = 'No activity since %s seconds or more, please login again';  //to translate
 $strNoSpace = 'Insufficient space to save the file %s.';  //to translate
 
 $strOperator = 'Operator';  //to translate
 
+$strPasswordHashing = 'Password Hashing';  //to translate
+
 $strQueryTime = 'Query took %01.4f sec';//to translate
 
 $strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
-$strReplaceNULLBy = 'Replace NULL by';  //to translate
 $strRowsModeFlippedHorizontal = 'horizontal (rotated headers)';//to translate
+
+$strSelectBinaryLog = 'Select binary log to view';  //to translate
 
 $strTakeIt = 'take it';  //to translate
 $strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
@@ -735,29 +763,11 @@ $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entitie
 $strTruncateQueries = 'Truncate Shown Queries';  //to translate
 
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
 $strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 
-$strPersian = 'Persian';  //to translate
-$strAddFields = 'Add %s field(s)';  //to translate
-$strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
-$strNoThemeSupport = 'No themes support, please check your configuration and/or your themes in directory %s.';  //to translate
-$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
-$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
-$strBinLogName = 'Log name';  //to translate
-$strBinLogPosition = 'Position';  //to translate
-$strBinLogEventType = 'Event type';  //to translate
-$strBinLogServerId = 'Server ID';  //to translate
-$strBinLogOriginalPosition = 'Original position';  //to translate
-$strBinLogInfo = 'Information';  //to translate
-$strBinaryLog = 'Binary log';  //to translate
-$strSelectBinaryLog = 'Select binary log to view';  //to translate
-$strDBCopy = 'Copy database to';  //to translate
-$strCopyDatabaseOK = 'Database %s has been copied to %s';  //to translate
-$strSwitchToDatabase = 'Switch to copied database';  //to translate
-$strPasswordHashing = 'Password Hashing';  //to translate
-$strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';  //to translate
-$strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';//to translate
-$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
-$strIndexWarningMultiple = 'More than one %s key was created for column `%s`';//to translate
-$strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
+$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
+$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
+$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
+$strAfterInsertNext = 'Edit next row';  //to translate
 ?>

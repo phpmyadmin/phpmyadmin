@@ -1,17 +1,17 @@
 <?php
 /* $Id$ */
 
-//son güncelleme:07.08.2004 (in trapezunta)
+//son güncelleme:12.12.04(in trapezunta)
 // Türkçe Çeviri ® Bora Alioðlu
-// mail: boralioglu@yahoo.co.uk
+// mail: boralioglu[at]gmail.{com}
 // icq uin: 20940178
 // #######################################################
 // çeviri hakkýndaki her türlü düzeltme ve önerileriniz
 // için benimle temasa geçebilirsiniz...
 // #######################################################
-// son güncelleme:22.09.04 (on the way to the constantinople)
+// son güncelleme:12.12.04 (in nova roma)
 //
-//                                       "ego lente festino"
+//                                       "tempus semper fugit"
 
 $charset = 'iso-8859-9';
 $text_dir = 'ltr';
@@ -70,21 +70,29 @@ $strAnd = 'Ve';
 $strAny = 'Herhangi';
 $strAnyHost = 'Herhangi sunucu';
 $strAnyUser = 'Herhangi kullanýcý';
+$strApproximateCount = 'Tahmini olmalý. Ayrýntýlý bilgi için 3.11 FAQ\' süne bakýnýz ';
 $strArabic = 'Arapça';
 $strArmenian = 'Ermenice';
 $strAscending = 'Artan';
 $strAtBeginningOfTable = 'Tablo baþýnda';
 $strAtEndOfTable = 'Tablo sonunda';
 $strAttr = 'Özellikler';
-$strAutodetect = 'Otomatik tanýma';
+$strAutodetect = 'Otomatik';
 $strAutomaticLayout = 'Otomatik düzen';
 
 $strBack = 'Geri';
 $strBaltic = 'Baltýk';
 $strBeginCut = 'BEGIN CUT';
 $strBeginRaw = 'BEGIN RAW';
+$strBinLogEventType = 'Kayýt olay tipi';  
+$strBinLogInfo = 'Bilgi';  
+$strBinLogName = 'Kayýt ismi';
+$strBinLogOriginalPosition = 'Orjinal kayýt yeri';
+$strBinLogPosition = 'Kayýt yeri';  
+$strBinLogServerId = 'Sunucu ID\`si'; 
 $strBinary = 'Binari';
 $strBinaryDoNotEdit = 'Binari - düzenlemeyiniz';
+$strBinaryLog = 'Binary kayýt';  
 $strBookmarkAllUsers = 'Bütün kullanýcýlarýn bu bookmark\'a eriþimlerine izin ver';
 $strBookmarkDeleted = 'Bookmark silindi.';
 $strBookmarkLabel = 'Etiket';
@@ -96,7 +104,7 @@ $strBrowse = 'Tara';
 $strBrowseForeignValues = 'Foreign(yabancý) deðerleri tara';
 $strBulgarian = 'Bulgarca';
 $strBzError = 'phpMyAdmin dump dosyasýný  bu php versiyonundaki bozuk bir Bz2 uzantýsý nedeniyle sýkýþtýrýmadý. phpMyAdmin dizinindeki configurasyon dosyasý içindeki  <code>$cfg[\'BZipDump\']</code>  yönergesini <code>FALSE</code> \'a deðiþtirmeniz gerekmektedir. Bz2 sýkýþtýrma özelliklerini kullanmak istiyorsanýz ,bir sonraki php sürümüne güncelleme yapmanýz gerekmektedir.php hata raporu %s\' e bakýnýz ';
-$strBzip = '"bzipped"';
+$strBzip = '"bzip"';
 
 $strCSVOptions = 'CSV seçenekleri';
 $strCalendar = 'Takvim';
@@ -122,7 +130,7 @@ $strChangePassword = 'Þifre Deðiþtir';
 $strCharset = 'Karakter seti';
 $strCharsetOfFile = 'Dosyanýn karakter seti:';
 $strCharsets = 'Karakter setleri';
-$strCharsetsAndCollations = 'Karakter setleri ve  karþýlaþtýrmalar(collation)';
+$strCharsetsAndCollations = 'Karakter setleri ve  karþýlaþtýrmalar';
 $strCheckAll = 'Tümünü seç';
 $strCheckOverhead = 'Baþtan aþaðýya kontrol et';
 $strCheckPrivs = 'Ýmtiyazlarý kontrol et';
@@ -130,12 +138,13 @@ $strCheckPrivsLong = '&quot;%s&quot; veritabaný için yetkileri kontrol et.';
 $strCheckTable = 'Tabloyu kontrol et';
 $strChoosePage = 'Lütfen düzenlemek istediðiniz sayfayý seçin';
 $strColComFeat = 'Sütun yorumlarý gösteriliyor';
-$strCollation = 'Karþýlaþtýrma(Collation)';
+$strCollation = 'Karþýlaþtýrma';
 $strColumnNames = 'Sütun adlarý';
 $strColumnPrivileges = 'Sütuna özgü yetkiler';
 $strCommand = 'Komut';
 $strComments = 'Sütun yorum,iliþki ve MIME tiplerini içer.';
 $strCommentsForTable = 'TABLO YORUMLARI';
+$strCompatibleHashing = 'MySQL&nbsp;4.0 uyumlu'; 
 $strCompleteInserts = 'Her INSERT komutunda sütun adlarýný ekle';
 $strCompression = 'Sýkýþtýrma';
 $strConfigFileError ='phpMyAdmin konfigurasyon dosyanýzý okuyamadý....<br /> Bu php yorumlama hatasý bulduðu zaman veya dosyayý bulamadýðý zaman meydana gelebilir..<br /> Lütfen aþaðýdaki linki kullanarak dosyayý direkt olarak çaðýrýn ve aldýðýnýz php hata mesajlarýný okuyunuz.Çoðu durumda herhangi bir yerde týrnak veya noktalý virgül eksiktir<br /> Boþ bir sayfayla karþýlaþýrsanýz ,herþey yolunda demektir.';
@@ -145,6 +154,7 @@ $strConnections = 'Baðlantýlar';
 $strConstraintsForDumped = 'Dökümü yapýlmýþ tablolar için kýsýtlamalar';
 $strConstraintsForTable = 'Tablo için kýsýtlamalar';
 $strCookiesRequired = 'Cookieler açýk olmalýdýr.';
+$strCopyDatabaseOK = '%s veritabaný %s\` e kopyalandý.'; 
 $strCopyTable = 'Tabloyu (veritabaný<b>.</b>tablo) kopyala :';
 $strCopyTableOK = '%s tablosu %s üzerine kopyalandý.';
 $strCopyTableSameNames = 'Tabloyu aynýsýna kopyalayamýyor!';
@@ -164,6 +174,7 @@ $strCzech = 'Çekçe';
 $strCzechSlovak = 'Çekçe-Slovakça';
 
 $strDBComment = 'Veritabaný yorumu:';
+$strDBCopy = 'Veritabanýný þuraya kopyala:';  
 $strDBGContext = 'Ýçerik';
 $strDBGContextID = 'Ýçerik ID';
 $strDBGHits = 'Giriþler(hit)';
@@ -236,6 +247,7 @@ $strEndRaw = 'END RAW';
 $strEnglish = 'Ýngilizce';
 $strEnglishPrivileges = ' Not: MySQL  yetki adlarý Ýngilizce olarak belirtilmiþtir ';
 $strError = 'Hata';
+$strEscapeWildcards = '_ ve % jokerleri harfi harfine kullanýlmak isteniyorsa \ ile beraber kullanýlmalýdýr.';
 $strEstonian = 'Estonyaca';
 $strExcelEdition = 'Excel tipi';
 $strExcelOptions = 'Excel ayarlarý';
@@ -248,7 +260,7 @@ $strExtra = 'Ekstra';
 $strFailedAttempts = 'Baþarýsýz denemeler';
 $strField = 'Alan';
 $strFieldHasBeenDropped = '%s alaný kaldýrýlmýþtýr';
-$strFields = 'Alan Sayýsý';
+$strFields = 'Alanlar';
 $strFieldsEmpty = ' Alan sayýsý boþ! ';
 $strFieldsEnclosedBy = 'Kapatma karakteri';
 $strFieldsEscapedBy = 'Kaçýþ karakteri';
@@ -277,7 +289,7 @@ $strGlobalValue = 'Global deðer';
 $strGo = 'Git';
 $strGrantOption = 'Hak';
 $strGreek = 'Yunanca';
-$strGzip = '"gziplenmiþ"';
+$strGzip = '"gzip"';
 
 $strHasBeenAltered = 'düzenlendi.';
 $strHasBeenCreated = 'yaratýldý.';
@@ -305,6 +317,10 @@ $strIndex = 'Ýndeks';
 $strIndexHasBeenDropped = '%s indeks\'i silindi.';
 $strIndexName = 'Ýndeks ismi :';
 $strIndexType = 'Ýndeks tipi :';
+$strIndexWarningMultiple = '`%s` sütunu için birden fazla %s anahtarý yaratýldý. ';
+$strIndexWarningPrimary = 'PRIMARY ve INDEX anahtarlarýnýn ikisine birden `%s` sütunu için deðer verilemez.';
+$strIndexWarningTable = '`%s` tablosunun indexleri ile ilgili sorunlar';
+$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';
 $strIndexes = 'Ýndeksler';
 $strInnodbStat = 'InnoDB durumu';
 $strInsecureMySQL = 'Konfigurasyon dosyanýz (þifresiz root) varsayýlan MySQL yetki dosyasýyla aynen uyuþan ayarlar içeriyor.MySQL sunucunuz bu varsayýlan ayarlarla çalýþýyor,dýþardan giriþe açýk,ve bu güvenlik açýðýný hemen düzeltmeniz gerekmektedir.';
@@ -380,7 +396,7 @@ $strMoveTableSameNames = 'Tabloyu aynýsýna taþýyamýyor!';
 $strMultilingual = 'çoklu dil';
 $strMustSelectFile = 'Eklemek istediðiniz dosyayý seçmeniz gerekir.';
 $strMySQLCharset = 'MySQL karakter seti';
-$strMySQLConnectionCollation = 'MySQL baðlantý karþýlaþtýrmasý(collation)';
+$strMySQLConnectionCollation = 'MySQL baðlantý karþýlaþtýrmasý';
 $strMySQLReloaded = 'MySQL yeniden yüklendi.';
 $strMySQLSaid = 'MySQL çýktýsý: ';
 $strMySQLServerProcess = ' MySQL %pma_s1%   %pma_s2%  üzerinde  %pma_s3% olarak çalýþýyor';
@@ -392,6 +408,7 @@ $strName = 'Ýsim';
 $strNeedPrimaryKey = 'Bu tablo için birincil anahtar tanýmlamanýz gerekir.';
 $strNext = 'Sonraki';
 $strNo = 'Hayýr';
+$strNoActivity = '%s veya daha fazla saniye boyunca hiçbir iþlem yapýlmadý, lütfen yeniden giriþ yapýnýz';
 $strNoDatabases = 'Veritabaný yok';
 $strNoDatabasesSelected = 'Veritabaný seçilmedi.';
 $strNoDescription = 'Tanýmlama yok';
@@ -443,6 +460,7 @@ $strPartialText = 'Kýsmi Metinler';
 $strPassword = 'Þifre';
 $strPasswordChanged = '%s için þifre baþarýyla deðiþtirildi.';
 $strPasswordEmpty = 'Þifre alaný doldurulmadý!';
+$strPasswordHashing = 'Þifre Hash yöntemi';  
 $strPasswordNotSame = 'Girilen þifreler ayný deðil!';
 $strPdfDbSchema = ' "%s" veritabanýnýn þemasý - Sayfa %s';
 $strPdfInvalidTblName = ' "%s" tablosu bulunamýyor !';
@@ -579,6 +597,7 @@ $strSearchType = '<b>BUL </b> :';
 $strSecretRequired = 'Ayar dosyasý için gizli bir þifre gerekiyor (blowfish_secret).';
 $strSelectADb = ' Lütfen bir veritabaný seçiniz';
 $strSelectAll = 'Tümünü seç';
+$strSelectBinaryLog = 'Görüntülemek istediðiniz binari kaydýný seçiniz';  
 $strSelectFields = 'Alan seç (en az bir)';
 $strSelectNumRows = 'sorgu içerisinde';
 $strSelectTables = 'Tablolarý seç';
@@ -634,6 +653,7 @@ $strSubmit = 'Onayla';
 $strSuccess = 'SQL sorgunuz baþarýyla çalýþtýrýlmýþtýr';
 $strSum = 'toplam';
 $strSwedish = 'Ýsveçce';
+$strSwitchToDatabase = 'Kopyalanmýþ veritabanýný kullan.';  
 $strSwitchToTable = 'Kopyalanmýþ tabloya geç';
 
 $strTable = 'Tablo:';
@@ -695,6 +715,7 @@ $strUpgrade = '%s %s veya daha sonraki bir sürüme yükseltme yapmanýz gereklidir.
 $strUsage = 'Kullaným';
 $strUseBackquotes = 'Tablo ve alan isimleri için ters týrnak " ` " iþaretini kullan';
 $strUseHostTable = 'Host tablosunu kullan';
+$strUseTabKey = 'Deðerden deðere geçmek için TAB tuþunu istediðiniz herhangi bir yere gitmek için CTRL+OK TUÞLARI\`ný kullanýn.';
 $strUseTables = 'Tablolarý kullan';
 $strUseTextField = 'Metin alanýný kullan';
 $strUseThisValue = 'Bu deðeri kullan';
@@ -733,23 +754,8 @@ $strYes = 'Evet';
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanmasý sýnýrý kaldýrýr..';
 $strZip = '"ziplenmiþ"';
 
-$strUseTabKey = 'Use TAB key to move from value to value, or CTRL+arrows to move anywhere';  //to translate
-$strEscapeWildcards = 'Wildcards _ and % should be escaped with a \ to use them literally';  //to translate
-$strBinLogName = 'Log name';  //to translate
-$strBinLogPosition = 'Position';  //to translate
-$strBinLogEventType = 'Event type';  //to translate
-$strBinLogServerId = 'Server ID';  //to translate
-$strBinLogOriginalPosition = 'Original position';  //to translate
-$strBinLogInfo = 'Information';  //to translate
-$strBinaryLog = 'Binary log';  //to translate
-$strSelectBinaryLog = 'Select binary log to view';  //to translate
-$strDBCopy = 'Copy database to';  //to translate
-$strCopyDatabaseOK = 'Database %s has been copied to %s';  //to translate
-$strSwitchToDatabase = 'Switch to copied database';  //to translate
-$strPasswordHashing = 'Password Hashing';  //to translate
-$strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';  //to translate
-$strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';//to translate
-$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
-$strIndexWarningMultiple = 'More than one %s key was created for column `%s`';//to translate
-$strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
+$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
+$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
+$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
+$strAfterInsertNext = 'Edit next row';  //to translate
 ?>

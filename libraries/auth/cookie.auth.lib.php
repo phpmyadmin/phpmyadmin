@@ -2,19 +2,16 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 // +--------------------------------------------------------------------------+
 // | Set of functions used to run cookie based authentication.                |
 // | Thanks to Piotr Roszatycki <d3xter at users.sourceforge.net> and         |
-// | Dan Wilson who builds this patch for the Debian package.                 |
+// | Dan Wilson who built this patch for the Debian package.                  |
 // +--------------------------------------------------------------------------+
 
 
 if (!isset($coming_from_common)) {
    exit;
 }
-
-require_once('./libraries/blowfish.php');
 
 // Gets the default font sizes
 PMA_setFontSizes();
@@ -24,82 +21,13 @@ $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'
 $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 $current_time  = time();
 
-/**
- * String padding
- *
- * @param   string  input string
- * @param   integer length of the result
- * @param   string  the filling string
- * @param   integer padding mode
- *
- * @return  string  the padded string
- *
- * @access  public
- */
-function full_str_pad($input, $pad_length, $pad_string = '', $pad_type = 0) {
-    $str = '';
-    $length = $pad_length - strlen($input);
-    if ($length > 0) { // str_repeat doesn't like negatives
-        if ($pad_type == STR_PAD_RIGHT) { // STR_PAD_RIGHT == 1
-            $str = $input.str_repeat($pad_string, $length);
-        } elseif ($pad_type == STR_PAD_BOTH) { // STR_PAD_BOTH == 2
-            $str = str_repeat($pad_string, floor($length/2));
-            $str .= $input;
-            $str .= str_repeat($pad_string, ceil($length/2));
-        } else { // defaults to STR_PAD_LEFT == 0
-            $str = str_repeat($pad_string, $length).$input;
-        }
-    } else { // if $length is negative or zero we don't need to do anything
-        $str = $input;
-    }
-    return $str;
-}
-
-/**
- * Encryption using blowfish algorithm
- *
- * @param   string  original data
- * @param   string  the secret
- *
- * @return  string  the encrypted result
- *
- * @access  public
- *
- * @author  lem9
- */
-function PMA_blowfish_encrypt($data, $secret) {
-    $pma_cipher = new Horde_Cipher_blowfish;
-    $encrypt = '';
-    for ($i=0; $i<strlen($data); $i+=8) {
-        $block = substr($data, $i, 8);
-        if (strlen($block) < 8) {
-            $block = full_str_pad($block,8,"\0", 1);
-        }
-        $encrypt .= $pma_cipher->encryptBlock($block, $secret);
-    }
-    return base64_encode($encrypt);
-}
-
-/**
- * Decryption using blowfish algorithm
- *
- * @param   string  encrypted data
- * @param   string  the secret
- *
- * @return  string  original data
- *
- * @access  public
- *
- * @author  lem9
- */
-function PMA_blowfish_decrypt($encdata, $secret) {
-    $pma_cipher = new Horde_Cipher_blowfish;
-    $decrypt = '';
-    $data = base64_decode($encdata);
-    for ($i=0; $i<strlen($data); $i+=8) {
-        $decrypt .= $pma_cipher->decryptBlock(substr($data, $i, 8), $secret);
-    }
-    return trim($decrypt);
+// Uses faster mcrypt library if available
+// (Note: mcrypt.lib.php needs $cookie_path and $is_https)
+// TODO: try to load mcrypt?
+if (function_exists('mcrypt_encrypt')) {
+    require_once('./libraries/mcrypt.lib.php');
+} else {
+    require_once('./libraries/blowfish.php');
 }
 
 /**
@@ -150,15 +78,12 @@ function PMA_auth()
         // username
         // do not try to use pma_cookie_username as it was encoded differently
         // in previous versions and would produce an undefined offset in blowfish
-
         if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username-' . $server])) {
             $default_user = $_COOKIE['pma_cookie_username-' . $server];
         }
-
         $decrypted_user = isset($default_user) ? PMA_blowfish_decrypt($default_user, $GLOBALS['cfg']['blowfish_secret']) : '';
         $pos = strrpos($decrypted_user, ':');
         $default_user = substr($decrypted_user, 0, $pos);
-
         // server name
         if (!empty($GLOBALS['pma_cookie_servername'])) {
             $default_server = $GLOBALS['pma_cookie_servername'];
@@ -526,12 +451,18 @@ function PMA_auth_check()
         $decrypted_user = PMA_blowfish_decrypt($PHP_AUTH_USER, $GLOBALS['cfg']['blowfish_secret']);
         $pos = strrpos($decrypted_user, ':');
         $PHP_AUTH_USER = substr($decrypted_user, 0, $pos);
-
         $decrypted_time = (int)substr($decrypted_user, $pos + 1);
 
-        /* User inactive too long */
-        /* FIXME: maybe we could say it to user... */
-        if ($decrypted_time < $GLOBALS['current_time'] - $GLOBALS['cfg']['LoginCookieValidity']) {
+        // User inactive too long
+        if ($decrypted_time > 0 && $decrypted_time < $GLOBALS['current_time'] - $GLOBALS['cfg']['LoginCookieValidity']) {
+            // Display an error message only if the inactivity has lasted
+            // less than 4 times the timeout value. This is to avoid
+            // alerting users with a error after "much" time has passed,
+            // for example next morning.
+            if ($decrypted_time > $GLOBALS['current_time'] - ($GLOBALS['cfg']['LoginCookieValidity'] * 4)) {
+                $GLOBALS['no_activity'] = TRUE;
+                PMA_auth_fails();
+            }
             return FALSE;
         }
 
@@ -681,6 +612,8 @@ global $conn_error, $server;
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         $conn_error = $GLOBALS['strAccessDenied'];
+    } else if (isset($GLOBALS['no_activity']) && $GLOBALS['no_activity']) {
+        $conn_error = sprintf($GLOBALS['strNoActivity'],$GLOBALS['cfg']['LoginCookieValidity']);  
     } else if (PMA_DBI_getError()) {
         $conn_error = PMA_DBI_getError();
     } else if (isset($php_errormsg)) {

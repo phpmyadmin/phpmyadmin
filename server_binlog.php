@@ -79,8 +79,8 @@ PMA_showMessage($GLOBALS['strSuccess']);
 <?php
 $useBgcolorOne = TRUE;
 foreach ($serverProcesses as $value) {
-    if (empty($full) && strlen($value['Info']) > $GLOBALS['cfg']['LimitChars']) {
-        $value['Info'] = substr($value['Info'], 0, $GLOBALS['cfg']['LimitChars']) . '...';
+    if (empty($full) && PMA_strlen($value['Info']) > $GLOBALS['cfg']['LimitChars']) {
+        $value['Info'] = PMA_substr($value['Info'], 0, $GLOBALS['cfg']['LimitChars']) . '...';
     }
 ?>
     <tr>

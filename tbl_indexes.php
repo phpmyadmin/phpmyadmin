@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Gets some core libraries
  */
@@ -51,7 +50,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
 /**
  * Gets fields and indexes informations
  */
-if (defined('PMA_IDX_INCLUDED')) {
+if (!defined('PMA_IDX_INCLUDED')) {
     $err_url_0 = 'db_details.php?' . PMA_generate_common_url($db);
 }
 
@@ -61,10 +60,10 @@ $indexes_info = array();
 $indexes_data = array();
 // keys had already been grabbed in "tbl_properties.php"
 if (!defined('PMA_IDX_INCLUDED')) {
-    $tbl_ret_keys = PMA_get_indexes($table, $err_url_0);
+    $ret_keys = PMA_get_indexes($table, $err_url_0);
 }
 
-PMA_extract_indexes($tbl_ret_keys, $indexes, $indexes_info, $indexes_data);
+PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
 
 // Get fields and stores their name/type
 // fields had already been grabbed in "tbl_properties.php"

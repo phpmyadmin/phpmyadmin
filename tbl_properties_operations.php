@@ -250,9 +250,22 @@ for ($i = 0; $i < $num_dbs; $i++) {
     <form method="post" action="tbl_properties_operations.php">
         <tr>
             <th colspan="2" class="tblHeaders" align="left">
-                <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-                <?php echo $strTableComments; ?>:&nbsp;
-                <?php $comment = ereg_replace('; InnoDB free:.*$' , '', ereg_replace('^InnoDB free:.*$', '', $show_comment)); ?>
+                <?php
+                echo PMA_generate_common_hidden_inputs($db, $table);
+                echo $strTableComments . '&nbsp;';
+                if (strstr($show_comment, '; InnoDB free') === FALSE) {
+                    if (strstr($show_comment, 'InnoDB free') === FALSE) {
+                        // only user entered comment
+                        $comment = $show_comment;
+                    } else {
+                        // here we have just InnoDB generated part
+                        $comment = '';
+                    }
+                } else {
+                    // remove InnoDB comment from end, just the minimal part (*? is non greedy)
+                    $comment = preg_replace('@; InnoDB free:.*?$@' , '', $show_comment);
+                }
+                ?>
                 <input type="hidden" name="prev_comment" value="<?php echo urlencode($comment); ?>" />&nbsp;
             </th>
         <tr>

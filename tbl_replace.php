@@ -12,6 +12,8 @@ require_once('./libraries/common.lib.php');
 // Check parameters
 PMA_checkParameters(array('db','table','goto'));
 
+PMA_DBI_select_db($db);
+
 /**
  * Initializes some variables
  */
@@ -48,6 +50,25 @@ if (isset($after_insert) && $after_insert == 'new_insert') {
             $goto .= '&primary_key[]=' . $pk;
         }
     }
+} elseif (isset($after_insert) && $after_insert == 'edit_next') {
+    $goto = 'tbl_change.php?'
+          . PMA_generate_common_url($db, $table, '&')
+          . '&goto=' . urlencode($goto)
+          . '&pos=' . $pos
+          . '&session_max_rows=' . $session_max_rows
+          . '&disp_direction=' . $disp_direction
+          . '&repeat_cells=' . $repeat_cells
+          . '&dontlimitchars=' . $dontlimitchars
+          . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
+    if (isset($primary_key)) {
+        foreach ($primary_key AS $pk) {
+            $local_query    = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . str_replace('` =', '` >', urldecode($pk)) . ' LIMIT 1;';
+            $res            = PMA_DBI_query($local_query);
+            $row            = PMA_DBI_fetch_row($res);
+            $meta           = PMA_DBI_get_fields_meta($res);
+            $goto .= '&primary_key[]=' . urlencode(PMA_getUvaCondition($res, count($row), $meta, $row));
+        }
+    }
 } else if ($goto == 'sql.php') {
     $goto = 'sql.php?'
           . PMA_generate_common_url($db, $table, '&')
@@ -76,11 +97,6 @@ if (isset($err_url)) {
              . (empty($primary_key) ? '' : '&amp;primary_key=' . (is_array($primary_key) ? $primary_key[0] : $primary_key));
 }
 
-// Resets tables defined in the configuration file
-if (isset($funcs)) {
-    reset($funcs);
-}
-
 // Misc
 $seen_binary = FALSE;
 
@@ -100,7 +116,6 @@ if (isset($primary_key)) {
     $is_insert  = TRUE;
 }
 
-PMA_DBI_select_db($db);
 $query = array();
 $message = '';
 
@@ -222,7 +237,7 @@ foreach ($query AS $query_index => $single_query) {
 
         $insert_id = PMA_DBI_insert_id();
         if ($insert_id != 0) {
-            $last_message .= '<br />'.$strInsertedRowId . '&nbsp;' . $insert_id;
+            $last_message .= '[br]'.$strInsertedRowId . '&nbsp;' . $insert_id;
         }
     } // end if
     PMA_DBI_free_result($result);
@@ -230,7 +245,6 @@ foreach ($query AS $query_index => $single_query) {
 }
 
 if ($total_affected_rows != 0) {
-    //$message .= '<br />' . $total_affected_rows;
     $message .= $total_affected_rows;
 } else {
     $message .= $strModifications;

@@ -119,9 +119,20 @@ function resizeRowsLeft() {
     }
 }
 
+//-->
+</script>
+<?php
+    // setup the onload handler for resizing frames
+    $js_frame_onload=' onload="resizeRowsLeft();"';
+}
+if ($cfg['QueryFrame']) {
+?>
+<script type="text/javascript" language="javascript">
+<!--
 // added 2004-09-16 by Michael Keck (mkkeck)
 //                  bug: #1027321
 //                       drop-down databases list keep focus on database change
+// modified 2004-11-06: bug #1046434 (Light mode does not work)
 var focus_removed = false;
 function remove_focus_select() {
     focus_removed = false;
@@ -139,8 +150,6 @@ function set_focus_to_nav() {
 //-->
 </script>
 <?php
-    // setup the onload handler for resizing frames
-    $js_frame_onload=' onload="resizeRowsLeft();"';
 }
 ?>
 </head>

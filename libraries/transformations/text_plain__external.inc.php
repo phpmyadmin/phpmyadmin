@@ -2,51 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-function PMA_EscapeShellArg($string) {
-    return '\'' . str_replace('\'', '\\\'', $string) . '\'';
-}
-
-function PMA_SecureShellArgs($s) {
-    $len = strlen($s);
-    $inside_single = FALSE;
-    $inside_double = FALSE;
-    $is_escaped = FALSE;
-    for($i = 0; $i < $len; $i++) {
-        if (!$inside_single && $s[$i] == '\\') {
-            $is_escaped = ! $is_escaped;
-            continue;
-        }
-        if ($is_escaped && $s[$i - 1] != '\\') {
-            $is_escaped = FALSE;
-        }
-        if (!$inside_double && !$is_escaped && $s[$i] == '\'') {
-           $inside_single = ! $inside_single;
-           continue;
-        }
-        if (!$inside_single && !$is_escaped && $s[$i] == '"') {
-           $inside_double = ! $inside_double;
-           continue;
-        }
-        // escape shell special chars in we're not inside quotes
-        if (!$inside_single && !$is_escaped && !$inside_double) {
-            if (strstr('><$`|;&', $s[$i])) {
-                $s = substr($s, 0, $i) . '\\' . substr($s, $i);
-                $i++;
-                continue;
-            }
-        }
-        // in double quotes we need to escape more
-        if ($inside_double && !$is_escaped) {
-            if (strstr('$`', $s[$i])) {
-                $s = substr($s, 0, $i) . '\\' . substr($s, $i);
-                $i++;
-            }
-        }
-    }
-    return $s;
-}
-
-
 function PMA_transformation_text_plain__external_nowrap($options = array()) {
     if (!isset($options[3]) || $options[3] == '') {
         $nowrap = true;
@@ -78,8 +33,8 @@ function PMA_transformation_text_plain__external($buffer, $options = array(), $m
     // Add here program definitions like (note that these are NOT safe
     // programs):
     //
-    // $allowed_programs[0] = '/usr/local/bin/tidy';
-    // $allowed_programs[1] = '/usr/local/bin/validate';
+    //$allowed_programs[0] = '/usr/local/bin/tidy';
+    //$allowed_programs[1] = '/usr/local/bin/validate';
 
     // no-op when no allowed programs
     if (count($allowed_programs) == 0) {
@@ -106,8 +61,24 @@ function PMA_transformation_text_plain__external($buffer, $options = array(), $m
         $options[3] = 1;
     }
 
-    $cmdline = 'echo ' . PMA_EscapeShellArg($buffer) . ' | ' . $program . ' ' . PMA_SecureShellArgs($poptions);
-    $newstring = `$cmdline`;
+    // needs PHP >= 4.3.0
+    $newstring = '';
+    $descriptorspec = array(
+        0 => array("pipe", "r"),
+        1 => array("pipe", "w")
+    );
+    $process = proc_open($program . ' ' . $poptions, $descriptorspec, $pipes);
+    if (is_resource($process)) {
+        fwrite($pipes[0], $buffer);
+        fclose($pipes[0]);
+
+        while (!feof($pipes[1])) {
+            $newstring .= fgets($pipes[1], 1024);
+        }
+        fclose($pipes[1]);
+        // we don't currently use the return value 
+        $return_value = proc_close($process);
+    }
 
     if ($options[2] == 1 || $options[2] == '2') {
         $retstring = htmlspecialchars($newstring);
@@ -117,5 +88,4 @@ function PMA_transformation_text_plain__external($buffer, $options = array(), $m
 
     return $retstring;
 }
-
 ?>

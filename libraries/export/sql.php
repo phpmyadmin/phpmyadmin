@@ -56,6 +56,11 @@ function PMA_exportHeader() {
     global $crlf;
     global $cfg;
 
+    if (PMA_MYSQL_INT_VERSION >= 40100 && isset($GLOBALS['sql_compat']) && $GLOBALS['sql_compat'] != 'NONE') {
+        $result = PMA_DBI_query('SET @@SQL_MODE="' . $GLOBALS['sql_compat'] . '"');
+        PMA_DBI_free_result($result);
+    }
+
     $head  =  $GLOBALS['comment_marker'] . 'phpMyAdmin SQL Dump' . $crlf
            .  $GLOBALS['comment_marker'] . 'version ' . PMA_VERSION . $crlf
            .  $GLOBALS['comment_marker'] . 'http://www.phpmyadmin.net' . $crlf
@@ -143,8 +148,12 @@ function PMA_exportDBHeader($db) {
  * @access  public
  */
 function PMA_exportDBFooter($db) {
-    if (isset($GLOBALS['sql_constraints'])) return PMA_exportOutputHandler($GLOBALS['sql_constraints']);
-    return TRUE;
+    $result = TRUE;
+    if (isset($GLOBALS['sql_constraints'])) {
+        $result = PMA_exportOutputHandler($GLOBALS['sql_constraints']);
+        unset($GLOBALS['sql_constraints']);
+    }
+    return $result;
 }
 
 /**
@@ -534,8 +543,8 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 // a binary field
                 // Note: with mysqli, under MySQL 4.1.3, we get the flag
                 // "binary" for those field types (I don't know why)
-                } else if (stristr($field_flags[$j], 'BINARY') 
-                        && isset($GLOBALS['hexforbinary']) 
+                } else if (stristr($field_flags[$j], 'BINARY')
+                        && isset($GLOBALS['hexforbinary'])
                         && $fields_meta[$j]->type != 'datetime'
                         && $fields_meta[$j]->type != 'date'
                         && $fields_meta[$j]->type != 'time'

@@ -237,7 +237,20 @@ if (!$hide_structure) { ?>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="sql_mime" value="yes" id="checkbox_sql_use_mime" <?php PMA_exportCheckboxCheck('sql_mime'); ?> style="vertical-align: middle" /><label for="checkbox_sql_use_mime"><?php echo $strMIME_MIMEtype; ?></label><br />
 <?php
     } // end MIME
+    if (PMA_MYSQL_INT_VERSION >= 40100) {
 ?>
+                        <label for="select_sql_compat"><?php echo $strSQLExportCompatibility; ?>:&nbsp;</label><select name="sql_compat" id="select_sql_compat" style="vertical-align: middle">
+                        <?php
+                        /* FIXME: offer only those that have effect on actual version? */
+                        $compats = array('NONE', 'ANSI', 'DB2', 'MAXDB', 'MSSQL', 'MYSQL323', 'MYSQL40', 'ORACLE', 'POSTGRESQL', 'TRADITIONAL');
+                        foreach ($compats as $x) {
+                            echo '<option value="' . $x . '"' . ($cfg['Export']['sql_compat'] == $x ? ' selected="selected"' : '' ) . '>' . $x . '</option>' . "\n";
+                        }
+                        ?>
+                        </select>
+                        <?php echo PMA_showMySQLDocu('manual_MySQL_Database_Administration', 'Server_SQL_mode') . "\n"; 
+    }
+    ?>
                     </td>
                 </tr>
 <?php

@@ -86,7 +86,11 @@ function PMA_setDisplayMode(&$the_disp_mode, &$the_total)
             $do_display['nav_bar']   = (string) '0';
             $do_display['ins_row']   = (string) '0';
             $do_display['bkm_form']  = (string) '1';
-            $do_display['text_btn']  = (string) '0';
+            if ($GLOBALS['is_analyse']) {
+                $do_display['text_btn']  = (string) '1';
+            } else {
+                $do_display['text_btn']  = (string) '0';
+            }
             $do_display['pview_lnk'] = (string) '1';
         }
         // 2.2 Statement is a "SHOW..."
@@ -468,15 +472,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
             // grab indexes data:
             PMA_DBI_select_db($db);
-
             if (!defined('PMA_IDX_INCLUDED')) {
-                $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
-                $result      = PMA_DBI_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-                $ret_keys    = array();
-                while ($row = PMA_DBI_fetch_assoc($result)) {
-                    $ret_keys[]  = $row;
-                }
-                PMA_DBI_free_result($result);
+                $ret_keys = PMA_get_indexes($table);
             }
 
             $prev_index = '';
@@ -1859,9 +1856,9 @@ function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
         if ($cfg['PropertiesIconic']) {
             PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $GLOBALS['strChange'], 'b_edit.png');
-            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $delete_text, 'b_drop.png');
+            PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_delete', $delete_text, 'b_drop.png');
             if ($analyzed_sql[0]['querytype'] == 'SELECT') {
-                PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_change', $GLOBALS['strExport'], 'b_tblexport.png');
+                PMA_buttonOrImage('submit_mult', 'mult_submit', 'submit_mult_export', $GLOBALS['strExport'], 'b_tblexport.png');
             }
             echo "\n";
         } else {

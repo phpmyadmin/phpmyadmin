@@ -180,7 +180,7 @@ if ($server > 0) {
     $is_superuser    = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $userlink, PMA_DBI_QUERY_STORE);
 
 function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create) {
-                    
+
     $re0 = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
     $re1 = '(^|[^\])(\\\)+'; // escaped wildcards
     while ($row = PMA_DBI_fetch_row($rs_usr)) {
@@ -206,7 +206,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create) {
     } // end while
 } // end function
 
-// Detection for some CREATE privilege. 
+// Detection for some CREATE privilege.
 
 // Since MySQL 4.1.2, we can easily detect current user's grants
 // using $userlink (no control user needed)
@@ -215,16 +215,16 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create) {
     if (PMA_MYSQL_INT_VERSION >= 40102) {
         $rs_usr = PMA_DBI_try_query('SHOW GRANTS', $userlink, PMA_DBI_QUERY_STORE);
         if ($rs_usr) {
-            PMA_analyseShowGrant($rs_usr,&$is_create_priv, &$db_to_create);
+            PMA_analyseShowGrant($rs_usr,$is_create_priv, $db_to_create);
             PMA_DBI_free_result($rs_usr);
             unset($rs_usr);
         }
     } else {
 
-// Before MySQL 4.1.2, we first try to find a priv in mysql.user. Hopefuly 
+// Before MySQL 4.1.2, we first try to find a priv in mysql.user. Hopefuly
 // the controluser is correctly defined; but here, $dbh could contain
 // $userlink so maybe the SELECT will fail
- 
+
         if (!$is_create_priv) {
             $local_query = 'SELECT Create_priv, Reload_priv FROM mysql.user WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ' OR ' . PMA_convert_using('User') . ' = ' . PMA_convert_using('', 'quoted') . ';';
             $rs_usr      = PMA_DBI_try_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
@@ -275,7 +275,7 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create) {
                 }
                 unset($local_query);
                 if ($rs_usr) {
-                    PMA_analyseShowGrant($rs_usr,&$is_create_priv, &$db_to_create);
+                    PMA_analyseShowGrant($rs_usr,$is_create_priv, $db_to_create);
                     PMA_DBI_free_result($rs_usr);
                     unset($rs_usr);
                 } // end if
@@ -757,6 +757,23 @@ if ($server != 0
 
 if (PMA_PHP_INT_VERSION == 40203 && @extension_loaded('mbstring')) {
     echo '<div class="warning">' . $strPHP40203 . '</div>' . "\n";
+}
+
+/**
+ * Nijel: As we try to hadle charsets by ourself, mbstring overloads just
+ * break it, see bug 1063821.
+ */
+
+if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
+    echo '<div class="warning">' . $strMbOverloadWarning . '</div>' . "\n";
+}
+
+/**
+ * Nijel: mbstring is used for handling multibyte inside parser, so it is good
+ * to tell user something might be broken without it, see bug #1063149.
+ */
+if ($GLOBALS['using_mb_charset'] && !@extension_loaded('mbstring')) {
+    echo '<div class="warning">' . $strMbExtensionMissing . '</div>' . "\n";
 }
 
 /**

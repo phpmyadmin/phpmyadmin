@@ -145,8 +145,8 @@ function PMA_table_move_copy($source_db, $source_table, $target_db, $target_tabl
             $sql_query = $sql_structure . ';';
         }
 
-        if (($move || isset($GLOBALS['constraints'])) && isset($sql_constraints)) {
-            $parsed_sql =  PMA_SQP_parse($sql_constraints);
+        if (($move || isset($GLOBALS['constraints'])) && isset($GLOBALS['sql_constraints'])) {
+            $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_constraints']);
 
             $i = 0;
             while ($parsed_sql[$i]['type'] != 'quote_backtick') $i++;
@@ -155,13 +155,15 @@ function PMA_table_move_copy($source_db, $source_table, $target_db, $target_tabl
             $parsed_sql[$i]['data'] = $target;
 
             /* Generate query back */
-            $sql_constraints = PMA_SQP_formatHtml($parsed_sql, 'query_only');
-            $result          = PMA_DBI_query($sql_constraints);
+            $GLOBALS['sql_constraints'] = PMA_SQP_formatHtml($parsed_sql, 'query_only');
+            $result          = PMA_DBI_query($GLOBALS['sql_constraints']);
             if (isset($sql_query)) {
-                $sql_query .= "\n" . $sql_constraints;
+                $sql_query .= "\n" . $GLOBALS['sql_constraints'];
             } else {
-                $sql_query = $sql_constraints;
+                $sql_query = $GLOBALS['sql_constraints'];
             }
+
+            unset($GLOBALS['sql_constraints']);
         }
 
     } else {

@@ -46,10 +46,15 @@ function reload_window(db) {
 function PMA_dbCmp($a, $b)
 {
     global $sort_by, $sort_order;
+    if ($GLOBALS['cfg']['NaturalOrder']) {
+        $sorter = 'strnatcmp';
+    } else {
+        $sorter = 'strcasecmp';
+    }
     if ($sort_by == 'db_name') {
-        return ($sort_order == 'asc' ? 1 : -1) * strcasecmp($a['db_name'], $b['db_name']);
+        return ($sort_order == 'asc' ? 1 : -1) * $sorter($a['db_name'], $b['db_name']);
     } else if ($a[$sort_by] == $b[$sort_by]) {
-        return strcasecmp($a['db_name'], $b['db_name']);
+        return $sorter($a['db_name'], $b['db_name']);
     } else {
         return ($sort_order == 'asc' ? 1 : -1) * ((int)$a[$sort_by] > (int)$b[$sort_by] ? 1 : -1);
     }
@@ -162,20 +167,13 @@ if (count($statistics) > 0) {
        . '        <tr>' . "\n"
        . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '            <th>&nbsp;</th>' . "\n" : '')
        . '            <th>' . "\n"
-       . '                &nbsp;';
-    if (empty($dbstats)) {
-        echo $strDatabase . "\n"
-           . '                <img src="' . $pmaThemeImage . 's_asc.png" border="0" width="11" height="9"  alt="' . $strAscending . '" />' . "\n"
-           . '                &nbsp;' . "\n"
-           . '            </th>' . "\n";
-    } else {
-        echo "\n"
-           . '                <a href="./server_databases.php?' . $url_query . '&amp;dbstats=1&amp;sort_by=db_name&amp;sort_order=' . (($sort_by == 'db_name' && $sort_order == 'asc') ? 'desc' : 'asc') . '">' . "\n"
-           . '                    ' . $strDatabase . "\n"
-           . ($sort_by == 'db_name' ? '                    <img src="' . $pmaThemeImage . 's_' . $sort_order . '.png" border="0" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
-           . '                </a>' . "\n"
-           . '                &nbsp;' . "\n"
-           . '            </th>' . "\n";
+       . '                <a href="./server_databases.php?' . $url_query . (!empty($dbstats) ? '&amp;dbstats=1' : '') . '&amp;sort_by=db_name&amp;sort_order=' . (($sort_by == 'db_name' && $sort_order == 'asc') ? 'desc' : 'asc') . '">' . "\n"
+       . '                    ' . $strDatabase . "\n"
+       . ($sort_by == 'db_name' ? '                    <img src="' . $pmaThemeImage . 's_' . $sort_order . '.png" border="0" width="11" height="9"  alt="' . ($sort_order == 'asc' ? $strAscending : $strDescending) . '" />' . "\n" : '')
+       . '                </a>' . "\n"
+       . '                &nbsp;' . "\n"
+       . '            </th>' . "\n";
+    if (!empty($dbstats)) {
         if (PMA_MYSQL_INT_VERSION >= 40101) {
             echo '            <th>' . "\n"
                . '                &nbsp;' . $strCollation . '&nbsp;' . "\n"

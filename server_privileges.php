@@ -591,7 +591,7 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
     $res = PMA_DBI_query('SELECT \'foo\' FROM `user` WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($username), 'quoted') . ' AND ' . PMA_convert_using('Host') . ' = ' . PMA_convert_using($hostname, 'quoted') . ';');
     if (PMA_DBI_affected_rows() == 1) {
         PMA_DBI_free_result($res);
-        $message = sprintf($strUserAlreadyExists, '<i>\'' . $username . '\'@\'' . $hostname . '\'</i>');
+        $message = sprintf($strUserAlreadyExists, '[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
         $adduser = 1;
     } else {
         PMA_DBI_free_result($res);
@@ -692,13 +692,13 @@ if (!empty($change_copy)) {
             $tmp_privs1[] = 'SELECT (`' . join('`, `', $tmp_privs2['Select']) . '`)';
         }
         if (count($tmp_privs2['Insert']) > 0 && !in_array('INSERT', $tmp_privs1)) {
-            $tmp_privs1[] = 'INSERT (`' . join(', ', $tmp_privs2['Insert']) . '`)';
+            $tmp_privs1[] = 'INSERT (`' . join('`, `', $tmp_privs2['Insert']) . '`)';
         }
         if (count($tmp_privs2['Update']) > 0 && !in_array('UPDATE', $tmp_privs1)) {
-            $tmp_privs1[] = 'UPDATE (`' . join(', ', $tmp_privs2['Update']) . '`)';
+            $tmp_privs1[] = 'UPDATE (`' . join('`, `', $tmp_privs2['Update']) . '`)';
         }
         if (count($tmp_privs2['References']) > 0 && !in_array('REFERENCES', $tmp_privs1)) {
-            $tmp_privs1[] = 'REFERENCES (`' . join(', ', $tmp_privs2['References']) . '`)';
+            $tmp_privs1[] = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
         }
         unset($tmp_privs2);
         $queries[] = 'GRANT ' . join(', ', $tmp_privs1) . ' ON `' . $row['Db'] . '`.`' . $row['Table_name'] . '` TO \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\'' . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION' : '') . ';';
@@ -710,7 +710,16 @@ if (!empty($change_copy)) {
  * Updates privileges
  */
 if (!empty($update_privs)) {
-    $db_and_table = empty($dbname) ? '*.*' : PMA_backquote($dbname) . '.' . (empty($tablename) ? '*' : PMA_backquote($tablename));
+    // escaping a wildcard character in a GRANT is only accepted at the global
+    // or database level, not at table level; this is why I remove
+    // the escaping character
+    // Note: in the Database-specific privileges, we will have for example
+    //  test\_db  SELECT (this one is for privileges on a db level)
+    //  test_db   USAGE  (this one is for table-specific privileges)
+    //
+    // It looks curious but reflects IMO the way MySQL works
+
+    $db_and_table = empty($dbname) ? '*.*' : str_replace('\\','',PMA_backquote($dbname)) . '.' . (empty($tablename) ? '*' : PMA_backquote($tablename));
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';
     if (!isset($Grant_priv) || $Grant_priv != 'Y') {
         $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table . ' FROM \'' . PMA_sqlAddslashes($username) . '\'@\'' . $hostname . '\';';

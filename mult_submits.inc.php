@@ -233,9 +233,9 @@ if (!empty($submit_mult) && !empty($what)) {
     <input type="hidden" name="query_type" value="<?php echo $what; ?>" />
     <?php
     if ($what == 'row_delete') {
-        echo '<input type="hidden" name="original_sql_query" value="' . $original_sql_query . '" />' . "\n";
+        echo '<input type="hidden" name="original_sql_query" value="' . htmlspecialchars($original_sql_query) . '" />' . "\n";
         echo '<input type="hidden" name="original_pos" value="' . $original_pos . '" />' . "\n";
-        echo '<input type="hidden" name="original_url_query" value="' . $original_url_query . '" />' . "\n";
+        echo '<input type="hidden" name="original_url_query" value="' . htmlspecialchars($original_url_query) . '" />' . "\n";
     }
     ?>
     <input type="submit" name="mult_btn" value="<?php echo $strYes; ?>" id="buttonYes" />
@@ -372,7 +372,6 @@ else if ($mult_btn == $strYes) {
         // statements will be run at once below
         if ($run_parts) { 
             $sql_query .= $a_query . ';' . "\n";
-
             if ($query_type != 'drop_db') {
                 PMA_DBI_select_db($db);
             }
@@ -382,7 +381,7 @@ else if ($mult_btn == $strYes) {
 
     if ($use_sql) {
         require('./sql.php');
-    } else {
+    } elseif (!$run_parts) {
         PMA_DBI_select_db($db);
         $result = PMA_DBI_query($sql_query);
     }

@@ -142,7 +142,7 @@ if (isset($cfg['FileRevision'])) {
 } else {
     $cfg['FileRevision'] = array(1, 1);
 }
-if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 44)) {
+if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRevision'][1] < 48)) {
     require_once('./libraries/config_import.lib.php');
 }
 
@@ -299,7 +299,7 @@ if (strtolower($cfg['OBGzip']) == 'auto') {
  *            If not, it will use default images
 */
 // Theme Manager
-if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
+if (!$cfg['ThemeManager'] || !isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
     $GLOBALS['theme'] = $cfg['ThemeDefault'];
     $ThemeDefaultOk = FALSE;
     if ($cfg['ThemePath']!='' && $cfg['ThemePath'] != FALSE) {
@@ -982,63 +982,106 @@ if ($is_minimum_common == FALSE) {
      */
     $display_pmaAbsoluteUri_warning = 0;
 
-    // Olivier: Setup a default value to let the people and lazy syadmins
-    //          work anyway, but display a big warning on the main.php
-    //          page.
+    // Setup a default value to let the people and lazy syadmins work anyway,
+    // but display a big warning on the main.php page.
     if (empty($cfg['PmaAbsoluteUri'])) {
-        if (!empty($_SERVER)) {
-            $SERVER_ARRAY = '_SERVER';
-        } else {
-            $SERVER_ARRAY = 'GLOBALS';
-        } // end if
-        if (isset(${$SERVER_ARRAY}['HTTP_HOST'])) {
-            $HTTP_HOST = ${$SERVER_ARRAY}['HTTP_HOST'];
-        }
-        if (isset(${$SERVER_ARRAY}['HTTPS'])) {
-            $HTTPS = ${$SERVER_ARRAY}['HTTPS'];
-        }
-        if (isset(${$SERVER_ARRAY}['SERVER_PORT'])) {
-            $SERVER_PORT = ${$SERVER_ARRAY}['SERVER_PORT'];
-        }
-        if (isset(${$SERVER_ARRAY}['REQUEST_URI'])) {
-            $REQUEST_URI = ${$SERVER_ARRAY}['REQUEST_URI'];
-        }
-        if (isset(${$SERVER_ARRAY}['PATH_INFO'])) {
-            $PATH_INFO = ${$SERVER_ARRAY}['PATH_INFO'];
-        }
-        if (isset(${$SERVER_ARRAY}['HTTP_SCHEME'])) {
-            $HTTP_SCHEME = ${$SERVER_ARRAY}['HTTP_SCHEME'];
+
+        $url = array();
+
+        // At first we try to parse REQUEST_URI, it might contain full URI
+        if (!empty($_SERVER['REQUEST_URI'])) {
+            $url = parse_url($_SERVER['REQUEST_URI']);
         }
 
-        // in some cases $REQUEST_URI contains full URI including protocol and host, so just use it:
-        if (isset($REQUEST_URI) && preg_match('@https?://@', $REQUEST_URI)) {
-            $cfg['PmaAbsoluteUri']          = substr($REQUEST_URI, 0, strrpos($REQUEST_URI, '/') + 1);
-        } else {
-            if (!empty($HTTP_SCHEME)) {
-                $cfg['PmaAbsoluteUri']      = $HTTP_SCHEME . '://';
+        // If we don't have scheme, we didn't have full URL so we need to dig deeper
+        if (empty($url['scheme'])) {
+            // Scheme
+            if (!empty($_SERVER['HTTP_SCHEME'])) {
+                $url['scheme'] = $_SERVER['HTTP_SCHEME'];
             } else {
-                $cfg['PmaAbsoluteUri']      = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . '://';
-            }
-            $port_in_HTTP_HOST              = (strpos($HTTP_HOST, ':') > 0);
-            $cfg['PmaAbsoluteUri']          .= $HTTP_HOST;
-
-            // if $cfg['PmaAbsoluteUri'] is empty and port == 80 or port == 443, do not add ":80" or ":443"
-            // to the generated URL -> prevents a double password query in case of http authentication.
-
-            if (!(!$port_in_HTTP_HOST && !empty($SERVER_PORT) && ($SERVER_PORT == 80 || $SERVER_PORT == 443))) {
-                $cfg['PmaAbsoluteUri']      .= ((!empty($SERVER_PORT) && !$port_in_HTTP_HOST) ? ':' . $SERVER_PORT : '');
+                $url['scheme'] = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') ? 'https' : 'http';
             }
 
-            // rabus: if php is in CGI mode, $PHP_SELF often contains the path to the CGI executable.
-            //   This is why we try to get the path from $REQUEST_URI or $PATH_INFO first.
-            if (isset($REQUEST_URI)) {
-                $cfg['PmaAbsoluteUri']      .= substr($REQUEST_URI, 0, strrpos($REQUEST_URI, '/') + 1);
-            } else if (isset($PATH_INFO)) {
-                $cfg['PmaAbsoluteUri']      .= substr($PATH_INFO, 0, strrpos($PATH_INFO, '/') + 1);
+            // Host and port
+            if (!empty($_SERVER['HTTP_HOST'])) {
+                if (strpos($_SERVER['HTTP_HOST'], ':') > 0) {
+                    list($url['host'], $url['port']) = explode(':', $_SERVER['HTTP_HOST']);
+                } else {
+                    $url['host'] = $_SERVER['HTTP_HOST'];
+                }
+            } else if (!empty($_SERVER['SERVER_NAME'])) {
+                $url['host'] = $_SERVER['SERVER_NAME'];
             } else {
-                $cfg['PmaAbsoluteUri']      .= substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
+                header('Content-Type: text/html; charset=' . $charset);
+                // Displays the error message
+                ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
+
+<head>
+<title>phpMyAdmin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
+
+<style type="text/css">
+<!--
+body  {font-family: sans-serif; font-size: small; color: #000000; background-color: #F5F5F5}
+h1    {font-family: sans-serif; font-size: large; font-weight: bold}
+//-->
+</style>
+</head>
+
+
+<body bgcolor="#ffffff">
+<h1>phpMyAdmin - <?php echo $strError; ?></h1>
+<p>
+<?php echo $strPmaUriError; ?><br /><br />
+</p>
+</body>
+
+</html>
+                <?php
+                exit();
+            }
+
+            // If we didn't set port yet...
+            if (empty($url['port']) && !empty($_SERVER['SERVER_PORT'])) {
+                $url['port'] = $_SERVER['SERVER_PORT'];
+            }
+
+            // And finally the path could be already set from REQUEST_URI
+            if (empty($url['path'])) {
+                if (!empty($_SERVER['PATH_INFO'])) {
+                    $path = parse_url($_SERVER['PATH_INFO']);
+                } else {
+                    // PHP_SELF in CGI often points to cgi executable, so use it as last choice
+                    $path = parse_url($_SERVER['PHP_SELF']);
+                }
+                $url['path'] = $path['path'];
+                unset($path);
             }
         }
+
+        // Make url from parts we have
+        $cfg['PmaAbsoluteUri'] = $url['scheme'] . '://';
+        // Was there user information?
+        if (!empty($url['user'])) {
+            $cfg['PmaAbsoluteUri'] .= $url['user'];
+            if (!empty($url['pass'])) {
+                $cfg['PmaAbsoluteUri'] .= ':' . $url['pass'];
+            }
+            $cfg['PmaAbsoluteUri'] .= '@';
+        }
+        // Add hostname
+        $cfg['PmaAbsoluteUri'] .= $url['host'];
+        // Add port, if it not the default one
+        if (!empty($url['port']) && (($url['scheme'] == 'http' && $url['port'] != 80) || ($url['scheme'] == 'https' && $url['port'] != 443))) {
+            $cfg['PmaAbsoluteUri'] .= ':' . $url['port'];
+        }
+        // And finally path, without script name
+        $cfg['PmaAbsoluteUri'] .= substr($url['path'], 0, strrpos($url['path'], '/') + 1);
+
+        unset($url);
 
         // We display the warning by default, but not if it is disabled thru
         // via the $cfg['PmaAbsoluteUri_DisableWarning'] variable.
@@ -1062,16 +1105,7 @@ if ($is_minimum_common == FALSE) {
         // If URI doesn't start with http:// or https://, we will add
         // this.
         if (substr($cfg['PmaAbsoluteUri'], 0, 7) != 'http://' && substr($cfg['PmaAbsoluteUri'], 0, 8) != 'https://') {
-            if (!empty($_SERVER)) {
-                $SERVER_ARRAY = '_SERVER';
-            } else {
-                $SERVER_ARRAY = 'GLOBALS';
-            } // end if
-            if (isset(${$SERVER_ARRAY}['HTTPS'])) {
-                $HTTPS = ${$SERVER_ARRAY}['HTTPS'];
-            }
-
-            $cfg['PmaAbsoluteUri']          = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . ':'
+            $cfg['PmaAbsoluteUri']          = ((!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') ? 'https' : 'http') . ':'
                                             . (substr($cfg['PmaAbsoluteUri'], 0, 2) == '//' ? '' : '//')
                                             . $cfg['PmaAbsoluteUri'];
         }
@@ -1543,6 +1577,30 @@ if (typeof(window.parent) != 'undefined'
     }
 
     /**
+     * Sanitizes $message, taking into account our special codes
+     * for formatting
+     *
+     * @param   string   the message 
+     *
+     * @return  string   the sanitized message 
+     *
+     * @access  public
+     */
+    function PMA_sanitize($message)
+    {
+        $replace_pairs = array(
+            '<'     => '&lt;',
+            '>'     => '&gt;',
+            '[i]'   => '<i>',
+            '[/i]'  => '</i>',
+            '[b]'   => '<b>',
+            '[br]'  => '<br />',
+            '[/b]'  => '</b>',
+        );
+        return strtr($message, $replace_pairs); 
+    }
+
+    /**
      * Displays a message at the top of the "main" (right) frame
      *
      * @param   string  the message to display
@@ -1555,6 +1613,9 @@ if (typeof(window.parent) != 'undefined'
     {
         global $cfg;
 
+        // Sanitizes $message
+        $message = PMA_sanitize($message); 
+        
         // Corrects the tooltip text via JS if required
         if (!empty($GLOBALS['table']) && $cfg['ShowTooltip']) {
             $result = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
@@ -2272,7 +2333,9 @@ if (typeof(document.getElementById) != 'undefined'
             if (!isset($row[$i]) || is_null($row[$i])) {
                 $condition .= 'IS NULL AND';
             } else {
-                if ($meta->type == 'blob'
+                if ($meta->numeric) {
+                    $condition .= '= ' . $row[$i] . ' AND';
+                } elseif ($meta->type == 'blob'
                     // hexify only if this is a true not empty BLOB
                      && stristr($field_flags, 'BINARY')
                      && !empty($row[$i])) {

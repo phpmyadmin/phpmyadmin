@@ -61,7 +61,7 @@ function unNullify(urlField, multi_edit)
     if (typeof(rowForm.elements['fields_null[multi_edit][' + multi_edit + '][' + urlField + ']']) != 'undefined') {
         rowForm.elements['fields_null[multi_edit][' + multi_edit + '][' + urlField + ']'].checked = false
     } // end if
-    
+
     if (typeof(rowForm.elements['insert_ignore_' + multi_edit]) != 'undefined') {
         rowForm.elements['insert_ignore_' + multi_edit].checked = false
     } // end if
@@ -79,7 +79,7 @@ function onKeyDownArrowsHandler(e) {
     var o = (e.srcElement||e.target);
     if (!o) return;
     if (o.tagName != "TEXTAREA" && o.tagName != "INPUT" && o.tagName != "SELECT") return;
-    if (!e.ctrlKey) return;
+    if (!e.ctrlKey || e.shiftKey || e.altKey) return;
     if (!o.id) return;
 
     var pos = o.id.split("_");
@@ -248,13 +248,29 @@ function initCalendar() {
 
     //heading table
     str += '<table class="calendar"><tr><th width="50%">';
+    str += '<form method="NONE" onsubmit="return 0">';
     str += '<a href="javascript:month--; initCalendar();">&laquo;</a> ';
-    str += month_names[month];
+    str += '<select id="select_month" name="monthsel" onchange="month = parseInt(document.getElementById(\'select_month\').value); initCalendar();">';
+    for (i =0; i < 12; i++) {
+        if (i == month) selected = ' selected="selected"';
+        else selected = '';
+        str += '<option value="' + i + '" ' + selected + '>' + month_names[i] + '</option>';
+    }
+    str += '</select>';
     str += ' <a href="javascript:month++; initCalendar();">&raquo;</a>';
+    str += '</form>';
     str += '</th><th width="50%">';
+    str += '<form method="NONE" onsubmit="return 0">';
     str += '<a href="javascript:year--; initCalendar();">&laquo;</a> ';
-    str += year;
+    str += '<select id="select_year" name="yearsel" onchange="year = parseInt(document.getElementById(\'select_year\').value); initCalendar();">';
+    for (i = year - 25; i < year + 25; i++) {
+        if (i == year) selected = ' selected="selected"';
+        else selected = '';
+        str += '<option value="' + i + '" ' + selected + '>' + i + '</option>';
+    }
+    str += '</select>';
     str += ' <a href="javascript:year++; initCalendar();">&raquo;</a>';
+    str += '</form>';
     str += '</th></tr></table>';
 
     str += '<table class="calendar"><tr>';

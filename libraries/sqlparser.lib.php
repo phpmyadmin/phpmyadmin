@@ -308,7 +308,7 @@ if ($is_minimum_common == FALSE) {
                     // ($pos === FALSE)
                     if ($pos < 0) {
                         $debugstr = $GLOBALS['strSQPBugUnclosedQuote'] . ' @ ' . $startquotepos. "\n"
-                                  . 'STR: ' . $quotetype;
+                                  . 'STR: ' . htmlspecialchars($quotetype);
                         PMA_SQP_throwError($debugstr, $sql);
                         return $sql;
                     }
@@ -434,7 +434,7 @@ if ($is_minimum_common == FALSE) {
 
                     } else if ($last != '~') {
                         $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . ($count1+1) . "\n"
-                                  . 'STR: ' . $punct_data;
+                                  . 'STR: ' . htmlspecialchars($punct_data);
                         PMA_SQP_throwError($debugstr, $sql);
                         return $sql;
                     }
@@ -476,7 +476,7 @@ if ($is_minimum_common == FALSE) {
                             continue;
                         } else {
                             $debugstr = $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . ($count1+1) . "\n"
-                                      . 'STR: ' . PMA_substr($sql, $count1, $count2 - $count1);
+                                      . 'STR: ' . htmlspecialchars(PMA_substr($sql, $count1, $count2 - $count1));
                             PMA_SQP_throwError($debugstr, $sql);
                             return $sql;
                         }
@@ -755,6 +755,7 @@ if ($is_minimum_common == FALSE) {
  * ['queryflags']['distinct'] = 1;     for a DISTINCT
  * ['queryflags']['union'] = 1;        for a UNION
  * ['queryflags']['join'] = 1;         for a JOIN
+ * ['queryflags']['offset'] = 1;       for the presence of OFFSET 
  *
  * lem9:  query clauses
  *        -------------
@@ -1307,6 +1308,10 @@ if ($is_minimum_common == FALSE) {
 
                if ($upper_data == 'JOIN') {
                       $subresult['queryflags']['join'] = 1;
+               }
+
+               if ($upper_data == 'OFFSET') {
+                      $subresult['queryflags']['offset'] = 1;
                }
 
                // if this is a real SELECT...FROM

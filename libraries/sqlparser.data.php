@@ -347,6 +347,7 @@ $PMA_SQPdata_reserved_word = array (
     'MONTH',
     'MRG_MYISAM',
     'MYISAM',
+    'NAMES',
     'NATURAL',
     // 'NO' is not allowed in SQL-99 but is allowed in MySQL
     //'NO',
@@ -454,6 +455,7 @@ $PMA_SQPdata_reserved_word = array (
     'USING',
     'VALUES',
     'VARIABLES',
+    'VIEW',
     'WHEN',
     'WHERE',
     'WITH',
@@ -463,7 +465,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 266;
+$PMA_SQPdata_reserved_word_cnt = 268;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',

@@ -39,7 +39,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             } else {
                 setTimeout("dbBoxSetup();",500);
             }
-        }		
+        }
     }
     if (parent.frames.queryframe && parent.frames.queryframe.document && parent.frames.queryframe.document.queryframeform) {
         parent.frames.queryframe.document.queryframeform.db.value = "<?php echo (isset($db) ? addslashes($db) : ''); ?>";

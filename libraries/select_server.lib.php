@@ -71,7 +71,7 @@ if (count($cfg['Servers']) > 1) {
         </select>
         <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
         <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-        <noscript><input type="submit" value="<?php echo $strGo; ?>" /></noscript>
+        <input type="submit" value="<?php echo $strGo; ?>" />
     </form>
 <?php
     }

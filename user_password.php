@@ -58,7 +58,7 @@ if (isset($nopass)) {
         // Duration = till the browser is closed for password (we don't want this to be saved)
         if ($cfg['Server']['auth_type'] == 'cookie') {
 
-            setcookie('pma_cookie_password',
+            setcookie('pma_cookie_password-' . $server,
                PMA_blowfish_encrypt($pma_pw,
                $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']),
                0,

@@ -943,10 +943,10 @@ if ($cfg['ShowFunctionFields']) {
                'LCASE',
                'UCASE',
                'NOW',
-	       'OLD_PASSWORD',
+               'OLD_PASSWORD',
                'PASSWORD',
                'MD5',
-                'SHA1',
+               'SHA1',
                'ENCRYPT',
                'RAND',
                'LAST_INSERT_ID',
@@ -1004,7 +1004,7 @@ if ($cfg['ShowFunctionFields']) {
                 'SOUNDEX',
                 'LCASE',
                 'UCASE',
-		'OLD_PASSWORD',
+                'OLD_PASSWORD',
                 'PASSWORD',
                 'MD5',
                 'SHA1',
@@ -1223,6 +1223,9 @@ if (!isset($cfg['Export']['sql_structure'])) {
 }
 if (!isset($cfg['Export']['sql_data'])) {
     $cfg['Export']['sql_data'] = TRUE;
+}
+if (!isset($cfg['Export']['sql_compat'])) {
+    $cfg['Export']['sql_compat'] = 'NONE';
 }
 if (!isset($cfg['Export']['sql_backquotes'])) {
     $cfg['Export']['sql_backquotes'] = TRUE;
