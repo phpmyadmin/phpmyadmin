@@ -433,6 +433,7 @@ $strPdfNoTables = 'No hi ha taules';
 $strPerHour = 'per hora';
 $strPerMinute = 'per minut';
 $strPerSecond = 'per segon';
+$strPersian = 'Persa';
 $strPhoneBook = 'Libreta d\' adreces';
 $strPhp = 'Crear codi PHP';
 $strPmaDocumentation = 'Documentació de phpMyAdmin';
@@ -716,5 +717,4 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el limit.';
 $strZip = '"comprimit amb zip"';
 
-$strPersian = 'Persian';  //to translate
 ?>

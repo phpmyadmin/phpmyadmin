@@ -437,6 +437,7 @@ $strPdfNoTables = 'Ingen tabeller';
 $strPerHour = 'per time';
 $strPerMinute = 'per minutt';
 $strPerSecond = 'per sekund';
+$strPersian = 'Persisk';
 $strPhoneBook = 'telefonkatalog';
 $strPhp = 'Lag PHP kode';
 $strPmaDocumentation = 'phpMyAdmin-Dokumentasjon';
@@ -720,5 +721,5 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensningen.';
 $strZip = 'Komprimert (zip)';
 
-$strPersian = 'Persian';  //to translate
+
 ?>

@@ -440,6 +440,7 @@ $strPdfNoTables = 'Nema tabela';
 $strPerHour = 'na sat';
 $strPerMinute = 'u minutu';
 $strPerSecond = 'u sekundi';
+$strPersian = 'Persijski';
 $strPhoneBook = 'telefonski imenik';
 $strPhp = 'Napravi PHP kod';
 $strPmaDocumentation = 'phpMyAdmin dokumentacija';
@@ -723,5 +724,4 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
-$strPersian = 'Persian';  //to translate
 ?>

@@ -433,6 +433,7 @@ $strPdfNoTables = 'Inga tabeller';
 $strPerHour = 'per timme';
 $strPerMinute = 'per minut';
 $strPerSecond = 'per sekund';
+$strPersian = 'Persiska';
 $strPhoneBook = 'telefonbok';
 $strPhp = 'Skapa PHP-kod';
 $strPmaDocumentation = 'phpMyAdmin dokumentation';
@@ -716,5 +717,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 
-$strPersian = 'Persian';  //to translate
 ?>

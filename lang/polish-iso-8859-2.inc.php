@@ -433,6 +433,7 @@ $strPdfNoTables = 'Brak tabel';
 $strPerHour = 'na godzinê';
 $strPerMinute = 'na minutê';
 $strPerSecond = 'na sekundê';
+$strPersian = 'Perski';
 $strPhoneBook = 'ksi±¿ka telefoniczna';
 $strPhp = 'Utwórz kod PHP';
 $strPmaDocumentation = 'Dokumentacja phpMyAdmina';
@@ -716,5 +717,4 @@ $strYes = 'Tak';
 $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograniczenie.';
 $strZip = '".zip"';
 
-$strPersian = 'Persian';  //to translate
 ?>

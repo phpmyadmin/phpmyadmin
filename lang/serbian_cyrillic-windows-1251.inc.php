@@ -439,6 +439,7 @@ $strPdfNoTables = 'Нема табела';
 $strPerHour = 'на сат';
 $strPerMinute = 'у минуту';
 $strPerSecond = 'у секунди';
+$strPersian = 'Персијски';
 $strPhoneBook = 'телефонски именик';
 $strPhp = 'Направи PHP код';
 $strPmaDocumentation = 'phpMyAdmin документација';
@@ -575,7 +576,7 @@ $strSend = 'Сачувај као датотеку';
 $strSent = 'Послато';
 $strServer = 'Сервер';
 $strServerChoice = 'Избор сервера';
-$strServerNotResponding = 'Сервер не одговара'; 
+$strServerNotResponding = 'Сервер не одговара';
 $strServerStatus = 'Информације о току рада';
 $strServerStatusUptime = 'Овај MySQL сервер ради већ %s. Покренут је %s.';
 $strServerTabProcesslist = 'Процеси';
@@ -722,5 +723,4 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања ограничења.';
 $strZip = '"зиповано"';
 
-$strPersian = 'Persian';  //to translate
 ?>
