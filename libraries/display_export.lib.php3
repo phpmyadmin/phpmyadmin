@@ -2,7 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-// Get relations & co. status 
+// Get relations & co. status
 require('./libraries/relation.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
 
@@ -20,7 +20,7 @@ function PMA_exportIsActive($what, $val) {
 
 ?>
 <form method="post" action="export.php3" name="dump">
-<?php 
+<?php
 $hide_structure = false;
 $hide_sql       = false;
 if ($export_type == 'server') {
@@ -68,7 +68,7 @@ if (isset($sql_query)) {
                 echo $multi_values;
             }
             ?>
-            
+
 <?php if (!$hide_sql) { ?>
             <!-- SQL -->
             <input type="radio" name="what" value="sql" id="radio_dump_sql" onclick="if(this.checked) { hide_them_all(); getElement('sql_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'sql'); ?> />
@@ -88,16 +88,18 @@ if (isset($sql_query)) {
             <!-- General CSV -->
             <input type="radio" name="what" value="csv" id="radio_dump_csv"  onclick="if(this.checked) { hide_them_all(); getElement('csv_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'csv'); ?> />
             <label for="radio_dump_csv"><?php echo $strStrucCSV;?></label>
+<?php if (!empty($db)) { ?>
             <br /><br />
 
             <!-- XML -->
             <input type="radio" name="what" value="xml" id="radio_dump_xml" onclick="if(this.checked) { hide_them_all(); getElement('none_options').style.display = 'block'; }; return true" <?php PMA_exportIsActive('format', 'xml'); ?> />
             <label for="radio_dump_xml"><?php echo $strXML; ?></label>&nbsp;&nbsp;
+<?php } ?>
             </fieldset>
         </td>
         <!-- Options -->
         <td valign="top" id="options_td" width="400">
-        
+
 <?php if (!$hide_sql) { ?>
             <!-- SQL options -->
             <fieldset id="sql_options">
@@ -139,21 +141,21 @@ if (PMA_MYSQL_INT_VERSION >= 32306) {
 ?>
                     <fieldset>
                         <legend><?php echo $strAddIntoComments; ?></legend>
-<?php                 
+<?php
 if (!empty($cfgRelation['relation'])) {
 ?>
                         <input type="checkbox" name="sql_relation" value="yes" id="checkbox_sql_use_relation" <?php PMA_exportCheckboxCheck('sql_relation'); ?> />
                         <label for="checkbox_sql_use_relation"><?php echo $strRelations; ?></label><br />
 <?php
  } // end relation
- 
+
 if ($cfgRelation['commwork']) {
      ?>
                         <input type="checkbox" name="sql_comments" value="yes" id="checkbox_sql_use_comments" <?php PMA_exportCheckboxCheck('sql_comments'); ?> />
                         <label for="checkbox_sql_use_comments"><?php echo $strComments; ?></label><br />
 <?php
 } // end comments
- 
+
 if ($cfgRelation['mimework']) {
      ?>
                         <input type="checkbox" name="sql_mime" value="yes" id="checkbox_sql_use_mime" <?php PMA_exportCheckboxCheck('sql_mime'); ?> />
@@ -178,11 +180,11 @@ if ($cfgRelation['mimework']) {
                 </fieldset>
             </fieldset>
 <?php } ?>
-             
+
              <!-- LaTeX options -->
              <fieldset id="latex_options">
                  <legend><?php echo $strLaTeXOptions; ?></legend>
- 
+
 <?php if (!$hide_structure) { ?>
                  <!-- For structure -->
                  <fieldset>
@@ -197,14 +199,14 @@ if (!empty($cfgRelation['relation'])) {
                      <label for="checkbox_latex_use_relation"><?php echo $strRelations; ?></label><br />
 <?php
  } // end relation
- 
+
 if ($cfgRelation['commwork']) {
      ?>
                      <input type="checkbox" name="latex_comments" value="yes" id="checkbox_latex_use_comments" <?php PMA_exportCheckboxCheck('latex_comments'); ?> />
                      <label for="checkbox_latex_use_comments"><?php echo $strComments; ?></label><br />
 <?php
 } // end comments
- 
+
 if ($cfgRelation['mimework']) {
      ?>
                      <input type="checkbox" name="latex_mime" value="yes" id="checkbox_latex_use_mime" <?php PMA_exportCheckboxCheck('latex_mime'); ?> />
@@ -214,7 +216,7 @@ if ($cfgRelation['mimework']) {
 ?>
                  </fieldset>
 <?php } ?>
- 
+
                  <!-- For data -->
                  <fieldset>
                      <legend>
@@ -235,7 +237,7 @@ if ($cfgRelation['mimework']) {
                     </table>
                  </fieldset>
              </fieldset>
-            
+
              <!-- CSV options -->
             <fieldset id="csv_options">
                 <legend><?php echo $strCSVOptions; ?></legend>
@@ -285,7 +287,7 @@ if ($cfgRelation['mimework']) {
                 <input type="checkbox" name="showcsvnames" value="yes" id="checkbox_dump_showcsvnames" <?php PMA_exportCheckboxCheck('csv_columns'); ?> />
                 <label for="checkbox_dump_showcsvnames"><?php echo $strPutColNames; ?></label>
             </fieldset>
-            
+
             <!-- Excel options -->
             <fieldset id="excel_options">
                 <legend><?php echo $strExcelOptions; ?></legend>
@@ -301,7 +303,7 @@ if ($cfgRelation['mimework']) {
                     </tr>
                 </table>
             </fieldset>
-            
+
             <fieldset id="none_options">
                 <legend><?php echo $strNoOptions; ?></legend>
                 <input type="hidden" name="xml_data" value="xml_data" />
@@ -358,7 +360,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                     <input type="checkbox" name="asfile" value="sendit" id="checkbox_dump_asfile" <?php PMA_exportCheckboxCheck('asfile'); ?> />
                     <label for="checkbox_dump_asfile"><?php echo $strSend; ?></label>
                 </legend>
-                
+
                 <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
                 <input type="checkbox" name="onserver" value="saveit" id="checkbox_dump_onserver"  onclick="getElement('checkbox_dump_asfile').checked = true;" <?php PMA_exportCheckboxCheck('onserver'); ?> />
                 <label for="checkbox_dump_onserver"><?php echo sprintf($strSaveOnServer, htmlspecialchars($cfg['SaveDir'])); ?></label>,
@@ -366,10 +368,10 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                 <label for="checkbox_dump_onserverover"><?php echo $strOverwriteExisting; ?></label>
                 <br />
                 <?php } ?>
-                
+
                 <?php echo $strFileNameTemplate; ?>&nbsp;:
                 <input type="text" name="filename_template"
-                <?php 
+                <?php
                     echo ' value="';
                     if ($export_type == 'database') {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
@@ -377,7 +379,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                         } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_db_filename_template'])) {
                             echo $HTTP_COOKIE_VARS['pma_db_filename_template'];
                         } else {
-                            echo '__DB__'; 
+                            echo '__DB__';
                         }
                     } elseif ($export_type == 'table') {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_table_filename_template'])) {
@@ -385,7 +387,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                         } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_table_filename_template'])) {
                             echo $HTTP_COOKIE_VARS['pma_table_filename_template'];
                         } else {
-                            echo '__TABLE__'; 
+                            echo '__TABLE__';
                         }
                     } else {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_server_filename_template'])) {
@@ -393,7 +395,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                         } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_server_filename_template'])) {
                             echo $HTTP_COOKIE_VARS['pma_server_filename_template'];
                         } else {
-                            echo '__SERVER__'; 
+                            echo '__SERVER__';
                         }
                     }
                     echo '" ';
@@ -499,7 +501,7 @@ echo "\n";
     <td valign="top">*&nbsp;</td>
     <td>
         <?php echo sprintf($strFileNameTemplateHelp, '<a href="http://www.php.net/manual/function.strftime.php" target="documentation">', '</a>') . "\n"; ?>
-        
+
     </td>
 </tr>
 </table>
