@@ -21,7 +21,7 @@ require('./lib.inc.php3');
 if ($server > 0) {
     // Get databases list
     if (empty($dblist)) {
-        $dbs     = mysql_list_dbs();
+        $dbs     = @mysql_list_dbs() or mysql_die();
         $num_dbs = mysql_numrows($dbs);
     } else {
         $num_dbs = count($dblist);

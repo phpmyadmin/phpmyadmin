@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-18  Steve Alberty  <alberty@neptunlabs.de>
+	* left.php3: add 'or mysql_die()' for mysql_list_dbs to suppress
+	  'unable to save result' warnings
+	* defines.inc.php3: fix bug #442493 and add second version
+	  identification. if fails mysql_major_version=3.21
+
 2001-07-18  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3, bug 442337: a bad line split was adding a blank
 	  in front of the $sql_query, so a check for ^SELECT would not work
