@@ -46,9 +46,12 @@ if (isset($selected_tbl) && is_array($selected_tbl)) {
 $multi_tables     = (count($the_tables) > 1);
 
 if ($multi_tables) {
+    $tbl_list     = '';
     while (list($key, $table) = each($the_tables)) {
-        echo '[' . $table . '] ';
+        $tbl_list .= (empty($tbl_list) ? '' : ', ')
+                  . PMA_backquote($table);
     }
+    echo '<b>'.  $strShowTables . '&nbsp;:&nbsp;' . $tbl_list . '</b>' . "\n";
 } // end if
 reset($the_tables);
 
