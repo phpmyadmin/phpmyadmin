@@ -235,7 +235,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
     }
 
     // garvin: For looping on multiple rows, we need to reset any variable used inside the loop to indicate sth.
-    unset($timestamp_seen);
+    $timestamp_seen = 0;
     unset($first_timestamp);
 
     // Sets a multiplier used for input-field counts (as zero cannot be used, advance the counter plus one)
