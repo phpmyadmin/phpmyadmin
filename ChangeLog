@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-05 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_structure.php3: get true row count for InnoDB tables
+    * lang/albanian: update, thanks to Laurent Dhima
+
 2002-10-03 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_select.php3, tbl_change.php3: require musn't be used inside
       conditional statements.
