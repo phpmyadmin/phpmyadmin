@@ -6,8 +6,11 @@ $Id$
 $Source$
 
 2001-11-17  Loïc Chapeaux  <lolo@phpheaven.net>
-	* libraries/display_tbl.lib.php3, lines 85-86: fixed bug #482627 - show
-	  full processlist should have 'kill'.
+	* libraries/display_tbl.lib.php3:
+	  - lines 85-86: fixed bug #482627 - show full processlist should have
+	    'kill';
+	  - since php 4.0.5 the associative array returned by "mysql_fetch_array"
+	    may returns fields with NULL value.
 
 2001-11-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_indexes.php3: merged Michal fix.

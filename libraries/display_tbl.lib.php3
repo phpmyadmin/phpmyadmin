@@ -644,7 +644,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                     for ($i = 0; $i < $fields_cnt; ++$i) {
                         $primary   = $fields_meta[$i];
                         $condition = ' ' . backquote($primary->name) . ' ';
-                        if (!isset($row[$primary->name])) {
+                        if (!isset($row[$primary->name])
+                            || (function_exists('is_null') && is_null($row[$primary->name]))) {
                             $condition .= 'IS NULL AND';
                         } else {
                             $condition .= '= \'' . sql_addslashes($row[$primary->name]) . '\' AND';
@@ -754,7 +755,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
             for ($i = 0; $i < $fields_cnt; ++$i) {
                 $primary = $fields_meta[$i];
                 if ($primary->numeric == 1) {
-                    if (!isset($row[$primary->name])) {
+                    if (!isset($row[$primary->name])
+                        || (function_exists('is_null') && is_null($row[$primary->name]))) {
                         echo '    <td align="right" valign="top"><i>NULL</i></td>' . "\n";
                     } else if ($row[$i] != '') {
                         echo '    <td align="right" valign="top">' . $row[$primary->name] . '</td>' . "\n";
@@ -770,7 +772,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                     if (eregi('BINARY', $field_flags)) {
                         echo '    <td align="center" valign="top">[BLOB]</td>' . "\n";
                     } else {
-                        if (!isset($row[$primary->name])) {
+                        if (!isset($row[$primary->name])
+                            || (function_exists('is_null') && is_null($row[$primary->name]))) {
                             echo '    <td valign="top"><i>NULL</i></td>' . "\n";
                         } else if ($row[$primary->name] != '') {
                             if (strlen($row[$primary->name]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
@@ -784,7 +787,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
                         }
                     }
                 } else {
-                    if (!isset($row[$primary->name])) {
+                    if (!isset($row[$primary->name])
+                        || (function_exists('is_null') && is_null($row[$primary->name]))) {
                         echo '    <td valign="top"><i>NULL</i></td>' . "\n";
                     } else if ($row[$primary->name] != '') {
                         // loic1: Cut text/blob fields even if $cfgShowBlob is true
