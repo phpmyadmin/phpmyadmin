@@ -50,7 +50,7 @@ body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $fo
 
     <noframes>
         <body bgcolor="#FFFFFF">
-            <p>phpMyAdmin is more friendly with a <b>frames-capable</b> browser.</p>
+            <p><?php echo $strNoFrames; ?></p>
         </body>
     </noframes>
 </frameset>
