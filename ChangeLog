@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-28 Loïc Chapeaux  <lolo@phpheaven.net>
+    * db_details_structure.php3, lines 440-441; Documentation.html;
+      pdf_schema.php3; libraries/fpdf/*:
+      - updated the FPDF library to the 1.5 revision;
+      - rewrote it to make it PHP3 and xhtml compliant;
+      - coding standards.
+
 2002-06-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/indonesian.inc.php3: Updates, thanks to Rachim Tamsjadi.
     * lang/italian.inc.php3: Updates, thanks again to

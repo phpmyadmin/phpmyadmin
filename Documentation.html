@@ -1394,8 +1394,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     systems, too.<br />
     If you encounter this bug together with another OS and/or MySQL version or
     you know how to work around it, please post a message into
-    <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=540671&amp;group_id=23067&amp;atid=377408" target="_blank">
+    <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=540671&amp;group_id=23067&amp;atid=377408" target="_blank">
     our bug tracker</a> at SourceForge.
+</p>
+
+<p>
+    <b>I can't run the "display relations" feature because the script seems
+       not to know the font face I'm using!</b>
+    <br />
+    The &quot;FPDF&quot; library we're using for this feature requires some
+    special files to use font faces.<br />
+    Please refers to the
+    <a href="http://www.fpdf.org/" target="_blank">FPDF manual</a> to build
+    these files.
 </p>
 
 
@@ -1912,7 +1923,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <li>
         put the modified files (tar'ed and gzip'ed) inside the patch tracker of
         the
-        <a class="navigation" href="https://sourceforge.net/projects/phpmyadmin/" target="_blank">phpMyAdmin SourceForge account</a>.
+        <a class="navigation" href="http://sourceforge.net/projects/phpmyadmin/" target="_blank">phpMyAdmin SourceForge account</a>.
     </li>
 </ul>
 <p>
@@ -2115,7 +2126,8 @@ code since version 2.1.0:
 - Mike Beck &lt;mike.beck at ibmiller.de&gt; for his work on the Relation table
   feature: automatic joint in QBE, links column in printview, Relation view.
 - Maxime Delorme &lt;delorme.maxime at free.fr&gt; for the PDF schema output;
-  thanks also to Olivier Plathey for the fpdf library (www.fpdf.org).
+  thanks also to Olivier Plathey for the &quot;FPDF&quot; library
+  (see http://www.fpdf.org/).
 
 
 And also to the following people who have contributed minor changes,
