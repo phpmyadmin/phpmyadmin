@@ -29,12 +29,13 @@ if (isset($do) && $do == 'import') {
     if (is_dir($docpath)) {
         $handle = opendir($docpath);
         while ($file = @readdir ($handle)) {
-            $filename = basename($file);
+            $_filename = basename($file);
             // echo '<p>Working on file ' . $filename . '</p>';
-            $parts    = explode('_', $filename);
-            if (count($parts) == 3 && $parts[1] == 'field' && $parts[2] == 'comment.txt') {
-                $tab = $parts[0];
-                //echo '<h1>Working on Table ' . $tab . '</h1>';
+
+            if (strpos($_filename,"_field_comment.txt")!=false)
+            {
+                 $_tab = substr($_filename,0,strlen($_filename)-strlen("_field_comment.txt"));
+                //echo '<h1>Working on Table ' . $_tab . '</h1>';
                 $fd  = fopen($docpath . $file, 'r');
                 if ($fd) {
                     while (!feof($fd)) {
@@ -46,11 +47,11 @@ if (isset($do) && $do == 'import') {
                                  . ' (db_name, table_name, column_name, comment) '
                                  . ' VALUES('
                                  . '\'' . PMA_sqlAddslashes($db) . '\','
-                                 . '\'' . PMA_sqlAddslashes(trim($tab)) . '\','
+                                 . '\'' . PMA_sqlAddslashes(trim($_tab)) . '\','
                                  . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\','
                                  . '\'' . PMA_sqlAddslashes(trim($inf[1])) . '\')';
                             if (PMA_query_as_cu($qry)) {
-                                echo '<p>Added comment for column ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . '</p>';
+                                echo '<p>Added comment for column ' . htmlspecialchars($_tab) . '.' . htmlspecialchars($inf[0]) . '</p>';
                             } else {
                                 echo '<p>Writing of comment not possible</p>';
                             }
@@ -62,13 +63,13 @@ if (isset($do) && $do == 'import') {
                                    . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
                                    . ' VALUES('
                                    . '\'' . PMA_sqlAddslashes($db) . '\', '
-                                   . '\'' . PMA_sqlAddslashes(trim($tab)) . '\', '
+                                   . '\'' . PMA_sqlAddslashes(trim($_tab)) . '\', '
                                    . '\'' . PMA_sqlAddslashes(trim($inf[0])) . '\', '
                                    . '\'' . PMA_sqlAddslashes($db) . '\', '
                                    . '\'' . PMA_sqlAddslashes(trim($for[0])) . '\','
                                    . '\'' . PMA_sqlAddslashes(trim($for[1])) . '\')';
                             if (PMA_query_as_cu($qry)) {
-                                echo '<p>Added relation for column ' . htmlspecialchars($tab) . '.' . htmlspecialchars($inf[0]) . ' to ' . htmlspecialchars($for) . '</p>';
+                                echo '<p>Added relation for column ' . htmlspecialchars($_tab) . '.' . htmlspecialchars($inf[0]) . ' to ' . htmlspecialchars($for) . '</p>';
                             } else {
                                 echo "<p>writing of Relation not possible</p>";
                             }
