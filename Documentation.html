@@ -1,0 +1,201 @@
+<html>
+<!-- $Id$ -->
+<head>
+<title>phpMyAdmin - Documentation</title>
+<style type="text/css">
+<!--
+.navigation 
+  {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 10pt;
+  left: 10px;
+  position: relative;
+  color:#000099; font-weight: normal  ; text-indent:10pt}
+.navigation:hover
+  {
+  background-color: #99CCFF; font-weight: bolder}
+h1 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-large; font-weight:bold; color: #000066}
+.simple {  font-family: Arial, Helvetica, sans-serif; font-size: smaller; color: #000000}
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
+td { font-family: Arial, Helvetica, sans-serif; font-size: 10pt }
+h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size:large; font-weight:bold; color: #000066 }
+-->
+</style></head>
+
+<body bgcolor="#FFFFFF">
+<h1>phpMyAdmin 2.x.x- Documentation</h1>
+<p><a href="http://www.htmlwizard.net/phpMyAdmin/" class="navigation">http://www.htmlwizard.net/phpMyAdmin/</a><br>
+  <a href="mailto:tobias@dnet.it" class="navigation">Tobias Ratschiller</a></p>
+<p>Version history: <a href="ChangeLog">ChangeLog</a><br>
+  Installation instructions: <a href="INSTALL">INSTALL</a><br>
+  General notes: <a href="README">README</a></p>
+<h2>Configuration</h2>
+<p>All configurable data is placed in config.inc.php3.</p>
+<p><b>$cfgServers</b> array<br>
+  Since version 1.4.2, phpMyAdmin supports the adminstration of multiple MySQL-server. 
+  Therefore, a $cfgServers-array has been added which contains the login information 
+  for the different servers. $cfgServers[1]['host'] contains the hostname of the 
+  first server, $cfgServers[2]['host'] the hostname of the second server, etc. 
+  If you have only one server to administer, simply leave free the hostname of 
+  the other $cfgServer-entries. 
+<p><b>$cfgServers[n]['port']</b> string<br>
+  The port-number of your n-th MySQL-server. Default is 3300 (leave blank).</p>
+<p><b>$cfgServers[n]['host']</b> string<br>
+  The hostname of your n-th MySQL-server. E.g. localhost.</p>
+<p><b>$cfgServers[n]['adv_auth']</b> boolean<br>
+  Whether basic or advanced authentication should be used for this server. Basic 
+  authentication ($adv_auth = false) is the plain old way: username and password 
+  are stored in config.inc.php3. Advanced authentication $adv_auth = true) as 
+  introduced in 1.3.0 allows you to log in as any valid MySQL user via HTTP-Auth. 
+  All you have to provide in config.inc is a standard user which can connect to 
+  MySQL and read the mysql user/db table (see $cfgServers[n]['stduser']).<br>
+  Using advanced authentication is recommended:</p>
+<ul>
+  <li> when phpMyAdmin is running in a multi-user environment where people have 
+    shell-access that you don't want to know the username/password for MySQL.</li>
+  <li>when you want to give users access to their own database and don't want 
+    them to play around with others.</li>
+</ul>
+<p>Advanced authentication is secure as the standard user needs just read-only-access 
+  to the mysql database. MySQL passwords cannot be decrypted easily, so there's 
+  no chance for a normal user to look at other users' plaintext passwords.</p>
+<p><b>$cfgServers[n]['user']</b> string<br>
+  <b>$cfgServers[n]['password']</b> string<br>
+  The user/password-pair which phpMyAdmin will use to connect to this MySQL-server 
+  when using basic authentification. Not needed when using advanced authentification.</p>
+<p><b>$cfgServers[n]['stduser'] </b>string<br>
+  <b>$cfgServers[n]['stdpass']</b> string<br>
+  A user/pasword pair used to verify the real user/password pair when using advanced 
+  authentification. This user must be able to connect to MySQL and read the mysql 
+  user table. Not needed when using basic authentification.</p>
+<p><b>$cfgServers[n]['only_db']</b> string<br>
+  If set to a database name, only this database will be shown to the user.</p>
+<p><b>$cfgServers[n]['verbose']</b> string<br>
+  Only useful when using phpMyAdmin with multiple server entries. If set, this 
+  string will be displayed instead of the hostname in the pulldown menu on the 
+  main page. This can be useful if you want to show only certain databases on 
+  your system, for example.<br>
+</p>
+<p><b>$cfgManualBase</b> string<br>
+  If set to an URL which points to the MySQL documentation, appropriate help links 
+are generated.<br>
+</p>
+<p><b>$cfgPersistentConnections </b>boolean<br>
+  Whether persistent connections should be used or not (mysql_connect or mysql_pconnect).</p>
+<p><b>$cfgConfirm </b>boolean<br>
+  Whether a warning (&quot;Are your really sure..&quot;) should be displayed when 
+  you're about to loose data.</p>
+<p><b>$cfgMaxRows </b>integer<br>
+  Number of rows displayed when browsing a resultset. If the resultset contains 
+  more rows, Previous/Next links will be shown.</p>
+<p><b>$cfgMaxInputsize </b>integer<br>
+  Size of the edit-field when adding a new record to a table.</p>
+<p><b>$cfgBorder </b>integer<br>
+  The size of a table's border.</p>
+<p><b>$cfgThBgcolor </b>string [HTML color]<br>
+  The color (HTML) used for table headers.</p>
+<p><b>$cfgBgcolorOne </b>string [HTML color]<br>
+  The color (HTML) #1 for table rows.</p>
+<p><b>$cfgBgcolorTwo </b>string [HTML color]<br>
+  The color (HTML) #2 for table rows.</p>
+<p><b>$cfgOrder </b>string ["DESC"|"ASC"]<br>
+  Defines whether fields are displayed in ascending ("ASC") order or in descending 
+  ("DESC") order when you click on the field-name. 
+<p><b>$cfgShowBlob </b>boolean<br>
+  Defines whether BLOB fields are shown when browsing a table's content or not.
+<p><b>$cfgShowSQL </b>boolean<br>
+  Defines whether sql-queries generated by phpMyAdmin should be displayed or not.
+<p><b>$cfgColumnTypes </b>array<br>
+  All possible types of a MySQL column. In most cases you don't need to edit this.</p>
+<p><b>$cfgFunctions </b>array<br>
+  A list of functions MySQL supports. In most cases you don't need to edit this.</p>
+<p><b>$cfgAttributeTypes </b>array<br>
+  Possible attributes for fields. In most cases you don't need to edit this.</p>
+
+<h2>FAQ - Frequently Asked Questions</h2>
+<p><b>I can't insert new rows into a table - MySQL brings up a SQL-error.<br>
+  </b>
+Examine the SQL error with care. I've found that many programmers specifying a wrong field-type. Common errors include:</p>
+<ul>
+  <li>Using VARCHAR without a size argument 
+  <li>Using TEXT or BLOB with a size argument </li>
+</ul>
+<p>
+Also, look at the syntax chapter in the MySQL manual to confirm that your syntax is correct.</p>
+<p><b>phpMyAdmin can't connect to MySQL. What's wrong?<br>
+  </b>
+Either there is an error with your PHP setup or your username/password is 
+  wrong. Try to make a small script which uses mysql_connect and see if it works. 
+  If it doesn't, it may be you haven't even compiled MySQL support into PHP.</p>
+<p><b>I cannot edit the content of a table, even if the README says this is a 
+  feature of phpMyAdmin.<br>
+  </b>phpMyAdmin allows only editing of a table's content if the table contains 
+  a primary or unique key.</p>
+<p><b>phpMyAdmin always gives "Access denied" when using advanced authentification.<br>
+  </b>This could happen for some reasons:
+   <ul>
+    <li>$stduser/$stdpassword is wrong. Try to turn off $adv_auth and use this username and password to connect to MySQL.
+    <li>The username/password your specify in the login-dialog is wrong. Try the same as above and see if it works.
+    
+  <li>You have already setup a security mechanism for the phpMyAdmin-directory, 
+    eg. a .htaccess file. This would interfere with phpMyAdmin's authentification, 
+    so remove it. 
+</ul>
+<p><b>I would like to help out with the development of phpMyAdmin. How should I proceed?<br>
+  </b>
+  The following method is preferred for new developers:
+  <ul>
+  <li>fetch the current CVS tree over anonymous CVS:<br>
+  cvs -d :pserver:anon@www.htmlwizard.net:/usr/local/cvsroot login<br>
+  [Password: phpMyAdmin]
+  cvs -d :pserver:anon@www.htmlwizard.net:/usr/local/cvsroot checkout phpMyAdmin<br>
+  [This will create a new sub-directory named phpMyAdmin]
+  <li>add your stuff
+  <li>send me the modified files (tar'ed and gzip'ed)
+  Write access to the CVS tree is granted only to experienced developers who have already contributed something useful to phpMyAdmin.<br>
+  Also, have a look at the file DEVELOPERS. 
+  </ul>
+<p><b>What's the preferred way of making phpMyAdmin secure against evil access?<br>
+  </b> This depends on your system. If you're running a server which cannot be 
+  accessed by other people, it's sufficient to use the directory protection bundled 
+  with your webserver (with Apache you can use .htaccess files, for example). 
+  If other people have telnet access to your server, it's not a good idea to store 
+  the MySQL password in clear text in your config.inc.php3 file. You should use 
+  phpMyAdmin's advanced authentification feature in this case. 
+<p><b>How can I insert a null value into my table?<br>
+  </b> Enter &quot;null&quot;, without the quotes, as the field's value. This 
+  is especially useful for Timestamp ot AutoIncrement fields.
+<p><b>I'm an ISP. Can I setup one central copy of phpMyAdmin or do I need to install 
+  it for each customer?<br>
+  </b> Since version 2.0.3, you can setup a central copy of phpMyAdmin for all 
+  your users. The development of this feature was kindly sponsored by NetCologne 
+  GmbH.<br>
+  This requires a properly setup MySQL user management and phpMyAdmin's advanced 
+  authentication. phpMyAdmin performs these steps, when authenticating a user:
+<ol>
+  <li>Select all entries from the mysql.user table where the username/password 
+    matches the challenging user. If no rows are returned, the authentication 
+    has failed. Otherwise, phpMyAdmin continues with step 2.</li>
+  <li>If the user's global Select_Priv is &quot;N&quot; (ie the user is not allowed 
+    to access <i>all</i> databases), phpMyAdmin searches the mysql.db table for 
+    entries with Select_Priv = &quot;Y&quot; belonging to the user. If no entries 
+    are found, the authentication has failed. Otherwise, phpMyAdmin shows all 
+    databases the user is allowed to view.<br>
+    If the user's global Select_Priv is &quot;Y&quot;, all databases in the system 
+    are shown.<br>
+  </li>
+</ol>
+<p>This means that you need to add a user to the mysql database as following:<br>
+  INSERT INTO user (Host, User, Password, Select_priv, Insert_priv, Update_priv, 
+  Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv, 
+  File_priv, Grant_priv, References_priv, Index_priv, Alter_priv) VALUES ('localhost', 
+  'foo', PASSWORD('bar'), 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 
+  'N', 'N', 'N') <br>
+  INSERT INTO db (Host, Db, User, Select_priv, Insert_priv, Update_priv, Delete_priv, 
+  Create_priv, Drop_priv, Grant_priv, References_priv, Index_priv, Alter_priv) 
+  VALUES ('localhost', 'foo_db', 'foo', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 
+  '', '') <br>
+  Then only the &quot;foo_db&quot; database will be displayed to user &quot;foo&quot;.</p>
+</body>
+</html>

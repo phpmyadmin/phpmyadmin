@@ -1,0 +1,23 @@
+$Id$ 
+
+phpMyAdmin - Credits, in chronological order
+============================================
+
+CREDITS, in chronological order
+-------------------------------
+
+[tr] - Tobias Ratschiller <tobias@phpwizard.net>
+	* creator of the phpmyadmin project
+	* maintainer from 1998 to summer 2000
+
+[om] - Olivier Müller <om@omnis.ch>
+	* started sourceforge project
+	* sync'ed different existing CVS trees with 
+	  new features and bugfixes
+
+[lc] - Loïc Chapeaux <lolo@phpHeaven.net>
+[mg] - Mirko Giese <mgiese@users.sourceforge.net>
+[xx] - ...  (to be completed)
+
+
+

@@ -1,0 +1,44 @@
+$Id$
+
+phpMyAdmin - Installation
+
+  Preface:
+    phpMyAdmin can administer a whole MySQL-server (needs a super-user) 
+    but also a single database. To accomplish the latter you'll need
+    a properly set up MySQL-user who can read/write only the desired
+    database. It's up to you to look up the appropiate part in the 
+    MySQL manual.
+
+  Quick Install:
+    [1] Untar the distribution (be sure to untar the subdirectories)
+        tar xvf phpMyAdmin_x.x.x.tar
+    [2] Open the file config.inc.php3 in your favourite editor and change
+        the values for host, user and password to fit your environment.
+        Have a lok at Documentation.html for an explanation of all values.
+    [3] It is recommended that you protect the directory in which
+        you installed phpMyAdmin (unless it's on a closed intranet), 
+        for example with HTTP-AUTH (in a .htaccess-file). 
+    [4] Open the file <www.your-host.com>/<your-install-dir>/index.php3
+        in your browser. phpMyAdmin should now display a welcome screen 
+        and your databases.
+
+  Installation notes:
+  + Be sure to protect the phpMyAdmin-directory. By default, it is not 
+    protected in any way! It shouldn't be readable by anyone and 
+    especially not by search-engines. Although I've added a "nofollow" 
+    directive on every page, there may be search-engines that don't 
+    care about that and still follow the links on the page. 
+    Think of AltaVista following a link named "Drop Database"
+    You can get an overview of Apache's authentification methods at
+    http://www.apacheweek.com/features/userauth . Another tutorial is at
+    http://deepthought.texsci.edu/protected_dirs.html
+  + PHP3 should be configured to have magic_quotes=on. In the module
+    version of PHP3 this can also be set on a per-directory base with 
+    php3_magic_quotes_gpc on in an .htaccess file or in your Apache's
+    access.conf.
+  + If you don't use the extension ".php3" for your scripts, you can use
+    the bundled script "extchg.sh" to modify phpMyAdmin (or any other script)
+    to work with a different extension. Beware though, that currently changing 
+    the extension from .html to something other won't work (it'd change all 
+    "string".htmlspecialchars() constructs).
+    

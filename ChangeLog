@@ -1,0 +1,339 @@
+----------------------
+phpMyAdmin - Changelog
+----------------------
+
+$Id$ 
+$Source$
+
+2001-05-02  Robin Johnson  <robbat2@users.sourceforge.net>
+	* additional constant MYSQL_MINOR_VERSION in 'lib.inc.php3'
+	  contains all of version string after the '3.23.' part.
+	* Table type on create table in 'tbl_create.php3'
+	* Alter table type on 'tbl_properties.php3'
+	* Ability to add comments even if no comment is there
+
+2001-05-01  Loïc Chapeaux  <lolo@phpheaven.net>
+	* improve a bit the language detection: rewrote the 'select_lang.lib.php3'
+	  script and changed line 162-166 in 'main.php3'
+	* sql.php3, line 69: now using split() instead of split() (the former is
+	  not implemented in PHP3 (SF bugfix)
+
+2001-04-29  Olivier Müller  <om@omnis.ch>
+	* added lang file for Thai. Thanks to Korakot Chaovavanich (korakot)
+	* tbl_select.php3, line 19: replaced GET by POST (SF bugfix)
+	* tbl_properties.php3: added textfield for mysql input (patch from korakot)	
+	* tbl_properties.php3: <? -> <?php (patch from robbat2)
+	* added lang file for Swedish. Tack till David Nordenberg.
+
+2001-04-28  Olivier Müller  <om@omnis.ch>
+	* applied security patch from 
+ 	  http://www.securereality.com.au/patches/phpMyAdmin-SecureReality.diff
+	  (thx to Geert Lund for the info)
+	* now using explode() instead of split_string() in tbl_change.php3
+	  (was broken: is split_string really working correctely? please check!
+	   split_string is now still used in db_readdump)
+	* released 2.2.0pre2
+
+2001-04-07  Olivier Müller  <om@omnis.ch>
+
+	* docs and code cleanup
+	* announced the http://phpmyadmin.sourceforge.net link
+	  on the phpmyadmin forum.
+
+2001-04-01  Olivier Müller  <om@omnis.ch>
+
+	* moved the language files to lang/
+	* now using standard ChangeLog file format
+
+2001-03-31  Olivier Müller  <om@omnis.ch>
+
+	* upgraded version to 2.2.0pre1
+	* released pre version on sourceforge
+	* synchronized latest phpmyadmin official cvs with the user-contributed
+	  patches: multiple language support, bugfixes, etc.
+
+
+ v 2.1.0.2 - 26-mar-2001 + Removed necessity of register_globals and added the
+                           "grab_globals.inc.php3" library to this end
+                           Now, phpMyAdmin detects what to do according to 
+                           the configuration you chosed!
+                         + Bugfix: a warning may be displayed because a string
+                           was appent to an unset variable in 'tbl_copy.php3'
+                         + Bugfix: a warning may be displayed because some
+                           unset arrays were counted in 'tbl_addfield.php3'
+                         + Bugfix: slashes were added to requests if
+                           'magic_quotes_gpc' is 'on' in 'db_readdump.php3'!
+                         + Bugfix: the usual #-bug
+                         + Bugfix: on Windows-System the 0x1a-char makes
+                           problems (ctrl-z) when piped to mysql. It has to be
+                           changed to '\Z'.
+                         + Bugfix: on Windows-System the path is not build
+                           correct in ldi_check.php
+                         + The dump-output was not easily editable when
+                           containing '\n' or '\t'-characters (e.g. in binary
+                           fields or blobs)
+
+ v 2.1.0.1 - 28-aug-2000 + Added French translation strings in french.inc.php3
+                         + Bugfix: split_string() in lib.inc.php3
+                         + Bugfix: split_sql() in db_readdump.php3
+                         + Removed necessity of magic_quotes_gpc
+                           Now, phpMyAdmin detects what to do according to 
+                           the configuration you chosed!
+                         + clicking on a database name in left frame
+                           don't unexpand it anymore. You have to click oh the
+                           minus image to hide the tables
+                         + Fixed accents problem with german strings
+                         + Fixed matching database name problem in uva fix
+                           in lib.inc.php3
+                         + Added the possibility to display Change and Modify
+                           buttons on the left or on the right of rows (or both)
+                         + Some corrections in spanish.inc.php3 and some other
+                           languages files.
+                         + Bugfix: mesage display after reading a dump or 
+                           executing a single query
+
+ v 2.1.x - 03/02/2001  + Added dynamic multiple language support, with
+                         browser default language detection [om]
+
+ v 2.1.0 - 08/06/2000  + Bugfix: Query By Example now works with high error-
+                         reporting levels.
+                       + Bugfix: 'End' on the navigation bar in Browse and
+                         Select mode now functions correctly.
+                       + Added random access option to the  navigation bar
+                         in table Select and Browse mode
+                       + Added form for changing the number of rows displayed
+                         per page.
+                       + Bugfix: Reading SQL dumps had magic quotes problems.
+                       + Added support for wildcards in MySQL user
+                         authentication system.
+                       + Added support to edit/delete rows in table without
+                         primary key.
+                       + Added support for mysqldump-like Complete Inserts
+                         (ie. optionally adding the field list to the dumps).
+                       + Changed the table browsing mode to display Prev/Next
+                         links also on top of the rows.
+                       + Added authentication on a per-table basis.
+                       + Added print views for tables and databases.
+                       + Added link to browse table from left frame (copied
+                         from phpPgAdmin).
+                       + Security: Fixed possible security issue with reading
+                         SQL dumps.
+                       + Fixed some more PHP 4.0 issues (warnings, problems
+                         with 0/empty().
+ v 2.0.5 - 12/05/1999  + Added output to show how many rows were affected
+                         by a custom query.
+                       + Bugfix: executing a custom sql query prevented the
+                         edit feature from working correctly.
+                       + Bugfix: Sending CSV Dumps didn't work because of a
+                         typo.
+                       + Bugfix: if the field length was empty, it was set
+                         to the field's type.
+                       + Added the possibility to upload SQL dumps with
+                         File Upload.
+ v 2.0.4 - 10/10/1999  + Some more PHP 4.0 fixes.
+                       + Bugfix: Reading SQL dumps choked on embedded semi-
+                         colons - fixed.
+                       + Bugfix: Dure to regex problems, PHP 3.0.12 crashed in
+                         some instances when adding tables - fixed.
+                       + Added option to use verbose hostnames.
+                       + Bugfix: ENUM/SET had problems with embedded special
+                         characters - fixed.
+                       + New language file: Portuguese
+ v 2.0.3 - 08/15/1999  + Bugfix: Changing a row after a  "Select" didn't work.
+                       + Added proper support for MySQL authentication. With
+                         $adv_auth, only those dbs are displayed that the user
+                         has actually the permissions to view [sponsored by
+                         NetCologne].
+                       + Bugfix: Sometimes the wrong frameset was displayed.
+                       + Bugfix: Moved mysql_die() to top of lib.inc.php3 to avoid
+                         "undefined function" errors.
+                       + Bugfix: Killed some more warnings for those paranoids
+                         who have error_reporting to a high value.
+                       + Added support for MySQL 3.23's table comments.
+                       + Bugfix: Ordering is now disallowed with MySQL-Status
+                         operations.
+                       + Added some more documentation links.
+                       + Changes the way the reload of MySQL is done - use
+                         FLUSH PRIVILEGES instead of mysqladmin reload.
+ v 2.0.2 - 07/02/1999  + Added support for the BINARY attribute.
+                       + Bugfix: In languages other than English, the
+                         warning before dangerous actions didn't work.
+                       + Added proper support for ENUM/SET.
+                       + Changed the table browse mode to use LIMIT.
+                       + Bugfix: ReadDump choked on nestd single quotes,
+                         even if escaped properly.
+ v 2.0.1 - 05/24/1999  + Re-Enabled the "browse"-link on db_properties.php3.
+                       + Added a way to add more than one new fields a time.
+                       + Changed some details to be compatible with webservers
+                         other than Apache (tested with Roxen).
+                       + Added support for creation of a multi-column primary
+                         key on an existing table.
+ v 2.0.0 - 04/11/1999  + Improved navigation, layout changes.
+                       + Added the possiblity to log out with $adv_auth.
+                       + Added the possibility to view MySQL's processes.
+                       + Added an option to output SQL-queries generated by
+                         phpMyAdmin.
+                       + Enhanced the shell script to change file-extensions to
+                         allow any arbitrary extension. It's now called extchg.sh.
+                       + Changed SET/ENUM types to appear in a drop-down menu.
+                       + Bugfix: Attributes weren't used when creating a table
+                         or adding a field.
+                       + Bugfix: Field names with high-ASCII-characters weren't
+                         handled properly.
+                       + Bugfix: LOAD DATA INFILE didn't allow a tab as field-
+                         separator.
+ v 1.4.2 - 02/28/1999  + Renamed config.inc.php3 variables to begin with 'cfg'.
+                       + Support for multiple MySQL servers added.
+                       + Added EscapeShellCmd() to system() calls to avoid
+                         problems with special characters in passwords.
+                       + Bugfix: Reload failure was not being detected.
+                       + Bugfix: Table-/database dumps were not showing key names
+                         correctly.
+                       + Added support for DROP TABLE to the dumps.
+                       + Added support for UNSIGNED & UNSIGNED ZEROFILL attributes.
+                       + Added a shell-script to make it possible to change the
+                         file-extension and all references from ".php3" to
+                         ".phtml" and vice versa.
+ --- SWITCHED TO CVS ---
+ v 1.4.1 - 02/07/1999  + Bugfix: Corrected a small error in the table header of
+                         tbl_change.php3.
+                       + Added preliminary support for context sensitive help.
+                       + Enhanced the table-dump to allow dumping only the structure
+                         or structure+data or CVS export. Made it possible to
+                         download the dump directly as a file.
+                       + Bugfix (*Security*): Until now you were able to connect to
+                         a database different from $only_db. Fixed.
+                       + Changed the display of the databases to highlight the
+                         current db.
+                       + Added a way to execute multiple sql-queries at once
+                         (eg. for reading in a create-schema).
+                       + Added the possiblity to view the dump of a whole
+                         database.
+                       + Added an output of the record-count for all tables to
+                         db_details.php3.
+                       + Bugfix: get_table_content() didn't work correctly when
+                         a field contained an unescaped single quote.
+                       + Bugfix: Corrected various errors in display_table()
+                         when ORDER BY was set.
+                       + Enhanced table-browsing to use the choosen sortorder
+                         over the whole result set; start and end buttons added
+                         for navigation
+                       + Added the possibility to specify whether BLOB fields
+                         should be shown when browsing a table or not.
+                       + New languages: Danish, Norvegian, Spanish, Catalan.
+                       + Eliminated many warning messages when error reporting
+                         is set high.
+                       + Bugfix: Data containing HTML is now properly displayed
+                         when dumping table or database data.
+                       + Improved handling of NULL fields.
+                       + Made tbl_replace.php3 use INSERT and UPDATE rather than
+                         REPLACE INTO.  It is much less likely to lose data now.
+v 1.4.0 - 01/16/1999   + Bugfix: in config.inc.php3 $adv_auth was written as
+                         $mod_auth.
+                       + Changed tbl_change.php3 to display a <textarea> for
+                         *text fields.
+                       + Changed $max_inputsize to a CSS value.
+                       + Changed the input field for the sql-query to
+                         <textarea>.
+                       + Changed some variables references to prevent warnings.
+                       + Moved "LOAD DATA INFILE" from db_details.php3 to
+                         tbl_properties.php3.
+                       + Added htmlspecialchars() to the output of
+                         field-contents.
+                       + Due to the changed behavior of SHOW STATUS in MySQL
+                         3.22, I've removed this information from the homepage
+                         and made seperate links to MySQL internal information.
+                       + Bugfix: when browsing a table, "insert new row" was
+                         not visbible.
+                       + Added ORDER BY fieldname to display_table().
+                       + Added the possiblity to rename a table.
+                       + Added the possiblity to copy a table (structure only
+                         or structure and data).
+                       + Changed the table-dump to a more memory-efficient way.
+                       + Added $border and $th_bgcolor, to offer the user more
+                         control over the look and feel.
+                       + Added support for MySQL-functions.
+                       + Added some information for DEVELOPERS.
+                       + Added stripslashes() to all output of field-types.
+                       + Added a small FAQ to Documentation.html.
+                       + New language: Russian
+ v 1.3.1 - 12/27/1998  + Added complete mulit-language support by outsourcing
+                         all strings to a separate file.
+                       + Bugfix: in tbl_addfield.php3 a stripslashes() was
+                         missing.
+                       + Changed *.inc to *.inc.php3 to avoid security-
+                         problems when .inc-files were not parsed by PHP3.
+                       + New languages: German, French
+ v 1.3.0 - 12/16/1998  + Changed display_table() to show the number of found
+                         records.
+                       + Changed display_table() to align=right for numeric
+                         fields.
+                       + Changed all PHP3 opening tags to the XML-compliant
+                         version.
+                       + Added a "query by example" to tbl_select.php3.
+                       + Added the possibility to specify the length of input-
+                         fields when inserting to a table.
+                       + Changed the input-fields to have a maxlength
+                         equivalent to the field's size.
+                       + Bugfix: Corrected a typo in tbl_create.php3
+                       + Added a checkbox to the load-data-infile function to
+                         allow existing data to be overwritten.
+                       + Added authentification: now you can log with any
+                         valid MySQL- user (through HTTP-auth).
+                       + Added the possibility to show only one database
+                         (useful when you want to let users adminstrate one own
+                         database).
+                       + Added an "Empty" command to tbl_properties.php3.
+                       + Added support for UNIQUE keys when creating a table
+                         or adding a field.
+                       + Bugfix: the dump of a table didn't show the correct
+                         table-name.
+                       + Bugfix: Inserting a CVS-file with single-quote
+                         enclosed fields didn't work.
+ v 1.2.0 - 11/29/1998  + Bugfix: Delete didn't work correctly when a table's
+                         primary key spanned multiple colums.
+                       + Changed the texfile-import funtion to import text-files
+                         directly from the local file-system via file-upload.
+                       + Added a confirmation when a custom SQL-query was
+                         completed succesfully.
+                       + Changed the background image so that the page is
+                         readable even with crappy browsers (like IE 4.x or
+                         Navigator 4.5/Mac) that don't interpret style sheets
+                         correctly.
+                       + Changed tbl_addfield.php3 to allow specifying a
+                         primary key or an index when adding a field.
+                       + Added the possibility to create a dump from a table.
+                         (port from mysqldump.c)
+                       + Added the missing TODO file.
+ v 1.1.2 - 11/18/1998: + Bugfix: Edit or delete didn't work with a alpha-
+                         numerical primary key (' was missing).
+                       + Bugfix: Creating a table with both a primary key
+                         and an index didn't work.
+                       + Added the possiblity to browse only selected
+                         fields from a table.
+ v 1.1.1 - 11/05/1998: + Bugfix: After a custom SQL-statement the edit-
+                         function didn't work.
+                       + Added the possibility to import data from ascii-
+                         textfiles.
+                       + Added the possibility to limit the displayed
+                         rows to $max_rows.
+                       + Expanded the drop-confirmation to DELETE FROM.
+ v 1.1.0 - 11/03/1998: + Expanded the drop-confirmation to DROP FIELD.
+                       + You can now turn off the confirmations.
+                       + It's now possible to specify the primary key
+                         and an index when creating a table.
+                       + Made the background-image larger.
+                       + Bugfix: in tbl_properties.inc, if one primary
+                         key was found, it was displayed twice.
+                       + Bugfix: On DROP DATABASE, a wrong confirmation
+                         was displayed.
+                       + Added a "nofollow" directive for robots in
+                         header.inc.
+                       + Added more documentation (due to several
+                         requests).
+                       + Made seperate INSTALL, ChangeLog and TODO
+                         files.
+ v 1.0.1 - 10/26/1998: + Added a check when dropping a table or database.
+                       + Bugfix: when a field contained a " it wouldn't
+                         be displayed correctly in tbl_change.
+ v 0.9.0 - 09/09/1998: + First internally used version
