@@ -86,6 +86,8 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] && !$db || ($cfg['QueryFrameJS'
     $queryframe_db_list = '';
 }
 
+$form_items = 0;
+
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow) {
 ?>
         <script type="text/javascript">
@@ -159,6 +161,8 @@ if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
             </script>
             <?php
             }
+
+            $form_items++;
             ?>
             </div>
 <?php
@@ -172,6 +176,7 @@ if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
 // loic1: displays import dump feature only if file upload available
 if ($is_upload && (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full')))) {
+    $form_items++;
     echo '            ' . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? '<i>' . $strOr . '</i>' : '') . ' ' . $strLocationTextfile . '&nbsp;:<br />' . "\n";
     ?>
             <div style="margin-bottom: 5px">
@@ -230,6 +235,7 @@ if ($cfg['UploadDir'] != '' && !isset($is_inside_querywindow) ||
                     echo '    <div style="margin-bottom: 5px">' . "\n";
                     echo '        <select size="1" name="sql_localfile">' . "\n";
                     echo '            <option value="" selected="selected"></option>' . "\n";
+                    $form_items++;
                 } // end if (is_first)
                 echo '            <option value="' . htmlspecialchars($file) . '">' . htmlspecialchars($file) . '</option>' . "\n";
                 $is_first++;
@@ -252,6 +258,7 @@ echo "\n";
 // Encoding setting form appended by Y.Kawada
 if (function_exists('PMA_set_enc_form')) {
     echo PMA_set_enc_form('            ');
+    $form_items++;
 }
 
 // Charset conversion options
@@ -260,6 +267,7 @@ if (($is_upload || $is_upload_dir) &&
          (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'full'))) 
         && isset($db) && $db != ''){
     if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+    	$form_items++;
         echo '    <div style="margin-bottom: 5px">' . "\n";
         $temp_charset = reset($cfg['AvailableCharsets']);
         echo $strCharsetOfFile . "\n"
@@ -287,6 +295,7 @@ if (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'history' || $querydisplay_tab == 'full'))) {
     if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
+            $form_items++; 
             echo "            " . ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && $querydisplay_tab == 'full') || !isset($is_inside_querywindow) ? "<i>$strOr</i>" : '') . " $strBookmarkQuery&nbsp;:<br />\n";
 
             if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
@@ -314,9 +323,15 @@ if (!isset($is_inside_querywindow) ||
 }
 
 if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && (($querydisplay_tab == 'files') || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go)))) {
+	if ($form_items > 0) {
 ?>
             <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
 <?php
+        } else {
+            // TODO: Add a more complete warning that no items (like for file import) where found.
+            //       (After 2.5.2 release!)
+            echo $strWebServerUploadDirectoryError;
+        }
 }
 ?>
 </form>

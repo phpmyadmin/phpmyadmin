@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-18 Garvin Hicking <me@supergarv.de>
+    * tbl_query_box.php3: For the querywindow - if no items are available 
+      for the 'file import' tab, hide the 'Go' button and instead display 
+      a warning message. Can happen if you don't have $cfg['UploadDir']
+      set and $is_upload is false.
+
 2003-07-17 Marc Delisle  <lem9@users.sourceforge.net>
     * server_status.php3: the percentages of Query types did not add up
       to 100, because the number of connections is included in the total
