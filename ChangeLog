@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-18 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php: Updates.
+
 2004-04-17 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysql.dbi.lib.php: was still using PMA_mysql_field_flags
 
