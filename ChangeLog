@@ -24,6 +24,7 @@ $Source$
 	* tbl_properties.php3: added textfield for mysql input (patch from korakot)	
 	* tbl_properties.php3: <? -> <?php (patch from robbat2)
 	* added lang file for Swedish. Tack till David Nordenberg.
+	* Norwegian lang file update by Sven-Erik Andersen.
 
 2001-04-28  Olivier Müller  <om@omnis.ch>
 	* applied security patch from 
