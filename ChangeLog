@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/french: update
+    * lang/turkish update, thanks to Bora Alioglu
+    * lang/italian: Updated, thanks to Pietro Danesi (danone).
+    * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
+
 2003-11-14 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_structure.php3: bug 842053: not only TEXT but also
       any ...TEXT field types can have a FULLTEXT index
