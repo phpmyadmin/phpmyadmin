@@ -219,8 +219,9 @@ else {
 
         if (empty($funcs[$encoded_key])) {
             $valuelist .= $val . ', ';
-        } else if ($val == '\'\''
-                   && (ereg('^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$', $funcs[$encoded_key]))) {
+        } else if (($val == '\'\''
+                   && ereg('^(UNIX_TIMESTAMP|RAND|LAST_INSERT_ID)$', $funcs[$encoded_key]))
+                   || ereg('^(NOW|CURDATE|CURTIME|USER)$', $funcs[$encoded_key])) {
             $valuelist .= $funcs[$encoded_key] . '(), ';
         } else {
             $valuelist .= $funcs[$encoded_key] . '(' . $val . '), ';

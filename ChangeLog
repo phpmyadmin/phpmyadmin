@@ -13,7 +13,8 @@ $Source$
     * lang/norwegian.inc.php3: Updates, thanks again to
       Sven-Erik Andersen <sven-erik at users.sourceforge.net>.
     * lang/polish.inc.php3: Small corrections, thanks again to
-      Jakub Wilk <ubanus at users.sourceforge.net>
+      Jakub Wilk <ubanus at users.sourceforge.net>.
+    * tbl_replace.php3: Fixed bug #564741 (CURDATE doesn't need any arguments).
 
 2002-06-07 Marc Delisle  <lem9@users.sourceforge.net>
     * translators.html: updates (try to have only one official translator,
