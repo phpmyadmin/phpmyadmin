@@ -397,9 +397,9 @@ if (isset($zip) && $zip == 'zip') {
 else if (isset($bzip) && $bzip == 'bzip') {
     if (PMA_PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
         $dump_buffer = bzcompress($dump_buffer);
-        if ($dump_buffer === '-8') {
+        if ($dump_buffer === -8) {
             include('./header.inc.php3');
-            echo spintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
+            echo sprintf($strBzError, '<a href="http://bugs.php.net/bug.php?id=17300" target="_blank">17300</a>');
             include('./footer.inc.php3');
             exit;
         }

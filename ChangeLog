@@ -7,6 +7,7 @@ $Source$
 
 2002-12-10 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech*.php3: Updated translation.
+    * tbl_dump.php3: Fix Alexanders fix for bug #651414.
 
 2002-12-10 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_*.php3, lang/*.inc.php3, main.php3:
