@@ -1267,7 +1267,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     <!--
     if (typeof(window.parent) != 'undefined'
         && typeof(window.parent.frames['nav']) != 'undefined') {
-        window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
+        window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : md5($cfg['PmaAbsoluteUri'])); ?>);
     }
     //-->
     </script>

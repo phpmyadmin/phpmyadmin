@@ -26,6 +26,8 @@ $Source$
       keep the queryframe. Only if JavaScript is usable, otherwise it's
       not necessary to keep the 'opener' pointer.
     * libraries/display_tbl.lib.php3: PHP3 compatibility.
+    * libraries/common.lib.php3, db_details_common.php3, index.php3,
+      main.php3: Still have to propagate $hash to the left frame...
 
 2003-04-30 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, bug 729517, better comment output,

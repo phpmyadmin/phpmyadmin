@@ -82,7 +82,7 @@ $phpmain_hash_js = time();
 <?php
 } else {
 ?>
-    <frame src="left.php3?<?php echo $url_query; ?>&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" />
+    <frame src="left.php3?<?php echo $url_query; ?>&amp;hash='<?php echo $phpmain_hash; ?>" name="nav" frameborder="0" />
 <?php
 }
 ?>
