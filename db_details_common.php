@@ -54,7 +54,30 @@ if (!isset($message)) {
         ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].goTo('./left.php?<?php echo PMA_generate_common_url($db, '', '&'); ?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
+var hashformDone = false;
+function hashformReload() {
+<?php
+    if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
+?>
+    if (hashformDone != true) {
+        if (typeof(window.parent.frames['queryframe'].document.hashform.hash) != 'undefined' && typeof(window.parent.frames['nav']) != 'undefined') {
+            window.parent.frames['nav'].location.replace('./left.php?<?php echo PMA_generate_common_url('', '', '&');?>&hash=' +
+                                                         window.parent.frames['queryframe'].document.hashform.hash.value);
+            hashformDone = true;
+        } else {
+            setTimeout("hashformReload();",500);
+        }
+    }
+<?php
+    } else {
+?>
+        window.parent.frames['nav'].location.replace('./left.php?<?php echo PMA_generate_common_url('', '', '&');?>&hash=' +
+                                                         '<?php echo md5($cfg['PmaAbsoluteUri']); ?>');
+<?php
+    }
+?>
+}
+setTimeout("hashformReload();",500);
 //-->
 </script>
         <?php
