@@ -10,6 +10,8 @@ $Source$
 	* main.php3:
 	  - lines 107-111: removed the socket used from the settings displayed;
 	  - line 342: cosmetic change.
+	* libraries/common.lib.php3: fixed bugs if dbs names in "only_db" contain
+	  "_" or "%" characters.
 	* lang/bulgarian.inc.php3, line 304: a ';' was missig at EOL.
 
 2001-10-27  Loïc Chapeaux  <lolo@phpheaven.net>

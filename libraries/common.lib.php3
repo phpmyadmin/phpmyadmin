@@ -528,16 +528,16 @@ if (!defined('__LIB_COMMON__')){
         $dblist_cnt = count($dblist);
         if ($dblist_cnt) {
             $true_dblist  = array();
-            $re           = '(^|(\\\\\\\\)+|[^\])(_|%)';
+            $is_show_dbs  = TRUE;
             for ($i = 0; $i < $dblist_cnt; $i++) {
-                if (ereg($re, $dblist[$i])) {
+                if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
                     $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                     $rs          = mysql_query($local_query, $dbh);
                     // "SHOW DATABASES" statement is disabled
                     if ($i == 0
                         && (mysql_error() && mysql_errno() == 1045)) {
-                        $true_dblist   = $dblist;
-                        break;
+                        $true_dblist[] = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
+                        $is_show_dbs   = FALSE;
                     }
                     // Debug
                     // else if (mysql_error()) {
@@ -548,10 +548,9 @@ if (!defined('__LIB_COMMON__')){
                     } // end while
                     if ($rs) {
                         mysql_free_result($rs);
-                        unset($rs);
                     }
                 } else {
-                    $true_dblist[]     = $dblist[$i];
+                    $true_dblist[]     = str_replace('\\_', '_', str_replace('\\%', '%', $dblist[$i]));
                 } // end if... else...
             } // end for
             $dblist       = $true_dblist;
@@ -685,15 +684,15 @@ if (!defined('__LIB_COMMON__')){
         if ($num_dbs) {
             $true_dblist = array();
             for ($i = 0; $i < $num_dbs; $i++) {
-                $dblink = @mysql_select_db($dblist[$i]);
+                $dblink  = @mysql_select_db($dblist[$i]);
                 if ($dblink) {
                     $true_dblist[] = $dblist[$i];
                 } // end if
             } // end for
             unset($dblist);
-            $dblist  = $true_dblist;
+            $dblist      = $true_dblist;
             unset($true_dblist);
-            $num_dbs = count($dblist);
+            $num_dbs     = count($dblist);
         } // end if
 
         // 2. Allowed database list is empty -> gets the list of all databases
