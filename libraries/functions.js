@@ -409,11 +409,17 @@ function setPointer(theRow, theAction, theDefaultColor, thePointerColor, theMark
 function setCheckboxes(the_form, do_check)
 {
     var elts      = document.forms[the_form].elements['selected_tbl[]'];
-    var elts_cnt  = elts.length;
+    var elts_cnt  = (typeof(elts.length) != 'undefined')
+                  ? elts.length
+                  : 0;
 
-    for (var i = 0; i < elts_cnt; i++) {
-        elts[i].checked = do_check;
-    } // end for
+    if (elts_cnt) {
+        for (var i = 0; i < elts_cnt; i++) {
+            elts[i].checked = do_check;
+        } // end for
+    } else {
+        elts.checked        = do_check;
+    } // end if... else
 
     return true;
 } // end of the 'setCheckboxes()' function

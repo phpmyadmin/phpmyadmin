@@ -10,6 +10,9 @@ $Source$
 	  lang/russian-win1251.inc.php3: updated thanks to
 	  Alvar Soome <finsoft at users.sourceforge.net>, Sandis Jçrics and
 	  Artyom Rabzonov <tyomych at gmx.net>.
+	* db_details.php3, line  386: fixed a js error.
+	* libraries/functions.js, lines 412-422: merged patch
+	  #534660 - Check All / Uncheck All, thanks to "Leblanc".
 
 2002-03-24 Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3, line 1191: fixed bug #534159 - Can't change user
