@@ -547,6 +547,7 @@ $strStructure = 'Struktura';
 $strSubmit = 'Ode¹li';
 $strSuccess = 'Vá¹ SQL-dotaz byl úspì¹nì vykonán';
 $strSum = 'Celkem';
+$strSwitchToTable = 'Pøepnout na zkopírovanou tabulku';
 
 $strTable = 'Tabulka';
 $strTableComments = 'Komentáø k tabulce';
@@ -630,5 +631,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strSwitchToTable = 'Switch to copied table';  //to translate
 ?>
