@@ -73,7 +73,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
         }
 
         //      check if pmadb exists
-        $tab_query    = 'SHOW DATABASES';
+        $tab_query    = 'SHOW DATABASES like \'' . $GLOBALS['cfg']['Server']['pmadb'] . '\'';
         $tab_rs = PMA_query_as_cu($tab_query);
 
         while ($curr_db = @PMA_mysql_fetch_array($tab_rs)) {
