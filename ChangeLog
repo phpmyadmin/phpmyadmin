@@ -8,6 +8,8 @@ $Source$
 2002-11-20 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/slovenian update: thanks to Kositer Uros (urosh)
     * lang/slovak update, thanks to Lubos Klokner
+    * lang/malay update, thanks to Shafique (sicksand)
+    * lang/spanish update, thanks to Daniel Hinostroza
 
 2002-11-20 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/norwegian-*.inc.php3: Updates, thanks to Sven Erik Andersen.

@@ -101,6 +101,7 @@ $strColumn = 'Kolum';
 $strColumnNames = 'Nama Kolum';
 $strComments = 'Komen';
 $strCompleteInserts = 'Kemasukkan Selesai';
+$strCompression = 'Mampatan'; 
 $strConfigFileError = 'phpMyAdmin tidak dapat membaca fail konfigurasi!<br \\>Ini mungkin terjadi apabila ada kesalahan dalam php ataupun php tidak jumpa fail tersebut.<br />Sila panggil fail konfigurasi menggunakan pautan dibawah dan baca kesalahan php yang diterima. Dalam kebanyakan kes quote atau semicolon tertinggal.<br />Jika kamu terima laman kosong, semuanya berjalan lancar.';
 $strConfigureTableCoord = 'Sila konfigurasikan kordinat bagi jadual %s';
 $strConfirm = 'Anda pasti mahu lakukan?';
@@ -437,10 +438,10 @@ $strUserName = 'Kata Pengenalan';
 $strUsers = 'Pengguna-Pengguna';
 
 $strValidateSQL = 'Mengesahkan SQL';
-$strValidatorError = 'Pengesahan SQL tidak dapat disahkan. Sila semak sama ada anda telah memasang sambungan php seperti yang tercatitit di %sdocumentation%s.';
+$strValidatorError = 'Pengesahan SQL tidak dapat disahkan. Sila semak sama ada anda telah memasang sambungan php seperti yang tercatit di %sdocumentation%s.';
 $strValue = 'Nilai';
 $strViewDump = 'Lihat longgokan (skema) pangkalan data';
-$strViewDumpDB = 'View dump (schema) of database';
+$strViewDumpDB = 'Lihat longgokan (skema) pangkalan data';
 
 $strWebServerUploadDirectory = 'direktori muatnaik pelayan-web';
 $strWebServerUploadDirectoryError = 'Direktori muatnaik yang telah ditetapkan tidak dapat dicapai';
@@ -452,6 +453,4 @@ $strYes = 'Ya';
 
 $strZip = '"zipped"';
 
-// To translate
-$strCompression = 'Compression'; //to translate
 ?>
