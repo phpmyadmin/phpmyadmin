@@ -166,10 +166,12 @@ else {
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
 $result      = mysql_query($local_query) or mysql_die('', $local_query);
 $primary     = '';
+$pk_array    = array();
 while($row = mysql_fetch_array($result)) {
     $ret_keys[]  = $row;
     if ($row['Key_name'] == 'PRIMARY') {
         $primary .= $row['Column_name'] . ', ';
+        $pk_array[$row['Column_name']] = 1;
     }
 }
 
@@ -265,6 +267,10 @@ while ($row = mysql_fetch_array($result)) {
     } else {
         $row['Default'] = htmlspecialchars($row['Default']);
     }
+    $field_name = htmlspecialchars($row['Field']);
+    if (isset($pk_array[$row['Field']])) {
+        $field_name = '<b>' . $field_name . '</b>';
+    }
     echo "\n";
     ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
@@ -279,7 +285,7 @@ while ($row = mysql_fetch_array($result)) {
     }
     echo "\n";
     ?>
-    <td nowrap="nowrap"><?php echo htmlspecialchars($row['Field']); ?>&nbsp;</td>
+    <td nowrap="nowrap"><?php echo $field_name; ?>&nbsp;</td>
     <td<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
     <td nowrap="nowrap"><?php echo $strAttribute; ?></td>
     <td><?php echo (($row['Null'] == '') ? $strNo : $strYes); ?>&nbsp;</td>
@@ -376,6 +382,14 @@ if ($index_count > 0) {
     <?php
     for ($i = 0; $i < $index_count; $i++) {
         $row = $ret_keys[$i];
+        if (isset($row['Seq_in_index'])) {
+            $key_name = htmlspecialchars($row['Key_name']) . ' <small>-' . $row['Seq_in_index'] . '-</small>';
+        } else {
+            $key_name = htmlspecialchars($row['Key_name']);
+        }
+        if (!isset($row['Sub_part'])) {
+            $row['Sub_part'] = '';
+        }
         if ($row['Key_name'] == 'PRIMARY') {
             $sql_query = urlencode('ALTER TABLE ' . backquote($table) . ' DROP PRIMARY KEY');
             $js_msg    = 'ALTER TABLE ' . js_format($table) . ' DROP PRIMARY KEY';
@@ -388,9 +402,10 @@ if ($index_count > 0) {
         echo "\n";
         ?>
         <tr>
-            <td><?php echo htmlspecialchars($row['Key_name']) . "\n"; ?></td>
-            <td><?php echo (($row['Non_unique'] == '0') ? $strYes : $strNo) . "\n"; ?></td>
-            <td><?php echo htmlspecialchars($row['Column_name']) . "\n"; ?></td>
+            <td><?php echo $key_name; ?></td>
+            <td><?php echo (($row['Non_unique'] == '0') ? $strYes : $strNo); ?></td>
+            <td><?php echo htmlspecialchars($row['Column_name']); ?></td>
+            <td align="right">&nbsp;<?php echo $row['Sub_part']; ?></td>
             <td>
                 <a href="sql.php3?<?php echo "$url_query&sql_query=$sql_query&zero_rows=$zero_rows\n"; ?>"
                     onclick="return confirmLink(this, '<?php echo $js_msg; ?>')">

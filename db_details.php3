@@ -117,6 +117,7 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
     <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
     <th colspan="6"><?php echo ucfirst($strAction); ?></th>
     <th><?php echo ucfirst($strRecords); ?></th>
+    <th><?php echo ucfirst($strType); ?></th>
     <th><?php echo ucfirst($strSize); ?></th>
 </tr>
     <?php
@@ -215,6 +216,9 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
             }
             ?>
     </td>
+    <td nowrap="nowrap">
+        &nbsp;<?php echo (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;'); ?>&nbsp;
+    </td>
     <td align="right" nowrap="nowrap">
         &nbsp;&nbsp;
         <a href="tbl_properties.php3?<?php echo $url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
@@ -247,13 +251,16 @@ else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
     <th align="right" nowrap="nowrap">
         <b><?php echo number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator); ?></b>
     </th>
+    <th align="center">
+        <b>--</b>
+    </td>
     <th align="right" nowrap="nowrap">
         <b><?php echo $sum_formated . ' '. $unit; ?></b>
     </th>
 </tr>
 
 <tr>
-    <td colspan="10">
+    <td colspan="11">
         <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
