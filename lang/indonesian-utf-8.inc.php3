@@ -73,6 +73,7 @@ $strBzError = 'phpMyAdmin gagal menkompres Dump (Skema) disebabkan oleh ekstensi
 $strBzip = '"Dikompress dengan BZip"';
 
 $strCannotLogin = 'Gagal login ke MySQL server';
+$strCantLoad = 'gagal loading ekstensi %s,<br />mohon periksa kembali konfigurasi PHP.';
 $strCantLoadMySQL = 'Gagal loading extensi MySQL,<br />mohon periksa kembali konfigurasi PHP.';
 $strCantLoadRecodeIconv = 'Gagal loading iconv atau perubahan kode extension untuk konversi charset diperlukan. Silakan konfigurasikan php untuk mengunakan extensions yang diperlukan atau matikan fasilitas charset conversion di phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Gagal ubah nama Indeks ke PRIMARY!';
@@ -112,6 +113,15 @@ $strCreatePage = 'Buat halaman baru';
 $strCreatePdfFeat = 'Pembuatan PDF';
 $strCriteria = 'Kriteria';
 
+$strDBGContext = 'Susunan';
+$strDBGContextID = 'Susunan ID';
+$strDBGHits = 'Hits';
+$strDBGLine = 'Baris';
+$strDBGMinTimeMs = 'Maks waktu, ms';
+$strDBGMinTimeMs = 'Min waktu, ms';
+$strDBGModule = 'Modul';
+$strDBGTimePerHitMs = 'Waktu/Hit, ms';
+$strDBGTotalTimeMs = 'Jumlah Waktu, ms';
 $strData = 'Data';
 $strDataDict = 'Kamus Data';
 $strDataOnly = 'Data saja';
@@ -302,6 +312,7 @@ $strOptionalControls = 'Pilihan. Mengontrol cara menulis dan membaca karakter kh
 $strOptionally = 'PILIHAN';
 $strOptions = 'Setingan';
 $strOr = 'Atau';
+$strOriginalInterface = 'Interface aslinya';
 $strOverhead = 'Kelebihan (Overhead)';
 
 $strPHP40203 = 'Anda memakai versi PHP 4.2.3 yang diketahui mengandung Bug yang serius dengan multi-byte strings (mbstring). Perhatikan PHP Bug Report 19404. Versi PHP ini tidak disarankan untuk dipakai dengan program phpMyAdmin.';
@@ -540,20 +551,8 @@ $strWrongUser = 'Nama Pengguna/Kata Sandi salah. Akses ditolak.';
 
 $strYes = 'Ya';
 
-$strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus limit yang telah ditentukan.';
+$strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
-
-$strDBGContext = 'Context';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGHits = 'Hits';  //to translate
-$strDBGLine = 'Line';  //to translate
-$strDBGMinTimeMs = 'Max time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGModule = 'Module';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
 ?>
