@@ -264,7 +264,7 @@ function PMA_DBI_field_name($result, $i) {
 }
 
 function PMA_DBI_field_flags($result, $i) {
-    return PMA_mysql_field_flags($result, $i);
+    return PMA_convert_display_charset(mysql_field_flags($result, $i));
 }
 
 ?>

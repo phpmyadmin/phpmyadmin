@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/dbi/mysql.dbi.lib.php: was still using PMA_mysql_field_flags
+
 2004-04-17 Alexander M. Turek  <me@derrabus.de>
     * db_create.php, db_details_structure.php, db_details_common.php, main.php,
       tbl_alter.php, tbl_create.php, tbl_properties.inc.php,
@@ -17,6 +20,7 @@ $Source$
 
 2004-04-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french update
+    * scripts/create-release.sh: daily snapshots 
 
 2004-04-16 Michal Cihar  <michal@cihar.com>
     * libraries/common.lib.php, libraries/export/sql.php: ANSI compatible
