@@ -2,14 +2,15 @@
 /* $Id$ */
 
 /**
- * Translated to Arabic by Fisal <fisal77 at hotmail.com>
+ * Original Translation to Arabic by Fisal <fisal77 at hotmail.com>
+ * Update by Tarik kallida <kallida at caramail.com>
  */
 
 
 $charset = 'windows-1256';
 $text_dir = 'rtl'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'Tahoma, verdana, arial, helvetica, sans-serif';
-$right_font_family = '"Windows UI", arial, helvetica, sans-serif';
+$right_font_family = '"Windows UI", Tahoma, verdana, arial, helvetica, sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 $byteUnits = array('ÈÇíÊ', 'ßíáæÈÇíÊ', 'ãíÌÇÈÇíÊ', 'ÛíÛÇÈÇíÊ');
@@ -68,6 +69,7 @@ $strCantLoadMySQL = 'áÇíãßä ÊÍãíá ÅãÊÏÇÏ MySQL,<br />ÇáÑÌÇÁ İÍÕ ÅÚÏÇÏÇÊ PHP.';
 $strCantRenameIdxToPrimary = 'áÇíãßä ÊÛííÑ ÅÓã ÇáİåÑÓ Åáì ÇáÃÓÇÓí!';
 $strCarriage = 'ÅÑÌÇÚ ÇáÍãæáå: \\r';
 $strChange = 'ÊÛííÑ';
+$strChangePassword = 'ÊÛííÑ ßáãÉ ÇáÓÑ';
 $strCheckAll = 'ÅÎÊÑ Çáßá';
 $strCheckDbPriv = 'İÍÕ ÅãÊíÇÒ ŞÇÚÏÉ ÇáÈíÇäÇÊ';
 $strCheckTable = 'ÃÔÑ ááÌÏæá';
@@ -75,6 +77,7 @@ $strColumn = 'ÚãæÏ';
 $strColumnNames = 'ÅÓã ÇáÚãæÏ';
 $strCompleteInserts = 'ÇáÅÏÎÇá áŞÏ ÅßÊãá';
 $strConfirm = 'åá ÊÑíÏ ÍŞÇğ Ãä ÊİÚá Ğáß¿';
+$strCookiesRequired = 'íÌÈ ÊİÚíá ÏÚã ÇáßæßíÒ İí åĞå ÇáãÑÍáÉ.';
 $strCopyTable = 'äÓÎ ÇáÌÏæá Åáì';
 $strCopyTableOK = 'ÇáÌÏæá %s áŞÏ Êã äÓÎå Åáì %s.';
 $strCreate = 'Êßæíä';
@@ -89,6 +92,7 @@ $strDatabase = 'ŞÇÚÏÉ ÇáÈíÇäÇÊ ';
 $strDatabaseHasBeenDropped = 'ŞÇÚÏÉ ÈíÇäÇÊ %s ãÍĞæİå.';
 $strDatabases = 'ŞÇÚÏÉ ÈíÇäÇÊ';
 $strDatabasesStats = 'ÅÍÕÇÆíÇÊ ŞÇÚÏÉ ÈíÇäÇÊ';
+$strDatabaseWildcard = 'ŞÇÚÏÉ ÈíÇäÇÊ:';
 $strDataOnly = 'ÈíÇäÇÊ İŞØ';
 $strDefault = 'ÅİÊÑÇÖí';
 $strDelete = 'ÍĞİ';
@@ -174,7 +178,10 @@ $strLineFeed = 'ÎØæØ ãÚÑİå: \\n';
 $strLines = 'ÎØæØ';
 $strLinesTerminatedBy = 'ÎØæØ ãİÕæáå ÈÜ';
 $strLocationTextfile = 'ãßÇä ãáİ ÇáäÕæÕ';
+$strLogin = 'ÇáãõÚÑİ';
 $strLogout = 'ÊÓÌíá ÎÑæÌ';
+$strLogPassword = 'ßáãÉ ÇáÓÑ:';
+$strLogUsername = 'ÅÓã ÇáãõÓÊÎÏã:';
 
 $strModifications = 'ÊãÊ ÇáÊÚÏíáÇÊ';
 $strModify = 'ÊÚÏíá';
@@ -222,6 +229,7 @@ $strPasswordEmpty = 'ßáãÉ ÇáÓÑ İÇÑÛå!';
 $strPasswordNotSame = 'ßáãÊÇ ÇáÓÑ ÛíÑ ãÊÔÇÈåÊÇä!';
 $strPHPVersion = 'PHPÅÕÏÇÑÉ ';
 $strPmaDocumentation = 'phpMyAdmin ãÓÊäÏÇÊ æËÇÆŞíå áÜ';
+$strPmaUriError = 'ÇáãÊÛíÑ <tt>$cfgPmaAbsoluteUri</tt> íÌÈ ÊÚÏíáå İí ãáİ Çáßæİíß config.inc.php !';
 $strPos1 = 'ÈÏÇíå';
 $strPrevious = 'ÓÇÈŞ';
 $strPrimary = 'ÃÓÇÓí';
@@ -239,6 +247,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'İí ŞÇÚÏÉ ÇáÈíÇäÇÊ SQL-ÅÓÊÚáÇã <b>%s</b>:';
 
 $strRecords = 'ÇáÓÌáÇÊ';
+$strReferentialIntegrity = 'ÊÍÏíÏ referential integrity:';
 $strReloadFailed = ' ÅÚÇÏÉ ÊÍãíá ÎÇØÆåMySQL.';
 $strReloadMySQL = 'ÅÚÇÏÉ ÊÍãíá MySQL';
 $strRememberReload = 'ÊĞßíÑ áÅÚÇÏÉ ÊÍãíá ÇáÎÇÏã.';
@@ -258,6 +267,9 @@ $strRowLength = 'Øæá ÇáÕİ';
 $strRows = 'Õİæİ';
 $strRowsFrom = 'Õİæİ ÊÈÏÃ ãä';
 $strRowSize = ' ãŞÇÓ ÇáÕİ ';
+$strRowsModeHorizontal = 'ÃİŞí';
+$strRowsModeOptions = ' %s æ ÅÚÇÏÉ ÇáÑÄæÓ ÈÚÏ %s ÍŞá';
+$strRowsModeVertical = 'ÚãæÏí';
 $strRowsStatistic = 'ÅÍÕÇÁ ÇáÕİ';
 $strRunning = 'íÚãá Úáì %s';
 $strRunQuery = 'ÅÑÓÇá ÇáÅÓÊÚáÇã';
@@ -265,6 +277,8 @@ $strRunSQLQuery = 'ÊäİíĞ ÅÓÊÚáÇã/ÅÓÊÚáÇãÇÊ SQL Úáì ŞÇÚÏÉ ÈíÇäÇÊ %s';
 
 $strSave = 'ÍİÙ';
 $strSelect = 'ÅÎÊíÇÑ';
+$strSelectADb = 'ÅÎÊÑ ŞÇÚÏÉ ÈíÇäÇÊ ãä ÇáŞÇÆãÉ';
+$strSelectAll = 'ÊÍÏíÏ Çáßá';
 $strSelectFields = 'ÅÎÊíÇÑ ÍŞæá (Úáì ÇáÃŞá æÇÍÏ):';
 $strSelectNumRows = 'İí ÇáÅÓÊÚáÇã';
 $strSend = 'ÍİÙ ßãáİ';
@@ -313,6 +327,7 @@ $strType = 'ÇáäæÚ';
 
 $strUncheckAll = 'ÅáÛÇÁ ÊÍÏíÏ Çáßá';
 $strUnique = 'ããíÒ';
+$strUnselectAll = 'ÅáÛÇÁ ÊÍÏíÏ Çáßá';
 $strUpdatePrivMessage = 'áŞÏ ÌÏÏÊ æÍÏËÊ ÇáÅãÊíÇÒÇÊ áÜ %s.';
 $strUpdateProfile = 'ÊÌÏíÏ ÇáÚÑÖ ÇáÌÇäÈí:';
 $strUpdateProfileMessage = 'áŞÏ Êã ÊÌÏíÏ ÇáÚÑÖ ÇáÌÇäÈí.';
@@ -339,18 +354,4 @@ $strZip = '"zipped" "ãÖÛæØ"';
 
 // To translate
 $strCardinality = 'Cardinality';
-$strChangePassword = 'Change password';
-$strCookiesRequired = 'Cookies must be enabled past this point.';
-$strLogin = 'Login';
-$strLogPassword = 'Password:';
-$strLogUsername = 'Username:';
-$strPmaUriError = 'The <tt>$cfgPmaAbsoluteUri</tt> directive MUST be set in your configuration file!';
-$strRowsModeVertical = 'vertical';  //to translate
-$strRowsModeHorizontal = 'horizontal';  //to translate
-$strRowsModeOptions = ' in %s mode and repeat headers after %s cells';  //to translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
-$strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

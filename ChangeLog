@@ -9,6 +9,8 @@ $Source$
 	* libraries/select_lang.lib.php3, lines 45-46: bug #545667 - Wrong default
 	  Cyrillic encoding for BG.
 	* lang/korean.inc.php3: added some "to translate" strings.
+	* lang/arabic.inc.php3: updated thanks to
+	  Tarik kallida <kallida at users.sourceforge.net>.
 
 2002-04-17 Alexander M. Turek  <rabus@users.sourceforge.net>
 	* badwords.txt: Updated and reordered badwords, made it MySQL 4 compatible.
