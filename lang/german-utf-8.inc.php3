@@ -137,7 +137,6 @@ $strEmptyResultSet = 'MySQL lieferte ein leeres Resultat zurück (d.h. null Zeil
 $strEnd = 'Ende';
 $strEnglishPrivileges = ' Anmerkung: MySQL-Rechte werden auf Englisch angegeben. ';
 $strError = 'Fehler';
-$strExplain = 'SQL erklären';
 $strExport = 'Exportieren';
 $strExportToXML = 'Ins XML-Fromat exportieren';
 $strExtendedInserts = 'Erweiterte \'INSERT\'s';
@@ -420,4 +419,6 @@ $strEnabled = 'Aktiviert';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

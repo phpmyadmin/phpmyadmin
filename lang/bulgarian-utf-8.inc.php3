@@ -387,7 +387,6 @@ $strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
 $strSearchType = 'Find:';//to translate
 $strSplitWordsWithSpace = 'Words are seperated by a space character (" ").';//to translate
 $strStructPropose = 'Propose table structure';  //to translate
-$strExplain = 'Explain SQL Code';  //to translate
 $strPhp = 'Create PHP Code';  //to translate
 $strNoPhp = 'without PHP Code';  //to translate
 $strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
@@ -417,4 +416,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

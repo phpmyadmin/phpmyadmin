@@ -129,7 +129,6 @@ $strEmptyResultSet = 'A MySQL üreset adott vissza (nincsenek sorok).';
 $strEnd = 'Vége';
 $strEnglishPrivileges = ' Megjegyzés: A MySQL privilégium nevek az angolból származnak ';
 $strError = 'Hiba';
-$strExplain = 'SQL kód magyarázata';
 $strExport = 'Export';
 $strExportToXML = 'Export XML-formátumba';
 $strExtendedInserts = 'Kiterjesztett beszúrások';
@@ -413,4 +412,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

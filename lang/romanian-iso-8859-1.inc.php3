@@ -133,7 +133,6 @@ $strEnabled = 'Activat';
 $strEnd = 'Sfarsit';
 $strEnglishPrivileges = ' Important: numele drepturilor de acces MySQL apar in engleza ';
 $strError = 'Eroare';
-$strExplain = 'Explica codul SQL';
 $strExport = 'Export';
 $strExportToXML = 'Export in format XML';
 $strExtendedInserts = 'Inserari extinse';
@@ -411,4 +410,6 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 
 // To translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

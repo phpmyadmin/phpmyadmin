@@ -139,7 +139,6 @@ $strEnabled = 'Zapnuto';
 $strEnd = 'Konec';
 $strEnglishPrivileges = 'Poznámka: názvy oprávnění v&nbsp;MySQL jsou uváděny anglicky';
 $strError = 'Chyba';
-$strExplain = 'Vysvětlit SQL (EXPLAIN)';
 $strExport = 'Export';
 $strExportToXML = 'Export do XML';
 $strExtendedInserts = 'Rozšířené inserty';
@@ -417,4 +416,6 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

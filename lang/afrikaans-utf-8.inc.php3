@@ -138,7 +138,6 @@ $strEmptyResultSet = 'MySQL het niks teruggegee nie (dus nul rye).';
 $strEnabled = 'Beskikbaar';
 $strEnd = 'Einde';
 $strEnglishPrivileges = ' Nota: MySQL regte name word in Engels vertoon ';
-$strExplain = 'Verduidelik SQL Kode';
 $strError = 'Fout';
 $strExport = 'Export';
 $strExportToXML = 'Export na XML formaat';
@@ -415,4 +414,6 @@ $strWrongUser = 'Verkeerde gebruikernaam/wagwoord. Toegang geweier.';
 $strYes = 'Ja';
 
 $strZip = '"ge-zip"';
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

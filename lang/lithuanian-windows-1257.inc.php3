@@ -133,7 +133,6 @@ $strEnabled = 'Ájungta';
 $strEnd = 'Pabaiga';
 $strEnglishPrivileges = ' Pastaba: MySQL privilegijø pavadinimai pateikiami anglø kalba';
 $strError = 'Klaida';
-$strExplain = 'Paaiðkinti SQL uþklausà';
 $strExport = 'Eksportuoti';
 $strExportToXML = 'Iðvesti XML formatu';
 $strExtendedInserts = 'Iðplëstinis áterpimas';
@@ -411,4 +410,6 @@ $strYes = 'Taip';
 $strZip = '"zip"';
 
 //to translate:
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

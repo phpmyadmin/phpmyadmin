@@ -128,7 +128,6 @@ $strEmptyResultSet = 'MySQL balikkan hasil kosong (a.k. baris yang kosong).';
 $strEnd = 'Terakhir';
 $strEnglishPrivileges = ' Catatan: Nama privilege MySQL adalah dalam bahasa Ingris ';
 $strError = 'Error';
-$strExplain = 'Jelaskan kode SQL';
 $strExport = 'Ekspor';
 $strExportToXML = 'Ekspor ke format XML';
 $strExtendedInserts = 'Penyisipan diperluas';
@@ -414,4 +413,6 @@ $strEnabled = 'Aktif';
 $strOK = 'Oke';
 $strNotOK = 'tidak oke';
 $strGeneralRelationFeat = 'Ciri-ciri dari General Relation';
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

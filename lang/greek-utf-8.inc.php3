@@ -124,7 +124,6 @@ $strEmptyResultSet = 'Η MySQL επέστρεψε ένα άδειο σύνολο
 $strEnd = 'Τέλος';
 $strEnglishPrivileges = ' Σημείωση: Τα ονόματα προνομίων της MySQL εκφράζονται στα Αγγλικά ';
 $strError = 'λάθος';
-$strExplain = 'Ανάλυση κώδικα SQL';  //to translate
 $strExport = 'Εξαγωγή';  //to translate
 $strExportToXML = 'Export to XML format'; //to translate
 $strExtendedInserts = 'Εκτεταμένες εντολές «Insert»';
@@ -388,4 +387,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

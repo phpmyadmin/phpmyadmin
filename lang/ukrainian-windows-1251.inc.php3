@@ -134,7 +134,6 @@ $strEnglishPrivileges = ' Зауваження: привілеї MySQL задаються по-англійськи ';
 $strError = 'Помилка';
 $strExport = 'Експорт';
 $strExportToXML = 'Експортувати у XML формат';
-$strExplain = 'Розкрити SQL код';
 $strExtendedInserts = 'Розширена вставка';
 $strExtra = 'Додатково';
 
@@ -413,4 +412,6 @@ $strRelationNotWorking = 'The additional Features for working with linked Tables
 $strAllTableSameWidth = 'display all Tables with same width?';  //to translate
 $strPdfNoTables = 'No tables';  //to translate
 
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

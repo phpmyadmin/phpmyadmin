@@ -135,7 +135,6 @@ $strEnabled = 'Zapnuté';
 $strEnd = 'Koniec';
 $strEnglishPrivileges = ' Poznámka: názvy MySQL privilégií sú uvádzané v angličtine. ';
 $strError = 'Chyba';
-$strExplain = 'Vysvetliť SQL kód';
 $strExport = 'Exportovať';
 $strExport = 'Exportovať';
 $strExportToXML = 'Exportovať do formátu XML';
@@ -417,4 +416,6 @@ $strZip = '"zo zipované"';
 
 // To translate
 
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

@@ -126,7 +126,6 @@ $strEmptyResultSet = 'MySQL ha devuelto un valor vacío (i.e. cero columnas).';
 $strEnd = 'Fin';
 $strEnglishPrivileges = ' Nota: Los nombres de privilegios de MySQL están expresados en inglés ';
 $strError = 'Error';
-$strExplain = 'Detallar código SQL';
 $strExport = 'Exportar';
 $strExportToXML = 'Exportar a formato XML';
 $strExtendedInserts = '"Inserts" extendidos';
@@ -408,4 +407,6 @@ $strEnabled = 'Habilitado';
 $strOK = 'OK';  
 $strNotOK = 'no recibió el OK';
 $strGeneralRelationFeat = 'Componentes de relación general';  //Features = ¿componentes?
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

@@ -134,7 +134,6 @@ $strEnabled = 'włączone';
 $strEnd = 'Koniec';
 $strEnglishPrivileges = ' Uwaga: Uprawnienia MySQL są oznaczone w jęz. angielskim ';
 $strError = 'Błąd';
-$strExplain = 'Wyjaśnij kod SQL';
 $strExport = 'Eksport';
 $strExportToXML = 'Eksport do formatu XML';
 $strExtendedInserts = 'Rozszerzone dodania';
@@ -412,4 +411,6 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

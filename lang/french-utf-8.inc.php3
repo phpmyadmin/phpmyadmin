@@ -134,7 +134,6 @@ $strEnabled = 'activé';
 $strEnd = 'Fin';
 $strEnglishPrivileges = ' Veuillez noter que les noms de privilèges sont exprimés en anglais';
 $strError = 'Erreur';
-$strExplain = 'Expliquer SQL';
 $strExport = 'Exporter';
 $strExportToXML = 'Exporter en format XML';
 $strExtendedInserts = 'Insertions étendues';
@@ -410,4 +409,6 @@ $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 $strYes = 'Oui';
 
 $strZip = '"zippé"';
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

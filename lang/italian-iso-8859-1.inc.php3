@@ -139,7 +139,6 @@ $strEnabled = 'Abilitata';
 $strEnd = 'Fine';
 $strEnglishPrivileges = 'Nota: i nomi dei privilegi di MySQL sono in Inglese';
 $strError = 'Errore';
-$strExplain = 'Spiega il codice SQL';
 $strExport = 'Esporta';
 $strExportToXML = 'Esporta in formato XML';
 $strExtendedInserts = 'Inserimenti estesi';
@@ -418,4 +417,6 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

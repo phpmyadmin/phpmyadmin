@@ -134,7 +134,6 @@ $strEnglishPrivileges = ' 注意: MySQLの特権の名前は英語で発表し�
 $strError = 'エラー';
 $strExport = 'エクスポート';
 $strExportToXML = 'XML形式でエクスポート';
-$strExplain = 'SQL文をExplain評価';
 $strExtendedInserts = '長いINSERT文の作成';
 $strExtra = '追加';
 
@@ -421,4 +420,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

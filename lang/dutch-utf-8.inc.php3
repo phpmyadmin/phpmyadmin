@@ -137,7 +137,6 @@ $strEnabled = 'Ingeschakeld';
 $strEnd = 'Einde';
 $strEnglishPrivileges = ' Aantekening: de MySQL rechten namen zijn uitgelegd in het Engels ';
 $strError = 'Fout';
-$strExplain = 'Geef uitleg over de SQL Code';
 $strExport = 'Exporteer';
 $strExportToXML = 'Exporteer naar XML formaat';
 $strExtendedInserts = 'Uitgebreide invoegingen';
@@ -413,4 +412,6 @@ $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
 
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

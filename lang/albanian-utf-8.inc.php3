@@ -139,7 +139,6 @@ $strEnabled = 'Aktivuar';
 $strEnd = 'Fund';
 $strEnglishPrivileges = 'Shënim: emrat e privilegjeve të MySQL janë në Anglisht';
 $strError = 'Gabim';
-$strExplain = 'Shpjego kodin SQL';
 $strExport = 'Eksporto';
 $strExportToXML = 'Eksporto në formatin XML';
 $strExtendedInserts = 'Të shtuara të zgjeruara';
@@ -418,4 +417,6 @@ $strZip = '"kompresuar me zip"';
 
 // To translate
 
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

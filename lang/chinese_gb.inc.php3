@@ -134,7 +134,6 @@ $strFieldsTerminatedBy = '「栏位分隔」使用字符：';
 $strEnd = '结束';
 $strEnglishPrivileges = ' 注意: MySQL 权限名称会被解释成英文 ';
 $strError = '错误';
-$strExplain = '说明 SQL 语句';
 $strExport = '输出';
 $strExportToXML = '输出到 XML 格式';
 $strExtendedInserts = '伸延添加模式';
@@ -417,4 +416,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

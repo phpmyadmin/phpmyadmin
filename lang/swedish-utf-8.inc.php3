@@ -133,7 +133,6 @@ $strEnabled = 'Aktiverat';
 $strEnd = 'Slutet';
 $strEnglishPrivileges = ' Obs! MySQL-privilegiumnamn anges på engelska ';
 $strError = 'Fel';
-$strExplain = 'Förklara SQL-kod';
 $strExport = 'Exportera';
 $strExportToXML = 'Exportera till XML-format';
 $strExtendedInserts = 'Utökade infogningar';
@@ -413,4 +412,6 @@ $strZip = '"zippad"';
 
 // To translate
 
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

@@ -133,7 +133,6 @@ $strEnabled = 'w³±czone';
 $strEnd = 'Koniec';
 $strEnglishPrivileges = ' Uwaga: Uprawnienia MySQL s± oznaczone w jêz. angielskim ';
 $strError = 'B³±d';
-$strExplain = 'Wyja¶nij kod SQL';
 $strExport = 'Eksport';
 $strExportToXML = 'Eksport do formatu XML';
 $strExtendedInserts = 'Rozszerzone dodania';
@@ -411,4 +410,6 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

@@ -132,7 +132,6 @@ $strEmptyResultSet = 'MySQL palautti tyhjän vastauksen (ts. nolla riviä).';
 $strEnd = 'Loppu';
 $strEnglishPrivileges = ' Huom. MySQL-käyttöoikeuksien nimet ovat englanniksi ';
 $strError = 'Virhe';
-$strExplain = 'Kerro SQL-lauseesta (EXPLAIN)';
 $strExport = 'Tulosta tiedostoksi/ruudulle';
 $strExportToXML = 'Rakenne ja data XML-muodossa';
 $strExtendedInserts = 'Yhteinen insert-lause';
@@ -415,4 +414,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

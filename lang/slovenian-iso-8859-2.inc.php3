@@ -128,7 +128,6 @@ $strEmpty = 'Izprazni';
 $strEmptyResultSet = 'MySQL je vrnil kot rezultat prazno mno¾ico (npr. niè vrstic).';
 $strEnd = 'Konec';
 $strEnglishPrivileges = ' Opomba: Imena MySQL privilegijev so zapisana v angle¹èini ';
-$strExplain = 'Pojasni SQL kodo';
 $strError = 'Napaka';
 $strExport = 'Izvozi';
 $strExportToXML = 'Izvozi v XML obliko';
@@ -411,4 +410,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

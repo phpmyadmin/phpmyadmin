@@ -127,7 +127,6 @@ $strEmptyResultSet = 'MySQL tagastas tühja tulemuse (s.t. null rida).';
 $strEnd = 'Lõpp';
 $strEnglishPrivileges = ' Märkus: MySQL privileegide nimed on ingliskeelsed ';
 $strError = 'Viga';
-$strExplain = 'Seleta SQL koodi';
 $strExport = 'Ekspordi';
 $strExportToXML = 'Ekspordi XML formaatt';
 $strExtendedInserts = 'Laiendatud lisamised';
@@ -413,4 +412,6 @@ $strNotOK = 'Ei ole OK';
 $strGeneralRelationFeat = 'Peamised seoste võimalused';  
 
 // To translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

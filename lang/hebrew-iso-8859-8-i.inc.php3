@@ -123,7 +123,6 @@ $strEmptyResultSet = 'MySQL החזיר 0 תשובות מן מסד הנתונים(כלומר, 0 שורות).';
 $strEnd = 'סוף';
 $strEnglishPrivileges = ' הערה: הרשאות MySQL נכתבים באנגלית ';
 $strError = 'תקלה';
-$strExplain = 'הסבר קוד SQL';  
 $strExport = 'ייצא'; 
 $strExportToXML = 'ייצא לפורמט XML'; 
 $strExtendedInserts = 'הכנסות מורחבות';
@@ -411,4 +410,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

@@ -134,7 +134,6 @@ $strEmptyResultSet = 'MySQL 傳回的查詢結果為空 (原因可能為：沒�
 $strEnd = '最後一頁';
 $strEnglishPrivileges = '注意: MySQL 權限名稱會以英語顯示';
 $strError = '錯誤';
-$strExplain = '說明 SQL 語法';
 $strExport = '輸出';
 $strExportToXML = '輸出為 XML 格式';
 $strExtendedInserts = '伸延新增模式';
@@ -418,4 +417,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

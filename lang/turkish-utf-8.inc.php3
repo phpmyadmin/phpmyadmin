@@ -135,7 +135,6 @@ $strEnabled = 'Etkin';
 $strEnd = 'Son';
 $strEnglishPrivileges = ' Not: mySQL  öncelik adları İngilizce olarak belirtilmiştir ';
 $strError = 'Hata';
-$strExplain = 'SQL kodunu açıkla';
 $strExport = 'Dönüştür';
 $strExportToXML = 'XML formatına dönüştür';
 $strExtendedInserts = 'Genişletilmiş eklemeler';
@@ -414,4 +413,6 @@ $strZip = '"ziplenmiş"';
 
 // To translate
 
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

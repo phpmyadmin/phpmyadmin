@@ -131,7 +131,6 @@ $strEmptyResultSet = 'MySQL returnerte tomt resultat (m.a.o. ingen rader).';
 $strEnd = 'Slutt';
 $strEnglishPrivileges = ' OBS: MySQL privilegie navn er på engelsk ';
 $strError = 'Feil';
-$strExplain = 'Forklar SQL kode';
 $strExport = 'Eksporter';
 $strExportToXML = 'Eksporter til XML format';
 $strExtendedInserts = 'Utvidete innlegg';
@@ -415,4 +414,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

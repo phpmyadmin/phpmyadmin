@@ -131,7 +131,6 @@ $strEmptyResultSet = 'MySQL вернула пустой результат (т.е. ноль рядов).';
 $strEnd = 'Конец';
 $strEnglishPrivileges = ' Примечание: привилегии MySQL задаются по английски ';
 $strError = 'Ошибка';
-$strExplain = 'Эффективность SQL-запроса';
 $strExport = 'Экспорт';
 $strExportToXML = 'Экспорт в XML-формат';
 $strExtendedInserts = 'Расширенные вставки';
@@ -415,4 +414,6 @@ $strOK = 'Готово';
 $strNotOK = 'Не готово';
 
 $strGeneralRelationFeat = 'Основные возможности связей';
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

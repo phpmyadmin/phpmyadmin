@@ -129,7 +129,6 @@ $strEmptyResultSet = 'MySQL-ის მიერ დააბრუნებუ�
 $strEnd = 'დასასრული';
 $strEnglishPrivileges = ' შენიშვნა: MySQL-ის პრივილეგიები ენიჭება ინგლისურად ';
 $strError = 'შეცდომა';
-$strExplain = 'SQL კოდის განმარტება';
 $strExport = 'ექსპორტი';
 $strExtendedInserts = 'ჩამატების გაფართოება';
 $strExtra = 'სხვა';
@@ -393,4 +392,6 @@ $strEnabled = 'Enabled';  //to translate
 $strOK = 'OK';  //to translate
 $strNotOK = 'not OK';  //to translate
 $strGeneralRelationFeat = 'General relation features';  //to translate
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>

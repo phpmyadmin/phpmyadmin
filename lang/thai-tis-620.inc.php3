@@ -136,7 +136,6 @@ $strEnabled = 'เปิดใช้อยู่';
 $strEnd = 'ท้ายสุด';
 $strEnglishPrivileges = ' โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ ';
 $strError = 'ผิดพลาด';
-$strExplain = 'อธิบายโค้ด SQL';
 $strExport = 'ส่งออก';
 $strExportToXML = 'ส่งออกเป็นรูปแบบ XML';
 $strExtendedInserts = 'แทรกหลายระเบียนในคราวเดียว';
@@ -413,4 +412,6 @@ $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
+$strExplain = 'Explain SQL Query';  //to translate
+$strNoExplain = 'Unexplain SQL Query';  //to translate
 ?>
