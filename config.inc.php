@@ -503,6 +503,14 @@ $cfg['WYSIWYG-PDF']         = TRUE;         // Utilize DHTML/JS capabilities to 
                                             // the PDF page editor. Requires an IE6/Mozilla based browser.
 
 /**
+ * Default queries.
+ *  %d will be replaced by database name
+ *  %t will be replaced by table name
+ */
+$cfg['DefaultQueryTable']   = 'SELECT * FROM %t WHERE 1';
+$cfg['DefaultQueryDatabase']= '';
+
+/**
  * SQL Query box settings
  * These are the links display in all of the SQL Query boxes
  */

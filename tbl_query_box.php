@@ -142,7 +142,15 @@ if (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) {
                         <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . (isset($is_inside_querywindow) ? '<br />' : ' ') . PMA_showMySQLDocu('Reference', 'SELECT'); ?>
                         <br />
                         <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
-<?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . htmlspecialchars(PMA_backquote($table)) . ' WHERE 1'); ?></textarea>
+<?php 
+if (!empty($query_to_display)) {
+    echo htmlspecialchars($query_to_display);
+} elseif (isset($table)) {
+    echo htmlspecialchars(str_replace('%d', PMA_backquote($db), str_replace('%t', PMA_backquote($table), $cfg['DefaultQueryTable'])));
+} else {
+    echo htmlspecialchars(str_replace('%d', PMA_backquote($db), $cfg['DefaultQueryDatabase']));
+}
+?></textarea>
                     </td>
                         <?php if (isset($table) && $fields_cnt > 0) { ?>
                     <td align="center" valign="top"><?php echo (isset($is_inside_querywindow) ? '<br />' : '') . $strFields; ?>:<br />

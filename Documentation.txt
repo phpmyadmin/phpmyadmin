@@ -14,18 +14,15 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.518 2003/11/07
-       18:01:55 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 2.1 2003/11/19
+       11:36:19 rabus Exp $
 
 Requirements
 
-     * PHP3, PHP4 or PHP5: phpMyAdmin widely uses the 'str_replace()' PHP
-       function that was added in PHP 3.0.6, but was buggy up until
-       PHP 3.0.8. Then you should not run this script with PHP3 < 3.0.8.
-       PHP also needs to be compiled with MySQL support;
+     * php 4.1.0 or later
        If you want to display inline thumbnails of JPEGs with the
        original aspect ratio, you also need GD2 support in PHP.
-     * MySQL 3.21 or newer (details);
+     * MySQL 3.23.32 or newer (details);
      * a web-browser (doh!).
 
 Introduction
@@ -1201,6 +1198,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           functionality was kindly borrowed from www.youngpup.net and is
           underlying so specific license.
 
+   $cfg['DefaultQueryTable'] string
+   $cfg['DefaultQueryDatabase'] string
+          Default query that will be displayed in query boxes, when user
+          didn't specify any. Use %d for database name and %t for table
+          name.
+
    $cfg['SQP']['fmtType'] string [html|none]
           The main use of the new SQL Parser is to pretty-print SQL
           queries. By default we use HTML to format the query, but you
@@ -1318,7 +1321,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
 Transformations
 
-   Introduction  -  Usage  -  File structure  -
+   Introduction  -  Usage  -  File structure
 
   [1. Introduction]
 
@@ -1659,9 +1662,9 @@ FAQ - Frequently Asked Questions
 
     [1.17] Which MySQL versions does phpMyAdmin support?
 
-   All MySQL versions from 3.21 till 4.0 are fully supported. Please note
-   that the older your MySQL version is, the more limitations you will
-   have to face.
+   All MySQL versions from 3.23.32 till 4.0 are fully supported. Please
+   note that the older your MySQL version is, the more limitations you
+   will have to face.
    phpMyAdmin provides experimental support for MySQL 4.1. That means
    that although you can assign character sets to a table or field,
    phpMyAdmin will not recode the data when inserting or extracting it.
@@ -2421,14 +2424,11 @@ FAQ - Frequently Asked Questions
    You can simply include table in your LaTeX documents, minimal sample
    document should look like following one (assuming you have table
    exported in file table.tex):
-\documentclass{article}
-\usepackage{longtable}
-
-\begin{document}
-
-\include{table}
-
-\end{document}
+\documentclass{article} % or any class you want
+\usepackage{longtable}  % for displaying table
+\begin{document}        % start of document
+\include{table}         % including exported table
+\end{document}          % end of document
 
     [6.20] In MySQL 4, I see a lot of databases which are not mine, and cannot
     access them.

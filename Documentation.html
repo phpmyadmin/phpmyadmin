@@ -658,6 +658,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
               foreign keys (key value and &quot;display field&quot; are
               shown)<br />
               (see FAQ 6.21)
+           </li>
            <li>
               display links on the table properties page, to check referential
               integrity (display missing foreign keys) for each described key;
@@ -1743,8 +1744,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br /><br />
     </dd>
 
-    <a name="wysiwyg"></a>
-    <dt><b>$cfg['WYSIWYG-PDF'] </b>boolean</dt>
+    <dt><a name="wysiwyg"></a>
+    <b>$cfg['WYSIWYG-PDF'] </b>boolean</dt>
     <dd>
         Utilizes a WYSIWYG editing control to easily place elements of a PDF
         page.  By clicking on the button 'toggle scratchboard' on the page
@@ -1772,6 +1773,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         get this control to work. The basic Drag&amp;Drop script functionality
         was kindly borrowed from www.youngpup.net and is underlying so
         specific license.
+        <br /><br />
+    </dd>
+
+    <dt><b>$cfg['DefaultQueryTable'] </b>string</dt>
+    <dt><b>$cfg['DefaultQueryDatabase'] </b>string</dt>
+    <dd>
+        Default query that will be displayed in query boxes, when user didn't
+        specify any. Use %d for database name and %t for table name.
         <br /><br />
     </dd>
 
@@ -1939,7 +1948,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <p>
 <a href="#transformationsintro">Introduction</a> &nbsp;-&nbsp;
 <a href="#transformationshowto">Usage</a> &nbsp;-&nbsp;
-<a href="#transformationsfiles">File structure</a> &nbsp;-&nbsp;
+<a href="#transformationsfiles">File structure</a>
 </p>
 
 <a name="transformationsintro"></a><br />
@@ -3444,19 +3453,15 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     You can simply include table in your LaTeX documents, minimal sample
     document should look like following one (assuming you have table
     exported in file <code>table.tex</code>):
-    <br />
-    <br />
-<pre>
-<font color="#a52a2a"><b>\documentclass</b></font><font color="#6a5acd">{</font><font color="#a020f0">article</font><font color="#6a5acd">}</font>
-<font color="#a52a2a"><b>\usepackage</b></font><font color="#6a5acd">{</font><font color="#6a5acd">longtable</font><font color="#6a5acd">}</font>
-
-<font color="#a52a2a"><b>\begin</b></font><font color="#6a5acd">{</font><font color="#a020f0">document</font><font color="#6a5acd">}</font>
-
-<font color="#a52a2a"><b>\include</b></font><font color="#6a5acd">{</font><font color="#6a5acd">table</font><font color="#6a5acd">}</font>
-
-<font color="#a52a2a"><b>\end</b></font><font color="#6a5acd">{</font><font color="#a020f0">document</font><font color="#6a5acd">}</font>
-</pre>
 </p>
+  
+<pre>
+\documentclass{article} % or any class you want
+\usepackage{longtable}  % for displaying table
+\begin{document}        % start of document
+\include{table}         % including exported table
+\end{document}          % end of document
+</pre>
 
 <h4>
     [6.20] In MySQL 4, I see a lot of databases which are not mine, and cannot
@@ -3575,49 +3580,48 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
     The team regrets that the author did not communicate with us before
     sending this alert. However, here is our current reply to the points mentionned:
-    <br /><br />
-    <ul>
-        <li>&quot;Directory transversal attack&quot;
-        <br /><br />
-
-        This problem had been fixed in version 2.5.0, even if the author reports
-        the 2.5.2 development version as vulnerable, which we could not reproduce.
-        <br /><br />
-        </li>
-        <li>&quot;Remote local file retrieving&quot;
-        <br /><br />
-        This is a misleading title, as the author tells in his text:
-        &quot;Note that you can't request files ( only dirs )&quot;.
-        <br /><br />
-        </li>
-
-        <li>&quot;Remote internal directory listing&quot;
-        <br /><br />
-        It was possible to retrieve the list of phpMyAdmin's directory (which we
-        doubt can cause any damage), but we fixed this in the
-        2.5.2 version.
-        <br /><br />
-        </li>
-
-        <li>&quot;XSS and Path disclosures&quot;
-        <br /><br />
-        Most of the XSS problems have been fixed in version 2.5.0. The rest
-        have been fixed in the 2.5.2 version.
-        <br /><br />
-        We believe that the Path disclosures problems have also been fixed
-        in version 2.5.2.
-        <br /><br />
-        </li>
-        <li>&quot;Information encoding weakness&quot;
-        <br /><br />
-        We believe that an exploit for this weakness would be difficult
-        to achieve.  However version 2.5.2 now encrypts the password
-        with the well-known blowfish algorithm.
-        <br /><br />
-        </li>
-    </ul>
-
 </p>
+
+<ul>
+    <li>&quot;Directory transversal attack&quot;
+    <br /><br />
+
+    This problem had been fixed in version 2.5.0, even if the author reports
+    the 2.5.2 development version as vulnerable, which we could not reproduce.
+    <br /><br />
+    </li>
+    <li>&quot;Remote local file retrieving&quot;
+    <br /><br />
+    This is a misleading title, as the author tells in his text:
+    &quot;Note that you can't request files ( only dirs )&quot;.
+    <br /><br />
+    </li>
+
+    <li>&quot;Remote internal directory listing&quot;
+    <br /><br />
+    It was possible to retrieve the list of phpMyAdmin's directory (which we
+    doubt can cause any damage), but we fixed this in the
+    2.5.2 version.
+    <br /><br />
+    </li>
+
+    <li>&quot;XSS and Path disclosures&quot;
+    <br /><br />
+    Most of the XSS problems have been fixed in version 2.5.0. The rest
+    have been fixed in the 2.5.2 version.
+    <br /><br />
+    We believe that the Path disclosures problems have also been fixed
+    in version 2.5.2.
+    <br /><br />
+    </li>
+    <li>&quot;Information encoding weakness&quot;
+    <br /><br />
+    We believe that an exploit for this weakness would be difficult
+    to achieve.  However version 2.5.2 now encrypts the password
+    with the well-known blowfish algorithm.
+    <br /><br />
+    </li>
+</ul>
 
 <!-- DEVELOPERS -->
 <a name="developers"></a><br />

@@ -788,6 +788,14 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['WYSIWYG-PDF'])) {
         $cfg['WYSIWYG-PDF'] = TRUE;
     }
+    
+    if (!isset($cfg['DefaultQueryTable'])) {
+        $cfg['DefaultQueryTable'] = 'SELECT * FROM %t WHERE 1';
+    }
+
+    if (!isset($cfg['DefaultQueryDatabase'])) {
+        $cfg['DefaultQueryDatabase']= '';
+    }
 
     if (!isset($cfg['ShowTooltipAliasDB'])) {
         $cfg['ShowTooltipAliasDB'] = FALSE;

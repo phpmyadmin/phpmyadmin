@@ -14,6 +14,10 @@ $Source$
       operations.
     * server_databases.php: Add correct parameters to left frame to keep
       server choice, language, etc. (bug #845397).
+    * libraries/config_import.lib.php, config.inc.php, db_details.php,
+      tbl_query_box.php, Documentation: Allow changing of default queries (RFE
+      #839168).
+    * Documentation.html: Valid XHTML again.
 
 2003-11-20 Garvin Hicking <me@supergarv.de>
     * libraries/auth/*, libraries/dbg/*, libraries/export/*
