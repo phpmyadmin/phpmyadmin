@@ -570,7 +570,7 @@ if ($cfgShowStats) {
             <td colspan="3" align="center">
                 [<a href="sql.php3?<?php echo $url_query; ?>&amp;pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php echo $strOptimizeTable; ?></a>]
             </td>
-        <tr>
+        </tr>
             <?php
         }
         echo "\n";
