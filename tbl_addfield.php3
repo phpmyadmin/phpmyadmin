@@ -65,11 +65,7 @@ if (isset($submit)) {
 	    }
         $query .= ', ADD ';
     } // end for
-    if (get_magic_quotes_gpc()) {
-        $query = stripslashes(ereg_replace(', ADD $', '', $query));
-    } else {
-        $query = ereg_replace(', ADD $', '', $query);
-    }
+    $query = ereg_replace(', ADD $', '', $query);
 
     $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD ' . $query;
     $result    = mysql_query($sql_query) or mysql_die();
