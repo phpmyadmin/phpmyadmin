@@ -7,10 +7,11 @@
  */
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
+//loic1: buggy fix
+//if (get_magic_quotes_gpc()) { 
+//    $sql_query = stripslashes($sql_query); 
+//} 
 
-if (get_magic_quotes_gpc()) {
-   $sql_query = stripslashes($sql_query);
-}
 
 /**
  * Bookmark add
@@ -216,8 +217,16 @@ else {
             if ($cfgBookmark['db'] && $cfgBookmark['table'] && empty($id_bookmark)
                 && !empty($sql_query)) {
                 echo "\n";
-                echo '<!-- Bookmark the query -->' . "\n";
-                echo '<form method="post" action="sql.php3">' . "\n";
+                ?>
+<!-- Bookmark the query -->
+<script type="text/javascript" language="javascript">
+<!--
+var errorMsg0 = '<?php echo(str_replace('\'', '\\\'', $strFormEmpty)); ?>';
+//-->
+</script>
+<form method="post" action="sql.php3" onsubmit="return emptyFormElements(this, 'fields[label]');">
+                <?php
+                echo "\n";
                 if ($display != 'bkmOnly') {
                     echo '    <i>' . $strOr . '</i>' . "\n";
                 }
