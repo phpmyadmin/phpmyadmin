@@ -26,11 +26,11 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      * This function exists because mysql_field_type() returns 'blob'
      * even for 'text' fields.
      */
-    function PMA_fieldTypes($db, $table) {
+    function PMA_fieldTypes($db, $table,$use_backquotes) {
         PMA_mysql_select_db($db);
         $table_def = PMA_mysql_query('SHOW FIELDS FROM ' . PMA_backquote($table));
         while($row = @PMA_mysql_fetch_array($table_def)) {
-            $types[PMA_backquote($row['Field'])] = ereg_replace('\\(.*', '', $row['Type']);
+            $types[PMA_backquote($row['Field'],$use_backquotes)] = ereg_replace('\\(.*', '', $row['Type']);
         }
         return $types;
     }
@@ -274,7 +274,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
             // get the real types of the table's fields (in an array)
             // the key of the array is the backquoted field name
-            $field_types = PMA_fieldTypes($db,$table);
+            $field_types = PMA_fieldTypes($db,$table,$use_backquotes);
 
             // Checks whether the field is an integer or not
             for ($j = 0; $j < $fields_cnt; $j++) {
@@ -452,7 +452,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
             // get the real types of the table's fields (in an array)
             // the key of the array is the backquoted field name
-            $field_types = PMA_fieldTypes($db,$table);
+            $field_types = PMA_fieldTypes($db,$table,$use_backquotes);
 
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {
