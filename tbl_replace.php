@@ -143,7 +143,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
         }
     }
 
-    if (empty($valuelist)) {
+    if (empty($valuelist) && empty($query)) {
         // No change -> move back to the calling script
         $message = $strNoModification;
         if ($is_gotofile) {

@@ -228,36 +228,49 @@ function PMA_DBI_affected_rows($link) {
 
 function PMA_DBI_get_fields_meta($result) {
     // Build an associative array for a type look up
-    $typeAr[MYSQLI_TYPE_DECIMAL] = 'real';
-    $typeAr[MYSQLI_TYPE_TINY] = 'int';
-    $typeAr[MYSQLI_TYPE_SHORT] = 'int';
-    $typeAr[MYSQLI_TYPE_LONG] = 'int';
-    $typeAr[MYSQLI_TYPE_FLOAT] = 'real';
-    $typeAr[MYSQLI_TYPE_DOUBLE] = 'real';
-    $typeAr[MYSQLI_TYPE_NULL] = 'null';
-    $typeAr[MYSQLI_TYPE_TIMESTAMP] = 'timestamp';
-    $typeAr[MYSQLI_TYPE_LONGLONG] = 'int';
-    $typeAr[MYSQLI_TYPE_INT24] = 'int';
-    $typeAr[MYSQLI_TYPE_DATE] = 'date';
-    $typeAr[MYSQLI_TYPE_TIME] = 'time';
-    $typeAr[MYSQLI_TYPE_DATETIME] = 'datetime';
-    $typeAr[MYSQLI_TYPE_YEAR] = 'year';
-    $typeAr[MYSQLI_TYPE_NEWDATE] = 'date';
-    $typeAr[MYSQLI_TYPE_ENUM] = 'unknown';
-    $typeAr[MYSQLI_TYPE_SET] = 'unknown';
-    $typeAr[MYSQLI_TYPE_TINY_BLOB] = 'blob';
+    $typeAr = Array();
+    $typeAr[MYSQLI_TYPE_DECIMAL]     = 'real';
+    $typeAr[MYSQLI_TYPE_TINY]        = 'int';
+    $typeAr[MYSQLI_TYPE_SHORT]       = 'int';
+    $typeAr[MYSQLI_TYPE_LONG]        = 'int';
+    $typeAr[MYSQLI_TYPE_FLOAT]       = 'real';
+    $typeAr[MYSQLI_TYPE_DOUBLE]      = 'real';
+    $typeAr[MYSQLI_TYPE_NULL]        = 'null';
+    $typeAr[MYSQLI_TYPE_TIMESTAMP]   = 'timestamp';
+    $typeAr[MYSQLI_TYPE_LONGLONG]    = 'int';
+    $typeAr[MYSQLI_TYPE_INT24]       = 'int';
+    $typeAr[MYSQLI_TYPE_DATE]        = 'date';
+    $typeAr[MYSQLI_TYPE_TIME]        = 'time';
+    $typeAr[MYSQLI_TYPE_DATETIME]    = 'datetime';
+    $typeAr[MYSQLI_TYPE_YEAR]        = 'year';
+    $typeAr[MYSQLI_TYPE_NEWDATE]     = 'date';
+    $typeAr[MYSQLI_TYPE_ENUM]        = 'unknown';
+    $typeAr[MYSQLI_TYPE_SET]         = 'unknown';
+    $typeAr[MYSQLI_TYPE_TINY_BLOB]   = 'blob';
     $typeAr[MYSQLI_TYPE_MEDIUM_BLOB] = 'blob';
-    $typeAr[MYSQLI_TYPE_LONG_BLOB] = 'blob';
-    $typeAr[MYSQLI_TYPE_BLOB] = 'blob';
-    $typeAr[MYSQLI_TYPE_VAR_STRING] = 'string';
-    $typeAr[MYSQLI_TYPE_STRING] = 'string';
-    $typeAr[MYSQLI_TYPE_CHAR] = 'string';
-    $typeAr[MYSQLI_TYPE_GEOMETRY] = 'unknown';
+    $typeAr[MYSQLI_TYPE_LONG_BLOB]   = 'blob';
+    $typeAr[MYSQLI_TYPE_BLOB]        = 'blob';
+    $typeAr[MYSQLI_TYPE_VAR_STRING]  = 'string';
+    $typeAr[MYSQLI_TYPE_STRING]      = 'string';
+    $typeAr[MYSQLI_TYPE_CHAR]        = 'string';
+    $typeAr[MYSQLI_TYPE_GEOMETRY]    = 'unknown';
 
     $fields = mysqli_fetch_fields($result);
     foreach($fields as $k => $field) {
-        $fields[$k]->type = $typeAr[$field->type];
+        $fields[$k]->type = $typeAr[$fields[$k]->type];
         $fields[$k]->flags = PMA_DBI_field_flags($result, $k);
+        
+        // Enhance the field objects for mysql-extension compatibilty
+        $flags = explode(' ', $fields[$k]->flags);
+        array_unshift($flags, 'dummy');
+        $fields[$k]->multiple_key = (int)(array_search('multiple_key', $flags, true) > 0);
+        $fields[$k]->primary_key  = (int)(array_search('primary_key', $flags, true) > 0);
+        $fields[$k]->unique_key   = (int)(array_search('unique_key', $flags, true) > 0);
+        $fields[$k]->not_null     = (int)(array_search('not_null', $flags, true) > 0);
+        $fields[$k]->unsigned     = (int)(array_search('unsigned', $flags, true) > 0);
+        $fields[$k]->zerofill     = (int)(array_search('zerofill', $flags, true) > 0);
+        $fields[$k]->numeric      = (int)(array_search('num', $flags, true) > 0);
+        $fields[$k]->blob         = (int)(array_search('blob', $flags, true) > 0);
     }
     return $fields;
 }
