@@ -227,12 +227,11 @@ $cfg['DefaultDisplay']      = 'horizontal'; // default display direction (horizo
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)
 
 $cfg['UseSyntaxColoring']   = TRUE;         // use syntaxcoloring on output of SQL, might be a little slower
-//  Colors used for Syntaxcoloring of SQL Statements
-$cfg['colorFunctions']      = 'red';
-$cfg['colorKeywords']       = 'blue';
-$cfg['colorStrings']        = 'green';
+$cfg['colorFunctions']      = '#FF0000';    // Colors used for Syntaxcoloring of SQL Statements
+$cfg['colorKeywords']       = '#0000FF';
+$cfg['colorStrings']        = '#008000';
 $cfg['colorColType']        = '#FF9900';
-$cfg['colorAdd']            = 'blue';
+$cfg['colorAdd']            = '#0000FF';
 
 
 /**
@@ -353,13 +352,12 @@ if($cfg['UseSyntaxColoring']) {
         'ON',
         'JOIN',
         'BETWEEN',
-        'BETWEEN',
         'IN',
         'IF',
         'ELSE',
         'SET'
     );
-}   
+}
 /**
  * Unset magic_quotes_runtime - do not change!
  */
