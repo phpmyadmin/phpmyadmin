@@ -145,13 +145,6 @@ if ($cfg['FileRevision'][0] < 2 || ($cfg['FileRevision'][0] == 2 && $cfg['FileRe
  */
 require_once('./libraries/select_lang.lib.php');
 
-if ($is_minimum_common == FALSE) {
-    /**
-     * Include MySQL wrappers (discounted).
-     */
-    require_once('./libraries/mysql_wrappers.lib.php');
-}
-
 /**
  * Gets constants that defines the PHP version number.
  * This include must be located physically before any code that needs to

@@ -12,6 +12,8 @@ $Source$
       tbl_properties_table_info.php, libraries/mysql_charsets.lib.php:
       Added ability to set / alter collations for databases, tables and fields.
     * tbl_alter.php: Charset information got lost when changing fields.
+    * libraries/common.lib.php, libraries/mysql_wrappers.lib.php:
+      Removed mysql_wrappers library.
 
 2004-04-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/french update
