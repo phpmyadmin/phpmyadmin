@@ -745,39 +745,39 @@ if (isset($Field) && count($Field) > 0) {
     $fromclause = '';
 
     // We only start this if we have fields, otherwise it would be dumb
-//echo "get everything\n";
+// echo "get everything\n";
     while (list(, $value) = each($Field)) {
         $parts             = explode('.', $value);
         if (!empty($parts[0]) && !empty($parts[1])) {
             $tab_raw       = urldecode($parts[0]);
             $tab           = str_replace('`', '', $tab_raw);
-//echo 'new Tab: ' . $tab . "\n";
+// echo 'new Tab: ' . $tab . "\n";
             $tab_all[$tab] = $tab;
             $col_raw       = urldecode($parts[1]);
             $col_all[]     = $tab . '.' . str_replace('`', '', $col_raw);
-//echo 'new col: ' . $tab . '.' . str_replace('`', '', $col_raw) . "\n";
+// echo 'new col: ' . $tab . '.' . str_replace('`', '', $col_raw) . "\n";
          }
     } // end while
 
-//echo "check whereclauses\n";
+// echo "check whereclauses\n";
     if ($cfgRelation['relwork'] && count($tab_all) > 0) {
         // Now we need all tables that we have in the whereclause
         for ($x = 0; $x < count($Criteria); $x++) {
-            $tab_wher     = explode('.', urldecode($Field[$x]));
-            if (!empty($tab_wher[0]) && !empty($tab_wher[1])) {
-                $tab_raw  = urldecode($tab_wher[0]);
+            $_currtab     = explode('.', urldecode($Field[$x]));
+            if (!empty($_currtab[0]) && !empty($_currtab[1])) {
+                $tab_raw  = urldecode($_currtab[0]);
                 $tab      = str_replace('`', '', $tab_raw);
 
-                $col_raw  = urldecode($tab_wher[1]);
-                $col      = str_replace('`', '', $col_raw);
-                $col      = $tab . '.' . $col;
+                $col_raw  = urldecode($_currtab[1]);
+                $_col      = str_replace('`', '', $col_raw);
+                $_col      = $tab . '.' . $_col;
                 // Now we know that our array has the same numbers as $Criteria
                 // we can check which of our columns has a whereclause
                 if (!empty($Criteria[$x])) {
                     if (substr($Criteria[$x],0,1) == '=' || eregi('is', $Criteria[$x])) {
-                        $col_where[$col] = $col;
+                        $col_where[$col] = $_col;
                         $tab_wher[$tab] = $tab;
-//echo 'new Whereclause: ' . $tab . "\n";
+// echo 'new Whereclause: ' . $tab_wher[$tab] . "||\n";
                     }
                 }
             }
@@ -790,28 +790,28 @@ if (isset($Field) && count($Field) > 0) {
             // If there is exactly one column that has a decent where-clause
             // we will just use this
             $master = key($tab_wher);
-//echo 'nur ein where: master = ' . $master . "\n";
+// echo 'nur ein where: master = ' .$master . "||\n";
         } else {
             // Now let's find out which of the tables has an index
-//echo "prüfe indexe:\n";
+// echo "prüfe indexe:\n";
             while (list(, $tab) = each($tab_all)) {
                 $ind_qry  = 'SHOW INDEX FROM ' . PMA_backquote($tab);
                 $ind_rs   = PMA_mysql_query($ind_qry);
                 while ($ind = PMA_mysql_fetch_array($ind_rs)) {
-                    $col = $tab . '.' . $ind['Column_name'];
-                    if (isset($col_all[$col])) {
+                    $_col = $tab . '.' . $ind['Column_name'];
+                    if (isset($col_all[$_col])) {
                         if ($ind['non_unique'] == 0) {
-                            if (isset($col_where[$col])) {
-                                $col_unique[$col] = 'Y';
+                            if (isset($col_where[$_col])) {
+                                $col_unique[$_col] = 'Y';
                             } else {
-                                $col_unique[$col] = 'N';
+                                $col_unique[$_col] = 'N';
                             }
 //echo 'neuen unique index gefunden: ' . $col . "\n";
                         } else {
-                            if (isset($col_where[$col])) {
-                                $col_index[$col] = 'Y';
+                            if (isset($col_where[$_col])) {
+                                $col_index[$_col] = 'Y';
                             } else {
-                                $col_index[$col] = 'N';
+                                $col_index[$_col] = 'N';
                             }
 //echo 'neuen index gefunden: ' . $col . "\n";
                         }
@@ -1029,7 +1029,6 @@ for ($x = 0; $x < $col; $x++) {
 if ($criteria_cnt > 1) {
     $qry_where      = '(' . $qry_where . ')';
 }
-
 // OR rows ${"cur".$or}[$x]
 if (!isset($curAndOrRow)) {
     $curAndOrRow          = array();
