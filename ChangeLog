@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-11-04 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: bug 833900, added known limitation in FAQ 3.10
+      about selecting homonyms on a table without primary key
+
 2003-11-04 Garvin Hicking <me@supergarv.de>
     * Documentation.html: Added known limitation about ANSI-mode
       (Bug #816858)
