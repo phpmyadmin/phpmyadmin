@@ -7,6 +7,8 @@ $Source$
 
 2003-11-03 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
+    * libraries/common.lib.php3: URI detection works with www-Sharp.Runtime
+      (RFE #834053).
 
 2003-11-03 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Grammar.

@@ -665,9 +665,16 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if (isset(${$SERVER_ARRAY}['PATH_INFO'])) {
                 $PATH_INFO = ${$SERVER_ARRAY}['PATH_INFO'];
             }
+            if (isset(${$SERVER_ARRAY}['HTTP_SCHEME'])) {
+                $HTTP_SCHEME = ${$SERVER_ARRAY}['HTTP_SCHEME'];
+            }
+            if (!empty($HTTP_SCHEME)) {
+                $cfg['PmaAbsoluteUri']      = $HTTP_SCHEME . '://';
+            } else {
+                $cfg['PmaAbsoluteUri']      = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . '://';
+            }
             $port_in_HTTP_HOST              = (strpos($HTTP_HOST, ':') > 0);
-            $cfg['PmaAbsoluteUri']          = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . '://'
-                                            . $HTTP_HOST;
+            $cfg['PmaAbsoluteUri']          .= $HTTP_HOST;
 
             // if $cfg['PmaAbsoluteUri'] is empty and port == 80 or port == 443, do not add ":80" or ":443"
             // to the generated URL -> prevents a double password query in case of http authentication.
