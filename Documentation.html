@@ -1696,8 +1696,7 @@ want the output stored in.</p><br />
 
 <p>For a general overview of all available transformations and their options, you can
 consult your <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/libraries/transformations/overview.php3</i>
-installation.</p><br />
-<br />
+installation.</p>
 
 <a name="transformationshowto"></a><br />
 <h3>[2. Usage]</h3>
@@ -1710,39 +1709,39 @@ line. They are called 'MIME-type', 'Browser transformation' and 'Transformation 
 <ul>
 <li>The field 'MIME-type' is a dropdown field. You have the options to leave that field
 empty or to use 'auto' [this feature is not yet available]. Please note that
-transformations are inactive as long as no mime-type is selected.</li><br /><br />
+transformations are inactive as long as no mime-type is selected.</li>
 
 <li>The field 'Browser transformation' is a drop-down field. You can choose from a
 hopefully growing amount of pre-defined transformations. See below for information on
-how to build your own transformation.<br /><br />
+how to build your own transformation.<br />
 
 There are global transformations and mimetype-bound transformations. Global transformations
 can be used for any mimetype. They will take the mimetype, if necessary, into regard.
 Mimetype-bound transformations usually only operate on a certain mimetype. There are
 transformations which operate on the main mimetype (like 'image'), which will most likely
 take the subtype into regard, and those who only operate on a
-specific subtype (like 'image/jpeg').<br /><br />
+specific subtype (like 'image/jpeg').<br />
 
 You can use transformations on mimetypes for which the function was not defined for. There
 is no security check for you selected the right transformation, so take care of what the
-output will be like.</li><br /><br />
+output will be like.</li>
 
 <li>The field 'Transformation options' is a free-type textfield. You have to enter
 transform-function specific options here. Usually the transforms can operate with default
 options, but it is generally a good idea to look up the overview to see which options are
-necessary.<br /><br />
+necessary.<br />
 
 Much like the ENUM/SET-Fields, you have to split up several options using the format
 'a','b','c',...(NOTE THE MISSING BLANKS). This is because internally the options will be
 parsed as an array, leaving the first value the first element in the array, and so
-forth.<br /><br />
+forth.<br />
 
 If you want to specify a MIME character set you can define it in the transformation_options.
 You have to put that outside of the pre-defined options of the specific mime-transform,
 as the last value of the set. Use the format "'; charset=XXX'". If you use a transform,
 for which you can specify 2 options and you want to append a character set, enter "'first
 parameter','second parameter','charset=us-ascii'". You can, however use the defaults for
-the parameters: "'','','charset=us-ascii'".</li><br /><br />
+the parameters: "'','','charset=us-ascii'".</li>
 </ul>
 
 <a name="transformationsfiles"></a><br />
@@ -1783,7 +1782,7 @@ any other transform function and provides some basic functions.</p><br />
     <b>Example:</b><br /><br />
 
     text_html__formatted.inc.php3<br />
-    PMA_transform_text_html__formatted()</li><br /><br />
+    PMA_transform_text_html__formatted()</li>
 
 <li>A mimetype (w/o subtype) transform:<br /><br />
 
@@ -1798,7 +1797,7 @@ any other transform function and provides some basic functions.</p><br />
     <b>Example:</b><br /><br />
 
     text__formatted.inc.php3<br />
-    PMA_transform_text__formatted()</li><br /><br />
+    PMA_transform_text__formatted()</li>
 
 <li>A mimetype+subtype without specific transform function<br /><br />
 
@@ -1812,7 +1811,7 @@ any other transform function and provides some basic functions.</p><br />
     <b>Example:</b><br /><br />
 
     text_plain.inc.php3<br />
-    (No function)</li><br /><br />
+    (No function)</li>
 
 <li>A mimetype (w/o subtype) without specific transform function<br /><br />
 
@@ -1826,7 +1825,7 @@ any other transform function and provides some basic functions.</p><br />
     <b>Example:</b><br /><br />
 
     text.inc.php3<br />
-    (No function)</li><br /><br />
+    (No function)</li>
 
 <li>A global transform function with no specific mimetype<br /><br />
 

@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.426 2003/04/01
-       18:17:45 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.427 2003/04/10
+       16:38:46 nijel Exp $
 
 Requirements
 
