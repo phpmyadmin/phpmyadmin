@@ -168,8 +168,8 @@
 <tr>
     <td valign="top">(*)&nbsp;</td>
     <td>
-        phpMyAdmin can compress (GZip format -RFC 1952- or Bzip2) dumps and CSV
-        exports if you use PHP4&nbsp;>=&nbsp;4.0.4 with Zlib support
+        phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats) dumps
+        and CSV exports if you use PHP4&nbsp;>=&nbsp;4.0.4 with Zlib support
         (<tt>--with-zlib</tt>) and/or Bzip2 support (<tt>--with-bz2</tt>).
     </td>
 </tr>
@@ -192,6 +192,14 @@
 <hr noshade="noshade" width="100%" />
 
 <h2>Installation</h2>
+
+<p>
+    <font color="#bb0000">Warning for Mac users:</font> php seems not to like
+    Mac end of lines character ("<tt>\r</tt>") and Stuffit unstuffs with Mac
+    formats, of course.<br />
+    So you'll have to resave as in Bbedit to unix style ALL phpMyAdmin scripts
+    before uploading them to your server.
+</p>
 
 <p>Quick Install:</p>
 <ol>
