@@ -3,13 +3,15 @@
 
 
 /**
- * Gets core libraries and processes config file to determine default server
- * (if any)
+ * Gets core libraries and defines some variables
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
-// Get the host name
+// Gets the default font sizes
+set_font_sizes();
+
+// Gets the host name
 if (empty($HTTP_HOST)) {
     if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_HOST'])) {
         $HTTP_HOST = $HTTP_ENV_VARS['HTTP_HOST'];
