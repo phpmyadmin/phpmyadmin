@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 	
+2001-07-16  Marc Delisle  <lem9@users.sourceforge.net>
+        * tbl_change.php3, bug 441689, "Insert as new row" was not copying blobs
+
 2001-07-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_dump.php3, line 26: fixed bug #441571 (Gzipped dumps have wrong
 	  extension).

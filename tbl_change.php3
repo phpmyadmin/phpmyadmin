@@ -188,7 +188,8 @@ for($i=0;$i<mysql_num_rows($table_def);$i++)
     // We don't want binary data destroyed
     elseif((strstr($row_table_def["Type"], "blob") || strstr($row_table_def["Type"], "binary")) && !empty($data))
     {
-        echo "<td>" . $strBinaryDoNotEdit . "</td>";
+        echo "<td>" . $strBinaryDoNotEdit;
+        echo "<input type=\"hidden\" name=fields[$field] value=\"".$special_chars."\" style=\"width:$cfgMaxInputsize;\" maxlength=$len></td>";
     }
     else
     {
