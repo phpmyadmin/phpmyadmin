@@ -18,7 +18,12 @@ $Source$
       the comments of a field fit the whole space.
     * libraries/display_tbl.lib.php3, libraries/transformations/TEMPLATE,
       Documentation.html: Propagate current MIME-type to plugin functions.
-      Thanks for noticing (again), Thiemo. :)
+      Thanks for noticing (again), Thiemo Maettig. :)
+    * libraries/common.lib.php3, Documentation.html, config.inc.php3:
+      Now use $cfg['Servers'][$i]['only_db'] to allow sorting databases in
+      the left frame. The '*' character can be used to
+      fill in all remaining characters. See Documentation for details.
+      RFE #830355, thanks to Xuefer for suggestions.
 
 2003-11-06 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/xml.php3: Add xml header with encoding information

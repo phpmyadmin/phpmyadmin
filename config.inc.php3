@@ -81,10 +81,8 @@ $cfg['Servers'][$i]['user']          = 'root';      // MySQL user
 $cfg['Servers'][$i]['password']      = '';          // MySQL password (only needed
                                                     // with 'config' auth_type)
 $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
-                                                    // this db is displayed
-                                                    // at left frame
-                                                    // It may also be an array
-                                                    // of db-names
+                                                    // this db is displayed in left frame
+                                                    // It may also be an array of db-names, where sorting order is relevant.
 $cfg['Servers'][$i]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 
 $cfg['Servers'][$i]['pmadb']         = '';          // Database used for Relation, Bookmark and PDF Features

@@ -311,6 +311,26 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         } // end of the 'PMA_sqlAddslashes()' function
 
 
+        if (!function_exists('in_array')) {
+            /**
+             * Searches $haystack for $needle and returns TRUE if it is found in
+             * the array, FALSE otherwise.
+             *
+             * @param  mixed    the 'needle'
+             * @param  array    the 'haystack'
+             *
+             * @return boolean  has $needle been found or not?
+             */
+            function in_array($needle, $haystack) {
+                while (list(, $value) = each($haystack)) {
+                    if ($value == $haystack) {
+                        return TRUE;
+                    }
+                }
+                return FALSE;
+            }
+        }
+
         /**
          * Add slashes before "_" and "%" characters for using them in MySQL
          * database, table and field names.
@@ -552,6 +572,155 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
             return ($i < $max) ? $i : -1;
         }  // end of the 'PMA_isInto()' function
+    }
+
+    /**
+     * Get the complete list of Databases a user can access
+     *
+     * @param   boolean   whether to include check on failed 'only_db' operations
+     * @param   ressource database handle (superuser)
+     * @param   integer   amount of databases inside the 'only_db' container
+     * @param   ressource possible ressource from a failed previous query
+     * @param   ressource database handle (user)
+     * @param   array     configuration
+     * @param   array     previous list of databases
+     *
+     * @return  array     all databases a user has access to
+     *
+     * @access  private
+     */
+    function PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cfg, $dblist) {
+
+        if ($only_db_check == FALSE) {
+            // ... first checks whether the "safe_show_database" is on or not
+            //     (if MYSQL supports this)
+            if (PMA_MYSQL_INT_VERSION >= 32330) {
+                $is_safe_show_dbs = FALSE;
+                if (PMA_MYSQL_INT_VERSION >= 40002) {
+                    $is_safe_show_dbs = 'ON';
+                }
+                else {
+                    $local_query      = 'SHOW VARIABLES LIKE \'safe\\_show\\_database\'';
+                    $rs               = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                    $is_safe_show_dbs = ($rs) ? @PMA_mysql_result($rs, 0, 'Value') : FALSE;
+                    mysql_free_result($rs);
+                }
+
+                // ... and if on, try to get the available dbs list
+                if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
+                    $uva_alldbs   = mysql_list_dbs($userlink);
+                    while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
+                          $dblist[] = $uva_row[0];
+                    } // end while
+                    $dblist_cnt   = count($dblist);
+                    unset($uva_alldbs);
+                } // end if ($is_safe_show_dbs)
+            } //end if (PMA_MYSQL_INT_VERSION)
+
+            // ... else checks for available databases in the "mysql" db
+            if (!$dblist_cnt) {
+                $auth_query   = 'SELECT User, Select_priv '
+                              . 'FROM mysql.user '
+                              . 'WHERE User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
+                $rs           = PMA_mysql_query($auth_query, $dbh); // Debug: or PMA_mysqlDie('', $auth_query, FALSE);
+            } // end
+        }
+
+        // Access to "mysql" db allowed and dblist still empty -> gets the
+        // usable db list
+        if (!$dblist_cnt
+            && ($rs && @mysql_numrows($rs))) {
+            $row = PMA_mysql_fetch_array($rs);
+            mysql_free_result($rs);
+            // Correction uva 19991215
+            // Previous code assumed database "mysql" admin table "db" column
+            // "db" contains literal name of user database, and works if so.
+            // Mysql usage generally (and uva usage specifically) allows this
+            // column to contain regular expressions (we have all databases
+            // owned by a given student/faculty/staff beginning with user i.d.
+            // and governed by default by a single set of privileges with
+            // regular expression as key). This breaks previous code.
+            // This maintenance is to fix code to work correctly for regular
+            // expressions.
+            if ($row['Select_priv'] != 'Y') {
+
+                // 1. get allowed dbs from the "mysql.db" table
+                // lem9: User can be blank (anonymous user)
+                $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
+                $rs          = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                if ($rs && @mysql_numrows($rs)) {
+                    // Will use as associative array of the following 2 code
+                    // lines:
+                    //   the 1st is the only line intact from before
+                    //     correction,
+                    //   the 2nd replaces $dblist[] = $row['Db'];
+                    $uva_mydbs = array();
+                    // Code following those 2 lines in correction continues
+                    // populating $dblist[], as previous code did. But it is
+                    // now populated with actual database names instead of
+                    // with regular expressions.
+                    while ($row = PMA_mysql_fetch_array($rs)) {
+                        // loic1: all databases cases - part 1
+                        if (empty($row['Db']) || $row['Db'] == '%') {
+                            $uva_mydbs['%'] = 1;
+                            break;
+                        }
+                        // loic1: avoid multiple entries for dbs
+                        if (!isset($uva_mydbs[$row['Db']])) {
+                            $uva_mydbs[$row['Db']] = 1;
+                        }
+                    } // end while
+                    mysql_free_result($rs);
+                    $uva_alldbs = mysql_list_dbs($dbh);
+                    // loic1: all databases cases - part 2
+                    if (isset($uva_mydbs['%'])) {
+                        while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
+                            $dblist[] = $uva_row[0];
+                        } // end while
+                    } // end if
+                    else {
+                        while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
+                            $uva_db = $uva_row[0];
+                            if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
+                                $dblist[]           = $uva_db;
+                                $uva_mydbs[$uva_db] = 0;
+                            } else if (!isset($dblist[$uva_db])) {
+                                reset($uva_mydbs);
+                                while (list($uva_matchpattern, $uva_value) = each($uva_mydbs)) {
+                                    // loic1: fixed bad regexp
+                                    // TODO: db names may contain characters
+                                    //       that are regexp instructions
+                                    $re        = '(^|(\\\\\\\\)+|[^\])';
+                                    $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
+                                    // Fixed db name matching
+                                    // 2000-08-28 -- Benjamin Gandon
+                                    if (ereg('^' . $uva_regex . '$', $uva_db)) {
+                                        $dblist[] = $uva_db;
+                                        break;
+                                    }
+                                } // end while
+                            } // end if ... else if....
+                        } // end while
+                    } // end else
+                    mysql_free_result($uva_alldbs);
+                    unset($uva_mydbs);
+                } // end if
+
+                // 2. get allowed dbs from the "mysql.tables_priv" table
+                $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
+                $rs          = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                if ($rs && @mysql_numrows($rs)) {
+                    while ($row = PMA_mysql_fetch_array($rs)) {
+                        if (PMA_isInto($row['Db'], $dblist) == -1) {
+                            $dblist[] = $row['Db'];
+                        }
+                    } // end while
+                    mysql_free_result($rs);
+                } // end if
+            } // end if
+        } // end building available dbs from the "mysql" db
+
+        return $dblist;
     }
 
     /**
@@ -964,7 +1133,26 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if ($dblist_cnt) {
                 $true_dblist  = array();
                 $is_show_dbs  = TRUE;
+
+                $dblist_asterisk_bool = FALSE;
                 for ($i = 0; $i < $dblist_cnt; $i++) {
+
+                    // The current position
+                    if ($dblist[$i] == '*' && $dblist_asterisk_bool == FALSE) {
+                        $dblist_asterisk_bool = TRUE;
+                        $dblist_full = PMA_safe_db_list(FALSE, $dbh, FALSE, $rs, $userlink, $cfg, $dblist);
+                        while(list($dbl_key, $dbl_val) = each($dblist_full)) {
+                            if (!in_array($dbl_val, $dblist)) {
+                                $true_dblist[] = $dbl_val;
+                            }
+                        }
+
+                        continue;
+                    } elseif ($dblist[$i] == '*') {
+                        // We don't want more than one asterisk inside our 'only_db'.
+                        continue;
+                    }
+
                     if ($is_show_dbs && ereg('(^|[^\])(_|%)', $dblist[$i])) {
                         $local_query = 'SHOW DATABASES LIKE \'' . $dblist[$i] . '\'';
                         $rs          = PMA_mysql_query($local_query, $dbh);
@@ -990,136 +1178,17 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 } // end for
                 $dblist       = $true_dblist;
                 unset($true_dblist);
+                $only_db_check = TRUE;
             } // end if
 
             // 'only_db' is empty for the current user...
             else {
-                // ... first checks whether the "safe_show_database" is on or not
-                //     (if MYSQL supports this)
-                if (PMA_MYSQL_INT_VERSION >= 32330) {
-                    $is_safe_show_dbs = FALSE;
-                    if (PMA_MYSQL_INT_VERSION >= 40002) {
-                        $is_safe_show_dbs = 'ON';
-                    }
-                    else {
-                        $local_query      = 'SHOW VARIABLES LIKE \'safe\\_show\\_database\'';
-                        $rs               = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                        $is_safe_show_dbs = ($rs) ? @PMA_mysql_result($rs, 0, 'Value') : FALSE;
-                        mysql_free_result($rs);
-                    }
-                          // ... and if on, try to get the available dbs list
-                    if ($is_safe_show_dbs && strtoupper($is_safe_show_dbs) != 'OFF') {
-                        $uva_alldbs   = mysql_list_dbs($userlink);
-                        while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
-                              $dblist[] = $uva_row[0];
-                        } // end while
-                        $dblist_cnt   = count($dblist);
-                        unset($uva_alldbs);
-                    } // end if ($is_safe_show_dbs)
-                } //end if (PMA_MYSQL_INT_VERSION)
-
-                // ... else checks for available databases in the "mysql" db
-                if (!$dblist_cnt) {
-                    $auth_query   = 'SELECT User, Select_priv '
-                                  . 'FROM mysql.user '
-                                  . 'WHERE User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-                    $rs           = PMA_mysql_query($auth_query, $dbh); // Debug: or PMA_mysqlDie('', $auth_query, FALSE);
-                } // end
+                $only_db_check = FALSE;
             } // end if (!$dblist_cnt)
 
-            // Access to "mysql" db allowed and dblist still empty -> gets the
-            // usable db list
-            if (!$dblist_cnt
-                && ($rs && @mysql_numrows($rs))) {
-                $row = PMA_mysql_fetch_array($rs);
-                mysql_free_result($rs);
-                // Correction uva 19991215
-                // Previous code assumed database "mysql" admin table "db" column
-                // "db" contains literal name of user database, and works if so.
-                // Mysql usage generally (and uva usage specifically) allows this
-                // column to contain regular expressions (we have all databases
-                // owned by a given student/faculty/staff beginning with user i.d.
-                // and governed by default by a single set of privileges with
-                // regular expression as key). This breaks previous code.
-                // This maintenance is to fix code to work correctly for regular
-                // expressions.
-                if ($row['Select_priv'] != 'Y') {
-
-                    // 1. get allowed dbs from the "mysql.db" table
-                    // lem9: User can be blank (anonymous user)
-                    $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\' OR User = \'\')';
-                    $rs          = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                    if ($rs && @mysql_numrows($rs)) {
-                        // Will use as associative array of the following 2 code
-                        // lines:
-                        //   the 1st is the only line intact from before
-                        //     correction,
-                        //   the 2nd replaces $dblist[] = $row['Db'];
-                        $uva_mydbs = array();
-                        // Code following those 2 lines in correction continues
-                        // populating $dblist[], as previous code did. But it is
-                        // now populated with actual database names instead of
-                        // with regular expressions.
-                        while ($row = PMA_mysql_fetch_array($rs)) {
-                            // loic1: all databases cases - part 1
-                            if (empty($row['Db']) || $row['Db'] == '%') {
-                                $uva_mydbs['%'] = 1;
-                                break;
-                            }
-                            // loic1: avoid multiple entries for dbs
-                            if (!isset($uva_mydbs[$row['Db']])) {
-                                $uva_mydbs[$row['Db']] = 1;
-                            }
-                        } // end while
-                        mysql_free_result($rs);
-                        $uva_alldbs = mysql_list_dbs($dbh);
-                        // loic1: all databases cases - part 2
-                        if (isset($uva_mydbs['%'])) {
-                            while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
-                                $dblist[] = $uva_row[0];
-                            } // end while
-                        } // end if
-                        else {
-                            while ($uva_row = PMA_mysql_fetch_array($uva_alldbs)) {
-                                $uva_db = $uva_row[0];
-                                if (isset($uva_mydbs[$uva_db]) && $uva_mydbs[$uva_db] == 1) {
-                                    $dblist[]           = $uva_db;
-                                    $uva_mydbs[$uva_db] = 0;
-                                } else if (!isset($dblist[$uva_db])) {
-                                    reset($uva_mydbs);
-                                    while (list($uva_matchpattern, $uva_value) = each($uva_mydbs)) {
-                                        // loic1: fixed bad regexp
-                                        // TODO: db names may contain characters
-                                        //       that are regexp instructions
-                                        $re        = '(^|(\\\\\\\\)+|[^\])';
-                                        $uva_regex = ereg_replace($re . '%', '\\1.*', ereg_replace($re . '_', '\\1.{1}', $uva_matchpattern));
-                                        // Fixed db name matching
-                                        // 2000-08-28 -- Benjamin Gandon
-                                        if (ereg('^' . $uva_regex . '$', $uva_db)) {
-                                            $dblist[] = $uva_db;
-                                            break;
-                                        }
-                                    } // end while
-                                } // end if ... else if....
-                            } // end while
-                        } // end else
-                        mysql_free_result($uva_alldbs);
-                        unset($uva_mydbs);
-                    } // end if
-
-                    // 2. get allowed dbs from the "mysql.tables_priv" table
-                    $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfg['Server']['user']) . '\'';
-                    $rs          = PMA_mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                    if ($rs && @mysql_numrows($rs)) {
-                        while ($row = PMA_mysql_fetch_array($rs)) {
-                            if (PMA_isInto($row['Db'], $dblist) == -1) {
-                                $dblist[] = $row['Db'];
-                            }
-                        } // end while
-                        mysql_free_result($rs);
-                    } // end if
-                } // end if
-            } // end building available dbs from the "mysql" db
+            if (!count($dblist_full)) {
+                $dblist = PMA_safe_db_list($only_db_check, $dbh, $dblist_cnt, $rs, $userlink, $cfg, $dblist);
+            }
 
         } // end server connecting
         /**
@@ -1861,27 +1930,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 $seconds -= $minutes * 60;
             }
             return sprintf($GLOBALS['timespanfmt'], (string)$days, (string)$hours, (string)$minutes, (string)$seconds);
-        }
-
-
-        if (!function_exists('in_array')) {
-            /**
-             * Searches $haystack for $needle and returns TRUE if it is found in
-             * the array, FALSE otherwise.
-             *
-             * @param  mixed    the 'needle'
-             * @param  array    the 'haystack'
-             *
-             * @return boolean  has $needle been found or not?
-             */
-            function in_array($needle, $haystack) {
-                while (list(, $value) = each($haystack)) {
-                    if ($value == $haystack) {
-                        return TRUE;
-                    }
-                }
-                return FALSE;
-            }
         }
 
         /**

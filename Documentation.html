@@ -557,6 +557,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
         An example of using more that one database:
         <tt>$cfg['Servers'][$i]['only_db'] = array('db1', 'db2'); </tt>
+        <br /><br />
+        As of phpMyAdmin 2.5.5 the order inside the array is used for sorting the
+        databases in the left frame, so that you can individually arrange your databases.<br />
+        If you want to have certain tables at the top, but don't care about the others, you do not
+        need to specify all other databases. Use:
+        <tt>$cfg['Servers'][$i]['only_db'] = array('db3', 'db4', '*');</tt>
+        instead to tell phpMyAdmin that it should display db3 and db4 on top, and the rest in alphabetic
+        order.
     </dd>
 
     <dt><b>$cfg['Servers'][$i]['verbose']</b> string</dt>
