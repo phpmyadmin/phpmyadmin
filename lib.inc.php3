@@ -521,7 +521,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             // xhtml1.0 statement before php4.0.5 ("<br>" and not "<br />")
             $new_line   = '<br />' . "\n" . '            ';
             $query_base = htmlspecialchars($GLOBALS['sql_query']);
-            $query_base = ereg_replace("(\015\012)|(\015)|(\012)", $new_line, $query_base);
+            $query_base = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
             if (!isset($GLOBALS['show_query']) || $GLOBALS['show_query'] != 'y') {
                 if (isset($GLOBALS['goto']) && $GLOBALS['goto'] == 'tbl_properties.php3') {
                     $edit_link = '<a href="tbl_properties.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&table=' . urlencode($GLOBALS['table']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
