@@ -64,14 +64,9 @@ if (!defined('PMA_IS_WINDOWS')) {
 
 // Whether GD2 is present
 if (!defined('PMA_IS_GD2')) {
-    if (function_exists("get_extension_funcs")) {
-        $testGD = @get_extension_funcs("gd");
-        if ($testGD && in_array("imagegd2",$testGD)) {
-            define('PMA_IS_GD2', 1);
-        } else {
-            define('PMA_IS_GD2', 0);
-        }
-        unset($testGD);
+    $testGD = @imagecreatetruecolor(12,12);
+    if ($testGD) {
+        define('PMA_IS_GD2', 1);
     } else {
         define('PMA_IS_GD2', 0);
     }

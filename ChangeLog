@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/defines_php.lib.php3: bug 736111: better GD2 detection
+
 2003-05-14 Garvin Hicking <me@supergarv.de>
     * lang/german*: Translations.
     * pdf_schema.php3: Merged patch #736999 (fixes Bug #728789 and
