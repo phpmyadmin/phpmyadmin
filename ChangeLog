@@ -8,6 +8,17 @@ $Source$
 2001-11-23  Loïc Chapeaux  <lolo@phpheaven.net>
 	* light changes (function and constant names) in most of the scripts:
 	  they're now about to fully fit the PEAR codding standards.
+	* db_details.php3; db_printview.php3; db_stats.php3; tbl_change.php3;
+	  tbl_indexes.php3; tbl_printview.php3; tbl_properties.php3;
+	  tbl_properties.inc.php3; tbl_select.php3; user_details.php3;
+	  libraries/display_tbl.lib.php3; libraries/functions.js: beautified
+	  display of tables under Mozilla & NS6+ thanks to a fix from
+	  Detlev Stender <detlev.stender at web.de>.
+	* tbl_select.php3: the true MySQL type of columns is now displayed.
+	* left.php3: this frame wasn't taking into account the output buffering
+	  feature!
+	* Documentation.html, lines 843-851: added an entry about a PWS bug and
+	  its workaround tahnks to Filippo Simoncini.
 
 2001-11-22  Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, lines 142-148: merged patch #479083 - display name
