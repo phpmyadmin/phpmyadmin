@@ -8,8 +8,9 @@
 // çeviri hakkındaki her türlü düzeltme ve önerileriniz
 // için benimle temasa geçebilirsiniz...
 // #######################################################
-// son güncelleme:08.09.2003
-//                                    "ego lente festino"
+// son güncelleme:01.10.2003 (in kosta/poli)
+//                                    
+//                                       "ego lente festino"
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
@@ -84,8 +85,10 @@ $strBeginCut = 'BEGIN CUT';
 $strBeginRaw = 'BEGIN RAW';  
 $strBinary = 'Binari';
 $strBinaryDoNotEdit = 'Binari - düzenlemeyiniz';
+$strBookmarkAllUsers = 'Bütün kullanıcıların bu yer imine erişmelerine izin ver';
 $strBookmarkDeleted = 'Bookmark silindi.';
 $strBookmarkLabel = 'Etiket';
+$strBookmarkOptions = 'Yer imi seçenekleri';
 $strBookmarkQuery = ' SQL sorgusu';
 $strBookmarkThis = 'Bu SQL sorgusunu işaretle';
 $strBookmarkView = 'Sadece gözat';
@@ -139,6 +142,8 @@ $strConfigFileError ='phpMyAdmin konfigurasyon dosyanızı okuyamadı....<br /> 
 $strConfigureTableCoord = ' Lütfen %s tablosu için koordinatları yapılandırınız';
 $strConfirm = 'Aşağıdaki komutu uygulamak istediğinizden emin misiniz?';
 $strConnections = 'Bağlantılar'; 
+$strConstraintsForDumped = 'Dökümü yapılmış tablolar için kısıtlamalar';
+$strConstraintsForTable = 'Tablo için kısıtlamalar';
 $strCookiesRequired = 'Cookieler açık olmalıdır.';
 $strCopyTable = 'Tabloyu (veritabanı<b>.</b>tablo) kopyala :';
 $strCopyTableOK = '%s tablosu %s üzerine kopyalandı.';
@@ -211,7 +216,7 @@ $strDropSelectedDatabases = 'Seçili veritabanlarını kaldır';
 $strDropTable = 'Tablo\'yu kaldır';
 $strDropUsersDb = 'Kullanıcılarla aynı isimlerde olan veritabanlarını kaldır.';
 $strDumpComments = ' Sütun yorumlarını SQL yorumları gibi içer';
-$strDumpSaved = 'Dump dosyası %s dosyasına kaydedildi';
+$strDumpSaved = 'Döküm dosyası %s dosyasına kaydedildi';
 $strDumpXRows = 'Satır sayısı : %s    %s .satırdan başlayarak.';
 $strDumpingData = 'Tablo döküm verisi';
 $strDynamic = 'değişken';
@@ -306,6 +311,8 @@ $strInsertTextfiles = 'Tablo içine metin dosyası ekle';
 $strInsertedRowId = 'Row id si eklendi:';
 $strInsertedRows = 'Eklenen satırlar:';
 $strInstructions = 'Talimatlar';
+$strInternalNotNecessary = '* İçsel bir ilişki InnoDb\'nin içinde de var ise gerekli değildir.'; 
+$strInternalRelations = 'İçsel ilişkiler'; 
 $strInvalidName = '"%s" sözcüğü kullanılamayan sözcük.Veritabanı/tablo/alan ismi olarak kullanamassınız, you can\'t use it as a database/table/field name.';
 
 $strJapanese = 'Japonca'; 
@@ -321,6 +328,13 @@ $strKorean = 'Korece';
 $strLaTeX = 'LaTeX'; 
 $strLaTeXOptions = 'LaTeX seçenekleri';
 $strLandscape = 'Peyzaj';  
+$strLatexCaption = 'Tablo başlığı';
+$strLatexContent = '__TABLE__ tablosunun içeriği';
+$strLatexContinued = '(devam eden)';
+$strLatexContinuedCaption = 'devam eden tablo başlığı';
+$strLatexIncludeCaption = 'Tablo başlığını içer';
+$strLatexLabel = 'Etiket anahtarı';
+$strLatexStructure = '__TABLE__ tablosunun yapısı';
 $strLength = 'Boyut';
 $strLengthSet = 'Boyut/Değerler*';
 $strLimitNumRows = 'Sayfa başına kayıt sayısı :';
@@ -335,6 +349,7 @@ $strLoadMethod = 'YÜKLEME yöntemi';
 $strLocalhost = 'Lokal';
 $strLocationTextfile = 'Dosyadan yükle';
 $strLogPassword = 'Şifre:';
+$strLogServer = 'Sunucu'; 
 $strLogUsername = 'Kullanıcı Adı:';
 $strLogin = 'Login';
 $strLoginInformation = 'Login bilgisi'; 
@@ -444,6 +459,7 @@ $strPrimaryKeyName = 'PRIMARY KEY TEK olmalıdır!';
 $strPrimaryKeyWarning = '# PRIMARY <b>sadece</b> birincil bir anahtarın ismi <b>olmalıdır!</b>';
 $strPrint = 'Yazdır'; 
 $strPrintView = 'Yazıcı görüntüsü';
+$strPrintViewFull = 'Yazıcı görüntüsü (tüm metin)';
 $strPrivDescAllPrivileges = 'GRANT hariç tüm imtiyazları içerir.'; 
 $strPrivDescAlter = 'Varolan tablonun yapısının değiştirilmesine izin verir.';
 $strPrivDescCreateDb = 'Yeni veritabanları ve tabloların oluşturulmasına izin verir.'; 
@@ -541,6 +557,7 @@ $strSQLParserUserError = 'SQL sorgunuzda bir hata varmış gibi gözüküyor.MyS
 $strSQLQuery = 'SQL sorgusu';
 $strSQLResult = 'SQL sonucu';
 $strSQPBugInvalidIdentifer = 'Geçersiz tanımlayıcı'; 
+$strSQPBugUnclosedQuote = 'Kapatılmamış tırnak';
 $strSQPBugUnknownPunctuation = 'Bilinmeyen noktalama işareti';  
 $strSave = 'Kaydet';
 $strSaveOnServer = 'Sunucuda %s dizininin içinde kaydet';
@@ -591,6 +608,7 @@ $strSimplifiedChinese = 'Basitleştirilmiş Çince';
 $strSingly = '( birer birer )';
 $strSize = 'Boyut';
 $strSort = 'Sırala';
+$strSortByKey = 'Anahtara göre sırala';
 $strSpaceUsage = 'Kullanılan alan';
 $strSplitWordsWithSpace = 'Kelimeler bir boşluk karakteriyle bölünmüştür (" ").';
 $strStatCheckTime = 'Son kontrol';
@@ -663,6 +681,7 @@ $strUpdatePrivMessage = '%s için olan imtiyazları güncellediniz.';
 $strUpdateProfile = 'Profil güncelle:';
 $strUpdateProfileMessage = 'Profil güncellendi.';
 $strUpdateQuery = 'Sorguyu güncelle';
+$strUpgradeMySQL = 'MySQL %s veya daha sonraki bir sürüme yükseltme yapmanız gereklidir.';
 $strUsage = 'Kullanım';
 $strUseBackquotes = 'Tablo ve alan isimleri için ters tırnak " ` " işaretini kullan';
 $strUseHostTable = 'Host tablosunu kullan';
@@ -683,9 +702,9 @@ $strValidateSQL = 'SQL\'i doğrula';
 $strValidatorError = 'SQL onaylayıcısı başlatılamadı.%sdökümanlar%s\'da belirtildiği gibi,gerekli php uzantılarının yüklenip yüklenilmediğini kontrol ediniz.';
 $strValue = 'Değer';
 $strVar = 'Değişken';
-$strViewDump = 'Tablo gözlem şeması';
-$strViewDumpDB = 'Veritabanı gözlem şeması';
-$strViewDumpDatabases = 'Veritabanları gözlem şeması';
+$strViewDump = 'Tablo döküm şeması';
+$strViewDumpDB = 'Veritabanı döküm şeması';
+$strViewDumpDatabases = 'Veritabanları döküm şeması';
 
 $strWebServerUploadDirectory = 'web-sunucu yükleme dizini';
 $strWebServerUploadDirectoryError = 'Yükleme  işi için belirttiğiniz dizine ulaşılamıyor.';
@@ -704,30 +723,5 @@ $strYes = 'Evet';
 
 $strZeroRemovesTheLimit = 'Not: Bu seçeneklerin 0\'a ayarlanması sınırı kaldırır..';
 $strZip = '"ziplenmiş"';
-// To translate
 
-
-$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
-$strInternalRelations = 'Internal relations';  //to translate
-
-$strLatexCaption = 'Table caption';//to translate
-$strLatexContent = 'Content of table __TABLE__';//to translate
-$strLatexContinued = '(continued)';//to translate
-$strLatexContinuedCaption = 'Continued table caption';//to translate
-$strLatexIncludeCaption = 'Include table caption';//to translate
-$strLatexLabel = 'Label key';//to translate
-$strLatexStructure = 'Structure of table __TABLE__';//to translate
-$strLogServer = 'Server';  //to translate
-
-$strPrintViewFull = 'Print view (with full texts)';  //to translate
-
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSortByKey = 'Sort by key';  //to translate
-
-$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
-
-$strBookmarkAllUsers = 'Let every user access this bookmark';  //to translate
-$strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
-$strConstraintsForTable = 'Constraints for table';  //to translate
-$strBookmarkOptions = 'Bookmark options';  //to translate
 ?>
