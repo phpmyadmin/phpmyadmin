@@ -285,7 +285,7 @@ else {
     //  E x e c u t e    t h e    q u e r y
 
     // Only if we didn't ask to see the php code (mikebeck)
-    if (!empty($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
+    if (isset($GLOBALS['show_as_php']) || !empty($GLOBALS['validatequery'])) {
         unset($result);
         $num_rows = 0;
     }

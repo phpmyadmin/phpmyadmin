@@ -1447,6 +1447,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                         $php_link .= '1">' . $GLOBALS['strPhp'];
                     }
                     $php_link .= '</a>]';
+
+                    if (isset($GLOBALS['show_as_php']) && $GLOBALS['show_as_php'] == '1') {
+                        $php_link .= '&nbsp;[<a href="sql.php3'
+                                  . $url_qpart
+                                  . '&amp;show_query=1'
+                                  . '&amp;sql_query=' . urlencode($local_query)
+                                  . '">' . $GLOBALS['strRunQuery'] . '</a>]';
+                    }
+
                 } else {
                     $php_link = '';
                 } //show as php
