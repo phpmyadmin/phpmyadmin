@@ -5,15 +5,18 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-05 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/dutch.inc.php3: Updates, thanks to "CaliMonk" <calimonk at gmx.net>.
+
 2002-06-05 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/polish.inc.php3 updates, thanks to Jakub Wilk
 
 2002-06-03 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian.inc.php3 updates, thanks to Valics Lehel
     * lang/indonesian.inc.php3 updates, thanks to Rachim Tamsjadi
-    
+
 2002-06-03 Mike Beck     <mike.beck@ibmiller.de>
-    * pdf_pages.php3    
+    * pdf_pages.php3
     - new page to add and edit pdf pages
     * db_details_structure.php3 lines 452-482
       - added a link to pdf_pages
@@ -25,7 +28,7 @@ $Source$
     - added a new servervariable $cfg['Servers'][$i]['table_coords']
     * Documentation.html line 593-770,1884-1920
     - added and changed Doku for Creating PDFs
-    
+
 
 2002-06-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.inc.php3, line 1413: xhtml fix.
