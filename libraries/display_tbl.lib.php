@@ -1295,7 +1295,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 $field_flags = PMA_DBI_field_flags($dt_result, $i);
                 if (stristr($field_flags, 'BINARY')) {
                     $blobtext = '[BLOB';
-                    if (isset($row[$i])) {
+                    if (!isset($row[$i]) || is_null($row[$i])) {
+                        $blobtext .= ' - NULL';
+                    } elseif (isset($row[$i])) {
                         $blob_size = PMA_formatByteDown(strlen($row[$i]), 3, 1);
                         $blobtext .= ' - '. $blob_size [0] . ' ' . $blob_size[1];
                         unset($blob_size);
