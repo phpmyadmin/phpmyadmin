@@ -746,4 +746,5 @@ $strZip = 'Komprimert (zip)';
 
 // To translate:
 
+$strSpanish = 'Spanish';  //to translate
 ?>

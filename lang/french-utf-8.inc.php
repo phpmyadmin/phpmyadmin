@@ -626,6 +626,7 @@ $strSize = 'Taille';
 $strSort = 'Tri';
 $strSortByKey = 'Trier sur l\'index';
 $strSpaceUsage = 'Espace utilisé';
+$strSpanish = 'espagnol';
 $strSplitWordsWithSpace = 'Séparer les mots par un espace (" ").';
 $strStatCheckTime = 'Dernière vérification';
 $strStatCreateTime = 'Création';

@@ -9,6 +9,9 @@ $Source$
     * css/phpmyadmin.css.php: beautifications.
     * server_databases.php, server_privileges.php, css/phpmyadmin.css.php:
       Enabled new icons for privileges administration (patch #947190).
+    * lang/*.inc.php, libraries/mysql_charsets.lib.php: The new collation page
+      latin1_spanish_ci (introduced with MySQL 4.1.2) is now described
+      correctly.
 
 2004-06-06 Garvin Hicking <me@supergarv.de>
     * libraries/display_tbl.lib.php, libraries/functions.js,

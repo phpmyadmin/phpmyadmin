@@ -740,4 +740,5 @@ $strYes = 'Jah';
 $strZeroRemovesTheLimit = 'Märkus: Märkides antud seaded 0 (null) , eemaldate limiidi.';
 $strZip = '"zipitud"';
 
+$strSpanish = 'Spanish';  //to translate
 ?>
