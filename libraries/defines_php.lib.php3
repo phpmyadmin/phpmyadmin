@@ -67,20 +67,24 @@ function PMA_dl($module) {
         if (((PMA_PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode') && @ini_get('enable_dl'))
             || (PMA_PHP_INT_VERSION < 40000 && PMA_PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
             && @function_exists('dl')) {
-
-            ob_start();
-            phpinfo(INFO_GENERAL); /* Only general info */
-            $a = strip_tags(ob_get_contents());
-            ob_end_clean();
-            /* Get GD version string from phpinfo output */
-            if (ereg('Thread Safety[[:space:]]*enabled', $a)) {
-                if (ereg('Server API[[:space:]]*\(CGI\|CLI\)', $a)) {
-                    $GLOBALS['PMA_dl_allowed'] = TRUE;
-                } else {
-                    $GLOBALS['PMA_dl_allowed'] = FALSE;
-                }
-            } else {
+            
+            if (PMA_PHP_INT_VERSION < 40000) {
                 $GLOBALS['PMA_dl_allowed'] = TRUE;
+            } else {
+                ob_start();
+                phpinfo(INFO_GENERAL); /* Only general info */
+                $a = strip_tags(ob_get_contents());
+                ob_end_clean();
+                /* Get GD version string from phpinfo output */
+                if (ereg('Thread Safety[[:space:]]*enabled', $a)) {
+                    if (ereg('Server API[[:space:]]*\(CGI\|CLI\)', $a)) {
+                        $GLOBALS['PMA_dl_allowed'] = TRUE;
+                    } else {
+                        $GLOBALS['PMA_dl_allowed'] = FALSE;
+                    }
+                } else {
+                    $GLOBALS['PMA_dl_allowed'] = TRUE;
+                }
             }
         } else {
             $GLOBALS['PMA_dl_allowed'] = FALSE;
@@ -119,7 +123,7 @@ if (!defined('PMA_IS_GD2')) {
                 } else {
                     define('PMA_IS_GD2', 0);
                 }
-            } else {
+            } elseif (PMA_PHP_INT_VERSION >= 40000) {
                 /* We must do hard way... */
                 ob_start();
                 phpinfo(INFO_MODULES); /* Only modules */
@@ -135,6 +139,9 @@ if (!defined('PMA_IS_GD2')) {
                 } else {
                     define('PMA_IS_GD2', 0);
                 }
+            } else {
+                // This is PHP 3 version, it probably doesn't have GD2
+                define('PMA_IS_GD2', 0);
             }
         }
     }
