@@ -8,6 +8,10 @@ $Source$
 2002-07-18 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 579785, Edit links URLs too long
       for some browsers
+    * lang/italian update, thanks to Pietro Danesi
+    * lang/chinese update, thanks to Siu Sun
+    * lang/albanian update, thanks to Laurent Dhima.
+    * lang/czech update, thanks to Michal Cihar
 
 2002-07-18 Steve Alberty  <staybyte@users.sourceforge.net>
     * It is now possible to print stats for more than 2 GB (up to exa byte)
