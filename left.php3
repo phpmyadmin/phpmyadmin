@@ -11,7 +11,7 @@ require("lib.inc.php3");
 <!-- Collapsible tables list -->
 <script type="text/javascript" language="javascript1.2">
 <!--
-var isDOM        = (typeof(document.getElementById) != 'undefined') ? 1 : 0;
+var isDOM        = (typeof(document.getElementsByTagName) != 'undefined') ? 1 : 0;
 var isIE4        = ((typeof(document.all) != 'undefined') && (parseInt(navigator.appVersion) >= 4)) ? 1 : 0;
 var isNS4        = (typeof(document.layers) != 'undefined') ? 1 : 0;
 var capable      = (isDOM || isIE4 || isNS4) ? 1 : 0;
