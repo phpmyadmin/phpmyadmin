@@ -252,7 +252,7 @@ if ($server > 0) {
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW STATUS'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowStatus; ?></a>&nbsp;
-                <?php echo PMA_showDocu('manual_Reference.html#SHOW') . "\n"; ?>
+                <?php echo PMA_showDocuShort('S/H/SHOW_STATUS.html') . "\n"; ?>
             </td>
         </tr>
             <?php

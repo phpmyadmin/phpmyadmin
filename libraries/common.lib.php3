@@ -893,6 +893,23 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 
 
     /**
+     * Displays a link to the official MySQL documentation (short)
+     *
+     * @param   string  an anchor to move to
+     *
+     * @return  string  the html link
+     *
+     * @access  public
+     */
+    function PMA_showDocuShort($link)
+    {
+        if (!empty($GLOBALS['cfgManualBaseShort'])) {
+            return '[<a href="' . $GLOBALS['cfgManualBaseShort'] . '/' . $link .'" target="mysql_doc">' . $GLOBALS['strDocu'] . '</a>]';
+        }
+    } // end of the 'PMA_showDocuShort()' function
+
+
+    /**
      * Formats $value to byte view
      *
      * @param    double   the value to format
