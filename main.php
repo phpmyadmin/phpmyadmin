@@ -650,7 +650,7 @@ if (count($available_themes_choices)>1) {
                 <?php
                     for($i=0;$i<count($available_themes_choices);$i++){
                         echo '<option value="' . $available_themes_choices[$i] . '"';
-                        if ($available_themes_choices[$i] == $theme) {
+                        if (isset($theme) && $available_themes_choices[$i] == $theme) {
                             echo ' selected="selected"';
                             $theme_selected = TRUE;
                         }

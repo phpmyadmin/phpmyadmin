@@ -10,6 +10,7 @@ $Source$
     * config.inc.php, libraries/common.lib.php,
       libraries/config_import.lib.php: Support for SHA1 function (RFE
       #971703).
+    * main.php: Possible undefined variable.
 
 2004-06-09 Alexander M. Turek  <me@derrabus.de>
     * libraries/config_import.lib.php: The default settings should be merged.
