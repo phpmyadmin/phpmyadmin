@@ -10,6 +10,8 @@ $Source$
 	  when displaying a TEXT field
 	* sql.php3, bug 448226 (Missing MySQL messages), correction from Loic.
 	* tbl_change.php3, bug 442778, Edit record with two similar SET fields 
+	* tbl_replace.php3, could not save a row with a set which has no
+  	  value selected
 
 2001-08-06  Steve Alberty  <alberty@nepunlabs.de>
 	* index.php3: remove warning under Apache 2.0.23-dev

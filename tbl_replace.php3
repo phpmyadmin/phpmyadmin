@@ -8,7 +8,6 @@
 require('./grab_globals.inc.php3');
 require('./lib.inc.php3');
 
-
 /**
  * Initializes some variables
  */
@@ -90,14 +89,16 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
                 break;
         } // end switch
 
-        if (empty($funcs[$key])) {
-            $valuelist .= backquote($key) . ' = ' . $val . ', ';
-        } else {
-            $valuelist .= backquote($key) . " = $funcs[$key]($val), ";
+        if (!empty($val)) {  
+          if (empty($funcs[$key])) {
+              $valuelist .= backquote($key) . ' = ' . $val . ', ';
+          } else {
+              $valuelist .= backquote($key) . " = $funcs[$key]($val), ";
+          }
         }
     } // end while
 
-    // Builds the sql upate query
+    // Builds the sql update query
     $valuelist = ereg_replace(', $', '', $valuelist);
     $query     = 'UPDATE ' . backquote($table) . " SET $valuelist WHERE $primary_key";
 } // end row update
