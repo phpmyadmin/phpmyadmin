@@ -127,7 +127,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     // No change -> move back to the calling script
     else {
         $message = $strNoModification;
-        if (file_exists('./' . $goto)) {
+        if (@file_exists('./' . $goto)) {
             $js_to_run = 'functions.js';
             include('./header.inc.php3');
             include('./' . ereg_replace('\.\.*', '.', $goto));

@@ -89,7 +89,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
     if (!empty($back)) {
         $goto = $back;
     }
-    if (file_exists('./' . $goto)) {
+    if (@file_exists('./' . $goto)) {
         if ($goto == 'db_details.php3' && !empty($table)) {
             unset($table);
         }
@@ -275,7 +275,7 @@ else {
             $message = $strEmptyResultSet;
         }
 
-        if (file_exists('./' . $goto)) {
+        if (@file_exists('./' . $goto)) {
             $goto = ereg_replace('\.\.*', '.', $goto);
             // Checks for a valid target script
             if (isset($table) && $table == '') {
