@@ -110,6 +110,8 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
      * @param   array    the properties of the bookmark to add
      * @param   array    the bookmark parameters for the current user
      *
+     * @return  boolean  if the INSERT succeeds 
+     *
      * @access  public
      */
     function PMA_addBookmarks($fields, $cfgBookmark)
@@ -118,8 +120,18 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
                . ' (id, dbase, user, query, label) VALUES (\'\', \'' . PMA_sqlAddslashes($fields['dbase']) . '\', \'' . PMA_sqlAddslashes($fields['user']) . '\', \'' . PMA_sqlAddslashes(urldecode($fields['query'])) . '\', \'' . PMA_sqlAddslashes($fields['label']) . '\')';
         if (isset($GLOBALS['dbh'])) {
             $result = PMA_mysql_query($query, $GLOBALS['dbh']);
+            if (PMA_mysql_error($GLOBALS['dbh'])) {
+               $error = PMA_mysql_error($GLOBALS['dbh']);
+               include('./header.inc.php3');
+               PMA_mysqlDie($error);
+            }
         } else {
             $result = PMA_mysql_query($query);
+            if (PMA_mysql_error()) {
+               $error = PMA_mysql_error();
+               include('./header.inc.php3');
+               PMA_mysqlDie($error);
+            }
         }
     } // end of the 'PMA_addBookmarks()' function
 
