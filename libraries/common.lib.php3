@@ -467,7 +467,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     //          page.
     if (empty($cfg['PmaAbsoluteUri'])) {
         $port_in_HTTP_HOST              = (strpos($HTTP_SERVER_VARS['HTTP_HOST'], ':') > 0);
-        $cfg['PmaAbsoluteUri']          = (!empty($HTTP_SERVER_VARS['HTTPS']) ? 'https' : 'http') . '://'
+        $cfg['PmaAbsoluteUri']          = ((!empty($HTTP_SERVER_VARS['HTTPS']) && strtolower($HTTP_SERVER_VARS['HTTPS']) != 'off') ? 'https' : 'http') . '://'
                                         . $HTTP_SERVER_VARS['HTTP_HOST']
                                         . ((!empty($HTTP_SERVER_VARS['SERVER_PORT']) && !$port_in_HTTP_HOST) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '')
                                         . substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);

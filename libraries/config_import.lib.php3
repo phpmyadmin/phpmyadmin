@@ -30,6 +30,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
 
     if (isset($cfg['Servers'])) {
         for ($i=1; (!empty($cfg['Servers'][$i]['host']) || (isset($cfg['Servers'][$i]['connect_type']) && $cfg['Servers'][$i]['connect_type'] == 'socket')); $i++) {
+            if (!isset($cfg['Servers'][$i]['host'])) {
+                $cfg['Servers'][$i]['host'] = '';
+            }
             if (!isset($cfg['Servers'][$i]['port'])) {
                 $cfg['Servers'][$i]['port'] = '';
             }
