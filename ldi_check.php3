@@ -33,12 +33,12 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     $textfile             = sql_addslashes($textfile);
     if (get_magic_quotes_gpc()) {
         $field_terminater = stripslashes($field_terminater);
-        $enclosed         = sql_addslashes(stripslashes(str_replace('&quot;', '"', $enclosed)));
+        $enclosed         = sql_addslashes(stripslashes($enclosed));
         $escaped          = sql_addslashes(stripslashes($escaped));
         $line_terminator  = stripslashes($line_terminator);
         $column_name      = sql_addslashes(stripslashes($column_name));
     } else {
-        $enclosed         = sql_addslashes(str_replace('&quot;', '"', $enclosed));
+        $enclosed         = sql_addslashes($enclosed);
         $escaped          = sql_addslashes($escaped);
         $column_name      = sql_addslashes($column_name);
     }
