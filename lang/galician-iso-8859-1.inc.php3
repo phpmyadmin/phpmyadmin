@@ -82,6 +82,7 @@ $strBookmarkQuery = 'A procura de SQL foi gardada';
 $strBookmarkThis = 'Gardar esta procura de SQL';
 $strBookmarkView = 'Só visualizar';
 $strBrowse = 'Visualizar';
+$strBrowseForeignValues = 'Visualizar valores alleos';
 $strBulgarian = 'BÃºlgaro';
 $strBzError = 'phpMyAdmin foi incapaz de comprimir os resultados debido a que esta versión do php ten unha extensión de Bz2 con erros.  Recoméndase que configure a directiva <code>$cfg[\'BZipDump\']</code> do seu ficheiro de configuración do phpMyAdmin para que sexa <code>FALSE</code>. Se quer usar a funcionalidade de compresión Bz2, actualice a unha versión posterior do php. Consulte o informe de erros %s para máis detalles.';
 $strBzip = 'comprimido no formato "bzipped"';
@@ -660,6 +661,7 @@ $strUseBackquotes = 'Protexer os nomes das tabelas e dos campos con&nbsp;" ` "';
 $strUseHostTable = 'Usar a tabela de Host';
 $strUseTables = 'Usar as tabelas';
 $strUseTextField = 'Use campo de texto';
+$strUseThisValue = 'Usar este valor';
 $strUser = 'Usuario';
 $strUserAlreadyExists = 'O usuario %s xa existe';
 $strUserEmpty = 'O nome do usuario está vacío!';
@@ -683,6 +685,7 @@ $strWebServerUploadDirectoryError = 'Non se pode acceder ao directorio que desig
 $strWelcome = 'Benvida/o a %s';
 $strWestEuropean = 'Europeu ocidental';
 $strWildcard = 'comodín';
+$strWindowNotFound = 'Non se puido modificar a xanela de destino do navegador. Talvez porque fechou a xanela da que depende ou porque o seu navegador está a bloquear as actualizacións entre xanelas xa que asi o pediu na configuración de seguranza do navegador.';
 $strWithChecked = 'Todos os marcados';
 $strWritingCommentNotPossible = 'Non é posible escreber o comentario';
 $strWritingRelationNotPossible = 'Non é posible escreber a relación';
@@ -696,7 +699,4 @@ $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) el
 $strZip = 'comprimido no formato "zip"';
 // To translate
 
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>
