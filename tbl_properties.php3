@@ -570,6 +570,10 @@ echo "\n";
             <input type="checkbox" name="show_query" value="y" checked="checked" />&nbsp;
                 <?php echo $strShowThisQuery; ?><br />
             </div>
+            <?php echo "<i>$strOr</i> $strLocationTextfile"; ?>&nbsp;:<br />
+            <div style="margin-bottom: 5px">
+            <input type="file" name="sql_file" /><br />
+            </div>
 <?php
 // Bookmark Support
 if ($cfgBookmark['db'] && $cfgBookmark['table'])  {
