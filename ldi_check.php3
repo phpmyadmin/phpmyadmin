@@ -70,16 +70,22 @@ if (isset($btnLDI) && ($textfile != 'none')) {
     // have FILE priv, and even if the file is on the server 
     // (which is the present case)
     //
-    // if we find how to check the server about --local-infile 
-    // and --enable-local-infile, we could modify the code
-    // to use LOCAL for version >= 32349 if the server accepts it
-    //
     // we could also code our own loader, but LOAD DATA INFILE is optimized
     // for speed
 
     if (PMA_MYSQL_INT_VERSION < 32349) {
         $query     .= ' LOCAL';
     }
+
+    if (PMA_MYSQL_INT_VERSION > 40003) {
+        $tmp_query  = "SHOW VARIABLES LIKE 'local\_infile'";
+        $result = PMA_mysql_query($tmp_query);
+        if ($result != FALSE && mysql_num_rows($result) > 0) {
+            $query     .= ' LOCAL';
+        }
+        mysql_free_result($result);
+    }
+
     $query     .= ' INFILE \'' . $textfile . '\'';
     if (!empty($replace)) {
         $query .= ' ' . $replace;

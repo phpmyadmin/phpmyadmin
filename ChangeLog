@@ -10,6 +10,8 @@ $Source$
       switching from one server to the other
     * db_details_qbe.php3: bug 661758 (undefined offset when doing a qbe
       and only table selected)
+    * ldi_check.php3: check local_infile on recent MySQL versions, 
+      thanks to Alexander
 
 2003-02-03 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_tbl.lib.php3, tbl_change.php3: Show blob size (RFE
