@@ -63,19 +63,19 @@ if (!defined('PMA_URL_GENERATION_LIB_INCLUDED')){
      *
      * @author  nijel
      */
-    function PMA_generate_common_url ($db = '', $table = '')
+    function PMA_generate_common_url ($db = '', $table = '', $amp = '&amp;')
     {
         global $lang, $convcharset, $server;
         global $cfg, $allow_recoding;
 
         $result = 'lang=' . $lang
-           . '&amp;server=' . $server;
+           . $amp . 'server=' . $server;
         if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)
-            $result .= '&amp;convcharset=' . $convcharset;
+            $result .= $amp . 'convcharset=' . $convcharset;
         if (!empty($db))
-            $result .= '&amp;db='.urlencode($db);
+            $result .= $amp . 'db='.urlencode($db);
         if (!empty($table))
-            $result .= '&amp;table='.urlencode($table);
+            $result .= $amp . 'table='.urlencode($table);
         return $result;
     }
 }

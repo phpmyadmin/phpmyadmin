@@ -33,7 +33,7 @@ if (!isset($is_db) || !$is_db) {
         $is_db = @PMA_mysql_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?' . PMA_generate_common_url() . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     }
 } // end if (ensures db exists)
@@ -47,7 +47,7 @@ if (!isset($message)) {
         ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('./left.php3?<?php echo PMA_generate_common_url($db); ?>');
+window.parent.frames['nav'].location.replace('./left.php3?<?php echo PMA_generate_common_url($db, '', '&'); ?>');
 //-->
 </script>
         <?php

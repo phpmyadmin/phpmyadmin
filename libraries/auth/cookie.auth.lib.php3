@@ -417,10 +417,10 @@ if (uname.value == '') {
                 }
             } // end if
             if (!empty($GLOBALS['SERVER_SOFTWARE']) && $GLOBALS['SERVER_SOFTWARE'] == 'Microsoft-IIS/5.0') {
-                header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php3?' . PMA_generate_common_url());
+                header('Refresh: 0; url=' . $cfg['PmaAbsoluteUri'] . 'index.php3?' . PMA_generate_common_url('', '', '&'));
             }
             else {
-                header('Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php3?' . PMA_generate_common_url());
+                header('Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php3?' . PMA_generate_common_url('', '', '&'));
             }
             exit();
         } // end if
