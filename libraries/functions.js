@@ -118,6 +118,9 @@ function checkSqlQuery(theForm)
         if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
             isEmpty  = (theForm.elements['sql_file'].value == '') ? 1 : 0;
         }
+        if (isEmpty && typeof(theForm.elements['sql_localfile']) != 'undefined') {
+            isEmpty  = (theForm.elements['sql_localfile'].value == '') ? 1 : 0;
+        }
         if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined') {
             isEmpty  = (theForm.elements['id_bookmark'].value == null || theForm.elements['id_bookmark'].value == '');
         }
@@ -132,6 +135,9 @@ function checkSqlQuery(theForm)
         }
         if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
             isEmpty  = (theForm.elements['sql_file'].value.replace(space_re, '') == '') ? 1 : 0;
+        }
+        if (isEmpty && typeof(theForm.elements['sql_localfile']) != 'undefined') {
+            isEmpty  = (theForm.elements['sql_localfile'].value.replace(space_re, '') == '') ? 1 : 0;
         }
         if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined') {
             isEmpty  = (theForm.elements['id_bookmark'].value == null || theForm.elements['id_bookmark'].value == '');

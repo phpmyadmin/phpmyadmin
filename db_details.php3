@@ -96,13 +96,36 @@ if ($is_upload) {
             echo '>' . $temp_charset . '</option>' . "\n";
         }
         echo '        </select>';
-    } // end if
+    } // end if (recoding)
     echo "\n";
     ?>
     </div>
     <?php
-} // end if
+} // end if (is upload)
 echo "\n";
+
+// web-server upload directory
+// (TODO: display the charset selection, even if is_upload == FALSE)
+
+if ($cfg['UploadDir'] !='' && $handle = opendir($cfg['UploadDir'])) {
+    $isfirst=0;
+    while ($file = @readdir($handle)) {
+        if(is_file($cfg['UploadDir'] . $file)) {
+            if ($isfirst==0) {
+                echo "\n".'    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";
+                echo '    <div style="margin-bottom: 5px">' . "\n";
+                echo '        <select size="1" name="sql_localfile">' . "\n";
+                echo '            <option value="" selected></option>' . "\n";
+            } // end if (isfirst)
+            echo '            <option value="'.$file.'">'.$file.'</option>' . "\n";
+            $isfirst++;
+        } // end if (is_file)
+    } // end while
+    if ($isfirst>0) {
+        echo "        </select>\n    </div>\n\n";
+    } // end if (isfirst > 0)
+    @closedir($handle);
+} // end if (web-server upload directory)
 
 // Bookmark Support
 if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {

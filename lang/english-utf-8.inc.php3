@@ -416,6 +416,7 @@ $strValue = 'Value';
 $strViewDump = 'View dump (schema) of table';
 $strViewDumpDB = 'View dump (schema) of database';
 
+$strWebServerUploadDirectory = 'web-server upload directory';
 $strWelcome = 'Welcome to %s';
 $strWithChecked = 'With selected:';
 $strWrongUser = 'Wrong username/password. Access denied.';

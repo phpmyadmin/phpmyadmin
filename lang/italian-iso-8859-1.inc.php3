@@ -430,4 +430,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 ?>

@@ -1339,6 +1339,21 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['UploadDir'] </b>string</dt>
+    <dd>
+        The name of the directory, ending with a slash, where SQL files have
+        been uploaded by other means than phpMyAdmin (for example, ftp).
+        Those files are available under a drop-down box when you click the
+        database name, then the SQL tab.
+        <br /><br />
+        This feature is useful when your file is too big to be uploaded via
+        HTTP, or when file uploads are disabled in PHP.
+        <br /><br />
+        Please note that if PHP is running in safe mode, this directory must
+        be owned by the same user as the owner of the phpMyAdmin scripts.
+        <br /><br />
+    </dd>
+
     <dt><b>$cfg['RepeatCells'] </b>integer</dt>
     <dd>
     Repeat the headers every X cells, or 0 to deactivate.

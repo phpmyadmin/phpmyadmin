@@ -415,6 +415,7 @@ $strValue = 'Valeur';
 $strViewDump = '<b>Afficher le schéma</b> de la table';
 $strViewDumpDB = 'Afficher le schéma de la base ';
 
+$strWebServerUploadDirectory = 'répertoire de transfert du serveur Web';
 $strWelcome = 'Bienvenue à %s ';
 $strWithChecked = 'Pour la sélection :';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';

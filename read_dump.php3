@@ -199,6 +199,7 @@ $err_url  = $goto
 $view_bookmark = 0;
 $sql_bookmark  = isset($sql_bookmark) ? $sql_bookmark : '';
 $sql_query     = isset($sql_query)    ? $sql_query    : '';
+$sql_file      = (!empty($sql_localfile) && $cfg['UploadDir']!='')  ? $cfg['UploadDir'].$sql_localfile : $sql_file;
 $sql_file      = !empty($sql_file)    ? $sql_file     : 'none';
 
 
@@ -227,8 +228,8 @@ if (!empty($id_bookmark)) {
  */
 // Gets the query from a file if required
 if ($sql_file != 'none') {
-    if (file_exists($sql_file) && is_uploaded_file($sql_file)) {
-
+    if ((file_exists($sql_file) && is_uploaded_file($sql_file)) 
+       || file_exists($cfg['UploadDir'].$sql_localfile)) { 
         $open_basedir     = '';
         if (PMA_PHP_INT_VERSION >= 40000) {
             $open_basedir = @ini_get('open_basedir');

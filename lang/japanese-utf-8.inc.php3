@@ -434,4 +434,5 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 // To translate
 
+$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 ?>

@@ -429,4 +429,5 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
+$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 ?>

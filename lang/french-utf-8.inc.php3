@@ -424,4 +424,5 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
+$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 ?>

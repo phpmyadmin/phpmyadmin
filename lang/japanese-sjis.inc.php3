@@ -434,4 +434,5 @@ $strYes = '‚Í‚¢';
 $strZip = '"zip‚³‚ê‚é"';
 // To translate
 
+$strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 ?>
