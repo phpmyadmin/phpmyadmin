@@ -8,6 +8,7 @@ $Source$
 2002-06-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/sync_lang.sh: new script thanks to Michal Cihar
     * Documentation.html: typos
+    * lang/hebrew.inc.php3 updates, thanks to Yuval Sarna
 
 2002-06-15 Mike Beck <mikebeck@users.sourceforge.net>
     more changes because of new centralized db for pma
