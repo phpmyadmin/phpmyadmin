@@ -84,7 +84,7 @@ catalan-iso-8859-1
 chinese_big5-utf-8
 chinese_gb
 croatian-iso-8859-2
-czech-iso-8859-2
+czech-utf-8
 danish-iso-8859-1
 dutch-iso-8859-1
 english-iso-8859-1

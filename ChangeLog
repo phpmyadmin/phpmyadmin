@@ -8,6 +8,8 @@ $Source$
 2004-03-25 Michal Cihar  <michal@cihar.com>
     * libraries/bookmark.lib.php: Fix errors when bookmarktable does not
       exists (bug #922509).
+    * lang/sync_lang.sh: I switched to utf-8 so default for czech is utf-8.
+    * lang/czech: Fixed typos and improved some texts.
 
 2004-03-24 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: bug 922553, wrong boundary check in
