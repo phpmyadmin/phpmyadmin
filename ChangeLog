@@ -5,6 +5,8 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-11-02 Michal Čihař  <michal@cihar.com>
+    * tbl_indexes.php: Fix index editing.
 
 2004-11-09 Garvin Hicking
     * libraries/display_tbl.lib.php, libraries/common.lib.php,

@@ -61,10 +61,10 @@ $indexes_info = array();
 $indexes_data = array();
 // keys had already been grabbed in "tbl_properties.php"
 if (!defined('PMA_IDX_INCLUDED')) {
-    $tbl_ret_keys = PMA_get_indexes($tbl_name, $err_url_0);
+    $tbl_ret_keys = PMA_get_indexes($table, $err_url_0);
 }
 
-PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
+PMA_extract_indexes($tbl_ret_keys, $indexes, $indexes_info, $indexes_data);
 
 // Get fields and stores their name/type
 // fields had already been grabbed in "tbl_properties.php"
@@ -376,7 +376,6 @@ else if (!defined('PMA_IDX_INCLUDED')
         $edit_link_text = '<img src="' . $pmaThemeImage . 'b_edit.png" width="16" height="16" hspace="2" border="0" title="' . $strEdit . '" alt="' . $strEdit . '" />';
         $drop_link_text = '<img src="' . $pmaThemeImage . 'b_drop.png" width="16" height="16" hspace="2" border="0" title="' . $strDrop . '" alt="' . $strDrop . '" />';
     }
-    //print_r($cfg['PropertiesIconic']);
     if ($cfg['PropertiesIconic'] === false || $propicon == 'both') {
         $edit_link_text .= $strEdit;
         $drop_link_text .= $strDrop;
