@@ -281,6 +281,11 @@ if (!defined('__LIB_INC__')){
                 }
             }
 
+            // Check how the config says to connect to the server
+            if (strtolower($cfgServer['connect_type']) == 'tcp') {
+                $cfgServer['socket'] = '';
+                }
+
             // Calls the authentication window or validates user's login
             if ($do_auth) {
                 auth();
