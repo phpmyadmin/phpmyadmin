@@ -462,9 +462,7 @@ function table_grants($host, $user, $dbcheck = false)
 
 function table_privileges($form, $row = false)
 {
-    global $strSelect, $strInsert, $strUpdate, $strDelete, $strCreate;
-    global $strDrop, $strReload, $strShutdown, $strProcess;
-    global $strFile, $strGrant, $strReferences, $strIndex, $strAlter;
+    global $strDelete;
     global $strCheckAll, $strUncheckAll;
 
     ?>
@@ -522,7 +520,8 @@ function table_privileges($form, $row = false)
        if ($item % 2 == 1) echo "<tr>";
        else echo "<td>&nbsp;</td>";
        echo "<td><input type=\"checkbox\" name=\"$priv_priv\" $checked></td>";
-       echo "<td>" . ${"str$priv"} . "</td>";
+//       echo "<td>" . ${"str$priv"} . "</td>";
+       echo "<td>" . $priv . "</td>";
        if ($item % 2 == 0) echo "</tr>\n";
     }
     if ($item % 2 == 1) echo "<td colspan=2>&nbsp;<td></tr>\n";
@@ -649,13 +648,10 @@ function table_users($host = false, $user = false)
     global $server, $lang, $db, $table;
     global $self;
 
-    global $strEdit, $strDelete, $strGrants;
+    global $strEdit, $strGrants;
     global $strAction, $strHost, $strUser, $strPassword, $strPrivileges;
-    global $strSelect, $strInsert, $strUpdate, $strDelete, $strCreate;
-    global $strDrop, $strReload, $strShutdown, $strProcess;
-    global $strFile, $strGrant, $strReferences, $strIndex, $strAlter;
     global $strNoPrivileges, $strDeleteUserMessage, $strRememberReload;
-    global $strYes, $strNo, $strAny;
+    global $strYes, $strNo, $strAny, $strEnglishPrivileges;
 
     $select = "SELECT * FROM mysql.user ";
     if ($host || $user) $select = "$select WHERE 1 ";
@@ -672,6 +668,7 @@ function table_users($host = false, $user = false)
     if (!isset($rows)) return -1;
     if ($rows == 0) return 0;
 
+    echo "<i>" . $strEnglishPrivileges . "</i><br>";
     echo "<table border=$cfgBorder>\n";
     echo "<tr><th colspan=3>$strAction</td>";
     echo "<th>$strHost</th>";
@@ -686,20 +683,20 @@ function table_users($host = false, $user = false)
         $i % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
 
         $strPriv = "";
-        if ($row{"Select_priv"} == "Y")  $strPriv .= "$strSelect ";
-        if ($row{"Insert_priv"} == "Y") $strPriv .= "$strInsert ";
-        if ($row{"Update_priv"} == "Y") $strPriv .= "$strUpdate ";
-        if ($row{"Delete_priv"} == "Y") $strPriv .= "$strDelete ";
-        if ($row{"Create_priv"} == "Y") $strPriv .= "$strCreate ";
-        if ($row{"Drop_priv"} == "Y") $strPriv .= "$strDrop ";
-        if ($row{"Reload_priv"} == "Y") $strPriv .= "$strReload ";
-        if ($row{"Shutdown_priv"} == "Y") $strPriv .= "$strShutdown ";
-        if ($row{"Process_priv"} == "Y") $strPriv .= "$strProcess ";
-        if ($row{"File_priv"} == "Y") $strPriv .= "$strFile ";
-        if ($row{"Grant_priv"} == "Y") $strPriv .= "$strGrant ";
-        if ($row{"References_priv"} == "Y") $strPriv .= "$strReferences ";
-        if ($row{"Index_priv"} == "Y") $strPriv .= "$strIndex ";
-        if ($row{"Alter_priv"} == "Y") $strPriv .= "$strAlter ";
+        if ($row{"Select_priv"} == "Y")  $strPriv .= "Select ";
+        if ($row{"Insert_priv"} == "Y") $strPriv .= "Insert ";
+        if ($row{"Update_priv"} == "Y") $strPriv .= "Update ";
+        if ($row{"Delete_priv"} == "Y") $strPriv .= "Delete ";
+        if ($row{"Create_priv"} == "Y") $strPriv .= "Create ";
+        if ($row{"Drop_priv"} == "Y") $strPriv .= "Drop ";
+        if ($row{"Reload_priv"} == "Y") $strPriv .= "Reload ";
+        if ($row{"Shutdown_priv"} == "Y") $strPriv .= "Shutdown ";
+        if ($row{"Process_priv"} == "Y") $strPriv .= "Process ";
+        if ($row{"File_priv"} == "Y") $strPriv .= "File ";
+        if ($row{"Grant_priv"} == "Y") $strPriv .= "Grant ";
+        if ($row{"References_priv"} == "Y") $strPriv .= "References ";
+        if ($row{"Index_priv"} == "Y") $strPriv .= "Index ";
+        if ($row{"Alter_priv"} == "Y") $strPriv .= "Alter ";
 
         if ($strPriv == "") $strPriv  = "<font color=\"#002E80\">$strNoPrivileges</font>";
 

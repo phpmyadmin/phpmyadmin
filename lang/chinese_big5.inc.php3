@@ -15,7 +15,6 @@ $strAddUser = "Add a new User"; //to translate
 $strAddUserMessage = "You have added a new user."; //to translate
 $strAfter = "After"; //to translate
 $strAll = "All"; //to translate
-$strAlter = "Alter"; //to translate
 $strAlterOrderBy = "Alter table order by"; //to translate
 $strAnalyzeTable = "Analyze table"; //to translate
 $strAnd = ""; //to translate, but its not in use ...
@@ -94,14 +93,12 @@ $strExtra = "額外";
 
 $strField = "字段";
 $strFields = "字段";
-$strFile = "File"; //to translate
 $strFixed = "fixed"; //to translate
 $strFormat = "Format"; //to translate
 $strFunction = "功能";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "開始";
-$strGrant = "Grant"; //to translate
 $strGrantOption = "Grant Option"; //to translate
 $strGrants = "Grants"; //to translate
 
@@ -174,7 +171,6 @@ $strPrimaryKey = "主鍵";
 $strPrinterFriendly = "Printer friendly version of above table"; //to translate
 $strPrintView = "Print view"; //to translate
 $strPrivileges = "Privileges"; //to translate
-$strProcess = "Process"; //to translate
 $strProducedAnError = "產生一個錯誤。";
 $strProperties = "屬性";
 
@@ -182,8 +178,6 @@ $strQBE = "查詢模板";
 
 $strReadTheDocs = "參照以下文檔 ";
 $strRecords = "記錄";
-$strReferences = "References"; //to translate
-$strReload = "Reload"; //to translate
 $strReloadFailed = "MySQL 重起失敗。";
 $strReloadMySQL = "重起 MySQL";
 $strRememberReload = "Remember reload the server."; //to translate
@@ -216,7 +210,6 @@ $strSequence = "Seq."; //to translate
 $strServerVersion = "Server version"; //to translate
 $strShow = "Show"; //to translate
 $strShowingRecords = "顯示記錄 ";
-$strShutdown = "Shutdown"; //to translate
 $strSingly = "(singly)"; //to translate
 $strSize = "Size"; //to translate
 $strSort = ""; //to translate, but its not in use ...
@@ -247,7 +240,6 @@ $strType = "類型";
 
 $strUncheckAll = "Uncheck All"; //to translate
 $strUnique = "唯一";
-$strUpdate = "Update"; //to translate
 $strUpdatePassMessage = "You have updated the password for"; //to translate
 $strUpdatePassword = "Update Password"; //to translate
 $strUpdatePrivMessage = "You have updated the privileges for"; //to translate
@@ -272,4 +264,5 @@ $strYes = "是";
 // V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 $strBinary=" Binary ";  //to translate
 $strBinaryDoNotEdit=" Binary - do not edit ";  //to translate
+$strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";  //to translate
 ?>

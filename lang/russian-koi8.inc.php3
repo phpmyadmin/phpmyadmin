@@ -15,7 +15,6 @@ $strAddUser = "Add a new User"; //to translate
 $strAddUserMessage = "You have added a new user."; //to translate
 $strAfter = "After"; //to translate
 $strAll = "All"; //to translate
-$strAlter = "Alter"; //to translate
 $strAlterOrderBy = "Alter table order by"; //to translate
 $strAnalyzeTable = "Analyze table"; //to translate
 $strAnd = "И";
@@ -94,14 +93,12 @@ $strExtra = "Дополнительно";
 
 $strField = "Поле";
 $strFields = "Поля";
-$strFile = "File"; //to translate
 $strFixed = "fixed"; //to translate
 $strFormat = "Format"; //to translate
 $strFunction = "Функция";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "Пошел";
-$strGrant = "Grant"; //to translate
 $strGrantOption = "Grant Option"; //to translate
 $strGrants = "Grants"; //to translate
 
@@ -174,7 +171,6 @@ $strPrimaryKey = "Первичный ключ";
 $strPrinterFriendly = "Printer friendly version of above table"; //to translate
 $strPrintView = "Print view"; //to translate
 $strPrivileges = "Privileges"; //to translate
-$strProcess = "Process"; //to translate
 $strProducedAnError = "привела к ошибке.";
 $strProperties = "Свойства";
 
@@ -182,8 +178,6 @@ $strQBE = "Запрос по примеру";
 
 $strReadTheDocs = "Почитать документацию";
 $strRecords = "Записи";
-$strReferences = "References"; //to translate
-$strReload = "Reload"; //to translate
 $strReloadFailed = "Не удалось перезагрузить MySQL.";
 $strReloadMySQL = "Перезагрузить MySQL";
 $strRememberReload = "Remember reload the server."; //to translate
@@ -216,7 +210,6 @@ $strSequence = "Seq."; //to translate
 $strServerVersion = "Server version"; //to translate
 $strShow = "Показать";
 $strShowingRecords = "Показывает записи ";
-$strShutdown = "Shutdown"; //to translate
 $strSingly = "(singly)"; //to translate
 $strSize = "Size"; //to translate
 $strSort = "Отсортировать";
@@ -247,7 +240,6 @@ $strType = "Тип";
 
 $strUncheckAll = "Uncheck All"; //to translate
 $strUnique = "Уникальное";
-$strUpdate = "Update"; //to translate
 $strUpdatePassMessage = "You have updated the password for"; //to translate
 $strUpdatePassword = "Update Password"; //to translate
 $strUpdatePrivMessage = "You have updated the privileges for"; //to translate
@@ -272,4 +264,5 @@ $strYes = "Да";
 // V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 $strBinary=" Binary ";  //to translate
 $strBinaryDoNotEdit=" Binary - do not edit ";  //to translate
+$strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";  //to translate
 ?>

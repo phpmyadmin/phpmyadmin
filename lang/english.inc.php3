@@ -15,7 +15,6 @@ $strAddUser = "Add a new User";
 $strAddUserMessage = "You have added a new user.";
 $strAfter = "After";
 $strAll = "All";
-$strAlter = "Alter";
 $strAlterOrderBy = "Alter table order by";
 $strAnalyzeTable = "Analyze table";
 $strAnd = ""; //to translate, but its not in use ...
@@ -94,14 +93,12 @@ $strExtra = "Extra";
 
 $strField = "Field";
 $strFields = "Fields";
-$strFile = "File";
 $strFixed = "fixed";
 $strFormat = "Format";
 $strFunction = "Function";
 
 $strGenTime = "Generation Time";
 $strGo = "Go";
-$strGrant = "Grant";
 $strGrantOption = "Grant Option";
 $strGrants = "Grants";
 
@@ -174,7 +171,6 @@ $strPrimaryKey = "Primary key";
 $strPrinterFriendly = "Printer friendly version of above table";
 $strPrintView = "Print view";
 $strPrivileges = "Privileges";
-$strProcess = "Process";
 $strProducedAnError = "produced an error.";
 $strProperties = "Properties";
 
@@ -182,8 +178,6 @@ $strQBE = "Query by Example";
 
 $strReadTheDocs = "Read the docs";
 $strRecords = "Records";
-$strReferences = "References";
-$strReload = "Reload";
 $strReloadFailed = "MySQL reload failed.";
 $strReloadMySQL = "Reload MySQL";
 $strRememberReload = "Remember reload the server.";
@@ -216,7 +210,6 @@ $strSequence = "Seq.";
 $strServerVersion = "Server version";
 $strShow = "Show";
 $strShowingRecords = "Showing records ";
-$strShutdown = "Shutdown";
 $strSingly = "(singly)";
 $strSize = "Size";
 $strSort = ""; //to translate, but its not in use ...
@@ -247,7 +240,6 @@ $strType = "Type";
 
 $strUncheckAll = "Uncheck All";
 $strUnique = "Unique";
-$strUpdate = "Update";
 $strUpdatePassMessage = "You have updated the password for";
 $strUpdatePassword = "Update Password";
 $strUpdatePrivMessage = "You have updated the privileges for";
@@ -272,4 +264,5 @@ $strYes = "Yes";
 // V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 $strBinary="Binary";  
 $strBinaryDoNotEdit="Binary - do not edit";  
+$strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";
 ?>

@@ -15,7 +15,6 @@ $strAddUser = "Pøidat nového u¾ivatele";
 $strAddUserMessage = "U¾ivatel byl pøidán.";
 $strAfter = "Po";
 $strAll = "V¹echno";
-$strAlter = "Zmìnit";
 $strAlterOrderBy = "Alter table order by"; //to translate
 $strAnalyzeTable = "Analyzovat tabulku";
 $strAnd = ""; //to translate, but its not in use ...
@@ -94,14 +93,12 @@ $strExtra = "Extra"; //to translate
 
 $strField = "Pole";
 $strFields = "Poèet polí";
-$strFile = "Soubor";
 $strFixed = "fixed"; //to translate
 $strFormat = "Format"; //to translate
 $strFunction = "Funkce";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "Proveï";
-$strGrant = "Pøidìlit práva";
 $strGrantOption = "Pøidìlit práva";
 $strGrants = "Povolení";
 
@@ -174,7 +171,6 @@ $strPrimaryKey = "Primární klíè";
 $strPrinterFriendly = "Verze urèená pro tisk";
 $strPrintView = "Náhled k vyti¹tìní";
 $strPrivileges = "Privilegia";
-$strProcess = "Proces";
 $strProducedAnError = "vytvoøil chybu.";
 $strProperties = "Vlastnosti";
 
@@ -182,8 +178,6 @@ $strQBE = "Dotaz podle pøíkladu";
 
 $strReadTheDocs = "Pøeèti dokumentaci";
 $strRecords = "Záznamù";
-$strReferences = "References"; //to translate
-$strReload = "Reload"; //to translate
 $strReloadFailed = "Znovunaètení MySQL selhalo.";
 $strReloadMySQL = "Znovunaètení MySQL";
 $strRememberReload = "Nezapomeòte reloadovat server.";
@@ -216,7 +210,6 @@ $strSequence = "Seq."; //to translate
 $strServerVersion = "Server version"; //to translate
 $strShow = "Zobraz";
 $strShowingRecords = "Ukazuji záznamy ";
-$strShutdown = "Ukonèit";
 $strSingly = "(singly)"; //to translate
 $strSize = "Size"; //to translate
 $strSort = ""; //to translate, but its not in use ...
@@ -247,7 +240,6 @@ $strType = "Typ";
 
 $strUncheckAll = "Od¹krtnout v¹e";
 $strUnique = "Unikátní";
-$strUpdate = "Aktualizovat";
 $strUpdatePassMessage = "Bylo zmìnìno heslo pro";
 $strUpdatePassword = "Zmìnit heslo";
 $strUpdatePrivMessage = "Byla zmìnìna privilegia pro";
@@ -272,4 +264,5 @@ $strYes = "Ano";
 // V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 $strBinary=" Binary ";  //to translate
 $strBinaryDoNotEdit=" Binary - do not edit ";  //to translate
+$strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";  //to translate
 ?>

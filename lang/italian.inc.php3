@@ -15,7 +15,6 @@ $strAddUser = "Aggiungi un nuovo utente";
 $strAddUserMessage = "Hai aggiunto un nuovo utente.";
 $strAfter = "Dopo";
 $strAll = "Tutti";
-$strAlter = "Altera";
 $strAlterOrderBy = "Alter table order by"; //to translate
 $strAnalyzeTable = "Analizza tabella";
 $strAnd = ""; //to translate, but its not in use ...
@@ -94,14 +93,12 @@ $strExtra = "Extra";
 
 $strField = "Campo";
 $strFields = "Campi";
-$strFile = "File";
 $strFixed = "fixed"; //to translate
 $strFormat = "Format"; //to translate
 $strFunction = "Funzione";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "Esegui";
-$strGrant = "Permessi";
 $strGrantOption = "Opzioni permessi";
 $strGrants = "Permetti";
 
@@ -174,7 +171,6 @@ $strPrimaryKey = "Chiave primaria";
 $strPrinterFriendly = "Visulizzazione <I>per stampa</I> della tabella precedente";
 $strPrintView = "Visualizzazione per stampa";
 $strPrivileges = "Privilegi";
-$strProcess = "Processo";
 $strProducedAnError = "ha causato un errore.";
 $strProperties = "Proprietà";
 
@@ -182,8 +178,6 @@ $strQBE = "Query da esempio";
 
 $strReadTheDocs = "Leggere la docomentazione";
 $strRecords = "Record";
-$strReferences = "Riferimenti";
-$strReload = "Riavvia";
 $strReloadFailed = "Riavvio di MySQL fallito.";
 $strReloadMySQL = "Riavvia MySQL";
 $strRememberReload = "Ricorda di riavviare MySQL.";
@@ -216,7 +210,6 @@ $strSequence = "Sequenza";
 $strServerVersion = "Server version"; //to translate
 $strShow = "Mostra";
 $strShowingRecords = "Visualizzazione record ";
-$strShutdown = "Chiudi sessione";
 $strSingly = "(singly)"; //to translate
 $strSize = "Size"; //to translate
 $strSort = ""; //to translate, but its not in use ...
@@ -247,7 +240,6 @@ $strType = "Tipo";
 
 $strUncheckAll = "Uncheck All"; //to translate
 $strUnique = "Unica";
-$strUpdate = "Aggiorna";
 $strUpdatePassMessage = "Hai aggiornato la password per";
 $strUpdatePassword = "Aggiorna Password";
 $strUpdatePrivMessage = "Hai aggiornato i permessi per";
@@ -272,4 +264,5 @@ $strYes = " Si ";
 // V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 $strBinary=" Binary ";  //to translate
 $strBinaryDoNotEdit=" Binary - do not edit ";  //to translate
+$strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";  //to translate
 ?>

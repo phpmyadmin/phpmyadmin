@@ -15,7 +15,6 @@ $strAddUser = "Add a new User"; //to translate
 $strAddUserMessage = "You have added a new user."; //to translate
 $strAfter = "After"; //to translate
 $strAll = "All"; //to translate
-$strAlter = "Alter"; //to translate
 $strAlterOrderBy = "Alter table order by"; //to translate
 $strAnalyzeTable = "Analyze table"; //to translate
 $strAnd = ""; //to translate, but its not in use ...
@@ -94,14 +93,12 @@ $strExtra = "Extra";
 
 $strField = "Camp";
 $strFields = "Camps";
-$strFile = "File"; //to translate
 $strFixed = "fixed"; //to translate
 $strFormat = "Format"; //to translate
 $strFunction = "Funci&oacute;";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "Executar";
-$strGrant = "Grant"; //to translate
 $strGrantOption = "Grant Option"; //to translate
 $strGrants = "Grants"; //to translate
 
@@ -174,7 +171,6 @@ $strPrimaryKey = "Clau Prim&agrave;ria";
 $strPrinterFriendly = "Printer friendly version of above table"; //to translate
 $strPrintView = "Print view"; //to translate
 $strPrivileges = "Privileges"; //to translate
-$strProcess = "Process"; //to translate
 $strProducedAnError = "ha produ&iuml;t una errada.";
 $strProperties = "Propietats";
 
@@ -182,8 +178,6 @@ $strQBE = "Query by Example"; //to translate
 
 $strReadTheDocs = "Llegeix la documentaci&oacute;";
 $strRecords = "Registres";
-$strReferences = "References"; //to translate
-$strReload = "Reload"; //to translate
 $strReloadFailed = "MySQL reload failed."; //to translate
 $strReloadMySQL = "Rellegir el MySQL";
 $strRememberReload = "Remember reload the server."; //to translate
@@ -216,7 +210,6 @@ $strSequence = "Seq."; //to translate
 $strServerVersion = "Server version"; //to translate
 $strShow = "Show"; //to translate
 $strShowingRecords = "Mostrant registres: ";
-$strShutdown = "Shutdown"; //to translate
 $strSingly = "(singly)"; //to translate
 $strSize = "Size"; //to translate
 $strSort = ""; //to translate, but its not in use ...
@@ -247,7 +240,6 @@ $strType = "Tipus";
 
 $strUncheckAll = "Uncheck All"; //to translate
 $strUnique = "&Uacute;nica";
-$strUpdate = "Update"; //to translate
 $strUpdatePassMessage = "You have updated the password for"; //to translate
 $strUpdatePassword = "Update Password"; //to translate
 $strUpdatePrivMessage = "You have updated the privileges for"; //to translate
@@ -272,4 +264,5 @@ $strYes = "Si";
 // V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 $strBinary=" Binary ";  //to translate
 $strBinaryDoNotEdit=" Binary - do not edit ";  //to translate
+$strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";  //to translate
 ?>

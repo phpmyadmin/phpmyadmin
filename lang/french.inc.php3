@@ -15,7 +15,6 @@ $strAddUser = "Ajouter un usager";
 $strAddUserMessage = "Vous avez ajouté un usager";
 $strAfter = "Après";
 $strAll = "Tout"; 
-$strAlter = "Alter"; //to translate
 $strAlterOrderBy = "Alter table order by"; //to translate
 $strAnalyzeTable = "Analyser la table";
 $strAnd = "et";
@@ -42,7 +41,7 @@ $strBrowse = "Afficher";
 $strCantLoadMySQL = "cannot load MySQL extension,<br>please check PHP Configuration."; //to translate
 $strCarriage = "Retour de chariot: \\r";
 $strChange = "Modifier";
-$strCheckAll = "Check All"; //to translate
+$strCheckAll = "Tout cocher";
 $strCheckDbPriv = "Check Database Privileges"; //to translate
 $strCheckTable = "Vérifier la table";
 $strColumn = "Column"; //to translate
@@ -94,14 +93,12 @@ $strExtra = "Extra";
 
 $strField = "Champ";
 $strFields = "Champs";
-$strFile = "File"; //to translate
 $strFixed = "fixed"; //to translate
 $strFormat = "Format"; //to translate
 $strFunction = "Fonction";
 
 $strGenTime = "Generation Time"; //to translate
 $strGo = "Exécuter";
-$strGrant = "Grant"; //to translate
 $strGrantOption = "Grant Option"; //to translate
 $strGrants = "Grants"; //to translate
 
@@ -174,7 +171,6 @@ $strPrimaryKey = "Clé primaire";
 $strPrinterFriendly = "Version imprimable de la table";
 $strPrintView = "Composition";
 $strPrivileges = "Privileges"; //to translate
-$strProcess = "Process"; //to translate
 $strProducedAnError = "a généré une erreur.";
 $strProperties = "Propriétés";
 
@@ -182,8 +178,6 @@ $strQBE = "Requête par un exemple";
 
 $strReadTheDocs = "Lire la documentation";
 $strRecords = "Enregistrements";
-$strReferences = "References"; //to translate
-$strReload = "Reload"; //to translate
 $strReloadFailed = "MySQL n'a pu être rechargé.";
 $strReloadMySQL = "Recharger MySQL";
 $strRememberReload = "Remember reload the server."; //to translate
@@ -216,7 +210,6 @@ $strSequence = "Séq.";
 $strServerVersion = "Server version"; //to translate
 $strShow = "Afficher";
 $strShowingRecords = "Affichage des enregistrements";
-$strShutdown = "Shutdown"; //to translate
 $strSingly = "(singly)"; //to translate
 $strSize = "Size"; //to translate
 $strSort = "Tri";
@@ -245,9 +238,8 @@ $strTheTerminator = "Le caractère qui sépare chacun des champs.";
 $strTotal = "total";
 $strType = "Type";
 
-$strUncheckAll = "Uncheck All"; //to translate
+$strUncheckAll = "Tout décocher";
 $strUnique = "Unique";
-$strUpdate = "Update"; //to translate
 $strUpdatePassMessage = "You have updated the password for"; //to translate
 $strUpdatePassword = "Update Password"; //to translate
 $strUpdatePrivMessage = "You have updated the privileges for"; //to translate
@@ -272,4 +264,5 @@ $strYes = "Oui";
 // V0.11 - experimental (Steve Alberty - alberty@neptunlabs.de)
 $strBinary="Binaire";  
 $strBinaryDoNotEdit="Binaire - ne pas éditer";  
+$strEnglishPrivileges=" Veuillez noter que les noms de privilèges sont exprimés en anglais";
 ?>
