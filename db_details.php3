@@ -190,7 +190,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         <?php
         if (!empty($sts_data['Rows'])) {
             echo '<a href="sql.php3?' . $url_query . '&amp;sql_query='
-                 . urlencode('SELECT * FROM ' . PMA_backquote($table)) 
+                 . urlencode('SELECT * FROM ' . PMA_backquote($table))
                  . '&amp;pos=0">' . $strBrowse . '</a>';
         } else {
             echo $strBrowse;
@@ -200,7 +200,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
         if (!empty($sts_data['Rows'])) {
-            echo '<a href="tbl_select.php3?' . $url_query . '">' 
+            echo '<a href="tbl_select.php3?' . $url_query . '">'
                  . $strSelect . '</a>';
         } else {
             echo $strSelect;
@@ -223,11 +223,11 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
         if (!empty($sts_data['Rows'])) {
-            echo '<a href="sql.php3?' . $url_query 
-                 . '&amp;sql_query=' 
-                 . urlencode('DELETE FROM ' . PMA_backquote($table)) 
-                 . '&amp;zero_rows=' 
-                 . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))) 
+            echo '<a href="sql.php3?' . $url_query
+                 . '&amp;sql_query='
+                 . urlencode('DELETE FROM ' . PMA_backquote($table))
+                 . '&amp;zero_rows='
+                 . urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table)))
                  . '" onclick="return confirmLink(this, \'DELETE FROM ' . PMA_jsFormat($table) . '\')">' . $strEmpty . '</a>';
         } else {
              echo $strEmpty;
