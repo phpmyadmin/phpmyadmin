@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-22 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
+    * lang/estonian: Update thanks to Alvar Soome - finsoft.
+    * lang/chinese_simplified: updated, thanks to Simon - simon2san
+    * lang/latvian: Updated, thanks to Sandis Jerics (saaa2002).
+    * lang/bulgarian:  Updated, thanks to Stanislav Yordanov (stanprog).
+    * lang/thai: Updated, thanks to Arthit Suriyawongkul.
+
 2004-08-21 Marc Delisle  <lem9@users.sourceforge.net>
     * themes/darkblue_orange/img/logo_left.php: transparent version,
       thanks to Michael Keck
