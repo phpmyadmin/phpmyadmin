@@ -387,7 +387,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
             $cfg['MySQLManualType'] = 'searchable';
         }
     }
-    
+
     if (!isset($cfg['MySQLManualType'])) {
         $cfg['MySQLManualType'] = 'none';
     }
@@ -534,6 +534,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
         } else {
             $cfg['TextareaRows'] = 7;
         }
+    }
+
+    if (!isset($cfg['TextareaAutoSelect'])) {
+        $cfg['TextareaAutoSelect']  = TRUE;
     }
 
     if (!isset($cfg['LimitChars'])) {
