@@ -226,6 +226,11 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
                        . (($use_backquotes) ? PMA_backquote($tmpres[0]) : $tmpres[0])
                        . substr($tmpres[1], $pos);
         $tmpres[1]     = str_replace("\n", $crlf, $tmpres[1]);
+
+        if (isset($GLOBALS['if_not_exists'])) { 
+            $tmpres[1]     = preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $tmpres[1]);
+        }
+
         if (preg_match_all('((,\r?\n[\s]*(CONSTRAINT|FOREIGN[\s]*KEY)[^\r\n,]+)+)', $tmpres[1], $regs)) {
             if (!isset($sql_constraints)) {
                 if (isset($GLOBALS['no_constraints_comments'])) {
@@ -248,6 +253,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
     }
 
     $schema_create .= $auto_increment;
+
 
 
     PMA_DBI_free_result($result);
@@ -302,26 +308,33 @@ function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comm
     }
 
     if (isset($comments_map) && count($comments_map) > 0) {
-        $schema_create .= $crlf . '#' . $crlf . '# COMMENTS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+        $schema_create .= $crlf . '#' . $crlf 
+                       . '# COMMENTS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
         foreach($comments_map AS $comment_field => $comment) {
-            $schema_create .= '#   ' . PMA_backquote($comment_field, $use_backquotes) . $crlf . '#       ' . PMA_backquote($comment, $use_backquotes) . $crlf;
+            $schema_create .= '#   ' . PMA_backquote($comment_field, $use_backquotes) . $crlf 
+                            . '#       ' . PMA_backquote($comment, $use_backquotes) . $crlf;
         }
         $schema_create .= '#' . $crlf;
     }
 
     if (isset($mime_map) && count($mime_map) > 0) {
-        $schema_create .= $crlf . '#' . $crlf . '# MIME TYPES FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+        $schema_create .= $crlf . '#' . $crlf 
+                       . '# MIME TYPES FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
         @reset($mime_map);
         foreach($mime_map AS $mime_field => $mime) {
-            $schema_create .= '#   ' . PMA_backquote($mime_field, $use_backquotes) . $crlf . '#       ' . PMA_backquote($mime['mimetype'], $use_backquotes) . $crlf;
+            $schema_create .= '#   ' . PMA_backquote($mime_field, $use_backquotes) . $crlf 
+                            . '#       ' . PMA_backquote($mime['mimetype'], $use_backquotes) . $crlf;
         }
         $schema_create .= '#' . $crlf;
     }
 
     if ($have_rel) {
-        $schema_create .= $crlf . '#' . $crlf . '# RELATIONS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+        $schema_create .= $crlf . '#' . $crlf 
+                       . '# RELATIONS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
         foreach($res_rel AS $rel_field => $rel) {
-            $schema_create .= '#   ' . PMA_backquote($rel_field, $use_backquotes) . $crlf . '#       ' . PMA_backquote($rel['foreign_table'], $use_backquotes) . ' -> ' . PMA_backquote($rel['foreign_field'], $use_backquotes) . $crlf;
+            $schema_create .= '#   ' . PMA_backquote($rel_field, $use_backquotes) . $crlf 
+                            . '#       ' . PMA_backquote($rel['foreign_table'], $use_backquotes) 
+                            . ' -> ' . PMA_backquote($rel['foreign_field'], $use_backquotes) . $crlf;
         }
         $schema_create .= '#' . $crlf;
     }

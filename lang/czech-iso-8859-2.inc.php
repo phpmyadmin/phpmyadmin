@@ -730,4 +730,5 @@ $strZip = '"zazipováno"';
 
 $strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
 $strIgnoreInserts = 'Use ignore inserts';  //to translate
+$strAddIfNotExists = 'Add IF NOT EXISTS';  //to translate
 ?>

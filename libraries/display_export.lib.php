@@ -161,8 +161,13 @@ if ($export_type == 'server') {
 
                     <input type="checkbox" name="drop" value="1" id="checkbox_dump_drop" <?php PMA_exportCheckboxCheck('sql_drop_table'); ?> />
                     <label for="checkbox_dump_drop"><?php echo $strStrucDrop; ?></label><br />
+                    
+                    <input type="checkbox" name="if_not_exists" value="1" id="checkbox_dump_if_not_exists" <?php PMA_exportCheckboxCheck('sql_if_not_exists'); ?> />
+                    <label for="checkbox_dump_if_not_exists"><?php echo $strAddIfNotExists; ?></label><br />
+                    
                     <input type="checkbox" name="auto_increment" value="1" id="checkbox_auto_increment" <?php PMA_exportCheckboxCheck('sql_auto_increment'); ?> />
                     <label for="checkbox_auto_increment"><?php echo $strAddAutoIncrement; ?></label><br />
+                    
                     <input type="checkbox" name="use_backquotes" value="1" id="checkbox_dump_use_backquotes" <?php PMA_exportCheckboxCheck('sql_backquotes'); ?> />
                     <label for="checkbox_dump_use_backquotes"><?php echo $strUseBackquotes; ?></label><br />
                     <fieldset>
