@@ -16,7 +16,9 @@ if ($num_tables > 0) {
 }
 else {
     $lnk3 = '';
+    $arg3 = '';
     $lnk4 = '';
+    $arg4 = '';
 }
 // Drop link if allowed
 if (!$cfg['AllowUserDropDatabase']) {

@@ -8,6 +8,7 @@ $Source$
 2002-06-20 Robin Johnson  <robbat2@users.sourceforge.net>
     * tbl_qbe.php3: Using * for tables fields disables 
       sorting for that field (Fix for bug #570698)
+    * db_details_links.php3: Added $args3, $args4 = '', for no tables case
 
 2002-06-20 Marc Delisle  <lem9@users.sourceforge.net>
     * ChangeLog_till_2.2.6.gz removed from the distribution and copied
