@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-07 Michal Čihař  <michal@cihar.com>
+    * db_printview.php, tbl_printview.php, css/phpmyadmin.css.php,
+      libraries/header_meta_style.inc.php: Actually use print style in themes,
+      also fixes RFE #1120880.
+
 2005-03-06 Michael Keck  <mkkeck@users.sourceforge.net>
     * themes/*/img/bd_deltbl.png, themes/*/bd_drop.png: Added disabled
       versions of drop icons.

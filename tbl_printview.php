@@ -5,6 +5,7 @@
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
+$print_view = TRUE;
 if (!isset($selected_tbl)) {
     require_once('./libraries/grab_globals.lib.php');
     require_once('./header.inc.php');
@@ -324,7 +325,7 @@ foreach ($the_tables AS $key => $table) {
             ?>
 <br /><br />
 
-<table border="0" cellspacing="0" cellpadding="0">
+<table border="0" cellspacing="0" cellpadding="0" class="noborder">
 <tr>
 
     <!-- Space usage -->

@@ -40,6 +40,11 @@ if ($js_frame == 'left') {
     if (@file_exists($tmp_file)) {
         include($tmp_file);
     } // end of include theme_print.css.php
+    ?>
+table#serverinfo,td.serverinfo,table.noborder,table.noborder td {
+    border: none;
+}
+    <?php
 } else {
 /************************************************************************************
  * RIGHT FRAME

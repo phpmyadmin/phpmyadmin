@@ -7,6 +7,7 @@
  * Gets the variables sent or posted to this script, then displays headers
  */
 require_once('./libraries/grab_globals.lib.php');
+$print_view = TRUE;
 require_once('./header.inc.php');
 
 // Check parameters
@@ -212,7 +213,7 @@ else {
                  || (isset($sts_data['Check_time']) && !empty($sts_data['Check_time']))) {
                 echo $needs_break;
                 ?>
-                <table border="0" cellpadding="1" cellspacing="1" width="100%">
+                <table border="0" cellpadding="1" cellspacing="1" width="100%" class="noborder">
                 <?php
 
                 if (isset($sts_data['Create_time']) && !empty($sts_data['Create_time'])) {
@@ -292,17 +293,15 @@ echo "\n";
 <!--
 function printPage()
 {
-    document.getElementById('print').style.visibility = 'hidden';
     // Do print the page
     if (typeof(window.print) != 'undefined') {
         window.print();
     }
-    document.getElementById('print').style.visibility = '';
 }
 //-->
 </script>
 <?php
-echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
+echo '<br /><br />&nbsp;<input type="button" class="print_ignore" style="width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
 
 require_once('./footer.inc.php');
 ?>
