@@ -49,8 +49,9 @@ if (isset($nopass)) {
         $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
         $err_url          = 'user_password.php3?' . $common_url_query;
 
-        $sql_query        = 'SET password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . $pma_pw . '\')');
-        $result           = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+        $sql_query        = 'SET password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . ereg_replace('.', '*', $pma_pw) . '\')');
+        $local_query      = 'SET password = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . PMA_sqlAddslashes($pma_pw) . '\')');
+        $result           = @mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
 
         // Changes password cookie if required
         if ($cfgServer['auth_type'] == 'cookie') {
@@ -65,6 +66,7 @@ if (isset($nopass)) {
         // Displays the page
         include('./header.inc.php3');
         echo '<h1>' . $strChangePassword . '</h1>' . "\n\n";
+        $show_query = 'y';
         PMA_showMessage(get_magic_quotes_gpc() ? addslashes($strUpdateProfileMessage) : $strUpdateProfileMessage);
         ?>
         <a href="index.php3?<?php echo $common_url_query . $http_logout; ?>" target="_parent">

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-17 Loïc Chapeaux  <lolo@phpheaven.net>
+	* user_details.php3; user_password.php3: no long displays the true password
+	  on screen.
+
 2002-03-16 Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3, line 76; main.php3, lines 13-24; lang/*;
 	  libraries/common.lib.php3, lines 146-150 & 367-387: the

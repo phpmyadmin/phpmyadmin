@@ -1120,13 +1120,16 @@ else if (isset($submit_addUser)) {
         unset($list_priv);
 
         if (get_magic_quotes_gpc() && $pma_pw != '') {
-            $pma_pw = stripslashes($pma_pw);
+            $pma_pw   = stripslashes($pma_pw);
         }
 
-        $sql_query  = 'INSERT INTO mysql.user '
-                    . 'SET Host = \'' . PMA_sqlAddslashes($host) . '\', User = \'' . PMA_sqlAddslashes($pma_user) . '\', ' . $password_field . ' = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . PMA_sqlAddslashes($pma_pw) . '\')')
-                    . ', ' . $sql_query;
-        $result     = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url);
+        $local_query  = 'INSERT INTO mysql.user '
+                      . 'SET Host = \'' . PMA_sqlAddslashes($host) . '\', User = \'' . PMA_sqlAddslashes($pma_user) . '\', ' . $password_field . ' = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . PMA_sqlAddslashes($pma_pw) . '\')')
+                      . ', ' . $sql_query;
+        $sql_query    = 'INSERT INTO mysql.user '
+                      . 'SET Host = \'' . PMA_sqlAddslashes($host) . '\', User = \'' . PMA_sqlAddslashes($pma_user) . '\', ' . $password_field . ' = ' . (($pma_pw == '') ? '\'\'' : 'PASSWORD(\'' . ereg_replace('.', '*', $pma_pw) . '\')')
+                      . ', ' . $sql_query;
+        $result       = @mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
         unset($host);
         unset($pma_user);
         PMA_showMessage($strAddUserMessage . '<br />' . $strRememberReload);
@@ -1187,8 +1190,10 @@ else if (isset($submit_updProfile)) {
         echo '<p><b>' . $strError . '&nbsp;:&nbsp;' . $strPasswordNotSame . '</b></p>' . "\n";
     }
     else {
-        $sql_query = (empty($common_upd) ? '' : $common_upd . ', ')
-                   . $password_field . ' = ' . (($new_pw == '') ? '\'\'' : 'PASSWORD(\'' . PMA_sqlAddslashes($new_pw) . '\')');
+        $sql_query   = (empty($common_upd) ? '' : $common_upd . ', ')
+                     . $password_field . ' = ' . (($new_pw == '') ? '\'\'' : 'PASSWORD(\'' . ereg_replace('.', '*', $new_pw) . '\')');
+        $local_query = (empty($common_upd) ? '' : $common_upd . ', ')
+                     . $password_field . ' = ' . (($new_pw == '') ? '\'\'' : 'PASSWORD(\'' . PMA_sqlAddslashes($new_pw) . '\')');
     }
 
     if (!empty($sql_query)) {
@@ -1196,9 +1201,9 @@ else if (isset($submit_updProfile)) {
         $sql_query_cpy      = '';
 
         // Updates profile
-        $sql_query          = 'UPDATE user SET ' . $sql_query . $common_where;
-        $sql_query_cpy      = $sql_query;
-        $result             = @mysql_query($sql_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
+        $local_query        = 'UPDATE user SET ' . $local_query . $common_where;
+        $sql_query_cpy      = 'UPDATE user SET ' . $sql_query . $common_where;
+        $result             = @mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
 
         // Updates grants
         if (isset($new_server) || isset($new_user)) {
