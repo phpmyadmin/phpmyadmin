@@ -451,9 +451,13 @@ if ( PMA_PHP_INT_VERSION >= 40000
 <?php
 echo '        ' . $strDisplayPDF . '&nbsp;:<br />' . "\n";
 echo '        ' . $strPageNumber . '&nbsp;' . "\n";
-echo '        ' . '<input type="text" name="pdf_page_number" size="3" class="textfield" />' . "\n";
+echo '        ' . '<input type="text" name="pdf_page_number" size="3" class="textfield" value="1" />' . "\n";
 echo '        ' . $strShowGrid . '&nbsp;' . "\n";
 echo '        ' . '<input type="checkbox" name="show_grid" />' . "\n";
+echo '        ' . $strShowColor . '&nbsp;' . "\n";
+echo '        ' . '<input type="checkbox" name="show_color" checked="checked" />' . "\n";
+echo '        ' . $strShowTableDimension . '&nbsp;' . "\n";
+echo '        ' . '<input type="checkbox" name="show_table_dimension" />' . "\n";
 echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 ?>
         </form>

@@ -349,7 +349,9 @@ if (!isset($pdf_page_number)){
 }
 
 $show_grid = (isset($show_grid) && $show_grid=='on')? 1:0;
+$show_color = (isset($show_color) && $show_color=='on')? 1:0;
+$show_table_dimension = (isset($show_table_dimension) && $show_table_dimension=='on')? 1:0;
 
-$rt  = new RT("auto",$pdf_page_number,0,1,$show_grid);
+$rt  = new RT("auto",$pdf_page_number,$show_table_dimension,$show_color,$show_grid);
 
 ?>
