@@ -712,7 +712,7 @@ if (isset($Field) && count($Field) > 0) {
     $hit       = 0;
     
     //  we only start this if we have fields, otherwise it would be dumb
-    while (list(, $value) = each ($Field)) {
+    while (list(, $value) = each($Field)) {
         $parts            = explode('.', $value);
         if (urldecode($parts[0]) != '') {
             $alltabs[]    = substr(urldecode($parts[0]), 1, strlen(urldecode($parts[0])) - 2);
