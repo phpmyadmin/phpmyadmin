@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-27 Michal Čihař  <michal@cihar.com>
+    * lang/*: Make all export choices look simmilar ('drop table' -> DROP
+      TABLE), removed unused strings (there vere MANY!), fixed some czech
+      texts.
+    * scripts/find_unused_messages.sh: New script to find unused messages in
+      translations.
+    
 2004-06-27 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_query_box.php: bug #975382, fields list on a non-existing table
 
