@@ -395,4 +395,12 @@ $strNoIndexPartsDefined = 'No index parts defined!';
 $strPrimaryKeyHasBeenDropped = 'The primary key has been dropped';
 $strPrimaryKeyName = 'The name of the primary key must be... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)';
+$strEditPDFPages = 'Edit PDF Pages';  //to translate
+$strNoDescription = 'no Description';  //to translate
+$strRelationNotSet = 'Relationtable not found or not set in config.inc.php3';  //to translate
+$strInfoNotSet = 'table_info table not found or not set in config.inc.php3';  //to translate
+$strCoordsNotSet = 'table_coords table not found or not set in config.inc.php3';  //to translate
+$strChoosePage = 'Please choose a Page to edit';  //to translate
+$strCreatePage = 'Create a new Page';  //to translate
+$strSelectTables = 'Select Tables';  //to translate
 ?>
