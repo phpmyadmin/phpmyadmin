@@ -130,8 +130,6 @@ if (!defined('__LIB_INC__')){
      */
     function mysql_die($error_message = '', $the_query = '')
     {
-        global $sql_query;
-
         if (!$error_message) {
             $error_message = mysql_error();
         }
@@ -424,7 +422,7 @@ if (!defined('__LIB_INC__')){
     function backquote($a_name, $do_it = TRUE)
     {
         if ($do_it
-            && MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 6
+            && MYSQL_INT_VERSION >= 32306
             && !empty($a_name) && $a_name != '*') {
             return '`' . $a_name . '`';
         } else {
@@ -1279,7 +1277,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
 
         // Steve Alberty's patch for complete table dump,
         // modified by Lem9 to allow older MySQL versions to continue to work
-        if (MYSQL_MAJOR_VERSION == 3.23 && intval(MYSQL_MINOR_VERSION) > 20) {
+        if (MYSQL_MAJOR_VERSION >= 32321) {
             // Whether to quote table and fields names or not
             if ($use_backquotes) {
                 mysql_query('SET SQL_QUOTE_SHOW_CREATE = 1');

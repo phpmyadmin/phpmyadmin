@@ -65,7 +65,7 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         $query .= ' LINES TERMINATED BY \'' . $line_terminator . '\'';
     }
     if (strlen($column_name) > 0) {
-        if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 6) {
+        if (MYSQL_INT_VERSION >= 32306) {
             $query .= ' (';
             $tmp   = split(',( ?)', $column_name);
             for ($i = 0; $i < count($tmp); $i++) {

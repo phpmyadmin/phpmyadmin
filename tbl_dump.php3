@@ -170,7 +170,7 @@ else {
                            : '\'' . $db . '\'';
         $dump_buffer       .= $crlf
                            .  '# ' . $strGenTime . ': ' . date('F j, Y, g:i a') . $crlf
-                           .  '# ' . $strServerVersion . ': ' . MYSQL_MAJOR_VERSION . '.' . MYSQL_MINOR_VERSION . $crlf
+                           .  '# ' . $strServerVersion . ': ' . substr(MYSQL_INT_VERSION, 0, 1) . '.' . substr(MYSQL_INT_VERSION, 1, 2) . '.' . substr(MYSQL_INT_VERSION, 3) . $crlf
                            .  '# ' . $strPHPVersion . ': ' . phpversion() . $crlf
                            .  '# ' . $strDatabase . ': ' . $formatted_db_name . $crlf;
 

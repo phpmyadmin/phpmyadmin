@@ -235,15 +235,11 @@ function grant_operations()
     }
 
     function protect_name(db_or_table) {
-	var js_mysql_major_version, js_mysql_minor_version;
-	js_mysql_major_version = <?php echo MYSQL_MAJOR_VERSION ?>;
-	js_mysql_minor_version = <?php echo MYSQL_MINOR_VERSION ?>;
+	var js_mysql_version = <?php echo MYSQL_INT_VERSION ?>;
 
-	if (js_mysql_major_version >= "3.23") {
-	   if (js_mysql_minor_version >= "6")  {
+	if (js_mysql_version >= 32306) {
 <!--		return "`" + db_or_table + "`"; -->
 		return db_or_table;
-	   }
 	}
 	else {
 		return db_or_table;

@@ -121,7 +121,7 @@ if (isset($submit)) {
     if (!empty($tbl_type) && ($tbl_type != 'Default')) {
         $sql_query .= ' TYPE = ' . $tbl_type;
     }
-    if (MYSQL_MAJOR_VERSION == 3.23 && !empty($comment)) {
+    if (MYSQL_INT_VERSION >= 32300 && !empty($comment)) {
         $sql_query .= ' comment = \'' . sql_addslashes($comment) . '\'';
     }
 

@@ -56,7 +56,7 @@ if (isset($new_name) && trim($new_name) != '') {
     // Copy the data
     if ($result != FALSE && $what == 'data') {
         // speedup copy table - staybyte - 22. Juni 2001
-        if (MYSQL_MAJOR_VERSION >= 3.23) {
+        if (MYSQL_INT_VERSION >= 32300) {
             $sql_insert_data = 'INSERT INTO ' . backquote($new_name) . ' SELECT * FROM ' . backquote($table);
             $result          = mysql_query($sql_insert_data) or mysql_die();
         } // end MySQL >= 3.23

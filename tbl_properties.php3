@@ -67,7 +67,7 @@ $url_query = 'lang=' . $lang
  * Gets table informations
  */
 // 1. Get table type and comments ('show table' works correct since 3.23.03)
-if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 3) {
+if (MYSQL_INT_VERSION >= 32303) {
     // Update table type, comment and order if required by the user
     if (isset($submitcomment)) {
         if (get_magic_quotes_gpc()) {
@@ -326,7 +326,7 @@ $nonisam     = FALSE;
 if (!eregi('ISAM|HEAP', $showtable['Type'])) {
     $nonisam = TRUE;
 }
-if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $nonisam == FALSE && isset($showtable)) {
+if (MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE && isset($showtable)) {
     // Gets some sizes
     $mergetable     = FALSE;
     if (isset($showtable['Type']) && $showtable['Type'] == 'MRG_MyISAM') {
@@ -625,7 +625,7 @@ while (list($junk, $fieldname) = each($aryFields)) {
     </li>
 
 <?php
-if (MYSQL_MAJOR_VERSION >= 3.23 && MYSQL_MINOR_VERSION >= 34) {
+if (MYSQL_INT_VERSION >= 32334) {
     ?>
     <!-- Order the table -->
     <li>
@@ -695,7 +695,7 @@ echo "\n";
                     <?php echo $strExtendedInserts; ?><br />
 <?php
 // Add backquotes checkbox
-if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 6) {
+if (MYSQL_INT_VERSION >= 32306) {
     ?>
                     <input type="checkbox" name="use_backquotes" value="1" />
                     <?php echo $strUseBackquotes; ?><br />
@@ -820,7 +820,7 @@ echo "\n";
     </li>
 
 <?php
-if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 22) {
+if (MYSQL_INT_VERSION >= 32322) {
     if ($tbl_type == 'MYISAM' or $tbl_type == 'BDB') {
         ?>
     <!-- Table maintenance -->

@@ -23,7 +23,7 @@ mysql_select_db($db);
 /**
  * Displays the comments of the table is MySQL >= 3.23
  */
-if (MYSQL_MAJOR_VERSION >= 3.23) {   
+if (MYSQL_INT_VERSION >= 32300) {   
     $result = mysql_query('SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'') or mysql_die();
     $row    = mysql_fetch_array($result);
     if (!empty($row['Comment'])) {

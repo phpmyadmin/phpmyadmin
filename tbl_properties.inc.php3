@@ -216,7 +216,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     <br />
 
 <?php
-if ($action == 'tbl_create.php3' && MYSQL_MAJOR_VERSION >= 3.23) {
+if ($action == 'tbl_create.php3' && MYSQL_INT_VERSION >= 32300) {
     echo "\n";
     ?>
     <table>

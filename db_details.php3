@@ -39,9 +39,9 @@ if (mysql_error() != '') {
 }
 
 // speedup view on locked tables - staybyte - 11 June 2001
-if ($num_tables > 0 && MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 3) {
+if ($num_tables > 0 && MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
-    if ($cfgSkipLockedTables == TRUE && MYSQL_MAJOR_VERSION == 3.23 && intval(MYSQL_MINOR_VERSION) >= 30) {
+    if ($cfgSkipLockedTables == TRUE && MYSQL_INT_VERSION >= 32330) {
         $query  = 'SHOW OPEN TABLES FROM ' . backquote($db);
         $result = mysql_query($query);
         // Blending out tables in use
@@ -89,7 +89,7 @@ if ($num_tables == 0) {
     echo $strNoTablesFound . "\n";
 }
 // show table size on mysql >= 3.23 - staybyte - 11 June 2001
-else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
+else if (MYSQL_INT_VERSION >= 32300 && isset($tbl_cache)) {
     ?>
 
 
@@ -466,7 +466,7 @@ if ($num_tables > 0) {
         </tr>
     <?php
     // Add backquotes checkbox
-    if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) >= 6) {
+    if (MYSQL_INT_VERSION >= 32306) {
         ?>
         <tr>
             <td<?php echo $colspan; ?>>

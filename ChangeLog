@@ -27,6 +27,11 @@ $Source$
 	* lib.inc.php3; db_readdump.php3, line 82: restored the use of the
 	  remove_remarks function that is required (else sql dump files starting
 	  with comments won't be successfully splitted into single queries).
+	* defines.inc.php3; db_details.php3; ldi_check.php3; lib.inc.php3;
+	  tbl_copy.php3; tbl_create.php3; tbl_dump.php3; tbl_printview.php3;
+	  tbl_properties.inc.php3; tbl_properties.php3; user_details.php3:
+	  replaced MYSQL_MAJOR_VERSION and MYSQL_MINOR_VERSION constants by
+	  MYSQL_INT_VERSION.
 
 2001-08-20  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: new file and feature (sorry :) : simply display an
