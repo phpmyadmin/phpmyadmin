@@ -10,6 +10,8 @@ $Source$
 	  - feature request #503015 - No "xxxtext" button on vertical mode;
 	  - extended the "relation" feature to PHP3.
 	* Documentation.html, line 557: extended the "relation" feature to PHP3.
+	* libraries/common.lib.php3: tried to fix bug #520282 - mysql
+	  safe_show_database=on support. Must be fully tested now.
 
 2002-03-01  Olivier Müller  <om@omnis.ch>
 	* created the phpmyadmin-cvs mailing list, following the instructions
