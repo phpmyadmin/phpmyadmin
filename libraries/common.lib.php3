@@ -179,7 +179,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     /**
      * SQL Validator interface code
      */
-    include('./libraries/sqlvalidator.php3');
+    include('./libraries/sqlvalidator.lib.php3');
 
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
