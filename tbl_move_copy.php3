@@ -153,7 +153,7 @@ if (isset($new_name) && trim($new_name) != '') {
 
             // Write every comment as new copied entry. [MIME]
             while ($comments_copy_row = @PMA_mysql_fetch_array($comments_copy_rs)) {
-                $new_comment_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_comments'])
+                $new_comment_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_info'])
                            . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
                            . ' VALUES('
                            . '\'' . PMA_sqlAddslashes($target_db) . '\','
