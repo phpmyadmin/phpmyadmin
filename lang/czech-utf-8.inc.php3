@@ -290,6 +290,7 @@ $strPrimaryKeyWarning = '("PRIMARY" <b>musí</b> být jméno <b>pouze</b> primá
 $strPrintView = 'Náhled k vytištění';
 $strPrivileges = 'Oprávnění';
 $strProperties = 'Vlastnosti';
+$strPutColNames = 'Přidat jména sloupců na první řádek';
 
 $strQBE = 'Dotaz';
 $strQBEDel = 'smazat';
@@ -434,5 +435,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
-$strPutColNames = 'Put fields names at first row';  //to translate
 ?>

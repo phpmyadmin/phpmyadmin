@@ -8,6 +8,7 @@ $Source$
 2002-09-18 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/*.php3, tbl_properties_export.php3: removed duplicate message
       with typo in name strCvsData (replaced by strStrucCSV)
+    * lang/czech-*.inc.php3: Updates.
     
 2002-09-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: update, thanks to Daniel Hinostroza
