@@ -293,10 +293,16 @@ else {
             }
         }
 
-        // Defines wether to display the full/partial text button or not
-        $show_text_btn     = FALSE;
+        // Gets the list of fields properties
         while ($field = mysql_fetch_field($result)) {
-            if (eregi('BLOB', $field->type)) {
+            $fields_meta[] = $field;
+        }
+        $fields_cnt        = count($fields_meta);
+
+        // Defines wether to display the full/partial text button or not
+        $show_text_btn         = FALSE;
+        for ($i = 0; $i < $fields_cnt; $i++) {
+            if (eregi('BLOB', $fields_meta[$i]->type)) {
                 $show_text_btn = TRUE;
                 if ($display == 'simple' || $display == 'bkmOnly') {
                     break;
@@ -304,7 +310,7 @@ else {
             }
             // loic1: maybe the fix for the second alias bug?
             if (($display != 'simple' && $display != 'bkmOnly')
-                && $field->table == '') {
+                && $fields_meta[$i]->table == '') {
                 $display = 'simple';
             }
         } // end while

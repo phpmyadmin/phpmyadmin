@@ -56,9 +56,9 @@ if (!defined('__LIB_INC__')){
      */
     function auth()
     {
-        header('status: 401 Unauthorized');
+        header('WWW-Authenticate: Basic realm="phpMyAdmin ' . trim($GLOBALS['strRunning']) . ' ' . $GLOBALS['cfgServer']['host'] . '"');
         header('HTTP/1.0 401 Unauthorized');
-        header('WWW-authenticate: basic realm="phpMyAdmin on ' . $GLOBALS['cfgServer']['host'] . '"');
+        header('status: 401 Unauthorized');
         ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html>
@@ -523,7 +523,7 @@ if (!defined('__LIB_INC__')){
     function js_format($a_string = '', $add_backquotes = TRUE)
     {
         $a_string = str_replace('"', '&quot;', $a_string);
-        $a_string = addslashes($a_string);
+        $a_string = str_replace('#', '\\#', addslashes($a_string));
         return (($add_backquotes) ? backquote($a_string) : $a_string);
     } // end of the 'sql_addslashes()' function
 
@@ -798,9 +798,10 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         }
         ?>
 
-<!--  Beginning of table navigation bar -->
+<!-- Table navigation bars & text button -->
 <table border="0">
 <tr>
+    <!-- Table navigation bars -->
         <?php
         // Move to the beginning or to the previous page
         if ($pos > 0) {
@@ -895,13 +896,15 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <?php
         } // end move toward
 
-        // cfgLimitChars stuff
-        if (!$dontlimitchars && $GLOBALS['show_text_btn']) {
+        // $cfgLimitChars stuff
+        if ($GLOBALS['show_text_btn']) {
             echo "\n";
             ?>
     <td>
         &nbsp;&nbsp;&nbsp;
     </td>
+
+    <!-- Full/Partial TEXT button -->
     <td>
         <form action="sql.php3" method="post">
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -912,38 +915,16 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             <input type="hidden" name="pos" value="<?php echo ($pos); ?>" />
             <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-            <input type="hidden" name="dontlimitchars" value="1" />
-            <input type="submit" name="navig" value="<?php echo $GLOBALS['strFullText']; ?>" />
+            <input type="hidden" name="dontlimitchars" value="<?php echo (1 - $dontlimitchars); ?>" />
+            <input type="submit" name="navig" value="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" />
         </form>
     </td>
             <?php
-        } else if ($GLOBALS['show_text_btn']) {
-            echo "\n";
-            ?>
-    <td>
-        &nbsp;&nbsp;&nbsp;
-    </td>
-    <td>
-        <form action="sql.php3" method="post">
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
-            <input type="hidden" name="sql_query" value="<?php echo $encoded_sql_query; ?>" />
-            <input type="hidden" name="pos" value="<?php echo ($pos); ?>" />
-            <input type="hidden" name="sessionMaxRows" value="<?php echo $sessionMaxRows; ?>" />
-            <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-            <input type="hidden" name="dontlimitchars" value="0" />
-            <input type="submit" name="navig" value="<?php echo $GLOBALS['strPartialText']; ?>" />
-        </form>
-    </td>
-            <?php
-        } // end cfgLimitChars toward
+        } // end $cfgLimitChars
         echo "\n";
         ?>
 </tr>
 </table>
-<!-- End of table navigation bar -->
 
         <?php
     } // end of the 'show_table_navigation()' function
@@ -965,32 +946,36 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      * @global  string   the current sql query
      * @global  string   the url to go back in case of errors
      * @global  integer  the total number of rows returned by the sql query
+     * @global  array    the list of fields properties
+     * @global  integer  the total number of fields returned by the sql query
      */
     function display_table($dt_result, $is_simple = FALSE)
     {
         global $lang, $server, $db, $table;
         global $sql_query, $goto, $pos;
         global $SelectNumRows, $dontlimitchars;
+        global $fields_meta, $fields_cnt;
 
-        // Gets the number of rows per page
+        // 1. ----- Prepares the work -----
+
+        // 1.1 Gets the number of rows per page
         if (isset($GLOBALS['sessionMaxRows'])) {
             $GLOBALS['cfgMaxRows']     = $GLOBALS['sessionMaxRows'];
         } else {
             $GLOBALS['sessionMaxRows'] = $GLOBALS['cfgMaxRows'];
         }
 
-        // Counts the number of rows in the table if required
+        // 1.2 Counts the number of rows in the table if required
         if (isset($SelectNumRows) && $SelectNumRows != '') {
             $total = $SelectNumRows;
         }
         else if (!$is_simple && !empty($table) && !empty($db)) {
             $local_query = 'SELECT COUNT(*) as total FROM ' . backquote($db) . '.' . backquote($table);
             $result      = mysql_query($local_query) or mysql_die('', $local_query);
-            $row         = mysql_fetch_array($result);
-            $total       = $row['total'];
+            $total       = mysql_result($result, 0, 'total');
         } // end if
 
-        // Defines offsets for the next and previous pages
+        // 1.3 Defines offsets for the next and previous pages
         if (!$is_simple) {
             if (!isset($pos)) {
                 $pos      = 0;
@@ -1002,7 +987,9 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             }
         } // end if
 
-        // Displays a messages with position informations
+        // 2. ----- Displays the top of the page -----
+
+        // 2.1 Displays a messages with position informations
         if (isset($total) && $total > 1 && isset($pos_next)) {
             if (isset($SelectNumRows) && $SelectNumRows != $total) {
                 $selectstring = ', ' . $SelectNumRows . ' ' . $GLOBALS['strSelectNumRows'];
@@ -1015,12 +1002,10 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             show_message($GLOBALS['strSQLQuery']);
         }
 
-        // Displays the navigation bars
-        $field     = mysql_fetch_field($dt_result);
+        // 2.2 Displays the navigation bars
         if (!isset($table) || strlen(trim($table)) == 0) {
-            $table = $field->table;
+            $table = $fields_meta[0]->table;
         }
-        mysql_field_seek($dt_result, 0);
         if (!$is_simple
             && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
             show_table_navigation($pos_next, $pos_prev, $dt_result);
@@ -1028,24 +1013,28 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             echo "\n" . '<br /><br />' . "\n";
         }
 
-        // Displays the results
+        // 3. ----- Displays the results table head -----
+
         $is_show_processlist = eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$", $sql_query);
         ?>
 
+<!-- Results table -->
 <table border="<?php echo $GLOBALS['cfgBorder']; ?>" cellpadding="5">
 <tr>
         <?php
+        // 3.1 Displays empty(ies) col(s) at left if required
         if ($GLOBALS['cfgModifyDeleteAtLeft']
-                 && (!$is_simple || $is_show_processlist)) {
+            && (!$is_simple || $is_show_processlist)) {
             echo "\n" . '    <td' . ((!$is_show_processlist) ? ' colspan="2"' : '') . '></td>';
         }
         echo "\n";
 
-        while ($field = mysql_fetch_field($dt_result)) {
+        // 3.2 Displays the fields' name
+        for ($i = 0; $i < $fields_cnt; $i++) {
             // Result is more than one row long
             if (@mysql_num_rows($dt_result) > 1 && !$is_simple) {
                 // Defines the url used to append/modify a sorting order
-                // 1. Checks if an hard coded 'order by' clause exists
+                // 3.2.1 Checks if an hard coded 'order by' clause exists
                 if (eregi('(.*)( ORDER BY (.*))', $sql_query, $regs1)) {
                     if (eregi('((.*)( ASC| DESC)( |$))(.*)', $regs1[2], $regs2)) {
                         $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
@@ -1061,28 +1050,28 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 } else {
                     $unsorted_sql_query     = $sql_query;
                 }
-                // 2. Checks if the current column is used to sort the result
+                // 3.2.2 Checks if the current column is used to sort the result
                 if (empty($sql_order)) {
                     $is_in_sort = FALSE;
                 } else {
-                    $is_in_sort = eregi(' (`?)' . str_replace('\\', '\\\\', $field->name) . '(`?)[ ,$]', $sql_order);
+                    $is_in_sort = eregi(' (`?)' . str_replace('\\', '\\\\', $fields_meta[$i]->name) . '(`?)[ ,$]', $sql_order);
                 }
-                // 3. Do define the sorting url
+                // 3.2.3 Do define the sorting url
                 if (!$is_in_sort) {
                     // loic1: patch #455484 ("Smart" order)
                     $cfgOrder     = strtoupper($GLOBALS['cfgOrder']);
                     if ($cfgOrder == 'SMART') {
-                        $cfgOrder = (eregi('time|date', $field->type)) ? 'DESC' : 'ASC';
+                        $cfgOrder = (eregi('time|date', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
                     }
-                    $sort_order = ' ORDER BY ' . backquote($field->name) . ' ' . $cfgOrder;
+                    $sort_order = ' ORDER BY ' . backquote($fields_meta[$i]->name) . ' ' . $cfgOrder;
                     $order_img  = '';
                 }
                 else if (substr($sql_order, -3) == 'ASC' && $is_in_sort) {
-                    $sort_order = ' ORDER BY ' . backquote($field->name) . ' DESC';
+                    $sort_order = ' ORDER BY ' . backquote($fields_meta[$i]->name) . ' DESC';
                     $order_img  = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC" />';
                 }
                 else if (substr($sql_order, -4) == 'DESC' && $is_in_sort) {
-                    $sort_order = ' ORDER BY ' . backquote($field->name) . ' ASC';
+                    $sort_order = ' ORDER BY ' . backquote($fields_meta[$i]->name) . ' ASC';
                     $order_img  = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="DESC" />';
                 }
                 if (eregi('(.*)( LIMIT (.*)| PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)', $unsorted_sql_query, $regs3)) {
@@ -1099,7 +1088,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 ?>
     <th>
         <a href="sql.php3?<?php echo $url_query; ?>">
-            <?php echo htmlspecialchars($field->name); ?></a><?php echo $order_img . "\n"; ?>
+            <?php echo htmlspecialchars($fields_meta[$i]->name); ?></a><?php echo $order_img . "\n"; ?>
     </th>
                 <?php
             } // end if
@@ -1109,13 +1098,14 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 echo "\n";
                 ?>
     <th>
-        <?php echo htmlspecialchars($field->name) . "\n"; ?>
+        <?php echo htmlspecialchars($fields_meta[$i]->name) . "\n"; ?>
     </th>
                 <?php
             } // end else
             echo "\n";
-        } // end while
+        } // end for
 
+        // 3.3 Displays empty(ies) col(s) at right if required
         if ($GLOBALS['cfgModifyDeleteAtRight']
                  && (!$is_simple || $is_show_processlist)) {
             echo "\n" . '    <td' . ((!$is_show_processlist) ? ' colspan="2"' : '') . '></td>';
@@ -1126,6 +1116,9 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 
         <?php
         echo "\n";
+
+        // 4. ----- Displays the body of the results table -----
+
         $foo = 0;
 
         // Correction uva 19991216 in the while below
@@ -1141,17 +1134,19 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         // delete/edit options correctly for tables without keys.
 
         while ($row = mysql_fetch_row($dt_result)) {
+
+            // 4.1 Prepares the row (gets primary keys to use)
+
             $primary_key              = '';
             $uva_nonprimary_condition = '';
             $bgcolor                  = ($foo % 2) ? $GLOBALS['cfgBgcolorOne'] : $GLOBALS['cfgBgcolorTwo'];
-            
+
             ?>
 <tr bgcolor="<?php echo $bgcolor; ?>">
             <?php
             echo "\n";
-            $fields_cnt = mysql_num_fields($dt_result);
             for ($i = 0; $i < $fields_cnt; ++$i) {
-                $primary   = mysql_fetch_field($dt_result, $i);
+                $primary   = $fields_meta[$i];
                 $condition = ' ' . backquote($primary->name) . ' ';
                 if (!isset($row[$i])) {
                     $row[$i]   = '';
@@ -1178,7 +1173,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 $uva_condition = $uva_nonprimary_condition;
             }
             $uva_condition     = urlencode(ereg_replace(' ?AND$', '', $uva_condition));
-            
+
             $url_query  = 'lang=' . $lang
                         . '&server=' . $server
                         . '&db=' . urlencode($db)
@@ -1228,12 +1223,12 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 echo "\n";
             } // end if
 
-            $fields_cnt = mysql_num_fields($dt_result);
+            // 4.3 Displays the rows' values
             for ($i = 0; $i < $fields_cnt; ++$i) {
                 if (!isset($row[$i])) {
                     $row[$i] = '';
                 }
-                $primary = mysql_fetch_field($dt_result, $i);
+                $primary = $fields_meta[$i];
                 if ($primary->numeric == 1) {
                     if ($row[$i] != '') {
                         echo '    <td align="right">' . $row[$i] . '</td>' . "\n";
@@ -1276,8 +1271,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                     }
                 }
             } // end for
-            // Possibility to have the modify/delete button on the left added
-            // Benjamin Gandon -- 2000-08-29
+
+            // 4.4 Displays the modify/delete links on the right if required
             if ($GLOBALS['cfgModifyDeleteAtRight'] && !$is_simple) {
                 ?>
     <td>
@@ -1312,6 +1307,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
 <br />
 
         <?php
+        // 5. ----- Displays the navigation bar at the bottom if required -----
+
         echo "\n";
         if (!$is_simple
             && (!isset($SelectNumRows) || $SelectNumRows > 1)) {
