@@ -316,6 +316,6 @@ $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strUseBackquotes = 'Gebruik backquotes bij tabellen en velden\' namen'; // what are backquotes?
-$strWithChecked = 'With checked:';
+$strWithChecked = 'With selected:';
 $strZip = '"zipped"';  //to translate
 ?>

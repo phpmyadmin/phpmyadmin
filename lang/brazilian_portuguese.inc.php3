@@ -316,6 +316,6 @@ $strShowTables = 'Show tables';
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strWithChecked = 'With checked:'; //to translate
+$strWithChecked = 'With selected:'; //to translate
 $strZip = '"zipped"';  //to translate
 ?>

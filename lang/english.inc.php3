@@ -311,7 +311,7 @@ $strViewDump = 'View dump (schema) of table';
 $strViewDumpDB = 'View dump (schema) of database';
 
 $strWelcome = 'Welcome to ';
-$strWithChecked = 'With checked:';
+$strWithChecked = 'With selected:';
 $strWrongUser = 'Wrong username/password. Access denied.';
 
 $strYes = 'Yes';

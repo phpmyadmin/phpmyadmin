@@ -322,5 +322,5 @@ $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
-$strWithChecked = 'With checked:';
+$strWithChecked = 'With selected:';
 ?>

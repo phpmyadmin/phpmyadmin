@@ -315,6 +315,6 @@ $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
 $strTableHasBeenFlushed = 'Table %s has been flushed';
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strWithChecked = 'With checked:';
+$strWithChecked = 'With selected:';
 $strZip = '"zipped"';  //to translate
 ?>
