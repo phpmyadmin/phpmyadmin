@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-15  Marc Delisle  <lem9@users.sourceforge.net>
+        * read_dump.php3, Documentation.html: support for open_basedir, 
+          thanks to Alessandro Ranellucci for the idea
+        * Documentation.html, FAQ about lost MySQL root password
+
 2002-01-14  Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/italian.inc.php3 updates, thanks to danone at users.sf.net
 
