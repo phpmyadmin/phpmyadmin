@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-03  Marc Delisle  <lem9@users.sourceforge.net>
+        * lib.inc.php3 select_db commented out
+
 2001-06-02  Loïc Chapeaux  <lolo@phpheaven.net>
 	* users_details.lib.php3: fixed some typos, warnings and little bugs
 	* lib.inc.php3, lines 144 & 147: wrong var names

@@ -2,9 +2,9 @@
 /* $Id$ */
 
 require("./config.inc.php3");
-if (isset($db)) {
-  mysql_select_db($db);
-}
+//if (isset($db)) {
+//  mysql_select_db($db);
+//}
 
 if(!defined("__LIB_INC__")) {
   define("__LIB_INC__", 1);
