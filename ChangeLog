@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-11 Garvin Hicking <me@supergarv.de>
+    * transformation_wrapper.php3 - Remove $err_url, because if a query
+      fails here, the user won't get to see the error string anyways.
+      Can happen if you want to display a blob without having an index
+      key in your query, because the blob cannot be filtered by a content
+      WHERE-string.
+
 2003-03-11 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 700082, support of XOR
 

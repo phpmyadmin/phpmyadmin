@@ -33,11 +33,11 @@ PMA_mysql_select_db($db);
 $table_def = PMA_mysql_query('SHOW FIELDS FROM ' . PMA_backquote($table));
 if (isset($primary_key)) {
     $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key;
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', '');
     $row         = PMA_mysql_fetch_array($result);
 } else {
     $local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1';
-    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', '');
     $row         = PMA_mysql_fetch_array($result);
 }
 
