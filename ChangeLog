@@ -8,6 +8,11 @@ $Source$
 2005-01-09 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
     * lang/catalan update, thanks to Xavier Navarro (xavin).
+    * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
+    * lang/dutch: Updates, thanks to Ivo Teel.
+    * lang/indonesian: Update thanks to Rachim Tamsjadi - tamsy.
+    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     
 2005-01-07 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_addfield.php: bug #1082680, undefined $field_charset when adding
