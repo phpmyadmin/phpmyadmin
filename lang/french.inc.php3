@@ -132,7 +132,6 @@ $strSuccess		= "Votre requête SQL a été exécutée avec succès";
 $strTable		= "table ";
 $strTableComments	= "Commentaires sur la table";
 $strTableStructure	= "Structure de la table";
-$strTableType       = "Table en format"; // Robbat2, lem9
 $strTerminatedBy	= "terminé(e)s par";  
 $strTheContent		= "Le contenu de votre fichier a été inséré.";  
 $strTheContents		= "Le contenu du fichier remplacera le contenu de la table pour les enregistrements ayant une valeur de clé primaire ou unique identique.";
@@ -163,11 +162,11 @@ $strRowsFrom          = "Enregistrements à partir de la position";  // JPD
 $strEnableMagicQuotes = "<b>Attention:</b> Vous n'avez pas activé magic_quotes_gpc dans votre configuration PHP. PhpMyAdmin en a besoin pour fonctionner correctement. Référez-vous à la rubrique Configuration du manuel PHP pour savoir comment l'activer."; // JPD
 $strPrintView = "Imprimer la vue";  //JPD
 
-$strCheckTable	= "Check table"; //to translate
-$strAnalyzeTable	= "Analyze table";  //to translate
-$strRepairTable	= "Repair table";  //to translate
-$strOptimizeTable	= "Optimize table"; //to translate
-$strTableType	= "Table type"; //to translate
+$strCheckTable = "Vérifier la table"; 
+$strAnalyzeTable = "Analyser la table";  
+$strRepairTable = "Réparer la table";  
+$strOptimizeTable = "Optimiser la table"; 
+$strTableType = "Table en format"; 
 
 $strBookmarkQuery	= "Requêtes bookmarkées";
 $strBookmarkThis	= "Bookmarker cette requête";

@@ -260,7 +260,10 @@ echo " </select>\n";
             <input type="radio" name="what" value="csv"><?php echo $strStrucCSV;?>
         </td>
         <td>
-            <?php echo $strTerminatedBy;?> <input type="text" name="separator" size=1 value=";">
+            <?php echo $strFields . " ". $strTerminatedBy;?> <input type="text" name="separator" size=1 value=";">
+        </td>
+        <td>
+            <?php echo $strLines . " ". $strTerminatedBy;?> <input type="text" name="add_character" size=1 value="">
         </td>
     </tr>
 </table>

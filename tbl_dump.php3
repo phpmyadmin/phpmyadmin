@@ -44,7 +44,7 @@ else
         if (eregi("Win",$os)) 
             $crlf="\r\n";
 	}
-}
+ }
 
 function my_handler($sql_insert)
 {
@@ -54,15 +54,17 @@ function my_handler($sql_insert)
     else
         echo "$sql_insert;$crlf";
  }
- 
+
 function my_csvhandler($sql_insert)
 {
-    global $crlf, $asfile;
+    // 2001-05-07, Lem9: added $add_character
+
+    global $crlf, $add_character, $asfile;
     if(empty($asfile))
-        echo htmlspecialchars("$sql_insert;$crlf");
+        echo htmlspecialchars($sql_insert . $add_character . $crlf);
     else
-        echo "$sql_insert;$crlf";
- }
+        echo $sql_insert . $add_character . $crlf;
+}
 
 if($what != "csv") 
 {
