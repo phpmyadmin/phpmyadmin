@@ -29,7 +29,6 @@ estonian
 finnish
 french
 galician
-georgian
 german
 greek
 hebrew
@@ -61,7 +60,6 @@ EOT`
 # as above.
 #
 IGNORE_UTF=`cat <<EOT
-georgian
 hebrew
 korean
 EOT`
