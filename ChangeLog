@@ -8,6 +8,7 @@ $Source$
 2002-05-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/italian.inc.php3: Updates, thanks again to
       Pietro Danesi <danone@users.sourceforge.net>.
+    * lang/german.inc.php3: Updates.
 
 2002-05-24 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, images/bkg.gif: Tried to "fix" bug (?) #558155.
