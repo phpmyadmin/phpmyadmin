@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-07 Marc Delisle  <lem9@users.sourceforge.net>
+    ### 2.5.5-rc1 released
+
 2003-12-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/danish: updates, thanks to Finn Sorensen (alleyman01)
 
