@@ -12,6 +12,7 @@ $Source$
     * libiraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
       compatibility.
     * lang/german-*.inc.php3: Updates.
+    * server_privileges.php3: Remove column privileges.
 
 2003-02-02 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
@@ -129,7 +130,6 @@ $Source$
 
 2003-01-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: Added column privileges editor.
-      TODO: Deselection of all columns is not possible yet...
 
 2003-01-19 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3, tbl_properties_export.php3, tbl_dump.php3,

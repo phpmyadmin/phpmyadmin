@@ -93,7 +93,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = FALSE)
     $allPrivileges = TRUE;
     while (list(, $current_grant) = each($grants)) {
         if ((!empty($row) && isset($row[$current_grant[0]])) || (empty($row) && isset($GLOBALS[$current_grant[0]]))) {
-            if ((!empty($row) && $row[$current_grant[0]] == 'Y') || (empty($row) && ($GLOBALS[$current_grant[0]] == 'Y' || (is_array($GLOBALS[$current_grant[0]]) && count($GLOBALS[$current_grant[0]]) == $GLOBALS['column_count'])))) {
+            if ((!empty($row) && $row[$current_grant[0]] == 'Y') || (empty($row) && ($GLOBALS[$current_grant[0]] == 'Y' || (is_array($GLOBALS[$current_grant[0]]) && count($GLOBALS[$current_grant[0]]) == $GLOBALS['column_count'] && empty($GLOBALS[$current_grant[0] . '_none']))))) {
                 if ($enableHTML) {
                     $privs[] = '<dfn title="' . $current_grant[2] . '">' . str_replace(' ', '&nbsp;', $current_grant[1]) . '</dfn>';
                 } else {
@@ -269,6 +269,9 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
         }
         echo $spaces . '            </select><br />' . "\n"
+           . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
+           . $spaces . '            <input type="checkbox" name="Select_priv_none" id="checkbox_Select_priv_none" title="' . $GLOBALS['strNone'] . '" />' . "\n"
+           . $spaces . '            <label for="checkbox_Select_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="Insert_priv[]" multiple="multiple">' . "\n";
@@ -280,7 +283,10 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             }
             echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
         }
-        echo $spaces . '            </select>' . "\n"
+        echo $spaces . '            </select><br />' . "\n"
+           . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
+           . $spaces . '            <input type="checkbox" name="Insert_priv_none" id="checkbox_Insert_priv_none" title="' . $GLOBALS['strNone'] . '" />' . "\n"
+           . $spaces . '            <label for="checkbox_Insert_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="Update_priv[]" multiple="multiple">' . "\n";
@@ -292,7 +298,10 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             }
             echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
         }
-        echo $spaces . '            </select>' . "\n"
+        echo $spaces . '            </select><br />' . "\n"
+           . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
+           . $spaces . '            <input type="checkbox" name="Update_priv_none" id="checkbox_Update_priv_none" title="' . $GLOBALS['strNone'] . '" />' . "\n"
+           . $spaces . '            <label for="checkbox_Update_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" rowspan="' . $rowspan . '" valign="top">' . "\n"
            . $spaces . '            <select name="References_priv[]" multiple="multiple">' . "\n";
@@ -304,7 +313,10 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             }
             echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
         }
-        echo $spaces . '            </select>' . "\n"
+        echo $spaces . '            </select><br />' . "\n"
+           . $spaces . '            <i>' . $GLOBALS['strOr'] . '</i><br />' . "\n"
+           . $spaces . '            <input type="checkbox" name="References_priv_none" id="checkbox_References_priv_none" title="' . $GLOBALS['strNone'] . '" />' . "\n"
+           . $spaces . '            <label for="checkbox_References_priv_none">' . $GLOBALS['strNone'] . '</label>' . "\n"
            . $spaces . '        </td>' . "\n";
         unset($rowspan);
         list($current_grant, $current_grant_value) = each($row);
