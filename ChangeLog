@@ -10,6 +10,7 @@ $Source$
       - Removed a comment and
       - Changed the default value for $cfg['AllowAnywhereRecoding'] into FALSE.
     * header.inc.php3: Better fix against bug #571409, thanks to Loïc.
+    * libraries/common.lib.php3: Coding standards.
 
 2002-07-15 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_export.php3, db_details_links.php3, Documentation.html,

@@ -1339,7 +1339,7 @@ if (typeof(document.getElementById) != 'undefined'
         // The name contains caracters <> a-z, A-Z and "_" -> not a reserved
         // word
         if (!ereg('^[a-zA-Z_]+$', $the_name)) {
-            return true;
+            return TRUE;
         }
 
         // Else do the work
