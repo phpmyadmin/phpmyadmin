@@ -1,10 +1,8 @@
 <?php
 /* $Id$ */
 
-
 require("./grab_globals.inc.php3");
  
-
 @set_time_limit(600);
 $crlf="\n";
 
@@ -20,8 +18,8 @@ else
 	include("./lib.inc.php3");
 	$ext = "sql";
 	if($what == "csv") $ext = "csv";
-    if(isset($gzip))
-        if($gzip == "gzip") $ext = "gz";
+	if(isset($gzip))
+        	if($gzip == "gzip") $ext = "gz";
 
 	header('Content-Type: application/octetstream');
 	header('Content-Disposition: filename="' . $filename . '.' . $ext . '"');
@@ -51,7 +49,7 @@ else
 function my_handler($sql_insert)
 {
 	global $crlf, $asfile;
-    global $tmp_buffer;
+	global $tmp_buffer;
 
 	if(empty($asfile))
 		$tmp_buffer.= htmlspecialchars("$sql_insert;$crlf");
@@ -64,7 +62,7 @@ function my_csvhandler($sql_insert)
 	// 2001-05-07, Lem9: added $add_character
 
 	global $crlf, $add_character, $asfile;
-    global $tmp_buffer;
+	global $tmp_buffer;
 
 	if(empty($asfile))
 		$tmp_buffer.= htmlspecialchars($sql_insert . $add_character . $crlf);
@@ -122,9 +120,7 @@ else
 					$dump_buffer.= "$crlf#$crlf";
 					$dump_buffer.= "# $strTableStructure '$table'$crlf";
 					$dump_buffer.= "#$crlf$crlf";
-
-					get_table_def($db, $table, $crlf).";$crlf";
-                    $dump_buffer.=$tmp_buffer;
+					$dump_buffer.= get_table_def($db,$table, $crlf).";$crlf"; 				
 				}
 
 				if(($what == "data") || ($what == "dataonly"))
@@ -132,29 +128,32 @@ else
 					$dump_buffer.= "$crlf#$crlf";
 					$dump_buffer.= "# $strDumpingData '$table'$crlf"; 
 					$dump_buffer.= "#$crlf$crlf";
-
+					
+					$tmp_buffer="";
 					get_table_content($db, $table, "my_handler");
-                    $dump_buffer.=$tmp_buffer;
-
+					$dump_buffer.=$tmp_buffer;
 				}
 				$i++;
 			}
 		}
-        $dump_buffer.= "$crlf"; // Don't remove, it makes easier to select & copy from browser - staybyte
+		// Don't remove, it makes easier to select & copy frombrowser - staybyte
+		$dump_buffer.= "$crlf";
 	} 
 	else 
 	{ // $what != "csv"
+		$tmp_buffer="";
 		get_table_csv($db, $table, $separator, "my_csvhandler");
-        $dump_buffer.=$tmp_buffer;
+        	$dump_buffer.=$tmp_buffer;
 	}
 }
 
 if(isset($gzip)) {
-    if($gzip == "gzip" && function_exists("gzencode"))
-        echo gzencode($dump_buffer); // without the optional parameter level because it bug
+	if($gzip == "gzip" && function_exists("gzencode"))
+		// without the optional parameter level because it bug
+        	echo gzencode($dump_buffer);  
 }
 else
-    echo $dump_buffer;
+	echo $dump_buffer;
 
 if(empty($asfile))
 {
