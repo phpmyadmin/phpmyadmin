@@ -80,15 +80,20 @@ function PMA_tableGrants(&$host_db_result, $dbcheck = FALSE) {
             $i = 0;
             while ($usr_row = mysql_fetch_row($result)) {
                 if (eregi('GRANT (.*) ON ([^\.]+).([^\.]+) TO .*$', $usr_row[0], $parts)) {
-                    $priv     = ($parts[1] != 'USAGE') ? trim($parts[1]) : '';
+                    // loic1: bug #487673 - revoke 'reference'
+                    if ($parts[1] == 'USAGE') {
+                        $priv = '';
+                    } else {
+                        $priv = ereg_replace('REFERENCE([^S]|$)', 'REFERENCES', trim($parts[1]));
+                    }
                     $db       = $parts[2];
                     $table    = trim($parts[3]);
                     $grantopt = eregi('WITH GRANT OPTION$', $usr_row[0]);
                 } else {
                     $priv     = '';
-                    $db       = '&nbsp';
-                    $table    = '&nbsp';
-                    $column   = '&nbsp';
+                    $db       = '&nbsp;';
+                    $table    = '&nbsp;';
+                    $column   = '&nbsp;';
                     $grantopt = FALSE;
                 } // end if...else
 

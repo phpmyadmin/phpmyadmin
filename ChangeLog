@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-01  Loïc Chapeaux  <lolo@phpheaven.net>
+	* user_details.php3, lines 83-88: fixed bug #487673 - revoke 'reference'.
+
 2001-11-30  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3: fixed bug #486509 - Text fields don't
 	  display newlines.
