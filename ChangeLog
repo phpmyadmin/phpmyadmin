@@ -9,6 +9,8 @@ $Source$
     * libraries/sqlparser.data.php: bug 854702: FORCE INDEX
     * main.php: bug 851564: backquotes on the wildcard dbname
       when no controluser is defined
+    * db_datadict.php: bug 857186: ENUMs and data dictionary,
+      thanks to Andrew Weiner (landreww) for the report and fix
 
 2003-12-09 Garvin Hicking <embatag@supergarv.de>
     * tbl_change.php: Fixed Bug #856436 (not displaying default values)
