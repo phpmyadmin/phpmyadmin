@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * translators.html: updates (try to have only one official translator,
+      probably the original author, or the one who now sends updates)
+
 2002-06-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.*:
       - The textarea bug still appears in Mozilla 1.0-final;
