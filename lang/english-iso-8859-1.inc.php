@@ -397,6 +397,7 @@ $strNoRights = 'You don\'t have enough rights to be here right now!';
 $strNoRowsSelected = 'No rows selected';
 $strNoSpace = 'Insufficient space to save the file %s.';
 $strNoTablesFound = 'No tables found in database.';
+$strNoThemeSupport = 'No themes support, please check your configuration and/or your themes in directory %s.';
 $strNoUsersFound = 'No user(s) found.';
 $strNoValidateSQL = 'Skip Validate SQL';
 $strNone = 'None';

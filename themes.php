@@ -67,7 +67,7 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
             window.opener.document.forms['setTheme'].submit();
             self.close();
         } else {
-            alert('No theme support, please check your configs\nand/or your themes in <?php echo './' . $cfg['ThemePath']; ?>');
+            alert('<?php echo sprintf($strNoThemeSupport, $cfg['ThemePath']); ?>');
             self.close();
         }
     }
@@ -78,7 +78,7 @@ echo "<?xml version=\"1.0\" encoding=\"" . $GLOBALS['charset'] . "\"?".">";
 <body bgcolor="<?php echo $cfg['RightBgColor']; ?>">
     <table border="0" align="center" cellpadding="3" cellspacing="1">
         <tr>
-            <th class="tblHeaders"><b>phpMyAdmin - <?php echo ($strTheme ? $strTheme : 'Theme / Style'); ?></b></th>
+            <th class="tblHeaders"><b>phpMyAdmin - <?php echo $strTheme; ?></b></th>
         </tr>
         <tr>
             <td><img src="<?php echo $GLOBALS['pmaThemeImage'] . 'spacer.png'; ?>" width="1" height="1" border="0" alt="" /></td>
@@ -122,8 +122,8 @@ if ($handleThemes = opendir($path_to_themes)) { // open themes
                     if (document.getElementById) {
                         document.write('style="border: 1px solid #000000;" ');
                     }
-                    document.write('alt="<?php echo htmlspecialchars(addslashes($theme_name)); ?> - Theme" ');
-                    document.write('title="<?php echo htmlspecialchars(addslashes($theme_name)); ?> - Theme" />');
+                    document.write('alt="<?php echo htmlspecialchars(addslashes($theme_name)); ?>" ');
+                    document.write('title="<?php echo htmlspecialchars(addslashes($theme_name)); ?>" />');
                     document.write('</a><br />');
                     document.write('[ <b><a href="#top" onclick="takeThis(\'<?php echo $PMA_Theme; ?>\'); return false;">');
                     document.write('<?php echo addslashes($strTakeIt); ?>');

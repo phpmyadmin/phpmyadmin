@@ -404,6 +404,7 @@ $strNoRights = 'Nemáte dostatečná práva na provedení této akce!';
 $strNoRowsSelected = 'Nebyla vybrán žádný řádek';
 $strNoSpace = 'Nedostatek místa pro uložení souboru %s.';
 $strNoTablesFound = 'V&nbsp;databázi nebyla nalezena ani jedna tabulka.';
+$strNoThemeSupport = 'Není podporována změna tématu, zkontrolujte nastavení a témata v adresáři %s.';
 $strNoUsersFound = 'Žádný uživatel nenalezen.';
 $strNoValidateSQL = 'Bez kontroly SQL';
 $strNone = 'Žádná';

@@ -403,6 +403,7 @@ $strNoRights = 'Nemáte dostateèná práva na provedení této akce!';
 $strNoRowsSelected = 'Nebyla vybrán ¾ádný øádek';
 $strNoSpace = 'Nedostatek místa pro ulo¾ení souboru %s.';
 $strNoTablesFound = 'V&nbsp;databázi nebyla nalezena ani jedna tabulka.';
+$strNoThemeSupport = 'Není podporována zmìna tématu, zkontrolujte nastavení a témata v adresáøi %s.';
 $strNoUsersFound = '®ádný u¾ivatel nenalezen.';
 $strNoValidateSQL = 'Bez kontroly SQL';
 $strNone = '®ádná';

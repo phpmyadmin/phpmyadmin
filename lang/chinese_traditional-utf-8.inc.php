@@ -10,6 +10,7 @@ $charset = 'utf-8';
 $allow_recoding = TRUE;
 $allow_recoding = TRUE;
 $allow_recoding = TRUE;
+$allow_recoding = TRUE;
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'helvetica, sans-serif';
@@ -728,4 +729,5 @@ $strZip = '"zipped"';
 
 $strAddFields = 'Add %s field(s)';  //to translate
 $strInsertBookmarkTitle = 'Please insert bookmark title';  //to translate
+$strNoThemeSupport = 'No themes support, please check your configuration and/or your themes in directory %s.';  //to translate
 ?>
