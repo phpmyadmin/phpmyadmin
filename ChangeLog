@@ -17,6 +17,7 @@ $Source$
     * lang/catalan-*.inc.php3, lang/spanish-*.inc.php3: Updates, thanks to
       Xavier Navarro.
     * lang/dutch-*.inc.php3: Updates, thanks to Ivo Teel.
+    * Documentation.html: Fixed typos.
 
 2002-11-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_create.php3, db_datadict.php3, db_details.php3, db_details_export.php3,

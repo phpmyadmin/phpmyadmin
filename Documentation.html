@@ -1592,7 +1592,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br />
     This is a known problem with the php ISAPI filter: it's not so stable. For
     some more information and complete testings see the messages posted by
-    André B. aka &quot;djdeluxe76&quot; in
+    Andr&eacute; B. aka &quot;djdeluxe76&quot; in
     <a href="http://www.phpwizard.net/phorum/read.php?f=1&amp;i=6624&amp;t=6300">this&nbsp;thread</a>
     from the phpWizard forum.<br />
     Please use instead the cookie authentication mode.
@@ -1830,12 +1830,12 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <b>[1.25] I am running Apache with mod_gzip-1.3.26.1a on Windows XP,
        and I get problems, such as undefined variables when I run a SQL query.</b>
     <br />
-    A tip from Jose Fandos: put a comment on the following two lines 
+    A tip from Jose Fandos: put a comment on the following two lines
     in httpd.conf, like this:<br />
     <tt># mod_gzip_item_include file \.php$</tt><br />
     <tt># mod_gzip_item_include mime "application/x-httpd-php.*"</tt><br />
     as this version of mod_gzip on Apache (Windows) has problems handling
-    php scripts. Of course you have to restart Apache. 
+    php scripts. Of course you have to restart Apache.
 </p>
 
 <a name="faqconfig"></a>
@@ -2276,14 +2276,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_towns VALUES ('S', 'Sherbrooke');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_towns VALUES ('M', 'Montréal');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_towns VALUES ('M', 'Montr&eacute;al');<br />
     <br />
     </tt>
     To setup appropriate links and display information:
 <ul>
     <li>on table &quot;REL_persons&quot; click Structure, then Relation view</li>
-    <li>in Links, for &quot;town_code&quot; choose &quot;REL_towns-&gt;code&quot</li>
-    <li>in Links, for &quot;country_code&quot; choose &quot;REL_countries-&gt;country_code&quot</li>
+    <li>in Links, for &quot;town_code&quot; choose &quot;REL_towns-&gt;code&quot;</li>
+    <li>in Links, for &quot;country_code&quot; choose &quot;REL_countries-&gt;country_code&quot;</li>
     <li>on table &quot;REL_towns&quot; click Structure, then Relation view</li>
     <li>in &quot;Choose field to display&quot;, choose &quot;description&quot;</li>
     <li>repeat the two previous steps for table &quot;REL_countries&quot;</li>
