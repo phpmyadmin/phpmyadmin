@@ -311,21 +311,21 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             $show_create_table_res = PMA_mysql_query($show_create_table_query);
             list(,$show_create_table) = PMA_mysql_fetch_row($show_create_table_res);
             $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-
             while (list(,$one_key) = each ($analyzed_sql[0]['foreign_keys'])) {
 
             // the analyzer may return more than one column name in the
             // index list or the ref_index_list
                 while (list($i,$field) = each($one_key['index_list'])) {
 
-            // TODO: SHOW CREATE TABLE does not return the db name in 
-            // the REFERENCES, so we assume the same db as master
-
             // If a foreign key is defined in the 'internal' source (pmadb)
             // and in 'innodb', we won't get it twice if $source='both'
             // because we use $field as key
 
-                    $foreign[$field]['foreign_db']    = $db;
+                    if (isset($one_key['ref_db_name'])) {
+                        $foreign[$field]['foreign_db']    = $one_key['ref_db_name'];
+                    } else {
+                        $foreign[$field]['foreign_db']    = $db;
+                    }
                     $foreign[$field]['foreign_table'] = $one_key['ref_table_name'];
                     $foreign[$field]['foreign_field'] = $one_key['ref_index_list'][$i];
                 }

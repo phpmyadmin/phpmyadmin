@@ -1394,7 +1394,6 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     if ($seen_foreign && $in_bracket) {
                         // remove backquotes
                         $identifier = str_replace('`','',$arr[$i]['data']);
-                        //$foreign_key_number++;
                         $foreign[$foreign_key_number]['index_list'][] = $identifier;
                     }
 
@@ -1403,7 +1402,14 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         if ($in_bracket) {
                             $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
                         } else {
-                            $foreign[$foreign_key_number]['ref_table_name'] = $identifier;
+                            // identifier can be table or db.table
+                            $db_table = explode('.',$identifier);
+                            if (isset($db_table[1])) {
+                                $foreign[$foreign_key_number]['ref_db_name'] = $db_table[0];
+                                $foreign[$foreign_key_number]['ref_table_name'] = $db_table[1];
+                            } else {
+                                $foreign[$foreign_key_number]['ref_table_name'] = $db_table[0];
+                            }
                         }
                     }
                 }
