@@ -260,6 +260,9 @@ $strRevokePriv = 'Revoca privilegi';
 $strRowLength = 'Lunghezza riga';
 $strRows = 'Righe';
 $strRowsFrom = 'righe a partire da';
+$strRowsModeHorizontal=" orizzontale ";  //to translate
+$strRowsModeOptions=" in modalità %s e ripeti gli headers dopo %s celle ";  //to translate
+$strRowsModeVertical=" verticale ";  //to translate
 $strRowSize = 'Dimensione riga';
 $strRowsStatistic = 'Statistiche righe';
 $strRunning = 'in esecuzione su %s';
@@ -343,7 +346,6 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
-$strRowsModeVertical=" vertical ";  //to translate
-$strRowsModeHorizontal=" horizontal ";  //to translate
-$strRowsModeOptions=" in %s mode and repeat headers after %s cells ";  //to translate
+
+
 ?>
