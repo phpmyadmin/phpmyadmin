@@ -95,7 +95,6 @@ $strCreateNewTable = 'Creaza tabela noua in baza de date %s';
 $strCreatePage = 'Creaza o noua pagina';
 $strCreatePdfFeat = 'Creare de PDF';
 $strCriteria = 'Criteriu';
-$strCvsData = 'Date CSV';
 
 $strData = 'Date';
 $strDataOnly = 'Numai date';

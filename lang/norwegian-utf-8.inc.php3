@@ -100,7 +100,6 @@ $strCreateNewTable = 'Opprett ny tabell i database %s';
 $strCreatePage = 'Lag en ny side';
 $strCreatePdfFeat = 'Lag PDF dokumenter';
 $strCriteria = 'Kriterier';
-$strCvsData = 'CSV data';
 
 $strData = 'Data';
 $strDatabase = 'Database ';

@@ -95,7 +95,6 @@ $strCreateNewTable = 'Crear nueva tabla en base de datos %s';
 $strCreatePage = 'Crear una nueva página';
 $strCreatePdfFeat = 'Creación de los PDF';
 $strCriteria = 'Criterio';
-$strCvsData = 'datos CSV';  
 
 $strData = 'Datos';
 $strDataOnly = 'Solamente datos';

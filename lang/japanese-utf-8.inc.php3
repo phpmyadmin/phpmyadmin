@@ -101,7 +101,6 @@ $strCreateNewTable = '現在のDBに新しいテーブルを作成します。 %
 $strCreatePage = '新規ページの作成';
 $strCreatePdfFeat = 'PDF作成機能';
 $strCriteria = '絞込み基準';
-$strCvsData = 'CSVデータ';
 
 $strData = 'データ';
 $strDataOnly = 'データのみ';

@@ -95,7 +95,6 @@ $strCreateNewTable = 'Skapa ny tabell i databas %s';
 $strCreatePage = 'Skapa en ny sida';
 $strCreatePdfFeat = 'Skapande av PDF-sidor';
 $strCriteria = 'Villkor';
-$strCvsData = 'CSV-data';
 
 $strData = 'Data';
 $strDataOnly = 'Enbart data';

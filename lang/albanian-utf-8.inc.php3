@@ -100,7 +100,6 @@ $strCreateNewTable = 'Krijo një tabelë të re tek database %s';
 $strCreatePage = 'Krijo një Faqe të re';
 $strCreatePdfFeat = 'Krijimi i PDF-ve';
 $strCriteria = 'Kriteri';
-$strCvsData = 'Të dhëna CSV';
 
 $strData = 'Të dhëna';
 $strDatabase = 'Database ';

@@ -101,7 +101,6 @@ $strCreateNewTable = 'Crea una nuova tabella nel database %s';
 $strCreatePage = 'Crea una nuova Page';
 $strCreatePdfFeat = 'Creazione di PDF';
 $strCriteria = 'Criterio';
-$strCvsData = 'Dati CSV';
 
 $strData = 'Dati';
 $strDatabase = 'Database ';

@@ -448,6 +448,5 @@ $strZip = '"zipped"';
 $strWebServerUploadDirectoryError = 'Direktori muatnaik yang telah ditetapkan tidak dapat dicapai';
 $strValidatorError = 'Pengesahan SQL tidak dapat disahkan. Sila semak sama ada anda telah memasang sambungan php seperti yang tercatitit di %sdocumentation%s.'; 
 $strServer = 'Pelayan %s'; 
-$strCvsData = 'Data CSV';
 $strPutColNames = 'Letakkan medan di baris pertama';
 ?>

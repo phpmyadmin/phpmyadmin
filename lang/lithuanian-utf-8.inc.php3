@@ -96,7 +96,6 @@ $strCreateNewTable = 'Sukurti naują lentelę duomenų bazėje %s';
 $strCreatePage = 'Sukurti naują puslapį';
 $strCreatePdfFeat = 'PDF bylos generavimas';
 $strCriteria = 'Kriterijai';
-$strCvsData = 'CSV duomenys';
 
 $strData = 'Duomenys';
 $strDataOnly = 'Tik duomenys';

@@ -86,7 +86,7 @@ echo "\n";
             <?php echo sprintf($strDumpXRows , '<input type="text" name="limit_to" size="5" value="' . PMA_countRecords($db, $table, TRUE) . '" class="textfield" style="vertical-align: middle" onfocus="this.select()" />' , '<input type="text" name="limit_from" value="0" size="5" class="textfield" style="vertical-align: middle" onfocus="this.select()" />') . "\n"; ?>
             <br /><br />
             <!-- For CSV data -->
-            <?php echo $strCvsData; ?><br />
+            <?php echo $strStrucCSV; ?><br />
             &nbsp;&nbsp;
             <input type="checkbox" name="showcsvnames" value="yes" id="checkbox_dump_showcsvnames" />
             <label for="checkbox_dump_showcsvnames"><?php echo $strPutColNames; ?></label>

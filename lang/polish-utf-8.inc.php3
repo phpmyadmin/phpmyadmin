@@ -96,7 +96,6 @@ $strCreateNewTable = 'Utworzenie nowej tabeli dla bazy danych %s';
 $strCreatePage = 'Utworzenie nowej strony';
 $strCreatePdfFeat = 'Tworzenie PDF-ów';
 $strCriteria = 'Kryteria';
-$strCvsData = 'Dane CSV';
 
 $strData = 'Dane';
 $strDataOnly = 'Tylko dane';

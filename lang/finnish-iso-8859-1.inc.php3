@@ -99,7 +99,6 @@ $strCreateNewTable = 'Luo uusi taulu tietokantaan %s';
 $strCreatePage = 'Luo uusi sivu';
 $strCreatePdfFeat = 'PDF-tiedostojen luonti';
 $strCriteria = 'Hakuehdot';
-$strCvsData = 'CSV-muotoinen data';
 
 $strData = 'Data';
 $strDataOnly = 'Vain data';

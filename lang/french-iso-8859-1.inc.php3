@@ -95,7 +95,6 @@ $strCreateNewTable = 'Créer une nouvelle table sur la base %s';
 $strCreatePage = 'Créer une page';
 $strCreatePdfFeat = 'Génération de schémas en PDF';
 $strCriteria = 'Critère';
-$strCvsData = 'Données CSV';
 
 $strData = 'Données';
 $strDatabase = 'Base de données';
