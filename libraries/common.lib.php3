@@ -1104,7 +1104,7 @@ if (typeof(document.getElementById) != 'undefined'
 
         // Checks if the table needs to be repaired after a TRUNCATE query.
         if (PMA_MYSQL_INT_VERSION >= 40000
-            && isset($GLOBALS['table'])
+            && isset($GLOBALS['table']) && isset($GLOBALS['sql_query'])
             && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])) {
             if (!isset($tbl_status)) {
                 $result = @PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($GLOBALS['db']) . ' LIKE \'' . PMA_sqlAddslashes($GLOBALS['table'], TRUE) . '\'');
