@@ -9,6 +9,7 @@ $Source$
 	* header.inc.php3; left.php3; libraries/left.js: CSS fixes.
 	* lang/italian.inc.php3: updated thanks to
 	  "DPhantom" <dphantom at users.sourceforge.net>.
+	* lang/portuguese.inc.php3: updated thanks to António Raposo.
 
 2002-04-19 Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html "how can I make a backup?",

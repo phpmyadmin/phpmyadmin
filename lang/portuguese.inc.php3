@@ -1,8 +1,10 @@
 <?php
 /* $Id$ */
 
-/*
- * Portuguese language file by Lopo Pizarro <lopopizarro@users.sourceforge.net>
+/**
+ * Portuguese language file by
+ *   António Raposo <Antonio.Raposo at CFMsoft.JazzNet.pt>
+ *   Lopo Pizarro <lopopizarro@users.sourceforge.net>
  */
 
 $charset = 'iso-8859-1';
@@ -57,8 +59,8 @@ $strBinary = ' Binário ';
 $strBinaryDoNotEdit = ' Binário - não editar ';
 $strBookmarkDeleted = 'Marcador apagado com sucesso.';
 $strBookmarkLabel = 'Etiqueta';
-$strBookmarkQuery = 'SQL-query marcada';
-$strBookmarkThis = 'Marcar esta SQL-query';
+$strBookmarkQuery = 'Comandos SQL marcados';
+$strBookmarkThis = 'Marcar este comando SQL';
 $strBookmarkView = 'Ver apenas';
 $strBrowse = 'Visualiza';
 $strBzip = '"Compressão bzip"';
@@ -102,7 +104,7 @@ $strDeletedRows = 'Linhas apagadas:';
 $strDescending = 'Descendente';
 $strDisplay = 'Mostra';
 $strDisplayOrder = 'Ordem de visualização:';
-$strDoAQuery = 'Faça uma "query by example" (wildcard: "%")';
+$strDoAQuery = 'Faça uma "pesquisa por formulário" (caractere universal: "%")';
 $strDoYouReally = 'Confirma : ';
 $strDocu = 'Documentação';
 $strDrop = 'Elimina';
@@ -115,7 +117,7 @@ $strEdit = 'Edita';
 $strEditPrivileges = 'Alterar Privilegios';
 $strEffective = 'Em uso';
 $strEmpty = 'Limpa';
-$strEmptyResultSet = 'MySQL retornou um set vazio (ex. zero regs).';
+$strEmptyResultSet = 'MySQL não retornou nenum registo.';
 $strEnd = 'Fim';
 $strEnglishPrivileges = ' Nota: os nomes dos privilégios do MySQL são em Inglês ';
 $strError = 'Erro';
@@ -141,8 +143,8 @@ $strGo = 'Executa';
 $strGrants = 'Autorizações';
 $strGzip = '"Compressão gzip"';
 
-$strHasBeenAltered = 'foi alterado.';
-$strHasBeenCreated = 'foi criado.';
+$strHasBeenAltered = 'foi alterado(a).';
+$strHasBeenCreated = 'foi criado(a).';
 $strHome = 'Início';
 $strHomepageOfficial = 'Página Oficial do phpMyAdmin';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin - Página de Download';
@@ -167,12 +169,12 @@ $strInstructions = 'Instruções';
 $strInvalidName = '"%s" é uma palavra reservada, não pode usar como nome de base de dados/tabela/campo.';
 
 $strKeepPass = 'Sem alterar senha';
-$strKeyname = 'Keyname';
+$strKeyname = 'Nome do Índice';
 $strKill = 'Termina';
 
 $strLength = 'Comprimento';
-$strLengthSet = 'Tamanho/Set*';
-$strLimitNumRows = 'registos por página';
+$strLengthSet = 'Tamanho/Valores*';
+$strLimitNumRows = 'Número de registos por página';
 $strLineFeed = 'Mudança de linha: \\n';
 $strLines = 'Linhas';
 $strLinesTerminatedBy = 'Linhas terminadas por';
@@ -206,7 +208,7 @@ $strNoIndexPartsDefined = 'Nenhuma parte do índice definida!';
 $strNoModification = 'Sem alterações';
 $strNoPassword = 'Sem Senha';
 $strNoPrivileges = 'Sem Privilégios';
-$strNoQuery = 'Nenhuma SQL query encontrada!';
+$strNoQuery = 'Nenhum comando SQL encontrado!';
 $strNoRights = 'Não tem permissões suficientes para aceder aqui, neste momento!';
 $strNoTablesFound = 'Nenhuma tabela encontrada na base de dados';
 $strNoUsersFound = 'Nenhum utilizador encontrado.';
@@ -280,7 +282,7 @@ $strSelect = 'Selecciona';
 $strSelectADb = 'Por favor seleccione uma base de dados';
 $strSelectAll = 'Selecciona Todas';
 $strSelectFields = 'Seleccione os campos (no mínimo 1)';
-$strSelectNumRows = 'em query';
+$strSelectNumRows = 'na pesquisa';
 $strSend = 'envia';
 $strServerChoice = 'Escolha do Servidor';
 $strServerVersion = 'Versão do servidor';
@@ -292,7 +294,7 @@ $strShowPHPInfo = 'Mostra informação do PHP';
 $strShowTables = 'Mostra tabelas';
 $strShowThisQuery = ' Mostrar de novo aqui este comando ';
 $strShowingRecords = 'Mostrando registos ';
-$strSingly = '(sózinho)';
+$strSingly = '(A refazer após inserir/eliminar)';
 $strSize = 'Tamanho';
 $strSort = 'Ordenação';
 $strSpaceUsage = 'Espaço ocupado';
