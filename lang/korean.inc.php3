@@ -75,7 +75,6 @@ $strDefault = '기본값';
 $strDelete = '삭제';
 $strDeleted = '선택한 열을 삭제 하였습니다.';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = '보기';
 $strDoAQuery = '"QUERY 예(例)"를 실행 (wildcard: "%")';
@@ -324,5 +323,5 @@ $strKeepPass = 'Do not change the password';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

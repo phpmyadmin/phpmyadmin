@@ -74,7 +74,7 @@ $strCriteria = 'Critère';
 
 $strData = 'Données';
 $strDatabase = 'Base de données';
-$strDatabaseHasBeenDropped="La base de données %s a été effacée";  
+$strDatabaseHasBeenDropped = 'La base de données %s a été effacée.';
 $strDatabases = 'bases de données';
 $strDatabasesStats = 'Statistiques sur les bases de données';
 $strDataOnly = 'Données seulement';
@@ -85,7 +85,6 @@ $strDeleted = 'L\'enregistrement a été effacé';
 $strDeletedRows = 'Nombre d\'enregistrements effacés :';
 $strDeleteFailed = 'L\'effacement a échoué';
 $strDeleteUserMessage = 'Vous avez effacé l\'utilisateur %s.';
-$strDelPassMessage = 'Vous avez effacé le mot de passe de ';
 $strDescending = 'Décroissant';
 $strDisplay = 'Montrer';
 $strDisplayOrder = 'Ordre d\'affichage :';

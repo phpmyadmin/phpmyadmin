@@ -74,7 +74,7 @@ $strCriteria = 'Criterio';
 
 $strData = 'Datos';
 $strDatabase = 'Banco de Datos ';
-$strDatabaseHasBeenDropped = 'A base de datos %s foi eliminada';
+$strDatabaseHasBeenDropped = 'A base de datos %s foi eliminada.';
 $strDatabases = 'Bancos de Datos';
 $strDatabasesStats = 'Estatísticas dos bancos de datos';
 $strDataOnly = 'Só os datos';
@@ -85,7 +85,6 @@ $strDeleted = 'Rexistro eliminado';
 $strDeletedRows = 'Filas borradas:';
 $strDeleteFailed = 'Non foi posible eliminar!';
 $strDeleteUserMessage = 'Acaba de eliminar o usuario %s.';
-$strDelPassMessage = 'Eliminou o contrasinal de';
 $strDescending = 'Descendente';
 $strDisplay = 'Mostrar';
 $strDisplayOrder = 'Mostrar en orde:';

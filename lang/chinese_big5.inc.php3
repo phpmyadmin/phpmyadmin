@@ -79,7 +79,6 @@ $strDefault = '預設值';
 $strDelete = '刪除';
 $strDeleted = '記錄已被刪除';
 $strDeleteFailed = '刪除失敗!';
-$strDelPassMessage = '您已經刪除了下面這位使用者的密碼:';
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = '顯示';
 $strDoAQuery = '以範例查詢 (萬用字元 : "%")';
@@ -316,11 +315,10 @@ $strRunSQLQuery = 'Run SQL query/queries on database %s';//to translate
 $strStartingRecord = 'Starting record';//to translate
 $strTableHasBeenDropped = 'Table %s has been dropped';//to translate
 $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
-
 $strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strKeepPass = 'Do not change the password';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

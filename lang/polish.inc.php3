@@ -74,7 +74,7 @@ $strCriteria = 'Kryteria';
 
 $strData = 'Dane';
 $strDatabase = 'Baza danych ';
-$strDatabaseHasBeenDropped = 'Baza danych %s zostala usunieta';
+$strDatabaseHasBeenDropped = 'Baza danych %s zostala usunieta.';
 $strDatabases = 'bazy danych';
 $strDatabasesStats = 'Statystyki baz danych';
 $strDataOnly = 'Tylko dane';
@@ -85,7 +85,6 @@ $strDeleted = 'Rekord zosta³ skasowany';
 $strDeletedRows = 'Skasowane rekordy:';
 $strDeleteFailed = 'Kasowanie nie powiod³o sie!';
 $strDeleteUserMessage = 'Usunales uzytkownika  %s.';
-$strDelPassMessage = 'Skasowane zosta³o has³o u¿ytkownika';
 $strDescending = 'Malej±co';
 $strDisplay = 'Poka¿';
 $strDisplayOrder = 'Kolejno¶æ wy¶wietlania:';

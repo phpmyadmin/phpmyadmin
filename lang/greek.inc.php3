@@ -81,7 +81,6 @@ $strDelete = 'Διαγραφή';
 $strDeleted = 'Η Γραμμή έχει διαγραφεί';
 $strDeletedRows = 'Διαγραμμένες Γραμμές:';
 $strDeleteFailed = 'Η διαγραφή απέτυχε';
-$strDelPassMessage = 'Διαγράψατε τον Κωδικό Πρόσβασης για τον';
 $strDescending = 'Φθίνουσα';
 $strDisplay = 'Εμφάνιση';
 $strDisplayOrder = 'Σειρά εμφάνισης:';
@@ -320,5 +319,5 @@ $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

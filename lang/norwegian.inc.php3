@@ -82,7 +82,6 @@ $strDelete = 'Slett';
 $strDeleted = 'Raden er slettet';
 $strDeletedRows = 'Slettede rader:';
 $strDeleteFailed = 'Slettingen misslyktes!';
-$strDelPassMessage = 'Du har slettet passordet til';
 $strDescending = 'Synkende';
 $strDisplay = 'Vis';
 $strDisplayOrder = 'Visningsrekkefølge:';
@@ -319,5 +318,5 @@ $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:';	//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

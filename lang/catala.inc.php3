@@ -79,7 +79,6 @@ $strDelete = 'Esborrar';
 $strDeleted = 'La fila ha estat esborrada';
 $strDeleteFailed = 'No s\'ha pogut esborrar!';
 $strDeleteUserMessage = 'Has esborrat l\'usuari %s.';
-$strDelPassMessage = 'Has esborrat la contrasenya de l\'usuari';
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = 'Mostrar'; 
 $strDoAQuery = 'Fer un "petici&oacute; segons exemple" (comod&iacute;: "%")';
@@ -320,5 +319,5 @@ $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
 $strKeepPass = 'Do not change the password';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

@@ -75,7 +75,6 @@ $strDefault = 'Default';
 $strDelete = 'Remove';
 $strDeleted = 'Registro eliminado';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = 'Display'; //to translate
 $strDoAQuery = 'Faça uma "query by example" (wildcard: "%")';
@@ -324,5 +323,5 @@ $strKeepPass = 'Do not change the password';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

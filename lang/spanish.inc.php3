@@ -81,7 +81,6 @@ $strDeleted = 'La fila se ha borrado';
 $strDeletedRows = 'Filas Borradas: ';
 $strDeleteFailed = 'La operacion de borrado ha fallado!'; 
 $strDeleteUserMessage = 'Ud. ha borrado el usuario %s.';
-$strDelPassMessage = 'Ud. ha borrado la contraseña para'; 
 $strDescending = 'Descendente';
 $strDisplay = 'Mostrar'; 
 $strDisplayOrder = 'Mostrar en este orden:';
@@ -320,5 +319,5 @@ $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
 $strKeepPass = 'Do not change the password';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

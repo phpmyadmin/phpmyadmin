@@ -75,7 +75,6 @@ $strDefault = '缺省值';
 $strDelete = '删除';
 $strDeleted = '该记录已经被删除。';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = 'Display'; //to translate
 $strDoAQuery = '请执行 "查询示例" (通配符: "%")';
@@ -325,5 +324,5 @@ $strKeepPass = 'Do not change the password';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

@@ -81,7 +81,6 @@ $strDelete = 'Radera';
 $strDeleted = 'Raden har raderats';
 $strDeletedRows = 'Raderade rader';
 $strDeleteFailed = 'Raderingen misslyckades!';
-$strDelPassMessage = 'Du har raderat lösenordet för';
 $strDescending = 'Fallande';
 $strDisplay = 'Visa';
 $strDisplayOrder = 'Visningsordning:';
@@ -320,5 +319,5 @@ $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

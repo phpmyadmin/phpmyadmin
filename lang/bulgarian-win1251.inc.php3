@@ -75,7 +75,6 @@ $strDefault = 'По подразбиране';
 $strDelete = 'Изтрий';
 $strDeleted = 'Редът беше изтрит';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Низходящ';
 $strDisplay = 'Display'; //to translate
 $strDoAQuery = 'Изпълни "запитване по заявка" (символ за  заместване: "%")';
@@ -325,5 +324,5 @@ $strKeepPass = 'Do not change the password';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

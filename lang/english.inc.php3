@@ -74,7 +74,7 @@ $strCriteria = 'Criteria';
 
 $strData = 'Data';
 $strDatabase = 'Database ';
-$strDatabaseHasBeenDropped ="Database %s has been dropped";
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';
 $strDatabases = 'databases';
 $strDatabasesStats = 'Databases statistics';
 $strDataOnly = 'Data only';
@@ -85,7 +85,6 @@ $strDeleted = 'The row has been deleted';
 $strDeletedRows = 'Deleted rows:';
 $strDeleteFailed = 'Deleted Failed!';
 $strDeleteUserMessage = 'You have deleted the user %s.';
-$strDelPassMessage = 'You have deleted the password for';
 $strDescending = 'Descending';
 $strDisplay = 'Display';
 $strDisplayOrder = 'Display order:';

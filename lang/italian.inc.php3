@@ -75,6 +75,7 @@ $strCriteria = 'Criterio';
 
 $strData = 'Dati';
 $strDatabase = 'Database ';
+$strDatabaseHasBeenDropped = 'Il Database %s è stato eliminato.';
 $strDatabases = 'database';
 $strDatabasesStats = 'Statistiche dei databases';
 $strDataOnly = 'Solo dati';
@@ -321,5 +322,4 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
 ?>

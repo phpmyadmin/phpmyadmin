@@ -84,7 +84,6 @@ $strDeleted = 'Registro eliminado';
 $strDeletedRows = 'Registro deletados:';
 $strDeleteFailed = 'Não foi possível apagar!';
 $strDeleteUserMessage = 'Você deletou o usuário %s.';
-$strDelPassMessage = 'Você deletou a senha de';
 $strDescending = 'Descendente';
 $strDisplay = 'Tela';
 $strDisplayOrder = 'Ordenado por:';
@@ -320,5 +319,5 @@ $strShowTables = 'Show tables';
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
 $strWithChecked = 'With checked:'; //to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

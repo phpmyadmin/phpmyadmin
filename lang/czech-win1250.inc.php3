@@ -81,7 +81,6 @@ $strDelete = 'Smazat';
 $strDeleted = 'Øádek byl smazán';
 $strDeletedRows = 'Smazané øádky:';
 $strDeleteFailed = 'Smazání selhalo!';
-$strDelPassMessage = 'Bylo smazáno heslo pro';
 $strDescending = 'Sestupnì';
 $strDisplay = 'Zobrazit';
 $strDisplayOrder = 'Seøadit podle:';
@@ -320,5 +319,5 @@ $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

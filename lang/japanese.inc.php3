@@ -75,7 +75,6 @@ $strDefault = '基本値';
 $strDelete = '削除';
 $strDeleted = '選択した列を削除しました。';
 $strDeleteFailed = 'Deleted Failed!'; //to translate
-$strDelPassMessage = 'You have deleted the password for'; //to translate
 $strDescending = 'Desending'; //to translate (tbl_qbe.php3)
 $strDisplay = '表示';
 $strDoAQuery = '"例のQUERY"を実行 (wildcard: "%")';
@@ -324,5 +323,5 @@ $strKeepPass = 'Do not change the password';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

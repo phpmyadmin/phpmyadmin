@@ -82,7 +82,6 @@ $strDeleted = 'Die Zeile wurde gelöscht.';
 $strDeletedRows = 'Gelöschte Zeilen:';
 $strDeleteFailed = 'Löschen fehlgeschlagen!';
 $strDeleteUserMessage = 'Der Benutzer wurde gelöscht %s.';
-$strDelPassMessage = 'Password entfernt für';
 $strDescending = 'absteigend';
 $strDisplay = 'Zeige';
 $strDisplayOrder = 'Sortierung nach:';
@@ -320,5 +319,5 @@ $strTableHasBeenDropped = 'Table %s has been dropped';//to translate
 $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

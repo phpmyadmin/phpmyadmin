@@ -84,7 +84,6 @@ $strDelete = 'Zmaza»';
 $strDeleted = 'Riadok bol zmazaný';
 $strDeletedRows = 'Zmazané riadky:';
 $strDeleteFailed = 'Mazanie bolo neúspe¹né!';
-$strDelPassMessage = 'Bolo zmazané heslo pre';
 $strDescending = 'Zostupne';
 $strDisplay = 'Zobrazi»';
 $strDisplayOrder = 'Zobrazi» zoradené:';
@@ -321,5 +320,5 @@ $strKeepPass = 'Do not change the password';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>

@@ -74,7 +74,7 @@ $strCriteria = 'Criteriu';
 
 $strData = 'Date';
 $strDatabase = 'Baza de date ';
-$strDatabaseHasBeenDropped = 'Baza de date %s a fost aruncat';
+$strDatabaseHasBeenDropped = 'Baza de date %s a fost aruncat.';
 $strDatabases = 'Baze de date';
 $strDatabasesStats = 'Statisticile bazelor de date';
 $strDataOnly = 'Numai date';
@@ -85,7 +85,6 @@ $strDeleted = 'Linia a fost stearsa';
 $strDeletedRows = 'Randuri sterse:';
 $strDeleteFailed = 'Stergere nereusita!';
 $strDeleteUserMessage = 'Ati sters utilizatorul %s.';
-$strDelPassMessage = 'Ati sters parola pentru';
 $strDescending = 'Descrescator';
 $strDisplay = 'Afisare';
 $strDisplayOrder = 'Ordine de afisare:';

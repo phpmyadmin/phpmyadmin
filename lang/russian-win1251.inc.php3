@@ -77,7 +77,6 @@ $strDefault = 'По умолчанию';
 $strDelete = 'Удалить';
 $strDeleted = 'Ряд был удален';
 $strDeleteFailed = 'Неудачное удаление!';
-$strDelPassMessage = 'Был удален пароль для';
 $strDescending = 'Нисходящий';
 $strDisplay = 'Показать';
 $strDisplayOrder = 'Порядок просмотра:';
@@ -320,5 +319,5 @@ $strKeepPass = 'Do not change the password';//to translate
 $strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
 $strUpdateProfile = 'Update profile:';//to translate
 $strUpdateProfileMessage = 'The profile has been updated.';//to translate
-$strDatabaseHasBeenDropped=" Database %s has been dropped ";  //to translate
+$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
 ?>
