@@ -209,7 +209,7 @@
     before uploading them to your server.
 </p>
 
-<p>Quick Install:</p>
+<p><b>Quick Install:</b></p>
 <ol>
     <li> Untar or unzip the distribution (be sure to unzip the subdirectories):
          <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt></li>
@@ -219,17 +219,19 @@
          <a class="navigation" href="#config">Configuration section</a> for an
          explanation of all values.</li>
     <li> It is recommended that you protect the directory in which
-         you installed phpMyAdmin (unless it's on a closed intranet, or you wish to use advanced authentication), 
-         for example with HTTP-AUTH (in a <i>.htaccess</i> file). See the
+         you installed phpMyAdmin (unless it's on a closed intranet, or you
+         wish to use http authentication), for example with HTTP-AUTH (in a
+         <i>.htaccess</i> file). See the
          <a class="navigation" href="#faq">FAQ section</a> for additional
          information.</li>
     <li> Open the file
          <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php3</i>
          in your browser. phpMyAdmin should now display a welcome screen 
-         and your databases, or a login dialog if using advanced authentication.</li>
+         and your databases, or a login dialog if using http or cookie
+         authentication mode.</li>
 </ol>
 
-<p>Upgrading from an older version:</p>
+<p><b>Upgrading from an older version:</b></p>
 <ul>
     <li>Please do not copy your older config.inc.php3 over the new one: it may
         offer new configuration variables, and the new version may depend on
@@ -237,7 +239,7 @@
         values in the new one.</li>
 </ul>
 
-<p>Using Advanced Authentication:</p>
+<p><b>Using http authentication mode:</b></p>
 <ol>
 <li>
     phpMyAdmin needs a stduser that has <b>only</b> the <tt>SELECT</tt>
@@ -285,6 +287,26 @@
     system.
 </li>
 </ol>
+
+<p><b>Using cookie authentication mode:</b></p>
+<ul>
+    <li>If you want to use this method as a replacement for the http
+        authentication (for example, if you're running IIS), you'll have to
+        setup a &quot;standard user&quot; and do the same work in both
+        cases.</li>
+    <li>Else you don't need to fill any of the user/password fields inside the
+        <tt>$cfgServers</tt> array with this method.</li>
+</ul>
+
+<p><b>Using standard authentication mode:</b></p>
+<ul>
+    <li>This mode is the less secure one because it requires you to fill the
+        <tt>$cfgServers[n]['user']</tt> and <tt>$cfgServers[n]['password']</tt>
+        fields.<br />
+        But usually you don't need to setup a &quot;standard user&quot; here:
+        using the <tt>$cfgServers[n]['only_db']</tt> might be enough.</li>
+</ul>
+
 
 <!-- CONFIGURATION -->
 <a name="config"></a><br />
@@ -369,16 +391,16 @@
         <b>$cfgServers[n]['stdpass']</b> string
     </dt>
     <dd>
-        When using advanced authentication mode (or standard authentication
-        mode since phpMyAdmin 2.2.1), you need to supply the details of a MySQL
-        account that has <tt>SELECT</tt> privilege on the <i>mysql.user (all
-        columns except &quot;Password&quot;)</i>, <i>mysql.db (all columns)</i>
-        &amp; <i>mysql.tables_priv (all columns except &quot;Grantor&quot;
-        &amp; &quot;Timestamp&quot;) </i>tables.
+        When using http or cookie authentication modes (or standard
+        authentication mode since phpMyAdmin 2.2.1), you need to supply the
+        details of a MySQL account that has <tt>SELECT</tt> privilege on the
+        <i>mysql.user (all columns except &quot;Password&quot;)</i>,
+        <i>mysql.db (all columns)</i> &amp; <i>mysql.tables_priv (all columns
+        except &quot;Grantor&quot; &amp; &quot;Timestamp&quot;) </i>tables.
         This account is used to check what databases the user will see at
         login.<br />
         Please see the <a class="navigation" href="#setup">install section</a>
-        on &quot;Using advanced authentication&quot; for more information.
+        on &quot;Using http authentication&quot; for more information.
         <br /><br />
         Note that if you try login to phpMyAdmin with this &quot;stduser&quot;,
         you could get some errors, depending the exact privileges you gave to
@@ -387,21 +409,36 @@
         <br /><br />
     </dd>
 
-    <dt><b>$cfgServers[n]['adv_auth']</b> boolean</dt>
+    <dt><b>$cfgServers[n]['auth_type']</b> string <tt>['http'|'cookie'|'basic']</tt> </dt>
     <dd>
-        Whether basic or advanced authentication should be used for this
-        server.<br />
-        Basic authentication (<tt>$adv_auth&nbsp;=&nbsp;FALSE</tt>) is the
-        plain old way: username and password are stored in
-        <i>config.inc.php3</i>.
-        Advanced authentication (<tt>$adv_auth&nbsp;=&nbsp;TRUE</tt>) as
-        introduced in 1.3.0 allows you to log in as any valid MySQL user via
-        HTTP-Auth.<br />
-        Please note that this authentication mode is
-        <font color="#bb0000">only supported with PHP running as an Apache
-        module</font>, and not with cgi.<br /><br />
+        Whether basic or cookie or http authentication should be used for this
+        server.
 
-        Using advanced authentication is recommended:
+        <ul>
+            <li>
+                Basic authentication (<tt>$auth_type&nbsp;=&nbsp;'basic'</tt>)
+                is the plain old way: username and password are stored in
+                <i>config.inc.php3</i>.
+            </li>
+            <li>
+                Cookie authentication mode
+                (<tt>$auth_type&nbsp;=&nbsp;'cookie'</tt>) as introduced in
+                2.2.4 allows you to log in as any valid MySQL user with the
+                help of... cookies. Log name and password are stored in
+                cookies during the session and password are deleted when it
+                ends.
+            </li>
+            <li>
+                Advanced or http authentication
+                (<tt>$auth_type&nbsp;=&nbsp;'http'</tt>) as introduced in 1.3.0
+                allows you to log in as any valid MySQL user via HTTP-Auth.<br />
+                Please note that this last authentication mode is
+                <font color="#bb0000">only supported with PHP running as an
+                Apache module</font>, and not with cgi.
+            </li>
+        </ul><br />
+
+        Using http or cookies authentication modes are recommended:
         <ul>
             <li>
                 when phpMyAdmin is running in a multi-user environment where
@@ -415,13 +452,15 @@
             </li>
         </ul>
 
-        Advanced authentication is secure as the MySQL passwords does not need
-        to be set in the phpMyAdmin configuration file. (except for the standard
-        user -see above-).
+        http or cookies authentications are secure as the MySQL passwords does
+        not need to be set in the phpMyAdmin configuration file. (except for the
+        &quot;standard user&quot; -see above-).<br />
+        If security is your main concern, always prefer the http authentication
+        mode.
         <br /><br />
 
-        Please see the install section on &quot;Using advanced
-        authentication &quot; for more information.
+        Please see the install section on &quot;Using http authentication&quot;
+        for more information.
         <br /><br />
     </dd>
 
@@ -431,8 +470,8 @@
     </dt>
     <dd>
         The user/password-pair which phpMyAdmin will use to connect to this
-        MySQL-server. The password is not needed when advanced authentication
-        is used, and should be empty.<br /><br />
+        MySQL-server. The password is not needed when http or cookie
+        authentication is used, and should be empty.<br /><br />
     </dd>
 
     <dt><b>$cfgServers[n]['only_db']</b> string or array</dt>
@@ -838,13 +877,14 @@
 
 <p>
     <b>Using phpMyAdmin on IIS, I'm facing crashes and/or many error messages
-       with the advanced authentication mode.</b>
+       with the http or advanced authentication mode.</b>
     <br />
     This is a known problem with the php ISAPI filter: it's not so stable. For
     some more information and complete testings see the messages posted by
     André B. aka &quot;djdeluxe76&quot; in
     <a href="http://www.phpwizard.net/phorum/read.php?f=1&amp;i=6624&amp;t=6300">this&nbsp;thread</a>
-    from the phpWizard forum.
+    from the phpWizard forum.<br />
+    Please use instead the cookie authentication mode.
 </p>
 
 <p>
@@ -991,8 +1031,8 @@
 
 <p>
     <b>Each time I want to insert or change a record or drop a database or a
-       table, an error 404 (page not found) is displayed or, with advanced
-       authentication, I'm asked to login again. What's wrong?</b>
+       table, an error 404 (page not found) is displayed or, with http or
+       cookie authentication, I'm asked to login again. What's wrong?</b>
     <br />
     Check the value you set for the <tt>$cfgPmaAbsoluteUri</tt> directive in
     the phpMyAdmin configuration file.
@@ -1001,8 +1041,8 @@
 <h3>[Known limitations]</h3>
 <a name="login_bug"></a>
 <p>
-    <b>When using advanced authentication, an user who logged out can not
-    relogs in with the same nick.</b>
+    <b>When using http authentication, an user who logged out can not relog
+       in with the same nick.</b>
     <br />
     This is related to the authentication mechanism (protocol) used by
     phpMyAdmin. We plan to change it as soon as we may find enough free time
@@ -1020,7 +1060,8 @@
     your users. The development of this feature was kindly sponsored by
     NetCologne GmbH.
     This requires a properly setup MySQL user management and phpMyAdmin
-    advanced authentication. See the install section on &quot;Using advanced authentication&quot;
+    http authentication. See the install section on
+    &quot;Using http authentication&quot;.
 </p>
 
 <p>
@@ -1032,7 +1073,7 @@
     sufficient to use the directory protection bundled with your webserver
     (with Apache you can use <i>.htaccess</i> files, for example).<br />
     If other people have telnet access to your server, you should use
-    phpMyAdmin's advanced authentication feature.
+    phpMyAdmin's http authentication feature.
     <br /><br />
     Suggestions:
 </p>
@@ -1060,7 +1101,7 @@
     &quot;./lang&quot; to allow normal operation of phpMyAdmin.
 </p>
 <p>
-    <b>phpMyAdmin always gives &quot;Access denied&quot; when using advanced
+    <b>phpMyAdmin always gives &quot;Access denied&quot; when using http
     authentication.</b><br />
     This could happen for several reasons:
 </p>
