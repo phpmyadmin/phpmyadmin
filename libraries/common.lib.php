@@ -716,6 +716,18 @@ if ($is_minimum_common == FALSE) {
 
     } // end of the 'PMA_charsetIntroducerCollate()' function
 
+
+        function PMA_convert_using($string, $mode='unquoted') {
+
+            if (PMA_MYSQL_INT_VERSION >= 40100) {
+                list($conn_charset) = explode('_', $GLOBALS['collation_connection']);
+                $converted_string = "CONVERT(" . ($mode=='quoted'?"'":"") . $string . ($mode=='quoted'?"'":"") . " USING " . $conn_charset . ")";
+            } else {
+                $converted_string = ($mode=='quoted'?"'":"") . $string . ($mode=='quoted'?"'":"");
+            }
+            return $converted_string;
+        } // end function
+
 }
 
 /**

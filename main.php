@@ -182,8 +182,7 @@ if ($server > 0) {
 // (even if they cannot see the tables)
     $is_superuser    = PMA_DBI_try_query('SELECT COUNT(*) FROM mysql.user', $userlink, PMA_DBI_QUERY_STORE);
     if ($dbh) {
-        // TODO: do we need to check the charset and collation of mysql.user?
-        $local_query = 'SELECT Create_priv, Reload_priv FROM mysql.user WHERE User = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($mysql_cur_user)) . ';';
+        $local_query = 'SELECT Create_priv, Reload_priv FROM mysql.user WHERE ' . PMA_convert_using('User') . ' = ' . PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ';';
         $rs_usr      = PMA_DBI_try_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
             while ($result_usr = PMA_DBI_fetch_assoc($rs_usr)) {
@@ -202,7 +201,7 @@ if ($server > 0) {
     // the first inexistant db name that we find, in most cases it's probably
     // the one he just dropped :)
     if (!$is_create_priv) {
-        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = ' . PMA_charsetIntroducerCollate('Y') . ' AND User = ' . PMA_charsetIntroducerCollate(PMA_sqlAddslashes($mysql_cur_user)) . ';';
+        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE ' . PMA_convert_using('Create_priv') . ' = ' . PMA_convert_using('Y', 'quoted') . ' AND ' . PMA_convert_using('User') . ' = ' .PMA_convert_using(PMA_sqlAddslashes($mysql_cur_user), 'quoted') . ';';
         $rs_usr      = PMA_DBI_try_query($local_query, $dbh, PMA_DBI_QUERY_STORE);
         if ($rs_usr) {
             $re0     = '(^|(\\\\\\\\)+|[^\])'; // non-escaped wildcards
