@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-05 Loïc Chapeaux  <lolo@phpheaven.net>
+    * Documentation.html: modify name of relations in FAQ 6.6
+
 2002-09-04 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_change.php3: protect with backquotes
 

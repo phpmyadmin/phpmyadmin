@@ -2166,15 +2166,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     example tables:
     <br /><br />
     <tt>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE countries (<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE REL_countries (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;country_code char(1) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description varchar(10) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (country_code)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO countries VALUES ('C', 'Canada');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_countries VALUES ('C', 'Canada');<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE persons (<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE REL_persons (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id tinyint(4) NOT NULL auto_increment,<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;person_name varchar(32) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) default '0',<br />
@@ -2182,20 +2182,22 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO persons VALUES (11, 'Marc', 'S', '');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO persons VALUES (15, 'Paul', 'S', 'C');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_persons VALUES (11, 'Marc', 'S', '');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_persons VALUES (15, 'Paul', 'S', 'C');<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE towns (<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE REL_towns (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) NOT NULL default '0',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description varchar(30) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (town_code)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('S', 'Sherbrooke');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('M', 'Montréal');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_towns VALUES ('S', 'Sherbrooke');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO REL_towns VALUES ('M', 'Montréal');<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb', 'persons', 'town_code', 'mydb', 'towns', 'town_code');<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb', 'persons', 'country_code', 'mydb', 'countries', 'country_code');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb', 'REL_persons', 'town_code', 'mydb', 'REL_towns', 'town_code');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb', 'REL_persons', 'country_code', 'mydb', 'REL_countries', 'country_code');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_table_info` VALUES ('mydb', 'REL_towns', 'description');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_table_info` VALUES ('mydb', 'REL_countries', 'description');<br />
     </tt>
     <br />
     Then test like this:
