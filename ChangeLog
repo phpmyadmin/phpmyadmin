@@ -10,7 +10,9 @@ $Source$
       containing quotes.
     * libraries/common.lib.php3:
       - Avoid reloading the left frame twice;
-      - PHP3 compatibility.
+      - PHP3 compatibility;
+      - $cfg['PmaAbsoluteUri'] autodetection did not work as expected if php was
+        in CGI mode.
 
 2003-03-03 Marc Delisle  <lem9@users.sourceforge.net>
     * badwords.txt: bug 692874: "date" is not a reserved word

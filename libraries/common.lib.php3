@@ -557,6 +557,12 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         if (isset($$SERVER_ARRAY['SERVER_PORT'])) {
             $SERVER_PORT = $$SERVER_ARRAY['SERVER_PORT'];
         }
+        if (isset($$SERVER_ARRAY['REQUEST_URI'])) {
+            $REQUEST_URI = $$SERVER_ARRAY['REQUEST_URI'];
+        }
+        if (isset($$SERVER_ARRAY['PATH_INFO'])) {
+            $PATH_INFO = $$SERVER_ARRAY['PATH_INFO'];
+        }
         $port_in_HTTP_HOST              = (strpos($HTTP_HOST, ':') > 0);
         $cfg['PmaAbsoluteUri']          = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . '://'
                                         . $HTTP_HOST;
@@ -568,7 +574,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $cfg['PmaAbsoluteUri']      .= ((!empty($SERVER_PORT) && !$port_in_HTTP_HOST) ? ':' . $SERVER_PORT : '');
         }
 
-        $cfg['PmaAbsoluteUri']          .= substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
+        // rabus: if php is in CGI mode, $PHP_SELF often contains the path to the CGI executable.
+        //   This is why we try to get the path from $REQUEST_URI or $PATH_INFO first.
+        if (isset($REQUEST_URI)) {
+            $cfg['PmaAbsoluteUri']      .= substr($REQUEST_URI, 0, strrpos($REQUEST_URI, '/') + 1);
+        } else if (isset($PATH_INFO)) {
+            $cfg['PmaAbsoluteUri']      .= substr($PATH_INFO, 0, strrpos($PATH_INFO, '/') + 1);
+        } else {
+            $cfg['PmaAbsoluteUri']      .= substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') + 1);
+        }
 
         // We display the warning by default, but not if it is disabled thru
         // via the $cfg['PmaAbsoluteUri_DisableWarning'] variable.
