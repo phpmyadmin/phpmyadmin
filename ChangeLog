@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-02-14 Michal Čihař  <michal@cihar.com>
+    * tbl_printview.php, libraries/tbl_indexes.lib.php: Fix displaying
+      indexes for print view, use same function as for normal view (bug
+      #1119388).
+    * css/print.css, libraries/tbl_indexes.lib.php,
+      libraries/header_meta_style.inc.php: Use CSS for hiding print button
+      rather than javascript.
+
 2005-02-14 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_table_info.php: avoid errors #1046, no database selected
       in MySQL 5.0.2

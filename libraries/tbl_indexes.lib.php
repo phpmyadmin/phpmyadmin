@@ -136,12 +136,16 @@
      * @return  array       Index collection array
      * @author  Garvin Hicking (pma@supergarv.de)
      */
-    function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data, $display_html = true) {
+    function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data, $display_html = true, $print_mode = false) {
         $idx_collection = array();
         foreach ($indexes AS $index_no => $index_name) {
             if ($display_html) {
-                $cell_bgd = (($index_no % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']);
-                $index_td = '            <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
+                if ($print_mode) {
+                    $index_td = '        <td class="print" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
+                } else {
+                    $cell_bgd = (($index_no % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo']);
+                    $index_td = '            <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
+                }
                 echo '        <tr>' . "\n";
                 echo $index_td
                      . '                ' . htmlspecialchars($index_name) . "\n"
@@ -168,9 +172,11 @@
                      . '                ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $GLOBALS['strNone']) . '&nbsp;' . "\n"
                      . '            </td>' . "\n";
 
-                echo $index_td
-                     . '                <a href="tbl_indexes.php?' . $GLOBALS['url_query'] . '&amp;index=' . urlencode($index_name) . '">' . $GLOBALS['edit_link_text'] . '</a>' . "\n"
-                     . '            </td>' . "\n";
+                if (!$print_mode) {
+                    echo $index_td
+                         . '                <a href="tbl_indexes.php?' . $GLOBALS['url_query'] . '&amp;index=' . urlencode($index_name) . '">' . $GLOBALS['edit_link_text'] . '</a>' . "\n"
+                         . '            </td>' . "\n";
+                }
 
                 if ($index_name == 'PRIMARY') {
                     $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY');
@@ -182,9 +188,11 @@
                     $zero_rows   = urlencode(sprintf($GLOBALS['strIndexHasBeenDropped'], htmlspecialchars($index_name)));
                 }
 
-                echo $index_td
-                     . '                <a href="sql.php?' . $GLOBALS['url_query'] . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $GLOBALS['drop_link_text']  . '</a>' . "\n"
-                     . '            </td>' . "\n";
+                if (!$print_mode) {
+                    echo $index_td
+                         . '                <a href="sql.php?' . $GLOBALS['url_query'] . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $GLOBALS['drop_link_text']  . '</a>' . "\n"
+                         . '            </td>' . "\n";
+                }
             }
 
             foreach ($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
@@ -208,16 +216,22 @@
                         echo '        <tr>' . "\n";
                     }
 
+                    if ($print_mode) {
+                        $bgcolor = 'class="print"';
+                    } else {
+                        $bgcolor = 'bgcolor="' . $cell_bgd . '"';
+                    }
+
                     if (!empty($indexes_data[$index_name][$seq_index]['Sub_part'])) {
-                        echo '            <td bgcolor="' . $cell_bgd . '">' . "\n"
+                        echo '            <td ' . $bgcolor . '>' . "\n"
                              . '                ' . $col_name . "\n"
                              . '            </td>' . "\n";
-                        echo '            <td align="right" bgcolor="' . $cell_bgd . '">' . "\n"
+                        echo '            <td align="right" ' . $bgcolor . '>' . "\n"
                              . '                ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"
                              . '            </td>' . "\n";
                         echo '        </tr>' . "\n";
                     } else {
-                        echo '            <td bgcolor="' . $cell_bgd . '" colspan="2">' . "\n"
+                        echo '            <td ' . $bgcolor . ' colspan="2">' . "\n"
                              . '                ' . htmlspecialchars($col_name) . "\n"
                              . '            </td>' . "\n";
                         echo '        </tr>' . "\n";

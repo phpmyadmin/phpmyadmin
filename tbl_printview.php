@@ -21,6 +21,7 @@ if (!isset($the_tables) || !is_array($the_tables)) {
  */
 require_once('./libraries/relation.lib.php');
 require_once('./libraries/transformations.lib.php');
+require_once('./libraries/tbl_indexes.lib.php');
 
 $cfgRelation  = PMA_getRelationsParam();
 
@@ -86,47 +87,13 @@ foreach ($the_tables AS $key => $table) {
     PMA_DBI_free_result($result);
 
 
-    /**
-     * Gets table keys and retains them
-     */
-    $result       = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
-    $primary      = '';
+    //  Gets table keys and store them in arrays
     $indexes      = array();
-    $lastIndex    = '';
     $indexes_info = array();
     $indexes_data = array();
-    $pk_array     = array(); // will be use to emphasis prim. keys in the table
-                             // view
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-        // Backups the list of primary keys
-        if ($row['Key_name'] == 'PRIMARY') {
-            $primary .= $row['Column_name'] . ', ';
-            $pk_array[$row['Column_name']] = 1;
-        }
-        // Retains keys informations
-        if ($row['Key_name'] != $lastIndex ){
-            $indexes[] = $row['Key_name'];
-            $lastIndex = $row['Key_name'];
-        }
-        $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-        $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
-        if (isset($row['Cardinality'])) {
-            $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
-        }
-//      I don't know what does following column mean....
-//      $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-        $indexes_info[$row['Key_name']]['Comment']         = $row['Comment'];
+    $ret_keys = PMA_get_indexes($table, $err_url_0);
 
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
-        if (isset($row['Sub_part'])) {
-            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
-        }
-
-    } // end while
-    if ($result) {
-        PMA_DBI_free_result($result);
-    }
-
+    PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
 
     /**
      * Gets fields properties
@@ -311,51 +278,7 @@ foreach ($the_tables AS $key => $table) {
     </tr>
         <?php
         echo "\n";
-        foreach ($indexes AS $index_no => $index_name) {
-            $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
-            $index_td = '        <td class="print" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
-            echo '    <tr>' . "\n";
-            echo $index_td
-                 . '            ' . htmlspecialchars($index_name) . "\n"
-                 . '        </td>' . "\n";
-
-            if ($indexes_info[$index_name]['Comment'] == 'FULLTEXT') {
-                $index_type = 'FULLTEXT';
-            } else if ($index_name == 'PRIMARY') {
-                $index_type = 'PRIMARY';
-            } else if ($indexes_info[$index_name]['Non_unique'] == '0') {
-                $index_type = 'UNIQUE';
-            } else {
-                $index_type = 'INDEX';
-            }
-            echo $index_td
-                 . '            ' . $index_type . "\n"
-                 . '        </td>' . "\n";
-
-            echo $index_td
-                 . '            ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . "\n"
-                 . '        </td>' . "\n";
-
-            foreach ($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
-                if ($row_no > 0) {
-                    echo '    <tr>' . "\n";
-                }
-                if (!empty($indexes_data[$index_name][$seq_index]['Sub_part'])) {
-                    echo '        <td class="print">' . "\n"
-                         . '            ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
-                         . '        </td>' . "\n";
-                    echo '        <td align="right" class="print">' . "\n"
-                         . '            ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"
-                         . '        </td>' . "\n";
-                    echo '    </tr>' . "\n";
-                } else {
-                    echo '        <td class="print" colspan="2">' . "\n"
-                         . '            ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
-                         . '        </td>' . "\n";
-                    echo '    </tr>' . "\n";
-                }
-            } // end while
-        } // end while
+        PMA_show_indexes($table, $indexes, $indexes_info, $indexes_data, true, true);
         echo "\n";
         ?>
 </table>
@@ -615,17 +538,15 @@ echo "\n";
 <!--
 function printPage()
 {
-    document.getElementById('print').style.visibility = 'hidden';
     // Do print the page
     if (typeof(window.print) != 'undefined') {
         window.print();
     }
-    document.getElementById('print').style.visibility = '';
 }
 //-->
 </script>
 <?php
-echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
+echo '<br /><br />&nbsp;<input type="button" class="print_ignore" style="width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
 
 require_once('./footer.inc.php');
 ?>
