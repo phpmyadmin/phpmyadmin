@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-07 Garvin Hicking <me@supergarv.de>
+    * tbl_change.php3: Fix undefined index for disp_query 
+      (when inserting a new row with a file uploaded to a column)
+    
 2003-07-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/auth/cookie.auth.lib.php3, config.inc.php3, user_password.php3,
       Documentation.html: only one blowfish secret is necessary for 

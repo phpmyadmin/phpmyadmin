@@ -21,7 +21,7 @@ if (!empty($disp_message)) {
         $goto          = 'tbl_properties.php3?'
                        . PMA_generate_common_url($db, $table)
                        . '&amp;$show_query=1'
-                       . '&amp;sql_query=' . urlencode($disp_query);
+                       . '&amp;sql_query=' . (isset($disp_query) ? urlencode($disp_query) : '');
     } else {
         $show_query = '1';
     }
