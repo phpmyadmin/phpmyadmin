@@ -738,7 +738,9 @@ if (!empty($update_privs)) {
     if (PMA_MYSQL_INT_VERSION >= 32211) {
         $db_and_table = empty($dbname) ? '*.*' : PMA_backquote($dbname) . '.' . (empty($tablename) ? '*' : PMA_backquote($tablename));
         $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table . ' FROM "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '";';
-        $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table . ' FROM "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '";';
+        if (!isset($Grant_priv) || $Grant_priv != 'Y') {
+            $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table . ' FROM "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '";';
+        }
         $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON ' . $db_and_table . ' TO "' . PMA_sqlAddslashes($username) . '"@"' . $hostname . '"';
         if ((isset($Grant_priv) && $Grant_priv == 'Y') || (empty($dbname) && (isset($max_questions) || isset($max_connections) || isset($max_updates)))) {
             $sql_query2 .= 'WITH';
@@ -757,9 +759,11 @@ if (!empty($update_privs)) {
         }
         $sql_query2 .= ';';
         PMA_mysql_query($sql_query0, $userlink); // this query may fail, but this does not matter :o)
-        PMA_mysql_query($sql_query1, $userlink); // this one may fail, too...
+        if (isset($sql_query1)) {
+            PMA_mysql_query($sql_query1, $userlink); // this one may fail, too...
+        }
         PMA_mysql_query($sql_query2, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query2);
-        $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
+        $sql_query = $sql_query0 . ' ' . (isset($sql_query1) ? $sql_query1 . ' ' : '') . $sql_query2;
         $message = sprintf($strUpdatePrivMessage, '\'' . $username . '\'@\'' . $hostname . '\'');
     } else {
         $sql_query = 'SHOW COLUMNS FROM `user`;';

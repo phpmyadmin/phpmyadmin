@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-27 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * server_privileges.php3: A user could not edit his own global privileges.
+
 2003-07-25 Garvin Hicking <me@supergarv.de>
     * Documentation.html: Updated my E-Mail, added latest credits-items
     * images/*, config.inc.php3, db_details_structure.php3,
@@ -12,7 +15,7 @@ $Source$
       libraries/display_tbl.lib.php3, Documentation.html,
       left.php3:
       Even more new images on more places: DB properties, Table
-      properties, Table Display (LinkOrButton unified as well), 
+      properties, Table Display (LinkOrButton unified as well),
       Left frame.
       Multi-column mode also works for MySQL < 3.23.03 (does anybody even
       care?)
@@ -20,7 +23,7 @@ $Source$
 2003-07-25 Marc Delisle  <lem9@users.sourceforge.net>
     * header.inc.php3: XHTML compatibility
     * libraries/sqlparser.lib.php3, /relation.lib.php3: bug 776789,
-      unable to insert record with FK in another db 
+      unable to insert record with FK in another db
 
 2003-07-24 Garvin Hicking <me@supergarv.de>
     * libraries/sqlparser.lib.php3 - Confirmation is also needed on
