@@ -453,9 +453,11 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 if ($num_tables > 0
     && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
     echo '    <li>' . "\n";
+    echo '        <div style="margin-bottom: 10px">' . "\n";
     echo '        <font color="red">' . $strError . '</font><br />' . "\n";
     $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php3?' . $url_query . '">';
     echo '        ' . sprintf($strRelationNotWorking, $url_to_goto, '</a>') . "\n";
+    echo '        </div>' . "\n";
     echo '    </li>' . "\n";
 } // end if
 
