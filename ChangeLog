@@ -18,6 +18,7 @@ $Source$
     * config.inc.php, tbl_change.php, tbl_replace.php,
       libraries/common.lib.php, libraries/config_import.lib.php: Support for
       insert multiple rows at once (RFE #749733).
+    * scripts/extchg.sh, scripts/inno2pma.sh: Removed unneeded scripts.
 
 2004-05-04 Michal Cihar  <michal@cihar.com>
     * libraries/sqlparser.data.php: Add ENGINE to reserved words (used instead
