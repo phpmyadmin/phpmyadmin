@@ -202,6 +202,7 @@ $strKeepPass = 'Non mude o contrasinal';
 $strKeyname = 'Nome chave';
 $strKill = 'Matar (kill)';
 
+$strLandscape = 'Horizontal';
 $strLength = 'Tamaño';
 $strLengthSet = 'Tamaño/Definir*';
 $strLimitNumRows = 'Número de rexistros por páxina';
@@ -282,6 +283,7 @@ $strPdfNoTables = 'Sen tabelas';
 $strPhp = 'Crear código PHP';
 $strPmaDocumentation = 'Documentación do phpMyAdmin';
 $strPmaUriError = 'A directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> DEBE estar asignada no seu ficheiro de configuración.';
+$strPortrait = 'Vertical';
 $strPos1 = 'Inicio';
 $strPrevious = 'Anterior';
 $strPrimary = 'Primaria';
@@ -299,6 +301,7 @@ $strQBE = 'Procurar pondo un exemplo ("QBE")';
 $strQBEDel = 'Eliminar';
 $strQBEIns = 'Inserir';
 $strQueryOnDb = 'Procura tipo SQL no banco de datos <b>%s</b>:';
+$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
 
 $strReType = 'Reescreber';
 $strRecords = 'Rexistros';
@@ -360,12 +363,14 @@ $strSelectTables = 'Seleccionar tabelas';
 $strSend = 'Enviar <I>(gravar nun ficheiro)</I><br>';
 $strServer = 'Servidor %s';
 $strServerChoice = 'Escolla de Servidor';
+$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
 $strServerVersion = 'Versión do servidor';
 $strSetEnumVal = 'Se o tipo de campo é "enum" ou "set", introduza os valores usando este formato: \'a\',\'b\',\'c\'...<br />Se precisar pór unha barra invertida (" \ ") ou aspas simples (" \' ") entre estes valores, preceda a barra e as aspas de barras invertidas (por exemplo \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Mostrar';
 $strShowAll = 'Ver todos os rexistros';
 $strShowColor = 'Mostrar a cor';
 $strShowCols = 'Mostrar as columnas';
+$strShowDatadictAs = 'Formato do diccionario de datos';
 $strShowGrid = 'Mostrar a grella';
 $strShowPHPInfo = 'Mostrar información sobre o PHP';
 $strShowTableDimension = 'Mostrar a dimensión das tabelas';
@@ -436,49 +441,52 @@ $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 $strYes = 'Si';
 
 $strZip = 'comprimido no formato "zipped"';
-
 // To translate
-
-$strImportDocSQL = 'Import docSQL Files';  //to translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
-
-$strRelationalSchema = 'Relational schema';  //to translate
-$strTableOfContents = 'Table of contents';  //to translate
-$strCannotLogin = 'Cannot login to MySQL server';  //to translate
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strLandscape = 'Landscape';  //to translate
-$strPortrait = 'Portrait';  //to translate
-
 $timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
 
 $strAbortedClients = 'Aborted'; //to translate
+
+$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
+
+$strCannotLogin = 'Cannot login to MySQL server';  //to translate
+$strCommand = 'Command'; //to translate
 $strConnections = 'Connections'; //to translate
+$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
+
 $strFailedAttempts = 'Failed attempts'; //to translate
+
 $strGlobalValue = 'Global value'; //to translate
+
+$strId = 'ID'; //to translate
+$strImportDocSQL = 'Import docSQL Files';  //to translate
+
 $strMoreStatusVars = 'More status variables'; //to translate
+
+$strNumTables = 'Tables'; //to translate
+
 $strPerHour = 'per hour'; //to translate
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
+$strProcesslist = 'Process list'; //to translate
+
 $strQueryType = 'Query type'; //to translate
+
 $strReceived = 'Received'; //to translate
+$strRelationalSchema = 'Relational schema';  //to translate
+
 $strSent = 'Sent'; //to translate
 $strServerStatus = 'Runtime Information'; //to translate
 $strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
 $strServerTabProcesslist = 'Processes'; //to translate
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
+$strServerTabVariables = 'Variables'; //to translate
 $strServerVars = 'Server variables and settings'; //to translate
 $strSessionValue = 'Session value'; //to translate
+$strStatus = 'Status'; //to translate
+
+$strTableOfContents = 'Table of contents';  //to translate
+$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
+$strTime = 'Time'; //to translate
+$strTotalUC = 'Total'; //to translate
 $strTraffic = 'Traffic'; //to translate
+
 $strVar = 'Variable'; //to translate
 
-$strCommand = 'Command'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-$strId = 'ID'; //to translate
-$strProcesslist = 'Process list'; //to translate
-$strStatus = 'Status'; //to translate
-$strTime = 'Time'; //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
 ?>
