@@ -66,12 +66,15 @@ input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?ph
 select          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
 textarea        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: #FFFFFF}
 h1              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
-A:link          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
-A:visited       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
-A:hover         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: underline; color: #FF0000}
-A.nav:link      {font-family: <?php echo $right_font_family; ?>; color: #000000}
-A.nav:visited   {font-family: <?php echo $right_font_family; ?>; color: #000000}
-A.nav:hover     {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
+a:link          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
+a:visited       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: none; color: #0000FF}
+a:hover         {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; text-decoration: underline; color: #FF0000}
+a.nav:link      {font-family: <?php echo $right_font_family; ?>; color: #000000}
+a.nav:visited   {font-family: <?php echo $right_font_family; ?>; color: #000000}
+a.nav:hover     {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
+a.h1:link       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #000000}
+a.h1:visited    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #000000}
+a.h1:hover      {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold; color: #FF0000}
 .nav            {font-family: <?php echo $right_font_family; ?>; color: #000000}
 .warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
 //-->
@@ -157,9 +160,9 @@ echo "\n";
 <body bgcolor="<?php echo $cfg['RightBgColor']; ?>" background="images/bkg.gif">
 <?php
 if (isset($db)) {
-    echo '<h1>' . $strDatabase . ' <i>' . htmlspecialchars($db) . '</i>';
+    echo '<h1>' . $strDatabase . ' <i><a class="h1" href="db_details.php3?lang='.$lang.'&server='.$server.'&db='.$db.'">' . htmlspecialchars($db) . '</a></i>';
     if (!empty($table)) {
-        echo ' - ' . $strTable . ' <i>' . htmlspecialchars($table) . '</i>';
+        echo ' - ' . $strTable . ' <i><a class="h1" href="tbl_properties.php3?lang='.$lang.'&server='.$server.'&db='.$db.'&table='.$table.'">' . htmlspecialchars($table) . '</a></i>';
     }
     echo ' ' . sprintf($strRunning, ' <i>' . (($cfg['Server']['verbose']) ? $cfg['Server']['verbose'] : $cfg['Server']['host']) . '</i>');
     echo '</h1>' . "\n";

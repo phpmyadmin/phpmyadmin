@@ -7,18 +7,20 @@ $Source$
 
 2002-04-27 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Recompressed old ChangeLog without saving its path in the archive.
+    * header.inc.php3: Patch #548696 (DB/Table titles should be links),
+      thanks to Ray Black <allah03@users.sourceforge.net>.
 
 2002-04-27 Loïc Chapeaux  <lolo@phpheaven.net>
-	* Documentation.html:
-	  - xhtml fixes;
-	  - added a faq entry about bug #547064 (JS error with textareas under
-	    Mozilla).
+    * Documentation.html:
+      - xhtml fixes;
+      - added a faq entry about bug #547064 (JS error with textareas under
+        Mozilla).
     * libraries/display_tbl.lib.php3; libraries/functions.js: better fix
       against bug #547384 (Marker Color can't equal Pointer Color).
     * libraries/auth/config.auth.lib.php3, line 111: fixed a header problem.
     * scripts/create-release.sh: improved so a CVS branch tag may be used.
-	* lang/croatian-*; libraries/select_lang.lib.php3: new Croatian
-	  translations thanks to Sime Essert <sime@nofrx.org>.
+    * lang/croatian-*; libraries/select_lang.lib.php3: new Croatian
+      translations thanks to Sime Essert <sime@nofrx.org>.
     * Compressed ChangeLog till the 2.2.6 release.
 
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>
