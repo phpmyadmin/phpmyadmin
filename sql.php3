@@ -121,7 +121,7 @@ if ($do_confirm) {
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
     <input type="hidden" name="goto" value="<?php echo isset($goto) ? $goto : ''; ?>" />
     <input type="hidden" name="back" value="<?php echo isset($back) ? $back : ''; ?>" />
-    <input type="hidden" name="reload" value="<?php echo isset($reload) ? $reload : ''; ?>" />
+    <input type="hidden" name="reload" value="<?php echo isset($reload) ? $reload : 0; ?>" />
     <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? $show_query : ''; ?>" />
     <input type="submit" name="btnDrop" value="<?php echo $strYes; ?>" />
     <input type="submit" name="btnDrop" value="<?php echo $strNo; ?>" />
@@ -143,8 +143,9 @@ else {
 
     // Defines some variables
     // loic1: A table have to be created -> left frame should be reloaded
-    if (!empty($reload) && eregi('^CREATE TABLE (.*)', $sql_query)) {
-        $reload           = 'true';
+    if ((!isset($reload) || $reload == 0)
+        && eregi('^CREATE TABLE (.*)', $sql_query)) {
+        $reload           = 1;
     }
     if (isset($sessionMaxRows)) {
         $cfgMaxRows       = $sessionMaxRows;
@@ -338,11 +339,6 @@ else {
                   . '&id_bookmark=1';
             ?>
 <!-- Bookmark the query -->
-<script type="text/javascript" language="javascript">
-<!--
-var errorMsg0 = '<?php echo(str_replace('\'', '\\\'', $strFormEmpty)); ?>';
-//-->
-</script>
 <form action="sql.php3" method="post" onsubmit="return emptyFormElements(this, 'fields[label]');">
             <?php
             echo "\n";
