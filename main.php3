@@ -151,6 +151,9 @@ if($server > 0) {
             <a href="main.php3?server=<?php echo $server;?>&lang=<?php echo $lang;?>&mode=reload"><?php echo $strReloadMySQL; ?></a> <?php print show_docu("manual_Reference.html#Flush");
         }
     }
+    ?>
+    <br><br>
+    <?php
 }
 ?>
 
@@ -163,7 +166,11 @@ if($server > 0) {
 <a href="Documentation.html" target="_top">phpMyAdmin <?php print $strDocu;?></a>
 
 
-<li><?php
+<?php
+if (empty($cfgLang)) {
+  ?>
+  <br><br>
+  <li><?php
         reset($available_languages);
         while(list ($id,$tmplang) = each ($available_languages) ) {
           $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
@@ -171,6 +178,7 @@ if($server > 0) {
 [ <a href="index.php3?server=<?php echo $server;?>&lang=<?php echo $id;?>" target="_top" title="<?php echo $lang_name;?>"><?php echo $id;?></a> ]
 <?php
         }
+}
 ?>
 </ul>
 
