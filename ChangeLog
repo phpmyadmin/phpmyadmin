@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2003-03-13 Garvin Hicking <me@supergarv.de>
+    * config.inc.php3: Put a note for flipped headers: CSS only works for IE. ('writing-mode')
+    * libraries/display_tbl.lib.php3: Display fields used for WHERE query highlighted in
+      results page (1px border in the color of BrowserMarkerColor around the cells).
+      RFE #638800
     * libraries/build_dump.lib.php3, db_details_structure.php3, db_printview.php3,
       pdf_schema.php3, tbl_dump.php3, tbl_printview.php3, tbl_properties_structure.php3,
       lang/*: RFE #7000385: Export AUTO_INCREMENT field.

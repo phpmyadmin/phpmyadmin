@@ -393,6 +393,7 @@ $cfg['DefaultPropDisplay']  = 'horizontal'; // default display direction for alt
                                             // (horizontal|vertical)
 
 $cfg['HeaderFlipType']      = 'css';        // table-header rotation via faking or css? (css|fake)
+                                            // NOTE: CSS only works in IE browsers!
 $cfg['ShowBrowseComments']  = TRUE;         // shows stored relation-comments in 'browse' mode.
 $cfg['ShowPropertyComments']= TRUE;         // shows stored relation-comments in 'table property' mode.
 $cfg['RepeatCells']         = 100;          // repeat header names every X cells? (0 = deactivate)

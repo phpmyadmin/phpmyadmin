@@ -385,6 +385,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      * @param   array    which elements to display
      * @param   array    the list of fields properties
      * @param   integer  the total number of fields returned by the sql query
+     * @param   array    the analyzed query
      *
      * @return  boolean  always true
      *
@@ -409,12 +410,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      *
      * @see     PMA_displayTable()
      */
-    function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0)
+    function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = array())
     {
         global $lang, $convcharset, $server, $db, $table;
         global $goto;
         global $sql_query, $num_rows, $pos, $session_max_rows;
-        global $vertical_display, $disp_direction, $repeat_cells;
+        global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
         global $dontlimitchars;
 
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
@@ -538,17 +539,44 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         } else {
             $is_join = FALSE;
         }
-        for ($i = 0; $i < $fields_cnt; $i++) {
 
-        // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
-        if (isset($comments_map[$fields_meta[$i]->name])) {
-            $comments_table_wrap_pre = '<table border="0" cellpadding="0" cellspacing="0"><tr><th>';
-            $comments_table_wrap_post = '</th></tr><tr><th style="font-size: 8pt; font-weight: normal">' . htmlspecialchars($comments_map[$fields_meta[$i]->name]) . '</td></tr></table>';
-        } else {
-            $comments_table_wrap_pre = '';
-            $comments_table_wrap_post = '';
+        // garvin: See if we have to highlight any header fields of a WHERE query.
+        //  Uses SQL-Parser results.
+        $highlight_columns = array();
+        if (isset($analyzed_sql) && isset($analyzed_sql[0]) &&
+            isset($analyzed_sql[0]['where_clause_identifiers'])) {
+            
+            $wi = 0;
+            @reset($analyzed_sql[0]['where_clause_identifiers']);
+            while(list($wci_nr, $wci) = each($analyzed_sql[0]['where_clause_identifiers'])) {
+                $wi++;
+                // garvin: We only count the even words, because uneven words are the
+                //  contents of the identifies. I guess. ;)
+                if ($wi % 2 != 0) {
+                    $highlightkey = $analyzed_sql[0]['where_clause_identifiers'][$wi-1];
+                    $highlight_columns[$highlightkey] = 'true';
+                }
+            }
         }
 
+        for ($i = 0; $i < $fields_cnt; $i++) {
+            // garvin: See if this column should get highlight because it's used in the
+            //  where-query.
+            if (isset($highlight_columns[$fields_meta[$i]->name]) || isset($highlight_columns[PMA_backquote($fields_meta[$i]->name)])) {
+                $column_style = 'style="border: 1px solid ' . $GLOBALS['cfg']['BrowseMarkerColor'] . '"';
+            } else {
+                $column_style = '';
+            }
+
+            // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
+            if (isset($comments_map[$fields_meta[$i]->name])) {
+                $comments_table_wrap_pre = '<table border="0" cellpadding="0" cellspacing="0"><tr><th>';
+                $comments_table_wrap_post = '</th></tr><tr><th style="font-size: 8pt; font-weight: normal">' . htmlspecialchars($comments_map[$fields_meta[$i]->name]) . '</td></tr></table>';
+            } else {
+                $comments_table_wrap_pre = '';
+                $comments_table_wrap_post = '';
+            }
+    
             // 2.1 Results can be sorted
             if ($is_display['sort_lnk'] == '1') {
                 // Defines the url used to append/modify a sorting order
@@ -646,15 +674,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                     echo "\n";
                     ?>
-    <th <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>>
+    <th <?php echo $column_style; ?> <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>>
         <?php echo $comments_table_wrap_pre; ?>
-        <a href="sql.php3?<?php echo $url_query; ?>" <?php echo (($disp_direction == 'horizontalflipped' AND $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style = "direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
+        <a href="sql.php3?<?php echo $url_query; ?>" <?php echo (($disp_direction == 'horizontalflipped' AND $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style="direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
             <?php echo ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)); ?></a><?php echo $order_img . "\n"; ?>
         <?php echo $comments_table_wrap_post; ?>
     </th>
                     <?php
                 }
-                $vertical_display['desc'][] = '    <th>' . "\n"
+                $vertical_display['desc'][] = '    <th ' . $column_style . '>' . "\n"
                                             . $comments_table_wrap_pre
                                             . '        <a href="sql.php3?' . $url_query . '">' . "\n"
                                             . '            ' . htmlspecialchars($fields_meta[$i]->name) . '</a>' . $order_img . "\n"
@@ -667,14 +695,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                     echo "\n";
                     ?>
-    <th <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>  <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css' ? 'style = "direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
+    <th <?php echo $column_style; ?> <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>  <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css' ? 'style="direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
         <?php echo $comments_table_wrap_pre; ?>
         <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)) . "\n"; ?>
         <?php echo $comments_table_wrap_post; ?>
     </th>
                     <?php
                 }
-                $vertical_display['desc'][] = '    <th>' . "\n"
+                $vertical_display['desc'][] = '    <th ' . $column_style . '>' . "\n"
                                             . $comments_table_wrap_pre
                                             . '        ' . htmlspecialchars($fields_meta[$i]->name) . "\n"
                                             . $comments_table_wrap_post
@@ -773,7 +801,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         global $lang, $convcharset, $server, $db, $table;
         global $goto;
         global $sql_query, $pos, $session_max_rows, $fields_meta, $fields_cnt;
-        global $vertical_display, $disp_direction, $repeat_cells;
+        global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
         global $dontlimitchars;
 
         if (!is_array($map)) {
@@ -1008,6 +1036,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 //        depend on whether the "is_null" php4 function is
                 //        available or not
                 $pointer = (function_exists('is_null') ? $i : $meta->name);
+                
+                // garvin: See if this column should get highlight because it's used in the
+                //  where-query.
+                if (isset($highlight_columns) && (isset($highlight_columns[$meta->name]) || isset($highlight_columns[PMA_backquote($meta->name)]))) {
+                    $column_style = 'style="border: 1px solid ' . $GLOBALS['cfg']['BrowseMarkerColor'] . '"';
+                } else {
+                    $column_style = '';
+                }
 
                 // garvin: Wrap MIME-transformations. [MIME]
                 $default_function = 'htmlspecialchars'; // default_function
@@ -1059,9 +1095,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     //if (!isset($row[$meta->name])
                     if (!isset($row[$pointer])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
-                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
-                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">';
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">';
 
                         reset($analyzed_sql[0]['select_expr']);
                         while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
@@ -1104,7 +1140,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         }
                         $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                     } else {
-                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td align="right" ' . $column_style . ' valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
 
                 //  b l o b
@@ -1127,12 +1163,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $blobtext .= ']';
                         $blobtext = ($default_function != $transform_function ? $transform_function($blobtext, $transform_options) : $default_function($blobtext));
 
-                        $vertical_display['data'][$row_no][$i]      = '    <td align="center" valign="top" bgcolor="' . $bgcolor . '">' . $blobtext . '</td>';
+                        $vertical_display['data'][$row_no][$i]      = '    <td align="center" ' . $column_style . ' valign="top" bgcolor="' . $bgcolor . '">' . $blobtext . '</td>';
                     } else {
                         //if (!isset($row[$meta->name])
                         if (!isset($row[$pointer])
                             || (function_exists('is_null') && is_null($row[$pointer]))) {
-                            $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                            $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                         } else if ($row[$pointer] != '') {
                             // garvin: if a transform function for blob is set, none of these replacements will be made
                             if (strlen($row[$pointer]) > $GLOBALS['cfg']['LimitChars'] && ($dontlimitchars != 1)) {
@@ -1145,16 +1181,16 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $row[$pointer]     = str_replace("\011", ' &nbsp;&nbsp;&nbsp;', str_replace('  ', ' &nbsp;', $row[$pointer]));
                             $row[$pointer]     = ereg_replace("((\015\012)|(\015)|(\012))", '<br />', $row[$pointer]);
 
-                            $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
+                            $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">' . $row[$pointer] . '</td>' . "\n";
                         } else {
-                            $vertical_display['data'][$row_no][$i] = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                            $vertical_display['data'][$row_no][$i] = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                         }
                     }
                 } else {
                     //if (!isset($row[$meta->name])
                     if (!isset($row[$pointer])
                         || (function_exists('is_null') && is_null($row[$pointer]))) {
-                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
                         // loic1: support blanks in the key
                         $relation_id = $row[$pointer];
@@ -1185,7 +1221,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                         // loic1: do not wrap if date field type
                         $nowrap = (eregi('DATE|TIME', $meta->type) ? ' nowrap="nowrap"' : '');
-                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"' . $nowrap . '>';
+                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '"' . $nowrap . '>';
 
                         reset($analyzed_sql[0]['select_expr']);
                         while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
@@ -1228,7 +1264,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         }
                         $vertical_display['data'][$row_no][$i]     .= '</td>' . "\n";
                     } else {
-                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
+                        $vertical_display['data'][$row_no][$i]     = '    <td valign="top" ' . $column_style . ' bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
                 }
 
@@ -1471,7 +1507,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         global $lang, $server, $cfg, $db, $table;
         global $goto;
         global $sql_query, $num_rows, $unlim_num_rows, $pos, $fields_meta, $fields_cnt;
-        global $vertical_display, $disp_direction, $repeat_cells;
+        global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
         global $dontlimitchars;
         global $cfgRelation;
 
@@ -1578,7 +1614,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             echo 'border="' . $GLOBALS['cfg']['Border'] . '" cellpadding="5"';
         }
         echo '>' . "\n";
-        PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt);
+        PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt, $analyzed_sql);
         PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);
         // lem9: vertical output case
         if ($disp_direction == 'vertical') {
