@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /** SQL Parser Functions for phpMyAdmin
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
@@ -494,44 +493,44 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
 
         if ($arraysize > 0) {
-            $t_next     = $sql_array[0]['type'];
-            $t_prev     = '';
-            $t_cur      = '';
+          $t_next     = $sql_array[0]['type'];
+          $t_prev     = '';
+          $t_cur      = '';
         }
 
         for ($i = 0; $i < $arraysize; $i++) {
-            $t_prev     = $t_cur;
-            $t_cur      = $t_next;
-            if (($i + 1) < $arraysize) {
-                $t_next = $sql_array[$i + 1]['type'];
+          $t_prev     = $t_cur;
+          $t_cur      = $t_next;
+          if (($i + 1) < $arraysize) {
+            $t_next = $sql_array[$i + 1]['type'];
+          } else {
+            $t_next = '';
+          }
+          if ($t_cur == 'alpha') {
+            $t_suffix     = '_identifier';
+            $d_cur_upper  = strtoupper($sql_array[$i]['data']);
+            if (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
+              $t_suffix = '_identifier';
+            } else if (($t_next == 'punct_bracket_open_round')
+            && PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_function_name, $PMA_SQPdata_function_name_cnt)) {
+              $t_suffix = '_functionName';
+            } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt))  {
+              $t_suffix = '_columnType';
+                  // Temporary fix for BUG #621357
+              //TODO FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
+              if($d_cur_upper == 'SET' && $t_next != 'punct_bracket_open_round') {
+                $t_suffix = '_reservedWord';
+              }
+              //END OF TEMPORARY FIX
+            } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_reserved_word, $PMA_SQPdata_reserved_word_cnt)) {
+              $t_suffix = '_reservedWord';
+            } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_attrib, $PMA_SQPdata_column_attrib_cnt)) {
+              $t_suffix = '_columnAttrib';
             } else {
-                $t_next = '';
+              // Do nothing
             }
-            if ($t_cur == 'alpha') {
-                $t_suffix     = '_identifier';
-                $d_cur_upper  = strtoupper($sql_array[$i]['data']);
-                if (($t_next == 'punct_qualifier') || ($t_prev == 'punct_qualifier')) {
-                    $t_suffix = '_identifier';
-                } else if (($t_next == 'punct_bracket_open_round')
-                           && PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_function_name, $PMA_SQPdata_function_name_cnt)) {
-                    $t_suffix = '_functionName';
-                } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_type, $PMA_SQPdata_column_type_cnt))  {
-                    $t_suffix = '_columnType';
-                    // Temporary fix for BUG #621357
-                    // TODO FIX PROPERLY NEEDS OVERHAUL OF SQL TOKENIZER
-                    if ($d_cur_upper == 'SET' && $t_next != 'punct_bracket_open_round') {
-                        $t_suffix = '_reservedWord';
-                    }
-                    // END OF TEMPORARY FIX
-                } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_reserved_word, $PMA_SQPdata_reserved_word_cnt)) {
-                    $t_suffix = '_reservedWord';
-                } else if (PMA_STR_binarySearchInArr($d_cur_upper, $PMA_SQPdata_column_attrib, $PMA_SQPdata_column_attrib_cnt)) {
-                    $t_suffix = '_columnAttrib';
-                } else {
-                    // Do nothing
-                }
-                $sql_array[$i]['type'] .= $t_suffix;
-            }
+            $sql_array[$i]['type'] .= $t_suffix;
+          }
         } // end for
 
         // Stores the size of the array inside the array, as count() is a slow
@@ -558,22 +557,46 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         $size            = $arr['len'];
         $subresult       = array(
             'querytype'      => '',
-            'list_db'        => array(),
-            'list_tbl'       => array(),
-            'list_tbl_alias' => array(),
-            'list_col'       => array(),
-            'list_col_alias' => array()
+            'select_expr'    => array(),
+            'table_ref'      => array()
         );
         $subresult_empty = $subresult;
         $seek_queryend   = FALSE;
 
+        // must be sorted
+        // TODO: current logic checks for only one word, so I put only the
+        // first word of the reserved expressions that end a table ref;
+        // maybe this is not ok (the first word might mean something else)
+//        $words_ending_table_ref = array(
+//            'FOR UPDATE',
+//            'GROUP BY',
+//            'HAVING',
+//            'LIMIT',
+//            'LOCK IN SHARE MODE',
+//            'ORDER BY',
+//            'PROCEDURE',
+//            'WHERE'
+//        );
+        $words_ending_table_ref = array(
+            'FOR',
+            'GROUP',
+            'HAVING',
+            'LIMIT',
+            'LOCK',
+            'ORDER',
+            'PROCEDURE',
+            'WHERE'
+        );
+        $words_ending_table_ref_cnt = count($words_ending_table_ref);
+
+        // must be sorted
         $supported_query_types = array(
-            'SELECT',
-            'UPDATE',
             'DELETE',
             'INSERT',
             'REPLACE',
-            'TRUNCATE'
+            'SELECT',
+            'TRUNCATE',
+            'UPDATE'
             /*
             // Support for these additional query types will come later on.
             // They are not needed yet
@@ -587,50 +610,312 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         );
         $supported_query_types_cnt = count($supported_query_types);
 
+        // main loop for each token
+
         for ($i = 0; $i < $size; $i++) {
+//echo "trace <b>"  . $arr[$i]['data'] . "</b> (" . $arr[$i]['type'] . ")<br>";
+
             // High speed seek for locating the end of the current query
             if ($seek_queryend == TRUE) {
                 if ($arr[$i]['type'] == 'punct_queryend') {
                     $seek_queryend = FALSE;
                 } else {
                     continue;
+                } // end if (type == punct_queryend)
+            } // end if ($seek_queryend)
+
+            if ($arr[$i]['type'] == 'punct_queryend') {
+                $result[]  = $subresult;
+                $subresult = $subresult_empty;
+                continue;
+            } // end if (type == punct_queryend)
+
+            if ($arr[$i]['type'] == 'alpha_reservedWord') {
+                // We don't know what type of query yet, so run this
+                if ($subresult['querytype'] == '') {
+                    $subresult['querytype'] = strtoupper($arr[$i]['data']);
+                } // end if (querytype was empty)
+
+                // Check if we support this type of query
+                if (!PMA_STR_binarySearchInArr($subresult['querytype'], $supported_query_types, $supported_query_types_cnt)) {
+                    // Skip ahead to the next one if we don't
+                    $seek_queryend = TRUE;
+                    continue; 
+                } // end if (query not supported)
+
+                // upper once
+                $upper_data = strtoupper($arr[$i]['data']);
+                //TODO: reset for each query?
+
+                if ($upper_data == 'SELECT') {
+                    $seen_from = FALSE;
+                    $previous_was_identifier = FALSE;
+                    $current_select_expr = -1;
+                    $seen_end_of_table_ref = FALSE;
+                    //$save_table_ref = TRUE;
+                } // end if ( data == SELECT)
+
+                if ($upper_data =='FROM') {
+                    $current_table_ref = -1;
+                    $seen_from = TRUE;
+                    $previous_was_identifier = FALSE;
+                    $save_table_ref = TRUE;
+                } // end if (data == FROM)
+
+                // here, do not 'continue' the loop, as we have more work for 
+                // reserved words below 
+            } // end if (type == alpha_reservedWord)
+
+// ==============================
+            if (($arr[$i]['type'] == 'quote_backtick')
+             || ($arr[$i]['type'] == 'alpha_identifier')) {
+
+                // remove backticks if any 
+                $identifier = str_replace('`','',$arr[$i]['data']);
+                    
+                if ($subresult['querytype'] == 'SELECT') {
+                    if (!$seen_from) {
+                        if ($previous_was_identifier) {
+                            // found alias for this select_expr, save it
+                            $alias_for_select_expr = $identifier;
+                        } else {
+                            $chain[] = $identifier;
+                            $previous_was_identifier = TRUE;
+
+                        } // end if !$previous_was_identifier
+                    } else {
+                        // ($seen_from) 
+                        if ($save_table_ref && !$seen_end_of_table_ref) {
+                            if ($previous_was_identifier) {
+                                // found alias for table ref
+                                // save it for later
+                                $alias_for_table_ref = $identifier;
+                            } else {
+                                $chain[] = $identifier;
+                                $previous_was_identifier = TRUE;
+
+                            } // end if ($previous_was_identifier)
+                        } // end if ($save_table_ref &&!$seen_end_of_table_ref)
+                    } // end if (!$seen_from)
+                } // end if (querytype SELECT)
+            } // end if ( quote_backtick or alpha_identifier)
+
+// ===================================
+            if ($arr[$i]['type'] == 'punct_qualifier') {
+                // to be able to detect an identifier following another
+                $previous_was_identifier = FALSE;
+                continue;
+            } // end if (punct_qualifier)
+
+            // TODO: check if 3 identifiers following one another -> error
+
+            //    s a v e    a    s e l e c t    e x p r
+            // finding a list separator or FROM
+            // means that we must save the current chain of identifiers
+            // into a select expression
+
+            // for now, we only save a select expression if it contains
+            // at least one identifier, as we are interested in checking
+            // the columns and table names, so in "select * from persons",
+            // the "*" is not saved
+
+            if (isset($chain) && !$seen_end_of_table_ref
+               && (   (!$seen_from
+                   && $arr[$i]['type'] == 'punct_listsep')
+                  || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data == 'FROM')) ) {
+                $size_chain = count($chain);
+                $current_select_expr++;
+                $subresult['select_expr'][$current_select_expr] = array(
+                  'expr' => '',
+                  'alias' => '',
+                  'db'   => '',
+                  'table_name' => '',
+                  'table_true_name' => '',
+                  'column' => ''       
+                 );
+
+                if (!empty($alias_for_select_expr)) {
+                    // we had found an alias for this select expression
+                    $subresult['select_expr'][$current_select_expr]['alias'] = $alias_for_select_expr;
+                    unset($alias_for_select_expr);
                 }
-            }
+                // there is at least a column
+                $subresult['select_expr'][$current_select_expr]['column'] = $chain[$size_chain - 1];
+                $subresult['select_expr'][$current_select_expr]['expr'] = $chain[$size_chain - 1];
+       
+                // maybe a table
+                if ($size_chain > 1) {
+                    $subresult['select_expr'][$current_select_expr]['table_name'] = $chain[$size_chain - 2];
+                    // we assume for now that this is also the true name
+                    $subresult['select_expr'][$current_select_expr]['table_true_name'] = $chain[$size_chain - 2];
+                    $subresult['select_expr'][$current_select_expr]['expr'] 
+                     = $subresult['select_expr'][$current_select_expr]['table_name']
+                      . '.' . $subresult['select_expr'][$current_select_expr]['expr']; 
+                } // end if ($size_chain > 1)
 
-            switch ($arr[$i]['type']) {
-                case 'punct_queryend':
-                    $result[]  = $subresult;
-                    $subresult = $subresult_empty;
-                    break;
-                case 'alpha_reservedWord':
-                    // We don't know what type of query yet, so run this
-                    if ($subresult['querytype'] == '') {
-                        $subresult['querytype'] = strtoupper($arr[$i]['data']);
-                    }
-                    // Check if we support this type of query
-                    if (!PMA_STR_binarySearchInArr($subresult['querytype'], $supported_query_types, $supported_query_types_cnt)) {
-                        // Skip ahead to the next one if we don't
-                        $seek_queryend = TRUE;
-                    }
-                    break;
-                default:
-                    break;
-            } // end switch
+                // maybe a db
+                if ($size_chain > 2) {
+                    $subresult['select_expr'][$current_select_expr]['db'] = $chain[$size_chain - 3];
+                    $subresult['select_expr'][$current_select_expr]['expr'] 
+                     = $subresult['select_expr'][$current_select_expr]['db']
+                      . '.' . $subresult['select_expr'][$current_select_expr]['expr']; 
+                } // end if ($size_chain > 2)
+                unset($chain);
+   
+                // TODO: explain this:
+                if (($arr[$i]['type'] == 'alpha_reservedWord')
+                 && ($upper_data != 'FROM')) {
+                    $previous_was_identifier = TRUE;
+                }
 
-            switch ($subresult['querytype']) {
-                case 'SELECT':
-                    break;
-                default:
-                    break;
-            } // end switch
-        }
+            } // end if (save a select expr)
+
+
+//=========================
+            //    s a v e    a    t a b l e    r e f
+            // maybe we just saw the end of table refs
+            // but the last table ref has to be saved
+            // or we are at the last token (TODO: there could be another 
+            // query after this one)
+            // or we just got a reserved word
+
+            if (isset($chain) && $seen_from && $save_table_ref
+             && ($arr[$i]['type'] == 'punct_listsep'
+               || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data!="AS")
+               || $seen_end_of_table_ref 
+               || $i==$size-1 )) {
+
+                $size_chain = count($chain);
+                $current_table_ref++;
+                $subresult['table_ref'][$current_table_ref] = array(
+                  'expr'            => '',
+                  'db'              => '',
+                  'table_name'      => '',
+                  'table_alias'     => '',
+                  'table_true_name' => ''
+                 );
+                if (!empty($alias_for_table_ref)) {
+                    $subresult['table_ref'][$current_table_ref]['table_alias'] = $alias_for_table_ref;
+                    unset($alias_for_table_ref);
+                }
+                $subresult['table_ref'][$current_table_ref]['table_name'] = $chain[$size_chain - 1];
+                // we assume for now that this is also the true name
+                $subresult['table_ref'][$current_table_ref]['table_true_name'] = $chain[$size_chain - 1];
+                $subresult['table_ref'][$current_table_ref]['expr'] 
+                     = $subresult['table_ref'][$current_table_ref]['table_name'];
+                // maybe a db
+                if ($size_chain > 1) {
+                    $subresult['table_ref'][$current_table_ref]['db'] = $chain[$size_chain - 2];
+                    $subresult['table_ref'][$current_table_ref]['expr'] 
+                     = $subresult['table_ref'][$current_table_ref]['db']
+                      . '.' . $subresult['table_ref'][$current_table_ref]['expr']; 
+                } // end if ($size_chain > 1)
+
+                unset($chain);
+                $previous_was_identifier = TRUE;
+                //continue;
+
+            } // end if (save a table ref)
+
+
+            // when we have found all table refs, 
+            // for each table_ref alias, put the true name of the table
+            // in the corresponding select expressions
+
+            if ($seen_end_of_table_ref || $i == $size-1) {
+                for ($tr=0; $tr <= $current_table_ref; $tr++) {
+                    $alias = $subresult['table_ref'][$tr]['table_alias'];
+                    $truename = $subresult['table_ref'][$tr]['table_true_name'];
+                    for ($se=0; $se <= $current_select_expr; $se++) {
+                        if (!empty($alias) && $subresult['select_expr'][$se]['table_true_name']
+                           == $alias) {
+                            $subresult['select_expr'][$se]['table_true_name']
+                             = $truename; 
+                        } // end if (found the alias)
+                    } // end for (select expressions)
+
+                } // end for (table refs)
+            } // end if (set the true names)
+
+
+           // e n d    o f    l o o p
+           // set the $previous_was_identifier to FALSE if the current
+           // token is not an identifier
+           if (($arr[$i]['type'] != 'alpha_identifier')
+            && ($arr[$i]['type'] != 'quote_backtick')) {
+               $previous_was_identifier = FALSE;
+           } // end if
+
+           // however, if we are on AS, we must keep the $previous_was_identifier
+           if (($arr[$i]['type'] == 'alpha_reservedWord')
+            && ($upper_data == 'AS'))  {
+               $previous_was_identifier = TRUE;
+           }
+
+           if (($arr[$i]['type'] == 'alpha_reservedWord')
+            && ($upper_data =='ON')) {
+               $save_table_ref = FALSE;
+           } // end if (data == ON)
+
+           if (($arr[$i]['type'] == 'alpha_reservedWord')
+            && ($upper_data =='JOIN' || $upper_data =='FROM')) {
+               $save_table_ref = TRUE;
+           } // end if (data == JOIN)
+
+           // no need to check the end of table ref if we already did
+           // TODO: maybe add "&& $seen_from"
+           if (!$seen_end_of_table_ref) {
+               // if this is the last token, it implies that we have
+               // seen the end of table references
+               // Check for the end of table references
+               if (($i == $size-1)
+               || ($arr[$i]['type'] == 'alpha_reservedWord'
+                  && PMA_STR_binarySearchInArr($upper_data, $words_ending_table_ref, $words_ending_table_ref_cnt))) {
+                   $seen_end_of_table_ref = TRUE;
+
+                   // to be able to save the last table ref, but do not
+                   // set it true if we found a word like "ON" that has
+                   // already set it to false
+                   if ($save_table_ref != FALSE) {
+                      $save_table_ref = TRUE;
+                   } //end if
+
+               } // end if (check for end of table ref)
+           } //end if (!$seen_end_of_table_ref)
+
+           if ($seen_end_of_table_ref) {
+               $save_table_ref = FALSE;
+           } // end if
+
+
+        } // end for $i (main loop)
+
+        // -------------------------------------------------------
+        // This is a big hunk of debugging code by Marc for this.
+        // -------------------------------------------------------
+        /*
+           for ($trace=0; $trace<=$current_select_expr; $trace++) {
+
+           echo "<br>";
+           reset ($subresult['select_expr'][$trace]);
+           while (list ($key, $val) = each ($subresult['select_expr'][$trace])) 
+           echo "sel expr $trace $key => $val<br />\n";
+           }
+           for ($trace=0; $trace<=$current_table_ref; $trace++) {
+
+           echo "<br>";
+           reset ($subresult['table_ref'][$trace]);
+           while (list ($key, $val) = each ($subresult['table_ref'][$trace])) 
+           echo "table ref $trace $key => $val<br />\n";
+           }
+        */ 
+        // -------------------------------------------------------
 
         // They are naughty and didn't have a trailing semi-colon,
         // then still handle it properly
         if ($subresult['querytype'] != '') {
             $result[] = $subresult;
         }
-
         return $result;
     } // end of the "PMA_SQP_analyze()" function
 

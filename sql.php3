@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Gets some core libraries
  */
@@ -516,7 +515,11 @@ else {
         if (!isset($dontlimitchars)) {
             $dontlimitchars = 0;
         }
-        PMA_displayTable($result, $disp_mode);
+
+        $parsed_sql = PMA_SQP_parse($sql_query);
+        $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+
+        PMA_displayTable($result, $disp_mode, $analyzed_sql);
         mysql_free_result($result);
 
         if ($disp_mode[6] == '1' || $disp_mode[9] == '1') {

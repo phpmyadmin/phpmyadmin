@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Set of functions used to display the records returned by a sql query
  */
@@ -577,9 +576,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     $is_in_sort = FALSE;
                 } else {
                     //$is_in_sort = eregi('[[:space:]](`?)' . str_replace('\\', '\\\\', $fields_meta[$i]->name) . '(`?)[ ,$]', $sql_order);
-                    $pattern    = str_replace('\\', '\\\\', $fields_meta[$i]->name);
-                    $pattern    = str_replace('(', '\(', $pattern);
-                    $pattern    = str_replace(')', '\)', $pattern);
+                    $pattern = str_replace('\\', '\\\\', $fields_meta[$i]->name);
+                    $pattern = str_replace('(','\(', $pattern);
+                    $pattern = str_replace(')','\)', $pattern);
                     $is_in_sort = eregi('[[:space:]](`?)' . $pattern . '(`?)[ ,$]', $sql_order);
                 }
                 // 2.1.3 Checks if the table name is required (it's the case
@@ -607,15 +606,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $cfg['Order'] = (eregi('time|date', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
                     }
                     $sort_order .= $cfg['Order'];
-                    $order_img  = '';
+                    $order_img   = '';
                 }
                 else if (eregi('[[:space:]]ASC$', $sql_order)) {
                     $sort_order .= ' DESC';
-                    $order_img  = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
+                    $order_img   = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
                 }
                 else if (eregi('[[:space:]]DESC$', $sql_order)) {
                     $sort_order .= ' ASC';
-                    $order_img  = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
+                    $order_img   = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
                 }
                 if (eregi('(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))', $unsorted_sql_query, $regs3)) {
                     $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
@@ -761,6 +760,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      *                   to be displayed
      * @param   array    which elements to display
      * @param   array    the list of relations
+     * @param   array    the analyzed query
      *
      * @return  boolean  always true
      *
@@ -786,7 +786,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      *
      * @see     PMA_displayTable()
      */
-    function PMA_displayTableBody(&$dt_result, &$is_display, $map)
+    function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     {
         global $lang, $convcharset, $server, $db, $table;
         global $goto;
@@ -1004,11 +1004,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             // 2. Displays the rows' values
             for ($i = 0; $i < $fields_cnt; ++$i) {
                 $meta    = $fields_meta[$i];
-
                 // loic1: To fix bug #474943 under php4, the row pointer will
                 //        depend on whether the "is_null" php4 function is
                 //        available or not
                 $pointer = (function_exists('is_null') ? $i : $meta->name);
+
+                // n u m e r i c
                 if ($meta->numeric == 1) {
 
                 // lem9: if two fields have the same name (this is possible
@@ -1027,6 +1028,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '"><i>NULL</i></td>' . "\n";
                     } else if ($row[$pointer] != '') {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">';
+
                         if (isset($map[$meta->name])) {
                             // Field to display from the foreign table?
                             if (!empty($map[$meta->name][2])) {
@@ -1061,6 +1063,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                     } else {
                         $vertical_display['data'][$row_no][$i]     = '    <td align="right" valign="top" bgcolor="' . $bgcolor . '">&nbsp;</td>' . "\n";
                     }
+
+                //  b l o b
+
                 } else if ($GLOBALS['cfg']['ShowBlob'] == FALSE && eregi('BLOB', $meta->type)) {
                     // loic1 : PMA_mysql_fetch_fields returns BLOB in place of
                     // TEXT fields type, however TEXT fields must be displayed
@@ -1124,6 +1129,16 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         $nowrap = (eregi('DATE|TIME', $meta->type) ? ' nowrap="nowrap"' : '');
                         $vertical_display['data'][$row_no][$i]     = '    <td valign="top" bgcolor="' . $bgcolor . '"' . $nowrap . '>';
 
+                        reset($analyzed_sql[0]['select_expr']);
+                        while (list ($select_expr_position, $select_expr) = each ($analyzed_sql[0]['select_expr'])) {
+                            $alias = $analyzed_sql[0]['select_expr'][$select_expr_position]['alias'];
+                            if (!empty($alias)) {
+                                $true_column = $analyzed_sql[0]['select_expr'][$select_expr_position]['column'];
+                                if ($alias == $meta->name) {
+                                    $meta->name = $true_column;
+                                }
+                            }
+                        }
                         if (isset($map[$meta->name])) {
                             // Field to display from the foreign table?
                             if (!empty($map[$meta->name][2])) {
@@ -1342,6 +1357,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      * @param   integer the link id associated to the query which results have
      *                  to be displayed
      * @param   array   the display mode
+     * @param   array   the analyzed query
      *
      * @global  string   the current language
      * @global  integer  the server to use (refers to the number in the
@@ -1371,7 +1387,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      *          PMA_displayTableNavigation(), PMA_displayTableHeaders(),
      *          PMA_displayTableBody()
      */
-    function PMA_displayTable(&$dt_result, &$the_disp_mode)
+    function PMA_displayTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     {
         global $lang, $server, $cfg, $db, $table;
         global $goto;
@@ -1453,10 +1469,16 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
         if ($cfgRelation['relwork']) {
             // find tables
-            $pattern = '`?[[:space:]]+(((ON|on)[[:space:]]+[^,]+)?,|((NATURAL|natural)[[:space:]]+)?(INNER|inner|LEFT|left|RIGHT|right)([[:space:]]+(OUTER|outer))?[[:space:]]+(JOIN|join))[[:space:]]*`?';
-            $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
-            $target = eregi_replace('`?[[:space:]]ORDER BY[[:space:]](.*)','',$target);
-            $tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
+            //$pattern = '`?[[:space:]]+(((ON|on)[[:space:]]+[^,]+)?,|((NATURAL|natural)[[:space:]]+)?(INNER|inner|LEFT|left|RIGHT|right)([[:space:]]+(OUTER|outer))?[[:space:]]+(JOIN|join))[[:space:]]*`?';
+            //$target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
+            //$target = eregi_replace('`?[[:space:]]ORDER BY[[:space:]](.*)','',$target);
+            //$tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
+            $target=array();
+            reset($analyzed_sql[0]['table_ref']);
+            while (list ($table_ref_position, $table_ref) = each ($analyzed_sql[0]['table_ref'])) {
+               $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name']; 
+            }
+            $tabs    = '(\'' . join('\',\'', $target) . '\')';
 
             $local_query = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
                          . ' FROM ' . PMA_backquote($cfgRelation['relation'])
@@ -1484,7 +1506,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         }
         echo '>' . "\n";
         PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt);
-        PMA_displayTableBody($dt_result, $is_display, $map);
+        PMA_displayTableBody($dt_result, $is_display, $map, $analyzed_sql);
         // lem9: vertical output case
         if ($disp_direction == 'vertical') {
             PMA_displayVerticalTable();
