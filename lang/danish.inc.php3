@@ -59,6 +59,7 @@ $strBookmarkView = 'Kun oversigt';
 $strBrowse = 'Vis';
 $strBzip = '"bzipped"'; 
 
+$strCantLoadMySQL = 'MySQL udvidelser kan ikke loades,<br />check PHP konfigurationen.';
 $strCantRenameIdxToPrimary = 'Kan ikke omdøbe indeks til PRIMARY!';
 $strCardinality = 'Kardinalitet';
 $strCarriage = 'Carriage return: \\r';
@@ -241,6 +242,7 @@ $strQBEIns = 'Ins';
 $strQueryOnDb = 'SQL-forespørgsel til database <b>%s</b>:';
 
 $strRecords = 'Poster';
+$strReferentialIntegrity = 'Check reference integriteten';
 $strReloadFailed = 'Genstart af MySQL fejlede.';
 $strReloadMySQL = 'Genstart MySQL';
 $strRememberReload = 'Husk at indlæse serveren.';
@@ -345,6 +347,4 @@ $strYes = 'Ja';
 
 $strZip = '"zipped"'; 
 
-$strCantLoadMySQL = 'cannot load MySQL extension,<br />please check PHP Configuration.'; //to translate
-$strReferentialIntegrity = 'Check referential integrity:'; //to translate
 ?>
