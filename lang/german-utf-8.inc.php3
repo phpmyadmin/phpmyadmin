@@ -446,4 +446,7 @@ $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 $strZip = 'Zip-komprimiert';
+$strShowDatadictAs = 'Data Dictionary Format';  //to translate
+$strLandscape = 'Landscape';  //to translate
+$strPortrait = 'Portrait';  //to translate
 ?>

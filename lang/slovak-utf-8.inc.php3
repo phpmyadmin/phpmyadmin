@@ -442,4 +442,7 @@ $strTotalUC = 'Total'; //to translate
 $strRelationalSchema = 'Relational schema';  //to translate
 $strTableOfContents = 'Table of contents';  //to translate
 $strCannotLogin = 'Cannot login to MySQL server';  //to translate
+$strShowDatadictAs = 'Data Dictionary Format';  //to translate
+$strLandscape = 'Landscape';  //to translate
+$strPortrait = 'Portrait';  //to translate
 ?>

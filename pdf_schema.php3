@@ -105,7 +105,7 @@ class PMA_PDF extends FPDF
      *
      * @see     FPDF::FPDF()
      */
-    function PMA_PDF($orientation = 'P', $unit = 'mm', $format = 'A4')
+    function PMA_PDF($orientation = 'L', $unit = 'mm', $format = 'A4')
     {
         $this->Alias = array() ;
         $this->FPDF($orientation, $unit, $format);
@@ -474,7 +474,7 @@ function Row($data,$links)
    for($i=0;$i<count($data);$i++)
       $nb=max($nb,$this->NbLines($this->widths[$i],$data[$i]));
    $il = 2.7;
-   $h=$il*$nb;
+   $h=$il*$nb+2;
    // page break if necessary
    $this->CheckPageBreak($h);
    // draw the cells
@@ -489,7 +489,7 @@ function Row($data,$links)
       if (isset($links[$i]))
       $this->Link($x,$y,$w,$h,$links[$i]);
       // print text
-      $this->MultiCell($w,$il,$data[$i],0,'L');
+      $this->MultiCell($w,$il+1,$data[$i],0,'L');
       // go to right side
       $this->SetXY($x+$w,$y);
    }
@@ -1087,7 +1087,7 @@ class PMA_RT
      *
      * @see     PMA_PDF
      */
-    function PMA_RT($scale, $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0, $all_tab_same_wide = 0)
+    function PMA_RT($scale, $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0, $all_tab_same_wide = 0, $orientation = 'L')
     {
         global $pdf, $db, $cfgRelation, $with_doc;
 
@@ -1191,7 +1191,7 @@ class PMA_RT
 } // end of the "PMA_RT" class
 
 function PMA_RT_DOC($alltables ){
-    global  $db, $pdf;
+    global  $db, $pdf, $orientation;
     //TOC
     $pdf->addpage("P");
     $pdf->Cell(0,9, $GLOBALS['strTableOfContents'],1,0,'C');
@@ -1224,7 +1224,7 @@ function PMA_RT_DOC($alltables ){
     $z = 0;
     foreach($alltables as $table ){
         $z++;
-        $pdf->addpage("P");
+        $pdf->addpage($GLOBALS['orientation']);
         $pdf->Bookmark($table);
         $pdf->SetAlias('{'.sprintf("%02d", $z).'}', $pdf->PageNo()) ;
         $pdf->PMA_links['RT'][$table]['-'] =$pdf->AddLink();
@@ -1341,6 +1341,17 @@ function PMA_RT_DOC($alltables ){
 
     $i = 0;
     $pdf->SetFont('', 'B');
+    if (isset($orientation) && $orientation == 'L') {
+        $pdf->Cell(25,8,ucfirst($GLOBALS['strField']),1,0,'C');
+        $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');
+        $pdf->Cell(20,8,ucfirst($GLOBALS['strAttr']),1,0,'C');
+        $pdf->Cell(10,8,ucfirst($GLOBALS['strNull']),1,0,'C');
+        $pdf->Cell(20,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
+        $pdf->Cell(25,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
+        $pdf->Cell(45,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
+        $pdf->Cell(100,8,ucfirst($GLOBALS['strComments']),1,1,'C');
+        $pdf->SetWidths(array(25,20,20,10,20,25,45,100));
+    } else {
         $pdf->Cell(20,8,ucfirst($GLOBALS['strField']),1,0,'C');
         $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');
         $pdf->Cell(20,8,ucfirst($GLOBALS['strAttr']),1,0,'C');
@@ -1349,8 +1360,9 @@ function PMA_RT_DOC($alltables ){
         $pdf->Cell(15,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
         $pdf->Cell(30,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
         $pdf->Cell(60,8,ucfirst($GLOBALS['strComments']),1,1,'C');
+        $pdf->SetWidths(array(20,20,20,10,15,15,30,60));
+    }
     $pdf->SetFont('', '');
-    $pdf->SetWidths(array(20,20,20,10,15,15,30,60));
 
     while ($row = PMA_mysql_fetch_array($result)) {
         $bgcolor = ($i % 2) ?$GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
@@ -1451,8 +1463,8 @@ $show_color           = (isset($show_color) && $show_color == 'on') ? 1 : 0;
 $show_table_dimension = (isset($show_table_dimension) && $show_table_dimension == 'on') ? 1 : 0;
 $all_tab_same_wide    = (isset($all_tab_same_wide) && $all_tab_same_wide == 'on') ? 1 : 0;
 $with_doc             = (isset($with_doc) && $with_doc == 'on') ? 1 : 0;
-
+$orientation          = (isset($orientation) && $orientation == 'P') ? 'P' : 'L';
 PMA_mysql_select_db($db);
 
-$rt = new PMA_RT('auto', $pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide);
+$rt = new PMA_RT('auto', $pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide, $orientation);
 ?>

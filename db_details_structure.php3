@@ -520,7 +520,12 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
             <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" />
             <label for="all_tab_same_wide"><?php echo $strAllTableSameWidth; ?></label> <br />
             <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
-            <label for="with_doc"><?php echo $strDataDict; ?></label>
+            <label for="with_doc"><?php echo $strDataDict; ?></label> <br />
+            <?php echo $strShowDatadictAs; ?>
+            <select name="orientation">
+                <option value="L"><?php echo $strLandscape;?></option>
+                <option value="P"><?php echo $strPortrait;?></option>
+            </select>
             &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
         </form>
     </li>

@@ -439,4 +439,7 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
+$strShowDatadictAs = 'Data Dictionary Format';  //to translate
+$strLandscape = 'Landscape';  //to translate
+$strPortrait = 'Portrait';  //to translate
 ?>
