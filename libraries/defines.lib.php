@@ -24,7 +24,7 @@ if (!defined('PMA_VERSION')) {
 }
 
 if (!defined('PMA_THEME_VERSION')) {
-    define('PMA_THEME_VERSION', 1);
+    define('PMA_THEME_VERSION', 2);
 }
 
 if (!defined('PMA_THEME_GENERATION')) {

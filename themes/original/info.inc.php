@@ -2,6 +2,6 @@
 /* $Id$ */
 /* Theme information */
 $theme_name = 'Original';
-$theme_version = 1;
+$theme_version = 2;
 $theme_generation = 1;
 ?>
