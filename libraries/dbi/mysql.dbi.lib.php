@@ -196,7 +196,9 @@ function PMA_DBI_getError($link = NULL) {
     }
 
 // Some errors messages cannot be obtained by mysql_error()
-    if ($error && $error == 2003) {
+    if ($error && $error == 2002) {
+        $error = '#' . ((string) $error) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
+    } elseif ($error && $error == 2003) {
         $error = '#' . ((string) $error) . ' - ' . $GLOBALS['strServerNotResponding'];
     } elseif ($error && defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 40100) {
         $error = '#' . ((string) $error) . ' - ' . $error_message;

@@ -804,4 +804,5 @@ $strHTMLWordOptions = 'Microsoft Word 2000 export options';  //to translate
 $strInnoDBBufferPoolSizeDesc = 'The size of the memory buffer InnoDB uses to cache data and indexes of its tables.';  //to translate
 $strInnoDBBufferPoolSize = 'Buffer pool size';  //to translate
 $strInnoDBPages = 'pages';  //to translate
+$strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
 ?>

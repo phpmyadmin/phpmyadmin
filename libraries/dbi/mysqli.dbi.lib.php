@@ -212,7 +212,7 @@ function PMA_DBI_getError($link = NULL) {
 
 
     if ($error && $error == 2002) {
-        $error = '#' . ((string) $error) . ' - ' . $GLOBALS['strServerNotResponding'];
+        $error = '#' . ((string) $error) . ' - ' . $GLOBALS['strServerNotResponding'] . ' ' . $GLOBALS['strSocketProblem'];
     } elseif ($error && defined('PMA_MYSQL_INT_VERSION') && PMA_MYSQL_INT_VERSION >= 40100) {
         $error = '#' . ((string) $error) . ' - ' . $error_message;
     } elseif ($error) {

@@ -802,4 +802,5 @@ $strYes = 'Ano';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení.';
 $strZip = '"zazipováno"';
 
+$strSocketProblem = '(or the local MySQL server\'s socket is not correctly configured)';  //to translate
 ?>
