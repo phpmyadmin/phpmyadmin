@@ -290,6 +290,7 @@ $strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';//to translate
 $strLengthSet = 'Length/Values*'; // To translate
 $strNoDatabases = 'No databases';
+$strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
 $strNoModification = 'No change'; // To translate
 $strOffSet = 'offset';  // To translate
 $strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';

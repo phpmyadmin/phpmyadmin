@@ -296,4 +296,5 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
+$strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
 ?>

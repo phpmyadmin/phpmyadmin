@@ -290,6 +290,7 @@ $strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';//to translate
 $strNbRecords = 'no. of records';
 $strNoDatabases = 'No databases';
+$strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
 $strNoModification = 'No change'; // To translate
 $strOffSet = 'offset';
 $strQueryOnDb = 'SQL-query on database ';

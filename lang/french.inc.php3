@@ -165,6 +165,7 @@ $strName = 'Nom';
 $strNbRecords = 'nb. d\'enregistrements';
 $strNext = 'Suivant';
 $strNo = 'Non';
+$strNoDropDatabases = 'La commande "DROP DATABASE" est désactivée.';
 $strNoDatabases = 'Aucune base de données';
 $strNoModification = 'Pas de modifications';
 $strNoPassword = 'aucun mot de passe';

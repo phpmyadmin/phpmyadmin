@@ -165,6 +165,7 @@ $strName = 'Name';
 $strNbRecords = 'No. Of records';
 $strNext = 'Next';
 $strNo = 'No';
+$strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
 $strNoDatabases = 'No databases';
 $strNoModification = 'No change';
 $strNoPassword = 'No Password';

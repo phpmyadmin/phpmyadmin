@@ -291,6 +291,7 @@ $strInstructions = 'Instructions';//to translate
 $strInsertedRows = 'Inserted rows:';
 $strNbRecords = 'no. of records';
 $strNoDatabases = 'No databases';
+$strNoDropDatabases = '"DROP DATABASE" statements are disabled.';
 $strNoModification = 'No change';
 $strOffSet = 'offset';
 $strQueryOnDb = 'SQL-query on database ';
