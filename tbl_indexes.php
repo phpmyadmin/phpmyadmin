@@ -32,7 +32,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
         $is_db = PMA_DBI_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit;
     }
     // Not a valid table name -> back to the default db_details sub-page
@@ -41,7 +41,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
     }
     if (empty($table)
         || !($is_table && PMA_DBI_num_rows($is_table))) {
-        header('Location: ' . $cfg['PmaAbsoluteUri'] . $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit;
     } else if (isset($is_table)) {
         PMA_DBI_free_result($is_table);
