@@ -10,6 +10,8 @@ $Source$
     * libraries/common.lib.php3, defines.lib.php3, defines_php.lib.php3,
       scripts/create-release.sh: split defines.lib.php3 because
       of charset_conversion needs (thanks to Michal Cihar) 
+    * slovak: with permission from Peter Svek, now the windows-1250
+      is generated from the -iso-8859-2 file.
 
 2002-07-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Forgot a <meta /> tag in the config file error
