@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-11 Loïc Chapeaux  <lolo@phpheaven.net>  and Marc
+    * tbl_change.php3: bug 605342, edit fills current time in datetime field
+
 2002-09-11 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech-*.inc.php3: Updates.
     

@@ -10,6 +10,7 @@ $js_to_run = 'tbl_change.js';
 require('./header.inc.php3');
 require('./libraries/relation.lib.php3'); // foreign keys
 
+
 /**
  * Displays the query submitted and its result
  */
@@ -194,6 +195,10 @@ if ($cfg['ShowFunctionFields']) {
 $timestamp_seen = 0;
 $fields_cnt     = mysql_num_rows($table_def);
 
+// Set a flag here because the 'if' would not be valid in the loop
+// if we set a value in some field
+$insert_mode = (!isset($row) ? TRUE:FALSE);
+
 for ($i = 0; $i < $fields_cnt; $i++) {
     // Display the submit button after every 15 lines --swix
     // (wanted to use an <a href="#bottom"> and <a name> instead,
@@ -212,8 +217,21 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
     $row_table_def   = PMA_mysql_fetch_array($table_def);
     $field           = $row_table_def['Field'];
-    if ($row_table_def['Type'] == 'datetime' && empty($row[$field])) {
-        $row[$field] = date('Y-m-d H:i:s', time());
+    // loic1: current date should not be set as default if the field is NULL
+    //        for the current row
+    if ($row_table_def['Type'] == 'datetime') {
+        // INSERT case
+        if ($insert_mode) {
+            $row[$field] = date('Y-m-d H:i:s', time());
+        }
+        // UPDATE case with an empty and not NULL value under PHP4
+        else if (empty($row[$field]) && function_exists('is_null')) {
+            $row[$field] = (is_null($row[$field]) ? $row[$field] : date('Y-m-d H:i:s', time()));
+        }
+        // UPDATE case with an empty value under PHP3
+        else if (empty($row[$field])) {
+            $row[$field] = date('Y-m-d H:i:s', time());
+        } // end if... else if... else if...
     }
     $len             = (eregi('float|double', $row_table_def['Type']))
                      ? 100
@@ -380,13 +398,13 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
         // foreign_display can be FALSE if no display field defined:
         $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
-        $dispsql = 'SELECT ' . PMA_backquote($foreign_field) 
-                 . ($foreign_display==FALSE? '': ', ' . PMA_backquote($foreign_display))
-                 . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
+        $dispsql         = 'SELECT ' . PMA_backquote($foreign_field)
+                         . (($foreign_display == FALSE) ? '' : ', ' . PMA_backquote($foreign_display))
+                         . ' FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
         // lem9: put a LIMIT in case of big foreign table (looking for better
         //       solution, maybe a configurable limit, or a message?)
-        $dispsql .= ' LIMIT 100';
-        $disp    = PMA_mysql_query($dispsql);
+        $dispsql         .= ' LIMIT 100';
+        $disp            = PMA_mysql_query($dispsql);
     }
 
     if (isset($disp) && $disp) {
@@ -394,7 +412,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         echo '            <select name="fields[' . urlencode($field) .  ']">' . "\n";
         while ($relrow = @PMA_mysql_fetch_array($disp)) {
             $key   = $relrow[$foreign_field];
-            $value = ($foreign_display!=FALSE ? '-' . htmlspecialchars($relrow[$foreign_display]):'');
+            $value = (($foreign_display != FALSE) ? '-' . htmlspecialchars($relrow[$foreign_display]) : '');
             echo '            <option value="' . urlencode($key) . '"';
             if ($key == $data) {
                echo ' selected="selected"';
