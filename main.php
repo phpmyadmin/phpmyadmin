@@ -140,57 +140,8 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
 /**
  * Displays the MySQL servers choice form
  */
-if ($server == 0 || count($cfg['Servers']) > 1) {
-    ?>
-<!-- MySQL servers choice form -->
-<form method="post" action="index.php" target="_parent" class="nospace">
-<table border="0" cellpadding="3" cellspacing="0" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
-    <tr>
-        <th class="tblHeaders"><?php echo $strServerChoice; ?></th>
-    </tr>
-    <tr>
-        <td>
-            <select name="server">
-    <?php
-    echo "\n";
-    foreach ($cfg['Servers'] AS $key => $val) {
-        if (!empty($val['host'])) {
-            echo '                <option value="' . $key . '"';
-            if (!empty($server) && ($server == $key)) {
-                echo ' selected="selected"';
-            }
-            echo '>';
-            if (!empty($val['verbose'])) {
-                echo $val['verbose'];
-            } else {
-                echo $val['host'];
-                if (!empty($val['port'])) {
-                    echo ':' . $val['port'];
-                }
-            }
-            // loic1: if 'only_db' is an array and there is more than one
-            //        value, displaying such informations may not be a so good
-            //        idea
-            if (!empty($val['only_db'])) {
-                echo ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
-            }
-            if (!empty($val['user']) && ($val['auth_type'] == 'config')) {
-                echo '  (' . $val['user'] . ')';
-            }
-            echo '&nbsp;</option>' . "\n";
-        } // end if (!empty($val['host']))
-    } // end while
-    ?>
-            </select>
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="submit" value="<?php echo $strGo; ?>" />
-        </td>
-    </tr>
-</table>
-</form><br />
-    <?php
-} // end of the servers choice form
+$show_server_left = FALSE;
+include('./libraries/select_server.lib.php');
 
 // neted table needed
 ?>

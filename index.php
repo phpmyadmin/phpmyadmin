@@ -62,7 +62,7 @@ $phpmain_hash_js = time();
 
 <?php
 $query_frame_height = 60;
-if ($cfg['LeftDisplayServers'] && !$cfg['LeftDisplayServersList']) {
+if ($cfg['LeftDisplayServers'] && !$cfg['DisplayServersList']) {
     $query_frame_height = $query_frame_height + 40;
 }
 if ($server > 0) {
@@ -79,6 +79,11 @@ if ($cfg['LeftDisplayLogo']) {
     $query_frame_height = $query_frame_height + 50;
 }
 if ($cfg['QueryFrame']) {
+    /* Will we show list of servers? */
+    if ($cfg['LeftDisplayServers'] && $cfg['DisplayServersList'] && count($cfg['Servers']) > 1) {
+        $query_frame_height += (count($cfg['Servers']) + 1)*15;
+    }
+
     if ($cfg['QueryFrameJS']) {
         echo '<script type="text/javascript">' . "\n";
         echo '<!--' . "\n";
@@ -99,7 +104,7 @@ if ($cfg['QueryFrame']) {
         echo "\n";
         echo '<noscript>' . "\n";
     }
-
+    
     echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*"  border="1" frameborder="1" framespacing="0">' . "\n";
     echo '    <frameset rows="' . $query_frame_height . ', *" framespacing="0" frameborder="0" border="0">' . "\n";
     echo '        <frame src="queryframe.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="queryframe" frameborder="0" scrolling="no" />' . "\n";

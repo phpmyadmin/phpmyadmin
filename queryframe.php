@@ -170,62 +170,10 @@ if ($cfg['MainPageIconic']) {
     </div>
     <hr />
 
-<!-- Left Display Servers -->
     <?php
-$show_line_end = FALSE;
-if ($cfg['LeftDisplayServers'] && !$cfg['LeftDisplayServersList']){
-    $show_line_end = TRUE;
-    ?>
-    <table border="0" cellpadding="1" cellspacing="0">
-        <tr>
-            <td align="left"><span class="heada"><?php echo $strServer . ':<br />' . "\n"; ?></span></td>
-        </tr>
-        <tr>
-            <td nowrap="nowrap">
-    <form method="post" action="index.php" target="_parent" style="margin: 0px; padding: 0px;">
-        <select name="server" onchange="this.form.submit();this.blur();">
-<?php
-    foreach ($cfg['Servers'] AS $key => $val) {
-        if (!empty($val['host'])) {
-            $selected = 0;
-            if (!empty($server) && ($server == $key)) {
-                $selected = 1;
-            }
-            if (!empty($val['verbose'])) {
-                $label = $val['verbose'];
-            } else {
-                $label = $val['host'];
-                if (!empty($val['port'])) {
-                    $label .= ':' . $val['port'];
-                }
-                // loic1: skip this because it's not a so good idea to display
-                //        sockets used to everybody
-                // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-                //     $label .= ':' . $val['socket'];
-                // }
-            }
-            // loic1: if 'only_db' is an array and there is more than one
-            //        value, displaying such informations may not be a so good
-            //        idea
-            if (!empty($val['only_db'])) {
-                $label .= ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
-            }
-            if (!empty($val['user']) && ($val['auth_type'] == 'config')) {
-                $label .= '  (' . $val['user'] . ')';
-            }
-            echo '      <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . $label . '</option>' . "\n";
-        } // end if (!empty($val['host']))
-    } // end while
-?>
-        </select>
-        <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-        <noscript><input type="submit" value="<?php echo $strGo; ?>" /></noscript>
-    </form>
-            </td>
-        </tr>
-    </table>
-    <?php
+if ($cfg['LeftDisplayServers']){
+    $show_server_left = TRUE;
+    include('./libraries/select_server.lib.php');
 } // end if LeftDisplayServers
     ?>
 <!-- Databases list -->
@@ -256,7 +204,6 @@ if ($num_dbs > 1) {
     // within left.php. With no JS (<noscript>) the whole frameset will
     // be rebuilt with the new target frame.
     if ($cfg['LeftFrameLight']) {
-        $show_line_end = TRUE;
     ?>
     <table border="0" cellpadding="1" cellspacing="0">
         <tr>
@@ -371,12 +318,10 @@ if ($num_dbs > 1) {
             </td>
         </tr>
     </table>
+    <hr />
     <?php
     } // end if LeftFrameLight
 } // end if num_db > 1
-if ($show_line_end == TRUE) {
-    echo '<hr />' . "\n";
-}
     ?>
     <form name="queryframeform" action="queryframe.php" method="get">
         <input type="hidden" name="db" value="" />

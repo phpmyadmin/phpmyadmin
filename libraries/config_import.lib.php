@@ -340,8 +340,12 @@ if (!isset($cfg['LeftDisplayServers'])) {
     $cfg['LeftDisplayServers'] = FALSE;
 }
 
-if (!isset($cfg['LeftDisplayServersList'])) {
-    $cfg['LeftDisplayServersList'] = FALSE;
+if (!isset($cfg['DisplayServersList'])) {
+    if (isset($cfg['LeftisplayServersList'])) {
+        $cfg['DisplayServersList'] = $cfg['LeftDisplayServersList'];
+    } else {
+        $cfg['DisplayServersList'] = FALSE;
+    }
 }
 
 if (!isset($cfg['ShowStats'])) {

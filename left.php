@@ -386,81 +386,12 @@ if (!$cfg['QueryFrame']) {
     </div>
     <hr />
 <?php
+    if ($cfg['LeftDisplayServers']) {
+        $show_server_left = TRUE;
+        include('./libraries/select_server.lib.php');
+    }
 } // end !$cfg['QueryFrame']
 
-if ($cfg['LeftDisplayServers']) {
-    if ($cfg['LeftDisplayServersList']){
-?>
-    <br />
-    <?php
-    }else{
-        if (!$cfg['QueryFrame']) {
-    ?>
-    <form method="post" action="index.php" target="_parent" style="margin: 0px; padding: 0px;">
-        <?php echo '<div class="heada"><b>' . $strServer . ':</b></div><br />'; ?>
-        <select name="server" onchange="this.form.submit();">
-    <?php
-        }
-    }
-
-    foreach ($cfg['Servers'] AS $key => $val) {
-        if (!empty($val['host'])) {
-             $selected = 0;
-            if (!empty($server) && ($server == $key)) {
-                $selected = 1;
-            }
-            if (!empty($val['verbose'])) {
-                $label = $val['verbose'];
-            } else {
-                $label = $val['host'];
-                if (!empty($val['port'])) {
-                    $label .= ':' . $val['port'];
-                }
-                // loic1: skip this because it's not a so good idea to display
-                //        sockets used to everybody
-                // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-                //     $label .= ':' . $val['socket'];
-                // }
-            }
-            // loic1: if 'only_db' is an array and there is more than one
-            //        value, displaying such informations may not be a so good
-            //        idea
-            if (!empty($val['only_db'])) {
-                $label .= ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
-            }
-            if (!empty($val['user']) && ($val['auth_type'] == 'config')) {
-                $label .= '  (' . $val['user'] . ')';
-            }
-
-            if ($cfg['LeftDisplayServersList']){
-                if ($selected) {
-                    echo '&raquo; <b>' . $label . '</b><br />';
-                }else{
-                    echo '&raquo; <a href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . $label . '</a><br />';
-                }
-            } else {
-                if (!$cfg['QueryFrame']) {
-                    echo '                <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . $label . '</option>' . "\n";
-                }
-            }
-
-        } // end if (!empty($val['host']))
-    } // end while
-
-    if ($cfg['LeftDisplayServersList']){
-        echo '<br />';
-    } else {
-        if (!$cfg['QueryFrame']) {
-?>
-        </select>
-        <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-        <noscript><input type="submit" value="<?php echo $strGo; ?>" /></noscript>
-    </form>
-<?php
-        }
-    }
-}
 ?>
 <!-- Databases and tables list -->
 <?php
