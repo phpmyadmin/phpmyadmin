@@ -5,7 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-05-15 Loïc Chapeaux  <lolo@phpheaven.net>
+2002-05-17 Loïc Chapeaux  <lolo@phpheaven.net>
+    * db_details_structure.php3, lines 446-458;
+      tbl_properties_options.php3, lines 119-143: beautified generated code.
+
+2002-05-16 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3; Documentation.html: coding standards.
 
 2002-05-14 Marc Delisle  <lem9@users.sourceforge.net>

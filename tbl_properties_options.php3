@@ -116,10 +116,31 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
             <select name="tbl_type" style="vertical-align: middle">
                 <option value="MYISAM"<?php if ($tbl_type == 'MYISAM') echo ' selected="selected"'; ?>>MyISAM</option>
                 <option value="HEAP"<?php if ($tbl_type == 'HEAP') echo ' selected="selected"'; ?>>Heap</option>
-                <?php if (isset($tbl_bdb)) { ?><option value="BDB"<?php if ($tbl_type == 'BERKELEYDB') echo ' selected="selected"'; ?>>Berkeley DB</option><?php } ?>
-                <?php if (isset($tbl_gemini)) { ?><option value="GEMINI"<?php if ($tbl_type == 'GEMINI') echo ' selected="selected"'; ?>>Gemini</option><?php } ?>
-                <?php if (isset($tbl_innodb)) { ?><option value="INNODB"<?php if ($tbl_type == 'INNODB') echo ' selected="selected"'; ?>>INNO DB</option><?php } ?>
-                <?php if (isset($tbl_isam)) { ?><option value="ISAM"<?php if ($tbl_type == 'ISAM') echo ' selected="selected"'; ?>>ISAM</option><?php } ?>
+    <?php
+    $tbl_types     = "\n";
+    if (isset($tbl_bdb)) {
+        $tbl_types .= '                <option value="BDB"'
+                   .  (($tbl_type == 'BERKELEYDB') ? ' selected="selected"' : '')
+                   .  '>Berkeley DB</option>' . "\n";
+    }
+    if (isset($tbl_gemini)) {
+        $tbl_types .= '                <option value="GEMINI"'
+                   .  (($tbl_type == 'GEMINI') ? ' selected="selected"' : '')
+                   .  '>Gemini</option>' . "\n";
+    }
+    if (isset($tbl_innodb)) {
+        $tbl_types .= '                <option value="INNODB"'
+                   .  (($tbl_type == 'INNODB') ? ' selected="selected"' : '')
+                   .  '>INNO DB</option>' . "\n";
+    }
+    if (isset($tbl_isam)) {
+        $tbl_types .= '                <option value="ISAM"'
+                   .  (($tbl_type == 'ISAM') ? ' selected="selected"' : '')
+                   .  '>ISAM</option>' . "\n";
+    }
+
+    echo $tbl_types;
+    ?>
                 <option value="MERGE"<?php if ($tbl_type == 'MRG_MYISAM') echo ' selected="selected"'; ?>>Merge</option>
             </select>&nbsp;
             <input type="submit" name="submittype" value="<?php echo $strGo; ?>" style="vertical-align: middle" />&nbsp;

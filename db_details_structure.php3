@@ -443,21 +443,19 @@ if (PMA_PHP_INT_VERSION >= 40000
     <!-- PDF schema -->
     <li>
         <form method="post" action="pdf_schema.php3">
-        <input type="hidden" name="server" value="<?php echo $server; ?>" />
-        <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-        <input type="hidden" name="db" value="<?php echo $db; ?>" />
-    <?php
-    echo '    ' . $strDisplayPDF . '&nbsp;:<br />' . "\n";
-    echo '        ' . $strPageNumber . '&nbsp;' . "\n";
-    echo '        ' . '<input type="text" name="pdf_page_number" size="3" class="textfield" value="1" /><br />' . "\n";
-    echo '        ' . '<input type="checkbox" name="show_grid" />' . "\n";
-    echo '        ' . $strShowGrid . '&nbsp;<br />' . "\n";
-    echo '        ' . '<input type="checkbox" name="show_color" checked="checked" />' . "\n";
-    echo '        ' . $strShowColor . '&nbsp;<br />' . "\n";
-    echo '        ' . '<input type="checkbox" name="show_table_dimension" />' . "\n";
-    echo '        ' . $strShowTableDimension . '&nbsp;' . "\n";
-    echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
-    ?>
+            <input type="hidden" name="server" value="<?php echo $server; ?>" />
+            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="db" value="<?php echo $db; ?>" />
+            <?php echo $strDisplayPDF; ?>&nbsp;:<br />
+            <?php echo $strPageNumber; ?>&nbsp;
+            <input type="text" name="pdf_page_number" size="3" class="textfield" value="1" /><br />
+            <input type="checkbox" name="show_grid" id="show_grid_opt" />
+            <label for="show_grid_opt"><?php echo $strShowGrid; ?></label><br />
+            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
+            <label for="show_color_opt"><?php echo $strShowColor; ?></label><br />
+            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
+            <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label>
+            &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
         </form>
     </li>
     <?php
