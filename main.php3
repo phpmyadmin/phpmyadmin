@@ -8,10 +8,12 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 // Puts the language to use in a cookie that will expire in 30 days
-if (!isset($cookiePath)) {
-    $cookiePath = substr($SCRIPT_NAME, 0, strrpos($SCRIPT_NAME, '/'));
+if (!isset($pma_uri_parts)) {
+    $pma_uri_parts = parse_url($cfgPmaAbsoluteUri);
+    $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
+    $is_https      = ($pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 }
-setcookie('lang', $lang, time() + 60*60*24*30, $cookiePath);
+setcookie('lang', $lang, time() + 60*60*24*30, $cookie_path, '', $is_https);
 // Defines the "item" image depending on text direction
 $item_img = 'images/item_' . $text_dir . '.gif';
 // Handles some variables that may have been sent by the calling script

@@ -13,8 +13,11 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
 
     // Gets the default font sizes
     PMA_setFontSizes();
-    // Defines the cookie path
-    $cookiePath = substr($SCRIPT_NAME, 0, strrpos($SCRIPT_NAME, '/'));
+    // Defines the cookie path and whether the server is using https or not
+    $pma_uri_parts = parse_url($cfgPmaAbsoluteUri);
+    $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
+    $is_https      = ($pma_uri_parts['scheme'] == 'https') ? 1 : 0;
+
 
     /**
      * Sorts available languages by their true names
@@ -276,7 +279,9 @@ if (uname.value == '') {
 
         // The user wants to be logged out -> delete password cookie
         if (!empty($old_usr)) {
-            setcookie('pma_cookie_password', '', 0, $GLOBALS['cookiePath']);
+            setcookie('pma_cookie_password', '', 0,
+                      $GLOBALS['cookie_path'], '' ,
+                      $GLOBALS['is_https']);
         }
 
         // The user just logged in
@@ -367,9 +372,10 @@ if (uname.value == '') {
             // Duration = one month for username
             setcookie('pma_cookie_username', $cfgServer['user'],
                 time() + (60 * 60 * 24 * 30),
-                $GLOBALS['cookiePath']);
+                $GLOBALS['cookie_path'], '' ,
+                $GLOBALS['is_https']);
             // Duration = till the browser is closed for password
-            setcookie('pma_cookie_password', $cfgServer['password'], 0, $GLOBALS['cookiePath']);
+            setcookie('pma_cookie_password', $cfgServer['password'], 0, $GLOBALS['cookie_path']);
         }
 
         return TRUE;
@@ -386,7 +392,9 @@ if (uname.value == '') {
     function PMA_auth_fails()
     {
         // Deletes password cookie and displays the login form
-        setcookie('pma_cookie_password', '', 0, $GLOBALS['cookiePath']);
+        setcookie('pma_cookie_password', '', 0,
+                  $GLOBALS['cookie_path'], '' ,
+                  $GLOBALS['is_https']);
         PMA_auth();
 
         return TRUE;

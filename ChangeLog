@@ -12,6 +12,8 @@ $Source$
 	  to Purodha B Blissenbach <purodha at sourceforge.net>.
 	* libraries/auth/*: patch #522671 - Add charset when asking for auth,
 	  thanks to "nijel".
+	* main.php3, lines 11-15; libraries/auth/cookie.auth.lib.php3: fixed bug
+	  #522887 Using SSL -> cookies are unsecure.
 
 2002-02-24 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/german.inc.php3: updated thanks to Alexander M. Turek.
