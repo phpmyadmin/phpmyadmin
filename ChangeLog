@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_addfield.php: bug #1037744 (CVS version only): cannot add a field 
+
 2004-09-29 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, libraries/common.lib.php: bug #1036678, incorrect appending
       of LIMIT to queries, and bug #1037004, UPDATE statement not showing

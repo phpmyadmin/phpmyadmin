@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Get some core libraries
  */
@@ -33,7 +32,7 @@ if (isset($submit_num_fields)) {
     }
     $num_fields = $orig_num_fields + $added_fields;
     $regenerate = TRUE;
-} else if (isset($submit)) {
+} else if (isset($do_save_data)) {
     $query = '';
 
     // Transforms the radio button field_key into 3 arrays
