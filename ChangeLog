@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-05 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/sqlparser.data.php3: TRANSACTION isn't reserved word (fixes
+     #697961)
+
 2003-03-05 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, faq 1.29 about the "duplicate field names" problem
 
