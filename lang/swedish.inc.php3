@@ -298,6 +298,6 @@ $strWelcome = 'Välkommen till ';
 $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 
 $strYes = 'Ja';
-$strFullStrings = 'Full Strings';//to translate
-$strCuttedStrings = 'Cutted Strings';//to translate
+$strFullText = 'Full Texts';//to translate
+$strPartialText = 'Partial Texts';//to translate
 ?>

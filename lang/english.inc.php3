@@ -65,7 +65,6 @@ $strCreate = 'Create';
 $strCreateNewDatabase = 'Create new database';
 $strCreateNewTable = 'Create new table on database ';
 $strCriteria = 'Criteria';
-$strCuttedStrings = 'Cutted Strings';
 
 $strData = 'Data';
 $strDatabase = 'Database ';
@@ -114,7 +113,7 @@ $strFieldsEmpty = ' The field count is empty! ';
 $strFixed = 'fixed';
 $strFormat = 'Format';
 $strFormEmpty = 'Missing value in the form !';
-$strFullStrings = 'Full Strings';
+$strFullText = 'Full Texts';
 $strFunction = 'Function';
 
 $strGenTime = 'Generation Time';
@@ -189,6 +188,7 @@ $strOptionally = 'OPTIONALLY';
 $strOr = 'Or';
 $strOverhead = 'Overhead';
 
+$strPartialText = 'Partial Texts';
 $strPassword = 'Password';
 $strPasswordEmpty = 'The password is empty!';
 $strPasswordNotSame = 'The passwords aren\'t the same!';

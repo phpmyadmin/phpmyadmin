@@ -12,6 +12,7 @@ $Source$
 	* lib.inc.php3: now calls show_table_navigation() even if
 	  $SelectNumRows is = 1.
 	* lang/*: added $strFullStrings and $strCuttedStrings
+	* renamed to $strFullText and $strPartialText
 
 2001-08-30  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3: fits to coding standards.

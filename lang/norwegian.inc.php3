@@ -299,6 +299,6 @@ $strStrucExcelCSV = 'CSV for Ms Excel data';//to translate
 $strTables = '%s table(s)';  //to translate
 $strServerChoice = 'Server Choice';//to translate
 $strPmaDocumentation = 'phpMyAdmin Documentation';//to translate
-$strFullStrings = 'Full Strings';//to translate
-$strCuttedStrings = 'Cutted Strings';//to translate
+$strFullText = 'Full Texts';//to translate
+$strPartialText = 'Partial Texts';//to translate
 ?>
