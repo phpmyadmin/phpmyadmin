@@ -66,7 +66,7 @@ $i = 0;
 // The $cfg['Servers'] array starts with $cfg['Servers'][1].  Do not use $cfg['Servers'][0].
 // You can disable a server config entry by setting host to ''.
 $i++;
-$cfg['Servers'][$i]['host']          = 'localhost'; // MySQL hostname
+$cfg['Servers'][$i]['host']          = 'localhost'; // MySQL hostname or IP address
 $cfg['Servers'][$i]['port']          = '';          // MySQL port - leave blank for default port
 $cfg['Servers'][$i]['socket']        = '';          // Path to the socket - leave blank for default socket
 $cfg['Servers'][$i]['connect_type']  = 'tcp';       // How to connect to MySQL server ('tcp' or 'socket')
