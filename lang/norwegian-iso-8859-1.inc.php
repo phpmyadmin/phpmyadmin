@@ -60,6 +60,7 @@ $strAnd = 'og';
 $strAny = 'Alle';
 $strAnyHost = 'Alle verter';
 $strAnyUser = 'Alle brukere';
+$strApproximateCount = 'Kan være unøyaktig. Se FAQ 3.11';
 $strArabic = 'arabisk';
 $strArmenian = 'armensk';
 $strAscending = 'Stigende';
@@ -73,12 +74,12 @@ $strBack = 'Tilbake';
 $strBaltic = 'baltisk';
 $strBeginCut = 'START KUTT';
 $strBeginRaw = 'START UFORMATERT';
-$strBinLogName = 'Loggnavn';
-$strBinLogPosition = 'Posisjon';
 $strBinLogEventType = 'Hendelsestype';
-$strBinLogServerId = 'Tjener ID';
-$strBinLogOriginalPosition = 'Original posisjon';
 $strBinLogInfo = 'Informasjon';
+$strBinLogName = 'Loggnavn';
+$strBinLogOriginalPosition = 'Original posisjon';
+$strBinLogPosition = 'Posisjon';
+$strBinLogServerId = 'Tjener ID';
 $strBinary = ' Binær ';
 $strBinaryDoNotEdit = ' Binær - må ikke redigeres ';
 $strBinaryLog = 'Binærlogg';
@@ -236,7 +237,6 @@ $strEndRaw = 'STOPP UFORMATERT';
 $strEnglish = 'engelsk';
 $strEnglishPrivileges = 'OBS: MySQL privilegiumnavn er på engelsk';
 $strError = 'Feil';
-$strEscapeWildcards = 'Jokertegnene _ og % må beskyttes med en \ for å bruke dem direkte';  //to translate
 $strEstonian = 'estisk';
 $strExcelEdition = 'Excel-versjon';
 $strExcelOptions = 'Excel-innstillinger';
@@ -306,6 +306,10 @@ $strIndex = 'Indeks';
 $strIndexHasBeenDropped = 'Indeksen %s har blitt slettet';
 $strIndexName = 'Indeksnavn&nbsp;:';
 $strIndexType = 'Indekstype&nbsp;:';
+$strIndexWarningMultiple = 'Mer enn en %s nøkkel ble opprettet for kolonne `%s`';
+$strIndexWarningPrimary = 'Både PRIMARY og INDEX nøkler bør ikke settes for kolonne `%s`';
+$strIndexWarningTable = 'Problemer med indeksene i tabellen `%s`';
+$strIndexWarningUnique = 'Både UNIQUE og INDEX nøkler bør ikke settes for kolonne `%s`';
 $strIndexes = 'Indekser';
 $strInnodbStat = 'InnoDB status';
 $strInsecureMySQL = 'Din konfigurasjonsfil inneholder innstillinger (root uten passord) som korrensponderer med MySQLs standard priviligerte brukerkonto. Din MySQL-tjener kjører med denne standardinnstillingen, er åpen for misbruk, og du burde fikse dette sikkerhetshullet snarest.';
@@ -393,6 +397,7 @@ $strName = 'Navn';
 $strNeedPrimaryKey = 'Du burde definere en primærnøkkel for denne tabellen.';
 $strNext = 'Neste';
 $strNo = 'Nei';
+$strNoActivity = 'Ingen aktivitet på %s sekunder eller mer, du må logge inn på nytt';
 $strNoDatabases = 'Ingen databaser';
 $strNoDatabasesSelected = 'Ingen databaser er valgt.';
 $strNoDescription = 'ingen beskrivelse';
@@ -738,14 +743,14 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjernes begrensningen.';
 $strZip = 'Komprimert (zip)';
 
-$strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';//to translate
-$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
-$strIndexWarningMultiple = 'More than one %s key was created for column `%s`';//to translate
-$strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
-$strNoActivity = 'No activity since %s seconds or more, please login again';  //to translate
-$strApproximateCount = 'May be approximate. See FAQ 3.11';  //to translate
-$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
-$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
-$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
+// To translate:
 $strAfterInsertNext = 'Edit next row';  //to translate
+
+$strEscapeWildcards = 'Jokertegnene _ og % må beskyttes med en \ for å bruke dem direkte';  //to translate
+
+$strMbExtensionMissing = 'The mbstring PHP extension was not found and you seem to be using multibyte charset. Without mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.';  //to translate
+$strMbOverloadWarning = 'You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause breaking of some data!';  //to translate
+
+$strSQLExportCompatibility = 'SQL export compatibility';  //to translate
+
 ?>
