@@ -14,7 +14,7 @@ if (!isset($message)) {
 }
 ?>
 
-<h1><?php echo $strWelcome ?> phpMyAdmin 2.2.0pre3 (unofficial devel-branch)</h1>
+<h1><?php echo $strWelcome ?> phpMyAdmin 2.3.0alpha-20010604 (unofficial devel-branch)</h1>
 <?php
 if ($server > 0) {
   // Don't display server info if $server==0 (no server selected)
