@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/french.inc.php3 updates
+
 2002-06-09 Alexander M. Turek  <rabus@users.sourceforge.net>
     * common.lib.php3: Corrected path to config_import.lib.php3.
     * common.lib.php3, lang/*.inc.php3, config.inc.php3:
