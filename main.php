@@ -400,7 +400,16 @@ function PMA_analyseShowGrant($rs_usr, &$is_create_priv, &$db_to_create) {
     </tr>
             <?php
         }
-
+        ?>
+    <tr><?php
+            echo '        ' . ($str_iconic_list != '' ? sprintf($str_iconic_list,'<a href="./server_engines.php?'.$common_url_query.'">','b_engine.png',$strStorageEngines,'</a>') : $str_normal_list);
+?>
+        <td>
+                <a href="./server_engines.php?<?php echo $common_url_query; ?>">
+                    <?php echo $strStorageEngines; ?></a>&nbsp;
+        </td>
+    </tr>
+        <?php
         if ($is_reload_priv) {
             echo "\n";
             ?>

@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-20 Alexander M. Turek  <me@derrabus.de>
+    * server_engines.php, server_links.inc.php: Use Michael's new icon for
+      storage engines.
+    * main.php: Added link to storage engines sub-page.
+
 2005-01-18 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php, libraries/common.lib.php, /display_tbl.lib.php, /functions.js,
       lang/*.php: bug #1084820: ask a confirmation when a user wants to 

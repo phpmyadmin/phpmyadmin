@@ -114,7 +114,7 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
      * Displays the sub-page heading
      */
     echo '<h2>' . "\n"
-       . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_process.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
+       . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 'b_engine.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
        . '    ' . $strStorageEngines . "\n"
        . '</h2>' . "\n";
 
@@ -169,7 +169,7 @@ if (empty($engine) || empty($mysql_storage_engines[$engine])) {
      */
 
     echo '<h2>' . "\n"
-       . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 's_process.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
+       . ($cfg['MainPageIconic'] ? '<img src="' . $pmaThemeImage . 'b_engine.png" width="16" height="16" border="0" hspace="2" align="middle" />' : '' )
        . '    ' . htmlspecialchars($mysql_storage_engines[$engine]['Engine']) . "\n"
        . '</h2>' . "\n\n"
        . '<p>' . "\n"
