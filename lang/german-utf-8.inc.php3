@@ -699,20 +699,19 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
-// To translate
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
-$strInternalRelations = 'Internal relations';  //to translate
-$strInternalNotNecessary = '* An internal relation is not necessary when it exists also in InnoDB.';  //to translate
-$strUpgradeMySQL = 'You should upgrade to MySQL %s or later.';  //to translate
-$strLatexStructure = 'Structure of table __TABLE__';//to translate
-$strLatexContinued = '(continued)';//to translate
-$strLatexContent = 'Content of table __TABLE__';//to translate
-$strLatexIncludeCaption = 'Include table caption';//to translate
-$strLatexCaption = 'Table caption';//to translate
-$strLatexLabel = 'Label key';//to translate
-$strLatexContinuedCaption = 'Continued table caption';//to translate
+$strUseThisValue = 'Diesen Wert verwenden';
+$strWindowNotFound = 'Das Ziel-Browserfenster konnte nicht aktualisiert werden. Möglicherweise wurde das Ursprungsfenster geschlossen oder der Browser verhindert den Zugriff aufgrund von Ihren Sicherheitseinstellungen.';
+$strBrowseForeignValues = 'Fremdschlüsselwerte ansehen';
+$strInternalRelations = 'Interne Beziehungen';
+$strInternalNotNecessary = '* Eine interne Beziehung ist nicht notwendig, wenn sie bereits im InnoDB-Format vorliegt.';
+$strUpgradeMySQL = 'Sie sollten auf MySQL %s oder neuer umsteigen.';
+$strLatexStructure = 'Struktur der Tabelle __TABLE__';
+$strLatexContinued = '(Fortsetzung)';
+$strLatexContent = 'Inhalt der Tabelle __TABLE__';
+$strLatexIncludeCaption = 'Tabellenbeschriftung einfügen';
+$strLatexCaption = 'Tabellenbeschriftung';
+$strLatexLabel = 'Kennzeichen';
+$strLatexContinuedCaption = 'Fortgesetzte Tabellenbeschriftung';
 
-$strPrintViewFull = 'Print view (with full texts)';  //to translate
+$strPrintViewFull = 'Druckansicht (vollständige Textfelder)';
 ?>

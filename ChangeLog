@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-27 Garvin Hicking <me@supergarv.de>
+    * lang/german*: Update
+
 2003-08-27 Michal Cihar  <nijel@users.sourceforge.net>
     * sql.php3, lang/*: Print view with full texts (RFE #742123).
     
