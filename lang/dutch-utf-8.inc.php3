@@ -36,6 +36,7 @@ $strAddSearchConditions = 'Zoek condities toevoegen (het "where" gedeelte van de
 $strAddToIndex = 'Voeg &nbsp;%s&nbsp; kolom(men) toe aan index';
 $strAddUser = 'Voeg een nieuwe gebruiker toe';
 $strAddUserMessage = 'U heeft een nieuwe gebruiker toegevoegd.';
+$strAdministration = 'Administratie';
 $strAffectedRows = 'Getroffen rijen:';
 $strAfter = 'Na %s';
 $strAfterInsertBack = 'Terug';
@@ -120,10 +121,13 @@ $strDatabases = 'databases';
 $strDatabasesStats = 'Database statistieken';
 $strDefault = 'Standaardwaarde';
 $strDelete = 'Verwijderen';
+$strDeleteAndFlush = 'Verwijder de gebruikers en vernieuw de privileges daarna.';
+$strDeleteAndFlushDescr = 'Dit is de nette manier, maar het vernieuwen van de privileges kan even duren.';
 $strDeleteFailed = 'Verwijderen mislukt!';
 $strDeleteUserMessage = 'U heeft de gebruiker %s verwijderd.';
 $strDeleted = 'De rij is verwijderd';
 $strDeletedRows = 'Verwijder rijen:';
+$strDeleting = 'Verwijderen van %s';
 $strDescending = 'Aflopend';
 $strDisabled = 'Uitgeschakeld';
 $strDisplay = 'Laat zien';
@@ -167,6 +171,7 @@ $strFieldsEnclosedBy = 'Velden ingesloten door';
 $strFieldsEscapedBy = 'Velden ontsnapt door';
 $strFieldsTerminatedBy = 'Velden beëindigd door';
 $strFixed = 'vast';
+$strFlushPrivilegesNote = 'Opmerking: phpMyAdmin krijgt de rechten voor de gebruikers uit de MySQL privileges tabel. De content van deze tabel kan verschillen met de rechten van de server als er handmatig aanpassingen zijn aangebracht. Mocht dit het geval zijn dan moet men %sde privilege table vernieuwen%s voordat men verder gaat.';
 $strFlushTable = 'Schoon de tabel ("FLUSH")';
 $strFormEmpty = 'Er ontbreekt een waarde in het formulier!';
 $strFormat = 'Formatteren';
@@ -176,8 +181,10 @@ $strFunction = 'Functie';
 $strGenBy = 'Gegenereerd door';
 $strGenTime = 'Generatie Tijd';
 $strGeneralRelationFeat = 'Basis relatie opties';
+$strGlobalPrivileges = 'Globale privileges';
 $strGlobalValue = 'Globale waarde';
 $strGo = 'Start';
+$strGrantOption = 'Toekennen';
 $strGrants = 'Toekennen';
 $strGzip = '"ge-gzipt"';
 
@@ -210,11 +217,15 @@ $strInsertedRows = 'Ingevoegde rijen:';
 $strInstructions = 'Instructies';
 $strInvalidName = '"%s" is een gereserveerd woord, u kunt het niet gebruiken voor een database/tabel/veld naam.';
 
+$strJustDelete = 'Verwijder gewoon de gebruikers van de privileges tabel.';
+$strJustDeleteDescr = 'De &quot;verwijderde&quot; gebruikers zullen de server kunnen gebruiken zoals altijd zolang de privileges nog niet zijn vernieuwd.';
+
 $strKeepPass = 'Wijzig het wachtwoord niet';
 $strKeyname = 'Sleutelnaam';
 $strKill = 'stop proces';
 
 $strLaTeX = 'LaTeX';
+$strLandscape = 'Landschap';
 $strLength = 'Lengte';
 $strLengthSet = 'Lengte/Waardes*';
 $strLimitNumRows = 'records per pagina';
@@ -223,6 +234,7 @@ $strLines = 'Regels';
 $strLinesTerminatedBy = 'Regels beëindigd door';
 $strLinkNotFound = 'Link niet gevonden';
 $strLinksTo = 'Gelinked naar';
+$strLocalhost = 'Local';
 $strLocationTextfile = 'Locatie van het tekstbestand';
 $strLogPassword = 'Wachtwoord:';
 $strLogUsername = 'Gebruikers naam:';
@@ -281,6 +293,7 @@ $strOptionalControls = 'Optioneel. Geeft aan hoe speciale karakters geschreven o
 $strOptionally = 'OPTIONEEL';
 $strOptions = 'Opties';
 $strOr = 'Of';
+$strOriginalInterface = 'originele interface'; 
 $strOverhead = 'Overhead';
 
 $strPHP40203 = 'U gebruikt PHP 4.2.3, deze versie bevat een grote fout in de multi-byte strings (mbstring). Voor meer informatie zie PHP bug report 19404. Het wordt sterk afgeraden deze versie van PHP te gebruiken met phpMyAdmin.';
@@ -288,6 +301,7 @@ $strPHPVersion = 'PHP Versie';
 $strPageNumber = 'Pagina nummer:';
 $strPartialText = 'Gedeeltelijke teksten';
 $strPassword = 'Wachtwoord';
+$strPasswordChanged = 'Het wachtwoord voor %s is met success veranderd.';
 $strPasswordEmpty = 'Het wachtwoord is leeg!';
 $strPasswordNotSame = 'De wachtwoorden zijn niet gelijk!';
 $strPdfDbSchema = 'Schema van de "%s" database - Pagina %s';
@@ -298,6 +312,7 @@ $strPerHour = 'per uur';
 $strPhp = 'Creëer PHP Code';
 $strPmaDocumentation = 'phpMyAdmin Documentatie';
 $strPmaUriError = 'De <tt>$cfg[\'PmaAbsoluteUri\']</tt> richtlijn MOET gezet zijn in het configuratie bestand!';
+$strPortrait = 'Portret';
 $strPos1 = 'Begin';
 $strPrevious = 'Vorige';
 $strPrimary = 'Primaire sleutel';
@@ -307,10 +322,37 @@ $strPrimaryKeyName = 'De naam van de primaire sleutel moet PRIMARY zijn!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>moet</b> de naam van en <b>alleen van</b> een primaire sleutel zijn!)';
 $strPrint = 'Afdrukken';
 $strPrintView = 'Printopmaak';
+$strPrivDescAllPrivileges = 'Bevat alle privileges behalve GRANT.';
+$strPrivDescAlter = 'Maakt het mogelijk de structuur van bestaande tabellen aan te passen.';
+$strPrivDescCreateDb = 'Maakt het mogelijk om nieuwe databases en tabellen te maken.';
+$strPrivDescCreateTbl = 'Maakt het mogelijk nieuwe tabellen te maken.';
+$strPrivDescCreateTmpTable = 'Maakt het mogelijk om tijdelijke tabellen te maken.';
+$strPrivDescDelete = 'Maakt het mogelijk om data te verwijderen.';
+$strPrivDescDropDb = 'Maakt het mogelijk om databases en tabellen te verwijderen.';
+$strPrivDescDropTbl = 'Maakt het mogelijk tabellen te verwijderen.';
+$strPrivDescExecute = 'Maakt het mogelijk om opgeslagen procedures uit te voeren; Heeft geen effect in deze MySQL versie.';
+$strPrivDescFile = 'Maakt het mogelijk om data te importeren en te exporteren van en naar bestanden.';
+$strPrivDescGrant = 'Maakt het mogelijk dat gebruikers en privileges toe te voegen zonder de privileges tabel opnieuw op te vragen.';
+$strPrivDescIndex = 'Maakt het mogelijk om indexen te creeeren en te verwijderen.';
+$strPrivDescInsert = 'Maakt het mogelijk om data in te voegen en te vervangen.';
+$strPrivDescLockTables = 'Maakt het mogelijk tabellen op slot te zetten voor de huidige thread.';
 $strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
 $strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
 $strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
+$strPrivDescProcess3 = 'Maakt het mogelijk processen te stoppen voor andere gebruikers.';
+$strPrivDescProcess4 = 'Maakt het mogelijk om complete queries in de process lijst te zien.';
+$strPrivDescReferences = 'Heeft geen effect in deze MySQL versie.';
+$strPrivDescReload = 'Maakt het mogelijk om de server instellingen opnieuw op te vragen en de cache van de server leeg te maken.';
+$strPrivDescReplClient = 'Geeft het recht aan de gebruiker om te vragen waar de slaves (slaven) / masters (meesters) zijn.';
+$strPrivDescReplSlave = 'Nodig om slaven de repliceren.';
+$strPrivDescSelect = 'Maakt het lezen van data mogelijk.';
+$strPrivDescShowDb = 'Geeft toegang tot de complete lijst van databases.';
+$strPrivDescShutdown = 'Maakt het mogelijk de server te stoppen.';
+$strPrivDescSuper = 'Maakt het mogelijk verbinding te maken, zelfs als het maximaal aantal verbindingen als is bereikt; Dit is vereist voor de meeste administratieve opties zoals het instellen van globale variabelen of het stoppen van threads van andere gebruikers.';
+$strPrivDescUpdate = 'Maakt het mogelijk data aan te passen.';
+$strPrivDescUsage = 'Geen privileges.';
 $strPrivileges = 'Rechten';
+$strPrivilegesReloaded = 'De privileges zijn met success vernieuwd';
 $strProcesslist = 'Process lijst';
 $strProperties = 'Eigenschappen';
 $strPutColNames = 'Plaats veldnamen in de eerste rij';
@@ -331,14 +373,19 @@ $strRelationView = 'Relatie overzicht';
 $strRelationalSchema = 'Relationeel schema';
 $strReloadFailed = 'Opnieuw laden van MySQL mislukt.';
 $strReloadMySQL = 'MySQL opnieuw laden.';
+$strReloadingThePrivileges = 'Bezig de privileges te vernieuwen';
 $strRememberReload = 'Vergeet niet de server opnieuw te starten.';
+$strRemoveSelectedUsers = 'Verwijder de geselecteerde gebruikers';
 $strRenameTable = 'Tabel hernoemen naar';
 $strRenameTableOK = 'Tabel %s is hernoemt naar %s';
 $strRepairTable = 'Repareer tabel';
 $strReplace = 'Vervangen';
 $strReplaceTable = 'Vervang tabelgegevens met het bestand';
 $strReset = 'Opnieuw';
+$strResourceLimits = 'Resource limitaties';
 $strRevoke = 'Ongedaan maken';
+$strRevokeAndDelete = 'Trek alle actieve privileges in van alle gebruikers en verwijder ze daarna.';
+$strRevokeAndDeleteDescr = 'De gebruikers zullen nog steeds het USAGE (gebruik) privilege hebben zolang de privileges nog niet zijn vernieuwd.';
 $strRevokeGrant = 'Trek Grant recht in';
 $strRevokeGrantMessage = 'U heeft het Grant recht ingetrokken voor %s';
 $strRevokeMessage = 'U heeft de rechten ingetrokken voor %s';
@@ -398,6 +445,7 @@ $strShow = 'Toon';
 $strShowAll = 'Toon alles';
 $strShowColor = 'Toon kleur';
 $strShowCols = 'Toon kolommen';
+$strShowDatadictAs = 'Data Dictionary Formaat';
 $strShowGrid = 'Toon grid';
 $strShowPHPInfo = 'Laat informatie over PHP zien';
 $strShowTableDimension = 'Geef de dimensies van de tabellen weer';
@@ -457,7 +505,9 @@ $strUseTables = 'Gebruik tabellen';
 $strUser = 'Gebruiker';
 $strUserEmpty = 'De gebruikersnaam is leeg!';
 $strUserName = 'Gebruikersnaam';
+$strUserOverview = 'Gebruikers Overzicht';
 $strUsers = 'Gebruikers';
+$strUsersDeleted = 'De geselecteerde gebruikers zijn met succes verwijderd.';
 
 $strValidateSQL = 'Valideer SQL';
 $strValidatorError = 'De SQL validatie kon niet worden geinitialiseerd. Controleer of u de nodige php extensies heeft geinstalleerd zoals beschreven in de %sdocumentatie%s.';
@@ -474,78 +524,24 @@ $strWrongUser = 'Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd.';
 
 $strYes = 'Ja';
 
+$strZeroRemovesTheLimit = 'Opmerking: Het instellen van deze waarden op 0 (nul) verwijderd het limiet.';
 $strZip = '"Gezipt"';
 // To translate
 
-$strAdministration = 'Administration'; //to translate
-
-$strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
-
-$strGlobalPrivileges = 'Global privileges'; //to translate
-$strGrantOption = 'Grant'; //to translate
-
-$strLandscape = 'Landscape';  //to translate
-
-$strPortrait = 'Portrait';  //to translate
-$strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
-$strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
-$strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
-$strPrivDescCreateTbl = 'Allows creating new tables.'; //to translate
-$strPrivDescCreateTmpTable = 'Allows creating temporary tables.'; //to translate
-$strPrivDescDelete = 'Allows deleting data.'; //to translate
-$strPrivDescDropDb = 'Allows dropping databases and tables.'; //to translate
-$strPrivDescDropTbl = 'Allows dropping tables.'; //to translate
-$strPrivDescExecute = 'Allows running stored procedures; Has no effect in this MySQL version.'; //to translate
-$strPrivDescFile = 'Allows importing data from and exporting data into files.'; //to translate
-$strPrivDescGrant = 'Allows adding users and privileges without reloading the privilege tables.'; //to translate
-$strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
-$strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
-$strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
-$strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
-$strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
-$strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
-$strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescSelect = 'Allows reading data.'; //to translate
-$strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
-$strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
-$strPrivDescSuper = 'Allows connectiong, even if maximum number of connections is reached; Required for most administrative operations like setting global variables or killing threads of other users.'; //to translate
-$strPrivDescUpdate = 'Allows changing data.'; //to translate
-$strPrivDescUsage = 'No privileges.'; //to translate
-$strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
-
-$strResourceLimits = 'Resource limits'; //to translate
-
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-
-$strUserOverview = 'User overview'; //to translate
-
-$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
-
-$strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
-
-$strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
-$strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
-$strDeleting = 'Deleting %s'; //to translate
-$strJustDelete = 'Just delete the users from the privilege tables.'; //to translate
-$strJustDeleteDescr = 'The &quot;deleted&quot; users will still be able to access the server as usual until the privileges are reloaded.'; //to translate
-$strReloadingThePrivileges = 'Reloading the privileges'; //to translate
-$strRemoveSelectedUsers = 'Remove selected users'; //to translate
-$strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
-$strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
-$strUsersDeleted = 'The selected users have been deleted successfully.'; //to translate
-$strOriginalInterface = 'original interface';  //to translate
-
 $strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
 $strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
+
 $strColumnPrivileges = 'Column-specific privileges'; //to translate
+
 $strDbPrivileges = 'Database-specific privileges'; //to translate
-$strLocalhost = 'Local';
+
 $strLoginInformation = 'Login Information'; //to translate
+
 $strTblPrivileges = 'Table-specific privileges'; //to translate
 $strThisHost = 'This Host'; //to translate
-$strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
-$strUserAlreadyExists = 'The user %s already exists!'; //to translate
+
 $strUseTextField = 'Use text field'; //to translate
+$strUserAlreadyExists = 'The user %s already exists!'; //to translate
+$strUserNotFound = 'The selected user was not found in the privilege table.'; //to translate
+
 ?>
