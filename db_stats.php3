@@ -137,8 +137,10 @@ if ($num_dbs > 1) {
         $tot_all     = 0;
         $local_query = 'SHOW TABLE STATUS FROM ' . $db_clean;
         $result      = @mysql_query($local_query);
-        if (mysql_num_rows($result)) {
-            while ($row = mysql_fetch_array($result)) {
+        if (@mysql_num_rows($result)) {
+             // needs the "@": otherwise, warnings in case of special DB names:
+             // Warning: Supplied argument is not a valid MySQL result resource in db_stats.php3 on line 140
+             while ($row = mysql_fetch_array($result)) {
                 $tot_data += $row['Data_length'];
                 $tot_idx  += $row['Index_length'];
             } 
