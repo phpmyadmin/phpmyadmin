@@ -266,7 +266,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'FAST',
         'FIELDS',
         'FILE',
-        'FIRST',
+// not on reserved words list in the manual        'FIRST',
         'FIXED',
         'FLUSH',
         'FOR',
@@ -419,7 +419,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'SQL_WARNINGS',
         'START',
         'STARTING',
-        'STATUS',
+// not on reserved words list in the manual        'STATUS',
         'STOP',
         'STRAIGHT_JOIN',
         'STRING',
@@ -453,7 +453,7 @@ if (!defined('PMA_SQP_DATA_INCLUDED')) {
         'YEAR_MONTH'
     );
     //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-    $PMA_SQPdata_reserved_word_cnt = 255;
+    $PMA_SQPdata_reserved_word_cnt = 253;
 
     $PMA_SQPdata_column_type = array (
         'BIGINT',
