@@ -13,8 +13,10 @@ require_once('./libraries/mysql_charsets.lib.php');
 ?>
 <?php if ($cfg['CtrlArrowsMoving']) { ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
+<script src="libraries/keyhandler.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" language="javascript">
 <!--
+var switch_movement = <?php echo $cfg['DefaultPropDisplay'] == 'horizontal' ? '0' : '1'; ?>;
 document.onkeydown = onKeyDownArrowsHandler;
 // -->
 </script>

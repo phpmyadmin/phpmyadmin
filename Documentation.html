@@ -65,7 +65,7 @@
         <b>PHP</b>
         <ul>
             <li>You need PHP 4.1.0 or newer (<a href="#faqphp5">*</a>)</li>
-            <li>If you want to display inline thumbnails of JPEGs with the 
+            <li>If you want to display inline thumbnails of JPEGs with the
                 original aspect ratio, you also need GD2 support in PHP</li>
             <li>Starting with phpMyAdmin 2.6.1, MIME-based transformations
                 that use an external program need PHP 4.3.0 or newer</li>
@@ -79,7 +79,7 @@
         if you are using
         the &quot;cookie&quot; authentication method, having the <tt>mcrypt</tt>
         PHP extension on your web server accelerates not only the login
-        phase but every other action that you do in phpMyAdmin. 
+        phase but every other action that you do in phpMyAdmin.
     </li>
     <li>
         a web-browser (doh!).
@@ -241,7 +241,7 @@
         in the configuration file.<br /><br /></li>
 
     <li>HTTP and cookie authentication modes are more secure: the MySQL
-        login information does not need to be set in the phpMyAdmin 
+        login information does not need to be set in the phpMyAdmin
         configuration file
         (except possibly for the <a href="#controluser">controluser</a>).
         <br />
@@ -254,7 +254,7 @@
 
     <li>
         <b>Note: starting with phpMyAdmin 2.6.1, configuring the controluser
-        to enable HTTP and cookie authentication applies <i>only 
+        to enable HTTP and cookie authentication applies <i>only
         to MySQL servers older than 4.1.2</i>.</b>
         <br /><br />
         For 'HTTP' and 'cookie' modes, phpMyAdmin needs a controluser that has
@@ -346,7 +346,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         with the same username.</li>
     <li>If you want to login to arbitrary server see
     <tt><a href="#AllowArbitraryServer">$cfg['AllowArbitraryServer']</a></tt> directive.</li>
-    <li>See also the <a href="#require">requirements</a> section for a way 
+    <li>See also the <a href="#require">requirements</a> section for a way
         to improve the interface speed while using this mode.</li>
 </ul>
 
@@ -521,13 +521,13 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
     </dt>
     <dd>
         <i>Note: starting with phpMyAdmin 2.6.1, configuring the controluser
-        to enable HTTP and cookie authentication applies only 
+        to enable HTTP and cookie authentication applies only
         to MySQL servers older than 4.1.2.</i>
         <br /><br />
         This special account is used for 2 distinct purposes: to make possible
-        all relational features 
-        (see <a href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>) and, for a 
-        MySQL server older than 4.1.2, to enable a multi-user installation 
+        all relational features
+        (see <a href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>) and, for a
+        MySQL server older than 4.1.2, to enable a multi-user installation
         (http or cookie authentication mode).
         <br /><br />
         When using HTTP or cookie authentication modes (or 'config'
@@ -1540,7 +1540,7 @@ Defaults to FALSE (drop-down). <br />
         <b>$cfg['CtrlArrowsMoving'] </b>boolean<br />
     </dt>
     <dd>
-        Enable Ctrl+Arrows moving between fields when editing?
+        Enable Ctrl+Arrows (Option+Arrows in Safari) moving between fields when editing?
         <br /><br />
     </dd>
 
@@ -2987,8 +2987,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 </h4>
 <p>
     phpMyAdmin uses a quick method to get the row count, and this method
-    only returns an approximate count in the case of InnoDB tables. See 
-    <tt>$cfg['MaxExactCount']</tt> for a way to modify those results, but  
+    only returns an approximate count in the case of InnoDB tables. See
+    <tt>$cfg['MaxExactCount']</tt> for a way to modify those results, but
     this could have a serious impact on performance.
 </p>
 
@@ -3572,7 +3572,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     [6.16] How can I simply move in page with plenty editing fields?
 </h4>
 <p>
-    You can use Ctrl+arrows for moving on most pages with plenty editing
+    You can use Ctrl+arrows (Option+Arrows in Safari) for moving on most pages with plenty editing
     fields (table structure changes, row editing, etc.) (must be enabled in
     configuration - see. <a href="#CtrlArrowsMoving">$cfg['CtrlArrowsMoving']</a>). You can also have a look
     at the directive <a href="#DefaultPropDisplay">$cfg['DefaultPropDisplay']</a> ('vertical') and see if this

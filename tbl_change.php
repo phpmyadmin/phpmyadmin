@@ -148,8 +148,10 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5)
 
 <?php if ($cfg['CtrlArrowsMoving']) { ?>
 <!-- Set on key handler for moving using by Ctrl+arrows -->
+<script src="libraries/keyhandler.js" type="text/javascript" language="javascript"></script>
 <script type="text/javascript" language="javascript">
 <!--
+var switch_movement = 0;
 document.onkeydown = onKeyDownArrowsHandler;
 // -->
 </script>
@@ -867,18 +869,18 @@ if (!empty($disp_message)) {
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
             <input type="radio" name="after_insert" value="new_insert" id="radio_after_insert_new_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tabindex_for_value + 4); ?>" style="vertical-align: middle" /><label for="radio_after_insert_new_insert"><?php echo $strAfterInsertNewInsert; ?></label><br />
 
-<?php 
-if (isset($primary_key)) 
+<?php
+if (isset($primary_key))
 {?>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
             <input type="radio" name="after_insert" value="same_insert" id="radio_after_insert_same_insert"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tabindex_for_value + 5); ?>" style="vertical-align: middle" /><label for="radio_after_insert_same_insert"><?php echo $strAfterInsertSame; ?></label><br />
-<?php 
+<?php
     // If we have just numeric primary key, we can also edit next
     if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $primary_key)) {
 ?>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $strOr; ?></b><br />
             <input type="radio" name="after_insert" value="edit_next" id="radio_after_insert_edit_next"<?php echo $checked_after_insert_new_insert; ?> tabindex="<?php echo ($tabindex + $tabindex_for_value + 5); ?>" style="vertical-align: middle" /><label for="radio_after_insert_edit_next"><?php echo $strAfterInsertNext; ?></label><br />
-<?php 
+<?php
     }
 }
 ?>

@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-07 Michal Čihař  <michal@cihar.com>
+    * Documentation.html, tbl_change.php, tbl_properties.inc.php,
+      libraries/functions.js, libraries/tbl_change.js,
+      libraries/keyhandler.js: Use Option key for Safari for moving (bug
+      #1094137), move key handler function to separate file so we have only
+      one, make movement work correctly in vertical display of properties.
+
 2005-01-06 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: removed old PHP3-workaround that caused problems
       with field names like '000'
@@ -22,7 +29,7 @@ $Source$
     * export.php: Use standardised mime types and use content encoding for
       gzip/bzip2. I hope this will fix double gzip compression as in bug
       #1094649.
-    
+
 2005-01-01 Michal Čihař  <michal@cihar.com>
     * tbl_alter.php: Don't try to set collation for non text fields (bug
       #1094109).
