@@ -658,4 +658,5 @@ $strZip = '"zip-нато"';
 
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
+$strTableOptions = 'Table options';  //to translate
 ?>

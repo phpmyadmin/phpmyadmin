@@ -657,4 +657,5 @@ $strZip = '"compresso con zip"';
 
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
+$strTableOptions = 'Table options';  //to translate
 ?>

@@ -660,4 +660,5 @@ $strToggleScratchboard = 'toggle scratchboard';  //to translate
 
 $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 
+$strTableOptions = 'Table options';  //to translate
 ?>

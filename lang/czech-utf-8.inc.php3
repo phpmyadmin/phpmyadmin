@@ -657,4 +657,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
+$strTableOptions = 'Table options';  //to translate
 ?>

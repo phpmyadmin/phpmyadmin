@@ -658,4 +658,5 @@ $strAddIntoComments = 'In Kommentarbereich einbeziehen';
 $strDatabaseExportOptions = 'Export-Optionen der Datenbank';
 $strAddDropDatabase = 'DROP DATABASE hinzufügen';
 $strToggleScratchboard = 'Klemmbrett anzeigen';
+$strTableOptions = 'Table options';  //to translate
 ?>

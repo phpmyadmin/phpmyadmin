@@ -659,4 +659,5 @@ $strDatabaseNoTable = 'This database contains no table!';//to translate
 $strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
+$strTableOptions = 'Table options';  //to translate
 ?>

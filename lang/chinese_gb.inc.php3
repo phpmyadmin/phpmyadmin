@@ -653,4 +653,5 @@ $strAddIntoComments = 'Add into comments';//to translate
 $strDatabaseExportOptions = 'Database export options';//to translate
 $strAddDropDatabase = 'Add DROP DATABASE';//to translate
 $strToggleScratchboard = 'toggle scratchboard';  //to translate
+$strTableOptions = 'Table options';  //to translate
 ?>

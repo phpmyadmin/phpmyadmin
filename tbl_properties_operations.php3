@@ -124,38 +124,28 @@ echo "\n";
 
     <!-- Change table name -->
     <li>
-        <div style="margin-bottom: 10px">
-            <form method="post" action="tbl_rename.php3"
-                onsubmit="return emptyFormElements(this, 'new_name')">
-                <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-                <input type="hidden" name="reload" value="1" />
-                <?php echo $strRenameTable; ?>&nbsp;:
-                <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" class="textfield" onfocus="this.select()" />&nbsp;
-                <input type="submit" value="<?php echo $strGo; ?>" />
-            </form>
-        </div>
+        <form method="post" action="tbl_rename.php3"
+            onsubmit="return emptyFormElements(this, 'new_name')">
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <input type="hidden" name="reload" value="1" />
+            <?php echo $strRenameTable; ?>&nbsp;:
+            <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" class="textfield" onfocus="this.select()" />&nbsp;
+            <input type="submit" value="<?php echo $strGo; ?>" />
+        </form>
     </li>
 
-    <!-- Move and copy table -->
-    <li style="vertical-align: top">
-        <div style="margin-bottom: 10px">
-        <table border="0" cellspacing="0" cellpadding="0" style="vertical-align: top">
-        <tr>
-            <td valign="top">
-            <form method="post" action="tbl_move_copy.php3"
-                onsubmit="return emptyFormElements(this, 'new_name')">
-                <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-                <input type="hidden" name="reload" value="1" />
-                <input type="hidden" name="what" value="data" />
-                <table border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td nowrap="nowrap">
-                        <?php echo $strMoveTable . "\n"; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <select name="target_db">
+    <!-- Move table -->
+    <li>
+        <?php echo $strMoveTable . "\n"; ?>
+        <form method="post" action="tbl_move_copy.php3"
+            onsubmit="return emptyFormElements(this, 'new_name')">
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <input type="hidden" name="reload" value="1" />
+            <input type="hidden" name="what" value="data" />
+            <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <select name="target_db">
 <?php
 // The function used below is defined in "common.lib.php3"
 PMA_availableDatabases('main.php3?' . PMA_generate_common_url());
@@ -165,34 +155,31 @@ for ($i = 0; $i < $num_dbs; $i++) {
     echo "\n";
 } // end for
 ?>
-                        </select>
-                        &nbsp;<b>.</b>&nbsp;
-                        <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" class="textfield" onfocus="this.select()" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="<?php echo $cell_align_right; ?>" valign="top">
-                        <input type="submit" name="submit_move" value="<?php echo $strGo; ?>" />
-                    </td>
-                </tr>
-                </table>
-            </form>
-            </td>
-            <td width="25">&nbsp;</td>
-            <td valign="top">
-            <form method="post" action="tbl_move_copy.php3"
-                onsubmit="return emptyFormElements(this, 'new_name')">
-                <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-                <input type="hidden" name="reload" value="1" />
-                <table border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td colspan="2" nowrap="nowrap">
-                        <?php echo $strCopyTable . "\n"; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <select name="target_db">
+                    </select>
+                    &nbsp;<b>.</b>&nbsp;
+                    <input type="text" size="20" name="new_name" value="<?php echo htmlspecialchars($table); ?>" class="textfield" onfocus="this.select()" />
+                </td>
+            </tr>
+            <tr>
+                <td align="<?php echo $cell_align_right; ?>" valign="top">
+                    <input type="submit" name="submit_move" value="<?php echo $strGo; ?>" />
+                </td>
+            </tr>
+            </table>
+        </form>
+    </li>
+
+    <!-- Copy table -->
+    <li>
+        <?php echo $strCopyTable . "\n"; ?>
+        <form method="post" action="tbl_move_copy.php3"
+            onsubmit="return emptyFormElements(this, 'new_name')">
+            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <input type="hidden" name="reload" value="1" />
+            <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td colspan="2">
+                    <select name="target_db">
 <?php
 for ($i = 0; $i < $num_dbs; $i++) {
     echo '                            ';
@@ -204,131 +191,114 @@ for ($i = 0; $i < $num_dbs; $i++) {
     echo "\n";
 } // end for
 ?>
-                        </select>
-                        &nbsp;<b>.</b>&nbsp;
-                        <input type="text" size="20" name="new_name" class="textfield" onfocus="this.select()" />
-                    </td>
-                </tr>
-                <tr>
-                    <td nowrap="nowrap">
-                        <input type="radio" name="what" value="structure" id="radio_copy_structure" checked="checked" />
-                        <label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label>&nbsp;&nbsp;<br />
-                        <input type="radio" name="what" value="data" id="radio_copy_data" />
-                        <label for="radio_copy_data"><?php echo $strStrucData; ?></label>&nbsp;&nbsp;<br />
-                        <input type="radio" name="what" value="dataonly" id="radio_copy_dataonly" />
-                        <label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label>&nbsp;&nbsp;<br />
-                        <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" />
-                        <label for="checkbox_drop"><?php echo $strStrucDrop; ?></label>&nbsp;&nbsp;<br />
-                        <?php
-                        if (isset($_COOKIE) && isset($_COOKIE['pma_switch_to_new']) && $_COOKIE['pma_switch_to_new'] == 'true') {
-                            $pma_switch_to_new = 'true';
-                        } elseif (isset($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_switch_to_new']) && $HTTP_COOKIE_VARS['pma_switch_to_new'] == 'true') {
-                            $pma_switch_to_new = 'true';
-                        }
-                        ?>
-                        <input type="checkbox" name="switch_to_new" value="true" id="checkbox_switch" <?php echo ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true') ? 'checked="checked"' : ''); ?>/>
-                        <label for="checkbox_switch"><?php echo $strSwitchToTable; ?></label>&nbsp;&nbsp;
-                    </td>
-                    <td align="<?php echo $cell_align_right; ?>" valign="top">
-                        <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />
-                    </td>
-                </tr>
-                </table>
-            </form>
-        </td>
-    </tr>
-    </table>
-    </div>
+                    </select>
+                    &nbsp;<b>.</b>&nbsp;
+                    <input type="text" size="20" name="new_name" class="textfield" onfocus="this.select()" />
+                </td>
+            </tr>
+            <tr>
+                <td nowrap="nowrap">
+                    <input type="radio" name="what" value="structure" id="radio_copy_structure" checked="checked" />
+                    <label for="radio_copy_structure"><?php echo $strStrucOnly; ?></label>&nbsp;&nbsp;<br />
+                    <input type="radio" name="what" value="data" id="radio_copy_data" />
+                    <label for="radio_copy_data"><?php echo $strStrucData; ?></label>&nbsp;&nbsp;<br />
+                    <input type="radio" name="what" value="dataonly" id="radio_copy_dataonly" />
+                    <label for="radio_copy_dataonly"><?php echo $strDataOnly; ?></label>&nbsp;&nbsp;<br />
+                    <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" />
+                    <label for="checkbox_drop"><?php echo $strStrucDrop; ?></label>&nbsp;&nbsp;<br />
+                    <?php
+                    if (isset($_COOKIE) && isset($_COOKIE['pma_switch_to_new']) && $_COOKIE['pma_switch_to_new'] == 'true') {
+                        $pma_switch_to_new = 'true';
+                    } elseif (isset($HTTP_COOKIE_VARS) && isset($HTTP_COOKIE_VARS['pma_switch_to_new']) && $HTTP_COOKIE_VARS['pma_switch_to_new'] == 'true') {
+                        $pma_switch_to_new = 'true';
+                    }
+                    ?>
+                    <input type="checkbox" name="switch_to_new" value="true" id="checkbox_switch" <?php echo ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true') ? 'checked="checked"' : ''); ?>/>
+                    <label for="checkbox_switch"><?php echo $strSwitchToTable; ?></label>&nbsp;&nbsp;
+                </td>
+                <td align="<?php echo $cell_align_right; ?>" valign="top">
+                    <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />
+                </td>
+            </tr>
+            </table>
+        </form>
     </li>
 
+    <!-- Table maintenance -->
+    <li>
+        <?php echo $strTableMaintenance; ?>
+        <ul>
 <?php
 if (PMA_MYSQL_INT_VERSION >= 32322) {
-    if ($tbl_type == 'MYISAM' or $tbl_type == 'BDB') {
-        ?>
-    <!-- Table maintenance -->
-    <li style="vertical-align: top">
-        <div style="margin-bottom: 10px">
-        <table border="0" cellspacing="0" cellpadding="0" style="vertical-align: top">
-        <tr>
-            <td><?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;</td>
-        <?php
+    if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB' || $tbl_type == 'INNODB') {
         echo "\n";
-        if ($tbl_type == 'MYISAM') {
+        if ($tbl_type == 'MYISAM' || $tbl_type == 'INNODB') {
             ?>
-            <td>
+            <li>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('CHECK TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strCheckTable; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'CHECK_TABLE') . "\n"; ?>
-            </td>
-            <td>&nbsp;-&nbsp;</td>
+            </li>
             <?php
         }
         echo "\n";
-        if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
+        if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB') {
             ?>
-            <td>
+            <li>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ANALYZE TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strAnalyzeTable; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'ANALYZE_TABLE') . "\n";?>
-            </td>
+            </li>
             <?php
         }
-        echo "\n";
-        ?>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-        <?php
         echo "\n";
         if ($tbl_type == 'MYISAM') {
             ?>
-            <td>
+            <li>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('REPAIR TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strRepairTable; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'REPAIR_TABLE') . "\n"; ?>
-            </td>
-            <td>&nbsp;-&nbsp;</td>
+            </li>
             <?php
         }
         echo "\n";
-        if ($tbl_type == 'MYISAM' || $tbl_type == 'BDB') {
+        if ($tbl_type == 'MYISAM' || $tbl_type == 'BERKELEYDB') {
             ?>
-            <td>
+            <li>
                 <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>">
                     <?php echo $strOptimizeTable; ?></a>&nbsp;
                 <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'OPTIMIZE_TABLE') . "\n"; ?>
-            </td>
+            </li>
             <?php
         }
         echo "\n";
         ?>
-        </tr>
-        </table><br />
-        </div>
-    </li>
         <?php
-    } // end MYISAM or BDB case
+    } // end MYISAM or BERKELEYDB case
     echo "\n";
 } // end MySQL >= 3.23.22
 
-// loic1: "OPTIMIZE" statement is available for MyISAM and BDB tables only and
-//        MyISAM/BDB tables exists since MySQL 3.23.06/3.23.34
+// loic1: "OPTIMIZE" statement is available for MyISAM and BERKELEYDB tables only and
+//        MyISAM/BERKELEYDB tables exists since MySQL 3.23.06/3.23.34
 else if (PMA_MYSQL_INT_VERSION >= 32306
-         && ($tbl_type == 'MYISAM' or $tbl_type == 'BDB')) {
+         && ($tbl_type == 'MYISAM' or $tbl_type == 'BERKELEYDB')) {
     ?>
-    <!-- Table maintenance -->
-    <li style="vertical-align: top">
-        <div style="margin-bottom: 10px">
-        <?php echo $strTableMaintenance; ?>&nbsp;:&nbsp;
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>">
-            <?php echo $strOptimizeTable; ?></a>&nbsp;
-        <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'OPTIMIZE_TABLE') . "\n"; ?>
-        </div>
-    </li>
+            <li>
+                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>">
+                <?php echo $strOptimizeTable; ?></a>&nbsp;
+                <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'OPTIMIZE_TABLE') . "\n"; ?>
+            </li>
     <?php
     echo "\n";
 } // end 3.23.06 < MySQL < 3.23.22
+    ?>
+            <li>
+                <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfg['ShowTooltip']) echo '&amp;reload=1'; ?>">
+                    <?php echo $strFlushTable; ?></a>&nbsp;
+                    <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH') . "\n"; ?>
+            </li>
 
+<?php
 // Referential integrity check
 if ($cfgRelation['relwork']) {
 
@@ -341,54 +311,47 @@ if ($cfgRelation['relwork']) {
     if ($foreign) {
         ?>
     <!-- Referential integrity check -->
-    <li style="vertical-align: top">
-        <div style="margin-bottom: 10px">
-        <?php echo $strReferentialIntegrity; ?><br />
-        <?php
-        echo "\n";
-        while (list($master, $arr) = each($foreign)){
-            $join_query  = 'SELECT ' . PMA_backquote($table) . '.* FROM '
-                         . PMA_backquote($table) . ' LEFT JOIN '
-                         . PMA_backquote($arr['foreign_table']);
-            if ($arr['foreign_table'] == $table) {
-                $foreign_table = $table . '1';
-                $join_query .= ' AS ' . PMA_backquote($foreign_table);
-            } else {
-                $foreign_table = $arr['foreign_table'];
-            }
-            $join_query .= ' ON '
-                         . PMA_backquote($table) . '.' . PMA_backquote($master)
-                         . ' = ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($arr['foreign_field'])
-                         . ' WHERE '
-                         . PMA_backquote($foreign_table) . '.' . PMA_backquote($arr['foreign_field'])
-                         . ' IS NULL AND '
-                         . PMA_backquote($table) . '.' . PMA_backquote($master)
-                         . ' IS NOT NULL';
-            echo '        '
-                 . '<a href="sql.php3?' . $url_query
-                 . '&amp;sql_query='
-                 . urlencode($join_query)
-                 . '">' . $master . '&nbsp;->&nbsp;' . $arr['foreign_table'] . '.' . $arr['foreign_field']
-                 . '</a><br />' . "\n";
-            unset($foreign_table);
-            unset($join_query);
-        } //  end while
-        ?>
-        </div>
-    </li><br />
+            <li>
+                <?php echo $strReferentialIntegrity; ?><br />
+                <?php
+                echo "\n";
+                while (list($master, $arr) = each($foreign)){
+                    $join_query  = 'SELECT ' . PMA_backquote($table) . '.* FROM '
+                                 . PMA_backquote($table) . ' LEFT JOIN '
+                                 . PMA_backquote($arr['foreign_table']);
+                    if ($arr['foreign_table'] == $table) {
+                        $foreign_table = $table . '1';
+                        $join_query .= ' AS ' . PMA_backquote($foreign_table);
+                    } else {
+                        $foreign_table = $arr['foreign_table'];
+                    }
+                    $join_query .= ' ON '
+                                 . PMA_backquote($table) . '.' . PMA_backquote($master)
+                                 . ' = ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($arr['foreign_field'])
+                                 . ' WHERE '
+                                 . PMA_backquote($foreign_table) . '.' . PMA_backquote($arr['foreign_field'])
+                                 . ' IS NULL AND '
+                                 . PMA_backquote($table) . '.' . PMA_backquote($master)
+                                 . ' IS NOT NULL';
+                    echo '        '
+                         . '<a href="sql.php3?' . $url_query
+                         . '&amp;sql_query='
+                         . urlencode($join_query)
+                         . '">' . $master . '&nbsp;->&nbsp;' . $arr['foreign_table'] . '.' . $arr['foreign_field']
+                         . '</a><br />' . "\n";
+                    unset($foreign_table);
+                    unset($join_query);
+                } //  end while
+                ?>
+            </li>
         <?php
     } // end if ($result)
     echo "\n";
 
 } // end  if (!empty($cfg['Server']['relation']))
 ?>
-
-    <!-- Flushes the table -->
-    <li>
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfg['ShowTooltip']) echo '&amp;reload=1'; ?>">
-            <?php echo $strFlushTable; ?></a>&nbsp;
-            <?php echo PMA_showMySQLDocu('MySQL_Database_Administration', 'FLUSH') . "\n"; ?>
-        <br /><br />
+            <br />
+        </ul>
     </li>
 
 <?php
@@ -457,7 +420,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
     <?php
     $tbl_types     = "\n";
     if (isset($tbl_bdb)) {
-        $tbl_types .= '                <option value="BDB"'
+        $tbl_types .= '                <option value="BERKELEYDB"'
                    .  (($tbl_type == 'BERKELEYDB') ? ' selected="selected"' : '')
                    .  '>Berkeley DB</option>' . "\n";
     }
@@ -510,8 +473,9 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
     ?>
 
     <!-- Table options -->
-    <li style="vertical-align: top">
-        <table border="0" cellspacing="0" cellpadding="0" style="vertical-align: top">
+    <li>
+        <?php echo $strTableOptions; ?>:<br />
+        <table border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td valign="top">
                 <form method="post" action="tbl_properties_operations.php3">
