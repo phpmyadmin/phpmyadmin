@@ -645,7 +645,7 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 || ($cfg['ProtectBinary'] == 'all' && $is_binary)) {
                 echo "\n";
                 ?>
-            <td align="center" bgcolor="<?php echo $bgcolor; ?>">
+            <td bgcolor="<?php echo $bgcolor; ?>">
                 <?php
                     echo $strBinaryDoNotEdit;
                     if (isset($data)) {
@@ -687,9 +687,23 @@ foreach($loop_array AS $vrowcount => $vrow) {
             // (displayed whatever value the ProtectBinary has)
     
             if ($is_upload && $is_blob) {
-                echo '<input type="file" name="fields_upload_' . urlencode($field) . $vkey . '" class="textfield" id="field_' . ($i * $m_rows) . '_3" />';
+                echo '<input type="file" name="fields_upload_' . urlencode($field) . $vkey . '" class="textfield" id="field_' . ($i * $m_rows) . '_3" size="10" />&nbsp;';
+
+                // find maximum upload size, based on field type
+                $max_field_sizes = array(
+                    'tinyblob'   =>        '256',
+                    'blob'       =>      '65536',
+                    'mediumblob' =>   '16777216',
+                    'longblob'   => '4294967296'); // yeah, really
+
+                $this_field_max_size = $max_upload_size; // from PHP max
+                if ($this_field_max_size > $max_field_sizes[$type]) {
+                   $this_field_max_size = $max_field_sizes[$type];
+                }
+                echo PMA_displayMaximumUploadSize($this_field_max_size) . "\n";
+                echo '                ' . PMA_generateHiddenMaxFileSize($this_field_max_size) . "\n"; 
             }
-    
+ 
             if (!empty($cfg['UploadDir'])) {
                 if (substr($cfg['UploadDir'], -1) != '/') {
                     $cfg['UploadDir'] .= '/';

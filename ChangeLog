@@ -5,12 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-13 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_query_box.php, ldi_table.php: maximum upload size
+    * tbl_change.php: max BLOB upload size
+
 2003-12-12 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details.php, libraries/common.lib.php, lang/*: 
       new feature to display the maximum upload size
-      TODO: - put this everywhere we can upload
-            - detect also the max based on *BLOB max field size
-            - detect if upload succeeded
+      TODO: detect if upload succeeded
 
 2003-12-12 Garvin Hicking <juststayalittlebitlonger@supergarv.de>
     * export.php: Fixed Regex
