@@ -17,6 +17,7 @@ if (empty($HTTP_HOST)) {
     else if (@getenv('HTTP_HOST')) {
         $HTTP_HOST = getenv('HTTP_HOST');
     }
+    else $HTTP_HOST="";
 }
 
 

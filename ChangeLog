@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-06  Steve Alberty  <alberty@nepunlabs.de>
+	* index.php3: remove warning under Apache 2.0.23-dev
+
 2001-08-05  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3: create the variable $is_show_processlist so the same
 	  regular expression dont have to be tested three times.
