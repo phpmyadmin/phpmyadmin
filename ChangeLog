@@ -7,6 +7,7 @@ $Source$
 
 2003-08-31 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: extract ON DELETE, ON UPDATE for FOREIGN KEYs
+    * libraries/relation.lib.php3: populate $foreign with ON DELETE, ON UPDATE
 
 2003-08-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * README: Updated php / MySQL versions.

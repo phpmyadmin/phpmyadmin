@@ -331,6 +331,12 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
                     }
                     $foreign[$field]['foreign_table'] = $one_key['ref_table_name'];
                     $foreign[$field]['foreign_field'] = $one_key['ref_index_list'][$i];
+                    if (isset($one_key['on_delete'])) {
+                        $foreign[$field]['on_delete'] = $one_key['on_delete'];
+                    }
+                    if (isset($one_key['on_update'])) {
+                        $foreign[$field]['on_update'] = $one_key['on_update'];
+                    }
                 }
             }
         }      
