@@ -30,6 +30,9 @@ $Source$
 	* tbl_copy.php3; tbl_properties.php3: re-enabled the ability to copy a
 	  table to another database (bug #456434). Need to be tested with
 	  MySQL < 3.23 releases.
+	* lib.inc.php3, lines 1154-1170: added an option to display the whole value
+	  of a text field in a javascript alert box thanks to "Opi" <opi@volny.cz>.
+	* lang/english.inc.php3: re-sorted and fixed some typos.
 
 2001-08-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/galician.inc.php3, select_lang.inc.php3: new Galician lang thanks to
