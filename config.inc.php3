@@ -12,7 +12,9 @@
 /**
  * Sets the php error reporting - Please do not change this line!
  */
-$old_error_rep = error_reporting(E_ALL);
+if (!isset($old_error_reporting)) {
+    error_reporting(E_ALL);
+}
 
 
 /**
@@ -456,13 +458,6 @@ if ($cfg['UseSyntaxColoring']) {
  * Unset magic_quotes_runtime - do not change!
  */
 set_magic_quotes_runtime(0);
-
-
-/**
- * Restore old error_reporting mode - do not change either!
- */
-error_reporting($old_error_rep);
-unset($old_error_rep);
 
 
 /**

@@ -71,7 +71,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * Parses the configuration file and gets some constants used to define
      * versions of phpMyAdmin/php/mysql...
      */
-    if (!@include('./config.inc.php3')) {
+    $old_error_reporting = error_reporting(0);
+    if (!include('./config.inc.php3')) {
         // Creates fake settings
         $cfg = array('DefaultLang' => 'en');
         // Loads the laguage file
@@ -108,6 +109,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         <?php
         exit();
     }
+    error_reporting($old_error_reporting);
+    unset($old_error_reporting);
 
     /**
      * Reads in the developer edition config file. This is used exclusively during
@@ -1408,7 +1411,7 @@ if (typeof(document.getElementById) != 'undefined'
             $bgcolor = '#DFDFDF';
         }
 
-		$db_details_links_count_tabs++;
+        $db_details_links_count_tabs++;
         if (!empty($attr)) {
             $attr = ' ' . $attr;
         }
