@@ -66,9 +66,9 @@ if (!defined('PMA_MYSQL_WRAPPERS_LIB_INCLUDED')){
 
     function PMA_mysql_list_fields($database_name, $table_name, $link_identifier = FALSE) {
         if ($link_identifier != FALSE) {
-            return mysql_list_fields($database_name, PMA_convert_charset($table_name), $link_identifier);
+            return mysql_list_fields(PMA_convert_charset($database_name), PMA_convert_charset($table_name), $link_identifier);
         } else {
-            return mysql_list_fields($database_name, PMA_convert_charset($table_name));
+            return mysql_list_fields(PMA_convert_charset($database_name), PMA_convert_charset($table_name));
         }
     }
 

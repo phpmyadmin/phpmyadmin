@@ -13,6 +13,8 @@ $Source$
     * Documentation.html: update the persons/towns/countries example
     * sql.php3, tbl_properties_table_info.php3: sub-page links on browse
     * lang/japanese* updates, thanks to Yukihiro Kawada
+    * libraries/mysql_wrappers.lib.php3 patch #574009, charset
+      conversion for db names, thanks to Michal Cihar_
 
 2002-06-26 Olivier L. Müller  <om@omnis.ch>
     * tbl_change.php3: display the submit button every 15 lines:
