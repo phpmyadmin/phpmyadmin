@@ -11,6 +11,8 @@ $Source$
 	  to avoid conflicts with the 'include_path' directive.
 	  Also ensured that require and include are conveniently used (no require
 	  inside conditionnal structure...)
+	* db_readdump.php3, line 45+: optimized the work here
+	* lib.inc.php3, line 452-454: fixed a warning
 
 2001-05-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.js, lines 241-242: fixed the scrollbar bug with NS4
