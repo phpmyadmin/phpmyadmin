@@ -136,17 +136,7 @@ else {
 
     // garvin: Get, if sent, any protected fields to insert them here:
     if (isset($fields_type) && is_array($fields_type) && isset($primary_key)) {
-        reset($fields_type);
-
-        $protected_stack = array();
-        while (list($key, $val) = each($fields_type)) {
-            if ($val == 'protected') {
-                $protected_stack[] = PMA_backquote(urldecode($key));
-            }
-        }
-        reset($fields_type);
-
-        $prot_local_query = 'SELECT ' . implode(', ', $protected_stack) . ' FROM ' . PMA_backquote($table) . ' WHERE ' . urldecode($primary_key);
+        $prot_local_query = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . urldecode($primary_key);
         $prot_result      = PMA_mysql_query($prot_local_query) or PMA_mysqlDie('', $prot_local_query, '', $err_url);
         $prot_row         = PMA_mysql_fetch_array($prot_result);
     }
