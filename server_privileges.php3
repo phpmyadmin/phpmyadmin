@@ -352,7 +352,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
             array('Drop', 'DROP', ($table == '*' ? $GLOBALS['strPrivDescDropDb'] : $GLOBALS['strPrivDescDropTbl']))
         );
         if (isset($row['Create_tmp_table_priv'])) {
-            $privTable[1][] = array('Create_tmp_table', 'CREATE&nbsp;TEMPORARAY&nbsp;TABLES', $GLOBALS['strPrivDescCreateTmpTable']);
+            $privTable[1][] = array('Create_tmp_table', 'CREATE&nbsp;TEMPORARY&nbsp;TABLES', $GLOBALS['strPrivDescCreateTmpTable']);
         }
         $privTable[2] = array();
         if (isset($row['Grant_priv'])) {
