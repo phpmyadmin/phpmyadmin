@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Gets some core libraries
  */
@@ -24,14 +25,14 @@ if (!empty($goto)) {
 if (empty($goto)) {
     $goto         = (empty($table)) ? 'db_details.php3' : 'tbl_properties.php3';
     $is_gotofile  = TRUE;
-}
+} // end if
 if (!isset($err_url)) {
     $err_url = (!empty($back) ? $back : $goto)
              . '?lang=' . $lang
              . '&amp;server=' . $server
              . (isset($db) ? '&amp;db=' . urlencode($db) : '')
              . ((strpos(' ' . $goto, 'db_details') != 1 && isset($table)) ? '&amp;table=' . urlencode($table) : '');
-}
+} // end if
 
 
 /**
@@ -65,7 +66,7 @@ if (isset($store_bkm)) {
     include('./libraries/bookmark.lib.php3');
     PMA_addBookmarks($fields, $cfg['Bookmark']);
     header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto);
-}
+} // end if
 
 
 /**
@@ -110,7 +111,7 @@ if ($goto == 'sql.php3') {
           . '&amp;table=' . urlencode($table)
           . '&amp;pos=' . $pos
           . '&amp;sql_query=' . urlencode($sql_query);
-}
+} // end if
 
 
 /**
@@ -253,13 +254,13 @@ else {
     if ($is_delete
         && eregi('^DELETE([[:space:]].+)?([[:space:]]FROM[[:space:]](.+))$', $sql_query, $parts)
         && !eregi('[[:space:]]WHERE[[:space:]]', $parts[3])) {
-        $OPresult     = @mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
-        if ($OPresult) {
-            $num_rows = mysql_result($OPresult, 0, 'count');
+        $cnt_all_result = @mysql_query('SELECT COUNT(*) as count' .  $parts[2]);
+        if ($cnt_all_result) {
+            $num_rows   = mysql_result($cnt_all_result, 0, 'count');
+            mysql_free_result($cnt_all_result);
         } else {
-            $num_rows = 0;
+            $num_rows   = 0;
         }
-        mysql_free_result($OPresult);
     }
 
     // Executes the query
@@ -305,12 +306,12 @@ else {
             '|' . $sp . 'GROUP' . $sp . 'BY' . $sp, $sql_query);
         if (!empty($array[1])) {
             // ... and makes a count(*) to count the entries
-            $count_query = 'SELECT COUNT(*) AS count FROM ' . $array[1];
-            $OPresult    = mysql_query($count_query);
-            if ($OPresult) {
-                $unlim_num_rows = mysql_result($OPresult, 0, 'count');
+            $count_query        = 'SELECT COUNT(*) AS count FROM ' . $array[1];
+            $cnt_all_result     = mysql_query($count_query);
+            if ($cnt_all_result) {
+                $unlim_num_rows = mysql_result($cnt_all_result, 0, 'count');
+                mysql_free_result($cnt_all_result);
             }
-            mysql_free_result($OPresult);
         } else {
             $unlim_num_rows     = 0;
         }

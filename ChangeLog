@@ -8,6 +8,10 @@ $Source$
 2002-05-26 Loïc Chapeaux  <lolo@phpheaven.net>
     * scripts/create-release.sh, line 60: added the "-P" option (prune empty
       directory) for the cvs checkout.
+    * sql.php3:
+      - fixed a warning thanks to
+        Svetlio Kovachev <svetlio at users.sourceforge.net>;
+      - coding standards.
 
 2002-05-25 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/common.lib.php3:
