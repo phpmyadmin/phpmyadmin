@@ -98,6 +98,12 @@ if (!defined('__LIB_INC__')){
     if ($cfgPmaAbsoluteUri != '' && substr($cfgPmaAbsoluteUri, -1) != '/') {
         $cfgPmaAbsoluteUri .= '/';
     }
+    // If zlib output compression is set in the php configuration file, no
+    // output buffering should be run
+    if (@function_exists('ini_get') && @ini_get('zlib.output_compression')) {
+        $cfgOBGzip = FALSE;
+    }
+    // Gets some constants
     include('./defines.inc.php3');
 
 
