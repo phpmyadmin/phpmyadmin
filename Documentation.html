@@ -165,18 +165,32 @@
          in your browser. phpMyAdmin should now display a welcome screen
          and your databases, or a login dialog if using HTTP or cookie
          authentication mode.</li>
-    <li> For a whole set of new features (bookmarks, comments, SQL-history, PDF-generation, field contents transformation, etc.)
-         you need to create a set of tables in your database. Please look at your scripts/
+</ol>
+<a name="linked-tables"></a>
+<h3>Linked-tables infrastructure</h3>
+ <p>
+     For a whole set of new features (bookmarks, comments, SQL-history, 
+     PDF-generation, field contents transformation, etc.)
+     you need to create a set of special tables. Those tables can be located
+     in your own database, or in a central database for a multi-user 
+     installation (this database would then be accessed by the controluser, 
+     so no other user should have rights to it).
+     <br /> <br />
+     Please look at your scripts/
          directory, where you should find a file called <i>create_tables.sql</i>.
          (If you are using a Windows server, pay special attention to <a href="#faq1_23">FAQ 1.23</a>).
          If your MySQL server's version is 4.1.2 or later, please use <i>create_tables_mysql_4_1_2+.sql</i> instead.
          You can already use your phpMyAdmin to create the tables for you. Please be
-         aware that you may have to have special (administrator) privileges to create
-         the database and tables. After having imported the <i>create_tables.sql</i> file,
-         you should specify the table names in your <i>config.inc.php</i> file. The directives
-         used for that can be found in the <a href="#config">Configuration section</a>.</li>
-
-</ol>
+         aware that you may need special (administrator) privileges to create
+         the database and tables, and that the script may need some tuning,
+         depending on the database name.
+     <br /> <br />
+      After having imported the <i>create_tables.sql</i> file,
+      you should specify the table names in your <i>config.inc.php</i> file. The directives
+         used for that can be found in the <a href="#config">Configuration section</a>.
+         You will also need to have a controluser with the proper rights to
+         those tables (see section <i>Using authentication modes</i> below).</li>
+ </p>
 
 <h3>Upgrading from an older version</h3>
 <ul>
@@ -589,45 +603,19 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <b>$cfg['Servers'][$i]['pmadb']</b> string
     </dt>
     <dd>
-        Starting with version 2.3.0 phpMyAdmin offers a lot of features
-        to work with master / foreign - tables. To use those as well as
-        the bookmark feature you need special tables with a
-        predefined structure, which we explain below.
+        The name of the database containing the linked-tables infrastructure.
         <br /><br />
-        See the <a href="#setup">Quick Install section</a> in this document for a quick way
-        of creating those tables. Also, if you are using a Windows server,
-        read <a href="#faq1_23">FAQ 1.23</a>.
+        See the <a href="#linked-tables">Linked-tables infrastructure</a> 
+        section in this document to see the benefits of this infrastructure,
+        and for a quick way of creating this database and the needed tables.
         <br /><br />
         If you are the only user of this phpMyAdmin installation, you can
         use your current database to store those special tables; in this
         case, just put your current database name in
-        <tt>$cfg['Servers'][$i]['pmadb']</tt>.
+        <tt>$cfg['Servers'][$i]['pmadb']</tt>. For a multi-user installation,
+        set this parameter to the name of your central database containing
+        the linked-tables infrastructure.
         <br /><br />
-        If you are setting up a multi-user phpMyAdmin installation,
-        you will need to create a new database and setup special privileges,
-        so, as superuser:
-        <br /><br />
-        <ul>
-            <li>
-                create a new database for phpMyAdmin:<br />
-                <tt>&nbsp;&nbsp;CREATE DATABASE phpmyadmin;</tt><br />
-                If using MySQL 4.1.2 or later, use instead:<br />
-                <tt>&nbsp;&nbsp;CREATE DATABASE phpmyadmin DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;</tt><br />
-                Note that &quot;controluser&quot; must have
-                <tt>SELECT, INSERT, UPDATE</tt> and <tt>DELETE</tt>
-                privileges on this database. Here is a query to set up
-                those privileges (using &quot;phpmyadmin&quot;
-                as the database name, and &quot;pma&quot; as the
-                controluser):<br />
-                <tt>
-                &nbsp;&nbsp;GRANT SELECT,INSERT,UPDATE,DELETE ON phpmyadmin.* to 'pma'@'localhost';
-                </tt><br />
-                do <b>not</b> give any other user rights on this database.
-            </li>
-            <li>
-                enter the database name in <tt>$cfg['Servers'][$i]['pmadb']</tt>
-            </li>
-        </ul><br />
     </dd>
 
     <dt>
@@ -638,22 +626,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         Since release 2.2.0 phpMyAdmin allows to bookmark queries. This can be
         useful for queries you often run.<br /><br />
 
-        To allow the usage of this functionality you have to:
+        To allow the usage of this functionality:
         <ul>
-            <li>set up &quot;pmadb&quot; as described above</li>
-            <li>within this database create a table following this scheme:
-                <br />
-                <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_bookmark` (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(11) DEFAULT '0' NOT NULL auto_increment,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbase varchar(255) NOT NULL,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user varchar(255) NOT NULL,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label varchar(255) NOT NULL,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;query text NOT NULL,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Bookmarks';<br />
-                </tt>
-            </li>
+            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
             <li>enter the table name in
                 <tt>$cfg['Servers'][$i]['bookmarktable']</tt></li>
         </ul><br />
@@ -701,25 +676,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         The keys can be numeric or character.
         <br /><br />
 
-        To allow the usage of this functionality the superuser has to:
+        To allow the usage of this functionality:
         <ul>
-            <li>set up &quot;pmadb&quot; as described above</li>
-            <li>
-                within this database create a table following this scheme:
-                <br />
-                <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_relation` (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_db` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_table` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_db` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_table` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_db`, `master_table`, `master_field`),<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY foreign_field (foreign_db, foreign_table)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Relation table';<br />
-                </tt>
-            </li>
+            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
             <li>
                 put the relation table name in
                 <tt>$cfg['Servers'][$i]['relation']</tt>
@@ -746,20 +705,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         <br />
         This configuration variable will hold the name of this special
         table.
-        To allow the usage of this functionality the superuser has to:
+        To allow the usage of this functionality:
         <ul>
-            <li>set up &quot;pmadb&quot; as described above</li>
-            <li>within this database create a table following this scheme:
-                <br />
-                <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_table_info` (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`display_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`db_name`, `table_name`)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';<br />
-                </tt>
-            </li>
+            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
             <li>
                 put the table name in
                 <tt>$cfg['Servers'][$i]['table_info']</tt>
@@ -785,43 +733,14 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         pages) and &quot;table_coords&quot; (storing coordinates where each
         table will be placed on a PDF schema output).
         <br /><br />
-        You must be using the &quot;relation&quot; feature and have a table of
-        PDF pages (see <tt><a href="#table_coords">$cfg['Servers'][$i]['pdf_pages']</a></tt>) to create PDF
-        output.
+        You must be using the &quot;relation&quot; feature.
         <br /><br />
-        To allow the usage of this functionality the superuser has to:
+        To allow the usage of this functionality:
         <ul>
-            <li>set up &quot;pmadb&quot; as described above</li>
+            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
             <li>
-                within this database create a table following this scheme:
-                <br />
-                <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_table_coords` (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pdf_page_number` int NOT NULL default '0',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`x` float unsigned NOT NULL default '0',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`db_name`, `table_name`, `pdf_page_number`)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin PDF output';<br />
-                </tt>
-            </li>
-            <li>
-                also within this database create:<br />
-                <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_pdf_pages` (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`page_nr` int(10) unsigned NOT NULL auto_increment,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`page_descr` varchar(50) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (page_nr),<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY (db_name)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='PDF Relationpages for PMA';<br />
-                </tt>
-            </li>
-            <li>
-                put the first table name in
-                <tt>$cfg['Servers'][$i]['table_coords']</tt>
-                and the second table name in
+                put the correct table names in
+                <tt>$cfg['Servers'][$i]['table_coords']</tt> and
                 <tt>$cfg['Servers'][$i]['pdf_pages']</tt>
             </li>
         </ul><br />
@@ -848,33 +767,15 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         for further information. To use the MIME-transformation system, your column_info
         table has to have the three new fields 'mimetype', 'transformation', 'transformation_options'.
         <br /><br />
-        To allow the usage of this functionality the superuser has to:
+        To allow the usage of this functionality:
         <ul>
-            <li>set up &quot;pmadb&quot; as described above</li>
-            <li>
-                within this database create a table following this scheme:
-                <br />
-                <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_column_info` (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(5) unsigned NOT NULL auto_increment,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db_name varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table_name varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column_name varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`comment` varchar(255) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mimetype varchar(255) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transformation varchar(255) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transformation_options varchar(255) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id),<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNIQUE KEY db_name (db_name, table_name, column_name)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Comments for Columns';<br />
-                </tt>
-            </li>
+            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
             <li>
                 put the table name in
                 <tt>$cfg['Servers'][$i]['column_info']</tt>
             </li>
             <li>
-                To update your PRE-2.5.0 Column_comments Table use this:<br />
+                to update your PRE-2.5.0 Column_comments Table use this:<br />
                 <tt>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `pma_column_comments` <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD `mimetype` VARCHAR( 255 ) NOT NULL ,<br />
@@ -905,25 +806,9 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         see <b>$cfg['QueryFrame']</b>.
         <br /><br />
 
-        To allow the usage of this functionality the superuser has to:
+        To allow the usage of this functionality:
         <ul>
-            <li>set up &quot;pmadb&quot; as described above</li>
-            <li>
-                within this database create a table following this scheme:
-                <br />
-                <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pma_history` (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`username` VARCHAR( 64 ) NOT NULL ,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db` VARCHAR( 64 ) NOT NULL ,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table` VARCHAR( 64 ) NOT NULL ,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`timevalue` TIMESTAMP NOT NULL ,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`sqlquery` TEXT NOT NULL ,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY ( `id` ) ,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INDEX ( `username` , `db` , `table` , `timevalue` )<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='SQL history';<br />
-                </tt>
-            </li>
+            <li>set up <a href="#pmadb">pmadb</a> and the linked-tables infrastructure</li>
             <li>
                 put the table name in
                 <tt>$cfg['Servers'][$i]['history']</tt>
