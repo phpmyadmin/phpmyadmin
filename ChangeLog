@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-06 Michael Keck  <mkkeck@users.sourceforge.net>
+    * themes/*/img/bd_deltbl.png, themes/*/bd_drop.png: Added disabled
+      versions of drop icons.
+
 2005-03-06 Michal Čihař  <michal@cihar.com>
     * export.php, libraries/display_export.lib.php, config.inc.php,
       libraries/config_import.lib.php, libraries/export/htmlexcel.php,
