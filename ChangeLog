@@ -10,6 +10,7 @@ $Source$
 
 2002-11-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/ukrainian: update, thanks to Markijan Baran
+    * lang/japanese: update, thanks to Yukihiro Kawada
 
 2002-11-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/dutch-*.inc.php3: Updates, Thanks again to Ivo Teel.
