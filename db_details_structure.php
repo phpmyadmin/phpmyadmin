@@ -19,7 +19,7 @@ if (isset($db) && isset($db_rename) && $db_rename == 'true') {
         PMA_DBI_query($local_query);
         $tables = PMA_DBI_get_tables($db);
         foreach ($tables as $table) {
-            $local_query = 'RENAME TABLE ' 
+            $local_query = 'RENAME TABLE '
                 . PMA_backquote($db) . '.' . PMA_backquote($table)
                 . ' TO '
                 . PMA_backquote($newname) . '.' . PMA_backquote($table)
@@ -564,9 +564,21 @@ else {
     // Check all tables url
     $checkall_url = 'db_details_structure.php?' . PMA_generate_common_url($db);
     echo "\n";
+
+    $basecolspan = 9;
+    if (!($cfg['PropertiesNumColumns'] > 1)) {
+        $basecolspan++;
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            $basecolspan++;
+        }
+    }
+
+    if ($cfg['ShowStats']) {
+        $basecolspan += 2;
+    }
     ?>
             <tr>
-                <td colspan="<?php echo (($cfg['ShowStats']) ? '11' : '10'); ?>" valign="bottom">
+                <td colspan="<?php echo $basecolspan; ?>" valign="bottom">
                     <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
                     <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
                         <?php echo $strCheckAll; ?></a>
@@ -689,7 +701,7 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
     <li>
         <form method="post" action="db_details_structure.php"
             onsubmit="return emptyFormElements(this, 'newname')">
-            <?php echo $strDBRename; ?>: 
+            <?php echo $strDBRename; ?>:
             <input type="hidden" name="db_rename" value="true" />
             <?php echo PMA_generate_common_hidden_inputs($db); ?>
             <input type="text" name="newname" class="textfield" value="" />

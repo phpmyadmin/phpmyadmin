@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-29 Garvin Hicking <pma@supergarv.de>
+    * db_details_structure.php: Bug #942362 - Colspan off by one
+
 2004-04-29 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: keep only one previous version in cvs-prev
     * lang/estonian: Updated, thanks to Alvar Soome (finsoft).
