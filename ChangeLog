@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-22 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * scripts/create-release.sh: The script should now work at the SF shell
+      again.
+
 2002-11-21 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: undefined variable $display_field
 

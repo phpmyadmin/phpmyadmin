@@ -2,6 +2,10 @@
 #
 # $Id$
 #
+# 2002-11-22, rabus@users.sourceforge.net:
+# - changed the CVS server dns to cvs1.sourceforge.net
+#   (cvs.phpmyadmin.sourceforge.net does not work at the SF shell anymore).
+#
 # 2002-10-03, rabus@users.sourceforge.net:
 # - more detailed instructions
 #
@@ -75,8 +79,8 @@ fi
 mkdir cvs
 cd cvs
 echo "Press [ENTER]!"
-cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login
-cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
+cvs -d:pserver:anonymous@cvs1.sourceforge.net:/cvsroot/phpmyadmin login
+cvs -z3 -d:pserver:anonymous@cvs1.sourceforge.net:/cvsroot/phpmyadmin co -P $branch phpMyAdmin
 
 date > phpMyAdmin/RELEASE-DATE-$1
 mv phpMyAdmin phpMyAdmin-$1
