@@ -37,7 +37,7 @@ $fields_cnt = 0;
 if (isset($db) && isset($table) && $table != '' && $db != '') {
     // we do a try_query here, because we could be in the query window,
     // trying to synchonize and the table has not yet been created
-    $result = PMA_DBI_try_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';');
+    $result = PMA_DBI_try_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
     if ($result) {
         $fields_cnt = PMA_DBI_num_rows($result);
         while ($row = PMA_DBI_fetch_assoc($result)) {

@@ -6,13 +6,17 @@ $Id$
 $Source$
 
 2004-08-08 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/relation.lib.php: bug 1005414, undefined offset when
-      no display field has been defined; bug 1004546, sort error in dropdown
-      list of foreign values; incorrect result was freed
+    * libraries/relation.lib.php: 
+        bug 1005414, undefined offset when no display field has been defined;
+        bug 1004546, sort error in dropdown list of foreign values;
+        incorrect result was freed
     * libraries/relation.lib.php: use natural order sort according to config
     * db_details_structure.php, pdf_pages.php, pdf_schema.php: make it work
       with mysqli extension
-    ### 2.6.0-rc1 released
+    * scripts/upgrade_tables_mysql_4_1_2+.sql: new script to upgrade pmadb
+      on MySQL 4.1.2
+    * libraries/bookmark.lib.php: bug (mysqli)
+    * tbl_query_box.php: field list does not show (mysqli)
 
 2004-08-08 Michal Čihař  <michal@cihar.com>
     * calendar.php: Include correct stylesheet (bug #1005421).
