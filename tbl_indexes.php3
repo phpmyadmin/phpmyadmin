@@ -290,7 +290,7 @@ else if (!defined('PMA_IDX_INCLUDED')
     }
     echo "\n";
     ?>
-    <input type="hidden" name="old_index" value="<?php echo (isset($create_index) ? '' : $old_index); ?>" />
+    <input type="hidden" name="old_index" value="<?php echo (isset($create_index) ? '' : htmlspecialchars($old_index)); ?>" />
     <b><?php echo '------ ' . (isset($create_index) ? $strCreateIndexTopic : $strModifyIndexTopic) . ' ------'; ?></b>
     <br /><br />
 
@@ -472,7 +472,7 @@ else if (!defined('PMA_IDX_INCLUDED')
                     echo '        </tr>' . "\n";
                 } else {
                     echo '            <td bgcolor="' . $cell_bgd . '" colspan="2">' . "\n"
-                         . '                ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
+                         . '                ' . htmlspecialchars($indexes_data[$index_name][$seq_index]['Column_name']) . "\n"
                          . '            </td>' . "\n";
                     echo '        </tr>' . "\n";
                 }

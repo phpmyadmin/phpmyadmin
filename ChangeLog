@@ -15,6 +15,7 @@ $Source$
       HTML entities.
     * libraries/build_dump.lib.php3: Removed PMA_htmlFormat function as it
       caused HTML entities to be quoted twice.
+    * tbl_indexes.php3: Fixed editing of index with HTML entities.
 
 2003-03-23 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3, libraries/config_import.lib.php3,
