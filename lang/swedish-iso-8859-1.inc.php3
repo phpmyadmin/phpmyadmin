@@ -283,6 +283,8 @@ $strLines = 'Rader';
 $strLinesTerminatedBy = 'Raderna avslutas med';
 $strLinkNotFound = 'Länk ej funnen';
 $strLinksTo = 'Länkar till';
+$strLoadExplanation = 'Den bästa metoden är förvald, men du kan byta om den inte fungerar.';
+$strLoadMethod = 'LOAD-metod';
 $strLocalhost = 'Lokal';
 $strLocationTextfile = 'Textfilens plats';
 $strLogPassword = 'Lösenord:';
@@ -637,6 +639,4 @@ $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) t
 $strZip = '"zippad"';
 // To translate
 
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>

@@ -283,6 +283,8 @@ $strLines = 'Linie';
 $strLinesTerminatedBy = 'Linie zakoñczone przez';
 $strLinkNotFound = 'Link nie znaleziony';
 $strLinksTo = 'Linki do';
+$strLoadExplanation = 'Domy¶lnie zaznaczona jest najlepsza metoda, ale mo¿na j± zmieniæ je¶li nie dzia³a.';
+$strLoadMethod = 'Metoda LOAD';
 $strLocalhost = 'Host lokalny';
 $strLocationTextfile = 'Lokalizacja pliku tekstowego';
 $strLogPassword = 'Has³o:';
@@ -637,6 +639,4 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 // To translate
 
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>
