@@ -272,6 +272,7 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
      * @param   string   the name of the db to check for
      * @param   string   the name of the table to check for
      * @param   string   the name of the column to check for
+     * @param   string   the source for foreign key information
      *
      * @return  array    db,table,column
      *
@@ -280,33 +281,61 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
      *
      * @access  public
      *
-     * @author  Mike Beck <mikebeck@users.sourceforge.net>
+     * @author  Mike Beck <mikebeck@users.sourceforge.net> and Marc Delisle
      */
-    function PMA_getForeigners($db, $table, $column = '') {
+    function PMA_getForeigners($db, $table, $column = '', $source = 'both') {
         global $cfgRelation, $err_url_0;
 
-        $rel_query     = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
-                       . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                       . ' WHERE master_db =  \'' . PMA_sqlAddslashes($db) . '\' '
-                       . ' AND   master_table = \'' . PMA_sqlAddslashes($table) . '\' ';
-        if (!empty($column)) {
-            $rel_query .= ' AND master_field = \'' . PMA_sqlAddslashes($column) . '\'';
+        if ($source == 'both' || $source == 'internal') {
+            $rel_query     = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
+                           . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                           . ' WHERE master_db =  \'' . PMA_sqlAddslashes($db) . '\' '
+                           . ' AND   master_table = \'' . PMA_sqlAddslashes($table) . '\' ';
+            if (!empty($column)) {
+                $rel_query .= ' AND master_field = \'' . PMA_sqlAddslashes($column) . '\'';
+            }
+            $relations     = PMA_query_as_cu($rel_query);
+            $i = 0;
+            while ($relrow = @PMA_mysql_fetch_array($relations)) {
+                $field                            = $relrow['master_field'];
+                $foreign[$field]['foreign_db']    = $relrow['foreign_db'];
+                $foreign[$field]['foreign_table'] = $relrow['foreign_table'];
+                $foreign[$field]['foreign_field'] = $relrow['foreign_field'];
+                $i++;
+            } // end while
         }
-        $relations     = PMA_query_as_cu($rel_query);
-        $i = 0;
-        while ($relrow = @PMA_mysql_fetch_array($relations)) {
-            $field                            = $relrow['master_field'];
-            $foreign[$field]['foreign_db']    = $relrow['foreign_db'];
-            $foreign[$field]['foreign_table'] = $relrow['foreign_table'];
-            $foreign[$field]['foreign_field'] = $relrow['foreign_field'];
-            $i++;
-         } // end while
 
-         if (isset($foreign) && is_array($foreign)) {
-            return $foreign;
-         } else {
-            return FALSE;
-         }
+        if ($source == 'both' || $source == 'innodb') {
+            $show_create_table_query = 'SHOW CREATE TABLE ' 
+                . PMA_backquote($db) . '.' . PMA_backquote($table);
+            $show_create_table_res = PMA_mysql_query($show_create_table_query);
+            list(,$show_create_table) = PMA_mysql_fetch_row($show_create_table_res);
+            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+
+            while (list(,$one_key) = each ($analyzed_sql[0]['foreign_keys'])) {
+
+            // TODO: the analyzer may return more than one column name in the
+            // index list or the ref_index_list but for now we take the first
+                $field = $one_key['index_list'][0];
+
+            // TODO: SHOW CREATE TABLE does not return the db name in 
+            // the REFERENCES, so we assume the same db as master
+
+            // If a foreign key is defined in the 'internal' source (pmadb)
+            // and in 'innodb', we won't get it twice if $source='both'
+            // because we use $field as key
+
+                $foreign[$field]['foreign_db']    = $db;
+                $foreign[$field]['foreign_table'] = $one_key['ref_table_name'];
+                $foreign[$field]['foreign_field'] = $one_key['ref_index_list'][0];
+            }
+        }      
+
+        if (isset($foreign) && is_array($foreign)) {
+           return $foreign;
+        } else {
+           return FALSE;
+        }
     } // end of the 'PMA_getForeigners()' function
 
 

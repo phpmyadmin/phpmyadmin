@@ -1615,34 +1615,28 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         // init map
         $map = array();
 
-        if ($cfgRelation['relwork']) {
-            // find tables
-            //$pattern = '`?[[:space:]]+(((ON|on)[[:space:]]+[^,]+)?,|((NATURAL|natural)[[:space:]]+)?(INNER|inner|LEFT|left|RIGHT|right)([[:space:]]+(OUTER|outer))?[[:space:]]+(JOIN|join))[[:space:]]*`?';
-            //$target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
-            //$target = eregi_replace('`?[[:space:]]ORDER BY[[:space:]](.*)','',$target);
-            //$tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
-            $target=array();
-            reset($analyzed_sql[0]['table_ref']);
-            while (list ($table_ref_position, $table_ref) = each ($analyzed_sql[0]['table_ref'])) {
-               $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name'];
-            }
-            $tabs    = '(\'' . join('\',\'', $target) . '\')';
+        // find tables
 
-            $local_query = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
-                         . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                         . ' WHERE master_db = \'' . PMA_sqlAddslashes($db) . '\''
-                         . ' AND master_table IN ' . $tabs;
-            $result      = @PMA_query_as_cu($local_query, FALSE);
-            if ($result) {
-                while ($rel = PMA_mysql_fetch_row($result)) {
-                    // check for display field?
-                    if ($cfgRelation['displaywork']) {
-                        $display_field = PMA_getDisplayField($rel[1], $rel[2]);
-                        $map[$rel[0]] = array($rel[2], $rel[3], $display_field, $rel[1]);
-                    } // end if
+        $target=array();
+        reset($analyzed_sql[0]['table_ref']);
+        while (list ($table_ref_position, $table_ref) = each ($analyzed_sql[0]['table_ref'])) {
+           $target[] = $analyzed_sql[0]['table_ref'][$table_ref_position]['table_true_name'];
+        }
+        $tabs    = '(\'' . join('\',\'', $target) . '\')';
+
+        if ($cfgRelation['displaywork']) {
+            $exist_rel = PMA_getForeigners($db, $table, '', 'both');
+            if ($exist_rel) {
+                while (list($master_field,$rel) = each($exist_rel)) {
+                    $display_field = PMA_getDisplayField($rel['foreign_db'],$rel['foreign_table']);
+                    $map[$master_field] = array($rel['foreign_table'],
+                                          $rel['foreign_field'],
+                                          $display_field,
+                                          $rel['foreign_db']);
                 } // end while
             } // end if
-        } // end 2b
+        } // end if
+        // end 2b
 
         // 3. ----- Displays the results table -----
         echo '<!-- Results table -->' . "\n"

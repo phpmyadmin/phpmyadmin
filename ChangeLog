@@ -8,6 +8,9 @@ $Source$
 2003-06-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: analyzer for FOREIGN KEYS
     * libraries/sqlparser.lib.php3: bug 756861, DEFAULT 0 becomes DEFAULT0
+    * libraries/display_tbl.lib.php3: use PMA_getForeigners()
+    * libraries/relation.lib.php3: now PMA_getForeigners() gets also
+      foreign keys defined in innnodb
 
 2003-06-17 Michal Cihar  <nijel@users.sourceforge.net>
     * config.inc.php3: Fixed typo (s/'PMA_pdf_page'/'PMA_pdf_pages'/).
