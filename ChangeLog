@@ -10,6 +10,8 @@ $Source$
       are now put inside a <code> HTML-container, not <pre>. This allows
       wordwrapping to hide vertical scrollbars. Linebreak/Whitespace
       formatting has been altered to preserve those.
+    * libraries/transformations/text_plain__dateformat.inc.php3:
+      Remove obsolete code, thanks to Thiemo Maettig!
 
 2003-11-04 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug 833900, added known limitation in FAQ 3.10

@@ -60,13 +60,8 @@ if (!defined('PMA_TRANSFORMATION_TEXT_PLAIN__DATEFORMAT')){
             $timestamp = $buffer;
         }
 
-        // If there are still errors or the timestamp is invalid, mark timestamp invalid
-        if ($timestamp < 0 || !preg_match('/^[1-9]\d{1,9}$/', $timestamp)) {
-            $timestamp = -1;
-        }
-
         // Reformat a valid timestamp
-        if ($timestamp != -1) {
+        if ($timestamp >= 0) {
             $timestamp -= $options[0] * 60 * 60;
             $buffer = PMA_localisedDate($timestamp, $options[1]);
         }
