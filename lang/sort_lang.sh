@@ -19,28 +19,28 @@ sortlang()
     STRINGORDER="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
     CVSID='/* .Id: .* . */'
 
-    echo -n "Extracting:"
-    echo -n " head"
+    echo -en "Extracting:"
+    echo -en " head"
     egrep -i -v $TRANSLATIONSTRING $f | \
     egrep -v "$STRINGSTRING|$CVSID" | \
     sed 's/?>//g;s/<?php//g'| \
     uniq >>$targetdir/head
 
-    echo -n " cvs"
+    echo -en " cvs"
     head -n10 $f | \
     egrep "$CVSID" >>$targetdir/cvs
 
-    echo -n " strings"
+    echo -en " strings"
     egrep -i -v $TRANSLATIONSTRING $f | \
     egrep $STRINGSTRING | \
     egrep -v $WHITESPACE >$targetdir/tmp-tosort
 
-    echo -n " pending_translations"
+    echo -en " pending_translations"
     egrep -i $TRANSLATIONSTRING $f | \
     uniq >$targetdir/tmp-translate
 
-    echo -n "\nBuilding:"
-    echo -n " strings"
+    echo -en "\nBuilding:"
+    echo -en " strings"
     for i in $STRINGORDER;
     do
         echo
@@ -49,7 +49,7 @@ sortlang()
     done | \
     uniq >>$targetdir/sort
 
-    echo -n " pending_translations"
+    echo -en " pending_translations"
     egrep -v $STRINGSTRING $targetdir/tmp-translate | uniq > $targetdir/translate
     echo >> $targetdir/translate
     for i in $STRINGORDER;
@@ -60,7 +60,7 @@ sortlang()
     done | \
     uniq >>$targetdir/translate
 
-    echo "\nAssembling final"
+    echo -en "\nAssembling final\n"
     f=$f$2
     echo "<?php" >$f
     cat $targetdir/cvs $targetdir/head $targetdir/sort $targetdir/translate | \
