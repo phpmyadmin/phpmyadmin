@@ -546,11 +546,10 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
 <?php
 // Check if the user is a Superuser
 // TODO: set a global variable with this information
-$result       = mysql_query('SELECT * FROM mysql.user');
-$rows         = @mysql_num_rows($result);
-// loic1: empry <> 0 with ceratin php3 releases
-$is_superuser = (!empty($rows) || $rows != 0);
-    
+// loic1: optimized query
+$result       = @mysql_query('USE mysql');
+$is_superuser = (!mysql_error());
+  
 // Display the DROP DATABASE link only if allowed to do so
 if ($cfgAllowUserDropDatabase || $is_superuser) {
     ?>

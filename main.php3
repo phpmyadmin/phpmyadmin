@@ -275,9 +275,8 @@ if ($server > 0
             echo "\n";
         }
 
-        $result = mysql_query('SELECT * FROM mysql.user');
-        $rows   = @mysql_num_rows($result);
-        if (!empty($rows)) {
+        $result = @mysql_query('USE mysql');
+        if (!mysql_error()) {
             ?>
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -367,9 +366,8 @@ if ($server > 0
             </td>
         </tr>
         <?php
-        $result = mysql_query('SELECT * FROM mysql.user');
-        $rows   = @mysql_num_rows($result);
-        if (!empty($rows)) {
+        $result = @mysql_query('USE mysql');
+        if (!mysql_error()) {
             echo "\n";
             ?>
         <tr>

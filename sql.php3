@@ -17,10 +17,9 @@ if (!defined('PMA_CHK_DROP')
     && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE ', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
-    $result = mysql_query('SELECT * FROM mysql.user');
-    $rows   = @mysql_num_rows($result);
-    // empty <> 0 for certain php3 releases
-    if (empty($rows) || $rows == 0) {
+    // loic1: optimized query
+    $result = @mysql_query('USE mysql');
+    if (mysql_error()) {
         include('./header.inc.php3');
         mysql_die($strNoDropDatabases);
     } // end if
