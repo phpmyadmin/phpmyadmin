@@ -215,11 +215,11 @@
 </p>
 
 <p>
-    <font color="#bb0000">Warning for Mac users:</font> php seems not to like
-    Mac end of lines character (&quot;<tt>\r</tt>&quot;) and Stuffit unstuffs
-    with Mac formats, of course.<br />
+    <font color="#bb0000">Warning for Mac users:</font>if you are on a MacOS
+    version before OS X, Stuffit unstuffs with Mac formats.<br />
     So you'll have to resave as in Bbedit to unix style ALL phpMyAdmin scripts
-    before uploading them to your server.
+    before uploading them to your server, as PHP seems not to like Mac-style
+    end of lines character (&quot;<tt>\r</tt>&quot;).
 </p>
 
 <p>
@@ -230,12 +230,14 @@
 
 <p><b>Quick Install:</b></p>
 <ol>
-    <li> Use a distribution kit with the files having the extension
-         (<i>.php3</i> or <i>.php</i>) depending on the way your web/PHP server
-         interprets those extensions.</li>
+    <li> Choose and download a distribution kit with the files having the 
+         extension (<i>.php3</i> or <i>.php</i>) depending on the way your 
+         web/PHP server interprets those extensions.</li>
     <li> Untar or unzip the distribution (be sure to unzip the subdirectories):
          <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's
-         document root.</li>
+         document root. If you don't have direct access to your document root,
+         put the files in a directory on your local machine, and, after step 3,
+         transfer the directory on your web server using, for example, ftp.</li>
     <li> Open the file config.inc.php3 in your favourite editor and change
          the values for host, user, password and authentication mode to fit
          your environment.
