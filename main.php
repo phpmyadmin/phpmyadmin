@@ -60,7 +60,7 @@ else if (isset($reload) && $reload) {
     ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].GoTo('./left.php?<?php echo PMA_generate_common_url('', '', '&');?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>););
+window.parent.frames['nav'].location.replace('./left.php?<?php echo PMA_generate_common_url('', '', '&');?>&hash=' + <?php echo (($cfg['QueryFrame'] && $cfg['QueryFrameJS']) ? 'window.parent.frames[\'queryframe\'].document.hashform.hash.value' : "'" . md5($cfg['PmaAbsoluteUri']) . "'"); ?>);
 //-->
 </script>
     <?php
