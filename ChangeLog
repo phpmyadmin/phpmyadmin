@@ -6,8 +6,10 @@ $Id$
 $Source$
 
 2005-03-01 Marc Delisle  <lem9@users.sourceforge.net>
-    * bug #1153684, wrong doc for PDF pages generation, 
+    * Documentation.html: bug #1153684, wrong doc for PDF pages generation, 
       thanks to Ryan Schmidt
+    * libraries/auth/config.auth.lib.php: bug #1149565, tooltip.js undefined
+      var
 
 2005-02-27 Alexander M. Turek  <me@derrab.us>
     * libraries/sqlparser.data.php: Added missing MySQL functions STR_TO_DATE
