@@ -10,15 +10,18 @@ $Source$
     * lang/catalan: Updated, thanks to Xavier Navarro (xavin).
     * lang/chinese_big5: Updated, thanks to Siu Sun (siusun).
 
+2003-08-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * browse_foreigners.php3, tbl_change.php3, tbl_select.php3, 
+      libraries/display_tbl.lib.php3, /relation.lib.php3, /get_foreign.lib.php3:
+      Patch 789367: Browse foreign values, thanks to Garvin
+    ### 2.5.3-rc2 released
+
 2003-08-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html: Garvin is now the official German translator,
       temporarily.
 
 2003-08-16 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (dhinostroza).
-    * browse_foreigners.php3, tbl_change.php3, tbl_select.php3, 
-      libraries/display_tbl.lib.php3, /relation.lib.php3, /get_foreign.lib.php3:
-      Patch 789367: Browse foreign values, thanks to Garvin
 
 2003-08-16 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Bad anchor link and other typos.
