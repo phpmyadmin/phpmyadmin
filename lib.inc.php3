@@ -493,7 +493,7 @@ function get_table_content($db, $table, $handler)
     $i = 0;
     while($row = mysql_fetch_row($result))
     {
-        set_time_limit(60); // HaRa
+        @set_time_limit(60); // HaRa
         $table_list = "(";
 
         for($j=0; $j<mysql_num_fields($result);$j++)
@@ -560,7 +560,7 @@ function get_table_csv($db, $table, $sep, $handler)
     $i = 0;
     while($row = mysql_fetch_row($result))
     {
-        set_time_limit(60); // HaRa
+        @set_time_limit(60); // HaRa
         $schema_insert = "";
         for($j=0; $j<mysql_num_fields($result);$j++)
         {
