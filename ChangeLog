@@ -8,6 +8,7 @@ $Source$
 2002-03-30 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/zip.lib.php3: optimized a bit.
 	* confic.inc.php3: reordered some directives.
+	* tbl_change.php3: made the "insert-new-row" feature sticky.
 
 2002-03-29 Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3, lines 456-457: swap form fields position for consistency

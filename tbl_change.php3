@@ -500,7 +500,11 @@ if (isset($primary_key)) {
     <?php
     echo '            ' . $strInsertAsNewRow . "\n";
 }
-echo "\n"
+echo "\n";
+
+// Defines whether "insert a new row after the current insert" should be
+// checked or not (keep this choice sticky)
+$checked = (!empty($message)) ? ' checked="checked"' : '';
 ?>
         </td>
         <td valign="middle">
@@ -509,7 +513,7 @@ echo "\n"
         <td valign="middle" nowrap="nowrap">
             <input type="radio" name="after_insert" value="back" checked="checked" tabindex="<?php echo $fields_cnt+4; ?>" /><?php echo $strAfterInsertBack; ?><br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $strOr; ?><br />
-            <input type="radio" name="after_insert" value="new_insert" tabindex="<?php echo $fields_cnt+5; ?>" /><?php echo $strAfterInsertNewInsert . "\n"; ?>
+            <input type="radio" name="after_insert" value="new_insert"<?php echo $checked; ?> tabindex="<?php echo $fields_cnt+5; ?>" /><?php echo $strAfterInsertNewInsert . "\n"; ?>
         </td>
     </tr>
 
