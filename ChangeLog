@@ -15,6 +15,7 @@ $Source$
     * db_details_qbe.php: Backquote table name.
     * libraries/display_tbl.lib.php: Comments now work for multi table selects
       (bug #789647).
+    * server_processlist.php: Display executed SQL.
 
 2004-10-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php: bug #1041667, correctly

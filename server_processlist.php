@@ -40,13 +40,16 @@ echo '<h2>' . "\n"
  * Sends the query and buffers the result
  */
 $serverProcesses = array();
-$res = PMA_DBI_query('SHOW' . (empty($full) ? '' : ' FULL') . ' PROCESSLIST;');
+$sql_query = 'SHOW' . (empty($full) ? '' : ' FULL') . ' PROCESSLIST';
+$res = PMA_DBI_query($sql_query);
 while ($row = PMA_DBI_fetch_assoc($res)) {
     $serverProcesses[] = $row;
 }
 @PMA_DBI_free_result($res);
 unset($res);
 unset($row);
+
+PMA_showMessage($GLOBALS['strSQLQuery']);
 
 
 /**
