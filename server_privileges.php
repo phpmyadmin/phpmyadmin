@@ -596,7 +596,7 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
     $local_query = 'SELECT "foo" FROM `user` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '";';
     $res = PMA_mysql_query($local_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $local_query);
     unset($local_query);
-    if (mysql_affected_rows($userlink) == 1) {
+    if (PMA_DBI_affected_rows($userlink) == 1) {
         $message = sprintf($strUserAlreadyExists, '<i>\'' . $username . '\'@\'' . $hostname . '\'</i>');
         $adduser = 1;
     } else {
@@ -1018,7 +1018,7 @@ if (empty($adduser) && empty($checkprivs)) {
         }
         echo '</h2>' . "\n";
         $res = PMA_mysql_query('SELECT "foo" FROM `user` WHERE `User` = "' . PMA_sqlAddslashes($username) . '" AND `Host` = "' . $hostname . '";', $userlink);
-        if (mysql_affected_rows($userlink) <= 0) {
+        if (PMA_DBI_affected_rows($userlink) <= 0) {
             echo $strUserNotFound;
             require_once('./footer.inc.php');
         }
@@ -1057,7 +1057,7 @@ if (empty($adduser) && empty($checkprivs)) {
                 $sql_query = 'SELECT `Table_name`, `Table_priv`, IF(`Column_priv` = "", 0, 1) AS "Column_priv" FROM `tables_priv` WHERE `Host` = "' . $hostname . '" AND `User` = "' . PMA_sqlAddslashes($username) . '" AND `Db` = "' . $dbname . '" ORDER BY `Table_name` ASC;';
             }
             $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
-            if (mysql_affected_rows($userlink) == 0) {
+            if (PMA_DBI_affected_rows($userlink) == 0) {
                 echo '            <tr>' . "\n"
                    . '                <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="6"><center><i>' . $strNone . '</i></center></td>' . "\n"
                    . '            </tr>' . "\n";

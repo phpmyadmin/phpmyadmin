@@ -9,6 +9,7 @@ $Source$
     * all concerned scripts: PMA_DBI_num_rows()
     * all concerned scripts: PMA_DBI_free_result()
     * all concerned scripts: PMA_DBI_insert_id()
+    * all concerned scripts: PMA_DBI_affected_rows()
 
 2004-01-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php, libraries/dbi/mysql.dbi.lib.php:

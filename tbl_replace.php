@@ -215,8 +215,8 @@ foreach($query AS $query_index => $single_query) {
             PMA_mysqlDie($error, '', '', $err_url);
         }
     } else {
-        if (@mysql_affected_rows()) {
-            $total_affected_rows += @mysql_affected_rows();
+        if (@PMA_DBI_affected_rows()) {
+            $total_affected_rows += @PMA_DBI_affected_rows();
         }
 
         $insert_id = PMA_DBI_insert_id();

@@ -338,7 +338,7 @@ else {
         if (!$is_affected) {
             $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
         } else if (!isset($num_rows)) {
-            $num_rows = @mysql_affected_rows();
+            $num_rows = @PMA_DBI_affected_rows();
         }
 
         // Checks if the current database has changed

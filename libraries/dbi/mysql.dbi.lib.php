@@ -213,4 +213,15 @@ function PMA_DBI_insert_id($link) {
     return mysql_insert_id($link);
 }
 
+function PMA_DBI_affected_rows($link) {
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return FALSE;
+        }
+    }
+    return mysql_affected_rows($link);
+}
+
 ?>
