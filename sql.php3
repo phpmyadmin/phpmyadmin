@@ -82,7 +82,7 @@ else {
     if (eregi("^SELECT", $sql_query))
     {
         $array = split(' from | FROM ',$sql_query,2); //read only the from-part of the query
-        if (!empty(trim($array[1]))) {
+        if (!empty($array[1])) {
 		    $count_query       = "select count(*) as count from $array[1]"; //and make a count(*) to count the entries
 		    $OPresult          = mysql_query($count_query);
 		    if ($OPresult) {
