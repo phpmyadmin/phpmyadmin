@@ -153,11 +153,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
     }
     if (isset($GLOBALS['username'])) {
         $username = $GLOBALS['username'];
-        if (empty($GLOBALS['hostname'])) {
-            $hostname = '%';
-        } else {
-            $hostname = $GLOBALS['hostname'];
-        }
+        $hostname = $GLOBALS['hostname'];
         if ($db == '*') {
             $sql_query = 'SELECT * FROM `user` WHERE `User` = "' . $username . '" AND `Host` = "' . $hostname . '";';
         } else if ($table == '*') {
@@ -507,7 +503,7 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
     }
     echo $spaces . '            onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } '
        . (empty($thishost) ? '' : 'else if (this.value == \'thishost\') { hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; } ')
-       . 'else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
+       . 'else if (this.value == \'hosttable\') { hostname.value = \'\'; } else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
     unset($row);
     echo $spaces . '            <option value="any"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyHost'] . '</option>' . "\n"
        . $spaces . '            <option value="localhost"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost') ? ' selected="selected"' : '') . '>' . $GLOBALS['strLocalhost'] . '</option>' . "\n";
@@ -515,11 +511,12 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
         echo $spaces . '            <option value="thishost"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'thishost') ? ' selected="selected"' : '') . '>' . $GLOBALS['strThisHost'] . '</option>' . "\n";
     }
     unset($thishost);
-    echo $spaces . '            <option value="userdefined"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
+    echo $spaces . '            <option value="hosttable"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'hosttable') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseHostTable'] . '</option>' . "\n"
+       . $spaces . '            <option value="userdefined"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
        . $spaces . '        </select>' . "\n"
        . $spaces . '    </td>' . "\n"
        . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . $spaces . '        <input type="text" name="hostname" value="' . (empty($GLOBALS['hostname']) ? '%' : $GLOBALS['hostname']) . '" class="textfield" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+       . $spaces . '        <input type="text" name="hostname" value="' . $GLOBALS['hostname'] . '" class="textfield" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
        . $spaces . '    </td>' . "\n"
        . $spaces . '</tr>' . "\n"
        . $spaces . '<tr>' . "\n"
@@ -558,9 +555,6 @@ function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
  * Changes / copies a user, part I
  */
 if (!empty($change_copy)) {
-    if (empty($old_hostname)) {
-        $old_hostname = '%';
-    }
     $local_query = 'SELECT * FROM `mysql`.`user` WHERE `User` = "' . $old_username . '" AND `Host` = "' . $old_hostname . '";';
     $res = PMA_mysql_query($local_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $local_query);
     if (!$res) {
@@ -590,6 +584,9 @@ if (!empty($adduser_submit) || !empty($change_copy)) {
             break;
         case 'localhost':
             $hostname = 'localhost';
+            break;
+        case 'hosttable':
+            $hostname = '';
             break;
         case 'thishost':
             $res = PMA_mysql_query('SELECT USER();', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SELECT USER();');
@@ -739,9 +736,6 @@ if (!empty($change_copy)) {
  * Updates privileges
  */
 if (!empty($update_privs)) {
-    if (empty($hostname)) {
-        $hostname = '%';
-    }
     if (PMA_MYSQL_INT_VERSION >= 32211) {
         $db_and_table = empty($dbname) ? '*.*' : PMA_backquote($dbname) . '.' . (empty($tablename) ? '*' : PMA_backquote($tablename));
         $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table . ' FROM "' . $username . '"@"' . $hostname . '";';
@@ -791,9 +785,6 @@ if (!empty($update_privs)) {
  * Revokes Privileges
  */
 if (!empty($revokeall)) {
-    if (empty($hostname)) {
-        $hostname = '%';
-    }
     if (PMA_MYSQL_INT_VERSION >= 32211) {
         $db_and_table = PMA_backquote($dbname) . '.' . (empty($tablename) ? '*' : PMA_backquote($tablename));
         $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table . ' FROM "' . $username . '"@"' . $hostname . '";';
@@ -815,9 +806,6 @@ if (!empty($revokeall)) {
  * Updates the password
  */
 if (!empty($change_pw)) {
-    if (empty($hostname)) {
-        $hostname = '%';
-    }
     if ($nopass == 1) {
         $sql_query = 'SET PASSWORD FOR "' . $username . '"@"' . $hostname . '" = ""';
         PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
@@ -1060,11 +1048,8 @@ if (empty($adduser) && empty($checkprivs)) {
         }
     } else {
         // A user was selected -> display the user's properties
-        if (!isset($hostname)) {
-            $hostname = '%';
-        }
         echo '<h2>' . "\n"
-           . '    ' . $strUser . ' <i><a class="h2" href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . ($hostname == '%' ? '' : '&amp;hostname=' . urlencode($hostname)) . '">\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</a></i>' . "\n";
+           . '    ' . $strUser . ' <i><a class="h2" href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '">\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'</a></i>' . "\n";
         if (!empty($dbname)) {
             echo '    - ' . $strDatabase . ' <i><a class="h2" href="' . $cfg['DefaultTabDatabase'] . '?' . $url_query . '&amp;db=' . urlencode($dbname) . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
             if (!empty($tablename)) {
@@ -1084,10 +1069,8 @@ if (empty($adduser) && empty($checkprivs)) {
            . '    <li>' . "\n"
            . '        <form action="server_privileges.php3" method="post">' . "\n"
            . PMA_generate_common_hidden_inputs('', '', 3)
-           . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
-        if ($hostname != '%') {
-            echo '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
-        }
+           . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
+           . '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
         if (!empty($dbname)) {
             echo '            <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";
             if (!empty($tablename)) {
@@ -1140,8 +1123,8 @@ if (empty($adduser) && empty($checkprivs)) {
                             echo '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . $strNo . '</td>' . "\n";
                         }
                         echo '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . $strYes . '</td>' . "\n"
-                           . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . ($hostname == '%' ? '' : '&amp;hostname=' . urlencode($hostname)) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $strEdit . '</a></td>' . "\n"
-                           . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . ($hostname == '%' ? '' : '&amp;hostname=' . urlencode($hostname)) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $strRevoke . '</a></td>' . "\n"
+                           . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $strEdit . '</a></td>' . "\n"
+                           . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $strRevoke . '</a></td>' . "\n"
                            . '            </tr>' . "\n";
                         $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
                         $useBgcolorOne = !$useBgcolorOne;
@@ -1166,8 +1149,8 @@ if (empty($adduser) && empty($checkprivs)) {
                         echo $strNo;
                     }
                     echo '</td>' . "\n"
-                       . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . ($hostname == '%' ? '' : '&amp;hostname=' . urlencode($hostname)) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '">' . $strEdit . '</a></td>' . "\n"
-                       . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . ($hostname == '%' ? '' : '&amp;hostname=' . urlencode($hostname)) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '&amp;revokeall=1">' . $strRevoke . '</a></td>' . "\n"
+                       . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '">' . $strEdit . '</a></td>' . "\n"
+                       . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . (empty($dbname) ? urlencode($row['Db']) : urlencode($dbname) . '&amp;tablename=' . urlencode($row['Table_name'])) . '&amp;revokeall=1">' . $strRevoke . '</a></td>' . "\n"
                        . '            </tr>' . "\n";
                     $useBgcolorOne = !$useBgcolorOne;
                 } // end while
@@ -1182,8 +1165,8 @@ if (empty($adduser) && empty($checkprivs)) {
                         echo '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . $strNo . '</td>' . "\n";
                     }
                     echo '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . $strYes . '</td>' . "\n"
-                       . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . ($hostname == '%' ? '' : '&amp;hostname=' . urlencode($hostname)) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $strEdit . '</a></td>' . "\n"
-                       . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . ($hostname == '%' ? '' : '&amp;hostname=' . urlencode($hostname)) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $strRevoke . '</a></td>' . "\n"
+                       . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '">' . $strEdit . '</a></td>' . "\n"
+                       . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><a href="server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($username) . '&amp;hostname=' . urlencode($hostname) . '&amp;dbname=' . urlencode($row2['Db']) . '&amp;revokeall=1">' . $strRevoke . '</a></td>' . "\n"
                        . '            </tr>' . "\n";
                     $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
                     $useBgcolorOne = !$useBgcolorOne;
@@ -1201,10 +1184,8 @@ if (empty($adduser) && empty($checkprivs)) {
                . '                <td colspan="' .(PMA_MYSQL_INT_VERSION >= 32211 ? '5' : '4') . '">' . "\n"
                . '                    <form action="server_privileges.php3" method="post">' . "\n"
                . PMA_generate_common_hidden_inputs('', '', 6)
-               . '                        <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
-            if ($hostname != '%') {
-                echo '                        <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
-            }
+               . '                        <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
+               . '                        <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
             if (empty($dbname)) {
                 echo '                        <label for="text_dbname">' . $strAddPrivilegesOnDb . ':</label>' . "\n";
                 $res = PMA_mysql_query('SHOW DATABASES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW DATABASES;');
@@ -1263,10 +1244,8 @@ if (empty($adduser) && empty($checkprivs)) {
             echo '    <li>' . "\n"
                . '        <form action="server_privileges.php3" method="post" onsubmit="checkPassword(this);">' . "\n"
                . PMA_generate_common_hidden_inputs('', '', 3)
-               . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n";
-            if ($hostname != '%') {
-                echo '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
-            }
+               . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
+               . '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
             echo '            <b>' . $strChangePassword . '</b><br />' . "\n"
                . '            <table border="0">' . "\n"
                . '                <tr>' . "\n"
@@ -1295,10 +1274,8 @@ if (empty($adduser) && empty($checkprivs)) {
                 echo '    <li>' . "\n"
                    . '        <form action="server_privileges.php3" method="post" onsubmit="checkPassword(this);">' . "\n"
                    . PMA_generate_common_hidden_inputs('', '', 3)
-                   . '            <input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n";
-                if ($hostname != '%') {
-                    echo '            <input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
-                }
+                   . '            <input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n"
+                   . '            <input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
                 echo '            <b>' . $strChangeCopyUser . '</b><br />' . "\n"
                    . '            <table border="0">' . "\n";
                 PMA_displayLoginInformationFields('change', 3);
@@ -1470,7 +1447,7 @@ if (empty($adduser) && empty($checkprivs)) {
                        . '        </td>' . "\n";
                 }
                 echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-                   . '            <a href="./server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($current_user) . ($current_host == '%' ? '' : '&amp;hostname=' . urlencode($current_host)) . (!isset($current['Db']) || $current['Db'] == '*' ? '' : '&amp;dbname=' . urlencode($current['Db'])) . '">' . "\n"
+                   . '            <a href="./server_privileges.php3?' . $url_query . '&amp;username=' . urlencode($current_user) . '&amp;hostname=' . urlencode($current_host) . (!isset($current['Db']) || $current['Db'] == '*' ? '' : '&amp;dbname=' . urlencode($current['Db'])) . '">' . "\n"
                    . '                ' . $strEdit . "\n"
                    . '            </a>' . "\n"
                    . '        </td>' . "\n"
