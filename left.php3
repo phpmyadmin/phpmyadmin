@@ -210,8 +210,9 @@ if ($num_dbs > 1) {
         } // end if
 
         // Displays the database name
+        $on_mouse = (($cfgLeftPointerColor == '') ? '' : 'onmouseover="this.style.backgroundColor=\'' . $cfgLeftPointerColor . '\'" onmouseout="this.style.backgroundColor=\'' . $cfgLeftBgColor . '\'"');
         echo "\n";
-        echo '    <div id="el' . $j . 'Parent" class="parent">';
+        echo '    <div id="el' . $j . 'Parent" class="parent"' . $on_mouse . '>';
 
         if (!empty($num_tables)) {
             echo "\n";

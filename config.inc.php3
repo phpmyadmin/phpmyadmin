@@ -158,19 +158,22 @@ require('./libraries/select_lang.lib.php3');
 /**
  * Customization & design
  */
+$cfgLeftWidth           = 150;          // left frame width
 $cfgLeftBgColor         = '#D0DCE0';    // background color for the left frame
+$cfgLeftPointerColor    = '#CCFFCC';    // color of the pointer in left frame
+                                        // (blank for no pointer)
 $cfgRightBgColor        = '#F5F5F5';    // background color for the right frame
 $cfgBorder              = 0;            // border width on tables
 $cfgThBgcolor           = '#D3DCE3';    // table header row colour
 $cfgBgcolorOne          = '#CCCCCC';    // table data row colour
 $cfgBgcolorTwo          = '#DDDDDD';    // table data row colour, alternate
-$cfgPointerColor        = '#CCFFCC';    // color of the pointer in browse mode
+$cfgBrowsePointerColor  = '#CCFFCC';    // color of the pointer in browse mode
+                                        // (blank for no pointer)
 $cfgTextareaCols        = 40;           // textarea size (columns) in edit mode
 $cfgTextareaRows        = 7;            // textarea size (rows) in edit mode
 $cfgLimitChars          = 50;           // max field data length in browse mode
 $cfgModifyDeleteAtLeft  = TRUE;         // show edit/delete links on left side of browse
 $cfgModifyDeleteAtRight = FALSE;        // show edit/delete links on right side of browse
-$cfgLeftWidth           = 150;          // left frame width
 
 
 /**

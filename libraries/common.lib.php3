@@ -142,11 +142,14 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     if (!isset($cfgLeftBgColor)) {
         $cfgLeftBgColor         = '#D0DCE0';
     }
+    if (!isset($cfgLeftPointerColor)) {
+        $cfgLeftPointerColor  = '';
+    }
     if (!isset($cfgRightBgColor)) {
         $cfgRightBgColor        = '#F5F5F5';
     }
-    if (!isset($cfgPointerColor)) {
-        $cfgPointerColor        = '#CCFFCC';
+    if (!isset($cfgBrowsePointerColor)) {
+        $cfgBrowsePointerColor  = '';
     }
     if (!isset($cfgTextareaCols)) {
         $cfgTextareaCols        = 40;
