@@ -82,7 +82,7 @@ while ($row = PMA_mysql_fetch_array($rowset)) {
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
     if ($result) {
-         mysql_free_result($result);
+         PMA_DBI_free_result($result);
     }
 
 
@@ -126,7 +126,7 @@ while ($row = PMA_mysql_fetch_array($rowset)) {
 
     } // end while
     if ($result) {
-        mysql_free_result($result);
+        PMA_DBI_free_result($result);
     }
 
 
@@ -282,7 +282,7 @@ while ($row = PMA_mysql_fetch_array($rowset)) {
 </tr>
         <?php
     } // end while
-    mysql_free_result($result);
+    PMA_DBI_free_result($result);
 
     echo "\n";
     ?>

@@ -40,7 +40,7 @@ if (!defined('PMA_IDX_INCLUDED')) {
         $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
     if (empty($table)
-        || !($is_table && @mysql_numrows($is_table))) {
+        || !($is_table && @PMA_DBI_num_rows($is_table))) {
         header('Location: ' . $cfg['PmaAbsoluteUri'] . $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit;
     } else if (isset($is_table)) {

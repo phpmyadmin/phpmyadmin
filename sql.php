@@ -559,7 +559,7 @@ else {
                     $goto     = 'db_details.php';
                 } else {
                     $is_table = @PMA_mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
-                    if (!($is_table && @mysql_numrows($is_table))) {
+                    if (!($is_table && @PMA_DBI_num_rows($is_table))) {
                         $goto = 'db_details.php';
                         unset($table);
                     }

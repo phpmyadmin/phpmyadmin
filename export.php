@@ -310,7 +310,7 @@ if (!$save_on_server) {
 // Check if we have something to export
 if ($export_type == 'database') {
     $tables     = PMA_mysql_list_tables($db);
-    $num_tables = ($tables) ? @mysql_numrows($tables) : 0;
+    $num_tables = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
     if ($num_tables == 0) {
         $message = $strNoTablesFound;
         $js_to_run = 'functions.js';
@@ -370,7 +370,7 @@ if ($export_type == 'server') {
             PMA_exportDBHeader($current_db);
             PMA_exportDBCreate($current_db);
             $tables     = PMA_mysql_list_tables($current_db);
-            $num_tables = ($tables) ? @mysql_numrows($tables) : 0;
+            $num_tables = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
             $i = 0;
             while ($i < $num_tables) {
                 $table = PMA_mysql_tablename($tables, $i);

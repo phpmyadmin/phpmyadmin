@@ -26,7 +26,7 @@ for ($i = 0; $i < $num_tables; $i++) {
     $tables[] = PMA_mysql_tablename($list_tables, $i);
 }
 if ($num_tables) {
-    mysql_free_result($list_tables);
+    PMA_DBI_free_result($list_tables);
 }
 
 
@@ -72,7 +72,7 @@ if (isset($submit_search)) {
         $sqlstr_fieldstoselect = ' ' . implode(', ', $tblfields);
         $tblfields_cnt         = count($tblfields);
         if ($res) {
-            mysql_free_result($res);
+            PMA_DBI_free_result($res);
         }
 
         // Table to use
@@ -191,7 +191,7 @@ if (isset($submit_search)) {
             $res           = @PMA_mysql_query($local_query)  or PMA_mysqlDie('', $local_query, FALSE, $err_url);
             if ($res) {
                 $res_cnt   = PMA_mysql_result($res, 0, 'count');
-                mysql_free_result($res);
+                PMA_DBI_free_result($res);
             } else {
                 $res_cnt   = 0;
             } // end if... else ...
@@ -230,7 +230,7 @@ if (isset($submit_search)) {
                 $res           = @PMA_mysql_query($local_query)  or PMA_mysqlDie('', $local_query, FALSE, $err_url);
                 if ($res) {
                     $res_cnt   = PMA_mysql_result($res, 0, 'count');
-                    mysql_free_result($res);
+                    PMA_DBI_free_result($res);
                 } else {
                     $res_cnt   = 0;
                 } // end if... else ...

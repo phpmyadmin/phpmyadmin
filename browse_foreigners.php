@@ -229,10 +229,10 @@ echo $header;
  * Close MySql connections
  */
 if (isset($dbh) && $dbh) {
-    @mysql_close($dbh);
+    @PMA_DBI_close($dbh);
 }
 if (isset($userlink) && $userlink) {
-    @mysql_close($userlink);
+    @PMA_DBI_close($userlink);
 }
 
 

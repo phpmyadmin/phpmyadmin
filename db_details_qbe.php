@@ -159,7 +159,7 @@ while ($i < $tbl_result_cnt) {
 
     $i++;
 } // end if
-mysql_free_result($tbl_result);
+PMA_DBI_free_result($tbl_result);
 
 // largest width found
 $realwidth = $wid . 'ex';

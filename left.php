@@ -407,7 +407,7 @@ if ($num_dbs > 1) {
             $selected_db = $j;
         }
         $tables              = @PMA_mysql_list_tables($db);
-        $num_tables          = ($tables) ? @mysql_numrows($tables) : 0;
+        $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
         $common_url_query    = PMA_generate_common_url($db);
         if ($num_tables) {
             $num_tables_disp = $num_tables;
@@ -619,7 +619,7 @@ if ($num_dbs > 1) {
 else if ($num_dbs == 1) {
     $db                  = $dblist[0];
     $tables              = @PMA_mysql_list_tables($db);
-    $num_tables          = ($tables) ? @mysql_numrows($tables) : 0;
+    $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
     $common_url_query    = PMA_generate_common_url($db);
     if ($num_tables) {
         $num_tables_disp = $num_tables;
