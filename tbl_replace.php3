@@ -116,7 +116,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
             $message = $strNoModification;
             include('./' . ereg_replace('\.\.*', '.', $goto));
         } else {
-            header('Location: ' . $cfgPmaAbsoluteUri . $goto);
+            header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . $strNoModification);
         }
         exit();
     }
@@ -193,7 +193,7 @@ else {
  * page
  */
 mysql_select_db($db);
-$sql_query = $query;
+$sql_query = $query . ';';
 $result    = mysql_query($query);
 
 if (!$result) {
@@ -201,20 +201,20 @@ if (!$result) {
     include('./header.inc.php3');
     mysql_die($error);
 } else {
+    if (@mysql_affected_rows()) {
+        $message .= @mysql_affected_rows();
+    } else {
+        $message = $strModifications;
+    }
     if (file_exists('./' . $goto)) {
         if ($goto == 'db_details.php3' && !empty($table)) {
             unset($table);
         }
         $js_to_run = 'functions.js';
         include('./header.inc.php3');
-        if (@mysql_affected_rows()) {
-            $message .= @mysql_affected_rows();
-        } else {
-            $message = $strModifications;
-        }
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
-        header('Location: ' . $cfgPmaAbsoluteUri . $goto);
+        header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . $message);
     }
     exit();
 } // end if
