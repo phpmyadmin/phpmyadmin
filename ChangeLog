@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * ChangeLog_till_2.2.6.gz removed from the distribution and copied
+      to home page
+
 2002-06-20 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, *_links.php3, libraries/common.lib.php3: Implemented
       Patch #571426 (Tabbed navigation), thanks to Joachim Fornallaz (jfornall).
