@@ -18,6 +18,11 @@ $Source$
 
 2002-11-19 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.3.3-rc1 released
+    * lang/russian*: updates and new russian-dos-866, thanks to Nicolay Zakharov
+      (aquarius at mobnav.com) 
+    * libraries/select_lang.lib.php3: russian-dos-866
+    * lang/sync_lang.sh: russian-dos-866 seems unsupported by convertors
+    * lang/polish: update thanks to Jakub Wilk
 
 2002-11-18 Marc Delisle  <lem9@users.sourceforge.net>
     * db_search.php3: undefined variable

@@ -112,6 +112,7 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
         'ro-utf-8'     => array('ro|romanian', 'romanian-utf-8', 'ro'),
         'ro-iso-8859-1'=> array('ro|romanian', 'romanian-iso-8859-1', 'ro'),
         'ru-utf-8'     => array('ru|russian', 'russian-utf-8', 'ru'),
+        'ru-dos-866'   => array('ru|russian', 'russian-dos-866', 'ru'),
         'ru-koi8-r'    => array('ru|russian', 'russian-koi8-r', 'ru'),
         'ru-win1251'   => array('ru|russian', 'russian-windows-1251', 'ru'),
         'sk-utf-8'     => array('sk|slovak', 'slovak-utf-8', 'sk'),
