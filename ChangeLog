@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-05-03 Michal Cihar  <michal@cihar.com>
+    * querywindow.php: Fix javascript error (bug #946823).
+
 2004-05-03 Garvin Hicking <pma@supergarv.de>
     * left.php: Bug #946501 - Nested table now also work with aliased
       tablenames.

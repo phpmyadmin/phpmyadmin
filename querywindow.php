@@ -48,7 +48,7 @@ require_once('./libraries/header_meta_style.inc.php');
 ?>
 
 <script type="text/javascript" language="javascript">
-?>
+<!--
 function query_auto_commit() {
     document.sqlform.submit();
 }
