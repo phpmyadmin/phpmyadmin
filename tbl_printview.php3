@@ -15,9 +15,10 @@ else
 }
    
 unset($sql_query);
+
+mysql_select_db($db);
 if(MYSQL_MAJOR_VERSION == "3.23")
     {   
-    mysql_select_db($db);
     $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
     $row = mysql_fetch_array($result);
     if(!empty($row["Comment"]))
