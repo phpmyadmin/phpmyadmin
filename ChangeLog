@@ -11,6 +11,7 @@ $Source$
       - updated the FPDF library to the 1.5 revision;
       - rewrote it to make it PHP3 and xhtml compliant;
       - coding standards.
+    * read_dump.php3, lines 245-252: improved the "open_basedir" handling.
 
 2002-06-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/indonesian.inc.php3: Updates, thanks to Rachim Tamsjadi.

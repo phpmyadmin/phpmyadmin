@@ -229,7 +229,7 @@ if ($sql_file != 'none') {
     if (file_exists($sql_file) && is_uploaded_file($sql_file)) {
 
         $open_basedir     = '';
-        if (PMA_PHP_INT_VERSION >= 40000 ) {
+        if (PMA_PHP_INT_VERSION >= 40000) {
             $open_basedir = @ini_get('open_basedir');
         }
         if (empty($open_basedir)) {
@@ -242,12 +242,14 @@ if ($sql_file != 'none') {
 
         if (!empty($open_basedir)) {
             // check if '.' is in open_basedir
-            $pos = strpos(' ' . $open_basedir, '.');
+            $split_char = (PMA_IS_WINDOWS ? ';' : ':');
+            $pos        = ereg('(^|' . $split_char . ')\\.(' . $split_char . '|$)', $open_basedir);
 
             // from the PHP annotated manual
             if (!$pos) {
-                // if no '.' in openbasedir, do not move the file, force the
-                // error and let PHP report it
+                // if no '.' in openbasedir, do not move the file (open_basedir
+                // may only be a prefix), force the error and let PHP reports
+                // it
                 error_reporting(E_ALL);
                 $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
             }
