@@ -10,6 +10,7 @@ $Source$
 	libraries/select_lang.lib.php3,
 	lang/japanese-euc.inc.php3, lang/japanese-sjis.inc.php3 thanks to
 	"Luc" <luc at ceres.dti.ne.jp>
+	* ### 2.2.4 released ###
 
 2002-02-18 Marc Delisle  <lem9@users.sourceforge.net>
 	* new language: lang/hebrew.inc.php3, thanks to
