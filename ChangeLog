@@ -8,7 +8,7 @@ $Source$
 2002-06-26 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/czech-*.inc.php3: Shorter term for QBE, thanks again to
       Michal Cihar (nijel).
-    * header.inc.php3, header_printview.php3, left.php3,
+    * index.php3, header.inc.php3, header_printview.php3, left.php3,
       libraries/auth/*.auth.lib.php3: Fixed bug #574025 (W3C validator didn't
       detect character encoding).
 
