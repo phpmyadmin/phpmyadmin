@@ -11,7 +11,7 @@ include("lib.inc.php3");
 
 // Bookmark Support
 
-if($sql_bookmark != "")
+if(!empty($sql_bookmark))
     $sql_query = $sql_bookmark;
 
 //

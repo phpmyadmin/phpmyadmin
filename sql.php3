@@ -109,7 +109,7 @@ else {
 
             // Bookmark Support
 
-            if($cfgBookmark['db'] && $cfgBookmark['table'] && $db!=$cfgBookmark['db'] && !$sql_bookmark)
+            if($cfgBookmark['db'] && $cfgBookmark['table'] && $db!=$cfgBookmark['db'] && empty($sql_bookmark))
             {
                 echo "<form method=\"post\" action=\"tbl_replace.php3\">\n";
                 echo "<i>$strOr</i><br><br>\n";
