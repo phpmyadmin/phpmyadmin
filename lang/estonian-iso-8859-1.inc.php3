@@ -398,22 +398,23 @@ $strYes = 'Jah';
 
 $strZip = '"zipitud"';
 
-$strRelationNotWorking = 'Lisavõimalused töötamiseks lingitud tabelitega on deaktiveeritud. Et lugeda miks see nii on, vajutage %ssiia%s.';  
-$strAllTableSameWidth = 'kuva kõik tabelid sama laiusega?';  
+$strRelationNotWorking = 'Lisavõimalused töötamiseks lingitud tabelitega on deaktiveeritud. Et lugeda miks see nii on, vajutage %ssiia%s.';
+$strAllTableSameWidth = 'kuva kõik tabelid sama laiusega?';
 
-$strPdfNoTables = 'Pole tabeleid';  
-$strDisplayFeat = 'Kuva võimalused';  
-$strCreatePdfFeat = 'PDF-ide tegemine';  
-$strColComFeat = 'Näitan veeru kommentaare';  
+$strPdfNoTables = 'Pole tabeleid';
+$strDisplayFeat = 'Kuva võimalused';
+$strCreatePdfFeat = 'PDF-ide tegemine';
+$strColComFeat = 'Näitan veeru kommentaare';
 $strDisabled = 'Keelatud';
-$strEnabled = 'Lubatud'; 
+$strEnabled = 'Lubatud';
 $strOK = 'OK';  //to translate
-$strNotOK = 'Ei ole OK';  
-$strGeneralRelationFeat = 'Peamised seoste võimalused';  
+$strNotOK = 'Ei ole OK';
+$strGeneralRelationFeat = 'Peamised seoste võimalused';
 
 // To translate
 $strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strValidateSQL = 'Validate SQL';  //to translate
 $strNoExplain = 'Skip Explain SQL';  //to translate
 $strExplain = 'Explain SQL';  //to translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
 ?>

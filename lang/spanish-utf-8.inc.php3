@@ -75,9 +75,9 @@ $strCheckTable = 'Revisar tabla';
 $strChoosePage = 'Elija la página a editar';
 $strColumn = 'Columna';
 $strColumnNames = 'Nombre de las columnas';
-$strComments = 'Comentarios'; 
+$strComments = 'Comentarios';
 $strCompleteInserts = 'Completar los "Inserts"';
-$strConfigFileError = '¡phpMyAdmin no puede leer el fichero de configuración!<br />Esto puede suceder si php encuentra un error sintáctico en él o bien php no puede encontrar el fichero.<br />Intente acceder al fichero de configuración directamente mediante el siguiente enlace y compruebe el(los) mensaje(s) de error que reciba. En muchas ocasiones falta una coma o punto y coma en algún sitio.<br />Si recibe una página en blanco, todo está correcto.'; 
+$strConfigFileError = '¡phpMyAdmin no puede leer el fichero de configuración!<br />Esto puede suceder si php encuentra un error sintáctico en él o bien php no puede encontrar el fichero.<br />Intente acceder al fichero de configuración directamente mediante el siguiente enlace y compruebe el(los) mensaje(s) de error que reciba. En muchas ocasiones falta una coma o punto y coma en algún sitio.<br />Si recibe una página en blanco, todo está correcto.';
 $strConfigureTableCoord = 'Configure las coordenadas para la tabla %s';
 $strConfirm = '¿Realmente quiere hacerlo?';
 $strCookiesRequired = 'Las "cookies" deben estar habilitadas pasado este punto.';
@@ -228,7 +228,7 @@ $strNoTablesFound = 'No se han encontrado tablas en la base de datos.';
 $strNoUsersFound = 'Usuario(s) no encontrado(s).';
 $strNone = 'Ninguna';
 $strNotNumber = 'Esto no es un número!';
-$strNotSet = 'Tabla <b>%s</b> no encontrada o no definida en %s'; 
+$strNotSet = 'Tabla <b>%s</b> no encontrada o no definida en %s';
 $strNotValidNumber = '¡no es un número de fila válido!';
 $strNull = 'Nulo';
 $strNumSearchResultsInTable = '%s resultado(s) en la tabla <i>%s</i>';
@@ -399,17 +399,18 @@ $strZip = '"comprimido con zip"';
 
 $strRelationNotWorking = 'Los componentes adicionales para trabajar con tablas vinculadas fueron desactivados. Para saber porqué, dé clic %saquí%s.';  //Features = ¿componentes?
 $strAllTableSameWidth = '¿Mostrar todas las tablas que tienen el mismo ancho?';
-$strPdfNoTables = 'No existen tablas';  
+$strPdfNoTables = 'No existen tablas';
 $strDisplayFeat = 'Mostrar los componentes';  //Features = ¿componentes?
-$strCreatePdfFeat = 'Creación de los PDF';  
-$strColComFeat = 'Mostrando los comentarios de la columna';  
+$strCreatePdfFeat = 'Creación de los PDF';
+$strColComFeat = 'Mostrando los comentarios de la columna';
 $strDisabled = 'Deshabilitado';
 $strEnabled = 'Habilitado';
-$strOK = 'OK';  
+$strOK = 'OK';
 $strNotOK = 'no recibió el OK';
 $strGeneralRelationFeat = 'Componentes de relación general';  //Features = ¿componentes?
 $strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strValidateSQL = 'Validate SQL';  //to translate
 $strNoExplain = 'Skip Explain SQL';  //to translate
 $strExplain = 'Explain SQL';  //to translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
 ?>

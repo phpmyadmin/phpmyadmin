@@ -83,7 +83,7 @@ $strColumnNames = 'სვეტის სახელები';
 $strComments = 'კომენტარი';
 $strCompleteInserts = 'სრულყოფილი ჩამატება';
 $strConfigFileError = 'phpMyAdmin-მა ვერ შეძლო კონფიგურაციის ფაილის წაკითხვა!<br/>ეს მაშინ ხდება თუ php-მ იპოვა parse შეცდომა, ან php-მ ვერ იპოვა ფაილი.<br />გამოიძახეთ კონფიგურაციის ფაილი და ქვევით ჩამოწერილი შეცდომები გაასწორეთ. უმეტეს შემთხვევაში წერტილ-მძიმე აკლია ხოლმე.<br />თუ ცარიელი გვერდი ჩამოიტვირთა, ესეიგი ყველაფერი რიგზეა.';
-$strConfigureTableCoord = 'საჭიროა %s ცხრილის კოორდინატების კონფიგურირება'; 
+$strConfigureTableCoord = 'საჭიროა %s ცხრილის კოორდინატების კონფიგურირება';
 $strConfirm = 'თქვენ დარწმუნებული ხართ რომ გინდათ ამის გაკეთება?';
 $strCookiesRequired = 'ამ ადგილის შემდეგ Cookies უნდა ჩართოთ.';
 $strCopyTable = 'ცხრილის კოპირება (ბაზა<b>.</b>ცხრილი):';
@@ -396,4 +396,5 @@ $strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strValidateSQL = 'Validate SQL';  //to translate
 $strNoExplain = 'Skip Explain SQL';  //to translate
 $strExplain = 'Explain SQL';  //to translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
 ?>

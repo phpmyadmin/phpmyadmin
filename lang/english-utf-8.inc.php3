@@ -68,9 +68,11 @@ $strCantRenameIdxToPrimary = 'Can\'t rename index to PRIMARY!';
 $strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';
 $strCardinality = 'Cardinality';
 $strCarriage = 'Carriage return: \\r';
+$strCharsetOfFile = 'Character set of the file:';
 $strChange = 'Change';
 $strChangeDisplay = 'Choose Field to display';
 $strChangePassword = 'Change password';
+$strCharsetOfFile = 'Character set of the file:';
 $strCheckAll = 'Check All';
 $strCheckDbPriv = 'Check Database Privileges';
 $strCheckTable = 'Check table';
@@ -413,4 +415,6 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
+
+// New
 ?>

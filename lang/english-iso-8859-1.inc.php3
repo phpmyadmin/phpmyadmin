@@ -70,6 +70,7 @@ $strCarriage = 'Carriage return: \\r';
 $strChange = 'Change';
 $strChangeDisplay = 'Choose Field to display';
 $strChangePassword = 'Change password';
+$strCharsetOfFile = 'Character set of the file:';
 $strCheckAll = 'Check All';
 $strCheckDbPriv = 'Check Database Privileges';
 $strCheckTable = 'Check table';
@@ -412,4 +413,6 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
+
+//New
 ?>

@@ -35,7 +35,7 @@ if (isset($show_query) && $show_query == '1') {
 $sub_part    = '';
 require('./db_details_db_info.php3');
 if ($num_tables == 0 && empty($db_query_force)) {
-	$is_info = TRUE;
+    $is_info = TRUE;
     include('./db_details_structure.php3');
     exit();
 }
@@ -75,6 +75,26 @@ if ($is_upload) {
     ?>
     <div style="margin-bottom: 5px">
         <input type="file" name="sql_file" class="textfield" /><br />
+<?php
+    if ($cfg['AllowAnywhereRecoding'] && $allow_recoding) {
+        $temp_charset = reset($cfg['AvailableCharsets']);
+        echo $strCharsetOfFile . "\n"
+           . '            <select name="charset_of_file" size="1">' . "\n"
+           . '                <option value="' . $temp_charset . '"';
+        if ($temp_charset == $charset) {
+            echo ' selected="selected"';
+        }
+        echo '>' . $temp_charset . '</option>' . "\n";
+        while ($temp_charset = next($cfg['AvailableCharsets'])) {
+            echo '                <option value="' . $temp_charset . '"';
+            if ($temp_charset == $charset) {
+                echo ' selected="selected"';
+            }
+            echo '>' . $temp_charset . '</option>' . "\n";
+        }
+    echo '            </select>';
+    }
+?>
     </div>
     <?php
 } // end if

@@ -78,6 +78,7 @@ $strCarriage = 'Wagenrücklauf \\r';
 $strChange = 'Ändern';
 $strChangeDisplay = 'Anzuzeigende Spalte bestimmen';
 $strChangePassword = 'Kennwort ändern';
+$strCharsetOfFile = 'Zeichencodierung der Datei:';
 $strCheckAll = 'Alle auswählen';
 $strCheckDbPriv = 'Rechte einer Datenbank prüfen';
 $strCheckTable = 'Überprüfe Tabelle';

@@ -37,7 +37,7 @@ $strAfter = 'หลัง %s';
 $strAfterInsertBack = 'ส่งกลับ';
 $strAfterInsertNewInsert = 'แทรกระเบียนใหม่';
 $strAll = 'ทั้งหมด';
-$strAllTableSameWidth = 'ให้แสดงตารางทุกตารางด้วยความกว้างเท่ากันหรือไม่?'; 
+$strAllTableSameWidth = 'ให้แสดงตารางทุกตารางด้วยความกว้างเท่ากันหรือไม่?';
 $strAlterOrderBy = 'เรียงค่าในตารางตาม';
 $strAnalyzeTable = 'วิเคราะห์ตาราง';
 $strAnd = 'และ';
@@ -417,4 +417,5 @@ $strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strValidateSQL = 'Validate SQL';  //to translate
 $strNoExplain = 'Skip Explain SQL';  //to translate
 $strExplain = 'Explain SQL';  //to translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
 ?>

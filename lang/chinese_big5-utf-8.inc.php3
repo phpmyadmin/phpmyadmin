@@ -421,4 +421,5 @@ $strYes = ' 是 ';
 $strZip = '"zipped"';
 
 // To translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
 ?>

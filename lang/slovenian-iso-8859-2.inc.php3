@@ -417,4 +417,5 @@ $strYes = 'Da';
 $strZip = '"zipano"';
 
 // To translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
 ?>

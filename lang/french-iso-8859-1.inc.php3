@@ -70,6 +70,7 @@ $strCarriage = 'Retour de chariot : \\r';
 $strChange = 'Modifier';
 $strChangeDisplay = 'Champ à afficher';
 $strChangePassword = 'Modifier le mot de passe';
+$strCharsetOfFile = 'Jeu de caractères du fichier:';
 $strCheckAll = 'Tout cocher';
 $strCheckDbPriv = 'Afficher les privilèges sur';
 $strCheckTable = 'Vérifier la table';

@@ -421,4 +421,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
 ?>

@@ -156,7 +156,7 @@ $strFullText = 'Volledige teksten';
 $strFunction = 'Functie';
 
 $strGenBy = 'Gegenereerd door';
-$strGeneralRelationFeat = 'Basis relatie opties'; 
+$strGeneralRelationFeat = 'Basis relatie opties';
 $strGenTime = 'Generatie Tijd';
 $strGo = 'Start';
 $strGrants = 'Toekennen';
@@ -416,4 +416,5 @@ $strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strValidateSQL = 'Validate SQL';  //to translate
 $strNoExplain = 'Skip Explain SQL';  //to translate
 $strExplain = 'Explain SQL';  //to translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
 ?>
