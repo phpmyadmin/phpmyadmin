@@ -526,24 +526,30 @@ function grant_operations($grants)
                     <?php echo $GLOBALS['strColumn']; ?>&nbsp;:&nbsp;
                 </td>
                 <td>
-                    <select name="colgrant[]" multiple="multiple" onchange="anycolumn[1].checked = true">
     <?php
     echo "\n";
     if (!isset($dbgrant) || !isset($tablegrant)) {
-        echo '                        ';
-        echo '<option></option>' . "\n";
+        echo '                    ' . '<select name="colgrant[]">' . "\n";
+        echo '                        ' . '<option></option>' . "\n";
+        echo '                    ' . '</select>' . "\n";
     }
-    if (isset($dbgrant) && isset($tablegrant)) {
+    else {
         $result = mysql_query('SHOW COLUMNS FROM ' . backquote($dbgrant) . '.' . backquote($tablegrant));
         if (@mysql_num_rows($result)) {
+            echo '                    '
+                 . '<select name="colgrant[]" multiple="multiple" onchange="anycolumn[1].checked = true">' . "\n";
             while ($row = mysql_fetch_row($result)) {
                 echo '                        ';
                 echo '<option value="' . str_replace('"', '&quot;', $row[0]) . '">' . $row[0] . '</option>' . "\n";
             } // end while
-        } // end if
-    } // end if
+        } else {
+            echo '                    ' . '<select name="colgrant[]">' . "\n";
+            echo '                        ' . '<option></option>' . "\n";
+        } // end if... else...
+        echo '                    '
+             . '</select>' . "\n";
+    } // end if... else
     ?>
-                    </select>
                 </td>
                 <td></td>
             </tr>
