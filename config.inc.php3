@@ -94,18 +94,19 @@ unset($cfgServers[0]);
 /**
  * Other core phpMyAdmin settings
  */
-$cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
+$cfgOBGzip 		          = TRUE;   // use GZIP output buffering if possible
 $cfgPersistentConnections = FALSE;  // use persistent connections to MySQL database
-$cfgShowBlob              = FALSE;  // display blob field contents in browse mode
-$cfgProtectBinary         = 'blob'; // disallow editing of binary fields in edit mode
-                                    // valid values are:
-                                    //   FALSE  allow editing
-                                    //   'blob' allow editing except for BLOB fields
-                                    //   'all'  disallow editing
-$cfgAllowUserDropDatabase = FALSE;  // disallow users to delete their own database
-$cfgShowSQL               = TRUE;   // show SQL queries as run
 $cfgSkipLockedTables      = FALSE;  // mark used tables, make possible to show
                                     // locked tables (since MySQL 3.23.30)
+$cfgShowSQL               = TRUE;   // show SQL queries as run
+$cfgAllowUserDropDatabase = FALSE;  // disallow users to delete their own database
+$cfgConfirm               = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
+
+$cfgShowStats             = TRUE;   // allow to display statistics and space usage in
+                                    // the pages about database details and table
+                                    // properties
+
+$cfgShowBlob              = FALSE;  // display blob field contents in browse mode
 $cfgShowAll               = FALSE;  // allows to display all the rows in browse mode
 $cfgMaxRows               = 30;     // maximum number of rows to display in browse mode
 $cfgOrder                 = 'ASC';  // default for 'ORDER BY' clause (valid
@@ -113,7 +114,13 @@ $cfgOrder                 = 'ASC';  // default for 'ORDER BY' clause (valid
                                     // descending order for fields of type
                                     // TIME, DATE, DATETIME & TIMESTAMP,
                                     // ascending order else-)
-$cfgOBGzip 		          = TRUE;   // GZIP output buffering
+
+$cfgProtectBinary         = 'blob'; // disallow editing of binary fields in edit mode
+                                    // valid values are:
+                                    //   FALSE  allow editing
+                                    //   'blob' allow editing except for BLOB fields
+                                    //   'all'  disallow editing
+
 $cfgGZipDump              = TRUE;   // Allow the use of gzip/bzip compression
 $cfgBZipDump              = TRUE;   // for dump files
 
