@@ -7,17 +7,18 @@ $Source$
 
 2002-07-01 Olivier L. Müller  <om@omnis.ch>
     * header.inc.php3: nicer CSS for Tabs (J.Fornallaz)
-    * tbl_properties.php3: added insert button to Marc's <select> :) 
+    * tbl_properties.php3: added insert button to Marc's <select> :)
 
 2002-07-01 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_properties_links.php3, db_details_links.php3: better vertical spacing 
+    * tbl_properties_links.php3, db_details_links.php3: better vertical spacing
     * tbl_properties.php3, db_details.php3: misplaced bullet
     * tbl_properties.php3: add field list on the query page
-    * pdf_schema.php3: color for all segments of primary key, thanks to 
+    * pdf_schema.php3: color for all segments of primary key, thanks to
       Joshua Eichorn (jeichorn at joshuaeichorn.com)
 
 2002-07-01 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * sql.php3: Fixed bug #575867 (Error with limit or load in the table name).
+    * sql.php3: Fixed bug #575867 (Error with limit or load in the table name)
+      partly.
 
 2002-06-30 Marc Delisle  <lem9@users.sourceforge.net>
     * user_details.php3: fix the tooltip
