@@ -140,7 +140,7 @@ if (isset($new_name) && trim($new_name) != '') {
         if (empty($target_db)) $target_db = $db;
         $target = PMA_backquote($target_db) . '.' . PMA_backquote($new_name);
 
-        include('./libraries/build_dump.lib.php3');
+        include('./libraries/export/sql.php3');
 
         $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
         $parsed_sql =  PMA_SQP_parse($sql_structure);

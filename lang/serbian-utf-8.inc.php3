@@ -673,4 +673,9 @@ $strExcelOptions = 'Excel options';  //to translate
 $strReplaceNULLBy = 'Replace NULL by';  //to translate
 $strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
 $strPaperSize = 'Paper size';  //to translate
+$strDatabaseNoTable = 'This database contains no table!';//to translate
+$strViewDumpDatabases = 'View dump (schema) of databases';//to translate
+$strAddIntoComments = 'Add into comments';//to translate
+$strDatabaseExportOptions = 'Database export options';//to translate
+$strAddDropDatabase = 'Add DROP DATABASE';//to translate
 ?>

@@ -649,4 +649,16 @@ $strZeroRemovesTheLimit = 'N.B.: 0 (zero) significa nessun limite.';
 $strZip = '"compresso con zip"';
 // To translate
 
+$strAddDropDatabase = 'Add DROP DATABASE';//to translate
+$strAddIntoComments = 'Add into comments';//to translate
+
+$strDatabaseExportOptions = 'Database export options';//to translate
+$strDatabaseNoTable = 'This database contains no table!';//to translate
+
+$strPaperSize = 'Paper size';  //to translate
+
+$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
+
+$strViewDumpDatabases = 'View dump (schema) of databases';//to translate
+
 ?>

@@ -1080,6 +1080,100 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['CtrlArrowsMoving'] = TRUE;
     }
 
+    if (!isset($cfg['Export']['format'])) {
+        $cfg['Export']['format'] = 'sql';
+    } // sql/latex/excel/csv/xml
+    if (!isset($cfg['Export']['compression'])) {
+        $cfg['Export']['compression'] = 'none';
+    } // none/zip/gzip/bzip2
+
+    if (!isset($cfg['Export']['asfile'])) {
+        $cfg['Export']['asfile'] = FALSE;
+    }
+    if (!isset($cfg['Export']['onserver'])) {
+        $cfg['Export']['onserver'] = FALSE;
+    }
+    if (!isset($cfg['Export']['onserver_overwrite'])) {
+        $cfg['Export']['onserver_overwrite'] = FALSE;
+    }
+    if (!isset($cfg['Export']['remember_file_template'])) {
+        $cfg['Export']['remember_file_template'] = TRUE;
+    }
+    if (!isset($cfg['Export']['csv_columns'])) {
+        $cfg['Export']['csv_columns'] = FALSE;
+    }
+    if (!isset($cfg['Export']['csv_null'])) {
+        $cfg['Export']['csv_null']                  = 'NULL';
+    }
+    if (!isset($cfg['Export']['excel_null'])) {
+        $cfg['Export']['excel_null']                = 'NULL';
+    }
+    if (!isset($cfg['Export']['latex_null'])) {
+        $cfg['Export']['latex_null']                = '\textit{NULL}';
+    }
+    if (!isset($cfg['Export']['csv_separator'])) {
+        $cfg['Export']['csv_separator'] = ';';
+    }
+    if (!isset($cfg['Export']['csv_enclosed'])) {
+        $cfg['Export']['csv_enclosed'] = '&quot;';
+    }
+    if (!isset($cfg['Export']['csv_escaped'])) {
+        $cfg['Export']['csv_escaped'] = '\\';
+    }
+    if (!isset($cfg['Export']['csv_terminated'])) {
+        $cfg['Export']['csv_terminated'] = 'AUTO';
+    }
+
+    if (!isset($cfg['Export']['latex_structure'])) {
+        $cfg['Export']['latex_structure'] = TRUE;
+    }
+    if (!isset($cfg['Export']['latex_data'])) {
+        $cfg['Export']['latex_data'] = TRUE;
+    }
+    if (!isset($cfg['Export']['latex_columns'])) {
+        $cfg['Export']['latex_columns'] = TRUE;
+    }
+    if (!isset($cfg['Export']['latex_relation'])) {
+        $cfg['Export']['latex_relation'] = TRUE;
+    }
+    if (!isset($cfg['Export']['latex_comments'])) {
+        $cfg['Export']['latex_comments'] = TRUE;
+    }
+    if (!isset($cfg['Export']['latex_mime'])) {
+        $cfg['Export']['latex_mime'] = TRUE;
+    }
+
+    if (!isset($cfg['Export']['sql_drop_database'])) {
+        $cfg['Export']['sql_drop_database'] = FALSE;
+    }
+    if (!isset($cfg['Export']['sql_drop_table'])) {
+        $cfg['Export']['sql_drop_table'] = FALSE;
+    }
+    if (!isset($cfg['Export']['sql_structure'])) {
+        $cfg['Export']['sql_structure'] = TRUE;
+    }
+    if (!isset($cfg['Export']['sql_data'])) {
+        $cfg['Export']['sql_data'] = TRUE;
+    }
+    if (!isset($cfg['Export']['sql_backquotes'])) {
+        $cfg['Export']['sql_backquotes'] = TRUE;
+    }
+    if (!isset($cfg['Export']['sql_relation'])) {
+        $cfg['Export']['sql_relation'] = FALSE;
+    }
+    if (!isset($cfg['Export']['sql_columns'])) {
+        $cfg['Export']['sql_columns'] = FALSE;
+    }
+    if (!isset($cfg['Export']['sql_extended'])) {
+        $cfg['Export']['sql_extended'] = FALSE;
+    }
+    if (!isset($cfg['Export']['sql_comments'])) {
+        $cfg['Export']['sql_comments'] = FALSE;
+    }
+    if (!isset($cfg['Export']['sql_mime'])) {
+        $cfg['Export']['sql_mime'] = FALSE;
+    }
+
 } // $__PMA_CONFIG_IMPORT_LIB__
 
 ?>

@@ -14,8 +14,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.454 2003/06/02
-       08:07:47 rabus Exp $
+     * Documentation version: $Id: Documentation.html,v 1.459 2003/06/08
+       12:55:39 lem9 Exp $
 
 Requirements
 
@@ -435,11 +435,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           + display in an optional tool-tip the "display field" when
             browsing the master table, if you move the mouse to a column
             containing a foreign key (use also the 'table_info' table);
+            (see FAQ 6.7)
+          + in edit/insert mode, display a drop-down list of possible
+            foreign keys (key value and "display field" are shown)
+            (see FAQ 6.21)
           + display links on the table properties page, to check
             referential integrity (display missing foreign keys) for each
             described key;
-          + in query-by-example, create automatic joins (see an example
-            in the FAQ, section "Using phpMyAdmin");
+          + in query-by-example, create automatic joins (see FAQ 6.6)
           + enable you to get a PDF schema of your database (also uses
             the table_coords table).
 
@@ -975,7 +978,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           Enable Ctrl+Arrows moving between fields when editing?
 
    $cfg['LimitChars'] integer
-          Maximal number of Chars showed in a TEXT OR a BLOB field on
+          Maximal number of Chars showed in any non-numeric field on
           browse view. Can be turned off by a toggle button on the browse
           page.
 
@@ -1038,6 +1041,11 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           must be owned by the same user as the owner of the phpMyAdmin
           scripts.
 
+   $cfg['Export'] array
+          In this array are defined default parameters for export, names
+          of items are simmilar to texts seen on export page, so you can
+          easily identify what they mean.
+
    $cfg['RepeatCells'] integer
           Repeat the headers every X cells, or 0 to deactivate.
 
@@ -1070,7 +1078,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
           window is opened they remain saved.
           When using the JavaScript based query window, it will always
           get updated when you click on a new table/db to browse and will
-          focus if you click on "Edit SQL" after using a query.
+          focus if you click on "Edit SQL" after using a query. You can
+          suppress updating the query window by checking the box "Do not
+          overwrite this query from outside the window" below the query
+          textarea. Then you can browse tables/databases in the
+          background without losing the contents of the textarea, so this
+          is especially useful when composing a query with tables you
+          first have to look in. The checkbox will get automatically
+          checked whenever you change the contents of the textarea.
+          Please uncheck the button whenever you definitely want the
+          query window to get updated even though you have made
+          alterations.
           If $cfg['QueryHistoryDB'] is set to TRUE you can specify the
           amount of saved history items using $cfg['QueryHistoryMax'].
           The query window also has a custom tabbed look to group the
@@ -2038,6 +2056,8 @@ FAQ - Frequently Asked Questions
    Starting from the previous example, create the PMA_table_info as
    explained in the configuration section, then browse your persons
    table, and move the mouse over a town code or country code.
+   See also FAQ 6.21 for an additionnal feature that "display field"
+   enables: drop-down list of possible values.
 
     [6.8] How can I produce a PDF schema of my database?
 
@@ -2206,6 +2226,23 @@ FAQ - Frequently Asked Questions
 \include{table}
 
 \end{document}
+
+    [6.20] In MySQL 4, I see a lot of databases which are not mine, and cannot
+    access them.
+
+   Upgrading to MySQL 4 usually gives users a global privilege: CREATE
+   TEMPORARY TABLES. This privilege also enables users to see all the
+   database names. See this bug report.
+   So if your users do not need this privilege, you can remove it and
+   their databases list will shorten.
+
+    [6.21] In edit/insert mode, how can I see a list of possible values for a
+    field, based on some foreign table?
+
+   You have to setup appropriate links between the tables, and also setup
+   the "display field" in the foreign table. See FAQ 6.6 for an example.
+   Then, if there are 200 values or less in the foreign table, a
+   drop-down list of values will be available.
 
   [7. phpMyAdmin project]
 

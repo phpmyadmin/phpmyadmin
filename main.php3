@@ -410,6 +410,13 @@ if ($server > 0) {
                     <?php echo $strDatabases; ?></a>
             </td>
         </tr>
+        <tr>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="./server_export.php3?<?php echo $common_url_query; ?>">
+                    <?php echo $strExport; ?></a>
+            </td>
+        </tr>
         <?php
 
         // Change password (needs another message)

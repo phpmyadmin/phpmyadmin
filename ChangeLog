@@ -7,6 +7,17 @@ $Source$
 
 2003-06-10 Michal Cihar  <nijel@users.sourceforge.net>
     * scripts/create-release.sh: Set correct permissions before releasing.
+    * Documentation, config.inc.php3, db_details_export.php3, export.php3,
+      main.php3, server_export.php3, server_links.inc.php3, tbl_dump.php3,
+      tbl_move_copy.php3, tbl_properties_export.php3, lang/*,
+      libraries/build_dump.lib.php3, libraries/config_import.lib.php3,
+      libraries/display_export.lib.php3, libraries/export/*: Reworked export,
+      changes:
+        - support for exporting selected databases
+        - if not needed buffering, output is send directly
+        - unifies all export, so there is now more common code
+        - sql export can contain relations and mime types in comments
+        - configurable defaults for export.
 
 2003-06-09 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: Display Full/Partial text links for

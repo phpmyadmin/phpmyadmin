@@ -49,7 +49,7 @@ if (isset($sql_query)) {
     PMA_showMessage($GLOBALS['strSQLQuery']);
 }
 
-$tbl_dump_form_name = 'tbl_dump';
+$export_type = 'table';
 require('./libraries/display_export.lib.php3');
 
 

@@ -270,6 +270,44 @@ $cfg['DefaultTabTable']       = 'tbl_properties_structure.php3';
                                    // 'tbl_select.php3 = select page
                                    // 'tbl_change.php3 = insert row page
 
+/**
+ * Export defaults
+ */
+
+$cfg['Export']['format']                    = 'sql';  // sql/latex/excel/csv/xml
+$cfg['Export']['compression']               = 'none'; // none/zip/gzip/bzip2
+
+$cfg['Export']['asfile']                    = FALSE;
+$cfg['Export']['onserver']                  = FALSE;
+$cfg['Export']['onserver_overwrite']        = FALSE;
+$cfg['Export']['remember_file_template']    = TRUE;
+
+$cfg['Export']['csv_columns']               = FALSE;
+$cfg['Export']['csv_null']                  = 'NULL';
+$cfg['Export']['csv_separator']             = ';';
+$cfg['Export']['csv_enclosed']              = '&quot;';
+$cfg['Export']['csv_escaped']               = '\\';
+$cfg['Export']['csv_terminated']            = 'AUTO';
+$cfg['Export']['excel_null']                = 'NULL';
+
+$cfg['Export']['latex_structure']           = TRUE;
+$cfg['Export']['latex_data']                = TRUE;
+$cfg['Export']['latex_columns']             = TRUE;
+$cfg['Export']['latex_relation']            = TRUE;
+$cfg['Export']['latex_comments']            = TRUE;
+$cfg['Export']['latex_mime']                = TRUE;
+$cfg['Export']['latex_null']                = '\textit{NULL}';
+
+$cfg['Export']['sql_structure']             = TRUE;
+$cfg['Export']['sql_data']                  = TRUE;
+$cfg['Export']['sql_drop_database']         = FALSE;
+$cfg['Export']['sql_drop_table']            = FALSE;
+$cfg['Export']['sql_backquotes']            = TRUE;
+$cfg['Export']['sql_relation']              = FALSE;
+$cfg['Export']['sql_columns']               = FALSE;
+$cfg['Export']['sql_extended']              = FALSE;
+$cfg['Export']['sql_comments']              = FALSE;
+$cfg['Export']['sql_mime']                  = FALSE;
 
 /**
  * Link to the official MySQL documentation.

@@ -53,6 +53,7 @@ if ($is_superuser) {
     echo PMA_printTab($strPrivileges, 'server_privileges.php3', $url_query);
 }
 echo PMA_printTab($strServerTabProcesslist, 'server_processlist.php3', $url_query);
+echo PMA_printTab($strExport, 'server_export.php3', $url_query);
 ?>
     </tr>
 </table>

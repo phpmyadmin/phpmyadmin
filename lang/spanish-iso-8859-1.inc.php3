@@ -648,4 +648,9 @@ $strReplaceNULLBy = 'Replace NULL by';  //to translate
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table'; //to translate
 
 $strPaperSize = 'Paper size';  //to translate
+$strDatabaseNoTable = 'This database contains no table!';//to translate
+$strViewDumpDatabases = 'View dump (schema) of databases';//to translate
+$strAddIntoComments = 'Add into comments';//to translate
+$strDatabaseExportOptions = 'Database export options';//to translate
+$strAddDropDatabase = 'Add DROP DATABASE';//to translate
 ?>
