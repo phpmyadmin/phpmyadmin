@@ -62,8 +62,7 @@ if ($num_dbs > 1) {
     <script type="text/javascript" language="javascript">
     <!--
     var isDOM      = (typeof(document.getElementsByTagName) != 'undefined'
-                      && typeof(document.createElement) != 'undefined'
-                      && typeof(document.appendChild) != 'undefined')
+                      && typeof(document.createElement) != 'undefined')
                    ? 1 : 0;
     var isIE4      = (typeof(document.all) != 'undefined'
                       && parseInt(navigator.appVersion) >= 4

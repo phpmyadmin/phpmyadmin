@@ -21,6 +21,7 @@ $Source$
 	* config.inc.php3, line 50: changed the comment line for the "only_db"
 	  setting.
 	* tbl_qbe.php3: fixed lots of warnings reported by Steve.
+	* left.php3, line 66: removed a too restrictive test.
 
 2001-10-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3, lines 1232-1245 & 1254: fixed some bugs with modifying
