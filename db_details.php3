@@ -59,7 +59,7 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang;
 
 
 /**
- * Drop/delete mutliple tables if required
+ * Drop/delete multiple tables if required
  */
 if ((!empty($submit_mult) && isset($selected_tbl))
     || isset($mult_btnDrop)) {
@@ -147,7 +147,7 @@ if ($num_tables == 0) {
 // 2. Shows table informations on mysql >= 3.23 - staybyte - 11 June 2001
 else if (PMA_MYSQL_INT_VERSION >= 32300) {
     ?>
-<form action="db_details.php3">
+<form name="tablesForm" action="db_details.php3" method="post">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
@@ -331,6 +331,17 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
         <input type="submit" name="submit_mult" value="<?php echo $strPrintView; ?>" />
     </td>
 </tr>
+<tr>
+    <td>
+       <a href="" onclick="setCheckboxes('tablesForm', true); return false;">
+        <?php echo $GLOBALS['strCheckAll']; ?></a> 
+    </td>
+    <td>&nbsp;</td>
+    <td>
+       <a href="" onclick="setCheckboxes('tablesForm', false); return false;">
+        <?php echo $GLOBALS['strUncheckAll']; ?></a>
+    </td>
+</tr>
 </table>
 
 </form>
@@ -407,8 +418,18 @@ else {
         &nbsp;<?php $strOr . "\n"; ?>&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strEmpty; ?>" />
     </td>
+</tr>
 <tr>
-
+    <td>
+       <a href="" onclick="setCheckboxes('tablesForm', true); return false;">
+        <?php echo $GLOBALS['strCheckAll']; ?></a>
+    </td>
+    <td>&nbsp;</td>
+    <td>
+       <a href="" onclick="setCheckboxes('tablesForm', false); return false;">
+        <?php echo $GLOBALS['strUncheckAll']; ?></a>
+    </td>
+</tr>
 </table>
 
 </form>

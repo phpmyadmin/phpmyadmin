@@ -325,3 +325,22 @@ function setPointer(theRow, thePointerColor)
 
     return true;
 } // end of the 'setPointer()' function
+
+/**
+ * Checks/unchecks all tables
+ *
+ * @param   string   the form name
+ * @param   boolean  whether to check or to uncheck the element
+ *
+ * @return  boolean  always true
+ */
+function setCheckboxes(the_form, do_check) {
+    var elts = document.forms[the_form].elements['selected_tbl[]'];
+    var elts_cnt  = elts.length;
+
+    for (var i = 0; i < elts_cnt; i++) {
+            elts[i].checked = do_check;
+    } // end for
+
+    return true;
+} // end of the 'setCheckboxes()' function
