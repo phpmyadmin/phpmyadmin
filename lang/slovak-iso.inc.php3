@@ -1,5 +1,6 @@
 <?php
-/* $Id: slovak-iso.inc.php,v 1.1 2001/07/24 17:15:00 lubos klokner <erkac@vault-tec.sk> */
+/* $Id: slovak-iso.inc.php,v 1.1 2001/07/24 17:15:00 loic1 Exp */
+/* By: lubos klokner <erkac@vault-tec.sk> */
 
 $charset = 'iso-8859-2';
 $left_font_family = 'verdana CE, Arial CE, verdana, helvetica, arial, geneva, sans-serif';
@@ -19,6 +20,7 @@ $strAddPrivMessage = 'Privilégium bolo pridané.';
 $strAddSearchConditions = 'Prida» vyhµadávacie parametre (obsah dotazu po "where" príkaze):';
 $strAddUser = 'Prida» nového pou¾ívateµa';
 $strAddUserMessage = 'Pou¾ívateµ bol pridaný.';
+$strAffectedRows = ' Ovplyvnené riadky: ';
 $strAfter = 'Po';
 $strAll = 'V¹etko';
 $strAlterOrderBy = 'Zmeni» poradie tabuµky podµa';
@@ -80,6 +82,7 @@ $strDelPassMessage = 'Bolo zmazané heslo pre';
 $strDescending = 'Zostupne';
 $strDisableMagicQuotes = '<b>Varovanie:</b> Máte zapnuté magic_quotes_gpc vo Va¹ej konfigurácii PHP. Táto verzia PhpMyAdmin-a nemô¾e funguva» správane s týmto nastavením. Prosím pozrite sa do manuálu konfigurácie PHP ako toto nastavenie zmeni».';
 $strDisplay = 'Zobrazi»';
+$strDisplayOrder = 'Zobrazi» zoradené:';
 $strDoAQuery = 'Vykona» "dotaz podµa príkladu" (wildcard: "%")';
 $strDocu = 'Dokumentácia';
 $strDoYouReally = 'Skutoène chcete vykona» príkaz ';
@@ -103,8 +106,10 @@ $strExtra = 'Extra';
 
 $strField = 'Pole';
 $strFields = 'Polia';
+$strFieldsEmpty = ' Poèet polí je prázdny! ';
 $strFixed = 'pevný';
 $strFormat = 'Formát';
+$strFormEmpty = 'Chýbajúca polo¾ka vo formulári !';
 $strFunction = 'Funkcia';
 
 $strGenTime = 'Vygenerované:';
@@ -191,6 +196,7 @@ $strProperties = 'Vlastnosti';
 $strQBE = 'Dotaz podµa príkladu';
 $strQBEDel = 'Zmaza»';
 $strQBEIns = 'Vlo¾i»';
+$strQueryOnDb = ' SQL dotaz v databáze ';
 
 $strReadTheDocs = 'Èíta» dokumentáciu';
 $strRecords = 'Záznamov';
@@ -263,6 +269,7 @@ $strUpdatePassword = 'Zmeni» heslo';
 $strUpdatePrivMessage = 'Boli zmenené privilégia pre pou¾ívateµa';
 $strUpdateQuery = 'Aktualizova» dotaz';
 $strUsage = 'Vyu¾itie';
+$strUseBackquotes = ' Pou¾i» opaèný apostrof pri názvoch tabuliek a polí ';
 $strUser = 'Pou¾ívateµ';
 $strUserEmpty = 'Meno pou¾ívateµa je prázdne!';
 $strUserName = 'Meno pou¾ívateµa';
@@ -278,11 +285,6 @@ $strWrongUser = 'Zlé pou¾ívateµské meno alebo heslo. Prístup zamietnutý.';
 
 $strYes = 'Áno';
 
-$strAffectedRows = ' Ovplyvnené riadky: ';
-$strDisplayOrder = 'Zobrazi» zoradené:';
-$strFieldsEmpty = ' Poèet polí je prázdny! ';
-$strFormEmpty = 'Chýbajúca polo¾ka vo formulári !';
-$strQueryOnDb = ' SQL dotaz v databáze ';
-$strUseBackquotes = ' Pou¾i» opaèný apostrof pri názvoch tabuliek a polí ';
-$strShowPHPInfo=" Show PHP information ";  //to translate
+// To translate
+$strShowPHPInfo = 'Show PHP information';  // To translate
 ?>

@@ -232,6 +232,7 @@ $strSequence = 'Séq.';
 $strServerVersion = 'Version du serveur';
 $strShow = 'Afficher';
 $strShowingRecords = 'Affichage des enregistrements';
+$strShowPHPInfo = 'Afficher les informations relatives à PHP';
 $strShowThisQuery = 'Réafficher la requête après exécution';
 $strSingly = '(à refaire après insertions/destructions)';
 $strSize = 'Espace';
@@ -283,6 +284,4 @@ $strWelcome = 'Bienvenue à';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
 $strYes = 'Oui';
-
-$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>

@@ -288,7 +288,7 @@ $strNbRecords = 'no. of records';
 $strOffSet = 'offset';
 $strQueryOnDb = 'SQL-query on database ';
 $strRowSize = ' Row size ';  //to translate
+$strShowPHPInfo = 'Show PHP information';  // To translate
 $strShowThisQuery = ' Show this query here again ';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
-$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>

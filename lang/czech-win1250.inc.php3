@@ -284,7 +284,7 @@ $strDisplayOrder = 'Display order:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strQueryOnDb = 'SQL-query on database ';
+$strShowPHPInfo = 'Show PHP information';  // To translate
 $strShowThisQuery = ' Show this query here again ';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
-$strShowPHPInfo=" Show PHP information ";  //to translate
 ?>

@@ -1,7 +1,9 @@
 <?php
 /* $Id$ */
 
-/* Display PHP information
+
+/**
+ * Displays PHP information
  */
 phpinfo();
 ?>

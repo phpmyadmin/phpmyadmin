@@ -283,5 +283,7 @@ $strWelcome = 'Witamy w ';
 $strWrongUser = 'Bledne pola uzytkownik/haslo. Brak dostepu.';
 
 $strYes = 'Tak';
-$strShowPHPInfo=" Show PHP information ";  //to translate
+
+// To translate
+$strShowPHPInfo = 'Show PHP information';  // To translate
 ?>

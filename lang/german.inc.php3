@@ -80,8 +80,8 @@ $strDeleteUserMessage = 'Der Benutzer wurde gelöscht';
 $strDelPassMessage = 'Password entfernt für';
 $strDescending = 'absteigend';
 $strDisableMagicQuotes = '<b>Achtung:</b> Sie haben magic_quotes_gpc in Ihrer PHP-Konfigration aktiviert. Dieses Version von PhpMyAdmin braucht dies nicht aktiviert sein, um korrekt zu funktionieren. Bitte lesen Sie im PHP-Manual (Installation & Configuration) nach, um Informationen darüber zu erhalten, wie man magic_quotes_gpc nicht aktivieren kann.';
-$strDisplayOrder = 'Sortierung nach:';
 $strDisplay = 'Zeige';
+$strDisplayOrder = 'Sortierung nach:';
 $strDoAQuery = 'Suche über Beispielwerte ("query by example") (Platzhalter: "%")';
 $strDocu = 'Dokumentation';
 $strDoYouReally = 'Möchten Sie wirklich diese Abfrage ausführen: ';
@@ -283,5 +283,7 @@ $strWelcome = 'Willkommen bei ';
 $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
-$strShowPHPInfo=" Show PHP information ";  //to translate
+
+// To translate
+$strShowPHPInfo = 'Show PHP information';  // To translate
 ?>
