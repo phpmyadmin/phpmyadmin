@@ -247,7 +247,7 @@ if (!defined('__LIB_INC__')){
             // Else ensure the username is not the same
             else {
                 // force user to enter a different username
-                if ($old_usr == $PHP_AUTH_USER) {
+                if (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER) {
                     $do_auth = TRUE;
                 } else {
                     $do_auth = FALSE;
