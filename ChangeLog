@@ -8,6 +8,10 @@ $Source$
 2001-09-26  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3; left.php3; tbl_move_copy.php3;
 	  tbl_properties.php3; tbl_rename.php3: fixed some security issues.
+	* libraries/common.lib.php3, lines 76 & 79: some variable wasn't declared
+	  as global ones.
+	* main.php3: the cookie shouldn't be set before authentication is
+	  completed.
 
 2001-09-25  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/italian.inc.php3: updated thanks to Pietro Danesi.
