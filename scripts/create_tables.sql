@@ -11,6 +11,11 @@
 --  Please dont forget to set up the tablenames in        #
 --  config.inc.php3                                       #
 --                                                        #
+--  Please note that the table names might be converted   #
+--  to lower case, if the MySQL option                    #
+--  "lower_case_table_names" is enabled. By default, this #
+--  is the case on Win32 machines.                        #
+--                                                        #
 -- ########################################################
 
 DROP DATABASE IF EXISTS `phpmyadmin`;

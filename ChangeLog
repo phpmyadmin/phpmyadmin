@@ -22,6 +22,7 @@ $Source$
       - Added some notes about MySQL 4.1 / 5.0;
       - php 5.0.0-dev should work fine with phpMyAdmin - it has been doing so at
         least on my test machines for a couple of months.
+    * scripts/create-tables.sql: Added some notes about lower_case_table_names.
 
 2003-05-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
