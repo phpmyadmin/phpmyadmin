@@ -665,7 +665,7 @@ function show_message($message) {
         // Reload the navigation frame via JavaScript
         ?>
         <script language="JavaScript1.2">
-        parent.frames.nav.location.reload();
+        parent.frames['nav'].location.replace('./left.php3?server=<?php echo $GLOBALS['server'];?>&lang=<?php echo $GLOBALS['lang']; ?>&db=<?php echo urlencode($GLOBALS['db']); ?>');
         </script>
         <?php
     }
