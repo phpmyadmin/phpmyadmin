@@ -138,7 +138,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php3 revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 175) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 181) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -655,19 +655,6 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         // exist
         else if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
             $cfg['PmaAbsoluteUri'] .= '/';
-        }
-
-
-        /**
-         * Make sure $cfg['DefaultTabDatabase'] and $cfg['DefaultTabTable'] are set.
-         * Todo: check if it is set to a *valid* value.
-         */
-        if (empty($cfg['DefaultTabDatabase'])) {
-            $cfg['DefaultTabDatabase'] = 'db_details_structure.php3';
-        }
-
-        if (empty($cfg['DefaultTabTable'])) {
-            $cfg['DefaultTabTable']    = 'tbl_properties_structure.php3';
         }
 
 
@@ -1687,8 +1674,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             global $PHP_SELF, $cfg;
             global $db_details_links_count_tabs;
 
-            if (((!isset($GLOBALS['active_page']) && basename($PHP_SELF) == $link) || 
-                    $active || 
+            if (((!isset($GLOBALS['active_page']) && basename($PHP_SELF) == $link) ||
+                    $active ||
                     (isset($GLOBALS['active_page']) && $GLOBALS['active_page'] == $link)
                 ) && ($text != $GLOBALS['strEmpty'] && $text != $GLOBALS['strDrop'])) {
                 $bgcolor = 'silver';

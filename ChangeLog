@@ -30,6 +30,10 @@ $Source$
     * scripts/create-tables.sql: Added some notes about lower_case_table_names.
     * libraries/sqlparser.lib.php3: Parser treated "CHARACTER" as column type,
       even if it was used in "CHARACTER SET".
+    * libraries/common.lib.php3:
+      - Removed check for default tab values: They are already checked in
+        config_import.lib.php3;
+      - Corrected config file revison.
 
 2003-05-29 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
