@@ -1,7 +1,6 @@
 <?php
 /* $Id$ */
-
-
+error_reporting(E_ALL);
 /**
  * Count amount of navigation tabs
  */
@@ -37,9 +36,17 @@ if ($table_info_num_rows > 0) {
     $att6    = '';
 }
 
+// The use of $sub_part when setting $arg7 would work if all sub-pages
+// scripts were prefixed by "tbl_properties", but this is not the case
+// for now. The 'back' is supposed to be set to the current sub-page. This
+// is necessary when you have js deactivated, you click on Drop, then click
+// cancel, and want to get back to the same sub-page.
+
+if (!isset($sub_part)) {
+    $sub_part = '';
+}
 $arg7 = ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query) . '&amp;back=tbl_properties' . $sub_part . '.php3&amp;reload=1&amp;sql_query=' . urlencode('DROP TABLE ' . PMA_backquote($table) ) . '&amp;zero_rows=' . urlencode(sprintf($strTableHasBeenDropped, htmlspecialchars($table)));
 $att7 = 'class="drop" onclick="return confirmLink(this, \'DROP TABLE ' . PMA_jsFormat($table) . '\')"';
-
 
 /**
  * Displays links
