@@ -44,7 +44,6 @@
  * Finally, set x to the _new_ revision number of config.inc.php3
  * (without '1.': 234 instead of 1.234) and you're done!
  */
-
 if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     define('PMA_CONFIG_IMPORT_LIB_INCLUDED', 1);
 
@@ -718,6 +717,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         $cfg['BrowseMIME'] = TRUE;
     }
 
+    if (!isset($cfg['MaxExactCount'])) {
+        $cfg['MaxExactCount'] = 20000;
+    }
+
     if (!isset($cfg['ShowTooltipAliasDB'])) {
         $cfg['ShowTooltipAliasDB'] = FALSE;
     }
@@ -1044,6 +1047,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['PmaNoRelation_DisableWarning'])) {
         $cfg['PmaNoRelation_DisableWarning'] = FALSE;
     }
+
 } // $__PMA_CONFIG_IMPORT_LIB__
 
 ?>

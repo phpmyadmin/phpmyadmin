@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-11 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/common.lib.php3, config_import.lib.php3:
+      MaxExactCount backwards compatibility
+
 2003-04-11 Michal Cihar  <nijel@users.sourceforge.net>
     * db_details_structure.php3: Get row count by SHOW TABLE STATUS, and by
       SELECT COUNT(*) only for small (<20000 rows) tables (RFE #708533).
