@@ -81,6 +81,12 @@ $strCantUseRecodeIconv = 'Erreur lors de l\'utilisation de iconv, libiconv et re
 $strCardinality = 'Cardinalité';
 $strCarriage = 'Retour de chariot : \\r';
 $strChange = 'Modifier';
+$strChangeCopyMode = 'Créer un nouvel utilisateur avec les mêmes privilèges et ...';
+$strChangeCopyModeCopy = '... conserver intact l\'ancien utilisateur.';
+$strChangeCopyModeDeleteAndReload = ' ... supprimer l\'ancien utilisateur, puis recharger les privilèges au serveur.';
+$strChangeCopyModeJustDelete = ' ... supprimer l\'ancien utilisateur.';
+$strChangeCopyModeRevoke = ' ... effacer tous les privilèges de l\'ancien utilisateur, puis l\'effacer.';
+$strChangeCopyUser = 'Changement des informations de connexion / Copie d\'utilisateur';
 $strChangeDisplay = 'Champ à afficher';
 $strChangePassword = 'Modifier le mot de passe';
 $strCharsetOfFile = 'Jeu de caractères du fichier:';
@@ -556,6 +562,7 @@ $strViewDumpDB = 'Afficher le schéma de la base ';
 $strWebServerUploadDirectory = 'répertoire de transfert du serveur Web';
 $strWebServerUploadDirectoryError = 'Le répertoire de transfert est inaccessible';
 $strWelcome = 'Bienvenue à %s ';
+$strWildcard = 'passepartout';
 $strWithChecked = 'Pour la sélection :';
 $strWritingCommentNotPossible = 'Ajout de commentaire impossible';
 $strWritingRelationNotPossible = 'Ajout de relation impossible';
@@ -567,11 +574,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strChangeCopyUser = 'Change Login Information / Copy User';  //to translate
-$strChangeCopyMode = 'Create a new user with the same privileges and ...';  //to translate
-$strChangeCopyModeCopy = '... keep the old one.';  //to translate
-$strChangeCopyModeJustDelete = ' ... delete the old one from the user tables.';  //to translate
-$strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one and delete it afterwards.';  //to translate
-$strChangeCopyModeDeleteAndReload = ' ... delete the old one from the user tables and reload the privileges afterwards.';  //to translate
-$strWildcard = 'wildcard';  //to translate
 ?>
