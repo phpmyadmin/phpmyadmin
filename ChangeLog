@@ -5,11 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-19 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php: bug 780516: capitalizing keywords: we no longer
+      put the formatted query into $sql_query, due to better pattern matching
+ 
 2004-04-19 Michal Cihar  <michal@cihar.com>
     * libraries/tbl_change.js: Better return value formatting.
 
 2004-04-18 Michal Cihar  <michal@cihar.com>
-    * libraries/tbl_change.js: Fixed caledar behaviour for DATE fields.
+    * libraries/tbl_change.js: Fixed calendar behaviour for DATE fields.
     * libraries/auth/cookie.auth.lib.php: Fix LoginCookieValidity behaviour.
     * libraries/tbl_change.js, tbl_change.php: Add support for DATETIME.
 

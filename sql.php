@@ -96,12 +96,25 @@ $parsed_sql = PMA_SQP_parse($sql_query);
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 // Bug #641765 - Robbat2 - 12 January 2003, 10:49PM
 // Reverted - Robbat2 - 13 January 2003, 2:40PM
-$sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
-// old code did not work, for example, when there is a bracket
-// before the SELECT
-// so I guess it's ok to check for a real SELECT ... FROM
-//$is_select = eregi('^SELECT[[:space:]]+', $sql_query);
+// lem9: for bug 780516: now that we use case insensitive preg_match
+// or flags from the analyser, do not put back the reformatted query
+// into $sql_query, to make this kind of query work without
+// capitalizing keywords:
+//
+// CREATE TABLE SG_Persons (
+//  id int(10) unsigned NOT NULL auto_increment,
+//  first varchar(64) NOT NULL default '',
+//  PRIMARY KEY  (`id`)
+// )
+//
+// Note: now we probably do not need to fill and use $GLOBALS['unparsed_sql']
+// but I let this intact for now.
+//
+//$sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
+
+
+// check for a real SELECT ... FROM
 $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 
 // If the query is a Select, extract the db and table names and modify
@@ -181,8 +194,6 @@ if (!$cfg['Confirm']
     || !empty($GLOBALS['validatequery'])) {
     $do_confirm = FALSE;
 } else {
-    //$do_confirm = (eregi('DROP[[:space:]]+(IF[[:space:]]+EXISTS[[:space:]]+)?(TABLE|DATABASE[[:space:]])|ALTER[[:space:]]+TABLE[[:space:]]+((`[^`]+`)|([A-Za-z0-9_$]+))[[:space:]]+DROP[[:space:]]|DELETE[[:space:]]+FROM[[:space:]]', $sql_query));
-
     $do_confirm = isset($analyzed_sql[0]['queryflags']['need_confirm']);
 }
 
@@ -415,10 +426,6 @@ else {
 
                     if (PMA_MYSQL_INT_VERSION >= 40000) {
                          // add select expression after the SQL_CALC_FOUND_ROWS
-//                        if (eregi('DISTINCT(.*)', $sql_query)) {
-//                            $count_query .= 'DISTINCT ' . $analyzed_sql[0]['select_expr_clause'];
-//                        } else {
-                            //$count_query .= $analyzed_sql[0]['select_expr_clause'];
 
                             // for UNION, just adding SQL_CALC_FOUND_ROWS
                             // after the first SELECT works.
@@ -431,7 +438,6 @@ else {
 
                             // add everything that was after the first SELECT
                             $count_query .= PMA_SQP_formatHtml($parsed_sql, 'query_only', $analyzed_sql[0]['position_of_first_select']+1);
-//                        }
                     } else { // PMA_MYSQL_INT_VERSION < 40000
 
                         if (!empty($analyzed_sql[0]['from_clause'])) {
