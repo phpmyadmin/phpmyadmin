@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-09  Armel Fauveau  <armel.fauveau@globalis-ms.com>
+	* Update Documentation.html (bookmark and stduser priv)
+
 2001-08-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3:
         - lines 10-13: Marc fix generates bugs
