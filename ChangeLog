@@ -11,14 +11,14 @@ $Source$
 
 2003-06-23 Garvin Hicking <me@supergarv.de>
     * Documentation.html, config.inc.php3, pdf_pages.php3,
-      css/phpmyadmin.css.php3, libraries/common.lib.php3, 
+      css/phpmyadmin.css.php3, libraries/common.lib.php3,
       libraries/config_import.lib.php3, libraries/dom-drag.js,
-      libraries/functions.js: Added Patch #757907: DHTML WYSIWYG-control 
+      libraries/functions.js: Added Patch #757907: DHTML WYSIWYG-control
       for PDF-relation setup. Based on DOM-drag.js, a library provided
       by Aaron Boodman (youngpup.net).
     * lang/german*: Updates
     * lang/*, pdf_pages.php3: Strings for DHTML scratchboard
-    
+
 2003-06-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/arabic-*.inc.php3, lang/czech-*.inc.php3, lang/finnish-*.inc.php3,
       lang/french-*.inc.php3, lang/georgian-utf-8.inc.php3,
@@ -26,6 +26,7 @@ $Source$
       lang/russian-*.inc.php3, lang/ukrainian-*.inc.php3: Checked all language
       files for incomplete arrays ($byteUnits, $day_of_week and $month).
     * libraries/common.lib.php3: Security fix against bad JS code.
+    * translators.html: Removed Loïc from list; he is inactive at the moment.
 
 2003-06-22 Robin Johnson <robbat2@users.sourceforge.net>
     * scripts/updatedocs.sh:
