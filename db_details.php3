@@ -31,7 +31,7 @@ window.parent.frames['nav'].location.replace('./left.php3?lang=<?php echo $lang;
  */
 if (!empty($submit_mult) || isset($btnDrop)) {
     $action = 'db_details.php3';
-    include('./mult_drops.inc.php3');
+    include('./mult_submits.inc.php3');
 }
 
 

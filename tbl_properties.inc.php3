@@ -51,8 +51,8 @@ if (!$is_backup) {
 
 <?php
 for ($i = 0 ; $i < $num_fields; $i++) {
-    if (isset($result)) {
-        $row = mysql_fetch_array($result);
+    if (isset($fields_meta)) {
+        $row = $fields_meta[$i];
     }
     $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
     ?>

@@ -14,7 +14,7 @@ require('./header.inc.php3');
 if (!empty($submit_mult) || isset($btnDrop)) {
     $action     = 'db_stats.php3';
     $show_query = 'y';
-    include('./mult_drops.inc.php3');
+    include('./mult_submits.inc.php3');
 }
 
 

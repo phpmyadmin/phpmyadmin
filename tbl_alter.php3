@@ -6,65 +6,72 @@
  * Gets some core libraries
  */
 require('./grab_globals.inc.php3');
-if (isset($submit)) {
-    $js_to_run = 'functions.js';
+if (!isset($submit_mult)) {
+    if (isset($submit)) {
+        $js_to_run = 'functions.js';
+    }
+    include('./header.inc.php3');
 }
-require('./header.inc.php3');
 
 
 /**
  * Modifications have been submitted -> updates the table
  */
 if (isset($submit)) {
-    if (get_magic_quotes_gpc()) {
-        $field_name[0]    = stripslashes($field_name[0]);
-        $field_default[0] = stripslashes($field_default[0]);
-        $field_length[0]  = stripslashes($field_length[0]);
-    }
-
-    if (MYSQL_INT_VERSION < 32306) {
-        check_reserved_words($field_name[0]);
-    }
-
-    // Some fields have been urlencoded or double quotes have been translated
-    // to "&quot;" in tbl_properties.php3
-    $field_orig[0]     = urldecode($field_orig[0]);
-    if (str_replace('"', '&quot;', $field_orig[0]) == $field_name[0]) {
-        $field_name[0] = $field_orig[0];
-    }
-    $field_default_orig[0] = urldecode($field_default_orig[0]);
-    if (str_replace('"', '&quot;', $field_default_orig[0]) == $field_default[0]) {
-        $field_default[0]  = $field_default_orig[0];
-    }
-    $field_length_orig[0] = urldecode($field_length_orig[0]);
-    if (str_replace('"', '&quot;', $field_length_orig[0]) == $field_length[0]) {
-        $field_length[0] = $field_length_orig[0];
-    }
-    if (!isset($query)) {
-        $query = '';
-    }
-    $query .= ' ' . backquote($field_orig[0]) . ' ' . backquote($field_name[0]) . ' ' . $field_type[0];
-    // Some field types shouldn't have lengths
-    if ($field_length[0] != ''
-        && !eregi('^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$', $field_type[0])) {
-        $query .= '(' . $field_length[0] . ')';
-    }
-    if ($field_attribute[0] != '') {
-        $query .= ' ' . $field_attribute[0];
-    }
-    if ($field_default[0] != '') {
-        if (strtoupper($field_default[0]) == 'NULL') {
-            $query .= ' DEFAULT NULL';
-        } else {
-            $query .= ' DEFAULT \'' . sql_addslashes($field_default[0]) . '\'';
+    $field_cnt = count($field_orig);
+    for ($i = 0; $i < $field_cnt; $i++) {
+        if (get_magic_quotes_gpc()) {
+            $field_name[$i]    = stripslashes($field_name[$i]);
+            $field_default[$i] = stripslashes($field_default[$i]);
+            $field_length[$i]  = stripslashes($field_length[$i]);
         }
-    }
-    if ($field_null[0] != '') {
-        $query .= ' ' . $field_null[0];
-    }
-    if ($field_extra[0] != '') {
-        $query .= ' ' . $field_extra[0];
-    }
+
+        if (MYSQL_INT_VERSION < 32306) {
+            check_reserved_words($field_name[$i]);
+        }
+
+        // Some fields have been urlencoded or double quotes have been translated
+        // to "&quot;" in tbl_properties.php3
+        $field_orig[$i]     = urldecode($field_orig[$i]);
+        if (str_replace('"', '&quot;', $field_orig[$i]) == $field_name[$i]) {
+            $field_name[$i] = $field_orig[$i];
+        }
+        $field_default_orig[$i] = urldecode($field_default_orig[$i]);
+        if (str_replace('"', '&quot;', $field_default_orig[$i]) == $field_default[$i]) {
+            $field_default[$i]  = $field_default_orig[$i];
+        }
+        $field_length_orig[$i] = urldecode($field_length_orig[$i]);
+        if (str_replace('"', '&quot;', $field_length_orig[$i]) == $field_length[$i]) {
+            $field_length[$i] = $field_length_orig[$i];
+        }
+        if (!isset($query)) {
+            $query = '';
+        } else {
+            $query .= ', CHANGE ';
+        }
+        $query .= backquote($field_orig[$i]) . ' ' . backquote($field_name[$i]) . ' ' . $field_type[$i];
+        // Some field types shouldn't have lengths
+        if ($field_length[$i] != ''
+            && !eregi('^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT)$', $field_type[$i])) {
+            $query .= '(' . $field_length[$i] . ')';
+        }
+        if ($field_attribute[$i] != '') {
+            $query .= ' ' . $field_attribute[$i];
+        }
+        if ($field_default[$i] != '') {
+            if (strtoupper($field_default[$i]) == 'NULL') {
+                $query .= ' DEFAULT NULL';
+            } else {
+                $query .= ' DEFAULT \'' . sql_addslashes($field_default[$i]) . '\'';
+            }
+        }
+        if ($field_null[$i] != '') {
+            $query .= ' ' . $field_null[$i];
+        }
+        if ($field_extra[$i] != '') {
+            $query .= ' ' . $field_extra[$i];
+        }
+    } // end for
 
     // Optimization fix - 2 May 2001 - Robbat2
     $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' CHANGE ' . $query;
@@ -79,14 +86,27 @@ if (isset($submit)) {
  * No modifications yet required -> displays the table fields
  */
 else {
-    if (get_magic_quotes_gpc()) {
-        $field = sql_addslashes(stripslashes($field), TRUE);
+    if (!isset($selected)) {
+        $selected[]   = $field;
+        $selected_cnt = 1;
     } else {
-        $field = sql_addslashes($field, TRUE);
+        $selected_cnt = count($selected);
     }
-    $local_query = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table) . " LIKE '$field'";
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
-    $num_fields  = mysql_num_rows($result);
+
+    // TODO: optimize in case of multiple fields to modify
+    for ($i = 0; $i < $selected_cnt; $i++) {
+        if (get_magic_quotes_gpc()) {
+            $field = sql_addslashes(stripslashes($selected[$i]), TRUE);
+        } else {
+            $field = sql_addslashes($selected[$i], TRUE);
+        }
+        $local_query   = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table) . " LIKE '$field'";
+        $result        = mysql_query($local_query) or mysql_die('', $local_query);
+        $fields_meta[] = mysql_fetch_array($result);
+        mysql_free_result($result);
+    }
+
+    $num_fields  = count($fields_meta);
     $action      = 'tbl_alter.php3';
     include('./tbl_properties.inc.php3');
 }

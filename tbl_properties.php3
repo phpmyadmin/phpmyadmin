@@ -20,7 +20,7 @@ if (!isset($message)) {
  */
 if (!empty($submit_mult) || isset($btnDrop)) {
     $action = 'tbl_properties.php3';
-    include('./mult_drops.inc.php3');
+    include('./mult_submits.inc.php3');
 }
 
 
