@@ -144,52 +144,66 @@ h1       {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo 
             <input type="password" name="pma_password" value="" size="24" onfocus="this.select()" />
         </td>
     </tr>
+        <?php
+        if (count($cfgServers) > 1) {
+            echo "\n";
+            ?>
     <tr>
         <td align="<?php echo $cell_align; ?>"><?php echo $GLOBALS['strServerChoice']; ?>&nbsp;:&nbsp;</td>
         <td align="<?php echo $cell_align; ?>">
             <select name="server">
-        <?php
-        echo "\n";
-        // Displays the MySQL servers choice
-        reset($cfgServers);
-        while (list($key, $val) = each($cfgServers)) {
-            if (!empty($val['host'])) {
-                echo '                <option value="' . $key . '"';
-                if (!empty($server) && ($server == $key)) {
-                    echo ' selected="selected"';
-                }
-                echo '>';
-                if ($val['verbose'] != '') {
-                    echo $val['verbose'];
-                } else {
-                    echo $val['host'];
-                    if (!empty($val['port'])) {
-                        echo ':' . $val['port'];
+            <?php
+            echo "\n";
+            // Displays the MySQL servers choice
+            reset($cfgServers);
+            while (list($key, $val) = each($cfgServers)) {
+                if (!empty($val['host'])) {
+                    echo '                <option value="' . $key . '"';
+                    if (!empty($server) && ($server == $key)) {
+                        echo ' selected="selected"';
                     }
-                    // loic1: skip this because it's not a so good idea to
-                    //        display sockets used to everybody
-                    // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-                    //     echo ':' . $val['socket'];
-                    // }
-                }
-                // loic1: if 'only_db' is an array and there is more than one
-                //        value, displaying such informations may not be a so
-                //        good idea
-                if (!empty($val['only_db'])) {
-                    echo ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
-                }
-                if (!empty($val['user']) && ($val['auth_type'] == 'basic')) {
-                    echo '  (' . $val['user'] . ')';
-                }
-                echo '&nbsp;</option>' . "\n";
-            } // end if (!empty($val['host']))
-        } // end while
-        ?>
+                    echo '>';
+                    if ($val['verbose'] != '') {
+                        echo $val['verbose'];
+                    } else {
+                        echo $val['host'];
+                        if (!empty($val['port'])) {
+                            echo ':' . $val['port'];
+                        }
+                        // loic1: skip this because it's not a so good idea to
+                        //        display sockets used to everybody
+                        // if (!empty($val['socket']) && PMA_PHP_INT_VERSION >= 30010) {
+                        //     echo ':' . $val['socket'];
+                        // }
+                    }
+                    // loic1: if 'only_db' is an array and there is more than one
+                    //        value, displaying such informations may not be a so
+                    //        good idea
+                    if (!empty($val['only_db'])) {
+                        echo ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
+                    }
+                    if (!empty($val['user']) && ($val['auth_type'] == 'basic')) {
+                        echo '  (' . $val['user'] . ')';
+                    }
+                    echo '&nbsp;</option>' . "\n";
+                } // end if (!empty($val['host']))
+            } // end while
+            ?>
             </select>
         </td>
     </tr>
+            <?php
+        } // end if (server choice)
+        echo "\n";
+        ?>
     <tr>
         <td colspan="2" align="center">
+        <?php
+        if (count($cfgServers) == 1) {
+            echo '    <input type="hidden" name="server" value="' . $server . '" />';
+        }
+        echo "\n";
+        ?>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="submit" value="<?php echo $GLOBALS['strLogin']; ?>" />
         </td>
