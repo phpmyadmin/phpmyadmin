@@ -26,6 +26,7 @@ CONVERTOR_PARAMS="%s..%s"
 # The name is filename without inc.php3.
 #
 BASE_TRANSLATIONS=`cat <<EOT
+afrikaans-iso-8859-1
 albanian-iso-8859-1
 arabic-windows-1256
 brazilian_portuguese-iso-8859-1

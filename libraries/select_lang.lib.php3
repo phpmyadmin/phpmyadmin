@@ -46,6 +46,8 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
      * first.
      */
     $available_languages = array(
+        'af-utf-8'     => array('af|afrikaans', 'afrikaans-utf-8', 'af'), 
+        'af-iso-8859-1'=> array('af|afrikaans', 'afrikaans-iso-8859-1', 'af'), 
         'ar-utf-8'     => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic-utf-8', 'ar'),
         'ar-win1256'   => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic-windows-1256', 'ar'),
         'bg-utf-8'     => array('bg|bulgarian', 'bulgarian-utf-8', 'bg'),
