@@ -29,6 +29,9 @@ $Source$
     * tbl_addfield.php3; tbl_alter.php3: fixed bug #548495 - Alter table not
       replicate.
     * db_stats.php3; libraries/functions.js: added a check/uncheck all feature.
+    * tbl_properties.php3; tbl_properties_operations.php3: moved tables
+      comments and type features and referential integrity checkings to the
+      "table operations" page.
 
 2002-04-27 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties.php3, new tbl_properties_links.php3:

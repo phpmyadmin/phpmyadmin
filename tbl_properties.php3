@@ -110,12 +110,10 @@ $fields_cnt  = mysql_num_rows($fields_rs);
 
 <?php
 $i         = 0;
-$aryFields = array();
 
 while ($row = mysql_fetch_array($fields_rs)) {
     $i++;
     $bgcolor          = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-    $aryFields[]      = $row['Field'];
 
     $type             = $row['Type'];
     // reformat mysql query output - staybyte - 9. June 2001
@@ -602,58 +600,7 @@ if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
         </form>
     </li>
 
-    <!-- Add some new fields -->
-    <li>
-        <form method="post" action="tbl_addfield.php3"
-            onsubmit="return checkFormElementInRange(this, 'num_fields', 1)">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
-            <?php echo $strAddNewField; ?>&nbsp;:
-            <input type="text" name="num_fields" size="2" maxlength="2" value="1" class="textfield" style="vertical-align: middle" onfocus="this.select()" />
-            <select name="after_field" style="vertical-align: middle">
-                <option value="--end--"><?php echo $strAtEndOfTable; ?></option>
-                <option value="--first--"><?php echo $strAtBeginningOfTable; ?></option>
 <?php
-reset($aryFields);
-while (list($junk, $fieldname) = each($aryFields)) {
-    echo '                <option value="' . urlencode($fieldname) . '">' . sprintf($strAfter, htmlspecialchars($fieldname)) . '</option>' . "\n";
-}
-?>
-            </select>
-            <input type="submit" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
-        </form>
-    </li>
-
-<?php
-if (PMA_MYSQL_INT_VERSION >= 32334) {
-    ?>
-    <!-- Order the table -->
-    <li>
-        <form method="post" action="tbl_properties.php3">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
-            <?php echo $strAlterOrderBy; ?>&nbsp;:
-            <select name="order_field" style="vertical-align: middle">
-    <?php
-    echo "\n";
-    reset($aryFields);
-    while (list($junk, $fieldname) = each($aryFields)) {
-        echo '                <option value="' . urlencode($fieldname) . '">' . htmlspecialchars($fieldname) . '</option>' . "\n";
-    }
-    ?>
-            </select>
-            <input type="submit" name="submitorderby" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
-            &nbsp;<?php echo $strSingly . "\n"; ?>
-        </form>
-    </li>
-    <?php
-}
-echo "\n";
-
 // loic1: displays import dump feature only if file upload available
 if ($is_upload) {
     ?>
@@ -664,127 +611,6 @@ if ($is_upload) {
     <?php
 }
 echo "\n";
-
-if (PMA_MYSQL_INT_VERSION >= 32322) {
-?>
-    <!-- Table comments -->
-    <li>
-        <form method="post" action="tbl_properties.php3">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
-            <?php echo $strTableComments; ?>&nbsp;:&nbsp;
-            <input type="hidden" name="prev_comment" value="<?php echo urlencode($show_comment); ?>" />&nbsp;
-            <input type="text" name="comment" maxlength="60" size="30" value="<?php echo str_replace('"', '&quot;', $show_comment); ?>" class="textfield" style="vertical-align: middle" onfocus="this.select()" />&nbsp;
-            <input type="submit" name="submitcomment" value="<?php echo $strGo; ?>" style="vertical-align: middle" />
-        </form>
-    </li>
-
-    <!-- Table type -->
-    <?php
-    // modify robbat2 code - staybyte - 11. June 2001
-    $query  = 'SHOW VARIABLES LIKE \'have_%\'';
-    $result = mysql_query($query);
-    if ($result != FALSE && mysql_num_rows($result) > 0) {
-        while ($tmp = mysql_fetch_array($result)) {
-            if (isset($tmp['Variable_name'])) {
-                switch ($tmp['Variable_name']) {
-                    case 'have_bdb':
-                        if ($tmp['Value'] == 'YES') {
-                            $tbl_bdb    = TRUE;
-                        }
-                        break;
-                    case 'have_gemini':
-                        if ($tmp['Value'] == 'YES') {
-                            $tbl_gemini = TRUE;
-                        }
-                        break;
-                    case 'have_innodb':
-                        if ($tmp['Value'] == 'YES') {
-                            $tbl_innodb = TRUE;
-                        }
-                        break;
-                    case 'have_isam':
-                        if ($tmp['Value'] == 'YES') {
-                            $tbl_isam   = TRUE;
-                        }
-                        break;
-                } // end switch
-            } // end if isset($tmp['Variable_name'])
-        } // end while
-    } // end if $result
-
-    mysql_free_result($result);
-    echo "\n";
-    ?>
-    <li>
-        <form method="post" action="tbl_properties.php3">
-            <input type="hidden" name="server" value="<?php echo $server; ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-            <input type="hidden" name="db" value="<?php echo $db; ?>" />
-            <input type="hidden" name="table" value="<?php echo $table; ?>" />
-            <?php echo $strTableType; ?>&nbsp;:&nbsp;
-            <select name="tbl_type" style="vertical-align: middle">
-                <option value="MYISAM"<?php if ($tbl_type == 'MYISAM') echo ' selected="selected"'; ?>>MyISAM</option>
-                <option value="HEAP"<?php if ($tbl_type == 'HEAP') echo ' selected="selected"'; ?>>Heap</option>
-                <?php if (isset($tbl_bdb)) { ?><option value="BDB"<?php if ($tbl_type == 'BERKELEYDB') echo ' selected="selected"'; ?>>Berkeley DB</option><?php } ?>
-                <?php if (isset($tbl_gemini)) { ?><option value="GEMINI"<?php if ($tbl_type == 'GEMINI') echo ' selected="selected"'; ?>>Gemini</option><?php } ?>
-                <?php if (isset($tbl_innodb)) { ?><option value="INNODB"<?php if ($tbl_type == 'INNODB') echo ' selected="selected"'; ?>>INNO DB</option><?php } ?>
-                <?php if (isset($tbl_isam)) { ?><option value="ISAM"<?php if ($tbl_type == 'ISAM') echo ' selected="selected"'; ?>>ISAM</option><?php } ?>
-                <option value="MERGE"<?php if ($tbl_type == 'MRG_MYISAM') echo ' selected="selected"'; ?>>Merge</option>
-            </select>&nbsp;
-            <input type="submit" name="submittype" value="<?php echo $strGo; ?>" style="vertical-align: middle" />&nbsp;
-            <?php echo PMA_showDocuShort('T/a/Table_types.html') . "\n"; ?>
-        </form>
-    </li>
-    <?php
-    echo "\n";
-} // end MySQL >= 3.23.22
-
-// Referential integrity check
-if (!empty($cfg['Server']['relation'])) {
-
-    $local_query = 'SELECT master_field, foreign_table, foreign_field'
-                 . ' FROM ' . $cfg['Server']['relation']
-                 . ' WHERE master_table = \'' . $table . '\';';
-
-    // we need this mysql_select_db if the user has access to more than one db
-    // and $db is not the last of the list, because PMA_availableDatabases()
-    // has made a mysql_select_db() on the last one
-    mysql_select_db($db);
-
-    $result      = @mysql_query($local_query);
-
-    if ($result != FALSE && mysql_num_rows($result) > 0) {
-        ?>
-    <!-- Referential integrity check -->
-    <li style="vertical-align: top">
-        <div style="margin-bottom: 10px">
-        <?php echo $strReferentialIntegrity; ?><br />
-        <?php
-        echo "\n";
-        while ($rel = mysql_fetch_row($result)) {
-            echo '        <a href="sql.php3?' . $url_query .'&amp;sql_query='
-                 . urlencode('SELECT ' . PMA_backquote($table) . '.* FROM '
-                             . PMA_backquote($table) . ' LEFT JOIN '
-                             . PMA_backquote($rel[1]) . ' ON '
-                             . PMA_backquote($table) . '.' . PMA_backquote($rel[0])
-                             . ' = ' . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2])
-                             . ' WHERE '
-                             . PMA_backquote($rel[1]) . '.' . PMA_backquote($rel[2])
-                             . ' IS NULL')
-                 . '">' . $rel[0] . '&nbsp;->&nbsp;' . $rel[1] . '.' . $rel[2]
-                 . '</a><br />' . "\n";
-        } // end while
-        ?>
-        </div>
-    </li><br />
-        <?php
-    } // end if ($result)
-    echo "\n";
-
-} // end  if (!empty($cfg['Server']['relation']))
 ?>
 
 </ul>
