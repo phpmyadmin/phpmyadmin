@@ -326,28 +326,68 @@ while ($row = mysql_fetch_array($fields_rs)) {
         ?>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
+        <?php
+        if ($type == 'text' || $type == 'blob') {
+            echo $strPrimary . "\n";
+        } else {
+            echo "\n";
+            ?>
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAPrimaryKey, htmlspecialchars($row['Field']))); ?>"
             onclick="return confirmLink(this, 'ALTER TABLE <?php echo PMA_jsFormat($table); ?> DROP PRIMARY KEY, ADD PRIMARY KEY(<?php echo PMA_jsFormat($row['Field']); ?>)')">
             <?php echo $strPrimary; ?></a>
+            <?php
+        }
+        echo "\n";
+        ?>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
+        <?php
+        if ($type == 'text' || $type == 'blob') {
+            echo $strIndex . "\n";
+        } else {
+            echo "\n";
+            ?>
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex ,htmlspecialchars($row['Field']))); ?>">
             <?php echo $strIndex; ?></a>
+            <?php
+        }
+        echo "\n";
+        ?>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
+        <?php
+        if ($type == 'text' || $type == 'blob') {
+            echo $strUnique . "\n";
+        } else {
+            echo "\n";
+            ?>
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $strUnique; ?></a>
+            <?php
+        }
+        echo "\n";
+        ?>
     </td>
     <?php
     if (PMA_MYSQL_INT_VERSION >= 32323) {
-        echo "\n";
-        ?>
+        if ((!empty($tbl_type) && $tbl_type == 'MYISAM')
+            && ($type == 'text' || strpos(' ' . $type, 'varchar'))) {
+            echo "\n";
+            ?>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ')'); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strAnIndex , htmlspecialchars($row['Field']))); ?>">
             <?php echo $strIdxFulltext; ?></a>
     </td>
-        <?php
-    }
+            <?php
+        } else {
+            echo "\n";
+            ?>
+    <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+        <?php echo $strIdxFulltext . "\n"; ?>
+    </td>
+            <?php
+        } // end if... else...
+    } // end if
     echo "\n"
     ?>
 </tr>
@@ -1070,7 +1110,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
     <!-- Table type -->
     <?php
     // modify robbat2 code - staybyte - 11. June 2001
-    $query  = "SHOW VARIABLES LIKE 'have_%'";
+    $query  = 'SHOW VARIABLES LIKE \'have_%\'';
     $result = mysql_query($query);
     if ($result != FALSE && mysql_num_rows($result) > 0) {
         while ($tmp = mysql_fetch_array($result)) {
@@ -1128,9 +1168,10 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
     echo "\n";
 } // end MySQL >= 3.23.22
 
-else { // MySQL < 3.23.22
-    // FIXME: find a way to know the table type, then let OPTIMIZE if MYISAM or
-    // BDB
+// loic1: "OPTIMIZE" statement is available for MyISAM and BDB tables only and
+//        MyISAM/BDB tables exists since MySQL 3.23.06/3.23.34
+else if (PMA_MYSQL_INT_VERSION >= 32306
+         && ($tbl_type == 'MYISAM' or $tbl_type == 'BDB')) {
     ?>
     <!-- Table maintenance -->
     <li style="vertical-align: top">
@@ -1143,7 +1184,7 @@ else { // MySQL < 3.23.22
     </li>
     <?php
     echo "\n";
-} // end MySQL < 3.23.22
+} // end 3.23.06 < MySQL < 3.23.22
 ?>
 
     <!-- Flushes the table -->
