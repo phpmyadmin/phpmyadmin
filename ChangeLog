@@ -4,6 +4,12 @@ phpMyAdmin - Changelog
 
 $Id$
 $Source$
+
+2002-06-14 Marc Delisle  <lem9@users.sourceforge.net>
+    * big patch for charset support, all files that call mysql have been
+      modified; thanks to Michal Cihar.
+      TODO: generate the utf-8 files
+
 2002-06-14 Mike Beck    <mikebeck@users.sourceforge.net>
     * tbl_qbe:  Bugfixing
       - Don't try to use a generated SQL Statement without
@@ -11,6 +17,7 @@ $Source$
         this could happen)
       - if no LEFT JOINS are generated make sure that the
         array containing tablenames is unique
+
 2002-06-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/turkish.inc.php3: Updates, thanks again to
       Bora Alioglu <bora@risc01.ktu.edu.tr>.
