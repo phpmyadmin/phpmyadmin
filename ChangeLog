@@ -10,6 +10,7 @@ $Source$
     * lang/dutch: Updated, thanks to Gilles van den Hoven.
     * lang/thai: Updated.
     * lang/italian: Updated, thanks to Pietro Danesi.
+    * lang/indonesian: Updated, thanks to Rachim Tamsjadi.
 
 2003-03-18 Garvin Hicking <me@supergarv.de>
     * libraries/display_export.lib.php3: Fixed variable usage.
