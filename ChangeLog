@@ -5,18 +5,25 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-05  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3: create the variable $is_show_processlist so the same
+	  regular expression dont have to be tested three times.
+	* ob_lib.inc.php3, lines 34-42: 'get_cfg_var' is only a second best
+	  solution (it won't yake into account httpd.conf directives when php is
+	  loaded as an apache module, for example).
+
 2001-08-04  Marc Delisle  <lem9@users.sourceforge.net>
-	* ob_lib.inc.php3, oops: must be PHP3 compatible
-	* sql.php3: bug 447771 bad counting of entries, patch developed
-	from an idea of Ignacio Vazquez-Abrams (ivazquezabrams) 
+	* ob_lib.inc.php3, oops: must be PHP3 compatible.
+	* sql.php3: bug 447771 bad counting of entries, patch developed from an
+	  from an idea of Ignacio Vazquez-Abrams (ivazquezabrams).
 	* tbl_properties.php3: check if new variables $cfgGZipDump and
-	  $cfgBZipDump are set (else PHP3 complains)
-	* db_details.php3: was not using those 2 new variables 
+	  $cfgBZipDump are set (else PHP3 complains).
+	* db_details.php3: was not using those 2 new variables.
 
 2001-08-04  Steve Alberty  <alberty@neptunlabs.de>
-	* lib.inc.php3: fixed #444017 (thanks anonymous)
+	* lib.inc.php3: fixed #444017 (thanks anonymous).
 	* db_details.php3, tbl_replace.php3, sql.php3, user_details.php3
-	  fixed #444542 - replace preg_xxx with ereg (thanks Marc)
+	  fixed #444542 - replace preg_xxx with ereg (thanks Marc).
 
 2001-08-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3, db_details.php3, Documentation.html,
