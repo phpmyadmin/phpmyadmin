@@ -1,10 +1,10 @@
 <?php
+
 /* $Id$ */
 
 /**
  * Translation made by: Sime Essert <sime@nofrx.org>
  */
-
 
 $charset = 'utf-8';
 $allow_recoding = TRUE;
@@ -35,9 +35,9 @@ $strAddToIndex = 'Dodaj ključ';
 $strAddUser = 'Dodaj novog korisnika';
 $strAddUserMessage = 'Korisnik dodan';
 $strAffectedRows = 'Promijenjeno redaka:';
-$strAfter = 'Nakon %s';
 $strAfterInsertBack = 'Natrag na prethodnu stranicu';
 $strAfterInsertNewInsert = 'Dodaj još jedan red';
+$strAfter = 'Nakon %s';
 $strAll = 'Sve';
 $strAlterOrderBy = 'Promijeni redoslijed u tablici';
 $strAnalyzeTable = 'Analiziraj tablicu';
@@ -70,52 +70,52 @@ $strCantLoadMySQL = 'Ne mogu učitati MySql ekstenziju,<br /> molim provjerite P
 $strCantRenameIdxToPrimary = 'Ne mogu promijeniti ključ u PRIMARY (primarni) !';
 $strCardinality = 'Kardinalnost';
 $strCarriage = 'Novi red (carriage return): \\r';
-$strChange = 'Promijeni';
 $strChangePassword = 'Promijeni šifru';
+$strChange = 'Promijeni';
 $strCheckAll = 'Označi sve';
 $strCheckDbPriv = 'Provjeri privilegije baze podataka';
 $strCheckTable = 'Provjeri tablicu';
-$strColumn = 'Stupac';
 $strColumnNames = 'Imena stupaca';
+$strColumn = 'Stupac';
 $strCompleteInserts = 'Kompletan INSERT (sa imenima polja)';
 $strConfirm = 'Da li stvarno to želite učiniti?';
 $strCookiesRequired = '<i>Cookies</i> moraju biti omogućeni.';
 $strCopyTable = 'Kopiram tablicu u (baza<b>.</b>tablica):';
 $strCopyTableOK = 'Tablica %s je upravo kopirana u %s.';
-$strCreate = 'Napravi';
 $strCreateIndex = 'Napravi ključ sa&nbsp;%s&nbsp;stupcem(aca)';
 $strCreateIndexTopic = 'Napravi novi ključ';
+$strCreate = 'Napravi';
 $strCreateNewDatabase = 'Napravi bazu podataka';
 $strCreateNewTable = 'Napravi novu tablicu u bazi ';
 $strCriteria = 'Kriterij';
 
-$strData = 'Podaci';
 $strDatabase = 'Baza podataka ';
 $strDatabaseHasBeenDropped = 'Baza %s je izbrisana.';
 $strDatabases = 'baze';
 $strDatabasesStats = 'Statistika baze';
 $strDatabaseWildcard = 'Baza (<i>wildcard</i> znakovi dozvoljeni):';
 $strDataOnly = 'Samo podaci';
+$strData = 'Podaci';
 $strDefault = 'Default';
-$strDelete = 'Izbriši';
 $strDeleted = 'Red je izbrisan';
 $strDeletedRows = 'Izbrisani redovi:';
 $strDeleteFailed = 'Brisanje nije uspjelo!';
+$strDelete = 'Izbriši';
 $strDeleteUserMessage = 'Upravo ste izbrisali korisnika: %s.';
 $strDescending = 'Opadajući';
-$strDisplay = 'Prikaži';
 $strDisplayOrder = 'Redoslijed prikaza:';
+$strDisplay = 'Prikaži';
 $strDoAQuery = 'Napravi "upit po primjeru" (<i>wildcard</i>: "%")';
 $strDocu = 'Dokumentacija';
 $strDoYouReally = 'Da li stvarno želite ';
-$strDrop = 'Izbriši';
 $strDropDB = 'Izbriši bazu %s';
+$strDrop = 'Izbriši';
 $strDropTable = 'Izbriši tablicu';
 $strDumpingData = 'Izvoz <i>(dump)</i> podataka tablice';
 $strDynamic = 'dinamično';
 
-$strEdit = 'Promijeni';
 $strEditPrivileges = 'Promijeni privilegije';
+$strEdit = 'Promijeni';
 $strEffective = 'Efektivno';
 $strEmpty = 'Isprazni';
 $strEmptyResultSet = 'MySQL je vratio prazan rezultat (nula redaka).';
@@ -125,8 +125,8 @@ $strError = 'Greška';
 $strExtendedInserts = 'Prošireni INSERT';
 $strExtra = 'Dodatno';
 
-$strField = 'Polje';
 $strFieldHasBeenDropped = 'Polje %s izbrisano';
+$strField = 'Polje';
 $strFields = 'Broj polja';
 $strFieldsEmpty = ' Broj polja je nula! ';
 $strFieldsEnclosedBy = 'Podaci ograđeni sa';
@@ -146,24 +146,24 @@ $strGzip = '"gzip-ano"';
 
 $strHasBeenAltered = 'je promijenjen.';
 $strHasBeenCreated = 'je kreiran/a.';
-$strHome = 'Početna stranica';
 $strHomepageOfficial = 'phpMyAdmin WEB site';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Stranica';
-$strHost = 'Host (domena)';
+$strHome = 'Početna stranica';
 $strHostEmpty = 'Ime domene je prazno!';
+$strHost = 'Host (domena)';
 
 $strIdxFulltext = 'Puni tekst';
 $strIfYouWish = 'Ukoliko želite pregledati samo neke stupce u tablici, navedite ih razdvojene zarezom';
 $strIgnore = 'Ignoriraj';
-$strIndex = 'Ključ';
 $strIndexes = 'Ključevi';
 $strIndexHasBeenDropped = 'Ključ %s je izbrisan';
+$strIndex = 'Ključ';
 $strIndexName = 'Ime ključa :';
 $strIndexType = 'Vrsta ključa :';
-$strInsert = 'Novi redak';
 $strInsertAsNewRow = 'Unesi kao novi redak';
 $strInsertedRows = 'Uneseni reci:';
 $strInsertNewRow = 'Unesi novi redak';
+$strInsert = 'Novi redak';
 $strInsertTextfiles = 'Ubaci podatke iz tekstualne datoteke';
 $strInstructions = 'Uputstva';
 $strInUse = 'se koristi';
@@ -179,6 +179,7 @@ $strLimitNumRows = 'Broj redaka po stranici';
 $strLineFeed = '<i>Linefeed</i>: \\n';
 $strLines = 'Linije';
 $strLinesTerminatedBy = 'Linije završavaju na';
+$strLinksTo = 'Links to';
 $strLocationTextfile = 'Lokacija tekstualne datoteke';
 $strLogin = 'Prijava';
 $strLogout = 'Odjava';
@@ -186,10 +187,10 @@ $strLogPassword = 'Lozinka:';
 $strLogUsername = 'Korisničko ime:';
 
 $strModifications = 'Izmjene su spremljene';
-$strModify = 'Promijeni';
 $strModifyIndexTopic = 'Promijeni ključ';
-$strMoveTable = 'Preimenuj tablicu u (baza<b>.</b>tablica):';
+$strModify = 'Promijeni';
 $strMoveTableOK = 'Tablica %s se sada zove %s.';
+$strMoveTable = 'Preimenuj tablicu u (baza<b>.</b>tablica):';
 $strMySQLReloaded = 'MySQL je ponovno pokrenut (<i>reload</i>).';
 $strMySQLSaid = 'MySQL poruka: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% pokrenut na %pma_s2%, prijavljen kao %pma_s3%';
@@ -199,13 +200,13 @@ $strMySQLShowVars = 'Prikaži MySQL sistemske varijable';
 
 $strName = 'Ime';
 $strNext = 'Sljedeći';
-$strNo = 'Ne';
 $strNoDatabases = 'Baza ne postoji';
 $strNoDropDatabases = '"DROP DATABASE" naredba je onemogućena.';
 $strNoFrames = 'phpMyAdmin preferira preglednike koji podržavaju frame-ove.';
 $strNoIndex = 'Ključ nije definiran!';
 $strNoIndexPartsDefined = 'Dijelovi ključa nisu definirani!';
 $strNoModification = 'Nema nikakvih promjena';
+$strNo = 'Ne';
 $strNone = 'Ništa';
 $strNoPassword = 'Nema lozinke';
 $strNoPrivileges = 'Nema privilegija';
@@ -225,26 +226,26 @@ $strOr = 'ili';
 $strOverhead = 'Prekoračenje';
 
 $strPartialText = 'Dio teksta';
-$strPassword = 'Lozinka';
 $strPasswordEmpty = 'Lozinka je prazna!';
+$strPassword = 'Lozinka';
 $strPasswordNotSame = 'Lozinka se ne podudara!';
 $strPHPVersion = 'verzija PHP-a';
 $strPmaDocumentation = 'phpMyAdmin dokumentacija';
 $strPmaUriError = '<tt>$cfg[\'PmaAbsoluteUri\']</tt> dio mora biti namješten u konfiguracijskoj datoteci (config.inc.php)!';
 $strPos1 = 'Početak';
 $strPrevious = 'Prethodna';
-$strPrimary = 'Primarni';
-$strPrimaryKey = 'Primarni ključ';
 $strPrimaryKeyHasBeenDropped = 'Primarni ključ je izbrisan';
 $strPrimaryKeyName = 'Ime primarnog ključa mora biti... PRIMARY!';
+$strPrimaryKey = 'Primarni ključ';
 $strPrimaryKeyWarning = '("PRIMARY" <b>mora</b> biti ime i <b>samo</b> ime primarnog ključa!)';
+$strPrimary = 'Primarni';
 $strPrintView = 'Sažetak';
 $strPrivileges = 'Privilegije';
 $strProperties = 'Svojstva';
 
-$strQBE = 'Upit po primjeru';
 $strQBEDel = 'Del';
 $strQBEIns = 'Ins';
+$strQBE = 'Upit po primjeru';
 $strQueryOnDb = 'SQL upit na bazi <b>%s</b>:';
 
 $strRecords = 'Reci';
@@ -252,45 +253,45 @@ $strReferentialIntegrity = 'Provjeri ispravnost veza:';
 $strReloadFailed = 'ponovno pokretanje MySQL-a nije uspjelo.';
 $strReloadMySQL = 'Ponovo pokreni MySQL (<i>reload</i>)';
 $strRememberReload = 'Ne zaboravite ponovo pokrenuti (<i>reload</i>) server.';
-$strRenameTable = 'Promijeni ime tablice u ';
 $strRenameTableOK = 'Tablici %s promjenjeno ime u %s';
+$strRenameTable = 'Promijeni ime tablice u ';
 $strRepairTable = 'Popravi tablicu';
-$strReplace = 'Zamijeni';
 $strReplaceTable = 'Zamijeni podatke u tablici sa datotekom';
+$strReplace = 'Zamijeni';
 $strReset = 'Resetiraj';
 $strReType = 'Ponovite unos';
-$strRevoke = 'Opozovi';
-$strRevokeGrant = 'Opozovi Grant';
 $strRevokeGrantMessage = 'Opozvali ste Grant privilegije za  %s';
+$strRevokeGrant = 'Opozovi Grant';
 $strRevokeMessage = 'Opozvali ste privilegije za %s';
+$strRevoke = 'Opozovi';
 $strRevokePriv = 'Opozovi privilegije';
 $strRowLength = 'Dužina retka';
-$strRows = 'Redaka';
 $strRowsFrom = ' redaka počevši od retka';
 $strRowSize = ' Veličina retka ';
 $strRowsModeHorizontal = 'horizontalnom';
 $strRowsModeOptions = 'u %s načinu i ispiši zaglavlje poslije svakog %s retka';
 $strRowsModeVertical = 'vertikalnom';
+$strRows = 'Redaka';
 $strRowsStatistic = 'Statistika redaka';
 $strRunning = 'pokrenuto na %s';
 $strRunQuery = 'Izvrši SQL upit';
 $strRunSQLQuery = 'Izvrši SQL upit(e) na bazi ';
 
 $strSave = 'Spremi';
-$strSelect = 'Označi';
 $strSelectADb = 'Izaberite bazu';
 $strSelectAll = 'Označi sve';
 $strSelectFields = 'Izaberite polja (najmanje jedno)';
 $strSelectNumRows = 'u upitu';
+$strSelect = 'Označi';
 $strSend = 'Spremi u datoteku';
 $strServerChoice = 'Izbor servera';
 $strServerVersion = 'Verzija servera';
 $strSetEnumVal = 'Ako je polje "enum" ili "set", unesite vrijednosti u formatu: \'a\',\'b\',\'c\'...<br />Ako vam zatreba <i>backslash</i> ("\") ili jednostruki navodnik ("\'") navedite ih koristeći <i>backslash</i> (npr. \'\\\\xyz\' ili \'a\\\'b\').';
-$strShow = 'Prikaži';
 $strShowAll = 'Prikaži sve';
 $strShowCols = 'Prikaži stupce';
 $strShowingRecords = 'Prikaz redaka';
 $strShowPHPInfo = 'Prikaži informacije o PHP-u';
+$strShow = 'Prikaži';
 $strShowTables = 'Prikaži tablice';
 $strShowThisQuery = ' Prikaži ovaj upit ponovo ';
 $strSingly = '(po jednom polju)';
@@ -308,7 +309,6 @@ $strSubmit = 'Pokreni';
 $strSuccess = 'Vaš SQL upit je uspješno izvršen';
 $strSum = 'Ukupno';
 
-$strTable = 'tablica ';
 $strTableComments = 'Komentar tablice';
 $strTableEmpty = 'Ime tablice je prazno!';
 $strTableHasBeenDropped = 'Tablica %s je izbrisana';
@@ -317,6 +317,7 @@ $strTableHasBeenFlushed = 'Tablica %s je osvježena';
 $strTableMaintenance = 'Radnje na tablici';
 $strTables = '%s tablica/e';
 $strTableStructure = 'Struktura tablice';
+$strTable = 'tablica ';
 $strTableType = 'Vrsta tablice';
 $strTextAreaLength = ' Zbog veličine ovog polja,<br /> polje možda nećete moći mijenjati ';
 $strTheContent = 'Sadržaj datoteke je stavljen u bazu.';
@@ -329,20 +330,20 @@ $strUncheckAll = 'Makni oznake';
 $strUnique = 'Jedinstveni ključ';
 $strUnselectAll = 'Makni oznake';
 $strUpdatePrivMessage = 'Promijenili ste privilegije za %s.';
-$strUpdateProfile = 'Promijeni profil:';
 $strUpdateProfileMessage = 'Profil je promijenjen.';
+$strUpdateProfile = 'Promijeni profil:';
 $strUpdateQuery = 'Promijeni SQL-upit';
 $strUsage = 'Zauzeće';
 $strUseBackquotes = 'Koristi \' za ograničavanje imena polja';
-$strUser = 'Korisnik';
 $strUserEmpty = 'Ime korisnika je prazno!';
+$strUser = 'Korisnik';
 $strUserName = 'Ime korisnika';
 $strUsers = 'Korisnici';
 $strUseTables = 'Koristi tablice';
 
 $strValue = 'Vrijednost';
-$strViewDump = 'Prikaži dump (shemu) tablice';
 $strViewDumpDB = 'Prikaži dump (shemu) baze';
+$strViewDump = 'Prikaži dump (shemu) tablice';
 
 $strWelcome = 'Dobrodošli u %s';
 $strWithChecked = 'Označeno:';
@@ -351,31 +352,73 @@ $strWrongUser = 'Pogrešno korisničko ime/lozinka. Pristup odbijen.';
 $strYes = 'Da';
 
 $strZip = '"zip-ano"';
-
 // To translate
-$strLinksTo = 'Links to';
-$strExport = 'Export';  //to translate
-$strOperations = 'Operations';  //to translate
-$strExportToXML = 'Export to XML format'; //to translate
-$strOptions = 'Options';  //to translate
-$strStructure = 'Structure';  //to translate
-$strRelationView = 'Relation view';  //to translate
-$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
-$strSQL = 'SQL'; //to translate
-$strLinkNotFound = 'Link not found';  //to translate
-$strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
-$strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
-$strDisplayPDF = 'Display PDF schema';  //to translate
-$strPageNumber = 'Page number:';  //to translate
-$strShowGrid = 'Show grid';  //to translate
-$strShowColor = 'Show color';  //to translate
-$strShowTableDimension = 'Show dimension of tables';  //to translate
-$strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
-$strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
+
+
+$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
+
+$strBeginCut = 'BEGIN CUT';  //to translate
+$strBeginRaw = 'BEGIN RAW';  //to translate
+
+$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
+$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
 $strChangeDisplay = 'Choose Field to display';  //to translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
+$strChoosePage = 'Please choose a Page to edit';  //to translate
+$strColComFeat = 'Displaying Column Comments';  //to translate
+$strComments = 'Comments';  //to translate
+$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
+$strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
+$strCreatePage = 'Create a new Page';  //to translate
+$strCreatePdfFeat = 'Creation of PDFs';  //to translate
+
+$strDisabled = 'Disabled';  //to translate
+$strDisplayFeat = 'Display Features';  //to translate
+$strDisplayPDF = 'Display PDF schema';  //to translate
+$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
+
+$strEditPDFPages = 'Edit PDF Pages';  //to translate
+$strEnabled = 'Enabled';  //to translate
+$strEndCut = 'END CUT';  //to translate
+$strEndRaw = 'END RAW';  //to translate
+$strExplain = 'Explain SQL';  //to translate
+$strExport = 'Export';  //to translate
+$strExportToXML = 'Export to XML format'; //to translate
+
+$strGenBy = 'Generated by'; //to translate
+$strGeneralRelationFeat = 'General relation features';  //to translate
+
+$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
+
+$strLinkNotFound = 'Link not found';  //to translate
+
+$strMissingBracket = 'Missing Bracket';  //to translate
+$strMySQLCharset = 'MySQL Charset';  //to translate
+
+$strNoDescription = 'no Description';  //to translate
+$strNoExplain = 'Skip Explain SQL';  //to translate
+$strNoPhp = 'without PHP Code';  //to translate
+$strNotOK = 'not OK';  //to translate
+$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
+$strNoValidateSQL = 'Skip Validate SQL';  //to translate
 $strNumSearchResultsInTable = '%s match(es) inside table <i>%s</i>';//to translate
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> match(es)';//to translate
-$strSearch = 'Search';//to translate
+
+$strOK = 'OK';  //to translate
+$strOperations = 'Operations';  //to translate
+$strOptions = 'Options';  //to translate
+
+$strPageNumber = 'Page number:';  //to translate
+$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
+$strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
+$strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
+$strPdfNoTables = 'No tables';  //to translate
+$strPhp = 'Create PHP Code';  //to translate
+
+$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
+$strRelationView = 'Relation view';  //to translate
+
+$strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
 $strSearchFormTitle = 'Search in database';//to translate
 $strSearchInTables = 'Inside table(s):';//to translate
 $strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';//to translate
@@ -384,50 +427,23 @@ $strSearchOption2 = 'all words';//to translate
 $strSearchOption3 = 'the exact phrase';//to translate
 $strSearchOption4 = 'as regular expression';//to translate
 $strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
+$strSearch = 'Search';//to translate
 $strSearchType = 'Find:';//to translate
-$strSplitWordsWithSpace = 'Words are seperated by a space character (" ").';//to translate
-$strStructPropose = 'Propose table structure';  //to translate
-$strPhp = 'Create PHP Code';  //to translate
-$strNoPhp = 'without PHP Code';  //to translate
-$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
-$strGenBy = 'Generated by'; //to translate
-$strSQLResult = 'SQL result'; //to translate
-$strEditPDFPages = 'Edit PDF Pages';  //to translate
-$strNoDescription = 'no Description';  //to translate
-$strChoosePage = 'Please choose a Page to edit';  //to translate
-$strCreatePage = 'Create a new Page';  //to translate
 $strSelectTables = 'Select Tables';  //to translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strShowColor = 'Show color';  //to translate
+$strShowGrid = 'Show grid';  //to translate
+$strShowTableDimension = 'Show dimension of tables';  //to translate
+$strSplitWordsWithSpace = 'Words are seperated by a space character (" ").';//to translate
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strSQLResult = 'SQL result'; //to translate
+$strSQL = 'SQL'; //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
+$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
+$strStructPropose = 'Propose table structure';  //to translate
+$strStructure = 'Structure';  //to translate
+
+$strValidateSQL = 'Validate SQL';  //to translate
+
 ?>

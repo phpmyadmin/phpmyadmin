@@ -1,4 +1,5 @@
 <?php
+
 /* $Id$ */
 
 // Thai translation
@@ -20,6 +21,7 @@ $month = array('ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.',
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%e %B %Y  %Rน.';
+
 
 $strAccessDenied = 'ไม่อนุญาตให้ใช้งาน';
 $strAction = 'กระทำการ';
@@ -57,8 +59,8 @@ $strAttr = 'แอตทริบิวต์';
 $strBack = 'ย้อนกลับ';
 $strBeginCut = 'BEGIN CUT (จุดตัดเริ่ม)';
 $strBeginRaw = 'BEGIN RAW (เริ่ม RAW)';
-$strBinary = ' ข้อมูลไบนารี ';
 $strBinaryDoNotEdit = ' ข้อมูลไบนารี - ห้ามแก้ไข ';
+$strBinary = ' ข้อมูลไบนารี ';
 $strBookmarkDeleted = 'ลบคำค้นที่จดไว้เรียบร้อยแล้ว';
 $strBookmarkLabel = 'ป้ายชื่อ';
 $strBookmarkQuery = 'คำค้นนี้ถูกจดไว้แล้ว';
@@ -101,12 +103,12 @@ $strCreatePage = 'เริ่มหน้าใหม่';
 $strCreatePdfFeat = 'การสร้างเอกสาร PDF';
 $strCriteria = 'เงื่อนไข';
 
-$strData = 'ข้อมูล';
-$strDatabase = 'ฐานข้อมูล ';
 $strDatabaseHasBeenDropped = 'โยนฐานข้อมูล %s ทิ้งไปเรียบร้อยแล้ว';
+$strDatabase = 'ฐานข้อมูล ';
 $strDatabases = 'ฐานข้อมูล';
 $strDatabasesStats = 'สถิติฐานข้อมูล';
 $strDatabaseWildcard = 'ฐานข้อมูล (ใช้ wildcards ได้):';
+$strData = 'ข้อมูล';
 $strDataOnly = 'เฉพาะข้อมูล';
 $strDefault = 'ค่าปริยาย';
 $strDelete = 'ลบ';
@@ -118,8 +120,8 @@ $strDescending = 'มากไปน้อย';
 $strDisabled = 'ระงับการใช้อยู่';
 $strDisplay = 'แสดงผล';
 $strDisplayFeat = 'ความสามารถด้านการแสดงผล';
-$strDisplayPDF = 'แสดง PDF schema';
 $strDisplayOrder = 'ลำดับการแสดง:';
+$strDisplayPDF = 'แสดง PDF schema';
 $strDoAQuery = 'ทำ "คำค้นจากตัวอย่าง" (wildcard: "%")';
 $strDocu = 'เอกสารอ้างอิง';
 $strDoYouReally = 'ต้องการจะ ';
@@ -137,8 +139,8 @@ $strEffective = 'มีผล';
 $strEmpty = 'ลบข้อมูล';
 $strEmptyResultSet = 'MySQL คืนผลลัพธ์ว่างเปล่า (null) กลับมา (0 แถว).';
 $strEnabled = 'เปิดใช้อยู่';
-$strEnd = 'ท้ายสุด';
 $strEndCut = 'END CUT (จุดตัดสิ้นสุด)';
+$strEnd = 'ท้ายสุด';
 $strEndRaw = 'END RAW (สิ้นสุด RAW)';
 $strEnglishPrivileges = ' โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ ';
 $strError = 'ผิดพลาด';
@@ -148,12 +150,12 @@ $strExportToXML = 'ส่งออกเป็นรูปแบบ XML';
 $strExtendedInserts = 'แทรกหลายระเบียนในคราวเดียว';
 $strExtra = 'เพิ่มเติม';
 
-$strField = 'ฟิลด์';
 $strFieldHasBeenDropped = 'โยนฟิลด์ %s ทิ้งไปเรียบร้อยแล้ว';
-$strFields = 'จำนวนฟิลด์';
+$strField = 'ฟิลด์';
 $strFieldsEmpty = ' จำนวนฟิลด์คือ ว่างเปล่า! ';
 $strFieldsEnclosedBy = 'คร่อมฟิลด์ด้วย';
 $strFieldsEscapedBy = 'เครื่องหมายสำหรับ escape char';
+$strFields = 'จำนวนฟิลด์';
 $strFieldsTerminatedBy = 'จบฟิลด์ด้วย';
 $strFixed = 'คงที่';
 $strFlushTable = 'ล้างตาราง ("FLUSH")';
@@ -181,9 +183,9 @@ $strHostEmpty = 'ชื่อโฮสต์ยังว่างอยู่!';
 $strIdxFulltext = 'Fulltext';
 $strIfYouWish = 'ถ้าต้องการเรียกดูเฉพาะบางคอลัมน์ ให้ระบุรายชื่อฟิลด์มาด้วย (คั่นแต่ละชื่อด้วยเครื่องหมายลูกน้ำ)';
 $strIgnore = 'ไม่สนใจ';
-$strIndex = 'ดัชนี';
 $strIndexes = 'ดัชนี';
 $strIndexHasBeenDropped = 'โยนดัชนี %s ทิ้งไปเรียบร้อยแล้ว';
+$strIndex = 'ดัชนี';
 $strIndexName = 'ชื่อดัชนี :';
 $strIndexType = 'ชนิดของดัชนี :';
 $strInsert = 'แทรก';
@@ -280,18 +282,18 @@ $strPmaDocumentation = 'เอกสารการใช้ phpMyAdmin';
 $strPmaUriError = '<b>ต้อง</b>กำหนดค่า <tt>$cfg[\'PmaAbsoluteUri\']</tt> ในไฟล์คอนฟิกูเรชั่นเสียก่อน';
 $strPos1 = 'จุดเริ่มต้น';
 $strPrevious = 'ก่อนหน้า';
-$strPrimary = 'Primary';
-$strPrimaryKey = 'Primary key';
 $strPrimaryKeyHasBeenDropped = 'โยนไพรมารีคีย์ทิ้งไปเรียบ ร้อยแล้ว';
 $strPrimaryKeyName = 'ชื่อของไพรมารีคีย์จะต้องเป็น... PRIMARY!';
+$strPrimaryKey = 'Primary key';
 $strPrimaryKeyWarning = '(ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> "PRIMARY" เท่านั้น!)';
+$strPrimary = 'Primary';
 $strPrintView = 'แสดง';
 $strPrivileges = 'สิทธิ';
 $strProperties = 'คุณสมบัติ';
 
-$strQBE = 'คำค้นจากตัวอย่าง';
 $strQBEDel = 'ลบ';
 $strQBEIns = 'เพิ่ม';
+$strQBE = 'คำค้นจากตัวอย่าง';
 $strQueryOnDb = 'คำค้นบนฐานข้อมูล <b>%s</b>:';
 
 $strRecords = 'ระเบียน';
@@ -352,9 +354,9 @@ $strShowAll = 'แสดงทั้งหมด';
 $strShowColor = 'แสดงสี';
 $strShowCols = 'แสดงคอลัมน์';
 $strShowGrid = 'แสดงกริด';
-$strShowTableDimension = 'แสดงมิติของตาราง';
 $strShowingRecords = 'แสดงระเบียนที่ ';
 $strShowPHPInfo = 'แสดงข้อมูลของ PHP';
+$strShowTableDimension = 'แสดงมิติของตาราง';
 $strShowTables = 'แสดงตาราง';
 $strShowThisQuery = ' แสดงคำค้นนี้อีกที ';
 $strSingly = '(เดี่ยว)';
@@ -362,19 +364,19 @@ $strSize = 'ขนาด';
 $strSort = 'เรียง';
 $strSpaceUsage = 'เนื้อที่ที่ใช้';
 $strSplitWordsWithSpace = 'คำถูกแบ่งด้วยช่องว่าง (" ").';
-$strSQL = 'SQL';
 $strSQLParserBugMessage = 'อาจจะมีการเปลี่ยนแปลงบางอย่างที่คุณพบว่ามันเป็นข้อผิดพลาดของ SQL parser. กรุณาตรวจสอบคำค้นของคุณให้ถี่ถ้วน โดยเฉพาะการเปิด/ปิดเครื่องหมายคำพูด (quotes) ให้ถูกต้อง. อีกสาเหตุหนึ่งที่เป็นไปได้ของข้อผิดพลาดคือ คุณอาจจะอัพโหลดไฟล์ไบนารีข้างนอกช่วงของเครื่องหมายคำพูด. คุณสามารถที่จะลองคำค้นของคุณที่คอมมานด์ไลน์ของ MySQL ซึ่งคุณอาจจะพบข้อผิดพลาดบางอย่างในนั้น. หาก MySQL server ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น. ถ้าคุณยังพบปัญหากับ parser ใน phpMyAdmin อยู่ แต่ไม่พบปัญหากับ parser ใน command line, ให้ลองลดความยาวของคำค้น SQL ลง จนกระทั่งเหลือคำค้น SQL เดี่ยวๆ ที่ยังทำให้เกิดปัญหาอยู่อีก, แล้วแจ้งข้อผิดพลาดดังกล่าวมาที่เรา ส่งมันมาพร้อมกับตัวข้อมูลที่คุณค้น ซึ่งได้จากส่วนของ CUT ด้านล่าง.';
 $strSQLParserUserError = 'อาจจะมีข้อผิดพลาดบางอย่างในคำค้น SQL ของคุณ. หาก MySQL server ได้แจ้งข้อผิดพลาดมาด้านล่างนี้ ให้ลองอ่านดู มันอาจจะช่วยให้คุณวินิจฉัยปัญหาได้ดีขึ้น';
 $strSQLQuery = 'คำค้น SQL';
 $strSQLResult = 'ผลลัพธ์ SQL';
+$strSQL = 'SQL';
 $strSQPBugInvalidIdentifer = 'ชื่อตัวแปรไม่ถูกต้อง';
-$strSQPBugUnknownPunctuation = 'มีเครื่องหมายวรรคตอนที่ไม่รู้จัก';
 $strSQPBugUnclosedQuote = 'ไม่ได้ปิดเครื่องหมายคำพูด';
+$strSQPBugUnknownPunctuation = 'มีเครื่องหมายวรรคตอนที่ไม่รู้จัก';
 $strStatement = 'คำสั่ง';
-$strStrucExcelCSV = 'ข้อมูล CSV สำหรับไมโครซอฟต์เอ็กเซล';
 $strStrucCSV = 'ข้อมูล CSV';
 $strStrucData = 'ทั้งโครงสร้างและข้อมูล';
 $strStrucDrop = 'เพิ่มคำสั่ง \'drop table\'';
+$strStrucExcelCSV = 'ข้อมูล CSV สำหรับไมโครซอฟต์เอ็กเซล';
 $strStrucOnly = 'เฉพาะโครงสร้าง';
 $strStructPropose = 'เสนอโครงสร้างตาราง';
 $strStructure = 'โครงสร้าง';
@@ -382,13 +384,13 @@ $strSubmit = 'ส่ง';
 $strSuccess = 'ทำคำค้นเสร็จเรียบร้อยแล้ว';
 $strSum = 'ผลรวม';
 
-$strTable = 'ตาราง ';
 $strTableComments = 'หมายเหตุของตาราง';
 $strTableEmpty = 'ชื่อตารางยังว่างอยู่!';
 $strTableHasBeenDropped = 'โยนตาราง %s ทิ้งไปเรียบร้อย แล้ว';
 $strTableHasBeenEmptied = 'ลบข้อมูลในตาราง %s เรียบร้อย แล้ว';
 $strTableHasBeenFlushed = 'ล้างตาราง %s เรียบร้อยแล้ว';
 $strTableMaintenance = 'การดูแลรักษาตาราง';
+$strTable = 'ตาราง ';
 $strTables = '%s ตาราง';
 $strTableStructure = 'โครงสร้างตาราง';
 $strTableType = 'ชนิดตาราง';
@@ -416,8 +418,8 @@ $strUseTables = 'ใช้ตาราง';
 
 $strValidateSQL = 'ตรวจสอบ SQL';
 $strValue = 'ค่า';
-$strViewDump = 'ดูโครงสร้างของตาราง';
 $strViewDumpDB = 'ดูโครงสร้างของฐานข้อมูล';
+$strViewDump = 'ดูโครงสร้างของตาราง';
 
 $strWelcome = '%s ยินดีต้อนรับ';
 $strWithChecked = 'ทำกับที่เลือก:';
@@ -426,6 +428,7 @@ $strWrongUser = 'อนุญาตให้เข้าใช้ไม่ได
 $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
-
 // To translate
+
+
 ?>

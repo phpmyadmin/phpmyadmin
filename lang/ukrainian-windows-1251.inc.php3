@@ -1,4 +1,5 @@
 <?php
+
 /* $Id$ */
 
 $charset = 'windows-1251';
@@ -64,8 +65,8 @@ $strCantLoadMySQL = 'розширення MySQL не завантажено,<br />перевірте конфігураці
 $strCantLoadRecodeIconv = 'Не можу завантажити iconv чи recode extension необхідні для зміни charset-у, сконфігуруйте php так, щоб можна було використовувати ці extensions, або забороніть зміну charset-у у phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Неможливо перейменувати індекс в PRIMARY!';
 $strCantUseRecodeIconv = 'Не можу  використати ні/або iconv, ні/або libiconv, ні/або функцію recode_string поки буде завантажено extension reports. Перевірте Вашу php конфігурацію.';
-$strCarriage = 'Повернення каретки: \\r';
 $strCardinality = 'Кількість елементів';
+$strCarriage = 'Повернення каретки: \\r';
 $strChange = 'Змінити';
 $strChangeDisplay = 'Виберіть поля для відображення';
 $strChangePassword = 'Змінити пароль';
@@ -84,11 +85,11 @@ $strConfirm = 'Ви насправді хочете це зробити?';
 $strCookiesRequired = 'З цього моменту Cookies повинні бути дозволені.';
 $strCopyTable = 'Скопіювати таблицю в (база даних<b>.</b>таблиця):';
 $strCopyTableOK = 'Таблицю %s було скопійовано в %s.';
-$strCreate = 'Створити';
-$strCreateNewDatabase = 'Створити нову БД';
-$strCreateNewTable = 'Створити нову таблицю в БД %s';
 $strCreateIndex = 'Створити індекс на&nbsp;%s&nbsp;колонках';
 $strCreateIndexTopic = 'Створити новий індекс';
+$strCreateNewDatabase = 'Створити нову БД';
+$strCreateNewTable = 'Створити нову таблицю в БД %s';
+$strCreate = 'Створити';
 $strCreatePage = 'Створити нову сторінку';
 $strCreatePdfFeat = 'Створити PDF-файл';
 $strCriteria = 'Критерій';
@@ -102,14 +103,14 @@ $strDatabaseWildcard = 'База даних (дозволено використання шаблонів):';
 $strDataOnly = 'Лише дані';
 $strDefault = 'По замовчуванню';
 $strDelete = 'Видалити';
-$strDeleted = 'Рядок видалено';
 $strDeletedRows = 'Видалено наступні рядки:';
+$strDeleted = 'Рядок видалено';
 $strDeleteFailed = 'Видалення не вдалося!';
 $strDeleteUserMessage = 'Видалено користувача %s.';
 $strDescending = 'Спадаючий';
 $strDisabled = 'недоступно';
-$strDisplay = 'Показати';
 $strDisplayFeat = 'Показати можливості';
+$strDisplay = 'Показати';
 $strDisplayOrder = 'Порядок перегляду:';
 $strDisplayPDF = 'Показати PDF схему';
 $strDoAQuery = 'Виконати "запит згідно прикладу" (символ підставновки: "%")';
@@ -137,12 +138,12 @@ $strExportToXML = 'Експортувати у XML формат';
 $strExtendedInserts = 'Розширена вставка';
 $strExtra = 'Додатково';
 
-$strField = 'Поле';
 $strFieldHasBeenDropped = 'Поле %s було видалено';
-$strFields = 'Поля';
+$strField = 'Поле';
 $strFieldsEmpty = ' Порожній перелік полів! ';
 $strFieldsEnclosedBy = 'Поля взято в';
 $strFieldsEscapedBy = 'Поля екрануються';
+$strFields = 'Поля';
 $strFieldsTerminatedBy = 'Поля розділені';
 $strFixed = 'фіксований';
 $strFlushTable = 'Очистити кеш таблиці ("FLUSH")';
@@ -164,8 +165,8 @@ $strHaveToShow = 'Необхідно вибрати принаймі один Стовпчик для показу';
 $strHome = 'На початок';
 $strHomepageOfficial = 'Офіційна сторінка phpMyAdmin';
 $strHomepageSourceforge = 'Завантаження phpMyAdmin з Sourceforge';
-$strHost = 'Хост';
 $strHostEmpty = 'Порожнє ім\'я хоста!';
+$strHost = 'Хост';
 
 $strIdxFulltext = 'ПовнТекст';
 $strIfYouWish = 'Якщо Ви бажаєте завантажити лише деякі колонки таблиці, задайте розділений комами список полів.';
@@ -192,8 +193,8 @@ $strLength = 'Довжина';
 $strLengthSet = 'Довжини/Значення*';
 $strLimitNumRows = 'записів на сторінці';
 $strLineFeed = 'Символ кінця рядка: \\n';
-$strLines = 'Рядки';
 $strLinesTerminatedBy = 'Рядки розділено';
+$strLines = 'Рядки';
 $strLinkNotFound = 'Лінк не знайдено';
 $strLinksTo = 'Лінки до';
 $strLocationTextfile = 'вкажіть розташування текстового файлу';
@@ -208,6 +209,7 @@ $strModify = 'Змінити';
 $strModifyIndexTopic = 'Змінити індекс';
 $strMoveTable = 'Перенести таблицю в (база даних<b>.</b>таблиця):';
 $strMoveTableOK = 'Таблицю %s було перенесено в %s.';
+$strMySQLCharset = 'MySQL Charset';
 $strMySQLReloaded = 'MySQL перезавантажено.';
 $strMySQLSaid = 'Відповідь MySQL: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% на %pma_s2% як %pma_s3%';
@@ -217,13 +219,13 @@ $strMySQLShowVars = 'Показати системні змінні MySQL';
 
 $strName = 'Ім\'я';
 $strNext = 'Дальше';
-$strNo = 'Ні';
 $strNoDatabases = 'БД відсутні';
 $strNoDescription = 'без опису';
 $strNoDropDatabases = 'Оператори "DROP DATABASE" заборонені.';
 $strNoFrames = 'Для роботи phpMyAdmin потрібно браузер з підтримкою <b>фреймів</b>.';
-$strNoIndexPartsDefined = 'Не визначено частини індекса!';
+$strNo = 'Ні';
 $strNoIndex = 'Індекс не визначено!';
+$strNoIndexPartsDefined = 'Не визначено частини індекса!';
 $strNoModification = 'Змін немає';
 $strNone = 'Немає';
 $strNoPassword = 'Без паролю';
@@ -245,16 +247,16 @@ $strOftenQuotation = 'Звичайно лапки. ПО ВИБОРУ означає, що лише поля char і var
 $strOK = 'OK';
 $strOperations = 'Операцій';
 $strOptimizeTable = 'Оптимізувати таблицю';
-$strOptions = 'Параметри';
 $strOptionalControls = 'По вибору. Контролює читання та написання спеціальних символів.';
 $strOptionally = 'ПО ВИБОРУ';
+$strOptions = 'Параметри';
 $strOr = 'або';
 $strOverhead = 'Надмірні видатки';
 
 $strPageNumber = 'Номер сторінки:';
 $strPartialText = 'Часткові тексти';
-$strPassword = 'Пароль';
 $strPasswordEmpty = 'Порожній пароль!';
+$strPassword = 'Пароль';
 $strPasswordNotSame = 'Паролі не однакові!';
 $strPdfDbSchema = 'Схема бази даних "%s" - Сторінка %s';
 $strPdfInvalidPageNum = 'Не встановлено номер PDF сторінки!';
@@ -266,10 +268,10 @@ $strPmaUriError = 'Змінна <tt>$cfg[\'PmaAbsoluteUri\']</tt> ПОВИННА бути встанов
 $strPos1 = 'Початок';
 $strPrevious = 'Назад';
 $strPrimary = 'Первинний';
+$strPrimaryKeyHasBeenDropped = 'Первинний ключ було знищено';
 $strPrimaryKey = 'Первинний ключ';
 $strPrimaryKeyName = 'Ім\'я первинного ключа повинно бути PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>повинно</b> бути іменем <b>лише</b> первинного ключа!)';
-$strPrimaryKeyHasBeenDropped = 'Первинний ключ було знищено';
 $strPrintView = 'Версія для друку';
 $strPrivileges = 'Привілеї';
 $strProperties = 'Властивості';
@@ -298,31 +300,31 @@ $strRevokeGrantMessage = 'Було відмінено надання прав для %s';
 $strRevokeMessage = 'Ви змінили привілеї для %s';
 $strRevokePriv = 'Відмінити привілеї';
 $strRowLength = 'Довжина рядка';
-$strRows = 'Рядки';
 $strRowsFrom = 'рядків з';
 $strRowSize = ' Розмір рядка ';
-$strRowsModeVertical = ' вертикально ';
 $strRowsModeHorizontal = ' горизонтально ';
 $strRowsModeOptions = '-го %s і дублювати заголовки через кожні %s рядків ';
+$strRowsModeVertical = ' вертикально ';
 $strRowsStatistic = 'Статистика рядка';
+$strRows = 'Рядки';
 $strRunning = 'на %s';
 $strRunQuery = 'Виконати запит';
 $strRunSQLQuery = 'Виконати SQL запит(и) до БД %і';
 
 $strSave = 'Зберегти';
 $strScaleFactorSmall = 'Занадто малий масштаб щоб схема займала цілу сторінку';
-$strSearch = 'Шукати';
 $strSearchFormTitle = 'Шукати в базі даних';
 $strSearchInTables = 'Всередині таблиць:';
 $strSearchNeedle = 'Слова чи значення, які потрібно знайти (маска: "%"):';
+$strSearch = 'Шукати';
 $strSearchOption1 = 'принаймі одне з слів';
 $strSearchOption2 = 'всі слова';
 $strSearchOption3 = 'точну фразу';
 $strSearchOption4 = 'регулярний вираз';
 $strSearchResultsFor = 'Результати пошуку "<i>%s</i>" %s:';
 $strSearchType = 'Знайти:';
-$strSelect = 'Вибрати';
 $strSelectADb = 'Прошу вибрати базу даних';
+$strSelect = 'Вибрати';
 $strSelectAll = 'Відмітити все';
 $strSelectFields = 'Вибрати поля (щонайменше одне):';
 $strSelectNumRows = 'по запиту';
@@ -331,11 +333,11 @@ $strSend = 'Відіслати';
 $strServerChoice = 'Вибір сервера';
 $strServerVersion = 'Версія сервера';
 $strSetEnumVal = 'Для типів поля "enum" та "set", введіть значення згідно такого формату: \'a\',\'b\',\'c\'...<br />Якщо вам буде потрібно ввести зворотню косу риску ("\"") або поодинокі лапки ("\'") посеред цих значень, поставте перед ними зворотню косу риску (наприклад, \'\\\\xyz\' чи \'a\\\'b\').';
-$strShow = 'Показати';
 $strShowAll = 'Показати все';
 $strShowColor = 'Показати колір';
 $strShowCols = 'Показати колонки';
 $strShowGrid = 'Показати сітку';
+$strShow = 'Показати';
 $strShowingRecords = 'Показано записи ';
 $strShowPHPInfo = 'Показати інформацію про PHP';
 $strShowTableDimension = 'Показати розміри таблиць';
@@ -346,9 +348,9 @@ $strSize = 'Розмір';
 $strSort = 'Посортувати';
 $strSpaceUsage = 'Простір, що використовується';
 $strSplitWordsWithSpace = 'Слова розділені пробілом (" ").';
-$strSQL = 'SQL';
 $strSQLQuery = 'SQL-запит';
 $strSQLResult = 'SQL result';
+$strSQL = 'SQL';
 $strStatement = 'Параметр';
 $strStrucCSV = 'CSV дані';
 $strStrucData = 'Структуру і дані';
@@ -361,13 +363,13 @@ $strSubmit = 'Виконати';
 $strSuccess = 'Ваш SQL-запит було успішно виконано';
 $strSum = 'Всього';
 
-$strTable = 'таблиця ';
 $strTableComments = 'Коментар до таблиці';
 $strTableEmpty = 'Порожня назва таблиці!';
 $strTableHasBeenDropped = 'Таблицю %s було знищено';
 $strTableHasBeenEmptied = 'Таблицю %s було очищено';
 $strTableHasBeenFlushed = 'Було очищено кеш таблиці %s';
 $strTableMaintenance = 'Обслговування таблиці';
+$strTable = 'таблиця ';
 $strTables = '%s таблиц(і)';
 $strTableStructure = 'Структура таблиці';
 $strTableType = 'Тип таблиці';
@@ -394,8 +396,8 @@ $strUsers = 'Користувачі';
 $strUseTables = 'Використовувати таблиці';
 
 $strValue = 'Значення';
-$strViewDump = 'Переглянути дамп (схему) таблиці';
 $strViewDumpDB = 'Переглянути дамп (схему) БД';
+$strViewDump = 'Переглянути дамп (схему) таблиці';
 
 $strWelcome = 'Ласкаво просимо до %s';
 $strWithChecked = 'З відміченими:';
@@ -404,26 +406,33 @@ $strWrongUser = 'Невірний логін/пароль. Доступ не дозволено.';
 $strYes = 'Так';
 
 $strZip = 'запакувати в "zip"';
-
 // To translate
 
-$strMySQLCharset = 'MySQL Charset';
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
+
 $strAllTableSameWidth = 'display all Tables with same width?';  //to translate
+
+$strBeginCut = 'BEGIN CUT';  //to translate
+$strBeginRaw = 'BEGIN RAW';  //to translate
+
+$strCharsetOfFile = 'Character set of the file:'; //to translate
+
+$strEndCut = 'END CUT';  //to translate
+$strEndRaw = 'END RAW';  //to translate
+$strExplain = 'Explain SQL';  //to translate
+
+$strNoExplain = 'Skip Explain SQL';  //to translate
+$strNoValidateSQL = 'Skip Validate SQL';  //to translate
+
 $strPdfNoTables = 'No tables';  //to translate
 
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
+
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
+$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
+
+$strValidateSQL = 'Validate SQL';  //to translate
+
 ?>

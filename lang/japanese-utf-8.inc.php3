@@ -1,4 +1,5 @@
 <?php
+
 /* $Id$ */
 
 /**
@@ -21,6 +22,8 @@ $month = array('1月','2月','3月','4月','5月','6月','7月','8月','9月','1
 // variable below
 $datefmt = '%Y年%B%d日 %H:%M';
 
+// japanese only
+
 
 $strAccessDenied = 'アクセスは拒否されました。';
 $strAction = '実行';
@@ -38,6 +41,7 @@ $strAfter = '後に %s';
 $strAfterInsertBack = '戻る';
 $strAfterInsertNewInsert = '新レコードの追加';
 $strAll = '全部';
+$strAllTableSameWidth = '全てのテーブルを同じ幅で表示しますか?';
 $strAlterOrderBy = 'テーブル順番の条件';
 $strAnalyzeTable = 'テーブルを分析します。';
 $strAnd = '及び';
@@ -55,8 +59,8 @@ $strAtEndOfTable = 'テーブルの最後';
 $strAttr = '表示';
 
 $strBack = '戻る';
-$strBinary = ' バイナリ ';
 $strBinaryDoNotEdit = ' バイナリ -  修正出来ません';
+$strBinary = ' バイナリ ';
 $strBookmarkDeleted = 'ブックマークを正常に削除しました。';
 $strBookmarkLabel = 'ラベル';
 $strBookmarkQuery = 'ブックマークされているSQLクエリー';
@@ -71,8 +75,8 @@ $strCantRenameIdxToPrimary = 'インデックスの名前をPRIMARYに変更で�
 $strCantUseRecodeIconv = 'iconv、libiconv、recode_stringのどの関数も使用出来ません。php の設定をチェックしてください。';
 $strCardinality = 'カーディナリティ';
 $strCarriage = 'キャリッジリターン: \\r';
-$strChange = '変更';
 $strChangeDisplay = '表示させるフィールドを選んで下さい';
+$strChange = '変更';
 $strChangePassword = 'パスワードの変更';
 $strCheckAll = '全てをマーク';
 $strCheckDbPriv = 'データベースの特権の確認';
@@ -88,27 +92,27 @@ $strConfirm = '実行しても良いですか？';
 $strCookiesRequired = 'ここから先はクッキーが許可されている必要があります。';
 $strCopyTable = 'テーブルを(database<b>.</b>table)にコピーする:';
 $strCopyTableOK = '%sテーブルを%sにコピーしました。';
-$strCreate = '作成';
 $strCreateIndex = '&nbsp;%s&nbsp;の列のインデックスの作成';
 $strCreateIndexTopic = '新しいインデックスの作成';
 $strCreateNewDatabase = '新しいDBを作成します。';
 $strCreateNewTable = '現在のDBに新しいテーブルを作成します。 %s --> ';
+$strCreate = '作成';
 $strCreatePage = '新規ページの作成';
 $strCriteria = '基準';
 
-$strData = 'データ';
 $strDatabase = 'データベース';
 $strDatabaseHasBeenDropped = 'データベース%sを正常に削除しました。';
 $strDatabases = 'データベース';
 $strDatabasesStats = 'データベースの統計';
 $strDatabaseWildcard = 'データベース(ワイルドカード使用可):';
+$strData = 'データ';
 $strDataOnly = 'データのみ';
 $strDefault = '基本値';
-$strDelete = '削除';
 $strDeleted = '選択した列を削除しました。';
-$strDeleteFailed = '削除に失敗しました';
-$strDeleteUserMessage = 'ユーザー%sを削除しました。';
 $strDeletedRows = '削除された行数:';
+$strDeleteFailed = '削除に失敗しました';
+$strDelete = '削除';
+$strDeleteUserMessage = 'ユーザー%sを削除しました。';
 $strDescending = '降順';
 $strDisplay = '表示';
 $strDisplayOrder = '発表順番:';
@@ -116,8 +120,8 @@ $strDisplayPDF = 'PDFスキーマの表示';
 $strDoAQuery = '"例のQUERY"を実行 (wildcard: "%")';
 $strDocu = 'ヘルプ';
 $strDoYouReally = '本当に実行しても良いですか？ --> ';
-$strDrop = '削除';
 $strDropDB = 'データベース%sの削除 ';
+$strDrop = '削除';
 $strDropTable = 'テーブルの削除';
 $strDumpingData = 'テーブルのダンプデータ';
 $strDumpXRows = '%s 列をダンプ。始める列は %s.';
@@ -129,6 +133,7 @@ $strEditPrivileges = '特権を修正';
 $strEffective = '事実上';
 $strEmpty = '空にする';
 $strEmptyResultSet = 'MySQLが空の値を返しました。(i.e. zero rows).';
+$strEncto = 'エンコーディングへ変換する'; // encoding convert
 $strEnd = '最後';
 $strEnglishPrivileges = ' 注意: MySQLの特権の名前は英語で発表しています。';
 $strError = 'エラー';
@@ -137,12 +142,12 @@ $strExportToXML = 'XML形式でエクスポート';
 $strExtendedInserts = '長いINSERT文の作成';
 $strExtra = '追加';
 
-$strField = 'フィールド';
 $strFieldHasBeenDropped = 'フィールド%sが正常に削除されました';
-$strFields = 'フィールド';
+$strField = 'フィールド';
 $strFieldsEmpty = ' フィールド数は空です。 ';
 $strFieldsEnclosedBy = 'フィールド囲み記号';
 $strFieldsEscapedBy = 'フィールドのエスケープ記号';
+$strFields = 'フィールド';
 $strFieldsTerminatedBy = 'フィールド区切り記号';
 $strFixed = '固定';
 $strFlushTable = 'テーブルのキャッシュを空にする("FLUSH")';
@@ -163,16 +168,16 @@ $strHaveToShow = '表示するために、少なくてもひとつのカラム�
 $strHome = 'メーンページへ';
 $strHomepageOfficial = 'phpMyAdminホーム';
 $strHomepageSourceforge = 'SourceforgeのphpMyAdminダウンロードページ';
-$strHost = 'ホスト';
 $strHostEmpty = 'ホスト名は空です!';
+$strHost = 'ホスト';
 
 $strIdxFulltext = '全文';
 $strIfYouWish = 'テーブルのコラム(列)にデータを追加する場合は、フィールドリストをカンマで区分してください。';
 $strIgnore = '無視';
-$strIndex = 'インデックス';
 $strIndexes = 'インデックス数';
 $strIndexHasBeenDropped = 'インデックス%sが削除されました';
 $strIndexName = 'インデックス名&nbsp;:';
+$strIndex = 'インデックス';
 $strIndexType = 'インデックスのタイプ&nbsp;:';
 $strInsert = '追加';
 $strInsertAsNewRow = '新しい行としての追加';
@@ -183,6 +188,7 @@ $strInstructions = '教示';
 $strInUse = '使用中';
 $strInvalidName = '"%s"は予約語ですから「データベース／テーブル／フィールド」名には使えません。';
 
+$strKanjiEncodConvert = '漢字コード変換'; // kanji code convert
 $strKeepPass = 'パスワードを変更しない';
 $strKeyname = 'キー名';
 $strKill = '停止';
@@ -251,8 +257,8 @@ $strOverhead = 'オーバーヘッド';
 
 $strPageNumber = 'ページ番号:';
 $strPartialText = '部分的な文書';
-$strPassword = 'パスワード';
 $strPasswordEmpty = 'パスワードは空です。';
+$strPassword = 'パスワード';
 $strPasswordNotSame = 'パスワードは空です。';
 $strPdfDbSchema = '"%s" データベース - %s頁の図';
 $strPdfInvalidPageNum = 'PDFページが未定義！';
@@ -272,13 +278,14 @@ $strPrintView = '印刷用表示';
 $strPrivileges = '特権';
 $strProperties = 'プロパティ';
 
-$strQBE = 'クエリー';
 $strQBEDel = '削除';
+$strQBE = 'クエリー';
 $strQBEIns = '挿入';
 $strQueryOnDb = 'データベースのSQLクエリー <b>%s</b>:';
 
 $strRecords = 'レコード数';
 $strReferentialIntegrity = '結合項目のチェック:';
+$strRelationNotWorking = 'リレーション機能を動かすためのリンクテーブルが有効になっていません。 %sここ%sをクリックして原因を見つけて下さい。';
 $strRelationView = 'リレーション表示';
 $strReloadFailed = 'MySQLのリロードに失敗しました。';
 $strReloadMySQL = 'MySQLのリロード';
@@ -309,10 +316,10 @@ $strRunSQLQuery = 'データベース%sにSQLクエリー実行';
 
 $strSave = '保存';
 $strScaleFactorSmall = '１ページ内に図表を配置させるためには大きさが小さ過ぎます';
-$strSearch = '検索';
 $strSearchFormTitle = 'データベース内の検索';
 $strSearchInTables = 'テーブルの指定:';
 $strSearchNeedle = '検索する単語、または値 (ワイルドカードは: "%"):';
+$strSearch = '検索';
 $strSearchOption1 = 'いずれかの単語を含む';
 $strSearchOption2 = '全ての単語を含む';
 $strSearchOption3 = '正確なフレーズ';
@@ -329,10 +336,10 @@ $strSend = 'ファイルに落とす';
 $strServerChoice = 'サーバーの選択';
 $strServerVersion = 'サーバーのバージョン';
 $strSetEnumVal = 'フィールドタイプが"enum"又は"set"の場合は値をこのフォーマットを使って入力して下さい: \'a\',\'b\',\'c\'...<br />バックスラッシュ「"\"」又はクオート「"\'"」を入力したいと、頭にバックスラッシュを付けて下さい「例: \'\\\\xyz\' or \'a\\\'b\'」。';
-$strShow = '表示';
 $strShowAll = '全の発表';
 $strShowColor = '色表示';
 $strShowCols = '列の発表';
+$strShow = '表示';
 $strShowGrid = 'グリッドの表示';
 $strShowingRecords = 'レコード表示';
 $strShowPHPInfo = 'PHP情報';
@@ -344,9 +351,9 @@ $strSize = 'サイズ';
 $strSort = 'ソート';
 $strSpaceUsage = 'ディスク使用量';
 $strSplitWordsWithSpace = '各単語はスペース文字(" ")で区切って下さい';
-$strSQL = 'SQL';
 $strSQLQuery = '実行されたSQLクエリー';
 $strSQLResult = 'SQLの結果';
+$strSQL = 'SQL';
 $strStatement = 'ステートメント';
 $strStrucCSV = 'CSVデータ';
 $strStrucData = '構造とデータ';
@@ -399,39 +406,45 @@ $strWelcome = '%sへようこそ';
 $strWithChecked = 'チェックしたものを:';
 $strWrongUser = 'ユーザ名またはパスワードが正しくありません。<br />アクセスは拒否されました。';
 
+$strXkana = '全角カナへ変換する'; // convert to X208-kana
+
 $strYes = 'はい';
 
 $strZip = '"zipされる"';
-
-// japanese only
-$strEncto = 'エンコーディングへ変換する'; // encoding convert
-$strKanjiEncodConvert = '漢字コード変換'; // kanji code convert
-$strXkana = '全角カナへ変換する'; // convert to X208-kana
-
 // To translate
-$strRelationNotWorking = 'リレーション機能を動かすためのリンクテーブルが有効になっていません。 %sここ%sをクリックして原因を見つけて下さい。';
-$strAllTableSameWidth = '全てのテーブルを同じ幅で表示しますか?';
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
+
+
 $strBeginCut = 'BEGIN CUT';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strBeginRaw = 'BEGIN RAW';  //to translate
+
+$strCharsetOfFile = 'Character set of the file:'; //to translate
+$strColComFeat = 'Displaying Column Comments';  //to translate
+$strCreatePdfFeat = 'Creation of PDFs';  //to translate
+
+$strDisabled = 'Disabled';  //to translate
+$strDisplayFeat = 'Display Features';  //to translate
+
+$strEnabled = 'Enabled';  //to translate
+$strEndCut = 'END CUT';  //to translate
 $strEndRaw = 'END RAW';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strExplain = 'Explain SQL';  //to translate
+
+$strGeneralRelationFeat = 'General relation features';  //to translate
+
+$strNoExplain = 'Skip Explain SQL';  //to translate
+$strNotOK = 'not OK';  //to translate
+$strNoValidateSQL = 'Skip Validate SQL';  //to translate
+
+$strOK = 'OK';  //to translate
+
+$strPdfNoTables = 'No tables';  //to translate
+
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
+$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
+
+$strValidateSQL = 'Validate SQL';  //to translate
+
 ?>

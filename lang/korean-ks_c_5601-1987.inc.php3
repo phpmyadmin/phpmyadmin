@@ -1,4 +1,5 @@
 <?php
+
 /* $Id$ */
 /* Translated by WooSuhan <kjh@unews.co.kr> */
 
@@ -27,18 +28,16 @@ $strAddPriv = '권한 추가하기';
 $strAddPrivMessage = '새 권한을 추가했습니다';
 $strAddSearchConditions = '검색 조건 추가 ("where" 조건의 내용):';
 $strAddToIndex = '%s칼럼에 인덱스 추가';
-$strAddUser = '새 사용자 추가';
 $strAddUserMessage = '새 사용자를 추가했습니다.';
+$strAddUser = '새 사용자 추가';
 $strAffectedRows = '적용된 열:';
-$strAfter = '%s 다음에';
 $strAfterInsertBack = '되돌아가기';
 $strAfterInsertNewInsert = '새 레코드(열) 삽입하기';
-$strAll = 'All'; // To translate
+$strAfter = '%s 다음에';
 $strAlterOrderBy = '다음 순서대로 테이블 정렬(변경)';
 $strAnalyzeTable = '테이블 분석';
 $strAnd = '그리고';
 $strAnIndex = '%s 에 인덱스가 걸렸습니다';
-$strAny = 'Any'; // To translate
 $strAnyColumn = '아무 칼럼';
 $strAnyDatabase = '아무 데이터베이스';
 $strAnyHost = '아무 호스트';
@@ -54,16 +53,13 @@ $strBack = '뒤로';
 $strBinary = '바이너리';
 $strBinaryDoNotEdit = ' 바이너리 - 편집 금지 ';
 $strBookmarkDeleted = '북마크를 제거했습니다.';
-$strBookmarkLabel = 'Label'; // To translate
 $strBookmarkQuery = '북마크된 SQL 쿼리';
 $strBookmarkThis = '이 SQL 쿼리를 북마크함';
-$strBookmarkView = 'View only'; // To translate
 $strBrowse = '보기';
 $strBzip = '"bz 압축"';
 
 $strCantLoadMySQL = 'MySQL 확장모듈을 불러올 수 없습니다.<br />PHP 설정을 검사하십시오..';
 $strCantRenameIdxToPrimary = '인덱스 이름을 기본(프라이머리)키로 바꿀 수 없습니다!';
-$strCardinality = 'Cardinality'; // To translate
 $strCarriage = '캐리지 리턴: \\r';
 $strChange = '변경';
 $strChangePassword = '암호 변경';
@@ -74,15 +70,12 @@ $strColumn = '칼럼';
 $strColumnNames = '칼럼(행) 이름';
 $strCompleteInserts = '완전한 INSERT문 작성';
 $strConfirm = '정말로 이 작업을 하시겠습니까?';
-$strCookiesRequired = '쿠키 사용이 가능해야 합니다 past this point.'; // To translate
 $strCopyTable = '테이블 복사하기 (데이터베이스명<b>.</b>테이블명):';
 $strCopyTableOK = '%s 테이블이 %s 으로 복사되었습니다.';
 $strCreate = ' 만들기 ';
 $strCreateIndex = '%s 칼럼에 인덱스 만들기 ';
 $strCreateIndexTopic = '새 인덱스 만들기';
-$strCreateNewDatabase = 'Create new database'; // To translate
 $strCreateNewTable = '데이터베이스 %s에 새로운 테이블을 만듭니다.';
-$strCriteria = 'Criteria'; // To translate
 
 $strData = '데이터';
 $strDatabase = '데이터베이스 ';
@@ -92,10 +85,9 @@ $strDatabasesStats = '데이터베이스 사용량 통계';
 $strDatabaseWildcard = '데이터베이스 (와일드카드문자 사용 가능):';
 $strDataOnly = '데이터만';
 $strDefault = '기본값';
-$strDelete = '삭제';
 $strDeleted = '선택한 열을 삭제 하였습니다.';
 $strDeletedRows = '지워진 열:';
-$strDeleteFailed = 'Deleted Failed!'; // To translate
+$strDelete = '삭제';
 $strDeleteUserMessage = '사용자 %s 를 삭제했습니다.';
 $strDescending = '내림차순(역순)';
 $strDisplay = '보기';
@@ -103,8 +95,8 @@ $strDisplayOrder = '출력 순서:';
 $strDoAQuery = '다음으로 쿼리를 만들기 (와일드카드: "%")';
 $strDocu = '도움말';
 $strDoYouReally = '정말로 다음을 실행하시겠습니까? ';
-$strDrop = '삭제';
 $strDropDB = '데이터베이스 %s 제거';
+$strDrop = '삭제';
 $strDropTable = '테이블 제거';
 $strDumpingData = '테이블의 덤프 데이터';
 $strDynamic = '동적(다이내믹)';
@@ -127,11 +119,7 @@ $strFieldsEmpty = ' 필드 갯수가 없습니다! ';
 $strFieldsEnclosedBy = '필드 감싸기';
 $strFieldsEscapedBy = '필드 특수문자(escape) 처리';
 $strFieldsTerminatedBy = '필드 구분자 ';
-$strFixed = 'fixed'; // To translate
 $strFlushTable = '테이블 닫기("FLUSH")';
-$strFormat = 'Format'; // To translate
-$strFormEmpty = 'Missing value in the form !'; // To translate
-$strFullText = 'Full Texts'; // To translate
 $strFunction = '함수';
 
 $strGenTime = '처리한 시간';
@@ -147,7 +135,6 @@ $strHomepageSourceforge = '소스포지 phpMyAdmin 다운로드';
 $strHost = '호스트';
 $strHostEmpty = '호스트명이 없습니다!';
 
-$strIdxFulltext = 'Fulltext'; // To translate
 $strIfYouWish = '테이블 열(콜럼)에 데이터를 추가할 때는 필드 리스트를 콤마로 구분해 주십시요. ';
 $strIgnore = 'Ignore';
 $strIndex = '인덱스';
@@ -155,8 +142,8 @@ $strIndexes = '인덱스';
 $strIndexHasBeenDropped = '인덱스 %s 를 제거했습니다';
 $strIndexName = '인덱스 이름:';
 $strIndexType = '인덱스 종류:';
-$strInsert = '추가';
 $strInsertAsNewRow = '새 열을 삽입합니다';
+$strInsert = '추가';
 $strInsertedRows = '삽입된 열:';
 $strInsertNewRow = '새 열을 삽입';
 $strInsertTextfiles = '텍스트파일을 읽어서 테이블에 데이터 삽입';
@@ -195,11 +182,9 @@ $strMySQLShowVars = 'MySQL 시스템 환경변수 보기';
 $strName = '이름';
 $strNext = '다음';
 $strNo = ' 아니오 ';
-$strNoDatabases = 'No databases'; // To translate
 $strNoDropDatabases = '"DROP DATABASE" 구문은 허락되지 않습니다.';
 $strNoFrames = 'phpMyAdmin 은 <b>프레임을 쓸 수 있는</b> 브라우저에서 잘 보입니다.';
 $strNoIndex = '인덱스가 설정되지 않았습니다!';
-$strNoIndexPartsDefined = 'No index parts defined!'; // To translate
 $strNoModification = '변화 없음';
 $strNone = 'None';
 $strNoPassword = '암호 없음';
@@ -210,16 +195,13 @@ $strNoTablesFound = '데이터베이스에 테이블이 없습니다.';
 $strNotNumber = '은 숫자(번호)가 아닙니다!';
 $strNotValidNumber = '은 올바른 열 번호가 아닙니다!';
 $strNoUsersFound = '사용자가 없습니다.';
-$strNull = 'Null'; // To translate
 
-$strOftenQuotation = 'Often quotation marks. 옵션(OPTIONALLY)은 char 및 varchar 필드가 "enclosed by"-character로 닫힌다는 것을 뜻합니다.';  // To translate
 $strOptimizeTable = '테이블 최적화';
 $strOptionalControls = '특수문자 읽기/쓰기 옵션';
 $strOptionally = '옵션입니다.';
 $strOr = '또는';
 $strOverhead = '부담';
 
-$strPartialText = 'Partial Texts'; // To translate
 $strPassword = '암호';
 $strPasswordEmpty = '암호가 비었습니다!';
 $strPasswordNotSame = '암호가 동일하지 않습니다!';
@@ -281,16 +263,15 @@ $strSend = '파일로 저장';
 $strServerChoice = '서버 선택';
 $strServerVersion = '서버 버전';
 $strSetEnumVal = '필드 종류가 "enum"이나 "set"이면, 다음과 같은 형식으로 값을 입력하십시오: \'a\',\'b\',\'c\'...<br />이 값에 역슬래시("\")나 작은따옴표("\'")가 넣어야 한다면, 역슬래시를 사용하십시오. (예: \'\\\\xyz\' 또는 \'a\\\'b\').';
-$strShow = '보기';
 $strShowAll = '모두 보기';
 $strShowCols = '칼럼(행) 보기';
 $strShowingRecords = '레코드(열) 보기';
+$strShow = '보기';
 $strShowPHPInfo = 'PHP 정보 보기';
 $strShowTables = '테이블 보기';
 $strShowThisQuery = ' 이 쿼리를 다시 보여줌 ';
 $strSingly = '(singly)';
 $strSize = '크기';
-$strSort = 'Sort'; // To translate
 $strSpaceUsage = '공간 사용량';
 $strSQLQuery = 'SQL 쿼리';
 $strStatement = '명세';
@@ -346,31 +327,95 @@ $strWrongUser = '사용자명/암호가 틀렸습니다. 접근이 거부되었습니다.';
 $strYes = ' 예 ';
 
 $strZip = 'zip 압축';
-
 // To translate
-$strLinksTo = 'Links to';  //to translate
-$strExport = 'Export';  //to translate
-$strOperations = 'Operations';  //to translate
-$strExportToXML = 'Export to XML format'; //to translate
-$strOptions = 'Options';  //to translate
-$strStructure = 'Structure';  //to translate
-$strRelationView = 'Relation view';  //to translate
-$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
-$strSQL = 'SQL'; //to translate
-$strLinkNotFound = 'Link not found';  //to translate
-$strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
-$strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
-$strDisplayPDF = 'Display PDF schema';  //to translate
-$strPageNumber = 'Page number:';  //to translate
-$strShowGrid = 'Show grid';  //to translate
-$strShowColor = 'Show color';  //to translate
-$strShowTableDimension = 'Show dimension of tables';  //to translate
-$strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
-$strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
+
+
+$strAll = 'All'; // To translate
+$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
+$strAny = 'Any'; // To translate
+
+$strBeginCut = 'BEGIN CUT';  //to translate
+$strBeginRaw = 'BEGIN RAW';  //to translate
+$strBookmarkLabel = 'Label'; // To translate
+$strBookmarkView = 'View only'; // To translate
+
+$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
+$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
+$strCardinality = 'Cardinality'; // To translate
 $strChangeDisplay = 'Choose Field to display';  //to translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
+$strChoosePage = 'Please choose a Page to edit';  //to translate
+$strColComFeat = 'Displaying Column Comments';  //to translate
+$strComments = 'Comments';  //to translate
+$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
+$strConfigureTableCoord = 'Please configure the coordinates for table %s';  //to translate
+$strCookiesRequired = '쿠키 사용이 가능해야 합니다 past this point.'; // To translate
+$strCreateNewDatabase = 'Create new database'; // To translate
+$strCreatePage = 'Create a new Page';  //to translate
+$strCreatePdfFeat = 'Creation of PDFs';  //to translate
+$strCriteria = 'Criteria'; // To translate
+
+$strDeleteFailed = 'Deleted Failed!'; // To translate
+$strDisabled = 'Disabled';  //to translate
+$strDisplayFeat = 'Display Features';  //to translate
+$strDisplayPDF = 'Display PDF schema';  //to translate
+$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
+
+$strEditPDFPages = 'Edit PDF Pages';  //to translate
+$strEnabled = 'Enabled';  //to translate
+$strEndCut = 'END CUT';  //to translate
+$strEndRaw = 'END RAW';  //to translate
+$strExplain = 'Explain SQL';  //to translate
+$strExport = 'Export';  //to translate
+$strExportToXML = 'Export to XML format'; //to translate
+
+$strFixed = 'fixed'; // To translate
+$strFormat = 'Format'; // To translate
+$strFormEmpty = 'Missing value in the form !'; // To translate
+$strFullText = 'Full Texts'; // To translate
+
+$strGenBy = 'Generated by'; //to translate
+$strGeneralRelationFeat = 'General relation features';  //to translate
+
+$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
+
+$strIdxFulltext = 'Fulltext'; // To translate
+
+$strLinkNotFound = 'Link not found';  //to translate
+$strLinksTo = 'Links to';  //to translate
+
+$strMissingBracket = 'Missing Bracket';  //to translate
+$strMySQLCharset = 'MySQL Charset';  //to translate
+
+$strNoDatabases = 'No databases'; // To translate
+$strNoDescription = 'no Description';  //to translate
+$strNoExplain = 'Skip Explain SQL';  //to translate
+$strNoIndexPartsDefined = 'No index parts defined!'; // To translate
+$strNoPhp = 'without PHP Code';  //to translate
+$strNotOK = 'not OK';  //to translate
+$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
+$strNoValidateSQL = 'Skip Validate SQL';  //to translate
+$strNull = 'Null'; // To translate
 $strNumSearchResultsInTable = '%s match(es) inside table <i>%s</i>';//to translate
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> match(es)';//to translate
-$strSearch = 'Search';//to translate
+
+$strOftenQuotation = 'Often quotation marks. 옵션(OPTIONALLY)은 char 및 varchar 필드가 "enclosed by"-character로 닫힌다는 것을 뜻합니다.';  // To translate
+$strOK = 'OK';  //to translate
+$strOperations = 'Operations';  //to translate
+$strOptions = 'Options';  //to translate
+
+$strPageNumber = 'Page number:';  //to translate
+$strPartialText = 'Partial Texts'; // To translate
+$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
+$strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
+$strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
+$strPdfNoTables = 'No tables';  //to translate
+$strPhp = 'Create PHP Code';  //to translate
+
+$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
+$strRelationView = 'Relation view';  //to translate
+
+$strScaleFactorSmall = 'The scale factor is too small to fit the schema on one page';  //to translate
 $strSearchFormTitle = 'Search in database';//to translate
 $strSearchInTables = 'Inside table(s):';//to translate
 $strSearchNeedle = 'Word(s) or value(s) to search for (wildcard: "%"):';//to translate
@@ -379,50 +424,24 @@ $strSearchOption2 = 'all words';//to translate
 $strSearchOption3 = 'the exact phrase';//to translate
 $strSearchOption4 = 'as regular expression';//to translate
 $strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
+$strSearch = 'Search';//to translate
 $strSearchType = 'Find:';//to translate
-$strSplitWordsWithSpace = 'Words are seperated by a space character (" ").';//to translate
-$strStructPropose = 'Propose table structure';  //to translate
-$strPhp = 'Create PHP Code';  //to translate
-$strNoPhp = 'without PHP Code';  //to translate
-$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
-$strGenBy = 'Generated by'; //to translate
-$strSQLResult = 'SQL result'; //to translate
-$strEditPDFPages = 'Edit PDF Pages';  //to translate
-$strNoDescription = 'no Description';  //to translate
-$strChoosePage = 'Please choose a Page to edit';  //to translate
-$strCreatePage = 'Create a new Page';  //to translate
 $strSelectTables = 'Select Tables';  //to translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
-$strAllTableSameWidth = 'display all Tables with same width?';  //to translate
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strShowColor = 'Show color';  //to translate
+$strShowGrid = 'Show grid';  //to translate
+$strShowTableDimension = 'Show dimension of tables';  //to translate
+$strSort = 'Sort'; // To translate
+$strSplitWordsWithSpace = 'Words are seperated by a space character (" ").';//to translate
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strSQLResult = 'SQL result'; //to translate
+$strSQL = 'SQL'; //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
+$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
+$strStructPropose = 'Propose table structure';  //to translate
+$strStructure = 'Structure';  //to translate
+
+$strValidateSQL = 'Validate SQL';  //to translate
+
 ?>

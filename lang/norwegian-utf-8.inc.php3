@@ -1,4 +1,5 @@
 <?php
+
 /* $Id$ */
 
 /**
@@ -20,6 +21,7 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d. %B, %Y klokka %H:%M %p';
+
 
 $strAccessDenied = 'Ingen tilgang';
 $strAction = 'Handling';
@@ -71,8 +73,8 @@ $strCantRenameIdxToPrimary = 'Kan ikke endre indeks til PRIMARY!';
 $strCantUseRecodeIconv = 'Kan ikke bruke hverken iconv, libiconv og recode_string funktsjonene selv om modulene sier de er lastet. Sjekk din php konfigurasjon.';
 $strCardinality = 'Kardinalitet';
 $strCarriage = 'Linjeskift (Mac): \\r';
-$strChange = 'Endre';
 $strChangeDisplay = 'Velg felt for visning';
+$strChange = 'Endre';
 $strChangePassword = 'Endre passord';
 $strCheckAll = 'Merk alle';
 $strCheckDbPriv = 'Kontroller database privilegier';
@@ -88,36 +90,36 @@ $strConfirm = 'Ønsker du virkelig å gjøre det?';
 $strCookiesRequired = 'Cookies må være slått på forbi dette punkt.';
 $strCopyTable = 'Kopier tabell til (database<b>.</b>tabell):';
 $strCopyTableOK = 'Tabellen %s er kopiert til %s.';
-$strCreate = 'Opprett';
 $strCreateIndex = 'Lag en indeks p&aring;&nbsp;%s&nbsp;kolonner';
 $strCreateIndexTopic = 'Lag en ny indeks';
 $strCreateNewDatabase = 'Opprett ny database';
 $strCreateNewTable = 'Opprett ny tabell i database %s';
+$strCreate = 'Opprett';
 $strCreatePage = 'Lag en ny side';
 $strCriteria = 'Kriterier';
 
-$strData = 'Data';
 $strDatabase = 'Database ';
 $strDatabaseHasBeenDropped = 'Databasen %s har blitt slettet';
 $strDatabases = 'databaser';
 $strDatabasesStats = 'Statistikk for databaser';
 $strDatabaseWildcard = 'Database (asterisk er tillatt):';
+$strData = 'Data';
 $strDataOnly = 'Bare data';
 $strDefault = 'Standard';
-$strDelete = 'Slett';
 $strDeleted = 'Raden er slettet';
 $strDeletedRows = 'Slettede rader:';
 $strDeleteFailed = 'Slettingen misslyktes!';
+$strDelete = 'Slett';
 $strDeleteUserMessage = 'Du har slettet brukeren %s.';
 $strDescending = 'Synkende';
-$strDisplay = 'Vis';
 $strDisplayOrder = 'Visningsrekkefølge:';
 $strDisplayPDF = 'Vis PDF Schema';
+$strDisplay = 'Vis';
 $strDoAQuery = 'Utfør en "query by example" (wildcard: "%")';
 $strDocu = 'Dokumentasjon';
 $strDoYouReally = 'Vil du virkelig ';
-$strDrop = 'Slett';
 $strDropDB = 'Slett databasen %s';
+$strDrop = 'Slett';
 $strDropTable = 'Slett tabell';
 $strDumpingData = 'Data-ark for tabell';
 $strDumpXRows = 'Dumpe %s rader fra rad %s.';
@@ -127,8 +129,8 @@ $strEdit = 'Endre';
 $strEditPDFPages = 'Rediger PDF sider';
 $strEditPrivileges = 'Rediger privilegier';
 $strEffective = 'Effektiv';
-$strEmpty = 'Tøm';
 $strEmptyResultSet = 'MySQL returnerte tomt resultat (m.a.o. ingen rader).';
+$strEmpty = 'Tøm';
 $strEnd = 'Slutt';
 $strEnglishPrivileges = ' OBS: MySQL privilegie navn er på engelsk ';
 $strError = 'Feil';
@@ -139,10 +141,10 @@ $strExtra = 'Ekstra';
 
 $strField = 'Felt';
 $strFieldHasBeenDropped = 'Feltet %s har blitt slettet';
-$strFields = 'Felter';
 $strFieldsEmpty = ' Antall felter er tommt! ';
 $strFieldsEnclosedBy = 'Felter omsluttet av';
 $strFieldsEscapedBy = 'Felter "escaped" med';
+$strFields = 'Felter';
 $strFieldsTerminatedBy = 'Felter avsluttet med';
 $strFixed = 'statisk';
 $strFlushTable = 'Oppfrisk tabellen ("FLUSH")';
@@ -163,21 +165,21 @@ $strHaveToShow = 'Du må velge minst en kolonne for visning';
 $strHome = 'Hjem';
 $strHomepageOfficial = 'Offisiell phpMyAdmin Hjemmeside';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin nedlastingsside';
-$strHost = 'Vert';
 $strHostEmpty = 'Vertsnavnet er tomt!';
+$strHost = 'Vert';
 
 $strIdxFulltext = 'Fulltekst';
 $strIfYouWish = 'Hvis du ønsker å kun lese inn enkelte av tabellens kolonner, angi en komme-separert felt-liste.';
 $strIgnore = 'Ignorer';
-$strIndex = 'Indeks';
 $strIndexes = 'Indekser';
 $strIndexHasBeenDropped = 'Indeksen %s har blitt slettet';
+$strIndex = 'Indeks';
 $strIndexName = 'Indeks navn&nbsp;:';
 $strIndexType = 'Indeks type&nbsp;:';
-$strInsert = 'Sett inn';
 $strInsertAsNewRow = 'Sett inn som ny rad';
 $strInsertedRows = 'Innsatte rader:';
 $strInsertNewRow = 'Sett inn ny rad';
+$strInsert = 'Sett inn';
 $strInsertTextfiles = 'Les tekstfil inn i tabell';
 $strInstructions = 'Instruksjoner';
 $strInUse = 'i bruk';
@@ -217,7 +219,6 @@ $strMySQLShowVars = 'Vis MySQL systemvariabler';
 
 $strName = 'Navn';
 $strNext = 'Neste';
-$strNo = 'Nei';
 $strNoDatabases = 'Ingen databaser';
 $strNoDescription = 'ingen beskrivelse';
 $strNoDropDatabases = '"DROP DATABASE" uttrykk er avslått.';
@@ -225,6 +226,7 @@ $strNoFrames = 'phpMyAdmin er mere brukervennlig med en <b>ramme-kapabel</b> web
 $strNoIndex = 'Ingen indeks definert!';
 $strNoIndexPartsDefined = 'Ingen indeks deler definert!';
 $strNoModification = 'Ingen endring';
+$strNo = 'Nei';
 $strNone = 'Ingen';
 $strNoPassword = 'Intet passord';
 $strNoPhp = 'uten PHP kode';
@@ -251,9 +253,9 @@ $strOverhead = 'Overheng';
 
 $strPageNumber = 'Side nummer:';
 $strPartialText = 'Delvis tekst';
-$strPassword = 'Passord';
 $strPasswordEmpty = 'Passordet er blankt!';
 $strPasswordNotSame = 'Passordene er ikke like!';
+$strPassword = 'Passord';
 $strPdfDbSchema = 'Schema for "%s" databasen - Side %s';
 $strPdfInvalidPageNum = 'Undefinert PDF side nummer!';
 $strPdfInvalidTblName = 'Tabellen "%s" eksisterer ikke!';
@@ -263,18 +265,18 @@ $strPmaDocumentation = 'phpMyAdmin Dokumentasjon';
 $strPmaUriError = '<tt>$cfg[\'PmaAbsoluteUri\']</tt> variabelen MÅ være innstilt i din konfigurasjons-fil!';
 $strPos1 = 'Start';
 $strPrevious = 'Forrige';
-$strPrimary = 'Primær';
-$strPrimaryKey = 'Primærnøkkel';
 $strPrimaryKeyHasBeenDropped = 'Primær-nøkkelen har blitt slettet';
 $strPrimaryKeyName = 'Navnet til  prim&aelig;rn&oslash;kkelen m&aring; v&aelig;re... PRIMARY!';
+$strPrimaryKey = 'Primærnøkkel';
 $strPrimaryKeyWarning = '("PRIMARY" <b>m&aring;</b> v&aelig;re navnet til og <b>bare til</b> en prim&aelig;rn&oslash;kkel!)';
+$strPrimary = 'Primær';
 $strPrintView = 'Utskriftsvennlig forhåndsvisning';
 $strPrivileges = 'Privilegier';
 $strProperties = 'Egenskaper';
 
-$strQBE = 'Spørring ved eksempel (Query by Example)';
 $strQBEDel = 'Slett';
 $strQBEIns = 'Sett inn';
+$strQBE = 'Spørring ved eksempel (Query by Example)';
 $strQueryOnDb = 'SQL-spørring i database <b>%s</b>:';
 
 $strRecords = 'Rader';
@@ -291,18 +293,18 @@ $strReplace = 'Erstatt';
 $strReplaceTable = 'Erstatt tabell med filen';
 $strReset = 'Tøm skjema';
 $strReType = 'Gjenta';
-$strRevoke = 'Tilbakekall';
-$strRevokeGrant = 'Tilbakekall Grant';
 $strRevokeGrantMessage = 'Du har tilbakekalt Grant privilegiet til %s';
+$strRevokeGrant = 'Tilbakekall Grant';
 $strRevokeMessage = 'Du har fjernet privilegiene til %s';
 $strRevokePriv = 'Tibakekall privilegier';
+$strRevoke = 'Tilbakekall';
 $strRowLength = 'Rad lengde';
-$strRows = 'Rader';
 $strRowsFrom = 'rader fra';
 $strRowSize = ' Rad størelse ';
 $strRowsModeHorizontal= 'vannrett';
 $strRowsModeOptions= 'i %s modus og gjenta headers etter %s celler';
 $strRowsModeVertical= 'loddrett';
+$strRows = 'Rader';
 $strRowsStatistic = 'Rad statistikk';
 $strRunning = 'som kjører på %s';
 $strRunQuery = 'Kjør spørring';
@@ -310,7 +312,6 @@ $strRunSQLQuery = 'Kjør SQL spørring/spørringer mot databasen %s';
 
 $strSave = 'Lagre';
 $strScaleFactorSmall = 'Skaleringsfaktoren er for liten til å romme alt på en side';
-$strSearch = 'Søk';
 $strSearchFormTitle = 'Søk i database';
 $strSearchInTables = 'I tabell(ene):';
 $strSearchNeedle = 'Ord eller verdi(er) å søke etter (wildcard: "%"):';
@@ -319,18 +320,18 @@ $strSearchOption2 = 'alle ordene';
 $strSearchOption3 = 'med den nøyaktige setningen';
 $strSearchOption4 = 'som "regular expression"';
 $strSearchResultsFor = 'Søkeresultat for "<i>%s</i>" %s:';
+$strSearch = 'Søk';
 $strSearchType = 'Finn:';
-$strSelect = 'Spørring';
 $strSelectADb = 'Vennligst velg en database';
 $strSelectAll = 'Velg alle';
 $strSelectFields = 'Velg felt (minst ett):';
 $strSelectNumRows = 'i spørring';
+$strSelect = 'Spørring';
 $strSelectTables = 'Velg tabeller';
 $strSend = 'Last ned som fil';
 $strServerChoice = 'Server valg';
 $strServerVersion = 'Server versjon';
 $strSetEnumVal = 'Hvis felttypen er "enum" eller "set", skriv inn verdien med dette formatet: \'a\',\'b\',\'c\'...<br />Hvis du skulle trenge å ha en skråstrek ("\") eller en enkel apostrof ("\'") blant disse verdiene, skriv en skråstrek foran (eks. \'\\\\xyz\' eller \'a\\\'b\').';
-$strShow = 'Vis';
 $strShowAll = 'Vis alle';
 $strShowColor = 'Vis farger';
 $strShowCols = 'Vis kolonner';
@@ -340,14 +341,15 @@ $strShowPHPInfo = 'Vis PHP informasjon';
 $strShowTableDimension = 'Vis tabell dimensjoner';
 $strShowTables = 'Vis tabeller';
 $strShowThisQuery = ' Vis denne spørring her igjen ';
+$strShow = 'Vis';
 $strSingly = '(enkeltvis)';
 $strSize = 'Størelse';
 $strSort = 'Sorter';
 $strSpaceUsage = 'Plass bruk';
 $strSplitWordsWithSpace = 'Ord er separert med et mellomrom (" ").';
-$strSQL = 'SQL';
 $strSQLQuery = 'SQL-spørring';
 $strSQLResult = 'SQL resultat';
+$strSQL = 'SQL';
 $strStatement = 'Oversikt';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Struktur og data';
@@ -360,7 +362,6 @@ $strSubmit = 'Send';
 $strSuccess = 'Kommandoen/spørringen er utført';
 $strSum = 'Sum';
 
-$strTable = 'tabell ';
 $strTableComments = 'Tabell kommentarer';
 $strTableEmpty = 'Tabellnavnet er tomt!';
 $strTableHasBeenDropped = 'Tabellen %s har blitt slettet';
@@ -369,6 +370,7 @@ $strTableHasBeenFlushed = 'Tabelen %s har blitt oppfrisket';
 $strTableMaintenance = 'Tabell vedlikehold';
 $strTables = '%s tabell(er)';
 $strTableStructure = 'Tabell-struktur for tabell';
+$strTable = 'tabell ';
 $strTableType = 'Tabell type';
 $strTextAreaLength = ' På grunn av sin lengde,<br /> så vil muligens dette feltet ikke være redigerbar ';
 $strTheContent = 'Innholdet av filen er lagt inn.';
@@ -381,8 +383,8 @@ $strUncheckAll = 'Fjern merking';
 $strUnique = 'Unik';
 $strUnselectAll = 'Fjern alle valgte';
 $strUpdatePrivMessage = 'Du har oppdatert privilegiene til %s.';
-$strUpdateProfile = 'Oppdater profil:';
 $strUpdateProfileMessage = 'Profilen har blitt oppdatert.';
+$strUpdateProfile = 'Oppdater profil:';
 $strUpdateQuery = 'Oppdater spørring';
 $strUsage = 'Bruk';
 $strUseBackquotes = 'Bruk venstre anførselstegn med tabell og felt navn';
@@ -393,8 +395,8 @@ $strUsers = 'Brukere';
 $strUseTables = 'Bruk tabeller';
 
 $strValue = 'Verdi';
-$strViewDump = 'Vis dump (skjema) av tabell';
 $strViewDumpDB = 'Vis dump (skjema) av database';
+$strViewDump = 'Vis dump (skjema) av tabell';
 
 $strWelcome = 'Velkommen til %s';
 $strWithChecked = 'Med avkrysset:';
@@ -403,30 +405,40 @@ $strWrongUser = 'Ugyldig brukernavn/passord. Ingen tilgang.';
 $strYes = 'Ja';
 
 $strZip = 'Komprimert (zip)';
-
 // To translate
 
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
+
 $strBeginCut = 'BEGIN CUT';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strBeginRaw = 'BEGIN RAW';  //to translate
+
+$strCharsetOfFile = 'Character set of the file:'; //to translate
+$strColComFeat = 'Displaying Column Comments';  //to translate
+$strCreatePdfFeat = 'Creation of PDFs';  //to translate
+
+$strDisabled = 'Disabled';  //to translate
+$strDisplayFeat = 'Display Features';  //to translate
+
+$strEnabled = 'Enabled';  //to translate
+$strEndCut = 'END CUT';  //to translate
 $strEndRaw = 'END RAW';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strExplain = 'Explain SQL';  //to translate
+
+$strGeneralRelationFeat = 'General relation features';  //to translate
+
+$strNoExplain = 'Skip Explain SQL';  //to translate
+$strNotOK = 'not OK';  //to translate
+$strNoValidateSQL = 'Skip Validate SQL';  //to translate
+
+$strOK = 'OK';  //to translate
+
+$strPdfNoTables = 'No tables';  //to translate
+
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
+$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
+
+$strValidateSQL = 'Validate SQL';  //to translate
+
 ?>

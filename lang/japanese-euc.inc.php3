@@ -1,4 +1,5 @@
 <?php
+
 /* $Id$ */
 
 /**
@@ -20,6 +21,8 @@ $month = array('1·î','2·î','3·î','4·î','5·î','6·î','7·î','8·î','9·î','10·î','11·
 // variable below
 $datefmt = '%YÇ¯%B%dÆü %H:%M';
 
+// japanese only
+
 
 $strAccessDenied = '¥¢¥¯¥»¥¹¤ÏµñÈÝ¤µ¤ì¤Þ¤·¤¿¡£';
 $strAction = '¼Â¹Ô';
@@ -37,6 +40,7 @@ $strAfter = '¸å¤Ë %s';
 $strAfterInsertBack = 'Ìá¤ë';
 $strAfterInsertNewInsert = '¿·¥ì¥³¡¼¥É¤ÎÄÉ²Ã';
 $strAll = 'Á´Éô';
+$strAllTableSameWidth = 'Á´¤Æ¤Î¥Æ¡¼¥Ö¥ë¤òÆ±¤¸Éý¤ÇÉ½¼¨¤·¤Þ¤¹¤«?';
 $strAlterOrderBy = '¥Æ¡¼¥Ö¥ë½çÈÖ¤Î¾ò·ï';
 $strAnalyzeTable = '¥Æ¡¼¥Ö¥ë¤òÊ¬ÀÏ¤·¤Þ¤¹¡£';
 $strAnd = 'µÚ¤Ó';
@@ -54,8 +58,8 @@ $strAtEndOfTable = '¥Æ¡¼¥Ö¥ë¤ÎºÇ¸å';
 $strAttr = 'É½¼¨';
 
 $strBack = 'Ìá¤ë';
-$strBinary = ' ¥Ð¥¤¥Ê¥ê ';
 $strBinaryDoNotEdit = ' ¥Ð¥¤¥Ê¥ê -  ½¤Àµ½ÐÍè¤Þ¤»¤ó';
+$strBinary = ' ¥Ð¥¤¥Ê¥ê ';
 $strBookmarkDeleted = '¥Ö¥Ã¥¯¥Þ¡¼¥¯¤òÀµ¾ï¤Ëºï½ü¤·¤Þ¤·¤¿¡£';
 $strBookmarkLabel = '¥é¥Ù¥ë';
 $strBookmarkQuery = '¥Ö¥Ã¥¯¥Þ¡¼¥¯¤µ¤ì¤Æ¤¤¤ëSQL¥¯¥¨¥ê¡¼';
@@ -70,8 +74,8 @@ $strCantRenameIdxToPrimary = '¥¤¥ó¥Ç¥Ã¥¯¥¹¤ÎÌ¾Á°¤òPRIMARY¤ËÊÑ¹¹¤Ç¤­¤Þ¤»¤ó¡£';
 $strCantUseRecodeIconv = 'iconv¡¢libiconv¡¢recode_string¤Î¤É¤Î´Ø¿ô¤â»ÈÍÑ½ÐÍè¤Þ¤»¤ó¡£php ¤ÎÀßÄê¤ò¥Á¥§¥Ã¥¯¤·¤Æ¤¯¤À¤µ¤¤¡£';
 $strCardinality = '¥«¡¼¥Ç¥£¥Ê¥ê¥Æ¥£';
 $strCarriage = '¥­¥ã¥ê¥Ã¥¸¥ê¥¿¡¼¥ó: \\r';
-$strChange = 'ÊÑ¹¹';
 $strChangeDisplay = 'É½¼¨¤µ¤»¤ë¥Õ¥£¡¼¥ë¥É¤òÁª¤ó¤Ç²¼¤µ¤¤';
+$strChange = 'ÊÑ¹¹';
 $strChangePassword = '¥Ñ¥¹¥ï¡¼¥É¤ÎÊÑ¹¹';
 $strCheckAll = 'Á´¤Æ¤ò¥Þ¡¼¥¯';
 $strCheckDbPriv = '¥Ç¡¼¥¿¥Ù¡¼¥¹¤ÎÆÃ¸¢¤Î³ÎÇ§';
@@ -87,27 +91,27 @@ $strConfirm = '¼Â¹Ô¤·¤Æ¤âÎÉ¤¤¤Ç¤¹¤«¡©';
 $strCookiesRequired = '¤³¤³¤«¤éÀè¤Ï¥¯¥Ã¥­¡¼¤¬µö²Ä¤µ¤ì¤Æ¤¤¤ëÉ¬Í×¤¬¤¢¤ê¤Þ¤¹¡£';
 $strCopyTable = '¥Æ¡¼¥Ö¥ë¤ò(database<b>.</b>table)¤Ë¥³¥Ô¡¼¤¹¤ë:';
 $strCopyTableOK = '%s¥Æ¡¼¥Ö¥ë¤ò%s¤Ë¥³¥Ô¡¼¤·¤Þ¤·¤¿¡£';
-$strCreate = 'ºîÀ®';
 $strCreateIndex = '&nbsp;%s&nbsp;¤ÎÎó¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹¤ÎºîÀ®';
 $strCreateIndexTopic = '¿·¤·¤¤¥¤¥ó¥Ç¥Ã¥¯¥¹¤ÎºîÀ®';
 $strCreateNewDatabase = '¿·¤·¤¤DB¤òºîÀ®¤·¤Þ¤¹¡£';
 $strCreateNewTable = '¸½ºß¤ÎDB¤Ë¿·¤·¤¤¥Æ¡¼¥Ö¥ë¤òºîÀ®¤·¤Þ¤¹¡£ %s --> ';
+$strCreate = 'ºîÀ®';
 $strCreatePage = '¿·µ¬¥Ú¡¼¥¸¤ÎºîÀ®';
 $strCriteria = '´ð½à';
 
-$strData = '¥Ç¡¼¥¿';
 $strDatabase = '¥Ç¡¼¥¿¥Ù¡¼¥¹';
 $strDatabaseHasBeenDropped = '¥Ç¡¼¥¿¥Ù¡¼¥¹%s¤òÀµ¾ï¤Ëºï½ü¤·¤Þ¤·¤¿¡£';
 $strDatabases = '¥Ç¡¼¥¿¥Ù¡¼¥¹';
 $strDatabasesStats = '¥Ç¡¼¥¿¥Ù¡¼¥¹¤ÎÅý·×';
 $strDatabaseWildcard = '¥Ç¡¼¥¿¥Ù¡¼¥¹(¥ï¥¤¥ë¥É¥«¡¼¥É»ÈÍÑ²Ä):';
+$strData = '¥Ç¡¼¥¿';
 $strDataOnly = '¥Ç¡¼¥¿¤Î¤ß';
 $strDefault = '´ðËÜÃÍ';
-$strDelete = 'ºï½ü';
 $strDeleted = 'ÁªÂò¤·¤¿Îó¤òºï½ü¤·¤Þ¤·¤¿¡£';
-$strDeleteFailed = 'ºï½ü¤Ë¼ºÇÔ¤·¤Þ¤·¤¿';
-$strDeleteUserMessage = '¥æ¡¼¥¶¡¼%s¤òºï½ü¤·¤Þ¤·¤¿¡£';
 $strDeletedRows = 'ºï½ü¤µ¤ì¤¿¹Ô¿ô:';
+$strDeleteFailed = 'ºï½ü¤Ë¼ºÇÔ¤·¤Þ¤·¤¿';
+$strDelete = 'ºï½ü';
+$strDeleteUserMessage = '¥æ¡¼¥¶¡¼%s¤òºï½ü¤·¤Þ¤·¤¿¡£';
 $strDescending = '¹ß½ç';
 $strDisplay = 'É½¼¨';
 $strDisplayOrder = 'È¯É½½çÈÖ:';
@@ -115,8 +119,8 @@ $strDisplayPDF = 'PDF¥¹¥­¡¼¥Þ¤ÎÉ½¼¨';
 $strDoAQuery = '"Îã¤ÎQUERY"¤ò¼Â¹Ô (wildcard: "%")';
 $strDocu = '¥Ø¥ë¥×';
 $strDoYouReally = 'ËÜÅö¤Ë¼Â¹Ô¤·¤Æ¤âÎÉ¤¤¤Ç¤¹¤«¡© --> ';
-$strDrop = 'ºï½ü';
 $strDropDB = '¥Ç¡¼¥¿¥Ù¡¼¥¹%s¤Îºï½ü ';
+$strDrop = 'ºï½ü';
 $strDropTable = '¥Æ¡¼¥Ö¥ë¤Îºï½ü';
 $strDumpingData = '¥Æ¡¼¥Ö¥ë¤Î¥À¥ó¥×¥Ç¡¼¥¿';
 $strDumpXRows = '%s Îó¤ò¥À¥ó¥×¡£»Ï¤á¤ëÎó¤Ï %s.';
@@ -128,6 +132,7 @@ $strEditPrivileges = 'ÆÃ¸¢¤ò½¤Àµ';
 $strEffective = '»ö¼Â¾å';
 $strEmpty = '¶õ¤Ë¤¹¤ë';
 $strEmptyResultSet = 'MySQL¤¬¶õ¤ÎÃÍ¤òÊÖ¤·¤Þ¤·¤¿¡£(i.e. zero rows).';
+$strEncto = '¥¨¥ó¥³¡¼¥Ç¥£¥ó¥°¤ØÊÑ´¹¤¹¤ë'; // encoding convert
 $strEnd = 'ºÇ¸å';
 $strEnglishPrivileges = ' Ãí°Õ: MySQL¤ÎÆÃ¸¢¤ÎÌ¾Á°¤Ï±Ñ¸ì¤ÇÈ¯É½¤·¤Æ¤¤¤Þ¤¹¡£';
 $strError = '¥¨¥é¡¼';
@@ -136,12 +141,12 @@ $strExportToXML = 'XML·Á¼°¤Ç¥¨¥¯¥¹¥Ý¡¼¥È';
 $strExtendedInserts = 'Ä¹¤¤INSERTÊ¸¤ÎºîÀ®';
 $strExtra = 'ÄÉ²Ã';
 
-$strField = '¥Õ¥£¡¼¥ë¥É';
 $strFieldHasBeenDropped = '¥Õ¥£¡¼¥ë¥É%s¤¬Àµ¾ï¤Ëºï½ü¤µ¤ì¤Þ¤·¤¿';
-$strFields = '¥Õ¥£¡¼¥ë¥É';
+$strField = '¥Õ¥£¡¼¥ë¥É';
 $strFieldsEmpty = ' ¥Õ¥£¡¼¥ë¥É¿ô¤Ï¶õ¤Ç¤¹¡£ ';
 $strFieldsEnclosedBy = '¥Õ¥£¡¼¥ë¥É°Ï¤ßµ­¹æ';
 $strFieldsEscapedBy = '¥Õ¥£¡¼¥ë¥É¤Î¥¨¥¹¥±¡¼¥×µ­¹æ';
+$strFields = '¥Õ¥£¡¼¥ë¥É';
 $strFieldsTerminatedBy = '¥Õ¥£¡¼¥ë¥É¶èÀÚ¤êµ­¹æ';
 $strFixed = '¸ÇÄê';
 $strFlushTable = '¥Æ¡¼¥Ö¥ë¤Î¥­¥ã¥Ã¥·¥å¤ò¶õ¤Ë¤¹¤ë("FLUSH")';
@@ -162,16 +167,16 @@ $strHaveToShow = 'É½¼¨¤¹¤ë¤¿¤á¤Ë¡¢¾¯¤Ê¤¯¤Æ¤â¤Ò¤È¤Ä¤Î¥«¥é¥à¤òÁªÂò¤·¤Ê¤±¤ì¤Ð¤Ê¤ê¤Þ
 $strHome = '¥á¡¼¥ó¥Ú¡¼¥¸¤Ø';
 $strHomepageOfficial = 'phpMyAdmin¥Û¡¼¥à';
 $strHomepageSourceforge = 'Sourceforge¤ÎphpMyAdmin¥À¥¦¥ó¥í¡¼¥É¥Ú¡¼¥¸';
-$strHost = '¥Û¥¹¥È';
 $strHostEmpty = '¥Û¥¹¥ÈÌ¾¤Ï¶õ¤Ç¤¹!';
+$strHost = '¥Û¥¹¥È';
 
 $strIdxFulltext = 'Á´Ê¸';
 $strIfYouWish = '¥Æ¡¼¥Ö¥ë¤Î¥³¥é¥à(Îó)¤Ë¥Ç¡¼¥¿¤òÄÉ²Ã¤¹¤ë¾ì¹ç¤Ï¡¢¥Õ¥£¡¼¥ë¥É¥ê¥¹¥È¤ò¥«¥ó¥Þ¤Ç¶èÊ¬¤·¤Æ¤¯¤À¤µ¤¤¡£';
 $strIgnore = 'Ìµ»ë';
-$strIndex = '¥¤¥ó¥Ç¥Ã¥¯¥¹';
 $strIndexes = '¥¤¥ó¥Ç¥Ã¥¯¥¹¿ô';
 $strIndexHasBeenDropped = '¥¤¥ó¥Ç¥Ã¥¯¥¹%s¤¬ºï½ü¤µ¤ì¤Þ¤·¤¿';
 $strIndexName = '¥¤¥ó¥Ç¥Ã¥¯¥¹Ì¾&nbsp;:';
+$strIndex = '¥¤¥ó¥Ç¥Ã¥¯¥¹';
 $strIndexType = '¥¤¥ó¥Ç¥Ã¥¯¥¹¤Î¥¿¥¤¥×&nbsp;:';
 $strInsert = 'ÄÉ²Ã';
 $strInsertAsNewRow = '¿·¤·¤¤¹Ô¤È¤·¤Æ¤ÎÄÉ²Ã';
@@ -182,6 +187,7 @@ $strInstructions = '¶µ¼¨';
 $strInUse = '»ÈÍÑÃæ';
 $strInvalidName = '"%s"¤ÏÍ½Ìó¸ì¤Ç¤¹¤«¤é¡Ö¥Ç¡¼¥¿¥Ù¡¼¥¹¡¿¥Æ¡¼¥Ö¥ë¡¿¥Õ¥£¡¼¥ë¥É¡×Ì¾¤Ë¤Ï»È¤¨¤Þ¤»¤ó¡£';
 
+$strKanjiEncodConvert = '´Á»ú¥³¡¼¥ÉÊÑ´¹'; // kanji code convert
 $strKeepPass = '¥Ñ¥¹¥ï¡¼¥É¤òÊÑ¹¹¤·¤Ê¤¤';
 $strKeyname = '¥­¡¼Ì¾';
 $strKill = 'Ää»ß';
@@ -250,8 +256,8 @@ $strOverhead = '¥ª¡¼¥Ð¡¼¥Ø¥Ã¥É';
 
 $strPageNumber = '¥Ú¡¼¥¸ÈÖ¹æ:';
 $strPartialText = 'ÉôÊ¬Åª¤ÊÊ¸½ñ';
-$strPassword = '¥Ñ¥¹¥ï¡¼¥É';
 $strPasswordEmpty = '¥Ñ¥¹¥ï¡¼¥É¤Ï¶õ¤Ç¤¹¡£';
+$strPassword = '¥Ñ¥¹¥ï¡¼¥É';
 $strPasswordNotSame = '¥Ñ¥¹¥ï¡¼¥É¤Ï¶õ¤Ç¤¹¡£';
 $strPdfDbSchema = '"%s" ¥Ç¡¼¥¿¥Ù¡¼¥¹ - %sÊÇ¤Î¿Þ';
 $strPdfInvalidPageNum = 'PDF¥Ú¡¼¥¸¤¬Ì¤ÄêµÁ¡ª';
@@ -271,13 +277,14 @@ $strPrintView = '°õºþÍÑÉ½¼¨';
 $strPrivileges = 'ÆÃ¸¢';
 $strProperties = '¥×¥í¥Ñ¥Æ¥£';
 
-$strQBE = '¥¯¥¨¥ê¡¼';
 $strQBEDel = 'ºï½ü';
+$strQBE = '¥¯¥¨¥ê¡¼';
 $strQBEIns = 'ÁÞÆþ';
 $strQueryOnDb = '¥Ç¡¼¥¿¥Ù¡¼¥¹¤ÎSQL¥¯¥¨¥ê¡¼ <b>%s</b>:';
 
 $strRecords = '¥ì¥³¡¼¥É¿ô';
 $strReferentialIntegrity = '·ë¹ç¹àÌÜ¤Î¥Á¥§¥Ã¥¯:';
+$strRelationNotWorking = '¥ê¥ì¡¼¥·¥ç¥óµ¡Ç½¤òÆ°¤«¤¹¤¿¤á¤Î¥ê¥ó¥¯¥Æ¡¼¥Ö¥ë¤¬Í­¸ú¤Ë¤Ê¤Ã¤Æ¤¤¤Þ¤»¤ó¡£ %s¤³¤³%s¤ò¥¯¥ê¥Ã¥¯¤·¤Æ¸¶°ø¤ò¸«¤Ä¤±¤Æ²¼¤µ¤¤¡£';
 $strRelationView = '¥ê¥ì¡¼¥·¥ç¥óÉ½¼¨';
 $strReloadFailed = 'MySQL¤Î¥ê¥í¡¼¥É¤Ë¼ºÇÔ¤·¤Þ¤·¤¿¡£';
 $strReloadMySQL = 'MySQL¤Î¥ê¥í¡¼¥É';
@@ -308,10 +315,10 @@ $strRunSQLQuery = '¥Ç¡¼¥¿¥Ù¡¼¥¹%s¤ËSQL¥¯¥¨¥ê¡¼¼Â¹Ô';
 
 $strSave = 'ÊÝÂ¸';
 $strScaleFactorSmall = '£±¥Ú¡¼¥¸Æâ¤Ë¿ÞÉ½¤òÇÛÃÖ¤µ¤»¤ë¤¿¤á¤Ë¤ÏÂç¤­¤µ¤¬¾®¤µ²á¤®¤Þ¤¹';
-$strSearch = '¸¡º÷';
 $strSearchFormTitle = '¥Ç¡¼¥¿¥Ù¡¼¥¹Æâ¤Î¸¡º÷';
 $strSearchInTables = '¥Æ¡¼¥Ö¥ë¤Î»ØÄê:';
 $strSearchNeedle = '¸¡º÷¤¹¤ëÃ±¸ì¡¢¤Þ¤¿¤ÏÃÍ (¥ï¥¤¥ë¥É¥«¡¼¥É¤Ï: "%"):';
+$strSearch = '¸¡º÷';
 $strSearchOption1 = '¤¤¤º¤ì¤«¤ÎÃ±¸ì¤ò´Þ¤à';
 $strSearchOption2 = 'Á´¤Æ¤ÎÃ±¸ì¤ò´Þ¤à';
 $strSearchOption3 = 'Àµ³Î¤Ê¥Õ¥ì¡¼¥º';
@@ -328,10 +335,10 @@ $strSend = '¥Õ¥¡¥¤¥ë¤ËÍî¤È¤¹';
 $strServerChoice = '¥µ¡¼¥Ð¡¼¤ÎÁªÂò';
 $strServerVersion = '¥µ¡¼¥Ð¡¼¤Î¥Ð¡¼¥¸¥ç¥ó';
 $strSetEnumVal = '¥Õ¥£¡¼¥ë¥É¥¿¥¤¥×¤¬"enum"Ëô¤Ï"set"¤Î¾ì¹ç¤ÏÃÍ¤ò¤³¤Î¥Õ¥©¡¼¥Þ¥Ã¥È¤ò»È¤Ã¤ÆÆþÎÏ¤·¤Æ²¼¤µ¤¤: \'a\',\'b\',\'c\'...<br />¥Ð¥Ã¥¯¥¹¥é¥Ã¥·¥å¡Ö"\"¡×Ëô¤Ï¥¯¥ª¡¼¥È¡Ö"\'"¡×¤òÆþÎÏ¤·¤¿¤¤¤È¡¢Æ¬¤Ë¥Ð¥Ã¥¯¥¹¥é¥Ã¥·¥å¤òÉÕ¤±¤Æ²¼¤µ¤¤¡ÖÎã: \'\\\\xyz\' or \'a\\\'b\'¡×¡£';
-$strShow = 'É½¼¨';
 $strShowAll = 'Á´¤ÎÈ¯É½';
 $strShowColor = '¿§É½¼¨';
 $strShowCols = 'Îó¤ÎÈ¯É½';
+$strShow = 'É½¼¨';
 $strShowGrid = '¥°¥ê¥Ã¥É¤ÎÉ½¼¨';
 $strShowingRecords = '¥ì¥³¡¼¥ÉÉ½¼¨';
 $strShowPHPInfo = 'PHP¾ðÊó';
@@ -343,9 +350,9 @@ $strSize = '¥µ¥¤¥º';
 $strSort = '¥½¡¼¥È';
 $strSpaceUsage = '¥Ç¥£¥¹¥¯»ÈÍÑÎÌ';
 $strSplitWordsWithSpace = '³ÆÃ±¸ì¤Ï¥¹¥Ú¡¼¥¹Ê¸»ú(" ")¤Ç¶èÀÚ¤Ã¤Æ²¼¤µ¤¤';
-$strSQL = 'SQL';
 $strSQLQuery = '¼Â¹Ô¤µ¤ì¤¿SQL¥¯¥¨¥ê¡¼';
 $strSQLResult = 'SQL¤Î·ë²Ì';
+$strSQL = 'SQL';
 $strStatement = '¥¹¥Æ¡¼¥È¥á¥ó¥È';
 $strStrucCSV = 'CSV¥Ç¡¼¥¿';
 $strStrucData = '¹½Â¤¤È¥Ç¡¼¥¿';
@@ -398,39 +405,45 @@ $strWelcome = '%s¤Ø¤è¤¦¤³¤½';
 $strWithChecked = '¥Á¥§¥Ã¥¯¤·¤¿¤â¤Î¤ò:';
 $strWrongUser = '¥æ¡¼¥¶Ì¾¤Þ¤¿¤Ï¥Ñ¥¹¥ï¡¼¥É¤¬Àµ¤·¤¯¤¢¤ê¤Þ¤»¤ó¡£<br />¥¢¥¯¥»¥¹¤ÏµñÈÝ¤µ¤ì¤Þ¤·¤¿¡£';
 
+$strXkana = 'Á´³Ñ¥«¥Ê¤ØÊÑ´¹¤¹¤ë'; // convert to X208-kana
+
 $strYes = '¤Ï¤¤';
 
 $strZip = '"zip¤µ¤ì¤ë"';
-
-// japanese only
-$strEncto = '¥¨¥ó¥³¡¼¥Ç¥£¥ó¥°¤ØÊÑ´¹¤¹¤ë'; // encoding convert
-$strKanjiEncodConvert = '´Á»ú¥³¡¼¥ÉÊÑ´¹'; // kanji code convert
-$strXkana = 'Á´³Ñ¥«¥Ê¤ØÊÑ´¹¤¹¤ë'; // convert to X208-kana
-
 // To translate
-$strRelationNotWorking = '¥ê¥ì¡¼¥·¥ç¥óµ¡Ç½¤òÆ°¤«¤¹¤¿¤á¤Î¥ê¥ó¥¯¥Æ¡¼¥Ö¥ë¤¬Í­¸ú¤Ë¤Ê¤Ã¤Æ¤¤¤Þ¤»¤ó¡£ %s¤³¤³%s¤ò¥¯¥ê¥Ã¥¯¤·¤Æ¸¶°ø¤ò¸«¤Ä¤±¤Æ²¼¤µ¤¤¡£';
-$strAllTableSameWidth = 'Á´¤Æ¤Î¥Æ¡¼¥Ö¥ë¤òÆ±¤¸Éý¤ÇÉ½¼¨¤·¤Þ¤¹¤«?';
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
-$strNoValidateSQL = 'Skip Validate SQL';  //to translate
-$strValidateSQL = 'Validate SQL';  //to translate
-$strNoExplain = 'Skip Explain SQL';  //to translate
-$strExplain = 'Explain SQL';  //to translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
+
+
 $strBeginCut = 'BEGIN CUT';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strBeginRaw = 'BEGIN RAW';  //to translate
+
+$strCharsetOfFile = 'Character set of the file:'; //to translate
+$strColComFeat = 'Displaying Column Comments';  //to translate
+$strCreatePdfFeat = 'Creation of PDFs';  //to translate
+
+$strDisabled = 'Disabled';  //to translate
+$strDisplayFeat = 'Display Features';  //to translate
+
+$strEnabled = 'Enabled';  //to translate
+$strEndCut = 'END CUT';  //to translate
 $strEndRaw = 'END RAW';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strExplain = 'Explain SQL';  //to translate
+
+$strGeneralRelationFeat = 'General relation features';  //to translate
+
+$strNoExplain = 'Skip Explain SQL';  //to translate
+$strNotOK = 'not OK';  //to translate
+$strNoValidateSQL = 'Skip Validate SQL';  //to translate
+
+$strOK = 'OK';  //to translate
+
+$strPdfNoTables = 'No tables';  //to translate
+
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
+$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
+
+$strValidateSQL = 'Validate SQL';  //to translate
+
 ?>

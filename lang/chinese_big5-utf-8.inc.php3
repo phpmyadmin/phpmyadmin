@@ -1,4 +1,5 @@
 <?php
+
 /* $Id$ */
 
 /**
@@ -32,22 +33,22 @@ $strAddPriv = '增加新權限';
 $strAddPrivMessage = '您已經為下面這位使用者增加了新權限.';
 $strAddSearchConditions = '增加檢索條件 ("where" 子句的主體)';
 $strAddToIndex = '新增 &nbsp;%s&nbsp; 組索引欄';
-$strAddUser = '新增使用者';
 $strAddUserMessage = '您已新增了一個新使用者.';
+$strAddUser = '新增使用者';
 $strAffectedRows = '影響列數: ';
 $strAfter = '在 %s 之後';
 $strAfterInsertBack = '返回';
 $strAfterInsertNewInsert = '新增一筆記錄';
-$strAll = '全部';
 $strAllTableSameWidth = '以相同寬度顯示所有資料表?';
+$strAll = '全部';
 $strAlterOrderBy = '根據欄位內容排序記錄';
 $strAnalyzeTable = '分析資料表';
 $strAnd = '與';
 $strAnIndex = '索引已經新增到 %s';
-$strAny = '任何';
 $strAnyColumn = '任何欄位';
 $strAnyDatabase = '任何資料庫';
 $strAnyHost = '任何主機';
+$strAny = '任何';
 $strAnyTable = '任何資料表';
 $strAnyUser = '任何使用者';
 $strAPrimaryKey = '主鍵已經新增到 %s';
@@ -57,8 +58,8 @@ $strAtEndOfTable = '於資料表尾端';
 $strAttr = '屬性';
 
 $strBack = '回上一頁';
-$strBinary = '二進制碼';
 $strBinaryDoNotEdit = '二進制碼 - 不能編輯';
+$strBinary = '二進制碼';
 $strBookmarkDeleted = '書籤已經刪除.';
 $strBookmarkLabel = '書籤名稱';
 $strBookmarkQuery = 'SQL 語法書籤';
@@ -73,8 +74,8 @@ $strCantRenameIdxToPrimary = '無法將索引更名為 PRIMARY!';
 $strCantUseRecodeIconv = '當文編碼模組讀取後,未能使用 iconv 、 libiconv 或 recode_string 功能. 請檢查您的 php 設定.';
 $strCardinality = '組別';
 $strCarriage = '歸位: \\r';
-$strChange = '修改';
 $strChangeDisplay = '選擇顯示之欄位';
+$strChange = '修改';
 $strChangePassword = '更改密碼';
 $strCheckAll = '全選';
 $strCheckDbPriv = '檢查資料庫權限';
@@ -91,27 +92,27 @@ $strConfirm = '您確定要這樣做？';
 $strCookiesRequired = 'Cookies 必須啟動才能登入.';
 $strCopyTable = '複製資料表到： (格式為 資料庫名稱<b>.</b>資料表名稱):';
 $strCopyTableOK = '已經將資料表 %s 複製為 %s.';
-$strCreate = '建立';
 $strCreateIndex = '新增 &nbsp;%s&nbsp; 組索引欄';
 $strCreateIndexTopic = '新增一組索引';
 $strCreateNewDatabase = '建立新資料庫';
 $strCreateNewTable = '建立新資料表於資料庫 %s';
+$strCreate = '建立';
 $strCreatePage = '建立新一頁';
 $strCreatePdfFeat = '建立 PDF';
 $strCriteria = '篩選';
 
-$strData = '資料';
 $strDatabase = '資料庫';
 $strDatabaseHasBeenDropped = '資料庫 %s 已被刪除';
 $strDatabases = '資料庫';
 $strDatabasesStats = '資料庫統計';
 $strDatabaseWildcard = '資料庫 (允許使用萬用字元):';
+$strData = '資料';
 $strDataOnly = '只有資料';
 $strDefault = '預設值';
-$strDelete = '刪除';
 $strDeleted = '記錄已被刪除';
 $strDeletedRows = '已刪除欄數:';
 $strDeleteFailed = '刪除失敗!';
+$strDelete = '刪除';
 $strDeleteUserMessage = '您已經將用戶 %s 刪除.';
 $strDescending = '遞減';
 $strDisabled = '未啟動';
@@ -122,8 +123,8 @@ $strDisplayPDF = '顯示 PDF 概要';
 $strDoAQuery = '以範例查詢 (萬用字元 : "%")';
 $strDocu = '說明文件';
 $strDoYouReally = '您確定要 ';
-$strDrop = '刪除';
 $strDropDB = '刪除資料庫 %s';
+$strDrop = '刪除';
 $strDropTable = '刪除資料表';
 $strDumpingData = '列出以下資料庫的數據：';
 $strDumpXRows = '備份 %s 行, 由 %s 行開始.';
@@ -183,10 +184,10 @@ $strIndexes = '索引';
 $strIndexHasBeenDropped = '索引 %s 已被刪除';
 $strIndexName = '索引名稱&nbsp;:';
 $strIndexType = '索引類型&nbsp;:';
-$strInsert = '新增';
 $strInsertAsNewRow = '儲存為新記錄';
 $strInsertedRows = '新增列數:';
 $strInsertNewRow = '新增一筆記錄';
+$strInsert = '新增';
 $strInsertTextfiles = '將文字檔資料匯入資料表';
 $strInstructions = '指令';
 $strInUse = '使用中';
@@ -264,8 +265,8 @@ $strOverhead = '多餘';
 
 $strPageNumber = '頁碼:';
 $strPartialText = '顯示部份文字';
-$strPassword = '密碼';
 $strPasswordEmpty = '請輸入密碼!';
+$strPassword = '密碼';
 $strPasswordNotSame = '第二次輸入的密碼不同!';
 $strPdfDbSchema = '"%s" 資料庫概要 - 第 %s 頁';
 $strPdfInvalidPageNum = 'PDF 頁碼沒有設定!';
@@ -286,8 +287,8 @@ $strPrintView = '列印檢視';
 $strPrivileges = '權限';
 $strProperties = '屬性';
 
-$strQBE = '依範例查詢 (QBE)';
 $strQBEDel = '移除';
+$strQBE = '依範例查詢 (QBE)';
 $strQBEIns = '新增';
 $strQueryOnDb = '在資料庫 <b>%s</b> 執行 SQL 語法:';
 
@@ -301,8 +302,8 @@ $strRememberReload = '請記著重新啟動伺服器.';
 $strRenameTable = '將資料表改名為';
 $strRenameTableOK = '已經將資料表 %s 改名成 %s';
 $strRepairTable = '修復資料表';
-$strReplace = '取代';
 $strReplaceTable = '以檔案取代資料表資料';
+$strReplace = '取代';
 $strReset = '重置';
 $strReType = '確認密碼';
 $strRevoke = '移除';
@@ -324,9 +325,9 @@ $strRunSQLQuery = '在資料庫 %s 執行以下指令';
 
 $strSave = '儲存';
 $strScaleFactorSmall = '比例倍數太細, 無法將圖表放在一頁內';
-$strSearch = '搜索';
 $strSearchFormTitle = '搜索資料庫';
 $strSearchInTables = '於以下資料表:';
+$strSearch = '搜索';
 $strSearchNeedle = '尋找之文字或數值 (萬用字元: "%"):';
 $strSearchOption1 = '任何一組文字';
 $strSearchOption2 = '所有文字';
@@ -334,10 +335,10 @@ $strSearchOption3 = '完整詞語';
 $strSearchOption4 = '以規則表示法 (regular expression) 搜索';
 $strSearchResultsFor = '搜索 "<i>%s</i>" 的結果 %s:';
 $strSearchType = '尋找:';
-$strSelect = '選擇';
 $strSelectADb = '請選擇資料庫';
 $strSelectAll = '全選';
 $strSelectFields = '選擇欄位 (至少一個)';
+$strSelect = '選擇';
 $strSelectNumRows = '查詢中';
 $strSelectTables = '選擇資料表';
 $strSend = '下載儲存';
@@ -347,8 +348,8 @@ $strServerVersion = '伺服器版本';
 $strSetEnumVal = '如欄位格式是 "enum" 或 "set", 請使用以下的格式輸入: \'a\',\'b\',\'c\'...<br />如在數值上需要輸入反斜線 (\) 或單引號 (\') , 請再加上反斜線 (例如 \'\\\\xyz\' or \'a\\\'b\').';
 $strShow = '顯示';
 $strShowAll = '顯示全部';
-$strShowCols = '顯示欄';
 $strShowColor = '顯示顏色';
+$strShowCols = '顯示欄';
 $strShowGrid = '顯示框格';
 $strShowingRecords = '顯示記錄';
 $strShowPHPInfo = '顯示 PHP 資訊';
@@ -360,9 +361,9 @@ $strSize = '大小';
 $strSort = '排序';
 $strSpaceUsage = '已使用空間';
 $strSplitWordsWithSpace = '每組文字以空格 (" ") 分隔.';
-$strSQL = 'SQL'; // should express in english
 $strSQLQuery = 'SQL 語法';
 $strSQLResult = 'SQL 查詢結果';
+$strSQL = 'SQL'; // should express in english
 $strStatement = '敘述';
 $strStrucCSV = 'CSV 資料';
 $strStrucData = '結構與資料';
@@ -375,8 +376,8 @@ $strSubmit = '送出';
 $strSuccess = '您的SQL語法已順利執行';
 $strSum = '總計';
 
-$strTable = '資料表';
 $strTableComments = '資料表註解文字';
+$strTable = '資料表';
 $strTableEmpty = '請輸入資料表名稱!';
 $strTableHasBeenDropped = '資料表 %s 已被刪除';
 $strTableHasBeenEmptied = '資料表 %s 已被清空';
@@ -396,13 +397,13 @@ $strUncheckAll = '全部取消';
 $strUnique = '唯一';
 $strUnselectAll = '全部取消';
 $strUpdatePrivMessage = '您已經更新了 %s 的權限.';
-$strUpdateProfile = '更新資料:';
 $strUpdateProfileMessage = '資料己經更新.';
+$strUpdateProfile = '更新資料:';
 $strUpdateQuery = '更新語法';
 $strUsage = '使用';
 $strUseBackquotes = '請在資料表及欄位使用引號';
-$strUser = '使用者';
 $strUserEmpty = '請輸入使用者名稱!';
+$strUser = '使用者';
 $strUserName = '使用者名稱';
 $strUsers = '使用者';
 $strUseTables = '使用資料表';
@@ -419,16 +420,21 @@ $strWrongUser = '錯誤的使用者名稱或密碼，拒絕存取';
 $strYes = ' 是 ';
 
 $strZip = '"zipped"';
-
 // To translate
-$strCharsetOfFile = 'Character set of the file:'; //to translate
+
+
 $strBeginCut = 'BEGIN CUT';  //to translate
-$strEndCut = 'END CUT';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
 $strBeginRaw = 'BEGIN RAW';  //to translate
+
+$strCharsetOfFile = 'Character set of the file:'; //to translate
+
+$strEndCut = 'END CUT';  //to translate
 $strEndRaw = 'END RAW';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+
 $strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
+$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
+
 ?>
