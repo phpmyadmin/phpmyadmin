@@ -850,7 +850,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
             echo '    <td></td>' . "\n";
             echo '    <td></td>' . "\n";
         }
-        if ($sql_query == 'SHOW PROCESSLIST') {
+        if(eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$",$sql_query)) {
             echo '    <td></td>' . "\n";
         }
         while ($field = mysql_fetch_field($dt_result)) {
@@ -929,7 +929,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     $condition .= '= \'' . str_replace('\'', '\\\'', $row[$i]) . '\' AND';
                 }
                 if ($primary->numeric == 1) {
-                    if ($sql_query == 'SHOW PROCESSLIST') {
+                    if(eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$",$sql_query)) {
+
                         $Id = $row[$i];
                     }
                 }
@@ -986,7 +987,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 echo "\n";
             } // end if
 
-            if ($sql_query == 'SHOW PROCESSLIST') {
+            if(eregi("^[ \n\r]*show[ \n\r]*processlist[ \n\r]*$",$sql_query)) {
                 ?>
     <td align="right">
         <a href="sql.php3?db=mysql&sql_query=<?php echo urlencode('KILL ' . $Id); ?>&goto=main.php3">

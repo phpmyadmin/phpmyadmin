@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-04  Steve Alberty  <alberty@neptunlabs.de>
+	* lib.inc.php3: fixed #444017 (thanks anonymous)
+
 2001-08-04  Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3, db_details.php3, Documentation.html,
 	  tbl_properties.php3: added two directives to disable the use of
