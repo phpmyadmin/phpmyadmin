@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-05 Michal Čihař  <michal@cihar.com>
+    * tbl_properties_operations.php: Fix changning table parameters if it has
+      no auto increment (bug #1096246).
+
 2005-01-04 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php:
       - Updates and small corrections;

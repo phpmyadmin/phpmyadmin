@@ -52,7 +52,7 @@ if (isset($submitoptions)) {
                    . (isset($pack_keys) ? ' pack_keys=1': ' pack_keys=0')
                    . (isset($checksum) ? ' checksum=1': ' checksum=0')
                    . (isset($delay_key_write) ? ' delay_key_write=1': ' delay_key_write=0')
-                   . (isset($auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($auto_increment) : '');
+                   . (!empty($auto_increment) ? ' auto_increment=' . PMA_sqlAddslashes($auto_increment) : '');
     $result        = PMA_DBI_query($sql_query);
     $message       = $strSuccess;
 }
