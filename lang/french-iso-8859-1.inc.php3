@@ -52,6 +52,8 @@ $strAtEndOfTable = 'En fin de Table';
 $strAttr = 'Attributs';
 
 $strBack = 'Retour';
+$strBeginCut = 'Début de la section à couper';
+$strBeginRaw = 'Début des informations sur l\'anomalie';
 $strBinary = 'Binaire';
 $strBinaryDoNotEdit = 'Binaire - ne pas éditer';
 $strBookmarkDeleted = 'Le bookmark a été effacé.';
@@ -133,6 +135,8 @@ $strEmptyResultSet = 'MySQL n\'a retourné aucun enregistrement.';
 $strEmpty = 'Vider';
 $strEnabled = 'activé';
 $strEnd = 'Fin';
+$strEndCut = 'Fin de la section à couper';
+$strEndRaw = 'Fin des informations sur l\'anomalie';
 $strEnglishPrivileges = ' Veuillez noter que les noms de privilèges sont exprimés en anglais';
 $strError = 'Erreur';
 $strExplain = 'Expliquer SQL';
@@ -355,9 +359,14 @@ $strSize = 'Taille';
 $strSort = 'Tri';
 $strSpaceUsage = 'Espace utilisé';
 $strSplitWordsWithSpace = 'Séparer les mots par un espace (" ").';
+$strSQLParserBugMessage = 'Il semble que vous ayiez trouvé une anomalie dans l\'analyseur syntaxique SQL. Veuillez examiner votre requête attentivement, et vérifier que vos apostrophes sont conformes. Il se pourrait aussi que vous ayiez chargé un fichier dont le contenu binaire n\'est pas entre apostrophes.  Si vous avez accès à MySQL via son interface de commande en mode ligne, vous pouvez y essayer votre requête. Le message d\'erreur présenté plus bas pourrait vous indiquer la source du problème. En dernier recours, veuillez trouver la plus courte requête possible qui cause le problème, et soumettre un rapport d\'anomalie en incluant la section à couper:';
+$strSQLParserUserError = 'Il semble qu\'il y ait une erreur dans votre requête SQL. Le message ci-bas peut vous aider à en trouver la cause.';
 $strSQLQuery = 'requête SQL';
 $strSQLResult = 'Resultat de la requête SQL';
 $strSQL = 'SQL';
+$strSQPBugInvalidIdentifer = 'Identificateur invalide';
+$strSQPBugUnclosedQuote = 'Apostrophe non fermé';
+$strSQPBugUnknownPunctuation = 'Ponctuation invalide';
 $strStatement = 'Information';
 $strStrucCSV = 'Données CSV';
 $strStrucData = 'Structure et données';
@@ -414,18 +423,4 @@ $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 $strYes = 'Oui';
 
 $strZip = '"zippé"';
-
-
-$strBeginCut = 'BEGIN CUT';  //to translate
-$strBeginRaw = 'BEGIN RAW';  //to translate
-
-$strEndCut = 'END CUT';  //to translate
-$strEndRaw = 'END RAW';  //to translate
-
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:';  //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem';  //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer';  //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote';  //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String';  //to translate
-
 ?>
