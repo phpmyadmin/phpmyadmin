@@ -69,7 +69,9 @@ function checkAddUser(the_form)
  */
 function setCheckboxes(the_form, the_checkboxes, do_check)
 {
-    var elts      = document.forms[the_form].elements[the_checkboxes + '[]'];
+    var elts      = (the_checkboxes != '')
+                  ? document.forms[the_form].elements[the_checkboxes + '[]']
+                  : document.forms[the_form].elements;
     var elts_cnt  = (typeof(elts.length) != 'undefined')
                   ? elts.length
                   : 0;

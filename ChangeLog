@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-03-23 Olivier Mueller <om@omnis.ch>
+    * server_privileges.php, libraries/server_privileges.js: added 
+      (un)checkall links to the "Global privileges" edition form.
+      Todo: make it work even if JS is disabled + local links
+      for the "Data" and "Structure" checkboxes groups. 
+
 2004-04-02 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Fixed a typo.
 

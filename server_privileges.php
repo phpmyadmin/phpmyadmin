@@ -371,7 +371,10 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
            . $spaces . '        <th colspan="6">&nbsp;' . ($db == '*' ? $GLOBALS['strGlobalPrivileges'] : ($table == '*' ? $GLOBALS['strDbPrivileges'] : $GLOBALS['strTblPrivileges'])) . '&nbsp;</th>' . "\n"
            . $spaces . '    </tr>' . "\n"
            . $spaces . '    <tr>' . "\n"
-           . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" colspan="6"><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small></td>' . "\n"
+           . $spaces . '        <td bgcolor="' . $cfg['BgcolorTwo'] . '" align="center" colspan="6"><small><i>' . $GLOBALS['strEnglishPrivileges'] . '</i></small><br />' . "\n"
+           . $spaces . '        <a href="./server_privileges.php?' . $url_query .  '&amp;checkall=1" onclick="setCheckboxes(\'usersForm\', \'\', true); return false;">' . $GLOBALS['strCheckAll'] . '</a>' . "\n"
+           . $spaces . '        &nbsp;&nbsp;&nbsp' . "\n"
+           . $spaces . '        <a href="./server_privileges.php?' . $url_query .  '" onclick="setCheckboxes(\'usersForm\', \'\', false); return false;">' . $GLOBALS['strUncheckAll'] . '</a></td>' . "\n"
            . $spaces . '    </tr>' . "\n"
            . $spaces . '    <tr>' . "\n"
            . $spaces . '        <td bgcolor="' . $cfg['BgcolorOne'] . '" colspan="2">&nbsp;<b><i>' . $GLOBALS['strData'] . '</i></b>&nbsp;</td>' . "\n"
@@ -1030,7 +1033,7 @@ if (empty($adduser) && empty($checkprivs)) {
         unset($res);
         echo '<ul>' . "\n"
            . '    <li>' . "\n"
-           . '        <form action="server_privileges.php" method="post">' . "\n"
+           . '        <form name="usersForm" action="server_privileges.php" method="post">' . "\n"
            . PMA_generate_common_hidden_inputs('', '', 3)
            . '            <input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
            . '            <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
@@ -1273,7 +1276,7 @@ if (empty($adduser) && empty($checkprivs)) {
     echo '<h2>' . "\n"
        . '    ' . $strAddUser . "\n"
        . '</h2>' . "\n"
-       . '<form action="server_privileges.php" method="post" onsubmit="return checkAddUser(this);">' . "\n"
+       . '<form name="usersForm" action="server_privileges.php" method="post" onsubmit="return checkAddUser(this);">' . "\n"
        . PMA_generate_common_hidden_inputs('', '', 1)
        . '    <table border="0">' . "\n"
        . '        <tr>' . "\n"
