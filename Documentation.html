@@ -618,15 +618,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         To use this functionality you have to:
         <ul>
             <li>
-                create in the same database a table (for example 'relation')
+                create in the same database a table (for example 'PMA_relation')
                 following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `relation` (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_table` varchar(32) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_field` varchar(32) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_table` varchar(32) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_field` varchar(32) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_display_field` varchar(32) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_relation` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_table` varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_field` varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_table` varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_field` varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_display_field` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pdf_page_number` int(11) NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_table`,`master_field`),<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY pdf_page_number (`pdf_page_number`)<br />
@@ -643,15 +643,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
             </li>
         </ul><br />
         If you created a relation table before release 2.3.0, you can upgrade
-        it with those commands, assuming your table name is &quot;relation&quot;:<br />
+        it with those commands, assuming your table name is &quot;PMA_relation&quot;:<br />
         <tt>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE src_table master_table VARCHAR(32) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE src_column master_field VARCHAR(32) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE dest_table foreign_table VARCHAR(32) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE relation CHANGE dest_column foreign_field VARCHAR(32) NOT NULL<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD `foreign_display_field` VARCHAR(32) NOT NULL;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD `pdf_page_number` int(11) NOT NULL;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `relation` ADD INDEX(`pdf_page_number`);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE src_table master_table VARCHAR(64) NOT NULL<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE src_column master_field VARCHAR(64) NOT NULL<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_table foreign_table VARCHAR(64) NOT NULL<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_column foreign_field VARCHAR(64) NOT NULL<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` ADD `foreign_display_field` VARCHAR(64) NOT NULL;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` ADD `pdf_page_number` int(11) NOT NULL;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` ADD INDEX(`pdf_page_number`);<br />
         </tt><br />
     </dd>
 
@@ -665,16 +665,17 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         table.
         <br /><br />
         This feature is supported under PHP4, and you must be using also the
-        'relation' feature.
+        'relation' feature. Also, we used the fpdf library which currently
+        only supports iso-8859 (Latin1) character sets in PDF.
         <br /><br />
         To use this functionality you have to:
         <ul>
             <li>
-                create in the same database a table (for example 'pdf_table_position')
+                create in the same database a table (for example 'PMA_pdf_table_position')
                 following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `pdf_table_position` (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(50) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_pdf_table_position` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`x` float unsigned NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`table_name`)<br />
@@ -1726,19 +1727,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO persons VALUES (11, 'Marc', 'S', '');<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO persons VALUES (15, 'Paul', 'S', 'C');<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE relation (<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_table varchar(32) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_field varchar(32) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_table varchar(32) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_field varchar(32) NOT NULL default '',<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_display_field varchar(32) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_relation` (<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_table varchar(64) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master_field varchar(64) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_table varchar(64) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_field varchar(64) NOT NULL default '',<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreign_display_field varchar(64) NOT NULL default '',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pdf_page_number int(11) NOT NULL default '0',<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (master_table,master_field),<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY pdf_page_number (`pdf_page_number`)<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM;<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'town_code', 'towns', 'town_code','description', 1);<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO relation VALUES ('persons', 'country_code', 'countries', 'country_code','description', 1);<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'town_code', 'towns', 'town_code','description', 1);<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'country_code', 'countries', 'country_code','description', 1);<br />
     <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE towns (<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;town_code varchar(5) NOT NULL default '0',<br />
