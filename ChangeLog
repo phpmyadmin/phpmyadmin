@@ -7,7 +7,9 @@ $Source$
 
 2002-06-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/dutch.inc.php3: Updates, thanks to "CaliMonk" <calimonk at gmx.net>.
-    * translators.html: Changed Dutch translator.
+    * translators.html:
+      - Changed Dutch translator.
+      - Changed special characters into HTML entities.
 
 2002-06-07 Marc Delisle  <lem9@users.sourceforge.net>
     * translators.html: updates (try to have only one official translator,
