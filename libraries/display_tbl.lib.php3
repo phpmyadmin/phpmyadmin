@@ -586,23 +586,31 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 } else {
                     $sort_tbl = '';
                 }
-                // 2.1.4 Do define the sorting url
+                // 2.1.4 Check the field name for backquotes.
+                //       If it contains some, it's probably a function column
+                //       like 'COUNT(`field`)'
+                if (strpos(' ' . $fields_meta[$i]->name, '`') > 0) {
+                    $sort_order = ' ORDER BY \'' . $fields_meta[$i]->name . '\' ';
+                } else {
+                    $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ';
+                }
+                // 2.1.5 Do define the sorting url
                 if (!$is_in_sort) {
                     // loic1: patch #455484 ("Smart" order)
                     $cfg['Order']  = strtoupper($GLOBALS['cfg']['Order']);
                     if ($cfg['Order'] == 'SMART') {
                         $cfg['Order'] = (eregi('time|date', $fields_meta[$i]->type)) ? 'DESC' : 'ASC';
                     }
-                    $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ' . $cfg['Order'];
-                    $order_img  = '';
+                    $sort_order .= $cfg['Order'];
+                    $order_img   = '';
                 }
                 else if (eregi('[[:space:]]ASC$', $sql_order)) {
-                    $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' DESC';
-                    $order_img  = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
+                    $sort_order .= ' DESC';
+                    $order_img   = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
                 }
                 else if (eregi('[[:space:]]DESC$', $sql_order)) {
-                    $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ASC';
-                    $order_img  = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
+                    $sort_order .= ' ASC';
+                    $order_img   = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
                 }
                 if (eregi('(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))', $unsorted_sql_query, $regs3)) {
                     $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
