@@ -36,7 +36,7 @@ if (!isset($old_error_reporting)) {
  * If the auto-detection code does work properly, you can set to TRUE the
  * $cfg['PmaAbsoluteUri_DisableWarning'] variable below.
  */
-$cfg['PmaAbsoluteUri'] = 'http://www.garvinhicking.de/cvs/phpMyAdmin/';
+$cfg['PmaAbsoluteUri'] = '';
 
 
 /**
@@ -76,12 +76,9 @@ $cfg['Servers'][$i]['controluser']   = '';          // MySQL control user settin
                                                     // (this user must have read-only
 $cfg['Servers'][$i]['controlpass']   = '';          // access to the "mysql/user"
                                                     // and "mysql/db" tables)
-$cfg['Servers'][$i]['auth_type']     = 'http';    // Authentication method (config, http or cookie based)?
-$cfg['Servers'][$i]['blowfish_secret'] = 'hammer';        // Secret key used by
-                                                    // blowfish encryption
-                                                    // (if auth_type='cookie')
-$cfg['Servers'][$i]['user']          = 'superdbl';      // MySQL user
-$cfg['Servers'][$i]['password']      = 'geheim00';          // MySQL password (only needed
+$cfg['Servers'][$i]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
+$cfg['Servers'][$i]['user']          = 'root';      // MySQL user
+$cfg['Servers'][$i]['password']      = '';          // MySQL password (only needed
                                                     // with 'config' auth_type)
 $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
                                                     // this db is displayed
@@ -231,7 +228,7 @@ $cfg['SuggestDBName']         = TRUE;   // suggest a new DB name if possible (fa
 // In browse mode...
 $cfg['ShowBlob']              = FALSE;  // display blob field contents
 $cfg['NavigationBarIconic']   = TRUE;   // do not display text inside navigation bar buttons
-$cfg['ShowAll']               = TRUE;  // allows to display all the rows
+$cfg['ShowAll']               = FALSE;  // allows to display all the rows
 $cfg['MaxRows']               = 30;     // maximum number of rows to display
 $cfg['Order']                 = 'ASC';  // default for 'ORDER BY' clause (valid
                                         // values are 'ASC', 'DESC' or 'SMART' -ie
@@ -258,6 +255,10 @@ $cfg['BZipDump']              = TRUE;   // dump files
 
 // Tabs display settings
 $cfg['LightTabs']             = FALSE;  // use graphically less intense menu tabs
+$cfg['PropertiesIconic']      = TRUE;   // Use icons instead of text for the table display of a database
+$cfg['PropertiesNumColumns']  = 1;      // How many columns should be used for table display of a database?
+                                        // (a value larger than 1 results in some information being hidden)
+
 $cfg['DefaultTabServer']      = 'main.php3';
                                    // Possible values:
                                    // 'main.php3' = the welcome page

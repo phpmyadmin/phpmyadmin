@@ -9,6 +9,11 @@ $Source$
     * libraries/sqlparser.lib.php3 - Confirmation is also needed on
       TRUNCATE statements!
     * libraries/common.lib.php3 - RFE #758051 (simpler PHPcode generation)
+    * config.inc.php3, db_details_structure.php3, libraries/common.lib.php3,
+      libraries/config_import.lib.php3: *EXPERIMENTAL* - implemented buttons
+      for the database properties page and implemented RFE #752062: multi-
+      column display for many tables.
+      (thanks to Kawika Ohumukini [boogie33]).
 
 2003-07-24 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3 /relation.lib.php3 /get_foreign.lib.php3:

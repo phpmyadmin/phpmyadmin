@@ -297,7 +297,15 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['LightTabs'])) {
         $cfg['LightTabs'] = FALSE;
     }
+    
+    if (!isset($cfg['PropertiesIconic'])) {
+        $cfg['PropertiesIconic'] = TRUE;
+    }
 
+    if (!isset($cfg['PropertiesNumColumns'])) {
+        $cfg['PropertiesNumColumns'] = 1;
+    }
+    
     if (!isset($cfg['ShowTooltip'])) {
         if (isset($cfgShowTooltip)) {
             $cfg['ShowTooltip'] = $cfgShowTooltip;
