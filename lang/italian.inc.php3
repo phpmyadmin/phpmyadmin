@@ -271,6 +271,7 @@ $strRunSQLQuery = 'Esegui la/e query SQL sul database %s';
 
 $strSave = 'Salva';
 $strSelect = 'Seleziona';
+$strSelectADb = 'Prego, selezionare un database';
 $strSelectAll = 'Seleziona Tutto';
 $strSelectFields = 'Seleziona campi (almeno uno):';
 $strSelectNumRows = 'nella query';
@@ -348,6 +349,4 @@ $strZip = '"compresso con zip"';
 
 
 // To translate
-$strSelectADb = 'Please select a database';
-
 ?>

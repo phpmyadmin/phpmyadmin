@@ -269,6 +269,8 @@ $strRunSQLQuery = 'Wykonanie zapytania/zapytañ SQL do bazy danych %s';
 
 $strSave = 'Zachowanie';
 $strSelect = 'Wybór';
+$strSelectADb = 'Proszê wybraæ bazê danych';
+$strSelectAll = 'Zaznaczenie wszystkich';
 $strSelectFields = 'Wybór pól (co najmniej jedno):';
 $strSelectNumRows = 'w zapytaniu';
 $strSend = 'wys³anie';
@@ -318,6 +320,7 @@ $strType = 'Typ';
 
 $strUncheckAll = 'Odznaczenie wszystkich';
 $strUnique = 'Unikalny';
+$strUnselectAll = 'Odznaczenie wszystkich';
 $strUpdatePrivMessage = 'Uaktualni³e¶ uprawnienia dla %s.';
 $strUpdateProfile = 'Uaktualnienie profilu:';
 $strUpdateProfileMessage = 'Profil zosta³ uaktualniony.';
@@ -343,7 +346,4 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>

@@ -6,10 +6,17 @@ $Id$
 $Source$
 
 2002-01-22  Marc Delisle  <lem9@users.sourceforge.net>
-	* lang/german.inc.php3 updates thanks to Michael Hauptmann
-        * libraries/display_tbl.lib.php3, config.inc.php3, Documentation.html:
+	* german updates thanks to Michael Hauptmann
+	* libraries/display_tbl.lib.php3, config.inc.php3, Documentation.html:
           merged Patch #504887: Table relation-links, thanks to 
           Axel Sander (n8falke) 
+	* slovak updates thanks to Lubos Klokner 
+	* swedish updates thanks to Björn T. Hallberg
+	* turkish updates thanks to Bora Alioglu
+	* romanian updates thanks to Valics Lehel
+	* finnish updates thanks to Visa Kopu
+	* italian updates thanks to Pietro Danesi
+	* polish updates thanks to Jakub Wilk
 
 2002-01-20  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.php3:
