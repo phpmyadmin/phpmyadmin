@@ -12,6 +12,7 @@ $Source$
     * libraries/common.lib.php: Add drop class also to td (RFE #946540).
     * db_details.php, db_details_structure.php, css/phpmyadmin.css.php: CSSize
       error messages.
+    * header.inc.php: Remove spaces before colons (bug #965594).
 
 2004-06-02 Alexander M. Turek  <happybirthdaytome@derrabus.de>
     * db_details_db_info.php, tbl_properties_tbl_info.php: Table type is called
