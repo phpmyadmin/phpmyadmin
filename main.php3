@@ -171,11 +171,13 @@ if ($server > 0
         }
 
         // Does user have global Create priv?
-        $local_query  = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-        $rs_usr       = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
-        $result_usr   = mysql_fetch_array($rs_usr);
-        $create       = ($result_usr['Create_priv'] == 'Y');
-        $db_to_create = '';
+        $local_query      = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
+        $rs_usr           = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
+        if ($rs_usr) {
+            $result_usr   = mysql_fetch_array($rs_usr);
+            $create       = ($result_usr['Create_priv'] == 'Y');
+            $db_to_create = '';
+        }
 
         // Does user have Create priv on a inexistant db?
         // if yes, show him in the dialog the first inexistant db name that we
@@ -196,16 +198,19 @@ if ($server > 0
             }
 
             $local_query = 'SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-            $rs_usr      = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
-            while ($row = mysql_fetch_array($rs_usr)) {
-                if (!mysql_select_db($row['Db'], $userlink)) {
-                    $db_to_create = $row['Db'];
-                    $create       = TRUE;
-                    break;
-                }
-            }
+            $rs_usr      = mysql_query($local_query, $stdlink);
+            if ($rs_usr) {
+                while ($row = mysql_fetch_array($rs_usr)) {
+                    if (!mysql_select_db($row['Db'], $userlink)) {
+                        $db_to_create = $row['Db'];
+                        $create       = TRUE;
+                        break;
+                    } // end if
+                } // end while
+            } // end if
             mysql_free_result($rs_usr);
-        }
+        } // end if
+
         // The user is allowed to create a db
         if ($create) {
             echo "\n";
