@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-04 Loïc Chapeaux  <lolo@phpheaven.net>
+    * user_details.php3, line 984: do not use "mysql_result" if the query
+      fails.
+
 2002-05-03 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/italian.inc.php3: updated, thanks to Pietro Danesi.
     * tbl_properties.php3; tbl_properties_export.php3;

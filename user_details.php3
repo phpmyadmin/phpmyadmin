@@ -981,7 +981,7 @@ if (mysql_error()) {
     exit();
 }
 $result         = @mysql_query('SELECT COUNT(Password) FROM mysql.user');
-$password_field = (mysql_result($result, 0) ? 'Password' : 'password');
+$password_field = ((!$result || mysql_result($result, 0)) ? 'Password' : 'password');
 
 
 /**
