@@ -35,18 +35,22 @@ unset($sql_query);
  */
 $fields_cnt = 0;
 if (isset($db) && isset($table) && $table != '' && $db != '') {
-    $result            = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';');
-    $fields_cnt        = PMA_DBI_num_rows($result);
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-        $fields_list[] = $row['Field'];
-    } // end while
-    PMA_DBI_free_result($result);
+    // we do a try_query here, because we could be in the query window,
+    // trying to synchonize and the table has not yet been created
+    $result = PMA_DBI_try_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';');
+    if ($result) {
+        $fields_cnt = PMA_DBI_num_rows($result);
+        while ($row = PMA_DBI_fetch_assoc($result)) {
+            $fields_list[] = $row['Field'];
+        } // end while
+        PMA_DBI_free_result($result);
+    } // end if
 }
 
 /**
  * Work on the table
  */
-// loic1: defines wether file upload is available or not
+// loic1: defines whether file upload is available or not
 // ($is_upload now defined in common.lib.php)
 
 if ($cfg['QueryFrame'] && $cfg['QueryFrameJS'] && isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full')) {

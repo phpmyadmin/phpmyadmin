@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_query_box.php: bug #975382, fields list on a non-existing table
+
 2004-06-27 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/dbi/mysql.dbi.lib.php: bug #980594.
 
