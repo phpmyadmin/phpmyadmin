@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-05-19 Alexander M. Turek  <rabus@users.sourceforge.net>
+2002-05-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: The Mozilla textarea bug also appears in
       Mozilla 1.0-RC2 and Netscape 7.0-PR1.
 
