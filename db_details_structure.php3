@@ -111,7 +111,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
             <?php echo $strInsert; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="tbl_properties.php3?<?php echo $tbl_url_query; ?>">
+        <a href="tbl_properties_structure.php3?<?php echo $tbl_url_query; ?>">
             <?php echo $strProperties; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">

@@ -111,6 +111,7 @@ else
 }
 
 
+
 /**
  * Displays the form
  */
@@ -165,6 +166,23 @@ $timestamp_seen = 0;
 $fields_cnt     = mysql_num_rows($table_def);
 
 for ($i = 0; $i < $fields_cnt; $i++) {
+
+
+    // display the submit button after every 15 lines --swix
+    // (wanted to use an <a href="#bottom"> and <a name> instead, 
+    // but it didn't worked because of the <base href>) 
+
+    if ((($i % 15) == 0) && ($i != 0)) {
+    ?>
+    <tr>
+        <th colspan="5" align="right">
+            <input type="submit" value="<?php echo $strGo; ?>" tabindex="<?php echo $fields_cnt+6; ?>" />&nbsp;
+        </td>
+    </tr>
+    <?php
+    }
+
+
     $row_table_def   = PMA_mysql_fetch_array($table_def);
     $field           = $row_table_def['Field'];
     if ($row_table_def['Type'] == 'datetime' && empty($row[$field])) {

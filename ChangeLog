@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-26 Olivier L. Müller  <om@omnis.ch>
+    * tbl_change.php3: display the submit button every 15 lines:
+      may be useful for tables with 200 fields... 
+    * db_details_structure.php3: fixed a wrong link: [Properties]
+      was opening the tbl_properties.php3 instead of 
+      tbl_properties_structure.php3
+
 2002-06-25 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-utf8.inc.php3: Synchronization.
     * ChangeLog: Added a note about the older ChangeLogs at EoF.
