@@ -5,11 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-04 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3, line 88: default language should be
+      en-iso-8859-1.
+
 2002-08-03 Marc Delisle  <lem9@users.sourceforge.net>
-    * Documentation.html: remove unneeded GRANT 
+    * Documentation.html: remove unneeded GRANT
     * lang/turkish: update, thanks to Bora Alioglu
     * lang/french: update
-    
+
 2002-08-03 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/*:
         - Strings for SQL Validator
@@ -68,7 +72,7 @@ $Source$
     * lang/spanish: remove control m
 
 2002-07-31 Robin Johnson  <robbat2@users.sourceforge.net>
-    * tbl_properties_structure.php3 +40: Fix for a warning notice 
+    * tbl_properties_structure.php3 +40: Fix for a warning notice
     * libraries/sqlparser.lib.php3: Fix for another minor formatting quirk
 
 2002-07-31 Marc Delisle  <lem9@users.sourceforge.net>
@@ -87,7 +91,7 @@ $Source$
     * lang/albanian: update, thanks to Laurent Dhima.
     * lang/czech: update, thanks to Michal Cihar
     * lang/slovak-iso: update, thanks to Lubos Klokner
-   
+
 2002-07-30 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html: coding standards (line size <= 80).
     * db_details_structure.php3:, 456-460, beautified generated page.
@@ -95,9 +99,9 @@ $Source$
 2002-07-29 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: auto-detect, dot in dbname, CGI and cookie auth
     * lang/turkish: update, thanks to Bora Alioglu
-    
+
 2002-07-29 Robin Johnson  <robbat2@users.sourceforge.net>
-    * lang/galician*: Merged update from #588154 
+    * lang/galician*: Merged update from #588154
     * lang/estonian*: Merged update from Alvar Soome
     * lang/indonesian*: Merged update from Rachim Tamsjadi
     * lang/*: ran sync_lang.sh
@@ -119,18 +123,18 @@ $Source$
     * lang/lithuanian: update, thanks to Vilius Zigmantas
     * lang/dutch: update, thanks to Ivo Teel.
     2.3.0-rc4 released
-    
+
 2002-07-27 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/italian: update, thanks to Pietro Danesi
     * lang/*: fix a typo
 
-2002-07-26 Robin Johnson  <robbat2@users.sourceforge.net> 
+2002-07-26 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlparser.lib.php3:
         - Fixed ANSI type string escaping
         - Fixed formatting wrt. whitespace in FormatHTML
         - PHP3 fix for gzcompress() bug code
         - Fix for ob_flush() bug code
-    
+
 2002-07-26 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: numbers for faq entries
     * russian: updates, from an anonymous contributor
@@ -171,9 +175,9 @@ $Source$
     * new lang: slovenian, thanks to Kositer Uros (urosh)
 
 2002-07-24 Robin Johnson  <robbat2@users.sourceforge.net>
-    * libraries/string.lib.php3: 
+    * libraries/string.lib.php3:
         - optimizations/PHP3 fixes (thanks Loïc)
-    * libraries/sqlparser.lib.php3: 
+    * libraries/sqlparser.lib.php3:
         - Merged
         - Spacing around if statements
         - Added require statements for parser
@@ -181,17 +185,17 @@ $Source$
         - Added CSS creation rules
         - Cleaned up CSS creation functions
         - Formatting fixes
-    * libraries/sqlparser.data.php3: 
+    * libraries/sqlparser.data.php3:
         - Merged
         - Added 'ANALYSE' reserved word (note spelling)
-    * config.inc.php3: 
+    * config.inc.php3:
         - Added SQL Parser variables
         - Remove old SQL Parser variables
     * header.inc.php3:
         - Added CSS for SQL Parser
     * libraries/common.lib.php3:
         - Change of PMA_format_sql to use new SQL Parser
-    
+
 2002-07-24 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/string.lib.php3: Function documentation
 
@@ -545,7 +549,7 @@ $Source$
         - Reordered Strings.
     * arabic.inc.php3, brazilian_portuguese.inc.php3, bulgarian_*.php3,
       croatian-*.php3, danish.inc.php3, korean.inc.php3, russian_*.inc.php3,
-      serbian-win1250.inc.php3: 
+      serbian-win1250.inc.php3:
         - Synchronized the untranslated string
           $strSplitWordsWithSpace with the English translation.
 
@@ -808,7 +812,7 @@ $Source$
     * lang/english.inc.php3: Reordered strings.
 
 2002-06-09 Robin Johnson  <robbat2@users.sourceforge.net>
-    * libraries/common.lib.php3: 
+    * libraries/common.lib.php3:
       - Initial checkin of base DB-Config code
 
 2002-06-08 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -873,7 +877,7 @@ $Source$
     * sql.php3, lines 509-522: do print the page in "printview" mode.
     * scripts/check_lang.php3: added this script which goal is to ensure
       all languages files are valid.
-    * Documentation.html; main.php3; translators.html: 
+    * Documentation.html; main.php3; translators.html:
       - Feature request #539644 (Translation feedback link).
 
 2002-06-01 Loïc Chapeaux  <lolo@phpheaven.net>
@@ -1001,7 +1005,7 @@ $Source$
       pdf_schema.php3, libraries/display_tbl.lib.php3: PMA_pdf_table_position
       renamed to PMA_table_info, "foreign_display_field" moved from
       PMA_relation to PMA_table_info (once per table)
-    * lang/indonesian.inc.php3: 
+    * lang/indonesian.inc.php3:
       - updates thanks to Rachim Tamsjadi (tamsjadi at icqmail.com)
 
 2002-05-21 Loïc Chapeaux  <lolo@phpheaven.net>
@@ -1074,9 +1078,9 @@ $Source$
 
 2002-05-14 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3, db_details_structure.php3, lang/*, fpdf/*,
-      Documentation.html: 
+      Documentation.html:
       - new feature: pdf schema output,
-      - thanks to Maxime Delorme (delorme.maxime at free.fr) 
+      - thanks to Maxime Delorme (delorme.maxime at free.fr)
       - and to Olivier Plathey (www.fpdf.org)
       - (todo: scaling choice)
 
@@ -1260,7 +1264,7 @@ $Source$
       - Patch #548696 (DB/Table titles should be links), thanks to
         Ray Black <allah03@users.sourceforge.net>.
       - lines: 161-164: Undefined variable.
-    * common.lib.php3, lines 162, 163, 435-437: 
+    * common.lib.php3, lines 162, 163, 435-437:
       - Fixed bug #549570
       - (Strange error if controluser is invalid).
 
