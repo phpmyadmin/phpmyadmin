@@ -323,6 +323,7 @@ $strSetEnumVal = 'If field type is "enum" or "set", please enter the values usin
 $strShowAll = 'Show all'; // to translate
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
+$strUpdateServer = 'Update server';//to translate
+$strUpdateServMessage = 'You have updated the server for %s';//to translate
 $strWithChecked = 'With checked:'; //to translate
-
 ?>

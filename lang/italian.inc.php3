@@ -325,5 +325,6 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
-$strRunningAs = 'as';
+$strUpdateServer = 'Update server';//to translate
+$strUpdateServMessage = 'You have updated the server for %s';//to translate
 ?>

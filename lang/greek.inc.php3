@@ -324,4 +324,6 @@ $strRunSQLQuery = 'Run SQL query/queries on database %s';//to translate
 $strStartingRecord = 'Starting record';//to translate
 $strTableHasBeenDropped = 'Table %s has been dropped';//to translate
 $strTableHasBeenEmptied = 'Table %s has been emptied';//to translate
+$strUpdateServer = 'Update server';//to translate
+$strUpdateServMessage = 'You have updated the server for %s';//to translate
 ?>
