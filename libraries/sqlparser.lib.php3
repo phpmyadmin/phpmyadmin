@@ -700,6 +700,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 // ==============================
             if (($arr[$i]['type'] == 'quote_backtick')
              || ($arr[$i]['type'] == 'quote_double')
+             || ($arr[$i]['type'] == 'quote_single')
              || ($arr[$i]['type'] == 'alpha_identifier')) {
 
                 //TODO: check embedded double quotes or backticks?
@@ -712,6 +713,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                 if ($arr[$i]['type'] == 'quote_double') { 
                     // remove double quotes
                     $identifier = str_replace('"','',$arr[$i]['data']);
+                } 
+                    
+                if ($arr[$i]['type'] == 'quote_single') { 
+                    // remove single quotes
+                    $identifier = str_replace("'","",$arr[$i]['data']);
                 } 
                     
                 if ($subresult['querytype'] == 'SELECT') {
@@ -884,6 +890,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
            // token is not an identifier
            if (($arr[$i]['type'] != 'alpha_identifier')
             && ($arr[$i]['type'] != 'quote_double')
+            && ($arr[$i]['type'] != 'quote_single')
             && ($arr[$i]['type'] != 'quote_backtick')) {
                $previous_was_identifier = FALSE;
            } // end if
