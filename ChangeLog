@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-05 Alexander M. Turek  <rumors@derrabus.de>
+    * tbl_properties_operations.php: Changing a table's charset changed the
+      charset of all fields (MySQL >= 4.1.1).
+
 2004-01-04 Alexander M. Turek  <beggaronabeachofgold@derrabus.de>
     * libraries/config_import.lib.php: Added missing compatibility code for
       $cfg['RecodingEngine'].
