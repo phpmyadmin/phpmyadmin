@@ -42,8 +42,8 @@ $lang_path = 'lang/';
  */
 $available_languages = array(
     'ar'         => array('ar([-_][[:alpha:]]{2})?|arabic', 'arabic', 'ar'),
-    'bg-koi8r'   => array('bg|bulgarian', 'bulgarian-koi8', 'bg'),
     'bg-win1251' => array('bg|bulgarian', 'bulgarian-win1251', 'bg'),
+    'bg-koi8r'   => array('bg|bulgarian', 'bulgarian-koi8', 'bg'),
     'ca'         => array('ca|catalan', 'catala', 'ca'),
     'cs-iso'     => array('cs|czech', 'czech-iso', 'cs'),
     'cs-win1250' => array('cs|czech', 'czech-win1250', 'cs'),
