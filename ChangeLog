@@ -8,6 +8,8 @@ $Source$
 2004-04-29 Garvin Hicking <pma@supergarv.de>
     * db_details_structure.php: Bug #942362 - Colspan off by one
     * left.php: Modified js function to fit typecasting of Safari
+    * browse_foreigners.php: Bug #928328 - Use correct urlencoding() of
+      the primary key reference.
 
 2004-04-29 Marc Delisle  <lem9@users.sourceforge.net>
     * scripts/create-release.sh: keep only one previous version in cvs-prev

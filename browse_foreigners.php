@@ -43,8 +43,8 @@ PMA_setFontSizes();
     <script type="text/javascript" language="javascript">
     self.focus();
     function formupdate(field, key) {
-        if (opener && opener.document && opener.document.insertForm && opener.document.insertForm.elements['field_' + field + '<?php echo (isset($pk) ? '[multi_edit][' . $pk . ']' : ''); ?>[]']) {
-            opener.document.insertForm.elements['field_' + field + '<?php echo (isset($pk) ? '[multi_edit][' . $pk . ']' : ''); ?>[]'].value = key;
+        if (opener && opener.document && opener.document.insertForm && opener.document.insertForm.elements['field_' + field + '<?php echo (isset($pk) ? '[multi_edit][' . urlencode($pk) . ']' : ''); ?>[]']) {
+            opener.document.insertForm.elements['field_' + field + '<?php echo (isset($pk) ? '[multi_edit][' . urlencode($pk) . ']' : ''); ?>[]'].value = key;
             self.close();
         } else {
             alert('<?php echo PMA_jsFormat($strWindowNotFound); ?>');
@@ -80,9 +80,9 @@ require('./libraries/get_foreign.lib.php');
 <input type="hidden" name="field" value="<?php echo urlencode($field); ?>" />
 <?php
 if (isset($pk)) {
-    $pk_uri = '&amp;pk=' . $pk;
+    $pk_uri = '&amp;pk=' . urlencode($pk);
 ?>
-<input type="hidden" name="pk" value="<?php echo $pk; ?>" />
+<input type="hidden" name="pk" value="<?php echo urlencode($pk); ?>" />
 <?php
 } else {
     $pk_uri = '&amp;';
