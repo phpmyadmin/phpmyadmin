@@ -223,7 +223,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     // lem9:  but do not put here the current datetime if there is a default
     //        value (the real default value will be set in the
     //        Default value logic below)
-    if (($row_table_def['Type'] == 'datetime')
+    if ($row_table_def['Type'] == 'datetime'
         && (!isset($row_table_def['Default']))) {
         // INSERT case
         if ($insert_mode) {
@@ -429,16 +429,16 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     if (isset($disp) && $disp) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <?php echo $backup_field . "\n"; ?>
-            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$foreign$" tabindex="<?php echo $i+1; ?>" />
-            <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>">
-                <option value=""></option>
+        <?php echo $backup_field . "\n"; ?>
+        <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$foreign$" tabindex="<?php echo $i+1; ?>" />
+        <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>">
+            <option value=""></option>
         <?php
-
+        echo "\n";
         while ($relrow = @PMA_mysql_fetch_array($disp)) {
             $key   = $relrow[$foreign_field];
             $value = (($foreign_display != FALSE) ? '&nbsp;-&nbsp;' . htmlspecialchars($relrow[$foreign_display]) : '');
-            echo '              <option value="' . htmlspecialchars($key) . '"';
+            echo '            <option value="' . htmlspecialchars($key) . '"';
             if ($key == $data) {
                echo ' selected="selected"';
             } // end if

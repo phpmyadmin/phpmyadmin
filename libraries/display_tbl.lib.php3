@@ -718,26 +718,26 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
     function PMA_linkOrButton($url, $message, $js_conf)
     {
         if (strlen($url) <= 2047) {
-            $onclick_url    = (empty($js_conf) ? '' : ' onclick="return confirmLink(this, \'' . $js_conf . '\')"');
-            $linkOrButton =  '        <a href="' . $url . '"' . $onclick_url . '>' . "\n"
-                 . '            ' . $message . '</a>' . "\n";
+            $onclick_url        = (empty($js_conf) ? '' : ' onclick="return confirmLink(this, \'' . $js_conf . '\')"');
+            $link_or_button     = '        <a href="' . $url . '"' . $onclick_url . '>' . "\n"
+                                . '           ' . $message . '</a>' . "\n";
         }
         else {
-            $edit_url_parts = parse_url($url);
-            $query_parts    = explode('&', $edit_url_parts['query']);
-            $linkOrButton   = '        <form action="' 
-                            . $edit_url_parts['path']
-                            . '" method="post">' . "\n";
+            $edit_url_parts     = parse_url($url);
+            $query_parts        = explode('&', $edit_url_parts['query']);
+            $link_or_button     = '        <form action="'
+                                . $edit_url_parts['path']
+                                . '" method="post">' . "\n";
             reset ($query_parts);
-            while (list(, $query_pair) = each ($query_parts)) {
+            while (list(, $query_pair) = each($query_parts)) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
-                $linkOrButton .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . urldecode($eachval) . '" />' . "\n";
+                $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . urldecode($eachval) . '" />' . "\n";
             } // end while
-            $linkOrButton   .= '            <input type="submit" value="' 
-                            . $message . '" />' . "\n" . '</form>' . "\n";
+            $link_or_button     .= '            <input type="submit" value="'
+                                . $message . '" />' . "\n" . '</form>' . "\n";
         } // end if... else...
 
-        return $linkOrButton;
+        return $link_or_button;
     } // end of the 'PMA_linkOrButton()' function
 
 
@@ -1188,7 +1188,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
             if (isset($edit_url)) {
                 $vertical_display['edit'][$row_no]   .= '    <td bgcolor="' . $bgcolor . '">' . "\n"
-                                                     . PMA_linkOrButton($edit_url, $edit_str, '') 
+                                                     . PMA_linkOrButton($edit_url, $edit_str, '')
                                                      .  '    </td>' . "\n";
             }
 

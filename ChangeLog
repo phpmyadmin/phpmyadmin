@@ -5,8 +5,8 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-09-22 Loïc Chapeaux  <lolo@phpheaven.net>
-    * libraries/sqlparser.lib.php3: coding standards
+2002-09-23 Loïc Chapeaux  <lolo@phpheaven.net>
+    * libraries/display_tbl.lib.php3, tbl_change.php3: coding standards
 
 2002-09-23 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: fix for #613102 (ALTER TABLE:missing
@@ -14,6 +14,7 @@ $Source$
     
 2002-09-22 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_relation.php3: fix fox #611519 (slash in comment)
+    * libraries/sqlparser.lib.php3: coding standards
     
 2002-09-21 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
