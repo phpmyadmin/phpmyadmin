@@ -15,6 +15,7 @@ $Source$
       Currently, it can only display and edit global privileges.
     * libraries/common.lib.php3: Undefined index.
     * lang/slovenian-*.inc.php3: Updates, thanks again to Kositer Uros (urosh).
+    * lang/estonian-*.inc.php3: Updates, thanks again to Alvar Soome (finsoft).
 
 2002-12-18 Michal Cihar  <nijel@users.sourceforge.net>
     * main.php3: Since every user has access to his processlist, set
