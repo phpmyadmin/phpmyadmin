@@ -11,6 +11,8 @@ $Source$
 	* tbl_change.php3, lines 166-168: fixed bug #521589 - float(4,2) and field
 	  length.
 	* db_details.php3: fixed bug #520384 - Undefined index: Rows.
+	* index.php3, lines 36-39; left.php3, line 192: fixed bug #520571 - Problem
+	  selecting Databases with blanks.
 
 2002-02-22 Marc Delisle  <lem9@users.sourceforge.net>
 	* lang/catala.inc.php3 updates, thanks to Xavier Navarro

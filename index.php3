@@ -32,6 +32,11 @@ if (empty($HTTP_HOST)) {
 /**
  * Defines the frameset
  */
+// loic1: If left light mode -> urldecode the db name
+if (isset($lightm_db)) {
+    $db    = urldecode($lightm_db);
+    unset($lightm_db);
+}
 $url_query = 'lang=' . $lang
            . '&amp;server=' . $server
            . (empty($db) ? '' : '&amp;db=' . urlencode($db));

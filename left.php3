@@ -189,7 +189,7 @@ if ($num_dbs > 1) {
         echo '    <form method="post" action="index.php3" name="left" target="_parent">' . "\n";
         echo '        <input type="hidden" name="lang" value="' . $lang . '" />' . "\n";
         echo '        <input type="hidden" name="server" value="' . $server . '" />' . "\n";
-        echo '        <select name="db" onchange="this.form.submit()">' . "\n";
+        echo '        <select name="lightm_db" onchange="this.form.submit()">' . "\n";
         echo '            <option value=""> - </option>' . "\n";
         $table_list = '';
         $table_list_header = '';
