@@ -9,6 +9,8 @@ $Source$
 	* lib.inc.php3 & sql.php3: fix for the order bugs (need to be tested).
 	* tbl_change.php3, line 244-246: fixed a possible warning.
 	* db_details.php3, db_readdump.php3: fixed a slashes bug.
+	* db_details.php3, tbl_properties.php3, lang/*: improved js validation
+	  tests (and reduced server charge).
 
 2001-08-07  Marc Delisle  <lem9@users.sourceforge.net> 
 	* bug 448737 user_details.php typos 
