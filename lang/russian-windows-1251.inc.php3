@@ -7,7 +7,7 @@
  *               Nicolay Zakharov <info at melody.org.ru> 16-Dec-2002
  */
 
-$charset = 'koi8-r';
+$charset = 'windows-1251';
 $text_dir = 'ltr';
 $left_font_family = 'sans-serif';
 $right_font_family = 'sans-serif';

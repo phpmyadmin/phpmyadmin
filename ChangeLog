@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/russian-windows-1251: wrong charset (bug 823939)
+
 2003-10-14 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php3: bug 707516, sometimes db privileges
       are not shown
