@@ -10,6 +10,8 @@ $Source$
       not a SELECT
     * sql.php3: better way to show php code
     * sql.php3: bug 580920: do not display the confirm dialog
+    * db_details_links.php3: undefined variable if coming from a Show MySQL
+      link on the home page
 
 2002-07-13 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: News about bug #540671.
