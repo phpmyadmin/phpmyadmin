@@ -43,7 +43,12 @@ function PMA_DBI_connect($user, $password) {
                    ? FALSE
                    : $cfg['Server']['socket'];
 
-    $link = @mysqli_connect($cfg['Server']['host'], $user, $password, FALSE, $server_port, $server_socket);
+    if ($server_socket) {
+        $link = @mysqli_connect($cfg['Server']['host'], $user, $password, FALSE, $server_port, $server_socket);
+    } else {
+        // Omit the last parameter to enable connection to the default socket
+        $link = @mysqli_connect($cfg['Server']['host'], $user, $password, FALSE, $server_port);
+    }
 
     if (empty($link)) {
         PMA_auth_fails();
