@@ -21,7 +21,7 @@ $timespanfmt = '%s dní, %s hodín, %s minút a %s sekúnd';
 
 $strAPrimaryKey = 'Bol pridanı primárny k¾úè pre %s';
 $strAbortedClients = 'Prerušené';
-$strAbsolutePathToDocSqlDir = 'Prosím zadajte absolútnu cestu k adresáru docSQL na servere';
+$strAbsolutePathToDocSqlDir = 'Prosím zadajte absolútnu cestu k adresáru docSQL na serveri.';
 $strAccessDenied = 'Prístup zamietnutı';
 $strAccessDeniedExplanation = 'phpMyAdmin sa pokúsil pripoji k MySQL serveru ale ten spojenie odmietol. Skontrolujte prosím meno serveru, pouívate¾ské meno a heslo v súbore config.inc.php a s tım, ktoré ste dostali o administrátora MySQL servera.';
 $strAction = 'Akcia';
@@ -130,6 +130,7 @@ $strCompression = 'Kompresia';
 $strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.';
 $strConfigureTableCoord = 'Prosím skonfigurujte koordináty pre tabu¾ku %s';
 $strConfirm = 'Skutoène si eláte toto vykona?';
+$strConnectionError = 'Nepodarilo sa pripoji: chybné nastavenia.';
 $strConnections = 'Spojenia';
 $strConstraintsForDumped = 'Obmedzenie pre exportované tabu¾ky';
 $strConstraintsForTable = 'Obmedzenie pre tabu¾ku';
@@ -150,6 +151,7 @@ $strCriteria = 'Kritéria';
 $strCroatian = 'Chorvátsky';
 $strCyrillic = 'Cyrilika';
 $strCzech = 'Èesky';
+$strCzechSlovak = 'Èeština/Slovenèina';
 
 $strDBComment = 'Komentár k databáze: ';
 $strDBGContext = 'Kontext';
@@ -259,6 +261,7 @@ $strFunction = 'Funkcia';
 $strGenBy = 'Vygenerované';
 $strGenTime = 'Vygenerované:';
 $strGeneralRelationFeat = 'Monosti všeobecnıch vzahov';
+$strGeorgian = 'Gruzínèina';
 $strGerman = 'Nemecky';
 $strGlobal = 'globálny';
 $strGlobalPrivileges = 'Globálne práva';
@@ -358,6 +361,7 @@ $strMIME_transformation_note = 'Pre zoznam dostupnıch parametrov a ich MIME typo
 $strMIME_transformation_options = 'Parametre transformácie';
 $strMIME_transformation_options_note = 'Prosím zadajte hodnoty pre parametre transformácie v nasledujúcom tvare: \'a\',\'b\',\'c\'...<br />Ak potrebujete poui spätné lomítko ("\") alebo jednoduché úvodzovky ("\'") medzi tımito hodnotami, vlote pred nich spätné lomítko (napr. \'\\\\xyz\' alebo \'a\\\'b\').';
 $strMIME_without = 'MIME typy zobrazené kurzívou nemajú vlastnú transformaènú funkciu';
+$strMaximumSize = 'Maximálna ve¾kos: %s%s';
 $strMissingBracket = 'Chıba zátvorka';
 $strModifications = 'Zmeny boli uloené';
 $strModify = 'Zmeni';
@@ -649,6 +653,7 @@ $strTotal = 'celkovo';
 $strTotalUC = 'Celkom';
 $strTraditionalChinese = 'Tradièná Èínština';
 $strTraffic = 'Prevádzka';
+$strTransformation_application_octetstream__download = 'Zobrazí odkaz na stiahnutie dát. Prvı parameter je meno súboru, druhı je meno ståpca v tabu¾ke obsahujúci meno súboru. Ak zadáte druhı parameter, prvı musí by prázdny.';
 $strTransformation_image_jpeg__inline = 'Zobrazí náh¾ad obrázku s odkazom na obrázok; parametre šírka a vıška v bodoch (pomer strán obrázku zostane zachovanı)';
 $strTransformation_image_jpeg__link = 'Zobrazí odkaz na obrázok (napr. stiahnutie po¾a blob).';
 $strTransformation_image_png__inline = 'Zobrazí image/jpeg: inline';
@@ -717,10 +722,8 @@ $strYes = 'Áno';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavenie tıchto parametrov na 0 (nulu) odstráni obmedzenia.';
 $strZip = '"zo zipované"';
 
-$strGeorgian = 'Georgian';  //to translate
-$strCzechSlovak = 'Czech-Slovak';  //to translate
-$strTransformation_application_octetstream__download = 'Display a link to download the binary data of a field. First option is the filename of the binary file. Second option is a possible fieldname of a table row containing the filename. If you provide a second option you need to have the first option set to an empty string';  //to translate
-$strMaximumSize = 'Maximum size: %s%s';  //to translate
- = 'Cannot connect: invalid settings.';  //to translate
+// To translate:
+
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';  //to translate
+
 ?>
