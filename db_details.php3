@@ -458,6 +458,7 @@ if ($num_tables > 0) {
 ?>
 
     <!-- Query box, sql file loader and bookmark support -->
+    <a name="querybox"></a>
     <li>
         <form method="post" action="read_dump.php3" enctype="multipart/form-data"
             onsubmit="return checkSqlQuery(this)">
