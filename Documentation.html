@@ -379,6 +379,13 @@
         <br />
         Don't forget the slash at the end of your url.
         <br /><br />
+        This setting can be dynamically completed. For example, you can try to
+        use such a kind of code:
+        <pre>
+$cfgPmaAbsoluteUri = (!empty($HTTPS) ? 'https' : 'http') . '://'
+                   . $SERVER_NAME . (!empty($SERVER_PORT) ? ':' . $SERVER_PORT : '')
+                   . substr($SCRIPT_NAME, 0, strrpos($SCRIPT_NAME, '/')+1);
+        </pre>
     </dd>
 
     <dt><b>$cfgServers</b> array</dt>

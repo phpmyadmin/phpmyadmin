@@ -15,6 +15,8 @@ $Source$
 	* user_password.php3, lines 16-18: fixed bug #534107 - Superusers can't
 	  change password, thanks to
 	  Matthias Fichtner <mfichtner at users.sourceforge.net>.
+	* Documentation.html, lines 382-388: added some words about setting
+	  dynamically $cfgPmaAbsoluteUri. 
 
 2002-03-22 Marc Delisle  <lem9@users.sourceforge.net>
 	* finnish, norwegian updates
