@@ -665,6 +665,8 @@ function get_table_content_fast($db, $table, $add_query = '', $handler)
     $result = mysql_query('SELECT * FROM ' . db_name($db) . '.' . tbl_name($table) . $add_query) or mysql_die();
     if ($result != false) {
     
+        @set_time_limit(1200); // 20 Minutes
+
         // Checks whether the field is an integer or not
         for ($j = 0; $j < mysql_num_fields($result); $j++) {
             $field_set[$j] = mysql_field_name($result, $j);
@@ -688,9 +690,8 @@ function get_table_content_fast($db, $table, $add_query = '', $handler)
         $field_count = mysql_num_fields($result);
 
         $search  = array("\x0a","\x0d","\x1a"); //\x08\\x09, not required
-		$replace = array("\\n","\\r","\Z");
+        $replace = array("\\n","\\r","\Z");
 
-        @set_time_limit(1200); // 20 Minutes
 
         while ($row = mysql_fetch_row($result)) {
             for ($j = 0; $j < $field_count; $j++) {
