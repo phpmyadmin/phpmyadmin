@@ -407,9 +407,6 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
     global $rows_cnt;
     global $current_row;
 
-    $eol_dlm = (isset($GLOBALS['extended_ins']) && ($GLOBALS['current_row'] < $GLOBALS['rows_cnt']))
-             ? ','
-             : ';';
     $buffer = '';
 
     $result      = PMA_mysql_query($sql_query) or PMA_mysqlDie('', $sql_query, '', $error_url);
@@ -489,7 +486,7 @@ function PMA_getTableContentFast($db, $table, $crlf, $error_url, $sql_query)
             }
             unset($values);
 
-            if (!PMA_exportOutputHandler($insert_line . $eol_dlm . $crlf)) return FALSE;
+            if (!PMA_exportOutputHandler($insert_line . ((isset($GLOBALS['extended_ins']) && ($current_row < $rows_cnt)) ? ',' : ';') . $crlf)) return FALSE;
 
         } // end while
     } // end if ($result != FALSE)

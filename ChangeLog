@@ -10,6 +10,8 @@ $Source$
       in password/username (bug #747020).
     * server_privileges.php3: Fixed escaping when backslash in
       password/username.
+    * libraries/export/sql.php3: Separate extended inserts by , and not by ;
+      (bug #768351).
   
 2003-07-09 Garvin Hicking <me@supergarv.de>
     * Documentation.html, config.inc.php3, libraries/common.lib.php3,
