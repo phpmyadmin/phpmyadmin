@@ -1647,16 +1647,19 @@ Defaults to FALSE (drop-down). <br />
         <b>$cfg['QueryHistoryMax'] </b>integer
     </dt>
     <dd>
-        All those variables affect the new query frame/window. When
-        $cfg['QueryFrame'] is set to true a new frame is embedded on the left
-        with a small area. Clicking on that results in opening a direct
+        All those variables affect the query box feature. When
+        $cfg['QueryFrame'] is set to true, a link or icon is displayed
+        on the left panel. Clicking on it opens the query box, a direct
         interface to enter SQL queries.
         <br /><br />
         When $cfg['QueryFrameJS'] is set to true, clicking on that link opens
-        a new custom sized browser window ($cfg['QueryWindowWidth'],
-        $cfg['QueryWindowWidth'] - both integers for the size in pixels). If
-        set to false, clicking on the link only opens the SQL input in the
-        mainframe.
+        the query box, a new custom sized browser window 
+        ($cfg['QueryWindowWidth'], $cfg['QueryWindowWidth'] - both integers 
+        for the size in pixels). 
+        Also, a click on [Edit] from the results page (in the &quot;Showing 
+        Rows&quot; section) opens the query box and puts the current query 
+        inside it.  If set to false, clicking on the link only opens the SQL 
+        input in the main frame.
         <br /><br />
         The usage of the JavaScript query window is recommended if you have a
         JavaScript enabled browser. Basic functions are used to exchange quite
