@@ -212,16 +212,17 @@ $cfg['VerboseMultiSubmit']      = TRUE;   // if set to true, PMA will show the a
 $cfg['AllowArbitraryServer']    = FALSE;  // allow login to any user entered server in cookie based auth
 
 // Left frame setup
-$cfg['LeftFrameLight']        = TRUE;   // use a select-based menu and display only the
-                                        // current tables in the left frame.
-$cfg['LeftFrameTableSeparator']= '__';  // Which string will be used to generate table prefixes
-                                        // to split tables into multiple categories
-$cfg['LeftFrameTableLevel']   = '1';    // How many sublevels should be displayed when splitting
-                                        // up tables by the above Separator
-$cfg['ShowTooltip']           = TRUE;   // display table comment as tooltip in left frame
-$cfg['ShowTooltipAliasDB']    = FALSE;  // if ShowToolTip is enabled, this defines that table/db comments
-$cfg['ShowTooltipAliasTB']    = FALSE;  // are shown (in the left menu and db_details_structure) instead of
-                                        // table/db names
+$cfg['LeftFrameLight']        = TRUE;    // use a select-based menu and display only the
+                                         // current tables in the left frame.
+$cfg['LeftFrameTableSeparator']= '__';   // Which string will be used to generate table prefixes
+                                         // to split/nest tables into multiple categories
+$cfg['LeftFrameTableLevel']   = '1';     // How many sublevels should be displayed when splitting
+                                         // up tables by the above Separator
+$cfg['ShowTooltip']           = TRUE;    // display table comment as tooltip in left frame
+$cfg['ShowTooltipAliasDB']    = FALSE;   // if ShowToolTip is enabled, this defines that table/db comments
+$cfg['ShowTooltipAliasTB']    = FALSE;   // are shown (in the left menu and db_details_structure) instead of
+                                         // table/db names. Setting ShowTooltipAliasTB to 'nested' will only
+                                         // use the Aliases for nested descriptors, not the table itself.
 
 $cfg['LeftDisplayLogo']       = TRUE;   // display logo at top of left frame
 $cfg['LeftDisplayServers']    = FALSE;  // display server choice at top of left frame

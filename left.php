@@ -484,7 +484,7 @@ if ($num_dbs > 1) {
             $result  = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
             while ($tmp = PMA_DBI_fetch_assoc($result)) {
                 $tooltip_name[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '');
-                $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : $tmp['Comment']);
+                $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] && $cfg['ShowTooltipAliasTB'] !== 'nested' ? $tmp['Name'] : $tmp['Comment']);
 
                 $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
                                        . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
@@ -530,14 +530,29 @@ if ($num_dbs > 1) {
     <div id="el<?php echo $j;?>Child" class="child nowrap" style="margin-bottom: 5px"<?php echo $on_mouse; ?>>
 <?php
             // Displays the list of tables from the current database
-            $tablestack = array();
+            $tablestack  = array();
+            $table_array = array();
             while (list($table) = PMA_DBI_fetch_row($tables)) {
+                $table_item = (!empty($tooltip_name) && isset($tooltip_name[$table]) && !empty($tooltip_name[$table]) && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
+                            ? htmlspecialchars($tooltip_name[$table])
+                            : htmlspecialchars($table));
+                $table_array[$table] = $table_item;
+            }
+
+            if ($cfg['NaturalOrder']) {
+                natcasesort($table_array);
+            }
+
+            foreach($table_array as $table => $table_sortkey) {
                 $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
                            ? htmlspecialchars($tooltip_name[$table])
                            : '';
                 $url_title = (!empty($tooltip) && isset($tooltip[$table]))
                            ? htmlspecialchars($tooltip[$table])
                            : '';
+                $table_item = ($alias != '' && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
+                            ? $alias
+                            : htmlspecialchars($table));
                 $tablename = ($alias != '' && $cfg['ShowTooltipAliasTB']
                            ? $alias
                            : htmlspecialchars($table));
@@ -548,7 +563,7 @@ if ($num_dbs > 1) {
                 $list_item .= '<img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
                 $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                 $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
-                $list_item .= $tablename . '</a><br />' . "\n";
+                $list_item .= $table_item . '</a><br />' . "\n";
 
                 // garvin: Check whether to display nested sets
                 if (!empty($cfg['LeftFrameTableSeparator'])) {
@@ -563,19 +578,18 @@ if ($num_dbs > 1) {
                         unset($_table[count($_table)-1]);
                         $_table = PMA_reduceNest($_table);
 
-                        $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $tablename) . '\';';
+                        $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $table_item) . '\';';
                         $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . str_replace('\'', '\\\'', $list_item) . '\';';
                         eval($eval_string);
                     } else {
-                        $tablestack['']['pma_name'][] = $tablename;
+                        $tablestack['']['pma_name'][] = $table_item;
                         $tablestack['']['pma_list_item'][] = $list_item;
                     }
                 } else {
-                    $tablestack['']['pma_name'][] = $tablename;
+                    $tablestack['']['pma_name'][] = $table_item;
                     $tablestack['']['pma_list_item'][] = $list_item;
                 }
             } // end while (tables list)
-
             PMA_nestedSet($j, $tablestack);
             ?>
     </div>
@@ -712,8 +726,8 @@ else if ($num_dbs == 1) {
         $tooltip_name = array();
         $result  = PMA_DBI_try_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db), NULL, PMA_DBI_QUERY_STORE);
         while ($tmp = PMA_DBI_fetch_assoc($result)) {
-                $tooltip_name[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '');
-                $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : $tmp['Comment']);
+            $tooltip_name[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '');
+            $tmp['Comment'] = ($cfg['ShowTooltipAliasTB'] && $cfg['ShowTooltipAliasTB'] !== 'nested' ? $tmp['Name'] : $tmp['Comment']);
 
             $tooltip[$tmp['Name']] = (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '')
                                    . '(' . (isset($tmp['Rows']) ? $tmp['Rows'] : '0') . ' ' . $strRows . ')';
@@ -770,13 +784,28 @@ else if ($num_dbs == 1) {
 
     // Displays the list of tables from the current database
     $tablestack = array();
+    $table_array = array();
     while (list($table) = PMA_DBI_fetch_row($tables)) {
+        $table_item = (!empty($tooltip_name) && isset($tooltip_name[$table]) && !empty($tooltip_name[$table]) && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
+                    ? htmlspecialchars($tooltip_name[$table])
+                    : htmlspecialchars($table));
+        $table_array[$table] = $table_item;
+    }
+
+    if ($cfg['NaturalOrder']) {
+        natcasesort($table_array);
+    }
+
+    foreach($table_array as $table => $table_sortkey) {
         $alias = (!empty($tooltip_name) && isset($tooltip_name[$table]))
-                   ? htmlentities($tooltip_name[$table])
+                   ? htmlspecialchars($tooltip_name[$table])
                    : '';
         $url_title = (!empty($tooltip) && isset($tooltip[$table]))
-                   ? htmlentities($tooltip[$table])
+                   ? htmlspecialchars($tooltip[$table])
                    : '';
+        $table_item = ($alias != '' && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
+                    ? $alias
+                    : htmlspecialchars($table));
         $tablename = ($alias != '' && $cfg['ShowTooltipAliasTB']
                    ? $alias
                    : htmlspecialchars($table));
@@ -789,14 +818,14 @@ else if ($num_dbs == 1) {
             <a target="phpmain<?php echo $hash; ?>" href="sql.php?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . $url_title; ?>">
                   <img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="<?php echo $strBrowse . ': ' . $url_title; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
               <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain<?php echo $hash; ?>" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
-                  <?php echo $tablename; ?></a><br />
+                  <?php echo $table_item; ?></a><br />
         <?php
         } else {
             $list_item = '<a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '" title="' . $strBrowse . ': ' . $url_title . '">';
             $list_item .= '<img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
             $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
             $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
-            $list_item .= $tablename . '</a><br />';
+            $list_item .= $table_item . '</a><br />';
 
             // garvin: Check whether to display nested sets
             if (!empty($cfg['LeftFrameTableSeparator'])) {
@@ -811,15 +840,15 @@ else if ($num_dbs == 1) {
                     unset($_table[count($_table)-1]);
                     $_table = PMA_reduceNest($_table);
 
-                    $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $tablename) . '\';';
+                    $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $table_item) . '\';';
                     $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . str_replace('\'', '\\\'', $list_item) . '\';';
                     eval($eval_string);
                 } else {
-                    $tablestack['']['pma_name'][] = $tablename;
+                    $tablestack['']['pma_name'][] = $table_item;
                     $tablestack['']['pma_list_item'][] = $list_item;
                 }
             } else {
-                $tablestack['']['pma_name'][] = $tablename;
+                $tablestack['']['pma_name'][] = $table_item;
                 $tablestack['']['pma_list_item'][] = $list_item;
             }
         }

@@ -1170,9 +1170,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['ShowTooltipAliasTB'] </b>boolean</dt>
+    <dt><b>$cfg['ShowTooltipAliasTB'] </b>boolean/string</dt>
     <dd>
         Same as $cfg['ShowTooltipAliasDB'], except this works for table names.
+
+        When setting this to 'nested', the Alias of the Tablename is only used
+        to split/nest the tables according to the $cfg['LeftFrameTableSeparator']
+        directive. So only the folder is called like the Alias, the tablename itself
+        stays the real tablename.
         <br /><br />
     </dd>
     <dt><b>$cfg['LeftDisplayLogo'] </b>boolean</dt>
