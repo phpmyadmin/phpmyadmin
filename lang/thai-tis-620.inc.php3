@@ -1,11 +1,9 @@
 <?php
 /* $Id$ */
 
-
-/**
- * Translated on 2002/04/29 by: Arthit Suriyawongkul & Warit Wanasathian
- * Revised on 2002/06/18 by: Arthit Suriyawongkul
- */
+// Thai translation
+// first created 2002/04/29 Arthit Suriyawongkul & Warit Wanasathian
+// last modified 2002/07/31 Arthit Suriyawongkul
 
 $charset = 'tis-620';
 $text_dir = 'ltr';
@@ -22,7 +20,6 @@ $month = array('ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.'
 // variable below
 $datefmt = '%e %B %Y  %Rน.';
 
-
 $strAccessDenied = 'ไม่อนุญาตให้ใช้งาน';
 $strAction = 'กระทำการ';
 $strAddDeleteColumn = 'เพิ่ม/ลบ คอลัมน์ (ฟิลด์)';
@@ -34,7 +31,7 @@ $strAddSearchConditions = 'เพิ่มเงื่อนไขในการค้นหา:';
 $strAddToIndex = 'เพิ่มดัชนีคอลัมน์ %s';
 $strAddUser = 'เพิ่มผู้ใช้ใหม่';
 $strAddUserMessage = 'เพิ่มผู้ใช้ใหม่เรียบร้อยแล้ว';
-$strAffectedRows = 'แถวที่ถูกกระทบ:';
+$strAffectedRows = 'แถวที่มีผล:';
 $strAfter = 'หลัง %s';
 $strAfterInsertBack = 'ส่งกลับ';
 $strAfterInsertNewInsert = 'แทรกระเบียนใหม่';
@@ -50,7 +47,7 @@ $strAnyDatabase = 'ฐานข้อมูลใดๆ';
 $strAnyHost = 'โฮสต์ใดๆ';
 $strAnyTable = 'ตารางใดๆ';
 $strAnyUser = 'ผู้ใช้ใดๆ';
-$strAPrimaryKey = 'ได้เพิ่ม primary key แล้วใน %s';
+$strAPrimaryKey = 'ได้เพิ่มไพรมารีคีย์แล้วใน %s';
 $strAscending = 'น้อยไปมาก';
 $strAtBeginningOfTable = 'ที่จุดเริ่มต้นของตาราง';
 $strAtEndOfTable = 'ที่จุดสุดท้ายของตาราง';
@@ -61,16 +58,16 @@ $strBinary = ' ข้อมูลไบนารี ';
 $strBinaryDoNotEdit = ' ข้อมูลไบนารี - ห้ามแก้ไข ';
 $strBookmarkDeleted = 'ลบคำค้นที่จดไว้เรียบร้อยแล้ว';
 $strBookmarkLabel = 'ป้ายชื่อ';
-$strBookmarkQuery = 'คำค้นนี้ถูกจดไว้';
+$strBookmarkQuery = 'คำค้นนี้ถูกจดไว้แล้ว';
 $strBookmarkThis = 'จดคำค้นนี้ไว้';
 $strBookmarkView = 'ดูอย่างเดียว';
 $strBrowse = 'เปิดดู';
 $strBzip = '"bzipped"';
 
 $strCantLoadMySQL = 'ไม่สามารถเรียกใช้ตัวช่วยของ MySQL,<br />กรุณาตรวจสอบการตั้งค่าของ PHP';
-$strCantLoadRecodeIconv = 'ไม่สามารถเรียกตัวช่วย iconv หรือ recode สำหรับการแปลงชุดตัวอักษร, ทางเลือก: 1) เซต PHP ให้สามารถใช้ตัวช่วยเหล่านี้ได้ หรือ 2) เซต phpMyAdmin ให้ไม่ต้องแปลงชุดตัวอักษร';
+$strCantLoadRecodeIconv = 'ไม่สามารถเรียกใช้ตัวช่วย iconv หรือ recode เพื่อแปลงชุดตัวอักษร, ทางเลือก: 1) ตั้งค่าให้ PHP สามารถใช้ตัวช่วยเหล่านี้ได้ หรือ 2) ตั้งค่าให้ phpMyAdmin ไม่ต้องแปลงชุดตัวอักษร';
 $strCantRenameIdxToPrimary = 'เปลี่ยนชื่อดัชนีเป็น PRIMARY ไม่ได้!';
-$strCantUseRecodeIconv = 'ไม่สามารถใช้ฟังก์ชั่น iconv หรือ libiconv หรือ recode_string ทั้งๆ ที่ตัวช่วยสำหรับฟังก์ชั่นเหล่านั้นได้ถูกเรียกขึ้นมาแล้ว. ลองตรวจสอบการเซตค่า้ของ PHP';
+$strCantUseRecodeIconv = 'ไม่สามารถใช้ฟังก์ชั่น iconv หรือ libiconv หรือ recode_string ทั้งๆ ที่สามารถเรียกตัวช่วยสำหรับฟังก์ชั่นเหล่านั้นขึ้นมาได้แล้ว. ลองตรวจสอบการตั้งค่าของ PHP';
 $strCardinality = 'Cardinality';
 $strCarriage = 'ปัดแคร่: \\r';
 $strChange = 'เปลี่ยน';
@@ -80,6 +77,7 @@ $strCheckAll = 'เลือกทั้งหมด';
 $strCheckDbPriv = 'ตรวจสอบสิทธิในฐานข้อมูล';
 $strCheckTable = 'ตรวจสอบตาราง';
 $strChoosePage = 'เลือกหน้าที่ต้องการแก้ไข';
+$strColComFeat = 'แสดงหมายเหตุของคอลัมน์';
 $strColumn = 'คอลัมน์';
 $strColumnNames = 'ชื่อคอลัมน์';
 $strComments = 'หมายเหตุ';
@@ -96,6 +94,7 @@ $strCreateIndexTopic = 'สร้างดัชนีใหม่';
 $strCreateNewDatabase = 'สร้างฐานข้อมูลใหม่';
 $strCreateNewTable = 'สร้างตารางในฐานข้อมูลนี้ %s';
 $strCreatePage = 'เริ่มหน้าใหม่';
+$strCreatePdfFeat = 'การสร้างเอกสาร PDF';
 $strCriteria = 'เงื่อนไข';
 
 $strData = 'ข้อมูล';
@@ -112,7 +111,9 @@ $strDeletedRows = 'แถวที่ถูกลบ:';
 $strDeleteFailed = 'ลบไม่สำเร็จ!';
 $strDeleteUserMessage = 'คุณได้ลบผู้ใช้ %s ไปแล้ว';
 $strDescending = 'มากไปน้อย';
+$strDisabled = 'ระงับการใช้อยู่';
 $strDisplay = 'แสดงผล';
+$strDisplayFeat = 'ความสามารถด้านการแสดงผล';
 $strDisplayPDF = 'แสดง PDF schema';
 $strDisplayOrder = 'ลำดับการแสดง:';
 $strDoAQuery = 'ทำ "คำค้นจากตัวอย่าง" (wildcard: "%")';
@@ -131,6 +132,7 @@ $strEditPrivileges = 'แก้ไขสิทธิ';
 $strEffective = 'มีผล';
 $strEmpty = 'ลบข้อมูล';
 $strEmptyResultSet = 'MySQL คืนผลลัพธ์ว่างเปล่า (null) กลับมา (0 แถว).';
+$strEnabled = 'เปิดใช้อยู่';
 $strEnd = 'ท้ายสุด';
 $strEnglishPrivileges = ' โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ ';
 $strError = 'ผิดพลาด';
@@ -155,6 +157,7 @@ $strFullText = 'ทั้งข้อความ';
 $strFunction = 'ฟังก์ชั่น';
 
 $strGenBy = 'สร้างโดย';
+$strGeneralRelationFeat = 'ความสามารถด้านรีเลชันทั่วไป';
 $strGenTime = 'เวลาในการสร้าง';
 $strGo = 'ลงมือ';
 $strGrants = 'อนุญาต';
@@ -236,6 +239,7 @@ $strNoQuery = 'ไม่มีคำค้น SQL!';
 $strNoRights = 'คุณไม่มีสิทธิที่จะเข้ามาตรงนี้!';
 $strNoTablesFound = 'ไม่พบตารางใด ๆ ในฐานข้อมูล';
 $strNotNumber = 'ค่านี้ไม่ใช่ตัวเลข!';
+$strNotOK = 'ไม่ตกลง';
 $strNotSet = 'ไม่พบตาราง <b>%s</b> ใน %s';
 $strNotValidNumber = ' ไม่ใช่หมายเลขแถวที่ถูกต้อง!';
 $strNoUsersFound = 'ไม่พบผู้ใช้ใดๆ.';
@@ -244,6 +248,7 @@ $strNumSearchResultsInTable = 'พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>';
 $strNumSearchResultsTotal = '<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง';
 
 $strOftenQuotation = 'โดยปกติจะเป็นเครื่องหมายอัญประกาศ (เครื่องหมายคำพูด)<br />"เท่าที่จำเป็น" หมายถึงให้ใส่เครื่องหมายคร่อมเฉพาะกับฟิลด์ชนิด char และ varchar เท่านั้น';
+$strOK = 'ตกลง';
 $strOperations = 'กระบวนการ';
 $strOptimizeTable = 'ปรับแต่งตาราง';
 $strOptionalControls = 'กำหนดว่าจะเขียนหรืออ่านตัวอักขระพิเศษ อย่างไร';
@@ -260,6 +265,7 @@ $strPasswordNotSame = 'รหัสผ่านไม่ตรงกัน!';
 $strPdfDbSchema = 'schema ของฐานข้อมูล "%s" - หน้า %s';
 $strPdfInvalidPageNum = 'ยังไม่ได้กำหนดเลขหน้าของ PDF!';
 $strPdfInvalidTblName = 'ไม่มีตาราง "%s"!';
+$strPdfNoTables = 'ไม่มีตาราง';
 $strPhp = 'สร้างโค้ด PHP';
 $strPHPVersion = 'รุ่นของ PHP';
 $strPmaDocumentation = 'เอกสารการใช้ phpMyAdmin';
@@ -268,9 +274,9 @@ $strPos1 = 'จุดเริ่มต้น';
 $strPrevious = 'ก่อนหน้า';
 $strPrimary = 'Primary';
 $strPrimaryKey = 'Primary key';
-$strPrimaryKeyHasBeenDropped = 'โยน primary key ทิ้งไปเรียบ ร้อยแล้ว';
-$strPrimaryKeyName = 'ชื่อของ primary key จะต้องเป็น... PRIMARY!';
-$strPrimaryKeyWarning = '(ชื่อของ primary key <b>จะต้องเป็น </b>"PRIMARY" เท่านั้น!)';
+$strPrimaryKeyHasBeenDropped = 'โยนไพรมารีคีย์ทิ้งไปเรียบ ร้อยแล้ว';
+$strPrimaryKeyName = 'ชื่อของไพรมารีคีย์จะต้องเป็น... PRIMARY!';
+$strPrimaryKeyWarning = '(ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> "PRIMARY" เท่านั้น!)';
 $strPrintView = 'แสดง';
 $strPrivileges = 'สิทธิ';
 $strProperties = 'คุณสมบัติ';
@@ -283,10 +289,10 @@ $strQueryOnDb = 'คำค้นบนฐานข้อมูล <b>%s</b>:';
 $strRecords = 'ระเบียน';
 $strReferentialIntegrity = 'ตรวจสอบความสมบูรณ์ของการอ้างถึง:';
 $strRelationNotWorking = 'ความสามารถเพิ่มเติมที่อนุญาตให้ใช้งาน linked Tables ได้ ได้ถูกระงับเอาไว้ ด้วยเหตุผลตามที่แจ้งไว้ใน %shere%s';
-$strRelationView = 'Relation view';
+$strRelationView = 'มุมมองรีเลชัน';
 $strReloadFailed = 'รีโหลด MySQL ใหม่ไม่สำเร็จ';
 $strReloadMySQL = 'รีโหลด MySQL ใหม่';
-$strRememberReload = 'อย่าลืมรีโหลดเซิร์ฟเวอร์ใหม่อีกครั้ง'; // can be better translated
+$strRememberReload = 'อย่าลืมรีโหลดเซิร์ฟเวอร์ใหม่อีกครั้ง';
 $strRenameTable = 'เปลี่ยนชื่อตารางเป็น';
 $strRenameTableOK = 'ตาราง %s ได้ถูกเปลี่ยนชื่อเป็น %s';
 $strRepairTable = 'ซ่อมแซมตาราง';
@@ -308,11 +314,11 @@ $strRowsModeOptions = 'อยู่ใน %s และซ้ำหัวแถวทุกๆ %s เซลล์';
 $strRowsModeVertical = 'แนวตั้ง';
 $strRowsStatistic = 'สถิติของแถว';
 $strRunning = 'ทำงานอยู่บน %s';
-$strRunQuery = 'ส่งคำค้น';
-$strRunSQLQuery = 'ทำคำค้นบนฐานข้อมูล %s';
+$strRunQuery = 'ประมวลผลคำค้น';
+$strRunSQLQuery = 'ประมวลผลคำค้นบนฐานข้อมูล %s';
 
 $strSave = 'บันทึก';
-$strScaleFactorSmall = 'อัตราขยายน้อยเกินไปที่จะจัดให้ schema อยู่ในหน้าเดียว';
+$strScaleFactorSmall = 'อัตราย่อน้อยเกินไปที่จะจัดให้ schema อยู่ในหน้าเดียว';
 $strSearch = 'ค้นหา';
 $strSearchFormTitle = 'ค้นหาในฐานข้อมูล';
 $strSearchInTables = 'ในตาราง:';
@@ -375,7 +381,7 @@ $strTableStructure = 'โครงสร้างตาราง';
 $strTableType = 'ชนิดตาราง';
 $strTextAreaLength = ' เนื่องจากความยาวของมัน <br />ฟิลด์นี้ ไม่อาจแก้ไขได้ ';
 $strTheContent = 'ได้แทรกข้อมูลจากไฟล์ของคุณเรียบร้อยแล้ว';
-$strTheContents = 'สำหรับแถวที่มี primary key หรือ unique key เหมือนกัน เนื้อหาจากไฟล์จะแทนที่เนื้อหาเดิมในตาราง';
+$strTheContents = 'สำหรับแถวที่มีไพรมารีคีย์หรือ unique key เหมือนกัน เนื้อหาจากไฟล์จะแทนที่เนื้อหาเดิมในตาราง';
 $strTheTerminator = 'จุดสิ้นสุดของฟิลด์';
 $strTotal = 'ทั้งหมด';
 $strType = 'ชนิด';
@@ -407,13 +413,4 @@ $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
 ?>
