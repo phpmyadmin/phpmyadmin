@@ -1250,18 +1250,16 @@
         phpMyAdmin's authentication, so remove it.
     </li>
 </ul>
-</p>
 
 <p>
     <b>Is it possible to let users create their own databases?</b>
     <br />
-    Yes, but currently (phpMyAdmin 2.2.4) there is no visual way
-    to do this in our user management page. For example, let's say users
-    should be able to create databases with a name starting like their
-    username, type this in a query box:
-    </br>
-    </br>
-
+    Yes, but currently (phpMyAdmin 2.2.4) there is no visual way to do this in
+    our user management page. For example, let's say users should be able to
+    create databases with a name starting like their username, type this in a
+    query box:
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;
     <tt>GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER
         ON `username%`.* TO 'username'@localhost;</tt>
 </p>
