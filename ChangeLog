@@ -9,6 +9,9 @@ $Source$
 	* read_dump.php3; libraries/build_dump.lib.php3: sending the "fake" header
 	  at each itération is about ten times faster than checking elapsed time
 	  and send the header each 20 seconds.
+	* Documentation.html, line 282: the suggested statement to create a new
+	  user and give him grants on a db was invalid.
+	* Documentation.txt: updated.
 
 2001-12-08  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/left.js, lines 234-240: fixed a js bug with empty databases.

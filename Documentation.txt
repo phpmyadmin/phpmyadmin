@@ -1,5 +1,5 @@
 
-                        phpMyAdmin 2.2.2 Documentation
+                      phpMyAdmin 2.2.3-dev Documentation
                                        
      * [1]Official phpMyAdmin project homepage    [
        http://www.phpwizard.net/projects/phpMyAdmin/ ]
@@ -9,8 +9,8 @@
           + Version history: [3]ChangeLog
           + General notes: [4]README
           + License: [5]LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.105 2001/12/02
-       17:21:26 loic1 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.109 2001/12/05
+       17:48:48 lem9 Exp $
    ______________________________________________________________________
    
    [6]Top  -  [7]Requirements  -  [8]Introduction  -  [9]Installation  -
@@ -119,7 +119,7 @@ Installation
        privileges on a set of perticular databases but shouldn't have any
        global privileges. For example, to grant the user real_user with
        all privileges on the database user_base:
-          GRANT ALL PRIVILEGES ON user_base TO 'real_user'@localhost
+          GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost
        IDENTIFIED BY 'real_password';
        What the user may now do is controlled entirely by the MySQL user
        management system.
@@ -376,9 +376,16 @@ Configuration
           Force: always use this language (must be defined in the
           select_lang.inc.php3 script).
           
+   $cfgLeftWidth integer
+          Left frame width in pixel.
+          
    $cfgLeftBgColor string [HTML color]
           $cfgRightBgColor string [HTML color]
           The background colors (HTML) used for both the frames.
+          
+   $cfgLeftPointerColor string [HTML color]
+          The color (HTML) used for the pointer in the left frame (does
+          not work with NS4).
           
    $cfgBorder integer
           The size of a table's border.
@@ -392,7 +399,7 @@ Configuration
    $cfgBgcolorTwo string [HTML color]
           The color (HTML) #2 for table rows.
           
-   $cfgPointerColor string [HTML color]
+   $cfgBrowsePointerColor string [HTML color]
           The color (HTML) used for the pointer in browse mode (does not
           work with NS4).
           
@@ -410,9 +417,6 @@ Configuration
           Defines the place where modify and delete links would be put
           when tables contents are displayed (you may have them displayed
           both at the left and at the right).
-          
-   $cfgLeftWidth integer
-          Left frame width in pixel.
           
    $cfgColumnTypes array
           All possible types of a MySQL column. In most cases you don't
@@ -476,18 +480,20 @@ FAQ - Frequently Asked Questions
    Mode or not, and so on). So, you must have PHP4 >= 4.0.4 and
    Zlib/Bzip2 support (--with-zlib and --with-bz2).
    
-   I try to insert a text file in a table, and I get:
-   Error MySQL said: The file '/tmp/phpkvpp60' must be in the database
-   directory or be readable by all
+   I cannot insert a text file in a table, and I get an error about safe
+   mode being in effect.
    Your uploaded file is saved by PHP in the "upload dir", as defined in
    php.ini by the variable upload_tmp_dir (usually the system default is
-   /tmp). If this directory is not readable by all, the MySQL server
-   (which must be running on the same machine) cannot open the file
-   (except if running as root, which is not recommended).
-   The system administrator can do a "chmod 777 /tmp": then the MySQL
-   server will accept to read it. Also, the user must have File
-   privilege.
-   
+   /tmp).
+   We recommend the following setup for Apache servers running in safe
+   mode, to enable uploads of files while being reasonably secure:
+     * create a separate directory for uploads: mkdir /tmp/php
+     * give ownership to the Apache server's user.group: chown
+       apache.apache /tmp/php
+     * give proper permission: chmod 600 /tmp/php
+     * put upload_tmp_dir = /tmp/php in php.ini
+     * restart Apache
+       
    I'm having troubles when uploading files. In general file uploads
    don't work on my system and uploaded files have a Content-Type: header
    in the first line.
@@ -619,10 +625,19 @@ FAQ - Frequently Asked Questions
    A workaround is to create a smaller number of fields, then come back
    to your table properties and add the other fields.
    
-   With Xitami 2.5b4, phpMyAdmin won't process form fields
+   With Xitami 2.5b4, phpMyAdmin won't process form fields.
    This is not a phpMyAdmin problem but a Xitami known bug: you'll face
    it with each script/website that use forms.
    Upgrade or downgrade your Xitami server.
+   
+   I have problems dumping tables with Konqueror (phpMyAdmin 2.2.2)
+   With Konqueror 2.1.1: plain dumps, zip and gzip dumps work ok, except
+   that the proposed file name for the dump is always 'tbl_dump.php'.
+   Bzip2 dumps don't seem to work.
+   With Konqueror 2.2.1: plain dumps work; zip dumps are placed into the
+   user's temporary directory, so they must be moved before closing
+   Konqueror, or else they disappear. Gzip dumps give an error message.
+   Testing needs to be done for Konqueror 2.2.2.
    
   [Using phpMyAdmin]
   

@@ -279,7 +279,7 @@
     privileges on a set of perticular databases but shouldn't have any global
     privileges. For example, to grant the user <i>real_user</i> with all
     privileges on the database <i>user_base</i>:<br />
-    &nbsp;&nbsp;&nbsp;<tt>GRANT ALL PRIVILEGES ON user_base TO 'real_user'@localhost IDENTIFIED BY 'real_password';</tt>
+    &nbsp;&nbsp;&nbsp;<tt>GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';</tt>
     <br />
     What the user may now do is controlled entirely by the MySQL user management
     system.
@@ -867,23 +867,23 @@
 </p>
 
 <p>
-    <b>I cannot insert a text file in a table, and I get an error
-    about safe mode being in effect.</b>
+    <b>I cannot insert a text file in a table, and I get an error about safe
+       mode being in effect.</b>
     <br />
     Your uploaded file is saved by PHP in the &quot;upload dir&quot;, as
     defined in <i>php.ini</i> by the variable <tt>upload_tmp_dir</tt> (usually
     the system default is <i>/tmp</i>).
     <br />
-    We recommend the following setup for Apache servers running in
-    safe mode, to enable uploads of files while being reasonably secure:
+    We recommend the following setup for Apache servers running in safe mode,
+    to enable uploads of files while being reasonably secure:
     <br />
     <ul>
-       <li>create a separate directory for uploads: 
-        <tt>mkdir /tmp/php</tt> </li>
-       <li>give ownership to the Apache server's user.group: 
-	<tt>chown apache.apache /tmp/php</tt> </li> 
-       <li>give proper permission: <tt>chmod 600 /tmp/php </tt> </li>
-       <li>put <tt>upload_tmp_dir  = /tmp/php</tt> in php.ini </li>
+       <li>create a separate directory for uploads:
+           <tt>mkdir /tmp/php</tt></li>
+       <li>give ownership to the Apache server's user.group:
+           <tt>chown apache.apache /tmp/php</tt></li>
+       <li>give proper permission: <tt>chmod 600 /tmp/php</tt></li>
+       <li>put <tt>upload_tmp_dir = /tmp/php</tt> in php.ini</li>
        <li>restart Apache</li>
     </ul>
 </p>
