@@ -171,8 +171,8 @@ $strIdxFulltext = 'Testo completo';
 $strIfYouWish = 'Per caricare i dati solo per alcune colonne della tabella, specificare la lista dei campi (separati da virgole).';
 $strIgnore = 'Ignora';
 $strIndex = 'Indice';
-$strIndexHasBeenDropped = 'L\'indice %s è stato eliminato';
 $strIndexes = 'Indici';
+$strIndexHasBeenDropped = 'L\'indice %s è stato eliminato';
 $strIndexName = 'Nome dell\'indice&nbsp;:';
 $strIndexType = 'Tipo di indice&nbsp;:';
 $strInsert = 'Inserisci';
@@ -407,3 +407,4 @@ $strZip = '"compresso con zip"';
 // To translate
 
 ?>
+
