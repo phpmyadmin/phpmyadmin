@@ -78,6 +78,7 @@ $strBookmarkQuery = 'Consulta SQL arxivada';
 $strBookmarkThis = 'Arxiva aquesta consulta SQL';
 $strBookmarkView = 'Només mirar';
 $strBrowse = 'Navega';
+$strBrowseForeignValues = 'Navega valors externs';
 $strBulgarian = 'BÃºlgar';
 $strBzError = 'phpMyAdmin és incapaç de comprimir el volcat degut a una extensió Bz2 incorrecta en aquesta versió de php. És molt recomenable posar a la directiva <code>$cfg[\'BZipDump\']</code> el valor <code>FALSE</code> al fitxer de configuració de phpMyAdmin. Si vol utilitzar les facilitats de compresió Bz2, és necessari actualitzar el php a la darrera versió disponible. Es pot consultar el informe d\'errada %s de php per a més detalls.';
 $strBzip = '"comprimit amb bzip"';
@@ -656,6 +657,7 @@ $strUseBackquotes = 'Usa "backquotes" amb taules i noms de camps';
 $strUseHostTable = 'Utilitza la Taula de Hosts';
 $strUseTables = 'Usa Taules';
 $strUseTextField = 'Usa camp de texte';
+$strUseThisValue = 'Fes servir aquest valor';
 $strUser = 'Usuari';
 $strUserAlreadyExists = 'L\'usuari %s ja existeix!';
 $strUserEmpty = 'El nom d\'usuari és buit!';
@@ -679,6 +681,7 @@ $strWebServerUploadDirectoryError = 'No està disponible el directori indicat pe
 $strWelcome = 'Benvingut a %s';
 $strWestEuropean = 'Europa Occidental';
 $strWildcard = 'comodins';
+$strWindowNotFound = 'La finestra destÃ­ de navegador no s\'ha pogut actualitzar. Potser has tancat la finestra "pare" o bÃ© el teu navegador bloqueja actualitzacions entre finestres per la teva configuraciÃ³ de seguretat';
 $strWithChecked = 'Amb marca:';
 $strWritingCommentNotPossible = 'No es pot gravar aquest comentari';
 $strWritingRelationNotPossible = 'No es pot gravar aquesta relació';
@@ -692,7 +695,4 @@ $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el l
 $strZip = '"comprimit amb zip"';
 // To translate
 
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>
