@@ -50,9 +50,9 @@ if (isset($selected) && is_array($selected)) {
     <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
             <?php
         }
-        
+
     }
-    
+
     if (isset($true_selected) && is_array($true_selected)) {
         @reset($true_selected);
         while(list($o_fld_nr, $o_fld_val) = each($true_selected)) {
@@ -61,7 +61,7 @@ if (isset($selected) && is_array($selected)) {
         <?php
         }
     }
-    
+
 } elseif (isset($field)) {
     ?>
     <input type="hidden" name="orig_field" value="<?php echo urlencode($field); ?>" />
@@ -156,11 +156,11 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
         $submit_length    = (isset($field_length) && isset($field_length[$i]) ? $field_length[$i] : FALSE);
         $submit_attribute = (isset($field_attribute) && isset($field_attribute[$i]) ? $field_attribute[$i] : FALSE);
-        
+
         if (isset($field_comments) && isset($field_comments[$i])) {
             $comments_map[$row['Field']] = $field_comments[$i];
         }
-        
+
         if (isset($field_mimetype) && isset($field_mimetype[$i])) {
             $mime_map[$row['Field']]['mimetype'] = $field_mimetype[$i];
         }
@@ -176,7 +176,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     } elseif (isset($fields_meta)) {
         $row = $fields_meta[$i];
     }
-    
+
     $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
 
     // Cell index: If certain fields get left out, the counter shouldn't chage.
@@ -219,7 +219,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             $length = '';
         }
     } // end if else
-    
+
     if (isset($submit_length) && $submit_length != FALSE) {
         $length = $submit_length;
     }
@@ -349,12 +349,14 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $ci++;
 
         $content_cells[$i][$ci] = '<select id="field_' . $i . '_9" size="1" name="field_transformation[]">' . "\n";
-        $content_cells[$i][$ci] .= '    <option value=""></option>' . "\n";
+        $content_cells[$i][$ci] .= '    <option value="" title="' . $strNone . '"></option>' . "\n";
         if (is_array($available_mime['transformation'])) {
             @reset($available_mime['transformation']);
             while(list($mimekey, $transform) = each($available_mime['transformation'])) {
                 $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && ($mime_map[$row['Field']]['transformation'] == $available_mime['transformation_file'][$mimekey]) ? 'selected ' : '');
-                $content_cells[$i][$ci] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . '>' . htmlspecialchars($transform) . '</option>' . "\n";
+                $tooltip = 'strTransformation_' . strtolower(str_replace('.inc.php3', '', $available_mime['transformation_file'][$mimekey]));
+                $tooltip = isset($$tooltip) ? $$tooltip : sprintf(str_replace('<br />', ' ', $strMIME_nodescription), 'PMA_transformation_' . $tooltip . '()');
+                $content_cells[$i][$ci] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . ' title="' . $tooltip . '">' . htmlspecialchars($transform) . '</option>' . "\n";
             }
         }
 
@@ -389,7 +391,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         } else {
             $checked_none = '';
         }
-        
+
         if (PMA_MYSQL_INT_VERSION >= 32323
             &&(isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
             $checked_fulltext = ' checked="checked"';
