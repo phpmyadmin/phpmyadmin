@@ -236,6 +236,7 @@ $strPartialText = 'gekürzte Textfelder';
 $strPassword = 'Kennwort';
 $strPasswordEmpty = 'Es wurde kein Kennwort angegeben!';
 $strPasswordNotSame = 'Die eingegebenen Kennwörter sind nicht identisch!';
+$strPdfDbSchema = 'Schema der Datenbank "%s" - Seite %s';
 $strPdfInvalidPageNum = 'Undefinierte PDF-Seitennummer!';
 $strPdfInvalidTblName = 'Die Tabelle "%s" existiert nicht!';
 $strPmaDocumentation = 'phpMyAdmin-Dokumentation';
@@ -383,5 +384,4 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strPdfDbSchema = 'Schema of the the "%s" database - Page %s';  //to translate
 ?>

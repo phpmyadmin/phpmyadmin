@@ -5,7 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-05-27 Loïc Chapeaux  <lolo@phpheaven.net>
+2002-05-29 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german.inc.php3: Translated $strPdfDbSchema.
+
+2002-05-28 Loïc Chapeaux  <lolo@phpheaven.net>
     * pdf_schema.php3; lang/*.inc.php3: beautified the generated page.
 
 2002-05-27 Loïc Chapeaux  <lolo@phpheaven.net>
