@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-10 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/catalan update, thanks to Xavier Navarro (xavin).
+    * lang/galician: Updated, thanks to Xosé Calvo.
+    * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
+
 2004-07-09 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php: bug 981793, cross-window update message when inserting
       a record and fetching a value from the browse foreigners window,
