@@ -9,6 +9,7 @@ $Source$
     * Documentation.html: clarify about wildcard database
     * lang/bulgarian, translators.html: big update from the new translator:
       Stanislav Yordanov, stan at stud.ru.acad.bg
+    * lang/italian: Updated, thanks to Pietro Danesi.
 
 2003-03-31 Marc Delisle  <lem9@users.sourceforge.net>
     * css/phpmyadmin.css.php3: calls from a css file are relative to itself 
