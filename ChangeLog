@@ -9,6 +9,9 @@ $Source$
 	* ob_lib.inc.php3, oops: must be PHP3 compatible
 	* sql.php3: bug 447771 bad counting of entries, patch developed
 	from an idea of Ignacio Vazquez-Abrams (ivazquezabrams) 
+	* tbl_properties.php3: check if new variables $cfgGZipDump and
+	  $cfgBZipDump are set (else PHP3 complains)
+	* db_details.php3: was not using those 2 new variables 
 
 2001-08-04  Steve Alberty  <alberty@neptunlabs.de>
 	* lib.inc.php3: fixed #444017 (thanks anonymous)
