@@ -144,14 +144,23 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
         $zerofill     = 0;
     } else {
         $type_nowrap  = ' nowrap="nowrap"';
-        $type         = preg_replace('@BINARY@i', '', $type);
+        // strip the "BINARY" attribute, except if we find "BINARY(" because
+        // this would be a BINARY or VARBINARY field type
+        if (!preg_match('@BINARY[\(]@i', $type)) {
+            $type         = preg_replace('@BINARY@i', '', $type);
+        }
         $type         = preg_replace('@ZEROFILL@i', '', $type);
         $type         = preg_replace('@UNSIGNED@i', '', $type);
         if (empty($type)) {
             $type     = '&nbsp;';
         }
 
-        $binary       = stristr($row['Type'], 'blob') || stristr($row['Type'], 'binary');
+        if (!preg_match('@BINARY[\(]@i', $row['Type'])) {
+            $binary           = stristr($row['Type'], 'blob') || stristr($row['Type'], 'binary');
+        } else {
+            $binary           = FALSE;
+        }
+
         $unsigned     = stristr($row['Type'], 'unsigned');
         $zerofill     = stristr($row['Type'], 'zerofill');
     }

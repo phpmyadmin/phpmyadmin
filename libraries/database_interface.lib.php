@@ -155,6 +155,11 @@ function PMA_DBI_postConnect($link) {
             PMA_DBI_query('SET collation_connection = \'' . $collation_connection . '\';', $link, PMA_DBI_QUERY_STORE);
         }
         $collation_connection = PMA_DBI_get_variable('collation_connection', PMA_DBI_GETVAR_SESSION, $link);
+
+        // Add some field types to the list
+        $GLOBALS['cfg']['ColumnTypes'][] = 'BINARY';
+        $GLOBALS['cfg']['ColumnTypes'][] = 'VARBINARY';
+
     } else {
         require_once('./libraries/charset_conversion.lib.php');
     }

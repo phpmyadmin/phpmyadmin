@@ -461,6 +461,7 @@ $PMA_SQPdata_reserved_word_cnt = 261;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',
+    'BINARY',
     'BIT',
     'BLOB',
     'BOOL',
@@ -505,6 +506,6 @@ $PMA_SQPdata_column_type = array (
     'YEAR'
 );
 //$PMA_SQPdata_column_type_cnt = count($PMA_SQPdata_column_type);
-$PMA_SQPdata_column_type_cnt = 43;
+$PMA_SQPdata_column_type_cnt = 44;
 
 ?>

@@ -226,7 +226,9 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $type   = $tmp[1];
         $length = substr(preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1);
     } else {
-        $type   = preg_replace('@BINARY@i', '', $type);
+        // strip the "BINARY" attribute, except if we find "BINARY(" because
+        // this would be a BINARY or VARBINARY field type
+        $type   = preg_replace('@BINARY([^\(])@i', '', $type);
         $type   = preg_replace('@ZEROFILL@i', '', $type);
         $type   = preg_replace('@UNSIGNED@i', '', $type);
 
@@ -278,7 +280,11 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $unsigned         = 0;
         $zerofill         = 0;
     } else {
-        $binary           = stristr($row['Type'], 'binary');
+        if (!preg_match('@BINARY[\(]@i', $row['Type'])) {
+            $binary           = stristr($row['Type'], 'binary');
+        } else {
+            $binary           = FALSE;
+        }
         $unsigned         = stristr($row['Type'], 'unsigned');
         $zerofill         = stristr($row['Type'], 'zerofill');
     }
