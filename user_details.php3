@@ -32,7 +32,7 @@ function check_db($dbcheck)
     table_grants_header($dbcheck);
 
     while ($row = mysql_fetch_array($result))
-		table_grants($row['host'], $row['user'], $dbcheck);
+       table_grants($row['host'], $row['user'], $dbcheck);
 
     table_grants_tail();
 }
@@ -167,6 +167,7 @@ function grant_operations()
     global $strDatabase, $strAnyDatabase;
     global $strTable, $strAnyTable;
     global $strColumn, $strAnyColumn, $strColumnEmpty;
+    global $strPrivileges;
 
     ?>
 
@@ -407,8 +408,10 @@ function table_grants($host, $user, $dbcheck = false)
         # Password Line
         if ((trim($priv) == "") && !$grantopt) continue;
 
-        if (!$dbcheck && !($show_header++)) table_grants_header();
-
+        if (!$dbcheck && !isset($show_header)) {
+            $show_header = true;
+            table_grants_header();
+        }
 
         $bgcolor = $cfgBgcolorOne;
         $i % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
@@ -416,32 +419,51 @@ function table_grants($host, $user, $dbcheck = false)
         # Revoke
         $query = "server=$server&lang=$lang&db=mysql&table=user";
         $revoke_url  = "sql.php3";
-        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON ".
-		db_name($db)."." . tbl_name($table) . " FROM '$user'@'$host'");
+        $revoke_url .= "?sql_query=".urlencode("REVOKE $priv ON " . db_name($db) . "." . tbl_name($table) . " FROM '$user'@'$host'");
         $revoke_url .= "&$query";
         $revoke_url .= "&zero_rows=" . urlencode("$strRevokeMessage <font color=#002E80>$user@$host</font>");
         $revoke_url .= "&goto=$self";
 
         # Revoke GRANT OPTION
-        $revoke_grant_url  = "sql.php3";
-        $revoke_grant_url .= "?sql_query="
-	 .urlencode("REVOKE GRANT OPTION ON ".
-		db_name($db)."." . tbl_name($table) . " FROM '$user'@'$host'");
-        $revoke_grant_url .= "&$query";
-        $revoke_grant_url .= "&zero_rows=" . urlencode("$strRevokeGrantMessage <font color=#002E80>$user@$host</font>");
-        $revoke_grant_url .= "&goto=$self";
+        if ($grantopt) {
+            $revoke_grant_url  = "sql.php3";
+            $revoke_grant_url .= "?sql_query=" . urlencode("REVOKE GRANT OPTION ON " . db_name($db) . "." . tbl_name($table) . " FROM '$user'@'$host'");
+            $revoke_grant_url .= "&$query";
+            $revoke_grant_url .= "&zero_rows=" . urlencode("$strRevokeGrantMessage <font color=#002E80>$user@$host</font>");
+            $revoke_grant_url .= "&goto=$self";
+        }
         ?>
 
         <tr bgcolor="<?php echo $bgcolor;?>">
 
-        <?php if (!$dbcheck) { ?>
-        <td><a <?php echo ($priv != "") ? "href = \"$revoke_url\"": ""; ?>><?php echo $strRevokePriv; ?></a></td>
-        <td><a <?php echo ($grantopt) ? "href = \"$revoke_grant_url\"": ""; ?>><?php echo $strRevokeGrant; ?></a></td>
-        <?php } else { ?>
-        <td><a <?php echo ($priv != "") ? "href = \"$revoke_url\"": ""; ?>><?php echo $strRevoke; ?></a></td>
-        <td><?php echo $host; ?></td>
-        <td><?php echo ($user) ? $user : "<font color=\"#FF0000\">$strAny</font>"; ?></td>
-        <?php } ?>
+        <?php
+        if (!$dbcheck) {
+            if ($priv) {
+                ?>
+            <td<?php if (!$grantopt) echo ' colspan="2"'; ?>><a href="<?php echo $revoke_url; ?>"><?php echo $strRevokePriv; ?></a></td>
+                <?php
+            }
+            if ($grantopt) {
+                ?>
+            <td<?php if (!$priv) echo ' colspan="2"'; ?>><a href="<?php echo $revoke_grant_url; ?>"><?php echo $strRevokeGrant; ?></a></td>
+                <?php
+            }
+        } else {
+            ?>
+            <td>
+            <?php
+            if  ($priv) {
+                ?>
+                <a href="<?php echo $revoke_url; ?>"><?php echo $strRevoke; ?></a>
+                <?php
+            }
+            ?>
+            </td>
+            <td><?php echo $host; ?></td>
+            <td><?php echo ($user) ? $user : "<font color=\"#FF0000\">$strAny</font>"; ?></td>
+            <?php
+        }
+        ?>
 
         <td><?php echo ($db == "*") ? "<font color=\"#002E80\">$strAll</font>" : $db; ?></td>
         <td><?php echo ($table == "*") ? "<font color=\"#002E80\">$strAll</font>" : $table; ?></td>
@@ -456,7 +478,7 @@ function table_grants($host, $user, $dbcheck = false)
         $i++;
     }
 
-    if (!$dbcheck && $show_header) table_grants_tail();
+    if (!$dbcheck && isset($show_header)) table_grants_tail();
     return $rows;
 }
 
@@ -516,7 +538,7 @@ function table_privileges($form, $row = false)
     $item = 0;
     while ((list(,$priv) = each($list_priv)) && ++$item) {
        $priv_priv = $priv . "_priv";
-       $checked = ($row[$priv_priv] == "Y") ?  "checked" : "";
+       $checked = ($row && $row[$priv_priv] == "Y") ?  "checked" : "";
        if ($item % 2 == 1) echo "<tr>";
        else echo "<td>&nbsp;</td>";
        echo "<td><input type=\"checkbox\" name=\"$priv_priv\" $checked></td>";
@@ -607,7 +629,7 @@ function edit_operations($host, $user)
 
     <li><a href="<?php echo "$self?server=$server&lang=$lang&db=mysql&table=user"; ?>"><?php echo $strBack; ?></a></li>
 
-    <?php      if ($row["Password"] != "") { ?>
+    <?php      if ($row['Password'] != "") { ?>
     <li><td><a href="<?php echo $del_url; ?>"><?php echo $strDeletePassword; ?></a></td></li>
     <?php } ?>
 
@@ -683,20 +705,20 @@ function table_users($host = false, $user = false)
         $i % 2  ? 0: $bgcolor = $cfgBgcolorTwo;
 
         $strPriv = "";
-        if ($row["Select_priv"] == "Y")  $strPriv .= "Select ";
-        if ($row["Insert_priv"] == "Y") $strPriv .= "Insert ";
-        if ($row["Update_priv"] == "Y") $strPriv .= "Update ";
-        if ($row["Delete_priv"] == "Y") $strPriv .= "Delete ";
-        if ($row["Create_priv"] == "Y") $strPriv .= "Create ";
-        if ($row["Drop_priv"] == "Y") $strPriv .= "Drop ";
-        if ($row["Reload_priv"] == "Y") $strPriv .= "Reload ";
-        if ($row["Shutdown_priv"] == "Y") $strPriv .= "Shutdown ";
-        if ($row["Process_priv"] == "Y") $strPriv .= "Process ";
-        if ($row["File_priv"] == "Y") $strPriv .= "File ";
-        if ($row["Grant_priv"] == "Y") $strPriv .= "Grant ";
-        if ($row["References_priv"] == "Y") $strPriv .= "References ";
-        if ($row["Index_priv"] == "Y") $strPriv .= "Index ";
-        if ($row["Alter_priv"] == "Y") $strPriv .= "Alter ";
+        if ($row['Select_priv'] == "Y")  $strPriv .= "Select ";
+        if ($row['Insert_priv'] == "Y") $strPriv .= "Insert ";
+        if ($row['Update_priv'] == "Y") $strPriv .= "Update ";
+        if ($row['Delete_priv'] == "Y") $strPriv .= "Delete ";
+        if ($row['Create_priv'] == "Y") $strPriv .= "Create ";
+        if ($row['Drop_priv'] == "Y") $strPriv .= "Drop ";
+        if ($row['Reload_priv'] == "Y") $strPriv .= "Reload ";
+        if ($row['Shutdown_priv'] == "Y") $strPriv .= "Shutdown ";
+        if ($row['Process_priv'] == "Y") $strPriv .= "Process ";
+        if ($row['File_priv'] == "Y") $strPriv .= "File ";
+        if ($row['Grant_priv'] == "Y") $strPriv .= "Grant ";
+        if ($row['References_priv'] == "Y") $strPriv .= "References ";
+        if ($row['Index_priv'] == "Y") $strPriv .= "Index ";
+        if ($row['Alter_priv'] == "Y") $strPriv .= "Alter ";
 
         if ($strPriv == "") $strPriv  = "<font color=\"#002E80\">$strNoPrivileges</font>";
 
@@ -705,18 +727,18 @@ function table_users($host = false, $user = false)
         # Edit
         $edit_url  = $self;
         $edit_url .= "?server=$server&lang=$lang";
-        $edit_url .= "&edit=1&host=" . urlencode($row["Host"]) . "&user=" . urlencode($row["User"]);
+        $edit_url .= "&edit=1&host=" . urlencode($row['Host']) . "&user=" . urlencode($row['User']);
 
         # Delete
         $delete_url  = "$self?$query";
-        $delete_url .= "&delete=1&confirm=1&delete_host=" . urlencode($row["Host"]) . "&delete_user=" . urlencode($row["User"]);
+        $delete_url .= "&delete=1&confirm=1&delete_host=" . urlencode($row['Host']) . "&delete_user=" . urlencode($row['User']);
 
         # Grants
         $check_url  = $self;
         $check_url .= "?server=$server&lang=$lang";
-        $check_url .= "&grants=1&host=" . urlencode($row["Host"]) . "&user=" . urlencode($row["User"]);
+        $check_url .= "&grants=1&host=" . urlencode($row['Host']) . "&user=" . urlencode($row['User']);
 
-#        $check_result =  mysql_query("SHOW GRANTS FOR '" . $row{"User"} . "'@'" . $row{"Host"} ."'");
+#        $check_result =  mysql_query("SHOW GRANTS FOR '" . $row['User'] . "'@'" . $row['Host'] ."'");
 #        if (@mysql_num_rows($check_result) == 0) $check_url = ""
         ?>
 
@@ -725,9 +747,9 @@ function table_users($host = false, $user = false)
         <td><a href="<?php echo $delete_url; ?>"><?php echo $strDelete; ?></a></td>
         <td><a href="<?php echo $check_url; ?>"><?php echo $strGrants; ?></a></td>
 <!--        <td><a <?php if ($check_url != "") echo "href = \"" . $check_url . "\""; ?>>Grants</a></td> -->
-        <td><?php echo $row["Host"]; ?></td>
-        <td><?php echo $row["User"] ? "<b>" . $row["User"]. "</b>" : "<font color=\"#FF0000\">$strAny</font>"; ?></td>
-        <td><?php echo $row["Password"] ? $strYes : "<font color=\"#FF0000\">$strNo</font>"; ?></td>
+        <td><?php echo $row['Host']; ?></td>
+        <td><?php echo $row['User'] ? "<b>" . $row['User']. "</b>" : "<font color=\"#FF0000\">$strAny</font>"; ?></td>
+        <td><?php echo $row['Password'] ? $strYes : "<font color=\"#FF0000\">$strNo</font>"; ?></td>
         <td><?php echo $strPriv; ?></td>
         </tr>
 
@@ -791,7 +813,7 @@ if (!empty($host)) {
 }
 
 # Confirm the action ...
-if (isset($confirm) && $confirm && !$clickyes) {
+if (isset($confirm) && $confirm && (!isset($clickyes) || !$clickyes)) {
    confirm();
    exit();
 }
