@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-18 Michal Cihar  <michal@cihar.com>
+    * libraries/tbl_change.js: Fixed caledar behavior for DATE fields.
+
 2004-04-18 Alexander M. Turek  <me@derrabus.de>
     * lang/german-*.inc.php: Updates.
 

@@ -138,7 +138,7 @@ function initCalendar() {
         /* Called for first time */
         if (window.opener.dateField.value) {
             value = window.opener.dateField.value;
-            if (window.opener.type == 'date') {
+            if (window.opener.dateType == 'date') {
                 date = value.split("-");
                 day = parseInt(date[2]);
                 month = parseInt(date[1]) - 1;
@@ -195,7 +195,7 @@ function initCalendar() {
 			dayInWeek = 0;
 		}
         dispmonth = 1 + month;
-        if (window.opener.type == 'date') {
+        if (window.opener.dateType == 'date') {
 		    actVal = year + "-" + dispmonth + "-" + i;
         } else {
 		    actVal = "" + (year < 1000 ? year < 100 ? year < 10 ? '000' : '00' : '0' : '') + year + (dispmonth < 10 ? '0' : '') + dispmonth + (i < 10 ? '0' : '') + i;
