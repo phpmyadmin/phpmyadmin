@@ -2,6 +2,7 @@
 /* $Id$ */
  
 require("./lib.inc.php3");
+header('Content-Type: text/html; charset=' . $charset);
 ?>
 
 <html>
