@@ -7,19 +7,19 @@ $Source$
 
 2002-07-30 Marc Delisle  <lem9@users.sourceforge.net>
     * config.inc.php3: how to test auto-detect
-    * lang/turkish update, thanks to Bora Alioglu
-    * lang/galician update, thanks to Xosé Calvo
-    * lang/albanian update, thanks to Laurent Dhima.
-    * lang/czech update, thanks to Michal Cihar
-    * lang/slovak-iso update, thanks to Lubos Klokner
+    * lang/turkish: update, thanks to Bora Alioglu
+    * lang/galician: update, thanks to Xosé Calvo
+    * lang/albanian: update, thanks to Laurent Dhima.
+    * lang/czech: update, thanks to Michal Cihar
+    * lang/slovak-iso: update, thanks to Lubos Klokner
    
 2002-07-30 Loïc Chapeaux  <lolo@phpheaven.net>
     * Documentation.html: coding standards (line size <= 80).
-    * db_details_structure.php3, lines 456-460: beautified generated page.
+    * db_details_structure.php3:, 456-460, beautified generated page.
 
 2002-07-29 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: auto-detect, dot in dbname, CGI and cookie auth
-    * lang/turkish update, thanks to Bora Alioglu
+    * lang/turkish: update, thanks to Bora Alioglu
     
 2002-07-29 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/galician*: Merged update from #588154 
