@@ -262,6 +262,7 @@ $strPasswordNotSame = 'Has³a nie s± identyczne!';
 $strPdfDbSchema = 'Schemet bazy danych "%s" - strona %s';
 $strPdfInvalidPageNum = 'Niezdefiniowany numer strony PDF!';
 $strPdfInvalidTblName = 'Tabela "%s" nie istnieje!';
+$strPdfNoTables = 'Brak tabel';
 $strPhp = 'Utwórz kod PHP';
 $strPHPVersion = 'Wersja PHP';
 $strPmaDocumentation = 'Dokumentacja phpMyAdmina';
@@ -410,6 +411,4 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-$strPdfNoTables = 'No tables';  //to translate
-
 ?>
