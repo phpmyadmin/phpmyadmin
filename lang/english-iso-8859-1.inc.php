@@ -89,6 +89,7 @@ $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz
 $strBzip = '"bzipped"';
 
 $strCSVOptions = 'CSV options';
+$strCalendar = 'Calendar';
 $strCannotLogin = 'Cannot login to MySQL server';
 $strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';
@@ -226,6 +227,7 @@ $strEffective = 'Effective';
 $strEmpty = 'Empty';
 $strEmptyResultSet = 'MySQL returned an empty result set (i.e. zero rows).';
 $strEnabled = 'Enabled';
+$strEncloseInTransaction = 'Enclose export in a transaction';
 $strEnd = 'End';
 $strEndCut = 'END CUT';
 $strEndRaw = 'END RAW';
@@ -733,5 +735,4 @@ $strYes = 'Yes';
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
 
-$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 ?>

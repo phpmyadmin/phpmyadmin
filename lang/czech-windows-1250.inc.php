@@ -95,6 +95,7 @@ $strBzError = 'phpMyAdminovi se nepodaøilo zkomprimovat výpis, protože rozšíøení
 $strBzip = '"zabzipováno"';
 
 $strCSVOptions = 'Nastavení CSV exportu';
+$strCalendar = 'Kalendáø';
 $strCannotLogin = 'Nepodaøilo se pøihlášení k MySQL serveru';
 $strCantLoad = 'nelze nahrát rozšíøení %s,<br />zkontrolujte prosím nastavení PHP';
 $strCantLoadRecodeIconv = 'Nelze nahrát rozšíøení iconv ani recode potøebná pro pøevod znakových sad. Upravte nastavení php tak aby umožòovalo použít tyto rozšíøení nebo vypnìte pøevod znakových sad v&nbsp;phpMyAdminu.';

@@ -110,3 +110,103 @@ function onKeyDownArrowsHandler(e) {
     }
     e.returnValue = false;
 }
+
+
+var day;
+var month;
+var year;
+
+function openCalendar(params, form, field, type) {
+	window.open("./calendar.php?" + params, "calendar", "width=400,height=200,status=yes");
+	dateField = eval("document." + form + "." + field);
+    dateType = type;
+}
+
+function initCalendar() {
+	if (!year && !month && !day) {
+        /* Called for first time */
+        if (window.opener.dateField.value) {
+            value = window.opener.dateField.value;
+            if (window.opener.type == 'date') {
+                date = value.split("-");
+                day = parseInt(date[2]);
+                month = parseInt(date[1]) - 1;
+                year = parseInt(date[0]);
+            } else {
+                year = parseInt(value.substr(0,4));
+                month = parseInt(value.substr(4,2)) - 1;
+                day = parseInt(value.substr(6,2));
+            }
+        }
+        if (isNaN(year) || isNaN(month) || isNaN(day) || day == 0) {
+            dt = new Date();
+            year = dt.getFullYear();
+            month = dt.getMonth();
+            day = dt.getDate();
+        }
+	} else {
+        /* Moving in calendar */
+        if (month > 11) {month = 0; year++;}
+        if (month < 0) {month = 11; year--;}
+    }
+	
+	if (document.getElementById) {
+		cnt = document.getElementById("calendar_data");
+	} else if (document.all) {
+		cnt = document.all["calendar_data"];
+	}
+	
+	cnt.innerHTML = "";
+	
+	str = ""
+	
+	str += '<table class="calendar"><tr><th><a href="#" onclick="month--; initCalendar();">&laquo;</a> ' + month_names[month] + ' <a href="#" onclick="month++; initCalendar();">&raquo;</a></th><th><a href="#" onclick="year--; initCalendar();">&laquo;</a> ' + year + ' <a href="#" onclick="year++; initCalendar();">&raquo;</a></th></tr></table>';
+
+	str += '<table class="calendar"><tr>';
+	for (i = 0; i < 7; i++) {
+		str += "<th>" + day_names[i] + "</th>";
+	}
+	str += "</tr>";
+    
+	var firstDay = new Date(year, month, 1).getDay();
+	var lastDay = new Date(year, month + 1, 0).getDate();
+
+	str += "<tr>";
+	
+	dayInWeek = 0;	
+	for (i = 0; i < firstDay; i++) {
+		str += "<td>&nbsp;</td>";
+		dayInWeek++;
+	}
+	for (i = 1; i <= lastDay; i++) {
+		if (dayInWeek == 7) {
+			str += "</tr><tr>";
+			dayInWeek = 0;
+		}
+        dispmonth = 1 + month;
+        if (window.opener.type == 'date') {
+		    actVal = year + "-" + dispmonth + "-" + i;
+        } else {
+		    actVal = "" + (year < 1000 ? year < 100 ? year < 10 ? '000' : '00' : '0' : '') + year + (dispmonth < 10 ? '0' : '') + dispmonth + (i < 10 ? '0' : '') + i;
+        }
+        if (i == day) {
+            style = ' class="selected"';
+        } else {
+            style = '';
+        }
+		str += "<td" + style + "><a href='#' onclick='returnDate(\"" + actVal + "\");'>" + i + "</a></td>"
+		dayInWeek++;
+	}
+	for (i = dayInWeek; i < 7; i++) {
+		str += "<td>&nbsp;</td>";
+	}
+	
+	str += "</tr></table>";
+
+	cnt.innerHTML = str;
+}
+
+function returnDate(d) {
+	window.opener.dateField.value = d;
+	window.close();
+}

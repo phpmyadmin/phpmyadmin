@@ -242,5 +242,34 @@ button.mult_submit {
     <?php
     echo PMA_SQP_buildCssData();
 }
+
 ?>
 
+/* Calendar */
+table.calendar {
+	width: 100%;
+}
+
+table.calendar td {
+    text-align: center;
+}
+
+table.calendar td a {
+    display: block;
+}
+
+table.calendar td a:hover {
+    background-color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+}
+
+table.calendar th {
+    background-color: <?php echo $GLOBALS['cfg']['ThBgcolor']; ?>;
+}
+
+table.calendar td.selected {
+    background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+}
+
+img.calendar {
+    border: none;
+}

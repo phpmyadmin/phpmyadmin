@@ -770,6 +770,15 @@ foreach($loop_array AS $vrowcount => $vrow) {
                 ?>
                 <input type="text" name="fields<?php echo $vkey; ?>[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>', '<?php echo $vkey; ?>')" tabindex="<?php echo (($i * $m_rows) + 1); ?>" id="field_<?php echo ($i * $m_rows); ?>_3" />
                 <?php
+                if ($type == 'date' || substr($type, 0, 9) == 'timestamp') {
+                    ?>
+                    <script type="text/javascript">
+                    <!--
+                    document.write('<a title="<?php echo $strCalendar;?>" href="javascript:openCalendar(\'<?php echo PMA_generate_common_url();?>\', \'insertForm\', \'field_<?php echo ($i * $m_rows); ?>_3\', \'<?php echo substr($type, 0, 9)?>\')" <img class="calendar" src="images/button_calendar.png" alt="<?php echo $strCalendar; ?>"/></a>');
+                    //-->
+                    </script>
+                    <?php
+                }
             }
             echo "\n";
             ?>

@@ -13,6 +13,9 @@ $Source$
       exports (RFE #859815).
     * images/button_export.png: At least some export icon.
     * libraries/display_tbl.lib.php: Fix image sizes.
+    * calendar.php, tbl_change.php, css/phpmyadmin.css.php,
+      images/button_calendar.png, libraries/tbl_change.js, lang/*: Pop-up
+      calendar for date fields (RFE #880647).
 
 2004-04-15 Marc Delisle  <lem9@users.sourceforge.net>
     * ldi_table.php: allow longer field terminator (was 2 now 4);

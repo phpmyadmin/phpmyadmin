@@ -742,4 +742,5 @@ $strDatabaseEmpty = 'Der Datenbankname ist leer!';
 $strDBRename = 'Datenbank umbenennen zu';
 $strOperator = 'Operator';  //to translate
 $strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
+$strCalendar = 'Calendar';  //to translate
 ?>
