@@ -87,14 +87,15 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     else {
         $type        = $row['Type'];
     }
-    $type   = eregi_replace('BINARY', '', $type);
-    $type   = eregi_replace('ZEROFILL', '', $type);
-    $type   = eregi_replace('UNSIGNED', '', $type);
     // set or enum types: slashes single quotes inside options
     if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
         $type   = $tmp[1];
         $length = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
     } else {
+        $type   = eregi_replace('BINARY', '', $type);
+        $type   = eregi_replace('ZEROFILL', '', $type);
+        $type   = eregi_replace('UNSIGNED', '', $type);
+
         $length = $type;
         $type   = chop(eregi_replace('\\(.*\\)', '', $type));
         if (!empty($type)) {
@@ -132,9 +133,15 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             <select name="field_attribute[]" id="field_<?php echo $i; ?>_4">
     <?php
     echo "\n";
-    $binary           = eregi('BINARY', $row['Type'], $test_attribute1);
-    $unsigned         = eregi('UNSIGNED', $row['Type'], $test_attribute2);
-    $zerofill         = eregi('ZEROFILL', $row['Type'], $test_attribute3);
+    if (eregi('^(set|enum)$', $type)) {
+        $binary           = 0;
+        $unsigned         = 0;
+        $zerofill         = 0;
+    } else {
+        $binary           = eregi('BINARY', $row['Type'], $test_attribute1);
+        $unsigned         = eregi('UNSIGNED', $row['Type'], $test_attribute2);
+        $zerofill         = eregi('ZEROFILL', $row['Type'], $test_attribute3);
+    }
     $strAttribute     = '';
     if ($binary) {
         $strAttribute = 'BINARY';

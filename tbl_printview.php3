@@ -204,19 +204,23 @@ while (list($key, $table) = each($the_tables)) {
             $tmp[2]       = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
             $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
             $type_nowrap  = '';
+
+            $binary       = 0;
+            $unsigned     = 0;
+            $zerofill     = 0;
         } else {
             $type_nowrap  = ' nowrap="nowrap"';
-        }
-        $type             = eregi_replace('BINARY', '', $type);
-        $type             = eregi_replace('ZEROFILL', '', $type);
-        $type             = eregi_replace('UNSIGNED', '', $type);
-        if (empty($type)) {
-            $type         = '&nbsp;';
-        }
+            $type         = eregi_replace('BINARY', '', $type);
+            $type         = eregi_replace('ZEROFILL', '', $type);
+            $type         = eregi_replace('UNSIGNED', '', $type);
+            if (empty($type)) {
+                $type     = '&nbsp;';
+            }
 
-        $binary           = eregi('BINARY', $row['Type'], $test);
-        $unsigned         = eregi('UNSIGNED', $row['Type'], $test);
-        $zerofill         = eregi('ZEROFILL', $row['Type'], $test);
+            $binary       = eregi('BINARY', $row['Type'], $test);
+            $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
+            $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
+        }
         $strAttribute     = '&nbsp;';
         if ($binary) {
             $strAttribute = 'BINARY';

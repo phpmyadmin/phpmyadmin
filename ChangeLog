@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-21 Michal Cihar  <nijel@users.sourceforge.net>
+    * db_datadict.php3, pdf_schema.php3, tbl_printview.php3,
+      tbl_properties.inc.php3, tbl_properties_structure.php3, tbl_select.php3:
+      Fixed bug #667682 ("UNSIGNED" option in SET or ENUM), SET and ENUM can't
+      be SIGNED/UNSIGNED/ZEROFILL.
+
 2003-01-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: Added column privileges editor.
       TODO: Deselection of all columns is not possible yet...

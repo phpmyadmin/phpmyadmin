@@ -52,10 +52,11 @@ if (!isset($param) || $param[0] == '') {
                 $type      = eregi_replace(',', ', ', $type);
                 // Removes automatic MySQL escape format
                 $type      = str_replace('\'\'', '\\\'', $type);
+            } else {
+                $type          = eregi_replace('BINARY', '', $type);
+                $type          = eregi_replace('ZEROFILL', '', $type);
+                $type          = eregi_replace('UNSIGNED', '', $type);
             }
-            $type          = eregi_replace('BINARY', '', $type);
-            $type          = eregi_replace('ZEROFILL', '', $type);
-            $type          = eregi_replace('UNSIGNED', '', $type);
             if (empty($type)) {
                 $type      = '&nbsp;';
             }
