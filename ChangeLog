@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-14 Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/common.lib.php3, PMA_MYSQL_INT_VERSION is not yet defined
+	  before the connection
+
 2002-03-13 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/common.lib.php3: bug 528961 safe_show_database
 

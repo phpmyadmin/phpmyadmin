@@ -540,7 +540,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         else {
             // ... first checks whether the "safe_show_database" 
             //     is on or not (if MYSQL supports this)
-            if (PMA_MYSQL_INT_VERSION >= 32330) {
+            if (defined('PMA_MYSQL_INT_VERSION') &&
+                PMA_MYSQL_INT_VERSION >= 32330) {
                 $local_query      = 'SHOW VARIABLES LIKE \'safe_show_database\'';
                 $rs               = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
                 $is_safe_show_dbs = mysql_result($rs, 0, 'Value');
