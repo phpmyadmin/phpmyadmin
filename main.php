@@ -529,7 +529,6 @@ if (empty($cfg['Lang'])) {
             <form method="post" action="index.php" target="_parent">
                 <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
-                <input type="hidden" name="set_theme" value="<?php echo $theme; ?>" />
                 Language <a href="./translators.html" target="documentation"><?php
                 if ($cfg['ReplaceHelpImg']){
                     echo '<img src="' . $pmaThemeImage . 'b_info.png" border="0" width="11" height="11" alt="Info" hspace="1" vspace="1" />';
