@@ -287,5 +287,5 @@ $strGzip = '"gzipped"'; // To translate
 $strOffSet = 'offset'; // To translate
 $strNoModification = 'No change'; // To translate
 $strShowPHPInfo = 'Show PHP information'; // To translate
-$strTables = ' table(s) ';  //to translate
+$strTables = '%s table(s)';  //to translate
 ?>

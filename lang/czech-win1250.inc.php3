@@ -287,6 +287,6 @@ $strNoModification = 'No change';
 $strQueryOnDb = 'SQL-query on database ';
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strShowThisQuery = ' Show this query here again ';  //to translate
-$strTables = ' table(s) ';  //to translate
+$strTables = '%s table(s)';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';
 ?>

@@ -289,5 +289,5 @@ $strFormEmpty = 'Missing value in the form !';
 $strNoModification = 'No change'; // To translate
 $strOffSet = 'offset';
 $strShowPHPInfo = 'Show PHP information';  // To translate
-$strTables = ' table(s) ';  //to translate
+$strTables = '%s table(s)';  //to translate
 ?>

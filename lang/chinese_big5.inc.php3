@@ -287,6 +287,6 @@ $strFormEmpty = 'Missing value in the form !';
 $strNoModification = 'No change';
 $strQueryOnDb = ' SQL-query on database ';  //to translate
 $strShowPHPInfo = 'Show PHP information';  // To translate
-$strTables = ' table(s) ';  //to translate
+$strTables = '%s table(s)';  //to translate
 $strUseBackquotes = ' Use backquotes with tables and fields names ';  //to translate
 ?>
