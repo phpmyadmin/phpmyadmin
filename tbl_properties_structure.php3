@@ -542,8 +542,9 @@ echo "\n";
     <!-- Let MySQL propose the optimal structure -->
     <li>
         <div style="margin-bottom: 10px">
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE analyse()'); ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>">
             <?php echo $strStructPropose; ?></a>
+        <?php echo PMA_showDocuShort('p/r/procedure_analyse.html'); ?>
         </div>
     </li>
 
