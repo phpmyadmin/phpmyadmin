@@ -871,12 +871,15 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 // 3. Do define the sorting url
                 if (!$is_in_sort) {
                     $sort_order = ' ORDER BY ' . backquote($field->name) . ' ' . $GLOBALS['cfgOrder'];
+                    $order_img  = '';
                 }
                 else if (substr($sql_order, -3) == 'ASC' && $is_in_sort) {
                     $sort_order = ' ORDER BY ' . backquote($field->name) . ' DESC';
+                    $order_img  = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="ASC">';
                 }
                 else if (substr($sql_order, -4) == 'DESC' && $is_in_sort) {
                     $sort_order = ' ORDER BY ' . backquote($field->name) . ' ASC';
+                    $order_img  = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="DESC">';
                 }
                 if (eregi('(.*)( LIMIT (.*)| PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)', $unsorted_sql_query, $regs3)) {
                     $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
@@ -892,7 +895,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 ?>
     <th>
         <a href="sql.php3?<?php echo $url_query; ?>">
-            <?php echo htmlspecialchars($field->name); ?></a>
+            <?php echo htmlspecialchars($field->name); ?></a><?php echo $order_img . "\n"; ?>
     </th>
                 <?php
             } // end if

@@ -10,8 +10,9 @@ $Source$
 	  bit both the '$set$' switch cases.
 	* ldi_check.php3: fixed bug #448522 (Insert Data Error on Win32-Server).
 	* tbl_change.php3, lines 165 & 287: removed erroneous <lf>.
-	* lib.inc.php3, line 947: fix a bug when primary key values contain
-	  slashes.
+	* lib.inc.php3:
+        - line 947: fix a bug when primary key values contain slashes.
+        - merged patch #443393.
 
 2001-08-08  Steve Alberty  <alberty@neptunlabs.de>
 	* tbl_replace.php3: remove warning in a new row if a 'set' field is not
