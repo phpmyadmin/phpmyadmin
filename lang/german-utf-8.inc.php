@@ -391,7 +391,7 @@ $strMoveTableSameNames = 'Tabelle kann nicht mit gleichem Namen verschoben werde
 $strMultilingual = 'multilingual';
 $strMustSelectFile = 'Bitte geben Sie eine Datei an, die eingefügt werden soll.';
 $strMySQLCharset = 'MySQL-Zeichensatz';
-$strMySQLReloaded = 'MySQL wurde neu gestartet.';
+$strMySQLReloaded = 'Die MySQL-Benutzertabellen wurden neu geladen.';
 $strMySQLSaid = 'MySQL meldet: ';
 $strMySQLServerProcess = 'Verbunden mit MySQL %pma_s1% auf %pma_s2% als %pma_s3%';
 $strMySQLShowProcess = 'Prozesse anzeigen';
@@ -528,6 +528,7 @@ $strReType = 'Wiederholen';
 $strReceived = 'Empfangen';
 $strRecords = 'Einträge';
 $strReferentialIntegrity = 'Prüfe referentielle Integrität:';
+$strRefresh = 'Aktualisieren';
 $strRelationNotWorking = 'Die zusätzlichen Funktionen für verknüpfte Tabellen wurden automatisch deaktiviert. Klicken Sie %shier%s um herauszufinden warum.';
 $strRelationView = 'Beziehungsübersicht';
 $strRelationalSchema = 'Beziehungsschema';
@@ -744,5 +745,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
 
-$strRefresh = 'Aktualisieren';
 ?>
