@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-02-05 Alexander M. Turek  <chaos@derrabus.de>
+    * Documentation.html: Added FAQ 1.17a about error message, "Client does not
+      support authentication protocol".
+
 2004-02-04 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug 890573 (was a typo)
 

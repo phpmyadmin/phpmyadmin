@@ -2420,15 +2420,34 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     Instead, it will still use the character set you specified for the MySQL
     onnection.<br />
     When compiling php, we strongly recommend that you manually link the MySQL
-    extension to a MySQL client library of at least the same version since the
-    one that is bundled with current php distributions is rather old and might
-    cause problems.
+    extension to a MySQL client library of at least the same minor version
+    since the one that is bundled with current php distributions is rather old
+    and might cause problems (see also FAQ 1.17a).
     <br />
     Also, we do not yet support the improved MySQL extension (mysqli) that
     comes with php&nbsp;5. For the moment, the old MySQL extension should also
     work fine here, if compiled correctly.
     <br />
     MySQL&nbsp;5.1 is not yet supported.
+</p>
+
+<h4>
+    [1.17a] I cannot connect to the MySQL server. It alawys returns the error
+    message, &quot;Client does not support authentication protocol requested
+    by server; consider upgrading MySQL client&quot;
+</h4>
+<p>
+    You tried to access MySQL with an old MySQL client library. The version of
+    your MySQL client library can be checked in your phpinfo() output.
+    <br />
+    In general, it should have at least the same minor version as your server
+    - as mentioned in FAQ 1.17.
+    <br />
+    The only way to fix this problem is manually compiling php and its MySQL
+    extension against a current MySQL client library.
+    <br />
+    If you still face this problem, please compile your MySQL client library
+    against the same or a newer MySQL release.
 </p>
 
 <h4>
@@ -3510,7 +3529,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     You have to setup appropriate links between the tables, and also
     setup the &quot;display field&quot; in the foreign table. See FAQ
     6.6 for an example. Then, if there are 200 values or less in the
-    foreign table, a drop-down list of values will be available.  
+    foreign table, a drop-down list of values will be available.
     You will see two lists of values, the first list containing the key
     and the display field, the second list containing the display field
     and the key. The reason for this is to be able to type the first
