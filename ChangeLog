@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-07 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3: Incremented required config.inc.php3 revision
+      number.
+
 2003-06-06 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, config.inc.php3: new LimitChars behavior
 
@@ -59,7 +63,7 @@ $Source$
       setting.
 
 2003-06-03 Garvin Hicking <me@supergarv.de>
-    * lang/*, tbl_query_box.php3, Documentation.html, footer.inc.php3: 
+    * lang/*, tbl_query_box.php3, Documentation.html, footer.inc.php3:
       (Experimental)
       New feature - The automatic update of the query window seems to
       cause some headache for users. They type in their query, want to
@@ -71,10 +75,10 @@ $Source$
       unchecked to restore previous behaviour. Thanks to Alexander Meis
       for this suggestion. Optionally we could build in a config variable
       to override this 'onChange' effect, but I guess it's not necessary.
-    * libraries/display_tbl.lib.php3: Bug #748084 - Use preg_replace instead 
+    * libraries/display_tbl.lib.php3: Bug #748084 - Use preg_replace instead
       of ereg_replace, because it interprets \0, \1 and so on not as strings
       but as regex-subpatterns and fails to convert those strings correctly.
-      We'll have to see if that can be the case on other usages of 
+      We'll have to see if that can be the case on other usages of
       preg_replace as well.
 
 2003-06-02 Alexander M. Turek  <rabus@users.sourceforge.net>
@@ -98,7 +102,7 @@ $Source$
 
 2003-06-02 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.1 released
-    * (not in 2.5.1) sql.php3: bug 747451, incorrect detection of 
+    * (not in 2.5.1) sql.php3: bug 747451, incorrect detection of
       PROCEDURE ANALYSE()
 
 2003-06-02 Alexander M. Turek  <rabus@users.sourceforge.net>
