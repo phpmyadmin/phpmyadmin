@@ -59,7 +59,7 @@ Please ensure you have:
           " <h1>phpMyAdmin $1 Documentation</h1> "
      - in translators.html
   2. built the new "Documentation.txt" version using:
-       lynx --nolist --dump Documentation.html > Documentation.txt
+       lynx --dont_wrap_pre --nolist --dump Documentation.html > Documentation.txt
   3. synchronized the language files:
        cd lang
        ./sync_lang.sh

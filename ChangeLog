@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-01 Michal Cihar  <nijel@users.sourceforge.net>
+    * Documentation.*, translators.html, docs.css: New documentation layout.
+    * scripts/create-release.sh: Added --dont_wrap_pre to lynx parameters.
+
 2003-02-01 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php3, tbl_replace.php3, (new)tbl_replace_fields.php3,
       db_details.php3, tbl_query_box.php3, libraries/common.lib.php3:

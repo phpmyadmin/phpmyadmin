@@ -1,0 +1,163 @@
+/* $Id$ */
+/* Stylesheet for phpMyAdmin documentation */
+/* vim: expandtab ts=4 sw=4 sts=4 tw=78 
+*/
+
+body {
+    background-color: #ffffff;
+    font-family: sans-serif;
+    color: #000;
+    margin: 0px;
+    padding: 2em 0px 2em 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #000099;
+    background-color: #ffffff;
+    font-weight: normal;
+}
+a:hover {
+    background-color: #99CCFF;
+    background-color: #ffffff;
+    font-weight: bolder
+}
+
+
+div.header {
+    width: 100%;
+    background-color: #ddeeff;
+    color: #000000;
+    text-align: center;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000000;
+    font-weight: bold;
+    left: 0px;
+    top: 0px;
+    position: fixed;*/
+    /* following MSIE hack was originally written by Riki Fridrich
+     * <http://www.fckbkk.sk> */
+    position: expression("absolute");
+    width: expression(document.body.clientWidth);
+    top: expression(document.body.scrollTop + this.offsetHeight - this.offsetHeight);
+}
+
+div.header hr {
+    display: none;
+}
+div.header a {
+    text-decoration: none;
+    font-size: medium;
+    color: #000099;
+    background-color: #ddeeff;
+    font-weight: normal;
+}
+div.header a:hover {
+    background-color: #99CCFF;
+    font-weight: bolder
+}
+
+h1 {
+    text-align: center;
+    padding-left: 8%;
+    margin-top: 1em;
+    background-color: #ddeeff;
+    font-size: x-large;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    clear: both;
+}
+
+h2 {
+    padding-left: 8%;
+    margin-top: 1em;
+    background-color: #ddeeff;
+    font-size: large;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    clear: both;
+}
+h3 {
+    padding-left: 10%;
+    margin-top: 1em;
+    background-color: #ddeeff;
+    font-size: medium;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    clear: both;
+}
+
+h4 {
+    padding: 0px;
+    margin: 10px 5% 2px 5%;
+    font-weight: bold;
+}
+
+p {
+    margin: 2px 5% 2px 5%;
+}
+
+table {
+    margin: 2px 5% 2px 5%;
+    border: none;
+}
+
+table tr,table td,table th {
+    border: none;
+}
+
+table.translators {
+    text-align: center;
+    display: table; margin-left: auto; margin-right: auto;
+    border-collapse: collapse;
+}
+
+table.translators th {
+    background-color: #d3dce3;
+}
+
+table.translators td, table.translators th {
+    border: 1px solid #000000;
+    padding: 5px;
+}
+
+ul {
+    margin: 2px 5% 2px 5%;
+}
+
+pre {
+    margin: 2px 5% 2px 5%;
+    
+}
+pre.wrap {
+    white-space: normal;
+}
+
+dl {
+    margin: 1em 6% 1em 6%;
+}
+dt {
+    font-weight: bold;
+    margin-left: 2em;
+    padding-top: 6px;
+}
+dd {
+    margin-left: 4em;
+}
+
+ol {
+    margin: 1em 6% 1em 6%;
+}
+
+.important {
+    color: #bb0000;
+}
+
+p.footnote {
+    margin: 2px 5% 2px 7%;
+}
+
+p.footnote:first-line {
+    margin-left: -2%;
+}
+
