@@ -228,7 +228,7 @@ if (!defined('PMA_IDX_INCLUDED')
     // To show the query:
     $sql_query = $local_query;
 
-    include('./tbl_properties.php3');
+    include('./tbl_properties_structure.php3');
     exit();
 } // end builds the new index
 

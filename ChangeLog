@@ -7,7 +7,7 @@ $Source$
 
 2003-02-28 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_indexes.php3: Show SQL query after modifying/creating index (closes
-      #694800)
+      #694800), show structure after modifying index.
 
 2003-02-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Fixed a typo.
