@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-17 Loïc Chapeaux  <lolo@phpheaven.net>
+    * sql.php3, bug 624020, can't delete a row with a TEXT field containing
+      newlines
+
 2002-10-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: FAQ entry about browser charset settings.
 

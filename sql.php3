@@ -8,6 +8,7 @@
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
+
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -69,7 +70,8 @@ function PMA_sqlFormat($sql_str) {
     } // end while
 
     // Removes repeated spaces
-    $sql_str = ereg_replace('[[:space:]]+', ' ', $sql_str);
+    // $sql_str = ereg_replace('[[:space:]]+', ' ', $sql_str);
+    $sql_str = ereg_replace(' +', ' ', $sql_str);
 
     // GROUP or ORDER: "BY" to uppercase too
     $sql_str = eregi_replace('(GROUP|ORDER) BY', '\\1 BY', $sql_str);
@@ -641,6 +643,4 @@ echo "\n\n";
  * Displays the footer
  */
 require('./footer.inc.php3');
-
-
 ?>
