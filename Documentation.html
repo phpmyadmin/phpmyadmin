@@ -1112,6 +1112,24 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
+    <dt><b>$cfg['CharEditing'] </b>string</dt>
+    <dd>
+        Defines which type of editing controls should be used for CHAR and
+        VARCHAR fields. Possible values are:
+        <ul>
+            <li>
+                input - this allows to limit size of text to size of field in
+                MySQL, but has problems with newlines in fields
+            </li>
+            <li>
+                textarea - no problems with newlines in fields, but also no
+                length limitations
+            </li>
+        </ul>
+        Default is old behavior so input.
+        <br /><br />
+    </dd>
+
     <dt>
         <b>$cfg['ZipDump'] </b>boolean<br />
         <b>$cfg['GZipDump'] </b>boolean<br />
@@ -1296,11 +1314,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt>
         <b>$cfg['TextareaCols'] </b>integer<br />
-        <b>$cfg['TextareaRows'] </b>integer
+        <b>$cfg['TextareaRows'] </b>integer<br />
+        <b>$cfg['CharTextareaCols'] </b>integer<br />
+        <b>$cfg['CharTextareaRows'] </b>integer
     </dt>
     <dd>
         Number of columns and rows for the textareas.<br />
-        This value will be emphasized (*2) for sql query textareas.
+        This value will be emphasized (*2) for sql query textareas.<br />
+        The Char* values are used for CHAR and VARCHAR editing (if configured
+        via $cfg['CharEditing']).
         <br /><br />
     </dd>
 

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-19 Michal Cihar  <nijel@users.sourceforge.net>
+    * Documentation.html, config.inc.php3, tbl_change.php3,
+      libraries/config_import.lib.php3: fix for #581494 - problems with \n in
+      CHAR/VARCHAR, added new configs $cfg['CharEditing'] and
+      $cfg['CharTextarea{Cols,Rows}']
+      
 2002-09-18 Mike Beck	<mikebeck@users.sourceforge.net>
 	* db_details_qbe.php3: complete rewrite of the code
             that creates the JOINS hoping that this will 

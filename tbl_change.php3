@@ -601,7 +601,18 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" />
+	    <?php
+	    if ($is_char && isset($cfg['CharEditing']) && ($cfg['CharEditing'] == 'textarea')) {
+	    ?>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfg['CharTextareaRows']; ?>" cols="<?php echo $cfg['CharTextareaCols']; ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"
+                <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" ><?php echo $special_chars; ?></textarea>
+	    <?php
+	    } else {
+	    ?>
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" class="textfield" <?php echo $chg_evt_handler; ?>="return unnullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo $i+1; ?>" />
+	    <?
+	    }
+	    ?>
         </td>
         <?php
     }

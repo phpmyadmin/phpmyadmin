@@ -205,6 +205,10 @@ $cfg['ProtectBinary']         = 'blob'; // disallow editing of binary fields
                                         //   'blob' allow editing except for BLOB fields
                                         //   'all'  disallow editing
 $cfg['ShowFunctionFields']    = TRUE;   // Display the function fields in edit/insert mode
+$cfg['CharEditing']           = 'input';
+                                        // Which editor should be used for CHAR/VARCHAR fields:
+                                        //  input - allows limiting of input length
+                                        //  textarea - allows newlines in fields
 
 // For the export features...
 $cfg['ZipDump']               = TRUE;   // Allow the use of zip/gzip/bzip
@@ -338,6 +342,8 @@ $cfg['TextareaCols']        = 40;           // textarea size (columns) in edit m
                                             // query textareas)
 $cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
 $cfg['TextareaAutoSelect']  = TRUE;         // autoselect when clicking in the textarea of the querybox 
+$cfg['CharTextareaCols']    = 40;           // textarea size (columns) for CHAR/VARCHAR
+$cfg['CharTextareaRows']    = 2;            // textarea size (rows) for CHAR/VARCHAR
 $cfg['LimitChars']          = 50;           // max field data length in browse mode
 $cfg['ModifyDeleteAtLeft']  = TRUE;         // show edit/delete links on left side of browse
                                             // (or at the top with vertical browse)
