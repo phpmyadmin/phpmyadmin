@@ -5,8 +5,13 @@
 /**
  * Gets a core script and starts output buffering work
  */
-require('./libraries/common.lib.php3');
-require('./libraries/ob.lib.php3');
+if (function_exists('require_once')) {
+    require_once('./libraries/common.lib.php3');
+    require_once('./libraries/ob.lib.php3');
+} else {
+    require('./libraries/common.lib.php3');
+    require('./libraries/ob.lib.php3');
+}
 if ($GLOBALS['cfg']['OBGzip']) {
     $GLOBALS['ob_mode'] = PMA_outBufferModeGet();
     if ($GLOBALS['ob_mode']) {
