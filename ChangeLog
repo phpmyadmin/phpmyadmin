@@ -10,6 +10,7 @@ $Source$
     * config.inc.php, Documentation.html, libraries/config_import.lib.php:
       Updated path to MySQL's searchable online documentation.
     * ChangeLog: Recoded to UTF-8.
+    * server_privileges.php: Illegal mix of collations.
 
 2004-04-19 Marcel Tschopp  <ne0x@users.sourceforge.net>
     * libraries/export/sql.php, libraries/export/latex.php: Fixed a few

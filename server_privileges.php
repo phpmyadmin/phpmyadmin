@@ -1061,7 +1061,7 @@ if (empty($adduser) && empty($checkprivs)) {
             if (empty($dbname)) {
                 $sql_query = 'SELECT * FROM `db` WHERE `Host` = "' . $hostname . '" AND `User` = "' . PMA_sqlAddslashes($username) . '" ORDER BY `Db` ASC;';
             } else {
-                $sql_query = 'SELECT `Table_name`, `Table_priv`, IF(`Column_priv` = "", 0, 1) AS "Column_priv" FROM `tables_priv` WHERE `Host` = "' . $hostname . '" AND `User` = "' . PMA_sqlAddslashes($username) . '" AND `Db` = "' . $dbname . '" ORDER BY `Table_name` ASC;';
+                $sql_query = 'SELECT `Table_name`, `Table_priv`, IF(`Column_priv` = ' . (PMA_MYSQL_INT_VERSION >= 40100 ? '_latin1 ' : '') . ' "", 0, 1) AS "Column_priv" FROM `tables_priv` WHERE `Host` = "' . $hostname . '" AND `User` = "' . PMA_sqlAddslashes($username) . '" AND `Db` = "' . $dbname . '" ORDER BY `Table_name` ASC;';
             }
             $res = PMA_DBI_query($sql_query, NULL, PMA_DBI_QUERY_STORE);
             if (PMA_DBI_affected_rows() == 0) {
