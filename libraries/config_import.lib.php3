@@ -56,6 +56,19 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         }
     }
 
+    if (!isset($cfg['PmaAbsoluteUri_DisableWarning'])) {
+        $cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
+    }
+
+    if (!isset($cfg['PmaNoRelation_DisableWarning'])) {
+        $cfg['PmaNoRelation_DisableWarning'] = FALSE;
+    }
+
+    // do not set a default value here!
+    if (!isset($cfg['blowfish_secret'])) {
+        $cfg['blowfish_secret'] = '';
+    }
+
     if (!isset($cfg['Servers'])) {
         if (isset($cfgServers)) {
             $cfg['Servers'] = $cfgServers;
@@ -98,10 +111,12 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
                 unset($cfg['Servers'][$i]['adv_auth']);
             }
 
-// do not put a default value here, we want to output an error to force
-// the installer to enter his own secret
-            if (!isset($cfg['Servers'][$i]['blowfish_secret'])) {
-                $cfg['Servers'][$i]['blowfish_secret']  = '';
+            // for users who use the "first" blowfish mechanism
+            if (isset($cfg['Servers'][$i]['blowfish_secret'])) {
+                if (empty($cfg['blowfish_secret'])) {
+                    $cfg['blowfish_secret'] = $cfg['Servers'][$i]['blowfish_secret'];
+                }
+                unset($cfg['Servers'][$i]['blowfish_secret']);
             }
 
             if (!isset($cfg['Servers'][$i]['compress'])) {
@@ -1027,7 +1042,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
            'ENUM'         => '',
            'SET'          => ''
         );
-    
+
         // Map above defined groups to any function
         $cfg['RestrictFunctions'] = array(
             'FUNC_CHAR'   => array(
@@ -1043,7 +1058,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
                 'USER',
                 'CONCAT'
             ),
-    
+
             'FUNC_DATE'   => array(
                 'NOW',
                 'CURDATE',
@@ -1056,7 +1071,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
                 'UNIX_TIMESTAMP',
                 'WEEKDAY'
             ),
-    
+
             'FUNC_NUMBER' => array(
                 'ASCII',
                 'CHAR',
@@ -1071,12 +1086,6 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
         );
     }
 
-    if (!isset($cfg['PmaAbsoluteUri_DisableWarning'])) {
-        $cfg['PmaAbsoluteUri_DisableWarning'] = FALSE;
-    }
-    if (!isset($cfg['PmaNoRelation_DisableWarning'])) {
-        $cfg['PmaNoRelation_DisableWarning'] = FALSE;
-    }
     if (!isset($cfg['GD2Available'])) {
         $cfg['GD2Available'] = 'auto';
     }
