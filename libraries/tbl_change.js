@@ -10,22 +10,22 @@
  *
  * @return  boolean  always true
  */
-function nullify(theType, urlField, md5Field)
+function nullify(theType, urlField, md5Field, multi_edit)
 {
     var rowForm = document.forms['insertForm'];
 
-    if (typeof(rowForm.elements['funcs[' + urlField + ']']) != 'undefined') {
-        rowForm.elements['funcs[' + urlField + ']'].selectedIndex = -1;
+    if (typeof(rowForm.elements['funcs' + multi_edit + '[' + urlField + ']']) != 'undefined') {
+        rowForm.elements['funcs' + multi_edit + '[' + urlField + ']'].selectedIndex = -1;
     }
 
     // "SET" field , "ENUM" field with more than 20 characters
     // or foreign key field
     if (theType == 1 || theType == 3 || theType == 4) {
-        rowForm.elements['field_' + md5Field + '[]'].selectedIndex = -1;
+        rowForm.elements['field_' + md5Field + multi_edit + '[]'].selectedIndex = -1;
     }
     // Other "ENUM" field
     else if (theType == 2) {
-        var elts     = rowForm.elements['field_' + md5Field + '[]'];
+        var elts     = rowForm.elements['field_' + md5Field + multi_edit + '[]'];
         // when there is just one option in ENUM:
         if (elts.checked) {
             elts.checked = false;
@@ -39,7 +39,7 @@ function nullify(theType, urlField, md5Field)
     }
     // Other field types
     else /*if (theType == 5)*/ {
-        rowForm.elements['fields[' + urlField + ']'].value = '';
+        rowForm.elements['fields' + multi_edit + '[' + urlField + ']'].value = '';
     } // end if... else if... else
 
     return true;
@@ -54,12 +54,12 @@ function nullify(theType, urlField, md5Field)
  *
  * @return  boolean  always true
  */
-function unNullify(urlField)
+function unNullify(urlField, multi_edit)
 {
     var rowForm = document.forms['insertForm'];
 
-    if (typeof(rowForm.elements['fields_null[' + urlField + ']']) != 'undefined') {
-        rowForm.elements['fields_null[' + urlField + ']'].checked = false
+    if (typeof(rowForm.elements['fields_null' + multi_edit + '[' + urlField + ']']) != 'undefined') {
+        rowForm.elements['fields_null' + multi_edit + '[' + urlField + ']'].checked = false
     } // end if
 
     return true;

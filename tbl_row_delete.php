@@ -4,7 +4,6 @@
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
-require_once('./header.inc.php');
 
 /**
  * Drop multiple rows if required
@@ -22,6 +21,12 @@ if (isset($submit_mult_x)) {
 if (isset($mult_btn)) {
     $submit_mult = 'row_delete';
 }
+
+if ($submit_mult == 'row_edit') {
+    $js_to_run = 'tbl_change.js';
+}
+
+require_once('./header.inc.php');
 
 if (!empty($submit_mult)) {
     switch($submit_mult) {
