@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german*: Updated.
+
 2003-01-01 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech*: Updated.
 
