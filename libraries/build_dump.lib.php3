@@ -418,13 +418,10 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
     function PMA_getTableContent($db, $table, $limit_from = 0, $limit_to = 0, $handler, $error_url)
     {
         // Defines the offsets to use
-        if ($limit_from > 0) {
-            $limit_from--;
-        } else {
-            $limit_from = 0;
-        }
         if ($limit_to > 0 && $limit_from >= 0) {
-            $add_query  = " LIMIT $limit_from, $limit_to";
+            $add_query  = ' LIMIT '
+                        . (($limit_from > 0) ? $limit_from . ', ' : '')
+                        . $limit_to;
         } else {
             $add_query  = '';
         }
@@ -494,13 +491,10 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         }
 
         // Defines the offsets to use
-        if ($limit_from > 0) {
-            $limit_from--;
-        } else {
-            $limit_from = 0;
-        }
         if ($limit_to > 0 && $limit_from >= 0) {
-            $add_query  = " LIMIT $limit_from, $limit_to";
+            $add_query  = ' LIMIT '
+                        . (($limit_from > 0) ? $limit_from . ', ' : '')
+                        . $limit_to;
         } else {
             $add_query  = '';
         }
@@ -581,13 +575,10 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         mysql_free_result($result);
 
         // Defines the offsets to use
-        if ($limit_from > 0) {
-            $limit_from--;
-        } else {
-            $limit_from = 0;
-        }
         if ($limit_to > 0 && $limit_from >= 0) {
-            $add_query  = " LIMIT $limit_from, $limit_to";
+            $add_query  = ' LIMIT '
+                        . (($limit_from > 0) ? $limit_from . ', ' : '')
+                        . $limit_to;
         } else {
             $add_query  = '';
         }

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-05-08 Loïc Chapeaux  <lolo@phpheaven.net>
+    * lang/english.inc.php3; lang/french.inc.php3;
+      libraries/build_dump.lib.php3: fixed bug #552486 - row count starts at 1?
+
 2002-05-07 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_relation.php3; libraries/display_tbl.lib.php3: added backquotes and
       slashed some values.

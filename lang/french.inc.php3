@@ -105,7 +105,7 @@ $strDrop = 'Supprimer';
 $strDropDB = 'Supprimer la base %s';
 $strDropTable = 'Supprimer la table';
 $strDumpingData = 'Contenu de la table';
-$strDumpXRows = 'Exporte %s enregistrements à partir du rang %s.';
+$strDumpXRows = 'Exporte %s enregistrement(s) à partir du rang n° %s.';
 $strDynamic = 'dynamique';
 
 $strEdit = 'Modifier';
@@ -267,7 +267,7 @@ $strRevokeMessage = 'Vous avez révoqué les privilèges pour %s';
 $strRevokePriv = 'Révoquer les privilèges';
 $strRowLength = 'Longueur enr.';
 $strRows = 'Enregistrements';
-$strRowsFrom = 'lignes à partir de';
+$strRowsFrom = 'ligne(s) à partir de l\'enregistrement n°';
 $strRowSize = ' Taille enr. ';
 $strRowsModeHorizontal= 'horizontal';
 $strRowsModeOptions= 'en mode %s et répéter les en-têtes à chaque groupe de %s';

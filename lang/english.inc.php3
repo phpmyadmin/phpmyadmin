@@ -105,7 +105,7 @@ $strDrop = 'Drop';
 $strDropDB = 'Drop database %s';
 $strDropTable = 'Drop table';
 $strDumpingData = 'Dumping data for table';
-$strDumpXRows = 'Dump %s rows starting at row %s.';
+$strDumpXRows = 'Dump %s row(s) starting at record # %s.';
 $strDynamic = 'dynamic';
 
 $strEdit = 'Edit';
@@ -267,7 +267,7 @@ $strRevokeMessage = 'You have revoked the privileges for %s';
 $strRevokePriv = 'Revoke Privileges';
 $strRowLength = 'Row length';
 $strRows = 'Rows';
-$strRowsFrom = 'rows starting from';
+$strRowsFrom = 'row(s) starting from record #';
 $strRowSize = ' Row size ';
 $strRowsModeHorizontal = 'horizontal';
 $strRowsModeOptions = 'in %s mode and repeat headers after %s cells';
