@@ -9,6 +9,8 @@ $Source$
 	* tbl_replace.php3, better correction for bug 508024
 	* tbl_change.php3, bug 511324, form sent to the http server
 	  even if hosted on the https server
+	* new language: hungarian, thanks to Bakondy Péter 
+	  (bakondyp at freemail.hu)
 
 2002-02-04  Olivier Müller  <om@omnis.ch>
 	* left.php3: small cosmetic fixe in lightmode
