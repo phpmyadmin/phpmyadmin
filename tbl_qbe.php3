@@ -130,7 +130,7 @@ for($x = 0; $x < $col; $x++)
 echo  "</tr><tr>\n";
 
 ### Sort columns
-echo  "<td align='RIGHT' bgcolor='$cfgThBgcolor'><b>Sort:</b></td>\n";
+echo  "<td align='RIGHT' bgcolor='$cfgThBgcolor'><b>$strSort:</b></td>\n";
 $z = 0;
 for($x = 0; $x < $col; $x++)
 {
@@ -138,8 +138,8 @@ for($x = 0; $x < $col; $x++)
     {
         echo "<td align=center bgcolor='$cfgBgcolorTwo'><select style='width: $widem;' name='Sort[$z]' size='1'>\n";
         echo "<option value=''></option>\n";
-        echo "<option value='ASC'>Ascending</option>\n";
-        echo "<option value='DESC'>Decending</option>\n";
+        echo "<option value='ASC'>$strAscending</option>\n";
+        echo "<option value='DESC'>$strDecending</option>\n";
         echo "</select>\n";
         echo "</td>\n";
       $z++;
@@ -155,7 +155,7 @@ for($x = 0; $x < $col; $x++)
     }
     else
         $sel =  "";
-    echo  "<option $sel value='ASC'>Ascending</option>\n";
+    echo  "<option $sel value='ASC'>$strAscending</option>\n";
     if($Sort[$x] ==  "DESC")
     {
         $curSort[$z]=$Sort[$x];
@@ -163,14 +163,14 @@ for($x = 0; $x < $col; $x++)
     }
     else
         $sel =  "";
-    echo  "<option $sel value='DESC'>Desending</option>\n";
+    echo  "<option $sel value='DESC'>$strDescending</option>\n";
     echo  "</select>\n";
     echo  "</td>\n";
     $z++;
 }
 
 ### Show columns
-echo  "</tr><tr><td align='RIGHT' bgcolor='$cfgThBgcolor'><b>Show:</b></td>\n";
+echo  "</tr><tr><td align='RIGHT' bgcolor='$cfgThBgcolor'><b>$strShow:</b></td>\n";
 $z=0;
 for($x = 0; $x < $col; $x++)
 {
@@ -192,7 +192,7 @@ for($x = 0; $x < $col; $x++)
 }
 
 ### Criteria columns
-echo  "</tr><tr><td align='RIGHT' bgcolor='$cfgThBgcolor'><b>Criteria:</b></td>\n";
+echo  "</tr><tr><td align='RIGHT' bgcolor='$cfgThBgcolor'><b>$strCriteria:</b></td>\n";
 $z=0;
 for($x = 0; $x < $col; $x++)
 {
@@ -229,11 +229,11 @@ for($y = 0; $y <= $row; $y++)
         # Row controls
         echo  "
          <table bgcolor='$bgcolor'><tr>
-         <td align=right nowrap><small>Ins:</small><input type='checkbox' name='InsRow[$w]'></td>
-         <td align=right><b>And:</b></td>
+         <td align=right nowrap><small>$strQBEIns:</small><input type='checkbox' name='InsRow[$w]'></td>
+         <td align=right><b>$strAnd:</b></td>
          <td><input type='radio' ".$chk[ 'and'].  " name='AndOrRow[$w]' value='and'></td></tr>
-         </tr><td align=right nowrap><small>Del:</small><input type='checkbox' name='DelRow[$w]'></td>
-         <td align=right><b>Or:</b></td>
+         </tr><td align=right nowrap><small>$strQBEDel:</small><input type='checkbox' name='DelRow[$w]'></td>
+         <td align=right><b>$strOr:</b></td>
          <td><input type='radio' ".$chk[ 'or']. " name='AndOrRow[$w]' value='or'></td></tr>
          </table></td>\n";
         $z=0;
@@ -271,11 +271,11 @@ for($y = 0; $y <= $row; $y++)
     # Row controls
     echo  "
      <table bgcolor='$bgcolor'><tr>
-     <td align=right nowrap><small>Ins:</small><input type='checkbox' name='InsRow[$w]'></td>
-     <td align=right><b>And:</b></td>
+     <td align=right nowrap><small>$strQBEIns:</small><input type='checkbox' name='InsRow[$w]'></td>
+     <td align=right><b>$strAnd:</b></td>
      <td><input type='radio' ".$chk[ 'and'].  " name='AndOrRow[$w]' value='and'></td></tr>
-     </tr><td align=right nowrap><small>Del:</small><input type='checkbox' name='DelRow[$w]'></td>
-     <td align=right><b>Or:</b></td>
+     </tr><td align=right nowrap><small>$strQBEDel:</small><input type='checkbox' name='DelRow[$w]'></td>
+     <td align=right><b>$strOr:</b></td>
      <td><input type='radio' ".$chk[ 'or']. " name='AndOrRow[$w]' value='or'></td></tr>
      </table></td>\n";
     $z=0;
@@ -307,7 +307,7 @@ for($y = 0; $y <= $row; $y++)
 }
 
 ### Modify columns
-echo  "</tr><tr><td align='RIGHT'><b>Modify:</b></td>\n";
+echo  "</tr><tr><td align='RIGHT'><b>$strModify:</b></td>\n";
 $z=0;
 for($x = 0; $x < $col; $x++)
 {
@@ -325,13 +325,13 @@ for($x = 0; $x < $col; $x++)
             $chk[ 'or'] =  "";
         }
         echo  "<td align=center>
-        <b>Or:</b>
+        <b>$strOr:</b>
         <input type='radio' ".$chk[ 'or']. " name='AndOrCol[$z]' value='or'>
-        <b>And:</b>
+        <b>$strAnd:</b>
         <input type='radio' ".$chk[ 'and']. " name='AndOrCol[$z]' value='and'>
-        <br>Ins:
+        <br>$strQBEIns:
         <input type='checkbox' name='InsCol[$z]'>
-        &nbsp;&nbsp;Del:
+        &nbsp;&nbsp;$strQBEDel:
         <input type='checkbox' name='DelCol[$z]'>
         </td>\n";
         $z++;
@@ -350,13 +350,13 @@ for($x = 0; $x < $col; $x++)
         $chk[ 'or'] =  "";
     }
     echo  "<td align=center>
-    <b>Or:</b>
+    <b>$strOr:</b>
     <input type='radio' ".$chk[ 'or']. " name='AndOrCol[$z]' value='or'>
-    <b>And:</b>
+    <b>$strAnd:</b>
     <input type='radio' ".$chk[ 'and']. " name='AndOrCol[$z]' value='and'>
-    <br>Ins:
+    <br>$strQBEIns:
     <input type='checkbox' name='InsCol[$z]'>
-    &nbsp;&nbsp;Del:
+    &nbsp;&nbsp;$strQBEDel:
     <input type='checkbox' name='DelCol[$z]'>
     </td>\n";
     $z++;
@@ -368,7 +368,7 @@ echo  "
 <table border=0><tr>
 <td valign='TOP'>
 <table border=0 align='LEFT' valign='TOP'><tr>
-<td rowspan='3' valign='TOP'>Use Tables:<br>
+<td rowspan='3' valign='TOP'>$strUseTables:<br>
 <select name='TableList[]' size='7' multiple>";
 
 while(list( $key, $val ) = each($tbl_names))
@@ -380,7 +380,7 @@ echo  "<input type='hidden' value='$db' name='db'>\n";
 echo  "<input type='hidden' value='$z' name='Columns'>\n";
 echo  "<input type='hidden' value='$w' name='Rows'>\n";
 
-echo  "Add/Delete Criteria Row: <SELECT size=1 name='Add_Row'>
+echo  "$strAddDeleteRow: <SELECT size=1 name='Add_Row'>
   <OPTION value='-3'>-3</OPTION>
   <OPTION value='-2'>-2</OPTION>
   <OPTION value='-1'>-1</OPTION>
@@ -391,7 +391,7 @@ echo  "Add/Delete Criteria Row: <SELECT size=1 name='Add_Row'>
   </SELECT>
   </td></tr><tr><td colspan='2' align='RIGHT' valign='BOTTOM'>";
 
-echo  "Add/Delete Field Columns: <SELECT size=1 name='Add_Col'>
+echo  "$strAddDeleteColumn: <SELECT size=1 name='Add_Col'>
   <OPTION value='-3'>-3</OPTION>
   <OPTION value='-2'>-2</OPTION>
   <OPTION value='-1'>-1</OPTION>
@@ -401,7 +401,7 @@ echo  "Add/Delete Field Columns: <SELECT size=1 name='Add_Col'>
   <OPTION value='3'>3</OPTION>
   </SELECT>
   </td></tr><tr valign=top><td>";
-echo  "<input type='Submit' name='modify' value='Update Query'>\n";
+echo  "<input type='Submit' name='modify' value='$strUpdateQuery'>\n";
 echo  "<input type='hidden' name='server' value='$server'>\n";
 echo  "<input type='hidden' name='lang' value='$lang'>\n";
 echo  "</form></td><td>";
@@ -413,9 +413,9 @@ echo  "<input type='hidden' name='server' value='$server'>\n";
 echo  "<input type='hidden' name='lang' value='$lang'>\n";
 echo  "<input type='hidden' name='goto' value='db_details.php3'>\n";
 echo  "<input type='hidden' name='db' value='$db'>\n";
-echo  "<input type='hidden' name='zero_rows' value='Your SQL-query has been executed successfully'>";
-echo  "<input type='submit' name='SQL' value='Submit Query'></td></tr></table></td><td>";
-echo  " SQL query on database <b>$db</b>:<br>";
+echo  "<input type='hidden' name='zero_rows' value='$strSuccess'>";
+echo  "<input type='submit' name='SQL' value='$strRunQuery'></td></tr></table></td><td>";
+echo  " $strRunSQLQuery<b>$db</b>:<br>";
 echo  "<textarea cols=30 rows=7 name='sql_query'>";
 
 #   SELECT
