@@ -82,6 +82,9 @@ if (!defined('PMA_CONFIG_AUTH_INCLUDED')) {
                         . $cfgServer['host'] . $server_port . $server_socket . ', '
                         . $cfgServer['user'] . ', '
                         . $cfgServer['password'] . ')';
+
+        // Defines the charset to be used
+        header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
         ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

@@ -77,6 +77,10 @@ if (!defined('PMA_COOKIE_AUTH_INCLUDED')) {
         }
 
         $cell_align = ($GLOBALS['text_dir'] == 'ltr') ? 'left' : 'right';
+
+        // Defines the charset to be used
+        header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
+
         // Title
         ?>
 <!DOCTYPE html

@@ -28,6 +28,9 @@ if (!defined('PMA_HTTP_AUTH_INCLUDED')) {
         header('WWW-Authenticate: Basic realm="phpMyAdmin ' . sprintf($GLOBALS['strRunning'], (empty($GLOBALS['cfgServer']['verbose']) ? str_replace('\'', '\\\'',$GLOBALS['cfgServer']['host']) : str_replace('\'', '\\\'', $GLOBALS['cfgServer']['verbose']))) .  '"');
         header('HTTP/1.0 401 Unauthorized');
         header('status: 401 Unauthorized');
+
+        // Defines the charset to be used
+        header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
         ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

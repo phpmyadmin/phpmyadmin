@@ -10,6 +10,8 @@ $Source$
 	  <kawada at den.fujifilm.co.jp>.
 	* main.php3: tried a fix against bug #510223 (Create Database link) thanks
 	  to Purodha B Blissenbach <purodha at sourceforge.net>.
+	* libraries/auth/*: patch #522671 - Add charset when asking for auth,
+	  thanks to "nijel".
 
 2002-02-24 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/german.inc.php3: updated thanks to Alexander M. Turek.
