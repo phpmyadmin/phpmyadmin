@@ -555,12 +555,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             if ($is_display['sort_lnk'] == '1') {
                 // Defines the url used to append/modify a sorting order
                 // 2.1.1 Checks if an hard coded 'order by' clause exists
-                if (eregi('(.*)( ORDER BY (.*))', $sql_query, $regs1)) {
-                    if (eregi('((.*)( ASC| DESC)( |$))(.*)', $regs1[2], $regs2)) {
+                if (eregi('(.*)([[:space:]]ORDER BY[[:space:]](.*))', $sql_query, $regs1)) {
+                    if (eregi('((.*)([[:space:]]ASC|[[:space:]]DESC)([[:space:]]|$))(.*)', $regs1[2], $regs2)) {
                         $unsorted_sql_query = trim($regs1[1] . ' ' . $regs2[5]);
                         $sql_order          = trim($regs2[1]);
                     }
-                    else if (eregi('((.*)) (LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)', $regs1[2], $regs3)) {
+                    else if (eregi('((.*))[[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE)', $regs1[2], $regs3)) {
                         $unsorted_sql_query = trim($regs1[1] . ' ' . $regs3[3]);
                         $sql_order          = trim($regs3[1]) . ' ASC';
                     } else {
@@ -575,7 +575,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 if (empty($sql_order)) {
                     $is_in_sort = FALSE;
                 } else {
-                    $is_in_sort = eregi(' (`?)' . str_replace('\\', '\\\\', $fields_meta[$i]->name) . '(`?)[ ,$]', $sql_order);
+                    $is_in_sort = eregi('[[:space:]](`?)' . str_replace('\\', '\\\\', $fields_meta[$i]->name) . '(`?)[ ,$]', $sql_order);
                 }
                 // 2.1.3 Checks if the table name is required (it's the case
                 //       for a query with a "JOIN" statement and if the column
@@ -596,15 +596,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ' . $cfg['Order'];
                     $order_img  = '';
                 }
-                else if (substr($sql_order, -3) == 'ASC' && $is_in_sort) {
+                else if (eregi('[[:space:]]ASC$', $sql_order)) {
                     $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' DESC';
                     $order_img  = '&nbsp;<img src="./images/asc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strAscending'] . '" title="'. $GLOBALS['strAscending'] . '" />';
                 }
-                else if (substr($sql_order, -4) == 'DESC' && $is_in_sort) {
+                else if (eregi('[[:space:]]DESC$', $sql_order)) {
                     $sort_order = ' ORDER BY ' . $sort_tbl . PMA_backquote($fields_meta[$i]->name) . ' ASC';
                     $order_img  = '&nbsp;<img src="./images/desc_order.gif" border="0" width="7" height="7" alt="'. $GLOBALS['strDescending'] . '" title="'. $GLOBALS['strDescending'] . '" />';
                 }
-                if (eregi('(.*)( LIMIT (.*)| PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)', $unsorted_sql_query, $regs3)) {
+                if (eregi('(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))', $unsorted_sql_query, $regs3)) {
                     $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
                 } else {
                     $sorted_sql_query = $unsorted_sql_query . $sort_order;
@@ -833,15 +833,15 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
 
                         // to fix the bug where float fields (primary or not)
                         // can't be matched because of the imprecision of
-                        // floating comparison, use CONCAT 
+                        // floating comparison, use CONCAT
                         // (also, the syntax "CONCAT(field) IS NULL"
                         // that we need on the next "if" will work)
 
-                        if ($meta->type=='real') {
-                            $condition = ' CONCAT(' . PMA_backquote($meta->name) . ') '; 
+                        if ($meta->type == 'real') {
+                            $condition = ' CONCAT(' . PMA_backquote($meta->name) . ') ';
                         } else {
                             $condition = ' ' . PMA_backquote($meta->name) . ' ';
-                        } // end if
+                        } // end if... else...
 
                         // loic1: To fix bug #474943 under php4, the row
                         //        pointer will depend on whether the "is_null"
@@ -871,7 +871,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                     } else {
                         $uva_condition = $uva_nonprimary_condition;
                     }
-                    $uva_condition     = urlencode(ereg_replace(' ?AND$', '', $uva_condition));
+                    $uva_condition     = urlencode(ereg_replace('[[:space:]]?AND$', '', $uva_condition));
                 } // end if (1.1)
 
                 // 1.2 Defines the urls for the modify/delete link(s)
@@ -917,7 +917,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                               . '&amp;goto=' . urlencode($lnk_goto);
                     $js_conf  = 'DELETE FROM ' . PMA_jsFormat($table)
                               . ' WHERE ' . trim(PMA_jsFormat(urldecode($uva_condition), FALSE))
-						      . ((PMA_MYSQL_INT_VERSION >= 32207) ? ' LIMIT 1' : '');
+                              . ((PMA_MYSQL_INT_VERSION >= 32207) ? ' LIMIT 1' : '');
                     $del_str  = $GLOBALS['strDelete'];
                 } else if ($is_display['del_lnk'] == 'kp') { // kill process case
                     $lnk_goto = 'sql.php3'

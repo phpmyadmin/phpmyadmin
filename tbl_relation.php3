@@ -288,7 +288,8 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     </select>
     <script type="text/javascript" language="javascript">
     <!--
-    // Fake js to allow the use of the <noscript> tag //-->
+    // Fake js to allow the use of the <noscript> tag
+    //-->
     </script>
     <noscript>
         <input type="submit" value="<?php echo $strGo; ?>" />
@@ -320,7 +321,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     <tr>
         <th><?php echo $field; ?></th>
         <td>
-            <input type="text" name="comment[<?php echo $field;?>]" value="<?php echo htmlspecialchars($comments[$field]); ?>" />
+            <input type="text" name="comment[<?php echo $field; ?>]" value="<?php echo (isset($comments[$field]) ?  htmlspecialchars($comments[$field]) : ''); ?>" />
         </td>
     </tr>
             <?php

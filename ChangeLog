@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-30 Loïc Chapeaux  <lolo@phpheaven.net>
+    * tbl_relation.php3, line 324; user_details.php3; lines 262-269:
+      fixed some warnings.
+    * libraries/display_tbl.lib.php3: fixed first part of bug
+      #601776 (Undefined variables).
+    * libraries/sqlvalidator.lib.php3: removed trailing spaces.
+
 2002-08-29 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.lib.php3:
         - Fix for bug in Alex's fix for bug #594947

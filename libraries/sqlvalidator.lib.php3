@@ -93,7 +93,7 @@ if (!defined('PMA_SQL_VALIDATOR_INCLUDED')) {
             }
 
         } // end if
-       
+
         /*
         else {
             // The service is not available so note that properly

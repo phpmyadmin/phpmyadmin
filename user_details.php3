@@ -260,9 +260,12 @@ function PMA_tablePrivileges($form, $row = FALSE)
     $checkpriv_url               = $GLOBALS['cfg']['PmaAbsoluteUri']
                                  . 'user_details.php3?';
     if (empty($GLOBALS['QUERY_STRING'])) {
-        $GLOBALS['QUERY_STRING'] = (isset($_SERVER))
-                                 ? $_SERVER['QUERY_STRING']
-                                 : $GLOBALS['HTTP_SERVER_VARS']['QUERY_STRING'];
+        if (isset($_SERVER) && !empty($_SERVER['QUERY_STRING'])) {
+            $GLOBALS['QUERY_STRING'] = $_SERVER['QUERY_STRING'];
+        }
+        else if (isset($GLOBALS['HTTP_SERVER_VARS']) && !empty($GLOBALS['HTTP_SERVER_VARS']['QUERY_STRING'])) {
+            $GLOBALS['QUERY_STRING'] = $GLOBALS['HTTP_SERVER_VARS']['QUERY_STRING'];
+        }
     }
     if (!empty($GLOBALS['QUERY_STRING'])) {
         $checkpriv_url           .= str_replace('&', '&amp;', $GLOBALS['QUERY_STRING']) . '&amp;';
