@@ -85,6 +85,7 @@ $strColumn = 'Columna';
 $strColumnNames = 'Nomes das Columnas';
 $strComments = 'Comentarios';
 $strCompleteInserts = 'Insercións completas';
+$strCompression = 'Compresión';
 $strConfigFileError = 'phpMyAdmin non puido ler o seu ficheiro de configuración<br/>Isto podería deberse a que php atopou un erro nel ou a que php non puido atopar o ficheiro.<br/>Invoque o ficheiro de configuración directamente mediante o vínculo que hai máis abaixo e lea a mensaxe de erro de php que receba. Na maioría dos casos simplesmente faltan unha aspa ou un ponto e vírcula <br/>Se recebe unha páxina en branco é que todo está ben.';
 $strConfigureTableCoord = 'Configure as coordenadas da tabela %s';
 $strConfirm = 'Está seguro/a?';
@@ -101,13 +102,13 @@ $strCreatePdfFeat = 'Creación de PDFs';
 $strCriteria = 'Criterio';
 
 $strData = 'Datos';
+$strDataDict = 'Diccionario de datos';
+$strDataOnly = 'Só os datos';
 $strDatabase = 'Banco de Datos ';
 $strDatabaseHasBeenDropped = 'A base de datos %s foi eliminada.';
 $strDatabaseWildcard = 'Base de datos (permítese usar os comodíns):';
 $strDatabases = 'Bancos de Datos';
 $strDatabasesStats = 'Estatísticas dos bancos de datos';
-$strDataDict = 'Diccionario de datos';
-$strDataOnly = 'Só os datos';
 $strDefault = 'Padrón';
 $strDelete = 'Eliminar';
 $strDeleteFailed = 'Non foi posible eliminar!';
@@ -266,6 +267,8 @@ $strOptions = 'Opcións';
 $strOr = 'ou';
 $strOverhead = 'De máis (Overhead)';
 
+$strPHP40203 = 'Está a usar PHP 4.2.3, que contén un erro importante relacionado coas cadeas multi-byte (mbstring). Consulte o informe de erros número 19404. Non se recomenda usar esta versión do PHP co phpMyAdmin.';
+$strPHPVersion = 'Versión do PHP';
 $strPageNumber = 'Número de páxina:';
 $strPartialText = 'Textos parciais';
 $strPassword = 'Contrasinal';
@@ -276,8 +279,6 @@ $strPdfInvalidPageNum = 'O número de páxina PDF non está definido';
 $strPdfInvalidTblName = 'Non existe a tabela "%s".';
 $strPdfNoTables = 'Sen tabelas';
 $strPhp = 'Crear código PHP';
-$strPHP40203 = 'Está a usar PHP 4.2.3, que contén un erro importante relacionado coas cadeas multi-byte (mbstring). Consulte o informe de erros número 19404. Non se recomenda usar esta versión do PHP co phpMyAdmin.';
-$strPHPVersion = 'Versión do PHP';
 $strPmaDocumentation = 'Documentación do phpMyAdmin';
 $strPmaUriError = 'A directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> DEBE estar asignada no seu ficheiro de configuración.';
 $strPos1 = 'Inicio';
@@ -434,8 +435,8 @@ $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 $strYes = 'Si';
 
 $strZip = 'comprimido no formato "zipped"';
-
 // To translate
+
 $strImportDocSQL = 'Import docSQL Files';  //to translate
-$strCompression = 'Compression'; //to translate
+
 ?>
