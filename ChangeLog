@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-14 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/some translations: Damn, I didn't commit all empty translations
+      yesterday...
+    * lang/sync_lang.sh: Updated to avoid empty translations problems (reports
+      which translations has failed, now also converts by default only
+      modified files and is capable to get charset from filename when reading
+      from file has failed.
+   
 2003-04-14 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3: Fixed SHOW TABLE STATUS LIKE ... FROM ...
       usage. (Bug #720846)

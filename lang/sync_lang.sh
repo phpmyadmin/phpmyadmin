@@ -11,6 +11,11 @@
 # Written by Michal Cihar <nijel at users.sourceforge.net>
 ##
 # Changes:
+# 2003-04-14
+#   * convert only files that are needed to convert (checks mtime), --force to
+#     avoid this checking
+#   * get charset from filename when reading from file failed
+#   * report failed translations at the end
 # 2002-09-18
 #   * now accepts parameters --iconv/--recode for specifying which convertor
 #     to use
@@ -40,15 +45,22 @@ case "$1" in
     --recode)
     	echo Using recode on user request
         CONVERTOR=recode
-        CONVERTOR_PARAMS="%s..%s"
+        CONVERTOR_PARAMS=" -f %s..%s"
         shift
         ;;
     *)
     	echo Using recode as default, force with --iconv/--recode
         CONVERTOR=recode
-        CONVERTOR_PARAMS="%s..%s"
+        CONVERTOR_PARAMS=" -f %s..%s"
         ;;
 esac
+
+if [ "$1" = "--force" ] ; then
+    FORCE=1
+    shift
+else
+    FORCE=0
+fi
 
 
 ##
@@ -129,6 +141,16 @@ EOT`
 # end of configuration, you hopefully won't need to edit anything bellow
 ##
 
+TEMPFILE=`mktemp /tmp/pma-sync-lang.XXXXXX`
+
+cleanup() {
+    rm -f $TEMPFILE
+}
+
+trap cleanup SIGINT SIGABRT SIGTERM
+
+FAILED=""
+
 echo "-------------------------------------------------------------------"
 # go through all file we should process
 for base in $BASE_TRANSLATIONS ; do
@@ -157,22 +179,55 @@ for base in $BASE_TRANSLATIONS ; do
     # at first update existing translations
     for file in $create_files ; do
         # charset of destination file
+        
+        # grepping from file causes problems when it is empty...
         charset=$(grep '\$charset' $file | sed "s%^[^'\"]*['\"]\\([^'\"]*\\)['\"][^'\"]*$%\\1%")
+        if [ -z "$charset" ] ; then
+            charset=$(echo $file | sed -e 's/^[^-]*-//' -e 's/\.inc\.php3\?$//')
+        fi
+
+        # check whether we need to update translation
+        if [ ! "$base.inc.php3" -nt "$file" -a "$FORCE" -eq 0 -a -s "$file" ] ; then
+            if [ $charset = 'utf-8' ] ; then
+                is_utf=yes
+            fi
+            echo " $file is not needed to update"
+            continue
+        fi
+            
         echo -n " to $charset..."
         if [ $charset = 'utf-8' ] ; then
             # if we convert to utf-8, we should add allow_recoding
             is_utf=yes
             $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
-$allow_recoding = TRUE;' > $file
-            echo done
+$allow_recoding = TRUE;' > $TEMPFILE
+            if [ -s $TEMPFILE ] ; then
+                cat $TEMPFILE > $file
+                echo done
+            else
+                FAILED="$FAILED $file"
+                echo FAILED
+            fi
         elif [ $src_charset = 'utf-8' ] ; then
             # if we convert from utf-8, we should remove allow_recoding
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| grep -v allow_recoding > $file
-            echo done
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| grep -v allow_recoding > $TEMPFILE
+            if [ -s $TEMPFILE ] ; then
+                cat $TEMPFILE > $file
+                echo done
+            else
+                FAILED="$FAILED $file"
+                echo FAILED
+            fi
         else
             # just convert
-            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed "s/$src_charset/$charset/" > $file 
-            echo done
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed "s/$src_charset/$charset/" > $TEMPFILE 
+            if [ -s $TEMPFILE ] ; then
+                cat $TEMPFILE > $file
+                echo done
+            else
+                FAILED="$FAILED $file"
+                echo FAILED
+            fi
         fi
     done
   
@@ -183,13 +238,31 @@ $allow_recoding = TRUE;' > $file
             true
         else
             # we should create utf-8 translation
-            echo " creating utf-8 translation"
+            echo -n " creating utf-8 translation ... "
             charset=utf-8
-            iconv -f $src_charset -t $charset $base.inc.php3| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
-$allow_recoding = TRUE;' > $lang-$charset.inc.php3
+            file=$lang-$charset.inc.php3
+            $CONVERTOR $(printf "$CONVERTOR_PARAMS" $src_charset $charset) < $base.inc.php3| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
+$allow_recoding = TRUE;' > $TEMPFILE
+            if [ -s $TEMPFILE ] ; then
+                cat $TEMPFILE > $file
+                echo done
+            else
+                FAILED="$FAILED $file"
+                echo FAILED
+            fi
         fi
     fi
     echo "$lang processing finished."
     echo "-------------------------------------------------------------------"
 done
 
+if [ -z "$FAILED" ] ; then
+    echo "Everything seems to went okay"
+else
+    echo "!!!SOME CONVERSION FAILED!!!"
+    echo "Following file were NOT updated:"
+    echo
+    echo "$FAILED"
+    echo
+    echo "!!!SOME CONVERSION FAILED!!!"
+fi
