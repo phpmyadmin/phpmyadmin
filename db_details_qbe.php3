@@ -439,7 +439,7 @@ for ($y = 0; $y <= $row; $y++) {
                 $or = 'Or' . $w . '[' . $z . ']';
                 ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>"></textarea>
+            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>" dir="<?php echo $text_dir; ?>"></textarea>
         </td>
                 <?php
                 $z++;
@@ -452,7 +452,7 @@ for ($y = 0; $y <= $row; $y++) {
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>"></textarea>
+            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>" dir="<?php echo $text_dir; ?>"></textarea>
         </td>
             <?php
             $z++;
@@ -518,7 +518,7 @@ for ($y = 0; $y <= $row; $y++) {
             $or = 'Or' . $w . '[' . $z . ']';
             ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>"></textarea>
+            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="<?php echo $or; ?>" dir="<?php echo $text_dir; ?>"></textarea>
         </td>
             <?php
             $z++;
@@ -543,7 +543,7 @@ for ($y = 0; $y <= $row; $y++) {
         }
         ?>
         <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="Or<?php echo $w . '[' . $z . ']'; ?>"><?php echo htmlspecialchars($stripped_or); ?></textarea>
+            <textarea cols="20" rows="2" style="width: <?php echo $realwidth; ?>" name="Or<?php echo $w . '[' . $z . ']'; ?>" dir="<?php echo $text_dir; ?>"><?php echo htmlspecialchars($stripped_or); ?></textarea>
         </td>
         <?php
         if (!empty(${$or}) && isset(${$or}[$x])) {
@@ -700,7 +700,7 @@ $w--;
         <td>
             <!-- Displays the current query -->
             <?php echo sprintf($strQueryOnDb, htmlspecialchars($db)); ?><br />
-<textarea cols="30" rows="7" name="sql_query">
+<textarea cols="30" rows="7" name="sql_query" dir="<?php echo $text_dir; ?>">
 <?php
 // 1. SELECT
 $last_select = 0;
