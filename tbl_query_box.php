@@ -392,7 +392,7 @@ if (!isset($is_inside_querywindow) ||
     if ($is_upload && isset($db) && isset($table)) {
         ?>
         <!-- Insert a text file -->
-        <li style="margin-bottom: 10px">
+        <li>
             <?php
             if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             ?>

@@ -642,10 +642,10 @@ if ($num_tables > 0) {
     ?>
     <!-- Printable view of a table -->
     <li>
-        <div style="margin-bottom: 10px"><a href="db_printview.php?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a></div>
+        <a href="db_printview.php?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a>
     </li>
     <li>
-         <div style="margin-bottom: 10px"><a href="./db_datadict.php?<?php echo $url_query; ?>"><?php echo $strDataDict; ?></a></div>
+        <a href="./db_datadict.php?<?php echo $url_query; ?>"><?php echo $strDataDict; ?></a>
     </li>
     <?php
 } // end if
@@ -715,11 +715,9 @@ if (PMA_MYSQL_INT_VERSION >= 40101) {
 if ($num_tables > 0
     && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
     echo '    <li>' . "\n";
-    echo '        <div style="margin-bottom: 10px">' . "\n";
     echo '        <font color="red">' . $strError . '</font><br />' . "\n";
     $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">';
     echo '        ' . sprintf($strRelationNotWorking, $url_to_goto, '</a>') . "\n";
-    echo '        </div>' . "\n";
     echo '    </li>' . "\n";
 } // end if
 
@@ -732,7 +730,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     ?>
     <!-- Work on PDF Pages -->
     <li>
-        <div style="margin-bottom: 10px"><a href="pdf_pages.php?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages; ?></a></div>
+        <a href="pdf_pages.php?<?php echo $takeaway; ?>"><?php echo $strEditPDFPages; ?></a>
     </li>
 
     <!-- PDF schema -->
@@ -802,7 +800,7 @@ if ($num_tables > 0
     ?>
     <!-- import docSQL files -->
     <li>
-        <div style="margin-bottom: 10px"><a href="db_details_importdocsql.php?<?php echo $takeaway . '">' . $strImportDocSQL; ?></a></div>
+        <a href="db_details_importdocsql.php?<?php echo $takeaway . '">' . $strImportDocSQL; ?></a>
     </li>
     <?php
 }

@@ -8,7 +8,9 @@ $Source$
 2004-04-27 Michal Cihar  <michal@cihar.com>
     * calendar.php, libraries/tbl_change.js: Don't reset clock when moving in
       calendar.
-    * Almost everything: Be valid XHTML 1.0 (probably still not completely).
+    * Almost everything: Be valid XHTML 1.0 (probably still not completely),
+      lists items now have padding, so no more magins and <br />'s inside of
+      them are needed.
     * main.php, css/phpmyadmin.css.php: Main page now uses lists instead of
       nested tables.
 

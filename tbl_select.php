@@ -136,10 +136,8 @@ function PMA_tbl_select_operator(f, index, multiple) {
     <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" /> <label for="oDistinct">DISTINCT</label></p>
     <ul>
         <li>
-            <div style="margin-bottom: 10px">
             <?php echo $strLimitNumRows . "\n"; ?>
             <input type="text" size="4" name="session_max_rows" value="<?php echo $cfg['MaxRows']; ?>" class="textfield" />
-            </div>
         </li>
         <li>
             <?php echo $strAddSearchConditions; ?><br />
@@ -242,7 +240,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
     } // end for
     echo "\n";
     ?>
-            </table><br />
+            </table>
         </li>
         <li>
             <?php echo $strDisplayOrder; ?><br />
@@ -259,7 +257,7 @@ function PMA_tbl_select_operator(f, index, multiple) {
             <input type="radio" name="order" value="ASC" checked="checked" />
             <?php echo $strAscending; ?>&nbsp;
             <input type="radio" name="order" value="DESC" />
-            <?php echo $strDescending; ?><br /><br />
+            <?php echo $strDescending; ?>
         </li>
     </ul>
 

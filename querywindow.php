@@ -236,7 +236,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     if (isset($sql_history) && isset($querydisplay_tab) && ($querydisplay_tab == 'history' || $querydisplay_tab == 'full') && is_array($sql_history) && count($sql_history) > 0) {
     ?>
     <li>
-        <div style="margin-bottom: 10px"><?php echo $strQuerySQLHistory . ':<br /><ul>' . implode('', $sql_history) . '</ul>'; ?></div>
+        <?php echo $strQuerySQLHistory . ':<br /><ul>' . implode('', $sql_history) . '</ul>'; ?>
     </li>
     <?php
     }
