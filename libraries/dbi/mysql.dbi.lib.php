@@ -86,7 +86,6 @@ function PMA_DBI_connect($user, $password) {
     if (PMA_MYSQL_INT_VERSION >= 40100) {
         $mysql_charset = $GLOBALS['mysql_charset_map'][$GLOBALS['charset']];
         mysql_query('SET CHARACTER SET ' . $mysql_charset . ';', $link);
-        mysql_query('SET SESSION character_set_connection = \'' . $mysql_charset . '\';', $link);
     } else {
         require_once('./libraries/charset_conversion.lib.php');
     }

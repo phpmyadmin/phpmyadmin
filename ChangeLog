@@ -11,6 +11,8 @@ $Source$
       Updated path to MySQL's searchable online documentation.
     * ChangeLog: Recoded to UTF-8.
     * server_privileges.php: Illegal mix of collations.
+    * libraries/dbi/*.dbi.lib.php: Don't touch character_set_connection
+      (bug #902414). This should fix many "Illegal mix of collations" errors.
 
 2004-04-19 Marcel Tschopp  <ne0x@users.sourceforge.net>
     * libraries/export/sql.php, libraries/export/latex.php: Fixed a few
