@@ -271,7 +271,7 @@ $strPrintView = '印刷用表示';
 $strPrivileges = '特権';
 $strProperties = 'プロパティ';
 
-$strQBE = '例からクエリー実行';
+$strQBE = 'クエリー';
 $strQBEDel = '削除';
 $strQBEIns = '挿入';
 $strQueryOnDb = 'データベースのSQLクエリー <b>%s</b>:';
