@@ -18,7 +18,7 @@ $month = array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', '
 $datefmt = '%d. %B %Y jam %H:%M';
 $timespanfmt = '%s hari, %s jam, %s menit dan %s detik';
 
-$updComTab = 'Mohon belajari dokumentasi untuk caranya meng-update tabel Column_comments Anda';
+$updComTab = 'Mohon belajari dokumentasi untuk mengetahui cara meng-update tabel Column_comments Anda';
 
 $strAPrimaryKey = 'Primary key telah ditambah pada %s';
 $strAbortedClients = 'Dibatalkan';
@@ -44,7 +44,7 @@ $strAfter = 'Sisipkan setelah %s';
 $strAfterInsertBack = 'Kembali';
 $strAfterInsertNewInsert = 'Sisipkan baris yang baru';
 $strAll = 'Semua';
-$strAllTableSameWidth = 'Tampilkan semua tabel dengan kelebaran yang sama?';
+$strAllTableSameWidth = 'Tampilkan semua tabel dengan lebar yang sama?';
 $strAlterOrderBy = 'Urutkan tabel berdasarkan';
 $strAnIndex = 'Indeks telah ditambah pada %s';
 $strAnalyzeTable = 'Analisa tabel';
@@ -59,6 +59,7 @@ $strAscending = 'Urutan menaik';
 $strAtBeginningOfTable = 'pada awal tabel';
 $strAtEndOfTable = 'pada akhir tabel';
 $strAttr = 'Atribut';
+$strAutomaticLayout = 'Layout otomatis';
 
 $strBack = 'Kembali';
 $strBeginCut = 'Mulai potong (CUT)';
@@ -71,7 +72,7 @@ $strBookmarkQuery = 'Bookmark query SQL ';
 $strBookmarkThis = 'Bookmark SQL-query ini';
 $strBookmarkView = 'Hanya melihat';
 $strBrowse = 'Browse';
-$strBzError = 'phpMyAdmin gagal menkompres Dump (Skema) disebabkan oleh ekstensi Bz2 dalam versi PHP yang digunakan. Disarankan untuk merubah direktif <code>$cfg[\'BZipDump\']</code> dalam file konfigurasi phpMyAdmin Anda ke <code>FALSE</code>. Bila Anda ingin mengunakan fasilitas kompresi Bz2 disarankan untuk meng-upgrade versi PHP yang lebih tinggi. Perhatikan PHP Bug Report %s untuk informasi yang lebih detail.';
+$strBzError = 'phpMyAdmin gagal mengkompres Dump (Skema) disebabkan ekstensi Bz2 dalam versi PHP yang digunakan. Disarankan untuk merubah direktif <code>$cfg[\'BZipDump\']</code> dalam file konfigurasi phpMyAdmin Anda ke <code>FALSE</code>. Bila Anda ingin mengunakan fasilitas kompresi Bz2 disarankan untuk meng-upgrade versi PHP yang lebih tinggi. Perhatikan PHP Bug Report %s untuk informasi yang lebih detail.';
 $strBzip = '"Dikompress dengan BZip"';
 
 $strCSVOptions = 'Pilihan CSV';
@@ -150,6 +151,7 @@ $strDbPrivileges = 'Hak (privileges) khusus terhadap Database';
 $strDbSpecific = 'database-spesifik';
 $strDefault = 'Default';
 $strDefaultValueHelp = 'Untuk nilai (value) default cukup diisi single value saja tanpa mengunakan backslash, escaping atau quotes dan dengan mengunakan format sbb.: a';
+$strDelOld = 'Halaman ini berisi referensi tentang tabel yang sudah tidak ada lagi. Apakah Anda ingin hapus referensi yang bersangkutan?';
 $strDelete = 'Hapus';
 $strDeleteAndFlush = 'Hapus Pengguna dan Reload Hak Istimewa (Privileges).';
 $strDeleteAndFlushDescr = 'Ini cara terbaik tetapi akan memakan waktu.';
@@ -204,6 +206,9 @@ $strFieldsEnclosedBy = 'Field ditutup dengan';
 $strFieldsEscapedBy = 'Field dikembalikan oleh';
 $strFieldsTerminatedBy = 'Fields diputus oleh';
 $strFileCouldNotBeRead = 'File tidak bisa dibaca';
+$strFileNameTemplate = 'Template nama file'; 
+$strFileNameTemplateHelp = 'Gunakan__DB__sebagai nama Database,__TABLE__sebagai nama tabel dan %sany strftime%s sebagai spesifikasi waktu, ekstensi akan ditambah secara otomatis. Teks lainnya akan dipertahankan.';
+$strFileNameTemplateRemember = 'ingat template';
 $strFixed = 'telah diperbaiki';
 $strFlushPrivilegesNote = 'Perhatian: phpMyAdmin mengambil data hak dari Penguna secara langsung dari tabel Hak Istimewa (Privileges) MySQL. Isi dari tabel tersebut bisa berbeda dari Hak Istimewa (Privileges) yang digunakan oleh Server bila pernah diubah. Bila begitu disarankan untuk %sReload Hak Istimewa (Privileges)%s sebelum melanjut.';
 $strFlushTable = 'Tutup tabel ("FLUSH")';
@@ -563,7 +568,10 @@ $strTransformation_image_jpeg__inline = 'Tampilkan sebuah Thumbnail yang bisa di
 $strTransformation_image_jpeg__link = 'Tampilkan link ke gambar ini (direct blob download, i.e.).';
 $strTransformation_image_jpeg__plain = 'Mengambil file gambar dan tampilkan link-nya. Argumen pilihan utama adalah deretan pembuka seperti http://...';
 $strTransformation_image_png__inline = 'Lihat image/jpeg: inline';
+$strTransformation_text_plain__dateformat = 'Menggunakan format waktu setempat Anda untuk field TIME, TIMESTAMP atau DATETIME. Pilihan pertama adalah Offset (dalam jam) yang akan ditambahkan pada Timestamp (Default: 0). Pilihan kedua adalah Dateformat yang berbeda sesuai dengan parameter yang tersedia pada strftime() dari PHP.';
+$strTransformation_text_plain__external = 'HANYA UNTUK LINUX: Luncurkan aplikasi eksternal dan mengisi data Field dengan cara standar. Menghasilkan output standar dari aplikasi yang bersangkutan. Default-nya adalah Tidy untuk mempercantik kode HTML cetakan. Dengan alasan pengamanan sistem, Anda perlu meng-edit file libraries/transformations/text_plain__external.inc.php dan menambahkan Tools yang akan diizinkan secara manual. Pilihan pertama adalah jumlah dari program yang ingin digunakan oleh Anda dan pilihan kedua adalah parameter untuk program-program tersebut. Parameter ketiga, bila diset ke 1 akan mengubah output dengan menggunakan htmlspecialchars() (Default adalah 1). Parameter keempat, bila diset ke 1 akan menambah sebuah NOWRAP pada Content Cell dengan hasil output yang akan ditampilkan tanpa keperluan untuk format ulang (Default 1)';
 $strTransformation_text_plain__formatted = 'Menyimpan format asli dari field. Escaping tidak dilakukan.';
+$strTransformation_text_plain__substr = 'Hanya menampilkan sebagian dari sebuah String. Pilihan pertama adalah sebuah Offset untuk menentukan tempat dari permulaan teks Anda (Default 0). Pilihan kedua adalah sebuah Offset untuk menentukan jumlah teks yang dikembalikan. Bila ditinggal kosong, seluruh teks yang tersisa akan dibalikkan. Pilihan ketiga mendefinisikan Chars yang akan ditambah pada Output bila sebuah Substring dibalikkan (Default: ...) .';
 $strTransformation_text_plain__unformatted = 'Tampilkan kode HTML sebagai perwujudan HTML. Format dari HTML tidak kelihatan.';
 $strType = 'Jenis';
 
@@ -611,17 +619,5 @@ $strYes = 'Ya';
 $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) akan menghapus batas yang telah ditentukan.';
 $strZip = '"Dikompress dengan Zip"';
 // To translate
-
-$strAutomaticLayout = 'Automatic layout';  //to translate
-
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
-$strFileNameTemplateRemember = 'remember template';//to translate 
-
-$strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
-$strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
-$strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 
 ?>
