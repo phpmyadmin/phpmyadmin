@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-01 Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/xpath/XPath.class.php, libraries/xpath/: 
+    - Removed (was part of the early DB config prototype)
+
 2003-02-28 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_indexes.php3: Show SQL query after modifying/creating index (closes
       #694800), show structure after modifying index.
@@ -33,6 +37,7 @@ $Source$
       on standard 800x600 browser windows.
 
 2003-02-27 Michal Cihar  <nijel@users.sourceforge.net>
+>>>>>>> 1.2120
     * lang/czech: Updated.
     * lang/english: Resorted.
 
