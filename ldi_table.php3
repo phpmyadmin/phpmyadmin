@@ -12,7 +12,7 @@
  */
 require('./tbl_properties_common.php3');
 $err_url   = 'ldi_table.php3' . $err_url;
-$url_query .= '&amp;back=ldi_table.php3';
+$url_query .= '&amp;goto=ldi_table.php3&amp;back=ldi_table.php3';
 require('./tbl_properties_table_info.php3');
 
 

@@ -9,6 +9,9 @@ $Source$
     * db_details_qbe.php3: PHP3 fixes & coding standards.
     * db_details_importdocsql.php3: optimization, xhtml fixes & coding
       standards.
+    * ldi_check.php3, ldi_table.php3, sql.php3, most of "tbl_properties*"
+      scripts, tbl_relation.php3, tbl_select.php3: fixed bug #614303
+      (Duplicate args in table tabs links)
 
 2002-09-26 Marc Delisle  <lem9@users.sourceforge.net>
     * config.inc.php3, libraries/config_import.lib.php3: let UploadDir

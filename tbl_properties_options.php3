@@ -7,7 +7,7 @@
  */
 require('./tbl_properties_common.php3');
 $err_url   = 'tbl_properties_options.php3' . $err_url;
-$url_query .= '&amp;back=tbl_properties_options.php3';
+$url_query .= '&amp;goto=tbl_properties_options.php3&amp;back=tbl_properties_options.php3';
 
 
 /**
@@ -46,7 +46,6 @@ if (isset($message)) {
 /**
  * Gets tables informations and displays top links
  */
-$sub_part = '_options';
 require('./tbl_properties_table_info.php3');
 
 

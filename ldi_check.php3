@@ -102,13 +102,11 @@ if (isset($btnLDI) && ($textfile != 'none')) {
         $sql_query = $query;
     }
 
-    // Set an empty sub_part to avoid an undefined variable.
-    // We could also rename the ldi* scripts
-    // to tbl_properties_ldi* to improve consistency with the other sub-pages.
+    // We could rename the ldi* scripts to tbl_properties_ldi* to improve
+    // consistency with the other sub-pages.
     //
     // The $goto in ldi_table.php3 is set to tbl_properties.php3 but maybe
     // if would be better to Browse the latest inserted data.
-    $sub_part = '';
     include('./sql.php3');
 }
 

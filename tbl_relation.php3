@@ -4,16 +4,11 @@
 
 /**
  * Gets some core libraries
- *
- * I am including part of the tbl_properties stuff which will complain if it is
- * not being told what part of the tbl_properties is calling it, so i set this
- * variable empty:
  */
-$sub_part='';
-
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 require('./tbl_properties_common.php3');
+$url_query .= '&amp;goto=tbl_properties.php3';
 require('./tbl_properties_table_info.php3');
 require('./libraries/relation.lib.php3');
 

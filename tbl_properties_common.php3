@@ -56,7 +56,6 @@ $url_query = 'lang=' . $lang
            . '&amp;convcharset=' . $convcharset
            . '&amp;server=' . $server
            . '&amp;db=' . urlencode($db)
-           . '&amp;table=' . urlencode($table)
-           . '&amp;goto=tbl_properties.php3';
+           . '&amp;table=' . urlencode($table);
 
 ?>

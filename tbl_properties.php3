@@ -7,7 +7,7 @@
  */
 require('./tbl_properties_common.php3');
 $err_url   = 'tbl_properties.php3' . $err_url;
-$url_query .= '&amp;back=tbl_properties.php3';
+$url_query .= '&amp;goto=tbl_properties.php3&amp;back=tbl_properties.php3';
 
 /**
  * Top menu

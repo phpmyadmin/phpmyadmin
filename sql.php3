@@ -485,6 +485,7 @@ else {
             unset($message);
             if (!empty($table)) {
                 include('./tbl_properties_common.php3');
+                $url_query .= '&amp;goto=tbl_properties.php3&amp;back=tbl_properties.php3';
                 include('./tbl_properties_table_info.php3');
             }
             else {

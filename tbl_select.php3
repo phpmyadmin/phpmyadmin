@@ -24,7 +24,7 @@ if (!isset($param) || $param[0] == '') {
     // Gets some core libraries
     include('./tbl_properties_common.php3');
     $err_url   = 'tbl_select.php3' . $err_url;
-    $url_query .= '&amp;back=tbl_select.php3';
+    $url_query .= '&amp;goto=tbl_select.php3&amp;back=tbl_select.php3';
     include('./tbl_properties_table_info.php3');
 
     // Defines the url to return to in case of error in the next sql statement

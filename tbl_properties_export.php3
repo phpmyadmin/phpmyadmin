@@ -6,7 +6,7 @@
  * Gets tables informations and displays top links
  */
 require('./tbl_properties_common.php3');
-$sub_part = '_export';
+$url_query .= '&amp;goto=tbl_properties_export.php3&amp;back=tbl_properties_export.php3';
 require('./tbl_properties_table_info.php3');
 ?>
 
