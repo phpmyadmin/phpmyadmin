@@ -243,6 +243,7 @@ $strQBEIns = 'smazat';
 $strQueryOnDb = 'SQL dotaz na databázi <b>%s</b>:';
 
 $strRecords = 'Záznamù';
+$strReferentialIntegrity = 'Zkontrolovat integritu odkazù:';
 $strReloadFailed = 'Znovunaètení MySQL selhalo.';
 $strReloadMySQL = 'Znovunaètení MySQL';
 $strRememberReload = 'Nezapomeòte znovu naèíst server.';
@@ -348,5 +349,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
