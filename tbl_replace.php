@@ -151,7 +151,8 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
             require_once('./header.inc.php');
             require('./' . preg_replace('@\.\.*@', '.', $goto));
         } else {
-            header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
+            PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
+
         }
         exit();
     }
