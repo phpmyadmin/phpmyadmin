@@ -247,11 +247,14 @@ if (($num_dbs > 1 || !empty($cfg['LeftFrameTableSeparator'])) && !$cfg['LeftFram
     // Uggly fix for Opera and Konqueror 2.2 that are half DOM compliant
     if (capable) {
         if (typeof(window.opera) != 'undefined') {
-            capable = 0;
+            var browserName = ' ' + navigator.userAgent.toLowerCase();
+            if ((browserName.indexOf('konqueror 7') == 0)) {
+                capable = 0;
+            }
         }
         else if (typeof(navigator.userAgent) != 'undefined') {
             var browserName = ' ' + navigator.userAgent.toLowerCase();
-            if (browserName.indexOf('konqueror') > 0) {
+            if ((browserName.indexOf('konqueror') > 0) && (browserName.indexOf('konqueror/3') == 0)) {
                 capable = 0;
             }
         } // end if... else if...
