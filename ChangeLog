@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * querywindow.php: PMA_DBI_close() instead of DBI_close()
+    * Documentation.html: clarify FAQ 6.21
+    * libraries/dbi/*: use generic $strCantLoad message
+    * libraries/dbi/mysqli.dbi.lib.php: @ before connect to avoid the
+      display of unwanted error messages
+
 2004-01-23 Alexander M. Turek  <foreveryoung@derrabus.de>
     * header_printview.inc.php:
       - Don't bypass $cfg['Server']['verbose'] settings;
