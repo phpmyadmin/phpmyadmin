@@ -11,6 +11,8 @@ $Source$
     * Almost everyting: Be valid XHTML (probably still not completely).
 
 2004-04-27 Garvin Hicking <pma@supergarv.de>
+    * libraries/display_tbl.lib.php: Bug #942392 - Wrapping sort order
+      link in a way that the image always belongs to the last word
     * libraries/display_tbl.lib.php: RFE #867284 - Click on result row
       to mark the checkbox.
     * tbl_select.php: RFE #940194 - Add REGEXP to table search options

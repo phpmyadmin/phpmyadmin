@@ -812,36 +812,33 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                        . '&amp;sql_query=' . urlencode($sorted_sql_query);
 
             // 2.1.5 Displays the sorting url
+            $order_link_pre  = '<a href="sql.php?' . $url_query . '" ' . (($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style="direction: ltr; writing-mode: tb-rl;"' : '') . ' title="' . $GLOBALS['strSort'] . '"' . '>';
+            $order_link_post = '</a>';
+            $order_link_content = ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name)), "<br />\n") : htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name)));
+            $order_link_words = explode(' ', $order_link_content);
+            if (isset($order_link_words[1])) {
+                $order_last_word_index = count($order_link_words)-1;
+                $order_last_word = $order_link_words[$order_last_word_index];
+                unset($order_link_words[$order_last_word_index]);
+                $order_link = $order_link_pre . implode(' ', $order_link_words)
+                            . ' <div class="nobr">' . $order_last_word . $order_img . '</div>' . $order_link_post . "\n";
+            } else {
+                $order_link = '<div class="nobr">' . $order_link_pre . $order_link_content . $order_link_post . $order_img . '</div>' . "\n";
+            }
+
             if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
 <th <?php echo $column_style; ?> <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>>
-    <?php 
-    echo $comments_table_wrap_pre;
-    
-    echo '<a href="sql.php?' . $url_query . '" ';
-    if ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css') {
-        echo 'style="direction: ltr; writing-mode: tb-rl;"';
-    }
-    echo ' title="' . $GLOBALS['strSort'] . '">';
-
-    if ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake') {
-        echo PMA_flipstring(htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name)), "<br />\n");
-    } else {
-        echo htmlspecialchars(PMA_convert_display_charset($fields_meta[$i]->name));
-    }
-
-    echo '</a>';
-    echo $order_img . "\n";
-    echo $comments_table_wrap_post; 
-    ?>
+    <?php echo $comments_table_wrap_pre; ?>
+    <?php echo $order_link; ?>
+    <?php echo $comments_table_wrap_post; ?>
 </th>
                 <?php
             }
             $vertical_display['desc'][] = '    <th ' . $column_style . '>' . "\n"
                                         . $comments_table_wrap_pre
-                                        . '        <a href="sql.php?' . $url_query . '">'
-                                        . htmlspecialchars($fields_meta[$i]->name) . '</a>' . $order_img . "\n"
+                                        . $order_link
                                         . $comments_table_wrap_post
                                         . '    </th>' . "\n";
         } // end if (2.1)
@@ -1089,7 +1086,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 }
             } // end if (1.2.1)
 
-            if ($table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db']) {
+            if ($table == $GLOBALS['cfg']['Bookmark']['table'] && $db == $GLOBALS['cfg']['Bookmark']['db'] && isset($row[1]) && isset($row[0])) {
                 $bookmark_go = '<a href="read_dump.php?'
                                 . PMA_generate_common_url($row[1], '')
                                 . '&amp;id_bookmark=' . $row[0]
