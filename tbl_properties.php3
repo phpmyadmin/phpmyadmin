@@ -34,7 +34,7 @@ if (!isset($is_db) || !$is_db) {
         $is_db = @mysql_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     }
 } // end if (ensures db exists)
@@ -44,7 +44,7 @@ if (!isset($is_table) || !$is_table) {
         $is_table = @mysql_query('SHOW TABLES LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\'');
     }
     if (empty($table) || !@mysql_numrows($is_table)) {
-        header('Location: ' . $cfgPmaAbsoluteUri . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'db_details.php3?lang=' . $lang . '&server=' . $server . '&db=' . urlencode($db) . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     } else if (isset($is_table)) {
         mysql_free_result($is_table);
@@ -249,7 +249,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
 
-<table border="<?php echo $cfgBorder; ?>">
+<table border="<?php echo $cfg['Border']; ?>">
 <tr>
     <td></td>
     <th>&nbsp;<?php echo ucfirst($strField); ?>&nbsp;</th>
@@ -267,7 +267,7 @@ $aryFields = array();
 
 while ($row = mysql_fetch_array($fields_rs)) {
     $i++;
-    $bgcolor          = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+    $bgcolor          = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     $aryFields[]      = $row['Field'];
 
     $type             = $row['Type'];
@@ -504,7 +504,7 @@ require ('./tbl_indexes.php3');
 // loic1, 22 feb. 2002: updated with patch from
 //                      Joshua Nye <josh at boxcarmedia.com> to get valid
 //                      statistics whatever is the table type
-if ($cfgShowStats) {
+if ($cfg['ShowStats']) {
     $nonisam     = FALSE;
     $is_innodb   = ($showtable['Type'] == 'InnoDB');
     if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
@@ -539,24 +539,24 @@ if ($cfgShowStats) {
     <td valign="top">
         <?php echo $strSpaceUsage . '&nbsp;:' . "\n"; ?>
         <a name="showusage"></a>
-        <table border="<?php echo $cfgBorder; ?>">
+        <table border="<?php echo $cfg['Border']; ?>">
         <tr>
             <th><?php echo $strType; ?></th>
             <th colspan="2" align="center"><?php echo $strUsage; ?></th>
         </tr>
         <tr>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" align="right" nowrap="nowrap"><?php echo $data_size; ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>"><?php echo $data_unit; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" align="right" nowrap="nowrap"><?php echo $data_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $data_unit; ?></td>
         </tr>
         <?php
         if (isset($index_size)) {
             echo "\n";
             ?>
         <tr>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>"><?php echo $index_unit; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" align="right" nowrap="nowrap"><?php echo $index_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $index_unit; ?></td>
         </tr>
             <?php
         }
@@ -564,14 +564,14 @@ if ($cfgShowStats) {
             echo "\n";
             ?>
         <tr style="color: #bb0000">
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>"><?php echo $free_unit; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" align="right" nowrap="nowrap"><?php echo $free_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $free_unit; ?></td>
         </tr>
         <tr>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" align="right" nowrap="nowrap"><?php echo $effect_size; ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>"><?php echo $effect_unit; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right" nowrap="nowrap"><?php echo $effect_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $effect_unit; ?></td>
         </tr>
             <?php
         }
@@ -579,9 +579,9 @@ if ($cfgShowStats) {
             echo "\n";
         ?>
         <tr>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>"><?php echo $tot_unit; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right" nowrap="nowrap"><?php echo $tot_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $tot_unit; ?></td>
         </tr>
             <?php
         }
@@ -605,7 +605,7 @@ if ($cfgShowStats) {
     <td width="20">&nbsp;</td>
     <td valign="top">
         <?php echo $strRowsStatistic . '&nbsp;:' . "\n"; ?>
-        <table border="<?php echo $cfgBorder; ?>">
+        <table border="<?php echo $cfg['Border']; ?>">
         <tr>
             <th><?php echo $strStatement; ?></th>
             <th align="center"><?php echo $strValue; ?></th>
@@ -613,7 +613,7 @@ if ($cfgShowStats) {
         <?php
         $i = 0;
         if (isset($showtable['Row_format'])) {
-            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+            $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
             echo "\n";
             ?>
         <tr>
@@ -637,7 +637,7 @@ if ($cfgShowStats) {
             <?php
         }
         if (!$is_innodb && isset($showtable['Rows'])) {
-            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+            $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
             echo "\n";
             ?>
         <tr>
@@ -649,7 +649,7 @@ if ($cfgShowStats) {
             <?php
         }
         if (!$is_innodb && isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
-            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+            $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
             echo "\n";
             ?>
         <tr>
@@ -661,7 +661,7 @@ if ($cfgShowStats) {
             <?php
         }
         if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
-            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+            $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
             echo "\n";
             ?>
         <tr>
@@ -673,7 +673,7 @@ if ($cfgShowStats) {
             <?php
         }
         if (isset($showtable['Auto_increment'])) {
-            $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+            $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
             echo "\n";
             ?>
         <tr>
@@ -734,7 +734,7 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
             <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . ' ' . PMA_showDocuShort('S/E/SELECT.html'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
-<textarea name="sql_query" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual"
+<textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo $cfg['TextareaCols']; ?>" wrap="virtual"
     onfocus="if (typeof(document.layers) == 'undefined' || typeof(textarea_selected) == 'undefined') {textarea_selected = 1; this.form.elements['sql_query'].select();}">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE 1'); ?>
 </textarea><br />
@@ -759,8 +759,8 @@ if (function_exists('PMA_set_enc_form')) {
 }
 
 // Bookmark Support
-if ($cfgBookmark['db'] && $cfgBookmark['table']) {
-    if (($bookmark_list = PMA_listBookmarks($db, $cfgBookmark)) && count($bookmark_list) > 0) {
+if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
+    if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
         echo "            <i>$strOr</i> $strBookmarkQuery&nbsp;:<br />\n";
         echo '            <div style="margin-bottom: 5px">' . "\n";
         echo '            <select name="id_bookmark" style="vertical-align: middle">' . "\n";
@@ -898,9 +898,9 @@ echo "\n";
 <?php
 // zip, gzip and bzip2 encode features
 if (PMA_PHP_INT_VERSION >= 40004) {
-    $is_zip  = (isset($cfgZipDump) && $cfgZipDump && @function_exists('gzcompress'));
-    $is_gzip = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzencode'));
-    $is_bzip = (isset($cfgBZipDump) && $cfgBZipDump && @function_exists('bzcompress'));
+    $is_zip  = (isset($cfg['ZipDump']) && $cfg['ZipDump'] && @function_exists('gzcompress'));
+    $is_gzip = (isset($cfg['GZipDump']) && $cfg['GZipDump'] && @function_exists('gzencode'));
+    $is_bzip = (isset($cfg['BZipDump']) && $cfg['BZipDump'] && @function_exists('bzcompress'));
     if ($is_zip || $is_gzip || $is_bzip) {
         echo "\n" . '                    (' . "\n";
         if ($is_zip) {
@@ -1279,7 +1279,7 @@ if (!empty($cfgServer['relation'])) {
 
     <!-- Flushes the table -->
     <li>
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfgShowTooltip) echo '&amp;reload=1'; ?>">
+        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('FLUSH TABLE ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenFlushed, htmlspecialchars($table))); if ($cfg['ShowTooltip']) echo '&amp;reload=1'; ?>">
             <?php echo $strFlushTable; ?></a>
         <br /><br />
     </li>

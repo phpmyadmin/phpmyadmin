@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-04-24 Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_*.php3: $cfg system changes
+
 2002-04-24 Alexander M. Turek  <rabus@bugfixes.info>
     * libraries/*, lang/*: $cfg system changes.
     * libraries/common.lib.php3, libraries/select_lang.php3,

@@ -75,7 +75,7 @@ if (!isset($param) || $param[0] == '') {
         <li>
             <div style="margin-bottom: 10px">
             <?php echo $strLimitNumRows . "\n"; ?>
-            <input type="text" size="4" name="session_max_rows" value="<?php echo $cfgMaxRows; ?>" class="textfield" />
+            <input type="text" size="4" name="session_max_rows" value="<?php echo $cfg['MaxRows']; ?>" class="textfield" />
             </div>
         </li>
         <li>
@@ -84,7 +84,7 @@ if (!isset($param) || $param[0] == '') {
             <?php echo PMA_showDocuShort('F/u/Functions.html') . "\n"; ?>
             <br /><br />
             <?php echo '<i>' . $strOr . '</i> ' . $strDoAQuery; ?><br />
-            <table border="<?php echo $cfgBorder; ?>">
+            <table border="<?php echo $cfg['Border']; ?>">
             <tr>
                 <th><?php echo $strField; ?></th>
                 <th><?php echo $strType; ?></th>
@@ -93,7 +93,7 @@ if (!isset($param) || $param[0] == '') {
         <?php
         for ($i = 0; $i < $fields_cnt; $i++) {
             echo "\n";
-            $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+            $bgcolor   = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
             ?>
             <tr>
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($fields_list[$i]); ?></td>

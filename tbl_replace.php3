@@ -145,7 +145,7 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
             include('./header.inc.php3');
             include('./' . ereg_replace('\.\.*', '.', $goto));
         } else {
-            header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . urlencode($message));
+            header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&message=' . urlencode($message));
         }
         exit();
     }
@@ -249,7 +249,7 @@ if (!$result) {
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
         $add_query = (strpos(' ' . $goto, 'tbl_change') ? '&disp_query=' . urlencode($sql_query) : '');
-        header('Location: ' . $cfgPmaAbsoluteUri . $goto . '&message=' . urlencode($message) . $add_query);
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto . '&message=' . urlencode($message) . $add_query);
     }
     exit();
 } // end if

@@ -151,11 +151,11 @@ mysql_free_result($tbl_result);
 
 <!-- Query by example form -->
 <form action="tbl_qbe.php3" method="post">
-    <table border="<?php echo $cfgBorder; ?>">
+    <table border="<?php echo $cfg['Border']; ?>">
 
     <!-- Fields row -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strField; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -163,7 +163,7 @@ $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorOne; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <select style="width: <?php echo $widem; ?>" name="Field[<?php echo $z; ?>]" size="1">
                 <option value=""></option>
         <?php
@@ -189,7 +189,7 @@ for ($x = 0; $x < $col; $x++) {
         continue;
     }
     ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorOne; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <select style="width: <?php echo $widem; ?>" name="Field[<?php echo $z; ?>]" size="1">
                 <option value=""></option>
     <?php
@@ -216,7 +216,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Sort row -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strSort; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -224,7 +224,7 @@ $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <select style="width: <?php echo $widem; ?>" name="Sort[<?php echo $z; ?>]" size="1">
                 <option value=""></option>
                 <option value="ASC"><?php echo $strAscending; ?></option>
@@ -240,7 +240,7 @@ for ($x = 0; $x < $col; $x++) {
         continue;
     }
     ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <select style="width: <?php echo $widem; ?>" name="Sort[<?php echo $z; ?>]" size="1">
                 <option value=""></option>
     <?php
@@ -273,7 +273,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Show row -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strShow; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -281,7 +281,7 @@ $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorOne; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <input type="checkbox" name="Show[<?php echo $z; ?>]" />
         </td>
         <?php
@@ -299,7 +299,7 @@ for ($x = 0; $x < $col; $x++) {
         $checked     =  '';
     }
     ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorOne; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
             <input type="checkbox" name="Show[<?php echo $z; ?>]"<?php echo $checked; ?> />
         </td>
     <?php
@@ -311,7 +311,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Criteria row -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strCriteria; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -319,7 +319,7 @@ $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (!empty($InsCol) && isset($InsCol[$x]) && $InsCol[$x] == 'on') {
         ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <input type="text" name="Criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $widem; ?>" size="20" />
         </td>
         <?php
@@ -346,7 +346,7 @@ for ($x = 0; $x < $col; $x++) {
         $encoded_Criteria  = $prev_Criteria[$x];
     }
     ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <input type="hidden" name="prev_Criteria[<?php echo $z; ?>]" value="<?php echo $encoded_Criteria; ?>" />
             <input type="text" name="Criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($stripped_Criteria); ?>" class="textfield" style="width: <?php echo $widem; ?>" size="20" />
         </td>
@@ -361,7 +361,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 $w = 0;
 for ($y = 0; $y <= $row; $y++) {
-    $bgcolor = ($y % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+    $bgcolor = ($y % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     if (isset($InsRow[$y]) && $InsRow[$y] == 'on') {
         $chk['or']  = ' checked="checked"';
         $chk['and'] = '';
@@ -529,7 +529,7 @@ for ($y = 0; $y <= $row; $y++) {
 
     <!-- Modify columns -->
     <tr>
-        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfg['ThBgcolor']; ?>">
             <b><?php echo $strModify; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -545,7 +545,7 @@ for ($x = 0; $x < $col; $x++) {
             $chk['or']  = '';
         }
         ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <b><?php echo $strOr; ?>&nbsp;:</b>
             <input type="radio" name="AndOrCol[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
             &nbsp;&nbsp;<b><?php echo $strAnd; ?>&nbsp;:</b>
@@ -576,7 +576,7 @@ for ($x = 0; $x < $col; $x++) {
         $chk['or']  = '';
     }
     ?>
-        <td align="center" bgcolor="<?php echo $cfgBgcolorTwo; ?>">
+        <td align="center" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>">
             <b><?php echo $strOr; ?>&nbsp;:</b>
             <input type="radio" name="AndOrCol[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
             &nbsp;&nbsp;<b><?php echo $strAnd; ?>&nbsp;:</b>
