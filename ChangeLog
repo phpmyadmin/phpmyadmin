@@ -43,14 +43,14 @@ $Source$
       works also for row editing.
     * Documentation.*: Documented moving using Ctrl+arrows (FAQ 6.16).
 
-2002-01-13 Robin Johnson  <robbat2@users.sourceforge.net>
+2003-01-13 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.class.php3:
       - Removed dependency on overload extension
       - Started to fix bug #644709
     * sql.php3, libraries/common.lib.php3, libraries/sqlparser.lib.php3:
       - Revert line 88 of sql.php3, and fix it a different way...
 
-2002-01-12 Robin Johnson  <robbat2@users.sourceforge.net>
+2003-01-12 Robin Johnson  <robbat2@users.sourceforge.net>
     * read_dump.php3, sql.php3, libraries/common.lib.php3,
     libraries/sqlparser.lib.php3:
       - Fixed bug #641765, see mailing list post
