@@ -28,9 +28,11 @@ if (!isset($old_error_reporting)) {
  *
  * In most cases you can leave this variable empty, as the correct value
  * will be detected automatically. However, we recommend that you do
- * test to see that the auto-detection code works in your system.
+ * test to see that the auto-detection code works in your system. A good
+ * test is to browse a table, then edit a row and save it.  There will be
+ * an error message if phpMyAdmin cannot auto-detect the correct value.
  *
- * If the auto-detection code does work properly, you can set the
+ * If the auto-detection code does work properly, you can set to TRUE the
  * $cfg['PmaAbsoluteUri_DisableWarning'] variable below.
  */
 $cfg['PmaAbsoluteUri'] = '';
