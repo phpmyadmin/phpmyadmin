@@ -27,6 +27,8 @@ $Source$
       Experimental: Added $cfg['DefaultPropDisplay']. Enables vertical display
       (optional, default off) of the columns. I didn't like to have to scroll in horizontal
       directions, so with this mode you can see about 6 columns at once on a single screen.
+    * tbl_properties.inc.php3: Fixed bug when certain fields are not
+      enabled, they threw an undefined offset.
 
 2003-02-26 Garvin Hicking <me@supergarv.de>
     * lang/german-*: better grammar. ;)

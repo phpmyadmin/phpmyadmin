@@ -329,10 +329,12 @@ while(@list($header_nr, $header_val) = @each($header_cells)) {
         <th align="right"><?php echo $header_val; ?></th>
 <?php
     for ($j = 0; $j < count($content_cells); $j++) {
-        $bgcolor = ($j % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
+        if (isset($content_cells[$j][$i]) && $content_cells[$j][$i] != '') {
+            $bgcolor = ($j % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     ?>
         <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $content_cells[$j][$i]; ?></td>
     <?php
+        }
     }
 
     echo "\n" . '</tr>' . "\n";
