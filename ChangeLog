@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-29 Robin Johnson  <robbat2@users.sourceforge.net>
+    * lang/galician*: Merged update from #588154 
+    * lang/estonian*: Merged update from Alvar Soome
+    * lang/indonesian*: Merged update from Rachim Tamsjadi
+    * lang/*: ran sync_lang.sh
+
 2002-07-29 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_change.php3, line 203: fixed an xhtml bug (#587974) thanks to
       Christophe Jaillet <tititou at users.sourceforge.net>
@@ -15,17 +21,17 @@ $Source$
     * libraries/relation.lib.php3: beautified generated page.
 
 2002-07-28 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/romanian update, thanks to Valics Lehel
-    * lang/polish update, thanks to Jakub Wilk
-    * lang/swedish update, thanks to Björn T. Hallberg
-    * lang/italian update, thanks to Pietro Danesi
-    * lang/lithuanian update, thanks to Vilius Zigmantas
-    * lang/dutch update, thanks to Ivo Teel.
-    * 2.3.0-rc4 released
+    * lang/romanian: update, thanks to Valics Lehel
+    * lang/polish: update, thanks to Jakub Wilk
+    * lang/swedish: update, thanks to Björn T. Hallberg
+    * lang/italian: update, thanks to Pietro Danesi
+    * lang/lithuanian: update, thanks to Vilius Zigmantas
+    * lang/dutch: update, thanks to Ivo Teel.
+    * :2.3.0-rc4 released
     
 2002-07-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * lang/italian update, thanks to Pietro Danesi
-    * lang/*, fix a typo
+    * lang/italian: update, thanks to Pietro Danesi
+    * lang/*: fix a typo
 
 2002-07-26 Robin Johnson  <robbat2@users.sourceforge.net> 
     * libraries/sqlparser.lib.php3:
@@ -36,7 +42,7 @@ $Source$
     
 2002-07-26 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: numbers for faq entries
-    * russian updates, from an anonymous contributor
+    * russian: updates, from an anonymous contributor
 
 2002-07-25 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/sqlparser.lib.php3:

@@ -403,15 +403,15 @@ $strYes = 'Ya';
 $strZip = '"Dikompress dengan Zip"';
 
 // To translate
-$strRelationNotWorking = 'Fasilitas tambahan untuk bekerja dengan tabel yang di-link di tidakaktifkan. Untuk mengetahui kenapa klik %disini%s.';
+$strRelationNotWorking = 'Fasilitas tambahan untuk bekerja dengan tabel yang di-link di nonaktifkan. Untuk mengetahui soal klik %sdisini%s.';
 $strAllTableSameWidth = 'Tampilkan semua tabel dengan ukuran lebar yang sama?';
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
-$strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
+$strPdfNoTables = 'Tabel tidak ditemukan';
+$strDisplayFeat = 'Tampilkan ciri-ciri';
+$strCreatePdfFeat = 'Pembuatan PDF';
+$strColComFeat = 'Tampilkan komentar kolom';
+$strDisabled = 'Tidak aktif';
+$strEnabled = 'Aktif';
+$strOK = 'Oke';
+$strNotOK = 'tidak oke';
+$strGeneralRelationFeat = 'Ciri-ciri dari General Relation';
 ?>

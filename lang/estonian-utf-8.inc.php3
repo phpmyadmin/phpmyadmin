@@ -403,14 +403,15 @@ $strZip = '"zipitud"';
 $strRelationNotWorking = 'Lisavõimalused töötamiseks lingitud tabelitega on deaktiveeritud. Et lugeda miks see nii on, vajutage %ssiia%s.';  
 $strAllTableSameWidth = 'kuva kõik tabelid sama laiusega?';  
 
-// To translate
-$strPdfNoTables = 'No tables';  //to translate
-$strDisplayFeat = 'Display Features';  //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strColComFeat = 'Displaying Column Comments';  //to translate
-$strDisabled = 'Disabled';  //to translate
-$strEnabled = 'Enabled';  //to translate
+$strPdfNoTables = 'Pole tabeleid';  
+$strDisplayFeat = 'Kuva võimalused';  
+$strCreatePdfFeat = 'PDF-ide tegemine';  
+$strColComFeat = 'Näitan veeru kommentaare';  
+$strDisabled = 'Keelatud';
+$strEnabled = 'Lubatud'; 
 $strOK = 'OK';  //to translate
-$strNotOK = 'not OK';  //to translate
-$strGeneralRelationFeat = 'General relation features';  //to translate
+$strNotOK = 'Ei ole OK';  
+$strGeneralRelationFeat = 'Peamised seoste võimalused';  
+
+// To translate
 ?>
