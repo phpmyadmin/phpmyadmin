@@ -1169,7 +1169,7 @@ else if (isset($submit_updProfile)) {
         $sql_query_cpy      = '';
 
         // Updates profile
-        $sql_query          = 'UPDATE User SET ' . $sql_query . $common_where;
+        $sql_query          = 'UPDATE user SET ' . $sql_query . $common_where;
         $sql_query_cpy      = $sql_query;
         $result             = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&amp;host=' . urlencode($host) . '&amp;pma_user=' . urlencode($pma_user) . '&amp;edit=1');
 
