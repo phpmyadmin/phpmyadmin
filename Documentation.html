@@ -378,10 +378,10 @@
         Please see the <a class="navigation" href="#setup">install section</a>
         on &quot;Using advanced authentication&quot; for more information.
         <br /><br />
-        Note that if you try login to phpMyAdmin with this stduser, you
-        could get some errors, depending the exact privileges you gave to
-        the stduser. phpMyAdmin does not support a direct login with the
-        stduser.
+        Note that if you try login to phpMyAdmin with this &quot;stduser&quot;,
+        you could get some errors, depending the exact privileges you gave to
+        the &quot;stduser&quot;. phpMyAdmin does not support a direct login
+        with the &quot;stduser&quot;.
         <br /><br />
     </dd>
 
@@ -418,7 +418,8 @@
         user -see above-).
         <br /><br />
 
-	Please see the install section on &quot;Using advanced authentication&quot; for more information.
+        Please see the install section on &quot;Using advanced
+        authentication &quot; for more information.
         <br /><br />
     </dd>
 
@@ -436,16 +437,16 @@
     <dd>
         If set to a(an array of) database name(s), only this(these) database(s)
         will be shown to the user. Since phpMyAdmin 2.2.1, this/these
-        database(s) name(s) may contain(s) MySQL wilcards characters
-        (&quot;_&quot; &amp; &quot;%&quot;): if you want to really use these
-        characters, escape them.<br />
-        This setting is an efficient way to lower the server load since the
-        latter does not need a to send requests to MySQL to build the database
-        list.<br />
-        <font color="#bb0000">Warning:</font> this setting does not replace the
-        privileges rules of the MySQL database server. If set, it just means
-        only these databases will be displayed but <font color="#bb0000">not at
-        all other databases can't be used.</font>
+        database(s) name(s) may contain MySQL wilcards characters
+        (&quot;_&quot; and &quot;%&quot;): if you want to use literal instances
+        of these characters, escape them (ie use <tt>'my\_db'</tt> and not
+        <tt>'my_db'</tt>).<br />
+        This setting is an efficient way to lower the server charge since the
+        latter does not need to send MySQL requests to build the available
+        database list. But <font color="#bb0000">it does not replace the
+        privileges rules of the MySQL database server</font>. If set, it just
+        means only these databases will be displayed but
+        <font color="#bb0000">not at all other databases can't be used.</font>
         <br /><br />
     </dd>
 
@@ -484,15 +485,16 @@
             <li>
                 then complete the two variables
                 <tt>$cfgServers[n]['bookmarkdb']</tt> and
-                <tt>$cfgServers[n]['bookmarktable']</tt> so phpMyAdmin will be
-                able to find the bookmark table.
+                <tt>$cfgServers[n]['bookmarktable']</tt> with the database and
+                table names you've choosen so phpMyAdmin will be able to find
+                the bookmarks.
             </li>
         </ul><br />
 
         Note that <tt>stduser</tt> must have <tt>SELECT</tt>, <tt>INSERT</tt>
-	and <tt>DELETE</tt> privileges on the bookmark table.
-	Here is a query to set up those privileges:<br />
-	<tt>GRANT SELECT,INSERT,DELETE ON &lt;bookmarkdb&gt;.&lt;bookmarktable&gt; to 'stduser'@localhost;</tt>
+        and <tt>DELETE</tt> privileges on the bookmark table.
+        Here is a query to set up those privileges:<br />
+        <tt>GRANT SELECT,INSERT,DELETE ON &lt;bookmarkdb&gt;.&lt;bookmarktable&gt; to 'stduser'@localhost;</tt>
         <br /><br />
     </dd>
 
@@ -611,7 +613,7 @@
         from edition when browsing a table's content or not.
         Valid values are:<br />
         - <tt>FALSE</tt> to allow edition of all fields;<br />
-        - <tt>blob</tt> to allow edition of all fields except <tt>BLOBS</TT>;<br />
+        - <tt>blob</tt> to allow edition of all fields except <tt>BLOBS</tt>;<br />
         - <tt>all</tt> to disallow edition of all <tt>BINARY</tt> or <tt>BLOB</tt> fields.
         <br /><br />
     </dd>
@@ -1049,6 +1051,18 @@
     distribution. Have a look at the last message in this
     <a href="http://bugs.php.net/bug.php?id=12061">bug report</a> from the
     official php bug database.
+</p>
+
+<p>
+    <b>I want to translate the messages to a new language or upgrade an   
+       existing language, where do I start? </b> 
+    <br />
+    Always use the current cvs version of your language file.  
+    For a new language, start from english.inc.php3. If you don't know
+    how to get the cvs version, please ask one of the developers.  It would be 
+    a good idea to subscribe to the phpmyadmin-translators discussion list,
+    because this is where we ask for translations of new messages.  You can
+    then send your translations to the sourceforge.net translation tracker.
 </p>
  
 <p>
