@@ -99,11 +99,11 @@ global $GLOBALS;
         
         return 1;
     } else {
-        if ($content != '') {
+        if ($content != 'none') {
             echo '<p><font color="orange">' . sprintf($GLOBALS['strIgnoringFile'], ' ' . $file) . '</font></p>' . "\n";
         } else {
             // garvin: disabled. Shouldn't impose ANY non-submitted files ever.
-            echo '<p><font color="orange">' . sprintf($GLOBALS['strIgnoringFile'], ' ' . '') . '</font></p>' . "\n";
+            echo '<p><font color="orange">' . sprintf($GLOBALS['strIgnoringFile'], ' ' . '...') . '</font></p>' . "\n";
         }
         return 0;
     } // end working on table
@@ -206,7 +206,7 @@ if (isset($do) && $do == 'import') {
     } else {
         
         // echo '<h1>Starting Import</h1>';
-        $docpath = $DOCUMENT_ROOT . dirname($PHP_SELF) . '/' . eregi_replace('\.\.*', '.', $docpath);
+        $docpath = $DOCUMENT_ROOT . dirname($PHP_SELF) . '/docSQL/' . eregi_replace('\.\.*', '.', $docpath);
         if (substr($docpath, strlen($docpath) - 2, 1) != '/') {
             $docpath = $docpath . '/';
         }
@@ -239,7 +239,7 @@ if (isset($do) && $do == 'import') {
     <input type="hidden" name="do" value="import" />
     <b><?php echo $strAbsolutePathToDocSqlDir; ?>:</b>
     <br /><br />
-    <?php echo dirname($PHP_SELF); ?>/<input class="textfield" type="text" name="docpath" size="15" value="<?php echo (isset($orig_docpath) ? $orig_docpath : 'docSQL/'); ?>" />
+    <?php echo dirname($PHP_SELF) . '/docSQL'; ?>/<input class="textfield" type="text" name="docpath" size="15" value="<?php echo (isset($orig_docpath) ? $orig_docpath : ''); ?>" />
 <?php
 // garvin: displays import dump feature only if file upload available
 if ($is_upload) {

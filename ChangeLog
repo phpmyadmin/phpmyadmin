@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-20 Garvin Hicking <me@supergarv.de>
+    * db_details_importdocsql.php3: Will now NEVER reveal any filename
+      the docSQL import isn't able to read. Can now only read contents
+      of the 'docSQL' subdirectory and never be able to go higher than
+      that level.
+
 2003-06-19 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php3: analyzer for FOREIGN KEYS
     * libraries/sqlparser.lib.php3: bug 756861, DEFAULT 0 becomes DEFAULT0
