@@ -742,33 +742,33 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
         // 2.1 Results can be sorted
         if ($is_display['sort_lnk'] == '1') {
 
-            // 2.1.1 Checks if the current column is used to sort the
+            // 2.1.1 Checks if the table name is required; it's the case
+            //       for a query with a "JOIN" statement and if the column
+            //       isn't aliased, or in queries like
+            //       SELECT `1`.`master_field` , `2`.`master_field`
+            //       FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
+
+            if (($is_join
+                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_stt[1], $parts)) 
+               || (
+                   $analyzed_sql[0]['select_expr'][$i]['expr'] !=
+                   $analyzed_sql[0]['select_expr'][$i]['column']) ) {
+                $sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
+            } else {
+                $sort_tbl = '';
+            }
+            // 2.1.2 Checks if the current column is used to sort the
             //       results
             if (empty($sql_order)) {
                 $is_in_sort = FALSE;
             } else {
-//                    $pattern = str_replace('\\', '\\\\', $fields_meta[$i]->name);
-//                    $pattern = str_replace('(','\(', $pattern);
-//                    $pattern = str_replace(')','\)', $pattern);
-//                    $pattern = str_replace('*','\*', $pattern);
-
                 // field name may be preceded by a space, or any number
                 // of characters followed by a dot (tablename.fieldname)
-//                    $is_in_sort = eregi('([[:space:]]|(.*\.))(`?)' . $pattern . '(`?)[ ,$]', $sql_order);
-                // instead of using eregi(), now do a direct comparison
+                // so do a direct comparison
                 // for the sort expression (avoids problems with queries
                 // like "SELECT id, count(id)..." and clicking to sort
                 // on id or on count(id) )
-                  $is_in_sort = (PMA_backquote($fields_meta[$i]->name) == $sort_expression ? TRUE : FALSE);
-            }
-            // 2.1.2 Checks if the table name is required (it's the case
-            //       for a query with a "JOIN" statement and if the column
-            //       isn't aliased)
-            if ($is_join
-                && !preg_match('~([^[:space:],]|`[^`]`)[[:space:]]+(as[[:space:]]+)?' . $fields_meta[$i]->name . '~i', $select_stt[1], $parts)) {
-                $sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
-            } else {
-                $sort_tbl = '';
+                  $is_in_sort = ($sort_tbl . PMA_backquote($fields_meta[$i]->name) == $sort_expression ? TRUE : FALSE);
             }
             // 2.1.3 Check the field name for backquotes.
             //       If it contains some, it's probably a function column
