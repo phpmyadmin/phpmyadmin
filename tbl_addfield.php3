@@ -79,9 +79,9 @@ if (isset($submit)) {
     } // end for
     $query = ereg_replace(', ADD $', '', $query);
 
-    $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD ' . $query;
-    $result    = mysql_query($sql_query) or mysql_die();
-
+    $sql_query     = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD ' . $query;
+    $result        = mysql_query($sql_query) or mysql_die();
+    $sql_query_cpy = $sql_query . ';';
     // Builds the primary keys statements and updates the table
     $primary = '';
     if (isset($field_primary)) {
@@ -91,8 +91,9 @@ if (isset($submit)) {
         } // end for
         $primary     = ereg_replace(', $', '', $primary);
         if (!empty($primary)) {
-            $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
-            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')') or mysql_die();
+            $sql_query      = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
+            $result         = mysql_query($sql_query) or mysql_die();
+            $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
      
@@ -105,8 +106,9 @@ if (isset($submit)) {
         } // end for
         $index     = ereg_replace(', $', '', $index);
         if (!empty($index)) {
-            $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD INDEX (' . $index . ')';
-            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD INDEX (' . $index . ')') or mysql_die();
+            $sql_query      = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD INDEX (' . $index . ')';
+            $result         = mysql_query($sql_query) or mysql_die();
+            $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
      
@@ -119,8 +121,9 @@ if (isset($submit)) {
         } // end for
         $unique = ereg_replace(', $', '', $unique);
         if (!empty($unique)) {
-            $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $unique . ')';
-            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $unique . ')') or mysql_die();
+            $sql_query      = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $unique . ')';
+            $result         = mysql_query($sql_query) or mysql_die();
+            $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
      
@@ -134,13 +137,16 @@ if (isset($submit)) {
         } // end for
         $fulltext = ereg_replace(', $', '', $fulltext);
         if (!empty($fulltext)) {
-            $sql_query .= "\n" . 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
-            $result    = mysql_query('ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD UNIQUE (' . $fulltext . ')') or mysql_die();
+            $sql_query      = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
+            $result         = mysql_query($sql_query) or mysql_die();
+            $sql_query_cpy  .= "\n" . $sql_query . ';';
         }
     } // end if
 
     // Go back to table properties
-    $message = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
+    $sql_query = $sql_query_cpy;
+    unset($sql_query_cpy);
+    $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
     include('./tbl_properties.php3');
     exit();
 } // end do alter table
