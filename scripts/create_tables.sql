@@ -16,7 +16,7 @@
 -- 
 -- Database : `phpmyadmin`
 -- 
-DROP DATABASE `phpmyadmin`;
+DROP DATABASE IF EXISTS `phpmyadmin`;
 CREATE DATABASE `phpmyadmin`;
 USE phpmyadmin;
 
