@@ -7,6 +7,7 @@ $Source$
 
 2004-09-26 Marc Delisle  <lem9@users.sourceforge.net>
     * read_dump.php: improvements in detection and reload
+    * lang/danish: Updated, thanks to AlleyKat - dk_alleykat.
 
 2004-09-25 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/norwegian: Update, thanks to Sven-Erik Andersen - sven-erik.
