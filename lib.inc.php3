@@ -703,6 +703,10 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         return array($return_value, $unit);
     } // end of the 'format_byte_down' function
 
+
+
+    /* ----- Functions used to display records returned by a sql query ----- */
+
     /**
      * Displays a navigation bar to browse among the results of a sql query
      *
@@ -1131,10 +1135,10 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 }
                 $primary = mysql_fetch_field($dt_result, $i);
                 if ($primary->numeric == 1) {
-                    if (empty($row[$i])) {
-                        echo '    <td align="right">&nbsp;</td>' . "\n";
-                    } else {
+                    if ($row[$i] != '') {
                         echo '    <td align="right">' . $row[$i] . '</td>' . "\n";
+                    } else {
+                        echo '    <td align="right">&nbsp;</td>' . "\n";
                     }
                 } else if ($GLOBALS['cfgShowBlob'] == FALSE && eregi('BLOB', $primary->type)) {
                     // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
@@ -1151,7 +1155,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                             $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
                         }
                         // loic1 : displays <cr>/<lf>
-                        if (!empty($row[$i])) {
+                        if ($row[$i] != '') {
                             $row[$i]     = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
                             echo '    <td>' . $row[$i] . '</td>' . "\n";
                         } else {
@@ -1160,7 +1164,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     }
                 } else {
                     // loic1 : displays <cr>/<lf>
-                    if (!empty($row[$i])) {
+                    if ($row[$i] != '') {
                         $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
                         echo '    <td>' . $row[$i] . '</td>' . "\n";
                     } else {
@@ -1751,9 +1755,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
 
         while ($i < strlen($sql)) {
             // Patch from Chee Wai
-            // (otherwise, if $i==0 and $sql[$i] == "#", the original order
+            // (otherwise, if $i == 0 and $sql[$i] == "#", the original order
             // in the second part of the AND bit will fail with illegal index)
-            //    if ($sql[$i] == "#" and ($sql[$i-1] == "\n" or $i==0)) {
             if ($sql[$i] == '#' && ($i == 0 || $sql[$i-1] == "\n")) {
                 $j = 1;
                 while ($sql[$i+$j] != "\n") {

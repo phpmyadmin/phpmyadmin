@@ -22,6 +22,7 @@ $Source$
 	  whether to display table name or not at the top of the page.
 	* tbl_copy.php3, line 86: returns to tbl_properties.php3 rather than
 	  db_details.php3.
+	* lib.inc.php3: fixed a bug when browsing a table with values equal to 0.
 
 2001-08-28  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: fixed the sql query so that the script won't die, even if
