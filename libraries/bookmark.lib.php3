@@ -33,7 +33,7 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
         }
 
         $cfgBookmark['user']  = $GLOBALS['cfg']['Server']['user'];
-        $cfgBookmark['db']    = $GLOBALS['cfg']['Server']['bookmarkdb'];
+        $cfgBookmark['db']    = $GLOBALS['cfg']['Server']['pmadb'];
         $cfgBookmark['table'] = $GLOBALS['cfg']['Server']['bookmarktable'];
 
         return $cfgBookmark;
