@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-08 Marc Delisle  <lem9@users.sourceforge.net>
+	* ukrainian updates thanks to Markijan Baran
+ 
 2002-02-08 Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/bulgarian-*; lang/japanese.inc.php3: updated thanks to
 	  Georgi Georgiev.

@@ -268,8 +268,8 @@ $strRunSQLQuery = 'Виконати SQL запит(и) до БД %і';
 
 $strSave = 'Зберегти';
 $strSelect = 'Вибрати';
-$strSelectADb = 'Виберіть базу даних';
-$strSelectAll = 'Вибрати все';
+$strSelectADb = 'Прошу вибрати базу даних';
+$strSelectAll = 'Відмітити все';  
 $strSelectFields = 'Вибрати поля (щонайменше одне):';
 $strSelectNumRows = 'по запиту';
 $strSend = 'Відіслати';
@@ -319,7 +319,7 @@ $strType = 'Тип';
 
 $strUncheckAll = 'Зняти усі відмітки';
 $strUnique = 'Унікальне';
-$strUnselectAll = 'Зняти усі відмітки';
+$strUnselectAll = 'Зняти всі відмітки';
 $strUpdatePrivMessage = 'Було змінено привілеї для';
 $strUpdateProfile = 'Поновити профіль:';
 $strUpdateProfileMessage = 'Профіль було поновлено.';
