@@ -8,6 +8,7 @@ $Source$
 2002-08-23 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/charset_conversion.lib.php3: Don't let php display an error
       message if dl() fails.
+    * translators.html, lang/malay-*.inc.php3: Updates.
 
 2002-08-22 Robin Johnson  <robbat2@users.sourceforge.net>
     * config.inc.php3, left.php3:

@@ -1,6 +1,26 @@
 <?php
 /* $Id$ */
 
+/*
+Projek Penterjemahan (l10n) phpmyadmin.net boleh diakses di laman http://shapik.johordt.com/l10n
+Projek ini diusahakan oleh saya - sicksand - Mohammad Shafiq Mohd Mustapa
+Ditujukan untuk sayang saya Nur Khairiyah.
+Antara yang menjayakan projek ini ialah (turutan bukan keutamaan)
+
+Asrul Munir Bin Azizan - ntahsapentah@hotmail.com
+Hasbullah - exs2me@hotmail.com
+sot - sid80@yahoo.com
+silla - roscla@yahoo.com
+bagaksasa - bagaksasa@hotmail.com
+Bustamam Harun - bustamam98@yahoo.com
+Hasbullah Bin Pit - sebol@ikhlas.com, Merlimau
+nina - nina@hotmail.com
+muslim - sayamuslim@hotmail.com
+ejoe - webmaster@ejoe.net
+huhu - huhu@huh.net
+redkod - r3dkod@yahoo.com
+*/
+
 $charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
@@ -34,6 +54,7 @@ $strAfter = 'Selepas %s';
 $strAfterInsertBack = 'Kembali ke muka sebelumnya';
 $strAfterInsertNewInsert = 'Tambah baris yang baru';
 $strAll = 'Semua';
+$strAllTableSameWidth = 'paparkan semua Jadual dengan kelebaran yang sama?';
 $strAlterOrderBy = 'Alter table order by';
 $strAnalyzeTable = 'Analyze table';
 $strAnd = 'Dan';
@@ -51,6 +72,8 @@ $strAtEndOfTable = 'Pada Akhir Jadual';
 $strAttr = 'Atribut';
 
 $strBack = 'Undur';
+$strBeginCut = 'MULA SALIN';
+$strBeginRaw = 'MULA MENTAH';
 $strBinary = 'Binari';
 $strBinaryDoNotEdit = 'Binari - jgn diubah';
 $strBookmarkDeleted = 'TandaBuku telah dipadam.';
@@ -70,10 +93,12 @@ $strCarriage = 'DiBaris baru : \\r';
 $strChange = 'Ubah';
 $strChangeDisplay = 'Pilih Medan untuk dipapar';
 $strChangePassword = 'Ubah Katalaluan';
+$strCharsetOfFile = 'Fail bagi set Aksara:';
 $strCheckAll = 'Tanda Semua';
 $strCheckDbPriv = 'Periksa Keutamaan Pengkalan Data';
 $strCheckTable = 'Periksa Jadual';
 $strChoosePage = 'Sila Pilih Laman untuk diubah';
+$strColComFeat = 'Memaparkan Komen Kolum';
 $strColumn = 'Kolum';
 $strColumnNames = 'Nama Kolum';
 $strComments = 'Komen';
@@ -90,6 +115,7 @@ $strCreateIndexTopic = 'Cipta indeks baru';
 $strCreateNewDatabase = 'Cipta pangkalan data baru';
 $strCreateNewTable = 'Cipta jadual baru pada pangkalan data %s';
 $strCreatePage = 'Cipta Halaman baru';
+$strCreatePdfFeat = 'Ciptaan bagi PDF';
 $strCriteria = 'Kriteria';
 
 $strData = 'Data';
@@ -106,7 +132,9 @@ $strDeletedRows = 'Baris dipadam:';
 $strDeleteFailed = 'Pemadaman gagal!';
 $strDeleteUserMessage = 'Anda telah memadam pengguna %s.';
 $strDescending = 'Menurun';
+$strDisabled = 'Tidak Membenarkan';
 $strDisplay = 'Papar';
+$strDisplayFeat = 'Paparkan Ciri-ciri';
 $strDisplayOrder = 'Turutan paparan:';
 $strDisplayPDF = 'Papar Skema PDF';
 $strDoAQuery = 'Lakukan "kueri melalui contoh" (wilidcard: "%")';
@@ -125,7 +153,10 @@ $strEditPrivileges = 'Ubah Privilej';
 $strEffective = 'Berkesan';
 $strEmpty = 'Kosong';
 $strEmptyResultSet = 'MySQL memulangkan set hasil kosong (i.e. sifar baris)';
+$strEnabled = 'Membenarkan';
 $strEnd = 'Tamat';
+$strEndCut = 'TAMAT SALIN';
+$strEndRaw = 'TAMAT MENTAH';
 $strEnglishPrivileges = ' Nota: Nama privilej MySQL adalah dinyatakan dalam B.Inggeris ';
 $strExplain = 'Terangkan Kod SQL';
 $strError = 'Ralat';
@@ -148,8 +179,9 @@ $strFormEmpty = 'Kehilangan nilai pada borang! !';
 $strFullText = 'Teks Penuh';
 $strFunction = 'Fungsi';
 
-$strGenTime = 'Masa dijana';
 $strGenBy = 'Dijana oleh';
+$strGeneralRelationFeat = 'Ciri-ciri hubungan am';
+$strGenTime = 'Masa dijana';
 $strGo = 'Pergi';
 $strGrants = 'Kabulkan';
 $strGzip = '"digzip"';
@@ -171,6 +203,7 @@ $strIndexes = 'Indeks';
 $strIndexHasBeenDropped = 'Indeks %s telah digugurkan';
 $strIndexName = 'Nama indeks&nbsp;:';
 $strIndexType = 'Jenis indeks&nbsp;:';
+$strInsecureMySQL = 'Fail Konfigurasi anda mengandungi pelengkapan (root tidak berkata laluan) yang bersesuaian dengan privilej akaun MySQL. Pelayan MySQL anda dilaksanakan dengan pelengkapan asas, ianya terdedah kepada pencerobohan, dan anda hendaklah membetulkan lubang keselamatan ini.';
 $strInsert = 'Selit';
 $strInsertAsNewRow = 'Selitkan baris baru';
 $strInsertedRows = 'Baris diselit:';
@@ -178,7 +211,7 @@ $strInsertNewRow = 'Selitkan baris baru';
 $strInsertTextfiles = 'Selit data dari fail teks ke jadual';
 $strInstructions = 'Arahan';
 $strInUse = 'sedang digunakan';
-$strInvalidName = '"%s" adalah perkataan khas, anda tidak boleh menggunakan ia sebagai pangkalan data/jadual/medan .';
+$strInvalidName = '"%s" adalah kata pencam, anda tidak boleh menggunakan ia sebagai pangkalan data/jadual/medan .';
 
 $strKeepPass = 'Jangan tukar katalaluan';
 $strKeyname = 'Nama Kekunci';
@@ -230,14 +263,17 @@ $strNoQuery = 'Tiada kueri SQL!';
 $strNoRights = 'Anda tidak mempunyai hak mencukupi untuk berada disini sekarang!';
 $strNoTablesFound = 'Tiada jadual dijumpai pada pangkalan data.';
 $strNotNumber = 'Ini adalah bukan nombor!!';
+$strNotOK = 'tidak OK';
 $strNotSet = 'Jadual <b>%s</b> tidak dijumpai atau ditetapkan pada %s';
 $strNotValidNumber = ' adalah bukan baris yang sah!';
 $strNoUsersFound = 'Tiada pengguna dijumpai.';
+$strNoValidateSQL = 'Melangkau Pengesahan SQL';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s padanan di dalam jadual <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Jumlah</b>: <i>%s</i> padanan';
 
 $strOftenQuotation = 'Selalu tanda semakan. OPTIONALLY bermaksud hanya medan char dan varchar disertakan oleh "disertakan oleh"-aksara.';
+$strOK = 'OK';
 $strOperations = 'Operasi';
 $strOptimizeTable = 'Optimakan jadual';
 $strOptionalControls = 'Opsional. Kawal bagaimana menulis dan membaca aksara istimewa.';
@@ -254,6 +290,7 @@ $strPasswordNotSame = 'Katalaluan tidak sama!';
 $strPdfDbSchema = 'Skema bagi pangkalan data "%s" database - Laman %s';
 $strPdfInvalidPageNum = 'bilangan halaman PDF tak tertakrif!';
 $strPdfInvalidTblName = 'Jadual "%s" tidak wujud!';
+$strPdfNoTables = 'Tiada Jadual';
 $strPhp = 'Cipta Kod PHP';
 $strPHPVersion = 'Versi PHP';
 $strPmaDocumentation = 'Dokumentasi phpMyAdmin';
@@ -276,6 +313,7 @@ $strQueryOnDb = 'SQL- kueri pada pangkalan data <b>%s</b>:';
 
 $strRecords = 'Rekod';
 $strReferentialIntegrity = 'Semak integriti rujukan:';
+$strRelationNotWorking = 'Ciri-ciri tambahan ini adalah untuk bekerja dengan pautan jadual yang telah tidak diaktifkan. Untuk mengetahuinya klik %shere%s.';
 $strRelationView = 'Paparan Hubungan';
 $strReloadFailed = 'Pengulangmuatan MySQL gagal.';
 $strReloadMySQL = 'Ulangmuat MySQL';
@@ -338,12 +376,18 @@ $strShowTables = 'Papar jadual';
 $strShowThisQuery = ' Papar kueri ini di sini lagi ';
 $strSingly = '(persatu)';
 $strSize = 'Saiz';
+$strNoExplain = 'Skip Explain SQL';
 $strSort = 'Isih';
 $strSpaceUsage = 'Penggunaan ruang';
 $strSplitWordsWithSpace = 'Perkataan dipisahkan oleh aksara ruang (" ").';
 $strSQL = 'SQL';
+$strSQLParserBugMessage = 'Ada kemungkinan anda akan berjumpa dengan pepijat di penghuraian SQL. Sila semak kueri anda dengan teliti, dan periksa tanda quote adalah betul dan tidak tersalah letak. Antara kegagalan lain mungkin disebabkan fail yang dimuatnaik bersama binari oleh anda berada diluar kawasan quote. Anda juga boleh mencuba kueri MySQL anda di antaramuka aturan baris (cli). Dibawah adalah kesalah Pelayan MySql , jika ada, ianya membantu anda menganalisis masalah. Jika masih terdapat pemasalahan atau masalah penghuraian dimana antaramuka aturan baris berjaya, sila kurangkan kemasukan kueri SQL kepada satu kueri yang bermasalah, dan lapurkan pepijat desertai oleh seruas data dan SALIN keratan rentas dibawah:';
+$strSQLParserUserError = 'Ada kemungkin kueri SQL anda salah. Dibawah adalah kesalah Pelayan MySql , jika ada, ianya membantu anda menganalisis masalah';
 $strSQLQuery = 'kueri-SQL';
 $strSQLResult = 'Hasil SQL';
+$strSQPBugInvalidIdentifer = 'Pengenalan TidakSah';
+$strSQPBugUnclosedQuote = 'Tanda quote tidak disertakan';
+$strSQPBugUnknownPunctuation = 'TandaBaca tidak dikenali';
 $strStatement = 'Penyataan';
 $strStrucCSV = 'data CSV';
 $strStrucData = 'Struktur dan data';
@@ -388,10 +432,12 @@ $strUserName = 'Kata Pengenalan';
 $strUsers = 'Pengguna-Pengguna';
 $strUseTables = 'Guna Jadual';
 
+$strValidateSQL = 'Mengesahkan SQL';
 $strValue = 'Nilai';
 $strViewDump = 'Lihat longgokan (skema) pangkalan data';
 $strViewDumpDB = 'View dump (schema) of database';
 
+$strWebServerUploadDirectory = 'direktori muatnaik pelayan-web';
 $strWelcome = 'Selamat Datang ke %s';
 $strWithChecked = 'Dengan pilihan:';
 $strWrongUser = 'Salah kata pengenalan/kata laluan. Akses dilarang.';
@@ -399,32 +445,4 @@ $strWrongUser = 'Salah kata pengenalan/kata laluan. Akses dilarang.';
 $strYes = 'Ya';
 
 $strZip = '"zipped"';
-// To translate
-
-$strAllTableSameWidth = 'display all Tables with same width?'; //to translate
-$strBeginCut = 'BEGIN CUT'; //to translate
-$strBeginRaw = 'BEGIN RAW'; //to translate
-$strCharsetOfFile = 'Character set of the file:'; // to translate
-$strColComFeat = 'Displaying Column Comments'; //to translate
-$strCreatePdfFeat = 'Creation of PDFs';  //to translate
-$strDisabled = 'Disabled'; //to translate
-$strDisplayFeat = 'Display Features'; //to translate
-$strEnabled = 'Enabled'; //to translate
-$strEndCut = 'END CUT'; //to translate
-$strEndRaw = 'END RAW'; //to translate
-$strGeneralRelationFeat = 'General relation features'; //to translate
-$strInsecureMySQL = 'Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole.'; //to translate
-$strNoExplain = 'Skip Explain SQL'; //to translate
-$strNotOK = 'not OK'; //to translate
-$strNoValidateSQL = 'Skip Validate SQL'; //to translate
-$strOK = 'OK'; //to translate
-$strPdfNoTables = 'No tables'; //to translate
-$strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.'; //to translate
-$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:'; //to translate
-$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem'; //to translate
-$strSQPBugInvalidIdentifer = 'Invalid Identifer'; //to translate
-$strSQPBugUnclosedQuote = 'Unclosed quote'; //to translate
-$strSQPBugUnknownPunctuation = 'Unknown Punctuation String'; //to translate
-$strValidateSQL = 'Validate SQL'; //to translate
-$strWebServerUploadDirectory = 'web-server upload directory'; //to translate
 ?>
