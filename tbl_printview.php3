@@ -22,7 +22,7 @@ if(MYSQL_MAJOR_VERSION == "3.23")
     $row = mysql_fetch_array($result);
     if(!empty($row["Comment"]))
     {
-        echo "$strTableComments: $row[Comment]";
+        echo "$strTableComments: " . $row['Comment'];
     }
 }
 

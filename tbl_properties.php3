@@ -31,7 +31,7 @@ if(MYSQL_MAJOR_VERSION == "3.23")
     <input type="hidden" name="db" value="<?php echo $db;?>">
     <input type="hidden" name="table" value="<?php echo $table;?>">
     <?php
-    echo "$strTableComments: <input type='text' name='comment' value='$row[Comment]'><input type='submit' name='submitcomment' value='$strGo'></form>";
+    echo "$strTableComments: <input type='text' name='comment' value='" . $row['Comment'] . "'><input type='submit' name='submitcomment' value='$strGo'></form>";
 
     //BEGIN - Table Type - 2 May 2001 - Robbat2
     if(isset($submittype))
