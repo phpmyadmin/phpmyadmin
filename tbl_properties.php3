@@ -802,12 +802,18 @@ if (PMA_MYSQL_INT_VERSION >= 32334) {
     <?php
 }
 echo "\n";
-?>
 
+// loic1: displays import dump feature only if file upload available
+if ($is_upload) {
+    ?>
     <!-- Insert a text file -->
     <li>
         <div style="margin-bottom: 10px"><a href="ldi_table.php3?<?php echo $url_query; ?>"><?php echo $strInsertTextfiles; ?></a></div>
     </li>
+    <?php
+}
+echo "\n";
+?>
 
     <!-- Dump of a database -->
     <li>

@@ -13,6 +13,8 @@ $Source$
 	* lang/german.inc.php3: updated thanks to Alexander M. Turek.
 	* db_details.php3; tbl_properties.php3: tried to fix bug #494564 - No Sql
 	  Query! (2 MB).
+	* tbl_properties.php3; lines 806-917: removed the link for the "import
+	  dump" feature if file upload is disabled.
 
 2002-02-09 Marc Delisle  <lem9@users.sourceforge.net>
 	* main.php3, libraries/auth/cookie.auth.lib.php3, Patch
