@@ -201,7 +201,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      *                   without any programmatically appended "LIMIT" clause
      * @global  integer  the current position in results
      * @global  mixed    the maximum number of rows per page ('all' = no limit)
-     * @global  string   the display mode (horizontal/vertical)
+     * @global  string   the display mode (horizontal/vertical/horizontalflipped)
      * @global  integer  the number of row to display between two table headers
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
@@ -287,6 +287,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         // Display mode (horizontal/vertical and repeat headers)
         $param1 = '            <select name="disp_direction">' . "\n"
                 . '                <option value="horizontal"' . (($disp_direction == 'horizontal') ? ' selected="selected"': '') . '>' . $GLOBALS['strRowsModeHorizontal'] . '</option>' . "\n"
+                . '                <option value="horizontalflipped"' . (($disp_direction == 'horizontalflipped') ? ' selected="selected"': '') . '>' . $GLOBALS['strRowsModeFlippedHorizontal'] . '</option>' . "\n"
                 . '                <option value="vertical"' . (($disp_direction == 'vertical') ? ' selected="selected"': '') . '>' . $GLOBALS['strRowsModeVertical'] . '</option>' . "\n"
                 . '            </select>' . "\n"
                 . '           ';
@@ -399,7 +400,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      * @global  integer  the current position in results
      * @global  integer  the maximum number of rows per page
      * @global  array    informations used with vertical display mode
-     * @global  string   the display mode (horizontal/vertical)
+     * @global  string   the display mode (horizontal/vertical/horizontalflipped)
      * @global  integer  the number of row to display between two table headers
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
@@ -416,7 +417,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         global $vertical_display, $disp_direction, $repeat_cells;
         global $dontlimitchars;
 
-        if ($disp_direction == 'horizontal') {
+        if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             ?>
 <!-- Results table headers -->
 <tr>
@@ -429,7 +430,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         $vertical_display['textbtn']    = '';
 
         // 1. Displays the full/partial text button (part 1)...
-        if ($disp_direction == 'horizontal') {
+        if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             $colspan  = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
                       ? ' colspan="2"'
                       : '';
@@ -453,7 +454,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
             && $is_display['text_btn'] == '1') {
             $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
-            if ($disp_direction == 'horizontal') {
+            if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 ?>
     <td colspan="<?php echo $fields_cnt; ?>" align="center">
         <a href="<?php echo $text_url; ?>">
@@ -463,7 +464,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
 <tr>
                 <?php
-            } // end horizontal mode
+            } // end horizontal/horizontalflipped mode
             else {
                 echo "\n";
                 ?>
@@ -481,7 +482,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         //     and required
         else if ($GLOBALS['cfg']['ModifyDeleteAtLeft'] && $is_display['text_btn'] == '1') {
             $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
-            if ($disp_direction == 'horizontal') {
+            if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
     <td<?php echo $colspan; ?> align="center">
@@ -489,7 +490,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             <img src="./images/<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
     </td>
                 <?php
-            } // end horizontal mode
+            } // end horizontal/horizontalflipped mode
             else {
                 $vertical_display['textbtn'] = '    <td' . $rowspan . ' align="center" valign="middle">' . "\n"
                                              . '        <a href="' . $text_url . '">' . "\n"
@@ -502,13 +503,13 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         else if ($GLOBALS['cfg']['ModifyDeleteAtLeft']
                  && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')) {
             $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
-            if ($disp_direction == 'horizontal') {
+            if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
     <td<?php echo $colspan; ?>></td>
                 <?php
                 echo "\n";
-            } // end horizontal mode
+            } // end horizontal/horizontalfipped mode
             else {
                 $vertical_display['textbtn'] = '    <td' . $rowspan . '></td>' . "\n";
             } // end vertical mode
@@ -617,12 +618,12 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                            . '&amp;sql_query=' . urlencode($sorted_sql_query);
 
                 // 2.1.5 Displays the sorting url
-                if ($disp_direction == 'horizontal') {
+                if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                     echo "\n";
                     ?>
-    <th>
-        <a href="sql.php3?<?php echo $url_query; ?>">
-            <?php echo htmlspecialchars($fields_meta[$i]->name); ?></a><?php echo $order_img . "\n"; ?>
+    <th <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>>
+        <a href="sql.php3?<?php echo $url_query; ?>" <?php echo (($disp_direction == 'horizontalflipped' AND $GLOBALS['cfg']['HeaderFlipType'] == 'css') ? 'style = "direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
+            <?php echo ($disp_direction == 'horizontalflipped'  && $GLOBALS['cfg']['HeaderFlipType'] == 'fake' ? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)); ?></a><?php echo $order_img . "\n"; ?>
     </th>
                     <?php
                 }
@@ -634,11 +635,11 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
             // 2.2 Results can't be sorted
             else {
-                if ($disp_direction == 'horizontal') {
+                if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                     echo "\n";
                     ?>
-    <th>
-        <?php echo htmlspecialchars($fields_meta[$i]->name) . "\n"; ?>
+    <th <?php if ($disp_direction == 'horizontalflipped') echo 'valign="bottom"'; ?>  <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'css' ? 'style = "direction: ltr; writing-mode: tb-rl;"' : ''); ?>>
+        <?php echo ($disp_direction == 'horizontalflipped' && $GLOBALS['cfg']['HeaderFlipType'] == 'fake'? PMA_flipstring(htmlspecialchars($fields_meta[$i]->name), "<br />\n") : htmlspecialchars($fields_meta[$i]->name)) . "\n"; ?>
     </th>
                     <?php
                 }
@@ -654,7 +655,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
             && $is_display['text_btn'] == '1') {
             $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
-            if ($disp_direction == 'horizontal') {
+            if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
     <td<?php echo $colspan; ?> align="center">
@@ -662,7 +663,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
             <img src="./images/<?php echo (($dontlimitchars) ? 'partialtext' : 'fulltext'); ?>.png" border="0" width="50" height="20" alt="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" title="<?php echo (($dontlimitchars) ? $GLOBALS['strPartialText'] : $GLOBALS['strFullText']); ?>" /></a>
     </td>
                 <?php
-            } // end horizontal mode
+            } // end horizontal/horizontalflipped mode
             else {
                 $vertical_display['textbtn'] = '    <td' . $rowspan . ' align="center" valign="middle">' . "\n"
                                              . '        <a href="' . $text_url . '">' . "\n"
@@ -677,18 +678,18 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                  && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
                  && (!$GLOBALS['is_header_sent'])) {
             $vertical_display['emptyafter'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
-            if ($disp_direction == 'horizontal') {
+            if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
     <td<?php echo $colspan; ?>></td>
                 <?php
-            } // end horizontal mode
+            } // end horizontal/horizontalflipped mode
             else {
                 $vertical_display['textbtn'] = '    <td' . $rowspan . '></td>' . "\n";
             } // end vertical mode
         }
 
-        if ($disp_direction == 'horizontal') {
+        if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             echo "\n";
             ?>
 </tr>
@@ -725,7 +726,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      * @global  array    the list of fields properties
      * @global  integer  the total number of fields returned by the sql query
      * @global  array    informations used with vertical display mode
-     * @global  string   the display mode (horizontal/vertical)
+     * @global  string   the display mode (horizontal/vertical/horizontalflipped)
      * @global  integer  the number of row to display between two table headers
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not
@@ -773,7 +774,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         while ($row = PMA_mysql_fetch_array($dt_result)) {
 
             // lem9: "vertical display" mode stuff
-            if (($row_no != 0) && ($repeat_cells != 0) && !($row_no % $repeat_cells) && $disp_direction == 'horizontal') {
+            if (($row_no != 0) && ($repeat_cells != 0) && !($row_no % $repeat_cells) && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
                 echo '<tr>' . "\n";
 
                 for ($foo_i = 0; $foo_i < $vertical_display['emptypre']; $foo_i++) {
@@ -798,7 +799,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 $bgcolor = ($row_no % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
             }
 
-            if ($disp_direction == 'horizontal') {
+            if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 // loic1: pointer code part
                 $on_mouse     = '';
                 if (!isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1')) {
@@ -939,7 +940,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                 // 1.3 Displays the links at left if required
                 if ($GLOBALS['cfg']['ModifyDeleteAtLeft']
-                    && ($disp_direction == 'horizontal')) {
+                    && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
                     if (!empty($edit_url)) {
                         echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
                         echo PMA_linkOrButton($edit_url, $edit_str, '');
@@ -951,7 +952,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         echo '    </td>' . "\n";
                     }
                 } // end if (1.3)
-                echo (($disp_direction == 'horizontal') ? "\n" : '');
+                echo (($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') ? "\n" : '');
             } // end if (1)
 
             // 2. Displays the rows' values
@@ -1143,7 +1144,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 }
 
                 // lem9: output stored cell
-                if ($disp_direction == 'horizontal') {
+                if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                     echo $vertical_display['data'][$row_no][$i];
                 }
 
@@ -1156,7 +1157,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
             // 3. Displays the modify/delete links on the right if required
             if ($GLOBALS['cfg']['ModifyDeleteAtRight']
-                && ($disp_direction == 'horizontal')) {
+                && ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped')) {
                 if (!empty($edit_url)) {
                     echo '    <td bgcolor="' . $bgcolor . '">' . "\n";
                     echo PMA_linkOrButton($edit_url, $edit_str, '');
@@ -1169,7 +1170,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                 }
             } // end if (3)
 
-            if ($disp_direction == 'horizontal') {
+            if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
                 echo "\n";
                 ?>
 </tr>
@@ -1195,7 +1196,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                                                      .  '    </td>' . "\n";
             }
 
-            echo (($disp_direction == 'horizontal') ? "\n" : '');
+            echo (($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') ? "\n" : '');
             $row_no++;
         } // end while
 
@@ -1362,7 +1363,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      * @global  array    the list of fields properties
      * @global  integer  the total number of fields returned by the sql query
      * @global  array    informations used with vertical display mode
-     * @global  string   the display mode (horizontal/vertical)
+     * @global  string   the display mode (horizontal/vertical/horizontalflipped)
      * @global  integer  the number of row to display between two table headers
      * @global  boolean  whether to limit the number of displayed characters of
      *                   text type fields or not

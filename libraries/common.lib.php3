@@ -1658,6 +1658,50 @@ if (typeof(document.getElementById) != 'undefined'
         }
     }
 
+    /**
+     * Takes a string and outputs each character on a line for itself. Used mainly for horizontalflipped display mode.
+     * Takes care of special html-characters.
+     * Fulfills todo-item http://sourceforge.net/tracker/index.php?func=detail&aid=544361&group_id=23067&atid=377411
+     *
+     * @param   string   The string
+     * @param   string   The seperator (defaults to "<br />\n")
+     *
+     * @access  public
+     * @author  Garvin Hicking <me@supergarv.de>
+     * @return  string      The flipped string
+     */
+    function PMA_flipstring($string, $seperator = "<br />\n") {
+        $format_string = '';
+        $charbuff = false;
+        
+        for ($i = 0; $i <= strlen($string); $i++) {
+            $char = substr($string, $i, 1);
+            $append = false;
+
+            if ($char == '&') {
+                $format_string .= $charbuff;
+                $charbuff = $char;
+                $append = true;
+            } elseif (!empty($charbuff)) {
+                $charbuff .= $char;
+            } elseif ($char == ';' && !empty($charbuff)) {
+                $format_string .= $charbuff;
+                $charbuff = false;
+                $append = true;
+            }
+            else
+            {
+                $format_string .= $char;
+                $append = true;
+            }
+
+            if ($append && ($i != strlen($string))) {
+                $format_string .= $seperator;
+            }
+        }
+
+        return $format_string;
+    }
 
     // Kanji encoding convert feature appended by Y.Kawada (2002/2/20)
     if (PMA_PHP_INT_VERSION >= 40006
