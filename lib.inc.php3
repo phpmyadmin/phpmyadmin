@@ -93,6 +93,11 @@ if (!defined('__LIB_INC__')){
     if (!isset($cfgTextareaRows)) {
         $cfgTextareaRows = 7;
     }
+    // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
+    // exist
+    if (substr($cfgPmaAbsoluteUri, -1) != '/') {
+        $cfgPmaAbsoluteUri .= '/';
+    }
     include('./defines.inc.php3');
 
 
@@ -214,6 +219,17 @@ if (!defined('__LIB_INC__')){
     else if (isset($cfgServers[$server])) {
         $cfgServer = $cfgServers[$server];
 
+        // Check how the config says to connect to the server
+        $server_port   = (empty($cfgServer['port']))
+                       ? ''
+                       : ':' . $cfgServer['port'];
+        if (strtolower($cfgServer['connect_type']) == 'tcp') {
+            $cfgServer['socket'] = '';
+        }
+        $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
+                       ? ''
+                       : ':' . $cfgServer['socket'];
+
         // The user can work with only some databases
         if (isset($cfgServer['only_db']) && !empty($cfgServer['only_db'])) {
             if (is_array($cfgServer['only_db'])) {
@@ -281,22 +297,11 @@ if (!defined('__LIB_INC__')){
                 }
             }
 
-            // Check how the config says to connect to the server
-            if (strtolower($cfgServer['connect_type']) == 'tcp') {
-                $cfgServer['socket'] = '';
-                }
-
             // Calls the authentication window or validates user's login
             if ($do_auth) {
                 auth();
             } else {
-                $server_port   = (empty($cfgServer['port']))
-                               ? ''
-                               : ':' . $cfgServer['port'];
-                $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
-                               ? ''
-                               : ':' . $cfgServer['socket'];
-                $dbh           = @$connect_func(
+                $dbh             = @$connect_func(
                                      $cfgServer['host'] . $server_port . $server_socket,
                                      $cfgServer['stduser'],
                                      $cfgServer['stdpass']
@@ -395,13 +400,7 @@ if (!defined('__LIB_INC__')){
         } // end Advanced authentication
 
         // Do connect to the user's database
-        $server_port   = (empty($cfgServer['port']))
-                       ? ''
-                       : ':' . $cfgServer['port'];
-        $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
-                       ? ''
-                       : ':' . $cfgServer['socket'];
-        $link          = @$connect_func(
+        $link            = @$connect_func(
                              $cfgServer['host'] . $server_port . $server_socket,
                              $cfgServer['user'],
                              $cfgServer['password']
@@ -1203,7 +1202,7 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 }
                 $primary = mysql_fetch_field($dt_result, $i);
                 if ($primary->numeric == 1) {
-                    echo '    <td align="right">' . $row[$i] . '&nbsp;</td>' . "\n";
+                    echo '    <td align="right">' . $row[$i] . '</td>' . "\n";
                 } else if ($GLOBALS['cfgShowBlob'] == FALSE && eregi('BLOB', $primary->type)) {
                     // loic1 : mysql_fetch_fields returns BLOB in place of TEXT
                     // fields type, however TEXT fields must be displayed even
@@ -1219,15 +1218,15 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                             $row[$i] = substr($row[$i], 0, $GLOBALS['cfgLimitChars']) . '...';
                         }
                         // loic1 : displays <cr>/<lf>
-                        //  echo '    <td>' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
+                        //  echo '    <td>' . htmlspecialchars($row[$i]) . '</td>' . "\n";
                         $row[$i]     = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
-                        echo '    <td>' . $row[$i] . '&nbsp;</td>' . "\n";
+                        echo '    <td>' . $row[$i] . '</td>' . "\n";
                     }
                 } else {
                     // loic1 : displays <cr>/<lf>
-                    // echo '    <td>' . htmlspecialchars($row[$i]) . '&nbsp;</td>' . "\n";
+                    // echo '    <td>' . htmlspecialchars($row[$i]) . '</td>' . "\n";
                     $row[$i] = ereg_replace("((\015\012)|(\015)|(\012))+", '<br />', htmlspecialchars($row[$i]));
-                    echo '    <td>' . $row[$i] . '&nbsp;</td>' . "\n";
+                    echo '    <td>' . $row[$i] . '</td>' . "\n";
                 }
             } // end for
             // Possibility to have the modify/delete button on the left added
