@@ -202,6 +202,7 @@ else {
             $tmp_select = implode($table_select, '|');
             $tmp_select = '|' . $tmp_select . '|';
         }
+        
         while ($i < $num_tables) {
             if (!isset($single)) {
                 $table = PMA_mysql_tablename($tables, $i);
@@ -213,18 +214,19 @@ else {
                                       ? PMA_backquote($table)
                                       : '\'' . $table . '\'';
                 // If only datas, no need to displays table name
-                if (isset($sql_structure) && $sql_structure == 'structure') {
+                if ((isset($sql_structure) && $sql_structure == 'structure') || ($what != 'sql' && $what != 'dataonly')) {
                     $dump_buffer .= '# --------------------------------------------------------' . $crlf
                                  .  $crlf . '#' . $crlf
                                  .  '# ' . $strTableStructure . ' ' . $formatted_table_name . $crlf
                                  .  '#' . $crlf . $crlf
                                  .  PMA_getTableDef($db, $table, $crlf, $err_url, $use_comments_work) . ';' . $crlf;
                 }
+                
                 if (function_exists('PMA_kanji_str_conv')) { // Y.Kawada
                     $dump_buffer = PMA_kanji_str_conv($dump_buffer, $knjenc, isset($xkana) ? $xkana : '');
                 }
                 // At least data
-                if (isset($sql_data) && $sql_data == 'data') {
+                if ((isset($sql_data) && $sql_data == 'data') || (!isset($sql_data) && ($what == 'data' || $what == 'dataonly'))) {
                     $tcmt = $crlf . '#' . $crlf
                                  .  '# ' . $strDumpingData . ' ' . $formatted_table_name . $crlf
                                  .  '#' . $crlf .$crlf;

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-03-12 Garvin Hicking <me@supergarv.de>
+    * New $sql_structure variable for the new table export design broke
+      DB export functionality. Fixed this.
+
 2003-03-12 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/ukrainian: update, thanks to Markijan Baran
 
