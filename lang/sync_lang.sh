@@ -31,7 +31,7 @@ french-iso-8859-1
 galician-iso-8859-1
 german-iso-8859-1
 greek-iso-8859-7
-hebrew
+hebrew-iso-8859-8-i
 hungarian
 indonesian
 italian
@@ -60,7 +60,7 @@ EOT`
 # as above.
 #
 IGNORE_UTF=`cat <<EOT
-hebrew
+hebrew-iso-8859-8-i
 korean
 EOT`
 
