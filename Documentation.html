@@ -2909,18 +2909,16 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
 
 <a name="underscore"></a><br />
 <h4>
-    [6.10] My database has an underscore in it's name, and when I grant
-    privileges to a user for this database, a backslash is added before the
-    underscore.
+    [6.10] When creating a privilege, what happens with underscores in 
+    the database name?
 </h4>
 <p>
-    This is normal and means that the grant is done only for this database. If
-    there was no backslash, this would be a wildcard grant, and the
-     underscore would mean &quot;any character&quot;. So, if the database name
-    is &quot;john_db&quot;, the user would get rights to john1db, john2db...
-    instead of just john_db.<br /><br />
-    If you really want to grant using a wildcard, there is a dialog box &quot;
-    Database (wildcards allowed)&quot; for this.
+    If you do not put a backslash before the underscore, this is a wildcard 
+    grant, and the underscore means &quot;any character&quot;. So, if the 
+    database name is &quot;john_db&quot;, the user would get rights to john1db,
+    john2db...<br /><br />
+    If you put a backslash before the underscore, it means that the database
+    name will have a real underscore.
 </p>
 
 <h4>
