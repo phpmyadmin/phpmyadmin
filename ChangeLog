@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/*.php3, pdf_schema.php3, pdf_pages.php3, db_details_structure.php3:
+      new data dict feature for PDF pages, thanks to Maxime Delorme
+
 2002-12-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/swedish.inc.php3: Updates, thanks again to Björn T. Hallberg (bth).
 

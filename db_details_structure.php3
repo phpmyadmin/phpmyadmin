@@ -518,7 +518,9 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
             <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
             <label for="show_table_dim_opt"><?php echo $strShowTableDimension; ?></label><br />
             <input type="checkbox" name="all_tab_same_wide" id="all_tab_same_wide" />
-            <label for="all_tab_same_wide"><?php echo $strAllTableSameWidth; ?></label>
+            <label for="all_tab_same_wide"><?php echo $strAllTableSameWidth; ?></label> <br />
+            <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
+            <label for="with_doc"><?php echo $strDataDict; ?></label>
             &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
         </form>
     </li>

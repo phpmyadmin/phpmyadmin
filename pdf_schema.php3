@@ -84,7 +84,11 @@ class PMA_PDF extends FPDF
     var $t_marg = 10;
     var $scale;
     var $title;
-
+    var $PMA_links;
+    var $Outlines=array();
+    var $def_outlines;
+    var $Alias ;
+    var $widths;
 
     /**
      * The PMA_PDF constructor
@@ -103,14 +107,29 @@ class PMA_PDF extends FPDF
      */
     function PMA_PDF($orientation = 'P', $unit = 'mm', $format = 'A4')
     {
+        $this->Alias = array() ;
         $this->FPDF($orientation, $unit, $format);
     } // end of the "PMA_PDF()" method
-
+    function SetAlias($name, $value)
+    {
+        $this->Alias[$name] = $value ;
+    }
+    function _putpages()
+    {
+        if(count($this->Alias) > 0)
+        {
+            $nb=$this->page;
+            foreach($this->Alias as $alias => $value)
+            for($n=1;$n<=$nb;$n++)
+            $this->pages[$n]=str_replace($alias,$value,$this->pages[$n]);
+        }
+        parent::_putpages();
+    }
 
     /**
-     * Sets the scalling factor, defines minimum coordinates and margins
+     * Sets the scaling factor, defines minimum coordinates and margins
      *
-     * @param  double  The scalling factor
+     * @param  double  The scaling factor
      * @param  double  The minimum X coordinate
      * @param  double  The minimum Y coordinate
      * @param  double  The left margin
@@ -133,7 +152,7 @@ class PMA_PDF extends FPDF
 
 
     /**
-     * Outputs a scalled cell
+     * Outputs a scaled cell
      *
      * @param   double   The cell width
      * @param   double   The cell height
@@ -147,16 +166,16 @@ class PMA_PDF extends FPDF
      *
      * @see     FPDF::Cell()
      */
-    function PMA_PDF_cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0, $align = '', $fill = 0)
+    function PMA_PDF_cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0, $align = '', $fill = 0,$link ='')
     {
         $h = $h / $this->scale;
         $w = $w / $this->scale;
-        $this->Cell($w, $h, $txt, $border, $ln, $align, $fill);
+        $this->Cell($w, $h, $txt, $border, $ln, $align, $fill,$link);
     } // end of the "PMA_PDF_cellScale" function
 
 
     /**
-     * Draws a scalled line
+     * Draws a scaled line
      *
      * @param   double  The horizontal position of the starting point
      * @param   double  The vertical position of the starting point
@@ -178,7 +197,7 @@ class PMA_PDF extends FPDF
 
 
     /**
-     * Sets x and y scalled positions
+     * Sets x and y scaled positions
      *
      * @param   double  The x position
      * @param   double  The y position
@@ -196,7 +215,7 @@ class PMA_PDF extends FPDF
 
 
     /**
-     * Sets the X scalled positions
+     * Sets the X scaled positions
      *
      * @param   double  The x position
      *
@@ -212,7 +231,7 @@ class PMA_PDF extends FPDF
 
 
     /**
-     * Sets the scalled font size
+     * Sets the scaled font size
      *
      * @param   double   The font size (in points)
      *
@@ -229,7 +248,7 @@ class PMA_PDF extends FPDF
 
 
     /**
-     * Sets the scalled line width
+     * Sets the scaled line width
      *
      * @param   double  The line width
      *
@@ -304,6 +323,238 @@ class PMA_PDF extends FPDF
     {
         $this->PMA_PDF_die($error_message);
     } // end of the "Error()" method
+
+    function Header(){
+        //$datefmt
+        // We only show this if we find something in the new pdf_pages table
+        //
+        // This function must be named "Header" to work with the FPDF library
+
+    global $cfgRelation,$db,$pdf_page_number,$with_doc;
+    if ($with_doc){
+        $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
+                    . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                    . ' AND page_nr = \'' . $pdf_page_number . '\'';
+        $test_rs    = PMA_query_as_cu($test_query);
+        $pages = @PMA_mysql_fetch_array($test_rs);
+        $this->SetFont('', 'B');
+        $this->Cell(0,6, ucfirst($pages['page_descr']),'B',1,'C');
+        $this->SetFont('', '');
+        $this->Ln();
+    }
+    }
+    function Footer(){
+        // This function must be named "Footer" to work with the FPDF library
+        global $with_doc;
+        if ($with_doc){
+            $this->SetY(-15);
+            $this->Cell(0,6, $GLOBALS['strPageNumber'] .' '.$this->PageNo() .'/{nb}','T',0,'C');
+            $this->Cell(0,6, PMA_localisedDate(),0,1,'R');
+            $this->SetY(20);
+        }
+    }
+    function Bookmark($txt,$level=0,$y=0)
+{
+   //Add a bookmark
+   $this->Outlines[0][]=$level;
+   $this->Outlines[1][]=$txt;
+   $this->Outlines[2][]=$this->page;
+   if($y==-1)
+      $y=$this->GetY();
+   $this->Outlines[3][]=round($this->hPt-$y*$this->k,2);
+}
+
+function _putbookmarks()
+{
+   if(count($this->Outlines)>0)
+   {
+      //Save object number
+      $memo_n = $this->n;
+      //Take the number of sub elements for an outline
+      $nb_outlines=sizeof($this->Outlines[0]);
+      $first_level=array();
+      $parent=array();
+      $parent[0]=1;
+      for( $i=0; $i<$nb_outlines; $i++)
+      {
+         $level=$this->Outlines[0][$i];
+         $kids=0;
+         $last=-1;
+         $prev=-1;
+         $next=-1;
+         if( $i>0 )
+         {
+            $cursor=$i-1;
+            //Take the previous outline in the same level
+            while( $this->Outlines[0][$cursor] > $level && $cursor > 0)
+               $cursor--;
+            if( $this->Outlines[0][$cursor] == $level)
+               $prev=$cursor;
+         }
+         if( $i<$nb_outlines-1)
+         {
+            $cursor=$i+1;
+            while( isset($this->Outlines[0][$cursor]) && $this->Outlines[0][$cursor] > $level)
+            {
+               //Take the immediate kid in level + 1
+               if( $this->Outlines[0][$cursor] == $level+1)
+               {
+                  $kids++;
+                  $last=$cursor;
+               }
+               $cursor++;
+            }
+            $cursor=$i+1;
+            //Take the next outline in the same level
+            while( $this->Outlines[0][$cursor] > $level && ($cursor+1 < sizeof($this->Outlines[0])))
+               $cursor++;
+            if( $this->Outlines[0][$cursor] == $level)
+               $next=$cursor;
+         }
+         $this->_newobj();
+         $parent[$level+1]=$this->n;
+         if( $level == 0)
+            $first_level[]=$this->n;
+         $this->_out('<<');
+         $this->_out('/Title ('.$this->Outlines[1][$i].')');
+         $this->_out('/Parent '.$parent[$level].' 0 R');
+         if( $prev != -1)
+            $this->_out('/Prev '.($memo_n+$prev+1).' 0 R');
+         if( $next != -1)
+            $this->_out('/Next '.($this->n+$next-$i).' 0 R');
+         $this->_out('/Dest ['.(1+(2*$this->Outlines[2][$i])).' 0 R /XYZ null '.$this->Outlines[3][$i].' null]');
+         if( $kids > 0)
+         {
+            $this->_out('/First '.($this->n+1).' 0 R');
+            $this->_out('/Last '.($this->n+$last-$i).' 0 R');
+            $this->_out('/Count -'.$kids);
+         }
+         $this->_out('>>');
+         $this->_out('endobj');
+      }
+      //First page of outlines
+      $this->_newobj();
+      $this->def_outlines = $this->n;
+      $this->_out('<<');
+      $this->_out('/Type');
+      $this->_out('/Outlines');
+      $this->_out('/First '.$first_level[0].' 0 R');
+      $this->_out('/Last '.$first_level[sizeof($first_level)-1].' 0 R');
+      $this->_out('/Count '.sizeof($first_level));
+      $this->_out('>>');
+      $this->_out('endobj');
+   }
+}
+
+function _putresources()
+{
+   parent::_putresources();
+   $this->_putbookmarks();
+}
+
+function _putcatalog()
+{
+   parent::_putcatalog();
+   if(count($this->Outlines)>0)
+   {
+      $this->_out('/Outlines '.$this->def_outlines.' 0 R');
+      $this->_out('/PageMode /UseOutlines');
+   }
+}
+function SetWidths($w)
+{
+   // column widths
+   $this->widths=$w;
+}
+
+function Row($data,$links)
+{
+   // line height
+   $nb=0;
+   for($i=0;$i<count($data);$i++)
+      $nb=max($nb,$this->NbLines($this->widths[$i],$data[$i]));
+   $il = 2.7;
+   $h=$il*$nb;
+   // page break if necessary
+   $this->CheckPageBreak($h);
+   // draw the cells
+   for($i=0;$i<count($data);$i++)
+   {
+      $w=$this->widths[$i];
+      // save current position
+      $x=$this->GetX();
+      $y=$this->GetY();
+      // draw the border
+      $this->Rect($x,$y,$w,$h);
+      if (isset($links[$i]))
+      $this->Link($x,$y,$w,$h,$links[$i]);
+      // print text
+      $this->MultiCell($w,$il,$data[$i],0,'L');
+      // go to right side
+      $this->SetXY($x+$w,$y);
+   }
+   // go to line
+   $this->Ln($h);
+}
+
+function CheckPageBreak($h)
+{
+   // if height h overflows, manual page break
+   if($this->GetY()+$h>$this->PageBreakTrigger)
+      $this->AddPage($this->CurOrientation);
+}
+
+function NbLines($w,$txt)
+{
+   // compute number of lines used by a multicell of width w
+   $cw=&$this->CurrentFont['cw'];
+   if($w==0)
+      $w=$this->w-$this->rMargin-$this->x;
+   $wmax=($w-2*$this->cMargin)*1000/$this->FontSize;
+   $s=str_replace("\r",'',$txt);
+   $nb=strlen($s);
+   if($nb>0 and $s[$nb-1]=="\n")
+      $nb--;
+   $sep=-1;
+   $i=0;
+   $j=0;
+   $l=0;
+   $nl=1;
+   while($i<$nb)
+   {
+      $c=$s[$i];
+      if($c=="\n")
+      {
+         $i++;
+         $sep=-1;
+         $j=$i;
+         $l=0;
+         $nl++;
+         continue;
+      }
+      if($c==' ')
+         $sep=$i;
+      $l+=$cw[$c];
+      if($l>$wmax)
+      {
+         if($sep==-1)
+         {
+            if($i==$j)
+               $i++;
+         }
+         else
+            $i=$sep+1;
+         $sep=-1;
+         $j=$i;
+         $l=0;
+         $nl++;
+      }
+      else
+         $i++;
+   }
+   return $nl;
+}
+
 } // end of the "PMA_PDF" class
 
 
@@ -384,7 +635,7 @@ class PMA_RT_Table
      */
     function PMA_RT_Table_draw($show_info, $ff, $same_wide = 0, $same_wide_width = 0)
     {
-        global $pdf;
+        global $pdf, $with_doc;
 
         if ($same_wide == 1 && $same_wide_width > 0) {
             $this->width = $same_wide_width;
@@ -394,10 +645,12 @@ class PMA_RT_Table
         $pdf->SetFont($ff, 'B');
         $pdf->SetTextColor(200);
         $pdf->SetFillColor(0, 0, 128);
+        if ($with_doc) $pdf->SetLink($pdf->PMA_links['RT'][$this->table_name]['-'],-1);
+        else $pdf->PMA_links['doc'][$this->table_name]['-'] = '';
         if ($show_info){
-            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->height) . ' ' . $this->table_name, 1, 1, 'C', 1);
+            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->height) . ' ' . $this->table_name, 1, 1, 'C', 1,$pdf->PMA_links['doc'][$this->table_name]['-']);
         } else {
-            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, $this->table_name, 1, 1, 'C', 1);
+            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, $this->table_name, 1, 1, 'C', 1,$pdf->PMA_links['doc'][$this->table_name]['-']);
         }
         $pdf->PMA_PDF_setXScale($this->x);
         $pdf->SetFont($ff, '');
@@ -414,14 +667,18 @@ class PMA_RT_Table
             if ($field == $this->displayfield) {
                 $pdf->SetFillColor(142, 159, 224);
             }
-            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, ' ' . $field, 1, 1, 'L', 1);
+            if ($with_doc) $pdf->SetLink($pdf->PMA_links['RT'][$this->table_name][$field],-1);
+            else $pdf->PMA_links['doc'][$this->table_name][$field] = '';
+
+
+            $pdf->PMA_PDF_cellScale($this->width, $this->height_cell, ' ' . $field, 1, 1, 'L', 1,$pdf->PMA_links['doc'][$this->table_name][$field]);
             $pdf->PMA_PDF_setXScale($this->x);
             $pdf->SetFillColor(255);
         } // end while
 
-        if ($pdf->PageNo() > 1) {
+        /*if ($pdf->PageNo() > 1) {
             $pdf->PMA_PDF_die($GLOBALS['strScaleFactorSmall']);
-        }
+        } */
     } // end of the "PMA_RT_Table_draw()" method
 
 
@@ -803,7 +1060,8 @@ class PMA_RT
     function PMA_RT_showRt()
     {
         global $pdf, $db, $pdf_page_number;
-
+        $pdf->SetFontSize(14);
+        $pdf->SetLineWidth(0.2);
         $pdf->SetDisplayMode('fullpage');
         $pdf->Output($db . '_' . $pdf_page_number . '.pdf', TRUE);
         //$pdf->Output('', TRUE);
@@ -813,7 +1071,7 @@ class PMA_RT
     /**
      * The "PMA_RT" constructor
      *
-     * @param   mixed    The scalling factor
+     * @param   mixed    The scaling factor
      * @param   integer  The page number to draw (from the
      *                   $cfg['Servers'][$i]['table_coords'] table)
      * @param   boolean  Whether to display table position or not
@@ -831,7 +1089,7 @@ class PMA_RT
      */
     function PMA_RT($scale, $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0, $all_tab_same_wide = 0)
     {
-        global $pdf, $db, $cfgRelation;;
+        global $pdf, $db, $cfgRelation, $with_doc;
 
         // Font face depends on the current language
         $this->ff        = str_replace('"', '', substr($GLOBALS['right_font_family'], 0, strpos($GLOBALS['right_font_family'], ',')));
@@ -845,7 +1103,7 @@ class PMA_RT
         $pdf->SetTitle($pdf->title);
         $pdf->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $pdf->AliasNbPages();
-        $pdf->Addpage();
+
         $pdf->SetFont($this->ff, '', 14);
         $pdf->SetAutoPageBreak('auto');
 
@@ -862,6 +1120,26 @@ class PMA_RT
             $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
             $intable     = '\'' . implode('\', \'', $alltables) . '\'';
         }
+        //              make doc                    //
+        if ($with_doc) {
+            $pdf->SetAutoPageBreak('auto',15);
+            $pdf->cMargin = 1;
+            PMA_RT_DOC($alltables);
+            $pdf->SetAutoPageBreak('auto');
+            $pdf->cMargin = 0;
+        }
+
+        $pdf->Addpage();
+
+
+        if ($with_doc) {
+            $pdf->SetLink($pdf->PMA_links['RT']['-'],-1);
+            $pdf->Bookmark($GLOBALS['strRelationalSchema']);
+            $pdf->SetAlias('{00}', $pdf->PageNo()) ;
+            $this->t_marg = 18;
+            $this->b_marg = 18;
+        }
+
 
         $sql    = 'SELECT * FROM ' . PMA_backquote($cfgRelation['relation'])
                 .   ' WHERE master_db   = \'' . PMA_sqlAddslashes($db) . '\' '
@@ -912,7 +1190,254 @@ class PMA_RT
     } // end of the "PMA_RT()" method
 } // end of the "PMA_RT" class
 
+function PMA_RT_DOC($alltables ){
+    global  $db, $pdf;
+    //TOC
+    $pdf->addpage("P");
+    $pdf->Cell(0,9, $GLOBALS['strTableOfContents'],1,0,'C');
+    $pdf->Ln(15);
+    $i = 1;
+    foreach($alltables as $table ){
+        $pdf->PMA_links['doc'][$table]['-'] = $pdf->AddLink();
+        $pdf->SetX(10);
+        //$pdf->Ln(1);
+        $pdf->Cell(0,6,'page {'.sprintf("%02d", $i).'}',0,0,'R',0,$pdf->PMA_links['doc'][$table]['-']);
+        $pdf->SetX(10);
+        $pdf->Cell(0,6,$i.' '. $table,0,1,'L',0,$pdf->PMA_links['doc'][$table]['-']);
 
+        //$pdf->Ln(1);
+        $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        while ($row = PMA_mysql_fetch_array($result)) {
+            $pdf->SetX(20);
+            $field_name = $row['Field'];
+            $pdf->PMA_links['doc'][$table][$field_name] =$pdf->AddLink();
+            //$pdf->Cell(0,6,$field_name,0,1,'L',0,$pdf->PMA_links['doc'][$table][$field_name]);
+        }
+    $i++;
+    }
+    $pdf->PMA_links['RT']['-'] =$pdf->AddLink();
+    $pdf->SetX(10);
+    $pdf->Cell(0,6,'page {00}',0,0,'R',0,$pdf->PMA_links['doc'][$table]['-']);
+    $pdf->SetX(10);
+    $pdf->Cell(0,6,$i.' '. $GLOBALS['strRelationalSchema'],0,1,'L',0,$pdf->PMA_links['RT']['-']);
+    $z = 0;
+    foreach($alltables as $table ){
+        $z++;
+        $pdf->addpage("P");
+        $pdf->Bookmark($table);
+        $pdf->SetAlias('{'.sprintf("%02d", $z).'}', $pdf->PageNo()) ;
+        $pdf->PMA_links['RT'][$table]['-'] =$pdf->AddLink();
+        $pdf->SetLink($pdf->PMA_links['doc'][$table]['-'],-1);
+        $pdf->SetFont('', 'B',18);
+        $pdf->Cell(0,8, $z .' '.$table,1,1,'C',0,$pdf->PMA_links['RT'][$table]['-']);
+        $pdf->SetFont('', '',8);
+        $pdf->ln();
+
+    $cfgRelation  = PMA_getRelationsParam();
+    if ($cfgRelation['commwork']) {
+        $comments = PMA_getComments($db, $table);
+    }
+
+
+    /**
+     * Gets table informations
+     */
+    // The 'show table' statement works correct since 3.23.03
+    if (PMA_MYSQL_INT_VERSION >= 32303) {
+         $local_query  = "SHOW TABLE STATUS LIKE '" . PMA_sqlAddslashes($table, TRUE) . "'";
+         $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+         $showtable    = PMA_mysql_fetch_array($result);
+         $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+         $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
+    } else {
+         $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
+         $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+         $showtable    = array();
+         $num_rows     = PMA_mysql_result($result, 0, 'count');
+         $show_comment = '';
+    } // end display comments
+    if ($result) {
+         mysql_free_result($result);
+    }
+
+
+    /**
+     * Gets table keys and retains them
+     */
+    $local_query  = 'SHOW KEYS FROM ' . PMA_backquote($table);
+    $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $primary      = '';
+    $indexes      = array();
+    $lastIndex    = '';
+    $indexes_info = array();
+    $indexes_data = array();
+    $pk_array     = array(); // will be use to emphasis prim. keys in the table
+                             // view
+    while ($row = PMA_mysql_fetch_array($result)) {
+        // Backups the list of primary keys
+        if ($row['Key_name'] == 'PRIMARY') {
+            $primary   .= $row['Column_name'] . ', ';
+            $pk_array[$row['Column_name']] = 1;
+        }
+        // Retains keys informations
+        if ($row['Key_name'] != $lastIndex ){
+            $indexes[] = $row['Key_name'];
+            $lastIndex = $row['Key_name'];
+        }
+        $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
+        $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
+        if (isset($row['Cardinality'])) {
+            $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
+        }
+        // I don't know what does following column mean....
+        // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
+        $indexes_info[$row['Key_name']]['Comment']         = $row['Comment'];
+
+        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
+        if (isset($row['Sub_part'])) {
+            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
+        }
+
+    } // end while
+    if ($result) {
+        mysql_free_result($result);
+    }
+
+
+    /**
+     * Gets fields properties
+     */
+    $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
+    $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+    $fields_cnt  = mysql_num_rows($result);
+
+
+    // Check if we can use Relations (Mike Beck)
+    if (!empty($cfgRelation['relation'])) {
+        // Find which tables are related with the current one and write it in
+        // an array
+        $res_rel = PMA_getForeigners($db, $table);
+
+        if (count($res_rel) > 0) {
+            $have_rel = TRUE;
+        } else {
+            $have_rel = FALSE;
+        }
+    }
+    else {
+        $have_rel = FALSE;
+    } // end if
+
+
+    /**
+     * Displays the comments of the table if MySQL >= 3.23
+     */
+
+    if (!empty($show_comment)) {
+        $pdf->Cell(0,8,$GLOBALS['strTableComments'] . ' : ' . $show_comment,0,1);
+        $pdf->Ln();
+    }
+
+    $i = 0;
+    $pdf->SetFont('', 'B');
+        $pdf->Cell(20,8,ucfirst($GLOBALS['strField']),1,0,'C');
+        $pdf->Cell(20,8,ucfirst($GLOBALS['strType']),1,0,'C');
+        $pdf->Cell(20,8,ucfirst($GLOBALS['strAttr']),1,0,'C');
+        $pdf->Cell(10,8,ucfirst($GLOBALS['strNull']),1,0,'C');
+        $pdf->Cell(15,8,ucfirst($GLOBALS['strDefault']),1,0,'C');
+        $pdf->Cell(15,8,ucfirst($GLOBALS['strExtra']),1,0,'C');
+        $pdf->Cell(30,8,ucfirst($GLOBALS['strLinksTo']),1,0,'C');
+        $pdf->Cell(60,8,ucfirst($GLOBALS['strComments']),1,1,'C');
+    $pdf->SetFont('', '');
+    $pdf->SetWidths(array(20,20,20,10,15,15,30,60));
+
+    while ($row = PMA_mysql_fetch_array($result)) {
+        $bgcolor = ($i % 2) ?$GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
+        $i++;
+
+        $type             = $row['Type'];
+        // reformat mysql query output - staybyte - 9. June 2001
+        // loic1: set or enum types: slashes single quotes inside options
+        if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
+            $tmp[2]       = substr(ereg_replace("([^,])''", "\\1\\'", ',' . $tmp[2]), 1);
+            $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+            $type_nowrap  = '';
+        } else {
+            $type_nowrap  = ' nowrap="nowrap"';
+        }
+        $type             = eregi_replace('BINARY', '', $type);
+        $type             = eregi_replace('ZEROFILL', '', $type);
+        $type             = eregi_replace('UNSIGNED', '', $type);
+        if (empty($type)) {
+            $type         = '&nbsp;';
+        }
+
+        $binary           = eregi('BINARY', $row['Type'], $test);
+        $unsigned         = eregi('UNSIGNED', $row['Type'], $test);
+        $zerofill         = eregi('ZEROFILL', $row['Type'], $test);
+        $strAttribute     = ' ';
+        if ($binary) {
+            $strAttribute = 'BINARY';
+        }
+        if ($unsigned) {
+            $strAttribute = 'UNSIGNED';
+        }
+        if ($zerofill) {
+            $strAttribute = 'UNSIGNED ZEROFILL';
+        }
+        if (!isset($row['Default'])) {
+            if ($row['Null'] != '') {
+                $row['Default'] = 'NULL';
+            }
+        }
+        $field_name = $row['Field'];
+        //$pdf->Ln();
+        $pdf->PMA_links['RT'][$table][$field_name] =$pdf->AddLink();
+        $pdf->Bookmark($field_name,1,-1);
+        $pdf->SetLink($pdf->PMA_links['doc'][$table][$field_name],-1);
+        $pdf_row = array($field_name ,
+                        $type ,
+                        $strAttribute ,
+                        ($row['Null'] == '') ? $GLOBALS['strNo'] : $GLOBALS['strYes'],
+                        ((isset($row['Default'])) ?  $row['Default'] : ''),
+                        $row['Extra']  ,
+                        ((isset($res_rel[$field_name])) ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'] : ''),
+                        ((isset($comments[$field_name])) ? $comments[$field_name]  : '' )
+                        );
+        $links[0] = $pdf->PMA_links['RT'][$table][$field_name];
+        if (isset($res_rel[$field_name]['foreign_table']) AND
+            isset($res_rel[$field_name]['foreign_field']) AND
+            isset($pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']])
+          ) $links[6] = $pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']];
+          else unset($links[6]);
+        $pdf->Row($pdf_row, $links);
+
+         /*$pdf->Cell(20,8,$field_name,1,0,'L',0,$pdf->PMA_links['RT'][$table][$field_name]);
+            //echo '    ' . $field_name . '&nbsp;' . "\n";
+        }
+    $pdf->Cell(20,8,$type,1,0,'L');
+    $pdf->Cell(20,8,$strAttribute,1,0,'L');
+    $pdf->Cell(15,8,,1,0,'L');
+    $pdf->Cell(15,8,((isset($row['Default'])) ?  $row['Default'] : ''),1,0,'L');
+    $pdf->Cell(15,8,$row['Extra'],1,0,'L');
+       if ($have_rel) {
+            if (isset($res_rel[$field_name])) {
+                $pdf->Cell(30,8,$res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'],1,0,'L');
+            }
+        }
+        if ($cfgRelation['commwork']) {
+            if (isset($comments[$field_name])) {
+                $pdf->Cell(0,8,$comments[$field_name],1,0,'L');
+            }
+        } */
+    } // end while
+    $pdf->SetFont('', '',14);
+    mysql_free_result($result);
+}//end each
+
+
+} // end function PMA_RT_DOC
 
 
 /**
@@ -925,6 +1450,7 @@ $show_grid            = (isset($show_grid) && $show_grid == 'on') ? 1 : 0;
 $show_color           = (isset($show_color) && $show_color == 'on') ? 1 : 0;
 $show_table_dimension = (isset($show_table_dimension) && $show_table_dimension == 'on') ? 1 : 0;
 $all_tab_same_wide    = (isset($all_tab_same_wide) && $all_tab_same_wide == 'on') ? 1 : 0;
+$with_doc             = (isset($with_doc) && $with_doc == 'on') ? 1 : 0;
 
 PMA_mysql_select_db($db);
 
