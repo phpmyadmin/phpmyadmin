@@ -138,6 +138,7 @@ $strDocu = 'Documentación';
 $strDrop = 'Eliminar';
 $strDropDB = 'Eliminar la base de datos %s';
 $strDropTable = 'Borrar la tabla';
+$strDropUsersDb = 'Eliminar las bases de datos que tienen los mismos nombres de los usuarios.';
 $strDumpXRows = 'Volcar %s filas empezando por la fila %s.';
 $strDumpingData = 'Volcar la base de datos para la tabla';
 $strDynamic = 'dinámico/a';
@@ -273,6 +274,7 @@ $strNoQuery = '¡No existe la consulta SQL!';
 $strNoRights = '¡Usted no tiene suficientes privilegios para estar aquí ahora!';
 $strNoTablesFound = 'No se han encontrado tablas en la base de datos.';
 $strNoUsersFound = 'Usuario(s) no encontrado(s).';
+$strNoUsersSelected = 'No se seleccionaron usuarios.';
 $strNoValidateSQL = 'Saltarse la validación del SQL';
 $strNone = 'Ninguna';
 $strNotNumber = '¡Ésto no es un número!';
@@ -531,9 +533,5 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: cambiando los parámetros de estas opciones a 0 (cero) remueven el límite.';
 $strZip = '"comprimido con zip"';
 // To translate
-
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
-
-$strNoUsersSelected = 'No users selected.'; //to translate
 
 ?>
