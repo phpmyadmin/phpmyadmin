@@ -5,9 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-13 Marc Delisle  <lem9@users.sourceforge.net>
+	* config.inc.php3: restore old color changing behavior by default
+	 ($cfgBrowseMarkRow = 0)
+
 2002-02-12 Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_printview.php3, missing urldecode, layout improvement, 
 	  thanks to Marcus Börger (helly)
+	* 2.2.4-rc1 released
 
 2002-02-11 Marc Delisle  <lem9@users.sourceforge.net>
 	* sql.php3: $table was emptied when the query was not a Select

@@ -179,7 +179,7 @@ $cfgBgcolorOne          = '#CCCCCC';    // table data row colour
 $cfgBgcolorTwo          = '#DDDDDD';    // table data row colour, alternate
 $cfgBrowsePointerColor  = '#CCFFCC';    // color of the pointer in browse mode
                                         // (blank for no pointer)
-$cfgBrowseMarkRow       = 1;            // if set to 1,
+$cfgBrowseMarkRow       = 0;            // if set to 1,
                                         // and $cfgBrowsePointerColor has a
                                         // value, you can click on rows to
                                         // visually mark them with this color
