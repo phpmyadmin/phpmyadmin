@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/hungarian: updates, thanks to Peter Bakondy
+
 2004-06-25 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     * main.php: js error when switching theme, thanks to Michael Keck
