@@ -31,7 +31,12 @@ if (empty($is_info)) {
 require('./libraries/relation.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
 
-
+/**
+ * Check if comments were updated
+ */
+if ($cfgRelation['commwork'] && isset($db_comment) && $db_comment == 'true') {
+    PMA_SetComment($db, '', '(db_comment)', $comment);
+}
 
 /**
  * Displays the tables list
@@ -48,6 +53,34 @@ if ($num_tables == 0) {
 
 // 2. Shows table informations on mysql >= 3.23.03 - staybyte - 11 June 2001
 else if (PMA_MYSQL_INT_VERSION >= 32303) {
+
+    // Get additional information about tables for tooltip
+    if ($cfg['ShowTooltip']) {
+        $tooltip_truename = array();
+        $tooltip_aliasname = array();
+
+        $result  = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
+        while ($tmp = PMA_mysql_fetch_array($result)) {
+            $tooltip_truename[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : '') : $tmp['Name']);
+            $tooltip_aliasname[$tmp['Name']] = ($cfg['ShowTooltipAliasTB'] ? $tmp['Name'] : (!empty($tmp['Comment']) ? $tmp['Comment'] . ' ' : ''));
+        } // end while
+    } // end if
+
+    if ($cfgRelation['commwork']) {
+        $comment = PMA_getComments($db);
+
+        /**
+         * Displays table comment
+         */
+        if (is_array($comment)) {
+            ?>
+        <!-- DB comment -->
+        <p><i>
+            <?php echo htmlspecialchars(implode(' ', $comment)) . "\n"; ?>
+        </i></p>
+            <?php
+        } // end if
+    }
     ?>
 <form method="post" action="db_details_structure.php3" name="tablesForm">
     <?php echo PMA_generate_common_hidden_inputs($db); ?>
@@ -75,6 +108,13 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         $table_encoded = urlencode($table);
         $table_name    = htmlspecialchars($table);
 
+        $alias = (!empty($tooltip_aliasname) && isset($tooltip_aliasname[$table]))
+                   ? str_replace('"', '&quot;', $tooltip_aliasname[$table])
+                   : htmlspecialchars($sts_data['Name']);
+        $truename = (!empty($tooltip_truename) && isset($tooltip_truename[$table]))
+                   ? str_replace('"', '&quot;', $tooltip_truename[$table])
+                   : htmlspecialchars($sts_data['Name']);
+
         // Sets parameters for links
         $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
         $bgcolor       = ($i++ % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
@@ -85,7 +125,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         <input type="checkbox" name="selected_tbl[]" value="<?php echo $table_encoded; ?>" id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> />
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-        &nbsp;<b><label for="checkbox_tbl_<?php echo $i; ?>"><?php echo $table_name; ?></label>&nbsp;</b>&nbsp;
+        &nbsp;<b><label for="checkbox_tbl_<?php echo $i; ?>" title="<?php echo $alias; ?>"><?php echo $truename; ?></label>&nbsp;</b>&nbsp;
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
         <?php
@@ -315,6 +355,22 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
 
 // 3. Shows tables list mysql < 3.23.03
 else {
+    if ($cfgRelation['commwork']) {
+        $comment = PMA_getComments($db);
+
+        /**
+         * Displays table comment
+         */
+        if (is_array($comment)) {
+            ?>
+        <!-- DB comment -->
+        <p><i>
+            <?php echo htmlspecialchars(implode(' ', $comment)) . "\n"; ?>
+        </i></p>
+            <?php
+        } // end if
+    }
+
     $i = 0;
     echo "\n";
     ?>
@@ -428,6 +484,23 @@ if ($num_tables > 0) {
     </li>
     <?php
 } // end if
+?>
+
+<?php
+if ($cfgRelation['commwork']) {
+?>
+    <!-- Alter/Enter db-comment -->
+    <li>
+        <form method="post" action="db_details_structure.php3">
+            <?php echo $strDBComment; ?>
+            <input type="hidden" name="db_comment" value="true" />
+            <?php echo PMA_generate_common_hidden_inputs($db); ?>
+            <input type="text" name="comment" class="textfield" value="<?php echo (is_array($comment) ? htmlspecialchars(implode(' ', $comment)) : ''); ?>" />
+            <input type="submit" value="<?php echo $strGo; ?>" />
+        </form>
+    </li>
+<?php
+}
 ?>
 
     <!-- Create a new table -->

@@ -294,17 +294,31 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
      *
      * @author  Mike Beck <mikebeck@users.sourceforge.net>
      */
-    function PMA_getComments($db, $table) {
+    function PMA_getComments($db, $table = '') {
         global $cfgRelation;
 
+        if ($table != '') {
         $com_qry  = 'SELECT column_name, ' . PMA_backquote('comment') . ' FROM ' . PMA_backquote($cfgRelation['column_comments'])
                   . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
         $com_rs   = PMA_query_as_cu($com_qry);
+        } else {
+            $com_qry  = 'SELECT comment FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                      . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                      . ' AND table_name = \'\''
+                      . ' AND column_name = \'(db_comment)\'';
+            $com_rs   = PMA_query_as_cu($com_qry);
+        }
 
+        $i = 0;
         while ($row = @PMA_mysql_fetch_array($com_rs)) {
-            $col           = $row['column_name'];
+            $i++;
+            $col           = ($table != '' ? $row['column_name'] : $i);
+            
+            if (strlen($row['comment']) > 0) {
             $comment[$col] = $row['comment'];
+            }
+
         } // end while
 
         if (isset($comment) && is_array($comment)) {
@@ -313,5 +327,85 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             return FALSE;
          }
      } // end of the 'PMA_getComments()' function
+
+  /**
+    * Adds/removes slashes if required
+    *
+    * @param   string  the string to slash
+    *
+    * @return  string  the slashed string
+    *
+    * @access  public
+    */
+    function PMA_handleSlashes($val) {
+      return (get_magic_quotes_gpc() ? str_replace('\\"', '"', $val) : PMA_sqlAddslashes($val));
+    } // end of the "PMA_handleSlashes()" function
+
+  /**
+    * Set a single comment to a certain value.
+    *
+    * @param   string   the name of the db
+    * @param   string   the name of the table
+    * @param   string   the name of the column
+    * @param    string   the value of the column
+    * @param    string   (optional) if a column is renamed, this is the name of the former key which will get deleted
+    *
+    * @return  boolean  true, if comment-query was made.
+    *
+    * @global  array    the list of relations settings
+    *
+    * @access  public
+    */
+    function PMA_setComment($db, $table, $key, $value, $removekey = '') {
+        global $cfgRelation;
+
+        if ($removekey != '' AND $removekey != $key) {
+            $remove_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                        . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                        . ' AND column_name = \'' . PMA_handleSlashes($removekey) . '\'';
+            $rmv_rs    = PMA_query_as_cu($remove_query);
+            unset($rmv_query);
+        }
+
+        $test_qry  = 'SELECT ' . PMA_backquote('comment') . ', mimetype, transformation, transformation_options FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                    . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                    . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                    . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
+        $test_rs   = PMA_query_as_cu($test_qry);
+
+        if ($test_rs && mysql_num_rows($test_rs) > 0) {
+            $row = @PMA_mysql_fetch_array($test_rs);
+
+            if (strlen($value) > 0 || strlen($row['mimetype']) > 0 || strlen($row['transformation']) > 0 || strlen($row['transformation_options']) > 0) {
+                $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['column_comments'])
+                       . ' SET ' . PMA_backquote('comment') . ' = \'' . PMA_handleSlashes($value) . '\''
+                       . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                       . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                       . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
+            } else {
+                $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['column_comments'])
+                       . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                       . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                       . ' AND column_name = \'' . PMA_handleSlashes($key) . '\'';
+            }
+        } else if (strlen($value) > 0) {
+            $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['column_comments'])
+                       . ' (db_name, table_name, column_name, ' . PMA_backquote('comment') . ') '
+                       . ' VALUES('
+                       . '\'' . PMA_sqlAddslashes($db) . '\','
+                       . '\'' . PMA_sqlAddslashes($table) . '\','
+                       . '\'' . PMA_handleSlashes($key) . '\','
+                       . '\'' . PMA_handleSlashes($value) . '\')';
+        }
+
+        if (isset($upd_query)){
+            $upd_rs    = PMA_query_as_cu($upd_query);
+            unset($upd_query);
+            return true;
+        } else {
+            return false;
+        }
+    } // end of 'PMA_setComment()' function
 } // $__PMA_RELATION_LIB__
 ?>
