@@ -303,7 +303,6 @@ $strOptionalControls = '特殊文字の読み込み/書き込みオプション';
 $strOptionally = 'オプションです。';
 $strOptions = 'オプション';
 $strOr = 'OR';
-$strOriginalInterface = '独自インターフェス';
 $strOverhead = 'オーバーヘッド';
 
 $strPHP40203 = 'あなたはマルチバイト文字(mbstring)の扱いに重大なバグのあるPHP 4.2.3を使っています。PHPのバグレポート19404です。phpMyAdminを使うなら、このバージョンのPHPはお奨めしません...と言うかpatchをあてないと動きません。';

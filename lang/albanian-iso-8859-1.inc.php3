@@ -307,7 +307,6 @@ $strOptionalControls = 'Me dëshirë. Ky karakter kontrollon si të shkruash apo le
 $strOptionally = 'ME DËSHIRË';
 $strOptions = 'Mundësi';
 $strOr = 'Ose';
-$strOriginalInterface = 'interfaqja origjinale';
 $strOverhead = 'Mbi limit';
 
 $strPHP40203 = 'Është në përdorim PHP 4.2.3, që përmban një bug serioz me stringat multi-byte strings (mbstring). Shiko raportin 19404 të bug PHP. Ky version i PHP nuk rekomandohet për tu përdorur me phpMyAdmin.';

@@ -537,7 +537,6 @@ $strDropUsersDb = 'Drop the databases that have the same names as the users.'; /
 
 $strNoUsersSelected = 'No users selected.'; //to translate
 
-$strOriginalInterface = 'original interface'; //to translate
 
 $strAddedColumnComment = 'Added comment for column';  //to translate
 $strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate

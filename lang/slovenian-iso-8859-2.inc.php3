@@ -294,7 +294,6 @@ $strOptionalControls = 'Opcijsko. Narekuje naèin pisanja in branja posebnih znak
 $strOptionally = 'OPCIJSKO';
 $strOptions = 'Mo¾nosti';
 $strOr = 'Ali';
-$strOriginalInterface = 'originalen vmesnik';
 $strOverhead = 'Prese¾ek';
 
 $strPHP40203 = 'Uporabljate PHP 4.2.3, ki ima resne te¾ave z veèbitnimi stavki (mbstring). Glej PHP poroèilo o hro¹èu 19404. Ta verzija PHP ni priporoèljiva za uporabo s phpMyAdmin.';

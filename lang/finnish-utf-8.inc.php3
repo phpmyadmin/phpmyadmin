@@ -476,7 +476,6 @@ $strMoreStatusVars = 'More status variables'; //to translate
 
 $strNumTables = 'Tables'; //to translate
 
-$strOriginalInterface = 'original interface';  //to translate
 
 $strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 $strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate

@@ -301,7 +301,6 @@ $strOptionalControls = 'Frivilligt. Styr hur läsning och skrivning av specialtec
 $strOptionally = 'Frivilligt';
 $strOptions = 'Alternativ';
 $strOr = 'Eller';
-$strOriginalInterface = 'ursprungligt gränssnitt';
 $strOverhead = 'Outnyttjat';
 
 $strPHP40203 = 'Du använder PHP 4.2.3, vilken har en allvarlig bugg med multi-byte-strängar (mbstring). Se PHP:s buggrapport 19404. Denna version av PHP är inte rekommenderad för användning tillsammans med phpMyAdmin.';

@@ -480,7 +480,6 @@ $strMoreStatusVars = 'More status variables'; //to translate
 
 $strNumTables = 'Tables'; //to translate
 
-$strOriginalInterface = 'original interface';  //to translate
 
 $strPasswordChanged = 'The Password for %s was changed successfully.'; // to translate
 $strPerHour = 'per hour'; //to translate

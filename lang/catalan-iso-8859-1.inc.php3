@@ -301,7 +301,6 @@ $strOptionalControls = 'Opcional. Controla com llegir o escriure caràcters espec
 $strOptionally = 'OPCIONALMENT';
 $strOptions = 'Opcions';
 $strOr = 'O';
-$strOriginalInterface = 'interfase original';
 $strOverhead = 'Defragmentat';
 
 $strPageNumber = 'Número de pàgina:';

@@ -296,7 +296,6 @@ $strOptionalControls = 'Optional. Controleaza modul in care se citeste sau se sc
 $strOptionally = 'OPTIONAL';
 $strOptions = 'Optiuni';
 $strOr = 'Sau';
-$strOriginalInterface = 'interfata originala';
 $strOverhead = 'Asupra';
 
 $strPHP40203 = 'Folosesti PHP 4.2.3, server care are un bug major la multi-byte strings (mbstring). Vezi PHP bug report la 19404. Aceasta versiune de PHP nu este recomandat de folosit cu phpMyAdmin.';

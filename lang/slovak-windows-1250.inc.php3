@@ -314,7 +314,6 @@ $strOptionalControls = 'Volite¾né. Urèuje ako zapisova alebo èíta špeciálne zn
 $strOptionally = 'Volite¾ne';
 $strOptions = 'Vo¾by';
 $strOr = 'alebo';
-$strOriginalInterface = 'pôvodné rozhranie';
 $strOverhead = 'Naviac';
 
 $strPHP40203 = 'Pouívate PHP 4.2.3, ktoré ma vánu chybu pri práci s viac bajtovımi znakmi (mbstring). V PHP je táto chyba zdokumentovaná pod èíslom 19404. Nedoporuèuje sa pouíva túto verziu PHP s phpMyAdminom.';

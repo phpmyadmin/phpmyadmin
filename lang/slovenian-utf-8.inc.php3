@@ -295,7 +295,6 @@ $strOptionalControls = 'Opcijsko. Narekuje način pisanja in branja posebnih zna
 $strOptionally = 'OPCIJSKO';
 $strOptions = 'Možnosti';
 $strOr = 'Ali';
-$strOriginalInterface = 'originalen vmesnik';
 $strOverhead = 'Presežek';
 
 $strPHP40203 = 'Uporabljate PHP 4.2.3, ki ima resne težave z večbitnimi stavki (mbstring). Glej PHP poročilo o hrošču 19404. Ta verzija PHP ni priporočljiva za uporabo s phpMyAdmin.';

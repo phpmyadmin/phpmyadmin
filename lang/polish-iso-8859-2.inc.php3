@@ -301,7 +301,6 @@ $strOptionalControls = 'Opcjonalnie. Okre¶lenie w jaki sposób zapisaæ lub odczyt
 $strOptionally = 'OPCJONALNIE';
 $strOptions = 'Opcje';
 $strOr = 'Lub';
-$strOriginalInterface = 'oryginalny interfejs';
 $strOverhead = 'Nadmiar';
 
 $strPHP40203 = 'U¿ywasz PHP w wersji 4.2.3, która ma powa¿ny b³±d w obs³udze napisów wielobajtowych (mbstring). Zobacz raport na temat b³êdów PHP nr 19404. Nie zaleca siê u¿ywania tej wersji PHP z phpMyAdminem.';

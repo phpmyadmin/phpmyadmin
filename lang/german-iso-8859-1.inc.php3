@@ -309,7 +309,6 @@ $strOptionalControls = 'Optional. Bestimmt, wie Sonderzeichen kenntlich gemacht 
 $strOptionally = 'optional';
 $strOptions = 'Optionen';
 $strOr = 'oder';
-$strOriginalInterface = 'urspüngliche Oberfläche';
 $strOverhead = 'Überhang';
 
 $strPHP40203 = 'Sie verwenden die PHP-Version 4.2.3, welche leider fehlerhaft im Umgang mit Multibyte-Zeichenketten (mbstring) ist. Dieser Fehler ist in der PHP-Datenbank als Bug-Report #19404 dokumentiert. Aus diesem Grund wird diese PHP-Version nicht für den Betrieb von phpMyAdmin empfohlen.';

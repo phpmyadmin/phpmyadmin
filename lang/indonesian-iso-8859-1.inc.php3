@@ -301,7 +301,6 @@ $strOptionalControls = 'Pilihan. Mengontrol cara menulis dan membaca karakter kh
 $strOptionally = 'PILIHAN';
 $strOptions = 'Setingan';
 $strOr = 'Atau';
-$strOriginalInterface = 'Interface aslinya';
 $strOverhead = 'Kelebihan (Overhead)';
 
 $strPHP40203 = 'Anda memakai versi PHP 4.2.3 yang diketahui mengandung Bug yang serius dengan multi-byte strings (mbstring). Perhatikan PHP Bug Report 19404. Versi PHP ini tidak disarankan untuk dipakai dengan program phpMyAdmin.';

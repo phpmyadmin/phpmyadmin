@@ -295,7 +295,6 @@ $strOptionalControls = 'Es opcional. Controla el modo de escribir o leer caracte
 $strOptionally = 'OPCIONALMENTE';
 $strOptions = 'Opciones';
 $strOr = 'O';
-$strOriginalInterface = 'interfaz original';
 $strOverhead = 'Residuo a depurar';
 
 $strPHP40203 = 'Usted está usando PHP 4.2.3, el cual tiene un error de codificación en cuanto a los "strings multi-byte" (mbstring). Lea el reporte 19404 de PHP. Esta versión de PHP no está recomendada para ser usada con phpMyAdmin.';

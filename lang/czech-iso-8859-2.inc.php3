@@ -317,7 +317,6 @@ $strOptionalControls = 'Volitelné. Urèuje jak zapisovat nebo èíst speciální znak
 $strOptionally = 'Volitelnì';
 $strOptions = 'Vlastnosti';
 $strOr = 'nebo';
-$strOriginalInterface = 'pùvodní rozhraní';
 $strOverhead = 'Navíc';
 
 $strPHP40203 = 'Pou¾íváte PHP 4.2.3, které má záva¾nou chybu pøi práci s&nbsp;vícebajtovými znaky (mbsting), jedná se o&nbsp;chybu PHP èíslo 19404. Nedoporuèujeme pou¾ívat tuto verzi PHP s&nbsp;phpMyAdminem.';

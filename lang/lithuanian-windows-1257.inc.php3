@@ -294,7 +294,6 @@ $strOptionalControls = 'Pasirinktinai. Kontroliuojama kaip skaitoma, raðoma spec
 $strOptionally = 'Pasirinktinai';
 $strOptions = 'Parinktys';
 $strOr = 'Arba';
-$strOriginalInterface = 'originali aplinka';
 $strOverhead = 'Perteklius';
 
 $strPHP40203 = 'Jûs naudojate PHP 4.2.3 versijà, kurioje yra rimta klaida, susiijusi su daugiabaièiais stringais (mbstring). Daugiau informacijos rasite PHP klaidø praneðime Nr.19404. <strong>NEREKOMENDUOJAME naudoti ðios PHP versijos su phpMyAdmin</strong>.';

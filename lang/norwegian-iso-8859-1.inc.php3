@@ -305,7 +305,6 @@ $strOptionalControls = 'Valgfritt. Angir hvordan spesialtegn skrives eller leses
 $strOptionally = 'Valgfritt';
 $strOptions = 'Innstillinger';
 $strOr = 'Eller';
-$strOriginalInterface = 'originalt brukergrensesnitt';
 $strOverhead = 'Overheng';
 
 $strPHP40203 = 'Du bruker PHP 4.2.3, som har en alvorlig feil med flerbyte-strenger (mbstring). Se PHP-feilrapport 19404. Denne versjonen av PHP er ikke anbefalt for bruk med phpMyAdmin.';

@@ -307,7 +307,6 @@ $strOptionalControls = 'Opzionale. Questo carattere controlla come scrivere o le
 $strOptionally = 'OPZIONALE';
 $strOptions = 'Opzioni';
 $strOr = 'Oppure';
-$strOriginalInterface = 'interfaccia originale';
 $strOverhead = 'In eccesso';
 
 $strPHP40203 = 'Si sta utilizzando PHP 4.2.3, che presenta un serio bug con le stringhe multi-byte (mbstring). Vedi report PHP 19404. Questa versione di PHP non è raccomandata per l\'utilizzo con phpMyAdmin.';

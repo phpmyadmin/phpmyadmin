@@ -315,7 +315,6 @@ $strOptionalControls = 'Voliteľné. Určuje ako zapisovať alebo čítať špec
 $strOptionally = 'Voliteľne';
 $strOptions = 'Voľby';
 $strOr = 'alebo';
-$strOriginalInterface = 'pôvodné rozhranie';
 $strOverhead = 'Naviac';
 
 $strPHP40203 = 'Používate PHP 4.2.3, ktoré ma vážnu chybu pri práci s viac bajtovými znakmi (mbstring). V PHP je táto chyba zdokumentovaná pod číslom 19404. Nedoporučuje sa používať túto verziu PHP s phpMyAdminom.';
