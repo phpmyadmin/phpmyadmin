@@ -380,7 +380,7 @@ class PMA_RT_Table
 
         //x and y
         $sql    = 'SELECT x, y FROM '
-                . PMA_backquote($GLOBALS['cfg']['Server']['pdf_table_position'])
+                . PMA_backquote($GLOBALS['cfg']['Server']['table_info'])
                 . ' WHERE table_name = \'' . PMA_sqlAddslashes($table_name) . '\'';
         $result = mysql_query($sql);
         if (!$result || !mysql_num_rows($result)) {

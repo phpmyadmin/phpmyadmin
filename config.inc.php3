@@ -50,7 +50,7 @@ $cfg['Servers'][$i]['bookmarkdb']    = '';          // Bookmark db - leave blank
 $cfg['Servers'][$i]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
 $cfg['Servers'][$i]['relation']      = '';          // table to describe the relation between links (see doc)
                                                     //   - leave blank for no relation-links support
-$cfg['Servers'][$i]['pdf_table_position']
+$cfg['Servers'][$i]['table_info']
                                      = '';          // table to describe the 
                                                     // tables position for the 
                                                     // PDF schema - leave blank
@@ -76,7 +76,7 @@ $cfg['Servers'][$i]['verbose']       = '';
 $cfg['Servers'][$i]['bookmarkdb']    = '';
 $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
-$cfg['Servers'][$i]['pdf_table_position']
+$cfg['Servers'][$i]['table_info']
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                      = '';
@@ -98,7 +98,7 @@ $cfg['Servers'][$i]['verbose']       = '';
 $cfg['Servers'][$i]['bookmarkdb']    = '';
 $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
-$cfg['Servers'][$i]['pdf_table_position']
+$cfg['Servers'][$i]['table_info']
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                      = '';

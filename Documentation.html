@@ -656,10 +656,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     </dd>
 
     <dt>
-        <b>$cfg['Servers'][$i]['pdf_table_position']</b> string
+        <b>$cfg['Servers'][$i]['table_info']</b> string
     </dt>
     <dd>
-        Since release 2.3.0 you can describe, in a special 'pdf_table_position'
+        Since release 2.3.0 you can describe, in a special 'table_info'
         table, the coordinates where each table will be placed on a PDF schema
         output. This configuration variable will hold the name of this special
         table.
@@ -671,20 +671,20 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         To use this functionality you have to:
         <ul>
             <li>
-                create in the same database a table (for example 'PMA_pdf_table_position')
+                create in the same database a table (for example 'PMA_table_info')
                 following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_pdf_table_position` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_table_info` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`x` float unsigned NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`table_name`)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table positions for PDF schema';<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';<br />
                 </tt>
             </li>
             <li>
                 put the table name in
-                <tt>$cfg['Servers'][$i]['pdf_table_position']</tt>
+                <tt>$cfg['Servers'][$i]['table_info']</tt>
             </li>
             <li>
                 then manually fill this table with information about the table
@@ -1772,14 +1772,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
 <p>
     <b>How can I produce a PDF schema of my database?</b>
     <br />
-    First you have to fill the 'relation' and 'pdf_table_position'
+    First you have to fill the 'relation' and 'table_info'
     configuration variables.
     <br /><br />
     Then, think about your schema layout: which tables will go on which pages.
     You have to fill in the 'relation' table the page number for each
     master-foreign link.
     <br /><br />
-    Then manually fill the pdf_table_position table with the coordinates,
+    Then manually fill the table_info table with the coordinates,
     x being the width and y the height, and (0,0) at the upper left corner.
     For example, x=100 and y=200 means that the table will be at 200 mm down
     and 100 mm right from the upper left corner.
