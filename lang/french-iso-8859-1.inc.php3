@@ -284,6 +284,8 @@ $strLines = 'Lignes';
 $strLinesTerminatedBy = 'Lignes terminées par';
 $strLinkNotFound = 'Lien absent';
 $strLinksTo = 'Relié à';
+$strLoadExplanation = 'La meilleure méthode a été choisie par défaut, mais vous pouvez la changer si elle échoue.';
+$strLoadMethod = 'Méthode pour le LOAD';
 $strLocalhost = 'Local';
 $strLocationTextfile = 'Emplacement du fichier texte';
 $strLogPassword = 'Mot de passe&nbsp;:';
@@ -638,6 +640,4 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
 ?>

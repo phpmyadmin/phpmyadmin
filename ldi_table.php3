@@ -131,7 +131,38 @@ if (function_exists('PMA_set_enc_form')) {
          . '        </td>' . "\n"
          . '    </tr>' . "\n";
 } // end if
+
+
+// Check if we should check the LOCAL radio button by default
+$local_option_selected = FALSE;
+
+if (PMA_MYSQL_INT_VERSION < 32349) {
+        $local_option_selected = TRUE;
+}
+
+if (PMA_MYSQL_INT_VERSION > 40003) {
+    $tmp_query  = "SHOW VARIABLES LIKE 'local\\_infile'";
+    $result = PMA_mysql_query($tmp_query);
+    if ($result != FALSE && mysql_num_rows($result) > 0) {
+        $tmp = PMA_mysql_fetch_row($result);
+        if ($tmp[1] == 'ON') {
+            $local_option_selected = TRUE;
+        }
+    }
+    mysql_free_result($result);
+}
+
 ?>
+    <tr>
+        <td><?php echo $strLoadMethod; ?>
+        </td>
+        <td> 
+            <input type="radio" name="local_option" value="0" <?php echo (!$local_option_selected?' checked="checked" ': '');?>/>...DATA <br />
+            <input type="radio" name="local_option" value="1" <?php echo ($local_option_selected?' checked="checked" ': '');?>/>...DATA LOCAL
+        </td>
+        <td><?php echo $strLoadExplanation; ?>
+        </td>
+    </tr>
     <tr>
         <td colspan="3" align="center"><?php print PMA_showMySQLDocu('Reference', 'LOAD_DATA'); ?></td>
     </tr>
