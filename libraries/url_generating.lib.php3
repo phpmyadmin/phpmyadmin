@@ -11,6 +11,24 @@
 if (!defined('PMA_URL_GENERATION_LIB_INCLUDED')){
     define('PMA_URL_GENERATION_LIB_INCLUDED', 1);
 
+    /**
+     * Generates text with hidden inputs.
+     *
+     * @param   string   optional database name
+     * @param   string   optional table name
+     *
+     * @return  string   string with input fields
+     *
+     * @global  string   the current language
+     * @global  string   the current conversion charset
+     * @global  string   the current server
+     * @global  array    the configuration array
+     * @global  boolean  whether recoding is allowed or not
+     *
+     * @access  public
+     *
+     * @author  nijel
+     */
     function PMA_generate_common_hidden_inputs ($db = '', $table = '')
     {
         global $lang, $convcharset, $server;
@@ -27,6 +45,24 @@ if (!defined('PMA_URL_GENERATION_LIB_INCLUDED')){
         return $result;
     }
    
+    /**
+     * Generates text with URL parameters.
+     *
+     * @param   string   optional database name
+     * @param   string   optional table name
+     *
+     * @return  string   string with URL parameters
+     *
+     * @global  string   the current language
+     * @global  string   the current conversion charset
+     * @global  string   the current server
+     * @global  array    the configuration array
+     * @global  boolean  whether recoding is allowed or not
+     *
+     * @access  public
+     *
+     * @author  nijel
+     */
     function PMA_generate_common_url ($db = '', $table = '')
     {
         global $lang, $convcharset, $server;
