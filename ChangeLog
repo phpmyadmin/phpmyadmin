@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-11  Armel Fauveau  <armel.fauveau@globalis-ms.com>
+        * Added a "delete" option in the phpMyBookmark patch (Olivier Mueller)
+
 2001-05-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_readdump.php3: fixed all the special characters problems (Bug #421889)
 	  and improve the trick to enforce reloading of the left frame if a table

@@ -11,8 +11,22 @@ include("lib.inc.php3");
 
 // Bookmark Support
 
-if(!empty($sql_bookmark))
-    $sql_query = $sql_bookmark;
+// Bookmark Support
+
+if(!empty($id_bookmark)) {
+    if(!empty($action_bookmark)) {
+        switch($action_bookmark) {
+            case 0:
+                $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
+                break;
+            case 1:
+                $sql_query = delete_bookmarks($db, $cfgBookmark, $id_bookmark);
+                break;
+        }
+    }
+    else
+        $sql_query = query_bookmarks($db, $cfgBookmark, $id_bookmark);
+}
 
 //
 
@@ -25,7 +39,7 @@ else if (get_magic_quotes_gpc()) {
 
 $pieces  = split_string($sql_query, ";");
 
-if (count($pieces) == 1 && !empty($pieces[0]) && empty($view_bookmark)) {
+if (count($pieces) == 1 && !empty($pieces[0]) && empty($action_bookmark)) {
   $sql_query = addslashes(trim($pieces[0]));
   // Enforce reloading of the left frame when a table has to be created 
   if (eregi('^CREATE TABLE (.+)', $sql_query)) {

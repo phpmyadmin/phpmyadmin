@@ -59,11 +59,9 @@ else {
     $sql_query = isset($sql_query) ? stripslashes($sql_query) : '';
     $sql_order = isset($sql_order) ? stripslashes($sql_order) : '';
   }
-    if(isset($sessionMaxRows))
+    if(isset($sessionMaxRows) )
         $cfgMaxRows = $sessionMaxRows;
     $sql_limit = (isset($pos) && eregi("^SELECT", $sql_query) && !eregi("LIMIT[ 0-9,]+$", $sql_query)) ? " LIMIT $pos, $cfgMaxRows" : '';
-    if (!isset($sql_order))
-    	$sql_order = '';
     $result = mysql_db_query($db, $sql_query.$sql_order.$sql_limit);
     // the same SELECT without LIMIT
     if(eregi("^SELECT", $sql_query))
@@ -111,12 +109,12 @@ else {
 
             // Bookmark Support
 
-            if($cfgBookmark['db'] && $cfgBookmark['table'] && $db!=$cfgBookmark['db'] && empty($sql_bookmark))
+            if($cfgBookmark['db'] && $cfgBookmark['table'] && $db!=$cfgBookmark['db'] && empty($id_bookmark))
             {
                 echo "<form method=\"post\" action=\"tbl_replace.php3\">\n";
                 echo "<i>$strOr</i><br><br>\n";
                 echo $strBookmarkLabel.":\n";
-                $goto="sql.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&sql_bookmark=1&sql_query=".urlencode($sql_query);
+                $goto="sql.php3?server=$server&lang=$lang&db=$db&table=$table&pos=$pos&id_bookmark=1&sql_query=".urlencode($sql_query);
             ?>
             <input type="hidden" name="server" value="<?php echo $server;?>">
             <input type="hidden" name="lang" value="<?php echo $lang;?>">
