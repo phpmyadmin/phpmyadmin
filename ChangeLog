@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-10 Alexander M. Turek  <me@derrabus.de>
+    * lang/german-*.inc.php: grammar.
+
 2004-09-09 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: bug #1022338: clarify about needed chown -R
       on the scripts (otherwise, problems in PHP safe mode)
