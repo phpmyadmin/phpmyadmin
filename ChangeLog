@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-16 Marc Delisle  <lem9@users.sourceforge.net>
+	* db_details.php3, no links if no data, 
+	  thanks to Alexander M. Turek (rabus)
+
 2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html: line sizes.
 	* sql.php3: optimized a bit.

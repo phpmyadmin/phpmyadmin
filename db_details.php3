@@ -187,12 +187,25 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
         &nbsp;<b><?php echo htmlspecialchars($table); ?>&nbsp;</b>&nbsp;
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table)); ?>&amp;pos=0">
-            <?php echo $strBrowse; ?></a>
+        <?php
+        if ($sts_data['Rows']>0) {
+            echo '<a href="sql.php3?' . $url_query . '&amp;sql_query='
+             . urlencode('SELECT * FROM ' . PMA_backquote($table)) 
+             . '&amp;pos=0">' . $strBrowse . '</a>';
+        } else {
+            echo $strBrowse;
+        }
+        ?>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="tbl_select.php3?<?php echo $url_query; ?>">
-            <?php echo $strSelect; ?></a>
+        <?php
+        if ($sts_data['Rows']>0) {
+           echo '<a href="tbl_select.php3?' . $url_query . '">' 
+            . $strSelect . '</a>';
+        } else {
+           echo $strSelect;
+        }
+        ?>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
         <a href="tbl_change.php3?<?php echo $url_query; ?>">
@@ -208,9 +221,19 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
             <?php echo $strDrop; ?></a>
     </td>
     <td bgcolor="<?php echo $bgcolor; ?>">
-        <a href="sql.php3?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('DELETE FROM ' . PMA_backquote($table)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strTableHasBeenEmptied, htmlspecialchars($table))); ?>"
-            onclick="return confirmLink(this, 'DELETE FROM <?php echo PMA_jsFormat($table); ?>')">
-            <?php echo $strEmpty; ?></a>
+        <?php
+        if ($sts_data['Rows']>0) {
+            echo '<a href="sql.php3?' . $url_query 
+            . '&amp;sql_query=' 
+            . urlencode('DELETE FROM ' . PMA_backquote($table)) 
+            . '&amp;zero_rows=' 
+            . urlencode(sprintf($strTableHasBeenEmptied, 
+                  htmlspecialchars($table))) 
+            . '" onclick="return confirmLink(this, \'DELETE FROM ' . PMA_jsFormat($table) . '\')">' . $strEmpty . '</a>';
+        } else {
+             echo $strEmpty;
+        }
+        ?>
     </td>
         <?php
         echo "\n";
