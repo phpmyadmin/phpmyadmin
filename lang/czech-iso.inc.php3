@@ -309,4 +309,6 @@ $strWrongUser = '©patné u¾ivatelské jméno/heslo. Pøístup odepøen.';
 
 $strYes = 'Ano';
 
+// To translate
+$strIdxFulltext = 'Fulltext';  //to translate 
 ?>

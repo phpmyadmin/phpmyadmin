@@ -293,6 +293,7 @@ $strDisplayOrder = 'Display order:';
 $strDropTable = 'Drop table';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
+$strIdxFulltext = 'Fulltext';  //to translate 
 $strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';//to translate
 $strInvalidName = '"%s" is a reserved word, you can\'t use it as a database/table/field name.'; //to translate

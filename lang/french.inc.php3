@@ -137,6 +137,7 @@ $strHomepageSourceforge = 'Page de Téléchargement phpMyAdmin sur Sourceforge';
 $strHost = 'Serveur';
 $strHostEmpty = 'Le nom de serveur est vide';
 
+$strIdxFulltext = 'Texte entier';
 $strIfYouWish = 'Si vous désirez ne charger que certaines colonnes, indiquez leurs noms, séparés par des virgules.';
 $strIndex = 'Index';
 $strIndexes = 'Index'; 

@@ -308,4 +308,7 @@ $strWrongUser = 'Nume de utilizator/Parola incorecta. Accesul interzis.';
 $strWithChecked = 'Verificat cu:';
 
 $strYes = 'Da';
+
+// To translate
+$strIdxFulltext = 'Fulltext';  //to translate 
 ?>

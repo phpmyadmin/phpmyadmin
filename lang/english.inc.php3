@@ -137,6 +137,7 @@ $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Page';
 $strHost = 'Host';
 $strHostEmpty = 'The host name is empty!';
 
+$strIdxFulltext = 'Fulltext';
 $strIfYouWish = 'If you wish to load only some of a table\'s columns, specify a comma separated field list.';
 $strIndex = 'Index';
 $strIndexes = 'Indexes';

@@ -306,6 +306,7 @@ $strAffectedRows = 'Affected rows:'; //to translate
 $strBzip = '"bzipped"'; //to translate
 $strExtendedInserts = 'Extended inserts'; //to translate
 $strGzip = '"gzipped"'; //to translate
+$strIdxFulltext = 'Fulltext';  //to translate 
 $strNoDropDatabases = '"DROP DATABASE" statements zijn niet mogelijk.'; //to translate
 $strOffSet = 'offset'; //to translate
 $strUseBackquotes = 'Gebruik backquotes bij tabellen en velden\' namen'; // what are backquotes?

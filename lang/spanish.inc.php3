@@ -304,6 +304,7 @@ $strYes = 'Si';
 // To translate
 $strBzip = '"bzipped"';  //to translate
 $strGzip = '"gzipped"';  //to translate
+$strIdxFulltext = 'Fulltext';  //to translate 
 $strOffSet = 'offset';  //to translate
 $strStrucExcelCSV = 'CSV for Ms Excel data';
 $strFullText = 'Full Texts';//to translate

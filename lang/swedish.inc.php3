@@ -308,4 +308,7 @@ $strWithChecked = 'Med markerade:';
 $strWrongUser = 'Fel användarnamn/lösenord. Åtkomst nekad.';
 
 $strYes = 'Ja';
+
+// To translate
+$strIdxFulltext = 'Fulltext';  //to translate 
 ?>
