@@ -9,6 +9,7 @@ $Source$
     * libraries/sqlparser.lib.php3, bug 608459: syntax coloring and
       alias without AS
     * libraries/display_tbl.lib.php3, bug 574852: relation and ORDER BY
+    * db_details_qbe.php3: missing global $dbh
 
 2002-09-19 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_printview.php3: fix for #611499 (empty comment column)

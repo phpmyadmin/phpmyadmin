@@ -925,7 +925,7 @@ if (isset($Field) && count($Field) > 0) {
         // master to foreign or vice versa
 
         function getrelatives($from) {
-        	global $tab_left,$tab_know,$fromclause,$db,$cfgRelation;
+        	global $tab_left,$tab_know,$fromclause,$db,$cfgRelation,$dbh;
             if ($from == 'master') {
             	$to    = 'foreign';
             } else {
