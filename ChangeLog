@@ -5,7 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2003-02-01 Robin Johnson  <robbat2@users.sourceforge.net>
+2003-02-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/italian: update, thanks to Pietro Danesi
+    * lang/norwegian: update, thanks to Sven-Erik Andersen
+    * lang/polish: update, thanks to Jakub Wilk
+    * lang/swedish: update, thanks to Björn T. Hallberg
+
+2003-02-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/arabic*: Updates thanks to Ossama Khayat <ossamak at nht.com.kw>
     * lang/chinese_gb.inc.php3: Fixed duplicate '$strDBGMin' where it should
     be '$strDBGMax'
