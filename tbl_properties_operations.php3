@@ -302,7 +302,12 @@ else if (PMA_MYSQL_INT_VERSION >= 32306
 
 <?php
 // Referential integrity check
-if ($cfgRelation['relwork']) {
+// The Referential integrity check was intended for the non-InnoDB 
+// tables for which the relations are defined in pmadb
+// so I assume that if the current table is InnoDB, I don't display
+// this choice (InnoDB maintains integrity by itself)
+
+if ($cfgRelation['relwork'] && $tbl_type != "INNODB") {
 
     // we need this PMA_mysql_select_db if the user has access to more than one db
     // and $db is not the last of the list, because PMA_availableDatabases()

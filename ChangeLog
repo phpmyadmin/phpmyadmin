@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-20 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_properties_operations.php3: Do not display the
+      "Referential integrity check" section for InnoDB tables
+      as this was intended for pmadb relations
+
 2003-07-19 Marc Delisle  <lem9@users.sourceforge.net>
     * (in lots of scripts): checks for paths disclosure
     * lang/catalan update, thanks to Xavier Navarro (xavin).
