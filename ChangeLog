@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/slovenian update: thanks to Kositer Uros (urosh)
+
 2002-09-18 Loïc Chapeaux  <lolo@phpheaven.net>
     * tbl_change.php3, tbl_replace.php3, sql.php3, 
       libraries/display_tbl.lib.php3: bug 610315 full text toggle
