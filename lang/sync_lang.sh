@@ -13,8 +13,8 @@
 # The name is filename without inc.php3.
 #
 BASE_TRANSLATIONS=`cat <<EOT
-albanian
-arabic
+albanian-iso-8859-1
+arabic-windows-1256
 brazilian_portuguese
 bulgarian-koi8
 catala
