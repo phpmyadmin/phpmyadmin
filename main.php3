@@ -569,7 +569,7 @@ if ($is_superuser || $cfg['ShowPhpInfo']) {
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
+                <a href="phpinfo.php3?<?php echo PMA_generate_common_url(); ?>" target="_blank"><?php echo $strShowPHPInfo; ?></a>
             </td>
         </tr>
     <?php
@@ -581,10 +581,10 @@ echo "\n";
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="http://www.phpMyAdmin.net/" target="_new"><?php echo $strHomepageOfficial; ?></a><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_new">ChangeLog</a>]
-                &nbsp;&nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_new">CVS</a>]
-                &nbsp;&nbsp;&nbsp;[<a href="http://sourceforge.net/mail/?group_id=23067" target="_new">Lists</a>]
+                <a href="http://www.phpMyAdmin.net/" target="_blank"><?php echo $strHomepageOfficial; ?></a><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_blank">ChangeLog</a>]
+                &nbsp;&nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_blank">CVS</a>]
+                &nbsp;&nbsp;&nbsp;[<a href="http://sourceforge.net/mail/?group_id=23067" target="_blank">Lists</a>]
             </td>
         </tr>
         </table>

@@ -19,6 +19,10 @@ $Source$
       (RFE #747343).
     * Documentation.*: Add simple LaTeX document, to show how to use LaTeX
       export.
+    * main.php3: Add server to phpinfo link to avoid relogin with more
+      servers.
+    * main.php3, tbl_properties.inc.php3: Replace target="_new" with
+      target="_blank" as it should be.
 
 2003-06-02 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.5.1 released

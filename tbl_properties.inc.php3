@@ -596,7 +596,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) 
 
 <tr>
     <td>
-        <?php echo sprintf($strMIME_transformation_note, '<a href="libraries/transformations/overview.php3?' . PMA_generate_common_url($db, $table) . '" target="_new">', '</a>') . "\n"; ?>
+        <?php echo sprintf($strMIME_transformation_note, '<a href="libraries/transformations/overview.php3?' . PMA_generate_common_url($db, $table) . '" target="_blank">', '</a>') . "\n"; ?>
     </td>
 </tr>
 <?php
