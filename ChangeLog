@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * all .../theme_right_css.php: bug #1009661, typo,
+      thanks to Ryan Schmidt (ryandesign)
+
 2004-08-16 Michal Čihař  <michal@cihar.com>
     * read_dump.php: Fix handling of comments -- and # (bug #1009494).
 

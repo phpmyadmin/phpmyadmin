@@ -259,7 +259,7 @@ img, input, select, button {
 }
 
 <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-.serverinfo a:link, .serverinfo a:activ, .serverinfo a:visited {
+.serverinfo a:link, .serverinfo a:active, .serverinfo a:visited {
     font-family: <?php echo $right_font_family; ?>;
     font-size: <?php echo $font_size; ?>;
     font-weight: bolder;

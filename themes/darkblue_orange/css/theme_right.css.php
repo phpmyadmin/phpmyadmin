@@ -400,7 +400,7 @@ div.warnhead {
     vertical-align: middle;
 }
 <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
-.serverinfo a:link, .serverinfo a:activ, .serverinfo a:visited {
+.serverinfo a:link, .serverinfo a:active, .serverinfo a:visited {
     font-family:    Verdana, Arial, Helvetica, sans-serif;
     font-size:      12px;
     font-weight:    bolder;
