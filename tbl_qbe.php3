@@ -708,9 +708,7 @@ if (isset($Field) && count($Field) > 0) {
     $rest      = array();
     $found     = array();
     $rel_work  = FALSE;
-    //$ex        = 0;
-//    $hit       = 0;
-    
+
     //  we only start this if we have fields, otherwise it would be dumb
     while (list(, $value) = each($Field)) {
         $parts            = explode('.', $value);
@@ -729,8 +727,7 @@ if (isset($Field) && count($Field) > 0) {
             $wtable = explode('.', urldecode($Field[$x]));
             $ctable = str_replace('`', '', $wtable[0]);
             if (!empty($Field[$x]) && !empty($Criteria[$x])) {
-//                if (isset($where[$ctable]) && $where[$ctable] != '=') {
-                  if (empty($where[$ctable]) || $where[$ctable] != '=') {
+                if (empty($where[$ctable]) || $where[$ctable] != '=') {
                     $where[$ctable] = substr($Criteria[$x], 0, 1);
                 }
             }
@@ -784,15 +781,10 @@ if (isset($Field) && count($Field) > 0) {
             // that is in the WHERE clause
             if (!isset($master)) {
                 $master = $row['wer'];
-            } else {
-                // remember that we found more than one because this means we
-                // need to refine more
-                //$hit    = 2;
-            } // end if.. else...
+            }
             while (list($key, $value) = each($wheretabs)) {
                 if ($row['wer'] == $key) {
                     $master = $row['wer'];
-                    //$ex     = 1;
                     break;
                 }
             } // end while
@@ -809,16 +801,16 @@ if (isset($Field) && count($Field) > 0) {
                     $rel[$value]['mcon'] = 0;
                 }
             } // end while
-    
+
             //  now we only use everything but the first table
             $incrit_s = '(\'' . implode('\', \'', $reltabs) . '\')';
-    
+
             $rel_query = 'SELECT * FROM ' . PMA_backquote($cfg['Server']['relation'])
                        . ' WHERE master_table IN ' . $incrit . ' AND foreign_table IN ' . $incrit_s
                        . ' ORDER BY foreign_table, master_table';
-    
+
             $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-    
+
             while ($row = mysql_fetch_array($rel_id)) {
                 $foreign_table = $row['foreign_table'];
                 if ($rel[$foreign_table]['mcon'] == 0) {
@@ -839,7 +831,7 @@ if (isset($Field) && count($Field) > 0) {
                 $found[]  = $master;
                 $qry_from = PMA_backquote($master);
             } // end if
-    
+
             while (list($key, $varr) = each($rel)) {
                 if (!isset($varr['link']) || $varr['link'] == '') {
                     $rest[]  = $key;
@@ -850,12 +842,12 @@ if (isset($Field) && count($Field) > 0) {
             if (count($rest) > 0) {
                 $incrit_d  = '(\'' . implode('\', \'', $found) . '\')';
                 $incrit_s  = '(\'' . implode('\', \'', $rest) . '\')';
-    
+
                 $rel_query = 'SELECT * FROM ' . $cfg['Server']['relation']
                            . ' WHERE master_table IN ' . $incrit_s . ' AND foreign_table IN ' . $incrit_d
                            . ' ORDER BY master_table, foreign_table';
                 $rel_id    = @mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url);
-    
+
                 while ($row = mysql_fetch_array($rel_id)) {
                     $found_table = $row['master_table'];
                     if ($rel[$found_table]['mcon'] == 0) {
@@ -864,7 +856,7 @@ if (isset($Field) && count($Field) > 0) {
                         $rel[$found_table]['link'] = ' LEFT JOIN ' . $found_table
                                                    . ' ON ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field'])
                                                    . ' = ' . PMA_backquote($row['foreign_table']) . '.' . PMA_backquote($row['foreign_field']);
-    
+
                         // in extreme cases we hadn't found a master yet, so
                         // let's use the one we found now
                         if ($master == '') {
@@ -876,7 +868,7 @@ if (isset($Field) && count($Field) > 0) {
                     }
                 } // end while
             } // end if
-    
+
             // now let's see what we found - every table that doesn't have a
             // link gets added directly to the FROM the links go to a second
             // variable $lj which is added afterwards
@@ -897,7 +889,7 @@ if (isset($Field) && count($Field) > 0) {
                     $ljm          .= $varr['link'];
                 }
             } // end while
-    
+
             // on one occasion i had qry_from at this point end with a , as I
             // can't find why this happened i check this now:
             $qry_from = ereg_replace(', $', '', $qry_from);
