@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-21 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/japanese-*.inc.php3: Updates.
+
 2002-11-20 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/slovenian update: thanks to Kositer Uros (urosh)
     * lang/slovak update, thanks to Lubos Klokner

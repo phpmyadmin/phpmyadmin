@@ -87,6 +87,7 @@ $strColumn = '列';
 $strColumnNames = '列(コラム)名';
 $strComments = 'コメント';
 $strCompleteInserts = '完全なINSERT文の作成';
+$strCompression = '圧縮';
 $strConfigFileError = 'phpMyAdminがコンフィグレーションファイルを読み込むことが出来ません！<br />文法エラーが起きたか、ファイルが見つかりません。<br />下のリンクからコンフィグレーションファイルを直接読み込んで、phpのエラーメッセージを確認して下さい。 大抵の場合、区切り文字やセミコロンを忘れています。<br />もし空白のページが現れたら全てうまく行っています。';
 $strConfigureTableCoord = '%s テーブルのカーディナリティを設定して下さい';
 $strConfirm = '実行しても良いですか？';
@@ -443,5 +444,4 @@ $strYes = 'はい';
 $strZip = '"zipされる"';
 
 // To translate
-$strCompression = 'Compression'; //to translate
 ?>
