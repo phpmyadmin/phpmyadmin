@@ -1756,6 +1756,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     In <i>php.ini</i>, set <tt>mysql.max_links</tt> higher than 1.
 </p>
 
+<p>
+    <b>[1.22] I don't see the &quot;Location of text file&quot; field, so 
+       I cannot upload.</b>
+    <br />
+    This is most likely because in <i>php.ini</i>, your <tt>file_uploads</tt>
+    parameter is not set to &quot;on&quot;.
+</p>
+
 <a name="faqconfig"></a>
 <h3>[2. Configuration]</h3>
 
