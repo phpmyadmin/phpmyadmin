@@ -102,7 +102,7 @@ function PMA_STR_strInStr($needle, $haystack)
  */
 function PMA_STR_charIsEscaped($string, $pos, $start = 0)
 {
-    $len = $GLOBALS['PMA_strlen']($string);
+    $len = PMA_strlen($string);
     // Base case:
     // Check for string length or invalid input or special case of input
     // (pos == $start)
