@@ -1208,7 +1208,7 @@ if (!empty($_SERVER) && isset($_SERVER['HTTP_USER_AGENT'])) {
     $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
 }
 else if (!empty($_ENV) && isset($_ENV['HTTP_USER_AGENT'])) {
-    $HTTP_USER_AGENT = $__ENV['HTTP_USER_AGENT'];
+    $HTTP_USER_AGENT = $_ENV['HTTP_USER_AGENT'];
 }
 else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['HTTP_USER_AGENT'])) {
     $HTTP_USER_AGENT = $HTTP_ENV_VARS['HTTP_USER_AGENT'];
