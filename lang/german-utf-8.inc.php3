@@ -411,4 +411,5 @@ $strYes = 'Ja';
 $strZip = 'Zip komprimiert';
 
 // To translate
+$strPdfNoTables = 'No tables';  //to translate
 ?>

@@ -403,4 +403,5 @@ $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
 
+$strPdfNoTables = 'No tables';  //to translate
 ?>

@@ -405,4 +405,5 @@ $strZip = '"zippel tömörítve"';
 
 // To translate
 
+$strPdfNoTables = 'No tables';  //to translate
 ?>

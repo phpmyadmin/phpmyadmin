@@ -408,4 +408,5 @@ $strYes = ' Po ';
 $strZip = '"kompresuar me zip"';
 
 // To translate 
+$strPdfNoTables = 'No tables';  //to translate
 ?>

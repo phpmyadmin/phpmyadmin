@@ -402,4 +402,5 @@ $strYes = 'Evet';
 $strZip = '"ziplenmiþ"';
 
 // To translate
+$strPdfNoTables = 'No tables';  //to translate
 ?>

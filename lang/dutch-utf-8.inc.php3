@@ -403,4 +403,5 @@ $strWrongUser = 'Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd.';
 $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
+$strPdfNoTables = 'No tables';  //to translate
 ?>

@@ -403,4 +403,5 @@ $strZip = '"zippad"';
 
 // To translate
 
+$strPdfNoTables = 'No tables';  //to translate
 ?>

@@ -254,6 +254,7 @@ $strPasswordNotSame = 'Les mots de passe doivent être identiques';
 $strPdfDbSchema = 'Schema de la base "%s" - Page %s';
 $strPdfInvalidPageNum = 'Numéro de page PDF non défini !';
 $strPdfInvalidTblName = 'La table "%s" n\'existe pas !';
+$strPdfNoTables = 'Pas de table !';
 $strPhp = 'Créer source PHP';
 $strPHPVersion = 'Version de PHP';
 $strPmaDocumentation = 'Documentation de phpMyAdmin';
@@ -400,5 +401,4 @@ $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 $strYes = 'Oui';
 
 $strZip = '"zippé"';
-
 ?>

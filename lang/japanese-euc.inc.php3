@@ -411,4 +411,5 @@ $strXkana = '全角カナへ変換する'; // convert to X208-kana
 // To translate
 $strRelationNotWorking = 'リレーション機能を動かすためのリンクテーブルが有効になっていません。 %sここ%sをクリックして原因を見つけて下さい。';
 $strAllTableSameWidth = '全てのテーブルを同じ幅で表示しますか?';
+$strPdfNoTables = 'No tables';  //to translate
 ?>

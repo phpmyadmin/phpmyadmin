@@ -402,4 +402,5 @@ $strZip = '"zip"';
 //to translate:
 $strRelationNotWorking = 'Atsisakyta papildomø nustatymø, leidþianèiø dirbti su jungtinëmis lentelëmis. %sPaaiðkinimas%s.';  //to translate
 $strAllTableSameWidth = 'rodyti visas lenteles vienodo ploèio?';  //to translate
+$strPdfNoTables = 'No tables';  //to translate
 ?>

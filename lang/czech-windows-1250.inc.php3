@@ -407,4 +407,5 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
+$strPdfNoTables = 'No tables';  //to translate
 ?>

@@ -401,4 +401,5 @@ $strMySQLCharset = 'MySQL Charset';  //to translate
 $strComments = 'Comments';  //to translate
 $strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';  //to translate
 $strAllTableSameWidth = 'display all Tables with same width?';  //to translate
+$strPdfNoTables = 'No tables';  //to translate
 ?>

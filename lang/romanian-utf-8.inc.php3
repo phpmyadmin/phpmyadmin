@@ -403,4 +403,5 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 
 // To translate
+$strPdfNoTables = 'No tables';  //to translate
 ?>

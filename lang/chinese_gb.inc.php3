@@ -408,4 +408,5 @@ $strYes = 'ÊÇ';
 $strZip = '"zipped"';
 
 // To translate
+$strPdfNoTables = 'No tables';  //to translate
 ?>

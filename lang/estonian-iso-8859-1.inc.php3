@@ -403,4 +403,5 @@ $strRelationNotWorking = 'Lisavõimalused töötamiseks lingitud tabelitega on deak
 $strAllTableSameWidth = 'kuva kõik tabelid sama laiusega?';  
 
 // To translate
+$strPdfNoTables = 'No tables';  //to translate
 ?>

@@ -409,4 +409,5 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
+$strPdfNoTables = 'No tables';  //to translate
 ?>

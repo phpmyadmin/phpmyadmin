@@ -402,4 +402,5 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
+$strPdfNoTables = 'No tables';  //to translate
 ?>

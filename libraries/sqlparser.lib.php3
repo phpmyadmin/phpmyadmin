@@ -391,7 +391,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
 
 
         if ($arraysize > 0) {
-            $t_next = $sql_array[0]['type'];
+            $t_next     = $sql_array[0]['type'];
             $t_prev     = NULL;
             $t_cur      = NULL;
         }
@@ -583,7 +583,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             */
             if (($i + 1) < $arraysize) {
                 // array_push($typearr, $arr[$i + 1]['type']);
-                $typearr[4] = $arr[$i+1]['type'];
+                $typearr[4] = $arr[$i + 1]['type'];
             } else {
                 //array_push($typearr, NULL);
                 $typearr[4] = NULL;
@@ -752,19 +752,19 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
     } // end of the "PMA_SQP_formatHtml()" function
 
 
-    function PMA_SQP_BuildCssRule($classname, $property, $value)
+    function PMA_SQP_buildCssRule($classname, $property, $value)
     {
-        $str = '.' . $classname . ' {';
-        if($value != '') {
-            $str .= $property . ': ' . $value . '; ';
+        $str     = '.' . $classname . ' {';
+        if ($value != '') {
+            $str .= $property . ': ' . $value . ';';
         }
-        $str .= '}' . "\n";
+        $str     .= '}' . "\n";
 
         return $str;
     } // end of the "PMA_SQP_buildCssRule()" function
 
 
-    function PMA_SQP_BuildCssData()
+    function PMA_SQP_buildCssData()
     {
         global $cfg;
 

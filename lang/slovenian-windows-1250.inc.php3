@@ -402,4 +402,5 @@ $strWrongUser = 'Napaèno uporabniško ime/geslo. Dostop zavrnjen.';
 $strYes = 'Da';
 
 $strZip = '"zipano"';
+$strPdfNoTables = 'No tables';  //to translate
 ?>

@@ -407,4 +407,5 @@ $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
+$strPdfNoTables = 'No tables';  //to translate
 ?>
