@@ -56,7 +56,7 @@ div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_
 .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
 .tblItem:hover {color: #FF0000; text-decoration: underline}
             <?php
-            } else { 
+            } else {
             ?>
 /* Layer effeccts neccessary: capable, but no is_DOM. We found an older CSS-Browser */
 div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
@@ -190,6 +190,11 @@ fieldset fieldset {
     margin:     0.8em;
 }
 
+button.mult_submit {
+    border: none;
+    background-color: transparent;
+}
+
 .pdflayout {
     overflow:         hidden;
     clip:             inherit;
@@ -208,7 +213,7 @@ fieldset fieldset {
     display:          inline;
     visibility:       inherit;
     cursor:           move;
-    position:         absolute; 
+    position:         absolute;
     font-size:        <?php echo $font_smaller; ?>;
     border:           1px dashed #000000;
 }

@@ -6,7 +6,8 @@ $Id$
 $Source$
 
 2003-07-28 Alexander M. Turek  <rabus@users.sourceforge.net>
-    * tbl_properties_structure.php3: Use icons for multi-submit buttons.
+    * tbl_properties_structure.php3, css/phpmyadmin.css.php3: Use icons for
+      multi-submit buttons.
 
 2003-07-28 Garvin Hicking <me@supergarv.de>
     * sql.php3, libraries/common.lib.php3 - when $cfg['SQP']['fmtType']
