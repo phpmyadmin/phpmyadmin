@@ -23,6 +23,7 @@ $Source$
 	  tbl_properties.php3: all js libraries are now loaded in the header part
 	  of the xhtml generated pages.
 	* db_readdump.php3, line 24: fixed a bug if $sql_file = ''.
+	* lang/polish.inc.php3: updated thanks to Piotr Roszatycki.
 
 2001-08-31  Olivier Müller  <om@omnis.ch>
 	* releasing phpMyAdmin 2.2.0-final

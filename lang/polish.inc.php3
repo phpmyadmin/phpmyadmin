@@ -112,6 +112,7 @@ $strFieldsEmpty = ' Pole count jest puste! ';
 $strFixed = 'sta³y';
 $strFormat = 'Format';
 $strFormEmpty = 'Brakuj±ca warto¶æ w formularzu!';
+$strFullText = 'Pe³ny tekst';
 $strFunction = 'Funkcja';
 
 $strGenTime = 'Czas wygenerowania';
@@ -186,10 +187,12 @@ $strOptionally = 'OPCJONALNIE';
 $strOr = 'Lub';
 $strOverhead = 'Nadmiar';
 
+$strPartialText = 'Skrócony tekst';
 $strPassword = 'Has³o';
 $strPasswordEmpty = 'Puste has³o!';
 $strPasswordNotSame = 'Has³a nie s± identyczne!';
 $strPHPVersion = 'Wersja PHP';
+$strPmaDocumentation = 'Dokumentacja dla phpMyAdmin';
 $strPos1 = 'Poczatek';
 $strPrevious = 'Poprzednie';
 $strPrimary = 'Podstawowy';
@@ -236,6 +239,7 @@ $strSelect = 'Wybór';
 $strSelectFields = 'Wybór pól (co najmniej jedno):';
 $strSelectNumRows = 'w zapytaniu';
 $strSend = 'wys³anie';
+$strServerChoice = 'Wybór serwera';
 $strSequence = 'Sekwencja';
 $strServerVersion = 'Wersja serwera';
 $strSetEnumVal = 'Je¿eli pole jest typu "ENUM" lub "SET", warto¶ci wprowadza siê w formacie: \'a\',\'b\',\'c\'...<br />Je¿eli potrzeba wprowadziæ odwrotny uko¶nik ("\") lub apostrof ("\'"), nale¿y je poprzedziæ odwrotnym uko¶nikiem (np.: \'\\\\xyz\' lub \'a\\\'b\').';
@@ -295,10 +299,4 @@ $strWelcome = 'Witamy w ';
 $strWrongUser = 'B³êdne pola u¿ytkownik/has³o. Brak dostêpu.';
 
 $strYes = 'Tak';
-
-// To translate
-$strServerChoice = 'Server Choice';//to translate 
-$strPmaDocumentation = 'phpMyAdmin Documentation';//to translate 
-$strFullText = 'Full Texts';//to translate
-$strPartialText = 'Partial Texts';//to translate
 ?>
