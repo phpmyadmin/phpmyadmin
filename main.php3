@@ -191,12 +191,13 @@ if ($server > 0) {
         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Create_priv = \'Y\' AND User = \'' . PMA_sqlAddslashes($mysql_cur_user) . '\'';
         $rs_usr      = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
         if ($rs_usr) {
+            $re      = '(^|(\\\\\\\\)+|[^\])';
             while ($row = mysql_fetch_array($rs_usr)) {
-                if (!mysql_select_db($row['Db'], $userlink) && @mysql_errno() != 1044) {
-                    $re              = '(^|(\\\\\\\\)+|[^\])';
-                    $row['Db']       = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $row['Db']));
-                    $db_to_create    = $row['Db'];
-                    $is_create_priv  = TRUE;
+                if (ereg($re . '%|_', $row['Db'])
+                    || !mysql_select_db($row['Db'], $userlink) && @mysql_errno() != 1044) {
+                    $row['Db']      = ereg_replace($re . '%', '\\1...', ereg_replace($re . '_', '\\1?', $row['Db']));
+                    $db_to_create   = $row['Db'];
+                    $is_create_priv = TRUE;
                     break;
                 } // end if
             } // end while
