@@ -1249,6 +1249,9 @@ if (!isset($cfg['Export']['latex_structure_label'])) {
 if (!isset($cfg['Export']['sql_drop_database'])) {
     $cfg['Export']['sql_drop_database'] = FALSE;
 }
+if (!isset($cfg['Export']['sql_use_transaction'])) {
+    $cfg['Export']['sql_use_transaction'] = FALSE;
+}
 if (!isset($cfg['Export']['sql_drop_table'])) {
     $cfg['Export']['sql_drop_table'] = FALSE;
 }

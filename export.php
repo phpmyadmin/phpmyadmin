@@ -446,6 +446,7 @@ if ($export_type == 'server') {
     if (!PMA_exportDBFooter($db))
         break;
 }
+if (!PMA_exportFooter()) break;
 
 } while (FALSE);
 // End of fake loop

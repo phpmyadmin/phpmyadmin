@@ -12,6 +12,10 @@ $Source$
       libraries/export/sql.php: Really support export of UPDATE queries (bug
       #914237), condition generation used from previous implementation in
       display_tbl.lib.php and moved to common.lib.php.
+    * config.inc.php, export.php, lang/*, libraries/common.lib.php,
+      libraries/config_import.lib.php, libraries/display_export.lib.php,
+      libraries/export/*: Support for enclosing SQL export in transaction (RFE
+      #930827).
     
 2004-04-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/relation.lib.php: bug 930445 when PMA_table_info not defined,

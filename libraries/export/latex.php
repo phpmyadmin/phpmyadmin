@@ -36,6 +36,17 @@ function PMA_exportComment($text) {
 }
 
 /**
+ * Outputs export footer
+ *
+ * @return  bool        Whether it suceeded
+ *
+ * @access  public
+ */
+function PMA_exportFooter() {
+    return TRUE;
+}
+
+/**
  * Outputs export header
  *
  * @return  bool        Whether it suceeded

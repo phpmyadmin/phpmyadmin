@@ -41,6 +41,25 @@ function PMA_exportComment($text) {
 }
 
 /**
+ * Outputs export footer
+ *
+ * @return  bool        Whether it suceeded
+ *
+ * @access  public
+ */
+function PMA_exportFooter() {
+    global $crlf;
+
+    $foot = '';
+    
+    if (isset($GLOBALS['use_transaction'])) {
+        $foot .=  $crlf . 'COMMIT;' . $crlf;
+    }
+        
+    return PMA_exportOutputHandler($foot);
+}
+
+/**
  * Outputs export header
  *
  * @return  bool        Whether it suceeded
@@ -70,6 +89,12 @@ function PMA_exportHeader() {
                . '# ' . implode($crlf . '# ', $lines) . $crlf
                . '# ' . $crlf;
     }
+    
+    if (isset($GLOBALS['use_transaction'])) {
+        $head .=  $crlf .'SET AUTOCOMMIT=0;' . $crlf
+                . 'START TRANSACTION;' . $crlf . $crlf;
+    }
+        
     return PMA_exportOutputHandler($head);
 }
 

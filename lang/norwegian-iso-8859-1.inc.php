@@ -740,4 +740,5 @@ $strZip = 'Komprimert (zip)';
 // To translate:
 
 $strOperator = 'Operator';  //to translate
+$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 ?>

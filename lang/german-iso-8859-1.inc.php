@@ -741,4 +741,5 @@ $strRenameDatabaseOK = 'Datenbank %s wurde umbenannt zu %s';
 $strDatabaseEmpty = 'Der Datenbankname ist leer!';
 $strDBRename = 'Datenbank umbenennen zu';
 $strOperator = 'Operator';  //to translate
+$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 ?>

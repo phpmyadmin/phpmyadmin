@@ -735,4 +735,5 @@ $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) 
 $strZip = '"arhivat"';
 
 $strOperator = 'Operator';  //to translate
+$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 ?>

@@ -732,4 +732,5 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
+$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 ?>

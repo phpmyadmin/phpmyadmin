@@ -742,4 +742,5 @@ $strRelationsForTable = 'RELATIONS FOR TABLE';  //to translate
 $strRenameDatabaseOK = 'Database %s has been renamed to %s';  //to translate
 
 $strOperator = 'Operator';  //to translate
+$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 ?>

@@ -137,6 +137,9 @@ if (isset($sql_query)) {
             <fieldset id="sql_options">
                 <legend><?php echo $strSQLOptions; ?> (<a href="./Documentation.html#faqexport" target="documentation"><?php echo $strDocu; ?></a>)</legend>
                 <?php echo $strAddHeaderComment; ?>: <input type="text" name="header_comment" value="<?php echo $cfg['Export']['sql_header_comment']; ?>" class="textfield" size="30" /><br />
+
+                <input type="checkbox" name="use_transaction" value="yes" id="checkbox_use_transaction" <?php PMA_exportCheckboxCheck('sql_use_transaction'); ?> />
+                <label for="checkbox_use_transaction"><?php echo $strEncloseInTransaction; ?></label><br />
 <?php
 if ($export_type == 'server') {
 ?>
@@ -147,6 +150,7 @@ if ($export_type == 'server') {
                     </legend>
                     <input type="checkbox" name="drop_database" value="yes" id="checkbox_drop_database" <?php PMA_exportCheckboxCheck('sql_drop_database'); ?> />
                     <label for="checkbox_drop_database"><?php echo $strAddDropDatabase; ?></label><br />
+
                 </fieldset>
 <?php
 }

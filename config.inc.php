@@ -331,6 +331,7 @@ $cfg['Export']['latex_structure_label']     = 'tab:__TABLE__-structure';
 
 $cfg['Export']['sql_structure']             = TRUE;
 $cfg['Export']['sql_data']                  = TRUE;
+$cfg['Export']['sql_use_transaction']       = FALSE;
 $cfg['Export']['sql_drop_database']         = FALSE;
 $cfg['Export']['sql_drop_table']            = FALSE;
 $cfg['Export']['sql_if_not_exists']         = FALSE;

@@ -233,6 +233,7 @@ $strEffective = 'Efektivní';
 $strEmpty = 'Vyprázdnit';
 $strEmptyResultSet = 'MySQL vrátil prázdný výsledek (tj. nulový počet řádků).';
 $strEnabled = 'Zapnuto';
+$strEncloseInTransaction = 'Uzavřít příkazy v&nbsp;transakci';
 $strEnd = 'Konec';
 $strEndCut = 'KONEC VÝPISU';
 $strEndRaw = 'KONEC VÝPISU';

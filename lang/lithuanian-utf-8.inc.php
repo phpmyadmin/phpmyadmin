@@ -734,4 +734,5 @@ $strZeroRemovesTheLimit = 'Pastaba: nėra jokių apribojimų jeigu reikšmė nur
 $strZip = '"zip"';
 
 $strOperator = 'Operator';  //to translate
+$strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 ?>
