@@ -73,6 +73,7 @@ $strChoosePage = 'Прошу вибрати сторінку для редагування';
 $strColumn = 'Колонка';
 $strColumnNames = 'Назви колонок';
 $strCompleteInserts = 'Повна вставка';
+$strConfigFileError = 'phpMyAdmin не може прочитати конфігураційний файл <br />Це може статися у тому випадку, коли php натрапить на синтаксичну помилку (parse error) у ньому, або не може знайти самого файлу.<br />Завантажте конфігураційний файл безпосередньо за допомогою посилання поданого нижче і прочитайте отримані повідомлення про помилки (php error messages). Найчастіше десь у файлі просто бракує лапок чи двокрапки.  <br />Якщо Ви отримаєте порожню сторінку, - значить все в порядку.';
 $strConfigureTableCoord = 'Прошу сконфіґурувати координати таблиці %s';
 $strConfirm = 'Ви насправді хочете це зробити?';
 $strCookiesRequired = 'З цього моменту Cookies повинні бути дозволені.';
@@ -221,6 +222,7 @@ $strNoQuery = 'Не задано SQL-запит!';
 $strNoRights = 'Ви для цього маєте недостатньо прав!';
 $strNoTablesFound = 'В БД не виявлено таблиць.';
 $strNotNumber = 'Це не число!';
+$strNotSet = 'Таблицю <b>%s</b> не знайдено або не визначено у %s';
 $strNotValidNumber = ' недопустима кількість рядків!';
 $strNoUsersFound = 'Не знайдено користувача.';
 $strNull = 'Нуль';
@@ -391,11 +393,10 @@ $strYes = 'Так';
 $strZip = 'запакувати в "zip"';
 
 // To translate
-$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 $strMissingBracket = 'Missing Bracket';  //to translate
 $strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
 $strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
 $strMySQLCharset = 'MySQL Charset';  //to translate
+
 ?>

@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/romanian.inc.php3 updates, thanks to Valics Lehel
+    * lang/lithuanian.inc.php3 updates, thanks to Vilius Zigmantas
+    * lang/polish.inc.php3 updates, thanks to Jakub Wilk
+    * lang/ukrainian.inc.php3 updates, thanks to Markijan Baran
+
 2002-06-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/thai.inc.php3: Updates, thanks again to Arthit Suriyawongkul.
     * lang/albanian.inc.php3: Updates, thanks again to Laurent Dhima.
