@@ -657,7 +657,9 @@ if (!empty($change_copy)) {
     PMA_DBI_free_result($res);
     $res = PMA_DBI_query('SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv` WHERE `User` = "' . PMA_sqlAddslashes($old_username) . '" AND `Host` = "' . $old_hostname . '";', $userlink);
     while ($row = PMA_DBI_fetch_assoc($res)) {
-        $res2 = PMA_DBI_query('SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE `User` = "' . PMA_sqlAddslashes($old_username) . '" AND `Host` = "' . $old_hostname . '" AND `Db` = "' . $row['Db'] . '";');
+
+        $res2 = PMA_DBI_query('SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE `User` = "' . PMA_sqlAddslashes($old_username) . '" AND `Host` = "' . $old_hostname . '" AND `Db` = "' . $row['Db'] . '" AND `Table_name` = "' . $row['Table_name'] . '";');
+
         $tmp_privs1 = PMA_extractPrivInfo($row);
         $tmp_privs2 = array(
             'Select' => array(),

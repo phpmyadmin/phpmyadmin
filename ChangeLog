@@ -7,6 +7,7 @@ $Source$
 
 2004-03-29 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: bug 923171, password error when copying a user
+    * server_privileges.php: bug 923227, copying a user with table privs
 
 2004-03-26 Marc Delisle  <lem9@users.sourceforge.net>
     * left.php, db_details_structure.php, config.inc.php, Documentation.html,
