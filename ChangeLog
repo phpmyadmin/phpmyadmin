@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/turkish update, thanks to boralioglu.
+    * lang/estonian: Update thanks to Alvar Soome - finsoft.
+
 2004-10-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: support for compressed protocol
       and CLIENT_LOCAL_FILES in mysqli
