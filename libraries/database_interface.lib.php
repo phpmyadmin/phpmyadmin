@@ -5,7 +5,8 @@
 /**
  * Common Option Constants For DBI Functions
  */
-define('PMA_DBI_QUERY_STORE', 1);  // Force STORE_RESULT method, ignored by classic MySQL.
+define('PMA_DBI_QUERY_STORE',       1);  // Force STORE_RESULT method, ignored by classic MySQL.
+define('PMA_DBI_QUERY_UNBUFFERED',  2);  // Do not read whole query
 
 /**
  * Including The DBI Plugin

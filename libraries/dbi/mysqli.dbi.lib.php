@@ -92,8 +92,10 @@ function PMA_DBI_select_db($dbname, $link = NULL) {
 }
 
 function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
-    if ($options == $options | PMA_DBI_QUERY_STORE) {
+    if ($options == ($options | PMA_DBI_QUERY_STORE)) {
         $method = MYSQLI_STORE_RESULT;
+    } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
+        $method = MYSQLI_USE_RESULT;
     } else {
         $method = MYSQLI_USE_RESULT;
     }

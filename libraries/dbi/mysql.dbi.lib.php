@@ -119,7 +119,13 @@ function PMA_DBI_try_query($query, $link = NULL, $options = 0) {
     if (PMA_MYSQL_INT_VERSION < 40100) {
         $query = PMA_convert_charset($query);
     }
-    return mysql_query($query, $link);
+    if ($options == ($options | PMA_DBI_QUERY_STORE)) {
+        return mysql_query($query, $link);
+    } elseif ($options == ($options | PMA_DBI_QUERY_UNBUFFERED)) {
+        return mysql_unbuffered_query($query, $link);
+    } else {
+        return mysql_query($query, $link);
+    }
 }
 
 // The following function is meant for internal use only.
