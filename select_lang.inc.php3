@@ -48,6 +48,7 @@ $available_languages = array(
   'nl'         => array('nl([-_][[:alpha:]]{2})?|dutch', 'dutch'),
   'no'         => array('no|norwegian', 'norwegian'),
   'pl'         => array('pl|polish', 'polish'),
+  'pt-br'      => array('pt[-_]br|brazilian portuguese', 'brazilian_portuguese'),
   'pt'         => array('pt([-_][[:alpha:]]{2})?|portuguese', 'portuguese'),
   'ru-koi8r'   => array('ru|russian', 'russian-koi8'),
   'ru-win1251' => array('ru|russian', 'russian-win1251'),
