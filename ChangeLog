@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-01-15 Robin Johnson  <robbat2@users.sourceforge.net>
+    * lang/sort_lang.sh: Fix status output bug '\n'
+    * db_details_importdocsql.php3: Move hardcoded strings to language files 
+    * lang/*.php3: Add new strings for docSQL importer
+
 2003-01-15 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas (viliusz).
     * lang/indonesian-*.inc.php3: Updates, thanks to Rachim Tamsjadi (tamsy).
