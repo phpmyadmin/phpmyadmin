@@ -3,7 +3,20 @@
 ##
 # Shell script that synchronises all translations in phpMyAdmin
 ##
+# Any parameters will be passed to grep to filter processed translation, for
+# example: './sync_lang.sh czech' will process only czech translation,
+# './sync_lang.sh -e czech -e english' will process czech and english
+# translations.
+##
 # Written by Michal Cihar <nijel at users.sourceforge.net>
+##
+# Changes:
+# 2002-08-13
+#   * support for synchronisation only for selected language(s)
+# 2002-07-18
+#   * can exclude some languages from conversion
+# 2002-07-17
+#   * support for multiple convertors (recode added)
 ##
 
 ##
@@ -98,6 +111,13 @@ EOT`
 echo "-------------------------------------------------------------------"
 # go through all file we should process
 for base in $BASE_TRANSLATIONS ; do
+    if [ "$#" -gt 0 ] ; then
+        if ( echo $base | grep -q "$@" ) ; then
+            true
+        else
+            continue
+        fi
+    fi
     # grep language from basename
     lang=$(echo $base|sed 's%-.*%%')
     # which files will we create from current?

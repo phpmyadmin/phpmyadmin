@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-08-13 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech-*.inc.php3: Updates.
+    * lang/sync_lang.sh: Allow running only on specified translations.
+
 2002-08-13 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
     * Documentation.*: Updated credits.
