@@ -270,7 +270,7 @@ GRANT SELECT (
         features:
         <pre>
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt; TO 'pma'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         </pre>
         (this of course requires you to have a special DB for phpMyAdmin, the
         contents will be explained later)<br />
@@ -1695,6 +1695,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br /><br />
     </dd>
 
+    <a name="wysiwyg"></a>
     <dt><b>$cfg['WYSIWYG-PDF'] </b>boolean</dt>
     <dd>
         Utilizes a WYSIWYG editing control to easily place elements of a PDF page.
@@ -3084,19 +3085,23 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <li>Choose &quot;Structure&quot; in the navigation on top</li>
     <li>Choose &quot;Edit PDF Pages&quot; which should be somewhere at the
         bottom of the page</li>
-    <li>Enter the name for a first pdf page and submit</li>
+    <li>Enter the name for a first pdf page and submit (you can also use
+        the &quot;Automatic layout&quot;, which will place on your page
+        all the tables that are linked)</li>
     <li>Choose this page to edit</li>
-    <li>Now add a table you want to show on this page and it's coordinates and
+    <li>Now add a table you want to show on this page and its coordinates and
         submit<br />
-        First you will have to guess this coordinates of course, so just expect
+        First you will have to guess those coordinates of course, so just expect
         to have an area of about 297 * 210 and put the tables coordinates
         somewhere in there, you will be able to have a look at what happened
         and change them later.<br />
         For example, x=100 and y=200 means that the table will be at 200 mm
         down and 100 mm right from the upper left corner.<br />
         Actually if you have a width of more than 300 or a height of more than
-        200 than it will automatically be scaled but 300*100 is a good start to
+        200 then it will automatically be scaled but 200*100 is a good start to
         have an idea of what coordinates to use.</li>
+    <li>There is also a visual editor (scratchboard) available, see the
+        explanation at the <a href="#wysiwyg">$cfg['WYSIWYG-PDF']</a> section.</li>
     <li>After every table you submitted you will have the possibility to submit
         more tables</li>
     <li>When you have entered enough tables Click on your db name in the left
