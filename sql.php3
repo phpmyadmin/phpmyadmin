@@ -196,7 +196,7 @@ else {
     if (!isset($session_max_rows)) {
         $session_max_rows = $cfg['MaxRows'];
     } else if ($session_max_rows != 'all') {
-        $cfg['MaxRows']       = $session_max_rows;
+        $cfg['MaxRows']   = $session_max_rows;
     }
     // Defines the display mode (horizontal/vertical) and header "frequency"
     if (empty($disp_direction)) {
