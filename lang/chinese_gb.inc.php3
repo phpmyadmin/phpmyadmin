@@ -54,8 +54,6 @@ $strAtEndOfTable = '于数据表尾端';
 $strAttr = '属性';
 
 $strBack = '返回';
-$strBeginCut = '&#24320;﹍ 芭';
-$strBeginRaw = '&#24320;﹍ ﹍&#36164;';
 $strBinary = ' 二进制码 ';
 $strBinaryDoNotEdit = ' 二进制码 - 无法编辑 ';
 $strBookmarkDeleted = '标签已经删除.';
@@ -75,7 +73,6 @@ $strCarriage = '回车: \\r';
 $strChange = '改变';
 $strChangeDisplay = '选择显示之字段';
 $strChangePassword = '更改密码';
-$strCharsetOfFile = 'じ&#26723;:';
 $strCheckAll = '全选';
 $strCheckDbPriv = '检查数据库权限';
 $strCheckTable = '检查数据表';
@@ -139,8 +136,6 @@ $strEmpty = '清空';
 $strEmptyResultSet = 'MySQL 返回的查询结果为空。 (原因可能为：没有找到符合条件的记录。)';
 $strEnabled = '启动';
 $strEnd = '结束';
-$strEndCut = '&#32467; 芭';
-$strEndRaw = '&#32467; ﹍&#36164;';
 $strEnglishPrivileges = ' 注意: MySQL 权限名称会被解释成英文 ';
 $strError = '错误';
 $strExplain = '说明 SQL';
@@ -335,13 +330,8 @@ $strRunSQLQuery = '在数据库 %s 执行以下指令';
 $strRunning = '运行于 %s';
 
 $strSQL = 'SQL'; // should express in english
-$strSQLParserBugMessage = '&#36825;琌眤т SQL だчㄇ祘Α&#38169;&#35823;&#35831;&#32454;み琩眤&#35821;&#26816;琩ま彮琌タ谔の&#27809;Τ&#36951;簗ㄤ&#38169;&#26469;眤&#20256;&#26723;&#26102;ま彮よㄏノ&#36827;&#30721;眤&#23581;&#35797; MySQL ㏑ざ&#25191;︽&#35813;&#35821; MySQL 狝竟塝&#38169;&#35823;獺&#36825;眤т&#38382;&#39064;┮眤ご礛ゼ秆&#38382;&#39064;┪だ猂祘Α&#29616;&#38169;&#35823;㏑家Αタ盽&#25191;︽&#35831;&#23558;&#35813;&#29616;&#38169;&#35823; SQL &#35821;┾&#23558;"芭"场矗ユ︿&#21306;:';
-$strSQLParserUserError = '琌眤 SQL &#35821;&#29616;&#38169;&#35823; MySQL 狝竟塝&#38169;&#35823;獺&#36825;眤т&#38382;&#39064;┮';
 $strSQLQuery = 'SQL 语句';
 $strSQLResult = 'SQL 查询结果';
-$strSQPBugInvalidIdentifer = '&#35782;&#21035;&#30721; (Invalid Identifer)';
-$strSQPBugUnclosedQuote = 'ゼЧ&#32467;ま彮 (Unclosed quote)';
-$strSQPBugUnknownPunctuation = 'ぃ&#26631;橋才彮 (Unknown Punctuation String)';
 $strSave = '存储';
 $strScaleFactorSmall = '比例倍数太细, 无法将图表放在一页内';
 $strSearch = '搜索';
@@ -446,9 +436,12 @@ $timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
 $strAbortedClients = 'Aborted'; //to translate
 $strAdministration = 'Administration'; //to translate
 
+$strBeginCut = 'BEGIN CUT'; //to translate
+$strBeginRaw = 'BEGIN RAW'; //to translate
 $strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
 
 $strCannotLogin = 'Cannot login to MySQL server';  //to translate
+$strCharsetOfFile = 'Character set of the file:'; //to translate
 $strCommand = 'Command'; //to translate
 $strConnections = 'Connections'; //to translate
 $strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
@@ -456,6 +449,9 @@ $strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has alr
 $strDeleteAndFlush = 'Delete the users and reload the privileges afterwards.'; //to translate
 $strDeleteAndFlushDescr = 'This is the cleanest way, but reloading the privileges may take a while.'; //to translate
 $strDeleting = 'Deleting %s'; //to translate
+
+$strEndCut = 'END CUT'; //to translate
+$strEndRaw = 'END RAW'; //to translate
 
 $strFailedAttempts = 'Failed attempts'; //to translate
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
@@ -520,6 +516,11 @@ $strResourceLimits = 'Resource limits'; //to translate
 $strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
 $strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
 
+$strSQLParserBugMessage = 'There is a chance that you may have found a bug in the SQL parser. Please examine your query closely, and check that the quotes are correct and not mis-matched. Other possible failure causes may be that you are uploading a file with binary outside of a quoted text area. You can also try your query on the MySQL command line interface. The MySQL server error output below, if there is any, may also help you in diagnosing the problem. If you still have problems or if the parser fails where the command line interface succeeds, please reduce your SQL query input to the single query that causes problems, and submit a bug report with the data chunk in the CUT section below:'; //to translate
+$strSQLParserUserError = 'There seems to be an error in your SQL query. The MySQL server error output below, if there is any, may also help you in diagnosing the problem'; //to translate
+$strSQPBugInvalidIdentifer = 'Invalid Identifer'; //to translate
+$strSQPBugUnclosedQuote = 'Unclosed quote'; //to translate
+$strSQPBugUnknownPunctuation = 'Unknown Punctuation String'; //to translate
 $strSent = 'Sent'; //to translate
 $strServerStatus = 'Runtime Information'; //to translate
 $strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
