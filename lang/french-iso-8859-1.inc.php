@@ -411,6 +411,7 @@ $strNoPhp = 'Sans source PHP';
 $strNoPrivileges = 'aucun privilège';
 $strNoQuery = 'Aucune requête SQL !';
 $strNoRights = 'Vous n\'êtes pas autorisé à accéder à cette page';
+$strNoRowsSelected = 'Aucun enregistrement n\'a été sélectionné';
 $strNoSpace = 'Espace-disque insuffisant pour enregistrer le fichier %s.';
 $strNoTablesFound = 'Aucune table n\'a été trouvée dans cette base.';
 $strNoUsersFound = 'Il n\'y a aucun utilisateur';
@@ -570,6 +571,7 @@ $strSQLParserUserError = 'Il semble qu\'il y ait une erreur dans votre requête S
 $strSQLQuery = 'requête SQL';
 $strSQLResult = 'Resultat de la requête SQL';
 $strSQPBugInvalidIdentifer = 'Identificateur invalide';
+$strSQPBugSyntaxError = 'Erreur de syntaxe';
 $strSQPBugUnclosedQuote = 'Apostrophe non fermé';
 $strSQPBugUnknownPunctuation = 'Ponctuation invalide';
 $strSave = 'Sauvegarder';
@@ -738,6 +740,4 @@ $strYes = 'Oui';
 $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 
-$strNoRowsSelected = 'No rows selected';  //to translate
-$strSQPBugSyntaxError = 'Syntax error';  //to translate
 ?>
