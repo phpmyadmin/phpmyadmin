@@ -253,6 +253,11 @@ div.tblWarn {
     vertical-align: middle;
     padding: 0px 0px 10px 0px;
 }
+
+img, input, select, button {
+    vertical-align: middle;
+}
+
 <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
 .serverinfo a:link, .serverinfo a:activ, .serverinfo a:visited {
     font-family: <?php echo $right_font_family; ?>;

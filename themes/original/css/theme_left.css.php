@@ -68,3 +68,7 @@ div {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_
 body {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; }
 input   {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>}
 select  {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color: #ffffff; color: #000000}
+
+img, input, select, button {
+    vertical-align: middle;
+}

@@ -236,3 +236,6 @@ hr{
     border:           0;
     height:           1px;
 }
+img, input, select, button {
+    vertical-align: middle;
+}

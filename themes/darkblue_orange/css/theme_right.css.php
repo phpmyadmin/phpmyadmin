@@ -487,7 +487,9 @@ hr{
 .navActive a:link,.navActive a:active,.navActive a:visited,.navActive a:hover {
     color:               #000000;
 }
-
+img, input, select, button {
+    vertical-align: middle;
+}
 
 <?php if (isset($js_isDOM) && $js_isDOM != '0') { ?>
 /* some styles for IDs: */
