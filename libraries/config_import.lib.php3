@@ -338,6 +338,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
         }
     }
 
+    if (!isset($cfg['CharEditing'])) {
+        $cfg['CharEditing'] = 'input';
+    }
+
     if (!isset($cfg['ZipDump'])) {
         if (isset($cfgZipDump)) {
             $cfg['ZipDump'] = $cfgZipDump;
@@ -543,23 +547,13 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
     if (!isset($cfg['TextareaAutoSelect'])) {
         $cfg['TextareaAutoSelect']  = TRUE;
     }
-    
+
     if (!isset($cfg['CharTextareaCols'])) {
-        if (isset($cfgCharTextareaCols)) {
-            $cfg['CharTextareaCols'] = $cfgCharTextareaCols;
-            unset($cfgCharTextareaCols);
-        } else {
-            $cfg['CharTextareaCols'] = 40;
-        }
+        $cfg['CharTextareaCols'] = 40;
     }
 
     if (!isset($cfg['CharTextareaRows'])) {
-        if (isset($cfgCharTextareaRows)) {
-            $cfg['CharTextareaRows'] = $cfgCharTextareaRows;
-            unset($cfgCharTextareaRows);
-        } else {
-            $cfg['CharTextareaRows'] = 2;
-        }
+        $cfg['CharTextareaRows'] = 2;
     }
 
     if (!isset($cfg['LimitChars'])) {

@@ -7,6 +7,8 @@ $Source$
 
 2002-09-21 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german-*.inc.php3: Updates.
+    * libraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
+      compatibility for config.inc.php3 < rev 1.144.
 
 2002-09-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/display_tbl.lib.php3: bug 612117, vertical view and
