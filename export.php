@@ -21,7 +21,7 @@ if ($what == 'excel') {
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-require('./libraries/export/' . $type . '.php');
+require('./libraries/export/' . preg_replace('@\.\.*@','.',$type) . '.php');
 
 // Generate error url
 if ($export_type == 'server') {
