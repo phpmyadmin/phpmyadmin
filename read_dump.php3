@@ -327,35 +327,38 @@ if ($sql_query != '') {
         $sql_query_cpy = implode(";\n", $pieces) . ';';
     }
 
-    // Only one query to run
-    if ($pieces_count == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
-        // sql.php3 will stripslash the query if get_magic_quotes_gpc
-        if (get_magic_quotes_gpc() == 1) {
-            $sql_query = addslashes($pieces[0]);
-        } else {
-            $sql_query = $pieces[0];
-        }
-        if (eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $sql_query)) {
-            $reload = 1;
-        }
-        include('./sql.php3');
-        exit();
-    }
-
-    // Runs multiple queries
-    else if (mysql_select_db($db)) {
-        for ($i = 0; $i < $pieces_count; $i++) {
-            $a_sql_query = $pieces[$i];
-            $result = mysql_query($a_sql_query);
-            if ($result == FALSE) { // readdump failed
-                $my_die = $a_sql_query;
-                break;
+    // really run the query?
+    if ($view_bookmark == 0) {
+        // Only one query to run
+        if ($pieces_count == 1 && !empty($pieces[0])) {
+            // sql.php3 will stripslash the query if get_magic_quotes_gpc
+            if (get_magic_quotes_gpc() == 1) {
+                $sql_query = addslashes($pieces[0]);
+            } else {
+                $sql_query = $pieces[0];
             }
-            if (!isset($reload) && eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $a_sql_query)) {
+            if (eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $sql_query)) {
                 $reload = 1;
             }
-        } // end for
-    } // end else if
+            include('./sql.php3');
+            exit();
+        }
+
+        // Runs multiple queries
+        else if (mysql_select_db($db)) {
+            for ($i = 0; $i < $pieces_count; $i++) {
+                $a_sql_query = $pieces[$i];
+                $result = mysql_query($a_sql_query);
+                if ($result == FALSE) { // readdump failed
+                    $my_die = $a_sql_query;
+                    break;
+                }
+                if (!isset($reload) && eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $a_sql_query)) {
+                    $reload = 1;
+                }
+            } // end for
+        } // end else if
+    } // end if (really run the query)
     unset($pieces);
 } // end if
 
