@@ -303,7 +303,7 @@ if ($server > 0) {
                     <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showMySQLDocu('Reference', 'CREATE_DATABASE'); ?></b><br />
                     <?php echo PMA_generate_common_hidden_inputs(5); ?>
                     <input type="hidden" name="reload" value="1" />
-                    <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" id="listTable" />
+                    <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" />
                     <?php
             if (PMA_MYSQL_INT_VERSION >= 40101) {
                 require_once('./libraries/mysql_charsets.lib.php');
