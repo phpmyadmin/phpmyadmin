@@ -1757,11 +1757,26 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>[1.22] I don't see the &quot;Location of text file&quot; field, so 
+    <b>[1.22] I don't see the &quot;Location of text file&quot; field, so
        I cannot upload.</b>
     <br />
     This is most likely because in <i>php.ini</i>, your <tt>file_uploads</tt>
     parameter is not set to &quot;on&quot;.
+</p>
+
+<p>
+    <b>[1.23] I'm running MySQL on a Win32 machine. Each time I create a new
+    table the table and field names are changed to lowercase!</b>
+    <br />
+    This happens because the MySQL directive <tt>lower_case_table_names</tt>
+    defaults to 1 (<tt>ON</tt>) in the Win32 version of MySQL. You can change
+    this behavior by simply changing the directive to 0 (<tt>OFF</tt>):<br />
+    Just edit you <tt>my.ini</tt> file that should be located in your Windows
+    directory and add the following line:<br />
+    <tt>lower-case-table-names=0</tt><br />
+    Next, save the file and restart the MySQL service. You can always check the
+    value of this directive using the query<br />
+    <tt>SHOW VARIABLES LIKE 'lower_case_table_names';</tt>
 </p>
 
 <a name="faqconfig"></a>
@@ -2332,13 +2347,13 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     Validator itself, is &copy; 2001 Upright Database Technology.
     We utilize it as free XML-SOAP service.
     <br />
-    The overload module is crucial to the functionality of the validator 
+    The overload module is crucial to the functionality of the validator
     service.
 </p>
 
 <p>
     <b>[6.15] I want to add a BLOB field and put an index on it, but MySQL
-    says &quot;BLOB column '...' used in key specification without a key 
+    says &quot;BLOB column '...' used in key specification without a key
     length&quot;.</b>
     <br />
     The right way to do this, is to create the field without any indexes,
@@ -2347,7 +2362,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     set a size to the index, which is the condition to create an index on
     a BLOB field.
     <br />
-</p> 
+</p>
 
 <a name="faqproject"></a>
 <h3>[7. phpMyAdmin project]</h3>
