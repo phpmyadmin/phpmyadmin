@@ -102,12 +102,13 @@ $strCreatePdfFeat = 'Creación de PDFs';
 $strCriteria = 'Criterio';
 
 $strData = 'Datos';
-$strDataOnly = 'Só os datos';
 $strDatabase = 'Banco de Datos ';
 $strDatabaseHasBeenDropped = 'A base de datos %s foi eliminada.';
 $strDatabaseWildcard = 'Base de datos (permítese usar os comodíns):';
 $strDatabases = 'Bancos de Datos';
 $strDatabasesStats = 'Estatísticas dos bancos de datos';
+$strDataDict = 'Diccionario de datos';
+$strDataOnly = 'Só os datos';
 $strDefault = 'Padrón';
 $strDelete = 'Eliminar';
 $strDeleteFailed = 'Non foi posible eliminar!';
@@ -266,7 +267,6 @@ $strOptions = 'Opcións';
 $strOr = 'ou';
 $strOverhead = 'De máis (Overhead)';
 
-$strPHPVersion = 'Versión do PHP';
 $strPageNumber = 'Número de páxina:';
 $strPartialText = 'Textos parciais';
 $strPassword = 'Contrasinal';
@@ -277,6 +277,8 @@ $strPdfInvalidPageNum = 'O número de páxina PDF non está definido';
 $strPdfInvalidTblName = 'Non existe a tabela "%s".';
 $strPdfNoTables = 'Sen tabelas';
 $strPhp = 'Crear código PHP';
+$strPHP40203 = 'Está a usar PHP 4.2.3, que contén un erro importante relacionado coas cadeas multi-byte (mbstring). Consulte o informe de erros número 19404. Non se recomenda usar esta versión do PHP co phpMyAdmin.';
+$strPHPVersion = 'Versión do PHP';
 $strPmaDocumentation = 'Documentación do phpMyAdmin';
 $strPmaUriError = 'A directiva <tt>$cfg[\'PmaAbsoluteUri\']</tt> DEBE estar asignada no seu ficheiro de configuración.';
 $strPos1 = 'Inicio';
@@ -286,6 +288,7 @@ $strPrimaryKey = 'Chave primaria';
 $strPrimaryKeyHasBeenDropped = 'Eliminouse a chave primaria';
 $strPrimaryKeyName = 'O nome da chave primaria debe ser... PRIMARIA';
 $strPrimaryKeyWarning = '("PRIMARIA" <b>debe</b> ser o nome de e <b>só de</b> unha chave primaria)';
+$strPrint = 'Imprimir';
 $strPrintView = 'Visualización previa da impresión';
 $strPrivileges = 'Privilexios';
 $strProperties = 'Propiedades';
@@ -432,11 +435,7 @@ $strWrongUser = 'Usuario ou contrasinal errado. Acceso negado.';
 $strYes = 'Si';
 
 $strZip = 'comprimido no formato "zipped"';
+
 // To translate
-
 $strImportDocSQL = 'Import docSQL Files';  //to translate
-
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>

@@ -11,6 +11,12 @@ $Source$
     * tbl_properties_operations.php3:
       - Fixed bug #628581 (Check referential integrity and NULL foreign key).
       - Fixed bug #628583 (Check referential integrity and self-linked table).
+    * lang/thai-*.inc.php3: Upadtes, thanks again to
+      Arthit Suriyawongkul (bacteria).
+    * lang/norwegian-*.inc.php3: Updates, thanks again to
+      Sven-Erik Andersen (sven-erik).
+    * lang/galician-*.inc.php3: Updates, thanks again to Xosé Calvo (xosecalvo).
+    * lang/chinese_*.inc.php3: Updates, thanks again to Siu Sun (siusun).
 
 2002-11-06 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html, lang/*.inc.php3: Fixed some typos.

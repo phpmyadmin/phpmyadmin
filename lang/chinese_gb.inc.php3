@@ -101,12 +101,13 @@ $strCreatePdfFeat = '建立 PDF';
 $strCriteria = '规范';
 
 $strData = '数据';
-$strDataOnly = '只有数据';
 $strDatabase = '数据库 ';
 $strDatabaseHasBeenDropped = '数据库 %s 已被删除';
 $strDatabaseWildcard = '数据库 (允许使用万用字符):';
 $strDatabases = '数据库';
 $strDatabasesStats = '数据库统计';
+$strDataDict = '数据字典';
+$strDataOnly = '只有数据';
 $strDefault = '缺省值';
 $strDelete = '删除';
 $strDeleteFailed = '删除失败!';
@@ -265,7 +266,6 @@ $strOptions = '选项';
 $strOr = '或';
 $strOverhead = '多余';
 
-$strPHPVersion = 'PHP 版本';
 $strPageNumber = '页码:';
 $strPartialText = '显示部份文字';
 $strPassword = '密码';
@@ -276,6 +276,8 @@ $strPdfInvalidPageNum = 'PDF 页码没有设定!';
 $strPdfInvalidTblName = '数据表 "%s" 不存在!';
 $strPdfNoTables = '没有数据表';
 $strPhp = '建立 PHP 程式码';
+$strPHP40203 = '您正使用 PHP 版本 4.2.3, 这版本有一个双字节字元的严重错误(mbstring). 请参阅 PHP 臭虫报告编号 19404. phpMyAdmin 并不建议使用这个版本的 PHP .';
+$strPHPVersion = 'PHP 版本';
 $strPmaDocumentation = 'phpMyAdmin 说明文本';
 $strPmaUriError = '必须设定 <tt>$cfg[\'PmaAbsoluteUri\']</tt> 在设定档案内!';
 $strPos1 = '开始';
@@ -285,6 +287,7 @@ $strPrimaryKey = '主键';
 $strPrimaryKeyHasBeenDropped = '主键已被删除';
 $strPrimaryKeyName = '主键的名称必须称为 PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>必须</b>是主键的名称以及是<b>唯一</b>一组主键!)';
+$strPrint = '列印';
 $strPrintView = '打印检视';
 $strPrivileges = '权限';
 $strProperties = '属性';
@@ -433,7 +436,4 @@ $strYes = '是';
 $strZip = '"zipped"';
 // To translate
 
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>

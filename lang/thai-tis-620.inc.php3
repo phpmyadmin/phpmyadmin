@@ -2,7 +2,7 @@
 /* $Id$ */
 
 // first created 2002/04/29 Arthit Suriyawongkul & Warit Wanasathian
-// last modified 2002/10/01 Arthit Suriyawongkul
+// last modified 2002/11/06 Arthit Suriyawongkul
 
 $charset = 'tis-620';
 $text_dir = 'ltr';
@@ -11,7 +11,7 @@ $right_font_family = 'sans-serif';
 $number_thousands_separator = ',';
 $number_decimal_separator = '.';
 // shortcuts for Byte, Kilo, Mega, Giga, Tera, Peta, Exa
-$byteUnits = array('ไบต์', 'กิโลไบต์', 'เมกกะไบต์', 'กิกะไบต์');
+$byteUnits = array('ไบต์', 'กิโลไบต์', 'เมกกะไบต์', 'กิกะไบต์', 'เทอราไบต์', 'เพตตะไบต์', 'เอกซะไบต์');
 
 $day_of_week = array('อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.');
 $month = array('ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.');
@@ -87,7 +87,7 @@ $strCompleteInserts = 'คำสั่ง INSERT เต็มรูปแบบ';
 $strConfigFileError = 'phpMyAdmin ไม่สามารถอ่านไฟล์คอนฟิกูเรชั่นของคุณได้<br />โดยปกติ อาจจะเป็นเพราะตัว PHP หาไฟล์ไม่เจอ หรือไม่สามารถประมวลผล (parse) ไฟล์ได้<br />ลองเรียกไฟล์คอนฟิกูเรชั่นขึ้นมาโดยตรง (กดลิงค์ด้านล่าง) และดูว่ามี error message อะไรหรือไม่  ลองตรวจสอบดูเครื่องหมาย quote หรือ semicolon ว่าใส่ครบหรือเปล่า<br />ถ้าคุณเห็นหน้าว่างๆ แสดงว่าทุกอย่างเป็นปกติดี';
 $strConfigureTableCoord = 'กรุณาตั้งค่าโคออร์ดิเนตของตาราง %s';
 $strConfirm = 'คุณยืนยันที่จะทำสิ่งนี้?';
-$strCookiesRequired = 'ต้องอนุญาตใช้ใช้ \'คุ๊กกี้\' เสียก่อน จึงจะผ่านจุดนี้ไปได้';
+$strCookiesRequired = 'ต้องอนุญาตใช้ใช้ \'คุ๊กกี้\' (cookie) เสียก่อน จึงจะผ่านจุดนี้ไปได้';
 $strCopyTable = 'คัดลอกตารางไปยัง (database<b>.</b>table):';
 $strCopyTableOK =  'คัดลอกตาราง %s ไปเก็บในชื่อ %s เรียบร้อยแล้ว.';
 $strCreate = 'สร้าง';
@@ -100,12 +100,14 @@ $strCreatePdfFeat = 'การสร้างเอกสาร PDF';
 $strCriteria = 'เงื่อนไข';
 
 $strData = 'ข้อมูล';
-$strDataOnly = 'เฉพาะข้อมูล';
+
 $strDatabase = 'ฐานข้อมูล ';
 $strDatabaseHasBeenDropped = 'โยนฐานข้อมูล %s ทิ้งไปเรียบร้อยแล้ว';
 $strDatabaseWildcard = 'ฐานข้อมูล (ใช้ wildcards ได้):';
 $strDatabases = 'ฐานข้อมูล';
 $strDatabasesStats = 'สถิติฐานข้อมูล';
+$strDataDict = 'พจนานุกรมข้อมูล';
+$strDataOnly = 'เฉพาะข้อมูล'
 $strDefault = 'ค่าปริยาย';
 $strDelete = 'ลบ';
 $strDeleteFailed = 'ลบไม่สำเร็จ!';
@@ -265,7 +267,6 @@ $strOptions = 'ตัวเลือก';
 $strOr = 'หรือ';
 $strOverhead = 'เกินความจำเป็น';
 
-$strPHPVersion = 'รุ่นของ PHP';
 $strPageNumber = 'หมายเลขหน้า:';
 $strPartialText = 'ข้อความบางส่วน';
 $strPassword = 'รหัสผ่าน';
@@ -276,6 +277,8 @@ $strPdfInvalidPageNum = 'ยังไม่ได้กำหนดเลขหน้าของ PDF!';
 $strPdfInvalidTblName = 'ไม่มีตาราง "%s"!';
 $strPdfNoTables = 'ไม่มีตาราง';
 $strPhp = 'สร้างโค้ด PHP';
+$strPHP40203 = 'คุณกำลังใช้ PHP รุ่น 4.2.3, ซึ่งมีบั๊กร้ายแรงเกี่ยวกับ multi-byte strings (mbstring). กรุณาดูรายงานบั๊ก PHP หมายเลข 19404. เราไม่แนะนำให้คุณใช้ PHP รุ่นนี้กับ phpMyAdmin.';
+$strPHPVersion = 'รุ่นของ PHP';
 $strPmaDocumentation = 'เอกสารการใช้ phpMyAdmin';
 $strPmaUriError = '<b>ต้อง</b>กำหนดค่า <tt>$cfg[\'PmaAbsoluteUri\']</tt> ในไฟล์คอนฟิกูเรชั่นเสียก่อน';
 $strPos1 = 'จุดเริ่มต้น';
@@ -285,6 +288,7 @@ $strPrimaryKey = 'Primary key';
 $strPrimaryKeyHasBeenDropped = 'โยนไพรมารีคีย์ทิ้งไปเรียบร้อยแล้ว';
 $strPrimaryKeyName = 'ชื่อของไพรมารีคีย์ จะต้องเป็น... PRIMARY!';
 $strPrimaryKeyWarning = '(ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> "PRIMARY" เท่านั้น!)';
+$strPrint = 'พิมพ์';
 $strPrintView = 'แสดง';
 $strPrivileges = 'สิทธิ';
 $strProperties = 'คุณสมบัติ';
@@ -394,7 +398,7 @@ $strTableMaintenance = 'การดูแลรักษาตาราง';
 $strTableStructure = 'โครงสร้างตาราง';
 $strTableType = 'ชนิดตาราง';
 $strTables = '%s ตาราง';
-$strTextAreaLength = ' เนื่องจากความยาวของมัน <br />ฟิลด์นี้ ไม่อาจแก้ไขได้ ';
+$strTextAreaLength = 'เนื่องจากความยาวของมัน <br />ฟิลด์นี้ ไม่อาจแก้ไขได้';
 $strTheContent = 'ได้แทรกข้อมูล จากไฟล์ของคุณเรียบร้อยแล้ว';
 $strTheContents = 'สำหรับแถวที่มีไพรมารีคีย์ หรือ unique key เหมือนกัน เนื้อหาจากไฟล์ จะแทนที่เนื้อหาเดิมในตาราง';
 $strTheTerminator = 'จุดสิ้นสุดของฟิลด์';
@@ -432,7 +436,5 @@ $strYes = 'ใช่';
 
 $strZip = '"ถูกบีบอัดอยู่ (zip)"';
 
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
+// To translate
 ?>

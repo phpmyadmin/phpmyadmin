@@ -106,6 +106,7 @@ $strDatabaseHasBeenDropped = 'Databasen %s har blitt slettet';
 $strDatabases = 'databaser';
 $strDatabasesStats = 'Statistikk for databaser';
 $strDatabaseWildcard = 'Database (asterisk er tillatt):';
+$strDataDict = 'Data ordbok';
 $strDataOnly = 'Bare data';
 $strDefault = 'Standard';
 $strDelete = 'Slett';
@@ -180,6 +181,7 @@ $strHostEmpty = 'Vertsnavnet er tomt!';
 $strIdxFulltext = 'Fulltekst';
 $strIfYouWish = 'Hvis du ønsker å kun lese inn enkelte av tabellens kolonner, angi en komme-separert felt-liste.';
 $strIgnore = 'Ignorer';
+$strImportDocSQL = 'Importer docSQL filer';
 $strIndex = 'Indeks';
 $strIndexes = 'Indekser';
 $strIndexHasBeenDropped = 'Indeksen %s har blitt slettet';
@@ -275,6 +277,7 @@ $strPdfInvalidPageNum = 'Undefinert PDF side nummer!';
 $strPdfInvalidTblName = 'Tabellen "%s" eksisterer ikke!';
 $strPdfNoTables = 'Ingen tabeller';
 $strPhp = 'Lag PHP kode';
+$strPHP40203 = 'Du bruker PHP 4.2.3, som har en alvorlig feil med fler-byte strenger (mbstring). Se PHP feil rapport 19404. Denne versjonen av PHP er ikke anbefalt for bruk med phpMyAdmin.';
 $strPHPVersion = 'PHP Versjon';
 $strPmaDocumentation = 'phpMyAdmin Dokumentasjon';
 $strPmaUriError = '<tt>$cfg[\'PmaAbsoluteUri\']</tt> variabelen MÅ være innstilt i din konfigurasjons-fil!';
@@ -285,6 +288,7 @@ $strPrimaryKey = 'Primærnøkkel';
 $strPrimaryKeyHasBeenDropped = 'Primær-nøkkelen har blitt slettet';
 $strPrimaryKeyName = 'Navnet til  prim&aelig;rn&oslash;kkelen m&aring; v&aelig;re... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>m&aring;</b> v&aelig;re navnet til og <b>bare til</b> en prim&aelig;rn&oslash;kkel!)';
+$strPrint = 'Skriv ut';
 $strPrintView = 'Utskriftsvennlig forhåndsvisning';
 $strPrivileges = 'Privilegier';
 $strProperties = 'Egenskaper';
@@ -434,9 +438,4 @@ $strZip = 'Komprimert (zip)';
 
 // To translate
 
-
-$strImportDocSQL = 'Import docSQL Files';  //to translate
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>
