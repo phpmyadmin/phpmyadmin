@@ -2068,6 +2068,19 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <br />
     No, it's MySQL that is doing <a class="navigation" href="http://www.mysql.com/doc/S/i/Silent_column_changes.html">silent column type changing</a>.
 </p>
+<a name="underscore"></a>
+<p>
+    <b>My database has an underscore in it's name, and when I grant privileges
+       to a user for this database, a backslash is added before the underscore.
+    </b><br />
+    This is normal and means that the grant is done only for this database. If
+    there was no backslash, this would be a wildcard grant, and the 
+    underscore would mean &quot;any character&quot;. So, if the database name
+    is &quot;john_db&quot;, the user would get rights to john1db, john2db...
+    instead of just john_db.<br /><br />
+    If you really want to grant using a wildcard, there is a dialog box &quot;
+    Database (wildcards allowed)&quot; for this. 
+</p>
 <a name="faqproject"></a>
 <h3>[phpMyAdmin project]</h3>
 <p>
