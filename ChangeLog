@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-28 Alexander M. Turek  <me@derrabus.de>
+    * left.php: Implemented the forgotten view icon.
+
 2005-03-27 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
     * libraries/relation.lib.php: bug #1170549, adding fields NOT NULL

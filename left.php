@@ -451,7 +451,7 @@ if ($num_dbs > 1) {
         if (!empty($db_start) && $db == $db_start) {
             $selected_db = $j;
         }
-        $tables              = PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
+        $tables              = PMA_DBI_try_query('SHOW ' . (PMA_MYSQL_INT_VERSION >= 50000 ? 'FULL ' : '') . 'TABLES FROM ' . PMA_backquote($db) . ';', NULL, PMA_DBI_QUERY_STORE);
         $num_tables          = ($tables) ? @PMA_DBI_num_rows($tables) : 0;
         $common_url_query    = PMA_generate_common_url($db);
         if ($num_tables) {
@@ -517,11 +517,13 @@ if ($num_dbs > 1) {
             // Displays the list of tables from the current database
             $tablestack  = array();
             $table_array = array();
-            while (list($table) = PMA_DBI_fetch_row($tables)) {
+            $table_types = array();
+            while (list($table, $type) = PMA_DBI_fetch_row($tables)) {
                 $table_item = (!empty($tooltip_name) && isset($tooltip_name[$table]) && !empty($tooltip_name[$table]) && $cfg['ShowTooltipAliasTB'] && strtolower($cfg['ShowTooltipAliasTB']) !== 'nested'
                             ? htmlspecialchars($tooltip_name[$table])
                             : htmlspecialchars($table));
                 $table_array[$table] = $table_item;
+                $table_types[$table] = empty($type) ? 'BASE TABLE' : $type;
             }
 
             if ($cfg['NaturalOrder']) {
@@ -546,7 +548,7 @@ if ($num_dbs > 1) {
                 $book_sql_query = (isset($book_sql_cache[$table]) ? $book_sql_cache[$table] : FALSE);
 
                 $list_item = '<a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '" title="' . $strBrowse . ': ' . $url_title . '">';
-                $list_item .= '<img src="' . $pmaThemeImage . 'b_sbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
+                $list_item .= '<img src="' . $pmaThemeImage . ($table_types[$table] == 'VIEW' ? 's_views' : 'b_sbrowse') . '.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
                 $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                 $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
                 $list_item .= $table_item . '</a><br />' . "\n";
@@ -594,7 +596,7 @@ if ($num_dbs > 1) {
                 $table_array = array();
                 // Gets the list of tables from the current database
                 $book_sql_cache = PMA_queryDBBookmarks($db, $cfg['Bookmark'], $table_array);
-                while (list($table) = PMA_DBI_fetch_row($tables)) {
+                while (list($table, $type) = PMA_DBI_fetch_row($tables)) {
                     $table_array[$table] = '';
                     $url_title  = (!empty($tooltip) && isset($tooltip[$table]))
                                 ? htmlspecialchars($tooltip[$table])
@@ -608,7 +610,7 @@ if ($num_dbs > 1) {
                     // natural order or not, use an array for the table list
 
                     $table_array[$table] .= '    <div class="nowrap"><a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '">' . "\n";
-                    $table_array[$table] .= '              <img src="' . $pmaThemeImage . 'b_sbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" title="' . $strBrowse . ': ' . $url_title . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
+                    $table_array[$table] .= '              <img src="' . $pmaThemeImage . (!empty($type) && $type == 'VIEW' ? 's_views' : 'b_sbrowse') . '.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" title="' . $strBrowse . ': ' . $url_title . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
 
                     if (PMA_USR_BROWSER_AGENT == 'IE') {
                         $table_array[$table] .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></span></div>' . "\n";
