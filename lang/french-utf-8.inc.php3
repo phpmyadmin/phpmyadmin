@@ -17,7 +17,7 @@ $month = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
 // ci-dessous
 $datefmt = '%A %d %B %Y à %H:%M';
 
-$timespanfmt = '%s jours, %s heures, %s minutes and %s secondes';
+$timespanfmt = '%s jours, %s heures, %s minutes et %s secondes';
 
 $strAPrimaryKey = 'Une clé primaire a été ajoutée sur %s';
 $strAbortedClients = 'Arrêts prématurés';
@@ -64,6 +64,7 @@ $strBookmarkQuery = 'Requêtes bookmarkées';
 $strBookmarkThis = 'Bookmarker cette requête';
 $strBookmarkView = 'Voir uniquement';
 $strBrowse = 'Afficher';
+$strBzError = 'phpMyAdmin n\'a pu compresser le fichier exporté en raison d\'une composante Bz2 défaillante dans cette version de PHP. Il est recommandé de donner à <code>$cfg[\'BZipDump\']</code> dans votre fichier de configuration phpMyAdmin la valeur <code>FALSE</code>. Si vous voulez utiliser la compression en mode Bz2, veuillez mettre à niveau votre version de PHP. Ce rapport d\'anomalies PHP donne les détails: %s.'; 
 $strBzip = '"bzippé"';
 
 $strCannotLogin = 'Connexion au serveur MySQL non permise';
@@ -95,6 +96,7 @@ $strConnections = 'Connexions';
 $strCookiesRequired = 'Vous devez accepter les cookies pour poursuivre.';
 $strCopyTable = '<b>Copier</b> la table vers (base<b>.</b>table)&nbsp;:';
 $strCopyTableOK = 'La table %s a été copiée vers %s.';
+$strCouldNotKill = 'phpMyAdmin n\'a pu éliminer le processus %s. Il était probablement déjà fermé.'; 
 $strCreate = 'Créer';
 $strCreateIndex = 'Créer une clef sur&nbsp;%s&nbsp;colonne(s)';
 $strCreateIndexTopic = 'Créer un nouvelle clef';
@@ -184,6 +186,7 @@ $strHomepageSourceforge = 'Page de Téléchargement phpMyAdmin sur Sourceforge';
 $strHost = 'Serveur';
 $strHostEmpty = 'Le nom de serveur est vide';
 
+$strId = 'ID';
 $strIdxFulltext = 'Texte entier';
 $strIfYouWish = 'Si vous désirez ne charger que certaines colonnes, indiquez leurs noms, séparés par des virgules.';
 $strIgnore = 'Ignorer';
@@ -377,12 +380,14 @@ $strSend = 'Transmettre';
 $strSent = 'Envoyé';
 $strServer = 'Serveur %s';
 $strServerChoice = 'Choix du serveur';
-$strServerStatus = 'Informations sur le serveur actif';
+$strServerStatus = 'Informations sur le serveur';
 $strServerStatusUptime = 'Ce serveur MySQL fonctionne depuis %s. Il a démarré le %s.';
 $strServerTabProcesslist = 'Processus';
 $strServerTabVariables = 'Variables';
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
+$strServerTrafficNotes = '<b>Statistiques sur le trafic</b>: Ce tableau indique le trafic réseau observé sur ce serveur MySQL depuis son démarrage.'; 
+$strServerVars = 'Variables et réglages du serveur';
 $strServerVersion = 'Version du serveur';
+$strSessionValue = 'Valeur pour la session';
 $strSetEnumVal = 'Les différentes valeurs des champs de type enum/set sont à spécifier sous la forme \'a\',\'b\',\'c\'...<br />Pour utiliser un caractère "\\" ou "\'" dans l\'une de ces valeurs, faites le précéder du caractère d\'échappement "\\" (par exemple \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Afficher';
 $strShowAll = 'Tout afficher';
@@ -428,6 +433,8 @@ $strTextAreaLength = 'Il est possible que ce champ<br />ne soit pas éditable<br
 $strTheContent = 'Le contenu de votre fichier a été inséré.';
 $strTheContents = 'Le contenu du fichier remplacera le contenu de la table pour les enregistrements ayant une valeur de clé primaire ou unique identique.';
 $strTheTerminator = 'Le caractère qui sépare chacun des champs.';
+$strThreadSuccessfullyKilled = 'Le processus %s a été éliminé.'; 
+$strTime = 'Durée';
 $strTotal = 'total';
 $strTotalUC = 'Total';
 $strTraffic = 'Trafic';
@@ -465,17 +472,5 @@ $strYes = 'Oui';
 
 $strZip = '"zippé"';
 // To translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-
-$strId = 'ID'; //to translate
-
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-$strTime = 'Time'; //to translate
 
 ?>
