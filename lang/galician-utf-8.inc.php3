@@ -79,6 +79,7 @@ $strCheckAll = 'Marcá-los todos';
 $strCheckDbPriv = 'Verificar os privilexios do banco de datos';
 $strCheckTable = 'Verificar a tabela';
 $strChoosePage = 'Escolla unha páxina para modificar';
+$strColComFeat = 'Mostrando os comentarios das columnas'; 
 $strColumn = 'Columna';
 $strColumnNames = 'Nomes das Columnas';
 $strComments = 'Comentarios';
@@ -95,6 +96,7 @@ $strCreateIndexTopic = 'Crear un novo índice';
 $strCreateNewDatabase = 'Crear un novo banco de datos';
 $strCreateNewTable = 'Crear unha tabela nova na base de datos %s';
 $strCreatePage = 'Crear unha páxina nova';
+$strCreatePdfFeat = 'Creación de PDFs'; 
 $strCriteria = 'Criterio';
 
 $strData = 'Datos';
@@ -111,7 +113,9 @@ $strDeletedRows = 'Filas borradas:';
 $strDeleteFailed = 'Non foi posible eliminar!';
 $strDeleteUserMessage = 'Acaba de eliminar o usuario %s.';
 $strDescending = 'Descendente';
+$strDisabled = 'Desactivado'; 
 $strDisplay = 'Mostrar';
+$strDisplayFeat = 'Mostrar as características'; 
 $strDisplayOrder = 'Mostrar en orde:';
 $strDisplayPDF = 'Mostrar o esquema PDF';
 $strDoAQuery = 'Faga unha "procura por exemplo" (o comodín é "%")';
@@ -130,6 +134,7 @@ $strEditPrivileges = 'Modificar privilexios';
 $strEffective = 'Efectivo';
 $strEmpty = 'Borrar';
 $strEmptyResultSet = 'MySQL retornou um conxunto vacío (ex. cero rexistros).';
+$strEnabled = 'Activado'; 
 $strEnd = 'Fin';
 $strEnglishPrivileges = ' Nota: os nomes de privilexios do MySQL están en inglés';
 $strError = 'Erro';
@@ -154,6 +159,7 @@ $strFullText = 'Textos completos';
 $strFunction = 'Funcións';
 
 $strGenBy = 'Xerado por';
+$strGeneralRelationFeat = 'Características xerais das relacións'; 
 $strGenTime = 'Xerado en';
 $strGo = 'Executar';
 $strGrants = 'Conceder';
@@ -233,6 +239,7 @@ $strNoPrivileges = 'Sen Privilexios';
 $strNoQuery = 'Non hai procura SQL!';
 $strNoRights = 'Non ten direitos suficientes para estar aquí agora!';
 $strNoTablesFound = 'Non se achou nengunha tabela no banco de datos';
+$strNotOK = 'non conforme'; 
 $strNotSet = 'Non se atopou a tabela <b>%s</b>ou non se indicou en %s';
 $strNotNumber = 'Non é un número!';
 $strNotValidNumber = ' non é un número válido para unha fila!';
@@ -242,6 +249,7 @@ $strNumSearchResultsInTable = '%s ocorrencias(s) dentro da tabela <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Total:</b> <i>%s</i> ocorrencia(s)';
 
 $strOftenQuotation = 'Xeralmente son aspas. OPCIONAL significa que só os campos de caracteres son delimitados por caracteres "delimitadores"';
+$strOK = 'Conforme'; 
 $strOperations = 'Operacións';
 $strOptimizeTable = 'Optimizar a tabela';
 $strOptionalControls = 'Opcional. Controla como se han de ler e escreber os caracteres especiais.';
@@ -258,6 +266,7 @@ $strPasswordNotSame = 'Os contrasinais non son os mesmos!';
 $strPdfDbSchema = 'Esquema da base de datos "%s" - Páxina %s';
 $strPdfInvalidPageNum = 'O número de páxina PDF non está definido';
 $strPdfInvalidTblName = 'Non existe a tabela "%s".';
+$strPdfNoTables = 'Sen tabelas';
 $strPhp = 'Crear código PHP';
 $strPHPVersion = 'Versión do PHP';
 $strPmaDocumentation = 'Documentación do phpMyAdmin';
@@ -406,17 +415,5 @@ $strYes = 'Si';
 
 $strZip = 'comprimido no formato "zipped"';
 
-$strDisplayFeat = 'Mostrar as características'; 
-$strCreatePdfFeat = 'Creación de PDFs'; 
-$strColComFeat = 'Mostrando os comentarios das columnas'; 
-$strDisabled = 'Desactivado'; 
-$strEnabled = 'Activado'; 
-$strOK = 'Conforme'; 
-$strNotOK = 'non conforme'; 
-$strGeneralRelationFeat = 'Características xerais das 
-relacións'; 
-
 // To translate
-$strPdfNoTables = 'No tables';  //to translate
-
 ?>
