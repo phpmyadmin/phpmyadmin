@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-03 Alexander M. Turek  <me@derrabus.de>
+    * libraries/grab_globals.lib.php: Bug #1153079 (Updating columns starting
+      with "str").
+
 2005-03-02 Michal Čihař  <michal@cihar.com>
     * libraries/export/sql.php, libraries/display_export.lib.php: Do not offer
       modes not available in current MySQL version, do not fail on error when
