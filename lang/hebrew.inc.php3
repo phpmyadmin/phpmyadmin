@@ -192,7 +192,6 @@ $strMySQLShowStatus = 'הראה את מידע ההרצה של MySQL';
 $strMySQLShowVars = 'הראה את משתני המערכת של MySQL';
 
 $strName = 'שם';
-$strNbRecords = 'מספר שורות';
 $strNext = 'הבא';
 $strNo = 'לא';
 $strNoDatabases = 'אין מסדי נתונים';
@@ -293,7 +292,6 @@ $strSize = 'גודל';
 $strSort = 'סיווג';
 $strSpaceUsage = 'נפח מקום';
 $strSQLQuery = 'שאילתת SQL';
-$strStartingRecord = 'שורה מתחילה';
 $strStatement = 'משפטים';
 $strStrucCSV = 'מידע CSV';
 $strStrucData = 'מבנים ומידע';

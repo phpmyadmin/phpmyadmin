@@ -196,7 +196,6 @@ $strMySQLShowStatus = 'ÚÑÖ MySQL runtime ßãÚáæãÇÊ';
 $strMySQLShowVars = 'ÚÑÖ MySQL ßãÊÛíÑÇÊå';
 
 $strName = 'ÇáÅÓã';
-$strNbRecords = 'ÑŞã ÇáÓÌáÇÊ';
 $strNext = 'ÇáÊÇáí';
 $strNo = 'áÇ';
 $strNoDatabases = 'áÇíæÌÏ ŞæÇÚÏ ÈíÇäÇÊ';
@@ -297,7 +296,6 @@ $strSize = 'ÇáãŞÇÓ';
 $strSort = 'ÊÕäíİ';
 $strSpaceUsage = 'ÅÓÊÚãÇá ÇáİÑÇÛÇÊ';
 $strSQLQuery = 'SQL-ÅÓÊÚáÇã';
-$strStartingRecord = 'ÈÏÇíÉ ÇáÓÌá';
 $strStatement = 'ÃæÇãÑ';
 $strStrucCSV = 'ÈíÇäÇÊ CSV';
 $strStrucData = 'ÇáäÙã Çáåíßáíå æÇáÈíÇäÇÊ';

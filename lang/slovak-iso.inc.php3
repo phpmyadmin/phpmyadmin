@@ -193,7 +193,6 @@ $strMySQLShowStatus = 'Zobrazi» MySQL informácie o behu';
 $strMySQLShowVars = 'Zobrazi» MySQL systémové premenné';
 
 $strName = 'Názov';
-$strNbRecords = 'Poèet záznamov';
 $strNext = 'Ïal¹í';
 $strNo = 'Nie';
 $strNoDatabases = '®iadne databázy';
@@ -294,7 +293,6 @@ $strSize = 'Veµkos»';
 $strSort = 'Triedi»';
 $strSpaceUsage = 'Zabrané miesto';
 $strSQLQuery = 'SQL dotaz';
-$strStartingRecord = 'Zaèiatok záznamu';
 $strStatement = 'Údaj';
 $strStrucCSV = 'CSV dáta';
 $strStrucData = '©truktúru a dáta';

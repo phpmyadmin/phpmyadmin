@@ -189,7 +189,6 @@ $strMySQLShowStatus = 'MySQL runtime informatie';
 $strMySQLShowVars = 'MySQL systeemvariabelen';
 
 $strName = 'Naam';
-$strNbRecords = 'aantal records';
 $strNext = 'Volgende';
 $strNo = 'Nee';
 $strNoDatabases = 'Geen databases';
@@ -290,7 +289,6 @@ $strSingly = '(apart)';
 $strSize = 'Grootte';
 $strSort = 'Sorteren';
 $strSpaceUsage = 'Ruimte gebruik';
-$strStartingRecord = 'Start record';
 $strStatement = 'Opdrachten';
 $strStrucCSV = 'CSV gegevens';
 $strStrucData = 'Structuur en gegevens';

@@ -191,7 +191,6 @@ $strMySQLShowStatus = 'Tampilkan informasi runtime dari MySQL';
 $strMySQLShowVars = 'Tampilkan system variables dari MySQL';
 
 $strName = 'Nama';
-$strNbRecords = 'Jumlah baris';
 $strNext = 'Berikut';
 $strNo = 'Tidak';
 $strNoDatabases = 'Database tidak ditemukan';
@@ -292,7 +291,6 @@ $strSize = 'Ukuran';
 $strSort = 'Urutkan';
 $strSpaceUsage = 'Pemakaian ruang';
 $strSQLQuery = 'Perintah SQL';
-$strStartingRecord = 'Baris awal';
 $strStatement = 'Pernyataan';
 $strStrucCSV = 'Data CSV';
 $strStrucData = 'Struktur dan data';

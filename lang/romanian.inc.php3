@@ -191,7 +191,6 @@ $strMySQLShowStatus = 'Afiseaza informatiile runtime MySQL';
 $strMySQLShowVars = 'Afiseaza variabilele de sistem MySQL';
 
 $strName = 'Nume';
-$strNbRecords = 'Numar de inregistrari';
 $strNext = 'Urmatorul';
 $strNo = 'Nu';
 $strNoDropDatabases = 'Comenzile "DROP DATABASE" sunt dezactivate.';
@@ -292,7 +291,6 @@ $strSize = 'Marime';
 $strSort = 'Sortare';
 $strSpaceUsage = 'Utilizare spatiu';
 $strSQLQuery = 'Comansa SQL';
-$strStartingRecord = 'Incepere inregistrare';
 $strStatement = 'Comenzi';
 $strStrucCSV = 'Date CSV';
 $strStrucData = 'Structura si date';

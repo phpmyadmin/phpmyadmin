@@ -191,7 +191,6 @@ $strMySQLShowStatus = 'Näita MySQL-i jooksvat informatsiooni';
 $strMySQLShowVars = 'Näita MySQL süsteemseid muutujaid';
 
 $strName = 'Nimi';
-$strNbRecords = 'Ridade arv';
 $strNext = 'Järgmine';
 $strNo = 'Ei';
 $strNoDatabases = 'Pole andmebaase';
@@ -292,7 +291,6 @@ $strSize = 'Suurus';
 $strSort = 'Sorteeri';
 $strSpaceUsage = 'Ruumivõtt';
 $strSQLQuery = 'SQL-päring';
-$strStartingRecord = 'Algusrida';
 $strStatement = 'Parameerid';
 $strStrucCSV = 'CSV andmed';
 $strStrucData = 'Struktuur ja andmed';

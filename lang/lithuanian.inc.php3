@@ -191,7 +191,6 @@ $strMySQLShowStatus = 'Rodyti MySQL aplinkos bûsenà';
 $strMySQLShowVars = 'Rodyti MySQL sistemos kintamuosius';
 
 $strName = 'Pavadinimas';
-$strNbRecords = 'Áraðø skaièius';
 $strNext = 'Sekantis';
 $strNo = 'Ne';
 $strNoDatabases = 'Nëra duomenø baziø';
@@ -291,7 +290,6 @@ $strSize = 'Dydis';
 $strSort = 'Rûðiuoti';
 $strSpaceUsage = 'Vietos naudojimas';
 $strSQLQuery = 'SQL- uþklausa';
-$strStartingRecord = 'Pirma eilutë';
 $strStatement = 'Parametrai';
 $strStrucCSV = 'Duomenys CSV formatu';
 $strStrucData = 'Struktûra ir duomenys';

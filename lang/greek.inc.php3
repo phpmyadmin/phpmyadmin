@@ -192,7 +192,6 @@ $strMySQLShowStatus = 'Εμφάνιση πληροφορών εκτέλεσης της MySQL';
 $strMySQLShowVars = 'Εμφάνιση μεταβλητών της MySQL';
 
 $strName = 'Όνομα';
-$strNbRecords = 'Αριθμός Εγγραφών';
 $strNext = 'Επόμενο';
 $strNo = 'Όχι';
 $strNoDatabases = 'Δεν υπάρχουν βάσεις δεδομένων';
@@ -293,7 +292,6 @@ $strSize = 'Μέγεθος';
 $strSort = 'Ταξινόμιση';
 $strSpaceUsage = 'Χρήση χώρου';
 $strSQLQuery = 'Εντολή SQL';
-$strStartingRecord = 'Αρχική εγγραφή';
 $strStatement = 'Δηλώσεις';
 $strStrucCSV = 'Δεδομένα CSV';
 $strStrucData = 'Δομή και δεδομένα';

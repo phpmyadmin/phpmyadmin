@@ -195,7 +195,6 @@ $strMySQLShowStatus = 'Mostra informação de runtime do MySQL';
 $strMySQLShowVars = 'Mostra variáveis de sistema do MySQL';
 
 $strName = 'Nome';
-$strNbRecords = 'no. de registros';
 $strNext = 'Próximo';
 $strNo = 'Não';
 $strNoDatabases = 'Sem bases';
@@ -296,7 +295,6 @@ $strSize = 'Tamanho';
 $strSort = 'Ordena';
 $strSpaceUsage = 'Uso do espaço';
 $strSQLQuery = 'comando SQL';
-$strStartingRecord = 'Registro inicial';
 $strStatement = 'Comandos';
 $strStrucCSV = 'Dados CSV';
 $strStrucData = 'Estrutura e dados';

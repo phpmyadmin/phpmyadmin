@@ -195,7 +195,6 @@ $strMySQLShowStatus = 'Parâdît MySQL izpildes laika informâciju';
 $strMySQLShowVars = 'Parâdît MySQL sistçmas mainîgos';
 
 $strName = 'Nosaukums';
-$strNbRecords = 'Rindu skaits';
 $strNext = 'Nâkamais';
 $strNo = 'Nç';
 $strNoDatabases = 'Nav datubâzu';
@@ -296,7 +295,6 @@ $strSize = 'Izmçrs';
 $strSort = 'Kârtoðana';
 $strSpaceUsage = 'Diska vietas lietoðana';
 $strSQLQuery = 'SQL-vaicâjums';
-$strStartingRecord = 'Sâkot no rindas';
 $strStatement = 'Parametrs';
 $strStrucCSV = 'CSV dati';
 $strStrucData = 'Struktûra un dati';

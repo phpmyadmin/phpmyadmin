@@ -195,7 +195,6 @@ $strMySQLShowStatus = 'Show MySQL runtime information';
 $strMySQLShowVars = 'Show MySQL system variables';
 
 $strName = 'Name';
-$strNbRecords = 'Number of rows';
 $strNext = 'Next';
 $strNo = 'No';
 $strNoDatabases = 'No databases';
@@ -298,7 +297,6 @@ $strSize = 'Size';
 $strSort = 'Sort';
 $strSpaceUsage = 'Space usage';
 $strSQLQuery = 'SQL-query';
-$strStartingRecord = 'Starting row';
 $strStatement = 'Statements';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Structure and data';

@@ -195,7 +195,6 @@ $strMySQLShowStatus = 'MySQLのランタイム情報';
 $strMySQLShowVars = 'MySQLのシステム変数';
 
 $strName = '名前';
-$strNbRecords = 'レコード数';
 $strNext = '次へ';
 $strNo = 'いいえ';
 $strNoDatabases = 'データベース数';
@@ -296,7 +295,6 @@ $strSize = 'サイズ';
 $strSort = 'ソート';
 $strSpaceUsage = 'ディスク使用量';
 $strSQLQuery = '実行されたSQLクエリー';
-$strStartingRecord = '最初のレコード';
 $strStatement = 'ステートメント';
 $strStrucCSV = 'CSVデータ';
 $strStrucData = '構造とデータ';

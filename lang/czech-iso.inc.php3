@@ -192,7 +192,6 @@ $strMySQLShowStatus = 'Ukázat MySQL informace o&nbsp;bìhu';
 $strMySQLShowVars = 'Ukázat MySQL systémové promìnné';
 
 $strName = 'Název';
-$strNbRecords = 'øádkù';
 $strNext = 'Dal¹í';
 $strNo = 'Ne';
 $strNoDatabases = '®ádné databáze';
@@ -293,7 +292,6 @@ $strSize = 'Velikost';
 $strSort = 'Øadit';
 $strSpaceUsage = 'Vyu¾ití místa';
 $strSQLQuery = 'SQL-dotaz';
-$strStartingRecord = 'Poèáteèní záznam';
 $strStatement = 'Údaj';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Strukturu a data';

@@ -194,7 +194,6 @@ $strMySQLShowStatus = 'Afficher l\'état du serveur MySQL';
 $strMySQLShowVars = 'Afficher les variables du serveur MySQL';
 
 $strName = 'Nom';
-$strNbRecords = 'nb. d\'enregistrements';
 $strNext = 'Suivant';
 $strNo = 'Non';
 $strNoDropDatabases = 'La commande "DROP DATABASE" est désactivée.';
@@ -250,6 +249,7 @@ $strRecords = 'Enregistrements';
 $strReferentialIntegrity = 'Vérifier l\'intégrité référentielle';
 $strReloadFailed = 'MySQL n\'a pu être rechargé.';
 $strReloadMySQL = 'Recharger MySQL';
+$strRelationView = 'Gestion des relations';
 $strRememberReload = 'N\'oubliez pas de recharger MySQL';
 $strRenameTable = '<b>Changer le nom</b> de la table pour';
 $strRenameTableOK = 'La table %s se nomme maintenant %s';
@@ -297,13 +297,13 @@ $strSize = 'Taille';
 $strSort = 'Tri';
 $strSpaceUsage = 'Espace utilisé';
 $strSQLQuery = 'requête SQL';
-$strStartingRecord = 'Premier enregistrement';
 $strStatement = 'Information';
 $strStrucCSV = 'Données CSV';
 $strStrucData = 'Structure et données';
 $strStrucDrop = 'Ajouter des énoncés "drop table"';
 $strStrucExcelCSV = 'Données CSV pour Ms Excel';
 $strStrucOnly = 'Structure seule';
+$strStructure = 'Structure';
 $strSubmit = 'Exécuter';
 $strSuccess = 'Votre requête SQL a été exécutée avec succès';
 $strSum = 'Somme';
@@ -348,13 +348,11 @@ $strWelcome = 'Bienvenue à %s ';
 $strWithChecked = 'Pour la sélection :';
 $strWrongUser = 'Erreur d\'utilisateur/mot de passe. Accès refusé';
 
+$strDumpXRows = 'Exporte %s enregistrements à partir du rang %s.';
+
 $strYes = 'Oui';
 
 $strZip = '"zippé"';
 
-$strStructure = 'Structure';
-$strRelationView = 'Gestion des relations';
-
 // To translate
-$strDumpXRows = 'Dump %s rows starting at row %s.'; //to translate
 ?>

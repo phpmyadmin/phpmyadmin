@@ -193,7 +193,6 @@ $strMySQLShowStatus = '顯示 MySQL 執行狀態';
 $strMySQLShowVars = '顯示 MySQL 系統變數';
 
 $strName = '名稱';
-$strNbRecords = '筆開始，列出記錄筆數';
 $strNext = '下一個';
 $strNo = ' 否 ';
 $strNoDatabases = '沒有資料庫';
@@ -295,7 +294,6 @@ $strSize = '大小';
 $strSort = '排序';
 $strSpaceUsage = '已使用空間';
 $strSQLQuery = 'SQL 語法';
-$strStartingRecord = '由記錄';
 $strStatement = '敘述';
 $strStrucCSV = 'CSV 資料';
 $strStrucData = '結構與資料';

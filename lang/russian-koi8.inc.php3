@@ -196,7 +196,6 @@ $strMySQLShowStatus = 'Показать состояние MySQL';
 $strMySQLShowVars = 'Показать системные переменные MySQL';
 
 $strName = 'Имя';
-$strNbRecords = 'число записей';
 $strNext = 'Далее';
 $strNo = 'Нет';
 $strNoDatabases = 'БД отсутствуют';
@@ -297,7 +296,6 @@ $strSize = 'Размер';
 $strSort = 'Отсортировать';
 $strSpaceUsage = 'Используемое пространство';
 $strSQLQuery = 'SQL-запрос';
-$strStartingRecord = 'Начинать с записи';
 $strStatement = 'Параметр'; // ???To translate
 $strStrucCSV = 'CSV данные';
 $strStrucData = 'Структура и данные';

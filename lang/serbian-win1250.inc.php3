@@ -197,7 +197,6 @@ $strMySQLShowStatus = 'Prikaži MySQL runtime informacije';
 $strMySQLShowVars = 'Prikaži MySQL sistemske promenljive';
 
 $strName = 'Ime';
-$strNbRecords = 'Broj rekorda';
 $strNext = 'Sledeæi';
 $strNo = 'Ne';
 $strNoDatabases = 'Baza ne postoji';
@@ -298,7 +297,6 @@ $strSize = 'Velièina';
 $strSort = 'Sortiranje';
 $strSpaceUsage = 'Zauzeæe';
 $strSQLQuery = 'SQL upit';
-$strStartingRecord = 'Poèetni rekord';
 $strStatement = 'Ime';
 $strStrucCSV = 'CSV format';
 $strStrucData = 'Struktura i podaci';

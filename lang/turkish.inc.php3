@@ -191,7 +191,6 @@ $strMySQLShowStatus = 'MySQL çalýþma zamaný bilgisini göster';
 $strMySQLShowVars = 'MySQL sistem deðiþkenlerini göster';
 
 $strName = 'Ýsim';
-$strNbRecords = 'Kayýt sayýsý';
 $strNext = 'Sonraki';
 $strNo = 'Hayýr';
 $strNoDatabases = 'Veritabaný yok';
@@ -292,7 +291,6 @@ $strSize = 'Boyut';
 $strSort = 'Sýrala';
 $strSpaceUsage = 'Kullanýlan alan';
 $strSQLQuery = 'SQL-sorgusu';
-$strStartingRecord = 'Kayýt baþlangýcý';
 $strStatement = 'Ýfadeler';
 $strStrucCSV = 'CSV verisi';
 $strStrucData = 'Yapý ve Veri';

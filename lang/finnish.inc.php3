@@ -195,7 +195,6 @@ $strMySQLShowStatus = 'Näytä MySQL:n ajonaikaiset tiedot';
 $strMySQLShowVars = 'Näytä MySQL:n järjestelmämuuttujat';
 
 $strName = 'Nimi';
-$strNbRecords = 'Rivien lukumäärä';
 $strNext = 'Seuraava';
 $strNo = 'Ei';
 $strNoDatabases = 'Ei tietokantoja';
@@ -296,7 +295,6 @@ $strSize = 'Koko';
 $strSort = 'Järjestys';
 $strSpaceUsage = 'Levytilan käyttö';
 $strSQLQuery = 'SQL-lause';
-$strStartingRecord = 'Aloitusrivi';
 $strStatement = 'Tieto';
 $strStrucCSV = 'CSV-muotoinen data';
 $strStrucData = 'Rakenne ja data';

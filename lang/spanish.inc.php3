@@ -190,7 +190,6 @@ $strMySQLShowStatus = 'Mostrar informaci&oacute;n de marcha de MySQL';
 $strMySQLShowVars = 'Mostrar las variables del sistema MySQL';
 
 $strName = 'Nombre';
-$strNbRecords = 'Nº. de filas';
 $strNext = 'Pr&oacute;xima';
 $strNo = 'No';
 $strNoDatabases = 'No hay bases de datos';
@@ -290,7 +289,6 @@ $strSize = 'Tama&ntilde;o';
 $strSort = 'Ordenar';
 $strSpaceUsage = 'Espacio utilizado';
 $strSQLQuery = 'SQL-query';
-$strStartingRecord = 'Empezando registro';
 $strStatement = 'Sentencias';
 $strStrucCSV = 'Datos CSV ';
 $strStrucData = 'Estructura y datos';

@@ -194,7 +194,6 @@ $strMySQLShowStatus = 'Mostrar información de tempo de execución do MySQL';
 $strMySQLShowVars = 'Mostrar as variables de sistema do MySQL';
 
 $strName = 'Nome';
-$strNbRecords = 'Número de rexistros';
 $strNext = 'Seguinte';
 $strNo = 'Non';
 $strNoDatabases = 'Non hai nengún banco de datos';
@@ -296,7 +295,6 @@ $strSize = 'Tamaño';
 $strSort = 'Ordenar';
 $strSpaceUsage = 'Uso do espazo';
 $strSQLQuery = 'comando SQL';
-$strStartingRecord = 'A comezar un rexistro'; //FUZZY
 $strStatement = 'Informacións';
 $strStrucCSV = 'Datos CSV';
 $strStrucData = 'Estructura e datos';

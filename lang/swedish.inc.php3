@@ -191,7 +191,6 @@ $strMySQLShowStatus = 'Visa MySQL-körningsinformation';
 $strMySQLShowVars = 'Visa MySQL:s systemvariabler';
 
 $strName = 'Namn';
-$strNbRecords = 'Antal rader';
 $strNext = 'Nästa';
 $strNo = 'Nej';
 $strNoDatabases = 'Inga databaser';
@@ -292,7 +291,6 @@ $strSize = 'Storlek';
 $strSort = 'Sortering';
 $strSpaceUsage = 'Utrymmesanvändning';
 $strSQLQuery = 'SQL-fråga';
-$strStartingRecord = 'Börjar med rad';
 $strStatement = 'Uppgift';
 $strStrucCSV = 'CSV-data';
 $strStrucData = 'Struktur och data';

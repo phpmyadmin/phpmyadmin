@@ -192,7 +192,6 @@ $strMySQLShowStatus = 'MySQL 런타임 상태 보기';
 $strMySQLShowVars = 'MySQL 시스템 환경변수 보기';
 
 $strName = '이름';
-$strNbRecords = '열(레코드) 갯수';
 $strNext = '다음';
 $strNo = ' 아니오 ';
 $strNoDatabases = 'No databases'; // To translate
@@ -293,7 +292,6 @@ $strSize = '크기';
 $strSort = 'Sort'; // To translate
 $strSpaceUsage = '공간 사용량';
 $strSQLQuery = 'SQL 쿼리';
-$strStartingRecord = '시작 위치(열)';
 $strStatement = '명세';
 $strStrucCSV = 'CSV 데이터';
 $strStrucData = '구조와 데이터';

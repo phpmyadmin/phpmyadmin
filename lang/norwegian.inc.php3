@@ -195,7 +195,6 @@ $strMySQLShowStatus = 'Vis MySQL runtime informasjon';
 $strMySQLShowVars = 'Vis MySQL systemvariabler';
 
 $strName = 'Navn';
-$strNbRecords = 'antall poster';
 $strNext = 'Neste';
 $strNo = 'Nei';
 $strNoDatabases = 'Ingen databaser';
@@ -296,7 +295,6 @@ $strSize = 'Størelse';
 $strSort = 'Sorter';
 $strSpaceUsage = 'Plass bruk';
 $strSQLQuery = 'SQL-spørring';
-$strStartingRecord = 'Start post';
 $strStatement = 'Oversikt';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Struktur og data';

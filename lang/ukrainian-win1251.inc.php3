@@ -191,7 +191,6 @@ $strMySQLShowStatus = 'Показати стан MySQL';
 $strMySQLShowVars = 'Показати системні змінні MySQL';
 
 $strName = 'Ім\'я';
-$strNbRecords = 'кількість записів';
 $strNext = 'Дальше';
 $strNo = 'Ні';
 $strNoDatabases = 'БД відсутні';
@@ -292,7 +291,6 @@ $strSize = 'Розмір';
 $strSort = 'Посортувати';
 $strSpaceUsage = 'Простір, що використовується';
 $strSQLQuery = 'SQL-запит';
-$strStartingRecord = 'Починати із запису';
 $strStatement = 'Параметр';
 $strStrucCSV = 'CSV дані';
 $strStrucData = 'Структуру і дані';

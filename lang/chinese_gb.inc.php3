@@ -191,7 +191,6 @@ $strMySQLShowStatus = '显示 MySQL 的运行信息';
 $strMySQLShowVars = '显示 MySQL 的系统变量';
 
 $strName = '名字';
-$strNbRecords = '笔开始，列出记录笔数';
 $strNext = '下一个';
 $strNo = '否';
 $strNoDatabases = '没有数据库';
@@ -292,7 +291,6 @@ $strSingly = '(只排序现时之记录)';
 $strSize = '大小';
 $strSort = '排序';
 $strSpaceUsage = '已使用空间';
-$strStartingRecord = '由记录';
 $strStatement = '叙述';
 $strStrucCSV = 'CSV 数据';
 $strStrucData = '结构和数据';

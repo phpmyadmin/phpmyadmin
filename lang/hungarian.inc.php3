@@ -192,7 +192,6 @@ $strMySQLShowStatus = 'Mutasd meg a MySQL futási információkat';
 $strMySQLShowVars = 'Mutasd meg a MySQL rendszer változókat';
 
 $strName = 'Neve';
-$strNbRecords = 'Sorok száma';
 $strNext = 'Következo';
 $strNo = 'Nem';
 $strNoDatabases = 'Nincs adatbázis';
@@ -293,7 +292,6 @@ $strSize = 'Méret';
 $strSort = 'Sorrendezés';
 $strSpaceUsage = 'Helyfoglalás';
 $strSQLQuery = 'SQL-kérés';
-$strStartingRecord = 'Kezdo sor';
 $strStatement = 'Adatok';
 $strStrucCSV = 'CSV adat';
 $strStrucData = 'Szerkezet és adatok';

@@ -191,7 +191,6 @@ $strMySQLShowStatus = 'Mostra la informació de funcionament del MySQL';
 $strMySQLShowVars = 'Mostra les variables de sistema del MySQL';
 
 $strName = 'Nom';
-$strNbRecords = 'Número de files ';
 $strNext = 'Següent';
 $strNo = 'No';
 $strNoDatabases = 'No hi han Bases de Dades';
@@ -292,7 +291,6 @@ $strSize = 'Mida';
 $strSort = 'Clasificació';
 $strSpaceUsage = 'Utilització d\'espai';
 $strSQLQuery = 'crida SQL';
-$strStartingRecord = 'Registre inicial';
 $strStatement = 'Sentències';
 $strStrucCSV = 'dades CSV ';
 $strStrucData = 'Estructura i dades';

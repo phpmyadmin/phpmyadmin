@@ -191,7 +191,6 @@ $strMySQLShowStatus = 'Informacje o stanie serwera MySQL';
 $strMySQLShowVars = 'Zmienne systemowe serwera MySQL';
 
 $strName = 'Nazwa';
-$strNbRecords = 'Ile';
 $strNext = 'Nastêpne';
 $strNo = 'Nie';
 $strNoDatabases = 'Brak baz danych';
@@ -292,7 +291,6 @@ $strSize = 'Rozmiar';
 $strSort = 'Sortuj';
 $strSpaceUsage = 'Wykorzystanie przestrzeni';
 $strSQLQuery = 'zapytanie SQL';
-$strStartingRecord = 'Rozpoczêcie rekordu';
 $strStatement = 'Cecha';
 $strStrucCSV = 'dane CSV';
 $strStrucData = 'Struktura i dane';
