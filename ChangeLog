@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-18 Robin Johnson  <robbat2@users.sourceforge.net>
+    * libraries/relation.lib.php3:83
+	- Fixed $cfg['Servers']['Server'] -> $cfg['Server']
+
 2002-06-17 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/finnish.inc.php3 updates, thanks to Visa Kopu (#569317)
     * lang/italian.inc.php3 update, thanks to Pietro Danesi (#569424)
