@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-30 Marc Delisle  <lem9@users.sourceforge.net>
+    * user_details.php3: fix the tooltip
+    * 2.3.0-rc2 released
+
 2002-06-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * user_details.php3: Added a tooltip for the new documenation link.
     * sql.php3: Fixed bug #574855 (wrong counted rows with many functions)
@@ -16,7 +20,6 @@ $Source$
     * tbl_qbe.php3: show upper links
     * Documentation.html, user_details.php3: link to document what happens
       with grants and underscores.
-    * user_details.php3: fix the tooltip
 
 2002-06-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3, libraries/common.lib.php3:
