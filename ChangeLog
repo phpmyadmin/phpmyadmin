@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-24 Michal Čihař  <michal@cihar.com>
+    * main.php, changelog.php: Add headers to ChangeLog display.
+    
 2004-06-23 Marc Delisle  <lem9@users.sourceforge.net>
     * many files: remove references to older /images, and
       erase /images contents

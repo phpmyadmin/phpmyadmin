@@ -649,7 +649,7 @@ echo "\n";
         echo '<td><img src="' .$GLOBALS['pmaThemeImage'] . 'spacer.png'  . '" width="1" height="1" border="0" /></td>'; 
 ?>
        <td nowrap="nowrap">
-            [<a href="ChangeLog" target="_blank">ChangeLog</a>]
+            [<a href="changelog.php" target="_blank">ChangeLog</a>]
             &nbsp;&nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_blank">CVS</a>]
             &nbsp;&nbsp;&nbsp;[<a href="http://sourceforge.net/mail/?group_id=23067" target="_blank">Lists</a>]
        </td>
