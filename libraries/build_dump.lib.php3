@@ -199,9 +199,10 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                                . ' VALUES (';
             }
         
-            $search     = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
-            $replace    = array('\0', '\n', '\r', '\Z');
-            $isFirstRow = TRUE;
+            $search       = array("\x00", "\x0a", "\x0d", "\x1a"); //\x08\\x09, not required
+            $replace      = array('\0', '\n', '\r', '\Z');
+            $is_first_row = TRUE;
+            $prev_time    = time();
 
             @set_time_limit($GLOBALS['cfgExecTimeLimit']);
 
@@ -225,9 +226,9 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
                 // Extended inserts case
                 if (isset($GLOBALS['extended_ins'])) {
-                    if ($isFirstRow) {
-                        $insert_line = $schema_insert . implode(', ', $values) . ')';
-                        $isFirstRow  = FALSE;
+                    if ($is_first_row) {
+                        $insert_line  = $schema_insert . implode(', ', $values) . ')';
+                        $is_first_row = FALSE;
                     } else {
                         $insert_line = '(' . implode(', ', $values) . ')';
                     }
@@ -240,6 +241,14 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
 
                 // Call the handler
                 $handler($insert_line);
+
+                // loic1: each 20 seconds, send a fake header to bypass browser
+                // timeout
+                $new_time      = time();
+                if ($new_time - $prev_time >= 20) {
+                    $prev_time = $new_time;
+                    header('Expires: 0');
+                }
             } // end while
             
             // Replace last comma by a semi-column in extended inserts case
@@ -282,11 +291,12 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
     {
         global $use_backquotes;
 
-        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
-        $i           = 0;
-        $isFirstRow  = TRUE;
-        $fields_cnt  = mysql_num_fields($result);
+        $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+        $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
+        $i            = 0;
+        $is_first_row = TRUE;
+        $fields_cnt   = mysql_num_fields($result);
+        $prev_time    = time();
 
         @set_time_limit($GLOBALS['cfgExecTimeLimit']); // HaRa
 
@@ -298,7 +308,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $table_list     = substr($table_list, 0, -2);
             $table_list     .= ')';
 
-            if (isset($GLOBALS['extended_ins']) && !$isFirstRow) {
+            if (isset($GLOBALS['extended_ins']) && !$is_first_row) {
                 $schema_insert = '(';
             } else {
                 if (isset($GLOBALS['showcolumns'])) {
@@ -308,7 +318,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                     $schema_insert = 'INSERT INTO ' . PMA_backquote(PMA_htmlFormat($table), $use_backquotes)
                                    . ' VALUES (';
                 }
-                $isFirstRow        = FALSE;
+                $is_first_row      = FALSE;
             }
 
             for ($j = 0; $j < $fields_cnt; $j++) {
@@ -348,6 +358,14 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $schema_insert .= ')';
             $handler(trim($schema_insert));
             ++$i;
+
+            // loic1: each 20 seconds, send a fake header to bypass browser
+            // timeout
+            $new_time      = time();
+            if ($new_time - $prev_time >= 20) {
+                $prev_time = $new_time;
+                header('Expires: 0');
+            }
         } // end while
         mysql_free_result($result);
 
