@@ -7,9 +7,7 @@
  * Get some core libraries
  */
 require('./libraries/grab_globals.lib.php3');
-if (isset($submit)) {
-    $js_to_run = 'functions.js';
-}
+$js_to_run = 'functions.js';
 require('./header.inc.php3');
 
 
