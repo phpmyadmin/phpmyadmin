@@ -13,6 +13,29 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
     define('PMA_BUILD_DUMP_LIB_INCLUDED', 1);
 
     /**
+     * Returns $table's field types
+     *
+     * @param   string   the database name
+     * @param   string   the table name
+     *
+     * @return  array    the field types; key of array is PMA_backquote
+     *                   of the field name
+     *
+     * @access  public
+     * 
+     * This function exists because mysql_field_type() returns 'blob'
+     * even for 'text' fields.
+     */
+    function PMA_fieldTypes($db, $table) {
+        PMA_mysql_select_db($db);
+        $table_def = PMA_mysql_query('SHOW FIELDS FROM ' . PMA_backquote($table));
+        while($row = @PMA_mysql_fetch_array($table_def)) {
+            $types[PMA_backquote($row['Field'])] = ereg_replace('\\(.*', '', $row['Type']);
+        }
+        return $types;
+    }
+
+    /**
      * Returns $table's CREATE definition
      *
      * @param   string   the database name
@@ -249,10 +272,15 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
             $fields_cnt = mysql_num_fields($result);
             $rows_cnt   = mysql_num_rows($result);
 
+            // get the real types of the table's fields (in an array)
+            // the key of the array is the backquoted field name
+            $field_types = PMA_fieldTypes($db,$table);
+
             // Checks whether the field is an integer or not
             for ($j = 0; $j < $fields_cnt; $j++) {
                 $field_set[$j] = PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes);
-                $type          = PMA_mysql_field_type($result, $j);
+                $type          = $field_types[$field_set[$j]];
+
                 if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
                     $type == 'bigint'  ||$type == 'timestamp') {
                     $field_num[$j] = TRUE;
@@ -421,11 +449,17 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 $is_first_row      = FALSE;
             }
 
+
+            // get the real types of the table's fields (in an array)
+            // the key of the array is the backquoted field name
+            $field_types = PMA_fieldTypes($db,$table);
+
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (!isset($row[$j])) {
                     $schema_insert .= ' NULL, ';
                 } else if ($row[$j] == '0' || $row[$j] != '') {
-                    $type          = PMA_mysql_field_type($result, $j);
+                    $type          = $field_types[PMA_backquote(PMA_mysql_field_name($result, $j), $use_backquotes)];
+
                     // a number
                     if ($type == 'tinyint' || $type == 'smallint' || $type == 'mediumint' || $type == 'int' ||
                         $type == 'bigint'  ||$type == 'timestamp') {
