@@ -561,6 +561,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @param   string   the database name
      * @param   string   the table name
+     * @param   integer  the offset on this table
+     * @param   integer  the last row to get
      * @param   string   the end of line sequence
      * @param   string   the url to go back in case of error
      *
@@ -568,7 +570,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @access  public
      */
-    function PMA_getTableXML($db, $table, $crlf, $error_url) {
+    function PMA_getTableXML($db, $table, $limit_from = 0, $limit_to = 0, $crlf, $error_url) {
         $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
         $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         for ($i = 0; $row = mysql_fetch_array($result, MYSQL_ASSOC); $i++) {
@@ -578,7 +580,19 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         unset($i);
         mysql_free_result($result);
 
-        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        // Defines the offsets to use
+        if ($limit_from > 0) {
+            $limit_from--;
+        } else {
+            $limit_from = 0;
+        }
+        if ($limit_to > 0 && $limit_from >= 0) {
+            $add_query  = " LIMIT $limit_from, $limit_to";
+        } else {
+            $add_query  = '';
+        }
+
+        $local_query = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
         $result      = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
         $buffer      = '  <!-- ' . $GLOBALS['strTable'] . ' ' . $table . ' -->' . $crlf;
         while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {

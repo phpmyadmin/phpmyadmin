@@ -305,9 +305,12 @@ else {
             if (!isset($single)) {
                 $table = mysql_tablename($tables, $i);
             }
+            if (!isset($limit_from) || !isset($limit_to)) {
+                $limit_from = $limit_to = 0;
+            }
             if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $table . '|'))
                 || (!isset($tmp_select) && !empty($table))) {
-                $dump_buffer .= PMA_getTableXML($db, $table, $crlf, $err_url);
+                $dump_buffer .= PMA_getTableXML($db, $table, $limit_from, $limit_to, $crlf, $err_url);
             }
             $i++;
         }
