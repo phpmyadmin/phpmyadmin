@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2003-02-09 Robin Johnson  <robbat2@users.sourceforge.net>
+2003-02-13 Robin Johnson  <robbat2@users.sourceforge.net>
     * sql.php3: Fix simple little bug #685082
 
 2003-02-12 Alexander M. Turek  <rabus@users.sourceforge.net>
