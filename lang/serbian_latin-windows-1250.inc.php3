@@ -682,4 +682,20 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
+$strHebrew = 'Hebrew';  //to translate
+$strWestEuropean = 'West European';  //to translate
+$strCentralEuropean = 'Central European';  //to translate
+$strTraditionalChinese = 'Traditional Chinese';  //to translate
+$strCyrillic = 'Cyrillic';  //to translate
+$strArmenian = 'Armenian';  //to translate
+$strArabic = 'Arabic';  //to translate
+$strRussian = 'Russian';  //to translate
+$strUnknown = 'unknown';  //to translate
+$strBaltic = 'Baltic';  //to translate
+$strUnicode = 'Unicode';  //to translate
+$strSimplifiedChinese = 'Simplified Chinese';  //to translate
+$strKorean = 'Korean';  //to translate
+$strGreek = 'Greek';  //to translate
+$strJapanese = 'Japanese';  //to translate
+$strThai = 'Thai';  //to translate
 ?>

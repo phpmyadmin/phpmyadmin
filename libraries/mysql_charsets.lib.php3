@@ -52,21 +52,24 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
         reset($mysql_collations[$key]);
     }
     reset($mysql_collations);
-    
+
     @mysql_free_result($res);
     unset($res);
     unset($row);
 
     function PMA_getCollationDescr($collation) {
+        if ($collation == 'binary') {
+            return $GLOBALS['strBinary'];
+        }
         $parts = explode('_', $collation);
         if (count($parts) == 1) {
-            return '';
+            $parts[1] = 'general';
+        } elseif ($parts[1] == 'ci' || $parts[1] == 'cs') {
+            $parts[2] = $parts[1];
+            $parts[1] = 'general';
         }
         $descr = '';
         switch ($parts[1]) {
-            case 'bin':
-                $descr = $GLOBALS['strBinary'];
-                break;
             case 'bulgarian':
                 $descr = $GLOBALS['strBulgarian'];
                 break;
@@ -91,9 +94,6 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
             case 'estonian':
                 $descr = $GLOBALS['strEstonian'];
                 break;
-            case 'general':
-                $descr = $GLOBALS['strMultilingual'];
-                break;
             case 'german1':
                 $descr = $GLOBALS['strGerman'] . ' (' . $GLOBALS['strDictionary'] . ')';
                 break;
@@ -114,6 +114,94 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
                 break;
             case 'ukrainian':
                 $descr = $GLOBALS['strUkrainian'];
+                break;
+            case 'bin':
+                $is_bin = TRUE;
+            case 'general':
+                switch ($parts[0]) {
+                    // Unicode charsets
+                    case 'ucs2':
+                    case 'utf8':
+                        $descr = $GLOBALS['strUnicode'] . ' (' . $GLOBALS['strMultilingual'] . ')';
+                        break;
+                    // West European charsets
+                    case 'ascii':
+                    case 'cp850':
+                    case 'dec8':
+                    case 'hp8':
+                    case 'latin1':
+                    case 'macroman':
+                        $descr = $GLOBALS['strWestEuropean'] . ' (' . $GLOBALS['strMultilingual'] . ')';
+                        break;
+                    // Central European charsets
+                    case 'cp1250':
+                    case 'cp852':
+                    case 'latin2':
+                    case 'macce':
+                        $descr = $GLOBALS['strCentralEuropean'] . ' (' . $GLOBALS['strMultilingual'] . ')';
+                        break;
+                    // Russian charsets
+                    case 'cp866':
+                    case 'koi8r':
+                        $descr = $GLOBALS['strRussian'];
+                        break;
+                    // Simplified Chinese charsets
+                    case 'gb2312':
+                    case 'gbk':
+                        $descr = $GLOBALS['strSimplifiedChinese'];
+                        break;
+                    // Japanese charsets
+                    case 'sjis':
+                    case 'ujis':
+                        $descr = $GLOBALS['strJapanese'];
+                        break;
+                    // Baltic charsets
+                    case 'cp1257':
+                    case 'latin7':
+                        $descr = $GLOBALS['strBaltic'] . ' (' . $GLOBALS['strMultilingual'] . ')';
+                        break;
+                    // Other
+                    case 'armscii8':
+                    case 'armscii':
+                        $descr = $GLOBALS['strArmenian'];
+                        break;
+                    case 'big5':
+                        $descr = $GLOBALS['strTraditionalChinese'];
+                        break;
+                    case 'cp1251':
+                        $descr = $GLOBALS['strCyrillic'] . ' (' . $GLOBALS['strMultilingual'] . ')';
+                        break;
+                    case 'cp1256':
+                        $descr = $GLOBALS['strArabic'];
+                        break;
+                    case 'euckr':
+                        $descr = $GLOBALS['strKorean'];
+                        break;
+                    case 'hebrew':
+                        $descr = $GLOBALS['strHebrew'];
+                        break;
+                    case 'greek':
+                        $descr = $GLOBALS['strGreek'];
+                        break;
+                    case 'koi8u':
+                        $descr = $GLOBALS['strUkrainian'];
+                        break;
+                    case 'latin5':
+                        $descr = $GLOBALS['strTurkish'];
+                        break;
+                    case 'swe7':
+                        $descr = $GLOBALS['strSwedish'];
+                        break;
+                    case 'tis620':
+                        $descr = $GLOBALS['strThai'];
+                        break;
+                    default:
+                        $descr = $GLOBALS['strUnknown'];
+                        break;
+                }
+                if (!empty($is_bin)) {
+                    $descr .= ', ' . $GLOBALS['strBinary'];
+                }
                 break;
             default: return '';
         }

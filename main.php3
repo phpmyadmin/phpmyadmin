@@ -183,7 +183,7 @@ if ($server > 0) {
     $is_reload_priv  = FALSE;
 
 // We were checking privileges with 'USE mysql' but users with the global
-// priv CREATE TEMPORARY TABLES or LOCK TABLES can do a 'USE mysql' 
+// priv CREATE TEMPORARY TABLES or LOCK TABLES can do a 'USE mysql'
 // (even if they cannot see the tables)
     $is_superuser    = @PMA_mysql_query('SELECT COUNT(*) FROM mysql.user', $userlink);
     if ($dbh) {
@@ -362,7 +362,6 @@ if ($server > 0) {
             <?php
         }
 
-//        if ($is_process_priv) {
         echo "\n";
         ?>
         <tr>
@@ -374,7 +373,19 @@ if ($server > 0) {
             </td>
         </tr>
         <?php
-//        } // end if
+
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            echo "\n";
+            ?>
+        <tr>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="./server_collations.php3?<?php echo $common_url_query; ?>">
+                    <?php echo $strCharsetsAndCollations; ?></a>&nbsp;
+            </td>
+        </tr>
+            <?php
+        }
 
         if ($is_reload_priv) {
             echo "\n";

@@ -5,10 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * main.php3: Added link to charset page.
+    * libraries/mysql_charsets.lib.php3, lang/*.inc.php3: More detailed charset
+      information.
+
 2003-07-31 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_replace_fields: bug 780793: a '+' sign in ENUM (or SET 
+    * tbl_replace_fields: bug 780793: a '+' sign in ENUM (or SET
       or a foreign key) was wrongly urldecoded to a space
- 
+
 2003-07-30 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_move_copy.php3: wrong Missing message
 
