@@ -25,7 +25,7 @@ $Source$
       - Made the textarea smaller (*1.25 instead of *2) for the window only.
       - Fixed a bug when you changed from a table to a database on the left frame and the
         query window still wants to show the previous table.
-
+    * tbl_query_box.php3: Only show fieldlist, when $table is set.
     * translators.html: Adjusted to same topmenu as Documentation.html.
       With the new 'Transformations' item the bar was too large to fit
       on standard 800x600 browser windows.

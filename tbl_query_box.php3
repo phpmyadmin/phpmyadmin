@@ -97,17 +97,22 @@ if (!isset($is_inside_querywindow) ||
     <!-- Query box and bookmark support -->
     <li>
         <a name="querybox"></a>
-            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . ' ' . PMA_showMySQLDocu('Reference', 'SELECT') . '&nbsp;&nbsp;&nbsp;' . $strFields . ':' . "\n"; ?>
-            <select name="dummy" size="1">
-<?php
-    echo "\n";
-    for ($i = 0 ; $i < $fields_cnt; $i++) {
-        echo '                '
-             . '<option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
-    }
-?>
+            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . ' ' . PMA_showMySQLDocu('Reference', 'SELECT'); ?>
+<?php if (isset($table) && $table > 0) { ?>
+             &nbsp;&nbsp;&nbsp;<?php echo $strFields; ?>:
+             <select name="dummy" size="1">
+    <?php
+        echo "\n";
+        for ($i = 0 ; $i < $fields_cnt; $i++) {
+            echo '                '
+                 . '<option value="' . urlencode($fields_list[$i]) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+        }
+    ?>
             </select>
             <input type="button" name="insert" value="<?php echo($strInsert); ?>" onclick="sqlform.sql_query.value = sqlform.sql_query.value + sqlform.dummy.value" />
+<?php
+}
+?>
             <br />
             <div style="margin-bottom: 5px">
             <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
