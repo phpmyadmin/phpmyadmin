@@ -9,6 +9,7 @@ $Source$
     * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
     * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
     * lang/malay: updated, thanks to nobody
+    * lang/lithuanian: Updated, thanks to Vilius Zigmantas (viliusz).
 
 2004-03-23 Olivier Mueller <om@omnis.ch>
     * server_privileges.php, libraries/server_privileges.js: added 
