@@ -248,7 +248,7 @@ if ($save_on_server) {
     if (substr($cfg['SaveDir'], -1) != '/') {
         $cfg['SaveDir'] .= '/';
     }
-    $save_filename = $cfg['SaveDir'] . preg_replace('@[/\\]@','_',$filename);
+    $save_filename = $cfg['SaveDir'] . preg_replace('@[/\\\\]@','_',$filename);
     unset($message);
     if (file_exists($save_filename) && empty($onserverover)) {
         $message = sprintf($strFileAlreadyExists, htmlspecialchars($save_filename));

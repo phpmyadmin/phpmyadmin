@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-12-12 Garvin Hicking <juststayalittlebitlonger@supergarv.de>
+    * export.php: Fixed Regex
+
 2003-12-11 Michal Cihar  <imreallyaway@cihar.com>
     * libraries/export/sql.php: Fix moving foreign key definition on Windows
       (bug #851950).
