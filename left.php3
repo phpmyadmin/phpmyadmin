@@ -65,43 +65,7 @@ function PMA_indent($spaces) {
     return $string;
 }
 
-/* DEBUGGING ONLY - REMOVE WHEN PATCH ACCEPTED
-$path = '';
-$functioncalls = '';
-
-function functioncalls($name, $args, $array) {
-    $GLOBALS['functioncalls'] .= $name . "\n------------------------\n";
-    foreach($array AS $xkey => $key) {
-        $defvals = explode(':' , $key);
-        $key=$defvals[0];
-
-        $val = (isset($args[$xkey]) ? $args[$xkey] : $defvals[1]);
-        if (is_array($val)) {
-            $GLOBALS['functioncalls'] .= $key . "\n";
-            foreach($val AS $skey => $sval) {
-                if (!is_array($val)) {
-                    $GLOBALS['functioncalls'] .= "\t" . $skey . "\n\t\t" . stripslashes(var_export($sval)) . "\n";
-                } else {
-                    $GLOBALS['functioncalls'] .= "\t" . $skey . "\n\t\t[ARRAY]\n";
-                }
-            }
-        } else {
-            $GLOBALS['functioncalls'] .= $key . "\n\t" . stripslashes(var_export($val, true)) . "\n";
-        }
-    }
-    
-    $GLOBALS['functioncalls'] .= "\n\n";
-    
-    return true;
-}
-*/
-
 function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_level, $val, $childout = true) {
-/* DEBUGGING ONLY - REMOVE WHEN PATCH ACCEPTED
-    $args = func_get_args();
-    functioncalls('PMA_nestedSetHeaderParent', $args, array('baseid', 'key','keyhistory','indent','indent_level','val','childout:true'));
-*/
-
     $name = $key;
     $id = eregi_replace('[^a-z0-9]*', '', $baseid . $keyhistory . $key) . $indent;
 
@@ -132,10 +96,6 @@ function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_
 }
 
 function PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, $indent, $indent_level, $headerOut, $firstGroup = false, $firstGroupClose = true) {
-/* DEBUGGING ONLY - REMOVE WHEN PATCH ACCEPTED
-    $args = func_get_args();
-    functioncalls('PMA_nestedSetHeader', $args, array('baseid', 'tablestack','keyhistory','indent','indent_level','headerOut','firstGroup:false'));
-*/
     if ($firstGroup) {
         PMA_nestedSetHeaderParent($baseid, $firstGroup, $keyhistory, $indent, $indent_level, $tablestack);
         $indent++;
@@ -167,10 +127,6 @@ function PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, $indent, $indent
 }
 
 function PMA_nestedSet($baseid, $tablestack, $key = '__protected__', $keyhistory = '', $headerOut = false, $indent = 1) {
-/* DEBUGGING ONLY - REMOVE WHEN PATCH ACCEPTED
-    $args = func_get_args();
-    functioncalls('PMA_nestedSet', $args, array('baseid', 'tablestack', 'key:__protected__', 'keyhistory:\'\'', 'headerOut:false', 'indent:1'));
-*/
 
     if ($keyhistory == '' && $key != '__protected__') {
         $keyhistory = $key;

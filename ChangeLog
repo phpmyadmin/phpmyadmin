@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-06-27 Garvin Hicking <dont_sobic.c_me_please@supergarv.de>
+    * left.php3: Removed debugging code
+
 2003-06-27 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/display_tbl.lib.php3, libraries/relation.lib.php3: Added some
       checks to avoid trying to use relations when no table (bug #761835).
