@@ -275,7 +275,6 @@ if (isset($new_name) && trim($new_name) != '') {
         // seem to be stored on a per-database basis. Would the author of pdf support
         // please have a look at it?
 
-        /*
         if ($cfgRelation['pdfwork']) {
             $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_coords'])
                             . ' SET     table_name = \'' . PMA_sqlAddslashes($new_name) . '\','
@@ -285,7 +284,7 @@ if (isset($new_name) && trim($new_name) != '') {
             $tb_rs    = PMA_query_as_cu($table_query);
             unset($table_query);
             unset($tb_rs);
-
+            /*
             $pdf_query = 'SELECT pdf_page_number '
                        . ' FROM ' . PMA_backquote($cfgRelation['table_coords'])
                        . ' WHERE db_name  = \'' . PMA_sqlAddslashes($target_db) . '\''
@@ -301,8 +300,8 @@ if (isset($new_name) && trim($new_name) != '') {
                 unset($table_query);
                 unset($tb_rs);
             }
+            */
         }
-        */
 
         $sql_query      .= "\n\n" . $sql_drop_table . ';';
     } else {

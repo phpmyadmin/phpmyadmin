@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2003-04-02 Garvin Hicking <me@supergarv.de>
+    * tbl_move_copy.php3: At least one of the PDF integrity checks
+      on moving/copying a table can safely be enabled.
     * tbl_move_copy.php3, tbl_properties_operations.php3: Made 'move to
       newly created table' depend on a selected checkbox. State of that
       checkbox is saved in a cookie.
