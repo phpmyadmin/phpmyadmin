@@ -14,6 +14,8 @@ $Source$
 	  tbl_properties.php3; tbl_properties.inc.php3; tbl_printview.php3: fixed
 	  some encoding/decoding bugs.
 	* left.php3; left.js: added a style for the number of tables per database.
+	* db_readdump.php3, lines 97-99: added a fix to enforce reloading of the
+	  left frame if a database/table has been created/deleted.
 
 2001-08-16  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_change.php3, bug 451085 Can't assign NULL value to char(1).
