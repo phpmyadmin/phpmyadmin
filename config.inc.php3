@@ -381,7 +381,7 @@ $cfg['TextareaRows']        = 7;            // textarea size (rows) in edit mode
 $cfg['TextareaAutoSelect']  = TRUE;         // autoselect when clicking in the textarea of the querybox
 $cfg['CharTextareaCols']    = 40;           // textarea size (columns) for CHAR/VARCHAR
 $cfg['CharTextareaRows']    = 2;            // textarea size (rows) for CHAR/VARCHAR
-$cfg['LimitChars']          = 50;           // max field data length in browse mode
+$cfg['LimitChars']          = 50;           // For text and blobs, max field data length in browse mode
 $cfg['ModifyDeleteAtLeft']  = TRUE;         // show edit/delete links on left side of browse
                                             // (or at the top with vertical browse)
 $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right side of browse
