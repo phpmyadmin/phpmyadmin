@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-15  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/common.lib.php3:
+	  - lines 145: ensure 'enable_dl' is set before using it;
+	  - lines 322-328: ensured compatibility with old configuration files for
+	    the authentication mode.
+	* footer.inc.php3, lines 11-16: tried to fix bug #493200 - Problems with
+	  PHP 4.1.0. Actually the fix is to skip db connection closing if the
+	  script use persistent connections.
+
 2001-12-14  Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3: check/uncheck all links weren't working with js
 	  disabled.
