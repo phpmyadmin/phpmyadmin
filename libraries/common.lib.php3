@@ -376,9 +376,9 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
         // Ensures compatibility with old config files
         if (!isset($cfg['Server']['auth_type'])) {
-            $cfg['Server']['auth_type'] = (isset($cfg['Server']['adv_auth']) && $cfg['Server']['adv_auth'])
-                                    ? 'http'
-                                    : 'config';
+            $cfg['Server']['auth_type']  = (isset($cfg['Server']['adv_auth']) && $cfg['Server']['adv_auth'])
+                                         ? 'http'
+                                         : 'config';
         }
 
         if (isset($cfg['Server']['stduser'])) {
@@ -413,11 +413,11 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         // must be open after this one so it would be default one for all the
         // scripts)
         if ($cfg['Server']['controluser'] != '') {
-            $dbh           = @$connect_func(
-                                 $cfg['Server']['host'] . $server_port . $server_socket,
-                                 $cfg['Server']['controluser'],
-                                 $cfg['Server']['controlpass']
-                             );
+            $dbh                = @$connect_func(
+                                      $cfg['Server']['host'] . $server_port . $server_socket,
+                                      $cfg['Server']['controluser'],
+                                      $cfg['Server']['controlpass']
+                                  );
             if ($dbh == FALSE) {
                 if (mysql_error()) {
                     $conn_error = mysql_error();
@@ -435,11 +435,11 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
         } // end if
 
         // Connects to the server (validates user's login)
-        $userlink      = @$connect_func(
-                             $cfg['Server']['host'] . $server_port . $server_socket,
-                             $cfg['Server']['user'],
-                             $cfg['Server']['password']
-                         );
+        $userlink               = @$connect_func(
+                                      $cfg['Server']['host'] . $server_port . $server_socket,
+                                      $cfg['Server']['user'],
+                                      $cfg['Server']['password']
+                                  );
         if ($userlink == FALSE) {
             PMA_auth_fails();
         } // end if
