@@ -7,6 +7,8 @@ $Source$
 
 2003-02-01 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/arabic*: Updates thanks to Ossama Khayat <ossamak at nht.com.kw>
+    * lang/chinese_gb.inc.php3: Fixed duplicate '$strDBGMin' where it should
+    be '$strDBGMax'
     * translators.html: Added Ossama Khayat <ossamak at nht.com.kw>
 
 2003-02-06 Marc Delisle  <lem9@users.sourceforge.net>
