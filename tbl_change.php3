@@ -333,7 +333,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
     echo '        <td bgcolor="' . $bgcolor . '">' . "\n";
     if (!(($cfg['ProtectBinary'] && $is_blob) || ($cfg['ProtectBinary'] == 'all' && $is_binary))
         && $row_table_def['Null'] == 'YES') {
-        echo '            <input type="checkbox" tabindex=' . ($i+3*$fields_cnt) . '"'
+        echo '            <input type="checkbox" tabindex="' . ($i+3*$fields_cnt) . '"'
              . ' name="fields_null[' . urlencode($field) . ']"';
         if ($data == 'NULL' && !$first_timestamp) {
             echo ' checked="checked"';

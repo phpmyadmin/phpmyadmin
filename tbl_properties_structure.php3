@@ -545,7 +545,7 @@ echo "\n";
         <div style="margin-bottom: 10px">
         <a href="sql.php3?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>">
             <?php echo $strStructPropose; ?></a>
-        <?php echo PMA_showDocuShort('p/r/procedure_analyse.html'); ?>
+        <?php echo PMA_showDocuShort('p/r/procedure_analyse.html') . "\n"; ?>
         </div>
     </li>
 

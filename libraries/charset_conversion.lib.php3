@@ -147,11 +147,11 @@ if (!defined('PMA_CHARSET_CONVERSION_LIB_INCLUDED')){
                 return recode_string($charset . '..'  . $convcharset, $what);
             } else {
                 if (!isset($GLOBALS['is_header_sent'])) {
-                    require('./header.inc.php3');
+                    include('./header.inc.php3');
                 }
                 echo $GLOBALS['strCantUseRecodeIconv'];
-                require('./footer.inc.php3');
-                exit;
+                include('./footer.inc.php3');
+                exit();
             }
         }
     } //  end of the "PMA_convert_charset()" function

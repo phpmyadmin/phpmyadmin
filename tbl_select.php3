@@ -119,12 +119,12 @@ if (!isset($param) || $param[0] == '') {
             if (eregi('char|blob|text|set|enum', $fields_type[$i])) {
                 while (list($k, $fc) = each($textfunctions)) {
                     echo "\n" . '                        '
-                         . '<option value="' . $fc . '">' . htmlentities($fc) . '</option>';
+                         . '<option value="' . htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
                 } // end while
             } else {
                 while (list($k, $fc) = each($numfunctions)) {
                     echo "\n" . '                        '
-                         . '<option value="' . $fc . '">' . htmlentities($fc) . '</option>';
+                         . '<option value="' .  htmlspecialchars($fc) . '">' . htmlspecialchars($fc) . '</option>';
                 } // end while
             } // end if... else...
             echo "\n";

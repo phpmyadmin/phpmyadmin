@@ -5,6 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-22 Loïc Chapeaux  <lolo@phpheaven.net>
+    * libraries/common.lib.php3, lines 198-200: open the documentation
+      link in the "documentation" window.
+    * libraries/charset_conversion.lib.php3; libraries/select_lang.lib.php3:
+      PHP3 fixes (don't use "require" inside a conditional statement).
+    * Documentation.html: XHTML fixes.
+    * db_details_structure.php3; tbl_properties.php3;
+      tbl_change.php3, line 336; tbl_properties_structure.php3;
+      tbl_select.php3, lines 122 & 127; tbl_query_box.php3: XHTML fixes.
+    * db_details.php3; db_details_links.php3;
+      tbl_properties_export.php3, lines 156-158: beautified generated
+      XHTML code.
+
 2002-07-21 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, libraries/common.lib.php3: added a faq about
       mysql extension, and a link to it when the error occurs

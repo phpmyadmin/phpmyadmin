@@ -192,12 +192,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             $suffix = '.so';
         }
         if (!@extension_loaded($extension)) {
-            @dl($extension.$suffix);
+            @dl($extension . $suffix);
         }
         if (!@extension_loaded($extension)) {
-            echo $strCantLoadMySQL . '<br /> ' 
-            . '<a href="Documentation.html#faqmysql">' 
-            . $GLOBALS['strDocu'] . '</a>';
+            echo $strCantLoadMySQL . '<br />' . "\n"
+                 . '<a href="./Documentation.html#faqmysql" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
             exit();
         }
     } // end load mysql extension

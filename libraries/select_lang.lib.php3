@@ -8,7 +8,7 @@
 
 
 
-if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')){
+if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
     define('PMA_SELECT_LANG_LIB_INCLUDED', 1);
 
     /**
@@ -272,7 +272,7 @@ if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')){
 
     // 5. Defines the associated filename and load the translation
     $lang_file = $lang_path . $available_languages[$lang][1] . '.inc.php3';
-    require('./' . $lang_file);
+    include('./' . $lang_file);
 
 } // $__PMA_SELECT_LANG_LIB__
 ?>

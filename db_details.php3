@@ -45,7 +45,6 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
            ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
            // loic1: php 3.0.15 and lower bug -> always enabled
            : (PMA_PHP_INT_VERSION < 30016 || intval(@get_cfg_var('upload_max_filesize')));
-
 ?>
 <!-- Query box, sql file loader and bookmark support -->
 <a name="querybox"></a>

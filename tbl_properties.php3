@@ -17,6 +17,7 @@ require('./tbl_properties_table_info.php3');
 ?>
 <ul>
 
+<!-- TABLE WORK -->
 <?php
 /**
  * Query box, bookmark, insert data from textfile

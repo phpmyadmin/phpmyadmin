@@ -153,7 +153,9 @@ echo "\n";
     </table>
 </form>
 
-<a href="./Documentation.html#faqexport" target="documentation"><?php echo $strDocu; ?></a>
+<p align="center">
+    <a href="./Documentation.html#faqexport" target="documentation"><?php echo $strDocu; ?></a>
+</p>
 
 
 <?php
