@@ -31,7 +31,7 @@ error_reporting(E_ALL);
     if ($show_error) {
         $result = PMA_DBI_query($sql, $dbh, $options);
     } else {
-        $result = PMA_DBI_try_query($sql, $dbh, $options);
+        $result = @PMA_DBI_try_query($sql, $dbh, $options);
     } // end if... else...
     PMA_DBI_select_db($db, $dbh);
 
@@ -106,23 +106,26 @@ function PMA_getRelationsParam($verbose = FALSE)
     $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($cfgRelation['db']);
     $tab_rs    = PMA_query_as_cu($tab_query, FALSE, PMA_DBI_QUERY_STORE);
 
-    while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
-        if ($curr_table[0] == $cfg['Server']['bookmarktable']) {
-            $cfgRelation['bookmark']        = $curr_table[0];
-        } else if ($curr_table[0] == $cfg['Server']['relation']) {
-            $cfgRelation['relation']        = $curr_table[0];
-        } else if ($curr_table[0] == $cfg['Server']['table_info']) {
-            $cfgRelation['table_info']      = $curr_table[0];
-        } else if ($curr_table[0] == $cfg['Server']['table_coords']) {
-            $cfgRelation['table_coords']    = $curr_table[0];
-        } else if ($curr_table[0] == $cfg['Server']['column_info']) {
-            $cfgRelation['column_info'] = $curr_table[0];
-        } else if ($curr_table[0] == $cfg['Server']['pdf_pages']) {
-            $cfgRelation['pdf_pages']       = $curr_table[0];
-        } else if ($curr_table[0] == $cfg['Server']['history']) {
-            $cfgRelation['history'] = $curr_table[0];
-        }
-    } // end while
+    if ($tab_rs) {
+        while ($curr_table = @PMA_DBI_fetch_row($tab_rs)) {
+            if ($curr_table[0] == $cfg['Server']['bookmarktable']) {
+                $cfgRelation['bookmark']        = $curr_table[0];
+            } else if ($curr_table[0] == $cfg['Server']['relation']) {
+                $cfgRelation['relation']        = $curr_table[0];
+            } else if ($curr_table[0] == $cfg['Server']['table_info']) {
+                $cfgRelation['table_info']      = $curr_table[0];
+            } else if ($curr_table[0] == $cfg['Server']['table_coords']) {
+                $cfgRelation['table_coords']    = $curr_table[0];
+            } else if ($curr_table[0] == $cfg['Server']['column_info']) {
+                $cfgRelation['column_info'] = $curr_table[0];
+            } else if ($curr_table[0] == $cfg['Server']['pdf_pages']) {
+                $cfgRelation['pdf_pages']       = $curr_table[0];
+            } else if ($curr_table[0] == $cfg['Server']['history']) {
+                $cfgRelation['history'] = $curr_table[0];
+            }
+        } // end while
+    }
+
     if (isset($cfgRelation['relation'])) {
         $cfgRelation['relwork']         = TRUE;
         if (isset($cfgRelation['table_info'])) {

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-22 Michal Čihař  <michal@cihar.com>
+    * libraries/relation.lib.php: Fix possible error on non existant pma db.
+    
 2004-06-20 Marc Delisle  <lem9@users.sourceforge.net>
     * themes.php: use standard headers. A iso-8859-1 charset was hardcoded
       in this script, but it's better to use libraries/header_http.inc.php
