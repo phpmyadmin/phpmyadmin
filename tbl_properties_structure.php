@@ -62,7 +62,7 @@ while ($row = PMA_mysql_fetch_array($result)) {
 mysql_free_result($result);
 
 // 3. Get fields
-$local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
+$local_query = 'SHOW FULL FIELDS FROM ' . PMA_backquote($table);
 $fields_rs   = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
 $fields_cnt  = mysql_num_rows($fields_rs);
 
@@ -73,7 +73,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
  */
 ?>
 
-<!-- TABLE INFORMATIONS -->
+<!-- TABLE INFORMATION -->
 
 <form method="post" action="tbl_properties_structure.php" name="fieldsForm">
     <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
@@ -83,7 +83,7 @@ $fields_cnt  = mysql_num_rows($fields_rs);
     <td></td>
     <th>&nbsp;<?php echo $strField; ?>&nbsp;</th>
     <th><?php echo $strType; ?></th>
-<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <th>' . $strCharset . '</th>' . "\n" : ''; ?>
+<?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '    <th>' . $strCollation . '</th>' . "\n" : ''; ?>
     <th><?php echo $strAttr; ?></th>
     <th><?php echo $strNull; ?></th>
     <th><?php echo $strDefault; ?></th>
@@ -596,7 +596,7 @@ if ($cfg['ShowStats']) {
             $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
             ?>
         <tr>
-            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strCharset; ?></td>
+            <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $strCollation; ?></td>
             <td bgcolor="<?php echo $bgcolor; ?>" align="<?php echo $cell_align_left; ?>" nowrap="nowrap">
             <?php
             echo '<dfn title="' . PMA_getCollationDescr($tbl_charset) . '">' . $tbl_charset . '</dfn>';
