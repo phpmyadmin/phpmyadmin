@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-15 Garvin Hicking <me@supergarv.de>
+    * Fixed foreign key browser window to also work from within
+      Search-subpanel.
+
 2004-09-14 Marc Delisle  <lem9@users.sourceforge.net>
     * server_privileges.php: stay on the form when passwords don't match
       (after the js alert)
@@ -14,7 +18,7 @@ $Source$
 2004-09-14 Michal Čihař  <michal@cihar.com>
     * themes.php, libraries/common.lib.php, libraries/defines.lib.php,
       libraries/select_theme.lib.php, themes/darkblue_orange/info.inc.php,
-	  themes/original/info.inc.php: Better theme version check (bug #1023029).
+      themes/original/info.inc.php: Better theme version check (bug #1023029).
     * libraries/auth/cookie.auth.lib.php: Remember database when using cookie
       login (bug #1027873).
 

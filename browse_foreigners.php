@@ -43,12 +43,21 @@ PMA_setFontSizes();
     <script type="text/javascript" language="javascript">
     self.focus();
     function formupdate(field, key) {
-        if (opener && opener.document && opener.document.insertForm && opener.document.insertForm.elements['field_' + field + '<?php echo (isset($pk) ? '[multi_edit][' . urlencode($pk) . ']' : ''); ?>[]']) {
-            opener.document.insertForm.elements['field_' + field + '<?php echo (isset($pk) ? '[multi_edit][' . urlencode($pk) . ']' : ''); ?>[]'].value = key;
-            self.close();
-        } else {
-            alert('<?php echo PMA_jsFormat($strWindowNotFound); ?>');
+        if (opener && opener.document && opener.document.insertForm) {
+            if (opener.document.insertForm.elements['field_' + field + '<?php echo (isset($pk) ? '[multi_edit][' . urlencode($pk) . ']' : ''); ?>[]']) {
+                // Edit/Insert form
+                opener.document.insertForm.elements['field_' + field + '<?php echo (isset($pk) ? '[multi_edit][' . urlencode($pk) . ']' : ''); ?>[]'].value = key;
+                self.close();
+                return false;
+            } else if (opener.document.insertForm.elements['field_' + field + '[1]']) {
+                // Search form
+                opener.document.insertForm.elements['field_' + field + '[1]'].value = key;
+                self.close();
+                return false;
+            }
         }
+
+        alert('<?php echo PMA_jsFormat($strWindowNotFound); ?>');
     }
     </script>
 </head>
