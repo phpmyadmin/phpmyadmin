@@ -5,13 +5,22 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-19  Olivier Müller  <om@omnis.ch>
+	* db_readdump.php3: if file contains mutiple queries, only show this line:
+	  "Your SQL-query has been executed successfully: The content of your 
+           file has been inserted. (131 Instructions)" instead of showing twice
+           (result + textarea) the whole file, which could be problematic with
+           large dumps.
+	* db_details: removed $sql_query_cpy stuff (was used by db_readdump.php3)
+	* lang/*: $strInstructions (used in db_readdump.php3)
+
 2001-08-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3: do not modify blob/binaries if $cfgProtectBlob is true
 	  and merged a little optimization (lines 69-71).
 	* main.php3; db_details.php3; tbl_properties.php3; db_readdump.php3;
 	  lib.inc.php3: once a query has been executed phpMyAdmin now moves back
 	  to the calling script (rather than db_details.php3 everytime) as soon as
-      the current database/table exists, else it moves  back to a "parent"
+	  the current database/table exists, else it moves  back to a "parent"
 	  script (the welcome page/'db_details.php3' if the current
 	  database/table has has been dropped.
 

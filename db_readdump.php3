@@ -70,9 +70,6 @@ if (!empty($prev_sql_query)) {
     }
 }
 
-// Copy the query, used for display purposes only
-$sql_query_cpy = $sql_query;
-
 
 /**
  * Executes the query
@@ -120,6 +117,9 @@ if ($sql_query != '') {
 } // end if
 
 
+// be nice with bandwidth... 
+$sql_query = "";
+
 /**
  * Go back to the calling script
  */
@@ -127,7 +127,8 @@ require('./header.inc.php3');
 if (isset($my_die)) {
     mysql_die('', $my_die);
 }
-$message   = $strSuccess;
+
+$message   = "$strSuccess: $strTheContent ($pieces_count $strInstructions) &nbsp;";
 if (!isset($goto)
     || ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3')) {
     $goto = 'db_details.php3';

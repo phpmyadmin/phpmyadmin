@@ -309,12 +309,7 @@ $url_query = 'lang=' . $lang
            . '&db=' . urlencode($db)
            . '&goto=db_details.php3';
 if (isset($show_query) && $show_query == 'y') {
-    // This script has been called by db_readdump.php3
-    if (isset($sql_query_cpy)) {
-        $query_to_display = $sql_query_cpy;
-    }
-    // Other cases
-    else if (get_magic_quotes_gpc()) {
+    if (get_magic_quotes_gpc()) {
         $query_to_display = stripslashes($sql_query);
     }
     else {
