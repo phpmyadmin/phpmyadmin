@@ -9,6 +9,7 @@ $Source$
 	* tbl_properties.php3: fix division by zero error
 	* tbl_change.php3: enlarge binary protection to (var)char binary
 	  types
+	* db_details.php3: fix disfigurement if table size 0 Bytes
 
 2001-07-09  Loïc Chapeaux  <lolo@phpheaven.net>
 	* header.inc.php3: cosmetic changes.

@@ -121,7 +121,8 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
             $tblsize                    =  $sts_data['Data_length'] + $sts_data['Index_length'];
             $sum_size                   += $tblsize;
             $sum_entries                += $sts_data['Rows'];
-            list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
+            if ($tblsize>0) list($formated_size, $unit) =  format_byte_down($tblsize, 3, 1);
+            else list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
             ?>
     <td align="right">
         <?php echo number_format($sts_data['Rows'], 0, $number_decimal_separator, $number_thousands_separator) . "\n"; ?>
