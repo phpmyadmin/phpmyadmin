@@ -16,6 +16,9 @@ $Source$
       to the PEAR call() funktion.
     * index.php3: Bug #743856. Fixed trinary operator, thanks to Virgile
       Petit!
+    * tbl_relation.php3: Will now not show a selected display field, if
+      none has been set yet for a table to not let users think, the key
+      is set.
 
 2003-05-26 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: sorted.

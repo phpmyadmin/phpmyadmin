@@ -71,11 +71,17 @@ if ($cfgRelation['displaywork']
     && isset($submit_show) && $submit_show == 'true') {
 
     if ($disp) {
-        $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
-                   . ' SET display_field = \'' . PMA_sqlAddslashes($display_field) . '\''
-                   . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
-                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
-    } else {
+        if ($display_field != '') {
+            $upd_query = 'UPDATE ' . PMA_backquote($cfgRelation['table_info'])
+                       . ' SET display_field = \'' . PMA_sqlAddslashes($display_field) . '\''
+                       . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                       . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+        } else {
+            $upd_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_info'])
+                       . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                       . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+        }
+    } elseif ($display_field != '') {
         $upd_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['table_info'])
                    . '(db_name, table_name, display_field) '
                    . ' VALUES('
@@ -255,6 +261,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 
     <p><?php echo $strChangeDisplay; ?></p>
     <select name="display_field" onchange="this.form.submit();">
+        <option value="">---</option>
         <?php
         echo "\n";
         mysql_data_seek($col_rs, 0);
