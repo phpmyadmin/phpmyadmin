@@ -80,7 +80,7 @@ if(isset($submit))
     // echo "$query $query_keys";
     $sql_query = "CREATE TABLE ".$table." (".$query." ".$query_keys.")";
     //BEGIN - Table Type - 2 May 2001 - Robbat2
-    if(!empty($tbl_type))
+    if(!empty($tbl_type) && ($tbl_type != "Default"))
 	$sql_query .= " TYPE = $tbl_type";
     //END - Table Type - 2 May 2001 - Robbat2
     if(MYSQL_MAJOR_VERSION == "3.23" && !empty($comment))
