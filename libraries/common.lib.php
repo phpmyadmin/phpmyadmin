@@ -671,6 +671,34 @@ if ($is_minimum_common == FALSE) {
 
         return ($i < $max) ? $i : -1;
     }  // end of the 'PMA_isInto()' function
+
+
+    /**
+     * Returns a string formatted with proper charset introducer
+     * and collate information, if MySQL supports it
+     *
+     * @param   string  the string itself
+     * @param   string  the charset introducer we want 
+     * @param   string  the collation we want 
+     *
+     * @return  the formatted string
+     *
+     * @access  private
+     */
+    function PMA_charsetIntroducerCollate($original_string, $charset_introducer, $collation)
+    {
+        $result = '';
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            $result .= $charset_introducer;
+        }
+        $result .= '\'' . $original_string . '\'';
+        if (PMA_MYSQL_INT_VERSION >= 40100) {
+            $result .= ' COLLATE ' . $collation;
+        }
+        return $result;
+
+    } // end of the 'PMA_charsetIntroducerCollate()' function
+
 }
 
 /**
