@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/*: cleanup thanks to Björn T. Hallberg - Removed unused strings
+	  $strColumnEmpty, $strDbEmpty, $strInsertIntoTable, $strPrinterFriendly,
+	  $strProducedAnError, $strReadTheDocs (kept $strLogout because it will be
+	  used as soon as we improved the authentication system).
+	* lang/swedish.inc.php3: updated thanks to
+	  Björn T. Hallberg <bth at users.sourceforge.net>.
+	* user_details.php3: cosmetic changes.
+
 2001-10-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_properties.php3:
 	  - line 966: the current name of the table is now displayed in the text
