@@ -2,8 +2,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <!-- $Id$ -->
-<!-- 
-    vim: expandtab ts=4 sw=4 sts=4 tw=78 
+<!--
+    vim: expandtab ts=4 sw=4 sts=4 tw=78
 -->
 
 <head>
@@ -1680,18 +1680,9 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <h4>
-    [1.17] Does phpMyAdmin support MySQL&nbsp;4
+    [1.17] Does phpMyAdmin support MySQL&nbsp;4.1
 </h4>
 <p>
-    MySQL&nbsp;4 is not yet fully supported by phpMyAdmin.<br />
-    Because of MySQL&nbsp;4's backwards compatibility you can use phpMyAdmin
-    for administering MySQL&nbsp;4 servers, but phpMyAdmin does not yet
-    support its new features. Please notice that in this case it is recommended
-    to use php&nbsp;&gt;=&nbsp;4.1 since older versions of php are not
-    compatible to MySQL&nbsp;4.<br />
-    Furthermore, several users reported problems with phpMyAdmin related to
-    bugs in MySQL&nbsp;4. <span class="important">MySQL&nbsp;4 is still a beta
-    release and should be used for test purposes only!</span>
     Because of a major change in the definition syntax of string field types,
     this version of phpMyAdmin probably won't work correctly with
     MySQL&nbsp;&gt;=&nbsp;4.1.0! We will work on the support as soon as
@@ -2227,6 +2218,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     This is a bug in Internet Explorer, other browsers do not behave this way.
 </p>
 
+<h4>
+    [5.14] With Opera 7.00, I am not able to delete characters once I typed them
+    into the SQL query text box.
+</h4>
+<p>
+    This is a bug in Opera 7. For now, we can only recommend either to switch
+    off JavaScript (e.g. by pressing F12) or to downgrade to version 6.05.
+</p>
+
 <a name="faqusing"></a><br />
 <h3>[6. Using phpMyAdmin]</h3>
 
@@ -2652,7 +2652,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <li id="developersdbg">
         The DBG extension (<a href="http://dd.cron.ru/dbg/" target="_blank">PHP
           Debugger DBG</a>) is now supported by phpMyAdmin for developers to
-        better debug and profile their code.<br /> 
+        better debug and profile their code.<br />
         Please see the <tt>$cfg['DBG']*</tt> configuration options for more
         information.<br />
         This is in memorium of the Space Shuttle Columbia (STS-107) which was

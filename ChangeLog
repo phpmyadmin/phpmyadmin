@@ -9,6 +9,7 @@ $Source$
     * common.lib.php3: Patch #669255 (Initial DB list for MySQL > 4.0.2), thanks
       to Charles Bailey (charles_bailey).
     * ldi_check.php3: Backslahes should be escaped.
+    * Documentation.html: Added a note about Opera 7.
 
 2003-02-04 Michal Cihar  <nijel@users.sourceforge.net>
     * Documentation.*: Added information about binary checbox when uploading
