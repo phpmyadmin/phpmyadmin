@@ -580,8 +580,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                     // else if (mysql_error()) {
                     //    PMA_mysqlDie('', $local_query, FALSE);
                     // }
-                    while ($row = @mysql_fetch_array($rs)) {
-                        $true_dblist[] = $row['Database'];
+                    while ($row = @mysql_fetch_row($rs)) {
+                        $true_dblist[] = $row[0];
                     } // end while
                     if ($rs) {
                         mysql_free_result($rs);
