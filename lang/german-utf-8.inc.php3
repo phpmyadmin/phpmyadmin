@@ -582,7 +582,7 @@ $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränku
 $strZip = 'Zip-komprimiert';
 
 $strRowsModeFlippedHorizontal = 'horizontal (gedrehte Bezeichner)';
-$strQueryTime = 'Die Abfrage dauerte %01.4f sek';
+$strQueryTime = 'die Abfrage dauerte %01.4f sek';
 $strDumpComments = 'Spaltenkommentare als SQL-Kommentare einbetten';
 $strDBComment = 'Datenbankkommentar: ';
 $strQueryFrame = 'Abfragefenster';
