@@ -103,6 +103,7 @@ $strCreateNewTable = 'Neue Tabelle in Datenbank %s erstellen';
 $strCreatePage = 'Neue Seite erstellen';
 $strCreatePdfFeat = 'Erzeugen von PDFs';
 $strCriteria = 'Kriterium';
+$strCvsData = 'CSV-Daten';
 
 $strData = 'Daten';
 $strDatabase = 'Datenbank';
@@ -292,6 +293,7 @@ $strPrimaryKeyWarning = 'Der Name des Primärschlüssels darf <b>nur</b> "PRIMARY"
 $strPrintView = 'Druckansicht';
 $strPrivileges = 'Rechte';
 $strProperties = 'Eigenschaften';
+$strPutColNames = 'Feldnamen in die erste Zeile setzen';
 
 $strQBE = 'Abfrageeditor';
 $strQBEDel = 'Entf.';
@@ -436,6 +438,4 @@ $strYes = 'Ja';
 $strZip = 'Zip-komprimiert';
 // To translate
 
-$strCvsData = 'CSV data';  //to translate
-$strPutColNames = 'Put fields names at first row';  //to translate
 ?>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-09-14 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-*.inc.php3: Updates.
+
 2002-09-14 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: clarifications about Mac OS X, and installing
     * lang/italian: update, thanks to Pietro Danesi
