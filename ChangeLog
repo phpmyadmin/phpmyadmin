@@ -37,6 +37,11 @@ $Source$
     * Documentation.*: Next release seems to be 2.5.0.
     * lang/latvian: Updated, thanks to Sandis Jerics.
 
+2003-03-17 Mike Beck  <mikebeck@users.sourceforge.net>
+    * pdf_pages.php3  will now check if the pdf_pages table has entries
+      that reference tables that no longer exist. if it does user is prompted
+      to delete them.
+      
 2003-03-17 Marc Delisle  <lem9@users.sourceforge.net>
     * user_password.php3, header.inc.php3, libraries/user_password.js:
       put back js functions for user password change (= old user_details.js)
