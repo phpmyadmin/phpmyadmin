@@ -354,7 +354,7 @@ echo "\n";
 
 <tr>
     <td colspan="<?php echo((MYSQL_INT_VERSION >= 32323) ? '13' : '12'); ?>">
-        <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strChange; ?>" />
 <?php
@@ -550,7 +550,7 @@ if ($cfgShowStats) {
             ?>
         <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strFormat); ?></td>
-            <td align="right" nowrap="nowrap">
+            <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
             <?php
             echo '                ';
             if ($showtable['Row_format'] == 'Fixed') {
@@ -596,7 +596,7 @@ if ($cfgShowStats) {
         <tr bgcolor="<?php echo ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne); ?>">
             <td><?php echo ucfirst($strRowSize); ?>&nbsp;&oslash;</td>
             <td align="right" nowrap="nowrap">
-                <?php echo "$avg_size $avg_unit\n"; ?>
+                <?php echo $avg_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $avg_unit . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -903,7 +903,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
                     </td>
                 </tr>
                 <tr>
-                    <td align="right" valign="top">
+                    <td align="<?php echo $cell_align_right; ?>" valign="top">
                         <input type="submit" name="submit_move" value="<?php echo $strGo; ?>" />
                     </td>
                 </tr>
@@ -951,7 +951,7 @@ for ($i = 0; $i < $num_dbs; $i++) {
                         <input type="radio" name="what" value="data" />
                         <?php echo $strStrucData; ?>&nbsp;&nbsp;
                     </td>
-                    <td align="right" valign="top">
+                    <td align="<?php echo $cell_align_right; ?>" valign="top">
                         <input type="submit" name="submit_copy" value="<?php echo $strGo; ?>" />
                     </td>
                 </tr>

@@ -9,6 +9,8 @@ require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 // Puts the language to use in a cookie that will expire in 30 days
 setcookie('lang', $lang, time() + 60*60*24*30);
+// Defines the "item" image depending on text direction
+$item_img = 'images/item_' . $text_dir . '.gif';
 // Handles some variables that may have been sent by the calling script
 if (isset($db)) {
     unset($db);
@@ -150,7 +152,7 @@ $is_superuser = FALSE;
 if ($server > 0) {
     ?>
     <!-- MySQL server related links -->
-    <td valign="top" align="left">
+    <td valign="top" align="<?php echo $cell_align_left; ?>">
         <table>
         <tr>
             <th colspan="2">&nbsp;&nbsp;MySQL</th>
@@ -209,7 +211,7 @@ if ($server > 0) {
         ?>
         <!-- db creation form -->
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
             <form method="post" action="db_create.php3">
                 <?php echo $strCreateNewDatabase . '&nbsp;' . show_docu('manual_Reference.html#CREATE_DATABASE'); ?><br />
@@ -233,7 +235,7 @@ if ($server > 0) {
         echo "\n";
         ?>
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW STATUS'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowStatus; ?></a>&nbsp;
@@ -246,7 +248,7 @@ if ($server > 0) {
         echo "\n";
         ?>
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&amp;goto=main.php3">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
@@ -260,7 +262,7 @@ if ($server > 0) {
     if ($is_process_priv) {
         ?>
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
@@ -274,7 +276,7 @@ if ($server > 0) {
     if ($is_reload_priv) {
         ?>
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="main.php3?<?php echo $common_url_query; ?>&amp;mode=reload">
                     <?php echo $strReloadMySQL; ?></a>&nbsp;
@@ -288,7 +290,7 @@ if ($server > 0) {
     if ($is_superuser) {
         ?>
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="user_details.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;table=user">
                     <?php echo $strUsers; ?></a>&nbsp;
@@ -300,7 +302,7 @@ if ($server > 0) {
             echo "\n";
             ?>
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="db_stats.php3?<?php echo $common_url_query; ?>">
                     <?php echo $strDatabasesStats; ?></a>
@@ -316,7 +318,7 @@ if ($server > 0) {
     {
         ?>
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="index.php3?<?php echo $common_url_query; ?>&amp;old_usr=<?php echo urlencode($PHP_AUTH_USER); ?>" target="_parent">
                     <b><?php echo $strLogout; ?></b></a>&nbsp;
@@ -342,7 +344,7 @@ echo "\n";
 ?>
 
     <!-- phpMyAdmin related links -->
-    <td valign="top" align="left">
+    <td valign="top" align="<?php echo $cell_align_left; ?>">
         <table>
         <tr>
             <th colspan="2">&nbsp;&nbsp;phpMyAdmin</th>
@@ -354,12 +356,12 @@ if (empty($cfgLang)) {
     ?>
         <!-- Language Selection -->
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td nowrap="nowrap">
                 <form method="post" action="index.php3" target="_parent">
                     <input type="hidden" name="server" value="<?php echo $server; ?>" />
                     Language:
-                    <select name="lang" onchange="this.form.submit();">
+                    <select name="lang" dir="ltr" onchange="this.form.submit();">
     <?php
     echo "\n";
 
@@ -403,7 +405,7 @@ echo "\n";
 
         <!-- Documentation -->
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="Documentation.html" target="documentation"><b><?php echo $strPmaDocumentation; ?></b></a>
             </td>
@@ -414,7 +416,7 @@ if ($is_superuser || $cfgShowPhpInfo) {
     ?>
         <!-- PHP Information -->
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="phpinfo.php3" target="_new"><?php echo $strShowPHPInfo; ?></a>
             </td>
@@ -426,13 +428,13 @@ echo "\n";
 
         <!-- phpMyAdmin related urls -->
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="http://phpwizard.net/projects/phpMyAdmin/" target="_new"><?php echo $strHomepageOfficial; ?></a>
             </td>
         </tr>
         <tr>
-            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="http://phpmyadmin.sourceforge.net/" target="_new">
                     <?php echo $strHomepageSourceforge; ?></a><br />

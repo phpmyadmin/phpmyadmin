@@ -111,12 +111,12 @@ if ($server > 0) {
 </h1>
 <table align="center" border="<?php echo $cfgBorder; ?>" cellpadding="5">
 <tr>
-    <th align="left"><big><?php echo $strHost . ' :'; ?></big></th>
-    <th align="left"><big><?php echo $cfgServer['host']; ?></big></th>
+    <th align="<?php echo $cell_align_left; ?>"><big><?php echo $strHost . ' :'; ?></big></th>
+    <th align="<?php echo $cell_align_left; ?>"><big><?php echo $cfgServer['host']; ?></big></th>
 </tr>
 <tr>
-    <th align="left"><big><?php echo $strGenTime . ' :'; ?></big></th>
-    <th align="left"><big><?php echo localised_date(); ?></big></th>
+    <th align="<?php echo $cell_align_left; ?>"><big><?php echo $strGenTime . ' :'; ?></big></th>
+    <th align="<?php echo $cell_align_left; ?>"><big><?php echo localised_date(); ?></big></th>
 </tr>
 </table>
 <br /><br />
@@ -260,9 +260,9 @@ if ($num_dbs > 0) {
         echo '        </td>' . "\n";
         echo '        <td>&nbsp;<a href="index.php3?lang=' . $lang . '&amp;server=' . $server . '&amp;db=' . urlencode($db_name) . '" target="_parent">' . htmlentities($db_name) . '</a>&nbsp;</td>' . "\n";
         echo '        <td align="right">&nbsp;' . $dbs_array[$db_name][0] . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</td>' . "\n";
-        echo '        <td align="right">&nbsp;<b>' . $tot_size . ' ' . $tot_unit . '</b>&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;' . $data_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $data_unit . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;' . $idx_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $idx_unit . '&nbsp;</td>' . "\n";
+        echo '        <td align="right">&nbsp;<b>' . $tot_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $tot_unit . '</b>&nbsp;</td>' . "\n";
         echo '    </tr>' . "\n";
 
         $i++;
@@ -278,14 +278,14 @@ if ($num_dbs > 0) {
     echo '        <th>&nbsp;</th>' . "\n";
     echo '        <th>&nbsp;' . $strSum . ':&nbsp;' . $num_dbs . '</th>' . "\n";
     echo '        <th align="right">&nbsp;' . $total_array[0] . '&nbsp;</th>' . "\n";
-    echo '        <th align="right">&nbsp;' . $data_size . ' ' . $data_unit . '&nbsp;</th>' . "\n";
-    echo '        <th align="right">&nbsp;' . $idx_size . ' ' . $idx_unit . '&nbsp;</th>' . "\n";
-    echo '        <th align="right">&nbsp;<b>' . $tot_size . ' ' . $tot_unit . '</b>&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;' . $data_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $data_unit . '&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;' . $idx_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $idx_unit . '&nbsp;</th>' . "\n";
+    echo '        <th align="right">&nbsp;<b>' . $tot_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $tot_unit . '</b>&nbsp;</th>' . "\n";
     echo '    </tr>' . "\n\n";
 
     echo '    <tr>' . "\n";
     echo '        <td colspan="6">' . "\n";
-    echo '            <img src="./images/arrow.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n";
+    echo '            <img src="./images/arrow_' . $text_dir . '.gif" border="0" width="38" height="22" alt="' . $strWithChecked . '" />' . "\n";
     echo '            <i>' . $strWithChecked . '</i>&nbsp;&nbsp;<input type="submit" name="submit_mult" value="' . $strDrop . '" />' . "\n";
     echo '        </td>' . "\n";
     echo '    </tr>' . "\n";

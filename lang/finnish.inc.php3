@@ -6,6 +6,7 @@
  */
 
 $charset = 'iso-8859-1';
+$text_dir = 'ltr';
 $left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
 $right_font_family = 'helvetica, arial, geneva, sans-serif';
 $number_thousands_separator = ',';

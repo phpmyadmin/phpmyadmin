@@ -2,6 +2,7 @@
 /* $Id$ */
 
 $charset = 'iso-8859-2';
+$text_dir = 'ltr';
 $left_font_family = 'verdana, helvetica, arial ce, arial, sans-serif';
 $right_font_family = 'helvetica, arial ce, arial, sans-serif';
 $number_thousands_separator = '.';

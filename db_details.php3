@@ -266,7 +266,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
                 ?>
     <td align="right" nowrap="nowrap">
         &nbsp;&nbsp;
-        <a href="tbl_properties.php3?<?php echo $url_query; ?>#showusage"><?php echo $formated_size . ' ' . $unit; ?></a>
+        <a href="tbl_properties.php3?<?php echo $url_query; ?>#showusage"><?php echo $formated_size . '<bdo dir="' . $text_dir . '"> </bdo>' . $unit; ?></a>
     </td>
                 <?php
                 echo "\n";
@@ -308,7 +308,8 @@ else if (MYSQL_INT_VERSION >= 32300) {
         echo "\n";
         ?>
     <th align="right" nowrap="nowrap">
-        <b><?php echo $sum_formated . ' '. $unit; ?></b>
+        &nbsp;
+        <b><?php echo $sum_formated . '<bdo dir="' . $text_dir . '"> </bdo>' . $unit; ?></b>
     </th>
         <?php
     }
@@ -318,7 +319,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
 
 <tr>
     <td colspan="<?php echo (($cfgShowStats) ? '11' : '10'); ?>">
-        <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
         &nbsp;<i><?php echo $strOr; ?></i>&nbsp;
@@ -395,7 +396,7 @@ else {
     ?>
 <tr>
     <td colspan="9">
-        <img src="./images/arrow.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
+        <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <i><?php echo $strWithChecked; ?></i>&nbsp;&nbsp;
         <input type="submit" name="submit_mult" value="<?php echo $strDrop; ?>" />
         &nbsp;<?php $strOr . "\n"; ?>&nbsp;

@@ -155,7 +155,7 @@ mysql_free_result($tbl_result);
 
     <!-- Fields row -->
     <tr>
-        <td align="right" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
             <b><?php echo $strField; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -216,7 +216,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Sort row -->
     <tr>
-        <td align="right" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
             <b><?php echo $strSort; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -273,7 +273,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Show row -->
     <tr>
-        <td align="right" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
             <b><?php echo $strShow; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -311,7 +311,7 @@ for ($x = 0; $x < $col; $x++) {
 
     <!-- Criteria row -->
     <tr>
-        <td align="right" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
             <b><?php echo $strCriteria; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -367,15 +367,15 @@ for ($y = 0; $y <= $row; $y++) {
         $chk['and'] = '';
         ?>
     <tr>
-        <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
             <!-- Row controls -->
             <table bgcolor="<?php echo $bgcolor; ?>">
             <tr>
-                <td align="right" nowrap="nowrap">
+                <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                     <small><?php echo $strQBEIns; ?>&nbsp;:</small>
                     <input type="checkbox" name="InsRow[<?php echo $w; ?>]" />
                 </td>
-                <td align="right">
+                <td align="<?php echo $cell_align_right; ?>">
                     <b><?php echo $strAnd; ?>&nbsp;:</b>
                 </td>
                 <td>
@@ -384,11 +384,11 @@ for ($y = 0; $y <= $row; $y++) {
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap="nowrap">
+                <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                     <small><?php echo $strQBEDel; ?>&nbsp;:</small>
                     <input type="checkbox" name="DelRow[<?php echo $w; ?>]" />
                 </td>
-                <td align="right">
+                <td align="<?php echo $cell_align_right; ?>">
                     <b><?php echo $strOr; ?>&nbsp;:</b>
                 </td>
                 <td>
@@ -448,15 +448,15 @@ for ($y = 0; $y <= $row; $y++) {
     echo "\n";
     ?>
     <tr>
-        <td align="right" nowrap="nowrap">
+        <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
             <!-- Row controls -->
             <table bgcolor="<?php echo $bgcolor; ?>">
             <tr>
-                <td align="right" nowrap="nowrap">
+                <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                     <small><?php echo $strQBEIns; ?>&nbsp;:</small>
                     <input type="checkbox" name="InsRow[<?php echo $w; ?>]" />
                 </td>
-                <td align="right">
+                <td align="<?php echo $cell_align_right; ?>">
                     <b><?php echo $strAnd; ?>&nbsp;:</b>
                 </td>
                 <td>
@@ -464,11 +464,11 @@ for ($y = 0; $y <= $row; $y++) {
                 </td>
             </tr>
             <tr>
-                <td align="right" nowrap="nowrap">
+                <td align="<?php echo $cell_align_right; ?>" nowrap="nowrap">
                     <small><?php echo $strQBEDel; ?>&nbsp;:</small>
                     <input type="checkbox" name="DelRow[<?php echo $w; ?>]" />
                 </td>
-                <td align="right">
+                <td align="<?php echo $cell_align_right; ?>">
                     <b><?php echo $strOr; ?>&nbsp;:</b>
                 </td>
                 <td>
@@ -529,7 +529,7 @@ for ($y = 0; $y <= $row; $y++) {
 
     <!-- Modify columns -->
     <tr>
-        <td align="right" bgcolor="<?php echo $cfgThBgcolor; ?>">
+        <td align="<?php echo $cell_align_right; ?>" bgcolor="<?php echo $cfgThBgcolor; ?>">
             <b><?php echo $strModify; ?>&nbsp;:&nbsp;</b>
         </td>
 <?php
@@ -600,7 +600,7 @@ for ($x = 0; $x < $col; $x++) {
     <table border="0">
     <tr>
         <td valign="top">
-            <table border="0" align="left">
+            <table border="0" align="<?php echo $cell_align_left; ?>">
             <tr>
                 <td rowspan="4" valign="top">
                     <?php echo $strUseTables; ?>&nbsp;:
@@ -614,7 +614,7 @@ while (list($key, $val) = each($tbl_names)) {
 ?>
                     </select>
                 </td>
-                <td align="right" valign="bottom">
+                <td align="<?php echo $cell_align_right; ?>" valign="bottom">
                     <input type="hidden" value="<?php echo $db; ?>" name="db" />
                     <input type="hidden" value="<?php echo $z; ?>" name="Columns" />
 <?php
@@ -634,7 +634,7 @@ $w--;
                 </td>
             </tr>
             <tr>
-                <td align="right" valign="bottom">
+                <td align="<?php echo $cell_align_right; ?>" valign="bottom">
                     <?php echo $strAddDeleteColumn; ?>&nbsp;:
                     <select size="1" name="Add_Col">
                         <option value="-3">-3</option>

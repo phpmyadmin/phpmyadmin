@@ -2,6 +2,7 @@
 /* $Id$ */
 
 $charset = 'iso-8859-1';
+$text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
 $left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
 $right_font_family = 'helvetica, arial, geneva, sans-serif';
 $number_thousands_separator = ',';

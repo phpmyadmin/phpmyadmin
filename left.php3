@@ -48,7 +48,7 @@ set_font_sizes();
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
 
 <head>
     <title>phpMyAdmin</title>
@@ -216,7 +216,7 @@ if ($num_dbs > 1) {
         echo "\n";
         ?>
         <a class="item" href="db_details.php3?<?php echo $common_url_query; ?>" onclick="if (capable) {expandBase('el<?php echo $j; ?>', false)}">
-            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
+            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="headaCnt"><bdo dir="<?php echo($text_dir); ?>">(<?php echo $num_tables_disp; ?>)</bdo></span></a></nobr>
     </div>
 
     <div id="el<?php echo $j;?>Child" class="child" style="margin-bottom: 5px">
@@ -288,7 +288,7 @@ else if ($num_dbs == 1) {
     ?>
     <div id="el2Parent" class="parent">
         <nobr><a class="item" href="db_details.php3?<?php echo $common_url_query; ?>">
-            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a></nobr>
+            <span class="heada"><?php echo $db; ?>&nbsp;&nbsp;</span><span class="headaCnt"><bdo dir="<?php echo($text_dir); ?>">(<?php echo $num_tables_disp; ?>)</bdo></span></a></nobr>
     </div>
     <div id="el2Child" class="child" style="margin-bottom: 5px">
     <?php

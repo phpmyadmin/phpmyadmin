@@ -3,6 +3,7 @@
 // Last translation by: Taiyen Hung ¬x®õ¤¸<yen789@pchome.com.tw>
 
 $charset = 'big5';
+$text_dir = 'ltr';
 $left_font_family = 'verdana, helvetica, arial, geneva, sans-serif';
 $right_font_family = 'helvetica, sans-serif';
 $number_thousands_separator = ',';

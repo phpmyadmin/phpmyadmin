@@ -2,6 +2,7 @@
 /* $Id$ */
 
 $charset = 'ks_c_5601-1987';
+$text_dir = 'ltr';
 $left_font_family = 'sans-serif';
 $right_font_family = 'sans-serif';
 $number_thousands_separator = ',';

@@ -2,6 +2,7 @@
 /* $Id$ */
 
 $charset = 'windows-1251';
+$text_dir = 'ltr';
 $left_font_family = 'sans-serif';
 $right_font_family = 'sans-serif';
 $number_thousands_separator = ',';

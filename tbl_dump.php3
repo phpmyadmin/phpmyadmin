@@ -104,7 +104,7 @@ if (empty($asfile)) {
     include('./header.inc.php3');
     $cfgServer = $cfgServer_backup;
     unset($cfgServer_backup);
-    echo '<div align="left">' . "\n";
+    echo '<div align="' . $cell_align_left . '">' . "\n";
     echo '    <pre>' . "\n";
 } // end if
 

@@ -34,11 +34,19 @@ header('Content-Type: text/html; charset=' . $charset);
  */
 // Gets the font sizes to use
 set_font_sizes();
+// Defines the cell alignment values depending on text direction
+if ($text_dir == 'ltr') {
+    $cell_align_left  = 'left';
+    $cell_align_right = 'right';
+} else {
+    $cell_align_left  = 'right';
+    $cell_align_right = 'left';
+}
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
 
 <head>
 <title>phpMyAdmin</title>

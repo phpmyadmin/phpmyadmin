@@ -677,7 +677,7 @@ function edit_operations($host, $user)
                 <td colspan="3">&nbsp;</td>
             </tr>
             <tr>
-                <td colspan="4" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $GLOBALS['strOr']; ?></td>
+                <td colspan="4" align="<?php echo $cell_align_left; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $GLOBALS['strOr']; ?></td>
             </tr>
             <tr>
                 <td>
