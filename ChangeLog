@@ -5,13 +5,18 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-02  Loïc Chapeaux  <lolo@phpheaven.net>
+	* users_details.lib.php3: fixed some typos, warnings and little bugs
+	* lib.inc.php3, lines 144 & 147: wrong var names
+	* main.php3, line 135: replaced a 'mysql_db_query'
+
 2001-06-01  Marc Delisle  <lem9@users.sourceforge.net>
-        * merge User administration module thanks to Daniel Villanueva (dvilla)
-        * small modifications to this module
-        * new add_message_file.sh
+	* merge User administration module thanks to Daniel Villanueva (dvilla)
+	* small modifications to this module
+	* new add_message_file.sh
 
 2001-05-31  Marc Delisle  <lem9@users.sourceforge.net>
-        * tbl_replace.php3, tbl_change.php3: bug 424771
+	* tbl_replace.php3, tbl_change.php3: bug 424771
 
 2001-05-30  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.js, left.php3 : beautify the way database list is displayed with NS4

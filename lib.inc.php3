@@ -141,10 +141,10 @@ if($server == 0) {
         $PHP_AUTH_USER = $REMOTE_USER;
       }
       else if (!empty($HTTP_ENV_VARS) && isset($HTTP_ENV_VARS['REMOTE_USER'])) {
-        $REMOTE_USER = $HTTP_ENV_VARS['REMOTE_USER'];
+        $PHP_AUTH_USER = $HTTP_ENV_VARS['REMOTE_USER'];
       }
       else if (@getenv('REMOTE_USER')) {
-        $REMOTE_USER = getenv('REMOTE_USER');
+        $PHP_AUTH_USER = getenv('REMOTE_USER');
       }
     }
     // Grab the $PHP_AUTH_PW variable whatever are the values of the
