@@ -278,6 +278,7 @@ if (uname.value == '') {
         // Initialization
         $PHP_AUTH_USER = $PHP_AUTH_PW = '';
         $from_cookie   = FALSE;
+        $from_form     = FALSE;
 
         // The user wants to be logged out -> delete password cookie
         if (!empty($old_usr)) {
@@ -288,6 +289,7 @@ if (uname.value == '') {
         else if (!empty($pma_username)) {
             $PHP_AUTH_USER = $pma_username;
             $PHP_AUTH_PW   = (empty($pma_password)) ? '' : $pma_password;
+            $from_form     = TRUE;
         }
 
         // At the end, try to set the $PHP_AUTH_USER & $PHP_AUTH_PW variables
@@ -318,7 +320,7 @@ if (uname.value == '') {
         }
 
         // Returns whether we get authentication settings or not
-        if (empty($PHP_AUTH_USER)) {
+        if (!$from_cookie && !$from_form) {
             return FALSE;
         } else {
             if (get_magic_quotes_gpc()) {
@@ -351,13 +353,14 @@ if (uname.value == '') {
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
         global $from_cookie;
 
-        // Ensures the valid 'only_db' setting is used
+        // Ensures valid authentication mode, 'only_db', bookmark database and
+        // table names and relation table name are used
         if ($cfg['Server']['user'] != $PHP_AUTH_USER) {
             $servers_cnt = count($cfg['Servers']);
             for ($i = 1; $i <= $servers_cnt; $i++) {
                 if (isset($cfg['Servers'][$i])
                     && ($cfg['Servers'][$i]['host'] == $cfg['Server']['host'] && $cfg['Servers'][$i]['user'] == $PHP_AUTH_USER)) {
-                    $server    = $i;
+                    $server        = $i;
                     $cfg['Server'] = $cfg['Servers'][$i];
                     break;
                 }
@@ -367,7 +370,8 @@ if (uname.value == '') {
         $cfg['Server']['user']     = $PHP_AUTH_USER;
         $cfg['Server']['password'] = $PHP_AUTH_PW;
 
-        // Set cookies if required (once per session)
+        // Set cookies if required (once per session) and, in this case, force
+        // reload to ensure the client accepts cookies
         if (!$from_cookie) {
             // Duration = one month for username
             setcookie('pma_cookie_username',
@@ -381,14 +385,10 @@ if (uname.value == '') {
                 0,
                 $GLOBALS['cookie_path'], '',
                 $GLOBALS['is_https']);
-        } // end if
 
-        // Force reload when cookies are created for the first time to ensure
-        // the client accept cookies
-        if (!$from_cookie) {
             header('Location: ' . $cfg['PmaAbsoluteUri'] . 'index.php3?lang=' . $GLOBALS['lang'] . '&server=' . $server);
             exit();
-        }
+        } // end if
 
         return TRUE;
     } // end of the 'PMA_auth_set_user()' function
