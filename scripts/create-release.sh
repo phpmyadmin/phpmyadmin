@@ -41,7 +41,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip
+ls -la *.gz *.zip *.bz2
 cd ..
 
 cat <<END
