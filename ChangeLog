@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-01-26 Robin Johnson <robbat2@users.sourceforge.net>
+    * libraries/dbi/mysql.dbi.lib.php: Correct the default parameter for
+    PMA_DBI_insert_id($link = '') and convert file back to UNIX linefeeds.
+
 2004-01-25 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_row_delete.php: bug 882695, broken row highlighting
     * libraries/display_tbl.lib.php: bug 879792, bad sort link
