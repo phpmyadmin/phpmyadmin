@@ -9,6 +9,7 @@
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
 require_once('./libraries/relation.lib.php'); // foreign keys
+require_once('./libraries/mysql_charsets.lib.php');
 
 if ($cfg['PropertiesIconic'] == true) {
     // We need to copy the value or else the == 'both' check will always return true
@@ -55,7 +56,7 @@ if (!isset($param) || $param[0] == '') {
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
     // Gets the list and number of fields
-    $result    = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';');
+    $result    = PMA_DBI_query('SHOW' . (PMA_MYSQL_INT_VERSION >= 40100 ? ' FULL' : '') . ' FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db) . ';');
     $fields_cnt        = PMA_DBI_num_rows($result);
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $fields_list[] = $row['Field'];
@@ -73,8 +74,17 @@ if (!isset($param) || $param[0] == '') {
             $type      = '&nbsp;';
         }
         $fields_type[] = $type;
+        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($row['Collation']) && $row['Collation'] != 'NULL') {
+            $fields_collation[] = $row['Collation'];
+            $tmp_charset = explode('_', $row['Collation']);
+            $fields_charset[]   = $tmp_charset[0];
+            unset($tmp_charset);
+        } else {
+            $fields_collation[] = $fields_charset[] = '';
+        }
     } // end while
     PMA_DBI_free_result($result);
+    unset($result, $type);
 
     // <markus@noga.de>
     // retrieve keys into foreign fields, if any
@@ -117,6 +127,7 @@ if (!isset($param) || $param[0] == '') {
             <tr>
                 <th><?php echo $strField; ?></th>
                 <th><?php echo $strType; ?></th>
+                <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '<th>' . $strCollation . '</th>' . "\n" : ''; ?>
                 <th><?php echo $strFunction; ?></th>
                 <th><?php echo $strValue; ?></th>
             </tr>
@@ -128,6 +139,7 @@ if (!isset($param) || $param[0] == '') {
             <tr>
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo htmlspecialchars($fields_list[$i]); ?></td>
                 <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $fields_type[$i]; ?></td>
+                <?php echo PMA_MYSQL_INT_VERSION >= 40100 ? '<td bgcolor="' . $bgcolor . '">' . $fields_collation[$i] . '</td>' . "\n" : ''; ?>
                 <td bgcolor="<?php echo $bgcolor; ?>">
                     <select name="func[]">
         <?php
@@ -189,6 +201,7 @@ if (!isset($param) || $param[0] == '') {
         ?>
                     <input type="hidden" name="names[]" value="<?php echo htmlspecialchars($fields_list[$i]); ?>" />
                     <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
+                    <input type="hidden" name="charsets[]" value="<?php echo $fields_charset[$i]; ?>" />
                 </td>
             </tr>
         <?php
@@ -271,9 +284,10 @@ else {
                     $quot     = '';
                     $func[$i] = 'IS';
                 }
+                $field_charset = empty($charsets[$i]) ? '' : ' _' . $charsets[$i];
                 //$sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . " $func[$i] $quot$fields[$i]$quot";
 
-                $sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . ' ' . $func[$i] . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
+                $sql_query    .= ' AND ' . PMA_backquote(urldecode($names[$i])) . ' ' . $func[$i] . $field_charset . ' ' . $quot . PMA_sqlAddslashes($fields[$i]) . $quot;
 
             } // end if
         } // end for
