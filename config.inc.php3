@@ -52,6 +52,12 @@ $cfg['Servers'][$i]['relation']      = '';          // table to describe the rel
                                                     //   - leave blank for no relation-links support
 $cfg['Servers'][$i]['table_info']
                                      = '';          // table to describe the 
+                                                    // display fields
+                                                    // - leave blank
+                                                    // for no display fields 
+                                                    // support
+$cfg['Servers'][$i]['table_coords']
+                                     = '';          // table to describe the 
                                                     // tables position for the 
                                                     // PDF schema - leave blank
                                                     // for no PDF schema support
@@ -76,8 +82,8 @@ $cfg['Servers'][$i]['verbose']       = '';
 $cfg['Servers'][$i]['bookmarkdb']    = '';
 $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
-$cfg['Servers'][$i]['table_info']
-                                     = '';
+$cfg['Servers'][$i]['table_info']    = '';
+$cfg['Servers'][$i]['table_coords']  = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']
@@ -98,8 +104,8 @@ $cfg['Servers'][$i]['verbose']       = '';
 $cfg['Servers'][$i]['bookmarkdb']    = '';
 $cfg['Servers'][$i]['bookmarktable'] = '';
 $cfg['Servers'][$i]['relation']      = '';
-$cfg['Servers'][$i]['table_info']
-                                     = '';
+$cfg['Servers'][$i]['table_info']    = '';
+$cfg['Servers'][$i]['table_coords']  = '';
 $cfg['Servers'][$i]['AllowDeny']['order']
                                      = '';
 $cfg['Servers'][$i]['AllowDeny']['rules']

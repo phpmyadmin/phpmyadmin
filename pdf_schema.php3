@@ -361,7 +361,7 @@ class PMA_RT_Table
 
     function PMA_RT_Table($table_name, $ff)
     {
-        global $pdf;
+        global $pdf, $pdf_page_number;
 
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
@@ -380,8 +380,9 @@ class PMA_RT_Table
 
         //x and y
         $sql    = 'SELECT x, y FROM '
-                . PMA_backquote($GLOBALS['cfg']['Server']['table_info'])
-                . ' WHERE table_name = \'' . PMA_sqlAddslashes($table_name) . '\'';
+                . PMA_backquote($GLOBALS['cfg']['Server']['table_coords'])
+                . ' WHERE table_name = \'' . PMA_sqlAddslashes($table_name) . '\''
+                . ' AND pdf_page_number = ' . $pdf_page_number;
         $result = mysql_query($sql);
         if (!$result || !mysql_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strConfigureTableCoord'], $table_name));

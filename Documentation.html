@@ -607,7 +607,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
               the FAQ, section &quot;Using phpMyAdmin&quot;);
            </li>
            <li>
-              enable you to get a PDF schema of your database.
+              enable you to get a PDF schema of your database (also uses the
+              table_coords table).
            </li>
         </ul>
         <br />
@@ -658,13 +659,46 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
     </dt>
     <dd>
         Since release 2.3.0 you can describe, in a special 'table_info'
-        table
+        table, which field is to be displayed as a tooltip when moving the
+        cursor over the corresponding key.
+        <br />
+        This configuration variable will hold the name of this special
+        table.
+        <br /><br />
+        To use this functionality you have to:
         <ul>
-           <li>the coordinates where each table will be placed on a PDF schema
-               output</li>
-           <li>which field is to be displayed as a tooltip when moving the
-               cursor over the corresponding key</li>
-        </ul>
+            <li>
+                create in the same database a table (for example
+                'PMA_table_info') following this scheme:<br />
+                <tt>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_table_info` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`display_field` varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`table_name`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';<br />
+                </tt>
+            </li>
+            <li>
+                put the table name in
+                <tt>$cfg['Servers'][$i]['table_info']</tt>
+            </li>
+            <li>
+                then manually fill this table with information about the
+                display fields.
+            </li>
+        </ul><br />
+        Usage tips:
+        <a class="navigation" href="#faqdisplay">display field</a>.
+        <br /><br />
+    </dd>
+
+    <dt>
+        <b>$cfg['Servers'][$i]['table_coords']</b> string
+    </dt>
+    <dd>
+        Since release 2.3.0 you can describe, in a special 'table_coords'
+        table, the coordinates where each table will be placed on a PDF schema
+        output.
         <br />
         This configuration variable will hold the name of this special
         table.
@@ -677,28 +711,27 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
         <ul>
             <li>
                 create in the same database a table (for example
-                'PMA_table_info') following this scheme:<br />
+                'PMA_table_coords') following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_table_info` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_table_coords` (<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pdf_page_number` int NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`x` float unsigned NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`display_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`table_name`)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`table_name`, `pdf_page_number`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin PDF output';<br />
                 </tt>
             </li>
             <li>
                 put the table name in
-                <tt>$cfg['Servers'][$i]['table_info']</tt>
+                <tt>$cfg['Servers'][$i]['table_coords']</tt>
             </li>
             <li>
                 then manually fill this table with information about the table
-                positions on the PDF schema, and/or the display fields.
+                positions on the PDF schema.
             </li>
         </ul><br />
-        Usage tips: <a class="navigation" href="#faqpdf">PDF output</a> and
-        <a class="navigation" href="#faqdisplay">display field</a>.
+        Usage tips: <a class="navigation" href="#faqpdf">PDF output</a>.
         <br /><br />
     </dd>
 
@@ -1786,19 +1819,22 @@ $cfg['PmaAbsoluteUri'] = (!empty($HTTPS) ? 'https' : 'http') . '://'
 <p>
     <b>How can I produce a PDF schema of my database?</b>
     <br />
-    First you have to fill the 'relation' and 'table_info'
+    First you have to fill the 'relation' and 'table_coords'
     configuration variables.
     <br /><br />
     Then, think about your schema layout: which tables will go on which pages.
     You have to fill in the 'relation' table the page number for each
     master-foreign link.
     <br /><br />
-    Then manually fill the table_info table with the coordinates,
-    x being the width and y the height, and (0,0) at the upper left corner.
+    A table may be displayed on more that one page, depending on how many
+    links it has to other tables.
+    <br /><br />
+    Then manually fill the table_coords table with the page number and
+    the coordinates, x being the width and y the height, and (0,0) at the upper left corner.
     For example, x=100 and y=200 means that the table will be at 200 mm down
     and 100 mm right from the upper left corner.
     <br /><br />
-    To produce the output, click on your database name, then choose 'Structure'
+    To generate the output, click on your database name, then choose 'Structure'
     and 'Display PDF schema', and enter the page number.
 </p>
 
