@@ -69,16 +69,18 @@ A:hover.nav   {font-family: <?php echo $right_font_family; ?>; color: #FF0000}
 </style>
 
 <?php
+$title     = '';
 if (isset($db)) {
-    $title = str_replace('\'', '\\\'', $db);
+    $title .= str_replace('\'', '\\\'', $db);
 }
 if (isset($table)) {
-    $title = (isset($title) ? $title . '.' . str_replace('\'', '\\\'', $table) : str_replace('\'', '\\\'', $table));
+    $title .= (empty($title) ? '' : '.') . str_replace('\'', '\\\'', $table);
 }
 if (!empty($cfgServer) && isset($cfgServer['host'])) {
-    $title = (isset($title) ? $title . ' ' . trim($strRunning) . ' ' . str_replace('\'', '\\\'', $cfgServer['host']) : str_replace('\'', '\\\'', $cfgServer['host']));
+    $title .= (empty($title) ? '' : ' ') . trim($strRunning) . ' '
+           .  (empty($cfgServer['verbose']) ? str_replace('\'', '\\\'', $cfgServer['host']) : str_replace('\'', '\\\'', $cfgServer['verbose']));
 }
-$title = (isset($title) ? $title . ' - phpMyAdmin ' . PMA_VERSION : 'phpMyAdmin ' . PMA_VERSION);
+$title     .= (empty($title) ? '' : ' - ') . 'phpMyAdmin ' . PMA_VERSION;
 ?>
 <script type="text/javascript" language="javascript">
 <!--

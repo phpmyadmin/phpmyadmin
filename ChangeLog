@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-29  Loïc Chapeaux  <lolo@phpheaven.net>
+	* header.inc.php3, lines 76-83: displays verbose server description
+	  rather than hostname as window title.
 2001-11-26  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_indexes.php3: fulltext indexes is available since MySQL 3.23.23
 	  only.
