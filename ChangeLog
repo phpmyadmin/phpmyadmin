@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-21 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * lang/german-*.inc.php3: Clarifications.
+
 2002-09-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: removed control M
 

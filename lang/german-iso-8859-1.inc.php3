@@ -38,7 +38,7 @@ $strAddUserMessage = 'Der Benutzer wurde hinzugefügt.';
 $strAffectedRows = ' Betroffene Datensätze: ';
 $strAfter = 'Nach %s';
 $strAfterInsertBack = 'zurück';
-$strAfterInsertNewInsert = 'Neuen Datensatz einfügen';
+$strAfterInsertNewInsert = 'anschließend einen weiteren Datensatz einfügen';
 $strAll = 'Alle';
 $strAllTableSameWidth = 'Sollen alle Tabellen mit der gleichen Breite angezeigt werden?';
 $strAlterOrderBy = 'Tabelle sortieren nach';
@@ -267,7 +267,7 @@ $strOptimizeTable = 'Optimiere Tabelle';
 $strOptionalControls = 'Optional. Bestimmt, wie Sonderzeichen kenntlich gemacht werden.';
 $strOptionally = 'optional';
 $strOptions = 'Optionen';
-$strOr = 'Oder';
+$strOr = 'oder';
 $strOverhead = 'Überhang';
 
 $strPageNumber = 'Seite:';

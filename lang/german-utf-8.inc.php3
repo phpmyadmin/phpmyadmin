@@ -10,7 +10,7 @@
  */
 
 $charset = 'utf-8';
-$allow_recoding = TRUE;
+$allow_recoding = FALSE;
 $text_dir = 'ltr';
 $left_font_family = 'verdana, arial, helvetica, geneva, sans-serif';
 $right_font_family = 'arial, helvetica, geneva, sans-serif';
@@ -39,7 +39,7 @@ $strAddUserMessage = 'Der Benutzer wurde hinzugefügt.';
 $strAffectedRows = ' Betroffene Datensätze: ';
 $strAfter = 'Nach %s';
 $strAfterInsertBack = 'zurück';
-$strAfterInsertNewInsert = 'Neuen Datensatz einfügen';
+$strAfterInsertNewInsert = 'anschließend einen weiteren Datensatz einfügen';
 $strAll = 'Alle';
 $strAllTableSameWidth = 'Sollen alle Tabellen mit der gleichen Breite angezeigt werden?';
 $strAlterOrderBy = 'Tabelle sortieren nach';
@@ -268,7 +268,7 @@ $strOptimizeTable = 'Optimiere Tabelle';
 $strOptionalControls = 'Optional. Bestimmt, wie Sonderzeichen kenntlich gemacht werden.';
 $strOptionally = 'optional';
 $strOptions = 'Optionen';
-$strOr = 'Oder';
+$strOr = 'oder';
 $strOverhead = 'Überhang';
 
 $strPageNumber = 'Seite:';
