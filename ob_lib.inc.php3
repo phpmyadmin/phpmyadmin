@@ -16,7 +16,7 @@
   # needed because both header and footer functions must know
   # what each other is doing.
   {
-    if (function_exists('ob_start'))
+    if (@function_exists('ob_start'))
       $mode = 1;
     else
       $mode = 0;

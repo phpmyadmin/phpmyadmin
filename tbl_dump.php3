@@ -179,12 +179,12 @@ else
 }
 
 if (isset($bzip) && $bzip == 'bzip') {
-    if (function_exists('bzcompress')) {
+    if (@function_exists('bzcompress')) {
         echo bzcompress($dump_buffer);
     } 
 }
 else if (isset($gzip) && $gzip == 'gzip') {
-    if ($gzip == 'gzip' && function_exists('gzencode')) {
+    if ($gzip == 'gzip' && @function_exists('gzencode')) {
         // without the optional parameter level because it bug
         echo gzencode($dump_buffer);
     }
