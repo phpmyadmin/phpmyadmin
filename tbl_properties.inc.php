@@ -2,6 +2,7 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 // Check parameters
+
 require_once('./libraries/common.lib.php');
 PMA_checkParameters(array('db','table','action','num_fields'));
 
@@ -18,6 +19,23 @@ require_once('./libraries/storage_engines.lib.php');
 <!--
 var switch_movement = <?php echo $cfg['DefaultPropDisplay'] == 'horizontal' ? '0' : '1'; ?>;
 document.onkeydown = onKeyDownArrowsHandler;
+// -->
+</script>
+<?php } 
+    // here, the div_x_7 represents a div id which contains
+    // the default current timestamp checkbox and label 
+    
+    if (PMA_MYSQL_INT_VERSION >= 40102) { ?>
+<script type="text/javascript" language="javascript">
+<!--
+function display_field_options(field_type, i) {
+    if (field_type == 'TIMESTAMP') {
+        getElement('div_' + i + '_7').style.display = 'block';
+    } else {
+        getElement('div_' + i + '_7').style.display = 'none';
+    }
+    return true;
+}
 // -->
 </script>
 <?php } ?>
@@ -215,7 +233,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     $content_cells[$i][$ci] .= "\n" . '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_name[]" size="10" maxlength="64" value="' . (isset($row) && isset($row['Field']) ? str_replace('"', '&quot;', $row['Field']) : '') . '" class="textfield" title="' . $strField . '" />';
     $ci++;
-    $content_cells[$i][$ci] = '<select name="field_type[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '">' . "\n";
+    $content_cells[$i][$ci] = '<select name="field_type[]" id="field_' . $i . '_' . ($ci - $ci_offset) . '" onchange="display_field_options(this.value,' . $i .')" >' . "\n";
 
     if (empty($row['Type'])) {
         $row['Type'] = '';
@@ -389,8 +407,13 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
 
     $content_cells[$i][$ci] .= '<input id="field_' . $i . '_' . ($ci - $ci_offset) . '" type="text" name="field_default[]" size="12" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
-    if (PMA_MYSQL_INT_VERSION >= 40102 && $type_upper == 'TIMESTAMP') {
-        $content_cells[$i][$ci] .= '<br /><div style="white-space: nowrap;"><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
+    if (PMA_MYSQL_INT_VERSION >= 40102) {
+        if ($type_upper == 'TIMESTAMP') {
+            $tmp_display_type = 'block';
+        } else {
+            $tmp_display_type = 'none';
+        }
+        $content_cells[$i][$ci] .= '<br /><div id="div_' . $i . '_' . ($ci - $ci_offset) . '" style="white-space: nowrap; display: ' . $tmp_display_type . '"><input id="field_' . $i . '_' . ($ci - $ci_offset) . 'a" type="checkbox" name="field_default_current_timestamp[' . $i . ']"';
         if ($default_current_timestamp) {
             $content_cells[$i][$ci] .= ' checked="checked" ';
         }
