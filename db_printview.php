@@ -293,17 +293,17 @@ echo "\n";
 <!--
 function printPage()
 {
-    document.all.print.style.visibility = 'hidden';
+    document.getElementById('print').style.visibility = 'hidden';
     // Do print the page
     if (typeof(window.print) != 'undefined') {
         window.print();
     }
-    document.all.print.style.visibility = '';
+    document.getElementById('print').style.visibility = '';
 }
 //-->
 </script>
 <?php
-echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" name="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
+echo '<br /><br />&nbsp;<input type="button" style="visibility: ; width: 100px; height: 25px" id="print" value="' . $strPrint . '" onclick="printPage()">' . "\n";
 
 require_once('./footer.inc.php');
 ?>

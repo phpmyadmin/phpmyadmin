@@ -7,6 +7,7 @@ $Source$
 
 2003-12-23 Marc Delisle  <lem9@users.sourceforge.net>
     * css/phpmyadmin.css.php: Patch 864334, preserve white-space between quotes
+    * db_datadict.php, db_printview.php: bug 863713: printing on non-IE browser
 
 2003-12-21 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/norwegian:  Updated, thanks to Sven-Erik Andersen (sven-erik).
