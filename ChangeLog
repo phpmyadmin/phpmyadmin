@@ -12,6 +12,8 @@ $Source$
     * lang/serbian: Updated, thanks to Mihailo Stefanovic (mikis).
     * lang/persian-utf-8.inc.php3: Regenerated, was somehow broken.
     * lang/sort_lang.sh: Ignores non file parameter.
+    * libraries/common.lib.php3: Add some more fixes for wrongly typed
+      $cfg['PmaAbsoluteUri'].
 
 2003-10-15 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian-windows-1251: wrong charset (bug 823939)

@@ -693,11 +693,34 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             if ($cfg['PmaAbsoluteUri_DisableWarning'] == FALSE) {
                 $display_pmaAbsoluteUri_warning = 1;
             }
-        }
-        // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
-        // exist
-        else if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
-            $cfg['PmaAbsoluteUri'] .= '/';
+        } else {
+            // The URI is specified, however users do often specify this
+            // wrongly, so we try to fix this.
+            
+            // Adds a trailing slash et the end of the phpMyAdmin uri if it
+            // does not exist.
+            if (substr($cfg['PmaAbsoluteUri'], -1) != '/') {
+                $cfg['PmaAbsoluteUri'] .= '/';
+            }
+
+            // If URI doesn't start with http:// or https://, we will add
+            // this.
+            if (substr($cfg['PmaAbsoluteUri'], 0, 7) != 'http://' && substr($cfg['PmaAbsoluteUri'], 0, 8) != 'https://') {
+                if (!empty($_SERVER)) {
+                    $SERVER_ARRAY = '_SERVER';
+                } else if (!empty($HTTP_SERVER_VARS)) {
+                    $SERVER_ARRAY = 'HTTP_SERVER_VARS';
+                } else {
+                    $SERVER_ARRAY = 'GLOBALS';
+                } // end if
+                if (isset(${$SERVER_ARRAY}['HTTPS'])) {
+                    $HTTPS = ${$SERVER_ARRAY}['HTTPS'];
+                }
+
+                $cfg['PmaAbsoluteUri']          = ((!empty($HTTPS) && strtolower($HTTPS) != 'off') ? 'https' : 'http') . ':'
+                                                . (substr($cfg['PmaAbsoluteUri'], 0, 2) == '//' ? '' : '//')
+                                                . $cfg['PmaAbsoluteUri'];
+            }
         }
 
 
