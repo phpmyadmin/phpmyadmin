@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-05-30  Pete Kelly  <webmaster@trafficg.com>
+	* db_readdump.php3, line 57: fixed the bug #427796
+
 2001-05-28  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, line 5: fixed a warning
 	* lib.inc.php3, main.php3, sql.php3, tbl_properties: options displayed with

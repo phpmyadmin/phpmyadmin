@@ -54,7 +54,7 @@ if($sql_query != "") {
   $pieces    = split_sql_file($sql_query,";");
 
   if (count($pieces) == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
-    $sql_query = addslashes(trim($pieces[0]));
+    $sql_query = trim($pieces[0]);
     if (eregi('^CREATE TABLE (.+)', $sql_query))  $reload = "true";
     include("./sql.php3");
     exit;
