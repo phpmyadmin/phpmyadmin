@@ -10,7 +10,7 @@ $Source$
     * main.php: bug 851564: backquotes on the wildcard dbname
       when no controluser is defined
 
-2003-12-08 Garvin Hicking <embatag@supergarv.de>
+2003-12-09 Garvin Hicking <embatag@supergarv.de>
     * tbl_change.php: Fixed Bug #856436 (not displaying default values)
     * lang/german*: Translations
     * left.php: Escape single quotes in single-table cases as well
