@@ -1671,16 +1671,13 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     $schema_insert .= 'NULL';
                 }
                 else if ($row[$j] != '') {
+                    // loic1 : always enclose fields
                     if ($what == 'excel') {
-                        $row[$j]     = ereg_replace("\015(\012)?", "\012", $row[$j]);                          
-                        $re_test     = "$enc_by|$sep|\012";
-                    } else {
-                        $re_test     = "[$enc_by$sep]|" . $GLOBALS['add_character'];
+                        $row[$j]   = ereg_replace("\015(\012)?", "\012", $row[$j]);                          
                     }
-                    if (ereg($re_test, $row[$j])) {
-                        $row[$j] = $enc_by . str_replace($enc_by, $enc_by . $enc_by, $row[$j]) . $enc_by;
-                    }
-                    $schema_insert .= $row[$j];
+                    $schema_insert .= $enc_by
+                                   . str_replace($enc_by, $enc_by . $enc_by, $row[$j])
+                                   . $enc_by;
                 }
                 else {
                     $schema_insert .= '';
