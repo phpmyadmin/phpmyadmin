@@ -338,7 +338,9 @@ function display_table ($dt_result, $is_simple = false) {
     <?php
 
     $field = mysql_fetch_field($dt_result);
-    $table = $field->table;
+    if (strlen(trim($table))==0) {
+        $table = $field->table;
+    }
     mysql_field_seek($dt_result, 0);
     if (!$is_simple) {
 	  show_table_navigation($pos_next, $pos_prev, $dt_result);
@@ -361,7 +363,15 @@ function display_table ($dt_result, $is_simple = false) {
     {
         if(@mysql_num_rows($dt_result)>1 && !$is_simple)
         {
-            $sort_order=urlencode(" order by $field->name $cfgOrder");
+            if (empty($sql_order)) {
+                $sort_order=urlencode(" order by $field->name $cfgOrder");
+            }
+            else if (substr($sql_order, -3) == 'ASC') {
+                $sort_order=urlencode(" order by $field->name DESC");
+            }
+            else if (substr($sql_order, -4) == 'DESC') {
+                $sort_order=urlencode(" order by $field->name ASC");
+            }
             echo "<th>";
                 echo "<A HREF=\"sql.php3?server=$server&lang=$lang&db=$db&pos=$pos&sql_query=".urlencode($sql_query)."&sql_order=$sort_order&table=$table\">";
                 echo $field->name;
@@ -372,7 +382,9 @@ function display_table ($dt_result, $is_simple = false) {
         {
             echo "<th>$field->name</th>";
         }
-        $table = $field->table;
+        if (strlen(trim($table))==0) {
+            $table = $field->table;
+        }
     }
     echo "</tr>\n";
     $foo = 0;
@@ -637,16 +649,15 @@ function get_table_content_old($db, $table, $handler)
         else
             $schema_insert = "INSERT INTO $table VALUES (";
 
-        for($j=0; $j<mysql_num_fields($result);$j++)
+        for ($j=0; $j<mysql_num_fields($result);$j++)
         {
-            if(!isset($row[$j]))
+            if (!isset($row[$j])) {
                 $schema_insert .= " NULL,";
-            elseif($row[$j] != "")
-            { 
+            }
+            else if ($row[$j] != "") {
                 $dummy = ""; 
                 $srcstr = $row[$j]; 
-                for($xx=0; $xx < strlen($srcstr); $xx++) 
-                { 
+                for ($xx=0; $xx < strlen($srcstr); $xx++) { 
                     $yy = strlen($dummy); 
                     if($srcstr[$xx] == "\\") $dummy .= "\\\\"; 
                     if($srcstr[$xx] == "'") $dummy .= "\\'"; 
@@ -661,9 +672,9 @@ function get_table_content_old($db, $table, $handler)
                 } 
                 $schema_insert .= " '".$dummy."',"; 
             } 
-            // $schema_insert .= " '".addslashes($row[$j])."',"; 
-            else
+            else {
                 $schema_insert .= " '',";
+            }
         }
         $schema_insert = ereg_replace(",$", "", $schema_insert);
         $schema_insert .= ")";
