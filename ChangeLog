@@ -12,6 +12,7 @@ $Source$
     * tbl_change.php3: RFE #737174 implemented (comments welcome)
     * tbl_change.php3: RFE #723124 implemented (reset button)
     * read_dump.php3, tbl_query_box.php3: RFE #641760
+    * Documentation.html: Added FAQ 5.14 (Buggy Opera6)
 
 2003-05-13 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 736793, new reserved
