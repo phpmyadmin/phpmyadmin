@@ -182,6 +182,7 @@ $strHostEmpty = 'Il nome di host è vuoto!';
 $strIdxFulltext = 'Testo completo';
 $strIfYouWish = 'Per caricare i dati solo per alcune colonne della tabella, specificare la lista dei campi (separati da virgole).';
 $strIgnore = 'Ignora';
+$strImportDocSQL = 'Importa Files docSQL';
 $strIndex = 'Indice';
 $strIndexes = 'Indici';
 $strIndexHasBeenDropped = 'L\'indice %s è stato eliminato';
@@ -435,5 +436,5 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strImportDocSQL = 'Import docSQL Files';  //to translate
+
 ?>
