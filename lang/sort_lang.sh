@@ -39,7 +39,7 @@ sortlang()
     egrep -i $TRANSLATIONSTRING $f | \
     uniq >$targetdir/tmp-translate
 
-    echo -e -n "\nBuilding:"
+    echo -n "\nBuilding:"
     echo -n " strings"
     for i in $STRINGORDER;
     do
@@ -60,7 +60,7 @@ sortlang()
     done | \
     uniq >>$targetdir/translate
 
-    echo -e "\nAssembling final"
+    echo "\nAssembling final"
     f=$f$2
     echo "<?php" >$f
     cat $targetdir/cvs $targetdir/head $targetdir/sort $targetdir/translate | \

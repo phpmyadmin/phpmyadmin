@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # $Id$
 ##
 # Shell script to check that all language files are syncronized
