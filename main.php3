@@ -14,6 +14,22 @@ if (!isset($message)) {
 }
 ?>
 
+<?php
+if (empty($cfgLang)) {
+    echo '<p>';
+    reset($available_languages);
+    while (list($id,$tmplang) = each($available_languages)) {
+        $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
+        echo "\n";
+        ?>
+    [&nbsp;<a href="index.php3?server=<?php echo $server;?>&lang=<?php echo $id;?>" target="_top" title="<?php echo $lang_name;?>"><?php echo $id;?></a>&nbsp;]
+        <?php
+    }
+    echo "\n<p><br />\n";
+}
+?>
+
+
 <h1><?php echo $strWelcome ?> phpMyAdmin 2.3.0alpha-20010604 (unofficial devel-branch)</h1>
 <?php
 if ($server > 0) {
@@ -173,22 +189,6 @@ if (isset($rows)) {
 <a href="http://phpwizard.net/projects/phpMyAdmin/" target="_top"><?php print $strHomepageOfficial; ?> </a>
 <li>
 <a href="Documentation.html" target="_top">phpMyAdmin <?php print $strDocu;?></a>
-
-
-<?php
-if (empty($cfgLang)) {
-  ?>
-  <br><br>
-  <li><?php
-        reset($available_languages);
-        while(list ($id,$tmplang) = each ($available_languages) ) {
-          $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
-?>
-[ <a href="index.php3?server=<?php echo $server;?>&lang=<?php echo $id;?>" target="_top" title="<?php echo $lang_name;?>"><?php echo $id;?></a> ]
-<?php
-        }
-}
-?>
 </ul>
 
 </div>
