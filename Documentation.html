@@ -692,6 +692,16 @@
     So, you must have PHP4 >= 4.0.4 and Zlib support (--with-zlib).
 </p>
 
+<p>
+    <b>I try to upload a file and I get: <br /> 
+     Error MySQL said: The file '/tmp/phpkvpp60' must be in the database directory or be readable by all </b>
+    <br />
+    Your uploaded file is saved by PHP in the "upload dir", as defined in php.ini by the variable upload_tmp_dir (usually the system default is /tmp).  If this directory is not readable by all, the MySQL server (which must be running on the same machine) cannot open the file (except if running as root, which is not recommended).
+    <br />
+    The system administrator can do a "chmod 777 /tmp" to enable uploads.
+</p>
+
+
 
 <!-- FAQ -->
 <a name="Developers"></a><br />

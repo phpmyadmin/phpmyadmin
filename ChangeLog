@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-12  Marc Delisle  <lem9@users.sourceforge.net>
+	* Documentation.html: added a FAQ entry about upload errors
+
 2001-07-12  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_properties.php3: fixed an IE5.0 display bug and an other one with
 	  Mozilla.
