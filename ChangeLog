@@ -6,14 +6,20 @@ $Id$
 $Source$
 
 2001-08-21  Olivier Müller  <om@omnis.ch>
-	* db_stats.php3: added list of 20 biggest db's
-	* lib.inc.php3: fixed the socket patch, should work now
+	* db_stats.php3: added list of 20 biggest db's.
+	* lib.inc.php3: fixed the socket patch, should work now.
 
 2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_stats.php3: ensured the script is XHTML1.0 compliant and fits the
 	  coding standards.
 	* sql.php3; lang/*: improved the way the mysql_affected_rows is used and
 	  optimized a bit the script.
+	* lib.inc.php3:
+	  - fixed again the socket patch, should work now.
+	  - modified the way defines.inc.php3 is loaded.
+	* defines.lib.php3; db_details; tbl_properties.php3: ensures each constant
+	  isn't already defined before to define it and renamed PMA_INT_VERSION to
+	  PHP_INT_VERSION.
 
 2001-08-20  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: new file and feature (sorry :) : simply display an
