@@ -11,6 +11,19 @@ require('./server_common.inc.php3');
 
 
 /**
+ * Checks if a dropdown box has been used for selecting a database / table
+ */
+if (!empty($pred_dbname)) {
+    $dbname = $pred_dbname;
+    unset($pred_dbname);
+}
+if (!empty($pred_tablename)) {
+    $tablename = $pred_tablename;
+    unset($pred_tablename);
+}
+
+
+/**
  * Checks if the user is allowed to do what he tries to...
  */
 if (!$is_superuser) {
@@ -697,7 +710,8 @@ if (empty($adduser)) {
                . '    ' . sprintf($strFlushPrivilegesNote, '<a href="server_privileges.php3?' . $url_query . '&amp;flush_privileges=1">', '</a>') . "\n"
                . '</div>' . "\n";
         }
-    } else if (isset($username)) {
+    } else {
+        // A user was selected -> display the user's properties
         if (!isset($hostname)) {
             $hostname = '%';
         }
@@ -706,7 +720,7 @@ if (empty($adduser)) {
         if (!empty($dbname)) {
             echo '    - ' . $strDatabase . ' <i><a class="h2" href="' . $cfg['DefaultTabDatabase'] . '?' . $url_query . '&amp;db=' . urlencode($dbname) . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
             if (!empty($tablename)) {
-                echo '    - ' . $strTable . ' <i><a class="h2" href="' . $cfg['DefaultTabTable'] . '?' . $url_query . '&amp;db=' . urlencode($dbname) . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($dbname) . '</a></i>' . "\n";
+                echo '    - ' . $strTable . ' <i><a class="h2" href="' . $cfg['DefaultTabTable'] . '?' . $url_query . '&amp;db=' . urlencode($dbname) . '&amp;table=' . urlencode($tablename) . '&amp;reload=1">' . htmlspecialchars($tablename) . '</a></i>' . "\n";
             }
         }
         echo '</h2>' . "\n";
@@ -765,8 +779,10 @@ if (empty($adduser)) {
                     $res2 = PMA_mysql_query('SELECT `Db` FROM `tables_priv` WHERE `Host` = "' . $hostname . '" AND `User` = "' . $username . '" GROUP BY `Db` ORDER BY `Db` ASC;') or PMA_mysqlDie(PMA_mysql_error($userlink), 'SELECT `Db` FROM `tables_priv` WHERE `Host` = "' . $hostname . '" AND `User` = "' . $username . '" GROUP BY `Db` ORDER BY `Db` ASC;');
                     $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
                 }
+                $found_rows = array();
                 while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
                     while (empty($dbname) && $row2 && $row['Db'] > $row2['Db']) {
+                        $found_rows[] = $row2['Db'];
                         echo '            <tr>' . "\n"
                            . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
                            . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><tt>' . "\n"
@@ -782,6 +798,7 @@ if (empty($adduser)) {
                         $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
                         $useBgcolorOne = !$useBgcolorOne;
                     } // end while
+                    $found_rows[] = empty($dbname) ? $row['Db'] : $row['Table_name'];
                     echo '            <tr>' . "\n"
                        . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars(empty($dbname) ? $row['Db'] : $row['Table_name']) . '</td>' . "\n"
                        . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><tt>' . "\n"
@@ -807,6 +824,7 @@ if (empty($adduser)) {
                     $useBgcolorOne = !$useBgcolorOne;
                 } // end while
                 while (empty($dbname) && $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC)) {
+                    $found_rows[] = $row2['Db'];
                     echo '            <tr>' . "\n"
                        . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . htmlspecialchars($row2['Db']) . '</td>' . "\n"
                        . '                <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '"><tt>' . "\n"
@@ -840,12 +858,51 @@ if (empty($adduser)) {
                 echo '                        <input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
             }
             if (empty($dbname)) {
-                echo '                        <label for="text_dbname">' . $strAddPrivilegesOnDb . ':</label>' . "\n"
-                   . '                        <input type="text" id="text_dbname" name="dbname" class="textfield" />' . "\n";
+                echo '                        <label for="text_dbname">' . $strAddPrivilegesOnDb . ':</label>' . "\n";
+                $res = PMA_mysql_query('SHOW DATABASES;', $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW DATABASES;');
+                $pred_db_array = array();
+                while ($row = PMA_mysql_fetch_row($res)) {
+                    if (!isset($found_rows) || !in_array($row[0], $found_rows)) {
+                        $pred_db_array[] = $row[0];
+                    }
+                }
+                mysql_free_result($res);
+                unset($res);
+                unset($row);
+                if (!empty($pred_db_array)) {
+                    echo '                        <select name="pred_dbname" class="textfield" onchange="this.form.submit();">' . "\n"
+                       . '                            <option value="" selected="selected">' . $strUseTextField . ':</option>' . "\n";
+                    while (list(, $current_db) = each($pred_db_array)) {
+                        echo '                            <option value="' . htmlspecialchars($current_db) . '">' . htmlspecialchars($current_db) . '</option>' . "\n";
+                    }
+                    echo '                        </select>' . "\n";
+                }
+                echo '                        <input type="text" id="text_dbname" name="dbname" class="textfield" />' . "\n";
             } else {
                 echo '                        <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
-                   . '                        <label for="text_tablename">' . $strAddPrivilegesOnTbl . ':</label>' . "\n"
-                   . '                        <input type="text" id="text_tablename" name="tablename" class="textfield" />' . "\n";
+                   . '                        <label for="text_tablename">' . $strAddPrivilegesOnTbl . ':</label>' . "\n";
+                if ($res = @PMA_mysql_query('SHOW TABLES FROM ' . PMA_backquote($dbname) . ';', $userlink)) {
+                    $pred_tbl_array = array();
+                    while ($row = PMA_mysql_fetch_row($res)) {
+                        if (!isset($found_rows) || !in_array($row[0], $found_rows)) {
+                            $pred_tbl_array[] = $row[0];
+                        }
+                    }
+                    mysql_free_result($res);
+                    unset($res);
+                    unset($row);
+                    if (!empty($pred_tbl_array)) {
+                        echo '                        <select name="pred_tablename" class="textfield" onchange="this.form.submit();">' . "\n"
+                           . '                            <option value="" selected="selected">' . $strUseTextField . ':</option>' . "\n";
+                        while (list(, $current_table) = each($pred_tbl_array)) {
+                            echo '                            <option value="' . htmlspecialchars($current_table) . '">' . htmlspecialchars($current_table) . '</option>' . "\n";
+                        }
+                        echo '                        </select>' . "\n";
+                    }
+                } else {
+                    unset($res);
+                }
+                echo '                        <input type="text" id="text_tablename" name="tablename" class="textfield" />' . "\n";
             }
             echo '                        <input type="submit" value="' . $strGo . '" />' . "\n"
                . '                    </form>' . "\n"
