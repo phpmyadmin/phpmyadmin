@@ -142,15 +142,26 @@ if (!defined('__LIB_INC__')){
 
         echo '<b>'. $GLOBALS['strError'] . '</b>' . "\n";
         if (!empty($the_query)) {
+            $query_base = htmlspecialchars($the_query);
+            $query_base = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $query_base);
             echo '<p>' . "\n";
             $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($the_query) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
-            echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']<pre>' . htmlspecialchars($the_query) . '</pre>' . "\n";
+            echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
+            echo '    [' . $edit_link . ']' . "\n";
+            echo '<pre>' . "\n" . $query_base . "\n" . '</pre>' . "\n";
             echo '</p>' . "\n";
         }
+        if (!empty($error_message)) {
+            $error_message = htmlspecialchars($error_message);
+            $error_message = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $error_message);
+        }
         echo '<p>' . "\n";
-        echo '    ' . $GLOBALS['strMySQLSaid'] . '&nbsp;' . htmlspecialchars($error_message) . "\n";
+        echo '    ' . $GLOBALS['strMySQLSaid'] . '<br />' . "\n";
+        echo '<pre>' . "\n" . $error_message . "\n" . '</pre>' . "\n";
         echo '</p>' . "\n";
         echo '<a href="javascript:window.history.go(' . $hist . ')">' . $GLOBALS['strBack'] . '</a>';
+
+        echo "\n" . '</body>' . "\n";
 
         include('./footer.inc.php3');
         exit();
@@ -1753,6 +1764,41 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
         }
         return $ret;
     } // end of the 'split_sql_file()' function
+
+
+    /**
+     * Removes # type remarks from large sql files
+     *
+     * Version 3 20th May 2001 - Last Modified By Pete Kelly
+     *
+     * @param   string   the sql commands
+     *
+     * @return  string   the cleaned sql commands
+     */
+    function remove_remarks($sql)
+    {
+        $i = 0;
+
+        while ($i < strlen($sql)) {
+            // Patch from Chee Wai
+            // (otherwise, if $i==0 and $sql[$i] == "#", the original order
+            // in the second part of the AND bit will fail with illegal index)
+            //    if ($sql[$i] == "#" and ($sql[$i-1] == "\n" or $i==0)) {
+            if ($sql[$i] == '#' && ($i == 0 || $sql[$i-1] == "\n")) {
+                $j = 1;
+                while ($sql[$i+$j] != "\n") {
+                    $j++;
+                    if ($j+$i > strlen($sql)) {
+                        break;
+                    }
+                } // end while
+                $sql = substr($sql, 0, $i) . substr($sql, $i+$j);
+            } // end if
+            $i++;
+        } // end while
+
+        return $sql;
+    } // end of the 'remove_remarks()' function
 
 
 
