@@ -41,7 +41,7 @@ latvian-windows-1257
 lithuanian-windows-1257
 norwegian-iso-8859-1
 polish-iso-8859-2
-portuguese
+portuguese-iso-8859-1
 romanian
 russian-koi8
 serbian-win1250
