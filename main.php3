@@ -50,7 +50,8 @@ if ($server > 0) {
     if (!empty($cfgServer['port'])) {
         echo ':' . $cfgServer['port'];
     }
-    if (!empty($cfgServer['socket'])) {
+    // loic1: connection with socket is only available since php 3.0.10
+    if (!empty($cfgServer['socket']) && PHP_INT_VERSION >= 30010) {
         echo ':' . $cfgServer['socket'];
     }
     echo ' ' . $strRunningAs . ' ' . mysql_result($res, 0, 'user') . '</b></p><br />' . "\n";
@@ -102,7 +103,8 @@ if ($server == 0 || count($cfgServers) > 1) {
             if (!empty($val['port'])) {
                 echo ':' . $val['port'];
             }
-            if (!empty($val['socket'])) {
+            // loic1: connection with socket is only available since php 3.0.10
+            if (!empty($val['socket']) && PHP_INT_VERSION >= 30010) {
                 echo ':' . $val['socket'];
             }
             // loic1: if 'only_db' is an array and there is more than one
