@@ -261,7 +261,6 @@ if ($sql_query != '') {
                 $a_sql_query = $pieces[$i]['query'];
 
                 // .*? bellow is non greedy expansion, just in case somebody wants to understand it...
-                echo "<pre>$a_sql_query</pre>";
                 if ($i == $count - 1 && preg_match('@^((-- |#)[^\n]*\n|/\*.*?\*/)*(SELECT|SHOW)@i', $a_sql_query)) {
                     $complete_query = $sql_query;
                     $display_query = $sql_query;
