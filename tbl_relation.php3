@@ -29,7 +29,7 @@ if (!empty($cfg['Server']['relation'])
         if ($value != 'nix') {
             if (!isset($existrel[$key])) {
                 $for        = explode('.', $destination[$key]);
-                $upd_query  = 'INSERT INTO ' . PMA_backquote($cfg['Server']['relation']) 
+                $upd_query  = 'INSERT INTO ' . PMA_backquote($cfg['Server']['relation'])
                             . '(master_table, master_field, foreign_table, foreign_field)'
                             . ' values('
                             . '\'' . PMA_sqlAddslashes($table) . '\', '
@@ -52,22 +52,24 @@ if (!empty($cfg['Server']['relation'])
         } // end if... else....
     } // end while
 } // end if
+
 if (!empty($cfg['Server']['table_info'])
     && isset($submit_show) && $submit_show == 'true') {
-    $test_query = 'SELECT display_field from ' . PMA_backquote($cfg['Server']['table_info'])
-                . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\' ';
-    $test_rs     = mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
-    if(mysql_num_rows($test_rs) > 0){
-       $upd_query  = 'UPDATE ' . PMA_backquote($cfg['Server']['table_info']) . ' SET'
-                    . ' display_field = \'' . PMA_sqlAddslashes($display_field) .'\' '
-                    . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\' ';
-        $upd_rs     = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
-    }else{
-       $ins_query  = 'insert into ' . PMA_backquote($cfg['Server']['table_info']) . ' (table_name,display_field)'
-                    . ' values(\'' . PMA_sqlAddslashes($table) . '\',\'' . PMA_sqlAddslashes($display_field) .'\') ';
-        $ins_rs     = mysql_query($ins_query) or PMA_mysqlDie('', $ins_query, '', $err_url_0);
+    $test_query   = 'SELECT display_field FROM ' . PMA_backquote($cfg['Server']['table_info'])
+                  . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+    $test_rs      = mysql_query($test_query) or PMA_mysqlDie('', $test_query, '', $err_url_0);
+    if ($test_rs && mysql_num_rows($test_rs) > 0) {
+       $upd_query = 'UPDATE ' . PMA_backquote($cfg['Server']['table_info']) . ' SET'
+                  . ' display_field = \'' . PMA_sqlAddslashes($display_field) . '\''
+                  . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+       $upd_rs    = mysql_query($upd_query) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
+    } else {
+       $ins_query = 'INSERT INTO ' . PMA_backquote($cfg['Server']['table_info']) . ' (table_name, display_field)'
+                  . ' VALUES(\'' . PMA_sqlAddslashes($table) . '\', \'' . PMA_sqlAddslashes($display_field) .'\')';
+       $ins_rs    = mysql_query($ins_query) or PMA_mysqlDie('', $ins_query, '', $err_url_0);
     }
-}
+} // end if
+
 
 /**
  * Dialog
@@ -126,9 +128,11 @@ $col_rs    = mysql_query($col_query) or PMA_mysqlDie('', $col_query, '', $err_ur
 if ($col_rs && mysql_num_rows($col_rs) > 0) {
     ?>
 <form method="post" action="tbl_relation.php3">
-    <input type="hidden" name="submit_rel" value="true" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="submit_rel" value="true" />
 
     <table>
     <tr>
@@ -173,33 +177,41 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     </tr>
     </table>
 </form>
-<?php
+    <?php
 } // end if
-if (!empty($cfg['Server']['table_info'])){
-?>
-<form action="tbl_relation.php3" method="post">
-    <input type="hidden" name="submit_show" value="true" />
-    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+
+if (!empty($cfg['Server']['table_info'])) {
+    echo "\n";
+    ?>
+<form method="post" action="tbl_relation.php3">
+    <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
+    <input type="hidden" name="table" value="<?php echo $table; ?>" />
+    <input type="hidden" name="submit_show" value="true" />
+
     <p><?php echo $strChangeDisplay; ?></P>
     <select name="display_field" onchange="this.form.submit(); ">
     <?php
-    $disp_query = 'SELECT display_field from ' .  PMA_backquote($cfg['Server']['table_info'])
-                . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\' ';
+    echo "\n";
+
+    $disp_query = 'SELECT display_field FROM ' .  PMA_backquote($cfg['Server']['table_info'])
+                . ' WHERE table_name = \'' . PMA_sqlAddslashes($table) . '\'';
     $disp_rs    = mysql_query($disp_query) or PMA_mysqlDie('', $disp_query, '', $err_url_0);
-    $row = mysql_fetch_array($disp_rs);
-    if(isset($row['display_field'])){
-        $disp = $row['display_field'];
+    $row        = ($disp_rs ? mysql_fetch_array($disp_rs) : '');
+    if (isset($row['display_field'])) {
+        $disp   = $row['display_field'];
     }
-    $col_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table);
-    $col_rs    = mysql_query($col_query) or PMA_mysqlDie('', $col_query, '', $err_url_0);
-    while ($row = @mysql_fetch_array($col_rs)){
-        echo '<option value="' . htmlspecialchars($row['Field']) . '"';
+    $col_query  = 'SHOW COLUMNS FROM ' . PMA_backquote($table);
+    $col_rs     = mysql_query($col_query) or PMA_mysqlDie('', $col_query, '', $err_url_0);
+    while ($row = @mysql_fetch_array($col_rs)) {
+        echo '        <option value="' . htmlspecialchars($row['Field']) . '"';
         if (isset($disp) && $row['Field'] == $disp) {
             echo ' selected="selected"';
         }
         echo '>' . htmlspecialchars($row['Field']) . '</option>'. "\n";
-    }?>
+    } // end while
+    ?>
     </select>
     <input type="submit" value="<?php echo $strGo; ?>" />
 </form>
