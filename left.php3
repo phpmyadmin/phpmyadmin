@@ -73,9 +73,10 @@ header('Content-Type: text/html; charset=' . $charset);
  */
 // Gets the font sizes to use
 set_font_sizes();
+echo '<?xml version="1.0" encoding="' . strtoupper($charset) . '"?>' . "\n";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>">
 
 <head>
     <title>phpMyAdmin</title>

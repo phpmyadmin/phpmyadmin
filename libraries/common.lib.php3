@@ -69,9 +69,11 @@ if (!defined('__LIB_COMMON__')){
         header('WWW-Authenticate: Basic realm="phpMyAdmin ' . trim($GLOBALS['strRunning']) . ' ' . $GLOBALS['cfgServer']['host'] . '"');
         header('HTTP/1.0 401 Unauthorized');
         header('status: 401 Unauthorized');
+
+        echo '<?xml version="1.0" encoding="' . strtoupper($charset) . '"?>' . "\n";
         ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>">
 
 <head>
 <title><?php echo $GLOBALS['strAccessDenied']; ?></title>
@@ -401,9 +403,8 @@ if (!defined('__LIB_COMMON__')){
                     // This maintenance is to fix code to work correctly for
                     // regular expressions.
                     if ($row['Select_priv'] != 'Y') {
-// User can be blank (anonymous user)
-                        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . $PHP_AUTH_USER . '\'
-			OR User = \'\') ';
+                        // lem9: User can be blank (anonymous user)
+                        $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . $PHP_AUTH_USER . '\' OR User = \'\')';
                         $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
                         if (@mysql_numrows($rs) <= 0) {
                             $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . $PHP_AUTH_USER . '\'';
@@ -534,10 +535,9 @@ if (!defined('__LIB_COMMON__')){
 
         // IE (<6)/Opera for win case: needs smaller fonts than anyone else
         if (USR_OS == 'Win'
-            && ((USR_BROWSER_AGENT == 'IE' && USR_BROWSER_VER < 6)
-                || USR_BROWSER_AGENT == 'OPERA')) {
+            && (USR_BROWSER_AGENT == 'IE' || USR_BROWSER_AGENT == 'OPERA')) {
             $font_size     = 'x-small';
-            $font_bigger   = 'large ';
+            $font_bigger   = 'large';
             $font_smaller  = (USR_BROWSER_AGENT == 'IE' && USR_BROWSER_VER < 5.5)
                            ? '80%'
                            : '90%';
@@ -547,7 +547,7 @@ if (!defined('__LIB_COMMON__')){
         else if (USR_OS == 'Win') {
             $font_size     = 'small';
             $font_bigger   = 'large ';
-            $font_smaller  = (USR_BROWSER_AGENT == 'IE') ? '90%' : 'x-small';
+            $font_smaller  = 'x-small';
             $font_smallest = 'x-small';
         }
         // Mac browsers: need bigger fonts

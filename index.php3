@@ -31,9 +31,10 @@ if (empty($HTTP_HOST)) {
 $url_query = 'lang=' . $lang
            . '&server=' . $server
            . (empty($db) ? '' : '&db=' . urlencode($db));
+echo '<?xml version="1.0" encoding="' . strtoupper($charset) . '"?>' . "\n";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "DTD/xhtml1-frameset.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>">
 <head>
 <title>phpMyAdmin <?php echo PHPMYADMIN_VERSION; ?> - <?php echo $HTTP_HOST; ?></title>
 <style type="text/css">
@@ -49,7 +50,7 @@ body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $fo
 
     <noframes>
         <body bgcolor="#FFFFFF">
-            <p>phpMyAdmin requires a <b>frames-capable</b> browser.</p>
+            <p>phpMyAdmin is more friendly with a <b>frames-capable</b> browser.</p>
         </body>
     </noframes>
 </frameset>
