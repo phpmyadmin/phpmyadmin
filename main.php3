@@ -33,23 +33,6 @@ echo "\n";
 
 
 /**
- * Displays language selection boxes
- */
-if (empty($cfgLang)) {
-    echo '<p>';
-    reset($available_languages);
-    while (list($id,$tmplang) = each($available_languages)) {
-        $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
-        echo "\n";
-        ?>
-    [&nbsp;<a href="index.php3?lang=<?php echo $id; ?>&server=<?php echo urlencode($server); ?>" target="_top" title="<?php echo $lang_name; ?>"><?php echo $id; ?></a>&nbsp;]
-        <?php
-    }
-    echo "\n</p><br />\n";
-}
-
-
-/**
  * Displays the welcome message and the server informations
  */
 ?>
@@ -58,8 +41,7 @@ if (empty($cfgLang)) {
 <?php
 // Don't display server info if $server == 0 (no server selected)
 if ($server > 0) {
-    $local_query = 'SELECT Version() as version';
-    $res_version = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
+    $res_version = mysql_query('SELECT Version() as version') or mysql_die();
     $row_version = mysql_fetch_array($res_version);
     echo '<p><b>MySQL ' . $row_version['version'] . ' ' . $strRunning . ' ' . $cfgServer['host'];
     if (!empty($cfgServer['port'])) {
@@ -68,7 +50,7 @@ if ($server > 0) {
     if (!empty($cfgServer['socket'])) {
         echo ':' . $cfgServer['socket'];
     }
-    echo "</b></p>\n";
+    echo "</b></p><br />\n";
 }
 
 
@@ -76,7 +58,7 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = mysql_query('FLUSH PRIVILEGES') or mysql_die('', 'FLUSH PRIVILEGES', FALSE);
+    $result = mysql_query('FLUSH PRIVILEGES');
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
@@ -120,7 +102,7 @@ if ($server == 0 || count($cfgServers) > 1) {
             if (!empty($val['only_db'])) {
                 echo ' - ' . $val['only_db'];
             }
-            if (!empty($val['user'])) {
+            if (!empty($val['user']) && !($val['adv_auth'])) {
                 echo '  (' . $val['user'] . ')';
             }
             echo '&nbsp;</option>' . "\n";
@@ -166,28 +148,13 @@ if ($server > 0
     if ($cfgServer['adv_auth'])
     {
         // Get user's rights
-        $server_port   = (empty($cfgServer['port']))
-                       ? ''
-                       : ':' . $cfgServer['port'];
-        $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
-                       ? ''
-                       : ':' . $cfgServer['socket'];
-        $stdlink       = @mysql_connect(
-                             $cfgServer['host'] . $server_port . $server_socket,
-                             $cfgServer['stduser'],
-                             $cfgServer['stdpass']
-                         );
-        if ($stdlink == FALSE) {
-            $local_query = $connect_func . '('
-                         . $cfgServer['host'] . $server_port . $server_socket . ', '
-                         . $cfgServer['stduser'] . ', '
-                         . $cfgServer['stdpass'] . ')';
-            mysql_die('', $local_query, FALSE, FALSE);
+        if (empty($cfgServer['port'])) {
+            $stdlink  = mysql_connect($cfgServer['host'], $cfgServer['stduser'], $cfgServer['stdpass']);
+        } else {
+            $stdlink  = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']);
         }
-
         // Does user have global Create priv?
-        $local_query  = 'SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-        $rs_usr       = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
+        $rs_usr       = mysql_query('SELECT * FROM mysql.user WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'', $stdlink);
         $result_usr   = mysql_fetch_array($rs_usr);
         $create       = ($result_usr['Create_priv'] == 'Y');
         $db_to_create = '';
@@ -197,21 +164,12 @@ if ($server > 0
         // find, in most cases it's probably the one he just dropped :)
         // (Note: we only get here after a browser reload, I don't know why)
         if (!$create) {
-            $userlink      = @mysql_connect(
-                                 $cfgServer['host'] . $server_port . $server_socket,
-                                 $cfgServer['user'],
-                                 $cfgServer['password']
-                             );
-            if ($userlink == FALSE) {
-                $local_query = 'mysql_connect('
-                             . $cfgServer['host'] . $server_port . $server_socket . ', '
-                             . $cfgServer['user'] . ', '
-                             . $cfgServer['password'] . ')';
-                mysql_die('', $local_query, FALSE, FALSE);
+            if (empty($cfgServer['port'])) {
+                $userlink = mysql_connect($cfgServer['host'], $cfgServer['user'], $cfgServer['password']) or mysql_die();
+            } else {
+                $userlink = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['user'], $cfgServer['password']) or mysql_die();
             }
-
-            $local_query = 'SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'';
-            $rs_usr      = mysql_query($local_query, $stdlink) or mysql_die('', $local_query, FALSE);
+            $rs_usr = mysql_query('SELECT Db FROM mysql.db WHERE User = \'' . sql_addslashes($cfgServer['user']) . '\'', $stdlink);
             while ($row = mysql_fetch_array($rs_usr)) {
                 if (!mysql_select_db($row['Db'], $userlink)) {
                     $db_to_create = $row['Db'];
@@ -431,6 +389,37 @@ if ($server > 0
             <th colspan="2">phpMyAdmin</th>
         </tr>
 
+    <?php
+
+ /**
+ * Displays language selection boxes
+ */
+
+if (empty($cfgLang)) {
+    ?>
+        <!-- Language Selection -->
+        <tr>
+        <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <form method="get" action="index.php3?&server=<?php echo urlencode($server); ?>" target="_top">
+                Language: <select name="lang" onchange="this.form.submit();">
+    <?php
+    reset($available_languages);
+    while (list($id,$tmplang) = each($available_languages)) {
+        $lang_name = ucfirst(substr(strstr($tmplang[0], '|'), 1));
+        if ($lang == $id) { $selected = " SELECTED"; } else { $selected = ""; }
+        echo '<option value="' . $id . '"' . $selected . '>' . $lang_name . ' (' . $id . ')</option>' . "\n";
+    }
+    ?>
+                </select><input type="submit" value="Go"> 
+                </form>
+            </td>
+        </tr>
+    <?php
+}
+
+    ?>
+
         <!-- Documentation -->
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
@@ -458,8 +447,13 @@ if ($server > 0
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
                 <a href="http://phpmyadmin.sourceforge.net/" target="_new">
-                    <?php echo $strHomepageSourceforge; ?></a><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<a href="ChangeLog" target="_new">ChangeLog</a>]
+                    <?php echo $strHomepageSourceforge; ?></a>
+            </td>
+        </tr>
+        <tr>
+            <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
+            <td>
+                <a href="ChangeLog" target="_new">phpMyAdmin ChangeLog</a>
                 &nbsp;&nbsp;[<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/phpmyadmin/phpMyAdmin/" target="_new">CVS</a>]
             </td>
         </tr>

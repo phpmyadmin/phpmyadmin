@@ -11,6 +11,7 @@ $Source$
 	  (removed check about 'References_priv').
 	* lang/*: added $strServerChoice and $strPmaDocumentation.
 	* images/item.gif: used on main.php3.
+	* main.php3: language selection now via a pulldown menu
 
 2001-08-22  Marc Delisle  <lem9@users.sourceforge.net>
 	* Documentation.html: added a FAQ about index creation.
