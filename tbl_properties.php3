@@ -438,7 +438,10 @@ echo " </select>\n";
 </form>
 </td></tr></table>
 </td></tr>
-
+<?php
+if(MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>=3)
+{
+?>
 <tr><td valign=top><li>&nbsp;</td><td colspan=2>
 <table><tr><td><?php echo $strTableMaintenance . ":"; ?> </td>
  <td><a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table");?>&display=simple&<?php echo $query;?>">
@@ -488,6 +491,18 @@ echo " </select>\n";
     <option <?php if($tbl_type == "MYISAM") echo 'selected';?> value="MYISAM">MyISAM</option>
     </select>&nbsp;<input type='submit' name='submittype' value='<?php echo $strGo; ?>'></form>
     </td></tr>
+<?php
+}
+else{ // MySQL < 3.23
+?>
+<tr><td><li>&nbsp;</td><td><?php echo "$strTableMaintenance:&nbsp;";?></td>
+<td><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&display=simple&<?php echo $query;?>">
+        <?php echo $strOptimizeTable; ?>
+        </a>&nbsp;<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE");?>
+    </td></tr>
+<?php
+}
+?>
 </table>
 <?php
 
