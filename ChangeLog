@@ -25,6 +25,7 @@ $Source$
       relation table.
     * tbl_printview.php3; tbl_qbe.php3: optimization, warnings and coding
       standards.
+    * header.inc.php3, lines 166-172: xhtml fixes.
     * Compressed ChangeLog till the 2.2.6 release.
 
 2002-04-26 Loïc Chapeaux  <lolo@phpheaven.net>
