@@ -1396,7 +1396,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     break;
                 case 'query_only':
                     $str                                = '';
-                    $html_line_break                    = ' ';
+                    $html_line_break                    = "\n";
                     break;
                 case 'text':
                     $str                                = '';

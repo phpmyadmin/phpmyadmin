@@ -14,6 +14,8 @@ $Source$
       to sql.php3.
     * libraries/display_export.lib.php3: Again fixed selecting table/db
       filename template.
+    * tbl_move_copy.php3, libraries/sqlparser.lib.php3: Fixed copying of
+      table.
 
 2003-03-20 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/hebrew update, thanks to Yuval Sarna

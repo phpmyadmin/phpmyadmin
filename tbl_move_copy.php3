@@ -141,7 +141,7 @@ if (isset($new_name) && trim($new_name) != '') {
     $sql_structure = PMA_getTableDef($db, $table, "\n", $err_url);
     $parsed_sql =  PMA_SQP_parse($sql_structure);
     // no need to PMA_backquote()
-    $parsed_sql[2]['data'] = $target;
+    $parsed_sql[9]['data'] = $target;
     $sql_structure = PMA_SQP_formatHtml($parsed_sql, 'query_only');
 
     // do not create the table if dataonly
