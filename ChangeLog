@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2003-04-15 Michal Cihar  <nijel@users.sourceforge.net>
+2003-04-16 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/sqlparser.data.php3: Added AUTO_INCREMET to reserved words.
     * tbl_properties_common.php3: Avoid displaying message twice in some cases
       (fixes bug #722378).
