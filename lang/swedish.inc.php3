@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Kan inte byta namn på index till "PRIMARY"!';
 $strCardinality = 'Kardinalitet';
 $strCarriage = 'Vagnretur: \\r';
 $strChange = 'Ändra';
+$strChangePassword = 'Byt lösenord';
 $strCheckAll = 'Markera alla';
 $strCheckDbPriv = 'Kontrollera databasprivilegier';
 $strCheckTable = 'Kontrollera tabell';
@@ -346,5 +347,4 @@ $strYes = 'Ja';
 $strZip = '"zippad"';
 
 // To translate
-$strChangePassword = 'Change password';
 ?>

@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'No pots canviar el nom d\'un index a "PRIMARY"!';
 $strCardinality = 'Cardinalitat';
 $strCarriage = 'Retorn de línia: \\r';
 $strChange = 'Canvi';
+$strChangePassword = 'Canvi de contrasenya';
 $strCheckAll = 'Verificar-ho tot';
 $strCheckDbPriv = 'Verifica els privilegis de la base de dades';
 $strCheckTable = 'Verifica la taula';
@@ -346,5 +347,4 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
-$strChangePassword = 'Change password';
 ?>

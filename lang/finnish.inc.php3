@@ -68,6 +68,7 @@ $strCantRenameIdxToPrimary = 'Indeksiä ei voi muuttaa PRIMARY-nimiseksi!';
 $strCardinality = 'Kardinaliteetti';
 $strCarriage = 'CR-rivinvaihto: \\r';
 $strChange = 'Muokkaa';
+$strChangePassword = 'Vaihda salasanaa';
 $strCheckAll = 'Tarkista kaikki';
 $strCheckDbPriv = 'Tarkista tietokannan käyttöoikeudet';
 $strCheckTable = 'Tarkista taulu';
@@ -350,5 +351,5 @@ $strYes = 'Kyllä';
 $strZip = '"zip-pakattu"';
 
 // To translate
-$strChangePassword = 'Change password';
+$strChangePassword = 'Vaihda salasanaa';
 ?>

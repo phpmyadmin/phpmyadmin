@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Nu poti redenumi index-ul la un nume PRIMARY!';
 $strCardinality = 'Cardinalitate';
 $strCarriage = 'Enter: \\r';
 $strChange = 'Schimbare';
+$strChangePassword = 'Schimbare parola';
 $strCheckAll = 'Marcheaza toate';
 $strCheckDbPriv = 'Marcheaza drepturile de acces la baza de date';
 $strCheckTable = 'Verificare tabel';
@@ -346,6 +347,5 @@ $strYes = 'Da';
 $strZip = '"zipped"';
 
 // To translate
-$strChangePassword = 'Change password';
 $strDatabaseWildcard = 'Database (wildcards allowed):';  //to translate
 ?>

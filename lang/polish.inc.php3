@@ -64,6 +64,7 @@ $strCantRenameIdxToPrimary = 'Nie mo¿na zmieniæ nazwy indeksu na PRIMARY!';
 $strCardinality = 'Moc';
 $strCarriage = 'Znak powrotu: \\r';
 $strChange = 'Zmiana';
+$strChangePassword = 'Zmiana has³a';
 $strCheckAll = 'Zaznaczenie wszystkich';
 $strCheckDbPriv = 'Sprawdzanie uprawnieñ dla bazy danych';
 $strCheckTable = 'Sprawdzanie tabeli';
@@ -346,5 +347,4 @@ $strYes = 'Tak';
 $strZip = '".zip"';
 
 // To translate
-$strChangePassword = 'Change password';
 ?>

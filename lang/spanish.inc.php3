@@ -61,6 +61,7 @@ $strCantLoadMySQL = 'imposible cargar extension MySQL,<br />por favor revise la 
 $strCantRenameIdxToPrimary = 'No puedes renombrar el indice a PRIMARY!';
 $strCarriage = 'Retorno de carro: \\r';
 $strChange = 'Cambiar';
+$strChangePassword = 'Cambio de contraseqa';
 $strCheckAll = 'Revisar todos/as';
 $strCheckDbPriv = 'Revisar privilegios de la base de datos';
 $strCheckTable = 'Revisar tabla';
@@ -318,7 +319,6 @@ $strYes = 'Si';
 // To translate
 $strAfterInsertBack = 'Return';
 $strBzip = '"bzipped"';
-$strChangePassword = 'Change password';
 $strFlushTable = 'Flush the table ("FLUSH")';
 $strFullText = 'Full Texts';
 $strGzip = '"gzipped"';
