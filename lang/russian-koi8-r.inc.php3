@@ -718,4 +718,5 @@ $strZeroRemovesTheLimit = 'Замечание: Установка этих опций в  0 (ноль) удаляет л
 $strZip = 'архивировать в zip';
 // To translate
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

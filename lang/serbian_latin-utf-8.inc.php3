@@ -19,3 +19,5 @@ $number_decimal_separator = '.';
 $byteUnits = array('bajtova', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
 
 $day_of_week = array('Ned', 'Pon', 'Uto', 'Sre', '
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
+?>

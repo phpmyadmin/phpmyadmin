@@ -148,6 +148,7 @@ $strCreateNewDatabase = 'Vytvoøit novou databázi';
 $strCreateNewTable = 'Vytvoøit novou tabulku v&nbsp;databázi %s';
 $strCreatePage = 'Vytvoøit novou stránku';
 $strCreatePdfFeat = 'Vytváøení PDF';
+$strCreationDates = 'Datum vytvoøení, poslední zmìny a kontroly';
 $strCriteria = 'Podmínka';
 $strCroatian = 'Chorvatsky';
 $strCyrillic = 'Cyrilika';

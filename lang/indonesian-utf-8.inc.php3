@@ -712,4 +712,5 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

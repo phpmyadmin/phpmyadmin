@@ -143,6 +143,7 @@ $strCreateNewDatabase = 'Create new database';
 $strCreateNewTable = 'Create new table on database %s';
 $strCreatePage = 'Create a new Page';
 $strCreatePdfFeat = 'Creation of PDFs';
+$strCreationDates = 'Creation/Update/Check dates';
 $strCriteria = 'Criteria';
 $strCroatian = 'Croatian';
 $strCyrillic = 'Cyrillic';
@@ -710,4 +711,5 @@ $strYes = 'Yes';
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.';
 $strZip = '"zipped"';
+
 ?>

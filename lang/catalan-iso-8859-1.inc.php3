@@ -712,4 +712,5 @@ $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el l
 $strZip = '"comprimit amb zip"';
 // To translate
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

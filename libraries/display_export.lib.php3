@@ -144,7 +144,14 @@ if (PMA_MYSQL_INT_VERSION >= 32306) {
 ?>
                     <fieldset>
                         <legend><?php echo $strAddIntoComments; ?></legend>
+<?php                    
+if (PMA_MYSQL_INT_VERSION >= 32321) {
+?>
+                        <input type="checkbox" name="sql_dates" value="yes" id="checkbox_sql_dates" <?php PMA_exportCheckboxCheck('sql_dates'); ?> />
+                        <label for="checkbox_sql_dates"><?php echo $strCreationDates; ?></label><br />
 <?php
+ } // end MySQL >= 3.23.21
+
 if (!empty($cfgRelation['relation'])) {
 ?>
                         <input type="checkbox" name="sql_relation" value="yes" id="checkbox_sql_use_relation" <?php PMA_exportCheckboxCheck('sql_relation'); ?> />
@@ -152,10 +159,12 @@ if (!empty($cfgRelation['relation'])) {
 <?php
  } // end relation
 
+if (!empty($cfgRelation['commwork'])) {
 ?>
                         <input type="checkbox" name="sql_comments" value="yes" id="checkbox_sql_use_comments" <?php PMA_exportCheckboxCheck('sql_comments'); ?> />
                         <label for="checkbox_sql_use_comments"><?php echo $strComments; ?></label><br />
 <?php
+} // end comments
 
 if ($cfgRelation['mimework']) {
      ?>

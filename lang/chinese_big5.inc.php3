@@ -722,4 +722,5 @@ $strBookmarkAllUsers = '所有用者可讀取此書籤';
 $strConstraintsForDumped = '備份資料表限制';
 $strConstraintsForTable = '資料表限制';
 $strBookmarkOptions = '書籤選項';
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

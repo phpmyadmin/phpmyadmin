@@ -712,4 +712,5 @@ $strZeroRemovesTheLimit = 'Uwaga: Ustawienie tych opcji na 0 (zero) usuwa ograni
 $strZip = '".zip"';
 // To translate
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

@@ -720,4 +720,5 @@ $strBookmarkAllUsers = 'Diese gespeicherte SQL-Abfrage fÃ¼r jeden Benutzer verfÃ
 $strConstraintsForDumped = 'Constraints der exportierten Tabellen';
 $strConstraintsForTable = 'Constraints der Tabelle';
 $strBookmarkOptions = 'Optionen zur Speicherung der SQL-Abfrage';
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

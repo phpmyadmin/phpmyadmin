@@ -712,4 +712,5 @@ $strZeroRemovesTheLimit = 'Note: Une valeur de 0 (zero) enlève la limite.';
 $strZip = '"zippé"';
 // To translate
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

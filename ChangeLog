@@ -5,6 +5,15 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-20 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/export/sql.php3: Fix undefined variable for MySQL < 3.23.20
+      (bug #828370).
+    * libraries/export/sql.php3. libraries/export/latex.php3,
+      libraries/display_export.lib.php3, export.php3, lang/*,
+      libraries/common.lib.php3, libraries/config_import.lib.php3: Allow to
+      supress dates in SQL dump separately.
+    * lang/add_message.sh: Fail if no message specified.
+
 2003-10-21 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_pages.php3: Patch 825672: show fields in Edit PDF scratchboard,
       thanks to Chris Walsh (chriswalshaz)

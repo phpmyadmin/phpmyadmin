@@ -712,4 +712,5 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: si cambia los parámetros de estas opciones a 0 (cero), remueve el límite.';
 $strZip = '"comprimido con zip"';
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

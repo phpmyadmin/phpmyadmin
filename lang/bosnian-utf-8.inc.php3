@@ -700,4 +700,5 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite.';
 $strZip = '"zipovano"';
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

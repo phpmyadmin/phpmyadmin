@@ -329,6 +329,7 @@ $cfg['Export']['sql_drop_database']         = FALSE;
 $cfg['Export']['sql_drop_table']            = FALSE;
 $cfg['Export']['sql_auto_increment']        = TRUE;
 $cfg['Export']['sql_backquotes']            = TRUE;
+$cfg['Export']['sql_dates']                 = FALSE;
 $cfg['Export']['sql_relation']              = FALSE;
 $cfg['Export']['sql_columns']               = FALSE;
 $cfg['Export']['sql_extended']              = FALSE;

@@ -122,9 +122,7 @@ function PMA_exportDBFooter($db) {
  * @param   string   the table name
  * @param   string   the end of line sequence
  * @param   string   the url to go back in case of error
- * @param   boolean  whether to include relation comments
- * @param   boolean  whether to include column comments
- * @param   boolean  whether to include mime comments
+ * @param   boolean  whether to include creation/update/check dates
  *
  * @return  string   resulting schema
  *
@@ -134,7 +132,7 @@ function PMA_exportDBFooter($db) {
  *
  * @access  public
  */
-function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false)
+function PMA_getTableDef($db, $table, $crlf, $error_url, $show_dates = false)
 {
     global $drop;
     global $use_backquotes;
@@ -145,6 +143,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
     $auto_increment = '';
     $new_crlf = $crlf;
 
+
     if (PMA_MYSQL_INT_VERSION >= 32321) {
         $result = PMA_mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \'' . PMA_sqlAddslashes($table) . '\'');
         if ($result != FALSE) {
@@ -154,17 +153,17 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
                     $auto_increment .= ' AUTO_INCREMENT=' . $tmpres['Auto_increment'] . ' ';
                 }
 
-                if ($do_comments && isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
+                if ($show_dates && isset($tmpres['Create_time']) && !empty($tmpres['Create_time'])) {
                     $schema_create .= '# ' . $GLOBALS['strStatCreateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Create_time'])) . $crlf;
                     $new_crlf = '#' . $crlf . $crlf;
                 }
 
-                if ($do_comments && isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
+                if ($show_dates && isset($tmpres['Update_time']) && !empty($tmpres['Update_time'])) {
                     $schema_create .= '# ' . $GLOBALS['strStatUpdateTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Update_time'])) . $crlf;
                     $new_crlf = '#' . $crlf . $crlf;
                 }
 
-                if ($do_comments && isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
+                if ($show_dates && isset($tmpres['Check_time']) && !empty($tmpres['Check_time'])) {
                     $schema_create .= '# ' . $GLOBALS['strStatCheckTime'] . ': ' . PMA_localisedDate(strtotime($tmpres['Check_time'])) . $crlf;
                     $new_crlf = '#' . $crlf . $crlf;
                 }
@@ -177,30 +176,6 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
 
     if (!empty($drop)) {
         $schema_create .= 'DROP TABLE IF EXISTS ' . PMA_backquote($table, $use_backquotes) . ';' . $crlf;
-    }
-
-    if ($do_comments && $cfgRelation['commwork']) {
-        if (!($comments_map = PMA_getComments($db, $table))) unset($comments_map);
-    }
-
-    // Check if we can use Relations (Mike Beck)
-    if ($do_relation && !empty($cfgRelation['relation'])) {
-        // Find which tables are related with the current one and write it in
-        // an array
-        $res_rel = PMA_getForeigners($db, $table);
-
-        if ($res_rel && count($res_rel) > 0) {
-            $have_rel = TRUE;
-        } else {
-            $have_rel = FALSE;
-        }
-    }
-    else {
-           $have_rel = FALSE;
-    } // end if
-
-    if ($do_mime && $cfgRelation['mimework']) {
-        if (!($mime_map = PMA_getMIME($db, $table, true))) unset($mime_map);
     }
 
     // Steve Alberty's patch for complete table dump,
@@ -256,37 +231,6 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
         $schema_create .= $auto_increment;
 
 
-        // garvin: Because replacing within a direct mysql result is a bit dangerous, just insert comments after that.
-        if (isset($comments_map) && count($comments_map) > 0) {
-            $schema_create .= $crlf . $crlf . '/* COMMENTS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
-            @reset($comments_map);
-            while(list($comment_field, $comment) = each($comments_map)) {
-                $schema_create .= '    ' . PMA_backquote($comment_field, $use_backquotes) . $crlf . '        ' . PMA_backquote($comment, $use_backquotes) . $crlf;
-                // omitting html_format is intentional. No use for htmlchars in the dump.
-            }
-            $schema_create .= '*/';
-        }
-
-        if (isset($mime_map) && count($mime_map) > 0) {
-            $schema_create .= $crlf . $crlf . '/* MIME TYPES FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
-            @reset($mime_map);
-            while(list($mime_field, $mime) = each($mime_map)) {
-                $schema_create .= '    ' . PMA_backquote($mime_field, $use_backquotes) . $crlf . '        ' . PMA_backquote($mime['mimetype'], $use_backquotes) . $crlf;
-                // omitting html_format is intentional. No use for htmlchars in the dump.
-            }
-            $schema_create .= '*/';
-        }
-
-        if ($have_rel) {
-            $schema_create .= $crlf . $crlf . '/* RELATIONS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
-            @reset($res_rel);
-            while(list($rel_field, $rel) = each($res_rel)) {
-                $schema_create .= '    ' . PMA_backquote($rel_field, $use_backquotes) . $crlf . '        ' . PMA_backquote($rel['foreign_table'], $use_backquotes) . ' -> ' . PMA_backquote($rel['foreign_field'], $use_backquotes) . $crlf;
-                // omitting html_format is intentional. No use for htmlchars in the dump.
-            }
-            $schema_create .= '*/';
-        }
-
         mysql_free_result($result);
         return $schema_create;
     } // end if MySQL >= 3.23.21
@@ -306,11 +250,6 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
         }
         if ($row['Extra'] != '') {
             $schema_create .= ' ' . $row['Extra'];
-        }
-
-        if ($comments && is_array($comments_map) && isset($comments_map[$row['Field']])) {
-            $schema_create .= $crlf . '    /* ' . PMA_backquote($comments_map[$row['Field']], $use_backquotes) . ' */';
-            // omitting html_format is intentional. No use for htmlchars in the dump.
         }
 
         $schema_create     .= ',' . $crlf;
@@ -360,6 +299,85 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
     $schema_create .= $crlf . ')';
 
     return $schema_create;
+
+} // end of the 'PMA_getTableDef()' function
+
+
+/**
+ * Returns $table's comments, relations etc.
+ *
+ * @param   string   the database name
+ * @param   string   the table name
+ * @param   string   the end of line sequence
+ * @param   boolean  whether to include relation comments
+ * @param   boolean  whether to include column comments
+ * @param   boolean  whether to include mime comments
+ *
+ * @return  string   resulting comments
+ *
+ * @access  public
+ */
+function PMA_getTableComments($db, $table, $crlf, $do_relation = false, $do_comments = false, $do_mime = false)
+{
+    global $cfgRelation;
+    global $use_backquotes;
+    global $sql_constraints;
+
+    $schema_create = '';
+    
+    if ($do_comments && $cfgRelation['commwork']) {
+        if (!($comments_map = PMA_getComments($db, $table))) unset($comments_map);
+    }
+
+    // Check if we can use Relations (Mike Beck)
+    if ($do_relation && !empty($cfgRelation['relation'])) {
+        // Find which tables are related with the current one and write it in
+        // an array
+        $res_rel = PMA_getForeigners($db, $table);
+
+        if ($res_rel && count($res_rel) > 0) {
+            $have_rel = TRUE;
+        } else {
+            $have_rel = FALSE;
+        }
+    }
+    else {
+           $have_rel = FALSE;
+    } // end if
+
+    if ($do_mime && $cfgRelation['mimework']) {
+        if (!($mime_map = PMA_getMIME($db, $table, true))) unset($mime_map);
+    }
+
+    if (isset($comments_map) && count($comments_map) > 0) {
+        $schema_create .= $crlf . '#' . $crlf . '# COMMENTS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+        @reset($comments_map);
+        while(list($comment_field, $comment) = each($comments_map)) {
+            $schema_create .= '#   ' . PMA_backquote($comment_field, $use_backquotes) . $crlf . '#       ' . PMA_backquote($comment, $use_backquotes) . $crlf;
+        }
+        $schema_create .= '#' . $crlf;
+    }
+
+    if (isset($mime_map) && count($mime_map) > 0) {
+        $schema_create .= $crlf . '#' . $crlf . '# MIME TYPES FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+        @reset($mime_map);
+        while(list($mime_field, $mime) = each($mime_map)) {
+            $schema_create .= '#   ' . PMA_backquote($mime_field, $use_backquotes) . $crlf . '#       ' . PMA_backquote($mime['mimetype'], $use_backquotes) . $crlf;
+        }
+        $schema_create .= '#' . $crlf;
+    }
+
+    if ($have_rel) {
+        $schema_create .= $crlf . '#' . $crlf . '# RELATIONS FOR TABLE ' . PMA_backquote($table, $use_backquotes) . ':' . $crlf;
+        @reset($res_rel);
+        while(list($rel_field, $rel) = each($res_rel)) {
+            $schema_create .= '#   ' . PMA_backquote($rel_field, $use_backquotes) . $crlf . '#       ' . PMA_backquote($rel['foreign_table'], $use_backquotes) . ' -> ' . PMA_backquote($rel['foreign_field'], $use_backquotes) . $crlf;
+        }
+        $schema_create .= '#' . $crlf;
+    }
+
+    return $schema_create;
+
 } // end of the 'PMA_getTableDef()' function
 
 /**
@@ -377,7 +395,7 @@ function PMA_getTableDef($db, $table, $crlf, $error_url, $do_relation = false, $
  *
  * @access  public
  */
-function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, $comments = FALSE, $mime = FALSE) {
+function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, $comments = FALSE, $mime = FALSE, $dates = FALSE) {
     $formatted_table_name = (isset($GLOBALS['use_backquotes']))
                           ? PMA_backquote($table)
                           : '\'' . $table . '\'';
@@ -386,7 +404,9 @@ function PMA_exportStructure($db, $table, $crlf, $error_url, $relation = FALSE, 
           .  $crlf . '#' . $crlf
           .  '# ' . $GLOBALS['strTableStructure'] . ' ' . $formatted_table_name . $crlf
           .  '#' . $crlf
-          .  PMA_getTableDef($db, $table, $crlf, $error_url,  $relation, $comments, $mime) . ';' . $crlf;
+          .  PMA_getTableDef($db, $table, $crlf, $error_url, $dates) . ';' . $crlf
+          .  PMA_getTableComments($db, $table, $crlf, $relation, $comments, $mime);
+          
 
     return PMA_exportOutputHandler($dump);
 }

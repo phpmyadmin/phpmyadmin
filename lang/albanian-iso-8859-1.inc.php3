@@ -717,4 +717,5 @@ $strZip = '"kompresuar me zip"';
 $strConstraintsForDumped = 'Constraints for dumped tables';  //to translate
 $strConstraintsForTable = 'Constraints for table';  //to translate
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

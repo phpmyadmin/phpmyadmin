@@ -714,4 +714,5 @@ $strZeroRemovesTheLimit = 'Obvestilo: Če postavite vrednost na 0 (nič), boste 
 $strZip = '"zipano"';
 // To translate
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

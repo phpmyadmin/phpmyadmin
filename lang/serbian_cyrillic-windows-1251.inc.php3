@@ -717,4 +717,5 @@ $strYes = 'Да';
 $strZeroRemovesTheLimit = 'Напомена: Постављање ових опција на 0 (нулу) уклања лимите.';
 $strZip = '"зиповано"';
 
+$strCreationDates = 'Creation/Update/Check dates';  //to translate
 ?>

@@ -1234,6 +1234,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['Export']['sql_backquotes'])) {
         $cfg['Export']['sql_backquotes'] = TRUE;
     }
+    if (!isset($cfg['Export']['sql_dates'])) {
+        $cfg['Export']['sql_dates'] = FALSE;
+    }
     if (!isset($cfg['Export']['sql_relation'])) {
         $cfg['Export']['sql_relation'] = FALSE;
     }
