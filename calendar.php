@@ -1,10 +1,9 @@
 <?php
 /* $Id$ */
 
-include('./libraries/grab_globals.lib.php');
-$is_minimum_common = TRUE;
-include('./libraries/common.lib.php');
-include('./libraries/header_http.inc.php');
+require_once('./libraries/grab_globals.lib.php');
+require_once('./libraries/common.lib.php');
+require_once('./libraries/header_http.inc.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

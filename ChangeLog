@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-07 Michal Čihař  <michal@cihar.com>
+    * calendar.php: Minimal common.lib.php doesn't fix absolute path, so use
+      full one (bug #1023444).
+
 2004-09-07 Alexander M. Turek  <me@derrabus.de>
     * main.php: Typo.
     * libraries/sqlparser.data.php: Added keyword "SESSION".
@@ -41,7 +45,7 @@ $Source$
 
 2004-09-03 Marc Delisle  <lem9@users.sourceforge.net>
     * main.php, server_privileges.php, libraries/common.lib.php:
-      replace charset introducers by CONVERT USING, 
+      replace charset introducers by CONVERT USING,
       to support servers where the mysql.* tables are not in latin1
     * libraries/database_interface.lib.php: do not add BINARY and VARBINARY
       twice in the drop-down list of field types
@@ -64,7 +68,7 @@ $Source$
       phpMyAdmin on the same directory, the previous cookie pma_cookie_username
       was used but produced an Undefined offset in blowfish.php, because
       on previous PMA versions it was not encoded the same way. Now this old
-      cookie is not used. Users have to reenter their username (not a big 
+      cookie is not used. Users have to reenter their username (not a big
       impact IMO)
 
 2004-09-01 Michal Čihař  <michal@cihar.com>
@@ -80,13 +84,13 @@ $Source$
       support for VARBINARY and BINARY field types
 
 2004-08-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_relation.php, libraries/display_tbl.lib.php: bug #1016997, 
+    * tbl_relation.php, libraries/display_tbl.lib.php: bug #1016997,
       wrong db name generated in SHOW KEYS
 
 2004-08-26 Marc Delisle  <lem9@users.sourceforge.net>
     * index.php, libraries/common.lib.php: bug #1006011: now we save
       the chosen connection collation into a cookie
-    * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000) 
+    * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
     * lang/hebrew, turkish: bug 1016609: <br> tags
 
 2004-08-25 Michal Čihař  <michal@cihar.com>
@@ -135,7 +139,7 @@ $Source$
 
 2004-08-17 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php, config.inc.php, libraries/config_import.lib.php,
-      libraries/common.lib.php: bug #983735: move search operators to 
+      libraries/common.lib.php: bug #983735: move search operators to
       config file, and set "LIKE" as default operator instead of "LIKE %...%",
       for performance reasons
 
@@ -201,9 +205,9 @@ $Source$
     * lang/turkish update, thanks to Bora Alioglu
     * libraries/get_foreign.lib.php: bug 1005826, problem with foreign key
       dropdowns, thanks to Joerg Klein (j0erch) for the fix
-    
+
 2004-08-08 Marc Delisle  <lem9@users.sourceforge.net>
-    * libraries/relation.lib.php: 
+    * libraries/relation.lib.php:
         bug 1005414, undefined offset when no display field has been defined;
         bug 1004546, sort error in dropdown list of foreign values;
         incorrect result was freed
@@ -234,7 +238,7 @@ $Source$
 2004-08-06 Michal Čihař  <michal@cihar.com>
     * tbl_change.php: Do not free result, we need it later.
     * tbl_relation.php: Some functions do not take parameters (bug #1000021).
-    
+
 2004-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     (Patches from Michael Keck)
     * index.php: names and ids for framesets in the noscript section
@@ -243,7 +247,7 @@ $Source$
     (me)
     * lang/galician: Updated, thanks to Xosé Calvo.
     * lang/swedish: Updated, thanks to Björn T. Hallberg (bth).
-    * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000) 
+    * lang/japanese: updated, thanks to Tadashi Jokagi (elf2000)
 
 2004-08-03 Marc Delisle  <lem9@users.sourceforge.net>
     (Patches from Michael Keck)
@@ -308,7 +312,7 @@ $Source$
     * main.php, libraries/common.lib.php: bug 997682:
       illegal mix of collations
     * server_privileges.php: same bug
-      FIXME: check privileges for a db 
+      FIXME: check privileges for a db
 
 2004-07-23 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: take into account the new script to
@@ -427,7 +431,7 @@ $Source$
       write in this directory.
     * Documentation.html: document the TempDir creation and PHP safe mode
       issues with PEAR
- 
+
 2004-07-05 Marc Delisle  <lem9@users.sourceforge.net>
     * footer.inc.php, index.php, queryframe.php: bug 981939, database
       selection in left frame under Opera, and problems with dropdown
@@ -477,7 +481,7 @@ $Source$
       texts.
     * scripts/find_unused_messages.sh: New script to find unused messages in
       translations.
-    
+
 2004-06-27 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_query_box.php: bug #975382, fields list on a non-existing table
 
@@ -513,7 +517,7 @@ $Source$
     * left.php, config.inc.php, Documentation.html,
       libraries/config_import.lib.php + common.lib.php, all colors.inc.php:
       $cfg['LeftPointerEnable']
-    * db_details_structure.php, server_variables.php, 
+    * db_details_structure.php, server_variables.php,
       tbl_properties_structure.php, config.inc.php, Documentation.html,
       libraries/config_import.lib.php + common.lib.php + display_tbl.lib.php,
       all colors.inc.php:
@@ -529,7 +533,7 @@ $Source$
     * footer.inc.php: sync left frame when choosing a db from server_databases,
       thanks to Michael Keck
     * export.php: no longer auto-select the textarea containing exported data
-    * queryframe.php: bug #977790, missing library, 
+    * queryframe.php: bug #977790, missing library,
       thanks to Anthony Parsons (anthony.parsons at manx.net)
     * footer.inc.php: sync left-frame dropdown for databases when the
       number of tables changes, thanks to Michael Keck
@@ -564,7 +568,7 @@ $Source$
 
 2004-06-22 Michal Čihař  <michal@cihar.com>
     * libraries/relation.lib.php: Fix possible error on non existant pma db.
-    
+
 2004-06-20 Marc Delisle  <lem9@users.sourceforge.net>
     * themes.php: use standard headers. A iso-8859-1 charset was hardcoded
       in this script, but it's better to use libraries/header_http.inc.php
@@ -606,11 +610,11 @@ $Source$
 2004-06-15 Marc Delisle  <lem9@users.sourceforge.net>
     * queryframe.php: undefined $cfgRelation, thanks to Michael Keck (mkkeck)
     * export.php, sql.php, db_details_importdocsql.php, ldi_check.php,
-      tbl_replace.php, libraries/common.lib.php, 
+      tbl_replace.php, libraries/common.lib.php,
       libraries/transformations.lib.php: new function PMA_securePATH()
     * main.php, tbl_properties_structure.php: theme "none" should be "original",
       thanks to Michael Keck (mkkeck)
-    * left.php, tbl_properties.inc.php, librairies/common.lib.php: 
+    * left.php, tbl_properties.inc.php, librairies/common.lib.php:
       missing title tags
 
 2004-06-15 Michal Čihař  <michal@cihar.com>
@@ -630,7 +634,7 @@ $Source$
       query frame when possible.
     * libraries/display_export.lib.php: Fix broken choice switching.
     * tbl_change.php: Fix wrong path to image.
-    * tbl_properties_operations.php: Define sort order for sorting tables 
+    * tbl_properties_operations.php: Define sort order for sorting tables
       (RFE #971314).
     * libraries/common.lib.php: On error show edit link with table context if
       possible.
@@ -650,14 +654,14 @@ $Source$
     * libraries/common.lib.php: proper revision check
     * libraries/select_theme.lib.php: remove unneeded counter, and fix
       undefined $PHP_SELF
-    * libraries/dbi/mysql.dbi.lib.php: errors on mysql_errno() when the 
+    * libraries/dbi/mysql.dbi.lib.php: errors on mysql_errno() when the
       login is invalid
 
 2004-06-13 Marc Delisle  <lem9@users.sourceforge.net>
     * many files: redesign part 3, thanks to Michael Keck (mkkeck).
       New /themes structure for Theme management
       TODO: code improvement, access to /lang from themes/index.php,
-            possible logo change 
+            possible logo change
 
 2004-06-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
