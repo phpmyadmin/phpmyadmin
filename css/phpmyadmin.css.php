@@ -281,3 +281,11 @@ form.clock {
 .nowrap {
     white-space: nowrap;
 }
+
+li {
+    padding-bottom: 1em;
+}
+
+li form {
+    display: inline;
+}

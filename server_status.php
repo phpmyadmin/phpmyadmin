@@ -138,7 +138,6 @@ unset($tmp_array);
             </tr>
         </table>
     </li>
-    <br />
     <li>
         <!-- Queries -->
         <?php echo sprintf($strQueryStatistics, number_format($serverStatus['Questions'], 0, $number_decimal_separator, $number_thousands_separator)) . "\n"; ?>
@@ -223,7 +222,6 @@ unset($serverStatus['Uptime']);
 
 if (!empty($serverStatus)) {
 ?>
-    <br />
     <li>
         <!-- Other status variables -->
         <b><?php echo $strMoreStatusVars; ?></b><br />

@@ -720,7 +720,7 @@ echo "\n";
 
     <!-- Printable view of the table -->
     <li>
-        <div style="margin-bottom: 10px"><a href="tbl_printview.php?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a></div>
+        <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php echo $strPrintView; ?></a>
     </li>
 
     <!-- Add some new fields -->
@@ -749,9 +749,7 @@ if ($cfg['Server']['relation']) {
     ?>
     <!-- Work on Relations -->
     <li>
-        <div style="margin-bottom: 10px">
-            <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php echo $strRelationView; ?></a>
-        </div>
+        <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php echo $strRelationView; ?></a>
     </li>
     <?php
 }
@@ -760,11 +758,9 @@ echo "\n";
 
     <!-- Let MySQL propose the optimal structure -->
     <li>
-        <div style="margin-bottom: 10px">
         <a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>">
             <?php echo $strStructPropose; ?></a>
         <?php echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n"; ?>
-        </div>
     </li>
 
 <?php

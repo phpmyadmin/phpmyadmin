@@ -346,7 +346,7 @@ if (count($statistics) > 0) {
            . '            </b>' . "\n"
            . '            <br />' . "\n"
            . '            ' . $strDatabasesStatsHeavyTraffic . "\n"
-           . '        </li><br /><br />' . "\n";
+           . '        </li>' . "\n";
     } else if ($is_superuser && !empty($dbstats)) {
         echo '        <li>' . "\n"
            . '            <b>' . "\n"
@@ -354,7 +354,7 @@ if (count($statistics) > 0) {
            . '                    ' . $strDatabasesStatsDisable . "\n"
            . '                </a>' . "\n"
            . '            </b>' . "\n"
-           . '        </li><br /><br />' . "\n";
+           . '        </li>' . "\n";
     }
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         echo '        <li>' . "\n"
