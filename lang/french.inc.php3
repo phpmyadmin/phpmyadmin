@@ -156,7 +156,7 @@ $strKill = 'Supprimer';
 
 $strLength = 'Long.';
 $strLengthSet = 'Taille/Valeurs*';
-$strLimitNumRows = 'enregistrements par page';
+$strLimitNumRows = 'Nombre d\'enregistrements par page';
 $strLineFeed = 'Saut de ligne : \\n';
 $strLines = 'Lignes';
 $strLinesTerminatedBy = 'Lignes terminées par';

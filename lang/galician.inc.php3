@@ -152,7 +152,7 @@ $strKill = 'Matar (kill)';
 
 $strLength = 'Tamaño';
 $strLengthSet = 'Tamaño/Definir*';
-$strLimitNumRows = 'rexistros por páxina';
+$strLimitNumRows = 'Número de rexistros por páxina';
 $strLineFeed = 'Carácter de alimentación de liña: \\n';
 $strLines = 'Liñas';
 $strLinesTerminatedBy = 'As liñas rematan por';

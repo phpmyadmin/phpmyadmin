@@ -157,7 +157,7 @@ $strKill = 'Tapa';
 
 $strLength = 'Pituus';
 $strLengthSet = 'Pituus/Arvot*';
-$strLimitNumRows = 'riviä/sivu';
+$strLimitNumRows = 'Rivejä/sivu';
 $strLineFeed = 'LF-rivinvaihto: \\n';
 $strLines = 'Rivit';
 $strLinesTerminatedBy = 'Rivien erotinmerkki';

@@ -152,7 +152,7 @@ $strKill = 'Avslutt';
 
 $strLength = 'Lengde';
 $strLengthSet = 'Lengde/Sett*';
-$strLimitNumRows = 'rader per side';
+$strLimitNumRows = 'Antall poster per side';
 $strLineFeed = 'Linjeskift: \\n';
 $strLines = 'Linjer';
 $strLinesTerminatedBy = 'Linker avsluttet med';

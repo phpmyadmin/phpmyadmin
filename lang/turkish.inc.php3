@@ -153,7 +153,7 @@ $strKill = 'Kapat';
 
 $strLength = 'Boyut';
 $strLengthSet = 'Boyut/Deðerler*';
-$strLimitNumRows = '(sayfa baþýna gösterilecek kayýt)';
+$strLimitNumRows = 'Sayfa ba&#351;&#305;na kay&#305;t say&#305;s&#305;';
 $strLineFeed = 'Satýr: \\n';
 $strLines = 'Satýrlar';
 $strLinesTerminatedBy = 'Satýr sonu';

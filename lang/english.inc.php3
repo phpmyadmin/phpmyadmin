@@ -156,7 +156,7 @@ $strKill = 'Kill';
 
 $strLength = 'Length';
 $strLengthSet = 'Length/Values*';
-$strLimitNumRows = 'records per page';
+$strLimitNumRows = 'Number of records per page';
 $strLineFeed = 'Linefeed: \\n';
 $strLines = 'Lines';
 $strLinesTerminatedBy = 'Lines terminated by';

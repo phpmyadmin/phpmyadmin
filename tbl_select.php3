@@ -58,9 +58,8 @@ if (!isset($param) || $param[0] == '') {
     <ul>
         <li>
             <div style="margin-bottom: 10px">
-            <?php echo $strDisplay; ?>&nbsp;
-            <input type="text" size="4" name="sessionMaxRows" value="<?php echo $cfgMaxRows; ?>" />
             <?php echo $strLimitNumRows . "\n"; ?>
+            <input type="text" size="4" name="sessionMaxRows" value="<?php echo $cfgMaxRows; ?>" />
             </div>
         </li>
         <li>

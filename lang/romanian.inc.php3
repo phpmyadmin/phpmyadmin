@@ -152,7 +152,7 @@ $strKill = 'Opreste';
 
 $strLength = 'Lungime';
 $strLengthSet = 'Lungime/Setare';
-$strLimitNumRows = 'inregistrari pe pagina';
+$strLimitNumRows = 'Numarul de inregistrari de pe pagina';
 $strLineFeed = 'Dezvoltare linie: \\n';
 $strLines = 'Linii';
 $strLinesTerminatedBy = 'Linii terminate de';
