@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-05-24 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: talk about left frame levels
+    * lang/galician: update, thanks to Xosé Calvo
+    * lang/turkish: update, thanks to Bora Alioglu
+    
 2003-05-24 Garvin Hicking <me@supergarv.de>
     * left.php3: Fix bug #742632, thanks to Kai Butchkau!
 
