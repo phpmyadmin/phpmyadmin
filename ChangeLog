@@ -16,6 +16,7 @@ $Source$
     * tbl_qbe.php3: show upper links
     * Documentation.html, user_details.php3: link to document what happens
       with grants and underscores.
+    * user_details.php3: fix the tooltip
 
 2002-06-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/config_import.lib.php3, libraries/common.lib.php3:
