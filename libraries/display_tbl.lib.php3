@@ -8,7 +8,7 @@
 
 
 
-if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
+if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
     define('PMA_DISPLAY_TBL_LIB_INCLUDED', 1);
 
     /**
@@ -731,10 +731,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
             reset ($query_parts);
             while (list(, $query_pair) = each($query_parts)) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
-                $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . urldecode($eachval) . '" />' . "\n";
+                $link_or_button .= '            <input type="hidden" name="' . str_replace('amp;', '', $eachvar) . '" value="' . htmlspecialchars(urldecode($eachval)) . '" />' . "\n";
             } // end while
             $link_or_button     .= '            <input type="submit" value="'
-                                . $message . '" />' . "\n" . '</form>' . "\n";
+                                . htmlspecialchars($message) . '" />' . "\n" . '</form>' . "\n";
         } // end if... else...
 
         return $link_or_button;

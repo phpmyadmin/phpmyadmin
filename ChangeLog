@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-10-09 Loïc Chapeaux  <lolo@phpheaven.net>
+    * libraries/display_tbl.lib.php3, bug 619735: display broken (bad HTML)
+
 2002-10-09 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/get_foreign.lib.php3, there are no functions
       in this file that need to be protected from being defined
