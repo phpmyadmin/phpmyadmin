@@ -1135,7 +1135,7 @@ class PMA_RT
         }
         while ($curr_table = @PMA_mysql_fetch_array($tab_rs)) {
             $alltables[] = PMA_sqlAddslashes($curr_table['table_name']);
-            $intable     = '\'' . implode('\', \'', $alltables) . '\'';
+            //$intable     = '\'' . implode('\', \'', $alltables) . '\'';
         }
 
         //              make doc                    //
