@@ -560,12 +560,12 @@ function get_table_def($db, $table, $crlf)
 // $handler must accept one parameter ($sql_insert);
 
 function get_table_content ($db, $table, $handler){
-	if (PMA_INT_VERSION>40005) get_table_content_fast($db, $table, $handler);
+	if (PMA_INT_VERSION>=40005) get_table_content_fast($db, $table, $handler);
 	else get_table_content_old($db, $table, $handler);
 }
 
 
-// only php > 4.0.5 - staybyte - 27. June 2001
+// only php >= 4.0.5 - staybyte - 27. June 2001
 function get_table_content_fast($db, $table, $handler){
 	$result = mysql_query("SELECT * FROM ".db_name($db).".$table") or mysql_die();
 	if ($result!=false){
