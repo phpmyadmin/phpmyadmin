@@ -297,7 +297,7 @@ if (!isset($is_inside_querywindow) ||
             ?>
 
             <script type="text/javascript">
-                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain\' + opener.top.frames.nav.document.hashform.hash.value + \'.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>');
+                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain\' + opener.top.frames.nav.document.hashform.hash.value + \'.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
             </script>
             
             <?php
@@ -305,7 +305,7 @@ if (!isset($is_inside_querywindow) ||
             ?>
 
             <script type="text/javascript">
-                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>');
+                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo addslashes($strInsertTextfiles); ?></a></div>');
             </script>
 
             <?php
