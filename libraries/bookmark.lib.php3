@@ -26,7 +26,6 @@ if (!defined('__LIB_BOOKMARK__')){
         global $cfgServer;
         global $server;
 
-        $cfgBookmark = FALSE;
         $cfgBookmark = '';
 
         // No server selected -> no bookmark table
