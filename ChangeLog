@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php3: display PHP 4.2.3 warning only if mbstring is loaded
+
 2002-11-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_datadict.php3, db_details_structure.php3, db_printview.php3,
       db_stats.php3, tbl_printview.php3, tbl_properties_structure.php3,
