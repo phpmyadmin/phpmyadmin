@@ -310,7 +310,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}"><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}"><?php echo $special_chars; ?></textarea>
         </td>
         <?php
         echo "\n";
@@ -430,7 +430,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}"><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>" wrap="virtual" onchange="if (typeof(document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]']) != 'undefined') {document.forms['insertForm'].elements['fields_null[<?php echo urlencode($field); ?>]'].checked = false}"><?php echo $special_chars; ?></textarea>
         </td>
             <?php
         } else {
