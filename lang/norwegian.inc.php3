@@ -55,6 +55,7 @@ $strBrowse = 'Se på';
 $strBzip = '"bzipped"';
 
 $strCantLoadMySQL = 'kan ikke starte MySQL modulen,<br />vennligst kontroller PHP konfigureringen.';
+$strCarriage = 'Linjeskift (Mac): \\r';
 $strChange = 'Endre';
 $strCheckAll = 'Kontroller alle';
 $strCheckDbPriv = 'Kontroller database privilegier';
@@ -64,6 +65,7 @@ $strColumnEmpty = 'Kolonnenavnene er tomme!';
 $strColumnNames = 'Kolonnenavn';
 $strCompleteInserts = 'Komplette innlegg';
 $strConfirm = 'Ønsker du virkelig å gjøre det?';
+$strCopyTable = 'Kopier tabell til (database<b>.</b>tabell):';
 $strCopyTableOK = 'Tabellen %s er kopiert til %s.';
 $strCreate = 'Opprett';
 $strCreateNewDatabase = 'Opprett ny database';
@@ -122,6 +124,7 @@ $strFunction = 'Funksjon';
 
 $strGenTime = 'Generert den';
 $strGo = 'Utfør';
+$strGrants = 'Rettigheter';
 $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'er endret.';
@@ -163,6 +166,8 @@ $strLogout = 'Logg ut';
 
 $strModifications = 'Endringene er lagret';
 $strModify = 'Endre';
+$strMoveTable = 'Flytt tabell til (database<b>.</b>tabell):';
+$strMoveTableOK = 'Tabellen %s har blitt flyttet til %s.';
 $strMySQLReloaded = 'MySQL omstartet.';
 $strMySQLSaid = 'MySQL sa: ';
 $strMySQLShowProcess = 'Vis prosesser';
@@ -178,6 +183,7 @@ $strNoDropDatabases = '"DROP DATABASE" uttrykk er avslått.';
 $strNoModification = 'Ingen endring';
 $strNoPassword = 'Intet passord';
 $strNoPrivileges = 'Ingen privilegier';
+$strNoQuery = 'Ingen SQL spxrring!';
 $strNoRights = 'Du har ikke nok rettigheter til å være her nå!';
 $strNoTablesFound = 'Ingen tabeller i databasen.';
 $strNotNumber = 'Dette er ikke ett tall!';
@@ -193,6 +199,7 @@ $strOptionally = 'Valgfritt';
 $strOr = 'Eller';
 $strOverhead = 'Overheng';
 
+$strPartialText = 'Delvis tekst';
 $strPassword = 'Passord';
 $strPasswordEmpty = 'Passordet er blankt!';
 $strPasswordNotSame = 'Passordene er ikke like!';
@@ -237,6 +244,7 @@ $strRowsFrom = 'rader fra';
 $strRowSize = ' Rad størelse ';
 $strRowsStatistic = 'Rad statistikk';
 $strRunning = 'som kjører på ';
+$strRunningAs = 'som';
 $strRunQuery = 'Kjør spørring';
 $strRunSQLQuery = 'Kjør SQL spørring/spørringer mot databasen %s';
 
@@ -250,8 +258,11 @@ $strServerChoice = 'Server valg';
 $strServerVersion = 'Server versjon';
 $strSetEnumVal = 'Hvis felttypen er "enum" eller "set", skriv inn verdien med dette formatet: \'a\',\'b\',\'c\'...<br />Hvis du skulle trenge å ha en skråstrek ("\") eller en enkel apostrof ("\'") blant disse verdiene, skriv en skråstrek foran (eks. \'\\\\xyz\' eller \'a\\\'b\').';
 $strShow = 'Vis';
+$strShowAll = 'Vis alle';
+$strShowCols = 'Vis kolonner';
 $strShowingRecords = 'Viser rader ';
 $strShowPHPInfo = 'Vis PHP informasjon';
+$strShowTables = 'Vis tabeller';
 $strShowThisQuery = ' Vis denne spørring her igjen ';
 $strSingly = '(enkeltvis)';
 $strSize = 'Størelse';
@@ -259,6 +270,7 @@ $strSort = 'Sorter';
 $strSpaceUsage = 'Plass bruk';
 $strSQLQuery = 'SQL-spørring';
 $strStartingRecord = 'Start post';
+$strStatement = 'Oversikt';
 $strStrucCSV = 'CSV data';
 $strStrucData = 'Struktur og data';
 $strStrucDrop = 'Legg til \'drop table\'';
@@ -304,23 +316,12 @@ $strViewDump = 'Vis dump (skjema) av tabell';
 $strViewDumpDB = 'Vis dump (skjema) av database';
 
 $strWelcome = 'Velkommen til ';
+$strWithChecked = 'Med avkrysset:';
 $strWrongUser = 'Ugyldig brukernavn/passord. Ingen tilgang.';
 
 $strYes = 'Ja';
 
+$strZip = '"komprimert (zip)"';
+
 // To translate
-$strCarriage = 'Carriage return: \\r';	//to translate
-$strCopyTable = 'Copy table to (database<b>.</b>table):';
-$strGrants = 'Grants';	//to translate
-$strMoveTable = 'Move table to (database<b>.</b>table):';
-$strMoveTableOK = 'Table %s has been moved to %s.';
-$strNoQuery = 'No SQL query!';  //to translate
-$strPartialText = 'Partial Texts';	//to translate
-$strRunningAs = 'as';
-$strShowAll = 'Show all'; // to translate
-$strShowCols = 'Show columns';
-$strShowTables = 'Show tables';
-$strStatement = 'Statements';	//to translate
-$strWithChecked = 'With checked:';	//to translate
-$strZip = '"zipped"';  //to translate
 ?>
