@@ -231,7 +231,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             // ANSI style --
             if (($c == '#')
                 || (($count2 + 1 < $len) && ($c == '/') && ($sql[$count2 + 1] == '*'))
-                || (($count2 + 2 < $len) && ($c == '-') && ($sql[$count2 + 1] == '-') && ereg("(\n|[space])", $sql[$count2 + 2]))) {
+                || (($count2 + 2 < $len) && ($c == '-') && ($sql[$count2 + 1] == '-') && (($sql[$count2 + 2] == ' ') || ($sql[$count2 + 2] == "\n")))) {
                 $count2++;
                 $pos  = 0;
                 $type = 'bad';

@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2002-11-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3: Avoid regex if possible.
+
 2002-10-31 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php3, header.inc.php3, new db_datadict.php3,
       lang/*.php3: data dictionary feature, thanks to Ian Davidson
