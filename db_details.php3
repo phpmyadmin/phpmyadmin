@@ -470,7 +470,7 @@ if ($num_tables > 0) {
             <input type="hidden" name="goto" value="db_details.php3" />
             <input type="hidden" name="zero_rows" value="<?php echo htmlspecialchars($strSuccess); ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
-            <?php echo sprintf($strRunSQLQuery, $db) . ' ' . PMA_showDocu('manual_Reference.html#SELECT'); ?>&nbsp;:<br />
+            <?php echo sprintf($strRunSQLQuery, $db) . ' ' . PMA_showDocuShort('S/E/SELECT.html'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
 <textarea name="sql_query" cols="<?php echo $cfgTextareaCols; ?>" rows="<?php echo $cfgTextareaRows; ?>" wrap="virtual" onfocus="this.select()">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>
@@ -690,7 +690,7 @@ if ($cfgAllowUserDropDatabase || $is_superuser) {
         <a href="sql.php3?server=<?php echo $server; ?>&amp;lang=<?php echo $lang; ?>&amp;db=<?php echo urlencode($db); ?>&amp;sql_query=<?php echo urlencode('DROP DATABASE ' . PMA_backquote($db)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(PMA_backquote($db)))); ?>&amp;goto=main.php3&amp;back=db_details.php3&amp;reload=1"
             onclick="return confirmLink(this, 'DROP DATABASE <?php echo PMA_jsFormat($db); ?>')">
             <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>
-        <?php echo PMA_showDocu('manual_Reference.html#DROP_DATABASE') . "\n"; ?>
+        <?php echo PMA_showDocuShort('D/R/DROP_DATABASE.html') . "\n"; ?>
     </li>
     <?php
 }

@@ -227,7 +227,7 @@ if ($server > 0) {
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
             <form method="post" action="db_create.php3">
-                <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showDocu('manual_Reference.html#CREATE_DATABASE'); ?><br />
+                <?php echo $strCreateNewDatabase . '&nbsp;' . PMA_showDocuShort('C/R/CREATE_DATABASE.html'); ?><br />
                 <input type="hidden" name="server" value="<?php echo $server; ?>" />
                 <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                 <input type="hidden" name="reload" value="1" />
@@ -265,7 +265,7 @@ if ($server > 0) {
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&amp;goto=main.php3">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
-                <?php echo PMA_showDocu('manual_Performance.html#Performance') . "\n"; ?>
+                <?php echo PMA_showDocuShort('S/H/SHOW_VARIABLES.html') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -279,7 +279,7 @@ if ($server > 0) {
             <td>
                 <a href="sql.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&amp;goto=main.php3">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
-                <?php echo PMA_showDocu('manual_Reference.html#SHOW') . "\n"; ?>
+                <?php echo PMA_showDocuShort('S/H/SHOW_PROCESSLIST.html') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -293,7 +293,7 @@ if ($server > 0) {
             <td>
                 <a href="main.php3?<?php echo $common_url_query; ?>&amp;mode=reload">
                     <?php echo $strReloadMySQL; ?></a>&nbsp;
-                <?php echo PMA_showDocu('manual_Reference.html#FLUSH') . "\n"; ?>
+                <?php echo PMA_showDocuShort('F/L/FLUSH.html') . "\n"; ?>
             </td>
         </tr>
             <?php
@@ -307,7 +307,7 @@ if ($server > 0) {
             <td>
                 <a href="user_details.php3?<?php echo $common_url_query; ?>&amp;db=mysql&amp;table=user">
                     <?php echo $strUsers; ?></a>&nbsp;
-                <?php echo PMA_showDocu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
+                <?php echo PMA_showDocuShort('P/r/Privilege_system.html') . "\n"; ?>
             </td>
         </tr>
             <?php

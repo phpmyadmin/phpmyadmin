@@ -58,7 +58,7 @@ require('./header.inc.php3');
         <td><?php echo $strIfYouWish; ?></td>
     </tr>
     <tr>
-        <td colspan="3" align="center"><?php print PMA_showDocu('manual_Reference.html#LOAD_DATA'); ?></td>
+        <td colspan="3" align="center"><?php print PMA_showDocuShort('L/O/LOAD_DATA.html'); ?></td>
     </tr>
     <tr>
         <td colspan="3" align="center">
