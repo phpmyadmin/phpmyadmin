@@ -13,7 +13,7 @@ function checkPassword(the_form)
     // Did the user select 'no password'?
     if (typeof(the_form.elements['nopass']) != 'undefined' && the_form.elements['nopass'][0].checked) {
         return true;
-    } else if (typeof(the_form.elements['pred_password']) != 'undefined' && the_form.elements['pred_password'].value == 'none') {
+    } else if (typeof(the_form.elements['pred_password']) != 'undefined' && (the_form.elements['pred_password'].value == 'none' || the_form.elements['pred_password'].value == 'keep')) {
         return true;
     }
 

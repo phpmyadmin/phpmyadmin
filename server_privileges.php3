@@ -451,9 +451,135 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = TRUE, $indent =
 
 
 /**
- * Adds a user
+ * Displays the fields used by the "new user" form as well as the
+ * "change login information / copy user" form.
+ *
+ * @param   string     are we creating a new user or are we just changing one?
+ *                     (allowed values: 'new', 'change')
+ * @param   int        the indenting level of the code
+ *
+ * @global  array      the phpMyAdmin configuration
+ * @global  ressource  the database connection
+ *
+ * @return  void
  */
-if (!empty($adduser_submit)) {
+function PMA_displayLoginInformationFields($mode = 'new', $indent = 0)
+{
+    global $cfg, $userlink;
+    $spaces = '';
+    for ($i = 0; $i < $indent; $i++) {
+        $spaces .= '    ';
+    }
+    echo $spaces . '<tr>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <label for="select_pred_username">' . "\n"
+       . $spaces . '            ' . $GLOBALS['strUserName'] . ':' . "\n"
+       . $spaces . '        </label>' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <select name="pred_username" id="select_pred_username" title="' . $GLOBALS['strUserName'] . '" class="textfield"' . "\n"
+       . $spaces . '            onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">' . "\n"
+       . $spaces . '            <option value="any"' . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyUser'] . '</option>' . "\n"
+       . $spaces . '            <option value="userdefined"' . ((!isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
+       . $spaces . '        </select>' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <input type="text" name="username" class="textfield" title="' . $GLOBALS['strUserName'] . '"' . (empty($GLOBALS['username']) ? '' : ' value="' . (isset($GLOBALS['new_username']) ? $GLOBALS['new_username'] : $GLOBALS['username']) . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '</tr>' . "\n"
+       . $spaces . '<tr>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <label for="select_pred_hostname">' . "\n"
+       . $spaces . '            ' . $GLOBALS['strHost'] . ':' . "\n"
+       . $spaces . '        </label>' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <select name="pred_hostname" id="select_pred_hostname" title="' . $GLOBALS['strHost'] . '" class="textfield"' . "\n";
+    $res = PMA_mysql_query('SELECT USER();', $userlink);
+    $row = @PMA_mysql_fetch_row($res);
+    @mysql_free_result($res);
+    unset($res);
+    if (!empty($row[0])) {
+        $thishost = str_replace("'", '', substr($row[0], (strrpos($row[0], '@') + 1)));
+        if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
+            unset($thishost);
+        }
+    }
+    echo $spaces . '            onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } '
+       . (empty($thishost) ? '' : 'else if (this.value == \'thishost\') { hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; } ')
+       . 'else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
+    unset($row);
+    echo $spaces . '            <option value="any"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any') ? ' selected="selected"' : '') . '>' . $GLOBALS['strAnyHost'] . '</option>' . "\n"
+       . $spaces . '            <option value="localhost"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost') ? ' selected="selected"' : '') . '>' . $GLOBALS['strLocalhost'] . '</option>' . "\n";
+    if (!empty($thishost)) {
+        echo $spaces . '            <option value="thishost"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'thishost') ? ' selected="selected"' : '') . '>' . $GLOBALS['strThisHost'] . '</option>' . "\n";
+    }
+    unset($thishost);
+    echo $spaces . '            <option value="userdefined"' . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined') ? ' selected="selected"' : '') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
+       . $spaces . '        </select>' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <input type="text" name="hostname" value="' . (empty($GLOBALS['hostname']) ? '%' : $GLOBALS['hostname']) . '" class="textfield" title="' . $GLOBALS['strHost'] . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '</tr>' . "\n"
+       . $spaces . '<tr>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <label for="select_pred_password">' . "\n"
+       . $spaces . '            ' . $GLOBALS['strPassword'] . ':' . "\n"
+       . $spaces . '        </label>' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <select name="pred_password" id="select_pred_password" title="' . $GLOBALS['strPassword'] . '" class="textfield"' . "\n"
+       . $spaces . '            onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">' . "\n"
+       . ($mode == 'change' ? $spaces . '            <option value="keep" selected="selected">' . $GLOBALS['strKeepPass'] . '</option>' . "\n" : '')
+       . $spaces . '            <option value="none">' . $GLOBALS['strNoPassword'] . '</option>' . "\n"
+       . $spaces . '            <option value="userdefined"' . ($mode == 'change' ? '' : ' selected="selected"') . '>' . $GLOBALS['strUseTextField'] . ':</option>' . "\n"
+       . $spaces . '        </select>' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <input type="password" name="pma_pw" class="textfield" title="' . $GLOBALS['strPassword'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '</tr>' . "\n"
+       . $spaces . '<tr>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <label for="text_pma_pw2">' . "\n"
+       . $spaces . '            ' . $GLOBALS['strReType'] . ':' . "\n"
+       . $spaces . '        </label>' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">&nbsp;</td>' . "\n"
+       . $spaces . '    <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
+       . $spaces . '        <input type="password" name="pma_pw2" id="text_pma_pw2" class="textfield" title="' . $GLOBALS['strReType'] . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
+       . $spaces . '    </td>' . "\n"
+       . $spaces . '</tr>' . "\n";
+} // end of the 'PMA_displayUserAndHostFields()' function
+
+
+/**
+ * Changes / copies a user, part I
+ */
+if (!empty($change_copy)) {
+    if (empty($old_hostname)) {
+        $old_hostname = '%';
+    }
+    $local_query = 'SELECT * FROM `mysql`.`user` WHERE `User` = "' . $old_username . '" AND `Host` = "' . $old_hostname . '";';
+    $res = PMA_mysql_query($local_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $local_query);
+    if (!$res) {
+        $message = $strNoUsersFound;
+        unset($change_copy);
+    } else {
+        $row = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
+        extract($row, EXTR_OVERWRITE);
+        mysql_free_result($res);
+        $queries = array();
+    }
+}
+
+
+/**
+ * Adds a user
+ *   (Changes / copies a user, part II)
+ */
+if (!empty($adduser_submit) || !empty($change_copy)) {
     unset($sql_query);
     if ($pred_username == 'any') {
         $username = '';
@@ -483,7 +609,7 @@ if (!empty($adduser_submit)) {
     } else {
         if (PMA_MYSQL_INT_VERSION >= 32211) {
             $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO "' . $username . '"@"' . $hostname . '"';
-            if ($pred_password != 'none') {
+            if ($pred_password != 'none' && $pred_password != 'keep') {
                 $pma_pw_hidden = '';
                 for ($i = 0; $i < strlen($pma_pw); $i++) {
                     $pma_pw_hidden .= '*';
@@ -491,6 +617,9 @@ if (!empty($adduser_submit)) {
                 $sql_query = $real_sql_query . ' IDENTIFIED BY "' . $pma_pw_hidden . '"';
                 $real_sql_query .= ' IDENTIFIED BY "' . $pma_pw . '"';
             } else {
+                if ($pred_password == 'keep' && !empty($Password)) {
+                    $real_sql_query .= ' IDENTIFIED BY PASSWORD "' . $Password . '"';
+                }
                 $sql_query = $real_sql_query;
             }
             if ((isset($Grant_priv) && $Grant_priv == 'Y') || isset($max_questions) || isset($max_connections) || isset($max_updates)) {
@@ -515,9 +644,14 @@ if (!empty($adduser_submit)) {
             }
             $real_sql_query .= ';';
             $sql_query .= ';';
-            PMA_mysql_query($real_sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+            if (empty($change_copy)) {
+                PMA_mysql_query($real_sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
+                $message = $strAddUserMessage;
+            } else {
+                $queries[] = $sql_query;
+            }
+            unset($sql_query);
             unset($real_sql_query);
-            $message = $strAddUserMessage;
         } else {
             $privileges = PMA_extractPrivInfo();
             $real_sql_query = 'INSERT INTO `user` SET `Host` = "' . $hostname . '", `User` = "' . $username . '"';
@@ -541,6 +675,62 @@ if (!empty($adduser_submit)) {
         }
         mysql_free_result($res);
         unset($res);
+    }
+}
+
+
+/**
+ * Changes / copies a user, part III
+ */
+if (!empty($change_copy)) {
+    $local_query = 'SELECT * FROM `mysql`.`db` WHERE `User` = "' . $old_username . '" AND `Host` = "' . $old_hostname . '";';
+    $res = PMA_mysql_query($local_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $local_query);
+    while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
+        $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row)) . ' ON `' . $row['Db'] . '`.* TO "' . $username . '"@"' . $hostname . '"' . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION' : '') . ';';
+    }
+    mysql_free_result($res);
+    $local_query = 'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv` WHERE `User` = "' . $old_username . '" AND `Host` = "' . $old_hostname . '";';
+    $res = PMA_mysql_query($local_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $local_query);
+    while ($row = PMA_mysql_fetch_array($res, MYSQL_ASSOC)) {
+        $local_query = 'SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE `User` = "' . $old_username . '" AND `Host` = "' . $old_hostname . '" AND `Db` = "' . $row['Db'] . '";';
+        $res2 = PMA_mysql_query($local_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $local_query);
+        $tmp_privs1 = PMA_extractPrivInfo($row);
+        $tmp_privs2 = array(
+            'Select' => array(),
+            'Insert' => array(),
+            'Update' => array(),
+            'References' => array()
+        );
+        while ($row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC)) {
+            $tmp_array = explode(',', $row2['Column_priv']);
+            if (in_array('Select', $tmp_array)) {
+                $tmp_privs2['Select'][] = $row2['Column_name'];
+            }
+            if (in_array('Insert', $tmp_array)) {
+                $tmp_privs2['Insert'][] = $row2['Column_name'];
+            }
+            if (in_array('Update', $tmp_array)) {
+                $tmp_privs2['Update'][] = $row2['Column_name'];
+            }
+            if (in_array('References', $tmp_array)) {
+                $tmp_privs2['References'][] = $row2['Column_name'];
+            }
+            unset($tmp_array);
+        }
+        if (count($tmp_privs2['Select']) > 0 && !in_array('SELECT', $tmp_privs1)) {
+            $tmp_privs1[] = 'SELECT (`' . join('`, `', $tmp_privs2['Select']) . '`)';
+        }
+        if (count($tmp_privs2['Insert']) > 0 && !in_array('INSERT', $tmp_privs1)) {
+            $tmp_privs1[] = 'INSERT (`' . join(', ', $tmp_privs2['Insert']) . '`)';
+        }
+        if (count($tmp_privs2['Update']) > 0 && !in_array('UPDATE', $tmp_privs1)) {
+            $tmp_privs1[] = 'UPDATE (`' . join(', ', $tmp_privs2['Update']) . '`)';
+        }
+        if (count($tmp_privs2['References']) > 0 && !in_array('REFERENCES', $tmp_privs1)) {
+            $tmp_privs1[] = 'REFERENCES (`' . join(', ', $tmp_privs2['References']) . '`)';
+        }
+        unset($tmp_privs2);
+        $queries[] = 'GRANT ' . join(', ', $tmp_privs1) . ' ON `' . $row['Db'] . '`.`' . $row['Table_name'] . '` TO "' . $username . '"@"' . $hostname . '"' . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION' : '') . ';';
     }
 }
 
@@ -651,9 +841,14 @@ if (!empty($change_pw)) {
 
 /**
  * Deletes users
+ *   (Changes / copies a user, part IV)
  */
-if (!empty($delete)) {
-    $queries = array();
+if (!empty($delete) || (!empty($change_copy) && $mode < 4)) {
+    if (!empty($change_copy)) {
+        $selected_usr = array($old_username . '@' . $old_hostname);
+    } else {
+        $queries = array();
+    }
     for ($i = 0; isset($selected_usr[$i]); $i++) {
         list($this_user, $this_host) = explode('@', $selected_usr[$i]);
         $queries[] = '# ' . sprintf($strDeleting, '\'' . $this_user . '\'@\'' . $this_host . '\'') . ' ...';
@@ -664,9 +859,10 @@ if (!empty($delete)) {
             if ($res) {
                 $queries[] = 'REVOKE ALL PRIVILEGES ON *.* FROM "' . $this_user . '"@"' . $this_host . '";';
                 while ($row = PMA_mysql_fetch_row($res)) {
-                    $this_table = substr($row[0], (strpos($row[0], 'ON') + 3), -(9 + strlen($this_user . $this_host)));
+                    $this_table = substr($row[0], (strpos($row[0], 'ON') + 3), (strpos($row[0], ' TO ') - strpos($row[0], 'ON') - 3));
                     if ($this_table != '*.*') {
                         $queries[] = 'REVOKE ALL PRIVILEGES ON ' . $this_table . ' FROM "' . $this_user . '"@"' . $this_host . '";';
+                        $queries[] = 'REVOKE GRANT OPTION ON ' . $this_table . ' FROM "' . $this_user . '"@"' . $this_host . '";';
                     }
                     unset($this_table);
                 }
@@ -686,22 +882,38 @@ if (!empty($delete)) {
             $queries[] = 'DROP DATABASE IF EXISTS ' . PMA_backquote($this_user) . ';';
         }
     }
-    if (empty($queries)) {
-        $message = $strError . ': ' . $strDeleteNoUsersSelected;
-    } else {
-        if ($mode == 3) {
-            $queries[] = '# ' . $strReloadingThePrivileges . ' ...';
-            $queries[] = 'FLUSH PRIVILEGES;';
-        }
-        while (list(, $sql_query) = each($queries)) {
-            if (substr($sql_query, 0, 1) != '#') {
-                PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+    if (empty($change_copy)) {
+        if (empty($queries)) {
+            $message = $strError . ': ' . $strDeleteNoUsersSelected;
+        } else {
+            if ($mode == 3) {
+                $queries[] = '# ' . $strReloadingThePrivileges . ' ...';
+                $queries[] = 'FLUSH PRIVILEGES;';
             }
+            while (list(, $sql_query) = each($queries)) {
+                if (substr($sql_query, 0, 1) != '#') {
+                    PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+                }
+            }
+            $sql_query = join("\n", $queries);
+            $message = $strUsersDeleted;
         }
-        $sql_query = join("\n", $queries);
-        $message = $strUsersDeleted;
+        unset($queries);
     }
-    unset($queries);
+}
+
+
+/**
+ * Changes / copies a user, part V
+ */
+if (!empty($change_copy)) {
+    while (list(, $sql_query) = each($queries)) {
+        if (substr($sql_query, 0, 1) != '#') {
+            PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink));
+        }
+    }
+    $message = $strSuccess;
+    $sql_query = join("\n", $queries);
 }
 
 
@@ -819,7 +1031,7 @@ if (empty($adduser) && empty($checkprivs)) {
                . '            <b><a href="server_privileges.php3?' . $url_query . '&amp;adduser=1">' . $strAddUser . '</a></b><br />' . "\n"
                . '        </li><br /><br />' . "\n"
                . '        <li>' . "\n"
-               . '            <b>' . $strRemoveSelectedUsers . '</b><br>' . "\n"
+               . '            <b>' . $strRemoveSelectedUsers . '</b><br />' . "\n"
                . '            <input type="radio" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '" name="mode" id="radio_mode_1" value="1" checked="checked" />' . "\n"
                . '            <label for="radio_mode_1" title="' . $strJustDelete . ' ' . $strJustDeleteDescr . '">' . "\n"
                . '                ' . $strJustDelete . "\n"
@@ -1079,6 +1291,43 @@ if (empty($adduser) && empty($checkprivs)) {
                . '            </table>' . "\n"
                . '        </form>' . "\n"
                . '    </li>' . "\n";
+            if (PMA_MYSQL_INT_VERSION >= 32211) {
+                echo '    <li>' . "\n"
+                   . '        <form action="server_privileges.php3" method="post" onsubmit="checkPassword(this);">' . "\n"
+                   . PMA_generate_common_hidden_inputs('', '', 3)
+                   . '            <input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n";
+                if ($hostname != '%') {
+                    echo '            <input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n";
+                }
+                echo '            <b>' . $strChangeCopyUser . '</b><br />' . "\n"
+                   . '            <table border="0">' . "\n";
+                PMA_displayLoginInformationFields('change', 3);
+                echo '            </table>' . "\n"
+                   . '            ' . $strChangeCopyMode . '<br />' . "\n"
+                   . '            <input type="radio" name="mode" value="4" id="radio_mode_4" checked="checked" />' . "\n"
+                   . '            <label for="radio_mode_4">' . "\n"
+                   . '                ' . $strChangeCopyModeCopy . "\n"
+                   . '            </label>' . "\n"
+                   . '            <br />' . "\n"
+                   . '            <input type="radio" name="mode" value="1" id="radio_mode_1" />' . "\n"
+                   . '            <label for="radio_mode_1">' . "\n"
+                   . '                ' . $strChangeCopyModeJustDelete . "\n"
+                   . '            </label>' . "\n"
+                   . '            <br />' . "\n"
+                   . '            <input type="radio" name="mode" value="2" id="radio_mode_2" />' . "\n"
+                   . '            <label for="radio_mode_2">' . "\n"
+                   . '                ' . $strChangeCopyModeRevoke . "\n"
+                   . '            </label>' . "\n"
+                   . '            <br />' . "\n"
+                   . '            <input type="radio" name="mode" value="3" id="radio_mode_3" />' . "\n"
+                   . '            <label for="radio_mode_3">' . "\n"
+                   . '                ' . $strChangeCopyModeDeleteAndReload . "\n"
+                   . '            </label>' . "\n"
+                   . '            <br />' . "\n"
+                   . '            <input type="submit" name="change_copy" value="' . $strGo . '" />' . "\n"
+                   . '        </form>' . "\n"
+                   . '    </li>' . "\n";
+            }
         }
         echo '</ul>' . "\n";
     }
@@ -1094,88 +1343,9 @@ if (empty($adduser) && empty($checkprivs)) {
        . '            <th colspan="3">' . "\n"
        . '                ' . $strLoginInformation . "\n"
        . '            </th>' . "\n"
-       . '        </tr>' . "\n"
-       . '        <tr>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorOne'] . '">' . "\n"
-       . '                <label for="select_pred_username">' . "\n"
-       . '                    ' . $strUserName . ':' . "\n"
-       . '                </label>' . "\n"
-       . '            </td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . '                <select name="pred_username" id="select_pred_username" title="' . $strUserName . '" class="textfield"' . "\n"
-       . '                    onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">' . "\n"
-       . '                    <option value="any"' . ((isset($pred_username) && $pred_username == 'any') ? ' selected="selected"' : '') . '>' . $strAnyUser . '</option>' . "\n"
-       . '                    <option value="userdefined"' . ((!isset($pred_username) || $pred_username == 'userdefined') ? ' selected="selected"' : '') . '>' . $strUseTextField . ':</option>' . "\n"
-       . '                </select>' . "\n"
-       . '            </td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . '                <input type="text" name="username" class="textfield" title="' . $strUserName . '"' . (empty($username) ? '' : ' value="' . $username . '"') . ' onchange="pred_username.value = \'userdefined\';" />' . "\n"
-       . '            </td>' . "\n"
-       . '        </tr>' . "\n"
-       . '        <tr>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorOne'] . '">' . "\n"
-       . '                <label for="select_pred_hostname">' . "\n"
-       . '                    ' . $strHost . ':' . "\n"
-       . '                </label>' . "\n"
-       . '            </td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . '                <select name="pred_hostname" id="select_pred_hostname" title="' . $strHost . '" class="textfield"' . "\n";
-    $res = PMA_mysql_query('SELECT USER();', $userlink);
-    $row = @PMA_mysql_fetch_row($res);
-    @mysql_free_result($res);
-    unset($res);
-    if (!empty($row[0])) {
-        $thishost = str_replace("'", '', substr($row[0], (strrpos($row[0], '@') + 1)));
-        if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
-            unset($thishost);
-        }
-    }
-    echo '                    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } '
-       . (empty($thishost) ? '' : 'else if (this.value == \'thishost\') { hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; } ')
-       . 'else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
-    unset($row);
-    echo '                    <option value="any"' . ((isset($pred_hostname) && $pred_hostname == 'any') ? ' selected="selected"' : '') . '>' . $strAnyHost . '</option>' . "\n"
-       . '                    <option value="localhost"' . ((isset($pred_hostname) && $pred_hostname == 'localhost') ? ' selected="selected"' : '') . '>' . $strLocalhost . '</option>' . "\n";
-    if (!empty($thishost)) {
-        echo '                    <option value="thishost"' . ((isset($pred_hostname) && $pred_hostname == 'thishost') ? ' selected="selected"' : '') . '>' . $strThisHost . '</option>' . "\n";
-    }
-    unset($thishost);
-    echo '                    <option value="userdefined"' . ((isset($pred_hostname) && $pred_hostname == 'userdefined') ? ' selected="selected"' : '') . '>' . $strUseTextField . ':</option>' . "\n"
-       . '                </select>' . "\n"
-       . '            </td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . '                <input type="text" name="hostname" value="' . (empty($hostname) ? '%' : $hostname) . '" class="textfield" title="' . $strHost . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
-       . '            </td>' . "\n"
-       . '        </tr>' . "\n"
-       . '        <tr>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorOne'] . '">' . "\n"
-       . '                <label for="select_pred_password">' . "\n"
-       . '                    ' . $strPassword . ':' . "\n"
-       . '                </label>' . "\n"
-       . '            </td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . '                <select name="pred_password" id="select_pred_password" title="' . $strPassword . '" class="textfield"' . "\n"
-       . '                    onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">' . "\n"
-       . '                    <option value="none">' . $strNoPassword . '</option>' . "\n"
-       . '                    <option value="userdefined" selected="selected">' . $strUseTextField . ':</option>' . "\n"
-       . '                </select>' . "\n"
-       . '            </td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . '                <input type="password" name="pma_pw" class="textfield" title="' . $strPassword . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
-       . '            </td>' . "\n"
-       . '        </tr>' . "\n"
-       . '        <tr>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorOne'] . '">' . "\n"
-       . '                <label for="text_pma_pw2">' . "\n"
-       . '                    ' . $strReType . ':' . "\n"
-       . '                </label>' . "\n"
-       . '            </td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">&nbsp;</td>' . "\n"
-       . '            <td bgcolor="' . $cfg['BgcolorTwo'] . '">' . "\n"
-       . '                <input type="password" name="pma_pw2" id="text_pma_pw2" class="textfield" title="' . $strReType . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
-       . '            </td>' . "\n"
-       . '        </tr>' . "\n"
-       . '    </table><br />' . "\n";
+       . '        </tr>' . "\n";
+    PMA_displayLoginInformationFields('new', 2);
+    echo '    </table><br />' . "\n";
     PMA_displayPrivTable('*', '*', FALSE, 1);
     echo '    <br />' . "\n"
        . '    <input type="submit" name="adduser_submit" value="' . $strGo . '" />' . "\n"
@@ -1213,7 +1383,7 @@ if (empty($adduser) && empty($checkprivs)) {
     if (PMA_MYSQL_INT_VERSION >= 40000) {
         // Starting with MySQL 4.0.0, we may use UNION SELECTs and this makes
         // the job much easier here!
-        $sql_query = '(SELECT `User`, `Host`, `Db`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `db` WHERE `Db` = "' . $checkprivs . '" AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) UNION (SELECT `User`, `Host`, "*" AS "Db", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `user` WHERE NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) ORDER BY `User` ASC, `Host` ASC, `Db` ASC;';
+        $sql_query = '(SELECT `User`, `Host`, `Db`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `db` WHERE "' . $checkprivs . '" LIKE `Db` AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) UNION (SELECT `User`, `Host`, "*" AS "Db", `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Grant_priv`, `References_priv` FROM `user` WHERE NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" AND `Grant_priv` = "N" AND `References_priv` = "N")) ORDER BY `User` ASC, `Host` ASC, `Db` ASC;';
         $res = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
         $row1 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
         $row2 = PMA_mysql_fetch_array($res, MYSQL_ASSOC);
@@ -1222,7 +1392,7 @@ if (empty($adduser) && empty($checkprivs)) {
         $sql_query = 'SELECT * FROM `user` WHERE NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" ' . (PMA_MYSQL_INT_VERSION >= 32211 ? 'AND `Grant_priv` = "N" ' : '') . 'AND `References_priv` = "N") ORDER BY `User` ASC, `Host` ASC;';
         $res1 = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
         $row1 = PMA_mysql_fetch_array($res1, MYSQL_ASSOC);
-        $sql_query = 'SELECT * FROM `db` WHERE `Db` = "' . $checkprivs . '" AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" ' . (PMA_MYSQL_INT_VERSION >= 32211 ? 'AND `Grant_priv` = "N" ' : '') . 'AND `References_priv` = "N") ORDER BY `User` ASC, `Host` ASC;';
+        $sql_query = 'SELECT * FROM `db` WHERE "' . $checkprivs . '" LIKE `Db` AND NOT (`Select_priv` = "N" AND `Insert_priv` = "N" AND `Update_priv` = "N" AND `Delete_priv` = "N" AND `Create_priv` = "N" AND `Drop_priv` = "N" ' . (PMA_MYSQL_INT_VERSION >= 32211 ? 'AND `Grant_priv` = "N" ' : '') . 'AND `References_priv` = "N") ORDER BY `User` ASC, `Host` ASC;';
         $res2 = PMA_mysql_query($sql_query, $userlink) or PMA_mysqlDie(PMA_mysql_error($userlink), $sql_query);
         $row2 = PMA_mysql_fetch_array($res2, MYSQL_ASSOC);
     } // end if (PMA_MYSQL_INT_VERSION >= 40000) ... else ...
@@ -1257,7 +1427,15 @@ if (empty($adduser) && empty($checkprivs)) {
         }
         if ($useRow1) {
             echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ' . $strGlobal . "\n"
+               . '            ';
+            if (!isset($row1['Db']) || $row1['Db'] == '*') {
+                echo $strGlobal;
+            } else if ($row1['Db'] == $checkprivs) {
+                echo $strDbSpecific;
+            } else {
+                echo $strWildcard, ': <tt>' . htmlspecialchars($row1['Db']) . '</tt>';
+            }
+            echo "\n"
                . '        </td>' . "\n"
                . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
                . '            <tt>' . "\n"
@@ -1284,7 +1462,15 @@ if (empty($adduser) && empty($checkprivs)) {
                 echo '    <tr>' . "\n";
             }
             echo '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
-               . '            ' . $strDbSpecific . "\n"
+               . '            ';
+            if (!isset($row2['Db']) || $row2['Db'] == '*') {
+                echo $strGlobal;
+            } else if ($row2['Db'] == $checkprivs) {
+                echo $strDbSpecific;
+            } else {
+                echo $strWildcard, ': <tt>' . htmlspecialchars($row2['Db']) . '</tt>';
+            }
+            echo "\n"
                . '        </td>' . "\n"
                . '        <td bgcolor="' . ($useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']) . '">' . "\n"
                . '            <tt>' . "\n"

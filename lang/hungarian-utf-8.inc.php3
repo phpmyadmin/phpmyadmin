@@ -579,4 +579,11 @@ $strDatabasesDropped = '%s databases have been dropped successfully.';  //to tra
 $strGlobal = 'global';  //to translate
 $strDbSpecific = 'database-specific';  //to translate
 $strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
+$strChangeCopyUser = 'Change Login Information / Copy User';  //to translate
+$strChangeCopyMode = 'Create a new user with the same privileges and ...';  //to translate
+$strChangeCopyModeCopy = '... keep the old one.';  //to translate
+$strChangeCopyModeJustDelete = ' ... delete the old one from the user tables.';  //to translate
+$strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one and delete it afterwards.';  //to translate
+$strChangeCopyModeDeleteAndReload = ' ... delete the old one from the user tables and reload the privileges afterwards.';  //to translate
+$strWildcard = 'wildcard';  //to translate
 ?>
