@@ -241,9 +241,13 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             echo '    <tr><td colspan=2 align="center">' . $GLOBALS['strBookmarkQuery'] . ': '
                  . (($cfgRelation['bookmarkwork'] == TRUE) ? $enabled : $disabled)
                  . '</td></tr>' . "\n";
-            echo '    <tr><td colspan=2 align="center">MIME: '
-                 . (($cfgRelation['mimework'] == TRUE) ? $enabled : $disabled)
+            echo '    <tr><th align="left">MIME ...</th><td align="right">'
+                 . (($cfgRelation['mimework'] == TRUE) ? $hit : sprintf($shit, 'col_com')) 
                  . '</td></tr>' . "\n";
+
+                 if (($cfgRelation['commwork'] == TRUE) && ($cfgRelation['mimework'] != TRUE)) {
+                     echo '<tr><td colspan=2 align="left">' . $GLOBALS['strUpdComTab'] . '</td></tr>' . "\n";
+                 }
 
 //                 . '<br />(MIME: ' . (($cfgRelation['mimework'] == TRUE) ? $enabled : $disabled) . ')'
 

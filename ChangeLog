@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-09 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/*: $updComTab -> $strUpdComTab
+    * libraries/relation.lib.php3: put back version 1.30 message
+      that uses $strUpdComTab
+
 2003-04-09 Garvin Hicking <me@supergarv.de>
     * pdf_schema.php3: Fix from Doug Suerich (dougsuerich)
       to prevent false arrow aligning when using 'same widths'.
