@@ -9,6 +9,7 @@ $Source$
     * querywindow.php: PMA_DBI_close() instead of DBI_close()
     * Documentation.html: clarify FAQ 6.21
     * libraries/dbi/*: use generic $strCantLoad message
+    * lang/*: remove $strCantLoadMySQL message
     * libraries/dbi/mysqli.dbi.lib.php: @ before connect to avoid the
       display of unwanted error messages
 
