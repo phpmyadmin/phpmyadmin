@@ -81,6 +81,7 @@ $strColumn = 'Columna';
 $strColumnNames = 'Nombre de las columnas';
 $strComments = 'Comentarios';
 $strCompleteInserts = 'Completar los "Inserts"';
+$strCompression = 'Compresión';
 $strConfigFileError = '¡phpMyAdmin no puede leer el fichero de configuración!<br />Esto puede suceder si php encuentra un error sintáctico en él o bien php no puede encontrar el fichero.<br />Intente acceder al fichero de configuración directamente mediante el siguiente enlace y compruebe el(los) mensaje(s) de error que reciba. En muchas ocasiones falta una coma o punto y coma en algún sitio.<br />Si recibe una página en blanco, todo está correcto.';
 $strConfigureTableCoord = 'Configure las coordenadas para la tabla %s';
 $strConfirm = '¿Realmente quiere hacerlo?';
@@ -432,5 +433,4 @@ $strYes = 'Sí';
 $strZip = '"comprimido con zip"';
 
 // To translate
-$strCompression = 'Compression'; //to translate
 ?>

@@ -82,6 +82,7 @@ $strColumn = 'Columna';
 $strColumnNames = 'Nom de les columnes';
 $strComments = 'Comentaris';
 $strCompleteInserts = 'Completar insercions';
+$strCompression = 'Compressió';
 $strConfigFileError = 'phpMyAdmin és incapaç de llegir el fitxer de configuració!<br />Això pot succeir si php troba un error sintàctic en ell o bé php no pot trobar el fitxer.<br />Intenta obrir el fitxer de configuració directament fent servir l\'enllaç següent i comprova el(s) missatge(s) d\'error que reps. En moltes ocasions una coma o punt i coma falta en algun lloc.<br />Si reps una plana en blanc, tot està bé.';
 $strConfigureTableCoord = 'Configura les coordenades per la taula %s';
 $strConfirm = 'Ho vols fer realment?';
@@ -434,5 +435,4 @@ $strYes = 'Si';
 $strZip = '"comprimit amb zip"';
 
 // To translate
-$strCompression = 'Compression'; //to translate
 ?>

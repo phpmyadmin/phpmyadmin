@@ -85,6 +85,7 @@ $strColumn = 'Kolom';
 $strColumnNames = 'Kolom namen';
 $strComments = 'Commentaar';
 $strCompleteInserts = 'Invoegen voltooid';
+$strCompression = 'Compressie';
 $strConfigFileError = 'phpMyAdmin kon het configuratie bestand niet lezen! <br />Dit kan gebeuren als php een parse error in dit bestand aantreft of dit bestand helemaal niet gevonden kan worden.<br />Roep het configuratie bestand direct aan met de snelkoppeling hieronder en lees de php foutmelding(en). In de meeste gevallen ontbreekt er ergens bijvoorbeeld een quote.<br /> Wanneer er een blanco pagina wordt weergegeven zijn er geen problemen.';
 $strConfigureTableCoord = 'Configureer de coördinaten voor de tabel %s';
 $strConfirm = 'Weet u zeker dat u dit wilt?';
@@ -437,5 +438,4 @@ $strYes = 'Ja';
 $strZip = '"Gezipt"';
 
 // To translate
-$strCompression = 'Compression'; //to translate
 ?>

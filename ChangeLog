@@ -8,6 +8,9 @@ $Source$
 2002-11-20 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/norwegian-*.inc.php3: Updates, thanks to Sven Erik Andersen.
     * lang/lithuanian-*.inc.php3: Updates, thanks to Vilius Zigmantas.
+    * lang/catalan-*.inc.php3, lang/spanish-*.inc.php3: Updates, thanks to
+      Xavier Navarro.
+    * lang/dutch-*.inc.php3: Updates, thanks to Ivo Teel.
 
 2002-11-19 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_create.php3, db_datadict.php3, db_details.php3, db_details_export.php3,
