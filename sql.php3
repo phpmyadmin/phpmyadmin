@@ -73,8 +73,9 @@ if (isset($btnDrop) || isset($navig)) {
 // query may contain aliases.
 // (todo: check for embedded comments...)
 
-if (eregi('SELECT[[:space:]]', $sql_query)) {
-    eregi('SELECT[[:space:]](.*)[[:space:]]FROM[[:space:]]+(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
+$is_select = eregi('^SELECT[[:space:]]+', $sql_query);
+if ($is_select) {
+    eregi('^SELECT[[:space:]]+(.*)[[:space:]]+FROM[[:space:]]+(`[^`]+`|[A-Za-z0-9_$]+)([\.]*)(`[^`]*`|[A-Za-z0-9_$]*)', $sql_query, $tmp);
 
     if ($tmp[3] == '.') {
         $prev_db = $db;
@@ -85,7 +86,8 @@ if (eregi('SELECT[[:space:]]', $sql_query)) {
     else {
         $table   = str_replace('`', '', $tmp[2]);
     }
-}
+} // end if
+
 
 /**
  * Sets or modifies the $goto variable if required
@@ -193,13 +195,12 @@ else {
         $repeat_cells     = $cfgRepeatCells;
     }
 
-    $is_explain = $is_select = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
-    if (eregi('^EXPLAIN[[:space:]]+', $sql_query)) {
+    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
+    if ($is_select) { // see line 76
+        $is_count    = (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
+        $is_export   = (eregi('[[:space:]]+INTO OUTFILE[[:space:]]+', $sql_query));
+    } else if (eregi('^EXPLAIN[[:space:]]+', $sql_query)) {
         $is_explain  = TRUE;
-    } else if (eregi('^SELECT[[:space:]]+', $sql_query)) {
-        $is_select   = TRUE;
-        $is_count    = (eregi('^SELECT COUNT\((.*\.+)?.*\)', $sql_query));
-        $is_export   = (eregi(' INTO OUTFILE ', $sql_query));
     } else if (eregi('^DELETE[[:space:]]+', $sql_query)) {
         $is_delete   = TRUE;
         $is_affected = TRUE;
