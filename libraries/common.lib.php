@@ -2509,7 +2509,36 @@ if (typeof(document.getElementById) != 'undefined'
         $gotopage .= ' </select>';
 
         return $gotopage;
-    }
+    } // end function
+
+
+    function PMA_generateAlterTable($oldcol, $newcol, $full_field_type, $collation, $null, $default, $extra, $comment='') {
+
+        $query = PMA_backquote($oldcol) . ' ' . PMA_backquote($newcol) . ' '
+            . $full_field_type;
+        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($collation) && $collation != 'NULL' && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR)$@i', $full_field_type)) {
+            $query .= PMA_generateCharsetQueryPart($collation);
+        } 
+        if (!empty($default)) {
+            if (strtoupper($default) == 'NULL') {
+                $query .= ' DEFAULT NULL';
+            } else {
+                $query .= ' DEFAULT \'' . PMA_sqlAddslashes($default) . '\'';
+            }
+        }
+        if (!empty($null)) {
+            $query .= ' NOT NULL';
+        //} else {
+        //    $query .= ' NULL';
+        }
+        if (!empty($extra)) {
+            $query .= ' ' . $extra;
+        }
+        if (PMA_MYSQL_INT_VERSION >= 40100 && !empty($comment)) {
+            $query .= " COMMENT '" . PMA_sqlAddslashes($comment) . "'";
+        }
+        return $query;
+    } // end function
 
 } // end if: minimal common.lib needed?
 
