@@ -69,8 +69,6 @@ if (!defined('__LIB_COMMON__')){
         header('WWW-Authenticate: Basic realm="phpMyAdmin ' . trim($GLOBALS['strRunning']) . ' ' . $GLOBALS['cfgServer']['host'] . '"');
         header('HTTP/1.0 401 Unauthorized');
         header('status: 401 Unauthorized');
-
-        echo '<?xml version="1.0" encoding="' . strtoupper($GLOBALS['charset']) . '"?>' . "\n";
         ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

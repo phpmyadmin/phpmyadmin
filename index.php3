@@ -31,7 +31,6 @@ if (empty($HTTP_HOST)) {
 $url_query = 'lang=' . $lang
            . '&amp;server=' . $server
            . (empty($db) ? '' : '&amp;db=' . urlencode($db));
-echo '<?xml version="1.0" encoding="' . strtoupper($charset) . '"?>' . "\n";
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"

@@ -34,7 +34,6 @@ header('Content-Type: text/html; charset=' . $charset);
  */
 // Gets the font sizes to use
 set_font_sizes();
-echo '<?xml version="1.0" encoding="' . strtoupper($charset) . '"?>' . "\n";
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
