@@ -26,6 +26,11 @@ $Source$
 	  tbl_properties.php3: choosing not to execute a drop statement leads now
 	  to the calling script (and not the target one used only if this statement
 	  is executed).
+	* db_readdump.php3: Olivier's improvement for mutiple queries (see before)
+	  was invalid. Fixed it.
+	* lib.inc.php3, line 524: beautify a bit the way the query is displayed.
+	* lang/english.inc.php3; lang/french.inc.php3: put $strInstructions at its
+	  right place.
 
 2001-08-18  Robin Johnson  <robbat2@orbis-terrarum.net>
 	* lib.inc.php3 (788, 790) : tweak size for lower resolution screens.
