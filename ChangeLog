@@ -35,6 +35,8 @@ $Source$
     * libraries/zip.lib.php: Drop unneed part of header which causes troubles
       to some programs (bug #1037737).
     * index.php: Add frame spacing (RFE #1036013).
+    * libraries/db_table_exists.lib.php: Allow work on temporary tables (bug
+      #864984).
 
 2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to boralioglu.

@@ -25,10 +25,22 @@ if (!isset($is_table) || !$is_table) {
     }
     if (empty($table)
         || !($is_table && @PMA_DBI_num_rows($is_table))) {
+        $redirect = TRUE;
         if (!isset($is_transformation_wrapper)) {
-            PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'db_details.php?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+            $redirect = TRUE;
+            if (!empty($table)) {
+                PMA_DBI_free_result($is_table);
+                // SHOW TABLES doesn't show temporary tables, so try select (as it can happen just in case temporary table, it should be fast):
+                $is_table2 = PMA_DBI_try_query('SELECT COUNT(*) FROM `' . PMA_sqlAddslashes($table, TRUE) . '`;', NULL, PMA_DBI_QUERY_STORE);
+                $redirect = !($is_table2 && @PMA_DBI_num_rows($is_table2));
+                PMA_DBI_free_result($is_table2);
+            }
+
+            if ($redirect) {
+                PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'db_details.php?' . PMA_generate_common_url($db, '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+            }
         }
-        exit;
+        if ($redirect) exit;
     } else if (isset($is_table)) {
         PMA_DBI_free_result($is_table);
     }
