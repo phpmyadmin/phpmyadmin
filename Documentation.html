@@ -6,7 +6,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin 2.2.3-rc1 - Documentation</title>
+    <title>phpMyAdmin 2.2.4-dev - Documentation</title>
     <style type="text/css">
     <!--
     .navigation {
@@ -212,9 +212,12 @@
 <p><b>Quick Install:</b></p>
 <ol>
     <li> Untar or unzip the distribution (be sure to unzip the subdirectories):
-         <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt></li>
+         <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt> in your webserver's 
+         document root.</li>
     <li> Open the file config.inc.php3 in your favourite editor and change
-         the values for host, user and password to fit your environment.
+         the values for host, user, password and authentication mode
+         to fit your environment.
+         Also insert the correct value for <tt>$cfgPmaAbsoluteUri</tt>.
          Have a look at
          <a class="navigation" href="#config">Configuration section</a> for an
          explanation of all values.</li>
