@@ -449,11 +449,12 @@ echo '        ' . '&nbsp;<input type="submit" value="' . $strGo . '" />' . "\n";
     </li>
 
 <?php
-if($num_tables>0 && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE){
-    echo '<font color="red">' . $strError . '</font><br />';
-    $urltogoto = '<a href="'.$cfg['PmaAbsoluteUri'].'chk_rel.php3?'.$url_query.'">';
-    echo sprintf($strRelationNotWorking,$urltogoto,'</a>');
-}
+if ($num_tables > 0
+    && !$cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == FALSE) {
+    echo '<font color="red">' . $strError . '</font><br />' . "\n";
+    $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php3?' . $url_query . '">';
+    echo sprintf($strRelationNotWorking, $url_to_goto, '</a>') . "\n";
+} // end if
 
 // is this OK to check for 'class' support?
 if ($cfgRelation['pdfwork'] && $num_tables > 0) {

@@ -15,6 +15,9 @@ $Source$
     * lang/japanese* updates, thanks to Yukihiro Kawada
     * lang/french updates
     * lang/lithuanian updates, thanks to Vilius Zigmantas
+    * chk_rel.php3, db_details_structure.php3, Documentation.html,
+      pdf_pages.php3, pdf_shema.php3, libraries/select_lang.lib.php3:
+      commits for Loic
 
 2002-07-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3: Added

@@ -29,9 +29,9 @@ $cfgRelation = PMA_getRelationsParam();
  * complain ;-)
  */
 if (!$cfgRelation['allworks']) {
-    echo '<font color="red">' . $strError . '</font><br />';
-    $urltogoto = '<a href="'.$cfg['PmaAbsoluteUri'].'chk_rel.php3?'.$url_query.'">';
-    echo sprintf($strRelationNotWorking,$urltogoto,'</a>');
+    echo '<font color="red">' . $strError . '</font><br />' . "\n";
+    $url_to_goto = '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php3?' . $url_query . '">';
+    echo sprintf($strRelationNotWorking, $url_to_goto, '</a>') . "\n";
 }
 
 
@@ -371,20 +371,23 @@ class PMA_RT_Table
      *
      * @param   boolean   Whether to display table position or not
      * @param   integer   The font size
+     * @param   boolean   Whether all tables should have the same width or not
      *
      * @global  object    The current PDF document
+     * @global  object    The current relation table object
      *
      * @access  private
      *
      * @see     PMA_PDF
      */
-    function PMA_RT_Table_draw($show_info, $ff, $same_wide=0)
+    function PMA_RT_Table_draw($show_info, $ff, $same_wide = 0)
     {
         global $pdf, $rt;
 
-        if(isset($rt->tablewidth)&& $rt->tablewidth>0 && $same_wide==1){
-            $this->width=$rt->tablewidth;
+        if (isset($rt->tablewidth) && $rt->tablewidth > 0 && $same_wide == 1){
+            $this->width = $rt->tablewidth;
         }
+
         $pdf->PMA_PDF_setXyScale($this->x, $this->y);
         $pdf->SetFont($ff, 'B');
         $pdf->SetTextColor(200);
@@ -425,6 +428,7 @@ class PMA_RT_Table
      * @param   integer   The font size
      *
      * @global  object    The current PDF document
+     * @global  object    The current relation table object
      * @global  integer   The current page number (from the
      *                    $cfg['Servers'][$i]['table_coords'] table)
      * @global  array     The relations settings
@@ -437,7 +441,7 @@ class PMA_RT_Table
      */
     function PMA_RT_Table($table_name, $ff)
     {
-        global $rt, $pdf, $pdf_page_number, $cfgRelation, $db;
+        global $pdf, $rt, $pdf_page_number, $cfgRelation, $db;
 
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
@@ -453,9 +457,10 @@ class PMA_RT_Table
         //height and width
         $this->PMA_RT_Table_setWidth($ff);
         $this->PMA_RT_Table_setHeight();
-        if($rt->tablewidth<$this->width){
-            $rt->tablewidth=$this->width;
+        if ($rt->tablewidth < $this->width) {
+            $rt->tablewidth = $this->width;
         }
+
         //x and y
         $sql    = 'SELECT x, y FROM '
                 . PMA_backquote($cfgRelation['table_coords'])
@@ -774,7 +779,7 @@ class PMA_RT
     {
         reset($this->tables);
         while (list(, $table) = each($this->tables)) {
-            $table->PMA_RT_Table_draw($show_info, $this->ff,$this->same_wide);
+            $table->PMA_RT_Table_draw($show_info, $this->ff, $this->same_wide);
         }
     } // end of the "PMA_RT_drawTables()" method
 
@@ -810,6 +815,7 @@ class PMA_RT
      * @param   boolean  Whether to display table position or not
      * @param   boolean  Whether to use one color per relation or not
      * @param   boolean  Whether to draw grids or not
+     * @param   boolean  Whether all tables should have the same width or not
      *
      * @global  object   The current PDF document
      * @global  string   The current db name
@@ -824,9 +830,10 @@ class PMA_RT
         global $pdf, $db, $cfgRelation;;
 
         // Font face depends on the current language
-        $this->ff     = str_replace('"', '', substr($GLOBALS['right_font_family'], 0, strpos($GLOBALS['right_font_family'], ',')));
+        $this->ff        = str_replace('"', '', substr($GLOBALS['right_font_family'], 0, strpos($GLOBALS['right_font_family'], ',')));
         $this->same_wide = $all_tab_same_wide;
-         // Initializes a new document
+
+        // Initializes a new document
         $pdf          = new PMA_PDF('L');
         $pdf->title   = sprintf($GLOBALS['strPdfDbSchema'], $GLOBALS['db'], $which_rel);
         $pdf->cMargin = 0;
@@ -871,9 +878,8 @@ class PMA_RT
         } else {
             reset ($alltables);
             while (list(, $table) = each ($alltables)) {
-                    $this->tables[$table] = new PMA_RT_Table($table, $this->ff);
-                    $curr_table_obj =&$this->tables[$table];
-                    $this->PMA_RT_setMinMax($curr_table_obj);
+                $this->tables[$table] = new PMA_RT_Table($table, $this->ff);
+                $this->PMA_RT_setMinMax($this->tables[$table]);
             }
             $norelations = TRUE;
         } // end if... else...

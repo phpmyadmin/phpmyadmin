@@ -556,7 +556,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt>
         <a name="pmadb"></a>
-        <b>$cfg['Servers'][$i]['pmadb']</b> string</dt>
+        <b>$cfg['Servers'][$i]['pmadb']</b> string
+    </dt>
     <dd>
         Starting with version 2.3.0 phpMyAdmin offers a lot of features
         to work with master / foreign - tables. To use those as well as
@@ -781,7 +782,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <dt>
         <a name="col_com"></a>
-        <b>$cfg['Servers'][$i]['column_comments']</b> string</dt>
+        <b>$cfg['Servers'][$i]['column_comments']</b> string
+    </dt>
     <dd>
         Since release 2.3.0 you can store comments to describe each column
         for each table. These will then be shown on the &quot;printview&quot;.
@@ -1340,18 +1342,20 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-<dt><b>$cfg['PmaNoRelation_DisableWarning']</b> bool</dt>
+    <dt><b>$cfg['PmaNoRelation_DisableWarning']</b> boolean</dt>
     <dd>
-        Starting with version 2.3.0 phpMyAdmin offers a lot of features
-        to work with master / foreign - tables. These features require the
-        PMA Administrator to set up a special Database for PMA.
-        (see <a href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>) Its Contents
-        and use will be explained further down. If you tried to set this up and
-        it does not work for you have a look on the Structure page of one Database
-        where you would like to use it. You will find a link that will analyze
-        why those features have been disabled.<br />
-        If you do not want to use those features set this variable to TRUE
-        to stop this Message from appearing.<br /><br />
+        Starting with version 2.3.0 phpMyAdmin offers a lot of features to work
+        with master / foreign - tables. These features require the PMA
+        administrator to set up a special database for PMA (see
+        <a class="navigation" href="#pmadb">$cfg['Servers'][$i]['pmadb']</a>).
+        Its contents and use will be explained further down.<br />
+        If you tried to set this up and it does not work for you have a look on
+        the &quot;Structure&quot; page of one database where you would like to
+        use it. You will find a link that will analyze why those features have
+        been disabled.<br />
+        If you do not want to use those features set this variable to
+        <tt>TRUE</tt> to stop this message from appearing.
+        <br /><br />
     </dd>
 </dl>
 
