@@ -21,7 +21,10 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sept', '
 // variable below
 $datefmt = ' %e %B %Y om %H:%M';
 
+$timespanfmt = '%s dagen, %s uren, %s minuten and %s seconden';
+
 $strAPrimaryKey = 'Een primaire sleutel is toegevoegd aan %s';
+$strAbortedClients = 'Afgehaakte';
 $strAccessDenied = 'Toegang geweigerd ';
 $strAction = 'Actie';
 $strAddDeleteColumn = 'Toevoegen/Verwijderen Veld Kolommen';
@@ -65,6 +68,7 @@ $strBookmarkQuery = 'Opgeslagen SQL-query';
 $strBookmarkThis = 'Sla deze SQL-query op';
 $strBookmarkView = 'Alleen bekijken';
 $strBrowse = 'Verkennen';
+$strBzError = 'phpMyAdmin is er niet in geslaagd om de dump te comprimeren doordat de Bz2 extensie in deze php versie niet functioneert. Het wordt sterk aangeraden om de instelling <code>$cfg[\'BZipDump\']</code> in uw phpMyAdmin configuratie bestand op <code>FALSE</code> te zetten. Als u Bz2 compressie wilt gebruiken zult u moeten upgraden naar een latere php versie. Zie php bug report %s voor meer informatie.';
 $strBzip = '"ge-bzipt"';
 
 $strCannotLogin = 'Kan niet inloggen op de MySQL server';
@@ -85,15 +89,18 @@ $strChoosePage = 'Kies een pagina om aan te passen';
 $strColComFeat = 'Toon kolom commentaar';
 $strColumn = 'Kolom';
 $strColumnNames = 'Kolom namen';
+$strCommand = 'Commando';
 $strComments = 'Commentaar';
 $strCompleteInserts = 'Invoegen voltooid';
 $strCompression = 'Compressie';
 $strConfigFileError = 'phpMyAdmin kon het configuratie bestand niet lezen! <br />Dit kan gebeuren als php een parse error in dit bestand aantreft of dit bestand helemaal niet gevonden kan worden.<br />Roep het configuratie bestand direct aan met de snelkoppeling hieronder en lees de php foutmelding(en). In de meeste gevallen ontbreekt er ergens bijvoorbeeld een quote.<br /> Wanneer er een blanco pagina wordt weergegeven zijn er geen problemen.';
 $strConfigureTableCoord = 'Configureer de coördinaten voor de tabel %s';
 $strConfirm = 'Weet u zeker dat u dit wilt?';
+$strConnections = 'Connecties';
 $strCookiesRequired = 'Cookies moeten aan staan voorbij dit punt.';
 $strCopyTable = 'Kopieer tabel naar (database<b>.</b>tabel):';
 $strCopyTableOK = 'Tabel %s is gekopieerd naar %s.';
+$strCouldNotKill = 'phpMyAdmin is er niet in geslaagd om de %s te sluiten.Waarschijnlijk is het al gesloten.';
 $strCreate = 'Aanmaken';
 $strCreateIndex = 'Creëer een index op kolommen&nbsp;%s&nbsp;';
 $strCreateIndexTopic = 'Creëer een nieuwe index';
@@ -151,6 +158,7 @@ $strExportToXML = 'Exporteer naar XML formaat';
 $strExtendedInserts = 'Uitgebreide invoegingen';
 $strExtra = 'Extra';
 
+$strFailedAttempts = 'Mislukte pogingen';
 $strField = 'Veld';
 $strFieldHasBeenDropped = 'Veld %s is vervallen';
 $strFields = 'Velden';
@@ -168,6 +176,7 @@ $strFunction = 'Functie';
 $strGenBy = 'Gegenereerd door';
 $strGenTime = 'Generatie Tijd';
 $strGeneralRelationFeat = 'Basis relatie opties';
+$strGlobalValue = 'Globale waarde';
 $strGo = 'Start';
 $strGrants = 'Toekennen';
 $strGzip = '"ge-gzipt"';
@@ -181,6 +190,7 @@ $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Pagina';
 $strHost = 'Host';
 $strHostEmpty = 'De hostnaam is leeg!';
 
+$strId = 'ID';
 $strIdxFulltext = 'Volledige tekst';
 $strIfYouWish = 'Indien u slechts enkele van de tabelkolommen wilt laden, voer dan een door komma\'s gescheiden veldlijst in.';
 $strIgnore = 'Negeer';
@@ -204,6 +214,7 @@ $strKeepPass = 'Wijzig het wachtwoord niet';
 $strKeyname = 'Sleutelnaam';
 $strKill = 'stop proces';
 
+$strLaTeX = 'LaTeX'; 
 $strLength = 'Lengte';
 $strLengthSet = 'Lengte/Waardes*';
 $strLimitNumRows = 'records per pagina';
@@ -222,6 +233,7 @@ $strMissingBracket = 'Er ontbreekt een bracket';
 $strModifications = 'Wijzigingen opgeslagen.';
 $strModify = 'Aanpassen';
 $strModifyIndexTopic = 'Wijzig een index';
+$strMoreStatusVars = 'Meer status variabelen';
 $strMoveTable = 'Verplaats tabel naar (database<b>.</b>tabel):';
 $strMoveTableOK = 'Tabel %s is verplaatst naar %s.';
 $strMySQLCharset = 'MySQL Karakterset';
@@ -282,6 +294,7 @@ $strPdfDbSchema = 'Schema van de "%s" database - Pagina %s';
 $strPdfInvalidPageNum = 'Ongedefinieerd PDF pagina nummer!';
 $strPdfInvalidTblName = 'De tabel "%s" bestaat niet!';
 $strPdfNoTables = 'Geen Tabellen';
+$strPerHour = 'per uur';
 $strPhp = 'Creëer PHP Code';
 $strPmaDocumentation = 'phpMyAdmin Documentatie';
 $strPmaUriError = 'De <tt>$cfg[\'PmaAbsoluteUri\']</tt> richtlijn MOET gezet zijn in het configuratie bestand!';
@@ -294,7 +307,11 @@ $strPrimaryKeyName = 'De naam van de primaire sleutel moet PRIMARY zijn!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>moet</b> de naam van en <b>alleen van</b> een primaire sleutel zijn!)';
 $strPrint = 'Afdrukken';
 $strPrintView = 'Printopmaak';
+$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
+$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
+$strPrivDescMaxUpdates = 'Limits the number of commands that that change any table or database the user may execute per hour.';
 $strPrivileges = 'Rechten';
+$strProcesslist = 'Process lijst';
 $strProperties = 'Eigenschappen';
 $strPutColNames = 'Plaats veldnamen in de eerste rij';
 
@@ -302,8 +319,11 @@ $strQBE = 'Query opbouwen';
 $strQBEDel = 'Verwijder';
 $strQBEIns = 'Toevoegen';
 $strQueryOnDb = 'SQL-query op database <b>%s</b>:';
+$strQueryStatistics = '<b>Query statistieken</b>: Sinds het opstarten zijn er, %s queries gestuurd naar de server.';
+$strQueryType = 'Query type';
 
 $strReType = 'Type opnieuw';
+$strReceived = 'Ontvangen';
 $strRecords = 'Records';
 $strReferentialIntegrity = 'Controleer referentiële integriteit';
 $strRelationNotWorking = 'Extra opties om met tabellen te werken die gelinked zijn, zijn uitgeschakeld. Om te weten te komen waarom klik %shier%s.';
@@ -362,9 +382,17 @@ $strSelectFields = 'Selecteer velden (tenminste 1):';
 $strSelectNumRows = 'in query';
 $strSelectTables = 'Selecteer tabellen';
 $strSend = 'verzenden';
+$strSent = 'Verzonden';
 $strServer = 'Server %s';
 $strServerChoice = 'Server keuze';
+$strServerStatus = 'Runtime Informatie';
+$strServerStatusUptime = 'Deze MySQL server draait inmiddels %s. Hij is gestart op %s.';
+$strServerTabProcesslist = 'Processen';
+$strServerTabVariables = 'Variabelen';
+$strServerTrafficNotes = '<b>Server verkeer</b>: Deze tabellen geven statistieken weer van het verkeer van deze MySQL server vanaf het moment dat hij is gestart';
+$strServerVars = 'Server variabelen en instellingen';
 $strServerVersion = 'Server versie';
+$strSessionValue = 'Sessie variabelen';
 $strSetEnumVal = 'Als het veldtype "enum" of "set" is, voer dan de waardes in volgens dit formaat: \'a\',\'b\',\'c\'...<br />Als u ooit een backslash moet plaatsen ("\") of een enkel aanhalingsteken ("\'") bij deze waardes, backslash het (voorbeeld \'\\\\xyz\' of \'a\\\'b\').';
 $strShow = 'Toon';
 $strShowAll = 'Toon alles';
@@ -382,6 +410,7 @@ $strSort = 'Sorteren';
 $strSpaceUsage = 'Ruimte gebruik';
 $strSplitWordsWithSpace = 'Woorden worden gesplit door een spatie karakter (" ").';
 $strStatement = 'Opdrachten';
+$strStatus = 'Status';
 $strStrucCSV = 'CSV gegevens';
 $strStrucData = 'Structuur en gegevens';
 $strStrucDrop = '\'drop table\' toevoegen';
@@ -408,8 +437,11 @@ $strTextAreaLength = ' Vanwege z\'n lengte,<br /> is dit veld misschien niet te 
 $strTheContent = 'De inhoud van uw bestand is ingevoegd.';
 $strTheContents = 'De inhoud van het bestand vervangt de inhoud van de geselecteerde tabel voor rijen met een identieke primaire of unieke sleutel.';
 $strTheTerminator = 'De afsluiter van de velden.';
+$strThreadSuccessfullyKilled = 'Thread %s is met success afgesloten.';
+$strTime = 'Tijd';
 $strTotal = 'totaal';
 $strTotalUC = 'Totaal';
+$strTraffic = 'Verkeer';
 $strType = 'Type';
 
 $strUncheckAll = 'Deselecteer alles';
@@ -430,6 +462,7 @@ $strUsers = 'Gebruikers';
 $strValidateSQL = 'Valideer SQL';
 $strValidatorError = 'De SQL validatie kon niet worden geinitialiseerd. Controleer of u de nodige php extensies heeft geinstalleerd zoals beschreven in de %sdocumentatie%s.';
 $strValue = 'Waarde';
+$strVar = 'Variabelen';
 $strViewDump = 'Bekijk een dump (schema) van tabel';
 $strViewDumpDB = 'Bekijk een dump (schema) van database';
 
@@ -444,47 +477,16 @@ $strYes = 'Ja';
 $strZip = '"Gezipt"';
 // To translate
 
-$strShowDatadictAs = 'Data Dictionary Format';  //to translate
-$strLandscape = 'Landscape';  //to translate
-$strPortrait = 'Portrait';  //to translate
-
-$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
-
-$strAbortedClients = 'Aborted'; //to translate
-$strConnections = 'Connections'; //to translate
-$strFailedAttempts = 'Failed attempts'; //to translate
-$strGlobalValue = 'Global value'; //to translate
-$strMoreStatusVars = 'More status variables'; //to translate
-$strPerHour = 'per hour'; //to translate
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
-$strQueryType = 'Query type'; //to translate
-$strReceived = 'Received'; //to translate
-$strSent = 'Sent'; //to translate
-$strServerStatus = 'Runtime Information'; //to translate
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-$strServerTabVariables = 'Variables'; //to translate
-$strServerTabProcesslist = 'Processes'; //to translate
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
-$strServerVars = 'Server variables and settings'; //to translate
-$strSessionValue = 'Session value'; //to translate
-$strTraffic = 'Traffic'; //to translate
-$strVar = 'Variable'; //to translate
-
-$strCommand = 'Command'; //to translate
-$strCouldNotKill = 'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'; //to translate
-$strId = 'ID'; //to translate
-$strProcesslist = 'Process list'; //to translate
-$strStatus = 'Status'; //to translate
-$strTime = 'Time'; //to translate
-$strThreadSuccessfullyKilled = 'Thread %s was successfully killed.'; //to translate
-
-$strBzError = 'phpMyAdmin was unable to compress the dump because of a broken Bz2 extension in this php version. It is strongly recommended to set the <code>$cfg[\'BZipDump\']</code> directive in your phpMyAdmin configuration file to <code>FALSE</code>. If you want to use the Bz2 compression features, you should upgrade to a later php version. See php bug report %s for details.'; //to translate
-$strLaTeX = 'LaTeX';  //to translate
-
 $strAdministration = 'Administration'; //to translate
+
 $strFlushPrivilegesNote = 'Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of this tables may differ from the privileges the server uses if manual changes have made to it. In this case, you should %sreload the privileges%s before you continue.'; //to translate
+
 $strGlobalPrivileges = 'Global privileges'; //to translate
 $strGrantOption = 'Grant'; //to translate
+
+$strLandscape = 'Landscape';  //to translate
+
+$strPortrait = 'Portrait';  //to translate
 $strPrivDescAllPrivileges = 'Includes all privileges except GRANT.'; //to translate
 $strPrivDescAlter = 'Allows altering the structure of existing tables.'; //to translate
 $strPrivDescCreateDb = 'Allows creating new databases and tables.'; //to translate
@@ -499,15 +501,12 @@ $strPrivDescGrant = 'Allows adding users and privileges without reloading the pr
 $strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
 $strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
 $strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
-$strPrivDescMaxUpdates = 'Limits the number of commands that that change any table or database the user may execute per hour.';
 $strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
 $strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
 $strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
+$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
 $strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
 $strPrivDescSelect = 'Allows reading data.'; //to translate
 $strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
 $strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
@@ -515,7 +514,12 @@ $strPrivDescSuper = 'Allows connectiong, even if maximum number of connections i
 $strPrivDescUpdate = 'Allows changing data.'; //to translate
 $strPrivDescUsage = 'No privileges.'; //to translate
 $strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
+
 $strResourceLimits = 'Resource limits'; //to translate
+
+$strShowDatadictAs = 'Data Dictionary Format';  //to translate
+
 $strUserOverview = 'User overview'; //to translate
+
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
 ?>
