@@ -17,7 +17,12 @@ function PMA_transformation_getOptions($string) {
         }
     }
 
-    return $transform_options;
+    // strip possible slashes to behave like documentation says
+    $result = array();
+    foreach($transform_options as $val) {
+        $result[] = stripslashes($val);
+    }
+    return $result;
 }
 
 /**

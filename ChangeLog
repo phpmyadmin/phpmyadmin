@@ -8,6 +8,8 @@ $Source$
 2004-10-12 Michal Čihař  <michal@cihar.com>
     * sql.php: Don't try to require sql.php with parameters, rather redirect
       to it.
+    * libraries/transformations.lib.php: Strip slashes to behave like
+      documentation says.
 
 2004-10-11 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html: typos and XHTML validity, thanks to Cedric Corazza
