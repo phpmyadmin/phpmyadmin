@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-21 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_relation.php3: improve variables, remove some code
+
 2003-08-20 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_privileges.php3: Fixed some typos.
 

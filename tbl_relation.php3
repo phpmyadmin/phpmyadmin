@@ -32,33 +32,33 @@ if ($cfgRelation['displaywork']) {
 if ($cfgRelation['relwork']
     && isset($submit_rel) && $submit_rel == 'true') {
 
-    while (list($key, $value) = each($destination)) {
-        if ($value != 'nix') {
-            $for            = explode('.', $value);
-            if (!isset($existrel[$key])) {
+    while (list($master_field, $foreign_string) = each($destination)) {
+        if ($foreign_string != 'nix') {
+            list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
+            if (!isset($existrel[$master_field])) {
                 $upd_query  = 'INSERT INTO ' . PMA_backquote($cfgRelation['relation'])
                             . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
                             . ' values('
                             . '\'' . PMA_sqlAddslashes($db) . '\', '
                             . '\'' . PMA_sqlAddslashes($table) . '\', '
-                            . '\'' . PMA_sqlAddslashes($key) . '\', '
-                            . '\'' . PMA_sqlAddslashes($for[0]) . '\', '
-                            . '\'' . PMA_sqlAddslashes($for[1]) . '\','
-                            . '\'' . PMA_sqlAddslashes($for[2]) . '\')';
-            } else if ($existrel[$key] != $value) {
+                            . '\'' . PMA_sqlAddslashes($master_field) . '\', '
+                            . '\'' . PMA_sqlAddslashes($foreign_db) . '\', '
+                            . '\'' . PMA_sqlAddslashes($foreign_table) . '\','
+                            . '\'' . PMA_sqlAddslashes($foreign_field) . '\')';
+            } else if ($existrel[$master_field] != $foreign_string) {
                 $upd_query  = 'UPDATE ' . PMA_backquote($cfgRelation['relation']) . ' SET'
-                            . ' foreign_db       = \'' . PMA_sqlAddslashes($for[0]) . '\', '
-                            . ' foreign_table    = \'' . PMA_sqlAddslashes($for[1]) . '\', '
-                            . ' foreign_field    = \'' . PMA_sqlAddslashes($for[2]) . '\' '
+                            . ' foreign_db       = \'' . PMA_sqlAddslashes($foreign_db) . '\', '
+                            . ' foreign_table    = \'' . PMA_sqlAddslashes($foreign_table) . '\', '
+                            . ' foreign_field    = \'' . PMA_sqlAddslashes($foreign_field) . '\' '
                             . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
                             . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_sqlAddslashes($key) . '\'';
+                            . ' AND master_field = \'' . PMA_sqlAddslashes($master_field) . '\'';
             } // end if... else....
-        } else if (isset($existrel[$key])) {
+        } else if (isset($existrel[$master_field])) {
             $upd_query      = 'DELETE FROM ' . PMA_backquote($cfgRelation['relation'])
                             . ' WHERE master_db  = \'' . PMA_sqlAddslashes($db) . '\''
                             . ' AND master_table = \'' . PMA_sqlAddslashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_sqlAddslashes($key) . '\'';
+                            . ' AND master_field = \'' . PMA_sqlAddslashes($master_field) . '\'';
         } // end if... else....
         if (isset($upd_query)) {
             $upd_rs         = PMA_query_as_cu($upd_query);
@@ -160,9 +160,7 @@ if ($cfgRelation['relwork']) {
                 while ($curr_field = PMA_mysql_fetch_array($fi_rs)) {
                     $field_full = $db . '.' . $curr_field['Table'] . '.' . $curr_field['Column_name'];
                     $field_v    = $curr_field['Table'] . '->' . $curr_field['Column_name'];
-                    if (isset($field_full) && isset($field_v)) {
-                        $selectboxall[$field_full] =  $field_v;
-                    }
+                    $selectboxall[$field_full] =  $field_v;
                 } // end while
             } // end if (mysql_num_rows)
         }
@@ -198,7 +196,6 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     <tr>
         <th><?php echo $save_row[$i]['Field']; ?></th>
         <td>
-            <input type="hidden" name="src_field" value="<?php echo $save_row[$i]['Field']; ?>" />
             <select name="destination[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
         <?php
         echo "\n";
@@ -250,7 +247,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 
     <?php
     if ($cfgRelation['displaywork']) {
-        // Get "display_filed" infos
+        // Get "display_field" infos
         $disp = PMA_getDisplayField($db, $table);
 
         echo "\n";
