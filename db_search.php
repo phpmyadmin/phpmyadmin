@@ -57,9 +57,13 @@ if (isset($submit_search)) {
         $sqlstr_delete = 'DELETE';
 
         // Fields to select
-        $res                  = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']) . ';');
-        while (list($current) = PMA_DBI_fetch_row($res)) {
-            $tblfields[]      = PMA_backquote($current);
+        $res                  = PMA_DBI_query('SHOW ' . (PMA_MYSQL_INT_VERSION >= 40100 ? 'FULL ' : '') . 'FIELDS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($GLOBALS['db']) . ';');
+        while ($current = PMA_DBI_fetch_assoc($res)) {
+            if (PMA_MYSQL_INT_VERSION >= 40100) {
+                list($current['Charset']) = explode('_', $current['Collation']);
+            }
+            $current['Field'] = PMA_backquote($current['Field']);
+            $tblfields[]      = $current;
         } // while
         PMA_DBI_free_result($res);
         unset($current, $res);
@@ -81,12 +85,20 @@ if (isset($submit_search)) {
             // Elimines empty values
             if (!empty($search_words[$i])) {
                 for ($j = 0; $j < $tblfields_cnt; $j++) {
-                    $thefieldlikevalue[] = $tblfields[$j]
-                                         . ' ' . $like_or_regex
-                                         . ' \''
+                    $prefix = PMA_MYSQL_INT_VERSION >= 40100 && $tblfields[$j]['Charset'] != 'NULL'
+                            ? 'CONVERT(_utf8 '
+                            : '';
+                    $suffix = PMA_MYSQL_INT_VERSION >= 40100 && $tblfields[$j]['Charset'] != 'NULL'
+                            ? ' USING ' . $tblfields[$j]['Charset'] . ')'
+                            : '';
+                    $thefieldlikevalue[] = $tblfields[$j]['Field']
+                                         . ' ' . $like_or_regex . ' '
+                                         . $prefix
+                                         . '\''
                                          . $automatic_wildcard
                                          . $search_words[$i]
-                                         . $automatic_wildcard . '\'';
+                                         . $automatic_wildcard . '\''
+                                         . $suffix;
                 } // end for
 
                 $fieldslikevalues[]      = ($search_wds_cnt > 1)
