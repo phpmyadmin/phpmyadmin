@@ -301,7 +301,7 @@ $strViewDump = 'Покажи дъмп (схема) на таблицата';
 $strViewDumpDB = 'Покажи дъмп (схема) на БД';
 
 $strWelcome = 'Добре дошли в ';
-$strWithChecked = 'Когато има отметка:'
+$strWithChecked = 'Когато има отметка:';
 $strWrongUser = 'Грешно име/парола. Отказан достъп.';
 
 $strYes = 'Да';
