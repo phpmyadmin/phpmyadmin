@@ -489,13 +489,27 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * set properly and, depending on browsers, inserting or updating a
      * record might fail
      */
+
+    $DisplayPmaAbsoluteUriWarning = 0;
+
     if (empty($cfg['PmaAbsoluteUri'])) {
-        if (empty($GLOBALS['is_header_sent'])) {
-            include('./header.inc.php3');
-        }
-        echo '<p class="warning">'. $strPmaUriError . '</p>' . "\n";
-        include('./footer.inc.php3');
-        exit();
+        // if (empty($GLOBALS['is_header_sent'])) {
+        //     include('./header.inc.php3');
+        // }
+        // echo '<p class="warning">'. $strPmaUriError . '</p>' . "\n";
+        // include('./footer.inc.php3');
+        // exit();
+
+        $DisplayPmaAbsoluteUriWarning = 1;
+        
+        // Setup a default value to let the people and lazy syadmins work anyway, 
+        // but display a big warning on the main.php3 page.  --Olivier
+
+        $cfg['PmaAbsoluteUri'] = (!empty($HTTP_SERVER_VARS['HTTPS']) ? 'https' : 'http') . '://'
+            . $HTTP_SERVER_VARS['SERVER_NAME']
+            . (!empty($HTTP_SERVER_VARS['SERVER_PORT']) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '')
+            . substr($HTTP_SERVER_VARS['SCRIPT_NAME'], 0, strrpos($HTTP_SERVER_VARS['SCRIPT_NAME'], '/')+1);
+
     }
     // Adds a trailing slash et the end of the phpMyAdmin uri if it does not
     // exist

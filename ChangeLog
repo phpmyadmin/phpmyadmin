@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-21 Olivier L. Müller  <om@omnis.ch>
+    * libraries/common.lib.php3, main.php3: be more tolerant with lazy 
+      sysadmins or users by letting them having an empty 
+      $cfg['PmaAbsoluteUri']. A default value (which should work according
+      to the docs...) will be set and a warning displayed on main.php3. 
+
 2002-06-21 Robin Johnson  <robbat2@users.sourceforge.net>
     * lang/english*: $strSplitWordsWithSpace
         - 'splitted' changed to 'seperated'	

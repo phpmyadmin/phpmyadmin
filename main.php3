@@ -562,6 +562,12 @@ echo "\n";
 
 
 <?php
+
+
+if ($DisplayPmaAbsoluteUriWarning) {
+    echo '<p class="warning">'. $strPmaUriError . '</p>' . "\n";
+}
+
 /**
  * Displays the footer
  */
