@@ -218,10 +218,10 @@ if ($asfile) {
     // Generate basic dump extension
     if ($type == 'csv') {
         $filename  .= '.csv';
-        $mime_type = 'text/x-csv';
+        $mime_type = 'text/x-comma-separated-values';
     } else if ($type == 'xls') {
         $filename  .= '.xls';
-        $mime_type = 'application/excel';
+        $mime_type = 'application/vnd.ms-excel';
     } else if ($type == 'xml') {
         $filename  .= '.xml';
         $mime_type = 'text/xml';
@@ -230,24 +230,21 @@ if ($asfile) {
         $mime_type = 'application/x-tex';
     } else {
         $filename  .= '.sql';
-        // loic1: 'application/octet-stream' is the registered IANA type but
-        //        MSIE and Opera seems to prefer 'application/octetstream'
-        $mime_type = (PMA_USR_BROWSER_AGENT == 'IE' || PMA_USR_BROWSER_AGENT == 'OPERA')
-                   ? 'application/octetstream'
-                   : 'application/octet-stream';
+        $mime_type = 'text/x-sql';
     }
 
-    // If dump is going to be compressed, set correct mime_type and add
+    // If dump is going to be compressed, set correct encoding or mime_type and add
     // compression to extension
+    $content_encoding = '';
     if (isset($compression) && $compression == 'bzip') {
         $filename  .= '.bz2';
-        $mime_type = 'application/x-bzip';
+        $content_encoding = 'x-bzip2';
     } else if (isset($compression) && $compression == 'gzip') {
         $filename  .= '.gz';
-        $mime_type = 'application/x-gzip';
+        $content_encoding = 'x-gzip';
     } else if (isset($compression) && $compression == 'zip') {
         $filename  .= '.zip';
-        $mime_type = 'application/x-zip';
+        $mime_type = 'application/zip';
     }
 }
 
@@ -293,6 +290,9 @@ if ($save_on_server) {
 if (!$save_on_server) {
     if ($asfile ) {
         // Download
+        if (!empty($content_encoding)) {
+            header('Content-Encoding: ' . $content_encoding);
+        }
         header('Content-Type: ' . $mime_type);
         header('Expires: ' . gmdate('D, d M Y H:i:s') . ' GMT');
         // lem9 & loic1: IE need specific headers
