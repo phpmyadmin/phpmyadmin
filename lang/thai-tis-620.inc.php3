@@ -7,9 +7,6 @@
  * Revised on 2002/06/18 by: Arthit Suriyawongkul
  */
 
-// note: Thai has 2 standard encodings (tis-620, iso-8859-11)
-// tis-620 is the only Thai encoding that registered with IANA,
-// it used in MIME text/* media type.
 $charset = 'tis-620';
 $text_dir = 'ltr';
 $left_font_family = 'sans-serif';

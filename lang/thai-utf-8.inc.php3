@@ -7,9 +7,6 @@
  * Revised on 2002/06/18 by: Arthit Suriyawongkul
  */
 
-// note: Thai has 2 standard encodings (utf-8, iso-8859-11)
-// utf-8 is the only Thai encoding that registered with IANA,
-// it used in MIME text/* media type.
 $charset = 'utf-8';
 $allow_recoding = TRUE;
 $text_dir = 'ltr';
