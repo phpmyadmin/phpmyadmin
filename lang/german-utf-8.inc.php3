@@ -617,4 +617,6 @@ $strNoOptions = 'Für dieses Format sind keine Optionen vorhanden';
 $strStatCreateTime = 'Erzeugt am';
 $strStatUpdateTime = 'Aktualisiert am';
 $strStatCheckTime = 'Letzter Check am';
+$strPerMinute = 'pro Minute';
+$strPerSecond = 'pro Sekunde';
 ?>

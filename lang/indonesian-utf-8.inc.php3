@@ -608,4 +608,6 @@ $strNoOptions = 'This format has no options';//to translate
 $strStatCreateTime = 'Creation';//to translate
 $strStatUpdateTime = 'Last update';//to translate
 $strStatCheckTime = 'Last check';//to translate
+$strPerMinute = 'per minute';//to translate
+$strPerSecond = 'per second';//to translate
 ?>

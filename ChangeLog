@@ -9,6 +9,7 @@ $Source$
     * libraries/sqlparser.lib.php3: analyzer: where_clause_identifiers
 
 2003-03-13 Garvin Hicking <me@supergarv.de>
+    * lang/*, server_status.php3: RFE #702485 - display total# queries per hour/minute/second.
     * config.inc.php3: Put a note for flipped headers: CSS only works for IE. ('writing-mode')
     * libraries/display_tbl.lib.php3: Display fields used for WHERE query highlighted in
       results page (1px border in the color of BrowserMarkerColor around the cells).
@@ -20,6 +21,7 @@ $Source$
       dumps, if information is available (gathered by 'SHOW TABLE STATUS' for MySQL 3.23.XX).
     * config.inc.php3 - Altered comments for PMA_* tables for easier integration and more 
       clarity. Make it easier to enable defaults (RFE #695265)
+
 2003-03-12 Garvin Hicking <me@supergarv.de>
     * db_details_structure.php3: When using Alias-Displays for Tables, fix bug when a tablename
       was not displayed if it has no comment.

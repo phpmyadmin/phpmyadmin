@@ -607,4 +607,6 @@ $strNoOptions = 'This format has no options';
 $strStatCreateTime = 'Creation';
 $strStatUpdateTime = 'Last update';
 $strStatCheckTime = 'Last check';
+$strPerMinute = 'per minute';
+$strPerSecond = 'per second';
 ?>

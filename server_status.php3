@@ -160,7 +160,9 @@ unset($tmp_array);
 
 $useBgcolorOne = TRUE;
 $countRows = 0;
+$total = 0;
 while (list($name, $value) = each($queryStats)) {
+$total += $value;
 ?>
                         <tr>
                             <td bgcolor="<?php echo $useBgcolorOne ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']; ?>">&nbsp;<?php echo htmlspecialchars($name); ?>&nbsp;</td>
@@ -187,11 +189,31 @@ while (list($name, $value) = each($queryStats)) {
 }
 unset($countRows);
 unset($useBgcolorOne);
-
+$value = $total;
 ?>
                     </table>
                 </td>
             </tr>
+            <tr>
+                <td colspan="2">
+                    <br />
+                    <table border="0" align="right">
+                        <tr>
+                            <th>&nbsp;<?php echo $strTotalUC; ?>&nbsp;</th>
+                            <th>&nbsp;&oslash;&nbsp;<?php echo $strPerHour; ?>&nbsp;</th>
+                            <th>&nbsp;&oslash;&nbsp;<?php echo $strPerMinute; ?>&nbsp;</th>
+                            <th>&nbsp;&oslash;&nbsp;<?php echo $strPerSecond; ?>&nbsp;</th>
+                        </tr>
+
+                        <tr>
+                            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">&nbsp;<?php echo number_format($value, 0, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;</td>
+                            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">&nbsp;<?php echo number_format(($value * 3600 / $serverStatus['Uptime']), 2, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;</td>
+                            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">&nbsp;<?php echo number_format(($value * 60 / $serverStatus['Uptime']), 2, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;</td>
+                            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" align="right">&nbsp;<?php echo number_format(($value / $serverStatus['Uptime']), 2, $number_decimal_separator, $number_thousands_separator); ?>&nbsp;</td>
+                        </tr>
+
+                    </table>
+                </td>
         </table>
     </li>
 <?php
