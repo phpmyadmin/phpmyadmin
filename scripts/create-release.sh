@@ -108,6 +108,9 @@ END
  fi
 fi
 
+# Goto project dir
+cd /home/groups/p/ph/phpmyadmin/htdocs
+
 # Move old cvs dir
 if [ -e cvs ];
 then
