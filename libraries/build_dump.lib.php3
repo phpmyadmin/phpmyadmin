@@ -327,8 +327,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                         // a number
                         if ($field_num[$j]) {
                             $values[] = $row[$j];
-                        // a blob
-                        } else if ($field_blob[$j]) {
+                        // a not empty blob
+                        } else if ($field_blob[$j] && !empty($row[$j])) {
                             $values[] = '0x' . bin2hex($row[$j]);
                         // a string
                         } else {
@@ -465,7 +465,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                         $type == 'bigint'  ||$type == 'timestamp') {
                         $schema_insert .= $row[$j] . ', ';
                     // blob
-                    } else if ($type == 'blob' || $type == 'mediumblob' || $type == 'largeblob' || $type == 'tinyblob') {
+                    } else if (($type == 'blob' || $type == 'mediumblob' || $type == 'largeblob' || $type == 'tinyblob') && !empty($row[$j])) {
                         $schema_insert .= '0x' . bin2hex($row[$j]) . ', ';
                     // a string
                     } else {

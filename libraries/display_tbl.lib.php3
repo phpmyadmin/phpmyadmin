@@ -961,8 +961,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                             $condition .= 'IS NULL AND';
                         } else {
                             if ($meta->type == 'blob'
-                                // hexify only if this is a true BLOB
-                                 && eregi('BINARY', $field_flags)) {
+                                // hexify only if this is a true not empty BLOB
+                                 && eregi('BINARY', $field_flags)
+                                 && !empty($row[$pointer])) {
                                     $condition .= 'LIKE 0x' . bin2hex($row[$pointer]). ' AND';
                             } else {
                                 $condition .= '= \'' . PMA_sqlAddslashes($row[$pointer], FALSE, TRUE) . '\' AND';

@@ -8,6 +8,9 @@ $Source$
 2003-05-22 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_indexes.php3, libraries/common.lib.php3: Better tabs highlighting
       when editing indexes.
+    * tbl_replace_fields.php3, libraries/build_dump.lib.php3,
+      libraries/display_tbl.lib.php3: Don't hexify BLOB if it is empty (bug
+      #741599).
 
 2003-05-22 Garvin Hicking <me@supergarv.de>
     * sql.php3, libraries/common.lib.php3: Bug #692854: Never execute

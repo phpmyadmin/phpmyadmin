@@ -163,7 +163,7 @@ if (!$check_stop) {
                     // mode, insert empty field because no values were submitted. If protected
                     // blobs where set, insert original fields content.
                     if (isset($fieldlist)) {
-                        if (isset($prot_row) && isset($prot_row[$key]) && $prot_row[$key] != '') {
+                        if (isset($prot_row) && isset($prot_row[$key]) && !empty($prot_row[$key])) {
                             $val = '0x' . bin2hex($prot_row[$key]);
                             $seen_binary = TRUE;
                         } else {
