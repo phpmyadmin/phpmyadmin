@@ -135,13 +135,14 @@ $strDataOnly = ' Jen data';
 $strDatabase = 'Databáze ';
 $strDatabaseHasBeenDropped = 'Databáze %s byla zru¹ena.';
 $strDatabaseWildcard = 'Databáze (zástupné znaky povoleny):';
-$strDatabases = 'databáze';
+$strDatabases = 'Databáze';
 $strDatabasesDropped = '%s databáze byla úspì¹nì zru¹ena.';
 $strDatabasesStats = 'Statistiky databází';
 $strDatabasesStatsDisable = 'Zapnout statistiky';
 $strDatabasesStatsEnable = 'Vypnout statistiky';
-$strDatabasesStatsHeavyTraffic = 'Poznámka: Zapnutí statistik o&nbsp;databáchích mù¾e zpùsobit znaèné zvý¹ení provozu mezi webserverem a MySQL servere.';
+$strDatabasesStatsHeavyTraffic = 'Poznámka: Zapnutí statistik o&nbsp;databáchích mù¾e zpùsobit znaèné zvý¹ení provozu mezi webDerverem a MySQL serverem.';
 $strDbPrivileges = 'Oprávnìní pro jednotlivé databáze';
+$strDbSpecific = 'závislé na databázi';
 $strDefault = 'Výchozí';
 $strDefaultValueHelp = 'Výchozí hodnotu zadejte jen jednu hodnotu bez uvozovek a escapování znakù, napøíklad: a';
 $strDelete = 'Smazat';
@@ -208,6 +209,7 @@ $strFunction = 'Funkce';
 $strGenBy = 'Vygeneroval';
 $strGenTime = 'Vygenerováno';
 $strGeneralRelationFeat = 'Obecné funkce relací';
+$strGlobal = 'globální';
 $strGlobalPrivileges = 'Globální oprávnìní';
 $strGlobalValue = 'Globální hodnota';
 $strGo = 'Proveï';
@@ -547,6 +549,7 @@ $strUserNotFound = 'Zvolený u¾ivatel nebyl nalezen v&nbsp;tabulce oprávnìní.';
 $strUserOverview = 'Pøehled u¾ivatelù';
 $strUsers = 'U¾ivatelé';
 $strUsersDeleted = 'Vybraní u¾ivatelé byli úspì¹nì odstranìni.';
+$strUsersHavingAccessToDb = 'U¾ivatelé mající pøístup k&nbsp;&quot;%s&quot;';
 
 $strValidateSQL = 'Zkontrolovat SQL';
 $strValidatorError = 'SQL validator nemohl být inicializován. Prosím zkontrolujte jestli máte nainstalované potøebné roz¹íøení php, jak je popsáno v&nbsp;%sdokumentaci%s.';
@@ -569,7 +572,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strGlobal = 'global';  //to translate
-$strDbSpecific = 'database-specific';  //to translate
-$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
 ?>
