@@ -235,16 +235,16 @@ while ($row = PMA_DBI_fetch_assoc($fields_rs)) {
 
         if ($propicon == 'both') {
             $titles['Change']        .= '&nbsp;' . $strChange . '</div>';
-            $titles['Drop']          .= '&nbsp;' . $strDrop . '</nobr>';
-            $titles['NoDrop']        .= '&nbsp;' . $strDrop . '</nobr>';
-            $titles['Primary']       .= '&nbsp;' . $strPrimary . '</nobr>';
-            $titles['Index']         .= '&nbsp;' . $strIndex . '</nobr>';
-            $titles['Unique']        .= '&nbsp;' . $strUnique . '</nobr>';
-            $titles['IdxFulltext'  ] .= '&nbsp;' . $strIdxFulltext . '</nobr>';
-            $titles['NoPrimary']     .= '&nbsp;' . $strPrimary . '</nobr>';
-            $titles['NoIndex']       .= '&nbsp;' . $strIndex . '</nobr>';
-            $titles['NoUnique']      .= '&nbsp;' . $strUnique . '</nobr>';
-            $titles['NoIdxFulltext'] .= '&nbsp;' . $strIdxFulltext . '</nobr>';
+            $titles['Drop']          .= '&nbsp;' . $strDrop . '</div>';
+            $titles['NoDrop']        .= '&nbsp;' . $strDrop . '</div>';
+            $titles['Primary']       .= '&nbsp;' . $strPrimary . '</div>';
+            $titles['Index']         .= '&nbsp;' . $strIndex . '</div>';
+            $titles['Unique']        .= '&nbsp;' . $strUnique . '</div>';
+            $titles['IdxFulltext'  ] .= '&nbsp;' . $strIdxFulltext . '</div>';
+            $titles['NoPrimary']     .= '&nbsp;' . $strPrimary . '</div>';
+            $titles['NoIndex']       .= '&nbsp;' . $strIndex . '</div>';
+            $titles['NoUnique']      .= '&nbsp;' . $strUnique . '</div>';
+            $titles['NoIdxFulltext'] .= '&nbsp;' . $strIdxFulltext . '</div>';
         }
     } else {
         $titles['Change']        = $strChange;

@@ -824,9 +824,9 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
                 $order_last_word = $order_link_words[$order_last_word_index];
                 unset($order_link_words[$order_last_word_index]);
                 $order_link = $order_link_pre . implode(' ', $order_link_words)
-                            . ' <div class="nobr">' . $order_last_word . $order_img . '</div>' . $order_link_post . "\n";
+                            . ' <div class="nowrap">' . $order_last_word . $order_img . '</div>' . $order_link_post . "\n";
             } else {
-                $order_link = '<div class="nobr">' . $order_link_pre . $order_link_content . $order_link_post . $order_img . '</div>' . "\n";
+                $order_link = '<div class="nowrap">' . $order_link_pre . $order_link_content . $order_link_post . $order_img . '</div>' . "\n";
             }
 
             if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {

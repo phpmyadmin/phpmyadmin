@@ -19,6 +19,8 @@ $Source$
       now correctly works with multibyte strings (bug #936161).
     * libraries/dbi/mysql.dbi.lib.php: Do not break TEXT fields (bug #860160).
     * libraries/display_tbl.lib.php: Show if BLOB is null (RFE #941528).
+    * tbl_properties_structure.php: Forgotten </nobr> -> </div>.
+    * libraries/display_tbl.lib.php: Fixed class="nobr" -> class="nowrap".
 
 2004-04-28 Michal Cihar  <michal@cihar.com>
     * css/phpmyadmin.css.php: Force <button> to be displayed inline.
