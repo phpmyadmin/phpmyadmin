@@ -808,7 +808,7 @@ echo "\n";
                 <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td colspan="2">
-                        <?php echo $strCopyTable . ' (' . $strDatabase . '<b>.</b>' . trim($strTable) . ')'; ?>&nbsp;:
+                        <?php echo $strCopyTable . ' (' . trim($strDatabase) . '<b>.</b>' . trim($strTable) . ')'; ?>&nbsp;:
                     </td>
                 </tr>
                 <tr>
