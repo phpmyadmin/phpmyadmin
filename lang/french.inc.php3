@@ -360,5 +360,7 @@ $strConfigureTableCoord = 'Les coordonnées de la table %s n\'ont pas été configu
 $strScaleFactorSmall = 'Veuillez augmenter l\'échelle car le schéma déborde la page ';
 $strDisplayPDF = 'Afficher le schéma en PDF'; 
 $strPageNumber = 'Page n°:';
-$strShowGrid = 'Afficher la grille';
+$strShowGrid = 'Grille';
+$strShowColor = 'Couleurs';
+$strShowTableDimension = 'Dimension des tables';
 ?>

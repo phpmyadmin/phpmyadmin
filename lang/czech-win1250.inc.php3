@@ -361,4 +361,6 @@ $strScaleFactorSmall = 'The scale factor is too small to fit the schema on one p
 $strDisplayPDF = 'Display PDF schema';  //to translate
 $strPageNumber = 'Page number:';  //to translate
 $strShowGrid = 'Show grid';  //to translate
+$strShowColor = 'Show color';  //to translate
+$strShowTableDimension = 'Show dimension of tables';  //to translate
 ?>
