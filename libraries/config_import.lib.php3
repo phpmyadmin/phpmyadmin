@@ -7,7 +7,7 @@
  */
 
 
-if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
+if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     define('PMA_CONFIG_IMPORT_LIB_INCLUDED', 1);
 
     if (!isset($cfg['PmaAbsoluteUri'])) {

@@ -1,6 +1,15 @@
 <?php
-    // <markus@noga.de>
-    // get foreign keys in preparation for a drop-down selector
+/* $Id$ */
+
+
+/**
+ * Gets foreign keys in preparation for a drop-down selector
+ * Thanks to <markus@noga.de>
+ */
+
+
+if (!defined('PMA_GET_FOREIGN_LIB_INCLUDED')) {
+    define('PMA_GET_FOREIGN_LIB_INCLUDED', 1);
 
     // lem9: we always show the foreign field in the drop-down; if a display
     // field is defined, we show it besides the foreign field
@@ -32,4 +41,6 @@
             $disp            = PMA_mysql_query($dispsql);
         }
     } // end if $foreigners
+
+} // $__PMA_GET_FOREIGN_LIB_INCLUDED__
 ?>

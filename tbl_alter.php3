@@ -48,11 +48,11 @@ if (isset($submit)) {
             $field_name[$i] = $field_orig[$i];
         }
         $field_default_orig[$i] = urldecode($field_default_orig[$i]);
-        if (strcmp(str_replace('"', '&quot;', $field_default_orig[$i]), $field_default[$i]) == 0) { 
+        if (strcmp(str_replace('"', '&quot;', $field_default_orig[$i]), $field_default[$i]) == 0) {
             $field_default[$i]  = $field_default_orig[$i];
         }
         $field_length_orig[$i] = urldecode($field_length_orig[$i]);
-        if (strcmp(str_replace('"', '&quot;', $field_length_orig[$i]), $field_length[$i]) ==0) { 
+        if (strcmp(str_replace('"', '&quot;', $field_length_orig[$i]), $field_length[$i]) == 0) {
             $field_length[$i] = $field_length_orig[$i];
         }
         if (!isset($query)) {

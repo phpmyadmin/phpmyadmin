@@ -8,7 +8,7 @@
 
 
 
-if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
+if (!defined('PMA_BOOKMARK_LIB_INCLUDED')) {
     define('PMA_BOOKMARK_LIB_INCLUDED', 1);
 
     /**
@@ -110,7 +110,7 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
      * @param   array    the properties of the bookmark to add
      * @param   array    the bookmark parameters for the current user
      *
-     * @return  boolean  if the INSERT succeeds 
+     * @return  boolean  whether the INSERT succeeds or not
      *
      * @access  public
      */
@@ -119,20 +119,22 @@ if (!defined('PMA_BOOKMARK_LIB_INCLUDED')){
         $query = 'INSERT INTO ' . PMA_backquote($cfgBookmark['db']) . '.' . PMA_backquote($cfgBookmark['table'])
                . ' (id, dbase, user, query, label) VALUES (\'\', \'' . PMA_sqlAddslashes($fields['dbase']) . '\', \'' . PMA_sqlAddslashes($fields['user']) . '\', \'' . PMA_sqlAddslashes(urldecode($fields['query'])) . '\', \'' . PMA_sqlAddslashes($fields['label']) . '\')';
         if (isset($GLOBALS['dbh'])) {
-            $result = PMA_mysql_query($query, $GLOBALS['dbh']);
+            $result   = PMA_mysql_query($query, $GLOBALS['dbh']);
             if (PMA_mysql_error($GLOBALS['dbh'])) {
                $error = PMA_mysql_error($GLOBALS['dbh']);
                include('./header.inc.php3');
                PMA_mysqlDie($error);
             }
         } else {
-            $result = PMA_mysql_query($query);
+            $result   = PMA_mysql_query($query);
             if (PMA_mysql_error()) {
                $error = PMA_mysql_error();
                include('./header.inc.php3');
                PMA_mysqlDie($error);
             }
         }
+
+        return TRUE;
     } // end of the 'PMA_addBookmarks()' function
 
 

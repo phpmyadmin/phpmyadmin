@@ -9,7 +9,7 @@
 
 
 
-if (!defined('PMA_COMMON_LIB_INCLUDED')){
+if (!defined('PMA_COMMON_LIB_INCLUDED')) {
     define('PMA_COMMON_LIB_INCLUDED', 1);
 
     /**
@@ -85,8 +85,8 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
     // Include failed
     if (!isset($cfgServers) && !isset($cfg['Servers'])) {
         // Creates fake settings
-        $cfg = array('DefaultLang' => 'en-iso-8859-1',
-            'AllowAnywhereRecoding' => FALSE);
+        $cfg = array('DefaultLang'           => 'en-iso-8859-1',
+                     'AllowAnywhereRecoding' => FALSE);
         // Loads the language file
         include('./libraries/select_lang.lib.php3');
         // Sends the Content-Type header
@@ -136,7 +136,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     /**
      * Includes the language file if it hasn't been included yet
      */
-    if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')){
+    if (!defined('PMA_SELECT_LANG_LIB_INCLUDED')) {
         include('./libraries/select_lang.lib.php3');
     }
 
@@ -1207,7 +1207,7 @@ if (typeof(document.getElementById) != 'undefined'
                 if (eregi('^SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
                     $explain_link .= urlencode('EXPLAIN ' . $GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'];
                 } else if (eregi('^EXPLAIN[[:space:]]+SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
-                    $explain_link .= substr($GLOBALS['sql_query'],8) . '">' . $GLOBALS['strNoExplain'];
+                    $explain_link .= substr($GLOBALS['sql_query'], 8) . '">' . $GLOBALS['strNoExplain'];
                 } else {
                     $explain_link = '';
                 }
