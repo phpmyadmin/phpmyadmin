@@ -1755,7 +1755,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     this behavior by simply changing the directive to 0 (<tt>OFF</tt>):<br />
     Just edit you <tt>my.ini</tt> file that should be located in your Windows
     directory and add the following line:<br />
-    <tt>lower-case-table-names=0</tt><br />
+    <tt>set-variable = lower-case-table-names=0</tt><br />
     Next, save the file and restart the MySQL service. You can always check the
     value of this directive using the query<br />
     <tt>SHOW VARIABLES LIKE 'lower_case_table_names';</tt>

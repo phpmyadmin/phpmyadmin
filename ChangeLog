@@ -10,6 +10,7 @@ $Source$
     * Documentation.html, db_details_importdocsql.php3, tbl_relation.php3,
       libraries/relation.lib.php3: bug 681298, we should always backquote
       a restricted word like "comment" when used as an identifier
+    * Documentation.html, bug 681776, wrong command for my.ini file
 
 2003-02-05 Alexander M. Turek  <rabus@users.sourceforge.net>
     * db_details.php3, tbl_query_box.php3: Disabled the autoselect feature of
