@@ -90,8 +90,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     // set or enum types: slashes single quotes inside options
     if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
         $type   = $tmp[1];
-        $length = ereg_replace('([^,])\'([^,])', '\\1\\\'\\2', ',' . $tmp[2] . ',');
-        $length = substr($length, 1, -1);
+        $length = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
     } else {
         $length = $type;
         $type   = chop(eregi_replace('\\(.*\\)', '', $type));

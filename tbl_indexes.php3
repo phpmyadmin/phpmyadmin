@@ -116,11 +116,17 @@ if (defined('PMA_IDX_INCLUDED')) {
     $fields_cnt  = mysql_num_rows($fields_rs);
 }
 
-$fields_names       = array();
-$fields_types       = array();
+$fields_names           = array();
+$fields_types           = array();
 while ($row = mysql_fetch_array($fields_rs)) {
-    $fields_names[] = $row['Field'];
-    $fields_types[] = $row['Type'];
+    $fields_names[]     = $row['Field'];
+    // loic1: set or enum types: slashes single quotes inside options
+    if (eregi('^(set|enum)\((.+)\)$', $row['Type'], $tmp)) {
+        $tmp[2]         = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
+        $fields_types[] = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+    } else {
+        $fields_types[] = $row['Type'];
+    }
 } // end while
 
 if ($fields_rs) {
