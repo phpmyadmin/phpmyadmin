@@ -299,7 +299,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * user.
      *
      * This function is based on an article from phpBuilder (see
-     * http://www.php3builder.net/columns/tim20000821.php3).
+     * http://www.phpbuilder.net/columns/tim20000821.php3).
      *
      * @return  boolean    always true
      *
