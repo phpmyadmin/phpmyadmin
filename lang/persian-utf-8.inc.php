@@ -21,6 +21,7 @@ $month = array('ژانويه', 'فوريه', 'مارس', 'آوريل', 'مي', '
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d %B %Y ساعت %I:%M %p';
+$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
 
 $strAccessDenied = 'دسترسي مجاز نيست';
 $strAction = 'عمل';

@@ -20,6 +20,7 @@ $month = array('Çäæíå', 'İæÑíå', 'ãÇÑÓ', 'ÂæÑíá', 'ãí', 'æÆä', 'ÌæáÇí', 'ÂæÓÊ
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
 $datefmt = '%d %B %Y ÓÇÚÊ %I:%M %p';
+$timespanfmt = '%s days, %s hours, %s minutes and %s seconds'; //to translate
 
 $strAccessDenied = 'ÏÓÊÑÓí ãÌÇÒ äíÓÊ';
 $strAction = 'Úãá';

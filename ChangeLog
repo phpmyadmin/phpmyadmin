@@ -10,6 +10,7 @@ $Source$
       (bug #1033360), thanks to Claude Theroux.
     * lang/chinese_traditional-*.inc.php: Updates, thanks to Siu Sun.
     * lang/dutch-*.inc.php: Updates, thanks to Ivo Teel.
+    * lang/persian-*.inc.php: Added missing $timespanfmt variable.
 
 2004-09-27 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.6.0 released
