@@ -672,7 +672,7 @@ if (!defined('__LIB_COMMON__')){
 
         // IE (<6)/Opera for win case: needs smaller fonts than anyone else
         if (USR_OS == 'Win'
-            && (USR_BROWSER_AGENT == 'IE' || USR_BROWSER_AGENT == 'OPERA')) {
+            && ((USR_BROWSER_AGENT == 'IE' && USR_BROWSER_VER < 6) || USR_BROWSER_AGENT == 'OPERA')) {
             $font_size     = 'x-small';
             $font_bigger   = 'large';
             $font_smaller  = (USR_BROWSER_AGENT == 'IE' && USR_BROWSER_VER < 5.5)
@@ -684,7 +684,9 @@ if (!defined('__LIB_COMMON__')){
         else if (USR_OS == 'Win') {
             $font_size     = 'small';
             $font_bigger   = 'large ';
-            $font_smaller  = 'x-small';
+            $font_smaller  = (USR_BROWSER_AGENT == 'IE')
+                           ? '90%'
+                           : 'x-small';
             $font_smallest = 'x-small';
         }
         // Mac browsers: need bigger fonts
