@@ -18,8 +18,7 @@ $month = array('Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'O
 $datefmt = '%d/%m %Y kl. %H:%M:%S';
 $timespanfmt = '%s dage, %s timer, %s minutter og %s sekunder';
 
- 
-
+  
 $strAPrimaryKey = 'Der er føjet en primær nøgle til %s';
 $strAbortedClients = 'Afbrudt';
 $strAbsolutePathToDocSqlDir = 'Indtast venligst absolut sti på webserveren til docSQL mappen';
@@ -190,6 +189,7 @@ $strDbPrivileges = 'Database-specifikke privilegier';
 $strDbSpecific = 'database-specifik';
 $strDefault = 'Standardværdi';
 $strDefaultValueHelp = 'For standardværdier, indtast venligst kun en enkelt værdi, uden backslash escaping eller quotes, ud fra følgende format: a';
+$strDefragment = 'Defragmentér tabel';
 $strDelOld = 'Nuværende side har referencer til tabeller der ikke længere eksisterer. Vil du slette disse referencer?';
 $strDelayedInserts = 'Brug forsinkede indsættelser';
 $strDelete = 'Slet';
@@ -412,6 +412,7 @@ $strNoPhp = 'uden PHP-kode';
 $strNoPrivileges = 'Ingen privilegier';
 $strNoQuery = 'Ingen SQL forespørgsel!';
 $strNoRights = 'Du har ikke tilstrækkelige rettigheder til at være her!';
+$strNoRowsSelected = 'Ingen rækker valgt';
 $strNoSpace = 'Utilstrækkeligt plads til at gemme filen %s.';
 $strNoTablesFound = 'Ingen tabeller fundet i databasen.';
 $strNoUsersFound = 'Ingen bruger(e) fundet.';
@@ -522,6 +523,7 @@ $strReType = 'Skriv igen';
 $strReceived = 'Modtaget';
 $strRecords = 'Poster';
 $strReferentialIntegrity = 'Check reference integriteten';
+$strRefresh = 'Opdatér';
 $strRelationNotWorking = 'De yderligere features for at arbejde med linkede tabeller er deaktiveret. For at se hvorfor, klik %sher%s.';
 $strRelationView = 'Se Relationer';
 $strRelationalSchema = 'Relationel skematik';
@@ -570,6 +572,7 @@ $strSQLParserUserError = 'Der ser ud til at være en fejl i din SQL-forespørgsel.
 $strSQLQuery = 'SQL-forespørgsel';
 $strSQLResult = 'SQL resultat';
 $strSQPBugInvalidIdentifer = 'Ugyldig Identifikator';
+$strSQPBugSyntaxError = 'Syntaksfejl';
 $strSQPBugUnclosedQuote = 'Ikke-lukket quote';
 $strSQPBugUnknownPunctuation = 'Ukendt tegnsætnings-streng';
 $strSave = 'Gem';
@@ -737,15 +740,5 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Bemærk: Indstilling af disse værdier til 0 (nul) fjerner begrænsningen.';
 $strZip = '"zipped"';
-
-// To translate:
-
-$strDefragment = 'Defragment table';  //to translate
-
-$strNoRowsSelected = 'No rows selected';  //to translate
-
-$strRefresh = 'Refresh';  //to translate
-
-$strSQPBugSyntaxError = 'Syntax error';  //to translate
 
 ?>
