@@ -75,14 +75,18 @@ if($what != "csv")
     if(!empty($cfgServer['port'])) 
         print ":" . $cfgServer['port'];
     print " $strDatabase: $db$crlf";
+
+  if($what != "dataonly")
+  {
     print "# --------------------------------------------------------$crlf";
     print "$crlf#$crlf";
     print "# $strTableStructure '$table'$crlf";
     print "#$crlf$crlf";
 
     print get_table_def($db, $table, $crlf).";$crlf";
+  }
 
-	if($what == "data")
+  if(($what == "data") || ($what == "dataonly"))
     {
 	    print "$crlf#$crlf";
         print "# $strDumpingData '$table'$crlf"; 

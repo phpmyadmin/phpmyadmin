@@ -235,4 +235,5 @@ $strAnyColumn = "Any Column";//to translate
 $strColumnEmpty = "The columns names are empty!";//to translate
 $strInsertAsNewRow="Insérer ce nouvel enregistrement";  
 $strTableMaintenance="Maintenance de la table";  
+$strDataOnly="Données seulement"; 
 ?>

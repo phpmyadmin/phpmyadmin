@@ -252,6 +252,12 @@ echo " </select>\n";
     </tr>
     <tr>
         <td>
+           <input type="radio" name="what" value="dataonly">
+                <?php echo $strDataOnly; ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <input type="radio" name="what" value="csv"><?php echo $strStrucCSV;?>
         </td>
         <td>

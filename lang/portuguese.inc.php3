@@ -192,4 +192,5 @@ $strAnyColumn = "Any Column";//to translate
 $strColumnEmpty = "The columns names are empty!";//to translate
 $strInsertAsNewRow=" Insert as new row ";  //to translate
 $strTableMaintenance=" Table maintenance ";  //to translate
+$strDataOnly=" Data only ";  //to translate
 ?>

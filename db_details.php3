@@ -122,6 +122,12 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
            <input type="checkbox" name="showcolumns" value="yes"><?php echo $strCompleteInserts; ?>
         </td>
     </tr>
+    <tr>
+        <td>
+           <input type="radio" name="what" value="dataonly">
+                <?php echo $strDataOnly; ?>
+        </td>
+    </tr>
 </table>
 <input type="hidden" name="server" value="<?php echo $server;?>">
 <input type="hidden" name="lang" value="<?php echo $lang;?>">

@@ -82,6 +82,8 @@ else
     { 
         $table = mysql_tablename($tables, $i);
 
+      if($what != "dataonly")
+      {
         print $crlf;
         print "# --------------------------------------------------------$crlf";
         print "#$crlf";
@@ -90,8 +92,9 @@ else
         print $crlf;
 
         echo get_table_def($db, $table, $crlf).";$crlf$crlf";
+      }
         
-        if($what == "data")
+      if(($what == "data") || ($what == "dataonly"))
         {
             print "#$crlf";
             print "# $strDumpingData '$table'$crlf";
