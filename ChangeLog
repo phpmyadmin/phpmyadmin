@@ -19,7 +19,10 @@ $Source$
        SQL-History.
        Removed a dupe for inserting comments, fixed integrity check when
        moving/renaming tables and keeping comments.
-
+     * header.inc.php3: Added one more Javascript if-structure to make sure
+       the frameset is initialized when querying for an active window. Without
+       this, when starting phpMyAdmin for the first time, IE6 may complain
+       depending on the order it loads the framesets.
     
 2003-02-25 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details_structure.php3: undefined variable $comment

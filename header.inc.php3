@@ -252,7 +252,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     }
 
     function reload_querywindow () {
-        if (top.frames.queryframe && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
+        if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
             <?php echo ($cfg['QueryFrameDebug'] ? 'document.writeln("<a href=\'#\' onClick=\'top.frames.queryframe.querywindow.focus(); return false;\'>Query Window</a> can be updated.<br>");' : ''); ?>
     
             top.frames.queryframe.querywindow.document.querywindow.db.value = "<?php echo (isset($db) ? htmlspecialchars($db) : '') ?>";
@@ -268,9 +268,9 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
     }
 
     function focus_querywindow() {
-        if (top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
+        if (top.frames.queryframe && top.frames.queryframe.querywindow && !top.frames.queryframe.querywindow.closed && top.frames.queryframe.querywindow.location) {
             top.frames.queryframe.querywindow.focus();
-        } else {
+        } else if (top.frames.queryframe) {
             top.frames.queryframe.querywindow=window.open('querywindow.php3?<?php echo PMA_generate_common_url('', ''); ?>&db=<?php echo (isset($db) ? htmlspecialchars($db) : ''); ?>&table=<?php echo (isset($table) ? htmlspecialchars($table) : ''); ?>', 'js_querywindow','toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
     
             if (!top.frames.queryframe.querywindow.opener) {
