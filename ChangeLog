@@ -5,7 +5,7 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2002-05-28 Loïc Chapeaux  <lolo@phpheaven.net>
+2002-06-01 Loïc Chapeaux  <lolo@phpheaven.net>
     * db_details_structure.php3, lines 440-441; Documentation.html;
       pdf_schema.php3; libraries/fpdf/*:
       - updated the FPDF library to the 1.5 revision;
@@ -16,10 +16,13 @@ $Source$
 2002-06-01 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/indonesian.inc.php3: Updates, thanks to Rachim Tamsjadi.
     * lang/italian.inc.php3: Updates, thanks again to
-      Pietro Danesi <danone@users.sourceforge.net>.
+      Pietro Danesi <danone at users.sourceforge.net>.
     * lang/german.inc.php3: Small corrections.
     * lang/polish.inc.php3: Updates, thanks to
       Jakub Wilk <ubanus at users.sourcefore.net>.
+    * header_printview.inc.php3, libraries/display_tbl.inc.php3:
+      - Beautified generated code;
+      - XHTML / CSS fixes.
 
 2002-05-31 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Small corrections.
@@ -29,7 +32,7 @@ $Source$
 
 2002-05-30 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/albanian.inc.php3: Updates, thanks again to
-      Laurent Dhima <laurenti@users.sourceforge.net>.
+      Laurent Dhima <laurent at users.sourceforge.net>.
 
 2002-05-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Translated $strPdfDbSchema.

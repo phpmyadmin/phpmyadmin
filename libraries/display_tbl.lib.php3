@@ -1407,11 +1407,14 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         } // end 2b
 
         // 3. ----- Displays the results table -----
-        ?>
-<!-- Results table -->
-<table border="<?php echo $GLOBALS['cfg']['Border']; ?>" cellpadding="5">
-        <?php
-        echo "\n";
+        echo '<!-- Results table -->' . "\n"
+           . '<table ';
+        if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
+            echo 'border="1"; cellpadding="2" cellspacing="0"';
+        } else {
+            echo 'border="' . $GLOBALS['cfg']['Border'] . '" cellpadding="5"';
+        }
+        echo '>' . "\n";
         PMA_displayTableHeaders($is_display, $fields_meta, $fields_cnt);
         PMA_displayTableBody($dt_result, $is_display, $map);
         // lem9: vertical output case

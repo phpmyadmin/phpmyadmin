@@ -69,6 +69,8 @@ td    {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $fo
     <b><?php echo $strGenBy; ?>:</b> phpMyAdmin <?php echo PMA_VERSION; ?><br />
     <b><?php echo $strSQLQuery; ?>:</b> <?php echo htmlspecialchars($full_sql_query); ?>;
 </p>
+
+
 <?php
 
 /**
