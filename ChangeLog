@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-08 Alexander M. Turek  <me@derrabus.de>
+    * libraries/common.lib.php: backwards compatibility.
+    * config.inc.php: typo.
+
 2004-06-07 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/mysqli.dbi.lib.php: omit last parameter when calling
       mysqli_connect() to enable the use of default socket
