@@ -1419,7 +1419,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     if (eregi('^SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
                         $explain_link .= urlencode('EXPLAIN ' . $GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'];
                     } else if (eregi('^EXPLAIN[[:space:]]+SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
-                        $explain_link .= substr($GLOBALS['sql_query'], 8) . '">' . $GLOBALS['strNoExplain'];
+                        $explain_link .= urlencode(substr($GLOBALS['sql_query'], 8)) . '">' . $GLOBALS['strNoExplain'];
                     } else {
                         $explain_link = '';
                     }

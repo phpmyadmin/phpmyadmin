@@ -10,6 +10,7 @@ $Source$
       a reserved word in MySQL
     * libraries/sqlparser.data.php3: bug 708887: MONTH() and YEAR() 
       are functions
+    * libraries/common.lib.php3: bug 721278: Skip Explain SQL
 
 2003-04-14 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/some translations: Damn, I didn't commit all empty translations
