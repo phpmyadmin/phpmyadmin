@@ -23,10 +23,19 @@
 
 var isExpanded   = false;
 
+/**
+ * 2004-05-28: Michael Keck (mkkeck)
+ *             modified for theme manager
+ *             Please see left.php (line 264 and 265)
+ */
+
 var imgOpened    = new Image(9,9);
-imgOpened.src    = 'images/minus.png';
+//imgOpened.src    = 'images/minus.png';
+imgOpened.src    = imgUrlMinus;
+
 var imgClosed    = new Image(9,9);
-imgClosed.src    = 'images/plus.png';
+//imgClosed.src    = 'images/plus.png';
+imgClosed.src    = imgUrlPlus;
 
 
 /**

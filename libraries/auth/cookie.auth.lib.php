@@ -181,6 +181,10 @@ function PMA_auth()
     // Defines the charset to be used
     header('Content-Type: text/html; charset=' . $GLOBALS['charset']);
 
+    require_once('./libraries/select_theme.lib.php');
+    // Defines the "item" image depending on text direction
+    $item_img = $GLOBALS['pmaThemeImage'] . 'item_ltr.png';
+
     // Title
     ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -190,17 +194,44 @@ function PMA_auth()
 <head>
 <title>phpMyAdmin <?php echo PMA_VERSION; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $GLOBALS['charset']; ?>" />
-<base href="<?php echo $cfg['PmaAbsoluteUri']; ?>" />
-<style type="text/css">
+<script language="JavaScript" type="text/javascript">
 <!--
-body            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-td              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
-h1              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_bigger; ?>; font-weight: bold}
-select          {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color:#ffffff; color:#000000}
-input.textfield {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; background-color:#ffffff; color:#000000}
-.warning        {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #FF0000}
+    /* added 2004-06-10 by Michael Keck
+     *       we need this for Backwards-Compatibility and resolving problems
+     *       with non DOM browsers, which may have problems with css 2 (like NC 4)
+    */
+    var isDOM      = (typeof(document.getElementsByTagName) != 'undefined'
+                      && typeof(document.createElement) != 'undefined')
+                   ? 1 : 0;
+    var isIE4      = (typeof(document.all) != 'undefined'
+                      && parseInt(navigator.appVersion) >= 4)
+                   ? 1 : 0;
+    var isNS4      = (typeof(document.layers) != 'undefined')
+                   ? 1 : 0;
+    var capable    = (isDOM || isIE4 || isNS4)
+                   ? 1 : 0;
+    // Uggly fix for Opera and Konqueror 2.2 that are half DOM compliant
+    if (capable) {
+        if (typeof(window.opera) != 'undefined') {
+            var browserName = ' ' + navigator.userAgent.toLowerCase();
+            if ((browserName.indexOf('konqueror 7') == 0)) {
+                capable = 0;
+            }
+        } else if (typeof(navigator.userAgent) != 'undefined') {
+            var browserName = ' ' + navigator.userAgent.toLowerCase();
+            if ((browserName.indexOf('konqueror') > 0) && (browserName.indexOf('konqueror/3') == 0)) {
+                capable = 0;
+            }
+        } // end if... else if...
+    } // end if
+    document.writeln('<link rel="stylesheet" type="text/css" href="<?php echo defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : './'; ?>css/phpmyadmin.css.php?lang=<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>&amp;js_frame=right&amp;js_isDOM=' + isDOM + '" />');
 //-->
-</style>
+</script>
+<noscript>
+    <link rel="stylesheet" type="text/css" href="<?php echo defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : './'; ?>css/phpmyadmin.css.php?lang=<?php echo $GLOBALS['available_languages'][$GLOBALS['lang']][2]; ?>&amp;js_frame=right" />
+</noscript>
+
+<base href="<?php echo $cfg['PmaAbsoluteUri']; ?>" />
 <script language="javascript" type="text/javascript">
 <!--
 // show login form in top frame
@@ -216,10 +247,16 @@ if (top != self) {
 <?php include('./config.header.inc.php'); ?>
 
 <center>
-<a href="http://www.phpmyadmin.net" target="_blank"><img name="imLogo" id="imLogo" src="images/pma_logo.png" border="0" width="88" height="31" alt="phpMyAdmin" /></a>
-<h1><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION . ' - ' . $GLOBALS['strLogin']); ?></h1>
-<br />
-
+<a href="http://www.phpmyadmin.net" target="_blank"><?php
+    $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
+    if (@file_exists($logo_image)) {
+        echo '<img src="' . $logo_image . '" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />';
+    } else {
+        echo '<img name="imLogo" id="imLogo" src="images/pma_logo.png" '
+           . 'border="0" width="88" height="31" alt="phpMyAdmin" />';
+    }
+?></a>
+<h2><?php echo sprintf($GLOBALS['strWelcome'], ' phpMyAdmin ' . PMA_VERSION); ?></h2>
     <?php
     // Displays the languages form
     if (empty($cfg['Lang'])) {
@@ -228,7 +265,10 @@ if (top != self) {
 <!-- Language selection -->
 <form method="post" action="index.php" target="_top">
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
-    <b>Language:&nbsp;</b>
+    <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+            <td><b>Language:&nbsp;</b></td>
+            <td>
     <select name="lang" dir="ltr" onchange="this.form.submit();">
         <?php
         echo "\n";
@@ -247,8 +287,8 @@ if (top != self) {
         ?>
     </select>
     <input type="submit" value="<?php echo $GLOBALS['strGo']; ?>" />
-</form>
-<br />
+            </td>
+        </tr>
         <?php
     }
     echo "\n\n";
@@ -257,40 +297,53 @@ if (top != self) {
 
     if ($GLOBALS['cfg']['blowfish_secret']=='') {
     ?>
-<p class="warning"><?php echo $GLOBALS['strSecretRequired']; ?></p>
-
-<?php include('./config.footer.inc.php'); ?>
-
-</body>
-</html>
-    <?php
-    exit();
+        <tr><td colspan="2" height="5"></td></tr>
+        <tr>
+            <th colspan="2" align="left" class="tblHeadError">
+                <div class="errorhead"><?php echo $GLOBALS['strError']; ?></div>
+            </th>
+        </tr>
+        <tr>
+            <td class="tblError" colspan="2" align="left"><?php echo $GLOBALS['strSecretRequired']; ?></td>
+        </tr>
+<?php
+        include('./config.footer.inc.php');
+        echo '        </table>' . "\n"
+           . '    </form>' . "\n"
+           . '    </body>' . "\n"
+           . '</html>';
+        exit();
     }
-    ?>
-<p><?php echo '(' . $GLOBALS['strCookiesRequired'] . ')'; ?></p>
+?>
+    </table>
+</form>
 <br />
-
-
 <!-- Login form -->
 <form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top">
-    <table cellpadding="5">
+    <table cellpadding="3" cellspacing="0">
+      <tr>
+        <th align="left" colspan="2" class="tblHeaders" style="font-size: 14px; font-weight: bold;"><?php echo $GLOBALS['strLogin']; ?></th>
+    </tr>
+    <tr>
+        <td align="center" colspan="2" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>"><?php echo '(' . $GLOBALS['strCookiesRequired'] . ')'; ?></td>
+    </tr>
 <?php if ($GLOBALS['cfg']['AllowArbitraryServer']) { ?>
     <tr>
-        <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strLogServer']; ?>&nbsp;</b></td>
-        <td align="<?php echo $cell_align; ?>">
+        <td align="right" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>"><b><?php echo $GLOBALS['strLogServer']; ?>:&nbsp;</b></td>
+        <td align="<?php echo $cell_align; ?>" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
             <input type="text" name="pma_servername" value="<?php echo (isset($default_server) ? $default_server : ''); ?>" size="24" class="textfield" onfocus="this.select()" />
         </td>
     </tr>
 <?php } ?>
     <tr>
-        <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strLogUsername']; ?>&nbsp;</b></td>
-        <td align="<?php echo $cell_align; ?>">
+        <td align="right" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>"><b><?php echo $GLOBALS['strLogUsername']; ?>&nbsp;</b></td>
+        <td align="<?php echo $cell_align; ?>" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
             <input type="text" name="pma_username" value="<?php echo (isset($default_user) ? $default_user : ''); ?>" size="24" class="textfield" onfocus="this.select()" />
         </td>
     </tr>
     <tr>
-        <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strLogPassword']; ?>&nbsp;</b></td>
-        <td align="<?php echo $cell_align; ?>">
+        <td align="right" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>"><b><?php echo $GLOBALS['strLogPassword']; ?>&nbsp;</b></td>
+        <td align="<?php echo $cell_align; ?>" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
             <input type="password" name="pma_password" value="" size="24" class="textfield" onfocus="this.select()" />
         </td>
     </tr>
@@ -299,8 +352,8 @@ if (top != self) {
         echo "\n";
         ?>
     <tr>
-        <td align="<?php echo $cell_align; ?>"><b><?php echo $GLOBALS['strServerChoice']; ?>&nbsp;:&nbsp;</b></td>
-        <td align="<?php echo $cell_align; ?>">
+        <td align="right" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>"><b><?php echo $GLOBALS['strServerChoice']; ?>:&nbsp;</b></td>
+        <td align="<?php echo $cell_align; ?>" bgcolor="<?php echo $GLOBALS['cfg']['BgcolorOne']; ?>">
             <select name="server"
             <?php
             if ($GLOBALS['cfg']['AllowArbitraryServer']) {
@@ -353,11 +406,13 @@ if (top != self) {
     } // end if (server choice)
     echo "\n";
     if (!empty($conn_error)) {
-        echo '<tr><td colspan="2" align="center"><p class="warning">'. $conn_error . '</p></td></tr>' . "\n";
+        echo '<tr><td colspan="2" height="5"></td></tr>';
+        echo '<tr><th colspan="2" align="left" class="tblHeadError"><div class="errorhead">' . $GLOBALS['strError'] . '</div></th></tr>' . "\n";
+        echo '<tr><td colspan="2" align="left" class="tblError">'. $conn_error . '</td></tr>' . "\n";
     }
     ?>
     <tr>
-        <td colspan="2" align="center">
+        <td colspan="2" align="right">
     <?php
     if (count($cfg['Servers']) == 1) {
         echo '    <input type="hidden" name="server" value="' . $server . '" />';
@@ -366,7 +421,7 @@ if (top != self) {
     ?>
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-            <input type="submit" value="<?php echo $GLOBALS['strLogin']; ?>" />
+            <input type="submit" value="<?php echo $GLOBALS['strLogin']; ?>" id="buttonYes" />
         </td>
     </tr>
     </table>
