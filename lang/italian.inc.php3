@@ -228,6 +228,7 @@ $strNoQuery = 'Nessuna query SQL!';
 $strNoRights = 'Non hai i permessi per effettuare questa operazione!';
 $strNoTablesFound = 'Non ci sono tabelle nel database.';
 $strNotNumber = 'Questo non è un numero!';
+$strNotSet = '<b>%s</b> tabella non trovata o non settata in %s';
 $strNotValidNumber = ' non è una riga valida!';
 $strNoUsersFound = 'Nessun utente trovato.';
 $strNull = 'Null';
@@ -398,5 +399,4 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strNotSet = '<b>%s</b> table not found or not set in %s';  //to translate
 ?>
