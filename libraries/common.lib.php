@@ -356,7 +356,7 @@ if ($is_minimum_common == FALSE) {
         // Check that we actually have a valid set of parsed data
         // well, not quite
         // first check for the SQL parser having hit an error
-        if (!defined('PMA_SQP_isError') || PMA_SQP_isError()) {
+        if (PMA_SQP_isError()) {
             return $parsed_sql;
         }
         // then check for an array
@@ -467,10 +467,10 @@ if ($is_minimum_common == FALSE) {
         // --- Added to solve bug #641765
         // Robbat2 - 12 January 2003, 9:46PM
         // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
-        if (!defined('PMA_SQP_isError') || PMA_SQP_isError()) {
-            $parsed_sql = htmlspecialchars($the_query);
+        if (!function_exists('PMA_SQP_isError') || PMA_SQP_isError()) {
+            $formatted_sql = htmlspecialchars($the_query);
         } else {
-            $parsed_sql = PMA_SQP_parse($the_query);
+            $formatted_sql = PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
         }
         // ---
 
@@ -482,7 +482,7 @@ if ($is_minimum_common == FALSE) {
             // --- Added to solve bug #641765
             // Robbat2 - 12 January 2003, 9:46PM
             // Revised, Robbat2 - 13 Janurary 2003, 2:59PM
-            if (defined('PMA_SQP_isError') && PMA_SQP_isError()) {
+            if (function_exists('PMA_SQP_isError') && PMA_SQP_isError()) {
                 echo PMA_SQP_getErrorString();
             }
             // ---
@@ -495,7 +495,7 @@ if ($is_minimum_common == FALSE) {
             } // end if
             echo '</p>' . "\n"
                     . '<p>' . "\n"
-                    . '    ' . PMA_formatSql($parsed_sql, $the_query) . "\n"
+                    . '    ' . $formatted_sql . "\n"
                     . '</p>' . "\n";
         } // end if
         if (!empty($error_message)) {
