@@ -235,9 +235,11 @@
         <i>config.inc.php3</i> file under the
         <tt>$cfg['Servers'][$i]['controluser']</tt>&amp;
         <tt>$cfg['Servers'][$i]['controlpass']</tt> settings.<br />
-        This example assumes you want to use <tt>pma</tt> as the controluser
-        and <tt>pmapass</tt> as the controlpass, but <b>this is only an example:
-        use something else in your file:</b>
+        The following example assumes you want to use <tt>pma</tt> as the
+        controluser and <tt>pmapass</tt> as the controlpass, but <b>this is
+        only an example: use something else in your file!</b><br />
+        Of course you have to replace <tt>localhost</tt> by the webserver's host
+        if it's not the same as the MySQL server's one.
         <pre>
 
 GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
