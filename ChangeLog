@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-23  Olivier Müller  <om@omnis.ch>
+	* translated the last german words
+	* left.php3: added a "-"  (looks less empty this way :)
+
 2002-01-23  Marc Delisle  <lem9@users.sourceforge.net>
 	* portuguese major updates, thanks to António Raposo
 	  (Antonio.Raposo at CFMsoft.JazzNet.pt)

@@ -190,7 +190,7 @@ if ($num_dbs > 1) {
         echo '        <input type="hidden" name="lang" value="' . $lang . '" />' . "\n";
         echo '        <input type="hidden" name="server" value="' . $server . '" />' . "\n";
         echo '        <select name="db" onchange="this.form.submit()">' . "\n";
-        echo '            <option value=""></option>' . "\n";
+        echo '            <option value=""> - </option>' . "\n";
         $table_list = '';
         $db_name    = '';
     }

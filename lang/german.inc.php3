@@ -61,6 +61,7 @@ $strBzip = '"BZip komprimiert"';
 
 $strCantLoadMySQL = 'MySQL Erweiterung konnte nicht geladen werden,<br />bitte PHP Konfiguration überprüfen.';
 $strCantRenameIdxToPrimary = 'Kann Index nicht in PRIMARY umbenennen!';
+$strCardinality = 'Kardinalität';
 $strCarriage = 'Wagenrücklauf \\r';
 $strChange = 'Ändern';
 $strCheckAll = 'Alle auswählen';
@@ -170,6 +171,7 @@ $strLineFeed = 'Zeilenvorschub: \\n';
 $strLines = 'Zeilen';
 $strLinesTerminatedBy = 'Zeilen getrennt mit';
 $strLocationTextfile = 'Datei';
+$strLogin = 'Benutzername';
 $strLogout = 'Neu einloggen';
 $strLogPassword = 'Kennwort:';
 $strLogUsername = 'Benutzername:';
@@ -268,6 +270,7 @@ $strRunSQLQuery = 'SQL-Befehl(e) ausführen in Datenbank %s';
 $strSave = 'Speichern';
 $strSelect = 'Teilw. anzeigen';
 $strSelectAll = 'Alle auswählen';
+$strSelectADb = 'Bitte Datenbank auswählen';
 $strSelectFields = 'Felder auswählen (mind. eines):';
 $strSelectNumRows = 'in der Abfrage';
 $strSend = 'Senden';
@@ -343,8 +346,5 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strCardinality = 'Cardinality';
-$strLogin = 'Login';
-$strSelectADb = 'Please select a database';
 
 ?>
