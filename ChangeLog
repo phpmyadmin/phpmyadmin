@@ -8,6 +8,7 @@ $Source$
 2001-08-21  Olivier Müller  <om@omnis.ch>
 	* db_stats.php3: added list of 20 biggest db's.
 	* lib.inc.php3: fixed the socket patch, should work now.
+	* lib.inc.php3: re-fixed :)
 
 2001-08-21  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_stats.php3: ensured the script is XHTML1.0 compliant and fits the

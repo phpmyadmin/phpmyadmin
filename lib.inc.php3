@@ -93,7 +93,9 @@ if (!defined('__LIB_INC__')){
     if (!isset($cfgTextareaRows)) {
         $cfgTextareaRows = 7;
     }
-    include('./defines.inc.php3');
+ 
+    // defines wants to connect mysql, and at this place there are no connexion yet...
+    // include('./defines.inc.php3');
 
 
 
@@ -275,7 +277,7 @@ if (!defined('__LIB_INC__')){
                 $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
                                ? ''
                                : ':' . $cfgServer['socket'];
-                $dbh           = @$connect_func(
+                $dbh           = $connect_func(
                                      $cfgServer['host'] . $server_port . $server_socket,
                                      $cfgServer['stduser'],
                                      $cfgServer['stdpass']
@@ -371,10 +373,10 @@ if (!defined('__LIB_INC__')){
         $server_socket = (empty($cfgServer['socket']) || PHP_INT_VERSION < 30010)
                        ? ''
                        : ':' . $cfgServer['socket'];
-        $link          = @$connect_func(
+        $link          = $connect_func(
                              $cfgServer['host'] . $server_port . $server_socket,
-                             $cfgServer['stduser'],
-                             $cfgServer['stdpass']
+                             $cfgServer['user'],
+                             $cfgServer['password']
                          ) or mysql_die();
     } // end server connecting
 
