@@ -157,6 +157,7 @@ $strInstructions = 'Istruzioni';
 $strInUse = 'in uso';
 $strInvalidName = '"%s" &egrave; una parola riservata; non &egrave; possibile utilizzarla come nome di database/tabella/campo.';
 
+$strKeepPass = 'Non cambiare la password';
 $strKeyname = 'Nome chiave';
 $strKill = 'Uccidi';
 
@@ -303,6 +304,8 @@ $strType = 'Tipo';
 $strUncheckAll = 'Deseleziona tutti';
 $strUnique = 'Unica';
 $strUpdatePrivMessage = 'Hai aggiornato i permessi per %s.';
+$strUpdateProfile = 'Aggiorna profilo:';
+$strUpdateProfileMessage = 'Il profilo &egrave; stato aggiornato.';
 $strUpdateQuery = 'Aggiorna Query';
 $strUsage = 'Utilizzo';
 $strUseBackquotes = 'Usa i backquotes con i nomi delle tabelle e dei campi';
@@ -323,7 +326,4 @@ $strWrongUser = 'Nome utente o password errati. Accesso negato.';
 $strYes = ' Si ';
 
 // To translate
-$strKeepPass = 'Do not change the password';//to translate
-$strUpdateProfile = 'Update profile:';//to translate
-$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 ?>
