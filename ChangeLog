@@ -42,8 +42,14 @@ $Source$
         - Updates, thanks to Björn T. Hallberg (bth)
     * libraries/sqlparser.lib.php3:
         - Added LANG to the list of BUG() data
+        - Made easier to understand throwError() output
+        - Spelling fix in 
+          $strSQPBugUnknownPunctation - $strSQPBugUnknownPunctuation 
     * lang/*:
         - Spelling fix in $strSQLParserBugMessage where not yet translated
+        - Spelling fix in $strSQPBugUnknownPunctation where not yet translated
+        - Spelling fix in 
+          $strSQPBugUnknownPunctation - $strSQPBugUnknownPunctuation 
 
 2002-08-06 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/sqlvalidator.php3, libraries/sqlvalidator.lib.php3:

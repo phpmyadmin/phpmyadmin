@@ -221,10 +221,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     $pos    = strpos(' ' . $sql, $quotetype, $oldpos + 1) - 1;
                     // ($pos === FALSE)
                     if ($pos < 0) {
-                        $debugstr =  $GLOBALS['strSQPBugUnclosedQuote'] . ' @ ' . $startquotepos. "\n" 
+                        $debugstr =  $GLOBALS['strSQPBugUnclosedQuote'] . ' @ ' . $startquotepos+1 . "\n" 
                                   . 'STR: ' . $quotetype;
                         PMA_SQP_throwError($debugstr,$sql);
-                        return;
+                        return $sql;
                     }
 
                     // If the quote is the first character, it can't be
@@ -343,10 +343,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $count2--;
                         $punct_data = substr($sql, $count1, $count2 - $count1);
                     } else {
-                        $debugstr =  $GLOBALS['strSQPBugUnknownPunctation'] . ' @ ' . $count1 . "\n" 
+                        $debugstr =  $GLOBALS['strSQPBugUnknownPunctuation'] . ' @ ' . $count1+1 . "\n" 
                                   . 'STR: ' . $punct_data;
                         PMA_SQP_throwError($debugstr,$sql);
-                        return;
+                        return $sql;
                     }
                     PMA_SQP_arrayAdd($sql_array, 'punct', $punct_data, $arraysize);
                     continue;
@@ -379,10 +379,10 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             $is_float_digit = TRUE;
                             continue;
                         } else {
-                            $debugstr =  $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . $count1 . "\n" 
+                            $debugstr =  $GLOBALS['strSQPBugInvalidIdentifer'] . ' @ ' . $count1+1 . "\n" 
                                       . 'STR: ' . substr($sql, $count1, $count2 - $count1);
                             PMA_SQP_throwError($debugstr,$sql);
-                            return;
+                            return $sql;
                         }
                     }
                     if ($is_digit && (!$is_hex_digit) && (($c2 == 'e') || ($c2 == 'E'))) {
@@ -441,7 +441,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                       . 'STR: ' . substr($sql, $count1, $count2 - $count1) . "\n";
             PMA_SQP_BUG($debugstr,$sql); 
             
-            return;
+            return $sql;
 
         } // end while ($count2 < $len)
 
