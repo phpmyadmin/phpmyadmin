@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.3.0-dev Documentation
+                      phpMyAdmin 2.3.0-rc1 Documentation
                                        
      * Sourceforge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ]
@@ -7,8 +7,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.262 2002/06/17
-       12:49:20 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.263 2002/06/19
+       20:39:01 lem9 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -736,7 +736,8 @@ CRIPT_NAME'], '/')+1);
           Syntaxcoloring. To use this feature set this value to TRUE (the
           default). If not everything you want is colored or to influence
           where a newline is inserted see the Configurationarrays
-          $cfg['keywords'] and $cfg['additional']
+          $cfg['keywords'] and $cfg['additional']. Note: for version
+          2.3.0-rc1, syntax coloring is non functional.
           
    $cfg['colorFunctions'] string [HTML color]
           If you use Syntaxcoloring then this defines the Color of
