@@ -13,6 +13,7 @@ $Source$
       - added ability to retrieve all collations and related MySQL settings;
       - added a function to build description strings for given collations
         (still needs some optimization).
+    * libraries/sqlparser.data.php3: Support for SHOW COLLATION.
     * server_collations.php3, server_links.inc.php3, lang/*.inc.php3:
       New status page "Character Sets and Collations" for MySQL 4.1.
 
