@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-17 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/ukrainian: update, thanks to Markijan Baran
+
 2003-04-17 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_replace_fields.php3: Fix typo.
     * tbl_replace.php3: Use rather SELECT *, as selecting only BLOB causes
