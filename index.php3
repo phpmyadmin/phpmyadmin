@@ -17,7 +17,7 @@ if (empty($HTTP_HOST)) {
 
 <html>
 <head>
-<title>phpMyAdmin - <?php echo $HTTP_HOST;?></title>
+<title>phpMyAdmin <?php echo PHPMYADMIN_VERSION; ?> - <?php echo $HTTP_HOST;?></title>
 </head>
 
 <frameset cols="150,*" rows="*" border="0" frameborder="0"> 
