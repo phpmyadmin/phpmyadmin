@@ -9,6 +9,9 @@ $Source$
     * sql.php: bug #956828, deleting last row gives an error. I could not
       find a case where we need the line I just removed, which was
       causing the bug.
+    * tbl_properties.inc.php: missing statement group {}, was causing 
+      the display of part of the changing amount of columns dialog
+      when editing a field structure
 
 2004-05-28 Michal Čihař  <michal@cihar.com>
     * libraries/display_tbl.lib.php: Decrease limit for query truncating (see

@@ -607,10 +607,11 @@ echo "\n";
 
 <input type="submit" name="submit" value="<?php echo $strSave; ?>" />
 <?php
-if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php')
+if ($action == 'tbl_create.php' || $action == 'tbl_addfield.php') {
     echo '        &nbsp;&nbsp;<em>' . $strOr . '</em>&nbsp;&nbsp;' . $strFields . ':' . "\n";
     echo '        ' . '<input type="text" name="num_fields" size="2" class="textfield" value="' . $num_fields . '" />' . "\n";
     echo '        ' . '&nbsp;<input type="submit" name="submit_num_fields" value="' . $strGo . '" />' . "\n";
+}
 ?>
 </form>
 
