@@ -243,6 +243,7 @@ $strQBEIns = 'Beszúr';
 $strQueryOnDb = 'SQL-kérés <b>%s</b> adatbázison:';
 
 $strRecords = 'Sorok';
+$strReferentialIntegrity = 'Hivatkozasi sertetlenseg ellenorzese:';
 $strReloadFailed = 'MySQL újratöltése sikertelen.';
 $strReloadMySQL = 'MySQL újratöltése';
 $strRememberReload = 'Ne felejtd el újratölteni a szervert.';
@@ -348,5 +349,4 @@ $strYes = 'Igen';
 $strZip = '"zippel tömörítve"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>

@@ -242,6 +242,7 @@ $strQBEIns = 'Einf.';
 $strQueryOnDb = ' SQL-Befehl in der Datenbank <b>%s</b>:';
 
 $strRecords = 'Einträge';
+$strReferentialIntegrity = 'Prüfe referentielle Integrität:';
 $strReloadFailed = 'MySQL Neuladen fehlgeschlagen.';
 $strReloadMySQL = 'MySQL neu starten';
 $strRememberReload = 'Der Server muss neugestartet werden.';
@@ -347,5 +348,4 @@ $strYes = 'Ja';
 $strZip = '"Zip komprimiert"';
 
 // To translate
-$strReferentialIntegrity = 'Check referential integrity:';  //to translate
 ?>
