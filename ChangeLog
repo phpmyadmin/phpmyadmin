@@ -5,10 +5,17 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-03-01  Olivier Müller  <om@omnis.ch>
+	* created the phpmyadmin-cvs mailing list, following the instructions
+	  under http://sourceforge.net/docman/display_doc.php?docid=772&group_id=1 :
+	  subscribers (target: devel team) will get a mail on every cvs commit.
+	  I hope you will find it useful :)  Webpage for subscriptions:
+             http://lists.sourceforge.net/lists/listinfo/phpmyadmin-cvs
+
 2002-03-01 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/display_tbl.lib.php3: half fixed (php4 only) bug #474943: wrong
 	  data by using a table twice (it seems there is no way to distinguish
-      whether a MySQL cell is NULL, empty or equal to zero with php3).
+	  whether a MySQL cell is NULL, empty or equal to zero with php3).
 
 2002-02-28 Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html: fixed xhtml1.0 errors.
