@@ -1487,11 +1487,13 @@ if ($is_minimum_common == FALSE) {
     /**
      * Reloads navigation if needed.
      *
-     * @global  bool    whehter to reload
+     * @global  mixed   configuration
+     * @global  bool    whether to reload
      *
      * @access  public
      */
     function PMA_reloadNavigation() {
+        global $cfg;
 
         // Reloads the navigation frame via JavaScript if required
         if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {

@@ -20,6 +20,7 @@ $Source$
     * db_operations.php: Duplicate create new table dialog (see RFE #808029).
     * main.php: Don't display server choice here, if also in left frame (RFE
       #984153).
+    * libraries/common.lib.php: Fix navigation reloading.
 
 2004-10-20 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/common.lib.php: there was already a tip icon in our collection,
