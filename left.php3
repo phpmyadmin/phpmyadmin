@@ -75,24 +75,27 @@ if ($num_dbs > 1) {
     <script type="text/javascript" language="javascript">
     <!--
     var isDOM      = (typeof(document.getElementsByTagName) != 'undefined'
-                      && typeof(document.createElement) != 'undefined'
-                      && typeof(window.opera) == 'undefined')
+                      && typeof(document.createElement) != 'undefined')
                    ? 1 : 0;
     var isIE4      = (typeof(document.all) != 'undefined'
-                      && parseInt(navigator.appVersion) >= 4
-                      && typeof(window.opera) == 'undefined')
+                      && parseInt(navigator.appVersion) >= 4)
                    ? 1 : 0;
     var isNS4      = (typeof(document.layers) != 'undefined')
                    ? 1 : 0;
     var capable    = (isDOM || isIE4 || isNS4)
                    ? 1 : 0;
-    // Uggly fix for Konqueror 2.2 that is half DOM compliant
-    if (capable && typeof(navigator.userAgent) != 'undefined') {
-        var browserName = ' ' + navigator.userAgent.toLowerCase();
-        if (browserName.indexOf('konqueror') > 0) {
+    // Uggly fix for Opera and Konqueror 2.2 that are half DOM compliant
+    if (capable) {
+        if (typeof(window.opera) != 'undefined') {
             capable = 0;
         }
-    }
+        else if (typeof(navigator.userAgent) != 'undefined') {
+            var browserName = ' ' + navigator.userAgent.toLowerCase();
+            if (browserName.indexOf('konqueror') > 0) {
+                capable = 0;
+            }
+        } // end if... else if...
+    } // end if
     var fontFamily = '<?php echo $left_font_family; ?>';
     var fontSize   = '<?php echo $font_size; ?>';
     var fontBig    = '<?php echo $font_bigger; ?>';
@@ -211,7 +214,7 @@ if ($num_dbs > 1) {
         } // end if
 
         // Displays the database name
-        $on_mouse = (($cfgLeftPointerColor == '') ? '' : ' onmouseover="if (capable) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftPointerColor . '\')}" onmouseout="if (capable) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftBgColor . '\')}"');
+        $on_mouse = (($cfgLeftPointerColor == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftPointerColor . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftBgColor . '\')}"');
         echo "\n";
         echo '    <div id="el' . $j . 'Parent" class="parent"' . $on_mouse . '>';
 
