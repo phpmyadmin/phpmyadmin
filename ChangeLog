@@ -8,6 +8,8 @@ $Source$
 2002-03-24 Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3, line 1191: fixed bug #534159 - Can't change user
 	  hosts.
+	* libraries/select_lang.lib.php3, line 65; latvian.inc.php3: new
+	  translation thanks to Sandis Jçrics <sandisj at parks.lv>.
 
 2002-03-23 Loïc Chapeaux  <lolo@phpheaven.net>
 	* config.inc.php3, lines 189-192; Documentation.html, lines 853-866;

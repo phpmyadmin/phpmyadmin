@@ -62,6 +62,7 @@ $available_languages = array(
     'ja-euc'     => array('ja|japanese', 'japanese-euc', 'ja'),
     'ja-sjis'    => array('ja|japanese', 'japanese-sjis', 'ja'),
     'ko'         => array('ko|korean', 'korean', 'ko'),
+    'lv'         => array('lv|latvian', 'latvian', 'lv'),
     'nl'         => array('nl([-_][[:alpha:]]{2})?|dutch', 'dutch', 'nl'),
     'no'         => array('no|norwegian', 'norwegian', 'no'),
     'pl'         => array('pl|polish', 'polish', 'pl'),
