@@ -31,6 +31,8 @@ $strAction = 'Acción';
 $strAddAutoIncrement = 'Engadir o valor incremental (AUTO_INCREMENT)';
 $strAddDeleteColumn = 'Adicionar/Eliminar columnas de campo';
 $strAddDeleteRow = 'Adicionar/Eliminar filas de criterios';
+$strAddDropDatabase = 'Engadir "Eliminar a base de datos" (DROP DATABASE)';
+$strAddIntoComments = 'Engadir aos comentarios';
 $strAddNewField = 'Adicionar un novo campo';
 $strAddPriv = 'Adicionar un novo privilexio';
 $strAddPrivMessage = 'Privilexio adicionado.';
@@ -98,6 +100,7 @@ $strChangeCopyModeRevoke = ' ... retirar-lle todos os privilexios activos ao ant
 $strChangeCopyUser = 'Modificar a información de acceso (login) / Copiar utilizador';
 $strChangeDisplay = 'Escolla o campo que se há de mostrar';
 $strChangePassword = 'Trocar o contrasinal';
+$strCharset = 'Conxunto de caracteres'; 
 $strCharsetOfFile = 'Conxunto de caracteres do ficheiro:';
 $strCheckAll = 'Marcá-los todos';
 $strCheckDbPriv = 'Verificar os privilexios do banco de datos';
@@ -145,7 +148,9 @@ $strData = 'Datos';
 $strDataDict = 'Diccionario de datos';
 $strDataOnly = 'Só os datos';
 $strDatabase = 'Banco de Datos ';
+$strDatabaseExportOptions = 'Opcións de exportación da base de datos';
 $strDatabaseHasBeenDropped = 'A base de datos %s foi eliminada.';
+$strDatabaseNoTable = 'Esta base de datos non contén nengunha tabela';
 $strDatabaseWildcard = 'Base de datos (permítese usar os comodíns):';
 $strDatabases = 'Bancos de Datos';
 $strDatabasesDropped = 'Elimináronse %s bases de datos sen problemas.';
@@ -198,6 +203,8 @@ $strEndCut = 'FIN DO RECORTE';
 $strEndRaw = 'FIN DO TEXTO SIMPLE ("RAW")';
 $strEnglishPrivileges = ' Nota: os nomes de privilexios do MySQL están en inglés';
 $strError = 'Erro';
+$strExcelOptions = 'Opcións de Excel';
+$strExecuteBookmarked = 'Efectuar a procura gardada';
 $strExplain = 'Explicar SQL';
 $strExport = 'Exportar';
 $strExportToXML = 'Exportar no formato XML';
@@ -289,6 +296,8 @@ $strLines = 'Liñas';
 $strLinesTerminatedBy = 'As liñas rematan por';
 $strLinkNotFound = 'Non se atopou o vínculo';
 $strLinksTo = 'Vincúlase con';
+$strLoadExplanation = 'O método máis apropriado está seleccionado por omisión, pero pode-o cambiar se falla.';
+$strLoadMethod = 'Método de carga (LOAD)';
 $strLocalhost = 'Local';
 $strLocationTextfile = 'Localización do arquivo de texto';
 $strLogPassword = 'Contrasinal:';
@@ -373,6 +382,7 @@ $strOverwriteExisting = 'Eliminar o(s) ficheiro(s) xa existente(s)';
 $strPHP40203 = 'Está a usar PHP 4.2.3, que contén un erro importante relacionado coas cadeas multi-byte (mbstring). Consulte o informe de erros número 19404. Non se recomenda usar esta versión do PHP co phpMyAdmin.';
 $strPHPVersion = 'Versión do PHP';
 $strPageNumber = 'Número de páxina:';
+$strPaperSize = 'Tama?o do papel';
 $strPartialText = 'Textos parciais';
 $strPassword = 'Contrasinal';
 $strPasswordChanged = 'Modificou-se sen problemas o contrasinal de %s.';
@@ -444,6 +454,7 @@ $strQuerySQLHistory = 'Historial de SQL';
 $strQueryStatistics = '<b>Estatística das procuras</b>: Desde que se iniciou, enviáronselle ao servidor %s procuras.';
 $strQueryTime = 'A pesquisa levou %01.4f segundos';
 $strQueryType = 'Tipo de procura';
+$strQueryWindowLock = 'Non escreber sobre esta procura desde fora da xanela';
 
 $strReType = 'Reescreber';
 $strReceived = 'Recibido';
@@ -462,6 +473,7 @@ $strRenameTable = 'Renomear a tabela para';
 $strRenameTableOK = 'Tabela \$table renomeada para \$new_name';
 $strRepairTable = 'Reparar a tabela';
 $strReplace = 'Substituir';
+$strReplaceNULLBy = 'Substituir NULL por ';
 $strReplaceTable = 'Substituir os datos da tabela polos do ficheiro';
 $strReset = 'Reiniciar';
 $strResourceLimits = 'Limites de recursos';
@@ -507,6 +519,7 @@ $strSearchOption3 = 'a frase exacta';
 $strSearchOption4 = 'como expresión regular';
 $strSearchResultsFor = 'Procurar os resultados para "<i>%s</i>" %s:';
 $strSearchType = 'Atopar:';
+$strSecretRequired = 'O ficheiro de configuración agora necesita un contrasinal secreto (blowfish_secret).';
 $strSelect = 'Procurar';
 $strSelectADb = 'Seleccione unha base de dados';
 $strSelectAll = 'Seleccionar todo';
@@ -558,6 +571,7 @@ $strStructure = 'Estructura';
 $strSubmit = 'Submeter';
 $strSuccess = 'O seu comando de SQL executou-se com éxito';
 $strSum = 'Suma';
+$strSwitchToTable = 'Ir ? tabela copiada';
 
 $strTable = 'Tabela';
 $strTableComments = 'Comentarios da tabela';
@@ -567,6 +581,7 @@ $strTableHasBeenEmptied = 'Vaciouse a tabela %s';
 $strTableHasBeenFlushed = 'Fechouse a tabela %s';
 $strTableMaintenance = 'Tabela de manutención';
 $strTableOfContents = 'Table of contents';
+$strTableOptions = 'Opcións de tabela';
 $strTableStructure = 'Estructura da tabela';
 $strTableType = 'Tipo da tabela';
 $strTables = '%s tabela(s)';
@@ -579,6 +594,7 @@ $strThisHost = 'Este servidor';
 $strThisNotDirectory = 'Isto non era un directorio';
 $strThreadSuccessfullyKilled = 'Finalizouse o fío %s.';
 $strTime = 'Tempo';
+$strToggleScratchboard = 'conmutar o borrador';
 $strTotal = 'total';
 $strTotalUC = 'Total';
 $strTraffic = 'Tráfico';
@@ -624,6 +640,7 @@ $strValue = 'Valor';
 $strVar = 'Variable';
 $strViewDump = 'Ver o esquema do volcado da tabela';
 $strViewDumpDB = 'Ver o esquema do volcado do banco de datos';
+$strViewDumpDatabases = 'Ver o volcado das bases de datos';
 
 $strWebServerUploadDirectory = 'directorio de subida (upload) do servidor web';
 $strWebServerUploadDirectoryError = 'Non se pode acceder ao directorio que designou para as subidas (upload)';
@@ -641,33 +658,5 @@ $strYes = 'Si';
 $strZeroRemovesTheLimit = 'Nota: Se estas opcións se configuran como 0 (cero) elimina-se o limite.';
 $strZip = 'comprimido no formato "zip"';
 // To translate
-
-$strAddDropDatabase = 'Add DROP DATABASE';//to translate
-$strAddIntoComments = 'Add into comments';//to translate
-
-$strCharset = 'Charset';  //to translate
-
-$strDatabaseExportOptions = 'Database export options';//to translate
-$strDatabaseNoTable = 'This database contains no table!';//to translate
-
-$strExcelOptions = 'Excel options';  //to translate
-$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
-
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
-$strLoadMethod = 'LOAD method';  //to translate
-
-$strPaperSize = 'Paper size';  //to translate
-
-$strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
-
-$strReplaceNULLBy = 'Replace NULL by';  //to translate
-
-$strSecretRequired = 'The configuration file now needs a secret passphrase (blowfish_secret).';  //to translate
-$strSwitchToTable = 'Switch to copied table';  //to translate
-
-$strTableOptions = 'Table options';  //to translate
-$strToggleScratchboard = 'toggle scratchboard';  //to translate
-
-$strViewDumpDatabases = 'View dump (schema) of databases';//to translate
 
 ?>

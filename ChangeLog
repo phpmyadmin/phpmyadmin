@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-16 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/galician: Updated, thanks to Xosé Calvo.
+
 2003-07-16 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php3: bug 771575: wrong quotes for variable expansion
 
