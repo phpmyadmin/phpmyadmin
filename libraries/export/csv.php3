@@ -121,10 +121,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         $schema_insert = '';
         for ($i = 0; $i < $fields_cnt; $i++) {
             if ($enclosed == '') {
-                $schema_insert .= mysql_field_name($result, $i);
+                $schema_insert .= stripslashes(mysql_field_name($result, $i));
             } else {
                 $schema_insert .= $enclosed
-                               . str_replace($enclosed, $escaped . $enclosed, mysql_field_name($result, $i))
+                               . str_replace($enclosed, $escaped . $enclosed, stripslashes(mysql_field_name($result, $i)))
                                . $enclosed;
             }
             $schema_insert     .= $separator;
@@ -142,6 +142,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
                 $schema_insert .= $GLOBALS[$what . '_replace_null'];
             }
             else if ($row[$j] == '0' || $row[$j] != '') {
+                $row[$j] = stripslashes($row[$j]);
                 // loic1 : always enclose fields
                 if ($what == 'excel') {
                     $row[$j]       = ereg_replace("\015(\012)?", "\012", $row[$j]);

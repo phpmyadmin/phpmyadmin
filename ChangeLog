@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-11 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/export/csv.php3, libraries/export/latex.php3,
+      libraries/export/xml.php3: Added some stripslashes to generate correct
+      exports.
+
 2003-08-10 Marc Delisle  <lem9@users.sourceforge.net>
     * server_status.php3: bug 786331, a 100,00% not internationalized, 
       and align values for "More status variables"

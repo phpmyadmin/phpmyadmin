@@ -124,7 +124,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
     
     // show column names
     if (isset($GLOBALS['latex_showcolumns'])) {
-        $local_buffer = implode("\000", $columns);
+        $local_buffer = stripslashes(implode("\000", $columns));
         for($k=0;$k<count($tex_escape);$k++) {
             $local_buffer = str_replace($tex_escape[$k], '\\' . $tex_escape[$k], $local_buffer);
         }
@@ -141,7 +141,7 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query) {
         // print each row
         for($i = 0; $i < $columns_cnt; $i++) {
             if ( isset($record[$columns[$i]]) && (!function_exists('is_null') || !is_null($record[$columns[$i]]))) {
-                $column_value = $record[$columns[$i]];
+                $column_value = stripslashes($record[$columns[$i]]);
 
                 //    $ % { } & # _ ^
                 // escaping special characters
