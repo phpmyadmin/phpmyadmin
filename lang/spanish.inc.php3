@@ -361,4 +361,6 @@ $strPageNumber = 'Page number:';  //to translate
 $strShowGrid = 'Show grid';  //to translate
 $strShowColor = 'Show color';  //to translate
 $strShowTableDimension = 'Show dimension of tables';  //to translate
+$strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
+$strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
 ?>

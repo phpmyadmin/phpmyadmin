@@ -369,4 +369,6 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
+$strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
+$strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
 ?>

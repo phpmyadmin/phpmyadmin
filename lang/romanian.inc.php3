@@ -364,4 +364,6 @@ $strZip = '"arhivat"';
 
 // To translate
 
+$strPdfInvalidPageNum = 'Undefined PDF page number!';  //to translate
+$strPdfInvalidTblName = 'The "%s" table does not exist!';  //to translate
 ?>
