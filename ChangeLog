@@ -7,6 +7,7 @@ $Source$
 
 2004-03-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug 909752, floating point digit
+    * libraries/sqlparser.lib.php: bug 906551, GRANT...TO
 
 2004-03-03 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_change.php, tbl_replace_fields.php: bug 907510, invalid

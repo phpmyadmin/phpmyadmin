@@ -1835,7 +1835,11 @@ if ($is_minimum_common == FALSE) {
                         //
                         // also we must not be inside a privilege list
                         if ($i > 0) {
-                            if (!$in_priv_list) {
+                            // the alpha_identifier condition is there to
+                            // catch cases like
+                            // GRANT SELECT ON mydb.mytable TO myuser@localhost
+                            // (else, we get mydb.mytableTO )
+                            if (!$in_priv_list || $typearr[1] == 'alpha_identifier') {
                                 $before    .= $space_alpha_reserved_word;
                             }
                         } else {
