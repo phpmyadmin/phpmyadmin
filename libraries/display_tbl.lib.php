@@ -485,7 +485,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
 
             // Get rid of ASC|DESC
             preg_match('@(.*)([[:space:]]*(ASC|DESC))@si',$sort_expression,$matches);
-            $sort_expression_nodir = trim($matches[1]);
+            $sort_expression_nodir = isset($matches[1]) ? trim($matches[1]) : $sort_expression;
 
             // grab indexes data:
             $result  = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
