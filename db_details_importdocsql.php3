@@ -20,6 +20,9 @@ require('./header.inc.php3');
 //all hardcoded strings converted by Robbat2, 15 January 2003 9.34PM
 require('./libraries/common.lib.php3');
 
+// Check parameters
+PMA_checkParameters(array('db'));
+
 /**
  * Imports docSQL files
  *
