@@ -83,6 +83,7 @@ $strBookmarkQuery = 'Oblíbený SQL dotaz';
 $strBookmarkThis = 'Pøidat tento SQL dotaz do oblíbených';
 $strBookmarkView = 'Jen zobrazit';
 $strBrowse = 'Projít';
+$strBrowseForeignValues = 'Projít hodnoty cizích klíèù';
 $strBulgarian = 'Bulharsky';
 $strBzError = 'phpMyAdminovi se nepodaøilo zkomprimovat výpis, proto¾e roz¹íøení pro kompresi Bz2 je v&nbsp;této verzi php chybné. Doporuèujeme nastavit <code>$cfg[\'BZipDump\']</code> v&nbsp;nastaveních phpMyAdmina na <code>FALSE</code>. Pokud chcete pou¾ívat kompresi Bz2, mìli byste nainstalovat novìj¹í verzi php. Více informací o&nbsp;tomto probnélu je u popisu chyby %s.';
 $strBzip = '"zabzipováno"';
@@ -661,6 +662,7 @@ $strUseBackquotes = 'Pou¾ít zpìtné uvozovky u&nbsp;jmen tabulek a sloupcù';
 $strUseHostTable = 'Pou¾ít tabulku s&nbsp;poèítaèi';
 $strUseTables = 'Pou¾ít tabulky';
 $strUseTextField = 'Pou¾ít textové pole';
+$strUseThisValue = 'Pou¾ít tuto hodnotu';
 $strUser = 'U¾ivatel';
 $strUserAlreadyExists = 'U¾ivatel %s ji¾ existuje!';
 $strUserEmpty = 'Jméno u¾ivatele je prázdné!';
@@ -684,6 +686,7 @@ $strWebServerUploadDirectoryError = 'Adresáø urèený pro upload souborù nemohl bý
 $strWelcome = 'Vítej v&nbsp;%s';
 $strWestEuropean = 'Západní Evropa';
 $strWildcard = 'maska';
+$strWindowNotFound = 'Cílové onko prohlí¾eèe nemohlo býy aktualizováno. Mo¾ná jste zavøel rodièovské okno, nebo prohlí¾eè blokuje operace mezi okny z dùvodu bezpeènostních nastavení.';
 $strWithChecked = 'Za¹krtnuté:';
 $strWritingCommentNotPossible = 'Nelze zapsat komentáø';
 $strWritingRelationNotPossible = 'Nelze zapsat relaci';
@@ -697,7 +700,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 // To translate
 
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>

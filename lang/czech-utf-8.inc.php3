@@ -84,6 +84,7 @@ $strBookmarkQuery = 'Oblíbený SQL dotaz';
 $strBookmarkThis = 'Přidat tento SQL dotaz do oblíbených';
 $strBookmarkView = 'Jen zobrazit';
 $strBrowse = 'Projít';
+$strBrowseForeignValues = 'Projít hodnoty cizích klíčů';
 $strBulgarian = 'Bulharsky';
 $strBzError = 'phpMyAdminovi se nepodařilo zkomprimovat výpis, protože rozšíření pro kompresi Bz2 je v&nbsp;této verzi php chybné. Doporučujeme nastavit <code>$cfg[\'BZipDump\']</code> v&nbsp;nastaveních phpMyAdmina na <code>FALSE</code>. Pokud chcete používat kompresi Bz2, měli byste nainstalovat novější verzi php. Více informací o&nbsp;tomto probnélu je u popisu chyby %s.';
 $strBzip = '"zabzipováno"';
@@ -662,6 +663,7 @@ $strUseBackquotes = 'Použít zpětné uvozovky u&nbsp;jmen tabulek a sloupců';
 $strUseHostTable = 'Použít tabulku s&nbsp;počítači';
 $strUseTables = 'Použít tabulky';
 $strUseTextField = 'Použít textové pole';
+$strUseThisValue = 'Použít tuto hodnotu';
 $strUser = 'Uživatel';
 $strUserAlreadyExists = 'Uživatel %s již existuje!';
 $strUserEmpty = 'Jméno uživatele je prázdné!';
@@ -685,6 +687,7 @@ $strWebServerUploadDirectoryError = 'Adresář určený pro upload souborů nemo
 $strWelcome = 'Vítej v&nbsp;%s';
 $strWestEuropean = 'Západní Evropa';
 $strWildcard = 'maska';
+$strWindowNotFound = 'Cílové onko prohlížeče nemohlo býy aktualizováno. Možná jste zavřel rodičovské okno, nebo prohlížeč blokuje operace mezi okny z důvodu bezpečnostních nastavení.';
 $strWithChecked = 'Zaškrtnuté:';
 $strWritingCommentNotPossible = 'Nelze zapsat komentář';
 $strWritingRelationNotPossible = 'Nelze zapsat relaci';
@@ -698,7 +701,4 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení těchto parametrů na 0 (nulu) 
 $strZip = '"zazipováno"';
 // To translate
 
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>

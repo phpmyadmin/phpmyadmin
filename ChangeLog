@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-08-18 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech: Updated.
+
 2003-08-17 Alexander M. Turek  <rabus@users.sourceforge.net>
     * translators.html: Garvin is now the official German translator,
       temporarily.
