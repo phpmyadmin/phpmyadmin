@@ -86,6 +86,7 @@ $strDatabase = 'Databas ';
 $strDatabaseHasBeenDropped = 'Databasen %s har tagits bort.';
 $strDatabases = 'databaser';
 $strDatabasesStats = 'Databas-statistik';
+$strDatabaseWildcard = 'Databas (jokertecken tillåtna):';
 $strDataOnly = 'Enbart data';
 $strDefault = 'Standard';
 $strDelete = 'Radera';
