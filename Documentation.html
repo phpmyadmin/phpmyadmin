@@ -545,6 +545,40 @@
         <br /><br />
     </dd>
 
+    <dt>
+        <b>$cfgServers[n]['relation']</b> string
+    </dt>
+    <dd>
+        Since release 2.2.4 you can describe in a relation table which field
+        is a key in another table. phpMyAdmin currently uses this to make 
+        clickable the data values that point to another table.<br /><br />
+
+        Currently, the keys must be numeric, and you must be running PHP 4.<br /><br />
+
+        To use this functionality you have to:
+        <ul>
+            <li>
+                create in the same database a table (for example 'relation') following this scheme:<br />
+                <tt>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `relation` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`src_table` varchar(32) NOT NULL default '',<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`src_column` varchar(32) NOT NULL default '',<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`dest_table` varchar(32) NOT NULL default '',<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`dest_column` varchar(32) NOT NULL default '',<br />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`src_table`,`src_column`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ) TYPE=MyISAM COMMENT='Table Relation';<br />
+                </tt>
+            </li>
+            <li>
+                put the relation table name in 
+                <tt>$cfgServers[n]['relation']</tt>
+            </li>
+            <li>
+                then manually fill the relation table with information
+                about the keys.
+            </li>
+        </ul><br />
+
     <dt><b>$cfgServerDefault</b> integer</dt>
     <dd>
         If you have more than one server configured, you can set
