@@ -68,7 +68,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     }
     echo "\n";
     ?>
-            <input type="text" name="field_name[]" size="10" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" />
+            <input type="text" name="field_name[]" size="10" maxlength="64" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" />
         </td>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <select name="field_type[]">

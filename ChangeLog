@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2001-01-03  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, line 708; tbl_properties.inc.php3, line 71: maximum
+	  table and field size is 64 characters. Suggested by
+	  Marc Weidner <gurmbot at users.sourceforge.net>.
 	* db_details.php3:
 	  - invalid xhtml statements;
 	  - extend "check/uncheck all tables" feature to js disabled browsers.
