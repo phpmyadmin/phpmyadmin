@@ -31,8 +31,14 @@ if (!defined('__OB_LIB_INC__')) {
      *
      * (Patch by Garth Gillespie, modified by Marc Delisle)
      */
-    if (@get_cfg_var('output_handler') == 'ob_gzhandler') {  
-        $mode = 0;
+    if (@function_exists('ini_get')) {
+        if (@ini_get('output_handler') == 'ob_gzhandler') {
+            $mode = 0;
+        }
+    } else {
+        if (@get_cfg_var('output_handler') == 'ob_gzhandler') {
+            $mode = 0;
+        }
     }
     // End patch
 
