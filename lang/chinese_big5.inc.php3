@@ -19,9 +19,9 @@ $day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 $month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%B %d, %Y at %I:%M %p';
+$datefmt = '%B %d, %Y, %I:%M %p';
 
-$timespanfmt = '%s 日, %s 小時, %s 分鐘 and %s 秒';
+$timespanfmt = '%s 日, %s 小時, %s 分鐘 %s 秒';
 
 	
 
@@ -131,7 +131,7 @@ $strDelete = '刪除';
 $strDeleteAndFlush = '刪除使用者及重新讀取權限.'; 
 $strDeleteAndFlushDescr = '這是一個最清潔的做法,但重新讀取權限需一段時間.';
 $strDeleteFailed = '刪除失敗!';
-$strDeleteUserMessage = '您已經將用戶 %s 刪除.';
+$strDeleteUserMessage = '您已經將使用者 %s 刪除.';
 $strDeleted = '記錄已被刪除';
 $strDeletedRows = '已刪除欄數:';
 $strDeleting = '刪除 %s';
@@ -179,7 +179,7 @@ $strFieldsEscapedBy = '「ESCAPE」使用字元：';
 $strFieldsTerminatedBy = '「欄位分隔」使用字元：';
 $strFileCouldNotBeRead = '讀案無法讀取';
 $strFixed = '固定';
-$strFlushPrivilegesNote = '註: phpMyAdmin 直接由 MySQL 權限資料表取得用戶權限. 如果用戶自行更改資料表, 資料表內容將可能與實際用戶情況有異. 在這情況下, 您應在繼續前 %s重新載入%s 權限資料表.';
+$strFlushPrivilegesNote = '註: phpMyAdmin 直接由 MySQL 權限資料表取得使用者權限. 如果使用者自行更改資料表, 資料表內容將可能與實際使用者情況有異. 在這情況下, 您應在繼續前 %s重新載入%s 權限資料表.';
 $strFlushTable = '強迫更新資料表 ("FLUSH")';
 $strFormEmpty = '表格內漏填一些資料!';
 $strFormat = '格式';
@@ -227,8 +227,8 @@ $strInsertedRows = '新增列數:';
 $strInstructions = '指令';
 $strInvalidName = '"%s" 是一個保留字,您不能將保留字使用為 資料庫/資料表/欄位 名稱.';
 
-$strJustDelete = '只從權限資料庫刪除用戶.';
-$strJustDeleteDescr = ' &quot;刪除&quot; 的用戶仍然能夠登入資料庫直至重新載入資料庫為止.';
+$strJustDelete = '只從權限資料庫刪除使用者.';
+$strJustDeleteDescr = ' &quot;刪除&quot; 的使用者仍然能夠登入資料庫直至重新載入資料庫為止.';
 
 $strKeepPass = '請不要更改密碼';
 $strKeyname = '鍵名';
@@ -286,7 +286,7 @@ $strNoQuery = '沒有 SQL 語法!';
 $strNoRights = '您現在沒有足夠的權限!';
 $strNoTablesFound = '資料庫中沒有資料表';
 $strNoUsersFound = '找不到使用者';
-$strNoUsersSelected = '沒有選擇用戶.';
+$strNoUsersSelected = '沒有選擇使用者.';
 $strNoValidateSQL = '略過檢查 SQL';
 $strNone = '不適用';
 $strNotNumber = '這不是一個數字!';
@@ -336,7 +336,7 @@ $strPrimaryKeyName = '主鍵的名稱必須稱為 PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>必須</b>是主鍵的名稱以及是<b>唯一</b>一組主鍵!)';
 $strPrint = '列印';
 $strPrintView = '列印檢視';
-$strPrivDescAllPrivileges = '包括所有權限除了受權 (GRNANT).';
+$strPrivDescAllPrivileges = '包括所有權限除了授權 (GRNANT).';
 $strPrivDescAlter = '容許修改現有資料表的結構.';
 $strPrivDescCreateDb = '容許建立新資料庫及資料表.'; 
 $strPrivDescCreateTbl = '容許建立新資料表.';
@@ -344,19 +344,19 @@ $strPrivDescCreateTmpTable = '容許建立暫時性資料表.';
 $strPrivDescDelete = '容許刪除記錄.';
 $strPrivDescDropDb = '容許刪除資料庫及資料表.'; 
 $strPrivDescDropTbl = '容許刪除資料表.'; 
-$strPrivDescMaxConnections = 'Limits the number of new connections the user may open per hour.';
-$strPrivDescMaxQuestions = 'Limits the number of queries the user may send to the server per hour.';
-$strPrivDescMaxUpdates = 'Limits the number of commands that change any table or database the user may execute per hour.';
+$strPrivDescMaxConnections = '限制每小時使用者開啟新連線的數目.';
+$strPrivDescMaxQuestions = '限制每小時使用者查詢的數目.';
+$strPrivDescMaxUpdates = '限制每小時使用者更改資料表及數據表之指令的數目.';
 $strPrivileges = '權限';
 $strProcesslist = '系統執行清單';
 $strProperties = '屬性';
-$strPutColNames = '將欄位名稱放在首列';
+$strPutColNames = '將欄位名稱放在首行';
 
 $strQBE = '依範例查詢 (QBE)';
 $strQBEDel = '移除';
 $strQBEIns = '新增';
 $strQueryOnDb = '在資料庫 <b>%s</b> 執行 SQL 語法:';
-$strQueryStatistics = '<b>Query statistics</b>: Since its startup, %s queries have been sent to the server.';
+$strQueryStatistics = '<b>查詣統計</b>: 當統計啟動後, 共有 %s 個查詢傳送到此伺服器.';
 $strQueryType = '查詢方式';
 
 $strReType = '確認密碼';
@@ -425,7 +425,7 @@ $strServerChoice = '選擇伺服器';
 $strServerStatus = '運行資訊';
 $strServerTabProcesslist = '處理';
 $strServerTabVariables = '資訊';
-$strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
+$strServerTrafficNotes = '<b>伺服器流量</b>: 這些表顯示了此 MySQL 伺服器自啟動以來的網絡流量統計。';
 $strServerVars = '伺服器資訊及設定';
 $strServerVersion = '伺服器版本';
 $strSessionValue = '程序數值';
@@ -453,7 +453,7 @@ $strStatement = '敘述';
 $strStatus = '狀態';
 $strStrucCSV = 'CSV 資料';
 $strStrucData = '結構與資料';
-$strStrucDrop = '增加 \'drop table\'';
+$strStrucDrop = '增加 \'刪除資料表\' 語法';
 $strStrucExcelCSV = 'Ms Excel 的 CSV 格式';
 $strStrucOnly = '只有結構';
 $strStructPropose = '分析資料表結構';
@@ -500,10 +500,10 @@ $strUseTextField = '文字輸入';
 $strUser = '使用者';
 $strUserEmpty = '請輸入使用者名稱!';
 $strUserName = '使用者名稱';
-$strUserNotFound = '選擇的用戶在權限資料表內找不到.';
-$strUserOverview = '用戶一覽';
+$strUserNotFound = '選擇的使用者在權限資料表內找不到.';
+$strUserOverview = '使用者一覽';
 $strUsers = '使用者';
-$strUsersDeleted = '選擇的用戶已成功刪除.';
+$strUsersDeleted = '選擇的使用者已成功刪除.';
 
 $strValidateSQL = '檢查 SQL';
 $strValidatorError = 'SQL 分析程式未能啟動，請檢查是否已將 %s文件%s 內的 PHP 檔案安裝。';
@@ -524,141 +524,143 @@ $strYes = ' 是 ';
 
 $strZip = '"zipped"';
 // To translate
-$strUpdComTab = 'Please see Documentation on how to update your Column_comments Table';  //to translate
+$strUpdComTab = '請參看說明文件查詢如何更新 Column_comments 資料表';
 
-$strAbsolutePathToDocSqlDir = '請輸入 docSQL 目錄於網頁伺服器的絕對路徑';  //to translate
-$strAddPrivilegesOnDb = 'Add privileges on the following database'; //to translate
-$strAddPrivilegesOnTbl = 'Add privileges on the following table'; //to translate
-$strAddedColumnComment = 'Added comment for column';  //to translate
-$strAddedColumnRelation = 'Added relation for column';  //to translate
+$strAbsolutePathToDocSqlDir = '請輸入 docSQL 目錄於網頁伺服器的絕對路徑';
+$strAddPrivilegesOnDb = '於以下資料庫加入權限';
+$strAddPrivilegesOnTbl = '於以下資料表加入權限'; 
+$strAddedColumnComment = '於以下欄位加入註解文字';
+$strAddedColumnRelation = '於以下欄位加入關聯'; 
 
-$strCantLoad = 'cannot load %s extension,<br />please check PHP Configuration';  //to translate
-$strChangeCopyMode = 'Create a new user with the same privileges and ...';  //to translate
-$strChangeCopyModeCopy = '... keep the old one.';  //to translate
-$strChangeCopyModeDeleteAndReload = ' ... delete the old one from the user tables and reload the privileges afterwards.';  //to translate
-$strChangeCopyModeJustDelete = ' ... delete the old one from the user tables.';  //to translate
-$strChangeCopyModeRevoke = ' ... revoke all active privileges from the old one and delete it afterwards.';  //to translate
-$strChangeCopyUser = 'Change Login Information / Copy User';  //to translate
-$strCheckPrivs = 'Check Privileges';  //to translate
-$strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
-$strColumnPrivileges = 'Column-specific privileges'; //to translate
+$strCantLoad = '無法讀取 %s 模組,<br />請檢查 PHP 設定';
+$strChangeCopyMode = '建立新使用者及使用相同之權限, 及 ...';
+$strChangeCopyModeCopy = '... 保留舊使用者.';
+$strChangeCopyModeDeleteAndReload = ' ... 刪除舊使用者及重新讀取權限資料表.';
+$strChangeCopyModeJustDelete = ' ... 刪除舊使用者.';
+$strChangeCopyModeRevoke = ' ... 廢除所有舊使用者有效之權限並刪除.';
+$strChangeCopyUser = '更改登入資訊 / 複製使用者';
+$strCheckPrivs = '查詢權限';
+$strCheckPrivsLong = '查詢資料庫 &quot;%s&quot; 之權限.';
+$strColumnPrivileges = '指定欄位權限';
 
-$strDBComment = 'Database comment: ';//to translate
-$strDBGContext = 'Context';  //to translate
-$strDBGContextID = 'Context ID';  //to translate
-$strDBGMaxTimeMs = 'Max time, ms';  //to translate
-$strDBGMinTimeMs = 'Min time, ms';  //to translate
-$strDBGTimePerHitMs = 'Time/Hit, ms';  //to translate
-$strDBGTotalTimeMs = 'Total time, ms';  //to translate
-$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
-$strDatabasesStatsDisable = 'Disable Statistics';  //to translate
-$strDatabasesStatsEnable = 'Enable Statistics';  //to translate
-$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
-$strDbPrivileges = 'Database-specific privileges'; //to translate
-$strDbSpecific = 'database-specific';  //to translate
-$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
-$strDelOld = 'The current Page has References to Tables that no longer exist. Would you like to delete those References?';  //to translate
-$strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
-$strDropUsersDb = 'Drop the databases that have the same names as the users.'; //to translate
-$strDumpComments = 'Include column comments as inline SQL-comments';//to translate
+$strDBComment = '資料庫註解文字: ';
+$strDBGContext = '本文 (Context)';
+$strDBGContextID = '本文 (Context) ID';
+$strDBGMaxTimeMs = '最大時間, ms';
+$strDBGMinTimeMs = '最小時間, ms';
+$strDBGTimePerHitMs = '時間/次, ms';
+$strDBGTotalTimeMs = '總時間, ms';
+$strDatabasesDropped = '%s 個資料庫已成功刪除.';
+$strDatabasesStatsDisable = '停止統計數據';
+$strDatabasesStatsEnable = '啟動統計數據';
+$strDatabasesStatsHeavyTraffic = '註: 啟動資料庫統計數據可能會產生大量由 Web 伺服器及 MySQL 之間的流量.';
+$strDbPrivileges = '指定資料庫權限';
+$strDbSpecific = '指定資料庫';
+$strDefaultValueHelp = '預設值: 請只輸入該預設值, 無需加上任何反斜線或引號';
+$strDelOld = '本頁的參考到資料表已不存在. 您希望刪除這些參考嗎?';
+$strDropSelectedDatabases = '刪除已選擇之資料庫';
+$strDropUsersDb = '刪除與使用者相同名稱之資料庫.';
+$strDumpComments = '加入欄位註解作為內建 SQL-註解';
 
-$strFileNameTemplate = 'File name template';//to translate 
-$strFileNameTemplateHelp = 'Use __DB__ for database name, __TABLE__ for table name and %sany strftime%s options for time specification, extension will be automagically added. Any other text will be preserved.';//to translate
-$strFileNameTemplateRemember = 'remember template';//to translate 
+$strFileNameTemplate = '檔案名稱樣式';
+$strFileNameTemplateHelp = '使用 __DB__ 作為資料庫名稱, __TABLE__ 為資料表名稱. %s任何 strftime%s 內關於時間及附加選項會自動加入. 其他文字將會保留.';
+$strFileNameTemplateRemember = '保留樣式名稱';
 
-$strGlobal = 'global';  //to translate
+$strGlobal = '整體';
 
-$strIgnoringFile = '忽略檔案 %s';  //to translate
-$strInnodbStat = 'InnoDB 狀態';  //to translate
+$strIgnoringFile = '忽略檔案 %s';
+$strInnodbStat = 'InnoDB 狀態';
 
-$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
+$strJumpToDB = '跳到資料庫 &quot;%s&quot;.';
 
-$strMIME_MIMEtype = 'MIME-type';//to translate
-$strMIME_available_mime = 'Available MIME-types';//to translate
-$strMIME_available_transform = 'Available transformations';//to translate
-$strMIME_description = 'Description';//to translate
-$strMIME_file = 'Filename';//to translate
-$strMIME_nodescription = 'No Description is available for this transformation.<br />Please ask the author, what %s does.';//to translate
-$strMIME_transformation = 'Browser transformation';//to translate
-$strMIME_transformation_note = 'For a list of available transformation options and their MIME-type transformations, click on %stransformation descriptions%s';//to translate
-$strMIME_transformation_options = 'Transformation options';//to translate
-$strMIME_transformation_options_note = 'Please enter the values for transformation options using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';//to translate
-$strMIME_without = 'MIME-types printed in italics do not have a seperate transformation function';//to translate
+$strMIME_MIMEtype = 'MIME 類型';
+$strMIME_available_mime = '可使用 MIME 類型';
+$strMIME_available_transform = '可使用轉換方式';
+$strMIME_description = '說明';
+$strMIME_file = '檔案名稱';
+$strMIME_nodescription = '這個轉換方式沒有說明.<br />請向作者查詢 %s 是甚麼用途.';
+$strMIME_transformation = '瀏覽器轉換方式';
+$strMIME_transformation_note = '有關可使用之轉換方式選項及 MINE 類型轉換選項, 請查看 %s轉換方式說明%s';
+$strMIME_transformation_options = '轉換方式選項';
+$strMIME_transformation_options_note = '請用以下的格式輸入轉換選項值: \'a\',\'b\',\'c\'...<br />如您需要輸入反斜線 ("\") 或單引號 ("\'") 請再加上反斜線 (例如 \'\\\\xyz\' or \'a\\\'b\').';
+$strMIME_without = 'MIME 類型以斜體顯示是沒有分隔轉換功能';
 
-$strNoDatabasesSelected = 'No databases selected.';  //to translate
+$strNoDatabasesSelected = '沒有資料庫選擇.';
 
-$strPrivDescExecute = 'Allows running stored procedures; Has no effect in this MySQL version.'; //to translate
-$strPrivDescFile = 'Allows importing data from and exporting data into files.'; //to translate
-$strPrivDescGrant = 'Allows adding users and privileges without reloading the privilege tables.'; //to translate
-$strPrivDescIndex = 'Allows creating and dropping indexes.'; //to translate
-$strPrivDescInsert = 'Allows inserting and replacing data.'; //to translate
-$strPrivDescLockTables = 'Allows locking tables for the current thread.'; //to translate
-$strPrivDescProcess3 = 'Allows killing processes of other users.'; //to translate
-$strPrivDescProcess4 = 'Allows viewing the complete queries in the process list.'; //to translate
-$strPrivDescReferences = 'Has no effect in this MySQL version.'; //to translate
-$strPrivDescReload = 'Allows reloading server settings and flushing the server\'s caches.'; //to translate
+$strPrivDescExecute = '容許 執行預先儲存之程式. 於本 MySQL 版本無效.';
+$strPrivDescFile = '容許輸入及輸出數據到檔案.';
+$strPrivDescGrant = '容許新增使用者及權限而無需重新讀取權限資料表.';
+$strPrivDescIndex = '容許建立及刪除索引.';
+$strPrivDescInsert = '容許新增及取代數據.';
+$strPrivDescLockTables = '容許鎖上現時連線之資料表.';
+$strPrivDescProcess3 = '容許中止其他使用者之程序.';
+$strPrivDescProcess4 = '容許檢視系統執行清單完整之查詢.';
+$strPrivDescReferences = '於本 MySQL 版本無效.';
+$strPrivDescReload = '容許重新讀取伺服器設定及強行更新伺服器快取記憶.';
+$strPrivDescSelect = '容許讀取數據.';
+$strPrivDescShowDb = '可讀取整個資料庫清單.';
+$strPrivDescShutdown = '容許停止伺服器.';
+$strPrivDescSuper = '容許連線, 就算超過了最大連線限制; 用於最高系統管理如設定整體權限或中止其他使用者指令.';
+$strPrivDescUpdate = '容許更新數據.';
+$strPrivDescUsage = '沒有權限.'; 
+$strPrivilegesReloaded = '權限已成功重新讀取.';
+
+$strQueryFrame = '查詢視窗';
+$strQueryFrameDebug = '除錯資訊';
+$strQuerySQLHistory = 'SQL 歷程';
+$strQueryTime = '查詢需時 %01.4f 秒';
+
+$strRelationalSchema = '關聯概要';
+$strReloadingThePrivileges = '重新讀取權限'; 
+$strRemoveSelectedUsers = '移除已選擇使用者';
+$strResourceLimits = '資源限制';
+$strRevokeAndDelete = '廢除使用者所有有效之權限並刪除.'; 
+$strRevokeAndDeleteDescr = '使用者仍然有 USAGE 權限直至權限資料表更新讀取.';
+$strRowsModeFlippedHorizontal = '垂直 (旋轉標題)';
+
+$strServerStatusUptime = '這 MySQL 伺服器已啟動了 %s. 伺服器於 %s 啟動.';
+
+$strTblPrivileges = '指定資料表權限';
+$strTransformation_image_jpeg__inline = '顯示可按式圖像; 選項; 寬度,高度[以像素為單位] (保時原有比例)';
+$strTransformation_image_jpeg__link = '顯示圖像的連線 (直接下載).';
+$strTransformation_image_png__inline = '參看 image/jpeg: 內建';  
+$strTransformation_text_plain__dateformat = '使用 TIME, TIMESTAMP 或 DATETIME 並以本地時區時間顯示. 第一個選項是修正 (以小時為單位) 來調整顯示之時間 (預設: 0). 第二個選項是日期格式 [跟據 PHPs strftime() 的參數].';
+
+$strUserAlreadyExists = '使用者 %s 己存在!';
+$strUsersHavingAccessToDb = '可讀取 &quot;%s&quot; 之使用者';
+
+$strWildcard = '萬用字元';
+$strWritingCommentNotPossible = '無法儲存註解文字';
+$strWritingRelationNotPossible = '無法儲存關聯';
+
+$strZeroRemovesTheLimit = '註: 設定這些選項為 0 (零) 可解除限制.';
+$strAutodetect = '自動偵測';  
+$strTransformation_text_plain__imagelink = '顯示圖像及連結, 數據內容是檔案名稱; 第一個選項是網址前段 (例 "http://domain.com/" ), 第二個選項是寬度的像素,第三個選項是高度的像素.';
+$strTransformation_text_plain__link = '顯示連結, 數據內容是檔案名稱; 第一個選項是網址前段 (例 "http://domain.com/" ), 第二選項是連結的標題.';
+$strUseHostTable = '使用主機資料表';
+$strShowFullQueries = '顯示完整查詢'; 
+$strTruncateQueries = '刪除已顯示查詢';
+$strSwitchToTable = '跳到已複製之資料表';
+$strCharset = '文字格式 (Charset)';
+$strLaTeXOptions = 'LaTeX 選項';
+$strRelations = '關聯';
+$strMoveTableSameNames = '無法移動到相同資料表!';
+$strCopyTableSameNames = '無法複製到相同資料表!';
+$strMustSelectFile = '您應選擇需要新增的檔案.';
+$strSaveOnServer = '儲存到伺服器於 %s 目錄';
+$strOverwriteExisting = '覆寫已存在檔案';
+$strFileAlreadyExists = '檔案 %s 已存在,請更改檔案名稱或選擇「覆寫己存在檔案」選項.';
+$strDumpSaved = '備份已儲到檔案 %s.';
+$strNoPermission = 'Web 伺服器沒有權限儲存檔案 %s.';
+$strNoSpace = '空間不足儲存檔案 %s.';
+$strInsertedRowId = '新增資料列 id:';
+
 $strPrivDescReplClient = 'Gives the right to the user to ask where the slaves / masters are.'; //to translate
 $strPrivDescReplSlave = 'Needed for the replication slaves.'; //to translate
-$strPrivDescSelect = 'Allows reading data.'; //to translate
-$strPrivDescShowDb = 'Gives access to the complete list of databases.'; //to translate
-$strPrivDescShutdown = 'Allows shutting down the server.'; //to translate
-$strPrivDescSuper = 'Allows connectiong, even if maximum number of connections is reached; Required for most administrative operations like setting global variables or killing threads of other users.'; //to translate
-$strPrivDescUpdate = 'Allows changing data.'; //to translate
-$strPrivDescUsage = 'No privileges.'; //to translate
-$strPrivilegesReloaded = 'The privileges were reloaded successfully.'; //to translate
-
-$strQueryFrame = 'Query window';//to translate
-$strQueryFrameDebug = 'Debugging information';//to translate
 $strQueryFrameDebugBox = 'Active variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nCurrent variables for the query form:\nDB: %s\nTable: %s\nServer: %s\n\nOpener location: %s\nFrameset location: %s.';//to translate
-$strQuerySQLHistory = 'SQL-history';//to translate
-$strQueryTime = 'Query took %01.4f sec';//to translate
-
-$strRelationalSchema = 'Relational schema';  //to translate
-$strReloadingThePrivileges = 'Reloading the privileges'; //to translate
-$strRemoveSelectedUsers = 'Remove selected users'; //to translate
-$strResourceLimits = 'Resource limits'; //to translate
-$strRevokeAndDelete = 'Revoke all active privileges from the users and delete them afterwards.'; //to translate
-$strRevokeAndDeleteDescr = 'The users will still have the USAGE privilege until the privileges are reloaded.'; //to translate
-$strRowsModeFlippedHorizontal = 'horizontal (rotated headers)';//to translate
-
-$strServerStatusUptime = 'This MySQL server has been running for %s. It started up on %s.'; //to translate
-
-$strTblPrivileges = 'Table-specific privileges'; //to translate
-$strTransformation_image_jpeg__inline = 'Displays a clickable thumbnail; options: width,height in pixels (keeps the original ratio)';  //to translate
-$strTransformation_image_jpeg__link = 'Displays a link to this image (direct blob download, i.e.).';//to translate
-$strTransformation_image_png__inline = 'See image/jpeg: inline';  //to translate
-$strTransformation_text_plain__dateformat = 'Takes a TIME, TIMESTAMP or DATETIME field and formats it using your local dateformat. First option is the offset (in hours) which will be added to the timestamp (Default: 0). Second option is a different dateformat according to the parameters available for PHPs strftime().';//to translate
 $strTransformation_text_plain__external = 'LINUX ONLY: Launches an external application and feeds the fielddata via standard input. Returns standard output of the application. Default is Tidy, to pretty print HTML code. For security reasons, you have to manually edit the file libraries/transformations/text_plain__external.inc.php and insert the tools you allow to be run. The first option is then the number of the program you want to use and the second option are the parameters for the program. The third parameter, if set to 1 will convert the output using htmlspecialchars() (Default is 1). A fourth parameter, if set to 1 will put a NOWRAP to the content cell so that the whole output will be shown without reformatting (Default 1)';//to translate
 $strTransformation_text_plain__formatted = 'Preserves original formatting of the field. No Escaping is done.';//to translate
 $strTransformation_text_plain__substr = 'Only shows part of a string. First option is an offset to define where the output of your text starts (Default 0). Second option is an offset how much text is returned. If empty, returns all the remaining text. The third option defines which chars will be appended to the output when a substring is returned (Default: ...) .';//to translate
 $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entities. No HTML formatting is shown.';//to translate
 
-$strUserAlreadyExists = '用戶 %s 己存在!'; //to translate
-$strUsersHavingAccessToDb = 'Users having access to &quot;%s&quot;';  //to translate
-
-$strWildcard = 'wildcard';  //to translate
-$strWritingCommentNotPossible = 'Writing of comment not possible';  //to translate
-$strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
-
-$strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
-$strAutodetect = 'Autodetect';  //to translate
-$strTransformation_text_plain__imagelink = 'Displays an image and a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is the width in pixels, third is the height.';  //to translate
-$strTransformation_text_plain__link = 'Displays a link, the field contains the filename; first option is a prefix like "http://domain.com/", second option is a title for the link.';  //to translate
-$strUseHostTable = 'Use Host Table';  //to translate
-$strShowFullQueries = 'Show Full Queries';  //to translate
-$strTruncateQueries = 'Truncate Shown Queries';  //to translate
-$strSwitchToTable = 'Switch to copied table';  //to translate
-$strCharset = 'Charset';  //to translate
-$strLaTeXOptions = 'LaTeX options';  //to translate
-$strRelations = 'Relations';  //to translate
-$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
-$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
-$strMustSelectFile = 'You should select file which you want to insert.';  //to translate
-$strSaveOnServer = 'Save on server in %s directory';  //to translate
-$strOverwriteExisting = 'Overwrite existing file(s)';  //to translate
-$strFileAlreadyExists = 'File %s already exists on server, change filename or check overwrite option.';  //to translate
-$strDumpSaved = 'Dump has been saved to file %s.';  //to translate
-$strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
-$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
-$strInsertedRowId = 'Inserted row id:';  //to translate
 ?>
