@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-21  Marc Delisle  <lem9@users.sourceforge.net>
+	* test and merge patch from Loïc for bug 495112: 
+	  - libraries/common.lib.php3
+
 2001-12-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html; libraries/display_tbl.lib.php3: updated credits.
 	* libraries/display_tbl.lib.php3:

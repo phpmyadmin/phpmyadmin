@@ -458,19 +458,12 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
             // This maintenance is to fix code to work correctly for regular
             // expressions.
             if ($row['Select_priv'] != 'Y') {
+
+                // 1. get allowed dbs from the "mysql.db" table
                 // lem9: User can be blank (anonymous user)
                 $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\' OR User = \'\')';
                 $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                if (@mysql_numrows($rs) <= 0) {
-                    $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\'';
-                    $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
-                    if (@mysql_numrows($rs)) {
-                        while ($row = mysql_fetch_array($rs)) {
-                            $dblist[] = $row['Db'];
-                        }
-                        mysql_free_result($rs);
-                    }
-                } else {
+                if (@mysql_numrows($rs)) {
                     // Will use as associative array of the following 2 code
                     // lines:
                     //   the 1st is the only line intact from before
@@ -526,9 +519,22 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
                     } // end else
                     mysql_free_result($uva_alldbs);
                     unset($uva_mydbs);
-                } // end else
+                } // end if
+
+                // 2. get allowed dbs from the "mysql.tables_priv" table
+                $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . PMA_sqlAddslashes($cfgServer['user']) . '\'';
+                $rs          = mysql_query($local_query, $dbh); // Debug: or PMA_mysqlDie('', $local_query, FALSE);
+                if (@mysql_numrows($rs)) {
+                    while ($row = mysql_fetch_array($rs)) {
+                        if (PMA_isInto($row['Db'], $dblist) == -1) {
+                            $dblist[] = $row['Db'];
+                        }
+                    } // end while
+                    mysql_free_result($rs);
+                } // end if
             } // end if
         } // end building available dbs from the "mysql" db
+
     } // end server connecting
 
     /**
