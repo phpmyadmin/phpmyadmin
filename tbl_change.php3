@@ -240,7 +240,7 @@ for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
         $set = str_replace('set(', '', $row_table_def['Type']);
         $set = ereg_replace('\)$', '', $set);
         $set = explode(',', $set);
-
+	unset($vset);
         for ($vals = explode(',', $data); list($t, $k) = each($vals);) {
             $vset[$k] = 1;
         }
