@@ -179,6 +179,7 @@ $strMoveTable = 'Flytt tabell til (database<b>.</b>tabell):';
 $strMoveTableOK = 'Tabellen %s har blitt flyttet til %s.';
 $strMySQLReloaded = 'MySQL omstartet.';
 $strMySQLSaid = 'MySQL sa: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% som kjører på %pma_s2% som %pma_s3%';
 $strMySQLShowProcess = 'Vis prosesser';
 $strMySQLShowStatus = 'Vis MySQL runtime informasjon';
 $strMySQLShowVars = 'Vis MySQL systemvariabler';
@@ -255,8 +256,7 @@ $strRows = 'Rader';
 $strRowsFrom = 'rader fra';
 $strRowSize = ' Rad størelse ';
 $strRowsStatistic = 'Rad statistikk';
-$strRunning = 'som kjører på ';
-$strRunningAs = 'som';
+$strRunning = 'som kjører på %s';
 $strRunQuery = 'Kjør spørring';
 $strRunSQLQuery = 'Kjør SQL spørring/spørringer mot databasen %s';
 

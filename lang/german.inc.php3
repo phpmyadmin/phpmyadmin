@@ -249,7 +249,7 @@ $strRows = 'Zeilen';
 $strRowsFrom = 'Datensätze, beginnend ab';
 $strRowSize = 'Zeilengröße';
 $strRowsStatistic = 'Zeilenstatistik';
-$strRunning = 'auf ';
+$strRunning = 'auf %s';
 $strRunQuery = 'SQL Befehl ausführen';
 $strRunSQLQuery = 'SQL-Befehl(e) ausführen in Datenbank %s';
 
@@ -330,7 +330,7 @@ $strZip = '"Zip komprimiert"';
 $strBookmarkDeleted = 'The bookmark has been deleted.';
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate
 $strIndexHasBeenDropped = 'Index %s has been dropped';//to translate
-$strRunningAs = 'as';
+$strMySQLServerProcess = 'MySQL %pma_s1% running on %pma_s2% as %pma_s3%';
 $strShowCols = 'Show columns';
 $strShowTables = 'Show tables';
 

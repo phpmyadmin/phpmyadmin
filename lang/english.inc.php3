@@ -180,6 +180,7 @@ $strMoveTable = 'Move table to (database<b>.</b>table):';
 $strMoveTableOK = 'Table %s has been moved to %s.';
 $strMySQLReloaded = 'MySQL reloaded.';
 $strMySQLSaid = 'MySQL said: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% running on %pma_s2% as %pma_s3%';
 $strMySQLShowProcess = 'Show processes';
 $strMySQLShowStatus = 'Show MySQL runtime information';
 $strMySQLShowVars = 'Show MySQL system variables';
@@ -256,8 +257,7 @@ $strRows = 'Rows';
 $strRowsFrom = 'rows starting from';
 $strRowSize = ' Row size ';
 $strRowsStatistic = 'Row Statistic';
-$strRunning = 'running on ';
-$strRunningAs = 'as';
+$strRunning = 'running on %s';
 $strRunQuery = 'Submit Query';
 $strRunSQLQuery = 'Run SQL query/queries on database %s';
 

@@ -184,6 +184,7 @@ $strMoveTable = 'фос ЬЯцс Хсь (оЧкЯЩ ШэЧфЧЪ<b>.</b>ЬЯцс):';
 $strMoveTableOK = '%s ЬЯцс Ъу фосх Хсь %s.';
 $strMySQLReloaded = 'MySQL укЧЯ ЪЭуэсх.';
 $strMySQLSaid = 'MySQL оЧс: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% экус ксь %pma_s2% пм %pma_s3%';
 $strMySQLShowProcess = 'кбж кусэЧЪ';
 $strMySQLShowStatus = 'кбж MySQL runtime пуксцуЧЪ';
 $strMySQLShowVars = 'кбж MySQL пуЪлэбЧЪх';
@@ -260,8 +261,7 @@ $strRows = 'енцн';
 $strRowsFrom = 'енцн ЪШЯУ уф';
 $strRowSize = ' уоЧг Чсен ';
 $strRowsStatistic = 'ХЭеЧС Чсен';
-$strRunning = 'экус ксь ';
-$strRunningAs = 'пм';
+$strRunning = 'экус ксь %s';
 $strRunQuery = 'ХбгЧс ЧсХгЪксЧу';
 $strRunSQLQuery = 'Ъфнэа ХгЪксЧу/ХгЪксЧуЧЪ SQL ксь оЧкЯЩ ШэЧфЧЪ %s';
 

@@ -180,6 +180,7 @@ $strMoveTable = 'Переместить таблицы в (база данных<b>.</b>таблица):';
 $strMoveTableOK = 'Таблица %s была перемещена в %s.';
 $strMySQLReloaded = 'MySQL перезагружена.';
 $strMySQLSaid = 'Ответ MySQL: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% на %pma_s2% как %pma_s3%';
 $strMySQLShowProcess = 'Показать процессы';
 $strMySQLShowStatus = 'Показать состояние MySQL';
 $strMySQLShowVars = 'Показать системные переменные MySQL';
@@ -256,8 +257,7 @@ $strRows = 'Ряды';
 $strRowsFrom = 'рядов от';
 $strRowSize = ' Размер ряда ';
 $strRowsStatistic = 'Статистика ряда';
-$strRunning = 'на ';
-$strRunningAs = 'как';
+$strRunning = 'на %s';
 $strRunQuery = 'Выполнить Запрос';
 $strRunSQLQuery = 'Выполнить SQL запрос(ы) на БД %ы';
 

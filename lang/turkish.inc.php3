@@ -180,6 +180,7 @@ $strMoveTable = 'Tabloyu (veritabaný<b>.</b>tablo) taþý:';
 $strMoveTableOK = '%s tablosu %s üzerine taþýndý.';
 $strMySQLReloaded = 'MySQL yeniden yüklendi.';
 $strMySQLSaid = 'MySQL çýktýsý: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% -- çalýþtýðý ortam --) %pma_s2% çalýþtýðý sistem -- %pma_s3%';
 $strMySQLShowProcess = 'Ýþlemleri göster';
 $strMySQLShowStatus = 'MySQL çalýþma zamaný bilgisini göster';
 $strMySQLShowVars = 'MySQL sistem deðiþkenlerini göster';
@@ -256,8 +257,7 @@ $strRows = 'Satýr Sayýsý';
 $strRowsFrom = '(kayýt)baþlayacaðý kayýt :';
 $strRowSize = ' Satýr boyutu ';
 $strRowsStatistic = 'Satýr istatistiði';
-$strRunning = '-- çalýþtýðý ortam --)';
-$strRunningAs = 'çalýþtýðý sistem --';
+$strRunning = '-- çalýþtýðý ortam --) %s';
 $strRunQuery = 'Sorguyu çalýþtýr';
 $strRunSQLQuery = '%s veritabaný üzerinde sorgu/sorgular çalýþtýr';
 

@@ -180,6 +180,7 @@ $strMoveTable = 'Flytta tabellen till (databas<b>.</b>tabell):';
 $strMoveTableOK = 'Tabellen %s har flyttats till %s.';
 $strMySQLReloaded = 'MySQL har startats om.';
 $strMySQLSaid = 'MySQL sa: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% körs på %pma_s2% som %pma_s3%';
 $strMySQLShowProcess = 'Visa processer';
 $strMySQLShowStatus = 'Visa MySQL-körningsinformation';
 $strMySQLShowVars = 'Visa MySQL:s systemvariabler';
@@ -256,8 +257,7 @@ $strRows = 'Rader';
 $strRowsFrom = 'rader med början från';
 $strRowSize = 'Radstorlek';
 $strRowsStatistic = 'Radstatistik';
-$strRunning = 'körs på ';
-$strRunningAs = 'som';
+$strRunning = 'körs på %s';
 $strRunQuery = 'Kör fråga';
 $strRunSQLQuery = 'Kör SQL-fråga/frågor i databasen %s';
 

@@ -45,19 +45,24 @@ echo "\n";
 
 <?php
 // Don't display server info if $server == 0 (no server selected)
+// loic1: modified in order to have a valid words order whatever is the
+//        language used
 if ($server > 0) {
-    $local_query = 'SELECT VERSION() as version, USER() as user';
-    $res         = mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
-    echo '<p><b>MySQL ' . mysql_result($res, 0, 'version') . ' ' . $strRunning . ' ' . $cfgServer['host'];
-    if (!empty($cfgServer['port'])) {
-        echo ':' . $cfgServer['port'];
-    }
+    $server_info     = $cfgServer['host']
+                     . (empty($cfgServer['port']) ? '' : ':' . $cfgServer['port']);
     // loic1: skip this because it's not a so good idea to display sockets
     //        used to everybody
     // if (!empty($cfgServer['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-    //     echo ':' . $cfgServer['socket'];
+    //     $server_info .= ':' . $cfgServer['socket'];
     // }
-    echo ' ' . $strRunningAs . ' ' . mysql_result($res, 0, 'user') . '</b></p><br />' . "\n";
+    $local_query     = 'SELECT VERSION() as version, USER() as user';
+    $res             = mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
+
+    $full_string     = str_replace('%pma_s1%', mysql_result($res, 0, 'version'), $strMySQLServerProcess);
+    $full_string     = str_replace('%pma_s2%', $server_info, $full_string);
+    $full_string     = str_replace('%pma_s3%', mysql_result($res, 0, 'user'), $full_string);
+
+    echo '<p><b>' . $full_string . '</b></p><br />' . "\n";
 } // end if
 
 

@@ -256,8 +256,8 @@ $strRows = 'Filas';
 $strRowsFrom = 'filas, a comezar da';
 $strRowSize= ' Tamaño da fila ';
 $strRowsStatistic = 'Estatistícas da Fila';
-$strRunning = 'a rodar no servidor ';
-$strRunningAs = 'como';
+$strRunning = 'a rodar no servidor %s';
+$strMySQLServerProcess = 'MySQL %pma_s1% a rodar no servidor %pma_s2% como %pma_s3%';
 $strRunQuery = 'Enviar esta procura';
 $strRunSQLQuery = 'Efectuar unha procura SQL na base de datos %s';
 

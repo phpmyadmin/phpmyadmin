@@ -77,8 +77,8 @@ if (isset($table)) {
     $title .= (empty($title) ? '' : '.') . str_replace('\'', '\\\'', $table);
 }
 if (!empty($cfgServer) && isset($cfgServer['host'])) {
-    $title .= (empty($title) ? '' : ' ') . trim($strRunning) . ' '
-           .  (empty($cfgServer['verbose']) ? str_replace('\'', '\\\'', $cfgServer['host']) : str_replace('\'', '\\\'', $cfgServer['verbose']));
+    $title .= (empty($title) ? '' : ' ')
+           . sprintf($strRunning, (empty($cfgServer['verbose']) ? str_replace('\'', '\\\'', $cfgServer['host']) : str_replace('\'', '\\\'', $cfgServer['verbose'])));
 }
 $title     .= (empty($title) ? '' : ' - ') . 'phpMyAdmin ' . PMA_VERSION;
 ?>
@@ -145,8 +145,7 @@ if (isset($db)) {
     if (!empty($table)) {
         echo ' - ' . $strTable . ' <i>' . htmlspecialchars($table) . '</i>';
     }
-    echo ' ' . trim($strRunning)
-         . ' <i>' . (($cfgServer['verbose']) ? $cfgServer['verbose'] : $cfgServer['host']) . '</i>'; 
+    echo ' ' . sprintf($strRunning, ' <i>' . (($cfgServer['verbose']) ? $cfgServer['verbose'] : $cfgServer['host']) . '</i>');
     echo '</h1>' . "\n";
 }
 echo "\n";

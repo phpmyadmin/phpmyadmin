@@ -164,6 +164,7 @@ $strMoveTable = 'Преместване на таблица към (база от данни<b>.</b>таблица):';
 $strMoveTableOK = 'Таблицата %s беше преместена към %s.';
 $strMySQLReloaded = 'MySQL е презареден.';
 $strMySQLSaid = 'MySQL отговори: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% е стартиран на %pma_s2% като %pma_s3%';
 $strMySQLShowProcess = 'Покажи процесите';
 $strMySQLShowStatus = 'Покажи състоянието на MySQL';
 $strMySQLShowVars = 'Покажи системните променливи на MySQL';
@@ -233,8 +234,7 @@ $strRows = 'Rows'; //to translate
 $strRowsFrom = 'реда започвайки от';
 $strRowSize = ' Размер на ред ';
 $strRowsStatistic = 'Статистика за реда';
-$strRunning = 'е стартиран на ';
-$strRunningAs = 'като';
+$strRunning = 'е стартиран на %s';
 $strRunQuery = 'Изпълни Запитването';
 $strRunSQLQuery = 'Стартиране SQL заявка/заявки към база от данни %s';
 

@@ -182,6 +182,7 @@ $strMoveTable = 'Presunú» tabuµku do (databáza<b>.</b>tabuµka):';
 $strMoveTableOK = 'Tabuµka %s bola presunutá do %s.';
 $strMySQLReloaded = 'MySQL znovu-naèítaná.';
 $strMySQLSaid = 'MySQL hlási: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% be¾i na %pma_s2% ako %pma_s3%';
 $strMySQLShowProcess = 'Zobrazi» procesy';
 $strMySQLShowStatus = 'Zobrazi» MySQL informácie o behu';
 $strMySQLShowVars = 'Zobrazi» MySQL systémové premenné';
@@ -258,8 +259,7 @@ $strRows = 'Riadkov';
 $strRowsFrom = 'riadky zaèínajú od';
 $strRowSize = ' Veµkos» riadku ';
 $strRowsStatistic = '©tatistika riadku';
-$strRunning = 'be¾i na ';
-$strRunningAs = 'ako';
+$strRunning = 'be¾i na %s';
 $strRunQuery = 'Odo¹li dotaz';
 $strRunSQLQuery = 'Spusti» SQL dotaz/dotazy na databázu %s';
 

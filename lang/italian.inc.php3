@@ -182,6 +182,7 @@ $strMoveTable = 'Sposta la tabella nel (database<b>.</b>tabella):';
 $strMoveTableOK = 'La tabella %s &egrave; stata spostata in %s.';
 $strMySQLReloaded = 'MySQL riavviato.';
 $strMySQLSaid = 'Messaggio di MySQL: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% in esecuzione su %pma_s2% come %pma_s3%';
 $strMySQLShowProcess = 'Visualizza processi in esecuzione';
 $strMySQLShowStatus = 'Visualizza informazioni di runtime di MySQL';
 $strMySQLShowVars = 'Visualizza variabili di sistema di MySQL';
@@ -258,8 +259,7 @@ $strRows = 'Righe';
 $strRowsFrom = 'righe a partire da';
 $strRowSize = 'Dimensione riga';
 $strRowsStatistic = 'Statistiche righe';
-$strRunning = 'in esecuzione su ';
-$strRunningAs = 'come';
+$strRunning = 'in esecuzione su %s';
 $strRunQuery = 'Invia Query';
 $strRunSQLQuery = 'Esegui la/e query SQL sul database %s';
 

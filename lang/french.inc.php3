@@ -180,6 +180,7 @@ $strMoveTable = '<b>Déplacer</b> la table vers (base<b>.</b>table)&nbsp;:';
 $strMoveTableOK = 'La table %s a été déplacée vers %s.';
 $strMySQLReloaded = 'MySQL rechargé.';
 $strMySQLSaid = 'MySQL a répondu:';
+$strMySQLServerProcess = 'MySQL %pma_s1% sur le serveur %pma_s2% - utilisateur&nbsp;: %pma_s3%';
 $strMySQLShowProcess = 'Afficher les processus';
 $strMySQLShowStatus = 'Afficher l\'état du serveur MySQL';
 $strMySQLShowVars = 'Afficher les variables du serveur MySQL';
@@ -256,8 +257,7 @@ $strRows = 'Enregistrements';
 $strRowsFrom = 'lignes à partir de';
 $strRowSize = ' Taille enr. ';
 $strRowsStatistic = 'Statistiques';
-$strRunning = 'sur le serveur ';
-$strRunningAs = '- utilisateur&nbsp;:';
+$strRunning = 'sur le serveur %s';
 $strRunQuery = 'Exécuter la requête';
 $strRunSQLQuery = 'Exécuter une ou des <b>requêtes</b> sur la base %s';
 

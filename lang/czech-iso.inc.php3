@@ -180,6 +180,7 @@ $strMoveTable = 'Pøesunout tabulku do (databáze<b>.</b>tabulka):';
 $strMoveTableOK = 'Tabulka %s byla pøesunuta do %s.';
 $strMySQLReloaded = 'MySQL znovu-naètena.';
 $strMySQLSaid = 'MySQL hlásí: ';
+$strMySQLServerProcess = 'MySQL %pma_s1% bì¾ící na %pma_s2% jako %pma_s3%';
 $strMySQLShowProcess = 'Zobraz procesy';
 $strMySQLShowStatus = 'Ukázat MySQL runtime informace';
 $strMySQLShowVars = 'Ukázat MySQL systémové promìnné';
@@ -256,8 +257,7 @@ $strRows = 'Øádkù';
 $strRowsFrom = 'øádkù zaèínající od';
 $strRowSize = ' Velikost øádku '; 
 $strRowsStatistic = 'Statistika øádkù'; 
-$strRunning = 'bì¾ící na ';
-$strRunningAs = 'jako';
+$strRunning = 'bì¾ící na %s';
 $strRunQuery = 'Provést dotaz';
 $strRunSQLQuery = 'Spustit SQL dotaz(y) na databázi %s';
 
