@@ -230,7 +230,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!
 		echo "<tr>";
 		echo "<td colspan=3 align=center>";
 		$query = "server=$server&lang=$lang&db=$db&table=$table&goto=tbl_properties.php3";
-		echo "<a href=\"sql.php3?sql_query=".urlencode("OPTIMIZE TABLE $table")."&pos=0&$query;\">[$strOptimizeTable]</a>";
+		echo "<a href=\"sql.php3?sql_query=".urlencode("OPTIMIZE TABLE $table")."&pos=0&$query\">[$strOptimizeTable]</a>";
 		echo "</td>";
 		echo "<tr>\n";
 	}
