@@ -10,12 +10,17 @@ require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 require('./libraries/relation.lib.php3');
 
+
+/**
+ * Gets the relation settings
+ */
 $cfgRelation = PMA_getRelationsParam();
+
 
 /**
  * A query has been submitted -> execute it, else display the headers
  */
-if (isset($submit_sql) && eregi('^SELECT',$encoded_sql_query)) {
+if (isset($submit_sql) && eregi('^SELECT', $encoded_sql_query)) {
     $goto      = 'db_details.php3';
     $zero_rows = htmlspecialchars($strSuccess);
     $sql_query = urldecode($encoded_sql_query);
@@ -30,9 +35,11 @@ if (isset($submit_sql) && eregi('^SELECT',$encoded_sql_query)) {
     require('./db_details_db_info.php3');
 }
 
-if(isset($submit_sql) && !eregi('^SELECT',$encoded_sql_query)) {
+if (isset($submit_sql) && !eregi('^SELECT', $encoded_sql_query)) {
     echo '<p class="warning">' . $strHaveToShow . '</p>';
 }
+
+
 /**
  * Initialize some variables
  */
@@ -115,8 +122,8 @@ $k              = 0;
 
 // The tables list sent by a previously submitted form
 if (!empty($TableList)) {
-    for ($x = 0; $x < sizeof($TableList); $x++) {
-        $tbl_names[$TableList[$x]] = ' selected="selected"';
+    for ($x = 0; $x < count($TableList); $x++) {
+        $tbl_names[urldecode($TableList[$x])] = ' selected="selected"';
     }
 } // end if
 
@@ -261,7 +268,7 @@ for ($x = 0; $x < $col; $x++) {
     <?php
     echo "\n";
 
-    // if they have chosen all fields using the * selector,
+    // If they have chosen all fields using the * selector,
     // then sorting is not available
     // Robbat2 - Fix for Bug #570698
     if (isset($Sort[$x]) && isset($Field[$x]) && (substr(urldecode($Field[$x]),-2) == '.*')) {
@@ -632,7 +639,7 @@ for ($x = 0; $x < $col; $x++) {
 <?php
 while (list($key, $val) = each($tbl_names)) {
     echo '                        ';
-    echo '<option value="' . $key . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
+    echo '<option value="' . urlencode($key) . '"' . $val . '>' . htmlspecialchars($key) . '</option>' . "\n";
 }
 ?>
                     </select>
@@ -778,19 +785,19 @@ if (isset($Field) && count($Field) > 0) {
         // We will need this a few times:
         $incrit    = '(\'' . implode('\', \'', $alltabs) . '\')';
 
-        $_rel_query = 'SELECT master_table AS wer, COUNT(foreign_table) AS hits'
-                   . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                   . ' WHERE master_db   = \'' . $db . '\' '
-                   . ' AND foreign_db    = \'' . $db . '\' '
-                   . ' AND master_table  IN ' . $incrit
-                   . ' AND foreign_table IN ' . $incrit
-                   . ' GROUP BY master_table ORDER BY hits DESC';
-        if(!empty($column)){
-            $_rel_query .= ' AND master_field = \'' . $column . '\'';
+        $rel_query     = 'SELECT master_table AS wer, COUNT(foreign_table) AS hits'
+                       . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                       . ' WHERE master_db   = \'' . $db . '\''
+                       . ' AND foreign_db    = \'' . $db . '\''
+                       . ' AND master_table  IN ' . $incrit
+                       . ' AND foreign_table IN ' . $incrit;
+        if (!empty($column)) {
+            $rel_query .= ' AND master_field = \'' . $column . '\'';
         }
+        $rel_query     .= ' GROUP BY master_table ORDER BY hits DESC'
 
-        $_relations =  PMA_query_as_cu($_rel_query);
-        while ($row = PMA_mysql_fetch_array($_relations)) {
+        $relations =  PMA_query_as_cu($rel_query);
+        while ($row = PMA_mysql_fetch_array($relations)) {
             // we want the first one (highest number of hits) or the first one
             // that is in the WHERE clause
             if (!isset($master)) {
@@ -816,32 +823,33 @@ if (isset($Field) && count($Field) > 0) {
                 }
             } // end while
 
-            //  now we only use everything but the first table
+            // now we only use everything but the first table
             $incrit_s = '(\'' . implode('\', \'', $reltabs) . '\')';
-            $_rel_query = 'SELECT *'
-                       . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                       . ' WHERE master_db   = \'' . $db . '\' '
-                       . ' AND foreign_db    = \'' . $db . '\' '
-                       . ' AND master_table  IN ' . $incrit
-                       . ' AND foreign_table IN ' . $incrit_s
-                       . ' ORDER BY foreign_table, master_table';
-            if(!empty($column)){
-                $_rel_query .= ' AND master_field = \'' . $column . '\'';
+            $rel_query     = 'SELECT *'
+                           . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                           . ' WHERE master_db   = \'' . $db . '\''
+                           . ' AND foreign_db    = \'' . $db . '\''
+                           . ' AND master_table  IN ' . $incrit
+                           . ' AND foreign_table IN ' . $incrit_s;
+            if (!empty($column)) {
+                $rel_query .= ' AND master_field = \'' . $column . '\'';
             }
+            $rel_query     .= ' ORDER BY foreign_table, master_table';
+
             if (isset($dbh)) {
-                PMA_mysql_select_db($cfgRelation['db'],$dbh);
-                $_relations = @PMA_mysql_query($_rel_query, $GLOBALS['dbh']) or PMA_mysqlDie(mysql_error($GLOBALS['dbh']), $_rel_query, '', $err_url_0);
-                PMA_mysql_select_db($db,$dbh);
+                PMA_mysql_select_db($cfgRelation['db'], $dbh);
+                $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(mysql_error($dbh), $rel_query, '', $err_url_0);
+                PMA_mysql_select_db($db, $dbh);
             } else {
                 PMA_mysql_select_db($cfgRelation['db']);
-                $_relations = @PMA_mysql_query($_rel_query) or PMA_mysqlDie('', $_rel_query, '', $err_url_0);
+                $relations = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url_0);
                 PMA_mysql_select_db($db);
             }
 
-            while ($row = PMA_mysql_fetch_array($_relations)) {
+            while ($row = PMA_mysql_fetch_array($relations)) {
                 $foreign_table = $row['foreign_table'];
                 if ($rel[$foreign_table]['mcon'] == 0) {
-                    // if we already found a link to the mastertable we don't
+                    // if we already found a link to the master table we don't
                     // want another otherwise we take whatever we get
                     $rel[$foreign_table]['link']  = ' LEFT JOIN ' . PMA_backquote($foreign_table)
                                                   . ' ON ' . PMA_backquote($row['master_table']) . '.' . PMA_backquote($row['master_field'])
@@ -870,27 +878,27 @@ if (isset($Field) && count($Field) > 0) {
                 $incrit_d  = '(\'' . implode('\', \'', $found) . '\')';
                 $incrit_s  = '(\'' . implode('\', \'', $rest) . '\')';
 
-                $_rel_query = 'SELECT *'
-                           . ' FROM ' . PMA_backquote($cfgRelation['relation'])
-                           . ' WHERE master_db   = \'' . $db . '\' '
-                           . ' AND foreign_db    = \'' . $db . '\' '
-                           . ' AND master_table  IN ' . $incrit_s
-                           . ' AND foreign_table IN ' . $incrit_d
-                           . ' ORDER BY master_table, foreign_table';
-                if(!empty($column)){
-                    $_rel_query .= ' AND master_field = \'' . $column . '\'';
+                $rel_query     = 'SELECT *'
+                               . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                               . ' WHERE master_db   = \'' . $db . '\''
+                               . ' AND foreign_db    = \'' . $db . '\''
+                               . ' AND master_table  IN ' . $incrit_s
+                               . ' AND foreign_table IN ' . $incrit_d;
+                if (!empty($column)) {
+                    $rel_query .= ' AND master_field = \'' . $column . '\'';
                 }
+                $rel_query     .= ' ORDER BY master_table, foreign_table';
                 if (isset($dbh)) {
-                    PMA_mysql_select_db($cfgRelation['db'],$dbh);
-                    $_relations = @PMA_mysql_query($_rel_query, $GLOBALS['dbh']) or PMA_mysqlDie(mysql_error($GLOBALS['dbh']), $_rel_query, '', $err_url_0);
-                    PMA_mysql_select_db($db,$dbh);
+                    PMA_mysql_select_db($cfgRelation['db'], $dbh);
+                    $relations = @PMA_mysql_query($rel_query, $dbh) or PMA_mysqlDie(mysql_error($dbh), $rel_query, '', $err_url_0);
+                    PMA_mysql_select_db($db, $dbh);
                 } else {
                     PMA_mysql_select_db($cfgRelation['db']);
-                    $_relations = @PMA_mysql_query($_rel_query) or PMA_mysqlDie('', $_rel_query, '', $err_url_0);
+                    $relations = @PMA_mysql_query($rel_query) or PMA_mysqlDie('', $rel_query, '', $err_url_0);
                     PMA_mysql_select_db($db);
                 }
 
-                while ($row = PMA_mysql_fetch_array($_relations)) {
+                while ($row = PMA_mysql_fetch_array($relations)) {
                     $found_table = $row['master_table'];
                     if ($rel[$found_table]['mcon'] == 0) {
                         // if we allready found a link to the mastertable we
@@ -939,16 +947,17 @@ if (isset($Field) && count($Field) > 0) {
             $qry_from .= $ljm . $lj;
         } // end if ($master != '')
     } // end rel work and $alltabs > 0
+
     if (empty($qry_from) && count($alltabs)) {
-        //  there might be more than one mentioning of the table in here
+        // there might be more than one mentioning of the table in here
         // as array_unique is only PHP4 we have to do this by hand
-        $_temp = array();
-        while (list($k, $v) = each ($alltabs)) {
-            $_temp[$v] = 1;
+        $temp = array();
+        while (list($k, $v) = each($alltabs)) {
+            $temp[$v] = 1;
         }
         unset($alltabs);
         $alltabs = array();
-        while (list($k, $v) = each ($_temp)) {
+        while (list($k, $v) = each($temp)) {
             $alltabs[] = $k;
         }
         $qry_from = implode(', ', PMA_backquote($alltabs));
@@ -1027,10 +1036,10 @@ for ($x = 0; $x < $col; $x++) {
         // if they have chosen all fields using the * selector,
         // then sorting is not available
         // Robbat2 - Fix for Bug #570698
-        if(substr($curField[$x],-2) != '.*')
-        {   $qry_orderby  .=  $curField[$x] . ' ' . $curSort[$x];
+        if (substr($curField[$x], -2) != '.*') {
+            $qry_orderby  .=  $curField[$x] . ' ' . $curSort[$x];
             $last_orderby = 1;
-            }
+        }
     }
 } // end for
 if (!empty($qry_orderby)) {
