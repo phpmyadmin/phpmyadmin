@@ -109,10 +109,10 @@ if ($server > 0) {
 <h1 align="center">
     <?php echo ucfirst($strDatabasesStats); ?>
 </h1>
-<table align="center" border="<?php echo $cfgBorder; ?>" cellpadding="5">
+<table align="center" border="<?php echo $cfg['Border']; ?>" cellpadding="5">
 <tr>
     <th align="<?php echo $cell_align_left; ?>"><big><?php echo $strHost . ' :'; ?></big></th>
-    <th align="<?php echo $cell_align_left; ?>"><big><?php echo $cfgServer['host']; ?></big></th>
+    <th align="<?php echo $cell_align_left; ?>"><big><?php echo $cfg['Server']['host']; ?></big></th>
 </tr>
 <tr>
     <th align="<?php echo $cell_align_left; ?>"><big><?php echo $strGenTime . ' :'; ?></big></th>
@@ -172,7 +172,7 @@ if ($num_dbs > 0) {
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
 
-    <table align="center" border="<?php echo $cfgBorder; ?>">
+    <table align="center" border="<?php echo $cfg['Border']; ?>">
     <tr>
         <th>&nbsp;</th>
         <th>
@@ -252,7 +252,7 @@ if ($num_dbs > 0) {
     // Displays the tables stats per database
     $i = 0;
     while (list($db_name, $db_prop) = each($dbs_array)) {
-        $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+        $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
 
         list($data_size, $data_unit) = PMA_formatByteDown($dbs_array[$db_name][1], 3, 1);
         list($idx_size, $idx_unit)   = PMA_formatByteDown($dbs_array[$db_name][2], 3, 1);

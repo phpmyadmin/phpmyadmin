@@ -7,7 +7,7 @@
  */
 require('./libraries/common.lib.php3');
 require('./libraries/ob.lib.php3');
-if ($cfgOBGzip) {
+if ($cfg['OBGzip']) {
     $ob_mode = PMA_outBufferModeGet();
     if ($ob_mode) {
         PMA_outBufferPre($ob_mode);
@@ -50,15 +50,15 @@ if ($text_dir == 'ltr') {
 <head>
 <title>phpMyAdmin</title>
 <?php
-if (!empty($cfgPmaAbsoluteUri)) {
-    echo '<base href="' . $cfgPmaAbsoluteUri . '" />' . "\n";
+if (!empty($cfg['PmaAbsoluteUri'])) {
+    echo '<base href="' . $cfg['PmaAbsoluteUri'] . '" />' . "\n";
 }
 ?>
 <style type="text/css">
 <!--
-body            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: <?php echo $cfgRightBgColor; ?>}
+body            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000; background-color: <?php echo $cfg['RightBgColor']; ?>}
 pre, tt         {font-size: <?php echo $font_size; ?>}
-th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: <?php echo $cfgThBgcolor; ?>}
+th              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>; font-weight: bold; color: #000000; background-color: <?php echo $cfg['ThBgcolor']; ?>}
 td              {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 form            {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
 input           {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $font_size; ?>}
@@ -85,9 +85,9 @@ if (isset($db)) {
 if (isset($table)) {
     $title .= (empty($title) ? '' : '.') . str_replace('\'', '\\\'', $table);
 }
-if (!empty($cfgServer) && isset($cfgServer['host'])) {
+if (!empty($cfg['Server']) && isset($cfg['Server']['host'])) {
     $title .= (empty($title) ? 'phpMyAdmin ' : ' ')
-           . sprintf($strRunning, (empty($cfgServer['verbose']) ? str_replace('\'', '\\\'', $cfgServer['host']) : str_replace('\'', '\\\'', $cfgServer['verbose'])));
+           . sprintf($strRunning, (empty($cfg['Server']['verbose']) ? str_replace('\'', '\\\'', $cfg['Server']['host']) : str_replace('\'', '\\\'', $cfg['Server']['verbose'])));
 }
 $title     .= (empty($title) ? '' : ' - ') . 'phpMyAdmin ' . PMA_VERSION;
 ?>
@@ -106,8 +106,8 @@ if (isset($js_to_run) && $js_to_run == 'functions.js') {
 var errorMsg0   = '<?php echo str_replace('\'', '\\\'', $strFormEmpty); ?>';
 var errorMsg1   = '<?php echo str_replace('\'', '\\\'', $strNotNumber); ?>';
 var errorMsg2   = '<?php echo str_replace('\'', '\\\'', $strNotValidNumber); ?>';
-var noDropDbMsg = '<?php echo((!$cfgAllowUserDropDatabase) ? str_replace('\'', '\\\'', $strNoDropDatabases) : ''); ?>';
-var confirmMsg  = '<?php echo(($cfgConfirm) ? str_replace('\'', '\\\'', $strDoYouReally) : ''); ?>';
+var noDropDbMsg = '<?php echo((!$cfg['AllowUserDropDatabase']) ? str_replace('\'', '\\\'', $strNoDropDatabases) : ''); ?>';
+var confirmMsg  = '<?php echo(($cfg['Confirm']) ? str_replace('\'', '\\\'', $strDoYouReally) : ''); ?>';
 //-->
 </script>
 <script src="libraries/functions.js" type="text/javascript" language="javascript"></script>
@@ -154,14 +154,14 @@ echo "\n";
 </head>
 
 
-<body bgcolor="<?php echo $cfgRightBgColor; ?>" background="images/bkg.gif">
+<body bgcolor="<?php echo $cfg['RightBgColor']; ?>" background="images/bkg.gif">
 <?php
 if (isset($db)) {
     echo '<h1>' . $strDatabase . ' <i>' . htmlspecialchars($db) . '</i>';
     if (!empty($table)) {
         echo ' - ' . $strTable . ' <i>' . htmlspecialchars($table) . '</i>';
     }
-    echo ' ' . sprintf($strRunning, ' <i>' . (($cfgServer['verbose']) ? $cfgServer['verbose'] : $cfgServer['host']) . '</i>');
+    echo ' ' . sprintf($strRunning, ' <i>' . (($cfg['Server']['verbose']) ? $cfg['Server']['verbose'] : $cfg['Server']['host']) . '</i>');
     echo '</h1>' . "\n";
 }
 echo "\n";

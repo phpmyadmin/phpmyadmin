@@ -168,7 +168,7 @@ if (!function_exists('is_uploaded_file')) {
 /**
  * Increases the max. allowed time to run a script
  */
-@set_time_limit($cfgExecTimeLimit);
+@set_time_limit($cfg['ExecTimeLimit']);
 
 
 /**
@@ -208,14 +208,14 @@ if (!empty($id_bookmark)) {
     include('./libraries/bookmark.lib.php3');
     switch($action_bookmark) {
         case 0: // bookmarked query that have to be run
-            $sql_query = PMA_queryBookmarks($db, $cfgBookmark, $id_bookmark);
+            $sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
             break;
         case 1: // bookmarked query that have to be displayed
-            $sql_query = PMA_queryBookmarks($db, $cfgBookmark, $id_bookmark);
+            $sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], $id_bookmark);
             $view_bookmark = 1;
             break;
         case 2: // bookmarked query that have to be deleted
-            $sql_query = PMA_deleteBookmarks($db, $cfgBookmark, $id_bookmark);
+            $sql_query = PMA_deleteBookmarks($db, $cfg['Bookmark'], $id_bookmark);
             break;
     }
 } // end if
@@ -296,7 +296,7 @@ if (!empty($prev_sql_query)) {
 }
 
 // Drop database is not allowed -> ensure the query can be run
-if (!$cfgAllowUserDropDatabase
+if (!$cfg['AllowUserDropDatabase']
     && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE ', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information

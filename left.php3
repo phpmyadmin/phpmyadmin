@@ -17,7 +17,7 @@ if (!empty($db)) {
  */
 require('./libraries/common.lib.php3');
 require('./libraries/ob.lib.php3');
-if ($cfgOBGzip) {
+if ($cfg['OBGzip']) {
     $ob_mode = PMA_outBufferModeGet();
     if ($ob_mode) {
         PMA_outBufferPre($ob_mode);
@@ -63,11 +63,11 @@ PMA_setFontSizes();
 
 <head>
     <title>phpMyAdmin</title>
-    <base<?php if (!empty($cfgPmaAbsoluteUri)) echo ' href="' . $cfgPmaAbsoluteUri . '"'; ?> target="phpmain" />
+    <base<?php if (!empty($cfg['PmaAbsoluteUri'])) echo ' href="' . $cfg['PmaAbsoluteUri'] . '"'; ?> target="phpmain" />
 <?php
 // Expandable/collapsible databases list is only used if there is more than one
 // database to display
-if ($num_dbs > 1 && !$cfgLeftFrameLight) {
+if ($num_dbs > 1 && !$cfg['LeftFrameLight']) {
     echo "\n";
     ?>
     <!-- Collapsible tables list scripts -->
@@ -165,7 +165,7 @@ echo "\n";
 ?>
 </head>
 
-<body bgcolor="<?php echo $cfgLeftBgColor; ?>">
+<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>">
     <!-- Link to the welcome page -->
     <div id="el1Parent" class="parent" style="margin-bottom: 5px">
         <nobr><a class="item" href="main.php3?lang=<?php echo $lang; ?>&amp;server=<?php echo $server; ?>">
@@ -178,15 +178,15 @@ echo "\n";
 // Don't display expansible/collapsible database info if:
 // 1. $server == 0 (no server selected)
 //    This is the case when there are multiple servers and
-//    '$cfgServerDefault = 0' is set. In that case, we want the welcome screen
+//    '$cfg['ServerDefault'] = 0' is set. In that case, we want the welcome screen
 //    to appear with no database info displayed.
 // 2. there is only one database available (ie either only one database exists
-//    or $cfgServers['only_db'] is defined and is not an array)
+//    or $cfg['Servers']['only_db'] is defined and is not an array)
 //    In this case, the database should not be collapsible/expandable
 if ($num_dbs > 1) {
 
     // Light mode -> beginning of the select combo for databases
-    if ($cfgLeftFrameLight) {
+    if ($cfg['LeftFrameLight']) {
         echo '    <form method="post" action="index.php3" name="left" target="_parent">' . "\n";
         echo '        <input type="hidden" name="lang" value="' . $lang . '" />' . "\n";
         echo '        <input type="hidden" name="server" value="' . $server . '" />' . "\n";
@@ -218,9 +218,9 @@ if ($num_dbs > 1) {
         }
 
         // Get additional infomation about tables for tooltip
-        if ($cfgShowTooltip && PMA_MYSQL_INT_VERSION >= 32303
+        if ($cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303
             && $num_tables
-            && (!$cfgLeftFrameLight || $selected_db == $j)) {
+            && (!$cfg['LeftFrameLight'] || $selected_db == $j)) {
             $tooltip = array();
             $result  = mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
             while ($tmp = mysql_fetch_array($result)) {
@@ -230,10 +230,10 @@ if ($num_dbs > 1) {
         } // end if
 
         // No light mode -> displays the expandible/collapsible db list
-        if ($cfgLeftFrameLight == FALSE) {
+        if ($cfg['LeftFrameLight'] == FALSE) {
 
             // Displays the database name
-            $on_mouse = (($cfgLeftPointerColor == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftPointerColor . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfgLeftBgColor . '\')}"');
+            $on_mouse = (($cfg['LeftPointerColor'] == '') ? '' : ' onmouseover="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfg['LeftPointerColor'] . '\')}" onmouseout="if (isDOM || isIE4) {hilightBase(\'el' . $j . '\', \'' . $cfg['LeftBgColor'] . '\')}"');
 
             echo "\n";
             echo '    <div id="el' . $j . 'Parent" class="parent"' . $on_mouse . '>';
@@ -328,7 +328,7 @@ if ($num_dbs > 1) {
 
     // Light mode -> end of the select combo for databases and table list for
     // the current database
-    if ($cfgLeftFrameLight) {
+    if ($cfg['LeftFrameLight']) {
         echo '        </select>' . "\n";
         echo '        <noscript><input type="submit" name="Go" value="' . $strGo . '" /></noscript>' . "\n";
         echo '    </form>' . "\n";
@@ -385,7 +385,7 @@ else if ($num_dbs == 1) {
     }
 
     // Get additional infomation about tables for tooltip
-    if ($cfgShowTooltip && PMA_MYSQL_INT_VERSION >= 32303
+    if ($cfg['ShowTooltip'] && PMA_MYSQL_INT_VERSION >= 32303
         && $num_tables) {
         $tooltip = array();
         $result  = mysql_query('SHOW TABLE STATUS FROM ' . PMA_backquote($db));
@@ -451,7 +451,7 @@ if (isset($userlink) && $userlink) {
 /**
  * Sends bufferized data
  */
-if (isset($cfgOBGzip) && $cfgOBGzip
+if (isset($cfg['OBGzip']) && $cfg['OBGzip']
     && isset($ob_mode) && $ob_mode) {
      PMA_outBufferPost($ob_mode);
 }

@@ -24,7 +24,7 @@ if (isset($userlink) && $userlink) {
 /**
  * Sends bufferized data
  */
-if (isset($cfgOBGzip) && $cfgOBGzip
+if (isset($cfg['OBGzip']) && $cfg['OBGzip']
     && isset($ob_mode) && $ob_mode) {
      PMA_outBufferPost($ob_mode);
 }

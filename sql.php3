@@ -32,7 +32,7 @@ if (!isset($err_url)) {
  * into account this case.
  */
 if (!defined('PMA_CHK_DROP')
-    && !$cfgAllowUserDropDatabase
+    && !$cfg['AllowUserDropDatabase']
     && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE[[:space:]]', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
@@ -53,8 +53,8 @@ if (isset($store_bkm)) {
         $fields['label'] = stripslashes($fields['label']);
     }
     include('./libraries/bookmark.lib.php3');
-    PMA_addBookmarks($fields, $cfgBookmark);
-    header('Location: ' . $cfgPmaAbsoluteUri . $goto);
+    PMA_addBookmarks($fields, $cfg['Bookmark']);
+    header('Location: ' . $cfg['PmaAbsoluteUri'] . $goto);
 }
 
 
@@ -116,7 +116,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
         }
         include('./' . ereg_replace('\.\.*', '.', $goto));
     } else {
-        header('Location: ' . $cfgPmaAbsoluteUri . str_replace('&amp;', '&', $goto));
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto));
     }
     exit();
 } // end if
@@ -129,7 +129,7 @@ if (isset($btnDrop) && $btnDrop == $strNo) {
  * with js) because possible security issue is not so important here: at most,
  * the confirm message isn't displayed.
  */
-if (!$cfgConfirm
+if (!$cfg['Confirm']
     || (isset($is_js_confirmed) && $is_js_confirmed)
     || isset($btnDrop)) {
     $do_confirm = FALSE;
@@ -183,16 +183,16 @@ else {
     }
     // Gets the number of rows per page
     if (!isset($session_max_rows)) {
-        $session_max_rows = $cfgMaxRows;
+        $session_max_rows = $cfg['MaxRows'];
     } else if ($session_max_rows != 'all') {
-        $cfgMaxRows       = $session_max_rows;
+        $cfg['MaxRows']       = $session_max_rows;
     }
     // Defines the display mode (horizontal/vertical) and header "frequency"
     if (empty($disp_direction)) {
-        $disp_direction   = $cfgDefaultDisplay;
+        $disp_direction   = $cfg['DefaultDisplay'];
     }
     if (empty($repeat_cells)) {
-        $repeat_cells     = $cfgRepeatCells;
+        $repeat_cells     = $cfg['RepeatCells'];
     }
 
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
@@ -217,13 +217,13 @@ else {
 
     // Do append a "LIMIT" clause?
     if (isset($pos)
-        && (!$cfgShowAll || $session_max_rows != 'all')
+        && (!$cfg['ShowAll'] || $session_max_rows != 'all')
         && $is_select
         && !($is_count || $is_export)
         && eregi('[[:space:]]FROM[[:space:]]', $sql_query)
         && !eregi('[[:space:]]LIMIT[[:space:]0-9,]+$', $sql_query)) {
 
-        $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";
+        $sql_limit_to_append = " LIMIT $pos, ".$cfg['MaxRows'];
         if (eregi('(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$', $sql_query, $regs)) {
             $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];
         } else {
@@ -364,7 +364,7 @@ else {
             include('./' . $goto);
         } // end if file_exist
         else {
-            header('Location: ' . $cfgPmaAbsoluteUri . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
+            header('Location: ' . $cfg['PmaAbsoluteUri'] . str_replace('&amp;', '&', $goto) . '&message=' . urlencode($message));
         } // end else
         exit();
     } // end no rows returned
@@ -427,7 +427,7 @@ else {
 
         // Bookmark Support if required
         if ($disp_mode[7] == '1'
-            && ($cfgBookmark['db'] && $cfgBookmark['table'] && empty($id_bookmark))
+            && ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table'] && empty($id_bookmark))
             && !empty($sql_query)) {
             echo "\n";
 
@@ -456,7 +456,7 @@ else {
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="fields[dbase]" value="<?php echo $db; ?>" />
-    <input type="hidden" name="fields[user]" value="<?php echo $cfgBookmark['user']; ?>" />
+    <input type="hidden" name="fields[user]" value="<?php echo $cfg['Bookmark']['user']; ?>" />
     <input type="hidden" name="fields[query]" value="<?php echo urlencode($sql_query); ?>" />
     <input type="text" name="fields[label]" value="" />
     <input type="submit" name="store_bkm" value="<?php echo $strBookmarkThis; ?>" />

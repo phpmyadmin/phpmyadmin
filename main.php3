@@ -9,7 +9,7 @@ require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 // Puts the language to use in a cookie that will expire in 30 days
 if (!isset($pma_uri_parts)) {
-    $pma_uri_parts = parse_url($cfgPmaAbsoluteUri);
+    $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
     $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
     $is_https      = ($pma_uri_parts['scheme'] == 'https') ? 1 : 0;
 }
@@ -53,12 +53,12 @@ echo "\n";
 // loic1: modified in order to have a valid words order whatever is the
 //        language used
 if ($server > 0) {
-    $server_info     = $cfgServer['host']
-                     . (empty($cfgServer['port']) ? '' : ':' . $cfgServer['port']);
+    $server_info     = $cfg['Server']['host']
+                     . (empty($cfg['Server']['port']) ? '' : ':' . $cfg['Server']['port']);
     // loic1: skip this because it's not a so good idea to display sockets
     //        used to everybody
-    // if (!empty($cfgServer['socket']) && PMA_PHP_INT_VERSION >= 30010) {
-    //     $server_info .= ':' . $cfgServer['socket'];
+    // if (!empty($cfg['Server']['socket']) && PMA_PHP_INT_VERSION >= 30010) {
+    //     $server_info .= ':' . $cfg['Server']['socket'];
     // }
     $local_query             = 'SELECT VERSION() as version, USER() as user';
     $res                     = mysql_query($local_query) or PMA_mysqlDie('', $local_query, FALSE, '');
@@ -91,7 +91,7 @@ if (($server > 0) && isset($mode) && ($mode == 'reload')) {
 /**
  * Displays the MySQL servers choice form
  */
-if ($server == 0 || count($cfgServers) > 1) {
+if ($server == 0 || count($cfg['Servers']) > 1) {
     ?>
 <!-- MySQL servers choice form -->
 <table>
@@ -104,8 +104,8 @@ if ($server == 0 || count($cfgServers) > 1) {
             <select name="server">
     <?php
     echo "\n";
-    reset($cfgServers);
-    while (list($key, $val) = each($cfgServers)) {
+    reset($cfg['Servers']);
+    while (list($key, $val) = each($cfg['Servers'])) {
         if (!empty($val['host'])) {
             echo '                <option value="' . $key . '"';
             if (!empty($server) && ($server == $key)) {
@@ -249,19 +249,19 @@ if ($server > 0) {
     $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
 
     if ($is_superuser) {
-        $cfgShowMysqlInfo   = TRUE;
-        $cfgShowMysqlVars   = TRUE;
-        $cfgShowChgPassword = TRUE;
+        $cfg['ShowMysqlInfo']   = TRUE;
+        $cfg['ShowMysqlVars']   = TRUE;
+        $cfg['ShowChgPassword'] = TRUE;
     }
-    if ($cfgServer['auth_type'] == 'config') {
-        $cfgShowChgPassword = FALSE;
+    if ($cfg['Server']['auth_type'] == 'config') {
+        $cfg['ShowChgPassword'] = FALSE;
     }
 
     // loic1: Displays the MySQL column only if at least one feature has to be
     //        displayed
     if ($is_superuser || $is_create_priv || $is_process_priv || $is_reload_priv
-        || $cfgShowMysqlInfo || $cfgShowMysqlVars || $cfgShowChgPassword
-        || $cfgServer['auth_type'] != 'config') {
+        || $cfg['ShowMysqlInfo'] || $cfg['ShowMysqlVars'] || $cfg['ShowChgPassword']
+        || $cfg['Server']['auth_type'] != 'config') {
         ?>
     <!-- MySQL server related links -->
     <td valign="top" align="<?php echo $cell_align_left; ?>">
@@ -296,7 +296,7 @@ if ($server > 0) {
         ?>
         <!-- server-related links -->
         <?php
-        if ($cfgShowMysqlInfo) {
+        if ($cfg['ShowMysqlInfo']) {
             echo "\n";
             ?>
         <tr>
@@ -309,7 +309,7 @@ if ($server > 0) {
         </tr>
             <?php
         } // end if
-        if ($cfgShowMysqlVars) {
+        if ($cfg['ShowMysqlVars']) {
             echo "\n";
             ?>
         <tr>
@@ -378,7 +378,7 @@ if ($server > 0) {
         }
 
         // Change password (needs another message)
-        if ($cfgShowChgPassword) {
+        if ($cfg['ShowChgPassword']) {
             echo "\n";
             ?>
         <tr>
@@ -392,9 +392,9 @@ if ($server > 0) {
         } // end if
 
         // Logout for advanced authentication
-        if ($cfgServer['auth_type'] != 'config') {
-            $http_logout = ($cfgServer['auth_type'] == 'http')
-                         ? "\n" . '                <a href="' . $cfgPmaAbsoluteUri . 'Documentation.html#login_bug" target="documentation">(*)</a>'
+        if ($cfg['Server']['auth_type'] != 'config') {
+            $http_logout = ($cfg['Server']['auth_type'] == 'http')
+                         ? "\n" . '                <a href="' . $cfg['PmaAbsoluteUri'] . 'Documentation.html#login_bug" target="documentation">(*)</a>'
                          : '';
             echo "\n";
             ?>
@@ -433,7 +433,7 @@ echo "\n";
 
 <?php
 // Displays language selection combo
-if (empty($cfgLang)) {
+if (empty($cfg['Lang'])) {
     ?>
         <!-- Language Selection -->
         <tr>
@@ -493,7 +493,7 @@ echo "\n";
         </tr>
 
 <?php
-if ($is_superuser || $cfgShowPhpInfo) {
+if ($is_superuser || $cfg['ShowPhpInfo']) {
     ?>
         <!-- PHP Information -->
         <tr>

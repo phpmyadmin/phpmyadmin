@@ -13,10 +13,10 @@ require('./libraries/common.lib.php3');
  * Displays an error message and exits if the user isn't allowed to use this
  * script
  */
-if (!$cfgShowChgPassword) {
-    $cfgShowChgPassword = @mysql_query('USE mysql', $userlink);
+if (!$cfg['ShowChgPassword']) {
+    $cfg['ShowChgPassword'] = @mysql_query('USE mysql', $userlink);
 }
-if ($cfgServer['auth_type'] == 'config' || !$cfgShowChgPassword) {
+if ($cfg['Server']['auth_type'] == 'config' || !$cfg['ShowChgPassword']) {
     include('./header.inc.php3');
     echo '<p><b>' . $strError . '</b></p>' . "\n";
     echo '<p>&nbsp;&nbsp;&nbsp;&nbsp;' .  $strNoRights . '</p>' . "\n";
@@ -57,12 +57,12 @@ if (isset($nopass)) {
         $result           = @mysql_query($local_query) or PMA_mysqlDie('', '', FALSE, $err_url);
 
         // Changes password cookie if required
-        if ($cfgServer['auth_type'] == 'cookie') {
+        if ($cfg['Server']['auth_type'] == 'cookie') {
             setcookie('pma_cookie_password', $pma_pw, 0, $cookie_path, '', $is_https);
         } // end if
         // For http auth. mode, the "back" link will also enforce new
         // authentication
-        $http_logout = ($cfgServer['auth_type'] == 'http')
+        $http_logout = ($cfg['Server']['auth_type'] == 'http')
                      ? '&amp;old_usr=relog'
                      : '';
 

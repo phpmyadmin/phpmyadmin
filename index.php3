@@ -53,7 +53,7 @@ body  {font-family: <?php echo $right_font_family; ?>; font-size: <?php echo $fo
 </style>
 </head>
 
-<frameset cols="<?php echo $cfgLeftWidth; ?>,*" rows="*">
+<frameset cols="<?php echo $cfg['LeftWidth']; ?>,*" rows="*">
     <frame src="left.php3?<?php echo $url_query; ?>" name="nav" frameborder="1" />
     <frame src="<?php echo (empty($db)) ? 'main.php3' : 'db_details.php3'; ?>?<?php echo $url_query; ?>" name="phpmain" />
 

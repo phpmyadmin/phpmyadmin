@@ -25,7 +25,7 @@ $err_url = 'db_details.php3'
 // staybyte: speedup view on locked tables - 11 June 2001
 if (PMA_MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
-    if ($cfgSkipLockedTables == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {
+    if ($cfg['SkipLockedTables'] == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {
         $local_query  = 'SHOW OPEN TABLES FROM ' . PMA_backquote($db);
         $result        = mysql_query($query) or PMA_mysqlDie('', $local_query, '', $err_url);
         // Blending out tables in use
@@ -93,13 +93,13 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     ?>
 
 <!-- The tables list -->
-<table border="<?php echo $cfgBorder; ?>">
+<table border="<?php echo $cfg['Border']; ?>">
 <tr>
     <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
     <th><?php echo ucfirst($strRecords); ?></th>
     <th><?php echo ucfirst($strType); ?></th>
     <?php
-    if ($cfgShowStats) {
+    if ($cfg['ShowStats']) {
         echo '<th>' . ucfirst($strSize) . '</th>';
     }
     echo "\n";
@@ -109,7 +109,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     $i = $sum_entries = $sum_size = 0;
     while (list($keyname, $sts_data) = each($tables)) {
         $table     = $sts_data['Name'];
-        $bgcolor   = ($i++ % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+        $bgcolor   = ($i++ % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         echo "\n";
         ?>
 <tr>
@@ -130,7 +130,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
 
         if (isset($sts_data['Rows'])) {
             if ($mergetable == FALSE) {
-                if ($cfgShowStats && $nonisam == FALSE) {
+                if ($cfg['ShowStats'] && $nonisam == FALSE) {
                     $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
                     $sum_size                       += $tblsize;
                     if ($tblsize > 0) {
@@ -138,18 +138,18 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                     } else {
                         list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, 0);
                     }
-                } else if ($cfgShowStats) {
+                } else if ($cfg['ShowStats']) {
                     $formated_size                  = '&nbsp;-&nbsp;';
                     $unit                           = '';
                 }
                 $sum_entries                        += $sts_data['Rows'];
             }
             // MyISAM MERGE Table
-            else if ($cfgShowStats && $mergetable == TRUE) {
+            else if ($cfg['ShowStats'] && $mergetable == TRUE) {
                 $formated_size = '&nbsp;-&nbsp;';
                 $unit          = '';
             }
-            else if ($cfgShowStats) {
+            else if ($cfg['ShowStats']) {
                 $formated_size = 'unknown';
                 $unit          = '';
             }
@@ -168,7 +168,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         &nbsp;<?php echo (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;'); ?>&nbsp;
     </td>
             <?php
-            if ($cfgShowStats) {
+            if ($cfg['ShowStats']) {
                 echo "\n";
                 ?>
     <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
@@ -190,7 +190,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         <?php
     }
     // Show Summary
-    if ($cfgShowStats) {
+    if ($cfg['ShowStats']) {
         list($sum_formated, $unit) = PMA_formatByteDown($sum_size, 3, 1);
     }
     echo "\n";
@@ -206,7 +206,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         <b>--</b>
     </th>
     <?php
-    if ($cfgShowStats) {
+    if ($cfg['ShowStats']) {
         echo "\n";
         ?>
     <th align="right" nowrap="nowrap">
@@ -228,14 +228,14 @@ else {
     ?>
 
 <!-- The tables list -->
-<table border="<?php echo $cfgBorder; ?>">
+<table border="<?php echo $cfg['Border']; ?>">
 <tr>
     <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
     <th><?php echo ucfirst($strRecords); ?></th>
 </tr>
     <?php
     while ($i < $num_tables) {
-        $bgcolor = ($i % 2) ? $cfgBgcolorOne : $bgcolor = $cfgBgcolorTwo;
+        $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $bgcolor = $cfg['BgcolorTwo'];
         echo "\n";
         ?>
 <tr>

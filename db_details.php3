@@ -31,7 +31,7 @@ if (!isset($is_db) || !$is_db) {
         $is_db = @mysql_select_db($db);
     }
     if (empty($db) || !$is_db) {
-        header('Location: ' . $cfgPmaAbsoluteUri . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
+        header('Location: ' . $cfg['PmaAbsoluteUri'] . 'main.php3?lang=' . $lang . '&server=' . $server . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit();
     }
 } // end if (ensures db exists)
@@ -74,7 +74,7 @@ if ((!empty($submit_mult) && isset($selected_tbl))
 // staybyte: speedup view on locked tables - 11 June 2001
 if (PMA_MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
-    if ($cfgSkipLockedTables == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {
+    if ($cfg['SkipLockedTables'] == TRUE && PMA_MYSQL_INT_VERSION >= 32330) {
         $local_query  = 'SHOW OPEN TABLES FROM ' . PMA_backquote($db);
         $result       = mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
         // Blending out tables in use
@@ -151,7 +151,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
 
-<table border="<?php echo $cfgBorder; ?>">
+<table border="<?php echo $cfg['Border']; ?>">
 <tr>
     <td></td>
     <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
@@ -159,7 +159,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     <th><?php echo ucfirst($strRecords); ?></th>
     <th><?php echo ucfirst($strType); ?></th>
     <?php
-    if ($cfgShowStats) {
+    if ($cfg['ShowStats']) {
         echo '<th>' . ucfirst($strSize) . '</th>';
     }
     echo "\n";
@@ -176,7 +176,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
                    . '&amp;db=' . urlencode($db)
                    . '&amp;table=' . urlencode($table)
                    . '&amp;goto=db_details.php3';
-        $bgcolor   = ($i++ % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+        $bgcolor   = ($i++ % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         echo "\n";
         ?>
 <tr>
@@ -251,7 +251,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
             // MyISAM, ISAM or Heap table: Row count, data size and index size
             // is accurate.
             if (isset($sts_data['Type']) && ereg('^(MyISAM|ISAM|HEAP)$', $sts_data['Type'])) {
-                if ($cfgShowStats) {
+                if ($cfg['ShowStats']) {
                     $tblsize                    =  $sts_data['Data_length'] + $sts_data['Index_length'];
                     $sum_size                   += $tblsize;
                     list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
@@ -263,7 +263,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
             // InnoDB table: Row count is not accurate but data and index
             // sizes are.
             else if (isset($sts_data['Type']) && $sts_data['Type'] == 'InnoDB') {
-                if ($cfgShowStats) {
+                if ($cfg['ShowStats']) {
                     $tblsize                    =  $sts_data['Data_length'] + $sts_data['Index_length'];
                     $sum_size                   += $tblsize;
                     list($formated_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
@@ -273,7 +273,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
 
             // Merge or BerkleyDB table: Only row count is accurate.
             else if (isset($sts_data['Type']) && ereg('^(MRG_MyISAM|BerkeleyDB)$', $sts_data['Type'])) {
-                if ($cfgShowStats) {
+                if ($cfg['ShowStats']) {
                     $formated_size              =  '&nbsp;-&nbsp;';
                     $unit                       =  '';
                 }
@@ -283,7 +283,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
 
             // Unknown table type.
             else {
-                if ($cfgShowStats) {
+                if ($cfg['ShowStats']) {
                     $formated_size              =  'unknown';
                     $unit                       =  '';
                 }
@@ -299,7 +299,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         &nbsp;<?php echo (isset($sts_data['Type']) ? $sts_data['Type'] : '&nbsp;'); ?>&nbsp;
     </td>
             <?php
-            if ($cfgShowStats) {
+            if ($cfg['ShowStats']) {
                 echo "\n";
                 ?>
     <td align="right" bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
@@ -322,7 +322,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         <?php
     }
     // Show Summary
-    if ($cfgShowStats) {
+    if ($cfg['ShowStats']) {
         list($sum_formated, $unit) = PMA_formatByteDown($sum_size, 3, 1);
     }
     echo "\n";
@@ -342,7 +342,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
         <b>--</b>
     </th>
     <?php
-    if ($cfgShowStats) {
+    if ($cfg['ShowStats']) {
         echo "\n";
         ?>
     <th align="right" nowrap="nowrap">
@@ -364,7 +364,7 @@ else if (PMA_MYSQL_INT_VERSION >= 32303) {
     echo "\n";
     ?>
 <tr>
-    <td colspan="<?php echo (($cfgShowStats) ? '11' : '10'); ?>" valign="bottom">
+    <td colspan="<?php echo (($cfg['ShowStats']) ? '11' : '10'); ?>" valign="bottom">
         <img src="./images/arrow_<?php echo $text_dir; ?>.gif" border="0" width="38" height="22" alt="<?php echo $strWithChecked; ?>" />
         <a href="<?php echo $checkall_url; ?>&amp;checkall=1" onclick="setCheckboxes('tablesForm', true); return false;">
             <?php echo $strCheckAll; ?></a>
@@ -414,7 +414,7 @@ else {
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
 
-<table border="<?php echo $cfgBorder; ?>">
+<table border="<?php echo $cfg['Border']; ?>">
 <tr>
     <td></td>
     <th>&nbsp;<?php echo ucfirst($strTable); ?>&nbsp;</th>
@@ -430,7 +430,7 @@ else {
                    . '&amp;db=' . urlencode($db)
                    . '&amp;table=' . urlencode($tables[$i])
                    . '&amp;goto=db_details.php3';
-        $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+        $bgcolor   = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         echo "\n";
         ?>
 <tr>
@@ -562,7 +562,7 @@ $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
             <?php echo sprintf($strRunSQLQuery, $db) . ' ' . PMA_showDocuShort('S/E/SELECT.html'); ?>&nbsp;:<br />
             <div style="margin-bottom: 5px">
-<textarea name="sql_query" cols="<?php echo $cfgTextareaCols; ?>" rows="<?php echo $cfgTextareaRows; ?>" wrap="virtual"
+<textarea name="sql_query" cols="<?php echo $cfg['TextareaCols']; ?>" rows="<?php echo $cfg['TextareaRows']; ?>" wrap="virtual"
     onfocus="if (typeof(document.layers) == 'undefined' || typeof(textarea_selected) == 'undefined') {textarea_selected = 1; this.form.elements['sql_query'].select();}">
 <?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : ''); ?>
 </textarea><br />
@@ -582,8 +582,8 @@ if ($is_upload) {
 echo "\n";
 
 // Bookmark Support
-if ($cfgBookmark['db'] && $cfgBookmark['table']) {
-    if (($bookmark_list = PMA_listBookmarks($db, $cfgBookmark)) && count($bookmark_list) > 0) {
+if ($cfg['Bookmark']['db'] && $cfg['Bookmark']['table']) {
+    if (($bookmark_list = PMA_listBookmarks($db, $cfg['Bookmark'])) && count($bookmark_list) > 0) {
         echo "            <i>$strOr</i> $strBookmarkQuery&nbsp;:<br />\n";
         echo '            <div style="margin-bottom: 5px">' . "\n";
         echo '            <select name="id_bookmark">' . "\n";
@@ -717,9 +717,9 @@ if ($num_tables > 0) {
     <?php
     // gzip and bzip2 encode features
     if (PMA_PHP_INT_VERSION >= 40004) {
-        $is_zip  = (isset($cfgZipDump) && $cfgZipDump && @function_exists('gzcompress'));
-        $is_gzip = (isset($cfgGZipDump) && $cfgGZipDump && @function_exists('gzencode'));
-        $is_bzip = (isset($cfgBZipDump) && $cfgBZipDump && @function_exists('bzcompress'));
+        $is_zip  = (isset($cfg['ZipDump']) && $cfg['ZipDump'] && @function_exists('gzcompress'));
+        $is_gzip = (isset($cfg['GZipDump']) && $cfg['GZipDump'] && @function_exists('gzencode'));
+        $is_bzip = (isset($cfg['BZipDump']) && $cfg['BZipDump'] && @function_exists('bzcompress'));
         if ($is_zip || $is_gzip || $is_bzip) {
             echo "\n" . '                (' . "\n";
             if ($is_zip) {
@@ -797,7 +797,7 @@ $result       = @mysql_query('USE mysql');
 $is_superuser = (!mysql_error());
 
 // Display the DROP DATABASE link only if allowed to do so
-if ($cfgAllowUserDropDatabase || $is_superuser) {
+if ($cfg['AllowUserDropDatabase'] || $is_superuser) {
     ?>
     <!-- Drop database -->
     <li>
