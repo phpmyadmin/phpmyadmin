@@ -38,28 +38,23 @@ if (defined('PHP_OS') && eregi('win', PHP_OS)) {
 }
 
 // MySQL Version 
-
-if (!empty($server)){
-    $result = @mysql_query('SELECT VERSION() AS version');
+if (!empty($server)) {
+    $result = mysql_query('SELECT VERSION() AS version');
     if ($result != FALSE && @mysql_num_rows($result) > 0) {
-        $result = mysql_query('SELECT VERSION() AS version') or mysql_die();
         $row    = mysql_fetch_array($result);
         define('MYSQL_MAJOR_VERSION', (double)substr($row['version'], 0, 4));
         define('MYSQL_MINOR_VERSION', (double)substr($row['version'], 5));
     } else {
-        $result = @mysql_query('SHOW VARIABLES like \'version\'');
+        $result = @mysql_query('SHOW VARIABLES LIKE \'version\'');
         if ($result != FALSE && @mysql_num_rows($result) > 0){
             $row = mysql_fetch_row($result);
             define('MYSQL_MAJOR_VERSION', (double)substr($row[1], 0, 4));
             define('MYSQL_MINOR_VERSION', (double)substr($row[1], 5));
-        } else {
-            define('MYSQL_MAJOR_VERSION', 3.21);
-            define('MYSQL_MINOR_VERSION', 0);
         }
     }
-}
-else{
+} // end server id is defined case
+if (!defined('MYSQL_MAJOR_VERSION')) {
     define('MYSQL_MAJOR_VERSION', 3.21);
     define('MYSQL_MINOR_VERSION', 0);
-}
+} // end if
 ?>
