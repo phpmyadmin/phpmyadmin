@@ -275,6 +275,10 @@ if (!isset($cfg['LoginCookieRecall'])) {
     }
 }
 
+if (!isset($cfg['LoginCookieValidity'])) {
+    $cfg['LoginCookieValidity'] = 1800;
+}
+
 if (!isset($cfg['UseDbSearch'])) {
     $cfg['UseDbSearch'] = TRUE;
 }

@@ -201,6 +201,7 @@ $cfg['ShowSQL']                 = TRUE;   // show SQL queries as run
 $cfg['AllowUserDropDatabase']   = FALSE;  // show a 'Drop database' link to normal users
 $cfg['Confirm']                 = TRUE;   // confirm 'DROP TABLE' & 'DROP DATABASE'
 $cfg['LoginCookieRecall']       = TRUE;   // recall previous login in cookie auth. mode or not
+$cfg['LoginCookieValidity']     = 1800;   // validity of cookie login (in seconds)
 $cfg['UseDbSearch']             = TRUE;   // whether to enable the "database search" feature
                                           // or not
 $cfg['IgnoreMultiSubmitErrors'] = FALSE;  // if set to true, PMA continues computing multiple-statement queries

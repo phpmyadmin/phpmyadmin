@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+
+2004-02-27 Michal Cihar  <imback@cihar.com>
+    * config.inc.php, libraries/config_import.lib.php,
+      libraries/auth/cookie.auth.lib.php: Encrypted password is working only
+      for limited (configurable) time, user name is encrypted (RFE #902295).
+
 2004-02-26 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.lib.php: bug 905066, memory eater, thanks to xuefer
 

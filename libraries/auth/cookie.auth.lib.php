@@ -22,6 +22,7 @@ PMA_setFontSizes();
 $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
 $cookie_path   = substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/'));
 $is_https      = (isset($pma_uri_parts['scheme']) && $pma_uri_parts['scheme'] == 'https') ? 1 : 0;
+$current_time  = time();
 
 /**
  * String padding
@@ -76,7 +77,7 @@ function PMA_blowfish_encrypt($data, $secret) {
         }
         $encrypt .= $pma_cipher->encryptBlock($block, $secret);
     }
-    return $encrypt;
+    return base64_encode($encrypt);
 }
 
 /**
@@ -91,9 +92,10 @@ function PMA_blowfish_encrypt($data, $secret) {
  *
  * @author  lem9
  */
-function PMA_blowfish_decrypt($data, $secret) {
+function PMA_blowfish_decrypt($encdata, $secret) {
     $pma_cipher = new Horde_Cipher_blowfish;
     $decrypt = '';
+    $data = base64_decode($encdata);
     for ($i=0; $i<strlen($data); $i+=8) {
         $decrypt .= $pma_cipher->decryptBlock(substr($data, $i, 8), $secret);
     }
@@ -152,10 +154,9 @@ function PMA_auth()
         else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username'])) {
             $default_user = $_COOKIE['pma_cookie_username'];
         }
-
-        if (isset($default_user) && get_magic_quotes_gpc()) {
-            $default_user = stripslashes($default_user);
-        }
+        $decrypted_user = PMA_blowfish_decrypt($default_user, $GLOBALS['cfg']['blowfish_secret']);
+        $pos = strrpos($decrypted_user, ':');
+        $default_user = substr($decrypted_user, 0, $pos);
 
         // server name
         if (!empty($GLOBALS['pma_cookie_servername'])) {
@@ -438,6 +439,7 @@ function PMA_auth_check()
                 $from_cookie   = TRUE;
             }
         }
+
         // username
         if (!empty($pma_cookie_username)) {
             $PHP_AUTH_USER = $pma_cookie_username;
@@ -447,6 +449,18 @@ function PMA_auth_check()
             $PHP_AUTH_USER = $_COOKIE['pma_cookie_username'];
             $from_cookie   = TRUE;
         }
+        $decrypted_user = PMA_blowfish_decrypt($PHP_AUTH_USER, $GLOBALS['cfg']['blowfish_secret']);
+        $pos = strrpos($decrypted_user, ':');
+        $PHP_AUTH_USER = substr($decrypted_user, 0, $pos);
+
+        $decrypted_time = (int)substr($decrypted_user, $pos + 1);
+
+        /* User inactive too long */
+        /* FIXME: maybe we could say it to user... */
+        if ($decrypted_time < $GLOBALS['current_time'] - $GLOBALS['cfg']['LoginCookieValidity']) {
+            return FALSE;
+        }
+        
         // password
         if (!empty($pma_cookie_password)) {
             $PHP_AUTH_PW   = $pma_cookie_password;
@@ -457,8 +471,7 @@ function PMA_auth_check()
         else {
             $from_cookie   = FALSE;
         }
-        $PHP_AUTH_PW = base64_decode($PHP_AUTH_PW);
-        $PHP_AUTH_PW = PMA_blowfish_decrypt($PHP_AUTH_PW,$GLOBALS['cfg']['blowfish_secret']);
+        $PHP_AUTH_PW = PMA_blowfish_decrypt($PHP_AUTH_PW, $GLOBALS['cfg']['blowfish_secret'] . $decrypted_time);
 
         if ($PHP_AUTH_PW == "\xff(blank)") {
             $PHP_AUTH_PW   = '';
@@ -469,10 +482,6 @@ function PMA_auth_check()
     if (!$from_cookie && !$from_form) {
         return FALSE;
     } elseif ($from_cookie) {
-        if (get_magic_quotes_gpc()) {
-            $PHP_AUTH_USER = stripslashes($PHP_AUTH_USER);
-            // no need to strip password as it is encrypted during transfer
-        }
         return TRUE;
     } else {
         // we don't need to strip here, it is done in grab_globals
@@ -545,16 +554,16 @@ function PMA_auth_set_user()
         }
         // Duration = one month for username
         setcookie('pma_cookie_username',
-            $cfg['Server']['user'],
+            PMA_blowfish_encrypt($cfg['Server']['user'] . ':' . $GLOBALS['current_time'], 
+                $GLOBALS['cfg']['blowfish_secret']),
             time() + (60 * 60 * 24 * 30),
             $GLOBALS['cookie_path'], '',
             $GLOBALS['is_https']);
 
         // Duration = till the browser is closed for password
-        // Some binary contents are now retrieved properly when stored
-        // as a cookie, so we base64_encode()
         setcookie('pma_cookie_password',
-            base64_encode(PMA_blowfish_encrypt(((!empty($cfg['Server']['password'])) ? $cfg['Server']['password'] : "\xff(blank)"), $GLOBALS['cfg']['blowfish_secret'])),
+            PMA_blowfish_encrypt(!empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
+                $GLOBALS['cfg']['blowfish_secret'] . $GLOBALS['current_time']),
             0,
             $GLOBALS['cookie_path'], '',
             $GLOBALS['is_https']);
@@ -589,7 +598,7 @@ function PMA_auth_fails()
 global $conn_error;
 
     // Deletes password cookie and displays the login form
-    setcookie('pma_cookie_password', base64_encode(''), 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+    setcookie('pma_cookie_password', '', 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
 
     if (PMA_DBI_getError()) {
         $conn_error = PMA_DBI_getError();
