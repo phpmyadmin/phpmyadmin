@@ -157,8 +157,8 @@
          installed phpMyAdmin (unless it's on a closed intranet, or you wish to
          use HTTP or cookie authentication), for example with HTTP-AUTH (in a
          <i>.htaccess</i> file). See the
-         <a href="#faq">FAQ section</a> for additional
-         information.</li>
+         <a href="#faqmultiuser">multi-user sub-section of the FAQ</a>
+         for additional information, especially FAQ 4.4.</li>
     <li> Open the file
          <i>&lt;www.your-host.com&gt;/&lt;your-install-dir&gt;/index.php</i>
          in your browser. phpMyAdmin should now display a welcome screen
@@ -284,6 +284,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON &lt;pma_db&gt;.* TO 'pma'@'localhost';
         allows you to login as any valid MySQL user.</li>
     <li>Is only supported with PHP running as an Apache module, not with
         CGI.</li>
+    <li>See also FAQ 4.4 about not using the <i>.htaccess</i> mechanism along
+        with 'http' authentication mode.</li>
 </ul>
 
 <p><b>'cookie' authentication mode:</b></p>
