@@ -18,7 +18,7 @@
  * It must contain characters that are valid for a URL, and the path is
  * case sensitive on some Web servers, for example Unix-based servers.
  */
-$cfg['PmaAbsoluteUri'] = '';
+$cfg['PmaAbsoluteUri'] = 'http://rabus.rus-net.de/';
 
 
 /**
@@ -32,12 +32,12 @@ $cfg['Servers'][$i]['host']          = 'localhost'; // MySQL hostname
 $cfg['Servers'][$i]['port']          = '';          // MySQL port - leave blank for default port
 $cfg['Servers'][$i]['socket']        = '';          // Path to the socket - leave blank for default socket
 $cfg['Servers'][$i]['connect_type']  = 'tcp';       // How to connect to MySQL server ('tcp' or 'socket')
-$cfg['Servers'][$i]['controluser']   = '';          // MySQL control user settings
+$cfg['Servers'][$i]['controluser']   = 'pma';       // MySQL control user settings
                                                     // (this user must have read-only
 $cfg['Servers'][$i]['controlpass']   = '';          // access to the "mysql/user"
                                                     // and "mysql/db" tables)
-$cfg['Servers'][$i]['auth_type']     = 'config';    // Authentication method (config, http or cookie based)?
-$cfg['Servers'][$i]['user']          = 'root';      // MySQL user
+$cfg['Servers'][$i]['auth_type']     = 'http';      // Authentication method (config, http or cookie based)?
+$cfg['Servers'][$i]['user']          = '';          // MySQL user
 $cfg['Servers'][$i]['password']      = '';          // MySQL password (only needed
                                                     // with 'config' auth_type)
 $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
@@ -48,7 +48,7 @@ $cfg['Servers'][$i]['only_db']       = '';          // If set to a db-name, only
 $cfg['Servers'][$i]['verbose']       = '';          // Verbose name for this host - leave blank to show the hostname
 $cfg['Servers'][$i]['bookmarkdb']    = '';          // Bookmark db - leave blank for no bookmark support
 $cfg['Servers'][$i]['bookmarktable'] = '';          // Bookmark table - leave blank for no bookmark support
-$cfg['Servers'][$i]['relation']      = '';          // table to describe the relation between links (see doc)
+$cfg['Servers'][$i]['relation']      = 'relation';  // table to describe the relation between links (see doc)
                                                     //   - leave blank for no relation-links support
 
 $i++;
