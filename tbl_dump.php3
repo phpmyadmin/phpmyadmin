@@ -164,7 +164,7 @@ else
 	else 
 	{ // $what != "csv"
 		$tmp_buffer="";
-		get_table_csv($db, $table, $separator, "my_csvhandler");
+		get_table_csv($db, $table, $limit_from, $limit_to, $separator, "my_csvhandler");
         	$dump_buffer.=$tmp_buffer;
 	}
 }

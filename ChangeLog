@@ -6,6 +6,10 @@ $Id$
 $Source$
 
 2001-07-13  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, tbl_dump.php3: limitation feature for data dumps wasn't
+	  working with CSV exports.
+
+2001-07-13  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lib.inc.php3, tbl_dump.php3, tbl_properties.php3, translations: added a
 	  limitation feature for data dumps thanks to
       Girish Nair <girish@sanisoft.com> and Vinay <vinay@sanisoft.com>.

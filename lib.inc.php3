@@ -662,7 +662,7 @@ function get_table_content($db, $table, $limit_from = 0, $limit_to = 0, $handler
  */
 function get_table_content_fast($db, $table, $add_query = '', $handler)
 {
-    $result = mysql_query('SELECT * FROM ' . db_name($db) . '.' . tbl_name($table). $add_query) or mysql_die();
+    $result = mysql_query('SELECT * FROM ' . db_name($db) . '.' . tbl_name($table) . $add_query) or mysql_die();
     if ($result != false) {
     
         // Checks whether the field is an integer or not
@@ -822,15 +822,20 @@ function count_records($db, $table, $ret = false)
 /**
  * Output the content of a table in CSV format
  *
- * @param   string  the database name
- * @param   string  the table name
- * @param   string  the separation string
- * @param   string  the handler (function) to call. It must accept one parameter
- *                  ($sql_insert)
+ * @param   string   the database name
+ * @param   string   the table name
+ * @param   integer  the offset on this table
+ * @param   integer  the last row to get
+ * @param   string   the separation string
+ * @param   string   the handler (function) to call. It must accept one
+ *                   parameter ($sql_insert)
  *
  * @return  boolean always true
+ *
+ * Last revision 14 July 2001: Patch for limiting dump size from
+ * vinay@sanisoft.com & girish@sanisoft.com
  */
-function get_table_csv($db, $table, $sep, $handler)
+function get_table_csv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $handler)
 {
     // Handles the separator character
     if (empty($sep)) {
@@ -843,8 +848,20 @@ function get_table_csv($db, $table, $sep, $handler)
 	    $sep     = str_replace('\\t', "\011", $sep);
     }
 
+    // Defines the offsets to use
+    if ($limit_from > 0) {
+        $limit_from--;
+    } else {
+        $limit_from = 0;
+    }
+    if ($limit_to > 0 && $limit_from >= 0) {
+        $add_query  = " LIMIT $limit_from, $limit_to";
+    } else {
+        $add_query  = '';
+    }
+
     // Gets the data from the database
-    $result = mysql_query('SELECT * FROM ' . db_name($db) . '.' . tbl_name($table)) or mysql_die();
+    $result = mysql_query('SELECT * FROM ' . db_name($db) . '.' . tbl_name($table) . $add_query) or mysql_die();
 
     // Format the data
     $i      = 0;
