@@ -538,6 +538,9 @@ if ($num_dbs > 1) {
                 $url_title = (!empty($tooltip) && isset($tooltip[$table]))
                            ? htmlspecialchars($tooltip[$table])
                            : '';
+                $tablename = ($alias != '' && $cfg['ShowTooltipAliasTB']
+                           ? $alias
+                           : htmlspecialchars($table));
 
                 $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
@@ -545,11 +548,11 @@ if ($num_dbs > 1) {
                 $list_item .= '<img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
                 $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                 $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
-                $list_item .= ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a><br />' . "\n";
+                $list_item .= $tablename . '</a><br />' . "\n";
 
                 // garvin: Check whether to display nested sets
                 if (!empty($cfg['LeftFrameTableSeparator'])) {
-                    $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'',$table));
+                    $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'', $tablename));
                     if (is_array($_table)) {
                         foreach($_table AS $key => $val) {
                             if ($val == '') {
@@ -560,15 +563,15 @@ if ($num_dbs > 1) {
                         unset($_table[count($_table)-1]);
                         $_table = PMA_reduceNest($_table);
 
-                        $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $table) . '\';';
+                        $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $tablename) . '\';';
                         $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . str_replace('\'', '\\\'', $list_item) . '\';';
                         eval($eval_string);
                     } else {
-                        $tablestack['']['pma_name'][] = $table;
+                        $tablestack['']['pma_name'][] = $tablename;
                         $tablestack['']['pma_list_item'][] = $list_item;
                     }
                 } else {
-                    $tablestack['']['pma_name'][] = $table;
+                    $tablestack['']['pma_name'][] = $tablename;
                     $tablestack['']['pma_list_item'][] = $list_item;
                 }
             } // end while (tables list)
@@ -774,6 +777,10 @@ else if ($num_dbs == 1) {
         $url_title = (!empty($tooltip) && isset($tooltip[$table]))
                    ? htmlentities($tooltip[$table])
                    : '';
+        $tablename = ($alias != '' && $cfg['ShowTooltipAliasTB']
+                   ? $alias
+                   : htmlspecialchars($table));
+
         $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
         if ($cfg['LeftFrameLight']) {
@@ -782,18 +789,18 @@ else if ($num_dbs == 1) {
             <a target="phpmain<?php echo $hash; ?>" href="sql.php?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . $url_title; ?>">
                   <img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="<?php echo $strBrowse . ': ' . $url_title; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
               <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain<?php echo $hash; ?>" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
-                  <?php echo ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)); ?></a><br />
+                  <?php echo $tablename; ?></a><br />
         <?php
         } else {
             $list_item = '<a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '" title="' . $strBrowse . ': ' . $url_title . '">';
             $list_item .= '<img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
             $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
             $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
-            $list_item .= ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a><br />';
+            $list_item .= $tablename . '</a><br />';
 
             // garvin: Check whether to display nested sets
             if (!empty($cfg['LeftFrameTableSeparator'])) {
-                $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'',$table));
+                $_table = explode($cfg['LeftFrameTableSeparator'],  str_replace('\'', '\\\'', $tablename));
                 if (is_array($_table)) {
                     foreach($_table AS $key => $val) {
                         if ($val == '') {
@@ -804,15 +811,15 @@ else if ($num_dbs == 1) {
                     unset($_table[count($_table)-1]);
                     $_table = PMA_reduceNest($_table);
 
-                    $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $table) . '\';';
+                    $eval_string = '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_name\'][] = \'' . str_replace('\'', '\\\'', $tablename) . '\';';
                     $eval_string .= '$tablestack[\'' . implode('\'][\'', $_table) . '\'][\'pma_list_item\'][] = \'' . str_replace('\'', '\\\'', $list_item) . '\';';
                     eval($eval_string);
                 } else {
-                    $tablestack['']['pma_name'][] = $table;
+                    $tablestack['']['pma_name'][] = $tablename;
                     $tablestack['']['pma_list_item'][] = $list_item;
                 }
             } else {
-                $tablestack['']['pma_name'][] = $table;
+                $tablestack['']['pma_name'][] = $tablename;
                 $tablestack['']['pma_list_item'][] = $list_item;
             }
         }
