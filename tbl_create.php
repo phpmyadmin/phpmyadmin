@@ -55,7 +55,8 @@ if (isset($submit_num_fields)) {
     } // end for
     // Builds the fields creation statements
     for ($i = 0; $i < $field_cnt; $i++) {
-        if (empty($field_name[$i])) {
+        // '0' is also empty for php :-(
+        if (empty($field_name[$i]) && $field_name[$i] != '0') {
             continue;
         }
         $query = PMA_backquote($field_name[$i]) . ' ' . $field_type[$i];

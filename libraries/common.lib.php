@@ -1352,8 +1352,9 @@ if ($is_minimum_common == FALSE) {
      */
     function PMA_backquote($a_name, $do_it = TRUE)
     {
+        // '0' is also empty for php :-(
         if ($do_it
-            && !empty($a_name) && $a_name != '*') {
+            && (!empty($a_name) || $a_name == '0') && $a_name != '*') {
 
             if (is_array($a_name)) {
                  $result = array();

@@ -13,6 +13,8 @@ $Source$
       #1048826).
     * main.php, queryframe.php: Handle correctly situation with no default
       server (bug #1049107).
+    * tbl_create.php, libraries/common.lib.php: 0 as field name causes
+      problems (bug #1042235).
 
 2004-10-17 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/turkish update, thanks to boralioglu.
