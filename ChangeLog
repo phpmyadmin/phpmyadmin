@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-09 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * common.lib.php3: Corrected path to config_import.lib.php3.
+    * common.lib.php3, lang/*.inc.php3, config.inc.php3:
+      Catch parse errors in the config file.
+    * lang/chinese.inc.php3: Converted to Unix line feed format.
+    * lang/english.inc.php3: Reordered strings.
+
 2002-06-09 Robin Johnson  <robbat2@users.sourceforge.net>
     * Initial checkin of base DB-Config code
 

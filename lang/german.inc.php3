@@ -81,6 +81,7 @@ $strChoosePage = 'Bitte wählen Sie die zu bearbeitende Seite.';
 $strColumn = 'Spalte';
 $strColumnNames = 'Spaltennamen';
 $strCompleteInserts = 'Vollständige \'INSERT\'s';
+$strConfigFileError = 'phpMyAdmin konnte Ihre Konfigurationsdatei nicht verarbeiten!<br />Dies kann passieren, wenn php Syntaxfehler in ihr findet oder sie nicht existiert.<br />Bitte rufen Sie die Konfigurationsdatei üben den unteren Link direkt auf und lesen Sie die PHP-Fehlermeldungen, die Sie erhalten. Meistens fehlt bloß irgendwo ein Anführungszeichen oder Semikolon.<br />Wenn Sie eine leere Seite erhalten, ist Ihre Konfigurationsdatei in Ordnung.'; //to translate
 $strConfigureTableCoord = 'Bitte konfigurieren Sie die Koordinaten für die Tabelle %s';
 $strConfirm = 'Bist du dir wirklich sicher?';
 $strCookiesRequired = 'Ab diesem Punkt müssen Cookies aktiviert sein.';

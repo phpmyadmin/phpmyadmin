@@ -67,7 +67,42 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
      * Parses the configuration file and gets some constants used to define
      * versions of phpMyAdmin/php/mysql...
      */
-    include('./config.inc.php3');
+    if (!@include('./config.inc.php3')) {
+        // Creates fake settings
+        $cfg = array('DefaultLang' => 'en');
+        // Loads the laguage file
+        include('./libraries/select_lang.lib.php3');
+        // Sends the Content-Type header
+        header('Content-Type: text/html; charset=' . $charset);
+        // Displays the error message
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $available_languages[$lang][2]; ?>" lang="<?php echo $available_languages[$lang][2]; ?>" dir="<?php echo $text_dir; ?>">
+
+<head>
+<title>phpMyAdmin</title>
+<style type="text/css">
+<!--
+body  {font-family: sans-serif; font-size: small; color: #000000; background-color: #F5F5F5}
+h1    {font-family: sans-serif; font-size: large; font-weight: bold}
+//-->
+</style>
+</head>
+
+
+<body bgcolor="#ffffff">
+<h1>phpMyAdmin - <?php echo $strError; ?></h1>
+<p>
+    <?php echo $strConfigFileError; ?><br /><br />
+    <a href="config.inc.php3" target="_blank">config.inc.php3</a>
+</p>
+</body>
+
+</html>
+<?php
+        exit;
+    }
 
     /**
      * Reads in the developer edition config file. This is used exclusively during
@@ -89,7 +124,7 @@ if (!defined('PMA_COMMON_LIB_INCLUDED')){
 
     // For compatibility with old config.inc.php3
     if (!isset($cfg)) {
-        include('./config_import.inc.php3');
+        include('./libraries/config_import.lib.php3');
     }
     if (!isset($cfg['UseDbSearch'])) {
         $cfg['UseDbSearch'] = TRUE;
@@ -971,7 +1006,7 @@ if (typeof(document.getElementById) != 'undefined'
                 // but do not explain an explain (lem9)
                 if (!eregi('^EXPLAIN[[:space:]]+', $GLOBALS['sql_query'])) {
                     $explain_link = '[<a href="sql.php3'
-                                  . $url_qpart 
+                                  . $url_qpart
                                   . '&amp;sql_query=' . urlencode('EXPLAIN '.$GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'] . '</a>]&nbsp;';
                 } else {
                     $explain_link = '';

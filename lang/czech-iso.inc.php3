@@ -74,7 +74,7 @@ $strChangePassword = 'Zmìnit heslo';
 $strCheckAll = 'Za¹krtnout v¹e';
 $strCheckDbPriv = 'Zkontrolovat oprávnìní pro databázi';
 $strCheckTable = 'Zkontrolovat tabulku';
-$strChoosePage = 'Zvolte stránku, kterou chcete zmìnit';  
+$strChoosePage = 'Zvolte stránku, kterou chcete zmìnit';
 $strColumn = 'Sloupec';
 $strColumnNames = 'Názvy sloupcù';
 $strCompleteInserts = 'Uplné inserty';
@@ -89,7 +89,7 @@ $strCreateIndex = 'Vytvoøit index na&nbsp;%s&nbsp;sloupcích';
 $strCreateIndexTopic = 'Vytvoøit nový index';
 $strCreateNewDatabase = 'Vytvoøit novou databázi';
 $strCreateNewTable = 'Vytvoøit novou tabulku v&nbsp;databázi %s';
-$strCreatePage = 'Vytvoøit novou stránku'; 
+$strCreatePage = 'Vytvoøit novou stránku';
 $strCriteria = 'Podmínka';
 
 $strData = 'Data';
@@ -214,7 +214,7 @@ $strName = 'Název';
 $strNext = 'Dal¹í';
 $strNo = 'Ne';
 $strNoDatabases = '®ádné databáze';
-$strNoDescription = '¾ádný popisek'; 
+$strNoDescription = '¾ádný popisek';
 $strNoDropDatabases = 'Pøíkaz "DROP DATABASE" je vypnutý.';
 $strNoFrames = 'phpMyAdmin se lépe pou¾ívá v&nbsp;prohlí¾eèi podporujícím rámy ("FRAME").';
 $strNoIndex = '®ádný index nebyl definován!';
@@ -319,7 +319,7 @@ $strSelectADb = 'Prosím vyberte databázi';
 $strSelectAll = 'Vybrat v¹e';
 $strSelectFields = 'Zvolte sloupec (alespoò jeden):';
 $strSelectNumRows = 'v&nbsp;dotazu';
-$strSelectTables = 'Vybrat tabulky'; 
+$strSelectTables = 'Vybrat tabulky';
 $strSend = 'Poslat';
 $strServerChoice = 'Výbìr serveru';
 $strServerVersion = 'Verze MySQL';
@@ -399,4 +399,5 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
+$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
 ?>

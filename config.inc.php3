@@ -7,6 +7,9 @@
  *
  * All directives are explained in Documentation.html
  */
+ 
+// Sets the php error reporting - Please do not change this line!
+error_reporting(E_ALL)
 
 
 /**

@@ -401,4 +401,5 @@ $strCoordsNotSet = 'table_coords table not found or not set in config.inc.php3';
 $strChoosePage = 'Please choose a Page to edit';
 $strCreatePage = 'Create a new Page';
 $strSelectTables = 'Select Tables';
+$strConfigFileError = 'phpMyAdmin was unable to read your configuration file!<br />This might happen if php finds a parse error in it or php cannot find the file.<br />Please call the configuration file directly using the link below and read the php error message(s) that you recieve. In most cases a quote or a semicolon is missing somewhere.<br />If you recieve a blank page, everything is fine.'; //to translate
 ?>
