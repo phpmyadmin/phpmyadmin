@@ -92,7 +92,7 @@ var confirmMsg  = '<?php echo(($GLOBALS['cfg']['Confirm']) ? str_replace('\'', '
 <body bgcolor="<?php echo ($cfg['QueryFrameJS'] ? $cfg['LeftBgColor'] : $cfg['RightBgColor']); ?>">
 
 <?php
-if ($cfg['QueryFrameJS']) {
+if ($cfg['QueryFrameJS'] && !isset($no_js)) {
     $querydisplay_tab = (isset($querydisplay_tab) ? $querydisplay_tab : $cfg['QueryWindowDefTab']);
     
     if ($cfg['LightTabs']) {

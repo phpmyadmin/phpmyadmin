@@ -96,7 +96,12 @@ if ($cfg['QueryFrameJS']) {
 }
 ?>
 <center>
-<a href="<?php echo $href; ?>" <?php echo $target . ' ' . $onclick; ?>><?php echo $strQueryFrame; ?></a>
+<script type="text/javascript">
+document.writeln('<a href="<?php echo $href; ?>" <?php echo $target . ' ' . $onclick; ?>><?php echo $strQueryFrame; ?></a>');
+</script>
+<noscript>
+<a href="<?php echo $href; ?>&amp;no_js=true" <?php echo $target . ' ' . $onclick; ?> target="phpmain<?php echo $hash; ?>"><?php echo $strQueryFrame; ?></a>
+</noscript>
 </center>
 
 </body>

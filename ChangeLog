@@ -5,6 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-28 Garvin Hicking <me@supergarv.de>
+    * index.php3, queryframe.php3, tbl_query_box.php3, querywindow.php3:
+      Even more issues when QueryFrameJS is set to true, but JS is not
+      activated. Haven't ever thought this would be necessary. ;)
+      I tested everything with QueryFrame/QueryFrameJS set to true/false
+      with and without JavaScript enabled, and got everything working.
+      Please verify for yourselves! :)
+
 2003-04-28 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/polish: update, thanks to Jakub Wilk
 

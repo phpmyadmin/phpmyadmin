@@ -81,20 +81,16 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
 ?>
         <script type="text/javascript">
         <!--
-        document.writeln('<form method="post" target="phpmain' +  <?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) ? 'opener.' : ''); ?>top.frames.nav.document.hashform.hash.value + '" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?>');
-
-        document.writeln('onsubmit="return checkSqlQuery(this)" name="sqlform">');
+        document.writeln('<form method="post" target="phpmain' +  <?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE) ? 'opener.' : ''); ?>top.frames.nav.document.hashform.hash.value + '" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">');
         //-->
         </script>
         <noscript>
-            <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
-            onsubmit="return checkSqlQuery(this)" name="sqlform">
+            <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
         </noscript>
 <?php
 } else {
 ?>
-        <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; echo "\n"; ?>
-            onsubmit="return checkSqlQuery(this)" name="sqlform">
+        <form method="post" target="phpmain<?php echo md5($cfg['PmaAbsoluteUri']); ?>" action="read_dump.php3"<?php if ($is_upload) echo ' enctype="multipart/form-data"'; ?> onsubmit="return checkSqlQuery(this)" name="sqlform">
 <?php
 }
 ?>
@@ -300,19 +296,25 @@ if (!isset($is_inside_querywindow) ||
             if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             ?>
 
-            <script>
-                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain\' + opener.top.frames.nav.document.hashform.hash.value + \'.location.href = \'' . $ldi_target . '\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>');
+            <script type="text/javascript">
+                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain\' + opener.top.frames.nav.document.hashform.hash.value + \'.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>');
             </script>
-
+            
             <?php
             } else {
             ?>
 
-            <div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \'' . $ldi_target . '\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>
+            <script type="text/javascript">
+                document.writeln('<div style="margin-bottom: 10px"><a href="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? '#' : $ldi_target); ?>" <?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? 'onclick="opener.top.frames.phpmain' . md5($cfg['PmaAbsoluteUri']) . '.location.href = \\\'' . $ldi_target . '\\\'; return false;"' : ''); ?>><?php echo $strInsertTextfiles; ?></a></div>');
+            </script>
 
             <?php
             }
             ?>
+
+            <noscript>
+               <div style="margin-bottom: 10px"><a href="<?php echo $ldi_target; ?>"><?php echo $strInsertTextfiles; ?></a></div>
+            </noscript>
         </li>
         <?php
     }
