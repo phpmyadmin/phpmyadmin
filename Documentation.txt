@@ -1,5 +1,5 @@
 
-                      phpMyAdmin 2.3.0-rc1 Documentation
+                      phpMyAdmin 2.3.0-rc2 Documentation
                                        
      * Sourceforge phpMyAdmin project page   [ http://www.phpmyadmin.net/
        ]
@@ -7,8 +7,8 @@
           + Version history: ChangeLog
           + General notes: README
           + License: LICENSE
-     * Documentation version: $Id: Documentation.html,v 1.263 2002/06/19
-       20:39:01 lem9 Exp $
+     * Documentation version: $Id: Documentation.html,v 1.268 2002/06/25
+       12:49:39 lem9 Exp $
    ______________________________________________________________________
    
    Top  -  Requirements  -  Introduction  -  Installation  -
@@ -361,7 +361,7 @@ CRIPT_NAME'], '/')+1);
           + display links on the table properties page, to check
             referential integrity (display missing foreign keys) for each
             described key;
-          + in query-by-example, create automatic joints (see an example
+          + in query-by-example, create automatic joins (see an example
             in the FAQ, section "Using phpMyAdmin");
           + enable you to get a PDF schema of your database (also uses
             the table_coords table).
@@ -388,6 +388,10 @@ CRIPT_NAME'], '/')+1);
             you want to use this feature, click "Structure/Relation
             view/" and choose foreign fields.
             
+          Please note that in the current (2.3.0) version, master_db must
+          be the same as foreign_db. Those fields have been put in place
+          for a future development of the cross-db relations.
+          
    $cfg['Servers'][$i]['table_info'] string
           Since release 2.3.0 you can describe, in a special 'table_info'
           table, which field is to be displayed as a tooltip when moving
@@ -578,6 +582,10 @@ CRIPT_NAME'], '/')+1);
           effect with "config" authentication mode: because of the hard
           coded password value in the configuration file, end users can't
           be allowed to change their passwords.
+          
+   $cfg['SuggestDBName'] boolean
+          Defines whether to suggest a database name on the "Create
+          Database" form or to keep the textfield empty.
           
    $cfg['LoginCookieRecall'] boolean
           Define whether the previous login should be recalled or not in
@@ -1228,7 +1236,7 @@ FAQ - Frequently Asked Questions
      * Do the same for towns.description and countries.descriptions in
        the other 2 columns
      * Click "Update query" and you will see in the query box that the
-       correct joints have been generated
+       correct joins have been generated
      * Click "Submit query"
        
    How can I use the "display field" feature?

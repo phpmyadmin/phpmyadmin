@@ -684,7 +684,7 @@ $Source$
     * header.inc.php3: removed db_stats link.
 
 2002-04-29 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_qbe.php3: corrections from Mike Beck for better joints
+    * tbl_qbe.php3: corrections from Mike Beck for better joins
       when more than one table is the master in a relation
     * tbl_properties_links.php3, tbl_properties_operations.php3,
       new tbl_properties_options.php3, lang/*: new Options page
@@ -763,10 +763,10 @@ $Source$
     * tbl_printview.php3; tbl_qbe.php3: coding standards and warnings.
 
 2002-04-26 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_qbe.php3: automatic joints from Relation table, thanks
+    * tbl_qbe.php3: automatic joins from Relation table, thanks
       to Mike Beck (mike.beck at ibmiller.de)
       (experimental: some things remain to be tested)
-    * Documentation.html: example for automatic joints
+    * Documentation.html: example for automatic joins
     * tbl_qbe.php3, tbl_printview.php3, libraries/display_tbl.lib.php3,
       Documentation.html: rename fields in the relation table
 
