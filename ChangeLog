@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-12  Marc Delisle  <lem9@users.sourceforge.net>
+        * tbl_change.php3, bug 501773 (null checkbox), idea thanks to
+          rabus at users.sourceforge.net
+
 2002-01-12  Olivier Müller  <om@omnis.ch>
 	* main.php3, leftlight.php3: added <noscript></noscript> to hide the
 	  "Go" submit button when the browser supports JS (ist that XHTML compliant?:)

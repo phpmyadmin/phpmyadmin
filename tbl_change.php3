@@ -309,7 +309,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols .'"  onchange="document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false">' . $special_chars; ?> </textarea>
         </td>
         <?php
         echo "\n";
@@ -322,7 +322,6 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $enum        = ereg_replace('\\)$', '', $enum);
         $enum        = explode('\',\'', substr($enum, 1, -1));
         $enum_cnt    = count($enum);
-//        $seenchecked = 0;
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" />
@@ -333,7 +332,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         if (strlen($row_table_def['Type']) > 20) {
             echo "\n";
             ?>
-            <select name="field_<?php echo md5($field); ?>[]">
+            <select name="field_<?php echo md5($field) . '[]" onchange="document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false">'; ?>>
                 <option value=""></option>
             <?php
             echo "\n";
@@ -347,20 +346,10 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                     || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                     echo ' selected="selected"';
-//                    $seenchecked = 1;
                 }
                 echo '>' . htmlspecialchars($enum_atom) . '</option>' . "\n";
             } // end for
              
-// old null option
-//            if ($row_table_def['Null'] == 'YES') {
-//                echo '                ';
-//                echo '<option value="null"';
-//                if ($seenchecked == 0) {
-//                    echo ' selected="selected"';
-//                }
-//                echo '>[' . $strNull . ']</option>' . "\n";
-//            } // end if
             ?>
             </select>
             <?php
@@ -371,27 +360,18 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 // Removes automatic MySQL escape format
                 $enum_atom = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $enum[$j]));
                 echo '            ';
-                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($enum_atom) . '"';
+
+// this 'onchange' does not work in Netscape 4.7:
+                echo '<input type="radio" name="field_' . md5($field) . '[]" value="' . urlencode($enum_atom) . '"' . ' onchange="document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false"'; 
                 if ($data == $enum_atom
                     || ($data == '' && (!isset($primary_key) || $row_table_def['Null'] != 'YES')
                         && isset($row_table_def['Default']) && $enum_atom == $row_table_def['Default'])) {
                     echo ' checked="checked"';
-//                    $seenchecked = 1;
                 }
                 echo ' />' . "\n";
                 echo '            ' . htmlspecialchars($enum_atom) . "\n";
             } // end for
 
-// old null option
-//            if ($row_table_def['Null'] == 'YES') {
-//                echo '            ';
-//                echo '<input type="radio" name="field_' . md5($field) . '[]" value="null"';
-//                if ($seenchecked == 0) {
-//                    echo ' checked="checked"';
-//                }
-//                echo ' />' . "\n";
-//                echo '            [' . $strNull . ']' . "\n";
-//            } // end if
         } // end else
         echo "\n";
         ?>
@@ -415,8 +395,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
             <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
-            <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple">
-        <?php
+            <select name="field_<?php echo md5($field) . '[]" onchange="document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false"> size="' . $size . '" multiple="multiple">';
+
         echo "\n";
         $countset = count($set);
         for ($j = 0; $j < $countset;$j++) {
@@ -451,7 +431,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols; ?>"><?php echo $special_chars; ?></textarea>
+            <textarea name="fields[<?php echo urlencode($field); ?>]" rows="<?php echo $cfgTextareaRows; ?>" cols="<?php echo $cfgTextareaCols .'"  onchange="document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false">' . $special_chars; ?> </textarea>
         </td>
             <?php
         } else {
@@ -465,7 +445,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength .'"  onchange="document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false"' ?> />
         </td>
             <?php
         } // end if...elseif...else
@@ -481,7 +461,7 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" />
+            <input type="text" name="fields[<?php echo urlencode($field); ?>]" value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength .'"  onchange="document.forms[\'insertForm\'].elements[\'fields_null[' . urlencode($field) .']\'].checked = false"' ?> />
         </td>
         <?php
     }
