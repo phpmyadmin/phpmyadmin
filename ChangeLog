@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-02-09 Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html: line sizes.
+	* sql.php3: optimized a bit.
+	* libraries/select_lang.php3: sorted the languages array.
+	* libraries/auth/cookie.auth.lib.php3, line 100: restored the use of
+	  "$strLogin" inside the title of the login page.
+
 2002-02-14 Marc Delisle  <lem9@users.sourceforge.net>
 	* hungarian updates thanks to Peter Bakondy
 	* new slovak-1250, thanks to Peter Svec (petko at unitra.sk)
@@ -12,11 +19,11 @@ $Source$
 2002-02-13 Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3: restore old color changing behavior by default
 	 ($cfgBrowseMarkRow = 0)
-	* left.php3, patch 515855 (use $strGo), 
+	* left.php3, patch 515855 (use $strGo),
 	  thanks to Alexander M. Turek (rabus)
 
 2002-02-12 Marc Delisle  <lem9@users.sourceforge.net>
-	* tbl_printview.php3, missing urldecode, layout improvement, 
+	* tbl_printview.php3, missing urldecode, layout improvement,
 	  thanks to Marcus Börger (helly)
 	* 2.2.4-rc1 released
 
