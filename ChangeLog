@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-28 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/polish: update, thanks to Jakub Wilk
+
 2003-04-28 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_query_box.php3: Partial fix for #728935 (can not submit SQL without
       javascript). But there are still problems without javascript.
