@@ -13,6 +13,7 @@ $Source$
 2002-10-03 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_dump.php3, libraries/build_dump.lib.php3: Completed fix against
       bug #607896, thanks to Loïc.
+    * lang/english.inc.php3: Reordered strings.
 
 2002-10-02 Alexander M. Turek  <rabus@users.sourceforge.net>
     * header.inc.php3, header_prinview.inc.php3: Corrected value for the

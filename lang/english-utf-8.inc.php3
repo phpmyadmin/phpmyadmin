@@ -177,6 +177,7 @@ $strHostEmpty = 'The host name is empty!';
 $strIdxFulltext = 'Fulltext';
 $strIfYouWish = 'If you wish to load only some of a table\'s columns, specify a comma separated field list.';
 $strIgnore = 'Ignore';
+$strImportDocSQL = 'Import docSQL Files';
 $strIndex = 'Index';
 $strIndexes = 'Indexes';
 $strIndexHasBeenDropped = 'Index %s has been dropped';
@@ -428,6 +429,4 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
-
-$strImportDocSQL = 'Import docSQL Files';  //to translate
 ?>
