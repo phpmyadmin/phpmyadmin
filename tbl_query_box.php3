@@ -86,35 +86,38 @@ if ($cfg['QueryFrame'] && (!$cfg['QueryFrameJS'] || ($cfg['QueryFrameJS'] && !$d
             <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
             <input type="hidden" name="zero_rows" value="<?php echo $strSuccess; ?>" />
             <input type="hidden" name="prev_sql_query" value="<?php echo ((!empty($query_to_display)) ? urlencode($query_to_display) : ''); ?>" />
-
 <?php
 if (!isset($is_inside_querywindow) ||
     (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full'))) {
 ?>
     <!-- Query box and bookmark support -->
-    <li>
-        <a name="querybox"></a>
-            <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . ' ' . PMA_showMySQLDocu('Reference', 'SELECT'); ?>
-<?php if (isset($table) && $fields_cnt > 0) { ?>
-             &nbsp;&nbsp;&nbsp;<?php echo $strFields; ?>:
-             <select name="dummy" size="1">
-    <?php
-        echo "\n";
-        for ($i = 0 ; $i < $fields_cnt; $i++) {
-            echo '                '
-                 . '<option value="' . PMA_backquote(htmlspecialchars($fields_list[$i])) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
-        }
-    ?>
-            </select>
-            <input type="button" name="insert" value="<?php echo($strInsert); ?>" onclick="sqlform.sql_query.value = sqlform.sql_query.value + sqlform.dummy.value" />
-<?php
-}
-?>
-            <br />
-            <div style="margin-bottom: 5px">
-            <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
-<?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . htmlspecialchars(PMA_backquote($table)) . ' WHERE 1'); ?>
-</textarea><br />
+    <a name="querybox"></a>
+            <table cellpadding="1" cellspacing="1">
+                <tr>
+                    <td>
+                        <?php echo sprintf($strRunSQLQuery,  htmlspecialchars($db)) . $queryframe_db_list . (isset($is_inside_querywindow) ? '<br />' : ' ') . PMA_showMySQLDocu('Reference', 'SELECT'); ?>
+                        <br />
+                        <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" wrap="virtual" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>>
+<?php echo ((!empty($query_to_display)) ? htmlspecialchars($query_to_display) : 'SELECT * FROM ' . htmlspecialchars(PMA_backquote($table)) . ' WHERE 1'); ?></textarea>
+                    </td>
+                        <?php if (isset($table) && $fields_cnt > 0) { ?>
+                    <td align="center" valign="top"><?php echo (isset($is_inside_querywindow) ? '<br />' : '') . $strFields; ?>:<br />
+                            <select name="dummy" size="4" multiple>
+                       <?php
+                           echo "\n";
+                           for ($i = 0 ; $i < $fields_cnt; $i++) {
+                               echo '                '
+                                    . '<option value="' . PMA_backquote(htmlspecialchars($fields_list[$i])) . '">' . htmlspecialchars($fields_list[$i]) . '</option>' . "\n";
+                           }
+                       ?>
+                            </select><br /><br />
+                            <input type="button" name="insert" value="<?php echo($strInsert); ?>" onclick="insertValueQuery()" />
+                    </td>
+                        <?php
+                        }
+                        ?>
+                </tr>
+            </table>
             <input type="checkbox" name="show_query" value="1" id="checkbox_show_query" checked="checked" />&nbsp;
                 <label for="checkbox_show_query"><?php echo $strShowThisQuery; ?></label><br />
             </div>
@@ -245,7 +248,6 @@ if (!isset($is_inside_querywindow) ||
 if (!isset($is_inside_querywindow) || (isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && isset($querydisplay_tab) && ($querydisplay_tab == 'files' || $querydisplay_tab == 'sql' || $querydisplay_tab == 'full' || ($querydisplay_tab == 'history' && $bookmark_go)))) {
 ?>
             <input type="submit" name="SQL" value="<?php echo $strGo; ?>" />
-    </li>
 <?php
 }
 

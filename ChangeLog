@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2003-04-06 Garvin Hicking <me@supergarv.de>
+    * tbl_query_box.php, libraries/functions.js: Patch #705899 included.
+      Now multiple fields can be inserted at cursor position (Mozilla/IE)
+      in the sql query textarea. Thanks to Alexis Soulard (alexis_soulard)
     * header.inc.php3, footer.inc.php3, libraries/common.lib.php3,
       libraries/relation.lib.php3: RFE #715914: Sort query history by
       (autoincrement) key instead of timevalue. Only save queries in

@@ -637,8 +637,48 @@ function onKeyDownArrowsHandler(e) {
 }
 
 /**
+  * Inserts multiple fields.
+  *
+  */
+function insertValueQuery() {
+    var myQuery = document.sqlform.sql_query;
+    var myListBox = document.sqlform.dummy;
+
+    if(myListBox.options.length > 0) {
+        var chaineAj = "";
+        var NbSelect = 0;
+        for(var i=0; i<myListBox.options.length; i++) {
+            if (myListBox.options[i].selected){
+                NbSelect++;
+                if (NbSelect > 1)
+                    chaineAj += ", ";
+                chaineAj += myListBox.options[i].value;
+            }
+        } 
+
+        //IE support
+        if (document.selection) {
+            myQuery.focus();
+            sel = document.selection.createRange();
+            sel.text = chaineAj;
+            document.sqlform.insert.focus();
+        }
+        //MOZILLA/NETSCAPE support
+        else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart == "0") {
+            var startPos = document.sqlform.sql_query.selectionStart;
+            var endPos = document.sqlform.sql_query.selectionEnd;
+            var chaineSql = document.sqlform.sql_query.value;
+        
+            myQuery.value = chaineSql.substring(0, startPos) + chaineAj + chaineSql.substring(endPos, chaineSql.length);
+        } else {
+            myQuery.value += chaineAj;
+        }
+    }
+}
+
+/**
   * listbox redirection
   */
 function goToUrl(selObj, goToLocation){
-	eval("document.location.href = '" + goToLocation + "pos=" + selObj.options[selObj.selectedIndex].value + "'");
+    eval("document.location.href = '" + goToLocation + "pos=" + selObj.options[selObj.selectedIndex].value + "'");
 }
