@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-01  Marc Delisle  <lem9@users.sourceforge.net>
+	* lang/czech* updates, thanks to Michal Cihar
+
 2001-10-01  Steve Alberty  <alberty@neptunlabs.se>
 	* db_details.php3: Fixed problems with cfgSkipLockedTables
 

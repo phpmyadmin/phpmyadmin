@@ -65,7 +65,7 @@ $strColumnEmpty = 'Jména sloupcù jsou prázdná!';
 $strColumnNames = 'Názvy sloupcù';
 $strCompleteInserts = 'Uplné inserty';
 $strConfirm = 'Opravdu chcete toto provést?';
-$strCopyTable = 'Zkopírovat tabulku do';
+$strCopyTable = 'Kopmrovat tabulku do (databaze<b>.</b>tabulka):';
 $strCopyTableOK = 'Tabulka %s byla zkopírována do %s.';
 $strCreate = 'Vytvoøit';
 $strCreateNewDatabase = 'Vytvoøit novou databázi';
@@ -74,6 +74,7 @@ $strCriteria = 'Podmínka';
 
 $strData = 'Data'; 
 $strDatabase = 'Databáze ';
+$strDatabaseHasBeenDropped = 'Databaze %s byla zruena.';
 $strDatabases = 'databáze';
 $strDatabasesStats = 'Statistiky databáze';
 $strDataOnly = ' Jen data ';
@@ -83,6 +84,7 @@ $strDelete = 'Smazat';
 $strDeleted = 'Øádek byl smazán';
 $strDeletedRows = 'Smazané øádky:';
 $strDeleteFailed = 'Smazání selhalo!';
+$strDeleteUserMessage = 'Byl smazan uivatel %s.';
 $strDescending = 'Sestupnì';
 $strDisplay = 'Zobrazit';
 $strDisplayOrder = 'Seøadit podle:';
@@ -132,6 +134,7 @@ $strHomepageSourceforge = ' nová stránka phpMyAdmina ';
 $strHost = 'Hostitel';
 $strHostEmpty = 'Jméno hostitele je prázdné!';
 
+$strIdxFulltext = 'Fulltext';
 $strIfYouWish = 'Pokud si pøeje¹ natáhnout jenom urèité sloupce z tabulky, specifikuj je jako seznam polí oddìlených èárkou.';
 $strIndex = 'Index';
 $strIndexes = 'Indexy'; 
@@ -146,6 +149,7 @@ $strInstructions = 'Instrukce';
 $strInUse = 'právì se pou¾ívá'; 
 $strInvalidName = '"%s" je rezervované slovo a proto ho nemù¾ete po¾ít jako jméno databáze/tabulky/sloupce.';
 
+$strKeepPass = 'Nemlnit heslo';
 $strKeyname = 'Klíèovy název';
 $strKill = ' Zabít ';
 
@@ -161,6 +165,8 @@ $strLogout = 'Odhlásit se';
 
 $strModifications = 'Zmìny byly ulo¾eny';
 $strModify = 'Úpravy';
+$strMoveTable = 'Pxesunout tabulku do (databaze<b>.</b>tabulka):';
+$strMoveTableOK = 'Tabulka %s byla pxesunuta do %s.';
 $strMySQLReloaded = 'MySQL znovu-naètena.';
 $strMySQLSaid = 'MySQL hlásí: ';
 $strMySQLShowProcess = 'Zobraz procesy';
@@ -176,6 +182,7 @@ $strNoDropDatabases = 'Pøíkaz "DROP DATABASE" je vypnutý.';
 $strNoModification = '®ádná zmìna';
 $strNoPassword = '®ádné heslo';
 $strNoPrivileges = '®ádná privilegia';
+$strNoQuery = 'adn} SQL dotaz!';
 $strNoRights = 'Nemáte dostateèná práva na provedení této akce!';
 $strNoTablesFound = 'V databázi nebyla nalezena ani jedna tabulka.';
 $strNotNumber = 'Toto není èíslo!';  
@@ -236,6 +243,7 @@ $strRowsFrom = 'øádkù zaèínající od';
 $strRowSize = ' Velikost øádku '; 
 $strRowsStatistic = 'Statistika øádkù'; 
 $strRunning = 'bì¾ící na ';
+$strRunningAs = 'jako';
 $strRunQuery = 'Provést dotaz';
 $strRunSQLQuery = 'Spustit SQL dotaz(y) na databázi %s';
 
@@ -249,8 +257,11 @@ $strServerChoice = 'Výbìr serveru';
 $strServerVersion = 'Verze serveru'; 
 $strSetEnumVal = 'Pokud je pole typu "enum" nebo "set", zadávejte hodnoty v následujícím formátu: \'a\',\'b\',\'c\'...<br />Pokud potøebujete zadat zpìtné lomítko ("\") nebo jednoduché uvozovky ("\'") mezi tìmito hodnotami, napi¹te pøed nì zpìtné lomítko (pøíklad: \'\\\\xyz\' nebo \'a\\\'b\').';
 $strShow = 'Zobraz';
+$strShowAll = 'Zobrazit ve';
+$strShowCols = 'Zobrazit sloupce';
 $strShowingRecords = 'Ukazuji záznamy ';
 $strShowPHPInfo = 'Zobrazit informace o PHP';
+$strShowTables = 'Zobrazit tabulky';
 $strShowThisQuery = ' Zobrazit zde tento dotaz znovu ';
 $strSingly = '(po jednom)';
 $strSize = 'Velikost'; 
@@ -286,6 +297,9 @@ $strType = 'Typ';
 
 $strUncheckAll = 'Od¹krtnout v¹e';
 $strUnique = 'Unikátní';
+$strUpdatePrivMessage = 'Byla aktualizovana privilegia pro %s.';
+$strUpdateProfile = 'Zmlny profilu:';
+$strUpdateProfileMessage = 'Profil byl zmlnln.';
 $strUpdateQuery = 'Aktualizovat dotaz';
 $strUsage = 'Pou¾ívá'; 
 $strUseBackquotes = 'Pou¾ít zpìtné uvozovky u jmeno tabulek a polí';
@@ -308,19 +322,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
-$strCopyTable = 'Copy table to (database<b>.</b>table):';
-$strDatabaseHasBeenDropped = 'Database %s has been dropped.';  //to translate
-$strDeleteUserMessage = 'You have deleted the user %s.';//to translate
-$strIdxFulltext = 'Fulltext';  //to translate 
-$strKeepPass = 'Do not change the password';//to translate
-$strMoveTable = 'Move table to (database<b>.</b>table):';
-$strMoveTableOK = 'Table %s has been moved to %s.';
-$strNoQuery = 'No SQL query!';  //to translate
-$strRunningAs = 'as';
-$strShowAll = 'Show all'; // to translate
-$strShowCols = 'Show columns';
-$strShowTables = 'Show tables';
-$strUpdatePrivMessage = 'You have updated the privileges for %s.';//to translate
-$strUpdateProfile = 'Update profile:';//to translate
-$strUpdateProfileMessage = 'The profile has been updated.';//to translate
 ?>
