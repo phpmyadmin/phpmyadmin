@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-29 Marc Delisle  <lem9@users.sourceforge.net>
+    * serbian: big update, 
+      thanks to Branislav Jovanoviæ <branej@users.sourceforge.net> and
+      Mihailo Stefanoviæ <mst@mikis.org>
+
 2003-07-28 Alexander M. Turek  <rabus@users.sourceforge.net>
     * tbl_properties_structure.php3, css/phpmyadmin.css.php3: Use icons for
       multi-submit buttons.
