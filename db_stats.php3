@@ -13,6 +13,9 @@ require('./header.inc.php3');
  */
 if ((!empty($submit_mult) && isset($selected_db))
     || isset($btnDrop)) {
+    $err_url    = 'db_stats.php3'
+                . '?lang=' . $lang
+                . '&server=' . $server;
     $action     = 'db_stats.php3';
     $show_query = 'y';
     include('./mult_submits.inc.php3');
@@ -66,7 +69,7 @@ function pmaDbCmp($a, $b)
 if ($server > 0) {
     // Get the valid databases list
     $num_dbs = count($dblist);
-    $dbs     = @mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()');
+    $dbs     = @mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', '', 'main.php3?lang' . $lang . '&server=' . $server);
     while ($a_db = mysql_fetch_object($dbs)) {
         if (!$num_dbs) {
             $dblist[]                     = $a_db->Database;

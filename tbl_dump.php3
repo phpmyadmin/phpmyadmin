@@ -67,6 +67,16 @@ require('./libraries/zip.lib.php3');
 
 
 /**
+ * Defines the url to return to in case of error in a sql statement
+ */
+$err_url = 'tbl_properties.php3'
+         . '?lang=' . $lang
+         . '&server=' . $server
+         . '&db=' . urlencode($db)
+         . (isset($table) ? '&table=' . urlencode($table) : '');
+
+
+/**
  * Increase time limit for script execution and initializes some variables
  */
 @set_time_limit(600);
@@ -196,7 +206,7 @@ else {
                                 .  $crlf . '#' . $crlf
                                 .  '# ' . $strTableStructure . ' ' . $formatted_table_name . $crlf
                                 .  '#' . $crlf . $crlf
-                                .  get_table_def($db, $table, $crlf) . ';' . $crlf;
+                                .  get_table_def($db, $table, $crlf, $err_url) . ';' . $crlf;
                 }
                 // At least data
                 if (($what == 'data') || ($what == 'dataonly')) {
@@ -207,7 +217,7 @@ else {
                     if (!isset($limit_from) || !isset($limit_to)) {
                         $limit_from = $limit_to = 0;
                     }
-                    get_table_content($db, $table, $limit_from, $limit_to, 'my_handler');
+                    get_table_content($db, $table, $limit_from, $limit_to, 'my_handler', $err_url);
                     $dump_buffer .= $tmp_buffer;
                 } // end if
                 $i++;
@@ -235,7 +245,7 @@ else {
         } // end if
 
         $tmp_buffer = '';
-        get_table_csv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'my_csvhandler');
+        get_table_csv($db, $table, $limit_from, $limit_to, $separator, $enclosed, $escaped, 'my_csvhandler', $err_url);
         $dump_buffer .= $tmp_buffer;
     } // end 'csv case
 } // end building the dump

@@ -36,7 +36,7 @@ if ($server > 0) {
     } // end if
     // 2. no $cfgServers[n]['only_db']
     else {
-        $dbs          = mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', FALSE, FALSE);
+        $dbs          = mysql_list_dbs() or mysql_die('', 'mysql_list_dbs()', FALSE, '');
         $num_dbs      = @mysql_num_rows($dbs);
         $real_num_dbs = 0;
         for ($i = 0; $i < $num_dbs; $i++) {

@@ -141,13 +141,13 @@ else if ((get_magic_quotes_gpc() && stripslashes($btnDrop) == $strYes)
             if ($query_type != 'drop_db') {
                 mysql_select_db($db);
             }
-            $result = @mysql_query($a_query) or mysql_die('', $a_query, FALSE);
+            $result = @mysql_query($a_query) or mysql_die('', $a_query, FALSE, $err_url);
         } // end if
     } // end for
 
     if ($query_type == 'drop_tbl' || $query_type == 'drop_fld') {
         mysql_select_db($db);
-        $result = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+        $result = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url);
     }
 
     show_message($strSuccess);

@@ -35,6 +35,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
      * @param   string   the database name
      * @param   string   the table name
      * @param   string   the end of line sequence
+     * @param   string   the url to go back in case of error
      *
      * @return  string   the CREATE statement on success
      *
@@ -46,7 +47,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
      *
      * @access	public
      */
-    function get_table_def($db, $table, $crlf)
+    function get_table_def($db, $table, $crlf, $error_url)
     {
         global $drop;
         global $use_backquotes;
@@ -78,7 +79,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
         $schema_create .= 'CREATE TABLE ' . html_format(backquote($table), $use_backquotes) . ' (' . $crlf;
 
         $local_query   = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table);
-        $result        = mysql_query($local_query) or mysql_die('', $local_query);
+        $result        = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
         while ($row = mysql_fetch_array($result)) {
             $schema_create     .= '   ' . html_format(backquote($row['Field'], $use_backquotes)) . ' ' . $row['Type'];
             if (isset($row['Default']) && $row['Default'] != '') {
@@ -96,7 +97,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
         $schema_create         = ereg_replace(',' . $crlf . '$', '', $schema_create);
 
         $local_query = 'SHOW KEYS FROM ' . backquote($db) . '.' . backquote($table);
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
         while ($row = mysql_fetch_array($result))
         {
             $kname    = $row['Key_name'];
@@ -154,6 +155,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
      * @param   string   the name of the handler (function) to use at the end
      *                   of every row. This handler must accept one parameter
      *                   ($sql_insert)
+     * @param   string   the url to go back in case of error
      *
      * @return  boolean  always true
      *
@@ -166,12 +168,12 @@ if (!defined('__LIB_BUILD_DUMP__')){
      *
      * @author  staybyte
      */
-    function get_table_content_fast($db, $table, $add_query = '', $handler)
+    function get_table_content_fast($db, $table, $add_query = '', $handler, $error_url)
     {
         global $use_backquotes;
 
         $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
         if ($result != FALSE) {
             $fields_cnt = mysql_num_fields($result);
 
@@ -265,6 +267,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
      * @param   string   the name of the handler (function) to use at the end
      *                   of every row. This handler must accept one parameter
      *                   ($sql_insert)
+     * @param   string   the url to go back in case of error
      *
      * @return  boolean  always true
      *
@@ -275,12 +278,12 @@ if (!defined('__LIB_BUILD_DUMP__')){
      *
      * @see     get_table_content()
      */
-    function get_table_content_old($db, $table, $add_query = '', $handler)
+    function get_table_content_old($db, $table, $add_query = '', $handler, $error_url)
     {
         global $use_backquotes;
 
         $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
         $i           = 0;
         $isFirstRow  = TRUE;
         $fields_cnt  = mysql_num_fields($result);
@@ -363,6 +366,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
      * @param   string   the name of the handler (function) to use at the end
      *                   of every row. This handler must accept one parameter
      *                   ($sql_insert)
+     * @param   string   the url to go back in case of error
      *
      * @access	public
      *
@@ -370,7 +374,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
      *
      * @author  staybyte
      */
-    function get_table_content($db, $table, $limit_from = 0, $limit_to = 0, $handler)
+    function get_table_content($db, $table, $limit_from = 0, $limit_to = 0, $handler, $error_url)
     {
         // Defines the offsets to use
         if ($limit_from > 0) {
@@ -386,9 +390,9 @@ if (!defined('__LIB_BUILD_DUMP__')){
 
         // Call the working function depending on the php version
         if (PHP_INT_VERSION >= 40005) {
-            get_table_content_fast($db, $table, $add_query, $handler);
+            get_table_content_fast($db, $table, $add_query, $handler, $error_url);
         } else {
-            get_table_content_old($db, $table, $add_query, $handler);
+            get_table_content_old($db, $table, $add_query, $handler, $error_url);
         }
     } // end of the 'get_table_content()' function
 
@@ -407,6 +411,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
      * @param   string   the optionnal "enclosed by" character
      * @param   string   the handler (function) to call. It must accept one
      *                   parameter ($sql_insert)
+     * @param   string   the url to go back in case of error
      *
      * @global  string   whether to obtain an excel compatible csv format or a
      *                   simple csv one
@@ -415,7 +420,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
      *
      * @access	public
      */
-    function get_table_csv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $esc_by, $handler)
+    function get_table_csv($db, $table, $limit_from = 0, $limit_to = 0, $sep, $enc_by, $esc_by, $handler, $error_url)
     {
         global $what;
 
@@ -461,7 +466,7 @@ if (!defined('__LIB_BUILD_DUMP__')){
 
         // Gets the data from the database
         $local_query = 'SELECT * FROM ' . backquote($db) . '.' . backquote($table) . $add_query;
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $error_url);
         $fields_cnt  = mysql_num_fields($result);
 
         // Format the data

@@ -10,6 +10,16 @@ require('./libraries/common.lib.php3');
 
 
 /**
+ * Defines the url to return to in case of error in a sql statement
+ */
+$err_url = 'user_details.php3'
+         . '?lang=' . $lang
+         . '&server=' . $server
+         . '&db=mysql'
+         . '&table=user';
+
+
+/**
  * Displays the table of grants for an user
  *
  * @param   integer  the id of the query used to get hosts and databases lists
@@ -707,7 +717,7 @@ function check_rights()
 {
     $result = @mysql_query('USE mysql');
     if (mysql_error()) {
-        mysql_die($GLOBALS['strNoRights'], '', FALSE, FALSE);
+        mysql_die($GLOBALS['strNoRights'], '', FALSE, '');
     }
 
     return true;
@@ -1054,7 +1064,7 @@ else if (isset($submit_addUser)) {
         $sql_query  = 'INSERT INTO mysql.user '
                     . 'SET host = \'' . sql_addslashes($host) . '\', user = \'' . sql_addslashes($pma_user) . '\', password = ' . (empty($pma_pw) ? '\'\'' : 'PASSWORD(\'' . sql_addslashes($pma_pw) . '\')')
                     . ', ' . $sql_query;
-        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url);
         unset($host);
         unset($pma_user);
         show_message($strAddUserMessage . '<br />' . $strRememberReload);
@@ -1126,7 +1136,7 @@ else if (isset($submit_updProfile)) {
         // Updates profile
         $sql_query          = 'UPDATE user SET ' . $sql_query . $common_where;
         $sql_query_cpy      = $sql_query;
-        $result             = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+        $result             = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&host=' . urlencode($host) . '&pma_user=' . urlencode($pma_user) . '&edit=1');
 
         // Updates grants
         if (isset($new_server) || isset($new_user)) {
@@ -1189,7 +1199,7 @@ else if (isset($submit_chgPriv)) {
     $sql_query = 'UPDATE user SET '
                . $sql_query
                . ' WHERE host = \'' . sql_addslashes($host) . '\' AND user = \'' . sql_addslashes($pma_user) . '\'';
-    $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+    $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&host=' . urlencode($host) . '&pma_user=' . urlencode($pma_user) . '&edit=1');
     show_message(sprintf($strUpdatePrivMessage, '<span style="color: #002E80">' . $pma_user . '@' . $host . '</span>') . '<br />' . $strRememberReload);
 }
 
@@ -1237,7 +1247,7 @@ else if (isset($grants) && $grants) {
         $sql_query .= ' TO ' . '\'' . sql_addslashes($pma_user) . '\'' . '@' . '\'' . sql_addslashes($host) . '\'';
 
         $sql_query  = 'GRANT ' . $sql_query;
-        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE);
+        $result     = @mysql_query($sql_query) or mysql_die('', '', FALSE, $err_url . '&host=' . urlencode($host) . '&pma_user=' . urlencode($pma_user) . '&grants=1');
         show_message($strAddPrivMessage);
     } // end if
 }
@@ -1281,7 +1291,7 @@ else {
     if (!isset($pma_user)) {
         $pma_user = FALSE;
     }
-    table_users($host, $pma_user) or mysql_die($strNoUsersFound, '', FALSE, FALSE);
+    table_users($host, $pma_user) or mysql_die($strNoUsersFound, '', FALSE, '');
     normal_operations();
 }
 

@@ -11,6 +11,16 @@ require('./libraries/common.lib.php3');
 
 
 /**
+ * Defines the url to return to in case of error in a sql statement
+ */
+$err_url = 'tbl_properties.php3'
+         . '?lang=' . $lang
+         . '&server=' . $server
+         . '&db=' . urlencode($db)
+         . '&table=' . urlencode($table);
+
+
+/**
  * A new name has been submitted -> do the work
  */
 if (isset($new_name) && trim($new_name) != '') { 
@@ -20,13 +30,13 @@ if (isset($new_name) && trim($new_name) != '') {
         $new_name = stripslashes($new_name);
     }
     if (MYSQL_INT_VERSION < 32306) {
-        check_reserved_words($new_name);
+        check_reserved_words($new_name, $err_url);
     }
 
     include('./header.inc.php3');
     mysql_select_db($db);
     $sql_query = 'ALTER TABLE ' . backquote($old_name) . ' RENAME ' . backquote($new_name);
-    $result    = mysql_query($sql_query) or mysql_die();
+    $result    = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
     $message   = sprintf($strRenameTableOK, $old_name, $table);
     $reload    = 1;
 } 
@@ -37,7 +47,7 @@ if (isset($new_name) && trim($new_name) != '') {
  */
 else { 
     include('./header.inc.php3');
-    mysql_die($strTableEmpty); 
+    mysql_die($strTableEmpty, '', '', $err_url); 
 } 
 
 

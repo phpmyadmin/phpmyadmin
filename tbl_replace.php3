@@ -25,6 +25,12 @@ if ($goto == 'sql.php3') {
            . '&pos=' . $pos
            . '&sql_query=' . urlencode($sql_query);
 }
+// Defines the url to return in case of failure of the query
+if (isset($url_err)) {
+    $url_err = urldecode($url_err);
+} else {
+    $url_err = $goto;
+}
 // Resets tables defined in the configuration file
 reset($fields);
 reset($funcs);
@@ -102,11 +108,11 @@ if (isset($primary_key) && ($submit_type != $strInsertAsNewRow)) {
     } // end while
 
     // Builds the sql upate query
-    $valuelist = ereg_replace(', $', '', $valuelist);
+    $valuelist    = ereg_replace(', $', '', $valuelist);
     if (!empty($valuelist)) {
-        $query = 'UPDATE ' . backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
-               . ((MYSQL_INT_VERSION >= 32300) ? ' LIMIT 1' : '');
-        $message   = $strAffectedRows . '&nbsp;';
+        $query    = 'UPDATE ' . backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key
+                  . ((MYSQL_INT_VERSION >= 32300) ? ' LIMIT 1' : '');
+        $message  = $strAffectedRows . '&nbsp;';
     }
     // No change -> move back to the calling script
     else {
@@ -199,7 +205,7 @@ $result    = mysql_query($query);
 if (!$result) {
     $error = mysql_error();
     include('./header.inc.php3');
-    mysql_die($error);
+    mysql_die($error, '', '', $url_err);
 } else {
     if (@mysql_affected_rows()) {
         $message .= @mysql_affected_rows();

@@ -8,7 +8,6 @@
  * Last revision: September 11, 2001 - loic1
  *
  * @param   string   the sql commands
- * @param   string   the end of command line delimiter
  * @param   integer  the MySQL release number (because certains php3 versions
  *                   can't get the value of a constant from within a function)
  *
@@ -16,7 +15,7 @@
  *
  * @access	public
  */
-function split_sql_file($sql, $delimiter, $release)
+function split_sql_file($sql, $release)
 {
     $sql               = trim($sql);
     $sql_len           = strlen($sql);
@@ -24,7 +23,6 @@ function split_sql_file($sql, $delimiter, $release)
     $ret               = array();
     $string_start      = '';
     $in_string         = FALSE;
-    $in_comment        = FALSE;
 
     for ($i = 0; $i < $sql_len; ++$i) {
         $char = $sql[$i];
@@ -32,59 +30,51 @@ function split_sql_file($sql, $delimiter, $release)
         // We are in a string, check for not escaped end of strings except for
         // backquotes than cannot be escaped
         if ($in_string) {
-            while (1) {
-                $i = strpos($sql, $string_start, $i);
+            for (;;) {
+                $i         = strpos($sql, $string_start, $i);
                 // No end of string found -> add the current substring to the
                 // returned array
                 if (!$i) {
                     $ret[] = $sql;
                     return $ret;
                 }
-                // It's trully the end of the string -> move to the next
-                // character
-                else if (($string_start == '`')
-                         || (($i > 1 && $sql[$i-1] . $sql[$i-2] != '\\\\')
-                             || ($sql[0] != '\\'))) {
+                // Backquotes or no backslashes before (double) quote(s): it's
+                // trully the end of the string -> exit the loop
+                else if ($string_start == '`' || $sql[$i-1] != '\\') {
                     $string_start      = '';
                     $in_string         = FALSE;
                     break;
-                } // end if... elseif
-            } // end while
-        } // end if ($in_string)
+                }
+                // Backslashes before (double) quote(s) end of string...
+                else {
+                    // ... first checks for escaped backslashes
+                    $j                     = 2;
+                    $escaped_backslash     = FALSE;
+                    while ($i-$j > 0 && $sql[$i-$j] == '\\') {
+                        $escaped_backslash = !$escaped_backslash;
+                        $j++;
+                    }
+                    // ... if escaped backslashes: it's trully the end of the
+                    // string -> exit the loop
+                    if ($escaped_backslash) {
+                        $string_start  = '';
+                        $in_string     = FALSE;
+                        break;
+                    }
+                    // ... else loop
+                    else {
+                        $i++;
+                    }
+                } // end if...elseif...else
+            } // end for
+        } // end if (in string)
 
-        // We are in a comment, add the parsed part to the returned array and
-        // move to the next end of line
-        else if ($in_comment) {
-            // comment starting position in string depends on the comment type
-            $ret_end   = (($sql[$i-1] == '#') ? $i-1 : $i-3);
-            if (ereg('[^[:space:]]+', substr($sql, 0, $ret_end))) {
-                $ret[] = substr($sql, 0, $ret_end);
-            }
-            // if no "\n" exits in the remaining string, checks for "\r" (Mac
-            // eol style)
-            $eol_to_find    = (strpos($sql, "\012", $i)) ? "\012" : "\015";
-            $sql            = strstr($sql, $eol_to_find);
-            if ($sql == '' || empty($sql[1])) {
-                // The submited statement(s) end(s) by a comment -> stop
-                // parsing
-                return $ret;
-            } else {
-                $sql            = ltrim(substr($sql, 1));
-                $sql_len        = strlen($sql);
-                if ($sql_len) {
-                    $i          = -1;
-                    $in_comment = FALSE;
-                } else {
-                    // The submited statement(s) end(s) here
-                    return $ret;
-                } // end if...else
-            } // end if...else
-        } // end if ($in_comment)
-
-        // If delimiter found, add the parsed part to the returned array
-        else if ($char == $delimiter) {
+        // We are not in a string, first check for delimiter...
+        else if ($char == ';') {
+            // if delimiter found, add the parsed part to the
+            // returned array
             $ret[]      = substr($sql, 0, $i);
-            $sql        = ltrim(substr($sql, min($i + 2, $sql_len)));
+            $sql        = ltrim(substr($sql, min($i + 1, $sql_len)));
             $sql_len    = strlen($sql);
             if ($sql_len) {
                 $i      = -1;
@@ -92,32 +82,45 @@ function split_sql_file($sql, $delimiter, $release)
                // The submited statement(s) end(s) here
                return $ret;
             }
-        } // end if ($char == $delimiter)
+        } // end else if (is delimiter)
 
-        // We are neither in a string nor in a comment, and nor the current
-        // character is a delimiter...
-        else {
-            // ... first check for start of strings...
-            if (($char == '"') || ($char == '\'') || ($char == '`')) {
-                $in_string    = TRUE;
-                $string_start = $char;
-            }
-            // ... then check for start of a comment...
-            else if ($char == '#'
-                     || ($char == ' ' && $i > 1 && $sql[$i-2] . $sql[$i-1] == '--')) {
-                $in_comment   = TRUE;
-            }
-            // ... and finally disactivate the "/*!...*/" syntax if
-            // MySQL < 3.22.07
-            else if ($release < 32270
-                     && ($char == '!' && $i > 1  && $sql[$i-2] . $sql[$i-1] == '/*')) {
-                $sql[$i] = ' ';
-            }
-        } // end else
+        // ... then check for start of a string,...
+        else if (($char == '"') || ($char == '\'') || ($char == '`')) {
+            $in_string    = TRUE;
+            $string_start = $char;
+        } // end else if (is start of string)
+
+        // ... for start of a comment (and remove this comment if found)... 
+        else if ($char == '#'
+                 || ($char == ' ' && $i > 1 && $sql[$i-2] . $sql[$i-1] == '--')) {
+            // starting position of the comment depends on the comment type
+            $start_of_comment = (($sql[$i] == '#') ? $i : $i-2);
+            // if no "\n" exits in the remaining string, checks for "\r"
+            // (Mac eol style)
+            $end_of_comment   = (strpos(' ' . $sql, "\012", $i+2))
+                              ? strpos(' ' . $sql, "\012", $i+2)
+                              : strpos(' ' . $sql, "\015", $i+2);
+            if (!$end_of_comment) {
+                // no eol found after '#', so we are at end of dump -> stop
+                // parsing
+                return $ret;
+            } else {
+                $sql     = substr($sql, 0, $start_of_comment)
+                         . ltrim(substr($sql, $end_of_comment));
+                $sql_len = strlen($sql);
+                $i--;
+            } // end if...else
+        } // end else if (is comment)
+
+        // ... and finally disactivate the "/*!...*/" syntax if MySQL < 3.22.07
+        else if ($release < 32270
+                 && ($char == '!' && $i > 1  && $sql[$i-2] . $sql[$i-1] == '/*')) {
+            $sql[$i] = ' ';
+        } // end else if
     } // end for
 
     // add any rest to the returned array
-    if (!empty($sql)) {
+    if (!empty($sql) && ereg('[^[:space:]]+', $sql)) {
         $ret[] = $sql;
     }
     return $ret;
@@ -136,6 +139,20 @@ function split_sql_file($sql, $delimiter, $release)
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
+
+
+/**
+ * Defines the url to return to in case of error in a sql statement
+ */
+if (!isset($goto)
+    || ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3')) {
+    $goto = 'db_details.php3';
+}
+$err_url  = $goto
+          . '?lang=' . $lang
+          . '&server=' . $server
+          . '&db=' . urlencode($db)
+          . (($goto == 'tbl_properties.php3') ? '&table=' . urlencode($table) : '');
 
 
 /**
@@ -172,8 +189,6 @@ if (!empty($id_bookmark)) {
  */
 // Gets the query from a file if required 
 if ($sql_file != 'none') {
-// loic1: php < 4.05 for windows seems not to list the regexp test
-//    if (ereg('^php[0-9A-Za-z_.-]+$', basename($sql_file))) {
     if (file_exists($sql_file)) {
         $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
         if (get_magic_quotes_runtime() == 1) {
@@ -203,7 +218,7 @@ if (!$cfgAllowUserDropDatabase
     $result = @mysql_query('USE mysql');
     if (mysql_error()) {
         include('./header.inc.php3');
-        mysql_die($strNoDropDatabases);
+        mysql_die($strNoDropDatabases, '', '', $err_url);
     }
 }
 define('PMA_CHK_DROP', 1);
@@ -213,7 +228,7 @@ define('PMA_CHK_DROP', 1);
  * Executes the query
  */
 if ($sql_query != '') {
-    $pieces       = split_sql_file($sql_query, ';', MYSQL_INT_VERSION);
+    $pieces       = split_sql_file($sql_query, MYSQL_INT_VERSION);
     $pieces_count = count($pieces);
 
     // Copy of the cleaned sql statement for display purpose only (see near the
@@ -226,13 +241,11 @@ if ($sql_query != '') {
 
     // Only one query to run
     if ($pieces_count == 1 && !empty($pieces[0]) && $view_bookmark == 0) {
-        // loic1: remove non alphabetic characters from the beginning of the
-        // query
-        // $sql_query = trim($pieces[0]);
-        $sql_query = eregi_replace('^[^a-aA-Z]', '', $pieces[0]);
         // sql.php3 will stripslash the query if get_magic_quotes_gpc
         if (get_magic_quotes_gpc() == 1) {
-            $sql_query = addslashes($sql_query);
+            $sql_query = addslashes($pieces[0]);
+        } else {
+            $sql_query = $pieces[0];
         }
         if (eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $sql_query)) {
             $reload = 1;
@@ -244,13 +257,11 @@ if ($sql_query != '') {
     // Runs multiple queries
     else if (mysql_select_db($db)) {
         for ($i = 0; $i < $pieces_count; $i++) {
-            $a_sql_query = trim($pieces[$i]);
-            if (!empty($a_sql_query) && $a_sql_query[0] != '#') {
-                $result = mysql_query($a_sql_query);
-                if ($result == FALSE) { // readdump failed
-                    $my_die = $a_sql_query;
-                    break;
-                }
+            $a_sql_query = $pieces[$i];
+            $result = mysql_query($a_sql_query);
+            if ($result == FALSE) { // readdump failed
+                $my_die = $a_sql_query;
+                break;
             }
             if (!isset($reload) && eregi('^(DROP|CREATE)[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)', $a_sql_query)) {
                 $reload = 1;
@@ -267,17 +278,15 @@ if ($sql_query != '') {
 $js_to_run = 'functions.js';
 require('./header.inc.php3');
 if (isset($my_die)) {
-    mysql_die('', $my_die);
+    mysql_die('', $my_die, '', $err_url);
 }
 // Be nice with bandwidth...
-if ($sql_query_cpy == '') {
+if (!empty($sql_query_cpy)) {
     $message   = "$strSuccess&nbsp:<br />$strTheContent ($pieces_count $strInstructions)&nbsp;";
-} else {
+} else if (!empty($sql_query_cpy)) {
     $message   = $strSuccess;
-}
-if (!isset($goto)
-    || ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3')) {
-    $goto = 'db_details.php3';
+} else {
+    $message   = $strNoQuery;
 }
 require('./' . $goto);
 ?>

@@ -15,6 +15,16 @@ if (!isset($submit_mult)) {
 
 
 /**
+ * Defines the url to return to in case of error in a sql statement
+ */
+$err_url = 'tbl_properties.php3'
+         . '?lang=' . $lang
+         . '&server=' . $server
+         . '&db=' . urlencode($db)
+         . '&table=' . urlencode($table);
+
+
+/**
  * Modifications have been submitted -> updates the table
  */
 if (isset($submit)) {
@@ -27,7 +37,7 @@ if (isset($submit)) {
         }
 
         if (MYSQL_INT_VERSION < 32306) {
-            check_reserved_words($field_name[$i]);
+            check_reserved_words($field_name[$i], $err_url);
         }
 
         // Some fields have been urlencoded or double quotes have been translated
@@ -75,7 +85,7 @@ if (isset($submit)) {
 
     // Optimization fix - 2 May 2001 - Robbat2
     $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' CHANGE ' . $query;
-    $result    = mysql_query($sql_query) or mysql_die();
+    $result    = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
     $btnDrop   = 'Fake';
     include('./tbl_properties.php3');
@@ -102,7 +112,7 @@ else {
             $field = sql_addslashes($selected[$i], TRUE);
         }
         $local_query   = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($table) . " LIKE '$field'";
-        $result        = mysql_query($local_query) or mysql_die('', $local_query);
+        $result        = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
         $fields_meta[] = mysql_fetch_array($result);
         mysql_free_result($result);
     }

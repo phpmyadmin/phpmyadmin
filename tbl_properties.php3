@@ -3,12 +3,31 @@
 
 
 /**
- * Gets some core libraries, ensures the database and the table exist (else
- * move to the "parent" script) and diplays headers
+ * Gets some core libraries
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 require('./libraries/bookmark.lib.php3');
+
+
+/**
+ * Defines the urls to return to in case of error in a sql statement
+ */
+$err_url_0 = 'db_details.php3'
+           . '?lang=' . $lang
+           . '&server=' . $server
+           . '&db=' . urlencode($db);
+$err_url   = 'tbl_properties.php3'
+           . '?lang=' . $lang
+           . '&server=' . $server
+           . '&db=' . urlencode($db)
+           . '&table=' . urlencode($table);
+
+
+/**
+ * Ensures the database and the table exist (else move to the "parent" script)
+ * and diplays headers
+ */
 // Not a valid db name -> back to the welcome page
 if (!empty($db)) {
     $is_db = @mysql_select_db($db);
@@ -86,17 +105,17 @@ if (isset($submitcomment)) {
     }
     if (empty($prev_comment) || urldecode($prev_comment) != $comment) {
         $local_query = 'ALTER TABLE ' . backquote($table) . ' COMMENT = \'' . sql_addslashes($comment) . '\'';
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
     }
 }
 if (isset($submittype)) {
     $local_query = 'ALTER TABLE ' . backquote($table) . ' TYPE = ' . $tbl_type;
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
 }
 if (isset($submitorderby) && !empty($order_field)) {
     $order_field = backquote(urldecode($order_field));
     $local_query = 'ALTER TABLE ' . backquote($table) . 'ORDER BY ' . $order_field;
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
 }
 
 
@@ -107,14 +126,14 @@ if (isset($submitorderby) && !empty($order_field)) {
 // The 'show table' statement works correct since 3.23.03
 if (MYSQL_INT_VERSION >= 32303) {
     $local_query  = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
-    $result       = mysql_query($local_query) or mysql_die('', $local_query);
+    $result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
     $showtable    = mysql_fetch_array($result);
     $tbl_type     = strtoupper($showtable['Type']);
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
 } else {
     $local_query  = 'SELECT COUNT(*) AS count FROM ' . backquote($table);
-    $result       = mysql_query($local_query) or mysql_die('', $local_query);
+    $result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
     $showtable    = array();
     $num_rows     = mysql_result($result, 0, 'count');
     $show_comment = '';
@@ -171,7 +190,7 @@ if (!empty($show_comment)) {
 
 // 2. Gets table keys and retains them
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query);
+$result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
 $primary     = '';
 $prev_key    = '';
 $prev_seq    = 0;
@@ -201,7 +220,7 @@ mysql_free_result($result);
 
 // 3. Get fields
 $local_query = 'SHOW FIELDS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query);
+$result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
 $fields_cnt  = mysql_num_rows($result);
 
 

@@ -154,12 +154,12 @@ if (!defined('__LIB_COMMON__')){
      * @param   string   the error mesage
      * @param   string   the sql query that failed
      * @param   boolean  whether to show a "modify" link or not
-     * @param   boolean  whether to show a "back" link or not
+     * @param   string   the "back" link url (full path is not required)
      *
      * @access  public
      */
     function mysql_die($error_message = '', $the_query = '',
-                       $is_modify_link = TRUE, $is_back_link = TRUE)
+                       $is_modify_link = TRUE, $back_url = '')
     {
         if (!$error_message) {
             $error_message = mysql_error();
@@ -193,9 +193,8 @@ if (!defined('__LIB_COMMON__')){
         echo '    ' . $GLOBALS['strMySQLSaid'] . '<br />' . "\n";
         echo '<pre>' . "\n" . $error_message . "\n" . '</pre>' . "\n";
         echo '</p>' . "\n";
-        if ($is_back_link) {
-            $hist = (isset($GLOBALS['btnDrop'])) ? -2 : -1;
-            echo '<a href="#" onclick="window.history.go(' . $hist . '); return false">' . $GLOBALS['strBack'] . '</a>';
+        if (!empty($back_url)) {
+            echo '<a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a>';
         }
         echo "\n";
 
@@ -208,7 +207,7 @@ if (!defined('__LIB_COMMON__')){
      * Use mysql_connect() or mysql_pconnect()?
      */
     $connect_func = ($cfgPersistentConnections) ? 'mysql_pconnect' : 'mysql_connect';
-    $dblist = array();
+    $dblist       = array();
 
 
     /**
@@ -368,7 +367,7 @@ if (!defined('__LIB_COMMON__')){
                                     . $cfgServer['host'] . $server_port . $server_socket . ', '
                                     . $cfgServer['stduser'] . ', '
                                     . $cfgServer['stdpass'] . ')';
-                    mysql_die($conn_error, $local_query, FALSE, FALSE);
+                    mysql_die($conn_error, $local_query, FALSE);
                 } else if (PHP_INT_VERSION >= 40000) {
                     @ini_set('track_errors', $bkp_track_err);
                 }
@@ -380,7 +379,7 @@ if (!defined('__LIB_COMMON__')){
                             . 'WHERE '
                             .    'User = \'' . $PHP_AUTH_USER . '\' '
                             .    'AND Password = PASSWORD(\'' . $PHP_AUTH_PW . '\')';
-                $rs         = mysql_query($auth_query, $dbh) or mysql_die('', $auth_query, FALSE, FALSE);
+                $rs         = mysql_query($auth_query, $dbh) or mysql_die('', $auth_query, FALSE);
 
                 // Invalid login -> relog
                 if (@mysql_numrows($rs) <= 0) {
@@ -405,10 +404,10 @@ if (!defined('__LIB_COMMON__')){
                     if ($row['Select_priv'] != 'Y') {
                         // lem9: User can be blank (anonymous user)
                         $local_query = 'SELECT DISTINCT Db FROM mysql.db WHERE Select_priv = \'Y\' AND (User = \'' . $PHP_AUTH_USER . '\' OR User = \'\')';
-                        $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
+                        $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE);
                         if (@mysql_numrows($rs) <= 0) {
                             $local_query = 'SELECT DISTINCT Db FROM mysql.tables_priv WHERE Table_priv LIKE \'%Select%\' AND User = \'' . $PHP_AUTH_USER . '\'';
-                            $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
+                            $rs          = mysql_query($local_query) or mysql_die('', $local_query, FALSE);
                             if (@mysql_numrows($rs) <= 0) {
                                 auth();
                             } else {
@@ -485,7 +484,7 @@ if (!defined('__LIB_COMMON__')){
                             . $cfgServer['host'] . $server_port . $server_socket . ', '
                             . $cfgServer['user'] . ', '
                             . $cfgServer['password'] . ')';
-            mysql_die($conn_error, $local_query, FALSE, FALSE);
+            mysql_die($conn_error, $local_query, FALSE);
         } else if (PHP_INT_VERSION >= 40000) {
             @ini_set('track_errors', $bkp_track_err);
         }
@@ -759,6 +758,8 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 } else if ($edit_target != '') {
                     $edit_link = '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($GLOBALS['sql_query']) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>';
                 }
+            }
+            if (!empty($edit_target)) {
                 echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;[' . $edit_link . ']<br />' . "\n";
             } else {
                 echo '            ' . $GLOBALS['strSQLQuery'] . '&nbsp;:<br />' . "\n";
@@ -848,6 +849,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      * releases < 3.23.6) 
      *
      * @param    string   the name to check
+     * @param    string   the url to go back in case of error
      *
      * @return   boolean  true if the name is valid (no return else)
      *
@@ -855,7 +857,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
      *
      * @author   Dell'Aiera Pol; Olivier Blin
      */
-    function check_reserved_words($the_name)
+    function check_reserved_words($the_name, $error_url)
     {
         // The name contains caracters <> a-z, A-Z and "_" -> not a reserved
         // word
@@ -876,7 +878,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
             $word_cnt  = count($word_list);
             for ($i = 0; $i < $word_cnt; $i++) {
                 if (strtolower($the_name) == $word_list[$i]) {
-                    mysql_die(sprintf($GLOBALS['strInvalidName'], $the_name), '', FALSE, TRUE);
+                    mysql_die(sprintf($GLOBALS['strInvalidName'], $the_name), '', FALSE, $error_url);
                 } // end if
             } // end for
         } // end if

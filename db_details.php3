@@ -3,12 +3,29 @@
 
 
 /**
- * Gets some core libraries, ensures the database exists (else move to the
- * "parent" script) and diplays headers
+ * Gets some core libraries
  */
 require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 require('./libraries/bookmark.lib.php3');
+
+
+/**
+ * Defines the urls to return to in case of error in a sql statement
+ */
+$err_url_0 = 'main.php3'
+           . '?lang=' . $lang
+           . '&server=' . $server;
+$err_url   = 'db_details.php3'
+           . '?lang=' . $lang
+           . '&server=' . $server
+           . '&db=' . urlencode($db);
+
+
+/**
+ * Ensures the database exists (else move to the "parent" script) and diplays
+ * headers
+ */
 // Not a valid db name -> back to the welcome page
 if (!empty($db)) {
     $is_db = @mysql_select_db($db);
@@ -57,7 +74,7 @@ if (MYSQL_INT_VERSION >= 32303) {
     // Special speedup for newer MySQL Versions (in 4.0 format changed)
     if ($cfgSkipLockedTables == TRUE && MYSQL_INT_VERSION >= 32330) {
         $local_query  = 'SHOW OPEN TABLES FROM ' . backquote($db);
-        $result        = mysql_query($query) or mysql_die('', $local_query);
+        $result        = mysql_query($query) or mysql_die('', $local_query, '', $err_url_0);
         // Blending out tables in use
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($tmp = mysql_fetch_array($result)) {
@@ -70,12 +87,12 @@ if (MYSQL_INT_VERSION >= 32303) {
 
             if (isset($sot_cache)) {
                 $local_query = 'SHOW TABLES FROM ' . backquote($db);
-                $result      = mysql_query($query) or mysql_die('', $local_query);
+                $result      = mysql_query($query) or mysql_die('', $local_query, '', $err_url_0);
                 if ($result != FALSE && mysql_num_rows($result) > 0) {
                     while ($tmp = mysql_fetch_array($result)) {
                         if (!isset($sot_cache[$tmp[0]])) {
                             $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db) . ' LIKE \'' . addslashes($tmp[0]) . '\'';
-                            $sts_result  = mysql_query($local_query) or mysql_die('', $local_query);
+                            $sts_result  = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
                             $sts_tmp     = mysql_fetch_array($sts_result);
                             $tables[]    = $sts_tmp;
                         } else { // table in use
@@ -90,7 +107,7 @@ if (MYSQL_INT_VERSION >= 32303) {
     }
     if (!isset($sot_ready)) {
         $local_query = 'SHOW TABLE STATUS FROM ' . backquote($db);
-        $result      = mysql_query($local_query) or mysql_die('', $local_query);
+        $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url_0);
         if ($result != FALSE && mysql_num_rows($result) > 0) {
             while ($sts_tmp = mysql_fetch_array($result)) {
                 $tables[] = $sts_tmp;

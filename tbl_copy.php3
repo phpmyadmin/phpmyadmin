@@ -18,7 +18,7 @@ function my_handler($sql_insert = '')
     global $sql_insert_data;
 
     $sql_insert = eregi_replace('INSERT INTO (`?)' . $table . '(`?)', 'INSERT INTO ' . $target, $sql_insert);
-    $result     = mysql_query($sql_insert) or mysql_die('', $sql_insert);
+    $result     = mysql_query($sql_insert) or mysql_die('', $sql_insert, '', $GLOBALS['err_url']);
     
     $sql_insert_data .= $sql_insert . ';' . "\n";
 } // end of the 'my_handler' function
@@ -30,6 +30,16 @@ function my_handler($sql_insert = '')
 require('./libraries/grab_globals.lib.php3');
 $js_to_run = 'functions.js';
 require('./header.inc.php3');
+
+
+/**
+ * Defines the url to return to in case of error in a sql statement
+ */
+$err_url = 'tbl_properties.php3'
+         . '?lang=' . $lang
+         . '&server=' . $server
+         . '&db=' . urlencode($db)
+         . '&table=' . urlencode($table);
 
 
 /**
@@ -54,8 +64,8 @@ if (isset($new_name) && trim($new_name) != '') {
         $new_name      = stripslashes($new_name);
     }
     if (MYSQL_INT_VERSION < 32306) {
-        check_reserved_words($db);
-        check_reserved_words($table);
+        check_reserved_words($db, $err_url);
+        check_reserved_words($table, $err_url);
     }
 
     $source = backquote($db) . '.' . backquote($table);
@@ -63,9 +73,9 @@ if (isset($new_name) && trim($new_name) != '') {
 
     include('./libraries/build_dump.lib.php3');
 
-    $sql_structure = get_table_def($db, $table, "\n");
+    $sql_structure = get_table_def($db, $table, "\n", $err_url);
     $sql_structure = eregi_replace('^CREATE TABLE (`?)' . $table . '(`?)', 'CREATE TABLE ' . $target, $sql_structure);
-    $result        = mysql_query($sql_structure) or mysql_die('', $sql_structure);
+    $result        = mysql_query($sql_structure) or mysql_die('', $sql_structure, '', $err_url);
     if (isset($sql_query)) {
         $sql_query .= "\n" . $sql_structure . ';';
     } else {
@@ -77,11 +87,11 @@ if (isset($new_name) && trim($new_name) != '') {
         // speedup copy table - staybyte - 22. Juni 2001
         if (MYSQL_INT_VERSION >= 32300) {
             $sql_insert_data = 'INSERT INTO ' . $target . ' SELECT * FROM ' . backquote($table);
-            $result          = mysql_query($sql_insert_data) or mysql_die('', $sql_insert_data);
+            $result          = mysql_query($sql_insert_data) or mysql_die('', $sql_insert_data, '', $err_url);
         } // end MySQL >= 3.23
         else {
             $sql_insert_data = '';
-            get_table_content($db, $table, 0, 0, 'my_handler');
+            get_table_content($db, $table, 0, 0, 'my_handler', $err_url);
         } // end MySQL < 3.23
         $sql_query .= "\n\n" . $sql_insert_data;
     }
@@ -95,7 +105,7 @@ if (isset($new_name) && trim($new_name) != '') {
  * No new name for the table!
  */
 else {
-    mysql_die($strTableEmpty);
+    mysql_die($strTableEmpty, '', '', $err_url);
 } 
 
 

@@ -13,6 +13,16 @@ require('./header.inc.php3');
 
 
 /**
+ * Defines the url to return to in case of error in a sql statement
+ */
+$err_url = 'tbl_properties.php3'
+         . '?lang=' . $lang
+         . '&server=' . $server
+         . '&db=' . urlencode($db)
+         . '&table=' . urlencode($table);
+
+
+/**
  * Selects the database to work with
  */
 mysql_select_db($db);
@@ -34,7 +44,7 @@ if (isset($submit)) {
             $field_name[$i] = stripslashes($field_name[$i]);
         }
         if (MYSQL_INT_VERSION < 32306) {
-            check_reserved_words($field_name[$i]);
+            check_reserved_words($field_name[$i], $err_url);
         }
         $query = backquote($field_name[$i]) . ' ' . $field_type[$i];
         if ($field_length[$i] != '') {
@@ -180,7 +190,7 @@ if (isset($submit)) {
     }
 
     // Executes the query
-    $result    = mysql_query($sql_query) or mysql_die();
+    $result    = mysql_query($sql_query) or mysql_die('', '', '', $err_url);
     $sql_query = $query_cpy . ';';
     unset($query_cpy);
     $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
@@ -198,11 +208,11 @@ else {
     }
     // No table name
     if (!isset($table) || trim($table) == '') {
-        mysql_die($strTableEmpty);
+        mysql_die($strTableEmpty, '', '', $err_url);
     }
     // No valid number of fields
     else if (empty($num_fields) || !is_int($num_fields)) {
-        mysql_die($strFieldsEmpty);
+        mysql_die($strFieldsEmpty, '', '', $err_url);
     }
     // Table name and number of fields are valid -> show the form
     else {
@@ -211,7 +221,7 @@ else {
             $table = stripslashes($table);
         }
         if (MYSQL_INT_VERSION < 32306) {
-            check_reserved_words($table);
+            check_reserved_words($table, $err_url);
         }
 
         $action = 'tbl_create.php3';

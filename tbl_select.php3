@@ -10,13 +10,23 @@ require('./libraries/common.lib.php3');
 
 
 /**
+ * Defines the url to return to in case of error in a sql statement
+ */
+$err_url = $goto
+         . '?lang=' . $lang
+         . '&server=' . $server
+         . '&db=' . urlencode($db)
+         . '&table=' . urlencode($table);
+
+
+/**
  * Not selection yet required -> displays the selection form
  */
 if (!isset($param) || $param[0] == '') {
     include('./header.inc.php3');
     $result = @mysql_list_fields($db, $table);
     if (!$result) {
-        mysql_die('', 'mysql_list_fields(' . $db . ', ' . $table . ')');
+        mysql_die('', 'mysql_list_fields(' . $db . ', ' . $table . ')', '', $err_url);
     }
     else {
         // Gets the list and number of fields

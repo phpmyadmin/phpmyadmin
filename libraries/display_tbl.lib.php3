@@ -42,6 +42,8 @@ if (!defined('__LIB_DISPLAY_TBL__')){
      * @global  integer  the total number of rows returned by the sql query
      *                   without any programmatically appended "LIMIT" clause
      * @global  array    the properties of the fields returned by the query
+     * @global  string   the url to return to in case of error in a sql
+     *                   statement
      *
      * @access	private
      *
@@ -51,6 +53,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
     {
         global $db, $table;
         global $unlim_num_rows, $fields_meta;
+        global $err_url;
 
         // 1. Initializes the $do_display array
         $do_display              = array();
@@ -138,11 +141,11 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         else if (($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1')
                  && (!empty($db) && !empty($table))) {
             $local_query = 'SELECT COUNT(*) AS total FROM ' . backquote($db) . '.' . backquote($table);
-            $result      = mysql_query($local_query) or mysql_die('', $local_query);
+            $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
             $the_total   = mysql_result($result, 0, 'total');
             mysql_free_result($result);
         }
-        
+
         // 4. If navigation bar or sorting fields names urls should be
         //    displayed but there is only one row, change these settings to
         //    false
@@ -420,7 +423,7 @@ if (!defined('__LIB_DISPLAY_TBL__')){
         if ($is_display['sort_lnk'] == '1') {
             $is_join = eregi('(.*)[[:space:]]+FROM[[:space:]]+.*[[:space:]]+JOIN', $sql_query, $select_stt);
         } else {
-            $is_join    = FALSE;
+            $is_join = FALSE;
         }
         for ($i = 0; $i < $fields_cnt; $i++) {
 

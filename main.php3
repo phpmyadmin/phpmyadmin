@@ -45,7 +45,7 @@ echo "\n";
 // Don't display server info if $server == 0 (no server selected)
 if ($server > 0) {
     $local_query = 'SELECT VERSION() as version, USER() as user';
-    $res         = mysql_query($local_query) or mysql_die('', $local_query, FALSE, FALSE);
+    $res         = mysql_query($local_query) or mysql_die('', $local_query, FALSE, '');
     echo '<p><b>MySQL ' . mysql_result($res, 0, 'version') . ' ' . $strRunning . ' ' . $cfgServer['host'];
     if (!empty($cfgServer['port'])) {
         echo ':' . $cfgServer['port'];
@@ -61,7 +61,7 @@ if ($server > 0) {
  * Reload mysql (flush privileges)
  */
 if (($server > 0) && isset($mode) && ($mode == 'reload')) {
-    $result = mysql_query('FLUSH PRIVILEGES') or mysql_die('', 'FLUSH PRIVILEGES', FALSE);
+    $result = mysql_query('FLUSH PRIVILEGES') or mysql_die('', 'FLUSH PRIVILEGES', FALSE, 'main.php3?lang=' . $lang . '&server=' . $server);
     echo '<p><b>';
     if ($result != 0) {
       echo $strMySQLReloaded;
@@ -178,7 +178,7 @@ if ($server > 0
                          . $cfgServer['host'] . $server_port . $server_socket . ', '
                          . $cfgServer['stduser'] . ', '
                          . $cfgServer['stdpass'] . ')';
-            mysql_die($conn_error, $local_query, FALSE, FALSE);
+            mysql_die($conn_error, $local_query, FALSE, '');
         } else if (PHP_INT_VERSION >= 40000) {
             @ini_set('track_errors', $bkp_track_err);
         }
@@ -218,7 +218,7 @@ if ($server > 0
                              . $cfgServer['host'] . $server_port . $server_socket . ', '
                              . $cfgServer['user'] . ', '
                              . $cfgServer['password'] . ')';
-                mysql_die($conn_error, $local_query, FALSE, FALSE);
+                mysql_die($conn_error, $local_query, FALSE, '');
             } else if (PHP_INT_VERSION >= 40000) {
                 @ini_set('track_errors', $bkp_track_err);
             }
@@ -265,7 +265,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>&goto=main.php3">
                     <?php echo $strMySQLShowStatus; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
@@ -273,7 +273,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&goto=main.php3">
                 <?php echo $strMySQLShowVars;?></a>&nbsp;
                 <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
@@ -286,7 +286,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&goto=main.php3">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
@@ -367,7 +367,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW STATUS'); ?>&goto=main.php3">
                     <?php echo $strMySQLShowStatus; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
@@ -376,7 +376,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW VARIABLES'); ?>&goto=main.php3">
                     <?php echo $strMySQLShowVars; ?></a>&nbsp;
                 <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
@@ -385,7 +385,7 @@ if ($server > 0
         <tr>
             <td valign="baseline"><img src="images/item.gif" width="7" height="7" alt="item" /></td>
             <td>
-                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>">
+                <a href="sql.php3?<?php echo $common_url_query; ?>&db=mysql&sql_query=<?php echo urlencode('SHOW PROCESSLIST'); ?>&goto=main.php3">
                     <?php echo $strMySQLShowProcess; ?></a>&nbsp;
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>

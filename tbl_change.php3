@@ -18,19 +18,36 @@ if (get_magic_quotes_gpc()) {
 
 
 /**
+ * Defines the url to return to in case of error in a sql statement
+ */
+if (!isset($goto)) {
+    $goto    = 'db_details.php3';
+}
+if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
+    $err_url = $goto;
+} else {
+    $err_url = $goto
+             . '?lang=' . $lang
+             . '&server=' . $server
+             . '&db=' . urlencode($db)
+             . (($goto == 'tbl_properties.php3') ? '&table=' . urlencode($table) : '');
+}
+
+
+/**
  * Get the list of the fields of the current table
  */
 mysql_select_db($db);
 $table_def = mysql_query('SHOW FIELDS FROM ' . backquote($table));
 if (isset($primary_key)) {
     $local_query = 'SELECT * FROM ' . backquote($table) . ' WHERE ' . $primary_key;
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
     $row         = mysql_fetch_array($result);
 }
 else
 {
     $local_query = 'SELECT * FROM ' . backquote($table) . ' LIMIT 1';
-    $result      = mysql_query($local_query) or mysql_die('', $local_query);
+    $result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
     unset($row);
 }
 
@@ -42,13 +59,14 @@ else
 
 <!-- Change table properties form -->
 <form method="post" action="tbl_replace.php3">
-    <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+    <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
     <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-    <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode($sql_query) : ''; ?>" />
     <input type="hidden" name="pos" value="<?php echo isset($pos) ? $pos : 0; ?>" />
+    <input type="hidden" name="err_url" value="<?php echo urlencode($err_url); ?>" />
+    <input type="hidden" name="sql_query" value="<?php echo isset($sql_query) ? urlencode($sql_query) : ''; ?>" />
 <?php
 if (isset($primary_key)) {
     ?>

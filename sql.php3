@@ -9,6 +9,21 @@ require('./libraries/grab_globals.lib.php3');
 require('./libraries/common.lib.php3');
 
 
+/**
+ * Defines the url to return to in case of error in a sql statement
+ */
+if (empty($goto)) {
+    $goto    = (empty($table)) ? 'db_details.php3' : 'tbl_properties.php3';
+}
+if (!isset($err_url)) {
+    $err_url = $goto
+             . '?lang=' . $lang
+             . '&server=' . $server
+             . (isset($db) ? '&db=' . urlencode($db) : '')
+             . (($goto != 'db_details.php3' && isset($table)) ? '&table=' . urlencode($table) : '');
+}
+
+
 /** 
  * Check rights in case of DROP DATABASE
  *
@@ -25,7 +40,7 @@ if (!defined('PMA_CHK_DROP')
     $result = @mysql_query('USE mysql');
     if (mysql_error()) {
         include('./header.inc.php3');
-        mysql_die($strNoDropDatabases);
+        mysql_die($strNoDropDatabases, '', '', $err_url);
     } // end if
 } // end if
 
@@ -56,9 +71,7 @@ if (isset($btnDrop) || isset($navig)) {
 /**
  * Sets or modifies the $goto variable if required
  */
-if (empty($goto)) {
-    $goto = (empty($table)) ? 'db_details.php3' : 'tbl_properties.php3';
-} else if ($goto == 'sql.php3') {
+if ($goto == 'sql.php3') {
     $goto = 'sql.php3'
           . '?lang=' . $lang
           . '&server=' . $server
@@ -120,7 +133,7 @@ if ($do_confirm) {
     <input type="hidden" name="table" value="<?php echo isset($table) ? $table : ''; ?>" />
     <input type="hidden" name="sql_query" value="<?php echo urlencode($sql_query); ?>" />
     <input type="hidden" name="zero_rows" value="<?php echo isset($zero_rows) ? $zero_rows : ''; ?>" />
-    <input type="hidden" name="goto" value="<?php echo isset($goto) ? $goto : ''; ?>" />
+    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
     <input type="hidden" name="back" value="<?php echo isset($back) ? $back : ''; ?>" />
     <input type="hidden" name="reload" value="<?php echo isset($reload) ? $reload : 0; ?>" />
     <input type="hidden" name="show_query" value="<?php echo isset($show_query) ? $show_query : ''; ?>" />
@@ -141,7 +154,6 @@ else {
     } else if (get_magic_quotes_gpc()) {
         $sql_query = stripslashes($sql_query);
     }
-
     // Defines some variables
     // loic1: A table have to be created -> left frame should be reloaded
     if ((!isset($reload) || $reload == 0)
@@ -214,7 +226,7 @@ else {
     if (mysql_error()) {
         $error = mysql_error();
         include('./header.inc.php3');
-        mysql_die($error, $full_sql_query);
+        mysql_die($error, $full_sql_query, '', $err_url);
     }
 
     // Gets the number of rows affected/returned
@@ -299,7 +311,7 @@ else {
         include('./header.inc.php3');
         include('./libraries/bookmark.lib.php3');
 
-        // Gets the list of fields properties 
+        // Gets the list of fields properties
         while ($field = mysql_fetch_field($result)) {
             $fields_meta[] = $field;
         }

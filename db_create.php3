@@ -11,13 +11,21 @@ require('./header.inc.php3');
 
 
 /**
+ * Defines the url to return to in case of error in a sql statement
+ */
+$err_url = 'main.php3'
+         . '?lang=' . $lang
+         . '&server=' . $server;
+
+
+/**
  * Ensures the db name is valid
  */
 if (get_magic_quotes_gpc()) {
-    $db = stripslashes($db);
+    $db      = stripslashes($db);
 }
 if (MYSQL_INT_VERSION < 32306) {
-    check_reserved_words($db);
+    check_reserved_words($db, $err_url);
 }
 
 
@@ -25,7 +33,7 @@ if (MYSQL_INT_VERSION < 32306) {
  * Executes the db creation sql query
  */
 $local_query = 'CREATE DATABASE ' . backquote($db);
-$result       = mysql_query('CREATE DATABASE ' . backquote($db)) or mysql_die('', $local_query, FALSE);
+$result      = mysql_query('CREATE DATABASE ' . backquote($db)) or mysql_die('', $local_query, FALSE, $err_url);
 
 
 /**

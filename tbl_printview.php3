@@ -10,6 +10,16 @@ require('./header.inc.php3');
 
 
 /**
+ * Defines the url to return to in case of error in a sql statement
+ */
+$err_url = 'tbl_properties.php3'
+         . '?lang=' . $lang
+         . '&server=' . $server
+         . '&db=' . urlencode($db)
+         . '&table=' . urlencode($table);
+
+
+/**
  * Selects the database
  */
 mysql_select_db($db);
@@ -21,13 +31,13 @@ mysql_select_db($db);
 // The 'show table' statement works correct since 3.23.03
 if (MYSQL_INT_VERSION >= 32303) {
     $local_query  = 'SHOW TABLE STATUS LIKE \'' . sql_addslashes($table, TRUE) . '\'';
-    $result       = mysql_query($local_query) or mysql_die('', $local_query);
+    $result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
     $showtable    = mysql_fetch_array($result);
     $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
     $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
 } else {
     $local_query  = 'SELECT COUNT(*) AS count FROM ' . backquote($table);
-    $result       = mysql_query($local_query) or mysql_die('', $local_query);
+    $result       = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
     $showtable    = array();
     $num_rows     = mysql_result($result, 0, 'count');
     $show_comment = '';
@@ -39,7 +49,7 @@ mysql_free_result($result);
  * Gets table keys and retains them
  */
 $local_query = 'SHOW KEYS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query);
+$result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
 $primary     = '';
 $prev_key    = '';
 $prev_seq    = 0;
@@ -71,7 +81,7 @@ mysql_free_result($result);
  * Gets fields properties
  */
 $local_query = 'SHOW FIELDS FROM ' . backquote($table);
-$result      = mysql_query($local_query) or mysql_die('', $local_query);
+$result      = mysql_query($local_query) or mysql_die('', $local_query, '', $err_url);
 $fields_cnt  = mysql_num_rows($result);
 
 
