@@ -6,6 +6,9 @@
  * Gets some core libraries
  */
 require('./grab_globals.inc.php3');
+if (isset($submit)) {
+    $js_to_run = 'functions.js';
+}
 require('./header.inc.php3');
 
 
@@ -63,12 +66,12 @@ if (isset($submit)) {
         $query .= ' ' . $field_extra[0];
     }
 
-   // Optimization fix - 2 May 2001 - Robbat2
-   $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' CHANGE ' . $query;
-   $result    = mysql_query($sql_query) or mysql_die();
-   $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
-   include('./tbl_properties.php3');
-   exit();
+    // Optimization fix - 2 May 2001 - Robbat2
+    $sql_query = 'ALTER TABLE ' . backquote($db) . '.' . backquote($table) . ' CHANGE ' . $query;
+    $result    = mysql_query($sql_query) or mysql_die();
+    $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
+    include('./tbl_properties.php3');
+    exit();
 }
 
 
