@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
+	* Documentation.html, lines 766-770: added a link to the official MySQL
+	  documentation for the "socket error" problems.
+	* index.php3, line 53; lang/*: out-sourced the "no frame" sentence.
+
+2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/*: cleanup thanks to Björn T. Hallberg - Removed unused strings
 	  $strColumnEmpty, $strDbEmpty, $strInsertIntoTable, $strPrinterFriendly,
 	  $strProducedAnError, $strReadTheDocs (kept $strLogout because it will be
