@@ -117,6 +117,7 @@ $strConnections = 'Spojenia';
 $strCookiesRequired = 'Cookies musia byť povolené, pokiaľ chcete pokračovať.';
 $strCopyTable = 'Skopírovať tabuľku do (databáza<b>.</b>tabuľka):';
 $strCopyTableOK = 'Tabuľka %s bola skorírovaná do %s.';
+$strCopyTableSameNames = 'Nedá sa skopírovať tabuľka sama do seba!';
 $strCouldNotKill = 'Neporadilo za zabiť vlákno %s. Jeho beh bol pravdepodobne už ukončený.';
 $strCreate = 'Vytvoriť';
 $strCreateIndex = 'Vytvoriť index na&nbsp;%s&nbsp;stĺpcoch';
@@ -177,6 +178,7 @@ $strDropSelectedDatabases = 'Zrušiť vybrané databázy';
 $strDropTable = 'Zrušiť tabuľku';
 $strDropUsersDb = 'Odstrániť databázy s rovnakým menom ako majú používatelia.';
 $strDumpComments = 'Vložiť komentáre stĺpcov ako SQL komentáre';
+$strDumpSaved = 'Dump (schéma) bol uložený do súboru %s.';
 $strDumpXRows = 'Zobraziť %s riadkov od riadku %s.';
 $strDumpingData = 'Sťahujem dáta pre tabuľku';
 $strDynamic = 'dynamický';
@@ -193,6 +195,8 @@ $strEndCut = 'KONIEC VÝSEKU';
 $strEndRaw = 'KONIEC TOKU';
 $strEnglishPrivileges = ' Poznámka: názvy MySQL oprávnení sú uvádzané v angličtine. ';
 $strError = 'Chyba';
+$strExcelOptions = 'Nastavenie exportu do Excelu';
+$strExecuteBookmarked = 'Spustiť obľúbený dotaz';
 $strExplain = 'Vysvetliť SQL';
 $strExport = 'Exportovať';
 $strExportToXML = 'Exportovať do formátu XML';
@@ -207,6 +211,7 @@ $strFieldsEmpty = ' Počet polí je prázdny! ';
 $strFieldsEnclosedBy = 'Polia uzatvorené';
 $strFieldsEscapedBy = 'Polia uvedené pomocou';
 $strFieldsTerminatedBy = 'Polia ukončené';
+$strFileAlreadyExists = 'Súbor %s už existuje na servery, zmente názov súboru alebo zvolte prepísanie súboru.';
 $strFileCouldNotBeRead = 'Súbor sa nedá prečítať';
 $strFileNameTemplate = 'Vzor pre názov súboru';
 $strFileNameTemplateHelp = 'Použite __DB__ ako názov databázy, __TABLE__ ako názov tabuľky a akékoľvek parametre pre %sfunkciu strftime%s pre vloženie dát. Prípona súboru bude pridaná automaticky podľa typu. Akýkoľvek iný text zostane zachovaný.';
@@ -259,6 +264,7 @@ $strInsert = 'Vložiť';
 $strInsertAsNewRow = 'Vložiť ako nový riadok';
 $strInsertNewRow = 'Vložiť nový riadok';
 $strInsertTextfiles = 'Vložiť textové súbory do tabuľky';
+$strInsertedRowId = 'Id vloženého riadku:';
 $strInsertedRows = 'Vložené riadky:';
 $strInstructions = 'Inštrukcie';
 $strInvalidName = '"%s" je rezervované slovo, nemôže byť použité ako názov databázy/tabuľky/poľa.';
@@ -282,6 +288,8 @@ $strLines = 'Riadky';
 $strLinesTerminatedBy = 'Riadky ukončené';
 $strLinkNotFound = 'Linka nebola nájdená';
 $strLinksTo = 'Linkovať na';
+$strLoadExplanation = 'Automaticky sú nastavené najlepšie hodnoty, ak toto nastavenie nebude fungovať, môžete skúsiť druhú možnosť.';
+$strLoadMethod = 'Parametre pre príkaz LOAD';
 $strLocalhost = 'Lokálny';
 $strLocationTextfile = 'Lokácia textového súboru';
 $strLogPassword = 'Heslo:';
@@ -308,6 +316,8 @@ $strModifyIndexTopic = 'Modifikovať index';
 $strMoreStatusVars = 'Ďalšie informácie o stave';
 $strMoveTable = 'Presunúť tabuľku do (databáza<b>.</b>tabuľka):';
 $strMoveTableOK = 'Tabuľka %s bola presunutá do %s.';
+$strMoveTableSameNames = 'Nedá sa presunúť tabuľka sama do seba!';
+$strMustSelectFile = 'Zvolte prosím súbor, ktorý si želáte vložiť.';
 $strMySQLCharset = 'Znaková sada v MySQL';
 $strMySQLReloaded = 'MySQL znovu-načítaná.';
 $strMySQLSaid = 'MySQL hlási: ';
@@ -330,10 +340,12 @@ $strNoIndexPartsDefined = 'Časti indexu neboli definované!';
 $strNoModification = 'Žiadna zmena';
 $strNoOptions = 'Tento formát nemá žiadne nastavenia';
 $strNoPassword = 'Žiadne heslo';
+$strNoPermission = 'Web server nemá oprávenia na uloženie do súboru %s.';
 $strNoPhp = 'bez PHP kódu';
 $strNoPrivileges = 'Žiadne oprávnenia';
 $strNoQuery = 'Žiadny SQL dotaz!';
 $strNoRights = 'Nemáte dostatočné práva na vykonanie tejto akcie!';
+$strNoSpace = 'Nedostatok miesta pre uloženie súboru %s.';
 $strNoTablesFound = 'Neboli nájdené žiadne tabuľky v tejto datábaze.';
 $strNoUsersFound = 'Nebol nájdený žiadny používateľ.';
 $strNoUsersSelected = 'Nebol vybraný žiaden používateľ.';
@@ -357,6 +369,7 @@ $strOptionally = 'Voliteľne';
 $strOptions = 'Voľby';
 $strOr = 'alebo';
 $strOverhead = 'Naviac';
+$strOverwriteExisting = 'Prepísať existujúci súbor(y)';
 
 $strPHP40203 = 'Používate PHP 4.2.3, ktoré ma vážnu chybu pri práci s viac bajtovými znakmi (mbstring). V PHP je táto chyba zdokumentovaná pod číslom 19404. Nedoporučuje sa používať túto verziu PHP s phpMyAdminom.';
 $strPHPVersion = 'Verzia PHP';
@@ -450,6 +463,7 @@ $strRenameTable = 'Premenovať tabuľku na';
 $strRenameTableOK = 'Tabuľka %s bola premenovaná na %s';
 $strRepairTable = 'Opraviť tabuľku';
 $strReplace = 'Nahradiť';
+$strReplaceNULLBy = 'Nahradiť NULL hodnoty';
 $strReplaceTable = 'Nahradiť dáta v tabuľke súborom';
 $strReset = 'Pôvodné (Reset)';
 $strResourceLimits = 'Obmedzenie zdrojov';
@@ -483,6 +497,7 @@ $strSQPBugInvalidIdentifer = 'Neplatný identifikátor';
 $strSQPBugUnclosedQuote = 'Neuzatvorené úvodzovky';
 $strSQPBugUnknownPunctuation = 'Neznámy interpunkčný reťazec';
 $strSave = 'Uložiť';
+$strSaveOnServer = 'Uložiť na server do adresára %s';
 $strScaleFactorSmall = 'Mierka je príliš mala na roztiahnutie schémy na stránku';
 $strSearch = 'Hľadať';
 $strSearchFormTitle = 'Hľadať v databáze';
@@ -629,28 +644,6 @@ $strYes = 'Áno';
 $strZeroRemovesTheLimit = 'Poznámka: Nastavenie týchto parametrov na 0 (nulu) odstráni obmedzenia.';
 $strZip = '"zo zipované"';
 
-$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
-
-$strDumpSaved = 'Dump has been saved to file %s.';  //to translate
-
-$strFileAlreadyExists = 'File %s already exists on server, change filename or check overwrite option.';  //to translate
-
-$strInsertedRowId = 'Inserted row id:';  //to translate
-
-$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
-$strMustSelectFile = 'You should select file which you want to insert.';  //to translate
-
-$strNoPermission = 'The web server does not have permission to save the file %s.';  //to translate
-$strNoSpace = 'Insufficient space to save the file %s.';  //to translate
-
-$strOverwriteExisting = 'Overwrite existing file(s)';  //to translate
-
-$strSaveOnServer = 'Save on server in %s directory';  //to translate
-
-$strLoadMethod = 'LOAD method';  //to translate
-$strLoadExplanation = 'The best method is checked by default, but you can change if it fails.';  //to translate
-$strExecuteBookmarked = 'Execute bookmarked query';  //to translate
-$strExcelOptions = 'Excel options';  //to translate
-$strReplaceNULLBy = 'Replace NULL by';  //to translate
 $strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
+
 ?>
