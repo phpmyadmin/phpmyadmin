@@ -66,7 +66,8 @@ if (!empty($submit_mult)) {
                 foreach($rows_to_delete AS $i_primary_key => $del_query) {
                     $primary_key[] = urldecode($i_primary_key);
                 }
-
+                
+                $active_page = 'tbl_change.php';
                 include './tbl_change.php';
             }
             break;
@@ -84,6 +85,7 @@ if (!empty($submit_mult)) {
                     $primary_key[] = urldecode($i_primary_key);
                 }
 
+                $active_page = 'tbl_properties_export.php';
                 include './tbl_properties_export.php';
             }
             break;
