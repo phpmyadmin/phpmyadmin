@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-25 Michal Čihař  <michal@cihar.com>
+    * main.php: Don't show port after verbose name (bug #1013401).
+
 2004-08-23 Michal Čihař  <michal@cihar.com>
     * scripts/create-release.sh: Support for snapshots outside sourceforge.
     * libraries/export/sql.php: Fix exporting of TIMESTAMP (bug #1013730).

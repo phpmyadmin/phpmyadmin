@@ -95,8 +95,8 @@ if ($server > 0) {
         $server_info = $cfg['Server']['verbose'];
     } else {
         $server_info = $cfg['Server']['host'];
+        $server_info .= (empty($cfg['Server']['port']) ? '' : ':' . $cfg['Server']['port']);
     }
-    $server_info            .= (empty($cfg['Server']['port']) ? '' : ':' . $cfg['Server']['port']);
     // loic1: skip this because it's not a so good idea to display sockets
     //        used to everybody
     // if (!empty($cfg['Server']['socket']) && PMA_PHP_INT_VERSION >= 30010) {
