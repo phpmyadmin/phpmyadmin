@@ -1691,6 +1691,15 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     is limited by the system administrator, and time limit is enforced.
 </p>
 
+<p>
+    <b>With InnoDB tables, I lose foreign key relationships when I rename 
+       or alter a table.</b>
+    <br />
+    This seems to be a InnoDB bug (fixed in MySQL 3.23.50?).  However, keep 
+    in mind that phpMyAdmin as of version 2.3.0 does not support InnoDB.
+</p>
+
+
 <a name="faqmultiuser"></a>
 <h3>[ISPs, multi-user installations ]</h3>
 <p>
