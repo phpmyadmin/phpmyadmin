@@ -348,6 +348,7 @@ $strSelectFields = 'Felder auswählen (mind. eines):';
 $strSelectNumRows = 'in der Abfrage';
 $strSelectTables = 'Tabellenauswahl';
 $strSend = 'Senden';
+$strServer = 'Server %s';
 $strServerChoice = 'Server Auswählen';
 $strServerVersion = 'Server Version';
 $strSetEnumVal = 'Wenn das Feld vom Typ \'ENUM\' oder \'SET\' ist, benutzen Sie bitte das Format: \'a\',\'b\',\'c\',....<br />Wann immer Sie ein Backslash ("\") oder ein einfaches Anführungszeichen ("\'") verwenden,<br \>setzen Sie bitte ein Backslash vor das Zeichen.  (z.B.: \'\\\\xyz\' or \'a\\\'b\').';
@@ -435,5 +436,4 @@ $strYes = 'Ja';
 $strZip = 'Zip-komprimiert';
 // To translate
 
-$strServer = 'Server %s';  //to translate
 ?>
