@@ -93,7 +93,7 @@ else if (MYSQL_MAJOR_VERSION>=3.23 && isset($tbl_cache)){
            <td><a href="sql.php3<?php echo $query;?>&sql_query=<?php echo urlencode("DELETE FROM $table");?>&zero_rows=<?php echo urlencode($strTable." ".$table." ".$strHasBeenEmptied);?>"><?php echo $strEmpty; ?></a></td>
 <?php
 		if (isset($sts_data["Rows"])){
-			echo "<td align=right>".number_format($sts_data["Rows"],0,',','.')."</td>\n";
+			echo "<td align=right>".number_format($sts_data["Rows"], 0, $number_decimal_separator, $number_thousands_separator)."</td>\n";
 			$tblsize=$sts_data["Data_length"]+$sts_data["Index_length"];
 			$sum_size+=$tblsize;
 			$sum_entries+=$sts_data["Rows"];
@@ -115,7 +115,7 @@ else if (MYSQL_MAJOR_VERSION>=3.23 && isset($tbl_cache)){
 	if (!empty($strSum)) echo $strSum;
 	echo "</td>\n";
 	list ($sum_formated,$unit)=format_byte_down($sum_size,3,1);
-	echo "<td align=right>".number_format($sum_entries,0,',','.')."</td>\n";
+	echo "<td align=right>".number_format($sum_entries, 0, $number_decimal_separator, $number_thousands_separator)."</td>\n";
 	echo "<td align=right>$sum_formated $unit</td>\n";
 	echo "</tr>\n";
 

@@ -4,6 +4,8 @@
 $charset = "iso-8859-1";
 $left_font_family = "verdana, helvetica, arial, geneva, sans-serif";
 $right_font_family = "helvetica, arial, geneva, sans-serif";
+$number_thousands_separator = ",";
+$number_decimal_separator = ".";
 
 $strAccessDenied = "Access denied";
 $strAction = "Action";
@@ -251,7 +253,7 @@ $strUsage = "Usage";
 $strUser = "User";
 $strUserEmpty = "The user name is empty!";
 $strUserName = "User name";
-$strUsers = "Users and privileges";
+$strUsers = "Users";
 $strUseTables = ""; //to translate, but its not in use ...
 
 $strValue = "Value";

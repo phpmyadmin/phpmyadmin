@@ -4,6 +4,8 @@
 $charset = "tis-620";
 $left_font_family = "sans-serif";
 $right_font_family = "sans-serif";
+$number_thousands_separator = ",";
+$number_decimal_separator = ".";
 
 $strAccessDenied = "ไม่อนุญาตให้ใช้งาน";#Access denied";
 $strAction = "กระทำการ";

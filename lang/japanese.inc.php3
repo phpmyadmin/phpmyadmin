@@ -4,6 +4,8 @@
 $charset = "euc-jp";
 $left_font_family = "sans-serif";
 $right_font_family = "sans-serif";
+$number_thousands_separator = ",";
+$number_decimal_separator = ".";
 
 $strAccessDenied = "アクセスは拒否されました。";
 $strAction = "実行";

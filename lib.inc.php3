@@ -943,9 +943,12 @@ function format_byte_down($value,$limes=6,$comma=0){
 		$value=round($value/(1024/$dh))/$dh;
 		$unit="KB";
 	}
-	if ($unit!="Byte") $returnvalue=number_format($value,$comma,',','.');
-	else $returnvalue=number_format($value,0,',','.');
-	return array($returnvalue,$unit);
+	if ($unit!="Byte") {
+	    $return_value = number_format($value, $comma, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
+	} else {
+	    $return_value = number_format($value, 0, $GLOBALS['number_decimal_separator'], $GLOBALS['number_thousands_separator']);
+	}
+	return array($return_value, $unit);
 }
 
 // to support special characters in db names: Lem9, 2001-06-27

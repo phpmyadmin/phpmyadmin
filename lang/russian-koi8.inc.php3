@@ -4,6 +4,8 @@
 $charset = "koi8-r";
 $left_font_family = "sans-serif";
 $right_font_family = "sans-serif";
+$number_thousands_separator = ",";
+$number_decimal_separator = ".";
 
 $strAccessDenied = "В доступе отказано";
 $strAction = "Действие";

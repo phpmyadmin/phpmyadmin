@@ -4,6 +4,8 @@
 $charset = "iso-8859-2";
 $left_font_family = "verdana, helvetica, arial, geneva, sans-serif";
 $right_font_family = "helvetica, arial, geneva, sans-serif";
+$number_thousands_separator = ",";
+$number_decimal_separator = ".";
 
 $strAccessDenied = "Pøístup odepøen";
 $strAction = "Akce";

@@ -4,6 +4,8 @@
 $charset = "gb2312";
 $left_font_family = "sans-serif";
 $right_font_family = "sans-serif";
+$number_thousands_separator = ",";
+$number_decimal_separator = ".";
 
 $strAccessDenied = "访问被拒绝";
 $strAction = "执行操作";

@@ -4,6 +4,8 @@
 $charset = "iso-8859-2";
 $left_font_family = "sans-serif";
 $right_font_family = "sans-serif";
+$number_thousands_separator = ",";
+$number_decimal_separator = ".";
 
 $strAccessDenied = "Brak dostêpu";
 $strAction = "Dzia³anie";

@@ -4,6 +4,8 @@
 $charset = "ks_c_5601-1987";
 $left_font_family = "sans-serif";
 $right_font_family = "sans-serif";
+$number_thousands_separator = ",";
+$number_decimal_separator = ".";
 
 $strAccessDenied = "접근이 거부되었습니다.";
 $strAction = "실행";
