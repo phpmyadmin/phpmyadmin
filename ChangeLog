@@ -11,7 +11,11 @@ $Source$
       libraries/charset_conversion.lib.php3, libraries/config_import.lib.php3:
       Merged patch #729514 - support for iconv parameters.
     * read_dump.php3, libraries/common.lib.php3: Merged patch #728928 - show
-      multi statement query result.
+      multi statement query result. Closes RFE #728833.
+    * tbl_dump.php3, libraries/build_dump.lib.php3,
+      libraries/display_export.lib.php3, lang/*: Merged patch #727027 - LaTeX
+      export improvements. Now can export table structure and some other
+      options. Closes RFE #718942.
 
 2003-05-11 Marc Delisle  <lem9@users.sourceforge.net>
      ### 2.5.0 released

@@ -630,4 +630,6 @@ $strZip = '"compresso con zip"';
 // To translate
 
 $strCharset = 'Set di caratteri';
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

@@ -629,4 +629,6 @@ $strYes = 'Jâ';
 $strZeroRemovesTheLimit = 'Piezîme: Ðo opciju uzstâdîðana uz 0 (nulli) atceï ierobeþojumus.';
 $strZip = 'Arhivçts ar zip';
 
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

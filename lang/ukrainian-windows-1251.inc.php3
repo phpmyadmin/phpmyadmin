@@ -626,4 +626,6 @@ $strZeroRemovesTheLimit = 'Примітка: Встановлення цієї опції у 0 (нуль) знімає о
 $strZip = 'запакувати в "zip"';
 // To translate
 
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

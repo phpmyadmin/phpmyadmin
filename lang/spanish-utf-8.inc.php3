@@ -626,4 +626,6 @@ $strZip = '"comprimido con zip"';
 
 // To translate
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table'; //to translate
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

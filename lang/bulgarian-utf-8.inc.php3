@@ -646,4 +646,6 @@ $strXML = 'XML';//to translate
 
 $strSwitchToTable = 'Switch to copied table';  //to translate
 $strCharset = 'Charset';  //to translate
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

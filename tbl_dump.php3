@@ -333,8 +333,16 @@ else {
                 || (!isset($tmp_select) && !empty($table))) {
 
                 // to do: add option for the formatting ( c, l, r, p)
-                $dump_buffer .= PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $err_url,
-                    (isset($sql_query)?urldecode($sql_query):''));
+                if (isset($ltx_structure) && $sql_structure == 'structure') {
+                    $dump_buffer .= PMA_getTableStructureLaTeX($db, $table, $crlf, $err_url, 
+                        isset($ltx_relation) && $ltx_relation == 'yes',
+                        isset($ltx_comments) && $ltx_comments == 'yes',
+                        isset($ltx_mime) && $ltx_mime == 'yes'
+                       );
+                }
+                if (isset($ltx_data) && $sql_data == 'data') {
+                    $dump_buffer .= PMA_getTableLaTeX($db, $table, $limit_from, $limit_to, $crlf, isset($ltx_showcolumns) && $ltx_showcolumns == 'yes', $err_url, (isset($sql_query)?urldecode($sql_query):''));
+                }
             }
             $i++;
         }

@@ -626,4 +626,6 @@ $strZip = '"zipitud"';
 
 $strPasswordChanged = 'Kasutaja %s parool vahetati õnnestunult.'; // to translate
 
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

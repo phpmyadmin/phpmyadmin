@@ -630,4 +630,6 @@ $strYes = 'Jā';
 $strZeroRemovesTheLimit = 'Piezīme: Šo opciju uzstādīšana uz 0 (nulli) atceļ ierobežojumus.';
 $strZip = 'Arhivēts ar zip';
 
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

@@ -269,6 +269,7 @@ $strKeyname = 'Keyname';
 $strKill = 'Kill';
 
 $strLaTeX = 'LaTeX';
+$strLaTeXOptions = 'LaTeX options';
 $strLandscape = 'Landscape';
 $strLength = 'Length';
 $strLengthSet = 'Length/Values*';
@@ -436,6 +437,7 @@ $strReferentialIntegrity = 'Check referential integrity:';
 $strRelationNotWorking = 'The additional Features for working with linked Tables have been deactivated. To find out why click %shere%s.';
 $strRelationView = 'Relation view';
 $strRelationalSchema = 'Relational schema';
+$strRelations = 'Relations';
 $strReloadFailed = 'MySQL reload failed.';
 $strReloadMySQL = 'Reload MySQL';
 $strReloadingThePrivileges = 'Reloading the privileges';

@@ -637,4 +637,6 @@ $strTransformation_text_plain__substr = 'แสดงข้อความบา
 
 $strUseHostTable = 'Use Host Table';  //to translate
 
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

@@ -42,6 +42,7 @@ if (isset($sql_query)) {
 <?php if ($export_single) { ?>
         gE("csv_options").style.display = 'none';
 <?php } ?>
+        gE("latex_options").style.display = 'none';
         gE("sql_options").style.display = 'none';
         gE("none_options").style.display = 'none';
     }
@@ -68,19 +69,8 @@ if (isset($sql_query)) {
             <br /><br />
 
             <!-- LaTeX table -->
-            <input type="radio" name="what" value="latex" id="radio_dump_latex"  onclick="if(this.checked) { hide_them_all(); gE('none_options').style.display = 'block'; }; return true" />
+            <input type="radio" name="what" value="latex" id="radio_dump_latex"  onclick="if(this.checked) { hide_them_all(); gE('latex_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_latex"><?php echo $strLaTeX; ?></label>
-            <!-- for now we have only one environment supported -->
-            <?php
-                /*
-                <select name="environment">
-                    <option value="longtable" selected><?php echo $strLaTeXMultipageTable; ?></option>
-                    <option value="sideways"><?php echo $strLaTeXSidewaysTable; ?></option>
-                    <option value="table"><?php echo $strLaTeXStandardTable; ?></option>
-                </select>
-                */
-            ?>
-            <input type="hidden" name="environment" value="longtable" />
             <br /><br />
 
 <?php                    
@@ -105,6 +95,8 @@ if ($export_single) {
         </td>
         <!-- Options -->
         <td valign="top" id="options_td" width="400">
+        
+            <!-- SQL options -->
             <fieldset id="sql_options">
                 <legend><?php echo $strSQLOptions; ?> (<a href="./Documentation.html#faqexport" target="documentation"><?php echo $strDocu; ?></a>)</legend>
 
@@ -152,6 +144,59 @@ echo "\n";
                     <label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label><br />
                 </fieldset>
             </fieldset>
+             
+             <!-- LaTeX options -->
+             <fieldset id="latex_options">
+                 <legend><?php echo $strLaTeXOptions; ?></legend>
+ 
+                 <!-- For structure -->
+                 <fieldset>
+                     <legend>
+                         <input type="checkbox" name="ltx_structure" value="structure" id="checkbox_ltx_structure" checked="checked" onclick="if(!this.checked && !gE('checkbox_ltx_data').checked) return false; else return true;" />
+                         <label for="checkbox_ltx_structure"><?php echo $strStructure; ?></label><br />
+                     </legend>
+ <?php
+ 
+ // garvin: whether to show column comments
+ require('./libraries/relation.lib.php3');
+ $cfgRelation = PMA_getRelationsParam();
+ 
+ if (!empty($cfgRelation['relation'])) {
+     ?>
+                     <input type="checkbox" name="ltx_relation" value="yes" id="checkbox_ltx_use_relation" checked="checked" />
+                     <label for="checkbox_ltx_use_relation"><?php echo $strRelations; ?></label><br />
+     <?php
+ } // end relation
+ 
+ if ($cfgRelation['commwork']) {
+     ?>
+                     <input type="checkbox" name="ltx_comments" value="yes" id="checkbox_ltx_use_comments" checked="checked" />
+                     <label for="checkbox_ltx_use_comments"><?php echo $strComments; ?></label><br />
+     <?php
+ } // end comments
+ 
+ if ($cfgRelation['mimework']) {
+     ?>
+                     <input type="checkbox" name="ltx_mime" value="yes" id="checkbox_ltx_use_mime" checked="checked" />
+                     <label for="checkbox_ltx_use_mime"><?php echo $strMIME_MIMEtype; ?></label><br />
+     <?php
+ } // end MIME
+ echo "\n";
+ ?>
+                 </fieldset>
+ 
+                 <!-- For data -->
+                 <fieldset>
+                     <legend>
+                         <input type="checkbox" name="ltx_data" value="data" id="checkbox_ltx_data" checked="checked" onclick="if(!this.checked && !gE('checkbox_ltx_structure').checked) return false; else return true;" />
+                         <label for="checkbox_ltx_data"><?php echo $strData; ?></label><br />
+                     </legend>
+                     <input type="checkbox" name="ltx_showcolumns" value="yes" id="ch_ltx_showcolumns" checked="checked" />
+                     <label for="ch_ltx_showcolumns"><?php echo $strColumnNames; ?></label><br />
+                 </fieldset>
+             </fieldset>
+             
+             <!-- CSV options -->
 <?php                    
 /* CSV export just for single table */
 if ($export_single) {
@@ -206,10 +251,13 @@ if ($export_single) {
 <?php if ($export_single) { ?>
                 gE('csv_options').style.display = 'none';
 <?php } ?>
+                gE('latex_options').style.display = 'none';
                 gE('sql_options').style.display = 'none';
                 gE('none_options').style.display = 'none';
                 if (document.getElementById('radio_dump_sql').checked) {
                     gE('sql_options').style.display = 'block';
+                } else if (document.getElementById('radio_dump_latex').checked) {
+                    gE('latex_options').style.display = 'block';
 <?php if ($export_single) { ?>
                 } else if (document.getElementById('radio_dump_csv').checked) {
                     gE('csv_options').style.display = 'block';

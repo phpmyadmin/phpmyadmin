@@ -755,10 +755,10 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @param   string   the database name
      * @param   string   the table name
-     * @param   string   the environment name to be used for the table
      * @param   integer  the offset on this table
      * @param   integer  the last row to get
      * @param   string   the end of line sequence
+     * @param   bool     whether to show column headers
      * @param   string   the url to go back in case of error
      * @param   string   sql query (optional)
      *
@@ -766,7 +766,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      *
      * @access  public
      */
-   function PMA_getTableLatex($db, $table, $environment, $limit_from, $limit_to, $crlf, $error_url, $sql_query) {
+   function PMA_getTableLaTeX($db, $table, $limit_from, $limit_to, $crlf, $do_columns, $error_url, $sql_query) {
 
         $local_query = 'SHOW COLUMNS FROM ' . PMA_backquote($table) . ' FROM ' . PMA_backquote($db);
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
@@ -788,7 +788,8 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         }
         $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $error_url);
 
-        $buffer      = '\\begin{table} ' . $crlf
+        $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strData'] . $crlf . '%' . $crlf
+                     . '\\begin{table} ' . $crlf
                      . ' \\begin{longtable}{|';
 
         for($index=0;$index<$columns_cnt;$index++) {
@@ -797,6 +798,17 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         $buffer .= '} ' . $crlf ;
 
         $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
+        
+        // show column names
+        if ($do_columns) {
+            $local_buffer = implode("\000", $columns);
+            for($k=0;$k<count($tex_escape);$k++) {
+                $local_buffer = str_replace($tex_escape[$k], '\\' . $tex_escape[$k], $local_buffer);
+            }
+            $buffer .= str_replace("\000", ' & ', $local_buffer);
+            unset($local_buffer);
+            $buffer .= ' \\\\ \\hline \\hline' . $crlf;
+        }
 
         // print the whole table
         while ($record = PMA_mysql_fetch_array($result, MYSQL_ASSOC)) {
@@ -828,12 +840,166 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         mysql_free_result($result);
         return $buffer;
 
-    } // end getTableLatex
+    } // end getTableLaTeX
 
+    /**
+     * Returns $table's structure as LaTeX
+     *
+     * @param   string   the database name
+     * @param   string   the table name
+     * @param   string   the end of line sequence
+     * @param   string   the url to go back in case of error
+     *
+     * @return  string   the structure on success
+     *
+     * @access  public
+     */
+    function PMA_getTableStructureLaTeX($db, $table, $crlf, $error_url, $do_relation = false, $do_comments = false, $do_mime = false)
+    {
+        /**
+         * Gets the relations settings
+         */
+        require('./libraries/relation.lib.php3');
+        require('./libraries/transformations.lib.php3');
 
+        $cfgRelation  = PMA_getRelationsParam();
+        $tex_escape = array("$", "%", "{", "}",  "&",  "#", "_", "^");
+        /**
+         * Gets fields properties
+         */
+        $local_query = 'SHOW FIELDS FROM ' . PMA_backquote($table);
+        $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+        $fields_cnt  = mysql_num_rows($result);
 
+        // Check if we can use Relations (Mike Beck)
+        if ($do_relation && !empty($cfgRelation['relation'])) {
+            // Find which tables are related with the current one and write it in
+            // an array
+            $res_rel = PMA_getForeigners($db, $table);
 
+            if ($res_rel && count($res_rel) > 0) {
+                $have_rel = TRUE;
+            } else {
+                $have_rel = FALSE;
+            }
+        }
+        else {
+               $have_rel = FALSE;
+        } // end if
 
+        /**
+         * Displays the table structure
+         */
+        $buffer      = $crlf . '%' . $crlf . '% ' . $GLOBALS['strStructure'] . $crlf . '%' . $crlf
+                     . '\\begin{table} ' . $crlf
+                     . ' \\begin{longtable}{|';
+
+        $columns_cnt = 4;
+        if ($do_relation && $have_rel) {
+            $columns_cnt++;
+        }
+        if ($do_comments && $cfgRelation['commwork']) {
+            $columns_cnt++;
+        }
+        if ($do_mime && $cfgRelation['mimework']) {
+            $columns_cnt++;
+        }
+        for($index=0;$index<$columns_cnt;$index++) {
+           $buffer .= 'c|';
+        }
+        $buffer .= '} ' . $crlf ;
+
+        $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
+        
+        $buffer .= $GLOBALS['strField'] . ' & ' . $GLOBALS['strType'] . ' & ' . $GLOBALS['strNull'] . ' & ' . $GLOBALS['strDefault'];
+        if ($do_relation && $have_rel) {
+            $buffer .= ' & ' . $GLOBALS['strLinksTo'];
+        }
+        if ($do_comments && $cfgRelation['commwork']) {
+            $buffer .= ' & ' . $GLOBALS['strComments'];
+            $comments = PMA_getComments($db, $table);
+        }
+        if ($do_mime && $cfgRelation['mimework']) {
+            $buffer .= ' & MIME';
+            $mime_map = PMA_getMIME($db, $table, true);
+        }
+        $buffer .= ' \\\\ \\hline \\hline ' . $crlf;
+        
+        while ($row = PMA_mysql_fetch_array($result)) {
+
+            $type             = $row['Type'];
+            // reformat mysql query output - staybyte - 9. June 2001
+            // loic1: set or enum types: slashes single quotes inside options
+            if (eregi('^(set|enum)\((.+)\)$', $type, $tmp)) {
+                $tmp[2]       = substr(ereg_replace('([^,])\'\'', '\\1\\\'', ',' . $tmp[2]), 1);
+                $type         = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
+                $type_nowrap  = '';
+
+                $binary       = 0;
+                $unsigned     = 0;
+                $zerofill     = 0;
+            } else {
+                $type_nowrap  = ' nowrap="nowrap"';
+                $type         = eregi_replace('BINARY', '', $type);
+                $type         = eregi_replace('ZEROFILL', '', $type);
+                $type         = eregi_replace('UNSIGNED', '', $type);
+                if (empty($type)) {
+                    $type     = '&nbsp;';
+                }
+
+                $binary       = eregi('BINARY', $row['Type'], $test);
+                $unsigned     = eregi('UNSIGNED', $row['Type'], $test);
+                $zerofill     = eregi('ZEROFILL', $row['Type'], $test);
+            }
+            $strAttribute     = '&nbsp;';
+            if ($binary) {
+                $strAttribute = 'BINARY';
+            }
+            if ($unsigned) {
+                $strAttribute = 'UNSIGNED';
+            }
+            if ($zerofill) {
+                $strAttribute = 'UNSIGNED ZEROFILL';
+            }
+            if (!isset($row['Default'])) {
+                if ($row['Null'] != '') {
+                    $row['Default'] = 'NULL';
+                }
+            } else {
+                $row['Default'] = $row['Default'];
+            }
+            $field_name = $row['Field'];
+
+            $local_buffer = $field_name . "\000" . $type . "\000" . (($row['Null'] == '') ? $GLOBALS['strNo'] : $GLOBALS['strYes'])  . "\000" . (isset($row['Default']) ? $row['Default'] : '');
+
+            if ($do_relation && $have_rel) {
+                $local_buffer .= "\000";
+                if (isset($res_rel[$field_name])) {
+                    $local_buffer .= $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field'];
+                }
+            }
+            if ($do_comments && $cfgRelation['commwork']) {
+                $local_buffer .= "\000";
+                if (isset($comments[$field_name])) {
+                    $local_buffer .= $comments[$field_name];
+                }
+            }
+            if ($do_mime && $cfgRelation['mimework']) {
+                $local_buffer .= "\000";
+                if (isset($mime_map[$field_name])) {
+                    $local_buffer .= str_replace('_', '/', $mime_map[$field_name]['mimetype']);
+                }
+            }
+            for($k=0;$k<count($tex_escape);$k++) {
+                $local_buffer = str_replace($tex_escape[$k], '\\' . $tex_escape[$k], $local_buffer);
+            }
+            $buffer .= str_replace("\000", ' & ', $local_buffer);
+            $buffer .= ' \\\\ \\hline ' . $crlf;
+        } // end while
+        mysql_free_result($result);
+        $buffer .= ' \\end{longtable} \\end{table}' . $crlf;
+        return $buffer;
+    } // end of the 'PMA_getTableStructureLaTeX()' function
 
 } // $__PMA_BUILD_DUMP_LIB__
 ?>

@@ -630,4 +630,6 @@ $strZeroRemovesTheLimit = 'Merk: Ved å sette disse til 0 (null) fjerner begrens
 $strZip = 'Komprimert (zip)';
 // To translate
 
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

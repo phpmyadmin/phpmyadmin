@@ -630,4 +630,6 @@ $strZip = '"kompresuar me zip"';
 // To translate
 
 $strCharset = 'Charset';  //to translate
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

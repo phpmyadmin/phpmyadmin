@@ -627,4 +627,6 @@ $strZeroRemovesTheLimit = 'Nota: Establint aquestes opcions a 0 (zero) treu el l
 $strZip = '"comprimit amb zip"';
 // To translate
 
+$strLaTeXOptions = 'LaTeX options';  //to translate
+$strRelations = 'Relations';  //to translate
 ?>

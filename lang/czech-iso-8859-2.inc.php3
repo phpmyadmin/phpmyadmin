@@ -275,6 +275,7 @@ $strKeyname = 'Klíèový název';
 $strKill = 'Zabít';
 
 $strLaTeX = 'LaTeX';
+$strLaTeXOptions = 'Nastavení exportu do LaTeXu';
 $strLandscape = 'Na ¹íøku';
 $strLength = 'Délka';
 $strLengthSet = 'Délka/Mno¾ina*';
@@ -442,6 +443,7 @@ $strReferentialIntegrity = 'Zkontrolovat integritu odkazù:';
 $strRelationNotWorking = 'Nìkteré funkce pro práci s&nbsp;propojenými tabulkami byly vypnuty. %sZde%s zjistíte proè.';
 $strRelationView = 'Zobrazit relace';
 $strRelationalSchema = 'Relaèní schéma';
+$strRelations = 'Relace';
 $strReloadFailed = 'Znovunaètení MySQL selhalo.';
 $strReloadMySQL = 'Znovunaètení MySQL';
 $strReloadingThePrivileges = 'Znovunaèítám oprávnìní';
