@@ -9,6 +9,7 @@ $Source$
     * lang/*: $updComTab -> $strUpdComTab
     * libraries/relation.lib.php3: put back version 1.30 message
       that uses $strUpdComTab
+    * lang/indonesian: Updated, thanks again to Rachim Tamsjadi.
 
 2003-04-09 Garvin Hicking <me@supergarv.de>
     * pdf_schema.php3: Fix from Doug Suerich (dougsuerich)
