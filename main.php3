@@ -116,17 +116,17 @@ if ($server == 0 || count($cfgServers) > 1) {
 if ($server > 0
     && empty($cfgServer['only_db']))
 {
-    // 2.1. With authentification
+    // 2.1. With authentication
     if ($cfgServer['adv_auth'])
     {
 		// Get user's rights
         if (empty($cfgServer['port'])) {
-            $dbh    = mysql_connect($cfgServer['host'], $cfgServer['stduser'], $cfgServer['stdpass']);
+            $stdlink  = mysql_connect($cfgServer['host'], $cfgServer['stduser'], $cfgServer['stdpass']);
         } else {
-            $dbh    = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']);
+            $stdlink = mysql_connect($cfgServer['host'] . ':' . $cfgServer['port'], $cfgServer['stduser'], $cfgServer['stdpass']);
         }
 	// Does user have global Create priv?
-        $rs_usr     = mysql_query('select * from mysql.user where User="' . $cfgServer['user'] . '"', $dbh);
+        $rs_usr     = mysql_query('select * from mysql.user where User="' . $cfgServer['user'] . '"', $stdlink);
         $result_usr = mysql_fetch_array($rs_usr);
         $create     = ($result_usr['Create_priv'] == 'Y');
 	$db_to_create = "";
@@ -137,15 +137,23 @@ if ($server > 0
 	// (Note: we only get here after a browser reload, I don't know why)
 
 	if (!$create) {
-		$rs_usr	    = mysql_query('select Db from mysql.db where User="'
-			 . $cfgServer['user'] . '"', $dbh); 
-		while ($row = mysql_fetch_array($rs_usr)) {
-	   		if (!mysql_select_db($row['Db'])) {
+
+  	   if (empty($cfgServer['port'])) {
+               $userlink = mysql_connect($cfgServer['host'], $cfgServer['user'],                           $cfgServer['password']) or mysql_die();
+           } else {
+               $userlink = mysql_connect($cfgServer['host'].":".
+	                   $cfgServer['port'], $cfgServer['user'], 
+                           $cfgServer['password']) or mysql_die();
+           }
+           $rs_usr	    = mysql_query('select Db from mysql.db where User="'
+			 . $cfgServer['user'] . '"', $stdlink); 
+	   while ($row = mysql_fetch_array($rs_usr)) {
+	   		if (!mysql_select_db($row['Db'],$userlink)) {
 			   $db_to_create = $row['Db'];
 			   $create=true;
 			   break;
 	   		}
-		}
+	   }
 	}
         // The user is allowed the create a db
         if ($create) {

@@ -8,6 +8,8 @@ $Source$
 2001-07-24  Marc Delisle  <lem9@users.sourceforge.net>
 	* updates to french
 	* new slovak translation thanks to lubos klokner <erkac@vault-tec.sk>
+	* main.php3: bug 443710 Create New Database option: was working
+          only if stduser has Global privileges on all databases.
 
 2001-07-24  Steve ALberty  <alberty@neptunlabs.de>
 	* tbl_copy.php3: fix parameter count, thanks Marc
