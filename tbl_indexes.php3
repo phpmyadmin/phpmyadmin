@@ -523,6 +523,6 @@ else if (!defined('PMA_IDX_INCLUDED')
 echo "\n";
 
 if (!defined('PMA_IDX_INCLUDED')){
-    require('./footer.inc.php3');
+    include('./footer.inc.php3');
 }
 ?>

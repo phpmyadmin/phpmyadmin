@@ -10,6 +10,7 @@ $Source$
     * tbl_properties_options.php3, tbl_properties_table_info.php3:
       bug 586230, thanks to Loïc
     * common.lib.php3: fix bad variable name
+    * tbl_indexes.php3, tbl_change.php3: fixes for PHP3 compatibility
 
 2002-07-25 Loïc Chapeaux  <lolo@phpheaven.net>
     * coding standard: common.lib.php3, config.inc.php3, Documentation.html,

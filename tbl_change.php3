@@ -7,9 +7,12 @@
  */
 require('./libraries/grab_globals.lib.php3');
 $js_to_run = 'tbl_change.js';
-include('./header.inc.php3');
+require('./header.inc.php3');
 
-// Displays the query submitted and its result
+
+/**
+ * Displays the query submitted and its result
+ */
 if (!empty($message)) {
     if (isset($goto)) {
         $goto_cpy      = $goto;
