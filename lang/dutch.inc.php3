@@ -400,4 +400,5 @@ $strHaveToShow = 'You have to choose at least one Column to display';  //to tran
 $strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
 $strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
 $strMySQLCharset = 'MySQL Charset';  //to translate
+$strComments = 'Comments';  //to translate
 ?>

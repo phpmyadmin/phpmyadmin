@@ -405,4 +405,5 @@ $strZip = '"compresso con zip"';
 
 // To translate
 
+$strComments = 'Comments';  //to translate
 ?>

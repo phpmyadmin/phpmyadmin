@@ -163,6 +163,8 @@
     <li>export (*) and import data to CSV values</li>
     <li>administer multiple servers and single databases</li>
     <li>check referential integrity</li>
+    <li>create complex Queries automatically connecting required tables</li>
+    <li>create PDF graphics of your Database layout</li>
     <li>
         communicate in more than
         <a class="navigation" href="./translators.html">38 different languages</a>
@@ -296,13 +298,15 @@
         </tr>
         <tr>
             <td colspan="2">
-                ... and if you want to use the bookmark feature:
+                ... and if you want to use the many new relation and bookmark features:
             </td>
         </tr>
         <tr>
             <td>&nbsp;&nbsp;&nbsp;</td>
             <td>
-                <tt>GRANT SELECT, INSERT, DELETE ON &lt;bookmark_db&gt;.&lt;bookmark_table&gt; TO 'pma'@'localhost';</tt>
+                <tt>GRANT SELECT, INSERT, DELETE ON &lt;pma_db&gt; TO 'pma'@'localhost';</tt>
+                (this of course requires you to have a special DB for phpMyAdmin, the contents
+                 will be explained later)
             </td>
         </tr>
         </table>
@@ -549,43 +553,62 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt>
-        <b>$cfg['Servers'][$i]['bookmarkdb']</b> string<br />
-        <b>$cfg['Servers'][$i]['bookmarktable']</b> string
-    </dt>
+    <dt><b>$cfg['Servers'][$i]['pmadb']</b> string</dt>
+    <dd>
+        Starting with Version 2.3.0 phpMyAdmin offers a lot of Features
+        to work with Master / Foreign - Tables. To use those as well as
+        the bookmarkfeature you will need to create a new db.<br />
+        
+        To use this functionality as superuser create a new database:
+        <ul>
+            <li>
+                create a new database for phpmyadmin:
+                <tt>
+                &nbsp;&nbsp;CREATE database phpmyadmin;
+                </tt>
+                Note that controluser must have SELECT, INSERT and DELETE
+                privileges on the bookmark table. Here is a query to set up
+                those privileges (using "pma" as the controluser:
+                <tt>
+                &nbsp;&nbsp;GRANT SELECT,INSERT,DELETE ON <pmadb> to
+                'pma'@localhost;
+                </tt>
+                do <b>not</b> give any other user rights on this db.
+            </li>
+            <li>
+                Enter the databasename in <tt>$cfg['Servers'][$i]['pmadb']</tt>
+            </li>
+        </ul>
+    </dd>
+    <a name="bookmark"></a>
+    <dt><b>$cfg['Servers'][$i]['bookmarktable']</b> string</dt>
     <dd>
         Since release 2.2.0 phpMyAdmin allows to bookmark queries. This can be
         useful for queries you often run.<br /><br />
 
-        To use this functionality you have to:
+        To allow the usage of this functionality the superuser has to:
         <ul>
-            <li>
-                create a table following this scheme:<br />
+            <li>set up a PMA database as described above</li>
+            <li>within this database create a table following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE bookmark (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(11) DEFAULT '0' NOT NULL auto_increment,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbase varchar(255) NOT NULL,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user varchar(255) NOT NULL,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label varchar(255) NOT NULL,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;query text NOT NULL,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id)<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE bookmark (
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(11) DEFAULT '0' NOT NULL auto_increment,
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbase varchar(255) NOT NULL,
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user varchar(255) NOT NULL,
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label varchar(255) NOT NULL,
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;query text NOT NULL,
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Bookmarks';<br />
                 </tt>
             </li>
-            <li>
-                then complete the two variables
-                <tt>$cfg['Servers'][$i]['bookmarkdb']</tt> and
-                <tt>$cfg['Servers'][$i]['bookmarktable']</tt> with the database
-                and table names you've choosen so phpMyAdmin will be able to
-                find the bookmarks.
-            </li>
+            <li>Enter the tablename in <tt>$cfg['Servers'][$i]['bookmarktable']</tt></li>
         </ul><br />
 
         Note that <tt>controluser</tt> must have <tt>SELECT</tt>,
         <tt>INSERT</tt> and <tt>DELETE</tt> privileges on the bookmark table.
         Here is a query to set up those privileges (using &quot;pma&quot; as
-        the controluser:<br />
-        <tt>GRANT SELECT,INSERT,DELETE ON &lt;bookmarkdb&gt;.&lt;bookmarktable&gt; to 'pma'@localhost;</tt>
+        the controluser and phpmyadmin as databasename:<br />
+        <tt>GRANT SELECT,INSERT,DELETE ON &lt;phpmyadmin&gt; to 'pma'@localhost;</tt>
         <br /><br />
     </dd>
 
@@ -625,18 +648,20 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         The keys can be numeric or character.
         <br /><br />
 
-        To use this functionality you have to:
+        To allow the usage of this functionality the superuser has to:
         <ul>
-            <li>
-                create in the same database a table (for example 'PMA_relation')
-                following this scheme:<br />
+            <li>set up a PMA database as described above</li>
+            <li>within this database create a table following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_relation` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `relation` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_db` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_table` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`master_field` varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_db` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_table` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`foreign_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_table`,`master_field`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (`master_db`,`master_table`,`master_field`),<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY foreign_field (foreign_db,foreign_table)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Relation table';<br />
                 </tt>
             </li>
@@ -645,18 +670,10 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
                 <tt>$cfg['Servers'][$i]['relation']</tt>
             </li>
             <li>
-                then manually fill the relation table with information about
-                the keys.
+                now as normal user open phpMyAdmin and for each table where you want to use this feature,
+                click &quot;Structure/Relation view/&quot; and choose foreign fields.
             </li>
         </ul><br />
-        If you created a relation table before release 2.3.0, you can upgrade
-        it with those commands, assuming your table name is &quot;PMA_relation&quot;:<br />
-        <tt>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE src_table master_table VARCHAR(64) NOT NULL;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE src_column master_field VARCHAR(64) NOT NULL;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_table foreign_table VARCHAR(64) NOT NULL;<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALTER TABLE `PMA_relation` CHANGE dest_column foreign_field VARCHAR(64) NOT NULL;<br />
-        </tt><br />
     </dd>
 
     <a name="table_info"></a>
@@ -670,17 +687,16 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br />
         This configuration variable will hold the name of this special
         table.
-        <br /><br />
-        To use this functionality you have to:
+        To allow the usage of this functionality the superuser has to:
         <ul>
-            <li>
-                create in the same database a table (for example
-                'PMA_table_info') following this scheme:<br />
+            <li>set up a PMA database as described above</li>
+            <li>within this database create a table following this scheme:<br />
                 <tt>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_table_info` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`display_field` varchar(64) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`table_name`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`db_name`,`table_name`)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';<br />
                 </tt>
             </li>
@@ -700,79 +716,81 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 
     <a name="table_coords"></a>
     <dt>
-        <b>$cfg['Servers'][$i]['table_coords']</b> string
+        <b>$cfg['Servers'][$i]['table_coords']</b> string<br />
+        <b>$cfg['Servers'][$i]['pdf_pages']</b> string
     </dt>
     <dd>
-        Since release 2.3.0 you can describe, in a special 'table_coords'
-        table, the coordinates where each table will be placed on a PDF schema
-        output.
-        <br />
-        This configuration variable will hold the name of this special
-        table.
+        Since release 2.3.0 you can have phpMyAdmin create PDF Pages showing the
+        relations between your tables. To do this it needs two tables 'pdf_pages'
+        (storing information about the available pdf Pages)
+        and 'table_coords' (storing coordinates where each table will be placed
+        on a PDF schema output).
         <br /><br />
         PDF output is supported under PHP4, and you must be using also the
         'relation' feature and have a table of PDF Pages (see $cfg['Servers'][$i]['pdf_pages']).
         Also, we used the fpdf library which currently
         only supports iso-8859 (Latin1) character sets in PDF.
         <br /><br />
-        To use this functionality you have to:
+       To allow the usage of this functionality the superuser has to:
         <ul>
-            <li>
-                create in the same database a table (for example
-                'PMA_table_coords') following this scheme:<br />
+            <li>set up a PMA database as described above</li>
+            <li>within this database create a table following this scheme:<br />
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `PMA_table_coords` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE `table_coords` (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`table_name` varchar(64) NOT NULL default '',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pdf_page_number` int NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`x` float unsigned NOT NULL default '0',<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`y` float unsigned NOT NULL default '0',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`table_name`, `pdf_page_number`)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (`db_name`,`table_name`, `pdf_page_number`)<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin PDF output';<br />
                 </tt>
             </li>
-            <li>
-                put the table name in
-                <tt>$cfg['Servers'][$i]['table_coords']</tt>
-            </li>
-        </ul><br />
-        Usage tips: <a class="navigation" href="#faqpdf">PDF output</a>.
-        <br /><br />
-    </dd>
-    <dt>
-        <b>$cfg['Servers'][$i]['pdf_pages']</b> string
-    </dt>
-    <dd>
-        Since release 2.3.0 you can describe, in a special 'pdf_pages'
-        table, which pages you want to be able to create as PDF.
-        <br />
-        This configuration variable will hold the name of this special
-        table.
-        <br /><br />
-        PDF output is supported under PHP4, and you must be using also the
-        'relation' feature and have a table of PDF Pages (see $cfg['Servers'][$i]['pdf_pages']).
-        Also, we used the fpdf library which currently
-        only supports iso-8859 (Latin1) character sets in PDF.
-        <br /><br />
-        To use this functionality you have to:
-        <ul>
-            <li>
-                create in the same database a table (for example
-                'PMA_pdf_pages') following this scheme:<br />
+            <li>also within this database create:</li>
                 <tt>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE PMA_pdf_pages (<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_nr int(10) unsigned NOT NULL auto_increment,<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_descr varchar(50) NOT NULL default '',<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  PRIMARY KEY  (page_nr)<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE pdf_pages (<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`db_name` varchar(64) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_nr int(10) unsigned NOT NULL auto_increment,<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page_descr varchar(50) NOT NULL default '',<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (page_nr),<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEY  (db_name),<br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='PDF Relationpages for PMA';<br />
                 </tt>
-            </li>
             <li>
-                put the table name in
+                put the first table name in
+                <tt>$cfg['Servers'][$i]['table_coords']</tt>
+                and the second table name in
                 <tt>$cfg['Servers'][$i]['pdf_pages']</tt>
             </li>
         </ul><br />
         Usage tips: <a class="navigation" href="#faqpdf">PDF output</a>.
         <br /><br />
+    </dd>
+    <dt><b>$cfg['Servers'][$i]['column_comments']</b> string</dt>
+    <dd>
+        Since release 2.3.0 you can store comments to describe each column
+        for each table. These will then be shown on the printview.
+        To allow the usage of this functionality the superuser has to:
+        <ul>
+            <li>set up a PMA database as described above</li>
+            <li>within this database create a table following this scheme:<br />
+                <tt>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE column_comments (
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(5) unsigned NOT NULL auto_increment,
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db_name varchar(64) NOT NULL default '',
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table_name varchar(64) NOT NULL default '',
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column_name varchar(64) NOT NULL default '',
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comment varchar(255) NOT NULL default '',
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY  (id),
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNIQUE KEY db_name (db_name,table_name,column_name)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) TYPE=MyISAM COMMENT='Comments for Columns';
+                </tt>
+            </li>
+            <li>
+                put the table name in
+                <tt>$cfg['Servers'][$i]['column_comments']</tt>
+            </li>
+        </ul>
     </dd>
 
     <dt>

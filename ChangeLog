@@ -5,6 +5,25 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-15 Mike Beck <mikebeck@users.sourceforge.net>
+    more changes because of new centralized db for pma
+    * db_details_structure.php3
+    * pdf_pages.php3
+    * pdf_schema.php3
+    * libraries/display_tbl.lib.php3
+    now also honour new place of relationtables
+    * Documentation.html
+    * Documentation.txt
+    described new db and tables
+    * db_details_links.php3
+      - put the link to tbl_qbe in topnavigation
+    * tbl_relation.php3
+        writing of column_comments possible
+    * tbl_printview.php3
+        column_comments will be displayed
+    * relation.lib.php3
+        new function: getComments($db,$table)
+
 2002-06-15 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian.inc.php3 updates, thanks to Valics Lehel
     * lang/lithuanian.inc.php3 updates, thanks to Vilius Zigmantas

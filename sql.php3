@@ -397,6 +397,8 @@ else {
             $js_to_run = 'functions.js';
             include('./header.inc.php3');
             include('./libraries/bookmark.lib.php3');
+            include('./libraries/relation.lib.php3');
+            $cfgRelation = PMA_getRelationsParam();
         }
 
         // Gets the list of fields properties

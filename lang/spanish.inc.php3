@@ -395,4 +395,5 @@ $strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string funct
 $strHaveToShow = 'You have to choose at least one Column to display';  //to translate
 $strMissingBracket = 'Missing Bracket';  //to translate
 $strMySQLCharset = 'MySQL Charset';  //to translate
+$strComments = 'Comments';  //to translate
 ?>

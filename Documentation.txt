@@ -46,6 +46,8 @@ Introduction
      * export (*) and import data to CSV values
      * administer multiple servers and single databases
      * check referential integrity
+     * create complex Queries automatically connecting required tables
+     * create PDF graphics of your Database layout
      * communicate in more than [21]38 different languages
 
    (*)  phpMyAdmin can compress (Zip, GZip -RFC 1952- or Bzip2 formats)
@@ -132,9 +134,10 @@ Installation
    GRANT SELECT ON mysql.db TO 'pma'@'localhost';
    GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv) ON
    mysql.tables_priv TO 'pma'@'localhost';
-   ... and if you want to use the bookmark feature:
-       GRANT SELECT, INSERT, DELETE ON <bookmark_db>.<bookmark_table> TO
-   'pma'@'localhost';
+   ... and if you want to use the many new relation and bookmark features:
+       GRANT SELECT, INSERT, DELETE ON <pma_db> TO 'pma'@'localhost';
+       (this of course requires you to have a special DB for phpMyAdmin, the contents
+       will be explained later)
      * Then each of the true users should be granted of a set of
        privileges on a set of particular databases but shouldn't have any
        global privileges. For example, to grant the user real_user with
@@ -307,13 +310,26 @@ CRIPT_NAME'], '/')+1);
           you want to show only certain databases on your system, for
           example.
 
-   $cfg['Servers'][$i]['bookmarkdb'] string
+   $cfg['Servers'][$i]['pmadb'] string
+          Starting with Version 2.3.0 phpMyAdmin offers a lot of Features
+          to work with Master / Foreign - Tables. To use those as well as
+          the bookmarkfeature you will need to create a new db.
+
           $cfg['Servers'][$i]['bookmarktable'] string
           Since release 2.2.0 phpMyAdmin allows to bookmark queries. This
           can be useful for queries you often run.
-          To use this functionality you have to:
+          To use this functionality as superuser create a new database:
+            CREATE database phpmyadmin;
+          Note that controluser must have SELECT, INSERT and DELETE
+          privileges on the bookmark table. Here is a query to set up
+          those privileges (using "pma" as the controluser:
+          GRANT SELECT,INSERT,DELETE ON <pmadb> to
+          'pma'@localhost;
+          do _not_ give any other user rights on this db.
 
-          + create a table following this scheme:
+          Enter the databasename in $cfg['Servers'][$i]['pmadb']
+   $cfg['Servers'][$i]['bookmarktable'] string
+          Inside your phpMyAdmin Databse create a table following this scheme:
                  CREATE TABLE bookmark (
                    id int(11) DEFAULT '0' NOT NULL auto_increment,
                    dbase varchar(255) NOT NULL,
@@ -322,17 +338,7 @@ CRIPT_NAME'], '/')+1);
                    query text NOT NULL,
                    PRIMARY KEY (id)
                  );
-          + then complete the two variables
-            $cfg['Servers'][$i]['bookmarkdb'] and
-            $cfg['Servers'][$i]['bookmarktable'] with the database and
-            table names you've choosen so phpMyAdmin will be able to find
-            the bookmarks.
-
-          Note that controluser must have SELECT, INSERT and DELETE
-          privileges on the bookmark table. Here is a query to set up
-          those privileges (using "pma" as the controluser:
-          GRANT SELECT,INSERT,DELETE ON <bookmarkdb>.<bookmarktable> to
-          'pma'@localhost;
+          and add the name in $cfg['Servers'][$i]['bookmarktable']
 
    $cfg['Servers'][$i]['relation'] string
           Since release 2.2.4 you can describe, in a special 'relation'
@@ -353,38 +359,25 @@ CRIPT_NAME'], '/')+1);
             the table_coords table).
 
           The keys can be numeric or character.
-          To use this functionality you have to:
+          To use this functionality you have to
+          + set up a PMA database as
+            described above and inside this database create a table:
 
-          + create in the same database a table (for example
-            'PMA_relation') following this scheme:
-                 CREATE TABLE `PMA_relation` (
-                   `master_table` varchar(64) NOT NULL default '',
-                   `master_field` varchar(64) NOT NULL default '',
-                   `foreign_table` varchar(64) NOT NULL default '',
-                   `foreign_field` varchar(64) NOT NULL default '',
-                   `pdf_page_number` int(11) NOT NULL default '0',
-                   PRIMARY KEY (`master_table`,`master_field`),
-                   KEY pdf_page_number (`pdf_page_number`)
-                 ) TYPE=MyISAM COMMENT='Relation table';
+            CREATE TABLE relation (
+              master_db varchar(64) NOT NULL default '',
+              master_table varchar(64) NOT NULL default '',
+              master_field varchar(64) NOT NULL default '',
+              foreign_db varchar(64) NOT NULL default '',
+              foreign_table varchar(64) NOT NULL default '',
+              foreign_field varchar(64) NOT NULL default '',
+              PRIMARY KEY  (master_db,master_table,master_field),
+              KEY foreign_field (foreign_db,foreign_table)
+            ) TYPE=MyISAM COMMENT='Table Relation';
+
           + put the relation table name in
             $cfg['Servers'][$i]['relation']
-          + then manually fill the relation table with information about
-            the keys.
-
-          If you created a relation table before release 2.3.0, you can
-          upgrade it with those commands, assuming your table name is
-          "PMA_relation":
-               ALTER TABLE `PMA_relation` CHANGE src_table master_table
-          VARCHAR(64) NOT NULL
-               ALTER TABLE `PMA_relation` CHANGE src_column master_field
-          VARCHAR(64) NOT NULL
-               ALTER TABLE `PMA_relation` CHANGE dest_table foreign_table
-          VARCHAR(64) NOT NULL
-               ALTER TABLE `PMA_relation` CHANGE dest_column
-          foreign_field VARCHAR(64) NOT NULL
-               ALTER TABLE `PMA_relation` ADD `pdf_page_number` int(11)
-          NOT NULL;
-               ALTER TABLE `PMA_relation` ADD INDEX(`pdf_page_number`);
+          + on the tablestructure page you will find a link to edit
+            a tables relation which you can use to fill this table.
 
    $cfg['Servers'][$i]['table_info'] string
           Since release 2.3.0 you can describe, in a special 'table_info'
@@ -392,16 +385,16 @@ CRIPT_NAME'], '/')+1);
           the cursor over the corresponding key.
           This configuration variable will hold the name of this special
           table.
-          To use this functionality you have to:
 
-          + create in the same database a table (for example
-            'PMA_table_info') following this scheme:
-                 CREATE TABLE `PMA_table_info` (
-                   `table_name` varchar(64) NOT NULL default '',
-                   `display_field` varchar(64) NOT NULL default '',
-                   PRIMARY KEY (`table_name`)
-                 ) TYPE=MyISAM COMMENT='Table information for
-            phpMyAdmin';
+          + To use this functionality you have to set up a PMA database as
+            described above and inside this database create a table:
+                CREATE TABLE table_info (
+                  db_name varchar(64) NOT NULL default '',
+                  table_name varchar(64) NOT NULL default '',
+                  display_field varchar(64) NOT NULL default '',
+                  PRIMARY KEY  (db_name,table_name)
+                ) TYPE=MyISAM COMMENT='Table information for phpMyAdmin';
+
           + put the table name in $cfg['Servers'][$i]['table_info']
           + then for each table where you want to use this feature, click
             "Structure/Relation view/Choose field to display" to choose
@@ -410,9 +403,11 @@ CRIPT_NAME'], '/')+1);
           Usage tip: [41]Display field.
 
    $cfg['Servers'][$i]['table_coords'] string
-          Since release 2.3.0 you can describe, in a special
-          'table_coords' table, the coordinates where each table will be
-          placed on a PDF schema output.
+   $cfg['Servers'][$i]['pdf_pages'] string
+          Since release 2.3.0 you can have phpMyAdmin create a PDF showing
+          the relations within your Database. To use this feature you will
+          need a table that stores the PDF pages to create and the Coordinates
+          of Tables to use per page.
           This configuration variable will hold the name of this special
           table.
           PDF output is supported under PHP4, and you must be using also
@@ -421,21 +416,49 @@ CRIPT_NAME'], '/')+1);
           PDF.
           To use this functionality you have to:
 
-          + create in the same database a table (for example
-            'PMA_table_coords') following this scheme:
-                 CREATE TABLE `PMA_table_coords` (
-                   `table_name` varchar(64) NOT NULL default '',
-                   `pdf_page_number` int NOT NULL default '0',
-                   `x` float unsigned NOT NULL default '0',
-                   `y` float unsigned NOT NULL default '0',
-                   PRIMARY KEY (`table_name`, `pdf_page_number`)
-                 ) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin
-            PDF output';
-          + put the table name in $cfg['Servers'][$i]['table_coords']
-          + then manually fill this table with information about the
-            table positions on the PDF schema.
+          + set up a PMA database as described above
+          + inside this database create a table:
+                CREATE TABLE table_coords (
+                  db_name varchar(64) NOT NULL default '',
+                  table_name varchar(64) NOT NULL default '',
+                  pdf_page_number int(11) NOT NULL default '0',
+                  x float unsigned NOT NULL default '0',
+                  y float unsigned NOT NULL default '0',
+                  PRIMARY KEY  (db_name,table_name,pdf_page_number)
+                ) TYPE=MyISAM COMMENT='Table coordinates for phpMyAdmin PDF output';
+          + Also in the PMA database create the following table:
+                CREATE TABLE pdf_pages (
+                  db_name varchar(64) NOT NULL default '',
+                  page_nr int(10) unsigned NOT NULL auto_increment,
+                  page_descr varchar(50) NOT NULL default '',
+                  PRIMARY KEY  (page_nr),
+                  KEY db (db_name)
+                ) TYPE=MyISAM COMMENT='PDF Relationpages for PMA';
+
+          + put the first tables name in $cfg['Servers'][$i]['table_coords']
+          + put the second tables name in $cfg['Servers'][$i]['pdf_pages']
+          + on the bottom of the structurepage for databases there is a link
+            to create pdf pages, and once you created one also one to have the
+            pdf created
 
           Usage tips: [42]PDF output.
+   $cfg['Servers'][$i]['column_comments'] string
+          Since release 2.3.0 you can store comments to describe each column
+          for each table. These will then be shown on the printview.
+          To use this functionality you have to:
+
+          + set up a PMA database as described above
+          + inside this database create a table:
+                CREATE TABLE column_comments (
+                  id int(5) unsigned NOT NULL auto_increment,
+                  db_name varchar(64) NOT NULL default '',
+                  table_name varchar(64) NOT NULL default '',
+                  column_name varchar(64) NOT NULL default '',
+                  comment varchar(255) NOT NULL default '',
+                  PRIMARY KEY  (id),
+                  UNIQUE KEY db_name (db_name,table_name,column_name)
+                ) TYPE=MyISAM COMMENT='Comments for Columns';
+          + put the tables name in $cfg['Servers'][$i]['column_comments']
 
    $cfg['Servers'][$i]['AllowDeny']['order'] string
           If your rule order is empty, then IP authentication is
@@ -1097,8 +1120,9 @@ FAQ - Frequently Asked Questions
 
    How can I use the relation table in Query-by-example?
    Here is an example with the tables persons, towns and countries. If
-   you don't have a PMA_relation table, create it as explained in the
-   configuration section. Then create the example tables:
+   you don't have a PMA Database and a relation table, create it as
+   explained in the configuration section or beg your provider to do so.
+   Then create the example tables:
         CREATE TABLE countries (
           country_code char(1) NOT NULL default '',
           description varchar(10) NOT NULL default '',
@@ -1139,7 +1163,7 @@ FAQ - Frequently Asked Questions
      * Click "Submit query"
 
    How can I use the "display field" feature?
-   Starting from the previous example, create the PMA_table_info as
+   Starting from the previous example, create the PMA.table_info as
    explained in the configuration section, then browse your persons
    table, and move the mouse over a town code or country code.
 

@@ -54,15 +54,7 @@ if ($cfgRelation['relwork']
                             . ' AND master_field = \'' . PMA_sqlAddslashes($key)   . '\'';
         } // end if... else....
         if(isset($upd_query)){
-            if (isset($dbh)) {
-                mysql_select_db($cfgRelation['db'],$dbh);
-                $upd_rs = PMA_mysql_query($upd_query, $dbh) or PMA_mysqlDie(mysql_error($dbh), $upd_query, '', $err_url_0);
-                mysql_select_db($db,$dbh);
-            } else {
-                mysql_select_db($cfgRelation['db']);
-                $upd_rs = PMA_mysql_query($upd_query, $GLOBALS['dbh']) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
-                mysql_select_db($db);
-            }
+            $upd_rs = PMA_query_as_cu($upd_query);
         }
     } // end while
 } // end if
@@ -84,24 +76,54 @@ if ($cfgRelation['displaywork']
                    . '\'' . PMA_sqlAddslashes($display_field) .'\')';
     }
     if(isset($upd_query)){
-        if (isset($dbh)) {
-            mysql_select_db($cfgRelation['db'],$dbh);
-            $upd_rs = PMA_mysql_query($upd_query, $dbh) or PMA_mysqlDie(mysql_error($dbh), $upd_query, '', $err_url_0);
-            mysql_select_db($db,$dbh);
-        } else {
-            mysql_select_db($cfgRelation['db']);
-            $upd_rs = PMA_mysql_query($upd_query, $GLOBALS['dbh']) or PMA_mysqlDie('', $upd_query, '', $err_url_0);
-            mysql_select_db($db);
-        }
+        $upd_rs = PMA_query_as_cu($upd_query);
     }
 } // end if
 
+if($cfgRelation['commwork']
+    && isset($submit_comm) && $submit_comm == 'true') {
+    while (list($key,$value) = each($comment)) {
+        $test_qry  = 'SELECT comment FROM ' .  PMA_backquote($cfgRelation['column_comments'])
+                   . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                   . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
+        $test_rs   = PMA_query_as_cu($test_qry);
+        if(mysql_num_rows($test_rs)>0) {
+            if(strlen($value)>0){
+                $upd_query = 'UPDATE ' .  PMA_backquote($cfgRelation['column_comments'])
+                           . ' SET comment = \'' . PMA_sqlAddslashes($value) . '\''
+                           . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                           . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                           . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
+            } else {
+                $upd_query = 'DELETE FROM ' .  PMA_backquote($cfgRelation['column_comments'])
+                           . ' WHERE db_name  = \'' . PMA_sqlAddslashes($db) . '\''
+                           . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\''
+                           . ' AND column_name = \'' . PMA_sqlAddslashes($key) . '\'';
+            }
+        } else if (strlen($value)>0){
+            $upd_query = 'INSERT INTO ' .  PMA_backquote($cfgRelation['column_comments'])
+                       . ' (db_name,table_name,column_name,comment) '
+                       . ' VALUES(\'' . PMA_sqlAddslashes($db) . '\','
+                       . '\'' . PMA_sqlAddslashes($table) . '\','
+                       . '\'' . PMA_sqlAddslashes($key) . '\','
+                       . '\'' . PMA_sqlAddslashes($value) . '\')';
+        }
+        if(isset($upd_query)){
+            $upd_rs = PMA_query_as_cu($upd_query);
+        }
+    }  // end while (transferred data)
+} // end if (commwork)
+
 //  now that we might have changed we have to see again
 if ($cfgRelation['relwork']) {
-        $existrel = getForeigners($db,$table);
+    $existrel = getForeigners($db,$table);
 }
 if ($cfgRelation['displaywork']) {
-    $disp = getDisplayField($db,$table);
+    $disp     = getDisplayField($db,$table);
+}
+if ($cfgRelation['commwork']) {
+    $comments = getComments($db,$table);
 }
 /**
  * Dialog
@@ -155,24 +177,26 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 
     <table>
     <tr>
-        <td>&nbsp;</td>
-        <td align="center"><b><?php echo $strLinksTo; ?></b></td>
+        <th colspan=2 align="center"><b><?php echo $strLinksTo; ?></b></th>
     </tr>
     <?php
 
     while ($row = PMA_mysql_fetch_array($col_rs)) {
-        echo "\n";
+        $save_row[] = $row;
+    }
+    for ($i=0;$i<count($save_row);$i++){
+            echo "\n";
         ?>
     <tr>
-        <th><?php echo $row[0]; ?></th>
+        <th><?php echo $save_row[$i]['Field']; ?></th>
         <td>
-            <input type="hidden" name="src_field" value="<?php echo $row['Field']; ?>" />
-            <select name="destination[<?php echo htmlspecialchars($row['Field']); ?>]">
+            <input type="hidden" name="src_field" value="<?php echo $save_row[$i]['Field']; ?>" />
+            <select name="destination[<?php echo htmlspecialchars($save_row[$i]['Field']); ?>]">
         <?php
         echo "\n";
         reset($selectboxall);
         while (list($key, $value) = each($selectboxall)) {
-            $myfield = $row['Field'];
+            $myfield = $save_row[$i]['Field'];
             if(isset($existrel[$myfield])){
                 $test    = $existrel[$myfield]['foreign_db'] . '.'
                          . $existrel[$myfield]['foreign_table'] . '.'
@@ -192,7 +216,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         </td>
     </tr>
         <?php
-    } // end while
+    } // end for
 
     echo "\n";
     ?>
@@ -235,8 +259,46 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     <input type="submit" value="<?php echo $strGo; ?>" />
 </form>
         <?php
-    } // end if
-} // end if
+    } // end if (displayworks)
+    if($cfgRelation['commwork']) {
+        ?>
+        <form method="post" action="tbl_relation.php3">
+        <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+        <input type="hidden" name="server" value="<?php echo $server; ?>" />
+        <input type="hidden" name="db" value="<?php echo $db; ?>" />
+        <input type="hidden" name="table" value="<?php echo $table; ?>" />
+        <input type="hidden" name="submit_comm" value="true" />
+
+        <table>
+        <tr>
+            <th colspan=2 align="center"><b><?php echo $strComments; ?></b></th>
+        </tr>
+        <?php
+        for ($i=0;$i<count($save_row);$i++){
+            $field =$save_row[$i]['Field'];
+                echo "\n";
+            ?>
+        <tr>
+            <th><?php echo $field; ?></th>
+            <td>
+                <input type="text" name="comment[<?php echo $field;?>]" value="<?php echo htmlspecialchars($comments[$field]);?>">
+            </td>
+        </tr>
+            <?php
+        } // end for
+
+        echo "\n";
+            ?>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="<?php echo $strGo; ?>" />
+                </td>
+            </tr>
+            </table>
+        </form>
+        <?php
+    } //    end if (comments work)
+} // end if (we have columns in this table)
 
 
 /**

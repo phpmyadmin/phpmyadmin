@@ -403,4 +403,5 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 
 // To translate
+$strComments = 'Comments';  //to translate
 ?>

@@ -12,7 +12,9 @@ if (!isset($selected_tbl)) {
 require('./libraries/relation.lib.php3');
 
 $cfgRelation = PMA_getRelationsParam();
-
+if ($cfgRelation['commwork']) {
+    $comments = getComments($db,$table);
+}
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -176,6 +178,9 @@ while (list($key, $table) = each($the_tables)) {
     if ($have_rel) {
         echo '<th>' . ucfirst($strLinksTo) . '</th>';
     }
+    if($cfgRelation['commwork']) {
+        echo '<th>' . ucfirst($strComments) . '</th>';
+    }
     echo "\n";
     ?>
 </tr>
@@ -250,6 +255,13 @@ while (list($key, $table) = each($the_tables)) {
         echo '&nbsp;</td>';
     }
     echo "\n";
+    if($cfgRelation['commwork']) {
+        echo '<td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
+        if(isset($comments[$field_name])) {
+            echo htmlspecialchars($comments[$field_name]);
+        }
+        echo '&nbsp;</td>';
+    }
     ?>
 </tr>
         <?php

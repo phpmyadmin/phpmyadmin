@@ -396,4 +396,5 @@ $strWrongUser = 'Wrong username/password. Access denied.';
 $strYes = 'Yes';
 
 $strZip = '"zipped"';
+$strComments = 'Comments';  //to translate
 ?>

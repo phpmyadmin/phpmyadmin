@@ -398,4 +398,5 @@ $strYes = 'Taip';
 $strZip = '"zip"';
 
 //to translate:
+$strComments = 'Comments';  //to translate
 ?>

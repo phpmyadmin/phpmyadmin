@@ -403,4 +403,5 @@ $strYes = ' Po ';
 $strZip = '"kompresuar me zip"';
 
 // To translate
+$strComments = 'Comments';  //to translate
 ?>

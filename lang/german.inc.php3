@@ -404,4 +404,5 @@ $strWrongUser = 'Falscher Benutzername/Kennwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 $strZip = 'Zip komprimiert';
+$strComments = 'Comments';  //to translate
 ?>

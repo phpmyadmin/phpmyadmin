@@ -1320,6 +1320,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $sql_query, $num_rows, $unlim_num_rows, $pos, $fields_meta, $fields_cnt;
         global $vertical_display, $disp_direction, $repeat_cells;
         global $dontlimitchars;
+        global $cfgRelation;
 
         // 1. ----- Prepares the work -----
 
@@ -1392,31 +1393,24 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         // init map
         $map = array();
 
-        if (!empty($cfg['Server']['relation'])) {
+        if ($cfgRelation['relwork']) {
             // find tables
             $pattern = '`?[[:space:]]+(((ON|on)[[:space:]]+[^,]+)?,|((NATURAL|natural)[[:space:]]+)?(INNER|inner|LEFT|left|RIGHT|right)([[:space:]]+(OUTER|outer))?[[:space:]]+(JOIN|join))[[:space:]]*`?';
             $target  = eregi_replace('^.*[[:space:]]+FROM[[:space:]]+`?|`?[[:space:]]*(ON[[:space:]]+[^,]+)?(WHERE[[:space:]]+.*)?$', '', $sql_query);
             $tabs    = '(\'' . join('\',\'', split($pattern, $target)) . '\')';
 
-            $local_query = 'SELECT master_field, foreign_table, foreign_field'
-                         . ' FROM ' . PMA_backquote($cfg['Server']['relation'])
-                         . ' WHERE master_table IN ' . $tabs;
-            $result      = @PMA_mysql_query($local_query);
+            $local_query = 'SELECT master_field, foreign_db, foreign_table, foreign_field'
+                         . ' FROM ' . PMA_backquote($cfgRelation['relation'])
+                         . ' WHERE master_db = \'' . $db . '\''
+                         . ' AND master_table IN ' . $tabs;
+            $result      = @PMA_query_as_cu($local_query);
             if ($result) {
                 while ($rel = PMA_mysql_fetch_row($result)) {
                     // check for display field?
-                    if (!empty($cfg['Server']['table_info'])) {
-                        $ti_query  = 'SELECT display_field'
-                                   . ' FROM ' . PMA_backquote($cfg['Server']['table_info'])
-                                   . ' WHERE table_name = \'' . PMA_sqlAddslashes($rel[1]) . '\'';
-                        $result_ti = @PMA_mysql_query($ti_query);
-                        if ($result_ti) {
-                           list($display_field) = PMA_mysql_fetch_row($result_ti);
-                        } else {
-                           $display_field = '';
-                        }
+                    if ($cfgRelation['displaywork']) {
+                        $display_field = getDisplayField($db,$rel[2]);
                     } // end if
-                    $map[$rel[0]] = array($rel[1], $rel[2], $display_field);
+                    $map[$rel[0]] = array($rel[2], $rel[3], $display_field);
                 } // end while
             } // end if
         } // end 2b

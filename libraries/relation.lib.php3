@@ -167,5 +167,29 @@ if (!defined('PMA_RELATION_LIB_INCLUDED')){
             return FALSE;
         }
      }
+    /**
+     *  Get the comments for all rows of a table
+     *  @return arry  [field_name] = comment
+     *  @global array the list of Relationsettings
+     *  @access public
+     *  @author Mike Beck <mikebeck@users.sourceforge.net>
+     */
+     function getComments($db,$table) {
+        global $cfgRelation;
+        $_com_qry  = 'SELECT column_name,comment FROM ' .  PMA_backquote($cfgRelation['column_comments'])
+                   . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
+                   . ' AND table_name = \'' . PMA_sqlAddslashes($table) . '\'';
+        $_com_rs   = PMA_query_as_cu($_com_qry);
+        while ($row = @PMA_mysql_fetch_array($_com_rs)) {
+            $col = $row['column_name'];
+            $comment[$col] = $row['comment'];
+         } // end while
+
+         if(is_array($comment)) {
+            return $comment;
+         } else {
+            return FALSE;
+         }
+     } // end function getComments
 } // $__PMA_RELATION_LIB__INCLUDED
 ?>
