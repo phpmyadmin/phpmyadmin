@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
+
 2003-10-06 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_replace.php3: Do not include query in redirect url if too long.
 
