@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-10 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech*.php3: Updated translation.
+
 2002-12-10 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_*.php3, lang/*.inc.php3, main.php3:
       - Added 'SHOW PROCESSLIST' interface;
