@@ -6,6 +6,8 @@ $Id$
 $Source$
 
 2004-01-05 Garvin Hicking <returnofthegarv@supergarv.de>
+    * libraries/functions.js: Reverted row marker patch. See RFE #867284 
+      for details.
     * libraries/display_tbl.lib.php, libraries/display_tbl_links.lib.php,
       libraries/functions.js: Upon clicking on a result row, de/activate
       the checkbox next to it. Only makes sense for horizontal mode. Can be
