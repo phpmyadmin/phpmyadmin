@@ -66,6 +66,20 @@ if ($goto != 'db_details.php3' && $goto != 'tbl_properties.php3') {
              . (($goto == 'tbl_properties.php3') ? '&amp;table=' . urlencode($table) : '');
 }
 
+require('./libraries/db_table_exists.lib.php3');
+
+/**
+ * Set parameters for links
+ */
+$url_query = 'lang=' . $lang
+           . '&amp;convcharset=' . $convcharset
+           . '&amp;server=' . $server
+           . '&amp;db=' . urlencode($db)
+           . '&amp;table=' . urlencode($table)
+           . '&amp;goto=tbl_properties.php3';
+
+require('./tbl_properties_table_info.php3');
+echo '<br />';
 
 /**
  * Get the list of the fields of the current table
