@@ -28,6 +28,8 @@ $strAddUser = 'Aggiungi un nuovo utente';
 $strAddUserMessage = 'Hai aggiunto un nuovo utente.';
 $strAffectedRows = 'Righe affette:';
 $strAfter = 'Dopo';
+$strAfterInsertBack = 'Indietro';
+$strAfterInsertNewInsert = 'Inserisci un nuovo record';
 $strAll = 'Tutti';
 $strAlterOrderBy = 'Altera tabella ordinata per';
 $strAnalyzeTable = 'Analizza tabella';
@@ -321,6 +323,6 @@ $strYes = ' Si ';
 $strZip = '"compresso con zip"';
 
 // To translate
-$strAfterInsertBack = 'Return';
-$strAfterInsertNewInsert = 'Insert a new record';
+
+
 ?>
