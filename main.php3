@@ -125,7 +125,7 @@ if ($server == 0 || count($cfgServers) > 1) {
             if (!empty($val['only_db'])) {
                 echo ' - ' . (is_array($val['only_db']) ? implode(', ', $val['only_db']) : $val['only_db']);
             }
-            if (!empty($val['user']) && ($val['auth_type'] == 'basic')) {
+            if (!empty($val['user']) && ($val['auth_type'] == 'config')) {
                 echo '  (' . $val['user'] . ')';
             }
             echo '&nbsp;</option>' . "\n";
@@ -209,7 +209,7 @@ if ($server > 0) {
     // loic1: Displays the MySQL column only if at least one feature has to be
     //        displayed
     if ($is_superuser || $is_create_priv || $is_process_priv || $is_reload_priv
-        || $cfgShowMysqlInfo || $cfgShowMysqlVars || $cfgServer['auth_type'] != 'basic') {
+        || $cfgShowMysqlInfo || $cfgShowMysqlVars || $cfgServer['auth_type'] != 'config') {
         ?>
     <!-- MySQL server related links -->
     <td valign="top" align="<?php echo $cell_align_left; ?>">
@@ -326,7 +326,7 @@ if ($server > 0) {
         }
 
         // Logout for advanced authentication
-        if ($cfgServer['auth_type'] != 'basic') {
+        if ($cfgServer['auth_type'] != 'config') {
             $http_logout = ($cfgServer['auth_type'] == 'http')
                          ? "\n" . '                <a href="' . $cfgPmaAbsoluteUri . 'Documentation.html#login_bug" target="documentation">(*)</a>'
                          : '';
