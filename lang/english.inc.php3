@@ -273,4 +273,5 @@ $strYes = "Yes";
 $strBinary="Binary";  
 $strBinaryDoNotEdit="Binary - do not edit";  
 $strEnglishPrivileges=" Note: MySQL privilege names are expressed in English ";
+$strRowSize=" Row size ";  //to translate
 ?>

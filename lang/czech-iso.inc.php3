@@ -271,4 +271,5 @@ $strYes = "Ano";
 
 // export Zip (July 07, 2001, 19:48am)
 $strGzip = "\"gzipped\"";  //to translate
+$strRowSize=" Row size ";  //to translate
 ?>

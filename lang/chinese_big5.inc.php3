@@ -274,4 +274,5 @@ $strNotValidNumber = " is not a valid row number!";  //to translate
 
 // export Zip (July 07, 2001, 19:48am)
 $strGzip = "\"gzipped\"";  //to translate
+$strRowSize=" Row size ";  //to translate
 ?>
