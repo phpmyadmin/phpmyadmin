@@ -148,12 +148,13 @@ function PMA_auth()
     // should be recalled, else skip the IE autocomplete feature.
     if ($cfg['LoginCookieRecall']) {
         // username
-        if (!empty($GLOBALS['pma_cookie_username'])) {
-            $default_user = $GLOBALS['pma_cookie_username'];
-        }
-        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username-' . $server])) {
+        // do not try to use pma_cookie_username as it was encoded differently
+        // in previous versions and would produce an undefined offset in blowfish
+
+        if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username-' . $server])) {
             $default_user = $_COOKIE['pma_cookie_username-' . $server];
         }
+
         $decrypted_user = isset($default_user) ? PMA_blowfish_decrypt($default_user, $GLOBALS['cfg']['blowfish_secret']) : '';
         $pos = strrpos($decrypted_user, ':');
         $default_user = substr($decrypted_user, 0, $pos);
@@ -513,11 +514,7 @@ function PMA_auth_check()
         }
 
         // username
-        if (!empty($pma_cookie_username)) {
-            $PHP_AUTH_USER = $pma_cookie_username;
-            $from_cookie   = TRUE;
-        }
-        else if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username-' . $server])) {
+        if (!empty($_COOKIE) && isset($_COOKIE['pma_cookie_username-' . $server])) {
             $PHP_AUTH_USER = $_COOKIE['pma_cookie_username-' . $server];
             $from_cookie   = TRUE;
         }
