@@ -267,6 +267,8 @@ $strRunSQLQuery = 'Kjør SQL spørring/spørringer mot databasen %s';
 
 $strSave = 'Lagre';
 $strSelect = 'Spørring';
+$strSelectADb = 'Vennligst velg en database';
+$strSelectAll = 'Velg alle';
 $strSelectFields = 'Velg felt (minst ett):';
 $strSelectNumRows = 'i spørring';
 $strSend = 'Last ned og lagre som fil';
@@ -316,6 +318,7 @@ $strType = 'Type';
 
 $strUncheckAll = 'Fjern avmerking';
 $strUnique = 'Unik';
+$strUnselectAll = 'Fjern alle valgte';
 $strUpdatePrivMessage = 'Du har oppdatert privilegiene til %s.';
 $strUpdateProfile = 'Oppdater profil:';
 $strUpdateProfileMessage = 'Profilen har blitt oppdatert.';
@@ -341,7 +344,4 @@ $strYes = 'Ja';
 $strZip = '"komprimert (zip)"';
 
 // To translate
-$strSelectADb = 'Please select a database';
-$strSelectAll = 'Select All';  //to translate
-$strUnselectAll = 'Unselect All';  //to translate
 ?>
