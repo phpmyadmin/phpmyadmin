@@ -1331,7 +1331,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             </td>
         </tr>
             <?php
-            if ($cfg['ShowSQL'] == TRUE && !empty($GLOBALS['sql_query'])) {
+            if ($cfg['ShowSQL'] == TRUE && (!empty($GLOBALS['sql_query']) || !empty($GLOBALS['display_query']))) {
+                $local_query = !empty($GLOBALS['display_query']) ? $GLOBALS['display_query'] : $GLOBALS['sql_query'];
                 // Basic url query part
                 $url_qpart = '?' . PMA_generate_common_url(isset($GLOBALS['db']) ? $GLOBALS['db'] : '', isset($GLOBALS['table']) ? $GLOBALS['table'] : '');
                 echo "\n";
@@ -1351,11 +1352,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                 }
                 if (isset($new_line)) {
                      /* SQL-Parser-Analyzer */
-                    $query_base = htmlspecialchars($GLOBALS['sql_query']);
+                    $query_base = htmlspecialchars($local_query);
                      /* SQL-Parser-Analyzer */
                     $query_base = ereg_replace("((\015\012)|(\015)|(\012))+", $new_line, $query_base);
                 } else {
-                    $query_base = $GLOBALS['sql_query'];
+                    $query_base = $local_query;
                 }
                 if (!empty($GLOBALS['show_as_php'])) {
                     $query_base = '$sql  = \'' . PMA_sqlAddslashes($query_base);
@@ -1386,13 +1387,13 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
                     $onclick = '';
                     if ($cfg['QueryFrameJS'] && $cfg['QueryFrame']) {
-                        $onclick = 'onclick="focus_querywindow(\'' . urlencode($GLOBALS['sql_query']) . '\'); return false;"';
+                        $onclick = 'onclick="focus_querywindow(\'' . urlencode($local_query) . '\'); return false;"';
                     }
 
                     $edit_link = '&nbsp;[<a href="'
                                . $edit_target
                                . $url_qpart
-                               . '&amp;sql_query=' . urlencode($GLOBALS['sql_query']) . '&amp;show_query=1#querybox" ' . $onclick . '>' . $GLOBALS['strEdit'] . '</a>]';
+                               . '&amp;sql_query=' . urlencode($local_query) . '&amp;show_query=1#querybox" ' . $onclick . '>' . $GLOBALS['strEdit'] . '</a>]';
                 } else {
                     $edit_link = '';
                 }
@@ -1416,10 +1417,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                                   . $explain_link_validate
                                   . '&amp;sql_query=';
 
-                    if (eregi('^SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
-                        $explain_link .= urlencode('EXPLAIN ' . $GLOBALS['sql_query']) . '">' . $GLOBALS['strExplain'];
-                    } else if (eregi('^EXPLAIN[[:space:]]+SELECT[[:space:]]+', $GLOBALS['sql_query'])) {
-                        $explain_link .= urlencode(substr($GLOBALS['sql_query'], 8)) . '">' . $GLOBALS['strNoExplain'];
+                    if (eregi('^SELECT[[:space:]]+', $local_query)) {
+                        $explain_link .= urlencode('EXPLAIN ' . $local_query) . '">' . $GLOBALS['strExplain'];
+                    } else if (eregi('^EXPLAIN[[:space:]]+SELECT[[:space:]]+', $local_query)) {
+                        $explain_link .= urlencode(substr($local_query, 8)) . '">' . $GLOBALS['strNoExplain'];
                     } else {
                         $explain_link = '';
                     }
@@ -1437,7 +1438,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $php_link = '&nbsp;[<a href="sql.php3'
                               . $url_qpart
                               . '&amp;show_query=1'
-                              . '&amp;sql_query=' . urlencode($GLOBALS['sql_query'])
+                              . '&amp;sql_query=' . urlencode($local_query)
                               . '&amp;show_as_php=';
 
                     if (!empty($GLOBALS['show_as_php'])) {
@@ -1457,7 +1458,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     $validate_link = '&nbsp;[<a href="sql.php3'
                                    . $url_qpart
                                    . '&amp;show_query=1'
-                                   . '&amp;sql_query=' . urlencode($GLOBALS['sql_query'])
+                                   . '&amp;sql_query=' . urlencode($local_query)
                                    . '&amp;validatequery=';
                     if (!empty($GLOBALS['validatequery'])) {
                         $validate_link .= '0">' .  $GLOBALS['strNoValidateSQL'] ;
@@ -1488,6 +1489,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     }
                 }
 
+                unset($local_query);
                 //Clean up the end of the PHP
                 if (!empty($GLOBALS['show_as_php'])) {
                     echo '\';';

@@ -10,6 +10,8 @@ $Source$
     * Documentation.html, config.inc.php3,
       libraries/charset_conversion.lib.php3, libraries/config_import.lib.php3:
       Merged patch #729514 - support for iconv parameters.
+    * read_dump.php3, libraries/common.lib.php3: Merged patch #728928 - show
+      multi statement query result.
 
 2003-05-11 Marc Delisle  <lem9@users.sourceforge.net>
      ### 2.5.0 released

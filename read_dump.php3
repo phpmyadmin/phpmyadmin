@@ -194,6 +194,12 @@ if ($sql_query != '') {
             $mult = TRUE;
             for ($i = 0; $i < $pieces_count; $i++) {
                 $a_sql_query = $pieces[$i];
+                if ($i == $pieces_count - 1 && eregi('^SELECT', $a_sql_query)) {
+                    $complete_query = $sql_query;
+                    $sql_query = $a_sql_query;
+                    include('./sql.php3');
+                    exit();
+                }
                 $result = PMA_mysql_query($a_sql_query);
                 if ($result == FALSE) { // readdump failed
                     $my_die = $a_sql_query;
