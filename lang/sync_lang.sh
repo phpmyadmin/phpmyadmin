@@ -48,7 +48,7 @@ serbian-windows-1250
 slovak-iso-8859-2
 spanish-iso-8859-1
 swedish-iso-8859-1
-thai
+thai-tis-620
 turkish
 ukrainian-win1251
 EOT`
