@@ -378,4 +378,5 @@ $strSearchOption4 = 'as regular expression';//to translate
 $strSearchResultsFor = 'Search results for "<i>%s</i>" %s:';//to translate
 $strSearchType = 'Find:';//to translate
 $strSplitWordsWithSpace = 'Words are splitted by a space character (" ").';//to translate
+$strStructPropose = 'Propose table structure';  //to translate
 ?>
