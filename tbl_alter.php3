@@ -22,6 +22,7 @@ $err_url = 'tbl_properties_structure.php3?' . PMA_generate_common_url($db, $tabl
 /**
  * Modifications have been submitted -> updates the table
  */
+$abort = false;
 if (isset($submit)) {
     $field_cnt = count($field_orig);
     for ($i = 0; $i < $field_cnt; $i++) {
@@ -78,41 +79,54 @@ if (isset($submit)) {
     $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     // Optimization fix - 2 May 2001 - Robbat2
     $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' CHANGE ' . $query;
-    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
-    $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
-    $btnDrop   = 'Fake';
+    $error_create = false;
+    $result    = PMA_mysql_query($sql_query) or $error_create = true;
 
-    // garvin: If comments were sent, enable relation stuff
-    require('./libraries/relation.lib.php3');
-    require('./libraries/transformations.lib.php3');
-
-    $cfgRelation = PMA_getRelationsParam();
+    if ($error_create == false) {
+        $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
+        $btnDrop   = 'Fake';
     
-    // garvin: Update comment table, if a comment was set.
-    if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
-        @reset($field_comments);
-        while(list($fieldindex, $fieldcomment) = each($field_comments)) {
-            PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex]);
+        // garvin: If comments were sent, enable relation stuff
+        require('./libraries/relation.lib.php3');
+        require('./libraries/transformations.lib.php3');
+    
+        $cfgRelation = PMA_getRelationsParam();
+        
+        // garvin: Update comment table, if a comment was set.
+        if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
+            @reset($field_comments);
+            while(list($fieldindex, $fieldcomment) = each($field_comments)) {
+                PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment, $field_orig[$fieldindex]);
+            }
         }
-    }
-
-    // garvin: Update comment table for mime types [MIME]
-    if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
-        @reset($field_mimetype);
-        while(list($fieldindex, $mimetype) = each($field_mimetype)) {
-            PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
+    
+        // garvin: Update comment table for mime types [MIME]
+        if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
+            @reset($field_mimetype);
+            while(list($fieldindex, $mimetype) = each($field_mimetype)) {
+                PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
+            }
         }
-    }
+    
+        include('./tbl_properties_structure.php3');
+        exit();
+    } else {
+        PMA_mysqlDie('', '', '', $err_url, FALSE);
+        // garvin: An error happened while inserting/updating a table definition.
+        // to prevent total loss of that data, we embed the form once again.
+        // The variable $regenerate will be used to restore data in tbl_properties.inc.php3
+        if (isset($orig_field)) {
+                $field = $orig_field;
+        }
 
-    include('./tbl_properties_structure.php3');
-    exit();
+        $regenerate = true;
+    }
 }
-
 
 /**
  * No modifications yet required -> displays the table fields
  */
-else {
+if ($abort == FALSE) {
     if (!isset($selected)) {
         $selected[]   = $field;
         $selected_cnt = 1;

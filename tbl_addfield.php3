@@ -20,6 +20,7 @@ $err_url = 'tbl_properties.php3?' . PMA_generate_common_url($db, $table);
 /**
  * The form used to define the field to add has been submitted
  */
+$abort = false;
 if (isset($submit)) {
     $query = '';
 
@@ -101,114 +102,129 @@ if (isset($submit)) {
     $sql_query     = 'USE ' . PMA_backquote($db);
     $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
     $sql_query     = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD ' . $query;
-    $result        = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
-    $sql_query_cpy = $sql_query . ';';
+    $error_create = false;
+    $result        = PMA_mysql_query($sql_query)  or $error_create = true;
 
-    // Builds the primary keys statements and updates the table
-    $primary = '';
-    if (isset($field_primary)) {
-        $primary_cnt = count($field_primary);
-        for ($i = 0; $i < $primary_cnt; $i++) {
-            $j       = $field_primary[$i];
-            if (!empty($field_name[$j])) {
-                $primary .= PMA_backquote($field_name[$j]) . ', ';
+    if ($error_create == false) {
+    
+        $sql_query_cpy = $sql_query . ';';
+    
+        // Builds the primary keys statements and updates the table
+        $primary = '';
+        if (isset($field_primary)) {
+            $primary_cnt = count($field_primary);
+            for ($i = 0; $i < $primary_cnt; $i++) {
+                $j       = $field_primary[$i];
+                if (!empty($field_name[$j])) {
+                    $primary .= PMA_backquote($field_name[$j]) . ', ';
+                }
+            } // end for
+            $primary     = ereg_replace(', $', '', $primary);
+            if (!empty($primary)) {
+                $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
+                $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+                $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
-        } // end for
-        $primary     = ereg_replace(', $', '', $primary);
-        if (!empty($primary)) {
-            $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD PRIMARY KEY (' . $primary . ')';
-            $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
-            $sql_query_cpy  .= "\n" . $sql_query . ';';
-        }
-    } // end if
-
-    // Builds the indexes statements and updates the table
-    $index = '';
-    if (isset($field_index)) {
-        $index_cnt = count($field_index);
-        for ($i = 0; $i < $index_cnt; $i++) {
-            $j     = $field_index[$i];
-            if (!empty($field_name[$j])) {
-                $index .= PMA_backquote($field_name[$j]) . ', ';
+        } // end if
+    
+        // Builds the indexes statements and updates the table
+        $index = '';
+        if (isset($field_index)) {
+            $index_cnt = count($field_index);
+            for ($i = 0; $i < $index_cnt; $i++) {
+                $j     = $field_index[$i];
+                if (!empty($field_name[$j])) {
+                    $index .= PMA_backquote($field_name[$j]) . ', ';
+                }
+            } // end for
+            $index     = ereg_replace(', $', '', $index);
+            if (!empty($index)) {
+                $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX (' . $index . ')';
+                $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+                $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
-        } // end for
-        $index     = ereg_replace(', $', '', $index);
-        if (!empty($index)) {
-            $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX (' . $index . ')';
-            $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
-            $sql_query_cpy  .= "\n" . $sql_query . ';';
-        }
-    } // end if
-
-    // Builds the uniques statements and updates the table
-    $unique = '';
-    if (isset($field_unique)) {
-        $unique_cnt = count($field_unique);
-        for ($i = 0; $i < $unique_cnt; $i++) {
-            $j      = $field_unique[$i];
-            if (!empty($field_name[$j])) {
-                $unique .= PMA_backquote($field_name[$j]) . ', ';
+        } // end if
+    
+        // Builds the uniques statements and updates the table
+        $unique = '';
+        if (isset($field_unique)) {
+            $unique_cnt = count($field_unique);
+            for ($i = 0; $i < $unique_cnt; $i++) {
+                $j      = $field_unique[$i];
+                if (!empty($field_name[$j])) {
+                    $unique .= PMA_backquote($field_name[$j]) . ', ';
+                }
+            } // end for
+            $unique = ereg_replace(', $', '', $unique);
+            if (!empty($unique)) {
+                $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE (' . $unique . ')';
+                $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+                $sql_query_cpy  .= "\n" . $sql_query . ';';
             }
-        } // end for
-        $unique = ereg_replace(', $', '', $unique);
-        if (!empty($unique)) {
-            $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE (' . $unique . ')';
-            $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
-            $sql_query_cpy  .= "\n" . $sql_query . ';';
+        } // end if
+    
+    
+        // Builds the fulltext statements and updates the table
+        $fulltext = '';
+        if (PMA_MYSQL_INT_VERSION >= 32323 && isset($field_fulltext)) {
+            $fulltext_cnt = count($field_fulltext);
+            for ($i = 0; $i < $fulltext_cnt; $i++) {
+                $j        = $field_fulltext[$i];
+                $fulltext .= PMA_backquote($field_name[$j]) . ', ';
+            } // end for
+            $fulltext = ereg_replace(', $', '', $fulltext);
+            if (!empty($fulltext)) {
+                $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
+                $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
+                $sql_query_cpy  .= "\n" . $sql_query . ';';
+            }
+        } // end if
+    
+        // garvin: If comments were sent, enable relation stuff
+        require('./libraries/relation.lib.php3');
+        require('./libraries/transformations.lib.php3');
+    
+        $cfgRelation = PMA_getRelationsParam();
+    
+        // garvin: Update comment table, if a comment was set.
+        if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
+            @reset($field_comments);
+            while(list($fieldindex, $fieldcomment) = each($field_comments)) {
+                PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
+            }
         }
-    } // end if
-
-
-    // Builds the fulltext statements and updates the table
-    $fulltext = '';
-    if (PMA_MYSQL_INT_VERSION >= 32323 && isset($field_fulltext)) {
-        $fulltext_cnt = count($field_fulltext);
-        for ($i = 0; $i < $fulltext_cnt; $i++) {
-            $j        = $field_fulltext[$i];
-            $fulltext .= PMA_backquote($field_name[$j]) . ', ';
-        } // end for
-        $fulltext = ereg_replace(', $', '', $fulltext);
-        if (!empty($fulltext)) {
-            $sql_query      = 'ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT (' . $fulltext . ')';
-            $result         = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
-            $sql_query_cpy  .= "\n" . $sql_query . ';';
+    
+        // garvin: Update comment table for mime types [MIME]
+        if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
+            @reset($field_mimetype);
+            while(list($fieldindex, $mimetype) = each($field_mimetype)) {
+                PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
+            }
         }
-    } // end if
-
-    // garvin: If comments were sent, enable relation stuff
-    require('./libraries/relation.lib.php3');
-    require('./libraries/transformations.lib.php3');
-
-    $cfgRelation = PMA_getRelationsParam();
-
-    // garvin: Update comment table, if a comment was set.
-    if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
-        @reset($field_comments);
-        while(list($fieldindex, $fieldcomment) = each($field_comments)) {
-            PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
+    
+        // Go back to the structure sub-page
+        $sql_query = $sql_query_cpy;
+        unset($sql_query_cpy);
+        $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
+        include('./tbl_properties_structure.php3');
+        exit();
+    } else {
+        PMA_mysqlDie('', '', '', $err_url, FALSE);
+        // garvin: An error happened while inserting/updating a table definition.
+        // to prevent total loss of that data, we embed the form once again.
+        // The variable $regenerate will be used to restore data in tbl_properties.inc.php3
+        $num_fields = $orig_num_fields;
+        if (isset($orig_after_field)) {
+            $after_field = $orig_after_field;
         }
+        $regenerate = true;
     }
-
-    // garvin: Update comment table for mime types [MIME]
-    if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
-        @reset($field_mimetype);
-        while(list($fieldindex, $mimetype) = each($field_mimetype)) {
-            PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
-        }
-    }
-
-    // Go back to the structure sub-page
-    $sql_query = $sql_query_cpy;
-    unset($sql_query_cpy);
-    $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenAltered;
-    include('./tbl_properties_structure.php3');
-    exit();
 } // end do alter table
 
 /**
  * Displays the form used to define the new field
  */
-else{
+if ($abort == FALSE) {
     $action = 'tbl_addfield.php3';
     include('./tbl_properties.inc.php3');
 

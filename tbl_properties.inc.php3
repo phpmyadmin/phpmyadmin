@@ -26,6 +26,49 @@ else if ($action == 'tbl_addfield.php3') {
     <?php
 }
 echo "\n";
+
+if (isset($num_fields)) {
+    ?>
+    <input type="hidden" name="orig_num_fields" value="<?php echo $num_fields; ?>" />
+    <?php
+}
+
+if (isset($after_field)) {
+    ?>
+    <input type="hidden" name="orig_after_field" value="<?php echo $after_field; ?>" />
+    <?php
+}
+
+if (isset($selected) && is_array($selected)) {
+    @reset($selected);
+    while(list($o_fld_nr, $o_fld_val) = each($selected)) {
+    ?>
+    <input type="hidden" name="selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
+    <?php
+        if (!isset($true_selected)) {
+            ?>
+    <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
+            <?php
+        }
+        
+    }
+    
+    if (isset($true_selected) && is_array($true_selected)) {
+        @reset($true_selected);
+        while(list($o_fld_nr, $o_fld_val) = each($true_selected)) {
+        ?>
+        <input type="hidden" name="true_selected[<?php echo $o_fld_nr; ?>]" value="<?php echo urlencode($o_fld_val); ?>" />
+        <?php
+        }
+    }
+    
+} elseif (isset($field)) {
+    ?>
+    <input type="hidden" name="orig_field" value="<?php echo urlencode($field); ?>" />
+    <input type="hidden" name="true_selected[] value="<?php echo (isset($orig_field) ? $orig_field : urlencode($field)); ?>" />
+    <?php
+}
+
 $is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
 
 $header_cells = array();
@@ -74,17 +117,74 @@ if (!$is_backup) {
     $header_cells[] = $strIdxFulltext;
 }
 
+// garvin: workaround for field_fulltext, because its submitted indizes contain
+//         the index as a value, not a key. Inserted here for easier maintaineance
+//         and less code to change in existing files.
+if (isset($field_fulltext) && is_array($field_fulltext)) {
+    @reset($field_fulltext);
+    while(list($fulltext_nr, $fulltext_indexkey) = each($field_fulltext)) {
+        $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
+    }
+}
+
 for ($i = 0 ; $i < $num_fields; $i++) {
-    if (isset($fields_meta)) {
+    $submit_null = FALSE;
+    if (isset($regenerate) && $regenerate == TRUE) {
+        // An error happened with previous inputs, so we will restore the data
+        // to embed it once again in this form.
+
+        $row['Field']     = (isset($field_name) && isset($field_name[$i]) ? $field_name[$i] : FALSE);
+        $row['Type']      = (isset($field_type) && isset($field_type[$i]) ? $field_type[$i] : FALSE);
+        $row['Null']      = (isset($field_null) && isset($field_null[$i]) ? $field_null[$i] : '');
+        if ($row['Null'] == '') {
+            $submit_null = TRUE;
+        }
+
+        if (isset(${'field_key_' . $i}) && ${'field_key_' . $i} == 'primary_' . $i) {
+            $row['Key'] = 'PRI';
+        } elseif (isset(${'field_key_' . $i}) && ${'field_key_' . $i} == 'index_' . $i) {
+            $row['Key'] = 'MUL';
+        } elseif (isset(${'field_key_' . $i}) && ${'field_key_' . $i} == 'unique_' . $i) {
+            $row['Key'] = 'UNI';
+        } else {
+            $row['Key'] = '';
+        }
+
+        $row['Default']   = (isset($field_default) && isset($field_default[$i]) ? $field_default[$i] : FALSE);
+        $row['Extra']     = (isset($field_extra) && isset($field_extra[$i]) ? $field_extra[$i] : FALSE);
+        $row['Comment']   = (isset($submit_fulltext) && isset($submit_fulltext[$i]) && ($submit_fulltext[$i] == $i) ? 'FULLTEXT' : FALSE);
+
+        $submit_length    = (isset($field_length) && isset($field_length[$i]) ? $field_length[$i] : FALSE);
+        $submit_attribute = (isset($field_attribute) && isset($field_attribute[$i]) ? $field_attribute[$i] : FALSE);
+        
+        if (isset($field_comments) && isset($field_comments[$i])) {
+            $comments_map[$row['Field']] = $field_comments[$i];
+        }
+        
+        if (isset($field_mimetype) && isset($field_mimetype[$i])) {
+            $mime_map[$row['Field']]['mimetype'] = $field_mimetype[$i];
+        }
+
+        if (isset($field_transformation) && isset($field_transformation[$i])) {
+            $mime_map[$row['Field']]['transformation'] = $field_transformation[$i];
+        }
+
+        if (isset($field_transformation_options) && isset($field_transformation_options[$i])) {
+            $mime_map[$row['Field']]['transformation_options'] = $field_transformation_options[$i];
+        }
+
+    } elseif (isset($fields_meta)) {
         $row = $fields_meta[$i];
     }
+    
     $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
 
     // Cell index: If certain fields get left out, the counter shouldn't chage.
     $ci = 0;
 
     if ($is_backup) {
-        $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_orig[]" value="' . (isset($row) && isset($row['Field']) ? urlencode($row['Field']) : '') . '" />' . "\n";
+        $backup_field = (isset($true_selected) && $true_selected[$i] ? $true_selected[$i] : (isset($row) && isset($row['Field']) ? urlencode($row['Field']) : ''));
+        $content_cells[$i][$ci] = "\n" . '<input type="hidden" name="field_orig[]" value="' . $backup_field . '" />' . "\n";
     } else {
         $content_cells[$i][$ci] = '';
     }
@@ -119,6 +219,10 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             $length = '';
         }
     } // end if else
+    
+    if (isset($submit_length) && $submit_length != FALSE) {
+        $length = $submit_length;
+    }
 
     for ($j = 0; $j < count($cfg['ColumnTypes']); $j++) {
         $content_cells[$i][$ci] .= '                <option value="'. $cfg['ColumnTypes'][$j] . '"';
@@ -161,6 +265,11 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     if ($zerofill) {
         $strAttribute = 'UNSIGNED ZEROFILL';
     }
+
+    if (isset($submit_attribute) && $submit_attribute != FALSE) {
+        $strAttribute = $submit_attribute;
+    }
+
     for ($j = 0;$j < count($cfg['AttributeTypes']); $j++) {
         $content_cells[$i][3] .= '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
         if (strtoupper($strAttribute) == strtoupper($cfg['AttributeTypes'][$j])) {
@@ -174,7 +283,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
 
     $content_cells[$i][$ci] = '<select name="field_null[]" id="field_' . $i . '_5">';
 
-    if (!isset($row) || empty($row['Null'])) {
+    if ((!isset($row) || empty($row['Null']) || $row['Null'] == 'NOT NULL') && $submit_null == FALSE) {
         $content_cells[$i][$ci] .= "\n";
         $content_cells[$i][$ci] .= '    <option value="NOT NULL">not null</option>' . "\n";
         $content_cells[$i][$ci] .= '    <option value="">null</option>' . "\n";
@@ -277,7 +386,10 @@ for ($i = 0 ; $i < $num_fields; $i++) {
             && empty($checked_index)
             && empty($checked_unique)) {
             $checked_none = ' checked="checked"';
+        } else {
+            $checked_none = '';
         }
+        
         if (PMA_MYSQL_INT_VERSION >= 32323
             &&(isset($row) && isset($row['Comment']) && $row['Comment'] == 'FULLTEXT')) {
             $checked_fulltext = ' checked="checked"';
@@ -384,7 +496,7 @@ if ($action == 'tbl_create.php3' && PMA_MYSQL_INT_VERSION >= 32300) {
     </tr>
     <tr>
         <td>
-            <input type="text" name="comment" size="40" maxlength="80" class="textfield" />
+            <input type="text" name="comment" size="40" maxlength="80" value="<?php echo (isset($comment) ? $comment : ''); ?>" class="textfield" />
         </td>
     <?php
     // BEGIN - Table Type - 2 May 2001 - Robbat2
@@ -428,14 +540,14 @@ if ($action == 'tbl_create.php3' && PMA_MYSQL_INT_VERSION >= 32300) {
         <td width="25">&nbsp;</td>
         <td>
             <select name="tbl_type">
-                <option value="Default"><?php echo $strDefault; ?></option>
-                <option value="MYISAM">MyISAM</option>
-                <option value="HEAP">Heap</option>
-                <option value="MERGE">Merge</option>
-                <?php if (isset($tbl_bdb)) { ?><option value="BDB">Berkeley DB</option><?php } ?>
-                <?php if (isset($tbl_gemini)) { ?><option value="GEMINI">Gemini</option><?php } ?>
-                <?php if (isset($tbl_innodb)) { ?><option value="InnoDB">INNO DB</option><?php } ?>
-                <?php if (isset($tbl_isam)) { ?><option value="ISAM">ISAM</option><?php } ?>
+                <option <?php echo (isset($tbl_type) && $tbl_type == 'Default' ? 'selected="checked"' : ''); ?> value="Default"><?php echo $strDefault; ?></option>
+                <option <?php echo (isset($tbl_type) && $tbl_type == 'MYISAM' ? 'selected="checked"' : ''); ?> value="MYISAM">MyISAM</option>
+                <option <?php echo (isset($tbl_type) && $tbl_type == 'HEAP' ? 'selected="checked"' : ''); ?> value="HEAP">Heap</option>
+                <option <?php echo (isset($tbl_type) && $tbl_type == 'MERGE' ? 'selected="checked"' : ''); ?> value="MERGE">Merge</option>
+                <?php if (isset($tbl_bdb)) { ?><option <?php echo (isset($tbl_type) && $tbl_type == 'BDB' ? 'selected="checked"' : ''); ?> value="BDB">Berkeley DB</option><?php } ?>
+                <?php if (isset($tbl_gemini)) { ?><option <?php echo (isset($tbl_type) && $tbl_type == 'GEMINI' ? 'selected="checked"' : ''); ?> value="GEMINI">Gemini</option><?php } ?>
+                <?php if (isset($tbl_innodb)) { ?><option <?php echo (isset($tbl_type) && $tbl_type == 'INNO DB' ? 'selected="checked"' : ''); ?> value="InnoDB">INNO DB</option><?php } ?>
+                <?php if (isset($tbl_isam)) { ?><option <?php echo (isset($tbl_type) && $tbl_type == 'ISAM' ? 'selected="checked"' : ''); ?> value="ISAM">ISAM</option><?php } ?>
             </select>
         </td>
         <?php

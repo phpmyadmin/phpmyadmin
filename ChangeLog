@@ -14,9 +14,9 @@ $Source$
     * sql.php3: Fixed another occurence of addslashes() where it no longer
       belongs.
     * tbl_addfield.php3, tbl_alter.php3, tbl_create.php3, 
-      tbl_properties.inc.php3: Goodie for you all - when creating/altering/
-      adding table fields you can now change the wrong form input, instead
-      of losing all your data. Have fun. :-)
+      tbl_properties.inc.php3, libraries/common.lib.php3: Goodie for you all 
+      - when creating/altering/adding table fields you can now change the 
+      wrong form input, instead of losing all your data. Have fun. :-)
     * tbl_dump.php3, tbl_properties_export.php3, css/phpmyadmin.css.php3,
       lang/*:
       Added new table export format by Michal Cihar. db_details_export.php3

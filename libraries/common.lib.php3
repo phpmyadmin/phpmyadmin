@@ -399,13 +399,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
          * @param   string   the sql query that failed
          * @param   boolean  whether to show a "modify" link or not
          * @param   string   the "back" link url (full path is not required)
+         * @param   boolean  EXIT the page?
          *
          * @global  array    the configuration array
          *
          * @access  public
          */
         function PMA_mysqlDie($error_message = '', $the_query = '',
-                                $is_modify_link = TRUE, $back_url = '')
+                                $is_modify_link = TRUE, $back_url = '',
+                                $exit = TRUE)
         {
             global $cfg;
     
@@ -466,13 +468,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
                     . '</pre>' . "\n";
     
     
-            if (!empty($back_url)) {
+            if (!empty($back_url) && $exit) {
                 echo '<a href="' . $back_url . '">' . $GLOBALS['strBack'] . '</a>';
             }
             echo "\n";
     
-            include('./footer.inc.php3');
-            exit();
+            if ($exit) {
+                include('./footer.inc.php3');
+                exit();
+            }
         } // end of the 'PMA_mysqlDie()' function
     
     

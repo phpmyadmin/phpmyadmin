@@ -26,6 +26,7 @@ PMA_mysql_select_db($db);
 /**
  * The form used to define the structure of the table has been submitted
  */
+$abort = false;
 if (isset($submit)) {
     $sql_query = $query_cpy = '';
 
@@ -141,7 +142,7 @@ if (isset($submit)) {
            $fulltext .= PMA_backquote($field_name[$j]) . ', ';
         }
     } // end for
-    unset($field_fulltext);
+
     $fulltext = ereg_replace(', $', '', $fulltext);
     if (!empty($fulltext)) {
         $sql_query .= ', FULLTEXT (' . $fulltext . ')';
@@ -164,42 +165,53 @@ if (isset($submit)) {
     }
 
     // Executes the query
-    $result    = PMA_mysql_query($sql_query) or PMA_mysqlDie('', '', '', $err_url);
-    $sql_query = $query_cpy . ';';
-    unset($query_cpy);
-    $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
+    $error_create = false;
+    $result    = PMA_mysql_query($sql_query) or $error_create = true;
 
-    // garvin: If comments were sent, enable relation stuff
-    require('./libraries/relation.lib.php3');
-    require('./libraries/transformations.lib.php3');
-
-    $cfgRelation = PMA_getRelationsParam();
-
-    // garvin: Update comment table, if a comment was set.
-    if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
-        @reset($field_comments);
-        while(list($fieldindex, $fieldcomment) = each($field_comments)) {
-            PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
+    if ($error_create == false) {
+        $sql_query = $query_cpy . ';';
+        unset($query_cpy);
+        $message   = $strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenCreated;
+    
+        // garvin: If comments were sent, enable relation stuff
+        require('./libraries/relation.lib.php3');
+        require('./libraries/transformations.lib.php3');
+    
+        $cfgRelation = PMA_getRelationsParam();
+    
+        // garvin: Update comment table, if a comment was set.
+        if (isset($field_comments) && is_array($field_comments) && $cfgRelation['commwork']) {
+            @reset($field_comments);
+            while(list($fieldindex, $fieldcomment) = each($field_comments)) {
+                PMA_setComment($db, $table, $field_name[$fieldindex], $fieldcomment);
+            }
         }
-    }
-
-    // garvin: Update comment table for mime types [MIME]
-    if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
-        @reset($field_mimetype);
-        while(list($fieldindex, $mimetype) = each($field_mimetype)) {
-            PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
+    
+        // garvin: Update comment table for mime types [MIME]
+        if (isset($field_mimetype) && is_array($field_mimetype) && $cfgRelation['commwork'] && $cfgRelation['mimework'] && $cfg['BrowseMIME']) {
+            @reset($field_mimetype);
+            while(list($fieldindex, $mimetype) = each($field_mimetype)) {
+                PMA_setMIME($db, $table, $field_name[$fieldindex], $mimetype, $field_transformation[$fieldindex], $field_transformation_options[$fieldindex]);
+            }
         }
+    
+        include('./' . $cfg['DefaultTabTable']);
+        $abort = TRUE;
+        exit();
+    } else {
+        PMA_mysqlDie('', '', '', $err_url, FALSE);
+        // garvin: An error happened while inserting/updating a table definition.
+        // to prevent total loss of that data, we embed the form once again.
+        // The variable $regenerate will be used to restore data in tbl_properties.inc.php3
+        $num_fields = $orig_num_fields;
+        $regenerate = true;
     }
-
-    include('./' . $cfg['DefaultTabTable']);
-    exit();
 } // end do create table
-
 
 /**
  * Displays the form used to define the structure of the table
  */
-else {
+if ($abort == FALSE) {
     if (isset($num_fields)) {
         $num_fields = intval($num_fields);
     }
