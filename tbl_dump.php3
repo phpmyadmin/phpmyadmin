@@ -241,13 +241,13 @@ else {
  */
 // 1. as a bzipped file
 if (isset($bzip) && $bzip == 'bzip') {
-    if (@function_exists('bzcompress')) {
+    if (PHP_INT_VERSION >= 40004 && @function_exists('bzcompress')) {
         echo bzcompress($dump_buffer);
     } 
 }
 // 2. as a gzipped file
 else if (isset($gzip) && $gzip == 'gzip') {
-    if ($gzip == 'gzip' && @function_exists('gzencode')) {
+    if (PHP_INT_VERSION >= 40004 && @function_exists('gzencode')) {
         // without the optional parameter level because it bug
         echo gzencode($dump_buffer);
     }

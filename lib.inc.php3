@@ -100,7 +100,8 @@ if (!defined('__LIB_INC__')){
     }
     // If zlib output compression is set in the php configuration file, no
     // output buffering should be run
-    if (@function_exists('ini_get') && @ini_get('zlib.output_compression')) {
+    if (PHP_INT_VERSION < 40000
+        || (PHP_INT_VERSION >= 40005 && @ini_get('zlib.output_compression'))) {
         $cfgOBGzip = FALSE;
     }
     // Gets some constants
@@ -112,8 +113,9 @@ if (!defined('__LIB_INC__')){
      * Loads the mysql extensions if it is not loaded yet
      * staybyte - 26. June 2001
      */
-    if (PHP_INT_VERSION > 30009
-        && (!@get_cfg_var('safe_mode') && @function_exists('dl'))) {
+    if (((PHP_INT_VERSION >= 40000 && !@ini_get('safe_mode'))
+        || (PHP_INT_VERSION > 30009 && !@get_cfg_var('safe_mode')))
+        && @function_exists('dl')) {
         if (PHP_INT_VERSION < 40000) {
             $extension = 'MySQL';
         } else {
