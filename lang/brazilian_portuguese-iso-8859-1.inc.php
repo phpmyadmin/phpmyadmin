@@ -86,7 +86,7 @@ $strCreateNewTable = 'Cria nova tabela no banco de dados %s';
 $strCriteria = 'Critério';
 
 $strData = 'Dados';
-$strDatabase = 'Banco de Dados ';
+$strDatabase = 'Banco de Dados';
 $strDatabaseHasBeenDropped = 'Base de Dados %s foi eliminada.';
 $strDatabases = 'Banco de Dados';
 $strDatabasesStats = 'Estatisticas da base';
@@ -446,7 +446,7 @@ $strInsecureMySQL = 'Your configuration file contains settings (root with no pas
 $strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 $strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
-$strServer = 'Server %s';  //to translate
+$strServer = 'Server';  //to translate
 $strPutColNames = 'Put fields names at first row';  //to translate
 $strImportDocSQL = 'Import docSQL Files';  //to translate
 $strDataDict = 'Data Dictionary';  //to translate

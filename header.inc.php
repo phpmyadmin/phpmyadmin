@@ -161,7 +161,7 @@ if (empty($GLOBALS['is_header_sent'])) {
                                                                    : ':' . $cfg['Server']['port']
                                                                   )
                        );
-        echo '<div class="server">' . sprintf($GLOBALS['strServer'],'') . ":\n"
+        echo '<div class="server">' . $GLOBALS['strServer'] . ":\n"
             . '<a href="' . $GLOBALS['cfg']['DefaultTabServer'] . '?' . PMA_generate_common_url() . '">' 
             . htmlspecialchars($server_info) . '</a>' . "\n"
             . '</div>' . "\n\n";

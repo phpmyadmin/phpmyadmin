@@ -87,7 +87,7 @@ $strCreateNewTable = 'Napravi novu tablicu u bazi ';
 $strCriteria = 'Kriterij';
 
 $strData = 'Podaci';
-$strDatabase = 'Baza podataka ';
+$strDatabase = 'Baza podataka';
 $strDatabaseHasBeenDropped = 'Baza %s je izbrisana.';
 $strDatabases = 'baze';
 $strDatabasesStats = 'Statistika baze';
@@ -446,7 +446,7 @@ $strInsecureMySQL = 'Your configuration file contains settings (root with no pas
 $strWebServerUploadDirectory = 'web-server upload directory';  //to translate
 $strWebServerUploadDirectoryError = 'The directory you set for upload work cannot be reached';  //to translate
 $strValidatorError = 'The SQL validator could not be initialized. Please check if you have installed the necessary php extensions as described in the %sdocumentation%s.'; //to translate
-$strServer = 'Server %s';  //to translate
+$strServer = 'Server';  //to translate
 $strPutColNames = 'Put fields names at first row';  //to translate
 $strImportDocSQL = 'Import docSQL Files';  //to translate
 $strDataDict = 'Data Dictionary';  //to translate

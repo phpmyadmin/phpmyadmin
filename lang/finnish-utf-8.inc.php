@@ -102,7 +102,7 @@ $strCriteria = 'Hakuehdot';
 
 $strData = 'Data';
 $strDataOnly = 'Vain data';
-$strDatabase = 'Tietokanta ';
+$strDatabase = 'Tietokanta';
 $strDatabaseHasBeenDropped = 'Tietokanta %s on pudotettu.';
 $strDatabaseWildcard = 'Tietokanta (voit käyttää jokerimerkkejä):';
 $strDatabases = 'tietokantaa';
@@ -357,7 +357,7 @@ $strSelectFields = 'Valitse sarakkeet (vähintään yksi):';
 $strSelectNumRows = 'lauseessa';
 $strSelectTables = 'Valitse taulut';
 $strSend = 'Tallenna tiedostoksi';
-$strServer = 'Palvelin %s';
+$strServer = 'Palvelin';
 $strServerChoice = 'Valitse palvelin';
 $strServerTrafficNotes = '<b>Server traffic</b>: These tables show the network traffic statistics of this MySQL server since its startup.';
 $strServerVersion = 'Palvelimen versio';

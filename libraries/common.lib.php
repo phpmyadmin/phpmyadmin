@@ -924,8 +924,8 @@ if ($is_minimum_common == FALSE) {
         // or the host field, then generate a name for the server
         // in the form of "Server 2", localized of course!
         if ( ($val['connect_type'] == 'socket') && empty($val['host']) && empty($val['verbose']) ) {
-            $cfg['Servers'][$key]['verbose'] = sprintf($GLOBALS['strServer'], $key);
-            $val['verbose']                  = sprintf($GLOBALS['strServer'],$key);
+            $cfg['Servers'][$key]['verbose'] = $GLOBALS['strServer'] . $key;
+            $val['verbose']                  = $GLOBALS['strServer'] . $key;
         }
     }
 
