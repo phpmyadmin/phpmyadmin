@@ -280,14 +280,9 @@ foreach ($loop_array AS $vrowcount => $vrow) {
 
         $field           = $row_table_def['Field'];
 
-        // garvin: possible workaround. If current field is numerical, do not try to
-        //  access the result-array with its 'associative' key but with its numerical
-        //  represantation.
-        if (is_numeric($field)) {
-            $rowfield = $i;
-        } else {
-            $rowfield = $field;
-        }
+        // removed previous PHP3-workaround that caused a problem with
+        // field names like '000'
+        $rowfield = $field;
 
         // d a t e t i m e
         //

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-01-06 Marc Delisle  <lem9@users.sourceforge.net>
+    * tbl_change.php: removed old PHP3-workaround that caused problems
+      with field names like '000'
+
 2005-01-05 Michal Čihař  <michal@cihar.com>
     * tbl_properties_operations.php: Fix changning table parameters if it has
       no auto increment (bug #1096246).
