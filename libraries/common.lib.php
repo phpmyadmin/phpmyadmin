@@ -328,8 +328,8 @@ if (!isset($_COOKIE['pma_theme']) || empty($_COOKIE['pma_theme'])){
     } else {
         $GLOBALS['theme'] = $_COOKIE['pma_theme'];
     }
-    $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $_GLOBALS['theme'] . '/img/';
-    $tmp_layout_file = './' . $cfg['ThemePath'] . '/' . PMA_securePath($_GLOBALS['theme']) . '/layout.inc.php';
+    $pmaThemeImage  = './' . $cfg['ThemePath'] . '/' . $GLOBALS['theme'] . '/img/';
+    $tmp_layout_file = './' . $cfg['ThemePath'] . '/' . PMA_securePath($GLOBALS['theme']) . '/layout.inc.php';
     if (@file_exists($tmp_layout_file)) {
         include($tmp_layout_file);
     }
