@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-08-07 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/turkish update, thanks to Bora Alioglu
+    * lang/slovak: Updated, thanks to Lubos Klokner (erkac)
+    * lang/polish: Updated, thanks to Jakub Wilk (ubanus).
+
 2004-08-06 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_properties_operations.php: bug 1004523, now display table options
       according to the possibilities of the table types
