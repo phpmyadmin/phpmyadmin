@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-15  Marc Delisle  <lem9@users.sourceforge.net>
+	* new script remove_control_m.sh 
+	* all php3 files which had control M
+
 2001-07-15  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, tbl_properties.php3, functions.js, tbl_dump.php3,
 	  documentation.html, translations: added bzip support for dump files.
