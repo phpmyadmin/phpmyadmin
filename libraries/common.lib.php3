@@ -262,6 +262,9 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
         // check whether mysql is available
         if (!@function_exists('mysql_connect')) {
+            if (empty($is_header_sent)) {
+                include('./libraries/header_http.inc.php3');
+            }
             echo $strCantLoadMySQL . '<br />' . "\n"
                  . '<a href="./Documentation.html#faqmysql" target="documentation">' . $GLOBALS['strDocu'] . '</a>' . "\n";
             exit();

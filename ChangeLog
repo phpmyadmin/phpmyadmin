@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-08 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/common.lib.php3: Send headers before exiting because of missing
+      MySQL extension.
+
 2003-07-07 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3, libraries/config_import.lib.php3: Backwards
       compatibility.
