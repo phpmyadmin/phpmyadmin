@@ -5,6 +5,8 @@
 // In this file you may add PHP or HTML statements that will be used to define
 // the footer for phpMyAdmin pages.
 
+require('./libraries/relation.lib.php3'); // for PMA_setHistory()
+
 /**
  * Query window
  */
