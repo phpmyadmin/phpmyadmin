@@ -1,0 +1,124 @@
+#!/bin/sh
+##
+# Shell script that synchronises all translations in phpMyAdmin
+##
+# Written by Michal Cihar <nijel at users.sourceforge.net>
+##
+
+
+##
+# names of translations to process
+##
+# Here should be listed all translations for which conversion should be done.
+# The name is filename without inc.php3.
+#
+BASE_TRANSLATIONS=`cat <<EOT
+albanian
+arabic
+brazilian_portuguese
+bulgarian-koi8
+catala
+chinese_big5
+chinese_gb
+croatian-iso8859-2
+czech-iso
+danish
+dutch
+english
+estonian
+finnish
+french
+galician
+georgian
+german
+greek
+hebrew
+hungarian
+indonesian
+italian
+japanese-euc
+korean
+latvian
+lithuanian
+norwegian
+polish
+portuguese
+romanian
+russian-koi8
+serbian-win1250
+slovak-iso
+spanish
+swedish
+thai
+turkish
+ukrainian-win1251
+EOT`
+
+##
+# which translations should not be translated to utf-8
+##
+# List here any translation should not be converted to utf-8. The name is same
+# as above.
+#
+IGNORE_UTF=`cat <<EOT
+georgian
+hebrew
+korean
+EOT`
+
+##
+# end of configuration, you hopefully won't need to edit anything bellow
+##
+
+# go through all file we should process
+for base in $BASE_TRANSLATIONS ; do
+    # grep language from basename
+    lang=$(echo $base|sed 's%-.*%%')
+    # which files will we create from current?
+    create_files=$(ls --color=none -1 $lang*.inc.php3|grep -v $base.inc.php3)
+
+    # charset of source file
+    src_charset=$(grep '\$charset' $base.inc.php3 | sed "s%^[^'\"]*['\"]\\([^'\"]*\\)['\"][^'\"]*$%\\1%")
+    echo "$base [charset $src_charset]"
+
+    is_utf=no
+
+    # at first update existing translations
+    for file in $create_files ; do
+        # charset of destination file
+        charset=$(grep '\$charset' $file | sed "s%^[^'\"]*['\"]\\([^'\"]*\\)['\"][^'\"]*$%\\1%")
+        echo -n " to $charset..."
+        if [ $charset = 'utf-8' ] ; then
+            # if we convert to utf-8, we should add allow_recoding
+            is_utf=yes
+            iconv -f $src_charset -t $charset $base.inc.php3| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
+$allow_recoding = TRUE;' > $file
+            echo done
+        elif [ $src_charset = 'utf-8' ] ; then
+            # if we convert fomo utf-8, we should remove allow_recoding
+            iconv -f $src_charset -t $charset $base.inc.php3| grep -v allow_recoding > $file
+            echo done
+        else
+            # just convert
+            iconv -f $src_charset -t $charset $base.inc.php3| sed "s/$src_charset/$charset/" > $file 
+            echo done
+        fi
+    done
+  
+    # now check whether we found utf-8 translation
+    if [ $is_utf = no ] ; then
+        if ( echo $IGNORE_UTF | grep -q $base ) ; then
+            # utf-8 should not be created
+            true
+        else
+            # we should create utf-8 translation
+            echo " creating utf-8 translation"
+            charset=utf-8
+            iconv -f $src_charset -t $charset $base.inc.php3| sed -e "s/$src_charset/$charset/" -e '/\$charset/a\
+$allow_recoding = TRUE;' > $lang-$charset.inc.php3
+        fi
+    fi
+    echo "$lang processing finished."
+    echo "-------------------------------------------------------------------"
+done
+
