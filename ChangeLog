@@ -14,6 +14,8 @@ $Source$
       wording when adding fields (bug #991096).
     * tbl_query_box.php, lang/*: Not translated text (bug #1010656).
     * themes.php, lang/*: Not translated text (bug #1016610).
+    * tbl_properties_structure.php: Use also $strAddFields (as suggested by
+      Marc).
 
 2004-09-28 Alexander M. Turek  <me@derrabus.de>
     * libraries/dbi/mysql.dbi.lib.php: Compatibility fix for php < 4.3

@@ -491,9 +491,9 @@ if ($cfg['Server']['relation'] || $tbl_type=="INNODB") {
         if ($cfg['PropertiesIconic']) {
             echo '<img src="' . $pmaThemeImage . 'b_insrow.png" width="16" height="16" border="0" hspace="2" align="middle" alt="' . $strAddNewField . '"/>';
         }
-        echo $strAddNewField . ':&nbsp;';
+        echo sprintf($strAddFields, '<input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />');
     ?>
-    <input type="text" name="num_fields" size="2" maxlength="2" value="1" style="vertical-align: middle" onfocus="this.select()" />
+    
     <input type="radio" name="field_where" id="radio_field_where_last" value="last" checked="checked" />
     <label for="radio_field_where_last"><?php echo $strAtEndOfTable; ?></label>
     <input type="radio" name="field_where" id="radio_field_where_first" value="first" />
