@@ -68,7 +68,7 @@ PMA_setFontSizes();
 <?php
 // Expandable/collapsible databases list is only used if there is more than one
 // database to display
-if ($num_dbs > 1) {
+if ($num_dbs > 1 && !$cfgLeftFrameLight) {
     echo "\n";
     ?>
     <!-- Collapsible tables list scripts -->
@@ -101,7 +101,6 @@ if ($num_dbs > 1) {
     var fontBig     = '<?php echo $font_bigger; ?>';
     var fontSmall   = '<?php echo $font_smaller; ?>';
     var isServer    = <?php echo ($server > 0) ? 'true' : 'false'; ?>;
-    var isLightMode = <?php echo ($cfgLeftFrameLight == TRUE) ? 'true' : 'false'; ?>;
     //-->
     </script>
     <script src="libraries/left.js" type="text/javascript" language="javascript1.2"></script>
@@ -113,7 +112,7 @@ if ($num_dbs > 1) {
         .headaCnt {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #000000}
         .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
         .child {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
-        .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
+        .item, .item:active, .item:hover, .tblItem, .tblItem:active {color: #333399; text-decoration: none}
         .tblItem:hover {color: #FF0000; text-decoration: underline}
         //-->
         </style>
@@ -154,7 +153,8 @@ else {
     div {color: #000000}
     .heada {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_size; ?>; color: #000000}
     .parent {font-family: <?php echo $left_font_family; ?>; color: #000000; text-decoration: none}
-    .item, .item:active, .item:hover {font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
+    .item, .item:active, .item:hover, .tblItem, .tblItem:active {font-family: <?php echo $left_font_family; ?>; font-size: <?php echo $font_smaller; ?>; color: #333399; text-decoration: none}
+    .tblItem:hover {color: #FF0000; text-decoration: underline}
     //-->
     </style>
     <?php
@@ -289,7 +289,6 @@ if ($num_dbs > 1) {
                     $table_list .= '    <nobr><a target="phpmain" href="sql.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . urlencode('SELECT * FROM ' . PMA_backquote($table)) . '&amp;pos=0&amp;goto=tbl_properties.php3">' . "\n";
                     $table_list .= '              <img src="images/browse.gif" border="0" alt="' . $strBrowse . ': ' . $table . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
                     $table_list .= '          <a class="tblItem" title="' . str_replace('"', '&quot;', $tooltip[$table]) . '" target="phpmain" href="tbl_properties.php3?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . $table . '</a></nobr><br />' . "\n";
-
                 } // end for $j (tables list)
 
                 if (!$table_list) { 
@@ -306,7 +305,7 @@ if ($num_dbs > 1) {
                 echo '            <option value="' . urlencode($db) . '"' . $selected . '>' . $db . ' (-)</option>' . "\n";
             } // end if... else...
 
-        } // end if light mode
+        } // end if (light mode)
 
     } // end for $i (db list)
 
