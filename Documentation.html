@@ -149,7 +149,7 @@
     phpMyAdmin can manager a whole MySQL-server (needs a super-user) 
     but also a single database. To accomplish the latter you'll need
     a properly set up MySQL-user who can read/write only the desired
-    database. It's up to you to look up the appropiate part in the 
+    database. It's up to you to look up the appropriate part in the 
     MySQL manual. Currently phpMyAdmin can:
 </p>
 
@@ -220,8 +220,8 @@
          explanation of all values.</li>
     <li> It is recommended that you protect the directory in which
          you installed phpMyAdmin (unless it's on a closed intranet, or you
-         wish to use http authentication), for example with HTTP-AUTH (in a
-         <i>.htaccess</i> file). See the
+         wish to use http or cookie authentication), for example with 
+         HTTP-AUTH (in a <i>.htaccess</i> file). See the
          <a class="navigation" href="#faq">FAQ section</a> for additional
          information.</li>
     <li> Open the file
@@ -239,10 +239,21 @@
         values in the new one.</li>
 </ul>
 
-<p><b>Using http authentication mode:</b></p>
-<ol>
-<li>
-    phpMyAdmin needs a stduser that has <b>only</b> the <tt>SELECT</tt>
+<p><b>Using authentication modes:</b></p>
+<ul>
+<li>    Http and cookie authentication modes are recommended in a multi-user 
+        environment where you want to give users access to their own database 
+        and don't want them to play around with others.<br /><br /></li>
+
+<li>    Http and cookie authentication modes are secure: the MySQL password does
+        not need to be set in the phpMyAdmin configuration file. (except for the
+        &quot;standard user&quot; -see the Configuration section-).<br />
+        In cookie mode, we send the password in a temporary cookie, so most    
+        browsers should not store the password in their cookie file.
+        <br /><br /></li>
+
+<li>    For 'http' and 'cookie' modes, phpMyAdmin needs a stduser that 
+    has <b>only</b> the <tt>SELECT</tt>
     privilege on the <i>mysql.user (all columns except
     &quot;Password&quot;)</i>, <i>mysql.db (all columns)</i> &amp;
     <i>mysql.tables_priv (all columns except &quot;Grantor&quot; &amp;
@@ -284,27 +295,38 @@
     &nbsp;&nbsp;&nbsp;<tt>GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';</tt>
     <br />
     What the user may now do is controlled entirely by the MySQL user management
-    system.
+    system.<br />
+    With http or cookie auth mode, you don't need to fill the user/password 
+    fields inside the <tt>$cfgServers</tt> array.<br />
 </li>
-</ol>
-
-<p><b>Using cookie authentication mode:</b></p>
-<ul>
-    <li>If you want to use this method as a replacement for the http
-        authentication (for example, if you're running IIS), you'll have to
-        setup a &quot;standard user&quot; and do the same work in both
-        cases.</li>
-    <li>Else you don't need to fill any of the user/password fields inside the
-        <tt>$cfgServers</tt> array with this method.</li>
 </ul>
 
-<p><b>Using standard authentication mode:</b></p>
+<p><b>'http' authentication mode:</b></p>
+<ul>
+    <li>Was called 'advanced' in versions before 2.2.3.</li>
+    <li>Introduced in 1.3.0, it uses Basic HTTP authentication method and
+        allows you to login as any valid MySQL user.</li>
+    <li>Is only supported with PHP running as an Apache module, not with cgi.</li>
+</ul>
+<p><b>'cookie' authentication mode:</b></p>
+<ul>
+    <li>You can use this method as a replacement for the http
+        authentication (for example, if you're running IIS).
+    </li>
+    <li>Obviously, the user must enable cookies in the browser.</li>
+    <li>With this mode, the use can truly logout of phpMyAdmin and login back
+        with the same username.</li>
+</ul>
+
+<p><b>'config' authentication mode:</b></p>
 <ul>
     <li>This mode is the less secure one because it requires you to fill the
         <tt>$cfgServers[n]['user']</tt> and <tt>$cfgServers[n]['password']</tt>
         fields.<br />
         But usually you don't need to setup a &quot;standard user&quot; here:
-        using the <tt>$cfgServers[n]['only_db']</tt> might be enough.</li>
+        using the <tt>$cfgServers[n]['only_db']</tt> might be enough.<br />
+        In the ISP FAQ section, there is an entry explaining how to
+        protect your configuration file.<br /></li>
 </ul>
 
 
@@ -391,7 +413,7 @@
         <b>$cfgServers[n]['stdpass']</b> string
     </dt>
     <dd>
-        When using http or cookie authentication modes (or standard
+        When using http or cookie authentication modes (or 'config'
         authentication mode since phpMyAdmin 2.2.1), you need to supply the
         details of a MySQL account that has <tt>SELECT</tt> privilege on the
         <i>mysql.user (all columns except &quot;Password&quot;)</i>,
@@ -409,48 +431,33 @@
         <br /><br />
     </dd>
 
-    <dt><b>$cfgServers[n]['auth_type']</b> string <tt>['http'|'cookie'|'basic']</tt> </dt>
+    <dt><b>$cfgServers[n]['auth_type']</b> string <tt>['http'|'cookie'|'config']</tt> </dt>
     <dd>
-        Whether basic or cookie or http authentication should be used for this
+        Whether config or cookie or http authentication should be used for this
         server.
 
         <ul>
             <li>
-                Basic authentication (<tt>$auth_type&nbsp;=&nbsp;'basic'</tt>)
+                'config' authentication (<tt>$auth_type&nbsp;=&nbsp;'config'</tt>)
                 is the plain old way: username and password are stored in
                 <i>config.inc.php3</i>.
             </li>
             <li>
-                Cookie authentication mode
+                'cookie' authentication mode
                 (<tt>$auth_type&nbsp;=&nbsp;'cookie'</tt>) as introduced in
                 2.2.3 allows you to log in as any valid MySQL user with the
                 help of... cookies. Log name and password are stored in
-                cookies during the session and password are deleted when it
+                cookies during the session and password is deleted when it
                 ends.
             </li>
             <li>
-                Advanced or http authentication
+                'http' authentication (was called 'advanced' in older versions)
                 (<tt>$auth_type&nbsp;=&nbsp;'http'</tt>) as introduced in 1.3.0
                 allows you to log in as any valid MySQL user via HTTP-Auth.<br />
-                Please note that this last authentication mode is
-                <font color="#bb0000">only supported with PHP running as an
-                Apache module</font>, and not with cgi.
             </li>
         </ul><br />
 
-        Http or cookie authentication modes are recommended in a multi-user 
-        environment where you want to give users access to their own database 
-        and don't want them to play around with others.
-        <br /><br />
-
-        http or cookie authentication modes are secure: the MySQL passwords does
-        not need to be set in the phpMyAdmin configuration file. (except for the
-        &quot;standard user&quot; -see above-).<br />
-        In cookie mode, we send the password in a temporary cookie, so most    
-        browsers should not store the password in their cookie file.
-        <br /><br />
-
-        Please see the install section on &quot;Using http authentication&quot;
+        Please see the install section on &quot;Using authentication modes&quot;
         for more information.
         <br /><br />
     </dd>
