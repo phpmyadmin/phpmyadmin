@@ -11,6 +11,7 @@ $Source$
     * lang/thai: Updated.
     * lang/italian: Updated, thanks to Pietro Danesi.
     * lang/indonesian: Updated, thanks to Rachim Tamsjadi.
+    * lang/lithuanian: Updated, thanks to Vilius Zigmantas.
 
 2003-03-18 Garvin Hicking <me@supergarv.de>
     * libraries/display_export.lib.php3: Fixed variable usage.
