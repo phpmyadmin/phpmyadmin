@@ -5,8 +5,14 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
-2001-08-16  Marc Delisle  <lem9@users.sourceforge.net> 
-	* tbl_change.php3, bug 451085 Can't assign NULL value to char(1) 
+2001-08-16  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lang/polish.inc.php3: updated thanks to
+	  Jakub Wilk <ubanus@users.sourceforge.net>.
+	* tbl_addfield.php3, line 68: removed an unecessary stripslashes call.
+	* tbl_replace.php3: fixed some decoding bugs.
+
+2001-08-16  Marc Delisle  <lem9@users.sourceforge.net>
+	* tbl_change.php3, bug 451085 Can't assign NULL value to char(1).
 
 2001-08-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3; tbl_replace.php3: fixed some of the bugs I've introduced
