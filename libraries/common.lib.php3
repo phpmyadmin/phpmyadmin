@@ -1121,7 +1121,10 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             ?>
 <script type="text/javascript" language="javascript1.2">
 <!--
-window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
+if (typeof(window.parent) != 'undefined'
+    && typeof(window.parent.frames['nav']) != 'undefined') {
+    window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
+}
 //-->
 </script>
             <?php
