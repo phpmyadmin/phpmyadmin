@@ -5,6 +5,20 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-11  Steve Alberty   <alberty@neptunlabs.de>
+	* tbl_properties.php3: suppress Table Maintenance, Comment and Type
+	  for MySQL Version < 3.23
+
+2001-06-10  Steve Alberty   <alberty@neptunlabs.de>
+	* tbl_select.php3,tbl_change.php3,lib.inc.php3: fixed warnings
+	* db_details.php3: add output of table size, speedup on high loaded
+	  server
+	* left.php3, left.js: shows minus instead of plus in empty databases
+	* tbl_properties.inc.php3: change 'default' table type to localized
+	  string
+	* tbl_properties.php3: insert spaceusage & row statistics, small
+	  fixes in output
+
 2001-06-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* index.php3: ensure the server hostname is find whatever is the php
 	  configuration
