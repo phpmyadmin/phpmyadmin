@@ -31,6 +31,8 @@ $Source$
     * sql.php3, libraries/common.lib.php3:
         - Improved logic of edit, show_as_php, explain and validator
           in the SQL query box
+    * libraries/sqlvalidator.php3, libraries/sqlvalidator.class.php3:
+        - Function documentation and cleanup
 
 2002-08-02 Robin Johnson  <robbat2@users.sourceforge.net>
     * libraries/defines*:
