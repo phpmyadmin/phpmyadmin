@@ -13,7 +13,7 @@
  *    PMA_WINDOWS          (bool)   - mark if phpMyAdmin running on windows
  *                                    server
  */
-define('PHPMYADMIN_VERSION', '2.2.0rc4');
+define('PHPMYADMIN_VERSION', '2.2.0rc5');
 
 if (!ereg('([0-9]).([0-9]).([0-9])', phpversion(), $match)) {
     $result = ereg('([0-9]).([0-9])', phpversion(), $match);
