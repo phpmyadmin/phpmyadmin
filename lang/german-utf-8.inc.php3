@@ -632,11 +632,10 @@ $strYes = 'Ja';
 
 $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränkung.';
 $strZip = 'Zip-komprimiert';
-//To translate
 
-$strLaTeXOptions = 'LaTeX options';  //to translate
-$strRelations = 'Relations';  //to translate
-$strMoveTableSameNames = 'Can\'t move table to same one!';  //to translate
-$strCopyTableSameNames = 'Can\'t copy table to same one!';  //to translate
-$strMustSelectFile = 'You should select file which you want to insert.';  //to translate
+$strLaTeXOptions = 'LaTeX-Optionen';
+$strRelations = 'Tabellenverknüpfungen';
+$strMoveTableSameNames = 'Tabelle kann nicht mit gleichem Namen verschoben werden!';
+$strCopyTableSameNames = 'Tabelle kann nicht mit gleichem Namen kopiert werden!';
+$strMustSelectFile = 'Bitte geben Sie eine Datei an, die eingefügt werden soll.';
 ?>

@@ -11,6 +11,7 @@ $Source$
        to sql tab of the query window)
     * left.php3: Improved performance by using str_replace instead
       of ereg_replace.
+    * lang/german*: Translations.
 
 2003-05-13 Michal Cihar  <nijel@users.sourceforge.net>
     * left.php3: Fixed displaying of tables with quote in name.
