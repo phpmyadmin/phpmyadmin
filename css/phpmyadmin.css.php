@@ -280,6 +280,8 @@ form.clock {
 
 .nowrap {
     white-space: nowrap;
+    margin: 0px;
+    padding: 0px;
 }
 
 li {

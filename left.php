@@ -97,11 +97,11 @@ function PMA_nestedSetHeaderParent($baseid, $key, $keyhistory, $indent, $indent_
     echo PMA_indent($indent * 6) . '<div class="nowrap"><img src="images/spacer.gif" border="0" width="' . (($indent - 1) * $indent_level) . '" height="9" alt="" /><a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '" onclick="if (capable) {expandBase(\'el' . $id . '\', true); return false} else {return true}">';
     echo '<img name="imEx" id="el' . $id . 'Img" src="images/plus.png" border="0" width="9" height="9" alt="+" /></a>' . "\n";
     echo PMA_indent($indent * 6) . '<a class="item" href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . $GLOBALS['common_url_query'] . '" title="' . htmlspecialchars($name) . '" onclick="if (capable) {expandBase(\'el' . $id . '\', false)}"><span class="heada">' . htmlspecialchars($name) . '<bdo dir="' . $GLOBALS['text_dir'] . '">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(' . $counter . ')</span></a></div>' . "\n";
-    echo PMA_indent($indent * 5) . '</div><id class="PMA_nestedSetHeaderParent">' . "\n";
+    echo PMA_indent($indent * 5) . '</div><!-- class="PMA_nestedSetHeaderParent" -->' . "\n";
     echo "\n";
 
     if ($childout) {
-        echo PMA_indent($indent * 5) . '<div id="el' . $id . 'Child" class="child" ' . $on_mouse . '>' . "\n";
+        echo PMA_indent($indent * 5) . '<div id="el' . $id . 'Child" class="child nowrap" ' . $on_mouse . '>' . "\n";
     }
 }
 
@@ -124,15 +124,15 @@ function PMA_nestedSetHeader($baseid, $tablestack, $keyhistory, $indent, $indent
             }
 
             if ($headerOut) {
-                echo PMA_indent($indent * 5) . '</div><id class="PMA_nestedSetHeader">' . "\n";
+                echo PMA_indent($indent * 5) . '</div><!-- class="PMA_nestedSetHeader" -->' . "\n";
             }
         }
     }
 
     if ($firstGroup && $firstGroupClose) {
-        echo PMA_indent($indent * 4) . '</div><id class="PMA_nestedSetHeader2">' . "\n";
+        echo PMA_indent($indent * 4) . '</div><!-- class="PMA_nestedSetHeader2" -->' . "\n";
     } elseif ($firstGroup) {
-        echo PMA_indent($indent * 4) . '<id spacer="div omitted" class="PMA_nestedSetHeader2">' . "\n";
+        echo PMA_indent($indent * 4) . '<!-- spacer="div omitted" class="PMA_nestedSetHeader2" -->' . "\n";
     }
 }
 
@@ -163,19 +163,19 @@ function PMA_nestedSet($baseid, $tablestack, $key = '__protected__', $keyhistory
         $loops = 0;
         foreach($tablestack['pma_name'] AS $tkey => $tval) {
 
-            echo PMA_indent($indent * 5) . '<div class="nowrap"><img src="images/spacer.gif" border="0" width="' . (($indent+$extra_indent) * $indent_level) . '" height="9" alt="" />';
+            echo PMA_indent($indent * 5) . '<img src="images/spacer.gif" border="0" width="' . (($indent+$extra_indent) * $indent_level) . '" height="9" alt="" />';
             $items = explode("\n", $tablestack['pma_list_item'][$tkey]);
             foreach($items AS $ikey => $ival) {
                 echo "\n";
                 echo PMA_indent(($indent * 5)) . $ival;
             }
-            echo "</div>\n";
+            echo "\n";
 
             $loops++;
         }
 
         if ($divClose) {
-            echo PMA_indent($indent * 5) . '</div><id space="putting omitted div" class="PMA_nestedSet2">';
+            echo PMA_indent($indent * 5) . '</div><!-- space="putting omitted div" class="PMA_nestedSet2" -->';
         }
 
     } elseif (is_array($tablestack)) {
@@ -592,9 +592,9 @@ if ($num_dbs > 1) {
                     $table_array[$table] .= '              <img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" title="' . $strBrowse . ': ' . $url_title . '" /></a><bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
 
                     if (PMA_USR_BROWSER_AGENT == 'IE') {
-                        $table_array[$table] .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></span></div><br />' . "\n";
+                        $table_array[$table] .= '          <span class="tblItem"><a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></span></div>' . "\n";
                     } else {
-                        $table_array[$table] .= '          <a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></div><br />' . "\n";
+                        $table_array[$table] .= '          <a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">' . ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></div>' . "\n";
                     }
 
                     $table_title[$table] = htmlspecialchars($table);
@@ -745,7 +745,7 @@ else if ($num_dbs == 1) {
         <a class="item" href="<?php echo $cfg['DefaultTabDatabase']; ?>?<?php echo $common_url_query; ?>">
             <span class="heada"><?php echo ($db_tooltip != '' && $cfg['ShowTooltipAliasDB'] ? htmlspecialchars($db_tooltip) : htmlspecialchars($db)); ?><bdo dir="<?php echo($text_dir); ?>">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(<?php echo $num_tables_disp; ?>)</span></a>
     </div>
-    <div id="el2Child" class="child" style="margin-bottom: 5px">
+    <div id="el2Child" class="child nowrap" style="margin-bottom: 5px">
         <?php
     }
 
@@ -760,21 +760,20 @@ else if ($num_dbs == 1) {
                    : '';
         $book_sql_query = PMA_queryBookmarks($db, $cfg['Bookmark'], '\'' . PMA_sqlAddslashes($table) . '\'', 'label');
 
-        echo '<div class="nowrap">';
         if ($cfg['LeftFrameLight']) {
         echo "\n";
         ?>
             <a target="phpmain<?php echo $hash; ?>" href="sql.php?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>&amp;sql_query=<?php echo (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))); ?>&amp;pos=0&amp;goto=<?php echo $cfg['DefaultTabTable']; ?>" title="<?php echo $strBrowse . ': ' . $url_title; ?>">
                   <img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="<?php echo $strBrowse . ': ' . $url_title; ?>" /></a><bdo dir="<?php echo $text_dir; ?>">&nbsp;</bdo>
               <a class="tblItem" id="tbl_<?php echo md5($table); ?>" title="<?php echo $url_title; ?>" target="phpmain<?php echo $hash; ?>" href="<?php echo $cfg['DefaultTabTable']; ?>?<?php echo $common_url_query; ?>&amp;table=<?php echo urlencode($table); ?>">
-                  <?php echo ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)); ?></a></div><br />
+                  <?php echo ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)); ?></a><br />
         <?php
         } else {
             $list_item = '<a target="phpmain' . $hash . '" href="sql.php?' . $common_url_query . '&amp;table=' . urlencode($table) . '&amp;sql_query=' . (isset($book_sql_query) && $book_sql_query != FALSE ? urlencode($book_sql_query) : urlencode('SELECT * FROM ' . PMA_backquote($table))) . '&amp;pos=0&amp;goto=' . $cfg['DefaultTabTable'] . '" title="' . $strBrowse . ': ' . $url_title . '">';
             $list_item .= '<img src="images/button_smallbrowse.png" width="10" height="10" border="0" alt="' . $strBrowse . ': ' . $url_title . '" /></a>';
             $list_item .= '<bdo dir="' . $text_dir . '">&nbsp;</bdo>' . "\n";
             $list_item .= '<a class="tblItem" id="tbl_' . md5($table) . '" title="' . $url_title . '" target="phpmain' . $hash . '" href="' . $cfg['DefaultTabTable'] . '?' . $common_url_query . '&amp;table=' . urlencode($table) . '">';
-            $list_item .= ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a></div><br />';
+            $list_item .= ($alias != '' && $cfg['ShowTooltipAliasTB'] ? $alias : htmlspecialchars($table)) . '</a><br />';
 
             // garvin: Check whether to display nested sets
             if (!empty($cfg['LeftFrameTableSeparator'])) {

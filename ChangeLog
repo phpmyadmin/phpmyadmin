@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-28 Garvin Hicking <pma@supergarv.de>
+    * left.php, libraries/left.js: Fixed unneeded spacing between items
+      and wrong collapsion in nested mode (Bug #943140). Removed
+      some debugging non-xhtml tags.
+    * css/phpmyadmin.css.php: Added zero margin/padding to nowrap element
+      for compatibility to the good old nobr-tag
+
 2004-04-27 Michal Cihar  <michal@cihar.com>
     * calendar.php, libraries/tbl_change.js: Don't reset clock when moving in
       calendar.

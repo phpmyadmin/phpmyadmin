@@ -126,7 +126,7 @@ function initIt()
     for (i = 0; i < tempCollCnt; i++) {
       if (tempColl[i].id == expandedDb)
         tempColl[i].style.display = 'block';
-      else if (tempColl[i].className == 'child')
+      else if (tempColl[i].className == 'child' || tempColl[i].className == 'child nowrap')
         tempColl[i].style.display = 'none';
     }
   } // end of the DOM case
@@ -136,7 +136,7 @@ function initIt()
     for (i = 0; i < tempCollCnt; i++) {
       if (tempColl(i).id == expandedDb)
         tempColl(i).style.display = 'block';
-      else if (tempColl(i).className == 'child')
+      else if (tempColl(i).className == 'child' || tempColl(i).className == 'child nowrap')
         tempColl(i).style.display = 'none';
     }
   } // end of the IE4 case
