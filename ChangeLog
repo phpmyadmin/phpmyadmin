@@ -22,6 +22,7 @@ $Source$
     * lang/catalan: Updated, thanks to Xavier Navarro.
     * footer.inc.php3: Fixed for quotes, HTML entities and other weird
       characters in db/table name.
+    * libraries/display_tbl.lib.php3: Fixed bug #720672 - moved headers.
 
 2003-04-14 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3: Fixed SHOW TABLE STATUS LIKE ... FROM ...
