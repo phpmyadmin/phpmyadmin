@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-03 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/romanian.inc.php3 updates, thanks to Valics Lehel
+
 2002-06-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * libraries/display_tbl.inc.php3, line 1413: xhtml fix.
     * libraries/fpdf/fpdf.php3: light optimizations and fixes.
