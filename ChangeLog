@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * db_details_export.php3, db_details_links.php3, Documentation.html,
+      sql.php3, tbl_properties_export.php3, libraries/common.lib.php3,
+      libraries/select_lang.lib.php3: fixes from Loic
+
 2002-07-14 Marc Delisle  <lem9@users.sourceforge.net>
     * Documentation.html, db_details_exports.php3, tbl_properties_export.php3:
       add a link to a new faq entry explaining some dump options
