@@ -27,10 +27,7 @@
         // We could also do the SELECT anyway, with a LIMIT, and ensure that
         // the current value of the field is one of the choices.
 
-        $count_query  = 'SELECT COUNT(*) AS total FROM ' . PMA_backquote($foreign_db) . '.' . PMA_backquote($foreign_table);
-        $count_result = PMA_mysql_query($count_query) or PMA_mysqlDie('', $count_query, '', $err_url);
-        $the_total    = PMA_mysql_result($count_result, 0, 'total');
-        mysql_free_result($count_result);
+        $the_total   = PMA_countRecords($db, $table, TRUE);
 
         if ($the_total < 200) {
             // foreign_display can be FALSE if no display field defined:

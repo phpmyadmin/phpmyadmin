@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-10 Michal Cihar  <nijel@users.sourceforge.net>
+    * pdf_schema.php3, libraries/common.lib.php3,
+      libraries/display_tbl.lib.php3, libraries/get_foreign.lib.php3: Get row
+      count by SHOW TABLE STATUS, and by SELECT COUNT(*) only for small
+      (<20000 rows) tables (RFE #708533).
+
 2003-04-09 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/build_dump.lib.php3: Fixed undefined index warnings in LaTeX
       and XML dump.

@@ -1295,10 +1295,8 @@ function PMA_RT_DOC($alltables ){
              $update_time  = (isset($showtable['Update_time']) ? PMA_localisedDate(strtotime($showtable['Update_time'])) : '');
              $check_time   = (isset($showtable['Check_time']) ? PMA_localisedDate(strtotime($showtable['Check_time'])) : '');
         } else {
-             $local_query  = 'SELECT COUNT(*) AS count FROM ' . PMA_backquote($table);
-             $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
              $showtable    = array();
-             $num_rows     = PMA_mysql_result($result, 0, 'count');
+             $num_rows     = PMA_countRecords($db, $table, TRUE);
              $show_comment = '';
              $create_time  = '';
              $update_time  = '';

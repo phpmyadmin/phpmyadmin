@@ -1224,9 +1224,20 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
          */
         function PMA_countRecords($db, $table, $ret = FALSE)
         {
-            $result = PMA_mysql_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table));
-            $num    = ($result) ? PMA_mysql_result($result, 0, 'num') : 0;
-            mysql_free_result($result);
+            global $err_url;
+            if (PMA_MYSQL_INT_VERSION >= 32303) {
+                $local_query  = 'SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\' FROM \'' . PMA_sqlAddslashes($table, TRUE) . '\'';
+                $result       = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
+                $showtable    = PMA_mysql_fetch_array($result);
+                $num     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
+                if ($num < 20000) unset($num);
+                mysql_free_result($result);
+            }
+            if (!isset($num)) {
+                $result = PMA_mysql_query('SELECT COUNT(*) AS num FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)) or PMA_mysqlDie('', $local_query, '', $err_url);
+                $num    = ($result) ? PMA_mysql_result($result, 0, 'num') : 0;
+                mysql_free_result($result);
+            }
             if ($ret) {
                 return $num;
             } else {

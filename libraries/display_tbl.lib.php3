@@ -156,10 +156,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         }
         else if (($do_display['nav_bar'] == '1' || $do_display['sort_lnk'] == '1')
                  && (!empty($db) && !empty($table))) {
-            $local_query = 'SELECT COUNT(*) AS total FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-            $result      = PMA_mysql_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url);
-            $the_total   = PMA_mysql_result($result, 0, 'total');
-            mysql_free_result($result);
+            $the_total   = PMA_countRecords($db, $table, TRUE);
         }
 
         // 4. If navigation bar or sorting fields names urls should be
