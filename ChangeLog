@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 2002-04-20 Loïc Chapeaux  <lolo@phpheaven.net>
+	* sql.php3; libraries/functions.js: improved regexp used to find some
+	  statements in order to "fix" an error reported by
+	  Max <max at softportal.com> in the "Open Discussion" forum.
 	* lang/latvian.inc.php3: updated thanks to Sandis Jçrics.
 
 2002-04-20 Alexander M. Turek  <rabus@users.sourceforge.net>

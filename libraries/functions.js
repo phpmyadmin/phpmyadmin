@@ -54,8 +54,8 @@ function confirmQuery(theForm1, sqlQuery1)
     // js1.2+ -> validation with regular expressions
     else {
         // "DROP DATABASE" statement isn't allowed
-        if (noDropDbMsg) {
-            var drop_re = new RegExp('DROP\\s+(IF EXISTS\\s+)?DATABASE', 'i');
+        if (noDropDbMsg != '') {
+            var drop_re = new RegExp('DROP\\s+(IF EXISTS\\s+)?DATABASE\\s', 'i');
             if (drop_re.test(sqlQuery1.value)) {
                 alert(noDropDbMsg);
                 theForm1.reset();
@@ -65,9 +65,9 @@ function confirmQuery(theForm1, sqlQuery1)
         } // end if
 
         // Confirms a "DROP/DELETE/ALTER" statement
-        var do_confirm_re_0 = new RegExp('DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)', 'i');
-        var do_confirm_re_1 = new RegExp('ALTER TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP', 'i');
-        var do_confirm_re_2 = new RegExp('DELETE FROM', 'i');
+        var do_confirm_re_0 = new RegExp('DROP\\s+(IF EXISTS\\s+)?(TABLE|DATABASE)\\s', 'i');
+        var do_confirm_re_1 = new RegExp('ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
+        var do_confirm_re_2 = new RegExp('DELETE\\s+FROM\\s', 'i');
         if (do_confirm_re_0.test(sqlQuery1.value)
             || do_confirm_re_1.test(sqlQuery1.value)
             || do_confirm_re_2.test(sqlQuery1.value)) {

@@ -33,7 +33,7 @@ if (!isset($err_url)) {
  */
 if (!defined('PMA_CHK_DROP')
     && !$cfgAllowUserDropDatabase
-    && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE ', $sql_query)) {
+    && eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE[[:space:]]', $sql_query)) {
     // Checks if the user is a Superuser
     // TODO: set a global variable with this information
     // loic1: optimized query
@@ -134,7 +134,7 @@ if (!$cfgConfirm
     || isset($btnDrop)) {
     $do_confirm = FALSE;
 } else {
-    $do_confirm = (eregi('DROP[[:space:]]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)|ALTER TABLE[[:space:]]+((`[^`]+`)|([A-Za-z0-9_$]+))[[:space:]]+DROP|DELETE FROM', $sql_query));
+    $do_confirm = (eregi('DROP[[:space:]]+(IF[[:space:]]+EXISTS[[:space:]]+)?(TABLE|DATABASE[[:space:]])|ALTER[[:space:]]+TABLE[[:space:]]+((`[^`]+`)|([A-Za-z0-9_$]+))[[:space:]]+DROP[[:space:]]|DELETE[[:space:]]+FROM[[:space:]]', $sql_query));
 }
 
 if ($do_confirm) {
@@ -198,13 +198,13 @@ else {
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = FALSE;
     if ($is_select) { // see line 76
         $is_count    = (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
-        $is_export   = (eregi('[[:space:]]+INTO OUTFILE[[:space:]]+', $sql_query));
+        $is_export   = (eregi('[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+', $sql_query));
     } else if (eregi('^EXPLAIN[[:space:]]+', $sql_query)) {
         $is_explain  = TRUE;
     } else if (eregi('^DELETE[[:space:]]+', $sql_query)) {
         $is_delete   = TRUE;
         $is_affected = TRUE;
-    } else if (eregi('^(INSERT|LOAD DATA|REPLACE)[[:space:]]+', $sql_query)) {
+    } else if (eregi('^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+', $sql_query)) {
         $is_insert   = TRUE;
         $is_affected = TRUE;
     } else if (eregi('^UPDATE[[:space:]]+', $sql_query)) {
@@ -224,7 +224,7 @@ else {
         && !eregi('[[:space:]]LIMIT[[:space:]0-9,]+$', $sql_query)) {
 
         $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";
-        if (eregi('(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR UPDATE|LOCK IN SHARE MODE))$', $sql_query, $regs)) {
+        if (eregi('(.*)([[:space:]](PROCEDURE[[:space:]](.*)|FOR[[:space:]]+UPDATE|LOCK[[:space:]]+IN[[:space:]]+SHARE[[:space:]]+MODE))$', $sql_query, $regs)) {
             $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];
         } else {
             $full_sql_query  = $sql_query . $sql_limit_to_append;
