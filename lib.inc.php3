@@ -518,17 +518,18 @@ if (!defined('__LIB_INC__')){
     {
         global $font_size, $font_bigger, $font_smaller, $font_smallest;
 
-        // IE for win case: needs smaller fonts than anyone else
+        // IE (<6)/Opera for win case: needs smaller fonts than anyone else
         if (USR_OS == 'Win'
-            && (USR_BROWSER_AGENT == 'IE' || USR_BROWSER_AGENT == 'OPERA')) {
+            && ((USR_BROWSER_AGENT == 'IE' && USR_BROWSER_VER < 6)
+                || USR_BROWSER_AGENT == 'OPERA')) {
             $font_size     = 'x-small';
             $font_bigger   = 'large ';
-            // Unreadable
-            // $font_smaller  = 'xx-small';
-            $font_smaller  = '90%';
+            $font_smaller  = (USR_BROWSER_AGENT == 'IE' && USR_BROWSER_VER < 5.5)
+                           ? '80%'
+                           : '90%';
             $font_smallest = '7pt';
         }
-        // Other browsers for win case
+        // IE6 and other browsers for win case
         else if (USR_OS == 'Win') {
             $font_size     = 'small';
             $font_bigger   = 'large ';
@@ -688,7 +689,7 @@ if (!defined('__LIB_INC__')){
     function show_message($message)
     {
         // Reloads the navigation frame via JavaScript if required
-        if (!empty($GLOBALS['reload']) && ($GLOBALS['reload'] == 'true')) {
+        if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
             echo "\n";
             $reload_url = './left.php3'
                         . '?lang=' . $GLOBALS['lang']
@@ -1123,6 +1124,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         <?php
         // Move to the next page or to the last one
         if (($pos + $sessionMaxRows < $unlim_num_rows) && $num_rows >= $sessionMaxRows) {
+            echo "\n";
             ?>
     <td>
         <form action="sql.php3" method="post">
@@ -1758,7 +1760,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
         // 4. ----- Displays the navigation bar at the bottom if required -----
 
         if ($is_display['nav_bar'] == '1') {
-            display_table_navigation($pos_next, $pos_prev, $dt_result, $encoded_sql_query);
+            display_table_navigation($pos_next, $pos_prev, $encoded_sql_query);
         } else {
             echo "\n" . '<br />' . "\n";
         }
@@ -2333,7 +2335,7 @@ window.parent.frames['nav'].location.replace('<?php echo $reload_url; ?>');
                 $j = 1;
                 while ($sql[$i+$j] != "\n") {
                     $j++;
-                    if ($j+$i > strlen($sql)) {
+                    if ($j+$i >= strlen($sql)) {
                         break;
                     }
                 } // end while
