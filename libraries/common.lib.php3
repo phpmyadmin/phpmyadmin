@@ -1689,7 +1689,11 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
             $db_details_links_count_tabs++;
             if (!empty($attr)) {
-                $attr = ' width="100%" ' . $attr;
+                if ($cfg['LightTabs']) {
+                    $attr = ' ' . $attr;
+                } else {
+                    $attr = ' style="display:block" ' . $attr;
+                }
             } else {
                 if ($cfg['LightTabs']) {
                     $attr = ' ';

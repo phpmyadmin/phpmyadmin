@@ -26,6 +26,8 @@ $Source$
     * libraries/common.lib.php3: Highlight tab also when current page is
       read_dump.php3 and $goto is link of current tab.
     * tbl_replace.php3: Display message after updating row.
+    * libraries/common.lib.php3: Fix tab attributes when some specified as
+      parameters.
 
 2003-05-12 Garvin Hicking <me@supergarv.de>
     * queryframe.php3: Remove left/bottom margin to better fit the link title
