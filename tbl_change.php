@@ -277,7 +277,8 @@ foreach($loop_array AS $vrowcount => $vrow) {
         //        value (the real default value will be set in the
         //        Default value logic below)
         if ($row_table_def['Type'] == 'datetime'
-            && (!isset($row_table_def['Default']))) {
+            && (!isset($row_table_def['Default']))
+            && (!is_null($row_table_def['Default']))) {
             // INSERT case
             if ($insert_mode) {
                 if (isset($vrow)) {
