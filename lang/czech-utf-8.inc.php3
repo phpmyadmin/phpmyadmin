@@ -354,6 +354,7 @@ $strSelectFields = 'Zvolte sloupec (alespoň jeden):';
 $strSelectNumRows = 'v&nbsp;dotazu';
 $strSelectTables = 'Vybrat tabulky';
 $strSend = 'Poslat';
+$strServer = 'Server %s';
 $strServerChoice = 'Výběr serveru';
 $strServerVersion = 'Verze MySQL';
 $strSetEnumVal = 'Pokud je sloupec typu "enum" nebo "set", zadávejte hodnoty v&nbsp;následujícím formátu: \'a\',\'b\',\'c\'...<br />Pokud potřebujete zadat zpětné lomítko ("\") nebo jednoduché uvozovky ("\'") mezi těmito hodnotami, napište před ně zpětné lomítko (příklad: \'\\\\xyz\' nebo \'a\\\'b\').';
@@ -433,5 +434,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
-$strServer = 'Server %s';  //to translate
 ?>
