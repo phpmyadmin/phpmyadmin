@@ -40,7 +40,6 @@ mysql_free_result($table_info_result);
  * Displays top menu links
  */
 echo '<!-- top menu -->' . "\n";
-//$sub_part = '_table_info';
 require('./tbl_properties_links.php3');
 
 
@@ -51,7 +50,7 @@ if (!empty($show_comment)) {
     ?>
 <!-- Table comment -->
 <p><i>
-    <?php echo $show_comment . "\n"; ?>
+    <?php echo htmlspecialchars($show_comment) . "\n"; ?>
 </i></p>
     <?php
 } // end if
