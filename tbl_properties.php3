@@ -387,6 +387,22 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_typ
         </tr>
         <?php
     }
+    if (isset($showtable['Data_length']) && $showtable['Rows']>0) {
+        echo (++$i%2)
+             ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
+             : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
+        echo "\n";
+        ?>
+            <td><?php echo ucfirst($strRowSize) . '&nbsp;&oslash;'; ?></td>
+            <td align="right">
+                <?php
+                	list($avg_size, $avg_unit) =format_byte_down(($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows']);
+                	echo "$avg_size $avg_unit\n";
+                ?>
+            </td>
+        </tr>
+        <?php
+    }
     if (isset($showtable['Auto_increment'])) {
         echo (++$i%2)
              ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
