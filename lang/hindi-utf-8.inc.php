@@ -770,4 +770,5 @@ $strEncloseInTransaction = 'Enclose export in a transaction';  //to translate
 $strCalendar = 'Calendar';  //to translate
 $strRefresh = 'Refresh';  //to translate
 $strDefragment = 'Defragment table';  //to translate
+$strNoRowsSelected = 'No rows selected';  //to translate
 ?>

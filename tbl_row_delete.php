@@ -6,6 +6,16 @@ require_once('./libraries/common.lib.php');
 require_once('./libraries/mysql_charsets.lib.php');
 
 /**
+ * No rows were selected => show again the query and tell that user.
+ */
+if ((!isset($rows_to_delete) || !is_array($rows_to_delete)) && !isset($mult_btn)) {
+    $disp_message = $strNoRowsSelected;
+    $disp_query = '';
+    require('./sql.php');
+    require_once('./footer.inc.php');
+}
+
+/**
  * Drop multiple rows if required
  */
 
@@ -59,50 +69,43 @@ require_once('./header.inc.php');
 if (!empty($submit_mult)) {
     switch($submit_mult) {
         case 'row_edit':
-            if (isset($rows_to_delete) && is_array($rows_to_delete)) {
-                $primary_key = array();
-                // garvin: As we got the fields to be edited from the 'rows_to_delete' checkbox, we use the index of it as the
-                // indicating primary key. Then we built the array which is used for the tbl_change.php script.
-                foreach($rows_to_delete AS $i_primary_key => $del_query) {
-                    $primary_key[] = urldecode($i_primary_key);
-                }
-                
-                $active_page = 'tbl_change.php';
-                include './tbl_change.php';
+            $primary_key = array();
+            // garvin: As we got the fields to be edited from the 'rows_to_delete' checkbox, we use the index of it as the
+            // indicating primary key. Then we built the array which is used for the tbl_change.php script.
+            foreach($rows_to_delete AS $i_primary_key => $del_query) {
+                $primary_key[] = urldecode($i_primary_key);
             }
+            
+            $active_page = 'tbl_change.php';
+            include './tbl_change.php';
             break;
 
         case 'row_export':
-            if (isset($rows_to_delete) && is_array($rows_to_delete)) {
-                // Needed to allow SQL export
-                $single_table = TRUE;
+            // Needed to allow SQL export
+            $single_table = TRUE;
 
-                $primary_key = array();
-                $sql_query = urldecode($sql_query);
-                // garvin: As we got the fields to be edited from the 'rows_to_delete' checkbox, we use the index of it as the
-                // indicating primary key. Then we built the array which is used for the tbl_change.php script.
-                foreach($rows_to_delete AS $i_primary_key => $del_query) {
-                    $primary_key[] = urldecode($i_primary_key);
-                }
-
-                $active_page = 'tbl_properties_export.php';
-                include './tbl_properties_export.php';
+            $primary_key = array();
+            $sql_query = urldecode($sql_query);
+            // garvin: As we got the fields to be edited from the 'rows_to_delete' checkbox, we use the index of it as the
+            // indicating primary key. Then we built the array which is used for the tbl_change.php script.
+            foreach($rows_to_delete AS $i_primary_key => $del_query) {
+                $primary_key[] = urldecode($i_primary_key);
             }
+
+            $active_page = 'tbl_properties_export.php';
+            include './tbl_properties_export.php';
             break;
 
         case 'row_delete':
         default:
-            if ((isset($rows_to_delete) && is_array($rows_to_delete))
-                || isset($mult_btn)) {
-                $action = 'tbl_row_delete.php';
-                $err_url = 'tbl_row_delete.php?' . PMA_generate_common_url($db, $table);
-                if (!isset($mult_btn)) {
-                    $original_sql_query = $sql_query;
-                    $original_url_query = $url_query;
-                    $original_pos       = $pos;
-                }
-                require('./mult_submits.inc.php');
+            $action = 'tbl_row_delete.php';
+            $err_url = 'tbl_row_delete.php?' . PMA_generate_common_url($db, $table);
+            if (!isset($mult_btn)) {
+                $original_sql_query = $sql_query;
+                $original_url_query = $url_query;
+                $original_pos       = $pos;
             }
+            require('./mult_submits.inc.php');
             $url_query = PMA_generate_common_url($db, $table)
                        . '&amp;goto=tbl_properties.php';
 
@@ -110,9 +113,9 @@ if (!empty($submit_mult)) {
             /**
              * Show result of multi submit operation
              */
-            if ((!empty($submit_mult) && isset($rows_to_delete))
-                || isset($mult_btn)) {
-                PMA_showMessage($strSuccess);
+            if (!empty($submit_mult) || isset($mult_btn)) {
+                $disp_message = $strSuccess;
+                $disp_query = $sql_query;
             }
 
             if (isset($original_sql_query)) {
@@ -132,6 +135,7 @@ if (!empty($submit_mult)) {
             unset($submit_mult);
             unset($mult_btn);
 
+            $active_page = 'sql.php';
             require('./sql.php');
 
             /**

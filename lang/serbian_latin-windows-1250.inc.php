@@ -748,4 +748,5 @@ $strDefragment = 'Defragment table';  //to translate
 
 $strRefresh = 'Refresh';  //to translate
 
+$strNoRowsSelected = 'No rows selected';  //to translate
 ?>

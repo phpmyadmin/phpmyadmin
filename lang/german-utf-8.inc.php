@@ -747,4 +747,5 @@ $strZeroRemovesTheLimit = 'Anmerkung: Der Wert 0 (null) entfernt die Beschränku
 $strZip = 'Zip-komprimiert';
 
 $strDefragment = 'Defragment table';  //to translate
+$strNoRowsSelected = 'No rows selected';  //to translate
 ?>

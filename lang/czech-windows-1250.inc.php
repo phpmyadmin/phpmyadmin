@@ -416,6 +416,7 @@ $strNoPhp = 'Bez PHP kódu';
 $strNoPrivileges = 'Bez oprávnìní';
 $strNoQuery = 'Žádný SQL dotaz!';
 $strNoRights = 'Nemáte dostateèná práva na provedení této akce!';
+$strNoRowsSelected = 'Nebyla vybrán žádný øádek';
 $strNoSpace = 'Nedostatek místa pro uložení souboru %s.';
 $strNoTablesFound = 'V&nbsp;databázi nebyla nalezena ani jedna tabulka.';
 $strNoUsersFound = 'Žádný uživatel nenalezen.';

@@ -411,6 +411,7 @@ $strNoPhp = 'Without PHP Code';
 $strNoPrivileges = 'No Privileges';
 $strNoQuery = 'No SQL query!';
 $strNoRights = 'You don\'t have enough rights to be here right now!';
+$strNoRowsSelected = 'No rows selected';
 $strNoSpace = 'Insufficient space to save the file %s.';
 $strNoTablesFound = 'No tables found in database.';
 $strNoUsersFound = 'No user(s) found.';
