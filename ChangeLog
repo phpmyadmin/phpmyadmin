@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-14  Armel Fauveau <armel.fauveau@globalis-ms.com>
+	* Added a warning concerning bookmark feature and advanced auth
+
 2001-07-14  Marc Delisle  <lem9@users.sourceforge.net>
             Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html: added a requirement section, rewritten the entry
