@@ -10,6 +10,8 @@ $Source$
       no display field has been defined; bug 1004546, sort error in dropdown
       list of foreign values; incorrect result was freed
     * libraries/relation.lib.php: use natural order sort according to config
+    * db_details_structure.php, pdf_pages.php, pdf_schema.php: make it work
+      with mysqli extension
 
 2004-08-08 Michal Čihař  <michal@cihar.com>
     * calendar.php: Include correct stylesheet (bug #1005421).

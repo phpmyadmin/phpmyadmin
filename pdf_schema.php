@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Contributed by Maxime Delorme and merged by lem9
  */
@@ -683,7 +682,7 @@ class PMA_RT_Table
 
         $this->table_name = $table_name;
         $sql              = 'DESCRIBE ' .  PMA_backquote($table_name);
-        $result           = PMA_DBI_try_query($sql);
+        $result           = PMA_DBI_try_query($sql, NULL, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strPdfInvalidTblName'], $table_name));
         }
@@ -705,7 +704,7 @@ class PMA_RT_Table
                 .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                 .   ' AND   table_name = \'' . PMA_sqlAddslashes($table_name) . '\''
                 .   ' AND   pdf_page_number = ' . $pdf_page_number;
-        $result = PMA_query_as_cu($sql);
+        $result = PMA_query_as_cu($sql, FALSE, PMA_DBI_QUERY_STORE);
 
         if (!$result || !PMA_DBI_num_rows($result)) {
             $pdf->PMA_PDF_die(sprintf($GLOBALS['strConfigureTableCoord'], $table_name));
@@ -717,7 +716,7 @@ class PMA_RT_Table
         $this->displayfield = PMA_getDisplayField($db, $table_name);
 
         // index
-        $result = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($table_name) . ';');
+        $result = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($table_name) . ';', NULL, PMA_DBI_QUERY_STORE);
         if (PMA_DBI_num_rows($result) > 0) {
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
@@ -1106,7 +1105,7 @@ class PMA_RT
         $tab_sql  = 'SELECT table_name FROM ' . PMA_backquote($cfgRelation['table_coords'])
                   .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                   .   ' AND pdf_page_number = ' . $which_rel;
-        $tab_rs   = PMA_query_as_cu($tab_sql);
+        $tab_rs   = PMA_query_as_cu($tab_sql, NULL, PMA_DBI_QUERY_STORE);
         if (!$tab_rs || !PMA_DBI_num_rows($tab_rs) > 0) {
             $pdf->PMA_PDF_die($GLOBALS['strPdfNoTables']);
 //            die('No tables');
@@ -1272,7 +1271,7 @@ function PMA_RT_DOC($alltables ){
         /**
          * Gets table informations
          */
-        $result       = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';');
+        $result       = PMA_DBI_query('SHOW TABLE STATUS LIKE \'' . PMA_sqlAddslashes($table, TRUE) . '\';', NULL, PMA_DBI_QUERY_STORE);
         $showtable    = PMA_DBI_fetch_assoc($result);
         $num_rows     = (isset($showtable['Rows']) ? $showtable['Rows'] : 0);
         $show_comment = (isset($showtable['Comment']) ? $showtable['Comment'] : '');
@@ -1329,7 +1328,7 @@ function PMA_RT_DOC($alltables ){
         /**
          * Gets fields properties
          */
-        $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';');
+        $result      = PMA_DBI_query('SHOW FIELDS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
         $fields_cnt  = PMA_DBI_num_rows($result);
 
 

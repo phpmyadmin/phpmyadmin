@@ -803,7 +803,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
 
     $test_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
-    $test_rs    = PMA_query_as_cu($test_query);
+    $test_rs    = PMA_query_as_cu($test_query, NULL, PMA_DBI_QUERY_STORE);
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         echo "\n";
         ?>

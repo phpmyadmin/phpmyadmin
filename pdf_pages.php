@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-
 /**
  * Gets some core libraries
  */
@@ -17,6 +16,10 @@ require_once('./db_details_common.php');
 require_once('./libraries/relation.lib.php');
 $cfgRelation = PMA_getRelationsParam();
 
+// This is to avoid "Command out of sync" errors. Before switching this to
+// a value of 0 (for MYSQLI_USE_RESULT), please check the logic 
+// to free results wherever needed.
+$query_default_option = PMA_DBI_QUERY_STORE;
 
 /**
  * Now in ./libraries/relation.lib.php we check for all tables
@@ -58,12 +61,12 @@ if ($cfgRelation['pdfwork']) {
                     $ch_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_coords'])
                               .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                               .   ' AND   pdf_page_number = ' . $chpage;
-                    PMA_query_as_cu($ch_query);
+                    PMA_query_as_cu($ch_query, FALSE, $query_default_option);
 
                     $ch_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
                               .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
                               .   ' AND   page_nr = ' . $chpage;
-                    PMA_query_as_cu($ch_query);
+                    PMA_query_as_cu($ch_query, FALSE, $query_default_option);
 
                     unset($chpage);
                 }
@@ -75,9 +78,11 @@ if ($cfgRelation['pdfwork']) {
                 $ins_query   = 'INSERT INTO ' . PMA_backquote($cfgRelation['pdf_pages'])
                              . ' (db_name, page_descr)'
                              . ' VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($newpage) . '\')';
-                PMA_query_as_cu($ins_query);
+                PMA_query_as_cu($ins_query, FALSE, $query_default_option);
 
                 // A u t o m a t i c    l a y o u t
+                //
+                // TODO: support InnoDB
 
                 if (isset($autolayout)) {
                     // save the page number
@@ -90,7 +95,7 @@ if ($cfgRelation['pdfwork']) {
                                 . ' WHERE master_db = \'' . $db . '\''
                                 . ' GROUP BY master_table'
                                 . ' ORDER BY ' . PMA_backquote('COUNT(master_table)') . ' DESC ';
-                    $master_tables_rs = PMA_query_as_cu($master_tables);
+                    $master_tables_rs = PMA_query_as_cu($master_tables, FALSE, $query_default_option);
                     if ($master_tables_rs && PMA_DBI_num_rows($master_tables_rs) > 0) {
                         // first put all the master tables at beginning
                         // of the list, so they are near the center of
@@ -135,8 +140,7 @@ if ($cfgRelation['pdfwork']) {
                             $insert_query = 'INSERT INTO ' . PMA_backquote($cfgRelation['table_coords']) . ' '
                                           . '(db_name, table_name, pdf_page_number, x, y) '
                                           . 'VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($current_table) . '\',' . $pdf_page_number . ',' . $pos_x . ',' . $pos_y . ')';
-                            PMA_query_as_cu($insert_query);
-
+                            PMA_query_as_cu($insert_query, FALSE, $query_default_option);
 
                             // compute for the next table
                             switch ($direction) {
@@ -184,7 +188,7 @@ if ($cfgRelation['pdfwork']) {
                                     .   ' WHERE db_name = \'' .  PMA_sqlAddslashes($db) . '\''
                                     .   ' AND   table_name = \'' . PMA_sqlAddslashes($arrvalue['name']) . '\''
                                     .   ' AND   pdf_page_number = ' . $chpage;
-                        $test_rs    = PMA_query_as_cu($test_query);
+                        $test_rs    = PMA_query_as_cu($test_query, FALSE, $query_default_option);
                         if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
                             if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
                                 $ch_query = 'DELETE FROM ' . PMA_backquote($cfgRelation['table_coords'])
@@ -203,7 +207,7 @@ if ($cfgRelation['pdfwork']) {
                                           . '(db_name, table_name, pdf_page_number, x, y) '
                                           . 'VALUES (\'' . PMA_sqlAddslashes($db) . '\', \'' . PMA_sqlAddslashes($arrvalue['name']) . '\',' . $chpage . ',' . $arrvalue['x'] . ',' . $arrvalue['y'] . ')';
                         }
-                        PMA_query_as_cu($ch_query);
+                        PMA_query_as_cu($ch_query, FALSE, $query_default_option);
                     } // end if
                 } // end for
                 break;
@@ -213,7 +217,7 @@ if ($cfgRelation['pdfwork']) {
                              .   ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'' . "\n"
                              .   ' AND   table_name = \'' . PMA_sqlAddslashes($current_row) . '\'' . "\n"
                              .   ' AND   pdf_page_number = ' . $chpage;
-                    PMA_query_as_cu($d_query);
+                    PMA_query_as_cu($d_query, FALSE, $query_default_option);
                 }
                 break;
         } // end switch
@@ -226,11 +230,11 @@ if ($cfgRelation['pdfwork']) {
         $selectboxall[] = $val[0];
     }
 
-
     // Now first show some possibility to choose a page for the pdf
     $page_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['pdf_pages'])
                 . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\'';
-    $page_rs    = PMA_query_as_cu($page_query);
+    $page_rs    = PMA_query_as_cu($page_query, FALSE, $query_default_option);
+
     if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
         ?>
 <form method="get" action="pdf_pages.php" name="selpage">
@@ -286,7 +290,7 @@ if ($cfgRelation['pdfwork']) {
 $page_query = 'SELECT * FROM ' . PMA_backquote($cfgRelation['table_coords'])
             . ' WHERE db_name = \'' . PMA_sqlAddslashes($db) . '\''
             . ' AND pdf_page_number = ' . $chpage;
-$page_rs    = PMA_query_as_cu($page_query);
+$page_rs    = PMA_query_as_cu($page_query, FALSE, $query_default_option);
 $array_sh_page = array();
 $draginit = '';
 $reset_draginit = '';
