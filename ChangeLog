@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-30  Olivier Müller  <om@omnis.ch>
+	* left.php3: display database name as well in lightmode, with link to 
+	  db properties page
+
 2002-01-29 Marc Delisle  <lem9@users.sourceforge.net>
 	* libraries/functions.js, libraries/display_tbl.lib.php3, 
 	  config.inc.php3: new $cfgBrowseMarkRow support, thanks

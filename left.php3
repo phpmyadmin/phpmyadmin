@@ -192,6 +192,7 @@ if ($num_dbs > 1) {
         echo '        <select name="db" onchange="this.form.submit()">' . "\n";
         echo '            <option value=""> - </option>' . "\n";
         $table_list = '';
+        $table_list_header = '';
         $db_name    = '';
     }
 
@@ -297,9 +298,15 @@ if ($num_dbs > 1) {
                 } // end for $t (tables list)
 
                 if (!$table_list) { 
-                    $table_list = '    ' . $strNoTablesFound . "\n";
+                    $table_list = '    <br /><br />' . $strNoTablesFound . "\n";
                 }
                 $selected = ' selected="selected"';
+
+                $table_list_header .= '<nobr><img name="imEx" src="images/minus.gif" border="0" width="9" height="9" />';
+                $table_list_header .= '        <a class="item" target="phpmain" href="db_details.php3?' . $common_url_query . '">';
+                $table_list_header .= '            <span class="heada">' . $db . '<bdo dir="' . $text_dir . '">&nbsp;&nbsp;</bdo></span><span class="headaCnt">(' . $num_tables_disp . ')</span></a></nobr>';
+                $table_list_header .= '';
+
             } else {
                 $selected = '';
             } // end if... else...
@@ -328,6 +335,7 @@ if ($num_dbs > 1) {
         // Displays the current database name and the list of tables it
         // contains
         echo '    <hr noshade="noshade" />' . "\n";
+        echo $table_list_header;
         echo $table_list;
         echo '    <hr noshade="noshade" />' . "\n";
 
