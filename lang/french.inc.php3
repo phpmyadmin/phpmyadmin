@@ -151,7 +151,6 @@ $strMySQLShowProcess    = "Afficher les processus";
 $strLogout              = "Quitter";
 $strQBE                 = "Requête par un exemple";
 $strBack                = "Retour";  //JPD
-$strTableComments	= "Commentaires Tables";   //JPD
 $strOr = "ou";   //JPD
 $strSelectNumRows	      = "dans la requête";  //JPD
 $strCompleteInserts     = "INSERT détaillés";  //JPD
@@ -235,4 +234,5 @@ $strColumn = "Column";//to translate
 $strAnyColumn = "Any Column";//to translate
 $strColumnEmpty = "The columns names are empty!";//to translate
 $strInsertAsNewRow="Insérer ce nouvel enregistrement";  
+$strTableMaintenance="Maintenance de la table";  
 ?>

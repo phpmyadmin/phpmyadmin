@@ -23,41 +23,9 @@ if(MYSQL_MAJOR_VERSION == "3.23")
         $result = mysql_query("ALTER TABLE $table comment='$comment'") or mysql_die();
     $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
     $row = mysql_fetch_array($result);
-    //Fix to Comment editing so that you can add comments - 2 May 2001 - Robbat2
-    ?>
-    <form method='post' action='tbl_properties.php3'>
-    <input type="hidden" name="server" value="<?php echo $server;?>">
-    <input type="hidden" name="lang" value="<?php echo $lang;?>">
-    <input type="hidden" name="db" value="<?php echo $db;?>">
-    <input type="hidden" name="table" value="<?php echo $table;?>">
-    <?php
-    echo "$strTableComments: <input type='text' name='comment' value='" . $row['Comment'] . "'><input type='submit' name='submitcomment' value='$strGo'></form>";
+    if (!empty($row['Comment']))
+       echo "<i>" . $row['Comment'] . "</i><br><br>\n";
 
-    //BEGIN - Table Type - 2 May 2001 - Robbat2
-    if(isset($submittype))
-        $result = mysql_query("ALTER TABLE $table TYPE=$tbl_type") or mysql_die();
-    $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
-    $row = mysql_fetch_array($result);
-    $tbl_type=strtoupper($row['Type']);
-    ?>
-    <form method='post' action='tbl_properties.php3'>
-    <input type="hidden" name="server" value="<?php echo $server;?>">
-    <input type="hidden" name="lang" value="<?php echo $lang;?>">
-    <input type="hidden" name="db" value="<?php echo $db;?>">
-    <input type="hidden" name="table" value="<?php echo $table;?>">
-    <?php echo $strTableType.":";?>
-    <select name='tbl_type'>
-    <option <?php if($tbl_type == "BDB") echo 'selected';?> value="BDB">BerkeleyDB</option>
-<?php //Not in MySQL yet <option <?php if($tbl_type == "GEMINI") echo 'selected';? >value="GEMINI">Gemini</option> ?>
-    <option <?php if($tbl_type == "HEAP") echo 'selected';?> value="HEAP">Heap</option>
-    <option <?php if($tbl_type == "ISAM") echo 'selected';?> value="ISAM">ISAM</option>
-<?php //Not in MySQL yet <option <?php if($tbl_type == "INNODB") echo 'selected';? > value="InnoDB">InnoDB</option> ?>
-    <option <?php if($tbl_type == "MRG_MYISAM") echo 'selected';?> value="MERGE">Merge</option>
-    <option <?php if($tbl_type == "MYISAM") echo 'selected';?> value="MYISAM">MyISAM</option>
-    </select>
-    <input type='submit' name='submittype' value='<?php echo $strGo; ?>'></form>
-    <?php
-    //END - Table Type - 2 May 2001 - Robbat2
 }
 
 $result = mysql_query("SHOW KEYS FROM $table") or mysql_die();
@@ -68,7 +36,6 @@ while($row = mysql_fetch_array($result))
         $primary .= "$row[Column_name], ";
 
 $result = mysql_query("SHOW FIELDS FROM $table") or mysql_die();
-
 ?>
 <table border=<?php echo $cfgBorder;?>>
 <TR>
@@ -229,13 +196,14 @@ if($cfgBookmark['db'] && $cfgBookmark['table'])
 
 <input type="submit" name="SQL" value="<?php echo $strGo; ?>">
 </form>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table");?>&pos=0&<?php echo $query;?>"><?php echo $strBrowse; ?></a></li>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table");?>&display=bkmOnly&<?php echo $query;?>"><?php echo $strCheckTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#CHECK_TABLE"); ?></li>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("ANALYZE TABLE $table");?>&display=bkmOnly&<?php echo $query;?>"><?php echo $strAnalyzeTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#ANALYZE_TABLE"); ?></li>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("REPAIR TABLE $table");?>&display=bkmOnly&<?php echo $query;?>"><?php echo $strRepairTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#REPAIR_TABLE"); ?></li>
-<li><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&display=bkmOnly&<?php echo $query;?>"><?php echo $strOptimizeTable; ?></a>&nbsp;<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE"); ?></li>
-<li><a href="tbl_select.php3?<?php echo $query;?>"><?php echo $strSelect; ?></a></li>
-<li><a href="tbl_change.php3?<?php echo $query;?>"><?php echo $strInsert; ?></a></li>
+<li><table><tr>
+<td>
+ <a href="sql.php3?sql_query=<?php echo urlencode("SELECT * FROM $table");?>&pos=0&<?php echo $query;?>">
+<?php echo "<b>" . $strBrowse. "<b>"; ?></a></td>
+<td>
+ <a href="tbl_select.php3?<?php echo $query;?>"><?php echo "<b>" . $strSelect . "</b>"; ?></a></td>
+<td>
+  <a href="tbl_change.php3?<?php echo $query;?>"><?php echo "<b>" . $strInsert. "</b>"; ?></a></td></tr></table></li>
 <li><form method="post" action="tbl_addfield.php3"> <input type="hidden" name="server" value="<?php echo $server;?>">
  <input type="hidden" name="lang" value="<?php echo $lang;?>">
  <input type="hidden" name="db" value="<?php echo $db;?>">
@@ -321,9 +289,68 @@ echo " </select>\n";
  <input type="submit" value="<?php echo $strGo;?>">
 </form>
 
-</ul>
-</div>
-<?php
+<li><table><tr><td><?php echo $strTableMaintenance . ":"; ?> </td>
+ <td><a href="sql.php3?sql_query=<?php echo urlencode("CHECK TABLE $table");?>&display=simple&<?php echo $query;?>">
+        <?php echo $strCheckTable; ?></a>
+        &nbsp;<?php echo show_docu("manual_Reference.html#CHECK_TABLE"); ?>
+ </td>
+ <td><a href="sql.php3?sql_query=<?php echo urlencode("ANALYZE TABLE $table");?>&display=simple&<?php echo $query;?>">
+        <?php echo $strAnalyzeTable; ?>
+        </a>&nbsp;<?php echo show_docu("manual_Reference.html#ANALYZE_TABLE");?>
+ </td></tr> <tr> <td></td>
+ <td> <a href="sql.php3?sql_query=<?php echo urlencode("REPAIR TABLE $table");?>&display=simple&<?php echo $query;?>">
+        <?php echo $strRepairTable; ?>
+        </a>&nbsp;<?php echo show_docu("manual_Reference.html#REPAIR_TABLE"); ?>
+ </td>
+<td><a href="sql.php3?sql_query=<?php echo urlencode("OPTIMIZE TABLE $table");?>&display=simple&<?php echo $query;?>">
+        <?php echo $strOptimizeTable; ?>
+        </a>&nbsp;<?php echo show_docu("manual_Reference.html#OPTIMIZE_TABLE");
+?> </td> </tr> </table></li>
 
+<?php
+if(MYSQL_MAJOR_VERSION == "3.23")
+    {
+    $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
+    $row = mysql_fetch_array($result);
+    //Fix to Comment editing so that you can add comments - 2 May 2001 - Robbat2
+    ?>
+<li> <form method='post' action='tbl_properties.php3'>
+    <input type="hidden" name="server" value="<?php echo $server;?>">
+    <input type="hidden" name="lang" value="<?php echo $lang;?>">
+    <input type="hidden" name="db" value="<?php echo $db;?>">
+    <input type="hidden" name="table" value="<?php echo $table;?>">
+    <?php
+    echo "$strTableComments: <input type='text' name='comment' value='" . $row['Comment'] . "'><input type='submit' name='submitcomment' value='$strGo'></form>"
+;
+
+    //BEGIN - Table Type - 2 May 2001 - Robbat2
+    if(isset($submittype))
+        $result = mysql_query("ALTER TABLE $table TYPE=$tbl_type") or mysql_die(
+);
+    $result = mysql_query("SHOW TABLE STATUS LIKE '$table'") or mysql_die();
+    $row = mysql_fetch_array($result);
+    $tbl_type=strtoupper($row['Type']);
+    ?>
+    <li><form method='post' action='tbl_properties.php3'>
+    <input type="hidden" name="server" value="<?php echo $server;?>">
+    <input type="hidden" name="lang" value="<?php echo $lang;?>">
+    <input type="hidden" name="db" value="<?php echo $db;?>">
+    <input type="hidden" name="table" value="<?php echo $table;?>">
+    <?php echo $strTableType.":";?>
+    <select name='tbl_type'>
+    <option <?php if($tbl_type == "BDB") echo 'selected';?> value="BDB">Berkeley DB</option>
+<?php //Not in MySQL yet <option <?php if($tbl_type == "GEMINI") echo 'selected' ;? >value="GEMINI">Gemini</option> ?>
+    <option <?php if($tbl_type == "HEAP") echo 'selected';?> value="HEAP">Heap</option>
+    <option <?php if($tbl_type == "ISAM") echo 'selected';?> value="ISAM">ISAM</option>
+<?php //Not in MySQL yet <option <?php if($tbl_type == "INNODB") echo 'selected' ;? > value="InnoDB">InnoDB</option> ?>
+    <option <?php if($tbl_type == "MRG_MYISAM") echo 'selected';?> value="MERGE">Merge</option>
+    <option <?php if($tbl_type == "MYISAM") echo 'selected';?> value="MYISAM">MyISAM</option>
+    </select>
+    <input type='submit' name='submittype' value='<?php echo $strGo; ?>'></form>
+    <?php
+    //END - Table Type - 2 May 2001 - Robbat2
+}
+echo "</ul>";
+echo "</div>";
 require("./footer.inc.php3");
 ?>

@@ -217,4 +217,5 @@ $strColumn = "Column";
 $strAnyColumn = "Any Column";
 $strColumnEmpty = "The columns names are empty!";
 $strInsertAsNewRow="Insert as new row";  
+$strTableMaintenance="Table maintenance";  
 ?>
