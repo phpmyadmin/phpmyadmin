@@ -411,6 +411,11 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
             // Checks for alpha
             if (PMA_STR_isSqlIdentifier($c, FALSE) || ($c == '@')) {
                 $count2 ++;
+
+                //TODO: a @ can also be present in expressions like
+                // FROM 'user'@'%'
+                // in this case, the @ is wrongly marked as alpha_variable
+
                 $is_sql_variable         = ($c == '@');
                 $is_digit                = (!$is_sql_variable) && PMA_STR_isDigit($c);
                 $is_hex_digit            = ($is_digit) && ($c == '0') && ($count2 < $len) && ($sql[$count2] == 'x');
@@ -1077,7 +1082,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
         }
 
         for ($i = 0; $i < $arraysize; $i++) {
-            //echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
+            //DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
             $before = '';
             $after  = '';
             $indent = 0;
@@ -1251,7 +1256,14 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     break;
                 case 'quote_double':
                 case 'quote_single':
-                    $before        .= ' ';
+                    // workaround: for the query
+                    // REVOKE SELECT ON `base2\_db`.* FROM 'user'@'%'
+                    // the @ is incorrectly marked as alpha_variable
+                    // in the parser, and here, the '%' gets a blank before,
+                    // which is a syntax error
+                    if ($typearr[1]!='alpha_variable') {
+                        $before        .= ' ';
+                    }
                     if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
                         $after     .= ' ';
                     }

@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-11-27 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/sqlparser.lib.php3: bug 644030 part 1: syntax error
+      on a REVOKE
+
 2002-11-26 Marc Delisle  <lem9@users.sourceforge.net>
     * sql.php3: bug 644108: incorrect affected rows count
     * libraries/sqlparser.data.php3: bug 643992, INTERVAL can be a
