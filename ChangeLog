@@ -15,6 +15,7 @@ $Source$
       interval is displayed).
     * lang/portuguese.inc.php3: updated thanks to
       Lopo Pizarro <lopopizarro at users.sourceforge.net>.
+    * Documentation.html, line 1330-1331: extended a bit a faq entry.
 
 2002-04-15 Marc Delisle  <lem9@users.sourceforge.net>
 	* config.inc.php3: put the most popular column types first in the list,
