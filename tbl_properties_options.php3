@@ -158,7 +158,7 @@ if (PMA_MYSQL_INT_VERSION >= 32322) {
                     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
                     <input type="hidden" name="db" value="<?php echo $db; ?>" />
                     <input type="hidden" name="table" value="<?php echo $table; ?>" />
- 
+
                     <table border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td>

@@ -1,6 +1,7 @@
 <?php
 /* $Id$ */
 
+
 /**
  * Runs common work
  */
@@ -533,7 +534,7 @@ if ($cfg['Server']['relation']) {
             <a href="tbl_relation.php3?<?php echo $url_query; ?>"><?php echo $strRelationView; ?></a>
         </div>
     </li>
-    <?php 
+    <?php
 }
 echo "\n";
 ?>
