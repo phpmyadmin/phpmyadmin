@@ -411,7 +411,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $lang, $server, $db, $table;
         global $goto;
         global $sql_query, $num_rows, $pos, $session_max_rows;
-		global $vertical_display, $disp_direction, $repeat_cells;
+        global $vertical_display, $disp_direction, $repeat_cells;
         global $dontlimitchars;
 
         if ($disp_direction == 'horizontal') {
@@ -447,9 +447,6 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         if (($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
             && $is_display['text_btn'] == '1') {
             $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn') ? 2 : 1;
-            if ($disp_direction == 'verticalal') {
-
-                ?>
             if ($disp_direction == 'horizontal') {
                 ?>
     <td colspan="<?php echo $fields_cnt; ?>" align="center">
@@ -672,7 +669,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
         global $lang, $server, $db, $table;
         global $goto;
         global $sql_query, $pos, $session_max_rows, $fields_meta, $fields_cnt;
-		global $vertical_display, $disp_direction, $repeat_cells;
+        global $vertical_display, $disp_direction, $repeat_cells;
         global $dontlimitchars;
 
         ?>
@@ -935,9 +932,9 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')){
                 }
 
                 if (isset($vertical_display['rowdata'][$i][$foo])) {
-				    $vertical_display['rowdata'][$i][$foo] .= $vertical_display['data'][$foo][$i];
+                    $vertical_display['rowdata'][$i][$foo] .= $vertical_display['data'][$foo][$i];
                 } else {
-				    $vertical_display['rowdata'][$i][$foo] = $vertical_display['data'][$foo][$i];
+                    $vertical_display['rowdata'][$i][$foo] = $vertical_display['data'][$foo][$i];
                 }
             } // end for (2)
 
