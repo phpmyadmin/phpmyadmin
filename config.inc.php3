@@ -247,7 +247,7 @@ $cfg['AllowAnywhereRecoding'] = FALSE;
 
 // Force: always use this language - must be defined in
 //        libraries/select_lang.lib.php3
-// $cfg['Lang']     = 'en';
+// $cfg['Lang']     = 'en-iso-8859-1';
 // Loads language file
 require('./libraries/select_lang.lib.php3');
 
