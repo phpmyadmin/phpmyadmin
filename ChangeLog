@@ -7,6 +7,8 @@ $Source$
 
 2003-08-12 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/csv.php3: Don't trim resulting line (bug #782483).
+    * libraries/functions.js: Don't ask for confirmation of query that will
+      not be executed (bug #783667).
 
 2003-08-11 Michal Cihar  <nijel@users.sourceforge.net>
     * libraries/export/csv.php3, libraries/export/latex.php3,

@@ -137,24 +137,30 @@ function checkSqlQuery(theForm)
     // js1.2+ -> validation with regular expressions
     else {
         var space_re = new RegExp('\\s+');
-        isEmpty      = (sqlQuery.value.replace(space_re, '') == '') ? 1 : 0;
+        if (typeof(theForm.elements['sql_file']) != 'undefined' && 
+                theForm.elements['sql_file'].value.replace(space_re, '') != '') {
+            return true;
+        }
+        if (typeof(theForm.elements['sql_localfile']) != 'undefined' &&
+                theForm.elements['sql_localfile'].value.replace(space_re, '') != '') {
+            return true;
+        }
+        if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
+                (theForm.elements['id_bookmark'].value != null || theForm.elements['id_bookmark'].value != '') &&
+                theForm.elements['id_bookmark'].selectedIndex != 0
+                ) {
+            return true;
+        }
         // Checks for "DROP/DELETE/ALTER" statements
-        if (!isEmpty && !confirmQuery(theForm, sqlQuery)) {
-            return false;
+        if (sqlQuery.value.replace(space_re, '') != '') {
+            if (confirmQuery(theForm, sqlQuery)) {
+                return true;
+            } else {
+                return false;
+            }
         }
-        if (isEmpty && typeof(theForm.elements['sql_file']) != 'undefined') {
-            isEmpty  = (theForm.elements['sql_file'].value.replace(space_re, '') == '') ? 1 : 0;
-        }
-        if (isEmpty && typeof(theForm.elements['sql_localfile']) != 'undefined') {
-            isEmpty  = (theForm.elements['sql_localfile'].value.replace(space_re, '') == '') ? 1 : 0;
-        }
-        if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined') {
-            isEmpty  = (theForm.elements['id_bookmark'].value == null || theForm.elements['id_bookmark'].value == '');
-            isEmpty  = (theForm.elements['id_bookmark'].selectedIndex == 0);
-        }
-        if (isEmpty) {
-            theForm.reset();
-        }
+        theForm.reset();
+        isEmpty = 1;
     }
 
     if (isEmpty) {
