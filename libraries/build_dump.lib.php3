@@ -503,11 +503,15 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
                 else if ($row[$j] == '0' || $row[$j] != '') {
                     // loic1 : always enclose fields
                     if ($what == 'excel') {
-                        $row[$j]   = ereg_replace("\015(\012)?", "\012", $row[$j]);
+                        $row[$j]       = ereg_replace("\015(\012)?", "\012", $row[$j]);
                     }
-                    $schema_insert .= $enc_by
-                                   . str_replace($enc_by, $esc_by . $enc_by, $row[$j])
-                                   . $enc_by;
+                    if ($enc_by == '') {
+                        $schema_insert .= $row[$j];
+                    } else {
+                        $schema_insert .= $enc_by
+                                       . str_replace($enc_by, $esc_by . $enc_by, $row[$j])
+                                       . $enc_by;
+                    }
                 }
                 else {
                     $schema_insert .= '';
