@@ -198,8 +198,11 @@ else {
     // Do append a "LIMIT" clause?
     if (isset($pos)
         && (!$cfgShowAll || $session_max_rows != 'all')
-        && ($is_select && !($is_count || $is_export) && eregi(' FROM ', $sql_query))
-        && !eregi(' LIMIT[ 0-9,]+$', $sql_query)) {
+        && $is_select 
+        && !($is_count || $is_export) 
+        && eregi('[[:space:]]FROM[[:space:]]', $sql_query)
+        && !eregi('[[:space:]]LIMIT[ 0-9,]+$', $sql_query)) {
+
         $sql_limit_to_append = " LIMIT $pos, $cfgMaxRows";
         if (eregi('(.*)( PROCEDURE (.*)| FOR UPDATE| LOCK IN SHARE MODE)$', $sql_query, $regs)) {
             $full_sql_query  = $regs[1] . $sql_limit_to_append . $regs[2];
@@ -254,7 +257,14 @@ else {
     }
     else if ($is_select) {
         // reads only the from-part of the query...
-        $array = split(' from | FROM | order | ORDER | having | HAVING | limit | LIMIT | group by | GROUP BY', $sql_query);
+	$sp='[[:space:]]';
+        $array = split(
+            $sp . 'from' . $sp .'|' . $sp . 'FROM' .$sp . 
+            '|' . $sp .'order' . $sp . '|' . $sp . 'ORDER' . $sp .
+            '|' . $sp .'having' . $sp . '|' . $sp . 'HAVING' . $sp .
+            '|' . $sp .'limit' . $sp . '|' . $sp . 'LIMIT' . $sp .
+            '|' . $sp .'group' . $sp . 'by'. $sp . 
+            '|' . $sp . 'GROUP' . $sp . 'BY' . $sp, $sql_query);
         if (!empty($array[1])) {
             // ... and makes a count(*) to count the entries
             $count_query = 'SELECT COUNT(*) AS count FROM ' . $array[1];

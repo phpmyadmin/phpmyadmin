@@ -9,6 +9,7 @@ $Source$
 	* merge patch 507338, thanks to Adam Ashley (fruitcak)
 	* galician updates, thanks to Xosé Calvo.
 	* czech* updates, thanks to Michal Cihar (nijel)
+	* sql.php3: bug 506558 (QBE returns unlimited rows)
 
 2002-01-23  Olivier Müller  <om@omnis.ch>
 	* translated the last german words
