@@ -995,10 +995,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         <br /><br />
     </dd>
 
-    <dt><b>$cfg['OBGzip'] </b>boolean</dt>
+    <dt><b>$cfg['OBGzip'] </b>string/boolean</dt>
     <dd>
         Defines whether to use GZip output buffering for increased
-        speed in HTTP transfers.
+        speed in HTTP transfers.<br />
+        Set to true/false for enabling/disabling. When set to 'auto' (string),
+        phpMyAdmin tries to enable output buffering and will automatically disable
+        it, if your browser has some problems with buffering. IE6 with a certain patch
+        is known to cause data corruption having enabled buffering.
         <br /><br />
     </dd>
 

@@ -206,7 +206,7 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
             $cfg['OBGzip'] = $cfgOBGzip;
             unset($cfgOBGzip);
         } else {
-            $cfg['OBGzip'] = TRUE;
+            $cfg['OBGzip'] = 'auto';
         }
     }
 

@@ -188,7 +188,7 @@ unset($cfg['Servers'][0]);
 /**
  * Other core phpMyAdmin settings
  */
-$cfg['OBGzip']                = TRUE;   // use GZIP output buffering if possible
+$cfg['OBGzip']                = 'auto'; // use GZIP output buffering if possible (TRUE|FALSE|'auto')
 $cfg['PersistentConnections'] = FALSE;  // use persistent connections to MySQL database
 $cfg['ExecTimeLimit']         = 300;    // maximum execution time in seconds (0 for no limit)
 $cfg['SkipLockedTables']      = FALSE;  // mark used tables, make possible to show

@@ -5,6 +5,13 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-07-09 Garvin Hicking <me@supergarv.de>
+    * Documentation.html, config.inc.php3, libraries/common.lib.php3,
+      libraries/config_import.lib.php3, header.inc.php3: Created auto-detection 
+      for $cfg['OBGzip'] and set this as default. It will auto-enable OBGzip
+      for all browsers except IE6.x. Created a meta-header to identify which
+      setting is used, to make our debugging of bugreports easier.
+
 2003-07-08 Garvin Hicking <me@supergarv.de>
     * tbl_query_box.php3, footer.inc.php3: Removed any 'top.' DOM reference.
       This enables phpMyAdmin to be used within a frameset without trying

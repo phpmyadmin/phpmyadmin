@@ -240,6 +240,15 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         || (PMA_PHP_INT_VERSION >= 40005 && @ini_get('zlib.output_compression'))) {
         $cfg['OBGzip'] = FALSE;
     }
+    
+    // disable output-buffering (if set to 'auto') for IE6, else enable it.
+    if (strtolower($cfg['OBGzip']) == 'auto') {
+        if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER < 7) {
+            $cfg['OBGzip'] = FALSE;
+        } else {
+            $cfg['OBGzip'] = TRUE;
+        }
+    }
 
     if ($is_minimum_common == FALSE) {
         /**
