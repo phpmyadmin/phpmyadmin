@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-10-10 Michal Cihar  <nijel@users.sourceforge.net>
+    * libraries/zip.lib.php3: Calculate offset progressively (patch #824122).
+
 2003-10-15 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/russian-windows-1251: wrong charset (bug 823939)
 

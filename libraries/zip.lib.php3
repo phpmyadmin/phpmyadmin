@@ -130,7 +130,6 @@ class zipfile
 
         // add this entry to array
         $this -> datasec[] = $fr;
-        $new_offset        = strlen(implode('', $this->datasec));
 
         // now add to central directory record
         $cdrec = "\x50\x4b\x01\x02";
@@ -150,7 +149,7 @@ class zipfile
         $cdrec .= pack('V', 32 );            // external file attributes - 'archive' bit set
 
         $cdrec .= pack('V', $this -> old_offset ); // relative offset of local header
-        $this -> old_offset = $new_offset;
+        $this -> old_offset += strlen($fr);
 
         $cdrec .= $name;
 
