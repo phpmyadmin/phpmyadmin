@@ -993,9 +993,16 @@ if (PMA_mysql_error()) {
     include('./footer.inc.php3');
     exit();
 }
-$result         = @PMA_mysql_query('SELECT COUNT(Password) FROM mysql.user');
-$password_field = (($result && PMA_mysql_result($result, 0)) ? 'Password' : 'password');
+// The previous logic did not work if the password field is named "password":
+//$result         = @PMA_mysql_query('SELECT COUNT(Password) FROM mysql.user');
+//$password_field = (($result && PMA_mysql_result($result, 0)) ? 'Password' : 'password');
 
+$result         = @PMA_mysql_query('Select * from user limit 1');
+if ($result) {
+// assumes that the password is always the third field of mysql.user
+   $field_info = PMA_mysql_fetch_field($result,2);
+   $password_field = $field_info->name;
+}
 
 /**
  * Autocomplete feature of IE kills the "onchange" event handler and it must be
