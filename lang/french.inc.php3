@@ -208,7 +208,6 @@ $strNotNumber = 'Ce n\'est pas un nombre !';
 $strNotValidNumber = ' n\'est pas un nombre valide !';
 $strNoUsersFound = 'Il n\'y a aucun utilisateur';
 $strNull = 'Null';
-$strNumberIndexes = ' Nombre d\'index spéciaux ';
 
 $strOftenQuotation = 'Souvent des guillemets. OPTIONNEL signifie que seuls les champs de type char et varchar sont entourés par ce caractère.';
 $strOptimizeTable = 'Optimiser la table';
