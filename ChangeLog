@@ -9,6 +9,7 @@ $Source$
     * libraries/auth/cookie.auth.lib.php3, config.inc.php3, user_password.php3,
       Documentation.html: only one blowfish secret is necessary for 
       all servers, thanks to Alexander M. Turek
+    ### 2.5.2-rc1 released
 
 2003-07-06 Michal Cihar  <nijel@users.sourceforge.net>
     * lang/czech: Updated.
