@@ -25,8 +25,12 @@ h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size:large; font-w
 
 <body bgcolor="#FFFFFF">
 <h1>phpMyAdmin 2.x.x- Documentation</h1>
-<p><a href="http://www.htmlwizard.net/phpMyAdmin/" class="navigation">http://www.htmlwizard.net/phpMyAdmin/</a><br>
-  <a href="mailto:tobias@dnet.it" class="navigation">Tobias Ratschiller</a></p>
+<p>This project is currently an <b>unofficial</b> continuation of
+  <a href="mailto:tobias@dnet.it">Tobias Ratschiller</a>'s work. It has not
+  been (at least <i>not yet</i> :-) accepted as an official continuation: we are still waiting
+  for an answer from Tobias.</p>
+<p><a href="http://www.phpwizard.net/projects/phpMyAdmin/" class="navigation">Official phpMyAdmin project homepage</a><br>
+  <a href="http://phpmyadmin.sourceforge.net/" class="navigation">"Unofficial" phpMyAdmin project homepage</a></p>
 <p>Version history: <a href="ChangeLog">ChangeLog</a><br>
   Installation instructions: <a href="INSTALL">INSTALL</a><br>
   General notes: <a href="README">README</a></p>
@@ -39,10 +43,10 @@ h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size:large; font-w
   first server, $cfgServers[2]['host'] the hostname of the second server, etc. 
   If you have only one server to administer, simply leave free the hostname of 
   the other $cfgServer-entries. 
-<p><b>$cfgServers[n]['port']</b> string<br>
-  The port-number of your n-th MySQL-server. Default is 3300 (leave blank).</p>
 <p><b>$cfgServers[n]['host']</b> string<br>
   The hostname of your n-th MySQL-server. E.g. localhost.</p>
+<p><b>$cfgServers[n]['port']</b> string<br>
+  The port-number of your n-th MySQL-server. Default is 3300 (leave blank).</p>
 <p><b>$cfgServers[n]['adv_auth']</b> boolean<br>
   Whether basic or advanced authentication should be used for this server. Basic 
   authentication ($adv_auth = false) is the plain old way: username and password 
@@ -60,15 +64,15 @@ h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size:large; font-w
 <p>Advanced authentication is secure as the standard user needs just read-only-access 
   to the mysql database. MySQL passwords cannot be decrypted easily, so there's 
   no chance for a normal user to look at other users' plaintext passwords.</p>
-<p><b>$cfgServers[n]['user']</b> string<br>
-  <b>$cfgServers[n]['password']</b> string<br>
-  The user/password-pair which phpMyAdmin will use to connect to this MySQL-server 
-  when using basic authentification. Not needed when using advanced authentification.</p>
 <p><b>$cfgServers[n]['stduser'] </b>string<br>
   <b>$cfgServers[n]['stdpass']</b> string<br>
   A user/pasword pair used to verify the real user/password pair when using advanced 
   authentification. This user must be able to connect to MySQL and read the mysql 
   user table. Not needed when using basic authentification.</p>
+<p><b>$cfgServers[n]['user']</b> string<br>
+  <b>$cfgServers[n]['password']</b> string<br>
+  The user/password-pair which phpMyAdmin will use to connect to this MySQL-server 
+  when using basic authentification. Not needed when using advanced authentification.</p>
 <p><b>$cfgServers[n]['only_db']</b> string<br>
   If set to a database name, only this database will be shown to the user.</p>
 <p><b>$cfgServers[n]['verbose']</b> string<br>
@@ -77,20 +81,38 @@ h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size:large; font-w
   main page. This can be useful if you want to show only certain databases on 
   your system, for example.<br>
 </p>
+<p><b>$cfgServers[n]['bookmarkdb']</b> string<br>
+  <b>$cfgServers[n]['bookmarktable']</b> string<br>
+  Since release 2.3.0 phpMyAdmin allows to bookmark queries. This can be useful for queries
+  you often run. To use this functionality you have to:</p>
+<ul>
+  <li>create a table following this scheme:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CREATE TABLE bookmark (<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id int(11) DEFAULT '0' NOT NULL auto_increment,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbase varchar(255) NOT NULL,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label varchar(255) NOT NULL,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;query text NOT NULL,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (id)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br></li>
+  <li>then complete the two variables $cfgServers[n]['bookmarkdb'] and
+  $cfgServers[n]['bookmarktable'] so phpMyAdmin will be able to find the bookmark table.</li>
+</ul>
+<p><b>$cfgServerDefault</b> integer<br>
+  If you have more than one server configured, you can set $cfgServerDefault to any one of
+  them to autoconnect to that server when phpMyAdmin is started, or set it to 0 to be given
+  a list of servers without logging in.
+  If you have only one server configured, $cfgServerDefault MUST be set to that server.
+</p>
+
 <p><b>$cfgManualBase</b> string<br>
   If set to an URL which points to the MySQL documentation, appropriate help links 
 are generated.<br>
 </p>
-<p><b>$cfgPersistentConnections </b>boolean<br>
-  Whether persistent connections should be used or not (mysql_connect or mysql_pconnect).</p>
 <p><b>$cfgConfirm </b>boolean<br>
   Whether a warning (&quot;Are your really sure..&quot;) should be displayed when 
   you're about to loose data.</p>
-<p><b>$cfgMaxRows </b>integer<br>
-  Number of rows displayed when browsing a resultset. If the resultset contains 
-  more rows, Previous/Next links will be shown.</p>
-<p><b>$cfgMaxInputsize </b>integer<br>
-  Size of the edit-field when adding a new record to a table.</p>
+<p><b>$cfgPersistentConnections </b>boolean<br>
+  Whether persistent connections should be used or not (mysql_connect or mysql_pconnect).</p>
 <p><b>$cfgBorder </b>integer<br>
   The size of a table's border.</p>
 <p><b>$cfgThBgcolor </b>string [HTML color]<br>
@@ -99,6 +121,11 @@ are generated.<br>
   The color (HTML) #1 for table rows.</p>
 <p><b>$cfgBgcolorTwo </b>string [HTML color]<br>
   The color (HTML) #2 for table rows.</p>
+<p><b>$cfgMaxRows </b>integer<br>
+  Number of rows displayed when browsing a resultset. If the resultset contains 
+  more rows, Previous/Next links will be shown.</p>
+<p><b>$cfgMaxInputsize </b>integer<br>
+  Size of the edit-field when adding a new record to a table.</p>
 <p><b>$cfgOrder </b>string ["DESC"|"ASC"]<br>
   Defines whether fields are displayed in ascending ("ASC") order or in descending 
   ("DESC") order when you click on the field-name. 
@@ -106,6 +133,19 @@ are generated.<br>
   Defines whether BLOB fields are shown when browsing a table's content or not.
 <p><b>$cfgShowSQL </b>boolean<br>
   Defines whether sql-queries generated by phpMyAdmin should be displayed or not.
+<p><b>$cfgModifyDeleteAtLeft </b>boolean<br>
+  <b>$cfgModifyDeleteAtRight </b>boolean<br>
+  Defines the place where modify and delete links would be put when tables contents are
+  displayed (you may have them displayed both at the left and at the right).<br>
+</p>
+
+<p><b>$cfgDefaultLang </b>string<br>
+  Defines the default language to use, if not browser-defined or user-defined.<br>
+  See the <i>select_lang.inc.php3</i> script to know the valid values for this setting.</p>
+<p><b>$cfgLang </b>string<br>
+  Force: always use this language (must be defined in the <i>select_lang.inc.php3</i> script).<br>
+</p>
+
 <p><b>$cfgColumnTypes </b>array<br>
   All possible types of a MySQL column. In most cases you don't need to edit this.</p>
 <p><b>$cfgFunctions </b>array<br>

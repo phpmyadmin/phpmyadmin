@@ -32,10 +32,6 @@ phpMyAdmin - Installation
     You can get an overview of Apache's authentification methods at
     http://www.apacheweek.com/features/userauth . Another tutorial is at
     http://deepthought.texsci.edu/protected_dirs.html
-  + PHP3 should be configured to have magic_quotes=on. In the module
-    version of PHP3 this can also be set on a per-directory base with 
-    php3_magic_quotes_gpc on in an .htaccess file or in your Apache's
-    access.conf.
   + If you don't use the extension ".php3" for your scripts, you can use
     the bundled script "extchg.sh" to modify phpMyAdmin (or any other script)
     to work with a different extension. Beware though, that currently changing 
