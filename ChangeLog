@@ -5,6 +5,16 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-03  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/common.lib.php3, lines 583-585: fixed bug #488317 - 'only_db'
+	  problem with the 2.2.x.
+	* header.inc.php3; main.php3; lang/*: modified the way server informations
+	  are displayed so it can be translated whatever is the required words
+	  order. Thanks to "Chtuz" <chutz at chubaka.homeip.net> who reported the
+	  problem in the phpWizrad forum.
+	* lang/polish.inc.php3: updated thanks to Jakub Wilk.
+	* lang/romanian.inc.php3: updated thanks to Valics Lehel.
+
 2001-12-02  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/english.inc.php3 & french.inc.php3, line 157: changed a bit the
 	  '$strInsertTextfiles' to avoid confusion with '$strLocationTextfile'.
