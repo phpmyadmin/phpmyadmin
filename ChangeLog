@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-06  Loïc Chapeaux  <lolo@phpheaven.net>
+	* db_details.php3, line 305; db_printview.php3, line 207: fixed bug #478592
+	  - HTML mispelling (</td> instead of </th>), thanks to
+	  Christophe Jaillet (tititou at users.sourceforge.net).
+
 2001-11-02  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3, lines 225-233: in case of erroneous query, it is now
 	  re-displayed in the query textearea of the calling script.

@@ -204,7 +204,7 @@ else if (MYSQL_INT_VERSION >= 32300) {
     </th>
     <th align="center">
         <b>--</b>
-    </td>
+    </th>
     <?php
     if ($cfgShowStats) {
         echo "\n";
