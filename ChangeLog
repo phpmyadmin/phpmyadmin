@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-08-31  Loïc Chapeaux  <lolo@phpheaven.net>
+	* lib.inc.php3, lines 1202-1210: fixed bug #455411 -Table Aliases- and
+	  first part of bug #456119 -Aliases bugs-.
+
 2001-08-31  Olivier Müller  <om@omnis.ch>
 	* releasing phpMyAdmin 2.2.0-final
 

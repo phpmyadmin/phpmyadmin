@@ -1199,10 +1199,8 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                     // fields type, however TEXT fields must be displayed even
                     // if $cfgShowBlob is false -> get the true type of the
                     // fields.
-                    $local_query     = 'SHOW FIELDS FROM ' . backquote($db) . '.' . backquote($primary->table) . ' LIKE \'' . sql_addslashes($primary->name, TRUE) . '\'';
-                    $result_type     = mysql_query($local_query) or mysql_die('', $local_query);
-                    $true_field_type = mysql_fetch_array($result_type);
-                    if (eregi('BLOB', $true_field_type['Type'])) {
+                    $field_flags = mysql_field_flags($dt_result, $i);
+                    if (eregi('BINARY', $field_flags)) {
                         echo '    <td align="center">[BLOB]</td>' . "\n";
                     } else {
                         if (strlen($row[$i]) > $GLOBALS['cfgLimitChars'] && ($dontlimitchars != 1)) {
