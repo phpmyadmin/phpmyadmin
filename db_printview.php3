@@ -88,8 +88,8 @@ else {
 if ($num_tables == 0) {
     echo $strNoTablesFound;
 }
-// 2. Shows table informations on mysql >= 3.23 - staybyte - 11 June 2001
-else if (PMA_MYSQL_INT_VERSION >= 32300) {
+// 2. Shows table informations on mysql >= 3.23.03 - staybyte - 11 June 2001
+else if (PMA_MYSQL_INT_VERSION >= 32303) {
     ?>
 
 <!-- The tables list -->
@@ -219,9 +219,9 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
 </tr>
 </table>
     <?php
-} // end case mysql >= 3.23
+} // end case mysql >= 3.23.03
 
-// 3. Shows tables list mysql < 3.23
+// 3. Shows tables list mysql < 3.23.03
 else {
     $i = 0;
     echo "\n";

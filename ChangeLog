@@ -8,6 +8,8 @@ $Source$
 2002-02-27 Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3, lines 146-164: back to previous version.
 	* db_stats, lines 227.243: "SHOW TABLE STATUS" requires MySQL 3.23.03+.
+	* db_details.php3, db_printview.php3: fixed bug #522626 - Incorrect table
+	  info for MySQL 3.23.2-a.
 
 2002-02-26 Loïc Chapeaux  <lolo@phpheaven.net>
 	* main.php3, lines 11-15; libraries/grab_globals.lib.php3;

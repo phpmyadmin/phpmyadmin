@@ -143,8 +143,8 @@ if ($num_tables == 0) {
     echo $strNoTablesFound . "\n";
 }
 
-// 2. Shows table informations on mysql >= 3.23 - staybyte - 11 June 2001
-else if (PMA_MYSQL_INT_VERSION >= 32300) {
+// 2. Shows table informations on mysql >= 3.23.03 - staybyte - 11 June 2001
+else if (PMA_MYSQL_INT_VERSION >= 32303) {
     ?>
 <form method="post" action="db_details.php3" name="tablesForm">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
@@ -387,9 +387,9 @@ else if (PMA_MYSQL_INT_VERSION >= 32300) {
 
 </form>
     <?php
-} // end case mysql >= 3.23
+} // end case mysql >= 3.23.03
 
-// 3. Shows tables list mysql < 3.23
+// 3. Shows tables list mysql < 3.23.03
 else {
     $i = 0;
     echo "\n";
@@ -482,7 +482,7 @@ else {
 
 </form>
     <?php
-} // end case mysql < 3.23
+} // end case mysql < 3.23.03
 
 echo "\n";
 ?>
@@ -628,7 +628,7 @@ if ($num_tables > 0) {
         echo "\n";
         $is_selected = (!empty($selectall) ? ' selected="selected"' : '');
         while ($i < $num_tables) {
-            $table = ((PMA_MYSQL_INT_VERSION >= 32300) ? $tables[$i]['Name'] : $tables[$i]);
+            $table = ((PMA_MYSQL_INT_VERSION >= 32303) ? $tables[$i]['Name'] : $tables[$i]);
             echo '                    <option value="' . $table . '"' . $is_selected . '>' . $table . '</option>' . "\n";
             $i++;
         }
