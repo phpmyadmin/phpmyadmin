@@ -76,7 +76,7 @@ function open_querywindow(url) {
 ?>
 </head>
 
-<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>">
+<body bgcolor="<?php echo $cfg['LeftBgColor']; ?>" style="margin-left: 0px; margin-top: 5px; margin-right: 0px; margin-bottom: 0px">
 <form name="queryframeform" action="queryframe.php3" method="get">
 <input type="hidden" name="db" value="" />
 <input type="hidden" name="table" value="" />
