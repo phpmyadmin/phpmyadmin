@@ -702,7 +702,8 @@ if ($is_minimum_common == FALSE) {
             'queryflags'     => array(),
             'select_expr'    => array(),
             'table_ref'      => array(),
-            'foreign_keys'   => array()
+            'foreign_keys'   => array(),
+            'create_table_fields' => array()
         );
         $subresult_empty = $subresult;
         $seek_queryend         = FALSE;
@@ -716,10 +717,10 @@ if ($is_minimum_common == FALSE) {
         // for GROUP_CONCAT( ... )
         $in_group_concat     = FALSE;
 
-/* Description of analyzer results
+/* Description of analyzer results by lem9
  *
- * lem9: db, table, column, alias
- *      ------------------------
+ * db, table, column, alias
+ * ------------------------
  *
  * Inside the $subresult array, we create ['select_expr'] and ['table_ref'] arrays.
  *
@@ -742,8 +743,8 @@ if ($is_minimum_common == FALSE) {
  * There is a debug section at the end of loop #1, if you want to
  * see the exact contents of select_expr and table_ref
  *
- * lem9: queryflags
- *       ----------
+ * queryflags
+ * ----------
  *
  * In $subresult, array 'queryflags' is filled, according to what we
  * find in the query.
@@ -757,8 +758,8 @@ if ($is_minimum_common == FALSE) {
  * ['queryflags']['join'] = 1;         for a JOIN
  * ['queryflags']['offset'] = 1;       for the presence of OFFSET 
  *
- * lem9:  query clauses
- *        -------------
+ * query clauses
+ * -------------
  *
  * The select is splitted in those clauses:
  * ['select_expr_clause']
@@ -774,19 +775,30 @@ if ($is_minimum_common == FALSE) {
  * For a SELECT, the whole query without the ORDER BY clause is put into
  * ['unsorted_query']
  *
- * lem9:   foreign keys
- *         ------------
+ * foreign keys
+ * ------------
  * The CREATE TABLE may contain FOREIGN KEY clauses, so they get
  * analyzed and ['foreign_keys'] is an array filled with
  * the constraint name, the index list,
  * the REFERENCES table name and REFERENCES index list,
  * and ON UPDATE | ON DELETE clauses
  *
- * lem9: position_of_first_select
- *       ------------------------
+ * position_of_first_select
+ * ------------------------
  *
  * The array index of the first SELECT we find. Will be used to
  * insert a SQL_CALC_FOUND_ROWS.
+ *
+ * create_table_fields
+ * -------------------
+ *
+ * For now, mostly used to detect the DEFAULT CURRENT_TIMESTAMP and
+ * ON UPDATE CURRENT_TIMESTAMP clauses of the CREATE TABLE query.
+ * An array, each element is the identifier name.
+ * Sub-elements: ['type'] which contains the column type
+ *               optional (currently they are never false but can be absent):
+ *               ['default_current_timestamp'] boolean
+ *               ['on_update_current_timestamp'] boolean
  *
  * End of description of analyzer results
  */
@@ -1461,44 +1473,79 @@ if ($is_minimum_common == FALSE) {
         } // end for $i (loop #2)
 
         // -----------------------------------------------------
-        // loop #3: foreign keys
+        // loop #3: foreign keys and MySQL 4.1.2+ TIMESTAMP options
         // (for now, check only the first query)
-        // (for now, identifiers must be backquoted)
+        // (for now, identifiers are assumed to be backquoted)
+
+        // If we find that we are dealing with a CREATE TABLE query,
+        // we look for the next punct_bracket_open_round, which 
+        // introduces the fields list. Then, when we find a
+        // quote_backtick, it must be a field, so we put it into
+        // the create_table_fields array. Even if this field is
+        // not a timestamp, it will be useful when logic has been
+        // added for complete field attributes analysis.
 
         $seen_foreign = FALSE;
         $seen_references = FALSE;
         $seen_constraint = FALSE;
-        $in_bracket = FALSE;
         $foreign_key_number = -1;
+        $seen_create_table = FALSE;
+        $seen_create = FALSE;
+        $in_create_table_fields = FALSE;
+        $brackets_level = 0;
+        $in_timestamp_options = FALSE;
+        $seen_default = FALSE;
 
         for ($i = 0; $i < $size; $i++) {
         // DEBUG echo "<b>" . $arr[$i]['data'] . "</b> " . $arr[$i]['type'] . "<br />";
+
             if ($arr[$i]['type'] == 'alpha_reservedWord') {
-               $upper_data = strtoupper($arr[$i]['data']);
+                $upper_data = strtoupper($arr[$i]['data']);
 
-               if ($upper_data == 'CONSTRAINT') {
-                   $foreign_key_number++;
-                   $seen_foreign = FALSE;
-                   $seen_references = FALSE;
-                   $seen_constraint = TRUE;
-               }
-               if ($upper_data == 'FOREIGN') {
-                   $seen_foreign = TRUE;
-                   $seen_references = FALSE;
-                   $seen_constraint = FALSE;
-               }
-               if ($upper_data == 'REFERENCES') {
-                   $seen_foreign = FALSE;
-                   $seen_references = TRUE;
-                   $seen_constraint = FALSE;
-               }
+                if ($upper_data == 'CREATE') {
+                    $seen_create = TRUE;
+                }
 
+                if ($upper_data == 'TABLE' && $seen_create) {
+                    $seen_create_table = TRUE;
+                    $create_table_fields = array();
+                }
+
+                if ($upper_data == 'CURRENT_TIMESTAMP') {
+                    if ($in_timestamp_options) {
+                        if ($seen_default) {
+                            $create_table_fields[$current_identifier]['default_current_timestamp'] = TRUE;
+                        }
+                    }
+                }
+
+                if ($upper_data == 'CONSTRAINT') {
+                    $foreign_key_number++;
+                    $seen_foreign = FALSE;
+                    $seen_references = FALSE;
+                    $seen_constraint = TRUE;
+                }
+                if ($upper_data == 'FOREIGN') {
+                    $seen_foreign = TRUE;
+                    $seen_references = FALSE;
+                    $seen_constraint = FALSE;
+                }
+                if ($upper_data == 'REFERENCES') {
+                    $seen_foreign = FALSE;
+                    $seen_references = TRUE;
+                    $seen_constraint = FALSE;
+                }
+
+
+              // Cases covered:
 
               // [ON DELETE {CASCADE | SET NULL | NO ACTION | RESTRICT}]
               // [ON UPDATE {CASCADE | SET NULL | NO ACTION | RESTRICT}]
 
               // but we set ['on_delete'] or ['on_cascade'] to
               // CASCADE | SET_NULL | NO_ACTION | RESTRICT
+
+              // ON UPDATE CURRENT_TIMESTAMP
 
                if ($upper_data == 'ON') {
                    unset($clause);
@@ -1529,9 +1576,14 @@ if ($is_minimum_common == FALSE) {
                               if ($arr[$i+3]['type'] == 'alpha_reservedWord') {
                                   $value = $third_upper_data . '_' . strtoupper($arr[$i+3]['data']);
                               }
+                          } elseif ($third_upper_data == 'CURRENT_TIMESTAMP') {
+                              if ($clause == 'on_update' 
+                                  && $in_timestamp_options) {
+                                  $create_table_fields[$current_identifier]['on_update_current_timestamp'] = TRUE;
+                                  $seen_default = FALSE;
+                              }
+                              
                           } else {
-                          // for example: ON UPDATE CURRENT_TIMESTAMP
-                          // which is not for a foreign key
                               $value = '';
                           }
                           if (!empty($value)) {
@@ -1541,35 +1593,80 @@ if ($is_minimum_common == FALSE) {
                    }
                }
 
-            }
+            } // end of reserved words analysis
+            
 
             if ($arr[$i]['type'] == 'punct_bracket_open_round') {
-                $in_bracket = TRUE;
-            }
-
-            if ($arr[$i]['type'] == 'punct_bracket_close_round') {
-                $in_bracket = FALSE;
-                if ($seen_references) {
-                    $seen_references = FALSE;
+                $brackets_level++;
+                if ($seen_create_table && $brackets_level == 1) {
+                    $in_create_table_fields = TRUE;
                 }
             }
 
+            
+            if ($arr[$i]['type'] == 'punct_bracket_close_round') {
+                $brackets_level--;
+                if ($seen_references) {
+                    $seen_references = FALSE;
+                }
+                if ($seen_create_table && $brackets_level == 0) {
+                    $in_create_table_fields = FALSE;
+                }
+            }
+
+            
+            if (($arr[$i]['type'] == 'alpha_columnAttrib')) {
+                $upper_data = strtoupper($arr[$i]['data']);
+                if ($seen_create_table && $in_create_table_fields) {
+                    if ($upper_data == 'DEFAULT') {
+                        $seen_default = TRUE;
+                    }
+                }
+            }
+
+
+            if (($arr[$i]['type'] == 'alpha_columnType')) {
+                $upper_data = strtoupper($arr[$i]['data']);
+                if ($seen_create_table && $in_create_table_fields) {
+                    $create_table_fields[$current_identifier]['type'] = $upper_data;
+                    if ($upper_data == 'TIMESTAMP') {
+                        $in_timestamp_options = TRUE;
+                    } else {
+                        $in_timestamp_options = FALSE;
+                    }
+                }
+            }
+
+            
             if (($arr[$i]['type'] == 'quote_backtick')) {
+
+                // TODO: one set of IFs to remove backquotes
+
+                if ($seen_create_table && $in_create_table_fields) {
+                    // remove backquotes
+                    $identifier = str_replace('`','',$arr[$i]['data']);
+                    $current_identifier = $identifier;
+                }
 
                 if ($seen_constraint) {
                     // remove backquotes
                     $identifier = str_replace('`','',$arr[$i]['data']);
                     $foreign[$foreign_key_number]['constraint'] = $identifier;
                 }
-                if ($seen_foreign && $in_bracket) {
+                if ($seen_foreign && $brackets_level > 0) {
                     // remove backquotes
                     $identifier = str_replace('`','',$arr[$i]['data']);
                     $foreign[$foreign_key_number]['index_list'][] = $identifier;
                 }
 
                 if ($seen_references) {
+                    // remove backquotes
                     $identifier = str_replace('`','',$arr[$i]['data']);
-                    if ($in_bracket) {
+                    // here, the first bracket level corresponds to the
+                    // bracket of CREATE TABLE
+                    // so if we are on level 2, it must be the index list
+                    // of the foreign key REFERENCES
+                    if ($brackets_level > 1) {
                         $foreign[$foreign_key_number]['ref_index_list'][] = $identifier;
                     } else {
                         // for MySQL 4.0.18, identifier is
@@ -1595,10 +1692,16 @@ if ($is_minimum_common == FALSE) {
             }
         } // end for $i (loop #3)
 
+
+        // Fill the $subresult array
+
+        if (isset($create_table_fields)) {
+            $subresult['create_table_fields'] = $create_table_fields;
+        }
+
         if (isset($foreign)) {
             $subresult['foreign_keys'] = $foreign;
         }
-        //DEBUG print_r($foreign);
 
         if (isset($select_expr_clause)) {
             $subresult['select_expr_clause'] = $select_expr_clause;

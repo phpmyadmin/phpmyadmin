@@ -79,7 +79,23 @@ PMA_DBI_free_result($result);
 $fields_rs   = PMA_DBI_query('SHOW FULL FIELDS FROM ' . PMA_backquote($table) . ';', NULL, PMA_DBI_QUERY_STORE);
 $fields_cnt  = PMA_DBI_num_rows($fields_rs);
 
+// Get more complete field information
+// For now, this is done just for MySQL 4.1.2+ new TIMESTAMP options
+// but later, if the analyser returns more information, it
+// could be executed for any MySQL version and replace
+// the info given by the previous SHOW FULL FIELDS FROM query.
 
+// TODO: use this information for proper treatment of TIMESTAMPs
+
+if (PMA_MYSQL_INT_VERSION >= 40102) {
+    $show_create_table_query = 'SHOW CREATE TABLE '
+        . PMA_backquote($db) . '.' . PMA_backquote($table);
+    $show_create_table_res = PMA_DBI_query($show_create_table_query);
+    list(,$show_create_table) = PMA_DBI_fetch_row($show_create_table_res);
+    PMA_DBI_free_result($show_create_table_res);
+    unset($show_create_table_res, $show_create_table_query);
+    $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
+}
 
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
