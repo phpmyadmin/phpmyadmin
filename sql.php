@@ -7,6 +7,7 @@
  */
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
+require_once('./libraries/tbl_indexes.lib.php');
 
 
 /**
@@ -705,6 +706,29 @@ else {
 
         PMA_displayTable($result, $disp_mode, $analyzed_sql);
         PMA_DBI_free_result($result);
+
+        // BEGIN INDEX CHECK See if indexes should be checked.
+        if (isset($query_type) && $query_type == 'check_tbl' && isset($selected) && is_array($selected)) {
+            foreach($selected AS $idx => $tbl_name) {
+                $indexes        = $indexes_info = $indexes_data = array();
+                $tbl_ret_keys   = PMA_get_indexes(urldecode($tbl_name), $err_url_0);
+
+                PMA_extract_indexes($tbl_ret_keys, $indexes, $indexes_info, $indexes_data);
+
+                $idx_collection = PMA_show_indexes(urldecode($tbl_name), $indexes, $indexes_info, $indexes_data, false);
+                $check          = PMA_check_indexes($idx_collection);
+                if (!empty($check)) {
+                ?>
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <td class="tblHeaders" colspan="7"><?php printf($strIndexWarningTable, $tbl_name); ?></td>
+    </tr>
+    <?php echo $check; ?>
+</table>
+                <?php
+                }
+            }
+        } // End INDEX CHECK
 
         if ($disp_mode[6] == '1' || $disp_mode[9] == '1') {
             echo "\n";

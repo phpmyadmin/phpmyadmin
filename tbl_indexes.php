@@ -8,18 +8,13 @@
  */
 require_once('./libraries/grab_globals.lib.php');
 require_once('./libraries/common.lib.php');
-
+require_once('./libraries/tbl_indexes.lib.php');
 
 /**
  * Defines the index types ("FULLTEXT" is available since MySQL 3.23.23)
  */
-$index_types_cnt   = 4;
-$index_types       = array(
-    'PRIMARY',
-    'INDEX',
-    'UNIQUE',
-    'FULLTEXT'
-);
+$index_types       = PMA_get_indextypes();
+$index_types_cnt   = count($index_types);
 
 /**
  * Ensures the db & table are valid, then loads headers and gets indexes
@@ -62,44 +57,14 @@ if (defined('PMA_IDX_INCLUDED')) {
 
 //  Gets table keys and store them in arrays
 $indexes      = array();
-$prev_index   = '';
 $indexes_info = array();
 $indexes_data = array();
 // keys had already been grabbed in "tbl_properties.php"
 if (!defined('PMA_IDX_INCLUDED')) {
-    $local_query = 'SHOW KEYS FROM ' . PMA_backquote($table);
-    $result      = PMA_DBI_query($local_query) or PMA_mysqlDie('', $local_query, '', $err_url_0);
-    $ret_keys    = array();
-    while ($row = PMA_DBI_fetch_assoc($result)) {
-        $ret_keys[]  = $row;
-    }
-    PMA_DBI_free_result($result);
+    $tbl_ret_keys = PMA_get_indexes($tbl_name, $err_url_0);
 }
 
-foreach ($ret_keys as $row) { 
-    if ($row['Key_name'] != $prev_index ){
-        $indexes[]  = $row['Key_name'];
-        $prev_index = $row['Key_name'];
-    }
-    $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-    $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
-    if (isset($row['Cardinality'])) {
-        $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
-    }
-//    I don't know what does following column mean....
-//    $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-    $indexes_info[$row['Key_name']]['Comment']         = (isset($row['Comment']))
-                                                       ? $row['Comment']
-                                                       : '';
-    $indexes_info[$row['Key_name']]['Index_type']      = (isset($row['Index_type']))
-                                                       ? $row['Index_type']
-                                                       : '';
-
-    $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
-    if (isset($row['Sub_part'])) {
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
-    }
-} // end while
+PMA_extract_indexes($ret_keys, $indexes, $indexes_info, $indexes_data);
 
 // Get fields and stores their name/type
 // fields had already been grabbed in "tbl_properties.php"
@@ -406,7 +371,7 @@ else if (!defined('PMA_IDX_INCLUDED')
 
     // We need to copy the value or else the == 'both' check will always return true
     $propicon = (string)$cfg['PropertiesIconic'];
-    
+
     if ($cfg['PropertiesIconic'] === true || $propicon == 'both') {
         $edit_link_text = '<img src="' . $pmaThemeImage . 'b_edit.png" width="16" height="16" hspace="2" border="0" title="' . $strEdit . '" alt="' . $strEdit . '" />';
         $drop_link_text = '<img src="' . $pmaThemeImage . 'b_drop.png" width="16" height="16" hspace="2" border="0" title="' . $strDrop . '" alt="' . $strDrop . '" />';
@@ -432,74 +397,8 @@ else if (!defined('PMA_IDX_INCLUDED')
             <th colspan="2"><?php echo $strField; ?></th>
         </tr>
         <?php
-        echo "\n";
-        foreach ($indexes AS $index_no => $index_name) {
-            $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
-            $index_td = '            <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
-            echo '        <tr>' . "\n";
-            echo $index_td
-                 . '                ' . htmlspecialchars($index_name) . "\n"
-                 . '            </td>' . "\n";
-
-            if ((PMA_MYSQL_INT_VERSION < 40002 && $indexes_info[$index_name]['Comment'] == 'FULLTEXT')
-                || (PMA_MYSQL_INT_VERSION >= 40002 && $indexes_info[$index_name]['Index_type'] == 'FULLTEXT')) {
-                $index_type = 'FULLTEXT';
-            } else if ($index_name == 'PRIMARY') {
-                $index_type = 'PRIMARY';
-            } else if ($indexes_info[$index_name]['Non_unique'] == '0') {
-                $index_type = 'UNIQUE';
-            } else {
-                $index_type = 'INDEX';
-            }
-            echo $index_td
-                 . '                ' . $index_type . "\n"
-                 . '            </td>' . "\n";
-
-            echo str_replace('">' . "\n", '" align="right">' . "\n", $index_td)
-                 . '                ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . '&nbsp;' . "\n"
-                 . '            </td>' . "\n";
-
-            echo $index_td
-                 . '                <a href="tbl_indexes.php?' . $url_query . '&amp;index=' . urlencode($index_name) . '">' . $edit_link_text . '</a>' . "\n"
-                 . '            </td>' . "\n";
-
-            if ($index_name == 'PRIMARY') {
-                $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY');
-                $js_msg    = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP PRIMARY KEY';
-                $zero_rows = urlencode($strPrimaryKeyHasBeenDropped);
-            } else {
-                $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP INDEX ' . PMA_backquote($index_name));
-                $js_msg    = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP INDEX ' . PMA_jsFormat($index_name);
-                $zero_rows = urlencode(sprintf($strIndexHasBeenDropped, htmlspecialchars($index_name)));
-            }
-            echo $index_td
-                 . '                <a href="sql.php?' . $url_query . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $drop_link_text  . '</a>' . "\n"
-                 . '            </td>' . "\n";
-
-            foreach ($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
-                if ($row_no > 0) {
-                    echo '        <tr>' . "\n";
-                }
-                if (!empty($indexes_data[$index_name][$seq_index]['Sub_part'])) {
-                    echo '            <td bgcolor="' . $cell_bgd . '">' . "\n"
-                         . '                ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
-                         . '            </td>' . "\n";
-                    echo '            <td align="right" bgcolor="' . $cell_bgd . '">' . "\n"
-                         . '                ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"
-                         . '            </td>' . "\n";
-                    echo '        </tr>' . "\n";
-                } else {
-                    echo '            <td bgcolor="' . $cell_bgd . '" colspan="2">' . "\n"
-                         . '                ' . htmlspecialchars($indexes_data[$index_name][$seq_index]['Column_name']) . "\n"
-                         . '            </td>' . "\n";
-                    echo '        </tr>' . "\n";
-                }
-            } // end while
-        } // end while
-        ?>
-        <!--/table><br /-->
-        <?php
-        echo "\n\n";
+        $idx_collection = PMA_show_indexes($table, $indexes, $indexes_info, $indexes_data, true);
+        echo PMA_check_indexes($idx_collection);
     } // end display indexes
     else {
         // none indexes

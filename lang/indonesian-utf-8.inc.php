@@ -735,4 +735,8 @@ $strCopyDatabaseOK = 'Database %s has been copied to %s';  //to translate
 $strSwitchToDatabase = 'Switch to copied database';  //to translate
 $strPasswordHashing = 'Password Hashing';  //to translate
 $strCompatibleHashing = 'MySQL&nbsp;4.0 compatible';  //to translate
+$strIndexWarningPrimary = 'PRIMARY and INDEX keys should not both be set for column `%s`';//to translate
+$strIndexWarningUnique = 'UNIQUE and INDEX keys should not both be set for column `%s`';//to translate
+$strIndexWarningMultiple = 'More than one %s key was created for column `%s`';//to translate
+$strIndexWarningTable = 'Problems with indexes of table `%s`';//to translate
 ?>
