@@ -35,9 +35,11 @@ if (empty($cfgLang)) {
 /**
  * Displays the welcome message and the server informations
  */
-?>
-<h1><?php echo $strWelcome ?> phpMyAdmin 2.3.0alpha-20010604 (unofficial devel-branch)</h1>
-<?php
+
+echo "<h1>$strWelcome phpMyAdmin<br>";
+echo PHPMYADMIN_VERSION." (unofficial devel-branch)";
+echo "</h1>\n";
+
 // Don't display server info if $server == 0 (no server selected)
 if ($server > 0) {
     $res_version = mysql_query('SELECT Version() as version') or mysql_die();
