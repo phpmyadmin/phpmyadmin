@@ -136,7 +136,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     include('./libraries/defines.lib.php3');
 
     // For compatibility with old config.inc.php3
-    if (!isset($cfg['FileRevision']) || (int)substr($cfg['FileRevision'],13,3) < 110) {
+    if (!isset($cfg['FileRevision']) || (int)substr($cfg['FileRevision'],13,3) < 113) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -495,8 +495,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
     if (empty($cfg['PmaAbsoluteUri'])) {
 
         $DisplayPmaAbsoluteUriWarning = 1;
-        
-        // Setup a default value to let the people and lazy syadmins work anyway, 
+
+        // Setup a default value to let the people and lazy syadmins work anyway,
         // but display a big warning on the main.php3 page.  --Olivier
 
         $cfg['PmaAbsoluteUri'] = (!empty($HTTP_SERVER_VARS['HTTPS']) ? 'https' : 'http') . '://'
@@ -513,7 +513,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
 
 
     /**
-     * Make sure $cfg['DefaultTabDatabase'] and $cfg['DefaultTabTable'] are set. 
+     * Make sure $cfg['DefaultTabDatabase'] and $cfg['DefaultTabTable'] are set.
      * Todo: check if it is set to a *valid* value.
      */
 

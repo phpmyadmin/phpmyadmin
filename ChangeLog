@@ -5,22 +5,26 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-29 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * libraries/config_import.lib.php3, libraries/common.lib.php3:
+      Backwards compatibility for config files < rev. 1.113.
+
 2002-06-29 Olivier L. Müller  <om@omnis.ch>
     * Documentation.html: docs about $cfg['DefaultTabDatabase']
       and $cfg['DefaultTabTable']
     * config.inc.php3, index.php3, left.php3, libraries/common.lib.php3:
-      default tab selection is now customizable from config.inc.php3. 
+      default tab selection is now customizable from config.inc.php3.
 
 2002-06-28 Olivier L. Müller  <om@omnis.ch>
     * ANNOUNCE.txt: preparing 2.3.0 announcement... Feel free
       to improve and check
 
 2002-06-28 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_change.php3, tbl_properties_common.php3, 
+    * tbl_change.php3, tbl_properties_common.php3,
       new libraries/db_table_exists.lib.php3: menu on insert/edit
 
 2002-06-27 Marc Delisle  <lem9@users.sourceforge.net>
-    * sql.php3, db_details_db_info.php3, db_details_links.php3: bug with a 
+    * sql.php3, db_details_db_info.php3, db_details_links.php3: bug with a
       Select and no table
     * lang/slovak-iso updates, thanks to Lubos Klokner
     * Documentation.html: faq about silent column type changing

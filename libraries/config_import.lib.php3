@@ -262,6 +262,10 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
         }
     }
 
+    if (!isset($cfg['SuggestDBName'])) {
+        $cfg['SuggestDBName'] = TRUE;
+    }
+
     if (!isset($cfg['ShowBlob'])) {
         if (isset($cfgShowBlob)) {
             $cfg['ShowBlob'] = $cfgShowBlob;
@@ -356,6 +360,18 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')){
         } else {
             $cfg['BZipDump'] = TRUE;
         }
+    }
+
+    if (!isset($cfg['DefaultTabDatabase'])
+        // rabus: config.inc.php3 rev. 1.112 had this default value.
+        || $cfg['DefaultTabDatabase'] == 'Structure') {
+        $cfg['DefaultTabDatabase'] = 'db_details_structure.php3';
+    }
+
+    if (!isset($cfg['DefaultTabTable'])
+        // rabus: config.inc.php3 rev. 1.112 had this default value.
+        || $cfg['DefaultTabTable'] == 'Structure') {
+        $cfg['DefaultTabTable'] = 'tbl_properties_structure.php3';
     }
 
     if (!isset($cfg['ManualBaseShort'])) {
