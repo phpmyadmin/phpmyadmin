@@ -146,25 +146,22 @@ if (!defined('__LIB_INC__')){
         }
 
         echo '<b>'. $GLOBALS['strError'] . '</b>' . "\n";
-        if (!empty($the_query)) {
+        // if the config password is wrong, or the MySQL server does not
+        // respond, do not show the query that would reveal the
+        // username/password
+        if (!empty($the_query) && !strstr($the_query, 'connect')) {
             $query_base = htmlspecialchars($the_query);
             $query_base = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $query_base);
             echo '<p>' . "\n";
-
-// if the config password is wrong, or the MySQL server does not respond,
-// do not show the query that would reveal the username/password
-
-	   if (!strstr($query_base,"connect")) {
             echo '    ' . $GLOBALS['strSQLQuery'] . '&nbsp;:&nbsp;' . "\n";
             if ($is_modify_link) {
                 echo '    ['
                      . '<a href="db_details.php3?lang=' . $GLOBALS['lang'] . '&server=' . urlencode($GLOBALS['server']) . '&db=' . urlencode($GLOBALS['db']) . '&sql_query=' . urlencode($the_query) . '&show_query=y">' . $GLOBALS['strEdit'] . '</a>'
                      . ']' . "\n";
-            }
+            } // end if
             echo '<pre>' . "\n" . $query_base . "\n" . '</pre>' . "\n";
             echo '</p>' . "\n";
-          }
-        }
+        } // end if
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
             $error_message = ereg_replace("((\015\012)|(\015)|(\012)){3,}", "\n\n", $error_message);
@@ -1079,7 +1076,12 @@ var errorMsg2 = '<?php echo(str_replace('\'', '\\\'', $GLOBALS['strNotValidNumbe
                 }
                 // 3. Do define the sorting url
                 if (!$is_in_sort) {
-                    $sort_order = ' ORDER BY ' . backquote($field->name) . ' ' . $GLOBALS['cfgOrder'];
+                    // loic1: patch #455484 ("Smart" order)
+                    $cfgOrder     = strtoupper($GLOBALS['cfgOrder']);
+                    if ($cfgOrder == 'SMART') {
+                        $cfgOrder = (eregi('time|date', $field->type)) ? 'DESC' : 'ASC';
+                    }
+                    $sort_order = ' ORDER BY ' . backquote($field->name) . ' ' . $cfgOrder;
                     $order_img  = '';
                 }
                 else if (substr($sql_order, -3) == 'ASC' && $is_in_sort) {

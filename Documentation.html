@@ -279,9 +279,10 @@
 
     <dt><b>$cfgServers[n]['connect_type']</b> string</dt>
     <dd>
-        What type connection to use with the MySQL server. Your options are 'socket' &amp;
-        'tcp'. It defaults to 'tcp' as that is nearly guarenteed to be available on all MySQL 
-        servers, while sockets are not supported on some platforms.
+        What type connection to use with the MySQL server. Your options are
+        'socket' &amp; 'tcp'. It defaults to 'tcp' as that is nearly guarenteed
+        to be available on all MySQL servers, while sockets are not supported
+        on some platforms.
         <br /><br />
     </dd>
 
@@ -314,7 +315,8 @@
         </ul>
 
         Advanced authentication is secure as the standard user needs just
-        read-only-access to the mysql database.<br /><br />
+        read-only-access to the mysql database.
+        <br /><br />
 
         All you have to provide in config.inc is a standard user which can
         connect to MySQL and read the mysql user/db table
@@ -470,11 +472,12 @@
         <br /><br />
     </dd>
 
-    <dt><b>$cfgOrder </b>string [<tt>"DESC"</tt>|<tt>"ASC"</tt>]</dt>
+    <dt><b>$cfgOrder </b>string [<tt>DESC</tt>|<tt>ASC</tt>|<tt>SMART</tt>]</dt>
     <dd>
-        Defines whether fields are displayed in ascending (<tt>"ASC"</tt>)
-        order or in descending (<tt>"DESC"</tt>) order when you click on the
-        field-name.
+        Defines whether fields are displayed in ascending (<tt>ASC</tt>) order,
+        in descending (<tt>DESC</tt>) order or in a "smart" (<tt>SMART</tt>)
+        order -ie descending order for fields of type TIME, DATE, DATETIME &
+        TIMESTAMP, ascending order else- by default.
         <br /><br />
     </dd>
 
@@ -746,8 +749,8 @@
     If you're running a server which cannot be accessed by other people, it's
     sufficient to use the directory protection bundled with your webserver
     (with Apache you can use <i>.htaccess</i> files, for example).<br />
-    If other people have telnet access to your server,
-    you should use phpMyAdmin's advanced authentication feature.
+    If other people have telnet access to your server, you should use
+    phpMyAdmin's advanced authentication feature.
     <br /><br />
     Suggestions:
 </p>
@@ -885,18 +888,17 @@
 <p>
     <b>I have found a bug. How do I inform developpers?</b>
     <br />
-    Our Bug Tracker is located at <a href="http://sourceforge.net/projects/phpmyadmin">  
-    http://sourceforge.net/projects/phpmyadmin</a>  
-    under the Bugs section.  
-    <br />
-    <br />
-    But please first discuss your bug with other users: 
+    Our Bug Tracker is located at <a href="http://sourceforge.net/projects/phpmyadmin">
+        http://sourceforge.net/projects/phpmyadmin</a> under the Bugs section.
+    <br /><br />
+    But please first discuss your bug with other users:
     <br />
     <a href="http://sourceforge.net/projects/phpmyadmin">
-    http://sourceforge.net/projects/phpmyadmin</a>  (and choose Forums)
+        http://sourceforge.net/projects/phpmyadmin</a> (and choose Forums)
     <br />
     <a href="http://www.phpwizard.net/projects/phpMyAdmin">
-    http://www.phpwizard.net/projects/phpMyAdmin</a> (and choose Support Forum)
+        http://www.phpwizard.net/projects/phpMyAdmin</a> (and choose Support
+    Forum)
 </p>
 
 
