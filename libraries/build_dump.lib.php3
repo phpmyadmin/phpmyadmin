@@ -563,7 +563,6 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
      * @param   string   the table name
      * @param   string   the end of line sequence
      * @param   string   the url to go back in case of error
-     *                   (doesn't work yet)
      *
      * @return  string   the XML data structure on success
      *
@@ -585,7 +584,7 @@ if (!defined('PMA_BUILD_DUMP_LIB_INCLUDED')){
         while ($record = mysql_fetch_array($result, MYSQL_ASSOC)) {
             $buffer         .= '    <' . $table . '>' . $crlf;
             for ($i = 0; $i < $columns_cnt; $i++) {
-            	// There is no way to dectect a "NULL" value with PHP3
+                // There is no way to dectect a "NULL" value with PHP3
                 if (!function_exists('is_null') || !is_null($record[$column[$i]])) {
                     $buffer .= '        <' . $column . '>' . htmlspecialchars($record[$column])
                             .  '</' . $column . '>' . $crlf;
