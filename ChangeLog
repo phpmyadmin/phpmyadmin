@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-10-17  Marc Delisle  <lem9@users.sourceforge.net>
+	* release 2.2.1rc2
+
 2001-10-16  Loïc Chapeaux  <lolo@phpheaven.net>
 	* Documentation.html, lines 766-770: added a link to the official MySQL
 	  documentation for the "socket error" problems.
