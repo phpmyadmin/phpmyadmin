@@ -160,8 +160,8 @@ if ($server > 0
         $bkp_track_err = (PHP_INT_VERSION >= 40000) ? @ini_set('track_errors', 1) : '';
         $stdlink       = @$connect_func(
                              $cfgServer['host'] . $server_port . $server_socket,
-                             $cfgServer['stduser'],
-                             $cfgServer['stdpass']
+                             $cfgServer['user'],
+                             $cfgServer['password']
                          );
         if ($stdlink == FALSE) {
             if (mysql_error()) {
@@ -176,8 +176,8 @@ if ($server > 0
             }
             $local_query = $connect_func . '('
                          . $cfgServer['host'] . $server_port . $server_socket . ', '
-                         . $cfgServer['stduser'] . ', '
-                         . $cfgServer['stdpass'] . ')';
+                         . $cfgServer['user'] . ', '
+                         . $cfgServer['password'] . ')';
             mysql_die($conn_error, $local_query, FALSE, '');
         } else if (PHP_INT_VERSION >= 40000) {
             @ini_set('track_errors', $bkp_track_err);
