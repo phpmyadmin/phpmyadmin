@@ -60,7 +60,9 @@ $strBrowse = 'Navigare';
 $strBzip = '"bzipped"';
 
 $strCantLoadMySQL = 'extensia MySQL nu se incarca,<br />va rugam verificati configuratia PHP.';
+$strCantLoadRecodeIconv = 'Nu pot incarca extensia iconv sau recode necesar pentru conversia de caractere, configureaza PHP pentru a permite folosirea acestor extensii sau dezactiveaza conversia de caractere din phpMyAdmin.';
 $strCantRenameIdxToPrimary = 'Nu poti redenumi index-ul la un nume PRIMARY!';
+$strCantUseRecodeIconv = 'Nu pot folosi functiile iconv nici libiconv nici recode_string in timp ce extensia este incarcata. Verifica configuratia PHP.';
 $strCardinality = 'Cardinalitate';
 $strCarriage = 'Enter: \\r';
 $strChange = 'Schimbare';
@@ -72,6 +74,7 @@ $strCheckTable = 'Verificare tabel';
 $strChoosePage = 'Selecteaza o pagina pentru a fi editata';
 $strColumn = 'Coloana';
 $strColumnNames = 'Numele coloanelor';
+$strComments = 'Comentarii';
 $strCompleteInserts = 'Rezolva inserarea';
 $strConfigFileError = 'phpMyAdmin nu poate citi corect fisierul de configuratie!  <br />Acesta se poate intampla in cazul in care PHP nu poate gasi fisierul sau nu o poate parsa corect.  <br />Vezi configuratia fisierului apasand pe linkul de mai jos si citeste cu atentie erorile aparute ...  In cele mai multe cazuri lipsesc apostroful sau ghilimele.<br />Daca primesti o pagina goala, totul pare sa fie bine.';
 $strConfigureTableCoord = 'Configureaza coordonatelepentru tabela %s';
@@ -151,6 +154,7 @@ $strGzip = '"gzipped"';
 
 $strHasBeenAltered = 'a fost alterat.';
 $strHasBeenCreated = 'a fost creat.';
+$strHaveToShow = 'Trebuie sa alegi cel putin o coloana pentru a putea afisa';
 $strHome = 'Pagina de start';
 $strHomepageOfficial = 'Pagina oficiala phpMyAdmin';
 $strHomepageSourceforge = 'Pagina de descarcare Sourceforge phpMyAdmin';
@@ -192,11 +196,13 @@ $strLogout = 'Deconectare';
 $strLogPassword = 'Parola:';
 $strLogUsername = 'Nume utilizator:';
 
+$strMissingBracket = 'Paranteza lipsa';
 $strModifications = 'Modificarile au fost salvate';
 $strModify = 'Modificare';
 $strModifyIndexTopic = 'Modifica un index';
 $strMoveTable = 'Muta tabela la (database<b>.</b>table):';
 $strMoveTableOK = 'Tabela %s a fost mutat la %s.';
+$strMySQLCharset = 'Setul de caractere MySQL';
 $strMySQLReloaded = 'MySQL reincarcat.';
 $strMySQLSaid = 'MySQL zice: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% ruland pe %pma_s2% ca %pma_s3%';
@@ -393,11 +399,4 @@ $strYes = 'Da';
 $strZip = '"arhivat"';
 
 // To translate
-
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
 ?>
