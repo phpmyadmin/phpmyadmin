@@ -13,6 +13,8 @@ $Source$
       - messages are now displayed if a query had been submitted to change some
         options or to sort the table;
       - pursuit the "stay on the sub-pages as long as needed" work.
+    * db_details.php3; db_details_export.php3; db_details_strucuture.php3:
+      pursuit the "stay on the sub-pages as long as needed" work.
 
 2002-05-02 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/*.inc.php3: cleanup.

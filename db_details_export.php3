@@ -5,8 +5,9 @@
 /**
  * Gets some core libraries
  */
-$sub_part = '_export';
+$sub_part  = '_export';
 require('./db_details_common.php3');
+$url_query .= '&amp;goto=db_details_export.php3';
 require('./db_details_db_info.php3');
 
 

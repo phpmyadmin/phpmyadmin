@@ -2,16 +2,16 @@
 /* $Id$ */
 
 
+/**
+ * Runs common work
+ */
 require('./db_details_common.php3');
+$url_query .= '&amp;goto=db_details.php3';
 
 
 /**
  * Database work
  */
-$url_query = 'lang=' . $lang
-           . '&amp;server=' . $server
-           . '&amp;db=' . urlencode($db)
-           . '&amp;goto=db_details.php3';
 if (isset($show_query) && $show_query == 'y') {
     // This script has been called by read_dump.php3
     if (isset($sql_query_cpy)) {
