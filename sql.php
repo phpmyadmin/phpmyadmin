@@ -518,15 +518,21 @@ else {
                             }
                         }
                     } else {
-                        PMA_DBI_query($count_query);
+                        PMA_DBI_try_query($count_query);
                         // if (mysql_error()) {
-                        // void. I tried the case
+                        // void. 
+                        // I tried the case
                         // (SELECT `User`, `Host`, `Db`, `Select_priv` FROM `db`)
                         // UNION (SELECT `User`, `Host`, "%" AS "Db",
                         // `Select_priv`
                         // FROM `user`) ORDER BY `User`, `Host`, `Db`;
                         // and although the generated count_query is wrong
-                        // the SELECT FOUND_ROWS() work!
+                        // the SELECT FOUND_ROWS() work! (maybe it gets the 
+                        // count from the latest query that worked)
+                        //
+                        // another case where the count_query is wrong:
+                        // SELECT COUNT( * ), f1 from t1 group by f1
+                        // and you click to sort on count( * )
                         // }
                         $cnt_all_result       = PMA_DBI_query('SELECT FOUND_ROWS() as count;');
                         list($unlim_num_rows) = PMA_DBI_fetch_row($cnt_all_result);

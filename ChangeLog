@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-09-12 Marc Delisle  <lem9@users.sourceforge.net>
+    * sql.php: bug #988723, sql error when ordering by count( * )
+
 2004-09-11 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/dutch: small update
     * lang/chinese_simplified: updated, thanks to Simon - simon2san
