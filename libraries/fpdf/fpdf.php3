@@ -4,7 +4,7 @@
 /****************************************************************************
 * Software : FPDF                                                           *
 * Version :  1.5                                                            *
-* Date :     28/03/2002                                                     *
+* Date :     2002/05/28                                                     *
 * Author :   Olivier PLATHEY                                                *
 * Website :  http://www.fpdf.org                                            *
 * Licence :  Freeware                                                       *
@@ -13,7 +13,9 @@
 ****************************************************************************/
 
 
-define('FPDF_VERSION', '1.5');
+// loic1: PHP3 compatibility
+// define('FPDF_VERSION', '1.5');
+$FPDF_version = (string) '1.5';
 
 
 /**
@@ -450,7 +452,9 @@ class FPDF
 
         // Info
         $this->_newobj();
-        $this->_out('<</Producer (FPDF ' . FPDF_VERSION . ')');
+        // loic1: PHP3 compatibility
+        // $this->_out('<</Producer (FPDF ' . FPDF_VERSION . ')');
+        $this->_out('<</Producer (FPDF ' . $GLOBALS['FPDF_version'] . ')');
         if (!empty($this->title)) {
             $this->_out('/Title (' . $this->_escape($this->title) . ')');
         }
@@ -1154,9 +1158,10 @@ class FPDF
         if ($family == 'arial') {
             $family = 'helvetica';
         }
-        $style      = strtoupper($style);
         if ($family == 'symbol' || $family == 'zapfdingbats') {
             $style  = '';
+        } else {
+            $style  = strtoupper($style);
         }
         if (strpos(' ' . $style, 'U')) {
             $this->underline = TRUE;
