@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-02 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/indonesian: update, thanks to Rachim Tamsjadi (tamsy).
+    * lang/norwegian: update, thanks to Sven-Erik Andersen
+
 2003-02-01 Robin Johnson  <robbat2@users.sourceforge.net>
     * R.I.P.: --- On Feb. 1, 2003, the Space Shuttle Columbia (STS-107) was lost during its
     re-entry into Earth's atmosphere. In memory of the brave men and women who
