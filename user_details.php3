@@ -218,7 +218,7 @@ function grant_operations()
         } else { db = "*"; table = "*"; column = ""; }
 
         sql = "GRANT " + privGrantToString(f) + "" + column;
-        sql += " ON " + db + "." + table
+        sql += " ON " + protect_name(db) + "." + protect_name(table)
         sql += " TO '" + "<?php echo $user; ?>" + "'@'" + "<?php echo $host ?>'"
         if (f.Grant_priv.checked) sql += " with grant option";
 
@@ -229,6 +229,21 @@ function grant_operations()
         url += "&goto=<?php echo $self; ?>";
 
         location.href = url;
+    }
+
+    function protect_name(db_or_table) {
+	var js_mysql_major_version, js_mysql_minor_version;
+	js_mysql_major_version = <?php echo MYSQL_MAJOR_VERSION ?>;
+	js_mysql_minor_version = <?php echo MYSQL_MINOR_VERSION ?>;
+
+	if (js_mysql_major_version >= "3.23") {
+	   if (js_mysql_minor_version >= "6")  {
+		return "`" + db_or_table + "`";
+	   }
+	}
+	else {
+		return db_or_table;
+	}
     }
 
     function change(f, param) {

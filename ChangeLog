@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-06-29  Marc Delisle  <lem9@users.sourceforge.net>
+	* user_details.php3, js code to protect db and table names
+
 2001-06-28  Steve Alberty  <alberty@neptunlabs.de>
 	* fixed bug with dl and PHP 3
 
