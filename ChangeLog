@@ -5,6 +5,12 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-11-20  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_change.php3, lines 146-148: set the default function to "NOW()"
+	  for timestamp fields only in insert mode (ie not in update mode).
+	* sql.php3; tbl_select.php3; libraries/display_tbl.php3: changed
+	  "$sessionMaxRows" by "$session_max_rows" (PEAR codding standards).
+
 2001-11-19  Loïc Chapeaux  <lolo@phpheaven.net>
 	* tbl_change.php3, lines 208-212: always use the existing timestamp
 	  value in the update statement else MySQL auto-update it to the
