@@ -10,6 +10,7 @@ $Source$
       default value of $cfg['ThemePath']. Thanks to Donny Simonton for
       pointing this out.
     * lang/chinese_simplified-*.inc.php: Updates, thanks to Simon (simon2san).
+    * lang/italian-*.inc.php: Updates, thanks to Pietro Danesi and "Vincenzo".
 
 2004-09-22 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_query_box.php, read_dump.php: bug #1032066: when no db was
