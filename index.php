@@ -112,7 +112,7 @@ if ($cfg['QueryFrame']) {
     if ($cfg['QueryFrameJS']) {
         echo '<script type="text/javascript">' . "\n";
         echo '<!--' . "\n";
-        echo '    document.writeln(\'<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0" name="mainFrameset" id="mainFrameset">\');' . "\n";
+        echo '    document.writeln(\'<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="1" name="mainFrameset" id="mainFrameset">\');' . "\n";
         echo '    document.writeln(\'    <frameset rows="' . $query_frame_height . ', *" framespacing="0" frameborder="0" border="0" name="leftFrameset" id="leftFrameset">\');' . "\n";
         echo '    document.writeln(\'        <frame src="queryframe.php?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="queryframe" frameborder="0" scrolling="no" id="leftQueryframe" />\');' . "\n";
         echo '    document.writeln(\'        <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . $phpmain_hash_js . '" name="nav" frameborder="0" id="leftFrame" />\');' . "\n";
@@ -130,7 +130,7 @@ if ($cfg['QueryFrame']) {
         echo '<noscript>' . "\n";
     }
 
-    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*"  border="1" frameborder="1" framespacing="0" name="mainFrameset" id="mainFrameset">' . "\n";
+    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*"  border="1" frameborder="1" framespacing="1" name="mainFrameset" id="mainFrameset">' . "\n";
     echo '    <frameset rows="' . $query_frame_height . ', *" framespacing="0" frameborder="0" border="0" name="leftFrameset" id="leftFrameset">' . "\n";
     echo '        <frame src="queryframe.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="queryframe" frameborder="0" scrolling="no" id="leftQueryframe" />' . "\n";
     echo '        <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" id="leftFrame" />' . "\n";
@@ -139,7 +139,7 @@ if ($cfg['QueryFrame']) {
 
 } else {
 
-    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="0" id="leftFrameset" >' . "\n";
+    echo '<frameset cols="' . $cfg['LeftWidth'] . ',*" rows="*" border="1" frameborder="1" framespacing="1" id="leftFrameset" >' . "\n";
     echo '    <frame src="left.php?' . $url_query . '&amp;hash=' . $phpmain_hash . '" name="nav" frameborder="0" id="leftFrame" />' . "\n";
     echo '    <frame src="' . (empty($db) ? $cfg['DefaultTabServer']  : $cfg['DefaultTabDatabase']) . '?' . $url_query . '" name="phpmain' . $phpmain_hash . '" id="rightFrame" frameborder="1" />' . "\n";
 
