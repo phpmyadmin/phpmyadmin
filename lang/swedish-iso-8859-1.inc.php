@@ -268,6 +268,7 @@ $strHasBeenAltered = 'har ändrats.';
 $strHasBeenCreated = 'har skapats.';
 $strHaveToShow = 'Du måste välja minst en kolumn som ska visas';
 $strHebrew = 'Hebreisk';
+$strHexForBinary = 'Använd hexadecimalt för binära fält';
 $strHome = 'Hem';
 $strHomepageOfficial = 'phpMyAdmin:s officiella hemsida';
 $strHost = 'Värd';
@@ -623,12 +624,14 @@ $strTableOptions = 'Tabellalternativ';
 $strTableStructure = 'Struktur för tabell';
 $strTableType = 'Tabelltyp';
 $strTables = '%s tabell(er)';
+$strTakeIt = 'använd detta';
 $strTblPrivileges = 'Tabellspecifika privilegier';
 $strTextAreaLength = ' På grund av dess längd,<br /> kanske detta fält inte kan redigeras ';
 $strThai = 'Thailändsk';
 $strTheContent = 'Filens innehåll har importerats.';
 $strTheContents = 'Filens innehåll ersätter den valda tabellens rader som har identiska primära eller unika nycklar.';
 $strTheTerminator = 'Fältavslutare.';
+$strTheme = 'Tema / Stil';
 $strThisHost = 'Denna värd';
 $strThisNotDirectory = 'Detta var inte en katalog';
 $strThreadSuccessfullyKilled = 'Tråd %s dödades med framgång.';
@@ -705,10 +708,4 @@ $strYes = 'Ja';
 $strZeroRemovesTheLimit = 'Anm: Genom att sätta dessa alternativ till 0 (noll) tas begränsningarna bort.';
 $strZip = '"zippad"';
 
-// To translate:
-
-$strTakeIt = 'take it';  //to translate
-$strTheme = 'Theme / Style';  //to translate
-
-$strHexForBinary = 'Use hexadecimal for binary fields';  //to translate
 ?>
