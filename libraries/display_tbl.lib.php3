@@ -1244,7 +1244,8 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
 
                             if (defined('PMA_TRANSFORMATION_' . strtoupper($transformfunction_name)) && function_exists('PMA_transformation_' . $transformfunction_name)) {
                                 $transform_function = 'PMA_transformation_' . $transformfunction_name;
-                                $transform_options = PMA_transformation_getOptions((isset($GLOBALS['mime_map'][$meta->name]['transformation_options']) ? $GLOBALS['mime_map'][$meta->name]['transformation_options'] : ''));
+                                $transform_options  = PMA_transformation_getOptions((isset($GLOBALS['mime_map'][$meta->name]['transformation_options']) ? $GLOBALS['mime_map'][$meta->name]['transformation_options'] : ''));
+                                $meta->mimetype     = str_replace('_', '/', $GLOBALS['mime_map'][$meta->name]['mimetype']);
                             }
                         } // end if file_exists
                     } // end if transformation is set

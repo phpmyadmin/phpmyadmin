@@ -16,14 +16,17 @@ $Source$
       Fix empty table rows in vertical display (kept Mozilla from displaying
       borders in this printmode). Adjusted layout a tiny-weeny bit to let
       the comments of a field fit the whole space.
+    * libraries/display_tbl.lib.php3, libraries/transformations/TEMPLATE,
+      Documentation.html: Propagate current MIME-type to plugin functions.
+      Thanks for noticing (again), Thiemo. :)
 
 2003-11-06 Michal Cihar  <nijel@users.sourceforge.net>
-    * libraries/export/xml.php3: Add xml header with encoding information 
+    * libraries/export/xml.php3: Add xml header with encoding information
       (bug #836630).
 
 2003-11-05 Garvin Hicking <me@supergarv.de>
-    * libraries/common.lib.php3, footer.inc.php3: Bug #831181: Do not 
-      store queries with errors in history, also when coming from the 
+    * libraries/common.lib.php3, footer.inc.php3: Bug #831181: Do not
+      store queries with errors in history, also when coming from the
       database SQL tab.
     * libraries/common.lib.php3: Bug #835854. The MySQL-error messages
       are now put inside a <code> HTML-container, not <pre>. This allows

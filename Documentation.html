@@ -553,7 +553,7 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
         database list. But <span class="important">it does not replace the
         privileges rules of the MySQL database server</span>. If set, it just
         means only these databases will be displayed but
-        <span class="important">not at all other databases can't be used.</span>
+        <span class="important">not that all other databases can't be used.</span>
         <br /><br />
         An example of using more that one database:
         <tt>$cfg['Servers'][$i]['only_db'] = array('db1', 'db2'); </tt>
@@ -2141,7 +2141,8 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     <li><b>$meta</b> - Contains an object with field information to your column. The data is drawn from the output of the
     <a href="http://www.php.net/mysql_fetch_field">mysql_fetch_field()</a> function. This means, all object properties described
     on the <a href="http://www.php.net/mysql_fetch_field">manual page</a> are available in this variable and can be used to
-    transform a field accordingly to unsigned/zerofill/not_null/... properties.</li>
+    transform a field accordingly to unsigned/zerofill/not_null/... properties.<br />
+    The $meta-&gt;mimetype variable contains the original MIME-type of the field (i.e. 'text/plain', 'image/jpeg' etc.)</li>
 </ol>
 
 <!-- FAQ -->
