@@ -7,6 +7,8 @@ $Source$
 
 2002-05-06 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/romanian.inc.php3 updates thanks to Valics Lehel
+    * lang/*, tbl_relation.php3, Documentation.html, 
+      libraries/display_tbl.lib.php3: foreign_display_field
 
 2002-05-05 Loïc Chapeaux  <lolo@phpheaven.net>
     * lang/thai.inc.php3: completed thanks to Arthit Suriyawongkul &
