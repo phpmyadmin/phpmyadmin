@@ -15,6 +15,7 @@ $Source$
       Backwards compatibility.
     * lang/malay-*.inc.php3, libraries/select_lang.lib.php3, translators.html:
       New language, thanks to "Shafique" (sicksand).
+    * db_details.php3, Documentation.html: Display .sql files only.
 
 2002-08-21 Marc Delisle  <lem9@users.sourceforge.net>
     * db_details.php3, read_dump.php3, libraries/functions.js, lang/*,

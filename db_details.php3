@@ -111,7 +111,7 @@ echo "\n";
 if ($cfg['UploadDir'] != '' && $handle = @opendir($cfg['UploadDir'])) {
     $is_first = 0;
     while ($file = @readdir($handle)) {
-        if (is_file($cfg['UploadDir'] . $file)) {
+        if (is_file($cfg['UploadDir'] . $file) && substr($file, -4) == '.sql') {
             if ($is_first == 0) {
                 echo "\n";
                 echo '    <i>' . $strOr . '</i> ' . $strWebServerUploadDirectory . '&nbsp;:<br />' . "\n";
