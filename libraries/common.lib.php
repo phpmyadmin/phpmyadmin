@@ -1571,7 +1571,7 @@ if (typeof(document.getElementById) != 'undefined'
                     $explain_link_validate = '';
                 }
 
-                $explain_link = '&nbsp;[<a href="sql.php'
+                $explain_link = '&nbsp;[<a href="read_dump.php'
                               . $url_qpart
                               . $explain_link_validate
                               . '&amp;sql_query=';
@@ -1594,7 +1594,7 @@ if (typeof(document.getElementById) != 'undefined'
             // php-code (Mike Beck 2002-05-22)
             if (isset($cfg['SQLQuery']['ShowAsPHP'])
                 && $cfg['SQLQuery']['ShowAsPHP'] == TRUE) {
-                $php_link = '&nbsp;[<a href="sql.php'
+                $php_link = '&nbsp;[<a href="read_dump.php'
                           . $url_qpart
                           . '&amp;show_query=1'
                           . '&amp;sql_query=' . urlencode($local_query)
@@ -1608,7 +1608,7 @@ if (typeof(document.getElementById) != 'undefined'
                 $php_link .= '</a>]';
 
                 if (isset($GLOBALS['show_as_php']) && $GLOBALS['show_as_php'] == '1') {
-                    $php_link .= '&nbsp;[<a href="sql.php'
+                    $php_link .= '&nbsp;[<a href="read_dump.php'
                               . $url_qpart
                               . '&amp;show_query=1'
                               . '&amp;sql_query=' . urlencode($local_query)
@@ -1624,7 +1624,7 @@ if (typeof(document.getElementById) != 'undefined'
                 && $cfg['SQLQuery']['Refresh']
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $local_query)) {
 
-                $refresh_link = '&nbsp;[<a href="sql.php'
+                $refresh_link = '&nbsp;[<a href="read_dump.php'
                           . $url_qpart
                           . '&amp;show_query=1'
                           . '&amp;sql_query=' . urlencode($local_query)
@@ -1639,7 +1639,7 @@ if (typeof(document.getElementById) != 'undefined'
                 && $cfg['SQLValidator']['use'] == TRUE
                 && isset($cfg['SQLQuery']['Validate'])
                 && $cfg['SQLQuery']['Validate'] == TRUE) {
-                $validate_link = '&nbsp;[<a href="sql.php'
+                $validate_link = '&nbsp;[<a href="read_dump.php'
                                . $url_qpart
                                . '&amp;show_query=1'
                                . '&amp;sql_query=' . urlencode($local_query)
