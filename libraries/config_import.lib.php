@@ -807,7 +807,7 @@ if (!isset($cfg['NaturalOrder'])) {
     $cfg['NaturalOrder'] = TRUE;
 }
 
-if (!isset($cfg['SetHttpHostTitle'])) {
+if (!isset($cfg['ShowHttpHostTitle'])) {
     $cfg['ShowHttpHostTitle'] = FALSE;
 }
 
