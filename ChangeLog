@@ -5,6 +5,19 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-09-11  Loïc Chapeaux  <lolo@phpheaven.net>
+	* libraries/read_dump.lib.php3; read_dump.lib.php3:
+	  - moved the 'split_sql_file()' function from the library to the main
+	    script, then removed the library;
+	  - tried some fixes for bugs with comments characters in dump files (see
+	    bug #444279) and taked into account "-- " styled comments;
+	  - disactivated the "/*!...*/" syntax for MySQL < 3.22.07;
+	  - optimized the 'split_sql_file()' function (there is still some work to
+	    do: just try to import the dump file from phpNuke with a distant
+	    connection...).
+	* libraries/function.js: limit the number of characters displayed in the
+	  confirmation box.
+
 2001-09-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* sql.php3, line 177: simple "SELECT" statements like "SELECT 1+1" were
 	  failing because they were added a "LIMIT" clause.
