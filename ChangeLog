@@ -7,6 +7,8 @@ $Source$
 
 2004-08-17 Michal Čihař  <michal@cihar.com>
     * sql.php: Work with $display_query only if set (Marc spotted this out).
+    * libraries/display_export.lib.php: No options text should not be bold red
+      (bug #1010759).
 
 2004-08-17 Marc Delisle  <lem9@users.sourceforge.net>
     * tbl_select.php, config.inc.php, libraries/config_import.lib.php,

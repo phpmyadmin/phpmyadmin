@@ -533,7 +533,7 @@ if (!$hide_structure) { ?>
             <div id="none_options">
             <table width="400" border="0" cellpadding="3" cellspacing="1">
                 <tr><th align="left"><?php echo $strXML; ?></th></tr>
-                <tr><td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" class="noPrivileges">
+                <tr><td bgcolor="<?php echo $cfg['BgcolorOne']; ?>">
                     <?php echo $strNoOptions; ?>
                     <input type="hidden" name="xml_data" value="xml_data" />
                 </td></tr>
