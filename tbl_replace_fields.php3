@@ -19,13 +19,13 @@
 // binary file is uploaded, thus bypassing further manipulation of $val.
 
 $check_stop = false;
-if (isset(${"fields_upload_" . $key}) && ${"fields_upload_" . $key} != 'none'){
+if (isset(${"fields_upload_" . $encoded_key}) && ${"fields_upload_" . $encoded_key} != 'none'){
     // garvin: This fields content is a blob-file upload.
 
-    if (!empty(${"fields_upload_" . $key})) {
+    if (!empty(${"fields_upload_" . $encoded_key})) {
         // garvin: The blob-field is not empty. Check what we have there.
 
-        $data_file = ${"fields_upload_" . $key};
+        $data_file = ${"fields_upload_" . $encoded_key};
 
         if (is_uploaded_file($data_file)) {
             // garvin: A valid uploaded file is found. Look into the file...
@@ -49,8 +49,8 @@ if (isset(${"fields_upload_" . $key}) && ${"fields_upload_" . $key} != 'none'){
             // void
         }
 
-    } elseif (!empty(${'fields_uploadlocal_' . $key})) {
-        $file_to_upload = $cfg['UploadDir'] . eregi_replace('\.\.*', '.', ${'fields_uploadlocal_' . $key});
+    } elseif (!empty(${'fields_uploadlocal_' . $encoded_key})) {
+        $file_to_upload = $cfg['UploadDir'] . eregi_replace('\.\.*', '.', ${'fields_uploadlocal_' . $encoded_key});
 
         // A local file will be uploaded.
         $open_basedir     = '';
@@ -108,7 +108,7 @@ if (isset(${"fields_upload_" . $key}) && ${"fields_upload_" . $key} != 'none'){
 
 if (!$check_stop) {
 // f i e l d    v a l u e    i n    t h e    f o r m
-    if (isset($fields_type[$key])) $type = $fields_type[$key];
+    if (isset($fields_type[$encoded_key])) $type = $fields_type[$encoded_key];
     else $type = '';
     switch (strtolower($val)) {
         case 'null':
