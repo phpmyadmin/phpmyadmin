@@ -195,6 +195,14 @@ for ($i = 0; $i < $fields_cnt; $i++) {
 
     // The function column
     if (isset($row) && isset($row[$field])) {
+        // loic1: special binary "characters"
+        if ($is_binary || $is_blob) {
+            $row[$field] = str_replace("\x00", '\0', $row[$field]);
+            $row[$field] = str_replace("\x08", '\b', $row[$field]);
+            $row[$field] = str_replace("\x0a", '\n', $row[$field]);
+            $row[$field] = str_replace("\x0d", '\r', $row[$field]);
+            $row[$field] = str_replace("\x1a", '\Z', $row[$field]);
+        } // end if
         $special_chars = htmlspecialchars($row[$field]);
         $data          = $row[$field];
         $backup_field  = '<input type="hidden" name="fields_prev[' . urlencode($field) . ']" value="' . urlencode($data) . '" />';

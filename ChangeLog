@@ -6,6 +6,11 @@ $Id$
 $Source$
 
 
+2001-10-26  Loïc Chapeaux  <lolo@phpheaven.net>
+	* tbl_change.php3, lines 198-205: fixed a crash with binary "characters".
+	  Bug was reported by Joshua Nye <josh at boxcarmedia.com> to the
+	  phpMyAdmin-devel mailing-list.
+
 2001-10-25  Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3, line 1172: fixed bug #474685 (table not found editing
 	  user) thanks to Alister Bulman <alister at users.sourceforge.net>.
