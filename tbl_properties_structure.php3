@@ -385,7 +385,7 @@ if ($cfg['PropertiesIconic']) {
     // Drop button if there is at least two fields
     if ($fields_cnt > 1) {
         echo '        <button class="mult_submit" type="submit" name="submit_mult" value="' . $strDrop . '" title="' . $strDrop . '">' . "\n"
-           . '            <img src="./images/button_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strChange : '') . "\n"
+           . '            <img src="./images/button_drop.png" title="' . $strDrop . '" alt="' . $strDrop . '" width="11" height="13" />' . (($propicon == 'both') ? '&nbsp;' . $strDrop : '') . "\n"
            . '        </button>' . "\n";
     }
 } else {
