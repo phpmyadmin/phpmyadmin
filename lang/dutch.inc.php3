@@ -2,7 +2,7 @@
 /* $Id$ */
 
 /**
- * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/06/12 10:20.
+ * Updated by "CaliMonk" <calimonk at gmx.net> on 2002/06/18 11:25.
  */
 
 $charset = 'iso-8859-1';
@@ -63,7 +63,9 @@ $strBrowse = 'Verkennen';
 $strBzip = '"ge-bzipt"';
 
 $strCantLoadMySQL = 'kan de MySQL extensie niet laden,<br />controleer de PHP configuratie.';
+$strCantLoadRecodeIconv = 'Kan iconv of recode extenties niet laden die nodig zijn voor de Karakterset conversie, configureer php om deze extensies toe te laten of schakel Karakterset conversie uit in phpMyAdmin'; 
 $strCantRenameIdxToPrimary = 'Kan index niet naar PRIMARY hernoemen';
+$strCantUseRecodeIconv = 'Kan iconv, libiconv en recode_string functies niet gebruiken zolang de extensies geladen moeten worden. Controleer de php configuratie.'; 
 $strCardinality = 'Kardinaliteit';
 $strCarriage = 'Harde return: \\r';
 $strChange = 'Veranderen';
@@ -75,6 +77,7 @@ $strCheckTable = 'Controleer tabel';
 $strChoosePage = 'Kies een pagina om aan te passen';
 $strColumn = 'Kolom';
 $strColumnNames = 'Kolom namen';
+$strComments = 'Commentaar';
 $strCompleteInserts = 'Invoegen voltooid';
 $strConfigFileError = 'phpMyAdmin kon het configuratie bestand niet lezen! <br />Dit kan gebeuren als php een parse error in dit bestand aantreft of dit bestand helemaal niet gevonden kan worden.<br />Roep het configuratie bestand direct aan met de snelkoppeling hieronder en lees de php foutmelding(en). In de meeste gevallen ontbreekt er ergens bijvoorbeeld een quote.<br /> Wanneer er een blanco pagina wordt weergegeven zijn er geen problemen.';
 $strConfigureTableCoord = 'Configureer de coördinaten voor de tabel %s';
@@ -153,6 +156,7 @@ $strGzip = '"ge-gzipt"';
 
 $strHasBeenAltered = 'is veranderd.';
 $strHasBeenCreated = 'is aangemaakt.';
+$strHaveToShow = 'Er moet ten minste 1 weer te geven kolom worden gekozen'; 
 $strHome = 'Home';
 $strHomepageOfficial = 'Officiële phpMyAdmin Website';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmin Download Pagina';
@@ -193,11 +197,13 @@ $strLogUsername = 'Gebruikers naam:';
 $strLogin = 'Inloggen';
 $strLogout = 'Uitloggen';
 
+$strMissingBracket = 'Er ontbreekt een bracket'; 
 $strModifications = 'Wijzigingen opgeslagen.';
 $strModify = 'Pas aan';
 $strModifyIndexTopic = 'Wijzig een index';
 $strMoveTable = 'Verplaats tabel naar (database<b>.</b>tabel):';
 $strMoveTableOK = 'Tabel %s is verplaatst naar %s.';
+$strMySQLCharset = 'MySQL Karakterset'; 
 $strMySQLReloaded = 'MySQL opnieuw geladen.';
 $strMySQLSaid = 'MySQL retourneerde: ';
 $strMySQLServerProcess = 'MySQL %pma_s1% draait op %pma_s2% als %pma_s3%';
@@ -394,11 +400,4 @@ $strYes = 'Ja';
 
 $strZip = '"Gezipt"';
 
-// To translate
-$strMissingBracket = 'Missing Bracket';  //to translate
-$strHaveToShow = 'You have to choose at least one Column to display';  //to translate
-$strCantLoadRecodeIconv = 'Can not load iconv or recode extension needed for charset conversion, configure php to allow using these extensions or disable charset conversion in phpMyAdmin.';  //to translate
-$strCantUseRecodeIconv = 'Can not use iconv nor libiconv nor recode_string function while extension reports to be loaded. Check your php configuration.';  //to translate
-$strMySQLCharset = 'MySQL Charset';  //to translate
-$strComments = 'Comments';  //to translate
 ?>
