@@ -9,6 +9,7 @@ $Source$
 	* updates to italian thanks to Alessandro Astarita <aleast@libero.it> 
 	* updates to catala  thanks to Jordi Bruguera <jordi@t800.grn.es>
 	* updates to spanish thanks to Gabriel Ginard <gginard@naveglia.com>
+	* updates to czech-iso and czech-win1250,thanks to Michal Cihar (nijel)
  	* config.inc.php3, Documentation.html, footer.inc.php3,
 	  header.inc.php3, ob_lib.inc.php3: 
            bug 443318 Undefined variable: ob_mode

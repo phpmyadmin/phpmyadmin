@@ -46,7 +46,7 @@ $strBookmarkView = "Jen prohlédnout";
 $strBrowse = "Projít";
 
 $strCantLoadMySQL = "nelze nahrát roz¹íøení pro MySQL,<br>prosím zkontrolujte nastavení PHP.";
-$strCarriage = "Návrat vozíku (Carriage return): \\r";
+$strCarriage = "Návrat vozíku (CR): \\r";
 $strChange = "Zmìnit";
 $strCheckAll = "Za¹krtnout v¹e";
 $strCheckDbPriv = "Zkontrolovat privilegia databáze";
@@ -113,7 +113,7 @@ $strHasBeenAltered = "byla zmìnìna.";
 $strHasBeenCreated = "byla vytvoøena.";
 $strHasBeenDropped = "byla odstranìna.";
 $strHasBeenEmptied = "byla vyprázdnìna.";
-$strHome = "Domu";
+$strHome = "Úvod";
 $strHomepageOfficial = " Oficiální stránka phpMyAdmina ";
 $strHomepageSourceforge = " nová stránka phpMyAdmina ";
 $strHost = "Hostitel";
@@ -204,7 +204,7 @@ $strRevokeMessage = "Byla zru¹ena práva pro";
 $strRevokePriv = "Zru¹it práva";
 $strRowLength = "Délka øádku"; 
 $strRows = "Øádkù"; 
-$strRowsFrom = "øádky zaèínající od";
+$strRowsFrom = "øádkù zaèínající od";
 $strRowsStatistic = "Statistika øádkù"; 
 $strRunning = "bì¾ící na ";
 $strRunQuery = ""; //to translate, but its not in use ...
@@ -270,10 +270,10 @@ $strWrongUser = "©patné u¾ivatelské jméno/heslo. Pøístup odepøen.";
 $strYes = "Ano";
 
 // export Zip (July 07, 2001, 19:48am)
-$strBzip = "\"bzipped\"";
-$strGzip = "\"gzipped\"";  //to translate
-$strOffSet = "Offset";
-$strNbRecords = "No. Of records";
-$strRowSize=" Row size ";  //to translate
-$strShowThisQuery=" Show this query here again ";  //to translate
+$strBzip = "\"zabzipováno\"";
+$strGzip = "\"zagzipováno\"";  
+$strOffSet = "Zaèátek";
+$strNbRecords = "øádkù";
+$strRowSize=" Velikost øádku "; 
+$strShowThisQuery=" Zobrazit zde tento dotaz znovu ";
 ?>
