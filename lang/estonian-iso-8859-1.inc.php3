@@ -81,7 +81,8 @@ $strColumn = 'Väli';
 $strColumnNames = 'Väljade nimed';
 $strComments = 'Kommentaarid';
 $strCompleteInserts = 'Täispikk INSERT';
-$strConfigFileError = 'phpMyAdmin ei suutnud lugeda Teie konfiguratsioonifaili!<br />See võib juhtuda kui php leiab parsemisvea selles või php ei leia antud faili üles.<br />Palun kutsuga konfiguratsioonifail välja otseselt kasutades linki allpool ja lugege php veateadet(eid) mis teile öeldakse. Enamustel juhtudel on kuskilt puudu ülakoma või semikoolon.<br />Kui Teile kuvatakse tühi leht on kõik korras.';
+$strCompression = 'Pakkimine';
+$strConfigFileError = 'phpMyAdmin ei suutnud lugeda Teie konfiguratsioonifaili!<br />See võib juhtuda kui PHP leiab vea selles või PHP ei leia antud faili üles.<br />Palun kutsuga konfiguratsioonifail välja otseselt kasutades linki allpool ja lugege PHP veateadet(eid) mis teile öeldakse. Enamustel juhtudel on kuskilt puudu ülakoma või semikoolon.<br />Kui Teile kuvatakse tühi leht on kõik korras.';
 $strConfigureTableCoord = 'Palun seadke koordinaadid tabelile %s';
 $strConfirm = 'Kas Te tõesti tahate seda teha?';
 $strCookiesRequired = 'Küpsised(cookies) peavad alates sellest momendist lubatud olema.';
@@ -103,6 +104,7 @@ $strDatabaseHasBeenDropped = 'Andmebaas %s kustutatud.';
 $strDatabaseWildcard = 'Andmebaas (lühendid lubatud):';
 $strDatabases = 'andmebaasid';
 $strDatabasesStats = 'Andmebaaside statistika';
+$strDataDict = 'Andmesõnastik';
 $strDefault = 'Vaikimisi';
 $strDelete = 'Kustuta';
 $strDeleteFailed = 'Kustutamine ebaõnnestus!';
@@ -251,6 +253,7 @@ $strNotValidNumber = ' pole korrektne reanumber!';
 $strNull = 'Null';
 $strNumSearchResultsInTable = '%s vaste(t) tabelis <i>%s</i>';
 $strNumSearchResultsTotal = '<b>Kokku:</b> <i>%s</i> vaste(t)';
+$strNumTables = 'Tabelid';
 
 $strOK = 'Korras';
 $strOftenQuotation = 'Kasuta jutumärke koguaeg. VALIKULISELT tähendab, et ainult char ja varchar tüüpi väljad ümbritsetakse määratud märkidega.';
@@ -262,7 +265,6 @@ $strOptions = 'Valikud';
 $strOr = 'või';
 $strOverhead = 'Ülejääv';
 
-$strPHPVersion = 'PHP versioon';
 $strPageNumber = 'Lehenumber:';
 $strPartialText = 'Lühendatud tekstid';
 $strPassword = 'Parool';
@@ -273,6 +275,8 @@ $strPdfInvalidPageNum = 'Defineerimata PDF lehe number!';
 $strPdfInvalidTblName = '"%s" tabel ei eksisteeri!';
 $strPdfNoTables = 'Pole tabeleid';
 $strPhp = 'Loo PHP kood';
+$strPHP40203 = 'Te kasutate PHP 4.2.3, milles on tõsine viga mitmebaidiste tekstidega (mbstring). Vaadake PHP vearaportit 19404. Seda PHP versiooni ei soovitata kasutada phpMyAdminiga.';
+$strPHPVersion = 'PHP versioon';
 $strPmaDocumentation = 'phpMyAdmini dokumentatsioon';
 $strPmaUriError = '<tt>$cfg[\'PmaAbsoluteUri\']</tt> konstant peab teie konfiguratsioonifailis määratud olema!';
 $strPos1 = 'Algus';
@@ -282,6 +286,7 @@ $strPrimaryKey = 'Primaarne võti';
 $strPrimaryKeyHasBeenDropped = 'Primaarne võti kustutatud';
 $strPrimaryKeyName = 'Primaarse võtme nimi peab olema... PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>peab</b> olema ja <b>ainult</b> olema primaarse võtme nimi!)';
+$strPrint = 'Prindi';
 $strPrintView = 'Trükivaade';
 $strPrivileges = 'Privileegid';
 $strProperties = 'Seaded';
@@ -396,6 +401,7 @@ $strTheContent = 'Teie faili sisu on lisatud.';
 $strTheContents = 'Faili sisu asendab valitud tabeli sisu ridades kus on identsed primaarsed või unikaalsed võtmed.';
 $strTheTerminator = 'Väljade eraldaja.';
 $strTotal = 'kokku';
+$strTotalUC = 'Kokku';
 $strType = 'Tüüp';
 
 $strUncheckAll = 'Puhasta kõik';
@@ -428,13 +434,4 @@ $strWrongUser = 'Vale kasutajanimi/parool. Ligipääd keelatud.';
 $strYes = 'Jah';
 
 $strZip = '"zipitud"';
-
-// To translate
-
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
-$strCompression = 'Compression'; //to translate
-$strNumTables = 'Tables'; //to translate
-$strTotalUC = 'Total'; //to translate
 ?>

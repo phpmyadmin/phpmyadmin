@@ -12,6 +12,7 @@ $Source$
       lang/serbian-windows-1250.inc.php3, lang/slovak-windows-1250.inc.php3,
       lang/slovenian.inc.php3, lang/swedish-iso-8859-1.inc.php3,
       lang/turkish.inc.php3: Added missing strings.
+    * lang/estonian-*.inc.php3: Updates, thanks to Alvar Soome (finsoft).
 
 2002-12-02 Marc Delisle  <lem9@users.sourceforge.net>
     * db_search.php3: automatic wildcard
