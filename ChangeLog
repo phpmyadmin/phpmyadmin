@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-10-11 Michal Čihař  <michal@cihar.com>
+    * tbl_query_box.php: Don't try to replace %t and %f when table name is empty.
+
 2004-10-08 Garvin Hicking <pma@supergarv.de>
     * lots of files: Adjusted superfluous spaces, added
       more CSS-ID attributes for better themeability.
@@ -17,7 +20,7 @@ $Source$
     * export.php: bug #1038804, insufficient space to save
 
 2004-09-30 Marc Delisle  <lem9@users.sourceforge.net>
-    * tbl_addfield.php: bug #1037744 (CVS version only): cannot add a field 
+    * tbl_addfield.php: bug #1037744 (CVS version only): cannot add a field
     * tbl_create.php: cannot create a new table (CVS version only)
 
 2004-09-29 Marc Delisle  <lem9@users.sourceforge.net>
@@ -61,7 +64,7 @@ $Source$
       not displayed anymore
     * read_dump.php: bug #1033133, left frame not reloaded after dump read
     * db_datadict.php: bug #1034299, error in SHOW KEYS for data dict
-    * read_dump.php: bug #1034216 open_basedir and file upload, 
+    * read_dump.php: bug #1034216 open_basedir and file upload,
       thanks to Dominique Rousseau - domi
 
 2004-09-24 Michal Čihař  <michal@cihar.com>

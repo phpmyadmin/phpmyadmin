@@ -157,10 +157,10 @@ if (!isset($is_inside_querywindow) ||
                     <textarea name="sql_query" rows="<?php echo $cfg['TextareaRows']; ?>" cols="<?php echo ((isset($is_inside_querywindow) && $is_inside_querywindow == TRUE && $queryframe_tdcolspan != '') ? ceil($cfg['TextareaCols'] * 1.25) : $cfg['TextareaCols'] * 2); ?>" dir="<?php echo $text_dir; ?>"<?php echo $auto_sel; ?>><?php
     if (!empty($query_to_display)) {
         echo htmlspecialchars($query_to_display);
-    } elseif (isset($table)) {
+    } elseif (isset($table) && !empty($table)) {
         echo htmlspecialchars(
-            str_replace('%d', PMA_backquote($db), 
-                str_replace('%t', PMA_backquote($table), 
+            str_replace('%d', PMA_backquote($db),
+                str_replace('%t', PMA_backquote($table),
                     str_replace('%f', implode(', ', PMA_backquote($fields_list)),
                         $cfg['DefaultQueryTable']))));
     } else {
