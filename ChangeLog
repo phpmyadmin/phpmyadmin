@@ -35,6 +35,7 @@ $Source$
       libraries/transformations/image_png__inline.inc.php3:
       new transformation for png (inline)
       (still issues with PNG's transparency in PHP 4.3.0)
+    * libraries/common.lib.php3: bug 692652, support for disabled ini_get()
 
 2003-03-09 Garvin Hicking <me@supergarv.de>
     * db_printview.php3: Added print button (#700205)

@@ -167,10 +167,30 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         /**
          * Define $is_upload
          */
-          $is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
-               ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
+          //$is_upload = (PMA_PHP_INT_VERSION >= 40000 && function_exists('ini_get'))
+          //     ? ((strtolower(ini_get('file_uploads')) == 'on' || ini_get('file_uploads') == 1) && intval(ini_get('upload_max_filesize')))
                // loic1: php 3.0.15 and lower bug -> always enabled
-               : (PMA_PHP_INT_VERSION < 30016 || intval(@get_cfg_var('upload_max_filesize')));
+          //     : (PMA_PHP_INT_VERSION < 30016 || intval(@get_cfg_var('upload_max_filesize')));
+    
+          // Note: PHP <40300 returns TRUE for function_exists, even 
+          // if the function is disabled; 
+          // PHP < 30016 had problems with get_cfg_var;
+          //  so if we cannot detect that uploads
+          //  are disabled, we assume they are enabled
+
+          $is_upload = TRUE;
+          if (PMA_PHP_INT_VERSION >= 40000
+              && function_exists('ini_get')
+              && (strtolower(@ini_get('file_uploads')) == 'off'
+                 || @ini_get('file_uploads') == 0)) {
+              $is_upload = FALSE;
+          }
+          if (PMA_PHP_INT_VERSION >= 30016 
+              && PMA_PHP_INT_VERSION < 40000
+              && !intval(@get_cfg_var('upload_max_filesize'))) {
+              $is_upload = FALSE;
+          }
+
     
         /**
          * Charset conversion.
