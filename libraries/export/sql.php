@@ -567,7 +567,9 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
             if (!PMA_exportOutputHandler(($current_row == 1 ? '' : $separator . $crlf) . $insert_line)) return FALSE;
 
         } // end while
-        if (!PMA_exportOutputHandler(';' . $crlf)) return FALSE;
+        if ($current_row > 0) {
+            if (!PMA_exportOutputHandler(';' . $crlf)) return FALSE;
+        }
     } // end if ($result != FALSE)
     PMA_DBI_free_result($result);
 

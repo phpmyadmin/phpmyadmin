@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-04-22 Michal Cihar  <michal@cihar.com>
+    * libraries/export/sql.php: Invalid SQL on empty table export (bug
+      #939918).
+
 2004-04-21 Marc Delisle  <lem9@users.sourceforge.net>
     ### 2.6.0-alpha1 released
     * (after the release) user_password.php: undefined offset in blowfish.php
