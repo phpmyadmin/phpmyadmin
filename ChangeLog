@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-01-18  Marc Delisle  <lem9@users.sourceforge.net>
+        * Documentation.html, new download location for the RedHat PHP package
+
 2002-01-18  Olivier Müller  <om@omnis.ch>
 	* left.php3 db_details.php3, index.php3, main.php3, libraries/common.lib.php3:
 	  removed the leftlight.php3 file, and put all the code in left.php3: it
