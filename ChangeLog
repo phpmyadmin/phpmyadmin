@@ -16,6 +16,10 @@ $Source$
     * lang/finnish: update, thanks to Visa Kopu (visa)
     * lang/indonesion: update, thanks to Rachim Tamsjadi (tamsy)
     * lang/italian: update, thanks to Pietro Danesi (danone)
+    * lang/sort_lang.sh:
+        - New script to neaten all language files
+    * lang/check_lang.sh:
+        - New script to check language files for consistancy
 
 2002-08-08 Robin Johnson  <robbat2@users.sourceforge.net>
     * Documentation.html:
