@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2005-03-06 Alexander M. Turek  <me@derrabus.de>
+    * libraries/relation.lib.php: Bug #1159415.
+
 2005-03-10 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/database_interface.lib.php, libraries/relation.lib.php:
       problem with getting comments when creating a new table under MySQL 4.1.x

@@ -469,7 +469,7 @@ function PMA_getComments($db, $table = '') {
     }
 
 
-    if (PMA_DBI_num_rows($com_rs) > 0) {
+    if (isset($com_rs) && PMA_DBI_num_rows($com_rs) > 0) {
         $i = 0;
         while ($row = PMA_DBI_fetch_assoc($com_rs)) {
             $i++;
