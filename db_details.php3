@@ -97,7 +97,9 @@ if ($is_upload) {
     $is_bzip = ($cfg['BZipDump'] && @function_exists('bzdecompress'));
     if ($is_bzip || $is_gzip) {
         echo '        ' . $strCompression . ':' . "\n"
-           . '            <input type="radio" id="radio_sql_file_compression_plain" name="sql_file_compression" value="text/plain" checked="checked" />' . "\n"
+           . '            <input type="radio" id="radio_sql_file_compression_auto" name="sql_file_compression" value="" checked="checked" />' . "\n"
+           . '            <label for="radio_sql_file_compression_auto">' . $strAutodetect . '</label>&nbsp;&nbsp;&nbsp;' . "\n"
+           . '            <input type="radio" id="radio_sql_file_compression_plain" name="sql_file_compression" value="text/plain" />' . "\n"
            . '            <label for="radio_sql_file_compression_plain">' . $strNone . '</label>&nbsp;&nbsp;&nbsp;' . "\n";
         if ($is_gzip) {
             echo '            <input type="radio" id="radio_sql_file_compression_gzip" name="sql_file_compression" value="application/x-gzip" />' . "\n"

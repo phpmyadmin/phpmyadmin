@@ -643,4 +643,5 @@ $strWritingCommentNotPossible = 'Writing of comment not possible';  //to transla
 $strWritingRelationNotPossible = 'Writing of relation not possible';  //to translate
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
+$strAutodetect = 'Autodetect';  //to translate
 ?>

@@ -105,11 +105,12 @@ if (empty($asfile)) {
 else {
     //
     // Defines filename and extension, and also mime types
+    $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
     if (!isset($table)) {
-        if (isset($remember_template)) setcookie('pma_db_filename_template', $filename_template , 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+        if (isset($remember_template)) setcookie('pma_db_filename_template', $filename_template , 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
         $filename = ereg_replace('__DB__', $db, strftime($filename_template));
     } else {
-        if (isset($remember_template)) setcookie('pma_table_filename_template', $filename_template , 0, $GLOBALS['cookie_path'], '' , $GLOBALS['is_https']);
+        if (isset($remember_template)) setcookie('pma_table_filename_template', $filename_template , 0, substr($pma_uri_parts['path'], 0, strrpos($pma_uri_parts['path'], '/')), '', ($pma_uri_parts['scheme'] == 'https'));
         $filename = ereg_replace('__TABLE__', $table, ereg_replace('__DB__', $db, strftime($filename_template)));
     }
     if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {

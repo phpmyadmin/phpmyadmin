@@ -12,6 +12,11 @@ $Source$
     * lang/indonesian: Updated, thanks again to Rachim Tamsjadi.
     * libraries/mysql_wrappers.lib.php3: Fix for bug #705531 - check for field
       type when doing charset conversion.
+    * libraries/display_export.lib.php3: Fixed selecting table/db filename
+      template.
+    * libraries/read_dump.lib.php3, db_details.php3,
+      db_details_importdocsql.php3, tbl_dump.php3, tbl_query_box.php3, lang/*:
+      Automatic detection of compression for uploaded data.
 
 2003-03-19 Garvin Hicking <me@supergarv.de>
     * tbl_change.php3, tbl_query_box.php3, tbl_replace_fields.php3:

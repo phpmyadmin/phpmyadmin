@@ -620,4 +620,5 @@ $strZeroRemovesTheLimit = 'Perhatian: Merubah pilihan ini ke posisi 0 (zero) aka
 $strZip = '"Dikompress dengan Zip"';
 // To translate
 
+$strAutodetect = 'Autodetect';  //to translate
 ?>

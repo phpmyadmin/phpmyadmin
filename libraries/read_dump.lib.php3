@@ -145,17 +145,27 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
      * Reads (and decompresses) a (compressed) file into a string
      *
      * @param   string   the path to the file
-     * @param   string   the MIME type of the file
+     * @param   string   the MIME type of the file, if empty MIME type is autodetected
      *
      * @global  array    the phpMyAdmin configuration
      *
      * @return  string   the content of the file or
      *          boolean  FALSE in case of an error.
      */
-    function PMA_readFile($path, $mime = 'text/plain') {
+    function PMA_readFile($path, $mime = '') {
         global $cfg;
     
+        if (!file_exists($path)) {
+            return FALSE;
+        }
         switch ($mime) {
+            case '':
+                $file = fopen($path, 'rb');
+                $test = fread($file, 3);
+                fclose($file);
+                if ($test[0] == chr(31) && $test[1] == chr(139)) return PMA_readFile($path, 'application/x-gzip');
+                if ($test == 'BZh') return PMA_readFile($path, 'application/x-bzip');
+                return PMA_readFile($path, 'text/plain');
             case 'text/plain':
                 $file = fopen($path, 'rb');
                 $content = fread($file, filesize($path));
@@ -185,9 +195,6 @@ if (!defined('PMA_READ_DUMP_INCLUDED')) {
                break;
             default:
                return FALSE;
-        }
-        if (!file_exists($path)) {
-            return FALSE;
         }
         return $content;
     }

@@ -629,4 +629,5 @@ $strTransformation_text_plain__unformatted = 'Displays HTML code as HTML entitie
 
 $strXML = 'XML';//to translate
 
+$strAutodetect = 'Autodetect';  //to translate
 ?>
