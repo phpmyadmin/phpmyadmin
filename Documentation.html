@@ -1925,7 +1925,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 <p>
     <b>How can I use the relation table in Query-by-example?</b>
     <br />
-    Here is an example with the tables persons, towns and countries. If you
+    Here is an example with the tables persons, towns and countries, all 
+    located in the database mydb. If you
     don't have a PMA_relation table, create it as explained in the
     configuration section. Then create the example tables:
     <br /><br />
@@ -1958,8 +1959,8 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('S', 'Sherbrooke');<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO towns VALUES ('M', 'Montréal');<br />
     <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'town_code', 'towns', 'town_code', 1);<br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('persons', 'country_code', 'countries', 'country_code', 1);<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb','persons', 'town_code', 'mydb', 'towns', 'town_code');<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO `PMA_relation` VALUES ('mydb, 'persons', 'country_code', 'mydb', 'countries', 'country_code');<br />
     </tt>
     <br />
     Then test like this:

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-06-26 Marc Delisle  <lem9@users.sourceforge.net>
+    * Documentation.html: update the persons/towns/countries example
+
 2002-06-26 Olivier L. Müller  <om@omnis.ch>
     * tbl_change.php3: display the submit button every 15 lines:
       may be useful for tables with 200 fields... 
