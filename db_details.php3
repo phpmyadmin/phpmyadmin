@@ -129,10 +129,11 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
     </td>
         <?php
         echo "\n";
+  $mergetable=false;
 	if (isset($sts_data['Type']) && $sts_data['Type']=="MRG_MyISAM") $mergetable=true;
         if (isset($sts_data['Rows'])) 
 	{
-	  if (!isset($mergetable)){ 
+	  if ($mergetable == false){ 
             $tblsize                        =  $sts_data['Data_length'] + $sts_data['Index_length'];
             $sum_size                       += $tblsize;
             $sum_entries                    += $sts_data['Rows'];
@@ -142,7 +143,7 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
                 list($formated_size, $unit) =  format_byte_down($tblsize, 3, 0);
             }
           }
-          else if (isset($mergetable))  // MyISAM MERGE Table
+          else if ($mergetable == true)  // MyISAM MERGE Table
           {
             $formated_size="&nbsp;-&nbsp;";
             $unit="";
@@ -155,10 +156,10 @@ else if (MYSQL_MAJOR_VERSION >= 3.23 && isset($tbl_cache)) {
             ?>
     <td align="right">
          <?php 
-          if (isset($mergetable)) echo "<i>";
+          if ($mergetable == true) echo "<i>";
           echo number_format($sts_data['Rows'], 0, $number_decimal_separator,
 		 $number_thousands_separator) . "\n";
-          if (isset($mergetable)) echo "</i>";
+          if ($mergetable == true) echo "</i>";
         ?>
     </td>
     <td align="right" nowrap="nowrap">

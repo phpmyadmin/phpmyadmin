@@ -268,11 +268,12 @@ if ($index_count > 0) {
 // BEGIN - Calc Table Space - staybyte - 9 June 2001
 if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type != "INNODB" && isset($showtable)) {
     // Gets some sizes
-    if (isset($showtable['Type']) && $showtable['Type']=="MRG_MyISAM")
-	$mergetable=true;
+    $mergetable=false;
+    if (isset($showtable['Type']) && $showtable['Type']=="MRG_MyISAM") $mergetable=true;
     list($data_size, $data_unit)     = format_byte_down($showtable['Data_length']);
-   if (!isset($mergetable))
-	 list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
+
+    if ($mergetable==false) list($index_size, $index_unit)   = format_byte_down($showtable['Index_length']);
+
     if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
         list($free_size, $free_unit) = format_byte_down($showtable['Data_free']);
     }
@@ -328,6 +329,7 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type 
         <?php
     }
     echo "\n";
+    if (isset($tot_size) && $mergetable == false) {
     ?>
         <tr bgcolor="<?php echo $cfgBgcolorOne; ?>">
         <td style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
@@ -335,6 +337,8 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type 
             <td><?php echo $tot_unit; ?></td>
         </tr>
     <?php
+    }
+
     // Optimize link if overhead
     if (isset($free_size) && ($tbl_type == 'MYISAM' || $tbl_type == 'BDB')) {
         echo "\n";
@@ -412,8 +416,7 @@ if (MYSQL_MAJOR_VERSION >= 3.23 && intval(MYSQL_MINOR_VERSION) > 3 && $tbl_type 
         </tr>
         <?php
     }
-    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0
-	&& !isset($mergetable)) {
+    if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable==false) {
         echo (++$i%2)
              ? '    <tr bgcolor="' . $cfgBgcolorTwo . '">'
              : '    <tr bgcolor="' . $cfgBgcolorOne . '">';
