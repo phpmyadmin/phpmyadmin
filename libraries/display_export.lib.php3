@@ -1,11 +1,16 @@
 <?php
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
+
+/*
+ * Whether we export single table or more
+ */
+$export_single = (!isset($multi_tables) || $multi_tables == '') && (isset($table));
 ?>
 
 <form method="post" action="tbl_dump.php3" name="<?php echo $tbl_dump_form_name; ?>">
     <?php 
-if (isset($table) && !empty($table) && !isset($num_tables)) {
+if ($export_single) {
     echo '    ' . PMA_generate_common_hidden_inputs($db, $table);
 } else {
     echo '    ' . PMA_generate_common_hidden_inputs($db);
@@ -34,7 +39,9 @@ if (isset($sql_query)) {
     /* Write h to e   */    function wH(e,h){if(l){Y=e.document;Y.write(h);Y.close();}if(e.innerHTML)e.innerHTML=h;}
     
     function hide_them_all() {
+<?php if ($export_single) { ?>
         gE("csv_options").style.display = 'none';
+<?php } ?>
         gE("sql_options").style.display = 'none';
         gE("none_options").style.display = 'none';
     }
@@ -76,6 +83,10 @@ if (isset($sql_query)) {
             <input type="hidden" name="environment" value="longtable" />
             <br /><br />
 
+<?php                    
+/* CSV export just for single table */
+if ($export_single) {
+?>
             <!-- Excel CSV -->
             <input type="radio" name="what" value="excel" id="radio_dump_excel"  onclick="if(this.checked) { hide_them_all(); gE('none_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_excel"><?php echo $strStrucExcelCSV; ?></label>
@@ -84,6 +95,9 @@ if (isset($sql_query)) {
             <input type="radio" name="what" value="csv" id="radio_dump_csv"  onclick="if(this.checked) { hide_them_all(); gE('csv_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_csv"><?php echo $strStrucCSV;?></label>
             <br /><br />
+<?php
+}
+?>
             <!-- XML -->
             <input type="radio" name="what" value="xml" id="radio_dump_xml" onclick="if(this.checked) { hide_them_all(); gE('none_options').style.display = 'block'; }; return true" />
             <label for="radio_dump_xml"><?php echo $strXML; ?></label>&nbsp;&nbsp;
@@ -138,6 +152,10 @@ echo "\n";
                     <label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label><br />
                 </fieldset>
             </fieldset>
+<?php                    
+/* CSV export just for single table */
+if ($export_single) {
+?>
             <fieldset id="csv_options">
                 <legend><?php echo $strCSVOptions; ?></legend>
                 <table border="0" cellspacing="1" cellpadding="0">
@@ -177,18 +195,25 @@ echo "\n";
                 <input type="checkbox" name="showcsvnames" value="yes" id="checkbox_dump_showcsvnames" />
                 <label for="checkbox_dump_showcsvnames"><?php echo $strPutColNames; ?></label>
             </fieldset>
+<?php
+}
+?>
             <fieldset id="none_options">
                 <legend><?php echo $strNoOptions; ?></legend>
             </fieldset>
             <script type="text/javascript">
             <!--
+<?php if ($export_single) { ?>
                 gE('csv_options').style.display = 'none';
+<?php } ?>
                 gE('sql_options').style.display = 'none';
                 gE('none_options').style.display = 'none';
                 if (document.getElementById('radio_dump_sql').checked) {
                     gE('sql_options').style.display = 'block';
+<?php if ($export_single) { ?>
                 } else if (document.getElementById('radio_dump_csv').checked) {
                     gE('csv_options').style.display = 'block';
+<?php } ?>
                 } else {
                     gE('none_options').style.display = 'block';
                 }
@@ -224,7 +249,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                 <input type="text" name="filename_template"
                 <?php 
                     echo ' value="';
-                    if ((isset($multi_tables) && $multi_tables != '') || (!isset($table))) {
+                    if (!$export_single) {
                         if (isset($_COOKIE) && !empty($_COOKIE['pma_db_filename_template'])) {
                             echo $_COOKIE['pma_db_filename_template'];
                         } elseif (isset($HTTP_COOKIE_VARS) && !empty($HTTP_COOKIE_VARS['pma_db_filename_template'])) {
