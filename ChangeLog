@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-15 Marc Delisle  <lem9@users.sourceforge.net>
+    * libraries/get_foreign.lib.php3, tbl_change.php3: bug 646263,
+      bad drop-down in select sub-page
+
 2002-12-14 Alexander M. Turek  <rabus@users.sourceforge.net>
     * libraries/common.lib.php3: Removed a comment.
 

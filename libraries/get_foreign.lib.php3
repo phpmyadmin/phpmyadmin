@@ -41,6 +41,9 @@
                              . ' ORDER BY ' . PMA_backquote($foreign_table) . '.' . PMA_backquote($foreign_display);
             $disp            = PMA_mysql_query($dispsql);
         }
+        else {
+            unset($disp);
+        }
     } // end if $foreigners
 
 //} // $__PMA_GET_FOREIGN_LIB_INCLUDED__
