@@ -2,6 +2,9 @@
 #
 # $Id$
 #
+# 2004-08-09, lem9@users.sourceforge.net:
+# - remember to create a new bug tracking group
+#
 # 2004-06-07  rabus@users.sourceforge.net
 # - create backup config file
 #
@@ -239,7 +242,11 @@ Todo now:
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
               " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
         - in translators.html
- 9. the end :-)
+
+ 9. add a group for bug tracking this new version, at
+    https://sourceforge.net/tracker/admin/index.php?group_id=23067&atid=377408&add_group=1
+
+10. the end :-)
 
 END
 
