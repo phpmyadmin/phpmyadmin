@@ -7,6 +7,8 @@ $Source$
 
 2002-05-29 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/german.inc.php3: Translated $strPdfDbSchema.
+    * lang/italian.inc.php3: Updates, thanks again to
+      Pietro Danesi <danone@users.sourceforge.net>.
 
 2002-05-28 Loïc Chapeaux  <lolo@phpheaven.net>
     * pdf_schema.php3; lang/*.inc.php3: beautified the generated page.
