@@ -79,7 +79,7 @@ if ($num_dbs > 1) {
                    ? 1 : 0;
     var isIE4      = (typeof(document.all) != 'undefined'
                       && parseInt(navigator.appVersion) >= 4
-                      && !typeof(window.opera))
+                      && typeof(window.opera) == 'undefined')
                    ? 1 : 0;
     var isNS4      = (typeof(document.layers) != 'undefined')
                    ? 1 : 0;
