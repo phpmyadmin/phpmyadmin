@@ -6,7 +6,7 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
     define('PMA_MYSQL_CHARSETS_LIB_INCLUDED', 1);
 
     $res = PMA_mysql_query('SHOW VARIABLES LIKE "character_sets";', $userlink)
-        or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW VARIABLES LIKE "character sets";');
+        or PMA_mysqlDie(PMA_mysql_error($userlink), 'SHOW VARIABLES LIKE "character_sets";');
     $row = PMA_mysql_fetch_row($res);
     @mysql_free_result($res);
     unset($res);
@@ -30,7 +30,7 @@ if (!defined('PMA_MYSQL_CHARSETS_LIB_INCLUDED')){
     unset($charsets_tmp);
     unset($i);
     unset($current);
-    
+
     if (PMA_PHP_INT_VERSION >= 40000) {
         sort($mysql_charsets, SORT_STRING);
     } else {
