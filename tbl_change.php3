@@ -15,7 +15,7 @@ require('./libraries/relation.lib.php3'); // foreign keys
 /**
  * Displays the query submitted and its result
  */
-if (!empty($message)) {
+if (!empty($disp_message)) {
     if (isset($goto)) {
         $goto_cpy      = $goto;
         $goto          = 'tbl_properties.php3?'
@@ -32,7 +32,7 @@ if (!empty($message)) {
     if (isset($disp_query)) {
         $sql_query     = $disp_query;
     }
-    PMA_showMessage($message);
+    PMA_showMessage($disp_message);
     if (isset($goto_cpy)) {
         $goto          = $goto_cpy;
         unset($goto_cpy);
@@ -705,7 +705,7 @@ echo "\n";
 
 // Defines whether "insert a new row after the current insert" should be
 // checked or not (keep this choice sticky)
-$checked = (!empty($message)) ? ' checked="checked"' : '';
+$checked = !empty($disp_message) ? ' checked="checked"' : '';
 ?>
         </td>
         <td valign="middle">
