@@ -7,7 +7,8 @@ $Source$
 
 2002-08-08 Loïc Chapeaux  <lolo@phpheaven.net>
     * left.php3: xhtml fixes (id name must start with a letter).
-    * scripts/decode_bug.php3: xhtml fixes.
+    * pdf_pages.php3, tbl_printview.php3, tbl_realtion.php3,
+      scripts/decode_bug.php3: xhtml fixes.
 
 2002-08-08 Alexander M. Turek  <rabus@users.sourceforge.net>
     * lang/spanish-*.inc.php3:

@@ -167,7 +167,7 @@ while (list($key, $table) = each($the_tables)) {
         }
     }
     else {
-   	    $have_rel = FALSE;
+           $have_rel = FALSE;
     }
      // end if
 
@@ -194,13 +194,13 @@ while (list($key, $table) = each($the_tables)) {
     <th><?php echo ucfirst($strDefault); ?></th>
     <th><?php echo ucfirst($strExtra); ?></th>
     <?php
+    echo "\n";
     if ($have_rel) {
-        echo '<th>' . ucfirst($strLinksTo) . '</th>';
+        echo '    <th>' . ucfirst($strLinksTo) . '</th>' . "\n";
     }
     if ($cfgRelation['commwork']) {
-        echo '<th>' . ucfirst($strComments) . '</th>';
+        echo '    <th>' . ucfirst($strComments) . '</th>' . "\n";
     }
-    echo "\n";
     ?>
 </tr>
 
@@ -266,20 +266,20 @@ while (list($key, $table) = each($the_tables)) {
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php if (isset($row['Default'])) echo $row['Default']; ?>&nbsp;</td>
     <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap"><?php echo $row['Extra']; ?>&nbsp;</td>
     <?php
+    echo "\n";
     if ($have_rel) {
-        echo '<td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
+        echo '    <td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
         if (isset($res_rel[$field_name])) {
             echo htmlspecialchars($res_rel[$field_name]['foreign_table'] . '->' . $res_rel[$field_name]['foreign_field'] );
         }
-        echo '&nbsp;</td>';
+        echo '&nbsp;</td>' . "\n";
     }
-    echo "\n";
-    if($cfgRelation['commwork']) {
-        echo '<td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
-        if(isset($comments[$field_name])) {
+    if ($cfgRelation['commwork']) {
+        echo '    <td bgcolor="' . $bgcolor . '" nowrap="nowrap">';
+        if (isset($comments[$field_name])) {
             echo htmlspecialchars($comments[$field_name]);
         }
-        echo '&nbsp;</td>';
+        echo '&nbsp;</td>' . "\n";
     }
     ?>
 </tr>
@@ -317,11 +317,11 @@ while (list($key, $table) = each($the_tables)) {
         echo "\n";
         while (list($index_no, $index_name) = each($indexes)) {
             $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
-            $index_td = '            <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
-            echo '        <tr>' . "\n";
+            $index_td = '        <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
+            echo '    <tr>' . "\n";
             echo $index_td
-                 . '                ' . htmlspecialchars($index_name) . "\n"
-                 . '            </td>' . "\n";
+                 . '            ' . htmlspecialchars($index_name) . "\n"
+                 . '        </td>' . "\n";
 
             if ($indexes_info[$index_name]['Comment'] == 'FULLTEXT') {
                 $index_type = 'FULLTEXT';
@@ -333,30 +333,30 @@ while (list($key, $table) = each($the_tables)) {
                 $index_type = 'INDEX';
             }
             echo $index_td
-                 . '                ' . $index_type . "\n"
-                 . '            </td>' . "\n";
+                 . '            ' . $index_type . "\n"
+                 . '        </td>' . "\n";
 
             echo $index_td
-                 . '                ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . "\n"
-                 . '            </td>' . "\n";
+                 . '            ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $strNone) . "\n"
+                 . '        </td>' . "\n";
 
             while (list($row_no, $seq_index) = each($indexes_info[$index_name]['Sequences'])) {
                 if ($row_no > 0) {
-                    echo '        <tr>' . "\n";
+                    echo '    <tr>' . "\n";
                 }
                 if (!empty($indexes_data[$index_name][$seq_index]['Sub_part'])) {
-                    echo '            <td bgcolor="' . $cell_bgd . '">' . "\n"
-                         . '                ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
-                         . '            </td>' . "\n";
-                    echo '            <td align="right" bgcolor="' . $cell_bgd . '">' . "\n"
-                         . '                ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"
-                         . '            </td>' . "\n";
-                    echo '        </tr>' . "\n";
+                    echo '        <td bgcolor="' . $cell_bgd . '">' . "\n"
+                         . '            ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
+                         . '        </td>' . "\n";
+                    echo '        <td align="right" bgcolor="' . $cell_bgd . '">' . "\n"
+                         . '            ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"
+                         . '        </td>' . "\n";
+                    echo '    </tr>' . "\n";
                 } else {
-                    echo '            <td bgcolor="' . $cell_bgd . '" colspan="2">' . "\n"
-                         . '                ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
-                         . '            </td>' . "\n";
-                    echo '        </tr>' . "\n";
+                    echo '        <td bgcolor="' . $cell_bgd . '" colspan="2">' . "\n"
+                         . '            ' . $indexes_data[$index_name][$seq_index]['Column_name'] . "\n"
+                         . '        </td>' . "\n";
+                    echo '    </tr>' . "\n";
                 }
             } // end while
         } // end while
@@ -425,11 +425,11 @@ while (list($key, $table) = each($the_tables)) {
             if (isset($index_size)) {
                 echo "\n";
                 ?>
-            <tr>
-                <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
-                <td align="right" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" nowrap="nowrap"><?php echo $index_size; ?></td>
-                <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $index_unit; ?></td>
-            </tr>
+        <tr>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
+            <td align="right" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" nowrap="nowrap"><?php echo $index_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $index_unit; ?></td>
+        </tr>
                 <?php
             }
             if (isset($free_size)) {
@@ -561,8 +561,8 @@ while (list($key, $table) = each($the_tables)) {
         unset($num_rows);
         unset($show_comment);
         echo '<hr />' . "\n";
-        echo '</div>' . "\n";
     } // end if
+    echo '</div>' . "\n";
 
 } // end while
 

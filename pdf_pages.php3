@@ -252,7 +252,7 @@ if ($cfgRelation['pdfwork']) {
         echo "\n" . '    </tr>';
         echo "\n" . '    </table>' . "\n";
 
-        echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '">';
+        echo "\n" . '    <input type="hidden" name="c_table_rows" value="' . ($i + 1) . '" />';
         echo "\n" . '    <input type="submit" value="' . $strGo . '" />';
         echo "\n" . '</form>' . "\n\n";
     } // end if

@@ -265,15 +265,15 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
 
         echo "\n";
         ?>
-<form method="post" action="tbl_relation.php3" onchange="this.form.submit();">
+<form method="post" action="tbl_relation.php3">
     <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
     <input type="hidden" name="server" value="<?php echo $server; ?>" />
     <input type="hidden" name="db" value="<?php echo $db; ?>" />
     <input type="hidden" name="table" value="<?php echo $table; ?>" />
     <input type="hidden" name="submit_show" value="true" />
 
-    <p><?php echo $strChangeDisplay; ?></P>
-    <select name="display_field">
+    <p><?php echo $strChangeDisplay; ?></p>
+    <select name="display_field" onchange="this.form.submit();">
         <?php
         echo "\n";
         mysql_data_seek($col_rs, 0);
@@ -286,7 +286,13 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
         } // end while
         ?>
     </select>
-    <input type="submit" value="<?php echo $strGo; ?>" />
+    <script type="text/javascript" language="javascript">
+    <!--
+    // Fake js to allow the use of the <noscript> tag //-->
+    </script>
+    <noscript>
+        <input type="submit" value="<?php echo $strGo; ?>" />
+    </noscript>
 </form>
         <?php
     } // end if (displayworks)
@@ -314,7 +320,7 @@ if ($col_rs && mysql_num_rows($col_rs) > 0) {
     <tr>
         <th><?php echo $field; ?></th>
         <td>
-            <input type="text" name="comment[<?php echo $field;?>]" value="<?php echo htmlspecialchars($comments[$field]); ?>">
+            <input type="text" name="comment[<?php echo $field;?>]" value="<?php echo htmlspecialchars($comments[$field]); ?>" />
         </td>
     </tr>
             <?php
