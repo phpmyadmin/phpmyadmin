@@ -1874,6 +1874,14 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
     <a class="navigation" href="http://bugzilla.mozilla.org/" target="_blank">Bugzilla</a>).<br />
 </p>
 
+<p>
+    <b>With Netscape 4.75 I get empty rows between each row of data in a
+    CSV exported file.</b>
+    <br />
+    This is a known Netscape 4.75 bug: it adds some line feeds when exporting
+    data in octet-stream mode. Since we can't detect the specific Netscape 
+    version, we cannot workaround this bug. 
+</p>
 
 <a name="faqusing"></a>
 <h3>[Using phpMyAdmin]</h3>
