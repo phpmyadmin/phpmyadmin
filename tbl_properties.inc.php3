@@ -209,7 +209,7 @@ if($action == "tbl_create.php3")
 {
 echo $strTableType.":"; ?>
 <select name="tbl_type">
-<option>Default</option>
+<option value="Default"><?php if (isset($strDefault)) echo $strDefault;?></option>
 <option value="BDB">BerkeleyDB</option>
 <?php // Not yet in MySQL <option value="GEMINI">Gemini</option> ?>
 <option value="HEAP">Heap</option>
