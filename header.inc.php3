@@ -59,12 +59,13 @@ body {
     font-family: <?php echo $right_font_family; ?>;
     font-size: <?php echo $font_size; ?>;
     color: #000000;
-    <?php
+<?php
 if ($cfg['RightBgImage'] == '') {
-    echo 'background-image: url(\'./images/vertical_line.gif\');' . "\n" . '    background-repeat: repeat-y;' . "\n";
+    echo '    background-image: url(\'./images/vertical_line.gif\');' . "\n"
+         . '    background-repeat: repeat-y;' . "\n";
 } else {
-    echo 'background-image: url(\'' . $cfg['RightBgImage'] . '\');' . "\n";
-}
+    echo '    background-image: url(\'' . $cfg['RightBgImage'] . '\');' . "\n";
+} // end if... else...
 ?>
     background-color: <?php echo $cfg['RightBgColor'] . "\n"; ?>
 }
