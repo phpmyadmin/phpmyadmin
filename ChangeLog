@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-12-16 Marc Delisle  <lem9@users.sourceforge.net>
+    * lang/russian: update, thanks to Nicolay Zakharov
+    * lang/galician: update, thanks to Xosé Calvo
+
 2002-12-15 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/get_foreign.lib.php3: bug 646263,
       bad drop-down in select sub-page
