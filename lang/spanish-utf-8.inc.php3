@@ -132,6 +132,7 @@ $strDatabases = 'Bases de datos';
 $strDatabasesStats = 'Estadísticas de la base';
 $strDbPrivileges = 'Privilegios específicos para la base de datos';
 $strDefault = 'Predeterminado';
+$strDefaultValueHelp = 'Para valores predeterminados, por favor ingrese solamente un valor, sin "backslash escaping" ni comillas, usando este formato: a';
 $strDelete = 'Borrar';
 $strDeleteAndFlush = 'Borre a los usuarios y vuelva a cargar los privilegios posteriormente.';
 $strDeleteAndFlushDescr = 'Este es el modo más limpio, pero volver a cargar los privilegios puede tomar un tiempo.';
@@ -553,14 +554,17 @@ $strYes = 'Sí';
 $strZeroRemovesTheLimit = 'Nota: cambiando los parámetros de estas opciones a 0 (cero) remueven el límite.';
 $strZip = '"comprimido con zip"';
 
-$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 $strCheckPrivs = 'Check Privileges';  //to translate
 $strCheckPrivsLong = 'Check privileges for database &quot;%s&quot;.';  //to translate
-$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
+
+$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
 $strDatabasesStatsDisable = 'Disable Statistics';  //to translate
 $strDatabasesStatsEnable = 'Enable Statistics';  //to translate
-$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
+$strDatabasesStatsHeavyTraffic = 'Note: Enabling the Database statistics here might cause heavy traffic between the webserver and the MySQL one.';  //to translate
 $strDropSelectedDatabases = 'Drop Selected Databases';  //to translate
+
+$strJumpToDB = 'Jump to database &quot;%s&quot;.';  //to translate
+
 $strNoDatabasesSelected = 'No databases selected.';  //to translate
-$strDatabasesDropped = '%s databases have been dropped successfully.';  //to translate
+
 ?>

@@ -133,11 +133,12 @@ $strDatabaseWildcard = 'Baza de date (permis caractere inlocuitoare):';
 $strDatabases = 'Baze de date';
 $strDatabasesDropped = '%s baza(ele) de data(e) au fost aruncate.';
 $strDatabasesStats = 'Statisticile bazelor de date';
-$strDatabasesStatsHeavyTraffic = 'Nota: Activarea statisticilor pentru baza de date, poate cauza cresterea traficului intre MySQL si serverul de web.';
 $strDatabasesStatsDisable = 'Dezactiveaza statisticile';
 $strDatabasesStatsEnable = 'Activeaza statisticile';
+$strDatabasesStatsHeavyTraffic = 'Nota: Activarea statisticilor pentru baza de date, poate cauza cresterea traficului intre MySQL si serverul de web.';
 $strDbPrivileges = 'Drepturi specifice de baza de date';
 $strDefault = 'Setare de baza';
+$strDefaultValueHelp = 'Pentru valorile implicite, va rugam introduceti o singura valoare, fara backslash, escape sau ghilimele, folosind formatul: a';
 $strDelete = 'Sterge';
 $strDeleteAndFlush = 'Sterge utilizatorii si reincarca drepturile pe urma.';
 $strDeleteAndFlushDescr = 'Este cea mai simpla metoda, dar reincarcarea drepturilor s-ar putea sa dureze.';
@@ -562,7 +563,5 @@ $strYes = 'Da';
 $strZeroRemovesTheLimit = 'Observatie: Prin setarea acestor optiuni la 0 (zero) se elimina restrictia.';
 $strZip = '"arhivat"';
 // To translate
-
-$strDefaultValueHelp = 'For default values, please enter just a single value, without backslash escaping or quotes, using this format: a';  //to translate
 
 ?>
