@@ -3624,7 +3624,7 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     enable that?
 </h4>
 <p>
-    You can either export as CSV suitable for MS Excel, what works out of the
+    You can either export as CSV suitable for MS Excel, which works out of the
     box or you can try native <b>experimental</b> MS Excel exporter. For
     enabling this you need to set $cfg['TempDir'] to place where web server
     user can write (for example <tt>'./tmp'</tt>)
@@ -3639,6 +3639,14 @@ To create a new, empty mimetype please see libraries/transformations/template_ge
     (no stable version available yet) and then we tell pear we want to satisfy
     dependencies.
 </p>
+<p>
+    If you are running in PHP safe mode, you will have to set
+    in <tt>php.ini</tt> the <tt>safe_mode_include_dir</tt> to the directory
+    where your PEAR modules are located, for example:
+</p>
+<pre>
+    safe_mode_include_dir = /usr/local/lib/php
+</pre>
 <p>
     To create the temporary directory on a UNIX-based system, you can do:
 </p>
