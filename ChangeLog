@@ -18,6 +18,7 @@ $Source$
 2002-08-21 Alexander M. Turek  <rabus@users.sourceforge.net>
     * Documentation.html: Updated FAQ 1.6.
     * lang/german-*.inc.php3: Updates.
+    * translators.html: Another note in order to avoid annoying mails.
 
 2002-08-21 Loïc Chapeaux  <lolo@phpheaven.net>
     * config.inc.php3, db_details.php3, db_details_export.php3,
