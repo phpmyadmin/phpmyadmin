@@ -7,6 +7,9 @@ $Source$
 
 2003-11-26 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/arabic: update, thanks to Ossama Khayat (okhayat)
+    * lang/hindi: update, thanks to Girish Nair (girish_nair)
+    * lang/slovak: Updated, thanks to Lubos Klokner (erkac).
+    * lang/spanish: Updated, thanks to Daniel Hinostroza (hinostroza).
     
 2003-11-25 Alexander M. Turek  <jaggedlittlepill@derrabus.de>
     * translators.html: Changed email of Hindi translator, again.
