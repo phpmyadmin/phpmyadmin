@@ -642,4 +642,5 @@ $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the l
 $strZip = '"zipped"';
 
 $strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
+$strPaperSize = 'Paper size';  //to translate
 ?>

@@ -650,4 +650,5 @@ $strExecuteBookmarked = 'Execute bookmarked query';  //to translate
 $strExcelOptions = 'Excel options';  //to translate
 $strReplaceNULLBy = 'Replace NULL by';  //to translate
 $strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
+$strPaperSize = 'Paper size';  //to translate
 ?>

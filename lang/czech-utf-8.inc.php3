@@ -650,4 +650,5 @@ $strZip = '"zazipováno"';
 // To translate
 
 $strQueryWindowLock = 'Do not overwrite this query from outside the window';  //to translate
+$strPaperSize = 'Paper size';  //to translate
 ?>

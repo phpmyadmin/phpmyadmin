@@ -647,4 +647,5 @@ $strReplaceNULLBy = 'Replace NULL by';  //to translate
 
 $strUpdComTab = 'Please see Documentation on how to update your Column_comments Table'; //to translate
 
+$strPaperSize = 'Paper size';  //to translate
 ?>

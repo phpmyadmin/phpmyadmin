@@ -291,6 +291,13 @@ $cfg['MySQLManualType'] = 'searchable';
 
 
 /**
+ * PDF options
+ */
+$cfg['PDFPageSizes']        = array('A3', 'A4', 'A5', 'letter', 'legal');
+$cfg['PDFDefaultPageSize']  = 'A4';
+
+
+/**
  * Language and charset conversion settings
  */
 // Default language to use, if not browser-defined or user-defined

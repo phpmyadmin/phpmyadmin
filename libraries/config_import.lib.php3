@@ -1070,6 +1070,12 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
     if (!isset($cfg['GD2Available'])) {
         $cfg['GD2Available'] = 'auto';
     }
+    if (!isset($cfg['PDFPageSizes'])) {
+        $cfg['PDFPageSizes']        = array('A3', 'A4', 'A5', 'letter', 'legal');
+    }
+    if (!isset($cfg['PDFDefaultPageSize'])) {
+        $cfg['PDFDefaultPageSize']  = 'A4';
+    }
     if (!isset($cfg['CtrlArrowsMoving'])) {
         $cfg['CtrlArrowsMoving'] = TRUE;
     }

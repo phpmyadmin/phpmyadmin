@@ -1097,7 +1097,7 @@ class PMA_RT
      *
      * @see     PMA_PDF
      */
-    function PMA_RT( $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0, $all_tab_same_wide = 0, $orientation = 'L')
+    function PMA_RT( $which_rel, $show_info = 0, $change_color = 0 , $show_grid = 0, $all_tab_same_wide = 0, $orientation = 'L', $paper = 'A4')
     {
         global $pdf, $db, $cfgRelation, $with_doc;
 
@@ -1106,7 +1106,7 @@ class PMA_RT
         $this->same_wide = $all_tab_same_wide;
 
         // Initializes a new document
-        $pdf          = new PMA_PDF('L');
+        $pdf          = new PMA_PDF('L', 'mm', $paper);
         $pdf->title   = sprintf($GLOBALS['strPdfDbSchema'], $GLOBALS['db'], $which_rel);
         $pdf->cMargin = 0;
         $pdf->Open();
@@ -1527,7 +1527,8 @@ $show_table_dimension = (isset($show_table_dimension) && $show_table_dimension =
 $all_tab_same_wide    = (isset($all_tab_same_wide) && $all_tab_same_wide == 'on') ? 1 : 0;
 $with_doc             = (isset($with_doc) && $with_doc == 'on') ? 1 : 0;
 $orientation          = (isset($orientation) && $orientation == 'P') ? 'P' : 'L';
+$paper                = isset($paper) ? $paper : 'A4';
 PMA_mysql_select_db($db);
 
-$rt = new PMA_RT($pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide, $orientation);
+$rt = new PMA_RT($pdf_page_number, $show_table_dimension, $show_color, $show_grid, $all_tab_same_wide, $orientation, $paper);
 ?>

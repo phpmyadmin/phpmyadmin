@@ -429,7 +429,19 @@ if ($cfgRelation['pdfwork']) {
     <select name="orientation">
         <option value="L"><?php echo $strLandscape;?></option>
         <option value="P"><?php echo $strPortrait;?></option>
-    </select>
+    </select><br />
+    <?php echo $strPaperSize; ?>
+    <select name="paper">
+<?php
+    while (list($key,$val) = each($cfg['PDFPageSizes'])) {
+        echo '<option value="' . $val . '"';
+        if ($val == $cfg['PDFDefaultPageSize']) {
+            echo ' selected="selected"';
+        }
+        echo ' >' . $val . '</option>' . "\n";
+    }
+?>
+    </select><br />
     &nbsp;&nbsp;<input type="submit" value="<?php echo $strGo; ?>" />
 </form>
         <?php
