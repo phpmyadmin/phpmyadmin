@@ -751,7 +751,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
             // http://cvs.apache.org/viewcvs.cgi/httpd-2.0/modules/aaa/mod_access.c?rev=1.37&content-type=text/vnd.viewcvs-markup
             // Look at: "static int check_dir_access(request_rec *r)"
             // Robbat2 - May 10, 2002
-            if (isset($cfg['Server']['AllowDeny']) && $cfg['Server']['AllowDeny']['order']) {
+            if (isset($cfg['Server']['AllowDeny']) && isset($cfg['Server']['AllowDeny']['order'])) {
                 include('./libraries/ip_allow_deny.lib.php3');
 
                 $allowDeny_forbidden         = FALSE; // default

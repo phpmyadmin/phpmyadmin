@@ -20,6 +20,8 @@ $Source$
        count - fixes #735441.
      * libraries/display_tbl.lib.php3: Fix not displaying content of TEXT
        fields (was treated like BLOB).
+     * libraries/common.lib.php3: $cfg['Server']['AllowDeny']['order'] might
+       be undefined.
 
 2003-05-09 Marc Delisle  <lem9@users.sourceforge.net>
      * libraries/display_tbl.lib.php3: bug 731367: hexifying all
