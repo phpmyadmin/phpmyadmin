@@ -16,6 +16,9 @@ function PMA_SecureShellArgs($s) {
             $is_escaped = ! $is_escaped;
             continue;
         }
+        if ($is_escaped && $s[$i - 1] != '\\') {
+            $is_escaped = FALSE;
+        }
         if (!$inside_double && !$is_escaped && $s[$i] == '\'') {
            $inside_single = ! $inside_single;
            continue;
