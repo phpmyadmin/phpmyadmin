@@ -70,12 +70,13 @@ if (!isset($param) || $param[0] == '') {
             echo "\n";
             $bgcolor   = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
             $fieldsize = (($fields_len[$i] > 40) ? 40 : $fields_len[$i]);
+            $maxlength = (($fields_len[$i] < 4)  ? 4  : $fields_len[$i]);
             ?>
             <tr bgcolor="<?php echo $bgcolor; ?>">
                 <td><?php echo htmlspecialchars($fields_list[$i]); ?></td>
                 <td><?php echo $fields_type[$i]; ?></td>
                 <td>
-                    <input type="text" name="fields[]" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $fields_len[$i]; ?>" />
+                    <input type="text" name="fields[]" size="<?php echo $fieldsize; ?>" maxlength="<?php echo $maxlength; ?>" />
                     <input type="hidden" name="names[]" value="<?php echo urlencode($fields_list[$i]); ?>" />
                     <input type="hidden" name="types[]" value="<?php echo $fields_type[$i]; ?>" />
                 </td>
@@ -139,7 +140,11 @@ else {
         $sql_query .= ' WHERE 1';
         for ($i = 0; $i < count($fields); $i++) {
             if (!empty($fields) && $fields[$i] != '') {
-                if ($types[$i] == 'string' || $types[$i] == 'blob') {
+                if (strtoupper($fields[$i]) == 'NULL') {
+                    $quot = '';
+                    $cmp  = 'IS';
+                }
+                else if ($types[$i] == 'string' || $types[$i] == 'blob') {
                     $quot = '\'';
                     $cmp  = 'LIKE';
                     if (get_magic_quotes_gpc()) {
