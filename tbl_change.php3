@@ -66,8 +66,9 @@ echo "\n";
 <?php
 // Set if we passed the first timestamp field
 $timestamp_seen = 0;
+$fields_cnt     = mysql_num_rows($table_def);
 
-for ($i = 0; $i < mysql_num_rows($table_def); $i++) {
+for ($i = 0; $i < $fields_cnt; $i++) {
     $row_table_def   = mysql_fetch_array($table_def);
     $field           = $row_table_def['Field'];
     if ($row_table_def['Type'] == 'datetime' && empty($row[$field])) {
