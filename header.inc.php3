@@ -150,7 +150,7 @@ if ($cfg['QueryFrame'] && $cfg['QueryFrameJS']) {
             top.frames.queryframe.querywindow.focus();
             return false;
         } else if (top.frames.queryframe) {
-            new_win_url = 'querywindow.php3?sql_query=' + sql_query + '&<?php echo PMA_generate_common_url('', ''); ?>&db=<?php echo (isset($db) ? htmlspecialchars($db) : ''); ?>&table=<?php echo (isset($table) ? htmlspecialchars($table) : ''); ?>';
+            new_win_url = 'querywindow.php3?sql_query=' + sql_query + '&<?php echo PMA_generate_common_url(isset($db)?$db:'', isset($table)?$table:'','&'); ?>';
             top.frames.queryframe.querywindow=window.open(new_win_url, 'js_querywindow','toolbar=0,location=1,directories=0,status=1,menubar=0,scrollbars=yes,resizable=yes,width=<?php echo $cfg['QueryWindowWidth']; ?>,height=<?php echo $cfg['QueryWindowHeight']; ?>');
     
             if (!top.frames.queryframe.querywindow.opener) {
