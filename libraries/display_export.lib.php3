@@ -277,7 +277,7 @@ if (isset($table) && !empty($table) && !isset($num_tables)) {
                 <fieldset>
                     <legend><?php echo $strCompression; ?></legend>
 
-                    <input type="radio" name="compression" value="none" id="radio_compression_none" checked="checked" />
+                    <input type="radio" name="compression" value="none" id="radio_compression_none" checked="checked" onclick="gE('checkbox_dump_asfile').checked = true;" />
                     <label for="radio_compression_none"><?php echo $strNone; ?></label>&nbsp;
 
 <?php
@@ -290,21 +290,21 @@ if (PMA_PHP_INT_VERSION >= 40004) {
     if ($is_zip || $is_gzip || $is_bzip) {
         if ($is_zip) {
             ?>
-                    <input type="radio" name="compression" value="zip" id="radio_compression_zip" />
+                    <input type="radio" name="compression" value="zip" id="radio_compression_zip" onclick="gE('checkbox_dump_asfile').checked = true;" />
                     <label for="radio_compression_zip"><?php echo $strZip; ?></label><?php echo (($is_gzip || $is_bzip) ? '&nbsp;' : ''); ?>
             <?php
         }
         if ($is_gzip) {
             echo "\n"
             ?>
-                    <input type="radio" name="compression" value="gzip" id="radio_compression_gzip" />
+                    <input type="radio" name="compression" value="gzip" id="radio_compression_gzip" onclick="gE('checkbox_dump_asfile').checked = true;" />
                     <label for="radio_compression_gzip"><?php echo $strGzip; ?></label><?php echo ($is_bzip ? '&nbsp;' : ''); ?>
             <?php
         }
         if ($is_bzip) {
             echo "\n"
             ?>
-                    <input type="radio" name="compression" value="bzip" id="radio_compression_bzip" />
+                    <input type="radio" name="compression" value="bzip" id="radio_compression_bzip" onclick="gE('checkbox_dump_asfile').checked = true;" />
                     <label for="radio_compression_bzip"><?php echo $strBzip; ?></label>
             <?php
         }

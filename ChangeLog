@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-04-23 Michal Cihar  <nijel@users.sourceforge.net>
+    * tbl_dump.php3: Fixed syntax error with === (#724093, ##707538).
+    * libraries/display_export.lib.php3: Automatically check "Save as file"
+      when selecting compression.
+
 2003-04-22 Garvin Hicking <me@supergarv.de>
     * libraries/common.lib.php3, main.php3, db_details_common.php3:
       When reloading the frame, propagate hash value (for querywindow)
