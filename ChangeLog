@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2001-12-12  Marc Delisle  <lem9@users.sourceforge.net>
+	* libraries/auth/config.auth.lib.php3 replaces basic.auth.lib.php3
+	* main.php3, config.inc.php3 for 'config' auth mode 
+	* Documentation.html: clarifications about auth modes
+
 2001-12-10  Loïc Chapeaux  <lolo@phpheaven.net>
 	* libraries/common.lib.php3: Opera for Mac needs lower font sizes, thanks
 	  to Christian Schaffner.
