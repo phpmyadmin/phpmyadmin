@@ -351,6 +351,7 @@ $PMA_SQPdata_reserved_word = array (
     //'NO',
     'NOT',
     'NULL',
+    'OFFSET',
     'ON',
     'OPEN',
     'OPTIMIZE',
@@ -461,7 +462,7 @@ $PMA_SQPdata_reserved_word = array (
     'YEAR_MONTH'
 );
 //$PMA_SQPdata_reserved_word_cnt = count($PMA_SQPdata_reserved_word);
-$PMA_SQPdata_reserved_word_cnt = 265;
+$PMA_SQPdata_reserved_word_cnt = 266;
 
 $PMA_SQPdata_column_type = array (
     'BIGINT',

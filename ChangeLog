@@ -1,9 +1,12 @@
-﻿----------------------
+----------------------
 phpMyAdmin - Changelog
 ----------------------
 
 $Id$
 $Source$
+
+2004-10-26 Alexander M. Turek  <me@derrabus.de>
+    * libraries/sqlparser.data.php: Added OFFSET.
 
 2004-10-25 Michal Čihař  <michal@cihar.com>
     * libraries/common.lib.php: Fix URI detection in case REQUEST_URI contains
