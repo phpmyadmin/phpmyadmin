@@ -9,6 +9,7 @@ $Source$
     * tbl_properties_operations.php3: fixed bad id of option (#706147).
     * lang/dutch: Updated, thanks to Gilles van den Hoven.
     * lang/thai: Updated.
+    * lang/italian: Updated, thanks to Pietro Danesi.
 
 2003-03-18 Garvin Hicking <me@supergarv.de>
     * libraries/display_export.lib.php3: Fixed variable usage.
