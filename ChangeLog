@@ -7,6 +7,7 @@ $Source$
 
 2003-06-20 Marc Delisle  <lem9@users.sourceforge.net>
     * pdf_schema.php3: use PMA_getForeigners()
+    * db_details_qbe.php3: undefined variable
 
 2003-06-20 Garvin Hicking <me@supergarv.de>
     * db_details_importdocsql.php3: Will now NEVER reveal any filename
