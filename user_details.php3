@@ -503,10 +503,14 @@ function PMA_grantOperations($grants)
 //        echo '                        ';
 //        echo '<option></option>' . "\n";
 //    }
-    $result = mysql_query('SHOW DATABASES');
+    $is_selected_db = FALSE;
+    $result         = mysql_query('SHOW DATABASES');
     if (@mysql_num_rows($result)) {
         while ($row = mysql_fetch_row($result)) {
-            $selected = (($row[0] == $dbgrant) ? ' selected="selected"' : '');
+            $selected           = (($row[0] == $dbgrant) ? ' selected="selected"' : '');
+            if (!empty($selected)) {
+                $is_selected_db = TRUE;
+            }
             echo '                        ';
             echo '<option' . $selected . '>' . $row[0] . '</option>' . "\n";
         } // end while
@@ -602,7 +606,7 @@ function PMA_grantOperations($grants)
             <tr>
                 <td colspan="5">
                     <?php echo $GLOBALS['strDatabaseWildcard'] . "\n"; ?>&nbsp;
-                    <input type="text" name="newdb" value="<?php echo (!empty($pma_user)? $pma_user . '%':''); ?>" onchange="change(this)" />
+                    <input type="text" name="newdb" value="<?php echo ((!$is_selected_db && !empty($pma_user)) ? $pma_user . '%' : ''); ?>" onchange="change(this)" />
                 </td>
             <tr>
             </table>

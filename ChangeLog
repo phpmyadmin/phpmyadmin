@@ -6,8 +6,13 @@ $Id$
 $Source$
 
 2002-03-17 Loïc Chapeaux  <lolo@phpheaven.net>
-	* user_details.php3; user_password.php3: no long displays the true password
-	  on screen.
+	* user_details.php3:
+	  - no long displays the true password on screen;
+	  - in the "GRANTS" part, do not define a default db name if a db is aleady
+	    selected.
+	* user_password.php3:
+	  - no long displays the true password on screen;
+	  - fixed a warning.
 	* tbl_change.php3: patch from Thomas Bähr <baehr at glaswald.de> - tabindex
 	  order.
 	* german.inc.php3: updated thanks to Alexander M. Turek.
