@@ -146,9 +146,14 @@ if (empty($asfile)) {
 else {
     // Defines filename and extension, and also mime types
     if (!isset($table)) {
-        $filename = PMA_convert_string($convcharset, 'iso8859-1', $db);
+        $filename = $db;
     } else {
-        $filename = PMA_convert_string($charset, 'iso8859-1', $table);
+        $filename = $table;
+    }
+    if (!(isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding'] && $allow_recoding)) {
+        $filename = PMA_convert_string($charset, 'iso-8859-1', $filename);
+    } else {
+        $filename = PMA_convert_string($convcharset, 'iso-8859-1', $filename);
     }
     if (isset($bzip) && $bzip == 'bzip') {
         $ext       = 'bz2';
