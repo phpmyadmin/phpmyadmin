@@ -79,7 +79,6 @@ $strDoAQuery = '"QUERY 예(例)"를 실행 (wildcard: "%")';
 $strDocu = '도움말';
 $strDoYouReally = '정말로 다음을 실행하시겠습니까? --> ';
 $strDrop = '삭제';
-$strDropDB = '데이터 베이스 삭제 -->';
 $strDumpingData = '테이블의 덤프 데이터';
 $strDynamic = 'dynamic'; //to translate
 
@@ -276,6 +275,7 @@ $strDatabasesStats = 'Databases statistics';//to translate
 $strDeletedRows = 'Deleted rows:';
 $strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strDisplayOrder = 'Display order:';
+$strDropDB = 'Drop database %s';
 $strDropTable = 'Drop table';
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate
 $strFieldsEmpty = ' The field count is empty! ';  //to translate

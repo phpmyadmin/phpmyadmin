@@ -100,8 +100,8 @@ $strDoAQuery = '"Örnekle sorgu" yap (joker: "%")';
 $strDocu = 'Dökümantasyon';
 $strDoYouReally = 'Aþaðýdaki komutu uygulamak istediðinizden emin misiniz? ';
 $strDrop = 'Kaldýr';
-$strDropDB = 'Veritabaný\'ný kaldýr: ';
-$strDropTable = 'Tablo\'yu kaldýr:';
+$strDropDB = 'Veritabaný\'ný kaldýr %s';
+$strDropTable = 'Tablo\'yu kaldýr';
 $strDumpingData = 'Tablo döküm verisi';
 $strDynamic = 'dinamik';
 

@@ -79,7 +79,6 @@ $strDoAQuery = 'Do a "query by example" (wildcard: "%")'; //to translate
 $strDocu = 'เอกสาร/คู่มืออ้างอิง';
 $strDoYouReally = 'ต้องการที่จะ ';
 $strDrop = 'Drop'; //to translate
-$strDropDB = 'Drop ฐานข้อมูล ';
 $strDumpingData = 'Dump ตาราง';
 $strDynamic = 'dynamic'; //to translate
 
@@ -276,6 +275,7 @@ $strDatabasesStats = 'Databases statistics';//to translate
 $strDeletedRows = 'Deleted rows:';
 $strDeleteUserMessage = 'You have deleted the user %s.';//to translate
 $strDisplayOrder = 'Display order:';
+$strDropDB = 'Drop database %s';
 $strDropTable = 'Drop table';
 $strExtendedInserts = 'Extended inserts';
 $strFieldHasBeenDropped = 'Field %s has been dropped';//to translate

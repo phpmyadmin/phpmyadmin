@@ -772,7 +772,7 @@ if ($cfgAllowUserDropDatabase || $is_superuser) {
     <li>
         <a href="sql.php3?server=<?php echo $server; ?>&amp;lang=<?php echo $lang; ?>&amp;db=<?php echo urlencode($db); ?>&amp;sql_query=<?php echo urlencode('DROP DATABASE ' . PMA_backquote($db)); ?>&amp;zero_rows=<?php echo urlencode(sprintf($strDatabaseHasBeenDropped, htmlspecialchars(PMA_backquote($db)))); ?>&amp;goto=main.php3&amp;back=db_details.php3&amp;reload=1"
             onclick="return confirmLink(this, 'DROP DATABASE <?php echo PMA_jsFormat($db); ?>')">
-            <?php echo $strDropDB . ' ' . htmlspecialchars($db); ?></a>
+            <?php echo sprintf($strDropDB, htmlspecialchars($db)); ?></a>
         <?php echo PMA_showDocuShort('D/R/DROP_DATABASE.html') . "\n"; ?>
     </li>
     <?php

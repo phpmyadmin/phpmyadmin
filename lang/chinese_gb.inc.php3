@@ -79,7 +79,7 @@ $strDoAQuery = '请执行 "查询示例" (通配符: "%")';
 $strDocu = '文档';
 $strDoYouReally = '请确认要 ';
 $strDrop = '丢弃';
-$strDropDB = '丢弃数据库 ';
+$strDropDB = '丢弃数据库 %s';
 $strDumpingData = '导出下面的数据库内容';
 $strDynamic = 'dynamic'; //to translate
 
