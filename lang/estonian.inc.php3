@@ -13,7 +13,7 @@ $day_of_week = array('Püh', 'Esm', 'Tei', 'Kol', 'Nel', 'Ree', 'Lau');
 $month = array('Jan', 'Veb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Det');
 // See http://www.php.net/manual/en/function.strftime.php to define the
 // variable below
-$datefmt = '%B %d, %Y kell %I:%M %p';
+$datefmt = '%d.%m.%Y kell %H:%M:%S';
 
 
 $strAccessDenied = 'Ligipääs keelatud';
@@ -39,7 +39,7 @@ $strAnIndex = 'Indeks lisati %s';
 $strAny = 'kõik';
 $strAnyColumn = 'Kõik väljad';
 $strAnyDatabase = 'Kõik andmebaasid';
-$strAnyHost = 'Kõik hostid';
+$strAnyHost = 'Kõik masinad';
 $strAnyTable = 'Kõik tabelid';
 $strAnyUser = 'Kõik kasutajad';
 $strAPrimaryKey = 'Primaarne võti lisati %s';
@@ -132,7 +132,7 @@ $strFormEmpty = 'Puuduv väärtus vormis !';
 $strFullText = 'Täistekstid';
 $strFunction = 'Funktsioon';
 
-$strGenTime = 'Kulunud aeg';
+$strGenTime = 'Tegemisaeg';
 $strGo = 'Mine';
 $strGrants = 'Õigused';
 $strGzip = '"gzipitud"';
@@ -142,11 +142,11 @@ $strHasBeenCreated = 'on loodud.';
 $strHome = 'Esileht';
 $strHomepageOfficial = 'Ametlik phpMyAdmini koduleht';
 $strHomepageSourceforge = 'Sourceforge phpMyAdmini allalaadimisleht';
-$strHost = 'Host';
-$strHostEmpty = 'Host on tühi!';
+$strHost = 'Masin';
+$strHostEmpty = 'Masin on tühi!';
 
 $strIdxFulltext = 'Täistekst';
-$strIfYouWish = 'Kui soovite lugeda ainult mõningaid tabeli välju, sisestage komaga eraldatud väärtuste loetelu.';
+$strIfYouWish = 'Kui soovite lugeda ainult mõningaid tabeli välju, sisestage komaga eraldatud väljade loetelu.';
 $strIgnore = 'Ignoreeri';
 $strIndex = 'Indeks';
 $strIndexes = 'Indeksid';
@@ -265,7 +265,7 @@ $strRowsModeHorizontal = 'horisontaalselt';
 $strRowsModeOptions = 'näita %s and korda pealkirju iga %s järel';
 $strRowsModeVertical = 'vertikaalselt';
 $strRowsStatistic = 'Rea statistika';
-$strRunning = 'jookseb hostis %s';
+$strRunning = 'jookseb masinas %s';
 $strRunQuery = 'Lae päring';
 $strRunSQLQuery = 'Päri SQL päring(uid) andmebaasist %s';
 
@@ -300,7 +300,7 @@ $strStrucExcelCSV = 'CSV Ms Exceli jaoks';
 $strStrucOnly = 'Ainult struktuur';
 $strSubmit = 'Vali';
 $strSuccess = 'Teie SQL päring täideti edukalt';
-$strSum = 'Sum';
+$strSum = 'Summa';
 
 $strTable = 'tabel ';
 $strTableComments = 'Tabeli kommentaarid';

@@ -36,6 +36,7 @@ $strAfter = 'Pçc %s';
 $strAfterInsertBack = 'Atgriezties iepriekðçjâ lapâ atpakaï';
 $strAfterInsertNewInsert = 'Ievietot vçl vienu rindu';
 $strAll = 'Visi';
+$strAlterOrderBy = 'Mainît datu kârtoðanas laukus';
 $strAnalyzeTable = 'Analizçt tabulu';
 $strAnd = 'Un';
 $strAnIndex = 'Indekss tieka pievienots uz %s';
@@ -240,6 +241,8 @@ $strPrivileges = 'Privilçìijas';
 $strProperties = 'Îpaðîbas';
 
 $strQBE = 'Vaicâjums pçc parauga';
+$strQBEDel = 'Dzçst';
+$strQBEIns = 'Ielikt';
 $strQueryOnDb = 'SQL-vaicâjums uz datubâzes <b>%s</b>:';
 
 $strRecords = 'Ieraksti';
@@ -348,7 +351,4 @@ $strYes = 'Jâ';
 $strZip = 'arhivçts ar zip';
 
 // To translate
-$strAlterOrderBy = 'Alter table order by';
-$strQBEDel = 'Del';
-$strQBEIns = 'Ins';
 ?>
