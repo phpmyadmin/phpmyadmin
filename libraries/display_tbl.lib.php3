@@ -441,7 +441,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
      *
      * @see     PMA_displayTable()
      */
-    function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = array())
+    function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = '')
     {
         global $lang, $convcharset, $server, $db, $table;
         global $goto;
@@ -449,6 +449,10 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
         global $vertical_display, $disp_direction, $repeat_cells, $highlight_columns;
         global $dontlimitchars;
 
+        if ($analyzed_sql == '') {
+            $analyzed_sql = array();
+        }
+        
         if ($disp_direction == 'horizontal' || $disp_direction == 'horizontalflipped') {
             ?>
 <!-- Results table headers -->
@@ -1088,7 +1092,7 @@ if (!defined('PMA_DISPLAY_TBL_LIB_INCLUDED')) {
                         if (file_exists('./libraries/transformations/' . $include_file)) {
                             $transformfunction_name = str_replace('.inc.php3', '', $GLOBALS['mime_map'][$meta->name]['transformation']);
     
-                            @include('./libraries/transformations/' . $include_file);
+                            include('./libraries/transformations/' . $include_file);
     
                             if (defined('PMA_TRANSFORMATION_' . strtoupper($transformfunction_name)) && function_exists('PMA_transformation_' . $transformfunction_name)) {
                                 $transform_function = 'PMA_transformation_' . $transformfunction_name;
