@@ -5,6 +5,10 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-01 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * sql.php3: Completed fix against bug #575867 (Error with limit or load in
+      the table name).
+
 2002-07-01 Olivier L. Müller  <om@omnis.ch>
     * header.inc.php3: nicer CSS for Tabs (J.Fornallaz)
     * tbl_properties.php3: added insert button to Marc's <select> :)

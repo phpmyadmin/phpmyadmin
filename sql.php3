@@ -599,14 +599,14 @@ require('./footer.inc.php3');
 
         foreach ($res_words_arr as $w) {
             // separate a backquoted expression with spaces
-            $pattern = "$w`([^`]*)`(.*)";
-            $replace = "$w `\\1` \\2";
-            $sql_str = eregi_replace($pattern, $replace, $sql_str);
+            $pattern = " $w`([^`]*)`(.*)";
+            $replace = " $w `\\1` \\2";
+            $sql_str = substr(eregi_replace($pattern, $replace, ' ' . $sql_str), 1);
 
             // separate a parenthesized expression with spaces
-            $pattern = $pattern = "$w\(([^)]*)\)(.*)";
-            $replace = "$w (\\1) \\2";
-            $sql_str = eregi_replace($pattern, $replace, $sql_str);
+            $pattern = " $w\(([^)]*)\)(.*)";
+            $replace = " $w (\\1) \\2";
+            $sql_str = substr(eregi_replace($pattern, $replace, ' ' . $sql_str), 1);
 
             // convert reservered words to upper case if not yet done
             $sql_str = substr(eregi_replace(" $w ", " $w ", ' ' . $sql_str), 1);
