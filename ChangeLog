@@ -8,6 +8,7 @@ $Source$
 2001-11-07  Marc Delisle  <lem9@users.sourceforge.net>
 	* tbl_select.php3, lang/some files: modify $strLimitNumRows
 	* user_details.php3, lang/some files: modify $strRevokeGrantMessage
+	  and $strRevokeMessage
 
 2001-11-06  Loïc Chapeaux  <lolo@phpheaven.net>
 	* db_details.php3, line 305; db_printview.php3, line 207: fixed bug #478592
