@@ -2,7 +2,6 @@
 /* $Id$ */
 // vim: expandtab sw=4 ts=4 sts=4:
 
-error_reporting(E_ALL);
 /** SQL Parser Functions for phpMyAdmin
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
@@ -1186,12 +1185,13 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                     }
                     break;
                 case 'alpha_reservedWord':
-                    $upper         = $arr[$i]['data'];
+                    //$upper         = $arr[$i]['data'];
+                    $arr[$i]['data'] = strtoupper($arr[$i]['data']);
                     if ((($typearr[1] != 'alpha_reservedWord')
                         || (($typearr[1] == 'alpha_reservedWord')
                             && PMA_STR_binarySearchInArr(strtoupper($arr[$i - 1]['data']), $keywords_no_newline, $keywords_no_newline_cnt)))
                         && ($typearr[1] != 'punct_level_plus')
-                        && (!PMA_STR_binarySearchInArr($upper, $keywords_no_newline, $keywords_no_newline_cnt))) {
+                        && (!PMA_STR_binarySearchInArr($arr[$i]['data'], $keywords_no_newline, $keywords_no_newline_cnt))) {
                         // do not put a space before the first token, because
                         // we use a lot of eregi() checking for the first
                         // reserved word at beginning of query
@@ -1202,7 +1202,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                         $before    .= ' ';
                     }
 
-                    switch ($upper) {
+                    switch ($arr[$i]['data']) {
                         case 'CREATE':
                             $space_punct_listsep       = $html_line_break;
                             $space_alpha_reserved_word = ' ';
@@ -1236,7 +1236,7 @@ if (!defined('PMA_SQP_LIB_INCLUDED')) {
                             break;
                         default:
                             break;
-                    } // end switch ($upper)
+                    } // end switch ($arr[$i]['data'])
 
                     $after         .= ' ';
                     break;

@@ -82,9 +82,11 @@ if (isset($btnDrop) || isset($navig)) {
  */
 
 $parsed_sql = PMA_SQP_parse((get_magic_quotes_gpc() ? stripslashes($sql_query) : $sql_query));
-$is_select = eregi('^SELECT[[:space:]]+', $sql_query);
 $analyzed_sql = PMA_SQP_analyze($parsed_sql);
 $sql_query = PMA_SQP_formatHtml($parsed_sql, 'query_only');
+
+// here we are sure that SELECT is uppercase
+$is_select = eregi('^SELECT[[:space:]]+', $sql_query);
 
 // If the query is a Select, extract the db and table names and modify
 // $db and $table, to have correct page headers, links and left frame.
@@ -232,7 +234,8 @@ else {
     //                "SELECT COUNT(...) FROM ... GROUP BY ..."
     $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = FALSE;
     if ($is_select) { // see line 141
-        $is_group = eregi('[[:space:]]+(GROUP BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+', $sql_query);
+        $is_group = eregi('[[:space:]]+(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+', $sql_query);
+
         $is_func =  !$is_group && (eregi('[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(', $sql_query));
         $is_count = !$is_group && (eregi('^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)', $sql_query));
         $is_export   = (eregi('[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+', $sql_query));
