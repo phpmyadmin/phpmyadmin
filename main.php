@@ -590,6 +590,8 @@ if (isset($cfg['AllowAnywhereRecoding']) && $cfg['AllowAnywhereRecoding']
        . '                </label>' . "\n"
        . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, TRUE, 4, TRUE)
        . '                <noscript><input type="submit" value="' . $strGo . '" style="vertical-align: middle" /></noscript>' . "\n"
+       // put the doc link in the form so that it appears on the same line
+       . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . "\n"
        . '            </form>' . "\n"
        . '        </td>' . "\n"
        . '    </tr>' . "\n";

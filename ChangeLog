@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-07-18 Marc Delisle  <lem9@users.sourceforge.net>
+    * main.php: doc link for connection collation
+
 2004-07-17 Alexander M. Turek  <me@derrabus.de>
     * libraries/database_interface.lib.php, libraries/dbi/*.dbi.lib.php:
       moved redundant post-connect code into database_interface.lib.php.
