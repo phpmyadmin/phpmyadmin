@@ -729,4 +729,5 @@ $strZeroRemovesTheLimit = 'Poznámka: Nastavení tìchto parametrù na 0 (nulu) odst
 $strZip = '"zazipováno"';
 
 $strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
+$strIgnoreInserts = 'Use ignore inserts';  //to translate
 ?>

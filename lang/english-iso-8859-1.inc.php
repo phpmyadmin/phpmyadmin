@@ -723,4 +723,5 @@ $strConnectionError = 'Cannot connect: invalid settings.';
 $strDropDatabaseStrongWarning = 'You are about to DESTROY a complete database!';
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';
 $strNeedPrimaryKey = 'You should define a primary key for this table.';
+$strIgnoreInserts = 'Use ignore inserts';  //to translate
 ?>

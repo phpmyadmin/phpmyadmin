@@ -442,7 +442,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
 
         if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'update') {
             // update
-            $schema_insert  = 'UPDATE ' . PMA_backquote($table, $use_backquotes) . ' SET ';
+            $schema_insert  = 'UPDATE ';
+            if (isset($GLOBALS['sql_ignore']))
+                $schema_insert .= 'IGNORE ';
+            $schema_insert .= PMA_backquote($table, $use_backquotes) . ' SET ';
             $fields_no      = count($field_set);
         } else {
             // insert or replace
@@ -457,6 +460,10 @@ function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
                 $insert_delayed = ' DELAYED';
             } else {
                 $insert_delayed = '';
+            }
+            
+            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] == 'insert' && isset($GLOBALS['sql_ignore'])) {
+                $insert_delayed .= ' IGNORE';
             }
 
             // Sets the scheme

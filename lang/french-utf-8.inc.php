@@ -729,4 +729,5 @@ $strTransformation_application_octetstream__download = 'Display a link to downlo
 $strDropDatabaseStrongWarning = 'Vous êtes sur le point de DÉTRUIRE une base de données!';
 $strAddHeaderComment = 'Add custom comment into header (\\n splits lines)';  //to translate
 $strNeedPrimaryKey = 'You should define a primary key for this table.';  //to translate
+$strIgnoreInserts = 'Use ignore inserts';  //to translate
 ?>

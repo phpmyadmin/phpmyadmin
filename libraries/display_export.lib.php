@@ -203,10 +203,15 @@ if ($cfgRelation['mimework']) {
                     </legend>
                     <input type="checkbox" name="showcolumns" value="yes" id="checkbox_dump_showcolumns" <?php PMA_exportCheckboxCheck('sql_columns'); ?> />
                     <label for="checkbox_dump_showcolumns"><?php echo $strCompleteInserts; ?></label><br />
+
                     <input type="checkbox" name="extended_ins" value="yes" id="checkbox_dump_extended_ins" <?php PMA_exportCheckboxCheck('sql_extended'); ?> />
                     <label for="checkbox_dump_extended_ins"><?php echo $strExtendedInserts; ?></label><br />
+                    
                     <input type="checkbox" name="delayed" value="yes" id="checkbox_dump_delayed" <?php PMA_exportCheckboxCheck('sql_delayed'); ?> />
                     <label for="checkbox_dump_delayed"><?php echo $strDelayedInserts; ?></label><br />
+
+                    <input type="checkbox" name="sql_ignore" value="yes" id="checkbox_dump_ignore" <?php PMA_exportCheckboxCheck('sql_ignore'); ?> />
+                    <label for="checkbox_dump_ignore"><?php echo $strIgnoreInserts; ?></label><br />
 
                     <label for="select_sql_type">
                         <?php echo $strSQLExportType; ?>:&nbsp;
