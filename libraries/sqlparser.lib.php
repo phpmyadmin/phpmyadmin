@@ -450,6 +450,7 @@ if ($is_minimum_common == FALSE) {
 
                 //TODO: a @ can also be present in expressions like
                 // FROM 'user'@'%'
+                // or  TO 'user'@'%'
                 // in this case, the @ is wrongly marked as alpha_variable
 
                 $is_sql_variable         = ($c == '@');
@@ -1835,11 +1836,18 @@ if ($is_minimum_common == FALSE) {
                         //
                         // also we must not be inside a privilege list
                         if ($i > 0) {
-                            // the alpha_identifier condition is there to
+                            // the alpha_identifier exception is there to
                             // catch cases like
                             // GRANT SELECT ON mydb.mytable TO myuser@localhost
                             // (else, we get mydb.mytableTO )
-                            if (!$in_priv_list || $typearr[1] == 'alpha_identifier') {
+                            //
+                            // the quote_single exception is there to 
+                            // catch cases like
+                            // GRANT ... TO 'marc'@'domain.com' IDENTIFIED...
+                            //
+                            // TODO: fix all cases and find why this happens
+ 
+                            if (!$in_priv_list || $typearr[1] == 'alpha_identifier' || $typearr[1] == 'quote_single' || $typearr[1] == 'white_newline') {
                                 $before    .= $space_alpha_reserved_word;
                             }
                         } else {
@@ -1912,7 +1920,11 @@ if ($is_minimum_common == FALSE) {
                     }
                     break;
                 case 'alpha_variable':
-                    $after      = ' ';
+                    // other workaround for a problem similar to the one
+                    // explained below for quote_single
+                    if (!$in_priv_list) {
+                        $after      = ' ';
+                    }
                     break;
                 case 'quote_double':
                 case 'quote_single':
@@ -1921,7 +1933,7 @@ if ($is_minimum_common == FALSE) {
                     // the @ is incorrectly marked as alpha_variable
                     // in the parser, and here, the '%' gets a blank before,
                     // which is a syntax error
-                    if ($typearr[1]!='alpha_variable') {
+                    if ($typearr[1] !='alpha_variable') {
                         $before        .= ' ';
                     }
                     if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
