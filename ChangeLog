@@ -10,7 +10,7 @@ $Source$
       PMA_foreignDropdown() must be called with no current value for
       the data
 
-2004-05-14 Michal Čihař  <michal@cihar.com>
+2004-05-19 Michal Čihař  <michal@cihar.com>
     * libraries/auth/cookie.auth.lib.php: Show login form in top frame.
 
 2004-05-16 Alexander M. Turek  <me@derrabus.de>
@@ -4412,7 +4412,7 @@ $Source$
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/old-stuff/ChangeLogs/
 
-# vim: ft=changelog
+# vim: ft=changelog fenc=utf-8
 # vim: expandtab ts=4 sw=4 sts=4
 # vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>8&&getline(v\:lnum)!~'^#'
 # vim: fdn=1 fdm=expr
