@@ -95,8 +95,8 @@ class PMA_PDF extends FPDF
      */
     var $x_min;
     var $y_min;
-    var $l_marg;
-    var $t_marg;
+    var $l_marg = 10;
+    var $t_marg = 10;
     var $scale;
     var $title;
 
