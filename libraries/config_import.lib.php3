@@ -657,6 +657,9 @@ if (!defined('PMA_CONFIG_IMPORT_LIB_INCLUDED')) {
             $cfg['DefaultDisplay'] = 'horizontal';
         }
     }
+    if (!isset($cfg['DefaultPropDisplay'])) {
+        $cfg['DefaultPropDisplay'] = 'horizontal';
+    }
 
     if (!isset($cfg['RepeatCells'])) {
         if (isset($cfgRepeatCells)) {

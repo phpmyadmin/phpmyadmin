@@ -27,18 +27,18 @@ else if ($action == 'tbl_addfield.php3') {
 }
 echo "\n";
 $is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
-?>
 
-    <table border="<?php echo $cfg['Border']; ?>">
-    <tr>
-        <th><?php echo $strField; ?></th>
-        <th><?php echo $strType . '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('Reference', 'Column_types'); ?></span></th>
-        <th><?php echo $strLengthSet; ?></th>
-        <th><?php echo $strAttr; ?></th>
-        <th><?php echo $strNull; ?></th>
-        <th><?php echo $strDefault; ?>**</th>
-        <th><?php echo $strExtra; ?></th>
-<?php
+$header_cells = array();
+$content_cells = array();
+
+$header_cells[] = $strField;
+$header_cells[] = $strType . '<br /><span style="font-weight: normal">' . PMA_showMySQLDocu('Reference', 'Column_types') . '</span>';
+$header_cells[] = $strLengthSet;
+$header_cells[] = $strAttr;
+$header_cells[] = $strNull;
+$header_cells[] = $strDefault . '**';
+$header_cells[] = $strExtra;
+
 require('./libraries/relation.lib.php3');
 require('./libraries/transformations.lib.php3');
 $cfgRelation = PMA_getRelationsParam();
@@ -49,15 +49,15 @@ $available_mime = array();
 
 if ($cfgRelation['commwork']) {
     $comments_map = PMA_getComments($db, $table);
-    echo '<th>' . $strComments . '</th>';
+    $header_cells[] = $strComments;
 
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
         $mime_map = PMA_getMIME($db, $table);
         $available_mime = PMA_getAvailableMIMEtypes();
 
-        echo '<th>' . $strMIME_MIMEtype . '</th>';
-        echo '<th>' . $strMIME_transformation . '</th>';
-        echo '<th>' . $strMIME_transformation_options . '***</th>';
+        $header_cells[] = $strMIME_MIMEtype;
+        $header_cells[] = $strMIME_transformation;
+        $header_cells[] = $strMIME_transformation_options . '***';
     }
 }
 
@@ -67,39 +67,28 @@ if ($cfgRelation['commwork']) {
 // key fields, as tbl_addfield does.
 
 if (!$is_backup) {
-    echo "        <th>$strPrimary</th>\n";
-    echo "        <th>$strIndex</th>\n";
-    echo "        <th>$strUnique</th>\n";
-    echo "        <th>---</th>\n";
-    echo "        <th>$strIdxFulltext</th>\n";
+    $header_cells[] = $strPrimary;
+    $header_cells[] = $strIndex;
+    $header_cells[] = $strUnique;
+    $header_cells[] = '---';
+    $header_cells[] = $strIdxFulltext;
 }
-?>
-    </tr>
 
-<?php
 for ($i = 0 ; $i < $num_fields; $i++) {
     if (isset($fields_meta)) {
         $row = $fields_meta[$i];
     }
     $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
-    ?>
-    <tr>
-        <td bgcolor="<?php echo $bgcolor; ?>">
-    <?php
+
     if ($is_backup) {
-        echo "\n";
-        ?>
-            <input type="hidden" name="field_orig[]" value="<?php if (isset($row) && isset($row['Field'])) echo urlencode($row['Field']); ?>" />
-        <?php
+        $content_cells[$i][0] = "\n" . '<input type="hidden" name="field_orig[]" value="' . (isset($row) && isset($row['Field']) ? urlencode($row['Field']) : '') . '" />' . "\n";
+    } else {
+        $content_cells[$i][0] = '';
     }
-    echo "\n";
-    ?>
-            <input id="field_<?php echo $i; ?>_1" type="text" name="field_name[]" size="10" maxlength="64" value="<?php if (isset($row) && isset($row['Field'])) echo str_replace('"', '&quot;', $row['Field']); ?>" class="textfield" />
-        </td>
-        <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="field_type[]" id="field_<?php echo $i; ?>_2">
-    <?php
-    echo "\n";
+    
+    $content_cells[$i][0] .= "\n" . '<input id="field_' . $i . '_1" type="text" name="field_name[]" size="10" maxlength="64" value="' . (isset($row) && isset($row['Field']) ? str_replace('"', '&quot;', $row['Field']) : '') . '" class="textfield" />';
+    $content_cells[$i][1] = '<select name="field_type[]" id="field_' . $i . '_2">' . "\n";
+
     if (empty($row['Type'])) {
         $row['Type'] = '';
         $type        = '';
@@ -131,31 +120,25 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     } // end if else
 
     for ($j = 0; $j < count($cfg['ColumnTypes']); $j++) {
-        echo '                <option value="'. $cfg['ColumnTypes'][$j] . '"';
+        $content_cells[$i][1] .= '                <option value="'. $cfg['ColumnTypes'][$j] . '"';
         if (strtoupper($type) == strtoupper($cfg['ColumnTypes'][$j])) {
-            echo ' selected="selected"';
+            $content_cells[$i][1] .= ' selected="selected"';
         }
-        echo '>' . $cfg['ColumnTypes'][$j] . '</option>' . "\n";
+        $content_cells[$i][1] .= '>' . $cfg['ColumnTypes'][$j] . '</option>' . "\n";
     } // end for
-    ?>
-            </select>
-        </td>
-        <td bgcolor="<?php echo $bgcolor; ?>">
-    <?php
+    
+    $content_cells[$i][1] .= '    </select>';
+
     if ($is_backup) {
-        echo "\n";
-        ?>
-            <input type="hidden" name="field_length_orig[]" value="<?php echo urlencode($length); ?>" />
-        <?php
+        $content_cells[$i][2] = "\n" . '<input type="hidden" name="field_length_orig[]" value="' . urlencode($length) . '" />';
+    } else {
+        $content_cells[$i][2] = '';
     }
-    echo "\n";
-    ?>
-            <input id="field_<?php echo $i; ?>_3" type="text" name="field_length[]" size="8" value="<?php echo str_replace('"', '&quot;', $length); ?>" class="textfield" />
-        </td>
-        <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="field_attribute[]" id="field_<?php echo $i; ?>_4">
-    <?php
-    echo "\n";
+    
+    $content_cells[$i][2] .= "\n" . '<input id="field_' . $i . '_3" type="text" name="field_length[]" size="8" value="' . str_replace('"', '&quot;', $length) . '" class="textfield" />' . "\n";
+
+    $content_cells[$i][3] = '<select name="field_attribute[]" id="field_' . $i . '_4">' . "\n";
+
     if (eregi('^(set|enum)$', $type)) {
         $binary           = 0;
         $unsigned         = 0;
@@ -176,122 +159,89 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $strAttribute = 'UNSIGNED ZEROFILL';
     }
     for ($j = 0;$j < count($cfg['AttributeTypes']); $j++) {
-        echo '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
+        $content_cells[$i][3] .= '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
         if (strtoupper($strAttribute) == strtoupper($cfg['AttributeTypes'][$j])) {
-            echo ' selected="selected"';
+            $content_cells[$i][3] .= ' selected="selected"';
         }
-        echo '>' . $cfg['AttributeTypes'][$j] . '</option>' . "\n";
+        $content_cells[$i][3] .= '>' . $cfg['AttributeTypes'][$j] . '</option>' . "\n";
     }
-    ?>
-            </select>
-        </td>
-        <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="field_null[]" id="field_<?php echo $i; ?>_5">
-    <?php
+    
+    $content_cells[$i][3] .= '</select>';
+    $content_cells[$i][4] = '<select name="field_null[]" id="field_' . $i . '_5">';
+
     if (!isset($row) || empty($row['Null'])) {
-        echo "\n";
-        ?>
-                <option value="NOT NULL">not null</option>
-                <option value="">null</option>
-        <?php
+        $content_cells[$i][4] .= "\n";
+        $content_cells[$i][4] .= '    <option value="NOT NULL">not null</option>' . "\n";
+        $content_cells[$i][4] .= '    <option value="">null</option>' . "\n";
     } else {
-        echo "\n";
-        ?>
-                <option value="">null</option>
-                <option value="NOT NULL">not null</option>
-        <?php
+        $content_cells[$i][4] .= "\n";
+        $content_cells[$i][4] .= '    <option value="">null</option>' . "\n";
+        $content_cells[$i][4] .= '    <option value="NOT NULL">not null</option>' . "\n";
     }
-    echo "\n";
-    ?>
-            </select>
-        </td>
-    <?php
+
+    $content_cells[$i][4] .= "\n" . '</select>';
+
     if (isset($row)
         && !isset($row['Default']) && !empty($row['Null'])) {
         $row['Default'] = 'NULL';
     }
-    echo "\n";
-    ?>
-        <td bgcolor="<?php echo $bgcolor; ?>">
-    <?php
+
     if ($is_backup) {
-        echo "\n";
-        ?>
-            <input type="hidden" name="field_default_orig[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo urlencode($row['Default']); ?>" />
-        <?php
-    }
-    echo "\n";
-    ?>
-            <input id="field_<?php echo $i; ?>_6" type="text" name="field_default[]" size="8" value="<?php if(isset($row) && isset($row['Default'])) echo str_replace('"', '&quot;', $row['Default']); ?>" class="textfield" />
-        </td>
-        <td bgcolor="<?php echo $bgcolor; ?>">
-            <select name="field_extra[]" id="field_<?php echo $i; ?>_7">
-    <?php
-    if(!isset($row) || empty($row['Extra'])) {
-        echo "\n";
-        ?>
-                <option value=""></option>
-                <option value="AUTO_INCREMENT">auto_increment</option>
-        <?php
+        $content_cells[$i][5] = "\n" . '<input type="hidden" name="field_default_orig[]" size="8" value="' . (isset($row) && isset($row['Default']) ? urlencode($row['Default']) : '') . '" />';
     } else {
-        echo "\n";
-        ?>
-                <option value="AUTO_INCREMENT">auto_increment</option>
-                <option value=""></option>
-        <?php
+        $content_cells[$i][5] = "\n";
     }
-    echo "\n";
-    ?>
-            </select>
-        </td>
-    <?php
+    
+    $content_cells[$i][5] .= '<input id="field_' . $i . '_6" type="text" name="field_default[]" size="8" value="' . (isset($row) && isset($row['Default']) ? str_replace('"', '&quot;', $row['Default']) : '') . '" class="textfield" />';
+
+    $content_cells[$i][6] = '<select name="field_extra[]" id="field_' . $i . '_7">';
+
+    if(!isset($row) || empty($row['Extra'])) {
+        $content_cells[$i][6] .= "\n";
+        $content_cells[$i][6] .= '<option value=""></option>' . "\n";
+        $content_cells[$i][6] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
+    } else {
+        $content_cells[$i][6] .= "\n";
+        $content_cells[$i][6] .= '<option value="AUTO_INCREMENT">auto_increment</option>' . "\n";
+        $content_cells[$i][6] .= '<option value=""></option>' . "\n";
+    }
+    
+    $content_cells[$i][6] .= "\n" . '</select>';
+
     // garvin: comments
     if ($cfgRelation['commwork']) {
-    ?>
-        <td bgcolor="<?php echo $bgcolor; ?>">
-            <input id="field_<?php echo $i; ?>_7" type="text" name="field_comments[]" size="8" value="<?php echo (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : ''); ?>" class="textfield" />
-        </td>
-    <?php
+        $content_cells[$i][7] = '<input id="field_' . $i . '_7" type="text" name="field_comments[]" size="8" value="' . (isset($row) && isset($row['Field']) && is_array($comments_map) && isset($comments_map[$row['Field']]) ?  htmlspecialchars($comments_map[$row['Field']]) : '') . '" class="textfield" />';
     }
 
     // garvin: MIME-types
     if ($cfgRelation['mimework'] && $cfg['BrowseMIME'] && $cfgRelation['commwork']) {
-    ?>
-        <td bgcolor="<?php echo $bgcolor; ?>" valign="top">
-            <select id="field_<?php echo $i; ?>_8" size="1" name="field_mimetype[]">
-                <option value=""></option>
-                <option value="auto">auto-detect</option>
-            <?php
-            if (is_array($available_mime['mimetype'])) {
-                @reset($available_mime['mimetype']);
-                while(list($mimekey, $mimetype) = each($available_mime['mimetype'])) {
-                    $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['mimetype']) && ($mime_map[$row['Field']]['mimetype'] == str_replace('/', '_', $mimetype)) ? 'selected ' : '');
-                    echo '<option value="' . str_replace('/', '_', $mimetype) . '" ' . $checked . '>' . htmlspecialchars($mimetype) . '</option>';
-                }
-            }
-           ?>
-           </select>
-        </td>
+        $content_cells[$i][8] = '<select id="field_' . $i . '_8" size="1" name="field_mimetype[]">' . "\n";
+        $content_cells[$i][8] .= '    <option value=""></option>' . "\n";
+        $content_cells[$i][8] .= '    <option value="auto">auto-detect</option>' . "\n";
 
-        <td bgcolor="<?php echo $bgcolor; ?>" valign="top">
-            <select id="field_<?php echo $i; ?>_9" size="1" name="field_transformation[]">
-                <option value=""></option>
-            <?php
-            if (is_array($available_mime['transformation'])) {
-                @reset($available_mime['transformation']);
-                while(list($mimekey, $transform) = each($available_mime['transformation'])) {
-                    $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && ($mime_map[$row['Field']]['transformation'] == $available_mime['transformation_file'][$mimekey]) ? 'selected ' : '');
-                    echo '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . '>' . htmlspecialchars($transform) . '</option>' . "\n";
-                }
+        if (is_array($available_mime['mimetype'])) {
+            @reset($available_mime['mimetype']);
+            while(list($mimekey, $mimetype) = each($available_mime['mimetype'])) {
+                $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['mimetype']) && ($mime_map[$row['Field']]['mimetype'] == str_replace('/', '_', $mimetype)) ? 'selected ' : '');
+                $content_cells[$i][8] .= '    <option value="' . str_replace('/', '_', $mimetype) . '" ' . $checked . '>' . htmlspecialchars($mimetype) . '</option>';
             }
-           ?>
-           </select>
-        </td>
+        }
+        
+        $content_cells[$i][8] .= '</select>';
 
-        <td bgcolor="<?php echo $bgcolor; ?>" valign="top">
-            <input id="field_<?php echo $i; ?>_10" type="text" name="field_transformation_options[]" size="8" value="<?php echo (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation_options']) ?  htmlspecialchars($mime_map[$row['Field']]['transformation_options']) : ''); ?>" class="textfield" />
-        </td>
-    <?php
+        $content_cells[$i][9] = '<select id="field_' . $i . '_9" size="1" name="field_transformation[]">' . "\n";
+        $content_cells[$i][9] .= '    <option value=""></option>' . "\n";
+        if (is_array($available_mime['transformation'])) {
+            @reset($available_mime['transformation']);
+            while(list($mimekey, $transform) = each($available_mime['transformation'])) {
+                $checked = (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation']) && ($mime_map[$row['Field']]['transformation'] == $available_mime['transformation_file'][$mimekey]) ? 'selected ' : '');
+                $content_cells[$i][9] .= '<option value="' . $available_mime['transformation_file'][$mimekey] . '" ' . $checked . '>' . htmlspecialchars($transform) . '</option>' . "\n";
+            }
+        }
+        
+        $content_cells[$i][9] .= '</select>';
+
+        $content_cells[$i][10] = '<input id="field_' . $i . '_10" type="text" name="field_transformation_options[]" size="8" value="' . (isset($row) && isset($row['Field']) && isset($mime_map[$row['Field']]['transformation_options']) ?  htmlspecialchars($mime_map[$row['Field']]['transformation_options']) : '') . '" class="textfield" />';
     }
 
     // lem9: See my other comment about removing this 'if'.
@@ -322,42 +272,78 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         } else {
             $checked_fulltext = '';
         }
-        echo "\n";
-        ?>
-        <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <input type="radio" name="field_key_<?php echo $i; ?>" value="primary_<?php echo $i; ?>"<?php echo $checked_primary; ?> />
-        </td>
-        <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <input type="radio" name="field_key_<?php echo $i; ?>" value="index_<?php echo $i; ?>"<?php echo $checked_index; ?> />
-        </td>
-        <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <input type="radio" name="field_key_<?php echo $i; ?>" value="unique_<?php echo $i; ?>"<?php echo $checked_unique; ?> />
-        </td>
-        <td align="center" bgcolor="<?php echo $bgcolor; ?>">
-            <input type="radio" name="field_key_<?php echo $i; ?>" value="none_<?php echo $i; ?>"<?php echo $checked_none; ?> />
-        </td>
-        <?php
+        
+        $content_cells[$i][11] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="primary_' . $i . '"' . $checked_primary . ' />';
+        $content_cells[$i][12] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="index_' . $i . '"' .  $checked_index . ' />';
+        $content_cells[$i][13] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="unique_' . $i . '"' .  $checked_unique . ' />';
+        $content_cells[$i][14] = "\n" . '<input type="radio" name="field_key_' . $i . '" value="none_' . $i . '"' .  $checked_none . ' />';
+
         if (PMA_MYSQL_INT_VERSION >= 32323) {
-            echo "\n";
-            ?>
-        <td bgcolor="<?php echo $bgcolor; ?>" nowrap="nowrap">
-            <input type="checkbox" name="field_fulltext[]" value="<?php echo $i; ?>"<?php echo $checked_fulltext; ?> />
-        </td>
-            <?php
+            $content_cells[$i][15] = '<input type="checkbox" name="field_fulltext[]" value="' . $i . '"' . $checked_fulltext . ' />';
         } // end if (PMA_MYSQL_INT_VERSION >= 32323)
-        echo "\n";
     } // end if ($action ==...)
-    echo "\n";
-    ?>
-    </tr>
-    <?php
-    echo "\n";
 } // end for
+
+if ($cfg['DefaultPropDisplay'] == 'horizontal') {
+?>
+    <table border="<?php echo $cfg['Border']; ?>">
+    <tr>
+<?php
+@reset($header_cells);
+while(@list($header_nr, $header_val) = @each($header_cells)) {
+?>
+        <th><?php echo $header_val; ?></th>
+<?php
+}
+?>
+    </tr>
+<?php
+@reset($content_cells);
+$i = 0;
+while(@list($content_nr, $content_row) = @each($content_cells)) {
+    $i++;
+    echo "\n" . '<tr>' . "\n";
+
+    $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
+    
+    while(list($content_row_nr, $content_row_val) = @each($content_row)) {
+?>
+        <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $content_row_val; ?></td>
+<?php
+    }
+    echo "\n" . '</tr>' . "\n";
+}
 ?>
     </table>
     <br />
-
 <?php
+} else {
+?>
+    <table border="<?php echo $cfg['Border']; ?>">
+<?php
+@reset($header_cells);
+$i = 0;
+while(@list($header_nr, $header_val) = @each($header_cells)) {
+    echo "\n" . '<tr>' . "\n";
+?>
+        <th align="right"><?php echo $header_val; ?></th>
+<?php
+    for ($j = 0; $j < count($content_cells); $j++) {
+        $bgcolor = ($j % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
+    ?>
+        <td bgcolor="<?php echo $bgcolor; ?>"><?php echo $content_cells[$j][$i]; ?></td>
+    <?php
+    }
+
+    echo "\n" . '</tr>' . "\n";
+    $i++;
+}
+?>
+    </table>
+    <br />
+<?php
+}
+
 if ($action == 'tbl_create.php3' && PMA_MYSQL_INT_VERSION >= 32300) {
     echo "\n";
     ?>

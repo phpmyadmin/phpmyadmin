@@ -374,6 +374,10 @@ $cfg['ModifyDeleteAtRight'] = FALSE;        // show edit/delete links on right s
                                             // (or at the bottom with vertical browse)
 $cfg['DefaultDisplay']      = 'horizontal'; // default display direction
                                             // (horizontal|vertical|horizontalflipped)
+$cfg['DefaultPropDisplay']  = 'horizontal'; // default display direction for altering/
+                                            // creating columns (tbl_properties)
+                                            // (horizontal|vertical)
+
 $cfg['HeaderFlipType']      = 'css';        // table-header rotation via faking or css? (css|fake)
 $cfg['ShowBrowseComments']  = TRUE;         // shows stored relation-comments in 'browse' mode.
 $cfg['ShowPropertyComments']= TRUE;         // shows stored relation-comments in 'table property' mode.

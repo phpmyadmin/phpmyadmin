@@ -18,6 +18,10 @@ $Source$
     * querywindow.php3, tbl_query_box.php3, config.inc.php3, header.inc.php3, index.php3,
       libraries/config_import.lib.php3: Added (optional) DB-based SQL-history with
       purging on login, made querywindow tabbed, improved Querywindow-compatibility.
+    * tbl_properties.inc.php3, config.inc.php, librarires/config_import.lib.php3:
+      Experimental: Added $cfg['DefaultPropDisplay']. Enables vertical display 
+      (optional, default off) of the columns. I didn't like to have to scroll in horizontal 
+      directions, so with this mode you can see about 6 columns at once on a single screen.
 
 2003-02-26 Garvin Hicking <me@supergarv.de>
     * lang/german-*: better grammar. ;)
