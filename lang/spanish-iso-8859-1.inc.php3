@@ -97,6 +97,7 @@ $strCreatePdfFeat = 'Creación de los PDF';
 $strCriteria = 'Criterio';
 
 $strData = 'Datos';
+$strDataDict = 'Diccionario Datos';
 $strDataOnly = 'Solamente datos';
 $strDatabase = 'Base de datos ';
 $strDatabaseHasBeenDropped = 'La base de datos %s ha sido eliminada.';
@@ -261,6 +262,7 @@ $strOptions = 'Opciones';
 $strOr = 'O';
 $strOverhead = 'Residuo a depurar';
 
+$strPHP40203 = 'Usted está usando PHP 4.2.3, el cual tiene un error de codificación en cuanto a los "strings multi-byte" (mbstring). Lea el reporte 19404 de PHP. Esta versión de PHP no está recomendada para ser usada con phpMyAdmin.';  
 $strPHPVersion = 'Versión de PHP';
 $strPageNumber = 'Número de página:';
 $strPartialText = 'Textos parciales';
@@ -281,6 +283,7 @@ $strPrimaryKey = 'Clave Primaria';
 $strPrimaryKeyHasBeenDropped = 'La clave primaria ha sido eliminada';
 $strPrimaryKeyName = 'El nombre de la clave primaria debe ser... ¡PRIMARY!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>debe</b> ser el nombre de y <b>únicamente de</b> ¡una clave primaria!)';
+$strPrint = 'Imprimir';  
 $strPrintView = 'Vista de impresión';
 $strPrivileges = 'Privilegios';
 $strProperties = 'Propiedades';
@@ -323,7 +326,7 @@ $strRunSQLQuery = 'Ejecute la/s consulta/s SQL en la base de datos %s';
 $strRunning = 'ejecutándose en %s';
 
 $strSQL = 'SQL';
-$strSQLParserBugMessage = 'Hay una posibilidad de que usted haya encontrado un error en el intérprete de SQL. Por favor examine cuidadosamente su consulta, y verifique que las comillas son usadas adecuadamente y hacen juego. Otra posible causa del fallo es que usted este subiendo un archivo con datos binarios por fuera del área de texto delimitado. Intente su consulta en la interfaz de comandos de MySQL. La salida generada por el servidor de MySQL, de existir, aparece abajo, en cuyo caso puede ayudar a diagnosticar el problema. Si aún tiene problemas o el intérprete falla en tanto que en la interfaz de comandos funciona, por favor reduzca la salida de su consulta de SQL a la consulta que genera el problema, y envíe un reporte de error con la cadena de datos en la sección de CORTE indicada abajo:';
+$strSQLParserBugMessage = 'Hay la posibilidad de que usted haya encontrado un error en el intérprete de SQL. Por favor examine cuidadosamente su consulta, y verifique que las comillas son usadas adecuadamente y hacen juego. Otra posible causa del fallo es que usted este subiendo un archivo con datos binarios por fuera del área de texto delimitado. Intente su consulta en la interfaz de comandos de MySQL. La salida generada por el servidor de MySQL, de existir, aparece abajo, en cuyo caso puede ayudar a diagnosticar el problema. Si aún tiene problemas o el intérprete falla en tanto que en la interfaz de comandos funciona, por favor reduzca la salida de su consulta de SQL a la consulta que genera el problema, y envíe un reporte de error con la cadena de datos en la sección de CORTE indicada abajo:';
 $strSQLParserUserError = 'Parece haber un error en su consulta de SQL. La salida generada por el servidor de MySQL, de existir, aparece abajo, en cuyo caso puede ayudar a diagnosticar el problema.';
 $strSQLQuery = 'consulta SQL';
 $strSQLResult = 'Resultado SQL';
@@ -427,7 +430,5 @@ $strWrongUser = 'Usuario/contraseña equivocado. Acceso denegado.';
 $strYes = 'Sí';
 
 $strZip = '"comprimido con zip"';
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
+
 ?>
