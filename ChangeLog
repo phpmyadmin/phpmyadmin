@@ -8,6 +8,9 @@ $Source$
 2003-03-01 Marc Delisle  <lem9@users.sourceforge.net>
     * lang/english: typo
     * tbl_dump.php3: undefined variable $use_comments
+    * tbl_properties_export.php3: bug 692143: now we remove the 
+      LIMIT clause from the original query to use the limits entered
+      on the export form
 
 2003-03-01 Michal Cihar  <nijel@users.sourceforge.net>
     * tbl_indexes.php3: Cleaner solution for showing query after changing
