@@ -56,61 +56,74 @@
 
         if (!$check_stop) {
         // f i e l d    v a l u e    i n    t h e    f o r m
+            if (isset($fields_type[$key])) $type = $fields_type[$key];
+            else $type = '';
             switch (strtolower($val)) {
                 case 'null':
                     break;
-                case '$enum$':
-                // if we have an enum, then construct the value
-                    $f = 'field_' . md5($key);
-                    if (!empty($$f)) {
-                        $val     = implode(',', $$f);
-                        if ($val == 'null') {
-                            // void
-                        } else {
-                            $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                        }
-                    } else {
-                        $val     = "''";
-                    }
-                    break;
-                case '$set$':
-                    // if we have a set, then construct the value
-                    $f = 'field_' . md5($key);
-                    if (!empty($$f)) {
-                        $val = implode(',', $$f);
-                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                    } else {
-                        $val = "''";
-                    }
-                    break;
-                case '$foreign$':
-                    // if we have a foreign key, then construct the value
-                    $f = 'field_' . md5($key);
-                    if (!empty($$f)) {
-                        $val     = implode(',', $$f);
-                        if ($val == 'null') {
-                            // void
-                        } else {
-                            $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
-                        }
-                    } else {
-                        $val     = "''";
-                    }
-                    break;
-                case '$protected$':
-                    // here we are in protected mode (asked in the config)
-                    // so tbl_change has put this special value in the
-                    // fields array, so we do not change the field value
-                    // but we can still handle field upload
+                case '':
+                    switch ($type) {
+                        case 'enum':
+                            // if we have an enum, then construct the value
+                                $f = 'field_' . md5($key);
+                                if (!empty($$f)) {
+                                    $val     = implode(',', $$f);
+                                    if ($val == 'null') {
+                                        // void
+                                    } else {
+                                        $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                                    }
+                                } else {
+                                    $val     = "''";
+                                }
+                                break;
+                        case 'set':
+                            // if we have a set, then construct the value
+                            $f = 'field_' . md5($key);
+                            if (!empty($$f)) {
+                                $val = implode(',', $$f);
+                                $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                            } else {
+                                $val = "''";
+                            }
+                            break;
+                        case 'foreign':
+                            // if we have a foreign key, then construct the value
+                            $f = 'field_' . md5($key);
+                            if (!empty($$f)) {
+                                $val     = implode(',', $$f);
+                                if ($val == 'null') {
+                                    // void
+                                } else {
+                                    $val = "'" . PMA_sqlAddslashes(urldecode($val)) . "'";
+                                }
+                            } else {
+                                $val     = "''";
+                            }
+                            break;
+                        case 'protected':
+                            // here we are in protected mode (asked in the config)
+                            // so tbl_change has put this special value in the
+                            // fields array, so we do not change the field value
+                            // but we can still handle field upload
 
-                    // garvin: when in UPDATE mode, do not alter field's contents. When in INSERT
-                    // mode, insert empty field because no values were submitted.
-                    if (isset($fieldlist)) {
-                        $val = "''";
-                    } else {
-                        unset($val);
-                    }
+                            // garvin: when in UPDATE mode, do not alter field's contents. When in INSERT
+                            // mode, insert empty field because no values were submitted.
+                            if (isset($fieldlist)) {
+                                $val = "''";
+                            } else {
+                                unset($val);
+                            }
 
+                            break;
+                        default:
+                            if (get_magic_quotes_gpc()) {
+                                $val = "'" . str_replace('\\"', '"', $val) . "'";
+                            } else {
+                                $val = "'" . PMA_sqlAddslashes($val) . "'";
+                            }
+                            break;
+                    }
                     break;
                 default:
                     if (get_magic_quotes_gpc()) {

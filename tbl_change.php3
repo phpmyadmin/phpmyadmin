@@ -268,7 +268,9 @@ for ($i = 0; $i < $fields_cnt; $i++) {
             break;
     }
     ?>
-        <td align="center" bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>><?php echo $type; ?></td>
+        <td align="center" bgcolor="<?php echo $bgcolor; ?>"<?php echo $type_nowrap; ?>>
+            <?php echo $type; ?>
+        </td>
     <?php
     echo "\n";
 
@@ -388,7 +390,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
         <?php echo $backup_field . "\n"; ?>
-        <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$foreign$" id="field_<?php echo $i; ?>_1" />
+        <input type="hidden" name="fields_type[<?php echo urlencode($field); ?>]" value="foreign" />
+        <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="" id="field_<?php echo $i; ?>_1" />
         <select name="field_<?php echo md5($field); ?>[]" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_3">
             <option value=""></option>
         <?php
@@ -426,7 +429,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         $enum_cnt    = count($enum);
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
-            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$enum$" />
+            <input type="hidden" name="fields_type[<?php echo urlencode($field); ?>]" value="enum" />
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="" />
         <?php
         echo "\n" . '            ' . $backup_field;
 
@@ -494,7 +498,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
         ?>
         <td bgcolor="<?php echo $bgcolor; ?>">
             <?php echo $backup_field . "\n"; ?>
-            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$set$" />
+            <input type="hidden" name="fields_type[<?php echo urlencode($field); ?>]" value="set" />
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="" />
             <select name="field_<?php echo md5($field); ?>[]" size="<?php echo $size; ?>" multiple="multiple" <?php echo $chg_evt_handler; ?>="return unNullify('<?php echo urlencode($field); ?>')" tabindex="<?php echo ($i + 1); ?>" id="field_<?php echo $i; ?>_3">
         <?php
         echo "\n";
@@ -532,7 +537,8 @@ for ($i = 0; $i < $fields_cnt; $i++) {
                 }
                 echo "\n";
             ?>
-            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="$protected$" />
+            <input type="hidden" name="fields_type[<?php echo urlencode($field); ?>]" value="protected" />
+            <input type="hidden" name="fields[<?php echo urlencode($field); ?>]" value="" />
             <?php
         } else if ($is_blob) {
             echo "\n";
