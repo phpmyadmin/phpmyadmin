@@ -179,7 +179,7 @@ while (list($key, $table) = each($the_tables)) {
     ?>
 
 <!-- TABLE INFORMATIONS -->
-<table border="<?php echo $cfgBorder; ?>">
+<table border="<?php echo $cfg['Border']; ?>">
 <tr>
     <th><?php echo ucfirst($strField); ?></th>
     <th><?php echo ucfirst($strType); ?></th>
@@ -197,7 +197,7 @@ while (list($key, $table) = each($the_tables)) {
     <?php
     $i = 0;
     while ($row = mysql_fetch_array($result)) {
-        $bgcolor = ($i % 2) ?$cfgBgcolorOne : $cfgBgcolorTwo;
+        $bgcolor = ($i % 2) ?$cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
         $i++;
 
         $type             = $row['Type'];
@@ -286,7 +286,7 @@ while (list($key, $table) = each($the_tables)) {
 
 <!-- Indexes -->
 &nbsp;<big><?php echo $strIndexes . '&nbsp;:'; ?></big>
-<table border="<?php echo $cfgBorder; ?>">
+<table border="<?php echo $cfg['Border']; ?>">
     <tr>
         <th><?php echo $strKeyname; ?></th>
         <th><?php echo $strType; ?></th>
@@ -296,7 +296,7 @@ while (list($key, $table) = each($the_tables)) {
         <?php
         echo "\n";
         while (list($index_no, $index_name) = each($indexes)) {
-            $cell_bgd = (($index_no % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo);
+            $cell_bgd = (($index_no % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo']);
             $index_td = '            <td bgcolor="' . $cell_bgd . '" rowspan="' . count($indexes_info[$index_name]['Sequences']) . '">' . "\n";
             echo '        <tr>' . "\n";
             echo $index_td
@@ -353,7 +353,7 @@ while (list($key, $table) = each($the_tables)) {
      *
      * staybyte - 9 June 2001
      */
-    if ($cfgShowStats) {
+    if ($cfg['ShowStats']) {
         $nonisam     = FALSE;
         if (isset($showtable['Type']) && !eregi('ISAM|HEAP', $showtable['Type'])) {
             $nonisam = TRUE;
@@ -391,24 +391,24 @@ while (list($key, $table) = each($the_tables)) {
     <!-- Space usage -->
     <td valign="top">
         &nbsp;<big><?php echo $strSpaceUsage . '&nbsp;:'; ?></big>
-        <table border="<?php echo $cfgBorder; ?>">
+        <table border="<?php echo $cfg['Border']; ?>">
         <tr>
             <th><?php echo $strType; ?></th>
             <th colspan="2" align="center"><?php echo $strUsage; ?></th>
         </tr>
         <tr>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
-            <td align="right" bgcolor="<?php echo $cfgBgcolorTwo; ?>" nowrap="nowrap"><?php echo $data_size; ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>"><?php echo $data_unit; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strData); ?></td>
+            <td align="right" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" nowrap="nowrap"><?php echo $data_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $data_unit; ?></td>
         </tr>
             <?php
             if (isset($index_size)) {
                 echo "\n";
                 ?>
             <tr>
-                <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
-                <td align="right" bgcolor="<?php echo $cfgBgcolorTwo; ?>" nowrap="nowrap"><?php echo $index_size; ?></td>
-                <td bgcolor="<?php echo $cfgBgcolorTwo; ?>"><?php echo $index_unit; ?></td>
+                <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strIndex); ?></td>
+                <td align="right" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" nowrap="nowrap"><?php echo $index_size; ?></td>
+                <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $index_unit; ?></td>
             </tr>
                 <?php
             }
@@ -416,14 +416,14 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr style="color: #bb0000">
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>" style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
-            <td align="right" bgcolor="<?php echo $cfgBgcolorTwo; ?>" nowrap="nowrap"><?php echo $free_size; ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorTwo; ?>"><?php echo $free_unit; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" style="padding-right: 10px"><?php echo ucfirst($strOverhead); ?></td>
+            <td align="right" bgcolor="<?php echo $cfg['BgcolorTwo']; ?>" nowrap="nowrap"><?php echo $free_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorTwo']; ?>"><?php echo $free_unit; ?></td>
         </tr>
         <tr>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
-            <td align="right" bgcolor="<?php echo $cfgBgcolorOne; ?>" nowrap="nowrap"><?php echo $effect_size; ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>"><?php echo $effect_unit; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo ucfirst($strEffective); ?></td>
+            <td align="right" bgcolor="<?php echo $cfg['BgcolorOne']; ?>" nowrap="nowrap"><?php echo $effect_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $effect_unit; ?></td>
         </tr>
                 <?php
             }
@@ -431,9 +431,9 @@ while (list($key, $table) = each($the_tables)) {
                 echo "\n";
                 ?>
         <tr>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>" style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
-            <td align="right" bgcolor="<?php echo $cfgBgcolorOne; ?>" nowrap="nowrap"><?php echo $tot_size; ?></td>
-            <td bgcolor="<?php echo $cfgBgcolorOne; ?>"><?php echo $tot_unit; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>" style="padding-right: 10px"><?php echo ucfirst($strTotal); ?></td>
+            <td align="right" bgcolor="<?php echo $cfg['BgcolorOne']; ?>" nowrap="nowrap"><?php echo $tot_size; ?></td>
+            <td bgcolor="<?php echo $cfg['BgcolorOne']; ?>"><?php echo $tot_unit; ?></td>
         </tr>
                 <?php
             }
@@ -447,7 +447,7 @@ while (list($key, $table) = each($the_tables)) {
     <!-- Rows Statistic -->
     <td valign="top">
         &nbsp;<big><?php echo $strRowsStatistic . '&nbsp;:'; ?></big>
-        <table border="<?php echo $cfgBorder; ?>">
+        <table border="<?php echo $cfg['Border']; ?>">
         <tr>
             <th><?php echo $strStatement; ?></th>
             <th align="center"><?php echo $strValue; ?></th>
@@ -455,7 +455,7 @@ while (list($key, $table) = each($the_tables)) {
             <?php
             $i = 0;
             if (isset($showtable['Row_format'])) {
-                $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
                 echo "\n";
                 ?>
         <tr>
@@ -477,7 +477,7 @@ while (list($key, $table) = each($the_tables)) {
                 <?php
             }
             if (isset($showtable['Rows'])) {
-                $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
                 echo "\n";
             ?>
         <tr>
@@ -489,7 +489,7 @@ while (list($key, $table) = each($the_tables)) {
                 <?php
             }
             if (isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
-                $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
                 echo "\n";
                 ?>
         <tr>
@@ -501,7 +501,7 @@ while (list($key, $table) = each($the_tables)) {
                 <?php
             }
             if (isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == FALSE) {
-                $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
                 echo "\n";
                 ?>
         <tr>
@@ -513,7 +513,7 @@ while (list($key, $table) = each($the_tables)) {
                 <?php
             }
             if (isset($showtable['Auto_increment'])) {
-                $bgcolor = ((++$i%2) ? $cfgBgcolorTwo : $cfgBgcolorOne);
+                $bgcolor = ((++$i%2) ? $cfg['BgcolorTwo'] : $cfg['BgcolorOne']);
                 echo "\n";
                 ?>
         <tr>
@@ -533,7 +533,7 @@ while (list($key, $table) = each($the_tables)) {
 
             <?php
         } // end if (PMA_MYSQL_INT_VERSION >= 32303 && $nonisam == FALSE)
-    } // end if ($cfgShowStats)
+    } // end if ($cfg['ShowStats'])
 
     echo "\n";
     if ($multi_tables) {

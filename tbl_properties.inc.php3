@@ -24,7 +24,7 @@ echo "\n";
 $is_backup = ($action != 'tbl_create.php3' && $action != 'tbl_addfield.php3');
 ?>
 
-    <table border="<?php echo $cfgBorder; ?>">
+    <table border="<?php echo $cfg['Border']; ?>">
     <tr>
         <th><?php echo $strField; ?></th>
         <th><?php echo $strType . '<br /><span style="font-weight: normal">' . PMA_showDocuShort('C/o/Column_types.html'); ?></span></th>
@@ -53,7 +53,7 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     if (isset($fields_meta)) {
         $row = $fields_meta[$i];
     }
-    $bgcolor = ($i % 2) ? $cfgBgcolorOne : $cfgBgcolorTwo;
+    $bgcolor = ($i % 2) ? $cfg['BgcolorOne'] : $cfg['BgcolorTwo'];
     ?>
     <tr>
         <td bgcolor="<?php echo $bgcolor; ?>">
@@ -101,12 +101,12 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         }
     } // end if else
 
-    for ($j = 0; $j < count($cfgColumnTypes); $j++) {
-        echo '                <option value="'. $cfgColumnTypes[$j] . '"';
-        if (strtoupper($type) == strtoupper($cfgColumnTypes[$j])) {
+    for ($j = 0; $j < count($cfg['ColumnTypes']); $j++) {
+        echo '                <option value="'. $cfg['ColumnTypes'][$j] . '"';
+        if (strtoupper($type) == strtoupper($cfg['ColumnTypes'][$j])) {
             echo ' selected="selected"';
         }
-        echo ">$cfgColumnTypes[$j]</option>\n";
+        echo ">$cfg['ColumnTypes'][$j]</option>\n";
     } // end for
     ?>
             </select>
@@ -140,12 +140,12 @@ for ($i = 0 ; $i < $num_fields; $i++) {
     if ($zerofill) {
         $strAttribute = 'UNSIGNED ZEROFILL';
     }
-    for ($j = 0;$j < count($cfgAttributeTypes); $j++) {
-        echo '                <option value="'. $cfgAttributeTypes[$j] . '"';
-        if (strtoupper($strAttribute) == strtoupper($cfgAttributeTypes[$j])) {
+    for ($j = 0;$j < count($cfg['AttributeTypes']); $j++) {
+        echo '                <option value="'. $cfg['AttributeTypes'][$j] . '"';
+        if (strtoupper($strAttribute) == strtoupper($cfg['AttributeTypes'][$j])) {
             echo ' selected="selected"';
         }
-        echo ">$cfgAttributeTypes[$j]</option>\n";
+        echo ">$cfg['AttributeTypes'][$j]</option>\n";
     }
     ?>
             </select>
