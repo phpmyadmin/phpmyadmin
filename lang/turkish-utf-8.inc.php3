@@ -65,6 +65,7 @@ $strBookmarkQuery = ' SQL-sorgusu';
 $strBookmarkThis = 'Bu SQL-sorgusunu işaretle';
 $strBookmarkView = 'Sadece gözat';
 $strBrowse = 'Tara';
+$strBrowseForeignValues = 'Foreign(yabancı) değerleri tara';
 $strBulgarian = 'Bulgarca'; 
 $strBzip = '"bzipped"';
 
@@ -450,6 +451,7 @@ $strUpdateQuery = 'Sorguyu güncelle';
 $strUsage = 'Kullanım';
 $strUseBackquotes = 'Tablo ve alan isimleri için ters tırnak " ` " işaretini kullan';
 $strUseTables = 'Tabloları kullan';
+$strUseThisValue = 'Bu değeri kullan';
 $strUser = 'Kullanıcı:';
 $strUserEmpty = 'Kullanıcı ismi alanı doldurulmadı!';
 $strUserName = 'Kullanıcı ismi';
@@ -462,6 +464,7 @@ $strViewDumpDB = 'Veritabanı\'nın döküm(şema)\'ünü göster';
 $strViewDumpDatabases = 'Veritabanlarının şemalarını (dump) gör';
 
 $strWelcome = '%s \'e HOŞGELDİNİZ....';
+$strWindowNotFound = 'Hedefteki tarayı penceresi güncellenemiyor...Bağlantısı olan pencereyi kapattınız veya tarayıcınızın güvenlik ayarları buna izin vermiyor';
 $strWithChecked = 'seçilileri:';
 $strWrongUser = 'Hatalı kullanıcı/parola. Erişim engellendi.';
 
@@ -716,7 +719,4 @@ $strWritingRelationNotPossible = 'Writing of relation not possible';  //to trans
 $strXML = 'XML';//to translate
 
 $strZeroRemovesTheLimit = 'Note: Setting these options to 0 (zero) removes the limit.'; //to translate
-$strUseThisValue = 'Use this value';  //to translate
-$strWindowNotFound = 'The target browser window could not be updated. Maybe you have closed the parent window or your browser is blocking cross-window updates of your security settings';  //to translate
-$strBrowseForeignValues = 'Browse foreign values';  //to translate
 ?>
