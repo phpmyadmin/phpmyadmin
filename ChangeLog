@@ -12,6 +12,7 @@ $Source$
     * libraries/display_export.lib.php3, libraries/export/csv.php3,
       libraries/config_import.lib.php3, config.inc.php3: Allow column headers
       for Excel export (bug #771299).
+    * header.inc.php3: Don't allow including this file twice.
 
 2003-08-05 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/sqlparser.data.php3: bug 779453, wrong count
