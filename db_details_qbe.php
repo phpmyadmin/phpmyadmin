@@ -55,45 +55,39 @@ if (!isset($Rows)) {
     $Rows     = '';
 }
 if (!isset($InsCol)) {
-    $InsCol   = '';
+    $InsCol   = array();
 }
 if (!isset($DelCol)) {
-    $DelCol   = '';
+    $DelCol   = array();
 }
 if (!isset($prev_Criteria)) {
     $prev_Criteria = '';
 }
-// workaround for a PHP3 problem
 if (!isset($Criteria)) {
-    //$Criteria = '';
     $Criteria = array();
     for ($i = 0; $i < $Columns; $i++) {
         $Criteria[$i] = '';
     }
 }
 if (!isset($InsRow)) {
-//    $InsRow   = '';
     $InsRow = array();
     for ($i = 0; $i < $Columns; $i++) {
         $InsRow[$i] = '';
     }
 }
 if (!isset($DelRow)) {
-//    $DelRow   = '';
     $DelRow = array();
     for ($i = 0; $i < $Columns; $i++) {
         $DelRow[$i] = '';
     }
 }
 if (!isset($AndOrRow)) {
-//    $AndOrRow = '';
     $AndOrRow = array();
     for ($i = 0; $i < $Columns; $i++) {
         $AndOrRow[$i] = '';
     }
 }
 if (!isset($AndOrCol)) {
-//    $AndOrCol = '';
     $AndOrCol = array();
     for ($i = 0; $i < $Columns; $i++) {
         $AndOrCol[$i] = '';
@@ -426,7 +420,7 @@ for ($y = 0; $y <= $row; $y++) {
         <?php
         $z = 0;
         for ($x = 0; $x < $col; $x++) {
-            if ($InsCol[$x] == 'on') {
+            if (isset($InsCol[$x]) && $InsCol[$x] == 'on') {
                 echo "\n";
                 $or = 'Or' . $w . '[' . $z . ']';
                 ?>
@@ -436,7 +430,7 @@ for ($y = 0; $y <= $row; $y++) {
                 <?php
                 $z++;
             } // end if
-            if ($DelCol[$x] == 'on') {
+            if (isset($DelCol[$x]) && $DelCol[$x] == 'on') {
                 continue;
             }
 
@@ -984,7 +978,7 @@ if (!empty($qry_from)) {
 $qry_where          = '';
 $criteria_cnt       = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (!empty($curField[$x]) && !empty($curCriteria[$x]) && $x && isset($last_where)) {
+    if (!empty($curField[$x]) && !empty($curCriteria[$x]) && $x && isset($last_where) && isset($curAndOrCol)) {
         $qry_where  .= ' ' . strtoupper($curAndOrCol[$last_where]) . ' ';
     }
     if (!empty($curField[$x]) && !empty($curCriteria[$x])) {
