@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+
+2004-10-27 Alexander M. Turek  <me@derrabus.de>
+    * config.inc.php, libraries/config_import.lib.php,
+      libraries/sqlparser.data.php: Added function OLD_PASSWORD().
+
 2004-10-26 Alexander M. Turek  <me@derrabus.de>
     * libraries/sqlparser.data.php: Added OFFSET.
 
