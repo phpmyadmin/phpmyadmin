@@ -873,7 +873,6 @@
     this account in the <i>config.inc.php3</i> file under the <i>$cfgServers[n]['stduser']</i> &amp;
     <i>$cfgServers[n]['stdpass']</i> settings.
     To create the control account:<br />
-    <tt>REVOKE ALL ON *.* FROM 'user'@localhost;</tt><br />
     <tt>GRANT USAGE ON *.* TO 'user'@localhost IDENTIFIED BY 'password';</tt><br />
     <tt>GRANT SELECT ON mysql.db TO 'user'@localhost;</tt><br />
     <tt>GRANT SELECT ON mysql.user TO 'user'@localhost;</tt><br />
