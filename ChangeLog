@@ -6,6 +6,9 @@ $Id$
 $Source$
 
 
+2002-06-23 Olivier L. Müller  <om@omnis.ch>
+    * db_stats.php3: Fixed warning from mysql_free_result.
+
 2002-06-22 Olivier L. Müller  <om@omnis.ch>
     * lang/english-utf8.inc.php3, lang/english.inc.php3, lang/french.inc.php3:
       shorter term for QBE
