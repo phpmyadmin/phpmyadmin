@@ -140,7 +140,7 @@ $strKeyname = 'Nom de la clé';
 $strKill = 'Supprimer';
 
 $strLength = 'Long.';
-$strLengthSet = 'Longueur';
+$strLengthSet = 'Taille/Valeurs*';
 $strLimitNumRows = 'enregistrements par page';
 $strLineFeed = 'Saut de ligne : \\n';
 $strLines = 'Lignes';
@@ -231,6 +231,7 @@ $strSelectNumRows = 'dans la requête';
 $strSend = 'Transmettre';
 $strSequence = 'Séq.';
 $strServerVersion = 'Version du serveur';
+$strSetEnumVal = 'Les différentes valeurs des champs de type enum/set sont à spécifier sous la forme \'a\',\'b\',\'c\'...<br />Pour utiliser un caractère "\\" ou "\'" dans l\'une de ces valeurs, faites le précéder du caractère d\'échappement "\\" (par exemple \'\\\\xyz\' ou \'a\\\'b\').';
 $strShow = 'Afficher';
 $strShowingRecords = 'Affichage des enregistrements';
 $strShowPHPInfo = 'Afficher les informations relatives à PHP';

@@ -134,7 +134,6 @@ $strKeyname = 'Nombre de la clave';
 $strKill = 'Matar proceso'; 
 
 $strLength = 'Longitud'; 
-$strLengthSet = 'Longitud de Campo';
 $strLimitNumRows = 'registros por pagina'; 
 $strLineFeed = 'Retorno de carro: \\n';
 $strLines = 'Lineas';
@@ -286,8 +285,10 @@ $strAffectedRows = 'Rows affected: ';
 $strDisplayOrder = 'Display order:';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
+$strLengthSet = 'Length/Values*';
 $strNoModification = 'No change'; // To translate
 $strOffSet = 'offset';
+$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strTables = '%s table(s)';  //to translate
 ?>

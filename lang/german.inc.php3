@@ -140,7 +140,7 @@ $strKeyname = 'Name';
 $strKill = 'Beenden';
 
 $strLength = ' Länge ';
-$strLengthSet = 'Länge/Set';
+$strLengthSet = 'Länge/Set*';
 $strLimitNumRows = 'Einträge pro Seite';
 $strLineFeed = 'Zeilenvorschub: \\n';
 $strLines = 'Zeilen';
@@ -286,4 +286,7 @@ $strWelcome = 'Willkommen bei ';
 $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 
 $strYes = 'Ja';
+
+// To translate
+$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 ?>

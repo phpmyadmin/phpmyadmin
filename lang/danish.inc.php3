@@ -136,7 +136,7 @@ $strKeyname = 'N&oslash;gle';
 $strKill = 'Kill'; //to translate
 
 $strLength = 'Length'; //to translate
-$strLengthSet = 'L&aelig;ngde/V&aelig;rdi';
+$strLengthSet = 'L&aelig;ngde/V&aelig;rdi*';
 $strLimitNumRows = 'poster pr. side';
 $strLineFeed = 'Linefeed: \\n';
 $strLines = 'Linier';
@@ -285,6 +285,7 @@ $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strNoModification = 'No change';
 $strQueryOnDb = 'SQL-query on database ';
+$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strTables = '%s table(s)';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';

@@ -137,7 +137,7 @@ $strKeyname = 'Nome chiave';
 $strKill = 'Uccidi';
 
 $strLength = 'Lunghezza';
-$strLengthSet = 'Lunghezza/Set';
+$strLengthSet = 'Lunghezza/Set*';
 $strLimitNumRows = 'record per pagina';
 $strLineFeed = 'Fine riga: \\n';
 $strLines = 'Righe';
@@ -286,6 +286,7 @@ $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';
 $strNoModification = 'No change'; // To translate
 $strQueryOnDb = 'SQL-query on database ';
+$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strTables = '%s table(s)';  //to translate
 $strUseBackquotes = 'Use backquotes with tables and fields\' names';

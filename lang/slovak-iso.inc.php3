@@ -141,7 +141,7 @@ $strKeyname = 'Kµúèový názov';
 $strKill = 'Zabi»';
 
 $strLength = 'Då¾ka';
-$strLengthSet = 'Då¾ka/Nastavi»';
+$strLengthSet = 'Då¾ka/Nastavi»*';
 $strLimitNumRows = 'záznamov na stránku';
 $strLineFeed = 'Ukonèenie riadku (Linefeed): \\n';
 $strLines = 'Riadky';
@@ -287,6 +287,7 @@ $strYes = 'Áno';
 
 // To translate
 $strNoModification = 'No change'; // To translate
+$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strTables = '%s table(s)';  //to translate
 ?>

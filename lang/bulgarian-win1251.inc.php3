@@ -131,7 +131,7 @@ $strKeyname = 'Име на ключа';
 $strKill = 'Kill'; //to translate
 
 $strLength = 'Length'; //to translate
-$strLengthSet = 'Дължина';
+$strLengthSet = 'Length/Values*'; //to translate
 $strLimitNumRows = 'records per page'; //to translate
 $strLineFeed = 'Символ за край на ред: \\n';
 $strLines = 'Редове';
@@ -289,6 +289,7 @@ $strNoModification = 'No change';
 $strOffSet = 'offset';
 $strQueryOnDb = 'SQL-query on database ';
 $strRowSize = ' Row size ';  //to translate
+$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strShowThisQuery = ' Show this query here again ';  //to translate
 $strTables = '%s table(s)';  //to translate

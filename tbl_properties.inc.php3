@@ -301,7 +301,16 @@ echo "\n";
 ?>
 
 <input type="submit" name="submit" value="<?php echo $strSave; ?>" />
-
 </form>
+
+<table>
+<tr>
+    <td valign="top">*&nbsp;</td>
+    <td>
+        <?php echo $strSetEnumVal . "\n"; ?>
+    </td>
+</tr>
+</table>
+<br />
 
 <center><?php echo show_docu('manual_Reference.html#CREATE_TABLE'); ?></center>

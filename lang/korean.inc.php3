@@ -131,7 +131,7 @@ $strKeyname = '키 이름';
 $strKill = 'Kill'; //to translate
 
 $strLength = 'Length'; //to translate
-$strLengthSet = '길이/세트';
+$strLengthSet = '길이/세트*';
 $strLimitNumRows = '페이지의 레코드 수';
 $strLineFeed = '개행 문자: \\n';
 $strLines = '줄(行)';
@@ -289,6 +289,7 @@ $strNoModification = 'No change'; // To translate
 $strOffSet = 'offset';
 $strQueryOnDb = 'SQL-query on database ';
 $strRowSize = ' Row size ';  //to translate
+$strSetEnumVal = 'If field type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'...<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, backslashes it (for example \'\\\\xyz\' or \'a\\\'b\').';
 $strShowPHPInfo = 'Show PHP information';  // To translate
 $strShowThisQuery = ' Show this query here again ';  //to translate
 $strTables = '%s table(s)';  //to translate
