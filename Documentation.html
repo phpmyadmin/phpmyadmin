@@ -1572,17 +1572,13 @@ $cfg['PmaAbsoluteUri'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://'
 </p>
 
 <p>
-    <b>I'm running MySQL&nbsp;4.0.1 on a Windows&nbsp;NT machine. Each time I
-       create a table the table name is changed to lowercase.</b>
+    <b>I'm running MySQL&nbsp;&lt;=&nbsp;4.0.1 having lower_case_table_names set
+       to 1. If I create a new table with a capital letter in its name it is
+       changed to lowercase as it should. But if I try to DROP this table MySQL
+       is unable to find the corresponding file.</b>
     <br />
-    This seems to be a bug of MySQL&nbsp;4.0.1 because it also appears when
-    using the MySQL commandline. Currently we only know about its appearance on
-    Windows&nbsp;NT systems, but it is possible that it appears on other
-    systems, too.<br />
-    If you encounter this bug together with another OS and/or MySQL version or
-    you know how to work around it, please post a message into
-    <a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=540671&amp;group_id=23067&amp;atid=377408" target="_blank">
-    our bug tracker</a> at SourceForge.
+    This is a bug of MySQL&nbsp;&lt;=&nbsp;4.0.1. Please upgrade to at least
+    MySQL&nbsp;4.0.2 or turn off your lower_case_table_names directive.
 </p>
 
 <p>

@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2002-07-13 Alexander M. Turek  <rabus@users.sourceforge.net>
+    * Documentation.html: News about bug #540671.
+
 2002-07-12 Alexander M. Turek  <rabus@users.sourceforge.net>
     * main.php3: Fixed a bug of the SHOW GRANTS patch (bug #568174: Wildcards
       escaped in db name), thanks to Björn T. Hallberg (bth).
