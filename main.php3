@@ -148,20 +148,8 @@ if ($server == 0 || count($cfgServers) > 1) {
 /**
  * Displays the mysql server related links 
  */
-$is_superuser = FALSE;
+$is_superuser        = FALSE;
 if ($server > 0) {
-    ?>
-    <!-- MySQL server related links -->
-    <td valign="top" align="<?php echo $cell_align_left; ?>">
-        <table>
-        <tr>
-            <th colspan="2">&nbsp;&nbsp;MySQL</th>
-        </tr>
-    <?php
-    echo "\n";
-    
-    $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
-
     // Get user's global privileges ($dbh and $userlink are links to MySQL
     // defined in the "common.lib.php3" library)
     $is_create_priv  = FALSE;
@@ -204,11 +192,24 @@ if ($server > 0) {
         $db_to_create = '';
     } // end else
 
+    $common_url_query = 'lang=' . $lang . '&amp;server=' . $server;
 
-    // The user is allowed to create a db
-    if ($is_create_priv) {
-        echo "\n";
+    // loic1: Displays the MySQL column only if at least one feature has to be
+    //        displayed
+    if ($is_superuser || $is_create_priv || $is_process_priv || $is_reload_priv
+        || $cfgShowMysqlInfo || $cfgShowMysqlVars) {
         ?>
+    <!-- MySQL server related links -->
+    <td valign="top" align="<?php echo $cell_align_left; ?>">
+        <table>
+        <tr>
+            <th colspan="2">&nbsp;&nbsp;MySQL</th>
+        </tr>
+        <?php
+        // The user is allowed to create a db
+        if ($is_create_priv) {
+            echo "\n";
+            ?>
         <!-- db creation form -->
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
@@ -223,17 +224,17 @@ if ($server > 0) {
             </form>
             </td>
         </tr>
-        <?php
-    } // end create db form
-    echo "\n";
-
-    // Server related links
-    ?>
-        <!-- server-related links -->
-    <?php
-    if ($is_superuser || $cfgShowMysqlInfo) {
+            <?php
+        } // end create db form
         echo "\n";
+
+        // Server related links
         ?>
+        <!-- server-related links -->
+        <?php
+        if ($is_superuser || $cfgShowMysqlInfo) {
+            echo "\n";
+            ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
@@ -242,11 +243,11 @@ if ($server > 0) {
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
         </tr>
-        <?php
-    } // end if
-    if ($is_superuser || $cfgShowMysqlVars) {
-        echo "\n";
-        ?>
+            <?php
+        } // end if
+        if ($is_superuser || $cfgShowMysqlVars) {
+            echo "\n";
+            ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
@@ -255,12 +256,12 @@ if ($server > 0) {
                 <?php echo show_docu('manual_Performance.html#Performance') . "\n"; ?>
             </td>
         </tr>
-        <?php
-    }
-    echo "\n";
+            <?php
+        }
 
-    if ($is_process_priv) {
-        ?>
+        if ($is_process_priv) {
+            echo "\n";
+            ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
@@ -269,12 +270,12 @@ if ($server > 0) {
                 <?php echo show_docu('manual_Reference.html#SHOW') . "\n"; ?>
             </td>
         </tr>
-        <?php
-    } // end if
-    echo "\n";
+            <?php
+        } // end if
 
-    if ($is_reload_priv) {
-        ?>
+        if ($is_reload_priv) {
+            echo "\n";
+            ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
@@ -283,12 +284,12 @@ if ($server > 0) {
                 <?php echo show_docu('manual_Reference.html#FLUSH') . "\n"; ?>
             </td>
         </tr>
-        <?php
-    }
-    echo "\n";
+            <?php
+        }
 
-    if ($is_superuser) {
-        ?>
+        if ($is_superuser) {
+            echo "\n";
+            ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
@@ -297,10 +298,10 @@ if ($server > 0) {
                 <?php echo show_docu('manual_Privilege_system.html#Privilege_system') . "\n"; ?>
             </td>
         </tr>
-        <?php
-        if (MYSQL_INT_VERSION >= 32303) {
-            echo "\n";
-            ?>
+            <?php
+            if (MYSQL_INT_VERSION >= 32303) {
+                echo "\n";
+                ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
@@ -308,15 +309,14 @@ if ($server > 0) {
                     <?php echo $strDatabasesStats; ?></a>
             </td>
         </tr>
-            <?php
+                <?php
+            }
         }
-    }
-    echo "\n";
 
-    // Logout for advanced authentication
-    if ($cfgServer['adv_auth'])
-    {
-        ?>
+        // Logout for advanced authentication
+        if ($cfgServer['adv_auth']) {
+            echo "\n";
+            ?>
         <tr>
             <td valign="baseline"><img src="<?php echo $item_img; ?>" width="7" height="7" alt="item" /></td>
             <td>
@@ -325,15 +325,16 @@ if ($server > 0) {
                 <a href="<?php echo $cfgPmaAbsoluteUri; ?>Documentation.html#login_bug" target="documentation">(*)</a>
             </td>
         </tr>
-        <?php
-    } // end if
-    echo "\n";
-    ?>
+            <?php
+        } // end if
+        echo "\n";
+        ?>
         </table>
     </td>
     
     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <?php
+        <?php
+    } // end if
 } // end of if ($server > 0)
 echo "\n";
 
@@ -397,7 +398,7 @@ if (empty($cfgLang)) {
                     <input type="submit" value="Go" />
                 </form>
             </td>
-       </tr>
+        </tr>
    <?php
 }
 echo "\n";
