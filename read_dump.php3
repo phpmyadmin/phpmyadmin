@@ -222,7 +222,48 @@ if (!empty($id_bookmark)) {
 // Gets the query from a file if required 
 if ($sql_file != 'none') {
     if (file_exists($sql_file) && is_uploaded_file($sql_file)) {
-        $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
+
+       if (PMA_PHP_INT_VERSION >= 40000 ) {
+          $open_basedir = @ini_get('open_basedir');
+       }
+       if (PMA_PHP_INT_VERSION < 40000 )  {
+          $open_basedir = @get_cfg_var('open_basedir');
+       }
+
+       // if we are on a server with open_basedir, we must move
+       // the file before opening it. The doc explains how
+       // to create the ./tmp directory
+
+       if (!empty($open_basedir)) {
+          // check if '.' is in open_basedir 
+          $pos = strpos($open_basedir,'.');
+
+          // from the PHP annotated manual
+          if (  (PMA_PHP_INT_VERSION < 40000 && is_integer($pos) && !$pos)
+             || (PMA_PHP_INT_VERSION >= 40000 && $pos === false) ) {
+          // if no '.' in openbasedir, do not move the file, 
+          // force the error and let PHP report it
+              error_reporting(E_ALL);
+              $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
+          }
+          else {
+             $sql_file_new='./tmp/' . basename($sql_file);  
+             if (PMA_PHP_INT_VERSION < 40003) {
+                 copy($sql_file, $sql_file_new);
+             }
+             else {
+                 move_uploaded_file($sql_file, $sql_file_new);  
+             }
+             $sql_query = fread(fopen($sql_file_new, 'r'), filesize($sql_file_new));
+             unlink($sql_file_new); 
+          }
+
+       }
+       else {
+           // read from the normal upload dir
+           $sql_query = fread(fopen($sql_file, 'r'), filesize($sql_file));
+       }
+
         if (get_magic_quotes_runtime() == 1) {
             $sql_query = stripslashes($sql_query);
         }
