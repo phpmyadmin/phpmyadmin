@@ -187,15 +187,19 @@ Either there is an error with your PHP setup or your username/password is
   The following method is preferred for new developers:
   <ul>
   <li>fetch the current CVS tree over anonymous CVS:<br>
-  cvs -d :pserver:anon@www.htmlwizard.net:/usr/local/cvsroot login<br>
-  [Password: phpMyAdmin]
-  cvs -d :pserver:anon@www.htmlwizard.net:/usr/local/cvsroot checkout phpMyAdmin<br>
-  [This will create a new sub-directory named phpMyAdmin]
+  cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login<br>
+  [Password: simply press the Enter key]<br>
+  cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin checkout phpMyAdmin<br>
+  &nbsp;&nbsp;&nbsp;or<br>
+  cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin checkout phpMyAdmin-devel<br>
+  [This will create a new sub-directory named phpMyAdmin or phpMyAdmin-devel]<br>
   <li>add your stuff
-  <li>send me the modified files (tar'ed and gzip'ed)
-  Write access to the CVS tree is granted only to experienced developers who have already contributed something useful to phpMyAdmin.<br>
-  Also, have a look at the file DEVELOPERS. 
+  <li>put the modified files (tar'ed and gzip'ed) inside the patch tracker of the
+  <a href="https://sourceforge.net/projects/phpmyadmin/" target="_blank">phpMyAdmin SourceForge account</a>.
   </ul>
+ <p>Write access to the CVS tree is granted only to experienced developers who have already contributed something useful to phpMyAdmin.<br>
+  Also, have a look at the file DEVELOPERS.
+</p> 
 <p><b>What's the preferred way of making phpMyAdmin secure against evil access?<br>
   </b> This depends on your system. If you're running a server which cannot be 
   accessed by other people, it's sufficient to use the directory protection bundled 

@@ -26,14 +26,17 @@ phpMyAdmin - Developer's Information
   With 1.4.1, development has switched to CVS. 
   The following method is preferred for new developers:
   - fetch the current CVS tree over anonymous CVS:
-    cvs -d :pserver:anon@www.htmlwizard.net:/usr/local/cvsroot login
-    [Password: phpMyAdmin]
-    cvs -d :pserver:anon@www.htmlwizard.net:/usr/local/cvsroot checkout phpMyAdmin
-    [This will create a new sub-directory named phpMyAdmin]
+    cvs -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin login
+    [Password: simply press the Enter key]
+    cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin checkout phpMyAdmin
+      or
+    cvs -z3 -d:pserver:anonymous@cvs.phpmyadmin.sourceforge.net:/cvsroot/phpmyadmin checkout phpMyAdmin-devel
+    [This will create a new sub-directory named phpMyAdmin or phpMyAdmin-devel]
   - add your stuff
-  - send me the file you've modified, or send me a diff.
-  I've also set up CVSWEB on http://www.htmlwizard.net/cgi-bin/cvsweb.
+  - put the modified files (tar'ed and gzip'ed) inside the patch tracker of the
+    phpMyAdmin SourceForge account
+    (https://sourceforge.net/projects/phpmyadmin/)
   Write access to the CVS tree is granted only to developers who have already
   contributed something useful to phpMyAdmin.  If you're interested in that, 
-  please contact me.
+  please contact us.
 
