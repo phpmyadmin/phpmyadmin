@@ -214,8 +214,8 @@
          <tt>tar xzvf phpMyAdmin_x.x.x.tar.gz</tt></li>
     <li> Open the file config.inc.php3 in your favourite editor and change
          the values for host, user and password to fit your environment.
-         Have a look at <i>Documentation.html</i> for an explanation of all
-         values.</li>
+         Have a look at <a class="navigation" href="#config">Configuration section</a>
+         for an explanation of all values.</li>
     <li> It is recommended that you protect the directory in which
          you installed phpMyAdmin (unless it's on a closed intranet), 
          for example with HTTP-AUTH (in a <i>.htaccess</i> file). See the
@@ -311,20 +311,13 @@
     </dd>
 
     <dt>
-        <b>$cfgServers[n]['stduser']</b> string<br />
-        <b>$cfgServers[n]['stdpass']</b> string
+        <b>$cfgServers[n]['user']</b> string<br />
+        <b>$cfgServers[n]['password']</b> string
     </dt>
     <dd>
-        A user/password pair used to get the privileges of the real user.<br />
-        Since phpMyAdmin 2.2.1-rc3 this setting is available with both standard
-        and advanced authentication. This "fake" user must be able to connect
-        to MySQL and read the <tt>mysql.User</tt> and <tt>mysql.Db</tt>
-        tables.<br />
-        Please note that if you try a phpMyAdmin login with this stduser, you
-        could get some errors, depending on the exact privileges you gave to
-        this stduser. phpMyAdmin does not support a direct login with the
-        stduser.
-        <br /><br />
+        The user/password-pair which phpMyAdmin will use to connect to this
+        MySQL-server. These are not needed when advanced authentication is used,
+        and should be empty.<br /><br />
     </dd>
 
     <dt><b>$cfgServers[n]['adv_auth']</b> boolean</dt>
@@ -356,24 +349,25 @@
         </ul>
 
         Advanced authentication is secure as the MySQL passwords does not need
-        to be set in the phpMyAdmin configuration file (except for the standard
-        user -see before-).
+        to be set in the phpMyAdmin configuration file. (except for the standard
+        user -see below-). 
+
         <br /><br />
 
-        See also the FAQ section for more information about security.
+        Please see the security section in the FAQ for more information.
         <br /><br />
     </dd>
 
     <dt>
-        <b>$cfgServers[n]['user']</b> string<br />
-        <b>$cfgServers[n]['password']</b> string
+        <b>$cfgServers[n]['stduser']</b> string<br />
+        <b>$cfgServers[n]['stdpass']</b> string
     </dt>
     <dd>
-        The user/password-pair which phpMyAdmin will use to connect to this
-        MySQL-server.<br />
-        While <tt>$cfgServers[n]['user']</tt> is always required,
-        <tt>$cfgServers[n]['password']</tt> is not needed when using advanced
-        authentication (let it empty in this case).
+        When using advanced authentication mode, you need to supply the details
+        of a MySQL account that has SELECT access on the <i>mysql.db</i> &amp;
+        <i>mysql.user</i> tables. This account is used to check the privileges
+        user logins. Please see the security section in the FAQ for more
+         information.
         <br /><br />
     </dd>
 
@@ -384,10 +378,7 @@
         <font color="#bb0000">Warning:</font> this setting does not replace the
         privileges rules of the MySQL database server. If set, it just means
         only these databases will be displayed but <font color="#bb0000">not at
-        all other databases can't be used.</font><br />
-        This setting is an efficient way to lower the server charge since the
-        later does not need a to send requests to MySQL to build the databases
-        list.
+        all other databases can't be used.</font>
         <br /><br />
     </dd>
 
@@ -431,9 +422,9 @@
             </li>
         </ul><br />
 
-        Note that <tt>stduser</tt> must have <tt>Select_Priv, Insert_Priv</tt>
-        and <tt>Delete_Priv</tt> set to "Y" in <i>mysql.db</i> table for the
-        bookmark database.
+        If you are using advanced authentication, users must have
+        <tt>Select_Priv, Insert_Priv</tt> and <tt>Delete_Priv</tt> set to "Y"
+        in <i>mysql.db</i> table for the bookmark database.
         <br /><br />
     </dd>
 
@@ -773,19 +764,15 @@
 
 <p>
     <b>phpMyAdmin always gives "Access denied" when using advanced
-    authentication.</b>
-    <br />
-    This could happen for some reasons:
+    authentication.</b><br />
+    This could happen for several reasons:
 </p>
 <ul>
     <li>
-        <tt>$cfgServers[n]['user']</tt> is wrong. Try to turn off
-        <tt>$cfgServers[n]['adv_auth']</tt> and use this username and password
-        to connect to MySQL.
+        <tt>$cfgServers[n]['stduser']</tt> and/or <tt>$cfgServers[n]['stdpass']</tt> are wrong.
     </li>
     <li>
-        The username/password your specify in the login-dialog is wrong. Try
-        the same as above and see if it works.
+        The username/password you specify in the login-dialog are invalid.
     </li>
     <li>
         You have already setup a security mechanism for the
@@ -877,46 +864,24 @@
     Since version 2.0.3, you can setup a central copy of phpMyAdmin for all
     your users. The development of this feature was kindly sponsored by
     NetCologne GmbH.
-    <br />
-    This requires a properly setup MySQL user management and phpMyAdmin's
-    advanced authentication. phpMyAdmin performs these steps, when
-    authenticating a user:
+    This requires a properly setup MySQL user management and phpMyAdmin
+    advanced authentication.
 </p>
-<ol>
-    <li>
-        Select all entries from the <i>mysql.user</i> table where the
-        username/password matches the challenging user. If no rows are
-        returned, the authentication has failed. Otherwise, phpMyAdmin
-        continues with step 2.
-    </li>
-    <li>
-        If the user's global <tt>Select_Priv</tt> is &quot;N&quot; (ie the user
-        is not allowed to access <b>all</b> databases), phpMyAdmin searches the
-        <i>mysql.db</i> table for entries with
-        <tt>Select_Priv&nbsp;=&nbsp;&quot;Y&quot;</tt> belonging to the user.
-        If no entries are found, the authentication has failed. Otherwise,
-        phpMyAdmin shows all databases the user is allowed to view.
-        <br />
-        If the user's global <tt>Select_Priv</tt> is <tt>&quot;Y&quot;</tt>,
-        all databases in the system are shown.
-    </li>
-</ol>
 <p>
-    This means that you need to add a user to the mysql database as
-    following:<br />
-    <tt>INSERT INTO user (Host, User, Password, Select_priv, Insert_priv, Update_priv, 
-    Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv, 
-    File_priv, Grant_priv, References_priv, Index_priv, Alter_priv) VALUES ('localhost', 
-    'foo', PASSWORD('bar'), 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 
-    'N', 'N', 'N')</tt><br />
-    <tt>INSERT INTO db (Host, Db, User, Select_priv, Insert_priv, Update_priv, Delete_priv, 
-    Create_priv, Drop_priv, Grant_priv, References_priv, Index_priv, Alter_priv) 
-    VALUES ('localhost', 'foo_db', 'foo', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', 
-    '', '')</tt><br />
-    Then only the &quot;foo_db&quot; database will be displayed to user
-    &quot;foo&quot;.
+    phpMyAdmin needs a control account that has <b>only</b> the <tt>SELECT</tt> privilege on the
+    <i>mysql.db</i> &amp; <i>mysql.user</i> tables. You specify the details for
+    this account in the <i>config.inc.php3</i> file under the <i>$cfgServers[n]['stduser']</i> &amp;
+    <i>$cfgServers[n]['stdpass']</i> settings.
+    To create the control account:<br />
+    <tt>REVOKE ALL ON *.* FROM 'user'@localhost;</tt><br />
+    <tt>GRANT USAGE ON *.* TO 'user'@localhost IDENTIFIED BY 'password';</tt><br />
+    <tt>GRANT SELECT ON mysql.db TO 'user'@localhost;</tt><br />
+    <tt>GRANT SELECT ON mysql.user TO 'user'@localhost;</tt><br />
 </p>
-
+<p>
+    What the user may now do is controlled entirely by the MySQL user management
+    system.
+</p>
 <p>
     <b>How can I GZip or Bzip a dump or a CSV export. It seem to not work?</b>
     <br />
