@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2003-02-09 Michal Cihar  <nijel@users.sourceforge.net>
+    * lang/czech: Updated again.
+
 2003-02-09 Alexander M. Turek  <rabus@users.sourceforge.net>
     * server_databases.php3, lang/*.inc.php3:
       - Bugfixes & interface cosmetic;
