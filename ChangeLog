@@ -8,6 +8,7 @@ $Source$
 2001-12-02  Loïc Chapeaux  <lolo@phpheaven.net>
 	* lang/english.inc.php3 & french.inc.php3, line 157: changed a bit the
 	  '$strInsertTextfiles' to avoid confusion with '$strLocationTextfile'.
+	* ### released 2.2.2 version. ###
 
 2001-12-01  Loïc Chapeaux  <lolo@phpheaven.net>
 	* user_details.php3, lines 83-88: fixed bug #487673 - revoke 'reference'.
