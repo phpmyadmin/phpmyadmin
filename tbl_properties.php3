@@ -980,7 +980,7 @@ else { // MySQL < 3.23
     <!-- Deletes the table -->
     <li>
         <a href="sql.php3?<?php echo ereg_replace('tbl_properties.php3$', 'db_details.php3', $url_query); ?>&back=tbl_properties.php3&reload=true&sql_query=<?php echo urlencode('DROP TABLE ' . backquote($table)); ?>&zero_rows=<?php echo urlencode($strTable . ' ' . htmlspecialchars($table) . ' ' . $strHasBeenDropped); ?>">
-            <?php echo $strDrop . ' ' . htmlspecialchars($table); ?></a> 
+            <?php echo $strDropTable . ' ' . htmlspecialchars($table); ?></a> 
     </li> 
 
 </ul>

@@ -289,6 +289,7 @@ $strYes = 'Tak';
 // To translate
 $strDatabasesStats = 'Databases statistics';//to translate
 $strDeletedRows = 'Deleted rows:';
+$strDropTable = 'Drop table';
 $strInsertedRows = 'Inserted rows:';
 $strInstructions = 'Instructions';//to translate
 $strLengthSet = 'Length/Values*';

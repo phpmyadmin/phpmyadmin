@@ -297,4 +297,5 @@ $strWrongUser = 'Falscher Benutzername/Passwort. Zugriff verweigert.';
 $strYes = 'Ja';
 
 // To translate
+$strDropTable = 'Drop table';
 ?>

@@ -284,6 +284,7 @@ $strAffectedRows = ' Rows affected: ';  //to translate
 $strDatabasesStats = 'Databases statistics';//to translate
 $strDeletedRows = 'Deleted rows:';
 $strDisplayOrder = 'Display order:';
+$strDropTable = 'Drop table';
 $strExtendedInserts = 'Extended inserts';
 $strFieldsEmpty = ' The field count is empty! ';  //to translate
 $strFormEmpty = 'Missing value in the form !';

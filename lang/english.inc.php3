@@ -89,6 +89,7 @@ $strDocu = 'Documentation';
 $strDoYouReally = 'Do you really want to ';
 $strDrop = 'Drop';
 $strDropDB = 'Drop database ';
+$strDropTable = 'Drop table';
 $strDumpingData = 'Dumping data for table';
 $strDynamic = 'dynamic';
 

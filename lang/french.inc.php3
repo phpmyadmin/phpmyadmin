@@ -89,6 +89,7 @@ $strDocu = 'Documentation';
 $strDoYouReally = 'Voulez-vous vraiment effectuer ';
 $strDrop = 'Supprimer';
 $strDropDB = 'Supprimer la base';
+$strDropTable = 'Supprimer la table';
 $strDumpingData = 'Contenu de la table';
 $strDynamic = 'dynamique';
 

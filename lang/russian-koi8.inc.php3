@@ -284,6 +284,7 @@ $strAffectedRows = 'Affected rows:'; // To translate
 $strBzip = '"bzipped"'; // To translate
 $strDatabasesStats = 'Databases statistics';//to translate
 $strDeletedRows = 'Deleted rows:';
+$strDropTable = 'Drop table';
 $strExtendedInserts = 'Extended inserts';
 $strGzip = '"gzipped"'; // To translate
 $strInsertedRows = 'Inserted rows:';
