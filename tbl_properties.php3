@@ -665,7 +665,7 @@ echo "\n";
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
             <input type="hidden" name="db" value="<?php echo $db; ?>" />
             <input type="hidden" name="table" value="<?php echo $table; ?>" />
-            <?php echo $strViewDumpDB; ?><br />
+            <?php echo $strViewDump; ?><br />
             <table cellpadding="5" border="2">
             <tr>
                 <td nowrap="nowrap">
