@@ -471,7 +471,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
             if (!empty($analyzed_sql[0]['from_clause'])) {
                 $unsorted_sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
             }
-            
+
             if (!empty($analyzed_sql[0]['where_clause'])) {
                 $unsorted_sql_query .= ' WHERE ' . $analyzed_sql[0]['where_clause'];
             }
@@ -587,7 +587,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0, $
     }
 
     echo '<!-- Results table -->' . "\n"
-       . '<table ';
+       . '<table id="table_results" ';
     if (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1') {
         echo 'border="1" cellpadding="2" cellspacing="0"';
     } else {
@@ -980,7 +980,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             $url_sql_query .= ' FROM ' . $analyzed_sql[0]['from_clause'];
         }
     }
-    
+
     if (!is_array($map)) {
         $map = array();
     }
@@ -1201,8 +1201,19 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 $column_style = '';
             }
 
-            //$column_style .= ' onmousedown="if (document.getElementById(\'id_rows_to_delete' . $row_no . '\')) { document.getElementById(\'id_rows_to_delete' . $row_no . '\').checked = (document.getElementById(\'id_rows_to_delete' . $row_no . '\').checked ? false : true); }" ';
-            $column_style .= ' onmousedown="setCheckboxColumn(\'id_rows_to_delete' . $row_no . '\');" ';
+            if ($disp_direction == 'vertical' && (!isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1'))) {
+                if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
+                    $column_style .= ' onmouseover="setVerticalPointer(this, ' . $row_no . ', \'over\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
+                              . ' onmouseout="setVerticalPointer(this, ' . $row_no . ', \'out\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
+                }
+                if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
+                    $column_style .= ' onmousedown="setVerticalPointer(this, ' . $row_no . ', \'click\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\'); setCheckboxColumn(\'id_rows_to_delete' . $row_no . '\');"';
+                } else {
+                    $column_style .= ' onmousedown="setCheckboxColumn(\'id_rows_to_delete' . $row_no . '\');" ';
+                }
+            } else {
+                $column_style .= ' onmousedown="setCheckboxColumn(\'id_rows_to_delete' . $row_no . '\');" ';
+            }// end if
 
             // garvin: Wrap MIME-transformations. [MIME]
             $default_function = 'default_function'; // default_function
@@ -1586,18 +1597,7 @@ function PMA_displayVerticalTable()
             $bgcolor = ($row_no % 2) ? $GLOBALS['cfg']['BgcolorOne'] : $GLOBALS['cfg']['BgcolorTwo'];
         }
 
-        $on_mouse     = '';
-        if (!isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1')) {
-            if ($GLOBALS['cfg']['BrowsePointerColor'] != '') {
-                $on_mouse = ' onmouseover="setVerticalPointer(this, ' . $row_no . ', \'over\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"'
-                          . ' onmouseout="setVerticalPointer(this, ' . $row_no . ', \'out\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
-            }
-            if ($GLOBALS['cfg']['BrowseMarkerColor'] != '') {
-                $on_mouse .= ' onmousedown="setVerticalPointer(this, ' . $row_no . ', \'click\', \'' . $GLOBALS['cfg']['BgcolorOne'] . '\', \'' . $GLOBALS['cfg']['BgcolorTwo'] . '\', \'' . $GLOBALS['cfg']['BrowsePointerColor'] . '\', \'' . $GLOBALS['cfg']['BrowseMarkerColor'] . '\');"';
-            }
-        } // end if
-
-        echo '<tr ' . $on_mouse . '>' . "\n";
+        echo '<tr>' . "\n";
         echo $val;
 
         $foo_counter = 0;

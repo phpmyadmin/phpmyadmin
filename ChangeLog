@@ -5,6 +5,11 @@ phpMyAdmin - Changelog
 $Id$
 $Source$
 
+2004-06-04 Garvin Hicking <me@supergarv.de>
+    * Bug #959320: Broken row highlighting in vertical
+      browsing mode fixed. The pointer will now highlight
+      columns as expected and unmark the row after unclicking.
+
 2004-06-03 Alexander M. Turek  <me@derrabus.de>
     * header.inc.php: Undefined variable.
 

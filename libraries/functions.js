@@ -375,7 +375,7 @@ var marked_row = new Array;
  * Sets/unsets the pointer and marker in browse mode
  *
  * @param   object    the table row
- * @param   interger  the row number
+ * @param   integer  the row number
  * @param   string    the action calling this script (over, out or click)
  * @param   string    the default background color
  * @param   string    the color to use for mouseover
@@ -504,7 +504,7 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
  * Sets/unsets the pointer and marker in vertical browse mode
  *
  * @param   object    the table row
- * @param   interger  the row number
+ * @param   integer   the column number
  * @param   string    the action calling this script (over, out or click)
  * @param   string    the default background color
  * @param   string    the color to use for mouseover
@@ -514,8 +514,9 @@ function setPointer(theRow, theRowNum, theAction, theDefaultColor, thePointerCol
  *
  * @author Garvin Hicking <me@supergarv.de> (rewrite of setPointer.)
  */
-function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theDefaultColor2, thePointerColor, theMarkColor) {
+function setVerticalPointer(theRow, theColNum, theAction, theDefaultColor1, theDefaultColor2, thePointerColor, theMarkColor) {
     var theCells = null;
+    var tagSwitch = null;
 
     // 1. Pointer and mark feature are disabled or the browser can't get the
     //    row -> exits
@@ -524,28 +525,34 @@ function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theD
         return false;
     }
 
-    // 2. Gets the current row and exits if the browser can't get it
     if (typeof(document.getElementsByTagName) != 'undefined') {
-        theCells = theRow.getElementsByTagName('td');
-    }
-    else if (typeof(theRow.cells) != 'undefined') {
-        theCells = theRow.cells;
-    }
-    else {
+        tagSwitch = 'tag';
+    } else if (typeof(document.getElementById('table_results')) != 'undefined') {
+        tagSwitch = 'cells';
+    } else {
         return false;
     }
 
+    // 2. Gets the current row and exits if the browser can't get it
+    if (tagSwitch == 'tag') {
+        theRows     = document.getElementById('table_results').getElementsByTagName('tr');
+        theCells    = theRows[1].getElementsByTagName('td');
+    } else if (tagSwitch == 'cells') {
+        theRows     = document.getElementById('table_results').rows;
+        theCells    = theRows[1].cells;
+    }
+
     // 3. Gets the current color...
-    var rowCellsCnt  = theCells.length;
-    var domDetect    = null;
-    var currentColor = null;
-    var newColor     = null;
+    var rowCnt         = theRows.length;
+    var domDetect      = null;
+    var currentColor   = null;
+    var newColor       = null;
 
     // 3.1 ... with DOM compatible browsers except Opera that does not return
     //         valid values with "getAttribute"
     if (typeof(window.opera) == 'undefined'
-        && typeof(theCells[0].getAttribute) != 'undefined') {
-        currentColor = theCells[0].getAttribute('bgcolor');
+        && typeof(theCells[theColNum].getAttribute) != 'undefined') {
+        currentColor = theCells[theColNum].getAttribute('bgcolor');
         domDetect    = true;
     }
     // 3.2 ... with other browsers
@@ -555,11 +562,23 @@ function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theD
 
     var c = null;
     // 5.1 ... with DOM compatible browsers except Opera
-    for (c = 0; c < rowCellsCnt; c++) {
-        if (domDetect) {
-            currentColor = theCells[c].getAttribute('bgcolor');
+    for (c = 0; c < rowCnt; c++) {
+        if (tagSwitch == 'tag') {
+            Cells = theRows[c].getElementsByTagName('td');
+        } else if (tagSwitch == 'cells') {
+            Cells = theRows[c].cells;
+        }
+
+        if (c == 0) {
+            Cell  = Cells[theColNum + 1];
         } else {
-            currentColor = theCells[c].style.backgroundColor;
+            Cell  = Cells[theColNum];
+        }
+
+        if (domDetect) {
+            currentColor = Cell.getAttribute('bgcolor');
+        } else {
+            currentColor = Cell.style.backgroundColor;
         }
 
         // 4. Defines the new color
@@ -571,17 +590,16 @@ function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theD
                 newColor              = thePointerColor;
             } else if (theAction == 'click' && theMarkColor != '') {
                 newColor              = theMarkColor;
-//                marked_row[theRowNum] = true;
-                marked_row[theRowNum] = (typeof(marked_row[theRowNum]) == 'undefined' || !marked_row[theRowNum])
+                marked_row[theColNum] = (typeof(marked_row[theColNum]) == 'undefined' || !marked_row[theColNum])
                                         ? true
                                         : null;
             }
         }
         // 4.1.2 Current color is the pointer one
         else if (currentColor.toLowerCase() == thePointerColor.toLowerCase()
-                 && (typeof(marked_row[theRowNum]) == 'undefined' || !marked_row[theRowNum])) {
+                 && (typeof(marked_row[theColNum]) == 'undefined' || !marked_row[theColNum])) {
             if (theAction == 'out') {
-                if (c % 2) {
+                if (theColNum % 2) {
                     newColor              = theDefaultColor1;
                 } else {
                     newColor              = theDefaultColor2;
@@ -589,10 +607,7 @@ function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theD
             }
             else if (theAction == 'click' && theMarkColor != '') {
                 newColor              = theMarkColor;
-//                marked_row[theRowNum] = true;
-                marked_row[theRowNum] = (typeof(marked_row[theRowNum]) == 'undefined' || !marked_row[theRowNum])
-                                        ? true
-                                        : null;
+                marked_row[theColNum] = null;
             }
         }
         // 4.1.3 Current color is the marker one
@@ -600,8 +615,8 @@ function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theD
             if (theAction == 'click') {
                 newColor              = (thePointerColor != '')
                                       ? thePointerColor
-                                      : ((c % 2) ? theDefaultColor1 : theDefaultColor2);
-                marked_row[theRowNum] = (typeof(marked_row[theRowNum]) == 'undefined' || !marked_row[theRowNum])
+                                      : ((theColNum % 2) ? theDefaultColor1 : theDefaultColor2);
+                marked_row[theColNum] = (typeof(marked_row[theColNum]) == 'undefined' || !marked_row[theColNum])
                                       ? true
                                       : null;
             }
@@ -610,11 +625,11 @@ function setVerticalPointer(theRow, theRowNum, theAction, theDefaultColor1, theD
         // 5. Sets the new color...
         if (newColor) {
             if (domDetect) {
-                theCells[c].setAttribute('bgcolor', newColor, 0);
+                Cell.setAttribute('bgcolor', newColor, 0);
             }
             // 5.2 ... with other browsers
             else {
-                theCells[c].style.backgroundColor = newColor;
+                Cell.style.backgroundColor = newColor;
             }
         } // end 5
     } // end for
@@ -666,7 +681,7 @@ function setCheckboxes(the_form, do_check)
 // modified 2004-05-08 by Michael Keck <mail_at_michaelkeck_dot_de>
 // - set the other checkboxes (if available) too
 function setCheckboxesRange(the_form, do_check, basename, min, max)
-{  
+{
     for (var i = min; i < max; i++) {
         if (typeof(document.forms[the_form].elements[basename + i]) != 'undefined') {
             document.forms[the_form].elements[basename + i].checked = do_check;
