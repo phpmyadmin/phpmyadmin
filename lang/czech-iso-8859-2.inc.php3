@@ -102,6 +102,7 @@ $strCreatePdfFeat = 'Vytváøení PDF';
 $strCriteria = 'Podmínka';
 
 $strData = 'Data';
+$strDataDict = 'Datový slovník';
 $strDataOnly = ' Jen data';
 $strDatabase = 'Databáze ';
 $strDatabaseHasBeenDropped = 'Databáze %s byla zru¹ena.';
@@ -242,7 +243,7 @@ $strNoIndexPartsDefined = '®ádná èást indexu nebyla definována!';
 $strNoModification = '®ádná zmìna';
 $strNoPassword = '®ádné heslo';
 $strNoPhp = 'Bez PHP kódu';
-$strNoPrivileges = '®ádná oprávnìní';
+$strNoPrivileges = 'Nemáte oprávnìní';
 $strNoQuery = '®ádný SQL dotaz!';
 $strNoRights = 'Nemáte dostateèná práva na provedení této akce!';
 $strNoTablesFound = 'V&nbsp;databázi nebyla nalezena ani jedna tabulka.';
@@ -267,6 +268,7 @@ $strOptions = 'Vlastnosti';
 $strOr = 'nebo';
 $strOverhead = 'Navíc';
 
+$strPHP40203 = 'Pou¾íváte PHP 4.2.3, které má záva¾nou chybu pøi práci s&nbsp;vícebajtovými znaky (mbsting), jedná se o&nbsp;chybu PHP èíslo 19404. Nedoporuèujeme pou¾ívat tuto verzi PHP s&nbsp;phpMyAdminem.';
 $strPHPVersion = 'Verze PHP';
 $strPageNumber = 'Strana èíslo:';
 $strPartialText = 'Zkrácené texty';
@@ -287,6 +289,7 @@ $strPrimaryKey = 'Primární klíè';
 $strPrimaryKeyHasBeenDropped = 'Primární klíè byl odstranìn';
 $strPrimaryKeyName = 'Jméno primárního klíèe musí být "PRIMARY"!';
 $strPrimaryKeyWarning = '("PRIMARY" <b>musí</b> být jméno <b>pouze</b> primárního klíèe!)';
+$strPrint = 'Vytisknout';
 $strPrintView = 'Náhled k vyti¹tìní';
 $strPrivileges = 'Oprávnìní';
 $strProperties = 'Vlastnosti';
@@ -435,7 +438,4 @@ $strYes = 'Ano';
 $strZip = '"zazipováno"';
 // To translate
 
-$strDataDict = 'Data Dictionary';  //to translate
-$strPrint = 'Print';  //to translate
-$strPHP40203 = 'You are using PHP 4.2.3, which has a serious bug with multi-byte strings (mbstring). See PHP bug report 19404. This version of PHP is not recommended for use with phpMyAdmin.';  //to translate
 ?>
