@@ -130,7 +130,7 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
      * Includes compatibility code for older config.inc.php3 revisions
      * if necessary
      */
-    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 156) {
+    if (!isset($cfg['FileRevision']) || (int) substr($cfg['FileRevision'], 13, 3) < 161) {
         include('./libraries/config_import.lib.php3');
     }
 
@@ -525,8 +525,8 @@ h1    {font-family: sans-serif; font-size: large; font-weight: bold}
         $cfg['PmaAbsoluteUri']          = ((!empty($HTTP_SERVER_VARS['HTTPS']) && strtolower($HTTP_SERVER_VARS['HTTPS']) != 'off') ? 'https' : 'http') . '://'
                                         . $HTTP_SERVER_VARS['HTTP_HOST'];
 
-        // if $cfg['PmaAbsoluteUri'] is empty and port == 80 or port == 443, do not add ":80" or ":443" 
-        // to the generated URL -> prevents a double password query in case of http authentication. 
+        // if $cfg['PmaAbsoluteUri'] is empty and port == 80 or port == 443, do not add ":80" or ":443"
+        // to the generated URL -> prevents a double password query in case of http authentication.
 
         if (!(!$port_in_HTTP_HOST && !empty($HTTP_SERVER_VARS['SERVER_PORT']) && ($HTTP_SERVER_VARS['SERVER_PORT'] == 80 || $HTTP_SERVER_VARS['SERVER_PORT'] == 443))) {
             $cfg['PmaAbsoluteUri']      .= ((!empty($HTTP_SERVER_VARS['SERVER_PORT']) && !$port_in_HTTP_HOST) ? ':' . $HTTP_SERVER_VARS['SERVER_PORT'] : '');
@@ -1269,7 +1269,7 @@ if (typeof(document.getElementById) != 'undefined'
                 if ($cfg['QueryFrameJS'] && $cfg['QueryFrame']) {
                     $onclick = 'onclick="focus_querywindow(); return false;"';
                 }
-                
+
                 $edit_link = '&nbsp;[<a href="'
                            . $edit_target
                            . $url_qpart
@@ -1678,7 +1678,7 @@ if (typeof(document.getElementById) != 'undefined'
     function PMA_flipstring($string, $seperator = "<br />\n") {
         $format_string = '';
         $charbuff = false;
-        
+
         for ($i = 0; $i <= strlen($string); $i++) {
             $char = substr($string, $i, 1);
             $append = false;
@@ -1737,7 +1737,7 @@ if (typeof(document.getElementById) != 'undefined'
                 $tmp_file = dirname($tmp_file);
             }
             $tmp_file     .= '/' . basename($filename);
-    
+
             // User might have trailing slash in php.ini...
             return (ereg_replace('/+', '/', $tmp_file) == $filename);
         } // end of the 'is_uploaded_file()' emulated function
