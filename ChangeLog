@@ -8,6 +8,8 @@ $Source$
 2005-02-02 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/dbi/*: PMA_DBI_num_rows(): do not send a boolean
       to mysqli_num_rows() or mysql_num_row(), it expects a result resource 
+    * tbl_properties.inc.php: bug #1114550, changing the type of 
+      a float unsigned column
 
 2005-01-30 Marc Delisle  <lem9@users.sourceforge.net>
     * libraries/export/sql.php: bug #1108521, part 2: mysqli_num_rows

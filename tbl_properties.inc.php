@@ -257,6 +257,9 @@ for ($i = 0 ; $i < $num_fields; $i++) {
         $length = $submit_length;
     }
 
+    // rtrim the type, for cases like "float unsigned"
+    $type = rtrim($type);
+
     $cnt_column_types = count($cfg['ColumnTypes']);
     for ($j = 0; $j < $cnt_column_types; $j++) {
         $content_cells[$i][$ci] .= '                <option value="'. $cfg['ColumnTypes'][$j] . '"';
