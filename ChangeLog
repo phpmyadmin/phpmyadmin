@@ -5,6 +5,9 @@ phpMyAdmin - Changelog
 $Id$ 
 $Source$
 
+2001-07-03  Steve Alberty  <alberty@neptunlabs.de>
+	* tbl_properties.php3: fix minor bug under PHP3 with space usage display
+
 2001-07-02  Loïc Chapeaux  <lolo@phpheaven.net>
 	* left.js & left.php3: font face now depends on charset (temporary fix).
 

@@ -205,7 +205,7 @@ if (MYSQL_MAJOR_VERSION == "3.23" && intval(MYSQL_MINOR_VERSION)>3 && $tbl_type!
 	echo "<td style=\"padding-right:10px;\">$strIndex</td><td align=right>".$size."</td><td>".$unit."</td>";
 	echo "</tr>\n";
 	// Overhead
-	if (!empty($showtable["Data_free"])){
+	if (isset($showtable["Data_free"]) && $showtable["Data_free"]!=0){
 		echo "<tr bgcolor=$cfgBgcolorTwo style=\"color:#bb0000;\">\n";
 		list($size,$unit)=format_byte_down($showtable["Data_free"]);
 		echo "<td style=\"padding-right:10px;\">";
